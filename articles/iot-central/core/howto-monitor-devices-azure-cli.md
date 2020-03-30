@@ -3,80 +3,80 @@ title: Monitorare la connettività dei dispositivi con Azure IoT Central Explore
 description: Monitorare i messaggi dei dispositivi e osservare le modifiche del dispositivo gemello usando l'interfaccia della riga di comando di IoT Central Explorer.
 author: viv-liu
 ms.author: viviali
-ms.date: 12/18/2019
-ms.topic: conceptual
+ms.date: 03/27/2020
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 6af6f01449f2f43e6799ef6d7821b9d71b24e603
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 09209c21fe1b2b115c1ba6d6e00fcd0ee59a9393
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252342"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365417"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Monitorare la connettività dei dispositivi con l'interfaccia della riga di comando di Azure
 
 *Questo argomento è rivolto ai responsabili della compilazione e agli amministratori.*
 
-Usare l'estensione dell'interfaccia della riga di comando di Azure per visualizzare i messaggi inviati dai dispositivi a IoT Central e osservare le modifiche nel dispositivo gemello. È possibile usare questo strumento per eseguire il debug e osservare la connettività dei dispositivi e diagnosticare i problemi dei messaggi del dispositivo che non raggiungono il cloud o i dispositivi che non rispondono alle modifiche del dispositivo gemello
+Usare l'estensione IoT dell'interfaccia della riga di comando di Azure per visualizzare i messaggi inviati dai dispositivi a IoT Central e osservare le modifiche nel dispositivo gemello. È possibile usare questo strumento per eseguire il debug e osservare la connettività dei dispositivi e diagnosticare i problemi dei messaggi del dispositivo che non raggiungono il cloud o i dispositivi che non rispondono alle modifiche gemelle.
 
-[Vedere le informazioni di riferimento sulle estensioni dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/central)
+[Visita le informazioni di riferimento sulle estensioni dell'interfaccia della riga di comando di Azure per altri dettagli](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/central)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-+ L'interfaccia della riga di comando di Azure è installata ed è 2.0.7 o versione successiva. Controllare la versione dell'interfaccia della riga di comando di Azure eseguendo `az --version`. Informazioni su come installare e aggiornare dalla [documentazione dell'interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli) della riga di comando di Azure
-+ Un account aziendale o dell'Istituto di istruzione in Azure, aggiunto come utente in un'applicazione IoT Central.
++ L'interfaccia della riga di comando di Azure è installata e versione 2.0.7 o successiva. Controllare la versione dell'interfaccia `az --version`della riga di comando di Azure eseguendo . Informazioni su come installare e aggiornare dalla [documentazione dell'interfaccia della riga](https://docs.microsoft.com/cli/azure/install-azure-cli) di comando di AzureLearn how to install and update from the Azure CLI docs
++ Un account aziendale o dell'istituto di istruzione in Azure, aggiunto come utente in un'applicazione IoT Central.A work or school account in Azure, added as a user in an IoT Central application.
 
 ## <a name="install-the-iot-central-extension"></a>Installare l'estensione IoT Central
 
 Eseguire il seguente comando dalla riga di comando per l'installazione:
 
-```cmd/sh
+```azurecli
 az extension add --name azure-iot
 ```
 
 Controllare la versione dell'estensione eseguendo:
 
-```cmd/sh
+```azurecli
 az --version
 ```
 
-Si noterà che l'estensione Azure-Internet è 0.8.1 o versione successiva. In caso contrario, eseguire:
+L'estensione azure-iot dovrebbe essere 0.8.1 o superiore. In caso contrario, eseguire:If it is not, run:
 
-```cmd/sh
+```azurecli
 az extension update --name azure-iot
 ```
 
-## <a name="using-the-extension"></a>Utilizzo dell'estensione
+## <a name="using-the-extension"></a>Uso dell'estensione
 
-Nelle sezioni seguenti vengono descritti i comandi e le opzioni comuni che è possibile utilizzare quando si esegue `az iot central`. Per visualizzare il set completo di comandi e opzioni, passare `--help` al `az iot central` o a uno dei relativi sottocomandi.
+Nelle sezioni seguenti vengono descritti i comandi e `az iot central`le opzioni comuni che è possibile utilizzare quando si esegue . Per visualizzare il set completo di `--help` `az iot central` comandi e opzioni, passare a o uno dei relativi sottocomandi.
 
-### <a name="login"></a>Accesso
+### <a name="login"></a>Login
 
-Per iniziare, accedere all'interfaccia della riga di comando di Azure. 
+Iniziare accedendo all'interfaccia della riga di comando di Azure.Start by signing into the Azure CLI. 
 
-```cmd/sh
+```azurecli
 az login
 ```
 
-### <a name="get-the-application-id-of-your-iot-central-app"></a>Ottenere l'ID applicazione dell'app IoT Central
-In **Impostazioni amministrazione/applicazione**copiare l' **ID applicazione**. Questa operazione verrà usata nei passaggi successivi.
+### <a name="get-the-application-id-of-your-iot-central-app"></a>Ottenere l'ID applicazione dell'app IoT CentralGet the Application ID of your IoT Central app
+In **Amministrazione/Impostazioni applicazione**copiare l'ID **applicazione**. Questo valore viene utilizzato nei passaggi successivi.
 
 ### <a name="monitor-messages"></a>Monitoraggio dei messaggi
-Monitorare i messaggi inviati all'app IoT Central dai dispositivi. Sono incluse tutte le intestazioni e le annotazioni.
+Monitora i messaggi inviati all'app IoT Central dai tuoi dispositivi. L'output include tutte le intestazioni e le annotazioni.
 
-```cmd/sh
+```azurecli
 az iot central app monitor-events --app-id <app-id> --properties all
 ```
 
 ### <a name="view-device-properties"></a>Visualizzare le proprietà del dispositivo
-Visualizzare le proprietà del dispositivo di lettura e lettura/scrittura correnti per un determinato dispositivo.
+Visualizzare le proprietà correnti del dispositivo di lettura e lettura/scrittura per un determinato dispositivo.
 
-```cmd/sh
+```azurecli
 az iot central device-twin show --app-id <app-id> --device-id <device-id>
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come usare Esplora IoT Central, il passaggio successivo suggerito consiste nell'esplorazione della [gestione dei dispositivi IOT Central](howto-manage-devices.md).
+Dopo aver appreso come usare Esplora centrale IoT, il passaggio successivo consigliato consiste nell'esplorare [la gestione dei dispositivi IoT Central](howto-manage-devices.md).

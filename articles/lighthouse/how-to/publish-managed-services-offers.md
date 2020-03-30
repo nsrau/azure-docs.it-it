@@ -4,10 +4,10 @@ description: Informazioni su come pubblicare un'offerta di servizio gestito che 
 ms.date: 01/16/2020
 ms.topic: conceptual
 ms.openlocfilehash: 6ae93759073be6b05d118ccf46f6b6367fff5fc6
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78328943"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Pubblicare un'offerta di servizi gestiti in Azure Marketplace
@@ -28,9 +28,9 @@ Dopo aver aggiunto l'offerta, un cliente potrà delegare una o più sottoscrizio
 
 ## <a name="create-your-offer-in-the-cloud-partner-portal"></a>Creare l'offerta nel portale Cloud Partner
 
-1. Accedere al [Portale per Cloud Partner](https://cloudpartner.azure.com/).
+1. Accedere al [portale Cloud Partner](https://cloudpartner.azure.com/).
 2. Dal menu di spostamento a sinistra selezionare **Nuova offerta**, quindi selezionare **Servizi gestiti**.
-3. Verrà visualizzata una sezione dell' **Editor** per l'offerta con quattro parti da compilare: **impostazioni offerta**, **piani**, **Marketplace**e **supporto**. Continuare a leggere per istruzioni su come completare queste sezioni.
+3. Vedrai una sezione **Editor** per la tua offerta con quattro parti da compilare: **Impostazioni offerta**, **Piani**, **Marketplace**e **Supporto**. Continuare a leggere per istruzioni su come completare queste sezioni.
 
 ## <a name="enter-offer-settings"></a>Immettere le impostazioni dell'offerta
 
@@ -38,7 +38,7 @@ Nella sezione **Impostazioni dell'offerta** immettere le informazioni seguenti:
 
 |Campo  |Descrizione  |
 |---------|---------|
-|**ID offerta**     | Un identificatore univoco dell'offerta (nel profilo di pubblicazione). Questo ID può contenere solo caratteri alfanumerici minuscoli, trattini e caratteri di sottolineatura, fino a un massimo di 50 caratteri. Tenere presente che l'ID dell'offerta può essere visibile ai clienti ad esempio negli URL dei prodotti e nei report di fatturazione. Dopo aver pubblicato l'offerta, non è possibile modificare questo valore.        |
+|**Offer ID (ID offerta)**     | Un identificatore univoco dell'offerta (nel profilo di pubblicazione). Questo ID può contenere solo caratteri alfanumerici minuscoli, trattini e caratteri di sottolineatura, fino a un massimo di 50 caratteri. Tenere presente che l'ID dell'offerta può essere visibile ai clienti ad esempio negli URL dei prodotti e nei report di fatturazione. Dopo aver pubblicato l'offerta, non è possibile modificare questo valore.        |
 |**ID editore**     | ID dell'editore che verrà associato all'offerta. Se sono presenti più ID editore, è possibile selezionare quello che si vuole usare per questa offerta.       |
 |**Nome**     | Nome (fino a 50 caratteri) dell'offerta visualizzato dai clienti in Azure Marketplace e nel portale di Azure. Usare un nome di marchio riconoscibile che i clienti potranno comprendere. Se si promuove questa offerta tramite il proprio sito Web, assicurarsi di usare esattamente lo stesso nome.        |
 
@@ -57,13 +57,13 @@ Completare le sezioni seguenti nella sezione **Dettagli piano**:
 |Campo  |Descrizione  |
 |---------|---------|
 |**Titolo**     | Nome descrittivo del piano da visualizzare. La lunghezza massima consentita è di 50 caratteri.        |
-|**Summary**     | Breve descrizione del piano da visualizzare sotto il titolo. La lunghezza massima consentita è di 100 caratteri.        |
+|**Riepilogo**     | Breve descrizione del piano da visualizzare sotto il titolo. La lunghezza massima consentita è di 100 caratteri.        |
 |**Descrizione**     | Testo della descrizione con una spiegazione più dettagliata del piano.         |
 |**Modello di fatturazione**     | Sono visualizzati 2 modelli di fatturazione, ma è necessario scegliere **Bring Your Own License** per le offerte di servizi gestiti. Ciò significa che i costi relativi a questa offerta verranno fatturati direttamente ai clienti e non si riceverà alcun addebito da parte di Microsoft.   |
-|**Is this a private plan?** (Piano privato?)     | Indica se lo SKU è pubblico o privato. Il valore predefinito è **No** (pubblico). Se si lascia questa selezione, il piano non sarà limitato a clienti specifici (o a un certo numero di clienti). Dopo aver pubblicato un piano pubblico, non sarà possibile impostarlo in un secondo momento come privato. Per rendere questo piano disponibile solo a clienti specifici, selezionare **Sì**. Quando si esegue questa operazione, è necessario identificare i clienti fornendo gli ID sottoscrizione. Questi possono essere immessi uno alla volta (per un massimo di 10 sottoscrizioni) o caricando un file CSV (per un massimo di 20.000 sottoscrizioni). Assicurarsi di includere qui le sottoscrizioni per poter testare e convalidare l'offerta. Per altre informazioni, vedere [SKU e piani privati](../../marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md).  |
+|**È un piano privato?**     | Indica se lo SKU è pubblico o privato. Il valore predefinito è **No** (pubblico). Se si lascia questa selezione, il piano non sarà limitato a clienti specifici (o a un certo numero di clienti). Dopo aver pubblicato un piano pubblico, non sarà possibile impostarlo in un secondo momento come privato. Per rendere questo piano disponibile solo a clienti specifici, selezionare **Sì**. Quando si esegue questa operazione, è necessario identificare i clienti fornendo gli ID sottoscrizione. Questi possono essere immessi uno alla volta (per un massimo di 10 sottoscrizioni) o caricando un file CSV (per un massimo di 20.000 sottoscrizioni). Assicurarsi di includere qui le sottoscrizioni per poter testare e convalidare l'offerta. Per altre informazioni, vedere [SKU e piani privati](../../marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md).  |
 
 > [!IMPORTANT]
-> Quando un piano è stato pubblicato come pubblico, non è possibile modificarlo in privato. Per controllare quali clienti possono accettare l'offerta e delegare le risorse, usare un piano privato. Con un piano pubblico, non è possibile limitare la disponibilità a determinati clienti o anche a un certo numero di clienti (sebbene sia possibile smettere completamente di vendere il piano se si sceglie di farlo). È possibile [rimuovere l'accesso a una delega](onboard-customer.md#remove-access-to-a-delegation) dopo che un cliente accetta un'offerta solo se è stata inclusa un' **autorizzazione** con la **definizione del ruolo** impostata sul [ruolo eliminazione di assegnazione di registrazione dei servizi gestiti](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) quando è stata pubblicata l'offerta. È anche possibile contattare il cliente e chiedere di [rimuovere l'accesso](view-manage-service-providers.md#add-or-remove-service-provider-offers).
+> Una volta che un piano è stato pubblicato come pubblico, non è possibile modificarlo in privato. Per controllare quali clienti possono accettare l'offerta e delegare le risorse, utilizzare un piano privato. Con un piano pubblico, non puoi limitare la disponibilità a determinati clienti o anche a un certo numero di clienti (anche se puoi smettere di vendere completamente il piano se scegli di farlo). È possibile [rimuovere l'accesso a una delega](onboard-customer.md#remove-access-to-a-delegation) dopo che un cliente ha accettato un'offerta solo se è stata inclusa un'autorizzazione con la **definizione** di ruolo impostata su Ruolo di eliminazione assegnazione registrazione [servizi gestiti](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) al momento della pubblicazione dell'offerta. **Authorization** Puoi anche contattare il cliente e chiedere loro di [rimuovere il tuo accesso.](view-manage-service-providers.md#add-or-remove-service-provider-offers)
 
 ### <a name="manifest-details"></a>Dettagli del manifesto
 
@@ -83,15 +83,15 @@ Aggiungere infine una o più voci **Autorizzazione** al piano. Le autorizzazioni
 
 Per ogni valore di **Autorizzazione**, è necessario specificare gli elementi seguenti. È possibile selezionare **New authorization** (Nuova autorizzazione) ogni volta che è necessario per aggiungere altri utenti o definizioni del ruolo.
 
-- **ID oggetto Azure ad**: identificatore Azure ad di un utente, un gruppo di utenti o un'applicazione a cui verranno concesse determinate autorizzazioni (come descritto nella definizione del ruolo) per le risorse dei clienti.
-- **Azure ad nome visualizzato dell'oggetto**: un nome descrittivo per aiutare il cliente a comprendere lo scopo di questa autorizzazione. Questo nome verrà visualizzato dal cliente durante la delega delle risorse.
-- **Definizione del ruolo**: selezionare uno dei ruoli predefiniti Azure ad disponibili nell'elenco. Questo ruolo determinerà le autorizzazioni che l'utente indicato nel campo **ID oggetto Azure AD** avrà per le risorse dei clienti. Per le descrizioni di questi ruoli, vedere [ruoli predefiniti](../../role-based-access-control/built-in-roles.md) e supporto dei ruoli [per la gestione delle risorse delegate di Azure](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management).
+- **ID oggetto di Azure AD:** identificatore di Azure AD di un utente, un gruppo di utenti o un'applicazione a cui verranno concesse determinate autorizzazioni (come descritto dalla definizione del ruolo) alle risorse dei clienti.
+- **Nome visualizzato oggetto Azure AD:** un nome descrittivo per consentire al cliente di comprendere lo scopo di questa autorizzazione. Questo nome verrà visualizzato dal cliente durante la delega delle risorse.
+- **Definizione ruolo**: selezionare uno dei ruoli predefiniti di Azure AD disponibili dall'elenco. Questo ruolo determinerà le autorizzazioni che l'utente indicato nel campo **ID oggetto Azure AD** avrà per le risorse dei clienti. Per le descrizioni di questi ruoli, vedere [Ruoli predefiniti](../../role-based-access-control/built-in-roles.md) e Supporto dei ruoli per la gestione delle risorse delegate di [Azure.](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)
   > [!NOTE]
-  > Poiché i nuovi ruoli predefiniti applicabili vengono aggiunti ad Azure, diventeranno disponibili qui, anche se potrebbe verificarsi un certo ritardo prima che vengano visualizzati.
-- **Ruoli assegnabili**: questa operazione è necessaria solo se è stato selezionato amministratore accesso utenti nella **definizione del ruolo** per l'autorizzazione. In tal caso, è necessario aggiungere qui uno o più ruoli assegnabili. L'utente nel campo **ID oggetto Azure AD** sarà in grado di assegnare i **ruoli assegnabili** a [entità gestite](../../active-directory/managed-identities-azure-resources/overview.md). Questa operazione è necessaria per [distribuire criteri che possono essere corretti](deploy-policy-remediation.md). Si noti che nessun'altra autorizzazione normalmente associata al ruolo Amministratore Accesso utenti verrà applicata a questo utente. Se non si selezionano uno o più ruoli, l'invio non supererà la certificazione. Se non è stato selezionato Amministratore Accesso utenti per la definizione del ruolo di questo utente, questo campo non ha alcun effetto.
+  > Man mano che i nuovi ruoli predefiniti applicabili vengono aggiunti ad Azure, questi saranno disponibili qui, anche se potrebbe verificarsi un ritardo prima che vengano visualizzati.
+- **Ruoli assegnabili**: questa operazione è necessaria solo se è stato selezionato Amministratore accesso utenti nella **definizione del ruolo** per questa autorizzazione. In tal caso, è necessario aggiungere qui uno o più ruoli assegnabili. L'utente nel campo **ID oggetto Azure AD** sarà in grado di assegnare i **ruoli assegnabili** a [entità gestite](../../active-directory/managed-identities-azure-resources/overview.md). Questa operazione è necessaria per [distribuire criteri che possono essere corretti](deploy-policy-remediation.md). Si noti che nessun'altra autorizzazione normalmente associata al ruolo Amministratore Accesso utenti verrà applicata a questo utente. Se non si selezionano uno o più ruoli, l'invio non supererà la certificazione. Se non è stato selezionato Amministratore Accesso utenti per la definizione del ruolo di questo utente, questo campo non ha alcun effetto.
 
 > [!TIP]
-> Per assicurarsi che sia possibile [rimuovere l'accesso a una delega](onboard-customer.md#remove-access-to-a-delegation) , se necessario, includere un' **autorizzazione** con la **definizione del ruolo** impostata sul [ruolo eliminazione di assegnazione di registrazione dei servizi gestiti](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role). Se questo ruolo non viene assegnato, le risorse delegate possono essere rimosse solo da un utente che si trova nel tenant del cliente.
+> Per assicurarsi di poter [rimuovere l'accesso a una delega,](onboard-customer.md#remove-access-to-a-delegation) se necessario, includere un'autorizzazione con la **definizione** del ruolo impostata su Ruolo eliminazione [assegnazione registrazione servizi gestiti](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role). **Authorization** Se questo ruolo non viene assegnato, le risorse delegate possono essere rimosse solo da un utente che si trova nel tenant del cliente.
 
 Dopo aver completato le informazioni, è possibile selezionare **Nuovo piano** il numero di volte necessario per creare piani aggiuntivi. Al termine, selezionare **Salva**, quindi passare alla sezione **Marketplace**.
 
@@ -104,17 +104,17 @@ Completare i campi seguenti nella sezione **Panoramica**:
 |Campo  |Descrizione  |
 |---------|---------|
 |**Titolo**     |  Titolo dell'offerta, spesso corrispondente alla forma estesa e formale del nome. Questo titolo verrà visualizzato in una posizione di estremo rilievo nel marketplace. La lunghezza massima consentita è di 50 caratteri. Nella maggior parte dei casi, corrisponderà al **nome** immesso nella sezione **Impostazioni dell'offerta**.       |
-|**Summary**     | Descrizione breve dello scopo o della funzione dell'offerta. Viene in genere visualizzata sotto il titolo. La lunghezza massima consentita è di 100 caratteri.        |
+|**Riepilogo**     | Descrizione breve dello scopo o della funzione dell'offerta. Viene in genere visualizzata sotto il titolo. La lunghezza massima consentita è di 100 caratteri.        |
 |**Long Summary** (Riepilogo lungo)     | Riepilogo più lungo dello scopo o della funzione dell'offerta. La lunghezza massima consentita è di 256 caratteri.        |
 |**Descrizione**     | Altre informazioni sull'offerta. Questo campo ha una lunghezza massima consentita di 3000 caratteri e supporta la formattazione HTML semplice. È necessario includere le parole "servizio gestito" o "servizi gestiti" in un punto qualsiasi della descrizione.       |
-|**Marketing Identifier** (Identificatore di marketing)     | Identificatore univoco descrittivo per gli URL. Questo identificatore può contenere solo caratteri alfanumerici minuscoli e trattini. Verrà usato negli URL del Marketplace per questa offerta. Se ad esempio l'ID editore è *contoso* e l'identificatore di marketing è *sampleApp*, l'URL per l'offerta in Azure Marketplace sarà *https://azuremarketplace.microsoft.com/marketplace/apps/contoso-sampleApp* .        |
+|**Marketing Identifier** (Identificatore di marketing)     | Identificatore univoco descrittivo per gli URL. Questo identificatore può contenere solo caratteri alfanumerici minuscoli e trattini. Verrà utilizzato negli URL di Marketplace per questa offerta. Se ad esempio l'ID editore è *contoso* e l'identificatore di marketing è *sampleApp*, l'URL per l'offerta in Azure Marketplace sarà *https://azuremarketplace.microsoft.com/marketplace/apps/contoso-sampleApp*.        |
 |**Preview Subscription IDs** (ID sottoscrizione di anteprima)     | Aggiungere da uno a 100 identificatori di sottoscrizione. I clienti associati a queste sottoscrizioni potranno visualizzare l'offerta in Azure Marketplace prima che diventi disponibile. È consigliabile includere qui le sottoscrizioni per poter visualizzare in anteprima come viene visualizzata l'offerta in Azure Marketplace prima di renderla disponibile per i clienti.  Anche i team di supporto tecnico e di progettazione Microsoft potranno visualizzare l'offerta durante questo periodo di anteprima.   |
 |**Collegamenti utili**     | URL correlati all'offerta, ad esempio la documentazione, le note sulla versione, le domande frequenti e così via.        |
 |**Suggested Categories (Max 5)** (Categorie suggerite - Max 5)     | Una o più categorie (fino a cinque) applicabili all'offerta. Queste categorie aiutano i clienti a individuare l'offerta in Azure Marketplace e nel portale di Azure.        |
 
 Nella sezione **Marketing Artifacts** (Artefatti di marketing) è possibile caricare logo e altri asset da visualizzare con l'offerta. È facoltativamente possibile caricare screenshot o collegamenti a video che consentono ai clienti di comprendere l'offerta.
 
-Sono necessarie quattro dimensioni del logo: **Small (40x40)** , **Medium (90x90)** , **Large (115x115)** e **Wide (255x115)** . Seguire queste linee guida per i logo:
+Sono necessarie quattro formati di logo: **Piccolo (40x40),** **Medio (90x90)**, **Grande (115x115)** e **Wide (255x115)**. Seguire queste linee guida per i logo:
 
 - La progettazione di Azure ha una tavolozza dei colori semplice. Limitare il numero di colori primari e secondari nel logo.
 - I colori del tema del portale sono il bianco e il nero. Non usare questi colori per lo sfondo del logo. Usare un colore che faccia risaltare il logo nel portale. Si consiglia di usare colori primari semplici.

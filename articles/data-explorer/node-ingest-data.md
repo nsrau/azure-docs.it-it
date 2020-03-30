@@ -1,6 +1,6 @@
 ---
 title: Inserire dati usando la libreria Node di Esplora dati di Azure
-description: In questo articolo descrive come inserire (caricare) i dati in Esplora dati di Azure con Node. js.
+description: In this article, you learn how to ingest (load) data into Azure Data Explorer using Node.js.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,21 +8,21 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 19da42437cfe1d7b63dfed4bd2b30716d691a0e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66494490"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-node-library"></a>Inserire dati usando la libreria Node di Esplora dati di Azure
 
-Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure offre due librerie client per Node: una [libreria di inserimento](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) e [una libreria di dati](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data). Queste librerie consentono di inserire (caricare) i dati in un cluster ed eseguire una query di dati dal codice. In questo articolo, è innanzitutto necessario creare una tabella e i mapping dei dati in un cluster di test. Quindi viene accodato l'inserimento nel cluster e vengono convalidati i risultati.
+Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure offre due librerie client per Node: una [libreria di inserimento](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) e [una libreria di dati](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data). Queste librerie consentono di inserire (caricare) i dati in un cluster ed eseguire una query di dati dal codice. In questo articolo viene innanzitutto creata una tabella e il mapping dei dati in un cluster di test. Quindi viene accodato l'inserimento nel cluster e vengono convalidati i risultati.
 
 Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Oltre a una sottoscrizione di Azure, è necessario quanto segue per completare questo articolo:
+Oltre a una sottoscrizione di Azure, è necessario quanto segue per completare questo articolo:In addition to an Azure subscription, you need the following to complete this article:
 
 * [Un cluster e un database di test](create-cluster-database-portal.md)
 
@@ -76,7 +76,7 @@ const destTableMapping = "StormEvents_CSV_Mapping";
 
 ## <a name="set-source-file-information"></a>Impostare le informazioni sul file di origine
 
-Importare le classi aggiuntive e impostare le costanti per il file di origine dati. Questo esempio usa un file di esempio ospitato nell'archiviazione BLOB di Azure. Il set di dati di esempio **StormEvents** contiene dati relativi al meteo del [National Center for Environmental Information](https://www.ncdc.noaa.gov/stormevents/).
+Importare le classi aggiuntive e impostare le costanti per il file di origine dati. Questo esempio usa un file di esempio ospitato nell'archiviazione BLOB di Azure. Il set di dati di esempio **StormEvents** contiene i dati relativi alle condizioni meteorologiche dei [National Centers for Environmental Information](https://www.ncdc.noaa.gov/stormevents/).
 
 ```javascript
 const container = "samplefiles";
@@ -88,7 +88,7 @@ const blobPath = `https://${account}.blob.core.windows.net/${container}/${filePa
 
 ## <a name="create-a-table-on-your-test-cluster"></a>Creare una tabella nel cluster di prova
 
-Creare una tabella che corrisponda allo schema dei dati nel file `StormEvents.csv`. Quando viene eseguito, questo codice restituisce un messaggio simile al seguente: *Per accedere, usare un Web browser per aprire la pagina https://microsoft.com/devicelogin e immettere il codice XXXXXXXXX per eseguire l'autenticazione*. Seguire i passaggi per l'accesso, quindi tornare a eseguire il blocco di codice successivo. I blocchi di codice successivi che stabiliscono una connessione richiederanno di eseguire nuovamente l'accesso.
+Creare una tabella che corrisponda allo schema dei dati nel file `StormEvents.csv`. Quando viene eseguito questo codice, restituisce un messaggio simile al seguente: *Per accedere, usare un Web browser per aprire la pagina https://microsoft.com/devicelogin e immettere il codice XXXXXXXXX per l'autenticazione*. Seguire i passaggi per l'accesso, quindi tornare a eseguire il blocco di codice successivo. I blocchi di codice successivi che stabiliscono una connessione richiederanno di eseguire nuovamente l'accesso.
 
 ```javascript
 const kustoClient = new KustoClient(kcsbData);
@@ -141,7 +141,7 @@ kustoClient.execute(kustoDatabase, query, (err, results) => {
 
 ## <a name="run-troubleshooting-queries"></a>Eseguire query sulla risoluzione dei problemi
 
-Accedere al [https://dataexplorer.azure.com](https://dataexplorer.azure.com) e connettersi al cluster. Eseguire il comando seguente nel database per verificare la presenza di eventuali errori di inserimento nelle ultime quattro ore. Sostituire il nome del database prima dell'esecuzione.
+Accedere [https://dataexplorer.azure.com](https://dataexplorer.azure.com) e connettersi al cluster. Eseguire il comando seguente nel database per verificare la presenza di eventuali errori di inserimento nelle ultime quattro ore. Sostituire il nome del database prima dell'esecuzione.
     
 ```Kusto
 .show ingestion failures
@@ -158,7 +158,7 @@ Eseguire il comando seguente per visualizzare lo stato di tutte le operazioni di
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si prevede di eseguire gli altri articoli, mantenere le risorse create. In caso contrario, eseguire il comando seguente nel database per pulire la tabella `StormEvents`.
+Se hai intenzione di seguire gli altri articoli, mantieni le risorse che hai creato. In caso contrario, eseguire il comando seguente nel database per pulire la tabella `StormEvents`.
 
 ```Kusto
 .drop table StormEvents

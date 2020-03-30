@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 1e459e96c128e20f44f1a5adcb18c5b1824c3bf5
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: c3571d9ba94e1803259457d473ed3f1669ea67ea
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534114"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80330588"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Sincronizzazione dell'ora per le macchine virtuali Linux in Azure
 
@@ -71,7 +71,7 @@ Per verificare che NTP esegua correttamente la sincronizzazione, usare il comand
 
 ### <a name="host-only"></a>Solo host 
 
-Poiché i server NTP, ad esempio time.windows.com e ntp.ubuntu.com, sono pubblici, la sincronizzazione dell'ora con gli stessi richiede l'invio di traffico via Internet. La variazione dei ritardi dei pacchetti può influire negativamente sulla qualità della sincronizzazione dell'ora. La rimozione di NTP passando alla sincronizzazione solo host può talvolta migliorare i risultati della sincronizzazione del tempo.
+Poiché i server NTP, ad esempio time.windows.com e ntp.ubuntu.com, sono pubblici, la sincronizzazione dell'ora con gli stessi richiede l'invio di traffico via Internet. La variazione dei ritardi dei pacchetti può influire negativamente sulla qualità della sincronizzazione dell'ora. La rimozione di NTP tramite il passaggio alla sincronizzazione solo host può talvolta migliorare i risultati della sincronizzazione dell'ora.
 
 Il passaggio alla sincronizzazione dell'ora solo per l'host ha senso se si verificano problemi di sincronizzazione dell'ora usando la configurazione predefinita. Provare la sincronizzazione solo per l'host per verificare se contribuisce a migliorare la sincronizzazione dell'ora nella macchina virtuale. 
 
@@ -133,34 +133,35 @@ Il valore restituito dovrebbe essere **hyperv**.
 
 ### <a name="chrony"></a>chrony
 
-In Red Hat Enterprise Linux e CentOS 7.x [chrony](https://chrony.tuxfamily.org/) è configurato per l'uso di un orologio PTP. Il daemon di Network Time Protocol (ntpd) non supporta le origini PTP, quindi si consiglia di usare **chronyd**. Per abilitare PTP, aggiornare **chrony.conf**.
+In Ubuntu 19.10 e versioni successive, Red Hat Enterprise Linux e CentOS 7.x, [chrony](https://chrony.tuxfamily.org/) è configurato per utilizzare un orologio di origine PTP. Invece di chrony, le versioni precedenti di Linux utilizzano il daemon Network Time Protocol (ntpd), che non supporta le sorgenti PTP. Per abilitare PTP in tali versioni, è necessario installare e configurare la cronologia manualmente (in chrony.conf) utilizzando il codice seguente:
 
 ```bash
 refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
 ```
 
-Per altre informazioni su Red Hat e NTP, vedere la pagina relativa alla [configurazione di NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-configure_ntp). 
+Per ulteriori informazioni su Ubuntu e NTP, vedere [Sincronizzazione dell'ora](https://help.ubuntu.com/lts/serverguide/NTP.html).
 
-Per altre informazioni su chrony, vedere la pagina relativa all'[uso di chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony).
+Per ulteriori informazioni su Red Hat e NTP, consultate [Configurare NTP.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-configure_ntp) 
 
-Se le origini chrony e TimeSync vengono abilitate simultaneamente, è possibile contrassegnarne una come **preferenza** che imposti l'altra origine come backup. Poiché i servizi NTP non aggiornano l'orologio in caso di sfasamenti di grandi dimensioni, se non dopo un lungo periodo, VMICTimeSync ripristinerà l'orologio dagli eventi della macchina virtuale messi in pausa molto più rapidamente rispetto ai soli strumenti basati su NTP.
+Per ulteriori informazioni sulla cronologia, vedere [Utilizzo della cronologia](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony).
 
-Per impostazione predefinita, chronyd accelera o rallenta il clock di sistema per correggere eventuali deviazioni temporali. Se la deriva diventa troppo grande, Chrony non riuscirà a correggere la tendenza. Per ovviare a questo problema, è possibile modificare il parametro `makestep` in **/etc/Chrony.conf** in modo da forzare un TimeSync se la deriva supera la soglia specificata.
+Se entrambe le origini chrony e TimeSync sono abilitate contemporaneamente, è possibile contrassegnarne una come **preferita,** in modo da impostare l'altra origine come backup. Poiché i servizi NTP non aggiornano l'orologio in caso di sfasamenti di grandi dimensioni, se non dopo un lungo periodo, VMICTimeSync ripristinerà l'orologio dagli eventi della macchina virtuale messi in pausa molto più rapidamente rispetto ai soli strumenti basati su NTP.
+
+Per impostazione predefinita, chronyd accelera o rallenta l'orologio di sistema per risolvere qualsiasi deriva di tempo. Se la deriva diventa troppo grande, chrony non riesce a fissare la deriva. Per superare `makestep` questo problema, il parametro in **/etc/chrony.conf** può essere modificato per forzare un timesync se la deriva supera la soglia specificata.
+
  ```bash
 makestep 1.0 -1
 ```
-In questo caso, Chrony forza un aggiornamento temporale se la tendenza è maggiore di 1 secondo. Per applicare le modifiche, riavviare il servizio chronyd.
+
+Qui, la cronologia forzerà un aggiornamento del tempo se la deriva è maggiore di 1 secondo. Per applicare le modifiche, riavviare il servizio chronyd:
 
 ```bash
 systemctl restart chronyd
 ```
 
-
 ### <a name="systemd"></a>systemd 
 
-In Ubuntu e SUSE la sincronizzazione dell'ora viene sincronizzata usando [systemd](https://www.freedesktop.org/wiki/Software/systemd/). Per altre informazioni su Ubuntu, vedere la sezione relativa alla [sincronizzazione dell'ora](https://help.ubuntu.com/lts/serverguide/NTP.html). Per altre informazioni su SUSE, vedere la sezione 4.5.8 delle [note sulla versione di SUSE Linux Enterprise Server 12 SP3](https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12-SP3/#InfraPackArch.ArchIndependent.SystemsManagement).
-
-
+Nei rilasci di SUSE e Ubuntu prima delle 19.10, la sincronizzazione dell'ora viene configurata utilizzando [systemd](https://www.freedesktop.org/wiki/Software/systemd/). Per ulteriori informazioni su Ubuntu, vedere [Sincronizzazione dell'ora](https://help.ubuntu.com/lts/serverguide/NTP.html). Per ulteriori informazioni su SUSE, vedere la sezione 4.5.8 in [SUSE Linux Enterprise Server 12 SP3 Release Notes](https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12-SP3/#InfraPackArch.ArchIndependent.SystemsManagement).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

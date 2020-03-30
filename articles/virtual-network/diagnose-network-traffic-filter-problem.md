@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
-ms.openlocfilehash: f84e8a24e8f28cdccc987afbd1449cb17422ce0c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 6939ea2497a9f12321e1a6dfb9bf9fbb353bc7db
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79279754"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240770"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnosticare problemi di filtro del traffico di rete di una macchina virtuale
 
@@ -49,7 +49,7 @@ I passaggi che seguono presuppongono la disponibilità di una VM per visualizzar
 
    È la regola denominata **DenyAllInBound** a impedire la comunicazione con la VM tramite la porta 80, da Internet, come descritto nello [scenario](#scenario). Nella regola è elencato il valore *0.0.0.0/0* per **ORIGINE**, che include anche Internet. Nessun altra regola con priorità più alta (numero più basso) consente le comunicazioni in ingresso dalla porta 80. Per consentire le comunicazioni verso la VM dalla porta 80 da Internet, vedere [Risolvere il problema](#resolve-a-problem). Per altre informazioni sulle regole di sicurezza e su come vengono applicate in Azure, vedere [Gruppi di sicurezza di rete](security-overview.md).
 
-   Nella parte inferiore dell'immagine è anche possibile visualizzare le **Regole porta in uscita**, in cui sono riportate le regole della porta in uscita per l'interfaccia di rete. Anche se l'immagine include solo quattro regole in ingresso per ogni NSG, un NSG può contenerne molte di più. Nell'immagine viene visualizzato **VirtualNetwork** in **ORIGINE** e **DESTINAZIONE** e **AzureLoadBalancer** in  **ORIGINE**. **VirtualNetwork** e **AzureLoadBalancer** sono [tag di servizio](security-overview.md#service-tags). I tag di servizio rappresentano un gruppo di prefissi di indirizzi IP che consentono di ridurre al minimo la complessità della creazione delle regole di sicurezza.
+   Nella parte inferiore dell'immagine è anche possibile visualizzare le **Regole porta in uscita**, in cui sono riportate le regole della porta in uscita per l'interfaccia di rete. Anche se l'immagine include solo quattro regole in ingresso per ogni NSG, un NSG può contenerne molte di più. Nell'immagine viene visualizzato **VirtualNetwork** in **ORIGINE** e **DESTINAZIONE** e **AzureLoadBalancer** in ** ORIGINE**. **VirtualNetwork** e **AzureLoadBalancer** sono [tag di servizio](security-overview.md#service-tags). I tag di servizio rappresentano un gruppo di prefissi di indirizzi IP che consentono di ridurre al minimo la complessità della creazione delle regole di sicurezza.
 
 4. Verificare che la VM sia in esecuzione e selezionare **Regole di sicurezza effettive**, come illustrato nell'immagine precedente, per visualizzare le regole di sicurezza valide, illustrate nell'immagine seguente:
 
@@ -79,9 +79,9 @@ Anche se le regole di sicurezza valide sono state visualizzate tramite la macchi
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-È possibile eseguire i comandi seguenti in [Azure Cloud Shell](https://shell.azure.com/powershell) oppure in PowerShell dal computer. Azure Cloud Shell è una shell interattiva gratuita. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Se si esegue PowerShell dal computer, è necessario il modulo Azure PowerShell, versione 1.0.0 o successiva. Per trovare la versione installata, eseguire `Get-Module -ListAvailable Az` nel computer. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è necessario eseguire anche `Connect-AzAccount` per accedere ad Azure con un account con le [autorizzazioni necessarie](virtual-network-network-interface.md#permissions).
+È possibile eseguire i comandi seguenti in [Azure Cloud Shell](https://shell.azure.com/powershell) oppure in PowerShell dal computer. Azure Cloud Shell è una shell interattiva gratuita. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Se si esegue PowerShell dal computer, è necessario il modulo di Azure PowerShell, versione 1.0.0 o successiva. Per trovare la versione installata, eseguire `Get-Module -ListAvailable Az` nel computer. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è necessario eseguire anche `Connect-AzAccount` per accedere ad Azure con un account con le [autorizzazioni necessarie](virtual-network-network-interface.md#permissions).
 
-Ottenere le regole di sicurezza effettive per un'interfaccia di rete con [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). L'esempio seguente ottiene le regole di sicurezza valide per un'interfaccia di rete denominata *myVMVMNic* che si trova in un gruppo di risorse denominato *myResourceGroup*:
+Ottenere le regole di sicurezza valide per un'interfaccia di rete con [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). L'esempio seguente ottiene le regole di sicurezza valide per un'interfaccia di rete denominata *myVMVMNic* che si trova in un gruppo di risorse denominato *myResourceGroup*:
 
 ```azurepowershell-interactive
 Get-AzEffectiveNetworkSecurityGroup `
@@ -103,7 +103,7 @@ $VM.NetworkProfile
 
 L'output che si riceve è simile all'esempio seguente:
 
-```powershell
+```output
 NetworkInterfaces
 -----------------
 {/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic
@@ -113,9 +113,9 @@ Nell'output precedente il nome dell'interfaccia di rete è *myVMVMNic*.
 
 ## <a name="diagnose-using-azure-cli"></a>Diagnosi tramite l'interfaccia della riga di comando di Azure
 
-Se si usano i comandi dell'interfaccia della riga di comando di Azure per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/bash) o tramite l'interfaccia della riga di comando dal computer in uso. Questo articolo richiede l'interfaccia della riga di comando di Azure 2.0.32 o versioni successive. Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Se si esegue l'interfaccia della riga di comando di Azure in locale, è necessario eseguire anche `az login` e accedere ad Azure con un account dotato delle [autorizzazioni necessarie](virtual-network-network-interface.md#permissions).
+Se si usano i comandi dell'interfaccia della riga di comando di Azure per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/bash) o tramite l'interfaccia della riga di comando dal computer in uso. Questo articolo richiede l'interfaccia della riga di comando di Azure 2.0.32 o versioni successive. Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If](/cli/azure/install-azure-cli)you need to install or upgrade, see Install Azure CLI. Se si esegue l'interfaccia della riga di comando di Azure in locale, è necessario eseguire anche `az login` e accedere ad Azure con un account dotato delle [autorizzazioni necessarie](virtual-network-network-interface.md#permissions).
 
-Ottenere le regole di sicurezza valide per un'interfaccia di rete con [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg). L'esempio seguente ottiene le regole di sicurezza valide per un'interfaccia di rete denominata *myVMVMNic* che si trova in un gruppo di risorse denominato *myResourceGroup*:
+Ottenere le regole di sicurezza valide per un'interfaccia di rete con [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg). L'esempio seguente ottiene le regole di sicurezza valide per un'interfaccia di rete denominata myVMVMNic che si trova in un gruppo di risorse denominato *myResourceGroup:The*following example gets the effective security rules for a network interface named *myVMVMNic* that is in a resource group named myResourceGroup :
 
 ```azurecli-interactive
 az network nic list-effective-nsg \
@@ -138,7 +138,7 @@ az vm show \
 
 Nell'output restituito verranno visualizzate informazioni analoghe all'esempio seguente:
 
-```azurecli
+```output
 "networkProfile": {
     "additionalProperties": {},
     "networkInterfaces": [
@@ -183,7 +183,7 @@ Dopo aver creato la regola, la porta 80 può ricevere comunicazioni in ingresso 
 
 Quando Azure elabora il traffico in ingresso, elabora le regole nel gruppo di sicurezza di rete associato alla subnet, se presente, e quindi elabora le regole nel gruppo di sicurezza di rete associato all'interfaccia di rete. Se esiste un NSG associato all'interfaccia di rete e alla subnet, perché il traffico possa raggiungere la VM, la porta deve essere aperta in entrambi gli NSG. Per semplificare la soluzione dei problemi di gestione e comunicazione, è consigliabile associare un NSG a una subnet, anziché a interfacce di rete singole. Se le macchine virtuali all'interno di una subnet necessitano di regole di sicurezza diverse, è possibile rendere le interfacce di rete membri di un gruppo di sicurezza dell'applicazione e specificare un gruppo di sicurezza dell'applicazione come origine e destinazione di una regola di sicurezza. Per altre informazioni, vedere [Gruppi di sicurezza delle applicazioni](security-overview.md#application-security-groups).
 
-Se si verificano ancora problemi di comunicazione, vedere [Considerazioni](#considerations) e Diagnosi aggiuntiva.
+Se i problemi di comunicazione persistono, vedere [Considerazioni](#considerations) e diagnosi aggiuntive.
 
 ## <a name="considerations"></a>Considerazioni
 

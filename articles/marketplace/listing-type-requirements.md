@@ -1,25 +1,23 @@
 ---
 title: Requisiti in base al tipo di inserzione| Azure
 description: Questo articolo illustra i criteri di idoneità e i requisiti di pubblicazione per i partner che vogliono comprendere come pubblicare le app in Microsoft Azure Marketplace.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: jm-aditi-ms
-manager: pabutler
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/19/2018
-ms.author: ellacroi
-ms.openlocfilehash: b9a2e8b37f746eb86b2e0fe6a7304cd888a293e1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 1ff6e34936234d6636fabc6c5e17dd32416b4ac2
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823024"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387853"
 ---
 # <a name="requirements-by-listing-type"></a>Requisiti in base al tipo di inserzione  
 I requisiti tecnici e quelli relativi al contenuto di marketing variano in base alla vetrina, al tipo di offerta e al tipo di inserzione. Rivedere le specifiche seguenti per verificare la conformità.  
 1. Requisiti della vetrina:  
-    *   [AppSource](#storefront-requirements-appsource)  
+    *   [Appsource](#storefront-requirements-appsource)  
     *   [Azure Marketplace](#storefront-requirements-azure-marketplace)  
 2. Requisiti del tipo di inserzione e di offerta:  
     *   Per altre informazioni sui tipi di inserzione e di offerta, visitare la pagina che illustra come determinare il tipo di inserzione per la propria soluzione all'indirizzo [docs.microsoft.com/azure/marketplace/determine-your-listing-type](./determine-your-listing-type.md).  
@@ -29,25 +27,25 @@ Nella tabella seguente vengono descritti i prerequisiti per la pubblicazione in 
 
 | Requisito | Dettagli | Obbligatori o consigliati |  
 |:--- |:--- |:--- |  
-| ***Azure Active Directory (Azure AD)*** | L'app deve consentire l'accesso Single Sign-On federato di Azure Active Directory (SSO federato di Azure AD) con il consenso abilitato.<ul> <li>Per altre informazioni sull'abilitazione dell'SSO federato di Azure AD, visitare pagina Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory all'indirizzo [docs.microsoft.com/azure/active-directory/ Attiva-directory--custom-App saas](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps).</li> </ul> | Obbligatorio |   
+| ***Azure Active Directory (Azure AD)*** | L'app deve consentire l'accesso Single Sign-On federato di Azure Active Directory (SSO federato di Azure AD) con il consenso abilitato.<ul> <li>Per altre informazioni sull'abilitazione dell'SSO federato di Azure AD, visitare pagina Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory all'indirizzo [docs.microsoft.com/azure/active-directory/ Attiva-directory--custom-App saas](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps).</li> </ul> | Obbligatoria |   
 | ***Integrazione con servizi Microsoft Cloud*** | L'app deve essere integrabile con altri servizi Microsoft Cloud come Microsoft Power BI, Cortana Intelligence o i servizi di Microsoft Azure.<ul> <li>Un esempio di un servizio cloud di Microsoft è Internet delle cose.</li> </ul> | Consigliato |  
-| ***Destinatari*** | L'applicazione deve essere destinata a utenti line-of-business e a titolari di aziende. | Obbligatorio | 
-| ***App SaaS (Software as a Service) per aziende*** | L'applicazione deve soddisfare i seguenti requisiti.<ul> <li>SaaS line-of-business</li> <li>Focalizzata sui processi aziendali</li> <li>Destinata a clienti aziendali</li> <li>Consentire agli utenti di usare le proprie credenziali di lavoro (nome utente e password) per accedere</li> </ul> | Obbligatorio |  
-| ***Periodo di valutazione gratuita ed esperienza di valutazione*** | L'app deve includere una delle seguenti opzioni affinché un cliente possa usare l'app gratuitamente per un periodo di tempo limitato.<ul> <li>Fornire un metodo `try` in modo che i clienti possano avviare una versione di valutazione dell'app in AppSource</li> <li>Fornire un'opzione `request trial` in AppSource, in modo che i clienti possano richiedere una versione di valutazione dell'app</li> </ul>La versione di valutazione gratuita fornita deve offrire al cliente un periodo di tempo preimpostato per provare l'app senza costi aggiuntivi. | Obbligatorio |  
-| ***Soluzione pronta all'uso e facilmente configurabile*** | L'app deve essere semplice e rapida da configurare e installare senza richiedere personalizzazioni. | Obbligatorio |  
-| ***Gestione dei clienti potenziali*** | Abilitare il sistema CRM per accettare i dati dei clienti potenziali prima di riceverli dalla vetrina.<ul> <li>Esempi di CRM sono Marketo, Microsoft Dynamics o Salesforce</li> </ul> | Obbligatorio |  
-| ***Informativa sulla privacy e condizioni per l'utilizzo*** | L'app deve fornire un collegamento alla pagina dell'informativa sulla privacy con un URL pubblico e le condizioni per l'utilizzo devono essere fornite in formato testo al momento della pubblicazione. | Obbligatorio |  
-| ***Supporto*** | L'app deve fornire un collegamento alla pagina dell'assistenza clienti con un URL pubblico. Se l'app è una versione di valutazione, è necessario fornire il supporto senza alcun costo aggiuntivo durante il periodo di valutazione. | Obbligatorio |  
+| ***Pubblico*** | L'applicazione deve essere destinata a utenti line-of-business e a titolari di aziende. | Obbligatoria | 
+| ***App SaaS (Software as a Service) per aziende*** | L'applicazione deve soddisfare i seguenti requisiti.<ul> <li>SaaS line-of-business</li> <li>Focalizzata sui processi aziendali</li> <li>Destinata a clienti aziendali</li> <li>Consentire agli utenti di usare le proprie credenziali di lavoro (nome utente e password) per accedere</li> </ul> | Obbligatoria |  
+| ***Periodo di valutazione gratuita ed esperienza di valutazione*** | L'app deve includere una delle seguenti opzioni affinché un cliente possa usare l'app gratuitamente per un periodo di tempo limitato.<ul> <li>Fornire un metodo `try` in modo che i clienti possano avviare una versione di valutazione dell'app in AppSource</li> <li>Fornire un'opzione `request trial` in AppSource, in modo che i clienti possano richiedere una versione di valutazione dell'app</li> </ul>La versione di valutazione gratuita fornita deve offrire al cliente un periodo di tempo preimpostato per provare l'app senza costi aggiuntivi. | Obbligatoria |  
+| ***Soluzione pronta all'uso e facilmente configurabile*** | L'app deve essere semplice e rapida da configurare e installare senza richiedere personalizzazioni. | Obbligatoria |  
+| ***Gestione dei lead*** | Abilitare il sistema CRM per accettare i dati dei clienti potenziali prima di riceverli dalla vetrina.<ul> <li>Esempi di CRM sono Marketo, Microsoft Dynamics o Salesforce</li> </ul> | Obbligatoria |  
+| ***Informativa sulla privacy e condizioni per l'utilizzo*** | L'app deve fornire un collegamento alla pagina dell'informativa sulla privacy con un URL pubblico e le condizioni per l'utilizzo devono essere fornite in formato testo al momento della pubblicazione. | Obbligatoria |  
+| ***Supporto*** | L'app deve fornire un collegamento alla pagina dell'assistenza clienti con un URL pubblico. Se l'app è una versione di valutazione, è necessario fornire il supporto senza alcun costo aggiuntivo durante il periodo di valutazione. | Obbligatoria |  
 
 ## <a name="storefront-requirements-azure-marketplace"></a>Requisiti delle vetrine: Azure Marketplace  
 Di seguito sono elencati i prerequisiti per i tipi di inserzione in Azure Marketplace.  
 
 | Requisito | Dettagli | Tipo di inserzione |  
 |:--- |:--- |:--- |  
-| ***Criteri di partecipazione*** | L'app deve seguire criteri di partecipazione ad Azure Marketplace.<ul> <li>Per altre informazioni sui criteri di partecipazione vedere la pagina Criteri di Partecipazione a Microsoft Azure Marketplace all'indirizzo [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).</li></ul> | list<br />transazione<br />versione di valutazione |  
+| ***Politiche di partecipazione*** | L'app deve seguire criteri di partecipazione ad Azure Marketplace.<ul> <li>Per altre informazioni sui criteri di partecipazione vedere la pagina Criteri di Partecipazione a Microsoft Azure Marketplace all'indirizzo [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).</li></ul> | list<br />transazione<br />versione di valutazione |  
 | ***Integrazione con Microsoft*** | Le offerte dovrebbero usare o estendere i tipi di servizi di Microsoft Azure come calcolo, rete o archiviazione e allinearsi a una categoria esistente di Azure Marketplace, ad esempio database, sicurezza o rete.<ul> <li>Per ulteriori informazioni sulle offerte di Marketplace, visitare la pagina delle app di Marketplace all'indirizzo [azuremarketplace.microsoft.com/marketplace/apps](https://azuremarketplace.microsoft.com/marketplace/apps).</li> </ul> | list<br />transazione<br />versione di valutazione |  
-| ***Destinatari*** | Le offerte devono essere destinate a professionisti IT, sviluppatori cloud o altri clienti con specifici ruoli tecnici. | list<br />transazione<br />versione di valutazione |  
-| ***Gestione dei clienti potenziali*** | Configurare il proprio sistema CRM (Marketo, Microsoft Dynamics o Salesforce) in modo da accettare i dati relativi ai clienti potenziali prima di riceverli dalla vetrina. | list<br />transazione<br />versione di valutazione |  
+| ***Pubblico*** | Le offerte devono essere destinate a professionisti IT, sviluppatori cloud o altri clienti con specifici ruoli tecnici. | list<br />transazione<br />versione di valutazione |  
+| ***Gestione dei lead*** | Configurare il proprio sistema CRM (Marketo, Microsoft Dynamics o Salesforce) in modo da accettare i dati relativi ai clienti potenziali prima di riceverli dalla vetrina. | list<br />transazione<br />versione di valutazione |  
 | ***Informativa sulla privacy e condizioni per l'utilizzo*** | L'app deve fornire un collegamento alla pagina dell'informativa sulla privacy con un URL pubblico e le condizioni per l'utilizzo devono essere fornite in formato testo al momento della pubblicazione. | list<br />transazione<br />versione di valutazione |  
 | ***Supporto*** | L'offerta deve fornire un collegamento alla pagina dell'assistenza clienti con un URL pubblico. Se l'offerta è una versione di valutazione, è necessario fornire il supporto senza alcun costo aggiuntivo durante il periodo di valutazione. | transazione<br />versione di valutazione |    
 
@@ -55,14 +53,14 @@ Di seguito sono elencati i prerequisiti per i tipi di inserzione in Azure Market
 In questa sezione vengono descritte tutte le offerte che non usano il tipo di inserzione Transazione. 
 
 ### <a name="list"></a>Elenco  
-Il tipo di inserzione Elenco include i tipi di offerta seguenti nelle vetrine in marketplace.  
+Il tipo di inserzione Elenco include i seguenti tipi di offerta nelle vetrine in Marketplace.  
 
 | Tipo di offerta | Vetrina | Dettagli |  
 |:---        |:---        |:---     |  
-| Servizi di consulenza | AppSource | Requisiti: AppSource: list: Servizi di consulenza |  
-| Servizi di consulenza | Azure Marketplace | Requisiti: Azure Marketplace: elenco: Servizi di consulenza |  
+| Servizi di consulenza | AppSource | Requisiti: AppSource: Elenco: Servizi di consulenza |  
+| Servizi di consulenza | Azure Marketplace | Requisiti: Azure Marketplace: Elenco: Servizi di consulenza |  
 | Contattami | AppSource | [](#) |  
-| Contattami | Azure Marketplace | Requisiti: AppSource: elenco: contattami |  
+| Contattami | Azure Marketplace | Requisiti: AppSource: Elenco: Contattami |  
 
 #### <a name="requirements-appsource-list-consulting-service"></a>Requisiti: AppSource: Elenco: Servizio di consulenza  
 
@@ -76,7 +74,7 @@ Il tipo di inserzione Elenco include i tipi di offerta seguenti nelle vetrine in
 | Requisiti | Dettagli |  
 |:--- |:--- |  
 | Caratteristiche dell'offerta del servizio | Il servizio di consulenza deve soddisfare i criteri seguenti.<ul> <li>Offerta con un ambito, una durata e un prezzo prestabiliti (o gratuita).</li> <li>Orientato principalmente alla pre-vendita.</li> <li>Limitato a un singolo cliente.</li> <li>Effettuato presso la sede.</li> </ul> |  
-| Requisiti dei partner per i servizi di consulenza | È necessario avere la competenza Silver o Gold in una delle competenze seguenti nell'area pertinente al servizio. <table><tr><th>Area soluzione</th><th>Competenza</th></tr><td>Piattaforma e infrastruttura cloud</td><td>Piattaforma cloud<br />Data center</td><tr><td>Sviluppo di applicazioni e ISV</td><td>Sviluppo di applicazioni<br />Integrazione delle applicazioni<br />DevOps</td></tr><tr><td>Gestione e analisi dei dati</td><td>Analisi dei dati<br />Piattaforma dati</td></tr></table><ul> <li>Per altre informazioni sulle competenze, visitare la pagina Partner con competenze all'indirizzo [partner.microsoft.com/membership/competencies](https://partner.microsoft.com/membership/competencies).</li> <li>Per altre informazioni sulle inserzioni, visitare la pagina Servizi di consulenza in Azure Marketplace all'indirizzo [docs.microsoft.com/azure/marketplace/consulting-services](https://docs.microsoft.com/azure/marketplace/consulting-services).</li></ul> |  
+| Requisiti dei partner per i servizi di consulenza | È necessario avere la competenza Silver o Gold in una delle competenze seguenti nell'area pertinente al servizio. <table><tr><th>Area soluzione</th><th>Competenza</th></tr><td>Piattaforma e infrastruttura cloud</td><td>Piattaforma cloud<br />Data center</td><tr><td>Sviluppo di applicazioni e ISV</td><td>Sviluppo applicazioni<br />Integrazione di applicazioni<br />DevOps</td></tr><tr><td>Gestione e analisi dei dati</td><td>Analisi dei dati<br />Piattaforma dati</td></tr></table><ul> <li>Per altre informazioni sulle competenze, visitare la pagina Partner con competenze all'indirizzo [partner.microsoft.com/membership/competencies](https://partner.microsoft.com/membership/competencies).</li> <li>Per altre informazioni sulle inserzioni, visitare la pagina Servizi di consulenza in Azure Marketplace all'indirizzo [docs.microsoft.com/azure/marketplace/consulting-services](https://docs.microsoft.com/azure/marketplace/consulting-services).</li></ul> |  
 
 <!-- #### Requirements: Azure Marketplace: List: Contact Me -->
 
@@ -86,18 +84,18 @@ Il tipo di inserzione Elenco include i tipi di offerta seguenti nelle vetrine in
 
 | Tipo di offerta | Vetrina | Dettagli |  
 |:---        |:---        |:---     |  
-| Versione di valutazione gratuita/SaaS | AppSource | Elenco dei requisiti del tipo: versione di valutazione |  
+| Versione di valutazione gratuita/SaaS | AppSource | Requisiti del tipo di inserzione: Versione di valutazione |  
 | Versione di valutazione gratuita/SaaS | Azure Marketplace | Requisiti: Azure Marketplace: Versione di valutazione: Versione di valutazione gratuita/Versione di valutazione di SaaS |  
-| Demo interattiva | AppSource | Elenco dei requisiti del tipo: versione di valutazione |  
+| Demo interattiva | AppSource | Requisiti del tipo di inserzione: Versione di valutazione |  
 | Demo interattiva | Azure Marketplace | [Requisiti: Azure Marketplace: Versione di valutazione: Demo interattiva](#requirements-azure-marketplace-trial-interactive-demo) |  
-| Test drive | AppSource | Elenco dei requisiti del tipo: versione di valutazione |  
+| Test drive | AppSource | Requisiti del tipo di inserzione: Versione di valutazione |  
 | Test drive | Azure Marketplace | [Requisiti: Azure Marketplace: Versione di valutazione: Test drive](#requirements-azure-marketplace-trial-test-drive) |  
 
 #### <a name="requirements-azure-marketplace-trial"></a>Requisiti: Azure Marketplace: Versione di valutazione  
 
 | Requisito | Dettagli |  
 |:--- |:--- |  
-| Periodo di prova gratuita ed esperienza della versione di valutazione | Il cliente può provare l'app gratuitamente per un periodo di tempo limitato.<br /><br />Il cliente non deve pagare costi di licenza o di sottoscrizione per l'offerta. I clienti non devono pagare il prodotto o il servizio proprietario di Microsoft sottostante. Tutte le opzioni di valutazione sono distribuite nella sottoscrizione di Azure. L'utente ha il controllo esclusivo dell'ottimizzazione dei costi e della gestione.<br /><br />È possibile scegliere una versione di valutazione gratuita, una demo interattiva o un test drive. Indipendentemente dall'opzione selezionata, per la prova gratuita è necessario concedere al cliente un periodo prestabilito di tempo per provare l'offerta senza costi aggiuntivi.<ul> <li>Per iniziare a creare un test drive, inviare un messaggio di posta elettronica a [amp-testdrive@microsoft.com](mailto:amp-testdrive@microsoft.com).</li> </ul>Nota: le versioni di valutazione SaaS di Azure Marketplace SaaS devono consentire agli utenti di usare le credenziali di lavoro personali per accedere.<ul> <li>Per altre informazioni, visitare la sezione relativa alle esperienze di valutazione di AppSource all'indirizzo [docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences).</li> </ul> |  
+| Periodo di valutazione gratuita ed esperienza di valutazione | Il cliente può provare l'app gratuitamente per un periodo di tempo limitato.<br /><br />Il cliente non deve pagare costi di licenza o di sottoscrizione per l'offerta. I clienti non devono pagare il prodotto o il servizio proprietario di Microsoft sottostante. Tutte le opzioni di valutazione sono distribuite nella sottoscrizione di Azure. L'utente ha il controllo esclusivo dell'ottimizzazione dei costi e della gestione.<br /><br />È possibile scegliere una versione di valutazione gratuita, una demo interattiva o un test drive. Indipendentemente dall'opzione selezionata, per la prova gratuita è necessario concedere al cliente un periodo prestabilito di tempo per provare l'offerta senza costi aggiuntivi.<ul> <li>Per iniziare il processo di creazione di [amp-testdrive@microsoft.com](mailto:amp-testdrive@microsoft.com)un test drive, inviare un messaggio di posta elettronica a .</li> </ul>Nota: le versioni di valutazione SaaS di Azure Marketplace SaaS devono consentire agli utenti di usare le credenziali di lavoro personali per accedere.<ul> <li>Per altre informazioni, visitare la sezione relativa alle esperienze di valutazione di AppSource all'indirizzo [docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences).</li> </ul> |  
 | Soluzione pronta all'uso e facilmente configurabile | L'app deve essere semplice e rapida da configurare e installare. |  
 | Disponibilità/Tempo di attività | L'app o la piattaforma SaaS deve avere un tempo di attività pari ad almeno il 99,9%. |  
 | Azure Active Directory | L'offerta deve consentire l'accesso Single Sign-On (SSO) federato di Azure Active Directory (accesso SSO federato di Azure AD) con il consenso abilitato. |  

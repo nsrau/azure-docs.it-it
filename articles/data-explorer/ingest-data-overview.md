@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.openlocfilehash: 4846a19c403cce16bed704ed4e7c70499f3b5d13
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79246396"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Inserimento dati in Esplora dati di Azure
@@ -26,7 +26,7 @@ Il servizio di gestione dei dati Esplora dati di Azure, responsabile dell'inseri
 
 1. **Invio in batch**: invia in batch i flussi di dati allo stesso database e alla stessa tabella per ottimizzare la velocità effettiva di inserimento.
 
-1. **Convalida**: convalida preliminare e conversione del formato, se necessario.
+1. **Convalida**: Convalida preliminare e conversione del formato, se necessario.
 
 1. **Manipolazione dei dati**: schema corrispondente, organizzazione, indicizzazione, codifica e compressione dei dati.
 
@@ -52,7 +52,7 @@ Esplora dati di Azure attualmente supporta:
 
 ### <a name="ingestion-using-integration-services"></a>Inserimento tramite servizi di integrazione
 
-* Azure Data Factory (ADF), un servizio di integrazione dei dati completamente gestito per i carichi di lavoro analitici in Azure, per copiare dati da e verso Azure Esplora dati usando [archivi dati e formati supportati](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). Per altre informazioni, vedere [copiare dati da Azure Data Factory ad Azure Esplora dati](/azure/data-explorer/data-factory-load-data).
+* Azure Data Factory (ADF), un servizio di integrazione dei dati completamente gestito per carichi di lavoro analitici in Azure, per copiare dati da e verso Azure Data Explorer usando gli archivi dati e i [formati supportati.](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) Per altre informazioni, vedere [Copiare dati da Azure Data Factory ad Azure Data Explorer.For](/azure/data-explorer/data-factory-load-data)more information, see Copy data from Azure Data Factory to Azure Data Explorer.
 
 ### <a name="programmatic-ingestion"></a>Inserimento a livello di codice
 
@@ -66,7 +66,7 @@ Kusto offre un SDK client che può essere usato per inserire ed eseguire query s
 
 * [.NET SDK](/azure/kusto/api/netfx/about-the-sdk)
 
-* [SDK per Java](/azure/kusto/api/java/kusto-java-client-library)
+* [Java SDK](/azure/kusto/api/java/kusto-java-client-library)
 
 * [Node SDK](/azure/kusto/api/node/kusto-node-client-library)
 
@@ -80,7 +80,7 @@ Kusto offre un SDK client che può essere usato per inserire ed eseguire query s
 
 * Inserimento dei dati direttamente nel motore Esplora dati di Azure (il più appropriato per l'esplorazione e la creazione di prototipi):
 
-  * Inserimento **inline**: il comando di controllo (. inserimento inline) contenente dati in banda è destinato a scopi di test ad hoc.
+  * **Inserimento inline:** il comando di controllo (.ingest inline) contenente dati in banda è destinato a scopi di test ad hoc.
 
   * **Inserimento da query**: il comando di controllo (.set, .set-or-append, .set-or-replace) che fa riferimento ai risultati della query viene usato per la generazione di report o di tabelle temporanee di piccole dimensioni.
 
@@ -113,13 +113,13 @@ Prima di iniziare a inserire i dati, è consigliabile porsi le domande seguenti.
 * Quali sono i requisiti relativi alla latenza? 
 * È possibile usare una delle pipeline di inserimento gestite esistenti? 
 
-Per le organizzazioni con un'infrastruttura esistente basata su un servizio di messaggistica come hub eventi e hub Internet, l'uso di un connettore è probabilmente la soluzione più appropriata. L'inserimento in coda è adatto per grandi volumi di dati.
+Per le organizzazioni con un'infrastruttura esistente basata su un servizio di messaggistica come Hub eventi e Hub IoT, l'utilizzo di un connettore è probabilmente la soluzione più appropriata. L'inserimento in coda è adatto per grandi volumi di dati.
 
 ## <a name="supported-data-formats"></a>Formati di dati supportati
 
 Per tutti i metodi di inserimento diversi dall'inserimento da query, formattare i dati in modo che Esplora dati di Azure possa analizzarli. 
-* I formati di dati supportati sono: TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (separati da righe, multilinea), avro, ORC e parquet. 
-* Supporta la compressione ZIP e GZIP.
+* I formati di dati supportati sono: TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (separato da linee, multilinea), Avro, Orc e Parquet. 
+* Supporta la compressione .IP e G.IP.
 
 > [!NOTE]
 > Quando i dati vengono inseriti, i tipi di dati vengono dedotti in base alle colonne della tabella di destinazione. Se un record è incompleto o un campo non può essere analizzato come tipo di dati necessario, le colonne della tabella corrispondenti verranno popolate con valori Null.
@@ -148,10 +148,10 @@ Il mapping dello schema consente di associare i campi dati di origine alle colon
 > [Inserire dati da Kafka in Esplora dati di Azure](ingest-data-kafka.md)
 
 > [!div class="nextstepaction"]
-> [Inserire dati usando la libreria di Esplora dati di Azure per Python](python-ingest-data.md)
+> [Eseguire l'inserimento di dati usando la libreria Python di Azure Data ExplorerIngest data using the Azure Data Explorer Python library](python-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Inserire dati usando la libreria Node di Esplora dati di Azure](node-ingest-data.md)
+> [Archiviazione dei dati tramite la libreria dei nodi di Azure Data ExplorerIngest data using the Azure Data Explorer Node library](node-ingest-data.md)
 
 > [!div class="nextstepaction"]
 > [Inserire dati usando .NET Standard SDK di Esplora dati di Azure (anteprima)](net-standard-ingest-data.md)

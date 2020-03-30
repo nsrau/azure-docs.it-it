@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti sul centro sicurezza di Azure-Domande sulle macchine virtuali
-description: Domande frequenti sulle macchine virtuali nel centro sicurezza di Azure, un prodotto che consente di prevenire, rilevare e rispondere alle minacce
+title: Domande frequenti sul Centro sicurezza di Azure- domande sulle macchine virtualiAzure Security Center FAQ - questions about virtual machines
+description: Domande frequenti sulle macchine virtuali nel Centro sicurezza di Azure, un prodotto che consente di prevenire, rilevare e rispondere alle minacce
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,13 +14,13 @@ ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
 ms.openlocfilehash: d84085115816a8fe1cba65e191ea391dd91a4aed
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77599366"
 ---
-# <a name="faq---questions-about-virtual-machines"></a>Domande frequenti sulle macchine virtuali
+# <a name="faq---questions-about-virtual-machines"></a>Domande frequenti - Domande sulle macchine virtualiFAQ - Questions about virtual machines
 
 
 ## <a name="what-types-of-virtual-machines-are-supported"></a>Quali tipi di macchine virtuali sono supportati?
@@ -42,7 +42,7 @@ Questo messaggio viene visualizzato quando non sono presenti dati di analisi per
 
 ## <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>Con quale frequenza il Centro sicurezza esegue l'analisi alla ricerca di vulnerabilità del sistema operativo, aggiornamenti del sistema e problemi di protezione degli endpoint?
 
-Di seguito sono riportati i tempi di latenza per le analisi delle vulnerabilità, degli aggiornamenti e dei problemi del Centro sicurezza:
+Di seguito sono riportati i tempi di latenza per le analisi di vulnerabilità, aggiornamenti e problemi del Centro sicurezza:
 
 - Configurazioni di sicurezza del sistema operativo: i dati vengono aggiornati entro 48 ore
 - Aggiornamenti di sistema: i dati vengono aggiornati entro 24 ore
@@ -51,7 +51,7 @@ Di seguito sono riportati i tempi di latenza per le analisi delle vulnerabilità
 In genere, il Centro sicurezza esegue l'analisi dei nuovi dati ogni ora e aggiorna le indicazioni di conseguenza. 
 
 > [!NOTE]
-> Il Centro sicurezza usa il Microsoft Monitoring Agent per raccogliere e archiviare i dati. Per altre informazioni, vedere [Migrazione della piattaforma del Centro sicurezza di Azure](security-center-platform-migration.md).
+> Il Centro sicurezza usa Microsoft Monitoring Agent per raccogliere e archiviare i dati. Per altre informazioni, vedere [Migrazione della piattaforma del Centro sicurezza di Azure](security-center-platform-migration.md).
 
 
 ## <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Perché viene visualizzato il messaggio "L'agente di macchine virtuali non è presente?"

@@ -1,6 +1,6 @@
 ---
 title: Punteggio di attendibilità nel Centro sicurezza di Azure | Microsoft Docs
-description: Il Centro sicurezza genera punteggi di confidenza per aiutare il team a determinare se una minaccia è legittima e come valutare e assegnare priorità agli avvisi.
+description: Il Centro sicurezza genera punteggi di sicurezza per consentire al team di determinare se una minaccia è legittima e come valutare e assegnare priorità agli avvisi.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,17 +14,17 @@ ms.workload: na
 ms.date: 08/23/2018
 ms.author: memildin
 ms.openlocfilehash: 8aa17f473c550c99d91862754e6a746575aca202
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77604376"
 ---
-# <a name="alert-confidence-score-preview"></a>Punteggio di confidenza degli avvisi (anteprima)
+# <a name="alert-confidence-score-preview"></a>Punteggio di confidenza degli avvisi (anteprima)Alert confidence score (Preview)
 
 Centro sicurezza di Azure offre visibilità tra le risorse eseguite in Azure e avvisa l'utente quando rileva potenziali problemi. Per un team responsabile per le operazioni di sicurezza, la mole di avvisi da verificare singolarmente può essere molto ampia, pertanto è necessario assegnare priorità agli avvisi da analizzare. L'analisi degli avvisi può essere complessa e richiedere molto tempo, di conseguenza, alcuni avvisi vengono ignorati.
 
-Il Punteggio di confidenza (attualmente in anteprima) nel centro sicurezza può aiutare il team a valutare e assegnare priorità agli avvisi. Il Centro sicurezza applica automaticamente le procedure consigliate, gli algoritmi intelligenti e i processi usati dagli analisti per determinare se una minaccia sia legittima e se vengono fornite informazioni dettagliate significative sotto forma di punteggio di attendibilità.
+Il punteggio di confidenza (attualmente in anteprima) nel Centro sicurezza può aiutare il team a valutare e assegnare priorità agli avvisi. Il Centro sicurezza applica automaticamente le procedure consigliate, gli algoritmi intelligenti e i processi usati dagli analisti per determinare se una minaccia sia legittima e se vengono fornite informazioni dettagliate significative sotto forma di punteggio di attendibilità.
 
 ## <a name="how-the-confidence-score-is-triggered"></a>Come viene attivato il punteggio di attendibilità
 

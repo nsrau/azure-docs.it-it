@@ -1,23 +1,23 @@
 ---
-title: Espansione disco gestito
-description: Informazioni sul picchi di disco e sul relativo funzionamento per le unità SSD Premium di Azure.
+title: Burst del disco gestito
+description: Informazioni sul burst del disco e sul suo funzionamento per gli sSD premium di Azure.Learn about disk bursting and how it works for Azure premium SSDs.
 author: roygara
 ms.author: rogarana
-ms.date: 10/22/2019
+ms.date: 03/28/2019
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: f5ec4cb63db1522153c0600d719a22e4744cb4d7
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 4cac3c3e5346fa9c8ab68a4238d64419060a0967
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970706"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80385198"
 ---
-# <a name="premium-ssd-bursting-preview"></a>SSD Premium in sequenza (anteprima)
+# <a name="premium-ssd-bursting"></a>SSD Premium scoppio
 
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Usare il portale per aggiungere un disco dati a una VM Linux](attach-disk-portal.md)
+[Usare il portale per collegare un disco dati a una macchina virtuale Linux](attach-disk-portal.md)

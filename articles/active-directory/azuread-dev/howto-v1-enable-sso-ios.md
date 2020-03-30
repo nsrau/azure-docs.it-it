@@ -4,7 +4,6 @@ description: Come utilizzare le funzionalità dell'SDK ADAL per abilitare il Sin
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
@@ -15,12 +14,13 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 00ec2d328265e8d301b9f54b9a6a2013072f1ed4
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ROBOTS: NOINDEX
+ms.openlocfilehash: 082cbb931c9dae60b39f9ee5323337bf051fb56d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190280"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154781"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Procedura: Abilitare l'accesso Single Sign-On tra app in iOS usando ADAL
 
@@ -39,11 +39,11 @@ Questa procedura si applica a:
 * Azure Active Directory B2B
 * Accesso condizionale di Azure Active Directory
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Questa procedura presuppone che si sia in grado di:
 
-* Effettuare il provisioning dell'app tramite il portale legacy per Azure AD. Per altre informazioni, vedere [registrare un'app](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
+* Effettuare il provisioning dell'app tramite il portale legacy per Azure AD. Per altre info, vedi [Registrare un'app](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
 * Integrare l'applicazione con l'[SDK iOS di Azure AD](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
 ## <a name="single-sign-on-concepts"></a>Concetti dell'accesso Single Sign-On
@@ -109,7 +109,7 @@ Se nel dispositivo è installato un broker compatibile, ad esempio l'applicazion
 
 #### <a name="how-we-ensure-the-application-is-valid"></a>Come si garantisce la validità dell'applicazione
 
-La necessità di garantire che l'identità di un'applicazione che chiama il broker sia fondamentale per la sicurezza fornita negli accessi assistiti da broker. Né IOS né Android applicano identificatori univoci che sono validi solo per una determinata applicazione, cosicché le applicazioni dannose possono effettuare lo "spoofing" di un identificatore dell'applicazione legittimo e ricevere i token per l'applicazione legittima. Per garantire sempre la comunicazione con l'applicazione corretta in fase di esecuzione, chiediamo agli sviluppatori di assicurare un URI di reindirizzamento personalizzato al momento della registrazione dell'applicazione con Microsoft. Le modalità di creazione dell'URI di reindirizzamento da parte degli sviluppatori vengono trattate in dettaglio di seguito. Questo URI di reindirizzamento personalizzato contiene l'ID bundle dell'applicazione e Apple App Store ne garantisce l'univocità per l'applicazione. Quando un'applicazione chiama il broker, questo richiede al sistema operativo iOS per fornire l'ID bundle che ha chiamato il broker. Il broker fornisce questo ID bundle a Microsoft nella chiamata al sistema di identità. Se l'ID bundle dell'applicazione non corrisponde all'ID bundle offerto dallo sviluppatore durante la registrazione, verrà negato l'accesso ai token per la risorsa richiesti dall'applicazione. Questo controllo garantisce che solo l'applicazione registrata dallo sviluppatore riceva i token.
+La necessità di garantire l'identità di un'applicazione che chiama il broker è fondamentale per la sicurezza che forniamo negli accessi assistiti assistiti dal broker. Né IOS né Android applicano identificatori univoci che sono validi solo per una determinata applicazione, cosicché le applicazioni dannose possono effettuare lo "spoofing" di un identificatore dell'applicazione legittimo e ricevere i token per l'applicazione legittima. Per garantire sempre la comunicazione con l'applicazione corretta in fase di esecuzione, chiediamo agli sviluppatori di assicurare un URI di reindirizzamento personalizzato al momento della registrazione dell'applicazione con Microsoft. Le modalità di creazione dell'URI di reindirizzamento da parte degli sviluppatori vengono trattate in dettaglio di seguito. Questo URI di reindirizzamento personalizzato contiene l'ID bundle dell'applicazione e Apple App Store ne garantisce l'univocità per l'applicazione. Quando un'applicazione chiama il broker, questo richiede al sistema operativo iOS per fornire l'ID bundle che ha chiamato il broker. Il broker fornisce questo ID bundle a Microsoft nella chiamata al sistema di identità. Se l'ID bundle dell'applicazione non corrisponde all'ID bundle offerto dallo sviluppatore durante la registrazione, verrà negato l'accesso ai token per la risorsa richiesti dall'applicazione. Questo controllo garantisce che solo l'applicazione registrata dallo sviluppatore riceva i token.
 
 **Lo sviluppatore può scegliere se l'SDK deve chiamare il broker o usare il flusso non assistito dal broker.** Se lo sviluppatore decide di non usare il flusso assistito dal broker, rinuncia al vantaggio dell'uso delle credenziali SSO che l'utente potrebbe avere già aggiunto nel dispositivo e impedisce di usare l'applicazione con le funzionalità aziendali offerte da Microsoft, ad esempio l'Accesso condizionale, le funzionalità di gestione di Intune e l'autenticazione basata su certificati.
 
@@ -164,7 +164,7 @@ Per l'SSO non assistito da broker tra applicazioni, gli SDK risolvono automatica
 
 Per abilitare l'SSO tra le applicazioni di cui si è proprietari, eseguire le operazioni seguenti:
 
-1. Verificare che tutte le applicazioni usino lo stesso ID client o ID applicazione.
+1. Assicurarsi che tutte le applicazioni utilizzino lo stesso ID client o ID applicazione.
 2. Verificare che tutte le applicazioni condividano lo stesso certificato di firma di Apple per poter condividere i portachiavi.
 3. Richiedere lo stesso diritto per i portachiavi per ogni applicazione.
 4. Indicare agli SDK il portachiavi condiviso da usare.
@@ -230,7 +230,7 @@ Una volta configurati correttamente i diritti, nella directory del progetto verr
 </plist>
 ```
 
-Quando il diritto keychain è abilitato in ogni applicazione e si è pronti per usare SSO, indicare a Identity SDK il keychain usando l'impostazione seguente nel `ADAuthenticationSettings` con l'impostazione seguente:
+Una volta abilitato il diritto del portachiavi in ciascuna delle applicazioni e aver utilizzato SSO, indicare all'SDK di identità il portachiavi utilizzando l'impostazione seguente `ADAuthenticationSettings` con l'impostazione seguente:
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";
@@ -243,7 +243,7 @@ L'operazione è terminata. L'SDK condividerà le credenziali tra tutte le applic
 
 ### <a name="turning-on-sso-for-broker-assisted-sso"></a>Attivazione di SSO per SSO assistito da broker
 
-La possibilità per un'applicazione di usare qualsiasi broker installato nel dispositivo è **disattivata per impostazione predefinita**. Per usare l'applicazione con il broker è necessario apportare alcune modifiche alla configurazione e aggiungere una parte di codice all'applicazione.
+La possibilità per un'applicazione di utilizzare qualsiasi broker installato sul dispositivo è **disattivata per impostazione predefinita.** Per usare l'applicazione con il broker è necessario apportare alcune modifiche alla configurazione e aggiungere una parte di codice all'applicazione.
 
 Ecco i passaggi da seguire:
 
@@ -297,7 +297,7 @@ L'URI di reindirizzamento deve essere nel formato corretto:
 
 Ad esempio: *x-msauth-mytestiosapp://com.myapp.mytestapp*
 
-L'URI di reindirizzamento deve essere specificato nella registrazione dell'app tramite il [portale di Azure](https://portal.azure.com/). Per altre informazioni sulla registrazione di app Azure AD, vedere [Integrazione con Azure Active Directory](../develop/active-directory-how-to-integrate.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+Questo URI di reindirizzamento deve essere specificato nella registrazione dell'app tramite il portale di [Azure.This redirect](https://portal.azure.com/)URI needs to be specified in your app registration using the Azure portal . Per altre informazioni sulla registrazione di app Azure AD, vedere [Integrazione con Azure Active Directory](../develop/active-directory-how-to-integrate.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
 ##### <a name="step-3a-add-a-redirect-uri-in-your-app-and-dev-portal-to-support-certificate-based-authentication"></a>Passaggio 3a: Aggiungere un URI di reindirizzamento nell'app e nel portale per sviluppatori per supportare l'autenticazione basata su certificati
 
@@ -309,7 +309,7 @@ Ad esempio: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
 #### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>Passaggio 4: Aggiungere un parametro di configurazione all'app
 
-ADAL usa –canOpenURL: per controllare se il broker è installato nel dispositivo. In iOS 9 Apple ha bloccato gli schemi di cui un'applicazione può effettuare una query. Sarà necessario aggiungere "msauth" alla sezione LSApplicationQueriesSchemes di `info.plist file`.
+ADAL usa –canOpenURL: per controllare se il broker è installato nel dispositivo. In iOS 9 Apple ha bloccato gli schemi di cui un'applicazione può effettuare una query. È necessario aggiungere "msauth" alla sezione LSApplicationQueriesSchemes del `info.plist file`file .
 
 ```
     <key>LSApplicationQueriesSchemes</key>
