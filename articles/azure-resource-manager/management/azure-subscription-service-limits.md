@@ -2,45 +2,58 @@
 title: Limiti e quote della sottoscrizione di Azure
 description: Fornisce un elenco di limiti, quote e vincoli comuni relativi alle sottoscrizioni e ai servizi di Azure. Questo articolo include informazioni su come aumentare i limiti insieme ai valori massimi.
 ms.topic: conceptual
-ms.date: 02/24/2020
-ms.openlocfilehash: f7fefecddaf50feda247dd711505aef1b4f206f0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/26/2020
+ms.openlocfilehash: 325f7b3d03435945779c1f42e13681dcfd9604b6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79274528"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334726"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 
 In questo documento sono elencati alcuni dei limiti più comuni di Microsoft Azure, che vengono definiti anche quote.
 
-Per altre informazioni sui prezzi di Azure, vedere [Panoramica dei prezzi di Azure](https://azure.microsoft.com/pricing/). Qui è possibile stimare i costi usando il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/). È anche possibile passare alla pagina dei dettagli prezzi per un particolare servizio, ad esempio [macchine virtuali Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Per suggerimenti su come gestire i costi, vedere [Evitare costi imprevisti con la fatturazione del costi e la fatturazione di Azure](../../billing/billing-getting-started.md).
+Per altre informazioni sui prezzi di Azure, vedere [Panoramica dei prezzi di Azure.To](https://azure.microsoft.com/pricing/)learn more about Azure pricing, see Azure pricing overview. Lì, è possibile stimare i costi utilizzando il [calcolatore](https://azure.microsoft.com/pricing/calculator/)dei prezzi . È anche possibile passare alla pagina dei dettagli dei prezzi per un determinato servizio, ad esempio [macchine virtuali Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Per suggerimenti su come gestire i costi, vedere [Evitare costi imprevisti con la fatturazione del costi e la fatturazione di Azure](../../billing/billing-getting-started.md).
 
 ## <a name="managing-limits"></a>Gestione dei limiti
 
-Per aumentare il limite o la quota superiore al limite predefinito, è possibile [aprire una richiesta di assistenza clienti online senza alcun addebito](../templates/error-resource-quota.md). I limiti non possono essere aumentati oltre il valore limite massimo illustrato nelle tabelle seguenti. Se non è presente alcuna colonna limite massimo, la risorsa non ha limiti regolabili.
+> [!NOTE]
+> Alcuni servizi hanno limiti regolabili.
+>
+> Quando un servizio non dispone di limiti regolabili, nelle tabelle seguenti viene utilizzata l'intestazione **Limit**. In questi casi, i limiti predefiniti e massimi sono gli stessi.
+>
+> Quando il limite può essere regolato, le tabelle includono **Limite predefinito** e Intestazioni **limite massimo.** Il limite può essere superato al di sopra del limite predefinito, ma non al di sopra del limite massimo.
+>
+> Se si desidera aumentare il limite o la quota al di sopra del limite predefinito, aprire una richiesta di [assistenza clienti online senza alcun costo aggiuntivo.](../templates/error-resource-quota.md)
 
-Le [sottoscrizioni della versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) non sono idonee per aumenti limite o quota Se si ha una [sottoscrizione per la versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p), è possibile eseguire l'aggiornamento a una sottoscrizione con [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/). Per altre informazioni, vedere [aggiornare la sottoscrizione della versione di valutazione gratuita di Azure a una sottoscrizione con pagamento in base](../../billing/billing-upgrade-azure-subscription.md) al consumo e le [domande frequenti sulla sottoscrizione della versione di valutazione gratuita](https://azure.microsoft.com/free/free-account-faq).
+[Le sottoscrizioni di prova gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) non sono idonee per gli aumenti di limiti o quote. Se si ha una [sottoscrizione per la versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p), è possibile eseguire l'aggiornamento a una sottoscrizione con [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/). Per altre informazioni, vedere [Aggiornare la sottoscrizione](../../billing/billing-upgrade-azure-subscription.md) di valutazione gratuita di Azure a una sottoscrizione con pagamento in base al popup e Domande frequenti sulla sottoscrizione di [valutazione gratuita.](https://azure.microsoft.com/free/free-account-faq)
 
-Alcuni limiti vengono gestiti a livello di area.
+Alcuni limiti sono gestiti a livello regionale.
 
-Si considerino, ad esempio, le quote di vCPU. Per richiedere un aumento della quota con supporto per vCPU, è necessario decidere il numero di vCPU che si vuole usare in quali aree. Si crea quindi una richiesta specifica per le quote vCPU del gruppo di risorse di Azure per le quantità e le aree desiderate. Se è necessario usare 30 vCPU in Europa occidentale per eseguire l'applicazione, si richiede in modo specifico 30 vCPU in Europa occidentale. La quota di vCPU non è aumentata in nessun'altra area, ma la quota di 30 vCPU è solo in Europa occidentale.
+Si considerino, ad esempio, le quote di vCPU. Per richiedere un aumento della quota con il supporto per vCPU, è necessario decidere quante vCPU si desidera utilizzare in quali aree. Si effettua quindi una richiesta specifica per le quote vCPU del gruppo di risorse di Azure per gli importi e le aree desiderate. Se è necessario utilizzare 30 vCPU nell'Europa occidentale per eseguire l'applicazione, è necessario richiedere in modo specifico 30 vCPU in Europa occidentale. La quota vCPU non è aumentata in nessun'altra regione: solo l'Europa occidentale ha la quota di 30 vCPU.
 
-Di conseguenza, decidere quali quote del gruppo di risorse di Azure devono essere per il carico di lavoro in una qualsiasi area. Quindi richiedere tale quantità in ogni area in cui si vuole eseguire la distribuzione. Per informazioni su come determinare le quote correnti per aree specifiche, vedere risolvere gli [errori per le quote delle risorse](../templates/error-resource-quota.md).
+Di conseguenza, decidere quali devono essere le quote del gruppo di risorse di Azure per il carico di lavoro in qualsiasi area. Richiedere quindi tale importo in ogni area in cui si desidera eseguire la distribuzione. Per informazioni su come determinare le quote correnti per aree specifiche, vedere Risolvere gli [errori per le quote di risorse.](../templates/error-resource-quota.md)
 
 ## <a name="general-limits"></a>Limiti generali
 
-Per i limiti sui nomi delle risorse, vedere [regole di denominazione e restrizioni per le risorse di Azure](resource-name-rules.md).
+Per i limiti relativi ai nomi delle risorse, vedere [Regole di denominazione e restrizioni per le risorse](resource-name-rules.md)di Azure.For limits on resource names, see Naming rules and restrictions for Azure resources .
 
 Per informazioni sui limiti di lettura e scrittura dell'API di Gestione risorse, vedere [Limitazione delle richieste di Gestione risorse](request-limits-and-throttling.md).
 
+### <a name="management-group-limits"></a>Limiti del gruppo di gestione
+
+I seguenti limiti si applicano ai gruppi di [gestione](../../governance/management-groups/overview.md).
+
+[!INCLUDE [management-group-limits](../../../includes/management-group-limits.md)]
+
 ### <a name="subscription-limits"></a>Limiti delle sottoscrizioni
 
-Quando si usano Azure Resource Manager e i gruppi di risorse di Azure, si applicano i limiti seguenti.
+I limiti seguenti si applicano quando si usano i gruppi di risorse di Azure Resource Manager e Azure.The following limits apply when you use Azure Resource Manager and Azure resource groups.
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
-### <a name="resource-group-limits"></a>Limiti del gruppo di risorse
+### <a name="resource-group-limits"></a>Limiti dei gruppi di risorse
 
 [!INCLUDE [azure-resource-groups-limits](../../../includes/azure-resource-groups-limits.md)]
 
@@ -66,17 +79,17 @@ I limiti del servizio App seguenti includono limiti per le App Web, App mobili e
 
 [!INCLUDE [redis-cache-service-limits](../../../includes/redis-cache-service-limits.md)]
 
-## <a name="azure-cloud-services-limits"></a>Limiti di servizi cloud di Azure
+## <a name="azure-cloud-services-limits"></a>Limiti dei servizi cloud di AzureAzure Cloud Services limits
 
 [!INCLUDE [azure-cloud-services-limits](../../../includes/azure-cloud-services-limits.md)]
 
-## <a name="azure-cognitive-search-limits"></a>Limiti di Azure ricerca cognitiva
+## <a name="azure-cognitive-search-limits"></a>Limiti di Ricerca cognitiva di AzureAzure Cognitive Search limits
 
 I piano tariffari determinano la capacità e i limiti del servizio di ricerca. Sono disponibili i piani seguenti:
 
-* Il servizio multi-tenant **gratuito** , condiviso con altri Sottoscrittori di Azure, è destinato a progetti di valutazione e di sviluppo di piccole dimensioni.
+* Il servizio multi-tenant **gratuito,** condiviso con altri sottoscrittori di Azure, è destinato alla valutazione e ai piccoli progetti di sviluppo.
 * **Basic** fornisce risorse di calcolo dedicate per i carichi di lavoro di produzione su scala più ridotta, con un massimo di 3 repliche per i carichi di lavoro di query a disponibilità elevata.
-* **Standard**, che include S1, S2, S3 e S3 High Density, è destinato a carichi di lavoro di produzione di dimensioni maggiori. All'interno del livello standard esistono più livelli, in modo che sia possibile scegliere una configurazione di risorsa più adatta al proprio profilo di carico di lavoro.
+* **Standard**, che include S1, S2, S3 e S3 High Density, è per carichi di lavoro di produzione più grandi. All'interno del livello Standard sono presenti più livelli in modo da poter scegliere una configurazione di risorse che meglio corrisponde al profilo del carico di lavoro.
 
 **Limiti per ogni sottoscrizione**
 
@@ -86,17 +99,17 @@ I piano tariffari determinano la capacità e i limiti del servizio di ricerca. S
 
 [!INCLUDE [azure-search-limits-per-service](../../../includes/azure-search-limits-per-service.md)]
 
-Per altre informazioni sui limiti a un livello più granulare, ad esempio le dimensioni del documento, le query al secondo, le chiavi, le richieste e le risposte, vedere [limiti dei servizi in Azure ricerca cognitiva](../../search/search-limits-quotas-capacity.md).
+Per altre informazioni sui limiti a un livello più granulare, ad esempio dimensioni del documento, query al secondo, chiavi, richieste e risposte, vedere [Limiti del servizio in Ricerca cognitiva](../../search/search-limits-quotas-capacity.md)di Azure.To learn more about limits on a more granular level, such as document size, queries per second, keys, requests, and responses, see Service limits in Azure Cognitive Search .
 
-## <a name="azure-cognitive-services-limits"></a>Limiti dei servizi cognitivi di Azure
+## <a name="azure-cognitive-services-limits"></a>Limiti di Servizi cognitivi di AzureAzure Cognitive Services limits
 
 [!INCLUDE [azure-cognitive-services-limits](../../../includes/azure-cognitive-services-limits.md)]
 
 ## <a name="azure-cosmos-db-limits"></a>Limiti relativi ad Azure Cosmos DB
 
-Per Azure Cosmos DB limiti, vedere [limiti nella Azure Cosmos DB](../../cosmos-db/concepts-limits.md).
+Per i limiti di Azure Cosmos DB, vedere [Limiti in Azure Cosmos DB](../../cosmos-db/concepts-limits.md).
 
-## <a name="azure-data-explorer-limits"></a>Limiti di Azure Esplora dati
+## <a name="azure-data-explorer-limits"></a>Limiti di Azure Data ExplorerAzure Data Explorer limits
 
 [!INCLUDE [azure-data-explorer-limits](../../../includes/data-explorer-limits.md)]
 
@@ -108,23 +121,23 @@ Per i limiti del Database di Azure per MySQL, vedere [Limiti di Database di Azur
 
 Per i limiti del Database di Azure per PostgreSQL, vedere [Limiti di Database di Azure per PostgreSQL](../../postgresql/concepts-limits.md).
 
-## <a name="azure-functions-limits"></a>Limiti di funzioni di Azure
+## <a name="azure-functions-limits"></a>Limiti di Funzioni di AzureAzure Functions limits
 
 [!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
 
-## <a name="azure-kubernetes-service-limits"></a>Limiti del servizio Azure Kubernetes
+## <a name="azure-kubernetes-service-limits"></a>Limiti del servizio Azure KubernetesAzure Kubernetes Service limits
 
 [!INCLUDE [container-service-limits](../../../includes/container-service-limits.md)]
 
-## <a name="azure-machine-learning-limits"></a>Limiti di Azure Machine Learning
+## <a name="azure-machine-learning-limits"></a>Limiti di Azure Machine LearningAzure Machine Learning limits
 
-I valori più recenti per Azure Machine Learning quote di calcolo sono disponibili nella [pagina Azure Machine Learning quota](../../machine-learning/how-to-manage-quotas.md)
+I valori più recenti per le quote di Calcolo di Azure Machine Learning sono disponibili nella pagina delle quote di [Azure Machine Learning](../../machine-learning/how-to-manage-quotas.md)
 
 ## <a name="azure-maps-limits"></a>Limiti di Mappe di Azure
 
 [!INCLUDE [maps-limits](../../../includes/maps-limits.md)]
 
-## <a name="azure-monitor-limits"></a>Limiti di monitoraggio di Azure
+## <a name="azure-monitor-limits"></a>Limiti di Monitoraggio di AzureAzure Monitor limits
 
 ### <a name="alerts"></a>Avvisi
 
@@ -134,7 +147,7 @@ I valori più recenti per Azure Machine Learning quote di calcolo sono disponibi
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-action-groups.md)]
 
-### <a name="log-queries-and-language"></a>Query e linguaggio di log
+### <a name="log-queries-and-language"></a>Query di log e lingua
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-log-queries.md)]
 
@@ -150,7 +163,7 @@ I valori più recenti per Azure Machine Learning quote di calcolo sono disponibi
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
 
-## <a name="azure-signalr-service-limits"></a>Limiti del servizio Azure SignalR
+## <a name="azure-signalr-service-limits"></a>Limiti del servizio SignalR di AzureAzure SignalR Service limits
 
 [!INCLUDE [signalr-service-limits](../../../includes/signalr-service-limits.md)]
 
@@ -164,7 +177,7 @@ I valori più recenti per Azure Machine Learning quote di calcolo sono disponibi
 
 ## <a name="classic-deployment-model-limits"></a>Limiti del modello di distribuzione classica
 
-Se si usa il modello di distribuzione classica anziché il modello di distribuzione Azure Resource Manager, si applicano i limiti seguenti.
+Se si usa il modello di distribuzione classica anziché il modello di distribuzione di Azure Resource Manager, si applicano i limiti seguenti.
 
 [!INCLUDE [azure-subscription-limits](../../../includes/azure-subscription-limits.md)]
 
@@ -174,7 +187,7 @@ Se si usa il modello di distribuzione classica anziché il modello di distribuzi
 
 ## <a name="container-registry-limits"></a>Limiti per Registro contenitori
 
-La tabella seguente illustra le funzionalità e i limiti dei [livelli di servizio](../../container-registry/container-registry-skus.md) Basic, Standard e Premium.
+Nella tabella seguente vengono descritte in dettaglio le funzionalità e i limiti dei livelli di [servizio](../../container-registry/container-registry-skus.md)Basic, Standard e Premium .
 
 [!INCLUDE [container-registry-limits](../../../includes/container-registry-limits.md)]
 
@@ -194,7 +207,7 @@ La tabella seguente illustra le funzionalità e i limiti dei [livelli di servizi
 
 [!INCLUDE [azure-data-lake-store-limits](../../../includes/azure-data-lake-store-limits.md)]
 
-## <a name="data-share-limits"></a>Limiti della condivisione dati
+## <a name="data-share-limits"></a>Limiti di condivisione dati
 
 [!INCLUDE [azure-data-share-limits](../../../includes/azure-data-share-limits.md)]
 
@@ -202,7 +215,7 @@ La tabella seguente illustra le funzionalità e i limiti dei [livelli di servizi
 
 [!INCLUDE [database-migration-service-limits](../../../includes/database-migration-service-limits.md)]
 
-## <a name="event-grid-limits"></a>Limiti di griglia di eventi
+## <a name="event-grid-limits"></a>Limiti della griglia di eventi
 
 [!INCLUDE [event-grid-limits](../../../includes/event-grid-limits.md)]
 
@@ -245,11 +258,11 @@ La tabella seguente illustra le funzionalità e i limiti dei [livelli di servizi
 
 [!INCLUDE [azure-virtual-network-limits](../../../includes/azure-virtual-network-limits.md)]
 
-### <a name="expressroute-limits"></a>Limiti di ExpressRoute
+### <a name="expressroute-limits"></a>Limiti di ExpressRouteExpressRoute limits
 
 [!INCLUDE [expressroute-limits](../../../includes/expressroute-limits.md)]
 
-### <a name="virtual-wan-limits"></a>Limiti WAN virtuali
+### <a name="virtual-wan-limits"></a>Limiti della rete WAN virtuale
 
 [!INCLUDE [virtual-wan-limits](../../../includes/virtual-wan-limits.md)]
 
@@ -270,11 +283,11 @@ Se non diversamente specificato, la tabella è valida per gli SKU v1, v2, Standa
 
 [!INCLUDE [traffic-manager-limits](../../../includes/traffic-manager-limits.md)]
 
-### <a name="azure-bastion-limits"></a>Limiti di Azure Bastion
+### <a name="azure-bastion-limits"></a>Limiti del Bastione di AzureAzure Bastion limits
 
 [!INCLUDE [Azure Bastion limits](../../../includes/bastion-limits.md)]
 
-### <a name="azure-dns-limits"></a>Limiti di DNS di Azure
+### <a name="azure-dns-limits"></a>Limiti DNS di AzureAzure DNS limits
 
 [!INCLUDE [dns-limits](../../../includes/dns-limits.md)]
 
@@ -286,7 +299,7 @@ Se non diversamente specificato, la tabella è valida per gli SKU v1, v2, Standa
 
 [!INCLUDE [azure-front-door-service-limits](../../../includes/front-door-limits.md)]
 
-## <a name="notification-hubs-limits"></a>Limiti di hub di notifica
+## <a name="notification-hubs-limits"></a>Limiti degli hub di notifica
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
 
@@ -304,18 +317,18 @@ Se non diversamente specificato, la tabella è valida per gli SKU v1, v2, Standa
 
 ## <a name="sql-database-limits"></a>Limiti relativi a database SQL
 
-Per i limiti del database SQL, vedere limiti [delle risorse del database SQL per database singoli](../../sql-database/sql-database-vcore-resource-limits-single-databases.md), [limiti delle risorse del database SQL per pool elastici e database in pool](../../sql-database/sql-database-vcore-resource-limits-elastic-pools.md)e [limiti delle risorse del database SQL per le istanze gestite](../../sql-database/sql-database-managed-instance-resource-limits.md).
+Per i limiti del database SQL, vedere [Limiti delle risorse del database SQL per singoli database](../../sql-database/sql-database-vcore-resource-limits-single-databases.md), Limiti delle risorse del database SQL per pool [elastici e database in pool](../../sql-database/sql-database-vcore-resource-limits-elastic-pools.md)e Limiti delle risorse del database SQL per le [istanze gestite.](../../sql-database/sql-database-managed-instance-resource-limits.md)
 
 ## <a name="sql-data-warehouse-limits"></a>Limiti relativi a SQL Data Warehouse
 
-Per SQL Data Warehouse limiti, vedere [limiti delle risorse SQL data warehouse](../../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
+Per i limiti di SQL Data Warehouse, vedere [Limiti delle risorse di SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
 ## <a name="storage-limits"></a>Limiti relativi ad Archiviazione
 
 <!--like # storage accts -->
 [!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
 
-Per altre informazioni sui limiti per gli account di archiviazione standard, vedere [obiettivi di scalabilità per gli account di archiviazione standard](../../storage/common/scalability-targets-standard-account.md).
+Per altre informazioni sui limiti per gli account di archiviazione standard, vedere Obiettivi di [scalabilità per gli account di archiviazione standard.](../../storage/common/scalability-targets-standard-account.md)
 
 ### <a name="storage-resource-provider-limits"></a>Limiti relativi al provider delle risorse di archiviazione
 
@@ -327,7 +340,7 @@ Per altre informazioni sui limiti per gli account di archiviazione standard, ved
 
 ### <a name="azure-files-limits"></a>Limiti relativi a File di Azure
 
-Per altre informazioni sui limiti di File di Azure, vedere [obiettivi di scalabilità e prestazioni di file di Azure](../../storage/files/storage-files-scale-targets.md).
+Per altre informazioni sui limiti di File di Azure, vedere Obiettivi di scalabilità e prestazioni di File di Azure.For more information on Azure Files limits, see [Azure Files scalability and performance targets.](../../storage/files/storage-files-scale-targets.md)
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -348,7 +361,7 @@ Per altre informazioni sui limiti di File di Azure, vedere [obiettivi di scalabi
 
 [!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
 
-Per altre informazioni, vedere [dimensioni delle macchine virtuali](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Per ulteriori informazioni, vedere [Dimensioni delle macchine virtuali](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### <a name="managed-virtual-machine-disks"></a>Dischi delle macchine virtuali gestiti
 
@@ -376,25 +389,25 @@ Per altre informazioni, vedere [dimensioni delle macchine virtuali](../../virtua
 
 ### <a name="virtual-machines-limits---azure-resource-manager"></a>Limiti relativi a Macchine virtuali - Gestione risorse di Azure
 
-Quando si usano Azure Resource Manager e i gruppi di risorse di Azure, si applicano i limiti seguenti.
+I limiti seguenti si applicano quando si usano i gruppi di risorse di Azure Resource Manager e Azure.The following limits apply when you use Azure Resource Manager and Azure resource groups.
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../../../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
 ### <a name="shared-image-gallery-limits"></a>Limiti della raccolta immagini condivise
 
-Per la distribuzione delle risorse tramite le raccolte di immagini condivise sono previsti limiti, per sottoscrizione:
+Esistono limiti, per ogni sottoscrizione, per la distribuzione delle risorse tramite le raccolte di immagini condivise:There are limits, per subscription, for deploying resources using Shared Image Galleries:
 
-- 100 raccolte di immagini condivise, per sottoscrizione, per area
-- 1\.000 definizioni di immagine, per sottoscrizione, per area
-- 10.000 versioni dell'immagine, per sottoscrizione, per area
+- 100 gallerie di immagini condivise, per sottoscrizione, per area geografica
+- 1.000 definizioni di immagini, per sottoscrizione, per area
+- 10.000 versioni di immagini, per sottoscrizione, per area
 
-## <a name="virtual-machine-scale-sets-limits"></a>Limiti dei set di scalabilità di macchine virtuali
+## <a name="virtual-machine-scale-sets-limits"></a>La scalabilità delle macchine virtuali limita i limiti
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Informazioni sui limiti e sugli aumenti di Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-* [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Dimensioni dei servizi cloud di Azure](../../cloud-services/cloud-services-sizes-specs.md)
+* [Comprendere i limiti e gli aumenti di AzureUnderstand Azure limits and increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+* [Dimensioni delle macchine virtuali e dei servizi cloud per AzureVirtual machine and cloud service sizes for Azure](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Dimensioni per i servizi cloud di AzureSizes for Azure Cloud Services](../../cloud-services/cloud-services-sizes-specs.md)
 * [Regole di denominazione e restrizioni per le risorse di Azure](resource-name-rules.md)

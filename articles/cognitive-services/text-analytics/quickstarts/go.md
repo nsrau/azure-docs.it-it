@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Uso di Go per chiamare l'API Analisi del testo"
+title: "Guida introduttiva: Uso di Go per chiamare l'API Analisi del testo"
 titleSuffix: Azure Cognitive Services
 description: Informazioni ed esempi di codice per iniziare a usare l'API Analisi del testo in Servizi cognitivi di Azure.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
 ms.openlocfilehash: 03311cb873420f741ca0150dde59fb27eaa5d76f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75378764"
 ---
-# <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Avvio rapido: Uso di Go per chiamare il servizio cognitivo Analisi del testo 
+# <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Guida introduttiva: Uso di Go per chiamare il servizio cognitivo Analisi del testo 
 <a name="HOLTop"></a>
 
 Questo articolo illustra come [rilevare la lingua](#Detect), [analizzare il sentiment](#SentimentAnalysis), [estrarre frasi chiave](#KeyPhraseExtraction) e [identificare le entità collegate](#Entities) usando le  [API Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759711)  con Go.
@@ -404,7 +404,7 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 
 ## <a name="identify-entities"></a>Identificare le entità
 
-L'API Entità identifica le entità note in un documento di testo usando il metodo [Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). Le [entità](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) estraggono parole dal testo, ad esempio "United States" e quindi forniscono il tipo e/o il collegamento a Wikipedia relativo alla parola. Il tipo di "United States" è `location`, mentre il collegamento a Wikipedia è `https://en.wikipedia.org/wiki/United_States`.  L'esempio seguente identifica le entità per i documenti in inglese.
+L'API Entità identifica le entità note in un documento di testo usando il metodo [Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). Le [entità](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) estraggono parole dal testo, ad esempio "Stati Uniti" e quindi forniscono il tipo e/o il collegamento a Wikipedia relativo alla parola. Il tipo di "Stati Uniti" è `location`, mentre il collegamento a Wikipedia è `https://en.wikipedia.org/wiki/United_States`.  L'esempio seguente identifica le entità per i documenti in inglese.
 
 1. Creare un nuovo progetto Go nell'editor di codice preferito.
 1. Aggiungere il codice riportato di seguito.

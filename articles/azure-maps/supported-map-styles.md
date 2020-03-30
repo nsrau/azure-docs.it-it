@@ -1,19 +1,19 @@
 ---
-title: Stili della mappa supportati | Mappe Microsoft Azure
-description: In questo articolo verranno illustrati i diversi stili di rendering della mappa supportati dalle mappe Microsoft Azure.
-author: farah-alyasari
-ms.author: v-faalya
+title: Stili di mappa supportati Mappe di Microsoft Azure
+description: In this article, you'll learn about different map rendering styles supported by Microsoft Azure Maps.
+author: philmea
+ms.author: philmea
 ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: a65f20e04603403a1d3a180e364626d5b4440661
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 2eafe3c16a89723d55ec52fde785e9ec69e45e0c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77664508"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334033"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Stili delle mappe supportati da Mappe di Azure
 Mappe di Azure supporta vari stili di mappa predefiniti, come descritto di seguito.
@@ -29,12 +29,12 @@ Una mappa **stradale** è una mappa standard che indica le strade, caratteristic
 * Controllo mappa Web SDK
 * Controllo mappa Android
 
-## <a name="blank-and-blank_accessible"></a>Blank e blank_accessible
+## <a name="blank-and-blank_accessible"></a>vuoto e blank_accessible
 
-Gli stili **blank** e **blank_accessible** map forniscono un'area di disegno vuota su cui visualizzare i dati. Lo stile di **blank_accessible** continuerà a fornire aggiornamenti per la lettura dello schermo con i dettagli della posizione della mappa, anche se la mappa di base non viene visualizzata.
+Gli stili di mappa **vuoto** e **blank_accessible** forniscono un'area di disegno vuota su cui visualizzare i dati. Lo **stile blank_accessible** continuerà a fornire aggiornamenti dell'utilità per la lettura dello schermo con i dettagli della posizione della mappa, anche se la mappa di base non viene visualizzata.
 
 > [!Note]
-> In Web SDK è possibile modificare il colore di sfondo della mappa impostando lo stile CSS `background-color` dell'elemento map DIV.
+> Nel Web SDK è possibile modificare il colore di `background-color` sfondo della mappa impostando lo stile CSS dell'elemento DIV della mappa.
 
 **API idonee:**
 * Controllo mappa Web SDK
@@ -42,7 +42,7 @@ Gli stili **blank** e **blank_accessible** map forniscono un'area di disegno vuo
 ## <a name="satellite"></a>satellite 
 Lo stile del **satellite** è una combinazione di immagini aeree e satellitari.
 
-![stile mappa affiancata satellite](./media/supported-map-styles/satellite.png)
+![stile mappa tessile satellitare](./media/supported-map-styles/satellite.png)
 
 **API idonee:**
 * [Riquadro del satellite](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
@@ -52,7 +52,7 @@ Lo stile del **satellite** è una combinazione di immagini aeree e satellitari.
 ## <a name="satellite_road_labels"></a>satellite_road_labels
 Questo stile di mappa è un ibrido tra le strade e le indicazioni sovrapposte alle immagini del satellite e aeree.
 
-![stile mappa satellite_road_labels](./media/supported-map-styles/satellite-road-labels.png)
+![satellite_road_labels stile mappa](./media/supported-map-styles/satellite-road-labels.png)
 
 **API idonee:**
 * Controllo mappa Web SDK
@@ -61,7 +61,7 @@ Questo stile di mappa è un ibrido tra le strade e le indicazioni sovrapposte al
 ## <a name="grayscale_dark"></a>grayscale_dark
 **gradazioni di grigio scuro** è una versione scura dello stile della mappa stradale.
 
-![stile mappa gray_scale](./media/supported-map-styles/grayscale-dark.png)
+![gray_scale stile mappa](./media/supported-map-styles/grayscale-dark.png)
 
 **API idonee:**
 * [Immagine mappa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
@@ -71,9 +71,9 @@ Questo stile di mappa è un ibrido tra le strade e le indicazioni sovrapposte al
 
 
 ## <a name="grayscale_light"></a>grayscale_light
-la **luce in grigio** è una versione leggera dello stile della mappa stradale.
+**la luce in scala di grigi** è una versione leggera dello stile della mappa stradale.
 
-![stile mappa chiaro in scala di grigi](./media/supported-map-styles/grayscale-light.png)
+![stile mappa di luce in scala di grigi](./media/supported-map-styles/grayscale-light.png)
 
 **API idonee:**
 * Controllo mappa Web SDK
@@ -103,14 +103,14 @@ la **luce in grigio** è una versione leggera dello stile della mappa stradale.
 
 **high_contrast_dark** è uno stile di mappa scuro con un contrasto maggiore rispetto agli altri stili.
 
-![stile mappa scura a contrasto elevato](./media/supported-map-styles/high-contrast-dark.png)
+![stile mappa scura ad alto contrasto](./media/supported-map-styles/high-contrast-dark.png)
 
 **API idonee:**
 * Controllo mappa Web SDK
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come impostare uno stile di mappa in mappe di Azure:
+Informazioni su come impostare uno stile di mappa in Azure Maps:Learn about how to set a map style in Azure Maps:
 
 > [!div class="nextstepaction"]
 > [Scegliere uno stile mappa](https://docs.microsoft.com/azure/azure-maps/choose-map-style)

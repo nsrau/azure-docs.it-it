@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5cce4337e3ef95c6407d46d9b8b6401fe4f6600b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 48bd909eefbaea15cf6ca2427e106ad9bc0ffbb4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60576187"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298755"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Usare lo strumento di diagnostica StorSimple per risolvere i problemi dei dispositivi della serie 8000
 
@@ -33,7 +33,7 @@ L'uso dello strumento di diagnostica è destinato principalmente a dispositivi S
 
 Per eseguire questo strumento è possibile usare l'interfaccia di Windows PowerShell del dispositivo StorSimple. Per accedere all'interfaccia locale del dispositivo è possibile procedere in due modi:
 
-* [Usare PuTTY per connettersi alla console seriale del dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+* [Utilizzare PuTTY per connettersi alla console seriale del dispositivo.](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)
 * [Accedere in remoto allo strumento tramite Windows PowerShell per StorSimple](storsimple-8000-remote-connect.md).
 
 In questo articolo si presuppone che la connessione alla console seriale del dispositivo sia stata stabilita tramite PuTTY.
@@ -323,7 +323,7 @@ hcs_startup                                   Stopped hcs_startup
 
 ### <a name="network-test"></a>Test della rete
 
-Questo test verifica lo stato di interfacce di rete, porte, connettività del server NTP e DNS, certificato SSL, credenziali dell'account di archiviazione, connettività ai server di aggiornamento e connettività del proxy Web nel dispositivo StorSimple.
+Questo test convalida lo stato delle interfacce di rete, le porte, la connettività del server DNS e NTP, il certificato TLS/SSL, le credenziali dell'account di archiviazione, la connettività ai server di aggiornamento e la connettività proxy Web nel dispositivo StorSimple.
 
 #### <a name="sample-output-of-network-test-when-only-data0-is-enabled"></a>Esempio di output del test della rete quando è abilitata solo l'interfaccia di rete DATA0
 
@@ -333,7 +333,7 @@ Di seguito è riportato un output di esempio per il dispositivo 8100. L'output m
 * La configurazione del server DNS è valida e il dispositivo può connettersi tramite il server DNS.
 * La connettività del server NTP è valida.
 * Le porte 80 e 443 sono aperte, ma la porta 9354 è bloccata. In base ai [requisiti di rete del sistema](storsimple-system-requirements.md), questa porta deve essere aperta per la comunicazione del bus di servizio.
-* Il certificato SSL è valido.
+* La certificazione TLS/SSL è valida.
 * Il dispositivo può connettersi all'account di archiviazione _myss8000storageacct_.
 * La connettività ai server di aggiornamento è valida.
 * Il proxy Web non è configurato in questo dispositivo.
@@ -417,7 +417,7 @@ La tabella riportata di seguito illustra il mapping dei vari parametri di Window
 | Parametro di PowerShell    | Descrizione  |
 |-------------------------|------------------|
 | ID istanza             | Ogni controller è associato a un identificatore univoco o un GUID.|
-| Name                    | Nome descrittivo del dispositivo configurato tramite il portale di Azure durante la distribuzione del dispositivo. Il nome descrittivo predefinito è il numero di serie del dispositivo. |
+| Nome                    | Nome descrittivo del dispositivo configurato tramite il portale di Azure durante la distribuzione del dispositivo. Il nome descrittivo predefinito è il numero di serie del dispositivo. |
 | Modello                   | Modello del dispositivo StorSimple serie 8000. Il modello può essere 8100 o 8600.|
 | SerialNumber            | Numero di serie di 15 caratteri assegnato in fase di produzione. Ad esempio, 8600-SHX0991003G44HT indica quanto segue:<br> 8600: modello del dispositivo.<br>SHX: sito di produzione.<br> 0991003: prodotto specifico. <br> G44HT: ultime cinque cifre incrementate per creare numeri di serie univoci. Questo potrebbe non essere un insieme sequenziale.|
 | TimeZone                | Fuso orario del dispositivo configurato nel portale di Azure durante la distribuzione del dispositivo.|

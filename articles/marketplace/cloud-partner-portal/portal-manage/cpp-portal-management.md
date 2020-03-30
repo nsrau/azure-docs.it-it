@@ -1,20 +1,19 @@
 ---
-title: Gestione portale Cloud Partner | Azure Marketplace
-description: Articolo relativo a CPP deprecato, che punta a un PC. was "descrive i tipi di operazioni disponibili per gestire gli account per la portale Cloud Partner per Azure Marketplace."
-services: Azure, Marketplace, Cloud Partner Portal, Partner Center
-author: ChJenk
+title: Gestione del portale per i partner cloud Azure Marketplace
+description: Articolo CPP deprecato, puntato all'articolo del PC; è stato "Descrive i tipi di operazioni disponibili per gestire gli account per il portale Cloud Partner per Azure Marketplace".
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.author: v-chjen
-ms.openlocfilehash: 4d586e45b0d86bedce61eef69a87d3fc187cf279
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.author: dsindona
+ms.openlocfilehash: ce7e56352533072c625d0ea54a77fa6c4860f2e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666393"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288445"
 ---
-# <a name="cloud-partner-portal-management"></a>Gestione portale Cloud Partner
+# <a name="cloud-partner-portal-management"></a>Gestione del portale per i partner cloud
 
-Questa funzionalità è stata spostata nel [portale del centro](https://partner.microsoft.com/)per i partner Microsoft. Per ulteriori informazioni, vedere [come gestire l'account del Marketplace commerciale nel centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account).
+Questa funzionalità è stata spostata nel [portale del Centro per i partner](https://partner.microsoft.com/)Microsoft. Per ulteriori informazioni, vedere [Come gestire l'account Commercial Marketplace nel Centro per i partner.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account)

@@ -1,19 +1,18 @@
 ---
-title: Aggiornare le offerte del Marketplace | Azure Marketplace
+title: Aggiornamento delle offerte del marketplace Azure Marketplace
 description: Aggiornare le offerte nei marketplace Azure e AppSource usando il portale Cloud Partner
-services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: pabutler
-ms.openlocfilehash: b3f579dbdc943b2380c9de3dde6b2ebf4754d4d1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 101369a050770be3acd9534cef6229037fe1c366
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826723"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288513"
 ---
 # <a name="update-azure-marketplace-and-appsource-offers"></a>Aggiornare le offerte di Azure Marketplace e AppSource
 
@@ -47,7 +46,7 @@ Le sezioni seguenti illustrano come eseguire alcune delle operazioni di aggiorna
 
 Usare la procedura seguente per aggiornare i contatti di supporto per l'offerta.
 1. Nella pagina **Tutte le offerte** selezionare l'offerta.
-2. Selezionare la scheda **contatti** . aggiornare i contatti.
+2. Selezionare la scheda **Contatti.** Aggiornare i contatti.
 3. Fare clic sul pulsante **Salva**.
 4. Selezionare **Pubblica** per avviare il processo di pubblicazione.
 
@@ -62,7 +61,7 @@ Per implementare queste modifiche, seguire questa procedura.
 
 Per le offerte di Azure Marketplace:
 
-1. Selezionare la scheda **SKU** .  Selezionare lo SKU da modificare.
+1. Selezionare la scheda **SKU.**  Selezionare lo SKU da modificare.
 1. Fare clic sul pulsante **Selezionare paesi** che si trova sotto il campo **Disponibilità paese**.
 1. Nella finestra di dialogo della disponibilità in base all'area geografica aggiungere o rimuovere aree per lo SKU selezionato.
 
@@ -91,7 +90,7 @@ Per rendere disponibile un nuovo SKU per un'offerta esistente, seguire questa pr
 
 ### <a name="update-offer-marketplace-assets"></a>Aggiornare gli asset del marketplace dell'offerta
 
-È possibile che si verifichino scenari in cui è necessario aggiornare le risorse di immagini e basate su testo del Marketplace, ad esempio i logo aziendali, la descrizione dell'offerta e così via. Usare la procedura seguente per aggiornare questi asset.
+Potresti avere scenari in cui devi aggiornare le risorse di testo e immagine del marketplace, ad esempio i loghi della tua azienda, la descrizione dell'offerta e così via. Per aggiornare queste risorse, segui questi passaggi.
 
 1. Nella pagina **Tutte le offerte** trovare l'offerta. 
 2. Selezionare la scheda **Marketplace** e seguire le istruzioni nell'argomento *Scheda Marketplace* dell'offerta.
@@ -104,7 +103,7 @@ Dopo la pubblicazione di un'offerta con pagamento in base al consumo, non è pos
 
 1. Selezionare lo SKU per il quale si vuole ridurre il prezzo.
 2. È necessario impostare il prezzo inferiore con lo stesso meccanismo usato in origine: direttamente nell'interfaccia utente del portale o con l'importazione/esportazione nel foglio di calcolo.
-3. Fare clic su **Save**.
+3. Fare clic su **Salva**.
 4. Fare clic su **Pubblica** per avviare il processo di pubblicazione.
 
 I prezzi sono visibili ai nuovi clienti dopo la pubblicazione nel marketplace e tutti i nuovi clienti pagheranno il nuovo prezzo ridotto.  Per i clienti esistenti, la riduzione dei prezzi rispecchia retroattivamente l'inizio del ciclo di fatturazione durante il quale la riduzione dei prezzi diventa effettiva.  Se hanno già ricevuto fatture per il ciclo durante il quale si è verificata una riduzione di prezzo, i clienti riceveranno un rimborso a copertura della riduzione del prezzo al momento del ciclo di fatturazione successivo.

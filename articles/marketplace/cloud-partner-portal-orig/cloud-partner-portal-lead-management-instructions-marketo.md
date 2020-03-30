@@ -1,19 +1,18 @@
 ---
-title: Configurare la gestione dei lead in Marketo | Azure Marketplace
-description: Configurare la gestione dei lead per Marketo per i clienti di Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+title: Configurare la gestione dei lead in Marketo Azure Marketplace
+description: Configurare la gestione dei lead per i clienti del marketplace di Marketo per Azure.Configure lead management for Marketo for Azure marketplace customers.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pabutler
-ms.openlocfilehash: 7949507c8c7ef57cded25cde8579c1945aa93a81
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 9fa05eae2d297cbd6ae7243d191cae5a7a3f990e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825205"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288530"
 ---
 # <a name="configure-lead-management-in-marketo"></a>Configurare la gestione dei lead in Marketo
 
@@ -42,7 +41,7 @@ Questo articolo descrive come configurare Marketo per gestire i lead di vendita 
 `<script src="//app-ys12.marketo.com/js/forms2/js/forms2.min.js"></script>`
 
     <form id="mktoForm_1179"></form>
-    <script>MktoForms2.loadForm("("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
+    <script>MktoForms2.loadForm("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
 
 1. Copiare i valori visualizzati in Codice di incorporamento per configurare **ID server**, **ID Munchkin** e **ID del modulo** nei campi di Marketo nel portale Cloud Partner.
 
@@ -50,4 +49,4 @@ Usare l'esempio seguente come guida per ottenere gli ID necessari dall'esempio d
 
 - ID server = **ys12**
 - ID Munchkin = **123-PQR-789**
-- ID modulo = **1179**\
+- ID modulo = **1179**

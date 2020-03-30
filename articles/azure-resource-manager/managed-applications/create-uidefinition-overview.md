@@ -1,22 +1,22 @@
 ---
-title: File CreateUiDefinition. JSON per il riquadro del portale
-description: Viene descritto come creare definizioni dell'interfaccia utente per la portale di Azure. Usato durante la definizione di applicazioni gestite di Azure.
+title: CreateUiDefinition.json file per il riquadro del portale
+description: Viene descritto come creare definizioni dell'interfaccia utente per il portale di Azure.Describes how to create user interface definitions for the Azure portal. Utilizzato quando si definiscono le applicazioni gestite di Azure.Used when defining Azure Managed Applications.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5fcc87e894cfab0075b33835a0673b133c629b73
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 2956c76f5bec353639b39228b982db21b6932deb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75650877"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294901"
 ---
-# <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition. JSON per l'esperienza di creazione di un'applicazione gestita di Azure
+# <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json per l'esperienza di creazione di un'applicazione gestita di Azure
 
-Questo documento introduce i concetti di base del file **createUiDefinition. JSON** che portale di Azure usa per definire l'interfaccia utente durante la creazione di un'applicazione gestita.
+Questo documento introduce i concetti di base del file **createUiDefinition.json** che il portale di Azure usa per definire l'interfaccia utente durante la creazione di un'applicazione gestita.
 
-Il modello è il seguente:
+Il modello è il seguente
 
 ```json
 {
@@ -38,21 +38,21 @@ CreateUiDefinition contiene sempre tre proprietà:
 * version
 * parametri
 
-Il gestore deve sempre essere `Microsoft.Azure.CreateUIDef`e la versione supportata più recente è `0.1.2-preview`.
+Il gestore `Microsoft.Azure.CreateUIDef`deve essere sempre , `0.1.2-preview`e l'ultima versione supportata è .
 
 Lo schema della proprietà parameters dipende dalla combinazione delle proprietà handler e version specificate. Per le applicazioni gestite sono supportate le proprietà `basics`, `steps` e `outputs`. Le proprietà basics e steps contengono [elementi](create-uidefinition-elements.md), ad esempio caselle di testo ed elenchi a discesa, da visualizzare nel portale di Azure. La proprietà outputs viene usata per il mapping dei valori di output degli elementi specificati ai parametri del modello di distribuzione Azure Resource Manager.
 
 L'inclusione di `$schema` è consigliata ma facoltativa. Se specificato, il valore per la proprietà `version` deve corrispondere alla versione nell'URI di `$schema`.
 
-È possibile usare un editor JSON per creare il createUiDefinition, quindi testarlo nella [sandbox createUiDefinition](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) per visualizzarne l'anteprima. Per altre informazioni sulla sandbox, vedere [testare l'interfaccia del portale per le applicazioni gestite di Azure](test-createuidefinition.md).
+È possibile usare un editor JSON per creare createUiDefinition e quindi testarlo nella [sandbox createUiDefinition](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) per visualizzarne l'anteprima. Per altre informazioni sulla sandbox, vedere [Testare l'interfaccia del portale per le applicazioni gestite](test-createuidefinition.md)di Azure.For more information about the sandbox, see Test your portal interface for Azure Managed Applications .
 
 ## <a name="basics"></a>Nozioni di base
 
-Le nozioni di base sono il primo passaggio generato quando il portale di Azure analizza il file. Oltre a visualizzare gli elementi specificati in `basics`, il portale inserisce elementi che consentono agli utenti di scegliere la sottoscrizione, il gruppo di risorse e la posizione della distribuzione. Quando possibile, gli elementi che eseguono query sui parametri a livello di distribuzione, ad esempio il nome di un cluster o le credenziali di amministratore, dovrebbero procedere in questo passaggio.
+Nozioni di base è il primo passaggio generato quando il portale di Azure analizza il file. Oltre a visualizzare gli elementi specificati in `basics`, il portale inserisce elementi che consentono agli utenti di scegliere la sottoscrizione, il gruppo di risorse e la posizione della distribuzione. Quando possibile, gli elementi che eseguono query sui parametri a livello di distribuzione, ad esempio il nome di un cluster o le credenziali di amministratore, devono essere visualizzati in questo passaggio.
 
-## <a name="steps"></a>Procedure
+## <a name="steps"></a>Passaggi
 
-La proprietà steps può contenere zero o più passaggi aggiuntivi da visualizzare dopo la proprietà basics, ognuna delle quali contiene uno o più elementi. Prendere in considerazione l'aggiunta di passaggi per ogni ruolo o livello dell'applicazione in fase di distribuzione. Ad esempio, aggiungere un passaggio per gli input del nodo master e un passaggio per i nodi del ruolo di lavoro in un cluster.
+La proprietà steps può contenere zero o più passaggi aggiuntivi da visualizzare dopo la proprietà basics, ognuna delle quali contiene uno o più elementi. Prendere in considerazione l'aggiunta di passaggi per ogni ruolo o livello dell'applicazione in fase di distribuzione. Ad esempio, aggiungere un passaggio per gli input del nodo master e un passaggio per i nodi di lavoro in un cluster.
 
 ## <a name="outputs"></a>Output
 
@@ -72,7 +72,7 @@ Per impostare il nome della risorsa applicazione gestita, è necessario includer
 
 ## <a name="resource-types"></a>Tipi di risorse
 
-Per filtrare i percorsi disponibili solo per i percorsi che supportano i tipi di risorse da distribuire, fornire una matrice di tipi di risorse. Se si specifica più di un tipo di risorsa, vengono restituiti solo i percorsi che supportano tutti i tipi di risorsa. Questa proprietà è facoltativa.
+Per filtrare le posizioni disponibili solo per le posizioni che supportano i tipi di risorse da distribuire, fornire una matrice dei tipi di risorse. Se si specifica più di un tipo di risorsa, vengono restituite solo le posizioni che supportano tutti i tipi di risorsa. Questa proprietà è facoltativa.
 
 ```json
 {
@@ -87,7 +87,7 @@ Per filtrare i percorsi disponibili solo per i percorsi che supportano i tipi di
 
 ## <a name="functions"></a>Funzioni
 
-CreateUiDefinition fornisce [funzioni](create-uidefinition-functions.md) per l'uso di input e output degli elementi e funzionalità come le istruzioni condizionali. Queste funzioni sono simili nella sintassi e nella funzionalità per Azure Resource Manager funzioni di modello.
+CreateUiDefinition fornisce [funzioni](create-uidefinition-functions.md) per l'utilizzo di input e output di elementi e funzionalità quali le condizioni. Queste funzioni sono simili nella sintassi e nella funzionalità alle funzioni modello di Azure Resource Manager.These functions are similar in both syntax and functionality to Azure Resource Manager template functions.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -96,6 +96,6 @@ Il file createUiDefinition.json è contraddistinto da uno schema semplice ma sup
 - [Elementi](create-uidefinition-elements.md)
 - [Funzioni](create-uidefinition-functions.md)
 
-Uno schema JSON corrente per createUiDefinition è disponibile qui: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json.
+Uno schema JSON corrente per createUiDefinition è disponibile qui: `https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json`.
 
 Per un esempio di file di interfaccia utente, vedere [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/Managed%20Application%20Sample%20Packages/201-managed-app-using-existing-vnet/createUiDefinition.json).

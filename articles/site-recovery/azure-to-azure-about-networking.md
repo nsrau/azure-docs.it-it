@@ -1,5 +1,5 @@
 ---
-title: Informazioni sulla rete in ripristino di emergenza per macchine virtuali di Azure con Azure Site Recovery
+title: Informazioni sulla rete nel ripristino di emergenza della macchina virtuale di Azure con Azure Site Recovery
 description: Viene fornita una panoramica delle reti per la replica delle macchine virtuali di Azure tramite Azure Site Recovery.
 services: site-recovery
 author: sujayt
@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: sutalasi
-ms.openlocfilehash: 5dcae83714ee3693288abf54afe8df7bb55dd578
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 58348c9aed14a5cc9126be780fe01817274a0b47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79371444"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80283260"
 ---
-# <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informazioni sulle reti in ripristino di emergenza per macchine virtuali di Azure
+# <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informazioni sulla rete nel ripristino di emergenza della macchina virtuale di AzureAbout networking in Azure VM disaster recovery
 
 
 
@@ -46,27 +46,27 @@ Le reti sono in genere protette tramite firewall e gruppi di sicurezza di rete (
 Se si usa un proxy firewall basato su URL per controllare la connettività in uscita, assicurarsi di consentire gli URL di Site Recovery seguenti:
 
 
-**URL** | **Dettagli**  
+**Url** | **Dettagli**
 --- | ---
-*.blob.core.windows.net | Richiesto in modo che i dati possano essere scritti nell'account di archiviazione della cache nell'area di origine dalla macchina virtuale. Se si conoscono tutti gli account di archiviazione della cache per le macchine virtuali, è possibile consentire l'accesso agli URL specifici dell'account di archiviazione, ad esempio cache1.blob.core.windows.net e cache2.blob.core.windows.net, anziché *. blob.core.windows.net
+*.blob.core.windows.net | Richiesto in modo che i dati possano essere scritti nell'account di archiviazione della cache nell'area di origine dalla macchina virtuale. Se si conoscono tutti gli account di archiviazione della cache per le macchine virtuali, è possibile consentire l'accesso agli URL degli account di archiviazione specifici (ad esempio, cache1.blob.core.windows.net e cache2.blob.core.windows.net) anziché a .blob.core.windows.net
 login.microsoftonline.com | Richiesto per l'autorizzazione e l'autenticazione negli URL del servizio Site Recovery.
 *.hypervrecoverymanager.windowsazure.com | Richiesto in modo che la comunicazione del servizio di Site Recovery possa verificarsi dalla macchina virtuale.
 *.servicebus.windows.net | Richiesto in modo che il monitoraggio e i dati di diagnostica di Site Recovery possano essere scritti dalla macchina virtuale.
 *.vault.azure.net | Consente l'accesso per abilitare la replica per le macchine virtuali abilitate per ADE tramite il portale
-*. automation.ext.azure.com | Consente l'abilitazione dell'aggiornamento automatico dell'agente di mobilità per un elemento replicato tramite il portale
+.automation.ext.azure.com | Consente di abilitare l'aggiornamento automatico dell'agente mobility per un elemento replicato tramite il portale
 
-## <a name="outbound-connectivity-for-ip-address-ranges"></a>Connettività in uscita per gli intervalli di indirizzi IP
+## <a name="outbound-connectivity-using-service-tags"></a>Connettività in uscita con i tag di servizioOutbound connectivity using Service Tags
 
-Se si usa un NSG per controllare la connettività in uscita, questi tag del servizio devono essere consentiti.
+Se si usa un gruppo di sicurezza di rete per controllare la connettività in uscita, questi tag di servizio devono essere consentiti.
 
-- Tutti gli intervalli di indirizzi IP che corrispondono agli account di archiviazione nell'area di origine
+- Per gli account di archiviazione nell'area di origine:For the storage accounts in source region:
     - Creare una regola NSG basata su [tag del servizio di archiviazione](../virtual-network/security-overview.md#service-tags) per l'area di origine.
     - Consentire questi indirizzi in modo che i dati possano essere scritti nell'account di archiviazione della cache dalla macchina virtuale.
 - Creare una regola NSG basata su [tag del servizio Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) per consentire l'accesso a tutti gli indirizzi IP corrispondenti ad AAD
-- Creare una regola NSG basata su tag del servizio EventsHub per l'area di destinazione, consentendo l'accesso al monitoraggio Site Recovery.
-- Creare una regola NSG basata su tag del servizio AzureSiteRecovery per consentire l'accesso al servizio Site Recovery in qualsiasi area.
-- Creare una regola NSG basata su tag del servizio AzureKeyVault. Questa operazione è necessaria solo per abilitare la replica delle macchine virtuali abilitate per ADE tramite il portale.
-- Creare una regola NSG basata su tag del servizio GuestAndHybridManagement. Questa operazione è necessaria solo per abilitare l'aggiornamento automatico dell'agente di mobilità per un elemento replicato tramite il portale.
+- Creare una regola del gruppo di sicurezza di rete basato su tag EventsHub per l'area di destinazione, consentendo l'accesso al monitoraggio di Site Recovery.Create an EventsHub service tag based NSG rule for the target region, allowing access to Site Recovery monitoring.
+- Creare una regola del gruppo di sicurezza di rete basato su tag AzureSiteRecovery per consentire l'accesso al servizio Site Recovery in qualsiasi area.
+- Creare una regola del gruppo di sicurezza di rete basato su tag AzureKeyVault.Create an AzureKeyVault service tag based NSG rule. Questa operazione è necessaria solo per abilitare la replica delle macchine virtuali abilitate per ADE tramite il portale.
+- Creare una regola del gruppo di sicurezza di rete basato sul tag GuestAndHybridManagement.Create a GuestAndHybridManagement service tag based NSG rule. Questa operazione è necessaria solo per abilitare l'aggiornamento automatico dell'agente mobility per un elemento replicato tramite il portale.
 - Prima di creare le regole in un gruppo di sicurezza di rete di produzione, è consigliabile creare le regole del gruppo di sicurezza di rete necessarie in un NSG di test e verificare che non siano presenti problemi.
 
 ## <a name="example-nsg-configuration"></a>Esempio di configurazione del gruppo di sicurezza di rete
@@ -86,9 +86,9 @@ In questo esempio viene illustrato come configurare le regole NSG per una macchi
 
       ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
 
-3. Analogamente alle regole di sicurezza sopra riportate, creare una regola di sicurezza HTTPS in uscita (443) per "EventHub. Centralus" in NSG che corrisponda al percorso di destinazione. In questo modo è possibile accedere al monitoraggio Site Recovery.
+3. Analogamente alle regole di sicurezza precedenti, creare la regola di sicurezza HTTPS in uscita (443) per "EventHub.CentralUS" nel gruppo di sicurezza di rete che corrispondono al percorso di destinazione. Ciò consente l'accesso al monitoraggio di Site Recovery.
 
-4. Creare una regola di sicurezza HTTPS in uscita (443) per "AzureSiteRecovery" in NSG. In questo modo è possibile accedere al servizio Site Recovery in qualsiasi area.
+4. Creare una regola di sicurezza HTTPS (443) in uscita per "AzureSiteRecovery" nel gruppo di sicurezza di rete. Ciò consente l'accesso al servizio Di ripristino del sito in qualsiasi area.
 
 ### <a name="nsg-rules---central-us"></a>Regole NSG - Stati Uniti centrali
 
@@ -98,9 +98,9 @@ Queste regole sono necessarie in modo che la replica possa essere abilitata dall
 
 2. Creare una regola di sicurezza HTTPS in uscita (443) per "AzureActiveDirectory" nel gruppo di sicurezza di rete.
 
-3. Analogamente alle regole di sicurezza sopra riportate, creare una regola di sicurezza HTTPS in uscita (443) per "EventHub. Eastus" in NSG che corrisponde alla posizione di origine. In questo modo è possibile accedere al monitoraggio Site Recovery.
+3. Analogamente alle regole di sicurezza precedenti, creare la regola di sicurezza HTTPS in uscita (443) per "EventHub.EastUS" nel gruppo di sicurezza di rete che corrispondono al percorso di origine. Ciò consente l'accesso al monitoraggio di Site Recovery.
 
-4. Creare una regola di sicurezza HTTPS in uscita (443) per "AzureSiteRecovery" in NSG. In questo modo è possibile accedere al servizio Site Recovery in qualsiasi area.
+4. Creare una regola di sicurezza HTTPS (443) in uscita per "AzureSiteRecovery" nel gruppo di sicurezza di rete. Ciò consente l'accesso al servizio Di ripristino del sito in qualsiasi area.
 
 ## <a name="network-virtual-appliance-configuration"></a>Configurazione di appliance virtuali di rete
 
@@ -126,4 +126,4 @@ Se si usano appliance virtuali di rete per controllare il traffico di rete in us
 ## <a name="next-steps"></a>Passaggi successivi
 - Iniziare a proteggere i carichi di lavoro [eseguendo la replica di macchine virtuali di Azure](site-recovery-azure-to-azure.md).
 - Altre informazioni sul [Mantenimento degli indirizzi IP](site-recovery-retain-ip-azure-vm-failover.md) per il failover delle macchine virtuali di Azure.
-- Scopri di più sul ripristino di emergenza di [macchine virtuali di Azure con ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).
+- Altre informazioni sul ripristino di emergenza delle macchine virtuali di Azure con ExpressRoute.Learn more about disaster recovery of [Azure virtual machines with ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

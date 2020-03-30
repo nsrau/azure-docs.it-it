@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: rohink
-ms.openlocfilehash: 709e89b94ba10db954aa5cf3f70aeffb0d239edb
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 4863ffd383cfcd46bad462156e26293d145fd418
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938632"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294860"
 ---
 # <a name="how-traffic-manager-works"></a>Funzionamento di Gestione traffico
 
@@ -34,7 +34,7 @@ Quando un client tenta di connettersi a un servizio, è necessario prima risolve
 
 ## <a name="traffic-manager-example"></a>Esempio di Gestione traffico
 
-Contoso Corp ha sviluppato un nuovo portale per i partner. L'URL per questo portale è https://partners.contoso.com/login.aspx. L'applicazione è ospitata in tre aree di Azure. Per migliorare la disponibilità e ottimizzare le prestazioni globali, viene usato Gestione traffico per distribuire il traffico client all'endpoint disponibile più vicino.
+Contoso Corp ha sviluppato un nuovo portale per i partner. L'URL per questo portale è `https://partners.contoso.com/login.aspx`. L'applicazione è ospitata in tre aree di Azure. Per migliorare la disponibilità e ottimizzare le prestazioni globali, viene usato Gestione traffico per distribuire il traffico client all'endpoint disponibile più vicino.
 
 Per ottenere questa configurazione, si completa la seguente procedura:
 
@@ -49,7 +49,7 @@ Per ottenere questa configurazione, si completa la seguente procedura:
 
 ### <a name="how-clients-connect-using-traffic-manager"></a>Come si connettono i client tramite Gestione traffico
 
-Per continuare l'esempio precedente, quando un client richiede la pagina https://partners.contoso.com/login.aspx, il client esegue i passaggi seguenti per risolvere il nome DNS e stabilire una connessione:
+Per continuare l'esempio precedente, quando un client richiede la pagina `https://partners.contoso.com/login.aspx`, il client esegue i passaggi seguenti per risolvere il nome DNS e stabilire una connessione:
 
 ![Stabilire una connessione tramite Gestione traffico][2]
 
@@ -60,7 +60,7 @@ Per continuare l'esempio precedente, quando un client richiede la pagina https:/
 
     - Lo stato configurato di ogni endpoint (gli endpoint disabilitati non vengono restituiti)
     - L'integrità corrente di ogni endpoint, determinata dai controlli di integrità di Gestione traffico. Per altre informazioni, vedere [Informazioni sul monitoraggio di Gestione traffico](traffic-manager-monitoring.md).
-    - Il metodo di routing del traffico scelto. Per altre informazioni, vedere [Metodi di routing di Gestione traffico](traffic-manager-routing-methods.md).
+    - Il metodo di routing del traffico scelto. Per ulteriori informazioni, vedere Metodi di [routing di Gestione traffico](traffic-manager-routing-methods.md).
 
 5. L'endpoint scelto viene restituito come un altro record DNS CNAME. In questo caso, si supponga che venga restituito contoso-us.cloudapp.net.
 6. Il servizio DNS ricorsivo cerca quindi i server dei nomi per il dominio "cloudapp.net". Il servizio contatta questi server dei nomi per richiedere il record DNS "contoso-us.cloudapp.net". Viene restituito un record DNS "A" contenente l'indirizzo IP dell'endpoint di servizio situato negli Stati Uniti.
@@ -71,27 +71,27 @@ Il servizio DNS ricorsivo memorizza nella cache le risposte DNS ricevute. Il res
 
 ## <a name="faqs"></a>Domande frequenti
 
-* [Quale indirizzo IP utilizza Gestione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-ip-address-does-traffic-manager-use)
+* [Quale indirizzo IP viene usato da Gestione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-ip-address-does-traffic-manager-use)
 
 * [Quali tipi di traffico è possibile indirizzare tramite Gestione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-traffic-can-be-routed-using-traffic-manager)
 
-* [Gestione traffico supporta le sessioni "permanenti"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
+* [Gestione traffico supporta sessioni "appiccicose"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
 
-* [Perché viene visualizzato un errore HTTP quando si usa Gestione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-seeing-an-http-error-when-using-traffic-manager)
+* [Quando si usa Gestione traffico, viene visualizzato un errore HTTP. Perché?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-seeing-an-http-error-when-using-traffic-manager)
 
-* [Qual è l'effetto sulle prestazioni dell'utilizzo di gestione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-the-performance-impact-of-using-traffic-manager)
+* [Qual è l'impatto sulle prestazioni dell'uso di Gestione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-the-performance-impact-of-using-traffic-manager)
 
-* [Quali protocolli applicazione è possibile usare con gestione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-application-protocols-can-i-use-with-traffic-manager)
+* [Quali protocolli di applicazione possono essere usati con Gestione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-application-protocols-can-i-use-with-traffic-manager)
 
-* [È possibile usare gestione traffico con un nome di dominio "Naked"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-a-naked-domain-name)
+* [Posso usare Gestione traffico con un nome di dominio "nudo"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-a-naked-domain-name)
 
-* [Gestione traffico prende in considerazione l'indirizzo della subnet client quando si gestiscono le query DNS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
+* [Gestione traffico tiene conto dell'indirizzo della subnet client quando si gestiscono query DNS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
 
-* [Che cos'è il TTL DNS e come influisca sugli utenti?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-dns-ttl-and-how-does-it-impact-my-users)
+* [Cos'è la durata TTL del DNS e che impatto ha sugli utenti?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-dns-ttl-and-how-does-it-impact-my-users)
 
-* [Quanto è alto o basso è possibile impostare la durata (TTL) per le risposte di gestione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
+* [Come impostare una durata TTL maggiore o minore per le risposte di Gestione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
 
-* [Come è possibile comprendere il volume delle query in arrivo nel profilo?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)
+* [Come si può verificare il volume delle query destinate al profilo personale?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

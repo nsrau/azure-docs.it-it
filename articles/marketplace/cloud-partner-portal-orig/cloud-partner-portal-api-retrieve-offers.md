@@ -1,19 +1,18 @@
 ---
-title: API di recupero offerte | Azure Marketplace
+title: API per il recupero delle offerte Azure Marketplace
 description: L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del server di pubblicazione.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 5c94c03a63936be2b086085a1e52064dedf214b0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: a1f15e269481b9706f81fd02f19effc9ad37df32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819606"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280491"
 ---
 <a name="retrieve-offers"></a>Recuperare le offerte
 ===============
@@ -28,7 +27,7 @@ L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del
 
 | **Nome**         |  **Descrizione**                         |  **Tipo di dati** |
 | -------------    |  ------------------------------------    |  -----------   |
-|  publisherId     | Identificatore dell'editore, per esempio `contoso` |   String    |
+|  publisherId     | Identificatore dell'editore, per esempio `contoso` |   string    |
 |  api-version     | Ultima versione dell'API                    |    Data        |
 |  |  |
 
@@ -46,7 +45,7 @@ L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del
 <a name="body-example"></a>Esempio di corpo
 ------------
 
-### <a name="response"></a>Response
+### <a name="response"></a>Risposta
 
 ``` json
   200 OK 
@@ -71,7 +70,7 @@ L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del
 |  -------------  |      --------------------------------------------------------------------------------------------------------------    |
 |  offerTypeId    | Identifica il tipo di offerta                                                                                           |
 |  publisherId    | Identificatore univoco dell'editore                                                                      |
-|  status         | Stato dell'offerta. Per l'elenco di valori possibili, vedere lo [Stato dell'offerta](#offer-status) qui sotto.                         |
+|  status         | Stato dell'offerta. Per l'elenco di valori possibili, vedere [Stato dell'offerta](#offer-status) di seguito:                         |
 |  id             | GUID che identifica in modo univoco l'offerta, nello spazio dei nomi del server di pubblicazione.                                                    |
 |  version        | Versione corrente dell'offerta. La proprietà della versione non può essere modificata dal client. Viene incrementata dopo ogni pubblicazione. |
 |  Definizione     | Contiene la visualizzazione del riepilogo della definizione stessa del carico di lavoro. Per ottenere una definizione dettagliata, usare l'API per il [recupero di un'offerta specifica](./cloud-partner-portal-api-retrieve-specific-offer.md). |

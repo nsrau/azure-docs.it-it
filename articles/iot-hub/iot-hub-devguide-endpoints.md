@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: da6d17e42407048b7ecbcacade67ef48046d7fe1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284642"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Informazioni di riferimento - Endpoint dell'hub IoT
@@ -33,7 +33,7 @@ L'elenco seguente offre una descrizione degli endpoint:
 
 * **Provider di risorse**. Il provider di risorse dell'hub IoT espone un'interfaccia [Azure Resource Manager](../azure-resource-manager/management/overview.md). Questa interfaccia consente ai proprietari della sottoscrizione di Azure di creare ed eliminare gli hub IoT, nonché di aggiornare le proprietà degli hub IoT. Le proprietà dell'hub IoT disciplinano i [criteri di sicurezza a livello di hub](iot-hub-devguide-security.md#access-control-and-permissions), in contrasto con il controllo di accesso a livello di dispositivo, e le opzioni funzionali per la messaggistica da cloud a dispositivo e da dispositivo a cloud. Il provider di risorse dell'hub IoT consente anche di [esportare le identità dei dispositivi](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 
-* **Gestione delle identità dei dispositivi**. Ogni hub IoT espone un set di endpoint REST HTTPS per gestire le identità dei dispositivi (per operazioni di creazione, recupero, aggiornamento ed eliminazione). Le [identità dei dispositivi](iot-hub-devguide-identity-registry.md) vengono usate per l'autenticazione dei dispositivi e il controllo di accesso.
+* **Gestione delle identità dei dispositivi**. Ogni hub IoT espone un set di endpoint REST HTTPS per gestire le identità dei dispositivi (per operazioni di creazione, recupero, aggiornamento ed eliminazione). [Le identità del dispositivo](iot-hub-devguide-identity-registry.md) vengono utilizzate per l'autenticazione del dispositivo e il controllo degli accessi.
 
 * **Gestione dei dispositivi gemelli**. Ogni hub IoT espone un set di endpoint REST HTTPS orientati ai servizi per eseguire query e aggiornare [dispositivi gemelli](iot-hub-devguide-device-twins.md) (aggiornare tag e proprietà).
 
@@ -41,11 +41,11 @@ L'elenco seguente offre una descrizione degli endpoint:
 
 * **Endpoint del dispositivo**. Per ogni dispositivo nel registro delle identità, l'hub IoT espone un set di endpoint:
 
-  * *Invio di messaggi da dispositivo a cloud*. Un dispositivo usa questo endpoint per [inviare messaggi da dispositivo a cloud](iot-hub-devguide-messages-d2c.md).
+  * *Inviare messaggi*da dispositivo a cloud . Un dispositivo usa questo endpoint per [inviare messaggi da dispositivo a cloud](iot-hub-devguide-messages-d2c.md).
 
-  * *Ricezione di messaggi da cloud a dispositivo*. Il dispositivo usa questo endpoint per ricevere [messaggi da cloud a dispositivo](iot-hub-devguide-messages-c2d.md) specifici.
+  * *Ricezione di messaggi da cloud a dispositivo*. Un dispositivo usa questo endpoint per ricevere messaggi da [cloud a dispositivo](iot-hub-devguide-messages-c2d.md)di destinazione.
 
-  * *Avvio di caricamenti di file*. Un dispositivo usa questo endpoint per ricevere un URI di firma di accesso condiviso di Archiviazione di Azure dall'hub IoT per il [caricamento di un file](iot-hub-devguide-file-upload.md).
+  * *Avvio di caricamenti di file*. Un dispositivo usa questo endpoint per ricevere un URI di accesso condiviso di Archiviazione di Azure dall'hub IoT per [caricare un file.](iot-hub-devguide-file-upload.md)
 
   * *Recuperare e aggiornare le proprietà dei dispositivi gemelli*. Un dispositivo usa questo endpoint per accedere alle relative proprietà del [dispositivo gemello](iot-hub-devguide-device-twins.md).
 
@@ -53,9 +53,9 @@ L'elenco seguente offre una descrizione degli endpoint:
 
     Questi endpoint vengono esposti con i protocolli [MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1 e [AMQP 1.0](https://www.amqp.org/). AMQP è disponibile anche su [WebSocket](https://tools.ietf.org/html/rfc6455) sulla porta 443.
 
-* **Endpoint di servizio**. Ogni hub IoT espone un set di endpoint per il back-end della soluzione per comunicare con i dispositivi. Con una eccezione, questi endpoint sono esposti solo tramite il protocollo [AMQP](https://www.amqp.org/). Tramite il protocollo HTTPS viene esposto l'endpoint di chiamata del metodo.
+* **Endpoint del servizio**. Ogni hub IoT espone un set di endpoint per il back-end della soluzione per comunicare con i dispositivi. Con una eccezione, questi endpoint sono esposti solo tramite il protocollo [AMQP](https://www.amqp.org/). Tramite il protocollo HTTPS viene esposto l'endpoint di chiamata del metodo.
   
-  * *Ricezione di messaggi da dispositivo a cloud*. Questo endpoint è compatibile con [Hub eventi di Azure](https://azure.microsoft.com/documentation/services/event-hubs/) e può essere usato da un servizio back-end per leggere i [messaggi da dispositivo a cloud](iot-hub-devguide-messages-d2c.md) inviati dai dispositivi. Oltre a questo endpoint predefinito, è possibile creare endpoint personalizzati sull'hub IoT.
+  * *Ricevere messaggi da dispositivo a cloud*. Questo endpoint è compatibile con [Hub eventi di Azure](https://azure.microsoft.com/documentation/services/event-hubs/) e può essere usato da un servizio back-end per leggere i [messaggi da dispositivo a cloud](iot-hub-devguide-messages-d2c.md) inviati dai dispositivi. Oltre a questo endpoint predefinito, è possibile creare endpoint personalizzati sull'hub IoT.
   
   * *Invio di messaggi da cloud a dispositivo e ricezione di acknowledgement di recapito*. Questi endpoint consentono al back-end della soluzione di inviare [messaggi da cloud a dispositivo](iot-hub-devguide-messages-c2d.md) affidabili e di ricevere gli acknowledgment di recapito o di scadenza corrispondenti.
   
@@ -82,14 +82,14 @@ Hub IoT supporta attualmente i servizi di Azure seguenti come endpoint aggiuntiv
 
 Per i limiti sul numero di endpoint che è possibile aggiungere, vedere [Quotas and throttling](iot-hub-devguide-quotas-throttling.md) (Quote e limitazioni).
 
-È possibile usare l'API REST per [ottenere l'integrità dell'endpoint](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) per ottenere lo stato di integrità degli endpoint. Si consiglia di usare le [metriche dell'hub](iot-hub-metrics.md) delle cose correlate alla latenza dei messaggi di routing per identificare ed eseguire il debug degli errori quando l'integrità dell'endpoint è inattiva o non integra, perché si prevede che la latenza sia superiore quando l'endpoint si trova in uno di questi Stati.
+È possibile usare l'API REST [Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) per ottenere lo stato di integrità degli endpoint. È consigliabile usare le [metriche dell'hub IoT](iot-hub-metrics.md) correlate alla latenza dei messaggi di routing per identificare ed eseguire il debug degli errori quando l'integrità dell'endpoint non è integra, poiché si prevede che la latenza sia maggiore quando l'endpoint si trova in uno di questi stati.
 
 |Stato integrità|Descrizione|
 |---|---|
-|healthy|L'endpoint accetta messaggi come previsto.|
-|non integro|L'endpoint non accetta messaggi come previsto e l'hub Internet sta tentando di inviare i dati a questo endpoint. Lo stato di un endpoint non integro verrà aggiornato a integro quando lo stato di integrità dell'hub Internet è stabile.|
-|sconosciuto|L'hub cose non ha stabilito una connessione con l'endpoint. Nessun messaggio è stato recapitato o rifiutato da questo endpoint.|
-|morto|L'endpoint non accetta messaggi, dopo che l'hub di Internet delle cose ha ritentato l'invio di messaggi per il periodo di prova.|
+|healthy|L'endpoint accetta i messaggi come previsto.|
+|Malsano|L'endpoint non accetta messaggi come previsto e l'hub IoT sta ritentando di inviare dati a questo endpoint. Lo stato di un endpoint non integro verrà aggiornato a integro quando l'hub IoT ha stabilito uno stato di integrità finale coerente.|
+|unknown|L'hub IoT non ha stabilito una connessione con l'endpoint. Nessun messaggio è stato recapitato o rifiutato da questo endpoint.|
+|Morto|L'endpoint non accetta messaggi, dopo che l'hub IoT ha nuovo tentativo di inviare messaggi per il periodo di nuovo tentativo.|
 
 ## <a name="field-gateways"></a>Gateway sul campo
 
@@ -102,6 +102,6 @@ In una soluzione IoT un *gateway sul campo* è posizionato tra i dispositivi e l
 Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida per gli sviluppatori dell'hub IoT:
 
 * [Linguaggio di query dell'hub IoT per dispositivi gemelli, processi e routing di messaggi](iot-hub-devguide-query-language.md)
-* [Quote e limitazione](iot-hub-devguide-quotas-throttling.md)
+* [Quote e limitazioni](iot-hub-devguide-quotas-throttling.md)
 * [Supporto di MQTT nell'hub IoT](iot-hub-mqtt-support.md)
-* [Informazioni sull'indirizzo IP dell'hub Internet](iot-hub-understand-ip-address.md)
+* [Comprendere l'indirizzo IP dell'hub IoTUnderstand your IoT hub IP address](iot-hub-understand-ip-address.md)

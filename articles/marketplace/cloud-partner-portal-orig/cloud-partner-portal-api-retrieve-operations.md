@@ -1,19 +1,18 @@
 ---
-title: API per il recupero delle operazioni | Azure Marketplace
+title: Recuperare l'API delle operazioni . Azure Marketplace
 description: Recupera tutte le operazioni relative all'offerta o per ottenere una particolare operazione per l'operationId specificato.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/14/2018
-ms.author: pabutler
-ms.openlocfilehash: c3eb77744d61322ca0aed20bb2b3f486cc02ac70
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 4fc77407ae1c5854d3fe977da5a81f4226bf5305
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819604"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280474"
 ---
 <a name="retrieve-operations"></a>Recuperare le operazioni
 ===================
@@ -34,10 +33,10 @@ Recupera tutte le operazioni relative all'offerta o per ottenere una particolare
 
 |  **Nome**          |      **Descrizione**                                                                                           | **Tipo di dati** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Identificatore dell'editore, per esempio `Contoso`                                                                   |  String       |
-|  offerId           |  Identificatore dell'offerta                                                                                              |  String       |
+|  publisherId       |  Identificatore dell'editore, per esempio `Contoso`                                                                   |  string       |
+|  offerId           |  Identificatore dell'offerta                                                                                              |  string       |
 |  operationId       |  GUID che identifica in modo univoco l'operazione sull'offerta. L'oprationId può essere recuperato tramite questa API e viene inoltre restituito nell'intestazione HTTP della risposta per tutte le operazioni a esecuzione prolungata, ad esempio l'API [Pubblica offerta](./cloud-partner-portal-api-publish-offer.md).  |   Guid   |
-|  filteredStatus    | Parametro di query facoltativo usato per filtrare in base allo stato (ad esempio `running`) nella raccolta restituita da questa API.  |   String |
+|  filteredStatus    | Parametro di query facoltativo usato per filtrare in base allo stato (ad esempio `running`) nella raccolta restituita da questa API.  |   string |
 |  api-version       | Ultima versione dell'API                                                                                           |    Data      |
 |  |  |  |
 
@@ -55,7 +54,7 @@ Recupera tutte le operazioni relative all'offerta o per ottenere una particolare
 <a name="body-example"></a>Esempio di corpo
 ------------
 
-### <a name="response"></a>Response
+### <a name="response"></a>Risposta
 
 #### <a name="get-operations"></a>Operazioni GET
 
@@ -183,7 +182,7 @@ Recupera tutte le operazioni relative all'offerta o per ottenere una particolare
 |  submissionType              | Identifica il tipo di operazione segnalata per l'offerta, ad esempio `Publish/GGoLive`      |
 |  createdDateTime             | Datetime UTC in cui è stata creata l'operazione                                                       |
 |  lastActionDateTime          | Datetime UTC in cui è stato eseguito l'ultimo aggiornamento dell'operazione                                       |
-|  status                      | Stato dell'operazione o `not started` \| `running` \| `failed` \| `completed`. Una sola operazione alla volta può avere lo stato `running`. |
+|  status                      | Stato dell'operazione, `not started` \| `running` \| `failed` \| `completed`ovvero . Una sola operazione alla volta può avere lo stato `running`. |
 |  error                       | Messaggio di errore per le operazioni non riuscite                                                               |
 |  |  |
 

@@ -1,19 +1,19 @@
 ---
-title: Risolvere i problemi di connessione da punto a sito di Azure
+title: Risolvere i problemi di connessione da punto ad azure
 titleSuffix: Azure VPN Gateway
 description: Informazioni su come risolvere i problemi di connessione da punto a sito.
 services: vpn-gateway
 author: chadmath
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 09/30/2019
+ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: 2c5e8b344cad6928ee586dc5a5b69095f0b14552
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 119f9c28b5413b8d2db5fa14ea839d1743f3d64a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863649"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297632"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Risoluzione dei problemi: problemi di connessione da punto a sito di Azure
 
@@ -25,7 +25,7 @@ Questo articolo elenca i problemi comuni di connessione da punto a sito che l'ut
 
 Quando si cerca di connettersi alla rete virtuale di Azure usando il client VPN, viene visualizzato il messaggio di errore seguente:
 
-**Impossibile trovare un certificato che può essere utilizzato con questo protocollo di autenticazione estendibile. (Errore 798)**
+**Impossibile trovare un certificato che può essere utilizzato con questo protocollo di autenticazione estensibile. (Errore 798)**
 
 ### <a name="cause"></a>Causa
 
@@ -39,10 +39,10 @@ Per risolvere il problema, seguire questa procedura:
 
 2. Verificare che i certificati seguenti siano nel percorso corretto:
 
-    | Certificato | Percorso |
+    | Certificato | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | Utente corrente\Personale\Certificati |
-    | AzureRoot. cer    | Computer locale\Autorità di certificazione radice attendibili|
+    | AzureRoot.cer    | Computer locale\Autorità di certificazione radice attendibili|
 
 3. Passare a C:\Users\<NomeUtente>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID> e installare manualmente il certificato ( file *.cer) nell'archivio dell'utente e del computer.
 
@@ -51,17 +51,17 @@ Per altre informazioni su come installare il certificato client, vedere [Generar
 > [!NOTE]
 > Quando si importa il certificato client, non selezionare l'opzione **Abilita protezione avanzata chiave privata**.
 
-## <a name="the-network-connection-between-your-computer-and-the-vpn-server-could-not-be-established-because-the-remote-server-is-not-responding"></a>Non è stato possibile stabilire la connessione di rete tra il computer e il server VPN perché il server remoto non risponde
+## <a name="the-network-connection-between-your-computer-and-the-vpn-server-could-not-be-established-because-the-remote-server-is-not-responding"></a>Impossibile stabilire la connessione di rete tra il computer e il server VPN perché il server remoto non risponde
 
 ### <a name="symptom"></a>Sintomo
 
-Quando si tenta di connettersi a un gateway di rete virtuale di Azure tramite IKEv2 in Windows, viene ricevuto il messaggio di errore seguente:
+Quando si tenta di connettersi a un gateway di rete virtuale di Azure utilizzando IKEv2 in Windows, viene visualizzato il seguente messaggio di errore:
 
-**Non è stato possibile stabilire la connessione di rete tra il computer e il server VPN perché il server remoto non risponde**
+**Impossibile stabilire la connessione di rete tra il computer e il server VPN perché il server remoto non risponde**
 
 ### <a name="cause"></a>Causa
  
- Il problema si verifica se la versione di Windows non supporta la frammentazione IKE
+ Il problema si verifica se la versione di Windows non dispone del supporto per la frammentazione IKE
  
 ### <a name="solution"></a>Soluzione
 
@@ -78,7 +78,7 @@ Per preparare Windows 10 o Server 2016 per IKEv2:
    | Windows 10 versione 1709 | 22 marzo 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
    |  |  |  |  |
 
-2. Impostare il valore della chiave del Registro di sistema. Creare o impostare `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload` chiave REG_DWORD nel registro di sistema su 1.
+2. Impostare il valore della chiave del Registro di sistema. Creare o `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload` impostare REG_DWORD chiave del Registro di sistema su 1.
 
 ## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>Errore del client VPN: Il messaggio ricevuto era imprevisto o con formattazione scorretta
 
@@ -86,7 +86,7 @@ Per preparare Windows 10 o Server 2016 per IKEv2:
 
 Quando si cerca di connettersi alla rete virtuale di Azure usando il client VPN, viene visualizzato il messaggio di errore seguente:
 
-**Il messaggio ricevuto era imprevisto o formattato in modo errato. (Errore 0x80090326)**
+**Il messaggio ricevuto è imprevisto o formattato in modo errato. (Errore 0x80090326)**
 
 ### <a name="cause"></a>Causa
 
@@ -115,7 +115,7 @@ Quando si cerca di connettersi alla rete virtuale di Azure usando il client VPN,
 
 1. Verificare che i certificati seguenti siano nel percorso corretto:
 
-    | Certificato | Percorso |
+    | Certificato | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | Utente corrente\Personale\Certificati |
     | Azuregateway-*GUID*.cloudapp.net  | Utente corrente\Autorità di certificazione radice attendibili|
@@ -168,7 +168,7 @@ Estrarre il pacchetto di configurazione del client VPN e trovare il file con est
 1. Aprire mmc.exe.
 2. Aggiungere lo snap-in **Certificati**.
 3. Selezionare l'account **Computer** per il computer locale.
-4. Fare clic con il pulsante destro del mouse sul nodo **Autorità di certificazione radice attendibili**. Fare clic su **All-Task**(Tutte le attività) > **Importa** e passare al file CER estratto dal pacchetto di configurazione del client VPN.
+4. Fare clic con il pulsante destro del mouse sul nodo **Autorità di certificazione radice attendibili**. Fare clic su**Importazione** **di tutte le attività** > e individuare il file CER estratto dal pacchetto di configurazione del client VPN.
 5. Riavviare il computer. 
 6. Provare a installare il client VPN.
 
@@ -178,7 +178,7 @@ Estrarre il pacchetto di configurazione del client VPN e trovare il file con est
 
 Quando si prova a salvare le modifiche per il gateway VPN nel portale di Azure, viene visualizzato il messaggio di errore seguente:
 
-**Non è stato possibile salvare il gateway di rete virtuale &lt;&gt;*nome del gateway* . I dati del certificato &lt;*ID certificato*&gt; non sono validi.**
+**Impossibile salvare il &lt; *nome*&gt;del gateway di rete virtuale. I dati &lt;per l'ID *certificate ID* &gt; certificato del certificato non sono validi.**
 
 ### <a name="cause"></a>Causa 
 
@@ -213,7 +213,7 @@ Verificare che i dati nel certificato non contengano caratteri non validi, ad es
 
 Quando si prova a salvare le modifiche per il gateway VPN nel portale di Azure, viene visualizzato il messaggio di errore seguente: 
 
-**Non è stato possibile salvare il gateway di rete virtuale &lt;&gt;*nome del gateway* . Nome della risorsa &lt;il *nome del certificato che si tenta di caricare*&gt; non è valido**.
+**Impossibile salvare il &lt; *nome*&gt;del gateway di rete virtuale. Il nome della risorsa *nome certificato che si tenta di caricare* &gt; non è valido. &lt;**
 
 ### <a name="cause"></a>Causa
 
@@ -225,7 +225,7 @@ Questo problema si verifica perché il nome del certificato contiene caratteri n
 
 Quando si prova a scaricare il pacchetto di configurazione del client VPN, viene visualizzato il messaggio di errore seguente:
 
-**Non è stato possibile scaricare il file. Dettagli errore: errore 503. Il server è occupato.**
+**Impossibile scaricare il file. Dettagli errore: errore 503. Il server è occupato.**
  
 ### <a name="solution"></a>Soluzione
 
@@ -239,7 +239,7 @@ Se il certificato ha superato il 50% del ciclo di vita, ne viene eseguito il rol
 
 ### <a name="solution"></a>Soluzione
 
-Per risolvere il problema, scaricare di nuovo e ridistribuire il pacchetto da punto a sito in tutti i client.
+Per risolvere questo problema, scaricare nuovamente e ridistribuire il pacchetto Point to Site su tutti i client.
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>Troppi client VPN connessi contemporaneamente
 
@@ -339,6 +339,19 @@ Aggiornare il driver della scheda di interfaccia di rete:
 4. Se Windows non trova un nuovo driver, è possibile cercarne uno nel sito Web del produttore del dispositivo e seguire le istruzioni.
 5. Riavviare il computer e riprovare la connessione.
 
+## <a name="vpn-client-error-dialing-vpn-connection-vpn-connection-name-status--vpn-platform-did-not-trigger-connection"></a>Errore del client VPN: <VPN Connection Name>connessione VPN di composizione , Stato e piattaforma VPN non ha attivato la connessione
+
+È inoltre possibile che venga visualizzato il seguente errore <User> nel Visualizzatore <VPN Connection Name> eventi da RasClient: "L'utente ha registrato una connessione denominata non riuscita. Il codice di errore restituito in caso di errore è 1460."
+
+### <a name="cause"></a>Causa
+
+Il client VPN di Azure non ha l'autorizzazione dell'app "App in background" abilitata in Impostazioni app per Windows.
+
+### <a name="solution"></a>Soluzione
+
+1. In Windows, vai a Impostazioni -> Privacy -> App in background
+2. Impostare l'opzione "Consenti l'esecuzione delle app in background" su Attivato
+
 ## <a name="error-file-download-error-target-uri-is-not-specified"></a>Errore: "Errore di download del file. L'URI di destinazione non è specificato"
 
 ### <a name="cause"></a>Causa
@@ -349,7 +362,7 @@ Questo problema è causato dalla configurazione di un tipo di gateway non corret
 
 Il tipo di gateway VPN di Azure deve essere VPN e il tipo di VPN deve essere **RouteBased**.
 
-## <a name="vpn-package-installer-doesnt-complete"></a>Il programma di installazione del pacchetto VPN non è stato completato
+## <a name="vpn-package-installer-doesnt-complete"></a>Il programma di installazione del pacchetto VPN non viene completato
 
 ### <a name="cause"></a>Causa
 

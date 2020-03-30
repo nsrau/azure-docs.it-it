@@ -1,20 +1,18 @@
 ---
 title: Preparazione della soluzione Dynamics 365
 description: Framework per installare, disinstallare e creare pacchetti dei componenti
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
-manager: Ricarod.Villalobos
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: bcb3bb63f305aeb98efda3baf0f6661bd7f67a7c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: ac1e4fa541e945f20904ced114a36b58d14585ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824240"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278587"
 ---
 # <a name="dynamics-365-solution-preparation"></a>Preparazione della soluzione Dynamics 365
 
@@ -26,7 +24,7 @@ Il sistema di soluzione di Dynamics 365 è un framework per installare, disinsta
 
 _**Nota:** nell'esempio del pacchetto che segue si ipotizza che il nome della soluzione sia "SampleSolution.zip"_
 
-Per i nuovi ISV, è possibile ottenere altre informazioni sulla creazione di una soluzione qui: [https://msdn.microsoft.com/library/gg334530.aspx](https://msdn.microsoft.com/library/gg334530.aspx)
+Se sei un nuovo ISV, puoi ottenere maggiori dettagli sulla creazione di una soluzione qui:[https://msdn.microsoft.com/library/gg334530.aspx](https://msdn.microsoft.com/library/gg334530.aspx)
 
 Se la soluzione richiede il supporto di dati:
 

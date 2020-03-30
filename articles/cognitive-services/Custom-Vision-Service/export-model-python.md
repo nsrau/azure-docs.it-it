@@ -11,20 +11,20 @@ ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: areddish
 ms.openlocfilehash: d7e3eeeea6bb25b4cddaea1d04e86f23ab7e4f5f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74969840"
 ---
-# <a name="tutorial-run-tensorflow-model-in-python"></a>Esercitazione: Eseguire il modello TensorFlow in Python
+# <a name="tutorial-run-tensorflow-model-in-python"></a>Esercitazione: Eseguire un modello TensorFlow in Python
 
 Dopo aver [esportato il modello TensorFlow](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) dal Servizio visione artificiale personalizzato, questa guida introduttiva mostrerà come usare questo modello in locale per classificare le immagini.
 
 > [!NOTE]
 > Questa esercitazione è valida solo per i modelli esportati da progetti di classificazione delle immagini.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per usare l'esercitazione, è necessario seguire questa procedura:
 

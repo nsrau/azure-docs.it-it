@@ -1,6 +1,6 @@
 ---
 title: Diagnostica e analisi end-to-end di Azure Service Bus | Microsoft Docs
-description: Panoramica della diagnostica del client del bus di servizio e della traccia end-to-end (client tramite tutti i servizi interessati nell'elaborazione).
+description: Panoramica della diagnostica del client del bus di servizio e dell'analisi end-to-end (client tramite tutti i servizi coinvolti nell'elaborazione).
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: a184e76faa89199d3e13ece3e17f94f73d995a12
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 7c2efc9c736097873201505f280af5d47bed4847
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760267"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294187"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Correlazione e analisi distribuita tramite la messaggistica del bus di servizio
 
@@ -30,12 +30,12 @@ Quando un producer invia un messaggio tramite una coda, tale operazione avviene 
 La messaggistica del bus di servizio di Microsoft Azure include proprietà di payload definite che producer e consumer devono usare per passare tale contesto di analisi.
 Il protocollo si basa sul [protocollo di correlazione HTTP](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
 
-| Nome proprietà        | Description                                                 |
+| Nome proprietà        | Descrizione                                                 |
 |----------------------|-------------------------------------------------------------|
 |  Diagnostic-Id       | Identificatore univoco di una chiamata esterna alla coda effettuata dal producer. Per la logica, le considerazioni e il formato, vedere [Request-Id in HTTP protocol](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) (Request-Id nel protocollo HTTP). |
 |  Correlation-Context | Contesto dell'operazione, che viene propagato in tutti i servizi coinvolti nell'elaborazione dell'operazione. Per altre informazioni, vedere [Correlation-Context in HTTP protocol](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) (Correlation-Context nel protocollo HTTP). |
 
-## <a name="service-bus-net-client-auto-tracing"></a>Analisi automatica del client .NET del bus di servizio
+## <a name="service-bus-net-client-autotracing"></a>Traccia automatica del client .NET del bus di servizioService Bus .NET Client autotracing
 
 A partire dalla versione 3.0.0, il [client del bus di servizio di Microsoft Azure per .NET](/dotnet/api/microsoft.azure.servicebus.queueclient) fornisce punti di strumentazione di analisi a cui possono agganciarsi sistemi di analisi o parti del codice client.
 La strumentazione consente di verificare tutte le chiamate al servizio di messaggistica del bus di servizio dal lato client. Se per l'elaborazione dei messaggi si usa il [criterio del gestore di messaggi](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler), anche tale operazione viene instrumentata.
@@ -84,6 +84,12 @@ In questo esempio, per ogni messaggio elaborato viene restituito `RequestTelemet
 Alle eccezioni e alle analisi nidificate restituite durante l'elaborazione dei messaggi vengono inoltre assegnate proprietà di correlazione in modo che vengano rappresentate come elementi figlio di `RequestTelemetry`.
 
 Nel caso in cui durante l'elaborazione dei messaggi si eseguano chiamate a componenti esterni supportati, anche questi verranno verificati e correlati automaticamente. Per informazioni sulla verifica e la correlazione manuale, vedere [Verifica delle operazioni personalizzate con Application Insights .NET SDK](../azure-monitor/app/custom-operations-tracking.md).
+
+Se si esegue codice esterno oltre a Application Insights SDK, prevedere una durata più **lunga** durante la visualizzazione dei log di Application Insights. 
+
+![Durata più lunga nel log di Application Insights](./media/service-bus-end-to-end-tracing/longer-duration.png)
+
+Ciò non significa che ci sia stato un ritardo nella ricezione del messaggio. In questo scenario, il messaggio è già stato ricevuto poiché il messaggio viene passato come parametro al codice SDK. Il tag **name** nei log di App Insights (**Process**) indica che il messaggio è in fase di elaborazione da parte del codice di elaborazione degli eventi esterno. Questo problema non è correlato ad Azure.This issue is not azure-related. Al contrario, queste metriche si riferiscono all'efficienza del codice esterno dato che il messaggio è già stato ricevuto dal bus di servizio. Vedere [questo file in GitHub](https://github.com/Azure/azure-sdk-for-net/blob/4bab05144ce647cc9e704d46d3763de5f9681ee0/sdk/servicebus/Microsoft.Azure.ServiceBus/src/ServiceBusDiagnosticsSource.cs) per vedere dove il tag **Process** viene generato e assegnato una volta che il messaggio è stato ricevuto dal bus di servizio. 
 
 ### <a name="tracking-without-tracing-system"></a>Verifica senza sistema di analisi
 Nel caso in cui il sistema di analisi non supporti la verifica automatica delle chiamate al bus di servizio, è possibile provare ad aggiungere questo supporto in un sistema di analisi o nell'applicazione. Questa sezione illustra gli eventi di diagnostica inviati dal client .NET del bus di servizio.  
@@ -139,9 +145,9 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 In questo esempio il listener registra durata, risultato, identificatore univoco e ora di inizio di ogni operazione del bus di servizio.
 
-#### <a name="events"></a>Eventi
+#### <a name="events"></a>Events
 
-Per ogni operazione vengono inviati due eventi, ovvero 'Start' e 'Stop'. Molto probabilmente si è interessati solo agli eventi di tipo 'Stop'. Tali eventi forniscono il risultato dell'operazione, nonché l'ora di inizio e la durata sotto forma di proprietà Activity.
+Per ogni operazione vengono inviati due eventi, ovvero 'Start' e 'Stop'. Molto probabilmente si è interessati solo agli eventi di tipo 'Stop'. Forniscono il risultato dell'operazione, nonché l'ora di inizio e la durata come proprietà Activity.They provide the result of operation, as well as start time and duration as Activity properties.
 
 Il payload dell'evento fornisce a un listener con il contesto dell'operazione, replicando il valore restituito e i parametri in arrivo dell'API. Il payload dell'evento 'Stop' contiene tutte le proprietà del payload dell'evento 'Start', di conseguenza è possibile ignorare completamente l'evento 'Start'.
 

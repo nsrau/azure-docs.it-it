@@ -1,19 +1,18 @@
 ---
-title: Configurare i lead dei clienti | Azure Marketplace
+title: Configurare i lead dei clienti Azure Marketplace
 description: Configurare i lead relativi ai clienti nel portale Cloud Partner.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pabutler
-ms.openlocfilehash: 312e172321c25248f1b0801bdbccf71762319989
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 56012fb2a907a6db6f87554660ee36b99a3dcbf9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818823"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280321"
 ---
 <a name="get-customer-leads"></a>Ottenere lead
 ==================
@@ -64,20 +63,20 @@ Ogni lead ricevuto durante il processo di acquisizione del cliente presenta dati
 
 ### <a name="lead-source"></a>Origine lead
 
-Il formato per un'origine lead è **Origine**-**Azione** |  **Offerta**
+Il formato per una fonte di lead è **Source**-**Action** |  **Offer**
 
 **Origini**: "AzureMarketplace", "AzurePortal", "TestDrive" e "AppSource (SPZA)"
 
-**Azioni**:
+**Actions**:
 - "INS": Installazione. Questa azione si trova in Azure Marketplace o AppSource quando un cliente acquista il prodotto.
 - "PLT": significa Versione di valutazione condotta dal partner. Questa azione si trova in AppSource quando un cliente usa l'opzione "Contattami".
 - "DNC": non contattare. L'azione si trova in AppSource quando un partner che è stato elencato in modo incrociato nella pagina app riceve una richiesta per essere contattato. Viene condiviso l'annuncio che il cliente è stato elencato nell'app, ma non deve essere contattato.
 - "Crea": questa azione si trova solo nel portale di Azure e si genera quando un cliente acquista l'offerta dal proprio account.
 - "StartTestDrive": questa azione riguarda solo i test drive e si genera quando un cliente avvia il test drive.
 
-**Offerte**
+**Offre**
 
-Negli esempi seguenti vengono illustrati gli identificatori univoci assegnati a un server di pubblicazione e un'offerta specifica: Checkpoint. Check-Point-R77-10sg-BYOL, Bitnami. openedxcypress e DocuSign. 3701c77e-1cfa-4c56-91e6-3ed0b622145a.
+Gli esempi seguenti mostrano identificatori univoci assegnati a un editore e a un'offerta specifica: checkpoint.check-point-r77-10sg-byol, bitnami.openedxcypress e docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a.
 
 
 ### <a name="customer-info"></a>Informazioni sui clienti
@@ -116,4 +115,4 @@ Dopo la configurazione del provider di destinazione del lead e la pubblicazione 
 <a name="what-next"></a>Come procedere?
 ----------
 
-Una eseguita la configurazione tecnica, è necessario incorporare i lead nelle vendite attuali, nella strategia di marketing e nei processi operativi. L'intento è quello di comprendere meglio il processo complessivo di vendita e di collaborare con l'utente per creare lead di alta qualità e dari sufficienti a garantire il successo dell'utente. Ogni commento su come ottimizzare e migliorare i lead inviati con dati aggiuntivi per contribuire ad avere clienti di successo è apprezzato. Invitiamo a [fornire feedback](mailto:AzureMarketOnboard@microsoft.com) e suggerimenti per consentire al team delle vendite di sviluppare i lead del Marketplace in modo ottimale.
+Una eseguita la configurazione tecnica, è necessario incorporare i lead nelle vendite attuali, nella strategia di marketing e nei processi operativi. L'intento è quello di comprendere meglio il processo complessivo di vendita e di collaborare con l'utente per creare lead di alta qualità e dari sufficienti a garantire il successo dell'utente. Ogni commento su come ottimizzare e migliorare i lead inviati con dati aggiuntivi per contribuire ad avere clienti di successo è apprezzato. Facci sapere se sei interessato a [fornire feedback](mailto:AzureMarketOnboard@microsoft.com) e suggerimenti per consentire al tuo team di vendita di avere più successo con i lead di Marketplace.

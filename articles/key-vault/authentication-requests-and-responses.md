@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b84084dafe79a8caa9cdb70bc201f68834079845
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 8cb68b1a5363889e6ea7c49cf0cdda6ed5f0e027
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196077"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294548"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticazione, richieste e risposte
 
@@ -65,7 +65,7 @@ Questo argomento illustra le caratteristiche del servizio Azure Key Vault. Per i
 
 - 3xx – Redirection (Reindirizzamento): può essere restituito il messaggio 304 "Not Modified" (Non modificato) per soddisfare un'operazione GET condizionale. Altri codici 3xx potranno essere usati in futuro per indicare modifiche di DNS e percorso.  
 
-- 4xx-Errore del client: usato per richieste non corrette, chiavi mancanti, errori di sintassi, parametri non validi, errori di autenticazione e così via. Il corpo della risposta conterrà una spiegazione dettagliata dell'errore.  
+- 4xx – Errore client: utilizzato per richieste non valide, chiavi mancanti, errori di sintassi, parametri non validi, errori di autenticazione e così via. Il corpo della risposta conterrà una spiegazione dettagliata dell'errore.  
 
 - 5xx – Server Error (Errore server): usato per errori interni del server. L'organo di risposta contiene informazioni riassuntive sull'errore.  
 
@@ -113,7 +113,7 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   authorization: indirizzo del servizio di autorizzazione OAuth2 che può essere usato per ottenere un token di accesso per la richiesta.  
 
--   Resource: nome della risorsa (https://vault.azure.net) da usare nella richiesta di autorizzazione.  
+-   resource: il nome della`https://vault.azure.net`risorsa ( ) da utilizzare nella richiesta di autorizzazione.  
 
 ## <a name="see-also"></a>Vedere anche  
  [Informazioni su chiavi, segreti e certificati](about-keys-secrets-and-certificates.md)

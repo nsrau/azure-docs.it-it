@@ -1,22 +1,21 @@
 ---
 Description: Il tempo stimato per il trasferimento dei pagamenti, le soglie di pagamento applicabili e i marketplace Microsoft da cui puoi ricevere i pagamenti possono variare in base al tuo paese o all'area geografica e al tipo di account per i proventi.
-title: Soglie di pagamento, metodi e frame temporali nel Marketplace commerciale | Azure Marketplace
+title: Soglie di pagamento, metodi e tempi nel mercato commerciale Azure Marketplace
 ms.date: 12/10/2019
-ms.topic: article
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+ms.topic: conceptual
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: 6bb05513d59870b7fa0d997eb31510494a9938e0
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: fe18fab4a2ea61f41e017704105e37f28c20e456
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931886"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279726"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Soglie, metodi e intervalli di pagamento
 
-Il tempo stimato per il trasferimento dei pagamenti e i Marketplace Microsoft dai quali è possibile ricevere i pagamenti possono variare a seconda del paese/area geografica e del tipo di account di pagamento. Questo argomento descrive i metodi di pagamento supportati in ogni paese/area geografica.
+Il tempo stimato per il trasferimento dei pagamenti e i marketplace Microsoft da cui è possibile ricevere i pagamenti possono variare a seconda del paese o del tipo di account di pagamento. In questo argomento vengono descritti i metodi di pagamento supportati in ogni paese.
 
 Per i diversi paesi/aree geografiche i pagamenti verranno effettuati tramite ACH/SEPA o bonifico bancario. Inoltre, alcuni paesi/aree geografiche supportano PayPal come metodo di pagamento.
 
@@ -25,7 +24,7 @@ Per i diversi paesi/aree geografiche i pagamenti verranno effettuati tramite ACH
 Normalmente invieremo i pagamenti in scadenza in un determinato mese entro il giorno 15 di quel mese, ma il trasferimento del pagamento al tuo account richiede altro tempo. Il numero di giorni varierà a seconda del metodo di pagamento che usiamo per il tuo account, come descritto di seguito.
 
 > [!NOTE]
-> I giorni riportati di seguito sono approssimativi. Per gli specifici proventi potrebbe essere richiesto un periodo di tempo più lungo o più breve.
+> I giorni indicati di seguito sono approssimativi; un dato pagamento può richiedere un periodo di tempo più lungo o più breve.
 
 | Metodo di pagamento     | Numero di giorni per il trasferimento all'account per i proventi     |
 |--------------------|--------------------------------------------|
@@ -33,14 +32,14 @@ Normalmente invieremo i pagamenti in scadenza in un determinato mese entro il gi
 | ACH/SEPA           | 2-3 giorni lavorativi                          |
 | Bonifico bancario      | 7-10 giorni lavorativi                         |
 
-Per sapere quali sono i paesi/le aree geografiche in cui questi metodi di pagamento vengono usati per ogni marketplace, vedi le tabelle riportate di seguito.
+Per visualizzare i paesi in cui vengono utilizzati questi metodi di pagamento per ogni marketplace, consulta le tabelle seguenti.
 
 ## <a name="payment-methods-in-countriesregions"></a>Metodi di pagamento in paesi/aree geografiche
 
 > [!NOTE]
-> Le soglie di pagamento in tutte le aree sono $50 USD.
+> Le soglie di pagamento in tutte le regioni sono di 50 USD.
 
-| Paese                          | Azure Marketplace | Store, Advertising, mixer e Minecraft | Ufficio | Pagamenti PayPal |
+| Country                          | Azure Marketplace | Store, pubblicità, mixer e Minecraft | Office | Pagamenti PayPal |
 |----------------------------------|-------------------|------------------------------------------|--------|-----------------|
 | Afghanistan                      | Sì               | Sì                                      | No     | No              |
 | Albania                          | Sì               | Sì                                      | Sì    | Sì             |
@@ -68,22 +67,22 @@ Per sapere quali sono i paesi/le aree geografiche in cui questi metodi di pagame
 | Cambogia                         | Sì               | Sì                                      | Sì    | No              |
 | Camerun                         | Sì               | Sì                                      | Sì    | No              |
 | Canada                           | Sì               | Sì                                      | Sì    | Sì             |
-| Repubblica Centrafricana         | Sì               | Sì                                      | Sì    | No              |
+| Repubblica centrafricana         | Sì               | Sì                                      | Sì    | No              |
 | Chad                             | Sì               | Sì                                      | Sì    | No              |
 | Cile                            | Sì               | Sì                                      | Sì    | Sì             |
 | Cina                            | No                | Sì                                      | Sì    | Sì             |
 | Colombia                         | Sì               | Sì                                      | Sì    | Sì             |
 | Comore                          | Sì               | Sì                                      | No     | No              |
-| Repubblica democratica del Congo                      | Sì               | Sì                                      | Sì    | No              |
+| Congo (RDC)                      | Sì               | Sì                                      | Sì    | No              |
 | Congo, Repubblica di               | Sì               | Sì                                      | Sì    | No              |
 | Costa Rica                       | Sì               | Sì                                      | Sì    | Sì             |
-| Côte d’Ivoire (Costa d'Avorio)                    | Sì               | Sì                                      | Sì    | No              |
+| Cote D'Ivoire                    | Sì               | Sì                                      | Sì    | No              |
 | Croazia                          | Sì               | Sì                                      | Sì    | No              |
 | Cipro                           | Sì               | Sì                                      | Sì    | Sì             |
-| Repubblica Ceca                   | Sì               | Sì                                      | Sì    | Sì             |
+| Repubblica ceca                   | Sì               | Sì                                      | Sì    | Sì             |
 | Danimarca                          | Sì               | Sì                                      | Sì    | Sì             |
 | Dominica                         | Sì               | Sì                                      | No     | Sì             |
-| Repubblica Domenicana               | Sì               | Sì                                      | Sì    | Sì             |
+| Repubblica dominicana               | Sì               | Sì                                      | Sì    | Sì             |
 | Ecuador                          | Sì               | Sì                                      | Sì    | Sì             |
 | Egitto                            | Sì               | Sì                                      | Sì    | Sì             |
 | El Salvador                      | Sì               | Sì                                      | Sì    | Sì             |
@@ -101,7 +100,7 @@ Per sapere quali sono i paesi/le aree geografiche in cui questi metodi di pagame
 | Guinea                           | Sì               | Sì                                      | Sì    | No              |
 | Haiti                            | Sì               | Sì                                      | Sì    | No              |
 | Honduras                         | Sì               | Sì                                      | Sì    | Sì             |
-| Hong Kong - R.A.S.                        | Sì               | Sì                                      | Sì    | Sì             |
+| RAS di Hong Kong                        | Sì               | Sì                                      | Sì    | Sì             |
 | Ungheria                          | Sì               | Sì                                      | Sì    | Sì             |
 | Islanda                          | Sì               | Sì                                      | Sì    | No              |
 | India                            | Sì               | Sì                                      | Sì    | Sì             |
@@ -125,7 +124,7 @@ Per sapere quali sono i paesi/le aree geografiche in cui questi metodi di pagame
 | Liechtenstein                    | Sì               | Sì                                      | Sì    | Sì             |
 | Lituania                        | Sì               | Sì                                      | Sì    | No              |
 | Lussemburgo                       | Sì               | Sì                                      | Sì    | Sì             |
-| Macedonia                        | No                | Sì                                      | Sì    | No              |
+| Macedonia del Nord                        | No                | Sì                                      | Sì    | No              |
 | Madagascar                       | Sì               | Sì                                      | Sì    | No              |
 | Malawi                           | Sì               | Sì                                      | Sì    | Sì             |
 | Malaysia                         | Sì               | Sì                                      | Sì    | Sì             |
@@ -133,13 +132,13 @@ Per sapere quali sono i paesi/le aree geografiche in cui questi metodi di pagame
 | Malta                            | Sì               | Sì                                      | Sì    | Sì             |
 | Mauritius                        | Sì               | Sì                                      | No     | Sì             |
 | Messico                           | Sì               | Sì                                      | Sì    | Sì             |
-| Monaco                           | Sì               | Sì                                      | No     | No              |
+| Principato di Monaco                           | Sì               | Sì                                      | No     | No              |
 | Mongolia                         | Sì               | Sì                                      | Sì    | No              |
 | Montenegro                       | Sì               | Sì                                      | Sì    | No              |
 | Marocco                          | Sì               | Sì                                      | Sì    | No              |
 | Mozambico                       | Sì               | Sì                                      | Sì    | Sì             |
 | Nepal                            | Sì               | Sì                                      | Sì    | No              |
-| Paesi Bassi                 | Sì               | Sì                                      | Sì    | Sì             |
+| Paesi Bassi,                 | Sì               | Sì                                      | Sì    | Sì             |
 | Nuova Zelanda                      | Sì               | Sì                                      | Sì    | Sì             |
 | Nicaragua                        | Sì               | Sì                                      | Sì    | Sì             |
 | Niger                            | Sì               | Sì                                      | Sì    | No              |
@@ -167,7 +166,7 @@ Per sapere quali sono i paesi/le aree geografiche in cui questi metodi di pagame
 | Slovacchia                         | Sì               | Sì                                      | Sì    | Sì             |
 | Slovenia                         | Sì               | Sì                                      | Sì    | Sì             |
 | Somalia                          | Sì               | Sì                                      | Sì    | No              |
-| Sudafrica                     | Sì               | Sì                                      | Sì    | Sì             |
+| Sud Africa                     | Sì               | Sì                                      | Sì    | Sì             |
 | Spagna                            | Sì               | Sì                                      | Sì    | Sì             |
 | Sri Lanka                        | Sì               | Sì                                      | Sì    | No              |
 | Svezia                           | Sì               | Sì                                      | Sì    | Sì             |
@@ -175,7 +174,7 @@ Per sapere quali sono i paesi/le aree geografiche in cui questi metodi di pagame
 | Taiwan                           | No                | Sì                                      | Sì    | Sì             |
 | Tagikistan                       | Sì               | Sì                                      | No     | No              |
 | Tanzania                         | Sì               | Sì                                      | Sì    | No              |
-| Tailandia                         | Sì               | Sì                                      | Sì    | Sì             |
+| Thailandia                         | Sì               | Sì                                      | Sì    | Sì             |
 | Timor Est                      | Sì               | Sì                                      | Sì    | No              |
 | Togo                             | Sì               | Sì                                      | Sì    | No              |
 | Tonga                            | Sì               | Sì                                      | No     | No              |

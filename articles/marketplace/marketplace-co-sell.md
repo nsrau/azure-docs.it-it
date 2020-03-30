@@ -1,37 +1,36 @@
 ---
-title: Co-selling partner Engagement | Azure Marketplace
-description: Il programma di co-selling di Microsoft per i partner può aiutarti a raggiungere una vasta clientela e a generare nuove vendite.
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+title: Coinvolgimento dei partner in co-vendita Azure Marketplace
+description: Il programma di co-selling di Microsoft per i partner può aiutarti a raggiungere una vasta base di clienti e generare nuove vendite.
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 389e6f512f05c7bd1a6e9963e60afbcf27067fb3
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 00ddfa9e7cc6805c39e149d9c7c9a163297c6c71
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934664"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279845"
 ---
 # <a name="co-sell-partner-engagement"></a>Programma di co-selling per i partner
 
-Il programma di co-selling di Microsoft consente ai partner di collaborare direttamente con Microsoft in occasione di opportunità di vendita congiunte. È possibile raggiungere una vasta community di clienti e creare nuove opportunità di vendita che consentono di accelerare la crescita aziendale.
+Il programma di co-selling di Microsoft consente ai partner di lavorare direttamente con Microsoft su opportunità di vendita congiunte. È possibile raggiungere una vasta comunità di clienti e creare nuove opportunità di vendita che possono contribuire ad accelerare la crescita del business.
 
-## <a name="partner-selling-motions"></a>Movimenti di vendita partner
+## <a name="partner-selling-motions"></a>Mozioni di vendita partner
 
-Sono disponibili tre movimenti di vendita partner:
+Ci sono tre mozioni di vendita partner:
 
-* *Vendi tramite partner*: puoi rivendere la tecnologia Microsoft attraverso i tuoi venditori.
-* *Co-selling dei servizi*: i venditori e i partner collaborano per vendere il progetto o i servizi gestiti con la tecnologia Microsoft Embedded.
-* *Co-selling IP*: i venditori/partner collaborano per vendere la soluzione IP in pacchetto ripetibile *.
+* *Vendi tramite partner*: È possibile rivendere la tecnologia Microsoft attraverso i propri venditori.
+* *Co-selling dei servizi:* venditori e partner collaborano per vendere il tuo progetto o i servizi gestiti con la tecnologia Microsoft integrata.
+* *Co-selling IP*: Venditori/partner collaborano per vendere la tua soluzione IP ripetibile e confezionata.
 
-\* alcune di queste soluzioni di co-selling IP possono ricevere incentivi aggiuntivi quando vengono venduti e distribuiti con i team di vendita dei campi di Microsoft.
+\*Alcune di queste soluzioni di co-vendita IP possono ricevere incentivi aggiuntivi quando vengono vendute e distribuite con successo con i team di vendita sul campo di Microsoft.
 
-![Co-selling](./media/marketplace-publishers-guide/marketplace-co-sell.png)
+![Il co-selling avviene](./media/marketplace-publishers-guide/marketplace-co-sell.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Scopri di più sulla [vendita con Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
-- Informazioni sull' [opzione di co-selling nel centro per i partner](./partner-center-portal/commercial-marketplace-co-sell.md) .
+- Ulteriori informazioni sulla [vendita con Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
+- Scopri di più [sull'opzione Co-selling nel Centro per i partner.](./partner-center-portal/commercial-marketplace-co-sell.md)

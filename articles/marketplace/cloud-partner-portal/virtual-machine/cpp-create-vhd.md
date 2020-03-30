@@ -1,26 +1,25 @@
 ---
-title: Creare un VHD compatibile con Azure per Azure Marketplace
+title: Creare un disco rigido virtuale compatibile con Azure per Azure MarketplaceCreate an Azure-compatible VHD for the Azure Marketplace
 description: Questo articolo illustra come creare un disco rigido virtuale per un'offerta di macchina virtuale in Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/27/2018
-ms.author: pabutler
-ms.openlocfilehash: 37fecb8100ec40ace02960a4f3390420a8bfc735
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 2014a775edd4e24f5d302d863d0b69d83009b8a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73816814"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277991"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>Creare un disco rigido virtuale compatibile con Azure
 
 Questo articolo descrive in dettaglio i passaggi necessari per creare un disco rigido virtuale per un'offerta di macchina virtuale in Azure Marketplace.  Include inoltre le procedure consigliate per diversi aspetti, ad esempio l'uso di Remote Desktop Protocol (RDP), la selezione di una dimensione per la macchina virtuale, l'installazione degli aggiornamenti di Windows più recenti e la generalizzazione dell'immagine del disco rigido virtuale.  Le sezioni seguenti sono dedicate principalmente sui dischi rigidi virtuali basati su Windows. Per altre informazioni sulla creazione di dischi rigidi virtuali basati su Linux, vedere [Linux in distribuzioni approvate da Azure](../../../virtual-machines/linux/endorsed-distros.md). 
 
 > [!WARNING]
-> È consigliabile seguire le indicazioni presenti in questo argomento per usare Azure per la creazione di una macchina virtuale che contiene un sistema operativo pre-configurato e approvato.  Se questo non è compatibile con la soluzione, è possibile creare e configurare una macchina virtuale locale usando un sistema operativo approvato.  È quindi possibile configurare e prepararla per il caricamento, come descritto in [Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+> È consigliabile seguire le indicazioni presenti in questo argomento per usare Azure per la creazione di una macchina virtuale che contiene un sistema operativo pre-configurato e approvato.  Se non è compatibile con la soluzione, è possibile creare e configurare una macchina virtuale locale usando un sistema operativo approvato.  È quindi possibile configurare e prepararla per il caricamento, come descritto in [Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
 
 
 ## <a name="select-an-approved-base"></a>Selezionare una base approvata
@@ -50,7 +49,7 @@ Nel [portale di Microsoft Azure](https://ms.portal.azure.com/) creare l'immagine
 
 5. Dopo aver selezionato l'immagine virtuale appropriata, specificare i valori seguenti:
    * Nel pannello **Informazioni di base** immettere un valore in **Nome** per la macchina virtuale con lunghezza compresa tra 1 e 15 caratteri alfanumerici. Questo esempio usa `DemoVm009`.
-   * Immettere un valore in **Nome utente** e una password complessa in **Password**, da usare per creare un account locale nella macchina virtuale.  Qui viene usato `adminUser`.  La password deve avere una lunghezza di 8-123 caratteri e soddisfare tre dei quattro requisiti di complessità seguenti: un carattere minuscolo, un carattere maiuscolo, un numero e un carattere speciale. Per altre informazioni, vedere i [requisiti relativi a nome utente e password](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
+   * Immettere un valore in **Nome utente** e una password complessa in **Password**, da usare per creare un account locale nella macchina virtuale.  (Qui `adminUser` viene utilizzato.)  La password deve essere lunga 8-123 caratteri e soddisfare tre dei quattro requisiti di complessità seguenti: un carattere minuscolo, un carattere maiuscolo, un numero e un carattere speciale. Per altre informazioni, vedere i [requisiti relativi a nome utente e password](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
    * Selezionare il gruppo di risorse creato in precedenza (in questo caso `DemoResourceGroup`).
    * Selezionare un valore di **Località** per il data center di Azure (in questo caso `West US`).
    * Fare clic su **OK** per salvare questi valori. 
@@ -62,7 +61,7 @@ Nel [portale di Microsoft Azure](https://ms.portal.azure.com/) creare l'immagine
 
    ![Pannello delle dimensioni della nuova macchina virtuale](./media/publishvm_015.png)
 
-7. Nel pannello **Impostazioni** impostare l'opzione **Usa dischi gestiti** su **No**.  Ciò consente di gestire manualmente il nuovo disco rigido virtuale. Il pannello **Impostazioni** consente inoltre di modificare le altre opzioni di archiviazione e di rete, ad esempio selezionando **Premium (SSD)** nel **tipo di disco**.  Fare clic su **OK** per continuare.
+7. Nel pannello **Impostazioni** impostare l'opzione **Usa dischi gestiti** su **No**.  Ciò consente di gestire manualmente il nuovo disco rigido virtuale. Il pannello **Impostazioni** consente inoltre di modificare altre opzioni di archiviazione e rete, ad esempio la selezione di **Premium (SSD)** in Tipo di **disco.**  Fare clic **su OK** per continuare.
 
     ![Pannello Impostazioni della nuova macchina virtuale](./media/publishvm_016.png)
 

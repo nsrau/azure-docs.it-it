@@ -1,19 +1,18 @@
 ---
-title: Creare un certificato di Azure Key Vault | Azure Marketplace
+title: Creare un certificato dell'insieme di credenziali delle chiavi di Azure Azure Marketplace
 description: Questo articolo illustra come registrare una macchina virtuale da un disco rigido virtuale distribuito in Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2018
-ms.author: pabutler
-ms.openlocfilehash: 4adc6f716050e2d792e0a5c022972e4340d2846a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: dc106ecf40367172f28c0f339bbcce8bddb50a34
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823120"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278076"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Creare certificati per Azure Key Vault
 
@@ -77,7 +76,7 @@ Modificare ed eseguire lo script di Azure PowerShell seguente per creare il file
 
 ## <a name="create-the-key-vault"></a>Creare l'insieme di credenziali delle chiavi
 
-Copiare il contenuto del [modello di distribuzione dell'insieme di credenziali delle chiavi](./cpp-key-vault-deploy-template.md) in un file nel computer locale. nello script di esempio seguente questa risorsa viene `C:\certLocation\keyvault.json`.  Modificare ed eseguire lo script di Azure PowerShell seguente per creare un'istanza di Azure Key Vault e il gruppo di risorse associato.  Sarà necessario sostituire i valori per i parametri seguenti:
+Copiare il contenuto del [modello di distribuzione dell'insieme di credenziali delle chiavi](./cpp-key-vault-deploy-template.md) in un file nel computer locale. (nello script di esempio riportato di seguito, questa risorsa è `C:\certLocation\keyvault.json`.)  Modificare ed eseguire lo script di Azure Powershell seguente per creare un'istanza dell'insieme di credenziali delle chiavi di Azure e il gruppo di risorse associato.  Sarà necessario sostituire i valori per i parametri seguenti:
 
 |  **Parametro**        |   **Descrizione**                                                               |
 |  -------------        |   ---------------                                                               |

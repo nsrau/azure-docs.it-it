@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 53ffc6dd36dbf8588b5e1eb26b461e22c7445092
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 9f4b9d53aaa1cac17fbaae4b638e144654fad4e5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747689"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535630"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Creare un database Oracle in una VM di Azure
 
@@ -27,18 +27,19 @@ Questa guida descrive nei dettagli l'uso dell'interfaccia della riga di comando 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessario eseguire la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessario eseguire la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If]( /cli/azure/install-azure-cli)you need to install or upgrade, see Install Azure CLI.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
 Creare un gruppo di risorse con il comando [az group create](/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. 
 
-L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
+L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nel percorso *eastus.*
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
-## <a name="create-virtual-machine"></a>Crea macchina virtuale
+
+## <a name="create-virtual-machine"></a>Creare macchina virtuale
 
 Per crea una macchina virtuale (VM), usare il comando [az vm create](/cli/azure/vm). 
 
@@ -56,7 +57,7 @@ az vm create \
 
 In seguito alla creazione della VM, l'interfaccia della riga di comando di Azure visualizza informazioni simili a quelle dell'esempio seguente. Notare il valore di `publicIpAddress`. Questo indirizzo verrà usato per accedere alla macchina virtuale.
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/{snip}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -73,7 +74,7 @@ In seguito alla creazione della VM, l'interfaccia della riga di comando di Azure
 
 Per creare una sessione SSH con la VM, usare il comando seguente. Sostituire l'indirizzo IP con il valore di `publicIpAddress` della macchina virtuale.
 
-```bash 
+```bash
 ssh azureuser@<publicIpAddress>
 ```
 
@@ -90,7 +91,7 @@ Il software Oracle è già installato nell'immagine del Marketplace. Creare un d
 
     L'output è simile al seguente:
 
-    ```bash
+    ```output
     Copyright (c) 1991, 2014, Oracle.  All rights reserved.
 
     Starting /u01/app/oracle/product/12.1.0/dbhome_1/bin/tnslsnr: please wait...
@@ -142,13 +143,14 @@ Il software Oracle è già installato nell'immagine del Marketplace. Creare un d
 
 3. Impostare le variabili Oracle
 
-Prima della connessione, è necessario configurare due variabili di ambiente: *ORACLE_HOME* e *ORACLE_SID*.
+Prima di connettersi, è necessario impostare due variabili di ambiente: *ORACLE_HOME* e *ORACLE_SID*.
 
 ```bash
 ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 ORACLE_SID=cdb1; export ORACLE_SID
 ```
-È anche possibile aggiungere le variabili ORACLE_HOME e ORACLE_SID al file con estensione bashrc. In questo modo, le variabili di ambiente verranno salvate per gli accessi futuri. Verificare che le istruzioni seguenti siano state aggiunte al file di `~/.bashrc` usando l'editor di propria scelta.
+
+È anche possibile aggiungere le variabili ORACLE_HOME e ORACLE_SID al file con estensione bashrc. In questo modo le variabili di ambiente per gli invii futuri. Confermare che le seguenti istruzioni sono state aggiunte al file utilizzando l'editor `~/.bashrc` di propria scelta.
 
 ```bash
 # Add ORACLE_HOME. 
@@ -181,7 +183,7 @@ Per ottenere uno strumento di gestione dell'interfaccia utente grafica da usare 
 
     L'output è simile al seguente:
 
-    ```bash
+    ```output
       CON_ID NAME                           OPEN_MODE 
       ----------- ------------------------- ---------- 
       2           PDB$SEED                  READ ONLY 
@@ -202,6 +204,7 @@ Per ottenere uno strumento di gestione dell'interfaccia utente grafica da usare 
 Per impostazione predefinita, il database Oracle non viene avviato automaticamente quando si riavvia la VM. Per configurare il database Oracle perché venga avviato automaticamente, accedere prima di tutto come utente ROOT. Quindi creare e aggiornare alcuni file di sistema.
 
 1. Accedere come utente ROOT
+
     ```bash
     sudo su -
     ```
@@ -214,7 +217,7 @@ Per impostazione predefinita, il database Oracle non viene avviato automaticamen
 
 3.  Creare un file denominato `/etc/init.d/dbora` e incollare i contenuti seguenti:
 
-    ```
+    ```bash
     #!/bin/sh
     # chkconfig: 345 99 10
     # Description: Oracle auto start-stop script.
@@ -304,7 +307,7 @@ Il passaggio finale consiste nel configurare alcuni endpoint esterni. Per config
 
 4.  Connettersi a EM Express dal browser. Verificare che il browser sia compatibile con EM Express. È necessario installare Flash. 
 
-    ```
+    ```https
     https://<VM ip address or hostname>:5502/em
     ```
 
@@ -316,7 +319,7 @@ Il passaggio finale consiste nel configurare alcuni endpoint esterni. Per config
 
 Al termine dell'esplorazione di un primo database Oracle in Azure e quando la macchina virtuale non è più necessaria, è possibile usare il comando [az group delete](/cli/azure/group) per rimuovere il gruppo di risorse la macchina virtuale e tutte le risorse correlate.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

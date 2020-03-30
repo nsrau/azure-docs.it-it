@@ -1,5 +1,5 @@
 ---
-title: Gestire le credenziali dell'account di archiviazione, dispositivo StorSimple serie 8000
+title: Gestire le credenziali dell'account di archiviazione, dispositivo della serie StorSimple 8000Manage storage account credentials, StorSimple 8000 series device
 description: Viene illustrato come utilizzare la pagina Configura di Gestione dispositivi StorSimple per aggiungere, modificare, eliminare o ruotare le chiavi di protezione per un account di archiviazione.
 services: storsimple
 documentationcenter: NA
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 11bc97be7ff8d924f7ccd0b4672a8f4cb0a178ff
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 65aa83731be97b59a36a5baf60ea308690a0dcf8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79254859"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297738"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Usare il servizio Gestione dispositivi StorSimple per gestire le credenziali degli account di archiviazione
 
@@ -39,9 +39,9 @@ Gli account di archiviazione contengono le credenziali usate dal dispositivo Sto
 
 Nel pannello **Credenziali dell'account di archiviazione** tutti gli account di archiviazione creati per la sottoscrizione di fatturazione vengono visualizzati in un formato tabulare con le informazioni seguenti:
 
-* **Nome** : il nome univoco assegnato all'account al momento della creazione.
-* **SSL abilitato** : se SSL è abilitato e la comunicazione tra dispositivo e cloud avviene tramite il canale protetto.
-* **Utilizzato da** : il numero di volumi che utilizzano l’account di archiviazione.
+* **Nome**: nome univoco assegnato all'account al momento della creazione.
+* **ABILITATO SSL:** indica se TLS è abilitato e la comunicazione da dispositivo a cloud avviene tramite il canale sicuro.
+* **Utilizzato da**: numero di volumi che usano l'account di archiviazione.
 
 Le attività più comuni relative agli account di archiviazione che possono essere eseguite sono:
 
@@ -55,12 +55,12 @@ Le attività più comuni relative agli account di archiviazione che possono esse
 Esistono tre tipi di account di archiviazione che è possibile utilizzare con il dispositivo StorSimple.
 
 * **Account di archiviazione generati automaticamente** : come suggerito dal nome, questo tipo di account di archiviazione viene generato automaticamente quando viene inizialmente creato il servizio. Per altre informazioni sulla creazione di questo account di archiviazione, vedere il [Passaggio 1: Creare un nuovo servizio](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) in [Distribuire il dispositivo StorSimple locale](storsimple-8000-deployment-walkthrough-u2.md). 
-* **Account di archiviazione nella sottoscrizione del servizio** : sono gli account di archiviazione di Azure associati alla stessa sottoscrizione del servizio. Per ulteriori informazioni su come vengono creati questi account di archiviazione, vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md). 
-* **Account di archiviazione esterni alla sottoscrizione al servizio** : sono gli account di archiviazione di Azure non associati al servizio e probabilmente esistenti prima che il servizio fosse creato.
+* **Account di archiviazione nella sottoscrizione del servizio**: si tratta degli account di archiviazione di Azure associati alla stessa sottoscrizione di quella del servizio. Per ulteriori informazioni su come vengono creati questi account di archiviazione, vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md). 
+* **Account di archiviazione all'esterno della sottoscrizione del servizio**: si tratta degli account di archiviazione di Azure non associati al servizio e probabilmente esistenti già prima della creazione del servizio.
 
 ## <a name="add-a-storage-account"></a>Aggiungere un account di archiviazione
 
-È possibile aggiungere un account di archiviazione fornendo un nome descrittivo univoco e le credenziali di accesso collegate all'account di archiviazione (con il provider del servizio cloud specificato). È inoltre possibile scegliere di abilitare la modalità SSL (Secure Socket Layer) per creare un canale protetto per la comunicazione di rete tra il dispositivo e il cloud.
+È possibile aggiungere un account di archiviazione fornendo un nome descrittivo univoco e le credenziali di accesso collegate all'account di archiviazione (con il provider del servizio cloud specificato). È inoltre possibile abilitare la modalità TLS (Transport Layer Security), precedentemente nota come modalità SSL (Secure Sockets Layer), per creare un canale sicuro per la comunicazione di rete tra il dispositivo e il cloud.
 
 È possibile creare più account per un provider del servizio cloud specificato. Tenere presente, tuttavia, che dopo aver creato un account di archiviazione non è possibile modificare il provider di servizi cloud.
 
@@ -86,7 +86,7 @@ Usare le procedure seguenti per aggiungere le credenziali dell'account di archiv
    
     3. Nella casella di testo **Chiave di accesso dell'account di archiviazione** specificare la chiave di accesso primaria per la credenziale dell'account di archiviazione di Azure. Per ottenere questa chiave, passare al servizio Archiviazione di Azure, selezionare la credenziale dell'account di archiviazione e fare clic su **Gestisci chiavi di accesso**. È ora possibile copiare la chiave di accesso primaria.
    
-    4. Per abilitare SSL, fare clic sul pulsante **Abilita** per creare un canale sicuro per la comunicazione di rete tra il servizio Gestione dispositivi StorSimple e il cloud. Fare clic sul pulsante **Disabilita** solo se si opera all'interno di un cloud privato.
+    4. Per abilitare TLS, fare clic sul pulsante **Abilita** per creare un canale sicuro per la comunicazione di rete tra il servizio StorSimple Device Manager e il cloud. Fare clic sul pulsante **Disabilita** solo se si opera all'interno di un cloud privato.
    
     5. Fare clic su **Aggiungi**. Quando la creazione della credenziale dell'account di archiviazione viene completata, si riceve una notifica.
 
@@ -106,11 +106,11 @@ Usare le procedure seguenti per aggiungere le credenziali dell'account di archiv
 
 2. Nel pannello **Credenziali dell'account di archiviazione** selezionare e fare clic sulle credenziali da modificare nell'elenco. 
 
-3. È possibile modificare la selezione **Abilita SSL**. È anche possibile fare clic su **Altro...**  e selezionare **Sincronizza chiave di accesso** per ruotare le chiavi di accesso agli account di archiviazione. Andare a [Rotazione delle chiavi degli account di archiviazione](#key-rotation-of-storage-accounts) per ulteriori informazioni su come eseguire la rotazione delle chiavi. Dopo avere modificato le impostazioni, fare clic su **Salva**. 
+3. È possibile modificare la selezione **Abilita SSL**. È anche possibile fare clic su **Altro... ** e selezionare **Sincronizza chiave di accesso** per ruotare le chiavi di accesso agli account di archiviazione. Andare a [Rotazione delle chiavi degli account di archiviazione](#key-rotation-of-storage-accounts) per ulteriori informazioni su come eseguire la rotazione delle chiavi. Dopo avere modificato le impostazioni, fare clic su **Salva**. 
 
     ![Salvare le credenziali dell'account di archiviazione modificate](./media/storsimple-8000-manage-storage-accounts/editstorageacct3.png)
 
-4. Alla richiesta di conferma fare clic su **Sì**. 
+4. Quando viene richiesta la conferma, fare clic su **Sì**. 
 
     ![Confermare le modifiche](./media/storsimple-8000-manage-storage-accounts/editstorageacct4.png)
 
@@ -169,7 +169,7 @@ Al termine della sincronizzazione della chiave, si riceve una notifica.
 
 #### <a name="to-synchronize-keys-for-storage-accounts-outside-of-the-service-subscription"></a>Per sincronizzare le chiavi per gli account di archiviazione esterni alla sottoscrizione del servizio
 1. Nella pagina **Servizi** fare clic sulla scheda **Configura**.
-2. Fare clic su **Aggiungi/modifica account di archiviazione**.
+2. Fare clic su **Aggiungi/Modifica account di archiviazione**.
 3. Nella finestra di dialogo procedere come segue:
    
    1. Selezionare l'account di archiviazione con la chiave di accesso che si desidera aggiornare.

@@ -1,116 +1,110 @@
 ---
 title: File di inclusione
 description: File di inclusione
-services: commercial marketplace
 documentationcenter: partner-center-commercial-marketplace
 author: qianw211
-manager: evansma
-editor: ''
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.devlang: na
 ms.topic: include
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 08/13/2019
-ms.author: v-qiwe
+ms.author: dsindona
 ms.custom: include file
-ms.openlocfilehash: 831e3330126d82795cece128c28cb96b7199d69a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f2446a924ceed37c51779efc9d9e94c0252a2067
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825558"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80321833"
 ---
-La scheda **test drive** consente di configurare una dimostrazione (o "test drive") che consentirà ai clienti di provare l'offerta prima di eseguire il commit per acquistarla. Per altre informazioni, vedere l'articolo relativo a [test drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive). Se non si desidera più fornire un test drive per l'offerta, tornare alla pagina di **installazione dell'offerta** e deselezionare **Abilita Test Drive**.
+La scheda **Test drive** consente di impostare una dimostrazione (o "test drive") che consentirà ai clienti di provare l'offerta prima di impegnarsi ad acquistarla. Ulteriori informazioni sono riportate nell'articolo [Che cos'è Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive). Se non si desidera più fornire un test drive per l'offerta, tornare alla pagina **Impostazione offerta** e deselezionare **Abilita test drive**.
 
 ### <a name="technical-configuration"></a>Configurazione tecnica
-Sono disponibili i tipi di unità di test seguenti, ognuno con requisiti di configurazione tecnici specifici.
+Sono disponibili i seguenti tipi di test drive, ognuno con i propri requisiti di configurazione tecnica.
 
-- [Gestione risorse di Azure](#technical-configuration-for-azure-resource-manager-test-drive)
+- [Azure Resource Manager](#technical-configuration-for-azure-resource-manager-test-drive)
 - [Dynamics 365](#technical-configuration-for-dynamics-365-test-drive)
 - [App per la logica](#technical-configuration-for-logic-app-test-drive)
-- [Power bi](#technical-configuration-not-required-for-power-bi-test-drives) (configurazione tecnica non necessaria)
+- [Power BI](#technical-configuration-not-required-for-power-bi-test-drives) (configurazione tecnica non necessaria)
 
-#### <a name="technical-configuration-for-azure-resource-manager-test-drive"></a>Configurazione tecnica per Azure Resource Manager test drive
+#### <a name="technical-configuration-for-azure-resource-manager-test-drive"></a>Configurazione tecnica per il test drive di Azure Resource ManagerTechnical configuration for Azure Resource Manager test drive
 
-Un modello di distribuzione che contiene tutte le risorse di Azure che costituiscono la soluzione. I prodotti che soddisfano questo scenario usano solo le risorse di Azure. Altre informazioni sulla configurazione di un [Azure Resource Manager Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).
+Modello di distribuzione che contiene tutte le risorse di Azure che costituiscono la soluzione. I prodotti che si adattano a questo scenario usano solo le risorse di Azure.Products that fit this scenario use only Azure resources. Altre informazioni sulla configurazione di un test drive di [Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).
 
-- **Regions** (obbligatorio): attualmente sono presenti 26 aree supportate da Azure in cui è possibile rendere disponibili le test drive. In genere, è consigliabile rendere le test drive disponibili nelle aree in cui si prevede il maggior numero di clienti, in modo che possano selezionare l'area più vicina per ottenere prestazioni ottimali. È necessario assicurarsi che alla sottoscrizione sia consentita la distribuzione di tutte le risorse necessarie in ognuna delle aree selezionate.
+- **Aree** (obbligatorio): attualmente sono presenti 26 aree supportate da Azure in cui è possibile redimare il test drive. In genere, è consigliabile rendere disponibile l'unità di test nelle aree in cui si prevede il maggior numero di clienti, in modo che possano selezionare l'area più vicina per ottenere prestazioni ottimali. È necessario assicurarsi che la sottoscrizione sia autorizzata a distribuire tutte le risorse necessarie in ognuna delle aree selezionate.
 
-- **Istanze**: selezionare il tipo (Hot o Cold) e il numero di istanze disponibili, che verranno moltiplicate per il numero di aree in cui è disponibile l'offerta.
+- **Istanze**: Selezionare il tipo (caldo o freddo) e il numero di istanze disponibili, che verranno moltiplicate per il numero di regioni in cui l'offerta è disponibile.
 
-**Hot**: questo tipo di istanza viene distribuito e in attesa di accesso per area selezionata. I clienti possono accedere immediatamente alle istanze a *caldo* di una test drive, anziché dover attendere una distribuzione. Il compromesso è che queste istanze sono sempre in esecuzione nella sottoscrizione di Azure, comportando quindi un costo relativo al tempo di attività più elevato. Si consiglia di disporre di almeno un'istanza di accesso frequente, in quanto la maggior parte dei clienti non desidera attendere le distribuzioni complete, causando un calo nell'utilizzo del cliente se non è *disponibile un'istanza* a *caldo* .
+**Hot**: Questo tipo di istanza viene distribuito e in attesa di accesso per ogni area selezionata. I clienti possono accedere istantaneamente alle istanze *Hot* di un test drive, anziché dover attendere una distribuzione. Il compromesso è che queste istanze sono sempre in esecuzione nella sottoscrizione di Azure, comportando quindi un costo relativo al tempo di attività più elevato. È consigliabile avere almeno un'istanza *Hot,* poiché la maggior parte dei clienti non desidera attendere le distribuzioni complete, con conseguente calo dell'utilizzo dei clienti se non è disponibile alcuna istanza *Hot.*
 
-**Cold**: questo tipo di istanza rappresenta il numero totale di istanze che possono essere distribuite per ogni area. Per le istanze a freddo è necessario che l'intero test drive Gestione risorse modello venga distribuito quando un cliente richiede l'test drive, in modo che le istanze a *freddo* risultino molto più lente del caricamento rispetto alle istanze a *caldo* . Il compromesso è dovuto al fatto che è necessario pagare solo per la durata del test drive, *non* è sempre in esecuzione nella sottoscrizione di Azure come con *un'istanza* attiva.
+**Cold**: Questo tipo di istanza rappresenta il numero totale di istanze che possono essere distribuite per ogni area. Le istanze fredde richiedono la distribuzione dell'intero modello di Test Drive Resource Manager quando un cliente richiede l'unità di test, pertanto le istanze *Cold* sono molto più lente da caricare rispetto alle istanze *Hot.* Il compromesso è che è necessario pagare solo per la durata del test drive, non è sempre in esecuzione nella sottoscrizione di Azure come con un'istanza *Hot.The* tradeoff is that You only have to pay for the duration of the test drive, it is *not* always running on your Azure subscription as with a Hot instance.
 
-- **Test drive Azure Resource Manager modello**: caricare il file zip contenente il modello di Azure Resource Manager.  Per altre informazioni sulla creazione di un modello di Azure Resource Manager, vedere l'articolo introduttivo [creare e distribuire modelli di Azure Resource Manager tramite il portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+- **Test test test modello di Azure Resource Manager:** caricare il file .zip contenente il modello di Azure Resource Manager.Test drive Azure Resource Manager template : Upload the .zip containing your Azure Resource Manager template.  Per altre informazioni sulla creazione di un modello di Azure Resource Manager, vedere l'articolo delle guide rapide Creare e distribuire modelli di [Azure Resource Manager tramite il portale](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)di Azure.
 
-- **Durata test drive** (obbligatorio): immettere il periodo di tempo in cui il test drive resterà attivo, in ore. Il test drive termina automaticamente alla fine di questo periodo di tempo. Questa durata può essere impostata solo per un numero intero di ore (ad esempio, "2" ore, "1,5" non è valido).
+- **Durata dell'unità** di test (obbligatorio): immettere il periodo di tempo in cui il Test Drive rimarrà attivo, in numero di ore. Il test drive termina automaticamente alla fine di questo periodo di tempo. Questa durata può essere impostata solo da un numero intero di ore (ad esempio "2" ore, "1,5" non è valido).
 
-#### <a name="technical-configuration-for-dynamics-365-test-drive"></a>Configurazione tecnica per Dynamics 365 test drive
+#### <a name="technical-configuration-for-dynamics-365-test-drive"></a>Configurazione tecnica per il test drive di Dynamics 365
 
-Microsoft può rimuovere la complessità della configurazione di un test drive ospitando e gestendo il provisioning e la distribuzione del servizio usando questo tipo di test drive. La configurazione di questo tipo di test drive ospitata è la stessa, indipendentemente dal fatto che la test drive sia destinata a un gruppo di lavoro centrale, Customer Engagement o Operations.
+Microsoft può rimuovere la complessità della configurazione di un test drive ospitando e mantenendo il provisioning e la distribuzione del servizio utilizzando questo tipo di test drive. La configurazione per questo tipo di test drive ospitato è la stessa indipendentemente dal fatto che il test drive sia destinato a un gruppo di destinatari Business Central, Customer Engagement o Operations.
 
-- Numero massimo di **unità di test simultanee** (obbligatorio): impostare il numero massimo di clienti che possono usare la test drive alla volta. Ogni utente simultaneo utilizzerà una licenza Dynamics 365 mentre la test drive è attiva, pertanto sarà necessario assicurarsi che siano disponibili sufficienti licenze per supportare il limite massimo impostato. Valore consigliato da 3 a 5.
+- Numero massimo di **test simultanei** (obbligatorio): impostare il numero massimo di clienti che possono utilizzare il test drive contemporaneamente. Ogni utente simultaneo utilizzerà una licenza di Dynamics 365 mentre il test drive è attivo, pertanto dovrai assicurarti di disporre di un numero sufficiente di licenze disponibili per supportare il set di limiti massimo. Valore consigliato da 3 a 5.
 
-- **Durata test drive** (obbligatorio): immettere il periodo di tempo per cui il test drive resterà attivo definendo il numero di ore. Dopo questo numero di ore, la sessione terminerà e non utilizzerà più una delle licenze. È consigliabile un valore di 2-24 ore a seconda della complessità dell'offerta. Questa durata può essere impostata solo per un numero intero di ore (ad esempio, "2" ore, "1,5" non è valido).  L'utente può richiedere una nuova sessione se esaurisce il tempo e desidera accedere nuovamente al test drive.
+- **Durata dell'unità** di test (obbligatorio): immettere il periodo di tempo in cui il Test Drive rimarrà attivo definendo il numero di ore. Dopo queste ore, la sessione terminerà e non utilizzerà più una delle licenze. Consigliamo un valore di 2-24 ore a seconda della complessità della tua offerta. Questa durata può essere impostata solo da un numero intero di ore (ad esempio "2" ore, "1,5" non è valido).  L'utente può richiedere una nuova sessione se ha esaurito il tempo e desidera accedere nuovamente al test drive.
 
-- **URL istanza** (obbligatorio): URL da cui il cliente inizierà a test drive. In genere l'URL dell'istanza di Dynamics 365 che esegue l'app con i dati di esempio installati, ad esempio https://testdrive.crm.dynamics.com).
+- **URL istanza** (obbligatorio): l'URL in cui il cliente inizierà il test drive. In genere l'URL dell'istanza di Dynamics 365 che `https://testdrive.crm.dynamics.com`esegue l'app con i dati di esempio installati (ad esempio).
 
-- **URL dell'API Web dell'istanza** (obbligatorio): recuperare l'URL dell'API Web per l'istanza di Dynamics 365 accedendo all'account Microsoft 365 e passando alle **Impostazioni** \&gt; **Personalizzazione** \&gt; **Risorse per sviluppatori** \&gt; **API Web dell'istanza (URL radice del servizio)** , copiare l'URL disponibile qui, ad esempio https://testdrive.crm.dynamics.com/api/data/v9.0).
+- **URL dell'API Web dell'istanza** (obbligatorio): recupera l'URL dell'API Web per l'istanza di Dynamics 365 accedendo al tuo account Microsoft 365 e accedendo a **Impostazioni** \&gt; **Personalizzazione** \&gt; **Risorse** \&per sviluppatori gt; **API Web dell'istanza (URL radice del servizio)**, `https://testdrive.crm.dynamics.com/api/data/v9.0`copiare l'URL trovato qui (ad esempio ).
 
-- **Nome ruolo** (obbligatorio): specificare il nome del ruolo di sicurezza definito nell'test drive Dynamics 365 personalizzato. Questa operazione verrà assegnata all'utente durante il test drive, ad esempio test-drive-Role.
+- **Nome ruolo** (obbligatorio): specificare il nome del ruolo di sicurezza definito nel test drive Dynamics 365 personalizzato. Questo verrà assegnato all'utente durante il test drive (ad esempio test-drive-role).
 
-#### <a name="technical-configuration-for-logic-app-test-drive"></a>Configurazione tecnica per test drive app per la logica
+#### <a name="technical-configuration-for-logic-app-test-drive"></a>Configurazione tecnica per l'unità di test dell'app per la logicaTechnical configuration for Logic app test drive
 
-Tutti i prodotti personalizzati devono usare questo tipo di modello di distribuzione test drive che include un'ampia gamma di architetture di soluzioni complesse. Per altre informazioni sulla configurazione di unità di test per l'app per la logica, vedere [operazioni](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) e [coinvolgimento dei clienti](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app) su GitHub.
+Tutti i prodotti personalizzati devono utilizzare questo tipo di modello di distribuzione di test drive che include una varietà di architetture di soluzioni complesse. Per altre informazioni sull'impostazione dei test di App logica, vedere Operations and Customer Engagement su GitHub.For more information about setting up Logic App test drives, visit [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) and [Customer Engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app) on GitHub.
 
-- **Region** (obbligatorio, elenco a discesa a selezione singola): attualmente sono presenti 26 aree supportate da Azure in cui è possibile rendere disponibili le test drive. Le risorse per l'app per la logica verranno distribuite nell'area selezionata. Se l'app per la logica contiene risorse personalizzate archiviate in un'area specifica, assicurarsi che l'area sia selezionata qui. Il modo migliore per eseguire questa operazione consiste nel distribuire completamente l'app per la logica localmente nella sottoscrizione di Azure nel portale e verificare che funzioni correttamente prima di effettuare questa selezione.
+- **Area** (obbligatorio, elenco a discesa a selezione singola): attualmente sono disponibili 26 aree supportate da Azure in cui è possibile redimare il test drive. Le risorse per l'app per la logica verranno distribuite nell'area selezionata. Se l'app per la logica include risorse personalizzate archiviate in un'area specifica, assicurarsi che tale area sia selezionata qui. Il modo migliore per eseguire questa operazione consiste nel distribuire completamente l'app per la logica in locale nella sottoscrizione di Azure nel portale e verificare che funzioni correttamente prima di effettuare questa selezione.
 
-- Numero massimo di **unità di test simultanee** (obbligatorio): impostare il numero massimo di clienti che possono usare la test drive alla volta. Queste unità di test sono già distribuite, consentendo ai clienti di accedervi immediatamente senza attendere una distribuzione.
+- Numero massimo di **test simultanei** (obbligatorio): impostare il numero massimo di clienti che possono utilizzare il test drive contemporaneamente. Questi test drive sono già distribuiti, consentendo ai clienti di accedervi immediatamente senza attendere una distribuzione.
 
-- **Durata test drive** (obbligatorio): immettere il periodo di tempo in cui il test drive resterà attivo, in ore. Il test drive termina automaticamente al termine di questo periodo di tempo.
+- **Durata dell'unità** di test (obbligatorio): immettere il periodo di tempo in cui il Test Drive rimarrà attivo, in numero di ore. L'unità di prova termina automaticamente al termine di questo periodo di tempo.
 
-- **Nome del gruppo di risorse di Azure** (obbligatorio): immettere il nome del [gruppo di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) in cui viene salvata l'App per la logica test drive.
+- **Nome del gruppo** di risorse di Azure (obbligatorio): immettere il nome del gruppo di risorse di [Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) in cui viene salvata l'unità di test dell'app per la logica.
 
-- **Nome dell'app** per la logica di Azure (obbligatorio): immettere il nome dell'app per la logica che assegna la test drive all'utente. Questa app per la logica deve essere salvata nel gruppo di risorse di Azure precedente.
+- **Nome app per la logica** di Azure (obbligatorio): immettere il nome dell'app per la logica che assegna l'unità di test all'utente. Questa app per la logica deve essere salvata nel gruppo di risorse di Azure precedente.
 
-- **Deprovisioning app per la logica nome** (obbligatorio): immettere il nome dell'app per la logica che annulla il provisioning del test drive al termine del cliente. Questa app per la logica deve essere salvata nel gruppo di risorse di Azure precedente.
+- **Deprovisioning del nome dell'app per** la logica (obbligatorio): immettere il nome dell'app per la logica che esegue il deprovisioning del test drive al termine del cliente. Questa app per la logica deve essere salvata nel gruppo di risorse di Azure precedente.
 
-#### <a name="technical-configuration-not-required-for-power-bi-test-drives"></a>Configurazione tecnica non necessaria per Power BI test drive
+#### <a name="technical-configuration-not-required-for-power-bi-test-drives"></a>Configurazione tecnica non necessaria per i test drive di Power BITechnical configuration not required for Power BI test drives
 
-I prodotti che vogliono dimostrare un oggetto visivo Power BI interattivo possono usare un collegamento incorporato per condividere un dashboard personalizzato come test drive, non sono necessarie altre configurazioni tecniche. Altre informazioni sulla configurazione di[Power bi](https://docs.microsoft.com/power-bi/service-template-apps-overview) app modello.
+I prodotti che vogliono dimostrare un oggetto visivo interattivo di Power BI possono usare un collegamento incorporato per condividere un dashboard personalizzato come test drive, senza richiedere ulteriori configurazioni tecniche. Altre informazioni sulla configurazione delle app modello di[Power BI.](https://docs.microsoft.com/power-bi/service-template-apps-overview)
 
-### <a name="deployment-subscription-details"></a>Dettagli sottoscrizione della distribuzione
+### <a name="deployment-subscription-details"></a>Dettagli sottoscrizione distribuzione
 
-Per distribuire il test drive per conto dell'utente, creare e fornire una sottoscrizione di Azure separata e univoca. (Non necessario per Power BI test drive).
+Per distribuire test Drive per conto dell'utente, creare e fornire una sottoscrizione di Azure separata e univoca. (Non richiesto per i test drive di Power BI).
 
-- **ID sottoscrizione di Azure** (obbligatorio per Azure Resource Manager e app per la logica): immettere l'ID sottoscrizione per concedere l'accesso ai servizi dell'account di Azure per la fatturazione e la creazione di report sull'utilizzo delle risorse. È consigliabile [creare una sottoscrizione di Azure separata](https://docs.microsoft.com/azure/billing/billing-create-subscription) da usare per le unità di test se non ne è già presente uno. È possibile trovare l'ID sottoscrizione di Azure accedendo al [portale di Azure](https://portal.azure.com/) e passando alla scheda **sottoscrizioni** del menu a sinistra. Selezionando la scheda, viene visualizzato l'ID sottoscrizione, ad esempio "a83645ac-1234-5AB6-6789-1h234g764ghty".
+- **ID sottoscrizione di Azure** (obbligatorio per Azure Resource Manager e app per la logica): immettere l'ID sottoscrizione per concedere l'accesso ai servizi dell'account di Azure per la creazione di report e la fatturazione dell'utilizzo delle risorse. È consigliabile [creare una sottoscrizione](https://docs.microsoft.com/azure/billing/billing-create-subscription) di Azure separata da usare per i test drive se non ne è già presente una. È possibile trovare l'ID sottoscrizione di Azure accedendo al portale di [Azure](https://portal.azure.com/) e passando alla scheda **Sottoscrizioni** del menu a sinistra. Selezionando la scheda verrà visualizzato l'ID sottoscrizione (ad esempio "a83645ac-1234-5ab6-6789-1h234g764ghty").
 
-- **Azure ad ID tenant** (obbligatorio): immettere l' [id tenant](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)di Azure Active Directory (ad). Per trovare questo ID, accedere al [portale di Azure](https://portal.azure.com/), selezionare la scheda Active Directory nel menu a sinistra, selezionare **Proprietà** , quindi cercare il numero **ID directory** elencato (ad esempio 50c464d3-4930-494c-963C-1e951d15360e). È anche possibile cercare l'ID tenant dell'organizzazione usando l'URL del nome di dominio all'indirizzo: [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
+- **ID tenant di Azure AD** (obbligatorio): immettere l'ID [tenant](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)di Azure Active Directory (AD). Per trovare questo ID, accedere al portale di [Azure](https://portal.azure.com/), selezionare la scheda Active Directory nel menu a sinistra, selezionare **Proprietà** , quindi cercare il numero **ID directory** elencato (ad esempio 50c464d3-4930-494c-963c-1e951d15360e). È inoltre possibile cercare l'ID tenant dell'organizzazione [https://www.whatismytenantid.com](https://www.whatismytenantid.com)utilizzando l'URL del nome di dominio all'indirizzo: .
 
-- **Azure ad nome del tenant** (obbligatorio per la 365 dinamica): immettere il nome del Azure Active Directory (ad). Per trovare questo nome, accedere al [portale di Azure](https://portal.azure.com/), nell'angolo in alto a destra il nome del tenant verrà elencato sotto il nome dell'account.
+- **Nome tenant di Azure AD** (obbligatorio per Dynamic 365): immettere il nome di Azure Active Directory (AD). Per trovare questo nome, accedere al portale di [Azure](https://portal.azure.com/), nell'angolo superiore destro il nome del tenant verrà elencato sotto il nome dell'account.
 
-- **Azure ad ID app** (obbligatorio): immettere l' [id applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)di Azure Active Directory (ad). Per trovare questo ID, accedere al [portale di Azure](https://portal.azure.com/), selezionare la scheda Active Directory nel menu a sinistra, selezionare **registrazioni app**, quindi cercare il numero **ID applicazione** elencato (ad esempio 50c464d3-4930-494c-963C-1e951d15360e).
+- **ID app Azure AD** (obbligatorio): immettere [l'ID applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)di Azure Active Directory (AD). Per trovare questo ID, accedere al portale di [Azure](https://portal.azure.com/), selezionare la scheda Active Directory nel menu a sinistra, selezionare **Registrazioni app**, quindi cercare il numero ID **applicazione** elencato (ad esempio 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Azure ad segreto client App** (obbligatorio): immettere il [segreto client](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets)dell'applicazione Azure ad. Per trovare questo valore, accedere al [portale di Azure](https://portal.azure.com/). Selezionare la scheda **Azure Active Directory** nel menu a sinistra, selezionare **registrazioni app**, quindi selezionare l'app test drive. Selezionare quindi **certificati e segreti**, fare clic **su nuovo segreto client**, immettere una descrizione, selezionare **mai** sotto **scadenza**, quindi scegliere **Aggiungi**. Assicurarsi di copiare il valore. Non uscire dalla pagina prima di eseguire questa operazione, altrimenti non sarà possibile accedere al valore.
+- **Segreto client dell'app Azure AD** (obbligatorio): immettere il [segreto client](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets)dell'applicazione Azure AD.Azure AD app client secret (required): Enter your Azure AD application client secret . Per trovare questo valore, accedere al portale di [Azure](https://portal.azure.com/). Seleziona la scheda **Azure Active Directory** nel menu a sinistra, seleziona **Registrazioni app**, quindi seleziona l'app di test drive. Selezionare quindi **Certificati e segreti**, Nuovo **segreto client**, immettere una descrizione, **selezionare Mai** in **Scadenza**, quindi scegliere **Aggiungi**. Assicurarsi di copiare il valore. (Non uscire dalla pagina prima di eseguire questa operazione, altrimenti non avrai accesso al valore).
 
-Ricordarsi di **salvare** prima di procedere alla sezione successiva.
+Ricordati di **salvare** prima di passare alla sezione successiva!
 
 ### <a name="test-drive-listings-optional"></a>Elenchi di test drive (facoltativo)
 
-L'opzione per gli **elenchi di test drive** disponibile nella scheda **test drive** Visualizza le lingue (e i mercati) in cui è disponibile la test drive, attualmente in inglese (Stati Uniti) è l'unica posizione disponibile. Inoltre, in questa pagina viene visualizzato lo stato dell'elenco specifico della lingua e della data/ora in cui è stato aggiunto. È necessario definire i dettagli del test drive (descrizione, manuale dell'utente, video e così via) per ogni lingua/mercato.
+L'opzione **Elenchi Test Drive** disponibile nella scheda Test **drive** visualizza le lingue (e i mercati) in cui è disponibile il test drive, attualmente l'inglese (Stati Uniti) è l'unica posizione disponibile. Inoltre, in questa pagina viene visualizzato lo stato dell'elenco specifico della lingua e la data/ora in cui è stato aggiunto. Dovrai definire i dettagli del test drive (descrizione, manuale utente, video, ecc.) per ogni lingua/mercato.
 
-- **Descrizione** (obbligatoria): descrivere la test drive, gli elementi che verranno illustrati, gli obiettivi dell'utente per sperimentare, le funzionalità da esplorare e tutte le informazioni rilevanti per aiutare l'utente a determinare se acquisire l'offerta. In questo campo è possibile immettere fino a 3.000 caratteri di testo. 
+- **Descrizione** (obbligatorio): descrivere il test drive, ciò che verrà dimostrato, gli obiettivi per l'utente da sperimentare, le funzionalità da esplorare e tutte le informazioni pertinenti che consentono all'utente di determinare se acquistare l'offerta. In questo campo è possibile immettere fino a 3.000 caratteri di testo. 
 
-- **Informazioni di accesso** (obbligatorie per Azure Resource Manager e unità di test per la logica): spiegare cosa è necessario sapere al cliente per accedere a questo test drive e usarlo. Esaminare uno scenario per l'uso dell'offerta e esattamente ciò che il cliente deve conoscere per accedere alle funzionalità nell'test drive. In questo campo è possibile immettere fino a 10.000 caratteri di testo.
+- **Accedere alle informazioni** (necessarie per Azure Resource Manager e test drive della logica): spiegare ciò che un cliente deve sapere per poter accedere e usare questo test drive. Esaminare uno scenario per l'utilizzo dell'offerta e esattamente ciò che il cliente deve sapere per accedere alle funzionalità durante il test drive. In questo campo è possibile immettere fino a 10.000 caratteri di testo.
 
-- **Manuale dell'utente** (obbligatorio): una procedura dettagliata approfondita dell'esperienza test drive. Il manuale dell'utente dovrebbe coprire esattamente ciò che si vuole che il cliente possa ottenere dall'esperienza del test drive e fungere da riferimento per eventuali domande. Il file deve essere in formato PDF ed essere denominato (255 caratteri al massimo) dopo il caricamento.
+- **Manuale utente** (obbligatorio): una procedura dettagliata dell'esperienza di test drive. Il Manuale dell'utente dovrebbe coprire esattamente ciò che si desidera che il cliente di ottenere da sperimentare il test drive e servire come riferimento per tutte le domande che possono avere. Il file deve essere in formato PDF e deve essere denominato (255 caratteri max) dopo il caricamento.
 
-- **Video: aggiungere video** (facoltativo): è possibile caricare video in YouTube o Vimeo e farvi riferimento con un collegamento e un'immagine di anteprima (533 x 324 pixel), in modo che un cliente possa visualizzare una descrizione dettagliata delle informazioni che consentono di comprendere meglio il test drive, tra cui come usare correttamente le funzionalità dell'offerta e comprendere gli scenari in cui vengono evidenziati i vantaggi.
+- **Video: aggiungi video** (facoltativo): i video possono essere caricati su YouTube o Vimeo e referenziati qui con un link e un'immagine di anteprima (533 x 324 pixel) in modo che un cliente possa visualizzare una passeggiata di informazioni per aiutarli a comprendere meglio il test drive, incluso come utilizzare con successo le funzionalità della tua offerta e comprendere gli scenari che ne evidenziano i vantaggi.
   - **Nome** (obbligatorio)
   - **URL (solo YouTube o Vimeo)** (obbligatorio)
-  - **Anteprima (533 x 324px)** : il file di immagine deve essere in formato png.
+  - **Miniatura (533 x 324px):** il file di immagine deve essere in formato PNG.
 
 Selezionare **Salva** dopo aver completato questi campi.

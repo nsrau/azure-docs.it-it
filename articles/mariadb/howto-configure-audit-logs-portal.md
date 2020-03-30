@@ -1,28 +1,28 @@
 ---
-title: Accedere ai log di controllo-portale di Azure-database di Azure per MariaDB
-description: Questo articolo descrive come configurare e accedere ai log di controllo nel database di Azure per MariaDB dalla portale di Azure.
+title: Accedere ai log di controllo - Portale di Azure - Database di Azure per MariaDBAccess audit logs - Azure portal - Azure Database for MariaDB
+description: Questo articolo descrive come configurare e accedere ai log di controllo in Database di Azure per MariaDB dal portale di Azure.This article describes how to configure and access the audit logs in Azure Database for MariaDB from the Azure portal.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: e3c87143652895c57b464cba229a0e68049ffeb2
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: d31b7531e00199ea63c7b057dacff1b67d7cedc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767518"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79528932"
 ---
-# <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Configurare e accedere ai log di controllo nel portale di Azure
+# <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Configurare e accedere ai log di controllo nel portale di AzureConfigure and access audit logs in the Azure portal
 
-È possibile configurare i log di controllo e le impostazioni di diagnostica del [database di Azure per MariaDB](concepts-audit-logs.md) dalla portale di Azure.
+È possibile configurare il database di Azure per i log di controllo MariaDB e le impostazioni di diagnostica dal portale di Azure.You can configure the [Azure Database for MariaDB audit logs](concepts-audit-logs.md) and diagnostic settings from the Azure portal.
 
 > [!IMPORTANT]
-> La funzionalità del log di controllo è attualmente in anteprima.
+> La funzionalità del registro di controllo è attualmente in anteprima.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per proseguire con questa guida è necessario:
+Per proseguire con questa guida, si richiedono:
 
 - [Database di Azure per il server MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md)
 
@@ -30,43 +30,43 @@ Per proseguire con questa guida è necessario:
 
 Abilitare e configurare la registrazione di controllo.
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale](https://portal.azure.com/)di Azure .
 
 1. Selezionare il server del Database di Azure per MariaDB.
 
-1. Nella sezione **Impostazioni** della barra laterale selezionare **parametri server**.
+1. Nella sezione **Impostazioni** della barra laterale selezionare **Parametri server.**
     ![Parametri del server](./media/howto-configure-audit-logs-portal/server-parameters.png)
 
-1. Aggiornare il parametro **audit_log_enabled** a on.
-    ![abilitare i log di controllo](./media/howto-configure-audit-logs-portal/audit-log-enabled.png)
+1. Aggiornare il parametro **audit_log_enabled** su ON.
+    ![Abilitare i registri di controlloEnable audit logs](./media/howto-configure-audit-logs-portal/audit-log-enabled.png)
 
-1. Consente di selezionare i [tipi di evento](concepts-audit-logs.md#configure-audit-logging) da registrare aggiornando il parametro **audit_log_events** .
-    ![eventi del log di controllo](./media/howto-configure-audit-logs-portal/audit-log-events.png)
+1. Selezionare i [tipi di evento](concepts-audit-logs.md#configure-audit-logging) da registrare aggiornando il parametro **audit_log_events.**
+    ![Eventi del registro di controllo](./media/howto-configure-audit-logs-portal/audit-log-events.png)
 
-1. Aggiungere gli utenti di MariaDB da escludere dalla registrazione aggiornando il parametro **audit_log_exclude_users** . Specificare gli utenti fornendo il nome utente MariaDB.
-    ![log di controllo escludere gli utenti](./media/howto-configure-audit-logs-portal/audit-log-exclude-users.png)
+1. Aggiungere tutti gli utenti MariaDB da escludere dalla registrazione aggiornando il parametro **audit_log_exclude_users.** Specificare gli utenti specificando il nome utente MariaDB.
+    ![Il log di controllo esclude gli utenti](./media/howto-configure-audit-logs-portal/audit-log-exclude-users.png)
 
 1. Dopo avere modificato i parametri, è possibile fare clic su **Salva**. In alternativa è possibile **annullare** le modifiche.
     ![Salva](./media/howto-configure-audit-logs-portal/save-parameters.png)
 
 ## <a name="set-up-diagnostic-logs"></a>Configurare i log di diagnostica
 
-1. Nella sezione **monitoraggio** della barra laterale selezionare impostazioni di **diagnostica**.
+1. Nella sezione **Monitoraggio** della barra laterale selezionare **Impostazioni di diagnostica.**
 
-1. Fare clic su "+ Aggiungi impostazione di diagnostica" ![Aggiungi impostazione di diagnostica](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
+1. Fare clic su "Aggiungi ![impostazione diagnostica" Aggiungi impostazione diagnostica](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
 
 1. Specificare un nome per l'impostazione di diagnostica.
 
-1. Specificare i sink di dati per inviare i log di controllo (account di archiviazione, Hub eventi e/o area di lavoro Log Analytics).
+1. Specificare i sink di dati da inviare ai log di controllo (account di archiviazione, hub eventi e/o area di lavoro di Log Analytics).
 
 1. Selezionare "MySqlAuditLogs" come tipo di log.
-![configurare l'impostazione di diagnostica](./media/howto-configure-audit-logs-portal/configure-diagnostic-setting.png)
+![Configurare l'impostazione di diagnostica](./media/howto-configure-audit-logs-portal/configure-diagnostic-setting.png)
 
-1. Una volta configurati i sink di dati a cui inviare i log di controllo, è possibile fare clic su **Salva**.
-![salvare l'impostazione di diagnostica](./media/howto-configure-audit-logs-portal/save-diagnostic-setting.png)
+1. Dopo aver configurato i sink di dati in cui eseguire la gestione dei registri di controllo, è possibile fare clic su **Salva**.
+![Salva impostazione diagnostica](./media/howto-configure-audit-logs-portal/save-diagnostic-setting.png)
 
-1. Per accedere ai log di controllo, esplorarli nei sink di dati configurati. Potrebbero essere necessari fino a 10 minuti per la visualizzazione dei log.
+1. Accedere ai log di controllo esplorandoli nei sink di dati configurati. La visualizzazione dei registri può richiedere fino a 10 minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sui [log di controllo](concepts-audit-logs.md) nel database di Azure per MariaDB.
+- Altre informazioni sui log di [controllo](concepts-audit-logs.md) nel database di Azure per MariaDB.
