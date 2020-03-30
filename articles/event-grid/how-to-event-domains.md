@@ -1,5 +1,5 @@
 ---
-title: Pubblicare eventi con domini eventi con griglia di eventi di Azure
+title: Pubblicare eventi con domini di evento con Griglia di eventi di AzurePublish events with event domains with Azure Event Grid
 description: Mostra come gestire set di argomenti di grandi dimensioni in Griglia di eventi di Azure e pubblicarvi eventi con Domini eventi.
 services: event-grid
 author: banisadr
@@ -8,10 +8,10 @@ ms.author: babanisa
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.openlocfilehash: 1d07227249806b7d54523af66817a170c19354ee
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72786547"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gestire argomenti e pubblicare eventi con Domini eventi
@@ -35,7 +35,7 @@ Per informazioni su Domini eventi, vedere [Informazioni sui domini eventi per la
 
 Per gestire set di argomenti di grandi dimensioni, creare un dominio eventi.
 
-# <a name="azure-clitabazurecli"></a>[interfaccia della riga di comando di Azure](#tab/azurecli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di AzureAzure](#tab/azurecli)
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.
@@ -48,7 +48,7 @@ az eventgrid domain create \
   -l <location>
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Powershell](#tab/powershell)
 ```azurepowershell-interactive
 # If you have not already installed the module, do it now.
 # This module is required for preview features.
@@ -86,7 +86,7 @@ Per gestire l'accesso agli argomenti, si usa l'[assegnazione di ruolo](https://d
 
 In Griglia di eventi sono disponibili due ruoli predefiniti che è possibile usare per assegnare agli utenti l'accesso ai diversi argomenti in un dominio. Questi ruoli sono `EventGrid EventSubscription Contributor (Preview)`, che consente di creare ed eliminare le sottoscrizioni, e `EventGrid EventSubscription Reader (Preview)`, che consente solo di visualizzare l'elenco delle sottoscrizioni di eventi.
 
-# <a name="azure-clitabazurecli"></a>[interfaccia della riga di comando di Azure](#tab/azurecli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di AzureAzure](#tab/azurecli)
 Il comando seguente dell'interfaccia della riga di comando di Azure consente all'utente `alice@contoso.com` di creare ed eliminare le sottoscrizioni di eventi solo per l'argomento `demotopic1`:
 
 ```azurecli-interactive
@@ -96,7 +96,7 @@ az role assignment create \
   --scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Powershell](#tab/powershell)
 Il comando PowerShell seguente consente all'utente `alice@contoso.com` di creare ed eliminare le sottoscrizioni di eventi solo per l'argomento `demotopic1`:
 
 ```azurepowershell-interactive
@@ -117,7 +117,7 @@ La procedura di sottoscrizione di un argomento in un dominio è identica a quell
 
 In genere, l'utente a cui è stato concesso l'accesso nella sezione precedente creerà la sottoscrizione. Per semplificare questo articolo, creare la sottoscrizione. 
 
-# <a name="azure-clitabazurecli"></a>[interfaccia della riga di comando di Azure](#tab/azurecli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di AzureAzure](#tab/azurecli)
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -126,7 +126,7 @@ az eventgrid event-subscription create \
   --endpoint https://contoso.azurewebsites.net/api/updates
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Powershell](#tab/powershell)
 
 ```azurepowershell-interactive
 New-AzureRmEventGridSubscription `
@@ -146,7 +146,7 @@ Le autorizzazioni impostate per un argomento vengono archiviate in Azure Active 
 
 ## <a name="publish-events-to-an-event-grid-domain"></a>Pubblicare eventi in un dominio di Griglia di eventi
 
-La procedura di pubblicazione di eventi in un dominio è identica a quella di [pubblicazione in un argomento personalizzato](./post-to-custom-topic.md). Tuttavia, tutti gli eventi vengono pubblicati all'endpoint di dominio invece che nell'argomento personalizzato. Nei dati evento JSON, specificare l'argomento a cui si desidera che vengano inviati gli eventi. Con la matrice di eventi seguente l'evento con `"id": "1111"` viene inviato all'argomento `demotopic1`, mentre l'evento con `"id": "2222"` viene inviato all'argomento `demotopic2`:
+La pubblicazione di eventi in un dominio equivale [alla pubblicazione in un argomento personalizzato.](./post-to-custom-topic.md) Tuttavia, tutti gli eventi vengono pubblicati all'endpoint di dominio invece che nell'argomento personalizzato. Nei dati evento JSON, specificare l'argomento a cui si desidera che vengano inviati gli eventi. Con la matrice di eventi seguente l'evento con `"id": "1111"` viene inviato all'argomento `demotopic1`, mentre l'evento con `"id": "2222"` viene inviato all'argomento `demotopic2`:
 
 ```json
 [{
@@ -175,7 +175,7 @@ La procedura di pubblicazione di eventi in un dominio è identica a quella di [p
 }]
 ```
 
-# <a name="azure-clitabazurecli"></a>[interfaccia della riga di comando di Azure](#tab/azurecli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di AzureAzure](#tab/azurecli)
 Per ottenere l'endpoint di dominio con l'interfaccia della riga di comando di Azure, usare
 
 ```azurecli-interactive
@@ -192,7 +192,7 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Powershell](#tab/powershell)
 Per ottenere l'endpoint di dominio con PowerShell, usare
 
 ```azurepowershell-interactive

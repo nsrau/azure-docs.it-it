@@ -1,6 +1,6 @@
 ---
-title: Accesso e gestione delle risorse IBM DB2
-description: Leggere, modificare, aggiornare e gestire le risorse IBM DB2 creando flussi di lavoro automatizzati con app per la logica di Azure
+title: Accedere e gestire le risorse IBM DB2
+description: Leggere, modificare, aggiornare e gestire le risorse IBM DB2 creando flussi di lavoro automatizzati con Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: plarsen, logicappspm
@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: 32b482607827ee4420e39b1936586d64f9ea3139
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77651382"
 ---
-# <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Accedere e gestire le risorse IBM DB2 usando app per la logica di Azure
+# <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Accedere alle risorse IBM DB2 tramite Le app per la logica di AzureAccess and manage IBM DB2 resources by using Azure Logic Apps
 
-Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il [connettore IBM DB2](/connectors/db2/)è possibile creare attività e flussi di lavoro automatizzati basati sulle risorse archiviate nel database DB2. I flussi di lavoro possono connettersi alle risorse nel database, leggere ed elencare le tabelle di database, aggiungere righe, modificarle, eliminarle e altro ancora. È possibile includere azioni nelle app per la logica che ottengono risposte dal database e rendono l'output disponibile per altre azioni.
+Con [Le app per](../logic-apps/logic-apps-overview.md) la logica di Azure e il [connettore IBM DB2,](/connectors/db2/)è possibile creare attività e flussi di lavoro automatizzati in base alle risorse archiviate nel database DB2. I flussi di lavoro possono connettersi alle risorse nel database, leggere ed elencare le tabelle di database, aggiungere righe, modificarle, eliminarle e altro ancora. È possibile includere azioni nelle app per la logica che ottengono risposte dal database e rendono l'output disponibile per altre azioni.
 
 Questo articolo illustra come creare un'app per la logica che esegue varie operazioni di database. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
 ## <a name="supported-platforms-and-versions"></a>Piattaforme e versioni supportate
 
-Il connettore DB2 include un client Microsoft che comunica con server DB2 remoti su una rete TCP/IP. È possibile usare questo connettore per accedere a database cloud come IBM DB2 per Windows in esecuzione nella virtualizzazione di Azure. È anche possibile accedere ai database DB2 locali dopo aver [installato e configurato il gateway dati locale](../logic-apps/logic-apps-gateway-connection.md).
+Il connettore DB2 include un client Microsoft che comunica con server DB2 remoti su una rete TCP/IP. È possibile utilizzare questo connettore per accedere a i database cloud, ad esempio IBM DB2 per Windows in esecuzione nella virtualizzazione di Azure.You can use this connector for accessing cloud databases such as IBM DB2 for Windows running in Azure virtualization. È anche possibile accedere ai database DB2 locali dopo aver [installato e configurato il gateway dati locale](../logic-apps/logic-apps-gateway-connection.md).
 
-Il connettore IBM DB2 supporta le piattaforme e le versioni di IBM DB2 insieme ai prodotti compatibili con IBM DB2 che supportano le versioni 10 e 11 di DRDA (Distributed Relational Database Architecture) con SQL Access Manager (SQLAM):
+Il connettore IBM DB2 supporta queste piattaforme e versioni IBM DB2 insieme ai prodotti compatibili IBM DB2 che supportano Distributed Relational Database Architecture (DRDA) SQL Access Manager (SQLAM) versioni 10 e 11:
 
 | Piattaforma | Versione | 
 |----------|---------|
@@ -47,13 +47,13 @@ Il connettore IBM DB2 supporta queste operazioni di database, associabili alle a
 | Rimozione di una riga con DELETE | Elimina riga |
 |||
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
 * Un database IBM DB2, basato sul cloud o locale
 
-* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Informazioni di base sulla [creazione di app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L'app per la logica in cui si intende accedere al database DB2. Questo connettore offre solo azioni, quindi per avviare l'app per la logica, usare un trigger distinto, ad esempio il trigger **Ricorrenza**.
 Gli esempi di questo articolo usano il trigger **Ricorrenza**.
@@ -82,8 +82,8 @@ Per configurare la connessione, specificare questi dettagli quando richiesto, sc
 
 | Proprietà | Obbligatoria | Descrizione |
 |----------|----------|-------------|
-| **Connetti tramite Gateway locale** | No | Si applica solo alle connessioni locali. |
-| **Connection Name** (Nome connessione) | Sì | Il nome della connessione, ad esempio, "MyLogicApp-DB2-connection" |
+| **Connetti tramite gateway dati locale** | No | Si applica solo alle connessioni locali. |
+| **Nome connessione** | Sì | Il nome della connessione, ad esempio, "MyLogicApp-DB2-connection" |
 | **Server** | Sì | L'indirizzo o l'alias-due punti-numero di porta del server DB2, ad esempio, "myDB2server.cloudapp.net:50000" <p><p>**Nota**: questo valore è una stringa che rappresenta un alias o un indirizzo TCP/IP, in formato IPv4 o IPv6, seguito da due punti e un numero di porta TCP/IP. |
 | **Database** | Sì | Il nome del database <p><p>**Nota**: questo valore è una stringa che rappresenta un nome di database relazionale (RDBNAM) DRDA: <p>- DB2 per z/OS accetta una stringa di 16 byte, in cui il database è definito come posizione di IBM DB2 per z/OS. <br>- DB2 per i accetta una stringa di 18 byte, in cui il database è definito come database relazionale IBM DB2 per i. <br>- DB2 per LUW accetta una stringa di 8 byte. |
 | **Nome utente** | Sì | Il nome utente del database <p><p>**Nota**: questo valore è una stringa la cui lunghezza è basata sul database specifico: <p><p>- DB2 per z/OS accetta una stringa di 8 byte. <br>- DB2 per i accetta una stringa di 10 byte. <br>- DB2 per Linux o UNIX accetta una stringa di 8 byte. <br>- DB2 per Windows accetta una stringa di 30 byte. |
@@ -102,11 +102,11 @@ Prima di creare la connessione, è necessario aver già installato il gateway da
 
 | Proprietà | Obbligatoria | Descrizione |
 |----------|----------|-------------|
-| **Connetti tramite Gateway locale** | Sì | Si applica quando si desidera una connessione locale e mostra le proprietà della connessione locale. |
-| **Connection Name** (Nome connessione) | Sì | Il nome della connessione, ad esempio, "MyLogicApp-DB2-connection" | 
+| **Connetti tramite gateway dati locale** | Sì | Si applica quando si desidera una connessione locale e mostra le proprietà della connessione locale. |
+| **Nome connessione** | Sì | Il nome della connessione, ad esempio, "MyLogicApp-DB2-connection" | 
 | **Server** | Sì | L'indirizzo o l'alias-due punti-numero di porta del server DB2, ad esempio, "myDB2server:50000" <p><p>**Nota**: questo valore è una stringa che rappresenta un alias o un indirizzo TCP/IP, in formato IPv4 o IPv6, seguito da due punti e un numero di porta TCP/IP. |
 | **Database** | Sì | Il nome del database <p><p>**Nota**: questo valore è una stringa che rappresenta un nome di database relazionale (RDBNAM) DRDA: <p>- DB2 per z/OS accetta una stringa di 16 byte, in cui il database è definito come posizione di IBM DB2 per z/OS. <br>- DB2 per i accetta una stringa di 18 byte, in cui il database è definito come database relazionale IBM DB2 per i. <br>- DB2 per LUW accetta una stringa di 8 byte. |
-| **autenticazione** | Sì | Il tipo di autenticazione per la connessione, ad esempio, "Base" <p><p>**Nota**: selezionare questo valore dall'elenco, che include Base o Windows (Kerberos). |
+| **Autenticazione** | Sì | Il tipo di autenticazione per la connessione, ad esempio, "Base" <p><p>**Nota**: selezionare questo valore dall'elenco, che include Base o Windows (Kerberos). |
 | **Nome utente** | Sì | Il nome utente del database <p><p>**Nota**: questo valore è una stringa la cui lunghezza è basata sul database specifico: <p><p>- DB2 per z/OS accetta una stringa di 8 byte. <br>- DB2 per i accetta una stringa di 10 byte. <br>- DB2 per Linux o UNIX accetta una stringa di 8 byte. <br>- DB2 per Windows accetta una stringa di 30 byte. |
 | **Password** | Sì | La password amministrativa per il database |
 | **Gateway** | Sì | Il nome del gateway dati locale installato <p><p>**Nota**: selezionare questo valore dall'elenco, che include tutti i gateway dati installati all'interno del gruppo di risorse e della sottoscrizione di Azure. |
@@ -359,10 +359,10 @@ Espandere l'azione **Elimina riga**.
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni più tecniche su questo connettore, ad esempio trigger, azioni e limiti, come descritto dal file spavalderia del connettore, vedere la [pagina di riferimento del connettore](https://docs.microsoft.com/connectors/db2/).
+Per ulteriori dettagli tecnici su questo connettore, ad esempio trigger, azioni e limiti, come descritto dal file Swagger del connettore, vedere la [pagina di riferimento del connettore.](https://docs.microsoft.com/connectors/db2/)
 
 > [!NOTE]
-> Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versione con etichetta ISE del connettore usa invece i [limiti dei messaggi ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
+> Per le app per la logica in un ambiente del servizio di [integrazione (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)la versione con etichetta ISE di questo connettore utilizza invece i limiti dei [messaggi ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

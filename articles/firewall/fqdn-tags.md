@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
 ms.openlocfilehash: 6396f8292a4c54f7fce237439f37c3e8156d59e8
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74169044"
 ---
 # <a name="fqdn-tags-overview"></a>Panoramica dei tag FQDN
@@ -28,14 +28,14 @@ La tabella seguente mostra i tag FQDN attuali che è possibile usare. Microsoft 
 
 ## <a name="current-fqdn-tags"></a>Tag FQDN correnti
 
-|Tag FQDN  |DESCRIZIONE  |
+|Tag FQDN  |Descrizione  |
 |---------|---------|
 |Windows Update     |Consente l'accesso in uscita a Microsoft Update come descritto in [Come configurare un firewall per gli aggiornamenti software](https://technet.microsoft.com/library/bb693717.aspx).|
 |Diagnostica per Windows|Consente l'accesso in uscita a tutti gli [endpoint di Diagnostica Windows](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
 |Microsoft Active Protection Service (MAPS)|Consente l'accesso in uscita a [MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
 |Ambiente del servizio app|Consente l'accesso in uscita al traffico della piattaforma Ambiente del servizio app. Questo tag non copre gli endpoint di archiviazione ed SQL specifici del cliente creati da Ambiente del servizio app. Tali endpoint devono essere abilitati tramite [Endpoint di servizio](../virtual-network/tutorial-restrict-network-access-to-resources.md) o aggiunti manualmente.<br><br>Per altre informazioni sull'integrazione di Firewall di Azure con l'ambiente del servizio app, vedere [Blocco di un ambiente del servizio app](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
 |Backup di Azure|Consente l'accesso in uscita ai servizi Backup di Azure.|
-|HDInsight di Azure|Consente l'accesso in uscita per il traffico della piattaforma HDInsight. Questo tag non copre il traffico SQL o di archiviazione specifico del cliente da HDInsight. Abilitarli usando gli [endpoint di servizio](../virtual-network/tutorial-restrict-network-access-to-resources.md) o aggiungerli manualmente.|
+|HDInsight di Azure|Consente l'accesso in uscita per il traffico della piattaforma HDInsight. Questo tag non copre il traffico SQL o di archiviazione specifico del cliente da HDInsight.This tag doesn't cover customer-specific Storage or SQL traffic from HDInsight. Abilitarli usando gli endpoint del servizio o [aggiungerli](../virtual-network/tutorial-restrict-network-access-to-resources.md) manualmente.|
 
 > [!NOTE]
 > Quando si seleziona il tag FQDN nella regola per un'applicazione, il campo protocol:port deve essere impostato su **https**.

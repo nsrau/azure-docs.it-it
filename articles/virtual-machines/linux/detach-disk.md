@@ -1,5 +1,5 @@
 ---
-title: Scollegare un disco dati da una VM Linux-Azure
+title: Scollegare un disco dati da una macchina virtuale Linux - AzureDetach a data disk from a Linux VM - Azure
 description: Informazioni su come scollegare un disco dati da una macchina virtuale in Azure tramite l'interfaccia della riga di comando di Azure o il portale di Azure.
 author: roygara
 ms.service: virtual-machines-linux
@@ -8,10 +8,10 @@ ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: f8a0790169b17ad7755386f9bdd4f9372efc83e7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74036379"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Come scollegare un disco dati da una macchina virtuale Linux
@@ -68,7 +68,7 @@ L'output è simile al seguente esempio:
 Modificare il file */etc/fstab* per rimuovere i riferimenti al disco. 
 
 > [!NOTE]
-> Se il file **/etc/fstab** non viene modificato in modo corretto, il sistema potrebbe diventare non avviabile. In caso di dubbi, fare riferimento alla documentazione della distribuzione per informazioni su come modificare correttamente questo file. È inoltre consigliabile creare una copia di backup del file /etc/fstab prima della modifica.
+> La modifica non corretta del file **/etc/fstab** potrebbe causare un sistema non avviabile. In caso di dubbi, fare riferimento alla documentazione della distribuzione per informazioni su come modificare correttamente questo file. È inoltre consigliabile creare una copia di backup del file /etc/fstab prima della modifica.
 
 Aprire il file */etc/fstab* in un editor di testo, come segue:
 
@@ -106,7 +106,7 @@ Il disco rimane nello spazio di archiviazione ma non è più collegato a una mac
 ## <a name="detach-a-data-disk-using-the-portal"></a>Scollegare un disco dati tramite il portale
 
 1. Dal menu a sinistra selezionare **Macchine virtuali**.
-2. Selezionare la macchina virtuale con il disco dati che si vuole scollegare e fare clic su **Arresta** per deallocare la macchina virtuale.
+2. Selezionare la macchina virtuale con il disco dati da scollegare e fare clic su **Arresta** per deallocare la macchina virtuale.
 3. Nel riquadro delle macchine virtuali selezionare **Dischi**.
 4. Nella parte superiore del riquadro **Dischi** selezionare **Modifica**.
 5. Nel riquadro **Dischi** fare clic sul pulsante per scollegare il disco ![Immagine del pulsante Scollega](./media/detach-disk/detach.png) nella parte più a destra del disco dati.
@@ -118,5 +118,5 @@ Il disco rimane nello spazio di archiviazione ma non è più collegato a una mac
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se si intende usare nuovamente il disco dati, è sufficiente [collegarlo a un'altra macchina virtuale](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Se si desidera riutilizzare il disco dati, è sufficiente [collegarlo a un'altra macchina virtuale.](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

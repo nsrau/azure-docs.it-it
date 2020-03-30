@@ -1,6 +1,6 @@
 ---
 title: Informazioni sui codificatori consigliati da Servizi multimediali di Azure | Microsoft Docs
-description: Questo articolo elenca i codificatori locali consigliati da servizi multimediali di Azure.
+description: Questo articolo elenca i codificatori locali consigliati da Servizi multimediali di Azure.This article lists on premises encoders recommended by Azure Media Services.
 services: media-services
 keywords: codifica; codificatori; media
 author: dbgeorge
@@ -10,19 +10,19 @@ ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 89b01a3fb066f181f5ec54b481b71feaa7a6ae08
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77131395"
 ---
 # <a name="recommended-on-premises-encoders"></a>Codificatori locali consigliati
 
-Quando si esegue lo streaming live con Servizi multimediali di Azure è possibile specificare in che modo si vuole che il canale riceva il flusso di input. Se si sceglie di usare un codificatore locale con un canale di codifica live, il codificatore deve eseguire il push di un flusso a bitrate singolo di alta qualità come output. Se si sceglie di usare un codificatore locale con un canale pass-through, il codificatore deve eseguire il push di un flusso a bitrate multipli come output con tutte le qualità di output desiderate. Per altre informazioni, vedere [streaming live con codificatori locali](media-services-live-streaming-with-onprem-encoders.md).
+Quando si esegue lo streaming live con Servizi multimediali di Azure è possibile specificare in che modo si vuole che il canale riceva il flusso di input. Se si sceglie di usare un codificatore locale con un canale di codifica live, il codificatore deve eseguire il push di un flusso a bit singolo di alta qualità come output. Se si sceglie di usare un codificatore locale con un canale pass-through, il codificatore deve eseguire il push di un flusso a bitrate multiplo come output con tutte le qualità di output desiderate. Per ulteriori informazioni, consultate Streaming in [diretta con codificatori locali.](media-services-live-streaming-with-onprem-encoders.md)
 
 ## <a name="encoder-requirements"></a>Requisiti del codificatore
 
-I codificatori devono supportare TLS 1,2 quando si usano protocolli HTTPS o RTMPS.
+I codificatori devono supportare TLS 1.2 quando si utilizzano protocolli HTTPS o RTMPS.
 
 ## <a name="live-encoders-that-output-rtmp"></a>Codificatori live con output RTMP 
 
@@ -31,9 +31,9 @@ Servizi multimediali di Azure consiglia di usare uno dei codificatori live segue
 - Adobe Flash Media Live Encoder 3.2
 - Haivision Makito X HEVC
 - Haivision KB
-- Telestream Wirecast (versione 13.0.2 o successiva a causa del requisito TLS 1,2)
+- Telestream Wirecast (versione 13.0.2 o superiore a causa del requisito TLS 1.2)
 
-  I codificatori devono supportare TLS 1,2 quando si usano i protocolli RTMPS.
+  I codificatori devono supportare TLS 1.2 quando si utilizzano protocolli RTMPS.
 - Teradek Slice 756
 - TriCaster 8000
 - Tricaster Mini HD-4
@@ -49,18 +49,18 @@ Servizi multimediali di Azure consiglia di usare uno dei codificatori live segue
 - Media Excel Hero Live e Hero 4K (UHD/HEVC)
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
-- Elemental Live (versione 2.14.15 e successive a causa del requisito TLS 1,2)
+- Elemental Live (versione 2.14.15 e successive a causa del requisito TLS 1.2)
 
-  I codificatori devono supportare TLS 1,2 quando si usano protocolli HTTPS.
+  I codificatori devono supportare TLS 1.2 quando si utilizzano protocolli HTTPS.
 - Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
 
 > [!NOTE]
 > Un codificatore live può inviare un flusso a bitrate singolo a un canale pass-through, ma questa configurazione non è consigliata perché non è consentito per lo streaming a bitrate adattivo nel client.
 
-## <a name="how-to-become-an-on-premises-encoder-partner"></a>Come diventare un partner del codificatore locale
+## <a name="how-to-become-an-on-premises-encoder-partner"></a>Come diventare un partner encoder locale
 
-Come partner del codificatore locale di servizi multimediali di Azure, servizi multimediali promuove il prodotto consigliando il codificatore ai clienti aziendali. Per diventare un partner del codificatore locale, è necessario verificare la compatibilità del codificatore locale con servizi multimediali. A questo scopo, completare le verifiche seguenti:
+In qualità di partner codificatore di Servizi multimediali di Azure in locale, Servizi multimediali promuove il prodotto consigliando il codificatore ai clienti aziendali. Per diventare un partner del codificatore locale, è necessario verificare la compatibilità del codificatore locale con Servizi multimediali. A questo scopo, completare le verifiche seguenti:
 
 Verifica del canale pass-through
 1. Creare o visitare l'account di Servizi multimediali di Azure
@@ -69,7 +69,7 @@ Verifica del canale pass-through
 4. Creare un evento live pubblicato
 5. Eseguire il codificatore live per circa 10 minuti
 6. Arrestare l'evento live
-7. Creare, avviare un endpoint di streaming, usare un lettore, ad esempio [Azure Media Player](https://aka.ms/azuremediaplayer) per guardare l'asset archiviato e assicurarsi che la riproduzione non presenti anomalie visibili a livello di qualità. In alternativa guardare e convalidare l'asset usando l'URL di anteprima durante la sessione live prima di eseguire il passaggio 6.
+7. Creare, avviare un endpoint di streaming, usare un lettore come [Azure Media Player](https://aka.ms/azuremediaplayer) per osservare la risorsa archiviata per assicurarsi che la riproduzione non abbia problemi visibili per tutti i livelli di qualità (o in alternativa guardare e convalidare tramite l'URL di anteprima durante la sessione in tempo reale prima del passaggio 6)
 8. Registrare l'ID risorsa, l'URL di streaming pubblicato per l'archivio live e le impostazioni e la versione usate dal codificatore live
 9. Reimpostare lo stato del canale dopo la creazione di ogni esempio
 10. Ripetere i passaggi da 3 a 9 per tutte le configurazioni supportate dal codificatore (con e senza segnalazioni annunci/sottotitoli/diverse velocità di codifica)
@@ -81,7 +81,7 @@ Verifica del canale di codifica live
 4. Creare un evento live pubblicato
 5. Eseguire il codificatore live per circa 10 minuti
 6. Arrestare l'evento live
-7. Creare, avviare un endpoint di streaming, usare un lettore, ad esempio [Azure Media Player](https://aka.ms/azuremediaplayer) per guardare l'asset archiviato e assicurarsi che la riproduzione non presenti anomalie visibili a livello di qualità. In alternativa guardare e convalidare l'asset usando l'URL di anteprima durante la sessione live prima di eseguire il passaggio 6.
+7. Creare, avviare un endpoint di streaming, usare un lettore come [Azure Media Player](https://aka.ms/azuremediaplayer) per osservare la risorsa archiviata per assicurarsi che la riproduzione non abbia problemi visibili per tutti i livelli di qualità (o in alternativa guardare e convalidare tramite l'URL di anteprima durante la sessione in tempo reale prima del passaggio 6)
 8. Registrare l'ID risorsa, l'URL di streaming pubblicato per l'archivio live e le impostazioni e la versione usate dal codificatore live
 9. Reimpostare lo stato del canale dopo la creazione di ogni esempio
 10. Ripetere i passaggi da 3 a 9 per tutte le configurazioni supportate dal codificatore (con e senza segnalazioni annunci/sottotitoli/diverse velocità di codifica)
@@ -92,7 +92,7 @@ Verifica della durata
 3. Configurare il codificatore per eseguire il push di un flusso live a bitrate multipli.
 4. Creare un evento live pubblicato
 5. Eseguire un codificatore live per almeno una settimana
-6. Usare un lettore, ad esempio [Azure Media Player](https://aka.ms/azuremediaplayer) per guardare di volta in volta lo streaming live (o l'asset archiviato) e assicurarsi che la riproduzione non presenti anomalie visibili
+6. Usare un lettore come [Azure Media Player](https://aka.ms/azuremediaplayer) per guardare il live streaming di tanto in tanto (o asset archiviato) per garantire che la riproduzione non abbia problemi visibili
 7. Arrestare l'evento live
 8. Registrare l'ID risorsa, l'URL di streaming pubblicato per l'archivio live e le impostazioni e la versione usate dal codificatore live
 

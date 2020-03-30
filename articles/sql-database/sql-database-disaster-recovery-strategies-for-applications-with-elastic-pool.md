@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 01/25/2019
 ms.openlocfilehash: 4eeaa187142a6d0d97b12f685ebc455f3844606f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73825867"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Strategie di ripristino di emergenza per applicazioni che usano i pool elastici del database SQL
@@ -24,7 +24,7 @@ Nel corso degli anni è stato riscontrato che i servizi cloud non sono infallibi
 
 In questo articolo viene usato il modello classico di applicazione ISV SaaS:
 
-Un'applicazione Web moderna basata sul cloud effettua il provisioning di un database SQL per ogni utente finale. L'ISV ha un numero elevato di clienti e usa quindi molti database, definiti database tenant. Poiché i database tenant presentano in genere modelli di attività imprevedibili, l'ISV usa un pool elastico per rendere molto prevedibili i costi del database in periodi estesi di tempo. Il pool elastico semplifica anche la gestione delle prestazioni in caso di picchi dell'attività degli utenti. Oltre ai database tenant, l'applicazione usa anche diversi database per gestire i profili utente, la sicurezza, raccogliere i modelli di utilizzo e così via. La disponibilità dei singoli tenant non influisca sull'intera disponibilità dell'applicazione. La disponibilità e le prestazioni dei database di gestione, tuttavia, sono essenziali per il funzionamento dell'applicazione e se i database di gestione sono offline, l'intera applicazione è offline.
+Un'applicazione Web moderna basata sul cloud effettua il provisioning di un database SQL per ogni utente finale. L'ISV ha un numero elevato di clienti e usa quindi molti database, definiti database tenant. Poiché i database tenant presentano in genere modelli di attività imprevedibili, l'ISV usa un pool elastico per rendere molto prevedibili i costi del database in periodi estesi di tempo. Il pool elastico semplifica anche la gestione delle prestazioni in caso di picchi dell'attività degli utenti. Oltre ai database tenant, l'applicazione utilizza anche diversi database per gestire i profili utente, la sicurezza, la raccolta dei modelli di utilizzo e così via. La disponibilità dei singoli tenant non influisce sulla disponibilità dell'applicazione nel suo complesso. La disponibilità e le prestazioni dei database di gestione, tuttavia, sono essenziali per il funzionamento dell'applicazione e se i database di gestione sono offline, l'intera applicazione è offline.
 
 Questo articolo illustra le strategie di ripristino di emergenza in diversi scenari, dalle applicazioni per start-up attente ai costi a quelle con requisiti di disponibilità rigorosi.
 
@@ -164,12 +164,12 @@ Ecco gli **svantaggi** principali:
 
 ## <a name="summary"></a>Riepilogo
 
-Questo articolo illustra le strategie di ripristino di emergenza per il livello database usato da un'applicazione multi-tenant ISV SaaS. La strategia scelta si basa sulle esigenze dell'applicazione, ad esempio il modello aziendale, il contratto di contratto che si vuole offrire ai clienti, il vincolo di budget e così via. Ogni strategia descritta illustra i vantaggi e i compromessi per poter prendere una decisione consapevole. È anche probabile che l'applicazione specifica includa altri componenti di Azure. Esaminare quindi le rispettive indicazioni relative alla continuità aziendale e orchestrare il ripristino del livello database con tali componenti. Per altre informazioni sulla gestione del ripristino di applicazioni di database in Azure, vedere l'articolo relativo alla [progettazione di soluzioni cloud per il ripristino di emergenza](sql-database-designing-cloud-solutions-for-disaster-recovery.md).  
+Questo articolo illustra le strategie di ripristino di emergenza per il livello database usato da un'applicazione multi-tenant ISV SaaS. La strategia scelta si basa sulle esigenze dell'applicazione, ad esempio il modello di business, il servizio di integrazione applicativa che si desidera offrire ai clienti, il vincolo di budget e così via. Ogni strategia descritta delinea i vantaggi e il compromesso in modo da poter prendere una decisione informata. È anche probabile che l'applicazione specifica includa altri componenti di Azure. Esaminare quindi le rispettive indicazioni relative alla continuità aziendale e orchestrare il ripristino del livello database con tali componenti. Per altre informazioni sulla gestione del ripristino di applicazioni di database in Azure, vedere l'articolo relativo alla [progettazione di soluzioni cloud per il ripristino di emergenza](sql-database-designing-cloud-solutions-for-disaster-recovery.md).  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md).
-* Per la panoramica e gli scenari della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).
-* Per altre informazioni sull'uso dei backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md).
+* Per una panoramica e scenari di continuità aziendale, vedere [Panoramica della continuità aziendale](sql-database-business-continuity.md).
+* Per informazioni sull'utilizzo dei backup automatici per il ripristino, vedere [Ripristinare un database dai backup avviati dal servizio.](sql-database-recovery-using-backups.md)
 * Per altre informazioni su opzioni di ripristino più veloci, vedere [Replica geografica attiva](sql-database-active-geo-replication.md) e [Gruppi di failover automatico](sql-database-auto-failover-group.md).
-* Per altre informazioni sull'uso dei backup automatici per l'archiviazione, vedere [Copiare un database SQL di Azure](sql-database-copy.md).
+* Per informazioni sull'utilizzo dei backup automatici per l'archiviazione, vedere [Copia del database](sql-database-copy.md).

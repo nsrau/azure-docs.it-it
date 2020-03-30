@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi di delega vincolata Kerberos-proxy app
+title: Risolvere i problemi relativi alla delega vincolata Kerberos - Proxy appTroubleshoot Kerberos constrained delegation - App Proxy
 description: Risolvere i problemi di configurazione della delega vincolata Kerberos per Application Proxy
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c5e866f61409960447e17ecb50b035eabd53dc38
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74275685"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Risolvere i problemi di configurazione della delega vincolata Kerberos per Application Proxy
@@ -33,16 +33,16 @@ Questo articolo offre un punto di riferimento unico per risolvere e correggere i
 
 L'articolo presuppone quanto segue:
 
-- Il proxy dell'applicazione di Azure AD è stato distribuito come indicato nell'[introduzione al proxy dell'applicazione](application-proxy-add-on-premises-application.md) e l'accesso generale alle applicazioni non KCD funziona come previsto.
+- Azure Active Directory Application Proxy è stato distribuito come indicato nell'[introduzione ad Application Proxy](application-proxy-add-on-premises-application.md) e l'accesso generale alle applicazioni non KCD funziona come previsto.
 - L'applicazione di destinazione pubblicata è basata su Internet Information Services (IIS) e sull'implementazione Microsoft di Kerberos.
 - Gli host del server e dell'applicazione si trovano in un unico dominio di Azure Active Directory. Informazioni dettagliate sugli scenari tra diversi domini e foreste sono disponibili nel [white paper sulla delega vincolata Kerberos](https://aka.ms/KCDPaper).
 - L'applicazione oggetto è pubblicata in un tenant di Azure con preautenticazione abilitata. Gli utenti eseguono l'autenticazione in Azure tramite l'autenticazione basata su form. Gli scenari di autenticazione dei rich client non sono trattati in questo articolo, ma verranno aggiunti in futuro.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-Il proxy dell'applicazione Azure può essere distribuito in numerosi tipi di infrastrutture o ambienti e le architetture variano da organizzazione a organizzazione. Nella maggior parte dei casi, i problemi relativi alla delega vincolata Kerberos non sono dovuti agli ambienti, ma a semplici errori di configurazione o a errori generici.
+Azure Active Directory Application Proxy può essere distribuito in numerosi tipi di infrastrutture o ambienti e le architetture variano da organizzazione a organizzazione. Nella maggior parte dei casi, i problemi relativi alla delega vincolata Kerberos non sono dovuti agli ambienti, ma a semplici errori di configurazione o a errori generici.
 
-Per questo motivo è consigliabile verificare che siano soddisfatti tutti i prerequisiti descritti in [Delega vincolata Kerberos per l'accesso Single Sign-On alle app con il proxy dell'applicazione](application-proxy-configure-single-sign-on-with-kcd.md) prima di procedere con la risoluzione dei problemi. Si noti in particolare la sezione sulla configurazione della delega vincolata Kerberos in 2012 R2, in quanto adotta un approccio radicalmente diverso alla configurazione della delega vincolata Kerberos nelle versioni precedenti di Windows. È opportuno tenere presente anche altre considerazioni:
+Per questo motivo è consigliabile verificare che siano soddisfatti tutti i prerequisiti descritti in [Delega vincolata Kerberos per l'accesso Single Sign-On alle app con Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md) prima di procedere con la risoluzione dei problemi. Si noti in particolare la sezione sulla configurazione della delega vincolata Kerberos in 2012 R2, in quanto adotta un approccio radicalmente diverso alla configurazione della delega vincolata Kerberos nelle versioni precedenti di Windows. È opportuno tenere presente anche altre considerazioni:
 
 - Spesso può accadere che un server membro del dominio apra una finestra di dialogo con canale sicuro con un controller di dominio specifico. Quindi il server potrebbe passare a un'altra finestra di dialogo in qualsiasi momento. Gli host del connettore non sono quindi limitati alla comunicazione con specifici controller di dominio di siti locali.
 - Gli scenari tra domini si affidano ai riferimenti che indirizzano un host del connettore ai controller di dominio che possono trovarsi all'esterno del perimetro della rete locale. In questi casi, è altrettanto importante consentire il traffico verso i controller di dominio che rappresentano altri rispettivi domini. In caso contrario, la delega avrà esito negativo.
@@ -56,9 +56,9 @@ I problemi possono essere legati anche ad alcuni fattori ambientali. Per evitare
 
 Che cosa costituisce un problema di delega vincolata Kerberos? Ci sono diverse indicazioni tipiche di problemi con l'accesso SSO della delega vincolata Kerberos. I primi segnali si manifestano in genere nel browser.
 
-![Esempio: errore di configurazione di delega vincolata Kerberos errato](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
+![Esempio: errore di configurazione KCD non correttoExample: Incorrect KCD configuration error](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
 
-![Esempio: autorizzazione non riuscita a causa di autorizzazioni mancanti](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
+![Esempio: autorizzazione non riuscita a causa di autorizzazioni mancantiExample: Authorization failed because of missing permissions](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
 Entrambe queste immagini mostrano lo stesso sintomo: un errore di accesso SSO. L'accesso dell'utente all'applicazione viene negato.
 
@@ -84,9 +84,9 @@ Le comunicazioni esterne tra il client e il front-end di Azure non dovrebbero av
 
 Come accennato in precedenza, i messaggi di errore del browser offrono in genere alcune indicazioni valide sul motivo per cui si verificano errori. Assicurarsi di annotare l'ID attività e il timestamp nella risposta. Queste informazioni consentono di associare il comportamento a eventi correnti nel registro eventi del servizio proxy di Azure.
 
-![Esempio: errore di configurazione di delega vincolata Kerberos errato](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic3.png)
+![Esempio: errore di configurazione KCD non correttoExample: Incorrect KCD configuration error](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic3.png)
 
-Le voci corrispondenti visualizzate nel log eventi vengono mostrate come eventi 13019 o 12027. I log eventi dei connettori sono disponibili in **Registri applicazioni e servizi** &gt; **Microsoft** &gt; **AadApplicationProxy** &gt; **Connettore**&gt;**Amministratore**.
+Le voci corrispondenti visualizzate nel log eventi vengono mostrate come eventi 13019 o 12027. I log eventi dei connettori sono disponibili in **Registri applicazioni e servizi** &gt; **Microsoft** &gt; **AadApplicationProxy** &gt; **Connettore** &gt; **Amministratore**.
 
 ![Evento 13019 del log eventi del proxy dell'applicazione](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic4.png)
 
@@ -129,7 +129,7 @@ Il consumer del ticket Kerberos fornito dal connettore. In questa fase si preved
 
      *Microsoft AAD Application Proxy Connector non riesce ad autenticare l'utente perché il server back-end risponde ai tentativi di autenticazione Kerberos con un errore HTTP 401.*
 
-      ![Mostra l'errore HTTTP 401 Forbidden](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic8.png)
+      ![Mostra l'errore non consentito HTTTP 401](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic8.png)
 
    - Controllare l'applicazione IIS. Verificare che il pool di applicazioni sia configurato per l'uso dello stesso account con cui è stato configurato il nome dell'entità servizio in Azure AD. Passare a IIS come mostrato nella figura seguente.
 
@@ -159,14 +159,14 @@ Oltre a risultare utile per migliorare le prestazioni delle operazioni Kerberos,
 
 - Come verifica aggiuntiva, disabilitare anche la protezione **estesa**. In alcune situazioni, la protezione **estesa** interrompe la delega vincolata Kerberos se abilitata in configurazioni specifiche, in cui un'applicazione viene pubblicata come sottocartella del sito Web predefinito. Tale applicazione è configurata soltanto per l'autenticazione anonima, lasciando le finestre di dialogo disattivate a indicare che gli oggetti figlio non erediteranno impostazioni attive. È consigliabile eseguire il test e quindi ripristinare questo valore su **abilitata**, laddove possibile.
 
-  Questi controlli aggiuntivi dovrebbero consentire di iniziare a usare correttamente l'applicazione pubblicata. È possibile avviare i connettori aggiuntivi che sono anch'essi configurati per la delega. Per altre informazioni, leggere la procedura tecnica dettagliata relativa nella [Guida completa alla risoluzione dei problemi del proxy dell'applicazione di Azure AD](https://aka.ms/proxytshootpaper).
+  Questi controlli aggiuntivi dovrebbero consentire di iniziare a usare correttamente l'applicazione pubblicata. È possibile avviare i connettori aggiuntivi che sono anch'essi configurati per la delega. Per altre informazioni, leggere la procedura tecnica dettagliata relativa nella [Guida completa alla risoluzione dei problemi di Azure AD Application Proxy](https://aka.ms/proxytshootpaper).
 
 Se il problema persiste, contattare il supporto tecnico Microsoft creando un ticket direttamente nel portale per essere contattati da un tecnico.
 
 ## <a name="other-scenarios"></a>Altri scenari
 
-- Il proxy dell'applicazione Azure richiede un ticket Kerberos prima dell'invio della richiesta a un'applicazione. Alcune applicazioni di terze parti non sono simili a questo metodo di autenticazione. preferendo l'approccio più tradizionale delle negoziazioni. La prima richiesta è anonima, consentendo all'applicazione di rispondere con i tipi di autenticazione supportati tramite un codice 401.
-- L'autenticazione multihop viene generalmente usata negli scenari con applicazioni a livelli, con un back-end e un front-end che richiedono l'autenticazione, ad esempio SQL Server Reporting Services. Per configurare lo scenario a più hop, vedere l'articolo del supporto per la [delega vincolata Kerberos può richiedere la transizione del protocollo negli scenari con più hop](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
+- Il proxy dell'applicazione Azure richiede un ticket Kerberos prima dell'invio della richiesta a un'applicazione. Ad alcune applicazioni di terze parti non piace questo metodo di autenticazione. preferendo l'approccio più tradizionale delle negoziazioni. La prima richiesta è anonima, consentendo all'applicazione di rispondere con i tipi di autenticazione supportati tramite un codice 401.
+- L'autenticazione multihop viene generalmente usata negli scenari con applicazioni a livelli, con un back-end e un front-end che richiedono l'autenticazione, ad esempio SQL Server Reporting Services. Per configurare lo scenario multihop, vedere l'articolo di supporto La delega vincolata Kerberos può richiedere la [transizione di protocollo negli scenari multihop](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

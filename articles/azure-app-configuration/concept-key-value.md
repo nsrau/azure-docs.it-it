@@ -1,27 +1,27 @@
 ---
-title: Informazioni sull'archivio chiave-valore di configurazione app Azure
-description: Informazioni sul modo in cui i dati di configurazione vengono archiviati nella configurazione app Azure.
+title: Informazioni sull'archivio chiave-valore della configurazione dell'app di AzureUnderstand Azure App Configuration key-value store
+description: Comprendere come vengono archiviati i dati di configurazione in Configurazione app di Azure.Understand how configuration data is stored in Azure App Configuration.
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.openlocfilehash: 0b83a35d912c97ae25bc2d69d076e8eae8ca490f
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77523605"
 ---
 # <a name="keys-and-values"></a>Chiavi e valori
 
-Configurazione app di Azure archivia i dati di configurazione sotto forma di coppie chiave-valore. Le coppie chiave-valore rappresentano una rappresentazione semplice e flessibile delle impostazioni dell'applicazione utilizzate dagli sviluppatori.
+Configurazione app di Azure archivia i dati di configurazione sotto forma di coppie chiave-valore. Le coppie chiave-valore sono una rappresentazione semplice e flessibile delle impostazioni dell'applicazione utilizzate dagli sviluppatori.
 
 ## <a name="keys"></a>Chiavi
 
-Le chiavi servono come identificatori per le coppie chiave-valore e vengono usate per archiviare e recuperare i valori corrispondenti. In genere le chiavi vengono organizzate in uno spazio dei nomi gerarchico usando un delimitatore di caratteri, ad esempio `/` o `:`. Usare una convenzione ideale per l'applicazione. Configurazione app tratta le chiavi come un insieme. Non analizza le chiavi per individuare come sono strutturati i relativi nomi, né applica alcuna regola.
+Le chiavi fungono da identificatori per le coppie chiave-valore e vengono utilizzate per archiviare e recuperare i valori corrispondenti. In genere le chiavi vengono organizzate in uno spazio dei nomi gerarchico usando un delimitatore di caratteri, ad esempio `/` o `:`. Utilizzare una convenzione più adatta all'applicazione. Configurazione app tratta le chiavi come un insieme. Non analizza le chiavi per individuare come sono strutturati i relativi nomi, né applica alcuna regola.
 
-Di seguito sono riportati due esempi di nomi chiave strutturati in una gerarchia:
+Ecco due esempi di nomi chiave strutturati in una gerarchia:Here are two examples of key names structured into a hierarchy:
 
 * In base ai servizi dei componenti
 
@@ -33,13 +33,13 @@ Di seguito sono riportati due esempi di nomi chiave strutturati in una gerarchia
         AppName:Region1:DbEndpoint
         AppName:Region2:DbEndpoint
 
-L'uso di dati di configurazione all'interno di Framework applicazione può determinare schemi di denominazione specifici per i valori di chiave. Ad esempio, il framework Spring cloud di Java definisce `Environment` risorse che forniscono le impostazioni a un'applicazione Spring.  Sono parametrizzate da variabili che includono il nome e *il profilo* *dell'applicazione* . Le chiavi per Spring Cloud relative ai dati di configurazione iniziano in genere con questi due elementi, separati da un delimitatore.
+L'utilizzo dei dati di configurazione all'interno dei framework dell'applicazione potrebbe imporre schemi di denominazione specifici per i valori chiave. Ad esempio, il framework Spring `Environment` Cloud di Java definisce le risorse che forniscono le impostazioni a un'applicazione Spring.For example, Java Spring Cloud framework defines resources that supply settings to a Spring application.  Questi sono parametrizzati da variabili che includono *il nome dell'applicazione* e *il profilo*. Le chiavi per Spring Cloud relative ai dati di configurazione iniziano in genere con questi due elementi, separati da un delimitatore.
 
-Le chiavi archiviate in Configurazione sono stringhe basate su Unicode con distinzione tra maiuscole e minuscole. Le chiavi *app1* e *App1* sono distinte in un archivio di Configurazione app. Tenere presente questo aspetto quando si usano le impostazioni di configurazione all'interno di un'applicazione, perché alcuni framework gestiscono le chiavi di configurazione senza fare distinzione tra maiuscole e minuscole. Non è consigliabile usare case per distinguere le chiavi.
+Le chiavi archiviate in Configurazione sono stringhe basate su Unicode con distinzione tra maiuscole e minuscole. Le chiavi *app1* e *App1* sono distinte in un archivio di Configurazione app. Tenere presente questo aspetto quando si usano le impostazioni di configurazione all'interno di un'applicazione, perché alcuni framework gestiscono le chiavi di configurazione senza fare distinzione tra maiuscole e minuscole. Non è consigliabile utilizzare case per differenziare le chiavi.
 
-È possibile utilizzare qualsiasi carattere Unicode nei nomi delle chiavi ad eccezione di `*`, `,`e `\`.  Se è necessario includere uno di questi caratteri riservati, eseguire l'escape usando `\{Reserved Character}`. 
+È possibile utilizzare qualsiasi carattere `*`unicode `,`nei `\`nomi di tasto ad eccezione di , e .  Se è necessario includere uno di questi caratteri `\{Reserved Character}`riservati, eseguire l'escape utilizzando . 
 
-Una coppia chiave-valore prevede un limite di dimensioni combinate di 10 KB. Questo limite include tutti i caratteri della chiave, il relativo valore e tutti gli attributi facoltativi associati. Entro questo limite è possibile avere molti livelli gerarchici per le chiavi.
+C'è un limite di dimensione combinato di 10 KB su una coppia chiave-valore. Questo limite include tutti i caratteri della chiave, il relativo valore e tutti gli attributi facoltativi associati. Entro questo limite è possibile avere molti livelli gerarchici per le chiavi.
 
 ### <a name="design-key-namespaces"></a>Progettare gli spazi dei nomi delle chiavi
 
@@ -53,7 +53,7 @@ Per assegnare i nomi alle chiavi usate per i dati di configurazione sono disponi
 
 ### <a name="label-keys"></a>Chiavi di etichetta
 
-Le coppie chiave-valore di Configurazione app possono facoltativamente avere un attributo etichetta. Le etichette vengono usate per distinguere le coppie chiave-valore con la stessa chiave. Una chiave *app1* con le etichette *A* e *B* corrisponde a due chiavi distinte in un archivio di Configurazione app. Per impostazione predefinita, un valore di chiave non dispone di un'etichetta. Per fare riferimento in modo esplicito a un valore di chiave senza etichetta, usare `\0` (URL codificato come `%00`).
+Le coppie chiave-valore di Configurazione app possono facoltativamente avere un attributo etichetta. Le etichette vengono usate per distinguere le coppie chiave-valore con la stessa chiave. Una chiave *app1* con le etichette *A* e *B* corrisponde a due chiavi distinte in un archivio di Configurazione app. Per impostazione predefinita, un valore di chiave non ha etichetta. Per fare riferimento in modo esplicito a un valore di chiave senza etichetta, utilizzare `\0` (URL codificato come `%00`).
 
 L'etichetta fornisce un modo pratico per creare varianti di una chiave. Un uso comune delle etichette consiste nello specificare più ambienti per la stessa chiave:
 
@@ -63,7 +63,7 @@ L'etichetta fornisce un modo pratico per creare varianti di una chiave. Un uso c
 
 ### <a name="version-key-values"></a>Creare versioni di coppie chiave-valore
 
-La configurazione dell'app non prevede la versione automatica dei valori di chiave. Usare quindi le etichette per creare più versioni di una coppia chiave-valore. È ad esempio possibile immettere un numero di versione dell'applicazione o un ID commit di Git nelle etichette per identificare le coppie chiave-valore associate a una particolare build software.
+Configurazione app non esegue automaticamente la versione dei valori della chiave. Usare quindi le etichette per creare più versioni di una coppia chiave-valore. È ad esempio possibile immettere un numero di versione dell'applicazione o un ID commit di Git nelle etichette per identificare le coppie chiave-valore associate a una particolare build software.
 
 Nelle etichette è possibile usare qualsiasi carattere Unicode, ad eccezione di `*`, `,` e `\`. Questi caratteri sono riservati. Per includere un carattere riservato, è necessario usare `\{Reserved Character}` per specificare il carattere di escape.
 
@@ -76,7 +76,7 @@ Ogni coppia chiave-valore viene identificata in modo univoco dalla chiave e da u
 | `key` è omesso oppure `key=*` | Corrisponde a tutte le chiavi |
 | `key=abc` | Corrisponde esattamente al nome della chiave **abc** |
 | `key=abc*` | Corrisponde ai nomi delle chiavi che iniziano con **abc** |
-| `key=abc,xyz` | Corrisponde ai nomi delle chiavi **ABC** o **XYZ**. Limitato a cinque CSVs |
+| `key=abc,xyz` | Corrisponde ai nomi delle chiavi **abc** o **xyz**. Limitato a cinque CSV |
 
 È anche possibile includere i criteri delle etichette seguenti:
 
@@ -90,9 +90,9 @@ Ogni coppia chiave-valore viene identificata in modo univoco dalla chiave e da u
 
 ## <a name="values"></a>Valori
 
-Anche i valori assegnati alle chiavi sono stringhe Unicode. Per i valori è possibile usare tutti i caratteri Unicode. A ogni valore è associato un tipo di contenuto facoltativo definito dall'utente. Utilizzare questo attributo per archiviare le informazioni su un valore che consente all'applicazione di elaborarlo correttamente.
+Anche i valori assegnati alle chiavi sono stringhe Unicode. Per i valori è possibile usare tutti i caratteri Unicode. A ogni valore è associato un tipo di contenuto facoltativo definito dall'utente. Utilizzare questo attributo per archiviare informazioni su un valore che consente all'applicazione di elaborarlo correttamente.
 
-I dati di configurazione archiviati in un archivio di configurazione dell'app vengono crittografati a riposo e in transito. Le chiavi non sono crittografate a riposo. Configurazione app non è una soluzione da usare in sostituzione di Azure Key Vault. Non usarla quindi per archiviare i segreti dell'applicazione.
+I dati di configurazione archiviati in un archivio di configurazione app vengono crittografati in attivi e in transito. Le chiavi non sono crittografate a riposo. Configurazione app non è una soluzione da usare in sostituzione di Azure Key Vault. Non usarla quindi per archiviare i segreti dell'applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

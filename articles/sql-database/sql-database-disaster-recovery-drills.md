@@ -1,5 +1,5 @@
 ---
-title: Esercitazioni sul ripristino di emergenza
+title: Esercitazioni per il ripristino di emergenza
 description: Istruzioni e procedure consigliate relative all'uso del database SQL di Azure per eseguire esercitazioni per il ripristino di emergenza.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
 ms.openlocfilehash: 3ca00a03976ae38b7956616b8287220a7bc5998c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73825861"
 ---
 # <a name="performing-disaster-recovery-drill"></a>Esercitazione per il ripristino di emergenza
@@ -68,6 +68,6 @@ Completare il test verificando l'integrità dell'applicazione dopo il ripristino
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sugli scenari di continuità aziendale, vedere l'articolo relativo agli [scenari di continuità](sql-database-business-continuity.md).
-* Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md)
-* Per altre informazioni sull'uso dei backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md).
+* Per altre informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQLTo](sql-database-automated-backups.md) learn about Azure SQL Database automated backups, see SQL Database automated backups
+* Per informazioni sull'utilizzo dei backup automatici per il ripristino, vedere [Ripristinare un database dai backup avviati dal servizio.](sql-database-recovery-using-backups.md)
 * Per altre informazioni su opzioni di ripristino più veloci, vedere [Replica geografica attiva](sql-database-active-geo-replication.md) e [Gruppi di failover automatico](sql-database-auto-failover-group.md).

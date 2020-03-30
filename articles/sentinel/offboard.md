@@ -1,6 +1,6 @@
 ---
-title: Rimuovere Sentinel di Azure | Microsoft Docs
-description: Come eliminare l'istanza di Sentinel di Azure.
+title: Rimozione di Azure Sentinel Documenti Microsoft
+description: Come eliminare l'istanza di Azure Sentinel.How to delete your Azure Sentinel instance.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,67 +15,67 @@ ms.workload: na
 ms.date: 12/29/2019
 ms.author: yelevin
 ms.openlocfilehash: 4042f7b9d0f6fdf293f338c89d5783fe266c4edf
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77581685"
 ---
-# <a name="remove-azure-sentinel-from-your-workspace"></a>Rimuovere Azure Sentinel dall'area di lavoro
+# <a name="remove-azure-sentinel-from-your-workspace"></a>Rimuovere Azure Sentinel dall'area di lavoroRemove Azure Sentinel from your workspace
 
-Se non si vuole più usare Azure Sentinel, questo articolo illustra come rimuoverlo dall'area di lavoro.
+Se non si vuole più usare Azure Sentinel, in questo articolo viene illustrato come rimuoverlo dall'area di lavoro.
 
 ## <a name="how-to-remove-azure-sentinel"></a>Come rimuovere Azure Sentinel
 
-Seguire questa procedura per rimuovere Azure Sentinel dall'area di lavoro:
+Seguire questa procedura per rimuovere Azure Sentinel dall'area di lavoro:Follow this process to remove Azure Sentinel from your workspace:
 
-1. Passare ad **Azure Sentinel**, seguito da **Impostazioni**e selezionare la scheda **Rimuovi Azure Sentinel**.
+1. Passare a **Azure Sentinel**, quindi **Impostazioni**e selezionare la scheda **Rimuovi Azure Sentinel**.
 
-1. Prima di rimuovere Azure Sentinel, usare le caselle di controllo per indicare il motivo per cui si sta rimuovendo.
+1. Prima di rimuovere Azure Sentinel, usare le caselle di controllo per indicare il motivo della rimozione.
 
-1. Selezionare **Rimuovi Sentinel di Azure dall'area di lavoro**.
+1. Selezionare **Rimuovi Azure Sentinel dall'area di lavoro**.
     
-    ![Eliminare la soluzione SecurityInsights](media/offboard/delete-solution.png)
+    ![Eliminare la soluzione SecurityInsightsDelete the SecurityInsights solution](media/offboard/delete-solution.png)
 
-## <a name="what-happens-behind-the-scenes"></a>Cosa accade dietro le quinte?
+## <a name="what-happens-behind-the-scenes"></a>Cosa succede dietro le quinte?
 
-Quando si rimuove la soluzione, Azure Sentinel impiega fino a 48 ore per completare la prima fase del processo di eliminazione.
+Quando si rimuove la soluzione, Azure Sentinel richiede fino a 48 ore per completare la prima fase del processo di eliminazione.
 
-Una volta identificata la disconnessione, viene avviato il processo offboarding.
+Dopo aver identificato la disconnessione, inizia il processo di offboarding.
 
-**La configurazione di questi connettori è stata rimossa:**
+**La configurazione di questi connettori viene rimossa:**
 -   Office 365
 
 -   AWS
 
--   Avvisi di sicurezza dei servizi Microsoft (Azure ATP, Microsoft Cloud App Security inclusi Cloud Discovery segnalazione Shadow IT, Azure AD Identity Protection, Microsoft Defender ATP, Centro sicurezza di Azure)
+-   Avvisi di sicurezza dei servizi Microsoft (Azure ATP, Microsoft Cloud App Security, inclusi i report IT Shadow di Individuazione cloud, Azure AD Identity Protection, Microsoft Defender ATP, Azure Security Center)
 
 -   Intelligence per le minacce
 
--   Log di sicurezza comuni (inclusi i log basati su CEF, Barracuda e syslog). Se si dispone del Centro sicurezza di Azure, questi log continueranno a essere raccolti.
+-   Registri di sicurezza comuni (inclusi i log basati su CEF, Barracuda e Syslog) (se si dispone di Centro sicurezza di Azure, questi log continueranno a essere raccolti).
 
--   Eventi di sicurezza di Windows. Se si dispone del Centro sicurezza di Azure, questi log continueranno a essere raccolti.
+-   Eventi di sicurezza di Windows (se si dispone del Centro sicurezza di Azure, questi log continueranno a essere raccolti).
 
-Nelle prime 48 ore, i dati e le regole analitiche (inclusa la configurazione di automazione in tempo reale) non saranno più accessibili o disponibili per le query in Sentinel di Azure.
+Entro le prime 48 ore, i dati e le regole analitiche (inclusa la configurazione dell'automazione in tempo reale) non saranno più accessibili o querybili in Azure Sentinel.
 
-**Dopo 30 giorni, queste risorse vengono rimosse:**
+**Dopo 30 giorni queste risorse vengono rimosse:**
 
--   Eventi imprevisti (inclusi i metadati di analisi)
+-   Incidenti (inclusi i metadati dell'indagine)
 
 -   Regole analitiche
 
 -   Segnalibri
 
-I PlayBook, le cartelle di lavoro salvate, le query di ricerca salvate e i notebook non vengono rimossi. **Alcune potrebbero interrompersi a causa dei dati rimossi. È possibile rimuoverli manualmente.**
+I playbook, le cartelle di lavoro salvate, le query di caccia salvate e i blocchi appunti non vengono rimossi. **Alcuni potrebbero interrompersi a causa dei dati rimossi. È possibile rimuoverli manualmente.**
 
-Dopo aver rimosso il servizio, si verifica un periodo di tolleranza di 30 giorni durante il quale è possibile riabilitare la soluzione e i dati e le regole analitiche verranno ripristinati, ma i connettori configurati che erano disconnessi devono essere riconnessi.
+Dopo aver rimosso il servizio, esiste un periodo di prova di 30 giorni durante il quale è possibile riattivare la soluzione e i dati e le regole analitiche verranno ripristinati, ma i connettori configurati che sono stati disconnessi devono essere riconnessi.
 
 > [!NOTE]
-> Se si rimuove la soluzione, la sottoscrizione continuerà a essere registrata con il provider di risorse Sentinel di Azure. **È possibile rimuoverlo manualmente.**
+> Se si rimuove la soluzione, la sottoscrizione continuerà a essere registrata con il provider di risorse di Azure Sentinel.If you remove the solution, your subscription will continue to be registered with the Azure Sentinel resource provider. **È possibile rimuoverlo manualmente.**
 
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo documento si è appreso come rimuovere il servizio Sentinel di Azure. Se si cambia idea e si vuole installarlo di nuovo:
-- Introduzione [all'onboarding di Azure Sentinel](quickstart-onboard.md).
+In questo documento è stato illustrato come rimuovere il servizio Azure Sentinel.In this document, you learned how to remove the Azure Sentinel service. Se cambi idea e vuoi installarlo di nuovo:
+- Iniziare [l'onboarding di Azure Sentinel](quickstart-onboard.md).

@@ -1,5 +1,5 @@
 ---
-title: Configurare Azure AD Privileged Identity Management ruolo personalizzato (PIM)
+title: Configurare il ruolo personalizzato di Azure AD - Gestione identità con privilegi (PIM)Configure Azure AD custom role - Privileged Identity Management (PIM)
 description: Come configurare ruoli personalizzati di Azure AD in Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3f087ffe824a198c578f076857cca7fdf0f0a60c
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77498688"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Configurare ruoli personalizzati di Azure AD in Privileged Identity Management
@@ -28,7 +28,7 @@ ms.locfileid: "77498688"
 Un amministratore del ruolo con privilegi può modificare le impostazioni del ruolo che si applicano a un utente quando viene attivata l'assegnazione a un ruolo personalizzato e per altri amministratori di applicazioni che assegnano ruoli personalizzati.
 
 > [!NOTE]
-> I ruoli personalizzati di Azure AD non sono integrati nei ruoli della directory predefiniti durante la fase di anteprima. Non appena la funzionalità sarà disponibile a livello generale, la gestione dei ruoli verrà eseguita nell'esperienza dei ruoli predefiniti. Se viene visualizzato il banner seguente, questi ruoli devono essere gestiti [nell'esperienza dei ruoli incorporati](pim-how-to-activate-role.md) e questo articolo non si applica:
+> I ruoli personalizzati di Azure AD non sono integrati nei ruoli della directory predefiniti durante la fase di anteprima. Non appena la funzionalità sarà disponibile a livello generale, la gestione dei ruoli verrà eseguita nell'esperienza dei ruoli predefiniti. Se viene visualizzato il banner seguente, questi ruoli devono essere gestiti [nell'esperienza di ruoli predefiniti](pim-how-to-activate-role.md) e questo articolo non è applicabile:
 >
 > [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
@@ -37,7 +37,7 @@ Un amministratore del ruolo con privilegi può modificare le impostazioni del ru
 Per aprire le impostazioni per un ruolo di Azure AD seguire questa procedura.
 
 1. Accedere a [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) nel portale di Azure usando un account utente assegnato al ruolo di amministratore ruolo con privilegi.
-1. Selezionare **Ruoli personalizzati di Azure AD (anteprima)** .
+1. Selezionare **Ruoli personalizzati di Azure AD (anteprima)**.
 
     ![Selezionare Ruoli personalizzati di Azure AD (anteprima) per visualizzare le assegnazioni di ruolo idonee](./media/azure-ad-custom-roles-configure/settings-list.png)
 
@@ -56,13 +56,13 @@ Quando si configurano le impostazioni per un ruolo è possibile scegliere tra du
 
 È possibile scegliere una delle opzioni seguenti per la durata dell'assegnazione *idonea*.
 
-- **Consenti assegnazione permanente idonea**: gli amministratori possono assegnare l'appartenenza permanente idonea.
-- **Scadenza assegnazione idonea dopo**: gli amministratori possono richiedere che tutte le assegnazioni idonee abbiano una data di inizio e di fine specificata.
+- **Consenti assegnazione idonea permanente:** gli amministratori possono assegnare un'appartenenza idonea permanente.
+- **Scadenza assegnazione idonea dopo:** gli amministratori possono richiedere che tutte le assegnazioni idonee abbiano una data di inizio e una data di fine specificate.
 
 Ed è anche possibile scegliere una delle opzioni di durata dell'assegnazione *attiva*:
 
-- **Consenti assegnazione attiva permanente**: gli amministratori possono assegnare l'appartenenza permanente attiva.
-- **Scadenza assegnazione attiva dopo**: gli amministratori possono richiedere che tutte le assegnazioni attive abbiano una data di inizio e di fine specificata.
+- **Consenti assegnazione attiva permanente**: Gli amministratori possono assegnare un'appartenenza attiva permanente.
+- **Scadenza dell'assegnazione attiva dopo:** gli amministratori possono richiedere che tutte le assegnazioni attive abbiano una data di inizio e di fine specificate.
 
 ### <a name="require-azure-multi-factor-authentication"></a>Richiedere Azure Multi-Factor Authentication
 

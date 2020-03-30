@@ -1,6 +1,6 @@
 ---
-title: Salvare in modo permanente i dati di output in archiviazione di Azure con l'API del servizio batch Azure Batch
-description: Informazioni su come usare l'API del servizio batch per salvare in modo permanente i dati di output di processi e attività batch in archiviazione di Azure.
+title: Rendere persistenti i dati di output in Archiviazione di Azure con l'API del servizio Batch - Azure BatchPersist output data to Azure Storage with Batch service API - Azure Batch
+description: Informazioni su come usare l'API del servizio Batch per rendere persistenti i dati di output di processi e attività Batch in Archiviazione di Azure.Learn how to use the Batch service API to persist Batch task and job output data to Azure Storage.
 services: batch
 author: LauraBrenner
 manager: evansma
@@ -13,10 +13,10 @@ ms.date: 03/05/2019
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: 11bd8bc427dd3da35ec5aa0f728f6b04b7d4527d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022852"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Rendere persistenti i dati delle attività in Archiviazione di Azure con l'API del servizio Batch
@@ -71,7 +71,7 @@ string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 
 Per specificare i file di output per un'attività, creare una raccolta di oggetti [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) e assegnarla alla proprietà [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) quando si crea l'attività.
 
-L'esempio di codice C# seguente crea un'attività che scrive numeri casuali in un file denominato `output.txt`. Nell'esempio viene creato un file di output per `output.txt` da scrivere nel contenitore. L'esempio crea anche i file di output per gli eventuali file di log corrispondenti al modello di file `std*.txt` (_ad esempio_, `stdout.txt` e `stderr.txt`). L'URL del contenitore richiede la firma di accesso condiviso creata in precedenza per il contenitore. Il servizio Batch usa la firma di accesso condiviso per autenticare l'accesso al contenitore:
+L'esempio di codice C# seguente crea un'attività che scrive numeri casuali in un file denominato `output.txt`. Nell'esempio viene creato un file di output per `output.txt` da scrivere nel contenitore. Nell'esempio vengono inoltre creati file di output `std*.txt` per tutti i `stderr.txt`file di log che corrispondono al modello di file ( ad_esempio_, `stdout.txt` e ). L'URL del contenitore richiede la firma di accesso condiviso creata in precedenza per il contenitore. Il servizio Batch usa la firma di accesso condiviso per autenticare l'accesso al contenitore:
 
 ```csharp
 new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,100000) DO (ECHO !RANDOM!)) > output.txt\"")
@@ -177,7 +177,7 @@ Se si sviluppa in un linguaggio diverso da C#, sarà necessario implementare man
 
 ## <a name="code-sample"></a>Esempio di codice
 
-Il progetto di esempio [PersistOutputs][github_persistoutputs] è uno degli [esempi di codice Azure batch][github_samples] su GitHub. Questa soluzione di Visual Studio descrive come usare la libreria client Batch per .NET per rendere persistente l'output dell'attività in una risorsa di archiviazione permanente. Per eseguire l'esempio, seguire questa procedura:
+Il progetto di esempio [PersistOutputs][github_persistoutputs] è uno degli [esempi di codice di Azure Batch][github_samples] disponibili in GitHub. Questa soluzione di Visual Studio descrive come usare la libreria client Batch per .NET per rendere persistente l'output dell'attività in una risorsa di archiviazione permanente. Per eseguire l'esempio, seguire questa procedura:
 
 1. Aprire il progetto in **Visual Studio 2019**.
 2. Aggiungere **le credenziali dell'account** di archiviazione e Batch a **AccountSettings.settings** nel progetto Microsoft.Azure.Batch.Samples.Common.

@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 843f12d14120a7becdc1e8b15bfcc65948602c44
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74007762"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Informazioni di riferimento sulle attività di controllo di Azure AD
@@ -30,7 +30,7 @@ I report di Azure Active Directory (Azure AD) offrono tutte le informazioni nece
 
 L'architettura di reporting in Azure AD include i componenti seguenti:
 
-- **Report attività** 
+- **Relazioni sulle attività** 
     - [Accessi](concept-sign-ins.md): fornisce informazioni sull'uso delle applicazioni gestite e sulle attività di accesso degli utenti
     - [Log di controllo](concept-audit-logs.md): i log consentono la tracciabilità di tutte le modifiche apportate da varie funzionalità all'interno di Azure AD. 
     
@@ -91,7 +91,7 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 
 |Categoria di controllo|Attività|
 |---|---|
-|Gestione di applicazioni|Aggiungi applicazione|
+|Gestione di applicazioni|Aggiunta di un'applicazione|
 |Gestione di applicazioni|Aggiungere un proprietario a un'applicazione|
 |Gestione di applicazioni|Aggiungere un proprietario a un'entità servizio|
 |Gestione di applicazioni|Aggiungere un criterio a un'entità servizio|
@@ -135,11 +135,11 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |Gestione di applicazioni|AdminPolicyDatas-SetResources|
 |Gestione di applicazioni|AdminUserJourneys-GetResources|
 |Gestione di applicazioni|AdminUserJourneys-RemoveResources|
-|Autenticazione|AdminUserJourneys-SetResources|
-|Autenticazione|Creare un provider di identità|
-|Autenticazione|Creare un'applicazione V1|
-|Autenticazione|Creare un'applicazione V2|
-|Autenticazione|Creare un dominio personalizzato nel tenant|
+|Authentication|AdminUserJourneys-SetResources|
+|Authentication|Creare un provider di identità|
+|Authentication|Creare un'applicazione V1|
+|Authentication|Creare un'applicazione V2|
+|Authentication|Creare un dominio personalizzato nel tenant|
 |Autorizzazione|Crea un nuovo AdminUserJourney|
 |Autorizzazione|Creare JSON di risorse localizzate|
 |Autorizzazione|Creare un nuovo provider di identità personalizzato|
@@ -267,8 +267,8 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |Chiave|Vengono eliminate le impostazioni aziendali.|
 |Chiave|Abbassare un partner di livello|
 |Chiave|Directory eliminata|
-|Altre|Directory eliminata in modo permanente|
-|Altre|Directory pianificata per l'eliminazione|
+|Altri|Directory eliminata in modo permanente|
+|Altri|Directory pianificata per l'eliminazione|
 |Risorsa|Innalzare un'azienda a livello di partner|
 |Risorsa|Ripulire le proprietà di Rights Management|
 |Risorsa|Rimuovere un partner dalla società|
@@ -348,10 +348,10 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 
 |Categoria di controllo|Attività|
 |---|---|
-|Gestione delle unità amministrative|Scarica un tipo di rilevamento a rischio singolo|
+|Gestione delle unità amministrative|Scaricare un singolo tipo di rilevamento dei rischiDownload a single risk detection type|
 |Gestione delle unità amministrative|Scaricare amministratori e stato del consenso esplicito per il digest settimanale|
-|Gestione delle unità amministrative|Scarica tutti i tipi di rilevamento del rischio|
-|Gestione delle unità amministrative|Scarica i rilevamenti di rischi utente gratuiti|
+|Gestione delle unità amministrative|Scarica tutti i tipi di rilevamento dei rischi|
+|Gestione delle unità amministrative|Scarica il rilevamento dei rischi gratuiti per gli utenti|
 |Gestione delle unità amministrative|Scaricare gli utenti contrassegnati per il rischio|
 |Gestione di applicazioni|Inviti batch elaborati|
 |Gestione di applicazioni|Inviti batch caricati|
@@ -408,14 +408,14 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |Gestione directory|Ottenere i provider di identità per un flusso di amministrazione specifico|
 |Gestione directory|Ottenere l'elenco di tutti i flussi di amministrazione|
 |Gestione directory|Ottenere l'elenco di tag per tutti i flussi di amministratore per tutti gli utenti|
-|Gestione di gruppi|Membri del gruppo di download bulk-avviato|
-|Gestione di gruppi|Membri del gruppo di download bulk-completato|
-|Gestione di gruppi|Membri del gruppo di importazione bulk-avviato|
-|Gestione di gruppi|Importazione bulk dei membri del gruppo completata|
-|Gestione di gruppi|Rimuovere in blocco i membri del gruppo-avviato|
-|Gestione di gruppi|Rimozione bulk dei membri del gruppo completata|
-|Gestione di gruppi|Gruppi di download bulk-avviato|
-|Gestione di gruppi|Gruppi di download bulk-operazione completata|
+|Gestione di gruppi|Scarica in blocco i membri del gruppo - avviato|
+|Gestione di gruppi|Membri del gruppo di download in blocco - finiti|
+|Gestione di gruppi|Membri del gruppo di importazione in blocco - avviato|
+|Gestione di gruppi|Membri del gruppo di importazione in blocco - finito|
+|Gestione di gruppi|Rimozione in blocco dei membri del gruppo - avviata|
+|Gestione di gruppi|Rimozione in blocco dei membri del gruppo - finiti|
+|Gestione di gruppi|Gruppi di download in blocco - avviato|
+|Gestione di gruppi|Gruppi di download in blocco - finiti|
 |Gestione di gruppi|Ottenere l'elenco di tenant per un utente|
 |Gestione di gruppi|Ottenere le attestazioni autocertificate degli account locali|
 |Gestione di gruppi|Ottenere JSON di risorse localizzate|
@@ -475,16 +475,16 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |User Management|Aggiungere un membro con ambito a un ruolo|
 |User Management|Aggiunto|
 |User Management|Assegnare|
-|User Management|Creazione bulk utenti-avviato|
-|User Management|Creazione bulk di utenti-operazione completata|
-|User Management|Eliminazione bulk utenti-avviato|
-|User Management|Eliminazione bulk degli utenti-operazione completata|
-|User Management|Utenti di download bulk-avviato|
-|User Management|Download Bulk utenti-operazione completata|
-|User Management|Ripristino Bulk utenti eliminati-avviato|
-|User Management|Ripristino Bulk utenti eliminati-operazione completata|
-|User Management|Utenti con invito bulk-avviato|
-|User Management|Utenti con invito bulk-operazione completata|
+|User Management|Creazione in blocco di utenti - avviato|
+|User Management|Creazione in blocco di utenti - finito|
+|User Management|Elimina utenti in blocco - avviato|
+|User Management|Elimina utenti in blocco - finito|
+|User Management|Utenti di download in blocco - avviato|
+|User Management|Utenti di download in blocco - finito|
+|User Management|Ripristino in blocco degli utenti eliminati - avviato|
+|User Management|Ripristino in blocco degli utenti eliminati - completato|
+|User Management|Utenti inviti in blocco - avviati|
+|User Management|Invita in blocco gli utenti - finito|
 |User Management|Rimuovere il proprietario registrato da un dispositivo|
 |User Management|Rimuovere utenti registrati da un dispositivo|
 |User Management|Rimuovere un membro idoneo da un ruolo|
@@ -507,11 +507,11 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |Gestione directory|Elevare|
 |Gestione directory|Rimosso|
 |Gestione directory|Modifiche alle impostazioni dei ruoli|
-|Altre|ScanAlertsNow|
-|Altre|Iscrizione|
-|Altre|Annullare elevazione|
-|Altre|UpdateAlertSettings|
-|Altre|UpdateCurrentState|
+|Altri|ScanAlertsNow|
+|Altri|Iscrizione|
+|Altri|Annullare elevazione|
+|Altri|UpdateAlertSettings|
+|Altri|UpdateCurrentState|
 |Gestione dei criteri|Verifica di accesso terminata|
 |Gestione dei criteri|Aggiungere un responsabile approvazione all'approvazione delle richieste|
 |Gestione dei criteri|Aggiungere un revisore alla verifica di accesso|
@@ -523,8 +523,8 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 
 |Categoria di controllo|Attività|
 |---|---|
-|Altre|Creare un'approvazione richiesta|
-|Altre|Eliminare la verifica di accesso|
+|Altri|Creare un'approvazione richiesta|
+|Altri|Eliminare la verifica di accesso|
 |User Management|Rimuovere un revisore dalla verifica di accesso|
 |User Management|Richiedere il risultato dell'applicazione della verifica|
 |User Management|Richiedere l'arresto della verifica|
@@ -624,5 +624,5 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Panoramica dei report di Azure AD](overview-reports.md).
-- [Report dei log di controllo](concept-audit-logs.md). 
+- [Report dei registri di controllo](concept-audit-logs.md). 
 - [Accesso programmatico ai report di Azure AD](concept-reporting-api.md)

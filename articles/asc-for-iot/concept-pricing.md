@@ -1,6 +1,6 @@
 ---
-title: Informazioni sul centro sicurezza di Azure per i costi dell'it | Microsoft Docs
-description: Informazioni sui costi associati al centro sicurezza di Azure e su come controllarli.
+title: Informazioni sul Centro sicurezza di Azure per i costi IoT Documenti Microsoft
+description: Informazioni sui costi associati al Centro sicurezza di Azure per l'IoT e su come controllarli.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,69 +16,69 @@ ms.workload: na
 ms.date: 09/27/2019
 ms.author: mlottner
 ms.openlocfilehash: dc9dcbfd00b5205fa5c66e334b30c76d549d8a42
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71348512"
 ---
 # <a name="pricing-and-associated-costs"></a>Prezzi e costi associati
 
-Questo articolo illustra il Centro sicurezza di Azure per il modello di determinazione dei prezzi di Internet, riepiloga tutti i costi associati e spiega come gestirli.
+Questo articolo illustra il modello di determinazione dei prezzi del Centro sicurezza di Azure per IoT, riepiloga tutti i costi associati e spiega come gestirli.
 
 ## <a name="pricing"></a>Prezzi
 
-Il modello di determinazione dei prezzi del Centro sicurezza di Azure per gli Internet è costituito da due parti e viene fatturato una volta che un hub Internet delle cose è [abilitato](quickstart-onboard-iot-hub.md) nel centro sicurezza di Azure per tutto:
+Il modello di determinazione dei prezzi del Centro sicurezza di Azure per IoT è costituito da due parti e viene fatturato una volta abilitato un hub IoT nel Centro sicurezza di Azure per IoT:The Azure Security Center for IoT pricing model is comprised of two parts, and is billd once an IoT Hub is [enabled](quickstart-onboard-iot-hub.md) in Azure Security Center for IoT:
 
-- Costo per funzionalità di sicurezza incorporate del dispositivo in base all'analisi dei log dell'hub Internet.
+- Costo per dispositivo: funzionalità di sicurezza incorporate basate sull'analisi dei log dell'hub IoT.Cost by device - built-in security capabilities based on analysis of IoT Hub logs.
 
-- Costo per funzionalità di sicurezza avanzate per i messaggi in base ai messaggi di sicurezza provenienti da dispositivi IoT Edge o foglia.
+- Costo per messaggio: funzionalità di sicurezza avanzate basate sui messaggi di sicurezza provenienti da dispositivi IoT Edge o leaf.
 
 
-Per altre informazioni, vedere [prezzi del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
+Per ulteriori informazioni, consultate Prezzi del [Centro sicurezza.](https://azure.microsoft.com/pricing/details/security-center/)
 
 ## <a name="associated-costs"></a>Costi associati
 
-Il Centro sicurezza di Azure per gli Internet è associato a costi che non fanno parte dei prezzi diretti:
+Il Centro sicurezza di Azure per l'IoT ha costi associati, che non fanno parte dei prezzi diretti:Azure Security Center for IoT has associated costs, which are not part of the direct pricing:
 
 
-- Costi di archiviazione Log Analytics
+- Costi di archiviazione di Log AnalyticsLog Analytics storage costs
 
-È possibile ridurre i costi associati escludendo alcune funzionalità della soluzione. Rifiutare esplicitamente la modifica delle impostazioni.
+È possibile ridurre i costi associati disattivando determinate funzionalità della soluzione. Disattiva la procedura modificando le impostazioni.
 
 Per modificare le impostazioni:
 
-1. Aprire l'hub Internet.
+1. Aprire l'hub IoT.
 
-2. In **sicurezza**fare clic su **Panoramica**.
+2. In **Sicurezza**fare clic su **Panoramica**.
 
 3. Fare clic su **Impostazioni**.
 
-Nella tabella seguente viene fornito un riepilogo dei costi associati e delle implicazioni di ogni opzione.
+Nella tabella seguente viene fornito un riepilogo dei costi associati e delle implicazioni di ciascuna opzione.
 
-|     | Utilizzo | Commento |
+|     | Uso | Comment |
 | --- | --- | --- |
-| **Archiviazione Log Analytics** |  |
-| Suggerimenti e avvisi del dispositivo| Avvisi e avvisi di sicurezza generati dal servizio | Non facoltativo |
-| Dati di sicurezza non elaborati| Dati di sicurezza non elaborati dai dispositivi Internet, raccolti dagli agenti di sicurezza | Disabilitare l' _archiviazione degli eventi di sicurezza dei dispositivi non elaborati_ |
+| **Archiviazione di Log AnalyticsLog Analytics storage** |  |
+| Raccomandazione e avvisi per i dispositivi| Raccomandazione di sicurezza e avvisi generati dal servizio | Non facoltativo |
+| Dati di sicurezza grezzi| Dati di sicurezza grezzi provenienti da dispositivi IoT, raccolti dagli agenti di sicurezza | Disabilitare gli eventi di _sicurezza dei dispositivi non elaborati dell'archivioDisable store raw device security events_ |
 |
 
 >[!Important]
-> La disattivazione ha gravi implicazioni nel centro sicurezza di Azure per la disponibilità delle funzionalità di sicurezza. 
+> La disattivazione ha gravi implicazioni per il Centro sicurezza di Azure per la disponibilità delle funzionalità di sicurezza IoT.Opting out has severe implications to Azure Security Center for IoT security feature availability. 
   
-| Rifiuta esplicitamente | Implicazioni |
+| Rifiuto esplicito | Implicazioni |
 | --- | --- |
-| _Raccolta di metadati gemelli_ | Disabilitare gli [avvisi personalizzati](quickstart-create-custom-alerts.md) |
-| | Disabilitare le raccomandazioni del manifesto IoT Edge |
-| | Disabilitare le raccomandazioni e gli avvisi basati sull'identità del dispositivo |
-| _Archiviare gli eventi di sicurezza del dispositivo non elaborato_ | Non sono disponibili informazioni dettagliate sulle raccomandazioni di base del sistema operativo del dispositivo |
-| | Informazioni dettagliate sulle analisi degli [avvisi](concept-security-alerts.md) e delle [raccomandazioni](concept-recommendations.md) non sono disponibili |
+| _Raccolta di metadati gemella_ | Disabilitare [gli avvisi personalizzati](quickstart-create-custom-alerts.md) |
+| | Disabilitare i suggerimenti per il manifesto di IoT EdgeDisable IoT Edge manifest recommendations |
+| | Disabilitare gli avvisi e i suggerimenti basati sull'identità del dispositivoDisable device identity-based recommendations and alerts |
+| _Archiviare gli eventi di sicurezza dei dispositivi non elaboratiStore raw device security events_ | I dettagli sulle raccomandazioni di base del sistema operativo del dispositivo non sono disponibiliDetails on device OS baseline recommendations are not available |
+| | I dettagli sulle indagini di [allerta](concept-security-alerts.md) e [raccomandazione](concept-recommendations.md) non sono disponibili |
 |
 
 
 ## <a name="see-also"></a>Vedere anche
 
-- Accedere ai [dati di sicurezza non elaborati](how-to-security-data-access.md)
-- [Esaminare un dispositivo](how-to-investigate-device.md)
-- Comprendere ed esplorare le [raccomandazioni sulla sicurezza](concept-recommendations.md)
-- Comprendere ed esplorare gli [avvisi di sicurezza](concept-security-alerts.md)
+- Accedi ai tuoi [dati di sicurezza grezzi](how-to-security-data-access.md)
+- [Analizzare un dispositivo](how-to-investigate-device.md)
+- Comprendere ed esplorare [le raccomandazioni sulla sicurezza](concept-recommendations.md)
+- Comprendere ed esplorare [gli avvisi di sicurezza](concept-security-alerts.md)

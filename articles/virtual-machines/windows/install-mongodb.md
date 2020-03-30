@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: 37c1b58d364e7eadb33803ce7eac1f2b956ec1b6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74038544"
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Installare e configurare MongoDB in una VM Windows in Azure
 [MongoDB](https://www.mongodb.org) è un diffuso database NoSQL open source a prestazioni elevate. Questo articolo illustra la procedura di installazione e configurazione di MongoDB in una macchina virtuale Windows Server 2016 in Azure. È anche possibile [installare MongoDB in una VM Linux in Azure](../linux/install-mongodb.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Prima di installare e configurare MongoDB, è necessario creare una VM e, idealmente, aggiungere un disco dati. Vedere gli articoli seguenti per creare una VM e aggiungere un disco dati:
 
 * Creare una macchina virtuale Windows Server usando [il portale di Azure](quick-create-portal.md) o [Azure PowerShell](quick-create-powershell.md).
@@ -46,7 +46,7 @@ Per iniziare a installare e configurare MongoDB, [accedere a una VM Windows Serv
      
      ![Configurare le impostazioni di sicurezza di Internet Explorer](./media/install-mongodb/configure-internet-explorer-security.png)
 4. Selezionare [MongoDB - Download](https://www.mongodb.com/downloads) pagina (https://www.mongodb.com/downloads).
-5. Se necessario, selezionare l'edizione **Community Server** e quindi l'ultima versione stabile corrente per *Windows Server 2008 R2 a 64 bit e versioni successive*. Per scaricare il programma di installazione, fare clic su **DOWNLOAD (msi)** .
+5. Se necessario, selezionare l'edizione **Community Server** e quindi l'ultima versione stabile corrente per *Windows Server 2008 R2 a 64 bit e versioni successive*. Per scaricare il programma di installazione, fare clic su **DOWNLOAD (msi)**.
    
     ![Scaricare il programma di installazione di MongoDB](./media/install-mongodb/download-mongodb.png)
    
@@ -58,13 +58,13 @@ Per iniziare a installare e configurare MongoDB, [accedere a una VM Windows Serv
 ## <a name="configure-the-vm-and-mongodb"></a>Configurare la VM e MongoDB
 1. Le variabili di percorso non vengono aggiornate dal programma di installazione di MongoDB. Senza il percorso `bin` di MongoDB nella variabile di percorso, è necessario specificare il percorso completo ogni volta che si usa un file eseguibile di MongoDB. Per aggiungere il percorso alla variabile:
    
-   * Fare clic con il pulsante destro del mouse sul menu **Start** e selezionare **Sistema**.
+   * Fare clic con il pulsante destro del mouse sul menu **Start** e scegliere **Sistema**.
    * Fare clic sulla scheda **Impostazioni di sistema avanzate**, quindi su **Variabili d'ambiente**.
-   * In **Variabili di sistema** selezionare **Percorso**, quindi fare clic su **Modifica**.
+   * In **Variabili di sistema** selezionare **Percorso** e quindi fare clic su **Modifica**.
      
      ![Configurare le variabili di PERCORSO](./media/install-mongodb/configure-path-variables.png)
      
-     Aggiungere il percorso alla cartella `bin` di MongoDB. MongoDB viene in genere installato in *C:\Programmi\MongoDB*. Verificare il percorso di installazione nella VM. Nell'esempio seguente viene aggiunto il percorso di installazione predefinito di MongoDB alla variabile `PATH`:
+     Aggiungere il percorso alla cartella `bin` di MongoDB. MongoDB viene in genere installato in *C:* Verificare il percorso di installazione nella VM. Nell'esempio seguente viene aggiunto il percorso di installazione predefinito di MongoDB alla variabile `PATH`:
      
      ```
      ;C:\Program Files\MongoDB\Server\3.6\bin

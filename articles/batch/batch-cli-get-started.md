@@ -15,10 +15,10 @@ ms.date: 07/24/2018
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 30f71432ca008b87bddfb253f23ae3cef0ac390d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77020183"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gestire le risorse di Batch con l'interfaccia della riga di comando di Azure
@@ -83,7 +83,7 @@ Per usare l'interfaccia della riga di comando di Azure per gestire le risorse di
 
 Per l'autenticazione con l'account Batch è possibile procedere in due modi:
 
-- **Tramite l'autenticazione con Azure Active Directory (Azure AD)** 
+- **Tramite l'autenticazione di Azure Active Directory (Azure AD)By using Azure Active Directory (Azure AD) authentication** 
 
     L'autenticazione con Azure AD è l'opzione predefinita quando si usa l'interfaccia della riga di comando di Azure con Batch ed è consigliata per la maggior parte degli scenari. 
     
@@ -129,7 +129,7 @@ az batch pool create my_batch_pool.json
 
 Anche se è possibile creare la maggior parte delle risorse Batch usando solo opzioni della riga di comando, per alcune funzionalità è necessario specificare un file in formato JSON contenente i dettagli delle risorse. È necessario usare un file JSON, ad esempio, se si vogliono specificare file di risorse per un'attività di avvio.
 
-Per visualizzare la sintassi JSON necessaria per creare una risorsa, vedere la documentazione di riferimento per l' [API REST di batch][rest_api] . Ogni argomento "Aggiungi *tipo di risorsa*" nelle informazioni di riferimento sull'API REST contiene script JSON di esempio per la creazione di tale risorsa. È possibile usare gli script JSON di esempio come modelli per i file JSON da usare con l'interfaccia della riga di comando di Azure. Per visualizzare, ad esempio, la sintassi JSON per la creazione del pool, vedere [aggiungere un pool a un account][rest_add_pool].
+Per la sintassi JSON necessaria per creare una risorsa, vedere la documentazione di [riferimento sull'API REST di Batch][rest_api]. Ogni argomento "Aggiungi *tipo di risorsa*" nelle informazioni di riferimento sull'API REST contiene script JSON di esempio per la creazione di tale risorsa. È possibile usare gli script JSON di esempio come modelli per i file JSON da usare con l'interfaccia della riga di comando di Azure. Per la sintassi JSON necessaria per la creazione di pool, vedere [Add a pool to an account][rest_add_pool] (Aggiungere un pool a un account).
 
 Per uno script di esempio che specifica un file JSON, vedere [Eseguire processi in Azure Batch con l'interfaccia della riga di comando di Azure](./scripts/batch-cli-sample-run-job.md).
 
@@ -151,7 +151,7 @@ Quando si esegue una query sul servizio Batch con un'operazione `list`, è possi
 
 La tabella seguente illustra le clausole OData supportate dal servizio Batch:
 
-| Clausola | Description |
+| Clausola | Descrizione |
 |---|---|
 | `--select-clause [select-clause]` | Restituisce un subset di proprietà per ogni entità. |
 | `--filter-clause [filter-clause]` | Restituisce solo le entità che corrispondono all'espressione OData specificata. |

@@ -1,6 +1,6 @@
 ---
 title: Rendere operativo ML Services in HDInsight - Azure
-description: Informazioni su come rendere operativo il modello di dati per eseguire stime con i servizi ML in Azure HDInsight.
+description: Informazioni su come rendere operativo il modello di dati per eseguire stime con i servizi di ML in Azure HDInsight.Learn how to operationalize your data model to make predictions with ML Services in Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.openlocfilehash: a05bcdef2b7456fbab852e9728c156e57f847f57
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71123574"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Rendere operativo un cluster ML Services in Azure HDInsight
@@ -23,7 +23,7 @@ Dopo avere usato il cluster ML Services in HDInsight per completare la modellazi
 
 * Un cluster ML Services in HDInsight. Vedere [Creare cluster di Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selezionare **ML Services** per **Tipo di cluster**.
 
-* Un client Secure Shell (SSH): il client SSH viene usato per connettersi da remoto al cluster HDInsight e per eseguire i comandi direttamente sul cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Un client Secure Shell (SSH): il client SSH viene usato per connettersi da remoto al cluster HDInsight e per eseguire i comandi direttamente sul cluster. Per ulteriori informazioni, consultate [Usare SSH con HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>Rendere operativo un cluster ML Services con una configurazione One-box
 
@@ -50,31 +50,31 @@ Dopo avere usato il cluster ML Services in HDInsight per completare la modellazi
 
 1. Vengono presentate le opzioni tra cui scegliere. Scegliere la prima opzione, come illustrato nello screenshot seguente, **Configure ML Server for Operationalization**.
 
-    ![Selezione dell'utilità di amministrazione di R server](./media/r-server-operationalize/admin-util-one-box-1.png)
+    ![R server Utilità di amministrazione selezionare](./media/r-server-operationalize/admin-util-one-box-1.png)
 
 1. Viene ora presentata l'opzione per scegliere come si vuole rendere operativo ML Server. Tra le opzioni presentate scegliere la prima immettendo **A**.
 
-    ![Utilità di amministrazione di R server rendere operativo](./media/r-server-operationalize/admin-util-one-box-2.png)
+    ![Utilità di amministrazione del server R operativamente](./media/r-server-operationalize/admin-util-one-box-2.png)
 
 1. Quando richiesto, immettere due volte la password per un utente amministratore locale.
 
 1. Verranno visualizzati gli output indicanti che l'operazione è riuscita. Viene anche chiesto di selezionare un'altra opzione dal menu. Selezionare E per tornare al menu principale.
 
-    ![Utilità di amministrazione di R server riuscita](./media/r-server-operationalize/admin-util-one-box-3.png)
+    ![Servizio di amministrazione del server R](./media/r-server-operationalize/admin-util-one-box-3.png)
 
 1. È facoltativamente possibile effettuare controlli diagnostici eseguendo un test di diagnostica, come illustrato di seguito:
 
     a. Dal menu principale selezionare **6** per eseguire i test diagnostici.
 
-    ![Diagnostica utilità di amministrazione server R](./media/r-server-operationalize/hdinsight-diagnostic1.png)
+    ![Diagnostica dell'utilità Di amministrazione del server R](./media/r-server-operationalize/hdinsight-diagnostic1.png)
 
-    b. Dal menu Diagnostic Tests selezionare **A**. Quando richiesto, immettere la password specificata per l'utente amministratore locale.
+    b. Scegliere **A**dal menu Test diagnostici . Quando richiesto, immettere la password fornita per l'utente amministratore locale.
 
-    ![Test dell'utilità di amministrazione di R server](./media/r-server-operationalize/hdinsight-diagnostic2.png)
+    ![Test dell'utilità di amministrazione del server R](./media/r-server-operationalize/hdinsight-diagnostic2.png)
 
     c. Verificare che l'output indichi che il valore dell'integrità generale è pass.
 
-    ![Passaggio dell'utilità di amministrazione di R server](./media/r-server-operationalize/hdinsight-diagnostic3.png)
+    ![Passaggio dell'utilità Amministrazione server R](./media/r-server-operationalize/hdinsight-diagnostic3.png)
 
     d. Tra le opzioni di menu presentate immettere **E** per tornare al menu principale e quindi immettere **8** per uscire dall'utilità di amministrazione.
 
@@ -136,7 +136,7 @@ Quando la sessione SSH è attiva, il traffico proveniente dalla porta 12800 del 
 
 Per ridimensionare i nodi di calcolo, prima si rimuovono le autorizzazioni dei nodi di lavoro e quindi si configurano i nodi di calcolo nei nodi di lavoro con le autorizzazioni rimosse.
 
-### <a name="step-1-decommission-the-worker-nodes"></a>Passaggio 1: Rimuovere le autorizzazioni dei nodi del ruolo di lavoro
+### <a name="step-1-decommission-the-worker-nodes"></a>Passaggio 1: Rimuovere le autorizzazioni dei nodi di lavoro
 
 Il cluster ML Services non viene gestito tramite [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html). Se è necessario rimuovere le autorizzazioni dei nodi di lavoro, YARN Resource Manager non funziona come previsto perché non riesce a riconoscere le risorse impiegate dal server. Per evitare questa situazione, è consigliabile rimuovere le autorizzazioni dei nodi del ruolo di lavoro prima di ridimensionare i nodi di calcolo.
 
@@ -146,19 +146,19 @@ Seguire questi passaggi per rimuovere le autorizzazioni dei nodi di lavoro:
 
 1. Selezionare i nodi di lavoro (da cui rimuovere le autorizzazioni).
 
-1. Fare clic su **Actions** (Azioni) > **Selected Hosts** (Host selezionati) > **Hosts** (Host) > **Turn ON Maintenance Mode** (Attiva modalità di manutenzione). Ad esempio nell'immagine seguente i nodi selezionati per la rimozione delle autorizzazioni sono wn3 e wn4.  
+1. Fare clic su **Azioni** > **host** > selezionati**Host** > **Attivare modalità manutenzione**. Ad esempio nell'immagine seguente i nodi selezionati per la rimozione delle autorizzazioni sono wn3 e wn4.  
 
-   ![Attivazione della modalità manutenzione di Apache Ambari](./media/r-server-operationalize/get-started-operationalization.png)  
+   ![Apache Ambari Attiva la modalità di manutenzione](./media/r-server-operationalize/get-started-operationalization.png)  
 
-* Selezionare **Actions** (Azioni) > **Selected Hosts** (Host selezionati) > **DataNodes** > fare clic su **Decommission** (Rimuovi autorizzazioni).
-* Selezionare **Actions** (Azioni) > **Selected Hosts** (Host selezionati) > **NodeManagers** > fare clic su **Decommission** (Rimuovi autorizzazioni).
-* Selezionare **Actions** (Azioni) > **Selected Hosts** (Host selezionati) > **DataNodes** > fare clic su **Stop** (Arresta).
-* Selezionare **Actions** (Azioni) > **Selected Hosts** (Host selezionati) > **NodeManagers** > fare clic su **Stop** (Arresta).
-* Selezionare **Actions** (Azioni) > **Selected Hosts** (Host selezionati) > **Hosts** > fare clic su **Stop All Components** (Arresta tutti i componenti).
+* Selezionare **Azioni** > **host** > selezionati**DataNodes** > fare clic su **Discommissione**.
+* Selezionare **Azioni** > **host** > selezionati**NodeManagers** > fare clic su **Discommissione**.
+* Selezionare **Azioni** > **host** > selezionati**DataNodes** > fare clic su **Interrompi**.
+* Selezionare **Azioni** > **host** > selezionati**NodeManagers** > fare clic su **Interrompi**.
+* Selezionare **Azioni** > **host** > selezionati**host** > fare clic su Interrompi tutti **i componenti**.
 * Deselezionare i nodi del ruolo di lavoro e selezionare i nodi head.
-* Selezionare **Actions** (Azioni) > **Selected Hosts** (Host selezionati) > "**Hosts** > **Restart All Components** (Riavvia tutti i componenti).
+* Selezionare **Azioni** > **host selezionati** >**"Gli host** > **riavviano tutti i componenti**.
 
-### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Passaggio 2: Configurare i nodi di calcolo su ogni nodo del ruolo di lavoro per il quale è stata rimossa l'autorizzazione
+### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Passaggio 2: Configurare i nodi di calcolo in ogni nodo di lavoro per il quale è stata rimossa l'autorizzazione
 
 1. Accedere tramite SSH a ogni nodo del ruolo di lavoro per il quale è stata rimossa l'autorizzazione.
 

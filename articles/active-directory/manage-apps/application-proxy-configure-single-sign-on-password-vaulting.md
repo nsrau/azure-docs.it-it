@@ -15,10 +15,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b0259a8d9fcb4c9c513ab2c31103c9a8488e90ae
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77025742"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Insieme di credenziali delle password per l'accesso Single Sign-On con il proxy dell'applicazione
@@ -31,14 +31,14 @@ Si presuppone che l'utente abbia già pubblicato e testato l'app con il proxy de
 
 ## <a name="set-up-password-vaulting-for-your-application"></a>Configurare l'insieme di credenziali delle password per l'applicazione
 
-1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
-1. Selezionare **Azure Active Directory** > **Applicazioni aziendali** > **Tutte le applicazioni**.
+1. Accedere al [portale](https://portal.azure.com) di Azure come amministratore.
+1. Selezionare **Applicazioni Azure Active Directory** > **Enterprise** > **Tutte le applicazioni**.
 1. Nell'elenco a discesa selezionare l'app da configurare con la funzione SSO.  
 1. Selezionare **Proxy dell'applicazione**. 
-1. Modificare il **tipo di pre-autenticazione** in **PassThrough** e selezionare **Salva**. In seguito è possibile tornare nuovamente al tipo di **Azure Active Directory** . 
+1. Modificare il **tipo di autenticazione** preliminare in **Passthrough** e selezionare **Salva**. Successivamente è possibile tornare al tipo di **Azure Active Directory** di nuovo. 
 1. Selezionare **Single Sign-On**.
 
-   ![Selezionare Single Sign-on dalla pagina Panoramica dell'app](./media/application-proxy-configure-single-sign-on-password-vaulting/select-sso.png)
+   ![Selezionare Single Sign-On dalla pagina di panoramica dell'app](./media/application-proxy-configure-single-sign-on-password-vaulting/select-sso.png)
 
 1. Per la modalità SSO, scegliere **Accesso basato su password**.
 1. Per l'URL di accesso, inserire l'URL della pagina in cui gli utenti immettono nome utente e password per accedere all'app fuori dalla rete aziendale. Potrebbe trattarsi dell'URL esterno creato dopo aver pubblicato l'app tramite il proxy dell'applicazione.
@@ -47,14 +47,14 @@ Si presuppone che l'utente abbia già pubblicato e testato l'app con il proxy de
 
 1. Selezionare **Salva**.
 1. Selezionare **Proxy dell'applicazione**. 
-1. Modificare il **tipo di pre-autenticazione** in **Azure Active Directory** e selezionare **Salva**. 
-1. Selezionare **Users and Groups** (Utenti e gruppi).
+1. Modificare il tipo di **pre-autenticazione** in **Azure Active Directory** e selezionare **Salva**. 
+1. Selezionare **Utenti e gruppi**.
 1. Assegnare gli utenti all'applicazione selezionando **Aggiungi utente**. 
-1. Se si desidera predefinire le credenziali per un utente, selezionare la casella di controllo prima del nome utente e selezionare **Aggiorna credenziali**.
-1. Selezionare **Azure Active Directory** > **registrazioni app** > **tutte le applicazioni**.
-1. Nell'elenco selezionare l'App configurata con la password SSO.
+1. Se si desidera predefinire le credenziali per un utente, selezionare la casella davanti al nome utente e selezionare **Aggiorna credenziali**.
+1. Selezionare**Registrazioni** > app **di Azure Active Directory** > **Tutte le applicazioni**.
+1. Nell'elenco selezionare l'app configurata con Password SSO.
 1. Selezionare **Personalizzazione**. 
-1. Aggiornare l' **URL della Home page** con l' **URL di accesso** dalla pagina SSO con password e selezionare **Salva**.  
+1. Aggiornare **l'URL** della home page con l'URL di **accesso** dalla pagina SSO password e selezionare **Salva**.  
 
 
 
@@ -64,7 +64,7 @@ Si presuppone che l'utente abbia già pubblicato e testato l'app con il proxy de
 
 ## <a name="test-your-app"></a>Test dell'app
 
-Passare al portale app personali. Accedere con le credenziali (o con le credenziali per un account di test configurato con l'accesso). Una volta eseguito l'accesso, fare clic sull'icona dell'app. Questa operazione potrebbe attivare l'installazione dell'estensione del browser per l'accesso sicuro alle app personali. Se l'utente ha credenziali predefinite, l'autenticazione per l'app dovrebbe essere eseguita automaticamente; in caso contrario, è necessario specificare il nome utente o la password per la prima volta. 
+Passare al portale App personali. Accedere con le credenziali (o le credenziali per un account di test configurato con accesso). Una volta effettuato l'accesso, fai clic sull'icona dell'app. Ciò potrebbe attivare l'installazione dell'estensione del browser My Apps Secure Sign-in. Se l'utente dispone di credenziali predefinite, l'autenticazione per l'app deve essere eseguita automaticamente, altrimenti è necessario specificare il nome utente o la password per la prima volta. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

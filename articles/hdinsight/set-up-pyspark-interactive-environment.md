@@ -1,5 +1,5 @@
 ---
-title: Ambiente interattivo PySpark con gli strumenti di Azure HDInsight
+title: PySpark interactive environment with Azure HDInsight Tools
 description: Informazioni su come usare gli strumenti di Azure HDInsight per Visual Studio Code per creare e inviare query e script.
 keywords: VSCode,strumenti di Azure HDInsight,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 author: jejiang
@@ -9,10 +9,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: db2336fb79207ada24b71e0e64f0aaaab543e4da
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73241553"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Configurare l'ambiente PySpark Interactive per Visual Studio Code
@@ -21,16 +21,16 @@ La procedura seguente illustra come configurare l'ambiente interattivo PySpark i
 
 La procedura usa il comando **python/pip** per creare un ambiente virtuale nel percorso della home directory. Se si vuole usare un'altra versione, è necessario cambiare la versione predefinita del comando **python/pip** manualmente. Per altre informazioni, vedere [update-alternatives](https://linux.die.net/man/8/update-alternatives).
 
-1. Installare [Python](https://www.python.org/downloads/) e [PIP](https://pip.pypa.io/en/stable/installing/).
+1. Installare [Python](https://www.python.org/downloads/) e [pip](https://pip.pypa.io/en/stable/installing/).
 
-   + Installare Python da [https://www.python.org/downloads/](https://www.python.org/downloads/).
-   + Installare PIP da [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) (se non è installato dall'installazione di Python).
-   + Verificare che Python e PIP siano installati correttamente usando i comandi seguenti. (Facoltativa)
+   + Installare Python [https://www.python.org/downloads/](https://www.python.org/downloads/)da .
+   + Installare pip [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) da (se non è installato dall'installazione di Python).
+   + Verificare che Python e pip siano installati correttamente utilizzando i comandi seguenti. Facoltativa
 
-        ![Controllare la versione PIP di Python comando](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
+        ![Controllare Python pip versione comando](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
      > [!NOTE]
-     > Si consiglia di installare manualmente Python invece di usare la versione predefinita macOS.
+     > Si consiglia di installare manualmente Python invece di utilizzare la versione predefinita di macOS.
 
 2. Installare **virtualenv** eseguendo il comando seguente.
 
@@ -42,7 +42,7 @@ La procedura usa il comando **python/pip** per creare un ambiente virtuale nel p
 
 Se viene visualizzato un messaggio di errore, installare i pacchetti necessari eseguendo i comandi seguenti:
 
-   ![Installare il pacchetto libkrb5 per Python](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
+   ![Installare il pacchetto libkrb5 per python](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
 
 ```
 sudo apt-get install libkrb5-dev
@@ -68,6 +68,6 @@ Riavviare Visual Studio Code e tornare all'editor di script che sta eseguendo **
 * [Usare i notebook di Apache Zeppelin con un cluster Apache Spark in HDInsight](spark/apache-spark-zeppelin-notebook.md)
 * [Kernel disponibili per notebook di Jupyter in un cluster Apache Spark per HDInsight](spark/apache-spark-jupyter-notebook-kernels.md)
 * [Usare pacchetti esterni con i notebook Jupyter](spark/apache-spark-jupyter-notebook-use-external-packages.md)
-* [Installare Jupyter nel computer e connetterlo a un cluster HDInsight Spark](spark/apache-spark-jupyter-notebook-install-locally.md)
+* [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](spark/apache-spark-jupyter-notebook-install-locally.md)
 * [Visualizzare i dati Apache Hive con Microsoft Power BI in Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
 * [Usare Apache Zeppelin per eseguire query Apache Hive in Azure HDInsight](./interactive-query/hdinsight-connect-hive-zeppelin.md)

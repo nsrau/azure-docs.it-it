@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
 ms.openlocfilehash: c192ba73da0cfaf1832b6a1e572bd71b250a976b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74168357"
 ---
 # <a name="add-an-email-action"></a>Aggiungere un'azione di posta elettronica
@@ -49,7 +49,7 @@ Seguire questa procedura per aggiungere un'azione di posta elettronica a una reg
 
 1. Verificare che l'opzione **Stato regola** sia impostata su **Abilitato**.
 
-1. Fare clic su **Apply**.
+1. Fare clic su **Applica**.
 
 ## <a name="create-a-new-rule"></a>Creare una nuova regola
 
@@ -77,11 +77,11 @@ Seguire questa procedura per aggiungere un'azione di posta elettronica quando si
 
 1. Verificare che l'opzione **Stato regola** sia impostata su **Abilitato**.
 
-1. Fare clic su **Apply**.
+1. Fare clic su **Applica**.
 
 La regola con un'azione di posta elettronica è ora abilitata. Ogni volta che viene attivata l'azione, ai destinatari viene inviato un nuovo messaggio di posta elettronica.
 
-## Accedere ad Outlook <a name="outlook"></a>
+## <a name="sign-in-to-outlook"></a>Accedere ad Outlook <a name="outlook"></a>
 
 La prima volta che si abilita un'azione di posta elettronica nell'acceleratore della soluzione, è necessario accedere ad Outlook. Con questa azione si configura l'account di posta elettronica che invia le notifiche tramite posta elettronica.
 
@@ -132,13 +132,13 @@ Seguire questa procedura per accedere e configurare le azioni di posta elettroni
 
 1. Fare clic su **Autorizza**. Viene richiesto di accedere. L'account usato per l'accesso deve corrispondere all'indirizzo di posta elettronica usato dall'applicazione per inviare notifiche tramite posta elettronica:
 
-1. Fare clic su **Save**. Tornare all'acceleratore della soluzione e aggiornare la pagina.
+1. Fare clic su **Salva**. Tornare all'acceleratore della soluzione e aggiornare la pagina.
 
 1. Se le notifiche tramite posta elettronica sono state configurate correttamente, viene visualizzato questo messaggio:
 
    ![Accesso ad Outlook riuscito](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
 
-## Personalizzare il modello HTML dei messaggi di posta elettronica <a name="htmledit"></a>
+## <a name="customize-the-email-html"></a>Personalizzare il modello HTML dei messaggi di posta elettronica <a name="htmledit"></a>
 
 Per impostazione predefinita, l'acceleratore della soluzione di monitoraggio remoto fornisce un modello HTML di base per i messaggi di azione. Il modello di messaggio di posta elettronica usa i valori delle impostazioni dell'azione di posta elettronica. Di seguito è illustrato un messaggio di posta elettronica di esempio:
 

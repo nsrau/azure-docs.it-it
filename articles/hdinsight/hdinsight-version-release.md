@@ -8,15 +8,15 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.openlocfilehash: 0463e3297bbb2fda50adfeefaa89f0a7a3ef8b0a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72901521"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Panoramica di HDInsight 4.0
 
-Azure HDInsight è uno dei servizi più diffusi fra i clienti enterprise per analisi Apache Hadoop e Apache Spark open source in Azure. HDInsight 4,0 è una distribuzione cloud di componenti Apache Hadoop. Questo articolo include informazioni sulla versione più recente di Azure HDInsight e su come eseguire l'aggiornamento.
+Azure HDInsight è uno dei servizi più diffusi fra i clienti enterprise per analisi Apache Hadoop e Apache Spark open source in Azure. HDInsight 4.0 è una distribuzione cloud dei componenti Apache Hadoop. Questo articolo include informazioni sulla versione più recente di Azure HDInsight e su come eseguire l'aggiornamento.
 
 ## <a name="whats-new-in-hdinsight-40"></a>Novità di HDInsight 4.0
 
@@ -85,18 +85,18 @@ Per altre informazioni, vedere [Apache Oozie](https://docs.hortonworks.com/HDPDo
 
 Come con qualsiasi versione principale, è importante testare accuratamente i componenti prima di implementare la versione più recente in un ambiente di produzione. HDInsight 4.0 è disponibile per avviare il processo di aggiornamento, ma HDInsight 3.6 è l'opzione predefinita per impedire problemi accidentali.
 
-Non esiste alcun percorso di aggiornamento supportato da versioni precedenti di HDInsight a HDInsight 4,0. Poiché i formati di dati Metastore e BLOB sono stati modificati, HDInsight 4,0 non è compatibile con le versioni precedenti. È importante che il nuovo ambiente HDInsight 4,0 rimanga separato dall'ambiente di produzione corrente. Se si distribuisce HDInsight 4,0 nell'ambiente corrente, il Metastore verrà aggiornato e non potrà essere annullato.  
+Non esiste alcun percorso di aggiornamento supportato dalle versioni precedenti di HDInsight a HDInsight 4.0.There's no supported upgrade path from previous versions of HDInsight to HDInsight 4.0. Poiché i formati dei dati Metastore e BLOB sono stati modificati, HDInsight 4.0 non è compatibile con le versioni precedenti. È importante mantenere il nuovo ambiente HDInsight 4.0 separato dall'ambiente di produzione corrente. Se si distribuisce HDInsight 4.0 nell'ambiente corrente, il Metastore verrà aggiornato e non potrà essere invertito.  
 
 ## <a name="limitations"></a>Limitazioni
 
-* HDInsight 4,0 non supporta MapReduce per Apache Hive. Usare invece Apache Tez. Per altre informazioni, vedere [Apache Tez](https://tez.apache.org/).
-* HDInsight 4,0 non supporta Apache Storm.
+* HDInsight 4.0 non supporta MapReduce per Apache Hive. Usare invece Apache Tez. Per altre informazioni, vedere [Apache Tez](https://tez.apache.org/).
+* HDInsight 4.0 non supporta Apache Storm.
 * La vista Hive non è più disponibile in HDInsight 4.0.
-* L'interprete della shell in Apache Zeppelin non è supportato nei cluster Spark e Interactive query.
+* L'interprete della shell in Apache non è supportato nei cluster Spark e Interactive Query.
 * Non è possibile *disabilitare* LLAP in un cluster Spark-LLAP. È possibile solo disattivare LLAP.
 * Azure Data Lake Storage Gen2 non può salvare i notebook Jupyter in un cluster Spark.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Documentazione di Azure HDInsight](index.yml)
+* [Azure HDInsight Documentation](index.yml)
 * [Note sulla versione](hdinsight-release-notes.md)

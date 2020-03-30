@@ -9,14 +9,14 @@ ms.date: 10/07/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 02ced43f8c3fc7c83359b78362e8ad0feeab3070
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72168396"
 ---
 >[!NOTE]
->Quando si utilizzano i criteri predefiniti, Azure può fungere sia da iniziatore che da risponditore durante un'installazione di tunnel IPsec. Non è disponibile alcun supporto per Azure come risponditore.
+>Quando si utilizzano i criteri predefiniti, Azure può agire sia come aprore che come risponditore durante l'installazione di un tunnel IPsec. Non è disponibile alcun supporto solo per Azure come risponditore.
 >
 
 ### <a name="initiator"></a>Iniziatore

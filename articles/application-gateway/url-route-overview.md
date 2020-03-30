@@ -1,6 +1,6 @@
 ---
 title: Panoramica del routing di contenuti basato su URL nel gateway applicazione di Azure
-description: Questo articolo fornisce una panoramica del routing del contenuto basato su URL del gateway applicazione Azure, la configurazione UrlPathMap e la regola PathBasedRouting.
+description: Questo articolo offre una panoramica del routing del contenuto basato su URL del gateway applicazione di Azure, della configurazione UrlPathMap e della regola PathBasedRouting.This article provides an overview of the Azure Application Gateway URL-based content routing, UrlPathMap configuration and PathBasedRouting rule.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,10 +8,10 @@ ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: e20acb131b1a091fef858dab34705f4a8d3b4c4a
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77251839"
 ---
 # <a name="url-path-based-routing-overview"></a>Panoramica del routing basato su percorso URL
@@ -27,7 +27,7 @@ Nell'esempio seguente, il gateway applicazione soddisfa le richieste di traffico
 Le richieste per http\://contoso.com/video/* vengono instradate a VideoServerPool, mentre quelle per http\://contoso.com/images/* vengono instradate a ImageServerPool. In caso di mancata corrispondenza dei percorsi, viene selezionato DefaultServerPool.
 
 > [!IMPORTANT]
-> Per lo SKU V1, le regole vengono elaborate nell'ordine in cui sono elencate nel portale. Se un listener di base viene elencato per primo e corrisponde a una richiesta in ingresso, sarà tale listener a elaborarla. Per lo SKU V2, le corrispondenze esatte hanno precedenza superiore. Tuttavia, è consigliabile configurare i listener multisito prima di configurare un listener di base. In questo modo il traffico viene indirizzato al back-end appropriato.
+> Per lo SKU v1, le regole vengono elaborate nell'ordine in cui sono elencate nel portale. Se un listener di base viene elencato per primo e corrisponde a una richiesta in ingresso, sarà tale listener a elaborarla. Per lo SKU v2, le corrispondenze esatte hanno una precedenza maggiore. Tuttavia, è consigliabile configurare i listener multisito prima di configurare un listener di base. In questo modo il traffico viene indirizzato al back-end appropriato.
 
 ## <a name="urlpathmap-configuration-element"></a>Elemento di configurazione UrlPathMap
 

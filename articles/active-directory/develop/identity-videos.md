@@ -1,5 +1,5 @@
 ---
-title: Video sulla piattaforma di identità Microsoft | Azure
+title: Video sulla piattaforma di identità Microsoft - Azure
 description: Un elenco di video sulla piattaforma di identità Microsoft
 services: active-directory
 author: mmacy
@@ -13,19 +13,19 @@ ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
 ms.openlocfilehash: 22149ccfa258852b36da61ffbabde5e1856df9de
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77085187"
 ---
 # <a name="microsoft-identity-platform-videos"></a>Video su Microsoft Identity Platform
 
-Informazioni sulla piattaforma di identità Microsoft e sulle librerie di autenticazione Microsoft (MSAL). Si tratta in genere di una durata di 1-2 minuti.
+Informazioni sulla piattaforma di identità Microsoft e sulle librerie di autenticazione Microsoft (MSAL). In genere durano 1-2 minuti.
 
-## <a name="microsoft-identity-platform-basics"></a>Nozioni fondamentali sulla piattaforma Microsoft Identity
+## <a name="microsoft-identity-platform-basics"></a>Nozioni di base sulla piattaforma di identità Microsoft
 
-**Informazioni sui concetti di base della piattaforma Microsoft Identity**
+**Informazioni sui concetti di base sulla piattaforma di identità MicrosoftLearn basic Microsoft identity platform concepts**
 
 :::row:::
     :::column:::
@@ -47,7 +47,7 @@ Informazioni sulla piattaforma di identità Microsoft e sulle librerie di autent
         > [!VIDEO https://www.youtube.com/embed/apbbx2n4tnU]
     :::column-end:::
     :::column:::
-        Come MSAL semplifica l'autenticazione
+        In che modo MSAL semplifica l'autenticazione
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q]
@@ -55,7 +55,7 @@ Informazioni sulla piattaforma di identità Microsoft e sulle librerie di autent
 :::row-end:::
 :::row:::
     :::column:::
-        Descrizione degli ambiti
+        Ambiti spiegati
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/eiPHOoLmGJs]
@@ -69,13 +69,13 @@ Informazioni sulla piattaforma di identità Microsoft e sulle librerie di autent
 :::row-end:::
 :::row:::
     :::column:::
-        Quali sono gli URI di Reindirizzamento
+        Operazioni eseguite negli URI di reindirizzamento
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/znSN_3JAuoU]
     :::column-end:::
     :::column:::
-        Descrizione tenant
+        Gli inquilini hanno spiegato
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/mDhT4Zv1fZU]
@@ -83,7 +83,7 @@ Informazioni sulla piattaforma di identità Microsoft e sulle librerie di autent
 :::row-end:::
 :::row:::
     :::column:::
-        Ruolo di Azure AD
+        Ruolo di Azure ADRole of Azure AD
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/zDEC7A5ZS2Q]
@@ -97,22 +97,22 @@ Informazioni sulla piattaforma di identità Microsoft e sulle librerie di autent
 :::row-end:::
 :::row:::
     :::column:::
-        Differenze tra account Microsoft organizzative e personali
+        Differenze dell'account Microsoft personale e dell'organizzazione
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/E2OUluQQKSk]
     :::column-end:::
     :::column:::
-        Differenze tra app Web e SPA
+        Differenze tra SPA e app Web
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/ZJirt7eTVw8?t=5]
     :::column-end:::
 :::row-end:::
 
-## <a name="migrate-from-v10-to-v20"></a>Eseguire la migrazione dalla versione 1.0 alla versione 2.0
+## <a name="migrate-from-v10-to-v20"></a>Eseguire la migrazione da v1.0 a v2.0Migrate from v1.0 to v2.0
 
-**Informazioni sulla migrazione alla versione più recente della piattaforma di identità Microsoft**
+**Informazioni sulla migrazione alla versione più recente della piattaforma Microsoft Identity**
 
 :::row:::
     :::column:::
@@ -136,7 +136,7 @@ Informazioni sulla piattaforma di identità Microsoft e sulle librerie di autent
         > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
     :::column-end:::
     :::column:::
-        Vantaggi di MSAL su ADAL
+        Vantaggi di MSAL rispetto ad ADAL
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/q-TDszj2O-4]

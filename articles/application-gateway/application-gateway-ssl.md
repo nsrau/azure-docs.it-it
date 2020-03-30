@@ -1,5 +1,5 @@
 ---
-title: Offload SSL con PowerShell-applicazione Azure gateway
+title: Offload SSL tramite PowerShell - Gateway applicazione di Azure
 description: Questo articolo contiene istruzioni per la creazione di un gateway applicazione con offload SSL tramite il modello di distribuzione classica di Azure.
 services: application-gateway
 author: vhorne
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: c456a0856adb0d36349b5f96ba0ab8bab3eec5c9
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74047911"
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Configurare un gateway applicazione per l'offload SSL tramite il modello di distribuzione classica
@@ -20,7 +20,7 @@ ms.locfileid: "74047911"
 > * [Portale di Azure](application-gateway-ssl-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-ssl-arm.md)
 > * [PowerShell classico per Azure](application-gateway-ssl.md)
-> * [Interfaccia della riga di comando di Azure](application-gateway-ssl-cli.md)
+> * [Interfaccia della riga di comando di AzureAzure](application-gateway-ssl-cli.md)
 
 Il gateway applicazione di Azure può essere configurato per terminare la sessione Secure Sockets Layer (SSL) nel gateway ed evitare costose attività di decrittografia SSL nella Web farm. L'offload SSL semplifica anche la configurazione e la gestione del server front-end dell'applicazione Web.
 
@@ -32,7 +32,7 @@ Il gateway applicazione di Azure può essere configurato per terminare la sessio
 
 Per configurare l'offload SSL in un gateway applicazione, completare i passaggi seguenti nell'ordine elencato:
 
-1. [Creare un gateway applicazione](#create-an-application-gateway)
+1. [Creare un gateway applicazioneCreate an application gateway](#create-an-application-gateway)
 2. [Caricare i certificati SSL](#upload-ssl-certificates)
 3. [Configurare il gateway](#configure-the-gateway)
 4. [Definire la configurazione del gateway](#set-the-gateway-configuration)
@@ -49,7 +49,7 @@ New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subn
 
 Per convalidare la creazione del gateway, è possibile immettere il cmdlet `Get-AzureApplicationGateway`.
 
-Nell'esempio **Description**, **InstanceCount** e **GatewaySize** sono parametri facoltativi. Il valore predefinito per **InstanceCount** è **2**, con un valore massimo pari a **10**. Il valore predefinito per **GatewaySize** è **Medium**. Small e Large sono altri valori disponibili. **VirtualIPs** e **DnsName** vengono visualizzati vuoti perché il gateway non è stato ancora avviato. Questi valori vengono creati dopo che il gateway è in esecuzione.
+In questo esempio **Description**, **InstanceCount** e **GatewaySize** sono parametri facoltativi. Il valore predefinito per **InstanceCount** è **2**, con un valore massimo pari a **10**. Il valore predefinito per **GatewaySize** è **Medium**. Small e Large sono altri valori disponibili. **VirtualIPs** e **DnsName** vengono visualizzati vuoti perché il gateway non è stato ancora avviato. Questi valori vengono creati dopo che il gateway è in esecuzione.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -94,7 +94,7 @@ I valori possibili sono:
 
 * **Pool di server back-end**: elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP o VIP pubblici.
 * **Impostazioni del pool di server back-end**: ogni pool ha impostazioni come porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
-* **Porta front-end**: porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
+* **Porta front-end:** questa porta è la porta pubblica aperta nel gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
 * **Listener**: ha una porta front-end, un protocollo (HTTP o HTTPS, con distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura un offload SSL).
 * **Regola**: associa il listener e il pool di server back-end e definisce il pool di server back-end a cui indirizzare il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola *basic* . La regola *basic* è una distribuzione del carico di tipo round robin.
 
@@ -202,5 +202,5 @@ DnsName       : appgw-4c960426-d1e6-4aae-8670-81fd7a519a43.cloudapp.net
 
 Per altre informazioni generali sulle opzioni di bilanciamento del carico, vedere:
 
-* [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
+* [Servizio di bilanciamento del carico di AzureAzure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)

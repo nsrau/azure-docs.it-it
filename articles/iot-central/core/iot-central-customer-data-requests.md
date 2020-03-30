@@ -1,6 +1,6 @@
 ---
 title: Funzionalità di richiesta dati dei clienti in Azure IoT Central | Microsoft Docs
-description: Questo articolo descrive come identificare, eliminare ed esportare i dati dei clienti nell'applicazione IoT Central di Azure.
+description: Questo articolo descrive l'identificazione, l'eliminazione e l'esportazione dei dati dei clienti nell'applicazione Azure IoT Central.This article describes identifying, deleting, and exporting customer data in Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/23/2019
@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: timlt
 ms.openlocfilehash: 3cf88b4d3c4c74493235d2997db4d464bb055b81
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77023753"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dei dati dei clienti
@@ -33,7 +33,7 @@ Quando si usano i servizi enterprise di Microsoft, Microsoft genera alcune infor
 
 ## <a name="deleting-customer-data"></a>Eliminazione dei dati dei clienti
 
-La possibilità di eliminare i dati utente viene fornita solo tramite la pagina di amministrazione di IoT Central. Gli amministratori di applicazioni possono selezionare l'utente da eliminare e selezionare **Elimina** nell'angolo superiore destro dell'applicazione per eliminare il record. Gli amministratori dell'applicazione possono anche rimuovere singoli account che non sono più associati all'applicazione in questione.
+La possibilità di eliminare i dati utente viene fornita solo tramite la pagina di amministrazione di IoT Central. Gli amministratori dell'applicazione possono selezionare l'utente da eliminare e selezionare **Elimina** nell'angolo superiore destro dell'applicazione per eliminare il record. Gli amministratori dell'applicazione possono anche rimuovere singoli account che non sono più associati all'applicazione in questione.
 
 Dopo l'eliminazione di un utente, non gli vengono più inviati avvisi tramite posta elettronica. Tuttavia, l'indirizzo di posta elettronica deve essere rimosso singolarmente da ogni avviso configurato.
 

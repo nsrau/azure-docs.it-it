@@ -1,6 +1,6 @@
 ---
-title: Usare il catalogo di U-SQL in Azure Data Lake Analytics
-description: Informazioni su come usare il catalogo di U-SQL per condividere codice e dati. Creare funzioni con valori di tabella, creare visualizzazioni, creare tabelle ed eseguire query su di esse.
+title: Usare il catalogo U-SQL in Azure Data Lake AnalyticsUse the U-SQL catalog in Azure Data Lake Analytics
+description: Informazioni su come usare il catalogo di U-SQL per condividere codice e dati. Creare funzioni con valori di tabella, creare viste, creare tabelle ed eseguire query su di esse.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
@@ -10,10 +10,10 @@ ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.topic: conceptual
 ms.date: 05/09/2017
 ms.openlocfilehash: f3b9f14be4422373fb30f8c3d4909fd9c9546fdf
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71672839"
 ---
 # <a name="get-started-with-the-u-sql-catalog-in-azure-data-lake-analytics"></a>Introduzione al catalogo U-SQL di Azure Data Lake Analytics
@@ -171,6 +171,6 @@ OUTPUT @res
  >Non è attualmente possibile eseguire un'istruzione SELECT in una tabella presente nello stesso script in cui è stata creata la tabella.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
+* [Panoramica di Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Sviluppare script U-SQL con Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+* [Monitorare e risolvere i problemi relativi ai processi di Azure Data Lake Analytics tramite il portale di AzureMonitor and troubleshoot Azure Data Lake Analytics jobs using Azure portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

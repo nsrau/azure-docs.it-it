@@ -1,6 +1,6 @@
 ---
 title: Introduzione al linguaggio U-SQL di Azure Data Lake Analytics
-description: Informazioni di base sul linguaggio U-SQL in Azure Data Lake Analytics. Scrivere la prima query usando le variabili per dati aggiuntivi da file, trasformare il set di righe e aggregare i dati.
+description: Informazioni di base sul linguaggio U-SQL in Azure Data Lake Analytics. Scrivere la prima query usando le variabili in dati aggiuntivi dai file, trasformare il set di righe e aggregare i dati.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
 ms.openlocfilehash: 8130679dcc519cecd25abf43902c003ad8047df3
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71672828"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Introduzione a U-SQL di Azure Data Lake Analytics
@@ -25,7 +25,7 @@ U-SQL è un linguaggio che combina SQL dichiarativo con C# imperativo per consen
 * Per informazioni dettagliate sulla **sintassi del linguaggio U-SQL**, vedere le [Informazioni di riferimento sul linguaggio U-SQL](https://docs.microsoft.com/u-sql/).
 * Per informazioni sulla **filosofia di progettazione alla base di U-SQL**, vedere il post sul blog di Visual Studio [Introducing U-SQL – A Language that makes Big Data Processing Easy](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/) (Introduzione a U-SQL: un linguaggio che facilita l'elaborazione dei Big Data).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di analizzare gli esempi in U-SQL di questo documento, leggere e completare l'[Esercitazione: Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). Questa esercitazione illustra la meccanica dell'uso di U-SQL con Strumenti Azure Data Lake per Visual Studio.
 
@@ -225,5 +225,5 @@ La clausola U-SQL ORDER BY richiede l'uso della clausola FETCH in un'espressione
 Per gli scenari avanzati di aggregazione, vedere la documentazione di riferimento U-SQL per le [funzioni di aggregazione, analisi e riferimento](/u-sql/built-in-functions)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Panoramica di Analisi Data Lake di Microsoft Azure](data-lake-analytics-overview.md)
+* [Panoramica di Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Sviluppare script U-SQL tramite Strumenti Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)

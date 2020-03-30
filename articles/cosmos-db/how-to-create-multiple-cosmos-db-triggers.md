@@ -1,5 +1,5 @@
 ---
-title: Creare più trigger di funzioni di Azure indipendenti per Cosmos DB
+title: Creare più trigger indipendenti di Funzioni di Azure per Cosmos DBCreate multiple independent Azure Functions triggers for Cosmos DB
 description: Informazioni su come configurare più trigger di Funzioni di Azure indipendenti per Cosmos DB per creare architetture basate su eventi.
 author: ealsur
 ms.service: cosmos-db
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.openlocfilehash: 32b680acdee29bf97a0e132fee93d5fee3377245
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77604950"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Creare più trigger di Funzioni di Azure per Cosmos DB
@@ -31,14 +31,14 @@ Considerando i *requisiti* del trigger di Funzioni di Azure per Cosmos DB, è ne
 
 Sono disponibili due opzioni:
 
-* Creare **un contenitore di lease per ogni funzione**: questo approccio può tradursi in costi aggiuntivi, a meno che non si stia usando un [database di velocità effettiva condivisa](./set-throughput.md#set-throughput-on-a-database). Tenere presente che la velocità effettiva minima a livello di contenitore è di 400 [Unità richiesta](./request-units.md) e, nel caso del contenitore per i lease, si usa solo per eseguire il checkpoint dello stato di avanzamento e mantenere lo stato.
-* Avere **un contenitore di lease e condividerlo** per tutte le funzioni: questa seconda opzione consente di usare meglio le unità richiesta di cui è stato effettuato il provisioning nel contenitore, perché consente a più funzioni di Azure di condividere e usare la stessa velocità effettiva con provisioning.
+* Creare **un contenitore di lease per funzione:** questo approccio può essere tradotto in costi aggiuntivi, a meno che non si utilizzi un database con [velocità effettiva condivisa.](./set-throughput.md#set-throughput-on-a-database) Tenere presente che la velocità effettiva minima a livello di contenitore è di 400 [Unità richiesta](./request-units.md) e, nel caso del contenitore per i lease, si usa solo per eseguire il checkpoint dello stato di avanzamento e mantenere lo stato.
+* Disporre di un contenitore di **lease e condividerlo** per tutte le funzioni: questa seconda opzione consente un utilizzo migliore delle unità di richiesta di cui è stato eseguito il provisioning nel contenitore, in quanto consente a più funzioni di Azure di condividere e usare la stessa velocità effettiva di cui è stato eseguito il provisioning.
 
 L'obiettivo di questo articolo è fornire istruzioni utili per usare la seconda opzione.
 
 ## <a name="configuring-a-shared-leases-container"></a>Configurazione di un contenitore per i lease condiviso
 
-Per configurare il contenitore dei lease condivisi, l'unica configurazione aggiuntiva che è necessario eseguire sui trigger consiste nell'aggiungere l' [attributo](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#attributes-and-annotations) `LeaseCollectionPrefix` se si usa C# o `leaseCollectionPrefix` [attributo](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) se si usa JavaScript. Il valore dell'attributo deve essere un descrittore logico di quale operazione esegue un trigger specifico.
+Per configurare il contenitore per i lease condiviso, la sola configurazione aggiuntiva necessaria da effettuare nei trigger consiste nell'aggiungere l' [attributo](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#attributes-and-annotations)`LeaseCollectionPrefix`se si usa C# oppure l'`leaseCollectionPrefix` [attributo](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) se si usa JavaScript. Il valore dell'attributo deve essere un descrittore logico di quale operazione esegue un trigger specifico.
 
 Ad esempio, se si dispone di tre trigger: uno che invia messaggi e-mail, uno che esegue un'aggregazione per creare una vista materializzata e uno che invia le modifiche a un'altra risorsa di archiviazione per analisi successive, è possibile assegnare l'attributo `LeaseCollectionPrefix` di "emails" al primo, di "materialized" al secondo e di "analytics" al terzo.
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 55e6bbc338c1ac6f9ef935b4a3a05c32f2b5e9f5
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72755216"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Proteggere le chiavi di Azure Cosmos con Azure Key Vault 
@@ -30,7 +30,7 @@ Per archiviare e leggere le chiavi di accesso di Azure Cosmos DB da Key Vault so
 
 ## <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).  
+1. Accedere al portale di [Azure](https://portal.azure.com/).  
 2. Selezionare **Create a resource > Security > Key Vault** (Crea risorsa > Sicurezza > Key Vault).  
 3. Nella pagina **Crea insieme di credenziali delle chiavi** specificare le informazioni seguenti:  
    * **Nome:** specificare un nome univoco per Key Vault.  
@@ -91,5 +91,5 @@ Analogamente, è possibile aggiungere un utente per l'accesso all'insieme di cre
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per configurare un firewall per Azure Cosmos DB, vedere l'articolo [Supporto del firewall di Azure Cosmos DB](firewall-support.md).
+* Per configurare un firewall per Il database Cosmos di Azure, vedere l'articolo [sul supporto del firewall.](firewall-support.md)
 * Per configurare l'endpoint servizio di rete virtuale, vedere l'articolo relativo alla [protezione dell'accesso tramite l'endpoint di servizio di rete virtuale](vnet-service-endpoint.md).

@@ -1,6 +1,6 @@
 ---
-title: Spark streaming & elaborazione di eventi exactly-once-Azure HDInsight
-description: Come configurare Apache Spark flusso per elaborare un evento una sola volta.
+title: Spark Streaming & exactly-once event processing - Azure HDInsight
+description: Come configurare Apache Spark Streaming per elaborare un evento una sola volta.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,15 +9,15 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.openlocfilehash: ee4f9b84e822cb370e5fe3d55fcceb9c8a9f2ab9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74228979"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Creare processi di Apache Spark Streaming con elaborazione di eventi di tipo exactly-once
 
-Le applicazioni di elaborazione di flussi adottano approcci diversi per gestire i messaggi di rielaborazione dopo un errore nel sistema:
+Le applicazioni di elaborazione del flusso adottano approcci diversi per gestire la rielaborazione dei messaggi dopo un errore nel sistema:Stream processing applications take different approaches to how they handle reprocessing messages after some failure in the system:
 
 * At-least-once (almeno una volta): viene garantita l'elaborazione di ogni messaggio, che può avvenire più volte.
 * At-most-once (al massimo una volta): ogni messaggio può venire o meno elaborato. Se un messaggio viene elaborato, viene elaborato una sola volta.
@@ -51,7 +51,7 @@ In Spark Streaming le origini come Hub eventi e Kafka hanno *ricevitori affidabi
 
 Spark Streaming supporta l'uso di un log write-ahead, dove ogni evento ricevuto viene prima di tutto scritto nella directory di checkpoint di Spark in un archivio a tolleranza di errore e quindi archiviato in oggetto RDD (Resilient Distributed Dataset). In Azure l'archivio a tolleranza di errore è supportato da HDFS tramite Archiviazione di Azure o Azure Data Lake Storage. Nell'applicazione Spark Streaming, il log write-ahead viene abilitato per tutti i ricevitori impostando l'opzione di configurazione `spark.streaming.receiver.writeAheadLog.enable` su `true`. Il log write-ahead fornisce tolleranza di errore per i casi in cui si verificano errori sia del driver che degli executor.
 
-Per i ruoli di lavoro che eseguono attività sui dati degli eventi, ogni oggetto RDD per definizione viene sia replicato che distribuito in più ruoli di lavoro. Se un'attività ha esito negativo perché il thread di lavoro lo esegue in modo anomalo, l'attività verrà riavviata in un altro thread di lavoro che dispone di una replica dei dati dell'evento, quindi l'evento non viene perso.
+Per i ruoli di lavoro che eseguono attività sui dati degli eventi, ogni oggetto RDD per definizione viene sia replicato che distribuito in più ruoli di lavoro. Se un'attività non riesce perché il worker che la esegue si è arrestata in modo anomalo, l'attività verrà riavviata in un altro worker con una replica dei dati dell'evento, in modo che l'evento non venga perso.
 
 ### <a name="use-checkpoints-for-drivers"></a>Usare i checkpoint per i driver
 
@@ -79,13 +79,13 @@ I checkpoint vengono abilitati in Spark Streaming Spark in due passaggi.
 
 ### <a name="use-idempotent-sinks"></a>Usare sink idempotenti
 
-Il sink di destinazione in cui il processo scrive i risultati deve essere in grado di gestire la situazione in cui viene restituito lo stesso risultato più di una volta. Il sink deve essere in grado di rilevare tali risultati duplicati e ignorarli. Un sink *idempotente* può essere chiamato più volte con gli stessi dati senza alcuna modifica dello stato.
+Il sink di destinazione in cui il processo scrive i risultati deve essere in grado di gestire la situazione in cui viene assegnato lo stesso risultato più di una volta. Il sink deve essere in grado di rilevare tali risultati duplicati e ignorarli. Un sink *idempotente* può essere chiamato più volte con gli stessi dati senza alcuna modifica dello stato.
 
 È possibile creare sink idempotenti implementando la logica che controlla innanzitutto l'esistenza del risultato in ingresso nell'archivio dati. Se il risultato esiste già, la scrittura deve risultare riuscita dal punto di vista del processo di Spark, mentre in realtà l'archivio dati ha ignorato i dati duplicati. Se il risultato non esiste, il sink deve inserire il nuovo risultato nella relativa archiviazione.
 
 Si potrebbe ad esempio usare una stored procedure con il database SQL di Azure che inserisce gli eventi in una tabella. Questa stored procedure cerca prima di tutto l'evento in base ai campi chiave e, solo se non viene trovato alcun evento corrispondente, il record viene inserito nella tabella.
 
-Un altro esempio consiste nell'usare un file system partizionato, come BLOB del servizio di archiviazione di Azure e Azure Data Lake Storage. In questo caso, la logica di sink non deve verificare l'esistenza di un file. Se il file che rappresenta l'evento esiste, viene semplicemente sovrascritto con gli stessi dati. In caso contrario, viene creato un nuovo file nel percorso calcolato.
+Un altro esempio consiste nell'usare un file system partizionato, come BLOB del servizio di archiviazione di Azure e Azure Data Lake Storage. In questo caso, la logica sink non è necessario verificare l'esistenza di un file. Se il file che rappresenta l'evento esiste, viene semplicemente sovrascritto con gli stessi dati. In caso contrario, viene creato un nuovo file nel percorso calcolato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

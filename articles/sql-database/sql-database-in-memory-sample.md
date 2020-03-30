@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: e7e7fc44d5f8b46a66c698d3a33ceeab5b8625c4
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73810336"
 ---
 # <a name="in-memory-sample"></a>Esempio in memoria
@@ -27,14 +27,14 @@ In questo articolo verranno esaminati due esempi che illustrano l'uso di OLTP in
 Per altre informazioni, vedere:
 - [Panoramica e scenari di utilizzo](https://msdn.microsoft.com/library/mt774593.aspx), inclusi riferimenti a casi di studio sui clienti e informazioni introduttive
 - [OLTP in memoria](https://msdn.microsoft.com/library/dn133186.aspx)
-- [Descrizione degli indici columnstore](https://msdn.microsoft.com/library/gg492088.aspx)
+- [Guida agli indici Columnstore](https://msdn.microsoft.com/library/gg492088.aspx)
 - L'elaborazione analitica e transazionale ibrida (HTAP), anche nota come [analisi operativa in tempo reale](https://msdn.microsoft.com/library/dn817827.aspx)
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 
 &nbsp;
 
-## <a name="1-install-the-in-memory-oltp-sample"></a>1. installare l'esempio di OLTP in memoria
+## <a name="1-install-the-in-memory-oltp-sample"></a>1. Installare l'esempio OLTP in memoria
 
 È possibile creare il database AdventureWorksLT di esempio con pochi clic nel [portale di Azure](https://portal.azure.com/). I passaggi descritti in questa sezione illustrano come migliorare il database AdventureWorksLT con oggetti OLTP in memoria e dimostra i vantaggi sulle prestazioni.
 
@@ -87,7 +87,7 @@ Se il risultato è **0**, le funzionalità in memoria non sono supportate, mentr
 - Demo.DemoSalesOrderDetailSeed
 
 
-È possibile esaminare le tabelle ottimizzate per la memoria tramite **Esplora oggetti** in SSMS. Fare doppio clic su **Tabelle** > **Filtro** > **Impostazioni filtro** > **Con ottimizzazione per la memoria**. Il valore è uguale a 1.
+È possibile esaminare le tabelle ottimizzate per la memoria tramite **Esplora oggetti** in SSMS. Fare clic con il pulsante destro del mouse su **Tabelle:** > **il filtro Impostazioni** > **filtro** > **è ottimizzato per**la memoria. Il valore è uguale a 1.
 
 
 In alternativa, è possibile eseguire una query delle viste del catalogo, ad esempio:
@@ -215,7 +215,7 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 Per eseguire la riga di comando ostress.exe precedente:
 
 
-1. Reimpostare il contenuto dei dati del database eseguendo questo comando in SSMS per eliminare tutti i dati inseriti da esecuzioni precedenti:
+1. Reimpostare il contenuto dei dati del database eseguendo questo comando in SSMS per eliminare tutti i dati inseriti da esecuzioni precedenti: 
 
     ``` tsql
     EXECUTE Demo.usp_DemoReset;
@@ -236,7 +236,7 @@ Al termine, `ostress.exe` scrive la durata dell'esecuzione come ultima riga di o
 `11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
 
-#### <a name="reset-edit-for-_ondisk-then-rerun"></a>Reimpostare, modificare per l'esecuzione *_ondisk* ed eseguire di nuovo il test
+#### <a name="reset-edit-for-_ondisk-then-rerun"></a>Reimpostare, modificare per *_ondisk*, quindi rieseguire
 
 
 Dopo aver ottenuto il risultato dell'esecuzione *_inmem*, seguire la procedura indicata di seguito per l'esecuzione *_ondisk*:
@@ -262,13 +262,13 @@ I test delle funzionalità in memoria hanno mostrato un miglioramento delle pres
 
 &nbsp;
 
-## <a name="2-install-the-in-memory-analytics-sample"></a>2. installare l'esempio di analisi in memoria
+## <a name="2-install-the-in-memory-analytics-sample"></a>2. Installare l'esempio di analisi in memoria
 
 
 In questa sezione vengono messi a confronto i risultati di statistiche e IO quando si usa un indice columnstore rispetto a un indice ad albero B tradizionale.
 
 
-Per l'analisi in tempo reale in un carico di lavoro OLTP, è spesso preferibile usare un indice columnstore non cluster. Per informazioni dettagliate, vedere [Descrizione degli indici columnstore](https://msdn.microsoft.com/library/gg492088.aspx).
+Per l'analisi in tempo reale in un carico di lavoro OLTP, è spesso preferibile usare un indice columnstore non cluster. Per informazioni [dettagliate,](https://msdn.microsoft.com/library/gg492088.aspx)vedere Indici Columnstore descritti .
 
 
 
@@ -294,7 +294,7 @@ Per l'analisi in tempo reale in un carico di lavoro OLTP, è spesso preferibile 
 #### <a name="key-tables-and-columnstore-indexes"></a>Tabelle e indici columnstore fondamentali
 
 
-- dbo.FactResellerSalesXL_CCI è una tabella contenente un indice *columnstore* cluster, che presenta una compressione avanzata a livello di dati.
+- dbo.FactResellerSalesXL_CCI è una tabella contenente un indice Columnstore con cluster, che presenta una compressione avanzata a livello di *dati*.
 
 - dbo.FactResellerSalesXL_PageCompressed è una tabella contenente un indice cluster equivalente tradizionale, che presenta una compressione solo a livello di *pagina*.
 
@@ -382,11 +382,11 @@ In un database con piano tariffario P2 è possibile raggiungere circa 9X il guad
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Guida introduttiva 1: tecnologie OLTP in memoria per migliorare le prestazioni di T-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
+- [Guida introduttiva 1: Tecnologie OLTP in memoria per prestazioni T-SQL più veloci](https://msdn.microsoft.com/library/mt694156.aspx)
 
-- [Usare OLTP in memoria in un'applicazione esistente del database SQL di Azure.](sql-database-in-memory-oltp-migration.md)
+- [Usare OLTP in memoria in un'applicazione SQL di Azure esistenteUse In-Memory OLTP in an existing Azure SQL application](sql-database-in-memory-oltp-migration.md)
 
-- [Monitoraggio dell'archiviazione OLTP in memoria](sql-database-in-memory-oltp-monitoring.md) per OLTP in memoria.
+- [Monitorare l'archiviazione OLTP in memoria](sql-database-in-memory-oltp-monitoring.md) per OLTP in memoria
 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
@@ -409,7 +409,7 @@ In un database con piano tariffario P2 è possibile raggiungere circa 9X il guad
 
 - [OLTP in memoria (ottimizzazione in memoria)](https://msdn.microsoft.com/library/dn133186.aspx)
 
-- [Usare OLTP in memoria in un'applicazione esistente del database SQL di Azure.](sql-database-in-memory-oltp-migration.md)
+- [Usare OLTP in memoria in un'applicazione SQL di Azure esistenteUse In-Memory OLTP in an existing Azure SQL application](sql-database-in-memory-oltp-migration.md)
 
 #### <a name="tools"></a>Strumenti
 

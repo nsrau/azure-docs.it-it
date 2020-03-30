@@ -1,13 +1,13 @@
 ---
-title: Eseguire il backup di file in Azure Stack macchine virtuali
+title: Eseguire il backup dei file nelle macchine virtuali di Azure StackBack up files in Azure Stack VMs
 description: Usare Backup di Azure per eseguire il backup e ripristinare file e applicazioni di Azure Stack nell'ambiente di Azure Stack.
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.openlocfilehash: 2bcdf7f720708db1487d7d5cdaee41dc93c05728
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74172326"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Eseguire il backup di file e applicazioni in Azure Stack
@@ -46,13 +46,13 @@ Per configurare il serve di Backup di Azure per proteggere i file nelle macchine
 
     Si consiglia di inserire tutti i dati che condivideranno un criterio di protezione in un unico gruppo protezione dati. Per informazioni complete sulla pianificazione e la distribuzione dei gruppi protezione dati, vedere l'articolo di System Center DPM relativo alla [distribuzione dei gruppi protezione dati](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
 
-4. Nella schermata **Seleziona metodo protezione dati** digitare un nome per il gruppo protezione dati. Selezionare la casella di controllo per la **protezione dati a breve termine** e la **protezione dati online**. Fare clic su **Next** (Avanti).
+4. Nella schermata **Seleziona metodo protezione dati** digitare un nome per il gruppo protezione dati. Selezionare la casella di controllo per la **protezione dati a breve termine** e la **protezione dati online**. Fare clic su **Avanti**.
 
     ![Si apre la creazione guidata del nuovo gruppo protezione dati](./media/backup-mabs-files-applications-azure-stack/6-select-data-protection-method.png)
 
     Per selezionare la **protezione dati online**, è necessario selezionare prima la **protezione dati a breve termine** con disco. Il server di Backup di Azure non consente di proteggere i dati su nastro, quindi il disco è l'unica scelta per la protezione a breve termine.
 
-5. Nella schermata **Specifica obiettivi a breve termine** indicare per quanto tempo verranno conservati i punti di recupero salvati su disco e quando salvare i backup incrementali. Fare clic su **Next** (Avanti).
+5. Nella schermata **Specifica obiettivi a breve termine** indicare per quanto tempo verranno conservati i punti di recupero salvati su disco e quando salvare i backup incrementali. Fare clic su **Avanti**.
 
     > [!IMPORTANT]
     > **Non** è necessario conservare i dati di ripristino operativo (backup) nei dischi collegati al server di Backup di Azure per più di cinque giorni.
@@ -110,7 +110,7 @@ Usare la console del server di Backup di Azure per recuperare i dati nella macch
     * **Notifica** Scegliere di **inviare un messaggio di posta elettronica al termine del recupero** e specificare i destinatari che riceveranno la notifica. Separare gli indirizzi di posta elettronica con virgole.
     * Dopo aver effettuato le selezioni, fare clic su **Avanti**
 
-7. Rivedere le impostazioni di recupero e fare clic su **Recupera**.
+7. Controllare le impostazioni per il ripristino e fare clic su **Ripristina**.
 
     >[!Note]
     >Mentre il processo di recupero è in corso, vengono annullati tutti i processi di sincronizzazione per gli elementi selezionati per il recupero.
@@ -123,7 +123,7 @@ Se si usa Modern Backup Storage (MBS), il recupero dati del file server gestito 
 
 ## <a name="view-azure-backup-server-with-a-vault"></a>Visualizzare il server di Backup di Azure con un insieme di credenziali
 
-Per visualizzare server di Backup di Azure entità nell'portale di Azure, attenersi alla procedura seguente:
+Per visualizzare le entità del server di Backup di Azure nel portale di Azure, è possibile eseguire la procedura seguente:To view Azure Backup Server entities in the Azure portal, you can follow the following steps:
 
 1. Aprire l'insieme di credenziali dei Servizi di ripristino.
 2. Fare clic su Infrastruttura di backup.

@@ -1,5 +1,5 @@
 ---
-title: Introduzione a Novell. Forms
+title: Introduzione a Xamarin.Forms
 description: Seguire questa esercitazione per iniziare a usare le app per dispositivi mobili per lo sviluppo per Xamarin.Forms.
 ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5
 ms.tgt_pltfrm: mobile-xamarin
@@ -7,10 +7,10 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.openlocfilehash: 9ae97ccbcc358a150e914a6e950579a972fef0bc
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461335"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Creare un'app Xamarin.Forms con Azure
@@ -28,9 +28,9 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Un account Azure attivo. Se non è disponibile un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 app per dispositivi mobili gratuite che potranno essere usate anche dopo il termine del periodo di valutazione. Per altre informazioni, vedere [Versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* Strumenti di Visual Studio per Novell, in Visual Studio 2017 o versioni successive o Visual Studio per Mac. Per istruzioni, vedere la [pagina di installazione di Novell][Install Xamarin] .
+* Visual Studio Tools per Xamarin, Visual Studio 2017 o versione successiva oppure Visual Studio per Mac. Vedere la [pagina di installazione di Xamarin][Install Xamarin] per le istruzioni.
 
-* (facoltativo) Per compilare un'app iOS, è necessario un Mac con Xcode 9.0 o versione successiva. È possibile usare Visual Studio per Mac per sviluppare app iOS oppure è possibile usare Visual Studio 2017 o versione successiva (purché il Mac sia disponibile in rete).
+* (facoltativo) Per compilare un'app iOS, è necessario un Mac con Xcode 9.0 o versione successiva. Visual Studio per Mac può essere usato per sviluppare app iOS o Visual Studio 2017 o versioni successive (purché il Mac sia disponibile in rete).
 
 ## <a name="create-a-new-mobile-apps-back-end"></a>Creare un nuovo back-end di App per dispositivi mobili
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
@@ -38,17 +38,17 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 ## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Creare una connessione al database e configurare il progetto client e server
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="run-the-xamarinforms-solution"></a>Eseguire la soluzione Novell. Forms
+## <a name="run-the-xamarinforms-solution"></a>Eseguire la soluzione Xamarin.Forms
 
-Per aprire la soluzione sono necessarie le Strumenti di Visual Studio per Novell, vedere le [istruzioni di installazione di Novell][Install Xamarin]. Se gli strumenti sono già installati, seguire questa procedura per scaricare e aprire la soluzione:
+Per aprire la soluzione sono necessari gli Strumenti di Visual Studio per Xamarin. Vedere le [istruzioni di installazione di Xamarin][Install Xamarin]. Se gli strumenti sono già installati, seguire questa procedura per scaricare e aprire la soluzione:
 
 ### <a name="visual-studio-windows-and-mac"></a>Visual Studio (Windows e Mac)
 
-1. Passare alla [portale di Azure](https://portal.azure.com/) e passare all'app per dispositivi mobili creata. Nel pannello `Overview` cercare l'URL che rappresenta l'endpoint pubblico per l'app per dispositivi mobili. Esempio: il SiteName per il nome dell'app "test123" verrà https://test123.azurewebsites.net.
+1. Passare al portale di [Azure](https://portal.azure.com/) e passare all'app per dispositivi mobili creata. Nel `Overview` pannello cercare l'URL che è l'endpoint pubblico per l'app per dispositivi mobili. Esempio: il nome del sito per il nome https://test123.azurewebsites.netdell'app "test123" sarà .
 
-2. Aprire il file `Constants.cs` in questa cartella-Novell. Forms/ZUMOAPPNAME. Il nome dell'applicazione è `ZUMOAPPNAME`.
+2. Aprire il `Constants.cs` file in questa cartella - xamarin.forms/UMMOAPPNAME. Il nome `ZUMOAPPNAME`dell'applicazione è .
 
-3. Nella classe `Constants.cs` sostituire `ZUMOAPPURL` variabile con l'endpoint pubblico riportato sopra.
+3. In `Constants.cs` classe `ZUMOAPPURL` sostituire la variabile con l'endpoint pubblico precedente.
 
     `public static string ApplicationURL = @"ZUMOAPPURL";`
 
@@ -78,7 +78,7 @@ In questa sezione viene eseguito il progetto Xamarin.Android. Se non si usano di
 
 2. Per compilare il progetto e avviare l'app in un emulatore Android, scegliere **Avvia debug** dal menu **Esegui**.
 
-Nell'app digitare un testo significativo, ad esempio *Learn Xamarin*, e quindi selezionare il segno più ( **+** ).
+Nell'app digitare un testo significativo, ad esempio *Learn Xamarin*, e quindi selezionare il segno più (**+**).
 
 ![App elenco attività Android][11]
 
@@ -94,7 +94,7 @@ In questa sezione viene eseguito il progetto Xamarin.iOS per dispositivi iOS. Se
 
 ### <a name="visual-studio"></a>Visual Studio
 
-1. Fare clic con il pulsante destro del mouse sul progetto iOS e quindi scegliere **Imposta come progetto di avvio**.
+1. Fare clic con il pulsante destro del mouse sul progetto iOS, quindi scegliere Imposta come progetto di **avvio**.
 
 2. Scegliere **Configuration Manager** dal menu **Compila**.
 
@@ -108,7 +108,7 @@ In questa sezione viene eseguito il progetto Xamarin.iOS per dispositivi iOS. Se
 
 2. Scegliere **Start Debugging** (Avvia debug) dal menu **Run** (Esegui) per compilare il progetto e avviare l'app nell'emulatore iPhone.
 
-Nell'app digitare un testo significativo, ad esempio *Learn Xamarin*, e quindi selezionare il segno più ( **+** ).
+Nell'app digitare un testo significativo, ad esempio *Learn Xamarin*, e quindi selezionare il segno più (**+**).
 
 ![App elenco attività iOS][10]
 
@@ -135,7 +135,7 @@ In questa sezione viene eseguito il progetto Xamarin.Forms della piattaforma UWP
 > [!NOTE]
 > Non è possibile eseguire il progetto Windows su macOS.
 
-Nell'app digitare un testo significativo, ad esempio *Learn Xamarin*, e quindi selezionare il segno più ( **+** ).
+Nell'app digitare un testo significativo, ad esempio *Learn Xamarin*, e quindi selezionare il segno più (**+**).
 
 Questa azione invia una richiesta POST al nuovo back-end di App per dispositivi mobili ospitato in Azure. I dati della richiesta vengono inseriti nella tabella TodoItem. Gli elementi archiviati nella tabella vengono restituiti dal back-end di App per dispositivi mobili e i dati vengono visualizzati nell'elenco.
 

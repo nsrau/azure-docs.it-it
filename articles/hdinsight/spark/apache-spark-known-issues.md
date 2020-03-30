@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
 ms.openlocfilehash: 2c153d818136c5d8804dae72004dfaf17fd1bf7a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73494534"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemi noti del cluster Apache Spark in HDInsight
@@ -22,7 +22,7 @@ Questo documento elenca tutti i problemi noti relativi all'anteprima pubblica di
 ## <a name="apache-livy-leaks-interactive-session"></a>Apache Livy perde la sessione interattiva
 Quando [Apache Livy](https://livy.incubator.apache.org/) viene riavviato (da [Apache Ambari](https://ambari.apache.org/) oppure a causa del riavvio della macchina virtuale con nodo head 0) con una sessione interattiva ancora attiva, una sessione di processo interattiva va persa. Di conseguenza, i nuovi processi possono rimanere bloccati in stato Accettato.
 
-**Soluzione:**
+**Mitigazione:**
 
 Seguire questa procedura per risolvere il problema:
 
@@ -32,7 +32,7 @@ Seguire questa procedura per risolvere il problema:
 
         yarn application –list
 
-    I nomi di processo predefiniti sono Livy se i processi sono stati avviati con una sessione interattiva di Livy senza nomi espliciti specificati. Per la sessione di Livio avviata da [Jupyter notebook](https://jupyter.org/), il nome del processo inizia con `remotesparkmagics_*`.
+    I nomi di processo predefiniti sono Livy se i processi sono stati avviati con una sessione interattiva di Livy senza nomi espliciti specificati. Per la sessione Livy avviata da [Jupyter Notebook](https://jupyter.org/), il nome del processo inizia con `remotesparkmagics_*`.
 
 3. Eseguire il comando seguente per terminare questi processi.
 
@@ -43,7 +43,7 @@ Vengono avviati nuovi processi.
 ## <a name="spark-history-server-not-started"></a>Il server cronologia Spark non viene avviato
 Il server cronologia Spark non viene avviato automaticamente dopo la creazione di un cluster.  
 
-**Soluzione:**
+**Mitigazione:**
 
 Avviare manualmente il server cronologia da Ambari.
 
@@ -56,7 +56,7 @@ java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permissio
 
 Inoltre, non viene scritto alcun log del driver.
 
-**Soluzione:**
+**Mitigazione:**
 
 1. Aggiungere hdiuser al gruppo Hadoop.
 2. Indicare 777 autorizzazioni in /var/log/spark dopo la creazione del cluster.
@@ -67,7 +67,7 @@ Inoltre, non viene scritto alcun log del driver.
 
 I cluster HDInsight Spark non supportano il connettore Spark-Phoenix.
 
-**Soluzione:**
+**Mitigazione:**
 
 Usare il connettore Spark-HBase. Per istruzioni, vedere [How to use Spark-HBase connector](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/) (Come usare un connettore Spark-HBase).
 
@@ -81,9 +81,9 @@ Non usare caratteri non ASCII nei nomi di file dei notebook Jupyter. Se tramite 
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Errore durante il caricamento di notebook di maggiori dimensioni
 
-Quando si caricano notebook di maggiori dimensioni, potrebbe comparire l'errore **`Error loading notebook`** .  
+È possibile che **`Error loading notebook`** venga visualizzato un errore quando si caricano blocchi appunti di dimensioni maggiori.  
 
-**Soluzione:**
+**Mitigazione:**
 
 Se viene visualizzato questo errore, non significa che i dati sono danneggiati o persi.  I notebook sono ancora disponibili su disco in `/var/lib/jupyter`ed è possibile usare SSH nel cluster per accedervi. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -91,7 +91,7 @@ Dopo aver effettuato la connessione al cluster usando SSH, è possibile copiare 
 
 Per evitare questo errore in futuro, è necessario seguire alcune procedure consigliate:
 
-* È importante mantenere ridotte le dimensioni del notebook. L'output dei processi Spark inviato a Jupyter viene salvato in modo permanente nel notebook.  È una procedura consigliata con Jupyter in generale per evitare l'esecuzione di `.collect()` su RDD o frame di frame di grandi dimensioni. Se invece si desidera visualizzare il contenuto di un RDD, provare a eseguire `.take()` o `.sample()` in modo che l'output non sia troppo grande.
+* È importante mantenere ridotte le dimensioni del notebook. L'output dei processi Spark inviato a Jupyter viene salvato in modo permanente nel notebook.  È una procedura consigliata con Jupyter `.collect()` in generale per evitare l'esecuzione su RDD di grandi dimensioni o frame di dati; invece, se si desidera visualizzare il contenuto di `.take()` `.sample()` un RDD, considerare l'esecuzione o in modo che l'output non è troppo grande.
 * Quando si salva un notebook, cancellare anche tutte le celle di output per ridurre le dimensioni.
 
 ### <a name="notebook-initial-startup-takes-longer-than-expected"></a>L'avvio iniziale del notebook richiede più tempo del previsto
@@ -106,7 +106,7 @@ Ciò accade quando viene eseguita la prima cella di codice. In background viene 
 
 Quando il cluster Spark esaurisce le risorse, si verifica il timeout dei kernel Spark e PySpark nel notebook Jupyter durante il tentativo di creare la sessione.
 
-**Soluzioni:**
+**Mitigazioni:**
 
 1. Liberare alcune risorse nel cluster Spark nei modi seguenti:
 
@@ -135,12 +135,12 @@ Quando il cluster Spark esaurisce le risorse, si verifica il timeout dei kernel 
 
 * [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark in Scala](apache-spark-intellij-tool-plugin.md)
 * [Usare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Apache Spark in remoto](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Usare i notebook di Apache Zeppelin con cluster Apache Spark in HDInsight](apache-spark-zeppelin-notebook.md)
+* [Usare i notebook di Apache Zeppelin con un cluster Apache Spark in HDInsight](apache-spark-zeppelin-notebook.md)
 * [Kernel disponibili per notebook di Jupyter nel cluster Apache Spark per HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Usare pacchetti esterni con i notebook Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](apache-spark-jupyter-notebook-install-locally.md)
 
-### <a name="manage-resources"></a>Gestire risorse
+### <a name="manage-resources"></a>Gestione di risorse
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](apache-spark-resource-manager.md)
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](apache-spark-job-debugging.md)

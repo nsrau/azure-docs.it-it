@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: 8f04d943e1db49beed13c183fbd06e401546fc03
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71153900"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Il firewall del sistema operativo guest della macchina virtuale di Azure non è configurato correttamente
@@ -98,7 +98,7 @@ Nell'istanza di accesso della console seriale, è possibile eseguire una query s
 
 ### <a name="offline-mitigations"></a>Procedure di mitigazione offline
 
-1.  Per abilitare o disabilitare le regole del firewall, vedere [abilitare o disabilitare una regola del firewall in un sistema operativo guest della macchina virtuale di Azure](enable-disable-firewall-rule-guest-os.md).
+1.  Per abilitare o disabilitare le regole del firewall, vedere [Abilitare o disabilitare una regola del firewall in un](enable-disable-firewall-rule-guest-os.md)sistema operativo guest VM di Azure.
 
 2.  Controllare se si è verificato lo [scenario di blocco del traffico in ingresso da parte del firewall del sistema operativo guest](guest-os-firewall-blocking-inbound-traffic.md).
 

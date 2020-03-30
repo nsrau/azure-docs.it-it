@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: yushwang
 ms.openlocfilehash: f905e27f48a0bf9181625bbba07549a13d9420cb
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162137"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Scaricare gli script di configurazione del dispositivo VPN per le connessioni VPN S2S
@@ -26,7 +26,7 @@ I dispositivi seguenti hanno script disponibili:
 
 [!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
 
-## <a name="about"></a>Informazioni sugli script di configurazione del dispositivo VPN
+## <a name="about-vpn-device-configuration-scripts"></a><a name="about"></a>Informazioni sugli script di configurazione del dispositivo VPN
 
 Una connessione VPN locale è costituita da un gateway VPN di Azure, un dispositivo VPN locale e un tunnel VPN S2S IPsec che li connette. Il flusso di lavoro tipico è costituito dai passaggi seguenti:
 

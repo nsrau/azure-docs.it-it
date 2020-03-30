@@ -13,10 +13,10 @@ ms.date: 12/13/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 1e729c608a2cad28c810f8d5236360c909a496b0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70082039"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Domande frequenti su SQL Server nelle macchine virtuali Linux di Azure
@@ -32,7 +32,7 @@ Questo articolo offre risposte ad alcune delle domande più comuni sull'esecuzio
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
-## <a id="images"></a> Immagini
+## <a name="images"></a><a id="images"></a>Immagini
 
 1. **Quali immagini della raccolta di macchine virtuali di SQL Server sono disponibili?**
 
@@ -40,7 +40,7 @@ Questo articolo offre risposte ad alcune delle domande più comuni sull'esecuzio
 
 1. **Le immagini della raccolta di macchine virtuali di SQL Server esistenti vengono aggiornate?**
 
-   Ogni due mesi, le immagini di SQL Server nella raccolta di macchine virtuali vengono aggiornate con gli aggiornamenti di Linux e Windows più recenti. Per le immagini Linux si includono gli aggiornamenti di sistema più recenti. Per le immagini Windows, si includono tutti gli aggiornamenti contrassegnati come importanti in Windows Update, inclusi gli aggiornamenti di sicurezza e i Service Pack di SQL Server importanti. Gli aggiornamenti cumulativi di SQL Server vengono gestiti in modo diverso per Linux e Windows. Per Linux, gli aggiornamenti cumulativi di SQL Server sono inclusi nell'aggiornamento. Tuttavia al momento le macchine virtuali Windows non vengono aggiornate con gli aggiornamenti cumulativi di SQL Server o Windows Server.
+   Ogni due mesi, le immagini di SQL Server nella raccolta di macchine virtuali vengono aggiornate con gli aggiornamenti di Linux e Windows più recenti. Per le immagini Linux si includono gli aggiornamenti di sistema più recenti. Per le immagini Windows, si includono tutti gli aggiornamenti contrassegnati come importanti in Windows Update, tra cui gli aggiornamenti di sicurezza e i Service Pack di SQL Server importanti. Gli aggiornamenti cumulativi di SQL Server vengono gestiti in modo diverso per Linux e Windows. Per Linux, gli aggiornamenti cumulativi di SQL Server sono inclusi nell'aggiornamento. Tuttavia al momento le macchine virtuali Windows non vengono aggiornate con gli aggiornamenti cumulativi di SQL Server o Windows Server.
 
 1. **Quali altri pacchetti di SQL Server correlati vengono installati?**
 
@@ -60,7 +60,7 @@ Questo articolo offre risposte ad alcune delle domande più comuni sull'esecuzio
 
    Le macchina virtuali RHEL e SLES richiedono una sottoscrizione senza limite di spesa e un metodo di pagamento verificato (in genere una carta di credito) associato alla sottoscrizione. Se si effettua il provisioning di una VM RHEL o SLES senza rimuovere il limite di spesa, la sottoscrizione verrà disabilitata e tutte le VM e i servizi verranno arrestati. Se si verifica questo problema, per abilitare di nuovo la sottoscrizione, [rimuovere il limite di spesa](https://account.windowsazure.com/subscriptions). I crediti rimanenti verranno ripristinati per il ciclo di fatturazione corrente, ma sulla carta di credito verrà addebitato un sovrapprezzo per l'immagine della VM RHEL o SLES se si sceglie di riavviarla e di continuare a eseguirla.
 
-## <a name="licensing"></a>Licenze
+## <a name="licensing"></a>Gestione delle licenze
 
 1. **Come si installa una copia di SQL Server con licenza in una VM di Azure?**
 
@@ -88,7 +88,7 @@ Questo articolo offre risposte ad alcune delle domande più comuni sull'esecuzio
 
 1. **Come si esegue l'aggiornamento a una nuova versione o a una nuova edizione di SQL Server in una VM di Azure?**
 
-   Attualmente non è disponibile alcun aggiornamento sul posto per SQL Server in esecuzione in una VM di Azure. Creare una nuova macchina virtuale di Azure con la versione o l'edizione di SQL Server voluta, quindi eseguire la migrazione dei database nel nuovo server tramite [tecniche di migrazione dati](https://docs.microsoft.com/sql/linux/sql-server-linux-migrate-overview) standard.
+   Attualmente non è disponibile alcun aggiornamento sul posto per SQL Server in esecuzione in una VM di Azure. Creare una nuova macchina virtuale di Azure con la versione/edizione di SQL Server desiderata, quindi eseguire la migrazione dei database nel nuovo server usando le tecniche standard di [migrazione dei dati.](https://docs.microsoft.com/sql/linux/sql-server-linux-migrate-overview)
 
 ## <a name="general"></a>Generale
 
@@ -102,10 +102,10 @@ Questo articolo offre risposte ad alcune delle domande più comuni sull'esecuzio
 
 * [Panoramica di SQL Server in una macchina virtuale Linux](sql-server-linux-virtual-machines-overview.md)
 * [Effettuare il provisioning di una macchina virtuale Linux con SQL Server](provision-sql-server-linux-virtual-machine.md)
-* [Documentazione di SQL Server in Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [Documentazione di SQL Server su LinuxSQL Server on Linux documentation](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
 
 **Macchine virtuali Windows**:
 
-* [Panoramica di SQL Server in una macchina virtuale Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
+* [Panoramica di SQL Server in una macchina virtuale WindowsOverview of SQL Server on a Windows VM](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [Effettuare il provisioning di una macchina virtuale Windows di SQL Server](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)
 * [Domande frequenti (Windows)](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md)

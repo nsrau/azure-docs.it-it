@@ -1,6 +1,6 @@
 ---
-title: 'Configurare un indirizzo di posta elettronica come metodo di verifica: Azure AD'
-description: Come configurare la pagina delle informazioni di sicurezza (anteprima) per verificare la propria identità usando un indirizzo di posta elettronica come metodo di verifica.
+title: Configurare un indirizzo di posta elettronica come metodo di verifica - Azure ADSet up an email address as your verification method - Azure AD
+description: Come configurare la pagina Informazioni di sicurezza (anteprima) per verificare la tua identità utilizzando un indirizzo email come metodo di verifica.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: curtand
 ms.openlocfilehash: 9488b96dda15b0ffb794f83826dc299a5f397b77
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77064003"
 ---
 # <a name="set-up-an-email-address-as-your-verification-method"></a>Configurare un indirizzo di posta elettronica come metodo di verifica
@@ -25,9 +25,9 @@ ms.locfileid: "77064003"
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->Se non viene visualizzata un'opzione di posta elettronica, è possibile che l'organizzazione non consenta di usare questa opzione per il metodo di reimpostazione della password. In questo caso, è necessario scegliere un altro metodo o contattare l'help desk dell'organizzazione per ulteriori informazioni.
+>Se non viene visualizzata un'opzione di posta elettronica, è possibile che l'organizzazione non consenta di utilizzare questa opzione per il metodo di reimpostazione della password. In questo caso, è necessario scegliere un altro metodo o contattare l'help desk dell'organizzazione per ulteriore assistenza.
 
-## <a name="security-vs-password-reset-verification"></a>Sicurezza e verifica della reimpostazione della password
+## <a name="security-vs-password-reset-verification"></a>Verifica della protezione e della reimpostazione della password
 
 I metodi di gestione delle informazioni di sicurezza vengono usati sia per la verifica di sicurezza a due fattori sia per la reimpostazione della password. Non tutti i metodi possono tuttavia essere usati per entrambe.
 
@@ -99,7 +99,7 @@ In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative
 
 - **Chiamata sul dispositivo mobile o sul telefono dell'ufficio.** Immettere il numero del dispositivo mobile per ricevere una chiamata per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con un numero di telefono, vedere [Configurare le informazioni di sicurezza per l'uso di chiamate telefoniche](security-info-setup-phone-number.md).
 
-- **Chiave di sicurezza.** Registrare la chiave di sicurezza compatibile con Microsoft e usarla insieme a un PIN per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con una chiave di sicurezza, vedere [configurare le informazioni di sicurezza per l'uso di una chiave di sicurezza](security-info-setup-security-key.md).
+- **Chiave di sicurezza.** Registra la chiave di sicurezza compatibile con Microsoft e usala insieme a un PIN per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con una chiave di sicurezza, vedere Configurare le informazioni di [sicurezza per l'utilizzo](security-info-setup-security-key.md)di una chiave di sicurezza.
 
 - **Domande di sicurezza.** Rispondere ad alcune domande di sicurezza create dall'amministratore per l'organizzazione. Questa opzione è disponibile solo per la reimpostazione della password e non per la verifica in due passaggi. Per istruzioni dettagliate su come configurare le domande di sicurezza, vedere l'articolo [Configurare le informazioni di sicurezza per l'uso di domande di sicurezza](security-info-setup-questions.md).
 

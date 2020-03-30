@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 8b0db4a1e55b53165e40e176834d66b62926e24b
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74421567"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Spostamento di dati tra database cloud con scalabilità orizzontale
@@ -24,21 +24,21 @@ Se lo sviluppatore di un'app SaaS (Software as a Service) registra un incremento
 
 Lo strumento di suddivisione-unione viene eseguito come servizio Web di Azure. Un amministratore o uno sviluppatore usa lo strumento per spostare shardlet (dati di una partizione) tra diversi database (partizioni). Lo strumento usa la gestione delle mappe partizioni per gestire il database di metadati del servizio e per garantire mapping coerenti.
 
-![Overview][1]
+![Panoramica][1]
 
-## <a name="download"></a>Scaricare
+## <a name="download"></a>Download
 
 [Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
 ## <a name="documentation"></a>Documentazione
 
 1. [Esercitazione relativa allo strumento divisione-unione del database elastico](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
-2. [Configurazione della sicurezza dei servizi di "split and merge"](sql-database-elastic-scale-split-merge-security-configuration.md)
+2. [Configurazione della sicurezza Split-Merge](sql-database-elastic-scale-split-merge-security-configuration.md)
 3. [Considerazioni sulla sicurezza dello strumento di suddivisione-unione](sql-database-elastic-scale-split-merge-security-configuration.md)
 4. [Gestione mappe partizioni](sql-database-elastic-scale-shard-map-management.md)
-5. [Eseguire la migrazione di database esistenti per aumentare il numero di istanze](sql-database-elastic-convert-to-use-elastic-tools.md)
+5. [Eseguire la migrazione dei database esistenti per ottenere scalabilità orizzontale](sql-database-elastic-convert-to-use-elastic-tools.md)
 6. [Strumenti di database elastici](sql-database-elastic-scale-introduction.md)
-7. [Glossario sugli strumenti di database elastici](sql-database-elastic-scale-glossary.md)
+7. [Glossario degli strumenti di Elastic Database](sql-database-elastic-scale-glossary.md)
 
 ## <a name="why-use-the-split-merge-tool"></a>Perché usare lo strumento di suddivisione-unione
 
@@ -158,7 +158,7 @@ Il pacchetto del servizio di suddivisione-unione include un ruolo di lavoro e un
 
   Le operazioni di unione spostano gli shardlet in una partizione esistente. Per identificare la partizione esistente, è necessario specificare i limiti dell'intervallo esistente con cui si vuole ottenere l'unione.
 
-- **Dimensioni del batch**
+- **Dimensioni batch**
 
   Le dimensioni del batch controllano il numero di shardlet che saranno offline contemporaneamente durante lo spostamento dei dati. Si tratta di un valore Integer. È possibile usare valori ridotti se si preferisce evitare periodi di inattività prolungati per gli shardlet. I valori più elevati comporteranno un incremento del tempo per cui un determinato shardlet risulterà offline, ma potrebbero migliorare le prestazioni.
 
@@ -190,11 +190,11 @@ Il servizio di suddivisione-unione fornisce la tabella **RequestStatus** nel dat
 
   Ora e data di inizio della richiesta.
 
-- **OperationId**
+- **IDOperazione**
 
   GUID che identifica in modo univoco la richiesta. Questa richiesta può essere usata anche per annullare l'operazione durante l'esecuzione.
 
-- **Status**
+- **Stato**
 
   Stato attuale della richiesta. per le richieste in corso indica anche la fase attuale dell'esecuzione della richiesta.
 
@@ -202,7 +202,7 @@ Il servizio di suddivisione-unione fornisce la tabella **RequestStatus** nel dat
 
   Flag che indica se la richiesta è stata annullata.
 
-- **Progress**
+- **Progresso**
 
   Stima della percentuale di completamento dell'operazione. Un valore pari a 50 indica che la percentuale di completamento dell'operazione è pari a circa il 50%.
 
@@ -219,7 +219,7 @@ Il servizio di suddivisione-unione utilizza la diagnostica Azure basata su Azure
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
+> Il modulo di PowerShell Azure Resource Manager è ancora supportato dal database SQL di Azure, ma tutto lo sviluppo futuro è per il modulo Az.Sql.The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. Per questi cmdlet, vedere [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli di AzureRm sono sostanzialmente identici.
 
 Per abilitare il monitoraggio e la diagnostica utilizzando la configurazione della diagnostica per i ruoli Web e di lavoro forniti dal pacchetto NuGet, eseguire i seguenti comandi utilizzando Azure PowerShell:
 

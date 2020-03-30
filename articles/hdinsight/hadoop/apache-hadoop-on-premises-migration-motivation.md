@@ -1,5 +1,5 @@
 ---
-title: 'Vantaggi: eseguire la migrazione di Apache Hadoop locali ad Azure HDInsight'
+title: 'Vantaggi: Eseguire la migrazione di Apache Hadoop locale ad Azure HDInsight'
 description: Motivazione e vantaggi per eseguire la migrazione di cluster Hadoop locali ad Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.openlocfilehash: 2440b93629416ea73fcf211cbe7bf5a3b72ab2e7
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74267316"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Motivazione e vantaggi
@@ -41,24 +41,24 @@ Azure HDInsight è una distribuzione cloud dei componenti di Hadoop. Azure HDIns
 
 - **Scalabilità semplificata** - HDInsight consente di  [aumentare o ridurre](../hdinsight-administer-use-portal-linux.md) i carichi di lavoro. Azure ripete la distribuzione dei dati e il bilanciamento del carico di lavoro senza interrompere i processi di elaborazione dei dati.
 
-- **Disponibilità globale** - HDInsight è disponibile in più [aree](https://azure.microsoft.com/regions/services/) di qualsiasi altra offerta di analisi di Big Data. Azure HDInsight è anche disponibile in Azure per enti pubblici, Cina e Germania per soddisfare le esigenze aziendali nelle principali aree sovrane.
+- **Disponibilità globale:** HDInsight è disponibile in più [aree geografiche](https://azure.microsoft.com/regions/services/) rispetto a qualsiasi altra offerta di analisi dei Big Data.Global availability - HDInsight is available in more regions than any other Big Data analytics offering. Azure HDInsight è anche disponibile in Azure per enti pubblici, Cina e Germania per soddisfare le esigenze aziendali nelle principali aree sovrane.
 
 - **Sicurezza e conformità** - HDInsight consente di proteggere i dati aziendali usando  [Rete virtuale di Azure](../hdinsight-plan-virtual-network-deployment.md), la  [crittografia](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) e l'integrazione con  [Azure Active Directory](../domain-joined/hdinsight-security-overview.md). HDInsight soddisfa anche i più diffusi  [standard di conformità](https://azure.microsoft.com/overview/trusted-cloud) del settore e governativi.
 
-- **Gestione semplificata delle versioni** : Azure HDInsight gestisce la versione dei componenti di Hadoop Eco-System e li mantiene aggiornati. Gli aggiornamenti software sono in genere un processo complesso per le distribuzioni locali.
+- **Gestione semplificata delle versioni:** Azure HDInsight gestisce la versione dei componenti dell'ecosistema Hadoop e li mantiene aggiornati. Gli aggiornamenti software sono in genere un processo complesso per le distribuzioni locali.
 
-- **Cluster ridotti ottimizzati per specifici carichi di lavoro con minori dipendenze tra i componenti** - Una tipica configurazione Hadoop locale usa un singolo cluster per molte finalità. Con Azure HDInsight è possibile creare cluster specifici per carico di lavoro. La creazione di cluster per carichi di lavoro specifici rimuove gli oneri di gestione di un singolo cluster con complessità crescenti.
+- **Cluster più piccoli ottimizzati per carichi di lavoro specifici con meno dipendenze tra** i componenti: una tipica installazione di Hadoop locale usa un singolo cluster che serve a molti scopi. Con Azure HDInsight è possibile creare cluster specifici per carico di lavoro. La creazione di cluster per carichi di lavoro specifici rimuove gli oneri di gestione di un singolo cluster con complessità crescenti.
 
 - **Produttività** - È possibile usare vari strumenti per Hadoop e Spark nell'ambiente di sviluppo preferito.
 
 - **Estendibilità con strumenti personalizzati o applicazioni di terze parti** - I cluster HDInsight possono essere estesi con i componenti installati e integrati con altre soluzioni per Big Data mediante distribuzioni [con un clic](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) in Azure Marketplace.
 
-- **Facile gestione, amministrazione e monitoraggio** : Azure HDInsight si integra con i [log di monitoraggio di Azure](../hdinsight-hadoop-oms-log-analytics-tutorial.md) per fornire una singola interfaccia con cui è possibile monitorare tutti i cluster.
+- **Gestione semplice, amministrazione e monitoraggio:** Azure HDInsight si integra con i [log](../hdinsight-hadoop-oms-log-analytics-tutorial.md) di Monitoraggio di Azure per fornire un'unica interfaccia con cui è possibile monitorare tutti i cluster.
 
 - **Integrazione con altri servizi di Azure** - HDInsight può essere integrato facilmente con altri popolari servizi di Azure, tra cui:
 
     - Azure Data Factory
-    - Archivio BLOB di Azure
+    - Archiviazione BLOB di Azure
     - Azure Data Lake Storage Gen2
     - Azure Cosmos DB
     - database SQL di Azure
@@ -95,7 +95,7 @@ Questa sezione offre questionari modello per semplificare la raccolta di informa
 |Tipi di cluster|Hadoop, Spark, Confluent Kafka, Storm, Solr|
 |Numero di cluster|4|
 |Numero di nodi master|2|
-|Numero di nodi del ruolo di lavoro|100|
+|Numero di nodi di lavoro|100|
 |Numero di nodi perimetrali| 5|
 |Spazio totale su disco|100 TB|
 |Configurazione del nodo master|m/y, cpu, disco, ecc.|
@@ -103,7 +103,7 @@ Questa sezione offre questionari modello per semplificare la raccolta di informa
 |Configurazione dei nodi perimetrali|m/y, cpu, disco, ecc.|
 |Crittografia Hadoop Distributed File System?|Sì|
 |Disponibilità elevata|Disponibilità elevata Hadoop Distributed File System, disponibilità elevata metastore|
-|Ripristino di emergenza/backup|Cluster di backup?|  
+|Ripristino di emergenza / Backup|Cluster di backup?|  
 |Sistemi che dipendono dal cluster|SQL Server, Teradata, Power BI, MongoDB|
 |Integrazioni di terze parti|Tableau, GridGain, Qubole, Informatica, Splunk|
 |**Argomento**: **sicurezza**|||
@@ -137,10 +137,10 @@ Questa sezione offre questionari modello per semplificare la raccolta di informa
 |Destinazioni dei dati|Hadoop Distributed File System, RDBMS, Kafka, MPP ||
 |**Argomento**: **metadati**|||
 |Tipo di database Hive|MySQL, Postgres||
-|Numero di Metastore hive|2||
-|Numero di tabelle hive|100||
-|Numero di criteri Ranger|20||
-|Numero di flussi di lavoro OOZIE|100||
+|Numero di metastore Hive|2||
+|Numero di tabelle Hive|100||
+|Numero di polizze Ranger|20||
+|Numero di flussi di lavoro di Oozie|100||
 |**Argomento**: **scalabilità**|||
 |Volume di dati, inclusa la replica|100 TB||
 |Volume di inserimento giornaliero|50 GB||
@@ -156,7 +156,7 @@ Questa sezione offre questionari modello per semplificare la raccolta di informa
 |Numero di sviluppatori|10||
 |Numero di utenti finali|100||
 |Competenze|Hadoop, Spark||
-|Numero di risorse disponibili per le attività di migrazione|2||
+|Numero di risorse disponibili per gli sforzi di migrazione|2||
 |**Argomento**: **limitazioni**|||
 |Limitazioni correnti|Latenza elevata||
 |Sfide correnti|Problema di concorrenza||
@@ -180,7 +180,7 @@ Questa sezione offre questionari modello per semplificare la raccolta di informa
 |Pipeline di dati privata e protetta?|Sì||
 |Cluster aggiunto a un dominio (ESP)?|     Sì||
 |Sincronizzazione da AD locale al cloud?|     Sì||
-|Numero di utenti di Active Directory da sincronizzare.|          100||
+|Numero di utenti AD da sincronizzare?|          100||
 |OK sincronizzare le password nel cloud?|    Sì||
 |Utenti solo cloud?|                 Sì||
 |MFA necessaria?|                       No|| 

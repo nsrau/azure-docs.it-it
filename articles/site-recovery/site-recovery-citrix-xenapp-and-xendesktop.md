@@ -1,5 +1,5 @@
 ---
-title: Configurare il ripristino di emergenza Citrix XenDesktop/XenApp con Azure Site Recovery
+title: Configurare il ripristino di emergenza Citrix XenDesktop/XenApp con Azure Site RecoverySet up Citrix XenDesktop/XenApp disaster recovery with Azure Site Recovery
 description: Questo articolo descrive come configurare il ripristino di emergenza delle distribuzioni Citrix XenDesktop e XenApp con Azure Site Recovery.
 author: ponatara
 manager: abhemraj
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
 ms.openlocfilehash: 29fbe5389da924a2ecc660aa5ce5c4bb0a0902b6
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74084546"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>Configurare il ripristino di emergenza di una distribuzione Citrix XenApp e XenDesktop multilivello
@@ -26,7 +26,7 @@ Una soluzione di ripristino di emergenza valida deve consentire la modellazione 
 Questo documento fornisce indicazioni dettagliate per la creazione di una soluzione di ripristino di emergenza per le distribuzioni Citrix XenApp locali in piattaforme Hyper-V e VMware vSphere. Questo documento illustra anche come eseguire un failover di test (esercitazione per il ripristino di emergenza) e un failover non pianificato in Azure usando piani di ripristino, configurazioni supportate e prerequisiti.
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, è necessario comprendere i concetti illustrati di seguito:
 
@@ -57,7 +57,7 @@ Per le finalità di questo articolo, sono state usate distribuzioni Citrix in ma
 **Scenario** | **In un sito secondario** | **In Azure**
 --- | --- | ---
 **Hyper-V** | Non nell'ambito | Sì
-**VMware** | Non nell'ambito | Sì
+**Vmware** | Non nell'ambito | Sì
 **Server fisico** | Non nell'ambito | Sì
 
 ### <a name="versions"></a>Versioni
@@ -156,7 +156,7 @@ Il piano di ripristino personalizzato ha un aspetto simile al seguente:
    >[!NOTE]     
    >I passaggi 4, 6 e 7 contenenti le azioni manuali o di script sono applicabili solo a un ambiente XenApp locale con cataloghi MCS/PVS.
 
-4. Gruppo 3 azione manuale o script: arrestare la macchina virtuale VDA master.
+4. Gruppo 3 Azione manuale o script: arrestare la macchina virtuale VDA master.
 Lo stato della macchina virtuale VDA master quando ne viene eseguito il failover in Azure è In esecuzione. Per creare nuovi cataloghi MCS usando l'hosting di Azure, è necessario che lo stato della VM VDA master sia Arrestato (deallocato). Arrestare la VM dal portale di Azure.
 
 5. Gruppo di failover 4: controller di distribuzione e VM del server StoreFront

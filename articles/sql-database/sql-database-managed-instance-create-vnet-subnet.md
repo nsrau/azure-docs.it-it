@@ -1,5 +1,5 @@
 ---
-title: Creare una rete virtuale per l'istanza gestita
+title: Creare una rete virtuale per l'istanza gestitaCreate a virtual network for managed instance
 description: Questo articolo descrive come creare una rete virtuale in cui è possibile distribuire Istanza gestita di database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 09/12/2019
 ms.openlocfilehash: 9f115d51657993562642391a235de79420aa434a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823368"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>Creare una rete virtuale per Istanza gestita di database SQL di Azure
@@ -34,7 +34,7 @@ Istanza gestita di database SQL di Azure deve essere distribuita all'interno di 
 >
 > Se si prevede di usare una rete virtuale esistente, è necessario modificare la configurazione di rete in base all'istanza gestita. Per altre informazioni, vedere [Configurare una rete virtuale esistente per Istanza gestita](sql-database-managed-instance-configure-vnet-subnet.md).
 >
-> Dopo la creazione di un'istanza gestita, lo stato di trasferimento dell'istanza gestita o VNet a un altro gruppo di risorse o a una sottoscrizione non è supportato.
+> Dopo la creazione di un'istanza gestita, lo spostamento dell'istanza gestita o della rete virtuale in un altro gruppo di risorse o sottoscrizione non è supportato.
 
 
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
@@ -45,7 +45,7 @@ Il modo più semplice per creare e configurare una rete virtuale è quello di us
 
 2. Selezionare il pulsante **Distribuisci in Azure**:
 
-   <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"><img src="https://azuredeploy.net/deploybutton.png" data-linktype="external"></a>
+   <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="https://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
 
    Questo pulsante apre un modulo che è possibile usare per configurare l'ambiente di rete in cui distribuire Istanza gestita.
 
@@ -60,8 +60,8 @@ Il modo più semplice per creare e configurare una rete virtuale è quello di us
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica, vedere [Informazioni su Istanza gestita](sql-database-managed-instance.md).
+- Per una panoramica, vedere [Che cos'è un'istanza gestita?](sql-database-managed-instance.md).
 - Altre informazioni sull'[architettura della connettività per l'istanza gestita](sql-database-managed-instance-connectivity-architecture.md).
 - Informazioni su come [modificare una rete virtuale esistente per Istanza gestita](sql-database-managed-instance-configure-vnet-subnet.md).
 - Per un'esercitazione che mostra come creare una rete virtuale e un'istanza gestita e ripristinare un database da un backup, vedere [Creare un'istanza gestita di database SQL di Azure](sql-database-managed-instance-get-started.md).
-- Per questioni relative al DNS, vedere [Configurazione di un DNS personalizzato](sql-database-managed-instance-custom-dns.md).
+- Per problemi relativi al DNS, vedere [Configurazione di un DNS personalizzato.](sql-database-managed-instance-custom-dns.md)

@@ -1,5 +1,5 @@
 ---
-title: Query di Reporting ad hoc su più database
+title: Query di report ad hoc in più database
 description: Eseguire query di reporting ad hoc su più database SQL in un esempio di app multi-tenant.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: craigg
 ms.reviewer: sstein
 ms.date: 10/30/2018
 ms.openlocfilehash: c0d1829c52041446b4feb43d8af262265e2680fc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822178"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Eseguire query di reporting ad hoc su più database SQL di Azure
@@ -31,9 +31,9 @@ In questa esercitazione si apprenderà:
 > * Come eseguire query distribuite su tutti i database tenant
 
 
-Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
+Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
 
-* È stata distribuita l'app SaaS di database multi-tenant Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS di database multi-tenant Wingtip Tickets](saas-multitenantdb-get-started-deploy.md)
+* È stata distribuita l'app SaaS di database multi-tenant Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione Database multi-tenant SaaS di Wingtip](saas-multitenantdb-get-started-deploy.md)
 * Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * SQL Server Management Studio (SSMS) è installato. Per scaricare e installare SSMS, vedere [Scaricare SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
@@ -58,7 +58,7 @@ Gli script e il codice sorgente dell'applicazione SaaS di database multi-tenant 
 
 Per eseguire query su un set di dati più interessante, creare i dati di vendita dei biglietti eseguendo il generatore di biglietti.
 
-1. In *PowerShell ISE* aprire lo script ...\\Learning Modules\\Operational Analytics\\Adhoc Analytics\\*Demo-AdhocAnalytics.ps1* e impostare i valori seguenti:
+1. In *PowerShell ISE* aprire lo script ...\\Learning Modules\\Operational Analytics\\Adhoc Analytics\\*Demo-AdhocReporting.ps1* e impostare i valori seguenti:
    * **$DemoScenario** = 1, **Acquistare biglietti per gli eventi in tutte le sedi**.
 2. Premere **F5** per eseguire lo script e generare i dati di vendita dei biglietti. Durante l'esecuzione dello script, è possibile continuare la procedura in questa esercitazione. I dati sui biglietti vengono recuperati nella sezione *Eseguire query distribuite ad hoc*, quindi attendere che il generatore di biglietti completi le operazioni.
 
@@ -95,7 +95,7 @@ Questo esercizio aggiunge lo schema (definizioni dell'origine dati esterna e del
 
     ![creare l'origine dati esterna](media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
-   Le tabelle esterne che fanno riferimento a tabelle tenant sono definite con **DISTRIBUTION = SHARDED(VenueId)** . Ciò consente di indirizzare una query per un particolare *VenueId* al database appropriato e di migliorare le prestazioni per molti scenari, come illustrato nella sezione successiva.
+   Le tabelle esterne che fanno riferimento a tabelle tenant sono definite con **DISTRIBUTION = SHARDED(VenueId)**. Ciò consente di indirizzare una query per un particolare *VenueId* al database appropriato e di migliorare le prestazioni per molti scenari, come illustrato nella sezione successiva.
 
     ![creare tabelle esterne](media/saas-multitenantdb-adhoc-reporting/external-tables.png)
 
@@ -150,7 +150,7 @@ In questa esercitazione si è appreso come:
 > * Eseguire query distribuite su tutti i database tenant
 > * Distribuire un database di reporting ad hoc e aggiungervi lo schema per eseguire query distribuite.
 
-Provare ora l'[esercitazione sull'analisi dei tenant](saas-multitenantdb-tenant-analytics.md) per esplorare l'estrazione dei dati in un database di analisi separato per elaborazioni analitiche più complesse.
+Eseguire ora l'[esercitazione sull'analisi dei tenant](saas-multitenantdb-tenant-analytics.md) per esaminare l'estrazione dei dati in un database di analisi separato per elaborazioni analitiche più complesse.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

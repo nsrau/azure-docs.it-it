@@ -1,35 +1,35 @@
 ---
 title: Integrazione di partner di immagini
-description: Questo articolo descrive l'integrazione del partner di immagini.
+description: Questo articolo descrive l'integrazione dei partner di immagini.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 62e5b363f8008380a61e24c0549573a30ecaeb73
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77131862"
 ---
 # <a name="imagery-partner-integration"></a>Integrazione di partner di immagini
 
-Questo articolo descrive come usare il componente Azure FarmBeats Translator per inviare dati di immagini a FarmBeats. I dati di immagini agricoli possono essere generati da varie origini, ad esempio fotocamere multispettrali, satelliti e droni. I partner di immagini agricole possono integrarsi con FarmBeats per fornire ai clienti mappe personalizzate generate per le proprie farm.
+Questo articolo descrive come usare il componente Azure FarmBeats Translator per inviare dati di immagini a FarmBeats.This article describes how to use the Azure FarmBeats Translator component to send imagery data to FarmBeats. I dati delle immagini agricole possono essere generati da varie fonti, come telecamere multispettrali, satelliti e droni. I partner di immagini agricole possono integrarsi con FarmBeats per fornire ai clienti mappe generate su misura per le loro aziende agricole.
 
-I dati, una volta disponibili, possono essere visualizzati tramite il tasto di scelta rapida FarmBeats e possono essere usati potenzialmente per la fusione dei dati e la creazione di modelli di Machine Learning/intelligenza artificiale (ML/AI) dalle aziende agricole o dagli integratori di sistemi dei clienti.
+I dati, una volta disponibili, possono essere visualizzati tramite FarmBeats Accelerator e potenzialmente utilizzati per la fusione dei dati e la creazione di modelli di machine learning/intelligenza artificiale (ML/AI) da parte di aziende agricole o integratori di sistemi clienti.
 
 FarmBeats offre la possibilità di:
 
-- Definire i tipi di immagine, l'origine e il formato di file personalizzati usando le API/ExtendedType.
-- Inserire i dati delle immagini da varie origini tramite le API/scene e/SceneFile.
+- Definire tipi di immagine personalizzati, origine e formato di file utilizzando le API /ExtendedType.Define custom image types, source, and file format by using /ExtendedType APIs.
+- Inserimento di dati di immagini da varie origini tramite le API /Scene e /SceneFile.
 
-Le informazioni seguenti sono incentrate sul recupero di qualsiasi forma di immagine nel sistema FarmBeats.
+Le seguenti informazioni si concentrano sull'ottenimento di qualsiasi forma di immagine nel sistema FarmBeats.
 
-Quando si seleziona la sezione relativa alle **Immagini drone** , viene visualizzata una finestra popup che mostra un'immagine ad alta risoluzione della orthomosaic drone. È possibile accedere al software del partner, che consente di pianificare i voli drone e ottenere dati non elaborati. Si continuerà a usare il software del partner per la pianificazione dei percorsi e il orthomosaic dell'immagine.
+Quando si seleziona la sezione **Immagini drone,** si apre un pop-up per mostrare un'immagine ad alta risoluzione dell'ortomosaico del drone. È possibile accedere al software partner, che aiuta a pianificare i voli drone e ottenere dati grezzi. Continuerai a utilizzare il software del partner per la pianificazione del percorso e l'cucitura ortomosaica delle immagini.
 
-I partner drone devono consentire ai clienti di collegare il proprio account cliente alla propria istanza di FarmBeats in Azure.
+I partner per i droni devono consentire ai clienti di collegare il proprio account cliente all'istanza FarmBeats in Azure.Drone partners need to enable customers to link their customer account with their FarmBeats instance on Azure.
 
-Per collegare FarmBeats, è necessario usare le credenziali seguenti nel software del partner drone:
+Per collegare FarmBeats, è necessario utilizzare le credenziali seguenti:
 
 - Endpoint API
 - ID tenant
@@ -38,27 +38,27 @@ Per collegare FarmBeats, è necessario usare le credenziali seguenti nel softwar
 
 ## <a name="api-development"></a>Sviluppo di API
 
-Le API contengono la documentazione tecnica di spavalderia. Per informazioni sulle API e sulle richieste o risposte corrispondenti, vedere [spavalderia](https://aka.ms/FarmBeatsDatahubSwagger).
+Le API contengono la documentazione tecnica di Swagger. Per informazioni sulle API e sulle richieste o risposte corrispondenti, vedere [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
-FarmBeats USA Microsoft Azure [Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) (Azure ad). App Azure servizio fornisce supporto predefinito per l'autenticazione e l'autorizzazione. 
+FarmBeats usa Microsoft Azure [Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) (Azure AD). Il servizio app di Azure offre il supporto incorporato per l'autenticazione e l'autorizzazione. 
 
 Per altre informazioni su Azure AD, vedere [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).   
 
-FarmBeats datahub usa l'autenticazione della porta, che richiede le credenziali seguenti:
+FarmBeats Datahub utilizza l'autenticazione di connessione, che richiede le credenziali seguenti:
 
 - ID client
 - Segreto client
 - ID tenant
 
-Usando le credenziali precedenti, il chiamante può richiedere un token di accesso, che deve essere inviato nelle richieste API successive, nella sezione header, come indicato di seguito:
+Utilizzando le credenziali precedenti, il chiamante può richiedere un token di accesso, che deve essere inviato nelle richieste API successive, nella sezione dell'intestazione, come indicato di seguito:Using the previous credentials, the caller can request an access token, which needs to be sent in the subsequent API requests, in the header section, as follows:
 
 ```
 headers = {"Authorization": "Bearer " + access_token, …} 
 ```
 
-L'esempio di codice Python seguente recupera il token di accesso. È quindi possibile usare il token per le chiamate API successive a FarmBeats.
+L'esempio di codice Python seguente recupera il token di accesso. È quindi possibile utilizzare il token per le chiamate API successive a FarmBeats.You can then use the token for subsequent API calls to FarmBeats.
 
 ```python
 from azure.common.credentials import ServicePrincipalCredentials 
@@ -79,27 +79,27 @@ access_token = token_response.get('accessToken') 
 
 ## <a name="http-request-headers"></a>Intestazioni di richiesta HTTP
 
-Di seguito sono riportate le intestazioni di richiesta più comuni che è necessario specificare quando si effettua una chiamata API a FarmBeats datahub.
+Ecco le intestazioni di richiesta più comuni che devono essere specificate quando si effettua una chiamata API a FarmBeats Datahub.
 
 **Intestazione** | **Descrizione ed esempio**
 --- | ---
-Content-Type  | Formato della richiesta (Content-Type: Application/<format>). Per le API datahub di FarmBeats, il formato è JSON. Content-Type: application/json
-Autorizzazione | Specifica il token di accesso necessario per effettuare una chiamata API. Autorizzazione: Bearer < Access-token >
-Accetta  | Formato della risposta. Per le API datahub di FarmBeats, il formato è JSON. Accept: Application/JSON
+Content-Type  | Il formato della richiesta (Content-Type: application/<format>). Per le API FarmBeats Datahub, il formato è JSON. Content-Type: application/json
+Autorizzazione | Specifica il token di accesso necessario per effettuare una chiamata API. Autorizzazione:> T-token di connessione <BearerAuthorization: Bearer Access-Token>
+Accept  | Formato della risposta. Per le API FarmBeats Datahub, il formato è JSON. Accetta: applicazione/json
 
 
 ## <a name="api-requests"></a>Richieste API
 
-Per eseguire una richiesta API REST, combinare:
+Per effettuare una richiesta di API REST, combinare:To make a REST API request, you combine:
 
-- Metodo HTTP (GET, POST e PUT).
+- Il metodo HTTP (GET, POST e PUT).
 - URL del servizio API.
 - URI della risorsa (per eseguire query, inviare dati, aggiornare o eliminare).
-- Una o più intestazioni della richiesta HTTP.
+- Una o più intestazioni di richiesta HTTP.
 
-Facoltativamente, è possibile includere i parametri di query sulle chiamate GET da filtrare, limitare le dimensioni e ordinare i dati nelle risposte.
+Facoltativamente, è possibile includere parametri di query nelle chiamate GET per filtrare, limitare le dimensioni e ordinare i dati nelle risposte.
 
-La richiesta di esempio seguente consente di ottenere l'elenco dei dispositivi:
+La richiesta di esempio seguente consiste nell'ottenere l'elenco dei dispositivi:The following sample request is to get the list of devices:
 
 ```bash
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
@@ -107,7 +107,7 @@ curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 "Authorization: Bearer <Access-Token>”
 ```
 
-Per la maggior parte delle chiamate GET, POST e PUT è necessario un corpo della richiesta JSON.
+La maggior parte delle chiamate GET, POST e PUT richiede un corpo della richiesta JSON.
 
 La richiesta di esempio seguente consiste nel creare un dispositivo. Questo esempio include un JSON di input con il corpo della richiesta.
 
@@ -122,32 +122,32 @@ curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 
 ## <a name="data-format"></a>Formato dati
 
-JSON è un formato di dati comune indipendente dal linguaggio che fornisce una semplice rappresentazione testuale di strutture di dati arbitrarie. Per altre informazioni, vedere l' [organizzazione JSON](https://JSON.org).
+JSON è un formato di dati comune indipendente dal linguaggio che fornisce una rappresentazione testuale semplice di strutture di dati arbitrari. Per altre informazioni, vedere [JSON org](https://JSON.org).
 
-## <a name="ingest-imagery-into-farmbeats"></a>Inserire immagini in FarmBeats
+## <a name="ingest-imagery-into-farmbeats"></a>Ingeri le immagini in FarmBeats
 
-Quando il partner dispone di credenziali per connettersi a FarmBeats datahub, il partner esegue i passaggi seguenti nel componente Translator.
+Dopo che il partner dispone delle credenziali per connettersi a FarmBeats Datahub, il partner esegue i passaggi seguenti nel componente Translator.
 
-1.  Creare un nuovo tipo esteso per i campi seguenti, in base al tipo di immagine da caricare:
+1.  Creare un nuovo tipo esteso per i seguenti campi, in base al tipo di immagini da caricare:
 
-    - **Origine della scena**: ad esempio, drone_partner_name
-    - **Tipo di scena**: ad esempio, drone
-    - **Tipo di file di scena**: ad esempio, indice clorofilla
-    - **Tipo di contenuto del file di scena**: ad esempio, image/TIFF
+    - **Origine scena**: Ad esempio, drone_partner_name
+    - **Tipo di scena**: Ad esempio, drone
+    - **Tipo di file scena**: Ad esempio, indice clorofilla
+    - **Tipo di contenuto del file di scena**: Ad esempio, immagine/tiff
 
-2.  Chiamare l'API/Farms per ottenere l'elenco di farm dal sistema FarmBeats di Azure.
-3.  Fornire al cliente la possibilità di scegliere una singola farm dall'elenco di farm.
+2.  Chiamare l'API /Farms per ottenere l'elenco delle farm dall'interno del sistema FarmBeats di Azure.Call the /Farms API to get the list of farms from within the Azure FarmBeats system.
+3.  Offrire al cliente la possibilità di scegliere una singola farm dall'elenco delle farm.
 
-    Il sistema partner deve mostrare la farm all'interno del software partner per eseguire la pianificazione del percorso e la raccolta di immagini e voli drone.
+    Il sistema partner deve mostrare la farm all'interno del software partner per eseguire la pianificazione del percorso e la raccolta di voli e immagini del drone.
 
-4.  Chiamare l'API/scene e fornire i dettagli necessari per creare una nuova scena con un ID scena univoco.
-5.  Ricevere un URL di firma di accesso condiviso BLOB per caricare le immagini necessarie in FarmBeats datahub nel contesto della farm scelta nel sistema FarmBeats.
+4.  Chiamare l'API /Scene e fornire i dettagli necessari per creare una nuova scena con un ID scena univoco.
+5.  Ricevere un URL di archiviazione BLOB per caricare le immagini necessarie in FarmBeats Datahub, nel contesto della farm scelta, nel sistema FarmBeats.
 
 Ecco un flusso dettagliato sulle chiamate API.
 
-### <a name="step-1-extendedtype"></a>Passaggio 1: ExtendedType
+### <a name="step-1-extendedtype"></a>Passaggio 1: ExtendedTypeStep 1: ExtendedType
 
-Archiviare l'API/ExtendedType per verificare se il tipo e l'origine file sono disponibili in FarmBeats. A tale scopo, chiamare GET sull'API/ExtendedType.
+Controllare l'API /ExtendedType per verificare se il tipo e l'origine file sono disponibili in FarmBeats. A tale scopo, chiamare un GET sull'API /ExtendedType.
 
 Di seguito sono riportati i valori definiti dal sistema:
 
@@ -331,9 +331,9 @@ Di seguito sono riportati i valori definiti dal sistema:
 }
 ```
 
-Questo passaggio è una singola installazione. L'ambito di questo nuovo tipo di scena è limitato alla sottoscrizione in cui è installato Azure FarmBeats.
+Questo passaggio è una configurazione una tantera. L'ambito di questo nuovo tipo di scena è limitato alla sottoscrizione in cui è installato Azure FarmBeats.The scope of this new scene type is limited to the subscription in which the Azure FarmBeats is installed.
 
-Ad esempio, per aggiungere SceneSource: "SlantRange", è necessario inserire l'ID dell'API/ExtendedType con il payload di input della chiave "SceneSource".
+Ad esempio, per aggiungere SceneSource: "SlantRange", si fa un PUT sull'ID dell'API /ExtendedType con la chiave "SceneSource" payload di input.
 
 ```json
 {
@@ -351,13 +351,13 @@ Ad esempio, per aggiungere SceneSource: "SlantRange", è necessario inserire l'I
 
 ```
 
-Il campo verde è la nuova aggiunta ai valori di origine della scena definiti dal sistema.
+Il campo verde è la nuova aggiunta ai valori di origine della scena definita dal sistema.
 
-### <a name="step-2-get-farm-details"></a>Passaggio 2: ottenere i dettagli della farm
+### <a name="step-2-get-farm-details"></a>Passaggio 2: Ottenere i dettagli della farmStep 2: Get farm details
 
-Le scene (file con estensione TIFF o CSV) si trovano nel contesto di una farm. Per ottenere i dettagli della farm, è necessario eseguire un'operazione GET sull'API/farm. L'API restituisce l'elenco delle farm disponibili in FarmBeats. È possibile selezionare la farm per cui si desidera inserire i dati.
+Le scene (file con estensione tiff o csv) si trovano nel contesto di una farm. È necessario ottenere i dettagli della farm eseguendo un GET nell'API /Farm. L'API restituisce l'elenco delle farm disponibili in FarmBeats. È possibile selezionare la farm per cui si desidera inserire i dati.
 
-OTTENERE la risposta/Farm:
+GET /Risposta farm:
 
 ```json
 {
@@ -403,13 +403,13 @@ OTTENERE la risposta/Farm:
 }
  ```
 
-### <a name="step-3-create-a-scene-id-post-call"></a>Passaggio 3: creare un ID scena (POST-chiamata)
+### <a name="step-3-create-a-scene-id-post-call"></a>Passaggio 3: Creare un ID scena (chiamata POST)
 
-Creare una nuova scena (file con estensione TIFF o CSV) con le informazioni fornite, che forniscono la data, la sequenza e l'ID della farm a cui è associata la scena. I metadati associati alla scena possono essere definiti in proprietà, che include la durata e il tipo di misura.
+Creare una nuova scena (file con estensione tiff o csv) con le informazioni fornite, che fornisce la data, la sequenza e l'ID della farm a cui è associata la scena. I metadati associati alla scena possono essere definiti in proprietà, che includono la durata e il tipo di misura.
 
-Con la creazione di una nuova scena viene creato un nuovo ID di scena, associato alla farm. Dopo aver creato l'ID della scena, l'utente può usare lo stesso per creare un nuovo file (con estensione TIFF o CSV) e archiviare il contenuto del file.
+La creazione di una nuova scena crea un nuovo ID scena, associato alla farm. Dopo aver creato l'ID scena, l'utente può utilizzare lo stesso per creare un nuovo file (.tiff o .csv) e memorizzare il contenuto del file.
 
-Payload di input di esempio per la chiamata POST sull'API/scene:
+Esempio di payload di input per la chiamata POST sull'API /Scene:Example input payload for the POST call on the /Scene API:
 
 ```json
 {
@@ -447,11 +447,11 @@ Risposta API:
 
 **Creare un file di scena**
 
-L'ID scena restituito nel passaggio 3 è l'input per il file della scena. Il file della scena restituisce un token URL di firma di accesso condiviso, che è valido per 24 ore.
+L'ID scena restituito nel passaggio 3 è l'input per il file di scena. Il file di scena restituisce un token URL di firma di accesso condiviso, valido per 24 ore.
 
-Se l'utente richiede una modalità a livello di codice per il caricamento di un flusso di immagini, è possibile usare l'SDK dell'archiviazione BLOB per definire un metodo usando l'ID, la posizione e l'URL del file della scena.
+Se l'utente richiede un modo a livello di codice per caricare un flusso di immagini, l'SDK di archiviazione BLOB può essere usato per definire un metodo usando l'ID, il percorso e l'URL del file di scena.
 
-Payload di input di esempio per la chiamata POST sull'API/SceneFile:
+Esempio di payload di input per la chiamata POST sull'API /SceneFile:Example input payload for the POST call on the /SceneFile API:
 
 ```json
 {
@@ -487,9 +487,9 @@ Risposta API:
 
 ```
 
-La chiamata POST all'API/SceneFile restituisce un URL di caricamento della firma di accesso condiviso, che può essere usato per caricare il file CSV o TIFF usando la libreria o il client di archiviazione BLOB di Azure.
+La chiamata POST all'API /SceneFile restituisce un URL di caricamento SAS, che può essere usato per caricare il file CSV o tiff usando la libreria o il client di archiviazione BLOB di Azure.The POST call to the /SceneFile API returns an SAS upload URL, which can be used to upload the .csv or .tiff file by using the Azure Blob storage client or library.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sui dettagli di integrazione basata sull'API REST, vedere [API REST](rest-api-in-azure-farmbeats.md).
+Per altre informazioni sui dettagli di integrazione basata su API REST, vedere [API REST.](rest-api-in-azure-farmbeats.md)

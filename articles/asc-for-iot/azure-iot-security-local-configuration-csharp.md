@@ -1,6 +1,6 @@
 ---
-title: Informazioni sul centro sicurezza di Azure per il file di configurazione locale C# dell'agente di sicurezza Internet per | Microsoft Docs
-description: Scopri di più sul centro sicurezza di Azure per il servizio di sicurezza di Internet delle cose, C#il file di configurazione locale dell'agente di sicurezza per
+title: Informazioni sul file di configurazione locale dell'agente di sicurezza di Azure per l'IoT per C. Documenti Microsoft
+description: Altre informazioni sul Centro sicurezza di Azure per il servizio di sicurezza IoT, il file di configurazione locale dell'agente di sicurezza per C.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,51 +16,51 @@ ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 0172ada68ffa652fb0c301c89238beca4f4ce2f9
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74664195"
 ---
-# <a name="understanding-the-local-configuration-file-c-agent"></a>Informazioni sul file di configurazione localeC# (Agent)
+# <a name="understanding-the-local-configuration-file-c-agent"></a>Informazioni sul file di configurazione locale (agente C
 
 
-Il Centro sicurezza di Azure per l'agente sicurezza Internet usa le configurazioni di un file di configurazione locale.
+Il Security Agent di Azure Security Center per IoT usa le configurazioni di un file di configurazione locale.
 
-L'agente di sicurezza legge il file di configurazione una volta all'avvio dell'agente. Le configurazioni disponibili nel file di configurazione locale contengono sia la configurazione dell'autenticazione che altre configurazioni correlate agli agenti.
+L'agente di sicurezza legge il file di configurazione una volta all'avvio dell'agente. Le configurazioni disponibili nel file di configurazione locale contengono sia la configurazione di autenticazione che altre configurazioni correlate all'agente.
 
-L' C# agente sicurezza usa più file di configurazione:
+L'agente di sicurezza di C'è utilizza più file di configurazione:The C's security agent uses multiple configuration files:
 
-- **General. config** : configurazioni correlate agli agenti.
-- **Authentication. config** : configurazione correlata all'autenticazione (inclusi i dettagli di autenticazione).
-- Configurazioni relative a **SecurityIotInterface. config** -Internet.
+- **General.config** - Configurazioni correlate all'agente.
+- **Authentication.config-** Configurazione correlata all'autenticazione (inclusi i dettagli di autenticazione).
+- **SecurityIotInterface.config** - Configurazioni correlate all'IoT.SecurityIotInterface.config - IoT related configurations.
 
-I file di configurazione contengono la configurazione predefinita. La configurazione dell'autenticazione viene popolata durante l'installazione dell'agente e le modifiche apportate al file di configurazione vengono eseguite quando l'agente viene riavviato. 
+I file di configurazione contengono la configurazione predefinita. La configurazione dell'autenticazione viene popolata durante l'installazione dell'agente e le modifiche al file di configurazione vengono apportate al riavvio dell'agente. 
 
 ## <a name="configuration-file-location"></a>Percorso del file di configurazione
 Per Linux:
-- I file di configurazione del sistema operativo si trovano in `/var/ASCIoTAgent`.
+- I file di configurazione `/var/ASCIoTAgent`del sistema operativo si trovano in .
 
 Per Windows:
-- I file di configurazione del sistema operativo si trovano all'interno della directory dell'agente sicurezza. 
+- I file di configurazione del sistema operativo si trovano all'interno della directory dell'agente di protezione. 
 
-### <a name="generalconfig-configurations"></a>Configurazioni generali. config
+### <a name="generalconfig-configurations"></a>Configurazioni General.config
 
-| Nome configurazione | Valori possibili | Dettagli | 
+| Nome della configurazione | Valori possibili | Dettagli | 
 |:-----------|:---------------|:--------|
-| agentId | GUID | Identificatore univoco agente |
-| readRemoteConfigurationTimeout | Intervallo di tempo | Periodo di tempo per il recupero della configurazione remota dall'hub Internet. Se l'agente non è in grado di recuperare la configurazione entro il tempo specificato, l'operazione si timeout.|
-| schedulerInterval | Intervallo di tempo | Intervallo di pianificazione interno. |
-| producerInterval | Intervallo di tempo | Intervallo di lavoro Producer di eventi. |
-| consumerInterval | Intervallo di tempo | Intervallo di lavoro consumer evento. |
-| highPriorityQueueSizePercentage | 0 < numero < 1 | Parte della cache totale dedicata per i messaggi con priorità alta. |
-| logLevel | "Off", "Fatal", "Error", "Warning", "Information", "debug"  | I messaggi di log uguali e superiori a questa gravità vengono registrati nella console di debug (syslog in Linux). |
-| fileLogLevel |  "Off", "Fatal", "Error", "Warning", "Information", "debug"| I messaggi di log uguali e superiori a questa gravità vengono registrati nel file (syslog in Linux). |
-| diagnosticVerbosityLevel | "None", "some", "All", | Livello di dettaglio degli eventi di diagnostica. None: gli eventi di diagnostica non vengono inviati, vengono inviati solo alcuni eventi di diagnostica con priorità elevata, tutti i log vengono inviati anche come eventi di diagnostica. |
-| logFilePath | Percorso del file | Se fileLogLevel > off, i log vengono scritti in questo file. |
-| defaultEventPriority | "High", "low", "off" | Priorità evento predefinita. |
+| agentId | GUID | Identificatore univoco dell'agenteAgent unique identifier |
+| readRemoteConfigurationTimeout (informazioni in base al servizio di windows) | TimeSpan | Periodo di tempo per il recupero della configurazione remota dall'hub IoT. Se l'agente non è in grado di recuperare la configurazione entro il tempo specificato, si stimerà l'operazione.|
+| schedulerInterval (intervallo di pianificazione) | TimeSpan | Intervallo dell'utilità di pianificazione interna. |
+| producerInterval (intervallo) | TimeSpan | Intervallo di lavoro del produttore di eventi. |
+| ConsumerInterval | TimeSpan | Intervallo di lavoro del consumer di eventi. |
+| highPriorityQueueSizePercentage | 0 numero < < 1 | Parte della cache totale dedicata ai messaggi con priorità alta. |
+| logLevel | "Off", "Fatal", "Error", "Warning", "Information", "Debug"  | I messaggi di log uguali e superiori a questa gravità vengono registrati nella console di debug (Syslog in Linux). |
+| fileLogLevel (livello di registro) |  "Off", "Fatal", "Error", "Warning", "Information", "Debug"| I messaggi di log uguali e superiori a questa gravità vengono registrati nel file (Syslog in Linux). |
+| diagnosticVerbosityLevel | "Nessuno", "Alcuni", "Tutti", | Livello di verbosità degli eventi di diagnostica. Nessuno - gli eventi di diagnostica non vengono inviati, Alcuni - Solo gli eventi di diagnostica con priorità alta vengono inviati, Tutti - tutti i log vengono inviati anche come eventi di diagnostica. |
+| logFilePercorso | Percorso del file | Se fileLogLevel > Off, i registri vengono scritti in questo file. |
+| defaultEventPriority (Prioritàevento predefinita) | "Alto", "Basso", "Disattivato" | Priorità predefinita dell'evento. |
 
-### <a name="generalconfig-example"></a>Esempio generale. config
+### <a name="generalconfig-example"></a>Esempio General.config
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
 <General>
@@ -78,22 +78,22 @@ Per Windows:
 </General>
 ```
 
-### <a name="authenticationconfig"></a>Authentication. config
+### <a name="authenticationconfig"></a>Authentication.config
 
 | Nome configurazione | Valori possibili | Dettagli | 
 |:-----------|:---------------|:--------|
 | moduleName | string | Nome dell'identità del modulo di sicurezza. Questo nome deve corrispondere al nome dell'identità del modulo nel dispositivo. |
-| deviceId | string | ID del dispositivo, registrato nell'hub Azure. || schedulerInterval | Stringa TimeSpan | Intervallo di pianificazione interno. |
-| gatewayHostname | string | Nome host dell'hub Azure. In genere < > My-Hub. Azure-devices.net |
-| filePath | stringa-percorso del file | Percorso del file che contiene il segreto di autenticazione.|
-| type | "SelfSignedCertificate" | Il segreto utente per l'autenticazione. Scegliere dise il segreto utente è una chiave simmetrica, scegliere il *certificato autofirmato* *se il* segreto è un certificato autofirmato. |
-| identità | "DPS", "Module", "Device" | Identity di autenticazione: DPS se l'autenticazione viene eseguita tramite DPS, modulo se l'autenticazione viene eseguita usando le credenziali del modulo o il dispositivo se l'autenticazione viene eseguita usando le credenziali del dispositivo.
+| deviceId | string | ID del dispositivo (come registrato nell'hub IoT di Azure). || schedulerInterval (intervallo di pianificazione) | Stringa TimeSpan | Intervallo dell'utilità di pianificazione interna. |
+| gatewayNome host | string | Nome host dell'hub Iot di Azure. In genere <my-hub>.azure-devices.net |
+| filePath | string - percorso del file | Percorso del file che contiene il segreto di autenticazione.|
+| type | "SymmetricKey", "SelfSignedCertificate" | Segreto utente per l'autenticazione. Scegliere *SymmetricKey* se il segreto utente è una chiave simmetrica, scegliere *il certificato autofirmato* se il segreto è un certificato autofirmato. |
+| identity | "DPS", "Modulo", "Dispositivo" | Identità di autenticazione: DPS se l'autenticazione viene eseguita tramite DPS, Module se l'autenticazione viene eseguita utilizzando le credenziali del modulo o il dispositivo se l'autenticazione viene eseguita utilizzando le credenziali del dispositivo.
 | certificateLocationKind |  "LocalFile", "Store" | LocalFile se il certificato è archiviato in un file, archiviare se il certificato si trova in un archivio certificati. |
-| idScope | string | Ambito ID di DPS |
-| registrationId | string  | ID registrazione dispositivo DPS. |
+| idScope (contenitore per i documenti | string | Ambito ID di DPS |
+| registrationId (id registrazione) | string  | ID di registrazione del dispositivo DPS. |
 |
 
-### <a name="authenticationconfig-example"></a>Esempio di Authentication. config
+### <a name="authenticationconfig-example"></a>Esempio Authentication.config
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
 <Authentication>
@@ -108,14 +108,14 @@ Per Windows:
   <add key="registrationId" value="d1"/>
 </Authentication>
 ```
-### <a name="securityiotinterfaceconfig"></a>SecurityIotInterface. config
+### <a name="securityiotinterfaceconfig"></a>SecurityIotInterface.config (informazioni in lingua inlingua sconosciuta)
 
-| Nome configurazione | Valori possibili | Dettagli | 
+| Nome della configurazione | Valori possibili | Dettagli | 
 |:-----------|:---------------|:--------|
-| transportType | "Ampq" "MQTT" | Tipo trasporto hub Internet. |
+| transportType (tipo di trasporto) | "Ampq" "Mqtt" | Tipo di trasporto Hub IoT. |
 |
 
-### <a name="securityiotinterfaceconfig-example"></a>Esempio di SecurityIotInterface. config
+### <a name="securityiotinterfaceconfig-example"></a>Esempio SecurityIotInterface.config
 ```XML
 <ExternalInterface>
   <add key="facadeType"  value="Microsoft.Azure.Security.IoT.Agent.Common.SecurityIoTHubInterface, Security.Common" />
@@ -124,10 +124,10 @@ Per Windows:
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Leggi il Centro sicurezza di Azure per [informazioni generali](overview.md) sul servizio Internet
-- Scopri di più sul centro sicurezza di Azure per l' [architettura dell'it](architecture.md)
-- Abilitare il Centro sicurezza di Azure per il [servizio](quickstart-onboard-iot-hub.md) Internet delle cose
-- Leggi le [domande frequenti](resources-frequently-asked-questions.md) sul servizio del Centro sicurezza di Azure per le cose
+- Leggi la [panoramica](overview.md) del Centro sicurezza di Azure per il servizio IoT
+- Altre informazioni sul Centro sicurezza di Azure per l'architettura IoTLearn more about Azure Security Center for IoT [Architecture](architecture.md)
+- Abilitare il Centro sicurezza di Azure per il servizio IoTEnable the Azure Security Center for IoT [service](quickstart-onboard-iot-hub.md)
+- Leggere le [domande frequenti](resources-frequently-asked-questions.md) sul Centro sicurezza di Azure per il servizio IoTRead the Azure Security Center for IoT service FAQ
 - Informazioni su come accedere a [dati non elaborati sulla sicurezza](how-to-security-data-access.md)
 - Informazioni sulle [raccomandazioni](concept-recommendations.md)
-- Informazioni sugli [avvisi](concept-security-alerts.md) di sicurezza
+- Comprendere gli avvisi di sicurezzaUnderstand security [alerts](concept-security-alerts.md)

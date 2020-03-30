@@ -1,5 +1,5 @@
 ---
-title: Pianificazione degli eventi di manutenzione di Azure
+title: Pianificazione degli eventi di manutenzione di AzurePlanning for Azure maintenance events
 description: Informazioni sulle attività preliminari per gli eventi di manutenzione pianificata per il database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: aamalvea
 ms.reviewer: carlrab
 ms.date: 01/30/2019
 ms.openlocfilehash: ba882176fbe17f7b74c786f421dde8fadd58d9b7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73821309"
 ---
 # <a name="planning-for-azure-maintenance-events-in-azure-sql-database"></a>Pianificazione di eventi di manutenzione di Azure nel database SQL di Azure
@@ -28,7 +28,7 @@ Per ogni database, il database SQL di Azure gestisce un quorum di repliche di da
 
 ## <a name="what-to-expect-during-a-planned-maintenance-event"></a>Esecuzione di un evento di manutenzione pianificata
 
-Le riconfigurazioni/failover terminano in genere entro 30 secondi, la media è di 8 secondi. Se è già connessa, l'applicazione deve riconnettersi alla copia integra della nuova replica primaria del database. Se viene tentata una nuova connessione mentre il database è in fase di riconfigurazione prima che la nuova replica primaria sia online, viene ricevuto l'errore 40613 (database non disponibile): "il database ' {DatabaseName}' nel server ' {ServerName}' non è attualmente disponibile. Eseguire nuovamente la connessione in un secondo momento." Se il database ha una query con esecuzione prolungata, questa verrà interrotta durante una riconfigurazione e dovrà essere riavviata.
+Le riconfigurazioni/failover terminano in genere entro 30 secondi, la media è di 8 secondi. Se è già connessa, l'applicazione deve riconnettersi alla copia integra della nuova replica primaria del database. Se viene tentata una nuova connessione mentre il database è in fase di riconfigurazione prima che la nuova replica primaria sia in linea, viene visualizzato l'errore 40613 (Database non disponibile): "Il database ''nomedatabase'' sul server ''nomeserver'' non è attualmente disponibile. Eseguire nuovamente la connessione in un secondo momento." Se il database ha una query con esecuzione prolungata, questa verrà interrotta durante una riconfigurazione e dovrà essere riavviata.
 
 ## <a name="retry-logic"></a>Logica di ripetizione dei tentativi
 

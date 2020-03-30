@@ -1,6 +1,6 @@
 ---
-title: Terminazione SSL con certificati Azure Key Vault
-description: Informazioni su come integrare applicazione Azure gateway con Key Vault per i certificati del server collegati ai listener abilitati per HTTPS.
+title: Terminazione SSL con i certificati dell'insieme di chiavi di AzureSSL termination with Azure Key Vault certificates
+description: Informazioni su come integrare il gateway applicazione di Azure con l'insieme delle chiavi per i certificati server collegati ai listener abilitati per HTTPS.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,53 +8,53 @@ ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
 ms.openlocfilehash: 5633dd7b72f4de22cd34b7d093e8ec4d9cb411f1
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77137692"
 ---
 # <a name="ssl-termination-with-key-vault-certificates"></a>Terminazione SSL con certificati Key Vault
 
-[Azure Key Vault](../key-vault/key-vault-overview.md) è un archivio segreto gestito dalla piattaforma che è possibile usare per proteggere i segreti, le chiavi e i certificati SSL. Applicazione Azure gateway supporta l'integrazione con Key Vault per i certificati del server collegati ai listener abilitati per HTTPS. Questo supporto è limitato allo SKU V2 del gateway applicazione.
+[L'insieme](../key-vault/key-vault-overview.md) di credenziali delle chiavi di Azure è un archivio segreto gestito dalla piattaforma che è possibile usare per proteggere segreti, chiavi e certificati SSL. Il gateway applicazione di Azure supporta l'integrazione con Key Vault per i certificati server collegati a listener abilitati per HTTPS. Questo supporto è limitato allo SKU v2 del gateway applicazione.
 
 L'integrazione di Key Vault offre due modelli per la terminazione SSL:
 
-- È possibile specificare in modo esplicito i certificati SSL collegati al listener. Questo modello rappresenta il modo tradizionale per passare i certificati SSL al gateway applicazione per la terminazione SSL.
-- È possibile specificare facoltativamente un riferimento a un certificato o un segreto Key Vault esistente quando si crea un listener abilitato per HTTPS.
+- È possibile fornire in modo esplicito i certificati SSL associati al listener. Questo modello è il modo tradizionale per passare certificati SSL al gateway applicazione per la terminazione SSL.
+- Facoltativamente, è possibile fornire un riferimento a un certificato o segreto dell'insieme di credenziali delle chiavi esistente quando si crea un listener abilitato per HTTPS.
 
 L'integrazione del gateway applicazione con Key Vault offre molti vantaggi, tra cui:
 
-- Maggiore sicurezza, perché i certificati SSL non sono gestiti direttamente dal team di sviluppo di applicazioni. L'integrazione consente a un team di sicurezza separato di:
+- Maggiore sicurezza, poiché i certificati SSL non vengono gestiti direttamente dal team di sviluppo delle applicazioni. L'integrazione consente a un team di sicurezza separato di:
   * Configurare i gateway applicazione.
-  * Controllare i cicli di vita del gateway applicazione.
+  * Controlla i cicli di vita dei gateway applicativi.
   * Concedere le autorizzazioni ai gateway applicazione selezionati per accedere ai certificati archiviati nell'insieme di credenziali delle chiavi.
-- Supporto per l'importazione di certificati esistenti nell'insieme di credenziali delle chiavi. In alternativa, è possibile usare Key Vault API per creare e gestire nuovi certificati con i partner Key Vault attendibili.
+- Supporto per l'importazione di certificati esistenti nell'insieme di credenziali delle chiavi. In alternativa, utilizzare le API dell'insieme di credenziali delle chiavi per creare e gestire nuovi certificati con uno dei partner trusted dell'insieme di credenziali delle chiavi.
 - Supporto per il rinnovo automatico dei certificati archiviati nell'insieme di credenziali delle chiavi.
 
-Il gateway applicazione supporta attualmente solo certificati convalidati per il software. Modulo di protezione hardware (HSM): i certificati convalidati non sono supportati. Dopo la configurazione del gateway applicazione per l'uso di certificati Key Vault, le relative istanze recuperano il certificato da Key Vault e le installano localmente per la terminazione SSL. Anche le istanze eseguono il polling Key Vault a intervalli di 24 ore per recuperare una versione rinnovata del certificato, se esistente. Se viene trovato un certificato aggiornato, il certificato SSL attualmente associato al listener HTTPS viene ruotato automaticamente.
+Il gateway applicazione supporta attualmente solo certificati convalidati dal software. I certificati convalidati dal modulo di sicurezza hardware (HSM) non sono supportati. Dopo aver configurato il gateway applicazione per l'utilizzo dei certificati dell'insieme di credenziali delle chiavi, le relative istanze recuperano il certificato dall'insieme di credenziali delle chiavi e li installano in locale per la terminazione SSL. Le istanze eseguono inoltre il polling dell'insieme delle chiavi a intervalli di 24 ore per recuperare una versione rinnovata del certificato, se esistente. Se viene trovato un certificato aggiornato, il certificato SSL attualmente associato al listener HTTPS viene ruotato automaticamente.
 
 > [!NOTE]
-> Il portale di Azure supporta solo certificati dell'insieme di credenziali delle chiavi, non segreti. Il gateway applicazione supporta ancora i segreti di riferimento da un insieme di credenziali delle chiavi, ma solo tramite risorse non del portale come PowerShell, CLI, API, modelli ARM e così via. 
+> Il portale di Azure supporta solo i certificati KeyVault, non i segreti. Il gateway applicazione supporta ancora i segreti di riferimento da KeyVault, ma solo tramite risorse non portale come PowerShell, CLI, API, modelli ARM e così via. 
 
 ## <a name="how-integration-works"></a>Funzionamento dell'integrazione
 
-L'integrazione del gateway applicazione con Key Vault richiede un processo di configurazione in tre passaggi:
+L'integrazione del gateway applicazione con Key Vault richiede un processo di configurazione in tre passaggi:Application Gateway integration with Key Vault requires a three-step configuration process:
 
-1. **Creare un'identità gestita assegnata dall'utente**
+1. **Creare un'identità gestita assegnata dall'utenteCreate a user-assigned managed identity**
 
-   Si crea o si riutilizza un'identità gestita assegnata dall'utente esistente, che il gateway applicazione usa per recuperare i certificati da Key Vault per conto dell'utente. Per altre informazioni, vedere [Informazioni sulle identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md). Questo passaggio consente di creare una nuova identità nel tenant Azure Active Directory. L'identità è considerata attendibile dalla sottoscrizione usata per creare l'identità.
+   Si crea o si riutilizza un'identità gestita assegnata dall'utente esistente, utilizzata dal gateway applicazione per recuperare i certificati dall'insieme di credenziali delle chiavi per conto dell'utente. Per altre informazioni, vedere [Che cos'è l'identità gestita per le risorse](../active-directory/managed-identities-azure-resources/overview.md)di Azure? . Questo passaggio consente di creare una nuova identità nel tenant di Azure Active Directory.This step creates a new identity in the Azure Active Directory tenant. L'identità è considerata attendibile dalla sottoscrizione usata per creare l'identità.
 
 1. **Configurare l'insieme di credenziali delle chiavi**
 
-   È quindi possibile importare un certificato esistente o crearne uno nuovo nell'insieme di credenziali delle chiavi. Il certificato verrà usato dalle applicazioni che vengono eseguite tramite il gateway applicazione. In questo passaggio, è anche possibile usare un segreto dell'insieme di credenziali delle chiavi archiviato come file PFX codificato in base 64 senza password. È consigliabile usare un tipo di certificato a causa della funzionalità di rinnovo automatico disponibile con gli oggetti tipo di certificato nell'insieme di credenziali delle chiavi. Dopo aver creato un certificato o un segreto, è necessario definire i criteri di accesso nell'insieme di credenziali delle chiavi per consentire all'identità di concedere *l'accesso al* segreto.
+   È quindi possibile importare un certificato esistente o crearne uno nuovo nell'insieme di credenziali delle chiavi. Il certificato verrà utilizzato dalle applicazioni eseguite tramite il gateway applicazione. In questo passaggio è anche possibile usare un segreto dell'insieme di credenziali delle chiavi archiviato come file PFX con codifica 64 senza password. È consigliabile usare un tipo di certificato a causa della funzionalità di rinnovo automatico disponibile con gli oggetti di tipo di certificato nell'insieme di credenziali delle chiavi. Dopo aver creato un certificato o un segreto, definire i criteri di accesso nell'insieme di credenziali delle chiavi per consentire all'identità di *ottenere* l'accesso al segreto.
 
 1. **Configurare il gateway applicazione**
 
-   Dopo aver completato i due passaggi precedenti, è possibile impostare o modificare un gateway applicazione esistente per usare l'identità gestita assegnata dall'utente. È anche possibile configurare il certificato SSL del listener HTTP in modo che punti all'URI completo del certificato Key Vault o dell'ID segreto.
+   Dopo aver completato i due passaggi precedenti, è possibile configurare o modificare un gateway applicazione esistente per l'utilizzo dell'identità gestita assegnata dall'utente. È inoltre possibile configurare il certificato SSL del listener HTTP in modo che punti all'URI completo del certificato dell'insieme di credenziali delle chiavi o dell'ID segreto.
 
-   ![Certificati di Key Vault](media/key-vault-certs/ag-kv.png)
+   ![Certificati dell'insieme di credenziali delle chiaviKey vault certificates](media/key-vault-certs/ag-kv.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Configurare la terminazione SSL con Key Vault certificati utilizzando Azure PowerShell](configure-keyvault-ps.md)
+[Configurare la terminazione SSL con i certificati dell'insieme di chiavi tramite Azure PowerShellConfigure SSL termination with Key Vault certificates by using Azure PowerShell](configure-keyvault-ps.md)

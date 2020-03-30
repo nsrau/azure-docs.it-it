@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 ms.date: 12/18/2018
 ms.openlocfilehash: c589d9619da8b5150d0fb4752625571c48393552
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73826374"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Analisi su più tenant con dati estratti in un'app a singolo tenant
@@ -24,7 +24,7 @@ Questa esercitazione illustra in dettaglio uno scenario di analisi completo per 
 
 1.  **Estrarre** i dati dal database di ogni tenant e **caricarli** in un archivio di analisi.
 2.  **Trasformare i dati estratti** per l'elaborazione dell'analisi.
-3.  Usare strumenti di **business intelligence** per ottenere informazioni dettagliate utili su cui basare il processo decisionale. 
+3.  Utilizzare gli strumenti di **business intelligence** per ottenere informazioni utili, che possono guidare il processo decisionale. 
 
 In questa esercitazione si apprenderà come:
 
@@ -70,7 +70,7 @@ Per completare questa esercitazione, verificare che siano soddisfatti i prerequi
 
 - È stata distribuita l'applicazione SaaS di database per tenant Wingtip Tickets. Per distribuire in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS Wingtip](saas-dbpertenant-get-started-deploy.md)
 - Gli script e il [codice sorgente](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) dell'applicazione SaaS di database per tenant Wingtip Tickets sono stati scaricati da GitHub. Vedere le istruzioni di download. Assicurarsi di *sbloccare il file ZIP* prima di estrarne il contenuto. Leggere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets.
-- Power BI Desktop è installato. Scaricare [Power BI Desktop](https://powerbi.microsoft.com/downloads/).
+- Power BI Desktop è installato. [Scarica Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - È stato effettuato il provisioning del batch di tenant aggiuntivi. Vedere l'[**esercitazione sul provisioning di tenant**](saas-dbpertenant-provision-and-catalog.md).
 - Sono stati creati un account per i processi e un database di tale account. Vedere la procedura appropriata nell'[**esercitazione sulla gestione dello schema**](saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
@@ -79,7 +79,7 @@ Per completare questa esercitazione, verificare che siano soddisfatti i prerequi
 In questa esercitazione viene eseguita un'analisi sui dati relativi alle vendite di biglietti. In questo passaggio si generano i dati relativi ai biglietti per tutti i tenant.  Successivamente, questi dati verranno estratti per l'analisi. *Assicurarsi di aver effettuato il provisioning del batch di tenant come descritto in precedenza, per avere una quantità significativa di dati*. Una quantità sufficientemente elevata di dati può esporre vari modelli diversi di acquisto dei biglietti.
 
 1. In PowerShell ISE aprire *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* e impostare il valore seguente:
-    - **$DemoScenario** = **1** (acquisto di biglietti per gli eventi in tutte le sedi)
+    - **$DemoScenario** = **1** Acquistare biglietti per eventi in tutte le sedi
 2. Premere **F5** per eseguire lo script e creare la cronologia di acquisto dei biglietti per ogni evento in ogni sede.  Lo script viene eseguito per diversi minuti per generare decine di migliaia di biglietti.
 
 ### <a name="deploy-the-analytics-store"></a>Distribuire l'archivio di analisi
@@ -88,19 +88,19 @@ Spesso tutti i dati dei tenant sono contenuti in numerosi database transazionali
 Nei passaggi seguenti si distribuiscono l'archivio di analisi, denominato **tenantanalytics**, e le tabelle predefinite che verranno popolate più avanti nell'esercitazione:
 1. In PowerShell ISE aprire *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1*. 
 2. Impostare la variabile $DemoScenario nello script in base all'archivio di analisi scelto:
-    - Per usare un database SQL senza columnstore, impostare **$DemoScenario** = **2**
-    - Per usare un database SQL con columnstore, impostare **$DemoScenario** = **3**  
-3. Premere **F5** per eseguire lo script demo (che chiama lo script *Deploy-TenantAnalytics\<XX >. ps1* ) che crea l'archivio di analisi dei tenant. 
+    - Per utilizzare il database SQL senza archivio colonne, impostare $DemoScenario**2To** use SQL database without column store, set **$DemoScenario** = 2
+    - Per usare il database SQL con l'archivio colonne, impostare $DemoScenario**3To** use SQL database with column store, set **$DemoScenario** = 3  
+3. Premere **F5** per eseguire lo script demo (che chiama lo script *Deploy-TenantAnalytics\<XX>.ps1)* che crea l'archivio di analisi tenant. 
 
-Ora che l'applicazione è stata distribuita e è stata compilata con dati del tenant interessanti, usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettere **Tenants1-&lt;utente&gt;** e **Catalog--&lt;utente&gt;** server utilizzando login = *Developer*, password = *P\@ssword1*. Per altre indicazioni, vedere l'[esercitazione introduttiva](saas-dbpertenant-wingtip-app-overview.md).
+Dopo aver distribuito l'applicazione e averla riempita con dati di tenant interessanti, utilizzare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettere i server utente **tenants1-dpt-&lt;User&gt; ** e **catalog-dpt-&lt;&gt; ** utilizzando i server utente Login , *Developer*, Password e *P\@ssword1*. Per altre indicazioni, vedere l'[esercitazione introduttiva](saas-dbpertenant-wingtip-app-overview.md).
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
 In Esplora oggetti seguire questa procedura:
 
-1. Espandere il server *tenants1-dpt-&lt;Utente&gt;* .
+1. Espandere il server *tenants1-dpt-&lt;Utente&gt;*.
 2. Espandere il nodo Database per visualizzare l'elenco dei database dei tenant.
-3. Espandere il server *catalog-dpt-&lt;Utente&gt;* .
+3. Espandere il server *catalog-dpt-&lt;Utente&gt;*.
 4. Verificare che vengano visualizzati l'archivio di analisi e il database jobaccount.
 
 Visualizzare gli elementi di database seguenti in Esplora oggetti di SSMS espandendo il nodo dell'archivio di analisi:
@@ -159,7 +159,7 @@ In questa sezione dell'esercitazione si definisce e si esegue un processo che un
 
 ![shredding](media/saas-tenancy-tenant-analytics/shreddingJob.PNG)
 
-## <a name="data-exploration"></a>Esplorazione dei dati
+## <a name="data-exploration"></a>Esplorazione dati
 
 ### <a name="visualize-tenant-data"></a>Visualizzare i dati dei tenant
 
@@ -168,19 +168,19 @@ I dati nella tabella dello schema star includono tutti i dati relativi alle vend
 Seguire questa procedura per connettersi a Power BI e importare le viste create in precedenza:
 
 1. Avviare Power BI Desktop.
-2. Nella barra multifunzione Home selezionare **Recupera dati** e scegliere **Altro** dal menu.
+2. Nella barra multifunzione Home selezionare **Recupera dati** e scegliere **Altro**  dal menu.
 3. Nella finestra **Recupera dati** selezionare il database SQL di Azure.
 4. Nella finestra di accesso al database immettere il nome del server, ossia catalog-dpt-&lt;Utente&gt;.database.windows.net. Selezionare **Importa** come **Modalità Connettività dati** e quindi fare clic su OK. 
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Selezionare **database** nel riquadro sinistro, quindi immettere nome utente = *Developer*e immettere password = *P\@ssword1*. Fare clic su **Connetti**.  
+5. Selezionare **Database** nel riquadro sinistro, quindi immettere il nome utente , *lo sviluppatore*e immettere la password , *P\@ssword1*. Fare clic su **Connetti**.  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
 6. Nel riquadro **Strumento di navigazione** selezionare le tabelle dello schema star fact_Tickets, dim_Events, dim_Venues, dim_Customers e dim_Dates nel database di analisi. Selezionare quindi **Carica**. 
 
-Congratulazioni. Il caricamento dei dati in Power BI è stato completato. È ora possibile iniziare a esplorare visualizzazioni interessanti per ottenere informazioni dettagliate sui tenant. Successivamente verrà illustrato in dettaglio come l'analisi consenta al team aziendale di Wingtip Tickets di offrire raccomandazioni basate sui dati che saranno utili per ottimizzare il modello aziendale e l'esperienza dei clienti.
+Congratulazioni! Il caricamento dei dati in Power BI è stato completato. È ora possibile iniziare a esplorare visualizzazioni interessanti per ottenere informazioni dettagliate sui tenant. Successivamente verrà illustrato in dettaglio come l'analisi consenta al team aziendale di Wingtip Tickets di offrire raccomandazioni basate sui dati che saranno utili per ottimizzare il modello aziendale e l'esperienza dei clienti.
 
 Per iniziare, si analizzano i dati relativi alle vendite di biglietti per individuare la variazione nell'utilizzo tra le diverse sedi. Selezionare le opzioni seguenti in Power BI per tracciare un grafico a barre del numero totale di biglietti venduti da ogni sede. A causa della variazione casuale nel generatore di biglietti, i risultati effettivi potrebbero essere diversi.
  
@@ -226,7 +226,7 @@ Sono state osservate le tendenze nei dati dei tenant dell'applicazione WingTip. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > - Distribuire un database di analisi dei tenant con tabelle predefinite di uno schema star
@@ -235,10 +235,10 @@ Questa esercitazione illustra come:
 > - Eseguire query su un database di analisi 
 > - Usare Power BI per la visualizzazione dei dati per osservare le tendenze nei dati dei tenant 
 
-Congratulazioni.
+Congratulazioni!
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- Altre [esercitazioni basate sull'applicazione SaaS Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
-- [Processi elastici](elastic-jobs-overview.md).
+- Esercitazioni aggiuntive [che si basano sull'applicazione Wingtip SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
+- [Lavori elastici](elastic-jobs-overview.md).
 - [Analisi su più tenant con dati estratti in un'app multi-tenant](saas-multitenantdb-tenant-analytics.md)

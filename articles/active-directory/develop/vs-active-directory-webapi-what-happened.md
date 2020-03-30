@@ -1,6 +1,6 @@
 ---
-title: Modifiche apportate ai progetti WebAPI quando ci si connette a Azure AD
-description: Viene descritto cosa succede al progetto WebAPI quando ci si connette a Azure AD con Visual Studio
+title: Modifiche apportate ai progetti WebAPI durante la connessione ad Azure ADChanges made to WebAPI projects when connecting to Azure AD
+description: Descrive cosa accade al progetto WebAPI quando ci si connette ad Azure AD tramite Visual Studio
 author: ghogen
 manager: jillfra
 ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
@@ -12,17 +12,17 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.openlocfilehash: 595a89ca58e970a9c886d0b6c2dd05aecd1411ef
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77159387"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>Cosa è successo a un progetto WebAPI (servizio connesso di Visual Studio Azure Active Directory)?
 
 > [!div class="op_single_selector"]
-> - [Per iniziare](vs-active-directory-webapi-getting-started.md)
-> - [Risultati](vs-active-directory-webapi-what-happened.md)
+> - [Guida introduttiva](vs-active-directory-webapi-getting-started.md)
+> - [Cos'è successo](vs-active-directory-webapi-what-happened.md)
 
 Questo articolo identifica le modifiche esatte apportate ai progetti WebAPI ASP.NET, applicazione a pagina singola ASP.NET e API di Azure ASP.NET quando si aggiunge il [servizio connesso di Active Directory tramite Visual Studio](vs-active-directory-add-connected-service.md). Vale anche per i progetti di servizio mobile di Azure ASP.NET in Visual Studio 2015.
 

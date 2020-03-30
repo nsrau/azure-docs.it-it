@@ -1,5 +1,5 @@
 ---
-title: Proteggere un'API usando OAuth 2,0 con AAD e gestione API
+title: Proteggere un'API utilizzando OAuth 2.0 con AAD e Gestione API
 titleSuffix: Azure API Management
 description: Informazioni su come proteggere il back-end di un'API Web con Azure Active Directory e Gestione API.
 services: api-management
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
 ms.openlocfilehash: 8b396b782c1254b3229aeeb8e51b61cc744d6318
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190372"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Proteggere un'API usando OAuth 2.0 con Azure Active Directory e Gestione API
@@ -25,9 +25,9 @@ ms.locfileid: "77190372"
 Questa guida illustra come configurare l'istanza di Gestione API di Azure per proteggere un'API usando il protocollo OAuth 2.0 con Azure Active Directory (Azure AD). 
 
 > [!NOTE]
-> Questa funzionalità è disponibile nei livelli **Developer**, **standard** e **Premium** di gestione API.
+> Questa funzionalità è disponibile nei livelli **Developer**, **Standard** e **Premium** di Gestione API.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 Per eseguire i passaggi in questo articolo è necessario avere quanto segue:
 * Un'istanza di Gestione API
 * Un'API in corso di pubblicazione che usa l'istanza di Gestione API
@@ -40,74 +40,74 @@ Ecco una rapida panoramica dei passaggi:
 1. Registrare un'applicazione (app back-end) in Azure AD per rappresentare l'API.
 2. Registrare un'altra applicazione (app client) in Azure AD per rappresentare un'applicazione client che deve chiamare l'API.
 3. In Azure AD concedere le autorizzazioni per consentire all'app client di chiamare l'app back-end.
-4. Configurare la console per sviluppatori per chiamare l'API usando l'autorizzazione utente OAuth 2,0.
+4. Configurare la Console per sviluppatori per chiamare l'API utilizzando l'autorizzazione utente OAuth 2.0.Configure the Developer Console to call the API using OAuth 2.0 user authorization.
 5. Aggiungere i criteri **validate-jwt** per convalidare il token OAuth per ogni richiesta in ingresso.
 
 ## <a name="register-an-application-in-azure-ad-to-represent-the-api"></a>Registrare un'applicazione in Azure AD per rappresentare l'API
 
 Per proteggere un'API con Azure AD, il primo passaggio consiste nel registrare un'applicazione in Azure AD che rappresenta l'API. 
 
-1. Passare alla [portale di Azure](https://portal.azure.com) per registrare l'applicazione. Cercare e selezionare registrazioni per l' **app**.
+1. Passare al portale di [Azure](https://portal.azure.com) per registrare l'applicazione. Cercare e selezionare **le registrazioni APP**.
 
 1. Selezionare **Nuova registrazione**. 
 
-1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione: 
-    - Nella sezione **nome** immettere un nome di applicazione significativo che verrà visualizzato agli utenti dell'app, ad esempio *back-end-app*. 
-    - Nella sezione **tipi di conto supportati** selezionare un'opzione adatta per lo scenario. 
+1. Quando viene visualizzata la **pagina Registra un'applicazione,** immettere le informazioni di registrazione dell'applicazione:When the Register an application page appears, enter your application's registration information: 
+    - Nella sezione **Nome** immettere un nome di applicazione significativo che verrà visualizzato agli utenti dell'app, ad esempio *backend-app*. 
+    - Nella sezione **Tipi di account supportati** selezionare un'opzione adatta allo scenario. 
 
-1. Lasciare vuota la sezione **URI di reindirizzamento** .
+1. Lasciare vuota la sezione **URI di reindirizzamento.**
 
 1. Selezionare **Registra** per creare l'applicazione. 
 
-1. Nella pagina **Panoramica**  dell'app trovare il valore del campo **ID applicazione (client)** e prenderne nota.
+1. Nella pagina **Panoramica ** dell'app trovare il valore del campo **ID applicazione (client)** e prenderne nota.
 
-1. Selezionare **esporre un'API** e impostare l' **URI dell'ID applicazione** con il valore predefinito. Registrare questo valore per un momento successivo.
+1. Selezionare **Esporre un'API** e impostare **l'URI dell'ID applicazione** con il valore predefinito. Registrare questo valore per un secondo momento.
 
-1. Selezionare il pulsante **Aggiungi ambito** per visualizzare la pagina **Aggiungi ambito** . Creare quindi un nuovo ambito supportato dall'API, ad esempio `Files.Read`. Infine, selezionare il pulsante **Aggiungi ambito** per creare l'ambito. Ripetere questo passaggio per aggiungere tutti gli ambiti supportati dall'API.
+1. Selezionare il pulsante **Aggiungi ambito** per visualizzare la pagina **Aggiungi ambito.** Creare quindi un nuovo ambito supportato dall'API, `Files.Read`ad esempio ). Infine, selezionare il pulsante **Aggiungi ambito** per creare l'ambito. Ripetere questo passaggio per aggiungere tutti gli ambiti supportati dall'API.
 
-1. Quando vengono creati gli ambiti, prenderne nota per l'uso in un passaggio successivo. 
+1. Quando gli ambiti vengono creati, prendere nota di essi per l'utilizzo in un passaggio successivo. 
 
 ## <a name="register-another-application-in-azure-ad-to-represent-a-client-application"></a>Registrare un'altra applicazione in Azure AD per rappresentare un'applicazione client
 
-Ogni applicazione client che chiama l'API deve anche essere registrata come applicazione in Azure AD. In questo esempio, l'applicazione client è la console per sviluppatori nel portale per sviluppatori di gestione API. Ecco come registrare un'altra applicazione in Azure AD per rappresentare la console per sviluppatori.
+Ogni applicazione client che chiama l'API deve anche essere registrata come applicazione in Azure AD. In questo esempio, l'applicazione client è la console per sviluppatori nel portale per sviluppatori di Gestione API. Ecco come registrare un'altra applicazione in Azure AD per rappresentare la console per sviluppatori.
 
-1. Passare alla [portale di Azure](https://portal.azure.com) per registrare l'applicazione. Cercare e selezionare registrazioni per l' **app**.
+1. Passare al portale di [Azure](https://portal.azure.com) per registrare l'applicazione. Cercare e selezionare **le registrazioni APP**.
 
 1. Selezionare **Nuova registrazione**.
 
-1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione: 
-    - Nella sezione **nome** immettere un nome di applicazione significativo che verrà visualizzato agli utenti dell'app, ad esempio *client-App*. 
-    - Nella sezione **tipi di conto supportati** selezionare **account in qualsiasi directory organizzativa (qualsiasi Azure ad directory-multi-tenant)** . 
+1. Quando viene visualizzata la **pagina Registra un'applicazione,** immettere le informazioni di registrazione dell'applicazione:When the Register an application page appears, enter your application's registration information: 
+    - Nella sezione **Nome** immettere un nome di applicazione significativo che verrà visualizzato agli utenti dell'app, ad esempio *client-app*. 
+    - Nella sezione **Tipi di account supportati** selezionare Account in qualsiasi directory organizzativa (Qualsiasi directory di Azure AD - **Multitenant).** 
 
 1. Nella sezione **URI di reindirizzamento** selezionare `Web` e immettere l'URL `https://contoso5.portal.azure-api.net/signin`.
 
 1. Selezionare **Registra** per creare l'applicazione. 
 
-1. Nella pagina **Panoramica**  dell'app trovare il valore del campo **ID applicazione (client)** e prenderne nota.
+1. Nella pagina **Panoramica ** dell'app trovare il valore del campo **ID applicazione (client)** e prenderne nota.
 
-A questo punto, creare un segreto client per l'applicazione da usare in un passaggio successivo.
+A questo punto, creare un segreto client per questa applicazione da utilizzare in un passaggio successivo.
 
-1. Dall'elenco di pagine per l'app client selezionare **certificati & segreti**e selezionare **nuovo segreto client**.
+1. Nell'elenco delle pagine dell'app client selezionare **Certificati & segreti**e quindi Nuovo **segreto client**.
 
-1. In **Aggiungi un segreto client**specificare una **Descrizione**. Scegliere la scadenza della chiave e selezionare **Aggiungi**.
+1. In **Aggiungi segreto client**specificare una **descrizione**. Scegliere quando la chiave deve scadere e selezionare **Aggiungi**.
 
-Quando viene creato il segreto, annotare il valore della chiave da usare in un passaggio successivo. 
+Quando viene creato il segreto, prendere nota del valore della chiave da utilizzare in un passaggio successivo. 
 
 ## <a name="grant-permissions-in-azure-ad"></a>Concedere le autorizzazioni in Azure AD
 
 Ora che sono state registrate due applicazioni per rappresentare l'API e la console per sviluppatori, è necessario concedere le autorizzazioni per consentire all'app client di chiamare l'app back-end.  
 
-1. Passare alla [portale di Azure](https://portal.azure.com) per concedere le autorizzazioni all'applicazione client. Cercare e selezionare registrazioni per l' **app**.
+1. Passare al portale di [Azure](https://portal.azure.com) per concedere le autorizzazioni all'applicazione client. Cercare e selezionare **le registrazioni APP**.
 
-1. Scegliere l'app client. Quindi nell'elenco di pagine per l'app selezionare autorizzazioni per le **API**.
+1. Scegli la tua app client. Quindi, nell'elenco delle pagine per l'app, selezionare **Autorizzazioni API**.
 
 1. Selezionare **Aggiungi un'autorizzazione**.
 
-1. In **selezionare un'API**selezionare **API personali**, quindi individuare e selezionare l'app back-end.
+1. In **Selezionare un'API**selezionare **API**personale , quindi individuare e selezionare l'app back-end.
 
-1. In **autorizzazioni delegate**selezionare le autorizzazioni appropriate per l'app back-end, quindi selezionare **Aggiungi autorizzazioni**.
+1. In **Autorizzazioni delegate**selezionare le autorizzazioni appropriate per l'app back-end, quindi selezionare Aggiungi **autorizzazioni**.
 
-1. Facoltativamente, nella pagina **autorizzazioni API** selezionare Concedi il **consenso dell'amministratore per \<il nome tenant-tenant >** per concedere il consenso per conto di tutti gli utenti in questa directory. 
+1. Facoltativamente, nella pagina **Autorizzazioni API** selezionare ** \<Concedi il consenso amministrativo per il nome del tenant>** concedere il consenso per conto di tutti gli utenti in questa directory. 
 
 ## <a name="enable-oauth-20-user-authorization-in-the-developer-console"></a>Abilitare l'autorizzazione utente OAuth 2.0 nella console per sviluppatori
 
@@ -115,43 +115,43 @@ A questo punto sono state create le applicazioni in Azure AD e sono state conces
 
 In questo esempio la console per sviluppatori è l'app client. La procedura seguente descrive come abilitare l'autorizzazione utente OAuth 2.0 nella console per sviluppatori. 
 
-1. In portale di Azure passare all'istanza di gestione API.
+1. Nel portale di Azure passare all'istanza di Gestione API.
 
 1. Selezionare **OAuth 2.0** > **Aggiungi**.
 
 1. Specificare i valori per i campi **Nome visualizzato** e **Descrizione**.
 
-1. Per **URL della pagina di registrazione del client** immettere un valore segnaposto, ad esempio `http://localhost`. L' **URL della pagina di registrazione del client** punta a una pagina che gli utenti possono usare per creare e configurare i propri account per i provider OAuth 2,0 che lo supportano. In questo esempio gli utenti non creano e configurano i propri account, quindi si usa un segnaposto.
+1. Per **URL della pagina di registrazione del client** immettere un valore segnaposto, ad esempio `http://localhost`. L'URL della **pagina di registrazione client** punta a una pagina che gli utenti possono utilizzare per creare e configurare i propri account per i provider OAuth 2.0 che supportano questa funzionalità. In questo esempio gli utenti non creano e configurano i propri account, quindi si usa un segnaposto.
 
 1. Per **Tipi di concessione di autorizzazione** selezionare **Codice di autorizzazione**.
 
 1. Specificare **URL dell'endpoint autorizzazione** e **URL dell'endpoint token**. Recuperare questi valori nella pagina **Endpoint** nel tenant di Azure AD. Passare di nuovo alla pagina **Registrazioni per l'app** e selezionare **Endpoint**.
 
 
-1. Copiare il valore di **Endpoint di autorizzazione OAuth 2.0** e incollarlo nella casella di testo **URL dell'endpoint autorizzazione**. Selezionare **post** in metodo di richiesta di autorizzazione.
+1. Copiare il valore di **Endpoint di autorizzazione OAuth 2.0** e incollarlo nella casella di testo **URL dell'endpoint autorizzazione**. Selezionare **POST** in Metodo di richiesta di autorizzazione.
 
 1. Copiare il valore di **Endpoint token OAuth 2.0** e incollarlo nella casella di testo **URL dell'endpoint token**. 
 
     >[!IMPORTANT]
-    > È possibile usare gli endpoint **V1** o **v2** . Tuttavia, a seconda della versione scelta, il passaggio seguente sarà diverso. Si consiglia di usare gli endpoint V2. 
+    > È possibile utilizzare gli endpoint **v1** o **v2.** Tuttavia, a seconda della versione scelta, il passaggio seguente sarà diverso. È consigliabile usare gli endpoint v2. 
 
-1. Se si usano endpoint **V1** , aggiungere un parametro body denominato **Resource**. Per il valore di questo parametro, usare l' **ID applicazione** dell'app back-end. 
+1. Se si utilizzano endpoint **v1,** aggiungere un parametro del corpo denominato **resource**. Per il valore di questo parametro, usare **l'ID applicazione** dell'app back-end. 
 
-1. Se si usano gli endpoint **v2** , usare l'ambito creato per l'app back-end nel campo **ambito predefinito** .
+1. Se si usano endpoint **v2,** usare l'ambito creato per l'app back-end nel campo **Ambito predefinito.**
 
 1. Specificare quindi le credenziali del client. Queste sono le credenziali per l'app client.
 
-1. Per **ID client**usare l' **ID applicazione** dell'app client.
+1. Per **ID client**, utilizzare **l'ID applicazione** dell'app client.
 
 1. Per **Segreto client** usare la chiave creata in precedenza per l'app client. 
 
 1. Immediatamente dopo il segreto client è riportato il valore di **redirect_url** per il tipo di concessione con codice di autorizzazione. Prendere nota dell'URL.
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
-1. Tornare all'app client e selezionare **Authentication (autenticazione**).
+1. Tornare all'app client e selezionare **Autenticazione**.
 
-1. In **URI di reindirizzamento**selezionare il tipo come **Web**, incollare il **redirect_url** in **URI di reindirizzamento**e quindi salvare.
+1. In URI di **reindirizzamento**selezionare il tipo come **Web**, incollare il **redirect_url** in **URI di reindirizzamento**e quindi salvare.
 
 Ora che è stato configurato un server di autorizzazione OAuth 2.0, la console per sviluppatori può ottenere i token di accesso da Azure AD. 
 
@@ -159,9 +159,9 @@ Il passaggio successivo consiste nell'abilitare l'autorizzazione utente OAuth 2.
 
 1. Passare all'istanza di Gestione API e quindi ad **API**.
 
-2. Selezionare l'API da proteggere. Ad esempio, è possibile usare la `Echo API`.
+2. Selezionare l'API da proteggere. Ad esempio, è `Echo API`possibile utilizzare il file .
 
-3. Passare a **Impostazioni**.
+3. Passare a **Settings**.
 
 4. In **Sicurezza** scegliere **OAuth 2.0** e selezionare il server OAuth 2.0 configurato in precedenza. 
 
@@ -172,11 +172,11 @@ Il passaggio successivo consiste nell'abilitare l'autorizzazione utente OAuth 2.
 > [!NOTE]
 > Questa sezione non si applica al livello **Consumo**, che non supporta il portale per sviluppatori.
 
-Ora che l'autorizzazione utente OAuth 2,0 è abilitata nell'API, la console per sviluppatori otterrà un token di accesso per conto dell'utente, prima di chiamare l'API.
+Ora che l'autorizzazione utente OAuth 2.0 è abilitata sull'API, la Developer Console otterrà un token di accesso per conto dell'utente, prima di chiamare l'API.
 
-1. Passare a qualsiasi operazione nell'API nel portale per sviluppatori e selezionare **try it (prova**). Verrà visualizzata la console per sviluppatori.
+1. Passare a qualsiasi operazione nell'API nel portale per sviluppatori e selezionare **Prova.** Verrà visualizzata la console per sviluppatori.
 
-2. Nella sezione **Autorizzazione** è presente un nuovo elemento che corrisponde al server di autorizzazione appena aggiunto.
+2. Si noti un nuovo elemento nella sezione **Autorizzazione,** corrispondente al server di autorizzazione appena aggiunto.
 
 3. Selezionare **Codice di autorizzazione** nell'elenco a discesa delle autorizzazioni. Verrà chiesto di accedere al tenant di Azure AD. Se si è già eseguito l'accesso con l'account, è possibile che la richiesta non venga visualizzata.
 
@@ -191,11 +191,11 @@ Ora che l'autorizzazione utente OAuth 2,0 è abilitata nell'API, la console per 
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>Configurare criteri di convalida JWT per preautorizzare le richieste
 
-A questo punto, quando un utente prova a eseguire una chiamata dalla console per sviluppatori, viene chiesto di eseguire l'accesso. La console per sviluppatori ottiene un token di accesso per conto dell'utente e include il token nella richiesta effettuata all'API.
+A questo punto, quando un utente prova a eseguire una chiamata dalla console per sviluppatori, viene chiesto di eseguire l'accesso. La Console per sviluppatori ottiene un token di accesso per conto dell'utente e include il token nella richiesta effettuata all'API.
 
-Tuttavia, cosa accade se un utente chiama l'API senza un token o con un token non valido? Ad esempio, provare a chiamare l'API senza l'intestazione `Authorization`, la chiamata continuerà a essere superata. Questo avviene perché Gestione API non convalida il token di accesso a questo punto. Passa invece semplicemente l'intestazione `Authorization` all'API back-end.
+Tuttavia, cosa succede se qualcuno chiama l'API senza un token o con un token non valido? Ad esempio, provare a chiamare `Authorization` l'API senza l'intestazione, la chiamata verrà comunque passare attraverso. Questo avviene perché Gestione API non convalida il token di accesso a questo punto. Passa invece semplicemente l'intestazione `Authorization` all'API back-end.
 
-È possibile usare i criteri di [convalida JWT](api-management-access-restriction-policies.md#ValidateJWT) per pre-autorizzare le richieste in Gestione API convalidando i token di accesso di ogni richiesta in ingresso. Se una richiesta non ha un token valido, Gestione API la blocca. Ad esempio, aggiungere i criteri seguenti alla sezione dei criteri di `<inbound>` del `Echo API`. In questo modo, viene verificata l'attestazione dei destinatari in un token di accesso e viene restituito un messaggio di errore se il token non è valido. Per informazioni su come configurare i criteri, vedere [Impostare o modificare criteri](set-edit-policies.md).
+È possibile usare i criteri di [convalida JWT](api-management-access-restriction-policies.md#ValidateJWT) per pre-autorizzare le richieste in Gestione API convalidando i token di accesso di ogni richiesta in ingresso. Se una richiesta non ha un token valido, Gestione API la blocca. Ad esempio, aggiungere il `<inbound>` criterio seguente `Echo API`alla sezione dei criteri della sezione . In questo modo, viene verificata l'attestazione dei destinatari in un token di accesso e viene restituito un messaggio di errore se il token non è valido. Per informazioni su come configurare i criteri, vedere [Impostare o modificare criteri](set-edit-policies.md).
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -208,7 +208,7 @@ Tuttavia, cosa accade se un utente chiama l'API senza un token o con un token no
 </validate-jwt>
 ```
 > [!NOTE]
-> Questo URL `openid-config` corrisponde all'endpoint V1. Per l'endpoint V2 `openid-config`usare `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`.
+> Questo `openid-config` URL corrisponde all'endpoint v1. Per l'endpoint v2, `openid-config`utilizzare `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`.
 
 ## <a name="build-an-application-to-call-the-api"></a>Creare un'applicazione per chiamare l'API
 
@@ -219,6 +219,6 @@ In questa guida è stata usata la console per sviluppatori di Gestione API come 
 * Altre informazioni sui [video](https://azure.microsoft.com/documentation/videos/index/?services=api-management) relativi a Gestione API.
 * Per altri metodi di protezione del servizio back-end, vedere [Autenticazione reciproca dei certificati](api-management-howto-mutual-certificates.md).
 
-* [Creare una nuova istanza del servizio Gestione API di Azure](get-started-create-service-instance.md).
+* [Creare un'istanza](get-started-create-service-instance.md)del servizio Gestione API.
 
 * [Gestire la prima API](import-and-publish.md).

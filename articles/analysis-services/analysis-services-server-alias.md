@@ -1,6 +1,6 @@
 ---
 title: Nomi del server alias di Azure Analysis Services | Documentazione Microsoft
-description: Informazioni su come creare Azure Analysis Services alias del nome del server. Gli utenti possono quindi connettersi al server con un nome alias più breve anziché il nome del server.
+description: Informazioni su come creare alias dei nomi del server di Azure Analysis Services.Learn how to create Azure Analysis Services server name aliases. Gli utenti possono quindi connettersi al server con un nome alias più breve anziché il nome del server.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,15 +8,15 @@ ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 5e7017fad90e32cb8c4b952987fe248e463e4d03
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73572284"
 ---
 # <a name="alias-server-names"></a>Nomi del server alias
 
-Utilizzando un alias del nome del server, gli utenti possono connettersi al server Azure Analysis Services con un *alias* più breve anziché con il nome del server. Durante la connessione da un'applicazione client, l'alias viene specificato come un endpoint utilizzando il formato di protocollo **link://** . L'endpoint restituisce quindi il nome del server effettivo per la connessione.
+Utilizzando un alias del nome del server, gli utenti possono connettersi al server Azure Analysis Services con un *alias* più breve anziché con il nome del server. Durante la connessione da un'applicazione client, l'alias viene specificato come un endpoint utilizzando il formato di protocollo **link://**. L'endpoint restituisce quindi il nome del server effettivo per la connessione.
 
 I nomi di server alias sono ottimali per:
 
@@ -29,7 +29,7 @@ Qualsiasi endpoint HTTPS che restituisce un nome del server valido di Azure Anal
 
 ![Alias che utilizza formato link](media/analysis-services-alias/aas-alias-browser.png)
 
-Durante la connessione da un client, il nome del server alias viene immesso utilizzando il formato del protocollo **link://** . Ad esempio, in Power BI Desktop:
+Durante la connessione da un client, il nome del server alias viene immesso utilizzando il formato del protocollo **link://**. Ad esempio, in Power BI Desktop:
 
 ![Connessione di Power BI Desktop](media/analysis-services-alias/aas-alias-connect-pbid.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Limiti di Azure Data Box Edge | Microsoft Docs
-description: Vengono descritti i limiti di sistema e le dimensioni consigliate per la Azure Data Box Edge.
+description: Descrive i limiti di sistema e le dimensioni consigliate per Azure Data Box Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: alkohli
 ms.openlocfilehash: 9adfc1ef355c31f0bfeeb6c3b194d62426b7b9b3
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72244309"
 ---
-# <a name="azure-data-box-edge-limits"></a>Limiti di Azure Data Box Edge
+# <a name="azure-data-box-edge-limits"></a>Limiti di Azure Data Box EdgeAzure Data Box Edge limits
 
 Quando si distribuisce e si usa la soluzione Microsoft Azure Data Box Edge, tenere presenti i limiti seguenti.
 
@@ -27,7 +27,7 @@ Quando si distribuisce e si usa la soluzione Microsoft Azure Data Box Edge, tene
 
 La tabella seguente illustra i limiti del dispositivo Data Box Edge.
 
-| Descrizione | Value |
+| Descrizione | valore |
 |---|---|
 |No. di file per dispositivo |100 milioni |
 |No. di condivisioni per dispositivo |24 |

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
 ms.openlocfilehash: dd3279db67fb45aee43cf1b0ef1bebf49433eef4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663233"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Targeting delle soluzioni di monitoraggio in Monitoraggio di Azure (Anteprima)
@@ -22,13 +22,13 @@ Quando viene aggiunta una soluzione di monitoraggio alla sottoscrizione, la solu
 Definire l'ambito di una soluzione è una procedura di tre passaggi, come descritto nelle sezioni seguenti. 
 
 
-### <a name="1-create-a-computer-group"></a>1. creare un gruppo di computer
+### <a name="1-create-a-computer-group"></a>1. Creare un gruppo di computer
 Specificare i computer da includere in un ambito creando un [gruppo di computer](../platform/computer-groups.md) in Monitoraggio di Azure.  Il gruppo di computer si può basare su una query di log o può essere importato da altre origini, ad esempio gruppi di Active Directory o WSUS. Come [descritto di seguito](#solutions-and-agents-that-cant-be-targeted), solo i computer direttamente collegati a Monitoraggio di Azure verranno inclusi nell'ambito.
 
 Dopo avere creato il gruppo di computer nell'area di lavoro è necessario includerlo in una configurazione di ambito che può essere applicata a una o più soluzioni.
  
  
-### <a name="2-create-a-scope-configuration"></a>2. creare una configurazione dell'ambito
+### <a name="2-create-a-scope-configuration"></a>2. Creare una configurazione dell'ambito
  Una **configurazione ambito** include uno o più gruppi di computer e può essere applicata a una o più soluzioni. 
  
  Creare una configurazione ambito con la seguente procedura.  
@@ -42,7 +42,7 @@ Dopo avere creato il gruppo di computer nell'area di lavoro è necessario includ
  6. Fare clic su **OK** per creare la configurazione ambito. 
 
 
-### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. applicare la configurazione dell'ambito a una soluzione.
+### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. Applicare la configurazione dell'ambito a una soluzione.
 Dopo aver creato una configurazione ambito, è possibile applicarla a una o più soluzioni.  Si noti che è possibile usare una sola configurazione ambito con più soluzioni e che ogni soluzione può usare solo una configurazione ambito.
 
 Applicare una configurazione ambito con la seguente procedura.  

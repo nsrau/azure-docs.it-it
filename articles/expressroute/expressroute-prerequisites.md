@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: prerequisiti'
+title: 'Azure ExpressRoute: Prerequisites'
 description: Questa pagina fornisce un elenco di requisiti da soddisfare prima di potere ordinare un circuito Azure ExpressRoute. Include un elenco di controllo.
 services: expressroute
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
 ms.openlocfilehash: a72eba9bde0745e66bdf8e7efd8eaec7d6a0b186
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74083363"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Prerequisiti di ExpressRoute ed elenco di controllo
@@ -20,7 +20,7 @@ Per connettersi ai servizi di Microsoft Cloud usando ExpressRoute sarà necessar
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## <a name="azure-account"></a>Account Azure
-* Un account Microsoft Azure valido e attivo. Questo account è necessario per configurare il circuito ExpressRoute. I circuiti ExpressRoute sono risorse all'interno di sottoscrizioni di Azure. Una sottoscrizione di Azure è un requisito, anche se la connettività è limitata a servizi cloud Microsoft non Azure, ad esempio Office 365.
+* Un account Microsoft Azure valido e attivo. Questo account è necessario per configurare il circuito ExpressRoute. I circuiti ExpressRoute sono risorse all'interno di sottoscrizioni di Azure. Una sottoscrizione di Azure è un requisito anche se la connettività è limitata a servizi cloud Microsoft non Azure, ad esempio Office 365.An Azure subscription is a requirement even if connectivity is limited to non-Azure Microsoft cloud services, such as Office 365.
 * Una sottoscrizione di Office 365 attiva (se si usano servizi di Office 365). Per altre informazioni, vedere la sezione sui requisiti specifici di Office 365 in questo articolo.
 
 ## <a name="connectivity-provider"></a>Provider di connettività
@@ -29,8 +29,8 @@ Per connettersi ai servizi di Microsoft Cloud usando ExpressRoute sarà necessar
 * Se il provider non è un partner per la connettività ExpressRoute, è comunque possibile connettersi a Microsoft Cloud tramite un [provider Cloud Exchange](expressroute-locations.md#connectivity-through-exchange-providers).
 
 ## <a name="network-requirements"></a>Requisiti di rete
-* **Ridondanza a ogni località di peering**: Microsoft richiede che le sessioni BGP ridondanti siano configurate tra i router Microsoft e i router di peering in ogni circuito ExpressRoute (anche quando si dispone di una sola [connessione fisica a uno scambio cloud](expressroute-faqs.md#onep2plink)).
-* **Ridondanza per il ripristino di emergenza**: Microsoft consiglia di impostare almeno due circuiti ExpressRoute in posizioni di peering diverse per evitare un singolo punto di errore.
+* **Ridondanza in ogni posizione di peering:** Microsoft richiede la configurazione di sessioni BGP ridondanti tra i router Microsoft e i router peering in ogni circuito ExpressRoute (anche quando si dispone di una sola connessione fisica a uno [scambio cloud).](expressroute-faqs.md#onep2plink)
+* **Ridondanza per il ripristino**di emergenza: Microsoft consiglia di configurare almeno due circuiti ExpressRoute in posizioni di peering diverse per evitare un singolo punto di errore.
 * **Routing**: a seconda di come ci si connette a Microsoft Cloud, è necessario configurare e gestire le sessioni BGP per i [domini di routing](expressroute-circuit-peerings.md) o chiedere al provider di farlo. Alcuni provider di connettività Ethernet o provider Cloud Exchange possono offrire la gestione BGP come servizio a valore aggiunto.
 * **NAT**: Microsoft accetta solo indirizzi IP pubblici tramite peer Microsoft. Se si usano indirizzi IP privati nella rete locale, è necessario convertirli in indirizzi IP pubblici (o chiedere al provider di farlo) [con il processo NAT](expressroute-nat.md).
 * **QoS**: Skype for Business include diversi servizi, ad esempio voce, video o testo, che richiedono una gestione QoS differenziata. È necessario seguire i [requisiti QoS](expressroute-qos.md).
@@ -53,6 +53,6 @@ Se si prevede di abilitare Office 365 in ExpressRoute, esaminare i documenti seg
 * Individuare un partner per la connettività ad ExpressRoute. Vedere [Partner e località di peering per Azure ExpressRoute](expressroute-locations.md).
 * Vedere i requisiti per [routing](expressroute-routing.md), [NAT](expressroute-nat.md) e [QoS](expressroute-qos.md).
 * Configurare la connessione ExpressRoute.
-  * [Creare un circuito ExpressRoute](expressroute-howto-circuit-arm.md)
+  * [Creare un circuito ExpressRouteCreate an ExpressRoute circuit](expressroute-howto-circuit-arm.md)
   * [Configurare il routing](expressroute-howto-routing-arm.md)
   * [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)

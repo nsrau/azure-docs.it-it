@@ -1,6 +1,6 @@
 ---
-title: Supporto per i sistemi operativi a 32 bit nelle macchine virtuali di Azure | Microsoft Docs
-description: Informazioni sui sistemi operativi supportati in macchine virtuali di Azure
+title: Supporto per i sistemi operativi a 32 bit nelle macchine virtuali di AzureSupport for 32-bit operating systems in Azure virtual machines Documenti Microsoft
+description: Informazioni sui sistemi operativi supportati nelle macchine virtuali di AzureInformation about operating systems that are supported on Azure virtual machines
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: v-miegge
@@ -14,33 +14,33 @@ ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
 ms.openlocfilehash: e5c8bc2fe64d489c9e8490a63f4d7c4680f21ce0
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71846537"
 ---
-# <a name="support-for-32-bit-operating-systems-in-azure-virtual-machines"></a>Supporto per i sistemi operativi a 32 bit in macchine virtuali di Azure
+# <a name="support-for-32-bit-operating-systems-in-azure-virtual-machines"></a>Supporto per sistemi operativi a 32 bit nelle macchine virtuali di Azure
 
-Microsoft Azure consente ora agli utenti di portare i sistemi operativi Windows a 32 bit in Azure. Poiché alcuni di questi sistemi operativi hanno già raggiunto la scadenza del contratto di supporto, Microsoft potrebbe non offrire un supporto aggiuntivo. Il supporto non è inoltre disponibile per i sistemi operativi basati su Linux o Berkeley Software Distribution (BSD) eseguiti in una macchina virtuale Microsoft Azure (VM).
+Microsoft Azure now allows users to bring in their 32-bit Windows Operating systems over to Azure. Poiché alcuni di questi sistemi operativi hanno già raggiunto il contratto di supporto per la fine del vita, Microsoft potrebbe non offrire ulteriore supporto per loro. Inoltre, il supporto non è disponibile per i sistemi operativi basati su Linux o Berkeley Software Distribution (BSD) eseguiti in una macchina virtuale (VM) di Microsoft Azure.
 
 ## <a name="more-information"></a>Ulteriori informazioni
 
-Per ulteriori informazioni sui sistemi operativi supportati in macchine virtuali di Azure, vedere gli articoli seguenti della Microsoft Knowledge Base:
+Per ulteriori informazioni sui sistemi operativi supportati nelle macchine virtuali di Azure, vedere i seguenti articoli della Microsoft Knowledge Base:
 
 * [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) (Supporto software di server Microsoft per macchine virtuali di Microsoft Azure)
-* [Supporto per la tecnologia Linux e open source in Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)
+* [Supporto per Linux e la tecnologia open source in AzureSupport for Linux and open source technology in Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)
 
 ## <a name="references"></a>Riferimenti
 
-* [Scopri di più sugli aggiornamenti della sicurezza estesa gratuiti per Windows Server 2008/R2 in Azure](https://www.microsoft.com/cloud-platform/windows-server-2008)
-* [Scopri di più sul supporto per immagini specializzate di Windows Server 2008 SP2 a 32 bit in Azure](https://docs.microsoft.com/windows-server/get-started/uploading-specialized-ws08-image-to-azure)
-* [Altre informazioni sul supporto per la migrazione di immagini di Windows Server 2008 in Azure con Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-windows-server-2008)
-* [Altre informazioni sui sistemi operativi supportati dall'estensione di Azure](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems)
-* [Altre informazioni sull'esecuzione di Windows Server 2003 in Microsoft Azure](https://support.microsoft.com/help/3206074/running-windows-server-2003-on-microsoft-azure)
+* [Altre informazioni sugli aggiornamenti gratuiti della sicurezza estesa per Windows Server 2008/R2 in AzureLearn more about free Extended Security Updates for Windows Server 2008/R2 in Azure](https://www.microsoft.com/cloud-platform/windows-server-2008)
+* [Altre informazioni sul supporto per le immagini specializzate a 32 bit di Windows Server 2008 SP2 in Azure](https://docs.microsoft.com/windows-server/get-started/uploading-specialized-ws08-image-to-azure)
+* [Altre informazioni sul supporto per la migrazione di immagini di Windows Server 2008 in Azure tramite Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-windows-server-2008)
+* [Altre informazioni sui sistemi operativi supportati da Azure ExtensionLearn more about Azure Extension supported operating systems](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems)
+* [Ulteriori informazioni sull'esecuzione di Windows Server 2003 in Microsoft Azure](https://support.microsoft.com/help/3206074/running-windows-server-2003-on-microsoft-azure)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni in qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [Forum MSDN Azure e stack overflow](https://azure.microsoft.com/support/forums/).
+Per altre informazioni in qualsiasi momento di questo articolo, contattare gli esperti di Azure nei [forum MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/).
 
-In alternativa, archiviare un evento imprevisto del supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.
+In alternativa, archiviare un incidente di supporto di Azure.Alternatively, file an Azure support incident. Passare al [sito del supporto](https://azure.microsoft.com/support/options/) di Azure e selezionare Ottieni **supporto**.

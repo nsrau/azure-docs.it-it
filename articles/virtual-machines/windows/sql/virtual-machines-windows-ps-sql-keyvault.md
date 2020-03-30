@@ -16,10 +16,10 @@ ms.date: 04/30/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: cad70169e88e1fafa129c02f30d5288d39e30a9c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70102140"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Configurare l'integrazione di Azure Key Vault per SQL Server in macchine virtuali di Azure (Resource Manager)
@@ -29,9 +29,9 @@ ms.locfileid: "70102140"
 > * [Classico](../sqlclassic/virtual-machines-windows-classic-ps-sql-keyvault.md)
 
 ## <a name="overview"></a>Panoramica
-Esistono più funzionalità di crittografia di SQL Server, ad esempio [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [crittografia a livello di colonna (CLE)](https://msdn.microsoft.com/library/ms173744.aspx) e [crittografia di backup](https://msdn.microsoft.com/library/dn449489.aspx). Queste modalità di crittografia richiedono la gestione e l'archiviazione delle chiavi usate per la crittografia. Il servizio dell'insieme di credenziali delle chiavi di Azure (AKV) è progettato per migliorare la sicurezza e la gestione di queste chiavi in una posizione sicura e a elevata disponibilità. Il [connettore di SQL Server](https://www.microsoft.com/download/details.aspx?id=45344) consente a SQL Server di usare queste chiavi dall'insieme di credenziali delle chiavi di Azure.
+Esistono più funzionalità di crittografia di SQL Server, ad esempio [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [crittografia a livello di colonna (CLE)](https://msdn.microsoft.com/library/ms173744.aspx) e [crittografia di backup](https://msdn.microsoft.com/library/dn449489.aspx). Queste modalità di crittografia richiedono la gestione e l'archiviazione delle chiavi usate per la crittografia. Il servizio dell'insieme di credenziali delle chiavi di Azure (AKV) è progettato per migliorare la sicurezza e la gestione di queste chiavi in una posizione sicura e a elevata disponibilità. Il [connettore SQL Server](https://www.microsoft.com/download/details.aspx?id=45344) consente a SQL Server di usare queste chiavi dall'insieme di credenziali delle chiavi di Azure.The SQL Server Connector enables SQL Server to use these keys from Azure Key Vault.
 
-Se si esegue SQL Server con computer locali, sono disponibili [passaggi per accedere all'insieme di credenziali delle chiavi di Azure dal computer locale con SQL Server](https://msdn.microsoft.com/library/dn198405.aspx). Se si esegue SQL Server in macchine virtuali di Azure, è possibile risparmiare tempo usando la funzionalità di *Integrazione dell'insieme di credenziali delle chiavi di Azure* .
+Se si esegue SQL Server con computer locali, è possibile eseguire alcune operazioni per accedere all'insieme di credenziali delle chiavi di Azure dal computer [SQL Server locale.](https://msdn.microsoft.com/library/dn198405.aspx) Ma per SQL Server nelle macchine virtuali di Azure, è possibile risparmiare tempo usando la funzionalità *di integrazione dell'insieme* di credenziali delle chiavi di Azure.But for SQL Server in Azure VMs, you can save time by using the Azure Key Vault Integration feature.
 
 Quando questa funzionalità è abilitata, installa automaticamente il connettore di SQL Server, configura il provider EKM per accedere all'insieme di credenziali delle chiavi di Azure e crea le credenziali per consentire l'accesso all'insieme di credenziali. Se sono stati esaminati i passaggi nella documentazione locale menzionati in precedenza, si noterà che questa funzionalità consente di automatizzare i passaggi 2 e 3. L'unica attività che è comunque necessario eseguire manualmente è la creazione delle chiavi e dell'insieme di credenziali delle chiavi. Una volta completata questa operazione, l'intera installazione della macchina virtuale di SQL è automatizzata. Quando la funzionalità ha completato l'installazione, è possibile eseguire istruzioni T-SQL per iniziare la crittografia dei database o del backup regolarmente.
 
@@ -49,17 +49,17 @@ Se si esegue il provisioning di una nuova macchina virtuale SQL Server con Gesti
 
 ![Integrazione dell'insieme di credenziali delle chiavi di Azure per SQL](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
 
-Per una procedura dettagliata del provisioning, vedere effettuare il provisioning di [una macchina virtuale SQL Server nel portale di Azure](virtual-machines-windows-portal-sql-server-provision.md).
+Per una procedura dettagliata del provisioning, vedere [Effettuare il provisioning](virtual-machines-windows-portal-sql-server-provision.md)di una macchina virtuale di SQL Server nel portale di Azure.For a detailed walkthrough of provisioning, see Provision a SQL Server virtual machine in the Azure portal .
 
 ### <a name="existing-vms"></a>VM esistenti
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-Per le macchine virtuali SQL Server esistenti, aprire la [risorsa macchine virtuali SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) e selezionare **sicurezza** in **Impostazioni**. Selezionare **Abilita** per abilitare l'integrazione Azure Key Vault. 
+Per le macchine virtuali di SQL Server esistenti, aprire la [risorsa macchina virtuale SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) e selezionare **Sicurezza** in **Impostazioni**. Selezionare Abilita per abilitare l'integrazione dell'insieme di credenziali delle chiavi di Azure.Select **Enable** to enable Azure Key Vault integration. 
 
 ![Integrazione di AKV SQL per le VM esistenti](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-rm-akv-existing-vms.png)
 
-Al termine, selezionare il pulsante **applica** nella parte inferiore della pagina **sicurezza** per salvare le modifiche.
+Al termine, selezionare il pulsante **Applica** nella parte inferiore della pagina **Sicurezza** per salvare le modifiche.
 
 > [!NOTE]
 > Il nome delle credenziali creato qui verrà mappato a un account di accesso SQL in un secondo momento. In questo modo, l'account di accesso SQL può accedere all'insieme di credenziali delle chiavi. 

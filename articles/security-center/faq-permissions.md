@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti sul centro sicurezza di Azure-Domande sulle autorizzazioni
-description: Queste domande frequenti rispondono alle domande sulle autorizzazioni nel centro sicurezza di Azure, un prodotto che consente di prevenire, rilevare e rispondere alle minacce.
+title: Domande frequenti sul Centro sicurezza di Azure- domande sulle autorizzazioniAzure Security Center FAQ - questions about permissions
+description: Questa faq risponde alle domande sulle autorizzazioni nel Centro sicurezza di Azure, un prodotto che consente di prevenire, rilevare e rispondere alle minacce.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,15 +14,15 @@ ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
 ms.openlocfilehash: 66a260fbb03f770ee98ec29a5f5e15e3d7dd1310
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77599392"
 ---
 # <a name="permissions"></a>Autorizzazioni
 
-## <a name="how-do-permissions-work-in-azure-security-center"></a>Come funzionano le autorizzazioni nel centro sicurezza di Azure?
+## <a name="how-do-permissions-work-in-azure-security-center"></a>Come funzionano le autorizzazioni nel Centro sicurezza di Azure?
 
 Il Centro sicurezza di Azure usa il [controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md), con [ruoli predefiniti](../role-based-access-control/built-in-roles.md) che possono essere assegnati a utenti, gruppi e servizi in Azure.
 

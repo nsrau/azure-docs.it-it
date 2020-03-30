@@ -1,6 +1,6 @@
 ---
-title: Elimina Azure Active Directory Domain Services | Microsoft Docs
-description: Informazioni su come disabilitare o eliminare un Azure Active Directory Domain Services dominio gestito usando il portale di Azure
+title: Eliminare Servizi di dominio Azure Active Directory Documenti Microsoft
+description: Informazioni su come disabilitare o eliminare un dominio gestito di Servizi di dominio Azure Active Directory usando il portale di AzureLearn how to disable, or delete, an Azure Active Directory Domain Services managed domain using the Azure portal
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -12,39 +12,39 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: iainfou
 ms.openlocfilehash: e1836f91b8afc1bb4f5b7e141949f3724c57c857
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77614045"
 ---
-# <a name="delete-an-azure-active-directory-domain-services-managed-domain-using-the-azure-portal"></a>Eliminare un Azure Active Directory Domain Services dominio gestito utilizzando il portale di Azure
+# <a name="delete-an-azure-active-directory-domain-services-managed-domain-using-the-azure-portal"></a>Eliminare un dominio gestito di Servizi di dominio Azure Active Directory tramite il portale di AzureDelete an Azure Active Directory Domain Services managed domain using the Azure portal
 
-Se un dominio gestito non è più necessario, è possibile eliminare un'istanza di Azure Active Directory Domain Services (Azure AD DS). Non è possibile disattivare o disabilitare temporaneamente un dominio gestito di Azure AD DS. L'eliminazione del dominio gestito Azure AD DS non elimina o influisce negativamente sul tenant del Azure AD. Questo articolo illustra come usare la portale di Azure per eliminare un dominio gestito Azure AD DS.
+Se un dominio gestito non è più necessario, è possibile eliminare un'istanza di Servizi di dominio Azure Active Directory (Azure AD DS). Non è disponibile alcuna opzione per disattivare o disabilitare temporaneamente un dominio gestito di Servizi di dominio Active Directory di Azure.There's no option to turn off or temporarily disable an Azure AD DS managed domain. L'eliminazione del dominio gestito di Servizi di dominio Active Directory di Azure non comporta l'eliminazione o un impatto negativo sul tenant di Azure AD. Questo articolo illustra come usare il portale di Azure per eliminare un dominio gestito di Servizi di dominio Active Directory di Azure.This article shows you how to use the Azure portal to delete an Azure AD DS managed domain.
 
 > [!WARNING]
-> **L'eliminazione è permanente e non può essere invertita.**
-> Quando si elimina un dominio gestito Azure AD DS, si verificano i passaggi seguenti:
+> **L'eliminazione è permanente e non può essere annullata.**
+> Quando si elimina un dominio gestito di Servizi di dominio Active Directory di Azure, si verificano i passaggi seguenti:When you delete an Azure AD DS managed domain, the following steps occur:
 >   * Viene effettuato il deprovisioning dei controller di dominio per il dominio gestito e vengono rimossi dalla rete virtuale.
->   * I dati del dominio gestito vengono eliminati definitivamente, Questi dati includono unità organizzative personalizzate, oggetti Criteri di gruppo, record DNS personalizzati, entità servizio, servizi gestiti e così via, creati dall'utente.
+>   * I dati del dominio gestito vengono eliminati definitivamente, Questi dati includono gestione delle sole personalizzate, oggetti Criteri di gruppo, record DNS personalizzati, entità servizio, GMSA e così via creati.
 >   * I computer aggiunti al dominio gestito perdono la relazione di trust con il dominio e devono essere separati dal dominio.
->       * Non è possibile accedere a questi computer usando le credenziali di Active Directory aziendali. Al contrario, è necessario utilizzare le credenziali di amministratore locale per il computer.
+>       * Non è possibile accedere a questi computer utilizzando le credenziali di Active Directory aziendali. È invece necessario utilizzare le credenziali di amministratore locale per il computer.
 
 ## <a name="delete-the-managed-domain"></a>Eliminare il dominio gestito
 
-Per eliminare un dominio gestito di Azure AD DS, completare i passaggi seguenti:
+Per eliminare un dominio gestito di Servizi di dominio Active Directory di Azure, completare i passaggi seguenti:To delete an Azure AD DS managed domain, complete the following steps:
 
-1. Nella portale di Azure cercare e selezionare **Azure ad Domain Services**.
-1. Selezionare il nome del dominio gestito di Azure AD DS, ad esempio *aaddscontoso.com*.
-1. Nella pagina **Panoramica** selezionare **Elimina**. Per confermare l'eliminazione, digitare di nuovo il nome di dominio del dominio gestito e quindi selezionare **Elimina**.
+1. Nel portale di Azure cercare e selezionare Servizi di **dominio Azure AD.**
+1. Selezionare il nome del dominio gestito di Servizi di dominio Active Directory di Azure, ad esempio *aaddscontoso.com*.
+1. Nella pagina **Panoramica** selezionare **Elimina**. Per confermare l'eliminazione, digitare nuovamente il nome di dominio del dominio gestito, quindi selezionare **Elimina**.
 
-L'eliminazione del dominio gestito di Azure AD DS può richiedere più di 15-20 minuti.
+L'eliminazione del dominio gestito di Servizi di dominio Active Directory di Azure può richiedere 15-20 minuti o più.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Valutare la possibilità di [condividere commenti e suggerimenti][feedback] per le funzionalità che si desidera visualizzare in Azure AD DS.
+Valutare la possibilità di [condividere commenti e suggerimenti][feedback] per le funzionalità che si desidera visualizzare in Servizi di dominio Active Directory di Azure.Consider sharing feedback for the features that you would to see in Azure AD DS.
 
-Per iniziare a usare nuovamente Azure AD DS, vedere [creare e configurare un'istanza di Azure Active Directory Domain Services][create-instance].
+Se si vuole iniziare di nuovo a usare Servizi di dominio Azure AD, vedere [Creare e configurare un'istanza][create-instance]di Servizi di dominio Azure Active Directory.
 
 <!-- INTERNAL LINKS -->
 [feedback]: contact-us.md

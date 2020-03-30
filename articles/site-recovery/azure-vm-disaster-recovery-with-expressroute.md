@@ -1,5 +1,5 @@
 ---
-title: Integrare il ripristino di emergenza delle macchine virtuali di Azure ExpressRoute con Azure Site Recovery
+title: Integrare il ripristino di emergenza della macchina virtuale di Azure ExpressRoute Azure con Azure Site Recovery
 description: Viene descritto come configurare il ripristino di emergenza per le macchine virtuali di Azure tramite Azure Site Recovery e Azure ExpressRoute
 services: site-recovery
 author: mayurigupta13
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: bf12a5b7850a56d945e1082be6c522c31738669c
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73954091"
 ---
-# <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrare ExpressRoute con il ripristino di emergenza per macchine virtuali di Azure
+# <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrare ExpressRoute con il ripristino di emergenza per le macchine virtuali di AzureIntegrate ExpressRoute with disaster recovery for Azure VMs
 
 
 Questo articolo descrive come integrare Azure ExpressRoute con [Azure Site Recovery](site-recovery-overview.md), quando si configura il ripristino di emergenza per le macchine virtuali di Azure in un'area di Azure secondaria.
@@ -36,8 +36,8 @@ ExpressRoute consente di estendere le reti locali nel cloud Microsoft Azure tram
 
 Prima di iniziare, è necessario comprendere i concetti illustrati di seguito:
 
-- I [circuiti](../expressroute/expressroute-circuit-peerings.md) di ExpressRoute
-- I [domini di routing](../expressroute/expressroute-circuit-peerings.md#routingdomains) di ExpressRoute
+- [Circuiti](../expressroute/expressroute-circuit-peerings.md) ExpressRoute
+- Domini [di routing](../expressroute/expressroute-circuit-peerings.md#routingdomains) ExpressRoute
 - [Località](../expressroute/expressroute-locations.md) per ExpressRoute.
 - [Architettura della replica](azure-to-azure-architecture.md) per le macchine virtuali di Azure
 - Come [configurare la replica](azure-to-azure-tutorial-enable-replication.md) per le macchine virtuali di Azure.
@@ -85,7 +85,7 @@ In genere, le distribuzioni aziendali presentano carichi di lavoro suddivisi tra
 
 ![Dall'ambiente locale ad Azure con ExpressRoute prima del failover](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-before-failover.png)
 
-- **Area**. Le app sono distribuite nell'area Asia orientale di Azure.
+- **Regione**. Le app sono distribuite nell'area Asia orientale di Azure.
 - **Reti virtuali spoke**. Le app sono distribuite in due reti virtuali spoke:
     - **Rete virtuale 1 di origine**: 10.1.0.0/24.
     - **Rete virtuale 2 di origine**: 10.2.0.0/24.
@@ -93,7 +93,7 @@ In genere, le distribuzioni aziendali presentano carichi di lavoro suddivisi tra
 - **Rete virtuale dell'hub**. È presente la rete virtuale hub **Source Hub vNet**: 10.10.10.0/24.
   - Questa rete virtuale hub opera come gatekeeper.
   - Tutte le comunicazioni tra le subnet passano attraverso questo hub.
-    - **Subnet VNet Hub**. La rete virtuale hub comprende due subnet:
+    - **Subnet della rete virtuale hub**. La rete virtuale hub comprende due subnet:
     - **NVA subnet**: 10.10.10.0/25. Questa subnet contiene un'appliance virtuale di rete (10.10.10.10).
     - **Gateway subnet**: 10.10.10.128/25. Questa subnet contiene un gateway ExpressRoute collegato a una connessione ExpressRoute che indirizza al sito locale tramite un dominio di routing di peering privato.
 - Il data center locale dispone di una connessione al circuito ExpressRoute tramite un'appliance perimetrale partner a Hong Kong.
@@ -104,22 +104,22 @@ In genere, le distribuzioni aziendali presentano carichi di lavoro suddivisi tra
 
 #### <a name="spoke-to-hub"></a>Da spoke a hub
 
-**Direzione** | **Impostazione** | **State**
+**Direzione** | **Impostazione** | **Stato**
 --- | --- | ---
-Da spoke a hub | Allow virtual network address (Consenti indirizzo rete virtuale) | Enabled
-Da spoke a hub | Consenti traffico inoltrato | Enabled
+Da spoke a hub | Allow virtual network address (Consenti indirizzo rete virtuale) | Attivato
+Da spoke a hub | Consenti traffico inoltrato | Attivato
 Da spoke a hub | Consenti transito gateway | Disabled
-Da spoke a hub | Usa gateway remoti | Enabled
+Da spoke a hub | Usa gateway remoti | Attivato
 
  ![Configurazione peering da spoke a hub](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
 #### <a name="hub-to-spoke"></a>Da hub a spoke
 
-**Direzione** | **Impostazione** | **State**
+**Direzione** | **Impostazione** | **Stato**
 --- | --- | ---
-Da hub a spoke | Allow virtual network address (Consenti indirizzo rete virtuale) | Enabled
-Da hub a spoke | Consenti traffico inoltrato | Enabled
-Da hub a spoke | Consenti transito gateway | Enabled
+Da hub a spoke | Allow virtual network address (Consenti indirizzo rete virtuale) | Attivato
+Da hub a spoke | Consenti traffico inoltrato | Attivato
+Da hub a spoke | Consenti transito gateway | Attivato
 Da hub a spoke | Usa gateway remoti | Disabled
 
  ![Configurazione peering da hub a spoke](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
@@ -164,11 +164,11 @@ Questa configurazione garantisce la protezione dagli errori del circuito Express
 
 ### <a name="access-with-a-single-circuit"></a>Accesso con un singolo circuito
 
-In questa configurazione è presente un solo circuito ExpressRoute. Anche se il circuito dispone di una connessione ridondante nel caso in cui una connessione diventi inattiva, un circuito con una singola route non fornisce resilienza se l'area di peering diventa inattiva. Si noti che:
+In questa configurazione è presente un solo circuito ExpressRoute. Anche se il circuito dispone di una connessione ridondante nel caso in cui una connessione diventi inattiva, un circuito con una singola route non fornisce resilienza se l'area di peering diventa inattiva. Tenere presente quanto segue:
 
 - È possibile eseguire la replica delle macchine virtuali di Azure in qualsiasi area di Azure nella [stessa posizione geografica](azure-to-azure-support-matrix.md#region-support). Se l'area di Azure di destinazione non è nella stessa posizione di quella di origine, è necessario abilitare ExpressRoute Premium se si usa un singolo circuito ExpressRoute. Per informazioni, vedere le [località](../expressroute/expressroute-locations.md) e i [prezzi di ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
 - Non è possibile connettere simultaneamente le reti virtuali di origine e di destinazione al circuito se nell'area di destinazione viene usato lo stesso spazio di indirizzi IP. In questo scenario:    
-    -  Interrompere la connessione sul lato di origine e quindi stabilire la connessione sul lato di destinazione. Questa modifica della connessione può essere inserita in uno script come parte di un piano di ripristino di Site Recovery. Si noti che:
+    -  Interrompere la connessione sul lato di origine e quindi stabilire la connessione sul lato di destinazione. Questa modifica della connessione può essere inserita in uno script come parte di un piano di ripristino di Site Recovery. Tenere presente quanto segue:
         - In caso di errore a livello di area, se l'area primaria non è accessibile, l'operazione di disconnessione può avere esito negativo. Ciò potrebbe influire sulla creazione della connessione all'area di destinazione.
         - Se è stata creata la connessione nell'area di destinazione e l'area primaria viene ripristinata in un secondo momento, è possibile che alcuni pacchetti vengano ignorati se due connessioni simultanee provano a connettersi allo stesso spazio di indirizzi.
         - Per evitare il problema, terminare immediatamente la connessione primaria.
@@ -197,7 +197,7 @@ Per automatizzare il ripristino in questo esempio, ecco come procedere:
 
     b. Creare la connessione dalla rete virtuale dell'hub di destinazione al circuito ExpressRoute di destinazione.
 
-    C. Configurare i peering delle reti virtuali tra l'hub dell'area di destinazione e le reti virtuali spoke. Le proprietà di peering nell'area di destinazione saranno identiche a quelle dell'area di origine.
+    c. Configurare i peering delle reti virtuali tra l'hub dell'area di destinazione e le reti virtuali spoke. Le proprietà di peering nell'area di destinazione saranno identiche a quelle dell'area di origine.
 
     d. Configurare gli UDR nella rete virtuale hub e nelle due reti virtuali spoke.
 

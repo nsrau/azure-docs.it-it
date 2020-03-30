@@ -1,6 +1,6 @@
 ---
 title: Pianificare processi U-SQL di Azure Data Lake Analytics tramite SSIS
-description: Informazioni su come usare SQL Server Integration Services per pianificare processi U-SQL con script inline o da file di query U-SQL.
+description: Informazioni su come usare SQL Server Integration Services integration Services per pianificare processi U-SQL con script inline o da file di query U-SQL.
 services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
 ms.openlocfilehash: 0650fcc5023ac57b193fa23b0dedf65113fd64e6
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71672904"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Pianificare processi U-SQL tramite SQL Server Integration Services (SSIS)
@@ -28,7 +28,7 @@ In questo documento si apprenderà come orchestrare e creare processi U-SQL usan
 - [Scaricare e installare SQL Server Data Tools (SSDT) per Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017)
 - [Installare il Feature Pack di Azure per Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017)
 
-## <a name="azure-data-lake-analytics-task"></a>Attività di Azure Data Lake Analytics
+## <a name="azure-data-lake-analytics-task"></a>Attività Azure Data Lake Analytics
 
 L'attività di Azure Data Lake Analytics consente agli utenti di inviare processi U-SQL all'account Azure Data Lake Analytics. 
 
@@ -93,7 +93,7 @@ Nella visualizzazione struttura del pacchetto SSIS aggiungere un'**attività Fil
     
     Per creare questa connessione file:
 
-   1. Scegliere **\<new Connection... >** nell'impostazione FileConnection.
+   1. Scegliere ** \<Nuova connessione... >** in FileConnection impostazione.
    2. Impostare **Tipo di utilizzo** su **File esistente**e **File** sul percorso di qualsiasi file esistente.
 
        ![Configurare il contenitore del ciclo ForEach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
@@ -106,7 +106,7 @@ Nella visualizzazione struttura del pacchetto SSIS aggiungere un'**attività Fil
 
 3. Impostare **AzureDataLakeAnalyticsConnection** sull'account Azure Data Lake Analytics a cui inviare i processi. Altre informazioni sul componente di [gestione delle connessioni di Azure Data Lake Analytics](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017).
 
-4. Impostare altre configurazioni per i processi. [Altre informazioni](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017).
+4. Impostare altre configurazioni per i processi. [Ulteriori informazioni](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017).
 
 5. Usare **Espressioni** per impostare in modo dinamico il nome del processo U-SQL:
 
@@ -119,7 +119,7 @@ Nella visualizzazione struttura del pacchetto SSIS aggiungere un'**attività Fil
 
 È possibile usare file U-SQL in Archiviazione BLOB di Azure tramite l'**attività di download di BLOB di Azure** nel Feature Pack di Azure. Questo approccio consente di usare gli script nel cloud.
 
-I passaggi sono simili a [Scenario 2: Usare file U-SQL in Azure Data Lake Store](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Modificare l'attività File system di Azure Data Lake Store nell'attività di download di BLOB di Azure. [Altre informazioni sull'attività di download di BLOB di Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
+I passaggi sono simili con [Scenario 2: Usare i file U-SQL in Azure Data Lake Store.](#scenario-2-use-u-sql-files-in-azure-data-lake-store) Modificare l'attività File system di Azure Data Lake Store nell'attività di download di BLOB di Azure. [Altre informazioni sull'attività di download di BLOB di Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
 
 Il flusso di controllo è simile al seguente.
 
@@ -137,7 +137,7 @@ Oltre ai file U-SQL archiviati nel cloud, è possibile usare anche file nel comp
 
     ![Aggiungere una connessione al file locale](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
-4. Aggiungere l'attività di **Azure Data Lake Analytics** e:
+4. Aggiungere l'attività di analisi di Azure Data Lake E:Add **Azure Data Lake Analytics** Task and:
     1. Impostare **SourceType** su **FileConnection**.
     2. Impostare **FileConnection** sulla connessione file appena creata.
 

@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: bb76accfef94327386d0ff58d003782a9fe3b0d2
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73573142"
 ---
 # <a name="connect-with-excel"></a>Connettersi con Excel
@@ -20,7 +20,7 @@ Dopo aver creato un server e aver distribuito un modello tabulare nel server, i 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-L'account con cui si esegue l'accesso deve appartenere a un ruolo del database modello con almeno le autorizzazioni di lettura. Per altre informazioni, vedere [Autenticazione e autorizzazioni utente](analysis-services-manage-users.md). 
+L'account con cui si esegue l'accesso deve appartenere a un ruolo del database modello con almeno le autorizzazioni di lettura. Per ulteriori informazioni, vedere [Autenticazione e autorizzazioni utente](analysis-services-manage-users.md). 
 
 ## <a name="connect-in-excel"></a>Connettersi in Excel
 

@@ -10,10 +10,10 @@ ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: b8c7d2ba1c782c3b6ae3034d6a9aab5eb19be954
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70813630"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Gestire Azure Data Lake Analytics usando un'app Java
@@ -22,7 +22,7 @@ ms.locfileid: "70813630"
 Questo articolo descrive come gestire account, origini dati, processi e utenti di Azure Data Lake Analytics usando un'app scritta con l'SDK Java di Azure. 
 
 ## <a name="prerequisites"></a>Prerequisiti
-* **Java Development Kit (JDK) 8** con Java versione 1.8.
+* **Java Development Kit (JDK) 8** (utilizzando Java versione 1.8).
 * **IntelliJ** o un altro ambiente di sviluppo Java adatto. Le istruzioni in questo documento sono relative a IntelliJ.
 * Creare un'applicazione Azure Active Directory (AAD) e recuperarne **ID client**, **ID tenant** e **chiave**. Per altre informazioni sulle applicazioni AAD e le istruzioni su come ottenere un ID client, vedere [Usare il portale per creare un'applicazione di Active Directory che acceda alle risorse](../active-directory/develop/howto-create-service-principal-portal.md). Dopo aver creato l'applicazione e generato la chiave, anche l'URI di risposta e la chiave saranno disponibili dal portale.
 
@@ -33,7 +33,7 @@ Il frammento di codice seguente contiene il codice per l'autenticazione **non in
 ## <a name="create-a-java-application"></a>Creare un'applicazione Java
 1. Aprire IntelliJ e creare un progetto Java usando il modello **Command Line App**.
 2. Fare clic con il pulsante destro del mouse sul progetto sulla sinistra dello schermo e fare clic su **Add Framework Support**(Aggiungi supporto framework). Scegliere **Maven** e fare clic su **OK**.
-3. Aprire il file **"pom.xml"** appena creato e aggiungere il frammento di testo seguente tra il tag **\</version>** e il tag **\</project>** :
+3. Aprire il file **"pom.xml"** appena creato e aggiungere il frammento di testo seguente tra il tag **\</version>** e il tag **\</project>**:
 
 ```
 <dependencies>
@@ -76,9 +76,9 @@ Il frammento di codice seguente contiene il codice per l'autenticazione **non in
 </dependencies>
 ```
 
-Passare a **File > Settings (Impostazioni) > Build (Compilazione) > Execution (Esecuzione) > Deployment (Distribuzione)** . Selezionare **Build Tools (Strumenti di compilazione) > Maven > Importing (Importazione)** . Selezionare **Import Maven projects automatically**(Importa automaticamente progetti Maven).
+Passare a **File > Settings (Impostazioni) > Build (Compilazione) > Execution (Esecuzione) > Deployment (Distribuzione)**. Selezionare **Build Tools (Strumenti di compilazione) > Maven > Importing (Importazione)**. Selezionare **Import Maven projects automatically**(Importa automaticamente progetti Maven).
 
-Aprire `Main.java` e sostituire il blocco di codice esistente con il codice seguente:
+Aprire `Main.java` e sostituire il blocco di codice esistente con il codice seguente:Open and replace the existing code block with the following code:
 
 ```java
 import com.microsoft.azure.CloudException;
@@ -320,5 +320,5 @@ Fornire i valori per i parametri indicati nel frammento di codice:
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL di Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md) e [U-SQL language reference](https://docs.microsoft.com/u-sql/) (Riferimenti al linguaggio U-SQL).
-* Per informazioni sulle attività di gestione, vedere [Gestire Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-manage-use-portal.md).
-* Per una panoramica su Analisi Data Lake, vedere [Panoramica di Analisi Data Lake di Azure](data-lake-analytics-overview.md).
+* Per le attività di gestione, vedere Gestire Azure Data Lake Analytics tramite il portale di Azure.For management tasks, see [Manage Azure Data Lake Analytics using Azure portal.](data-lake-analytics-manage-use-portal.md)
+* Per una panoramica su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).

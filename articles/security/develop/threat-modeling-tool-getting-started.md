@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
 ms.openlocfilehash: 1454826095bcced9b20935405c0befd5a1ed1ddd
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68728248"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Guida introduttiva a Threat Modeling Tool
@@ -44,7 +44,7 @@ Quando si avvia Threat Modeling Tool, si noteranno alcune cose, come illustrato 
 | Componente                                   | Dettagli                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Pulsante Commenti, Suggerimenti e Problemi** | Consente di passare al **[Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=sdlprocess)** per tutti gli aspetti di SDL. Fornisce la possibilità di leggere ciò che altri utenti stanno facendo, insieme a consigli e raccomandazioni. Se ancora non si trova ciò che sta cercando, inviare un messaggio di posta elettronica a tmtextsupport@microsoft.com per ottenere l'aiuto del team di supporto                                                                                                                            |
-| **Creare un modello**                          | Apre un canvas vuoto in cui disegnare il diagramma. Selezionare il modello di partenza che si desidera usare per la modellazione                                                                                                                                                                                                                                                                                                                                                                       |
+| **Creazione di un modello**                          | Apre un canvas vuoto in cui disegnare il diagramma. Selezionare il modello di partenza che si desidera usare per la modellazione                                                                                                                                                                                                                                                                                                                                                                       |
 | **Modello di base per la modellazione**                 | È necessario selezionare il modello di partenza da usare prima di procedere alla modellazione. Il nostro modello di partenza principale è Azure Threat Model, che contiene gli stencil, minacce e mitigazioni specifici di Azure. Per i modelli generici, selezionare la Knowledge Base TM SDL dal menu a discesa. Se si desidera creare un proprio modello di partenza o inviarne uno nuovo per tutti gli utenti, vedere la nostra pagina GitHub con il **[repository dei modelli di base](https://github.com/Microsoft/threat-modeling-templates)** per altre informazioni                              |
 | **Aprire un modello**                            | <p>Vengono aperti modelli di minacce salvati in precedenza. La funzionalità modelli aperti di recente è molto utile se è necessario aprire i file più recenti. Quando si passa il mouse sulla selezione, sono disponibili 2 modi per aprire i modelli:</p><p><ul><li>Apertura dal computer in uso: un modo classico per aprire un file utilizzando l'archiviazione locale</li><li>Apertura da OneDrive: i team possono usare cartelle in OneDrive per salvare e condividere tutti i loro modelli di minacce in un'unica posizione per migliorare la produttività e la collaborazione</li></ul></p> |
 | **Guida introduttiva**                   | Si apre la pagina principale **[Microsoft Threat Modeling Tool](threat-modeling-tool.md)**                                                                                                                                                                                                                                                                                                                                                                                            |
@@ -68,26 +68,26 @@ In questa sezione si seguiranno:
 
 Essi stanno completando il processo di sviluppo del loro primo modello di minaccia.
 
-> Ricardo: Ricardo: Ciao Cristina, ho lavorato al diagramma del modello di minaccia e volevo assicurarmi che i dettagli siano a posto. Puoi darmi una mano a controllare?
+> Ricardo: Ciao Cristina, ho lavorato al diagramma del modello di minaccia e volevo assicurarmi che i dettagli siano a posto. Puoi darmi una mano a controllare?
 > Cristina: Certo. Vediamo.
 > Ricardo apre lo strumento e condivide la sua schermata con Cristina.
 
 ![Modello di minaccia di base](./media/threat-modeling-tool-feature-overview/basictmt.png)
 
-> Cristina: Cristina: OK, sembra semplice, ma puoi spiegarmelo?
-> Ricardo: Certamente. Ecco i dettagli:
+> Cristina: OK, sembra semplice, ma puoi spiegarmelo?
+> Ricardo: Certo! Ecco i dettagli:
 > - L'utente è disegnato come un'entità esterna: un quadrato
 > - Sta inviando comandi al nostro server Web: il cerchio
 > - Il server Web sta consultando un database (due linee parallele)
 
-Ciò che Ricardo ha appena mostrato a Cristina è un DFD, abbreviazione di **[diagramma di flusso dei dati](https://en.wikipedia.org/wiki/Data_flow_diagram)** . Threat Modeling Tool consente agli utenti di specificare i limiti di trust, indicati dalle linee rosse tratteggiate, per mostrare dove entità diverse sono sotto controllo. Ad esempio, gli amministratori IT richiedono un sistema Active Directory per scopi di autenticazione, perciò Active Directory è fuori dal loro controllo.
+Ciò che Ricardo ha appena mostrato a Cristina è un DFD, abbreviazione di **[diagramma di flusso dei dati](https://en.wikipedia.org/wiki/Data_flow_diagram)**. Threat Modeling Tool consente agli utenti di specificare i limiti di trust, indicati dalle linee rosse tratteggiate, per mostrare dove entità diverse sono sotto controllo. Ad esempio, gli amministratori IT richiedono un sistema Active Directory per scopi di autenticazione, perciò Active Directory è fuori dal loro controllo.
 
 > Cristina: Mi sembra perfetto. E le minacce?
 > Ricardo: Ti mostro.
 
 ## <a name="analyzing-threats"></a>Analisi delle minacce
 
-Quando fa clic sulla visualizzazione di analisi nel menu di icone (il file con la lente di ingrandimento), compare un elenco delle minacce generate trovare da Threat Modeling Tool in base al modello predefinito che usa l'approccio SDL chiamato **[STRIDE (Spoofing, Tampering, Info Disclosure, Repudiation, Denial of Service and Elevation of Privilege)](https://en.wikipedia.org/wiki/STRIDE_(security))** . L'idea è che il software è soggetto a una serie di minacce prevedibili che si possono trovare usando queste 6 categorie.
+Quando fa clic sulla visualizzazione di analisi nel menu di icone (il file con la lente di ingrandimento), compare un elenco delle minacce generate trovare da Threat Modeling Tool in base al modello predefinito che usa l'approccio SDL chiamato **[STRIDE (Spoofing, Tampering, Info Disclosure, Repudiation, Denial of Service and Elevation of Privilege)](https://en.wikipedia.org/wiki/STRIDE_(security))**. L'idea è che il software è soggetto a una serie di minacce prevedibili che si possono trovare usando queste 6 categorie.
 
 Questo approccio è come proteggere una casa dotando ogni porta e finestra di un meccanismo di blocco prima di aggiungere un sistema di allarme o rincorrere il ladro.
 
@@ -112,7 +112,7 @@ La descrizione gli ha permesso di capire l'importanza di aggiungere un meccanism
 Non appena Ricardo entra nelle minacce nella sezione di divulgazione delle informazioni, si accorge che il piano di controllo di accesso necessario richiede alcuni account di sola lettura per il controllo e la generazione di report. Si chiede se questa dovrebbe essere una nuova minaccia, ma le mitigazioni sono le stesse, perciò annota la minaccia di conseguenza.
 Pernsa ancora un po' alla divulgazione di informazioni e si accorge che i nastri di backup richiederanno la crittografia, un lavoro per il team addetto alle operazioni.
 
-Le minacce non applicabili alla progettazione a causa di mitigazioni o garanzie di sicurezza esistenti possono essere modificate in "Non applicabile" dall'elenco a discesa Stato. Ci sono tre altre opzioni: Non avviato, la selezione predefinita, Analisi necessaria, che consente di seguire gli elementi, e Mitigato, per quando l'elaborazione è stata completata.
+Le minacce non applicabili alla progettazione a causa di mitigazioni o garanzie di sicurezza esistenti possono essere modificate in "Non applicabile" dall'elenco a discesa Stato. Ci sono tre altre opzioni: ovvero Non avviato, la selezione predefinita, Richiede analisi, che consente di seguire gli elementi, e Mitigato, per quando l'elaborazione è stata completata.
 
 ## <a name="reports--sharing"></a>Report e condivisione
 
@@ -142,6 +142,6 @@ Se si intende eseguire la modellazione delle minacce per una casa, si può inizi
 
 L'approccio alla modellazione delle minacce che è stato presentato è sostanzialmente più semplice rispetto a ciò che Microsoft ha fatto in passato. È stato rilevato che l'approccio di progettazione del software funziona bene per molti team. Ci auguriamo che sia così anche per il lettore.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 Inviare domande, commenti e problemi a tmtextsupport@microsoft.com. **[Scaricare](https://aka.ms/threatmodelingtool)** Threat Modeling Tool per iniziare.

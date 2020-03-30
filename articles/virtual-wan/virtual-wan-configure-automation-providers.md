@@ -1,5 +1,5 @@
 ---
-title: Linee guida sull'automazione di partner WAN virtuali di Azure | Microsoft Docs
+title: Linee guida per l'automazione dei partner WAN virtuali di Azure Documenti Microsoft
 description: Questo articolo illustra ai partner come configurare l'automazione della rete WAN virtuale di Azure.
 services: virtual-wan
 author: cherylmc
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: cherylmc
 ms.openlocfilehash: 7848dda09b39f446dd218b7ce1eb2a07664bcaa6
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190424"
 ---
-# <a name="automation-guidelines-for-virtual-wan-partners"></a>Linee guida di automazione per partner WAN virtuali
+# <a name="automation-guidelines-for-virtual-wan-partners"></a>Linee guida per l'automazione per i partner WAN virtuali
 
 Questo articolo descrive come configurare l'ambiente di automazione per connettere e configurare un dispositivo di branch (un dispositivo VPN locale di un cliente o un CPE SDWAN) per la rete WAN virtuale di Azure. L'articolo è rivolto ai provider che forniscono dispositivi di branch in grado di supportare la connettività VPN tramite IPsec/IKEv2 o IPsec/IKEv1.
 
 Un dispositivo di branch (un dispositivo VPN locale di un cliente o un CPE SDWAN) usa in genere un dashboard di controller/dispositivo per il provisioning. Gli amministratori delle soluzioni SD-WAN spesso possono usare una console di gestione per effettuare il pre-provisioning di un dispositivo prima che venga collegato alla rete. Questo dispositivo abilitato per VPN ottiene la logica del piano di controllo da un controller. Il dispositivo VPN o il controller SD-WAN possono usare le API di Azure per automatizzare la connettività alla rete WAN virtuale di Azure. Questo tipo di connessione richiede che il dispositivo locale disponga di un indirizzo IP pubblico per l'esterno.
 
-## <a name ="before"></a>Prima di iniziare il processo di automazione
+## <a name="before-you-begin-automating"></a><a name ="before"></a>Prima di iniziare il processo di automazione
 
 * Verificare che il dispositivo supporti IPsec IKEv1 o IKEv2. Vedere i [criteri predefiniti](#default).
-* Visualizzare le [API REST](#additional) usate per automatizzare la connettività alla rete WAN virtuale di Azure.
+* Visualizzare le API REST usate per automatizzare la connettività alla rete WAN virtuale di Azure.View the [REST APIs](#additional) that you use to automate connectivity to Azure Virtual WAN.
 * Testare l'esperienza nel portale della rete WAN virtuale di Azure.
 * Decidere quindi quale parte della procedura della connettività si vuole automatizzare. È consigliabile automatizzare almeno i seguenti passaggi:
 
@@ -31,28 +31,28 @@ Un dispositivo di branch (un dispositivo VPN locale di un cliente o un CPE SDWAN
   * Caricamento delle informazioni sul dispositivo di branch nella rete WAN virtuale di Azure
   * Download della configurazione di Azure e configurazione della connettività dal dispositivo di branch alla rete WAN virtuale di Azure
 
-### <a name ="additional"></a>Informazioni aggiuntive
+### <a name="additional-information"></a><a name ="additional"></a>Ulteriori informazioni
 
 * [API REST](https://docs.microsoft.com/rest/api/virtualwan/virtualhubs) per automatizzare la creazione dell'hub virtuale
 * [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpngateways) per automatizzare il gateway VPN di Azure per la rete WAN virtuale
-* [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpnconnections) per connettere una VPNSite a un hub VPN di Azure
+* [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpnconnections) per connettere un sito VPN a un hub VPN di Azure
 * [Criteri IPsec predefiniti](#default)
 
-## <a name ="ae"></a>Esperienza del cliente
+## <a name="customer-experience"></a><a name ="ae"></a>Esperienza del cliente
 
 Comprendere l'esperienza utente prevista in combinazione con la rete WAN virtuale di Azure.
 
   1. Un utente di rete WAN virtuale avvia in genere il processo creando una risorsa di rete WAN virtuale.
   2. L'utente configura un accesso al gruppo di risorse basate su entità servizio per il sistema locale (il controller di branch o il software di provisioning del dispositivo VPN) per scrivere informazioni sul branch nella rete WAN virtuale di Azure.
   3. L'utente può decidere in questa fase di accedere all'interfaccia utente e impostare le credenziali dell'entità servizio. Al termine il controller è in grado di caricare le informazioni sul branch con la procedura automatizza che verrà specificata. L'equivalente manuale di questa procedura sul lato Azure è "Crea sito".
-  4. Una volta che le informazioni sul sito (dispositivo Branch) sono disponibili in Azure, l'utente collegherà il sito a un hub. Un hub virtuale è una rete virtuale gestita da Microsoft. L'hub contiene vari endpoint di servizio per abilitare la connettività dalla rete locale (vpnsite). L'hub è l'elemento centrale della rete in un'area. Può esistere un solo hub per ogni area di Azure e il relativo endpoint VPN (vpngateway) viene creato durante questo processo. Il gateway VPN è un gateway scalabile che si adatta in base alla larghezza di banda e ai requisiti di connessione. È possibile scegliere di automatizzare la creazione dell'hub virtuale e del gateway VPN dal dashboard del controller del dispositivo di branch.
+  4. Quando le informazioni sul sito (dispositivo di succursale) sono disponibili in Azure, l'utente connetterà il sito a un hub. Un hub virtuale è una rete virtuale gestita da Microsoft. L'hub contiene vari endpoint di servizio per abilitare la connettività dalla rete locale (vpnsite). L'hub è l'elemento centrale della rete in un'area. Può esistere un solo hub per ogni area di Azure e il relativo endpoint VPN (vpngateway) viene creato durante questo processo. Il gateway VPN è un gateway scalabile che si adatta in base alla larghezza di banda e ai requisiti di connessione. È possibile scegliere di automatizzare la creazione dell'hub virtuale e del gateway VPN dal dashboard del controller del dispositivo di branch.
   5. Dopo che l'hub virtuale è stato associato al sito, viene generato un file di configurazione che l'utente deve scaricare manualmente. È qui che entra in gioco l'automazione e rende l'esperienza utente facile e veloce. Invece di chiedere all'utente di scaricare e configurare manualmente il dispositivo di branch, è possibile impostare l'automazione e offrire un'esperienza basata su pochi clic nell'interfaccia utente. Si riducono così i problemi di connettività tipici, ad esempio la mancata corrispondenza delle chiavi condivise e dei parametri IPSec, la leggibilità del file di configurazione e così via.
   6. Alla fine di questo passaggio nella soluzione, l'utente si ritroverà una connessione da sito a sito tra il dispositivo di branch e l'hub virtuale. È possibile anche impostare connessioni aggiuntive in altri hub. Ogni connessione è un tunnel attivo-attivo. Il cliente può scegliere di usare un ISP diverso per ognuno dei collegamenti per il tunnel.
-  7. Valutare la possibilità di fornire funzionalità di monitoraggio e risoluzione dei problemi nell'interfaccia di gestione CPE. Gli scenari tipici includono "il cliente non è in grado di accedere alle risorse di Azure a causa di un problema CPE", "Mostra i parametri IPsec sul lato CPE" e così via.
+  7. Valutare la possibilità di fornire funzionalità di risoluzione dei problemi e monitoraggio nell'interfaccia di gestione CPE. Gli scenari tipici includono "Cliente non in grado di accedere alle risorse di Azure a causa di un problema CPE", "Mostra parametri IPsec sul lato CPE" e così via.
 
-## <a name ="understand"></a>Dettagli automazione
+## <a name="automation-details"></a><a name ="understand"></a>Dettagli sull'automazione
 
-###  <a name="access"></a>Controllo degli accessi
+###  <a name="access-control"></a><a name="access"></a>Controllo degli accessi
 
 I clienti devono essere in grado di impostare il controllo degli accessi appropriato per la rete WAN virtuale nell'interfaccia utente del dispositivo. Questa operazione è consigliabile usando un'entità servizio di Azure. L'accesso basato su entità servizio fornisce al dispositivo un'autenticazione adeguata al controller per caricare le informazioni sul branch. Per altre informazioni, vedere [Create service principal](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) (Creare un'entità servizio). Anche se questa funzionalità non è inclusa nell'offerta della rete WAN virtuale di Azure, di seguito vengono elencati i passaggi tipici eseguiti per configurare l'accesso in Azure dopo il quale vengono inseriti i dettagli rilevanti nel dashboard di gestione del dispositivo.
 
@@ -61,20 +61,20 @@ I clienti devono essere in grado di impostare il controllo degli accessi appropr
 * Ottenere l'ID tenant
 * Assegnare l'applicazione al ruolo "Collaboratore"
 
-###  <a name="branch"></a>Caricare le informazioni sul dispositivo di branch
+###  <a name="upload-branch-device-information"></a><a name="branch"></a>Caricare le informazioni sul dispositivo di branch
 
-È consigliabile progettare l'esperienza utente per caricare informazioni sul ramo (sito locale) in Azure. È possibile usare le [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpnsites) per VPNSite per creare le informazioni sul sito nella rete WAN virtuale. È possibile specificare tutti i dispositivi VPN/SDWAN di branch o selezionare le personalizzazioni di dispositivo di conseguenza.
+È consigliabile progettare l'esperienza utente per caricare le informazioni sul ramo (sito locale) in Azure.You should design the user experience to upload branch (on-premises site) information to Azure. È possibile utilizzare [le API REST](https://docs.microsoft.com/rest/api/virtualwan/vpnsites) per VPNSite per creare le informazioni sul sito nella rete WAN virtuale. È possibile specificare tutti i dispositivi VPN/SDWAN di branch o selezionare le personalizzazioni di dispositivo di conseguenza.
 
-### <a name="device"></a>Download della configurazione e connessione del dispositivo
+### <a name="device-configuration-download-and-connectivity"></a><a name="device"></a>Download della configurazione e connessione del dispositivo
 
-Questo passaggio prevede il download della configurazione di Azure e la configurazione della connettività dal dispositivo di branch alla rete WAN virtuale di Azure. In questo passaggio, un cliente che non usa un provider scarica manualmente la configurazione di Azure e la applica al dispositivo SDWAN/VPN in locale. In qualità di provider, è consigliabile automatizzare questo passaggio. Per ulteriori informazioni, visualizzare le [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpnsitesconfiguration/download) di download. Il controller del dispositivo può chiamare l'API REST ' GetVpnConfiguration ' per scaricare la configurazione di Azure.
+Questo passaggio prevede il download della configurazione di Azure e la configurazione della connettività dal dispositivo di branch alla rete WAN virtuale di Azure. In questo passaggio, un cliente che non usa un provider scarica manualmente la configurazione di Azure e la applica al dispositivo SDWAN/VPN in locale. In qualità di provider, è consigliabile automatizzare questo passaggio. Visualizzare le [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpnsitesconfiguration/download) di download per ulteriori informazioni. Il controller del dispositivo può chiamare l'API REST 'GetVpnConfiguration' per scaricare la configurazione di Azure.The device controller can call 'GetVpnConfiguration' REST API to download the Azure configuration.
 
 **Note di configurazione**
 
   * Se le reti virtuali di Azure sono collegate all'hub virtuale, verranno visualizzate come ConnectedSubnets.
-  * La connettività VPN usa la configurazione basata su Route e supporta sia i protocolli IKEv1 che IKEv2.
+  * La connettività VPN utilizza la configurazione basata su route e supporta sia i protocolli IKEv1 che i protocolli IKEv2.
 
-## <a name="devicefile"></a>File di configurazione del dispositivo
+## <a name="device-configuration-file"></a><a name="devicefile"></a>File di configurazione del dispositivo
 
 Il file di configurazione del dispositivo contiene le impostazioni da usare quando si configura il dispositivo VPN locale. Quando si visualizza questo file, notare le informazioni seguenti:
 
@@ -97,9 +97,9 @@ Il file di configurazione del dispositivo contiene le impostazioni da usare quan
         "Instance0":"104.45.18.186"
         "Instance1":"104.45.13.195"
         ```
-    * **Dettagli di configurazione della connessione vpngateway** , ad esempio BGP, chiave precondivisa e così via. PSK è la chiave precondivisa generata automaticamente. È sempre possibile modificare la connessione nella pagina Panoramica per una chiave precondivisa personalizzata.
+    * Dettagli di configurazione della **connessione Vpngateway** come BGP, chiave precondivisa e così via. La chiave PSK è la chiave precondivisa che viene generata automaticamente. È sempre possibile modificare la connessione nella pagina Panoramica per una chiave precondivisa personalizzata.
   
-**File di configurazione del dispositivo di esempio**
+**Esempio di file di configurazione del dispositivo**
 
   ```
   { 
@@ -204,7 +204,7 @@ Il file di configurazione del dispositivo contiene le impostazioni da usare quan
    }
   ```
 
-## <a name="default"></a>Dettagli connettività
+## <a name="connectivity-details"></a><a name="default"></a>Dettagli sulla connettività
 
 La configurazione del dispositivo VPN/SDWAN o SD-WAN locale deve contenere o corrispondere agli algoritmi e ai parametri seguenti specificati nei criteri IPsec/IKE di Azure.
 
@@ -215,11 +215,11 @@ La configurazione del dispositivo VPN/SDWAN o SD-WAN locale deve contenere o cor
 * Algoritmo di integrità IPsec
 * Gruppo PFS
 
-### <a name="default"></a>Criteri predefiniti per la connettività IPsec
+### <a name="default-policies-for-ipsec-connectivity"></a><a name="default"></a>Criteri predefiniti per la connettività IPsec
 
 [!INCLUDE [IPsec Default](../../includes/virtual-wan-ipsec-include.md)]
 
-### <a name="custom"></a>Criteri personalizzati per la connettività IPsec
+### <a name="custom-policies-for-ipsec-connectivity"></a><a name="custom"></a>Criteri personalizzati per la connettività IPsec
 
 [!INCLUDE [IPsec Custom](../../includes/virtual-wan-ipsec-custom-include.md)]
 

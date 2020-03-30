@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6c1df14ba5a9f233f42750d4e6dea68a7d6ddc0e
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77564857"
 ---
 # <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Incorporamento di un flusso video adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js  
 
 ## <a name="overview"></a>Panoramica
-MPEG-DASH è uno standard ISO per lo streaming adattivo di contenuti video che offre vantaggi significativi agli sviluppatori che intendono distribuire output di streaming video adattivo di alta qualità. Con MPEG-DASH il flusso video viene automaticamente adeguato a una definizione inferiore quando si verificano situazioni di congestione sulla rete. In questo modo si riduce la probabilità che il Visualizzatore visualizzi un video "sospeso" mentre il giocatore Scarica i prossimi secondi per la riproduzione, ovvero riduce la probabilità di memorizzazione nel buffer. Man mano che la congestione sulla rete si riduce, il lettore video torna a un flusso di qualità elevata. La possibilità di adattare la larghezza di banda richiesta riduce anche i tempi di avvio del video. I primi secondi, ad esempio, possono essere riprodotti con una qualità inferiore, rapida da scaricare, per poi passare a una qualità superiore nel momento in cui nel buffer è stato memorizzato contenuto sufficiente.
+MPEG-DASH è uno standard ISO per lo streaming adattivo di contenuti video che offre vantaggi significativi agli sviluppatori che intendono distribuire output di streaming video adattivo di alta qualità. Con MPEG-DASH il flusso video viene automaticamente adeguato a una definizione inferiore quando si verificano situazioni di congestione sulla rete. In questo modo si riduce la probabilità che lo spettatore veda un video "in pausa" mentre il lettore scarica i secondi successivi per la riproduzione(ovvero, riduce la probabilità di memorizzazione nel buffer). Man mano che la congestione sulla rete si riduce, il lettore video torna a un flusso di qualità elevata. La possibilità di adattare la larghezza di banda richiesta riduce anche i tempi di avvio del video. I primi secondi, ad esempio, possono essere riprodotti con una qualità inferiore, rapida da scaricare, per poi passare a una qualità superiore nel momento in cui nel buffer è stato memorizzato contenuto sufficiente.
 
 Dash.js è un lettore video MPEG-DASH open source scritto in JavaScript. È stato sviluppato per offrire un affidabile lettore multipiattaforma che possa essere liberamente riusato in applicazioni che richiedono la riproduzione video. Offre funzionalità di riproduzione MPEG-DASH in qualsiasi browser che supporta lo standard W3C Media Source Extensions (MSE), ovvero Chrome, Microsoft Edge e IE11 (altri browser hanno annunciato l'intenzione di supportare MSE). Per altre informazioni su DASH.js, vedere la pagina relativa al repository dash.js di GitHub.
 
@@ -55,7 +55,7 @@ Il primo passaggio consiste nel creare una pagina HTML standard contenente l'ele
 ```
 
 ## <a name="adding-the-dashjs-player"></a>Aggiunta del lettore DASH.js
-Per aggiungere l'implementazione di riferimento Dash. js all'applicazione, è necessario estrarre il file Dash. all. js dalla versione più recente del progetto Dash. js. Il file deve essere quindi salvato nella cartella JavaScript dell'applicazione. Si tratta di un file di riferimento che raccoglie tutto il codice dash.js necessario in un unico file. Esaminando l'archivio dash.js sarà possibile identificare i singoli file, il codice di test e molto altro, ma se si vuole solo usare il file dash.js, questo sarà l'unico elemento effettivamente necessario.
+Per aggiungere l'implementazione di riferimento dash.js all'applicazione, è necessario acquisire il file dash.all.js dalla versione più recente del progetto dash.js. Il file deve essere quindi salvato nella cartella JavaScript dell'applicazione. Si tratta di un file di riferimento che raccoglie tutto il codice dash.js necessario in un unico file. Esaminando l'archivio dash.js sarà possibile identificare i singoli file, il codice di test e molto altro, ma se si vuole solo usare il file dash.js, questo sarà l'unico elemento effettivamente necessario.
 
 Per aggiungere il lettore dash.js a un'applicazione, aggiungere un tag di script alla sezione di intestazione del file basicPlayer.html:
 

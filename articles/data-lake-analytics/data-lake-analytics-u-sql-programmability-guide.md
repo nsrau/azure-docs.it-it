@@ -10,10 +10,10 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: dc55615d7a5c6ae9a393ed4fd5f49cd92aedc0f9
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73162572"
 ---
 # <a name="u-sql-programmability-guide"></a>Guida alla programmabilità di U-SQL
@@ -133,7 +133,7 @@ Come indicato in precedenza, U-SQL esegue il codice in un formato a 64 bit (x64)
 
 Ogni DLL di assembly e file di risorse caricato (ad esempio un diverso runtime, un assembly nativo o un file di configurazione) può essere al massimo di 400 MB. Le dimensioni totali delle risorse distribuite, tramite DEPLOY RESOURCE o riferimenti agli assembly e ai relativi file aggiuntivi, non possono superare 3 GB.
 
-Si noti infine che ogni database U-SQL può contenere solo una versione di un determinato assembly. Se, ad esempio, sono necessarie sia la versione 7 che la versione 8 della libreria NewtonSoft Json.NET, è necessario registrarle in due database diversi. Ogni script, inoltre, può fare riferimento a una sola versione di una determinata DLL di assembly. A tale riguardo, U-SQL segue la semantica di gestione e controllo delle versioni degli assembly di C#.
+Si noti infine che ogni database U-SQL può contenere solo una versione di un determinato assembly. Ad esempio, se sono necessarie sia la versione 7 che la versione 8 della libreria di Json.NET NewtonSoft, è necessario registrarle in due database diversi. Ogni script, inoltre, può fare riferimento a una sola versione di una determinata DLL di assembly. A tale riguardo, U-SQL segue la semantica di gestione e controllo delle versioni degli assembly di C#.
 
 ## <a name="use-user-defined-functions-udf"></a>Usare funzioni definite dall'utente (UDF)
 Le funzioni definite dall'utente (UDF) di U-SQL sono routine di programmazione che accettano parametri, eseguono un'azione, ad esempio un calcolo complesso, e restituiscono il risultato di tale azione come valore. Il valore restituito della funzione UDF può essere solo un valore scalare singolo. Una funzione UDF di U-SQL può essere chiamata nello script di base di U-SQL come qualsiasi altra funzione scalare di C#.
@@ -527,7 +527,7 @@ public class MyTypeFormatter : IFormatter<MyType>
 
 L'interfaccia `IFormatter` serializza e deserializza un oggetto grafico con il tipo radice \<typeparamref name="T">.
 
-\<typeparam name="T"> il tipo radice per l'oggetto grafico da serializzare e deserializzare.
+\<typeparam name="T"&gt; il tipo radice per l'oggetto grafico da serializzare e deserializzare.
 
 * **Deserialize**: deserializza i dati nel flusso fornito e ricostruisce il grafico degli oggetti.
 
@@ -914,7 +914,7 @@ La definizione della classe base delle aggregazioni definite dall'utente è la s
 
 **SqlUserDefinedAggregate** indica che il tipo deve essere registrato come aggregazione definita dall'utente. Questa classe non può essere ereditata.
 
-L'attributo SqlUserDefinedType è **facoltativo** per la definizione di aggregazioni definite dall'utente.
+L'attributo SqlUserDefinedType è **facoltativo** per la definizione UDAGG.
 
 
 La classe base consente di passare tre parametri astratti: due come parametri di input e uno come risultato. I tipi di dati sono variabili e devono essere definiti quando viene ereditata la classe.
@@ -946,16 +946,16 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 ```
 
 * T1: primo parametro per Accumulate
-* T2: secondo parametro da accumulare
+* T2: Secondo parametro da accumulare
 * TResult: tipo restituito di Terminate
 
-ad esempio:
+Ad esempio:
 
 ```
 public class GuidAggregate : IAggregate<string, int, int>
 ```
 
-Oppure
+o
 
 ```
 public class GuidAggregate : IAggregate<string, string, string>
@@ -1057,7 +1057,7 @@ Un oggetto definito dall'utente viene in genere chiamato in modo esplicito negli
 
 * EXTRACT
 * OUTPUT
-* PROCESSO
+* PROCESS
 * COMBINE
 * REDUCE
 
@@ -1067,11 +1067,11 @@ Un oggetto definito dall'utente viene in genere chiamato in modo esplicito negli
 ## <a name="use-user-defined-extractors"></a>Usare estrattori definiti dall'utente
 U-SQL consente di importare dati esterni con un'istruzione EXTRACT. L'istruzione EXTRACT consente di usare estrattori UDO predefiniti.  
 
-* *Extractors.Text()* : consente di estrarre da file di testo delimitati di varie codifiche.
+* *Extractors.Text()*: consente di estrarre da file di testo delimitati di varie codifiche.
 
-* *Extractors.Csv()* : consente di estrarre da file di testo delimitati da virgole (CSV) di varie codifiche.
+* *Extractors.Csv()*: consente di estrarre da file di testo delimitati da virgole (CSV) di varie codifiche.
 
-* *Extractors.Tsv()* : consente di estrarre da file di testo delimitati da tabulazioni (TSV) di varie codifiche.
+* *Extractors.Tsv()*: consente di estrarre da file di testo delimitati da tabulazioni (TSV) di varie codifiche.
 
 Può essere utile per sviluppare un estrattore personalizzato. Questo può essere opportuno durante un'importazione di dati, se si vuole eseguire una o più delle attività seguenti:
 
@@ -1219,9 +1219,9 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ## <a name="use-user-defined-outputters"></a>Usare outputter definiti dall'utente
 L'outputter definito dall'utente è un altro oggetto definito dall'utente di U-SQL che consente di estendere una funzionalità predefinita di U-SQL. Come per l'estrattore, esistono diversi outputter integrati.
 
-* *Outputters.Text()* : scrive i dati in file di testo delimitati di codifiche diverse.
-* *Outputters.Csv()* : scrive i dati in file di testo delimitati da virgole (CSV) di codifiche diverse.
-* *Outputters.Tsv()* : scrive i dati in file di testo delimitati da tabulazioni (TSV) di codifiche diverse.
+* *Outputters.Text()*: scrive i dati in file di testo delimitati di codifiche diverse.
+* *Outputters.Csv()*: scrive i dati in file di testo delimitati da virgole (CSV) di codifiche diverse.
+* *Outputters.Tsv()*: scrive i dati in file di testo delimitati da tabulazioni (TSV) di codifiche diverse.
 
 L'outputter personalizzato consente di scrivere i dati in un formato definito personalizzato. Questo può essere utile per le attività seguenti:
 
@@ -1873,11 +1873,11 @@ I principali oggetti di programmabilità sono i seguenti:
         IUpdatableRow output
 ```
 
-I set di righe di input vengono passati come tipo di interfaccia `IRowset` a **sinistra** e a **destra**. Entrambi i set di righe devono essere enumerati per l'elaborazione. È possibile enumerare ogni interfaccia una sola volta, quindi deve essere enumerata e memorizzata nella cache, se necessario.
+I set di righe di input vengono passati come tipo di interfaccia **a sinistra** e **a destra.** `IRowset` Entrambi i set di righe devono essere enumerati per l'elaborazione. È possibile enumerare ogni interfaccia una sola volta, quindi deve essere enumerata e memorizzata nella cache, se necessario.
 
 Per la memorizzazione nella cache, è possibile creare un tipo di struttura di memoria List\<T\> come risultato dell'esecuzione di una query LINQ, specificamente List<`IRow`>. Durante l'enumerazione è possibile usare anche il tipo di dati anonimo.
 
-Per altre informazioni su tali query, vedere l'[introduzione alle query LINQ (C#)](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries). Per altre informazioni sull'interfaccia IEnumerable\<T\>, vedere [Interfaccia IEnumerable\<T\>](/dotnet/api/system.collections.generic.ienumerable-1).
+Per ulteriori [\<\> ](/dotnet/api/system.collections.generic.ienumerable-1) informazioni sull'interfaccia\<IEnumerable T,\> vedere Introduzione alle query LINQ [(C).](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries)
 
 Per ottenere i valori di dati effettivi da `IRowset` in ingresso, si usa il metodo Get() dell'interfaccia `IRow`.
 

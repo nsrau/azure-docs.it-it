@@ -1,5 +1,5 @@
 ---
-title: 'Gateway VPN di Azure: risolvere i problemi relativi alle connessioni da punto a sito: Mac OS X client'
+title: 'Gateway VPN di Azure: risolvere i problemi relativi alle connessioni da punto a sito: client Mac OS X'
 description: Procedura per risolvere i problemi di connessione client VPN da punto a sito in Mac OS X
 services: vpn-gateway
 author: anzaman
@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 03/27/2018
 ms.author: alzam
 ms.openlocfilehash: f88053c93884e10e46a0f7d70106bda67b057562
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77425723"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Risolvere i problemi di connessione VPN da punto a sito dai client Mac OS X
@@ -25,7 +25,7 @@ Questo articolo consente di risolvere i problemi di connettività da punto a sit
 * Versione del sistema operativo: 10.11 o successiva
 
 
-## <a name="VPNClient"></a> Risolvere i problemi di autenticazione basata su certificati
+## <a name="troubleshoot-certificate-based-authentication"></a><a name="VPNClient"></a> Risolvere i problemi di autenticazione basata su certificati
 1. Controllare le impostazioni del client VPN. Passare a **Network Setting** (Impostazioni di rete) premendo Comando + Maiusc e quindi digitare "VPN" per controllare le impostazioni del client VPN. Nell'elenco fare clic sulla voce VPN che deve essere esaminata.
 
    ![Autenticazione basata su certificati IKEv2](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2cert1.jpg)
@@ -38,7 +38,7 @@ Questo articolo consente di risolvere i problemi di connettività da punto a sit
 6. Verificare che **Certificate** (Certificato) sia stato selezionato dall'elenco a discesa.
 7. Fare clic sul pulsante **Select** (Seleziona) e verificare che sia stato selezionato il certificato corretto. Fare clic su **OK** per salvare le modifiche.
 
-## <a name="ikev2"></a>Risolvere i problemi di autenticazione di nome utente e password
+## <a name="troubleshoot-username-and-password-authentication"></a><a name="ikev2"></a>Risolvere i problemi di autenticazione di nome utente e password
 
 1. Controllare le impostazioni del client VPN. Passare a **Network Setting** (Impostazioni di rete) premendo Comando + Maiusc e quindi digitare "VPN" per controllare le impostazioni del client VPN. Nell'elenco fare clic sulla voce VPN che deve essere esaminata.
 
@@ -51,7 +51,7 @@ Questo articolo consente di risolvere i problemi di connettività da punto a sit
    ![Authentication settings](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
 6. Verificare che siano state immesse le credenziali corrette.
 
-## <a name="additional"></a>Passaggi aggiuntivi
+## <a name="additional-steps"></a><a name="additional"></a>Passaggi aggiuntivi
 
 Se si segue la procedura precedente e tutto viene configurato correttamente, scaricare [Wireshark](https://www.wireshark.org/#download) ed eseguire un'acquisizione pacchetti.
 
@@ -60,7 +60,7 @@ Se si segue la procedura precedente e tutto viene configurato correttamente, sca
 
    ![pacchetto](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
   
-3. Se non è presente alcuna risposta server sulle tracce di rete, verificare di aver abilitato il protocollo IKEv2 nella pagina di configurazione del gateway di Azure nel sito Web portale di Azure.
+3. Se non è presente alcuna risposta del server nelle tracce di rete, verificare di aver abilitato il protocollo IKEv2 nella pagina Configurazione gateway di Azure nel Portale Web di Azure.If there is no server response on the network traces, verify you enabled IKEv2 protocol on the Azure Gateway Configuration page on the Azure portal website.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni, contattare [il supporto tecnico Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

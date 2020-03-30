@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: provisioning utenti per Cerner Central-Azure AD'
+title: 'Esercitazione: Provisioning degli utenti per Cerner Central - Azure ADTutorial: User provisioning for Cerner Central - Azure AD'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning degli utenti in un elenco in Cerner Central.
 services: active-directory
 documentationcenter: ''
@@ -16,17 +16,17 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ed04d8fdcc2d79c66e2ebc53c737c78664e4621
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77058317"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Esercitazione: Configurare Cerner Central per il provisioning utenti automatico
 
 Questa esercitazione descrive le procedure da eseguire in Cerner Central e Azure AD per effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD in un elenco di utenti in Cerner Central.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -57,7 +57,7 @@ Prima di configurare e abilitare il servizio di provisioning, è necessario stab
 Questa sezione illustra la connessione di Azure AD all'elenco di utenti di Cerner Central tramite l'API per il provisioning degli account utente SCIM di Cerner e la configurazione del servizio di provisioning per la creazione, l'aggiornamento e la disabilitazione degli account utente assegnati in Cerner Central in base all'assegnazione di utenti e gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare l'accesso Single Sign-on basato su SAML per Cerner Central, seguendo le istruzioni fornite in [portale di Azure](https://portal.azure.com). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning automatico, nonostante queste due funzionalità siano complementari. Per altre informazioni, vedere l'[esercitazione sull'accesso Single Sign-On di Cerner Central](cernercentral-tutorial.md).
+> È anche possibile scegliere di abilitare Single Sign-On basato su SAML per Cerner Central, seguendo le istruzioni fornite nel portale di [Azure.](https://portal.azure.com) L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning automatico, nonostante queste due funzionalità siano complementari. Per altre informazioni, vedere l'[esercitazione sull'accesso Single Sign-On di Cerner Central](cernercentral-tutorial.md).
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>Per configurare il provisioning automatico degli account utente in Cerner Central con Azure AD:
 
@@ -93,7 +93,7 @@ Per effettuare il provisioning degli account utente in Cerner Central, è necess
 
 7. Selezionare l'istanza di Cerner Central e quindi la scheda **Provisioning**.
 
-8. Impostare **Modalità di provisioning** su **Automatico**.
+8. Impostare la **modalità di provisioning** su **Automatico**.
 
    ![Provisioning in Cerner Central](./media/cernercentral-provisioning-tutorial/Cerner.PNG)
 
@@ -127,9 +127,9 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 * [Cerner Central: Publishing identity data using Azure AD (Cerner Central: Pubblicazione dei dati sull'identità con Azure AD)](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
 * [Esercitazione sulla configurazione di Cerner Central per l'accesso Single Sign-On con Azure Active Directory](cernercentral-tutorial.md)
-* [Gestione del provisioning degli account utente per app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+* [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Che cos'è l'accesso alle applicazioni e l'accesso Single Sign-On con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
+* [Scopri come esaminare i log e ottenere report sulle attività](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)di provisioning.

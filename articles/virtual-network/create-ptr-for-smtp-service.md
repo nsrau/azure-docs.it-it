@@ -14,15 +14,15 @@ ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 6c37ba61005c9936e6421d06369d1f52b93ac264
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77201697"
 ---
 # <a name="configure-reverse-lookup-zones-for-an-smtp-banner-check"></a>Configurare zone di ricerca inversa per un controllo del banner SMTP
 
-Questo articolo descrive come usare una zona inversa in DNS di Azure e creare un record DNS inverso (PTR) per il controllo del banner SMTP.
+Questo articolo descrive come usare una zona inversa nel DNS di Azure e creare un record DNS inverso (PTR) per controllo banner SMTP.
 
 ## <a name="symptom"></a>Sintomo
 

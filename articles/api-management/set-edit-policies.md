@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
 ms.openlocfilehash: 2df57477ae5270405a1774b7a4f04ed185fea396
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70071695"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Come impostare o modificare i criteri di Gestione API di Azure
@@ -29,16 +29,16 @@ Per informazioni dettagliate sui criteri, vedere [Criteri in Gestione API di Azu
 
 Per impostare o modificare un criterio, seguire questa procedura:
 
-1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
+1. Accedere al portale di [https://portal.azure.com](https://portal.azure.com)Azure all'indirizzo .
 2. Passare all'istanza di Gestione API.
 3. Fare clic sulla scheda **API**.
 
-    ![Modifica criterio](./media/set-edit-policies/code-editor.png)
+    ![Modificare i criteri](./media/set-edit-policies/code-editor.png)
 
 4. Selezionare una delle API importate in precedenza.
 5. Selezionare la scheda **Progettazione**.
 6. Selezionare un'operazione a cui si vuole applicare il criterio. Per applicare il criterio a tutte le operazioni, selezionare **Tutte le operazioni**.
-7. Selezionare l'icona **</>** (editor di codice) nella sezione **Elaborazione in ingresso** o **Elaborazione in uscita**.
+7. Selezionare **</>** l'icona (editor di codice) nella sezione **Elaborazione in ingresso** o **Elaborazione in uscita.**
 8. Incollare il codice del criterio desiderato in uno dei blocchi appropriati.
 
     ```XML
@@ -110,7 +110,7 @@ L'ambito dell'API è configurato per **tutte le operazioni** dell'API selezionat
 
     ![Ambito dell’API](./media/api-management-howto-policies/api-scope.png)
 
-2. Selezionare **Tutte le operazioni**.
+2. Seleziona **tutte le operazioni**
 3. Fare clic sull'icona a forma di triangolo.
 4. Selezionare **Editor di codice**.
 5. Aggiungere o modificare criteri.
@@ -120,7 +120,7 @@ L'ambito dell'API è configurato per **tutte le operazioni** dell'API selezionat
 
 L'ambito dell'operazione è configurato per l'operazione selezionata.
 
-1. Selezionare un'**API**.
+1. Selezionare **un'API**.
 2. Selezionare l'operazione a cui si vogliono applicare i criteri.
 
     ![Ambito dell'operazione](./media/api-management-howto-policies/operation-scope.png)

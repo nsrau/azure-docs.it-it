@@ -1,6 +1,6 @@
 ---
-title: Un sistema di protezione del contenuto con DRM multiplo-servizi multimediali di Azure V3
-description: Questo articolo fornisce una descrizione dettagliata di come progettare un sistema di protezione del contenuto con DRM multiplo con servizi multimediali di Azure.
+title: Un sistema di protezione del contenuto multi-DRM - Servizi multimediali di Azure v3
+description: In questo articolo viene fornita una descrizione dettagliata di come progettare un sistema di protezione del contenuto multi-DRM con Servizi multimediali di Azure.This articles gives detailed description of how to design a multi-DRM content protection system with Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: willzhan
@@ -15,10 +15,10 @@ ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
 ms.openlocfilehash: fbc6d6fa8f9a3b424eaec1f04a61b5ca24fe14fc
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77161784"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Progettazione di un sistema di protezione del contenuto con DRM multiplo e controllo di accesso 
@@ -51,7 +51,7 @@ La tabella seguente riepiloga il supporto del DRM nativo in diverse piattaforme 
 | **Windows 10** | PlayReady | Microsoft Edge/Internet Explorer 11 per PlayReady|
 | **Dispositivi Android (telefoni, tablet, TV)** |Widevine |Chrome per Widevine |
 | **iOS** | FairPlay | Safari per FairPlay (da iOS 11.2) |
-| **macOS** | FairPlay | Safari per FairPlay (da Safari 9 e versioni successive su Mac OS X 10.11 El Capitan e versioni successive)|
+| **Macos** | FairPlay | Safari per FairPlay (da Safari 9 e versioni successive su Mac OS X 10.11 El Capitan e versioni successive)|
 | **tvOS** | FairPlay | |
 
 In base allo stato attuale della distribuzione per ogni DRM, un servizio in genere prevede l'implementazione di 2 o 3 DRM per garantire che tutti i tipi di endpoint vengano indirizzati nel modo migliore.
@@ -131,16 +131,16 @@ A questo punto, viene eseguito il mapping della progettazione generica alle tecn
 
 La tabella seguente illustra il mapping:
 
-| **Blocco predefinito** | **Technology** |
+| **Blocco predefinito** | **Tecnologia** |
 | --- | --- |
 | **Lettore** |[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/) |
-| **Provider di identità (IdP)** |Azure Active Directory (Azure AD) |
+| **Provider di identità (IDP)** |Azure Active Directory (Azure AD) |
 | **Servizio token di sicurezza** |Azure AD |
 | **Flusso di lavoro protezione DRM** |Protezione dinamica di Servizi multimediali di Azure |
 | **Distribuzione di licenze DRM** |* Distribuzione delle licenze di Servizi multimediali (PlayReady, Widevine, FairPlay) <br/>* Server licenze Axinom <br/>* Server licenze PlayReady personalizzato |
 | **Origine** |Endpoint di streaming di Servizi multimediali di Azure |
 | **Gestione delle chiavi** |Non necessaria per l'implementazione di riferimento |
-| **Gestione dei contenuti** |Applicazione console in C# |
+| **Gestione del contenuto** |Applicazione console in C# |
 
 In altri termini, da Azure AD vengono forniti sia IdP che STS. L'[API di Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/) viene usata per il lettore. Sia Servizi multimediali di Azure che Azure Media Player supportano CENC su DASH, FairPlay su HLS, PlayReady su Smooth Streaming e la crittografia AES-128 per DASH, HLS e Smooth Streaming.
 
@@ -176,7 +176,7 @@ Di seguito è illustrato il flusso in fase di runtime:
 ### <a name="implementation-procedures"></a>Procedure di implementazione
 L'implementazione è costituita dai passaggi seguenti:
 
-1. Preparare l'asset di test. Codificare/creare un pacchetto per un video di test in formato MP4 frammentato a più velocità in bit in Servizi multimediali. Questo asset *non* è protetto da DRM. La protezione DRM viene applicata più avanti con la protezione dinamica.
+1. Preparare l'asset di test. Codificare/creare un pacchetto per un video di test in formato MP4 frammentato a più velocità in bit in Servizi multimediali. Questa risorsa *non* è protetta da DRM. La protezione DRM viene applicata più avanti con la protezione dinamica.
 
 2. Creare un ID chiave e una chiave simmetrica (facoltativamente da un seme chiave). In questa caso, non è necessario il sistema di gestione delle chiavi perché per poche attività di test sono sufficienti un solo ID chiave e la chiave simmetrica.
 
@@ -204,12 +204,12 @@ L'implementazione è costituita dai passaggi seguenti:
     | --- | --- | --- | --- |
     | **PlayReady** |Microsoft Edge o Internet Explorer 11 in Windows 10 |Succeed |Esito negativo |
     | **Widevine** |Chrome, Firefox, Opera |Succeed |Esito negativo |
-    | **FairPlay** |Safari su macOS      |Succeed |Esito negativo |
+    | **Fairplay** |Safari su macOS      |Succeed |Esito negativo |
     | **AES-128** |Browser più moderni  |Succeed |Esito negativo |
 
 Per informazioni su come impostare Azure AD per un'app lettore MVC ASP.NET, vedere [Integrate an Azure Media Services OWIN MVC-based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/) (Integrare un'app basata su OWIN MVC di Servizi multimediali di Azure con Azure Active Directory e limitare la distribuzione di chiavi simmetriche in base ad attestazioni JWT).
 
-Per altre informazioni, vedere [JWT token authentication in Azure Media Services and dynamic encryption](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/) (Autenticazione di token JWT in Servizi multimediali di Azure e crittografia dinamica).  
+Per altre informazioni, vedere [Autenticazione token JWT in Servizi multimediali](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)di Azure e crittografia dinamica.  
 
 Per informazioni su Azure AD:
 

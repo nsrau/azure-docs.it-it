@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 7fc0fbf3362d18284ad6a80afa6396b6be1270a9
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71058011"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Risolvere un errore generale RDP in una VM di Azure
@@ -64,9 +64,9 @@ Per risolvere questo problema [eseguire il backup del disco del sistema operativ
 
 ### <a name="serial-console"></a>Console seriale
 
-#### <a name="step-1-open-cmd-instance-in-serial-console"></a>Passaggio 1: Apri istanza CMD in console seriale
+#### <a name="step-1-open-cmd-instance-in-serial-console"></a>Passaggio 1: Aprire un'istanza di CMD nella console seriale
 
-1. Accedere alla [console seriale](serial-console-windows.md) selezionando **Supporto e risoluzione dei problemi** > **Console seriale (anteprima)** . Se la funzionalità è abilitata nella macchina virtuale, è possibile connettere correttamente la macchina virtuale.
+1. Accedere alla [console seriale](serial-console-windows.md) selezionando **Supporto e risoluzione dei problemi** > **Console seriale (anteprima)**. Se la funzionalità è abilitata nella macchina virtuale, è possibile connettere correttamente la macchina virtuale.
 
 2. Creare un nuovo canale per un'istanza CMD. Digitare **CMD** per avviare il canale per ottenere il relativo nome.
 
@@ -76,7 +76,7 @@ Per risolvere questo problema [eseguire il backup del disco del sistema operativ
    ch -si 1
    ```
 
-#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Passaggio 2: Controllare i valori delle chiavi del registro di sistema RDP:
+#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Passaggio 2: Verificare i valori delle chiavi del Registro di sistema di RDP:
 
 1. Controllare se RDP è disabilitato da criteri.
 
@@ -163,21 +163,21 @@ Per risolvere questo problema [eseguire il backup del disco del sistema operativ
 
 Se il problema persiste, procedere al passaggio 2.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>Passaggio 2: Abilita Servizi Desktop remoto
+#### <a name="step-2-enable-remote-desktop-services"></a>Passaggio 2: Abilitare i servizi desktop remoto
 
 Per altre informazioni vedere [Servizi Desktop remoto non si avvia in una macchina virtuale di Azure](troubleshoot-remote-desktop-services-issues.md).
 
-#### <a name="step-3-reset-rdp-listener"></a>Passaggio 3: Reimposta listener RDP
+#### <a name="step-3-reset-rdp-listener"></a>Passaggio 3: Reimpostare il listener RDP
 
 Per altre informazioni vedere [Remote Desktop disconnects frequently in Azure VM](troubleshoot-rdp-intermittent-connectivity.md) (Servizi Desktop remoto non si avvia in una macchina virtuale di Azure).
 
 ### <a name="offline-repair"></a>Riparazione non in linea
 
-#### <a name="step-1-turn-on-remote-desktop"></a>Passaggio 1: Attiva Desktop remoto
+#### <a name="step-1-turn-on-remote-desktop"></a>Passaggio 1: Attivare il desktop remoto
 
-1. [Collegare il disco del sistema operativo alla macchina virtuale di ripristino](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Collegare il disco del sistema operativo a una macchina virtuale](../windows/troubleshoot-recovery-disks-portal.md)di ripristino.
 2. Avviare una connessione Desktop remoto alla macchina virtuale di ripristino.
-3. Verificare che il disco sia contrassegnato come **Online** nella console di Gestione disco. Si noti la lettera di unità assegnata al disco del sistema operativo collegato.
+3. Assicurarsi che il disco sia contrassegnato come **in linea** nella console Gestione disco. Prendere nota della lettera di unità assegnata al disco del sistema operativo collegato.
 4. Avviare una connessione Desktop remoto alla macchina virtuale di ripristino.
 5. Aprire una sessione del prompt dei comandi con privilegi elevati (**Esegui come amministratore**). Eseguire questi script. In questo script si presuppone che la lettera di unità assegnata al disco del sistema operativo collegato sia F. Sostituirla con il valore appropriato per la specifica macchina virtuale.
 
@@ -233,14 +233,14 @@ Per altre informazioni vedere [Remote Desktop disconnects frequently in Azure VM
 
 Se il problema persiste, procedere al passaggio 2.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>Passaggio 2: Abilita Servizi Desktop remoto
+#### <a name="step-2-enable-remote-desktop-services"></a>Passaggio 2: Abilitare i servizi desktop remoto
 
 Per altre informazioni vedere [Servizi Desktop remoto non si avvia in una macchina virtuale di Azure](troubleshoot-remote-desktop-services-issues.md).
 
-#### <a name="step-3-reset-rdp-listener"></a>Passaggio 3: Reimposta listener RDP
+#### <a name="step-3-reset-rdp-listener"></a>Passaggio 3: Reimpostare il listener RDP
 
 Per altre informazioni vedere [Remote Desktop disconnects frequently in Azure VM](troubleshoot-rdp-intermittent-connectivity.md) (Servizi Desktop remoto non si avvia in una macchina virtuale di Azure).
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contatta il supporto tecnico
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
