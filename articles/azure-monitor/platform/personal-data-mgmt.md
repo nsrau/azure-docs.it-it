@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
 ms.openlocfilehash: a720627e1783d2e29ef180b7855132ea59444cab
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79248749"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Materiale sussidiario per i dati personali archiviati in Log Analytics e Application Insights
@@ -51,7 +51,7 @@ Log Analytics è un archivio flessibile che, pur definendo uno schema per i dati
 * *Dati personalizzati*: Log Analytics consente la raccolta con diversi metodi: log personalizzati e campi personalizzati, l'[API di raccolta dati HTTP](../../azure-monitor/platform/data-collector-api.md) e dati personali raccolti come parte dei log eventi di sistema. Tutti questi elementi potrebbero contenere dati privati e devono essere esaminati per verificare la presenza di dati di questo tipo.
 * *Dati acquisiti dalle soluzioni*: dato che il meccanismo delle soluzioni è aperto, è consigliabile esaminare tutte le tabelle generate dalle soluzioni per garantire la conformità.
 
-### <a name="application-data"></a>Dati applicazione
+### <a name="application-data"></a>Dati dell'applicazione
 
 * *Indirizzi IP*: mentre Application Insights offuscherà per impostazione predefinita tutti i campi degli indirizzi IP su "0.0.0.0", si tratta di un modello comune per eseguire l'override di questo valore con l'indirizzo IP effettivo dell'utente mantenere le informazioni della sessione. Per trovare qualsiasi tabella che contenga i valori nella colonna dell'indirizzo IP diverso da "0.0.0.0" nelle ultime 24 ore, è possibile usare la seguente query di Analytics:
     ```
@@ -59,7 +59,7 @@ Log Analytics è un archivio flessibile che, pur definendo uno schema per i dati
     | where timestamp > ago(1d)
     | summarize numNonObfuscatedIPs_24h = count() by $table
     ```
-* *ID utente*: per impostazione predefinita, Application Insights userà ID generati in modo casuale per il rilevamento dell'utente e della sessione. Tuttavia, è frequente vedere questi campi sottoposti a override per archiviare un ID più rilevante per l'applicazione. Ad esempio: usernames, GUID di AAD e così via. Questi ID sono spesso considerati inclusi nell'ambito come dati personali e pertanto devono essere gestiti in modo appropriato. Il consiglio dell'azienda è sempre quello di tentare di offuscare o anonimizzare completamente questi ID. I campi in cui questi valori sono presenti in genere comprendono session_Id, user_I, user_AuthenticatedId, user_AccountId, così come customDimensions.
+* *ID utente*: per impostazione predefinita, Application Insights userà ID generati in modo casuale per il rilevamento dell'utente e della sessione. Tuttavia, è frequente vedere questi campi sottoposti a override per archiviare un ID più rilevante per l'applicazione. Ad esempio: nomi utente, GUID AAD e così via. Questi ID sono spesso considerati nell'ambito come dati personali e pertanto devono essere gestiti in modo appropriato. Il consiglio dell'azienda è sempre quello di tentare di offuscare o anonimizzare completamente questi ID. I campi in cui questi valori sono presenti in genere comprendono session_Id, user_I, user_AuthenticatedId, user_AccountId, così come customDimensions.
 * *Dati personalizzati*: Application Insights consente di accodare un set di dimensioni personalizzate per qualsiasi tipo di dati. Queste dimensioni possono essere *qualsiasi* dato. Usare la query seguente per identificare eventuali dimensioni personalizzate raccolte nelle ultime 24 ore:
     ```
     search * 
@@ -81,7 +81,7 @@ Come indicato nella sezione [Strategia per la gestione dei dati personali](#stra
 Per entrambe le richieste di visualizzazione ed esportazione dei dati, utilizzare l'[API di query di Log Analytics](https://dev.loganalytics.io/) o l'[API di query di Application Insights](https://dev.applicationinsights.io/quickstart). Spetta all'utente implementare la logica per la conversione della forma dei dati in una appropriata da offrire agli utenti. [Funzioni di Azure](https://azure.microsoft.com/services/functions/) è una valida soluzione per ospitare tale logica.
 
 > [!IMPORTANT]
->  Anche se la maggior parte delle operazioni di ripulitura può essere completata molto più rapidamente rispetto al contratto di manutenzione, **il contratto di lavoro formale per il completamento delle operazioni di ripulitura viene impostato su 30 giorni** , a causa del forte effetto sulla piattaforma dati utilizzata. Si tratta di un processo automatizzato; non è possibile richiedere che un'operazione venga gestita più velocemente.
+>  Mentre la maggior parte delle operazioni di eliminazione può essere completata molto più rapidamente rispetto al servizio di controllo clienti, il servizio di controllo di servizio **formale per il completamento delle operazioni di eliminazione è impostato su 30 giorni** a causa del loro forte impatto sulla piattaforma dati utilizzata. Si tratta di un processo automatizzato; non è possibile richiedere che un'operazione venga gestita più velocemente.
 
 ### <a name="delete"></a>Delete
 
@@ -93,7 +93,7 @@ Nell'ambito della gestione dei dati privati è stato reso disponibile un percors
 La ripulitura è un'operazione con privilegi elevati che nessuna app o nessun utente in Azure (incluso anche il proprietario della risorsa) avrà l'autorizzazione di eseguire senza disporre esplicitamente di un ruolo in Azure Resource Manager. Questo ruolo è _Responsabile ripulitura dati_ e deve essere delegato con attenzione a causa della potenziale perdita di dati. 
 
 > [!IMPORTANT]
-> Per gestire le risorse di sistema, le richieste di ripulitura sono limitate a 50 richieste all'ora. È necessario eseguire il batch dell'esecuzione delle richieste di ripulitura inviando un unico comando il cui predicato includa tutte le identità utente che richiedono la ripulitura. Usare l' [operatore in](/azure/kusto/query/inoperator) per specificare più identità. È consigliabile eseguire la query prima di eseguire la richiesta di ripulitura per verificare che i risultati siano previsti. 
+> Per gestire le risorse di sistema, le richieste di eliminazione vengono limitate a 50 richieste all'ora. È consigliabile eseguire in batch l'esecuzione delle richieste di eliminazione inviando un singolo comando il cui predicato include tutte le identità utente che richiedono l'eliminazione. Utilizzare [l'operatore in](/azure/kusto/query/inoperator) per specificare più identità. È necessario eseguire la query prima di eseguire la richiesta di eliminazione per verificare che i risultati siano previsti. 
 
 
 
@@ -102,26 +102,26 @@ Dopo che è stato assegnato il ruolo di Azure Resource Manager, sono disponibili
 #### <a name="log-data"></a>Dati di log
 
 * [POST purge](https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) - accetta un oggetto che specifica i parametri dei dati da eliminare e restituisce un GUID di riferimento 
-* GET purge status - la chiamata a POST purge restituirà un'intestazione 'x-ms-status-location' che includerà un URL che è possibile chiamare per determinare lo stato dell'API di ripulitura. Ad esempio,
+* GET purge status - la chiamata a POST purge restituirà un'intestazione 'x-ms-status-location' che includerà un URL che è possibile chiamare per determinare lo stato dell'API di ripulitura. Ad esempio:
 
     ```
     x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperationalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
     ```
 
 > [!IMPORTANT]
->  Anche se è probabile che la maggior parte delle operazioni di ripulitura venga completata molto più rapidamente rispetto al Contratto di servizio, a causa dell'impatto elevato sulla piattaforma dati usata da Log Analytics, **il Contratto di servizio formale per il completamento delle operazioni di pulitura è impostato su 30 giorni**. 
+>  Mentre ci aspettiamo che la stragrande maggioranza delle operazioni di eliminazione venga completata molto più rapidamente del nostro sLA, a causa del loro forte impatto sulla piattaforma dati utilizzata da Log Analytics, **il servizio sLA formale per il completamento delle operazioni di eliminazione è impostato su 30 giorni**. 
 
-#### <a name="application-data"></a>Dati applicazione
+#### <a name="application-data"></a>Dati dell'applicazione
 
 * [POST purge](https://docs.microsoft.com/rest/api/application-insights/components/purge) - accetta un oggetto che specifica i parametri dei dati da eliminare e restituisce un GUID di riferimento
-* GET purge status - la chiamata a POST purge restituirà un'intestazione 'x-ms-status-location' che includerà un URL che è possibile chiamare per determinare lo stato dell'API di ripulitura. Ad esempio,
+* GET purge status - la chiamata a POST purge restituirà un'intestazione 'x-ms-status-location' che includerà un URL che è possibile chiamare per determinare lo stato dell'API di ripulitura. Ad esempio:
 
    ```
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01
    ```
 
 > [!IMPORTANT]
->  Anche se la maggior parte delle operazioni di ripulitura possono essere completate molto più rapidamente rispetto al Contratto di servizio, a causa dell'impatto elevato sulla piattaforma dati usata da Application Insights, **il Contratto di servizio formale per il completamento delle operazioni di pulitura è impostato su 30 giorni**.
+>  Mentre la maggior parte delle operazioni di eliminazione può essere completata molto più rapidamente rispetto al servizio di controllo, a causa del forte impatto sulla piattaforma dati utilizzata da Application Insights, il servizio **di controllo di servizio formale per il completamento delle operazioni di eliminazione viene impostato su 30 giorni**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per altre informazioni su come i dati di Log Analitica sono raccolti, elaborati e protetti, vedere [la protezione dei dati di Log Analitica](../../azure-monitor/platform/data-security.md).

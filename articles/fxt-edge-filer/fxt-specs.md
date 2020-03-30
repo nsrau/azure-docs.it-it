@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
 ms.openlocfilehash: c06b0c79e01257eebf566b9752269cb88c072d8a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264726"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Specifiche di Azure FXT Edge Filer
@@ -37,7 +37,7 @@ I numeri delle unità sono stampati nello spazio tra le unità. In Azure FXT Edg
 | Numeri di unità    |  Uso   |  Specifiche |
 |------------------|--------|-----------------|
 | 0, 1             | OS     | Unità SSD SATA da 480 GB |
-| 2, 3, 4, 5, 6, 7, 8, 9 | data   | FXT 6600: unità SSD NVMe 3,2 TB <br> FXT 6400: unità SSD NVMe 1,6 TB |
+| 2, 3, 4, 5, 6, 7, 8, 9 | Dati   | FXT 6600: SSD NVMe da 3,2 TB <br> FXT 6400: 1,6 TB di unità SSD NVMe |
 
 
 ## <a name="dimensions-and-weight"></a>Dimensioni e peso
@@ -68,7 +68,7 @@ Azure FXT Edge Filer è progettato per l'inserimento in un rack standard per app
 |-------------------|-------------|--------|
 | Altezza:            | 311,2       | 12,25" |
 | Larghezza             | 642,8       | 25,31" |
-| Length            | 1\.051,1     | 41,38" |
+| Length            | 1.051,1     | 41,38" |
 
 ## <a name="power-and-thermal-specifications"></a>Specifiche termiche e di alimentazione
 
@@ -144,7 +144,7 @@ Questa sezione contiene le specifiche per l'ambiente dell'hardware.
 | Altitudine                  | fino a 3.048 metri (10.000 piedi), soggetto alla riduzione della temperatura specificata di seguito | fino a 12.000 metri (39.370 piedi) |
 
 > [!NOTE] 
-> **Valutazione della temperatura di altitudine:** La temperatura massima è ridotta di 1 ° c/300 m (1 ° f/547 ft) superiore a 950 m (3.117 ft).
+> **De-valutazione della temperatura di altitudine:** La temperatura massima è ridotta di 1oC/300 m (1F/547 piedi) sopra i 950 m.
 
 ### <a name="airflow-shock-and-vibration"></a>Flusso d'aria, urti e vibrazioni 
 

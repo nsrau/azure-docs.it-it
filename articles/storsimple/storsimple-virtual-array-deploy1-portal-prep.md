@@ -1,5 +1,5 @@
 ---
-title: Preparazione del portale per l'array virtuale StorSimple
+title: Preparazione del portale per StorSimple Virtual Array
 description: La prima esercitazione per la distribuzione dell'array virtuale StorSimple include la preparazione del portale di Azure
 author: alkohli
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
@@ -9,10 +9,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7f2c7a6f9c1146627f81dc20386c59a91724b245
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254534"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Distribuire l'array virtuale StorSimple: preparare il portale di Azure
@@ -40,7 +40,7 @@ Consultare gli articoli seguenti nella sequenza indicata per distribuire l'array
 | **#** | **In questo passaggio** | **A questo scopo:** | **Usare questi documenti.** |
 | --- | --- | --- | --- |
 | 1. |**Eseguire la configurazione del portale di Azure** |Creare e configurare il servizio Gestione dispositivi StorSimple prima di eseguire il provisioning di un array virtuale StorSimple. |[Preparare il portale](storsimple-virtual-array-deploy1-portal-prep.md) |
-| 2. |**Eseguire il provisioning dell'array virtuale** |Per Hyper-V, eseguire il provisioning e connettersi all'array virtuale StorSimple su un sistema host che esegue Hyper-V in Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2. <br></br> <br></br> Per VMware, eseguire il provisioning e connettersi all'array virtuale StorSimple su un sistema host che esegue VMware ESXi 5.0, 5.5, 6.0 o 6.5.<br></br> |[Eseguire il provisioning di un array virtuale in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Eseguire il provisioning di un array virtuale in VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
+| 2. |**Eseguire il provisioning dell'array virtuale** |Per Hyper-V, eseguire il provisioning e connettersi all'array virtuale StorSimple su un sistema host che esegue Hyper-V in Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2. <br></br> <br></br> Per VMware, eseguire il provisioning e connettersi all'array virtuale StorSimple su un sistema host che esegue VMware ESXi 5.0, 5.5, 6.0 o 6.5.<br></br> |[Effettuare il provisioning di un array virtuale in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Eseguire il provisioning di un array virtuale in VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
 | 3. |**Configurare l'array virtuale** |Per il file server, eseguire l'installazione iniziale, registrare il file server StorSimple e completare l'installazione del dispositivo. È quindi possibile eseguire il provisioning delle condivisioni SMB. <br></br> <br></br> Per il server iSCSI, eseguire l'installazione iniziale, registrare il server iSCSI StorSimple e completare l'installazione del dispositivo. È quindi possibile eseguire il provisioning dei volumi iSCSI. |[Configurare l'array virtuale come file server](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Configurare l'array virtuale come server iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 È ora possibile iniziare a configurare il portale di Azure.
@@ -52,7 +52,7 @@ L'elenco di controllo configurazione descrive le informazioni che è necessario 
 * Scaricare l' [elenco di controllo configurazione StorSimple Virtual Array come file server](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf).
 * Scaricare l' [elenco di controllo configurazione StorSimple Virtual Array come server iSCSI](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Ecco i prerequisiti di configurazione per il servizio Gestione dispositivi StorSimple, l'array virtuale StorSimple e la rete del datacenter.
 
@@ -105,7 +105,7 @@ Una singola istanza del servizio Gestione dispositivi StorSimple può gestire pi
 
 Quando il servizio Gestione dispositivi StorSimple è attivo e in esecuzione, è necessario ottenere la chiave di registrazione. Questa chiave viene utilizzata per registrare e connettere il dispositivo StorSimple con il servizio.
 
-Eseguire la procedura seguente nel [portale di Azure](https://portal.azure.com/).
+Eseguire i passaggi seguenti nel portale di [Azure](https://portal.azure.com/).
 
 [!INCLUDE [storsimple-virtual-array-get-service-registration-key](../../includes/storsimple-virtual-array-get-service-registration-key.md)]
 
@@ -123,11 +123,11 @@ Una volta in possesso della chiave di registrazione, è necessario scaricare l'i
 > 
 > 
 
-Eseguire la procedura seguente nel [portale di Azure](https://portal.azure.com/).
+Eseguire i passaggi seguenti nel portale di [Azure](https://portal.azure.com/).
 
 #### <a name="to-get-the-virtual-array-image"></a>Per ottenere l'immagine dell'array virtuale
 
-1. Accedere al [portale di Azure](https://portal.azure.com/). 
+1. Accedere al portale di [Azure](https://portal.azure.com/). 
 2. Nel portale di Azure fare clic su **Sfoglia > Gestione dispositivi StorSimple**.
 3. Selezionare un servizio Gestione dispositivi StorSimple esistente. Nel pannello **Gestione dispositivi StorSimple** fare clic su **Avvio rapido**. 
 4. Fare clic sul collegamento corrispondente all'immagine che si desidera scaricare dall'Area download Microsoft. I file di immagine sono pari a circa 4,8 GB.

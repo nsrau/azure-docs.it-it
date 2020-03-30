@@ -1,5 +1,5 @@
 ---
-title: Tipi di account supportati-piattaforma di identità Microsoft | Azure
+title: Tipi di account supportati - Piattaforma di identità Microsoft Azure
 description: Documentazione concettuale sui destinatari e sui tipi di account supportati nelle applicazioni
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,15 +17,15 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: de90c81f56b6017b2d53ecbfb2c400a4c9f05d81
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262282"
 ---
 # <a name="supported-account-types"></a>Tipi di account supportati
 
-Questo articolo illustra i tipi di account (talvolta denominati destinatari) supportati nelle applicazioni.
+In questo articolo vengono illustrati i tipi di account (talvolta denominati gruppi di destinatari) supportati nelle applicazioni.
 
 <!-- This section can be in an include for many of the scenarios (SPA, Web App signing-in users, protecting a Web API, Desktop (depending on the flows), Mobile -->
 

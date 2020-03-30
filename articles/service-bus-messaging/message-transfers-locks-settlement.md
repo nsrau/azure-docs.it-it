@@ -1,6 +1,6 @@
 ---
-title: Trasferimenti di messaggi, blocchi e regolamento del bus di servizio di Azure
-description: Questo articolo fornisce una panoramica dei trasferimenti di messaggi del bus di servizio di Azure, dei blocchi e delle operazioni di regolamento.
+title: Trasferimenti, blocchi e liquidazioni dei messaggi del bus di servizio di AzureAzure Service Bus message transfers, locks, and settlement
+description: Questo articolo offre una panoramica dei trasferimenti di messaggi, dei blocchi e delle operazioni di liquidazione del bus di servizio di Azure.This article provides an overview of Azure Service Bus message transfers, locks, and settlement operations.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: aschhab
 ms.openlocfilehash: a2c353d612280981a83b32463d34efdc70878495
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260995"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Trasferimenti, blocchi e finalizzazione dei messaggi
@@ -127,12 +127,12 @@ Se il metodo **Complete** ha esito negativo, cosa che accade in genere nelle fas
 Il meccanismo tipico per l'identificazione di recapiti di messaggi duplicati consiste nel verificare il valore di message-id, che può e deve essere impostato dal mittente su un valore univoco, possibilmente allineato con un identificatore del processo di origine. Probabilmente, un pianificatore di processi imposta il valore di message-id sull'identificatore del processo che sta cercando di assegnare a un ruolo di lavoro con il ruolo di lavoro specificato e il ruolo di lavoro ignora la seconda occorrenza dell'assegnazione del processo, se tale processo è già stato eseguito.
 
 > [!IMPORTANT]
-> È importante notare che il blocco che PeekLock acquisisce sul messaggio è volatile e può andare perduto nelle condizioni seguenti
+> È importante notare che il blocco che PeekLock acquisisce sul messaggio è volatile e potrebbe andare perso nelle seguenti condizioni
 >   * Aggiornamento del servizio
 >   * Aggiornamento del sistema operativo
->   * Modifica delle proprietà nell'entità (coda, argomento, sottoscrizione) durante la conservazione del blocco.
+>   * Modifica delle proprietà nell'entità (Coda, Argomento, Sottoscrizione) mantenendo il blocco.
 >
-> Quando il blocco viene perso, il bus di servizio di Azure genera una LockLostException che verrà rilevata nel codice dell'applicazione client. In questo caso, la logica di ripetizione dei tentativi predefinita del client dovrebbe avviarsi automaticamente, quindi ripetere l'operazione.
+> Quando il blocco viene perso, il bus di servizio di Azure genererà un'eccezione LockLostException che verrà visualizzata nel codice dell'applicazione client. In questo caso, la logica di ripetizione dei tentativi predefinita del client deve avviare automaticamente e ripetere l'operazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

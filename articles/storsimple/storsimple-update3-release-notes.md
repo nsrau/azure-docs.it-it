@@ -9,10 +9,10 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4b61caecd67881eb08c82ea0c26522c63c3e8396
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254612"
 ---
 # <a name="update-3-release-notes-for-your-storsimple-8000-series-device"></a>Note sulla versione dell'aggiornamento 3 del dispositivo StorSimple serie 8000
@@ -47,7 +47,7 @@ Le tabelle seguenti offrono un riepilogo dei problemi risolti nell'aggiornamento
 | 2 |Volumi aggiunti in locale |Nella versione precedente i volumi aggiunti in locale presentavano problemi correlati a errori di I/O, di conversione dei volumi e di percorso dati. In questa versione i problemi sono stati corretti una volta individuata la causa radice. |Sì |No |
 | 3 |Monitoraggio |Erano presenti svariati problemi relativi alle unità gerarchiche e al monitoraggio; nei grafici relativi ai dashboard dispositivo erano inoltre visualizzate informazioni errate sui volumi aggiunti in locale. Tali problemi sono stati risolti in questa versione. |Sì |No |
 | 4 |I/O a scrittura intensiva |Durante l'uso di StorSimple per carichi di lavoro con operazioni di scrittura intensiva, si presentava un bug insolito in cui il working set veniva suddiviso in livelli nel cloud. Tale bug è stato risolto in questa versione. |Sì |Sì |
-| 5 |Backup |In alcuni rari casi, nelle versioni precedenti del software, quando l'utente ha eseguito un backup di un clone remoto, si verificavano errori nel cloud e l'operazione avrebbe comportato un errore. In questa versione il problema è stato risolto e l'operazione è stata completata correttamente. |Sì |Sì |
+| 5 |Backup |In alcuni rari casi, nelle versioni precedenti del software, quando l'utente prendeva un backup di un clone remoto, si imbatteva in errori nel cloud e l'operazione si sarebbe verificato errori. In questa versione, il problema viene risolto e l'operazione viene completata correttamente. |Sì |Sì |
 | 6 |Criterio di backup |In rari casi, nelle versioni precedenti del software, era presente un bug relativo all'eliminazione dei criteri di backup. Tale problema è stato corretto in questa versione. |Sì |Sì |
 
 ## <a name="known-issues-in-update-3"></a>Problemi noti nell'aggiornamento 3

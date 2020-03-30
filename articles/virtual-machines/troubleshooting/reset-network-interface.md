@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
 ms.openlocfilehash: a8bd12d98b76d5848753987c4f7bcb76d4e2266d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250075"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Come reimpostare l'interfaccia di rete per la VM Windows di Azure 
@@ -32,7 +32,7 @@ Questo articolo illustra come reimpostare l'interfaccia di rete per la macchina 
 
 ### <a name="for-vms-deployed-in-resource-group-model"></a>Per le VM distribuite nel modello di gruppo di risorse
 
-1.  Accedere al [portale di Azure](https://ms.portal.azure.com).
+1.  Passare al [portale di Azure](https://ms.portal.azure.com).
 2.  Selezionare la macchina virtuale.
 3.  Selezionare **Rete** e quindi l'interfaccia di rete della macchina virtuale.
 
@@ -40,7 +40,7 @@ Questo articolo illustra come reimpostare l'interfaccia di rete per la macchina 
     
 4.  Selezionare **Configurazioni IP**.
 5.  Selezionare l'indirizzo IP. 
-6.  Se l'impostazione **Assegnazione IP privato** non è **Statica**, cambiarla in **Statica**.
+6.  Se **l'assegnazione IP privata** non è **Static**, modificarla in **Static**.
 7.  Cambiare l'**Indirizzo IP** in un altro indirizzo IP disponibile nella subnet.
 8. La macchina virtuale verrà riavviata per inizializzare la nuova scheda NIC al sistema.
 9.  Provare a eseguire RDP al computer in uso. Se ha esito positivo, è possibile modificare l'indirizzo IP privato originale se si vuole. In caso contrario è possibile mantenerlo. 
@@ -78,11 +78,11 @@ Per reimpostare l'interfaccia di rete, seguire questi passaggi:
 
 #### <a name="use-azure-portal"></a>Usare il portale di Azure
 
-1.  Accedere al [portale di Azure]( https://ms.portal.azure.com).
-2.  Selezionare **Macchine virtuali (classiche)** .
+1.  Passare al [portale di Azure]( https://ms.portal.azure.com).
+2.  Selezionare **Macchine virtuali (classiche)**.
 3.  Selezionare la macchina virtuale.
 4.  Selezionare **Indirizzi IP**.
-5.  Se l'impostazione **Assegnazione IP privato** non è **Statica**, cambiarla in **Statica**.
+5.  Se **l'assegnazione IP privata** non è **Static**, modificarla in **Static**.
 6.  Cambiare l'**Indirizzo IP** in un altro indirizzo IP disponibile nella subnet.
 7.  Selezionare **Salva**.
 8.  La macchina virtuale verrà riavviata per inizializzare la nuova scheda NIC al sistema.
@@ -90,7 +90,7 @@ Per reimpostare l'interfaccia di rete, seguire questi passaggi:
 
 #### <a name="use-azure-powershell"></a>Usare Azure PowerShell
 
-1. Verificare che sia installata [la versione più recente di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+1. Assicurarsi di avere installato la versione più recente di Azure PowerShell.Make sure that you have [the latest Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) installed.
 2. Aprire una sessione di Azure PowerShell con privilegi elevati (Esegui come amministratore). Eseguire i comandi seguenti:
 
     ```powershell
@@ -117,10 +117,10 @@ Per reimpostare l'interfaccia di rete, seguire questi passaggi:
 Dopo essere riusciti a eseguire una connessione desktop remoto al computer, è necessario eliminare le schede NIC precedenti per evitare il problema potenziale:
 
 1.  Aprire Gestione dispositivi.
-2.  Selezionare **Vista** > **Mostra dispositivi nascosti**.
+2.  Selezionare **Visualizza** > **Mostra dispositivi nascosti**.
 3.  Selezionare **Schede di rete**. 
 4.  Controllare le schede di rete con un nome simile a "Scheda di rete Microsoft Hyper-V".
-5.  Potrebbe essere visualizzata una scheda non disponibile che è disabilitata. Fare clic con il pulsante destro del mouse sulla scheda e quindi scegliere Disinstalla.
+5.  È possibile che venga visualizzata una scheda non disponibile in grigio. Fare clic con il pulsante destro del mouse sulla scheda, quindi scegliere Disinstalla.
 
     ![immagine della scheda NIC](media/reset-network-interface/nicpage.png)
 

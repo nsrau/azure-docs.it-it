@@ -12,10 +12,10 @@ ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 01/25/2019
 ms.openlocfilehash: f718bc17b987926f4324635f096d5983acdb63fc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256471"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replica in database SQL singoli e in pool
@@ -32,14 +32,14 @@ La replica di SQL Server può essere configurata in database singoli e in pool s
 
 ## <a name="versions"></a>Versioni  
 
-Gli autori e i distributori SQL Server locali devono usare almeno una delle versioni seguenti:  
+I server di pubblicazione e i server di distribuzione di SQL Server locali devono utilizzare (almeno) una delle versioni seguenti:  
 
-- SQL Server 2016 e versioni successive
-- SQL Server 2014 [RTM CU10 dalla (12.0.4427.24)](https://support.microsoft.com/help/3094220/cumulative-update-10-for-sql-server-2014) o [SP1 CU3 (12.0.2556.4)](https://support.microsoft.com/help/3094221/cumulative-update-3-for-sql-server-2014-service-pack-1)
+- SQL Server 2016 e versione successiva
+- SQL Server 2014 [RTM CU10 (12.0.4427.24)](https://support.microsoft.com/help/3094220/cumulative-update-10-for-sql-server-2014) o [SP1 CU3 (12.0.2556.4)](https://support.microsoft.com/help/3094221/cumulative-update-3-for-sql-server-2014-service-pack-1)
 - SQL Server 2012 [SP2 CU8 (11.0.5634.1)](https://support.microsoft.com/help/3082561/cumulative-update-8-for-sql-server-2012-sp2) o [SP3 (11.0.6020.0)](https://www.microsoft.com/download/details.aspx?id=49996)
 
 > [!NOTE]
-> Il tentativo di configurare la replica utilizzando una versione non supportata può causare il numero di errore MSSQL_REPL20084 (il processo non è riuscito a connettersi al Sottoscrittore) e MSSQL_REPL40532 (non è possibile aprire il nome del server \<> richiesto dall'account di accesso. Accesso non riuscito).  
+> Il tentativo di configurare la replica utilizzando una versione non supportata può causare il numero \<di errore MSSQL_REPL20084 (il processo non è riuscito a connettersi al Sottoscrittore.) e MSSQL_REPL40532 (Impossibile aprire il nome del server> richiesto dall'account di accesso. Accesso non riuscito).  
 
 Per usare tutte le funzionalità del database SQL di Azure, è necessario usare le versioni più recenti di [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 
@@ -108,14 +108,14 @@ Le opzioni seguenti non sono supportate per le sottoscrizioni del database SQL d
 
 Creare una pubblicazione e una sottoscrizione push. Per altre informazioni, vedere:
   
-- [Creare una pubblicazione](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Creare una sottoscrizione push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) usando il nome del server di database SQL di Azure come sottoscrittore (ad esempio **N'azuresqldbdns.database.windows.net'** ) e il nome del database SQL di Azure SQL come database di destinazione (ad esempio **AdventureWorks**).  
+- [Creazione di una Pubblicazione](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
+- [Creare una sottoscrizione push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) usando il nome del server di database SQL di Azure come sottoscrittore (ad esempio **N'azuresqldbdns.database.windows.net'**) e il nome del database SQL di Azure SQL come database di destinazione (ad esempio **AdventureWorks**).  
 
 ## <a name="see-also"></a>Vedere anche  
 
 - [Replica transazionale](sql-database-managed-instance-transactional-replication.md)
-- [Creare una pubblicazione](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Creare una sottoscrizione push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
+- [Creazione di una Pubblicazione](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
+- [Creazione di una sottoscrizione push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
 - [Tipi di replica](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
 - [Monitoraggio (replica)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
 - [Inizializzare una sottoscrizione](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  

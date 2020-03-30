@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 393563427e936e07315cd44b78cb793d4292b352
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243926"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Modelli di prodotto in Gestione API di Azure
@@ -37,10 +37,10 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="ProductList"></a> Elenco prodotti  
+##  <a name="product-list"></a><a name="ProductList"></a>Elenco prodotti  
  Il modello **Elenco prodotti** consente di personalizzare il corpo della pagina di elenco prodotti nel portale per sviluppatori.  
   
- ![Elenco prodotti](./media/api-management-product-templates/APIM_ProductsListTemplatePage.png "APIM_ProductsListTemplatePage")  
+ ![Elenco di prodotti](./media/api-management-product-templates/APIM_ProductsListTemplatePage.png "APIM_ProductsListTemplatePage")  
   
 ### <a name="default-template"></a>Modello predefinito  
   
@@ -75,7 +75,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
   
 -   [paging-control](api-management-page-controls.md#paging-control)  
   
--   [search-control](api-management-page-controls.md#search-control)  
+-   [controllo di ricerca](api-management-page-controls.md#search-control)  
   
 ### <a name="data-model"></a>Modello di dati  
   
@@ -123,7 +123,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 }  
 ```  
   
-##  <a name="Product"></a>Prodotto  
+##  <a name="product"></a><a name="Product"></a>Prodotto  
  Il modello **Prodotto** consente di personalizzare il corpo della pagina prodotto nel portale per sviluppatori.  
   
  ![Pagina del prodotto del portale per sviluppatori](./media/api-management-product-templates/APIM_ProductPage.png "APIM_ProductPage")  
@@ -200,7 +200,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ### <a name="controls"></a>Controlli  
  Il modello `Product list` può usare i [controlli di pagina](api-management-page-controls.md) seguenti.  
   
--   [subscribe-button](api-management-page-controls.md#subscribe-button)  
+-   [pulsante di iscrizione](api-management-page-controls.md#subscribe-button)  
   
 ### <a name="data-model"></a>Modello di dati  
   

@@ -1,17 +1,17 @@
 ---
-title: 'Replica dei dati: database di Azure per MySQL'
-description: Informazioni sull'uso della replica dei dati per la sincronizzazione da un server esterno al servizio database di Azure per MySQL.
+title: Replica dei dati - Database di Azure per MySQLData-in replication - Azure Database for MySQL
+description: Informazioni sull'uso della replica dei dati per la sincronizzazione da un server esterno nel servizio Database di Azure per MySQL.Learn about using data-in replication to synchronize from an external server into the Azure Database for MySQL service.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 18c53a53a57b3ddca1168fc1075ae09bcd86f000
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.date: 3/18/2020
+ms.openlocfilehash: 20be34191355e6ade40e0f3b218818bfa5345a28
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462497"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79533233"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Eseguire la replica dei dati in Database di Azure per MySQL
 
@@ -23,7 +23,7 @@ Gli scenari principali da considerare quando si usa la funzione di replica dei d
 - **Sincronizzazione ibrida dei dati**: con la replica dei dati in ingresso è possibile mantenere i dati sincronizzati tra i server locali e Database di Azure per MySQL. Questa sincronizzazione è utile per la creazione di applicazioni ibride. Il metodo è particolarmente interessante quando si ha già un server di database locale, ma si vogliono spostare i dati in un'area più vicina agli utenti finali.
 - **Sincronizzazione multi-cloud**: per soluzioni cloud complesse, usare la replica dei dati in ingresso per sincronizzare i dati tra Database di Azure per MySQL e diversi provider cloud, inclusi servizi di database e macchine virtuali ospitati nei cloud.
  
-Per gli scenari di migrazione, usare il [servizio migrazione del database di Azure](https://azure.microsoft.com/services/database-migration/)(DMS).
+Per gli scenari di migrazione, usare il servizio di migrazione del database (DMS) di [Azure.For](https://azure.microsoft.com/services/database-migration/)migration scenarios, use the Azure Database Migration Service (DMS).
 
 ## <a name="limitations-and-considerations"></a>Limitazioni e considerazioni
 
@@ -36,16 +36,16 @@ Il [*database di sistema mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-
 - Ogni tabella deve avere una chiave primaria.
 - Il server master deve usare il motore InnoDB di MySQL.
 - L'utente deve disporre delle autorizzazioni necessarie per configurare la registrazione binaria e creare nuovi utenti sul server master.
-- Se nel server master è abilitato SSL, verificare che il certificato della CA SSL fornito per il dominio sia stato incluso nel stored procedure di `mysql.az_replication_change_master`. Fare riferimento agli [esempi](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) seguenti e al parametro `master_ssl_ca`.
+- Se nel server master è abilitato SSL, verificare che il `mysql.az_replication_change_master` certificato DELLA CA SSL fornito per il dominio sia stato incluso nella stored procedure. Fare riferimento [examples](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) agli esempi `master_ssl_ca` seguenti e al parametro.
 - Verificare che l'indirizzo IP del server master sia stato aggiunto alle regole firewall del server di replica di Database di Azure per MySQL. Aggiornare le regole firewall usando il [portale di Azure](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-portal) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-cli).
 - Verificare che il computer che ospita il server master consenta sia il traffico in ingresso che in uscita sulla porta 3306.
-- Verificare che il server master disponga di un **indirizzo IP pubblico**, che il DNS sia accessibile pubblicamente o che disponga di un nome di dominio completo (FQDN).
+- Verificare che il server master disponga di un **indirizzo IP pubblico,** accessibile pubblicamente o un nome di dominio completo (FQDN).
 
-### <a name="other"></a>Altro
+### <a name="other"></a>Altri
 - La replica dei dati in ingresso è supportata solo nei piani tariffari Utilizzo generico e Con ottimizzazione per la memoria.
 - Gli identificatori di transazione globale (GTID) non sono supportati.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni su come [configurare la replica dei dati in ingresso](howto-data-in-replication.md)
+- Informazioni su come [configurare](howto-data-in-replication.md) la replica dei dati
 - Informazioni sulla [replica in Azure con repliche in lettura](concepts-read-replicas.md)
-- Informazioni su come [eseguire la migrazione dei dati con tempi di inattività minimi con DMS](howto-migrate-online.md)
+- Informazioni su come eseguire la migrazione dei dati con tempi di [inattività minimi tramite DMSLearn](howto-migrate-online.md) about how to migrate data with minimal downtime using DMS

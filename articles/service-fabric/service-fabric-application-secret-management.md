@@ -1,15 +1,15 @@
 ---
-title: Gestire i segreti dell'applicazione Service Fabric di Azure
+title: Gestire i segreti dell'applicazione di Azure Service FabricManage Azure Service Fabric application secrets
 description: Informazioni su come proteggere i valori dei segreti in un'applicazione di Service Fabric (indipendente dalla piattaforma).
 author: vturecek
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: vturecek
 ms.openlocfilehash: 4a489993f982993d5703a9b46d42fffaa6134038
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259058"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Gestire i segreti crittografati nelle applicazioni di Service Fabric
@@ -22,13 +22,13 @@ Per usare i segreti crittografati in un'applicazione di Service Fabric è necess
 
 ## <a name="set-up-an-encryption-certificate-and-encrypt-secrets"></a>Configurare un certificato di crittografia e crittografare i segreti
 La configurazione di un certificato di crittografia e il suo utilizzo per crittografare i segreti sono operazioni che vengono eseguite diversamente in Windows rispetto a Linux.
-* [Configurare un certificato di crittografia e crittografare i segreti nei cluster di Windows.][secret-management-windows-specific-link]
-* [Configurare un certificato di crittografia e crittografare i segreti nei cluster Linux.][secret-management-linux-specific-link]
+* [Configurare un certificato di crittografia e crittografare segreti in cluster Windows.][secret-management-windows-specific-link]
+* [Configurare un certificato di crittografia e crittografare segreti in cluster Linux.][secret-management-linux-specific-link]
 
 ## <a name="specify-encrypted-secrets-in-an-application"></a>Specificare i segreti crittografati in un'applicazione
-Il passaggio precedente illustra come crittografare un segreto con un certificato e produrre una stringa con codifica Base 64 da usare in un'applicazione. Questa stringa con codifica base 64 può essere specificata come [parametro][parameters-link] crittografato in Settings. XML di un servizio o come [variabile di ambiente][environment-variables-link] crittografata in ServiceManifest. XML di un servizio.
+Il passaggio precedente illustra come crittografare un segreto con un certificato e produrre una stringa con codifica Base 64 da usare in un'applicazione. Questa stringa con codifica Base 64 può essere specificata come [parametro][parameters-link] crittografato nel file Settings.xml di un servizio o come [variabile di ambiente][environment-variables-link] nel file ServiceManifest.xml di un servizio.
 
-Specificare un [parametro][parameters-link] crittografato nel file di configurazione settings. XML del servizio con l'attributo `IsEncrypted` impostato su `true`:
+Specificare un [parametro][parameters-link] crittografato nel file di configurazione Settings.xml del servizio con l'attributo `IsEncrypted` impostato su `true`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -38,7 +38,7 @@ Specificare un [parametro][parameters-link] crittografato nel file di configuraz
   </Section>
 </Settings>
 ```
-Specificare una [variabile di ambiente][environment-variables-link] crittografata nel file ServiceManifest. XML del servizio con l'attributo `Type` impostato su `Encrypted`:
+Specificare una [variabile di ambiente][environment-variables-link] crittografata nel file ServiceManifest.xml del servizio con l'attributo `Type` impostato su `Encrypted`:
 ```xml
 <CodePackage Name="Code" Version="1.0.0">
   <EnvironmentVariables>
@@ -47,7 +47,7 @@ Specificare una [variabile di ambiente][environment-variables-link] crittografat
 </CodePackage>
 ```
 
-I segreti devono anche essere inclusi nell'applicazione Service Fabric specificando un certificato nel manifesto dell'applicazione. Aggiungere un elemento **SecretsCertificate** a **ApplicationManifest. XML** e includere l'identificazione personale del certificato desiderato.
+I segreti devono essere inclusi anche nell'applicazione Service Fabric specificando un certificato nel manifesto dell'applicazione. Aggiungere un elemento **SecretsCertificate** a **ApplicationManifest.xml** e includere l'identificazione personale del certificato desiderato.
 
 ```xml
 <ApplicationManifest … >
@@ -121,7 +121,7 @@ await fabricClient.ApplicationManager.CreateApplicationAsync(applicationDescript
 ```
 
 ## <a name="decrypt-encrypted-secrets-from-service-code"></a>Decrittografare i segreti crittografati dal codice del servizio
-Le API per l'accesso ai [parametri][parameters-link] e alle [variabili di ambiente][environment-variables-link] consentono di decrittografare facilmente i valori crittografati. Poiché la stringa crittografata contiene informazioni sul certificato usato per la crittografia, non è necessario specificare manualmente il certificato. Il certificato deve essere solo installato sul nodo su cui è in esecuzione il servizio.
+Le API per l'accesso a [parametri][parameters-link] e [variabili di ambiente][environment-variables-link] consentono di decrittografare facilmente i valori crittografati. Poiché la stringa crittografata contiene informazioni sul certificato usato per la crittografia, non è necessario specificare manualmente il certificato. Il certificato deve essere solo installato sul nodo su cui è in esecuzione il servizio.
 
 ```csharp
 // Access decrypted parameters from Settings.xml
@@ -138,7 +138,7 @@ string MyEnvVariable = Environment.GetEnvironmentVariable("MyEnvVariable");
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Archivio dei segreti](service-fabric-application-secret-store.md) Service Fabric 
+* [Archivio dei segreti](service-fabric-application-secret-store.md) dell'infrastruttura del servizioService Fabric Secrets Store 
 * Altre informazioni sulla [sicurezza dell'applicazione e del servizio](service-fabric-application-and-service-security.md)
 
 <!-- Links -->

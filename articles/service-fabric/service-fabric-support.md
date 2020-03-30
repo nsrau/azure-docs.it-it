@@ -1,15 +1,15 @@
 ---
-title: Informazioni sulle opzioni di supporto di Azure Service Fabric
+title: Informazioni sulle opzioni di supporto di Azure Service FabricLearn about Azure Service Fabric Support options
 description: Versioni dei cluster di Azure Service Fabric supportate e link ai ticket di supporto
 author: pkcsf
 ms.topic: troubleshooting
 ms.date: 8/24/2018
 ms.author: pkc
 ms.openlocfilehash: 7494f0072f27f2c9b00db7070f19dfc05627eacf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282094"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opzioni di supporto di Azure Service Fabric
@@ -26,9 +26,9 @@ Altre informazioni su:
 - [Supporto tecnico Premier Microsoft](https://support.microsoft.com/en-us/premier).
 
 > [!Note]
-> I cluster in esecuzione in un cluster di livello di affidabilità bronze o a nodo singolo consentiranno di eseguire solo i carichi di lavoro di test. Se si verificano problemi con un cluster in esecuzione su un cluster con affidabilità bronze o a nodo singolo, il team di supporto di Microsoft fornirà assistenza per attenuare il problema, ma non eseguirà un'analisi della causa radice. Per altri dettagli, vedere [le caratteristiche di affidabilità del cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) .
+> I cluster in esecuzione in un livello di affidabilità di bronzo o in un cluster a nodo singolo consentono di eseguire solo carichi di lavoro di test. Se si verificano problemi con un cluster in esecuzione con affidabilità bronzo o cluster a nodo singolo, il team di supporto Microsoft vi aiuterà a mitigare il problema, ma non eseguirà un'analisi della causa principale. Per ulteriori dettagli, fare riferimento alle [caratteristiche di affidabilità del cluster.](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster)
 >
-> Per ulteriori informazioni sugli elementi necessari per un cluster pronto per la produzione, vedere l' [elenco di controllo della conformità alla produzione](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
+> Per ulteriori informazioni sugli elementi necessari per un cluster pronto per la produzione, fare riferimento all'elenco di controllo per la preparazione alla [produzione.](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)
 
 <a id="getlivesitesupportonprem"></a>
 
@@ -51,11 +51,11 @@ Segnalare i problemi di Azure Service Fabric nell'[archivio Git dei problemi rel
 
 ### <a name="stackoverflow-and-msdn-forums"></a>Forum StackOverflow e MSDN
 
-Il [tag Service Fabric su StackOverflow][stackoverflow] e il [Forum di Service Fabric su MSDN][msdn-forum] sono ideali per porre domande sul funzionamento della piattaforma e sul modo in cui è possibile eseguire determinate attività.
+Il [tag Service Fabric su StackOverflow][stackoverflow] e il [forum di Service Fabric su MSDN][msdn-forum] vengono usati per inoltrare domande sul funzionamento della piattaforma e sull'esecuzione di specifiche operazioni.
 
 ### <a name="azure-feedback-forum"></a>Forum di commenti e suggerimenti su Azure
 
-Il [Forum di commenti e suggerimenti su Azure per Service Fabric][uservoice-forum] è il posto migliore per l'invio di idee di grandi dimensioni disponibili per il prodotto, perché le richieste più diffuse fanno parte della pianificazione da media a lungo termine. Gli utenti sono incoraggiati a cercare sostegno per i suggerimenti presentati all'interno della community.
+Il [forum di commenti e suggerimenti su Azure per Service Fabric][uservoice-forum] è il modo migliore per inoltrare i propri suggerimenti su funzionalità di rilievo del prodotto, dal momento che le richieste più diffuse vengono prese in considerazione nella pianificazione a medio-lungo termine di Microsoft. Gli utenti sono incoraggiati a cercare sostegno per i suggerimenti presentati all'interno della community.
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versioni di anteprima di Service Fabric non supportate per l'uso in produzione
 

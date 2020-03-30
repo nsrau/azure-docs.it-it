@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 1e75acc03209fdd7e613801c9152f24aaecfa6de
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267781"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Distribuire il servizio Gestione dispositivi StorSimple per i dispositivi StorSimple serie 8000
@@ -57,10 +57,10 @@ Per creare un servizio, attenersi alla procedura seguente.
 
 Per ogni servizio Gestione dispositivi StorSimple, sono disponibili gli attributi seguenti:
 
-* **Nome**: nome assegnato al servizio Gestione dispositivi StorSimple al momento della creazione. **Il nome del servizio non può essere modificato dopo la creazione del servizio. Questo vale anche per altre entità, ad esempio dispositivi, volumi, contenitori di volumi e criteri di backup che non possono essere rinominate nella portale di Azure.**
-* **Stato**: stato del servizio, che può essere **Attivo**, **Creazione in corso** oppure **Online**.
+* **Nome**: nome assegnato al servizio Gestione dispositivi StorSimple al momento della creazione. **Il nome del servizio non può essere modificato dopo la creazione del servizio. Questo vale anche per altre entità, ad esempio dispositivi, volumi, contenitori di volumi e criteri di backup che non possono essere rinominati nel portale di Azure.This is also true for other entities such as devices, volumes, volume containers, and backup policies that cannot be renamed in the Azure portal.**
+* **Stato** - Stato del servizio, che può essere **Attivo**, **In fase di creazione** oppure **Online**.
 * **Posizione** : posizione geografica in cui verrà distribuito il dispositivo StorSimple.
-* **Sottoscrizione** : sottoscrizione di fatturazione associata al servizio.
+* **Sottoscrizione** - Sottoscrizione di fatturazione associata al servizio.
 
 ## <a name="delete-a-service"></a>Eliminare un servizio
 
@@ -81,7 +81,7 @@ Per eliminare un servizio, attenersi alla procedura seguente.
 
     ![Delete service](./media/storsimple-8000-manage-service/deletessdevman2.png)
 
-3. Nel messaggio di richiesta di conferma fare clic su **Sì** . L'eliminazione del servizio può richiedere alcuni minuti.
+3. Nella richiesta di conferma fare clic su **Sì**. L'eliminazione del servizio può richiedere alcuni minuti.
 
     ![Confermare l'eliminazione](./media/storsimple-8000-manage-service/deletessdevman3.png)
 
@@ -103,7 +103,7 @@ La rigenerazione di una chiave di registrazione del servizio deve essere effettu
 Per rigenerare una chiave di registrazione del servizio, attenersi alla procedura seguente.
 
 ### <a name="to-regenerate-the-service-registration-key"></a>Per rigenerare la chiave di registrazione del servizio
-1. Nel pannello **Device Manager StorSimple** passare a **gestione &gt;** **chiavi**.
+1. In **Gestione dispositivi StorSimple** passare a **Gestione&gt;** **Chiavi**.
     
     ![Pannello Chiavi](./media/storsimple-8000-manage-service/regenregkey2.png)
 

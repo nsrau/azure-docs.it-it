@@ -1,5 +1,5 @@
 ---
-title: Gestire più database con i pool elastici
+title: Gestire più database con pool elasticiManage multiple databases with elastic pools
 description: Gestire e ridimensionare centinaia o migliaia di database SQL usando i pool elastici. Un unico prezzo per le risorse che è possibile distribuire in base alle esigenze.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
 ms.openlocfilehash: 3c476393153f6bc1d18d5c163bcd69484583eb15
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256276"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>I pool di database elastici consentono di gestire e ridimensionare più database SQL di Azure
@@ -24,7 +24,7 @@ I pool elastici di database SQL offrono una soluzione semplice e conveniente per
 
 ## <a name="what-are-sql-elastic-pools"></a>Definizione di pool elastici SQL
 
-Gli sviluppatori di SaaS compilano applicazioni basate su livelli di dati su larga scala costituiti da più database. Un modello di applicazione comune è il provisioning di un database singolo per ogni cliente. Tuttavia, i diversi clienti hanno spesso modelli di utilizzo variabili e imprevedibili ed è difficile prevedere i requisiti delle risorse di ogni singolo utente del database. In genere, le opzioni erano due:
+Gli sviluppatori di SaaS compilano applicazioni basate su livelli di dati su larga scala costituiti da più database. Un modello di applicazione comune è il provisioning di un database singolo per ogni cliente. Ma clienti diversi hanno spesso modelli di utilizzo diversi e imprevedibili ed è difficile prevedere i requisiti di risorse di ogni singolo utente del database. In genere, le opzioni erano due:
 
 - Effettuare il provisioning di risorse eccessivo in base all'utilizzo massimo e pagare più del necessario, o
 - Ricorrere al provisioning insufficiente per risparmiare sui costi, a scapito delle prestazioni e della soddisfazione del cliente durante i picchi.
@@ -48,7 +48,7 @@ All'interno del pool i singoli database sono sufficientemente flessibili da assi
 
 I pool sono adatti per un numero elevato di database con modelli di utilizzo specifici. Per un determinato database, questo modello è caratterizzato da un utilizzo medio ridotto con picchi di utilizzo relativamente poco frequenti.
 
-Più database è possibile aggiungere a un pool, maggiori diventano i risparmi. A seconda del modello di utilizzo dell'applicazione, è possibile vedere Risparmi con due database S3.
+Più database è possibile aggiungere a un pool, maggiori diventano i risparmi. A seconda del modello di utilizzo dell'applicazione, è possibile ottenere risparmi con un massimo di due database S3.
 
 Le sezioni seguenti aiutano a comprendere se l'insieme specifico di database può trarre vantaggio dall'uso di un pool. Gli esempi utilizzano pool Standard, ma gli stessi principi si applicano anche ai pool Basic e Premium.
 
@@ -93,7 +93,7 @@ Condividendo le risorse, non tutti i database in un pool possono usare contempor
 
 ***Esempio di modello di acquisto basato su DTU***
 
-Per ridurre i costi relativi a tre database S3 in un pool di 200 eDTU, al massimo due dei tre database possono raggiungere il picco di utilizzo contemporaneamente. In caso contrario, se più di due di questi quattro database S3 raggiungono il picco contemporaneamente, il pool dovrebbe essere ridimensionato a più di 200 eDTU. Se il pool viene ridimensionato a più di 200 eDTU, più database S3 dovranno essere aggiunti al pool per mantenere i costi inferiori rispetto a quelli delle dimensioni di calcolo per singoli database.
+ Per ridurre i costi relativi a tre database S3 in un pool di 200 eDTU, al massimo due dei tre database possono raggiungere il picco di utilizzo contemporaneamente. In caso contrario, se più di due di questi quattro database S3 raggiungono il picco contemporaneamente, il pool dovrebbe essere ridimensionato a più di 200 eDTU. Se il pool viene ridimensionato a più di 200 eDTU, più database S3 dovranno essere aggiunti al pool per mantenere i costi inferiori rispetto a quelli delle dimensioni di calcolo per singoli database.
 
 Si noti che questo esempio non considera l'utilizzo di altri database nel pool. Se tutti i database con alcune utilizzo in qualsiasi punto nel tempo, minore di 2/3 (o 67%) dei database possono picco contemporaneamente.
 
@@ -101,7 +101,7 @@ Si noti che questo esempio non considera l'utilizzo di altri database nel pool. 
 
 Una notevole differenza tra il picco e l'utilizzo medio di un database indica periodi prolungati di utilizzo ridotto e brevi periodi di utilizzo elevato. Questo modello di utilizzo è ideale per la condivisione delle risorse tra database. Un database deve essere considerato per un pool quando relativo picchi di utilizzo sono circa 1.5 volte maggiore relativo utilizzo medio.
 
-**Esempio di modello di acquisto basato su DTU**: un database S3 con picchi di 100 DTU e in media USA 67 DTU o meno è un buon candidato per la condivisione di edtu in un pool. In alternativa, un database S1 con picchi di 20 DTU e utilizzo medio di 13 DTU o meno è un buon candidato per un pool.
+Esempio di modello di **acquisto basato su DTU:** un database S3 che raggiunge il picco a 100 DTU e utilizza in media 67 DTU o meno è un buon candidato per la condivisione delle eDTU in un pool. In alternativa, un database S1 con picchi di 20 DTU e utilizzo medio di 13 DTU o meno è un buon candidato per un pool.
 
 ## <a name="how-do-i-choose-the-correct-pool-size"></a>Come scegliere le dimensioni più adatte del pool
 
@@ -131,7 +131,7 @@ Nei casi in cui non è possibile utilizzare gli strumenti, le seguenti istruzion
 
 ### <a name="elastic-jobs-and-elastic-pools"></a>Processi e pool elastici
 
-L'uso di un pool permette di semplificare le attività di gestione con l'esecuzione di script in **[processi elastici](elastic-jobs-overview.md)** . Un processo elastico elimina la maggior parte delle attività ripetitive associate a un elevato numero di database.
+L'uso di un pool permette di semplificare le attività di gestione con l'esecuzione di script in **[processi elastici](elastic-jobs-overview.md)**. Un processo elastico elimina la maggior parte delle attività ripetitive associate a un elevato numero di database.
 
 Per altre informazioni sugli altri strumenti di database per usare più database, vedere [Aumentare il numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md).
 
@@ -155,14 +155,14 @@ I database in pool supportano in genere le stesse [funzionalità di continuità 
 
 Esistono due modi per creare un pool elastico nel portale di Azure.
 
-1. Passare alla [portale di Azure](https://portal.azure.com) per creare un pool elastico. Cercare e selezionare **Azure SQL**.
-2. Selezionare **+Aggiungi** per aprire la pagina **Selezionare l'opzione di distribuzione SQL**. È possibile visualizzare informazioni aggiuntive sui pool elastici selezionando **Mostra dettagli** nel riquadro **database** .
-3. Nel riquadro **database** selezionare **pool elastico** nell'elenco a discesa **tipo di risorsa** e quindi selezionare **Crea**:
+1. Passare al portale di [Azure](https://portal.azure.com) per creare un pool elastico. Cercare e selezionare SQL di **Azure**.
+2. Selezionare **+Aggiungi** per aprire la pagina **Selezionare l'opzione di distribuzione SQL**. È possibile visualizzare informazioni aggiuntive sui pool elastici selezionando Mostra dettagli nel riquadro Database.You can view additional information about elastic pools by selecting **Show details** on the **Databases** tile.
+3. Nel riquadro **Database** selezionare **Pool elastico** nell'elenco a discesa **Tipo di risorsa,** quindi selezionare **Crea:**
 
    ![Creare un pool elastico](./media/sql-database-elastic-pool/create-elastic-pool.png)
 
 
-1. In alternativa, è possibile creare un pool elastico passando a un server SQL di Azure esistente e facendo clic su **+ nuovo pool** per creare un pool direttamente in tale server.
+1. In alternativa, è possibile creare un pool elastico passando a un server SQL di Azure esistente e facendo clic su **Nuovo pool** per creare un pool direttamente in tale server.
 
 > [!NOTE]
 > È possibile creare più pool in un server, ma non aggiungere database da diversi server nello stesso pool.
@@ -177,7 +177,7 @@ Al termine della configurazione del pool, è possibile fare clic su Applica, ass
 
 Dal portale di Azure è possibile monitorare l'uso di un pool elastico e dei database al suo interno. È anche possibile apportare un set di modifiche al pool elastico e inviare tutte le modifiche contemporaneamente. Le modifiche includono l'aggiunta o la rimozione di database, la modifica delle impostazioni del pool elastico o la modifica delle impostazioni del database.
 
-Per avviare il monitoraggio del pool elastico, trovare e aprire un pool elastico nel portale. Verrà visualizzata una schermata che offre una panoramica dello stato del pool elastico. ad esempio:
+Per avviare il monitoraggio del pool elastico, trovare e aprire un pool elastico nel portale. Verrà visualizzata per la prima volta una schermata che offre una panoramica dello stato del pool elastico. ad esempio:
 
 - Grafici di monitoraggio che illustrano l'utilizzo delle risorse del pool elastico
 - Avvisi recenti e suggerimenti, se disponibili, per il pool elastico
@@ -210,21 +210,21 @@ Per altre informazioni, vedere [Usare il portale di Azure per creare avvisi per 
 
 - [SnelStart](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-snelstart/)
 
-  SnelStart ha usato i pool elastici con il database SQL di Azure per espandere rapidamente i servizi aziendali con una frequenza di 1.000 nuovi database SQL di Azure al mese.
+  SnelStart ha usato pool elastici con il database SQL di Azure per espandere rapidamente i servizi aziendali a una velocità di 1.000 nuovi database SQL di Azure al mese.
 
 - [Umbraco](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-umbraco/)
 
-  Umbraco usa i pool elastici con il database SQL di Azure per eseguire rapidamente il provisioning e la scalabilità dei servizi per migliaia di tenant nel cloud.
+  Umbraco usa pool elastici con il database SQL di Azure per eseguire rapidamente il provisioning e la scalabilità dei servizi per migliaia di tenant nel cloud.
 
 - [Daxko/CSI](https://customers.microsoft.com/story/726277-csi-daxko-partner-professional-service-azure)    
 
-   Daxko/CSI usa i pool elastici con il database SQL di Azure per accelerare il ciclo di sviluppo e migliorare le prestazioni e i servizi dei clienti.   
+   Daxko/CSI utilizza pool elastici con il database SQL di Azure per accelerare il ciclo di sviluppo e migliorare i servizi e le prestazioni dei clienti.   
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sui prezzi, vedere [prezzi dei pool elastici](https://azure.microsoft.com/pricing/details/sql-database/elastic).
+- Per informazioni sui prezzi, vedere Prezzi del [pool elastico](https://azure.microsoft.com/pricing/details/sql-database/elastic).
 - Per ridimensionare i pool elastici, vedere [Ridimensionamento dei pool elastici](sql-database-elastic-pool-scale.md) e [Ridimensionare un pool elastico - codice di esempio](scripts/sql-database-monitor-and-scale-pool-powershell.md)
 - Un video è disponibile in [Esercitazione video di Microsoft Virtual Academy sulle funzionalità di elasticità del database SQL di Azure](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 - Per altre informazioni sui modelli di progettazione per applicazioni SaaS con pool elastici, vedere l'articolo relativo ai [modelli di progettazione per applicazioni SaaS multi-tenant con database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 - Per un'esercitazione sul SaaS con i pool elastici, vedere [Introduzione all'applicazione SaaS Wingtip](sql-database-wtp-overview.md).
-- Per informazioni sulla gestione delle risorse in pool elastici con molti database, vedere [gestione delle risorse in pool elastici densi](sql-database-elastic-pool-resource-management.md).
+- Per informazioni sulla gestione delle risorse nei pool elastici con molti database, vedere [Gestione delle risorse in pool elastici densi.](sql-database-elastic-pool-resource-management.md)

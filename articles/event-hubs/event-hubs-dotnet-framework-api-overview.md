@@ -1,6 +1,6 @@
 ---
 title: Panoramica delle API .NET Framework di Hub eventi di Azure | Microsoft Docs
-description: Questo articolo fornisce un riepilogo di alcuni degli hub eventi principali .NET Framework API client (gestione e Runtime).
+description: In questo articolo viene fornito un riepilogo di alcune delle API client .NET Framework .NET Framework principali (gestione e runtime).
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
@@ -10,17 +10,17 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
 ms.openlocfilehash: b14759ed39037bfa172366a2ed8f8ca089786ec6
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79137612"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Panoramica dell'API .NET Framework di Hub eventi
 
 Questo articolo presenta una sintesi di alcune delle principali [API client .NET Framework](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) di Hub eventi di Azure. Esistono due categorie: API di runtime e gestione. Le API di runtime si compongono di tutte le operazioni necessarie per inviare e ricevere un messaggio. Operazioni di gestione consentono di gestire lo stato dell'entità di Hub eventi per la creazione, aggiornamento ed eliminazione di entità.
 
-Gli [scenari di monitoraggio](event-hubs-metrics-azure-monitor.md) comprendono sia la gestione che il runtime. Per la documentazione di riferimento dettagliata sulle API .NET, vedere gli articoli relativi a [.NET Framework](/dotnet/api/microsoft.servicebus.messaging.eventhubclient), [.NET Standard](/dotnet/api/microsoft.azure.eventhubs) ed [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor).
+[Gli scenari](event-hubs-metrics-azure-monitor.md) di monitoraggio riguardano sia la gestione che la fase di esecuzione. Per la documentazione di riferimento dettagliata sulle API .NET, vedere gli articoli relativi a [.NET Framework](/dotnet/api/microsoft.servicebus.messaging.eventhubclient), [.NET Standard](/dotnet/api/microsoft.azure.eventhubs) ed [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor).
 
 ## <a name="management-apis"></a>API di gestione
 

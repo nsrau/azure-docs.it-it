@@ -1,5 +1,5 @@
 ---
-title: Definire un profilo tecnico di convalida in un criterio personalizzato
+title: Definire un profilo tecnico di convalida in un criterio personalizzatoDefine a validation technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Convalidare le attestazioni utilizzando un profilo tecnico di convalida in un criterio personalizzato in Azure Active Directory B2C.
 services: active-directory-b2c
@@ -8,21 +8,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 65a2eab05e7c475431602d9c2d3fc44b59bbc8f7
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 1eaf159149bb353b1cf0474aad5bc233decddc5c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78185727"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481569"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di convalida in un criterio personalizzato di Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Un profilo tecnico di convalida è un profilo tecnico standard di un qualsiasi protocollo, ad esempio [Azure Active Directory](active-directory-technical-profile.md) o un'[API REST](restful-technical-profile.md). Il profilo tecnico di convalida restituisce attestazioni di output oppure un messaggio di errore HTTP 409 (codice di stato della risposta al conflitto) con i dati seguenti:
+Un profilo tecnico di convalida è un profilo tecnico standard di un qualsiasi protocollo, ad esempio [Azure Active Directory](active-directory-technical-profile.md) o un'[API REST](restful-technical-profile.md). Il profilo tecnico di convalida restituisce attestazioni di output o restituisce codice di stato HTTP 4xx, con i dati seguenti. Per altre informazioni, vedere [Messaggio di errore restituitoFor more information,](restful-technical-profile.md#returning-error-message) see returning error message
 
 ```JSON
 {
@@ -32,16 +32,16 @@ Un profilo tecnico di convalida è un profilo tecnico standard di un qualsiasi p
 }
 ```
 
-Le attestazioni restituite da un profilo tecnico di convalida vengono aggiunte di nuovo all'elenco delle attestazioni. È possibile usare tali attestazioni nei profili tecnici di convalida successivi.
+L'ambito delle rivendicazioni di output di un profilo tecnico di convalida è limitato al [profilo tecnico auto-asserito](self-asserted-technical-profile.md) che richiama il profilo tecnico di convalida e ai relativi profili tecnici di convalida. Se si desidera utilizzare le attestazioni di output nel passaggio di orchestrazione successivo, aggiungere le attestazioni di output al profilo tecnico auto-asserito che richiama il profilo tecnico di convalida.
 
 I profili tecnici di convalida vengono eseguiti nella sequenza in cui compaiono nell'elemento **ValidationTechnicalProfiles**. In un profilo tecnico di convalida è possibile configurare se l'esecuzione di qualsiasi profilo tecnico di convalida successivo dovrà continuare nel caso in cui il profilo generi un errore o abbia esito positivo.
 
-Un profilo tecnico di convalida può essere eseguito in modo condizionale in base alle precondizioni definite nell'elemento **ValidationTechnicalProfile**. È ad esempio possibile verificare se una specifica attestazione esiste oppure se un'attestazione corrisponde o meno al valore specificato.
+Un profilo tecnico di convalida può essere eseguito in modo condizionale in base alle precondizioni definite nell'elemento **ValidationTechnicalProfile**. Ad esempio, è possibile verificare se esiste un'attestazione specifica o se un'attestazione è uguale o meno al valore specificato.
 
 Un profilo tecnico autocertificato può stabilire che un profilo tecnico venga usato per la convalida di alcune o di tutte le attestazioni di output. Tutte le attestazioni di input del profilo tecnico a cui si fa riferimento devono essere visualizzate nelle attestazioni di output del profilo tecnico di convalida di riferimento.
 
 > [!NOTE]
-> Solo i profili tecnici autocertificati possono usare i profili tecnici di convalida. Se è necessario convalidare le attestazioni di output da profili tecnici non autocertificati, prendere in considerazione l'uso di un passaggio di orchestrazione aggiuntivo nel percorso utente per soddisfare il profilo tecnico responsabile della convalida.
+> Solo i profili tecnici auto-dichiarati possono utilizzare profili tecnici di convalida. Se è necessario convalidare le attestazioni di output da profili tecnici non assimati automaticamente, è consigliabile usare un passaggio di orchestrazione aggiuntivo nel percorso utente per supportare il profilo tecnico responsabile della convalida.
 
 ## <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 
@@ -56,7 +56,7 @@ L'elemento **ValidationTechnicalProfile** contiene gli attributi seguenti:
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ReferenceId | Sì | Identificatore di un profilo tecnico già definito nei criteri o nei criteri padre. |
-|ContinueOnError|No| Indica se la convalida di tutti i profili tecnici di convalida successivi deve continuare se il profilo tecnico di convalida genera un errore. Valori possibili: `true` o `false` (valore predefinito, l'elaborazione di ulteriori profili di convalida verrà arrestata e verrà restituito un errore). |
+|ContinueOnError|No| Indica se la convalida di eventuali profili tecnici di convalida successivi deve continuare se questo profilo tecnico di convalida genera un errore. Valori possibili: `true` o `false` (valore predefinito, l'elaborazione di ulteriori profili di convalida verrà arrestata e verrà restituito un errore). |
 |ContinueOnSuccess | No | Indica se la convalida di tutti i profili tecnici successivi deve continuare nel caso in cui il profilo tecnico di convalida corrente abbia esito positivo. I valori possibili sono: `true` o `false`. Il valore predefinito è `true`, che significa che continuerà l'elaborazione di ulteriori profili di convalida. |
 
 L'elemento **ValidationTechnicalProfile** contiene l'elemento seguente:

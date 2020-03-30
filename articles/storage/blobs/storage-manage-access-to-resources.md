@@ -1,5 +1,5 @@
 ---
-title: Gestire l'accesso in lettura pubblico per contenitori e BLOB
+title: Gestire l'accesso in lettura pubblico per contenitori e BLOBManage public read access for containers and blobs
 titleSuffix: Azure Storage
 description: Informazioni su come rendere disponibili per l'accesso anonimo contenitori e BLOB e su come accedervi a livello di programmazione.
 services: storage
@@ -10,10 +10,10 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.openlocfilehash: 4d9a54c220861b19d67b07998e609ee72897446a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255483"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gestire l'accesso in lettura anonimo a contenitori e BLOB
@@ -24,43 +24,43 @@ L'accesso in lettura pubblico è ideale per scenari in cui si vuole che BLOB spe
 
 ## <a name="grant-anonymous-users-permissions-to-containers-and-blobs"></a>Concedere le autorizzazioni agli utenti anonimi per contenitori e BLOB
 
-Per impostazione predefinita, un contenitore e tutti i BLOB al suo interno possono accedere solo a un utente a cui sono state concesse le autorizzazioni appropriate. Per concedere agli utenti anonimi l'accesso in lettura a un contenitore e ai relativi BLOB, è possibile impostare il livello di accesso pubblico del contenitore. Quando si concede l'accesso pubblico a un contenitore, gli utenti anonimi possono leggere i BLOB in un contenitore accessibile pubblicamente senza autorizzare la richiesta.
+Per impostazione predefinita, un contenitore e i BLOB al suo interno sono accessibili solo a un utente a cui sono state concesse le autorizzazioni appropriate. Per assegnare a utenti anonimi l'accesso in lettura a un contenitore e ai relativi BLOB, è possibile impostare il livello di accesso pubblico del contenitore. Quando si concede l'accesso pubblico a un contenitore, gli utenti anonimi possono leggere i BLOB presenti in un contenitore accessibile pubblicamente senza effettuare l'autorizzazione della richiesta.
 
 È possibile configurare un contenitore con le autorizzazioni seguenti:
 
 - **Nessun accesso in lettura pubblico:** solo il proprietario dell'account di archiviazione può accedere al contenitore e ai relativi BLOB. Questa è l'impostazione predefinita per tutti i nuovi contenitori.
 - **Accesso in lettura pubblico solo per i BLOB:** i dati del BLOB all'interno del contenitore possono essere letti tramite richiesta anonima, ma i dati del contenitore non sono disponibili. I client anonimi non possono enumerare i BLOB all'interno del contenitore.
-- **Accesso in lettura pubblico per il contenitore e i relativi BLOB:** Tutti i dati del contenitore e del BLOB possono essere letti da una richiesta anonima. I client possono enumerare i BLOB all'interno del contenitore tramite richiesta anonima, ma non sono in grado di enumerare i contenitori all'interno dell'account di archiviazione.
+- Accesso in lettura pubblico per il **contenitore e i relativi BLOB:Public read access for container and its blobs:** Tutti i dati del contenitore e del BLOB possono essere letti tramite richiesta anonima. I client possono enumerare i BLOB all'interno del contenitore tramite richiesta anonima, ma non sono in grado di enumerare i contenitori all'interno dell'account di archiviazione.
 
-### <a name="set-container-public-access-level-in-the-azure-portal"></a>Impostare il livello di accesso pubblico del contenitore nell'portale di Azure
+### <a name="set-container-public-access-level-in-the-azure-portal"></a>Impostare il livello di accesso pubblico del contenitore nel portale di AzureSet container public access level in the Azure portal
 
-Dal [portale di Azure](https://portal.azure.com)è possibile aggiornare il livello di accesso pubblico per uno o più contenitori:
+Dal [portale di Azure](https://portal.azure.com)è possibile aggiornare il livello di accesso pubblico per uno o più contenitori:From the Azure portal , you can update the public access level for one or more containers:
 
-1. Passare alla panoramica dell'account di archiviazione nell'portale di Azure.
-1. In **servizio BLOB** nel pannello menu selezionare **BLOB**.
+1. Passare alla panoramica dell'account di archiviazione nel portale di Azure.Navigate to your storage account overview in the Azure portal.
+1. In **Servizio BLOB** nel pannello del menu selezionare **BLOB**.
 1. Selezionare i contenitori per i quali si desidera impostare il livello di accesso pubblico.
-1. Usare il pulsante **modifica livello di accesso** per visualizzare le impostazioni di accesso pubblico.
-1. Selezionare il livello di accesso pubblico desiderato dall'elenco a discesa **livello di accesso pubblico** e fare clic sul pulsante OK per applicare la modifica ai contenitori selezionati.
+1. Utilizzare il pulsante **Modifica livello** di accesso per visualizzare le impostazioni di accesso pubblico.
+1. Selezionare il livello di accesso pubblico desiderato dall'elenco a discesa **Livello di accesso pubblico** e fare clic sul pulsante OK per applicare la modifica ai contenitori selezionati.
 
-Lo screenshot seguente mostra come modificare il livello di accesso pubblico per i contenitori selezionati.
+Nella schermata seguente viene illustrato come modificare il livello di accesso pubblico per i contenitori selezionati.
 
-![Screenshot che illustra come impostare il livello di accesso pubblico nel portale](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
+![Screenshot che mostra come impostare il livello di accesso pubblico nel portale](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
 > [!NOTE]
-> Non è possibile modificare il livello di accesso pubblico per un singolo BLOB. Il livello di accesso pubblico è impostato solo a livello di contenitore.
+> Non è possibile modificare il livello di accesso pubblico per un singolo BLOB. Il livello di accesso pubblico viene impostato solo a livello di contenitore.
 
-### <a name="set-container-public-access-level-with-net"></a>Impostare il livello di accesso pubblico del contenitore con .NET
+### <a name="set-container-public-access-level-with-net"></a>Impostare il livello di accesso pubblico del contenitore con .NETSet container public access level with .NET
 
-Per impostare le autorizzazioni per un contenitore usando la libreria client di archiviazione di Azure per .NET, recuperare prima le autorizzazioni esistenti del contenitore chiamando uno dei metodi seguenti:
+Per impostare le autorizzazioni per un contenitore usando la libreria client di Archiviazione di Azure per .NET, recuperare innanzitutto le autorizzazioni esistenti del contenitore chiamando uno dei metodi seguenti:To set permissions for a container using the Azure Storage client library for .NET, first retrieve the container existing permissions by calling one of the following methods:
 
 - [GetPermissions](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getpermissions)
-- [GetPermissionsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getpermissionsasync)
+- [GetPermissionsAsyncGetPermissionsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getpermissionsasync)
 
-Impostare quindi la proprietà **PublicAccess** nell'oggetto [BlobContainerPermissions](/dotnet/api/microsoft.azure.storage.blob.blobcontainerpermissions) restituito dal metodo **GetPermissions** .
+Impostare quindi la proprietà PublicAccess sull'oggetto BlobContainerPermissions restituito dal metodo GetPermissions.Next, set the **PublicAccess** property on the [BlobContainerPermissions](/dotnet/api/microsoft.azure.storage.blob.blobcontainerpermissions) object that is returned by the **GetPermissions** method.
 
-Infine, chiamare uno dei metodi seguenti per aggiornare le autorizzazioni del contenitore:
+Infine, chiamare uno dei seguenti metodi per aggiornare le autorizzazioni del contenitore:
 
-- [SetPermissions](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissions)
+- [Setpermissions](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissions)
 - [SetPermissionsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissionsasync)
 
 L'esempio seguente imposta le autorizzazioni per il contenitore per l'accesso in lettura pubblico completo. Per impostare le autorizzazioni per l'accesso in lettura pubblico solo per i BLOB, impostare la proprietà **PublicAccess** su **BlobContainerPublicAccessType.Blob**. Per rimuovere tutte le autorizzazioni per gli utenti anonimi, impostare la proprietà su **BlobContainerPublicAccessType.Off**.
@@ -82,7 +82,7 @@ Un client che accede a contenitori e BLOB in modo anonimo può usare costruttori
 
 ### <a name="create-an-anonymous-client-object"></a>Creare un oggetto client anonimo
 
-È possibile creare un nuovo oggetto client del servizio per l'accesso anonimo fornendo l'endpoint di archiviazione BLOB per l'account. Tuttavia, è necessario conoscere anche il nome di un contenitore in tale account disponibile per l'accesso anonimo.
+È possibile creare un nuovo oggetto client del servizio per l'accesso anonimo specificando l'endpoint di archiviazione BLOB per l'account. Tuttavia, è necessario conoscere anche il nome di un contenitore in tale account disponibile per l'accesso anonimo.
 
 ```csharp
 public static void CreateAnonymousBlobClient()
@@ -137,6 +137,6 @@ public static void DownloadBlobAnonymously()
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Autorizzazione dell'accesso ad archiviazione di Azure](../common/storage-auth.md)
-- [Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso (SAS)](../common/storage-sas-overview.md)
+- [Autorizzazione dell'accesso ad Archiviazione di Azure](../common/storage-auth.md)
+- [Concedere l'accesso limitato alle risorse di Archiviazione di Azure usando le firme di accesso condivisoGrant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md)
 - [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api) (API REST del servizio BLOB)

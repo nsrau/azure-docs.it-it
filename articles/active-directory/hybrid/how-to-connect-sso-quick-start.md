@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3ec56d37ca2c0a199968707b3d93f4797be2beca
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261203"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Accesso Single Sign-On facile di Azure Active Directory: guida introduttiva
@@ -35,12 +35,12 @@ Per distribuire l'accesso SSO facile, seguire questa procedura.
 
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
 
-* **Configurare il server Azure AD Connect**: se come metodo di accesso si usa l'[autenticazione pass-through](how-to-connect-pta.md), non sono necessari altri controlli dei prerequisiti. Se si usa invece la [sincronizzazione dell'hash delle password](how-to-connect-password-hash-synchronization.md) e se è presente un firewall tra Azure AD Connect e Azure AD:
+* **Configurare il server Azure AD Connect:** se si usa l'autenticazione [pass-through](how-to-connect-pta.md) come metodo di accesso, non è necessario alcun controllo dei prerequisiti aggiuntivo. Se si usa la [sincronizzazione dell'hash delle password](how-to-connect-password-hash-synchronization.md) come metodo di accesso e se è presente un firewall tra Azure AD Connect e Azure AD, verificare che:If you use password hash synchronization as your di-in method, and if there is a firewall between Azure AD Connect and Azure AD, ensure that:
    - Usare Azure AD Connect 1.1.644.0 o versioni successive. 
-   - Se il firewall o il proxy consente l'inserimento di DNS nell'elenco elementi consentiti, aggiungere all'elenco le connessioni agli URL di **\*.msappproxy.net** tramite la porta 443. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653), che vengono aggiornati ogni settimana. Questo prerequisito è applicabile solo quando si abilita la funzionalità. Non è necessario per gli accessi utente effettivi.
+   - Se il firewall o il proxy consente l'inserimento nella whitelist DNS, autorizzare le connessioni agli URL ** \*con estensione msappproxy.net** sulla porta 443. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653), che vengono aggiornati ogni settimana. Questo prerequisito è applicabile solo quando si abilita la funzionalità. Non è necessario per gli accessi utente effettivi.
 
     >[!NOTE]
-    >Le versioni 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 di Azure AD Connect presentano un problema correlato alla sincronizzazione dell'hash delle password. Se _non_ si prevede di usare la sincronizzazione dell'hash delle password insieme all'autenticazione pass-through, leggere le [note sulla versione di Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) per altre informazioni.
+    >Le versioni 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 di Azure AD Connect presentano un problema correlato alla sincronizzazione dell'hash delle password. Se _non_ si intende usare la sincronizzazione dell'hash delle password insieme all'autenticazione pass-through, leggere le note sulla versione di [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) per altre informazioni.
 
 * **Usare una topologia di Azure AD Connect supportata**: assicurarsi di usare una delle topologie supportate di Azure AD Connect descritte [qui](plan-connect-topologies.md).
 
@@ -73,7 +73,7 @@ Se Azure AD Connect è già installato, scegliere la pagina **Cambia l'accesso u
 
 ![Azure AD Connect: Cambia l'accesso utente](./media/how-to-connect-sso-quick-start/changeusersignin.png)
 
-Continuare la procedura guidata finché non si visualizza la pagina **Abilita Single Sign-On**. Specificare le credenziali dell'amministratore di dominio per ogni foresta di Active Directory che:
+Continuare la procedura guidata fino ad arrivare alla pagina **Abilita Single Sign-On.** Specificare le credenziali dell'amministratore di dominio per ogni foresta di Active Directory che:
 
 * Si sincronizza con Azure AD tramite Azure AD Connect.
 * Contiene gli utenti che si intende abilitare per l'accesso SSO facile.
@@ -93,10 +93,10 @@ Seguire queste istruzioni per verificare di aver abilitato correttamente l'acces
 ![Portale di Azure: riquadro Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> Seamless SSO crea un account computer denominato `AZUREADSSOACC` nell'Active Directory locale (AD) in ogni foresta di Active Directory. Per motivi di sicurezza, è necessario che l'account computer `AZUREADSSOACC` sia fortemente protetto. Solo gli amministratori di dominio devono essere in grado di gestire l'account computer. Verificare che la delega Kerberos nell'account computer sia disabilitata e che nessun altro account in Active Directory disponga delle autorizzazioni di delega per l'account del computer `AZUREADSSOACC`. Archiviare l'account computer in un'unità organizzativa in cui sono protetti da eliminazioni accidentali e in cui solo gli amministratori di dominio hanno accesso.
+> Seamless SSO crea un `AZUREADSSOACC` account computer denominato in Active Directory (AD) locale in ogni foresta di Active Directory. L'account `AZUREADSSOACC` computer deve essere fortemente protetto per motivi di sicurezza. Solo domain Admins deve essere in grado di gestire l'account computer. Verificare che la delega Kerberos per l'account computer sia disabilitata `AZUREADSSOACC` e che nessun altro account in Active Directory disponga delle autorizzazioni di delega per l'account computer. Archiviare l'account computer in un'unità organizzativa (OU) in cui sono al sicuro da eliminazioni accidentali e in cui solo gli amministratori di dominio hanno accesso.
 
 >[!NOTE]
-> Se si usano le architetture di mitigazione del furto di credenziali e pass-the-hash nell'ambiente locale, apportare le modifiche appropriate per assicurarsi che l'account del computer `AZUREADSSOACC` non finisca nel contenitore di quarantena. 
+> Se si utilizzano architetture Pass-the-Hash e Credential Theft Mitigation nell'ambiente locale, `AZUREADSSOACC` apportare le modifiche appropriate per assicurarsi che l'account computer non finisse nel contenitore Quarantena. 
 
 ## <a name="step-3-roll-out-the-feature"></a>Passaggio 3: Distribuire la funzionalità
 
@@ -124,7 +124,7 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 
 1. Aprire l'Editor Gestione Criteri di gruppo.
 2. Modificare i criteri di gruppo applicati a tutti gli utenti o solo ad alcuni. Questo esempio è basato su **Criterio dominio predefinito**.
-3. Passare a **Configurazione utente** > **criteri** > **Modelli amministrativi** > **componenti di Windows** > **pagina sicurezza** > Internet **Explorer** > **Pannello di controllo Internet** . Selezionare quindi **Elenco di assegnazione siti ad aree**.
+3. Passare alla pagina Protezione dei**componenti** > **amministrativi** > di **Configurazione** > utente**di Windows** > **Internet Explorer** > **Internet Control Panel** > **Security**. Selezionare quindi **Elenco di assegnazione siti ad aree**.
     ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Abilitare i criteri e quindi immettere i valori seguenti nella finestra di dialogo:
    - **Nome valore**: l'URL di Azure AD a cui vengono inoltrati i ticket Kerberos.
@@ -144,7 +144,7 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 
     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Passare a **Configurazione utente** > **criteri** > **Modelli amministrativi** > **componenti di Windows** > **Internet Explorer** ** >  > ** **pagina sicurezza** > **area Intranet**. Selezionare quindi **Consenti aggiornamenti alla barra di stato tramite script**.
+6. Passare a**Modelli** > amministrativi**dei criteri** >  **di configurazione** > utente Componenti amministrativi**di** > **Windows Internet Explorer** > **Internet Control Panel** > **Security Page** > **Area Intranet**. Selezionare quindi **Consenti aggiornamenti alla barra di stato tramite script**.
 
     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -156,7 +156,7 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 
 1. Aprire l'Editor Gestione Criteri di gruppo.
 2. Modificare i criteri di gruppo applicati a tutti gli utenti o solo ad alcuni. Questo esempio è basato su **Criterio dominio predefinito**.
-3. Passare a **Configurazione utente** > **Preferenze** > **Impostazioni di Windows** > **Registro di sistema** > **Nuovo** > **Elemento Registro di sistema**.
+3. Passare a **Preferenze di configurazione** > **Preferences** > utente**Impostazioni** > di Windows**Registro** > **di sistema Nuova voce** > **del Registro di sistema**.
 
     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso15.png)
 
@@ -177,7 +177,7 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 Mozilla Firefox non usa automaticamente l'autenticazione Kerberos. Ogni utente deve aggiungere manualmente l'URL di Azure AD alle impostazioni di Firefox eseguendo questi passaggi:
 1. Eseguire Firefox e immettere `about:config` nella barra degli indirizzi. Eliminare tutte le notifiche visualizzate.
 2. Cercare la preferenza **network.negotiate-auth.trusted-uris**. Questa preferenza elenca i siti attendibili di Firefox per l'autenticazione Kerberos.
-3. Fare clic con il pulsante destro del mouse e scegliere **Modify**.
+3. Fare clic con il pulsante destro del mouse e scegliere **Modifica**.
 4. Immettere `https://autologon.microsoftazuread-sso.com` nel campo.
 5. Fare clic su **OK** e quindi riaprire il browser.
 
@@ -185,13 +185,13 @@ Mozilla Firefox non usa automaticamente l'autenticazione Kerberos. Ogni utente d
 
 Verificare che il computer che esegue macOS sia stato aggiunto ad AD. Le istruzioni per l'aggiunta ad AD del dispositivo macOS non rientrano nell'ambito di questo articolo.
 
-#### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Microsoft Edge basato su cromo (tutte le piattaforme)
+#### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Microsoft Edge basato su Chromium (tutte le piattaforme)
 
-Se sono state sostituite le impostazioni dei criteri [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) o [AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) nell'ambiente in uso, assicurarsi di aggiungervi anche l'URL di Azure ad (`https://autologon.microsoftazuread-sso.com`).
+Se è stato eseguito l'override delle impostazioni dei criteri [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) o [AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) nell'ambiente, assicurarsi di aggiungere anche l'URL di Azure AD (`https://autologon.microsoftazuread-sso.com`).
 
 #### <a name="microsoft-edge-based-on-chromium-macos-and-other-non-windows-platforms"></a>Microsoft Edge basato su Chromium (macOS e altre piattaforme non Windows)
 
-Per Microsoft Edge basato su Chromium su Mac OS e altre piattaforme non Windows, fare riferimento all' [elenco Microsoft Edge basato su criteri di cromo](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) per informazioni su come aggiungere l'URL Azure ad per l'autenticazione integrata all'elenco di consentiti.
+Per Microsoft Edge basato su Chromium su Mac OS e altre piattaforme non Windows, fare riferimento a [Microsoft Edge basato su Chromium Policy List](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) per informazioni su come aggiungere l'URL di Azure AD per l'autenticazione integrata all'elenco consentito.
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (tutte le piattaforme)
 
@@ -205,7 +205,7 @@ L'uso di estensioni di terze parti di Criteri di gruppo di Active Directory per 
 
 #### <a name="known-browser-limitations"></a>Limitazioni note dei browser
 
-L'accesso SSO facile non funziona in modalità di esplorazione privata nei browser Firefox e Microsoft Edge. Non funziona nemmeno in Internet Explorer se il browser è in esecuzione in modalità protetta avanzata. Per la prossima versione di Microsoft Edge basata sul cromo, non funzionerà in modalità InPrivate e Guest in base alla progettazione.
+L'accesso SSO facile non funziona in modalità di esplorazione privata nei browser Firefox e Microsoft Edge. Non funziona nemmeno in Internet Explorer se il browser è in esecuzione in modalità protetta avanzata. Per la prossima versione di Microsoft Edge basata su Chromium, non funzionerà in modalità InPrivate e Guest in base alla progettazione.
 
 ## <a name="step-4-test-the-feature"></a>Passaggio 4: Testare la funzionalità
 

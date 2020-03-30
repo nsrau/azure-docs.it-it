@@ -10,18 +10,18 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: 0506527808892bf1ee531d892e2773d095e18560
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: fe2427d008b49daa6222ca981994f0dc2fbea355
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79245330"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476587"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Come usare la diagnostica di avvio per risolvere i problemi delle macchine virtuali in Azure
 
-Una macchina virtuale può entrare in uno stato non di avvio per diversi motivi. Per risolvere i problemi relativi alle macchine virtuali create con Gestione risorse modello di distribuzione, è possibile usare le funzionalità di debug seguenti: output della console e supporto dello screenshot per le macchine virtuali di Azure. 
+Una macchina virtuale può entrare in uno stato non di avvio per diversi motivi. Per risolvere i problemi con le macchine virtuali create usando il modello di distribuzione di Resource Manager, è possibile usare le funzionalità di debug seguenti: Output della console e Supporto screenshot per le macchine virtuali di Azure.To address issues with your virtual machines created using Resource Manager deployment model, you can use the following debugging features: Console Output and Screenshot support for Azure virtual machines. 
 
-Per le macchine virtuali Linux è possibile visualizzare l'output del log della console dal portale. Per le macchine virtuali Windows e Linux, Azure consente di visualizzare uno screenshot della macchina virtuale dall'hypervisor. Entrambe le funzionalità sono supportate per le macchine virtuali di Azure in tutte le aree. Si noti che la visualizzazione degli screenshot e dell'output nell'account di archiviazione può richiedere fino a 10 minuti.
+Per le macchine virtuali Linux è possibile visualizzare l'output del log della console dal portale. Per le macchine virtuali Windows e Linux, Azure consente di visualizzare uno screenshot della macchina virtuale dall'hypervisor. Entrambe le funzionalità sono supportate per le macchine virtuali di Azure in tutte le aree. Si noti che la visualizzazione delle schermate e dell'output nell'account di archiviazione può richiedere fino a 10 minuti.
 
 È possibile selezionare l'opzione **Diagnostica di avvio** per visualizzare il log e lo screenshot.
 
@@ -49,7 +49,7 @@ La procedura seguente si riferisce a una macchina virtuale creata usando il mode
 
 Nella scheda **Gestione**, nella sezione **Monitoraggio**, verificare che l'opzione **Diagnostica di avvio** sia attivata. Nell'elenco a discesa **Account di archiviazione di diagnostica** selezionare un account di archiviazione in cui inserire i file di diagnostica.
  
-![Crea macchina virtuale](./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png)
+![Creare una macchina virtuale](./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png)
 
 > [!NOTE]
 > La funzionalità di diagnostica di avvio non supporta gli account di archiviazione premium. Se si usa l'account di archiviazione premium per la diagnostica di avvio, può verificarsi l'errore StorageAccountTypeNotSupported quando si avvia la macchina virtuale.
@@ -79,7 +79,7 @@ Il profilo di diagnostica consente di selezionare l'account di archiviazione in 
 }
 ```
 
-Per altre informazioni sulla distribuzione di risorse usando i modelli, vedere [Guida introduttiva: creare e distribuire modelli di Azure Resource Manager usando il portale di Azure](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+Per altre informazioni sulla distribuzione di risorse usando i modelli, vedere Guida introduttiva: Creare e distribuire modelli di Azure Resource Manager tramite il portale di Azure.For more information on deploying resources using templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal.](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
 
 ## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>Abilitare la diagnostica di avvio in una macchina virtuale esistente 
 

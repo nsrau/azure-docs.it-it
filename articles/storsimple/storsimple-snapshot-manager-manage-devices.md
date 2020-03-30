@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: a037ddc5a43b288349b17dc7d954991a2c634aa3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254690"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Utilizzo di Gestione snapshot StorSimple per connettere e gestire i dispositivi StorSimple
@@ -29,11 +29,11 @@ ms.locfileid: "79254690"
 
 **Figura 1: Dispositivo di Gestione snapshot StorSimple connesso** 
 
-A seconda delleopzioni di visualizzazione selezionate, il riquadro **Risultati** mostra le seguenti informazioni su ogni dispositivo. (Per ulteriori informazioni sulla configurazione di una visualizzazione, andare a [Menu Visualizza](storsimple-use-snapshot-manager.md#view-menu).)
+A seconda delle **** opzioni di visualizzazione selezionate, il riquadro **Risultati** mostra le seguenti informazioni su ogni dispositivo. (Per ulteriori informazioni sulla configurazione di una visualizzazione, andare a [Menu Visualizza](storsimple-use-snapshot-manager.md#view-menu).)
 
 | Colonna risultati | Descrizione |
 |:--- |:--- |
-| Name |Il nome del dispositivo come configurato nel portale di gestione di Azure classico |
+| Nome |Il nome del dispositivo come configurato nel portale di gestione di Azure classico |
 | Modello |Il numero di modello del dispositivo |
 | Versione |La versione software installata sul dispositivo |
 | Stato |Se il dispositivo è disponibile |
@@ -100,7 +100,7 @@ Utilizzare la procedura seguente per connettere un dispositivo StorSimple e veri
 2. Fare clic sull’icona del desktop per avviare StorSimple Snapshot Manager.
 3. Fare clic con il pulsante destro del mouse sul nodo di livello superiore nel riquadro **Ambito**, quindi scegliere **Visualizza/Nascondi importazioni**.
    
-    ![Selezione di Attivazione o disattivazione visualizzazione importazioni](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Toggle_Imports_Display.png) 
+    ![Selezione di Visualizza/Nascondi importazioni](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Toggle_Imports_Display.png) 
 4. Viene visualizzata la finestra di dialogo **Visualizza/Nascondi importazioni** in cui viene mostrato lo stato dei gruppi di volumi e dei backup importati. Fare clic su **OK**.
 
 Dopo che i gruppi di volumi e i backup sono stati importati correttamente, è possibile utilizzare Gestione snapshot StorSimple per gestirli, esattamente come vengono gestiti i gruppi di volumi e i backup creati e configurati con Gestione snapshot StorSimple. 
@@ -125,7 +125,7 @@ Utilizzare la procedura seguente per autenticare un dispositivo StorSimple con G
 3. Nel riquadro **Risultati** fare clic con il pulsante destro del mouse sul nome del dispositivo, quindi scegliere **Autenticazione**.
 4. Viene visualizzata la finestra di dialogo **Autenticazione**. Digitare la password del dispositivo, quindi fare clic su **OK**.
    
-    ![Finestra di dialogo di autenticazione](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Authenticate.png) 
+    ![Finestra di dialogo Autentica](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Authenticate.png) 
 
 ## <a name="view-device-details"></a>Visualizzazione dei dettagli del dispositivo
 Utilizzare la procedura seguente per visualizzare i dettagli di un dispositivo StorSimple e, se necessario, risincronizzare il dispositivo con Gestione snapshot StorSimple.
@@ -166,7 +166,7 @@ Utilizzare la procedura seguente per eliminare la configurazione di un singolo d
 
 #### <a name="to-change-the-expired-password"></a>Per modificare la password scaduta
 1. Nel portale di Azure classico, avviare il servizio StorSimple Manager.
-2. Fare clic su **Dispositivi** > **Configura** per il dispositivo.
+2. Fare clic su**Configurazione** **dispositivi** > per il dispositivo.
 3. Scorrere verso il basso fino alla sezione Gestione snapshot StorSimple. Immettere una password composta da 14-15 caratteri. Assicurarsi che la password contenga una combinazione di lettere maiuscole, minuscole, numeri e caratteri speciali.
 4. Immettere nuovamente la password per confermarla.
 5. Fare clic su **Save** nella parte inferiore della pagina.

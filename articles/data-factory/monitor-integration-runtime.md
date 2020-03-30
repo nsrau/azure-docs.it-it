@@ -1,5 +1,5 @@
 ---
-title: Monitorare il runtime di integrazione in Azure Data Factory
+title: Monitorare il runtime di integrazione in Azure Data FactoryMonitor integration runtime in Azure Data Factory
 description: Informazioni su come monitorare diversi tipi di runtime di integrazione in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,10 +11,10 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 2399849b87e44c5cb70d2db987ae18d8d2d9c552
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261138"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitoraggio di un runtime di integrazione in Azure Data Factory  
@@ -35,7 +35,7 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGr
 Il cmdlet restituisce informazioni diverse per diversi tipi di runtime di integrazione. In questo articolo vengono illustrate le proprietà e gli stati per ogni tipo di runtime di integrazione.  
 
 ## <a name="azure-integration-runtime"></a>Runtime di integrazione di Azure
-La risorsa di calcolo per un runtime di integrazione di Azure è completamente gestita in modo elastico in Azure. La tabella seguente fornisce le descrizioni per le proprietà restituite dal comando **Get-AzDataFactoryV2IntegrationRuntime** :
+La risorsa di calcolo per un runtime di integrazione di Azure è completamente gestita in modo elastico in Azure. Nella tabella seguente vengono fornite le descrizioni per le proprietà restituite dal comando **Get-AzDataFactoryV2IntegrationRuntime:**
 
 ### <a name="properties"></a>Proprietà
 Nella tabella seguente vengono fornite descrizioni per le proprietà restituite dal cmdlet per un runtime di integrazione Azure:
@@ -58,7 +58,7 @@ La tabella seguente indica i possibili stati di un runtime di integrazione di Az
 | Offline | Il runtime di integrazione di Azure è offline a causa di un errore interno. |
 
 ## <a name="self-hosted-integration-runtime"></a>Runtime di integrazione self-hosted
-In questa sezione vengono fornite le descrizioni per le proprietà restituite dal cmdlet Get-AzDataFactoryV2IntegrationRuntime. 
+In questa sezione vengono fornite le descrizioni delle proprietà restituite dal cmdlet Get-AzDataFactoryV2IntegrationRuntime. 
 
 > [!NOTE] 
 > La proprietà restituite e lo stato contengono informazioni sul runtime di integrazione self-hosted generale e su ogni nodo nel runtime.  
@@ -70,12 +70,12 @@ La tabella seguente fornisce le descrizioni delle proprietà di monitoraggio per
 | Proprietà | Descrizione | 
 | -------- | ----------- | 
 | Nome | Nome del runtime di integrazione self-hosted e dei nodi associati. Il nodo è un computer Windows locale su cui è installato il runtime di integrazione self-hosted. |  
-| Stato | Lo stato del runtime di integrazione self-hosted generale e di ogni nodo. Esempio: online/offline/Limited/ecc. Per informazioni su questi Stati, vedere la sezione successiva. | 
+| Stato | Lo stato del runtime di integrazione self-hosted generale e di ogni nodo. Esempio: Online/Offline/Limited/etc. Per informazioni su questi stati, vedere la sezione successiva. | 
 | Versione | La versione del runtime di integrazione self-hosted e di ogni nodo. La versione del runtime di integrazione self-hosted viene determinata in base alla versione della maggior parte dei nodi del gruppo. Se nella configurazione del runtime di integrazione self-hosted sono presenti nodi con versioni diverse, solo i nodi con lo stesso numero di versione del runtime di integrazione self-hosted funzionano correttamente. Gli altri sono in modalità limitata e devono essere aggiornati manualmente (solo se l'aggiornamento automatico non riesce). | 
 | Memoria disponibile | Memoria disponibile in un nodo di runtime di integrazione self-hosted. Questo valore è uno snapshot in tempo quasi reale. | 
 | Uso della CPU | Utilizzo della CPU da parte di un nodo di runtime di integrazione self-hosted. Questo valore è uno snapshot in tempo quasi reale. |
 | Rete (in/out) | Utilizzo del network da parte di un nodo di runtime di integrazione self-hosted. Questo valore è uno snapshot in tempo quasi reale. | 
-| Processi simultanei (in esecuzione/limite) | **In esecuzione**. Numero di processi o di attività in esecuzione in ogni nodo. Questo valore è uno snapshot in tempo quasi reale. <br/><br/>**Limite**. Per limite si intende il numero massimo di processi simultanei per ogni nodo. Questo valore viene definito in base alle dimensioni del computer. È possibile aumentare il limite per incrementare il numero di processi simultanei in esecuzione negli scenari avanzati, in cui si verifica il timeout delle attività anche in caso di sottoutilizzo di CPU, memoria o rete. Questa capacità è disponibile anche in un runtime di integrazione self-hosted a nodo singolo. |
+| Processi simultanei (in esecuzione/limite) | **In esecuzione**. Numero di processi o di attività in esecuzione in ogni nodo. Questo valore è uno snapshot in tempo quasi reale. <br/><br/>**Limitare**. Per limite si intende il numero massimo di processi simultanei per ogni nodo. Questo valore viene definito in base alle dimensioni del computer. È possibile aumentare il limite per incrementare il numero di processi simultanei in esecuzione negli scenari avanzati, in cui si verifica il timeout delle attività anche in caso di sottoutilizzo di CPU, memoria o rete. Questa capacità è disponibile anche in un runtime di integrazione self-hosted a nodo singolo. |
 | Ruolo | Esistono due tipi di ruoli in un runtime di integrazione self-hosted a più nodi: dispatcher e ruolo di lavoro. Tutti i nodi sono ruoli di lavoro e quindi possono essere tutti usati per eseguire i processi. Esiste un solo nodo dispatcher, che viene usato per eseguire il pull di attività/processi dai servizi cloud e inviarli a nodi ruolo di lavoro diversi. Il nodo dispatcher è anche un nodo di lavoro. |
 
 Alcune impostazioni delle proprietà sono più appropriate quando sono presenti due o più nodi nel runtime di integrazione self-hosted, ovvero in uno scenario in cui viene incrementato il numero di istanze.
@@ -86,7 +86,7 @@ Il valore predefinito del limite di processi simultanei è impostato in base all
 
 Per aumentare questo limite è necessario incrementare il numero di nodi. In questo modo, infatti, il limite di processi simultanei corrisponde alla somma dei valori limite di processi simultanei di tutti i nodi disponibili.  Se ad esempio un nodo consente di eseguire un massimo di 12 processi simultanei, aggiungendo altri tre nodi simili sarà possibile eseguire un massimo di 48 processi simultanei, ovvero 4 x 12. È consigliabile aumentare il limite di processi simultanei solo quando si nota uno scarso utilizzo delle risorse con i valori predefiniti su ogni nodo.
 
-È possibile sostituire il valore predefinito calcolato nel portale di Azure. Selezionare Autore > Connessioni > Runtime di integrazione > Modifica > Nodi > modificare il limite di processi simultanei per ogni nodo. È anche possibile usare il comando PowerShell [Update-Azdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples) .
+È possibile sostituire il valore predefinito calcolato nel portale di Azure. Selezionare Autore > Connessioni > Runtime di integrazione > Modifica > Nodi > modificare il limite di processi simultanei per ogni nodo. È anche possibile usare il comando update-Azdatafactoryv2integrationruntimenode di PowerShell.You can also use the PowerShell [update-Azdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples) command.
   
 ### <a name="status-per-node"></a>Stato (per ogni nodo)
 La tabella seguente indica i possibili stati di un nodo di runtime di integrazione self-hosted:
@@ -111,7 +111,7 @@ La tabella seguente indica i possibili stati di un runtime di integrazione self-
 | Offline | Nessun nodo è online. |
 | Limitato | Non tutti i nodi in questo runtime di integrazione self-hosted sono in uno stato integro. Questo stato è un avviso indicante che qualche nodo potrebbe essere inattivo. La causa di questo stato potrebbe essere un problema di sincronizzazione delle credenziali nel nodo dispatcher/ruolo di lavoro. |
 
-Usare il cmdlet **Get-AzDataFactoryV2IntegrationRuntimeMetric** per recuperare il payload JSON contenente le proprietà dettagliate del runtime di integrazione self-hosted e i relativi valori di snapshot durante l'esecuzione del cmdlet.
+Utilizzare il cmdlet **Get-AzDataFactoryV2IntegrationRuntimeMetric** per recuperare il payload JSON contenente le proprietà dettagliate del runtime di integrazione self-hosted e i relativi valori di snapshot durante il periodo di esecuzione del cmdlet.
 
 ```powershell
 Get-AzDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName | ConvertTo-Json 
@@ -220,7 +220,7 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 
 Vedere gli articoli seguenti per ulteriori informazioni sul runtime di integrazione SSIS di Azure:
 
-- [Runtime di integrazione SSIS di Azure](concepts-integration-runtime.md#azure-ssis-integration-runtime). In questo articolo vengono fornite le informazioni sui runtime di integrazione in generale incluso il runtime di integrazione SSIS di Azure. 
+- Runtime di [integrazione Azure-SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime). In questo articolo vengono fornite le informazioni sui runtime di integrazione in generale incluso il runtime di integrazione SSIS di Azure. 
 - [Esercitazione: distribuire i pacchetti SSIS in Azure](tutorial-create-azure-ssis-runtime-portal.md). In questo articolo vengono fornite le istruzioni passo per passo per creare un runtime di integrazione SSIS di Azure e utilizzare un database SQL di Azure per ospitare il catalogo SSIS. 
 - [Procedura: come creare un runtime di integrazione SSIS di Azure](create-azure-ssis-integration-runtime.md). Questo articolo amplia l'esercitazione e offre istruzioni sull'uso dell'Istanza gestita di database SQL di Azure e sull'aggiunta del runtime di integrazione a una rete virtuale. 
 - [Gestire un runtime di integrazione SSIS di Azure](manage-azure-ssis-integration-runtime.md). In questo articolo viene illustrato come arrestare, avviare o rimuovere un runtime di integrazione SSIS di Azure. Viene inoltre mostrato come scalare orizzontalmente il runtime di integrazione SSIS di Azure aggiungendo più nodi al runtime di integrazione. 
@@ -229,5 +229,5 @@ Vedere gli articoli seguenti per ulteriori informazioni sul runtime di integrazi
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti per il monitoraggio di pipeline in modi diversi: 
 
-- [Guida introduttiva: creare una data factory](quickstart-create-data-factory-dot-net.md).
+- [Guida introduttiva: creare una data factory.](quickstart-create-data-factory-dot-net.md)
 - [Utilizzare Monitoraggio di Azure per monitorare le pipeline di Data Factory](monitor-using-azure-monitor.md)

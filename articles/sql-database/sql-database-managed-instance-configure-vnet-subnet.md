@@ -1,5 +1,5 @@
 ---
-title: Configurare una rete virtuale esistente per l'istanza gestita
+title: Configurare una rete virtuale esistente per l'istanza gestitaConfigure an existing virtual network for managed instance
 description: Questo articolo descrive come configurare una rete virtuale e una subnet esistenti in cui distribuire Istanza gestita di database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-ms.date: 01/15/2019
-ms.openlocfilehash: 6dfc0a59ab4150173196fae82d90eca4880d5364
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 03/17/2020
+ms.openlocfilehash: 50b832baa9253f47b5f10980ae1764c9425ed4d7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818886"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476950"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>Configurare una rete virtuale esistente per Istanza gestita di database SQL di Azure
 
@@ -31,14 +31,14 @@ Se uno degli scenari seguenti si applica al proprio caso, è possibile convalida
 > [!Note]
 > È possibile creare un'istanza gestita solo nelle reti virtuali create tramite il modello di distribuzione di Azure Resource Manager. Le reti virtuali di Azure create tramite il modello di distribuzione classica non sono supportate. Calcolare le dimensioni della subnet seguendo le indicazioni dell'articolo [Determinare le dimensioni di una subnet per le istanze gestite](sql-database-managed-instance-determine-size-vnet-subnet.md). Non è possibile ridimensionare la subnet dopo che vi sono state distribuite le risorse.
 >
-> Dopo la creazione di un'istanza gestita, lo stato di trasferimento dell'istanza gestita o VNet a un altro gruppo di risorse o a una sottoscrizione non è supportato.
+> Dopo la creazione di un'istanza gestita, lo spostamento dell'istanza gestita o della rete virtuale in un altro gruppo di risorse o sottoscrizione non è supportato.
 
 ## <a name="validate-and-modify-an-existing-virtual-network"></a>Convalidare e modificare una rete virtuale esistente
 
 Per creare un'istanza gestita all'interno di una subnet esistente, è consigliabile usare lo script di PowerShell seguente per preparare la subnet:
 
 ```powershell
-$scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/prepare-subnet'
+$scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/delegate-subnet'
 
 $parameters = @{
     subscriptionId = '<subscriptionId>'
@@ -47,17 +47,17 @@ $parameters = @{
     subnetName = '<subnetName>'
     }
 
-Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/prepareSubnet.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters
+Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/delegateSubnet.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters
 ```
 
 Lo script prepara la subnet in tre passaggi:
 
-1. Validate: convalida la rete virtuale e la subnet selezionate per i requisiti di rete Istanza gestita.
-2. Conferma: Mostra all'utente un set di modifiche che devono essere apportate per preparare la subnet per la distribuzione di Istanza gestita. Chiede inoltre all'utente di dare il proprio consenso.
-3. Prepara: configura correttamente la rete virtuale e la subnet.
+1. Convalida: convalida la rete virtuale e la subnet selezionate per i requisiti di rete dell'istanza gestita.
+2. Conferma: mostra all'utente un set di modifiche che devono essere apportate per preparare la subnet per la distribuzione dell'istanza gestita. Chiede inoltre all'utente di dare il proprio consenso.
+3. Preparazione: configura correttamente la rete virtuale e la subnet.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica, vedere [Informazioni su Istanza gestita](sql-database-managed-instance.md).
+- Per una panoramica, vedere [Che cos'è un'istanza gestita?](sql-database-managed-instance.md).
 - Per un'esercitazione che mostra come creare una rete virtuale e un'istanza gestita e ripristinare un database da un backup, vedere [Creare un'istanza gestita di database SQL di Azure](sql-database-managed-instance-get-started.md).
-- Per questioni relative al DNS, vedere [Configurazione di un DNS personalizzato](sql-database-managed-instance-custom-dns.md).
+- Per problemi relativi al DNS, vedere [Configurazione di un DNS personalizzato.](sql-database-managed-instance-custom-dns.md)
