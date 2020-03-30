@@ -1,5 +1,5 @@
 ---
-title: Espandere l'unità del sistema operativo di una macchina virtuale Windows in Azure
+title: Espandere l'unità del sistema operativo di una macchina virtuale Windows in AzureExpand the OS drive of a Windows VM in an Azure
 description: Espandere la dimensione dell'unità del sistema operativo di una macchina virtuale tramite Azure PowerShell nel modello di distribuzione Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 07/05/2018
 ms.author: kirpas
 ms.subservice: disks
 ms.openlocfilehash: c76f57d15cd4cbdad5ded3b7545aab4d57272a50
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74033506"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Come espandere l'unità del sistema operativo di una macchina virtuale
@@ -168,7 +168,7 @@ Start-AzVM -ResourceGroupName $rgName -Name $vmName
 
 Sebbene questo articolo si concentri principalmente sull'espansione del disco del sistema operativo della macchina virtuale, lo script può comunque essere usato per l'espansione dei dischi dati collegati alla macchina virtuale. Per espandere ad esempio il primo disco dati collegato alla VM, sostituire l'oggetto `OSDisk` di `StorageProfile` con la matrice `DataDisks` e usare un indice numerico per ottenere un riferimento al primo disco dati collegato, come illustrato di seguito:
 
-**Dischi gestiti**
+**Disco gestito**
 
 ```powershell
 $disk= Get-AzDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.DataDisks[0].Name
@@ -176,7 +176,7 @@ $disk.DiskSizeGB = 1023
 ```
 
 
-**Dischi non gestiti**
+**Disco non gestito**
 
 ```powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
@@ -187,13 +187,13 @@ $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 Analogamente è possibile fare riferimento agli altri dischi dati collegati alla macchina virtuale, usando un indice come quello illustrato in precedenza oppure la proprietà **Name** del disco:
 
 
-**Dischi gestiti**
+**Disco gestito**
 
 ```powershell
 (Get-AzDisk -ResourceGroupName $rgName -DiskName ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).Name).DiskSizeGB = 1023
 ```
 
-**Dischi non gestiti**
+**Disco non gestito**
 
 ```powershell
 ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'}).DiskSizeGB = 1023

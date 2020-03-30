@@ -1,6 +1,6 @@
 ---
 title: "Usare l'interfaccia della riga di comando di Databricks da Azure Cloud Shell "
-description: Informazioni su come usare l'interfaccia della riga di comando di databricks da Azure Cloud Shell per eseguire operazioni sui Azure Databricks.
+description: Informazioni su come usare la CLI Databricks di Azure Cloud Shell per eseguire operazioni su Azure Databricks.
 services: azure-databricks
 author: mamccrea
 ms.reviewer: jasonh
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: mamccrea
 ms.openlocfilehash: efb0d3222bfd98b15502163979425d47fa459e07
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73605710"
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>Usare l'interfaccia della riga di comando di Databricks da Azure Cloud Shell
@@ -28,15 +28,15 @@ Informazioni su come usare l'interfaccia della riga di comando di Databricks da 
 
 ## <a name="use-the-azure-cloud-shell"></a>Usare Azure Cloud Shell
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale](https://portal.azure.com)di Azure .
  
 2. Nell'angolo superiore destro fare clic sull'icona di **Cloud Shell**.
 
-   ![Avvia Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "Avviare Azure Cloud Shell")
+   ![Avviare Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "Avviare Azure Cloud Shell")
 
 3. Assicurarsi di selezionare **Bash** per l'ambiente Cloud Shell. È possibile effettuare la selezione dell'opzione nel menu a discesa, come illustrato nello screenshot seguente.
 
-   ![Selezionare bash per l'ambiente Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Selezionare Bash") 
+   ![Selezionare Bash per l'ambiente Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Selezionare Bash") 
 
 4. Creare un ambiente virtuale in cui è possibile installare l'interfaccia della riga di comando di Databricks. Nel frammento di codice seguente si crea un ambiente virtuale denominato `databrickscli`.
 

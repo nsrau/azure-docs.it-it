@@ -1,6 +1,6 @@
 ---
 title: Gestire Azure Analysis Services con PowerShell | Documentazione Microsoft
-description: Descrive Azure Analysis Services cmdlet di PowerShell per attività amministrative comuni, ad esempio la creazione di server, la sospensione di operazioni o la modifica del livello di servizio.
+description: Vengono descritti i cmdlet di PowerShell di Azure Analysis Services per attività amministrative comuni, ad esempio la creazione di server, la sospensione delle operazioni o la modifica del livello di servizio.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: reference
@@ -8,39 +8,39 @@ ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 2c8f4c0541d97a189087af692658cfe794eaaf7e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73572702"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gestire Azure Analysis Services con PowerShell
 
 Questo articolo descrive i cmdlet di PowerShell usati per eseguire le attività di gestione del server e del database Azure Analysis Services. 
 
-Le attività di gestione delle risorse del server, ad esempio la creazione o l'eliminazione di un server, la sospensione o la ripresa delle operazioni del server o la modifica del livello di servizio (livello) utilizzano i cmdlet di Azure Analysis Services. Le altre attività per la gestione dei database, ad esempio l'aggiunta o la rimozione dei membri di un ruolo, l'elaborazione o il partizionamento, usano i cmdlet inclusi nello stesso modulo SqlServer di SQL Server Analysis Services.
+Attività di gestione delle risorse del server, ad esempio la creazione o l'eliminazione di un server, la sospensione o la ripresa delle operazioni del server o la modifica del livello di servizio (livello) usano i cmdlet di Azure Analysis Services.Server resource management tasks like creating or deleting a server, suspending or resuming server operations, or changing the service level (tier) use Azure Analysis Services cmdlets. Le altre attività per la gestione dei database, ad esempio l'aggiunta o la rimozione dei membri di un ruolo, l'elaborazione o il partizionamento, usano i cmdlet inclusi nello stesso modulo SqlServer di SQL Server Analysis Services.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="permissions"></a>autorizzazioni
+## <a name="permissions"></a>Autorizzazioni
 
 Per la maggior parte delle attività di PowerShell, sono necessari i privilegi di amministratore per il server Analysis Services gestito. Le attività di PowerShell pianificate sono operazioni automatiche. L'account o l'entità servizio che esegue l'utilità di pianificazione deve avere i privilegi di amministratore per il server Analysis Services. 
 
-Per le operazioni del server che usano i cmdlet di Azure PowerShell, anche l'account o l'account che esegue l'utilità di pianificazione deve appartenere al ruolo di proprietario per la risorsa nel [controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md). 
+Per le operazioni del server che usano i cmdlet di Azure PowerShell, l'account o l'account che esegue l'utilità di pianificazione deve appartenere anche al ruolo Proprietario per la risorsa nel controllo degli accessi in base al [ruolo di Azure.](../role-based-access-control/overview.md) 
 
 ## <a name="resource-and-server-operations"></a>Operazioni di risorse e server 
 
-Installare il modulo- [AZ. AnalysisServices](https://www.powershellgallery.com/packages/Az.AnalysisServices)   
-Documentazione-informazioni di [riferimento su AZ. AnalysisServices](/powershell/module/az.analysisservices)
+Modulo di installazione - [Az.AnalysisServicesInstall](https://www.powershellgallery.com/packages/Az.AnalysisServices) module - Az.AnalysisServices   
+Documentazione - [Az.AnalysisServices reference](/powershell/module/az.analysisservices)
 
 ## <a name="database-operations"></a>Operazioni del database
 
-Le operazioni di Azure Analysis Services database utilizzano lo stesso modulo SqlServer SQL Server Analysis Services. Non tutti i cmdlet tuttavia sono supportati in Azure Analysis Services. 
+Le operazioni del database Azure Analysis Services usano lo stesso modulo SqlServer di SQL Server Analysis Services. Non tutti i cmdlet tuttavia sono supportati in Azure Analysis Services. 
 
 Il modulo SqlServer fornisce cmdlet di gestione database specifici dell'attività, oltre al cmdlet Invoke-ASCmd per utilizzo generico che accetta una query o uno script TMSL (Tabular Model Scripting Language). Azure Analysis Services supporta i cmdlet seguenti nel modulo SqlServer.
 
-Installare il modulo- [SqlServer](https://www.powershellgallery.com/packages/SqlServer)   
-Documentazione-informazioni di [riferimento su SqlServer](/powershell/module/sqlserver)
+Modulo di installazione - [SqlServer](https://www.powershellgallery.com/packages/SqlServer)   
+Documentazione - [Informazioni di riferimento su SqlServer](/powershell/module/sqlserver)
 
 ### <a name="supported-cmdlets"></a>Cmdlet supportati
 

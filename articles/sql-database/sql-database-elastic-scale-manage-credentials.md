@@ -1,5 +1,5 @@
 ---
-title: Gestione delle credenziali nella libreria client dei database elastici
+title: Gestione delle credenziali nella libreria client del database elastico
 description: Come impostare il livello corretto di credenziali, da amministratore a sola lettura, per le app dei database elastici.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
 ms.openlocfilehash: 91689a32a128584aade8081905e3d1aa3ecb0a97
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823573"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Credenziali usate per accedere alla libreria client dei database elastici
@@ -78,6 +78,6 @@ Come con le credenziali di amministratore, non usare valori nel formato "usernam
 
 [Protezione del Database SQL](sql-database-security-overview.md)
 
-[processi di database elastico](elastic-jobs-overview.md)
+[Processi di database elastici](elastic-jobs-overview.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

@@ -1,6 +1,6 @@
 ---
-title: Tipi di connessione istanza gestita
-description: Informazioni sui tipi di connessione istanza gestita
+title: Tipi di connessione dell'istanza gestita
+description: Informazioni sui tipi di connessione dell'istanza gestitaLearn about managed instance connection types
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -10,43 +10,43 @@ ms.author: srbozovi
 ms.reviewer: vanto
 ms.date: 10/07/2019
 ms.openlocfilehash: 46223d1701b930d93de7c49c1e216a41045dda16
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73819467"
 ---
-# <a name="azure-sql-database-managed-instance-connection-types"></a>Tipi di connessione istanza gestita di database SQL di Azure
+# <a name="azure-sql-database-managed-instance-connection-types"></a>Tipi di connessione dell'istanza gestita del database SQL di AzureAzure SQL Database managed instance connection types
 
-Questo articolo illustra il modo in cui i client si connettono all'istanza gestita di database SQL di Azure a seconda del tipo di connessione. Di seguito sono riportati esempi di script per modificare i tipi di connessione, insieme alle considerazioni correlate alla modifica delle impostazioni di connettività predefinite.
+Questo articolo illustra come i client si connettono all'istanza gestita del database SQL di Azure a seconda del tipo di connessione. Di seguito sono riportati esempi di script per modificare i tipi di connessione, insieme a considerazioni relative alla modifica delle impostazioni di connettività predefinite.
 
 ## <a name="connection-types"></a>Tipi di connessione
 
-Istanza gestita di database SQL di Azure supporta i due tipi di connessione seguenti:
+L'istanza gestita del database SQL di Azure supporta i due tipi di connessione seguenti:Azure SQL Database managed instance supports the following two connection types:
 
-- **Reindirizzamento (scelta consigliata):** i client stabiliscono connessioni dirette al nodo che ospita il database. Per abilitare la connettività tramite reindirizzamento, è necessario aprire i firewall e i gruppi di sicurezza di rete (NSG) per consentire l'accesso alle porte 1433 e 11000-11999. I pacchetti passano direttamente al database e, di conseguenza, sono disponibili miglioramenti delle prestazioni di latenza e velocità effettiva tramite reindirizzamento sul proxy.
-- **Proxy (impostazione predefinita):** In questa modalità tutte le connessioni utilizzano un componente del gateway proxy. Per abilitare la connettività, è necessario aprire solo la porta 1433 per le reti private e la porta 3342 per la connessione pubblica. Se si sceglie questa modalità, è possibile che si riscontri un aumento della latenza e una riduzione della velocità effettiva, a seconda della natura del carico di lavoro. Se si preferisce la minor latenza e la maggiore velocità effettiva possibili, quindi, si consiglia di scegliere i criteri di connessione tramite reindirizzamento anziché tramite proxy.
+- **Reindirizzamento (scelta consigliata):** i client stabiliscono connessioni dirette al nodo che ospita il database. Per abilitare la connettività tramite reindirizzamento, è necessario aprire firewall e gruppi di sicurezza di rete (NSG) per consentire l'accesso alle porte 1433 e 11000-11999. I pacchetti vengono inseriti direttamente nel database e pertanto sono stati apportati miglioramenti alla latenza e alla velocità effettiva tramite Reindirizza tramite proxy.
+- **Proxy (predefinito):** In questa modalità, tutte le connessioni utilizzano un componente gateway proxy. Per abilitare la connettività, è necessario aprire solo la porta 1433 per le reti private e la porta 3342 per la connessione pubblica. Se si sceglie questa modalità, è possibile che si riscontri un aumento della latenza e una riduzione della velocità effettiva, a seconda della natura del carico di lavoro. Se si preferisce la minor latenza e la maggiore velocità effettiva possibili, quindi, si consiglia di scegliere i criteri di connessione tramite reindirizzamento anziché tramite proxy.
 
-## <a name="redirect-connection-type"></a>Tipo di connessione Reindirizzamento
+## <a name="redirect-connection-type"></a>Tipo di connessione di reindirizzamento
 
-Tipo di connessione di reindirizzamento significa che dopo che la sessione TCP è stata stabilita nel motore SQL, la sessione client ottiene l'indirizzo IP virtuale di destinazione del nodo del cluster virtuale dal servizio di bilanciamento del carico. I pacchetti successivi scorrono direttamente al nodo del cluster virtuale, ignorando il gateway. Il diagramma seguente illustra il flusso del traffico.
+Il tipo di connessione di reindirizzamento significa che dopo che la sessione TCP viene stabilita al motore SQL, la sessione client ottiene l'IP virtuale di destinazione del nodo del cluster virtuale dal servizio di bilanciamento del carico. I pacchetti successivi scorrono direttamente al nodo del cluster virtuale, ignorando il gateway. Il diagramma seguente illustra il flusso del traffico.
 
-![Reindirizzamento. png](media/sql-database-managed-instance-connection-types/redirect.png)
+![reindirizzare.png](media/sql-database-managed-instance-connection-types/redirect.png)
 
 > [!IMPORTANT]
-> Il tipo di connessione di reindirizzamento attualmente funziona solo per l'endpoint privato. Indipendentemente dall'impostazione del tipo di connessione, le connessioni che passano attraverso l'endpoint pubblico passano attraverso un proxy.
+> Il tipo di connessione di reindirizzamento attualmente funziona solo per l'endpoint privato. Indipendentemente dall'impostazione del tipo di connessione, le connessioni che passano attraverso l'endpoint pubblico verranno tramite un proxy.
 
-## <a name="proxy-connection-type"></a>Tipo di connessione proxy
+## <a name="proxy-connection-type"></a>Proxy connection type
 
-Tipo di connessione proxy significa che la sessione TCP viene stabilita usando il gateway e tutti i pacchetti successivi passano attraverso di esso. Il diagramma seguente illustra il flusso del traffico.
+Il tipo di connessione proxy significa che la sessione TCP viene stabilita utilizzando il gateway e tutti i pacchetti successivi passano attraverso di esso. Il diagramma seguente illustra il flusso del traffico.
 
-![proxy. png](media/sql-database-managed-instance-connection-types/proxy.png)
+![proxy.png (file proxy.png)](media/sql-database-managed-instance-connection-types/proxy.png)
 
-## <a name="script-to-change-connection-type-settings-using-powershell"></a>Script per modificare le impostazioni del tipo di connessione tramite PowerShell
+## <a name="script-to-change-connection-type-settings-using-powershell"></a>Script to change connection type settings using PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Lo script di PowerShell seguente mostra come modificare il tipo di connessione per un'istanza gestita per il reindirizzamento.
+The following PowerShell script shows how to change the connection type for a managed instance to Redirect.
 
 ```powershell
 Install-Module -Name Az
@@ -65,6 +65,6 @@ $mi = $mi | Set-AzSqlInstance -ProxyOverride "Redirect" -force
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ripristinare un database a un'istanza gestita](sql-database-managed-instance-get-started-restore.md)
-- Informazioni su come [configurare un endpoint pubblico nell'istanza gestita](sql-database-managed-instance-public-endpoint-configure.md)
-- Informazioni sull' [architettura di connettività dell'istanza gestita](sql-database-managed-instance-connectivity-architecture.md)
+- [Ripristinare un database in un'istanza gestitaRestore a database to a managed instance](sql-database-managed-instance-get-started-restore.md)
+- Informazioni su come [configurare un endpoint pubblico nell'istanza gestitaLearn](sql-database-managed-instance-public-endpoint-configure.md) how to configure a public endpoint on managed instance
+- Informazioni [sull'architettura di connettività delle istanze gestiteLearn](sql-database-managed-instance-connectivity-architecture.md) about managed instance connectivity architecture

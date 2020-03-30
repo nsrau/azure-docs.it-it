@@ -10,10 +10,10 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
 ms.openlocfilehash: 26837337b49d79a26404fd6709b036f6907720f8
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73838847"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Porre una domanda a cui è possibile rispondere con i dati
@@ -31,7 +31,7 @@ Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'ele
 *Analisi scientifica dei dati per principianti* è una rapida introduzione all'analisi scientifica dei dati in cinque brevi video.
 
 * Video 1: [5 domande a cui può rispondere l'analisi scientifica dei dati](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 sec)*
-* Video 2: [Verifica della preparazione dei dati per l'analisi scientifica dei dati](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min e 56 sec)*
+* Video 2: [I dati sono pronti per l'analisi scientifica dei dati?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min e 56 sec)*
 * Video 3: Porre una domanda a cui è possibile rispondere con i dati
 * Video 4: [Prevedere una risposta con un modello semplice](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min e 42 sec)*
 * Video 5: [Copiare il lavoro di altre persone per l'analisi scientifica dei dati](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min e 18 sec)*
@@ -48,7 +48,7 @@ In questo video vengono forniti suggerimenti per formulare una domanda a cui è 
 
 A una domanda vaga non è necessario rispondere con un nome o un numero, mentre lo è per una domanda ben strutturata.
 
-Si immagini di trovare una lampada magica con un genio che risponde puntualmente a qualsiasi domanda. Ma si tratta di un genio maligno, che tenta di rendere la risposta più vaga e confusa che può ottenere. Si vuole aggiungerli con una domanda così ermetica che non possono aiutare ma che indicano cosa si vuole sapere.
+Si immagini di trovare una lampada magica con un genio che risponde puntualmente a qualsiasi domanda. Ma è un genio malizioso, che cercherà di rendere la loro risposta più vaga e confusa come possono farla franca. Vuoi individuarli con una domanda così ermetica che non possono fare a meno di dirti quello che vuoi sapere.
 
 Se si pone una domanda vaga, come "Cosa accadrà al mio titolo azionario?", il genio potrebbe rispondere "Cambierà il prezzo". È una risposta vera, ma non è molto utile.
 
@@ -88,8 +88,8 @@ La cosa più importante, tuttavia, è porre una domanda ben strutturata, quella 
 
 Sono stati trattati alcuni principi di base per porre una domanda a cui è possibile rispondere con i dati.
 
-Assicurarsi di consultare gli altri video in "analisi scientifica dei dati per principianti" da Microsoft Azure Machine Learning Studio (classico).
+Assicurarsi di controllare gli altri video in "Data Science for Beginners" di Microsoft Azure Machine Learning Studio (classico).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Provare un primo esperimento di data science con Machine Learning Studio (classico)](create-experiment.md)
+* [Provare un primo esperimento di data science con Machine Learning Studio (classico)Try a first data science experiment with Machine Learning Studio (classic)](create-experiment.md)
 * [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

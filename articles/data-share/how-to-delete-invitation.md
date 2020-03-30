@@ -1,27 +1,27 @@
 ---
-title: Eliminare un invito nella condivisione dati di Azure
-description: Informazioni su come eliminare un invito a un destinatario della condivisione dati nella condivisione dati di Azure.
+title: Eliminare un invito in Condivisione dati di AzureDelete an invitation in Azure Data Share
+description: Informazioni su come eliminare un invito a un destinatario di condivisione dati in Azure Data Share.Learn how to delete an invitation to a data share recipient in Azure Data Share.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: 97068ce652881818527557dd63a186b5d63a9363
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73490487"
 ---
-# <a name="how-to-delete-an-invitation-to-a-recipient-in-azure-data-share"></a>Come eliminare un invito a un destinatario nella condivisione dati di Azure
+# <a name="how-to-delete-an-invitation-to-a-recipient-in-azure-data-share"></a>Come eliminare un invito a un destinatario in Azure Data ShareHow to delete an invitation to a recipient in Azure Data Share
 
-Questo articolo illustra come eliminare un invito a un destinatario prima di accettarlo. In questo modo si impedirà la creazione di una sottoscrizione di condivisione e non verranno mai ricevuti dati condivisi. Se si elimina l'invito a un consumer che ha già creato una sottoscrizione di condivisione, l'eliminazione dell'invito non avrà alcun effetto.
+In questo articolo viene illustrato come eliminare un invito a un destinatario prima di accettarlo. Ciò impedirà loro di creare una sottoscrizione di condivisione e non riceveranno mai dati condivisi. Se elimini l'invito a un consumer che ha già creato una sottoscrizione di condivisione, l'eliminazione dell'invito non avrà alcun impatto.
 
 ## <a name="navigate-to-a-sent-data-share"></a>Passare a una condivisione dati inviata
 
-In condivisione dati di Azure passare alla condivisione inviata e selezionare la scheda **inviti** . elencati di seguito sono tutti i destinatari degli inviti a questa condivisione di dati. Fare clic sulle caselle accanto ai destinatari di cui si desidera eliminare gli inviti, quindi fare clic su **Elimina**.
+In Condivisione dati di Azure passare alla condivisione inviata e selezionare la scheda **Inviti.** Fare clic sulle caselle accanto ai destinatari di cui si desidera eliminare gli inviti e quindi fare clic su **Elimina**.
 
 ![Elimina invito](./media/how-to/how-to-delete-invitation/delete-invitation.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Altre informazioni su come [revocare una sottoscrizione di condivisione](how-to-revoke-share-subscription.md).
+Ulteriori informazioni su come [revocare un abbonamento](how-to-revoke-share-subscription.md)azionario .

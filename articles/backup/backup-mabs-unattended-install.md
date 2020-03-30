@@ -4,23 +4,23 @@ description: Usare uno script di PowerShell per installare in modo invisibile il
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: 1539089e713bcf8e959707c6ff4a608f062a7c00
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74172233"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Eseguire un'installazione automatica del server di Backup di Azure
 
 Informazioni su come eseguire un'installazione automatica del server di Backup di Azure.
 
-Questi passaggi non si applicano se si sta installando server di Backup di Azure V1.
+Questi passaggi non si applicano se si installa Server di Backup di Azure V1.
 
 ## <a name="install-backup-server"></a>Installare il server di Backup
 
-1. Nel server che ospita il server di Backup di Azure V2 o versione successiva, creare un file di testo È possibile creare il file nel blocco note o in un altro editor di testo. Salvare il file come MABSSetup. ini.
+1. Nel server che ospita il server di Backup di Azure V2 o versione successiva, creare un file di testo È possibile creare il file nel Blocco note o in un altro editor di testo. Salvare il file come MABSSetup.ini.
 
-2. Incollare il codice seguente nel file MABSSetup.ini. Sostituire il testo all'interno delle parentesi (\< \>) con i valori dell'ambiente. Il testo seguente è un esempio:
+2. Incollare il codice seguente nel file MABSSetup.ini. Sostituire il testo tra\< \>parentesi quadre ( ) con i valori dell'ambiente. Il testo seguente è un esempio:
 
    ```text
    [OPTIONS]
@@ -50,7 +50,7 @@ Questi passaggi non si applicano se si sta installando server di Backup di Azure
    ```
 
 È possibile usare questi flag per l'installazione:</br>
-**/f**: percorso del file con estensione ini</br>
+**/f**: percorso del file .ini</br>
 **/l**: percorso del log</br>
 **/i**: percorso di installazione</br>
 **/x**: percorso di disinstallazione</br>

@@ -1,6 +1,6 @@
 ---
-title: Aggiungere un elemento a una macchina virtuale in Azure DevTest Labs | Microsoft Docs
-description: Informazioni su come aggiungere un elemento a una macchina virtuale in un Lab in Azure DevTest Labs
+title: Aggiungere un elemento a una macchina virtuale in Azure DevTest Labs. Documenti Microsoft
+description: Informazioni su come aggiungere un elemento a una macchina virtuale in un lab in Lab DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: spelluru
@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 27fec279582d845972b87ac635c87c16c239924e
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73901318"
 ---
 # <a name="add-an-artifact-to-a-vm"></a>Aggiungere un artefatto a una VM
-Durante la creazione di una macchina virtuale, è possibile aggiungervi elementi esistenti. Questi elementi possono provenire dal [repository git DevTest Labs pubblico](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) o dal repository git. Questo articolo illustra come aggiungere elementi nel portale di Azure e usando Azure PowerShell. 
+Durante la creazione di una macchina virtuale, è possibile aggiungervi elementi esistenti. Questi elementi possono provavere dal [repository Git pubblico di DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) o dal proprio repository Git.These artifacts can be from either the public DevTest Labs Git repository or from your own Git repository. Questo articolo illustra come aggiungere elementi nel portale di Azure e usare Azure PowerShell.This article shows you how to add artifacts in the Azure portal, and by using Azure PowerShell. 
 
 Gli *elementi* di Azure DevTest Labs consentono di specificare le *azioni* eseguite quando viene eseguito il provisioning della macchina virtuale, ad esempio, l'esecuzione di script Windows PowerShell, comandi Bash e installazione del software. Gli elementi *parametri* consentono di personalizzare l'elemento per un determinato scenario.
 
-Per informazioni su come creare elementi personalizzati, vedere l'articolo [creare artefatti personalizzati](devtest-lab-artifact-author.md).
+Per informazioni su come creare elementi personalizzati, vedere l'articolo: [Creare elementi personalizzati](devtest-lab-artifact-author.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="use-azure-portal"></a>Usare il portale di Azure 
-1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Accedere al [portale](https://go.microsoft.com/fwlink/p/?LinkID=525040)di Azure .
 1. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
 1. Nell'elenco di lab selezionare il lab contenente la VM che si vuole usare.  
 1. Selezionare **Macchine virtuali**.
@@ -164,9 +164,9 @@ if ($virtualMachine -ne $null) {
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere gli articoli seguenti sugli artefatti:
+Vedere gli articoli seguenti sugli elementi:See the following articles on artifacts:
 
-- [Specificare gli artefatti obbligatori per il Lab](devtest-lab-mandatory-artifacts.md)
+- [Specificare gli elementi obbligatori per il labSpecify mandatory artifacts for your lab](devtest-lab-mandatory-artifacts.md)
 - [Creare elementi personalizzati](devtest-lab-artifact-author.md)
-- [Aggiungere un repository di artefatti a un Lab](devtest-lab-artifact-author.md)
+- [Aggiungere un repository di artefatti a un lab](devtest-lab-artifact-author.md)
 - [Diagnosticare errori degli elementi](devtest-lab-troubleshoot-artifact-failure.md)

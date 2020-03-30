@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/25/2018
 ms.openlocfilehash: ae26f669ddbe2cc2c5b6e25a9c1c0229e88dc2e1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823914"
 ---
 # <a name="building-scalable-cloud-databases"></a>Creazione di database cloud scalabili
@@ -29,14 +29,14 @@ Per eseguire il download:
 
 ## <a name="documentation"></a>Documentazione
 
-1. [Iniziare a utilizzare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md)
+1. [Introduzione agli strumenti per il database elastico](sql-database-elastic-scale-get-started.md)
 2. [Funzionalità di database elastico](sql-database-elastic-scale-introduction.md)
 3. [Gestione mappe partizioni](sql-database-elastic-scale-shard-map-management.md)
 4. [Eseguire la migrazione dei database esistenti per ottenere scalabilità orizzontale](sql-database-elastic-convert-to-use-elastic-tools.md)
-5. [Routing dipendente dei dati](sql-database-elastic-scale-data-dependent-routing.md)
+5. [Routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md)
 6. [Query su più partizioni](sql-database-elastic-scale-multishard-querying.md)
 7. [Aggiunta di una partizione utilizzando gli strumenti di database elastici](sql-database-elastic-scale-add-a-shard.md)
-8. [Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga](sql-database-elastic-tools-multi-tenant-row-level-security.md)
+8. [Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di rigaMulti-tenant applications with elastic database tools and row-level security](sql-database-elastic-tools-multi-tenant-row-level-security.md)
 9. [Aggiornare le app della libreria client](sql-database-elastic-scale-upgrade-client-library.md) 
 10. [Panoramica sulle query di database elastico](sql-database-elastic-query-overview.md)
 11. [Glossario sugli strumenti di database elastici](sql-database-elastic-scale-glossary.md)

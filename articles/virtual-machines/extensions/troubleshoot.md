@@ -1,5 +1,5 @@
 ---
-title: Risoluzione degli errori delle estensioni VM Windows
+title: Risoluzione degli errori dell'estensione della macchina virtuale WindowsTroubleshooting Windows VM extension failures
 description: Informazioni sulla risoluzione degli errori delle estensioni della macchina virtuale Windows di Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
 ms.openlocfilehash: bc99a9c9e9ff985730ec97dbacd1d7c1de06a45e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74073661"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Risoluzione degli errori delle estensioni di macchina virtuale Windows di Azure
@@ -27,7 +27,7 @@ ms.locfileid: "74073661"
 ## <a name="viewing-extension-status"></a>Visualizzazione dello stato dell'estensione
 I modelli di Azure Resource Manager possono essere eseguiti da Azure PowerShell. Una volta che il modello viene eseguito, sarà possibile visualizzare lo stato dell'estensione da Azure Resource Explorer o dagli strumenti da riga di comando.
 
-Di seguito è fornito un esempio:
+Esempio:
 
 Azure PowerShell:
 

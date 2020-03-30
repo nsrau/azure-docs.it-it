@@ -1,5 +1,5 @@
 ---
-title: Introduzione con le tabelle temporali
+title: Introduzione alle tabelle temporali
 description: Informazioni introduttive sull'uso delle tabelle temporali nel database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 06/26/2019
 ms.openlocfilehash: 98fd2658f3fbcb0e7e29114d29f8dc6ed39eedf2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73820715"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Introduzione alle tabelle temporali nel database SQL di Azure
@@ -28,7 +28,7 @@ Questo articolo illustra la procedura per l'utilizzo delle tabelle temporali in 
 
 Il modello di database per questo scenario è molto semplice: la metrica dell'attività utente è rappresentata con un singolo campo integer, **PageVisited**, e viene acquisita insieme alle informazioni di base sul profilo utente. Inoltre, per l'analisi basata sul tempo si usa anche una serie di righe per ogni utente e ognuna di esse rappresenta il numero di pagine visitate da un determinato utente in un arco di tempo specifico.
 
-![Schema](./media/sql-database-temporal-tables/AzureTemporal1.png)
+![SCHEMA](./media/sql-database-temporal-tables/AzureTemporal1.png)
 
 Per mantenere le informazioni sulle attività non è necessario eseguire alcuna operazione nell'app. Con le tabelle temporali questo processo è automatizzato e offre piena flessibilità in fase di progettazione del sito Web e più tempo da dedicare all'analisi dei dati vera e propria. L'unica cosa da fare è assicurarsi che la tabella **WebSiteInfo** sia configurata come [temporale con controllo delle versioni di sistema](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_0). Di seguito sono descritti i passaggi necessari per usare le tabelle temporali in questo scenario.
 
@@ -108,7 +108,7 @@ WITH (DROP_EXISTING = ON);
 ## <a name="step-2-run-your-workload-regularly"></a>Passaggio 2: Eseguire regolarmente il carico di lavoro
 Il vantaggio principale delle tabelle temporali è che non è necessario modificare il sito Web in alcun modo per eseguire il rilevamento delle modifiche. Dopo la creazione, le tabelle temporali mantengono in modo trasparente le versioni precedenti delle righe ogni volta che si apportano modifiche ai dati. 
 
-Per sfruttare il rilevamento automatico delle modifiche per questo particolare scenario, è sufficiente aggiornare la colonna **PagesVisited** ogni volta che un utente termina la sessione nel sito Web:
+Per sfruttare il rilevamento automatico delle modifiche per questo particolare scenario, aggiorniamo semplicemente la colonna **PagesVisited** ogni volta che un utente termina la propria sessione sul sito Web:
 
 ```
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5 
@@ -188,13 +188,13 @@ ALTER TABLE dbo.WebsiteUserInfo
 In alternativa, usare la versione più recente di [SSDT](https://msdn.microsoft.com/library/mt204009.aspx) per modificare lo schema di tabella temporale durante la connessione al database (modalità online) o nell'ambito del progetto di database (modalità offline).
 
 ## <a name="controlling-retention-of-historical-data"></a>Controllo della conservazione dei dati cronologici
-Con le tabelle temporali con controllo delle versioni di sistema, la tabella della cronologia può aumentare le dimensioni del database più delle normali tabelle. Una tabella della cronologia di grandi dimensioni che continua a crescere può diventare un problema a causa dei costi di archiviazione e influire negativamente sulle prestazioni durante l'esecuzione di query temporali. Di conseguenza, lo sviluppo di criteri di conservazione dei dati per la gestione dei dati nella tabella della cronologia è un aspetto importante della pianificazione e della gestione del ciclo di vita di ogni tabella temporale. Con il database SQL di Azure è possibile adottare uno degli approcci seguenti per la gestione dei dati cronologici nella tabella temporale:
+Con le tabelle temporali con controllo delle versioni di sistema, la tabella della cronologia può aumentare le dimensioni del database più delle normali tabelle. Una tabella di cronologia di grandi dimensioni e in continua crescita può costituire un problema, a causa dei semplici costi di archiviazione e dell'impatto sulle prestazioni delle query temporali. Di conseguenza, lo sviluppo di criteri di conservazione dei dati per la gestione dei dati nella tabella della cronologia è un aspetto importante della pianificazione e della gestione del ciclo di vita di ogni tabella temporale. Con il database SQL di Azure è possibile adottare uno degli approcci seguenti per la gestione dei dati cronologici nella tabella temporale:
 
-* [Partizionamento di tabelle](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_2)
+* [Partizionamento delle tabelle](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_2)
 * [Script di pulizia personalizzato](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_3)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sulle tabelle temporali, vedere Estrai [tabelle temporali](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables).
+- Per ulteriori informazioni sulle tabelle temporali, vedere Estrarre [tabelle temporali](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables).
 - Andare su Channel 9 per ascoltare una [storia di successo reale relativa all'implementazione temporale di un cliente](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) e guardare una [dimostrazione temporale in tempo reale](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 

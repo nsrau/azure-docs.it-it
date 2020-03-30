@@ -1,5 +1,6 @@
 ---
 title: Eliminazione temporanea di Azure Key Vault | Microsoft Docs
+description: L'eliminazione temporanea nell'insieme di credenziali delle chiavi di Azure consente di recuperare gli insiemi di credenziali delle chiavi eliminati e gli oggetti dell'insieme di credenziali delle chiavi, ad esempio chiavi, segreti e certificati.
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
@@ -7,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 03/19/2019
-ms.openlocfilehash: 31d3556609737212ee1257015d12e9e0621ea4ee
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 9c72b2ea71da94215fc9193ffdf3906449ec5571
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197386"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79457373"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Panoramica di eliminazione temporanea di Azure Key Vault
 
@@ -23,7 +24,7 @@ La funzionalità di eliminazione temporanea di Key Vault consente il ripristino 
 
 ## <a name="supporting-interfaces"></a>Supporto di interfacce
 
-La funzionalità di eliminazione temporanea è inizialmente disponibile attraverso le interfacce [Rest](/rest/api/keyvault/), [CLI](key-vault-soft-delete-cli.md), [PowerShell](key-vault-soft-delete-powershell.md) e [.NETC# /](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) .
+La funzionalità di eliminazione temporanea è inizialmente disponibile tramite le interfacce [REST](/rest/api/keyvault/), [CLI](key-vault-soft-delete-cli.md), [PowerShell](key-vault-soft-delete-powershell.md) e [.NET/C .](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet)
 
 ## <a name="scenarios"></a>Scenari
 
@@ -35,29 +36,29 @@ Gli insiemi di credenziali delle chiavi di Azure sono risorse tracciate, gestite
 
 ### <a name="soft-delete-behavior"></a>Comportamento della funzione di eliminazione temporanea
 
-Quando l'eliminazione temporanea è abilitata, le risorse contrassegnate come risorse eliminate vengono mantenute per un periodo di tempo specificato (90 giorni per impostazione predefinita). Il servizio offre anche un meccanismo per il ripristino dell'oggetto eliminato, essenzialmente annullando l'operazione di eliminazione.
+Quando l'eliminazione temporanea è abilitata, le risorse contrassegnate come risorse eliminate vengono mantenute per un periodo specificato (90 giorni per impostazione predefinita). Il servizio offre anche un meccanismo per il ripristino dell'oggetto eliminato, essenzialmente annullando l'operazione di eliminazione.
 
-Quando si crea un nuovo insieme di credenziali delle chiavi, l'eliminazione temporanea è abilitata per impostazione predefinita. È possibile creare un insieme di credenziali delle chiavi senza eliminare temporaneamente l'interfaccia della riga di comando di [Azure](key-vault-soft-delete-cli.md) o [Azure PowerShell](key-vault-soft-delete-powershell.md). Quando l'eliminazione temporanea è abilitata in un insieme di credenziali delle chiavi, non è possibile disabilitarla
+Quando si crea un nuovo insieme di credenziali delle chiavi, l'eliminazione temporanea è attivata per impostazione predefinita. È possibile creare un insieme di credenziali delle chiavi senza eliminare temporaneamente tramite [l'interfaccia della riga di comando di Azure](key-vault-soft-delete-cli.md) o Azure Powershell.You can create a key vault without soft-delete through the Azure CLI or Azure [Powershell](key-vault-soft-delete-powershell.md). Una volta attivata l'eliminazione temporanea su un insieme di credenziali delle chiavi, non può essere disabilitata
 
-Il periodo di memorizzazione predefinito è 90 giorni, ma durante la creazione dell'insieme di credenziali delle chiavi è possibile impostare l'intervallo dei criteri di conservazione su un valore compreso tra 7 e 90 giorni attraverso la portale di Azure. Il criterio Ripulisci conservazione protezione usa lo stesso intervallo. Una volta impostato, l'intervallo dei criteri di conservazione non può essere modificato.
+Il periodo di conservazione predefinito è 90 giorni, ma, durante la creazione dell'insieme di credenziali delle chiavi, è possibile impostare l'intervallo dei criteri di conservazione su un valore compreso tra 7 e 90 giorni tramite il portale di Azure.The default retention period is 90 days but, during key vault creation, it is possible to set the retention policy interval to a value from 7 to 90 days through the Azure portal. Il criterio di conservazione della protezione purge utilizza lo stesso intervallo. Una volta impostato, l'intervallo dei criteri di conservazione non può essere modificato.
 
-Non è possibile riutilizzare il nome di un insieme di credenziali delle chiavi che è stato eliminato temporaneamente finché non viene superato il periodo di conservazione.
+Non è possibile riutilizzare il nome di un insieme di credenziali delle chiavi che è stato eliminato temporaneamente fino al termine del periodo di conservazione.
 
-### <a name="purge-protection"></a>Ripulisci protezione 
+### <a name="purge-protection"></a>Protezione dall'eliminazione 
 
-L'eliminazione della protezione è un comportamento di Key Vault facoltativo e **non è abilitata per impostazione predefinita**. È possibile attivarla tramite l' [interfaccia](key-vault-soft-delete-cli.md#enabling-purge-protection) della riga di comando o [PowerShell](key-vault-soft-delete-powershell.md#enabling-purge-protection).
+La protezione di eliminazione è un comportamento facoltativo dell'insieme di credenziali delle chiavi e non è **abilitata per impostazione predefinita.** Può essere attivato tramite [CLI](key-vault-soft-delete-cli.md#enabling-purge-protection) o [Powershell](key-vault-soft-delete-powershell.md#enabling-purge-protection).
 
-Quando la protezione ripulisce è attiva, un insieme di credenziali o un oggetto nello stato eliminato non può essere eliminato fino a quando non viene superato il periodo di conservazione. Gli insiemi di credenziali e gli oggetti eliminati temporaneamente possono comunque essere ripristinati, garantendo che i criteri di conservazione vengano seguiti. 
+Quando la protezione dall'eliminazione è attivata, un insieme di credenziali o un oggetto nello stato eliminato non può essere eliminato fino a quando non è trascorso il periodo di conservazione. Gli insiemi di credenziali e gli oggetti eliminati temporaneamente possono comunque essere recuperati, assicurandosi che i criteri di conservazione vengano seguiti. 
 
-Il periodo di memorizzazione predefinito è 90 giorni, ma è possibile impostare l'intervallo dei criteri di conservazione su un valore compreso tra 7 e 90 giorni attraverso la portale di Azure. Quando l'intervallo dei criteri di conservazione viene impostato e salvato, non è possibile modificarlo per tale insieme di credenziali. 
+Il periodo di conservazione predefinito è 90 giorni, ma è possibile impostare l'intervallo dei criteri di conservazione su un valore compreso tra 7 e 90 giorni tramite il portale di Azure.The default retention period is 90 days, but it is possible to set the retention policy interval to a value from 7 to 90 days through the Azure portal. Una volta impostato e salvato l'intervallo dei criteri di conservazione, non è possibile modificarlo per l'insieme di credenziali. 
 
 ### <a name="permitted-purge"></a>Ripulitura consentita
 
 L'eliminazione permanente di un insieme di credenziali delle chiavi non è possibile tramite un'operazione POST sulla risorsa proxy e richiede privilegi speciali. In genere, solo il proprietario della sottoscrizione può eliminare in modo permanente un insieme di credenziali delle chiavi. L'operazione POST attiva l'eliminazione immediata e irreversibile dell'insieme di credenziali delle chiavi. 
 
-Eccezioni:
-- Quando la sottoscrizione di Azure è stata contrassegnata come *undeletable*. In questo caso solo il servizio può eseguire l'eliminazione effettiva, sotto forma di processo pianificato. 
-- Quando il flag--enable-Purge-Protection è abilitato nell'insieme di credenziali. In questo caso, Key Vault attenderà 90 giorni da quando l'oggetto segreto originale è stato contrassegnato per l'eliminazione definitiva dell'oggetto.
+Le eccezioni sono:
+- Quando la sottoscrizione di Azure è stata contrassegnata come *non eliminabile*. In questo caso solo il servizio può eseguire l'eliminazione effettiva, sotto forma di processo pianificato. 
+- Quando il flag --enable-purge-protection è abilitato sull'insieme di credenziali stesso. In questo caso, Key Vault attenderà 90 giorni da quando l'oggetto segreto originale è stato contrassegnato per l'eliminazione definitiva dell'oggetto.
 
 ### <a name="key-vault-recovery"></a>Recupero di un insieme di credenziali delle chiavi
 
@@ -65,7 +66,7 @@ In seguito all'eliminazione di un insieme di credenziali delle chiavi, il serviz
 
 ### <a name="key-vault-object-recovery"></a>Recupero di un oggetto di un insieme di credenziali delle chiavi
 
-Quando si elimina un oggetto dell'insieme di credenziali delle chiavi, ad esempio una chiave, il servizio posiziona l'oggetto in uno stato eliminato, rendendolo inaccessibile per tutte le operazioni di recupero. In questo stato l'oggetto dell'insieme di credenziali delle chiavi può essere solo elencato, recuperato o eliminato in modo forzato o permanente. 
+Dopo aver eliminato un oggetto dell'insieme di credenziali delle chiavi, ad esempio una chiave, il servizio inserirà l'oggetto in uno stato eliminato, rendendolo inaccessibile a qualsiasi operazione di recupero. In questo stato l'oggetto dell'insieme di credenziali delle chiavi può essere solo elencato, recuperato o eliminato in modo forzato o permanente. 
 
 Al tempo stesso, Key Vault pianificherà l'esecuzione dell'eliminazione dei dati sottostanti, corrispondenti all'insieme di credenziali delle chiavi o all'oggetto dell'insieme di credenziali delle chiavi eliminato, dopo un intervallo di memorizzazione predeterminato. Per la durata dell'intervallo di memorizzazione viene conservato anche il record DNS corrispondente all'insieme di credenziali delle chiavi.
 

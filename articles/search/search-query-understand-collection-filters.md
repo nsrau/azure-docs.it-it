@@ -1,7 +1,7 @@
 ---
-title: Informazioni sui filtri di raccolta OData
+title: Informazioni sui filtri di raccolta ODataUnderstanding OData collection filters
 titleSuffix: Azure Cognitive Search
-description: Informazioni sui meccanismi di funzionamento dei filtri di raccolta OData in Azure ricerca cognitiva query, incluse le limitazioni e i comportamenti univoci per le raccolte.
+description: Informazioni sui meccanismi di funzionamento dei filtri di raccolta OData nelle query di Ricerca cognitiva di Azure, incluse limitazioni e comportamenti univoci per le raccolte.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -20,45 +20,45 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: f6e8ed5baef9b8594bb1fe03942e831fd8264a56
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113062"
 ---
-# <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Informazioni sui filtri di raccolta OData in Azure ricerca cognitiva
+# <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Informazioni sui filtri della raccolta OData in Ricerca cognitiva di AzureUnderstanding OData collection filters in Azure Cognitive Search
 
-Per [filtrare](query-odata-filter-orderby-syntax.md) i campi di raccolta in ricerca cognitiva di Azure, è possibile usare gli [operatori`any` e `all`](search-query-odata-collection-operators.md) insieme alle **espressioni lambda**. Le espressioni lambda sono espressioni booleane che fanno riferimento a una **variabile di intervallo**. Gli operatori `any` e `all` sono analoghi a un ciclo di `for` nella maggior parte dei linguaggi di programmazione, con la variabile di intervallo che assume il ruolo di variabile del ciclo e l'espressione lambda come corpo del ciclo. La variabile di intervallo accetta il valore "Current" della raccolta durante l'iterazione del ciclo.
+Per [filtrare](query-odata-filter-orderby-syntax.md) i campi di raccolta in Ricerca cognitiva di Azure, è possibile usare gli [ `any` operatori `all` e](search-query-odata-collection-operators.md) insieme alle espressioni **lambda**. Le espressioni lambda sono espressioni booleane che fanno riferimento a una **variabile di intervallo**. Gli `any` `all` operatori e sono analoghi a un `for` ciclo nella maggior parte dei linguaggi di programmazione, con la variabile di intervallo che assume il ruolo di variabile di ciclo e l'espressione lambda come corpo del ciclo. La variabile di intervallo assume il valore "corrente" della raccolta durante l'iterazione del ciclo.
 
-Almeno questo è il funzionamento concettuale. In realtà, Azure ricerca cognitiva implementa i filtri in modo molto diverso per il funzionamento dei cicli `for`. Idealmente, questa differenza sarebbe invisibile per l'utente, ma in determinate situazioni non lo è. Il risultato finale è la presenza di regole da seguire per la scrittura di espressioni lambda.
+Almeno è così che funziona concettualmente. In realtà, Ricerca cognitiva di Azure implementa `for` i filtri in modo molto diverso da come funzionano i cicli. Idealmente, questa differenza sarebbe invisibile per voi, ma in alcune situazioni non lo è. Il risultato finale è che ci sono regole che devi seguire quando scrivi espressioni lambda.
 
-Questo articolo illustra il motivo per cui esistono le regole per i filtri di raccolta esplorando il modo in cui Azure ricerca cognitiva esegue questi filtri. Se si stanno scrivendo filtri avanzati con espressioni lambda complesse, questo articolo può risultare utile per comprendere le possibili caratteristiche dei filtri e il motivo.
+Questo articolo illustra perché esistono le regole per i filtri di raccolta esplorando il modo in cui Ricerca cognitiva di Azure esegue questi filtri. Se si scrivono filtri avanzati con espressioni lambda complesse, questo articolo può risultare utile per comprendere cosa è possibile eseguire nei filtri e perché.
 
-Per informazioni sulle regole per i filtri di raccolta, inclusi esempi, vedere [risoluzione dei problemi relativi ai filtri di raccolta OData in Azure ricerca cognitiva](search-query-troubleshoot-collection-filters.md).
+Per informazioni sulle regole per i filtri di raccolta, inclusi esempi, vedere [Risoluzione dei problemi relativi ai filtri di raccolta OData in Ricerca cognitiva](search-query-troubleshoot-collection-filters.md)di Azure.For information on what the rules for collection filters are, including examples, see Troubleshooting OData collection filters in Azure Cognitive Search .
 
-## <a name="why-collection-filters-are-limited"></a>Perché i filtri della raccolta sono limitati
+## <a name="why-collection-filters-are-limited"></a>Perché i filtri di raccolta sono limitati
 
-Esistono tre motivi per cui non tutte le funzionalità di filtro sono supportate per tutti i tipi di raccolte:
+Esistono tre motivi di fondo per cui non tutte le funzionalità di filtro sono supportate per tutti i tipi di raccolte:
 
-1. Solo determinati operatori sono supportati per determinati tipi di dati. Ad esempio, non è sensato confrontare i valori booleani `true` e `false` utilizzando `lt`, `gt`e così via.
-1. Azure ricerca cognitiva non supporta la **ricerca correlata** nei campi di tipo `Collection(Edm.ComplexType)`.
-1. Azure ricerca cognitiva Usa indici invertiti per eseguire filtri su tutti i tipi di dati, incluse le raccolte.
+1. Per determinati tipi di dati sono supportati solo determinati operatori. Ad esempio, non ha senso confrontare `true` i `false` `lt`valori `gt`booleani e utilizzare , , e così via.
+1. Ricerca cognitiva di Azure non supporta la `Collection(Edm.ComplexType)`ricerca **correlata** nei campi di tipo .
+1. Ricerca cognitiva di Azure usa gli indici invertiti per eseguire filtri su tutti i tipi di dati, incluse le raccolte.
 
-Il primo motivo è solo una conseguenza del modo in cui vengono definiti il linguaggio OData e il sistema di tipi EDM. Le ultime due sono descritte in modo più dettagliato nella parte restante di questo articolo.
+Il primo motivo è solo una conseguenza di come vengono definiti il linguaggio OData e il sistema di tipi EDM. Gli ultimi due sono spiegati in modo più dettagliato nel resto di questo articolo.
 
-## <a name="correlated-versus-uncorrelated-search"></a>Ricerca correlata rispetto a ricerca non correlata
+## <a name="correlated-versus-uncorrelated-search"></a>Ricerca correlata a ricerca non correlata
 
-Quando si applicano più criteri di filtro su una raccolta di oggetti complessi, i criteri sono **correlati** perché si applicano a *ogni oggetto nella raccolta*. Ad esempio, il filtro seguente restituirà Alberghi con almeno una stanza Deluxe con una tariffa inferiore a 100:
+Quando si applicano più criteri di filtro a una raccolta di oggetti complessi, i criteri vengono **correlati** poiché si applicano a *ogni oggetto della raccolta.* Ad esempio, il seguente filtro restituirà gli hotel con almeno una camera deluxe con una tariffa inferiore a 100:
 
     Rooms/any(room: room/Type eq 'Deluxe Room' and room/BaseRate lt 100)
 
-Se l'applicazione di filtri non è *correlata*, il filtro precedente potrebbe restituire gli hotel in cui una stanza è Deluxe e una stanza diversa ha una tariffa di base inferiore a 100. Non avrebbe senso, perché entrambe le clausole dell'espressione lambda si applicano alla stessa variabile di intervallo, ovvero `room`. Questo è il motivo per cui questi filtri sono correlati.
+Se il filtro non è stato *correlato,* il filtro di cui sopra potrebbe restituire alberghi in cui una camera è deluxe e una camera diversa ha una tariffa di base inferiore a 100. Questo non avrebbe senso, poiché entrambe le clausole dell'espressione `room`lambda si applicano alla stessa variabile di intervallo, vale a dire . Questo è il motivo per cui tali filtri sono correlati.
 
-Per la ricerca full-text, tuttavia, non è possibile fare riferimento a una variabile di intervallo specifica. Se si usa la ricerca in campo per emettere una [query Lucene completa](query-lucene-syntax.md) come questa:
+Tuttavia, per la ricerca full-text, non è possibile fare riferimento a una variabile di intervallo specifica. Se si utilizza la ricerca campiata per eseguire una [query Lucene completa](query-lucene-syntax.md) come questa:
 
     Rooms/Type:deluxe AND Rooms/Description:"city view"
 
-è possibile che si ottenga un hotel in cui una stanza è Deluxe e una stanza diversa indica "City View" nella descrizione. Ad esempio, il documento seguente con `Id` di `1` corrisponderebbe alla query:
+si possono ottenere alberghi indietro dove una camera è deluxe, e una camera diversa menziona "vista città" nella descrizione. Ad esempio, il `Id` documento `1` seguente con di corrisponderebbe alla query:
 
 ```json
 {
@@ -80,39 +80,39 @@ Per la ricerca full-text, tuttavia, non è possibile fare riferimento a una vari
 }
 ```
 
-Il motivo è che `Rooms/Type` fa riferimento a tutti i termini analizzati del campo `Rooms/Type` nell'intero documento e allo stesso modo per `Rooms/Description`, come illustrato nelle tabelle seguenti.
+Il motivo `Rooms/Type` è che si riferisce `Rooms/Type` a tutti i termini analizzati del campo nell'intero documento e allo stesso modo per `Rooms/Description`, come illustrato nelle tabelle seguenti.
 
-Modalità di archiviazione `Rooms/Type` per la ricerca full-text:
+Come `Rooms/Type` viene memorizzato per la ricerca full-text:
 
-| Termini in `Rooms/Type` | ID documento |
+| Termine in`Rooms/Type` | ID documento |
 | --- | --- |
 | Deluxe | 1, 2 |
 | standard | 1 |
 
-Modalità di archiviazione `Rooms/Description` per la ricerca full-text:
+Come `Rooms/Description` viene memorizzato per la ricerca full-text:
 
-| Termini in `Rooms/Description` | ID documento |
+| Termine in`Rooms/Description` | ID documento |
 | --- | --- |
-| cortile | 2 |
+| Cortile | 2 |
 | city | 1 |
-| Garden | 1 |
-| grandi dimensioni | 1 |
+| Giardino | 1 |
+| grande | 1 |
 | motel | 2 |
-| camera | 1, 2 |
+| Camera | 1, 2 |
 | standard | 1 |
 | Suite | 1 |
-| view | 1 |
+| vista | 1 |
 
-Quindi, a differenza del filtro riportato sopra, che indica in sostanza che "corrisponde a documenti in cui una chat room ha `Type` uguale a" Deluxe Room "e **che la stessa stanza** ha `BaseRate` inferiore a 100", la query di ricerca indica "trova la corrispondenza con i documenti in cui `Rooms/Type` ha il termine" Deluxe "e `Rooms/Description` ha la frase" City View ". Nel secondo caso, non esiste alcun concetto di singole chat con campi che possono essere correlati.
+Quindi, a differenza del filtro sopra, che `Type` fondamentalmente dice "corrisponde a documenti in cui una stanza ha uguale a 'Deluxe Room' e **quella stessa stanza** ha `BaseRate` meno di 100", la query di ricerca dice "documenti di corrispondenza dove `Rooms/Type` ha il termine "deluxe" e `Rooms/Description` ha la frase "city view". Non esiste un concetto di singole stanze i cui campi possono essere correlati in quest'ultimo caso.
 
 > [!NOTE]
-> Se si desidera visualizzare il supporto per la ricerca correlata aggiunta ad Azure ricerca cognitiva, votare [questo elemento vocale utente](https://feedback.azure.com/forums/263029-azure-search/suggestions/37735060-support-correlated-search-on-complex-collections).
+> Se si desidera visualizzare il supporto per la ricerca correlata aggiunto a Ricerca cognitiva di Azure, si prega di votare per [questo elemento vocale utente](https://feedback.azure.com/forums/263029-azure-search/suggestions/37735060-support-correlated-search-on-complex-collections).
 
 ## <a name="inverted-indexes-and-collections"></a>Indici e raccolte invertiti
 
-È possibile che si sia notato un numero molto inferiore di restrizioni sulle espressioni lambda rispetto a raccolte complesse rispetto a quelle per raccolte semplici come `Collection(Edm.Int32)`, `Collection(Edm.GeographyPoint)`e così via. Questo perché Azure ricerca cognitiva archivia raccolte complesse come raccolte effettive di documenti secondari, mentre le raccolte semplici non vengono archiviate come raccolte.
+Avrete notato che ci sono molte meno restrizioni sulle espressioni lambda su `Collection(Edm.Int32)` `Collection(Edm.GeographyPoint)`raccolte complesse rispetto a quelle per raccolte semplici come , e così via. Ciò è dovuto al fatto che Ricerca cognitiva di Azure archivia raccolte complesse come raccolte effettive di documenti secondari, mentre le raccolte semplici non vengono archiviate come raccolte.
 
-Si consideri, ad esempio, un campo di raccolta di stringhe filtrabile come `seasons` in un indice per un rivenditore online. Alcuni documenti caricati in questo indice possono avere un aspetto simile al seguente:
+Si consideri, ad esempio, `seasons` un campo di raccolta di stringhe filtrabile come in un indice per un rivenditore online. Alcuni documenti caricati in questo indice potrebbero essere simili al seguente:Some documents uploaded to this index might look like this:
 
 ```json
 {
@@ -136,18 +136,18 @@ Si consideri, ad esempio, un campo di raccolta di stringhe filtrabile come `seas
 }
 ```
 
-I valori del campo `seasons` vengono archiviati in una struttura denominata **indice invertito**, che ha un aspetto simile al seguente:
+I valori `seasons` del campo vengono memorizzati in una struttura denominata **indice invertito**, simile alla seguente:
 
 | Termine | ID documento |
 | --- | --- |
-| primavera | 1, 2 |
-| estate | 1 |
-| rientrano | 1, 2 |
-| invernali | 2, 3 |
+| Primavera | 1, 2 |
+| Estate | 1 |
+| cadere | 1, 2 |
+| Inverno | 2, 3 |
 
-Questa struttura di dati è progettata per rispondere a una domanda con grande velocità: in quali documenti viene visualizzato un determinato termine? La risposta a questa domanda funziona in modo più simile a un controllo di uguaglianza semplice rispetto a un ciclo su una raccolta. Di fatto, questo è il motivo per cui per le raccolte di stringhe, Azure ricerca cognitiva consente `eq` solo come operatore di confronto all'interno di un'espressione lambda per `any`.
+Questa struttura di dati è progettata per rispondere a una domanda con grande velocità: in quali documenti appare un determinato termine? Rispondere a questa domanda funziona più come un semplice controllo di uguaglianza che un ciclo su una raccolta. Infatti, questo è il motivo per `eq` cui per le raccolte di `any`stringhe, Ricerca cognitiva di Azure consente solo come operatore di confronto all'interno di un'espressione lambda per .
 
-Basandosi sull'uguaglianza, verrà ora esaminato come è possibile combinare più controlli di uguaglianza sulla stessa variabile di intervallo con `or`. Funziona grazie all'algebra e [alla proprietà distributiva dei quantificatori](https://en.wikipedia.org/wiki/Existential_quantification#Negation). Espressione seguente:
+Partendo dall'uguaglianza, si esaminerà come è possibile combinare più controlli di `or`uguaglianza sulla stessa variabile di intervallo con . Funziona grazie all'algebra e [alla proprietà distributiva dei quantificatori.](https://en.wikipedia.org/wiki/Existential_quantification#Negation) Questa espressione:
 
     seasons/any(s: s eq 'winter' or s eq 'fall')
 
@@ -155,7 +155,7 @@ Equivale a:
 
     seasons/any(s: s eq 'winter') or seasons/any(s: s eq 'fall')
 
-ognuna delle due sottoespressioni `any` può essere eseguita in modo efficiente usando l'indice invertito. Inoltre, grazie alla [legge di negazione dei quantificatori](https://en.wikipedia.org/wiki/Existential_quantification#Negation), questa espressione:
+e ciascuna `any` delle due sottoespressioni può essere eseguita in modo efficiente utilizzando l'indice invertito. Inoltre, grazie alla [legge sulla negazione dei quantificatori](https://en.wikipedia.org/wiki/Existential_quantification#Negation), questa espressione:
 
     seasons/all(s: s ne 'winter' and s ne 'fall')
 
@@ -163,33 +163,33 @@ Equivale a:
 
     not seasons/any(s: s eq 'winter' or s eq 'fall')
 
-per questo motivo è possibile usare `all` con `ne` e `and`.
+ed è per questo che `all` `ne` è `and`possibile utilizzare con e .
 
 > [!NOTE]
-> Sebbene i dettagli esulino dall'ambito di questo documento, questi stessi principi si estendono ai [test di distanza e intersezione per le raccolte di punti geospaziali](search-query-odata-geo-spatial-functions.md) . Questo è il motivo per cui, in `any`:
+> Anche se i dettagli esulano dall'ambito di questo documento, questi stessi principi si estendono anche ai test di [distanza e intersezione anche per le raccolte di punti geospaziali.](search-query-odata-geo-spatial-functions.md) Questo è il `any`motivo per cui, in :
 >
-> - non è possibile negare `geo.intersects`
-> - `geo.distance` deve essere confrontato utilizzando `lt` o `le`
-> - le espressioni devono essere combinate con `or`, non `and`
+> - `geo.intersects`non può essere negato
+> - `geo.distance`deve essere `lt` confrontato utilizzando o`le`
+> - le espressioni devono `or`essere combinate con , non`and`
 >
-> Le regole opposte si applicano a `all`.
+> Le regole contrarie `all`si applicano per .
 
-È consentita una varietà più ampia di espressioni quando si filtrano le raccolte di tipi di dati che supportano gli operatori `lt`, `gt`, `le`e `ge`, ad esempio `Collection(Edm.Int32)`. In particolare, è possibile utilizzare `and` e `or` in `any`, purché le espressioni di confronto sottostanti vengano combinate in **confronti di intervallo** utilizzando `and`, che vengono quindi combinate ulteriormente utilizzando `or`. Questa struttura di espressioni booleane è denominata [disgiuntiva Normal Form (DNF)](https://en.wikipedia.org/wiki/Disjunctive_normal_form), altrimenti nota come "ORS of le". Viceversa, le espressioni lambda per `all` per questi tipi di dati devono essere in [formato congiuntiva normale (CNF)](https://en.wikipedia.org/wiki/Conjunctive_normal_form), altrimenti note come "e di ORS". Il ricerca cognitiva di Azure consente confronti di intervalli, perché possono eseguirli usando indici invertiti in modo efficiente, così come è possibile eseguire la ricerca a breve termine per le stringhe.
+È consentita una gamma più ampia di espressioni quando `lt` `gt`si `le`filtrano raccolte di tipi di dati che supportano gli operatori , , e `ge` , ad `Collection(Edm.Int32)` esempio . In particolare, `and` è possibile `or` `any`utilizzare e in , purché le espressioni `and`di confronto sottostanti `or`siano combinate in confronti di **intervalli** utilizzando , che vengono quindi ulteriormente combinati utilizzando . Questa struttura di espressioni booleane è denominata [Disgiuntive Normal Form (DNF),](https://en.wikipedia.org/wiki/Disjunctive_normal_form)altrimenti nota come "OR di AND". Al contrario, le `all` espressioni lambda per questi tipi di dati devono essere in forma normale congiuntiva [(CNF),](https://en.wikipedia.org/wiki/Conjunctive_normal_form)altrimenti noto come "AND di OR". Ricerca cognitiva di Azure consente tali confronti di intervalli perché può eseguirli usando gli indici invertiti in modo efficiente, proprio come può eseguire una ricerca rapida dei termini per le stringhe.
 
-In breve, di seguito sono riportate le regole generali per gli elementi consentiti in un'espressione lambda:
+In sintesi, ecco le regole empiriche per ciò che è consentito in un'espressione lambda:In summary, here are the rules of thumb for what's allowed in a lambda expression:
 
-- All'interno `any`, i *controlli positivi* sono sempre consentiti, ad esempio l'uguaglianza, i confronti di intervallo, `geo.intersects`o `geo.distance` rispetto a `lt` o `le` (si pensi alla "somiglianza" come uguaglianza quando si tratta della distanza di controllo).
-- All'interno `any``or` è sempre consentito. È possibile utilizzare `and` solo per i tipi di dati che possono esprimere i controlli di intervallo e solo se si utilizzano ORs di le (DNF).
-- All'interno `all`, le regole sono invertite, ma sono consentite solo *verifiche negative* , è possibile usare `and` sempre ed è possibile usare `or` solo per i controlli di intervallo espressi come e di ORS (CNF).
+- `any`All'interno, i *controlli positivi* sono sempre `geo.intersects`consentiti, come l'uguaglianza, i confronti di intervalli, o `geo.distance` rispetto `lt` a o (si pensi alla `le` "vicinanza" come a come all'uguaglianza quando si tratta di controllare la distanza).
+- All'interno, `any` `or` è sempre consentito. È possibile `and` utilizzare solo per i tipi di dati che possono esprimere i controlli di intervallo e solo se si utilizzano OR di AND (DNF).
+- All'interno `all`, le regole sono invertite : sono consentiti `or` solo i controlli *negativi,* è possibile utilizzare `and` sempre ed è possibile utilizzare solo per i controlli di intervallo espressi come AND di OR (CNF).
 
-In pratica, questi sono i tipi di filtri che è più probabile usare comunque. È comunque utile comprendere i limiti di ciò che è possibile però.
+In pratica, questi sono i tipi di filtri che è più probabile utilizzare comunque. È comunque utile capire i confini di ciò che è possibile però.
 
-Per esempi specifici di quali tipi di filtri sono consentiti e quali non sono, vedere [come scrivere filtri di raccolta validi](search-query-troubleshoot-collection-filters.md#bkmk_examples).
+Per esempi specifici di quali tipi di filtri sono consentiti e quali no, vedere [Come scrivere filtri di raccolta validi.](search-query-troubleshoot-collection-filters.md#bkmk_examples)
 
 ## <a name="next-steps"></a>Passaggi successivi  
 
-- [Risoluzione dei problemi relativi ai filtri di raccolta OData in Azure ricerca cognitiva](search-query-troubleshoot-collection-filters.md)
-- [Filtri in ricerca cognitiva di Azure](search-filters.md)
-- [Cenni preliminari sul linguaggio di espressioni OData per ricerca cognitiva di Azure](query-odata-filter-orderby-syntax.md)
-- [Informazioni di riferimento sulla sintassi delle espressioni OData per ricerca cognitiva di Azure](search-query-odata-syntax-reference.md)
-- [Eseguire ricerche &#40;nei documenti ricerca cognitiva API REST di Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Risoluzione dei problemi relativi ai filtri di raccolta OData in Ricerca cognitiva di AzureTroubleshooting OData collection filters in Azure Cognitive Search](search-query-troubleshoot-collection-filters.md)
+- [Filtri in Ricerca cognitiva di AzureFilters in Azure Cognitive Search](search-filters.md)
+- [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
+- [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
+- [&#41;API REST di Ricerca documenti &#40;Ricerca cognitiva di AzureSearch Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

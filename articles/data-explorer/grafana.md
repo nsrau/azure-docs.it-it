@@ -1,6 +1,6 @@
 ---
-title: Visualizzare i dati da Esplora dati di Azure con Grafana
-description: Questo articolo illustra come configurare Esplora dati di Azure come origine dati per Grafana e quindi visualizzare i dati da un cluster di esempio.
+title: Visualizzare i dati da Azure Data Explorer usando Grafana
+description: In questo articolo imparerai a configurare Azure Data Explorer come origine dati per Grafana e quindi a visualizzare i dati da un cluster di esempio.
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
@@ -8,23 +8,23 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.openlocfilehash: a1c52007ea86ca0812c4a73a92ce81db6ddadc7b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74037990"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualizzare i dati da Esplora dati di Azure in Grafana
 
-Grafana è una piattaforma di analisi che consente di visualizzare i dati ed eseguirvi query, quindi di creare e condividere dashboard basati sulle visualizzazioni. Grafana fornisce un *plugin* di Esplora dati di Azure che consente di connettersi ai dati e di visualizzarli da Esplora dati di Azure. Questo articolo illustra come configurare Esplora dati di Azure come origine dati per Grafana e quindi visualizzare i dati da un cluster di esempio.
+Grafana è una piattaforma di analisi che consente di visualizzare i dati ed eseguirvi query, quindi di creare e condividere dashboard basati sulle visualizzazioni. Grafana fornisce un *plugin* di Esplora dati di Azure che consente di connettersi ai dati e di visualizzarli da Esplora dati di Azure. In questo articolo imparerai a configurare Azure Data Explorer come origine dati per Grafana e quindi a visualizzare i dati da un cluster di esempio.
 
-Usare il video seguente per informazioni su come usare il plug-in Azure Esplora dati di Grafana, configurare Esplora dati di Azure come origine dati per Grafana e quindi visualizzare i dati. 
+Usare il video seguente per informazioni su come usare il plug-in Azure Data Explorer di Grafana, configurare Azure Data Explorer come origine dati per Grafana e quindi visualizzare i dati. 
 
 > [!VIDEO https://www.youtube.com/embed/fSR_qCIFZSA]
 
-In alternativa, è possibile [configurare l'origine dati](#configure-the-data-source) e [visualizzare i dati](#visualize-data) come descritto in dettaglio nell'articolo seguente.
+In alternativa, è possibile [configurare l'origine dati](#configure-the-data-source) e [visualizzare i dati](#visualize-data) come descritto nell'articolo seguente.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questo articolo, è necessario quanto segue:
 
@@ -54,19 +54,19 @@ Con l'entità servizio assegnata al ruolo di *visualizzatori* è ora possibile s
 
 1. Immettere il nome del cluster nel formato https://{ClusterName}.{Region}.kusto.windows.net. Immettere gli altri valori nel portale di Azure o nell'interfaccia della riga di comando. Vedere la tabella sotto l'immagine seguente per un mapping.
 
-    ![Connection properties (Proprietà connessione)](media/grafana/connection-properties.png)
+    ![Proprietà di connessione](media/grafana/connection-properties.png)
 
-    | Interfaccia utente Grafana | portale di Azure | Interfaccia della riga di comando di Azure |
+    | Interfaccia utente Grafana | Portale di Azure | Interfaccia della riga di comando di Azure |
     | --- | --- | --- |
     | ID sottoscrizione | ID SOTTOSCRIZIONE | SubscriptionId |
     | ID tenant | ID directory | tenant |
-    | ID client | ID applicazione | appId |
-    | Segreto client | Password | Password |
+    | Client Id | ID applicazione | appId |
+    | Segreto client | Password | password |
     | | | |
 
 1. Selezionare **Salva e verifica**.
 
-    Se il test ha esito positivo, passare alla sezione successiva. In caso di problemi, controllare i valori specificati in Grafana ed esaminare i passaggi precedenti.
+    Se il test ha esito positivo, passare alla sezione successiva. Se si verificano problemi, controllare i valori specificati in Grafana ed esaminare i passaggi precedenti.
 
 ## <a name="visualize-data"></a>Visualizzare i dati
 
@@ -113,21 +113,21 @@ Dopo aver completato la configurazione di Esplora dati di Azure come origine dat
 
 ## <a name="create-alerts"></a>Creare avvisi
 
-1. Nel dashboard Home selezionare **avvisi** > canali di **notifica** per creare un nuovo canale di notifica
+1. In Home Dashboard, seleziona Canali**di notifica** **degli** > avvisi per creare un nuovo canale di notifica
 
-    ![Crea canale di notifica](media/grafana/create-notification-channel.png)
+    ![creare un canale di notifica](media/grafana/create-notification-channel.png)
 
-1. Creare un nuovo **canale di notifica**, quindi **salvare**.
+1. Creare un nuovo **canale di notifica,** quindi **Salva**.
 
-    ![Crea nuovo canale di notifica](media/grafana/new-notification-channel-adx.png)
+    ![Creare un nuovo canale di notifica](media/grafana/new-notification-channel-adx.png)
 
-1. Nel **Dashboard**selezionare **modifica** nell'elenco a discesa.
+1. Nel **Dashboard**selezionare **Modifica** dall'elenco a discesa.
 
-    ![selezionare modifica nel dashboard](media/grafana/edit-panel-4-alert.png)
+    ![selezionare Modifica nel dashboard](media/grafana/edit-panel-4-alert.png)
 
-1. Selezionare l'icona a campana avviso per aprire il riquadro **avviso** . Selezionare **Crea avviso**. Nel riquadro degli **avvisi** completare le seguenti proprietà.
+1. Selezionare l'icona a campana di avviso per aprire il riquadro **Avviso.** Selezionare **Crea avviso**. Completare le proprietà seguenti nel riquadro **Avviso.Complete** the following properties in the Alert pane.
 
-    ![Proprietà avviso](media/grafana/alert-properties.png)
+    ![Proprietà degli avvisi](media/grafana/alert-properties.png)
 
 1. Selezionare l'icona **Salva dashboard** per salvare le modifiche.
 

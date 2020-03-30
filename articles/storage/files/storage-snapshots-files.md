@@ -1,6 +1,6 @@
 ---
 title: Panoramica degli snapshot di condivisione per File di Azure | Microsoft Docs
-description: Uno snapshot di condivisione è una versione di sola lettura di una condivisione di File di Azure, acquisita in un determinato momento per creare un backup della condivisione stessa.
+description: Uno snapshot di condivisione è una versione di sola lettura di una condivisione di File di Azure, acquisita in un determinato momento per eseguire un backup della condivisione stessa.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: c05b79d2f1da8076b507ca9ee7a06504de21d5ea
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72333185"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Panoramica degli snapshot di condivisione per File di Azure 
@@ -55,9 +55,9 @@ Per risparmiare spazio è possibile eliminare lo snapshot di condivisione corris
 
 Anche se gli snapshot di condivisione vengono salvati in modo incrementale, è sufficiente mantenere lo snapshot più recente per ripristinare la condivisione. Quando si elimina uno snapshot di condivisione, vengono rimossi solo i dati univoci per lo snapshot di condivisione stesso. Gli snapshot attivi contengono tutte le informazioni necessarie per trovare e ripristinare i dati (dal momento in cui è stato acquisito lo snapshot di condivisione) nel percorso originale o in uno alternativo. È possibile eseguire il ripristino a livello di elemento.
 
-Gli snapshot non vengono inclusi nel conteggio per il limite di condivisione di 5 TB. Non è previsto alcun limite per la quantità di spazio totale occupata dagli snapshot di condivisione. Continuano ad applicarsi i limiti dell'account di archiviazione.
+Gli snapshot non vengono inclusi nel conteggio per il limite di condivisione di 5 TB. Non è previsto alcun limite per la quantità di spazio totale occupata dagli snapshot di condivisione. Si applicano i limiti dell'account di archiviazione.
 
-## <a name="limits"></a>limiti
+## <a name="limits"></a>Limiti
 Il numero massimo di snapshot di condivisione attualmente supportato da File di Azure è 200. Dopo 200 snapshot di condivisione, per poter creare nuovi snapshot è necessario eliminare quelli meno recenti. 
 
 Il numero di chiamate simultanee per la creazione di snapshot di condivisione è illimitato. La quantità di spazio che può essere usata dagli snapshot di condivisione di una condivisione file specifica è illimitata. 
@@ -84,7 +84,7 @@ Gli snapshot di condivisione offrono solo la protezione a livello di file. Gli s
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Usare gli snapshot di condivisione in:
-    - [PowerShell](storage-how-to-use-files-powershell.md)
-    - [Interfaccia della riga di comando](storage-how-to-use-files-cli.md)
+    - [Powershell](storage-how-to-use-files-powershell.md)
+    - [Cli](storage-how-to-use-files-cli.md)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
     - [Domande frequenti sugli snapshot di condivisione](storage-files-faq.md#share-snapshots)

@@ -1,6 +1,6 @@
 ---
-title: Ripristinare macchine virtuali Linux con chroot in cui viene usato LVM (Logical Volume Manager)-macchine virtuali di Azure
-description: Ripristino di VM Linux con LVM.
+title: Ripristinare macchine virtuali Linux usando chroot in cui viene usato LVM (Logical Volume Manager) - Macchine virtuali di AzureRecover Linux VMs using chroot where LVM (Logical Volume Manager) is used - Azure VMs
+description: Ripristino di macchine virtuali Linux con Macchine virtuali.
 services: virtual-machines-linux
 documentationcenter: ''
 author: vilibert
@@ -15,68 +15,68 @@ ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
 ms.openlocfilehash: 20d710f717a9dff26f46ac7a201a9b694f3fbe84
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74684138"
 ---
-# <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Risoluzione dei problemi di una VM Linux quando non è possibile accedere alla console seriale di Azure e il layout del disco usa LVM (Logical Volume Manager)
+# <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Risoluzione dei problemi di una macchina virtuale Linux quando non è disponibile l'accesso alla console seriale di Azure e il layout del disco usa LVM (Logical Volume Manager)
 
-Questa guida alla risoluzione dei problemi è utile per gli scenari in cui una VM Linux non è in avvio, SSH non è possibile e il layout file system sottostante è configurato con LVM (Logical Volume Manager).
+Questa guida alla risoluzione dei problemi è vantaggiosa per gli scenari in cui una macchina virtuale Linux non è in avvio, ssh non è possibile e il layout del file system sottostante è configurato con LVM (Logical Volume Manager).
 
-## <a name="take-snapshot-of-the-failing-vm"></a>Eseguire lo snapshot della macchina virtuale non riuscita
+## <a name="take-snapshot-of-the-failing-vm"></a>Creare uno snapshot della macchina virtuale in errore
 
-Eseguire uno snapshot della macchina virtuale interessata. 
+Creare uno snapshot della macchina virtuale interessata. 
 
-Lo snapshot verrà quindi collegato a una macchina virtuale di **ripristino** . Seguire le istruzioni riportate [qui](https://docs.microsoft.com/azure/virtual-machines/linux/snapshot-copy-managed-disk#use-azure-portal) per informazioni su come creare uno **snapshot**.
+Lo snapshot verrà quindi collegato a una macchina virtuale di **ripristino.** Seguire le istruzioni [riportate](https://docs.microsoft.com/azure/virtual-machines/linux/snapshot-copy-managed-disk#use-azure-portal) su come creare **un'istantanea.**
 
-## <a name="create-a-rescue-vm"></a>Creare una macchina virtuale di ripristino
-È in genere consigliabile una macchina virtuale di ripristino della stessa versione del sistema operativo o di una versione simile. Usare la stessa **area** e il **gruppo di risorse** della VM interessata
+## <a name="create-a-rescue-vm"></a>Creare una macchina virtuale di ripristinoCreate a rescue VM
+Di solito è consigliata una macchina virtuale di salvataggio della stessa versione del sistema operativo o simile. Usare la stessa **area** e lo stesso gruppo di risorse della macchina virtuale interessataUse the same region and **resource group** of the affected VM
 
-## <a name="connect-to-the-rescue-vm"></a>Connettersi alla macchina virtuale di ripristino
-Connettersi tramite SSH alla macchina virtuale di **ripristino** . Eleva i privilegi e diventa un utente con privilegi avanzati usando
+## <a name="connect-to-the-rescue-vm"></a>Connettersi alla macchina virtuale di salvataggioConnect to the rescue VM
+Connettersi usando ssh nella macchina virtuale di **salvataggio.** Elevare i privilegi e diventare utente con privilegi avanzati utilizzando
 
 `sudo su -`
 
-## <a name="attach-the-disk"></a>Connetti il disco
-Alleghi un disco alla macchina virtuale di **ripristino** eseguita dallo snapshot eseguito in precedenza.
+## <a name="attach-the-disk"></a>Collegare il disco
+Collegare un disco alla macchina virtuale di **ripristino** creata dallo snapshot creato in precedenza.
 
-Portale di Azure-> selezionare i **dischi** della macchina virtuale di **ripristino** > 
+Portale di Azure -> selezionare la macchina virtuale di ripristino -> **dischiAzure** portal -select the **rescue** VM -> Disks 
 
 ![Creare un disco](./media/chroot-logical-volume-manager/create-disk-from-snap.png)
 
-Popolare i campi. Assegnare un nome al nuovo disco, selezionare lo stesso gruppo di risorse dello snapshot, della VM interessata e della VM di ripristino.
+Compilare i campi. Assegnare un nome al nuovo disco, selezionare lo stesso gruppo di risorse dello snapshot, della macchina virtuale interessata e della macchina virtuale di ripristino.
 
-Il **tipo di origine** è **snapshot** .
+Il **tipo di origine** è **Snapshot** .
 Lo **snapshot di origine** è il nome dello **snapshot** creato in precedenza.
 
-![Creazione disco 2](./media/chroot-logical-volume-manager/create-disk-from-snap-2.png)
+![creare il disco 2](./media/chroot-logical-volume-manager/create-disk-from-snap-2.png)
 
 Creare un punto di montaggio per il disco collegato.
 
 `mkdir /rescue`
 
-Eseguire il comando **fdisk-l** per verificare che il disco snapshot sia stato collegato ed elencare tutti i dispositivi e le partizioni disponibili
+Eseguire il comando **fdisk -l** per verificare che il disco snapshot sia stato collegato ed elencare tutti i dispositivi e le partizioni disponibili
 
 `fdisk -l`
 
-La maggior parte degli scenari, il disco snapshot collegato viene visualizzato come **/dev/sdc** che visualizza due partizioni **/dev/sdc1** e **/dev/sdc2**
+La maggior parte degli scenari, il disco snapshot collegato verrà visualizzato come **/dev/sdc** visualizzando due partizioni **/dev/sdc1** e **/dev/sdc2**
 
 ![Fdisk](./media/chroot-logical-volume-manager/fdisk-output-sdc.png)
 
-Il **\*** indica una partizione di avvio, entrambe le partizioni devono essere montate.
+Indica **\*** una partizione di avvio, entrambe le partizioni devono essere montate.
 
-Eseguire il comando **lsblk** per visualizzare il LVM della macchina virtuale interessata
+Eseguire il comando lsblk per visualizzare le Macchine virtuali della macchina virtuale interessataRun the command **lsblk** to see the LVMs of the affected VM
 
 `lsblk`
 
-![Esegui lsblk](./media/chroot-logical-volume-manager/lsblk-output-mounted.png)
+![Eseguire lsblk](./media/chroot-logical-volume-manager/lsblk-output-mounted.png)
 
 
-Verificare che vengano visualizzati LVM dalla macchina virtuale interessata.
-In caso contrario, usare i comandi seguenti per abilitarli ed eseguire di nuovo **lsblk**.
-Prima di procedere, verificare che il LVM del disco collegato sia visibile.
+Verificare se vengono visualizzate le Macchine virtuali della macchina virtuale interessata.
+In caso contrario, utilizzare i comandi seguenti per abilitarli ed eseguire nuovamente **lsblk**.
+Assicurarsi di avere le Macchine Virtuali dal disco collegato visibile prima di procedere.
 
 ```
 vgscan --mknodes
@@ -86,37 +86,37 @@ mount –a
 lsblk
 ```
 
-Individuare il percorso per montare il volume logico che contiene la partizione/(radice). Contiene i file di configurazione, ad esempio/etc/default/grub
+Individuare il percorso per montare il volume logico che contiene la partizione / (radice). Ha i file di configurazione come /etc/default/grub
 
-In questo esempio, l'output del comando **lsblk** precedente **rootvg-rootlv** è la **radice** BT corretta da montare e può essere usato nel comando successivo.
+In questo esempio, prendendo l'output dal comando **lsblk** precedente **rootvg-rootlv** è il l'LV **radice** corretto da montare e può essere utilizzato nel comando successivo.
 
-L'output del comando successivo indicherà il percorso da montare per la **radice** LV
+L'output del comando successivo mostrerà il percorso da montare per la **radice** LV
 
 `pvdisplay -m | grep -i rootlv`
 
-![Rootlv](./media/chroot-logical-volume-manager/locate-rootlv.png)
+![Radicedino](./media/chroot-logical-volume-manager/locate-rootlv.png)
 
-Procedere alla montaggio del dispositivo nella directory/Rescue
+Procedere al montaggio del dispositivo nella directory /rescue
 
 `mount /dev/rootvg/rootlv /rescue`
 
-Montare la partizione in cui è impostato il **flag di avvio** in/Rescue/boot
+Montare la partizione con il **flag Boot** impostato su /rescue/boot
 
 `
 mount /dev/sdc1 /rescue/boot
 `
 
-Verificare che i file System del disco collegato siano ora montati correttamente usando il comando **lsblk**
+Verificare che i file system del disco collegato siano ora montati correttamente utilizzando il comando **lsblk**
 
-![Esegui lsblk](./media/chroot-logical-volume-manager/lsblk-output-1.png)
+![Eseguire lsblk](./media/chroot-logical-volume-manager/lsblk-output-1.png)
 
-o il comando **DF-TH**
+o il comando **df -Th**
 
-![DF](./media/chroot-logical-volume-manager/df-output.png)
+![Df](./media/chroot-logical-volume-manager/df-output.png)
 
 ## <a name="gaining-chroot-access"></a>Ottenere l'accesso chroot
 
-Ottenere l'accesso **chroot** , che consente di eseguire varie correzioni, per ogni distribuzione Linux sono presenti lievi variazioni.
+Ottenere **l'accesso chroot,** che vi permetterà di eseguire varie correzioni, esistono lievi variazioni per ogni distribuzione Linux.
 
 ```
  cd /rescue
@@ -127,29 +127,29 @@ Ottenere l'accesso **chroot** , che consente di eseguire varie correzioni, per o
  chroot /rescue
 ```
 
-Se viene rilevato un errore, ad esempio:
+Se si verifica un errore come:
 
-**chroot: non è stato possibile eseguire il comando '/bin/bash ': nessun file o directory di questo tipo**
+**chroot: impossibile eseguire il comando '/bin/bash': nessun file o directory di questo tipo**
 
-tentativo di montaggio del volume logico **usr**
+tentare di montare il volume **logico usr**
 
 `
 mount  /dev/mapper/rootvg-usrlv /rescue/usr
 `
 
 > [!TIP]
-> Quando si eseguono comandi in un ambiente **chroot** , si noti che vengono eseguiti sul disco del sistema operativo collegato e non sulla macchina virtuale di **ripristino** locale. 
+> Quando si eseguono comandi in un ambiente **chroot,** si noti che vengono eseguiti sul disco del sistema operativo collegato e non sulla macchina virtuale di **ripristino** locale. 
 
-È possibile utilizzare i comandi per installare, rimuovere e aggiornare il software. Risolvere i problemi relativi alle macchine virtuali per correggere gli errori.
+I comandi possono essere utilizzati per installare, rimuovere e aggiornare il software. Risolvere i problemi relativi alle macchine virtuali per correggere gli errori.
 
 
-Eseguire il comando lsblk e/Rescue è ora/e/Rescue/boot è/boot ![chroot](./media/chroot-logical-volume-manager/chrooted.png)
+Eseguire il comando lsblk e il /rescue è ora ![/ e /rescue/boot è /boot Chrooted](./media/chroot-logical-volume-manager/chrooted.png)
 
 ## <a name="perform-fixes"></a>Eseguire correzioni
 
-### <a name="example-1---configure-the-vm-to-boot-from-a-different-kernel"></a>Esempio 1: configurare la macchina virtuale per l'avvio da un kernel diverso
+### <a name="example-1---configure-the-vm-to-boot-from-a-different-kernel"></a>Esempio 1 - configurare la macchina virtuale per l'avvio da un kernel diversoExample 1 - configure the VM to boot from a different kernel
 
-Uno scenario comune consiste nel forzare l'avvio di una macchina virtuale da un kernel precedente, perché il kernel installato corrente potrebbe essere danneggiato o un aggiornamento non è stato completato correttamente.
+Uno scenario comune consiste nell'imporre l'avvio di una macchina virtuale da un kernel precedente poiché il kernel attualmente installato potrebbe essere danneggiato o un aggiornamento non completato correttamente.
 
 
 ```
@@ -166,58 +166,58 @@ grub2-editenv list
 grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 
-*procedura dettagliata*
+*Procedura dettagliata*
 
-Il comando **grep** elenca i kernel che **grub. cfg** è in grado di riconoscere.
-![kernel](./media/chroot-logical-volume-manager/kernels.png)
+Il comando **grep** elenca i kernel di cui **grub.cfg** è a conoscenza.
+![Kernel](./media/chroot-logical-volume-manager/kernels.png)
 
-l' **elenco GRUB2-editenv** Visualizza il kernel che verrà caricato all'avvio successivo ![il kernel predefinito](./media/chroot-logical-volume-manager/kernel-default.png)
+**grub2-editenv elenco** visualizza quale kernel verrà ![caricato al prossimo avvio Kernel predefinito](./media/chroot-logical-volume-manager/kernel-default.png)
 
-**GRUB2-set-default** viene usato per passare a un altro kernel ![set GRUB2](./media/chroot-logical-volume-manager/grub2-set-default.png)
+**grub2-set-default** viene utilizzato per ![passare a un altro set Grub2 del kernel](./media/chroot-logical-volume-manager/grub2-set-default.png)
 
-l'elenco **GRUB2-editenv** Visualizza il kernel che verrà caricato all'avvio successivo ![nuovo kernel](./media/chroot-logical-volume-manager/kernel-new.png)
+**grub2-editenv** elenco visualizza quale kernel verrà ![caricato al prossimo avvio Nuovo kernel](./media/chroot-logical-volume-manager/kernel-new.png)
 
-**GRUB2-mkconfig** ricompila grub. cfg usando le versioni richieste ![grub2 mkconfig](./media/chroot-logical-volume-manager/grub2-mkconfig.png)
+**grub2-mkconfig** ricostruisce grub.cfg utilizzando ![le versioni richieste Grub2 mkconfig](./media/chroot-logical-volume-manager/grub2-mkconfig.png)
 
 
 
-### <a name="example-2---upgrade-packages"></a>Esempio 2: aggiornare i pacchetti
+### <a name="example-2---upgrade-packages"></a>Esempio 2 - pacchetti di aggiornamentoExample 2 - upgrade packages
 
 Un aggiornamento del kernel non riuscito può rendere la macchina virtuale non avviabile.
 Montare tutti i volumi logici per consentire la rimozione o la reinstallazione dei pacchetti
 
-Eseguire il comando **LVS** per verificare quali **LVS** sono disponibili per il montaggio, ogni macchina virtuale di cui è stata eseguita la migrazione o che deriva da un altro provider di servizi cloud può variare in base alla configurazione.
+Eseguire il comando **lvs** per verificare quali **lv** sono disponibili per il montaggio, ogni macchina virtuale, che è stata migrata o proviene da un altro Cloud Provider varierà nella configurazione.
 
-Uscire dall'ambiente **chroot** montare la richiesta **LV**
+Uscire dall'ambiente **chroot** montare il **LV** richiesto
 
-![Funzionalità avanzate](./media/chroot-logical-volume-manager/advanced.png)
+![Avanzate](./media/chroot-logical-volume-manager/advanced.png)
 
 Ora accedere di nuovo all'ambiente **chroot** eseguendo
 
 `chroot /rescue`
 
-Tutti LVs devono essere visibili come partizioni montate
+Tutti i VL devono essere visibili come partizioni montate
 
-![Funzionalità avanzate](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
+![Avanzate](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
 
-Eseguire una query sul **kernel** installato
+Interrogare il **kernel** installato
 
-![Funzionalità avanzate](./media/chroot-logical-volume-manager/rpm-kernel.png)
+![Avanzate](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
 Se necessario, rimuovere o aggiornare il **kernel**
 ![Advanced](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)
 
 
-### <a name="example-3---enable-serial-console"></a>Esempio 3: abilitare la console seriale
-Se l'accesso non è stato possibile alla console seriale di Azure, verificare i parametri di configurazione di GRUB per la VM Linux e correggerli. Informazioni dettagliate sono disponibili [in questo documento](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-proactive-configuration)
+### <a name="example-3---enable-serial-console"></a>Esempio 3 - abilitare la console serialeExample 3 - enable Serial Console
+Se l'accesso alla console seriale di Azure non è stato possibile, verificare i parametri di configurazione GRUB per la macchina virtuale Linux e correggerli. Informazioni dettagliate possono essere trovate [in questo documento](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-proactive-configuration)
 
-### <a name="example-4---kernel-loading-with-problematic-lvm-swap-volume"></a>Esempio 4: caricamento del kernel con un volume di swap LVM problematico
+### <a name="example-4---kernel-loading-with-problematic-lvm-swap-volume"></a>Esempio 4 - caricamento del kernel con volume di swap LVM problematico
 
-Una macchina virtuale potrebbe non riuscire a eseguire l'avvio completo e rientrare nel prompt **Dracut** .
-Altre informazioni sull'errore possono essere individuate dalla console seriale di Azure o passare a portale di Azure-> diagnostica di avvio-> log seriale
+Una macchina virtuale potrebbe non riuscire ad avviarsi completamente e rilascia nel prompt **di taglio.**
+Ulteriori dettagli dell'errore possono essere individuati dalla console seriale di Azure o passare al portale di Azure -> diagnostica di avvio -> log di serie
 
 
-Potrebbe essere presente un errore simile al seguente:
+Un errore simile a questo può essere presente:
 
 ```
 [  188.000765] dracut-initqueue[324]: Warning: /dev/VG/SwapVol does not exist
@@ -225,19 +225,19 @@ Potrebbe essere presente un errore simile al seguente:
 Warning: /dev/VG/SwapVol does not exist
 ```
 
-Grub. cfg è configurato in questo esempio per caricare un valore LV con il nome **Rd. LVM. lv = VG/SwapVol** e la macchina virtuale non è in grado di individuarlo. Questa riga Mostra come viene caricato il kernel che fa riferimento a LV SwapVol
+Il file grub.cfg è configurato in questo esempio per caricare un LV con il nome **rd.lvm.lv.VG/SwapVol** e la macchina virtuale non è in grado di individuarla. Questa riga mostra come viene caricato il kernel facendo riferimento al LV SwapVol
 
 ```
 [    0.000000] Command line: BOOT_IMAGE=/vmlinuz-3.10.0-1062.4.1.el7.x86_64 root=/dev/mapper/VG-OSVol ro console=tty0 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0 biosdevname=0 crashkernel=256M rd.lvm.lv=VG/OSVol rd.lvm.lv=VG/SwapVol nodmraid rhgb quiet
 [    0.000000] e820: BIOS-provided physical RAM map:
 ```
 
- Rimuovere il LV danneggiato dalla configurazione/etc/default/grub e ricompilare GRUB2. cfg
+ Rimuovere il LV incriminato dalla configurazione /etc/default/grub e ricostruire grub2.cfg
 
 
 ## <a name="exit-chroot-and-swap-the-os-disk"></a>Uscire da chroot e scambiare il disco del sistema operativo
 
-Dopo aver ripristinato il problema, continuare a smontare e scollegare il disco dalla macchina virtuale di ripristino, in modo che venga scambiato con il disco del sistema operativo della VM interessato.
+Dopo aver riparato il problema, procedere allo smontaggio e allo scollegare il disco dalla macchina virtuale di ripristino consentendone lo scambio con il disco del sistema operativo vm interessato.
 
 ```
 exit
@@ -250,28 +250,28 @@ umount /rescue/boot
 umount /rescue
 ```
 
-Scollegare il disco dalla macchina virtuale di ripristino ed eseguire uno scambio su disco.
+Scollegare il disco dalla macchina virtuale di ripristino ed eseguire uno scambio di schietto.
 
 Selezionare la macchina virtuale dai **dischi** del portale e selezionare **Scollega**
-![scollega disco](./media/chroot-logical-volume-manager/detach-disk.png) 
+![disco](./media/chroot-logical-volume-manager/detach-disk.png) 
 
-Salva le modifiche ![Salva scollega](./media/chroot-logical-volume-manager/save-detach.png) 
+Salvare le ![modifiche Salva scollegamento](./media/chroot-logical-volume-manager/save-detach.png) 
 
-Il disco ora diventa disponibile per consentire lo scambio con il disco del sistema operativo originale della VM interessata.
+Il disco sarà ora disponibile consentendone lo scambio con il disco del sistema operativo originale della macchina virtuale interessata.
 
-Spostarsi nella portale di Azure alla macchina virtuale che ha avuto esito negativo e selezionare **dischi** -> **Scambia disco del sistema operativo**
-![disco di scambio](./media/chroot-logical-volume-manager/swap-disk.png) 
+Passare al portale di Azure alla macchina virtuale in errore e selezionare **Disco** -> **Scambia disco**
+![scambia disco](./media/chroot-logical-volume-manager/swap-disk.png) 
 
-Completare i campi il disco **scelto** è il disco dello snapshot appena scollegato nel passaggio precedente. È necessario anche il nome della macchina virtuale interessata, quindi selezionare **OK** .
+Compilare i campi il **Disco Scegli** è il disco snapshot appena scollegato nel passaggio precedente. Anche il nome della macchina virtuale interessata è obbligatorio, quindi selezionare **OK**
 
-![Nuovo disco del sistema operativo](./media/chroot-logical-volume-manager/new-osdisk.png) 
+![Nuovo disco os](./media/chroot-logical-volume-manager/new-osdisk.png) 
 
-Se la macchina virtuale esegue lo scambio di disco lo arresterà, riavviare la macchina virtuale al termine dell'operazione di scambio del disco.
+Se la macchina virtuale è in esecuzione, Lo scambio di dischi lo arresterà, riavviarla al termine dell'operazione di scambio del disco.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Scopri di più
+Altre informazioni su:
 
- [Console seriale di Azure]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
+ [Console seriale di AzureAzure Serial Console]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
 
 [Modalità utente singolo](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode)

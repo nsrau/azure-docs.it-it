@@ -15,13 +15,13 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: e52433cfae1e889f07818f582fc3aef0752932ea
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74482503"
 ---
-Prima di leggere questo articolo, è necessario avere familiarità con i concetti seguenti:
+Prima di leggere questo articolo, è necessario avere familiarità con i seguenti concetti:
 
 - [Panoramica della piattaforma di identità Microsoft](../articles/active-directory/develop/v2-overview.md)
 - [Nozioni di base sull'autenticazione](../articles/active-directory/develop/authentication-scenarios.md)

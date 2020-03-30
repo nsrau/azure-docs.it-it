@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68965280"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Specifiche e conformità tecniche per il dispositivo StorSimple
@@ -39,14 +39,14 @@ Lo chassis EBOD utilizza un PCM 580 W, mentre lo chassis principale utilizza un 
 | --- | --- | --- |
 | Potenza massima in uscita |580 W |764 |
 | Frequenza |50/60 Hz |50/60 Hz |
-| Selezione intervallo di voltaggio |Con intervallo automatico: 90 – 264 V AC, 47/63 Hz |Con intervallo automatico: 90-264 V AC, 47/63 Hz |
+| Selezione intervallo di voltaggio |Intervallo automatico: 90 – 264 V CA, 47/63 Hz |Intervallo automatico: 90 - 264 V CA, 47/63 Hz |
 | Afflusso di corrente massimo |20 A |20 A |
 | Correzione del fattore di potenza |Voltaggio di ingresso nominale > 95% |Voltaggio di ingresso nominale > 95% |
 | Armoniche |Conforme allo standard N61000-3-2 |Conforme allo standard N61000-3-2 |
 | Output |Tensione di standby 5V \@ 2.0 A |Tensione di standby 5V \@ 2.7 A |
 | +5V \@ 42 A |+5V \@ 40 A | |
 | +12V \@ 38 A |+12V \@ 38 A | |
-| Collegabile "hot" |Yes |Yes |
+| Collegabile "hot" |Sì |Sì |
 | LED e commutatori |Commutatore CA ACCESO/SPENTO e quattro indicatori LED di stato |Commutatore CA ACCESO/SPENTO e sei indicatori LED di stato |
 | Raffreddamento chassis |Ventole di raffreddamento assiale con controllo di velocità della ventola variabile |Ventole di raffreddamento assiale con controllo di velocità della ventola variabile |
 
@@ -76,14 +76,14 @@ I dispositivi StorSimple usano una combinazione di unità disco rigido e unità 
 | Numero di unità disco rigido |8 |19 |
 | Numero di unità SSD |4 |5 |
 | Capacità della singola unità disco rigido |4 TB |4 TB |
-| Capacità della singola unità SSD |400 GB |800 GB |
+| Capacità della singola unità SSD |400 GB |800 GB |
 | Capacità di riserva |4 TB |4 TB |
 | Capacità utilizzabile dell'unità disco rigido |14 TB |36 TB |
 | Capacità utilizzabile dell'unità SSD |800 GB |2 TB |
 | Capacità utilizzabile totale* |~ 15 TB |~ 38 TB |
 | Capacità massima della soluzione (incluso il cloud) |200 TB |500 TB |
 
-<sup>* </sup>- *La capacità totale usabile include la capacità disponibile per i dati, i metadati e i buffer. È possibile effettuare il provisioning di volumi aggiunti in locale fino a 8,5 TB in dispositivi 8100 o fino a 22,5 TB in dispositivi 8600 più grandi. Per altre informazioni, vedere [Volumi StorSimple aggiunti in locale](storsimple-8000-local-volume-faq.md).*
+<sup>* </sup>- *La capacità utilizzabile totale include la capacità disponibile per dati, metadati e buffer. È possibile eseguire il provisioning di volumi aggiunti in locale fino a 8,5 TB nel dispositivo 8100 o fino a 22,5 TB nel dispositivo più grande da 8600. Per ulteriori informazioni, visitare I volumi aggiunti in locale a [StorSimple](storsimple-8000-local-volume-faq.md).*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>Specifiche su peso e dimensioni dello chassis
 
@@ -162,8 +162,8 @@ Il dispositivo Microsoft Azure StorSimple soddisfa le seguenti classificazioni E
 
 Il dispositivo è conforme alle classificazioni EMC per i livelli di emissioni effettuate e irradiate.
 
-* Livelli di limite delle emissioni eseguite: CFR 47 Part 15B Class A EN55022 Class A CISPR Class A
-* Livelli di limite delle emissioni irradiate: CFR 47 Part 15B Class A EN55022 Class A CISPR Class A
+* Livelli dei limiti delle emissioni effettuate: CFR 47 Part 15B Class A EN55022 Class A CISPR Class A
+* Livelli dei limiti delle emissioni irradiate: CFR 47 Part 15B Class A EN55022 Class A CISPR Class A
 
 ### <a name="harmonics-and-flicker"></a>Armoniche e sfarfallio
 
@@ -175,7 +175,7 @@ Il dispositivo è conforme allo standard EN55024.
 
 ## <a name="ac-power-cord-compliance"></a>Conformità del cavo di alimentazione CA
 
-Il connettore e l'assembly completo del cavo di alimentazione devono soddisfare gli standard appropriati per il paese/area geografica in cui viene usato il dispositivo e devono avere approvazioni di sicurezza che sono accettabili in tale paese/area geografica. Nelle tabelle seguenti vengono elencati gli standard per gli Stati Uniti e l'Europa.
+La spina e l'assemblaggio completo del cavo di alimentazione devono soddisfare gli standard appropriati per il paese o l'area geografica in cui viene utilizzato il dispositivo e devono disporre di approvazioni di sicurezza accettabili in tale paese/area geografica. Nelle tabelle seguenti vengono elencati gli standard per gli Stati Uniti e l'Europa.
 
 ### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>Cavi di alimentazione CA - Stati Uniti (devono essere elencati NRTL)
 
@@ -190,7 +190,7 @@ Il connettore e l'assembly completo del cavo di alimentazione devono soddisfare 
 | Componente | Specifiche |
 | --- | --- |
 | Tipo di cavo |Armonizzate, H05-VVF-3G1.0 |
-| Socket |IEC 320 C-13, 250 V, 10 A |
+| Presa elettrica |IEC 320 C-13, 250 V, 10 A |
 
 ## <a name="supported-network-cables"></a>Cavi di rete supportati
 

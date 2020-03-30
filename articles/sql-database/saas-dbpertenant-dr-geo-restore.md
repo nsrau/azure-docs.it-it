@@ -12,10 +12,10 @@ ms.author: craigg
 ms.reviewer: sstein
 ms.date: 01/14/2019
 ms.openlocfilehash: 270fc157fa14efa19ed30d35b614fb769804b72e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73826465"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Usare il ripristino geografico per ripristinare un'applicazione SaaS dai backup di database
@@ -41,8 +41,8 @@ Questa esercitazione illustra entrambi i flussi di lavoro di ripristino e ricoll
  
 
 Prima di iniziare questa esercitazione, eseguire queste operazioni:
-* Distribuire l'app di database per tenant SaaS Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione di database per tenant SaaS Wingtip Tickets](saas-dbpertenant-get-started-deploy.md). 
-* Installare Azure PowerShell. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Distribuire l'app di database per tenant SaaS Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare il database Wingtip Tickets SaaS per ogni applicazione tenant.](saas-dbpertenant-get-started-deploy.md) 
+* Installare Azure PowerShell. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell.](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-the-geo-restore-recovery-pattern"></a>Introduzione al modello di ripristino geografico
 
@@ -62,12 +62,12 @@ Il ripristino di emergenza è importante per molte applicazioni, per motivi di c
 Questa esercitazione usa le funzionalità del database SQL di Azure e della piattaforma Azure per risolvere i problemi seguenti:
 
 * [Modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), per riservare tutta la capacità necessaria il più rapidamente possibile. I modelli di Azure Resource Manager vengono usati per effettuare il provisioning di un'immagine speculare dei server e dei pool elastici di origine nell'area di ripristino. Per il provisioning di nuovi tenant vengono creati anche un server e un pool separati.
-* [Libreria EDCL](sql-database-elastic-database-client-library.md) (Elastic Database Client Library, libreria client dei database elastici), per creare e gestire un catalogo di database tenant. Il catalogo esteso include informazioni di configurazione del pool e del database aggiornate periodicamente.
-* [Funzionalità di ripristino della gestione delle partizioni](sql-database-elastic-database-recovery-manager.md) della libreria EDCL, per gestire le voci relative alle posizioni dei database nel catalogo durante il ripristino e il ricollocamento.  
+* [EdCL (Elastic Database Client Library)](sql-database-elastic-database-client-library.md) per creare e gestire un catalogo di database tenant. Il catalogo esteso include informazioni di configurazione del pool e del database aggiornate periodicamente.
+* Funzionalità di ripristino della gestione dei [frammenti](sql-database-elastic-database-recovery-manager.md) dell'EDCL, per mantenere le voci di posizione del database nel catalogo durante il ripristino e il rimpatrio.  
 * [Ripristino geografico](sql-database-disaster-recovery.md), per ripristinare i database di catalogo e tenant dai backup con ridondanza geografica gestiti automaticamente. 
 * [Operazioni di ripristino asincrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) inviate in ordine di priorità di tenant, vengono inserite in coda per ogni pool dal sistema ed elaborate in batch per evitare il sovraccarico del pool. Queste operazioni possono essere annullate prima o durante l'esecuzione, se necessario.   
 * [Replica geografica](sql-database-geo-replication-overview.md), per ricollocare i database nell'area di origine dopo l'interruzione. Quando si usa la replica geografica, non si verifica alcuna perdita di dati e l'impatto sul tenant è minimo.
-* [Alias DNS del server SQL](dns-alias-overview.md), per consentire la connessione del processo di sincronizzazione con il catalogo attivo indipendentemente dalla relativa posizione.  
+* [Alias DNS](dns-alias-overview.md)di SQL Server , per consentire al processo di sincronizzazione del catalogo di connettersi al catalogo attivo indipendentemente dalla posizione.  
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Ottenere gli script per il ripristino di emergenza
 
@@ -103,7 +103,7 @@ Prima di iniziare il processo di ripristino, esaminare il normale stato di integ
 In questa attività si avvia un processo per sincronizzare la configurazione di server, pool elastici e database nel catalogo dei tenant. Queste informazioni verranno usate in un secondo momento per configurare un ambiente con immagine speculare nell'area di ripristino.
 
 > [!IMPORTANT]
-> Per semplicità, il processo di sincronizzazione e gli altri processi di ripristino e ricollocamento a esecuzione prolungata vengono implementati in questi esempi come sessioni o processi di PowerShell locali che vengono eseguiti con l'account di accesso utente client. I token di autenticazione rilasciati al momento dell'accesso scadono dopo alcune ore e i processi avranno quindi esito negativo. In uno scenario di produzione, i processi a esecuzione prolungata devono essere implementati come servizi di Azure affidabili, in esecuzione in un'entità servizio. Vedere [Usare Azure PowerShell per creare un'entità servizio con un certificato](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal). 
+> Per semplicità, il processo di sincronizzazione e gli altri processi di ripristino e ricollocamento a esecuzione prolungata vengono implementati in questi esempi come sessioni o processi di PowerShell locali che vengono eseguiti con l'account di accesso utente client. I token di autenticazione rilasciati al momento dell'accesso scadono dopo alcune ore e i processi avranno quindi esito negativo. In uno scenario di produzione i processi a esecuzione prolungata devono essere implementati come servizi di Azure affidabili di un determinato tipo, in esecuzione in un'entità servizio. Vedere [Usare Azure PowerShell per creare un'entità servizio con un certificato](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal). 
 
 1. In PowerShell ISE aprire il file ...\Learning Modules\UserConfig.psm1. Sostituire `<resourcegroup>` e `<user>` alle righe 10 e 11 con il valore usato al momento della distribuzione dell'app. Salvare il file.
 
@@ -124,7 +124,7 @@ In questa attività si avvia un processo per sincronizzare la configurazione di 
 Lasciare la finestra di PowerShell in esecuzione in background e continuare con il resto dell'esercitazione.
 
 > [!NOTE]
-> Il processo di sincronizzazione si connette al catalogo tramite un alias DNS. Questo alias viene modificato durante il ripristino e il ricollocamento in modo da puntare al catalogo attivo. Il processo di sincronizzazione mantiene aggiornato il catalogo con le modifiche apportate alla configurazione dei database o dei pool nell'area di ripristino. Durante il ricollocamento, queste modifiche vengono applicate alle risorse equivalenti nell'area di origine.
+> Il processo di sincronizzazione si connette al catalogo tramite un alias DNS. Questo alias viene modificato durante il ripristino e il ricollocamento in modo da puntare al catalogo attivo. Il processo di sincronizzazione mantiene aggiornato il catalogo con le modifiche apportate alla configurazione dei database o dei pool nell'area di ripristino. Durante il ricollocamento, queste modifiche vengono applicate alle risorse equivalenti nell'area originale.
 
 ## <a name="geo-restore-recovery-process-overview"></a>Panoramica del processo di ripristino geografico
 
@@ -162,7 +162,7 @@ Il processo di ripristino esegue le operazioni seguenti:
 
     * L'applicazione può accedere ai database tenant non appena vengono contrassegnati come online nel catalogo.
 
-    * Nel catalogo viene archiviata la somma dei valori rowversion nel database tenant. Questa somma funge da impronta digitale che consente al processo di ricollocamento di determinare se il database è stato aggiornato nell'area di ripristino.       
+    * Nel catalogo viene archiviata la somma dei valori rowversion per il database tenant. Questa somma funge da impronta digitale che consente al processo di ricollocamento di determinare se il database è stato aggiornato nell'area di ripristino.       
 
 ## <a name="run-the-recovery-script"></a>Eseguire lo script di ripristino
 
@@ -189,7 +189,7 @@ Si supponga che si verifichi un'interruzione nell'area in cui l'applicazione è 
 > Per esplorare il codice per i processi di ripristino, esaminare gli script di PowerShell nella cartella ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\RecoveryJobs.
 
 ## <a name="review-the-application-state-during-recovery"></a>Esaminare lo stato dell'applicazione durante il ripristino
-Quando l'endpoint dell'applicazione è disabilitato in Gestione traffico, l'applicazione non è disponibile. Il catalogo viene ripristinato e tutti i tenant vengono contrassegnati come offline. L'endpoint dell'applicazione nell'area di ripristino viene quindi abilitato e l'applicazione torna online. Anche se l'applicazione è disponibile, i tenant risultano offline nell'hub eventi finché non vengono ripristinati i rispettivi database. È importante progettare l'applicazione per gestire i database tenant offline.
+Quando l'endpoint dell'applicazione è disabilitato in Gestione traffico, l'applicazione non è disponibile. Il catalogo viene ripristinato e tutti i tenant vengono contrassegnati come offline. L'endpoint dell'applicazione nell'area di ripristino viene quindi abilitato e l'applicazione torna online. Anche se l'applicazione è disponibile, i tenant risultano offline nell'hub eventi finché non vengono ripristinati i rispettivi database. È importante progettare l'applicazione in modo da gestire i database tenant offline.
 
 * Dopo che il database di catalogo è stato ripristinato, ma prima che i tenant siano tornati online, aggiornare l'hub eventi di Wingtip Tickets nel Web browser.
 
@@ -364,7 +364,7 @@ Per un certo intervallo di tempo durante il ricollocamento, i database tenant po
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 > [!div class="checklist"]
 > 
 > * Usare il catalogo dei tenant per memorizzare periodicamente le informazioni di configurazione aggiornate e consentire così la creazione di un ambiente di ripristino con immagine speculare in un'altra area.

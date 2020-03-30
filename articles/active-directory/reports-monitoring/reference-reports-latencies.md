@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d031546bb4f1f05e9ea2abb5b74fe911b0b507f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74007698"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latenze dei report di Azure Active Directory
@@ -59,18 +59,18 @@ Esistono due tipi di report sulla sicurezza:
 
 Nella tabella seguente sono elencate le informazioni sulla latenza per i report di sicurezza.
 
-| Report | Minima | Media | Massima |
+| Report | Minima | Media | Massimo |
 | :-- | --- | --- | --- |
 | Utenti a rischio.          | 5 minuti   | 15 minuti  | 2 ore  |
 | Accessi a rischio         | 5 minuti   | 15 minuti  | 2 ore  |
 
 ## <a name="risk-detections"></a>Rilevamenti dei rischi
 
-Azure AD usa l'euristica e gli algoritmi adattivi di Machine Learning per rilevare azioni sospette correlate agli account dell'utente. Ogni azione sospetta rilevata viene archiviata in un record denominato **rilevamento del rischio**.
+Azure AD usa l'euristica e gli algoritmi adattivi di Machine Learning per rilevare azioni sospette correlate agli account dell'utente. Ogni azione sospetta rilevata viene archiviata in un record denominato **rilevamento dei rischi**.
 
 Nella tabella seguente sono elencate le informazioni sulla latenza per i rilevamenti dei rischi.
 
-| Report | Minima | Media | Massima |
+| Report | Minima | Media | Massimo |
 | :-- | --- | --- | --- |
 | Accessi da indirizzi IP anonimi |5 minuti |15 minuti |2 ore |
 | Accessi da posizioni non note |5 minuti |15 minuti |2 ore |
@@ -82,6 +82,6 @@ Nella tabella seguente sono elencate le informazioni sulla latenza per i rilevam
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Panoramica dei report di Azure AD](overview-reports.md)
+* [Panoramica dei report di Azure ADAzure AD reports overview](overview-reports.md)
 * [Accesso programmatico ai report di Azure AD](concept-reporting-api.md)
-* [Rilevamento del rischio Azure Active Directory](concept-risk-events.md)
+* [Rilevamenti dei rischi di Azure Active DirectoryAzure Active Directory risk detections](concept-risk-events.md)

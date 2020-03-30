@@ -1,5 +1,5 @@
 ---
-title: Eseguire processi U-SQL in locale-Azure Data Lake SDK U-SQL
+title: Eseguire i processi U-SQL in locale - Azure Data Lake U-SQL SDKRun U-SQL jobs locally - Azure Data Lake U-SQL SDK
 description: Informazioni su come eseguire e testare i processi di U-SQL locali con la riga di comando e le interfacce di programmazione nella workstation locale.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -9,10 +9,10 @@ ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
 ms.openlocfilehash: 51d9060eaf4b30c696ef2a3b5f798a31e2f2a98a
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71309693"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Esecuzione e test di U-SQL con Azure Data Lake U-SQL SDK
@@ -23,7 +23,7 @@ Per capire come eseguire in locale manualmente ed eseguire il debug di uno scrip
 
 ## <a name="install-azure-data-lake-u-sql-sdk"></a>Installare l'SDK U-SQL di Azure Data Lake
 
-È possibile ottenere l'SDK U-SQL di Azure Data Lake [qui](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) su Nuget.org. Prima di usarlo, è necessario assicurarsi di avere le dipendenze indicate di seguito.
+È possibile ottenere Azure Data Lake U-SQL SDK [qui](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) su Nuget.org. E prima di utilizzarlo, è necessario assicurarsi di avere dipendenze come segue.
 
 ### <a name="dependencies"></a>Dependencies
 
@@ -36,7 +36,7 @@ L'SDK U-SQL di Data Lake richiede le dipendenze seguenti:
 
     ![Windows 10 SDK ad esecuzione locale degli strumenti di Data Lake per Visual Studio](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-  - Installare [Strumenti Data Lake per Visual Studio](https://aka.ms/adltoolsvs). I file di Windows SDK e Visual C++ preassemblati sono disponibili in C:\Programmi (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. In questo caso il compilazione locale di U-SQL non è in grado di trovare le dipendenze automaticamente. È necessario specificare il relativo percorso CppSDK. È possibile copiare i file in un altro percorso o usarli così come sono.
+  - Installare [Data Lake Tools per Visual Studio](https://aka.ms/adltoolsvs). I file di Windows SDK e Visual C++ preassemblati sono disponibili in C:\Programmi (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. In questo caso il compilazione locale di U-SQL non è in grado di trovare le dipendenze automaticamente. È necessario specificare il relativo percorso CppSDK. È possibile copiare i file in un altro percorso o usarli così come sono.
 
 ## <a name="understand-basic-concepts"></a>Comprendere i concetti di base
 
@@ -120,7 +120,7 @@ Per l'esecuzione locale di U-SQL è necessaria una radice di dati specificata co
 
     Oltre a impostare la variabile di ambiente, è possibile specificare l'argomento **-CppSDK** quando si usa la riga di comando. Questo argomento sovrascrive la variabile di ambiente CppSDK predefinita.
 
-- Impostare la variabile di ambiente **LOCALRUN_DATAROOT**.
+- Impostare la variabile di ambiente **LOCALRUN_DATAROOT.**
 
     Definire una nuova variabile di ambiente denominata **LOCALRUN_DATAROOT** che punta alla cartella data-root.
 
@@ -154,7 +154,7 @@ Di seguito sono indicati gli argomenti facoltativi per **run**:
 |-OptFlags| |Elenco delimitato da virgole con i flag di ottimizzazione|
 
 
-Di seguito è riportato un esempio:
+Ad esempio:
 
     LocalRunHelper run -Script d:\test\test1.usql -WorkDir d:\test\bin -CodeBehind -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB –Parallel 5 -Verbose
 
@@ -223,7 +223,7 @@ Ecco un esempio d'uso:
 
 Le interfacce di programmazione si trovano tutte in LocalRunHelper.exe. È possibile usarle per integrare le funzionalità dell'SDK U-SQL e il framework di test di C# per scalare il test locale dello script U-SQL. In questo articolo verrà usato il progetto di unit test C# standard per mostrare come usare queste interfacce per testare lo script U-SQL.
 
-### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Passaggio 1: Creare C# unit test progetto e la configurazione
+### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Passaggio 1: Creare configurazione e progetto per unit test C#
 
 - Creare un progetto per unit test C# tramite File > Nuovo > Progetto > Visual C# > Test > Progetto unit test.
 - Aggiungere LocalRunHelper.exe come riferimento per il progetto. LocalRunHelper.exe si trova in \build\runtime\LocalRunHelper.exe nel pacchetto NuGet.
@@ -240,7 +240,7 @@ Le interfacce di programmazione si trovano tutte in LocalRunHelper.exe. È possi
 
 - Assicurarsi di copiare tutti i file di dipendenza in NugetPackage\build\runtime\ nella directory di lavoro del progetto che generalmente si trova in ProjectFolder\bin\x64\Debug.
 
-### <a name="step-2-create-u-sql-script-test-case"></a>Passaggio 2: Crea script U-SQL test case
+### <a name="step-2-create-u-sql-script-test-case"></a>Passaggio 2: Creare test case per lo script U-SQL
 
 Di seguito è riportato il codice di esempio per il test dello script U-SQL. Per i test, è necessario preparare script, file di input e file di output previsti.
 
@@ -326,7 +326,7 @@ Di seguito è riportato il codice di esempio per il test dello script U-SQL. Per
 
 ### <a name="programming-interfaces-in-localrunhelperexe"></a>Interfacce di programmazione in LocalRunHelper.exe
 
-LocalRunHelper.exe offre le interfacce di programmazione per la compilazione e l'esecuzione locale di U-SQL e così via. Le interfacce sono elencate come di seguito.
+LocalRunHelper.exe fornisce le interfacce di programmazione per la compilazione locale U-SQL, l'esecuzione e così via. Le interfacce sono elencate come segue.
 
 **Costruttore**
 
@@ -351,13 +351,13 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 |InputDir|string|La directory per i dati di input|
 |MessagePath|string|Il percorso del file dump del messaggio|
 |OutputDir|string|La directory per i dati di output|
-|Parallelismo|int|Il parallelismo per eseguire l'algebra|
-|ParentPid|int|Il PID dell'entità principale in cui il servizio esegue il monitoraggio per uscire, impostato su 0 o su un numero negativo se va ignorato|
+|Parallelismo|INT|Il parallelismo per eseguire l'algebra|
+|ParentPid|INT|Il PID dell'entità principale in cui il servizio esegue il monitoraggio per uscire, impostato su 0 o su un numero negativo se va ignorato|
 |ResultPath|string|Il percorso del file dump del risultato|
 |RuntimeDir|string|La directory di runtime|
 |ScriptPath|string|Indica dove trovare lo script|
 |Shallow|bool|Indica se la compilazione è superficiale o no|
-|TempDir|string|Directory Temp|
+|TempDir|string|Directory temporanea|
 |UseDataBase|string|Specifica il database da usare per la registrazione di assembly temporanei code-behind; master per impostazione predefinita|
 |WorkDir|string|La directory di lavoro preferita|
 
@@ -375,18 +375,18 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 ## <a name="faq-about-common-issue"></a>Domande frequenti sui problemi comuni
 
 ### <a name="error-1"></a>Errore 1:
-E_CSC_SYSTEM_INTERNAL: Errore interno. Could not load file or assembly 'ScopeEngineManaged.dll' or one of its dependencies. The specified module could not be found. (E_CSC_SYSTEM_INTERNAL: errore interno. Impossibile caricare il file o l'assembly 'ScopeEngineManaged.dll' o una delle sue dipendenze. Impossibile trovare il modulo specificato.)
+E_CSC_SYSTEM_INTERNAL: Internal error! Could not load file or assembly 'ScopeEngineManaged.dll' or one of its dependencies. The specified module could not be found. (E_CSC_SYSTEM_INTERNAL: errore interno. Impossibile caricare il file o l'assembly 'ScopeEngineManaged.dll' o una delle sue dipendenze. Impossibile trovare il modulo specificato.)
 
 Verificare quanto segue:
 
-- Assicurarsi di avere un ambiente x64. La piattaforma di destinazione di compilazione e l'ambiente di testing devono essere **x64, fare riferimento al passaggio 1: Creare C# unit test progetto e la** configurazione precedenti.
+- Assicurarsi di avere un ambiente x64. La piattaforma di destinazione di compilazione e l'ambiente di testing devono essere x64; fare riferimento alla sezione **Passaggio 1: Creare configurazione e progetto per unit test C#** sopra.
 - Assicurarsi di aver copiato nella directory di lavoro tutti i file di dipendenza presenti in NugetPackage\build\runtime\.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL di Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
-* Per registrare informazioni di diagnostica, vedere [Accesso ai log di diagnostica per Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md).
-* Per visualizzare una query più complessa, vedere [Analizzare i log dei siti Web con Analisi Azure Data Lake](data-lake-analytics-analyze-weblogs.md).
-* Per visualizzare i dettagli del processo, vedere [Usare Job Browser e Job View (Visualizzazione processo) per i processi di Azure Data Lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md).
-* Per usare la visualizzazione esecuzioni vertici, vedere [Usare la visualizzazione esecuzioni vertici in Azure Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
+* Per registrare le informazioni di diagnostica, vedere Accesso ai log di [diagnostica per Azure Data Lake Analytics.](data-lake-analytics-diagnostic-logs.md)
+* Per visualizzare una query più complessa, vedere Analizzare i log dei [siti Web usando Azure Data Lake Analytics.](data-lake-analytics-analyze-weblogs.md)
+* Per visualizzare i dettagli del processo, vedere Usare Job Browser e Job View per i processi di [Analisi di Azure Data Lake.](data-lake-analytics-data-lake-tools-view-jobs.md)
+* Per utilizzare la visualizzazione esecuzione dei vertici, vedere [Utilizzare la visualizzazione Esecuzione vertice in Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).

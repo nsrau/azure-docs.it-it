@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: esempi di configurazione del router'
+title: 'Esempi di configurazione del router Azure ExpressRoute: Router'
 description: In questa pagina vengono forniti esempi di configurazione di router per router Cisco e Juniper.
 services: expressroute
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.openlocfilehash: 2c37dadeb669fb88f858b5487379828a8dddec6c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74076656"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Esempi di configurazione del router per l'impostazione e la gestione del routing
@@ -32,7 +32,7 @@ Gli esempi di configurazione del router riportati di seguito si applicano a tutt
 ## <a name="cisco-ios-xe-based-routers"></a>Router basati su Cisco IOS-XE
 Gli esempi in questa sezione si applicano a qualsiasi router che esegue la famiglia di sistemi operativi IOS-XE.
 
-### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. configurazione di interfacce e interfacce secondarie
+### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. Configurazione di interfacce e sottointerfacce
 Sarà necessaria una sotto-interfaccia per peering in ogni router connesso a Microsoft. Una sotto-interfaccia può essere identificata mediante un ID VLAN o una coppia in stack di ID VLAN e indirizzo IP.
 
 **Definizione dell'interfaccia Dot1Q**
@@ -51,7 +51,7 @@ Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-int
      encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
      ip address <IPv4_Address><Subnet_Mask>
 
-### <a name="2-setting-up-ebgp-sessions"></a>2. impostazione delle sessioni eBGP
+### <a name="2-setting-up-ebgp-sessions"></a>2. Configurazione delle sessioni eBGP
 È necessario impostare una sessione BGP con Microsoft per ogni peering. L'esempio seguente consente di configurare una sessione BGP con Microsoft. Se l'indirizzo IPv4 usato per la sotto-interfaccia è a.b.c.d, l'indirizzo IP del router adiacente BGP (Microsoft) sarà a.b.c.d+1. L'ultimo ottetto dell'indirizzo IPv4 del router adiacente BGP sarà sempre un numero pari.
 
     router bgp <Customer_ASN>
@@ -63,7 +63,7 @@ Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-int
      exit-address-family
     !
 
-### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. configurazione dei prefissi da annunciare tramite la sessione BGP
+### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. Impostazione dei prefissi da annunciare durante la sessione BGP
 È possibile configurare il router per pubblicare i prefissi di selezione a Microsoft. Per eseguire questa operazione, usare l'esempio riportato di seguito.
 
     router bgp <Customer_ASN>
@@ -76,7 +76,7 @@ Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-int
      exit-address-family
     !
 
-### <a name="4-route-maps"></a>4. Route Maps
+### <a name="4-route-maps"></a>4. Mappe del percorso
 È possibile usare le mappe di routing e gli elenchi di prefissi per filtrare i prefissi propagati nella rete. È possibile usare l'esempio riportato di seguito per completare l'attività. Assicurarsi di avere impostato gli elenchi di prefissi appropriati.
 
     router bgp <Customer_ASN>
@@ -97,7 +97,7 @@ Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-int
 ## <a name="juniper-mx-series-routers"></a>Router serie Juniper MX
 Gli esempi in questa sezione si applicano a tutti i router serie Juniper MX.
 
-### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. configurazione di interfacce e interfacce secondarie
+### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. Configurazione di interfacce e sottointerfacce
 
 **Definizione dell'interfaccia Dot1Q**
 
@@ -132,7 +132,7 @@ Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-int
         }                                   
     }                           
 
-### <a name="2-setting-up-ebgp-sessions"></a>2. impostazione delle sessioni eBGP
+### <a name="2-setting-up-ebgp-sessions"></a>2. Configurazione delle sessioni eBGP
 È necessario impostare una sessione BGP con Microsoft per ogni peering. L'esempio seguente consente di configurare una sessione BGP con Microsoft. Se l'indirizzo IPv4 usato per la sotto-interfaccia è a.b.c.d, l'indirizzo IP del router adiacente BGP (Microsoft) sarà a.b.c.d+1. L'ultimo ottetto dell'indirizzo IPv4 del router adiacente BGP sarà sempre un numero pari.
 
     routing-options {
@@ -148,7 +148,7 @@ Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-int
         }                                   
     }
 
-### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. configurazione dei prefissi da annunciare tramite la sessione BGP
+### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. Impostazione dei prefissi da annunciare durante la sessione BGP
 È possibile configurare il router per pubblicare i prefissi di selezione a Microsoft. Per eseguire questa operazione, usare l'esempio riportato di seguito.
 
     policy-options {
@@ -173,7 +173,7 @@ Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-int
     }
 
 
-### <a name="4-route-maps"></a>4. Route Maps
+### <a name="4-route-maps"></a>4. Mappe del percorso
 È possibile usare le mappe di routing e gli elenchi di prefissi per filtrare i prefissi propagati nella rete. È possibile usare l'esempio riportato di seguito per completare l'attività. Assicurarsi di avere impostato gli elenchi di prefissi appropriati.
 
     policy-options {

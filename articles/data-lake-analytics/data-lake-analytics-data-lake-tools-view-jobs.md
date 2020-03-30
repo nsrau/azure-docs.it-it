@@ -1,5 +1,5 @@
 ---
-title: Usare Job browser & vista processi-Azure Data Lake Analytics
+title: Usare Job Browser & Job Job View - Azure Data Lake Analytics
 description: Questo articolo descrive come usare Browser processi e Vista processi per i processi di Azure Data Lake Analytics.
 ms.service: data-lake-analytics
 author: jasonwhowell
@@ -8,10 +8,10 @@ ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: conceptual
 ms.date: 08/02/2017
 ms.openlocfilehash: 2d33a6ec5ff6b687913914e9433b85765aaa7aec
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71309941"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Usare Browser processi e Vista processi per i processi di Azure Data Lake Analytics
@@ -32,7 +32,7 @@ Contiene informazioni dettagliate su un processo. Per aprire un processo, è pos
 
 La finestra di dialogo Job View (Visualizzazione processo) contiene:
 
-* Riepilogo processi
+* Riepilogo dei processi
   
     Aggiornare la visualizzazione del processo per mostrare le informazioni più recenti relative ai processi in esecuzione.
   
@@ -57,12 +57,12 @@ La finestra di dialogo Job View (Visualizzazione processo) contiene:
     * Job Result (Risultato processo): indica l'esito positivo o negativo. In ogni fase il processo potrebbe non riuscire.
     * Total Duration (Durata totale): il tempo reale tra l'ora di invio e l'ora di fine.
     * Total Compute Time (Tempo di calcolo totale): la somma del tempo di esecuzione di ogni vertice; questo valore può essere considerato come il tempo di esecuzione del processo in un solo vertice. Per altre informazioni sul vertice, fare riferimento all'opzione Total Vertices (Totale vertici).
-    * Submit Time/Start Time/End Time (Ora di invio/Ora di inizio/Ora di fine): ora in cui il servizio Data Lake Analytics riceve l'invio di un processo/avvia l'esecuzione del processo/termina il processo con esito positivo o negativo.
+    * Submit Time/Start Time/End Time: (Ora di invio/Ora di inizio/Ora di fine): ora in cui il servizio Data Lake Analytics riceve l'invio di un processo/avvia l'esecuzione del processo/termina il processo con esito positivo o negativo.
     * Compilation/Queued/Running (Compilazione/In coda/In esecuzione): il tempo reale trascorso durante la fase di preparazione/inserimento in coda/esecuzione.
     * Account: l'account Data Lake Analytics usato per l'esecuzione del processo.
     * Author (Autore): l'utente che ha inviato il processo; può essere l'account di una persona reale o un account di sistema.
-    * Priorità: la priorità del processo. Più è basso il numero, maggiore sarà la priorità. Interessa solo la sequenza di processi in coda. L'impostazione di una priorità più elevata non ha la precedenza sui processi in esecuzione.
-    * Parallelism (Parallelismo): il numero massimo richiesto di unità Azure Data Lake Analytics simultanee, note anche come vertici. Attualmente, un vertice è uguale a una VM con due memorie centrali virtuali e 6 GB di RAM, anche se questo valore potrebbe essere modificato negli aggiornamenti futuri di Data Lake Analytics.
+    * Priority (Priorità): la priorità del processo. Più è basso il numero, maggiore sarà la priorità. Interessa solo la sequenza di processi in coda. L'impostazione di una priorità più elevata non ha la precedenza sui processi in esecuzione.
+    * Parallelismo: il numero massimo richiesto di unità Azure Data Lake Analytics Unit (ADLAU) simultanee, note anche come vertici. Attualmente, un vertice è uguale a una VM con due memorie centrali virtuali e 6 GB di RAM, anche se questo valore potrebbe essere modificato negli aggiornamenti futuri di Data Lake Analytics.
     * Bytes Left (Byte restanti): byte da elaborare fino al completamento del processo.
     * Bytes read/written (Byte letti/scritti): byte che sono stati letti/scritti dopo l'avvio del processo.
     * Total vertices (Totale vertici): il processo è suddiviso in elementi di lavoro e ogni elemento è chiamato vertice. Questo valore descrive il numero di elementi di lavoro che costituiscono il processo. Un vertice può essere considerato come un'unità di processo di base, nota anche come Azure Data Lake Analytics Unit (ADLAU); i vertici possono essere eseguiti in parallelismo. 
@@ -86,9 +86,9 @@ La finestra di dialogo Job View (Visualizzazione processo) contiene:
     * SV1 Extract (Estrazione SV1): il nome di una fase, indicato da un numero e dal metodo dell'operazione.
     * 84 vertices (84 vertici): il conteggio totale di vertici in questa fase. La cifra indica il numero di elementi di lavoro in cui il processo è suddiviso in questa fase.
     * 12.90 s/vertex (12,90 s/vertice): il tempo medio di esecuzione di vertici per questa fase. Questo valore viene calcolato da SUM (tempo di esecuzione di ogni vertice)/(conteggio totale vertici). Se si assegnassero tutti i vertici eseguiti in parallelismo, l'intera fase verrebbe completata in 12,90 s. Se quindi tutto il lavoro in questa fase fosse eseguito in serie, il valore sarebbe numero vertici * tempo AVG.
-    * 850,895 rows written (850.895 righe scritte): il conteggio totale delle righe scritte in questa fase.
+    * 850,895 rows written (850,895 righe scritte): il conteggio totale delle righe scritte in questa fase.
     * R/W (L/S): la quantità di dati letti/scritti in questa fase, espressa in byte.
-    * Colori: i colori usati nella fase indicano lo stato dei vertici.
+    * I colori usati nella fase indicano lo stato dei vertici.
       
       * Il verde indica che il vertice è riuscito.
       * L'arancione indica che sono stati eseguiti nuovi tentativi per il vertice. Il vertice non ha avuto esito positivo, ma il sistema ha eseguito automaticamente un nuovo tentativo riuscito e la fase è stata completata correttamente. Se i nuovi tentativi non riescono, il colore diventa rosso e l'intero processo risulta non riuscito.
@@ -109,9 +109,9 @@ La finestra di dialogo Job View (Visualizzazione processo) contiene:
   * Vertex schedule executions (Esecuzioni pianificazione vertici): il tempo totale per cui i vertici sono stati pianificati.
   * Min/Average/Max Vertex data read (Dati vertici min/medi/max letti): la quantità minima/media/massima di dati letti di ogni vertice.
   * Duration (Durata): il tempo reale di una fase; è necessario caricare il profilo per visualizzare questo valore.
-  * Riproduzione processo
+  * Riproduzione del processo
     
-      Data Lake Analytics esegue i processi e archivia le informazioni di esecuzione sui vertici dei processi, ad esempio quando i vertici sono stati avviati o arrestati, hanno avuto esito negativo, i nuovi tentativi eseguiti e così via. Tutte le informazioni vengono registrate automaticamente nell'archivio query e archiviate nel relativo profilo del processo. È possibile scaricare il profilo del processo tramite Carica profilo nella visualizzazione processo; è possibile esaminare la riproduzione del processo dopo avere scaricato il profilo del processo.
+      Data Lake Analytics esegue i processi e archivia i vertici che eseguono le informazioni sui processi, ad esempio quando i vertici vengono avviati, arrestati, non riusciti e come vengono ritentati e così via. Tutte le informazioni vengono registrate automaticamente nell'archivio query e archiviate nel relativo profilo di processo. È possibile scaricare il profilo del processo tramite Carica profilo nella visualizzazione processo; è possibile esaminare la riproduzione del processo dopo avere scaricato il profilo del processo.
     
       Il processo di riproduzione è una visualizzazione di sintesi delle operazioni eseguite nel cluster. Consente di controllare lo stato di avanzamento del processo e rilevare visivamente eventuali colli di bottiglia o anomalie delle prestazioni in un periodo molto breve, in genere inferiore a 30 secondi.
   * Visualizzazione della mappa termica del processo 
@@ -129,9 +129,9 @@ La finestra di dialogo Job View (Visualizzazione processo) contiene:
     * Compute time (Tempo di calcolo): la mappa termica di SUM (tempo di esecuzione di ogni vertice); può essere considerato come il tempo necessario se tutte le operazioni nella fase fossero eseguite solo con 1 vertice.
     * Average execution time per node (Tempo medio di esecuzione per ogni nodo): la mappa termica di SUM (tempo di esecuzione di ogni vertice)/(numero di vertici). Se quindi si assegnassero tutti i vertici eseguiti in parallelismo, l'intera fase verrebbe completata in questo intervallo di tempo.
     * Input/Output throughput (Velocità effettiva di input/output): la mappa termica della velocità effettiva di input/output di ogni fase; consente di verificare se il processo è associato a operazioni di I/O.
-* Operazioni metadati
+* Operazioni sui metadati
   
-    È possibile eseguire alcune operazioni sui metadati nello script U-SQL, ad esempio creare un database, eliminare una tabella e così via. Queste operazioni vengono visualizzate in Metadata Operation (Operazione sui metadati) dopo la compilazione. Qui è possibile trovare asserzioni, creare e cancellare entità.
+    È possibile eseguire alcune operazioni sui metadati nello script U-SQL, ad esempio creare un database, eliminare una tabella e così via. Queste operazioni vengono visualizzate nell'operazione sui metadati dopo la compilazione. Qui è possibile trovare asserzioni, creare e cancellare entità.
   
     ![Operazioni sui metadati di visualizzazione processo di Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-metadata-operations.png)
 * Cronologia dello stato
@@ -163,7 +163,7 @@ Mostra informazioni dettagliate sul processo, inclusi gli script, le risorse e l
     Consente di trovare gli output di compilazione del processo archiviati nell'archivio query. Ad esempio, è possibile trovare "algebra.xml" che viene usato per mostrare il grafico del processo, l'assembly registrato e così via.
 * Vertex execution view (Visualizzazione esecuzioni vertici)
   
-    Mostra i dettagli di esecuzione dei vertici. Il profilo del processo archivia il log di esecuzione di ogni vertice, ad esempio i dati totali letti/scritti, il runtime, lo stato e così via. Tramite questa visualizzazione è possibile ottenere altre informazioni su come è stato eseguito un processo. Per altre informazioni vedere [Usare la visualizzazione esecuzioni di vertici in Azure Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
+    Mostra i dettagli di esecuzione dei vertici. Il profilo di processo archivia ogni log di esecuzione dei vertici, ad esempio i dati totali letti/scritti, il runtime, lo stato e così via. Tramite questa visualizzazione è possibile ottenere ulteriori dettagli sulla esecuzione di un processo. Per altre informazioni vedere [Usare la visualizzazione esecuzioni di vertici in Azure Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per registrare informazioni di diagnostica, vedere [Accesso ai log di diagnostica per Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)

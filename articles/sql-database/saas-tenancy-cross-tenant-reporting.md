@@ -1,5 +1,5 @@
 ---
-title: Creazione di report per query su più database
+title: Creazione di report di query su più database
 description: Reporting tra tenant tramite query distribuite.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewers: billgib,ayolubek
 ms.date: 01/25/2019
 ms.openlocfilehash: c863946934df9990c14e49ef1a0a82bbc55b27c6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822072"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Reporting tra tenant tramite query distribuite
@@ -32,7 +32,7 @@ In questa esercitazione si apprenderà:
 > * In che modo le viste globali in ogni database consentono l'esecuzione di query efficienti tra i tenant
 
 
-Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
+Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
 
 
 * È stata distribuita l'app del database per tenant SaaS Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Deploy and explore the Wingtip Tickets SaaS Database Per Tenant application](saas-dbpertenant-get-started-deploy.md) (Distribuire ed esplorare l'applicazione del database per tenant SaaS Wingtip Tickets)
@@ -52,7 +52,7 @@ Grazie alla distribuzione delle query tra i database tenant, la query elastica o
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Ottenere gli script dell'applicazione del database per tenant SaaS Wingtip Tickets
 
-Gli script e il codice sorgente dell'applicazione SaaS di database multi-tenant Wingtip Tickets sono disponibili nel repository [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) di GitHub. Leggere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets.
+Gli script di database a tenant multi-tenant Wingtip SaaS e il codice sorgente dell'applicazione sono disponibili nel repository [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub. Leggere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets.
 
 ## <a name="create-ticket-sales-data"></a>Creare i dati di vendita dei biglietti
 
@@ -95,7 +95,7 @@ Per esaminare la definizione della vista *Venues*:
    ![Viste](media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. Fare clic con il pulsante destro del mouse su **dbo.Venues**.
-3. Selezionare **Crea script per vista** > **CREATE in** > **Nuova finestra editor di query**.
+3. Selezionare **Visualizzazione script come** > **CREA per** > **creare una nuova finestra dell'editor di query**
 
 Creare uno script per qualsiasi altra vista *Venue* per scoprire come viene aggiunto *VenueId*.
 
@@ -105,7 +105,7 @@ Questo esercizio distribuisce il database _adhocreporting_, ovvero il database p
 
 1. In *PowerShell ISE* aprire ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReporting.ps1*. 
 
-1. Impostare **$DemoScenario = 2**, _distribuire un database di report ad hoc_.
+1. Impostare **$DemoScenario 2**, _Distribuisci database di report ad hoc_.
 
 1. Premere **F5** per eseguire lo script e creare il database *adhocreporting*.
 
@@ -127,7 +127,7 @@ Questo esercizio aggiunge lo schema (definizioni dell'origine dati esterna e del
 
     ![creare l'origine dati esterna](media/saas-tenancy-cross-tenant-reporting/create-external-data-source.png)
 
-   Le tabelle esterne che fanno riferimento alle viste globali descritte nella sezione precedente e definite con **DISTRIBUTION = SHARDED(VenueId)** . Dato che ogni *VenueId* corrisponde a un singolo database, ciò migliora le prestazioni per molti scenari, come illustrato nella sezione successiva.
+   Le tabelle esterne che fanno riferimento alle viste globali descritte nella sezione precedente e definite con **DISTRIBUTION = SHARDED(VenueId)**. Dato che ogni *VenueId* corrisponde a un singolo database, ciò migliora le prestazioni per molti scenari, come illustrato nella sezione successiva.
 
     ![creare tabelle esterne](media/saas-tenancy-cross-tenant-reporting/external-tables.png)
 
@@ -147,7 +147,7 @@ Dopo avere configurato il database *adhocreporting*, è possibile procedere ed e
 
 Quando si esamina il piano di esecuzione, passare il mouse sulle icone del piano per visualizzare i dettagli. 
 
-È importante sottolineare che l'impostazione **DISTRIBUTION = SHARDED(VenueId)** , usata per la definizione dell'origine dati esterna, consente di migliorare le prestazioni in molti scenari. Poiché ogni *VenueId* esegue il mapping a un singolo database, l'applicazione di filtri viene eseguita facilmente in remoto, restituendo solo i dati necessari.
+È importante sottolineare che l'impostazione **DISTRIBUTION = SHARDED(VenueId)**, usata per la definizione dell'origine dati esterna, consente di migliorare le prestazioni in molti scenari. Poiché ogni *VenueId* esegue il mapping a un singolo database, il filtraggio è facilmente eseguito in remoto, restituendo solo i dati necessari.
 
 1. Aprire ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql* in SQL Server Management Studio.
 2. Assicurarsi di essere connessi al database **adhocreporting**.
@@ -185,7 +185,7 @@ In questa esercitazione si è appreso come:
 > * Distribuire un database di reporting e definire lo schema necessario per eseguire query distribuite.
 
 
-Provare ora l'[esercitazione sull'analisi dei tenant](saas-tenancy-tenant-analytics.md) per esplorare l'estrazione dei dati in un database di analisi separato per elaborazioni analitiche più complesse.
+Eseguire ora l'[esercitazione sull'analisi dei tenant](saas-tenancy-tenant-analytics.md) per esaminare l'estrazione dei dati in un database di analisi separato per elaborazioni analitiche più complesse.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

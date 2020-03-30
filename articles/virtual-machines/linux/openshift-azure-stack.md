@@ -1,5 +1,5 @@
 ---
-title: Distribuire OpenShift in Azure Stack
+title: Deploy OpenShift in Azure Stack (Distribuire OpenShift in Azure Stack)
 description: Distribuire OpenShift in Azure Stack.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,17 +15,17 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: d6c73b8cd33aa85793a2ce839410065e03b97be7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74035539"
 ---
 # <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Distribuire OpenShift Container Platform in Azure Stack
 
 OpenShift può essere distribuito in Azure Stack. Esistono alcune differenze fondamentali tra Azure e Azure Stack perciò anche la distribuzione e le funzionalità saranno leggermente diverse.
 
-Attualmente, il Provider di servizi cloud di Azure non funziona in Azure Stack. Per questo motivo, non è possibile usare disk attach per l'archiviazione permanente in Azure Stack. È invece possibile configurare altre opzioni di archiviazione, ad esempio NFS, iSCSI, GlusterFS e così via. In alternativa, è possibile abilitare CNS e usare GlusterFS per l'archiviazione permanente. Se i CNS sono abilitati, tre nodi aggiuntivi verranno distribuiti con ulteriore spazio di archiviazione per l'utilizzo di GlusterFS.
+Attualmente, il Provider di servizi cloud di Azure non funziona in Azure Stack. Per questo motivo, non è possibile usare disk attach per l'archiviazione permanente in Azure Stack. È invece possibile configurare altre opzioni di archiviazione, ad esempio NFS, iSCSI, GlusterFS e così via. In alternativa, è possibile abilitare CNS e utilizzare GlusterFS per l'archiviazione permanente. Se i CNS sono abilitati, tre nodi aggiuntivi verranno distribuiti con ulteriore spazio di archiviazione per l'utilizzo di GlusterFS.
 
 Esistono diversi metodi per distribuire OpenShift Container Platform o OKD in Azure Stack:
 

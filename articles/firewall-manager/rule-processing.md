@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: victorh
 ms.openlocfilehash: 74e58c316651a1604984ac14c70a3a65d46d6d9f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73518203"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Logica di elaborazione delle regole del Firewall di Azure
@@ -28,10 +28,10 @@ La connettività in ingresso può essere abilitata configurando DNAT (Destinatio
 
 ## <a name="inherited-rules"></a>Regole ereditate
 
-Le raccolte di regole di rete ereditate da un criterio padre sono sempre classificate in ordine di priorità sopra le raccolte di regole di rete definite come parte del nuovo criterio. La stessa logica si applica anche alle raccolte di regole dell'applicazione. Tuttavia, le raccolte di regole di rete vengono sempre elaborate prima delle raccolte di regole dell'applicazione indipendentemente dall'ereditarietà.
+Le raccolte di regole di rete ereditate da un criterio padre vengono sempre classificate in ordine di priorità al di sopra delle raccolte di regole di rete definite come parte dei nuovi criteri. La stessa logica si applica anche alle raccolte di regole dell'applicazione. Le raccolte di regole di rete, tuttavia, vengono sempre elaborate prima delle raccolte di regole dell'applicazione indipendentemente dall'ereditarietà.
 
-Per impostazione predefinita, i criteri ereditano la modalità di intelligence per le minacce dei criteri padre. È possibile eseguire l'override impostando la modalità di intelligence per le minacce su un valore diverso nella pagina Impostazioni criteri. È possibile eseguire l'override solo con un valore più restrittivo. Se, ad esempio, il criterio padre è impostato su *avviso solo*, è possibile configurare questo criterio locale per l' *avviso e il rifiuto*, ma non è possibile disattivarlo.
+Per impostazione predefinita, i criteri ereditano la modalità di intelligence delle minacce dei criteri padre. È possibile eseguire l'override impostando la modalità Di Intelligence per le minacce su un valore diverso nella pagina delle impostazioni dei criteri. È possibile eseguire l'override solo con un valore più rigoroso. Ad esempio, se il criterio padre è impostato su *Solo avvisi*, è possibile configurare questo criterio locale su Invia avviso *e nega*, ma non è possibile disattivarlo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Scopri di più su Azure Firewall Manager Preview](overview.md)
+- [Altre informazioni sull'anteprima di Azure Firewall ManagerLearn more about Azure Firewall Manager Preview](overview.md)

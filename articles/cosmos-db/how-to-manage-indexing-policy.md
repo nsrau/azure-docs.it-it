@@ -1,16 +1,16 @@
 ---
 title: Gestire i criteri di indicizzazione in Azure Cosmos DB
-description: Informazioni su come gestire i criteri di indicizzazione, includere o escludere una proprietà dall'indicizzazione, come definire l'indicizzazione con diversi Azure Cosmos DB SDK
+description: Informazioni su come gestire i criteri di indicizzazione, includere o escludere una proprietà dall'indicizzazione, come definire l'indicizzazione usando SDK diversi di Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.openlocfilehash: 58a1ee13afa76b152723cb71d4037f9c31cc8d4e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252077"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gestire i criteri di indicizzazione in Azure Cosmos DB
@@ -19,7 +19,7 @@ In Azure Cosmos DB, i dati vengono indicizzati seguendo i [criteri di indicizzaz
 
 ## <a name="indexing-policy-examples"></a>Esempi di criteri di indicizzazione
 
-Di seguito sono riportati alcuni esempi di criteri di indicizzazione mostrati nel [formato JSON](index-policy.md#include-exclude-paths), che è il modo in cui vengono esposti nel portale di Azure. Gli stessi parametri possono essere impostati tramite l'interfaccia della riga di comando di Azure o qualsiasi SDK.
+Ecco alcuni esempi di criteri di indicizzazione illustrati nel formato JSON, ovvero il modo in cui vengono esposti nel portale di Azure.Here are some examples of indexing policies shown in [their JSON format,](index-policy.md#include-exclude-paths)which is how they are exposed on the Azure portal. Gli stessi parametri possono essere impostati tramite l'interfaccia della riga di comando di Azure o qualsiasi SDK.
 
 ### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Criteri di esclusione per escludere in modo selettivo alcuni percorsi delle proprietà
 
@@ -42,7 +42,7 @@ Di seguito sono riportati alcuni esempi di criteri di indicizzazione mostrati ne
     }
 ```
 
-Questo criterio di indicizzazione è equivalente a quello riportato di seguito, che imposta manualmente ```kind```, ```dataType```e ```precision``` sui rispettivi valori predefiniti. Queste proprietà non sono più necessarie per impostare in modo esplicito ed è possibile ometterle completamente dal criterio di indicizzazione (come illustrato nell'esempio precedente).
+Questo criterio di indicizzazione è equivalente a ```kind``` ```dataType```quello ```precision``` riportato di seguito che imposta manualmente , e sui relativi valori predefiniti. Queste proprietà non sono più necessarie per impostare in modo esplicito ed è possibile ometterle completamente dai criteri di indicizzazione (come illustrato nell'esempio precedente).
 
 ```json
     {
@@ -96,7 +96,7 @@ Questo criterio di indicizzazione è equivalente a quello riportato di seguito, 
     }
 ```
 
-Questo criterio di indicizzazione è equivalente a quello riportato di seguito, che imposta manualmente ```kind```, ```dataType```e ```precision``` sui rispettivi valori predefiniti. Queste proprietà non sono più necessarie per impostare in modo esplicito ed è possibile ometterle completamente dal criterio di indicizzazione (come illustrato nell'esempio precedente).
+Questo criterio di indicizzazione è equivalente a ```kind``` ```dataType```quello ```precision``` riportato di seguito che imposta manualmente , e sui relativi valori predefiniti. Queste proprietà non sono più necessarie per impostare in modo esplicito ed è possibile ometterle completamente dai criteri di indicizzazione (come illustrato nell'esempio precedente).
 
 ```json
     {
@@ -172,7 +172,7 @@ Questo criterio di indicizzazione è equivalente a quello riportato di seguito, 
 
 ## <a name="composite-indexing-policy-examples"></a>Esempi di criteri di indicizzazione composti
 
-Oltre a includere o escludere i percorsi per le singole proprietà, è anche possibile specificare un indice composto. Se si desidera eseguire una query con una clausola `ORDER BY` per più proprietà, è obbligatorio un [indice composto](index-policy.md#composite-indexes) su queste proprietà. Inoltre, gli indici compositi avranno un vantaggio in materia di prestazioni per le query che hanno un filtro e hanno una clausola ORDER BY su proprietà diverse.
+Oltre a includere o escludere i percorsi per le singole proprietà, è anche possibile specificare un indice composto. Se si desidera eseguire una query con una clausola `ORDER BY` per più proprietà, è obbligatorio un [indice composto](index-policy.md#composite-indexes) su queste proprietà. Inoltre, gli indici compositi diranno un vantaggio in termini di prestazioni per le query che dispongono di un filtro e hanno una clausola ORDER BY su proprietà diverse.
 
 ### <a name="composite-index-defined-for-name-asc-age-desc"></a>Indice composto definito per (nome cres, età disc):
 
@@ -201,7 +201,7 @@ Oltre a includere o escludere i percorsi per le singole proprietà, è anche pos
     }
 ```
 
-Per la query #1 e la #2 di query è necessario l'indice composto precedente per nome ed età:
+L'indice composito precedente in base al nome e all'età è necessario per #1 di query e #2 di query:The above composite index on name and age is required for Query #1 and Query #2:
 
 Query 1:
 
@@ -219,9 +219,9 @@ Query 2:
     ORDER BY c.name DESC, c.age ASC
 ```
 
-Questo indice composito trarrà vantaggio dalla #3 di query e #4 di query e ottimizza i filtri:
+Questo indice composito trarrà vantaggio da Query #3 ed Query #4 e ottimizzerà i filtri:This composite index will benefit Query #3 and Query #4 and optimize the filters:
 
-#3 di query:
+#3 query:
 
 ```sql
 SELECT *
@@ -230,7 +230,7 @@ WHERE c.name = "Tim"
 ORDER BY c.name DESC, c.age ASC
 ```
 
-#4 di query:
+#4 query:
 
 ```sql
 SELECT *
@@ -238,7 +238,7 @@ FROM c
 WHERE c.name = "Tim" AND c.age > 18
 ```
 
-### <a name="composite-index-defined-for-name-asc-age-asc-and-name-asc-age-desc"></a>Indice composto definito per (nome ASC, Age ASC) e (nome ASC, Age DESC):
+### <a name="composite-index-defined-for-name-asc-age-asc-and-name-asc-age-desc"></a>Indice composito definito per (nome ASC, età ASC) e (nome ASC, età DESC):
 
 È possibile definire più indici composti differenti entro lo stesso criterio di indicizzazione.
 
@@ -277,7 +277,7 @@ WHERE c.name = "Tim" AND c.age > 18
     }
 ```
 
-### <a name="composite-index-defined-for-name-asc-age-asc"></a>Indice composto definito per (nome ASC, Age ASC):
+### <a name="composite-index-defined-for-name-asc-age-asc"></a>Indice composito definito per (nome ASC, età ASC):
 
 È facoltativo specificare l'ordine. Se non specificato, l'ordine è crescente.
 
@@ -320,7 +320,7 @@ Questo criterio può essere usato in situazioni in cui la funzionalità [Time-to
 
 ### <a name="no-indexing"></a>Nessuna indicizzazione
 
-Questo criterio disattiva l'indicizzazione. Se `indexingMode` è impostato su `none`, non è possibile impostare una durata (TTL) sul contenitore.
+Questo criterio disattivirà l'indicizzazione. Se `indexingMode` è `none`impostato su , non è possibile impostare un valore TTL sul contenitore.
 
 ```json
     {
@@ -330,23 +330,23 @@ Questo criterio disattiva l'indicizzazione. Se `indexingMode` è impostato su `n
 
 ## <a name="updating-indexing-policy"></a>Aggiornamento dei criteri di indicizzazione
 
-In Azure Cosmos DB, i criteri di indicizzazione possono essere aggiornati utilizzando uno dei metodi seguenti:
+In Azure Cosmos DB, i criteri di indicizzazione possono essere aggiornati usando uno dei metodi seguenti:In Azure Cosmos DB, the indexing policy can be updated using any of the below methods:
 
 - dal portale di Azure
 - usando l'interfaccia della riga di comando di Azure
-- uso di PowerShell
+- utilizzo di PowerShell
 - usando uno degli SDK
 
 Un [aggiornamento dei criteri di indicizzazione](index-policy.md#modifying-the-indexing-policy) attiva una trasformazione dell'indice. Lo stato di avanzamento della trasformazione può essere monitorato anche dagli SDK.
 
 > [!NOTE]
-> Quando si aggiornano i criteri di indicizzazione, le Scritture in Azure Cosmos DB verranno interrotte. Durante la reindicizzazione, le query possono restituire risultati parziali durante l'aggiornamento dell'indice.
+> Quando si aggiornano i criteri di indicizzazione, le scritture in Azure Cosmos DB saranno ininterrotte. Durante la reindicizzazione, le query possono restituire risultati parziali durante l'aggiornamento dell'indice.
 
 ## <a name="use-the-azure-portal"></a>Usare il portale di Azure
 
 I contenitori di Azure Cosmos archiviano i criteri di indicizzazione come un documento JSON che il portale di Azure consente di modificare direttamente.
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale](https://portal.azure.com/)di Azure .
 
 1. Creare un nuovo account Azure Cosmos o selezionare un account esistente.
 
@@ -362,15 +362,15 @@ I contenitori di Azure Cosmos archiviano i criteri di indicizzazione come un doc
 
 ## <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
 
-Per creare un contenitore con criteri di indicizzazione personalizzati, vedere [creare un contenitore con criteri di indice personalizzati usando l'interfaccia](manage-with-cli.md#create-a-container-with-a-custom-index-policy) della riga di comando
+Per creare un contenitore con un criterio di indicizzazione personalizzato, vedere Creare un contenitore con criteri di [indice personalizzati tramite l'interfaccia della riga di comandoTo](manage-with-cli.md#create-a-container-with-a-custom-index-policy) create a container with a custom indexing policy see, Create a container with a custom index policy using CLI
 
 ## <a name="use-powershell"></a>Usare PowerShell
 
-Per creare un contenitore con criteri di indicizzazione personalizzati, vedere [creare un contenitore con criteri di indice personalizzati usando PowerShell](manage-with-powershell.md#create-container-custom-index)
+Per creare un contenitore con un criterio di indicizzazione personalizzato, vedere Creare un contenitore con un criterio di [indice personalizzato tramite PowershellTo](manage-with-powershell.md#create-container-custom-index) create a container with a custom indexing policy see, Create a container with a custom index policy using Powershell
 
 ## <a name="use-the-net-sdk-v2"></a>Usare .NET SDK v2
 
-L'oggetto `DocumentCollection` di [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) espone una proprietà `IndexingPolicy` che consente di modificare la `IndexingMode` e aggiungere o rimuovere `IncludedPaths` e `ExcludedPaths`.
+L'oggetto `DocumentCollection` di [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) espone `IndexingPolicy` una `IndexingMode` proprietà che `IncludedPaths` consente `ExcludedPaths`di modificare e aggiungere o rimuovere e .
 
 ```csharp
 // Retrieve the container's details
@@ -398,9 +398,9 @@ ResourceResponse<DocumentCollection> container = await client.ReadDocumentCollec
 long indexTransformationProgress = container.IndexTransformationProgress;
 ```
 
-## <a name="use-the-net-sdk-v3"></a>Usare .NET SDK V3
+## <a name="use-the-net-sdk-v3"></a>Utilizzare .NET SDK V3
 
-L'oggetto `ContainerProperties` di [.NET SDK V3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (vedere [questa Guida introduttiva](create-sql-api-dotnet.md) per quanto riguarda l'utilizzo) espone una proprietà `IndexingPolicy` che consente di modificare la `IndexingMode` e aggiungere o rimuovere `IncludedPaths` e `ExcludedPaths`.
+`ContainerProperties` L'oggetto di [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (vedere [questa Guida introduttiva](create-sql-api-dotnet.md) relativa al relativo utilizzo) espone una `IndexingPolicy` proprietà che consente di modificare e `IndexingMode` aggiungere o rimuovere `IncludedPaths` e `ExcludedPaths`.
 
 ```csharp
 // Retrieve the container's details
@@ -424,7 +424,7 @@ containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<Co
 await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
-Per tenere traccia dello stato di avanzamento della trasformazione dell'indice, passare un oggetto `RequestOptions` che imposta la proprietà `PopulateQuotaInfo` su `true`, quindi recuperare il valore dall'intestazione della risposta `x-ms-documentdb-collection-index-transformation-progress`.
+Per tenere traccia dello stato `RequestOptions` di avanzamento della trasformazione dell'indice, passare un oggetto che imposta la `PopulateQuotaInfo` proprietà su `true`, quindi recuperare il valore dall'intestazione della `x-ms-documentdb-collection-index-transformation-progress` risposta.
 
 ```csharp
 // retrieve the container's details
@@ -433,7 +433,7 @@ ContainerResponse containerResponse = await client.GetContainer("database", "con
 long indexTransformationProgress = long.Parse(containerResponse.Headers["x-ms-documentdb-collection-index-transformation-progress"]);
 ```
 
-Quando si definiscono i criteri di indicizzazione personalizzati durante la creazione di un nuovo contenitore, l'SDK V3 Fluent API consente di scrivere questa definizione in modo conciso ed efficiente:
+Quando si definisce un criterio di indicizzazione personalizzato durante la creazione di un nuovo contenitore, l'API fluente dell'SDK V3 consente di scrivere questa definizione in modo conciso ed efficiente:When defining a custom indexing policy while creating a new container, the SDK V3's fluent API lets you write this definition in acise and efficient way:
 
 ```csharp
 await client.GetDatabase("database").DefineContainer(name: "container", partitionKeyPath: "/myPartitionKey")
@@ -541,19 +541,19 @@ containerResponse.subscribe(result -> {
 
 L'interfaccia `ContainerDefinition` di [Node.js SDK](https://www.npmjs.com/package/@azure/cosmos) (vedere [questo Avvio rapido](create-sql-api-nodejs.md) per quanto riguarda l'utilizzo) espone una proprietà `indexingPolicy` che consente di modificare `indexingMode` e aggiungere o rimuovere `includedPaths` e `excludedPaths`.
 
-Recuperare i dettagli del contenitore
+Recuperare i dettagli del contenitoreRetrieve the container's details
 
 ```javascript
 const containerResponse = await client.database('database').container('container').read();
 ```
 
-Impostare la modalità di indicizzazione su coerente
+Impostare la modalità di indicizzazione su una coerenza
 
 ```javascript
 containerResponse.body.indexingPolicy.indexingMode = "consistent";
 ```
 
-Aggiungere un percorso incluso, incluso un indice spaziale
+Aggiungere il percorso incluso, incluso un indice spazialeAdd included path including a spatial index
 
 ```javascript
 containerResponse.body.indexingPolicy.includedPaths.push({
@@ -584,7 +584,7 @@ containerResponse.body.indexingPolicy.includedPaths.push({
   });
 ```
 
-Aggiungi percorso escluso
+Aggiungi tracciato escluso
 
 ```javascript
 containerResponse.body.indexingPolicy.excludedPaths.push({ path: '/name/*' });
@@ -609,22 +609,22 @@ const indexTransformationProgress = replaceResponse.headers['x-ms-documentdb-col
 
 ## <a name="use-the-python-sdk-v3"></a>Usare Python SDK V3
 
-Quando si usa [Python SDK V3](https://pypi.org/project/azure-cosmos/) (vedere [questa Guida introduttiva](create-sql-api-python.md) per quanto riguarda l'utilizzo), la configurazione del contenitore viene gestita come dizionario. Da questo dizionario, è possibile accedere ai criteri di indicizzazione e a tutti i relativi attributi.
+Quando si usa [Python SDK V3](https://pypi.org/project/azure-cosmos/) (vedere [questa Guida introduttiva](create-sql-api-python.md) relativa al relativo utilizzo), la configurazione del contenitore viene gestita come dizionario. Da questo dizionario, è possibile accedere ai criteri di indicizzazione e a tutti i relativi attributi.
 
-Recuperare i dettagli del contenitore
+Recuperare i dettagli del contenitoreRetrieve the container's details
 
 ```python
 containerPath = 'dbs/database/colls/collection'
 container = client.ReadContainer(containerPath)
 ```
 
-Impostare la modalità di indicizzazione su coerente
+Impostare la modalità di indicizzazione su una coerenza
 
 ```python
 container['indexingPolicy']['indexingMode'] = 'consistent'
 ```
 
-Definire un criterio di indicizzazione con un percorso incluso e un indice spaziale
+Definire un criterio di indicizzazione con un percorso incluso e un indice spazialeDefine an indexing policy with an included path and a spatial index
 
 ```python
 container["indexingPolicy"] = {
@@ -638,7 +638,7 @@ container["indexingPolicy"] = {
 }
 ```
 
-Definire un criterio di indicizzazione con un percorso escluso
+Definire un criterio di indicizzazione con un percorso esclusoDefine an indexing policy with an excluded path
 
 ```python
 container["indexingPolicy"] = {
@@ -648,7 +648,7 @@ container["indexingPolicy"] = {
 }
 ```
 
-Aggiungere un indice composito
+Aggiungere un indice compositoAdd a composite index
 
 ```python
 container['indexingPolicy']['compositeIndexes'] = [
@@ -671,11 +671,11 @@ Aggiornare il contenitore con le modifiche
 response = client.ReplaceContainer(containerPath, container)
 ```
 
-## <a name="use-the-python-sdk-v4"></a>Usare Python SDK v4
+## <a name="use-the-python-sdk-v4"></a>Utilizzare Python SDK V4
 
-Quando si usa [Python SDK v4](https://pypi.org/project/azure-cosmos/), la configurazione del contenitore viene gestita come dizionario. Da questo dizionario, è possibile accedere ai criteri di indicizzazione e a tutti i relativi attributi.
+Quando si utilizza [Python SDK V4](https://pypi.org/project/azure-cosmos/), la configurazione del contenitore viene gestita come dizionario. Da questo dizionario, è possibile accedere ai criteri di indicizzazione e a tutti i relativi attributi.
 
-Recuperare i dettagli del contenitore
+Recuperare i dettagli del contenitoreRetrieve the container's details
 
 ```python
 database_client = cosmos_client.get_database_client('database')
@@ -683,7 +683,7 @@ container_client = database_client.get_container_client('container')
 container = container_client.read()
 ```
 
-Impostare la modalità di indicizzazione su coerente
+Impostare la modalità di indicizzazione su una coerenza
 
 ```python
 indexingPolicy = {
@@ -691,7 +691,7 @@ indexingPolicy = {
 }
 ```
 
-Definire un criterio di indicizzazione con un percorso incluso e un indice spaziale
+Definire un criterio di indicizzazione con un percorso incluso e un indice spazialeDefine an indexing policy with an included path and a spatial index
 
 ```python
 indexingPolicy = {
@@ -704,7 +704,7 @@ indexingPolicy = {
 }
 ```
 
-Definire un criterio di indicizzazione con un percorso escluso
+Definire un criterio di indicizzazione con un percorso esclusoDefine an indexing policy with an excluded path
 
 ```python
 indexingPolicy = {
@@ -714,7 +714,7 @@ indexingPolicy = {
 }
 ```
 
-Aggiungere un indice composito
+Aggiungere un indice compositoAdd a composite index
 
 ```python
 indexingPolicy['compositeIndexes'] = [

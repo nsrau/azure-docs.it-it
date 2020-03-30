@@ -1,6 +1,6 @@
 ---
-title: Funzionalità di richiesta dei dati del cliente per i dispositivi di Azure DPS
-description: Per i dispositivi gestiti nel servizio Device provisioning di Azure (DPS) personali, questo articolo illustra come esportare o eliminare i dati personali da parte degli amministratori.
+title: Funzionalità di richiesta dati dei clienti per i dispositivi DPS di AzureCustomer data request features for Azure DPS devices
+description: Per i dispositivi gestiti nel servizio di provisioning dei dispositivi di Azure che sono personali, questo articolo mostra agli amministratori come esportare o eliminare i dati personali.
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/16/2018
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 1dcf1b9f62f94b8f75ef2fe77f3e237a387c53eb
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73890642"
 ---
-# <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dati dei clienti
+# <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dei dati dei clienti
 
 Il servizio Device Provisioning in hub IoT di Azure è un servizio API REST basato su cloud orientato ai clienti aziendali che attiva il provisioning completamente automatico dei dispositivi su hub IoT con una protezione che inizia dal dispositivo e termina nel cloud.
 
@@ -29,7 +29,7 @@ Gli amministratori del tenant possono usare il portale di Azure o le API REST de
 > [!NOTE]
 > I dispositivi che sono stati sottoposti a provisioning nell'hub IoT tramite il servizio di provisioning di dispositivi presentano dati aggiuntivi archiviati nel servizio hub IoT. Vedere la [documentazione di riferimento dell'hub IoT](../iot-hub/iot-hub-customer-data-requests.md) per effettuare una richiesta completa per un determinato dispositivo.
 
-## <a name="deleting-customer-data"></a>Eliminazione di dati del cliente
+## <a name="deleting-customer-data"></a>Eliminazione dei dati dei clienti
 
 Il servizio di provisioning di dispositivi archivia le registrazioni e i record di registrazione. Le registrazioni contengono informazioni sui dispositivi sui quali è possibile eseguire il provisioning e i record di registrazione mostrano i dispositivi che sono già stati sottoposti al processo di provisioning.
 
@@ -43,7 +43,7 @@ Per altre informazioni, vedere l'argomento relativo a [come gestire le registraz
 * Per eliminare le informazioni di registrazione per un gruppo di dispositivi è possibile usare [Device Enrollment group - Delete](/rest/api/iot-dps/deleteenrollmentgroup/deleteenrollmentgroup) (Registrazione gruppo di dispositivi - Elimina).
 * Per eliminare le informazioni sui dispositivi che sono stati sottoposti a provisioning, è possibile usare [Registration State - Delete Registration State](/rest/api/iot-dps/deletedeviceregistrationstate/deletedeviceregistrationstate) (Stato di registrazione - Elimina stato di registrazione).
 
-## <a name="exporting-customer-data"></a>Esportazione di dati dei clienti
+## <a name="exporting-customer-data"></a>Esportazione dei dati dei clienti
 
 Il servizio di provisioning di dispositivi archivia le registrazioni e i record di registrazione. Le registrazioni contengono informazioni sui dispositivi sui quali è possibile eseguire il provisioning e i record di registrazione mostrano i dispositivi che sono già stati sottoposti al processo di provisioning.
 
@@ -62,6 +62,6 @@ Per altre informazioni su come gestire le registrazioni, vedere l'argomento rela
 
 ## <a name="links-to-additional-documentation"></a>Collegamenti a documentazione aggiuntiva
 
-La documentazione completa per le API per il provisioning di dispositivi si trova in [https://docs.microsoft.com/rest/api/iot-dps](https://docs.microsoft.com/rest/api/iot-dps).
+La documentazione completa per le API [https://docs.microsoft.com/rest/api/iot-dps](https://docs.microsoft.com/rest/api/iot-dps)del servizio Device Provisioning si trova in .
 
 [Funzionalità di richiesta dati dei clienti](../iot-hub/iot-hub-customer-data-requests.md) hub IoT.

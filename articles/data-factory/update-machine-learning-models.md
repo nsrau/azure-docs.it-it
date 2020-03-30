@@ -1,5 +1,5 @@
 ---
-title: Aggiornare i modelli di Machine Learning usando Azure Data Factory
+title: Aggiornare i modelli di Apprendimento automatico con Azure Data FactoryUpdate machine learning models using Azure Data Factory
 description: Illustra come creare pipeline predittive tramite Azure Data Factory e Machine Learning
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.openlocfilehash: 3313c9c362a9b82cf7ed8db63479aaa5cf0c777e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73683236"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Aggiornare i modelli di Azure Machine Learning tramite l'attività Aggiorna risorsa
@@ -56,7 +56,7 @@ Il frammento JSON seguente definisce un'attività Esecuzione batch di Azure Mach
 }
 ```
 
-| Proprietà                      | Descrizione                              | Obbligatorio |
+| Proprietà                      | Descrizione                              | Obbligatoria |
 | :---------------------------- | :--------------------------------------- | :------- |
 | name                          | Nome dell'attività nella pipeline     | Sì      |
 | description                   | Testo che descrive l'attività.  | No       |
@@ -70,7 +70,7 @@ Il frammento JSON seguente definisce un'attività Esecuzione batch di Azure Mach
 
 L'intero processo di attivazione della ripetizione del training di un modello e dell'aggiornamento dei servizi Web predittivi prevede la procedura seguente:
 
-- Richiamare il **servizio Web di training**  tramite l'**attività Esecuzione batch**. Richiamare un servizio Web di training equivale a richiamare un servizio Web predittivo descritto in [Create predictive pipelines using Azure Machine Learning and Data Factory Batch Execution activity](transform-data-using-machine-learning.md) (Creare pipeline predittive tramite Azure Machine Learning e l'attività Esecuzione Batch di Data Factory). L'output del servizio Web di training è un file iLearner che è possibile usare per aggiornare il servizio Web predittivo.
+- Richiamare il **servizio Web di training ** tramite l'**attività Esecuzione batch**. Richiamare un servizio Web di training equivale a richiamare un servizio Web predittivo descritto in [Create predictive pipelines using Azure Machine Learning and Data Factory Batch Execution activity](transform-data-using-machine-learning.md) (Creare pipeline predittive tramite Azure Machine Learning e l'attività Esecuzione Batch di Data Factory). L'output del servizio Web di formazione è un file iLearner che è possibile utilizzare per aggiornare il servizio Web predittivo.
 - Richiamare l'**endpoint di aggiornamento risorse** del **servizio Web predittivo** tramite l'**attività Aggiorna risorsa** per aggiornare il servizio Web con il nuovo modello con training.
 
 ## <a name="azure-machine-learning-linked-service"></a>Servizio collegato di Azure Machine Learning
@@ -267,13 +267,13 @@ La pipeline include due attività: **AzureMLBatchExecution** e **AzureMLUpdateRe
 }
 ```
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere gli articoli seguenti che illustrano come trasformare i dati in altri modi:
+Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione dei dati:
 
 * [Attività U-SQL](transform-data-using-data-lake-analytics.md)
 * [Attività Hive](transform-data-using-hadoop-hive.md)
-* [Attività Pig](transform-data-using-hadoop-pig.md)
+* [Attività suina](transform-data-using-hadoop-pig.md)
 * [Attività MapReduce](transform-data-using-hadoop-map-reduce.md)
-* [Attività di streaming di Hadoop](transform-data-using-hadoop-streaming.md)
+* [Attività di Hadoop Streaming](transform-data-using-hadoop-streaming.md)
 * [Attività Spark](transform-data-using-spark.md)
 * [Attività personalizzata .NET](transform-data-using-dotnet-custom-activity.md)
 * [Attività stored procedure](transform-data-using-stored-procedure.md)

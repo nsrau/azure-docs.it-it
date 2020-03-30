@@ -1,5 +1,5 @@
 ---
-title: Usare immagini client Windows in Azure
+title: Usare le immagini client Windows in AzureUse Windows client images in Azure
 description: Come usare i vantaggi della sottoscrizione di Visual Studio per distribuire Windows 7, Windows 8 o Windows 10 in Azure per scenari di sviluppo/test
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: 812e6d251943d4418666f221ad8b5d2b6e501736
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74039495"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Usare client Windows in Azure per scenari di sviluppo/test
@@ -26,8 +26,8 @@ A condizione di disporre di una sottoscrizione appropriata di Visual Studio (in 
 ![Dettagli delle immagini sul portale di Azure](./media/client-images/windows-client-msdn-images.png) 
 
 > [!NOTE]
-> Per le immagini Windows 10 Pro e Windows 10 Pro N nella raccolta di Azure, fare riferimento a [Come distribuire Windows 10 in Azure con Multitenant Hosting Rights](windows-desktop-multitenant-hosting-deployment.md)
->![Dettagli immagine Pro del portale di Azure](./media/client-images/windows-client-pro-images.png) 
+> Per l'immagine Di Windows 10 Pro e Windows 10 Pro N nella raccolta di Azure, vedere Come distribuire Windows 10 in Azure con i dettagli di Hosting Rights Pro Image multitenant dal portale di AzureFor Windows 10 Pro and Windows 10 Pro N image in Azure Gallery, please refer to [How to deploy Windows 10 on Azure with Multitenant Hosting Rights](windows-desktop-multitenant-hosting-deployment.md)
+>![Pro Image details from the Azure portal](./media/client-images/windows-client-pro-images.png) 
 >
 
 ## <a name="subscription-eligibility"></a>Idoneità della sottoscrizione

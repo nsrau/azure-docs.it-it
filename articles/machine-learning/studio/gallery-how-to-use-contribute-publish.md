@@ -11,10 +11,10 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
 ms.openlocfilehash: 882b52b74603465bd0a55a12fd9ef03f7b625046
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79204325"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Condividere e scoprire risorse in Azure AI Gallery
@@ -28,10 +28,10 @@ Questo sito include diverse risorse che è possibile usare per sviluppare soluzi
 
 Azure AI Gallery contiene diverse risorse di vario tipo fornite come contributo da Microsoft e da membri della community di data science, incluse le seguenti:
 
-* **Esperimenti** : la raccolta contiene un'ampia gamma di esperimenti sviluppati in Azure Machine Learning Studio (classico). da veloci esperimenti di prova che illustrano una tecnica di apprendimento automatico specifica a soluzioni complete per la risoluzione di problemi di apprendimento automatico complessi.
+* **Esperimenti:** la raccolta contiene un'ampia gamma di esperimenti sviluppati in Azure Machine Learning Studio (classico). da veloci esperimenti di prova che illustrano una tecnica di apprendimento automatico specifica a soluzioni complete per la risoluzione di problemi di apprendimento automatico complessi.
 * **Esercitazioni**: sono disponibili diverse esercitazioni che illustrano concetti e tecnologie di Machine Learning e metodi avanzati per la risoluzione di vari problemi di Machine Learning.
 * **Raccolte**: una raccolta consente di raggruppare esperimenti, API e altre risorse di Gallery dedicati a un concetto o una soluzione specifici.
-* **Moduli personalizzati** : è possibile scaricare moduli personalizzati nell'area di lavoro di studio (classica) da usare nei propri esperimenti.
+* **Moduli personalizzati:** è possibile scaricare moduli personalizzati nell'area di lavoro di Studio (classica) da utilizzare nei propri esperimenti.
 * **Notebook di Jupyter**: i notebook di Jupyter includono codice, visualizzazioni di dati e documentazione in un'unica area di disegno interattiva. I notebook in Cortana Intelligence Gallery offrono esercitazioni e spiegazioni dettagliate su tecniche e soluzioni avanzate di apprendimento automatico.
 
 ## <a name="discover-and-contribute"></a>Scoprire e contribuire
@@ -52,7 +52,7 @@ Quando si esegue l'accesso si diventa membri della community di Cortana Intellig
 
 ## <a name="download-experiments-modules-notebooks"></a>Scaricare esperimenti, moduli e notebook
 
-È possibile scaricare gli **esperimenti**, i **moduli personalizzati**e i **notebook di Jupyter** nell'area di lavoro Machine Learning Studio (classica) da usare per lo sviluppo di soluzioni personalizzate.
+È possibile scaricare **esperimenti,** **moduli personalizzati**e blocchi appunti **di Jupyter** nella propria area di lavoro di Machine Learning Studio (classica) da utilizzare nello sviluppo di soluzioni personalizzate.
 
 Per scaricare una risorsa da AI Gallery:
 
@@ -61,15 +61,15 @@ Per scaricare una risorsa da AI Gallery:
 
 ![Aprire un elemento da AI Gallery](./media/gallery-how-to-use-contribute-publish/open-experiment-from-gallery.png)
 
-Per scaricare una risorsa da studio (classico):
+Per scaricare una risorsa da Studio (classico):
 
-1. In studio (classico) selezionare **nuovo**.
+1. In Studio (classico), selezionare **NUOVO**.
 1. Selezionare **Modulo**, **Esperimento** o **Notebook**.
 1. Sfogliare o cercare una risorsa di Gallery.
 1. Spostare il mouse sulla risorsa e quindi selezionare **Open in Studio** (Apri in Studio).
-    ![l'esperimento Open Gallery dall'interno di Machine Learning Studio (classico)](./media/gallery-how-to-use-contribute-publish/open-experiment-from-studio.png)
+    ![Aprire l'esperimento Raccolta dall'interno di Machine Learning Studio (classico)Open Gallery experiment from inside Machine Learning Studio (classic)](./media/gallery-how-to-use-contribute-publish/open-experiment-from-studio.png)
 
-Una volta che la risorsa si trova nell'area di lavoro, è possibile personalizzarla e usarla come qualsiasi elemento creato in studio (classico).
+Una volta che la risorsa si trova nell'area di lavoro, è possibile personalizzarla e usarla come qualsiasi elemento creato in Studio (classico).
 
 Per usare un modulo personalizzato importato:
 
@@ -79,16 +79,16 @@ Per usare un modulo personalizzato importato:
 
 ## <a name="contribute-experiments"></a>Pubblicare esperimenti
 
-Per dimostrare le tecniche di analisi o per consentire ad altri utenti di iniziare a sviluppare le proprie soluzioni, è possibile contribuire con **esperimenti** sviluppati in studio (classico).
+Per dimostrare le tecniche di analisi o per dare agli altri un punto di partenza sulle loro soluzioni, puoi contribuire agli **esperimenti** che hai sviluppato in Studio (classico).
 Quando gli altri si imbattono in uno di tali contributi in Gallery, è possibile conoscerne il numero di visualizzazioni e download.
 Gli utenti possono anche aggiungere commenti e condividere il contributo con altri membri della community di data science.
 È persino possibile accedere con uno strumento di discussione come Disqus per ricevere notifiche in caso di commenti ai contributi.
 
-1. Aprire l'esperimento in studio (classico).
+1. Apri l'esperimento in Studio (classico).
 
 1. Nell'elenco di azioni sotto l'area di disegno dell'esperimento selezionare **Publish to Gallery** (Pubblica in Gallery).
 
-1. In Gallery immettere valori descrittivi nei campi **Nome** e **Tag**. Evidenziare le tecniche usate o i problemi reali risolvibili con l'esperimento. Un esempio di titolo di esperimento descrittivo è "classificazione binaria: Analisi del sentiment Twitter".
+1. In Gallery immettere valori descrittivi nei campi **Nome** e **Tag**. Evidenziare le tecniche usate o i problemi reali risolvibili con l'esperimento. Un esempio di titolo descrittivo dell'esperimento è "Classificazione binaria: analisi del sentiment di Twitter".
 
 1. Nella casella **RIEPILOGO** immettere un riepilogo dell'esperimento. Descrivere brevemente il problema che viene risolto con l'esperimento e com'è stato affrontato.
 
@@ -116,7 +116,7 @@ Gli utenti possono anche aggiungere commenti e condividere il contributo con alt
 
 ### <a name="update-your-experiment"></a>Aggiornare l'esperimento
 
-Se si desidera, è possibile apportare modifiche al flusso di lavoro (moduli, parametri e così via) in un esperimento pubblicato in Gallery. In Machine Learning Studio (versione classica) apportare le modifiche desiderate all'esperimento e quindi eseguire di nuovo la pubblicazione. L'esperimento pubblicato verrà aggiornato con le modifiche apportate.
+Se si desidera, è possibile apportare modifiche al flusso di lavoro (moduli, parametri e così via) in un esperimento pubblicato in Gallery. In Machine Learning Studio (classico) apporta le modifiche che desideri apportare all'esperimento e quindi ripubblicalo. L'esperimento pubblicato verrà aggiornato con le modifiche apportate.
 
 È possibile modificare le informazioni seguenti dell'esperimento direttamente in Gallery:
 
@@ -185,11 +185,11 @@ Il contributo si trova ora in Azure AI Gallery. I contributi vengono elencati ne
 
 Le immagini inviate con il proprio contributo vengono usate per creare un riquadro. È consigliabile che le immagini siano inferiori a 500 KB, con proporzioni di 3:2 e una risoluzione di 960 &#215; 640.
 
-**Cosa accade al set di dati usato in un esperimento? Il set di dati è pubblicato anche nella raccolta?**
+**Cosa succede al set di dati usato in un esperimento? Il set di dati è pubblicato anche nella Galleria?**
 
 Se il set di dati non è stato importato tramite il modulo di importazione dati ma fa parte dell'esperimento, viene pubblicato in Gallery contestualmente all'esperimento. Assicurarsi che il set di dati pubblicato con l'esperimento disponga dei termini di licenza appropriati. I termini di licenza devono consentire a chiunque di condividere e scaricare i dati. I contributi pubblicati in Cortana Intelligence Gallery sono coperti dalle [Condizioni per l'utilizzo](https://azure.microsoft.com/support/legal/website-terms-of-use/)di Azure.
 
-**Ho un esperimento che usa un modulo Import data per eseguire il pull dei dati da Azure HDInsight o SQL Server. Usa le credenziali personali per recuperare i dati. È possibile pubblicare questo tipo di esperimento? Come posso assicurarmi che le mie credenziali non verranno condivise?**
+**I have an experiment that uses an Import Data module to pull data from Azure HDInsight or SQL Server. Usa le mie credenziali per recuperare i dati. Posso pubblicare questo tipo di esperimento? Come posso essere certo che le mie credenziali non verranno condivise?**
 
 Al momento non è possibile pubblicare in Gallery un esperimento che usa credenziali.
 

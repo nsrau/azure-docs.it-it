@@ -1,6 +1,6 @@
 ---
-title: Esaminare le stime dei costi nell'Azure Site Recovery Deployment Planner
-description: Questo articolo descrive come rivedere le stime dei costi nell'Azure Site Recovery Deployment Planner per il ripristino di emergenza di VMware.
+title: Esaminare le stime dei costi in Pianificazione distribuzione di Azure Site RecoveryReview cost ssstimations in the Azure Site Recovery Deployment Planner
+description: In questo articolo viene descritto come esaminare le stime dei costi in Azure Site Recovery Deployment Planner for VMware disaster recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
 ms.openlocfilehash: 27678fff1c0322f9755e7726026c73934810d5d6
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73953334"
 ---
-# <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Esaminare le stime dei costi nell'Deployment Planner VMware 
+# <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Esaminare le stime dei costi in VMware Deployment Planner 
 
 Il report di Deployment Planner offre il riepilogo della stima dei costi nei fogli [Recommendations](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) (Raccomandazioni) e l'analisi dettagliata dei costi nel foglio Cost Estimation (Stima costi), che contiene l'analisi dettagliata dei costi per VM. 
 
 >[!Note]
->La versione corrente dello strumento Deployment Planner v 2.5 fornisce la stima dei costi per le macchine virtuali che eseguono la replica in Managed Disks.
+>La versione corrente dello strumento Deployment Planner v2.5 fornisce la stima dei costi per le macchine virtuali che replicano su dischi gestiti.
 
 ### <a name="cost-estimation-summary"></a>Riepilogo della stima dei costi 
-Il grafico mostra una vista di riepilogo del costo totale stimato per il ripristino di emergenza in Azure per l'area di destinazione scelta e la valuta specificata per la generazione del report.
+Il grafico offre la visualizzazione di riepilogo del costo stimato totale del ripristino di emergenza in Azure per l'area di destinazione scelta e la valuta specificata per la generazione del report.
 Riepilogo della stima dei costi
 
 ![Riepilogo della stima dei costi](media/site-recovery-vmware-deployment-planner-analyze-report/cost-estimation-summary-v2a.png)
@@ -88,7 +88,7 @@ I partner o i clienti di Azure che hanno diritto a qualsiasi sconto sul prezzo c
 ### <a name="number-of-virtual-machines-type-and-compute-cost-per-year"></a>Numero di macchine virtuali, tipo e costo di calcolo (all'anno)
 La tabella mostra il numero di VM Windows e non Windows e il relativo costo di calcolo per le esercitazioni sul ripristino di emergenza.
 
-### <a name="settings"></a>Settings 
+### <a name="settings"></a>Impostazioni 
 
 **Currency** (Valuta): valuta in cui viene generato il report. Cost duration (Durata costo): è possibile visualizzare tutti i costi per un mese o per l'intero anno. 
 
@@ -101,10 +101,10 @@ Per aggiungere manualmente le VM:
 
 * Number of VMs (Numero di VM), IaaS size (Your selection) (Dimensioni IaaS selezionate)
 * Storage type - Standard/Premium (Tipo di archiviazione - Standard/Premium)
-* Dimensioni totali di archiviazione della macchina virtuale (GB) del computer di origine
+* Dimensione totale dello spazio di archiviazione (GB) della macchina virtuale
 * Number of DR-Drills in a year (N. esercitazioni ripristino di emergenza in un anno) 
 * Each DR-Drill duration (Days) (Durata di ogni esercitazione sul ripristino di emergenza - giorni) 
-* OS Type (Tipo di sistema operativo)
+* Tipo di sistema operativo
 * Ridondanza dei dati 
 * Vantaggio Azure Hybrid
 
@@ -122,7 +122,7 @@ Per aggiungere manualmente le VM:
 
 **Storage type** (Tipo di archiviazione): tipo di archiviazione usato dalla VM. L'archiviazione può essere Standard o Premium.
 
-**Dimensioni di archiviazione totali VM (GB)** : spazio di archiviazione totale della VM di origine.
+**Dimensione totale dello spazio di archiviazione della macchina virtuale (GB):** lo spazio di archiviazione totale della macchina virtuale di origine.
 
 **Number of DR-Drills in a year** (N. esercitazioni ripristino di emergenza in un anno): numero di esercitazioni sul ripristino di emergenza eseguite in un anno. Il valore predefinito è 4 volte in un anno. È possibile modificarlo per VM specifiche oppure applicare il nuovo valore a tutte le VM immettendolo nella prima riga e facendo clic sul pulsante "Apply to all" (Applica a tutte). Il costo totale delle esercitazioni sul ripristino di emergenza viene calcolato in base al numero di esercitazioni in un anno e alla durata di ognuna.  
 
@@ -154,7 +154,7 @@ Azure Site Recovery Deployment Planner può generare il report dei costi con una
 |---|---|---|---|---|---|---|---|
 |ARS|Peso argentino ($)||AUD|Dollaro australiano ($)||BRL|Real brasiliano (R$)|
 |CAD|Dollaro canadese ($)||CHF|Franco svizzero (CHF)||DKK|Corona danese (kr)|
-|EUR|Euro (€)||GBP|Sterlina britannica (£)||HKD|Dollaro di Hong Kong (HK$)|
+|EUR|Euro (€)||GBP|Sterlina britannica (£)||HKD|Dollaro della RAS di Hong Kong (HK$)|
 |IDR|Rupia indonesiana (Rp)||INR|Rupia indiana (₹)||JPY|Yen giapponese (¥)|
 |KRW|Won coreano (₩)||MXN|Peso messicano (MXN$)||MYR|Ringgit malese (RM$)|
 |NOK|Corona norvegese (kr)||NZD|Dollaro neozelandese ($)||RUB|Rublo russo (руб)|

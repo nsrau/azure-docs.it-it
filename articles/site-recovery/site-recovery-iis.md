@@ -1,5 +1,5 @@
 ---
-title: Configurare il ripristino di emergenza per un'app Web IIS usando Azure Site Recovery
+title: Configurare il ripristino di emergenza per un'app Web IIS tramite Azure Site Recovery
 description: Informazioni su come eseguire la replica di macchine virtuali Web farm IIS usando Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 513a0f28fc03cbf24e35112245c9756d5ce00783
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73954657"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurare il ripristino di emergenza per un'applicazione Web basata su IIS multilivello
@@ -26,7 +26,7 @@ Una buona soluzione di ripristino di emergenza supporta la modellazione di piani
 
 Questo articolo descrive come proteggere un'applicazione Web basata su Internet Information Services (IIS) usando [Azure Site Recovery](site-recovery-overview.md). L'articolo illustra le procedure consigliate per la replica di un'applicazione Web a tre livelli basata su IIS in Azure. Spiega anche come eseguire un'analisi di ripristino di emergenza e come effettuare il failover dell'applicazione in Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, assicurarsi di conoscere le procedure per eseguire le attività seguenti:
 
@@ -69,7 +69,7 @@ Azure|ND|Sì
 
 Per avviare la replica di tutte le macchine virtuali Web farm basate su IIS in Azure, seguire le istruzioni descritte in [Esecuzione di un failover di test in Azure con Site Recovery](site-recovery-test-failover-to-azure.md).
 
-Se si usa un indirizzo IP statico, è possibile specificare l'indirizzo IP che dovrà essere usato dalla macchina virtuale. Per impostare l'indirizzo IP, passare a **impostazioni Calcolo e rete** > **IP DI DESTINAZIONE**.
+Se si usa un indirizzo IP statico, è possibile specificare l'indirizzo IP che dovrà essere usato dalla macchina virtuale. Per impostare l'indirizzo IP, passare a **Impostazioni di calcolo e rete** > **TARGET IP**.
 
 ![Screenshot che illustra come impostare l'indirizzo IP di destinazione nel riquadro Calcolo e rete di Site Recovery](./media/site-recovery-active-directory/dns-target-ip.png)
 

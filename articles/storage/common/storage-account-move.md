@@ -1,6 +1,6 @@
 ---
-title: Spostare un account di archiviazione di Azure in un'altra area | Microsoft Docs
-description: Viene illustrato come spostare un account di archiviazione di Azure in un'altra area.
+title: Spostare un account di archiviazione di Azure in un'altra area. Documenti Microsoft
+description: Viene illustrato come spostare un account di Archiviazione di Azure in un'altra area.
 services: storage
 author: normesta
 ms.service: storage
@@ -10,17 +10,17 @@ ms.date: 09/27/2019
 ms.author: normesta
 ms.reviewer: dineshm
 ms.openlocfilehash: 8ce949ac997ba7ee38cb057752d89f4b4d22388f
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73838714"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Spostare un account di archiviazione di Azure in un'altra area
 
-Per spostare un account di archiviazione, creare una copia dell'account di archiviazione in un'altra area. Spostare quindi i dati in tale account usando AzCopy o un altro strumento di propria scelta.
+Per spostare un account di archiviazione, creare una copia dell'account di archiviazione in un'altra area. Quindi, spostare i dati in tale account utilizzando AzCopy o un altro strumento di propria scelta.
 
-L'articolo spiega come:
+In questo articolo si apprenderà come:
 
 > [!div class="checklist"]
 > 
@@ -33,53 +33,53 @@ L'articolo spiega come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Verificare che i servizi e le funzionalità usati dall'account siano supportati nell'area di destinazione.
+- Verificare che i servizi e le funzionalità utilizzati dall'account siano supportati nell'area geografica di destinazione.
 
-- Per le funzionalità di anteprima, assicurarsi che la sottoscrizione sia consentita per l'area di destinazione.
+- Per le funzionalità di anteprima, verificare che la sottoscrizione sia inserita nella whitelist per l'area di destinazione.
 
 <a id="prepare" />
 
 ## <a name="prepare"></a>Preparazione
 
-Per iniziare, esportare e modificare un modello di Gestione risorse. 
+Per iniziare, esportare e quindi modificare un modello di Resource Manager.To get started, export, and then modify a Resource Manager template. 
 
 ### <a name="export-a-template"></a>Esportare un modello
 
 Questo modello contiene le impostazioni che descrivono l'account di archiviazione. 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Per esportare un modello utilizzando portale di Azure:
+Per esportare un modello tramite il portale di Azure:To export a template by using Azure portal:
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale](https://portal.azure.com)di Azure .
 
-2. Selezionare **tutte le risorse** e quindi selezionare l'account di archiviazione.
+2. Selezionare **Tutte le risorse** e quindi selezionare l'account di archiviazione.
 
-3. Selezionare > **impostazioni** > **Esporta modello**.
+3. Selezionare >**modello di esportazione** **impostazioni** > .
 
-4. Scegliere **Scarica** nel pannello **Esporta modello** .
+4. Scegliere **Scarica** nel pannello **Esporta modello.**
 
-5. Individuare il file zip scaricato dal portale e decomprimere il file in una cartella di propria scelta.
+5. Individuare il file .zip scaricato dal portale e decomprimerlo in una cartella di propria scelta.
 
-   Questo file zip contiene i file con estensione JSON che comprendono il modello e gli script per distribuire il modello.
+   Questo file zip contiene i file .json che costituiscono il modello e gli script per distribuire il modello.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
-Per esportare un modello usando PowerShell:
+Per esportare un modello tramite PowerShell:To export a template by using PowerShell:
 
-1. Accedere alla sottoscrizione di Azure con il comando [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e seguire le istruzioni visualizzate:
+1. Accedere alla sottoscrizione di Azure con il comando Connect-AzAccount e seguire le istruzioni visualizzate:Sign in to your Azure subscription with the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) command and follow the on-screen directions:
 
    ```azurepowershell-interactive
    Connect-AzAccount
    ```
-2. Se l'identità è associata a più di una sottoscrizione, impostare la sottoscrizione attiva sulla sottoscrizione dell'account di archiviazione che si desidera spostare.
+2. Se l'identità è associata a più di una sottoscrizione, impostare la sottoscrizione attiva sulla sottoscrizione dell'account di archiviazione che si vuole spostare.
 
    ```azurepowershell-interactive
    $context = Get-AzSubscription -SubscriptionId <subscription-id>
    Set-AzContext $context
    ```
 
-3. Esportare il modello dell'account di archiviazione di origine. Questi comandi salvano un modello JSON nella directory corrente.
+3. Esportare il modello dell'account di archiviazione di origine. Questi comandi salvano un modello json nella directory corrente.
 
    ```azurepowershell-interactive
    $resource = Get-AzResource `
@@ -95,13 +95,13 @@ Per esportare un modello usando PowerShell:
 
 ### <a name="modify-the-template"></a>Modificare il modello 
 
-Modificare il modello cambiando il nome e l'area dell'account di archiviazione.
+Modificare il modello modificando il nome e l'area dell'account di archiviazione.
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Per distribuire il modello utilizzando portale di Azure:
+Per distribuire il modello tramite il portale di Azure:To deploy the template by using Azure portal:
 
-1. Nel portale di Azure fare clic su **Crea una risorsa**.
+1. Nel portale di Azure selezionare **Crea una risorsa**.
 
 2. In **Cerca nel Marketplace** digitare **distribuzione modelli** e quindi premere **INVIO**.
 
@@ -113,9 +113,9 @@ Per distribuire il modello utilizzando portale di Azure:
 
 5. Selezionare **Creare un modello personalizzato nell'editor**.
 
-6. Selezionare **Carica file**e quindi seguire le istruzioni per caricare il file **template. JSON** scaricato nell'ultima sezione.
+6. Selezionare **Carica file**e quindi seguire le istruzioni per caricare il file **template.json** scaricato nell'ultima sezione.
 
-7. Nel file **template. JSON** assegnare un nome all'account di archiviazione di destinazione impostando il valore predefinito del nome dell'account di archiviazione. Questo esempio Mostra come impostare il valore predefinito del nome dell'account di archiviazione su `mytargetaccount`.
+7. Nel file **template.json** assegnare un nome all'account di archiviazione di destinazione impostando il valore predefinito del nome dell'account di archiviazione. In questo esempio il valore predefinito `mytargetaccount`del nome dell'account di archiviazione viene impostato su .
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -137,13 +137,13 @@ Per distribuire il modello utilizzando portale di Azure:
          "location": "centralus"
          }]          
     ```
-    Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, **Stati Uniti centrali** = **centralus**.
+    Per ottenere i codici di ubicazione, vedere [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per una regione è il nome dell'area senza spazi, **Central US** = **centralus**.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
-Per distribuire il modello usando PowerShell:
+Per distribuire il modello tramite PowerShell:To deploy the template by using PowerShell:
 
-1. Nel file **template. JSON** assegnare un nome all'account di archiviazione di destinazione impostando il valore predefinito del nome dell'account di archiviazione. Questo esempio Mostra come impostare il valore predefinito del nome dell'account di archiviazione su `mytargetaccount`.
+1. Nel file **template.json** assegnare un nome all'account di archiviazione di destinazione impostando il valore predefinito del nome dell'account di archiviazione. In questo esempio il valore predefinito `mytargetaccount`del nome dell'account di archiviazione viene impostato su .
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -156,7 +156,7 @@ Per distribuire il modello usando PowerShell:
     },
     ``` 
 
-2. Modificare la proprietà **location** nel file **template. JSON** nell'area di destinazione. In questo esempio l'area di destinazione viene impostata su `eastus`.
+2. Modificare la proprietà **location** nel file **template.json** nell'area di destinazione. In questo esempio l'area di destinazione viene impostata su `eastus`.
 
     ```json
     "resources": [{
@@ -167,7 +167,7 @@ Per distribuire il modello usando PowerShell:
          }]          
     ```
 
-    È possibile ottenere i codici di area eseguendo il comando [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) .
+    È possibile ottenere i codici di area eseguendo il comando [Get-AzLocation.You](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) can obtain region codes by running the Get-AzLocation command.
 
     ```azurepowershell-interactive
     Get-AzLocation | format-table 
@@ -180,29 +180,29 @@ Per distribuire il modello usando PowerShell:
 
 Distribuire il modello per creare un nuovo account di archiviazione nell'area di destinazione. 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
-1. Salvare il file **template. JSON** .
+1. Salvare il file **template.json.**
 
 2. Immettere o selezionare i valori delle proprietà:
 
-- **Sottoscrizione**: selezionare una sottoscrizione di Azure.
+- **Sottoscrizione:** selezionare una sottoscrizione di Azure.Subscription : Select an Azure subscription.
 
 - **Gruppo di risorse**: selezionare **Crea nuovo** e assegnare un nome al gruppo di risorse.
 
-- **Località**: selezionare una località di Azure.
+- **Posizione**: selezionare un percorso di Azure.Location : Select an Azure location.
 
-3. Fare clic sulla casella di controllo Accetto **i termini e le condizioni indicati in precedenza** , quindi fare clic sul pulsante **Seleziona acquisto** .
+3. Fare clic sulla casella di controllo **Accetto i termini e le condizioni sopra indicati,** quindi fare clic sul pulsante **Seleziona acquisto.**
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
-1. Ottenere l'ID sottoscrizione in cui si vuole distribuire l'IP pubblico di destinazione con [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0):
+1. Ottenere l'ID sottoscrizione in cui si vuole distribuire l'indirizzo IP pubblico di destinazione con [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0):
 
    ```azurepowershell-interactive
    Get-AzSubscription
    ```
 
-2. Usare questi comandi per distribuire il modello:
+2. Usare questi comandi per distribuire il modello:Use these commands to deploy your template:
 
    ```azurepowershell-interactive
    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -213,70 +213,70 @@ Distribuire il modello per creare un nuovo account di archiviazione nell'area di
    ```
 ---
 
-### <a name="configure-the-new-storage-account"></a>Configurare il nuovo account di archiviazione
+### <a name="configure-the-new-storage-account"></a>Configurare il nuovo account di archiviazioneConfigure the new storage account
 
-Alcune funzionalità non verranno esportate in un modello, pertanto sarà necessario aggiungerle al nuovo account di archiviazione. 
+Alcune funzionalità non vengono esportate in un modello, pertanto sarà necessario aggiungerle al nuovo account di archiviazione. 
 
-La tabella seguente elenca queste funzionalità insieme alle indicazioni per aggiungerle al nuovo account di archiviazione.
+Nella tabella seguente sono elencate queste funzionalità insieme alle indicazioni per aggiungerle al nuovo account di archiviazione.
 
-| Funzionalità    | Indicazioni    |
+| Funzionalità    | Materiale sussidiario    |
 |--------|-----------|
 | **Criteri di gestione del ciclo di vita** | [Gestire il ciclo di vita di Archiviazione BLOB di Azure](../blobs/storage-lifecycle-management-concepts.md) |
-| **Siti web statici** | [Ospitare un sito Web statico in archiviazione di Azure](../blobs/storage-blob-static-website-how-to.md) |
-| **Sottoscrizioni di eventi** | [Reazione agli eventi di archiviazione BLOB](../blobs/storage-blob-event-overview.md) |
-| **Avvisi** | [Creare, visualizzare e gestire gli avvisi del log attività tramite monitoraggio di Azure](../../azure-monitor/platform/alerts-activity-log.md) |
-| **Rete per la distribuzione di contenuti (rete CDN)** | [Usare la rete CDN di Azure per accedere ai BLOB con domini personalizzati tramite HTTPS](../blobs/storage-https-custom-domain-cdn.md) |
+| **Siti Web statici** | [Ospitare un sito Web statico in Archiviazione di AzureHost a static website in Azure Storage](../blobs/storage-blob-static-website-how-to.md) |
+| **Abbonamenti agli eventi** | [Reazione agli eventi di archiviazione BLOBReacting to Blob storage events](../blobs/storage-blob-event-overview.md) |
+| **Avvisi** | [Creare, visualizzare e gestire gli avvisi del log attività tramite Monitoraggio di AzureCreate, view, and manage activity log alerts by using Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md) |
+| **Rete CDN (Content Delivery Network, rete per la distribuzione di contenuti)** | [Usare Rete CDN di Azure per accedere ai BLOB con domini personalizzati tramite HTTPS](../blobs/storage-https-custom-domain-cdn.md) |
 
 > [!NOTE] 
-> Se si configura una rete CDN per l'account di archiviazione di origine, è sufficiente modificare l'origine della rete CDN esistente con l'endpoint del servizio BLOB primario (o l'endpoint del sito Web statico primario) del nuovo account. 
+> Se si configura una rete CDN per l'account di archiviazione di origine, è sufficiente modificare l'origine della rete CDN esistente nell'endpoint del servizio BLOB primario (o nell'endpoint del sito Web statico primario) del nuovo account. 
 
-### <a name="move-data-to-the-new-storage-account"></a>Spostare i dati nel nuovo account di archiviazione
+### <a name="move-data-to-the-new-storage-account"></a>Spostare i dati nel nuovo account di archiviazioneMove data to the new storage account
 
 Ecco alcuni modi per spostare i dati.
 
-: heavy_check_mark: **Azure Storage Explorer**
+:heavy_check_mark: **Azure Storage Explorer**
 
-  È facile da usare e adatto per piccoli set di dati. È possibile copiare contenitori e condivisioni file e quindi incollarli nell'account di destinazione.
+  È facile da usare e adatto per set di dati di piccole dimensioni. È possibile copiare contenitori e condivisioni file e quindi incollarli nell'account di destinazione.
 
-  Vedere [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/);
+  Vedere [Esplora archivi di Azure;](https://azure.microsoft.com/features/storage-explorer/)
 
-: heavy_check_mark: **AzCopy**
+:heavy_check_mark: **AzCopy**
 
-  Si tratta dell'approccio preferito. È ottimizzato per le prestazioni.  Un modo più rapido è che i dati vengono copiati direttamente tra i server di archiviazione, quindi AzCopy non usa la larghezza di banda di rete del computer. Usare AzCopy nella riga di comando o come parte di uno script personalizzato.
+  Questo è l'approccio preferito. È ottimizzato per le prestazioni.  Un modo per essere più veloci, è che i dati vengono copiati direttamente tra i server di archiviazione, in modo che AzCopy non usi la larghezza di banda di rete del computer. Utilizzare AzCopy nella riga di comando o come parte di uno script personalizzato.
 
   Vedere [Introduzione a AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-: heavy_check_mark: **Azure Data Factory** 
+:heavy_check_mark: **Azure Data Factory** 
 
-  Usare questo strumento solo se sono necessarie funzionalità che non sono supportate nella versione corrente di AzCopy. Nella versione corrente di AzCopy, ad esempio, non è possibile copiare i BLOB tra gli account che hanno uno spazio dei nomi gerarchico. Inoltre, AzCopy non mantiene gli elenchi di controllo di accesso ai file o i timestamp dei file (ad esempio, creare e modificare i timestamp). 
+  Utilizzare questo strumento solo se sono necessarie funzionalità non supportate nella versione corrente di AzCopy. Ad esempio, nella versione corrente di AzCopy, non è possibile copiare BLOB tra account con uno spazio dei nomi gerarchico. Anche AzCopy non mantiene gli elenchi di controllo di accesso ai file o timestamp dei file (ad esempio: creare e modificare timestamp). 
 
-  Vedere i collegamenti seguenti:
-  - [Copiare dati da e in Archiviazione BLOB di Azure usando Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-  - [Copiare dati da o verso Azure Data Lake Storage Gen2 usando Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-  - [Copiare dati da o ad archiviazione file di Azure usando Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)
-  - [Copiare dati da e verso l'archiviazione tabelle di Azure usando Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-table-storage)
+  Vedere questi collegamenti:See these links:
+  - [Copiare dati in o dall'archiviazione BLOB di Azure usando Azure Data FactoryCopy data to or from Azure Blob storage by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
+  - [Copiare dati da e in Azure Data Lake Storage Gen2 tramite Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
+  - [Copiare dati da o ad Archiviazione file di Azure tramite Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)
+  - [Copiare dati in e da Archiviazione tabelle di Azure usando Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-table-storage)
 
 ---
 
-## <a name="discard-or-clean-up"></a>Elimina o Pulisci
+## <a name="discard-or-clean-up"></a>Scartare o pulire
 
-Dopo la distribuzione, se si desidera ricominciare, è possibile eliminare l'account di archiviazione di destinazione e ripetere i passaggi descritti nelle sezioni [preparare](#prepare) e [spostare](#move) di questo articolo.
+Dopo la distribuzione, se si vuole ricominciare da capo, è possibile eliminare l'account di archiviazione di destinazione e ripetere i passaggi descritti nelle sezioni [Preparazione](#prepare) e [spostamento](#move) di questo articolo.
 
 Per eseguire il commit delle modifiche e completare lo spostamento di un account di archiviazione, eliminare l'account di archiviazione di origine.
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Per rimuovere un account di archiviazione usando il portale di Azure:
+Per rimuovere un account di archiviazione tramite il portale di Azure:To remove a storage account by using the Azure portal:
 
-1. Nel portale di Azure espandere il menu a sinistra per aprire il menu dei servizi e scegliere **account di archiviazione** per visualizzare l'elenco degli account di archiviazione.
+1. Nel portale di Azure espandere il menu a sinistra per aprire il menu dei servizi e scegliere **Account di archiviazione** per visualizzare l'elenco degli account di archiviazione.
 
-2. Individuare l'account di archiviazione di destinazione da eliminare e fare clic con il pulsante destro del mouse sul pulsante **altro** ( **...** ) sul lato destro dell'inserzione.
+2. Individuare l'account di archiviazione di destinazione da eliminare e fare clic con il pulsante destro del mouse sul pulsante **Altro** (**...**) sul lato destro dell'elenco.
 
 3. Selezionare **Elimina**e confermare.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
-Per rimuovere il gruppo di risorse e le risorse associate, incluso il nuovo account di archiviazione, usare il comando [Remove-AzStorageAccount](/powershell/module/az.resources/remove-azstorageaccount) :
+Per rimuovere il gruppo di risorse e le risorse associate, incluso il nuovo account di archiviazione, usare il comando [Remove-AzStorageAccount:To](/powershell/module/az.resources/remove-azstorageaccount) remove the resource group and its associated resources, including the new storage account, use the Remove-AzStorageAccount command:
 
 ```powershell
 Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storageAccount
@@ -285,7 +285,7 @@ Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storage
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato spostato un account di archiviazione di Azure da un'area a un'altra ed è stata eseguita la pulizia delle risorse di origine.  Per altre informazioni sullo trasferimento di risorse tra aree e ripristino di emergenza in Azure, vedere:
+In questa esercitazione è stato spostato un account di archiviazione di Azure da un'area a un'altra e sono stati puliti le risorse di origine.  Per altre informazioni sullo spostamento delle risorse tra aree e il ripristino di emergenza in Azure, vedere:To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
 
 - [Spostare le risorse in un altro gruppo di risorse o un'altra sottoscrizione](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)

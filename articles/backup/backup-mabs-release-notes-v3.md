@@ -1,14 +1,14 @@
 ---
 title: Note sulla versione per il server di Backup di Microsoft Azure v3
-description: Questo articolo fornisce le informazioni sui problemi noti e le soluzioni alternative per Backup di Microsoft Azure Server (MAB) v3.
+description: In questo articolo vengono fornite informazioni sui problemi noti e soluzioni alternative per Microsoft Azure Backup Server (MABS) v3.
 ms.topic: conceptual
 ms.date: 11/22/2018
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
 ms.openlocfilehash: b47d83e0e3714f3f035397acaadeac9cda39d12a
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74172271"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Note sulla versione per il server di Backup di Microsoft Azure
@@ -73,4 +73,4 @@ Questo articolo descrive i problemi noti e le soluzioni alternative per il serve
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Novità del server di Backup di Microsoft Azure v3](backup-mabs-whats-new-mabs.md)
+[Novità di MABS V3](backup-mabs-whats-new-mabs.md)

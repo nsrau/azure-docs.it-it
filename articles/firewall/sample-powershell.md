@@ -1,6 +1,6 @@
 ---
 title: Esempi di Firewall di Azure
-description: Questo articolo include collegamenti a Azure PowerShell esempi di script che consentono di creare firewall di Azure.
+description: Questo articolo include collegamenti a esempi di script di Azure PowerShell che creano firewall di Azure.This article includes links to Azure PowerShell script samples that create Azure firewalls.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -9,10 +9,10 @@ ms.date: 11/19/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 5e4fab3d632bca6eb62f1233f681a3611d7ccddf
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74168728"
 ---
 # <a name="azure-firewall-powershell-samples"></a>Esempi di PowerShell per Firewall di Azure

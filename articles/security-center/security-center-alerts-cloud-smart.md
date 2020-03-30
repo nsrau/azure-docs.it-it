@@ -1,6 +1,6 @@
 ---
-title: Eventi imprevisti del Centro sicurezza di Azure-correlazioni intelligenti degli avvisi
-description: In questo argomento viene illustrato come Fusion utilizza la correlazione intelligente degli avvisi cloud per generare eventi imprevisti di sicurezza nel centro sicurezza di Azure.
+title: Incidenti del Centro sicurezza di Azure- correlazioni intelligenti degli avvisiAzure Security Center incidents - smart correlations of alerts
+description: Questo argomento illustra come la fusione usa la correlazione degli avvisi intelligenti cloud per generare eventi imprevisti di sicurezza nel Centro sicurezza di Azure.This topic explains how fusion uses cloud smart alert correlation to generate security incidents in Azure Security Center.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,29 +14,29 @@ ms.workload: na
 ms.date: 07/02/2019
 ms.author: memildin
 ms.openlocfilehash: b26f0bab073ce248ca23bb8a815fa3e293ddba51
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73686484"
 ---
-# <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Correlazione tra Smart Alert cloud nel centro sicurezza di Azure (eventi imprevisti)
+# <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Correlazione degli avvisi intelligenti cloud nel Centro sicurezza di Azure (incidenti)Cloud smart alert correlation in Azure Security Center (incidents)
 
-Il Centro sicurezza di Azure analizza continuamente i carichi di lavoro del cloud ibrido usando analisi avanzate e Intelligence per le minacce per segnalare attività dannose.
+Il Centro sicurezza di Azure analizza continuamente i carichi di lavoro del cloud ibrido usando analisi avanzate e informazioni sulle minacce per avvisare l'utente di attività dannose.
 
-La maggior parte della copertura delle minacce sta crescendo. La necessità di rilevare anche il minimo compromesso è importante e può essere difficile per gli analisti della sicurezza valutare i diversi avvisi e identificare un attacco effettivo. Il Centro sicurezza consente agli analisti di affrontare la fatica degli avvisi. Consente di diagnosticare gli attacchi non appena si verificano, correlando avvisi diversi e segnali di fedeltà bassa negli eventi imprevisti della sicurezza.
+L'ampiezza della copertura delle minacce sta crescendo. La necessità di rilevare anche il minimo compromesso è importante e può essere difficile per gli analisti della sicurezza valutare i diversi avvisi e identificare un attacco effettivo. Il Centro sicurezza aiuta gli analisti a far fronte a questa fatica di allerta. Aiuta a diagnosticare gli attacchi non appena si verificano, correlando diversi avvisi e segnali di bassa fedeltà in incidenti di sicurezza.
 
-Fusion Analytics è la tecnologia e il back-end analitico che alimenta gli eventi imprevisti del Centro sicurezza, consentendo al reparto IT di correlare diversi avvisi e segnali contestuali insieme. Fusion esamina i diversi segnali segnalati in una sottoscrizione tra le risorse. Fusion trova modelli che rivelano la progressione degli attacchi o segnali con informazioni contestuali condivise, a indicare che è necessario usare una procedura di risposta unificata.
+L'analisi della fusione è la tecnologia e il back-end analitico che alimenta gli incidenti del Centro sicurezza, consentendogli di correlare diversi avvisi e segnali contestuali insieme. Fusion esamina i diversi segnali riportati su un abbonamento attraverso le risorse. Fusion trova modelli che rivelano la progressione dell'attacco o segnali con informazioni contestuali condivise, indicando che è necessario utilizzare una procedura di risposta unificata per loro.
 
-Fusion Analytics combina le informazioni sul dominio di sicurezza con intelligenza artificiale per analizzare gli avvisi, scoprendo nuovi modelli di attacco man mano che si verificano. 
+L'analisi fusione combina la conoscenza del dominio di sicurezza con l'iaa per analizzare gli avvisi, scoprendo nuovi modelli di attacco man mano che si verificano. 
 
-Il Centro sicurezza usa la matrice di attacco MITRE per associare gli avvisi alla finalità percepita, contribuendo a formalizzare la conoscenza del dominio di sicurezza. Inoltre, usando le informazioni raccolte per ogni passaggio di un attacco, il Centro sicurezza può escludere l'attività che sembra essere una procedura di attacco, ma in realtà non lo è.
+Il Centro sicurezza sfrutta MITRE Attack Matrix per associare gli avvisi alle loro intenzioni percepite, aiutando a formalizzare la conoscenza del dominio di sicurezza. Inoltre, utilizzando le informazioni raccolte per ogni passaggio di un attacco, Centro sicurezza PC può escludere l'attività che sembra essere passaggi di un attacco, ma in realtà non lo è.
 
-Poiché gli attacchi si verificano spesso in tenant diversi, il Centro sicurezza può combinare gli algoritmi di intelligenza artificiale per analizzare le sequenze di attacco segnalate in ogni sottoscrizione. Questa tecnica identifica le sequenze di attacco come modelli di avviso prevalenti, anziché essere associato a vicenda.
+Poiché gli attacchi si verificano spesso tra tenant diversi, il Centro sicurezza può combinare algoritmi di controllo di sicurezza per analizzare le sequenze di attacco segnalate in ogni sottoscrizione. Questa tecnica identifica le sequenze di attacco come modelli di avviso prevalenti, anziché essere associati solo accidentalmente tra loro.
 
-Durante un'indagine di un evento imprevisto, gli analisti spesso necessitano di un contesto aggiuntivo per raggiungere un verdetto sulla natura della minaccia e su come mitigarlo. Ad esempio, anche quando viene rilevata un'anomalia di rete, senza comprendere quanto altro accade sulla rete o per quanto riguarda la risorsa di destinazione, è difficile capire quali azioni eseguire successivamente. Per semplificare, un evento imprevisto di sicurezza può includere elementi, eventi correlati e informazioni. Le informazioni aggiuntive disponibili per gli eventi imprevisti di sicurezza variano a seconda del tipo di minaccia rilevato e della configurazione dell'ambiente. 
+Durante un'indagine su un incidente, gli analisti spesso hanno bisogno di un contesto aggiuntivo per raggiungere un verdetto sulla natura della minaccia e su come mitigarla. Ad esempio, anche quando viene rilevata un'anomalia di rete, senza comprendere cos'altro sta accadendo sulla rete o per quanto riguarda la risorsa mirata, è difficile capire quali azioni intraprendere successivamente. Per aiutare, un incidente di sicurezza può includere elementi, eventi correlati e informazioni. Le informazioni aggiuntive disponibili per gli incidenti di sicurezza variano a seconda del tipo di minaccia rilevata e della configurazione dell'ambiente. 
 
-![Screenshot del report rilevato evento imprevisto della sicurezza](./media/security-center-alerts-cloud-smart/security-incident.png)
+![Screenshot del rapporto Operazioni non consentite di sicurezza rilevate](./media/security-center-alerts-cloud-smart/security-incident.png)
 
-Per comprendere meglio gli eventi imprevisti della sicurezza, vedere [come gestire gli eventi imprevisti della sicurezza nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-incident).
+Per comprendere meglio gli incidenti di sicurezza, vedere Come gestire gli incidenti di sicurezza nel Centro sicurezza di Azure.To better understand security [incidents, see How to handle security incidents in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-incident).
 

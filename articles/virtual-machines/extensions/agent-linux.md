@@ -1,5 +1,5 @@
 ---
-title: Panoramica dell'agente VM Linux di Azure
+title: Azure Linux VM Agent Overview
 description: Informazioni su come installare e configurare l'agente Linux (waagent) per gestire l'interazione della macchina virtuale con il controller di infrastruttura di Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5f22fbd77069488e7aaf490f93f42cde747444a8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74073860"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Informazioni e uso dell'agente Linux di Azure
@@ -60,7 +60,7 @@ L'agente Linux di Microsoft Azure (waagent) gestisce il provisioning di Linux e 
 * **Estensione VM**
   
   * Inserire il componente creato da Microsoft e partner in VM Linux (IaaS) per attivare il software e l'automazione di configurazione
-  * Implementazione di riferimento dell'estensione VM disponibile all'indirizzo [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+  * Implementazione di riferimento dell'estensione VM in[https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## <a name="communication"></a>Comunicazione
 Il flusso di informazioni dalla piattaforma all'agente avviene tramite due canali:
@@ -72,7 +72,7 @@ Il flusso di informazioni dalla piattaforma all'agente avviene tramite due canal
 I sistemi seguenti sono stati testati e funzionano con l'agente Linux di Azure:
 
 > [!NOTE]
-> È possibile che questo elenco sia diverso da quello ufficiale dei sistemi supportati sulla piattaforma Microsoft Azure, come descritto di seguito: [https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
+> Questo elenco può differire dall'elenco ufficiale dei sistemi supportati nella piattaforma Microsoft Azure, come descritto di seguito:This list may differ from the official list of supported systems on the Microsoft Azure Platform, as described here:[https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
 > 
 > 
 
@@ -100,13 +100,13 @@ Per il corretto funzionamento dell'agente Linux sono necessari alcuni package di
 * Strumenti di rete: ip-route
 * Supporto di kernel per l'installazione di file system UDF.
 
-## <a name="installation"></a>Installare
+## <a name="installation"></a>Installazione
 Il metodo preferito per l'installazione e l'aggiornamento dell'agente Linux di Azure prevede l'installazione tramite un pacchetto RPM o DEB dal repository di pacchetti della distribuzione. Tutti i [provider di distribuzione supportati](../linux/endorsed-distros.md) integrano il pacchetto agente Linux di Azure nelle immagini e nei repository.
 
 Leggere la documentazione nel [repository dell'agente Linux di Azure su GitHub](https://github.com/Azure/WALinuxAgent) per conoscere le opzioni di installazione avanzate, ad esempio l'installazione da origine o da percorsi personalizzati o prefissi.
 
 ## <a name="command-line-options"></a>Opzioni della riga di comando
-### <a name="flags"></a>Flag
+### <a name="flags"></a>Flags
 * verbose: aumenta il livello di dettaglio del comando specificato
 * force: ignora la conferma interattiva per determinati comandi
 
@@ -337,12 +337,12 @@ Le immagini di Ubuntu Cloud utilizzano [cloud-init](https://launchpad.net/ubuntu
   
   * **ResourceDisk.Format**
   * **ResourceDisk.Filesystem**
-  * **ResourceDisk.MountPoint**
-  * **ResourceDisk.EnableSwap**
+  * **ResourceDisk.MountPoint (Informazioni in base al fatto di**
+  * **ResourceDisk.EnableSwap (Informazioni in base al gruppo dei problemi**
   * **ResourceDisk.SwapSizeMB**
 
 * Per altre informazioni, vedere le risorse seguenti per configurare il punto di montaggio del disco di risorsa e scambiare spazio nelle immagini di Ubuntu Cloud durante il provisioning:
   
   * [Ubuntu Wiki: Configurare partizioni di scambio](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
-  * [Inserimento di dati personalizzati in una macchina virtuale di Azure](../windows/classic/inject-custom-data.md)
+  * [Inserimento di dati personalizzati in una macchina virtuale di AzureInjecting Custom Data into an Azure Virtual Machine](../windows/classic/inject-custom-data.md)
 

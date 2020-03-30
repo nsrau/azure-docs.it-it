@@ -1,41 +1,41 @@
 ---
-title: Introduzione a Azure Data Lake Storage Gen1-PowerShell | Microsoft Docs
-description: Usare Azure PowerShell per creare un account di Azure Data Lake Storage Gen1 ed eseguire operazioni di base.
+title: Introduzione a Azure Data Lake Storage Gen1 - PowerShell Documenti Microsoft
+description: Usare Azure PowerShell per creare un account Azure Data Lake Storage Gen1 ed eseguire operazioni di base.
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 42ddab6991b418af3e41da9966cdab69ded87461
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73837884"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>Iniziare a usare Azure Data Lake Storage Gen1 tramite Azure PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portale](data-lake-store-get-started-portal.md)
-> * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [Interfaccia della riga di comando di Azure](data-lake-store-get-started-cli-2.0.md)
+> * [Powershell](data-lake-store-get-started-powershell.md)
+> * [Interfaccia della riga di comando di AzureAzure](data-lake-store-get-started-cli-2.0.md)
 >
 >
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 
-Informazioni su come usare Azure PowerShell per creare un account di Azure Data Lake Storage Gen1 ed eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare file di dati, eliminare l'account e così via. Per ulteriori informazioni su Data Lake Storage Gen1, vedere [Panoramica di data Lake storage Gen1](data-lake-store-overview.md).
+Informazioni su come usare Azure PowerShell per creare un account Azure Data Lake Storage Gen1 ed eseguire operazioni di base come creare cartelle, caricare e scaricare file di dati, eliminare l'account e così via. Per ulteriori informazioni su Data Lake Storage Gen1, vedere [Overview of Data Lake Storage Gen1](data-lake-store-overview.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell 1.0 o versioni successive**. Vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
+* **Una sottoscrizione di Azure.** Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Azure PowerShell 1.0 o versione successiva**. Vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
-Questo articolo usa un approccio di autenticazione più semplice con Data Lake Storage Gen1 in cui viene richiesto di immettere le credenziali dell'account Azure. Il livello di accesso all'account Data Lake Storage Gen1 e al file system viene quindi controllato dal livello di accesso dell'utente connesso. Esistono tuttavia altri approcci per l'autenticazione con Data Lake Storage Gen1, ovvero l'autenticazione dell'utente finale o l'autenticazione da servizio a servizio. Per altre informazioni e istruzioni su come eseguire l'autenticazione, vedere [Autenticazione dell'utente finale](data-lake-store-end-user-authenticate-using-active-directory.md) o [Autenticazione da servizio a servizio](data-lake-store-authenticate-using-active-directory.md).
+Questo articolo usa un approccio di autenticazione più semplice con Data Lake Storage Gen1 in cui viene richiesto di immettere le credenziali dell'account Azure.This article uses a simpler authentication approach with Data Lake Storage Gen1 where you're prompted to enter your Azure account credentials. Il livello di accesso all'account Data Lake Storage Gen1 e al file system viene quindi controllato dal livello di accesso dell'utente connesso. Esistono tuttavia altri approcci per l'autenticazione con Data Lake Storage Gen1, ovvero l'autenticazione dell'utente finale o l'autenticazione da servizio a servizio. Per altre informazioni e istruzioni su come eseguire l'autenticazione, vedere [Autenticazione dell'utente finale](data-lake-store-end-user-authenticate-using-active-directory.md) o [Autenticazione da servizio a servizio](data-lake-store-authenticate-using-active-directory.md).
 
 ## <a name="create-a-data-lake-storage-gen1-account"></a>Creare un account Data Lake Storage Gen1
 
@@ -62,7 +62,7 @@ Questo articolo usa un approccio di autenticazione più semplice con Data Lake S
     New-AzResourceGroup -Name $resourceGroupName -Location "East US 2"
     ```
 
-    ![Creare un gruppo di risorse di Azure](./media/data-lake-store-get-started-powershell/ADL.PS.CreateResourceGroup.png "Creare un gruppo di risorse di Azure")
+    ![Creare un gruppo di risorse di AzureCreate an Azure Resource Group](./media/data-lake-store-get-started-powershell/ADL.PS.CreateResourceGroup.png "Creare un gruppo di risorse di Azure")
 
 1. Creare un account Data Lake Storage Gen1. Il nome specificato deve contenere solo lettere minuscole e numeri.
 
@@ -71,7 +71,7 @@ Questo articolo usa un approccio di autenticazione più semplice con Data Lake S
     New-AzDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStorageGen1Name -Location "East US 2"
     ```
 
-    ![Creazione di un account Data Lake Storage Gen1](./media/data-lake-store-get-started-powershell/ADL.PS.CreateADLAcc.png "Creare un account Data Lake Storage Gen1")
+    ![Creare un account Data Lake Storage Gen1](./media/data-lake-store-get-started-powershell/ADL.PS.CreateADLAcc.png "Creare un account Data Lake Storage Gen1")
 
 1. Verificare che l'account sia stato creato correttamente.
 
@@ -105,7 +105,7 @@ Questo articolo usa un approccio di autenticazione più semplice con Data Lake S
 
     Dovrebbe venire visualizzato un output simile a quello dello screenshot seguente:
 
-    ![Verifica directory](./media/data-lake-store-get-started-powershell/ADL.PS.Verify.Dir.Creation.png "Verificare la directory")
+    ![Verificare la directory](./media/data-lake-store-get-started-powershell/ADL.PS.Verify.Dir.Creation.png "Verificare la directory")
 
 ## <a name="upload-data"></a>Caricare dati
 
@@ -119,7 +119,7 @@ Import-AzDataLakeStoreItem -AccountName $dataLakeStorageGen1Name `
    -Destination $myrootdir\mynewdirectory\vehicle1_09142014.csv
 ```
 
-## <a name="rename-download-and-delete-data"></a>Rinominare, scaricare ed eliminare dati
+## <a name="rename-download-and-delete-data"></a>Rinominare, scaricare ed eliminare i dati
 
 Per rinominare un file, usare il comando seguente:
 

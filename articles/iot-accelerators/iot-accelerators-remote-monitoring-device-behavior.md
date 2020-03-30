@@ -1,5 +1,5 @@
 ---
-title: Dispositivo simulato nella soluzione di monitoraggio remoto-Azure | Microsoft Docs
+title: Dispositivo simulato nella soluzione di monitoraggio remoto - Azure Documenti Microsoft
 description: Questo articolo descrive come usare JavaScript per definire il comportamento di un dispositivo simulato nella soluzione di monitoraggio remoto.
 author: dominicbetts
 manager: timlt
@@ -9,23 +9,23 @@ services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: c39ca0a018bd22844cf7e5350e6d3586319aac16
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73890852"
 ---
 # <a name="implement-the-device-model-behavior"></a>Implementare il comportamento del modello di dispositivo
 
 L'articolo [Understand the device model schema](iot-accelerators-remote-monitoring-device-schema.md) (Conoscere lo schema del modello di dispositivo) descrive lo schema che definisce un modello di dispositivo simulato. L'articolo fa riferimento a due tipi di file JavaScript che implementano il comportamento di un dispositivo simulato:
 
-- File JavaScript di tipo **State** che vengono eseguiti a intervalli prefissati per aggiornare lo stato interno del dispositivo.
-- File JavaScript di tipo **Method** che vengono eseguiti quando la soluzione richiama un metodo nel dispositivo.
+- **Stato membro** File JavaScript che vengono eseguiti a intervalli fissi per aggiornare lo stato interno del dispositivo.
+- **Metodo** File JavaScript che vengono eseguiti quando la soluzione richiama un metodo nel dispositivo.
 
 > [!NOTE]
 > I comportamenti del modello del dispositivo sono solo per i dispositivi simulati ospitati nel servizio di simulazione del dispositivo. Se si vuole creare un dispositivo reale, vedere [Connettere il dispositivo all'acceleratore di soluzioni di monitoraggio remoto](iot-accelerators-connecting-devices.md).
 
-In questo articolo viene spiegato come:
+In questo articolo vengono illustrate le operazioni seguenti:
 
 >[!div class="checklist"]
 > * Controllare lo stato di un dispositivo simulato.
@@ -36,7 +36,7 @@ In questo articolo viene spiegato come:
 
 La sezione [Simulation](../../articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#simulation) dello schema del modello di dispositivo definisce lo stato interno di un dispositivo simulato:
 
-- `InitialState` definisce i valori iniziali per tutte le proprietà dell'oggetto di stato del dispositivo.
+- `InitialState` definisce i valori iniziali di tutte le proprietà dell'oggetto di stato del dispositivo.
 - `Script` identifica un file JavaScript che viene eseguito in base a una pianificazione per aggiornare lo stato del dispositivo.
 
 L'esempio seguente mostra la definizione dell'oggetto di stato del dispositivo per un dispositivo simulato refrigeratore:
@@ -270,7 +270,7 @@ Ora che si è appreso come specificare il comportamento di un dispositivo simula
 
 Per altre informazioni per sviluppatori sulla soluzione di monitoraggio remoto, vedere:
 
-* [Guida di riferimento per gli sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
-* [Guida per la risoluzione dei problemi per gli sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
+* [Guida di riferimento per sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
+* [Guida alla risoluzione dei problemi per gli sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
 
 <!-- Next tutorials in the sequence -->

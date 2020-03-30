@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: tisande
 ms.openlocfilehash: e41e81457421bfe27e3c0313fc06e39e6df4cdce
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73819096"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Clausola GROUP BY in Azure Cosmos DB
@@ -18,8 +18,8 @@ ms.locfileid: "73819096"
 La clausola GROUP BY divide i risultati della query in base ai valori di una o più proprietà specificate.
 
 > [!NOTE]
-> Azure Cosmos DB supporta attualmente GROUP BY in .NET SDK 3,3 e versioni successive, oltre a JavaScript SDK 3,4 e versioni successive.
-> Il supporto per altri linguaggi SDK non è attualmente disponibile ma è pianificato.
+> Azure Cosmos DB supporta attualmente GROUP BY in .NET SDK 3.3 e versioni successive, nonché JavaScript SDK 3.4 e versioni successive.
+> Il supporto per altri SDK di lingua non è attualmente disponibile, ma è pianificato.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -39,25 +39,25 @@ La clausola GROUP BY divide i risultati della query in base ai valori di una o p
 
 - `<scalar_expression>`
   
-   Qualsiasi espressione scalare è consentita ad eccezione di sottoquery scalari e aggregazioni scalari. Ogni espressione scalare deve contenere almeno un riferimento a una proprietà. Non esiste alcun limite al numero di singole espressioni o alla cardinalità di ogni espressione.
+   È consentita qualsiasi espressione scalare, ad eccezione delle sottoquery scalari e delle aggregazioni scalari. Ogni espressione scalare deve contenere almeno un riferimento di proprietà. Non esiste alcun limite al numero di singole espressioni o alla cardinalità di ogni espressione.
 
 ## <a name="remarks"></a>Osservazioni
   
-  Quando in una query viene utilizzata una clausola GROUP BY, la clausola SELECT può contenere solo il subset di proprietà e le funzioni di sistema incluse nella clausola GROUP BY. Un'eccezione è rappresentata dalle [funzioni di sistema aggregate](sql-query-aggregates.md), che possono essere visualizzate nella clausola SELECT senza essere incluse nella clausola Group by. Nella clausola SELECT è inoltre possibile includere sempre valori letterali.
+  Quando una query utilizza una clausola GROUP BY, la clausola SELECT può contenere solo il sottoinsieme di proprietà e funzioni di sistema incluse nella clausola GROUP BY. Un'eccezione è [l'aggregazione](sql-query-aggregates.md)delle funzioni di sistema , che possono essere visualizzate nella clausola SELECT senza essere incluse nella clausola GROUP BY. È inoltre possibile includere sempre valori letterali nella clausola SELECT.
 
-  La clausola GROUP BY deve essere successiva alla clausola SELECT, FROM e WHERE e prima della clausola OFFSET limite. Attualmente non è possibile utilizzare GROUP BY con una clausola ORDER BY, ma questo è pianificato.
+  La clausola GROUP BY deve trovarsi dopo la clausola SELECT, FROM e WHERE e prima della clausola OFFSET LIMIT. Al momento non è possibile utilizzare GROUP BY con una clausola ORDER BY, ma questa operazione è stata pianificata.
 
-  La clausola GROUP BY non consente le operazioni seguenti:
+  La clausola GROUP BY non consente alcuna delle seguenti operazioni:
   
-- Proprietà di aliasing o funzioni di sistema di alias (l'aliasing è ancora consentito nella clausola SELECT)
-- Sottoquery
-- Funzioni di sistema aggregate (sono consentite solo nella clausola SELECT)
+- Proprietà aliaso o funzioni di sistema di alias (alias è ancora consentito all'interno della clausola SELECT)
+- Sottoquery:
+- Funzioni di sistema di aggregazione (consentite solo nella clausola SELECT)
 
 ## <a name="examples"></a>Esempi
 
-In questi esempi viene usato il set di dati nutrizionale disponibile tramite il [Playground per le query Azure Cosmos DB](https://www.documentdb.com/sql/demo).
+In questi esempi viene usato il set di dati nutrizionali disponibile tramite [Azure Cosmos DB Query Playground](https://www.documentdb.com/sql/demo).
 
-Ad esempio, ecco una query che restituisce il numero totale di elementi in ogni foodGroup:
+Ad esempio, ecco una query che restituisce il conteggio totale di elementi in ogni foodGroup:For example, here's a query which returns the total count of items in each foodGroup:
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, f.foodGroup
@@ -65,7 +65,7 @@ FROM Food f
 GROUP BY f.foodGroup
 ```
 
-Alcuni risultati sono (la parola chiave TOP viene usata per limitare i risultati):
+Alcuni risultati sono (la parola chiave TOP viene utilizzata per limitare i risultati):
 
 ```json
 [{
@@ -86,7 +86,7 @@ Alcuni risultati sono (la parola chiave TOP viene usata per limitare i risultati
 }]
 ```
 
-Questa query include due espressioni utilizzate per dividere i risultati:
+Questa query include due espressioni utilizzate per dividere i risultati:This query has two expressions used to divide results:
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, f.foodGroup, f.version
@@ -119,7 +119,7 @@ Alcuni risultati sono:
 }]
 ```
 
-Questa query include una funzione di sistema nella clausola GROUP BY:
+Questa query ha una funzione di sistema nella clausola GROUP BY:
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, UPPER(f.foodGroup) AS upperFoodGroup
@@ -148,7 +148,7 @@ Alcuni risultati sono:
 }]
 ```
 
-Questa query usa le parole chiave e le funzioni di sistema nell'espressione di proprietà Item:
+Questa query utilizza sia parole chiave che funzioni di sistema nell'espressione di proprietà dell'elemento:This query uses both keywords and system functions in the item property expression:
 
 ```sql
 SELECT COUNT(1) AS foodGroupCount, ARRAY_CONTAINS(f.tags, {name: 'orange'}) AS containsOrangeTag,  f.version BETWEEN 0 AND 2 AS correctVersion
@@ -173,6 +173,6 @@ I risultati sono:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Attività iniziali](sql-query-getting-started.md)
+- [Introduzione](sql-query-getting-started.md)
 - [Clausola SELECT](sql-query-select.md)
 - [Funzioni di aggregazione](sql-query-aggregates.md)

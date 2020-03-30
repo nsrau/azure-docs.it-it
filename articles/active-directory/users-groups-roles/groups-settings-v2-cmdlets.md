@@ -1,5 +1,5 @@
 ---
-title: Esempi di PowerShell V2 per la gestione dei gruppi-Azure AD | Microsoft Docs
+title: Esempi di PowerShell V2 per la gestione dei gruppi - Azure AD Documenti Microsoft
 description: Questa pagina riporta esempi di PowerShell per la gestione dei gruppi in Azure Active Directory
 keywords: Azure AD, Azure Active Directory, PowerShell, gruppi, gestione dei gruppi
 services: active-directory
@@ -15,17 +15,17 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a218e956c72f8005e533db7b8800e98ee72ce223
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74233104"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlet di Azure Active Directory versione 2 per la gestione dei gruppi
 
 > [!div class="op_single_selector"]
 > - [Portale di Azure](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
-> - [PowerShell](groups-settings-v2-cmdlets.md)
+> - [Powershell](groups-settings-v2-cmdlets.md)
 >
 >
 
@@ -54,7 +54,7 @@ A questo punto è possibile iniziare a usare i cmdlet nel modulo. Per una descri
 
 ## <a name="connect-to-the-directory"></a>Connettersi alla directory
 
-Prima di iniziare la gestione di gruppi mediante i cmdlet PowerShell di Azure AD, è necessario connettere la sessione di PowerShell alla directory da gestire. Usare il seguente comando:
+Prima di iniziare la gestione di gruppi mediante i cmdlet PowerShell di Azure AD, è necessario connettere la sessione di PowerShell alla directory da gestire. Usare il comando seguente:
 
 ```powershell
     PS C:\Windows\system32> Connect-AzureAD
@@ -170,7 +170,7 @@ Quindi si cambia la proprietà Description nel nuovo valore "Amministratori di d
     PS C:\Windows\system32> Set-AzureADGroup -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -Description "Intune Device Administrators"
 ```
 
-A questo punto, se il gruppo viene trovato di nuovo, la proprietà Description viene aggiornata per riflettere il nuovo valore:
+Ora, se troviamo di nuovo il gruppo, vediamo che la proprietà Description viene aggiornata per riflettere il nuovo valore:
 
 ```powershell
     PS C:\Windows\system32> Get-AzureADGroup -Filter "DisplayName eq 'Intune Administrators'"
@@ -284,7 +284,7 @@ Per aggiungere proprietari a un gruppo, usare il cmdlet AzureADGroupOwner:
     PS C:\Windows\system32> Add-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 ```
 
-Il parametro-ObjectId è il valore ObjectID del gruppo a cui si desidera aggiungere un proprietario e-RefObjectId è il valore ObjectID dell'utente o dell'entità servizio che si desidera aggiungere come proprietario del gruppo.
+Il parametro -ObjectId è l'ObjectID del gruppo a cui si desidera aggiungere un proprietario e -RefObjectId è l'ObjectID dell'utente o dell'entità servizio che si desidera aggiungere come proprietario del gruppo.
 
 Per recuperare i proprietari di un gruppo, usare il cmdlet Get-AzureADGroupOwner:
 
@@ -292,7 +292,7 @@ Per recuperare i proprietari di un gruppo, usare il cmdlet Get-AzureADGroupOwner
     PS C:\Windows\system32> Get-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
 ```
 
-Il cmdlet restituisce l'elenco di proprietari (utenti ed entità servizio) per il gruppo specificato:
+Il cmdlet restituisce l'elenco dei proprietari (utenti ed entità servizio) per il gruppo specificato:
 
 ```powershell
     DeletionTimeStamp ObjectId                             ObjectType
@@ -308,11 +308,11 @@ Per rimuovere un proprietario da un gruppo, usare il cmdlet Remove-AzureADGroupO
 
 ## <a name="reserved-aliases"></a>Alias riservati
 
-Quando viene creato un gruppo, alcuni endpoint consentono all'utente finale di specificare un attributo mailNickname o un alias da usare come parte dell'indirizzo e-mail del gruppo. I gruppi con gli alias di posta elettronica con privilegi elevati seguenti possono essere creati solo da un amministratore globale Azure AD. 
+Quando viene creato un gruppo, alcuni endpoint consentono all'utente finale di specificare un attributo mailNickname o un alias da usare come parte dell'indirizzo e-mail del gruppo.I gruppi con gli alias di posta elettronica con privilegi elevati seguenti possono essere creati solo da un amministratore globale di Azure AD. 
   
 * abuse
 * admin
-* administrator
+* entità
 * hostmaster
 * majordomo
 * postmaster
@@ -322,15 +322,15 @@ Quando viene creato un gruppo, alcuni endpoint consentono all'utente finale di s
 * ssl-admin
 * webmaster
 
-## <a name="group-writeback-to-on-premises-preview"></a>Eseguire il writeback del gruppo in locale (anteprima)
+## <a name="group-writeback-to-on-premises-preview"></a>Writeback di gruppo in locale (anteprima)Group writeback to on-premises (preview)
 
-Attualmente, molti gruppi sono ancora gestiti in Active Directory locali. Per rispondere alle richieste di sincronizzazione dei gruppi di cloud di nuovo in locale, la funzionalità di writeback dei gruppi di Office 365 per Azure AD è ora disponibile in anteprima.
+Oggi, molti gruppi sono ancora gestiti in Active Directory locale. Per rispondere alle richieste di sincronizzazione dei gruppi cloud in locale, la funzionalità di writeback dei gruppi di Office 365 per Azure AD è ora disponibile per l'anteprima.
 
-I gruppi di Office 365 vengono creati e gestiti nel cloud. La funzionalità di writeback consente di eseguire il writeback dei gruppi di Office 365 come gruppi di distribuzione in una foresta Active Directory con Exchange installato. Gli utenti con cassette postali di Exchange locali possono inviare e ricevere messaggi di posta elettronica da questi gruppi. La funzionalità di writeback dei gruppi non supporta i gruppi di sicurezza o i gruppi di distribuzione di Azure AD.
+I gruppi di Office 365 vengono creati e gestiti nel cloud. La funzionalità di writeback consente di scrivere i gruppi di Office 365 come gruppi di distribuzione in una foresta di Active Directory in cui è installato Exchange. Gli utenti con cassette postali di Exchange locali possono quindi inviare e ricevere messaggi di posta elettronica da questi gruppi. La funzionalità di writeback dei gruppi non supporta i gruppi di sicurezza o i gruppi di distribuzione di Azure AD.
 
-Per altri dettagli, vedere la documentazione per il [servizio di sincronizzazione Azure ad Connect](../hybrid/how-to-connect-syncservice-features.md).
+Per altre informazioni, vedere la documentazione relativa al servizio di [sincronizzazione Azure AD Connect.](../hybrid/how-to-connect-syncservice-features.md)
 
-Il writeback dei gruppi di Office 365 è una funzionalità di anteprima pubblica di Azure Active Directory (Azure AD) ed è disponibile con qualsiasi piano di licenza Azure AD a pagamento. Per alcune informazioni legali sulle anteprime, vedere le [condizioni per l'utilizzo supplementari per le anteprime Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Il writeback dei gruppi di Office 365 è una funzionalità di anteprima pubblica di Azure Active Directory (Azure AD) ed è disponibile con qualsiasi piano di licenza di Azure AD a pagamento. Per alcune informazioni legali sulle anteprime, vedere [Condizioni supplementari per l'utilizzo di Microsoft Azure Anteprime](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: sngun
 ms.openlocfilehash: 9dbbc914580d8d80a3f9b7d730574e24b44827c1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70093736"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Come usare Azure Kubernetes con Azure Cosmos DB (anteprima)
@@ -27,9 +27,9 @@ Per altre informazioni sull'API etcd in Azure Cosmos DB, vedere l'articolo [Pano
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. Installare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). È possibile scaricare l'interfaccia della riga di comando di Azure specifica del sistema operativo in uso e installarla.
+1. Installare la versione più recente [dell'interfaccia della riga](/cli/azure/install-azure-cli?view=azure-cli-latest)di comando di Azure. È possibile scaricare l'interfaccia della riga di comando di Azure specifica del sistema operativo in uso e installarla.
 
-1. Installare la [versione più recente](https://github.com/Azure/aks-engine/releases) di Azure Kubernetes Engine. Le istruzioni di installazione per diversi sistemi operativi sono disponibili nella pagina di [Azure Kubernetes Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine). È sufficiente seguire la procedura nella sezione **Install AKS Engine** (Installazione di Azure Kubernetes Engine) del documento collegato. Al termine del download, estrarre il file ZIP.
+1. Installare la [versione più recente](https://github.com/Azure/aks-engine/releases) di Azure Kubernetes Engine. Le istruzioni di installazione per diversi sistemi operativi sono disponibili nella pagina di [Azure Kubernetes Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine). Hai solo bisogno dei passaggi dalla sezione **Installare il motore AKS** del documento collegato. Dopo il download, estrarre il file zip.
 
    Azure Kubernetes Engine (**aks-engine**) genera i modelli di Azure Resource Manager per i cluster Kubernetes in Azure. L'input in aks-engine è un file di definizione del cluster che descrive il cluster desiderato, inclusi agente di orchestrazione, funzionalità e agenti. La struttura dei file di input è simile all'API pubblica per Azure Kubernetes Service.
 
@@ -139,17 +139,17 @@ Per altre informazioni sull'API etcd in Azure Cosmos DB, vedere l'articolo [Pano
 
    Azure Kubernetes Engine utilizza una definizione del cluster che descrive la forma, la dimensione e la configurazione desiderata di Azure Kubernetes. Esistono numerose funzionalità che è possibile abilitare tramite la definizione del cluster. In questo esempio si useranno i parametri seguenti:
 
-   * **subscription-id:** ID della sottoscrizione di Azure con l'API etcd di Azure Cosmos DB abilitata.
-   * **client-id:** L'appId dell'entità servizio. `appId` è stato restituito come output nel passaggio 4.
-   * **Client-secret:** Password dell'entità servizio o una password generata casualmente. Questo valore è stato restituito come output nel parametro 'password' nel passaggio 4. 
-   * **dnsPrefix:** Un nome DNS univoco dell'area. Questo valore fa parte del nome host (sono valori di esempio: myprod1, staging).
-   * **location:**  Posizione in cui il cluster deve essere distribuito, attualmente è supportato solo "centralus".
+   * **subscription-id:** ID sottoscrizione di Azure con L'API Azure Cosmos DB e così comanda.Azure subscription ID that has Azure Cosmos DB etcd API enabled.
+   * **id-client:** AppId dell'entità servizio. `appId` è stato restituito come output nel passaggio 4.
+   * **Segreto client:** Password dell'entità servizio o password generata casualmente. Questo valore è stato restituito come output nel parametro 'password' nel passaggio 4. 
+   * **dnsPrefix:** Un nome DNS univoco per l'area geografica. Questo valore fa parte del nome host (sono valori di esempio: myprod1, staging).
+   * **posizione:**  La posizione in cui deve essere distribuito il cluster, attualmente è supportato solo "centralus".
 
    > [!Note]
    > L'API etcd di Azure Cosmos etcd è attualmente disponibile solo per la distribuzione nell'area "centralus". 
  
-   * **api-model:** Percorso completo del file del modello.
-   * **force-overwrite:** Questa opzione viene usata per sovrascrivere automaticamente i file esistenti nella directory di output.
+   * **modello api:** Percorso completo del file modello.
+   * **sovrascrittura forzata:** Questa opzione viene utilizzata per sovrascrivere automaticamente i file esistenti nella directory di output.
  
    Il comando seguente illustra un esempio di distribuzione:
 

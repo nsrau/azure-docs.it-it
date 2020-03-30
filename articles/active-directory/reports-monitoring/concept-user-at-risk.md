@@ -16,25 +16,25 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 894d8dfb7f870ec4a2a11f1d75ee0376b25d8c7f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74014459"
 ---
 # <a name="users-flagged-for-risk-report-in-the-azure-portal"></a>Report Utenti contrassegnati per il rischio nel portale di Azure
 
-Azure Active Directory (Azure AD) rileva le azioni sospette correlate agli account utente. Per ogni azione rilevata, viene creato un record denominato [rilevamento dei rischi](concept-risk-events.md) .
+Azure Active Directory (Azure AD) rileva le azioni sospette correlate agli account utente. Per ogni azione rilevata, viene creato un record denominato [rilevamento dei rischi.](concept-risk-events.md)
 
 È possibile accedere ai report di sicurezza dal [portale di Azure](https://portal.azure.com) selezionando il pannello **Azure Active Directory** e quindi passando alla sezione **Sicurezza**. 
 
-I rilevamenti dei rischi rilevati vengono usati per calcolare:
+I rilevamenti dei rischi rilevati vengono utilizzati per calcolare:
 
 - **Accessi a rischio**. Un accesso rischioso è indicativo di un tentativo di accesso che potrebbe essere stato eseguito da qualcuno che non è il legittimo proprietario di un account utente. 
 
 - **Utenti contrassegnati per il rischio**. Un utente rischioso è indicativo di un account utente che potrebbe essere stato compromesso. 
 
-Per informazioni su come configurare i criteri per l'attivazione di questi rilevamenti dei rischi, vedere [come configurare i criteri di rischio utente](../identity-protection/howto-user-risk-policy.md). 
+Per informazioni su come configurare i criteri che attivano questi rilevamenti dei rischi, vedere [Come configurare i criteri di rischio utente.](../identity-protection/howto-user-risk-policy.md) 
 
 ![Accessi a rischio](./media/concept-user-at-risk/10.png)
 
@@ -43,11 +43,11 @@ Per informazioni su come configurare i criteri per l'attivazione di questi rilev
 
 Tutte le edizioni di Azure Active Directory offrono report sugli utenti contrassegnati per il rischio. Tuttavia, il livello di granularità dei report varia a seconda delle edizioni: 
 
-- Nelle edizioni **Azure Active Directory Free e Basic**  è incluso un elenco degli utenti contrassegnati per il rischio. 
+- Nelle edizioni **Azure Active Directory Free e Basic ** è incluso un elenco degli utenti contrassegnati per il rischio. 
 
-- Inoltre, la **Azure Active Directory Premium 1** edizione consente di esaminare alcuni dei rilevamenti di rischio sottostanti rilevati per ogni report. 
+- Inoltre, l'edizione **Azure Active Directory Premium 1** consente di esaminare alcuni dei rilevamenti dei rischi sottostanti rilevati per ogni report. 
 
-- L'edizione **Azure Active Directory Premium 2** fornisce le informazioni più dettagliate su tutti i rilevamenti di rischi sottostanti e consente inoltre di configurare criteri di sicurezza che rispondono automaticamente ai livelli di rischio configurati.
+- L'edizione **Azure Active Directory Premium 2** offre le informazioni più dettagliate su tutti i rilevamenti dei rischi sottostanti e consente inoltre di configurare criteri di sicurezza che rispondono automaticamente ai livelli di rischio configurati.
 
 
 ## <a name="users-at-risk-report-for-azure-ad-free-and-basic-editions"></a>Report sugli utenti a rischio per le edizioni Azure AD Free e Basic
@@ -73,7 +73,7 @@ Il report Utenti contrassegnati per il rischio nelle edizioni Azure AD Premium f
 
 - Un elenco di account utente che potrebbero essere stati compromessi 
 
-- Informazioni aggregate sui [tipi di rilevamento dei rischi](concept-risk-events.md) rilevati
+- Informazioni aggregate sui [tipi di rilevamento](concept-risk-events.md) dei rischi rilevati
 
 - un'opzione per scaricare il report
 
@@ -93,14 +93,14 @@ Quando si seleziona un utente, si ottiene la visualizzazione di un report dettag
 
 ![Accessi a rischio](./media/concept-user-at-risk/324.png)
 
-Per esaminare un rilevamento dei rischi, selezionarne uno nell'elenco per aprire il pannello dei **Dettagli** per questo rilevamento dei rischi. Nel pannello dei **Dettagli** è possibile scegliere di chiudere manualmente un rilevamento dei rischi oppure riattivare un rilevamento dei rischi chiuso manualmente. 
+Per analizzare il rilevamento di un rischio, selezionarne uno dall'elenco per aprire il pannello **Dettagli** per il rilevamento dei rischi. Nel pannello **Dettagli** è possibile chiudere manualmente un rilevamento dei rischi o riattivarlo manualmente. 
 
 ![Accessi a rischio](./media/concept-user-at-risk/325.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Procedura: Configurare i criteri di rischio utente](../identity-protection/howto-user-risk-policy.md)
+- [Come configurare i criteri di rischio per gli utenti](../identity-protection/howto-user-risk-policy.md)
 - [Procedura: Configurare i criteri di correzione del rischio utente](../identity-protection/howto-user-risk-policy.md)
 - [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
 

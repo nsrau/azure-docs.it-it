@@ -1,5 +1,5 @@
 ---
-title: Visualizzazione dei dati in tempo reale di dati FRM Hub di Azure-Power BI
+title: Visualizzazione dei dati in tempo reale dei dati frm Hub IoT di Azure – Power BI
 description: Usare Power BI per visualizzare i dati di temperatura e umidità raccolti dal sensore e inviati all'hub IoT di Azure.
 author: robinsh
 keywords: visualizzazione dei dati in tempo reale, visualizzazione dei dati dal vivo, visualizzazione dei dati del sensore
@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 6/06/2019
 ms.author: robinsh
 ms.openlocfilehash: f0b909d10790511408e090546fd3359889ea5aca
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73954636"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualizzare i dati del sensore in tempo reale da IoT Hub di Azure tramite Power BI
@@ -24,7 +24,7 @@ ms.locfileid: "73954636"
 
 ## <a name="what-you-learn"></a>Contenuto dell'esercitazione
 
-Informazioni su come visualizzare i dati del sensore in tempo reale che l'hub IoT di Azure riceve usando Power BI. Se si vuole provare a visualizzare i dati nell'hub delle cose con un'app Web, vedere [usare un'app Web per visualizzare i dati del sensore in tempo reale dall'hub Azure](iot-hub-live-data-visualization-in-web-apps.md).
+Informazioni su come visualizzare i dati del sensore in tempo reale che l'hub IoT di Azure riceve usando Power BI. Se si vuole provare a visualizzare i dati nell'hub IoT con un'app Web, vedere Usare un'app Web per visualizzare i dati dei sensori in [tempo reale dall'hub IoT](iot-hub-live-data-visualization-in-web-apps.md)di Azure.
 
 ## <a name="what-you-do"></a>Operazioni da fare
 
@@ -36,13 +36,13 @@ Informazioni su come visualizzare i dati del sensore in tempo reale che l'hub Io
 
 ## <a name="what-you-need"></a>Elementi necessari
 
-* Completare l'esercitazione del [simulatore online Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) o una delle esercitazioni sui dispositivi; ad esempio, [Raspberry Pi con node. js](iot-hub-raspberry-pi-kit-node-get-started.md). Questi articoli coprono i requisiti seguenti:
+* Completa il simulatore online tutorial [Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) o uno dei tutorial del dispositivo; ad esempio, [Raspberry Pi con node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Questi articoli riguardano i seguenti requisiti:
   
   * Una sottoscrizione di Azure attiva.
   * Un hub IoT di Azure nella sottoscrizione.
-  * Un'applicazione client che invia messaggi all'hub IoT di Azure.
+  * Un'applicazione client che invia messaggi ad Azure IoT hub.
 
-* Un account di Power BI. ([Provare gratuitamente Power BI](https://powerbi.microsoft.com/))
+* Un account di Power BI. ([Prova Power BI gratuitamente](https://powerbi.microsoft.com/))
 
 [!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
@@ -64,49 +64,49 @@ Iniziare creando un processo di Analisi di flusso. Dopo aver creato il processo,
 
    ![Creare un processo di analisi di flusso in Azure](./media/iot-hub-live-data-visualization-in-power-bi/create-stream-analytics-job-azure.png)
 
-3. Selezionare **Create**.
+3. Selezionare **Crea**.
 
-### <a name="add-an-input-to-the-stream-analytics-job"></a>Aggiungere un input al processo di analisi di flusso
+### <a name="add-an-input-to-the-stream-analytics-job"></a>Aggiungere un input al processo di Analisi di flusso
 
 1. Aprire il processo di analisi di flusso.
 
 2. In **Topologia processo** selezionare **Input**.
 
-3. Nel riquadro **input** selezionare **Aggiungi input flusso**, quindi selezionare **Hub** tutto dall'elenco a discesa. Nel riquadro nuovo input immettere le informazioni seguenti:
+3. Nel riquadro **Input** selezionare **Aggiungi input flusso**, quindi selezionare Hub **IoT** dall'elenco a discesa. Nel nuovo riquadro di input immettere le informazioni seguenti:
 
-   **Alias di input**: immettere un alias univoco per l'input.
+   **Alias di input**: Immettere un alias univoco per l'input.
 
-   **Fornire l'hub delle cose dalla sottoscrizione**: selezionare questo pulsante di opzione.
+   **Fornire l'hub IoT dall'abbonamento:** selezionare questo pulsante di opzione.
 
-   **Sottoscrizione**: selezionare la sottoscrizione di Azure che si sta usando per questa esercitazione.
+   **Sottoscrizione:** selezionare la sottoscrizione di Azure usata per questa esercitazione.
 
-   **Hub**Internet delle cose: selezionare l'hub Internet che si sta usando per questa esercitazione.
+   **Hub IoT:** selezionare l'hub IoT in uso per questa esercitazione.
 
    **Endpoint**: selezionare **Messaggistica**.
 
-   **Nome dei criteri di accesso condiviso**: selezionare il nome del criterio di accesso condiviso che si vuole che il processo di analisi di flusso usi per l'hub Internet. Per questa esercitazione, è possibile selezionare *servizio*. Il criterio del *servizio* viene creato per impostazione predefinita nei nuovi hub Internet e concede l'autorizzazione per l'invio e la ricezione sugli endpoint sul lato cloud esposti dall'hub Internet delle cose. Per altre informazioni, vedere [controllo di accesso e autorizzazioni](iot-hub-devguide-security.md#access-control-and-permissions).
+   **Nome criterio di accesso condiviso:** selezionare il nome del criterio di accesso condiviso che si vuole usare per il processo di Analisi di flusso per l'hub IoT. Per questa esercitazione, è possibile selezionare *il servizio*. I criteri di *servizio* vengono creati per impostazione predefinita nei nuovi hub IoT e concedono l'autorizzazione per inviare e ricevere negli endpoint sul lato cloud esposti dall'hub IoT.The service policy is created by default on new IoT hubs and grants permission to send and receive on cloud-side endpoints exposed by the IoT hub. Per ulteriori informazioni, consultate [Controllo di accesso e autorizzazioni.](iot-hub-devguide-security.md#access-control-and-permissions)
 
-   **Chiave dei criteri di accesso condiviso**: questo campo viene compilato automaticamente in base alla selezione per il nome del criterio di accesso condiviso.
+   Chiave dei criteri di **accesso condiviso:** questo campo viene compilato automaticamente in base alla selezione effettuata per il nome del criterio di accesso condiviso.
 
-   **Gruppo di consumer**: selezionare il gruppo di consumer creato in precedenza.
+   **Gruppo di consumer:** selezionare il gruppo di consumer creato in precedenza.
 
-   Lasciare i valori predefiniti per tutti gli altri campi.
+   Lasciare tutti gli altri campi ai valori predefiniti.
 
    ![Aggiungere un input al processo di analisi di flusso in Azure](./media/iot-hub-live-data-visualization-in-power-bi/add-input-to-stream-analytics-job-azure.png)
 
 4. Selezionare **Salva**.
 
-### <a name="add-an-output-to-the-stream-analytics-job"></a>Aggiungere un output al processo di analisi di flusso
+### <a name="add-an-output-to-the-stream-analytics-job"></a>Aggiungere un output al processo di Analisi di flusso
 
 1. In **Topologia processo** selezionare **Output**.
 
-2. Nel riquadro **output** selezionare **Aggiungi** e **Power bi**.
+2. Nel riquadro **Output** selezionare **Aggiungi** e **Power BI.**
 
-3. Nel riquadro **Power BI-nuovo output** selezionare **autorizza** e seguire le istruzioni per accedere all'account di Power bi.
+3. Nel riquadro **Power BI - Nuovo output** selezionare **Autorizza** e seguire le istruzioni per accedere all'account Power BI.
 
-4. Dopo aver effettuato l'accesso a Power BI, immettere le informazioni seguenti:
+4. Dopo aver eseguito l'accesso a Power BI, immettere le informazioni seguenti:
 
-   **Alias di output**: alias univoco per l'output.
+   **Alias di output**: Un alias univoco per l'output.
 
    **Area di lavoro del gruppo**: selezionare l'area di lavoro del gruppo di destinazione.
 
@@ -118,7 +118,7 @@ Iniziare creando un processo di Analisi di flusso. Dopo aver creato il processo,
 
 5. Selezionare **Salva**.
 
-### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurare la query del processo di analisi di flusso
+### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurare la query del processo di Analisi di flusso
 
 1. In **Topologia processo** selezionare **Query**.
 
@@ -132,7 +132,7 @@ Iniziare creando un processo di Analisi di flusso. Dopo aver creato il processo,
 
 ### <a name="run-the-stream-analytics-job"></a>Eseguire il processo di Analisi di flusso
 
-Nel processo di analisi di flusso selezionare **Panoramica**, quindi fare clic su **avvia** > **ora** > **Avvia**. Dopo aver avviato correttamente il processo, lo stato del processo passa da **Interrotto** a **In esecuzione**.
+Nel processo Analisi di flusso seleziona **Panoramica**, quindi **Avvia** > **ora** > **Avvia**. Dopo aver avviato correttamente il processo, lo stato del processo passa da **Interrotto** a **In esecuzione**.
 
 ![Eseguire un processo di analisi di flusso in Azure](./media/iot-hub-live-data-visualization-in-power-bi/run-stream-analytics-job-azure.png)
 
@@ -142,19 +142,19 @@ Nel processo di analisi di flusso selezionare **Panoramica**, quindi fare clic s
 
 2. Accedere all'account [Power BI](https://powerbi.microsoft.com/en-us/).
 
-3. Selezionare l'area di lavoro usata, **area di lavoro personale**.
+3. Selezionare l'area di lavoro utilizzata, **Area di lavoro personale**.
 
 4. Selezionare **Set di dati**.
 
    Dovrebbero essere visualizzati i set di dati specificati quando è stato creato l'output per il processo di Analisi di flusso.
 
-5. Per il set di dati creato, selezionare **Aggiungi rapporto** (la prima icona a destra del nome del set di dati).
+5. Per il set di dati creato, selezionare **Aggiungi report** (la prima icona a destra del nome del set di dati).
 
    ![Creare un report di Microsoft Power BI](./media/iot-hub-live-data-visualization-in-power-bi/start-power-bi.png)
 
 6. Creare un grafico a linee per visualizzare la temperatura in tempo reale nel tempo.
 
-   1. Nel riquadro **visualizzazioni** della pagina Creazione report selezionare l'icona del grafico a linee per aggiungere un grafico a linee.
+   1. Nel riquadro **Visualizzazioni** della pagina di creazione del report selezionare l'icona del grafico a linee per aggiungere un grafico a linee.
 
    2. Nel riquadro **Campi** espandere la tabella specificata durante la creazione di output per il processo di analisi di flusso.
 
@@ -172,13 +172,13 @@ Nel processo di analisi di flusso selezionare **Panoramica**, quindi fare clic s
 
 8. Selezionare **Salva** per salvare il report.
 
-9. Selezionare **report** nel riquadro a sinistra e quindi selezionare il report appena creato.
+9. Selezionare **Report** nel riquadro sinistro e quindi selezionare il report appena creato.
 
-10. Selezionare **File** > **pubblica sul Web**.
+10. Selezionare **Pubblica file** > **sul Web**.
 
-11. Selezionare **Crea codice di incorporamento**e quindi selezionare **pubblica**.
+11. Selezionare **Crea codice di incorporamento**, quindi **Pubblica**.
 
-Viene fornito il collegamento al report che è possibile condividere con tutti gli utenti per l'accesso ai report e un frammento di codice che è possibile usare per integrare il report nel Blog o nel sito Web.
+Viene fornito il collegamento al report che è possibile condividere con chiunque per l'accesso ai report e uno snippet di codice che è possibile utilizzare per integrare il report nel blog o nel sito Web.
 
 ![Pubblicare un report di Microsoft Power BI](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-publish.png)
 
@@ -188,6 +188,6 @@ Microsoft offre anche le [App per dispositivi mobili di Power BI](https://powerb
 
 Si è utilizzato correttamente Power BI per visualizzare i dati del sensore in tempo reale dall'hub IoT di Azure.
 
-Per un altro modo per visualizzare i dati dall'hub Azure, vedere [usare un'app Web per visualizzare i dati del sensore in tempo reale dall'hub Azure](iot-hub-live-data-visualization-in-web-apps.md).
+Per un altro modo per visualizzare i dati dall'hub IoT di Azure, vedere Usare un'app Web per visualizzare i dati dei sensori in tempo reale dall'hub IoT di Azure.For another way to visualize data from Azure IoT Hub, see [Use a web app to visualize real-time sensor data from Azure IoT Hub.](iot-hub-live-data-visualization-in-web-apps.md)
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

@@ -1,5 +1,5 @@
 ---
-title: Creare un probe personalizzato con PowerShell
+title: Creare un probe personalizzato usando PowerShellCreate a custom probe using PowerShell
 titleSuffix: Azure Application Gateway
 description: Informazioni su come creare un probe personalizzato per il gateway applicazione con PowerShell in Gestione risorse
 services: application-gateway
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: 1fef24f4065ca6fc749f35a07143487e049ee6ea
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74075266"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Creare un probe personalizzato per il gateway applicazione di Azure con PowerShell per Azure Resource Manager
@@ -20,7 +20,7 @@ ms.locfileid: "74075266"
 > [!div class="op_single_selector"]
 > * [Portale di Azure](application-gateway-create-probe-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-create-probe-ps.md)
-> * [PowerShell per Azure classico](application-gateway-create-probe-classic-ps.md)
+> * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
 Questo articolo illustra come aggiungere un probe personalizzato a un gateway applicazione esistente con PowerShell. I probe personalizzati sono utili per le applicazioni che dispongono di una pagina di controllo dell'integrità specifica o per quelle che non rispondono in modo corretto all'applicazione Web predefinita.
 
@@ -44,7 +44,7 @@ Questo articolo illustra come aggiungere un probe personalizzato a un gateway ap
    Get-AzSubscription
    ```
 
-1. Scegliere le sottoscrizioni ad Azure da usare.
+1. Scegliere quali sottoscrizioni Azure usare.
 
    ```powershell
    Select-AzSubscription -Subscriptionid '{subscriptionGuid}'
@@ -56,9 +56,9 @@ Questo articolo illustra come aggiungere un probe personalizzato a un gateway ap
    New-AzResourceGroup -Name appgw-rg -Location 'West US'
    ```
 
-Azure Resource Manager richiede che tutti i gruppi di risorse specifichino una località. che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Assicurarsi che tutti i comandi per creare un gateway applicazione usino lo stesso gruppo di risorse.
+Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Assicurarsi che tutti i comandi per creare un gateway applicazione usino lo stesso gruppo di risorse.
 
-Nell'esempio precedente è stato creato un gruppo di risorse denominato **appgw-RG** nella località **West US**.
+Nell'esempio precedente è stato creato un gruppo di risorse denominato **appgw-RG** nella località **Stati Uniti occidentali**.
 
 ### <a name="create-a-virtual-network-and-a-subnet"></a>Creare una rete virtuale e una subnet
 
@@ -77,7 +77,7 @@ $subnet = $vnet.Subnets[0]
 
 ### <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Creare un indirizzo IP pubblico per la configurazione front-end
 
-Creare una risorsa IP pubblica denominata **publicIP01** nel gruppo di risorse **appgw-rg** per l'area Stati Uniti occidentali. Questo esempio usa un indirizzo IP pubblico per l'indirizzo IP front-end del gateway applicazione.  Per il gateway applicazione è necessario che l'indirizzo IP pubblico disponga di un nome DNS creato dinamicamente e di conseguenza l'elemento `-DomainNameLabel` non può essere specificato durante la creazione dell'indirizzo IP pubblico.
+Creare una risorsa IP pubblica **publicIP01** nel gruppo di risorse **appgw-rg** per l'area Stati Uniti occidentali. Questo esempio usa un indirizzo IP pubblico per l'indirizzo IP front-end del gateway applicazione.  Per il gateway applicazione è necessario che l'indirizzo IP pubblico disponga di un nome DNS creato dinamicamente e di conseguenza l'elemento `-DomainNameLabel` non può essere specificato durante la creazione dell'indirizzo IP pubblico.
 
 ```powershell
 $publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -Location 'West US' -AllocationMethod Dynamic

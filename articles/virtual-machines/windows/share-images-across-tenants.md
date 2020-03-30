@@ -1,6 +1,6 @@
 ---
-title: Condividere immagini della raccolta tra i tenant in Azure
-description: Informazioni su come condividere immagini di VM tra tenant di Azure usando le raccolte di immagini condivise.
+title: Condividere immagini della raccolta tra tenant in AzureShare gallery images across tenants in Azure
+description: Informazioni su come condividere immagini di macchine virtuali tra tenant di Azure usando raccolte di immagini condivise.
 services: virtual-machines-windows
 author: cynthn
 manager: gwallace
@@ -11,25 +11,25 @@ ms.topic: article
 ms.date: 07/15/2019
 ms.author: cynthn
 ms.openlocfilehash: 9b7e7066f186017b7cc4408cd4f7edcc7e5f0dcd
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74065512"
 ---
-# <a name="share-gallery-vm-images-across-azure-tenants"></a>Condividere le immagini di macchine virtuali della raccolta tra i tenant di Azure
+# <a name="share-gallery-vm-images-across-azure-tenants"></a>Condividere immagini di macchine virtuali della raccolta tra tenant di AzureShare gallery VM images across Azure tenants
 
-Le raccolte di immagini condivise consentono di condividere immagini con RBAC. È possibile usare il controllo degli accessi in base al ruolo per condividere immagini all'interno del tenant e anche a utenti esterni al tenant. Per ulteriori informazioni su questa semplice opzione di condivisione, vedere la pagina relativa alla [condivisione della raccolta](/azure/virtual-machines/windows/shared-images-portal#share-the-gallery).
+Le raccolte di immagini condivise consentono di condividere immagini utilizzando il controllo degli accessi in base al ruolo. È possibile usare il controllo degli accessi in base al ruolo per condividere immagini all'interno del tenant e anche a utenti esterni al tenant. Per ulteriori informazioni su questa semplice opzione di condivisione, vedere [la raccolta Condividi la raccolta](/azure/virtual-machines/windows/shared-images-portal#share-the-gallery).
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
 
 > [!IMPORTANT]
-> Non è possibile usare il portale per distribuire una macchina virtuale da un'immagine in un altro tenant di Azure. Per creare una macchina virtuale da un'immagine condivisa tra i tenant, è necessario usare l'interfaccia della riga di comando di [Azure](../linux/share-images-across-tenants.md) o PowerShell.
+> Non è possibile usare il portale per distribuire una macchina virtuale da un'immagine in un altro tenant azure.You cannot use the portal to deploy a VM from an image in another azure tenant. Per creare una macchina virtuale da un'immagine condivisa tra tenant, è necessario usare l'interfaccia della riga di comando di Azure o [Powershell.To](../linux/share-images-across-tenants.md) create a VM from an image shared between tenants, you must use the Azure CLI or Powershell.
 
-## <a name="create-a-vm-using-powershell"></a>Creare una VM con PowerShell
+## <a name="create-a-vm-using-powershell"></a>Creare una macchina virtuale con PowerShell
 
-Accedere a entrambi i tenant usando l'ID applicazione, il segreto e l'ID tenant. 
+Accedere a entrambi i tenant utilizzando l'ID applicazione, il segreto e l'ID tenant. 
 
 ```azurepowershell-interactive
 $applicationId = '<App ID>'
@@ -86,4 +86,4 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È anche possibile creare risorse della raccolta immagini condivise usando il [portale di Azure](shared-images-portal.md).
+È anche possibile creare risorse della raccolta di immagini condivise usando il portale di Azure.You can also create shared image gallery resources using the [Azure portal](shared-images-portal.md).

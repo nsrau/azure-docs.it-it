@@ -1,5 +1,5 @@
 ---
-title: Configurare il ripristino di emergenza dopo la migrazione ad Azure con Azure Site Recovery
+title: Configurare il ripristino di emergenza dopo la migrazione ad Azure con Azure Site RecoverySet up disaster recovery after migration to Azure with Azure Site Recovery
 description: Questo articolo descrive come preparare le macchine per configurare il ripristino di emergenza tra le aree di Azure dopo la migrazione ad Azure usando Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
@@ -9,34 +9,34 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 874c282ff878126297dc46ca0e7a4c19910e40a1
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74159120"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure dopo la migrazione ad Azure 
 
 
-Seguire questo articolo se è stata [eseguita la migrazione di computer locali alle VM di Azure](tutorial-migrate-on-premises-to-azure.md) usando il servizio [Site Recovery](site-recovery-overview.md) e si desidera ora configurare le macchine virtuali per il ripristino di emergenza in un'area di Azure secondaria. Questo articolo descrive come verificare che l'agente di macchine virtuali di Azure sia installato nelle VM migrate e come rimuovere il servizio di Site Recovery Mobility che non è più necessario dopo la migrazione.
+Seguire questo articolo se è stata [eseguita la migrazione](tutorial-migrate-on-premises-to-azure.md) di macchine locali a macchine virtuali di Azure usando il servizio [Site Recovery](site-recovery-overview.md) e ora si vuole ottenere le macchine virtuali configurate per il ripristino di emergenza in un'area di Azure secondaria. L'articolo descrive come verificare che l'agente di macchine virtuali di Azure sia installato nelle macchine virtuali migrate e come rimuovere il servizio Mobility di Site Recovery che non è più necessario dopo la migrazione.
 
 
 
-## <a name="verify-migration"></a>Verifica migrazione
+## <a name="verify-migration"></a>Verificare la migrazione
 
 Prima di configurare il ripristino di emergenza assicurarsi che la migrazione sia stata completata come previsto. Per completare una migrazione, dopo il failover è necessario selezionare l'opzione **Completa la migrazione** per ogni computer di cui eseguire la migrazione. 
 
-## <a name="verify-the-azure-vm-agent"></a>Verificare l'agente di macchine virtuali di Azure
+## <a name="verify-the-azure-vm-agent"></a>Verificare l'agente di macchine virtuali di AzureVerify the Azure VM agent
 
-Per ogni macchina virtuale di Azure deve essere installato l' [agente di macchine virtuali di Azure](../virtual-machines/extensions/agent-windows.md) . Per replicare le macchine virtuali di Azure, Site Recovery installa un'estensione nell'agente.
+Ogni macchina virtuale di Azure deve avere installato l'agente di macchine virtuali di [Azure.Each Azure VM](../virtual-machines/extensions/agent-windows.md) must have the Azure VM agent installed. Per replicare le macchine virtuali di Azure, Site Recovery installa un'estensione nell'agente.
 
-- Se il computer esegue la versione 9.7.0.0 o successiva del servizio Site Recovery Mobility, l'agente di macchine virtuali di Azure viene installato automaticamente dal servizio Mobility nelle macchine virtuali Windows. Nelle versioni precedenti del servizio Mobility, l'agente verrà installato manualmente.
-- Per le macchine virtuali Linux, è necessario installare manualmente l'agente di macchine virtuali di Azure. È necessario installare l'agente di macchine virtuali di Azure solo se nella macchina di cui è stata eseguita la migrazione è installata la versione 9.6 o precedente del servizio Mobility.
+- Se nel computer è in esecuzione la versione 9.7.0.0 o successiva del servizio Mobility di Site Recovery, l'agente di macchine virtuali di Azure viene installato automaticamente dal servizio Mobility nelle macchine virtuali Windows. Nelle versioni precedenti del servizio Mobility, l'agente verrà installato manualmente.
+- Per le macchine virtuali Linux, è necessario installare manualmente l'agente di macchine virtuali di Azure.For Linux VMs, you must install the Azure VM agent manually. È necessario installare l'agente di macchine virtuali di Azure solo se nella macchina di cui è stata eseguita la migrazione è installata la versione 9.6 o precedente del servizio Mobility.
 
 
-### <a name="install-the-agent-on-windows-vms"></a>Installare l'agente nelle VM Windows
+### <a name="install-the-agent-on-windows-vms"></a>Installare l'agente in macchine virtuali WindowsInstall the agent on Windows VMs
 
-Se si esegue una versione di Site Recovery servizio Mobility precedente a 9.7.0.0 o se è necessario installare l'agente manualmente, eseguire le operazioni seguenti:  
+Se si esegue una versione del servizio per dispositivi mobili di Site Recovery precedente alla 9.7.0.0 o se è necessario installare l'agente manualmente, eseguire le operazioni seguenti:  
 
 1. Assicurarsi di disporre delle autorizzazioni di amministratore per la macchina virtuale.
 2. Scaricare il [programma di installazione dell'agente di macchine virtuali](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
@@ -49,24 +49,24 @@ Per verificare che l'agente sia installato:
 2. Fare clic con il pulsante destro del mouse sul file, scegliere **Proprietà** e quindi selezionare la scheda **Dettagli**.
 3. Verificare che il valore visualizzato nel campo **Versione prodotto** sia uguale o superiore a 2.6.1198.718.
 
-[Altre](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) informazioni sull'installazione di Agent per Windows.
+[Ulteriori informazioni](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) sull'installazione degli agenti per Windows.Learn more about agent installation for Windows.
 
-### <a name="install-the-agent-on-linux-vms"></a>Installare l'agente nelle VM Linux
+### <a name="install-the-agent-on-linux-vms"></a>Installare l'agente nelle macchine virtuali LinuxInstall the agent on Linux VMs
 
-Installare manualmente l'agente di [macchine virtuali Linux di Azure](../virtual-machines/extensions/agent-linux.md) come indicato di seguito:
+Installare manualmente l'agente [VM di Azure Linux](../virtual-machines/extensions/agent-linux.md) come segue:Install the Azure Linux VM agent manually as follows:
 
 1. Assicurarsi di disporre delle autorizzazioni di amministratore per il computer.
-2. È consigliabile installare l'agente di macchine virtuali Linux usando un RPM o un pacchetto DEB dal repository del pacchetto della distribuzione. Tutti i [provider di distribuzione supportati](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrano il pacchetto agente Linux di Azure nelle immagini e nei repository.
-    - Si consiglia vivamente di aggiornare l'agente solo tramite un repository di distribuzione.
-    - Non è consigliabile installare l'agente di macchine virtuali Linux direttamente da GitHub e aggiornarlo.
+2. È consigliabile installare l'agente di macchine virtuali Linux usando un RPM o un pacchetto DEB dal repository dei pacchetti della distribuzione. Tutti i [provider di distribuzione supportati](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrano il pacchetto agente Linux di Azure nelle immagini e nei repository.
+    - È fortemente consigliato aggiornare l'agente solo tramite un repository di distribuzione.
+    - Non è consigliabile installare l'agente DI macchine virtuali Linux direttamente da GitHub e aggiornarlo.
     -  Se l'agente più recente per la distribuzione non è disponibile, contattare il supporto per la distribuzione per istruzioni su come installarlo. 
 
 #### <a name="validate-the-installation"></a>Convalidare l'installazione 
 
-1. Eseguire questo comando: **PS-e** per assicurarsi che l'agente di Azure sia in esecuzione nella macchina virtuale Linux.
+1. Eseguire questo comando: ps -e per verificare che l'agente di Azure sia in esecuzione nella macchina virtuale Linux.Run this command: **ps -e** to ensure that the Azure agent is running on the Linux VM.
 2. Se il processo non è in esecuzione, riavviarlo usando i comandi seguenti:
-    - Per Ubuntu: **avvio del servizio walinuxagent**
-    - Per altre distribuzioni: **Service waagent Start**
+    - Per Ubuntu: **avvio del walinuxagent** del servizio
+    - Per altre distribuzioni: **avvio del servizio waagent**
 
 
 ## <a name="uninstall-the-mobility-service"></a>Disinstallare il servizio Mobility
@@ -84,5 +84,5 @@ Installare manualmente l'agente di [macchine virtuali Linux di Azure](../virtual
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Esaminare la risoluzione dei problemi](site-recovery-extension-troubleshoot.md) relativi all'estensione Site Recovery nell'agente di macchine virtuali di Azure.
+[Esaminare la risoluzione dei problemi](site-recovery-extension-troubleshoot.md) per l'estensione di Site Recovery nell'agente di macchine virtuali di Azure.Review troubleshooting for the Site Recovery extension on the Azure VM agent.
 [Replicare rapidamente](azure-to-azure-quickstart.md) una macchina virtuale di Azure in un'area secondaria.

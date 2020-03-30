@@ -1,6 +1,6 @@
 ---
-title: Introduzione alla verifica del flusso di dati in Azure Data Factory
-description: Esercitazione su come preparare i dati in Azure Data Factory utilizzando il flusso di dati in corso
+title: Introduzione al flusso di dati wrangling in Azure Data FactoryGetting started with wrangling data flow in Azure Data Factory
+description: Esercitazione su come preparare i dati in Azure Data Factory usando il flusso di dati di wrangling
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: gamal
@@ -8,53 +8,53 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
 ms.openlocfilehash: 8ae109045381dba77610dedc5bb95e233b213eee
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73682270"
 ---
-# <a name="prepare-data-with-wrangling-data-flow"></a>Preparare i dati con il flusso di dati disputato
+# <a name="prepare-data-with-wrangling-data-flow"></a>Preparare i dati con il flusso di dati wranglingPrepare data with wrangling data flow
 
-## <a name="create-a-wrangling-data-flow"></a>Creazione di un flusso di dati di cui litigare
+## <a name="create-a-wrangling-data-flow"></a>Creare un flusso di dati di wranglingCreate a wrangling data flow
 
-Esistono due modi per creare un flusso di dati in Azure Data Factory. Un modo consiste nel fare clic sull'icona con il segno più e selezionare **flusso di dati** nel riquadro risorse Factory.
+Esistono due modi per creare un flusso di dati di wrangling in Azure Data Factory.There are two ways to create a wrangling data flow in Azure Data Factory. Un modo consiste nel fare clic sull'icona più e selezionare **Flusso di dati** nel riquadro delle risorse di fabbrica.
 
 ![Dispute](media/wrangling-data-flow/tutorial7.png)
 
-L'altro metodo si trova nel riquadro attività dell'area di disegno della pipeline. Aprire lo **spostamento e trasformare** la fisarmonica e trascinare l'attività **flusso di dati** nell'area di disegno.
+L'altro metodo si trova nel riquadro delle attività dell'area di disegno della pipeline. Aprire la fisarmonica **Sposta e trasforma** e trascinare l'attività Flusso di **dati** nell'area di disegno.
 
-In entrambi i metodi, nel riquadro laterale che viene visualizzato, selezionare **Crea nuovo flusso di dati** e scegliere **flusso di dati in corso**. Fare clic su OK.
+In entrambi i metodi, nel riquadro laterale visualizzato, selezionare **Crea nuovo flusso** di dati e scegliere **Wrangling data flow**. Fare clic su OK.
 
 ![Dispute](media/wrangling-data-flow/tutorial1.png)
 
-## <a name="author-a-wrangling-data-flow"></a>Creazione di un flusso di dati in corso
+## <a name="author-a-wrangling-data-flow"></a>Creare un flusso di dati di wrangling
 
-Aggiungere un **set** di dati di origine per il flusso di dati in corso. È possibile scegliere un set di dati esistente o crearne uno nuovo. È anche possibile selezionare un set di dati sink. È possibile scegliere uno o più set di dati di origine, ma al momento è consentito un solo sink. La scelta di un set di dati sink è facoltativa, ma è necessario almeno un set di dati di origine.
+Aggiungere un **set di dati di origine** per il flusso di dati di wrangling.Add a Source dataset for your wrangling data flow. È possibile scegliere un set di dati esistente o crearne uno nuovo. È inoltre possibile selezionare un set di dati sink. È possibile scegliere uno o più set di dati di origine, ma in questo momento è consentito un solo sink. La scelta di un set di dati sink è facoltativa, ma è necessario almeno un set di dati di origine.
 
 > [!NOTE]
-> Per l'anteprima limitata sono supportati solo i testi delimitati da ADLS gen 2. 
+> Solo ADLS Gen 2 Delimited Text è supportato per l'anteprima limitata. 
 
 ![Dispute](media/wrangling-data-flow/tutorial4.png)
 
-Fare clic su **Crea** per aprire la Power query editor mashup online.
+Fare clic su **Crea** per aprire l'editor di mashup di Power Query Online.
 
 ![Dispute](media/wrangling-data-flow/tutorial5.png)
 
-Consente di creare il flusso di dati che si verifica usando la preparazione dei dati senza codice. Per l'elenco delle funzioni disponibili, vedere [funzioni di trasformazione](wrangling-data-flow-functions.md)/
+Crea il tuo flusso di dati di wrangling usando la preparazione dei dati senza codice. Per l'elenco delle funzioni disponibili, vedere [Funzioni di trasformazione](wrangling-data-flow-functions.md)/
 
 ![Dispute](media/wrangling-data-flow/tutorial6.png)
 
-## <a name="running-and-monitoring-a-wrangling-data-flow"></a>Esecuzione e monitoraggio di un flusso di dati in corso
+## <a name="running-and-monitoring-a-wrangling-data-flow"></a>Esecuzione e monitoraggio di un flusso di dati di wranglingRunning and monitoring a wrangling data flow
 
-Per eseguire un'esecuzione del debug di una pipeline di un flusso di dati che si verifica, fare clic su **debug** nel Canvas della pipeline. Una volta pubblicato il flusso di dati, **trigger esegue ora** un'esecuzione su richiesta dell'ultima pipeline pubblicata. La pianificazione dei flussi di dati può essere pianificata con tutti i trigger di Azure Data Factory esistenti.
+Per eseguire un'esecuzione di debug della pipeline di un flusso di dati di wrangling, fare clic su **Debug** nell'area di disegno della pipeline. Dopo aver pubblicato il flusso di dati, **Trigger ora** esegue un'esecuzione su richiesta dell'ultima pipeline pubblicata. I flussi di dati wrangling possono essere pianificati con tutti i trigger di Azure Data Factory esistenti.
 
 ![Dispute](media/wrangling-data-flow/tutorial3.png)
 
-Passare alla scheda **monitoraggio** per visualizzare l'output di un'esecuzione dell'attività flusso di dati avviata.
+Passare alla scheda **Monitoraggio** per visualizzare l'output di un'esecuzione dell'attività del flusso di dati wrangling attivata.
 
 ![Dispute](media/wrangling-data-flow/tutorial2.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come [creare un flusso di dati di mapping](tutorial-data-flow.md).
+Informazioni su come creare un flusso di dati di [mapping.](tutorial-data-flow.md)

@@ -1,7 +1,7 @@
 ---
-title: Esperimenti Kickstart da esempi
+title: Kickstart esperimenti da esempi
 titleSuffix: ML Studio (classic) - Azure
-description: Informazioni su come usare gli esperimenti di esempio di machine learning per creare nuovi esperimenti con Azure AI Gallery e Azure Machine Learning Studio (classico).
+description: Informazioni su come usare esperimenti di apprendimento automatico di esempio per creare nuovi esperimenti con Azure AI Gallery e Azure Machine Learning Studio (classico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,19 +11,19 @@ ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
 ms.openlocfilehash: 1a913e714565ffb99237357e331ef5cf0189c40f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79204222"
 ---
-# <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Creare esperimenti di Azure Machine Learning Studio (classico) dagli esempi funzionanti in Azure AI Gallery
+# <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Creare esperimenti di Azure Machine Learning Studio (classici) da esempi di lavoro nella raccolta di applicazioni di AzureCreate Azure Machine Learning Studio (classic) experiments from working examples in Azure AI Gallery
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Informazioni su come iniziare a usare gli esperimenti di esempio dalla [raccolta di intelligenza artificiale di Azure](https://gallery.azure.ai/) invece di creare esperimenti di Machine Learning completamente nuovi. È possibile usare gli esempi per compilare la propria soluzione di Machine Learning.
 
-Nella raccolta sono disponibili esperimenti di esempio del team di Microsoft Azure Machine Learning Studio (classico), oltre ad esempi condivisi dalla community di Machine Learning. È anche possibile porre domande o inviare commenti sugli esperimenti disponibili.
+La raccolta contiene esperimenti di esempio del team di Microsoft Azure Machine Learning Studio (classico) e esempi condivisi dalla community di Machine Learning.The gallery has example experiments by the Microsoft Azure Machine Learning Studio (classic) team and as examples shared by the Machine Learning community. È anche possibile porre domande o inviare commenti sugli esperimenti disponibili.
 
 Per informazioni su come usare la raccolta, guardare il video di 3 minuti [Copiare il lavoro di altre persone per l'analisi scientifica dei dati](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) della serie [Analisi scientifica dei dati per principianti](data-science-for-beginners-the-5-questions-data-science-answers.md).
 
@@ -51,7 +51,7 @@ Per esplorare tutti gli esperimenti:
     ![Esperimento di esempio](./media/sample-experiments/example-experiment.png)
 
 ## <a name="create-a-new-experiment-using-an-example-as-a-template"></a>Creare un nuovo esperimento usando un esempio come modello
-È anche possibile creare un nuovo esperimento in Machine Learning Studio (classico) usando un esempio di raccolta come modello.
+Puoi anche creare un nuovo esperimento in Machine Learning Studio (classico) usando un esempio di raccolta come modello.
 
 1. Accedere a [Studio](https://studio.azureml.net) con le credenziali dell'account Microsoft e quindi fare clic su **Nuovo** per creare un esperimento.
 2. Esplorare il contenuto e fare clic per selezionare un esempio.
