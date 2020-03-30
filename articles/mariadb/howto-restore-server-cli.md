@@ -1,18 +1,18 @@
 ---
-title: Backup e ripristino-interfaccia della riga di comando di Azure-database di Azure per MariaDB
+title: Backup e ripristino - Interfaccia della riga di comando di Azure - Database di Azure per MariaDB
 description: Informazioni su come eseguire la procedura di backup e ripristino di un server in Database di Azure per MariaDB tramite l'interfaccia della riga di comando di Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 4564aff5e8fe2119a494af33e71ff927718646db
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/27/2020
+ms.openlocfilehash: 6faae80c78fe07d33579cc3fb7c76ce668969992
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765852"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80369277"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Come eseguire la procedura di backup e ripristino di un server in Database di Azure per MariaDB tramite l'interfaccia della riga di comando di Azure
 
@@ -69,20 +69,20 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 
 Il comando `az mariadb server restore` richiede i parametri seguenti:
 
-| Impostazione | Valore consigliato | Description  |
+| Impostazione | Valore consigliato | Descrizione  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
 | name | mydemoserver-restored | Il nome del nuovo server creato con il comando di ripristino. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | Selezionare un punto nel tempo per il ripristino. La data e l'ora devono trovarsi all'interno del periodo di memorizzazione dei backup del server di origine. Usare il formato ISO8601 per la data e l'ora. È possibile usare il proprio fuso orario locale, ad esempio `2018-03-13T05:59:00-08:00`. È anche possibile usare il formato UTC Zulu, ad esempio `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | Il nome o l'ID del server di origine da cui eseguire il ripristino. |
 
-SSE si ripristina un server a un punto precedente nel tempo, viene creato un nuovo server. Il server originale e i database dal punto nel punto specificato vengono copiati nel nuovo server.
+WQuando si ripristina un server a un punto precedente nel tempo, viene creato un nuovo server. Il server originale e i database dal punto nel punto specificato vengono copiati nel nuovo server.
 
 I valori relativi al percorso e al piano tariffario per il server ripristinato sono gli stessi del server di origine. 
 
-Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto. Il nuovo server ha lo stesso nome di accesso dell'amministratore del server e la stessa password validi per il server esistente nel momento in cui è stato avviato il ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
+Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto. Il nuovo server ha lo stesso nome di accesso amministratore del server e la stessa password valida per il server esistente al momento dell'avvio del ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
 
-Il nuovo server creato durante un ripristino non include le regole del firewall o gli endpoint del servizio VNet esistenti nel server originale. Queste regole devono essere impostate separatamente per questo nuovo server.
+Il nuovo server creato durante un ripristino non dispone degli endpoint del servizio VNet esistenti nel server originale. Queste regole devono essere impostate separatamente per questo nuovo server. Le regole del firewall dal server originale vengono ripristinate.
 
 ## <a name="geo-restore"></a>Ripristino geografico
 
@@ -111,22 +111,22 @@ az mariadb server georestore --resource-group newresourcegroup --name mydemoserv
 
 Il comando `az mariadb server georestore` richiede i parametri seguenti:
 
-| Impostazione | Valore consigliato | Description  |
+| Impostazione | Valore consigliato | Descrizione  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Nome del gruppo di risorse cui apparterrà il nuovo server.|
 |name | mydemoserver-georestored | Nome del nuovo server. |
 |source-server | mydemoserver | Nome del server esistente di cui vengono usati i backup con ridondanza geografica. |
-|location | eastus | Posizione del nuovo server. |
+|posizione | eastus | Posizione del nuovo server. |
 |sku-name| GP_Gen5_8 | Questo parametro imposta il piano tariffario, la generazione delle risorse di calcolo e il numero di vCore del nuovo server. GP_Gen5_8 indica un server per utilizzo generico di quinta generazione con otto vCore.|
 
 Quando si crea un nuovo server tramite un ripristino geografico, il server eredita le stesse dimensioni di archiviazione e lo stesso piano tariffario del server di origine. Questi valori non possono essere modificati durante la creazione. Dopo aver creato il nuovo server, le dimensioni di archiviazione possono essere aumentate.
 
-Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto. Il nuovo server ha lo stesso nome di accesso dell'amministratore del server e la stessa password validi per il server esistente nel momento in cui è stato avviato il ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
+Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto. Il nuovo server ha lo stesso nome di accesso amministratore del server e la stessa password valida per il server esistente al momento dell'avvio del ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
 
-Il nuovo server creato durante un ripristino non include le regole del firewall o gli endpoint del servizio VNet esistenti nel server originale. Queste regole devono essere impostate separatamente per questo nuovo server.
+Il nuovo server creato durante un ripristino non dispone degli endpoint del servizio VNet esistenti nel server originale. Queste regole devono essere impostate separatamente per questo nuovo server. Le regole del firewall dal server originale vengono ripristinate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sui [backup](concepts-backup.md) del servizio
+- Ulteriori informazioni sui [backup](concepts-backup.md) del servizio
 - Informazioni sulle [repliche](concepts-read-replicas.md)
-- Altre informazioni sulle opzioni di [continuità aziendale](concepts-business-continuity.md)
+- Ulteriori informazioni sulle opzioni di [continuità aziendale](concepts-business-continuity.md)

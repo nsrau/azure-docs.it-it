@@ -1,23 +1,23 @@
 ---
-title: Stringhe di connessione-database di Azure per MySQL
+title: Stringhe di connessione - Database di Azure per MySQLConnection strings - Azure Database for MySQL
 description: Questo documento elenca le stringhe di connessione attualmente supportate per consentire alle applicazioni di connettersi a Database di Azure per MySQL, tra cui ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python e Ruby.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: bee98accd8ac404eb223975571b082dae754571a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: ff257e101ca925a554f2343d357e2042d2930b45
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770493"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062402"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Come connettere le applicazioni a Database di Azure per MySQL
 Questo argomento elenca i tipi di stringa di connessione supportati da Database di Azure per MySQL, oltre a modelli ed esempi. Nella stringa di connessione possono essere presenti parametri e impostazioni diverse.
 
 - Per ottenere il certificato, vedere [Come configurare SSL](./howto-configure-ssl.md).
-- {your_host} = \<nomeserver >. MySQL. database. Azure. com
+- your_host nome \<server>.mysql.database.azure.com
 - {your_user}@{servername} = formato userID per l'autenticazione in modo corretto.  Se si usa solo userID, l'autenticazione avrà esito negativo.
 
 ## <a name="adonet"></a>ADO.NET

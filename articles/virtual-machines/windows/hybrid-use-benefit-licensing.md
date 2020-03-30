@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
 ms.openlocfilehash: 470e38c21a250273216f93eb38a5334a4bb581e7
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77911789"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Vantaggio Azure Hybrid per Windows Server
@@ -30,7 +30,7 @@ L'utilizzo del vantaggio Azure Hybrid per Windows Server con qualsiasi macchina 
 
 ## <a name="classic-vms"></a>Macchine virtuali classiche
 
-Per le macchine virtuali classiche, è supportata solo la distribuzione di una nuova macchina virtuale da immagini locali personalizzate. Per usufruire delle funzionalità illustrate in questo articolo, è necessario prima eseguire la migrazione delle macchine virtuali classiche al modello Resource Manager.
+Per le macchine virtuali classiche, è supportata solo la distribuzione di nuova macchina virtuale da immagini personalizzate locali. Per usufruire delle funzionalità illustrate in questo articolo, è necessario prima eseguire la migrazione delle macchine virtuali classiche al modello Resource Manager.
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
  
@@ -168,7 +168,7 @@ az vm list --query "[?licenseType=='Windows_Server']" -o table
 ```
 
 ## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>Distribuire un set di scalabilità di macchine virtuali con il vantaggio Azure Hybrid per Windows Server
-Nei modelli Resource Manager per set di scalabilità di macchine virtuali, è necessario specificare il parametro aggiuntivo `licenseType` nella proprietà VirtualMachineProfile. Questa operazione può essere eseguita durante la creazione o l'aggiornamento del set di scalabilità tramite il modello ARM, PowerShell, l'interfaccia della riga di comando di Azure o REST
+Nei modelli Resource Manager per set di scalabilità di macchine virtuali, è necessario specificare il parametro aggiuntivo `licenseType` nella proprietà VirtualMachineProfile. È possibile eseguire questa operazione durante la creazione o l'aggiornamento per il set di scalabilità tramite il modello ARM, PowerShell, l'interfaccia della riga di comando di Azure o REST.
 
 Nell'esempio seguente viene usato il modello ARM con un'immagine di Windows Server 2016 Datacenter:
 ```json
@@ -194,9 +194,9 @@ Nell'esempio seguente viene usato il modello ARM con un'immagine di Windows Serv
 Altre informazioni su come [Modificare un set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md) e aggiornare il set di scalabilità.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni su [Come risparmiare con il Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
+- Altre informazioni su [come risparmiare denaro con il vantaggio Azure HybridRead](https://azure.microsoft.com/pricing/hybrid-use-benefit/) more about How to save money with the Azure Hybrid Benefit
 - Altre informazioni sulle [Domande frequenti sul vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-use-benefit/faq/)
 - Altre informazioni sulle [indicazioni dettagliate delle licenze per il vantaggio Azure Hybrid per Windows Server](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
 - Altre informazioni su come il [Vantaggio Azure Hybrid e Azure Site Recovery rendano la migrazione delle applicazioni in Azure ancora più conveniente](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
 - Altre informazioni su [Windows 10 in Azure con Multitenant Hosting Rights](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
-- Altre informazioni sull' [uso dei modelli di Resource Manager](../../azure-resource-manager/management/overview.md)
+- Ulteriori informazioni [sull'utilizzo dei modelli di Resource Manager](../../azure-resource-manager/management/overview.md)

@@ -8,17 +8,14 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 69be71a58c3aed4f52b77e63c9ddf12365301b08
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: cbd6f821326c86983ceb3ae5b90969e522c187fe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79299176"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80343059"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
-
-### <a name="supported-regions"></a>Aree supportate
-[!INCLUDE [virtual-machines-disks-incremental-snapshots-regions](virtual-machines-disks-incremental-snapshots-regions.md)]
 
 ## <a name="restrictions"></a>Restrizioni
 
@@ -26,17 +23,17 @@ ms.locfileid: "79299176"
 
 ## <a name="cli"></a>CLI
 
-È possibile creare uno snapshot incrementale con l'interfaccia della riga di comando di Azure. sarà necessaria la versione più recente dell'interfaccia della riga di comando di Azure. 
+You can create an incremental snapshot with the Azure CLI, you will need the latest version of Azure CLI. 
 
 In Windows, il comando seguente consente di installare o aggiornare l'installazione esistente alla versione più recente:
 ```PowerShell
 Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
 ```
-In Linux l'installazione dell'interfaccia della riga di comando può variare a seconda della versione del sistema operativo.  Vedere [installare l'interfaccia della](https://docs.microsoft.com/cli/azure/install-azure-cli) riga di comando di Azure per la versione specifica di Linux.
+In Linux, l'installazione dell'interfaccia della riga di comando varia a seconda della versione del sistema operativo.  Vedere [Installare l'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/install-azure-cli) di Azure per la versione Linux specifica.
 
-Per creare uno snapshot incrementale, usare [AZ snapshot create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) con il parametro `--incremental`.
+Per creare uno snapshot incrementale, `--incremental` utilizzare az snapshot [create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) con il parametro .
 
-Nell'esempio seguente viene creato uno snapshot incrementale, viene sostituito `<yourDesiredSnapShotNameHere>`, `<yourResourceGroupNameHere>`,`<exampleDiskName>`e `<exampleLocation>` con valori personalizzati, quindi viene eseguito l'esempio:
+Nell'esempio seguente viene creato `<yourDesiredSnapShotNameHere>` `<yourResourceGroupNameHere>`uno`<exampleDiskName>`snapshot `<exampleLocation>` incrementale, replace , , e con valori personalizzati, quindi viene eseguito l'esempio:
 
 ```bash
 sourceResourceId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[id]' -o tsv)
@@ -48,13 +45,13 @@ az snapshot create -g <yourResourceGroupNameHere> \
 --incremental
 ```
 
-È possibile identificare gli snapshot incrementali dallo stesso disco con le proprietà `SourceResourceId` e `SourceUniqueId` degli snapshot. `SourceResourceId` è l'ID di risorsa Azure Resource Manager del disco padre. `SourceUniqueId` è il valore ereditato dalla proprietà `UniqueId` del disco. Se si elimina un disco e quindi si crea un nuovo disco con lo stesso nome, viene modificato il valore della proprietà `UniqueId`.
+È possibile identificare snapshot incrementali dallo `SourceResourceId` stesso `SourceUniqueId` disco con le proprietà e le proprietà degli snapshot. `SourceResourceId`è l'ID risorsa di Azure Resource Manager del disco padre. `SourceUniqueId`è il valore ereditato dalla `UniqueId` proprietà del disco. Se si elimina un disco e quindi si crea un nuovo `UniqueId` disco con lo stesso nome, il valore della proprietà cambia.
 
-È possibile usare `SourceResourceId` e `SourceUniqueId` per creare un elenco di tutti gli snapshot associati a un disco specifico. Nell'esempio seguente vengono elencati tutti gli snapshot incrementali associati a un disco specifico, ma è necessario un certo programma di installazione.
+È possibile `SourceResourceId` `SourceUniqueId` utilizzare e creare un elenco di tutti gli snapshot associati a un disco specifico. Nell'esempio seguente verranno elencati tutti gli snapshot incrementali associati a un determinato disco, ma è necessaria una configurazione.
 
-Questo esempio USA JQ per eseguire query sui dati. Per eseguire l'esempio, è necessario [installare JQ](https://stedolan.github.io/jq/download/).
+In questo esempio viene utilizzato jq per l'esecuzione di query sui dati. Per eseguire l'esempio, è necessario [installare jq](https://stedolan.github.io/jq/download/).
 
-Sostituire `<yourResourceGroupNameHere>` e `<exampleDiskName>` con i valori, è possibile usare l'esempio seguente per elencare gli snapshot incrementali esistenti, purché sia stato installato anche JQ:
+Sostituire `<yourResourceGroupNameHere>` `<exampleDiskName>` e con i valori, quindi è possibile utilizzare l'esempio seguente per elencare gli snapshot incrementali esistenti, purché sia stato installato jq:
 
 ```bash
 sourceUniqueId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[uniqueId]' -o tsv)
@@ -68,7 +65,7 @@ az snapshot list -g <yourResourceGroupNameHere> -o json \
 
 ## <a name="resource-manager-template"></a>Modello di Resource Manager
 
-È inoltre possibile utilizzare Azure Resource Manager modelli per creare uno snapshot incrementale. È necessario assicurarsi che apiVersion sia impostato su **2019-03-01** e che anche la proprietà incrementale sia impostata su true. Il frammento di codice seguente è un esempio di creazione di uno snapshot incrementale con i modelli di Gestione risorse:
+È anche possibile usare i modelli di Azure Resource Manager per creare uno snapshot incrementale. È necessario assicurarsi che apiVersion è impostato su **2019-03-01** e che anche la proprietà incrementale è impostata su true. Il frammento di codice seguente è un esempio di come creare uno snapshot incrementale con i modelli di Resource Manager:The following snippet is an example of how to create an incremental snapshot with Resource Manager templates:
 
 ```json
 {
@@ -104,4 +101,4 @@ az snapshot list -g <yourResourceGroupNameHere> -o json \
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si vuole vedere il codice di esempio che illustra la funzionalità differenziale degli snapshot incrementali, usando .NET, vedere [copiare i backup di Azure Managed disks in un'altra area con funzionalità differenziali di snapshot incrementali](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).
+Se si vuole vedere codice di esempio che illustra la funzionalità differenziale degli snapshot incrementali tramite .NET, vedere Copiare backup di dischi gestiti di Azure in [un'altra area con funzionalità differenziali di snapshot incrementali.](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots)

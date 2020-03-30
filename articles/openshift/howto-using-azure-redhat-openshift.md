@@ -1,47 +1,47 @@
 ---
-title: Creare un cluster Azure Red Hat OpenShift 4,3 | Microsoft Docs
-description: Creare un cluster con Azure Red Hat OpenShift 4,3
+title: Creare un cluster OpenShift 4.3 di Azure Red Hat Documenti Microsoft
+description: Creare un cluster con Azure Red Hat OpenShift 4.3Create a cluster with Azure Red Hat OpenShift 4.3
 author: lamek
 ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/06/2020
-keywords: Aro, OpenShift, AZ Aro, Red Hat, CLI
-ms.openlocfilehash: 23d7c950396c36925ce50d746195916292d360ad
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+keywords: aro, openshift, az aro, cappello rosso, cli
+ms.openlocfilehash: 423f09c135da51b8401c1933a4a271d0becd2c8f
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79201043"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80349425"
 ---
-# <a name="create-access-and-manage-an-azure-red-hat-openshift-43-cluster"></a>Creare, accedere e gestire un cluster Azure Red Hat OpenShift 4,3
+# <a name="create-access-and-manage-an-azure-red-hat-openshift-43-cluster"></a>Creare, accedere e gestire un cluster Azure Red Hat OpenShift 4.3Create, access, and manage an Azure Red Hat OpenShift 4.3 Cluster
 
 > [!IMPORTANT]
-> Si noti che Azure Red Hat OpenShift 4,3 è attualmente disponibile solo in anteprima privata negli Stati Uniti orientali. L'accettazione dell'anteprima privata è riservata a un invito. Assicurarsi di registrare la sottoscrizione prima di provare ad abilitare questa funzionalità: registrazione dell' [Anteprima privata di Azure Red Hat OpenShift](https://aka.ms/aro-preview-register)
+> Si noti che Azure Red Hat OpenShift 4.3 è attualmente disponibile solo in anteprima privata negli Stati Uniti orientali. L'accettazione dell'anteprima privata è solo su invito. Assicurarsi di registrare la sottoscrizione prima di tentare di abilitare questa funzionalità: [Registrazione di Azure Red Hat OpenShift Private Preview](https://aka.ms/aro-preview-register)
 
 > [!NOTE]
-> Le funzionalità di anteprima sono self-service e vengono fornite così come sono e sono disponibili e sono escluse dal contratto di servizio (SLA) e dalla garanzia limitata. Pertanto, le funzionalità non sono destinate all'uso in produzione.
+> Le funzionalità di anteprima sono self-service e vengono fornite come sono e come disponibili e sono escluse dal contratto di servizio (SLA) e dalla garanzia limitata. Pertanto, le funzionalità non sono destinate all'utilizzo in produzione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per creare un cluster Azure Red Hat OpenShift 4,3, è necessario quanto segue:
+Per creare un cluster Azure Red Hat OpenShift 4.3, è necessario quanto segue:You'll need the following to create an Azure Red Hat OpenShift 4.3 cluster:
 
-- Versione 2.0.72 o successiva dell'interfaccia della riga di comando di Azure
+- Interfaccia della riga di comando di Azure versione 2.0.72 o successivaAzure CLI version 2.0.72 or greater
   
-- Estensione ' AZ Aro '
+- L'estensione "az aro"
 
-- Una rete virtuale contenente due subnet vuote, ciascuna senza un gruppo di sicurezza di rete collegato.  Il cluster verrà distribuito in queste subnet.
+- Una rete virtuale contenente due subnet vuote, ognuna senza gruppo di sicurezza di rete collegato.  Il cluster verrà distribuito in queste subnet.
 
-- Un'applicazione AAD del cluster (ID client e segreto) e un'entità servizio o autorizzazioni AAD sufficienti per `az aro create` per creare automaticamente un'applicazione AAD e un'entità servizio.
+- Un'applicazione AAD del cluster (ID client e segreto) `az aro create` e un'entità servizio o autorizzazioni AAD sufficienti per creare automaticamente un'applicazione AAD e un'entità servizio.
 
-- L'entità servizio e l'entità servizio del cluster di relying party devono avere il ruolo Collaboratore nella rete virtuale del cluster.  Se si dispone del ruolo "amministratore accesso utenti" nella rete virtuale, `az aro create` configurerà automaticamente le assegnazioni di ruolo.
+- L'entità servizio componente e l'entità servizio cluster devono disporre del ruolo Collaboratore nella rete virtuale del cluster.  Se nella rete virtuale è impostato il ruolo `az aro create` "Amministratore accesso utenti", le assegnazioni di ruolo verranno configurate automaticamente.
 
-### <a name="install-the-az-aro-extension"></a>Installare l'estensione ' AZ Aro '
-L'estensione `az aro` consente di creare, accedere ed eliminare i cluster OpenShift di Azure Red Hat direttamente dalla riga di comando usando l'interfaccia della riga di comando di Azure.
+### <a name="install-the-az-aro-extension"></a>Installare l'estensione 'az aro'
+L'estensione `az aro` consente di creare, accedere ed eliminare cluster Azure Red Hat OpenShift direttamente dalla riga di comando usando l'interfaccia della riga di comando di Azure.The extension allows you to create, access, and delete Azure Red Hat OpenShift clusters directly from the command line using the Azure CLI.
 
 > [!Note] 
-> L'estensione `az aro` è attualmente in anteprima. Potrebbe essere modificato o rimosso in una versione futura.
-> Per acconsentire esplicitamente all'anteprima dell'estensione `az aro` è necessario registrare il provider di risorse `Microsoft.RedHatOpenShift`.
+> L'estensione `az aro` è corrente nell'anteprima. Può essere modificato o rimosso in una versione futura.
+> Per acconsentire `az aro` esplicitamente all'anteprima `Microsoft.RedHatOpenShift` dell'estensione, è necessario registrare il provider di risorse.
 > 
 >    ```console
 >    az provider register -n Microsoft.RedHatOpenShift --wait
@@ -53,7 +53,7 @@ L'estensione `az aro` consente di creare, accedere ed eliminare i cluster OpenSh
    az login
    ```
 
-2. Eseguire il comando seguente per installare l'estensione `az aro`:
+2. Eseguire il comando seguente `az aro` per installare l'estensione:
 
    ```console
    az extension add -n aro --index https://az.aroapp.io/preview
@@ -69,9 +69,9 @@ L'estensione `az aro` consente di creare, accedere ed eliminare i cluster OpenSh
    ...
    ```
   
-### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Creare una rete virtuale contenente due subnet vuote
+### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Creare una rete virtuale contenente due subnet vuoteCreate a virtual network containing two empty subnets
 
-Seguire questa procedura per creare una rete virtuale contenente due subnet vuote.
+Seguire questi passaggi per creare una rete virtuale contenente due subnet vuote.
 
 1. Impostare le variabili seguenti.
 
@@ -79,7 +79,15 @@ Seguire questa procedura per creare una rete virtuale contenente due subnet vuot
    LOCATION=eastus        #the location of your cluster
    RESOURCEGROUP="v4-$LOCATION"    #the name of the resource group where you want to create your cluster
    CLUSTER=cluster        #the name of your cluster
+   PULL_SECRET="<optional-pull-secret>"
    ```
+   >[!NOTE]
+   > Il segreto pull facoltativo consente al cluster di accedere ai registri dei contenitori Red Hat insieme a contenuto aggiuntivo.
+   >
+   > Accedere al segreto di https://cloud.redhat.com/openshift/install/azure/installer-provisioned pull passando a e facendo clic su *Copia segreto pull*.
+   >
+   > Dovrai accedere al tuo account Red Hat o creare un nuovo account Red Hat con la tua email aziendale e accettare i termini e le condizioni.
+ 
 
 2. Creare un gruppo di risorse per il cluster.
 
@@ -111,7 +119,7 @@ Seguire questa procedura per creare una rete virtuale contenente due subnet vuot
    done
    ```
 
-5. Disabilitare i criteri di rete per il servizio di collegamento privato nella rete virtuale e nelle subnet. Questo è un requisito per il servizio ARO per accedere e gestire il cluster.
+5. Disabilitare i criteri di rete per il servizio di collegamento privato nella rete virtuale e nelle subnet. Si tratta di un requisito per il servizio ARO per accedere e gestire il cluster.
 
    ```console
    az network vnet subnet update \
@@ -132,21 +140,22 @@ az aro create \
   -n "$CLUSTER" \
   --vnet vnet \
   --master-subnet "$CLUSTER-master" \
-  --worker-subnet "$CLUSTER-worker"
+  --worker-subnet "$CLUSTER-worker" \
+  --pull-secret "$PULL_SECRET"
 ```
 
 >[!NOTE]
-> La creazione di un cluster richiede in genere circa 35 minuti.
+> In genere sono necessari circa 35 minuti per creare un cluster.
 
 ## <a name="access-the-cluster-console"></a>Accedere alla console del cluster
 
-È possibile trovare l'URL della console del cluster (nel formato `https://console-openshift-console.apps.<random>.<location>.aroapp.io/`) nella risorsa cluster Azure Red Hat OpenShift 4,3. Eseguire il comando seguente per visualizzare la risorsa:
+L'URL della console del cluster `https://console-openshift-console.apps.<random>.<location>.aroapp.io/`(nel modulo ) è riportato nella risorsa cluster Azure Red Hat OpenShift 4.3. Eseguire il comando seguente per visualizzare la risorsa:
 
 ```console
 az aro list -o table
 ```
 
-È possibile accedere al cluster tramite l'utente `kubeadmin`.  Eseguire il comando seguente per trovare la password per l'utente `kubeadmin`:
+È possibile accedere al `kubeadmin` cluster utilizzando l'utente.  Eseguire il comando seguente per `kubeadmin` trovare la password per l'utente:
 
 ```dotnetcli
 az aro list-credentials -g "$RESOURCEGROUP" -n "$CLUSTER"

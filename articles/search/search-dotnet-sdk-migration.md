@@ -1,5 +1,5 @@
 ---
-title: Eseguire l'aggiornamento ad Azure search .NET SDK versione 3
+title: Eseguire l'aggiornamento a Ricerca di Azure .NET SDK versione 3Upgrade to Azure Search .NET SDK version 3
 titleSuffix: Azure Cognitive Search
 description: Eseguire la migrazione di codice ad Azure Search .NET SDK versione 3 da versioni precedenti. Informazioni sulle novità e sulle modifiche al codice necessarie.
 manager: nitinme
@@ -10,13 +10,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: fcad05749892e3a652e110a7e351450bffaca6f2
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72792973"
 ---
-# <a name="upgrade-to-azure-search-net-sdk-version-3"></a>Eseguire l'aggiornamento ad Azure search .NET SDK versione 3
+# <a name="upgrade-to-azure-search-net-sdk-version-3"></a>Eseguire l'aggiornamento a Ricerca di Azure .NET SDK versione 3Upgrade to Azure Search .NET SDK version 3
 
 <!--- DETAILS in the word doc
 cosmosdb
@@ -144,9 +144,9 @@ Se esegue l'aggiornamento dalla versione 2.0-preview alla versione 3, tenere pre
 
 Se l'applicazione dipende in modo sostanziale da queste funzionalità, non sarà possibile completare l'aggiornamento alla versione 3 di Azure Search .NET SDK. È possibile continuare a usare la versione 2.0-preview. Tenere presente, tuttavia, che **non è consigliabile usare SDK in anteprima nelle applicazioni di produzione**. Le funzionalità di anteprima sono destinate esclusivamente alla valutazione e sono soggette a modifiche.
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 Per altri dettagli sull'uso di .NET SDK Ricerca di Azure, vedere le [Procedure .NET](search-howto-dotnet-sdk.md).
 
-I commenti degli utenti sull'SDK saranno molto apprezzati. Se si verificano problemi, è possibile richiedere assistenza per [stack overflow](https://stackoverflow.com/questions/tagged/azure-search). Se si trova un bug, è possibile registrare il problema nel [repository di GitHub su Azure .NET SDK](https://github.com/Azure/azure-sdk-for-net/issues). Verificare di avere anteposto al titolo del problema il prefisso "[Azure Search]".
+I commenti degli utenti sull'SDK saranno molto apprezzati. Se si verificano problemi, sentitevi liberi di chiederci aiuto su [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). Se si trova un bug, è possibile registrare il problema nel [repository di GitHub su Azure .NET SDK](https://github.com/Azure/azure-sdk-for-net/issues). Verificare di avere anteposto al titolo del problema il prefisso "[Ricerca di Azure]".
 
 Grazie per avere usato Ricerca di Azure.

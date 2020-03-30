@@ -1,7 +1,7 @@
 ---
 title: Aree in cui è disponibile Video Indexer - Azure
 titleSuffix: Azure Media Services
-description: Questo articolo illustra le aree di Azure in cui è disponibile Video Indexer di servizi multimediali di Azure.
+description: Questo articolo illustra le aree di Azure in cui è disponibile l'indicizzatore video di Servizi multimediali di Azure.This article talks about Azure regions in which Azure Media Services Video Indexer is available.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -10,22 +10,22 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 6ba6f189f4290bb2751adf9b44135eeda7266ca0
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c91b38fcbfb9b517651adead010408425e519a82
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892754"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382750"
 ---
 # <a name="azure-regions-in-which-video-indexer-exists"></a>Aree di Azure in cui esiste Video Indexer
 
 Le API di Video Indexer contengono un parametro **location** che è consigliabile impostare sull'area di Azure a cui deve essere indirizzata la chiamata. Questa deve essere un'[area di Azure in cui è disponibile Video Indexer](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all).
 
-## <a name="locations"></a>Località
+## <a name="locations"></a>Percorsi
 
-Al parametro **location** deve essere assegnato come valore il nome del codice di un'area di Azure. Se si usa Video Indexer in modalità di anteprima, inserire *"trial"* come valore. In alternativa, per ottenere il nome del codice dell'area di Azure in cui si trova l'account e a cui deve essere indirizzata la chiamata, è possibile eseguire la riga seguente nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
+Al parametro **location** deve essere assegnato come valore il nome del codice di un'area di Azure. Se si usa Video Indexer in modalità di anteprima, inserire *"trial"* come valore. In alternativa, per ottenere il nome del codice dell'area di Azure in cui si trova l'account e a cui deve essere indirizzata la chiamata, è possibile eseguire la riga seguente nell'[interfaccia della riga di comando di Azure](/cli/azure):
 
-```bash
+```azurecli-interactive
 az account list-locations
 ```
 
@@ -46,6 +46,6 @@ Ad esempio, per l'area di Azure Stati Uniti occidentali 2 (indicata di seguito),
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Personalizzare il modello linguistico usando le API](customize-language-model-with-api.md)
+- [Customize Language model using APIs](customize-language-model-with-api.md) (Personalizzare il modello linguistico usando le API)
 - [Personalizzare il modello di Marchi tramite API](customize-brands-model-with-api.md)
 - [Personalizzare il modello delle persone usando le API](customize-person-model-with-api.md)

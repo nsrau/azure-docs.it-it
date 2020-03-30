@@ -8,70 +8,70 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 49dc69eb73bd19509b5e14c5a4976cfa7208545a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 97f265d76ac70891e9cefc0ef6651e439706ed23
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75392410"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334806"
 ---
-**Volume e conservazione della raccolta dati** 
+**Volume e conservazione della raccolta dei dati** 
 
 | Livello | Limite al giorno | Conservazione dei dati | Comment |
 |:---|:---|:---|:---|
-| Piano tariffario per GB corrente<br>(introdotto il 2018 aprile) | Senza limiti | 30-730 giorni | La conservazione dei dati oltre i 31 giorni è disponibile per addebiti aggiuntivi. Scopri di più sui prezzi di monitoraggio di Azure. |
-| Livelli gratuiti legacy<br>(introdotto il 2016 aprile) | 500 MB | 7 giorni | Quando l'area di lavoro raggiunge il limite di 500 MB al giorno, l'inserimento dei dati si interrompe e riprende all'inizio del giorno successivo. Il giorno è definito in base al formato UTC. Si noti che i dati raccolti dal centro sicurezza di Azure non sono inclusi in questo limite di 500 MB al giorno e continueranno a essere raccolti oltre questo limite.  |
-| Livello legacy autonomo per GB<br>(introdotto il 2016 aprile) | Senza limiti | da 30 a 730 giorni | La conservazione dei dati oltre i 31 giorni è disponibile per addebiti aggiuntivi. Scopri di più sui prezzi di monitoraggio di Azure. |
-| Legacy per nodo (OMS)<br>(introdotto il 2016 aprile) | Senza limiti | da 30 a 730 giorni | La conservazione dei dati oltre i 31 giorni è disponibile per addebiti aggiuntivi. Scopri di più sui prezzi di monitoraggio di Azure. |
-| Livello standard legacy | Senza limiti | 30 giorni  | Non è possibile modificare la conservazione |
-| Livello Premium legacy | Senza limiti | 365 giorni  | Non è possibile modificare la conservazione |
+| Piano tariffario Per GB corrente<br>(introdotto nell'aprile 2018) | Nessun limite | 30 - 730 giorni | La conservazione dei dati oltre i 31 giorni è disponibile per costi aggiuntivi. Altre informazioni sui prezzi di Monitoraggio di Azure. |
+| Livelli gratuiti legacyLegacy Free tiers<br>(introdotto nell'aprile 2016) | 500 MB | 7 giorni | Quando l'area di lavoro raggiunge il limite di 500 MB al giorno, l'inserimento dei dati si interrompe e riprende all'inizio del giorno successivo. Un giorno si basa su UTC. Si noti che i dati raccolti dal Centro sicurezza di Azure non sono inclusi in questo limite di 500 MB al giorno e continueranno a essere raccolti al di sopra di questo limite.  |
+| Livello autonomo legacy per GB<br>(introdotto nell'aprile 2016) | Nessun limite | Da 30 a 730 giorni | La conservazione dei dati oltre i 31 giorni è disponibile per costi aggiuntivi. Altre informazioni sui prezzi di Monitoraggio di Azure. |
+| Legacy Per Nodo (OMS)<br>(introdotto nell'aprile 2016) | Nessun limite | Da 30 a 730 giorni | La conservazione dei dati oltre i 31 giorni è disponibile per costi aggiuntivi. Altre informazioni sui prezzi di Monitoraggio di Azure. |
+| Legacy Livello StandardLegacy Standard tier | Nessun limite | 30 giorni  | La conservazione non può essere regolata |
+| Livello Premium legacy | Nessun limite | 365 giorni  | La conservazione non può essere regolata |
 
 **Numero di aree di lavoro per sottoscrizione.**
 
 | Piano tariffario    | Limite area di lavoro | Commenti
 |:---|:---|:---|
-| Livello Gratuito  | 10 | Non è possibile aumentare questo limite. |
-| Tutti gli altri livelli | Senza limiti | Il numero di risorse all'interno di un gruppo di risorse e il numero di gruppi di risorse per sottoscrizione sono limitati. |
+| Livello gratuito  | 10 | Questo limite non può essere aumentato. |
+| Tutti gli altri livelli | Nessun limite | Il numero di risorse all'interno di un gruppo di risorse e il numero di gruppi di risorse per sottoscrizione sono limitati. |
 
-**Azure portal**
+**Portale di Azure**
 
-| Categoria | Limiti | Commenti |
+| Category | Limite | Commenti |
 |:---|:---|:---|
-| Numero massimo di record restituiti da una query di log | 10,000 | Ridurre i risultati utilizzando l'ambito della query, l'intervallo di tempo e i filtri nella query. |
+| Numero massimo di record restituiti da una query di logMaximum records returned by a log query | 10,000 | Ridurre i risultati utilizzando l'ambito della query, l'intervallo di tempo e i filtri nella query. |
 
 
-**API di raccolta dati**
+**API dell'agente di raccolta dati**
 
-| Categoria | Limiti | Commenti |
+| Category | Limite | Commenti |
 |:---|:---|:---|
-| Dimensioni massime per un singolo post | 30 MB | Suddividere i volumi più grandi in più post. |
-| Dimensioni massime per i valori dei campi  | 32 KB | I campi con una lunghezza superiore a 32 KB vengono troncati. |
+| Dimensione massima per un singolo post | 30 MB | Suddividere volumi più grandi in più post. |
+| Dimensione massima per i valori dei campi  | 32 KB | I campi con una lunghezza superiore a 32 KB vengono troncati. |
 
 **API di ricerca**
 
-| Categoria | Limiti | Commenti |
+| Category | Limite | Commenti |
 |:---|:---|:---|
 | Numero massimo di record restituiti in una singola query | 500.000 | |
-| Dimensioni massime dei dati restituiti | 64 milioni byte (~ 61 MiB)| |
-| Tempo di esecuzione massimo query | 10 minuti | Per informazioni dettagliate, vedere [timeout](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) .  |
-| Frequenza massima richieste | 200 richieste per 30 secondi per utente AAD o indirizzo IP client | Per informazioni dettagliate, vedere [limiti di velocità](https://dev.loganalytics.io/documentation/Using-the-API/Limits) . |
+| Dimensione massima dei dati restituiti | 64.000.000 byte (61 MiB)| |
+| Tempo massimo di esecuzione delle query | 10 minuti | Per informazioni [dettagliate,](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) vedere Timeout.  |
+| Frequenza massima richieste | 200 richieste per 30 secondi per indirizzo IP dell'utente o del client AAD | Per informazioni dettagliate, vedere [Limiti di tariffa.](https://dev.loganalytics.io/documentation/Using-the-API/Limits) |
 
 **Limiti generali dell'area di lavoro**
 
-| Categoria | Limiti | Commenti |
+| Category | Limite | Commenti |
 |:---|:---|:---|
 | Numero massimo di colonne in una tabella         | 500 | |
 | Numero massimo di caratteri per il nome della colonna | 500 | |
-| Esportazione dati | Attualmente non disponibile | Usare funzioni di Azure o app per la logica per aggregare ed esportare dati. | 
+| Esportazione dati | Attualmente non disponibile | Usare la funzione di Azure o l'app per la logica per aggregare ed esportare i dati. | 
 
-**Velocità del volume di inserimento dati**
+**Frequenza del volume di inserimento datiData ingestion volume rate**
 
 
-Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. Il limite di velocità del volume di inserimento predefinito per i dati inviati dalle risorse di Azure con [le impostazioni di diagnostica](../articles/azure-monitor/platform/diagnostic-settings.md) è di circa **6 GB/min** per area di lavoro. Si tratta di un valore approssimativo, poiché la dimensione effettiva può variare tra i tipi di dati a seconda della lunghezza del log e del relativo rapporto di compressione. Questo limite non si applica ai dati inviati dagli agenti o dall' [API dell'agente di raccolta dati](../articles/azure-monitor/platform/data-collector-api.md).
+Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. Il limite di frequenza del volume di inserimento predefinito per i dati inviati dalle risorse di Azure usando [le impostazioni](../articles/azure-monitor/platform/diagnostic-settings.md) di diagnostica è di circa **6 GB/min** per ogni area di lavoro. Si tratta di un valore approssimativo poiché le dimensioni effettive possono variare tra i tipi di dati a seconda della lunghezza del log e del relativo rapporto di compressione. Questo limite non si applica ai dati inviati dagli agenti o [dall'API dell'agente](../articles/azure-monitor/platform/data-collector-api.md)di raccolta dati.
 
-Se si inviano dati a una velocità superiore a una singola area di lavoro, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore mentre la soglia continua a essere superata. Se il volume di inserimento continua a superare il limite di velocità o se si prevede di raggiungerlo presto, è possibile richiedere un aumento dell'area di lavoro aprendo una richiesta di supporto.
+Se si inviano dati a una frequenza più elevata a una singola area di lavoro, alcuni dati vengono eliminati e viene inviato un evento alla tabella *Operazione* nell'area di lavoro ogni 6 ore mentre la soglia continua a essere superata. Se il volume di inserimento continua a superare il limite di frequenza o si prevede di raggiungerlo a breve termine, è possibile richiedere un aumento all'area di lavoro aprendo una richiesta di supporto.
  
-Per ricevere una notifica su tale evento nell'area di lavoro, creare una [regola di avviso di log](../articles/azure-monitor/platform/alerts-log.md) usando la query seguente con la logica di avviso base su numero di risultati maggiore di zero.
+Per ricevere una notifica su un evento di questo tipo nell'area di lavoro, creare una regola di [avviso del log](../articles/azure-monitor/platform/alerts-log.md) utilizzando la query seguente con la logica di avviso basata sul numero di risultati grattugiare su zero.
 
 ``` Kusto
 Operation
@@ -81,4 +81,4 @@ Operation
 
 
 >[!NOTE]
->A seconda di quanto tempo si utilizza Log Analytics, è possibile che si disponga dell'accesso ai piani tariffari legacy. Scopri di più sui [log Analytics piani tariffari legacy](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 
+>A seconda di quanto tempo si usa Log Analytics, potresti avere accesso ai piani tariffari legacy. Ulteriori informazioni sui [piani tariffari legacy](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers)di Log Analytics . 

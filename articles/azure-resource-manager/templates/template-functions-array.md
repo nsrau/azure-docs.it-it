@@ -1,36 +1,36 @@
 ---
-title: Funzioni di modello-matrici e oggetti
+title: Funzioni modello - matrici e oggetti
 description: Descrive le funzioni da usare in un modello di Azure Resource Manager per l'uso di matrici e oggetti.
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 1359951c00ba04e641ae84636459a8836924c729
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 0b4bb80f6d7a7cc20a8b2dcc71e890f2ada7c5be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79273696"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156376"
 ---
-# <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funzioni di matrice e oggetto per i modelli di Azure Resource Manager
+# <a name="array-and-object-functions-for-arm-templates"></a>Funzioni di matrici e oggetti per i modelli ARM
 
-Resource Manager include numerose funzioni per gestire gli array e gli oggetti.
+Resource Manager offre diverse funzioni per l'uso di matrici e oggetti nel modello di Azure Resource Manager (ARM).
 
-* [array](#array)
+* [Matrice](#array)
 * [coalesce](#coalesce)
 * [concat](#concat)
-* [contains](#contains)
-* [createArray](#createarray)
-* [empty](#empty)
-* [first](#first)
-* [intersection](#intersection)
-* [json](#json)
-* [last](#last)
+* [Contiene](#contains)
+* [createArray (matrice)](#createarray)
+* [Vuoto](#empty)
+* [Prima](#first)
+* [Intersezione](#intersection)
+* [Json](#json)
+* [Ultima](#last)
 * [length](#length)
-* [max](#max)
-* [min](#min)
-* [range](#range)
+* [Massimo](#max)
+* [Minimo](#min)
+* [Gamma](#range)
 * [skip](#skip)
 * [take](#take)
-* [union](#union)
+* [Unione](#union)
 
 Per ottenere una matrice di valori stringa delimitata da un valore, vedere [split](template-functions-string.md#split).
 
@@ -102,7 +102,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
@@ -126,7 +126,7 @@ Restituisce il primo valore non null dai parametri. Stringhe vuote, matrici vuot
 
 ### <a name="return-value"></a>Valore restituito
 
-Valore dei primi parametri non null, che può essere una stringa, un numero intero, una matrice o un oggetto. Null se tutti i parametri sono null. 
+Valore dei primi parametri non null, che può essere una stringa, un numero intero, una matrice o un oggetto. Null se tutti i parametri sono null.
 
 ### <a name="example"></a>Esempio
 
@@ -140,7 +140,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
         "objectToTest": {
             "type": "object",
             "defaultValue": {
-                "null1": null, 
+                "null1": null,
                 "null2": null,
                 "string": "default",
                 "int": 1,
@@ -189,7 +189,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
@@ -202,7 +202,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 `concat(arg1, arg2, arg3, ...)`
 
-Combina più matrici e restituisce la matrice concatenata oppure combina più valori di stringa e restituisce la stringa concatenata. 
+Combina più matrici e restituisce la matrice concatenata oppure combina più valori di stringa e restituisce la stringa concatenata.
 
 ### <a name="parameters"></a>Parametri
 
@@ -211,7 +211,7 @@ Combina più matrici e restituisce la matrice concatenata oppure combina più va
 | arg1 |Sì |stringa o matrice |La prima matrice o stringa per la concatenazione. |
 | argomenti aggiuntivi |No |stringa o matrice |Matrici o stringhe aggiuntive in ordine sequenziale per la concatenazione. |
 
-Questa funzione può accettare qualsiasi numero di argomenti e può accettare stringhe o matrici per i parametri. Tuttavia, non è possibile fornire sia matrici che stringhe per i parametri. Le matrici sono concatenate solo con altre matrici.
+Questa funzione può accettare qualsiasi numero di argomenti e può accettare stringhe o matrici per i parametri. Tuttavia, non è possibile fornire matrici e stringhe per i parametri. Le matrici vengono concatenate solo con altre matrici.
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -225,22 +225,22 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": { 
-        "firstArray": { 
-            "type": "array", 
-            "defaultValue": [ 
-                "1-1", 
-                "1-2", 
-                "1-3" 
-            ] 
+    "parameters": {
+        "firstArray": {
+            "type": "array",
+            "defaultValue": [
+                "1-1",
+                "1-2",
+                "1-3"
+            ]
         },
         "secondArray": {
-            "type": "array", 
-            "defaultValue": [ 
-                "2-1", 
+            "type": "array",
+            "defaultValue": [
+                "2-1",
                 "2-2",
-                "2-3" 
-            ] 
+                "2-3"
+            ]
         }
     },
     "resources": [
@@ -263,7 +263,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
@@ -303,7 +303,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
@@ -396,7 +396,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
@@ -475,7 +475,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
@@ -552,7 +552,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
@@ -616,7 +616,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
@@ -694,7 +694,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
@@ -767,7 +767,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
@@ -831,7 +831,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
@@ -844,17 +844,17 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 `length(arg1)`
 
-Restituisce il numero di elementi in una matrice, i caratteri di una stringa o le proprietà a livello di radice in un oggetto.
+Restituisce il numero di elementi in una matrice, i caratteri in una stringa o le proprietà a livello di radice in un oggetto.
 
 ### <a name="parameters"></a>Parametri
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |Array, String o Object |Matrice da usare per ottenere il numero di elementi, la stringa da usare per ottenere il numero di caratteri o l'oggetto da usare per ottenere il numero di proprietà a livello di radice. |
+| arg1 |Sì |matrice, stringa o oggetto |Matrice da utilizzare per ottenere il numero di elementi, la stringa da utilizzare per ottenere il numero di caratteri o l'oggetto da utilizzare per ottenere il numero di proprietà a livello di radice. |
 
 ### <a name="return-value"></a>Valore restituito
 
-Numero intero 
+Numero intero
 
 ### <a name="example"></a>Esempio
 
@@ -914,12 +914,12 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
-| objectLength | Int | 4 |
+| objectLength (Lunghezza oggetto) | Int | 4 |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
@@ -993,7 +993,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
@@ -1056,7 +1056,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
@@ -1119,7 +1119,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
@@ -1199,7 +1199,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
@@ -1274,12 +1274,12 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | Nome | Type | valore |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
-| stringOutput | string | in |
+| stringOutput | string | on |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
@@ -1357,7 +1357,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
@@ -1368,8 +1368,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](template-syntax.md).
-* Per unire più modelli, vedere [Uso di modelli collegati con Azure Resource Manager](linked-templates.md).
-* Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](copy-resources.md).
-* Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Azure Resource Manager](deploy-powershell.md).
+* Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere Creazione di modelli di [Azure Resource Manager.](template-syntax.md)
+* Per unire più modelli, vedere [Utilizzo di modelli collegati con Azure Resource Manager.](linked-templates.md)
+* Per scorrere un numero specificato di volte durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Azure Resource Manager.To](copy-resources.md)iterate a specified number of times when creating a type of resource, see Create multiple instances of resources in Azure Resource Manager.
+* Per informazioni su come distribuire il modello creato, vedere [Distribuire un'applicazione con](deploy-powershell.md)il modello di Azure Resource Manager.To see how to deploy the template you have created, see Deploy an application with Azure Resource Manager template.
 

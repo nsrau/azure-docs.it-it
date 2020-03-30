@@ -1,6 +1,6 @@
 ---
 title: Personalizzazione della lingua in Azure AD B2C
-description: Informazioni su come personalizzare l'esperienza del linguaggio nei flussi utente.
+description: Informazioni sulla personalizzazione dell'esperienza linguistica nei flussi utente.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,15 +11,15 @@ ms.date: 08/13/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5b3af812b2b78c276b5345b9b19226e6e1dba80b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78185761"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalizzazione della lingua in Azure AD B2C
 
-La personalizzazione della lingua in Azure Active Directory B2C (Azure AD B2C) consente al flusso utente di modificare la lingua in base alle esigenze dei clienti. Microsoft fornisce le traduzioni per [36 lingue](#supported-languages), ma è anche possibile inserire le proprie traduzioni per qualsiasi lingua. Anche se l'esperienza è disponibile per una sola lingua, è possibile personalizzare qualsiasi testo nelle pagine.
+La personalizzazione della lingua in Azure Active Directory B2C (Azure AD B2C) consente al flusso utente di modificare la lingua in base alle esigenze dei clienti. Microsoft fornisce le traduzioni per [36 lingue,](#supported-languages)ma è anche possibile fornire traduzioni personalizzate per qualsiasi lingua. Anche se l'esperienza è disponibile per una sola lingua, è possibile personalizzare qualsiasi testo nelle pagine.
 
 ## <a name="how-language-customization-works"></a>Funzionamento della personalizzazione della lingua
 
@@ -27,9 +27,9 @@ La personalizzazione della lingua consente di selezionare le lingue in cui è di
 
 Potrebbe non essere necessario un tale livello di controllo sulle lingue visualizzate dal cliente. Se non si specifica un parametro `ui_locales`, l'esperienza del cliente è determinata dalle impostazioni del browser. È comunque possibile controllare le lingue in cui il flusso utente è tradotto aggiungendole come lingue supportate. Se il browser del cliente è impostato su una lingua che non si vuole supportare, viene visualizzata la lingua selezionata come predefinita nelle impostazioni cultura supportate.
 
-* **UI-impostazioni locali lingua specificata**: dopo aver abilitato la personalizzazione della lingua, il flusso utente viene convertito nella lingua specificata qui.
-* **Lingua richiesta dal browser**: se non è stato specificato alcun parametro di `ui_locales`, il flusso utente viene convertito nella lingua richiesta dal browser, *se la lingua è supportata*.
-* **Lingua predefinita dei criteri**: se il browser non specifica una lingua o ne specifica una non supportata, il flusso utente viene convertito nella lingua predefinita del flusso utente.
+* **lingua specificata ui-locales**: Dopo aver abilitato la personalizzazione della lingua, il flusso utente viene tradotto nella lingua specificata qui.
+* **Lingua richiesta dal**browser `ui_locales` : se non è stato specificato alcun parametro, il flusso utente viene tradotto nella lingua richiesta dal browser, *se la lingua è supportata.*
+* **Lingua predefinita criterio**: se il browser non specifica una lingua o ne specifica una non supportata, il flusso utente viene tradotto nella lingua predefinita del flusso utente.
 
 > [!NOTE]
 > Se si fa uso di attributi utente personalizzati, è necessario fornire le traduzioni. Per altre informazioni, vedere [Personalizzazione delle stringhe](#customize-your-strings).
@@ -145,7 +145,7 @@ Le modifiche vengono salvate automaticamente nel flusso utente.
 
 ## <a name="customize-the-page-ui-by-using-language-customization"></a>Personalizzare l'interfaccia utente della pagina usando la personalizzazione della lingua
 
-Esistono due modi per localizzare il contenuto HTML. Un modo consiste nell'attivare la [personalizzazione della lingua](user-flow-language-customization.md). L'abilitazione di questa funzionalità consente Azure AD B2C di trasmettere il parametro OpenID Connect, `ui-locales`, all'endpoint. Il server di contenuti può usare questo parametro per fornire pagine HTML personalizzate specifiche della lingua.
+Esistono due modi per localizzare il contenuto HTML. Un modo consiste nell'attivare la [personalizzazione della lingua](user-flow-language-customization.md). L'abilitazione di questa funzionalità consente ad Azure `ui-locales`AD B2C di inoltrare il parametro OpenID Connect, all'endpoint. Il server di contenuti può usare questo parametro per fornire pagine HTML personalizzate specifiche della lingua.
 
 In alternativa, è possibile eseguire il pull del contenuto da posizioni diverse in base alle impostazioni locali in uso. Nell'endpoint abilitato per CORS è possibile configurare una struttura di cartelle in cui ospitare il contenuto per specifiche lingue. Se si inserisce il valore del carattere jolly `{Culture:RFC5646}` verrà chiamata la lingua corretta. Ad esempio, supponiamo che questo sia l'URI della pagina personalizzata:
 
@@ -199,14 +199,14 @@ Chrome e Firefox richiedono entrambi la relativa lingua preimpostata. Se è supp
 
 ## <a name="supported-languages"></a>Lingue supportate
 
-Azure AD B2C include il supporto per le lingue seguenti. Le lingue dei flussi utente sono fornite da Azure AD B2C. I linguaggi di notifica dell'autenticazione a più fattori sono forniti da [Azure](../active-directory/authentication/concept-mfa-howitworks.md)multi-factor authentication.
+Azure AD B2C include il supporto per le lingue seguenti. Le lingue del flusso utente sono fornite da Azure AD B2C. Le lingue di notifica di autenticazione a più fattori (MFA) sono fornite da [Azure MFA.](../active-directory/authentication/concept-mfa-howitworks.md)
 
-| Linguaggio              | Codice lingua | Flussi degli utenti         | Notifiche multi-factor authentication  |
+| Linguaggio              | Codice lingua | Flussi degli utenti         | Notifiche MFA  |
 |-----------------------| :-----------: | :----------------: | :----------------: |
 | Arabo                | ar            | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
-| Bulgaro             | BG            | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
+| Bulgaro             | bg            | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Bengalese                | bn            | ![sì](./media/user-flow-language-customization/yes.png) | ![no](./media/user-flow-language-customization/no.png) |
-| Catalano               | CA            | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
+| Catalano               | Ca            | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Ceco                 | cs            | ![sì](./media/user-flow-language-customization/yes.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Danese                | da            | ![sì](./media/user-flow-language-customization/yes.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Tedesco                | de            | ![sì](./media/user-flow-language-customization/yes.png) | ![sì](./media/user-flow-language-customization/yes.png) |
@@ -214,7 +214,7 @@ Azure AD B2C include il supporto per le lingue seguenti. Le lingue dei flussi ut
 | Inglese               | en            | ![sì](./media/user-flow-language-customization/yes.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Spagnolo               | es            | ![sì](./media/user-flow-language-customization/yes.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Estone              | et            | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
-| Basco                | UE            | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
+| Basco                | Ue            | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Finlandese               | fi            | ![sì](./media/user-flow-language-customization/yes.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Francese                | fr            | ![sì](./media/user-flow-language-customization/yes.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Galiziano              | gl            | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
@@ -226,11 +226,11 @@ Azure AD B2C include il supporto per le lingue seguenti. Le lingue dei flussi ut
 | Indonesiano            | id            | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Italiano               | it            | ![sì](./media/user-flow-language-customization/yes.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Giapponese              | ja            | ![sì](./media/user-flow-language-customization/yes.png) | ![sì](./media/user-flow-language-customization/yes.png) |
-| Kazako                | KK            | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
+| Kazako                | Kk            | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Kannada               | kn            | ![sì](./media/user-flow-language-customization/yes.png) | ![no](./media/user-flow-language-customization/no.png) |
 | Coreano                | ko            | ![sì](./media/user-flow-language-customization/yes.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Lituano            | lt            | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
-| Lettone               | LV            | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
+| Lettone               | lv            | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Malayalam             | ml            | ![sì](./media/user-flow-language-customization/yes.png) | ![no](./media/user-flow-language-customization/no.png) |
 | Marathi               | mr            | ![sì](./media/user-flow-language-customization/yes.png) | ![no](./media/user-flow-language-customization/no.png) |
 | Malese                 | ms            | ![sì](./media/user-flow-language-customization/yes.png) | ![sì](./media/user-flow-language-customization/yes.png) |
@@ -245,14 +245,14 @@ Azure AD B2C include il supporto per le lingue seguenti. Le lingue dei flussi ut
 | Russo               | ru            | ![sì](./media/user-flow-language-customization/yes.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Slovacco                | sk            | ![sì](./media/user-flow-language-customization/yes.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Sloveno             | sl            | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
-| Serbo - Alfabeto cirillico    | SR-Cryl-CS    | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
-| Serbo - Alfabeto latino       | Sr-Latn-CS    | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
+| Serbo - Alfabeto cirillico    | sr-cryl-cs    | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
+| Serbo - Alfabeto latino       | sr-latn-cs    | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Svedese               | sv            | ![sì](./media/user-flow-language-customization/yes.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Tamil                 | ta            | ![sì](./media/user-flow-language-customization/yes.png) | ![no](./media/user-flow-language-customization/no.png) |
 | Telugu                | te            | ![sì](./media/user-flow-language-customization/yes.png) | ![no](./media/user-flow-language-customization/no.png) |
 | Thai                  | th            | ![sì](./media/user-flow-language-customization/yes.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Turco               | tr            | ![sì](./media/user-flow-language-customization/yes.png) | ![sì](./media/user-flow-language-customization/yes.png) |
-| Ucraino             | Regno Unito            | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
+| Ucraino             | uk            | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Vietnamita            | vi            | ![no](./media/user-flow-language-customization/no.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Cinese (semplificato)  | zh-hans       | ![sì](./media/user-flow-language-customization/yes.png) | ![sì](./media/user-flow-language-customization/yes.png) |
 | Cinese (tradizionale) | zh-hant       | ![sì](./media/user-flow-language-customization/yes.png) | ![sì](./media/user-flow-language-customization/yes.png) |

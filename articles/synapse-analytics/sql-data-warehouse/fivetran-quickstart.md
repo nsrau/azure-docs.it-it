@@ -1,0 +1,86 @@
+---
+title: 'Guida introduttiva: Fivetran e data warehouse'
+description: Introduzione a Fivetran e a un data warehouse di Azure Synapse Analytics.
+services: synapse-analytics
+author: mlee3gsd
+manager: craigg
+ms.service: synapse-analytics
+ms.topic: conceptual
+ms.subservice: ''
+ms.date: 10/12/2018
+ms.author: martinle
+ms.reviewer: igorstan
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: b4742f48ee9ad0db60e21dd53c5c0f447c1ded67
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348926"
+---
+# <a name="quickstart-fivetran-with-data-warehouse"></a>Guida introduttiva: Fivetran con data warehouse 
+
+Questa guida introduttiva descrive come configurare un nuovo utente Fivetran per l'utilizzo con un data warehouse di Azure Synapse Analytics di cui è stato eseguito il provisioning con un pool SQL. L'articolo presuppone che si disponga di un data warehouse esistente.
+
+## <a name="set-up-a-connection"></a>Configurare una connessione
+
+1. Trovare il nome completo del server e il nome del database utilizzati per connettersi al data warehouse.
+    
+    Se è necessaria assistenza per trovare queste informazioni, vedere [Connettersi al data warehouse.](sql-data-warehouse-connect-overview.md)
+
+2. Durante la procedura guidata di installazione, decidere se ci si vuole connettere al database direttamente o tramite un tunnel SSH.
+
+   Se si decide di connettersi direttamente al database, sarà necessario creare una regola di firewall per consentire l'accesso. Questo metodo è quello più semplice e sicuro.
+
+   Se si sceglie di connettersi utilizzando un tunnel SSH, Fivetran si connette a un server separato della rete. Il server fornisce un tunnel SSH al database. È necessario usare questo metodo se il database si trova in una subnet inaccessibile in una rete virtuale.
+
+3. Aggiungere l'indirizzo IP **52.0.2.4** al firewall a livello di server per consentire le connessioni in ingresso all'istanza del data warehouse da Fivetran.
+
+   Per altre informazioni, vedere [Creare una regola di firewall a livello di server](create-data-warehouse-portal.md#create-a-server-level-firewall-rule).
+
+## <a name="set-up-user-credentials"></a>Configurare le credenziali utente
+
+1. Connettersi al data warehouse utilizzando SQL Server Management Studio (SSMS) o lo strumento preferito. Accedere come utente amministratore del server. Quindi, eseguire i comandi SQL seguenti per creare un utente per Fivetran:
+
+    - Nel database master: 
+    
+      ```sql
+      CREATE LOGIN fivetran WITH PASSWORD = '<password>'; 
+      ```
+
+    - Nel database del data warehouse:
+
+      ```sql
+      CREATE USER fivetran_user_without_login without login;
+      CREATE USER fivetran FOR LOGIN fivetran;
+      GRANT IMPERSONATE on USER::fivetran_user_without_login to fivetran;
+      ```
+
+2. Concedere all'utente Fivetran le autorizzazioni seguenti per il data warehouse:
+
+    ```sql
+    GRANT CONTROL to fivetran;
+    ```
+
+    È necessaria l'autorizzazione CONTROLLO per creare credenziali con ambito database che vengono usate quando un utente carica i file dalla risorsa di archiviazione Blob tramite PolyBase.
+
+3. Aggiungere una classe di risorse appropriata all'utente di Fivetran. La classe di risorse che si usa dipende dalla memoria necessaria per creare un indice columnstore. Per esempio, le integrazioni con prodotti come Marketo e Salesforce richiedono una classe di risorse superiore a causa dell'elevato numero di colonne e del volume più grande di dati che i prodotti usano. Una classe di risorse superiore richiede più memoria per creare gli indici columnstore.
+
+    È consigliabile usare classi di risorse statiche. È possibile iniziare con la classe di risorse `staticrc20`. La classe di risorse `staticrc20` alloca 200 MB per ogni utente, indipendentemente dal livello di prestazioni che si usa. Se l'indice columnstore ha esito negativo al livello iniziale di classe di risorse, aumentare la classe di risorse.
+
+    ```sql
+    EXEC sp_addrolemember '<resource_class_name>', 'fivetran';
+    ```
+
+    Per altre informazioni, leggere i materiali riguardanti i [limiti di memoria e concorrenza](memory-concurrency-limits.md) e le [classi di risorse](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory).
+
+
+## <a name="sign-in-to-fivetran"></a>Accedere a Fivetran
+
+Per accedere a Fivetran, immettere le credenziali utilizzate per accedere al data warehouse: 
+
+* Host (nome del server).
+* Porta.
+* Database.
+* Utente (il nome utente deve essere **fivetran\@server_name** in cui *server_name* fa parte dell'URI host di Azure: ** _nome server\__.database.windows.net**).
+* Password.

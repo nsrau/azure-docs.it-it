@@ -9,12 +9,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: c18e1b1a1feba5c528a692b7d63287b3751b62cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c1260bb1fab23ede2d1a96725c3086dc128fffc
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77506218"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387649"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database"></a>Playbook per la risoluzione dei requisiti di sicurezza comuni con il database SQL di Azure
 
@@ -657,7 +657,7 @@ Il rilevamento degli eventi del database consente di comprendere l'attività del
 **Procedure consigliate**:
 
 - Configurando il [controllo del database SQL](sql-database-auditing.md) nel server di database per controllare gli eventi, verranno controllati tutti i database esistenti e appena creati in tale server.
-- Per impostazione predefinita, i criteri di controllo includono tutte le azioni (query, stored procedure e account di accesso riusciti e non riusciti) sui database, che possono comportare un volume elevato di log di controllo. È consigliabile per i clienti configurare il [controllo per diversi tipi di azioni e gruppi di azioni tramite PowerShell](sql-database-auditing.md#subheading-7). La configurazione consente di controllare il numero di azioni controllate e di ridurre al minimo il rischio di perdita di eventi. La configurazione di controllo personalizzata consente ai clienti di acquisire solo i dati di controllo necessari.
+- Per impostazione predefinita, i criteri di controllo includono tutte le azioni (query, stored procedure e account di accesso riusciti e non riusciti) sui database, che possono comportare un volume elevato di log di controllo. È consigliabile per i clienti configurare il [controllo per diversi tipi di azioni e gruppi di azioni tramite PowerShell](sql-database-auditing.md#manage-auditing). La configurazione consente di controllare il numero di azioni controllate e di ridurre al minimo il rischio di perdita di eventi. La configurazione di controllo personalizzata consente ai clienti di acquisire solo i dati di controllo necessari.
 - I log di controllo possono essere utilizzati direttamente nel portale di [Azure](https://portal.azure.com/)o dal percorso di archiviazione configurato. 
 
 

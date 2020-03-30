@@ -1,6 +1,6 @@
 ---
-title: Scaricare i risultati di un processo-servizi multimediali di Azure
-description: Questo articolo illustra come scaricare i risultati di un processo.
+title: Scaricare i risultati di un processo - Servizi multimediali di AzureDownload the results of a job - Azure Media Services
+description: In questo articolo viene illustrato come scaricare i risultati di un processo.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,18 +11,22 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
-ms.openlocfilehash: 0c81523d43fd316c3dc65cc2a5b34557f24014b5
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: bae7104eaded8c2ed153bc141faf7eba0bb86bae
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303410"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80346308"
 ---
-# <a name="download-the-results-of-a-job"></a>Scaricare i risultati di un processo
+# <a name="download-the-results-of-a-job"></a>Scarica i risultati di un lavoro
 
-In servizi multimediali di Azure, quando si elaborano i video, ad esempio la codifica o l'analisi, è necessario creare un [Asset](assets-concept.md) di output per archiviare il risultato del [processo](transforms-jobs-concept.md). È quindi possibile scaricare questi risultati in una cartella locale usando le API di archiviazione e del servizio multimediale. 
+In Servizi multimediali di Azure, durante l'elaborazione dei video, ad esempio la codifica o l'analisi, è necessario creare un [asset](assets-concept.md) di output per archiviare il risultato del [processo.](transforms-jobs-concept.md) È quindi possibile scaricare questi risultati in una cartella locale usando il servizio multimediale e le API di archiviazione. 
 
-Questo articolo illustra come scaricare i risultati usando gli SDK Java e .NET.
+In questo articolo viene illustrato come scaricare i risultati utilizzando Java e .NET SDK.
+
+## <a name="prerequisites"></a>Prerequisiti 
+
+Esaminare [gestire le risorse](manage-asset-concept.md).
 
 ## <a name="java"></a>Java
 
@@ -120,4 +124,4 @@ Vedere l'esempio di codice completo: [EncodingWithMESPredefinedPreset](https://g
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Creare un input del processo da un URL HTTPS](job-input-from-http-how-to.md).
+[Creare un input di processo da un URL HTTPS](job-input-from-http-how-to.md).

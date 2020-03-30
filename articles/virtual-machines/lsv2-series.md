@@ -1,5 +1,5 @@
 ---
-title: Serie Lsv2-macchine virtuali di Azure
+title: Serie Lsv2 - Macchine virtuali di Azure
 description: Specifiche per le macchine virtuali della serie Lsv2.
 services: virtual-machines
 author: sasha-melamed
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: 103e19d6e299956b5ee1ad45b577e25f9f2de1c4
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78164033"
 ---
 # <a name="lsv2-series"></a>Serie Lsv2
@@ -19,30 +19,30 @@ ms.locfileid: "78164033"
 La serie Lsv2 offre velocità effettiva elevata, bassa latenza, risorse di archiviazione NVMe locali con mapping diretto in esecuzione sul [processore AMD EPYC<sup>TM</sup> 7551](https://www.amd.com/en/products/epyc-7000-series) con un turbo boost "all core" di 2,55 GHz e un turbo boost massimo di 3 GHz. Le macchine virtuali Serie Lsv2 sono disponibili in dimensioni comprese tra 8 e 80 vCPU in una configurazione multi-thread simultanea.  Sono disponibili 8 GiB di memoria per ogni vCPU e un dispositivo NVMe SSD M.2 da 1,92 TB per 8 vCPU, fino a 19,2 TB (10 x 1,92 TB) disponibili nella versione L80s v2.
 
 > [!NOTE]
-> Le macchine virtuali della serie Lsv2 sono ottimizzate per l'uso del disco locale nel nodo collegato direttamente alla macchina virtuale anziché usare dischi dati durevoli. Questo consente un maggior numero di operazioni di I/O al secondo o un maggiore velocità effettiva per i carichi di lavoro. La serie Lsv2 e ls non supporta la creazione di una cache locale per aumentare il valore di IOPs ottenibile dai dischi dati durevoli.
+> Le macchine virtuali della serie Lsv2 sono ottimizzate per usare il disco locale nel nodo collegato direttamente alla macchina virtuale anziché usare dischi dati durevoli. Questo consente un maggior numero di operazioni di I/O al secondo o un maggiore velocità effettiva per i carichi di lavoro. Le serie Lsv2 e Ls non supportano la creazione di una cache locale per aumentare le operazioni di I/O al secondo raggiungibili da dischi dati durevoli.
 >
-> La velocità effettiva elevata e gli IOPs del disco locale rendono le VM serie Lsv2 ideali per gli archivi NoSQL, ad esempio Apache Cassandra e MongoDB, che replicano i dati tra più macchine virtuali per ottenere la persistenza in caso di errore di una singola macchina virtuale.
+> L'elevata velocità effettiva e le operazioni di I/O al secondo del disco locale rendono le macchine virtuali della serie Lsv2 ideali per gli archivi NoSQL, ad esempio Apache Cassandra e MongoDB, replicando i dati tra più macchine virtuali per ottenere la persistenza in caso di errore di una singola macchina virtuale.
 >
-> Per altre informazioni, vedere ottimizzare le prestazioni nelle macchine virtuali della serie Lsv2 per [Windows](../virtual-machines/windows/storage-performance.md) o [Linux](../virtual-machines/linux/storage-performance.md).  
+> Per altre informazioni, vedere Ottimizzare le prestazioni nelle macchine virtuali della serie Lsv2 per [Windows](../virtual-machines/windows/storage-performance.md) o [Linux.](../virtual-machines/linux/storage-performance.md)  
 
-ACU: 150-175
+Unità di terapia intensiva: 150-175
 
 Archiviazione Premium: supportata
 
-Caching archiviazione Premium: non supportato
+Memorizzazione nella cache di archiviazione Premium: non supportata
 
 Live Migration: non supportato
 
-Aggiornamenti con mantenimento della memoria: non supportato
+Aggiornamenti di conservazione della memoria: non supportatiMemory Preserving Updates: Not Supported
 
-| Dimensione | vCPU | Memoria (GiB) | Disco temporaneo<sup>1</sup> (GiB) | Dischi NVMe<sup>2</sup> | Velocità effettiva del disco NVMe<sup>3</sup> (letture IOPS/Mbps) | Numero massimo di velocità effettiva del disco dati non memorizzati nella cache (IOPs/MBps)<sup>4</sup> | Numero massimo di dischi dati | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
+| Dimensione | vCPU | Memoria (GiB) | Disco temporaneo<sup>1</sup> (GiB) | Dischi NVMe<sup>2</sup> | Velocità effettiva del disco NVMe 3 (IOPS di lettura/MBps)NVMe Disk throughput<sup>3</sup> (Read IOPS/MBps) | Velocità effettiva massima disco dati non memorizzati nella cache (IOPs/MBps)<sup>4Max</sup> uncached data disk disk throughput (IOPs/MBps) 4 | Numero massimo di dischi dati | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_L8s_v2   |  8 |  64 |  80 |  1 x 1,92 TB  | 400000/2000  | 8000/160   | 16 | 2 / 3200   |
 | Standard_L16s_v2  | 16 | 128 | 160 |  2 x 1,92 TB  | 800000/4000  | 16000/320  | 32 | 4 / 6400   |
-| Standard_L32s_v2  | 32 | 256 | 320 |  4 x 1,92 TB  | 1,5 m/8000    | 32000/640  | 32 | 8 / 12800  |
-| Standard_L48s_v2  | 48 | 384 | 480 |  6x 1.92 TB  | 2.2 m/14000   | 48000/960  | 32 | 8/16000 + |
-| Standard_L64s_v2  | 64 | 512 | 640 |  8 x 1,92 TB  | 2.9 m/16000   | 64000/1280 | 32 | 8/16000 + |
-| Standard_L80s_v2<sup>5</sup> | 80 | 640 | 800 | 10 x 1,92 TB | 3.8 m/20000 | 80000/1400 | 32 | 8/16000 + |
+| Standard_L32s_v2  | 32 | 256 | 320 |  4 x 1,92 TB  | 1.5M/8000    | 32000/640  | 32 | 8 / 12800  |
+| Standard_L48s_v2  | 48 | 384 | 480 |  6x1,92 TB  | 2.2M/14000   | 48000/960  | 32 | 8 / 16000 |
+| Standard_L64s_v2  | 64 | 512 | 640 |  8 x 1,92 TB  | 2.9M/16000   | 64000/1280 | 32 | 8 / 16000 |
+| STANDARD_L80S_V2<sup>5</sup> | 80 | 640 | 800 | 10 x 1,92 TB | 3.8M/20000 | 80000/1400 | 32 | 8 / 16000 |
 
 <sup>1</sup> Le macchine virtuali serie Lsv2 hanno un disco risorse temporaneo basato su SCSI standard per l'uso di un file di scambio/paging del sistema operativo (D: in Windows, /dev/sdb in Linux). Il disco offre 80 GiB di archiviazione, 4.000 IOPS e una velocità di trasferimento di 80 MBps ogni 8 vCPU (ad esempio, il modello Standard_L80s_v2 fornisce 800 GiB a 40.000 IOPS e 800 MBPS). In questo modo, le unità NVMe possono essere completamente dedicate all'utilizzo dell'applicazione. Questo disco è temporaneo e tutti i dati andranno persi al momento dell'arresto/deallocazione.
 
@@ -52,17 +52,17 @@ Aggiornamenti con mantenimento della memoria: non supportato
 
 <sup>4</sup> Le macchine virtuali serie Lsv2 non prevedono la cache dell'host per il disco dati perché non genera alcun vantaggio per i carichi di lavoro Lsv2.  Possono tuttavia prevedere l'opzione disco del sistema operativo temporaneo della macchina virtuale di Azure (fino a 30 GiB).
 
-<sup>5</sup> le VM con più di 64 vCPU richiedono uno di questi sistemi operativi guest supportati:
+<sup>5</sup> macchine virtuali con più di 64 vCPU richiedono uno di questi sistemi operativi guest supportati:
 
 - Windows Server 2016 o versione successiva
-- Ubuntu 16,04 LTS o versioni successive, con kernel ottimizzato per Azure (kernel 4,15 o versione successiva)
+- Ubuntu 16.04 LTS o versione successiva, con kernel tuned Azure (4.15 kernel o versione successiva)Ubuntu 16.04 LTS or later, with Azure tuned kernel (4.15 kernel or later)
 - SLES 12 SP2 o versione successiva
-- RHEL o CentOS dalla versione 6,7 alla 6,10, con il pacchetto LIS fornito da Microsoft (o versioni successive) installato
-- RHEL o CentOS versione 7,3, con il pacchetto LIS fornito da Microsoft (o versioni successive) installato
-- RHEL o CentOS versione 7,6 o successiva
-- Oracle Linux con UEK4 o versione successiva
-- Debian 9 con il kernel di backports, Debian 10 o versione successiva
-- CoreOS con un kernel 4,14 o versione successiva
+- RHEL o CentOS versione 6.7 a 6.10, con il pacchetto LIS fornito da Microsoft 4.3.1 (o versione successiva) installato
+- RHEL o CentOS versione 7.3, con il pacchetto LIS 4.2.1 (o versione successiva) fornito da Microsoft installato
+- RHEL o CentOS versione 7.6 o successiva
+- Oracle Linux con UEK4 o versioni successive
+- Debian 9 con kernel backports, Debian 10 o versioni successive
+- CoreOS con un kernel 4.14 o versione successiva
 
 ## <a name="size-table-definitions"></a>Definizioni delle tabelle delle dimensioni
 

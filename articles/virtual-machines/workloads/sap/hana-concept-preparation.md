@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 33d52f871de75a7f7d34016b040e44d6f1623fd8
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70101254"
 ---
 # <a name="disaster-recovery-principles"></a>Principi relativi al ripristino di emergenza
@@ -80,7 +80,7 @@ Successivamente, configurare o regolare la pianificazione del backup dello snaps
 - Per il volume di backup del log delle transazioni (tipo di snapshot **log**) impostare la replica ogni tre minuti nelle destinazioni dei volumi di archiviazione equivalenti nel sito di ripristino di emergenza.
 
 Per ridurre al minimo l'obiettivo del punto di ripristino, impostare quanto segue:
-- Eseguire uno snapshot di archiviazione di tipo **hana** (vedere "Passaggio 7: eseguire gli snapshot") ogni 30 minuti fino a 1 ora.
+- Eseguire uno snapshot di archiviazione di tipo **hana** (vedere il "Passaggio 7: Eseguire gli snapshot") ogni 30/60 minuti.
 - Eseguire i backup del log delle transazioni SAP HANA ogni cinque minuti.
 - Eseguire uno snapshot di archiviazione di tipo **logs** ogni 5-15 minuti. Con questo intervallo, dovrebbe essere possibile ottenere un valore RPO di circa 15-25 minuti.
 

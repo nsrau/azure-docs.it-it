@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: rohogue
 ms.openlocfilehash: c2a38b20fff789faf370e3161a92a31ed5f04c57
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76153719"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Spostamento dei dati nel cluster vFXT - Inserimento di dati parallelo
 
-Dopo aver creato un nuovo cluster vFXT, è possibile che la prima attività sposti i dati in un nuovo volume di archiviazione in Azure. Tuttavia, se il metodo che si usa in genere per spostare i dati è l'esecuzione di un semplice comando di copia da un client, probabilmente le prestazioni di copia risulteranno lente. La copia a thread singolo non è un'opzione adatta per la copia dei dati nell'archiviazione back-end del cluster vFXT.
+Dopo aver creato un nuovo cluster vFXT, la prima attività potrebbe essere spostare i dati in un nuovo volume di archiviazione in Azure.After you've created a new vFXT cluster, your first task might be to move data on to a new storage volume in Azure. Tuttavia, se il metodo che si usa in genere per spostare i dati è l'esecuzione di un semplice comando di copia da un client, probabilmente le prestazioni di copia risulteranno lente. La copia a thread singolo non è una buona opzione per copiare i dati nell'archiviazione back-end del cluster Avere vFXT.
 
-Dato che il vFXT per il cluster di Azure è una cache multiclient scalabile, il modo più veloce ed efficiente per copiare i dati è con più client. Questa tecnica parallelizza l'inserimento dei file e degli oggetti.
+Poiché il cluster Avere vFXT for Azure è una cache multiclient scalabile, il modo più rapido ed efficiente per copiarvi i dati è con più client. Questa tecnica parallelizza l'inserimento dei file e degli oggetti.
 
 ![Diagramma che mostra lo spostamento dati multi-client a thread multipli: in alto a sinistra, da un'icona per la risorsa di archiviazione hardware locale partono più frecce. Le frecce puntano a quattro computer client. Da ogni computer client tre frecce puntano verso Avere vFXT. Da Avere vFXT, più frecce puntano all'archiviazione BLOB.](media/avere-vfxt-parallel-ingest.png)
 
@@ -25,12 +25,12 @@ I comandi ``cp`` o ``copy`` che vengono comunemente usati per trasferire dati da
 
 Questo articolo illustra le strategie per creare un sistema di copia multi-client a thread multipli per spostare dati nel cluster Avere vFXT. Spiega i concetti relativi al trasferimento di file e le decisioni da prendere per una copia dei dati efficiente usando più client e semplici comandi di copia.
 
-Illustra inoltre alcune utilità che possono essere di ausilio. L'utilità ``msrsync`` può essere utilizzata per automatizzare parzialmente il processo di suddivisione di un set di dati in bucket e l'utilizzo di ``rsync`` comandi. Lo script ``parallelcp`` è un'altra utilità che legge la directory di origine e invia automaticamente i comandi di copia. Inoltre, lo strumento ``rsync`` può essere utilizzato in due fasi per offrire una copia più veloce che fornisce ancora la coerenza dei dati.
+Illustra inoltre alcune utilità che possono essere di ausilio. L'utilità ``msrsync`` può essere utilizzata per automatizzare parzialmente il ``rsync`` processo di divisione di un set di dati in bucket e di utilizzo dei comandi. Lo script ``parallelcp`` è un'altra utilità che legge la directory di origine e invia automaticamente i comandi di copia. Inoltre, ``rsync`` lo strumento può essere utilizzato in due fasi per fornire una copia più rapida che fornisce ancora coerenza dei dati.
 
 Fare clic sul collegamento per passare a una sezione:
 
 * [Esempio di copia manuale ](#manual-copy-example): spiegazione completa sull'uso dei comandi di copia
-* [Esempio di rsync a due fasi](#use-a-two-phase-rsync-process)
+* [Esempio di rsync in due fasi](#use-a-two-phase-rsync-process)
 * [Esempio di automazione parziale (msrsync)](#use-the-msrsync-utility)
 * [Esempio di copia parallela](#use-the-parallel-copy-script)
 
@@ -44,12 +44,12 @@ La macchina virtuale per l'inserimento dei dati fa parte di un'esercitazione in 
 
 ## <a name="strategic-planning"></a>Pianificazione strategica
 
-Quando si progetta una strategia per la copia dei dati in parallelo, è necessario comprendere i compromessi relativi alle dimensioni del file, al numero di file e alla profondità della directory.
+Quando si progetta una strategia per copiare i dati in parallelo, è necessario comprendere i compromessi in termini di dimensioni del file, numero di file e profondità della directory.
 
 * Quando i file sono di piccole dimensioni, la metrica di interesse è file al secondo.
 * Quando i file sono di grandi dimensioni (10 MiBi o oltre), la metrica di interesse è byte al secondo.
 
-Ogni processo di copia ha una velocità effettiva e una velocità di trasferimento dei file, che può essere misurata cronometrando la lunghezza del comando di copia e considerando le dimensioni del file e il numero di file. Spiegare come misurare le tariffe esula dall'ambito di questo documento, ma è importante capire se si tratta di file di piccole o grandi dimensioni.
+Ogni processo di copia ha una velocità effettiva e una velocità di trasferimento dei file, che può essere misurata cronometrando la lunghezza del comando di copia e considerando le dimensioni del file e il numero di file. Spiegare come misurare le tariffe non rientra nell'ambito di questo documento, ma è importante capire se si avrà a che fare con file di piccole o grandi dimensioni.
 
 ## <a name="manual-copy-example"></a>Esempio di copia manuale
 
@@ -113,7 +113,7 @@ cp -R /mnt/source/dir1/dir1d /mnt/destination/dir1/ &
 
 ### <a name="when-to-add-mount-points"></a>Quando aggiungere punti di montaggio
 
-Quando si raggiunge un numero sufficiente di thread paralleli verso un singolo punto di montaggio del file system di destinazione, vi sarà un punto in cui l'aggiunta di più thread non offre una velocità effettiva maggiore. (La velocità effettiva viene misurata in file al secondo o in byte al secondo, a seconda del tipo di dati.) O peggio, il overthreading può a volte causare una riduzione della velocità effettiva.
+Quando si raggiunge un numero sufficiente di thread paralleli verso un singolo punto di montaggio del file system di destinazione, vi sarà un punto in cui l'aggiunta di più thread non offre una velocità effettiva maggiore. La velocità effettiva verrà misurata in file/secondo o byte/secondo, a seconda del tipo di dati. O peggio, l'overthreading può talvolta causare una riduzione della velocità effettiva.
 
 In questo caso, è possibile aggiungere punti di montaggio lato client ad altri indirizzi IP del cluster vFXT, usando lo stesso percorso di montaggio del file system remoto:
 
@@ -240,7 +240,7 @@ Se hai cinque client, usare un comando simile al seguente:
 for i in 1 2 3 4 5; do sed -n ${i}~5p /tmp/foo > /tmp/client${i}; done
 ```
 
-E per sei.... Estrapolare in base alle esigenze.
+E per sei... Estrapolare in base alle esigenze.
 
 ```bash
 for i in 1 2 3 4 5 6; do sed -n ${i}~6p /tmp/foo > /tmp/client${i}; done
@@ -258,44 +258,44 @@ Il comando precedente fornirà *N* file, ognuno con un comando di copia per riga
 
 L'obiettivo è eseguire contemporaneamente più thread di questi script per client, in parallelo in più client.
 
-## <a name="use-a-two-phase-rsync-process"></a>Usare un processo rsync a due fasi
+## <a name="use-a-two-phase-rsync-process"></a>Utilizzare un processo di rsync in due fasiUse a two-phase rsync process
 
-L'utilità di ``rsync`` standard non funziona bene per il popolamento dell'archiviazione cloud tramite il vFXT di sicurezza di rete per Azure perché genera un numero elevato di operazioni di creazione e ridenominazione dei file per garantire l'integrità dei dati. Tuttavia, è possibile usare in modo sicuro l'opzione ``--inplace`` con ``rsync`` per ignorare la procedura di copia più attenta se si segue con una seconda esecuzione che controlla l'integrità dei file.
+L'utilità standard ``rsync`` non funziona bene per popolare l'archiviazione cloud tramite il sistema Avere vFXT per Azure perché genera un numero elevato di operazioni di creazione e ridenominazione di file per garantire l'integrità dei dati. Tuttavia, è possibile ``--inplace`` utilizzare ``rsync`` in modo sicuro l'opzione con per ignorare la procedura di copia più attenta se si segue che con una seconda esecuzione che controlla l'integrità dei file.
 
-Un'operazione di copia ``rsync`` standard crea un file temporaneo e lo compila con i dati. Se il trasferimento dei dati viene completato correttamente, il file temporaneo viene rinominato con il nome file originale. Questo metodo garantisce la coerenza anche se si accede ai file durante la copia. Questo metodo genera tuttavia più operazioni di scrittura, che rallentano lo spostamento dei file nella cache.
+Un'operazione di copia standard ``rsync`` crea un file temporaneo e lo riempie di dati. Se il trasferimento dei dati viene completato correttamente, il file temporaneo viene rinominato nel nome del file originale. Questo metodo garantisce la coerenza anche se si accede ai file durante la copia. Ma questo metodo genera più operazioni di scrittura, che rallenta lo spostamento dei file attraverso la cache.
 
-L'opzione ``--inplace`` scrive il nuovo file direttamente nella posizione finale. Non è garantito che i file siano coerenti durante il trasferimento, ma ciò non è importante se si sta comprimendo un sistema di archiviazione per usarlo in seguito.
+L'opzione ``--inplace`` scrive il nuovo file direttamente nella posizione finale. Non è garantito che i file siano coerenti durante il trasferimento, ma ciò non è importante se si sta innesco di un sistema di archiviazione per l'uso in un secondo momento.
 
-La seconda operazione di ``rsync`` funge da verifica della coerenza sulla prima operazione. Poiché i file sono già stati copiati, la seconda fase è un'analisi veloce per assicurarsi che i file nella destinazione corrispondano ai file nell'origine. Se i file non corrispondono, vengono ricopiati.
+La ``rsync`` seconda operazione funge da verifica di coerenza sulla prima operazione. Poiché i file sono già stati copiati, la seconda fase è una scansione rapida per assicurarsi che i file nella destinazione corrispondano ai file nell'origine. Se i file non corrispondono, vengono ricopiati.
 
-È possibile eseguire entrambe le fasi insieme in un unico comando:
+È possibile emettere entrambe le fasi insieme in un unico comando:You can issue both phases together in one command:
 
 ```bash
 rsync -azh --inplace <source> <destination> && rsync -azh <source> <destination>
 ```
 
-Questo metodo è un metodo semplice e a tempo effettivo per i set di dati fino al numero di file che possono essere gestiti da gestione directory interna. Si tratta in genere di 200 milioni file per un cluster a 3 nodi, 500 milioni file per un cluster a sei nodi e così via.
+Questo metodo è un metodo semplice ed efficace in termini di tempo per i set di dati fino al numero di file che il gestore di directory interno è in grado di gestire. Si tratta in genere di 200 milioni di file per un cluster a 3 nodi, 500 milioni di file per un cluster a sei nodi e così via.
 
-## <a name="use-the-msrsync-utility"></a>Usare l'utilità msrsync
+## <a name="use-the-msrsync-utility"></a>Utilizzare l'utilità msrsync
 
-Lo strumento di ``msrsync`` può essere usato anche per spostare i dati in un file di base back-end per il cluster. Questo strumento è progettato per ottimizzare l'utilizzo della larghezza di banda mediante l'esecuzione parallela di più processi ``rsync``. È disponibile da GitHub all'indirizzo <https://github.com/jbd/msrsync>.
+Lo ``msrsync`` strumento può essere utilizzato anche per spostare i dati in un filer core back-end per il cluster Avere. Questo strumento è progettato per ottimizzare l'utilizzo della larghezza di banda mediante l'esecuzione parallela di più processi ``rsync``. È disponibile da GitHub all'indirizzo <https://github.com/jbd/msrsync>.
 
 ``msrsync`` suddivide la directory di origine in contenitori separati e quindi esegue singoli processi ``rsync`` in ogni contenitore.
 
 I test preliminari su una macchina virtuale con quattro core hanno indicato la massima efficienza utilizzando 64 processi. Usare l'opzione ``-p`` di ``msrsync`` per impostare il numero di processi su 64.
 
-È anche possibile usare l'argomento ``--inplace`` con ``msrsync`` comandi. Se si usa questa opzione, provare a eseguire un secondo comando (come con [rsync](#use-a-two-phase-rsync-process), descritto in precedenza) per garantire l'integrità dei dati.
+È inoltre possibile ``--inplace`` utilizzare ``msrsync`` l'argomento con i comandi. Se si utilizza questa opzione, è consigliabile eseguire un secondo comando (come con [rsync](#use-a-two-phase-rsync-process), descritto in precedenza) per garantire l'integrità dei dati.
 
-``msrsync`` possibile scrivere solo in e da volumi locali. L'origine e la destinazione devono essere accessibili montaggi locali nella rete virtuale del cluster.
+``msrsync``può solo scrivere da e verso i volumi locali. L'origine e la destinazione devono essere accessibili montaggi locali nella rete virtuale del cluster.
 
-Per usare ``msrsync`` per popolare un volume cloud di Azure con un cluster di inserimento, seguire queste istruzioni:
+Per ``msrsync`` popolare un volume cloud di Azure con un cluster Avere, seguire queste istruzioni:To use to populate an Azure cloud volume with an Avere cluster, follow these instructions:
 
-1. Installare ``msrsync`` e i relativi prerequisiti (rsync e Python 2,6 o versione successiva)
+1. Installazione ``msrsync`` e relativi prerequisiti (rsync e Python 2.6 o versioni successive)
 1. Determinare il numero totale di file e directory da copiare.
 
-   Usare, ad esempio, l'utilità ``prime.py`` con gli argomenti ```prime.py --directory /path/to/some/directory``` (disponibili scaricando l'URL <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>).
+   Ad esempio, utilizzare ``prime.py`` l'utilità Avere con ```prime.py --directory /path/to/some/directory``` <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>argomenti (disponibile scaricando url ).
 
-   Se non si usa ``prime.py``, è possibile calcolare il numero di elementi con lo strumento di ``find`` GNU come indicato di seguito:
+   In caso ``prime.py``contrario, è possibile calcolare ``find`` il numero di elementi con lo strumento GNU come segue:
 
    ```bash
    find <path> -type f |wc -l         # (counts files)
@@ -305,13 +305,13 @@ Per usare ``msrsync`` per popolare un volume cloud di Azure con un cluster di in
 
 1. Dividere il numero di elementi per 64 per determinare il numero di elementi per ogni processo. Usare questo numero con l'opzione ``-f`` per impostare le dimensioni dei contenitori quando si esegue il comando.
 
-1. Eseguire il comando ``msrsync`` per copiare i file:
+1. Eseguire ``msrsync`` il comando per copiare i file:
 
    ```bash
    msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>
    ```
 
-   Se si usa ``--inplace``, aggiungere una seconda esecuzione senza l'opzione per verificare che i dati vengano copiati correttamente:
+   Se ``--inplace``si utilizza , aggiungere una seconda esecuzione senza l'opzione per verificare che i dati vengano copiati correttamente:
 
    ```bash
    msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv --inplace" <SOURCE_PATH> <DESTINATION_PATH> && msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>
@@ -323,7 +323,7 @@ Per usare ``msrsync`` per popolare un volume cloud di Azure con un cluster di in
 
 ## <a name="use-the-parallel-copy-script"></a>Usare lo script di copia parallela
 
-Lo script di ``parallelcp`` può essere utile anche per lo stato di trasferimento dei dati nell'archiviazione back-end del cluster vFXT.
+Lo ``parallelcp`` script può essere utile anche per spostare i dati nell'archiviazione back-end del cluster vFXT.
 
 Lo script seguente aggiungerà l'eseguibile `parallelcp`. Questo script è progettato per Ubuntu, se si usa un'altra distribuzione è necessario installare ``parallel`` separatamente.
 

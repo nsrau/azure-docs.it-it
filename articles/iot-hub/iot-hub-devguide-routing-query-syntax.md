@@ -1,6 +1,6 @@
 ---
 title: Query sul routing dei messaggi di hub IoT di Azure | Microsoft Docs
-description: Informazioni sul linguaggio di query per il routing dei messaggi dell'hub Internet che è possibile usare per applicare query complesse ai messaggi per ricevere i dati più importanti.
+description: Informazioni sul linguaggio di query di routing dei messaggi dell'hub IoT che è possibile usare per applicare query avanzate ai messaggi per ricevere i dati importanti.
 author: ash2017
 ms.service: iot-hub
 services: iot-hub
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
 ms.openlocfilehash: b76ef431e4c0ad63929378c1f48c6ab06776cb25
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271109"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintassi query per il routing dei messaggi di hub IoT
@@ -56,9 +56,9 @@ Le proprietà di sistema identificano contenuto e origine dei messaggi.
 | contentEncoding | string | L'utente specifica il tipo di codifica del messaggio. Valori consentiti sono UTF-8, UTF-16, UTF-32 Se il contentType è impostato su application/JSON. |
 | iothub-connection-device-id | string | Questo valore viene impostato dall'hub IoT e identifica l'ID del dispositivo. Per la query, usare `$connectionDeviceId`. |
 | iothub-enqueuedtime | string | Questo valore viene impostato dall'hub IoT e rappresenta l'ora effettiva di inserimento in coda del messaggio in UTC. Per la query, usare `enqueuedTime`. |
-| iothub-interface-name | string | Questo valore viene impostato dall'utente e rappresenta il nome dell'interfaccia digitale gemella che implementa il messaggio di telemetria. Per la query, usare `$interfaceName`. Questa funzionalità è disponibile come parte del [plug and Play di anteprima pubblica](../iot-pnp/overview-iot-plug-and-play.md). |
+| iothub-interface-name | string | Questo valore viene impostato dall'utente e rappresenta il nome dell'interfaccia gemella digitale che implementa il messaggio di telemetria. Per la query, usare `$interfaceName`. Questa funzione è disponibile come parte [dell'anteprima pubblica IoT Plug and Play.](../iot-pnp/overview-iot-plug-and-play.md) |
 
-Come descritto in [messaggi dell'hub IoT](iot-hub-devguide-messages-construct.md), sono disponibili le proprietà di sistema aggiuntive in un messaggio. Oltre a **contentType**, **contentEncoding** e **enqueuedTime**, è possibile sottoporre a query anche **connectionDeviceId** e **connectionModuleId**.
+Come descritto in [messaggi dell'hub IoT](iot-hub-devguide-messages-construct.md), sono disponibili le proprietà di sistema aggiuntive in un messaggio. Oltre a **contentType**, **contentEncoding**e **enqueuedTime**, è possibile eseguire query **su connectionDeviceId** e **connectionModuleId.**
 
 ### <a name="application-properties"></a>Proprietà dell'applicazione
 
@@ -86,7 +86,7 @@ Per combinare queste query, è possibile usare funzioni ed espressioni booleane:
 $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 ```
 
-In [Expression and Conditions](iot-hub-devguide-query-language.md#expressions-and-conditions)viene visualizzato un elenco completo di funzioni e operatori supportati.
+Un elenco completo di operatori e funzioni supportati è riportato in [Espressione e condizioni](iot-hub-devguide-query-language.md#expressions-and-conditions).
 
 ## <a name="message-routing-query-based-on-message-body"></a>Query di routing dei messaggi in base al corpo del messaggio
 
@@ -142,7 +142,7 @@ deviceClient.sendEvent(message, (err, res) => {
 ```
 
 > [!NOTE] 
-> Viene illustrato come gestire la codifica del corpo in JavaScript. Se si vuole visualizzare un esempio in, C#scaricare gli [ C# esempi di Azure](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Estrarre il file master.zip. Il file Program.cs della soluzione Visual Studio *SimulatedDevice*illustra come codificare e inviare messaggi a un hub Internet. Si tratta dello stesso esempio usato per testare il routing dei messaggi, come illustrato nell' [esercitazione sul routing dei messaggi](tutorial-routing.md). Nella parte inferiore di Program.cs, dispone anche di un metodo per leggere uno dei file codificati, decodificarlo e scriverlo di nuovo come ASCII, in modo che sia possibile leggerlo. 
+> Viene illustrato come gestire la codifica del corpo in javascript. Se si vuole visualizzare un esempio in C, scaricare gli esempi di [Azure IoT c'](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Estrarre il file master.zip. Il file di Program.cs della soluzione di Visual Studio SimulatedDevice mostra come codificare e inviare messaggi a un hub IoT.The Visual Studio solution *SimulatedDevice's*Program.cs file shows how to encode and submit messages to an IoT Hub. Si tratta dello stesso esempio utilizzato per testare il routing dei messaggi, come illustrato [nell'esercitazione](tutorial-routing.md)sul routing dei messaggi . Nella parte inferiore di Program.cs, ha anche un metodo per leggere in uno dei file codificati, decodificarlo e scriverlo di nuovo come ASCII in modo da poterlo leggere. 
 
 
 ### <a name="query-expressions"></a>Espressioni di query
@@ -167,7 +167,7 @@ $body.Weather.Temperature = 50 AND processingPath = 'hot'
 
 ## <a name="message-routing-query-based-on-device-twin"></a>Query di routing dei messaggi basata sul dispositivo gemello 
 
-Il routing dei messaggi consente di eseguire query su tag e proprietà del [Dispositivo gemello](iot-hub-devguide-device-twins.md), che sono oggetti JSON. È supportata anche l'esecuzione di query sul modulo gemello. Di seguito è riportato un esempio di tag e proprietà del Dispositivo gemello.
+Il routing dei messaggi consente di eseguire query su tag e proprietà del [Dispositivo gemello](iot-hub-devguide-device-twins.md), che sono oggetti JSON. È inoltre supportata l'esecuzione di query sul modulo gemello. Di seguito è riportato un esempio di tag e proprietà del Dispositivo gemello.
 
 ```JSON
 {
@@ -200,7 +200,7 @@ Il routing dei messaggi consente di eseguire query su tag e proprietà del [Disp
 
 ### <a name="query-expressions"></a>Espressioni di query
 
-Una query sul messaggio gemello deve essere preceduta dal `$twin`. L'espressione di query può anche combinare un tag gemello o un riferimento alla proprietà con un riferimento al corpo o un riferimento alle proprietà di sistema e applicazione del messaggio. È consigliabile usare nomi univoci per tag e proprietà, poiché la query non fa distinzione tra maiuscole e minuscole. Questo vale sia per i dispositivi gemelli che per i moduli gemelli. Evitare anche di usare `twin`, `$twin`, `body` o `$body` come nomi di proprietà. Ad esempio, di seguito sono riportate tutte le espressioni di query valide: 
+Una query sul messaggio gemello deve `$twin`essere preceduta da . L'espressione di query può anche combinare un tag gemello o un riferimento alla proprietà con un riferimento al corpo o un riferimento alle proprietà di sistema e applicazione del messaggio. È consigliabile usare nomi univoci per tag e proprietà, poiché la query non fa distinzione tra maiuscole e minuscole. Questo vale sia per i dispositivi gemelli che per i gemelli del modulo. Evitare anche di usare `twin`, `$twin`, `body` o `$body` come nomi di proprietà. Ad esempio, di seguito sono riportate tutte le espressioni di query valide: 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'
@@ -214,9 +214,9 @@ $body.Weather.Temperature = 50 AND $twin.properties.desired.telemetryConfig.send
 $twin.tags.deploymentLocation.floor = 1 
 ```
 
-La query di routing sul corpo o sul dispositivo gemello con un punto nel nome della proprietà o del payload non è supportata.
+La query di instradamento sul corpo o sul dispositivo gemello con un punto nel payload o nel nome della proprietà non è supportata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su [routing dei messaggi](iot-hub-devguide-messages-d2c.md).
-* Provare l'[esercitazione di routing dei messaggi](tutorial-routing.md).
+* Informazioni sul [routing dei messaggi](iot-hub-devguide-messages-d2c.md).
+* Provare [l'esercitazione](tutorial-routing.md)sul routing dei messaggi .

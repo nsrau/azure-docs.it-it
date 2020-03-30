@@ -1,17 +1,17 @@
 ---
-title: Backup e ripristino-portale di Azure-database di Azure per MariaDB
+title: Backup e ripristino - Portale di Azure - Database di Azure per MariaDB
 description: In questo articolo viene descritta la procedura per ripristinare un server nel Database di Azure per MariaDB tramite il portale di Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 952bfe9a669b833b20a9bccf2813fb6a5eec4826
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/27/2020
+ms.openlocfilehash: fa8ead8daa202f5747c134a62fbd43bcdf2af0d7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769320"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80369251"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Come eseguire il backup e il ripristino di un server in Database di Azure per MariaDB tramite il portale di Azure
 
@@ -37,7 +37,7 @@ Quando si crea un server nel portale di Azure, la finestra **Piano tariffario** 
 Per altre informazioni sull'impostazione di questi valori durante la creazione, vedere la [guida introduttiva sul server Database di Azure per MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
 È possibile modificare il periodo di conservazione dei backup per un server seguendo questa procedura:
-1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Accedere al portale di [Azure](https://portal.azure.com/).
 
 2. Selezionare il server del Database di Azure per MariaDB. Questa azione apre la pagina **Panoramica**.
 
@@ -76,13 +76,13 @@ La procedura seguente consente di ripristinare il server di esempio a un momento
 
 Il nuovo server creato con il ripristino temporizzato ha il nome e la password di accesso dell'amministratore validi per il server esistente nel momento scelto per il ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
 
-Il nuovo server creato durante un ripristino non include le regole del firewall o gli endpoint del servizio VNet esistenti nel server originale. Queste regole devono essere impostate separatamente per questo nuovo server.
+Il nuovo server creato durante un ripristino non dispone degli endpoint del servizio VNet esistenti nel server originale. Queste regole devono essere impostate separatamente per questo nuovo server. Le regole del firewall dal server originale vengono ripristinate.
 
 ## <a name="geo-restore"></a>Ripristino geografico
 
 Se il server è stato configurato per backup con ridondanza geografica, è possibile creare un nuovo server dal backup di quel server esistente. Questo nuovo server può essere creato in qualsiasi area in cui è disponibile Database di Azure per MariaDB.  
 
-1. Selezionare **Database** > **Database di Azure per MariaDB**. È anche possibile digitare **MariaDB** nella casella di ricerca per trovare il servizio.
+1. Selezionare **Database** > **database di Azure per MariaDB**. È anche possibile digitare **MariaDB** nella casella di ricerca per trovare il servizio.
 
    ![L'opzione "Database di Azure per MariaDB"](./media/howto-restore-server-portal/2_navigate-to-mariadb.png)
 
@@ -97,10 +97,9 @@ Se il server è stato configurato per backup con ridondanza geografica, è possi
 
 Il nuovo server creato con il ripristino geografico ha il nome e la password di accesso dell'amministratore validi per il server esistente al momento dell'avvio del ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
 
-Il nuovo server creato durante un ripristino non include le regole del firewall o gli endpoint del servizio VNet esistenti nel server originale. Queste regole devono essere impostate separatamente per questo nuovo server.
-
+Il nuovo server creato durante un ripristino non dispone degli endpoint del servizio VNet esistenti nel server originale. Queste regole devono essere impostate separatamente per questo nuovo server. Le regole del firewall dal server originale vengono ripristinate.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni sui [backup](concepts-backup.md) del servizio
+- Ulteriori informazioni sui [backup](concepts-backup.md) del servizio
 - Informazioni sulle [repliche](concepts-read-replicas.md)
-- Altre informazioni sulle opzioni di [continuità aziendale](concepts-business-continuity.md)
+- Ulteriori informazioni sulle opzioni di [continuità aziendale](concepts-business-continuity.md)

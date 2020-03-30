@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
 ms.openlocfilehash: c10939b50a66cd608d27a71f02d959fbc2380f59
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70072313"
 ---
 # <a name="policies-in-azure-api-management"></a>Criteri in Gestione API di Azure
@@ -25,9 +25,9 @@ In Gestione API di Azure i criteri sono una potente funzionalità del sistema ch
 
 I criteri vengono applicati nel gateway che si trova tra il consumer di API e l'API gestita. Il gateway riceve tutte le richieste e in genere le inoltra invariate all'API sottostante. Tuttavia i criteri possono applicare modifiche sia alla richiesta in ingresso che alla risposta in uscita.
 
-Le espressioni di criteri possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei criteri di Gestione API, salvo diversamente specificato dai criteri. Alcuni criteri, come [choose][Control flow] e [set variable][Set variable], sono basati su espressioni di criteri. Per altre informazioni, vedere [Criteri avanzati][Advanced policies] ed [Espressioni di criteri][Policy expressions].
+Le espressioni di criteri possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei criteri di Gestione API, salvo diversamente specificato dai criteri. Alcuni criteri, come [choose][Control flow] e [set variable][Set variable], sono basati su espressioni di criteri. Per ulteriori informazioni, vedere [Criteri avanzati][Advanced policies] ed [Espressioni dei criteri][Policy expressions].
 
-## <a name="sections"> </a>Informazioni sulla configurazione dei criteri
+## <a name="understanding-policy-configuration"></a><a name="sections"> </a>Informazioni sulla configurazione dei criteri
 
 La definizione criteri è un semplice documento XML che descrive una sequenza di istruzioni in ingresso e in uscita. Il codice XML può essere modificato direttamente nella finestra della definizione. Un elenco di istruzioni è disponibile a destra e le istruzioni applicabili all'ambito corrente sono abilitate ed evidenziate.
 
@@ -60,7 +60,7 @@ La configurazione è divisa in `inbound`, `backend`, `outbound` e `on-error`. La
 
 Se si verifica un errore durante l'elaborazione di una richiesta, tutti i rimanenti passaggi nelle sezioni `inbound`, `backend`, o `outbound` vengono ignorate e l'esecuzione prosegue con le istruzioni nella sezione`on-error`. Inserendo istruzioni di criteri nella sezione `on-error` è possibile rivedere l'errore utilizzando la proprietà `context.LastError`, esaminare e personalizzare la risposta di errore tramite il criterio `set-body` e configurare che cosa accade se si verifica un errore. Sono disponibili codici di errore per i passaggi incorporati e per gli errori che possono verificarsi durante l'elaborazione delle istruzioni dei criteri. Per altre informazioni, vedere [Gestione degli errori nei criteri di Gestione API](/azure/api-management/api-management-error-handling-policies).
 
-## <a name="scopes"></a>Come configurare criteri
+## <a name="how-to-configure-policies"></a><a name="scopes"> </a>Come configurare criteri
 
 Per informazioni su come configurare i criteri, vedere [Impostare o modificare criteri](set-edit-policies.md).
 
