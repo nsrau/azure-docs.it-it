@@ -9,13 +9,13 @@ ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
 ms.openlocfilehash: 40ba5a935e78cd75c4fcd7729e44f1cdf6c2859b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75772918"
 ---
-Se si verificano problemi durante l'esecuzione di operazioni su raccolte di immagini condivise, definizioni di immagini e versioni di immagini, eseguire di nuovo il comando per cui si è verificato l'errore in modalità di debug. La modalità di debug viene attivata passando l'opzione **-debug** con l'interfaccia della riga di comando e l'opzione **-Debug** con PowerShell. Dopo aver individuato il problema, seguire questo documento per risolvere gli errori.
+Se si verificano problemi durante l'esecuzione di operazioni su raccolte di immagini condivise, definizioni di immagini e versioni di immagini, eseguire di nuovo il comando per cui si è verificato l'errore in modalità di debug. La modalità di debug viene attivata passando l'opzione -debug con l'interfaccia della riga di comando e l'opzione -Debug con PowerShell.Debug mode is activated by passing the **-debug** switch with CLI and the **-Debug** switch with PowerShell. Dopo aver individuato il problema, seguire questo documento per risolvere gli errori.
 
 
 ## <a name="unable-to-create-a-shared-image-gallery"></a>Impossibile creare una raccolta di immagini condivisa
@@ -88,7 +88,7 @@ Verificare che il valore di **OSType** della versione dell'immagine da cui si st
 
 ## <a name="unable-to-share-resources"></a>Impossibile condividere le risorse
 
-Il [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC) consente di condividere le risorse della raccolta di immagini condivise, della definizione dell'immagine e della versione di immagine tra le sottoscrizioni. 
+La condivisione delle risorse della raccolta di immagini condivise, della definizione dell'immagine e della versione dell'immagine tra le sottoscrizioni è abilitata tramite il controllo degli accessi in [base](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) al ruolo. 
 
 ## <a name="replication-is-slow"></a>La replica è lenta
 

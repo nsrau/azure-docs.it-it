@@ -1,6 +1,6 @@
 ---
-title: Informazioni sul controllo degli accessi in base al ruolo-dispositivi gemelli digitali di Azure | Microsoft Docs
-description: Informazioni sul controllo degli accessi in base al ruolo e sulla gestione delle autorizzazioni nei dispositivi gemelli digitali di Azure.
+title: Comprendere il controllo degli accessi in base al ruolo - Azure Digital Twins Documenti Microsoft
+description: Informazioni sul controllo degli accessi in base al ruolo e sulla gestione delle autorizzazioni in Azure Digital Twins.Learn about role-based access control and managing permissions in Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,15 +9,15 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.openlocfilehash: feda4b3a7f21b581fb4f08aec013f87c0fabb7e5
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76044953"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Controllo degli accessi in base al ruolo in Gemelli digitali di Azure
 
-I dispositivi gemelli digitali di Azure consentono un controllo di accesso preciso su dati, risorse e azioni specifici nel grafico spaziale. Questa operazione viene eseguita tramite la gestione dei ruoli e delle autorizzazioni granulari denominata [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC). Il controllo degli accessi in base al ruolo legge i _ruoli_ e le _assegnazioni di ruoli_. I ruoli identificano il livello di autorizzazioni, mentre le assegnazioni di ruolo associano un ruolo a un utente o un dispositivo.
+I gemelli digitali di Azure consentono un controllo preciso dell'accesso su dati, risorse e azioni specifici nel grafico spaziale. Lo fa attraverso la gestione granulare dei ruoli e delle autorizzazioni denominata controllo degli accessi [in base](https://docs.microsoft.com/azure/role-based-access-control/) al ruolo ( RBAC). Il controllo degli accessi in base al ruolo legge i _ruoli_ e le _assegnazioni di ruoli_. I ruoli identificano il livello di autorizzazioni, mentre le assegnazioni di ruolo associano un ruolo a un utente o un dispositivo.
 
 Con il controllo degli accessi in base al ruolo, è possibile concedere un'autorizzazione a:
 
@@ -49,7 +49,7 @@ Uno sviluppatore può usare il controllo degli accessi in base al ruolo per:
 
 ### <a name="role-definitions"></a>Definizioni dei ruoli
 
-Una definizione di ruolo è una raccolta di autorizzazioni e altri attributi che costituiscono un ruolo. Una definizione del ruolo elenca le operazioni consentite che possono essere effettuate da qualsiasi oggetto con quel ruolo, tra cui *CREATE*, *READ*, *UPDATE* e *DELETE*. Specifica anche i tipi di oggetto a cui si applicano le autorizzazioni.
+Una definizione di ruolo è una raccolta di autorizzazioni e altri attributi che costituiscono un ruolo. Una definizione del ruolo elenca le operazioni consentite che possono essere effettuate da qualsiasi oggetto con quel ruolo, tra cui *CREATE*, *READ*, *UPDATE* e *DELETE*. Specifica inoltre a quali tipi di oggetto si applicano le autorizzazioni.
 
 [!INCLUDE [digital-twins-roles](../../includes/digital-twins-roles.md)]
 
@@ -85,4 +85,4 @@ Per concedere autorizzazioni a un destinatario, creare un'assegnazione di ruolo.
 
 - Per altre informazioni su creazione e gestione delle assegnazioni di ruolo di Gemelli digitali di Azure, leggere [Creazione e gestione delle assegnazioni di ruolo](./security-create-manage-role-assignments.md).
 
-- Scopri di più su [RBAC per Azure](https://docs.microsoft.com/azure/role-based-access-control/).
+- Altre informazioni sul [controllo degli accessi in base al ruolo per Azure.Read](https://docs.microsoft.com/azure/role-based-access-control/)more about RBAC for Azure .

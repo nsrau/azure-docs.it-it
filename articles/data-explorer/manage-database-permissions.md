@@ -1,5 +1,5 @@
 ---
-title: Gestire le autorizzazioni del database in Azure Esplora dati
+title: Gestire le autorizzazioni del database in Azure Data ExplorerManage database permissions in Azure Data Explorer
 description: Questo articolo descrive i controlli degli accessi in base al ruolo per i database e le tabelle in Esplora dati di Azure.
 author: orspod
 ms.author: orspodek
@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: b4d5e56e990c0353f44209c6b19ae2d1727de27a
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76030099"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Gestire le autorizzazioni per database di Esplora dati di Azure
@@ -36,7 +36,7 @@ Esplora dati di Azure presenta i seguenti ruoli:
 
 ## <a name="manage-permissions-in-the-azure-portal"></a>Gestire le autorizzazioni nel portale di Azure
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale](https://portal.azure.com/)di Azure .
 
 1. Passare al cluster Esplora dati di Azure.
 
@@ -62,7 +62,7 @@ Esplora dati di Azure presenta i seguenti ruoli:
 
 ## <a name="manage-permissions-with-management-commands"></a>Gestire le autorizzazioni con i comandi di gestione
 
-1. Accedere a [https://dataexplorer.azure.com](https://dataexplorer.azure.com) e aggiungere il cluster, se non è già disponibile.
+1. Accedere a [https://dataexplorer.azure.com](https://dataexplorer.azure.com)e aggiungere il cluster, se non è già disponibile.
 
 1. Nel riquadro sinistro, selezionare il database appropriato.
 
@@ -74,7 +74,7 @@ Esplora dati di Azure presenta i seguenti ruoli:
 
     L'output del comando mostra l'elenco di utenti esistenti e i ruoli che vengono loro assegnati nel database.
     
-    Per esempi relativi a Azure Active Directory e al modello di autorizzazione kusto, vedere [principi e provider di identità](https://docs.microsoft.com/azure/kusto/management/access-control/principals-and-identity-providers)
+    Per esempi relativi ad Azure Active Directory e al modello di autorizzazione Kusto, vedere Principi e provider di [identitàFor](https://docs.microsoft.com/azure/kusto/management/access-control/principals-and-identity-providers) examples relative to Azure Active Directory and the Kusto authorization model, please see Principles and Identity Providers
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,24 +1,24 @@
 ---
-title: Riferimento artefatto modello
-description: Viene fornito un esempio dell'artefatto del modello di distribuzione per le applicazioni gestite di Azure.
+title: Riferimento all'elemento del modello
+description: Fornisce un esempio dell'elemento del modello di distribuzione per le applicazioni gestite di Azure.Provides an example of the deployment template artifact for Azure Managed Applications.
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
 ms.openlocfilehash: 2bc0017d71e159ac490041494bcf37db035ef421
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75651462"
 ---
-# <a name="reference-deployment-template-artifact"></a>Riferimento: artefatto modello di distribuzione
+# <a name="reference-deployment-template-artifact"></a>Riferimento: Elemento del modello di distribuzioneReference: Deployment template artifact
 
-Questo articolo è un riferimento per un elemento *mainTemplate. JSON* nelle applicazioni gestite di Azure. Per ulteriori informazioni sulla creazione di un modello di distribuzione, vedere [Azure Resource Manager Templates](../templates/template-syntax.md).
+Questo articolo è un riferimento per un elemento mainTemplate.json nelle applicazioni gestite di Azure.This article is a reference for a *mainTemplate.json* artifact in Azure Managed Applications. Per altre informazioni sulla creazione di modelli di distribuzione, vedere Modelli di Azure Resource Manager.For more information about authoring deployment [template,](../templates/template-syntax.md)see Azure Resource Manager templates .
 
 ## <a name="deployment-template"></a>Modello di distribuzione
 
-Il codice JSON seguente mostra un esempio di file *mainTemplate. JSON* per le applicazioni gestite di Azure:
+Il codice JSON seguente mostra un esempio di file mainTemplate.json per le applicazioni gestite di Azure:The following JSON shows an example of *mainTemplate.json* file for Azure Managed Applications:
 
 ```json
 {
@@ -189,6 +189,6 @@ Il codice JSON seguente mostra un esempio di file *mainTemplate. JSON* per le ap
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: creare un'applicazione gestita con azioni e risorse personalizzate](tutorial-create-managed-app-with-custom-provider.md)
-- [Riferimento: artefatto degli elementi dell'interfaccia utente](reference-createuidefinition-artifact.md)
-- [Riferimento: elemento della definizione della visualizzazione](reference-view-definition-artifact.md)
+- [Esercitazione: Creare un'applicazione gestita con risorse e azioni personalizzateTutorial: Create managed application with custom actions and resources](tutorial-create-managed-app-with-custom-provider.md)
+- [Riferimento: elemento degli elementi dell'interfaccia utenteReference: User interface elements artifact](reference-createuidefinition-artifact.md)
+- [Riferimento: Elemento di definizione della vistaReference: View definition artifact](reference-view-definition-artifact.md)

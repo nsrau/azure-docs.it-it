@@ -1,15 +1,15 @@
 ---
-title: Panoramica di Azure Service Fabric con gestione API
+title: Panoramica di Azure Service Fabric con Gestione APIAzure Service Fabric with API Management overview
 description: In questo articolo viene illustrata un'introduzione all'uso di Gestione API di Azure come gateway per le applicazioni Service Fabric.
 author: vturecek
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.author: vturecek
 ms.openlocfilehash: 2a331715d4e4538cfdda8d958ff549a81b627b79
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76028544"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Panoramica di Service Fabric con Gestione API di Azure
@@ -23,7 +23,7 @@ In questo articolo viene illustrata un'introduzione all'uso di Gestione API di A
 > [!IMPORTANT]
 > Questa funzionalità è disponibile nei livelli **Premium** e **Developer** di Gestione API, dato il supporto di rete virtuale richiesto.
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
 Un'architettura Service Fabric comune usa un'applicazione Web di una pagina che esegue chiamate HTTP ai servizi back-end che espongono API HTTP. L'[applicazione introduttive a Service Fabric di esempio](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) mostra un esempio di questa architettura.
 
@@ -37,7 +37,7 @@ In questo scenario, l'interfaccia utente Web viene comunque gestita tramite un s
 
 ![Panoramica di Service Fabric con topologia di Gestione API di Azure][sf-apim-web-app]
 
-## <a name="application-scenarios"></a>Scenari di applicazione
+## <a name="application-scenarios"></a>Scenari applicativi
 
 I servizi in Service Fabric possono essere con stato o senza stato ed essere partizionati usando uno di tre schemi: singleton, Int64 range e named. La risoluzione degli endpoint di servizio richiede l'identificazione di una specifica partizione di una determinata istanza del servizio. Durante la risoluzione di un endpoint di un servizio, è necessario specificare il nome dell'istanza del servizio (ad esempio, `fabric:/myapp/myservice`) e la specifica partizione del servizio, tranne nel caso di una partizione singleton.
 
@@ -45,7 +45,7 @@ Gestione API di Azure può essere usato con qualsiasi combinazione di servizi se
 
 ## <a name="send-traffic-to-a-stateless-service"></a>Inviare traffico a un servizio senza stato
 
-Nel caso più semplice, il traffico viene inoltrato a un'istanza del servizio senza stato. A tale scopo, un'operazione di Gestione API contiene criteri di elaborazione in ingresso con un back-end Service Fabric per l'esecuzione del mapping a una specifica istanza del servizio senza stato nel back-end Service Fabric. Le richieste inviate al servizio vengono inviate a un'istanza casuale del servizio.
+Nel caso più semplice, il traffico viene inoltrato a un'istanza del servizio senza stato. A tale scopo, un'operazione di Gestione API contiene criteri di elaborazione in ingresso con un back-end Service Fabric per l'esecuzione del mapping a una specifica istanza del servizio senza stato nel back-end Service Fabric. Le richieste inviate a tale servizio vengono inviate a un'istanza casuale del servizio.
 
 **Esempio**
 

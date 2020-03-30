@@ -1,6 +1,6 @@
 ---
 title: Analisi in SQL Server con R, Python e T-SQL - Processo di data science per i team
-description: Esempi che illustrano l'uso di R, Python e T-SQL in SQL Server per eseguire analisi predittive.
+description: Esempi che illustrano l'uso di R, Python e T-SQL in SQL ServerSQL Server per eseguire analisi predittive.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,27 +12,27 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 880ee0a4a1eb396312ea9692b7586d724d6fd410
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75864095"
 ---
-# <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>Procedure dettagliate di SQL Server data science con R, Python e T-SQL
+# <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>SQL Server data science walkthroughs using R, Python, and T-SQL
 
 Queste procedure dettagliate usano SQL Server, SQL Server R Services e SQL Server Python Services per eseguire analisi predittive. Il codice R e Python è distribuito in stored procedure. Seguono i passaggi descritti nel processo di data science per i team. Per una panoramica del processo di data science per i team, vedere [Processo di data science](overview.md). 
 
-Le procedure dettagliate di data science aggiuntive che eseguono il processo di data science per i team sono raggruppate in base alla **piattaforma** che usano. Per i dettagli di questi esempi, vedere [Procedure dettagliate del processo di data science per i team](walkthroughs.md).
+Procedure dettagliate di data science aggiuntive che eseguono il processo di analisi scientifica dei dati del team sono raggruppate in base alla **piattaforma** in uso. Per i dettagli di questi esempi, vedere [Procedure dettagliate del processo di data science per i team](walkthroughs.md).
 
 
 ## <a name="predict-taxi-tips-using-python-and-sql-queries-with-sql-server"></a>Stimare le mance dei taxi usando Python e query SQL con SQL Server 
 
-La procedura dettagliata [Use SQL Server](sql-walkthrough.md) illustra come compilare e distribuire modelli di classificazione e regressione di machine learning.  I dati sono un set di dati relativo alle corse e alle tariffe di NYC Taxi disponibili pubblicamente.
+Nella procedura dettagliata Usa SQL Server viene illustrato come compilare e distribuire i modelli di regressione e classificazione di Machine Learning.The [Use SQL Server](sql-walkthrough.md) walkthrough shows how you build and deploy machine learning classification and regression models.  I dati sono un set di dati sulle tariffe e viaggio dei taxi di New York.
 
 
 ## <a name="predict-taxi-tips-using-microsoft-r-with-sql-server"></a>Stimare le mance dei taxi usando Microsoft R con SQL Server 
 
-La procedura dettagliata [Use R Services per SQL Server](https://msdn.microsoft.com/library/mt612857.aspx) illustra come compilare e distribuire un modello R per SQL Server. La procedura dettagliata è progettata per illustrare R Services agli sviluppatori R (nel database).
+Nella procedura dettagliata Usare SQL Server R Services viene illustrato come compilare e distribuire un modello R in SQL Server.The [Use SQL Server R Services](https://msdn.microsoft.com/library/mt612857.aspx) walkthrough shows how to build and deploy an R model to SQL Server. La procedura dettagliata è progettata per illustrare R Services agli sviluppatori R (nel database).
 
 
 ## <a name="predict-taxi-tips-using-r-from-t-sql-or-stored-procedures-with-sql-server"></a>Stimare le mance dei taxi usando R da T-SQL o stored procedure con SQL Server

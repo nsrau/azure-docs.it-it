@@ -1,5 +1,5 @@
 ---
-title: Panoramica della funzionalità Microsoft Threat Modeling Tool-Azure
+title: Panoramica della funzionalità Microsoft Threat Modeling Tool - Azure
 description: Informazioni su tutte le funzionalità disponibili in Threat Modeling Tool
 author: jegeib
 ms.author: jegeib
@@ -8,10 +8,10 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
 ms.openlocfilehash: 88eea0eb2bceb0f6322381a94d4339cbdfa662c0
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75552118"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Panoramica della funzione Threat Modeling Tool
@@ -29,7 +29,7 @@ Per vedere tutte le funzionalità attualmente disponibili nello strumento, usare
 
 ![Modello di minaccia di base](./media/threat-modeling-tool-feature-overview/basictmt.png)
 
-## <a name="navigation"></a>Spostamento
+## <a name="navigation"></a>Navigazione
 
 Prima di illustrare le funzionalità integrate, è opportuno discutere dei componenti principali presenti nello strumento.
 
@@ -39,14 +39,14 @@ L'esperienza è simile ad altri prodotti Microsoft. Esaminare le voci di menu di
 
 ![Voci di menu](./media/threat-modeling-tool-feature-overview/menuitems.png)
 
-| Etichette                               | Dettagli      |
+| Etichetta                               | Dettagli      |
 | --------------------------------------- | ------------ |
 | **File** | <ul><li>Aprire, salvare e chiudere i file</li><li>Accedere e disconnettersi dagli account di OneDrive.</li><li>Condividere collegamenti (visualizzazione e modifica).</li><li>Visualizzare le informazioni di file.</li><li>Applicare un nuovo modello a modelli esistenti.</li></ul> |
 | **Modifica** | Annullare e ripristinare azioni, copiare, incollare ed eliminare. |
 | **Visualizza** | <ul><li>Passare fra le visualizzazioni **Analisi** e **Progettazione**.</li><li>Aprire finestre chiuse (ad esempio stencil, proprietà degli elementi e messaggi).</li><li>Ripristinare le impostazioni predefinite del layout.</li></ul> |
 | **Diagramma** | Aggiungere ed eliminare diagrammi e spostarsi tra le schede dei diagrammi. |
 | **Report** | Creare report HTML da condividere con altri utenti. |
-| **Guida** | Individuare guide sull'uso dello strumento. |
+| **?** | Individuare guide sull'uso dello strumento. |
 
 I simboli sono collegamenti ai menu di primo livello:
 
@@ -122,7 +122,7 @@ Passare il mouse su **Apri un modello** per visualizzare due opzioni: **Apri da 
 
 Quando si seleziona **Commenti, suggerimenti e problemi**, visitare il forum di MSDN per gli strumenti di SDL. Consente di vedere opinioni di altri utenti sullo strumento nonché nuove idee e soluzioni alternative.
 
-![Commenti](./media/threat-modeling-tool-feature-overview/feedback.png)
+![Commenti e suggerimenti](./media/threat-modeling-tool-feature-overview/feedback.png)
 
 ## <a name="design-view"></a>Visualizzazione progettazione
 
@@ -194,9 +194,9 @@ Come illustrato nella figura precedente, è possibile modificare le informazioni
 
 ## <a name="reports"></a>Report
 
-Dopo aver completato la modifica delle priorità e aggiornato lo stato di ogni minaccia generata, sarà possibile salvare il file e/o stampare un report. Passare a **Report** > **Crea report completo**. Denominare il report. Verrà visualizzata una schermata simile all'immagine seguente:
+Dopo aver completato la modifica delle priorità e aggiornato lo stato di ogni minaccia generata, sarà possibile salvare il file e/o stampare un report. Passare a **Report** > **Creazione report completo**. Denominare il report. Verrà visualizzata una schermata simile all'immagine seguente:
 
-![Documentazione](./media/threat-modeling-tool-feature-overview/report.png)
+![Report](./media/threat-modeling-tool-feature-overview/report.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

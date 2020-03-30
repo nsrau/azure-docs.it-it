@@ -1,25 +1,25 @@
 ---
-title: Configurare monitoraggio di Azure per i contenitori integrazione Prometheus | Microsoft Docs
-description: Questo articolo descrive come configurare il monitoraggio di Azure per l'agente dei contenitori per eliminare le metriche da Prometheus con il cluster Kubernetes.
+title: Configurare Monitoraggio di Azure per i contenitori Prometheus Integration Documenti Microsoft
+description: Questo articolo descrive come configurare l'agente di Monitoraggio di Azure per i contenitori per eliminare le metriche da Prometheus con il cluster Kubernetes.This article describes how you can configure the Azure Monitor for containers agent to scrape metrics from Prometheus with your Kubernetes cluster.
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.openlocfilehash: b774bf042778ca9118a7bc9f051655b200d87659
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75931430"
 ---
-# <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Configurare la frammentazione delle metriche Prometeo con monitoraggio di Azure per i contenitori
+# <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Configurare il raschiamento delle metriche Prometheus con Monitoraggio di Azure per i contenitoriConfigure scraping of Prometheus metrics with Azure Monitor for containers
 
-[Prometeo](https://prometheus.io/) è una diffusa soluzione di monitoraggio delle metriche open source ed è parte integrante della [base di calcolo nativa del cloud](https://www.cncf.io/). Il monitoraggio di Azure per i contenitori offre un'esperienza di onboarding trasparente per raccogliere le metriche Prometeo. In genere, per usare Prometeo, è necessario configurare e gestire un server Prometeo con un archivio. Grazie all'integrazione con monitoraggio di Azure, non è necessario un server Prometeo. È sufficiente esporre l'endpoint della metrica Prometheus tramite gli esportatori o i pod (applicazione) e l'agente in contenitori per monitoraggio di Azure per i contenitori può ricavare le metriche per l'utente. 
+[Prometheus](https://prometheus.io/) è una soluzione di monitoraggio delle metriche open source popolare ed è una parte della [Cloud Native Compute Foundation](https://www.cncf.io/). Monitoraggio di Azure per i contenitori offre un'esperienza di onboarding uniforme per raccogliere le metriche di Prometheus.Azure Monitor for containers provides a seamless onboarding experience to collect Prometheus metrics. In genere, per utilizzare Prometheus, è necessario configurare e gestire un server Prometheus con un negozio. Tramite l'integrazione con Monitoraggio di Azure, non è necessario un server Prometheus.By integrating with Azure Monitor, a Prometheus server is not required. È sufficiente esporre l'endpoint delle metriche Prometheus tramite gli esportatori o i pod (applicazione) e l'agente con contenitori per Monitoraggio di Azure per i contenitori può eliminare le metriche per l'utente. 
 
-![Architettura di monitoraggio dei contenitori per Prometheus](./media/container-insights-prometheus-integration/monitoring-kubernetes-architecture.png)
+![Architettura di monitoraggio del contenitore per Prometheus](./media/container-insights-prometheus-integration/monitoring-kubernetes-architecture.png)
 
 >[!NOTE]
->La versione minima dell'agente supportata per l'scraping delle metriche Prometheus è ciprod07092019 o successiva e la versione dell'agente supportata per la scrittura degli errori di configurazione e di Agent nella tabella `KubeMonAgentEvents` è ciprod10112019. Per ulteriori informazioni sulle versioni degli agenti e sulle funzionalità incluse in ogni versione, vedere le [Note sulla versione degli agenti](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod). Per verificare la versione dell'agente, dalla scheda **nodo** selezionare un nodo, quindi nel riquadro Proprietà prendere nota del valore della proprietà **tag immagine agente** .
+>La versione minima dell'agente supportata per la scraping Prometheus metrics cipro è ciprod07092019 o versione successiva e la versione dell'agente supportata per la `KubeMonAgentEvents` scrittura di errori di configurazione e agente nella tabella è ciprod10112019. Per ulteriori informazioni sulle versioni degli agenti e sugli elementi inclusi in ogni versione, vedere [le note sulla versione dell'agente.](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod) Per verificare la versione dell'agente, nella scheda **Nodo** selezionare un nodo e nel riquadro delle proprietà il valore nota della proprietà **Tag immagine agente.**
 
-Il frammento di metriche Prometeo è supportato con i cluster Kubernetes ospitati in:
+Il raschiatura delle metriche Prometheus è supportato con i cluster Kubernetes ospitati su:
 
 - Servizio Azure Kubernetes
 - Istanze di Azure Container
@@ -27,12 +27,12 @@ Il frammento di metriche Prometeo è supportato con i cluster Kubernetes ospitat
 - Azure Red Hat OpenShift
 
 >[!NOTE]
->Per Azure Red Hat OpenShift, viene creato un file ConfigMap modello nello spazio dei nomi *OpenShift-Azure-Logging* . Non è configurato per eliminare attivamente le metriche o la raccolta di dati dall'agente.
+>Per Azure Red Hat OpenShift, viene creato un file ConfigMap modello nello spazio dei nomi *openshift-azure-logging.* Non è configurato per raschiare attivamente le metriche o la raccolta dei dati dall'agente.
 >
 
-## <a name="azure-red-hat-openshift-prerequisites"></a>Prerequisiti di Azure Red Hat OpenShift
+## <a name="azure-red-hat-openshift-prerequisites"></a>Azure Red Hat OpenShift Prerequisites
 
-Prima di iniziare, verificare di essere un membro del ruolo di amministratore del cluster del cliente del cluster di Azure Red Hat OpenShift per configurare le impostazioni dell'agente in contenitori e del sistema di scraping di Prometeo. Per verificare di essere un membro del gruppo *osa-Customer-Admins* , eseguire il comando seguente:
+Prima di iniziare, verificare di essere membri del ruolo Di amministrazione cluster cliente del cluster Azure Red Hat OpenShift per configurare le impostazioni di scraping dell'agente contenitore e del prosito. Per verificare di essere membri del gruppo *osa-customer-admins,* eseguire il comando seguente:
 
 ``` bash
   oc get groups
@@ -45,7 +45,7 @@ NAME                  USERS
 osa-customer-admins   <your-user-account>@<your-tenant-name>.onmicrosoft.com
 ```
 
-Se si è membri del gruppo *osa-Customer-Admins* , dovrebbe essere possibile elencare il `container-azm-ms-agentconfig` ConfigMap usando il comando seguente:
+Se si è membri del gruppo *osa-customer-admins,* `container-azm-ms-agentconfig` dovrebbe essere possibile elencare ConfigMap utilizzando il comando seguente:
 
 ``` bash
 oc get configmaps container-azm-ms-agentconfig -n openshift-azure-logging
@@ -58,58 +58,58 @@ NAME                           DATA      AGE
 container-azm-ms-agentconfig   4         56m
 ```
 
-### <a name="prometheus-scraping-settings"></a>Impostazioni di scraping Prometeo
+### <a name="prometheus-scraping-settings"></a>Impostazioni di raschiatura Prometheus
 
-Il frammento attivo delle metriche da Prometheus viene eseguito da una delle due prospettive seguenti:
+Il raschiamento attivo delle metriche di Prometheus viene eseguito da due prospettive:
 
-* URL HTTP a livello di cluster e individuare destinazioni dagli endpoint elencati di un servizio. Ad esempio, i servizi K8S come Kube-DNS e Kube-state-Metrics e le annotazioni Pod specifiche di un'applicazione. Le metriche raccolte in questo contesto verranno definite nella sezione ConfigMap *[Prometheus data_collection_settings. cluster]* .
-* URL HTTP a livello di nodo e individua destinazioni dagli endpoint elencati di un servizio. Le metriche raccolte in questo contesto verranno definite nella sezione ConfigMap *[Prometheus_data_collection_settings. Node]* .
+* Cluster-wide: URL HTTP e destinazioni di individuazione dagli endpoint elencati di un servizio. Ad esempio, k8s servizi come kube-dns e kube-state-metrics e annotazioni di pod specifiche per un'applicazione. Le metriche raccolte in questo contesto verranno definite nella sezione ConfigMap *[Prometheus data_collection_settings.cluster]*.
+* A livello di nodo: URL HTTP e individua destinazioni dagli endpoint elencati di un servizio. Le metriche raccolte in questo contesto verranno definite nella sezione ConfigMap *[Prometheus_data_collection_settings.node]*.
 
-| Endpoint | Ambito | Esempio |
+| Endpoint | Scope | Esempio |
 |----------|-------|---------|
-| Annotazione Pod | A livello di cluster | annotazioni <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000"` <br>`prometheus.io/scheme: "http"` |
+| Annotazione pod | A livello di cluster | Annotazioni: <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000"` <br>`prometheus.io/scheme: "http"` |
 | Servizio Kubernetes | A livello di cluster | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
 | URL/endpoint | Per nodo e/o a livello di cluster | `http://myurl:9101/metrics` |
 
-Quando si specifica un URL, monitoraggio di Azure per i contenitori esegue solo il frammento dell'endpoint. Quando si specifica il servizio Kubernetes, il nome del servizio viene risolto con il server DNS del cluster per ottenere l'indirizzo IP e quindi il servizio risolto viene frammentato.
+Quando viene specificato un URL, Monitoraggio di Azure per i contenitori raschia solo l'endpoint. Quando viene specificato il servizio Kubernetes, il nome del servizio viene risolto con il server DNS del cluster per ottenere l'indirizzo IP e quindi il servizio risolto viene eliminato.
 
-|Ambito | Chiave | Tipo di dati | Valore | Description |
+|Scope | Chiave | Tipo di dati | valore | Descrizione |
 |------|-----|-----------|-------|-------------|
-| A livello di cluster | | | | Specificare uno dei tre metodi seguenti per rimuovere gli endpoint per le metriche. |
-| | `urls` | string | Matrice con valori delimitati da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio: `urls=[$NODE_IP/metrics]`. ($NODE _IP è uno specifico parametro di monitoraggio di Azure per contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutti in maiuscolo.) |
-| | `kubernetes_services` | string | Matrice con valori delimitati da virgole | Una matrice di servizi Kubernetes per rimuovere le metriche da Kube-state-Metrics. Ad esempio, `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`.|
-| | `monitor_kubernetes_pods` | Boolean | true o false | Se è impostato su `true` nelle impostazioni a livello di cluster, monitoraggio di Azure per l'agente dei contenitori eliminerà i pod Kubernetes nell'intero cluster per le annotazioni Prometeo seguenti:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
-| | `prometheus.io/scrape` | Boolean | true o false | Consente di rimuovere il pod. `monitor_kubernetes_pods` deve essere impostato su `true`. |
-| | `prometheus.io/scheme` | string | http o https | Il valore predefinito è la rottamazione su HTTP. Se necessario, impostare su `https`. | 
-| | `prometheus.io/path` | string | Matrice con valori delimitati da virgole | Percorso della risorsa HTTP da cui recuperare le metriche. Se il percorso delle metriche non è `/metrics`, definirlo con questa annotazione. |
-| | `prometheus.io/port` | string | 9102 | Specificare una porta da cui deframmentare. Se la porta non è impostata, il valore predefinito è 9102. |
-| | `monitor_kubernetes_pods_namespaces` | string | Matrice con valori delimitati da virgole | Un elenco di spazi dei nomi consentiti per rimuovere le metriche dai pod Kubernetes.<br> Ad esempio, usare `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
-| A livello di nodo | `urls` | string | Matrice con valori delimitati da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio: `urls=[$NODE_IP/metrics]`. ($NODE _IP è uno specifico parametro di monitoraggio di Azure per contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutti in maiuscolo.) |
-| A livello di nodo o a livello di cluster | `interval` | string | 60 s | Il valore predefinito per l'intervallo di raccolta è di un minuto (60 secondi). È possibile modificare la raccolta per *[prometheus_data_collection_settings. Node]* e/o *[prometheus_data_collection_settings. cluster]* in unità di tempo quali s, m, h. |
-| A livello di nodo o a livello di cluster | `fieldpass`<br> `fielddrop`| string | Matrice con valori delimitati da virgole | È possibile specificare determinate metriche da raccogliere o meno dall'endpoint impostando l'elenco Consenti (`fieldpass`) e non consentito (`fielddrop`). È necessario impostare prima l'elenco Consenti. |
+| A livello di cluster | | | | Specificare uno dei tre metodi seguenti per raschiare gli endpoint per le metriche. |
+| | `urls` | string | Matrice delimitata da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio `urls=[$NODE_IP/metrics]`. ($NODE_IP è un parametro specifico di Monitoraggio di Azure per i contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutto maiuscolo.) |
+| | `kubernetes_services` | string | Matrice delimitata da virgole | Una serie di servizi Kubernetes per raschiare le metriche da kube-state-metrics. Ad esempio, `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
+| | `monitor_kubernetes_pods` | Boolean | true o false | Se impostato `true` su nelle impostazioni a livello di cluster, l'agente di Monitoraggio di Azure per i contenitori eliminerà i pod Kubernetes nell'intero cluster per le annotazioni Prometheus seguenti:When set to in the cluster-wide settings, Azure Monitor for containers agent will scrape Kubernetes pods across the entire cluster for the following Prometheus annotations:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `prometheus.io/scrape` | Boolean | true o false | Consente la raschiatura del baccello. `monitor_kubernetes_pods` deve essere impostato su `true`. |
+| | `prometheus.io/scheme` | string | http o https | L'impostazione predefinita è la rottamazione su HTTP. Se necessario, `https`impostare su . | 
+| | `prometheus.io/path` | string | Matrice delimitata da virgole | Percorso della risorsa HTTP da cui recuperare le metriche. Se il percorso `/metrics`delle metriche non è , definirlo con questa annotazione. |
+| | `prometheus.io/port` | string | 9102 | Specificare una porta da cui raschiare. Se la porta non è impostata, il valore predefinito sarà 9102.If port is not set, it will default to 9102. |
+| | `monitor_kubernetes_pods_namespaces` | string | Matrice delimitata da virgole | Un elenco consenti di spazi dei nomi per raschiare le metriche dai pod Kubernetes.<br> Ad esempio, usare `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
+| A livello di nodo | `urls` | string | Matrice delimitata da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio `urls=[$NODE_IP/metrics]`. ($NODE_IP è un parametro specifico di Monitoraggio di Azure per i contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutto maiuscolo.) |
+| A livello di nodo o a livello di clusterNode-wide or Cluster-wide | `interval` | string | 60s | Il valore predefinito dell'intervallo di raccolta è un minuto (60 secondi). È possibile modificare la raccolta per *[prometheus_data_collection_settings.node]* e/o *[prometheus_data_collection_settings.cluster]* in unità di tempo come s, m, h. |
+| A livello di nodo o a livello di clusterNode-wide or Cluster-wide | `fieldpass`<br> `fielddrop`| string | Matrice delimitata da virgole | È possibile specificare determinate metriche da raccogliere o`fieldpass`meno dall'endpoint`fielddrop`impostando l'elenco allow ( ) e disallow ( ). È necessario impostare prima l'elenco Consenti. |
 
-ConfigMaps è un elenco globale e può essere applicato un solo ConfigMap all'agente. Non è possibile avere un altro ConfigMaps che esegue la sovradecisione delle raccolte.
+ConfigMaps è un elenco globale e all'agente può essere applicato un solo ConfigMap. Non è possibile avere un altro ConfigMaps overruling le raccolte.
 
 ## <a name="configure-and-deploy-configmaps"></a>Configurare e distribuire ConfigMaps
 
-Per configurare il file di configurazione ConfigMap per i cluster Kubernetes, seguire questa procedura.
+Eseguire la procedura seguente per configurare il file di configurazione di ConfigMap per i cluster Kubernetes.
 
-1. [Scaricare](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) il modello ConfigMap YAML file e salvarlo come container-AZM-MS-agentconfig. yaml.
+1. [Scaricare](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) il modello ConfigMap yaml file e salvarlo come container-azm-ms-agentconfig.yaml.
 
    >[!NOTE]
    >Questo passaggio non è necessario quando si lavora con Azure Red Hat OpenShift poiché il modello ConfigMap esiste già nel cluster.
 
-2. Modificare il file YAML di ConfigMap con le personalizzazioni per rimuovere le metriche Prometeo. Se si sta modificando il file YAML di ConfigMap per Azure Red Hat OpenShift, eseguire prima il comando `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` per aprire il file in un editor di testo.
+2. Modificare il file yaml di ConfigMap con le personalizzazioni per raschiare le metriche Prometheus. Se si sta modificando il file yaml di ConfigMap per `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` Azure Red Hat OpenShift, eseguire innanzitutto il comando per aprire il file in un editor di testo.
 
     >[!NOTE]
-    >Per evitare la riconciliazione, è necessario aggiungere l'annotazione seguente `openshift.io/reconcile-protect: "true"` sotto i metadati di *container-AZM-MS-agentconfig* ConfigMap. 
+    >L'annotazione `openshift.io/reconcile-protect: "true"` seguente deve essere aggiunta sotto i metadati di *container-azm-ms-agentconfig* ConfigMap per impedire la riconciliazione. 
     >```
     >metadata:
     >   annotations:
     >       openshift.io/reconcile-protect: "true"
     >```
 
-    - Per raccogliere i servizi Kubernetes a livello di cluster, configurare il file ConfigMap usando l'esempio seguente.
+    - Per raccogliere i servizi Kubernetes a livello di cluster, configurare il file ConfigMap utilizzando l'esempio seguente.
 
         ```
         prometheus-data-collection-settings: |- 
@@ -121,7 +121,7 @@ Per configurare il file di configurazione ConfigMap per i cluster Kubernetes, se
         kubernetes_services = ["http://my-service-dns.my-namespace:9102/metrics"]
         ```
 
-    - Per configurare il frammento di metriche Prometheus da un URL specifico nel cluster, configurare il file ConfigMap usando l'esempio seguente.
+    - Per configurare la scraping delle metriche Prometheus da un URL specifico nel cluster, configurare il file ConfigMap utilizzando l'esempio seguente.
 
         ```
         prometheus-data-collection-settings: |- 
@@ -133,7 +133,7 @@ Per configurare il file di configurazione ConfigMap per i cluster Kubernetes, se
         urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from
         ```
 
-    - Per configurare il frammento di metriche Prometheus da un DaemonSet dell'agente per ogni singolo nodo del cluster, configurare quanto segue in ConfigMap:
+    - Per configurare la scraping delle metriche Prometheus dal DaemonSet di un agente per ogni singolo nodo del cluster, configurare quanto segue in ConfigMap:
     
         ```
         prometheus-data-collection-settings: |- 
@@ -146,11 +146,11 @@ Per configurare il file di configurazione ConfigMap per i cluster Kubernetes, se
         ```
 
         >[!NOTE]
-        >$NODE _IP è uno specifico parametro di monitoraggio di Azure per contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutti in maiuscolo. 
+        >$NODE_IP è un parametro specifico di Monitoraggio di Azure per i contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutto maiuscolo. 
 
-    - Per configurare la frammentazione delle metriche Prometeo specificando un'annotazione Pod, seguire questa procedura:
+    - Per configurare la raschiatura delle metriche Prometheus specificando un'annotazione del contenitore, effettuate le seguenti operazioni:
 
-       1. In ConfigMap specificare quanto segue:
+       1. In ConfigMap, specificare quanto segue:
 
             ```
             prometheus-data-collection-settings: |- 
@@ -160,7 +160,7 @@ Per configurare il file di configurazione ConfigMap per i cluster Kubernetes, se
             monitor_kubernetes_pods = true 
             ```
 
-       2. Specificare la configurazione seguente per le annotazioni pod:
+       2. Specificate la seguente configurazione per le annotazioni del baccello:
 
            ```
            - prometheus.io/scrape:"true" #Enable scraping for this pod 
@@ -169,75 +169,75 @@ Per configurare il file di configurazione ConfigMap per i cluster Kubernetes, se
            - prometheus.io/port:"8000" #If port is not 9102 use this annotation
            ```
     
-          Se si vuole limitare il monitoraggio a spazi dei nomi specifici per i pod con annotazioni, ad esempio includere solo i pod dedicati per i carichi di lavoro di produzione, impostare il `monitor_kubernetes_pod` su `true` in ConfigMap e aggiungere il filtro dello spazio dei nomi `monitor_kubernetes_pods_namespaces` specificando gli spazi dei nomi da cui rimuovere. Ad esempio, usare `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
+          Se si desidera limitare il monitoraggio a spazi dei nomi specifici per i pod con annotazioni, `true` ad esempio includere solo `monitor_kubernetes_pods_namespaces` pod dedicati per i carichi di lavoro di produzione, impostare il `monitor_kubernetes_pod` filtro su in ConfigMap e aggiungere il filtro dello spazio dei nomi che specifica gli spazi dei nomi da scrape. Ad esempio, usare `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
 
-3. Per i cluster diversi da Azure Red Hat OpenShift, eseguire il comando kubectl seguente: `kubectl apply -f <configmap_yaml_file.yaml>`.
+3. Per i cluster diversi da Azure Red Hat OpenShift, `kubectl apply -f <configmap_yaml_file.yaml>`eseguire il comando kubectl seguente: .
     
     Esempio: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
 
     Per Azure Red Hat OpenShift, salvare le modifiche nell'editor.
 
-La modifica della configurazione può richiedere alcuni minuti prima di essere applicata e tutti i pod omsagent del cluster verranno riavviati. Il riavvio è un riavvio in sequenza per tutti i pod omsagent, non tutti i riavvii nello stesso momento. Al termine del riavvio, viene visualizzato un messaggio simile al seguente e include il risultato: `configmap "container-azm-ms-agentconfig" created`.
+Il completamento della modifica della configurazione può richiedere alcuni minuti prima di rendere effettiva tutti i pod omsagent del cluster verranno riavviati. Il riavvio è un riavvio in sequenza per tutti i pod omsagent, non per tutti contemporaneamente. Al termine dei riavvii, viene visualizzato un messaggio analogo al seguente `configmap "container-azm-ms-agentconfig" created`e include il risultato: .
 
-È possibile visualizzare i ConfigMap aggiornati per Azure Red Hat OpenShift eseguendo il comando `oc describe configmaps container-azm-ms-agentconfig -n openshift-azure-logging`. 
+È possibile visualizzare la ConfigMap aggiornata per Azure `oc describe configmaps container-azm-ms-agentconfig -n openshift-azure-logging`Red Hat OpenShift eseguendo il comando , . 
 
-## <a name="applying-updated-configmap"></a>Applicazione di ConfigMap aggiornati
+## <a name="applying-updated-configmap"></a>Applicazione di ConfigMap aggiornato
 
-Se è già stato distribuito un ConfigMap nel cluster e si vuole aggiornarlo con una configurazione più recente, è possibile modificare il file ConfigMap usato in precedenza e quindi applicare usando gli stessi comandi precedenti.
+Se è già stato distribuito un ConfigMap nel cluster e si desidera aggiornarlo con una configurazione più recente, è possibile modificare il file ConfigMap utilizzato in precedenza e quindi applicare utilizzando gli stessi comandi di prima.
 
-Per i cluster Kubernetes diversi da Azure Red Hat OpenShift, eseguire il comando `kubectl apply -f <configmap_yaml_file.yaml`. 
+Per i cluster Kubernetes diversi da Azure Red `kubectl apply -f <configmap_yaml_file.yaml`Hat OpenShift, eseguire il comando . 
 
-Per il cluster Azure Red Hat OpenShift, eseguire il comando `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` per aprire il file nell'editor predefinito per modificarlo e salvarlo.
+Per il cluster Azure Red Hat `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` OpenShift, eseguire il comando per aprire il file nell'editor predefinito per modificarlo e quindi salvarlo.
 
-La modifica della configurazione può richiedere alcuni minuti prima di essere applicata e tutti i pod omsagent del cluster verranno riavviati. Il riavvio è un riavvio in sequenza per tutti i pod omsagent, non tutti i riavvii nello stesso momento. Al termine del riavvio, viene visualizzato un messaggio simile al seguente e include il risultato: `configmap "container-azm-ms-agentconfig" updated`.
+Il completamento della modifica della configurazione può richiedere alcuni minuti prima di rendere effettiva tutti i pod omsagent del cluster verranno riavviati. Il riavvio è un riavvio in sequenza per tutti i pod omsagent, non per tutti contemporaneamente. Al termine dei riavvii, viene visualizzato un messaggio analogo al seguente `configmap "container-azm-ms-agentconfig" updated`e include il risultato: .
 
 ## <a name="verify-configuration"></a>Verificare la configurazione
 
-Per verificare che la configurazione sia stata applicata correttamente a un cluster, usare il comando seguente per esaminare i log da un pod agente: `kubectl logs omsagent-fdf58 -n=kube-system`. 
+Per verificare che la configurazione sia stata applicata correttamente a un `kubectl logs omsagent-fdf58 -n=kube-system`cluster, utilizzare il comando seguente per esaminare i registri da un pod agente: . 
 
 >[!NOTE]
->Questo comando non è applicabile al cluster Azure Red Hat OpenShift.
+>Questo comando non è applicabile al cluster Azure Red Hat OpenShift.This command is not applicable to Azure Red Hat OpenShift cluster.
 > 
 
-Se si verificano errori di configurazione dai pod omsagent, l'output visualizzerà errori simili ai seguenti:
+Se sono presenti errori di configurazione dai pod omsagent, l'output mostrerà errori simili ai seguenti:
 
 ``` 
 ***************Start Config Processing******************** 
 config::unsupported/missing config schema version - 'v21' , using defaults
 ```
 
-Gli errori correlati all'applicazione delle modifiche di configurazione sono disponibili anche per la revisione. Sono disponibili le opzioni seguenti per eseguire ulteriori operazioni di risoluzione dei problemi relativi alle modifiche alla configurazione e al frammento di metriche Prometeo:
+Gli errori relativi all'applicazione delle modifiche di configurazione sono disponibili anche per la revisione. Per eseguire ulteriori operazioni di risoluzione dei problemi relativi alle modifiche alla configurazione e alla scraping delle metriche di Prometheus, sono disponibili le opzioni seguenti:
 
-- Da un Log pod di Agent usando lo stesso comando `kubectl logs` 
+- Da un pod di `kubectl logs` dati dell'agente utilizzando lo stesso comando 
     >[!NOTE]
-    >Questo comando non è applicabile al cluster Azure Red Hat OpenShift.
+    >Questo comando non è applicabile al cluster Azure Red Hat OpenShift.This command is not applicable to Azure Red Hat OpenShift cluster.
     > 
 
-- Da dati dinamici (anteprima). I registri dati attivi (anteprima) mostrano errori simili ai seguenti:
+- Da Live Data (anteprima). I registri Live Data (anteprima) mostrano errori simili ai seguenti:
 
     ```
     2019-07-08T18:55:00Z E! [inputs.prometheus]: Error in plugin: error making HTTP request to http://invalidurl:1010/metrics: Get http://invalidurl:1010/metrics: dial tcp: lookup invalidurl on 10.0.0.10:53: no such host
     ```
 
-- Dalla tabella **KubeMonAgentEvents** nell'area di lavoro log Analytics. I dati vengono inviati ogni ora con gravità di *avviso* per errori di scarto e gravità dell' *errore* per gli errori di configurazione. Se non sono presenti errori, la voce nella tabella avrà dati con *informazioni*di gravità, che non segnalano errori. La proprietà **Tags** contiene altre informazioni sul Pod e sull'ID contenitore in cui si è verificato l'errore, nonché sulla prima occorrenza, sull'ultima occorrenza e sul conteggio nell'ultima ora.
+- Dalla tabella **KubeMonAgentEvents** nell'area di lavoro di Log Analytics. I dati vengono inviati ogni ora con gravità *di avviso* per gli errori di raschiamento e *Gravità errore* per gli errori di configurazione. Se non sono presenti errori, la voce nella tabella conterrà dati con informazioni di gravità *Info*, che non segnala errori. La proprietà **Tags** contiene ulteriori informazioni sull'ID contenitore e sul contenitore in cui si è verificato l'errore e anche la prima occorrenza, l'ultima occorrenza e il conteggio nell'ultima ora.
 
-- Per Azure Red Hat OpenShift, controllare i log omsagent cercando la tabella **ContainerLog** per verificare se è abilitata la raccolta dei log di OpenShift-Azure-Logging.
+- Per Azure Red Hat OpenShift, controllare i log di omsagent eseguendo una ricerca nella tabella **ContainerLog** per verificare se la raccolta di log di openshift-azure-logging è abilitata.
 
-Gli errori impediscono l'analisi del file da parte di omsagent, causando il riavvio e l'utilizzo della configurazione predefinita. Dopo aver corretto gli errori in ConfigMap in cluster diversi da Azure Red Hat OpenShift, salvare il file YAML e applicare il ConfigMaps aggiornato eseguendo il comando: `kubectl apply -f <configmap_yaml_file.yaml`. 
+Gli errori impediscono a omsagent di analizzare il file, causandone il riavvio e l'utilizzo della configurazione predefinita. Dopo aver corretto gli errori in ConfigMap in cluster diversi da Azure Red Hat OpenShift, salvare il file `kubectl apply -f <configmap_yaml_file.yaml`yaml e applicare le ConfigMap aggiornate eseguendo il comando: . 
 
-Per Azure Red Hat OpenShift, modificare e salvare il ConfigMaps aggiornato eseguendo il comando: `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging`.
+Per Azure Red Hat OpenShift, modificare e salvare le `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging`ConfigMap aggiornate eseguendo il comando: . .
 
-## <a name="query-prometheus-metrics-data"></a>Eseguire query sui dati di metrica Prometeo
+## <a name="query-prometheus-metrics-data"></a>Dati delle metriche di Prometeo di queryQuery Prometheus metrics data
 
-Per visualizzare le metriche di Prometeo ricavate da monitoraggio di Azure e gli eventuali errori di configurazione/scraping segnalati dall'agente, esaminare i [dati delle metriche di Prometeo](container-insights-log-search.md#query-prometheus-metrics-data) e la configurazione delle [query o gli errori di scraping](container-insights-log-search.md#query-config-or-scraping-errors).
+Per visualizzare le metriche prometheus eliminate da Monitoraggio azure ed eventuali errori di configurazione/eliminazione segnalati dall'agente, esaminare Dati delle [metriche di Query Prometheus](container-insights-log-search.md#query-prometheus-metrics-data) e [Query config o scraping errors.](container-insights-log-search.md#query-config-or-scraping-errors)
 
-## <a name="view-prometheus-metrics-in-grafana"></a>Visualizzare le metriche Prometheus in Grafana
+## <a name="view-prometheus-metrics-in-grafana"></a>Visualizza le metriche di Prometeo in Grafana
 
-Il monitoraggio di Azure per i contenitori supporta la visualizzazione delle metriche archiviate nell'area di lavoro Log Analytics nei dashboard di Grafana. È disponibile un modello che è possibile scaricare dal [repository dashboard](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) di Grafana per iniziare e fare riferimento a per informazioni su come eseguire query sui dati aggiuntivi dai cluster monitorati per visualizzare i dashboard Grafana personalizzati. 
+Monitoraggio di Azure per i contenitori supporta la visualizzazione delle metriche archiviate nell'area di lavoro di Log Analytics nei dashboard di Grafana.Azure Monitor for containers supports viewing metrics stored in your Log Analytics workspace in Grafana dashboards. È stato fornito un modello che è possibile scaricare dal [repository del dashboard](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) di Grafana per iniziare e fare riferimento per imparare a eseguire query su dati aggiuntivi dai cluster monitorati per visualizzarli nei dashboard Grafana personalizzati. 
 
-## <a name="review-prometheus-data-usage"></a>Esaminare l'utilizzo dei dati di Prometeo
+## <a name="review-prometheus-data-usage"></a>Esaminare l'utilizzo dei dati PrometheusReview Prometheus data usage
 
-Per identificare il volume di inserimento di ogni dimensione di metrica in GB al giorno per comprendere se è elevato, viene fornita la query seguente.
+Per identificare il volume di inserimento di ogni dimensione delle metriche in GB al giorno per capire se è elevato, viene fornita la query seguente.
 
 ```
 InsightsMetrics 
@@ -247,11 +247,11 @@ InsightsMetrics
 | order by VolumeInGB desc
 | render barchart
 ```
-L'output visualizzerà risultati simili ai seguenti:
+L'output mostrerà risultati simili ai seguenti:
 
-![Registrare i risultati delle query del volume di inserimento dati](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
+![Registrare i risultati delle query del volume di inserimento datiLog query results of data ingestion volume](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
 
-Per stimare le dimensioni di ogni metrica in GB per un mese per comprendere se il volume di dati inseriti nell'area di lavoro è elevato, viene fornita la query seguente.
+Per stimare le dimensioni di ogni metrica in GB per un mese per capire se il volume di dati ricevuti nell'area di lavoro è elevato, viene fornita la query seguente.
 
 ```
 InsightsMetrics 
@@ -262,12 +262,12 @@ InsightsMetrics
 | render barchart
 ```
 
-L'output visualizzerà risultati simili ai seguenti:
+L'output mostrerà risultati simili ai seguenti:
 
-![Registrare i risultati delle query del volume di inserimento dati](./media/container-insights-prometheus-integration/log-query-example-usage-02.png)
+![Registrare i risultati delle query del volume di inserimento datiLog query results of data ingestion volume](./media/container-insights-prometheus-integration/log-query-example-usage-02.png)
 
-Ulteriori informazioni su come monitorare l'utilizzo dei dati e analizzare i costi sono disponibili in [gestire l'utilizzo e i costi con i log di monitoraggio di Azure](../platform/manage-cost-storage.md).
+Ulteriori informazioni su come monitorare l'utilizzo dei dati e analizzare i costi sono disponibili in [Gestire l'utilizzo e i costi con i](../platform/manage-cost-storage.md)log di Monitoraggio di Azure .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla configurazione delle impostazioni di raccolta agenti per stdout, stderr e le variabili di ambiente da carichi di lavoro del contenitore, vedere [qui](container-insights-agent-config.md). 
+Ulteriori informazioni sulla configurazione delle impostazioni di raccolta degli agenti per le variabili stdout, stderr e environmental dai carichi di lavoro dei contenitori [sono disponibili qui](container-insights-agent-config.md). 

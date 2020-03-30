@@ -1,7 +1,7 @@
 ---
-title: Usare le API di Video Indexer per personalizzare i modelli di linguaggio-Azure
+title: Personalizzare un modello di linguaggio con l'API dell'indicizzatore videoCustomize a Language model with Video Indexer API
 titlesuffix: Azure Media Services
-description: Questo articolo illustra come personalizzare un modello linguistico con le API di Video Indexer.
+description: Scopri come personalizzare un modello di lingua con l'API Video Indexer.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/04/2020
 ms.author: anzaman
-ms.openlocfilehash: 01ea4d9ef943183f09baa86b729ec69344d4309e
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 19067bbbaf93c9abc9a9220b09dd482ce9115655
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049038"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80127972"
 ---
-# <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Personalizzare un modello linguistico con le API di Video Indexer
+# <a name="customize-a-language-model-with-the-video-indexer-api"></a>Personalizzare un modello di linguaggio con l'API Dell'indicizzatore video
 
-Video Indexer consente di creare modelli linguistici personalizzati per personalizzare il riconoscimento vocale caricando un testo di adattamento, ovvero il testo del dominio con il vocabolario a cui si vuole adattare il motore. Dopo avere eseguito il training del modello, le nuove parole presenti nel testo di adattamento verranno riconosciute. 
+Video Indexer consente di creare modelli linguistici personalizzati per personalizzare il riconoscimento vocale caricando un testo di adattamento, ovvero il testo del dominio con il vocabolario a cui si vuole adattare il motore. Dopo avere eseguito il training del modello, le nuove parole presenti nel testo di adattamento verranno riconosciute.
 
 Per una panoramica dettagliata e le procedure consigliate per i modelli linguistici personalizzati, vedere [Personalizzare un modello linguistico con Video Indexer](customize-language-model-overview.md).
 
@@ -27,19 +27,19 @@ Per una panoramica dettagliata e le procedure consigliate per i modelli linguist
 
 ## <a name="create-a-language-model"></a>Creare un modello linguistico
 
-L'API [Crea un modello di linguaggio](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Language-Model?) crea un nuovo modello di linguaggio personalizzato nell'account specificato. È possibile caricare i file per il modello linguistico in questa chiamata. In alternativa, è possibile creare il modello linguistico qui e caricare i file per il modello in un secondo momento aggiornando il modello linguistico.
+La creazione di un'API del modello di [linguaggio](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Language-Model?) crea un nuovo modello di linguaggio personalizzato nell'account specificato. È possibile caricare i file per il modello linguistico in questa chiamata. In alternativa, è possibile creare il modello linguistico qui e caricare i file per il modello in un secondo momento aggiornando il modello linguistico.
 
 > [!NOTE]
 > È comunque necessario eseguire il training del modello con i relativi file abilitati per fare in modo che il modello possa apprendere il contenuto dei file. La sezione successiva contiene le indicazioni per eseguire il training di una lingua.
 
-Per caricare i file da aggiungere al modello linguistico, è necessario caricare i file nel corpo usando i dati del modulo, oltre a fornire i valori per i parametri obbligatori precedenti. A questo scopo è possibile procedere in due modi: 
+Per caricare i file da aggiungere al modello di linguaggio, è necessario caricare i file nel corpo utilizzando FormData oltre a fornire i valori per i parametri richiesti sopra. Per eseguire questa attività, è possibile eseguire questa operazione in due modi:There are two ways to do this task:
 
-1. La chiave sarà il nome del file e il valore sarà il file txt.
-2. La chiave sarà il nome del file e il valore sarà un URL al file txt.
+* Chiave sarà il nome del file e il valore sarà il file txt.
+* Chiave sarà il nome del file e il valore sarà un URL al file txt.
 
 ### <a name="response"></a>Risposta
 
-La risposta fornisce i metadati sul modello linguistico appena creato, insieme ai metadati su ogni file di modello, seguendo il formato dell'output JSON di esempio.
+La risposta fornisce metadati sul modello di lingua appena creato insieme ai metadati in ognuno dei file del modello seguendo il formato di questo output JSON di esempio:The response provides metadata on the newly created Language model along with metadata on each of the model's files following the format of this example JSON output:
 
 ```json
 {
@@ -70,14 +70,14 @@ La risposta fornisce i metadati sul modello linguistico appena creato, insieme a
 
 ## <a name="train-a-language-model"></a>Eseguire il training di un modello linguistico
 
-L'API di [training di un modello di linguaggio](https://api-portal.videoindexer.ai/docs/services/operations/operations/Train-Language-Model?&pattern=train) consente di eseguire il training di un modello di lingua personalizzato nell'account specificato con il contenuto dei file caricati e abilitati nel modello di lingua. 
+Il training di un'API del modello di [linguaggio](https://api-portal.videoindexer.ai/docs/services/operations/operations/Train-Language-Model?&pattern=train) eseguito il training di un modello di linguaggio personalizzato nell'account specificato con il contenuto dei file che sono stati caricati e abilitati nel modello di linguaggio.
 
 > [!NOTE]
-> È necessario prima creare il modello linguistico e caricare i relativi file. È possibile caricare i file quando si crea o si aggiorna il modello linguistico. 
+> È necessario prima creare il modello linguistico e caricare i relativi file. È possibile caricare i file durante la creazione del modello di lingua o aggiornando il modello di lingua.
 
 ### <a name="response"></a>Risposta
 
-La risposta fornisce i metadati sul modello linguistico di cui è stato appena eseguito il training, insieme ai metadati su ogni file di modello seguendo il formato dell'output JSON di esempio.
+La risposta fornisce metadati sul modello di lingua appena addestrato insieme ai metadati in ognuno dei file del modello seguendo il formato di questo output JSON di esempio:The response provides metadata on the newly trained Language model along with metadata on each of the model's files following the format of this example JSON output:
 
 ```json
 {
@@ -105,32 +105,31 @@ La risposta fornisce i metadati sul modello linguistico di cui è stato appena e
 }
 ```
 
-L' **ID** restituito è un ID univoco usato per distinguere i modelli di linguaggio, mentre **languageModelId** viene usato sia per il [caricamento di un video per](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) l'indicizzazione che per [la reindicizzazione di un'API video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) (nota anche come **linguisticModelId** in video Indexer le API di caricamento/reindicizzazione).
+L'oggetto `id` restituito è un ID univoco utilizzato `languageModelId` per distinguere tra modelli linguistici, mentre viene usato sia per `linguisticModelId` caricare un video per [indicizzare](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) e [reindicizzare le](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API di un video (noto anche come in Video Indexer caricare/reindicizzare le API).
 
 ## <a name="delete-a-language-model"></a>Eliminare un modello linguistico
 
-L'API [Elimina un modello di linguaggio](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete) Elimina un modello di lingua personalizzato dall'account specificato. Qualsiasi video che usava il modello linguistico eliminato manterrà lo stesso indice finché non si reindicizza il video. Se si reindicizza il video, è possibile assegnare un nuovo modello linguistico al video. In alternativa, verrà usato il modello predefinito per reindicizzare il video.
+L'API di eliminazione di un modello di [linguaggio](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete) elimina un modello di linguaggio personalizzato dall'account specificato. Qualsiasi video che utilizzava il modello di lingua eliminato manterrà lo stesso indice fino a quando non reindicizzerai il video. Se reindicizzare il video, è possibile assegnare un nuovo modello di lingua al video. In caso contrario, Video Indexer utilizzerà il modello predefinito per reindicizzare il video.
 
 ### <a name="response"></a>Risposta
 
-Quando l'eliminazione del modello linguistico viene completata, non viene restituito alcun contenuto.
+Non è presente alcun contenuto restituito quando il modello di linguaggio viene eliminato correttamente.
 
 ## <a name="update-a-language-model"></a>Aggiornare un modello linguistico
 
-L'API [Aggiorna un modello di linguaggio](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model?&pattern=update) aggiorna un modello di persona della lingua personalizzata nell'account specificato.
+L'aggiornamento di un'API del modello di [linguaggio](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model?&pattern=update) aggiorna un modello di persona del linguaggio personalizzato nell'account specificato.
 
 > [!NOTE]
 > È necessario aver già creato il modello linguistico. È possibile usare questa chiamata per abilitare o disabilitare tutti i file nel modello, aggiornare il nome del modello linguistico e caricare i file da aggiungervi.
 
-Per caricare i file da aggiungere al modello linguistico, è necessario caricare i file nel corpo usando i dati del modulo, oltre a fornire i valori per i parametri obbligatori precedenti. A questo scopo è possibile procedere in due modi: 
+Per caricare i file da aggiungere al modello di linguaggio, è necessario caricare i file nel corpo utilizzando FormData oltre a fornire i valori per i parametri richiesti sopra. Per eseguire questa attività, è possibile eseguire questa operazione in due modi:There are two ways to do this task:
 
-1. La chiave sarà il nome del file e il valore sarà il file txt.
-2. La chiave sarà il nome del file e il valore sarà un URL al file txt.
-
+* Chiave sarà il nome del file e il valore sarà il file txt.
+* Chiave sarà il nome del file e il valore sarà un URL al file txt.
 
 ### <a name="response"></a>Risposta
 
-La risposta fornisce i metadati sul modello linguistico di cui è stato appena eseguito il training, insieme ai metadati su ogni file di modello seguendo il formato dell'output JSON di esempio.
+La risposta fornisce metadati sul modello di lingua appena addestrato insieme ai metadati in ognuno dei file del modello seguendo il formato di questo output JSON di esempio:The response provides metadata on the newly trained Language model along with metadata on each of the model's files following the format of this example JSON output:
 
 ```json
 {
@@ -158,11 +157,11 @@ La risposta fornisce i metadati sul modello linguistico di cui è stato appena e
 }
 ```
 
-Usare l' **ID** dei file restituiti nella risposta per scaricare il contenuto del file.
+Utilizzare `id` il dei file restituiti nella risposta per scaricare il contenuto del file.
 
 ## <a name="update-a-file-from-a-language-model"></a>Aggiornare un file da un modello linguistico
 
-Con l' [aggiornamento di un file](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update) è possibile aggiornare il nome e **abilitare** lo stato di un file in un modello di lingua personalizzato nell'account specificato.
+L'aggiornamento di [un file](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update) consente `enable` di aggiornare il nome e lo stato di un file in un modello di lingua personalizzato nell'account specificato.
 
 ### <a name="response"></a>Risposta
 
@@ -177,15 +176,16 @@ La risposta fornisce i metadati sul file che è stato aggiornato seguendo il for
   "creationTime": "2018-04-27T20:10:10.5233333"
 }
 ```
-Usare l' **ID** del file restituito nella risposta per scaricare il contenuto del file.
+
+Utilizzare `id` il del file restituito nella risposta per scaricare il contenuto del file.
 
 ## <a name="get-a-specific-language-model"></a>Ottenere un modello linguistico specifico
 
-L'API [Get](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model?&pattern=get) restituisce informazioni sul modello di lingua specificato nell'account specificato, ad esempio la lingua e i file inclusi nel modello di lingua. 
+L'API [get](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model?&pattern=get) restituisce informazioni sul modello di linguaggio specificato nell'account specificato, ad esempio la lingua e i file presenti nel modello di linguaggio.
 
 ### <a name="response"></a>Risposta
 
-La risposta fornisce i metadati sul modello linguistico specificato, insieme ai metadati su ogni file di modello seguendo il formato dell'output JSON di esempio di seguito.
+La risposta fornisce metadati sul modello di lingua specificato insieme ai metadati in ognuno dei file del modello che seguono il formato di questo output JSON di esempio:The response provides metadata on the specified Language model along with metadata on each of the model's files following the format of this example JSON output:
 
 ```json
 {
@@ -213,15 +213,15 @@ La risposta fornisce i metadati sul modello linguistico specificato, insieme ai 
 }
 ```
 
-Usare l' **ID** del file restituito nella risposta per scaricare il contenuto del file.
+Utilizzare `id` il del file restituito nella risposta per scaricare il contenuto del file.
 
 ## <a name="get-all-the-language-models"></a>Ottenere tutti i modelli linguistici
 
-L'API [Get all](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Models?&pattern=get) restituisce tutti i modelli di linguaggio personalizzati nell'account specificato in un elenco.
+L'API [get all](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Models?&pattern=get) restituisce tutti i modelli di linguaggio personalizzati nell'account specificato in un elenco.
 
 ### <a name="response"></a>Risposta
 
-La risposta restituisce un elenco di tutti i modelli linguistici nell'account e ognuno dei relativi metadati e file seguendo il formato dell'output JSON riportato di seguito.
+La risposta fornisce un elenco di tutti i modelli di lingua nell'account e ognuno dei relativi metadati e file seguendo il formato di questo output JSON di esempio:The response provides a list of all of the Language models in your account and each of their metadata and files following the format of this example JSON output:
 
 ```json
 [
@@ -261,19 +261,19 @@ La risposta restituisce un elenco di tutti i modelli linguistici nell'account e 
 
 ## <a name="delete-a-file-from-a-language-model"></a>Eliminare un file da un modello linguistico
 
-L'API [Delete](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model-File?&pattern=delete) Elimina il file specificato dal modello di lingua specificato nell'account specificato. 
+L'API [di eliminazione](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model-File?&pattern=delete) elimina il file specificato dal modello di linguaggio specificato nell'account specificato.
 
 ### <a name="response"></a>Risposta
 
-Non viene restituito contenuto quando il file viene eliminato con successo dal modello linguistico.
+Non è presente alcun contenuto restituito quando il file viene eliminato correttamente dal modello di linguaggio.
 
 ## <a name="get-metadata-on-a-file-from-a-language-model"></a>Ottenere i metadati su un file da un modello linguistico
 
-Il [ottenere i metadati di un'API file](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model-File-Data?&pattern=get%20language%20model) restituisce il contenuto dei metadati e nel file specificato dal modello di lingua scelto nell'account.
+I [metadati get di un'API di file](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model-File-Data?&pattern=get%20language%20model) restituiscono il contenuto e i metadati del file specificato dal modello di lingua scelto nel tuo account.
 
 ### <a name="response"></a>Risposta
 
-La risposta restituisce il contenuto e metadati del file in formato JSON, simile al seguente:
+La risposta fornisce il contenuto e i metadati del file in formato JSON, analogamente a questo esempio:
 
 ```json
 {
@@ -289,13 +289,13 @@ La risposta restituisce il contenuto e metadati del file in formato JSON, simile
 > [!NOTE]
 > Il contenuto di questo file di esempio sono le parole "hello" e "world"in due righe distinte.
 
-## <a name="download-a-file-from-a-language-model"></a>Scaricare un file da un modello di lingua
+## <a name="download-a-file-from-a-language-model"></a>Scaricare un file da un modello di linguaDownload a file from a Language model
 
-Il [download di un'API file](https://api-portal.videoindexer.ai/docs/services/operations/operations/Download-Language-Model-File-Content?) Scarica un file di testo contenente il contenuto del file specificato dal modello di lingua specificato nell'account specificato. Questo file di testo dovrebbe corrispondere al contenuto del file di testo caricato in origine.
+L'API di [download di un file](https://api-portal.videoindexer.ai/docs/services/operations/operations/Download-Language-Model-File-Content?) scarica un file di testo contenente il contenuto del file specificato dal modello di lingua specificato nell'account specificato. Questo file di testo dovrebbe corrispondere al contenuto del file di testo caricato in origine.
 
 ### <a name="response"></a>Risposta
 
-La risposta sarà il download di un file di testo con il contenuto del file in formato JSON. 
+La risposta sarà il download di un file di testo con il contenuto del file in formato JSON.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

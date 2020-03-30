@@ -1,15 +1,15 @@
 ---
-title: 'Gestione risorse Service Fabric cluster: costo dello spostamento'
-description: Informazioni sul costo di spostamento per i servizi Service Fabric e su come può essere specificato in base alle esigenze architettoniche, inclusa la configurazione dinamica.
+title: "Gestione risorse cluster dell'infrastruttura di servizi: costo di spostamentoService Fabric Cluster Resource Manager: Movement cost"
+description: Informazioni sui costi di movimento per i servizi Service Fabric e su come può essere specificato per soddisfare qualsiasi esigenza architetturale, inclusa la configurazione dinamica.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: af3e01d0d5a605c052be24eed8e14ee3449e2c79
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75563344"
 ---
 # <a name="service-movement-cost"></a>Costo di spostamento dei servizi
@@ -67,18 +67,18 @@ this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
 ## <a name="impact-of-move-cost"></a>Impatto del costo di spostamento
-MoveCost ha cinque livelli: zero, low, medium, High e VeryHigh. Sono applicabili le regole seguenti:
+MoveCost ha cinque livelli: zero, basso, medio, alto e molto alto. Sono applicabili le regole seguenti:
 
-* Correlati sono relativi tra loro, ad eccezione di zero e VeryHigh. 
+* MoveI costi sono relativi l'uno all'altro, ad eccezione di zero e VeryHigh. 
 * Se un costo di spostamento è di livello Zero, significa che lo spostamento è gratuito e non deve influire sul punteggio della soluzione.
-* L'impostazione del costo di spostamento su High o *VeryHigh non garantisce* che la replica non venga *mai* spostata.
-* Le repliche con costi di spostamento VeryHigh verranno spostate solo se si verifica una violazione di vincolo nel cluster che non può essere risolto in altro modo (anche se è necessario spostare molte altre repliche per correggere la violazione)
+* L'impostazione del costo di spostamento su High o VeryHigh *non* garantisce che la replica non verrà *mai* spostata.
+* Le repliche con costo di spostamento VeryHigh verranno spostate solo se nel cluster è presente una violazione del vincolo che non può essere corretta in altro modo (anche se è necessario spostare molte altre repliche per correggere la violazione)
 
 
 
 <center>
 
-![il costo di spostamento come fattore per la selezione delle repliche per lo spostamento][Image1]
+![Costo di spostamento come fattore da considerare per la selezione delle repliche da spostare][Image1]
 </center>
 
 MoveCost consente di trovare le soluzioni che causano un'interruzione complessivamente minima e che sono più facili da realizzare garantendo allo stesso tempo un bilanciamento equivalente. Il concetto di costo di un servizio può essere correlato a molti aspetti. I fattori più comuni per il calcolo del costo di spostamento sono:
@@ -88,7 +88,7 @@ MoveCost consente di trovare le soluzioni che causano un'interruzione complessiv
 - Il costo di interruzione di un'operazione in corso. Alcune operazioni a livello di archivio dati o operazioni eseguite in risposta a una chiamata del client sono costose. Dopo un certo punto è preferibile non arrestarle se non è indispensabile. Durante l'esecuzione dell'operazione, aumentare il costo di spostamento di questo oggetto del servizio per ridurre la probabilità che si sposti. Al termine dell'operazione, reimpostare il costo sul valore normale.
 
 > [!IMPORTANT]
-> L'uso del costo di spostamento VeryHigh deve essere considerato con attenzione, in quanto limita significativamente la capacità del cluster Gestione risorse di trovare una soluzione di posizionamento ottimale a livello globale nel cluster. Le repliche con costi di spostamento VeryHigh verranno spostate solo se si verifica una violazione di vincolo nel cluster che non può essere risolto in altro modo (anche se è necessario spostare molte altre repliche per correggere la violazione)
+> L'utilizzo del costo di spostamento VeryHigh deve essere attentamente considerato in quanto limita in modo significativo la capacità di Gestione risorse cluster di trovare una soluzione di posizionamento ottimale a livello globale nel cluster. Le repliche con costo di spostamento VeryHigh verranno spostate solo se nel cluster è presente una violazione del vincolo che non può essere corretta in altro modo (anche se è necessario spostare molte altre repliche per correggere la violazione)
 
 ## <a name="enabling-move-cost-in-your-cluster"></a>Abilitazione del costo di spostamento del cluster
 Per considerare il MoveCosts più granulare, è necessario abilitare MoveCost nel cluster. Senza questa impostazione, viene usata la modalità predefinita per conteggio degli spostamenti per calcolare MoveCost e i report di MoveCost vengono ignorati.

@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e71d521dce40f6a8ec81286fcc95dc97bf10078c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189737"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
@@ -33,7 +33,7 @@ Per includere l'elenco di funzioni di trasformazione delle attestazioni che poss
 </ClaimsTransformations>
 ```
 
-L'elemento **ClaimsTransformation** contiene gli attributi seguenti:
+L'elemento ClaimsTransformation contiene gli attributi seguenti:The **ClaimsTransformation** element contains the following attributes:
 
 | Attributo |Obbligatoria | Descrizione |
 | --------- |-------- | ----------- |
@@ -161,8 +161,8 @@ Per esempi di trasformazioni delle attestazioni, vedere le pagine seguenti:
 
 - [Boolean](boolean-transformations.md)
 - [Data](date-transformations.md)
-- [Integer](integer-transformations.md)
-- [JSON](json-transformations.md)
+- [Intero](integer-transformations.md)
+- [Json](json-transformations.md)
 - [Generale](general-transformations.md)
 - [Account di social networking](social-transformations.md)
 - [Stringa](string-transformations.md)

@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
 ms.openlocfilehash: be5f38bdeaf51dbe23006ecf30b4deb66aa7402a
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75690894"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Ottimizzare la velocità effettiva di rete per le macchine virtuali di Azure
 
 Le macchine virtuali di Azure hanno impostazioni di rete predefinite che possono essere ottimizzate ulteriormente per una migliore velocità effettiva di rete. Questo articolo illustra come ottimizzare la velocità effettiva di rete per macchine virtuali di Microsoft Azure Windows e Linux, incluse le distribuzioni principali, ad esempio Ubuntu, CentOS e Red Hat.
 
-## <a name="windows-vm"></a>VM Windows
+## <a name="windows-vm"></a>Macchina virtuale Windows
 
 Se la macchina virtuale di Windows supporta la funzione [Rete accelerata](create-vm-accelerated-networking-powershell.md), la velocità effettiva è configurata in modo ottimale se questa funzione è abilitata. Per tutte le altre macchine virtuali di Windows, tramite Receive-Side Scaling (RSS) esse possono raggiungere una velocità effettiva massima superiore rispetto a una VM senza RSS. È possibile disabilitare RSS per impostazione predefinita in una macchina virtuale Windows. Per determinare se RSS è abilitato e abilitarlo se è disabilitato, eseguire la procedura seguente:
 

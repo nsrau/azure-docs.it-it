@@ -1,6 +1,6 @@
 ---
-title: Creare un cluster e un database di Azure Esplora dati usando un modello di Azure Resource Manager
-description: Informazioni su come creare un cluster e un database di Azure Esplora dati usando un modello di Azure Resource Manager
+title: Creare un cluster e un database di Azure Data Explorer usando un modello di Azure Resource ManagerCreate an Azure Data Explorer cluster and database by using an Azure Resource Manager template
+description: Informazioni su come creare un cluster e un database di Azure Data Explorer usando un modello di Azure Resource Manager
 author: orspod
 ms.author: orspodek
 ms.reviewer: lugoldbe
@@ -8,31 +8,31 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
 ms.openlocfilehash: 56639d8a29ad8eac465845c8d354d04b31ba6093
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75911954"
 ---
-# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Creare un cluster e un database di Azure Esplora dati usando un modello di Azure Resource Manager
+# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Creare un cluster e un database di Azure Data Explorer usando un modello di Azure Resource ManagerCreate an Azure Data Explorer cluster and database by using an Azure Resource Manager template
 
 > [!div class="op_single_selector"]
 > * [Portale](create-cluster-database-portal.md)
-> * [CLI](create-cluster-database-cli.md)
-> * [PowerShell](create-cluster-database-powershell.md)
-> * [C#](create-cluster-database-csharp.md)
+> * [Cli](create-cluster-database-cli.md)
+> * [Powershell](create-cluster-database-powershell.md)
+> * [C #](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
-> * [Modello di Azure Resource Manager](create-cluster-database-resource-manager.md)
+> * [Modello di Azure Resource ManagerAzure Resource Manager template](create-cluster-database-resource-manager.md)
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. 
 
-In questo articolo viene creato un cluster e un database di Azure Esplora dati usando un [modello di Azure Resource Manager](../azure-resource-manager/management/overview.md). L'articolo descrive come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze. Per informazioni sulla creazione di modelli, vedere Creazione di [modelli di Azure Resource Manager](/azure/azure-resource-manager/resource-group-authoring-templates). Per la sintassi e le proprietà JSON da usare in un modello, vedere [tipi di risorse Microsoft. kusto](/azure/templates/microsoft.kusto/allversions).
+In questo articolo si crea un cluster e un database di Azure Data Explorer usando un modello di [Azure Resource Manager.](../azure-resource-manager/management/overview.md) L'articolo descrive come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze. Per informazioni sulla creazione di modelli, vedere Creazione di modelli di [Azure Resource Manager](/azure/azure-resource-manager/resource-group-authoring-templates). Per le proprietà e la sintassi JSON da usare in un modello, vedere [Tipi di risorsa Microsoft.Kusto](/azure/templates/microsoft.kusto/allversions).
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="azure-resource-manager-template-for-cluster-and-database-creation"></a>Modello di Azure Resource Manager per la creazione di cluster e database
+## <a name="azure-resource-manager-template-for-cluster-and-database-creation"></a>Modello di Azure Resource Manager per la creazione di cluster e databaseAzure Resource Manager template for cluster and database creation
 
-In questo articolo viene usato un [modello di avvio rapido esistente](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-kusto-cluster-database/azuredeploy.json)
+In questo articolo si usa un [modello di guida introduttiva esistenteIn](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-kusto-cluster-database/azuredeploy.json) this article, you use an existing quickstart template
 
 ```json
 {
@@ -96,30 +96,30 @@ In questo articolo viene usato un [modello di avvio rapido esistente](https://ra
 
 Per altri esempi di modello, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/).
 
-## <a name="deploy-the-template-and-verify-template-deployment"></a>Distribuire il modello e verificare la distribuzione del modello
+## <a name="deploy-the-template-and-verify-template-deployment"></a>Distribuire il modello e verificare la distribuzione del modelloDeploy the template and verify template deployment
 
-È possibile distribuire il modello di Azure Resource Manager [usando il portale di Azure](#use-the-azure-portal-to-deploy-the-template-and-verify-template-deployment) o [tramite PowerShell](#use-powershell-to-deploy-the-template-and-verify-template-deployment).
+È possibile distribuire il modello di Azure Resource Manager usando il portale di Azure o Powershell.You can deploy the Azure Resource Manager template by [using the Azure portal](#use-the-azure-portal-to-deploy-the-template-and-verify-template-deployment) or using [powershell](#use-powershell-to-deploy-the-template-and-verify-template-deployment).
 
-### <a name="use-the-azure-portal-to-deploy-the-template-and-verify-template-deployment"></a>Usare il portale di Azure per distribuire il modello e verificare la distribuzione del modello
+### <a name="use-the-azure-portal-to-deploy-the-template-and-verify-template-deployment"></a>Usare il portale di Azure per distribuire il modello e verificare la distribuzione del modelloUse the Azure portal to deploy the template and verify template deployment
 
-1. Per creare un cluster e un database, usare il pulsante seguente per avviare la distribuzione. Fare clic con il pulsante destro del mouse e selezionare **Apri in una nuova finestra** per poter seguire il resto dei passaggi di questo articolo.
+1. Per creare un cluster e un database, utilizzare il pulsante seguente per avviare la distribuzione. Fare clic con il pulsante destro del mouse e selezionare **Apri in una nuova finestra** per poter seguire il resto dei passaggi di questo articolo.
 
-    [![Distribuzione in Azure](media/create-cluster-database-resource-manager/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-kusto-cluster-database%2Fazuredeploy.json)
+    [![Distribuire in AzureDeploy to Azure](media/create-cluster-database-resource-manager/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-kusto-cluster-database%2Fazuredeploy.json)
 
     Il pulsante **Distribuzione in Azure** consente di passare al portale di Azure per compilare un modulo di distribuzione.
 
-    ![Distribuire in Azure](media/create-cluster-database-resource-manager/deploy-2-azure.png)
+    ![Distribuisci in Azure](media/create-cluster-database-resource-manager/deploy-2-azure.png)
 
-    È possibile [modificare e distribuire il modello nel portale di Azure](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) usando il modulo.
+    È possibile [modificare e distribuire il modello nel portale](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) di Azure usando il modulo.
 
-1. Sezioni di **base** e **Impostazioni** complete. Selezionare i nomi di cluster e database univoci.
-Sono necessari alcuni minuti per creare un cluster e un database di Azure Esplora dati.
+1. Sezioni **BASICS** e **SETTINGS** complete. Selezionare nomi univoci di cluster e database.
+La creazione di un cluster e di un database di Azure Data Explorer richiede alcuni minuti.
 
-1. Per verificare la distribuzione, aprire il gruppo di risorse nel [portale di Azure](https://portal.azure.com) per trovare il nuovo cluster e il nuovo database. 
+1. Per verificare la distribuzione, aprire il gruppo di risorse nel portale di [Azure](https://portal.azure.com) per trovare il nuovo cluster e database. 
 
-### <a name="use-powershell-to-deploy-the-template-and-verify-template-deployment"></a>Usare PowerShell per distribuire il modello e verificare la distribuzione del modello
+### <a name="use-powershell-to-deploy-the-template-and-verify-template-deployment"></a>Usare PowerShell per distribuire il modello e verificare la distribuzione del modelloUse powershell to deploy the template and verify template deployment
 
-#### <a name="deploy-the-template-using-powershell"></a>Distribuire il modello tramite PowerShell
+#### <a name="deploy-the-template-using-powershell"></a>Distribuire il modello usando PowerShellDeploy the template using powershell
 
 1. Selezionare **Prova** nel blocco di codice seguente e quindi seguire le istruzioni per accedere ad Azure Cloud Shell.
 
@@ -138,11 +138,11 @@ Sono necessari alcuni minuti per creare un cluster e un database di Azure Esplor
 
 1. Selezionare **Copia** per copiare lo script di PowerShell.
 1. Fare clic con il pulsante destro del mouse sulla console della shell e quindi scegliere **Incolla**.
-Sono necessari alcuni minuti per creare un cluster e un database di Azure Esplora dati.
+La creazione di un cluster e di un database di Azure Data Explorer richiede alcuni minuti.
 
-#### <a name="verify-the-deployment-using-powershell"></a>Verificare la distribuzione tramite PowerShell
+#### <a name="verify-the-deployment-using-powershell"></a>Verificare la distribuzione tramite PowerShellVerify the deployment using PowerShell
 
-Per verificare la distribuzione, usare lo script di Azure PowerShell seguente.  Se il Cloud Shell è ancora aperto, non è necessario copiare/eseguire la prima riga (read-host). Per altre informazioni sulla gestione delle risorse di Azure Esplora dati in PowerShell, vedere [AZ. kusto](/powershell/module/az.kusto/?view=azps-2.7.0). 
+Per verificare la distribuzione, usare lo script di Azure PowerShell seguente.  Se Cloud Shell è ancora aperto, non è necessario copiare/eseguire la prima riga (Read-Host). Per altre informazioni sulla gestione delle risorse di Azure Data Explorer in PowerShell, vedere [Az.Kusto](/powershell/module/az.kusto/?view=azps-2.7.0). 
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
@@ -159,4 +159,4 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Inserire i dati nel cluster e nel database di Azure Esplora dati](ingest-data-overview.md)
+[Inserire i dati nel cluster e nel database di Azure Data ExplorerIngest data into Azure Data Explorer cluster and database](ingest-data-overview.md)

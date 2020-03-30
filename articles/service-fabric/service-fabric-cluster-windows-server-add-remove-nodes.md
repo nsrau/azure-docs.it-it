@@ -1,15 +1,15 @@
 ---
-title: Aggiungere o rimuovere nodi in un cluster Service Fabric autonomo
+title: Aggiungere o rimuovere nodi in un cluster di Service Fabric autonomo
 description: Informazioni su come aggiungere o rimuovere nodi in un cluster di Azure Service Fabric su una macchina fisica o virtuale che esegue Windows Server in locale o nel cloud.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: dekapur
 ms.openlocfilehash: f9bee35ee8e82070b4cf601139b471562ba5e10b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75934215"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Aggiungere o rimuovere nodi in un cluster di Service Fabric autonomo eseguito in Windows Server
@@ -17,19 +17,19 @@ Dopo [avere creato il cluster autonomo di Service Fabric in computer Windows Ser
 
 ## <a name="add-nodes-to-your-cluster"></a>Aggiungere nodi al cluster
 
-1. Preparare la VM o il computer che si vuole aggiungere al cluster seguendo i passaggi descritti in [pianificare e preparare la distribuzione del cluster Service Fabric](service-fabric-cluster-standalone-deployment-preparation.md).
+1. Preparare la macchina virtuale/macchina da aggiungere al cluster seguendo i passaggi descritti in [Pianificare e preparare la distribuzione](service-fabric-cluster-standalone-deployment-preparation.md)del cluster di Service Fabric.
 
-2. Identificare il dominio di errore e il dominio di aggiornamento a cui si intende aggiungere questa macchina virtuale/computer.
+2. Identificare il dominio di errore e il dominio di aggiornamento a cui si intende aggiungere la macchina virtuale o la macchina.
 
-   Se si usano certificati per proteggere il cluster, è previsto che i certificati siano installati negli archivi certificati locali in modo da aggiungere il nodo al cluster. L'analogico è applicabile quando si usano altre forme di sicurezza.
+   Se si utilizzano i certificati per proteggere il cluster, è previsto che i certificati vengano installati negli archivi certificati locali in preparazione affinché il nodo venga aggiunto al cluster. L'analogico è applicabile quando si utilizzano altre forme di sicurezza.
 
 3. Creare una connessione Desktop remoto (RDP) con il computer o la VM da aggiungere al cluster.
 
-4. Copiare o [scaricare il pacchetto autonomo per Service Fabric per Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) nel computer o nella VM e decomprimere il pacchetto.
+4. Copiare o [scaricare il pacchetto autonomo per Service Fabric per Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) nella macchina virtuale/macchina e decomprimere il pacchetto.
 
 5. Eseguire PowerShell con privilegi elevati e passare al percorso del pacchetto decompresso.
 
-6. Eseguire lo script *AddNode.ps1* con i parametri che descrivono il nuovo nodo da aggiungere. Nell'esempio seguente viene aggiunto un nuovo nodo denominato VM5, con il tipo Nodetype0 e e l'indirizzo IP 182.17.34.52, in UD1 e FD:/DC1/R0. `ExistingClusterConnectionEndPoint` è un endpoint di connessione per un nodo già presente nel cluster esistente, che può corrispondere all'indirizzo IP di *qualsiasi* nodo del cluster. 
+6. Eseguire lo script *AddNode.ps1* con i parametri che descrivono il nuovo nodo da aggiungere. Nell'esempio seguente viene aggiunto un nuovo nodo denominato VM5, con tipo NodeType0 e l'indirizzo IP 182.17.34.52, in UD1 e fd:/dc1/r0. `ExistingClusterConnectionEndPoint`è un endpoint di connessione per un nodo già presente nel cluster esistente, che può essere l'indirizzo IP di *qualsiasi* nodo del cluster. 
 
    Non sicuro (prototipazione):
 
@@ -46,9 +46,9 @@ Dopo [avere creato il cluster autonomo di Service Fabric in computer Windows Ser
 
    ```
 
-   Al termine dell'esecuzione dello script, è possibile verificare se il nuovo nodo è stato aggiunto eseguendo il cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) .
+   Al termine dell'esecuzione dello script, è possibile verificare se il nuovo nodo è stato aggiunto eseguendo il cmdlet [Get-ServiceFabricNode.](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps)
 
-7. Per garantire la coerenza tra i diversi nodi del cluster è necessario avviare un aggiornamento della configurazione. Eseguire [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) per ottenere il file di configurazione più recente e aggiungere il nodo appena aggiunto alla sezione "Nodes". È inoltre consigliabile che sia sempre disponibile la configurazione del cluster più recente nel caso in cui sia necessario ridistribuire un cluster con la stessa configurazione.
+7. Per garantire la coerenza tra i diversi nodi del cluster è necessario avviare un aggiornamento della configurazione. Eseguire [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) per ottenere il file di configurazione più recente e aggiungere il nodo appena aggiunto alla sezione "Nodes". È inoltre consigliabile disporre sempre della configurazione del cluster più recente nel caso in cui sia necessario ridistribuire un cluster con la stessa configurazione.
 
    ```
     {

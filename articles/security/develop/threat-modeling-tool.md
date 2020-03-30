@@ -1,6 +1,6 @@
 ---
-title: Panoramica di Microsoft Threat Modeling Tool-Azure
-description: Panoramica dell'Microsoft Threat Modeling Tool, che contiene informazioni su come iniziare a usare lo strumento, incluso il processo di modellazione delle minacce.
+title: Microsoft Threat Modeling Tool overview - Azure
+description: Panoramica di Microsoft Threat Modeling Tool, contenente informazioni su come iniziare a utilizzare lo strumento, incluso il processo di modellazione delle minacce.
 author: jegeib
 ms.author: jegeib
 ms.service: security
@@ -8,10 +8,10 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 02/16/2017
 ms.openlocfilehash: 0d800102b6f6ff77944a2b625d3bcecef69c1ee9
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75548759"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Microsoft Threat Modeling Tool
@@ -37,7 +37,7 @@ Ecco alcune funzionalità degli strumenti e innovazioni, solo per citarne alcune
 
 La tabella seguente contiene collegamenti importanti per iniziare a usare Threat Modeling Tool:
 
-| Passaggio  | Description                                                                                   |
+| Passaggio  | Descrizione                                                                                   |
 | ----- | --------------------------------------------------------------------------------------------- |
 | **1** | [Scaricare Threat Modeling Tool](https://aka.ms/threatmodelingtool)                                |
 | **2** | [Vedere la Guida introduttiva](threat-modeling-tool-getting-started.md)    |

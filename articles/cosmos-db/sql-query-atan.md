@@ -1,6 +1,6 @@
 ---
-title: ATAN in linguaggio di query Azure Cosmos DB
-description: Informazioni sul modo in cui la funzione di sistema SQL arcotangente (ATAN) in Azure Cosmos DB restituisce l'angolo, in radianti, la cui tangente corrisponde all'espressione numerica specificata.
+title: ATAN nel linguaggio di query del database Cosmos di Azure
+description: Informazioni su come la funzione del sistema SQL Arctangent (ATAN ) in Azure Cosmos DB restituisce l'angolo, in radianti, la cui tangente è l'espressione numerica specificata
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 899c94a939be7825dca82522eab235bde9252896
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302679"
 ---
 # <a name="atan-azure-cosmos-db"></a>ATAN (Azure Cosmos DB)
@@ -26,7 +26,7 @@ ATAN(<numeric_expr>)
 ## <a name="arguments"></a>Argomenti
   
 *numeric_expr*  
-   Espressione numerica.  
+   È un'espressione numerica.  
   
 ## <a name="return-types"></a>Tipi restituiti
   
@@ -34,19 +34,19 @@ ATAN(<numeric_expr>)
   
 ## <a name="examples"></a>Esempi
   
-  Nell'esempio seguente viene restituito il `ATAN` del valore specificato.  
+  Nell'esempio seguente `ATAN` viene restituito l'oggetto del valore specificato.  
   
 ```sql
 SELECT ATAN(-45.01) AS atan  
 ```  
   
- Set di risultati:  
+ Questo è il set di risultati.  
   
 ```json
 [{"atan": -1.5485826962062663}]  
 ```  
   
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 Questa funzione di sistema non utilizzerà l'indice.
 
@@ -54,4 +54,4 @@ Questa funzione di sistema non utilizzerà l'indice.
 
 - [Funzioni matematiche Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduzione a Azure Cosmos DB](introduction.md)
+- [Introduzione ad Azure Cosmos DB](introduction.md)

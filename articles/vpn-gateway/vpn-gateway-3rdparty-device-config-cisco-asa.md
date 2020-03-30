@@ -1,5 +1,5 @@
 ---
-title: Configurazione di esempio per la connessione di dispositivi Cisco ASA ai gateway VPN di Azure
+title: Configurazione di esempio per la connessione di dispositivi Cisco ASA ai gateway VPN di AzureSample configuration for connecting Cisco ASA devices to Azure VPN gateways
 description: Questo articolo contiene un esempio di configurazione per la connessione di dispositivi Cisco ASA ai gateway VPN di Azure.
 services: vpn-gateway
 author: yushwang
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: yushwang
 ms.openlocfilehash: 96e5c26ea7b5f1baa33fd8830491ee3aa1e60221
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75778083"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Configurazione di esempio: dispositivo Cisco ASA (IKEv2/senza BGP)
@@ -78,7 +78,7 @@ La tabella seguente include gli algoritmi di IPsec/IKE e i parametri usati nell'
 | * Crittografia IPsec | AES256                               |
 | * Integrità IPsec  | SHA1                                 |
 | Gruppo PFS        | PFS24                                |
-| Durata associazione di sicurezza in modalità rapida   | 7\.200 secondi                         |
+| Durata associazione di sicurezza in modalità rapida   | 7.200 secondi                         |
 | Selettore di traffico | UsePolicyBasedTrafficSelectors $True |
 | Chiave precondivisa   | PreSharedKey                         |
 |                  |                                      |
@@ -111,13 +111,13 @@ Lo script seguente è un esempio basato sulla configurazione e sui parametri ele
 * Verificare che tutti i nomi e i numeri dei criteri siano univoci nel dispositivo.
 * Verificare che gli algoritmi di crittografia siano supportati nel dispositivo.
 * Sostituire i **valori segnaposto** seguenti con i valori effettivi per la configurazione:
-  - Nome interfaccia esterna: **outside**
+  - Nome interfaccia esterna: **esterno**
   - **Azure_Gateway_Public_IP**
   - **OnPrem_Device_Public_IP**
   - IKE: **Pre_Shared_Key**
   - Nomi per i gateway di rete virtuale e locale: **VNetName** e **LNGName**
   - **Prefissi** degli indirizzi di rete virtuale e locale
-  - **Netmask** appropriate
+  - **Netmaschere** corrette
 
 #### <a name="sample-script"></a>Script di esempio
 

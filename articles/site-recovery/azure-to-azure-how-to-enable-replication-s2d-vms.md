@@ -1,18 +1,18 @@
 ---
-title: Replicare le macchine virtuali di Azure che eseguono Spazi di archiviazione diretta con Azure Site Recovery
-description: Informazioni su come eseguire la replica di macchine virtuali di Azure che eseguono Spazi di archiviazione diretta usando Azure Site Recovery.
+title: Replicare le macchine virtuali di Azure che eseguono spazi di archiviazione direttamente con Azure Site Recovery
+description: Informazioni su come replicare le macchine virtuali di Azure eseguendo Spazi di archiviazione diretta con Azure Site Recovery.Learn how to replicate Azure VMs running Storage Spaces Direct using Azure Site Recovery.
 author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 01/29/2019
 ms.openlocfilehash: 9f394fa8d618c97d74a47ff6e42a002f177cf7d9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75973657"
 ---
-# <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>Replicare le macchine virtuali di Azure che eseguono Spazi di archiviazione diretta in un'altra area
+# <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>Replicare le macchine virtuali di Azure che eseguono spazi di archiviazione direttamente in un'altra areaReplicate Azure VMs running Storage Spaces Direct to another region
 
 Questo articolo descrive come abilitare il ripristino di emergenza di macchine virtuali di Azure che eseguono Spazi di archiviazione diretta.
 
@@ -20,13 +20,13 @@ Questo articolo descrive come abilitare il ripristino di emergenza di macchine v
 >Per i cluster di Spazi di archiviazione diretta sono supportati solo i punti di ripristino coerenti con l'arresto anomalo del sistema.
 >
 
-[Spazi di archiviazione diretta (S2D)](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) è un sistema di archiviazione definito dal software, che consente di creare [cluster guest](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure) in Azure.  Un cluster guest in Microsoft Azure è un cluster di failover costituito da macchine virtuali IaaS. Consente di eseguire il failover dei carichi di lavoro delle VM ospitate tra cluster guest, ottenendo un contratto di servizio con disponibilità più elevata per le applicazioni, rispetto a una singola macchina virtuale di Azure. È utile negli scenari in cui una macchina virtuale ospita un'applicazione critica come SQL o con scalabilità orizzontale file server.
+[Gli spazi di archiviazione diretti (S2D) sono l'archiviazione](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) definita dal software, che consente di creare cluster guest in Azure.Storage spaces direct (S2D) is software-defined storage, which provides a way to create [guest clusters](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure) on Azure.  A guest cluster in Microsoft Azure is a failover cluster comprised of IaaS VMs. Consente ai carichi di lavoro delle macchine virtuali ospitate di eseguire il failover nei cluster guest, ottenendo un sLA a maggiore disponibilità per le applicazioni rispetto a una singola macchina virtuale di Azure.It allows hosted VM workloads to fail over across guest clusters, achieving higher availability SLA for applications, than a single Azure VM can provide. È utile negli scenari in cui una macchina virtuale ospita un'applicazione critica come SQL o file server di scalabilità orizzontale.
 
-## <a name="disaster-recovery-with-storage-spaces-direct"></a>Ripristino di emergenza con spazi di archiviazione diretta
+## <a name="disaster-recovery-with-storage-spaces-direct"></a>Ripristino di emergenza con spazi di archiviazione diretti
 
 In uno scenario tipico si può avere un cluster guest di macchine virtuali in Azure per una resilienza superiore dell'applicazione, ad esempio File server di scalabilità orizzontale. Anche se questo fornisce all'applicazione una disponibilità più elevata, si vogliono proteggere le applicazioni usando Site Recovery per qualsiasi errore a livello di area. Site Recovery replica i dati da un'area di Azure a un'altra e attiva il cluster nell'area di ripristino di emergenza in caso di failover.
 
-Il diagramma seguente mostra un cluster di failover di macchine virtuali di Azure a due nodi che usa spazi di archiviazione diretta.
+Nel diagramma seguente viene illustrato un cluster di failover della macchina virtuale di Azure a due nodi usando gli spazi di archiviazione direttamente.
 
 ![Spazi di archiviazione diretta](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacedirect.png)
 
@@ -39,7 +39,7 @@ Il diagramma seguente mostra un cluster di failover di macchine virtuali di Azur
 **Considerazioni sul ripristino di emergenza**
 
 1. Quando si configura il [cloud di controllo](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp) per il cluster, mantenere il cloud di controllo nell'area di ripristino di emergenza.
-2. Se si intende eseguire il failover delle macchine virtuali in una subnet situata in un'area di ripristino di emergenza diversa dall'area di origine, dopo il failover occorre modificare l'indirizzo IP del cluster.  Per modificare l'indirizzo IP del cluster è necessario usare lo [script del piano di ripristino Site Recovery.](https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation)</br>
+2. Se si intende eseguire il failover delle macchine virtuali in una subnet situata in un'area di ripristino di emergenza diversa dall'area di origine, dopo il failover occorre modificare l'indirizzo IP del cluster.  Per modificare l'indirizzo IP del cluster è necessario utilizzare lo script del piano di ripristino di Site [Recovery.](https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation)</br>
 [Script di esempio](https://github.com/krnese/azure-quickstart-templates/blob/master/asr-automation-recovery/scripts/ASR-Wordpress-ChangeMysqlConfig.ps1) per eseguire il comando all'interno della macchina virtuale usando l'estensione script personalizzata 
 
 ### <a name="enabling-site-recovery-for-s2d-cluster"></a>Abilitazione di Site Recovery per il cluster S2D:
@@ -66,11 +66,11 @@ Un piano di ripristino supporta la sequenziazione di vari livelli in un'applicaz
 
 
 ### <a name="add-scripts-to-the-recovery-plan"></a>Aggiungere script al piano di ripristino
-Per far sì che le applicazioni funzionino correttamente, potrebbe essere necessario eseguire alcune operazioni nelle macchine virtuali di Azure dopo il failover o durante un failover di test. È possibile automatizzare alcune operazioni successive al failover. Ad esempio, qui viene collegato il servizio di bilanciamento del carico e viene modificato l'IP del cluster.
+Per far sì che le applicazioni funzionino correttamente, potrebbe essere necessario eseguire alcune operazioni nelle macchine virtuali di Azure dopo il failover o durante un failover di test. È possibile automatizzare alcune operazioni successive al failover. Ad esempio, qui stiamo collegando il bilanciamento del carico e modificando l'IP del cluster.
 
 
 ### <a name="failover-of-the-virtual-machines"></a>Failover delle macchine virtuali 
-È necessario eseguire il failover di entrambi i nodi delle VM usando il [piano di ripristino](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans) Site Recovery 
+Entrambi i nodi delle macchine virtuali devono eseguire il failover tramite il piano di [ripristino](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans) di Site Recovery 
 
 ![Protezione di Spazi di archiviazione diretta](./media/azure-to-azure-how-to-enable-replication-s2d-vms/recoveryplan.PNG)
 

@@ -1,5 +1,5 @@
 ---
-title: Scollegare un disco dati da una macchina virtuale Windows-Azure
+title: Scollegare un disco dati da una macchina virtuale Windows - AzureDetach a data disk from a Windows VM - Azure
 description: Scollegare un disco dati da una macchina virtuale in Azure usando il modello di distribuzione Resource Manager.
 services: virtual-machines-windows
 author: cynthn
@@ -11,10 +11,10 @@ ms.date: 01/08/2020
 ms.author: cynthn
 ms.subservice: disks
 ms.openlocfilehash: 301f3abd26f702f3f29c8833c835ba7d0e41bcaf
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75834612"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Come scollegare un disco dati da una macchina virtuale di Windows
@@ -50,14 +50,14 @@ Il disco rimane nello spazio di archiviazione ma non è più collegato a una mac
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Scollegare un disco dati tramite il portale
 
-È possibile rimuovere a *caldo* un disco dati, ma assicurarsi che non venga usato attivamente il disco prima di scollegarlo dalla macchina virtuale.
+È *possibile* rimuovere un disco dati, ma assicurarsi che non venga utilizzato attivamente alcun disco prima di scollegarlo dalla macchina virtuale.
 
 1. Dal menu a sinistra selezionare **Macchine virtuali**.
-1. Selezionare la macchina virtuale con il disco dati che si desidera scollegare.
+1. Selezionare la macchina virtuale con il disco dati da scollegare.
 1. In **Impostazioni** selezionare **Dischi**.
 1. Nella parte superiore del riquadro **Dischi** selezionare **Modifica**.
-1. Nell'estremità destra del disco dati che si desidera scollegare nel riquadro **dischi** selezionare **Disconnetti**.
-1. Selezionare **Save (Salva** ) nella parte superiore della pagina per salvare le modifiche.
+1. Nel riquadro **Dischi,** all'estrema destra del disco dati che si desidera scollegare, selezionare **Scollega**.
+1. Selezionare **Salva** nella parte superiore della pagina per salvare le modifiche.
 
 Il disco rimane nello spazio di archiviazione ma non è più collegato a una macchina virtuale.
 

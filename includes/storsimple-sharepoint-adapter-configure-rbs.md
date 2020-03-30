@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: f84fe995e65d2b67aaaf4ff9acc4a6a44ce607dc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67180187"
 ---
 > [!NOTE]
@@ -18,18 +18,18 @@ ms.locfileid: "67180187"
 
 #### <a name="to-configure-rbs"></a>Per configurare RBS
 1. Aprire la pagina Amministrazione centrale SharePoint e passare a **Impostazioni di sistema**. 
-2. Nella sezione **Azure StorSimple** fare clic su **Configure StorSimple Adapter** (Configura adattatore StorSimple).
+2. Nella sezione **Azure StorSimple** fare clic su **Configura l'adattatore StorSimple**.
    
     ![Configurare l'adattatore StorSimple](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS1-include.png) 
-3. Nella pagina **Configura l'adattatore StorSimple** :
+3. Nella pagina **Configura l'adattatore StorSimple** effettuare le seguenti operazioni:
    
-   1. Assicurarsi che la casella di controllo **Abilita modifica percorso** sia selezionata.
+   1. Assicurarsi che la casella di controllo **Abilita percorso di modifica** sia selezionata.
    2. Nella casella di testo, digitare il percorso Universal Naming Convention (UNC) dell'archivio BLOB.
       
       > [!NOTE]
       > Il volume dell'archivio BLOB deve essere ospitato in un volume iSCSI configurato sul dispositivo StorSimple.
 
-   3. Fare clic sul pulsante **Abilita** sotto ciascuno dei database di contenuto che si desidera configurare per l'archiviazione remota.
+   3. Fare clic sul pulsante **Abilita** sotto ciascuno dei database di contenuto da configurare per l'archiviazione remota.
       
       > [!NOTE]
       > L'archivio BLOB deve essere condiviso e raggiungibile da tutti i server front-end web (WFE) e l'account utente configurato per la server farm di SharePoint deve avere accesso alla condivisione.
@@ -40,12 +40,12 @@ ms.locfileid: "67180187"
       
       ![Configurare l’adattatore StorSimple Adapter Attivazione Disattivazione](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_ConfigureStorSimpleAdapterEnableDisableMessage-include.png)
 
-   4. Fare clic sul pulsante **Aggiorna** per applicare la configurazione. Quando si fa clic sul pulsante **Aggiorna** , lo stato della configurazione RBS verrà aggiornato in tutti i server front-end web e l'intera farm risulterà abilitata per RBS. Viene visualizzato il messaggio seguente.
+   4. Fare clic sul pulsante **Aggiorna** per applicare la configurazione. Quando si fa clic sul pulsante **Aggiorna**, lo stato della configurazione RBS viene aggiornato su tutti i server WFE e l'intera farm risulta abilitata per RBS. Viene visualizzato il messaggio seguente.
       
       ![Messaggio di configurazione dell’adattatore](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS3-include.png)
       
       > [!NOTE]
-      > Se si configura RBS per una farm di SharePoint che dispone di un numero molto elevato di database (più di 200), la pagina di amministrazione centrale SharePoint potrebbe scadere. In questo caso, aggiornare la pagina. Questo evento non influisce sul processo di configurazione.
+      > Se si configura Archiviazione BLOB remoti per una farm di SharePoint con un numero molto elevato di database (maggiore di 200), è possibile che si verifichi il timeout della pagina Web Amministrazione centrale SharePoint. In questo caso, aggiornare la pagina. Questo evento non influisce sul processo di configurazione.
 
 4. Verificare la configurazione:
    
@@ -113,7 +113,7 @@ ms.locfileid: "67180187"
    > [!WARNING]
    > Se RBS non è abilitato, non è consigliabile spostare il database del contenuto nel dispositivo StorSimple. Si tratta di una configurazione non testata.
    
-9. Passare alla fase successiva: [Configurare Garbage Collection](#configure-garbage-collection).
+9. Andare al passaggio successivo: [Configurare garbage collection](#configure-garbage-collection).
 
 [6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
 [7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx

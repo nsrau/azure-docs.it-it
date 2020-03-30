@@ -1,7 +1,7 @@
 ---
 title: Creare un set di competenze
 titleSuffix: Azure Cognitive Search
-description: Definire i passaggi per l'estrazione dei dati, l'elaborazione del linguaggio naturale o l'analisi delle immagini per arricchire ed estrarre informazioni strutturate dai dati da usare in ricerca cognitiva di Azure.
+description: Definire l'estrazione dei dati, l'elaborazione del linguaggio naturale o i passaggi di analisi delle immagini per arricchire ed estrarre informazioni strutturate dai dati per l'uso in Ricerca cognitiva di Azure.Define data extraction, natural language processing, or image analysis steps to enrich and extract structured information from your data for use in Azure Cognitive Search.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 43251783cbcd6501562913b7b9cafb4f9f7cb3f1
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75754558"
 ---
-# <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Come creare un oggetto di competenze in una pipeline di arricchimento di intelligenza artificiale in Azure ricerca cognitiva 
+# <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Come creare un set di competenze in una pipeline di arricchimento dell'iaformazione in Ricerca cognitiva di AzureHow to create a skillset in an AI enrichment pipeline in Azure Cognitive Search 
 
-L'arricchimento di intelligenza artificiale estrae e arricchisce i dati per renderli disponibili per la ricerca in Azure ricerca cognitiva. I passaggi di estrazione e arricchimento vengono definiti *competenze cognitive*, combinate in un *set di competenze* a cui viene fatto riferimento durante l'indicizzazione. Un skillt può usare le competenze [predefinite](cognitive-search-predefined-skills.md) o le competenze personalizzate (vedere [esempio: creazione di un'abilità personalizzata in una pipeline di arricchimento intelligenza artificiale](cognitive-search-create-custom-skill-example.md) per ulteriori informazioni).
+L'arricchimento dell'iA estrae e arricchisce i dati per renderli ricercabili in Ricerca cognitiva di Azure.AI enrichment enrichment extracts and enriches data to make it searchable in Azure Cognitive Search. I passaggi di estrazione e arricchimento vengono definiti *competenze cognitive*, combinate in un *set di competenze* a cui viene fatto riferimento durante l'indicizzazione. Un set di competenze può usare [competenze predefinite](cognitive-search-predefined-skills.md) o competenze personalizzate (vedere [Esempio: creazione di una competenza personalizzata in una pipeline di arricchimento AI](cognitive-search-create-custom-skill-example.md) per ulteriori informazioni).
 
-Questo articolo descrive come creare una pipeline di arricchimento per le competenze che si vuole usare. Un skillt è associato a un [indicizzatore](search-indexer-overview.md)di Azure ricerca cognitiva. Una parte della progettazione della pipeline, trattata in questo articolo, consiste nella costruzione del set di competenze stesso. 
+Questo articolo descrive come creare una pipeline di arricchimento per le competenze che si vuole usare. Un set di competenze è collegato a un [indicizzatore](search-indexer-overview.md)di Ricerca cognitiva di Azure. Una parte della progettazione della pipeline, trattata in questo articolo, consiste nella costruzione del set di competenze stesso. 
 
 > [!NOTE]
 > L'altra parte della progettazione della pipeline prevede la specifica di un indicizzatore e viene descritta nel [prossimo passaggio](#next-step). Una definizione di indicizzatore include un riferimento al set di competenze, nonché i mapping dei campi usati per connettere gli input agli output nell'indice di destinazione.
@@ -42,13 +42,13 @@ Si supponga di essere interessati all'elaborazione di un set di commenti di anal
 
 Il diagramma seguente illustra una pipeline di arricchimento ipotetica:
 
-![Una pipeline di arricchimento ipotetica](media/cognitive-search-defining-skillset/sample-skillset.png "Una pipeline di arricchimento ipotetica")
+![Un ipotetico gasdotto di arricchimento](media/cognitive-search-defining-skillset/sample-skillset.png "Un ipotetico gasdotto di arricchimento")
 
 
-Quando si ha un'idea chiara del contenuto che si desidera includere nella pipeline, si può specificare il set di competenze per eseguire questi passaggi. Dal punto di vista funzionale, il livello di competenze viene espresso quando si carica la definizione dell'indicizzatore in Azure ricerca cognitiva. Per altre informazioni su come caricare l'indicizzatore, vedere la [documentazione relativa all'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Quando si ha un'idea chiara del contenuto che si desidera includere nella pipeline, si può specificare il set di competenze per eseguire questi passaggi. Dal punto di controllo funzionale, il set di competenze viene espresso quando si carica la definizione dell'indicizzatore in Ricerca cognitiva di Azure.Functionally, the skillset is expressed when you upload your indexer definition to Azure Cognitive Search. Per altre informazioni su come caricare l'indicizzatore, vedere la [documentazione relativa all'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 
-Nel diagramma il passaggio di *individuazione del documento* avviene automaticamente. In pratica, Azure ricerca cognitiva sa come aprire file noti e crea un campo *contenuto* contenente il testo Estratto da ogni documento. Le caselle bianche sono arricchitori integrati e la casella punteggiata "Ricerca entità di Bing" rappresenta un arricchitore personalizzato che si sta creando. Come illustrato, il set di competenze contiene tre competenze.
+Nel diagramma il passaggio di *individuazione del documento* avviene automaticamente. Essenzialmente, Ricerca cognitiva di Azure sa come aprire file noti e crea un campo *di contenuto* contenente il testo estratto da ogni documento. Le caselle bianche sono arricchitori integrati e la casella punteggiata "Ricerca entità di Bing" rappresenta un arricchitore personalizzato che si sta creando. Come illustrato, il set di competenze contiene tre competenze.
 
 ## <a name="skillset-definition-in-rest"></a>Definizione del set di competenze in REST
 
@@ -136,11 +136,11 @@ Durante la creazione di un set di competenze è possibile specificare una descri
 }
 ```
 
-La parte successiva nel set di competenze è una matrice di competenze. Si può pensare a ogni competenza come una primitiva di arricchimento. Ogni competenza esegue una breve attività all'interno di questa pipeline di arricchimento. Ognuna prende un input (o un set di input) e restituisce output. Le prossime sezioni si concentrano su come specificare le competenze predefinite e personalizzate, concatenando le competenze tramite riferimenti di input e output. Gli input possono provenire da dati di origine o da un'altra competenza. Gli output possono essere mappati a un campo in un indice di ricerca o essere usati come input per una competenza a valle.
+La parte successiva nel set di competenze è una matrice di competenze. Si può pensare a ogni competenza come una primitiva di arricchimento. Ogni competenza esegue una breve attività all'interno di questa pipeline di arricchimento. Ognuna prende un input (o un set di input) e restituisce output. Le sezioni successive si concentrano su come specificare le competenze predefinite e personalizzate, concatenando le competenze tramite riferimenti di input e output. Gli input possono provenire da dati di origine o da un'altra competenza. Gli output possono essere mappati a un campo in un indice di ricerca o essere usati come input per una competenza a valle.
 
-## <a name="add-built-in-skills"></a>Aggiungi competenze predefinite
+## <a name="add-built-in-skills"></a>Aggiungi competenze integrate
 
-Verrà ora esaminata la prima competenza, ovvero la [capacità di riconoscimento entità](cognitive-search-skill-entity-recognition.md)incorporata:
+Diamo un'occhiata alla prima abilità, che è l'abilità di riconoscimento delle [entità incorporata](cognitive-search-skill-entity-recognition.md):
 
 ```json
     {
@@ -163,11 +163,11 @@ Verrà ora esaminata la prima competenza, ovvero la [capacità di riconoscimento
     }
 ```
 
-* Ogni abilità incorporata ha proprietà `odata.type`, `input`e `output`. Le proprietà specifiche della competenza includono informazioni aggiuntive applicabili alla competenza stessa. Per il riconoscimento delle entità, `categories` è un'entità tra un set fisso di tipi di entità che il modello precedentemente preparato è in grado di riconoscere.
+* Ogni abilità incorporata `odata.type` `input`ha `output` , e le proprietà. Le proprietà specifiche della competenza includono informazioni aggiuntive applicabili alla competenza stessa. Per il riconoscimento delle entità, `categories` è un'entità tra un set fisso di tipi di entità che il modello precedentemente preparato è in grado di riconoscere.
 
-* Ogni competenza deve avere un ```"context"```. Il contesto rappresenta il livello in cui vengono eseguite le operazioni. Nelle competenze precedenti, il contesto è l'intero documento, vale a dire che l'abilità di riconoscimento delle entità viene chiamata una volta per ogni documento. Anche gli output vengono generati in tale livello. L'elemento ```"organizations"```, più specificatamente, viene generato come membro di ```"/document"```. Nelle competenze a valle è possibile fare riferimento a queste informazioni appena create come ```"/document/organizations"```.  Se il campo ```"context"``` non viene impostato in modo esplicito, il contesto predefinito è il documento.
+* Ogni competenza deve avere un ```"context"```. Il contesto rappresenta il livello in cui vengono eseguite le operazioni. Nella competenza precedente, il contesto è l'intero documento, il che significa che la competenza di riconoscimento dell'entità viene chiamata una volta per documento. Anche gli output vengono generati in tale livello. L'elemento ```"organizations"```, più specificatamente, viene generato come membro di ```"/document"```. Nelle competenze a valle è possibile fare riferimento a queste informazioni appena create come ```"/document/organizations"```.  Se il campo ```"context"``` non viene impostato in modo esplicito, il contesto predefinito è il documento.
 
-* La competenza include un input denominato "testo", con un input di origine impostato su ```"/document/content"```. L'abilità (riconoscimento entità) opera sul campo *contenuto* di ogni documento, che è un campo standard creato dall'indicizzatore BLOB di Azure. 
+* La competenza include un input denominato "testo", con un input di origine impostato su ```"/document/content"```. La competenza (riconoscimento delle entità) opera sul campo del contenuto di ogni documento, ovvero un campo standard creato dall'indicizzatore BLOB di Azure.The skill (entity recognition) operates on the *content* field of each document, which is a standard field created by the Azure blob indexer. 
 
 * La competenza genera un output denominato ```"organizations"```. Gli output esistono solo durante l'elaborazione. Per concatenare questo output all'input della competenza a valle, fare riferimento all'output come ```"/document/organizations"```.
 
@@ -237,19 +237,19 @@ L'output, in questo caso la descrizione di una società, viene generato per ogni
 
 Il set di competenze genera informazioni strutturate da dati non strutturati. Prendere in considerazione gli esempi seguenti:
 
-*"Nel quarto trimestre Microsoft ha registrato $1,1 miliardi in ricavi da LinkedIn, la società di social networking acquistata l'anno scorso. L'acquisizione consente a Microsoft di combinare le funzionalità di LinkedIn con le relative funzionalità CRM e Office. Gli azionisti sono entusiasti del progresso fino a questo punto. "*
+*"Nel suo quarto trimestre, Microsoft ha registrato 1,1 miliardi di dollari di fatturato da LinkedIn, la società di social networking che ha acquistato l'anno scorso. L'acquisizione consente a Microsoft di combinare le funzionalità di LinkedIn con le funzionalità CRM e Office. Gli azionisti sono entusiasti dei progressi compiuti finora."*
 
 Un probabile risultato può essere una struttura generata simile a quella nella figura riportata di seguito:
 
-![Esempio di struttura di output](media/cognitive-search-defining-skillset/enriched-doc.png "Esempio di struttura di output")
+![Struttura di output di esempio](media/cognitive-search-defining-skillset/enriched-doc.png "Struttura di output di esempio")
 
-Fino ad ora, questa struttura è stata solo interna, solo di memoria e usata solo negli indici ricerca cognitiva di Azure. L'aggiunta di un archivio informazioni consente di salvare gli arricchimenti a forme da usare all'esterno della ricerca.
+Fino ad ora, questa struttura è stata solo interna, solo memoria e usata solo negli indici di Ricerca cognitiva di Azure.Now, this structure has been internal-only, memory-only, and only used in Azure Cognitive Search indexes. L'aggiunta di un knowledge store ti dà un modo per salvare gli arricchimenti sagomati per l'uso al di fuori della ricerca.
 
 ## <a name="add-a-knowledge-store"></a>Aggiungere un archivio informazioni
 
-[Archivio informazioni](knowledge-store-concept-intro.md) è una funzionalità di anteprima di Azure ricerca cognitiva per il salvataggio del documento arricchito. Un archivio informazioni creato, supportato da un account di archiviazione di Azure, è il repository in cui i dati arricchiti vengono archiviati. 
+[Archivio informazioni](knowledge-store-concept-intro.md) è una funzionalità di anteprima in Ricerca cognitiva di Azure per il salvataggio del documento arricchito. Un archivio informazioni creato, supportato da un account di archiviazione di Azure, è il repository in cui si trovano i dati arricchiti. 
 
-Una definizione dell'archivio informazioni viene aggiunta a un oggetto di competenze. Per una procedura dettagliata dell'intero processo, vedere [creare un archivio informazioni in Rest](knowledge-store-create-rest.md).
+Una definizione del Knowledge Store viene aggiunta a un set di competenze. Per una procedura dettagliata dell'intero processo, vedere [Creare un archivio informazioni in REST.](knowledge-store-create-rest.md)
 
 ```json
 "knowledgeStore": {
@@ -271,7 +271,7 @@ Una definizione dell'archivio informazioni viene aggiunta a un oggetto di compet
 }
 ```
 
-È possibile scegliere di salvare i documenti arricchiti come tabelle con relazioni gerarchiche conservate o come documenti JSON nell'archivio BLOB. L'output di una qualsiasi delle competenze nel grado di competenze può essere originato come input per la proiezione. Se si sta cercando di proiettare i dati in una forma specifica, l' [abilità di shaper](cognitive-search-skill-shaper.md) aggiornata può ora modellare tipi complessi da usare. 
+È possibile scegliere di salvare i documenti arricchiti come tabelle con relazioni gerarchiche mantenute o come documenti JSON nell'archiviazione BLOB. L'output di una qualsiasi delle competenze nel set di competenze può essere fornito come input per la proiezione. Se si desidera proiettare i dati in una forma specifica, la [competenza shaper](cognitive-search-skill-shaper.md) aggiornata può ora modellare tipi complessi da utilizzare. 
 
 <a name="next-step"></a>
 

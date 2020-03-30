@@ -9,13 +9,13 @@ ms.date: 05/06/2019
 ms.author: crdun
 ms.custom: include file
 ms.openlocfilehash: a7e543dcad9ad1b016d1244451cd87cda5ad7492
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67440204"
 ---
-1. Scaricare il client SDK guide introduttive per le piattaforme seguenti:
+1. Scaricare le guide introduttive dell'SDK client per le piattaforme seguenti:
     
     [iOS (Objective-C)](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/iOS)  
     [iOS (Swift)](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/iOS-Swift)  
@@ -24,80 +24,80 @@ ms.locfileid: "67440204"
     [Xamarin.Android](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/xamarin.android)  
     [Xamarin.Forms](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/xamarin.forms)  
     [Cordova](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/cordova)  
-    [Windows (C#)](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/windows-uwp-cs)  
+    [Windows (C)Windows (C'è)](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/windows-uwp-cs)  
 
     > [!NOTE]
-    > Se si usa il progetto iOS è necessario scaricare "azuresdk-iOS -\*zip" dalla [ultima versione di GitHub](https://github.com/Azure/azure-mobile-apps-ios-client/releases/latest). Decomprimere e aggiungere il `MicrosoftAzureMobile.framework` file alla radice del progetto.
+    > Se si utilizza il progetto iOS è necessario scaricare\*"azuresdk-iOS- .zip" dalla [versione più recente di GitHub.](https://github.com/Azure/azure-mobile-apps-ios-client/releases/latest) Decomprimere e `MicrosoftAzureMobile.framework` aggiungere il file alla radice del progetto.
     >
 
-2. È necessario aggiungere una connessione al database o connettersi a una connessione esistente. In primo luogo, determinare se verranno creare un archivio dati o usarne uno esistente.
+2. Sarà necessario aggiungere una connessione al database o connettersi a una connessione esistente. Determinare innanzitutto se si creerà un archivio dati o se ne verrà utilizzato uno esistente.
 
-    - **Creare un nuovo archivio dati**: Se sta creando un archivio dati, usare la Guida introduttiva seguente:
+    - **Creare un nuovo archivio dati:** se si intende creare un archivio dati, usare la guida introduttiva seguente:Create a new data store : If you're to create a data store, use the following quickstart:
 
-        [Avvio rapido: Introduzione a database singoli nel Database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-quickstart-guide)
+        [Guida introduttiva: Introduzione a singoli database nel database SQL di AzureQuickstart: Getting started with single databases in Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-quickstart-guide)
 
-    - **Origine dati esistente**: Seguire le istruzioni seguenti, se si desidera utilizzare una connessione di database esistente
+    - **Origine dati esistente**: seguire le istruzioni riportate di seguito se si desidera utilizzare una connessione di database esistente
 
-        1. Formato di stringa di connessione del Database SQL: `Data Source=tcp:{your_SQLServer},{port};Initial Catalog={your_catalogue};User ID={your_username};Password={your_password}`
+        1. Formato stringa di connessione al database SQL -`Data Source=tcp:{your_SQLServer},{port};Initial Catalog={your_catalogue};User ID={your_username};Password={your_password}`
 
-           **{your_SQLServer}**  Nome del server, questo è reperibile nella pagina di panoramica per il database e viene in genere sotto forma di "server_name.database.windows.net".
-            **{port}**  in genere 1433.
-            **{your_catalogue}**  Nome del database.
-            **{your_username}**  Nome utente per accedere al database.
-            **{your_password}**  Password per accedere al database.
+           **your_SQLServer dollari di lavoro.** Nome del server, questo può essere trovato nella pagina di panoramica per il database ed è di solito sotto forma di "server_name.database.windows.net".
+            **di** solito 1433.
+            **your_catalogue dollari di lavoro.** Nome del database.
+            **your_username, your_username** Nome utente per accedere al database.
+            **your_password, your_password** Password per accedere al database.
 
-            [Altre informazioni sul formato di stringa di connessione SQL](https://docs.microsoft.com/dotnet/framework/data/adonet/connection-string-syntax#sqlclient-connection-strings)
+            [Altre informazioni sul formato della stringa di connessione SQLLearn more about SQL Connection String format](https://docs.microsoft.com/dotnet/framework/data/adonet/connection-string-syntax#sqlclient-connection-strings)
 
-        2. Aggiungere la stringa di connessione per il **app per dispositivi mobili** nel servizio App, è possibile gestire le stringhe di connessione per l'applicazione con il **configurazione** opzione del menu.
+        2. Aggiungere la stringa di connessione **all'app per dispositivi mobili** nel servizio app, è possibile gestire le stringhe di connessione per l'applicazione usando l'opzione **Configurazione** nel menu.
 
-            Per aggiungere una stringa di connessione:
+            Per aggiungere una stringa di connessione:To add a connection string:
 
-            1. Fare clic sui **le impostazioni dell'applicazione** scheda.
+            1. Fare clic sulla scheda **Impostazioni applicazione.**
 
-            2. Fare clic su **[+] nuova stringa di connessione**.
+            2. Fare clic su **[-] Nuova stringa**di connessione .
 
-            3. Si dovrà fornire **Name**, **valore** e **tipo** della stringa di connessione.
+            3. È necessario specificare **Name**, **Value** e **Type** per la stringa di connessione.
 
-            4. Tipo di **nome** come `MS_TableConnectionString`
+            4. **Nome** tipo come`MS_TableConnectionString`
 
-            5. Valore deve essere la stringa di connessione che è formata nel passaggio prima.
+            5. Il valore deve essere la stringa di connessione formata nel passaggio precedente.
 
-            6. Se si aggiunge una stringa di connessione a un database di SQL Azure, scegliere **SQLAzure** sotto **tipo**.
+            6. Se si aggiunge una stringa di connessione a un database SQL Azure, scegliere **SQLAzure** in **tipo**.
 
-3. Le App per dispositivi mobili di Azure con gli SDK per back-end .NET e Node. js.
+3. App per dispositivi mobili di Azure include SDK per i back-end .NET e Node.js.Azure Mobile Apps has SDKs for .NET and Node.js backends.
 
    - **Back-end Node.js**
     
-     Se si intende usare l'app di Guida introduttiva di Node. js, seguire le istruzioni seguenti.
+     Se hai intenzione di usare Node.js quickstart app, seguire le istruzioni riportate di seguito.
 
-     1. Nel portale di Azure, passare a **Easy Tables**, verrà visualizzata questa schermata.
+     1. Nel portale di Azure passare a **Tabelle semplici**, verrà visualizzata questa schermata.
       
-        ![Nodo tabelle semplici](./media/app-service-mobile-configure-new-backend/node-easy-tables.png)
+        ![Tabelle facili dei nodi](./media/app-service-mobile-configure-new-backend/node-easy-tables.png)
 
-     2. Assicurarsi che la stringa di connessione SQL è già stato aggiunto nel **configurazione** scheda. Quindi selezionare la casella di **sono consapevole che questa operazione sovrascrive tutto il contenuto del sito** e fare clic sui **Crea tabella TodoItem** pulsante.
+     2. Assicurarsi che la stringa di connessione SQL sia già stata aggiunta nella scheda **Configurazione.** Quindi selezionare la casella di **Riconosco che questo sovrascriverà tutto** il contenuto del sito e fare clic su Crea **TodoItem tabella** pulsante.
      
-        ![Configurazione del nodo tabelle semplici](./media/app-service-mobile-configure-new-backend/node-easy-tables-configuration.png)
+        ![Configurazione delle tabelle facili dei nodiNode Easy Tables Configuration](./media/app-service-mobile-configure-new-backend/node-easy-tables-configuration.png)
 
-     3. Nelle **Easy Tables**, fare clic sui **+ Aggiungi** pulsante.
+     3. In **Tabelle facili**, fare clic sul pulsante **Aggiungi.**
     
-        ![Pulsante Aggiungi nodo tabelle semplici](./media/app-service-mobile-configure-new-backend/node-easy-tables-add.png)
+        ![Pulsante Aggiungi tabelle facili da nodo](./media/app-service-mobile-configure-new-backend/node-easy-tables-add.png)
 
-     4. Creare un `TodoItem` tabella con l'accesso anonimo.
+     4. Creare `TodoItem` una tabella con accesso anonimo.
       
-        ![Nodo Easy Tables Aggiungi tabella](./media/app-service-mobile-configure-new-backend/node-easy-tables-table-add.png)
+        ![Nodo Easy Tabelle Aggiungi Tabella](./media/app-service-mobile-configure-new-backend/node-easy-tables-table-add.png)
 
    - **Back-end .NET**
     
-        Se si intende usare l'app di Guida introduttiva di .NET, seguire le istruzioni seguenti.
+        Se hai intenzione di usare l'app di avvio rapido .NET, segui le istruzioni riportate di seguito.
 
-        1. Scaricare il progetto server .NET di App per dispositivi mobili di Azure i [repository azure-mobile-apps-guide introduttive](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/backend/dotnet/Quickstart).
+        1. Scaricare il progetto di server .NET di App per dispositivi mobili di Azure dal [repository azure-mobile-apps-quickstarts](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/backend/dotnet/Quickstart).
 
-        2. Compilare il progetto server .NET localmente in Visual Studio.
+        2. Compilare il progetto server .NET in locale in Visual Studio.
 
-        3. In Visual Studio, aprire Esplora soluzioni, fare clic su `ZUMOAPPNAMEService` del progetto, fare clic su **Publish**, verrà visualizzato un `Publish to App Service` finestra. Se si lavora su Mac, consultare altri modi per distribuire l'app [qui](https://docs.microsoft.com/azure/app-service/deploy-local-git).
+        3. In Visual Studio aprire Esplora soluzioni, fare clic con il pulsante destro del mouse sul `ZUMOAPPNAMEService` progetto, **scegliere Pubblica**, verrà visualizzata una `Publish to App Service` finestra. Se stai lavorando su Mac, scopri altri modi per distribuire l'app [qui](https://docs.microsoft.com/azure/app-service/deploy-local-git).
         
-           ![Pubblicazione di Visual studio](./media/app-service-mobile-configure-new-backend/visual-studio-publish.png)
+           ![Pubblicazione di Visual Studio](./media/app-service-mobile-configure-new-backend/visual-studio-publish.png)
 
-        4. Selezionare **servizio App** come destinazione di pubblicazione, quindi fare clic su **seleziona esistente**, quindi fare clic sui **Publish** nella parte inferiore della finestra.
+        4. Selezionare **Servizio app** come destinazione di pubblicazione, quindi fare clic su **Seleziona esistente**, quindi fare clic sul pulsante **Pubblica** nella parte inferiore della finestra.
 
-        5. È necessario prima ad accedere a Visual Studio con la sottoscrizione di Azure. Selezionare il `Subscription`, `Resource Group`e quindi selezionare il nome dell'app. Quando si è pronti, fare clic su **OK**, questo verrà distribuito il progetto server .NET che hai in locale nel back-end di servizio App. Al termine della distribuzione, si verrà reindirizzati a `http://{zumoappname}.azurewebsites.net/` nel browser.                   
+        5. È necessario accedere prima a Visual Studio con la sottoscrizione di Azure.You will need to log into Visual Studio with your Azure subscription first. Selezionare `Subscription` `Resource Group`il , , quindi selezionare il nome dell'app. Quando si è pronti, fare clic su **OK**, verrà distribuito il progetto server .NET in locale nel back-end del servizio app. Al termine della distribuzione, si verrà `http://{zumoappname}.azurewebsites.net/` reindirizzati a nel browser.                   

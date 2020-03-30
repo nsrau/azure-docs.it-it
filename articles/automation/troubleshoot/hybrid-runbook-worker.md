@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 137623e4c52d24061aec8ec11fca0fc02ca54c7f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 33e3e162892f1e2a148258273160ca26fa9c2efd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79252688"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153523"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Risolvere i problemi di ruoli di lavoro ibridi per runbook
 
@@ -22,45 +22,85 @@ Questo articolo contiene informazioni sulla risoluzione di problemi relativi ai 
 
 ## <a name="general"></a>Generale
 
-Il ruolo di lavoro ibrido per runbook dipende da un agente per comunicare con l'account di Automazione di Azure per registrare il ruolo di lavoro, ricevere i processi del runbook e segnalare lo stato. Per Windows, questo agente è l'agente Log Analytics per Windows, noto anche come Microsoft Monitoring Agent (MMA). Per Linux, si tratta dell'agente Log Analytics per Linux.
+Il ruolo di lavoro ibrido per runbook dipende da un agente per comunicare con l'account di Automazione di Azure per registrare il ruolo di lavoro, ricevere i processi del runbook e segnalare lo stato. Per Windows, questo agente è l'agente di Log Analytics per Windows, noto anche come Microsoft Monitoring Agent (MMA). For Linux, it's the Log Analytics agent for Linux.
 
-### <a name="runbook-execution-fails"></a>Scenario: l'esecuzione del runbook ha esito negativo
+### <a name="scenario-runbook-execution-fails"></a><a name="runbook-execution-fails"></a>Scenario: l'esecuzione del runbook ha esito negativo
 
 #### <a name="issue"></a>Problema
 
-L'esecuzione di Runbook non riesce e viene visualizzato l'errore seguente.
+L'esecuzione del Runbook non riesce e viene visualizzato il seguente errore.
 
 ```error
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 
-Il Runbook viene sospeso poco dopo il tentativo di esecuzione tre volte. Sono presenti condizioni che possono interrompere il completamento del Runbook. Il messaggio di errore correlato potrebbe non includere informazioni aggiuntive.
+Il runbook viene sospeso poco dopo i tentativi di esecuzione tre volte. Esistono condizioni che possono interrompere il completamento del runbook. Il messaggio di errore correlato potrebbe non includere informazioni aggiuntive.
 
 #### <a name="cause"></a>Causa
 
 Le possibili cause sono le seguenti:
 
-* Manuali operativi non è in grado di eseguire l'autenticazione con le risorse locali.
+* I runbook non possono eseguire l'autenticazione con le risorse locali.
 
 * Il ruolo di lavoro ibrido è protetto da proxy o firewall.
 
-* Il computer configurato per eseguire la funzionalità di ruolo di lavoro ibrido per Runbook non soddisfa i requisiti hardware minimi.
+* Il computer configurato per l'esecuzione della funzionalità Hybrid Runbook Worker non soddisfa i requisiti hardware minimi.
 
 #### <a name="resolution"></a>Risoluzione
 
-Verificare che il computer abbia accesso in uscita a *. azure-automation.net sulla porta 443.
+Verificare che il computer disponga dell'accesso in uscita a **.azure-automation.net** sulla porta 443.
 
-I computer che eseguono il ruolo di lavoro ibrido per Runbook devono soddisfare i requisiti hardware minimi prima che il thread di lavoro sia configurato per ospitare questa funzionalità. Manuali operativi e il processo in background che usano potrebbero causare il sovrautilizzo del sistema e causare ritardi o timeout del processo Runbook.
+I computer che eseguono il ruolo di lavoro ibrido per runbook devono soddisfare i requisiti hardware minimi prima che il worker sia configurato per ospitare questa funzionalità. I Runbook e il processo in background che usano potrebbero causare un esadio utilizzato dal sistema e causare ritardi o timeout dei processi del runbook.
 
-Verificare che il computer in cui è in esecuzione la funzionalità Hybrid Runbook Workers soddisfi i requisiti hardware minimi. In caso affermativo, monitorare l'utilizzo di CPU e memoria per determinare eventuali correlazioni tra le prestazioni dei processi del ruolo di lavoro ibrido per runbook e Windows. Qualsiasi pressione della memoria o della CPU può indicare la necessità di aggiornare le risorse. È anche possibile selezionare una risorsa di calcolo diversa che supporti i requisiti minimi e la scalabilità quando le richieste di carico di lavoro indicano che è necessario un aumento.
+Verificare che il computer per eseguire la funzionalità Hybrid Runbook Worker soddisfi i requisiti hardware minimi. In caso affermativo, monitorare l'utilizzo di CPU e memoria per determinare eventuali correlazioni tra le prestazioni dei processi del ruolo di lavoro ibrido per runbook e Windows. Qualsiasi pressione della memoria o della CPU può indicare la necessità di aggiornare le risorse. È inoltre possibile selezionare una risorsa di calcolo diversa che supporti i requisiti minimi e la scalabilità quando le richieste del carico di lavoro indicano che è necessario un aumento.
 
-Controllare il registro eventi **Microsoft-SMA** per un evento corrispondente con la descrizione *Processo Win32 terminato con codice [4294967295]* . La ragione di questo errore è che non è stata configurata l'autenticazione nella manuali operativi o sono state specificate le credenziali RunAs per il gruppo di lavoro ibrido per Runbook. Verificare le autorizzazioni di Runbook nell' [esecuzione di manuali operativi in un ruolo di lavoro ibrido per Runbook](../automation-hrw-run-runbooks.md) per verificare di avere configurato correttamente l'autenticazione per la manuali operativi.
+Controllare il registro eventi **di Microsoft-SMA** per un evento corrispondente con descrizione `Win32 Process Exited with code [4294967295]`. La causa di questo errore è che non è stata configurata l'autenticazione nei runbook o specificato le credenziali RunAs per il gruppo Hybrid Runbook Worker. Esaminare le autorizzazioni per i runbook in [Esecuzione dei runbook in un](../automation-hrw-run-runbooks.md) ruolo di lavoro ibrido per runbook per verificare che l'autenticazione per i runbook sia stata configurata correttamente.
 
-### <a name="no-cert-found"></a>Scenario: non è stato trovato alcun certificato nell'archivio certificati del ruolo di lavoro ibrido per Runbook
+### <a name="scenario-event-15011-in-hybrid-runbook-worker"></a><a name="cannot-connect-signalr"></a>Scenario: evento 15011 in Hybrid Runbook Worker
 
 #### <a name="issue"></a>Problema
 
-Un Runbook in esecuzione in un ruolo di lavoro ibrido per Runbook non riesce con il messaggio di errore seguente.
+Il ruolo di lavoro ibrido per runbook riceve l'evento 15011, che indica che il risultato di una query non è valido. Il seguente errore viene visualizzato quando il worker tenta di aprire una connessione con il [server SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
+
+```error
+[AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
+[Uri=https://cc-jobruntimedata-prod-su1.azure-automation.net/notifications/hub][Exception=System.TimeoutException: Transport timed out trying to connect
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at JobRuntimeData.NotificationsClient.JobRuntimeDataServiceSignalRClient.<Start>d__45.MoveNext()
+```
+
+#### <a name="cause"></a>Causa
+
+Il ruolo di lavoro ibrido per runbook non è stato configurato correttamente per la soluzione di distribuzione automatica. Questa soluzione contiene una parte che connette la macchina virtuale all'area di lavoro di Log Analytics.This solution contains a part that connects the VM to the Log Analytics workspace. Lo script di PowerShell cerca l'area di lavoro nella sottoscrizione con il nome fornito. In questo caso, l'area di lavoro di Log Analytics si trova in una sottoscrizione diversa. Lo script non riesce a trovare l'area di lavoro e tenta di crearne una, ma il nome è già stato eseguito. Pertanto la distribuzione non riesce.
+
+#### <a name="resolution"></a>Risoluzione
+
+Sono disponibili due opzioni per risolvere questo problema:
+
+* Modificare lo script di PowerShell per cercare l'area di lavoro di Log Analytics in un'altra sottoscrizione. Questa è una buona soluzione se si prevede di distribuire molte macchine ibride per runbook worker in futuro.
+
+* Configurare manualmente la macchina di lavoro per l'esecuzione in una sandbox di Orchestrator. Eseguire quindi un runbook creato nell'account di Automazione di Azure nel worker per testare la funzionalità.
+
+### <a name="scenario-windows-azure-vms-automatically-dropped-from-hybrid-worker-group"></a><a name="vm-automatically-dropped"></a>Scenario: macchine virtuali di Windows Azure eliminate automaticamente dal gruppo di lavoro ibridoScenario: Windows Azure VMs automatically dropped from hybrid worker group
+
+#### <a name="issue"></a>Problema
+
+Non è possibile visualizzare il lavoratore ibrido Runbook o le macchine virtuali quando la macchina di lavoro è stata spenta per molto tempo.
+
+#### <a name="cause"></a>Causa
+
+Il computer Hybrid Runbook Worker non esegue il ping di Automazione di Azure per più di 30 giorni. Di conseguenza, l'automazione ha eliminato il gruppo Hybrid Runbook Worker o il gruppo System Worker. 
+
+#### <a name="resolution"></a>Risoluzione
+
+Avviare il computer di lavoro e quindi registrarlo nuovamente con Automazione di Azure.Start the worker machine and then reregister it with Azure Automation. Vedere le istruzioni per l'installazione dell'ambiente runbook e la connessione ad Automazione di Azure in Distribuire un ruolo di lavoro ibrido di [Windows.](../automation-windows-hrw-install.md)
+
+### <a name="scenario-no-certificate-was-found-in-the-certificate-store-on-hybrid-runbook-worker"></a><a name="no-cert-found"></a>Scenario: nessun certificato trovato nell'archivio certificati in Hybrid Runbook Worker
+
+#### <a name="issue"></a>Problema
+
+Un runbook in esecuzione su un ruolo di lavoro ibrido Runbook ha esito negativo con il seguente messaggio di errore.
 
 ```error
 Connect-AzureRmAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
@@ -72,17 +112,17 @@ At line:3 char:1
 ```
 #### <a name="cause"></a>Causa
 
-Questo errore si verifica quando si tenta di usare un [account RunAs](../manage-runas-account.md) in un Runbook in esecuzione in un ruolo di lavoro ibrido per Runbook in cui il certificato dell'account RunAs non è presente. Per impostazione predefinita, i ruoli di lavoro ibridi per Runbook non hanno l'asset di certificato, che è necessario per il corretto funzionamento dell'account RunAs.
+Questo errore si verifica quando si tenta di utilizzare un [account RunAs](../manage-runas-account.md) in un runbook che viene eseguito in un lavoratore ibrido Runbook in cui il certificato di account RunAs non è presente. Ibrido Runbook I ruoli worker non dispongono dell'asset del certificato in locale per impostazione predefinita, operazione richiesta dall'account RunAs per funzionare correttamente.
 
 #### <a name="resolution"></a>Risoluzione
 
-Se il ruolo di lavoro ibrido per Runbook è una macchina virtuale di Azure, è invece possibile usare [identità gestite per le risorse di Azure](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) . Questo scenario semplifica l'autenticazione consentendo di eseguire l'autenticazione alle risorse di Azure usando l'identità gestita della macchina virtuale di Azure anziché l'account RunAs. Quando il ruolo di lavoro ibrido per Runbook è un computer locale, è necessario installare il certificato dell'account RunAs nel computer. Per informazioni su come installare il certificato, vedere la procedura per eseguire il Runbook Export-RunAsCertificateToHybridWorker di PowerShell in esecuzione di manuali operativi in un ruolo di [lavoro ibrido per Runbook](../automation-hrw-run-runbooks.md).
+Se il ruolo di lavoro ibrido per runbook è una macchina virtuale di Azure, è possibile usare [le identità gestite per le risorse](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) di Azure.If your Hybrid Runbook Worker is an Azure VM, you can use Managed identities for Azure resources instead. Questo scenario semplifica l'autenticazione consentendo di eseguire l'autenticazione alle risorse di Azure usando l'identità gestita della macchina virtuale di Azure anziché l'account RunAs. Quando il ruolo di lavoro ibrido per runbook è un computer locale, è necessario installare il certificato dell'account RunAs nel computer. Per informazioni su come installare il certificato, vedere la procedura per eseguire il runbook di PowerShell Export-RunAsCertificateToHybridWorker in [Running runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
-### <a name="error-403-on-registration"></a>Scenario: errore 403 durante la registrazione del ruolo di lavoro ibrido per Runbook
+### <a name="scenario-error-403-during-registration-of-hybrid-runbook-worker"></a><a name="error-403-on-registration"></a>Scenario: Errore 403 durante la registrazione del ruolo di lavoro ibrido per runbook
 
 #### <a name="issue"></a>Problema
 
-La fase di registrazione iniziale del processo di lavoro ha esito negativo e viene visualizzato l'errore seguente (403).
+La fase di registrazione iniziale del lavoratore non riesce e viene visualizzato il seguente errore (403).
 
 ```error
 "Forbidden: You don't have permission to access / on this server."
@@ -91,25 +131,25 @@ La fase di registrazione iniziale del processo di lavoro ha esito negativo e vie
 #### <a name="cause"></a>Causa
 
 Le possibili cause sono le seguenti:
-* È presente un ID dell'area di lavoro o una chiave dell'area di lavoro (primaria) non tipizzata nelle impostazioni dell'agente. 
-* Il ruolo di lavoro ibrido per Runbook non può scaricare la configurazione, causando un errore di collegamento dell'account. Quando Azure Abilita soluzioni, supporta solo determinate aree per collegare un'area di lavoro Log Analytics e un account di automazione. È anche possibile che nel computer sia impostata una data e/o un'ora errate. Se l'ora è +/-15 minuti dall'ora corrente, il caricamento ha esito negativo.
+* Nelle impostazioni dell'agente è presente un ID area di lavoro o una chiave dell'area di lavoro digitata in modo errato. 
+* Il ruolo di lavoro ibrido Runbook non è in grado di scaricare la configurazione, causando un errore di collegamento dell'account. Quando Azure abilita le soluzioni, supporta solo determinate aree per il collegamento di un'area di lavoro di Log Analytics e di un account di automazione. È anche possibile che nel computer siano impostate una data e/o un'ora errate. Se l'ora è di 15 minuti dall'ora corrente, l'onboarding non riesce.
 
 #### <a name="resolution"></a>Risoluzione
 
-##### <a name="mistyped-workspace-idkey"></a>ID/chiave dell'area di lavoro con digitazione
-Per verificare se l'ID dell'area di lavoro dell'agente o la chiave dell'area di lavoro è stata digitata in modo non riuscito, vedere [aggiunta o rimozione di un'area di lavoro-agente Windows](../../azure-monitor/platform/agent-manage.md#windows-agent) per l'agente Windows o [aggiunta o rimozione di un'area di lavoro-agente Linux](../../azure-monitor/platform/agent-manage.md#linux-agent) per l'agente Linux  Assicurarsi di selezionare la stringa completa dall'portale di Azure e copiarla e incollarla con cautela.
+##### <a name="mistyped-workspace-idkey"></a>ID/chiave dell'area di lavoro digitata in modo errato
+Per verificare se l'ID dell'area di lavoro dell'agente o la chiave dell'area di lavoro è stata digitata in modo errato, vedere Aggiunta o rimozione di [un'area](../../azure-monitor/platform/agent-manage.md#windows-agent) di lavoro, vedere Aggiunta o rimozione di un agente Windows per l'agente [Windows.](../../azure-monitor/platform/agent-manage.md#linux-agent)  Assicurarsi di selezionare la stringa completa dal portale di Azure e copiarla e incollarla con attenzione.
 
 ##### <a name="configuration-not-downloaded"></a>Configurazione non scaricata
 
-L'area di lavoro Log Analytics e l'account di automazione devono trovarsi in un'area collegata. Per un elenco delle aree supportate, vedere [automazione di Azure e mapping dell'area di lavoro log Analytics](../how-to/region-mappings.md).
+L'area di lavoro di Log Analytics e l'account di automazione devono trovarsi in un'area collegata. Per un elenco delle aree supportate, vedere [Mapping dell'area](../how-to/region-mappings.md)di lavoro di Automazione di Azure e Log Analytics .
 
-Potrebbe inoltre essere necessario aggiornare la data e il fuso orario del computer. Se si seleziona un intervallo di tempo personalizzato, assicurarsi che l'intervallo sia in formato UTC, che può essere diverso dal fuso orario locale.
+Potrebbe anche essere necessario aggiornare la data e il fuso orario del computer. Se si seleziona un intervallo di tempo personalizzato, assicurarsi che l'intervallo sia in formato UTC, che può differire dal fuso orario locale.
 
 ## <a name="linux"></a>Linux
 
-Il ruolo di lavoro ibrido per Runbook di Linux dipende dall' [agente log Analytics per Linux](../../azure-monitor/platform/log-analytics-agent.md) per comunicare con l'account di automazione per registrare il ruolo di lavoro, ricevere i processi Runbook e segnalare lo stato. Se la registrazione del ruolo di lavoro non riesce, ecco alcune possibili cause dell'errore:
+Linux Hybrid Runbook Worker dipende [dall'agente di Log Analytics per Linux per](../../azure-monitor/platform/log-analytics-agent.md) comunicare con l'account di automazione per registrare il lavoratore, ricevere processi runbook e segnalare lo stato. Se la registrazione del ruolo di lavoro non riesce, ecco alcune possibili cause dell'errore:
 
-### <a name="oms-agent-not-running"></a>Scenario: l'agente Log Analytics per Linux non è in esecuzione
+### <a name="scenario-the-log-analytics-agent-for-linux-isnt-running"></a><a name="oms-agent-not-running"></a>Scenario: L'agente di Log Analytics per Linux non è in esecuzione
 
 #### <a name="issue"></a>Problema
 
@@ -117,11 +157,11 @@ L'agente di Log Analytics per Linux non è in esecuzione
 
 #### <a name="cause"></a>Causa
 
-Se l'agente non è in esecuzione, impedisce al ruolo di lavoro ibrido per Runbook di Linux di comunicare con automazione di Azure. Per diversi motivi è possibile che l'agente non sia in esecuzione.
+Se l'agente non è in esecuzione, impedisce al ruolo di lavoro ibrido Linux di comunicare con L'automazione di Azure.If the agent isn't running, it prevents the Linux Hybrid Runbook Worker from communicating with Azure Automation. L'agente potrebbe non essere in esecuzione per vari motivi.
 
 #### <a name="resolution"></a>Risoluzione
 
- Verificare l'esecuzione dell'agente immettendo il comando seguente: `ps -ef | grep python`. L'output dovrebbe essere simile al seguente, i processi Python con l'account utente **nxautomation**. Se le soluzioni Gestione aggiornamenti e Automazione di Azure non sono abilitate, nessuno dei processi seguenti viene eseguito.
+ Verificare che l'agente `ps -ef | grep python`sia in esecuzione immettendo il comando . Si dovrebbe vedere un output simile al seguente, i processi Python con account utente **nxautomation.** Se la soluzione Update Management o Azure Automation non è abilitata, nessuno dei processi seguenti è in esecuzione.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -129,29 +169,29 @@ nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
 ```
 
-L'elenco seguente mostra i processi avviati per un ruolo di lavoro ibrido per runbook di Linux. Si trovano tutti nella directory `/var/opt/microsoft/omsagent/state/automationworker/`.
+L'elenco seguente mostra i processi avviati per un ruolo di lavoro ibrido per runbook di Linux. Tutti si trovano nella directory **/var/opt/microsoft/omsagent/state/automationworker/.**
 
-* **OMS. conf** : processo di gestione del ruolo di lavoro. Viene avviato direttamente da DSC.
+* **oms.conf** - Il processo di gestione dei lavoratori. Viene avviato direttamente da DSC.
 
-* **Worker. conf** : processo di lavoro ibrido registrato automaticamente. Viene avviato dal gestore del ruolo di lavoro. Questo processo viene usato da Gestione aggiornamenti ed è trasparente all'utente. Questo processo non è presente se la soluzione Gestione aggiornamenti non è abilitata nel computer.
+* **worker.conf** - Il processo di lavoro ibrido autoregistrato. Viene avviato dal gestore del ruolo di lavoro. Questo processo viene usato da Gestione aggiornamenti ed è trasparente all'utente. Questo processo non è presente se la soluzione Gestione aggiornamenti non è abilitata nel computer.
 
-* **DIY/Worker. conf** : il processo di lavoro ibrido DIY. Il processo del ruolo di lavoro ibrido registrato manualmente viene usato per eseguire i runbook dell'utente nel ruolo di lavoro ibrido per runbook. Si differenzia solo dal processo di lavoro ibrido registrato automaticamente nei dettagli chiave che usa una configurazione diversa. Questo processo non è presente se la soluzione automazione di Azure è disabilitata e il ruolo di lavoro ibrido per Linux DIY non è registrato.
+* **diy/worker.conf** - Il processo di lavoro ibrido fai da te. Il processo del ruolo di lavoro ibrido registrato manualmente viene usato per eseguire i runbook dell'utente nel ruolo di lavoro ibrido per runbook. Si differenzia solo dal processo di lavoro ibrido autoregistrato nel dettaglio chiave che utilizza una configurazione diversa. Questo processo non è presente se la soluzione di automazione di Azure è disabilitata e il ruolo di computer ibrido di Business E-Business Web Windows Ibrido di Windows Windows Non è stato registrato.
 
-Se l'agente non è in esecuzione, eseguire il comando seguente per avviare il servizio: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
+Se l'agente non è in esecuzione, eseguire `sudo /opt/microsoft/omsagent/bin/service_control restart`il comando seguente per avviare il servizio: .
 
-### <a name="class-does-not-exist"></a>Scenario: la classe specificata non esiste
+### <a name="scenario-the-specified-class-doesnt-exist"></a><a name="class-does-not-exist"></a>Scenario: la classe specificata non esiste
 
-Se viene visualizzato l'errore **, la classe specificata non esiste.** nel `/var/opt/microsoft/omsconfig/omsconfig.log`è necessario aggiornare l'agente Log Analytics per Linux. Eseguire il comando seguente per reinstallare l'agente:
+Se viene visualizzato `The specified class does not exist..` l'errore nel file **/var/opt/microsoft/omsconfig/omsconfig.log**, l'agente di Log Analytics per Linux deve essere aggiornato. Eseguire il comando seguente per reinstallare l'agente:
 
 ```bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
 ```
 
-## <a name="windows"></a>Windows
+## <a name="windows"></a>WINDOWS
 
-Il ruolo di lavoro ibrido per Runbook di Windows dipende dall' [agente di log Analytics per Windows](../../azure-monitor/platform/log-analytics-agent.md) per comunicare con l'account di automazione per registrare il ruolo di lavoro, ricevere i processi Runbook e segnalare lo stato. Se la registrazione del ruolo di lavoro non riesce, ecco alcune possibili cause dell'errore:
+Il ruolo di lavoro per runbook ibrido di Windows dipende [dall'agente di Log Analytics per Windows per](../../azure-monitor/platform/log-analytics-agent.md) comunicare con l'account di automazione per registrare il worker, ricevere processi di runbook e segnalare lo stato. Se la registrazione del lavoratore non riesce, questa sezione include alcuni possibili motivi.
 
-### <a name="mma-not-running"></a>Scenario: l'Microsoft Monitoring Agent non è in esecuzione
+### <a name="scenario-the-microsoft-monitoring-agent-isnt-running"></a><a name="mma-not-running"></a>Scenario: Microsoft Monitoring Agent non è in esecuzione
 
 #### <a name="issue"></a>Problema
 
@@ -159,29 +199,29 @@ Il servizio `healthservice` non è in esecuzione nel computer del ruolo di lavor
 
 #### <a name="cause"></a>Causa
 
-Se il Microsoft Monitoring Agent servizio Microsoft non è in esecuzione, questo stato impedisce al ruolo di lavoro ibrido per Runbook di comunicare con automazione di Azure.
+Se il servizio Microsoft Monitoring Agent non è in esecuzione, al ruolo di lavoro ibrido per runbook viene impedito di comunicare con Automazione di Azure.If the Microsoft Monitoring Agent service isn't running, the Hybrid Runbook Worker is implac from communicating with Azure Automation.
 
 #### <a name="resolution"></a>Risoluzione
 
-Verificare l'esecuzione dell'agente immettendo il comando seguente in PowerShell: `Get-Service healthservice`. Se il servizio viene arrestato, immettere il comando seguente in PowerShell per avviare il servizio: `Start-Service healthservice`.
+Verificare che l'agente sia in esecuzione `Get-Service healthservice`immettendo il comando seguente in PowerShell: . Se il servizio viene arrestato, immettere il comando seguente in PowerShell per avviare il servizio: `Start-Service healthservice`.
 
-### <a name="event-4502"></a>Scenario: evento 4502 nel log Operations Manager
+### <a name="scenario-event-4502-in-operations-manager-log"></a><a name="event-4502"></a>Scenario: evento 4502 nel registro di Operations Manager
 
 #### <a name="issue"></a>Problema
 
-Nel registro eventi di **Servizi\operations Manager dell'applicazione e dei servizi** vengono visualizzati gli eventi 4502 e eventMessage che contengono **Microsoft. EnterpriseManagement. HealthService. AzureAutomation. HybridAgent** con la seguente descrizione: *il certificato presentato dal servizio \<WSID\>. OMS.opinsights.Azure.com non è stato emesso da un'autorità di certificazione usata per i servizi Microsoft. Contattare l'amministratore di rete per verificare se è in esecuzione un proxy che intercetta la comunicazione TLS/SSL.*
+Nel registro eventi **Registri applicazioni e servizi di Operations Manager** vengono visualizzati gli eventi 4502 e EventMessage con `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` la seguente descrizione:<br>`The certificate presented by the service \<wsid\>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Please contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.`
 
 #### <a name="cause"></a>Causa
 
-Questo problema può essere causato dal firewall proxy o di rete che blocca la comunicazione con Microsoft Azure. Verificare che il computer abbia accesso in uscita a *.azure-automation.net sulle porte 443. 
+Questo problema può essere causato dal firewall proxy o di rete che blocca la comunicazione con Microsoft Azure. Verificare che il computer disponga dell'accesso in uscita a **.azure-automation.net** sulla porta 443. 
 
 #### <a name="resolution"></a>Risoluzione
 
-I log vengono archiviati localmente in ogni ruolo di lavoro ibrido in C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. È possibile verificare se sono presenti eventi di avviso o di errore nel registro eventi di **Logs\Microsoft-SMA\Operations** e **Application and Services servizi\operations Manager** , che indicano una connettività o un altro problema che influiscono sull'onboarding del ruolo in automazione di Azure o sul problema durante le normali operazioni. Per ulteriori informazioni sulla risoluzione dei problemi relativi all'agente di Log Analytics, vedere [risolvere i problemi relativi all'agente di log Analytics Windows](../../azure-monitor/platform/agent-windows-troubleshoot.md).
+I registri vengono archiviati in locale in ogni worker ibrido in **C:** È possibile verificare se sono presenti eventi di avviso o di errore nei registri dell'applicazione e dei **servizi, ovvero Microsoft-SMA, Operations** e **registri applicazioni e servizi, Operations Manager.** Questi log indicano una connettività o un altro tipo di problema che influisce sull'onboarding del ruolo in Automazione di Azure o un problema rilevato durante le normali operazioni. Per ulteriori informazioni sulla risoluzione dei problemi relativi all'agente di Log Analytics, vedere [Risolvere i problemi relativi all'agente Windows di Log Analytics.](../../azure-monitor/platform/agent-windows-troubleshoot.md)
 
-[Output di runbook e messaggi](../automation-runbook-output-and-messages.md) vengono inviati ad Automazione di Azure da ruoli di lavoro ibridi nello stesso modo in cui vengono eseguiti i processi per runbook nel cloud. È anche possibile abilitare i flussi Verbose e Progress come per qualsiasi altro runbook.
+I lavoratori ibridi inviano [l'output e](../automation-runbook-output-and-messages.md) i messaggi di Runbook ad Automazione di Azure nello stesso modo in cui i processi di runbook in esecuzione nel cloud inviano messaggi e output. È possibile abilitare i flussi Dettagliato e Stato come per i runbook.
 
-### <a name="corrupt-cache"></a>Scenario: il ruolo di lavoro ibrido per Runbook non segnala
+### <a name="scenario-hybrid-runbook-worker-not-reporting"></a><a name="corrupt-cache"></a>Scenario: lavoratore runbook ibrido non segnalatoScenario: Hybrid Runbook Worker not reporting
 
 #### <a name="issue"></a>Problema
 
@@ -201,7 +241,7 @@ Questo problema può essere causato da una cache danneggiata nel ruolo di lavoro
 
 #### <a name="resolution"></a>Risoluzione
 
-Per risolvere questo problema, accedere al ruolo di lavoro ibrido per runbook ed eseguire lo script seguente. Questo script arresta Microsoft Monitoring Agent, rimuove la cache e riavvia il servizio. Questa azione impone al ruolo di lavoro ibrido per Runbook di riscaricare la configurazione da automazione di Azure.
+Per risolvere questo problema, accedere al ruolo di lavoro ibrido per runbook ed eseguire lo script seguente. Questo script arresta Microsoft Monitoring Agent, rimuove la cache e riavvia il servizio. Questa azione costringe il ruolo di lavoro ibrido per runbook a scaricare nuovamente la configurazione da Automazione di Azure.
 
 ```powershell
 Stop-Service -Name HealthService
@@ -211,7 +251,7 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 Start-Service -Name HealthService
 ```
 
-### <a name="already-registered"></a>Scenario: non è possibile aggiungere un ruolo di lavoro ibrido per Runbook
+### <a name="scenario-you-cant-add-a-hybrid-runbook-worker"></a><a name="already-registered"></a>Scenario: You can't add a Hybrid Runbook Worker
 
 #### <a name="issue"></a>Problema
 
@@ -223,11 +263,11 @@ Machine is already registered
 
 #### <a name="cause"></a>Causa
 
-Questo problema può essere causato dal fatto che il computer è già registrato con un account di automazione diverso o se si prova a leggere il ruolo di lavoro ibrido per runbook dopo averlo rimosso da un computer.
+Questo problema può essere causato se il computer è già registrato con un account di automazione diverso o se si tenta di aggiungere nuovamente il ruolo di lavoro ibrido Runbook dopo averlo rimosso da un computer.
 
 #### <a name="resolution"></a>Risoluzione
 
-Per risolvere questo problema, rimuovere la chiave del Registro di sistema seguente, riavviare `HealthService` e provare di nuovo a eseguire il cmdlet `Add-HybridRunbookWorker`:
+Per risolvere questo problema, rimuovere la `HealthService`seguente chiave `Add-HybridRunbookWorker` del Registro di sistema, riavviare il e riprovare a utilizzare il cmdlet.
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 
@@ -235,6 +275,6 @@ Per risolvere questo problema, rimuovere la chiave del Registro di sistema segue
 
 Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
 
-* Ottieni risposte dagli esperti di Azure tramite i [forum di Azure](https://azure.microsoft.com/support/forums/)
-* Collegarsi a [@AzureSupport](https://twitter.com/azuresupport), l'account Microsoft Azure ufficiale per il miglioramento dell'esperienza dei clienti che mette in contatto la community di Azure con le risorse corrette: risposte, supporto ed esperti.
-* Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.
+* Ottieni risposte dagli esperti di Azure tramite i forum di [Azure.](https://azure.microsoft.com/support/forums/)
+* Connettiti [@AzureSupport](https://twitter.com/azuresupport) con l'account ufficiale di Microsoft Azure per migliorare l'esperienza dei clienti connettendo la community di Azure alle risorse giuste: risposte, supporto ed esperti.
+* Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Passare al [sito del supporto](https://azure.microsoft.com/support/options/) di Azure e selezionare Ottieni **supporto**.

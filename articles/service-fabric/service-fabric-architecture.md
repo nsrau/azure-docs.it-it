@@ -1,14 +1,14 @@
 ---
-title: Architettura di Service Fabric di Azure
-description: In questo articolo viene illustrata l'architettura di Service Fabric, una piattaforma di sistemi distribuiti utilizzata per compilare applicazioni scalabili, affidabili e facilmente gestibili per il cloud.
+title: Architettura di Azure Service Fabric
+description: In questo articolo viene illustrata l'architettura di Service Fabric, una piattaforma di sistemi distribuiti utilizzata per creare applicazioni scalabili, affidabili e facilmente gestibili per il cloud.
 services: service-fabric
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.openlocfilehash: 972700dded1841994de9252b4aa4bbc8eaefeaf8
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76024702"
 ---
 # <a name="service-fabric-architecture"></a>Architettura di Service Fabric
@@ -40,7 +40,7 @@ Il sottosistema di affidabilità offre il meccanismo che consente l'elevata disp
 
 * Il replicatore verifica che i cambiamenti di stati nella replica di servizi primaria vengano replicati automaticamente nelle repliche secondarie, mantenendo la coerenza tra le repliche primaria e secondarie in un set di repliche di servizi. Il replicatore è responsabile della gestione del quorum tra le repliche nel set di repliche. Interagisce con l'unità di failover per ottenere l'elenco di operazioni da replicare e l'agente di riconfigurazione gli fornisce la configurazione del set di repliche. Tale configurazione indica le operazioni di replica che devono essere replicate. Service Fabric fornisce un replicatore predefinito denominato Fabric Replicator, che può essere usato dall'API del modello di programmazione in modo da garantire l'elevata disponibilità e l'affidabilità dello stato dei servizi.
 * Gestione failover garantisce che con l'aggiunta o la rimozione di nodi dal cluster, il carico venga automaticamente ridistribuito tra i nodi disponibili. Se si verifica un errore in un nodo del cluster, il cluster riconfigurerà automaticamente le repliche di servizi per mantenere la disponibilità.
-* Il Gestione risorse inserisce le repliche del servizio tra domini di errore nel cluster e garantisce che tutte le unità di failover siano operative. Resource Manager applica inoltre il bilanciamento delle risorse del servizio al pool condiviso sottostante di nodi del cluster per garantire una distribuzione del carico uniforme e ottimale.
+* Gestione risorse posiziona le repliche del servizio tra i domini di errore nel cluster e garantisce che tutte le unità di failover siano operative. Resource Manager applica inoltre il bilanciamento delle risorse del servizio al pool condiviso sottostante di nodi del cluster per garantire una distribuzione del carico uniforme e ottimale.
 
 ## <a name="management-subsystem"></a>Sottosistema di gestione
 

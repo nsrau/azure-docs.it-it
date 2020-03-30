@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 2c021a6d10c95b58ac444de8ea895ca01371a2b0
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75902448"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Gestione degli errori nei criteri di Gestione API
@@ -59,7 +59,7 @@ La sezione dei criteri `on-error` può essere usata in qualsiasi ambito. Gli aut
 
 È possibile usare i seguenti criteri nella sezione di criteri `on-error`.
 
--   [choose](api-management-advanced-policies.md#choose)
+-   [Scegliere](api-management-advanced-policies.md#choose)
 -   [set-variable](api-management-advanced-policies.md#set-variable)
 -   [find-and-replace](api-management-transformation-policies.md#Findandreplacestringinbody)
 -   [return-response](api-management-advanced-policies.md#ReturnResponse)
@@ -67,18 +67,18 @@ La sezione dei criteri `on-error` può essere usata in qualsiasi ambito. Gli aut
 -   [set-method](api-management-advanced-policies.md#SetRequestMethod)
 -   [set-status](api-management-advanced-policies.md#SetStatus)
 -   [send-request](api-management-advanced-policies.md#SendRequest)
--   [send-one-way-request](api-management-advanced-policies.md#SendOneWayRequest)
+-   [inviare un i-way-request](api-management-advanced-policies.md#SendOneWayRequest)
 -   [log-to-eventhub](api-management-advanced-policies.md#log-to-eventhub)
 -   [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML)
 -   [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON)
 
 ## <a name="lasterror"></a>lastError
 
-Quando si verifica un errore e il controllo passa alla sezione dei criteri di `on-error`, l'errore viene archiviato nel [contesto. Proprietà LastError](api-management-policy-expressions.md#ContextVariables) , a cui è possibile accedere dai criteri nella sezione `on-error`. LastError ha le seguenti proprietà.
+Quando si verifica un errore `on-error` e il controllo passa alla sezione dei criteri, l'errore viene archiviato nel [contesto. LastError,](api-management-policy-expressions.md#ContextVariables) accessibile dai criteri nella `on-error` sezione. LastError ha le seguenti proprietà.
 
-| Nome       | Tipo   | Description                                                                                               | Obbligatorio |
+| Nome       | Type   | Descrizione                                                                                               | Obbligatoria |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------- | -------- |
-| `Source`   | string | Indica l'elemento in cui si è verificato l'errore. Può essere un criterio o un nome di passaggio della pipeline predefinito.      | Sì      |
+| `Source`   | string | Indica l'elemento in cui si è verificato l'errore. Potrebbe essere un criterio o un nome di passaggio della pipeline predefinito.      | Sì      |
 | `Reason`   | string | Codice errore leggibile tramite computer, da utilizzare se necessario nella gestione degli errori.                                       | No       |
 | `Message`  | string | Descrizione dell'errore leggibile dall'utente.                                                                         | Sì      |
 | `Scope`    | string | Nome dell'ambito in cui si è verificato l'errore. Può essere "global", "product", "api" o "operation" | No       |
@@ -96,20 +96,20 @@ Quando si verifica un errore e il controllo passa alla sezione dei criteri di `o
 
 Gli errori seguenti sono predefiniti per le condizioni di errore che possono verificarsi durante la valutazione dei passaggi di elaborazione predefiniti.
 
-| Origine        | Condizione                                 | Motivo                  | Messaggio                                                                                                                |
+| Source (Sorgente)        | Condizione                                 | Motivo                  | Message                                                                                                                |
 | ------------- | ----------------------------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | configurazione | L'URI non corrisponde a un'API o a un'operazione | OperationNotFound       | Impossibile associare la richiesta in ingresso a un'operazione.                                                                      |
 | authorization | Chiave di sottoscrizione non fornita             | SubscriptionKeyNotFound | Accesso negato, chiave di sottoscrizione mancante. Assicurarsi di includere la chiave di sottoscrizione quando si effettuano richieste a questa API. |
 | authorization | Il valore della chiave di sottoscrizione non è valido         | SubscriptionKeyInvalid  | Accesso negato, la chiave di sottoscrizione non è valida. Assicurarsi di fornire la chiave valida di una sottoscrizione attiva.            |
-| multiple | La connessione downstream (da un client a un gateway di gestione API) è stata interrotta dal client mentre la richiesta era in sospeso | ClientConnectionFailure | multiple |
-| multiple | La connessione upstream (da un gateway di gestione API a un servizio back-end) non è stata stabilita o è stata interrotta dal back-end | BackendConnectionFailure | multiple |
-| multiple | Si è verificata un'eccezione in fase di esecuzione durante la valutazione di un'espressione particolare | ExpressionValueEvaluationFailure | multiple |
+| multipli | La connessione downstream (da un client a un gateway di Gestione API) è stata interrotta dal client mentre la richiesta era in sospeso | ClientConnectionFailure | multipli |
+| multipli | La connessione upstream (da un gateway di Gestione API a un servizio back-end) non è stata stabilita o è stata interrotta dal back-end | BackendConnectionFailure | multipli |
+| multipli | Si è verificata un'eccezione di runtime durante la valutazione di una particolare espressione | EspressioneValueEvaluationFailure | multipli |
 
 ## <a name="predefined-errors-for-policies"></a>Errori predefiniti per i criteri
 
 Gli errori seguenti sono predefiniti per le condizioni di errore che possono verificarsi durante la valutazione dei criteri.
 
-| Origine       | Condizione                                                       | Motivo                    | Messaggio                                                                                                                              |
+| Source (Sorgente)       | Condizione                                                       | Motivo                    | Message                                                                                                                              |
 | ------------ | --------------------------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | rate-limit   | Limite di velocità superato                                             | RateLimitExceeded         | Il limite di velocità è stato superato                                                                                                               |
 | quota        | La quota è stata superata                                                  | QuotaExceeded             | La quota del volume di chiamate è esaurita. La quota verrà ripristinata in xx:xx:xx. -oppure- La quota della larghezza di banda è esaurita. La quota verrà ripristinata in xx:xx:xx. |
@@ -128,7 +128,7 @@ Gli errori seguenti sono predefiniti per le condizioni di errore che possono ver
 | validate-jwt | Attestazioni necessarie non presenti nel token                          | TokenClaimNotFound        | Il token JWT non contiene le attestazioni seguenti: <c1\>, <c2\>, … Accesso negato.                                                            |
 | validate-jwt | I valori di attestazione non corrispondono                                           | TokenClaimValueNotAllowed | Il valore {claim-value} dell'attestazione {claim-name} non è consentito. Accesso negato.                                                             |
 | validate-jwt | Altri errori di convalida                                       | JwtInvalid                | <messaggio dalla libreria JWT\>                                                                                                          |
-| inoltra-request o Send-request | Il codice di stato della risposta HTTP e le intestazioni non sono state ricevute dal back-end entro il timeout configurato | Timeout | multiple |
+| inoltrare o inviare-richiesta | Il codice di stato della risposta HTTP e le intestazioni non sono state ricevute dal back-end entro il timeout configurato | Timeout | multipli |
 
 ## <a name="example"></a>Esempio
 

@@ -1,5 +1,5 @@
 ---
-title: "Rete WAN virtuale: creare una tabella di route dell'hub virtuale in appliance virtuale di rete: Azure PowerShell"
+title: 'Virtual WAN: Create virtual hub route table to NVA: Azure PowerShell'
 description: Tabella di route dell'hub virtuale della rete WAN virtuale per indirizzare il traffico a un'appliance virtuale di rete.
 services: virtual-wan
 author: cherylmc
@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
 ms.openlocfilehash: a55e1453fe7fe4d135286b22dabf58d434762581
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645107"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Creare una tabella di route dell'hub virtuale per indirizzare il traffico a un'appliance virtuale di rete
@@ -36,14 +36,14 @@ In questo articolo viene spiegato come:
 
 Verificare di aver soddisfatto i criteri seguenti:
 
-1. Si dispone di un'appliance virtuale di rete (NVA). Si tratta di un software di terze parti che si sceglie di cui viene eseguito il provisioning in genere da Azure Marketplace in una rete virtuale.
+1. Si dispone di un network Virtual Appliance (NVA). Si tratta di un software di terze parti di propria scelta che viene in genere sottoposto a provisioning da Azure Marketplace in una rete virtuale.
 2. Un indirizzo IP privato assegnato all'interfaccia di rete dell'appliance virtuale di rete. 
-3. Non è possibile distribuire l'appliance virtuale di dispositivo nell'hub virtuale. Deve essere distribuita in una rete virtuale separata. Per questo articolo, la rete virtuale dell'appliance virtuale di rete viene definita "rete virtuale della rete perimetrale".
+3. L'appliance virtuale di rete non può essere distribuita nell'hub virtuale. Deve essere distribuita in una rete virtuale separata. Per questo articolo, la rete virtuale dell'appliance virtuale di rete viene definita "rete virtuale della rete perimetrale".
 4. La "rete virtuale della rete perimetrale" può avere una o più reti virtuali connesse ad essa. In questo articolo viene fatto riferimento alla rete virtuale come "rete virtuale spoke indiretta". Queste reti virtuali possono essere connesse alla rete virtuale della rete perimetrale usando il peering reti virtuali.
 5. Verificare di avere 2 reti virtuali già create. Queste verranno usate come reti virtuali spoke. Per questo articolo, gli spazi di indirizzi della rete virtuale spoke sono 10.0.2.0/24 e 10.0.3.0/24. Se sono necessarie informazioni su come creare una rete virtuale, vedere [Creare una rete virtuale usando PowerShell](../virtual-network/quick-create-powershell.md).
 6. Assicurarsi che non ci siano gateway di rete virtuale in nessuna rete virtuale.
 
-## <a name="signin"></a>1. accedi
+## <a name="1-sign-in"></a><a name="signin"></a>1. Accedi
 
 Assicurarsi di installare la versione più recente dei cmdlet di PowerShell per Resource Manager. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Questo elemento è importante perché le versioni precedenti dei cmdlet non contengono i valori correnti necessari per questo esercizio.
 
@@ -63,7 +63,7 @@ Assicurarsi di installare la versione più recente dei cmdlet di PowerShell per 
    Select-AzSubscription -SubscriptionName "Name of subscription"
    ```
 
-## <a name="rg"></a>2. creare le risorse
+## <a name="2-create-resources"></a><a name="rg"></a>2. Creare risorse
 
 1. Creare un gruppo di risorse.
 
@@ -81,7 +81,7 @@ Assicurarsi di installare la versione più recente dei cmdlet di PowerShell per 
    New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "westushub" -AddressPrefix "10.0.1.0/24" -Location "West US"
    ```
 
-## <a name="connections"></a>3. creare connessioni
+## <a name="3-create-connections"></a><a name="connections"></a>3. Creare connessioni
 
 Creare le connessioni dell'hub di rete virtuale dalla rete virtuale spoke indiretta e dalla rete virtuale di rete perimetrale all'hub virtuale.
 
@@ -95,7 +95,7 @@ Creare le connessioni dell'hub di rete virtuale dalla rete virtuale spoke indire
   New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "westushub" -Name  "testvnetconnection3" -RemoteVirtualNetwork $remoteVirtualNetwork3
   ```
 
-## <a name="route"></a>4. creare una route di hub virtuale
+## <a name="4-create-a-virtual-hub-route"></a><a name="route"></a>4. Creare un percorso hub virtuale
 
 Per questo articolo, gli spazi di indirizzi della rete virtuale spoke indiretta sono 10.0.2.0/24 e 10.0.3.0/24 e l'indirizzo IP privato dell'interfaccia di rete della rete virtuale della rete perimetrale è 10.0.4.5.
 
@@ -103,7 +103,7 @@ Per questo articolo, gli spazi di indirizzi della rete virtuale spoke indiretta 
 $route1 = New-AzVirtualHubRoute -AddressPrefix @("10.0.2.0/24", "10.0.3.0/24") -NextHopIpAddress "10.0.4.5"
 ```
 
-## <a name="applyroute"></a>5. creare una tabella di route dell'hub virtuale
+## <a name="5-create-a-virtual-hub-route-table"></a><a name="applyroute"></a>5. Creare una tabella di route dell'hub virtuale
 
 Creare una tabella di route dell'hub virtuale, quindi applicarvi la route creata.
  
@@ -111,7 +111,7 @@ Creare una tabella di route dell'hub virtuale, quindi applicarvi la route creata
 $routeTable = New-AzVirtualHubRouteTable -Route @($route1)
 ```
 
-## <a name="commit"></a>6. eseguire il commit delle modifiche
+## <a name="6-commit-the-changes"></a><a name="commit"></a>6. Eseguire il commit delle modifiche
 
 Eseguire il commit delle modifiche nell'hub virtuale.
 

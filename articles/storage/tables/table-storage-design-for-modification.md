@@ -1,6 +1,6 @@
 ---
-title: Progettare l'archiviazione tabelle di Azure per la modifica dei dati | Microsoft Docs
-description: Progettare tabelle per la modifica dei dati nell'archiviazione tabelle di Azure.
+title: Progettare l'archiviazione delle tabelle di Azure per la modifica dei dati. Documenti Microsoft
+description: Progettare tabelle per la modifica dei dati in Archiviazione tabelle di Azure.Design tables for data modification in Azure Table storage.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: c95be7afae5c0a84c06b691c8225f32f2aa68260
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75771547"
 ---
 # <a name="design-for-data-modification"></a>Progettazione per la modifica dei dati
@@ -33,14 +33,14 @@ L'altro aspetto importante che influisce sulla scelta delle chiavi per ottimizza
 
 I modelli seguenti nell'articolo [Modelli di progettazione tabella](table-storage-design-patterns.md) consentono la gestione della coerenza:  
 
-* [Modello per indice secondario intrapartizione](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) - Archivia più copie di ogni entità usando valori **RowKey** diversi (nella stessa partizione) per consentire ricerche rapide ed efficienti e ordinamenti alternativi usando valori **RowKey** diversi.  
+* Modello di [indice secondario tra partizioni:](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) archiviare più copie di ogni entità usando valori **RowKey** diversi (nella stessa partizione) per abilitare ricerche rapide ed efficienti e ordinamenti alternativi usando valori **RowKey** diversi.  
 * [Modello per indice secondario intrapartizione](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) - Archivia più copie di ogni entità usando valori RowKey diversi in partizioni separate o in tabelle separate per consentire ricerche rapide ed efficienti e ordinamenti alternativi usando valori **RowKey** diversi.  
 * [Modello per transazioni con coerenza finale](table-storage-design-patterns.md#eventually-consistent-transactions-pattern) - Abilita un comportamento di coerenza finale tra i limiti della partizione o i limiti del sistema di archiviazione usando le code di Azure.
-* [Modello per entità di indice](table-storage-design-patterns.md#index-entities-pattern) - Mantiene le entità di indice per consentire ricerche efficienti che restituiscano elenchi di entità.  
+* [Modello di entità di indice:](table-storage-design-patterns.md#index-entities-pattern) gestire le entità di indice per abilitare ricerche efficienti che restituiscono elenchi di entità.  
 * [Modello di denormalizzazione](table-storage-design-patterns.md#denormalization-pattern) - Combina i dati correlati in una singola entità per consentire di recuperare tutti i dati necessari con un sola query di tipo punto.  
 * [Modello di serie di dati](table-storage-design-patterns.md#data-series-pattern) - Archivia serie di dati complete in un'unica entità per ridurre al minimo il numero di richieste effettuate.  
 
-Per informazioni sulle transazioni di gruppi di entità, vedere la sezione [Transazioni di gruppi di entità](table-storage-design.md#entity-group-transactions).  
+Per informazioni sulle transazioni del gruppo di entità, vedere la sezione [Transazioni gruppo](table-storage-design.md#entity-group-transactions)di entità .  
 
 ## <a name="ensure-your-design-for-efficient-modifications-facilitates-efficient-queries"></a>Verificare che la capacità della progettazione per modifiche efficienti consenta query efficienti
 In molti casi, una progettazione per query efficienti consente modifiche efficienti, ma è consigliabile valutare sempre se questa condizione si applica a uno specifico scenario. Alcuni dei modelli nell'articolo [Modelli di progettazione tabelle](table-storage-design-patterns.md) valutano in modo esplicito i compromessi tra la query e la modifica delle entità. Inoltre è sempre consigliabile tenere in considerazione il numero di ogni tipo di operazione.  

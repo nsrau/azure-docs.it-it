@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 0755c01fe8e13e8e39c0b453198f2b67c51a2bc4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67180346"
 ---
 #### <a name="to-download-hotfixes"></a>Scaricare gli hotfix
 
 Eseguire i passaggi seguenti per scaricare l'aggiornamento del software da Microsoft Update Catalog.
 
-1. Avviare Internet Explorer e passare a [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
+1. Avviare Internet Explorer [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com)e passare a .
 2. Se si usa Microsoft Update Catalog nel computer per la prima volta, fare clic su **Installa** quando viene richiesto di installare il componente aggiuntivo Microsoft Update Catalog.
 
     ![Installare il catalogo](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
@@ -26,7 +26,7 @@ Eseguire i passaggi seguenti per scaricare l'aggiornamento del software da Micro
    
     ![Cercare nel catalogo](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 
-4. Fare clic su **Download**. Specificare o **sfogliare** il percorso locale in cui si desidera salvare il file scaricato. Fare clic sui file da scaricare nel percorso e nella cartella specificati. Inoltre, la cartella può essere copiata in una condivisione di rete raggiungibile dal dispositivo.
+4. Fare clic su **Download** Specificare o **sfogliare** il percorso locale in cui si desidera salvare il file scaricato. Fare clic sui file da scaricare nel percorso e nella cartella specificati. Inoltre, la cartella può essere copiata in una condivisione di rete raggiungibile dal dispositivo.
 5. Cercare gli eventuali hotfix aggiuntivi elencati nella tabella precedente (**4011841**) e scaricare i file corrispondenti nelle cartelle specifiche indicate in tale tabella.
 
 > [!NOTE]
@@ -107,7 +107,7 @@ Per installare e verificare gli aggiornamenti rapidi in modalità normale, segui
      > Prima di applicare l'aggiornamento successivo è necessario riavviare il controller attivo tramite il cmdlet `Restart-HcsController`.
      
 7. Ripetere i passaggi 3-5 per installare l'agente Cis/MDS scaricato nella cartella _FirstOrderUpdate_. 
-8. Ripetere i passaggi da 3 a 5 per installare gli aggiornamenti di secondo livello. **Per gli aggiornamenti di secondo livello, è possibile installare più aggiornamenti eseguendo semplicemente `Start-HcsHotfix cmdlet` e puntando alla cartella in cui si trovano gli aggiornamenti di secondo livello. Il cmdlet eseguirà tutti gli aggiornamenti disponibili nella cartella.** Se è già installato un aggiornamento, la logica di aggiornamento lo rileva e non applica l'aggiornamento. 
+8. Ripetere i passaggi da 3 a 5 per installare gli aggiornamenti di secondo livello. **Per gli aggiornamenti di secondo ordine, è `Start-HcsHotfix cmdlet` possibile installare più aggiornamenti semplicemente eseguendo e puntando alla cartella in cui si trovano gli aggiornamenti di secondo ordine. Il cmdlet eseguirà tutti gli aggiornamenti disponibili nella cartella.** Se è già installato un aggiornamento, la logica di aggiornamento lo rileva e non applica l'aggiornamento. 
 
 Dopo aver installato tutti gli hotfix, usare il cmdlet `Get-HcsSystem`. Le versioni devono essere:
 
@@ -123,7 +123,7 @@ Se il firmware del disco è già aggiornato, non è necessario installare questi
 
 Per installare gli aggiornamenti del firmware del disco, seguire le istruzioni riportate sotto.
 
-1. Attivare la modalità di manutenzione per il dispositivo. **Non è consigliabile usare Windows PowerShell in remoto quando ci si connette a un dispositivo in modalità di manutenzione. Eseguire questo cmdlet nel controller del dispositivo quando si è connessi tramite la console seriale del dispositivo.** Digitare:
+1. Attivare la modalità di manutenzione per il dispositivo. **Si noti che è consigliabile non utilizzare la comunicazione remota di Windows PowerShell quando ci si connette a un dispositivo in modalità di manutenzione. Eseguire invece questo cmdlet sul controller del dispositivo quando si è connessi tramite la console seriale del dispositivo.** Digitare:
    
     `Enter-HcsMaintenanceMode`
    

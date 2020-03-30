@@ -1,13 +1,13 @@
 ---
-title: Modello di applicazione Service Fabric di Azure
-description: Come modellare e descrivere le applicazioni e i servizi in Azure Service Fabric usando i file manifesto dell'applicazione e del servizio.
+title: Modello di applicazione di Azure Service FabricAzure Service Fabric application model
+description: Come modellare e descrivere applicazioni e servizi in Azure Service Fabric usando i file del manifesto dell'applicazione e del servizio.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 7179686b7d4ef2df267cb95ece8f83d5fb7682b8
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75551880"
 ---
 # <a name="model-an-application-in-service-fabric"></a>Modellare un'applicazione in Service Fabric

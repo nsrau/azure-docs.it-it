@@ -1,9 +1,9 @@
 ---
-title: Creare & gestire le risorse nella gestione dei diritti-Azure AD
-description: Informazioni su come creare un nuovo contenitore di risorse e accedere ai pacchetti in Azure Active Directory gestione dei diritti.
+title: Creare & gestire le risorse nella gestione dei diritti - Azure ADCreate a manage resources in entitlement management - Azure AD
+description: Informazioni su come creare un nuovo contenitore di risorse e pacchetti di accesso nella gestione dei diritti di Azure Active Directory.Learn how to create a new container of resources and access packages in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: HANKI
 ms.service: active-directory
@@ -12,66 +12,66 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/07/2019
-ms.author: ajburnle
+ms.date: 03/22/2020
+ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5895ed256fa5f0337b74d9dbe14c4074dad4b522
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: dbafb0c506fd34e975efbe08c75c15c8c0b3888e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79261866"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128947"
 ---
-# <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Creare e gestire un catalogo di risorse in Azure AD gestione dei diritti
+# <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Creare e gestire un catalogo di risorse nella gestione dei diritti di Azure ADCreate and manage a catalog of resources in Azure AD entitlement management
 
 ## <a name="create-a-catalog"></a>Creare un catalogo
 
-Un catalogo è un contenitore di risorse e pacchetti di accesso. Si crea un catalogo quando si desidera raggruppare le risorse correlate e accedere ai pacchetti. Chi crea il catalogo diventa il primo proprietario del catalogo. Un proprietario del catalogo può aggiungere altri proprietari del catalogo.
+Un catalogo è un contenitore di risorse e pacchetti di accesso. Creare un catalogo quando si desidera raggruppare le risorse correlate e accedere ai pacchetti. Chiunque crei il catalogo diventa il primo proprietario del catalogo. Il proprietario di un catalogo può aggiungere altri proprietari del catalogo.
 
-**Ruolo prerequisiti:** Amministratore globale, amministratore utente o autore del catalogo
+**Ruolo prerequisito:** Amministratore globale, amministratore utente o creatore del catalogo
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
-1. Nel menu a sinistra fare clic su **cataloghi**.
+1. Nel menu a sinistra, fare clic su **Cataloghi.**
 
-    ![Cataloghi di gestione dei diritti nel portale di Azure](./media/entitlement-management-catalog-create/catalogs.png)
+    ![Cataloghi di gestione dei diritti nel portale di AzureEntitlement management catalogs in the Azure portal](./media/entitlement-management-catalog-create/catalogs.png)
 
-1. Fare clic su **nuovo catalogo**.
+1. Fare clic su **Nuovo catalogo**.
 
-1. Immettere un nome univoco per il catalogo e specificare una descrizione.
+1. Immettere un nome univoco per il catalogo e fornire una descrizione.
 
-    Gli utenti visualizzeranno queste informazioni nei dettagli del pacchetto di accesso.
+    Gli utenti vedranno queste informazioni nei dettagli di un pacchetto di accesso.
 
-1. Se si desidera che i pacchetti di accesso in questo catalogo siano disponibili per richiedere agli utenti non appena vengono creati, impostare **abilitato** su **Sì**.
+1. Se si desidera che i pacchetti di accesso in questo catalogo siano disponibili per la richiesta da parte degli utenti non appena vengono creati, impostare **Abilitato** su **Sì**.
 
-1. Se si desidera consentire agli utenti di directory esterne selezionate di richiedere pacchetti di accesso in questo catalogo, impostare **abilitato per utenti esterni** su **Sì**.
+1. Se si desidera consentire agli utenti delle directory esterne selezionate di richiedere pacchetti di accesso in questo catalogo, impostare **Abilitato per gli utenti esterni** su **Sì**.
 
-    ![Nuovo riquadro Catalogo](./media/entitlement-management-shared/new-catalog.png)
+    ![Nuovo riquadro del catalogo](./media/entitlement-management-shared/new-catalog.png)
 
 1. Fare clic su **Crea** per creare il catalogo.
 
-### <a name="creating-a-catalog-programmatically"></a>Creazione di un catalogo a livello di codice
+### <a name="creating-a-catalog-programmatically"></a>Creazione di un catalogo a livello di codiceCreating a catalog programmatically
 
-È anche possibile creare un catalogo usando Microsoft Graph.  Un utente con un ruolo appropriato con un'applicazione con l'autorizzazione `EntitlementManagement.ReadWrite.All` delegata può chiamare l'API per [creare un accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-post?view=graph-rest-beta).
+È anche possibile creare un catalogo utilizzando Microsoft Graph.You can also create a catalog using Microsoft Graph.  Un utente con un ruolo appropriato con `EntitlementManagement.ReadWrite.All` un'applicazione con l'autorizzazione delegata può chiamare l'API per [creare un oggetto accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-post?view=graph-rest-beta).
 
 ## <a name="add-resources-to-a-catalog"></a>Aggiungere risorse a un catalogo
 
-Per includere le risorse in un pacchetto di accesso, le risorse devono esistere in un catalogo. I tipi di risorse che è possibile aggiungere sono i gruppi, le applicazioni e i siti di SharePoint Online. I gruppi possono essere gruppi di Office 365 creati dal cloud o gruppi di sicurezza Azure AD creati dal cloud. Le applicazioni possono essere Azure AD applicazioni aziendali, incluse le applicazioni SaaS e le applicazioni federate a Azure AD. I siti possono essere siti di SharePoint Online o raccolte di siti di SharePoint Online.
+Per includere risorse in un pacchetto di accesso, le risorse devono essere presenti in un catalogo. I tipi di risorse che è possibile aggiungere sono gruppi, applicazioni e siti di SharePoint Online. I gruppi possono essere gruppi di Office 365 creati nel cloud o gruppi di sicurezza di Azure AD creati dal cloud. Le applicazioni possono essere applicazioni aziendali di Azure AD, incluse le applicazioni SaaS e le proprie applicazioni federate in Azure AD. I siti possono essere siti di SharePoint Online o raccolte siti di SharePoint Online.
 
-**Ruolo prerequisiti:** Vedere i [ruoli necessari per aggiungere risorse a un catalogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
+**Ruolo prerequisito:** Vedere [Ruoli necessari per aggiungere risorse a un catalogoSee Required roles to add resources to a catalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
-1. Nel menu a sinistra fare clic su **cataloghi** , quindi aprire il catalogo al quale si desidera aggiungere risorse.
+1. Nel menu a sinistra fare clic su **Cataloghi** e quindi aprire il catalogo a cui si desidera aggiungere risorse.
 
-1. Nel menu a sinistra fare clic su **risorse**.
+1. Nel menu a sinistra fare clic su **Risorse**.
 
 1. Fare clic su **Aggiungi risorse**.
 
-1. Fare clic su un tipo di risorsa: **gruppi e team**, **applicazioni**o **siti di SharePoint**.
+1. Fare clic su un tipo di risorsa: **Gruppi e team**, **Applicazioni**o Siti **di SharePoint**.
 
-    Se non viene visualizzata una risorsa che si vuole aggiungere o se non si è in grado di aggiungere una risorsa, verificare di avere il ruolo Azure AD della directory e il ruolo di gestione dei diritti richiesti. Potrebbe essere necessario disporre di un utente con i ruoli necessari per aggiungere la risorsa al catalogo. Per ulteriori informazioni, vedere [ruoli obbligatori per aggiungere risorse a un catalogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
+    Se non viene visualizzata una risorsa che si vuole aggiungere o non è possibile aggiungere una risorsa, assicurarsi di disporre del ruolo di gestione dei diritti e del ruolo di gestione dei diritti di Azure AD richiesto. Potrebbe essere necessario fare in modo che qualcuno con i ruoli necessari aggiuri la risorsa al catalogo. Per ulteriori informazioni, vedere [Ruoli necessari per aggiungere risorse a un catalogo.](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
 1. Selezionare una o più risorse del tipo che si desidera aggiungere al catalogo.
 
@@ -81,41 +81,41 @@ Per includere le risorse in un pacchetto di accesso, le risorse devono esistere 
 
     Queste risorse possono ora essere incluse nei pacchetti di accesso all'interno del catalogo.
 
-### <a name="adding-a-resource-to-a-catalog-programmatically"></a>Aggiunta di una risorsa a un catalogo a livello di codice
+### <a name="adding-a-resource-to-a-catalog-programmatically"></a>Aggiunta di una risorsa a un catalogo a livello di codiceAdding a resource to a catalog programmatically
 
-È anche possibile aggiungere una risorsa a un catalogo usando Microsoft Graph.  Un utente con un ruolo appropriato o un catalogo e un proprietario di risorse con un'applicazione con l'autorizzazione `EntitlementManagement.ReadWrite.All` delegata può chiamare l'API per [creare un accessPackageResourceRequest](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta).
+È anche possibile aggiungere una risorsa a un catalogo usando Microsoft Graph.You can also add a resource to a catalog using Microsoft Graph.  Un utente con un ruolo appropriato, o un proprietario di catalogo `EntitlementManagement.ReadWrite.All` e risorsa, con un'applicazione che dispone dell'autorizzazione delegata può chiamare l'API per [creare un oggetto accessPackageResourceRequest](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta).
 
 ## <a name="remove-resources-from-a-catalog"></a>Rimuovere risorse da un catalogo
 
-È possibile rimuovere le risorse da un catalogo. Una risorsa può essere rimossa solo da un catalogo se non viene usata in nessuno dei pacchetti di accesso del catalogo.
+È possibile rimuovere risorse da un catalogo. Una risorsa può essere rimossa da un catalogo solo se non viene utilizzata in nessuno dei pacchetti di accesso del catalogo.
 
-**Ruolo prerequisiti:** Vedere i [ruoli necessari per aggiungere risorse a un catalogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
-
-1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
-
-1. Nel menu a sinistra fare clic su **cataloghi** , quindi aprire il catalogo dal quale si desidera rimuovere le risorse.
-
-1. Nel menu a sinistra fare clic su **risorse**.
-
-1. Selezionare le risorse che si desidera rimuovere.
-
-1. Fare clic su **Rimuovi** (oppure fare clic sui puntini di sospensione ( **...** ) e quindi fare clic su **Rimuovi risorsa**.
-
-## <a name="add-additional-catalog-owners"></a>Aggiunta di proprietari di cataloghi aggiuntivi
-
-L'utente che ha creato un catalogo diventa il primo proprietario del catalogo. Per delegare la gestione di un catalogo, è necessario aggiungere gli utenti al ruolo di proprietario del catalogo. Ciò consente di condividere le responsabilità di gestione del catalogo. 
-
-Per assegnare un utente al ruolo di proprietario del catalogo, attenersi alla procedura seguente:
-
-**Ruolo prerequisiti:** Amministratore globale, amministratore utente o proprietario del catalogo
+**Ruolo prerequisito:** Vedere [Ruoli necessari per aggiungere risorse a un catalogoSee Required roles to add resources to a catalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
-1. Nel menu a sinistra fare clic su **cataloghi** , quindi aprire il catalogo al quale si desidera aggiungere gli amministratori.
+1. Nel menu a sinistra fare clic su **Cataloghi** e quindi aprire il catalogo da cui si desidera rimuovere le risorse.
 
-1. Nel menu a sinistra fare clic su **ruoli e amministratori**.
+1. Nel menu a sinistra fare clic su **Risorse**.
 
-    ![Ruoli e amministratori di cataloghi](./media/entitlement-management-shared/catalog-roles-administrators.png)
+1. Selezionare le risorse da rimuovere.
+
+1. Fare clic su **Rimuovi** oppure sui solips (**...**) e quindi su **Rimuovi risorsa**.
+
+## <a name="add-additional-catalog-owners"></a>Aggiungere altri proprietari di cataloghi
+
+L'utente che ha creato un catalogo diventa il primo proprietario del catalogo. Per delegare la gestione di un catalogo, aggiungere utenti al ruolo di proprietario del catalogo. Ciò consente di condividere le responsabilità di gestione del catalogo. 
+
+Per assegnare un utente al ruolo di proprietario del catalogo, attenersi alla seguente procedura:
+
+**Ruolo prerequisito:** Amministratore globale, amministratore utente o proprietario del catalogo
+
+1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
+
+1. Nel menu a sinistra fare clic su **Cataloghi** e quindi aprire il catalogo a cui si desidera aggiungere amministratori.
+
+1. Nel menu a sinistra, fai clic su **Ruoli e amministratori.**
+
+    ![Cataloga i ruoli e gli amministratori](./media/entitlement-management-shared/catalog-roles-administrators.png)
 
 1. Fare clic su **Aggiungi proprietari** per selezionare i membri per questi ruoli.
 
@@ -123,15 +123,15 @@ Per assegnare un utente al ruolo di proprietario del catalogo, attenersi alla pr
 
 ## <a name="edit-a-catalog"></a>Modificare un catalogo
 
-È possibile modificare il nome e la descrizione di un catalogo. Gli utenti visualizzano queste informazioni nei dettagli di un pacchetto di accesso.
+È possibile modificare il nome e la descrizione di un catalogo. Gli utenti vedono queste informazioni nei dettagli di un pacchetto di accesso.
 
-**Ruolo prerequisiti:** Amministratore globale, amministratore utente o proprietario del catalogo
+**Ruolo prerequisito:** Amministratore globale, amministratore utente o proprietario del catalogo
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
-1. Nel menu a sinistra fare clic su **cataloghi** , quindi aprire il catalogo che si desidera modificare.
+1. Nel menu a sinistra, fai clic su **Cataloghi,** quindi apri il catalogo che desideri modificare.
 
-1. Nella pagina **Panoramica** del catalogo fare clic su **modifica**.
+1. Nella pagina **Panoramica** del catalogo fare clic su **Modifica**.
 
 1. Modificare il nome, la descrizione o le impostazioni abilitate del catalogo.
 
@@ -143,20 +143,20 @@ Per assegnare un utente al ruolo di proprietario del catalogo, attenersi alla pr
 
 È possibile eliminare un catalogo, ma solo se non dispone di pacchetti di accesso.
 
-**Ruolo prerequisiti:** Amministratore globale, amministratore utente o proprietario del catalogo
+**Ruolo prerequisito:** Amministratore globale, amministratore utente o proprietario del catalogo
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
-1. Nel menu a sinistra fare clic su **cataloghi** , quindi aprire il catalogo che si desidera eliminare.
+1. Nel menu a sinistra, fai clic su **Cataloghi,** quindi apri il catalogo che desideri eliminare.
 
-1. Nella **Panoramica**del catalogo fare clic su **Elimina**.
+1. In **Panoramica**del catalogo fare clic su **Elimina**.
 
 1. Nella finestra di messaggio visualizzata fare clic su **Sì**.
 
-### <a name="deleting-a-catalog-programmatically"></a>Eliminazione di un catalogo a livello di codice
+### <a name="deleting-a-catalog-programmatically"></a>Eliminazione di un catalogo a livello di codiceDeleting a catalog programmatically
 
-È anche possibile eliminare un catalogo usando Microsoft Graph.  Un utente con un ruolo appropriato con un'applicazione con l'autorizzazione `EntitlementManagement.ReadWrite.All` delegata può chiamare l'API per [eliminare un accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-delete?view=graph-rest-beta).
+È inoltre possibile eliminare un catalogo utilizzando Microsoft Graph.You can also delete a catalog using Microsoft Graph.  Un utente con un ruolo appropriato con `EntitlementManagement.ReadWrite.All` un'applicazione che dispone dell'autorizzazione delegata può chiamare l'API per [eliminare un oggetto accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-delete?view=graph-rest-beta).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Delega della governance di accesso per accedere ai gestori di pacchetti](entitlement-management-delegate-managers.md)
+- [Delegare la governance dell'accesso per accedere ai gestori di pacchettiDelegate access governance to access package manager](entitlement-management-delegate-managers.md)

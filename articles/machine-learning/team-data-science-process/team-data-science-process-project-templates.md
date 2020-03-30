@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c003145acd423fd96dd0ac6c054884024c2ce4a0
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75864231"
 ---
 # <a name="team-data-science-process-project-planning"></a>Pianificazione di un progetto di data science per i team
@@ -24,9 +24,9 @@ Il processo di data science per i team (TDSP) fornisce un ciclo di vita per stru
 
 Il ciclo di vita descrive le fasi principali eseguite in genere dai progetti, spesso in modo iterativo:
 
-- Comprensione del business
+- Informazioni commerciali
 - Acquisizione e comprensione dei dati
-- Creazione di modelli
+- Modellazione
 - Distribuzione
 - Accettazione del cliente
 
@@ -58,7 +58,7 @@ Usare questo [repository dei modelli di progetto](https://github.com/Azure/Azure
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Sviluppo agile di progetti Data Science](agile-development.md) Questo documento descrive un progetto data science in modo sistematico, controllato dalla versione e collaborativo usando il processo di Data Science per i team.
+[Sviluppo agile di progetti di data science](agile-development.md) Questo documento descrive un progetto di data science in modo sistematico, controllato dalla versione e collaborativo utilizzando il processo di analisi scientifica dei dati del team.
 
 Sono anche disponibili esercitazioni dettagliate che illustrano tutti i passaggi del processo per **scenari specifici**. Le esercitazioni sono elencate, con collegamenti e brevi descrizioni, nell'articolo [Procedure dettagliate di esempio](walkthroughs.md). Le esercitazioni spiegano come combinare strumenti cloud e locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente. 
 

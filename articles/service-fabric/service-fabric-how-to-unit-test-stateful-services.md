@@ -1,13 +1,13 @@
 ---
-title: Sviluppare unit test per i servizi con stato
+title: Sviluppare unit test per servizi con statoDevelop unit tests for stateful services
 description: Informazioni sugli unit test in Azure Service Fabric per i servizi con stato e considerazioni speciali da tenere presenti durante lo sviluppo.
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 9c657bd8295d01a4e0fa4e44e969b33946684bfa
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75639837"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Creare unit test per i servizi con stato
@@ -25,7 +25,7 @@ A partire dalla versione 3.3.0, [ServiceFabric.Mocks](https://www.nuget.org/pack
 [Nuget](https://www.nuget.org/packages/ServiceFabric.Mocks/)
 [GitHub](https://github.com/loekd/ServiceFabric.Mocks)
 
-*ServiceFabric. Mocks non è di proprietà o è gestito da Microsoft. Tuttavia, si tratta attualmente della libreria consigliata da Microsoft per i servizi con stato unit test.*
+*ServiceFabric.Mocks non è di proprietà o gestito da Microsoft. Tuttavia, questa è attualmente la libreria consigliata da Microsoft per i servizi con stato di unit test.*
 
 ## <a name="set-up-the-mock-orchestration-and-state"></a>Configurare l'orchestrazione fittizia e lo stato
 Come parte della porzione di disposizione di un test, verranno creati una replica fittizia impostata e un gestore di stato. Il set di repliche conterrà quindi la creazione di un'istanza del servizio testato per ogni replica. Diventerà proprietario anche degli eventi del ciclo di vita in esecuzione, ad esempio `OnChangeRole` e `RunAsync`. Il gestore di stato fittizio garantirà che eventuali operazioni eseguite a fronte di gestore di stato vengano eseguite e mantenute come farebbe il gestore di stato reale.

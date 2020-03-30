@@ -1,15 +1,15 @@
 ---
-title: Generare eventi di log da un'app .NET
+title: Generare eventi di log da un'app .NETGenerate log events from a .NET app
 description: Informazioni su come aggiungere la registrazione all'applicazione .NET Service Fabric ospitata in un cluster di Azure o in un cluster autonomo.
 author: srrengar
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: srrengar
 ms.openlocfilehash: 8c4721584e74bd7f7111c516f2d16bd190392bb5
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614367"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Aggiungere la registrazione all'applicazione di Service Fabric
@@ -96,8 +96,8 @@ Anche un ibrido di strumentazione strutturata e generica può essere una soluzio
 
 La funzione di registrazione di ASP.NET Core ([pacchetto NuGet Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging)) è un framework di registrazione che fornisce un'API di registrazione standard per l'applicazione. Alla funzione di registrazione di ASP.NET Core è possibile collegare il supporto per altri back-end di registrazione. Ciò offre un'ampia gamma di supporto per l'elaborazione di registrazioni nell'applicazione, senza alcuna necessità di modifiche rilevanti al codice.
 
-1. Aggiungere il pacchetto NuGet **Microsoft.Extensions.Logging** al progetto da instrumentare. Aggiungere anche eventuali pacchetti di provider. Per altre informazioni, vedere [Logging in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging) (Registrazione in ASP.NET Core).
-2. Aggiungere una direttiva **using** per **Microsoft.Extensions.Logging** al file del servizio.
+1. Aggiungere il pacchetto **Microsoft.Extensions.Logging** NuGet al progetto che si desidera instrumentare. Aggiungere anche eventuali pacchetti di provider. Per altre informazioni, vedere [Logging in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging) (Registrazione in ASP.NET Core).
+2. Aggiungere una direttiva **using** per **Microsoft.Extensions.Logging** nel file del servizio.
 3. Definire una variabile privata all'interno della classe di servizio.
 
    ```csharp

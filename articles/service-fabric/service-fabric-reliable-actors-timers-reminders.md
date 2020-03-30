@@ -1,15 +1,15 @@
 ---
-title: Reliable Actors timer e promemoria
-description: Introduzione ai timer e ai promemoria per Service Fabric Reliable Actors, incluse indicazioni su quando utilizzarli.
+title: Timer e promemoria Reliable Actors
+description: Introduzione ai timer e ai promemoria per Service Fabric Reliable Actors, incluse indicazioni su quando usare ciascuno di essi.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 02d6220b31ee9c991e8450759bf46759af6177a3
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75639616"
 ---
 # <a name="actor-timers-and-reminders"></a>Timer e promemoria degli attori
@@ -218,7 +218,7 @@ CompletableFuture reminderUnregistration = unregisterReminderAsync(reminder);
 
 Come mostrato in precedenza, il metodo `UnregisterReminderAsync`(C#) o `unregisterReminderAsync`(Java) accetta un'interfaccia `IActorReminder`(C#) o `ActorReminder`(Java). La classe base dell'attore supporta un metodo `GetReminder`(C#) o `getReminder`(Java) che può essere usato per recuperare l'interfaccia `IActorReminder`(C#) o `ActorReminder`(Java) passando il nome del promemoria. Questo metodo è utile perché l'attore non deve rendere persistente l'interfaccia `IActorReminder`(C#) o `ActorReminder`(Java) restituita dalla chiamata al metodo `RegisterReminder`(C#) o `registerReminder`(Java).
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Acquisire informazioni sugli eventi e sulla rientranza di Reliable Actor:
-* [Eventi relativi agli attori](service-fabric-reliable-actors-events.md)
-* [Rientranza di Reliable Actors](service-fabric-reliable-actors-reentrancy.md)
+* [Eventi attori](service-fabric-reliable-actors-events.md)
+* [Rientranza attore](service-fabric-reliable-actors-reentrancy.md)

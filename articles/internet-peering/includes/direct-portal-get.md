@@ -9,37 +9,37 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 2e8938f270ed175c687d975b0b248275ad92f8e4
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75775082"
 ---
-1. Passare a **gruppi di risorse** e fare clic sul gruppo di risorse selezionato durante la creazione della risorsa **peering** . Se sono presenti troppi gruppi di risorse, è possibile usare il campo *filtro* .
+1. Passare a **Gruppi di** risorse e fare clic sul gruppo di risorse selezionato durante la creazione della risorsa di **peering.** È possibile utilizzare il campo *Filtro* se sono disponibili troppi gruppi di risorse.
 
     > [!div class="mx-imgBorder"]
-    > ![gruppo di risorse peering](../media/setup-direct-get-resourcegroup.png)
+    > ![Gruppo di risorse peering](../media/setup-direct-get-resourcegroup.png)
 
-1. Fare clic sulla risorsa di **peering** creata.
-
-    > [!div class="mx-imgBorder"]
-    > visualizzazione della risorsa peering ![](../media/setup-direct-get-open.png)
-
-1. La pagina **Panoramica** Mostra informazioni di alto livello. Osservare le informazioni evidenziate di seguito.
+1. Fare clic sulla risorsa **peering** creata.
 
     > [!div class="mx-imgBorder"]
-    > visualizzazione della risorsa peering ![](../media/setup-direct-get-overview.png)
+    > ![Visualizzazione delle risorse peering](../media/setup-direct-get-open.png)
 
-1. A sinistra fare clic su **informazioni ASN** per visualizzare le informazioni inviate durante la creazione di peerasn sugli
-
-    > [!div class="mx-imgBorder"]
-    > visualizzazione della risorsa peering ![](../media/setup-direct-get-asninfo.png)
-
-1. A sinistra fare clic su **connessioni**. Osservare in primo piano un riepilogo delle connessioni di peering tra ASN e Microsoft, in diverse strutture all'interno della metropolitana. È anche possibile arrivare alla pagina Riepilogo connessioni da **Panoramica** , facendo clic su **connessioni** nel riquadro centrale, come evidenziato sopra.
+1. La pagina **Panoramica** mostra informazioni generali. Osservare le informazioni evidenziate di seguito.
 
     > [!div class="mx-imgBorder"]
-    > visualizzazione della risorsa peering ![](../media/setup-direct-get-connectionssummary.png)
+    > ![Visualizzazione delle risorse peering](../media/setup-direct-get-overview.png)
 
-    * **Lo stato della connessione** corrisponde allo stato della connessione di peering configurata. Gli stati visualizzati in questo campo seguono il diagramma di stato illustrato nella [procedura dettagliata relativa al peering diretto](../walkthrough-direct-all.md)
-    * Lo stato della sessione **IPv4** e **lo stato** della sessione IPv6 corrispondono rispettivamente agli Stati di sessione BGP IPv4 e IPv6.  
-    * Quando si seleziona una riga nella parte superiore, la sezione ***connessione*** nella parte inferiore mostra i dettagli per ogni connessione. È possibile fare clic sui segni di freccia per espandere la ***configurazione***delle sottosezioni, l' ***indirizzo IPv4*** e l' ***indirizzo IPv6***
+1. A sinistra, fai clic su **Informazioni ASN** per visualizzare le informazioni inviate durante la creazione di PeerAsn
+
+    > [!div class="mx-imgBorder"]
+    > ![Visualizzazione delle risorse peering](../media/setup-direct-get-asninfo.png)
+
+1. A sinistra, fare clic su **Connessioni**. Osservare in alto un riepilogo delle connessioni peering tra l'ASN e Microsoft, attraverso diverse strutture all'interno della metropolitana. È inoltre possibile accedere al riepilogo delle connessioni dalla pagina **Panoramica,** facendo clic su **Connessioni** nel riquadro centrale come evidenziato in precedenza.
+
+    > [!div class="mx-imgBorder"]
+    > ![Visualizzazione delle risorse peering](../media/setup-direct-get-connectionssummary.png)
+
+    * **Stato connessione** corrisponde allo stato della configurazione della connessione di peering. Gli stati visualizzati in questo campo seguono il diagramma di stato illustrato nella procedura dettagliata di [peering diretto](../walkthrough-direct-all.md)
+    * **Lo stato sessione IPv4** e **lo stato sessione IPv6** corrispondono rispettivamente agli stati sessione BGP IPv4 e IPv6.  
+    * Quando si seleziona una riga in alto, la sezione ***Connessione*** in basso mostra i dettagli per ogni connessione. È possibile fare clic sui segni freccia per espandere le sottosezioni ***Configurazione***, ***Indirizzo IPv4*** e ***Indirizzo IPv6***

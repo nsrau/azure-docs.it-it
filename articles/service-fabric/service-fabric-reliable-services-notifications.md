@@ -1,15 +1,15 @@
 ---
 title: Notifiche di Reliable Services
-description: Documentazione concettuale per le notifiche di Service Fabric Reliable Services per Reliable state Manager e reliable Dictionary
+description: Documentazione concettuale per le notifiche di Service Fabric Reliable Services per Reliable State Manager e Reliable Dictionary
 author: mcoskun
 ms.topic: conceptual
 ms.date: 6/29/2017
 ms.author: mcoskun
 ms.openlocfilehash: 1f3239ea1da252ccd84c6572b562756c8fd1677d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75639565"
 ---
 # <a name="reliable-services-notifications"></a>Notifiche di Reliable Services
@@ -158,7 +158,7 @@ Il gestore eventi **DictionaryChanged** usa **NotifyDictionaryChangedEventArgs**
 
 * **NotifyDictionaryChangedAction.Rebuild**: **NotifyDictionaryRebuildEventArgs**
 * **NotifyDictionaryChangedAction.Clear**: **NotifyDictionaryClearEventArgs**
-* **NotifyDictionaryChangedAction. Add**: **NotifyDictionaryItemAddedEventArgs**
+* **NotifyDictionaryChangedAction.Add**: **NotifyDictionaryItemAddedEventArgs**
 * **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
 * **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemRemovedEventArgs**
 
@@ -207,8 +207,8 @@ Occorre tenere presente i concetti seguenti:
 * Come parte dell'elaborazione di un'incoerenza, alcune operazioni potrebbero essere annullate. Per queste operazioni di annullamento vengono generate notifiche, con rollback dello stato della replica a un punto stabile. Una differenza importante delle notifiche di annullamento è che gli eventi con chiavi duplicate vengono aggregati. Se la transazione T1 viene annullata, ad esempio, viene visualizzata una singola notifica per Delete(X).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Reliable Collections](service-fabric-work-with-reliable-collections.md)
-* [Guida introduttiva a Reliable Services di Microsoft Azure Service Fabric](service-fabric-reliable-services-quick-start.md)
+* [Raccolte affidabili](service-fabric-work-with-reliable-collections.md)
+* [Guida introduttiva di Reliable Services](service-fabric-reliable-services-quick-start.md)
 * [Eseguire il backup e il ripristino di Reliable Services (ripristino di emergenza)](service-fabric-reliable-services-backup-restore.md)
 * [Guida di riferimento per gli sviluppatori per Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 

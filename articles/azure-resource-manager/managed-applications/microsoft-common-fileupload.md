@@ -1,15 +1,15 @@
 ---
-title: Elemento FileUpload dell'interfaccia utente
+title: Elemento dell'interfaccia utente FileUpload
 description: Illustra l'elemento Microsoft.Common.FileUpload dell'interfaccia utente per il portale di Azure. Consente agli utenti di caricare file durante la distribuzione di un'applicazione gestita.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: tomfitz
 ms.openlocfilehash: 61e1c9fe07fdd29ebc00e7e3491472d073bc4e5d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75652489"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Elemento Microsoft.Common.FileUpload dell'interfaccia utente

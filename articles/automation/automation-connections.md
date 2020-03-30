@@ -6,47 +6,47 @@ ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
 ms.openlocfilehash: b6276153921feb0e6f27194d36d1c32c1d0ffb3d
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75940821"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Asset di connessione in Automazione di Azure
 
 Un asset di connessione di Automazione contiene le informazioni necessarie per la connessione a un servizio esterno o a un'applicazione da un Runbook o una configurazione DSC. ad esempio le informazioni necessarie per l'autenticazione, quali nome utente e password, oltre alle informazioni di connessione quali un URL o una porta. Il valore di una connessione consiste nel mantenere tutte le proprietà per la connessione a un'applicazione specifica in un singolo asset, invece di creare più variabili. L'utente può modificare i valori per una connessione in un'unica posizione e può passare il nome di una connessione a un Runbook o a una configurazione DSC in un singolo parametro. È possibile accedere alle proprietà per una connessione nel Runbook o nella configurazione DSC con l'attività **Get-AutomationConnection** .
 
-Quando si crea una connessione, è necessario specificare un *tipo di connessione*. Il tipo di connessione è un modello che definisce un set di proprietà. La connessione definisce i valori per ogni proprietà definita nel rispettivo tipo di connessione. I tipi di connessione vengono aggiunti ad Automazione di Azure nei moduli di integrazione oppure creati con l'[API di Automazione di Azure](/previous-versions/azure/reference/mt163818(v=azure.100)) se il modulo di integrazione include un tipo di connessione e viene importato nell'account di Automazione. In caso contrario, sarà necessario creare un file di metadati per specificare un tipo di connessione di Automazione. Per ulteriori informazioni su questo problema, vedere [moduli di integrazione](automation-integration-modules.md).
+Quando si crea una connessione, è necessario specificare un *tipo di connessione*. Il tipo di connessione è un modello che definisce un set di proprietà. La connessione definisce i valori per ogni proprietà definita nel rispettivo tipo di connessione. I tipi di connessione vengono aggiunti ad Automazione di Azure nei moduli di integrazione oppure creati con l'[API di Automazione di Azure](/previous-versions/azure/reference/mt163818(v=azure.100)) se il modulo di integrazione include un tipo di connessione e viene importato nell'account di Automazione. In caso contrario, sarà necessario creare un file di metadati per specificare un tipo di connessione di Automazione. Per ulteriori informazioni, vedere Moduli di [integrazione](automation-integration-modules.md).
 
 >[!NOTE]
 >Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione di Azure usando una chiave univoca generata per ogni account di automazione. Questa chiave è archiviata in un Key Vault gestito dal sistema. Prima di archiviare un asset sicuro, la chiave viene caricata da Key Vault e quindi usata per crittografare l'asset. Questo processo è gestito dall'Automazione di Azure.
 
 ## <a name="connection-types"></a>Tipi di connessione
 
-In automazione di Azure sono disponibili tre tipi di connessioni predefinite:
+In Automazione di Azure sono disponibili tre tipi di connessioni predefinite:There are three types of built-in connections available in Azure Automation:
 
 * **Azure** - questa connessione può essere usata per gestire le risorse classiche.
 * **AzureClassicCertificate** - questa connessione è usata dall'account **AzureClassicRunAs**.
 * **AzureServicePrincipal** - questa connessione è usata dall'account **AzureRunAs**.
 
-Nella maggior parte dei casi, non è necessario creare una risorsa di connessione perché viene creata quando si crea un [account RunAs](manage-runas-account.md).
+Nella maggior parte dei casi, non è necessario creare una risorsa di connessione perché viene creata quando si crea un [account RunAs.](manage-runas-account.md)
 
 ## <a name="windows-powershell-cmdlets"></a>Cmdlet di Windows PowerShell
 
-I cmdlet della tabella seguente vengono usati per creare e gestire connessioni di automazione con Windows PowerShell. Vengono forniti come parte del [modulo Azure PowerShell](/powershell/azure/overview), disponibile per l'uso nei manuali operativi di automazione e nelle configurazioni DSC.
+I cmdlet della tabella seguente vengono usati per creare e gestire connessioni di automazione con Windows PowerShell. Vengono spediti come parte del [modulo Azure PowerShell](/powershell/azure/overview), disponibile per l'utilizzo nei runbook di automazione e nelle configurazioni DSC.
 
-|Cmdlet|Description|
+|Cmdlet|Descrizione|
 |:---|:---|
 |[Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection)|Recupera una connessione. Include una tabella hash con i valori dei campi della connessione.|
 |[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|Crea una nuova connessione.|
-|[Remove-AzureRmAutomationConnection](/powershell/module/azurerm.automation/remove-azurermautomationconnection)|Rimuove una connessione esistente.|
-|[Set-AzureRmAutomationConnectionFieldValue](/powershell/module/azurerm.automation/set-azurermautomationconnectionfieldvalue)|Imposta il valore di un campo specifico per una connessione esistente.|
+|[Rimozione-AzureRmAutomationConnectionRemove-AzureRmAutomationConnection](/powershell/module/azurerm.automation/remove-azurermautomationconnection)|Rimuove una connessione esistente.|
+|[Set-AzureRmAutomationConnectionFieldValueSet-AzureRmAutomationConnectionFieldValue](/powershell/module/azurerm.automation/set-azurermautomationconnectionfieldvalue)|Imposta il valore di un campo specifico per una connessione esistente.|
 
-## <a name="activities"></a>Attività
+## <a name="activities"></a>attività
 
 Le attività incluse nella tabella seguente vengono usate per accedere alle connessioni in un Runbook o configurazione DSC.
 
-|Attività|Description|
+|attività|Descrizione|
 |---|---|
 |Get-AutomationConnection | Ottiene una connessione da usare. Restituisce una tabella hash con le proprietà della connessione.|
 
@@ -58,7 +58,7 @@ Le attività incluse nella tabella seguente vengono usate per accedere alle conn
 
 La funzione nella tabella seguente viene usata per accedere alle connessioni in un runbook Python2.
 
-| Funzione | Description |
+| Funzione | Descrizione |
 |:---|:---|
 | automationassets.get_automation_connection | Recupera una connessione. Restituisce un dizionario con le proprietà della connessione. |
 
@@ -77,7 +77,7 @@ La funzione nella tabella seguente viene usata per accedere alle connessioni in 
 
 ### <a name="to-create-a-new-connection-with-windows-powershell"></a>Per creare una nuova connessione con Windows PowerShell
 
-Creare una nuova connessione con Windows PowerShell usando il cmdlet [New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection). Questo cmdlet ha un parametro denominato **ConnectionFieldValues** che prevede una [tabella hash](https://technet.microsoft.com/library/hh847780.aspx) che definisce i valori per ogni proprietà definita dal tipo di connessione.
+Creare una nuova connessione con Windows PowerShell usando il cmdlet [New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection). Questo cmdlet ha un parametro denominato **ConnectionFieldValues** che si aspetta valori di definizione della [tabella hash](https://technet.microsoft.com/library/hh847780.aspx) per ogni proprietà definita dal tipo di connessione.
 
 Se si ha familiarità con l'[account RunAs](automation-sec-configure-azure-runas-account.md) di Automazione per autenticare i runbook usando l'entità servizio, è possibile usare lo script di PowerShell fornito come alternativa alla creazione dell'account RunAs dal portale per creare un nuovo asset di connessione tramite i semplici comandi seguenti.
 
@@ -87,11 +87,11 @@ $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "Tenant
 New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
 ```
 
-È possibile usare lo script per creare un asset di connessione perché, quando si crea l'account di Automazione, questo include automaticamente e per impostazione predefinita diversi moduli globali insieme al tipo di connessione **AzureServicePrincipal**, per creare l'asset di connessione **AzureRunAsConnection**. È un fattore importante da tenere presente, poiché se si tenta di creare un nuovo asset di connessione a un servizio o a un'applicazione con un metodo di autenticazione diverso, la creazione avrà esito negativo in quanto il tipo di connessione non è già definito nell'account di Automazione. Per altre informazioni su come creare un tipo di connessione personalizzato per il modulo o personalizzato dall' [PowerShell Gallery](https://www.powershellgallery.com), vedere [moduli di integrazione](automation-integration-modules.md)
+È possibile usare lo script per creare un asset di connessione perché, quando si crea l'account di Automazione, questo include automaticamente e per impostazione predefinita diversi moduli globali insieme al tipo di connessione **AzureServicePrincipal**, per creare l'asset di connessione **AzureRunAsConnection**. È un fattore importante da tenere presente, poiché se si tenta di creare un nuovo asset di connessione a un servizio o a un'applicazione con un metodo di autenticazione diverso, la creazione avrà esito negativo in quanto il tipo di connessione non è già definito nell'account di Automazione. Per ulteriori informazioni su come creare un tipo di connessione personalizzato per il modulo o personalizzato da [PowerShell Gallery](https://www.powershellgallery.com), vedere Moduli di [integrazione](automation-integration-modules.md)
 
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>Uso di una connessione in un Runbook o in una configurazione DSC
 
-Il cmdlet **Get-AutomationConnection** permette di recuperare una connessione in un Runbook o in una configurazione DSC. Non è possibile usare l'attività [Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection). Questa attività recupera i valori dei diversi campi nella connessione e li restituisce come [tabella hash](https://go.microsoft.com/fwlink/?LinkID=324844), che può quindi essere usata con i comandi appropriati nella configurazione di RUNBOOK o DSC.
+Il cmdlet **Get-AutomationConnection** permette di recuperare una connessione in un Runbook o in una configurazione DSC. Non è possibile usare l'attività [Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection). Questa attività recupera i valori dei diversi campi nella connessione e li restituisce come [tabella hash,](https://go.microsoft.com/fwlink/?LinkID=324844)che può quindi essere utilizzata con i comandi appropriati nel runbook o nella configurazione DSC.
 
 ### <a name="textual-runbook-sample"></a>Esempio di Runbook testuale
 
@@ -107,7 +107,7 @@ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $
 
 ### <a name="graphical-runbook-samples"></a>Esempi di Runbook grafici
 
-Per aggiungere un'attività **Get-AutomationConnection** a un Runbook grafico, fare clic con il pulsante destro del mouse sulla connessione nel riquadro **libreria** dell'editor grafico e scegliere **Aggiungi ad area di disegno**.
+Per aggiungere un'attività **Get-AutomationConnection** a un runbook grafico, fare clic con il pulsante destro del mouse sulla connessione nel riquadro **Libreria** dell'editor grafico e selezionare **Aggiungi all'area di disegno**.
 
 ![Aggiunta all'area di disegno](media/automation-connections/connection-add-canvas.png)
 

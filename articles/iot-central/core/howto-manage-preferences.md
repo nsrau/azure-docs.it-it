@@ -1,21 +1,21 @@
 ---
-title: Gestisci le tue preferenze personali nei IoT Central | Microsoft Docs
-description: Come gestire le preferenze dell'applicazione personale, ad esempio la modifica della lingua e del tema nell'applicazione IoT Central.
+title: Gestire le preferenze personali su IoT Central Documenti Microsoft
+description: Come gestire le preferenze delle applicazioni personali, ad esempio la modifica della lingua e del tema nell'applicazione IoT Central.
 author: lmasieri
 ms.author: lmasieri
 ms.date: 07/10/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 6bfc70ada906f5c444ace5cd7bb96555700586db
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e2b0dbe8b7738a8c4c551eccca72897bbf1594b9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73806149"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80157892"
 ---
-# <a name="manage-your-personal-application-preferences"></a>Gestire le preferenze dell'applicazione personale
+# <a name="manage-your-personal-application-preferences"></a>Gestire le preferenze delle applicazioni personali
 
 *Questo articolo è rivolto a operatori, autori e amministratori.*
 
@@ -23,11 +23,11 @@ IoT Central offre la flessibilità per personalizzare le applicazioni in base al
 
 ## <a name="changing-language"></a>Modifica della lingua
 
-IoT Central è supportato in più lingue. È possibile cambiare la lingua preferita usando la **selezione lingua** sull'icona delle impostazioni nella barra di spostamento superiore. Una volta modificata la lingua, IoT Central memorizza la selezione e la applica a tutte le applicazioni. Personalizzazione all'interno dell'applicazione tali immagini del dashboard non sono localizzate.
+IoT Central è supportato in più lingue. È possibile cambiare la lingua preferita utilizzando il **selettore della lingua** sull'icona delle impostazioni sulla barra di spostamento superiore. Dopo aver cambiato la lingua, IoT Central memorizza la selezione e la applica a tutte le applicazioni. Personalizzazione all'interno dell'applicazione tali immagini del dashboard non sono localizzate.
 
 ## <a name="changing-theme"></a>Modifica del tema
 
-È disponibile un supporto sia per il tema scuro sia per il tema chiaro. Mentre il tema chiaro è l'impostazione predefinita, è possibile modificare il tema selezionando l'icona impostazioni nella barra di spostamento superiore.
+È disponibile un supporto sia per il tema scuro sia per il tema chiaro. Mentre il tema chiaro è l'impostazione predefinita, è possibile modificare il tema selezionando l'icona delle impostazioni nella barra di spostamento superiore.
 
 ![Selezione del tema di IoT Central](media/howto-manage-preferences/settings.png)
 
@@ -39,4 +39,4 @@ IoT Central è supportato in più lingue. È possibile cambiare la lingua prefer
 Dopo avere appreso come gestire il profilo in Azure IoT Central, il prossimo passaggio suggerito è:
 
 > [!div class="nextstepaction"]
-> [Attiva/Nascondi Live Chat](howto-show-hide-chat.md)
+> [Attivare e disattivare la live chat](howto-show-hide-chat.md)

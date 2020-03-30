@@ -1,6 +1,6 @@
 ---
-title: Migrazione e integrazione di applicazioni in Azure DevTest Labs
-description: Questo articolo fornisce indicazioni per la governance dell'infrastruttura Azure DevTest Labs nel contesto della migrazione e dell'integrazione dell'applicazione.
+title: Migrazione e integrazione delle applicazioni in Azure DevTest Labs
+description: Questo articolo fornisce indicazioni per la governance dell'infrastruttura di Azure DevTest Labs nel contesto della migrazione e dell'integrazione delle applicazioni.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,10 +14,10 @@ ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 14641e9096fa9366334e9f7460ae55cda0e6c2e8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75644887"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Governance dell'infrastruttura di Azure DevTest Labs - Migrazione e integrazione delle applicazioni
@@ -64,7 +64,7 @@ Vedere [questo video sul criterio di factory di immagini](https://blogs.msdn.mic
 Uso di DevTest Labs per creare una pipeline di immagine personalizzata in Azure Pipelines:
 
 - [Introduction: Get VMs ready in minutes by setting up an image factory in Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/) (Introduzione: come rendere operative le VM in pochi minuti configurando una factory di immagini in Azure DevTest Labs)
-- [Factory immagini-parte 2! Configurare Azure Pipelines e Lab Factory per la creazione di macchine virtuali](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
+- [Fabbrica di immagini - Parte 2! Configurare le pipeline di Azure e il laboratorio di fabbrica per creare macchine virtualiSetup Azure Pipelines and Factory Lab to Create VMs](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
 - [Image Factory - Part 3: Save Custom Images and Distribute to Multiple Labs](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/) (Factory di immagini - Parte 3. Salvare le immagini personalizzate e distribuirle in più lab)
 - [Video: Custom Image Factory with Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) (Video: Factory di immagine personalizzata con Azure DevTest Labs)
 
@@ -117,7 +117,7 @@ Esiste una regola in termini di numero di macchine virtuali da impostare per ute
 Quando si considera il numero di macchine virtuali per utente o lab, sono tre i dubbi principali:
 
 - Il **costo complessivo** che il team può impiegare per le risorse nel lab. È facile creare rapidamente numerosi computer. Per controllare i costi, un meccanismo consiste nel limitare il numero di VM per utente e/o lab
-- Il numero totale di macchine virtuali in un lab è interessato dalle [quote a livello di sottoscrizione](../azure-resource-manager/management/azure-subscription-service-limits.md) disponibili. Uno dei limiti superiori è 800 gruppi di risorse per sottoscrizione. DevTest Labs crea attualmente un nuovo gruppo di risorse per ogni VM (a meno che non vengano usati IP pubblici condivisi). Se sono presenti 10 laboratori in una sottoscrizione, i Lab possono contenere approssimativamente 79 macchine virtuali in ogni Lab (800 limite superiore – 10 gruppi di risorse per i 10 laboratori) = 79 macchine virtuali per Lab.
+- Il numero totale di macchine virtuali in un lab è interessato dalle [quote a livello di sottoscrizione](../azure-resource-manager/management/azure-subscription-service-limits.md) disponibili. Uno dei limiti superiori è 800 gruppi di risorse per sottoscrizione. DevTest Labs crea attualmente un nuovo gruppo di risorse per ogni VM (a meno che non vengano usati IP pubblici condivisi). Se in una sottoscrizione sono presenti 10 lab, i lab possono contenere circa 79 macchine virtuali in ogni lab (limite superiore 800 – 10 gruppi di risorse per i 10 lab stessi) - 79 macchine virtuali per lab.
 - Se ad esempio il lab è connesso in locale a ExpressRoute, sono **disponibili spazi di indirizzi IP definiti** per la rete virtuale/subnet. Per garantire la creazione di VM nel lab senza errori (errore: impossibile ottenere l'indirizzo IP), i proprietari dei lab possono specificare il numero massimo di macchine virtuali per lab allineato allo spazio di indirizzi IP disponibile.
 
 ## <a name="use-resource-manager-templates"></a>Usare i modelli di Resource Manager

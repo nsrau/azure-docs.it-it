@@ -1,15 +1,15 @@
 ---
-title: Configurare Reliable Services Service Fabric di Azure
-description: Informazioni sulla configurazione di Reliable Services con stato in un'applicazione Azure Service Fabric a livello globale e per un singolo servizio.
+title: Configurare Servizi affidabili di Azure Service FabricConfigure Azure Service Fabric Reliable Services
+description: Informazioni sulla configurazione di Reliable Services con stato in un'applicazione di Azure Service Fabric a livello globale e per un singolo servizio.
 author: sumukhs
 ms.topic: conceptual
 ms.date: 10/02/2017
 ms.author: sumukhs
 ms.openlocfilehash: 9743213394b59af701b25b8be9dd48cf4310b499
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645515"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurazione di servizi Reliable Services con stato
@@ -22,12 +22,12 @@ La configurazione globale dei servizi Reliable Services viene specificata nel ma
 | Nome | Unità | Valore predefinito | Osservazioni |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Kilobyte |8388608 |Numero minimo di KB da allocare in modalità kernel per il pool di memoria del buffer di scrittura del logger. Questo pool di memoria viene utilizzato per il caching delle informazioni sullo stato prima della scrittura su disco. |
-| WriteBufferMemoryPoolMaximumInKB |Kilobyte |Senza limite |Dimensioni massime raggiungibili dal pool di memoria del buffer di scrittura del logger. |
+| WriteBufferMemoryPoolMaximumInKB |Kilobyte |Nessun limite |Dimensioni massime raggiungibili dal pool di memoria del buffer di scrittura del logger. |
 | SharedLogId |GUID |"" |Specifica un GUID univoco per individuare il file di log condiviso predefinito usato da tutti i servizi Reliable Services su tutti i nodi del cluster che non specificano il parametro SharedLogId nella configurazione specifica del servizio. Se viene specificato lo SharedLogId, deve anche essere specificato lo SharedLogPath. |
 | SharedLogPath |Nome di percorso completo |"" |Specifica il percorso completo in cui il file di log condiviso viene utilizzato da tutti i servizi Reliable Services su tutti i nodi del cluster che non specificano lo SharedLogPath nella configurazione specifica del servizio. Tuttavia, se è stato specificato SharedLogPath, lo deve essere anche SharedLogId. |
 | SharedLogSizeInMB |Megabyte |8192 |Specifica il numero di MB di spazio su disco da allocare in modo statico per il log condiviso. Il valore deve essere maggiore di 2048. |
 
-In Azure Resource Manager o nel modello JSON locale, l'esempio seguente illustra come modificare il log delle transazioni condiviso che viene creato per eseguire il backup di eventuali raccolte affidabili per i servizi con stato.
+In ARM di Azure o nel modello JSON locale, l'esempio seguente illustra come modificare il log delle transazioni condiviso che viene creato per eseguire il backup di eventuali raccolte affidabili per i servizi con stato.
 
     "fabricSettings": [{
         "name": "KtlLogger",
@@ -61,7 +61,7 @@ SharedLogSizeInMB specifica la quantità di spazio su disco da preallocare per i
 È possibile modificare le configurazioni predefinite di Reliable Services con stato usando il pacchetto di configurazione (Config) o l'implementazione del servizio (codice).
 
 * **Config** : la configurazione tramite il pacchetto config viene realizzata modificando il file Settings.xml generato nella radice del pacchetto Microsoft Visual Studio presente nella cartella Config per ogni servizio dell'applicazione.
-* **Codice**: la configurazione tramite il codice viene realizzata creando un ReliableStateManager usando un oggetto ReliableStateManagerConfiguration con il set di opzioni appropriato.
+* **Codice:** la configurazione tramite codice viene eseguita creando un ReliableStateManager usando un oggetto ReliableStateManagerConfiguration con le opzioni appropriate impostate.
 
 Per impostazione predefinita, il runtime di Azure Service Fabric cerca i nomi di sezione predefiniti nel file settings.xml e usa i valori di configurazione durante la creazione dei componenti di runtime sottostanti.
 
@@ -116,7 +116,7 @@ ReplicatorConfig
 | SharedLogPath |Nome di percorso completo |"" |Specifica il percorso completo in cui verrà creato il file di log condiviso per la replica in oggetto. In genere, i servizi non devono usare questa impostazione. Tuttavia, se è stato specificato SharedLogPath, lo deve essere anche SharedLogId. |
 | SlowApiMonitoringDuration |Secondi |300 |Imposta l'intervallo di monitoraggio per le chiamate API gestite. Esempio: funzione di callback di backup fornita dall'utente. Al termine dell'intervallo verrà inviato un report sull'integrità di avviso a Health Manager. |
 | LogTruncationIntervalSeconds |Secondi |0 |Intervallo configurabile in cui il troncamento dei registri verrà avviato a ogni replica. Viene utilizzato per garantire che anche il registro sia troncato in base al tempo invece che in base alla sola dimensione del registro. Questa impostazione forza anche l'eliminazione delle voci cancellate in un dizionario affidabile. Può quindi essere utilizzato per garantire che gli elementi eliminati vengano rimossi in modo tempestivo. |
-| EnableStableReads |Boolean |Falso |L'abilitazione di letture stabili limita le repliche secondarie alla restituzione di valori che sono stati quorum-confermati. |
+| EnableStableReads (EnableStableReads) |Boolean |False |L'abilitazione delle letture stabili limita le repliche secondarie alla restituzione dei valori che sono stati sottoposti a quorum. |
 
 ### <a name="sample-configuration-via-code"></a>Configurazione di esempio tramite codice
 ```csharp

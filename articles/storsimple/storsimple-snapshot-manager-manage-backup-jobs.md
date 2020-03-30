@@ -15,18 +15,18 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: 094b996cd3227903995c7a74ef14ed8c0561f59d
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75933346"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Usare StorSimple Snapshot Manager per visualizzare e gestire i processi di backup
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Nel nodo **Processi** del riquadro **Ambito** vengono mostrate le attività di backup **pianificate**, delle **ultime 24 ore** e **in esecuzione** avviate in modo interattivo o da un criterio configurato. 
 
-In questa esercitazione viene illustrato come usare il nodo **Processi** per visualizzare le informazioni sui processi di backup pianificati, recenti e attualmente in esecuzione. L'elenco dei processi e le informazioni corrispondenti vengono visualizzati nel riquadro **risultati** . È inoltre possibile fare clic con il pulsante destro del mouse su un processo elencato e visualizzare un menu di scelta rapida in cui sono elencate le azioni disponibili.
+In questa esercitazione viene illustrato come usare il nodo **Processi** per visualizzare le informazioni sui processi di backup pianificati, recenti e attualmente in esecuzione. L'elenco dei processi e le informazioni corrispondenti vengono visualizzati nel riquadro **Risultati.** Inoltre, è possibile fare clic con il pulsante destro del mouse su un processo elencato e visualizzare un menu di scelta rapida in cui sono elencate le azioni disponibili.
 
 ## <a name="view-scheduled-jobs"></a>Visualizzazione dei processi pianificati
 Utilizzare la procedura seguente per visualizzare i processi di backup pianificati.
@@ -35,12 +35,12 @@ Utilizzare la procedura seguente per visualizzare i processi di backup pianifica
 1. Fare clic sull’icona del desktop per avviare StorSimple Snapshot Manager. 
 2. Nel riquadro **Ambito** espandere il nodo **Processi**, quindi fare clic su **Pianificati**. Nel riquadro **Risultati** vengono visualizzate le informazioni seguenti:
    
-   * **Nome** : il nome dello snapshot pianificato
-   * **Prossima esecuzione** : la data e l’ora del successivo snapshot pianificato.
-   * **Ultima esecuzione** : la data e l'ora dello snapshot pianificato più recente.
+   * **Nome**: nome dello snapshot pianificato
+   * **Prossima esecuzione**: data e ora del successivo snapshot pianificato
+   * **Ultima esecuzione**: data e ora dello snapshot pianificato più recente
      
      > [!NOTE]
-     > Solo per gli snapshot monouso, il valore di **Prossima esecuzione** e **Ultima esecuzione** sarà lo stesso.
+     > Per gli snapshot eseguiti una sola volta, i valori dei campi **Prossima esecuzione** e **Ultima esecuzione** sono gli stessi.
      
      ![Processi di backup pianificati](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_scheduled.png) 
 3. Per eseguire azioni aggiuntive su un processo specifico, fare clic con il pulsante destro del mouse sul nome del processo nel riquadro **Risultati** e selezionare un’opzione del menu.
@@ -50,15 +50,15 @@ Utilizzare la procedura seguente per visualizzare i processi di backup e riprist
 
 #### <a name="to-view-recent-jobs"></a>Per visualizzare i processi recenti
 1. Fare clic sull’icona del desktop per avviare StorSimple Snapshot Manager.
-2. Nel riquadro **Ambito** espandere il nodo **Processi**, quindi fare clic su **Ultime 24 ore**. Nel riquadro **Risultati** vengono mostrati i processi di backup per le ultime 24 ore (per un massimo di 64 processi). Nel riquadro **Risultati** vengono visualizzate le informazioni seguenti, a seconda delle opzioni di **Visualizza** specificate:
+2. Nel riquadro **Ambito** espandere il nodo **Processi**, quindi fare clic su **Ultime 24 ore**. Il riquadro **Risultati** mostra i processi di backup completati nelle ultime 24 ore (fino a un massimo di 64 processi). Le informazioni seguenti vengono visualizzate nel riquadro **Risultati**, a seconda delle opzioni di visualizzazione specificate:****
    
-   * **Nome** : il nome dello snapshot pianificato.
-   * **Avviato** : la data e l’ora di avvio dello snapshot.
-   * **Arrestato** : la data e l'ora in cui lo snapshot è stato completato o terminato.
-   * **Trascorso**: la quantità di tempo che intercorre tra l'ora di **Avviato** e **Arrestato**.
-   * **Stato** : lo stato del processo completato di recente. **Esito positivo** indica che il backup è stato creato correttamente. **Operazione non riuscita** indica che il processo non è stato eseguito correttamente.
-   * **Informazioni** : il motivo dell'errore.
-   * **Byte elaborati (MB)** : la quantità di dati del gruppo di volumi che è stata elaborata (in MB). 
+   * **Nome**: nome dello snapshot pianificato.
+   * **Avvio**: data e ora di inizio dello snapshot.
+   * **Fine**: data e ora di fine dello snapshot.
+   * **Tempo trascorso**: quantità di tempo trascorso tra le ore definite dai campi **Avvio** e **Fine**.
+   * **Stato**: stato del processo completato di recente. **Esito positivo** indica che la creazione del backup è stata completata. **Esito negativo** indica che il processo non è stato eseguito in modo corretto.
+   * **Informazioni**: motivo dell'errore.
+   * **Byte elaborati (MB)**: quantità di dati del gruppo di volumi elaborati (in MB). 
      
      ![Processi eseguiti nelle ultime 24 ore](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_Last_24_hours.png) 
 3. Per eseguire azioni aggiuntive su un processo specifico, fare clic con il pulsante destro del mouse sul nome del processo nel riquadro **Risultati** e selezionare un’opzione del menu.
@@ -70,13 +70,13 @@ Utilizzare la procedura seguente per visualizzare i processi attualmente in esec
 
 #### <a name="to-view-currently-running-jobs"></a>Per visualizzare i processi attualmente in esecuzione
 1. Fare clic sull’icona del desktop per avviare StorSimple Snapshot Manager.
-2. Nel riquadro **Ambito** espandere il nodo **Processi**, quindi fare clic su **In esecuzione**. Nel riquadro **Risultati** vengono visualizzate le informazioni seguenti, a seconda delle opzioni di **Visualizza** specificate:
+2. Nel riquadro **Ambito** espandere il nodo **Processi**, quindi fare clic su **In esecuzione**. A seconda delle opzioni di visualizzazione specificate,**** nel riquadro **Risultati** vengono visualizzate le informazioni seguenti:
    
-   * **Nome** : il nome dello snapshot pianificato.
-   * **Avviato** : la data e l’ora di avvio dello snapshot.
-   * **Checkpoint** : l'azione corrente del backup.
-   * **Stato** : la percentuale di completamento.
-   * **Trascorso** : la quantità di tempo trascorso dall'avvio del backup. 
+   * **Nome**: nome dello snapshot pianificato.
+   * **Avvio**: data e ora di inizio dello snapshot.
+   * **Checkpoint**: azione corrente del backup.
+   * **Stato**: percentuale di completamento.
+   * **Tempo trascorso**: quantità di tempo trascorsa dall'inizio del backup. 
    * **Velocità effettiva media (MB)** : rapporto tra i byte totali di dati elaborati e il tempo totale usato per l'elaborazione (MB).
    * **Byte elaborati (MB)** : totale dei byte di dati elaborati (in MB).
    * **Byte scritti (MB)** : totale dei byte scritti (in MB). Questo valore include i dati e i metadati e quindi in genere è maggiore rispetto al valore dei byte elaborati.

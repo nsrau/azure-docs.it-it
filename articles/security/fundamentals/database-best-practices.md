@@ -1,5 +1,5 @@
 ---
-title: Procedure consigliate per la sicurezza del database-Microsoft Azure
+title: Database security best practices - Microsoft Azure
 description: Questo articolo fornisce un set di procedure consigliate per la sicurezza del database di Azure.
 services: security
 documentationcenter: na
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 316c3ef3c5bd16b52291029924d04fc159375bc8
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 0f2e0257c5bf855b0d9be61c43b68b4e30b3d80d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943651"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125101"
 ---
 # <a name="azure-database-security-best-practices"></a>Procedure consigliate per la sicurezza del database di Azure
-Questo articolo descrive le procedure consigliate per la sicurezza del database.
+In questo articolo vengono descritte le procedure consigliate per la sicurezza dei database.
 
 Le procedure consigliate si basano su opinioni concordanti e funzionino con le caratteristiche e le capacità correnti della piattaforma Azure. Le opinioni e le tecnologie cambiano nel tempo e questo articolo viene aggiornato regolarmente per riflettere tali modifiche.
 
-## <a name="secure-databases"></a>Proteggere i database
+## <a name="secure-databases"></a>Database sicuri
 La sicurezza è un tema della massima importanza per la gestione dei database ed è sempre stata una priorità per il [database SQL di Azure](../../sql-database/index.yml). I database possono essere protetti in modo sicuro per soddisfare la maggior parte dei requisiti di legge e di sicurezza, tra i quali HIPAA, ISO 27001/27002 e PCI DSS livello 1. Un elenco aggiornato delle certificazioni di conformità di sicurezza è disponibile nel [sito Centro protezione di Microsoft](https://azure.microsoft.com/support/trust-center/services/). È anche possibile posizionare i database in specifici data center di Azure in base ai requisiti normativi.
 
 ## <a name="use-firewall-rules-to-restrict-database-access"></a>Usare le regole del firewall per limitare l'accesso al database
@@ -55,7 +55,7 @@ Per informazioni generali sulle regole del firewall, vedere l'articolo relativo 
 ## <a name="enable-database-authentication"></a>Abilitare l'autenticazione del database
 Il database SQL supporta due tipi di autenticazione: l'autenticazione di SQL Server e l'autenticazione di Azure AD.
 
-### <a name="sql-server-authentication"></a>*Autenticazione SQL Server*
+### <a name="sql-server-authentication"></a>*Autenticazione di SQL ServerSQL Server authentication*
 
 Ecco alcuni vantaggi:
 
@@ -75,7 +75,7 @@ Se si usa l'autenticazione di SQL Server, è necessario:
 - (Potenzialmente) proteggere le credenziali trasmesse in rete dal server Web al database. Per altre informazioni, vedere [How to: Connect to SQL Server Using SQL Authentication in ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)) (Procedura: Connettersi a SQL Server usando l'autenticazione SQL in ASP.NET 2.0).
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Autenticazione di Azure Active Directory (AD)*
-L'autenticazione di Azure Active Directory è un meccanismo di connessione al database SQL di Azure e a [SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tramite l'uso di identità in Azure AD. Con l'autenticazione di Azure AD è possibile gestire centralmente le identità degli utenti del database e di altri servizi Microsoft. La gestione centrale degli ID consente di gestire gli utenti del database da un unico punto e semplifica la gestione delle autorizzazioni.
+L'autenticazione di Azure Active Directory è un meccanismo di connessione al database SQL di Azure e a [SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tramite l'uso di identità in Azure AD. Con l'autenticazione di Azure AD è possibile gestire centralmente le identità degli utenti del database e di altri servizi Microsoft. La gestione centrale degli ID consente di gestire gli utenti del database da un unico punto e semplifica la gestione delle autorizzazioni.
 
 > [!NOTE]
 > È preferibile usare l'autenticazione di Azure AD anziché l'autenticazione di SQL Server.
@@ -132,7 +132,7 @@ Il controllo di un'istanza del motore di database di SQL Server o di un singolo 
 
 Esistono numerosi livelli di controllo per SQL Server, in base ai requisiti legislativi o standard per l'installazione. Il servizio di controllo di SQL Server include gli strumenti e i processi necessari per abilitare, archiviare e visualizzare controlli in vari oggetti del server e del database.
 
-Il [servizio di controllo del database SQL di Azure](/azure/sql-database/sql-database-auditing) tiene traccia degli eventi che si verificano nel database e li registra in un log di controllo nell'account di Archiviazione di Azure dell'utente.
+Il controllo del database SQL di Azure tiene traccia degli eventi del database e li scrive in un log di controllo nell'account di archiviazione di [Azure.Azure SQL Database auditing](/azure/sql-database/sql-database-auditing) tracks database events and writes them to an audit log in your Azure storage account.
 
 Il servizio di controllo aiuta a mantenere la conformità alle normative, a comprendere l'attività del database e a individuare discrepanze e anomalie che potrebbero indicare problemi aziendali o violazioni della sicurezza. Il servizio di controllo aiuta a rispettare gli standard di conformità, ma non garantisce la conformità.
 

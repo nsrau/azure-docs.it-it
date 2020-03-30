@@ -9,10 +9,10 @@ ms.author: zarhoads
 ms.custom: mvc
 keywords: Cosmos DB, Open Service Broker, Open Service Broker for Azure
 ms.openlocfilehash: ddaa3b9aa198bc142e1bcbcab6b7b1e028eff2aa
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78247927"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>Integrare l'applicazione MongoDB esistente con l'API Azure Cosmos DB per MongoDB e Open Service Broker for Azure (OSBA)
@@ -187,7 +187,7 @@ Passare a `http://localhost:8080` nel browser. Si noti che sono stati ripristina
 
 ## <a name="run-your-application-on-your-aks-cluster"></a>Eseguire l'applicazione nel cluster del servizio Azure Kubernetes
 
-È possibile usare [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) per distribuire l'applicazione nel cluster del servizio Azure Kubernetes. Azure Dev Spaces consente di generare elementi, ad esempio grafici Dockerfile e Helm, e di distribuire ed eseguire un'applicazione in AKS.
+È possibile usare [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) per distribuire l'applicazione nel cluster del servizio Azure Kubernetes. Azure Dev Spaces consente di generare elementi, ad esempio Dockerfiles e Helm charts, e di distribuire ed eseguire un'applicazione in AKS.
 
 Per abilitare Azure Dev Spaces nel cluster del servizio Azure Kubernetes:
 
@@ -202,7 +202,7 @@ Usare gli strumenti di Azure Dev Spaces per preparare l'applicazione per l'esecu
 azds prep --public
 ```
 
-Questo comando genera diversi elementi, inclusa una cartella *charts/* , ovvero il grafico Helm, nella radice del progetto. Questo comando non può generare un documento *Dockerfile* per questo progetto specifico, quindi è necessario crearlo.
+Questo comando genera diversi elementi, inclusa una cartella *charts/*, ovvero il grafico Helm, nella radice del progetto. Questo comando non può generare un documento *Dockerfile* per questo progetto specifico, quindi è necessario crearlo.
 
 Nella radice del progetto creare un file denominato *Dockerfile* con questo contenuto:
 
@@ -265,7 +265,7 @@ press Ctrl+C to detach
 ...
 ```
 
-Passare all'URL visualizzato nei log. Nell'esempio precedente si userebbe *http://spring-music.1234567890abcdef1234.eastus.aksapp.io/* . 
+Passare all'URL visualizzato nei log. Nell'esempio precedente, è *http://spring-music.1234567890abcdef1234.eastus.aksapp.io/* necessario utilizzare . 
 
 Verificare che sia presente l'applicazione con le modifiche.
 

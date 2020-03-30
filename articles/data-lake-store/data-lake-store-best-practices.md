@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
 ms.openlocfilehash: a8ca67d1ff3100aee02ed473c9cc2180de3973b8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75638936"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Procedure consigliate per l'uso di Azure Data Lake Storage Gen1
@@ -45,7 +45,7 @@ Le entità servizio di Azure Active Directory vengono in genere usate dai serviz
 
 ### <a name="enable-the-data-lake-storage-gen1-firewall-with-azure-service-access"></a>Abilitare il firewall di Data Lake Storage Gen1 con l'accesso ai servizi di Azure
 
-Data Lake Storage Gen1 consente di attivare un firewall e limitare l'accesso solo ai servizi di Azure. Questo scenario è consigliato per ridurre il vettore di attacco dalle intrusioni esterne. Il firewall può essere abilitato per l'account Data Lake Storage Gen1 nel portale di Azure tramite le opzioni **Firewall** > **Abilita firewall (ATTIVA)**  > **Consenti l'accesso ai servizi di Azure**.
+Data Lake Storage Gen1 consente di attivare un firewall e limitare l'accesso solo ai servizi di Azure. Questo scenario è consigliato per ridurre il vettore di attacco dalle intrusioni esterne. Il firewall può essere abilitato nell'account Data Lake Storage Gen1 nel portale di Azure tramite le opzioni**Consenti accesso ai servizi** di Azure per **Firewall** > **Abilita firewall (ON).** > 
 
 ![Impostazioni del firewall in Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Impostazioni del firewall in Data Lake Storage Gen1")
 
@@ -86,9 +86,9 @@ Per ottimizzare le prestazioni e ridurre il numero di operazioni di input/output
 
 ## <a name="resiliency-considerations"></a>Considerazioni sulla resilienza
 
-Quando si progetta un sistema con Data Lake Storage Gen1 o con qualsiasi servizio cloud, è necessario considerare i requisiti di disponibilità e come rispondere a potenziali interruzioni del servizio. Un problema può riguardare un'istanza specifica o anche un'intera area, quindi è importante essere preparati con un piano per entrambi i casi. A seconda dei contratti di servizio relativi all'**obiettivo del tempo di ripristino** e all'**obiettivo del punto di ripristino** per il carico di lavoro, è possibile scegliere una strategia più o meno aggressiva per la disponibilità elevata e il ripristino di emergenza.
+Quando si progetta un sistema con Data Lake Storage Gen1 o con qualsiasi servizio cloud, è necessario considerare i requisiti di disponibilità e come rispondere a potenziali interruzioni del servizio. Un problema può riguardare un'istanza specifica o anche un'intera area, quindi è importante essere preparati con un piano per entrambi i casi. A seconda **dell'obiettivo** del tempo di ripristino e dei contratti di servizio dell'obiettivo del punto di **ripristino** per il carico di lavoro, è possibile scegliere una strategia più o meno aggressiva per la disponibilità elevata e il ripristino di emergenza.
 
-### <a name="high-availability-and-disaster-recovery"></a>Alta disponibilità e disaster recovery
+### <a name="high-availability-and-disaster-recovery"></a>Disponibilità elevata e ripristino di emergenza
 
 La disponibilità elevata e il ripristino di emergenza possono talvolta essere combinati, anche se ognuno prevede una strategia leggermente diversa, in particolare quando si tratta di dati. Data Lake Storage Gen1 esegue la replica 3 volte in background per garantire protezione in caso di errore hardware localizzati. Tuttavia, poiché la replica tra aree non viene eseguita per impostazione predefinita, è necessario gestirla manualmente. Quando si prepara un piano per la disponibilità elevata, in caso di interruzione del servizio il carico di lavoro deve poter accedere ai dati più recenti nel più breve tempo possibile, passando a un'istanza replicata separatamente in locale o in una nuova area.
 
@@ -100,11 +100,11 @@ Di seguito sono illustrate le tre principali opzioni consigliate per l'orchestra
 
 |  |Distcp  |Data factory di Azure  |AdlCopy  |
 |---------|---------|---------|---------|
-|**Limiti di scalabilità**     | Limiti definiti dai nodi di lavoro        | Limiti definiti dal numero massimo di unità di spostamento dei dati cloud        | Limiti definiti dalle unità di analisi        |
+|**Limiti di scala**     | Limiti definiti dai nodi di lavoro        | Limiti definiti dal numero massimo di unità di spostamento dei dati cloud        | Limiti definiti dalle unità di analisi        |
 |**Supporto per la copia delta**     |   Sì      | No         | No         |
 |**Orchestrazione predefinita**     |  No (usare i processi CRON o Oozie Airflow)       | Sì        | No (usare Automazione di Azure o Utilità di pianificazione di Windows)         |
 |**File system supportati**     | ADL, HDFS, WASB, S3, GS, CFS        |Numerosi, vedere [Connettori](../data-factory/connector-azure-blob-storage.md).         | Da ADL ad ADL, da WASB ad ADL (solo nella stessa area)        |
-|**Supporto del sistema operativo**     |Qualsiasi sistema operativo che esegue Hadoop         | N/D          | Windows 10         |
+|**Supporto del sistema operativo**     |Qualsiasi sistema operativo che esegue Hadoop         | N/D          | Windows 10         |
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>Usare Distcp per lo spostamento dei dati tra due posizioni
 
@@ -114,7 +114,7 @@ I processi di copia possono essere attivati dai flussi di lavoro di Apache Oozie
 
 ### <a name="use-azure-data-factory-to-schedule-copy-jobs"></a>Usare Azure Data Factory per pianificare i processi di copia
 
-È anche possibile usare Azure Data Factory per pianificare i processi di copia tramite un'**attività di copia**, oltre che impostare una frequenza tramite la **copia guidata**. Tenere presente che Azure Data Factory prevede un limite di unità di spostamento dei dati cloud (DMU) e applica limiti relativi a velocità effettiva e calcolo per i carichi di lavoro con dati di grandi dimensioni. Inoltre, Azure Data Factory attualmente non consente gli aggiornamenti delta tra account Data Lake Storage Gen1, quindi cartelle quali le tabelle Hive richiedono una copia completa per la replica. Per altre informazioni sulla copia con Data Factory, vedere [Guida alle prestazioni dell'attività di copia e all'ottimizzazione](../data-factory/copy-activity-performance.md).
+Azure Data Factory può essere usato anche per pianificare i processi di copia usando **un'attività**di copia e può anche essere impostato con una frequenza tramite la **Copia guidata**. Tenere presente che Azure Data Factory prevede un limite di unità di spostamento dei dati cloud (DMU) e applica limiti relativi a velocità effettiva e calcolo per i carichi di lavoro con dati di grandi dimensioni. Inoltre, Azure Data Factory attualmente non consente gli aggiornamenti delta tra account Data Lake Storage Gen1, quindi cartelle quali le tabelle Hive richiedono una copia completa per la replica. Per altre informazioni sulla copia con Data Factory, vedere [Guida alle prestazioni dell'attività di copia e all'ottimizzazione](../data-factory/copy-activity-performance.md).
 
 ### <a name="adlcopy"></a>AdlCopy
 
@@ -136,11 +136,11 @@ Per avvisi più in tempo reale e per un maggiore controllo sulla destinazione de
 
 ### <a name="turn-on-debug-level-logging-in-hdinsight"></a>Attivare la registrazione a livello di debug in HDInsight
 
-Se il log shipping di Data Lake Storage Gen1 non è attivato, Azure HDInsight consente anche di attivare la [registrazione sul lato client per Data Lake Storage Gen1](data-lake-store-performance-tuning-mapreduce.md) tramite log4j. È necessario impostare la proprietà seguente in **Ambari** > **YARN** > **Config (Configurazione)**  > **Advanced yarn-log4j configurations (Configurazioni yarn-log4j avanzate)** :
+Se il log shipping di Data Lake Storage Gen1 non è attivato, Azure HDInsight consente anche di attivare la [registrazione sul lato client per Data Lake Storage Gen1](data-lake-store-performance-tuning-mapreduce.md) tramite log4j. È necessario impostare la seguente proprietà nelle configurazioni avanzate di**filato-log4j** **di Ambari** > **YARN:** > **Config** > 
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG
 
-Dopo che la proprietà è stata impostata e i nodi sono stati riavviati, la diagnostica di Data Lake Storage Gen1 viene scritta nei log YARN nei nodi (/tmp/\<user\>/yarn.log) ed è possibile monitorare i dettagli importanti, come gli errori o i limiti (codice errore HTTP 429). Queste stesse informazioni possono essere monitorate anche nei log di monitoraggio di Azure o quando i log vengono spediti nel pannello [diagnostica](data-lake-store-diagnostic-logs.md) dell'account data Lake storage Gen1. È consigliabile attivare almeno la registrazione sul lato client oppure usare l'opzione di log shipping con Data Lake Storage Gen1 per ottenere visibilità operativa e semplificare il debug.
+Dopo che la proprietà è stata impostata e i nodi sono stati riavviati, la diagnostica di Data Lake Storage Gen1 viene scritta nei log YARN nei nodi (/tmp/\<user\>/yarn.log) ed è possibile monitorare i dettagli importanti, come gli errori o i limiti (codice errore HTTP 429). Queste stesse informazioni possono essere monitorate anche nei log di Monitoraggio di Azure o in qualsiasi punto in cui vengono inviati i log nel pannello [Diagnostica](data-lake-store-diagnostic-logs.md) dell'account Data Lake Storage Gen1. È consigliabile attivare almeno la registrazione sul lato client oppure usare l'opzione di log shipping con Data Lake Storage Gen1 per ottenere visibilità operativa e semplificare il debug.
 
 ### <a name="run-synthetic-transactions"></a>Eseguire transazioni sintetiche
 

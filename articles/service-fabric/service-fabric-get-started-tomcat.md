@@ -1,14 +1,14 @@
 ---
-title: Creare un contenitore per Apache Tomcat in Linux
+title: Creare un contenitore per Apache Tomcat su LinuxCreate a container for Apache Tomcat on Linux
 description: Creare un contenitore Linux per esporre un'applicazione in esecuzione nel server Apache Tomcat su Azure Service Fabric. Creare un'immagine Docker con l'applicazione e il server Apache Tomcat, eseguire il push dell'immagine in un registro contenitori e compilare e distribuire un'applicazione contenitore di Service Fabric.
 ms.topic: conceptual
 ms.date: 6/08/2018
 ms.author: pepogors
 ms.openlocfilehash: 1a699f3b35970270a9800162a6d8717682a168ae
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614418"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Creare un contenitore di Service Fabric in esecuzione nel server Apache Tomcat su Linux
@@ -101,9 +101,9 @@ Seguire i passaggi descritti in questa sezione per creare un'immagine Docker bas
 ## <a name="push-the-tomcat-image-to-your-container-registry"></a>Eseguire il push dell'immagine Tomcat nel registro contenitori
 Dopo aver verificato che l'immagine Tomcat venga eseguita in un contenitore nel computer di sviluppo, eseguirne il push in un repository in un registro contenitori. Questo articolo usa Registro Azure Container per archiviare l'immagine, ma è possibile usare qualsiasi registro contenitori modificando alcuni passaggi. Questo articolo presuppone che il nome del registro sia *myregistry* e che il nome completo del registro sia myregistry.azurecr.io. Modificare queste impostazioni in base al proprio scenario. 
 
-1. Eseguire `docker login` per accedere al registro contenitori con le [credenziali del registro](../container-registry/container-registry-authentication.md)di sistema.
+1. Eseguire `docker login` per accedere al Registro di sistema del contenitore con [le credenziali del Registro di sistema](../container-registry/container-registry-authentication.md).
 
-   L'esempio seguente passa l'ID e la password di un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md) di Azure Active Directory. Ad esempio, è possibile che sia stata assegnata un'entità servizio al registro per uno scenario di automazione. In alternativa, è possibile accedere usando il nome utente e la password del registro di sistema.
+   L'esempio seguente passa l'ID e la password di un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md) di Azure Active Directory. Ad esempio, è possibile che sia stata assegnata un'entità servizio al registro per uno scenario di automazione. In alternativa, è possibile accedere utilizzando il nome utente e la password del Registro di sistema.
 
    ```bash
    docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -152,7 +152,7 @@ Dopo aver eseguito il push dell'immagine Tomcat in un registro contenitori, è p
    </Resources>
    ```
 
-11. Nel manifesto dell'applicazione (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*), nel tag **ServiceManifestImport**, aggiungere il codice XML seguente. Sostituire **AccountName** e **password** nel tag **RepositoryCredentials** con il nome del registro contenitori e la password necessari per l'accesso.
+11. Nel manifesto dell'applicazione (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*), nel tag **ServiceManifestImport**, aggiungere il codice XML seguente. Sostituire **AccountName** e **Password** nel tag **RepositoryCredentials** con il nome del registro contenitori e la password necessaria per accedere.
 
    ```xml
    <Policies>

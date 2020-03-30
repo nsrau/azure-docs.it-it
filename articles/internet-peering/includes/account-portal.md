@@ -9,22 +9,22 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 7316dba7559c4a50e94771d69ce03bac51c0f3c2
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75774536"
 ---
-Da un browser, passare al [portale](https://portal.azure.com/) e accedere con l'account Azure.
+Da un browser passare al portale e accedere con l'account Azure.From a browser, navigate to the [portal](https://portal.azure.com/) and sign in with your Azure account.
 
-Se sono disponibili più sottoscrizioni ed è necessario cambiare le sottoscrizioni:
+Se si dispone di più sottoscrizioni ed è necessario passare da una sottoscrizioni all'altra:If you have multiple subscriptions and need to switch subscriptions:
 
-1. Fare clic sul pulsante profilo, quindi scegliere **Cambia directory**.
-
-    > [!div class="mx-imgBorder"]
-    > ![selezionare Cambia directory](../media/choose-subscription-2.png)
-
-1. Scegliere una sottoscrizione che si vuole usare per la configurazione del peering.
+1. Fare clic sul pulsante del profilo e scegliere **Cambia directory**.
 
     > [!div class="mx-imgBorder"]
-    > ![scegliere la sottoscrizione](../media/choose-subscription-3.png)
+    > ![Selezionare switch directory](../media/choose-subscription-2.png)
+
+1. Scegliere una sottoscrizione da usare per la configurazione del peering.
+
+    > [!div class="mx-imgBorder"]
+    > ![Scegliere la sottoscrizione](../media/choose-subscription-3.png)

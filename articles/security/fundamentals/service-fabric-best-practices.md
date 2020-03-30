@@ -1,5 +1,5 @@
 ---
-title: Procedure consigliate per la sicurezza di Azure Service Fabric
+title: Procedure consigliate per la sicurezza di Azure Service FabricBest practices for Azure Service Fabric security
 description: Questo articolo offre un set di procedure consigliate per la sicurezza di Azure Service Fabric.
 author: unifycloud
 ms.author: tomsh
@@ -8,10 +8,10 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: 458a1d474e9a722a98ca068e1827cf0e1abf4b47
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75548820"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Procedure consigliate per la sicurezza di Azure Service Fabric
@@ -115,11 +115,11 @@ In Service Fabric gli attori vengono implementati nel framework dell'applicazion
 
 Ogni attore è definito come un'istanza di un tipo di attore, come un oggetto .NET è un'istanza di un tipo .NET. Ad esempio, per un **tipo di attore** che implementa la funzionalità di una calcolatrice possono essere distribuiti diversi attori di quel tipo su vari nodi di un cluster. Ogni attore distribuito è caratterizzato in modo univoco da un identificatore.
 
-Le [configurazioni di sicurezza del replicatore](../../service-fabric/service-fabric-reliable-actors-kvsactorstateprovider-configuration.md) consentono di proteggere il canale di comunicazione usato durante la replica. Questa configurazione impedisce ai servizi di vedere il traffico di replica reciproco e verifica la sicurezza dei dati a disponibilità elevata. Per impostazione predefinita, una sezione di configurazione della sicurezza vuota non abilita la sicurezza della replica.
+Le configurazioni di sicurezza del [replicatore](../../service-fabric/service-fabric-reliable-actors-kvsactorstateprovider-configuration.md) vengono utilizzate per proteggere il canale di comunicazione utilizzato durante la replica. Questa configurazione impedisce ai servizi di vedere il traffico di replica reciproco e verifica la sicurezza dei dati a disponibilità elevata. Per impostazione predefinita, una sezione di configurazione della sicurezza vuota non abilita la sicurezza della replica.
 Le configurazioni del replicatore riguardano il replicatore responsabile di garantire l'elevata affidabilità dello stato del provider di stato degli attori.
 
 ## <a name="configure-ssl-for-azure-service-fabric"></a>Configurare l'autenticazione SSL per Azure Service Fabric
-Il processo di autenticazione server [autentica](../../service-fabric/service-fabric-cluster-creation-via-arm.md) gli endpoint di gestione del cluster rispetto a un client di gestione. Il client di gestione riconosce quindi di comunicare con il cluster reale. Questo certificato fornisce anche un certificato [SSL](../../service-fabric/service-fabric-cluster-creation-via-arm.md) per l'API di gestione HTTPS e per Service Fabric Explorer tramite HTTPS.
+Il processo di autenticazione server [autentica](../../service-fabric/service-fabric-cluster-creation-via-arm.md) gli endpoint di gestione del cluster rispetto a un client di gestione. Il client di gestione riconosce quindi di comunicare con il cluster reale. Questo certificato fornisce anche un [SSL](../../service-fabric/service-fabric-cluster-creation-via-arm.md) per l'API di gestione HTTPS e per Service Fabric Explorer su HTTPS.
 È necessario ottenere un nome di dominio personalizzato per il cluster. Quando si richiede un certificato da un'autorità di certificazione, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato usato per il cluster.
 
 Prima di configurare SSL per un'applicazione, è necessario ottenere un certificato SSL firmato da un'autorità di certificazione. L'autorità di certificazione è una terza parte attendibile che emette certificati per motivi di sicurezza SSL. Se non si dispone già di un certificato SSL, è necessario ottenerne uno da un rivenditore di certificati SSL.
@@ -132,10 +132,10 @@ Il certificato deve soddisfare i requisiti seguenti per i certificati SSL in Azu
 -   Il nome del soggetto del certificato deve corrispondere al nome di dominio usato per accedere al servizio cloud.
 
     - Acquistare un nome di dominio personalizzato da usare per accedere al servizio cloud.
-    - Richiedere un certificato da un'autorità di certificazione con un nome di soggetto corrispondente al nome di dominio personalizzato del servizio. Se ad esempio il nome di dominio personalizzato è __contoso__ **.com**, il nome del soggetto del certificato dell'autorità di certificazione deve essere **.contoso.com** o __www__ **.contoso.com**.
+    - Richiedere un certificato da un'autorità di certificazione con un nome di soggetto corrispondente al nome di dominio personalizzato del servizio. Se ad esempio il nome di dominio personalizzato è __contoso__**.com**, il nome del soggetto del certificato dell'autorità di certificazione deve essere **.contoso.com** o __www__**.contoso.com**.
 
     >[!NOTE]
-    >Non è possibile ottenere un certificato SSL da un'autorità di certificazione per il dominio __cloudapp__ **.net**.
+    >Non è possibile ottenere un certificato SSL da un'autorità di certificazione per il dominio __cloudapp__**.net**.
 
 -   Per il certificato deve essere usata una crittografia di almeno 2.048 bit.
 
@@ -169,7 +169,7 @@ Per configurare un insieme di credenziali delle chiavi sono disponibili due pass
 Per altre informazioni su come configurare un insieme di credenziali delle chiavi, vedere [Che cos'è Azure Key Vault?](../../key-vault/key-vault-overview.md).
 
 ## <a name="assign-users-to-roles"></a>Assegnare utenti ai ruoli
-Dopo aver creato le applicazioni per rappresentare il cluster, assegnare gli utenti ai ruoli supportati da Service Fabric: sola lettura e amministratore. È possibile assegnare questi ruoli tramite il portale di Azure.
+Dopo aver creato le applicazioni per rappresentare il cluster, assegnare gli utenti ai ruoli supportati da Service Fabric: di sola lettura e amministratore. È possibile assegnare questi ruoli usando il portale di Azure.You can assign these roles by using the Azure portal.
 
 >[!NOTE]
 > Per altre informazioni sull'uso dei ruoli in Service Fabric, vedere [Controllo di accesso basato sui ruoli per i client di Service Fabric](../../service-fabric/service-fabric-cluster-security-roles.md).

@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi di onboarding delle soluzioni di Gestione automazione di Azure
+title: Risolvere i problemi relativi all'onboarding delle soluzioni di gestione di Automazione di AzureTroubleshoot onboarding Azure Automation
 description: Informazioni su come risolvere problemi di onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario
 services: automation
 author: mgoedtel
@@ -9,42 +9,42 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.openlocfilehash: c949556949e0c187d7c23c4dd32436e245bfbb95
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75889324"
 ---
-# <a name="troubleshoot-errors-when-onboarding-update-management-change-tracking-and-inventory"></a>Risolvere gli errori durante l'onboarding di Gestione aggiornamenti, Rilevamento modifiche e inventario
+# <a name="troubleshoot-errors-when-onboarding-update-management-change-tracking-and-inventory"></a>Risolvere gli errori durante l'onboarding della gestione degli aggiornamenti, del rilevamento delle modifiche e dell'inventarioTroubleshoot errors when onboarding Update Management, Change Tracking, and Inventory
 
 Durante l'onboarding di soluzioni quali Gestione aggiornamenti, Rilevamento modifiche e Inventario, è possibile riscontrare errori. Questo articolo descrive i diversi errori che possono verificarsi e come risolverli.
 
 ## <a name="known-issues"></a>Problemi noti
 
-### <a name="node-rename"></a>Scenario: per rinominare un nodo registrato, è necessario annullare la registrazione o la registrazione
+### <a name="scenario-renaming-a-registered-node-requires-unregister--register-again"></a><a name="node-rename"></a>Scenario: la ridenominazione di un nodo registrato richiede nuovamente l'annullamento/la registrazione
 
 #### <a name="issue"></a>Problema
 
-Un nodo viene registrato in automazione di Azure e quindi il sistema operativo ComputerName viene modificato.  I report del nodo continuano a essere visualizzati con il nome originale.
+Un nodo viene registrato in Automazione di Azure e quindi il nome computer del sistema operativo viene modificato.  I report dal nodo continuano a essere visualizzati con il nome originale.
 
 #### <a name="cause"></a>Causa
 
-La ridenominazione dei nodi registrati non aggiorna il nome del nodo in automazione di Azure.
+La ridenominazione dei nodi registrati non aggiorna il nome del nodo in Automazione di Azure.Renaming registered nodes does not update the node name in Azure Automation.
 
 #### <a name="resolution"></a>Risoluzione
 
-Annullare la registrazione del nodo dalla configurazione dello stato di automazione di Azure e quindi registrarlo di nuovo.  I report pubblicati nel servizio prima del momento non saranno più disponibili.
+Annullare la registrazione del nodo da Configurazione stato di automazione di Azure e quindi registrarlo nuovamente.  I report pubblicati nel servizio prima di tale orario non saranno più disponibili.
 
 
-### <a name="resigning-cert"></a>Scenario: la nuova firma dei certificati tramite il proxy HTTPS non è supportata
+### <a name="scenario-re-signing-certificates-via-https-proxy-is-not-supported"></a><a name="resigning-cert"></a>Scenario: la firma di nuovi certificati tramite proxy https non è supportata
 
 #### <a name="issue"></a>Problema
 
-I clienti hanno segnalato che, quando ci si connette tramite una soluzione proxy che termina il traffico HTTPS e quindi crittografa di nuovo il traffico tramite un nuovo certificato, il servizio non consente la connessione.
+I clienti hanno segnalato che quando ci si connette tramite una soluzione proxy che termina il traffico https e quindi crittografa nuovamente il traffico utilizzando un nuovo certificato, il servizio non consente la connessione.
 
 #### <a name="cause"></a>Causa
 
-Automazione di Azure non supporta la ripetizione della firma dei certificati usati per crittografare il traffico.
+Automazione di Azure non supporta la firma dei certificati di firma nuovi usati per crittografare il traffico.
 
 #### <a name="resolution"></a>Risoluzione
 
@@ -52,11 +52,11 @@ non è disponibile alcuna soluzione alternativa per questo problema.
 
 ## <a name="general-errors"></a>Errori generali
 
-### <a name="missing-write-permissions"></a>Scenario: l'onboarding ha esito negativo con il messaggio. Impossibile abilitare la soluzione
+### <a name="scenario-onboarding-fails-with-the-message---the-solution-cannot-be-enabled"></a><a name="missing-write-permissions"></a>Scenario: Onboarding non riuscito con il messaggio - Impossibile abilitare la soluzioneScenario: Onboarding fails with the message - The solution cannot be enabled
 
 #### <a name="issue"></a>Problema
 
-Quando si tenta di caricare una macchina virtuale in una soluzione, viene visualizzato uno dei messaggi seguenti:
+Viene visualizzato uno dei seguenti messaggi quando si tenta di eseguire l'onboarding di una macchina virtuale in una soluzione:
 
 ```error
 The solution cannot be enabled due to missing permissions for the virtual machine or deployments
@@ -68,13 +68,13 @@ The solution cannot be enabled on this VM because the permission to read the wor
 
 #### <a name="cause"></a>Causa
 
-Questo errore è causato da autorizzazioni errate o mancanti nella macchina virtuale, nell'area di lavoro o per l'utente.
+Questo errore è causato da autorizzazioni non corrette o mancanti nella macchina virtuale, nell'area di lavoro o per l'utente.
 
 #### <a name="resolution"></a>Risoluzione
 
-Assicurarsi di disporre delle autorizzazioni corrette per eseguire l'onboarding della macchina virtuale. Verificare quali [autorizzazioni sono necessarie per eseguire l'onboarding delle macchine virtuali](../automation-role-based-access-control.md#onboarding) e ripetere l'operazione. Se viene visualizzato il messaggio di errore `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, assicurarsi di disporre dell'autorizzazione `Microsoft.OperationalInsights/workspaces/read` per essere in grado di rilevare se la macchina virtuale è caricata in un'area di lavoro.
+Assicurarsi di disporre delle autorizzazioni corrette per eseguire l'onboarding della macchina virtuale. Verificare quali [autorizzazioni sono necessarie per eseguire l'onboarding delle macchine virtuali](../automation-role-based-access-control.md#onboarding) e ripetere l'operazione. Se viene visualizzato `The solution cannot be enabled on this VM because the permission to read the workspace is missing`l'errore `Microsoft.OperationalInsights/workspaces/read` , assicurarsi di disporre dell'autorizzazione per poter individuare se la macchina virtuale è stata attivata in un'area di lavoro.
 
-### <a name="diagnostic-logging"></a>Scenario: l'onboarding ha esito negativo con il messaggio-Impossibile configurare l'account di automazione per la registrazione diagnostica
+### <a name="scenario-onboarding-fails-with-the-message---failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Scenario: Onboarding non riesce con il messaggio - Impossibile configurare l'account di automazione per la registrazione diagnosticaScenario: Onboarding fails with the message - Failed to configure Automation Account for diagnostic logging
 
 #### <a name="issue"></a>Problema
 
@@ -86,13 +86,13 @@ Failed to configure automation account for diagnostic logging
 
 #### <a name="cause"></a>Causa
 
-Questo errore può essere causato se il piano tariffario non corrisponde al modello di fatturazione della sottoscrizione. Per altre informazioni, vedere [monitoraggio dell'utilizzo e dei costi stimati in monitoraggio di Azure](https://aka.ms/PricingTierWarning).
+Questo errore può essere causato se il piano tariffario non corrisponde al modello di fatturazione della sottoscrizione. Per altre informazioni, vedere [Monitoraggio dell'utilizzo e dei costi stimati in Monitoraggio di Azure.For](https://aka.ms/PricingTierWarning)more information, see Monitoring usage and estimated costs in Azure Monitor.
 
 #### <a name="resolution"></a>Risoluzione
 
-Creare manualmente l'area di lavoro Log Analytics e ripetere il processo di onboarding per selezionare l'area di lavoro creata.
+Creare manualmente l'area di lavoro di Log Analytics e ripetere il processo di onboarding per selezionare l'area di lavoro creata.
 
-### <a name="computer-group-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
+### <a name="scenario-computergroupqueryformaterror"></a><a name="computer-group-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
 
 #### <a name="issue"></a>Problema
 
@@ -106,7 +106,7 @@ Questo codice di errore indica che il formato della query sul gruppo di computer
 
 È possibile eliminare la query per questa soluzione e caricare nuovamente la soluzione. In questo caso, la query viene creata di nuovo. Risulta impossibile trovare la query nel riquadro **Ricerche salvate** dell'area di lavoro. Il nome della query è **MicrosoftDefaultComputerGroup** e la categoria della query è il nome della soluzione associata alla query. Se sono abilitate più soluzioni, **MicrosoftDefaultComputerGroup** viene visualizzato più volte nell'area **Ricerche salvate**.
 
-### <a name="policy-violation"></a>Scenario: PolicyViolation
+### <a name="scenario-policyviolation"></a><a name="policy-violation"></a>Scenario: PolicyViolation
 
 #### <a name="issue"></a>Problema
 
@@ -126,13 +126,13 @@ Per poter distribuire la soluzione, è necessario provare a modificare i criteri
   * Ridefinendo la destinazione dei criteri per una risorsa specifica (ad esempio un account di Automazione di Azure specifico).
   * Modificando il set di risorse per il quale il criterio specifico è stato configurato per negare l'autorizzazione.
 
-Controllare le notifiche nell'angolo superiore destro della portale di Azure o passare al gruppo di risorse contenente l'account di automazione e selezionare **distribuzioni** in **Impostazioni** per visualizzare la distribuzione non riuscita. Per altre informazioni sui criteri di Azure, vedere [Informazioni su Criteri di Azure](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
+Controllare le notifiche nell'angolo superiore destro del portale di Azure o passare al gruppo di risorse che contiene l'account di automazione e selezionare **Distribuzioni** in **Impostazioni** per visualizzare la distribuzione non riuscita. Per altre informazioni sui criteri di Azure, vedere [Informazioni su Criteri di Azure](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
 
-### <a name="unlink"></a>Scenario: errori durante il tentativo di scollegare un'area di lavoro
+### <a name="scenario-errors-trying-to-unlink-a-workspace"></a><a name="unlink"></a>Scenario: errori durante il tentativo di scollegare un'area di lavoroScenario: Errors trying to unlink a workspace
 
 #### <a name="issue"></a>Problema
 
-Quando si tenta di scollegare un'area di lavoro, viene visualizzato l'errore seguente:
+Viene visualizzato il seguente errore quando si tenta di scollegare un'area di lavoro:
 
 ```error
 The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions.
@@ -140,35 +140,35 @@ The link cannot be updated or deleted because it is linked to Update Management 
 
 #### <a name="cause"></a>Causa
 
-Questo errore si verifica quando le soluzioni sono ancora attive nell'area di lavoro di Log Analytics che dipendono dall'account di automazione e dall'area di lavoro Log Analytics da collegare.
+Questo errore si verifica quando nell'area di lavoro di Log Analytics sono ancora attive soluzioni che dipendono dal collegamento dell'area di lavoro Account di automazione e Log Analytics.
 
 ### <a name="resolution"></a>Risoluzione
 
-Per risolvere questo problema, è necessario rimuovere le soluzioni seguenti dall'area di lavoro se vengono usate:
+Per risolvere questo problema, è necessario rimuovere le soluzioni seguenti dall'area di lavoro se vengono in uso:
 
 * Gestione degli aggiornamenti
-* Change Tracking
+* Rilevamento modifiche
 * Avviare/arrestare VM durante gli orari di minore attività
 
-Una volta rimosse le soluzioni, è possibile scollegare l'area di lavoro. È importante pulire anche eventuali artefatti esistenti da tali soluzioni dall'area di lavoro e dall'account di automazione.  
+Dopo aver rimosso le soluzioni, è possibile scollegare l'area di lavoro. È importante pulire tutti gli elementi esistenti da tali soluzioni dall'area di lavoro e dall'account di automazione.  
 
 * Gestione degli aggiornamenti
-  * Rimuovere le distribuzioni di aggiornamenti (pianificazioni) dall'account di automazione
+  * Rimuovere le distribuzioni di aggiornamento (pianificazioni) dall'account di automazione
 * Avviare/arrestare VM durante gli orari di minore attività
-  * Rimuovere i blocchi sui componenti della soluzione nell'account di automazione in **impostazioni** > **blocchi**.
-  * Per ulteriori passaggi per rimuovere la soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività vedere, [rimuovere la soluzione avvia/arresta macchina virtuale durante gli orari](../automation-solution-vm-management.md#remove-the-solution)di indisponibilità.
+  * Rimuovere eventuali blocchi sui componenti della soluzione nell'account di automazione in**Blocchi** **impostazioni** > .
+  * Per altri passaggi per rimuovere le macchine virtuali di avvio/arresto durante la soluzione fuori orario, vedere Rimuovere la macchina virtuale di [avvio/arresto durante la soluzione fuori orario.](../automation-solution-vm-management.md#remove-the-solution)
 
-## <a name="mma-extension-failures"></a>Errori delle estensioni di MMA
+## <a name="mma-extension-failures"></a><a name="mma-extension-failures"></a>Errori delle estensioni di MMA
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-Quando si distribuisce una soluzione, vengono distribuite anche varie risorse correlate. Una di queste risorse è l'estensione Microsoft Monitoring Agent o l'agente di Log Analytics per Linux. Si tratta di estensioni di macchina virtuale installate dall'agente guest della macchina virtuale responsabile della comunicazione con l'area di lavoro configurata Log Analytics, allo scopo di un coordinamento successivo del download dei file binari e di altri file che il la soluzione da cui si sta eseguendo l'onboarding dipendono dall'avvio dell'esecuzione.
+Quando si distribuisce una soluzione, vengono distribuite anche varie risorse correlate. Una di queste risorse è l'estensione Microsoft Monitoring Agent o l'agente di Log Analytics per Linux. Si tratta di estensioni di macchine virtuali installate dall'agente guest della macchina virtuale responsabile della comunicazione con l'area di lavoro Log Analytics configurata, allo scopo di un successivo coordinamento del download dei file binari e di altri file soluzione che si sta onboarding dipendono una volta che inizia l'esecuzione.
 In genere gli errori di installazione dell'estensione MMA o dell'agente di Log Analytics per Linux vengono notificati nell'Hub di notifica. Facendo clic sulla notifica vengono visualizzate altre informazioni sull'errore specifico. Si possono visualizzare altri dettagli sugli errori di distribuzione che si sono verificati anche accedendo alla risorsa Gruppi di risorse e quindi all'elemento Distribuzioni al suo interno.
 L'installazione dell'estensione MMA o dell'agente di Log Analytics per Linux può non riuscire per diverse ragioni e la procedura per risolvere gli errori varia a seconda del problema. Di seguito vengono riportate le procedure per la risoluzione di problemi specifici.
 
-La sezione seguente descrive i vari problemi che è possibile riscontrare durante l'onboarding che provoca un errore nella distribuzione dell'estensione MMA.
+Nella sezione seguente vengono descritti vari problemi che è possibile incontrare durante l'onboarding che causano un errore nella distribuzione dell'estensione MMA.
 
-### <a name="webclient-exception"></a>Scenario: è stata generata un'eccezione durante una richiesta WebClient
+### <a name="scenario-an-exception-occurred-during-a-webclient-request"></a><a name="webclient-exception"></a>Scenario: è stata generata un'eccezione durante una richiesta WebClient
 
 L'estensione MMA della macchina virtuale non può comunicare con le risorse esterne e la distribuzione non riesce.
 
@@ -196,9 +196,9 @@ Alcune cause possibili di questo errore sono:
 
 Assicurarsi di avere le porte e gli indirizzi aperti per la comunicazione. Per un elenco di porte e indirizzi, vedere [Planning your network](../automation-hybrid-runbook-worker.md#network-planning) (Pianificazione della rete).
 
-### <a name="transient-environment-issue"></a>Scenario: installazione non riuscita a causa di problemi di ambiente temporanei
+### <a name="scenario-install-failed-because-of-a-transient-environment-issues"></a><a name="transient-environment-issue"></a>Scenario: installazione non riuscita a causa di problemi temporanei dell'ambienteScenario: Install failed because of a transient environment issues
 
-L'installazione dell'estensione Microsoft Monitoring Agent non è riuscita durante la distribuzione a causa di un'altra installazione o azione che blocca l'installazione
+L'installazione dell'estensione di Microsoft Monitoring Agent non è riuscita durante la distribuzione a causa di un'altra installazione o azione che blocca l'installazione
 
 #### <a name="issue"></a>Problema
 
@@ -227,13 +227,13 @@ Alcune cause possibili di questo errore sono:
 
 Si tratta di un problema di per sé temporaneo. Ritentare la distribuzione per installare l'estensione.
 
-### <a name="installation-timeout"></a>Scenario: timeout dell'installazione
+### <a name="scenario-installation-timeout"></a><a name="installation-timeout"></a>Scenario: timeout dell'installazione
 
 L'installazione dell'estensione MMA non è stata completata a causa di un timeout.
 
 #### <a name="issue"></a>Problema
 
-Nell'esempio seguente viene visualizzato un messaggio di errore che può essere restituito:
+L'esempio seguente è di un messaggio di errore che può essere restituito:
 
 ```error
 Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.4) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.4\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 15614
@@ -241,7 +241,7 @@ Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftM
 
 #### <a name="cause"></a>Causa
 
-Questo errore si verifica perché la macchina virtuale è sottoposta a un carico eccessivo durante l'installazione.
+Questo errore si verifica perché la macchina virtuale è sotto un carico pesante durante l'installazione.
 
 ### <a name="resolution"></a>Risoluzione
 
@@ -252,5 +252,5 @@ Installare l'estensione MMA quando la macchina virtuale è sottoposta a un caric
 Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
 
 * Ottieni risposte dagli esperti di Azure tramite i [forum di Azure](https://azure.microsoft.com/support/forums/)
-* Collegarsi a [@AzureSupport](https://twitter.com/azuresupport), l'account Microsoft Azure ufficiale per il miglioramento dell'esperienza dei clienti che mette in contatto la community di Azure con le risorse corrette: risposte, supporto ed esperti.
-* Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.
+* Connettiti [@AzureSupport](https://twitter.com/azuresupport) con l'account ufficiale di Microsoft Azure per migliorare l'esperienza dei clienti connettendo la community di Azure alle risorse giuste: risposte, supporto ed esperti.
+* Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Passare al [sito del supporto](https://azure.microsoft.com/support/options/) di Azure e selezionare Ottieni **supporto**.

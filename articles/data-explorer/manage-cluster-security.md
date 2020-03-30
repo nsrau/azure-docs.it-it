@@ -1,6 +1,6 @@
 ---
-title: Proteggere il cluster in Azure Esplora dati
-description: Questo articolo descrive come proteggere il cluster in Azure Esplora dati all'interno del portale di Azure.
+title: Proteggere il cluster in Azure Data ExplorerSecure your cluster in Azure Data Explorer
+description: Questo articolo descrive come proteggere il cluster in Azure Data Explorer all'interno del portale di Azure.This article describes how to secure your cluster in Azure Data Explorer within the Azure portal.
 author: orspod
 ms.author: orspodek
 ms.reviewer: rkarlin
@@ -8,30 +8,30 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: 0f935999b68a7283c032d43c42d688b273d5c450
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75720345"
 ---
-# <a name="secure-your-cluster-in-azure-data-explorer---azure-portal"></a>Proteggere il cluster in Azure Esplora dati-portale di Azure
+# <a name="secure-your-cluster-in-azure-data-explorer---azure-portal"></a>Proteggere il cluster in Azure Data Explorer - Portale di AzureSecure your cluster in Azure Data Explorer - Azure portal
 
-[Crittografia dischi di Azure](/azure/security/azure-security-disk-encryption-overview) consente di proteggere e salvaguardare i dati per soddisfare gli impegni di sicurezza e conformità dell'organizzazione. Fornisce la crittografia del volume per il sistema operativo e i dischi dati delle macchine virtuali del cluster. Si integra anche con [Azure Key Vault](/azure/key-vault/), che consente di controllare e gestire le chiavi e i segreti di crittografia del disco e di assicurarsi che tutti i dati nei dischi delle macchine virtuali siano crittografati. 
+[Crittografia disco](/azure/security/azure-security-disk-encryption-overview) di Azure consente di proteggere e proteggere i dati per soddisfare gli impegni di conformità e sicurezza dell'organizzazione. Fornisce la crittografia del volume per il sistema operativo e i dischi dati delle macchine virtuali del cluster. Si integra anche con La chiave Vault di [Azure,](/azure/key-vault/)che consente di controllare e gestire le chiavi e i segreti di crittografia del disco e di garantire che tutti i dati nei dischi delle macchine virtuali siano crittografati. 
   
-## <a name="enable-encryption-at-rest-in-the-azure-portal"></a>Abilitare la crittografia dei inattivi nella portale di Azure
+## <a name="enable-encryption-at-rest-in-the-azure-portal"></a>Abilitare la crittografia inattivi nel portale di AzureEnable encryption at rest in the Azure portal
   
-Le impostazioni di sicurezza del cluster consentono di abilitare la crittografia del disco nel cluster. L'abilitazione della [crittografia](/azure/security/fundamentals/encryption-atrest) dei dati inattivi nel cluster garantisce la protezione dei dati archiviati (inattivi). 
+Le impostazioni di sicurezza del cluster consentono di abilitare la crittografia del disco nel cluster. L'abilitazione della [crittografia inattivi](/azure/security/fundamentals/encryption-atrest) nel cluster garantisce la protezione dei dati archiviati (inattivi). 
 
-1. Nella portale di Azure passare alla risorsa cluster di Azure Esplora dati. Sotto l'intestazione **Impostazioni** selezionare **sicurezza**. 
+1. Nel portale di Azure passare alla risorsa cluster di Azure Data Explorer.In the Azure portal, go to your Azure Data Explorer cluster resource. Sotto l'intestazione **Impostazioni** selezionare **Sicurezza**. 
 
-    ![Attivare la crittografia di tutti i reparti](media/manage-cluster-security/security-encryption-at-rest.png)
+    ![Attivare la crittografia inattivi](media/manage-cluster-security/security-encryption-at-rest.png)
 
-1. Nella finestra **sicurezza** selezionare **on** per l'impostazione di sicurezza **crittografia dischi** . 
+1. Nella finestra **Sicurezza,** selezionare **Attivato** per l'impostazione **Crittografia disco.** 
 
 1. Selezionare **Salva**.
  
 > [!NOTE]
-> Selezionare **disattivato** per disabilitare la crittografia dopo che è stata abilitata.
+> Selezionare **Disattivato** per disabilitare la crittografia dopo che è stata abilitata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

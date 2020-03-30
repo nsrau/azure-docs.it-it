@@ -16,10 +16,10 @@ ms.date: 06/15/2018
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0bc363b87a9f5b2f013c0bae75a07d79a3a7a830
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75981397"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Risolvere i problemi di distribuzione quando si crea una nuova macchina virtuale Windows in Azure
@@ -75,9 +75,9 @@ Questo errore si verifica nelle situazioni in cui la nuova richiesta di VM viene
 * Ripetere la richiesta usando una VM di dimensioni inferiori.
 * Se le dimensioni della VM richieste non possono essere modificate:
   * Arrestare tutte le VM nel set di disponibilità.
-    Fare clic su **Gruppi di risorse** > *gruppo di risorse personale* > **Risorse** > *set di disponibilità personale* > **Macchine virtuali** > *macchina virtuale personale* > **Arresta**.
+    Fare clic su **Gruppi di risorse,** > nel gruppo > **di risorse** > *Risorse, nel set* > di disponibilità**Macchine virtuali della** > *your resource group**macchina* > virtuale**Arrestare**.
   * Dopo l'arresto di tutte le VM, creare la nuova VM con le dimensioni desiderate.
-  * Avviare prima di tutto la nuova VM e quindi selezionare le VM arrestate e fare clic su **Avvia**.
+  * Avviare prima la nuova macchina virtuale, quindi selezionare ognuna delle macchine virtuali arrestate e fare clic su **Avvia**.
 
 **Causa 2:** il cluster non ha risorse disponibili.
 

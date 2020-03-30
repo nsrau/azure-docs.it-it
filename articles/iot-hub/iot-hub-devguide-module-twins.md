@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/01/2020
 ms.author: menchi
 ms.openlocfilehash: 5ef6c4de288a764abbe434c5d84fc99e154f7492
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303597"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Comprendere e usare i moduli gemelli nell'hub IoT
@@ -51,7 +51,7 @@ Un modulo gemello è un documento JSON che include:
 
 * **Proprietà segnalate**. Sono usate insieme alle proprietà desiderate per sincronizzare la configurazione o le condizioni del modulo. L'app per modulo è in grado di impostare le proprietà segnalate, mentre il back-end della soluzione è in grado di leggerle ed eseguire query su di esse.
 
-* **Proprietà dell'identità del modulo**. La radice del documento JSON del modulo gemello contiene le proprietà di sola lettura dell'identità del modulo corrispondente archiviata nel [registro delle identità](iot-hub-devguide-identity-registry.md).
+* **Proprietà di identità del modulo**. La radice del documento JSON del modulo gemello contiene le proprietà di sola lettura dell'identità del modulo corrispondente archiviata nel [registro delle identità](iot-hub-devguide-identity-registry.md).
 
 ![Rappresentazione dei dispositivi gemelli a livello di architettura](./media/iot-hub-devguide-device-twins/module-twin.jpg)
 
@@ -113,7 +113,7 @@ Nell'esempio precedente, il dispositivo gemello contiene la proprietà `batteryL
 
 ### <a name="desired-property-example"></a>Esempio di proprietà desiderata
 
-Nell'esempio precedente le proprietà desiderate e segnalate del modulo gemello `telemetryConfig` vengono usate dal back-end della soluzione e dall'app per modulo per sincronizzare la configurazione della telemetria per questo modulo. Ad esempio,
+Nell'esempio precedente le proprietà desiderate e segnalate del modulo gemello `telemetryConfig` vengono usate dal back-end della soluzione e dall'app per modulo per sincronizzare la configurazione della telemetria per questo modulo. Ad esempio:
 
 1. Il back-end della soluzione imposta la proprietà desiderata sul valore di configurazione desiderato. Questa è la parte del documento con il set di proprietà desiderate:
 
@@ -176,7 +176,7 @@ Il back-end della soluzione opera sul modulo gemello tramite le seguenti operazi
 
   - Proprietà
 
-    | Name | Valore |
+    | Nome | valore |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  Data e ora in cui è stata inviata la notifica |
@@ -186,7 +186,7 @@ Il back-end della soluzione opera sul modulo gemello tramite le seguenti operazi
     moduleId | ID del modulo |
     hubName | Nome dell'hub IoT |
     operationTimestamp | Timestamp [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) dell'operazione |
-    iothub-message-schema | twinChangeNotification |
+    iothub-message-schema | twinChangeNotification (notifica di modifica |
     opType | "replaceTwin" o "updateTwin" |
 
     Le proprietà di sistema del messaggio hanno come prefisso il simbolo `$`.
@@ -236,15 +236,15 @@ Tutte le operazioni precedenti richiedono l'autorizzazione **ModuleConnect**, co
 
 I tag e le proprietà desiderate e segnalate sono oggetti JSON soggetti alle restrizioni indicate di seguito:
 
-* **Chiavi**: tutte le chiavi negli oggetti JSON fanno distinzione tra maiuscole e minuscole in stringhe UNICODE da 64 byte UTF-8. I caratteri consentiti escludono i caratteri di controllo UNICODE (segmenti C0 e C1) e `.`, SP e `$`.
+* **Chiavi**: tutte le chiavi negli oggetti JSON sono stringhe UTF-8 UNICODE a 64 byte con distinzione tra maiuscole e minuscole. I caratteri consentiti escludono i caratteri di controllo UNICODE (segmenti C0 e C1) e `.`, SP e `$`.
 
-* **Valori**: tutti i valori negli oggetti JSON possono essere dei seguenti tipi JSON: Boolean, Number, String, Object. Non sono consentite le matrici.
+* **Valori:** tutti i valori negli oggetti JSON possono essere dei seguenti tipi JSON: boolean, number, string, object. Non sono consentite le matrici.
 
-    * I numeri interi possono avere un valore minimo di-4503599627370496 e un valore massimo pari a 4503599627370495.
+    * Gli numeri interi possono avere un valore minimo di -4503599627370496 e un valore massimo di 4503599627370495.
 
-    * I valori stringa sono codificati in UTF-8 e possono avere una lunghezza massima di 512 byte.
+    * I valori stringa sono codificati UTF-8 e possono avere una lunghezza massima di 512 byte.
 
-* **Depth**: tutti gli oggetti JSON nei tag, nelle proprietà desiderate e segnalate possono avere una profondità massima di 5. Ad esempio, l'oggetto seguente è valido:
+* **Profondità:** tutti gli oggetti JSON nei tag, le proprietà desiderate e segnalate possono avere una profondità massima di 5.Depth : All JSON objects in tags, desired, and reported properties can have a maximum depth of 5. Ad esempio, l'oggetto seguente è valido:
 
     ```json
     {
@@ -268,26 +268,26 @@ I tag e le proprietà desiderate e segnalate sono oggetti JSON soggetti alle res
 
 ## <a name="module-twin-size"></a>Dimensioni del modulo gemello
 
-L'hub Internet delle cose impone un limite di dimensioni di 8 KB per il valore di `tags`e una dimensione di 32 KB limite ogni sul valore di `properties/desired` e `properties/reported`. Questi totali sono esclusivi di elementi di sola lettura come `$etag`, `$version`e `$metadata/$lastUpdated`.
+L'hub IoT applica un limite di `tags`dimensione di 8 KB al valore `properties/desired` di `properties/reported`, e un limite di dimensione di 32 KB ciascuno sul valore di e . Questi totali sono esclusivi di `$etag`elementi `$version`di `$metadata/$lastUpdated`sola lettura come , , e .
 
-Le dimensioni del dispositivo gemello vengono calcolate come segue:
+La dimensione del gemello viene calcolata come segue:
 
-* Per ogni proprietà nel documento JSON, l'hub Internet viene calcolato cumulativamente e viene aggiunta la lunghezza della chiave e del valore della proprietà.
+* Per ogni proprietà nel documento JSON, IoT Hub calcola e aggiunge cumulativamente la lunghezza della chiave e del valore della proprietà.
 
-* Le chiavi delle proprietà sono considerate stringhe con codifica UTF8.
+* Le chiavi di proprietà sono considerate stringhe con codifica UTF8.
 
 * I valori di proprietà semplici sono considerati stringhe con codifica UTF8, valori numerici (8 byte) o valori booleani (4 byte).
 
-* Le dimensioni delle stringhe con codifica UTF8 vengono calcolate contando tutti i caratteri, esclusi i caratteri di controllo UNICODE (segmenti C0 e C1).
+* La dimensione delle stringhe con codifica UTF8 viene calcolata contando tutti i caratteri, esclusi i caratteri di controllo UNICODE (segmenti C0 e C1).
 
-* I valori di proprietà complesse (oggetti annidati) vengono calcolati in base alle dimensioni aggregate delle chiavi di proprietà e dei valori delle proprietà in essi contenuti.
+* I valori delle proprietà complesse (oggetti nidificati) vengono calcolati in base alle dimensioni di aggregazione delle chiavi di proprietà e dei valori di proprietà che contengono.
 
 L'hub IoT rifiuta con errore tutte le operazioni che aumentano le dimensioni dei documenti oltre il limite specificato.
 
 ## <a name="module-twin-metadata"></a>Metadati del modulo gemello
 
 L'hub IoT conserva il timestamp dell'ultimo aggiornamento di ogni oggetto JSON nelle proprietà desiderate e segnalate del modulo gemello. I timestamp sono in formato UTC e codificati in formato [ISO8601](https://en.wikipedia.org/wiki/ISO_8601)`YYYY-MM-DDTHH:MM:SS.mmmZ`.
-Ad esempio,
+Ad esempio:
 
 ```json
 {
@@ -339,7 +339,7 @@ Queste informazioni vengono mantenute a ogni livello (non solo al livello foglia
 ## <a name="optimistic-concurrency"></a>Concorrenza ottimistica
 
 I tag e le proprietà desiderate e segnalate supportano la concorrenza ottimistica.
-I tag sono dotati di un ETag, come indicato in [RFC7232](https://tools.ietf.org/html/rfc7232), che rappresenta il JSON del tag. Per garantire la coerenza è possibile usare l'ETag nelle operazioni di aggiornamento condizionale dal back-end della soluzione.
+I tag hanno un ETag, come per [RFC7232](https://tools.ietf.org/html/rfc7232), che rappresenta la rappresentazione JSON del tag. Per garantire la coerenza è possibile usare l'ETag nelle operazioni di aggiornamento condizionale dal back-end della soluzione.
 
 Le proprietà desiderate e segnalate del modulo gemello non sono dotate di ETag, ma hanno un valore `$version` sempre incrementale. In modo analogo a un valore ETag, la versione può essere usata dall'entità di aggiornamento per garantire la coerenza degli aggiornamenti. Ad esempio, un'app per modulo per una proprietà segnalata o il back-end della soluzione per una proprietà desiderata.
 

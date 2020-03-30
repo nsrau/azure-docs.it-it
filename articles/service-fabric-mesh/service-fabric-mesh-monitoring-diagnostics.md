@@ -1,5 +1,5 @@
 ---
-title: Monitoraggio e diagnostica nelle app di Azure Service Fabric mesh
+title: Monitoraggio e diagnostica nelle app Mesh di Azure Service FabricMonitoring and diagnostics in Azure Service Fabric Mesh apps
 description: Informazioni sul monitoraggio e sulla diagnostica dell'applicazione in mesh Service Fabric su Azure.
 author: srrengar
 ms.topic: conceptual
@@ -7,10 +7,10 @@ ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 247a1de4d00668371337295616d31caf101f0cc5
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75498152"
 ---
 # <a name="monitoring-and-diagnostics"></a>Monitoraggio e diagnostica
@@ -31,7 +31,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> 
 ```
 
 > [!NOTE]
-> È possibile usare il comando "az mesh service-replica" per ottenere il nome della replica. I nomi delle repliche incrementano i numeri interi da 0.
+> È possibile usare il comando "az mesh service-replica" per ottenere il nome della replica. I nomi delle repliche incrementano i numeri interi da 0.Replica names are incrementing integers from 0.
 
 Ecco come appare per visualizzare i log dal contenitore VotingWeb.Code dall'applicazione di voto:
 
@@ -39,42 +39,42 @@ Ecco come appare per visualizzare i log dal contenitore VotingWeb.Code dall'appl
 az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzVoting --service-name VotingWeb --replica-name 0 --code-package-name VotingWeb.Code
 ```
 
-## <a name="container-metrics"></a>Metriche del contenitore 
+## <a name="container-metrics"></a>Metriche dei contenitori 
 
-L'ambiente mesh espone alcune metriche che indicano il modo in cui i contenitori vengono eseguiti. Le metriche seguenti sono disponibili tramite l'interfaccia della riga di comando portale di Azure e monitoraggio di Azure:
+L'ambiente Mesh espone una manciata di metriche che indicano le prestazioni dei contenitori. The following metrics are available via the Azure portal and Azure monitor CLI:
 
-| Metrica | Description | Unità|
+| Metrica | Descrizione | Unità|
 |----|----|----|
-| CpuUtilization | ActualCpu/AllocatedCpu come percentuale | % |
-| MemoryUtilization | ActualMem/AllocatedMem come percentuale | % |
-| AllocatedCpu | CPU allocata in base al modello di Azure Resource Manager | Millicore |
-| AllocatedMemory | Memoria allocata in base al modello di Azure Resource Manager | MB |
-| ActualCpu | Utilizzo di CPU | Millicore |
-| ActualMemory | Utilizzo della memoria | MB |
-| ContainerStatus | 0-non valido: lo stato del contenitore è sconosciuto <br> 1-in sospeso: il contenitore ha pianificato l'avvio <br> 2-avvio: il contenitore è in fase di avvio <br> 3-avviato: il contenitore è stato avviato correttamente <br> 4-arresto: il contenitore viene arrestato <br> 5-arrestato: il contenitore è stato arrestato correttamente | N/D |
-| ApplicationStatus | 0-sconosciuto: lo stato non è recuperabile <br> 1-pronto: l'applicazione viene eseguita correttamente <br> 2-aggiornamento: è in corso un aggiornamento <br> 3-creazione: è in corso la creazione dell'applicazione <br> 4-Eliminazione: è in corso l'eliminazione dell'applicazione <br> 5-non riuscito: non è stato possibile distribuire l'applicazione | N/D |
-| ServiceStatus | 0-non valido: il servizio attualmente non dispone di uno stato di integrità <br> 1-OK: il servizio è integro  <br> 2-avviso: è possibile che si verifichi un errore durante l'analisi <br> 3-errore: si è verificato un problema che richiede un'analisi <br> 4-sconosciuto: lo stato non è recuperabile | N/D |
-| ServiceReplicaStatus | 0-non valido: la replica non dispone attualmente di uno stato di integrità <br> 1-OK: il servizio è integro  <br> 2-avviso: è possibile che si verifichi un errore durante l'analisi <br> 3-errore: si è verificato un problema che richiede un'analisi <br> 4-sconosciuto: lo stato non è recuperabile | N/D | 
-| RestartCount | Numero di riavvii del contenitore | N/D |
+| Utilizzo Cpu | ActualCpu/AllocatedCpu come percentuale | % |
+| Utilizzo della memoria | ActualMem/AllocatedMem in percentuale | % |
+| AllocazioneCpu | Cpu allocata in base al modello di Azure Resource Manager | Millicore |
+| AllocatedMemory | Memoria allocata in base al modello di Azure Resource ManagerMemory allocated as per Azure Resource Manager template | MB |
+| Cpu effettiva | Utilizzo di CPU | Millicore |
+| ActualMemory (Memoria effettiva) | Utilizzo della memoria | MB |
+| Proprietà ContainerStatus | 0 - Non valido: lo stato del contenitore è sconosciuto <br> 1 - In sospeso: l'avvio pianificato del contenitore <br> 2 - Avvio: il contenitore è in fase di avvio <br> 3 - Avviato: il contenitore è stato avviato correttamente <br> 4 - Arresto: il contenitore viene arrestato <br> 5 - Arrestato: il contenitore è stato arrestato correttamente | N/D |
+| Stato applicazione | 0 - Sconosciuto: lo stato non è recuperabile <br> 1 - Pronto: l'applicazione è stata eseguita correttamente <br> 2 - Aggiornamento: è in corso un aggiornamento <br> 3 - Creazione: l'applicazione viene creata <br> 4 - Eliminazione: l'applicazione è in fase di eliminazione <br> 5 - Non riuscito: la distribuzione dell'applicazione non è riuscita | N/D |
+| ServiceStatus | 0 - Non valido: il servizio non dispone attualmente di uno stato di integrità <br> 1 - Ok: il servizio è sano  <br> 2 - Avvertenza: Potrebbe esserci qualcosa di sbagliato che richiede un'indagine <br> 3 - Errore: C'è qualcosa di sbagliato che ha bisogno di un'indagine <br> 4 - Sconosciuto: lo stato non è recuperabile | N/D |
+| ServiceReplicaStatus (ReplicaServizio) | 0 - Non valido: la replica non dispone attualmente di uno stato di integrità <br> 1 - Ok: il servizio è sano  <br> 2 - Avvertenza: Potrebbe esserci qualcosa di sbagliato che richiede un'indagine <br> 3 - Errore: C'è qualcosa di sbagliato che ha bisogno di un'indagine <br> 4 - Sconosciuto: lo stato non è recuperabile | N/D | 
+| Conteggio riavvio | Numero di riavvii del contenitore | N/D |
 
 > [!NOTE]
-> I valori ServiceStatus e ServiceReplicaStatus sono uguali a quelli di [HealthState](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) in Service Fabric. 
+> I valori ServiceStatus e ServiceReplicaStatus sono gli stessi di [HealthState](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) in Service Fabric. 
 
-Ogni metrica è disponibile su dimensioni diverse, in modo da poter visualizzare le aggregazioni a livelli diversi. L'elenco corrente delle dimensioni è il seguente:
+Ogni metrica è disponibile in dimensioni diverse in modo da poter visualizzare le aggregazioni a livelli diversi. L'elenco corrente delle dimensioni è il seguente:
 
 * ApplicationName
 * ServiceName
-* ServiceReplicaName
-* CodePackageName
+* ServiceReplicaName (NomeReplicaservizio)
+* Nome CoPackageCodePackageName
 
 > [!NOTE]
-> La dimensione codepackagename non è disponibile per le applicazioni Linux. 
+> La dimensione CodePackageName non è disponibile per le applicazioni Linux.The CodePackageName dimension is not available for Linux applications. 
 
-Ogni dimensione corrisponde a componenti diversi del [modello di applicazione Service Fabric](service-fabric-mesh-service-fabric-resources.md#applications-and-services)
+Ogni dimensione corrisponde a componenti diversi del modello di applicazione [Service Fabric](service-fabric-mesh-service-fabric-resources.md#applications-and-services)
 
-### <a name="azure-monitor-cli"></a>INTERFACCIA della riga di comando monitoraggio di Azure
+### <a name="azure-monitor-cli"></a>Interfaccia della riga di comando di Monitoraggio di AzureAzure Monitor
 
-Un elenco completo dei comandi è disponibile nella documentazione dell'interfaccia della riga di comando di [monitoraggio di Azure](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) , ma sono stati inclusi alcuni esempi utili di seguito 
+Un elenco completo dei comandi è disponibile nella [documentazione dell'interfaccia della](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) riga di comando di Monitoraggio di Azure, ma sono stati inclusi alcuni esempi utili di seguito 
 
 In ogni esempio, l'ID risorsa segue questo modello
 
@@ -86,24 +86,24 @@ In ogni esempio, l'ID risorsa segue questo modello
 ```cli
     az monitor metrics list --resource <resourceId> --metric "CpuUtilization"
 ```
-* Utilizzo della memoria per ogni replica del servizio
+* Utilizzo della memoria per ogni replica del servizioMemory Utilization for each Service Replica
 ```cli
     az monitor metrics list --resource <resourceId> --metric "MemoryUtilization" --dimension "ServiceReplicaName"
 ``` 
 
-* Riavvia per ogni contenitore in una finestra di 1 ora 
+* Riavvii per ogni contenitore in una finestra di 1 ora 
 ```cli
     az monitor metrics list --resource <resourceId> --metric "RestartCount" --start-time 2019-02-01T00:00:00Z --end-time 2019-02-01T01:00:00Z
 ``` 
 
-* Utilizzo medio della CPU tra servizi denominati "VotingWeb" in una finestra di 1 ora
+* Utilizzo medio della CPU tra i servizi denominati "VotingWeb" in un intervallo di 1 ora
 ```cli
     az monitor metrics list --resource <resourceId> --metric "CpuUtilization" --start-time 2019-02-01T00:00:00Z --end-time 2019-02-01T01:00:00Z --aggregation "Average" --filter "ServiceName eq 'VotingWeb'"
 ``` 
 
 ### <a name="metrics-explorer"></a>Esplora metriche
 
-Esplora metriche è un pannello nel portale in cui è possibile visualizzare tutte le metriche per l'applicazione mesh. Questo pannello è accessibile nella pagina dell'applicazione nel portale e nel Pannello monitoraggio di Azure, il secondo che è possibile usare per visualizzare le metriche per tutte le risorse di Azure che supportano monitoraggio di Azure. 
+Esplora metriche è un pannello nel portale in cui è possibile visualizzare tutte le metriche per l'applicazione Mesh.Metrics explorer is a blade in the portal in which you can visualize all the metrics for your Mesh application. Questo pannello è accessibile nella pagina dell'applicazione nel portale e nel pannello Monitoraggio di Azure, quest'ultimo dei quali è possibile usare per visualizzare le metriche per tutte le risorse di Azure che supportano Monitoraggio di Azure.This blade is accessible in the application's page in the portal and the Azure monitor blade, the latter of which you can use to view metrics for all your Azure resources that support Azure Monitor. 
 
 ![Esplora metriche](./media/service-fabric-mesh-monitoring-diagnostics/metricsexplorer.png)
 
@@ -118,4 +118,4 @@ In addition to the metrics explorer, we also have a dashboard available out of t
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni su mesh Service Fabric, leggere la [panoramica di mesh Service Fabric](service-fabric-mesh-overview.md).
-* Per altre informazioni sui comandi di metrica di monitoraggio di Azure, vedere la [documentazione dell'interfaccia](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list)della riga di comando di monitoraggio di Azure.
+* Per altre informazioni sui comandi delle metriche di Monitoraggio di Azure, vedere i documenti dell'interfaccia della riga di comando di Monitoraggio di Azure.To learn more about the Azure Monitor metrics commands, check out the [Azure Monitor CLI docs.](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list)

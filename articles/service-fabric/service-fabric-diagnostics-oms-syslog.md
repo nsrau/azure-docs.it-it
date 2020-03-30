@@ -1,15 +1,15 @@
 ---
-title: Monitorare gli eventi del cluster Linux in Azure Service Fabric
-description: Informazioni su come monitorare gli eventi di un cluster Service Fabric Linux scrivendo Service Fabric eventi della piattaforma in syslog.
+title: Monitorare gli eventi del cluster Linux in Azure Service FabricMonitor Linux cluster events in Azure Service Fabric
+description: Informazioni su come monitorare gli eventi del cluster Linux di Service Fabric scrivendo gli eventi della piattaforma Service Fabric in Syslog.
 author: srrengar
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: srrengar
 ms.openlocfilehash: 5bd3bda71943b2ba8a34cd4fbd0b20917b875670
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645753"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Eventi cluster Linux di Service Fabric in Syslog
@@ -25,10 +25,10 @@ Nella versione 6.4, il SyslogConsumer è stato introdotto per inviare gli eventi
 Ogni evento Syslog dispone di 4 componenti
 * Facility
 * Identità
-* Messaggio
+* Message
 * Gravità
 
-Il SyslogConsumer scrive tutti gli eventi della piattaforma tramite Facility `Local0`. È possibile eseguire l'aggiornamento a qualsiasi funzionalità valida modificando la configurazione config. L'identità utilizzata è `ServiceFabric`. Il campo Messaggio contiene l'intero evento serializzato in JSON, in modo che possa essere eseguita una query o essere usato da una serie di strumenti. 
+Il SyslogConsumer scrive tutti gli eventi della piattaforma tramite Facility `Local0`. È possibile eseguire l'aggiornamento a qualsiasi struttura valida modificando la configurazione. L'identità `ServiceFabric`utilizzata è . Il campo Messaggio contiene l'intero evento serializzato in JSON, in modo che possa essere eseguita una query o essere usato da una serie di strumenti. 
 
 ## <a name="enable-syslogconsumer"></a>Abilitare SyslogConsumer
 
@@ -76,7 +76,7 @@ Per abilitare SyslogConsumer, è necessario eseguire un aggiornamento del cluste
 
 Qui ci sono le modifiche da richiamare
 1. Nella sezione Comune, è disponibile un nuovo parametro denominato `LinuxStructuredTracesEnabled`. **Questo è necessario per avere eventi Linux strutturati e serializzati quando inviati a Syslog.**
-2. Nella sezione diagnostica è stato aggiunto un nuovo ConsumerInstance: SyslogConsumer. Questo comunica alla piattaforma che c'è un altro consumer di eventi. 
+2. Nella sezione Diagnostica è stato aggiunto un nuovo ConsumerInstance: SyslogConsumer.In the Diagnostics section, a new ConsumerInstance: SyslogConsumer has been added. Questo comunica alla piattaforma che c'è un altro consumer di eventi. 
 3. La nuova sezione SyslogConsumer deve avere `IsEnabled` come `true`. La configurazione prevede l'uso automatico della struttura Local0. È possibile eseguire l'override di questo elemento mediante l'aggiunta di un altro parametro.
 
 ```json
@@ -86,8 +86,8 @@ Qui ci sono le modifiche da richiamare
     }
 ```
 
-## <a name="azure-monitor-logs-integration"></a>Integrazione dei log di monitoraggio di Azure
-È possibile leggere questi eventi syslog in uno strumento di monitoraggio, ad esempio i log di monitoraggio di Azure. È possibile creare un’area di lavoro Log Analytics utilizzando Azure Marketplace tramite queste [istruzioni]. (../azure-monitor/learn/quick-create-workspace.md). È inoltre necessario aggiungere l'agente Log Analytics al cluster per raccogliere e inviare questi dati allo spazio di lavoro. Questo è lo stesso agente usato per raccogliere i contatori delle prestazioni. 
+## <a name="azure-monitor-logs-integration"></a>Integrazione dei log di Monitoraggio di AzureAzure Monitor logs integration
+È possibile leggere questi eventi Syslog in uno strumento di monitoraggio, ad esempio i log di Monitoraggio di Azure.You can read these Syslog events in a monitoring tool such as Azure Monitor logs. È possibile creare un’area di lavoro Log Analytics utilizzando Azure Marketplace tramite queste [istruzioni]. (../azure-monitor/learn/quick-create-workspace.md). È inoltre necessario aggiungere l'agente Log Analytics al cluster per raccogliere e inviare questi dati allo spazio di lavoro. Questo è lo stesso agente usato per raccogliere i contatori delle prestazioni. 
 
 1. Passare al pannello `Advanced Settings`
 
@@ -95,7 +95,7 @@ Qui ci sono le modifiche da richiamare
 
 2. Fare clic su`Data`.
 3. Fare clic su`Syslog`.
-4. Configurare Local0 come funzionalità di cui tenere traccia. È possibile aggiungere un'altra funzionalità se è stata modificata in fabricSettings
+4. Configurare Local0 come strumento di rilevamento. È possibile aggiungere un'altra struttura se è stata modificata in fabricSettings
 
     ![Configurare Syslog](media/service-fabric-diagnostics-oms-syslog/syslog-configure.png)
 5. Passare al query explorer facendo clic su `Logs` nel menu della risorsa dell’area di lavoro per iniziare l’esecuzione della query
@@ -113,6 +113,6 @@ L'esempio precedente è di un evento NodeDown. L'elenco completo degli eventi è
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Distribuire l'agente di Log Analytics](service-fabric-diagnostics-oms-agent.md) sui nodi per raccogliere contatori delle prestazioni, statistiche Docker e registri per i contenitori
-* Acquisire familiarità con le funzionalità di [Ricerca log ed esecuzione di query](../log-analytics/log-analytics-log-searches.md) disponibili nell'ambito dei log di monitoraggio di Azure
-* [Usare Progettazione viste per creare visualizzazioni personalizzate nei log di monitoraggio di Azure](../log-analytics/log-analytics-view-designer.md)
-* Informazioni di riferimento sull' [integrazione dei log di monitoraggio di Azure con syslog](../log-analytics/log-analytics-data-sources-syslog.md).
+* Acquisire familiarità con le funzionalità di [ricerca dei log e di query](../log-analytics/log-analytics-log-searches.md) offerte come parte dei log di Monitoraggio di Azure
+* [Usare Progettazione viste per creare visualizzazioni personalizzate nei log di Monitoraggio di AzureUse View Designer to create custom views in Azure Monitor logs](../log-analytics/log-analytics-view-designer.md)
+* Informazioni di riferimento su come eseguire [l'integrazione dei log](../log-analytics/log-analytics-data-sources-syslog.md)di Monitoraggio di Azure con Syslog .

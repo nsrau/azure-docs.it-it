@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 27b09ea9cc7ce3cf2559304a26d0c04f3ea30b54
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67180099"
 ---
 Oltre a connettere automaticamente i client per la replica primaria, è possibile usare un listener per reindirizzare i carichi di lavoro di sola lettura ai database secondari. Questo approccio può migliorare le prestazioni e la scalabilità della soluzione globale. Per altre informazioni, vedere [Use ReadIntent Routing with Azure Always On availability group listener](https://go.microsoft.com/fwlink/?LinkId=522515) (Usare ReadIntent Routing con il listener del gruppo di disponibilità AlwaysOn di Azure).

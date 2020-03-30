@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 01/15/2020
 ms.custom: include file
 ms.openlocfilehash: 864d693f2919922b5035f963103b2ce98600a51c
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76044913"
 ---
 La tabella seguente descrive i ruoli disponibili in Gemelli digitali di Azure:
@@ -28,4 +28,4 @@ La tabella seguente descrive i ruoli disponibili in Gemelli digitali di Azure:
 | Utente |  Autorizzazione di *LETTURA* per gli spazi, i sensori e gli utenti, inclusi gli oggetti correlati corrispondenti. | b1ffdb77-c635-4e7e-ad25-948237d85b30 |
 | Specialista del supporto tecnico |  Autorizzazione di *LETTURA* per tutti gli elementi ad eccezione delle chiavi di accesso. | 6e46958b-dc62-4e7c-990c-c3da2e030969 |
 | Programma di installazione dei dispositivi | Autorizzazioni di *LETTURA* e *AGGIORNAMENTO* per i dispositivi e i sensori, inclusi gli oggetti correlati corrispondenti. Autorizzazione di *LETTURA* per gli spazi. | b16dd9fe-4efe-467b-8c8c-720e2ff8817c |
-| Dispositivo gateway | Autorizzazione di *CREAZIONE* per i sensori. Autorizzazione di *LETTURA* per i dispositivi e i sensori, inclusi gli oggetti correlati corrispondenti. | d4c69766-e9bd-4e61-bfc1-d8b6e686c7a8 |
+| Dispositivo gateway | Autorizzazione di *CREAZIONE* per i sensori. *Autorizzazione READ* per dispositivi e sensori, che include i corrispondenti oggetti correlati. | d4c69766-e9bd-4e61-bfc1-d8b6e686c7a8 |

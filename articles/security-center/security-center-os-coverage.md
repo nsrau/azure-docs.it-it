@@ -1,6 +1,6 @@
 ---
-title: Piattaforme supportate dal centro sicurezza di Azure | Microsoft Docs
-description: Questo documento fornisce un elenco delle piattaforme supportate dal centro sicurezza di Azure.
+title: Piattaforme supportate dal Centro sicurezza di Azure Documenti Microsoft
+description: Questo documento fornisce un elenco delle piattaforme supportate dal Centro sicurezza di Azure.This document provides a list of platforms supported by Azure Security Center.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,46 +14,46 @@ ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
 ms.openlocfilehash: e13149ba802f0f8b9a565e0aabd86ae05167f18b
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78208819"
 ---
 # <a name="supported-platforms"></a>Piattaforme supportate 
 
-## Macchine virtuali/server<a name="vm-server"></a>
+## <a name="virtual-machines--servers"></a>Macchine virtuali/server<a name="vm-server"></a>
 
-Il Centro sicurezza supporta macchine virtuali/server su diversi tipi di ambienti ibridi:
+Il Centro sicurezza supporta macchine virtuali/server in diversi tipi di ambienti ibridi:
 
 * Solo Azure
 * Azure e locale
-* Azure e altri cloud
-* Azure, altri cloud e in locale
+* Azure e altri cloudAzure and other clouds
+* Azure, altri cloud e localeAzure, other clouds, and on-premises
 
-Per un ambiente Azure attivato in una sottoscrizione di Azure, il Centro sicurezza di Azure rileva automaticamente le risorse IaaS distribuite nella sottoscrizione.
+Per un ambiente Azure attivato in una sottoscrizione di Azure, Il Centro sicurezza di Azure rileverà automaticamente le risorse IaaS distribuite all'interno della sottoscrizione.
 
 > [!NOTE]
-> Per ricevere il set completo di funzionalità di sicurezza, è necessario che l' [agente di log Analytics](../azure-monitor/platform/agents-overview.md#log-analytics-agent), usato dal centro sicurezza di Azure, sia installato e [configurato correttamente per l'invio di dati al centro sicurezza di Azure](security-center-enable-data-collection.md#manual-agent).
+> Per ricevere il set completo di funzionalità di sicurezza, è necessario che [Log Analytics Agent](../azure-monitor/platform/agents-overview.md#log-analytics-agent), utilizzato dal Centro sicurezza di Azure, sia installato e configurato [correttamente per l'invio](security-center-enable-data-collection.md#manual-agent)di dati al Centro sicurezza di Azure.
 
-Le sezioni seguenti elencano i sistemi operativi server supportati in cui è possibile eseguire l' [agente di log Analytics](../azure-monitor/platform/agents-overview.md#log-analytics-agent), usato dal centro sicurezza di Azure.
+Nelle sezioni seguenti sono elencati i sistemi operativi server supportati in cui è possibile eseguire [log analytics Agent,](../azure-monitor/platform/agents-overview.md#log-analytics-agent)usato dal Centro sicurezza di Azure.The following sections list the supported server operating systems on which the Log Analytics Agent , which is used by Azure Security Center, can run.
 
-### Sistemi operativi Windows Server<a name="os-windows"></a>
+### <a name="windows-server-operating-systems"></a>Sistemi operativi server Windows<a name="os-windows"></a>
 
-|OS|Supportato dal centro sicurezza di Azure|Supporto per l'integrazione con Microsoft Defender ATP|
+|OS|Supportato dal Centro sicurezza di AzureSupported by Azure Security Center|Supporto per l'integrazione con Microsoft Defender ATP|
 |:---|:-:|:-:|
 |Windows Server 2019|✔|X|
 |Windows Server 2016|✔|✔|
-|Windows Server 2012 R2|✔|✔|
+|Windows Server 2012 R2|✔|✔|
 |Windows Server 2008 R2|✔|✔|
 
-Per ulteriori informazioni sulle funzionalità supportate per i sistemi operativi Windows, elencate in precedenza, vedere [funzionalità supportate di macchine virtuali/server](security-center-services.md#vm-server-features).
+Per ulteriori informazioni sulle funzionalità supportate per i sistemi operativi Windows, elencate in precedenza, vedere [Funzionalità supportate da macchina virtuale/server](security-center-services.md#vm-server-features).
 
-### Sistemi operativi Windows<a name="os-windows (non-server)"></a>
+### <a name="windows-operating-systems"></a>Sistemi operativi Windows<a name="os-windows (non-server)"></a>
 
-Il Centro sicurezza di Azure si integra con i servizi di Azure per monitorare e proteggere le macchine virtuali basate su Windows.
+Il Centro sicurezza di Azure si integra con i servizi di Azure per monitorare e proteggere le macchine virtuali basate su Windows.Azure Security Center integrates with Azure services to monitor and protect your Windows-based virtual machines.
 
-### Sistemi operativi Linux<a name="os-linux"></a>
+### <a name="linux-operating-systems"></a>Sistemi operativi Linux<a name="os-linux"></a>
 
 64 bit
 
@@ -70,27 +70,27 @@ Il Centro sicurezza di Azure si integra con i servizi di Azure per monitorare e 
 * Oracle Linux 6
 * Red Hat Enterprise Linux Server 6
 * Debian GNU/Linux 8 e 9
-* Ubuntu Linux 14,04 LTS e 16,04 LTS
+* Ubuntu Linux 14.04 LTS e 16.04 LTS
 
 > [!NOTE]
-> Poiché l'elenco dei sistemi operativi Linux supportati è in continua evoluzione, se lo si preferisce, fare clic [qui](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) per visualizzare l'elenco più aggiornato delle versioni supportate, nel caso in cui siano state apportate modifiche dall'ultima pubblicazione di questo argomento.
+> Poiché l'elenco dei sistemi operativi Linux supportati cambia continuamente, se preferisci, fai clic [qui](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) per visualizzare l'elenco più aggiornato delle versioni supportate, nel caso in cui ci siano state modifiche dall'ultima pubblicazione di questo argomento.
 
-Per ulteriori informazioni sulle funzionalità supportate per i sistemi operativi Linux, elencate in precedenza, vedere la pagina relativa alle [funzionalità supportate di macchine virtuali e server](security-center-services.md#vm-server-features).
+Per ulteriori informazioni sulle funzionalità supportate per i sistemi operativi Linux, elencate in precedenza, vedere [Funzionalità supportate da macchine virtuali/server](security-center-services.md#vm-server-features).
 
-### Servizi di macchine virtuali gestiti<a name="virtual-machine"></a>
+### <a name="managed-virtual-machine-services"></a>Servizi di macchine virtuali gestite<a name="virtual-machine"></a>
 
-Anche le macchine virtuali vengono create in una sottoscrizione cliente come parte di alcuni servizi gestiti di Azure, ad esempio Azure Kubernetes (AKS), Azure Databricks e altro ancora. Queste macchine virtuali vengono anche individuate dal centro sicurezza di Azure e l'agente di log Analytics può essere installato e configurato in base ai [sistemi operativi Windows/Linux](#os-windows)supportati, elencati in precedenza.
+Le macchine virtuali vengono inoltre create in una sottoscrizione cliente come parte di alcuni servizi gestiti di Azure, ad esempio Azure Kubernetes (AKS), Azure Databricks e altro ancora. Queste macchine virtuali vengono individuate anche dal Centro sicurezza di Azure e l'agente di analisi dei log può essere installato e configurato in base ai [sistemi operativi Windows/Linux](#os-windows)supportati, elencati in precedenza.
 
-### Servizi cloud<a name="cloud-services"></a>
+### <a name="cloud-services"></a>Servizi cloud<a name="cloud-services"></a>
 
-Sono supportate anche le macchine virtuali in esecuzione in un servizio cloud. Vengono monitorati solo i ruoli di lavoro e Web dei servizi cloud in esecuzione in slot di produzione. Per altre informazioni sui servizi cloud, vedere [Panoramica di Servizi Cloud di Azure](../cloud-services/cloud-services-choose-me.md).
+Sono supportate anche le macchine virtuali eseguite in un servizio cloud. Vengono monitorati solo i ruoli di lavoro e Web dei servizi cloud in esecuzione in slot di produzione. Per altre informazioni sui servizi cloud, vedere [Panoramica di Servizi Cloud di Azure](../cloud-services/cloud-services-choose-me.md).
 
-È supportata anche la protezione per le macchine virtuali che risiedono in Azure Stack. Per ulteriori informazioni sull'integrazione del Centro sicurezza con Azure Stack, vedere [onboarding the Azure stack Virtual Machines to Security Center](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack).
+È supportata anche la protezione per le macchine virtuali che risiedano in Azure Stack.Protection for Virtual Machines residing in Azure Stack is also supported. Per altre informazioni sull'integrazione del Centro sicurezza con Azure Stack, vedere [Eseguire l'onboarding](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack)delle macchine virtuali di Azure Stack nel Centro sicurezza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [il Centro sicurezza raccoglie i dati e l'agente di log Analytics](security-center-enable-data-collection.md).
-- Informazioni su come il [Centro sicurezza gestisce e protegge i dati](security-center-data-security.md).
-- Leggere le informazioni su come [pianificare e progettare l'adozione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md).
-- Informazioni sulle [funzionalità disponibili per i diversi ambienti cloud](security-center-services.md).
-- Scopri di più sulla [protezione dalle minacce per i computer Windows e Linux nel centro sicurezza di Azure](threat-protection.md#windows-machines).
+- Informazioni su come [il Centro sicurezza raccoglie i dati e l'agente log Analytics.](security-center-enable-data-collection.md)
+- Scopri come il [Centro sicurezza gestisce e salvaguarda i dati.](security-center-data-security.md)
+- Informazioni su come [pianificare e comprendere le considerazioni di progettazione per l'adozione](security-center-planning-and-operations-guide.md)del Centro sicurezza di Azure.
+- Informazioni sulle [funzionalità disponibili per i diversi ambienti cloud.](security-center-services.md)
+- Altre informazioni sulla [protezione dalle minacce per i computer Windows e Linux nel Centro sicurezza](threat-protection.md#windows-machines)di Azure.

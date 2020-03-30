@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 1b0a4627d377f5fa9ca997d1cc96bc38b0a6c37f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c73f585e3102618cea378716491f9354810a6db8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79217214"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125001"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Procedure consigliate per la protezione di database PaaS in Azure
 
-In questo articolo vengono illustrate varie procedure consigliate per la protezione delle applicazioni Web e per dispositivi mobili in PaaS (piattaforma distribuita come servizio) mediante il [database SQL di Azure](../../sql-database/sql-database-technical-overview.md) e [SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Le procedure consigliate si basano sull'esperienza di tecnici e clienti con Azure.
+In questo articolo vengono illustrate varie procedure consigliate per la protezione delle applicazioni Web e per dispositivi mobili in PaaS (piattaforma distribuita come servizio) mediante il [database SQL di Azure](../../sql-database/sql-database-technical-overview.md) e [SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Le procedure consigliate si basano sull'esperienza di tecnici e clienti con Azure.
 
 Il database SQL di Azure e SQL Data Warehouse forniscono un servizio di database relazionale per le applicazioni basate su Internet. Verranno ora illustrati i servizi che aiutano a proteggere applicazioni e dati quando si usano il database SQL di Azure e SQL Data Warehouse in una distribuzione PaaS:
 
@@ -53,7 +53,7 @@ L'[autenticazione di Azure Active Directory](../../active-directory/develop/auth
 Per altre informazioni sull'autenticazione di Azure AD, vedere:
 
 - [Usare Azure Active Directory per l'autenticazione al database SQL, a Istanza gestita e a SQL Data Warehouse](../../sql-database/sql-database-aad-authentication.md)
-- [Autenticazione in Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-authentication.md)
+- [Autenticazione in Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication.md)
 - [Supporto per l'autenticazione basata su token per il database di SQL Azure mediante l'autenticazione di Azure AD](../../sql-database/sql-database-aad-authentication.md)
 
 > [!NOTE]
@@ -79,7 +79,7 @@ Azure SQL gestisce i principali problemi correlati per TDE. Come con TDE, è nec
 
 Azure SQL fornisce la crittografia per le colonne tramite [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Questa crittografia consente solo alle applicazioni autorizzate l'accesso alle colonne sensibili. L'uso di questo tipo di crittografia limita le query SQL per le colonne crittografate a valori basati sull'uguaglianza.
 
-La crittografia a livello di applicazione deve essere usata anche per dati selettivi. Le preoccupazioni sulla sovranità dei dati possono essere talvolta mitigate mediante la crittografia dei dati con una chiave mantenuta nel paese/area geografica corretti. In questo modo si impedisce anche che un trasferimento accidentale dei dati possa rappresentare un problema, perché è comunque impossibile decrittografarli senza la chiave, presupponendo che venga usato un algoritmo avanzato come AES 256.
+La crittografia a livello di applicazione deve essere usata anche per dati selettivi. I problemi di sovranità dei dati possono talvolta essere attenuati crittografando i dati con una chiave che viene mantenuta nel paese corretto. In questo modo si impedisce anche che un trasferimento accidentale dei dati possa rappresentare un problema, perché è comunque impossibile decrittografarli senza la chiave, presupponendo che venga usato un algoritmo avanzato come AES 256.
 
 È possibile usare diverse precauzioni per proteggere il database, ad esempio la progettazione di un sistema sicuro, la crittografia di risorse riservate e la creazione di un firewall che protegga i server di database.
 
@@ -87,4 +87,4 @@ La crittografia a livello di applicazione deve essere usata anche per dati selet
 In questo articolo sono state illustrate varie procedure consigliate per la protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante il database SQL e SQL Data Warehouse. Per ulteriori informazioni sulla protezione delle distribuzioni PaaS, vedere:
 
 - [Protezione delle distribuzioni PaaS](paas-deployments.md)
-- [Protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante i Servizi app di Azure](paas-applications-using-app-services.md)
+- [Protezione delle applicazioni Web PaaS e delle applicazioni per dispositivi mobili mediante i Servizi app di Azure](paas-applications-using-app-services.md)

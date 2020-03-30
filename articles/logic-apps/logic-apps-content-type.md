@@ -1,16 +1,16 @@
 ---
 title: Gestire i tipi di contenuti
-description: Informazioni su come gestire vari tipi di contenuto nei flussi di lavoro durante la fase di progettazione e di esecuzione nelle app per la logica di Azure
+description: Informazioni su come gestire vari tipi di contenuto nei flussi di lavoro in fase di progettazione e di esecuzione in App per la logica di AzureLearn how to handle various content types in workflows during design time and run time in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
 ms.openlocfilehash: ae0abe288edda2ce01311d8533b1f104409efce0
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75666874"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Gestire tipi di contenuto in App per la logica di Azure
@@ -101,7 +101,7 @@ App per la logica offre la possibilità di generare token descrittivi che rappre
 
   3. Nella richiesta assicurarsi di includere un'intestazione `Content-Type` e impostare il valore dell'intestazione su `application/json`.
 
-* **Azione di "analisi JSON"**
+* **Azione Analizza JSON**
 
   Quando si usa questa azione nella finestra di progettazione di App per la logica, è possibile analizzare l'output JSON e generare token descrittivi che rappresentano le proprietà presenti nel contenuto JSON. 
   È possibile quindi fare riferimento a tali proprietà e usarle facilmente nel flusso di lavoro dell'app per la logica. Analogamente al trigger di richiesta, è possibile fornire o generare uno schema JSON che descrive il contenuto JSON da analizzare. 
@@ -140,9 +140,9 @@ Questo elenco descrive come App per la logica converte il contenuto quando si us
 * `xml()`: esegue il cast dei dati in `application/xml`
 * `binary()`: esegue il cast dei dati in `application/octet-stream`
 * `string()`: esegue il cast dei dati in `text/plain`
-* `base64()`: converte il contenuto in una stringa con codifica Base64
-* `base64toString()`: converte una stringa con codifica Base64 in `text/plain`
-* `base64toBinary()`: converte una stringa con codifica Base64 in `application/octet-stream`
+* `base64()`: converte il contenuto in una stringa con codifica base64
+* `base64toString()`: converte una stringa con codifica base64 in`text/plain`
+* `base64toBinary()`: converte una stringa con codifica base64 in`application/octet-stream`
 * `dataUri()`: converte una stringa in un URI di dati
 * `dataUriToBinary()`: converte un URI di dati in una stringa binaria
 * `dataUriToString()`: converte un URI di dati in una stringa
