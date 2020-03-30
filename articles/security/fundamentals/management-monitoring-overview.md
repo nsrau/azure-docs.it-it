@@ -1,5 +1,5 @@
 ---
-title: Funzionalità di sicurezza di gestione e monitoraggio-Microsoft Azure | Microsoft Docs
+title: Gestione e monitoraggio delle funzionalità di sicurezza - Microsoft Azure Documenti Microsoft
 description: Questo articolo fornisce una panoramica dei servizi e delle funzionalità di sicurezza forniti da Azure per facilitare la gestione e il monitoraggio delle macchine virtuali e dei servizi cloud di Azure.
 services: security
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 7ad7a29a92d25556190b4cf44f4e48158a6f0952
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73162757"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Panoramica su gestione e monitoraggio della sicurezza di Azure
@@ -40,7 +40,7 @@ Con Azure è possibile usare software antimalware a cura dei principali fornitor
 
 Microsoft Antimalware per Servizi cloud e Macchine virtuali di Azure offre la possibilità di installare un agente antimalware per le macchine virtuali e i ruoli PaaS. Questa funzionalità, basata su System Center Endpoint Protection, applica al cloud una comprovata tecnologia di sicurezza locale.
 
-Viene anche garantita una stretta integrazione dei prodotti Trend [DeepSecurity](https://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) e [SecureCloud](https://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) nella piattaforma Azure. DeepSecurity è una soluzione antivirus e SecureCloud è una soluzione di crittografia. La soluzione DeepSecurity viene distribuita nelle macchine virtuali con un modello di estensione. Usando l'interfaccia utente del portale di Azure e PowerShell si può scegliere di usare DeepSecurity all'interno delle nuove macchine virtuali attivate o di macchine virtuali esistenti già distribuite.
+Offriamo anche una profonda integrazione per i prodotti [Deep Security](https://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) e [SecureCloud](https://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) di Trend nella piattaforma Azure. DeepSecurity è una soluzione antivirus e SecureCloud è una soluzione di crittografia. La soluzione DeepSecurity viene distribuita nelle macchine virtuali con un modello di estensione. Usando l'interfaccia utente del portale di Azure e PowerShell si può scegliere di usare DeepSecurity all'interno delle nuove macchine virtuali attivate o di macchine virtuali esistenti già distribuite.
 
 Symantec Endpoint Protection (SEP) è supportato anche in Azure. Tramite l'integrazione nel portale è possibile specificare che si intende usare SEP in una macchina virtuale. È possibile installare SEP in una nuova macchina virtuale tramite il portale di Azure oppure in una macchina virtuale esistente usando PowerShell.
 
@@ -100,7 +100,7 @@ Altre informazioni:
 * [Gestione identità con privilegi di Azure AD](../../active-directory/privileged-identity-management/pim-configure.md)
 * [Introduzione ad Azure AD Privileged Identity Management](../../active-directory/privileged-identity-management/pim-getting-started.md)
 
-## <a name="identity-protection"></a>Protezione delle identità
+## <a name="identity-protection"></a>Identity Protection
 
 Azure AD Identity Protection offre una visualizzazione consolidata delle attività di accesso sospette e delle potenziali vulnerabilità per garantire la protezione dell'organizzazione. Identity Protection rileva attività sospette per utenti e identità privilegiate (admin), sulla base di segnali come:
 
@@ -134,11 +134,11 @@ Altre informazioni:
 
 ## <a name="intelligent-security-graph"></a>Intelligent Security Graph
 
-Intelligent Security Graph offre protezione dalle minacce in tempo reale nei prodotti e servizi Microsoft. Questo sistema è basato su tecnologia di analisi avanzata che collega una notevole quantità di dati di sicurezza e intelligence sulle minacce per fornire informazioni dettagliate che possono rafforzare la sicurezza dell'organizzazione. Microsoft usa l'analisi avanzata, elaborando più di 450 miliardi di autenticazioni al mese, analizzando 400 miliardi di messaggi di posta elettronica alla ricerca di malware e phishing e aggiornando un miliardo di dispositivi, per fornire informazioni più dettagliate. Queste informazioni complete consentono alla tua azienda di rilevare gli attacchi e di reagire rapidamente.
+Intelligent Security Graph offre protezione dalle minacce in tempo reale nei prodotti e servizi Microsoft. Questo sistema è basato su tecnologia di analisi avanzata che collega una notevole quantità di dati di sicurezza e intelligence sulle minacce per fornire informazioni dettagliate che possono rafforzare la sicurezza dell'organizzazione. Microsoft usa l'analisi avanzata, elaborando più di 450 miliardi di autenticazioni al mese, analizzando 400 miliardi di messaggi di posta elettronica alla ricerca di malware e phishing e aggiornando un miliardo di dispositivi, per fornire informazioni più dettagliate. Queste informazioni possono essere utili all'organizzazione per rilevare e rispondere rapidamente agli attacchi.
 
 * [Intelligent Security Graph](https://www.microsoft.com/security/intelligence)
 
-## <a name="next-steps"></a>Fasi successive
-Informazioni sul [modello di responsabilità condivisa](shared-responsibility.md) e sulle attività di sicurezza gestite da Microsoft e sulle attività gestite dall'utente.
+## <a name="next-steps"></a>Passaggi successivi
+Informazioni sul modello di [responsabilità condivisa](shared-responsibility.md) e sulle attività di sicurezza gestite da Microsoft e sulle attività gestite dall'utente.
 
 Per altre informazioni sulla gestione della sicurezza, vedere [Gestione della sicurezza in Azure](management.md).

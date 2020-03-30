@@ -10,10 +10,10 @@ ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 21d59f6543df7fe9d1fad47a006260bff9c93e2b
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76988057"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Gestire Azure Data Lake Analytics tramite Azure SDK per Node.js
@@ -27,7 +27,7 @@ Sono supportate le versioni seguenti:
 * **Versione dell'API REST per il catalogo: 2015-10-01-preview**
 * **Versione dell'API REST per il processo: 2016-03-20-preview**
 
-## <a name="features"></a>database elastico
+## <a name="features"></a>Funzionalità
 * Gestione account: creare, ottenere, elencare, aggiornare ed eliminare.
 * Gestione dei processi: inviare, ottenere, elencare, annullare.
 * Gestione del catalogo: ottenere ed elencare.
@@ -129,5 +129,5 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 });
 ```
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 * [Microsoft Azure SDK per Node.js](https://github.com/azure/azure-sdk-for-node)

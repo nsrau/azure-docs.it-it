@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 11/06/2018
 ms.author: genli
 ms.openlocfilehash: 9c3216af283ebd9d84a5469d4d50d18c19f67534
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71121945"
 ---
 # <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>Il certificato del server back-end non è consentito per un gateway applicazione quando si usa un servizio di bilanciamento del carico interno con un ambiente del servizio app
 
-Questo articolo spiega come risolvere il problema seguente: Un certificato non è consentito quando si crea un gateway applicazione tramite un servizio di bilanciamento del carico interno con un ambiente del servizio app di Azure nel back-end usando SSL end-to-end in Azure.
+Questo articolo permette di risolvere questo problema: un certificato non è consentito quando si crea un gateway applicazione tramite un servizio di bilanciamento del carico interno con un ambiente del servizio app nel back-end e si usa SSL end-to-end in Azure.
 
 ## <a name="symptoms"></a>Sintomi
 
@@ -34,25 +34,25 @@ Quando si crea un gateway applicazione tramite un servizio di bilanciamento del 
 - **Listener:** multisito
 - **Porta:** 443
 - **Nome host:** test.appgwtestase.com
-- **Certificato SSL**: CN=test.appgwtestase.com
-- **Pool back-end**: indirizzo IP o FQDN
-- **Indirizzo IP**: 10.1.5.11
-- **Impostazioni HTTP**: HTTPS
-- **Porta**: 443
-- **Probe personalizzato**: nome host, test.appgwtestase.com
+- **Certificato SSL:** CN=test.appgwtestase.com
+- **Pool back-end:** indirizzo IP dell'FQDN
+- **Indirizzo IP:** 10.1.5.11
+- **Impostazioni HTTP:** HTTPS
+- **Porta:**: 443
+- **Probe personalizzato:** Nome host - test.appgwtestase.com
 - **Certificato di autenticazione:** file CER di test.appgwtestase.com
-- **Integrità del back-end**: non integro. Il certificato del server back-end non è consentito con il gateway applicazione.
+- **Integrità del back-end:** Danneggiato - Il certificato del server back-end non è consentito con il gateway applicazione.
 
 **Configurazione dell'ambiente del servizio app:**
 
-- **Indirizzo IP del servizio di bilanciamento del carico interno**: 10.1.5.11
+- **Indirizzo IP del servizio di bilanciamento del carico interno:** 10.1.5.11
 - **Nome di dominio:** appgwtestase.com
 - **Servizio app:** test.appgwtestase.com
-- **Associazione SSL**: SNI SSL - CN=test.appgwtestase.com
+- **Associazione SSL:** SNI SSL - CN=test.appgwtestase.com
 
 Quando si accede al gateway applicazione, viene visualizzato il messaggio di errore seguente perché il server back-end non è integro:
 
-**502 - Il server Web, in funzione come gateway o proxy, ha ricevuto una risposta non valida**.
+**502 – Il server Web ha ricevuto una risposta non valida mentre agisce come gateway o server proxy.**
 
 ## <a name="solution"></a>Soluzione
 
@@ -68,8 +68,8 @@ Quando si usa un nome di dominio completo (FQDN) per accedere al servizio di bil
 
 - Deselezionare l'opzione **Use for App service** (Usa per servizio app) per il gateway applicazione se si usa l'indirizzo IP del servizio di bilanciamento del carico interno.
 
-Per ridurre il sovraccarico, è possibile caricare il certificato del servizio di bilanciamento del carico interno nelle impostazioni HTTP per il funzionamento del percorso del probe. Questo passaggio è solo per l'inserimento del certificato nell'elenco dei certificati consentiti. Non verrà usato per le comunicazioni SSL. È possibile recuperare il certificato del servizio di bilanciamento del carico interno accedendo al servizio di bilanciamento del carico interno con il suo indirizzo IP dal browser su HTTPS, quindi esportando il certificato SSL in un formato CER con codifica Base-64 e caricandolo nelle impostazioni HTTPS corrispondenti.
+Per ridurre il sovraccarico, è possibile caricare il certificato del servizio di bilanciamento del carico interno nelle impostazioni HTTP per il funzionamento del percorso del probe. Questo passaggio è solo per l'inserimento del certificato nell'elenco dei certificati consentiti. Non verrà utilizzato per la comunicazione SSL.) È possibile recuperare il certificato ILB accedendo al bilanciamento del carico di integrità con il relativo indirizzo IP dal browser su HTTPS, quindi esportando il certificato SSL in un formato CER con codifica Base 64 e caricando il certificato nelle rispettive impostazioni HTTP.
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contatta il supporto tecnico
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

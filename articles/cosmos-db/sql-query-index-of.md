@@ -1,6 +1,6 @@
 ---
-title: INDEX_OF in linguaggio di query Azure Cosmos DB
-description: Informazioni sulla funzione di sistema SQL INDEX_OF in Azure Cosmos DB.
+title: INDEX_OF nel linguaggio di query del database Cosmos di Azure
+description: Informazioni sulla funzione del sistema SQL INDEX_OF in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 50e489fdf57398d486b07944782ecbb3fd1d6a43
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71350998"
 ---
 # <a name="index_of-azure-cosmos-db"></a>INDEX_OF (Azure Cosmos DB)
@@ -26,12 +26,12 @@ INDEX_OF(<str_expr1>, <str_expr2> [, <numeric_expr>])
 ## <a name="arguments"></a>Argomenti
   
 *str_expr1*  
-   Espressione stringa da cercare.  
+   Stringa expression da cercare.  
   
 *str_expr2*  
-   Espressione stringa da cercare.  
+   È l'espressione stringa da cercare.  
 
-*numeric_expr* Espressione numerica facoltativa che imposta la posizione in cui viene avviata la ricerca. La prima posizione in *str_expr1* è 0. 
+*numeric_expr* Espressione numerica facoltativa che imposta la posizione di inizio della ricerca. La prima posizione in *str_expr1* è 0. 
   
 ## <a name="return-types"></a>Tipi restituiti
   
@@ -53,6 +53,6 @@ SELECT INDEX_OF("abc", "ab") AS i1, INDEX_OF("abc", "b") AS i2, INDEX_OF("abc", 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Funzioni stringa Azure Cosmos DB](sql-query-string-functions.md)
+- [Funzioni stringa Database Cosmos di AzureString functions Azure Cosmos DB](sql-query-string-functions.md)
 - [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduzione a Azure Cosmos DB](introduction.md)
+- [Introduzione ad Azure Cosmos DB](introduction.md)

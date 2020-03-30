@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: d635950c8b34986cd5824660166017317948cbd8
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73176916"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Modelli di applicazione in Gestione API di Azure
@@ -36,10 +36,10 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="ProductList"></a> Elenco applicazioni  
+##  <a name="application-list"></a><a name="ProductList"></a>Elenco applicazioni  
  Il modello **Elenco applicazioni** consente di personalizzare il corpo della pagina dell'elenco delle applicazioni nel portale per sviluppatori.  
   
- ![Pagina elenco applicazioni modelli del portale per sviluppatori](./media/api-management-application-templates/APIM-Application-List-Page-Developer-Portal-Templates.png "Pagina dell'elenco di applicazioni gestione API modelli del portale per sviluppatori")  
+ ![Modelli del portale per sviluppatori della pagina Elenco applicazioni](./media/api-management-application-templates/APIM-Application-List-Page-Developer-Portal-Templates.png "Modelli del portale per sviluppatori della pagina Elenco applicazioni APIM")  
   
 ### <a name="default-template"></a>Modello predefinito  
   
@@ -80,7 +80,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
   
 ### <a name="data-model"></a>Modello di dati  
   
-|Proprietà|Type|Description|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`Paging`|Entità [Paging](api-management-template-data-model-reference.md#Paging).|Le informazioni di paging per la raccolta di applicazioni.|  
 |`Applications`|Raccolta di entità [Applicazione](api-management-template-data-model-reference.md#Application).|Le applicazioni visibili all'utente corrente.|  
@@ -137,10 +137,10 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 }  
 ```  
   
-##  <a name="Application"></a> Applicazione  
+##  <a name="application"></a><a name="Application"></a>Applicazione  
  Il modello **Applicazione** consente di personalizzare il corpo della pagina dell'applicazione nel portale per sviluppatori.  
   
- ![Modelli del portale per sviluppatori della pagina dell'applicazione](./media/api-management-application-templates/APIM-Application-Page-Developer-Portal-Templates.png "Modelli del portale per sviluppatori della pagina dell'applicazione gestione API")  
+ ![Modelli del portale per sviluppatori della pagina dell'applicazione](./media/api-management-application-templates/APIM-Application-Page-Developer-Portal-Templates.png "Modelli del portale per sviluppatori della pagina dell'applicazione APIM")  
   
 ### <a name="default-template"></a>Modello predefinito  
   

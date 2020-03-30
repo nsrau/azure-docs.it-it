@@ -1,6 +1,6 @@
 ---
 title: Configurare la topologia di Fabbrica connessa - Azure | Microsoft Docs
-description: Questo articolo descrive come configurare l'acceleratore della soluzione di Connected Factory, inclusa la relativa topologia.
+description: In questo articolo viene descritto come configurare l'acceleratore di soluzioni Connected Factory, inclusa la topologia.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: 5fa3d4d4fdfa0dd81cd8ab8772ffb3903dda289f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73820124"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurare l'acceleratore di soluzioni Fabbrica connessa
@@ -29,7 +29,7 @@ Ogni fabbrica Contoso ha linee di produzione costituite da tre stazioni ognuna. 
 * Stazione di test
 * Stazione di imballaggio
 
-Questi server OPC UA hanno nodi OPC UA e il [server di pubblicazione OPC](overview-opc-publisher.md) invia i valori di questi nodi a Fabbrica connessa. Sono inclusi:
+Questi server OPC UA hanno nodi OPC UA e il [server di pubblicazione OPC](overview-opc-publisher.md) invia i valori di questi nodi a Fabbrica connessa. ad esempio:
 
 * Stato operativo corrente, ad esempio il consumo di energia corrente.
 * Informazioni relative alla produzione, ad esempio il numero di articoli prodotti.
@@ -264,10 +264,10 @@ Tutte le proprietà usate nel file di configurazione possono essere raggruppate 
 
 Le proprietà in questa categoria definiscono l'aspetto visivo del dashboard di Fabbrica connessa. Tra gli esempi sono inclusi:
 
-* Name
+* Nome
 * Descrizione
-* Image
-* Percorso
+* Immagine
+* Location
 * Unità
 * Visible
 
@@ -282,7 +282,7 @@ I valori OEE/KPI per la simulazione di Fabbrica connessa sono parametrizzati in 
 * Valori del nodo OPC UA da includere nel calcolo.
 * Modalità di calcolo del valore dai valori di telemetria.
 
-Connected Factory usa le formule OEE pubblicate dal [http://www.oeefoundation.org](http://www.oeefoundation.org).
+Connected Factory utilizza le formule OEE pubblicate dal file [http://www.oeefoundation.org](http://www.oeefoundation.org).
 
 Gli oggetti nodo OPC UA nelle stazioni consentono l'uso di tag nel calcolo dei valori OEE/KPI. La proprietà **Relevance** indica per quale valore OEE/KPI deve essere usato il valore del nodo OPC UA. La proprietà **OpCode** definisce come viene incluso il valore nel calcolo.
 
@@ -290,7 +290,7 @@ Gli oggetti nodo OPC UA nelle stazioni consentono l'uso di tag nel calcolo dei v
 
 Fabbrica connessa supporta un semplice meccanismo di generazione di avvisi basati sulla soglia minima o massima. Ci sono diverse azioni predefinite che è possibile configurare in risposta agli avvisi. Il meccanismo è controllato dalle proprietà seguenti:
 
-* Massima
+* Massimo
 * Minima
 * MaximumAlertActions
 * MinimumAlertActions
@@ -307,7 +307,7 @@ Per alcune operazioni, ad esempio la visualizzazione dell'ultimo valore o la cre
 
   Identifica il valore del nodo nel server OPC UA. Il formato della proprietà deve essere quello indicato nella specifica OPC UA. Nei messaggi inseriti questa proprietà viene inviata come **NodeId**.
 
-Per altre informazioni sulla modalità di inserimento dei dati di telemetria nella fabbrica connessa, vedere [che cos'è il server di pubblicazione OPC](overview-opc-publisher.md) .
+Per altre informazioni su come i dati di telemetria vengono resi in stati di estratti in Connected Factory, vedere [Che cos'è OPC Publisher.](overview-opc-publisher.md)
 
 ## <a name="example-how-kpi1-is-calculated"></a>Esempio: modalità di calcolo dell'indicatore KPI1
 
@@ -340,4 +340,4 @@ Una caratteristica del valore del nodo **NumberOfManufactureredProducts** è che
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Un passaggio successivo suggerito consiste nell'apprendere come [personalizzare la soluzione di fabbrica connessa](iot-accelerators-connected-factory-customize.md).
+Un passaggio successivo suggerito consiste [nell'imparare](iot-accelerators-connected-factory-customize.md)a personalizzare la soluzione Connected Factory .

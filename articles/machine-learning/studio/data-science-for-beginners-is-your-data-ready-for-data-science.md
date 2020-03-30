@@ -11,10 +11,10 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: ccc422dfb3105fd1e12569a84a4ebfd22182b225
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73837809"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Sono pronti i dati per l'analisi scientifica?
@@ -100,8 +100,8 @@ Aggiungendo sempre più dati, l'immagine diventa più chiara ed è possibile pre
 
 Dati rilevanti, connessi, accurati e in quantità sufficiente rappresentano tutti gli ingredienti necessari per analisi di data science di alta qualità.
 
-Assicurarsi di consultare gli altri quattro video di *Data Science per principianti* da Microsoft Azure Machine Learning Studio (classico).
+Assicurarsi di controllare gli altri quattro video in *Analisi scientifica dei dati per principianti* di Microsoft Azure Machine Learning Studio (classico).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Provare un primo esperimento di data science con Machine Learning Studio (classico)](create-experiment.md)
+* [Provare un primo esperimento di data science con Machine Learning Studio (classico)Try a first data science experiment with Machine Learning Studio (classic)](create-experiment.md)
 * [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

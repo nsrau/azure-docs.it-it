@@ -1,6 +1,6 @@
 ---
 title: Procedure consigliate per la sicurezza di Internet delle cose (IoT)
-description: Procedure consigliate per proteggere i dati e l'infrastruttura di Internet delle cose
+description: Procedure consigliate per la protezione dei dati e dell'infrastruttura IoT
 author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: robinsh
 ms.openlocfilehash: 61ddad58a9f61589aae137fb66ad75b37a0cbbe9
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73931169"
 ---
 # <a name="security-best-practices-for-internet-of-things-iot"></a>Procedure consigliate per la sicurezza di Internet delle cose (IoT)

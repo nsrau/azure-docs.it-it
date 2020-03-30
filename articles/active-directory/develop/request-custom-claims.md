@@ -1,7 +1,7 @@
 ---
-title: Richiedere attestazioni personalizzate (MSAL iOS/macOS) | Azure
+title: Richiesta di attestazioni personalizzate (MSAL iOS/macOS) Azure
 titleSuffix: Microsoft identity platform
-description: Informazioni su come richiedere attestazioni personalizzate.
+description: Scopri come richiedere attestazioni personalizzate.
 services: active-directory
 documentationcenter: ''
 author: mmacy
@@ -18,27 +18,27 @@ ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 44158296faaf238fd72f2360149d3d93f68c5ba0
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77085598"
 ---
-# <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Procedura: richiedere attestazioni personalizzate usando MSAL per iOS e macOS
+# <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Procedura: richiedere attestazioni personalizzate usando MSAL per iOS e macOSHow to: Request custom claims using MSAL for iOS and macOS
 
-OpenID Connect consente di richiedere facoltativamente la restituzione di singole attestazioni dall'endpoint UserInfo e/o nel token ID. Una richiesta di attestazioni viene rappresentata come un oggetto JSON che contiene un elenco di attestazioni richieste. Per altri dettagli, vedere [OpenID Connect Core 1,0](https://openid.net/specs/openid-connect-core-1_0-final.html#ClaimsParameter) .
+OpenID Connect consente di richiedere facoltativamente la restituzione di singole attestazioni dall'endpoint UserInfo e/o nel token ID. Una richiesta di attestazioni è rappresentata come un oggetto JSON che contiene un elenco di attestazioni richieste. Vedere [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0-final.html#ClaimsParameter) per ulteriori dettagli.
 
-Microsoft Authentication Library (MSAL) per iOS e macOS consente di richiedere attestazioni specifiche negli scenari di acquisizione di token interattivi e invisibili. Questa operazione viene eseguita tramite il parametro `claimsRequest`.
+Microsoft Authentication Library (MSAL) per iOS e macOS consente di richiedere attestazioni specifiche in scenari di acquisizione di token interattivi e silenziosi. Lo fa attraverso `claimsRequest` il parametro.
 
-Sono disponibili più scenari in cui è necessario. Ad esempio,
+Esistono più scenari in cui questo è necessario. Ad esempio:
 
 - Richiesta di attestazioni al di fuori del set standard per l'applicazione.
-- Richiesta di combinazioni specifiche delle attestazioni standard che non possono essere specificate usando gli ambiti per l'applicazione. Se ad esempio un token di accesso viene rifiutato a causa di attestazioni mancanti, l'applicazione può richiedere le attestazioni mancanti usando MSAL.
+- Richiesta di combinazioni specifiche delle attestazioni standard che non possono essere specificate utilizzando gli ambiti per l'applicazione. Ad esempio, se un token di accesso viene rifiutato a causa di attestazioni mancanti, l'applicazione può richiedere le attestazioni mancanti utilizzando MSAL.
 
 > [!NOTE]
-> MSAL ignora la cache dei token di accesso ogni volta che viene specificata una richiesta di attestazione. È importante fornire solo `claimsRequest` parametro quando sono necessarie attestazioni aggiuntive (invece di fornire sempre lo stesso parametro di `claimsRequest` in ogni chiamata all'API MSAL).
+> MSAL ignora la cache dei token di accesso ogni volta che viene specificata una richiesta di attestazioni. È importante fornire `claimsRequest` il parametro solo quando sono necessarie attestazioni `claimsRequest` aggiuntive (anziché fornire sempre lo stesso parametro in ogni chiamata all'API MSAL).
 
-è possibile specificare `claimsRequest` in `MSALSilentTokenParameters` e `MSALInteractiveTokenParameters`:
+`claimsRequest`può essere `MSALSilentTokenParameters` specificato `MSALInteractiveTokenParameters`in e :
 
 ```objc
 /*!
@@ -54,7 +54,7 @@ Sono disponibili più scenari in cui è necessario. Ad esempio,
 
 @end
 ```
-`MSALClaimsRequest` possibile costruire da una rappresentazione NSString della richiesta di attestazioni JSON. 
+`MSALClaimsRequest`può essere costruito da una rappresentazione NSString della richiesta di attestazioni JSON. 
 
 Objective-C:
 
@@ -73,7 +73,7 @@ let request = MSALClaimsRequest(jsonString: "{\"id_token\":{\"auth_time\":{\"ess
 
 
 
-Può anche essere modificato richiedendo attestazioni specifiche aggiuntive:
+Può anche essere modificato richiedendo ulteriori attestazioni specifiche:
 
 Objective-C:
 
@@ -103,7 +103,7 @@ do {
 
 
 
-`MSALClaimsRequest` deve essere impostato nei parametri del token e fornito a una delle API di acquisizione di token MSAL:
+`MSALClaimsRequest`deve quindi essere impostato nei parametri del token e fornito a una delle API di acquisizione di token MSAL:
 
 Objective-C:
 

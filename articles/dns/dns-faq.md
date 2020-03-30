@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti-DNS di Azure
-description: In questo articolo vengono fornite informazioni sulle domande frequenti su DNS di Azure
+title: Domande frequenti - DNS di AzureFAQ - Azure DNS
+description: In questo articolo vengono fornite informazioni sulle domande frequenti sul DNS di Azure
 services: dns
 author: rohinkoul
 ms.service: dns
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 6/15/2019
 ms.author: rohink
 ms.openlocfilehash: 76b19cfb3c00a26d81eab81f67d8e156a520f377
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77121730"
 ---
 # <a name="azure-dns-faq"></a>Domande frequenti su DNS di Azure
@@ -42,7 +42,7 @@ Per altre informazioni, vedere la pagina relativa al [contratto di Servizio per 
 
 Un dominio è un nome univoco nel Domain Name System, ad esempio contoso.com.
 
-Una zona DNS viene usata per ospitare i record DNS per un particolare dominio. Il dominio contoso.com può contenere, ad esempio, diversi record DNS. I record possono includere mail.contoso.com per un server di posta elettronica e www\.contoso.com per un sito Web. e sono ospitati nella zona DNS contoso.com.
+Una zona DNS viene usata per ospitare i record DNS per un particolare dominio. Il dominio contoso.com può contenere, ad esempio, diversi record DNS. I record possono includere mail.contoso.com per\.un server di posta e le contoso.com www per un sito Web. e sono ospitati nella zona DNS contoso.com.
 
 Un nome di dominio è *solo un nome*, mentre una zona DNS è una risorsa di dati contenente i record DNS per un nome di dominio. È possibile usare DNS di Azure per ospitare una zona DNS e gestire i record DNS per un dominio in Azure. Offre anche server dei nomi DNS per rispondere alle query DNS da Internet.
 
@@ -68,7 +68,7 @@ DNS di Azure supporta solo domini DNS di hosting statici, in cui ogni query DNS 
 
 ### <a name="does-azure-dns-support-domain-name-registration"></a>DNS di Azure supporta la registrazione del nome di dominio?
 
-No. DNS di Azure non supporta attualmente la possibilità di acquistare i nomi di dominio. Per acquistare domini, è necessario rivolgersi a un registrar di nomi di dominio di terze parti, che addebita in genere una tariffa annuale contenuta. I domini possono quindi essere ospitati in DNS di Azure per gestire i record DNS. Per altre informazioni, vedere [Delegare un dominio a DNS di Azure](dns-domain-delegation.md).
+No. DNS di Azure non supporta attualmente la possibilità di acquistare i nomi di dominio. Per acquistare domini, è necessario rivolgersi a un registrar di nomi di dominio di terze parti, che addebita in genere una tariffa annuale contenuta. I domini possono quindi essere ospitati in DNS di Azure per gestire i record DNS. Per altre informazioni, vedere [Delegare un dominio a DNS](dns-domain-delegation.md)di Azure.For more information, see Delegate a domain to Azure DNS .
 
 La funzionalità per l'acquisto dei nomi di domini è disponibile nel backlog di Azure. Usare il sito dei commenti e suggerimenti per [registrare il supporto per questa funzionalità](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar).
 
@@ -110,7 +110,7 @@ Vedere la sezione sugli scenari in [Panoramica dei record alias DNS di Azure](dn
 
 I set di record alias sono supportati per i tipi di record seguenti in una zona DNS di Azure:
  
-- A 
+- Una  
 - AAAA
 - CNAME 
 
@@ -118,7 +118,7 @@ I set di record alias sono supportati per i tipi di record seguenti in una zona 
 
 - **Puntare a una risorsa IP pubblica da un set di record DNS A/AAAA**. È possibile creare un set di record A/AAAA e renderlo un set di record alias impostato per puntare a una risorsa IP pubblica.
 - **Puntare a un profilo di Gestione traffico da un set di record DNS A/AAAA/CNAME**. È possibile puntare al CNAME di un profilo di Gestione traffico da un set di record CNAME DNS, ad esempio contoso.trafficmanager.net. A questo punto è anche possibile puntare a un profilo di Gestione traffico con endpoint esterni da un set di record A/AAAA nella zona DNS in uso.
-- **Puntare a un endpoint della rete per la distribuzione di contenuti (CDN) di Azure**. Questa operazione è utile quando si creano siti web statici usando archiviazione di Azure e la rete CDN di Azure.
+- **Puntare a un endpoint della rete per la distribuzione di contenuti (CDN)** di Azure. Ciò è utile quando si creano siti Web statici usando Archiviazione di Azure e la rete CDN di Azure.This is useful when you create static websites using Azure storage and Azure CDN.
 - **Puntare a un altro set di record DNS all'interno della stessa zona**. I record alias possono fare riferimento ad altri set di record dello stesso tipo. È ad esempio possibile avere un set di record CNAME DNS come alias per un altro set di record CNAME dello stesso tipo. Questo approccio è utile se si vuole che solo alcuni set di record siano alias.
 
 ### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>È possibile creare e aggiornare i record alias dal portale di Azure?
@@ -143,7 +143,7 @@ I record alias sono una qualifica in un set di record DNS valido e non prevedono
 
 ## <a name="use-azure-dns"></a>Uso di DNS di Azure
 
-### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>È possibile co-ospitare un dominio usando DNS di Azure e un altro provider DNS?
+### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>È possibile ospitare un dominio in modo co-hosting usando DNS di Azure e un altro provider DNS?
 
 Sì. DNS di Azure supporta i domini di hosting condiviso con altri servizi DNS.
 
@@ -197,7 +197,7 @@ I nomi IDN (Internationalized Domain Name) usano [punycode](https://en.wikipedia
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Che cos'è DNS di Azure?](dns-overview.md)
+- [Altre informazioni su DNS di Azure](dns-overview.md).
 
 - [Usare DNS di Azure per i domini privati](private-dns-overview.md)
 

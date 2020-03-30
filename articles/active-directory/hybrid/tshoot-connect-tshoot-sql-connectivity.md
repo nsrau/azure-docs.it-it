@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cde94dce13eeb7536f72fb0dcd937265960c7314
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70842686"
 ---
 # <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>Risolvere i problemi di connettività di SQL con Azure AD Connect
@@ -39,8 +39,8 @@ Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\A
 >Install-Module richiede l'aggiornamento a [PowerShell 5.0 (WMF 5.0)](https://www.microsoft.com/download/details.aspx?id=50395) o versione successiva;  
 Oppure installare l'[anteprima dei moduli di PowerShell PackageManagement - Marzo 2016 per PowerShell 3.0/4.0](/powershell/module/PackageManagement) 
 
-- **Mostrare tutti i comandi**: `Get-Command -Module AdSyncTools` 
-- **Eseguire la funzione di PowerShell**: `Connect-ADSyncDatabase` con i parametri seguenti
+- **Mostra tutti i comandi**:`Get-Command -Module AdSyncTools` 
+- **Eseguire la funzione powershell**: `Connect-ADSyncDatabase` con i seguenti parametri
     - Server. Il nome di SQL Server.
     - Instance. (Facoltativo) Il nome dell'istanza di SQL Server e, facoltativamente, il numero di porta, che si desidera usare. Non specificare questo parametro per usare l'istanza predefinita.
     - UserName. (Facoltativo) L'account utente con cui connettersi. Se lo si lascia vuoto viene usato l'utente attualmente connesso. Se ci si connette a un SQL Server remoto, deve essere l'account del servizio personalizzato creato per la connettività SQL di Azure ADConnect. Azure AD Connect usa l'account del servizio di sincronizzazione di Azure AD Connect per l'autenticazione in un server SQL remoto.
@@ -172,6 +172,6 @@ TcpStatus    : Blocked - the inbound firewall rule for port 58379 is missing or 
 PS C:\Program Files\Microsoft Azure Active Directory Connect\tools>  
 ```
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 - [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md)
 -  [Connettività di Azure AD con Azure AD Connect](tshoot-connect-connectivity.md)

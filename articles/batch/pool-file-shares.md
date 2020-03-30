@@ -15,10 +15,10 @@ ms.date: 05/24/2018
 ms.author: labrenne
 ms.custom: ''
 ms.openlocfilehash: 156dad25af5abd1b4d5db32569faf09a23fadfb1
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022512"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Usare una condivisione file di Azure con un pool di Batch
@@ -50,10 +50,10 @@ In Batch è necessario montare la condivisione a ogni esecuzione di un'attività
 
 Ad esempio, includere un comando `net use` per montare la condivisione file come parte della riga di comando di ogni attività. Per montare la condivisione file, sono necessarie le credenziali seguenti:
 
-* **Nome utente**: AZURE\\\<storageaccountname\>, ad esempio AZURE\\*mystorageaccountname*
-* **Password**: \<StorageAccountKeyWhichEnds in = = >, ad esempio, *XXXXXXXXXXXXXXXXXXXXX = =*
+* **Nome utente**\\\<: NOME\>accountaccount di\\aONE , ad esempio*NOMEaccountaccount*
+* **Password** \<: StorageAccountKeyWhichEnds in ->, ad esempio, *XXXXXXXXXXXXXXXXXXXXXXXXX*
 
-Il comando seguente monta una condivisione file *myfileshare* nell'account di archiviazione *mystorageaccountname* come unità *S:* :
+Il comando seguente monta una condivisione file *myfileshare* nell'account di archiviazione *mystorageaccountname* come unità *S:*:
 
 ```
 net use S: \\mystorageaccountname.file.core.windows.net\myfileshare /user:AZURE\mystorageaccountname XXXXXXXXXXXXXXXXXXXXX==
@@ -117,7 +117,7 @@ tasks.Add(task);
 
 ## <a name="mount-a-share-on-a-linux-pool"></a>Montare una condivisione in un pool di Linux
 
-Le condivisioni di File di Azure possono essere montate nelle distribuzioni di Linux tramite il [client kernel CIFS](https://wiki.samba.org/index.php/LinuxCIFS). L'esempio seguente illustra come montare una condivisione file in un pool di nodi di calcolo Ubuntu 16.04 LTS. Se si usa una distribuzione di Linux diversa, i passaggi generali sono simili, ma è necessario usare la gestione pacchetti appropriata per la distribuzione. Per informazioni dettagliate ed esempi aggiuntivi, vedere [Usare File di Azure con Linux](../storage/files/storage-how-to-use-files-linux.md).
+Le condivisioni file di Azure possono essere montate nelle distribuzioni Linux usando il [client del kernel CIFS.](https://wiki.samba.org/index.php/LinuxCIFS) L'esempio seguente illustra come montare una condivisione file in un pool di nodi di calcolo Ubuntu 16.04 LTS. Se si usa una distribuzione di Linux diversa, i passaggi generali sono simili, ma è necessario usare la gestione pacchetti appropriata per la distribuzione. Per informazioni dettagliate ed esempi aggiuntivi, vedere [Usare File di Azure con Linux](../storage/files/storage-how-to-use-files-linux.md).
 
 Prima di tutto, con un'identità utente amministratore, installare il pacchetto `cifs-utils` e creare il punto di montaggio (ad esempio, */mnt/MyAzureFileShare*) nel file system locale. Una cartella per un punto di montaggio può essere creata in qualsiasi posizione nel file system, ma normalmente viene creata sotto la cartella `/mnt`. Assicurarsi di non creare un punto di montaggio direttamente in `/mnt` (in Ubuntu) o `/mnt/resource` (in altre distribuzioni).
 
@@ -127,8 +127,8 @@ apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileSh
 
 Eseguire quindi il comando `mount` per montare la condivisione file, specificando queste credenziali:
 
-* **Nome utente**: \<storageaccountname\>, ad esempio *mystorageaccountname*
-* **Password**: \<StorageAccountKeyWhichEnds in = = >, ad esempio, *XXXXXXXXXXXXXXXXXXXXX = =*
+* **Nome**utente \<:\>storageaccountname , ad esempio *nomeaccountutente*
+* **Password** \<: StorageAccountKeyWhichEnds in ->, ad esempio, *XXXXXXXXXXXXXXXXXXXXXXXXX*
 
 Il comando seguente monta una condivisione file *myfileshare* nell'account di archiviazione *mystorageaccountname* in */mnt/MyAzureFileShare*: 
 

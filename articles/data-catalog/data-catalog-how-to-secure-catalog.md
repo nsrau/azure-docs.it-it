@@ -1,16 +1,16 @@
 ---
 title: Come proteggere l'accesso ad Azure Data Catalog
-description: Questo articolo illustra come proteggere un catalogo dati e gli asset di dati in Azure Data Catalog.
+description: Questo articolo illustra come proteggere un catalogo dati e i relativi asset di dati in Azure Data Catalog.This article explains how to secure a data catalog and its data assets in Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: b0972be2b8a6e05d3d90cde7354b4890ea95cbe4
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68976754"
 ---
 # <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>Come proteggere l'accesso al catalogo dati e agli asset di dati
@@ -26,23 +26,23 @@ Per assegnare a un utente o un gruppo l'accesso a un catalogo dati e impostare l
 
 1. Nella [home page del catalogo dati](https://www.azuredatacatalog.com) fare clic su **Impostazioni** sulla barra degli strumenti.
 
-   ![Pulsante Impostazioni home page Azure Data Catalog](media/data-catalog-how-to-secure-catalog/data-catalog-settings.png)
+   ![Pulsante Impostazioni della home page di Azure Data CatalogAzure Data Catalog home page settings button](media/data-catalog-how-to-secure-catalog/data-catalog-settings.png)
 
 2. Nella pagina delle impostazioni espandere la sezione **Utenti del catalogo**.
 
-   ![Pulsante Aggiungi Azure Data Catalog utenti](media/data-catalog-how-to-secure-catalog/data-catalog-add-button.png)
+   ![Pulsante Aggiungi utenti di Azure Data CatalogAzure Data Catalog users Add button](media/data-catalog-how-to-secure-catalog/data-catalog-add-button.png)
 
 3. Fare clic su **Aggiungi**.
 
 4. Immettere il **nome utente** completo o il nome del **gruppo di sicurezza** di Azure Active Directory (AAD) associato al catalogo. Se si aggiungono più utenti o gruppi usare la virgola (',') come separatore.
 
-   ![Utenti Azure Data Catalog-utenti o gruppi](media/data-catalog-how-to-secure-catalog/data-catalog-users-groups.png)
+   ![Utenti di Azure Data Catalog - utenti o gruppiAzure Data Catalog users - users or groups](media/data-catalog-how-to-secure-catalog/data-catalog-users-groups.png)
 
 5. Premere **INVIO** o **TAB** per uscire dalla casella di testo. 
 
 6. Verificare che tutte le autorizzazioni (**Annota**, **Registra** e **Diventa proprietario**) siano assegnate per impostazione predefinita a tali utenti o gruppi. In tal modo l'utente o il gruppo potrà [registrare asset di dati]( data-catalog-how-to-register.md), [annotare asset di dati]( data-catalog-how-to-annotate.md) e [diventare proprietario di asset di dati]( data-catalog-how-to-manage.md). 
 
-   ![Utenti Azure Data Catalog-autorizzazioni predefinite](media/data-catalog-how-to-secure-catalog/data-catalog-default-permissions.png)
+   ![Utenti di Azure Data Catalog - autorizzazioni predefiniteAzure Data Catalog users - default permissions](media/data-catalog-how-to-secure-catalog/data-catalog-default-permissions.png)
 
 7. Per assegnare a un utente o un gruppo solo l'accesso in lettura al catalogo, disattivare l'opzione **Annota** per l'utente o il gruppo. In questo modo l'utente o il gruppo non può aggiungere annotazioni agli asset di dati del catalogo, ma può visualizzarli. 
 
@@ -52,7 +52,7 @@ Per assegnare a un utente o un gruppo l'accesso a un catalogo dati e impostare l
 
 10. Per eliminare un utente o un gruppo dagli utenti del catalogo, fare clic su **x** in corrispondenza dell'utente o del gruppo nella parte inferiore dell'elenco. 
 
-   ![Utenti del catalogo Azure Data Catalog-icona Elimina utente X](media/data-catalog-how-to-secure-catalog/data-catalog-delete-user.png)
+   ![Utenti del catalogo di Azure Data Catalog - eliminare l'icona X utenteAzure Data Catalog catalog users - delete user X icon](media/data-catalog-how-to-secure-catalog/data-catalog-delete-user.png)
 
    > [!IMPORTANT]
    > È consigliabile aggiungere gruppi di sicurezza come utenti del catalogo, anziché aggiungere direttamente singoli utenti e assegnare loro le autorizzazioni. Aggiungere quindi a ogni gruppo di sicurezza gli utenti che corrispondono ai ruoli e ai diritti di accesso al catalogo del gruppo.
@@ -64,4 +64,4 @@ Per assegnare a un utente o un gruppo l'accesso a un catalogo dati e impostare l
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Introduzione ad Azure Data Catalog](data-catalog-get-started.md)
+- [Introduzione al Catalogo dati di Azure](data-catalog-get-started.md)

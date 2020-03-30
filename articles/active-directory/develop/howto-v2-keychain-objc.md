@@ -1,7 +1,7 @@
 ---
 title: Configurare il keychain
 titleSuffix: Microsoft identity platform
-description: Informazioni su come configurare keychain in modo che l'app possa memorizzare i token nella cache nel keychain.
+description: Scopri come configurare il portachiavi in modo che l'app possa memorizzare nella cache i token nel portachiavi.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,39 +14,39 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: d94bf7ffe955c9ec9ee2a2e7f7c4dbaaa28df270
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77085857"
 ---
 # <a name="configure-keychain"></a>Configurare il keychain
 
-Quando [Microsoft Authentication Library per iOS e MacOS](msal-overview.md) (MSAL) accede a un utente o aggiorna un token, tenta di memorizzare nella cache i token nel keychain. La memorizzazione nella cache dei token nel Keychain consente a MSAL di fornire Single Sign-On invisibile (SSO) tra più app distribuite dallo stesso sviluppatore Apple. L'accesso SSO viene effettuato tramite la funzionalità gruppi di accesso keychain. Per ulteriori informazioni, vedere la [documentazione relativa agli elementi Keychain](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc)di Apple.
+Quando [Microsoft Authentication Library per iOS e macOS (MSAL)](msal-overview.md) firma in un utente o aggiorna un token, tenta di memorizzare nella cache i token nel portachiavi. La memorizzazione nella cache dei token nel portachiavi consente a MSAL di fornire l'accesso Single Sign-On (SSO) invisibile all'utente tra più app distribuite dallo stesso sviluppatore Apple. SSO si ottiene tramite la funzionalità di gruppi di accesso portachiavi. Per ulteriori informazioni, consulta la documentazione Apple [Keychain Items](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc).
 
-Questo articolo illustra come configurare i diritti delle app in modo che MSAL possa scrivere i token memorizzati nella cache nel Keychain iOS e macOS.
+Questo articolo illustra come configurare i permessi per le app in modo che MSAL possa scrivere token memorizzati nella cache nel portachiavi iOS e macOS.
 
-## <a name="default-keychain-access-group"></a>Gruppo di accesso a keychain predefinito
+## <a name="default-keychain-access-group"></a>Gruppo di accesso al portachiavi predefinito
 
 ### <a name="ios"></a>iOS
 
-Per impostazione predefinita, MSAL in iOS usa il gruppo di accesso `com.microsoft.adalcache`. Questo è il gruppo di accesso condiviso usato dagli SDK MSAL e Autenticazione di Azure AD Library (ADAL) e garantisce la migliore esperienza di Single Sign-On (SSO) tra più app dello stesso server di pubblicazione.
+MSAL su iOS `com.microsoft.adalcache` utilizza il gruppo di accesso per impostazione predefinita. Si tratta del gruppo di accesso condiviso usato dagli SDK MSAL e Azure AD Authentication Library (ADAL) e garantisce la migliore esperienza Single Sign-On (SSO) tra più app dello stesso autore.
 
-In iOS aggiungere il gruppo portachiavi `com.microsoft.adalcache` al diritto dell'app in XCode in **Impostazioni progetto** > **funzionalità** > **condivisione Keychain**
+In iOS, `com.microsoft.adalcache` aggiungi il gruppo portachiavi al diritto dell'app in XCode in **Impostazioni** > progetto**Funzionalità** > **condivisione portachiavi**
 
 ### <a name="macos"></a>macOS
 
-Per impostazione predefinita, MSAL in macOS USA `com.microsoft.identity.universalstorage` gruppo di accesso.
+MSAL su macOS utilizza `com.microsoft.identity.universalstorage` il gruppo di accesso per impostazione predefinita.
 
-A causa delle limitazioni dei portachiavi macOS, la `access group` di MSAL non viene convertita direttamente nell'attributo del gruppo di accesso a keychain (vedere [kSecAttrAccessGroup](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)) in MacOS 10,14 e versioni precedenti. Tuttavia, si comporta in modo analogo da una prospettiva SSO garantendo che più applicazioni distribuite dallo stesso sviluppatore Apple possano avere l'accesso SSO invisibile all'utente.
+A causa delle limitazioni del portachiavi `access group` di macOS, MSAL non si traduce direttamente nell'attributo del gruppo di accesso al portachiavi (vedere [kSecAttrAccessGroup](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)) su macOS 10.14 e versioni precedenti. Tuttavia, si comporta in modo simile dal punto di vista SSO assicurando che più applicazioni distribuite dallo stesso sviluppatore Apple possono avere SSO silenzioso.
 
-In macOS 10,15 e versioni successive (macOS Catalina), MSAL usa l'attributo del gruppo di accesso a Keychain per ottenere l'accesso SSO invisibile all'utente, in modo analogo a iOS.
+Su macOS 10.15 in poi (macOS Catalina), MSAL utilizza l'attributo del gruppo di accesso al portachiavi per ottenere SSO silenzioso, in modo simile a iOS.
 
-## <a name="custom-keychain-access-group"></a>Gruppo di accesso a keychain personalizzato
+## <a name="custom-keychain-access-group"></a>Gruppo di accesso portachiavi personalizzato
 
-Se si vuole usare un gruppo di accesso a keychain diverso, è possibile passare il gruppo personalizzato quando si crea `MSALPublicClientApplicationConfig` prima di creare `MSALPublicClientApplication`, come indicato di seguito:
+Se si desidera utilizzare un gruppo di accesso portachiavi diverso, `MSALPublicClientApplicationConfig` è `MSALPublicClientApplication`possibile passare il gruppo personalizzato durante la creazione prima della creazione , in questo modo:
 
-# <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
+# <a name="objective-c"></a>[Objective-C](#tab/objc)
 
 ```objc
 MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"your-client-id"
@@ -62,7 +62,7 @@ MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] 
 // and only shared with other applications declaring the same access group
 ```
 
-# <a name="swifttabswift"></a>[Swift](#tab/swift)
+# <a name="swift"></a>[Repentino](#tab/swift)
 
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "your-client-id",
@@ -80,17 +80,17 @@ do {
 
 ---
 
-## <a name="disable-keychain-sharing"></a>Disabilitare la condivisione Keychain
+## <a name="disable-keychain-sharing"></a>Disabilitare la condivisione del portachiavi
 
-Se non si vuole condividere lo stato SSO tra più app o se si usa un gruppo di accesso a keychain, disabilitare la condivisione del keychain passando l'ID bundle dell'applicazione come keychainGroup:
+Se non vuoi condividere lo stato SSO tra più app o utilizzare qualsiasi gruppo di accesso al portachiavi, disabilita la condivisione del portachiavi passando l'ID del pacchetto dell'applicazione come keychainGroup:
 
-# <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
+# <a name="objective-c"></a>[Objective-C](#tab/objc)
 
 ```objc
 config.cacheConfig.keychainSharingGroup = [[NSBundle mainBundle] bundleIdentifier];
 ```
 
-# <a name="swifttabswift"></a>[Swift](#tab/swift)
+# <a name="swift"></a>[Repentino](#tab/swift)
 
 ```swift
 if let bundleIdentifier = Bundle.main.bundleIdentifier {
@@ -100,14 +100,14 @@ if let bundleIdentifier = Bundle.main.bundleIdentifier {
 
 ---
 
-## <a name="handle--34018-error-failed-to-set-item-into-keychain"></a>Handle-34018 errore (non è stato possibile impostare l'elemento nel Keychain)
+## <a name="handle--34018-error-failed-to-set-item-into-keychain"></a>Errore handle -34018 (impossibile impostare l'elemento nel portachiavi)
 
-Errore-34018 normalmente significa che il keychain non è stato configurato correttamente. Verificare che il gruppo di accesso a keychain configurato in MSAL corrisponda a quello configurato nei diritti.
+Errore -34018 normalmente significa che il portachiavi non è stato configurato correttamente. Assicurarsi che il gruppo di accesso portachiavi configurato in MSAL corrisponda a quello configurato nei permessi.
 
 ## <a name="ensure-your-application-is-properly-signed"></a>Assicurarsi che l'applicazione sia firmata correttamente
 
-In macOS, le applicazioni possono essere eseguite senza essere firmate dallo sviluppatore. Anche se la maggior parte delle funzionalità di MSAL continuerà a funzionare, l'accesso SSO tramite l'accesso Keychain richiede la firma dell'applicazione. Se si verificano più richieste di Keychain, assicurarsi che la firma dell'applicazione sia valida.
+In macOS, le applicazioni possono essere eseguite senza essere firmate dallo sviluppatore. Mentre la maggior parte delle funzionalità di MSAL continuerà a funzionare, SSO tramite l'accesso portachiavi richiede l'applicazione per essere firmato. Se vengono visualizzati più prompt del portachiavi, verificare che la firma dell'applicazione sia valida.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sui gruppi di accesso a keychain, vedere l'articolo relativo alla [condivisione dell'accesso di Apple per gli elementi Keychain tra una raccolta di app](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc) .
+Scopri di più sui gruppi di accesso al portachiavi nell'articolo [Condivisione dell'accesso agli elementi del portachiavi di](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc) Apple tra una raccolta di app.

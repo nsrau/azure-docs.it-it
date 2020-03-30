@@ -1,7 +1,7 @@
 ---
-title: Flusso di lavoro con firme di accesso condiviso
+title: Flusso di lavoro tramite firme di accesso condiviso
 titleSuffix: Microsoft Genomics
-description: Questo articolo illustra come inviare un flusso di lavoro al servizio genomica di Microsoft usando le firme di accesso condiviso (SAS) invece delle chiavi dell'account di archiviazione.
+description: Questo articolo illustra come inviare un flusso di lavoro al servizio Genomica di Microsoft usando le firme di accesso condiviso anziché le chiavi dell'account di archiviazione.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -10,20 +10,20 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
 ms.openlocfilehash: d6228762b9a1299d8e9229f7a0f73dc7d0bca2b2
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72248592"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Inviare un flusso di lavoro a Genomica di Microsoft usando una firma di accesso condiviso invece di una chiave dell'account di archiviazione 
 
-Questo articolo illustra come inviare un flusso di lavoro al servizio genomica di Microsoft usando un file config. txt che contiene le [firme di accesso condiviso (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) invece delle chiavi dell'account di archiviazione. Questa funzionalità può essere utile se per motivi di sicurezza si preferisce non rendere visibile la chiave dell'account di archiviazione nel file config.txt. 
+In questo articolo viene illustrato come inviare un flusso di lavoro al servizio Genomica di Microsoft usando un file config.txt che contiene firme di [accesso condiviso anziché](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) chiavi dell'account di archiviazione. Questa funzionalità può essere utile se per motivi di sicurezza si preferisce non rendere visibile la chiave dell'account di archiviazione nel file config.txt. 
 
-In questo articolo si presuppone che sia già stato installato ed eseguito il client `msgen` e che si abbia familiarità con l'uso di Archiviazione di Azure. Se un flusso di lavoro è stato inviato correttamente usando i dati di esempio forniti, è possibile procedere con questo articolo. 
+In questo articolo si presuppone che sia già stato installato ed eseguito il client `msgen` e che si abbia familiarità con l'uso di Archiviazione di Azure. Se un flusso di lavoro è stato inviato correttamente utilizzando i dati di esempio forniti, è possibile procedere con questo articolo. 
 
 ## <a name="what-is-a-sas"></a>Informazioni sulla firma di accesso condiviso
-Una [firma di accesso condiviso (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) fornisce accesso delegato alle risorse nell'account di archiviazione. Con una firma di accesso condiviso è possibile concedere l'accesso alle risorse nell'account di archiviazione senza condividere le chiavi dell'account. Questo è il punto chiave associato all'uso delle firme di accesso condiviso nelle applicazioni: una firma di accesso condiviso rappresenta un metodo sicuro per condividere le risorse di archiviazione senza compromettere le chiavi dell'account.
+Una firma di [accesso condiviso](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) fornisce l'accesso delegato alle risorse nell'account di archiviazione. Con una firma di accesso condiviso è possibile concedere l'accesso alle risorse nell'account di archiviazione senza condividere le chiavi dell'account. Questo è il punto chiave associato all'uso delle firme di accesso condiviso nelle applicazioni: una firma di accesso condiviso rappresenta un metodo sicuro per condividere le risorse di archiviazione senza compromettere le chiavi dell'account.
 
 La firma di accesso condiviso che viene inviata a Genomica di Microsoft deve essere una [firma di accesso condiviso del servizio](https://docs.microsoft.com/rest/api/storageservices/Constructing-a-Service-SAS) che delega l'accesso solo al BLOB o al contenitore in cui sono archiviati i file di input e output. 
 
@@ -34,12 +34,12 @@ Per ogni flusso di lavoro inviato al servizio Genomica di Microsoft sono necessa
 
 La firma di accesso condiviso per i file di input deve avere le proprietà seguenti:
  - Ambito (account, contenitore o BLOB): BLOB
- - Scadenza: 48 ore da adesso
+ - Scadenza: 48 ore dalla data/ora corrente
  - Autorizzazioni: lettura
 
 La firma di accesso condiviso per il contenitore di output deve avere le proprietà seguenti:
  - Ambito (account, contenitore o BLOB): contenitore
- - Scadenza: 48 ore da adesso
+ - Scadenza: 48 ore dalla data/ora corrente
  - Autorizzazioni: lettura, scrittura, eliminazione
 
 
@@ -47,16 +47,16 @@ La firma di accesso condiviso per il contenitore di output deve avere le proprie
 Esistono due modi per creare un token di firma di accesso condiviso, ovvero tramite Azure Storage Explorer o a livello di codice.  Usando il codice è possibile creare manualmente la firma di accesso condiviso oppure usare Azure Storage SDK nel linguaggio preferito.
 
 
-### <a name="set-up-create-a-sas-using-azure-storage-explorer"></a>Configurazione: Creare una firma di accesso condiviso con Azure Storage Explorer
+### <a name="set-up-create-a-sas-using-azure-storage-explorer"></a>Configurazione: Creare una firma di accesso condiviso usando Azure Storage Explorer
 
 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) è uno strumento che consente di gestire le risorse presenti in Archiviazione di Azure.  Altre informazioni sull'uso di Azure Storage Explorer sono disponibili [qui](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
 La firma di accesso condiviso per i file di input deve avere come ambito lo specifico file di input (BLOB). Per creare una firma di accesso condiviso, seguire [questa procedura](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer). Dopo aver creato la firma di accesso condiviso, vengono forniti l'URL completo con la stringa di query e la stringa di query stessa ed è possibile copiarli dalla schermata.
 
- ![Storage Explorer per la firma di accesso condiviso di Genomica](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Storage Explorer per la firma di accesso condiviso di Genomica")
+ ![Genomics SAS Storage Explorer](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Genomics SAS Storage Explorer")
 
 
-### <a name="set-up-create-a-sas-programmatically"></a>Configurazione: Creare una firma di accesso condiviso a livello di codice
+### <a name="set-up-create-a-sas-programmatically"></a>Configurare: creare una configurazione di configurazione di livello di codiceSet up: Create a SAS programmatically
 
 Per creare una firma di accesso condiviso con Azure Storage SDK, vedere la documentazione esistente per diversi linguaggi, tra cui [.NET](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) e [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage). 
 
@@ -66,7 +66,7 @@ Per creare una firma di accesso condiviso senza un SDK, è possibile costruire d
 ## <a name="add-the-sas-to-the-configtxt-file"></a>Aggiungere la firma di accesso condiviso al file config.txt
 Per eseguire un flusso di lavoro tramite il servizio Genomica di Microsoft usando una stringa di query della firma di accesso condiviso, modificare il file config.txt per rimuovere le chiavi. Aggiungere quindi la stringa di query della firma di accesso condiviso (che inizia con `?`) al nome del contenitore di output, come illustrato. 
 
-![Configurazione della firma di accesso condiviso di Genomica](./media/quickstart-input-sas/genomics-sas-config.png "Configurazione della firma di accesso condiviso di Genomica")
+![Configurazione sAS genomica](./media/quickstart-input-sas/genomics-sas-config.png "Configurazione sAS genomica")
 
 Usare il client Python di Genomica di Microsoft per inviare il flusso di lavoro con il comando seguente, aggiungendo la stringa di query della firma di accesso condiviso corrispondente a ogni nome di BLOB di input:
 
@@ -77,7 +77,7 @@ msgen submit -f [full path to your config file] -b1 [name of your first paired e
 ### <a name="if-adding-the-input-file-names-to-the-configtxt-file"></a>Se si aggiungono i nomi dei file di input al file config.txt
 In alternativa è possibile aggiungere i nomi di file di letture di estremità abbinate direttamente al file config.txt, con i token di query della firma di accesso condiviso aggiunti come mostrato:
 
-![Nomi di BLOB per la configurazione della firma di accesso condiviso di Genomica](./media/quickstart-input-sas/genomics-sas-config-blobnames.png "Nomi di BLOB per la configurazione della firma di accesso condiviso di Genomica")
+![Nomi BLOB di configurazione SAS genomica](./media/quickstart-input-sas/genomics-sas-config-blobnames.png "Nomi BLOB di configurazione SAS genomica")
 
 In questo caso, usare il client Python di Genomica di Microsoft per inviare il flusso di lavoro con il comando seguente, omettendo i comandi `-b1` e `-b2`:
 

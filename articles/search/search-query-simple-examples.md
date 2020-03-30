@@ -1,35 +1,33 @@
 ---
-title: 'Creare una query semplice: ricerca di Azure'
-description: Per informazioni sull'esecuzione di query in base alla semplice sintassi per la ricerca full-text, la ricerca di filtri, la ricerca geografica e la ricerca in base a facet in un indice di ricerca di Azure.
-author: HeidiSteen
+title: Creare una query semplice
+titleSuffix: Azure Cognitive Search
+description: Per esempio, eseguire query basate sulla sintassi semplice per la ricerca full-text, la ricerca di filtri, la ricerca geografica e la ricerca in base a facet rispetto a un indice di Ricerca cognitiva di Azure.Learn by example by running queries based on the simple syntax for full text search, filter search, geo search, faceted search against an Azure Cognitive Search index.
 manager: nitinme
-tags: Simple query analyzer syntax
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 09/20/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 6f3f0e0b8b5098784359e7703c4a165654ff9894
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 525c20f5b6e24811ab092a63fa84fe6ebbd7b618
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72808185"
 ---
-# <a name="create-a-simple-query-in-azure-search"></a>Creare una query semplice in ricerca di Azure
+# <a name="create-a-simple-query-in-azure-cognitive-search"></a>Creare una query semplice in Ricerca cognitiva di AzureCreate a simple query in Azure Cognitive Search
 
-In ricerca di Azure, la [sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) richiama il parser di query predefinito per l'esecuzione di query di ricerca full-text su un indice. Questo parser è veloce e gestisce scenari comuni, tra cui ricerca full-text, ricerca filtrata e sfaccettata e ricerca geografica. 
+In Ricerca cognitiva di Azure la [sintassi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) di query semplice richiama il parser di query predefinito per l'esecuzione di query di ricerca full-text su un indice. Questo parser è veloce e gestisce scenari comuni, tra cui la ricerca full-text, la ricerca filtrata e in base a facet e la ricerca geografica. 
 
-In questo articolo vengono usati esempi per illustrare la sintassi semplice.
+In questo articolo vengono utilizzati esempi per illustrare la sintassi semplice.
 
-Una sintassi di query alternativa è [Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), che supporta strutture di query più complesse, come la ricerca fuzzy e la ricerca con caratteri jolly, che può richiedere ulteriore tempo per l'elaborazione. Per altre informazioni ed esempi che illustrano la sintassi completa, vedere [usare la sintassi Lucene completa](search-query-lucene-examples.md).
+Una sintassi di query alternativa è [Full Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), che supporta strutture di query più complesse, ad esempio la ricerca fuzzy e con caratteri jolly, che può richiedere più tempo per l'elaborazione. Per ulteriori informazioni ed esempi che illustrano la sintassi completa, vedere [Usare la sintassi Lucene completa.](search-query-lucene-examples.md)
 
 ## <a name="formulate-requests-in-postman"></a>Formulare richieste in Postman
 
-Negli esempi seguenti viene usato l'indice di ricerca NYC Jobs contenente le opportunità di lavoro disponibili in base a un set di dati fornito dall'iniziativa [City of New York OpenData](https://nycopendata.socrata.com/). Questi dati non devono essere considerati attuali o completi. L'indice si trova in un servizio sandbox fornito da Microsoft, il che significa che non è necessario disporre di una sottoscrizione di Azure o di Ricerca di Azure per provare queste query.
+Negli esempi seguenti viene usato l'indice di ricerca NYC Jobs contenente le opportunità di lavoro disponibili in base a un set di dati fornito dall'iniziativa [City of New York OpenData](https://nycopendata.socrata.com/). Questi dati non devono essere considerati attuali o completi. L'indice si trova in un servizio sandbox fornito da Microsoft, il che significa che non è necessaria una sottoscrizione di Azure o Ricerca cognitiva di Azure per provare queste query.
 
-È necessario disporre di Postman o di uno strumento equivalente per rilasciare una richiesta HTTP su GET. Per altre informazioni, vedere [Guida introduttiva: esplorare l'API REST di ricerca di Azure con il post](search-get-started-postman.md).
+È necessario disporre di Postman o di uno strumento equivalente per rilasciare una richiesta HTTP su GET. Per altre informazioni, vedere [Guida introduttiva: Esplorare l'API REST di Ricerca cognitiva di Azure usando Postman.](search-get-started-postman.md)
 
 ### <a name="set-the-request-header"></a>Impostare l'intestazione della richiesta
 
@@ -37,37 +35,37 @@ Negli esempi seguenti viene usato l'indice di ricerca NYC Jobs contenente le opp
 
 2. Aggiungere una **chiave API** e impostarla su questa stringa: `252044BE3886FE4A8E3BAA4F595114BB`. Si tratta di una chiave di query per il servizio di ricerca sandbox che ospita l'indice NYC Jobs.
 
-Dopo aver specificato l'intestazione della richiesta, è possibile riusarla per tutte le query in questo articolo, scambiando solo la stringa **search=** . 
+Dopo aver specificato l'intestazione della richiesta, è possibile riusarla per tutte le query in questo articolo, scambiando solo la stringa **search=**. 
 
   ![Intestazione della richiesta Postman](media/search-query-lucene-examples/postman-header.png)
 
 ### <a name="set-the-request-url"></a>Impostare l'URL della richiesta
 
-La richiesta è un comando GET abbinato a un URL contenente la stringa di ricerca e l'endpoint di Ricerca di Azure.
+Request è un comando GET associato a un URL contenente l'endpoint di Ricerca cognitiva di Azure e la stringa di ricerca.
 
   ![Intestazione della richiesta Postman](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
 La composizione dell'URL presenta i seguenti elementi:
 
-+ **`https://azs-playground.search.windows.net/`** è un servizio di ricerca sandbox gestito dal team di sviluppo di Ricerca di Azure. 
-+ **`indexes/nycjobs/`** è l'indice NYC Jobs nella raccolta di indici del servizio. Il nome e l'indice del servizio sono entrambi necessari sulla richiesta.
-+ **`docs`** è la raccolta di documenti contenente tutto il contenuto disponibile per la ricerca. La chiave API della query fornita nell'intestazione della richiesta funziona solo nelle operazioni di lettura destinate alla raccolta di documenti.
-+ **`api-version=2019-05-06`** imposta la versione dell'API, un parametro obbligatorio per ogni richiesta.
-+ **`search=*`** è la stringa di query, che nella query iniziale è null e restituisce i primi 50 risultati (per impostazione predefinita).
++ **`https://azs-playground.search.windows.net/`** è un servizio di ricerca sandbox gestito dal team di sviluppo di Ricerca cognitiva di Azure.Is a sandbox search service maintained by the Azure Cognitive Search development team. 
++ **`indexes/nycjobs/`** è l'indice NYC Jobs nella raccolta di indici di tale servizio. Il nome e l'indice del servizio sono entrambi necessari sulla richiesta.
++ **`docs`** è la raccolta di documenti contenente tutto il contenuto ricercabile. La chiave API della query fornita nell'intestazione della richiesta funziona solo nelle operazioni di lettura destinate alla raccolta di documenti.
++ **`api-version=2019-05-06`** imposta la versione api, che è un parametro obbligatorio a ogni richiesta.
++ **`search=*`** è la stringa di query, che nella query iniziale è null, restituendo i primi 50 risultati (per impostazione predefinita).
 
 ## <a name="send-your-first-query"></a>Inviare la prima query
 
 Come fase di verifica, incollare la seguente richiesta in GET e fare clic su **Invia**. I risultati vengono restituiti come documenti JSON dettagliati. Vengono restituiti interi documenti, che consentono di visualizzare tutti i campi e tutti i valori.
 
-Incollare l'URL in un client REST come passaggio di convalida e visualizzare la struttura del documento.
+Incollare questo URL in un client REST come passaggio di convalida e per visualizzare la struttura del documento.
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
   ```
 
-La stringa di query, **`search=*`** , è una ricerca non specificata equivalente a una ricerca null o vuota. Non è particolarmente utile, ma è la ricerca più semplice che sia possibile eseguire.
+La stringa **`search=*`** di query , , è una ricerca non specificata equivalente alla ricerca null o vuota. Non è particolarmente utile, ma è la ricerca più semplice che sia possibile eseguire.
 
-Se lo si desidera, è possibile aggiungere **`$count=true`** all'URL per restituire un conteggio dei documenti corrispondenti ai criteri di ricerca. In una stringa di ricerca vuota, sono tutti i documenti nell'indice (circa 2800 nel caso di NYC Jobs).
+Facoltativamente, è **`$count=true`** possibile aggiungere all'URL per restituire un conteggio dei documenti corrispondenti ai criteri di ricerca. In una stringa di ricerca vuota, sono tutti i documenti nell'indice (circa 2800 nel caso di NYC Jobs).
 
 ## <a name="how-to-invoke-simple-query-parsing"></a>Come richiamare l'analisi di query semplice
 
@@ -85,7 +83,7 @@ In breve, la query punta solo al campo *business_title* e specifica che vengano 
 searchFields=business_title&$select=business_title&search=*
 ```
 
-Di seguito è illustrata la stessa query con più campi in un elenco delimitato da virgole.
+Di seguito è riportata la stessa query con più campi in un elenco delimitato da virgole.
 
 ```http
 search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
@@ -143,7 +141,7 @@ Se si vuole provare questo esempio in Postman usando GET, incollare questa strin
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency,salary_range_from&search=&$filter=salary_frequency eq 'Annual' and salary_range_from gt 90000
 ```
 
-Un altro modo efficace di combinare il filtro e la ricerca è tramite **`search.ismatch*()`** in un'espressione filtro in cui è possibile usare una query di ricerca all'interno del filtro. L'espressione filtro usa un carattere jolly nell'elemento *plan* per selezionare business_title includendo i termini plan, planner, planning, e così via.
+Un altro modo efficace per **`search.ismatch*()`** combinare il filtro e la ricerca è attraverso in un'espressione di filtro, in cui è possibile utilizzare una query di ricerca all'interno del filtro. L'espressione filtro usa un carattere jolly nell'elemento *plan* per selezionare business_title includendo i termini plan, planner, planning, e così via.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
@@ -153,9 +151,9 @@ Per altre informazioni sulla funzione, vedere [search.ismatch in "Esempi di filt
 
 ## <a name="example-4-range-filters"></a>Esempio 4: filtri di intervallo
 
-Il filtro di intervallo è supportato tramite le espressioni **`$filter`** per qualsiasi tipo di dati. Gli esempi seguenti eseguono la ricerca nei campi numerici e nei campi stringa. 
+Il filtro di **`$filter`** intervallo è supportato tramite espressioni per qualsiasi tipo di dati. Gli esempi seguenti eseguono la ricerca nei campi numerici e nei campi stringa. 
 
-I tipi di dati sono importanti nei filtri di intervallo e funzionano in modo ottimale quando i dati numerici si trovano nei campi numerici e i dati di tipo stringa nei campi stringa. I dati numerici nei campi stringa non sono adatti per gli intervalli perché le stringhe numeriche non sono confrontabili in Ricerca di Azure. 
+I tipi di dati sono importanti nei filtri di intervallo e funzionano in modo ottimale quando i dati numerici si trovano nei campi numerici e i dati di tipo stringa nei campi stringa. Numeric data in string fields is not suitable for ranges because numeric strings are not comparable in Azure Cognitive Search. 
 
 Per una migliore leggibilità, gli esempi riportati di seguito sono in formato POST (intervallo numerico seguito dall'intervallo di testo):
 
@@ -213,7 +211,7 @@ POST /indexes/nycjobs/docs/search?api-version=2019-05-06
       "count": "true"
     }
 ```
-Per ottenere risultati più leggibili, i risultati della ricerca vengono rimossi per includere un ID processo, un titolo del processo e il percorso di lavoro. Le coordinate di inizio sono state ottenute da un documento casuale nell'indice (in questo caso, per una località di lavoro a Staten Island).
+Per risultati più leggibili, i risultati della ricerca vengono tagliati per includere un ID processo, una posizione lavorativa e il luogo di lavoro. Le coordinate di inizio sono state ottenute da un documento casuale nell'indice (in questo caso, per una località di lavoro a Staten Island).
 
 È anche possibile provare questo esempio in Postman usando GET:
 
@@ -225,19 +223,19 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 Le query basate su termini sono composte da singoli termini valutati separatamente. Le query basate su frasi sono racchiuse tra virgolette e vengono valutate come stringhe verbatim. La precisione della corrispondenza è controllata da operatori e searchMode.
 
-Esempio 1: **`&search=fire`** restituisce 150 risultati, dove tutte le corrispondenze contengono la parola fire in qualche punto del documento.
+Esempio 1: **`&search=fire`** restituisce 150 risultati, in cui tutte le corrispondenze contengono la parola Fire in un punto qualsiasi del documento.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=fire
 ```
 
-Esempio 2: **`&search=fire department`** restituisce 2002 risultati. Vengono restituite corrispondenze per i documenti contenenti fire o department.
+Esempio 2: **`&search=fire department`** restituisce i risultati 2002. Vengono restituite corrispondenze per i documenti contenenti fire o department.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=fire department
 ```
 
-Esempio 3: **`&search="fire department"`** restituisce 82 risultati. Racchiudendo la stringa tra virgolette si crea una ricerca verbatim su entrambi i termini e le corrispondenze vengono trovate su termini in formato token nell'indice composto dai termini combinati. Questo spiega perché una ricerca come **`search=+fire +department`** non è equivalente. Entrambi i termini sono necessari, ma vengono analizzati in modo indipendente. 
+Esempio 3: **`&search="fire department"`** restituisce 82 risultati. Racchiudendo la stringa tra virgolette si crea una ricerca verbatim su entrambi i termini e le corrispondenze vengono trovate su termini in formato token nell'indice composto dai termini combinati. Questo spiega perché una **`search=+fire +department`** ricerca simile non è equivalente. Entrambi i termini sono necessari, ma vengono analizzati in modo indipendente. 
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search="fire department"
@@ -290,13 +288,13 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ## <a name="next-steps"></a>Passaggi successivi
 Provare a specificare le query nel codice. I collegamenti seguenti illustrano come configurare le query di ricerca per l'API .NET e l'API REST usando la sintassi semplice predefinita.
 
-* [Eseguire query su un indice di Ricerca di Azure con .NET SDK](search-query-dotnet.md)
-* [Eseguire query su un indice di Ricerca di Azure con l'API REST](search-create-index-rest-api.md)
+* [Eseguire query sull'indice usando .NET SDK](search-query-dotnet.md)
+* [Query your index using the REST API](search-create-index-rest-api.md)
 
-Un riferimento alla sintassi aggiuntivo, l'architettura di query e gli esempi sono disponibili nei seguenti collegamenti:
+Un riferimento alla sintassi aggiuntivo, l'architettura di query ed esempi sono disponibili nei collegamenti seguenti:
 
 + [Esempi di query con sintassi Lucene per la compilazione di query avanzate](search-query-lucene-examples.md)
-+ [Funzionamento della ricerca full-text in Ricerca di Azure](search-lucene-query-architecture.md)
++ [Funzionamento della ricerca full-text in Ricerca cognitiva di Azure](search-lucene-query-architecture.md)
 + [Sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [Query Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 + [Sintassi del filtro e sintassi Orderby](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)

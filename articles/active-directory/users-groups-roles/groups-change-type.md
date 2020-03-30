@@ -1,5 +1,5 @@
 ---
-title: Modificare l'appartenenza a un gruppo statico a Dynamic-Azure AD | Microsoft Docs
+title: Modificare l'appartenenza a un gruppo statico in dinamico - Azure AD Documenti Microsoft
 description: Come creare regole di appartenenza per popolare automaticamente i gruppi e informazioni di riferimento sulle regole.
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34451fcc4597f77464e5e9566613e21e9fecdbc6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74027303"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Modificare l'appartenenza a gruppi statica in dinamica in Azure Active Directory
@@ -32,7 +32,7 @@ In Azure Active Directory (Azure AD) è possibile modificare l'appartenenza a un
 
 ## <a name="change-the-membership-type-for-a-group"></a>Modificare il tipo di appartenenza per un gruppo
 
-1. Accedere al centro di [amministrazione di Azure ad](https://aad.portal.azure.com) con un account che sia amministratore globale o amministratore utente nel tenant.
+1. Accedere all'interfaccia di amministrazione di [Azure AD](https://aad.portal.azure.com) con un account amministratore globale o amministratore utente nel tenant.
 2. Selezionare **Gruppi**.
 3. Dall'elenco **Tutti i gruppi** aprire il gruppo che si vuole modificare.
 4. Selezionare **Proprietà**.
@@ -46,7 +46,7 @@ I passaggi seguenti offrono un esempio della procedura da seguire per modificare
   
 2. Selezionare **Aggiungi query dinamica** e quindi specificare la regola.
   
-   ![Immettere la regola per il gruppo dinamico](./media/groups-change-type/enter-rule.png)
+   ![immettere la regola per il gruppo dinamico](./media/groups-change-type/enter-rule.png)
   
 3. Dopo aver creato la regola, selezionare **Aggiungi query** nella parte inferiore della pagina.
 4. Selezionare **Salva** nella pagina **Proprietà** del gruppo per salvare le modifiche. Il valore di **Tipo di appartenenza** del gruppo viene aggiornato immediatamente nell'elenco dei gruppi.

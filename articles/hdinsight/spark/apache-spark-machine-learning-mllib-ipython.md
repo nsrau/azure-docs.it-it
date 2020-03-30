@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
 ms.openlocfilehash: c8ead7abc454df387db31b2ce65d2ba714b0067d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73494086"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Usare MLlib Apache Spark per compilare un'applicazione di Machine Learning e analizzare un set di dati
@@ -23,8 +23,8 @@ Informazioni su come usare [MLlib](https://spark.apache.org/mllib/) Apache Spark
 MLlib è una libreria Spark di base che fornisce diverse utilità che agevolano le attività di Machine Learning, incluse utilità adatte a:
 
 * Classificazione
-* regressione
-* clustering
+* Regressione
+* Clustering
 * Modellazione di argomenti
 * Scomposizione di valori singolari e analisi in componenti principali
 * Testing e calcolo ipotetici di statistiche di esempio
@@ -43,9 +43,9 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
 
 ## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Creare una pipeline di apprendimento automatico MLlib Apache Spark
 
-1. Creare un notebook di Jupyter usando il kernel PySpark. Per le istruzioni, vedere [Creare un notebook Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
+1. Creare un notebook di Jupyter usando il kernel PySpark. Per istruzioni, consultate [Creare un blocco appunti di Jupyter.](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook)
 
-2. Importare i tipi richiesti per l'applicazione. Copiare e incollare il codice seguente in una cella vuota e quindi premere **MAIUSC + INVIO**.
+2. Importare i tipi richiesti per l'applicazione. Copiare e incollare il codice riportato di seguito in una cella vuota, quindi premere **MAIUSC e INVIO.**
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -176,10 +176,10 @@ Ora si determinerà il contenuto del set di dati.
 
     L'output è:
 
-    ![Output query SQL](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "Output della query SQL")
+    ![Output della query SQL](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "Output della query SQL")
 
 
-3. È anche possibile creare un tracciato tramite [Matplotlib](https://en.wikipedia.org/wiki/Matplotlib), una libreria che consente di creare visualizzazioni di dati. Poiché il tracciato deve essere creato dal frame di dati **countResultsdf** conservato in locale, il frammento di codice deve iniziare con `%%local`. Ciò garantisce che il codice venga eseguito localmente nel server di Jupyter.
+3. È inoltre possibile utilizzare [Matplotlib](https://en.wikipedia.org/wiki/Matplotlib), una libreria utilizzata per costruire la visualizzazione dei dati, per creare un grafico. Poiché il tracciato deve essere creato dal frame di dati **countResultsdf** conservato in locale, il frammento di codice deve iniziare con `%%local`. Ciò garantisce che il codice venga eseguito localmente nel server di Jupyter.
 
     ```PySpark
     %%local
@@ -195,15 +195,15 @@ Ora si determinerà il contenuto del set di dati.
 
     L'output è:
 
-    ![Output dell'applicazione Machine Learning Spark: grafico a torta con cinque risultati di ispezione distinti](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Output del risultato di Machine Learning Spark")
+    ![Output dell'applicazione Spark machine learning - grafico a torta con cinque risultati di ispezione distinti](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Output dei risultati dell'apprendimento automatico Spark")
 
     Per stimare il risultato di un controllo di prodotti alimentari, è necessario sviluppare un modello basato sulle violazioni. Dato che la regressione logistica è un metodo di classificazione binaria, è consigliabile raggruppare i dati dei risultati in due categorie: **Fail** e **Pass**:
 
    - Pass
        - Pass
        - Pass w/ conditions
-   - Fail
-       - Fail
+   - Esito negativo
+       - Esito negativo
    - Discard
        - Business not located
        - Out of Business
@@ -352,14 +352,14 @@ model = pipeline.fit(labeledData)
 
     Dovrebbe venire visualizzato l'output seguente.
 
-    ![Output dell'applicazione di Machine Learning Spark: percentuali dei grafici a torta di ispezioni non riuscite.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Output del risultato di Machine Learning Spark")
+    ![Output dell'applicazione Spark machine learning - percentuali del grafico a torta delle ispezioni alimentari non riuscite.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Output dei risultati dell'apprendimento automatico Spark")
 
     In questo grafico un risultato positivo indica il controllo degli alimenti non superato, mentre un risultato negativo indica un controllo superato.
 
 ## <a name="shut-down-the-notebook"></a>Arrestare il notebook
 Al termine dell'esecuzione dell'applicazione, è necessario arrestare il notebook per rilasciare le risorse. Per fare ciò, dal menu **File** del notebook fare clic su **Close and Halt** (Chiudi e interrompi). Il notebook viene chiuso.
 
-## <a name="seealso"></a>Vedere anche
+## <a name="see-also"></a><a name="seealso"></a>Vedere anche
 * [Panoramica: Apache Spark su Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenari
@@ -374,11 +374,11 @@ Al termine dell'esecuzione dell'applicazione, è necessario arrestare il noteboo
 ### <a name="tools-and-extensions"></a>Strumenti ed estensioni
 * [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark in Scala](apache-spark-intellij-tool-plugin.md)
 * [Usare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Apache Spark in remoto](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Usare i notebook di Apache Zeppelin con cluster Apache Spark in HDInsight](apache-spark-zeppelin-notebook.md)
+* [Usare i notebook di Apache Zeppelin con un cluster Apache Spark in HDInsight](apache-spark-zeppelin-notebook.md)
 * [Kernel disponibili per notebook di Jupyter nel cluster Apache Spark per HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Usare pacchetti esterni con i notebook Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](apache-spark-jupyter-notebook-install-locally.md)
 
-### <a name="manage-resources"></a>Gestire risorse
+### <a name="manage-resources"></a>Gestione di risorse
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](apache-spark-resource-manager.md)
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](apache-spark-job-debugging.md)

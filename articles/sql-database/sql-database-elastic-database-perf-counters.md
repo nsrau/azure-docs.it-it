@@ -1,5 +1,5 @@
 ---
-title: Contatori delle prestazioni per tenere traccia del gestore delle mappe partizioni
+title: Contatori delle prestazioni per tenere traccia di Gestione mappe partizioni
 description: La classe ShardMapManager e i contatori delle prestazioni con routing dipendente dai dati
 services: sql-database
 ms.service: sql-database
@@ -12,15 +12,15 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/07/2019
 ms.openlocfilehash: de481dad9dd39b301a21142c67b1baf2209f76e2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823895"
 ---
-# <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Creare contatori delle prestazioni per tenere traccia delle prestazioni del gestore delle mappe partizioni
+# <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Creare contatori delle prestazioni per tenere traccia delle prestazioni di Gestione mappe partizioni
 
-I contatori delle prestazioni vengono utilizzati per tenere traccia delle prestazioni delle operazioni di [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md) . Questi contatori sono accessibili in Performance Monitor, sotto la categoria "Database elastico: Gestione di partizioni".
+I contatori delle prestazioni vengono utilizzati per tenere traccia delle prestazioni delle operazioni di [routing dipendenti dai dati.](sql-database-elastic-scale-data-dependent-routing.md) Questi contatori sono accessibili in Performance Monitor, sotto la categoria "Database elastico: Gestione di partizioni".
 
 È possibile acquisire le prestazioni di un [gestore mappe partizioni](sql-database-elastic-scale-shard-map-management.md), soprattutto quando si usa il [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md). Per creare i contatori si usano i metodi della classe Microsoft.Azure.SqlDatabase.ElasticScale.Client.  
 

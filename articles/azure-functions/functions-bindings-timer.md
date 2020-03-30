@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: f4fdf25fa1403b8429e7ad7e7fc644d0355b1324
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 566d6ccf43024692e19bcd6639fe5cfbbba0660d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79277154"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80056417"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Trigger timer per Funzioni di Azure 
 
@@ -26,7 +26,7 @@ Il trigger timer è disponibile nel pacchetto NuGet [Microsoft.Azure.WebJobs.Ext
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-## <a name="packages---functions-2x-and-higher"></a>Packages-Functions 2. x e versioni successive
+## <a name="packages---functions-2x-and-higher"></a>Pacchetti - Funzioni 2.x e successive
 
 Il trigger timer è disponibile nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) versione 3.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/).
 
@@ -34,9 +34,9 @@ Il trigger timer è disponibile nel pacchetto NuGet [Microsoft.Azure.WebJobs.Ext
 
 ## <a name="example"></a>Esempio
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
-Nell'esempio seguente viene illustrata una [ C# funzione](functions-dotnet-class-library.md) che viene eseguita ogni volta che i minuti hanno un valore divisibile per cinque (ad esempio, se la funzione inizia a 18:57:00, le prestazioni successive saranno pari a 19:00:00). L'oggetto [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) viene passato nella funzione.
+Nell'esempio seguente viene illustrata una [funzione di C,](functions-dotnet-class-library.md) che viene eseguita ogni volta che i minuti hanno un valore divisibile per cinque (ad esempio, se la funzione inizia alle 18:57:00, le prestazioni successive saranno alle 19:00:00). L'oggetto [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) viene passato alla funzione.
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
@@ -50,9 +50,9 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 }
 ```
 
-# <a name="c-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-L'esempio seguente mostra un'associazione di trigger timer in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione. La funzione scrive un log che indica se la chiamata di funzione è dovuta un'occorrenza di pianificazione mancante. L'oggetto [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) viene passato nella funzione.
+L'esempio seguente mostra un'associazione di trigger timer in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione. La funzione scrive un log che indica se la chiamata di funzione è dovuta un'occorrenza di pianificazione mancante. L'oggetto [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) viene passato alla funzione.
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -78,9 +78,9 @@ public static void Run(TimerInfo myTimer, ILogger log)
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-L'esempio seguente mostra un'associazione di trigger timer in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione scrive un log che indica se la chiamata di funzione è dovuta un'occorrenza di pianificazione mancante. Un [oggetto timer](#usage) viene passato nella funzione.
+L'esempio seguente mostra un'associazione di trigger timer in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione scrive un log che indica se la chiamata di funzione è dovuta un'occorrenza di pianificazione mancante. Un [oggetto timer](#usage) viene passato alla funzione.
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -111,7 +111,7 @@ module.exports = function (context, myTimer) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Nell'esempio seguente viene usata un'associazione di trigger timer la cui configurazione è descritta nel file *Function. JSON* . La [funzione Python](functions-reference-python.md) effettiva che usa l'associazione è descritta nel file  *__init__. py* . L'oggetto passato nella funzione è di tipo [Azure. Functions. TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). La logica della funzione scrive nei log che indicano se la chiamata corrente è dovuta a un'occorrenza di pianificazione mancante. 
+Nell'esempio seguente viene utilizzata un'associazione del trigger timer la cui configurazione è descritta nel file *function.json.* La [funzione Python](functions-reference-python.md) effettiva che utilizza l'associazione è descritta nel file *.py __init.__* L'oggetto passato alla funzione è di tipo [azure.functions.TimerRequest .](/python/api/azure-functions/azure.functions.timerrequest) La logica della funzione scrive nei log indicando se la chiamata corrente è dovuta a un'occorrenza di pianificazione persa. 
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -162,11 +162,11 @@ public void keepAlive(
 
 ## <a name="attributes-and-annotations"></a>Attributi e annotazioni
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
 
-Il costruttore dell'attributo accetta un'espressione CRON o un valore `TimeSpan`. È possibile usare `TimeSpan` solo se l'app per le funzioni è in esecuzione in un piano di servizio app. `TimeSpan` non è supportato per le funzioni di consumo o Premium elastico.
+Il costruttore dell'attributo accetta un'espressione CRON o un valore `TimeSpan`. È possibile `TimeSpan` usare solo se l'app per le funzioni è in esecuzione in un piano di servizio app. `TimeSpan`non è supportato per le funzioni Consumo o Elastic Premium.
 
 L'esempio seguente mostra un'espressione CRON:
 
@@ -182,11 +182,11 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 }
 ```
 
-# <a name="c-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Gli attributi non sono supportati C# dallo script.
+Gli attributi non sono supportati dallo script di C.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 Gli attributi non sono supportati da JavaScript.
 
@@ -213,25 +213,25 @@ public void keepAlive(
 
 ## <a name="configuration"></a>Configurazione
 
-Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `TimerTrigger`.
+Nella tabella seguente vengono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `TimerTrigger` .
 
 |Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type** | n/d | Il valore deve essere impostato su "timerTrigger". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
 |**direction** | n/d | Il valore deve essere impostato su "in". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
-|**nome** | n/d | Nome della variabile che rappresenta l'oggetto timer nel codice della funzione. | 
-|**schedule**|**ScheduleExpression**|[Espressione CRON](#ncrontab-expressions) o valore [TimeSpan](#timespan). `TimeSpan` può essere usato solo per un'app per le funzioni in esecuzione in un piano di servizio app. È possibile inserire l'espressione schedule in un'impostazione dell'app e definire per questa proprietà il nome dell'impostazione dell'app racchiuso tra simboli **%** , come in questo esempio: "%ImpostazioneAppSchedule%". |
-|**runOnStartup**|**RunOnStartup**|Se `true`, la funzione viene richiamata all'avvio del runtime. Ad esempio, il runtime viene avviato quando l'app per le funzioni si riattiva dopo un periodo di inattività, Quando l'app per le funzioni viene riavviata a causa di modifiche della funzione e quando l'app per le funzioni si ridimensiona. Quindi, **runOnStartup** deve raramente essere impostato su `true`, specialmente nell'ambiente di produzione. |
-|**useMonitor**|**UseMonitor**|Impostata su `true` o `false` per indicare se monitorare la pianificazione. Il monitoraggio della pianificazione rende persistenti le occorrenze della pianificazione per garantire che la pianificazione venga gestita correttamente anche quando le istanze dell'app per le funzioni vengono riavviate. Se non viene impostato in modo esplicito, il valore predefinito è `true` per le pianificazioni con un intervallo di ricorrenza maggiore o uguale a 1 minuto. Per le pianificazioni attivate più di una volta al minuto, il valore predefinito è `false`.
+|**name** | n/d | Nome della variabile che rappresenta l'oggetto timer nel codice della funzione. | 
+|**schedule**|**ScheduleExpression**|[Espressione CRON](#ncrontab-expressions) o valore [TimeSpan](#timespan). `TimeSpan` può essere usato solo per un'app per le funzioni in esecuzione in un piano di servizio app. Puoi inserire l'espressione di pianificazione in un'impostazione dell'app e impostare questa proprietà sul nome dell'impostazione dell'app racchiusa tra **%** segni, come in questo esempio: "%ScheduleAppSetting%". |
+|**runOnStartup**|**RunOnStartup**|Se `true`, la funzione viene richiamata all'avvio del runtime. Ad esempio, il runtime viene avviato quando l'app per le funzioni si riattiva dopo un periodo di inattività, quando l'app per le funzioni viene riavviata a causa di modifiche alle funzioni e quando l'app per le funzioni viene ridimensionata. Così **runOnStartup** dovrebbe raramente `true`se mai essere impostato su , soprattutto in produzione. |
+|**useMonitor**|**UseMonitor**|Impostata su `true` o `false` per indicare se monitorare la pianificazione. Il monitoraggio della pianificazione rende persistenti le occorrenze della pianificazione per garantire che la pianificazione venga gestita correttamente anche quando le istanze dell'app per le funzioni vengono riavviate. Se non è impostato `true` in modo esplicito, l'impostazione predefinita è per le pianificazioni con un intervallo di ricorrenza maggiore o uguale a 1 minuto. Per le pianificazioni attivate più di una volta al minuto, il valore predefinito è `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!CAUTION]
-> L'impostazione di **runOnStartup** su `true` non è consigliata in ambienti di produzione. Con questa impostazione, il codice viene eseguito in momenti estremamente imprevedibili. In alcune impostazioni di produzione queste esecuzioni aggiuntive possono determinare costi molto più elevati per le app ospitate in piani a consumo. Con **runOnStartup** abilitato, ad esempio, il trigger viene richiamato ogni volta che l'app per le funzioni viene ridimensionata. Prima di abilitare **runOnStartup** in un ambiente di produzione assicurarsi di avere ben compreso il comportamento in produzione delle proprie funzioni.   
+> L'impostazione di **runOnStartup** su `true` non è consigliata in ambienti di produzione. Con questa impostazione, il codice viene eseguito in momenti estremamente imprevedibili. In alcune impostazioni di produzione queste esecuzioni aggiuntive possono determinare costi molto più elevati per le app ospitate in piani a consumo. Ad esempio, con **runOnStartup** abilitato il trigger viene richiamato ogni volta che l'app per le funzioni viene ridimensionata. Prima di abilitare **runOnStartup** in un ambiente di produzione assicurarsi di avere ben compreso il comportamento in produzione delle proprie funzioni.   
 
 ## <a name="usage"></a>Uso
 
-Quando viene richiamata una funzione di trigger del timer, nella funzione viene passato un oggetto timer. Il codice JSON seguente è una rappresentazione di esempio dell'oggetto timer.
+Quando viene richiamata una funzione trigger timer, un oggetto timer viene passato alla funzione. Il codice JSON seguente è una rappresentazione di esempio dell'oggetto timer.
 
 ```json
 {
@@ -250,7 +250,7 @@ La proprietà `IsPastDue` è `true` quando la chiamata della funzione corrente a
 
 ## <a name="ncrontab-expressions"></a>Espressioni NCRONTAB 
 
-Funzioni di Azure usa la libreria [NCronTab](https://github.com/atifaziz/NCrontab) per interpretare le espressioni NCronTab. Un'espressione NCRONTAB è simile a un'espressione CRON con la differenza che include un sesto campo aggiuntivo all'inizio da usare per la precisione temporale in secondi:
+Funzioni di Azure usa la libreria [NCronTab](https://github.com/atifaziz/NCrontab) per interpretare le espressioni NCRONTAB. Un'espressione NCRONTAB è simile a un'espressione CRON, ad eccezione del fatto che include un sesto campo aggiuntivo all'inizio da utilizzare per la precisione temporale in secondi:
 
 `{second} {minute} {hour} {day} {month} {day-of-week}`
 
@@ -262,13 +262,13 @@ Ogni campo può avere uno dei tipi di valori seguenti:
 |Tutti i valori (`*`)|<nobr>"0 * 5 * * *"</nobr>|Alle 5.mm.00 ogni giorno, dove mm è ogni minuto dell'ora (60 volte al giorno)|
 |Intervallo (operatore `-`)|<nobr>"5-7 * * * * *"</nobr>|Alle hh.mm.05, hh.mm.06 e hh.mm.07, dove hh.mm è ogni minuto di ogni ora (3 volte al minuto)|
 |Set di valori (operatore `,`)|<nobr>"5,8,10 * * * * *"</nobr>|Alle hh.mm.05, hh.mm.08 e hh.mm.10, dove hh.mm è ogni minuto di ogni ora (3 volte al minuto)|
-|Valore di intervallo (operatore `/`)|<nobr>"0 */5 * * * *"</nobr>|alle HH: 00:00, HH: 05:00, HH: 10:00 e così via fino a HH: 55:00 dove HH è ogni ora (12 volte un'ora)|
+|Valore di intervallo (operatore `/`)|<nobr>"0 */5 * * * *"</nobr>|all'hh:00:00, hh:05:00, hh:10:00 e così via fino a hh:55:00 dove hh è ogni ora (12 volte all'ora)|
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
 ### <a name="ncrontab-examples"></a>Esempi di NCRONTAB
 
-Di seguito sono riportati alcuni esempi di espressioni NCRONTAB che è possibile usare per il trigger timer in funzioni di Azure.
+Ecco alcuni esempi di espressioni NCRONTAB che è possibile usare per il trigger del timer in Funzioni di Azure.Here are some examples of NCRONTAB expressions you can use for the timer trigger in Azure Functions.
 
 |Esempio|Quando viene attivato  |
 |---------|---------|
@@ -288,15 +288,15 @@ I numeri in un'espressione CRON fanno riferimento a una data e a un'ora e non a 
 Il fuso orario predefinito usato con le espressioni CRON è Coordinated Universal Time (UTC). Per fare in modo che l'espressione CRON sia basata su un altro fuso orario, creare un'impostazione per l'app per le funzioni denominata `WEBSITE_TIME_ZONE`. Impostare il valore sul nome del fuso orario prescelto come illustrato nell'[indice dei fusi orari di Microsoft](https://technet.microsoft.com/library/cc749073).
 
   > [!NOTE]
-  > `WEBSITE_TIME_ZONE` non è attualmente supportata nel piano a consumo Linux.
+  > `WEBSITE_TIME_ZONE`non è attualmente supportato nel piano di consumo Linux.
 
-Ad esempio, *Ora solare fuso orientale* (EST) è UTC-05:00. Per attivare il trigger del timer alle 10:00 AM EST ogni giorno, usare l'espressione NCRONTAB seguente che rappresenta il fuso orario UTC:
+Ad esempio, *Ora solare fuso orientale* (EST) è UTC-05:00. Per attivare il timer alle 10:00 AM EST ogni giorno, utilizzare la seguente espressione NCRONTAB che tiene conto del fuso orario UTC:
 
 ```
 "0 0 15 * * *"
 ``` 
 
-In alternativa, è possibile creare un'impostazione per l'app per le funzioni denominata `WEBSITE_TIME_ZONE` e impostare il valore su **Ora solare fuso orientale**.  USA quindi l'espressione NCRONTAB seguente: 
+In alternativa, è possibile creare un'impostazione per l'app per le funzioni denominata `WEBSITE_TIME_ZONE` e impostare il valore su **Ora solare fuso orientale**.  Utilizza quindi la seguente espressione NCRONTAB: 
 
 ```
 "0 0 10 * * *"
@@ -316,7 +316,7 @@ Espresso come stringa, il formato di `TimeSpan` è `hh:mm:ss`, dove `hh` è mino
 |---------|---------|
 |"01:00:00" | Ogni ora        |
 |"00:01:00"|Ogni minuto         |
-|"24:00:00" | ogni 24 ore        |
+|"24:00:00" | Ogni 24 giorni        |
 |"1.00:00:00" | Ogni giorno        |
 
 ## <a name="scale-out"></a>Scalabilità orizzontale
@@ -325,22 +325,22 @@ Se un'app per le funzioni viene scalata orizzontalmente a più istanze, viene es
 
 ## <a name="function-apps-sharing-storage"></a>App per le funzioni che condividono un account di archiviazione
 
-Se si condividono gli account di archiviazione tra app per le funzioni non distribuite nel servizio app, potrebbe essere necessario assegnare in modo esplicito l'ID host a ogni app.
+Se si condividono account di archiviazione tra app per le funzioni non distribuite nel servizio app, potrebbe essere necessario assegnare in modo esplicito l'ID host a ogni app.
 
 | Versione di Funzioni | Impostazione                                              |
 | ----------------- | ---------------------------------------------------- |
-| 2. x (e versioni successive)  | variabile di ambiente `AzureFunctionsWebHost__hostid` |
-| 1.x               | `id` in *host. JSON*                                  |
+| 2.x (e versioni successive)  | La variabile di ambiente `AzureFunctionsWebHost__hostid` |
+| 1.x               | `id`in *host.json*                                  |
 
 È possibile omettere il valore di identificazione o impostare manualmente la configurazione di identificazione di ogni app per le funzioni su un valore diverso.
 
-Il trigger del timer usa un blocco di archiviazione per assicurarsi che sia presente una sola istanza del timer quando un'app per le funzioni viene scalata in orizzontale a più istanze. Se due app per le funzioni condividono la stessa configurazione di identificazione e ognuna utilizza un trigger timer, viene eseguito un solo timer.
+Il trigger del timer usa un blocco di archiviazione per garantire che sia presente una sola istanza del timer quando un'app per le funzioni viene ridimensionata in più istanze. Se due app per le funzioni condividono la stessa configurazione di identificazione e ognuna usa un trigger timer, viene eseguito un solo timer.
 
 ## <a name="retry-behavior"></a>Comportamento in caso di nuovo tentativo
 
 Diversamente dal trigger di coda, il trigger timer non viene ripetuto se una funzione non riesce. Quando una funzione non riesce, non viene chiamata di nuovo fino alla volta successiva nella pianificazione.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Per informazioni su cosa fare quando il trigger timer non funziona come previsto, vedere [Investigating and reporting issues with timer triggered functions not firing](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing) (Analisi e segnalazione di problemi quando non vengono eseguite le funzioni attivate da timer).
 

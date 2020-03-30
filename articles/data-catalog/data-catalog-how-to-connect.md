@@ -7,15 +7,15 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 1190a0f34206004b72730a6af85bbe5db7d9961a
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68976778"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Come connettersi a origini dati
 ## <a name="introduction"></a>Introduzione
-**Microsoft Azure Data Catalog** è un servizio cloud completamente gestito che funge da sistema di registrazione e di individuazione per origini dati aziendali. In altre parole, il **Catalogo dati di Azure** consente agli utenti di individuare, comprendere e usare origini dati e aiuta le organizzazioni a ottenere maggior valore dai dati esistenti. Un aspetto fondamentale di questo scenario è l’utilizzo dei dati: una volta che un utente individua un'origine dati e ne comprende lo scopo, il passaggio successivo consiste nella connessione all'origine dati per utilizzarne i dati.
+**Microsoft Azure Data Catalog** è un servizio cloud completamente gestito che funge da sistema di registrazione e di individuazione per origini dati aziendali. In altre parole, **Azure Data Catalog** consente agli utenti di individuare, comprendere e usare le origini dati e aiutare le organizzazioni a ottenere più valore dai dati esistenti. Un aspetto fondamentale di questo scenario è l’utilizzo dei dati: una volta che un utente individua un'origine dati e ne comprende lo scopo, il passaggio successivo consiste nella connessione all'origine dati per utilizzarne i dati.
 
 ## <a name="data-source-locations"></a>Percorsi di origine dati
 Durante la registrazione dell’origine dati, **Catalogo dati Azure** riceve i metadati relativi alla stessa origine dati. Tali metadati includono i dettagli del percorso dell'origine dati. I dettagli del percorso variano da origine dati a origine dati, ma conterranno sempre le informazioni necessarie per la connessione. Ad esempio, il percorso per una tabella di SQL Server include il nome del server, il nome del database, il nome dello schema e il nome della tabella, mentre il percorso per un report di SQL Server Reporting Services include il nome del server e il percorso del report. Gli altri tipi di origine dati disporranno di percorsi che riflettono la struttura e la funzionalità del sistema di origine.
@@ -28,15 +28,15 @@ Quando si utilizza la visualizzazione affiancata predefinita, questo menu è dis
 
 Quando si utilizza la visualizzazione elenco, il menu è disponibile nella barra di ricerca nella parte superiore della finestra del portale.
 
- ![Apertura di un report SQL Server Reporting Services in Gestione report](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
+ ![Apertura di un report di SQL Server Reporting Services in Gestione report](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
 
 ## <a name="supported-client-applications"></a>Applicazioni client supportate
 Quando si usa il menu "Apri in...." per le origini dati nel portale di Azure Data Catalog, è necessario che nel computer client sia installata l'applicazione client corretta.
 
 | Apri in applicazione | Estensione file/protocollo | Versioni applicazione supportate |
 | --- | --- | --- |
-| Excel |odc |Excel 2010 o versioni successive |
-| Excel (prime 1000) |odc |Excel 2010 o versioni successive |
+| Excel |Con estensione odc |Excel 2010 o versioni successive |
+| Excel (prime 1000) |Con estensione odc |Excel 2010 o versioni successive |
 | Power Query |xlsx |Excel 2016, Excel 2010 o Excel 2013 con componente aggiuntivo Power Query per Excel installato |
 | Power BI Desktop |pbix |Power BI Desktop luglio 2016 o versioni successive |
 | SQL Server Data Tools |vsweb:// |Visual Studio 2013 Update 4 o versioni successive con strumenti di SQL Server installati |

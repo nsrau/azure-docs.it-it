@@ -1,5 +1,5 @@
 ---
-title: Gestire risorse Data Lake Storage Gen1-Azure Storage Explorer
+title: Gestire le risorse di Data Lake Storage Gen1 - Azure Storage ExplorerManage Data Lake Storage Gen1 resources - Azure Storage Explorer
 description: Informazioni su come accedere e gestire dati e risorse di Azure Data Lake Storage Gen1 in Azure Storage Explorer
 author: jejiang
 ms.service: data-lake-store
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: jejiang
 ms.openlocfilehash: a5117f72f933e1e48dc471a75624a8d3921f55af
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73832269"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Gestire le risorse di Azure Data Lake Storage Gen1 con Storage Explorer
@@ -23,14 +23,14 @@ Un altro vantaggio è rappresentato dal fatto che non è necessario avere un'aut
 
 Per completare le procedure in questo articolo, sono necessari i prerequisiti seguenti:
 
-* Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial).
+* Una sottoscrizione di Azure. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial).
 * Un account Data Lake Storage Gen1. Per istruzioni su come crearne uno, vedere [Iniziare a usare Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
 ## <a name="install-storage-explorer"></a>Installare Storage Explorer
 
 Installare la versione più recente di Azure Storage Explorer dalla [pagina Web del prodotto](https://azure.microsoft.com/features/storage-explorer/). L'installazione supporta versioni per Windows, Linux e Mac.
 
-## <a name="connect-to-an-azure-subscription"></a>Connettersi a una sottoscrizione di Azure.
+## <a name="connect-to-an-azure-subscription"></a>Connettersi a una sottoscrizione di Azure
 
 1. In Storage Explorer selezionare l'icona del plug-in a sinistra.
 
@@ -195,7 +195,7 @@ Se si ha un URL, è possibile immettere l'URL come percorso in forma di indirizz
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Note sulla versione e video più recenti per Storage Explorer](https://www.storageexplorer.com).
-* Informazioni su come [gestire Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/azure/cosmos-db/storage-explorer).
-* [Guida introduttiva a Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* Informazioni su come gestire il database Cosmos di [Azure in Azure Storage Explorer.](https://docs.microsoft.com/azure/cosmos-db/storage-explorer)
+* [Introduzione a Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 * [Iniziare a usare Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 * [Video di YouTube su come usare Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).

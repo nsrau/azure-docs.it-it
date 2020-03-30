@@ -8,10 +8,10 @@ ms.date: 10/23/2019
 ms.author: dech
 ms.custom: seodec18
 ms.openlocfilehash: fd044d4f32aefc00e1b04f7060e0fc0dc74fd6c7
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72882356"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Gestire i dati con Azure Storage Explorer
@@ -29,7 +29,7 @@ Installare i bit più recenti di Azure Storage Explorer qui: [Azure Storage Expl
 
 ## <a name="connect-to-an-azure-subscription"></a>Connettersi a una sottoscrizione di Azure
 
-1. Dopo l'installazione di **Azure Storage Explorer**, fare clic sull'icona del **plug-in** a sinistra, come illustrato nell'immagine seguente:
+1. Dopo aver installato **Azure Storage Explorer**, fare clic sull'icona del plug-in a sinistra, come illustrato nell'immagine seguente:After installing the Azure Storage Explorer , click the **plug-in** i con left as shown in the following image:
        
    ![Icona plug-in](./media/storage-explorer/plug-in-icon.png)
  
@@ -37,13 +37,13 @@ Installare i bit più recenti di Azure Storage Explorer qui: [Azure Storage Expl
 
    ![Connettersi a una sottoscrizione di Azure](./media/storage-explorer/connect-to-azure-subscription.png)
 
-2. Nella finestra di dialogo **Azure Sign In** (Accesso ad Azure), fare clic su **Accedi** e immettere le credenziali di Azure.
+2. Nella finestra di dialogo Accesso di Azure selezionare Accedi e quindi immettere le credenziali di Azure.In the **Azure Sign in** dialog box, select Sign **in**, and then enter your Azure credentials.
 
     ![Accesso](./media/storage-explorer/sign-in.png)
 
 3. Selezionare la sottoscrizione dall'elenco e quindi fare clic su **Applica**.
 
-    ![Richiesta](./media/storage-explorer/apply-subscription.png)
+    ![Applica](./media/storage-explorer/apply-subscription.png)
 
     Il riquadro di Explorer si aggiorna e consente di visualizzare gli account nella sottoscrizione selezionata.
 
@@ -59,7 +59,7 @@ Un modo alternativo per connettersi a un Azure Cosmos DB consiste nell'usare una
 
     ![Connettersi a Cosmos DB usando una stringa di connessione](./media/storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Attualmente sono supportate solo API SQL e di tabella. Scegliere API, incollare la **stringa di connessione**, immettere un valore in **Account label** (Etichetta account), fare clic su **Next** (Avanti) per verificare il riepilogo e quindi fare clic su **Connect** (Connetti) per connettersi all'account Azure Cosmos DB. Per informazioni sul recupero della stringa di connessione primaria, vedere [ottenere la stringa di connessione](manage-with-powershell.md#list-keys).
+2. Attualmente sono supportate solo API SQL e di tabella. Scegliere API, incollare la **stringa di connessione**, immettere un valore in **Account label** (Etichetta account), fare clic su **Next** (Avanti) per verificare il riepilogo e quindi fare clic su **Connect** (Connetti) per connettersi all'account Azure Cosmos DB. Per informazioni sul recupero della stringa di connessione primaria, vedere [Ottenere la stringa](manage-with-powershell.md#list-keys)di connessione .
 
     ![Connection-string](./media/storage-explorer/connection-string.png)
 
@@ -73,7 +73,7 @@ Usare la procedura seguente per connettersi ad Azure Cosmos DB tramite un emulat
 
     ![Connettersi a Cosmos DB tramite un emulatore](./media/storage-explorer/emulator-entry.png)
 
-3. Attualmente sono supportate solo API SQL. Incollare la **stringa di connessione**, immettere un valore in **Account label** (Etichetta account), fare clic su **Next** (Avanti) per verificare il riepilogo e quindi fare clic su **Connect** (Connetti) per connettersi all'account Azure Cosmos DB. Per informazioni sul recupero della stringa di connessione primaria, vedere [ottenere la stringa di connessione](manage-with-powershell.md#list-keys).
+3. Attualmente sono supportate solo API SQL. Incollare la **stringa di connessione**, immettere un valore in **Account label** (Etichetta account), fare clic su **Next** (Avanti) per verificare il riepilogo e quindi fare clic su **Connect** (Connetti) per connettersi all'account Azure Cosmos DB. Per informazioni sul recupero della stringa di connessione primaria, vedere [Ottenere la stringa](manage-with-powershell.md#list-keys)di connessione .
 
     ![Finestra di dialogo per la connessione a Cosmos DB tramite un emulatore](./media/storage-explorer/emulator-dialog.png)
 
@@ -84,8 +84,8 @@ Usare la procedura seguente per connettersi ad Azure Cosmos DB tramite un emulat
 * Aprire l'account nel portale di Azure
 * Aggiungere la risorsa all'elenco di accesso rapido
 * Cercare e aggiornare le risorse
-* Creare ed eliminare database
-* Creare ed eliminare raccolte
+* Creare ed eliminare un database
+* Creare ed eliminare una raccolta
 * Creare, modificare, eliminare e filtrare documenti
 * Gestire stored procedure, trigger e funzioni definite dall'utente
 
@@ -103,7 +103,7 @@ Facendo clic con il tasto destro su una sottoscrizione nel riquadro di Explorer,
     ![search from here (esegui ricerca da qui)](./media/storage-explorer/search-from-here.png) 
 
 ### <a name="database-and-collection-management"></a>Gestione di un database e di una raccolta
-#### <a name="create-a-database"></a>Creare un database 
+#### <a name="create-a-database"></a>Creazione di un database 
 -   Fare clic con il tasto destro sull'account di Azure Cosmos DB, scegliere **Crea database**, immettere il nome del database e premere **Invio** per completare la procedura.
        
     ![Creazione del database](./media/storage-explorer/create-database.png) 
@@ -116,7 +116,7 @@ Facendo clic con il tasto destro su una sottoscrizione nel riquadro di Explorer,
     ![Elimina database2](./media/storage-explorer/delete-database2.png) 
 
 #### <a name="create-a-collection"></a>Creare una raccolta
-1. Fare clic con il pulsante destro del mouse sul database, scegliere **Crea raccolta**, quindi specificare le informazioni seguenti, ad esempio **ID raccolta**, **capacità di archiviazione**e così via. Fare clic su **OK** per terminare. 
+1. Fare clic con il pulsante destro del mouse sul database, **scegliere Crea raccolta**, quindi specificare le informazioni seguenti, ad esempio ID **raccolta,** **Capacità di archiviazione**e così via. Fare clic **su OK** per terminare. 
 
     ![Crea collection1](./media/storage-explorer/create-collection.png)
 
@@ -140,7 +140,7 @@ Facendo clic con il tasto destro su una sottoscrizione nel riquadro di Explorer,
 #### <a name="create-and-modify-documents"></a>Creare e modificare un documento
 - Per creare un nuovo documento, aprire **Documenti** nella finestra di sinistra, fare clic su **Nuovo documento**, modificare il contenuto nel riquadro a destra, quindi fare clic su **Salva**. È possibile anche aggiornare un documento esistente e quindi fare clic su **Salva**. Le modifiche possono essere ignorate facendo clic su **Ignora**.
 
-    ![Di documenti](./media/storage-explorer/document.png)
+    ![Document](./media/storage-explorer/document.png)
 
 #### <a name="delete-a-document"></a>Eliminare un documento
 - Fare clic sul pulsante **Elimina** per eliminare il documento esistente.
@@ -158,7 +158,7 @@ Facendo clic con il tasto destro su una sottoscrizione nel riquadro di Explorer,
 1. Per creare un nuovo vertice, aprire **Graph** dalla finestra a sinistra, fare clic su **New Vertex** (Nuovo vertice), modificare il contenuto e quindi fare clic su **OK**.    
 2. Per modificare un vertice esistente, fare clic sull'icona della penna nel riquadro a destra.   
 
-    ![Grafo](./media/storage-explorer/vertex.png)
+    ![Grafico](./media/storage-explorer/vertex.png)
 
 #### <a name="delete-a-graph"></a>Eliminare un grafo
 - Per eliminare un vertice, fare clic sull'icona del Cestino accanto al nome del vertice.
@@ -174,7 +174,7 @@ Facendo clic con il tasto destro su una sottoscrizione nel riquadro di Explorer,
 1. Per creare una nuova tabella, aprire **Entities** (Entità) dalla finestra a sinistra, fare clic su **Add** (Aggiungi), modificare il contenuto nella finestra di dialogo **Add Entity** (Aggiungi entità), aggiungere una proprietà facendo clic sul pulsante **Add Property** (Aggiungi proprietà) e quindi fare clic su **Insert** (Inserisci).
 2. Per modificare una tabella, fare clic su **Edit** (Modifica), modificare il contenuto e quindi fare clic su **Update** (Aggiorna).
 
-    ![Table](./media/storage-explorer/table.png)
+    ![Tabella](./media/storage-explorer/table.png)
 
 #### <a name="import-and-export-table"></a>Importare ed esportare una tabella
 1. Per importare, fare clic sul pulsante **Import** (Importa) e scegliere una tabella esistente.
@@ -199,7 +199,7 @@ Facendo clic con il tasto destro su una sottoscrizione nel riquadro di Explorer,
     ![Stored procedure](./media/storage-explorer/stored-procedure.png)
 * Le operazioni per **trigger** e **UDF** sono simili a quelle per le **stored procedure**.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 [Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/azure/cosmos-db/storage-explorer) è un'app autonoma che consente di connettersi ad account di Azure Cosmos DB ospitati in Azure e a cloud sovrani forniti da Windows, macOS o Linux. Consente inoltre agli utenti di gestire le entità di Azure Cosmos DB, modificare i dati, aggiornare le stored procedure e attivarle assieme ad altre entità come code e BLOB di archiviazione di Azure.
 
@@ -228,7 +228,7 @@ Quando Storage Explorer rileva uno di questi "certificati autofirmati", è possi
 3. Eseguire `s_client -showcerts -connect microsoft.com:443`
 4. Cercare i certificati autofirmati. Se non si sa con certezza quali certificati sono autofirmati, verificare ovunque che l'oggetto ("s") e l'autorità emittente ("i:") siano uguali.
 5.  Dopo aver trovato i certificati autofirmati, per ognuno di essi copiare e incollare tutto il testo da **-----BEGIN CERTIFICATE-----** a **-----END CERTIFICATE-----** (inclusi) in un nuovo file con estensione CER.
-6.  Aprire Storage Explorer e quindi passare a **Modifica** > **Certificati SSL** > **Importa certificati**. Usando lo strumento di selezione file, trovare, selezionare e aprire i file con estensione CER creati.
+6.  Aprire Esplora archivi e quindi passare a **Modifica** > **certificati** > SSL**importazione certificati**. Usando lo strumento di selezione file, trovare, selezionare e aprire i file con estensione CER creati.
 
 Se non è possibile trovare alcun certificato autofirmato seguendo la procedura precedente, usare lo strumento di feedback per ricevere assistenza.
 
@@ -237,7 +237,7 @@ Se non è possibile trovare alcun certificato autofirmato seguendo la procedura 
 Se non è possibile recuperare le sottoscrizioni dopo aver effettuato l'accesso:
 
 - Verificare che l'account abbia accesso alle sottoscrizioni effettuando l'accesso al [portale di Azure](https://portal.azure.com/)
-- Assicurarsi di aver effettuato l'accesso usando l'ambiente corretto, ad esempio [Azure](https://portal.azure.com/), [Azure Cina](https://portal.azure.cn/), [Azure Germania](https://portal.microsoftazure.de/), [Azure Governo degli Stati Uniti](https://portal.azure.us/) o Ambiente personalizzato/Azure Stack
+- Assicurarsi di aver effettuato l'accesso usando l'ambiente corretto, ad esempio [Azure](https://portal.azure.com/), [Azure Cina](https://portal.azure.cn/), [Azure Germania](https://portal.microsoftazure.de/), [Azure US Gov](https://portal.azure.us/) o Ambiente personalizzato/Azure Stack
 - Se si è protetti da un proxy, assicurarsi che il proxy Storage Explorer sia stato configurato correttamente
 - Provare a rimuovere e a aggiungere nuovamente l'account
 - Provare a eliminare i file seguenti dalla home directory, ovvero C:\Utenti\ContosoUser, e quindi aggiungere nuovamente l'account:
@@ -268,7 +268,7 @@ Se non è possibile rimuovere un account o se il collegamento per eseguire nuova
   - la cartella %AppData%/StorageExplorer per Windows
   - /Utenti/<your_name>/Library/Application Support/StorageExplorer per Mac
   - ~/.config/StorageExplorer per Linux
-  - Se si eliminano questi file, **è necessario immettere nuovamente tutte le credenziali**
+  - **Sarà necessario reinserire tutte le credenziali** se si eliminano questi file
 
 
 ### <a name="httphttps-proxy-issue"></a>Problema del proxy Http/Https
@@ -298,9 +298,9 @@ Attenersi ai suggerimenti seguenti:
 - Controllare che non sia in corso il provisioning dell'account di Azure Cosmos DB e riprovare dopo aver creato correttamente l'account.
 - Se l'account si trova sotto il nodo "Accesso rapido" o "Local and Attached" (Locale e collegato), controllare che l'account non sia stato eliminato. In questo caso, è necessario rimuovere manualmente il nodo.
 
-## <a name="contact-us"></a>Contattaci
+## <a name="contact-us"></a>Contatti
 
-Se nessuna delle soluzioni proposte ha funzionato, inviare un'e-mail all'Azure Cosmos DB Dev Tooling Team ([cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com)) specificando i dettagli del problema per favorirne la risoluzione.
+Se nessuna delle soluzioni funziona correttamente, inviare un messaggio[cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com)di posta elettronica al team di sviluppo per sviluppatori di database di Azure Cosmos ( ) con i dettagli sul problema, per la risoluzione dei problemi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

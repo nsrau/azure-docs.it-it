@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/7/2020
 tags: connectors
 ms.openlocfilehash: d4ab7425c967d3a176c0a576d0be38ece1701b8b
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79128403"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando SSH e App per la logica di Azure
@@ -27,40 +27,40 @@ Per automatizzare le attività che monitorano, creano, inviano e ricevono file i
 
 È possibile usare trigger che monitorano eventi sul server SFTP e rendere disponibile l'output per altre azioni. È possibile usare azioni che eseguono varie attività sul server SFTP. Si può anche fare in modo che altre azioni dell'app per la logica usino l'output delle azioni SFTP. Se ad esempio si recuperano regolarmente file dal server SFTP, è possibile inviare avvisi su tali file e sul relativo contenuto tramite posta elettronica usando il connettore Outlook di Office 365 o Outlook.com. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
-Per le differenze tra il connettore SFTP-SSH e il connettore SFTP, vedere la sezione [confrontare SFTP-SSH rispetto a SFTP](#comparison) più avanti in questo argomento.
+Per le differenze tra il connettore SFTP-SSH e il connettore SFTP, vedere la sezione Confronto tra [SFTP-SSH e SFTP](#comparison) più avanti in questo argomento.
 
 ## <a name="limits"></a>Limiti
 
-* Le azioni SFTP-SSH che supportano la [suddivisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md) possono gestire file fino a 1 GB, mentre le azioni SFTP-SSH che non supportano la suddivisione in blocchi possono gestire file fino a 50 MB. Sebbene le dimensioni predefinite del blocco siano pari a 15 MB, questa dimensione può variare in modo dinamico, a partire da 5 MB e aumentando gradualmente fino al valore massimo di 50 MB, in base a fattori quali la latenza di rete, il tempo di risposta del server e così via.
+* Le azioni SFTP-SSH che supportano la [suddivisione](../logic-apps/logic-apps-handle-large-messages.md) in blocchi possono gestire file fino a 1 GB, mentre le azioni SFTP-SSH che non supportano la suddivisione in blocchi possono gestire file fino a 50 MB. Anche se la dimensione predefinita del blocco è 15 MB, questa dimensione può cambiare dinamicamente, a partire da 5 MB e aumentando gradualmente al massimo 50 MB, in base a fattori quali latenza di rete, tempo di risposta del server e così via.
 
   > [!NOTE]
-  > Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versione con etichetta ISE del connettore usa invece i [limiti dei messaggi ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
+  > Per le app per la logica in un ambiente del servizio di [integrazione (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)la versione con etichetta ISE di questo connettore utilizza invece i limiti dei [messaggi ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
-  È possibile eseguire l'override di questo comportamento adattivo quando si [specificano le dimensioni del blocco costante](#change-chunk-size) da usare. Questa dimensione può variare da 5 MB a 50 MB. Si supponga, ad esempio, di disporre di un file di 45 MB e di una rete in grado di supportare le dimensioni del file senza latenza. La suddivisione in blocchi adattiva comporta diverse chiamate, invece di una chiamata. Per ridurre il numero di chiamate, è possibile provare a impostare una dimensione di blocco di 50 MB. In uno scenario diverso, se l'app per la logica sta per scadere, ad esempio quando si usano 15 MB di blocchi, è possibile provare a ridurne le dimensioni a 5 MB.
+  È possibile eseguire l'override di questo comportamento adattivo quando si [specifica una dimensione di blocco costante](#change-chunk-size) da utilizzare. Questa dimensione può variare da 5 MB a 50 MB. Si supponga, ad esempio, di disporre di un file di 45 MB e di una rete che può supportare tale dimensione senza latenza. La suddivisione in blocchi adattiva comporta diverse chiamate, piuttosto che una chiamata. Per ridurre il numero di chiamate, è possibile provare a impostare una dimensione del blocco di 50 MB. In uno scenario diverso, se l'app per la logica è in timeout, ad esempio quando si usano blocchi da 15 MB, è possibile provare a ridurre la dimensione a 5 MB.
 
-  Le dimensioni del blocco sono associate a una connessione, il che significa che è possibile usare la stessa connessione per le azioni che supportano la suddivisione in blocchi e quindi per le azioni che non supportano la suddivisione in blocchi. In questo caso, le dimensioni del blocco per le azioni che non supportano la suddivisione in blocchi variano da 5 MB a 50 MB. Questa tabella mostra le azioni SFTP-SSH che supportano la suddivisione in blocchi:
+  La dimensione del blocco è associata a una connessione, il che significa che è possibile usare la stessa connessione per le azioni che supportano la suddivisione in blocchi e quindi per le azioni che non supportano la suddivisione in blocchi. In questo caso, la dimensione del blocco per le azioni che non supportano gli intervalli di suddivisione in blocchi da 5 MB a 50 MB. Questa tabella mostra quali azioni SFTP-SSH supportano la suddivisione in blocchi:This table shows which SFTP-SSH actions support chunking:
 
-  | Azione | Supporto per la suddivisione in blocchi | Sostituisci supporto dimensioni blocco |
+  | Azione | Supporto per Chunking | Eseguire l'override del supporto delle dimensioni dei blocchi |
   |--------|------------------|-----------------------------|
   | **Copia file** | No | Non applicabile |
   | **Crea file** | Sì | Sì |
   | **Crea cartella** | Non applicabile | Non applicabile |
   | **Elimina file** | Non applicabile | Non applicabile |
   | **Estrai archivio nella cartella** | Non applicabile | Non applicabile |
-  | **Ottieni contenuto file** | Sì | Sì |
-  | **Ottieni contenuto file in base al percorso** | Sì | Sì |
-  | **Ottieni metadati file** | Non applicabile | Non applicabile |
-  | **Ottieni metadati file in base al percorso** | Non applicabile | Non applicabile |
-  | **Elenca file nella cartella** | Non applicabile | Non applicabile |
+  | **Recupera contenuto di file** | Sì | Sì |
+  | **Recupera contenuto di file tramite percorso** | Sì | Sì |
+  | **Ottenere i metadati dei fileGet file metadata** | Non applicabile | Non applicabile |
+  | **Recupera metadati di file tramite percorso** | Non applicabile | Non applicabile |
+  | **Elenca i file nella cartella** | Non applicabile | Non applicabile |
   | **Rinomina file** | Non applicabile | Non applicabile |
   | **Aggiorna file** | No | Non applicabile |
   ||||
 
-* I trigger SFTP-SSH non supportano la suddivisione in blocchi del messaggio. Quando si richiede il contenuto del file, i trigger selezionano solo i file di 15 MB o inferiori. Per ottenere file di dimensioni superiori a 15 MB, seguire invece questo modello:
+* I trigger SFTP-SSH non supportano la suddivisione in blocchi dei messaggi. Quando si richiede il contenuto del file, i trigger selezionano solo i file di dimensioni pari o inferiori a 15 MB. Per ottenere file di dimensioni superiori a 15 MB, seguire invece questo modello:To get files larger than 15 MB, follow this pattern instead:
 
-  1. Usare un trigger SFTP-SSH che restituisce solo le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)** .
+  1. Utilizzare un trigger SFTP-SSH che restituisce solo le proprietà del file, ad esempio **Quando un file viene aggiunto o modificato (solo proprietà)**.
 
-  1. Seguire il trigger con l'azione SFTP-SSH **get file content** , che legge il file completo e USA in modo implicito la suddivisione in blocchi dei messaggi.
+  1. Seguire il trigger con l'azione **Ottieni contenuto file** SFTP-SSH, che legge il file completo e utilizza in modo implicito la suddivisione in blocchi dei messaggi.
 
 <a name="comparison"></a>
 
@@ -68,7 +68,7 @@ Per le differenze tra il connettore SFTP-SSH e il connettore SFTP, vedere la sez
 
 Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e il connettore SFTP. SFTP-SSH offre queste funzionalità:
 
-* Usa la [libreria SSH.NET](https://github.com/sshnet/SSH.NET), una libreria SSH (open source Secure Shell) che supporta .NET.
+* Utilizza la [libreria SSH.NET](https://github.com/sshnet/SSH.NET), che è una libreria SSH (Secure Shell) open source che supporta .NET.
 
 * Fornisce l'azione **Crea cartella** che crea una cartella nel percorso specificato nel server SFTP.
 
@@ -76,54 +76,54 @@ Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e
 
 * Memorizza nella cache la connessione al server SFTP *per un massimo di un'ora*, migliorando così le prestazioni e riducendo il numero di tentativi di connessione al server. Per impostare la durata di questo comportamento di memorizzazione nella cache, modificare la proprietà [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) nella configurazione di SSH sul server SFTP.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-* L'indirizzo del server SFTP e le credenziali dell'account che consentono all'app per la logica di accedere all'account SFTP. È anche necessario accedere a una chiave privata SSH e alla password della chiave privata SSH. Per utilizzare la suddivisione in blocchi durante il caricamento di file di grandi dimensioni, è necessario disporre delle autorizzazioni di lettura e scrittura per la cartella radice sul server SFTP. In caso contrario, viene ricevuto un errore "401 non autorizzato".
+* L'indirizzo del server SFTP e le credenziali dell'account che consentono all'app per la logica di accedere all'account SFTP. È anche necessario accedere a una chiave privata SSH e alla password della chiave privata SSH. Per utilizzare la suddivisione in blocchi durante il caricamento di file di grandi dimensioni, sono necessarie autorizzazioni di lettura e scrittura per la cartella principale sul server SFTP. In caso contrario, viene visualizzato un errore "401 non autorizzato".
 
   > [!IMPORTANT]
   >
   > Il connettore SFTP-SSH supporta *solo* questi formati di chiave privata, algoritmi e impronte digitali:
   >
-  > * **Formati di chiave privata**: chiavi RSA (Rivet Shamir Adleman) e DSA (Digital Signature Algorithm) nei formati OpenSSH e SSH.com. Se la chiave privata è in formato di file PuTTy (con estensione PPK), [convertire prima la chiave nel formato di file OpenSSH (con estensione PEM)](#convert-to-openssh).
+  > * **Formati di chiave privata**: chiavi RSA (Rivest Shamir Adleman) e DSA (Digital Signature Algorithm) nei formati OpenSSH e ssh.com. Se la chiave privata è nel formato di file PuTTY (.ppk), convertire prima la chiave nel formato di [file OpenSSH (.pem)](#convert-to-openssh).
   >
   > * **Algoritmi di crittografia**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC e AES-256-CBC
   >
   > * **Impronta digitale**: MD5
   >
-  > Dopo aver aggiunto il trigger SFTP-SSH o l'azione desiderata per l'app per la logica, è necessario fornire le informazioni di connessione per il server SFTP. Quando si specifica la chiave privata SSH per questa connessione, ***non immettere o modificare manualmente la chiave***, il che potrebbe causare l'esito negativo della connessione. Al contrario, assicurarsi di ***copiare la chiave*** dal file di chiave privata SSH e ***incollare*** la chiave nei dettagli della connessione. 
-  > Per altre informazioni, vedere la sezione [connettersi a SFTP con SSH](#connect) più avanti in questo articolo.
+  > Dopo aver aggiunto il trigger o l'azione SFTP-SSH che si desidera all'app per la logica, è necessario fornire le informazioni di connessione per il server SFTP. Quando si fornisce la chiave privata SSH per questa connessione, ***non immettere o modificare manualmente la chiave***, il che potrebbe causare l'esito negativo della connessione. Assicurarsi invece di ***copiare la chiave*** dal file di chiave privata SSH e ***incollarla*** nei dettagli della connessione. 
+  > Per ulteriori informazioni, vedere la sezione [Connessione a SFTP con SSH](#connect) più avanti in questo articolo.
 
-* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Informazioni di base sulla [creazione di app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L'app per la logica in cui si vuole accedere all'account SFPT. Per iniziare con un trigger SFTP-SSH, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare un'azione SFTP-SSH, avviare l'app per la logica con un altro trigger, ad esempio il trigger **Ricorrenza**.
 
-## <a name="how-sftp-ssh-triggers-work"></a>Funzionamento del trigger SFTP-SSH
+## <a name="how-sftp-ssh-triggers-work"></a>Funzionamento dei trigger SFTP-SSH
 
-I trigger SFTP-SSH funzionano eseguendo il polling del file system SFTP e cercando eventuali file modificati dopo l'ultimo polling. Alcuni strumenti consentono di mantenere il timestamp quando i file vengono modificati. In questi casi è necessario disabilitare questa funzionalità per consentire il funzionamento del trigger. Ecco alcune delle impostazioni comuni:
+I trigger SFTP-SSH funzionano eseguendo il polling del file system SFTP e cercando qualsiasi file modificato dopo l'ultimo sondaggio. Alcuni strumenti consentono di mantenere il timestamp quando i file vengono modificati. In questi casi è necessario disabilitare questa funzionalità per consentire il funzionamento del trigger. Ecco alcune delle impostazioni comuni:
 
 | Client SFTP | Azione |
 |-------------|--------|
-| Winscp | Passare a **Opzioni** > **Preferenze** > **Trasferimento** > **Modifica** > **Mantieni data/ora** > **Disabilitare l'opzione** |
-| FileZilla | Passare a **Trasferimento** > **Preserva data e ora dei file trasferiti** > **Disabilitare l'opzione** |
+| Winscp | Vai a **Opzioni** > **Preferenze** > **Trasferisci** > **Modifica** > **Mantieni timestamp** > **Disabilita** |
+| FileZilla | Vai a **Trasferisci** > **Conserva timestamp dei file** > trasferiti**Disattiva** |
 |||
 
 Quando un trigger rileva un nuovo file, controlla che sia completo e non parzialmente scritto. Ad esempio, un file potrebbe avere delle modifiche in corso nel momento in cui il trigger controlla il file server. Per evitare la restituzione di un file scritto parzialmente, il trigger prende nota del timestamp del file che contiene le modifiche recenti ma non restituisce immediatamente il file. Il trigger restituisce il file solo durante il nuovo polling del server. In alcuni casi, questo comportamento potrebbe causare un ritardo fino a un massimo del doppio dell'intervallo di polling del trigger.
 
 <a name="convert-to-openssh"></a>
 
-## <a name="convert-putty-based-key-to-openssh"></a>Convertire la chiave basata su PuTTy in OpenSSH
+## <a name="convert-putty-based-key-to-openssh"></a>Convertire la chiave basata su PuTTY in OpenSSH
 
-Se la chiave privata è in formato PuTTy, che usa l'estensione del nome di file. PPK (PuTTy Private Key), convertire prima la chiave nel formato OpenSSH, che usa l'estensione di file PEM (Privacy Enhanced Mail).
+Se la chiave privata è in formato PuTTY, che utilizza l'estensione ppk (PuTTY Private Key), convertire prima la chiave nel formato OpenSSH, che utilizza l'estensione .pem (Privacy Enhanced Mail).
 
-### <a name="unix-based-os"></a>Sistema operativo basato su UNIX
+### <a name="unix-based-os"></a>Sistema operativo basato su Unix
 
-1. Se gli strumenti PuTTy non sono già installati nel sistema, procedere ora, ad esempio:
+1. Se gli strumenti PuTTY non sono già installati nel sistema, farlo ora, ad esempio:
 
    `sudo apt-get install -y putty`
 
-1. Eseguire questo comando, che crea un file che è possibile usare con il connettore SFTP-SSH:
+1. Eseguire questo comando, che crea un file che è possibile utilizzare con il connettore SFTP-SSH:
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
@@ -133,19 +133,19 @@ Se la chiave privata è in formato PuTTy, che usa l'estensione del nome di file.
 
 ### <a name="windows-os"></a>Sistema operativo Windows
 
-1. Se non è già stato fatto, [scaricare lo strumento più recente del generatore PuTTY (puttygen. exe)](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html), quindi avviare lo strumento.
+1. Se non l'hai già fatto, [scarica l'ultimo strumento PuTTY Generator (puttygen.exe)](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)e quindi avvia lo strumento.
 
-1. In questa schermata selezionare **carica**.
+1. In questa schermata selezionare **Carica**.
 
-   ![Selezionare "carica"](./media/connectors-sftp-ssh/puttygen-load.png)
+   ![Selezionare "Carica"](./media/connectors-sftp-ssh/puttygen-load.png)
 
-1. Passare al file di chiave privata in formato PuTTy e selezionare **Apri**.
+1. Individuare il file della chiave privata nel formato PuTTY e selezionare **Apri**.
 
-1. Nel menu **conversioni** selezionare **Esporta chiave OpenSSH**.
+1. Dal menu **Conversioni,** selezionare **Esporta tasto OpenSSH**.
 
-   ![Selezionare "Esporta chiave OpenSSH"](./media/connectors-sftp-ssh/export-openssh-key.png)
+   ![Selezionare "Esporta tasto OpenSSH"](./media/connectors-sftp-ssh/export-openssh-key.png)
 
-1. Salvare il file di chiave privata con l'estensione del nome di file `.pem`.
+1. Salvare il file della `.pem` chiave privata con l'estensione del nome file.
 
 <a name="connect"></a>
 
@@ -155,13 +155,13 @@ Se la chiave privata è in formato PuTTy, che usa l'estensione del nome di file.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e aprire l'app per la logica in Progettazione app per la logica, se non è già aperta.
 
-1. Per le app per la logica vuote, nella casella di ricerca immettere `sftp ssh` come filtro. Nell'elenco dei trigger selezionare il trigger desiderato.
+1. Per le app per la logica `sftp ssh` vuote, nella casella di ricerca immettere il filtro. Nell'elenco dei trigger selezionare il trigger desiderato.
 
    -oppure-
 
-   Per le app per la logica esistenti, nell'ultimo passaggio in cui si vuole aggiungere un'azione selezionare **nuovo passaggio**. Nella casella di ricerca immettere `sftp ssh` come filtro. Nell'elenco delle azioni selezionare l'azione desiderata.
+   Per le app per la logica esistenti, nell'ultimo passaggio in cui si vuole aggiungere un'azione selezionare **Nuovo passaggio**. Nella casella di ricerca immettere `sftp ssh` come filtro. Nell'elenco delle azioni selezionare l'azione desiderata.
 
-   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Selezionare il segno più ( **+** ) visualizzato, quindi selezionare **Aggiungi un'azione**.
+   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Selezionare il**+** segno più ( ) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
 1. Specificare le informazioni necessarie per la connessione.
 
@@ -173,29 +173,29 @@ Se la chiave privata è in formato PuTTy, che usa l'estensione del nome di file.
 
    1. Aprire il file della chiave privata SSH in un editor di testo. In questi passaggi viene usato il Blocco note come esempio.
 
-   1. Scegliere **Seleziona tutto**dal menu **modifica** del blocco note.
+   1. Scegliere **Seleziona tutto**dal menu **Modifica** blocco note .
 
-   1. Selezionare **Modifica** > **Copia**.
+   1. Selezionare **Modifica** > **copia**.
 
-   1. Nell'azione o nel trigger SFTP-SSH aggiunto, incollare la chiave *completa* copiata nella proprietà **Chiave privata SSH** che supporta più righe.  ***Assicurarsi di incollare*** la chiave. ***Non immettere o modificare la chiave manualmente***.
+   1. Nell'azione o nel trigger SFTP-SSH aggiunto, incollare la chiave *completa* copiata nella proprietà **Chiave privata SSH** che supporta più righe.  ***Assicurarsi di incollare*** la chiave. ***Non immettere o modificare manualmente il tasto***.
 
-1. Al termine dell'immissione dei dettagli della connessione, selezionare **Crea**.
+1. Al termine dell'immissione dei dettagli di connessione, selezionare **Crea**.
 
 1. Specificare ora i dettagli necessari per l'azione o il trigger selezionato e continuare a creare il flusso di lavoro dell'app per la logica.
 
 <a name="change-chunk-size"></a>
 
-## <a name="override-chunk-size"></a>Sostituisci dimensioni blocco
+## <a name="override-chunk-size"></a>Ignora dimensione blocco
 
-Per eseguire l'override del comportamento adattivo predefinito usato per la suddivisione in blocchi, è possibile specificare una dimensione di blocco costante da 5 MB a 50 MB.
+Per eseguire l'override del comportamento adattivo predefinito utilizzato dalla suddivisione in blocchi, è possibile specificare una dimensione di blocco costante da 5 MB a 50 MB.
 
-1. Nell'angolo superiore destro dell'azione selezionare il pulsante con i puntini di sospensione ( **...** ) e quindi selezionare **Impostazioni**.
+1. Nell'angolo superiore destro dell'azione selezionare il pulsante con i puntini di sospensione (**...**), quindi scegliere **Impostazioni**.
 
-   ![Aprire SFTP-impostazioni SSH](./media/connectors-sftp-ssh/sftp-ssh-connector-setttings.png)
+   ![Aprire le impostazioni SFTP-SSH](./media/connectors-sftp-ssh/sftp-ssh-connector-setttings.png)
 
-1. In **trasferimento contenuto**, nella proprietà **dimensioni blocco** , immettere un valore intero compreso tra `5` e `50`, ad esempio: 
+1. In **Trasferimento contenuto**, nella proprietà Dimensione **blocco** immettere un valore intero da `5` a , `50`ad esempio: 
 
-   ![Specificare le dimensioni del blocco da usare](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
+   ![Specificare invece la dimensione del blocco da utilizzareSpecify chunk size to use instead](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
 
 1. Al termine, fare clic su **Fine**.
 
@@ -211,16 +211,16 @@ Questo trigger avvia il flusso di lavoro di un'app per la logica quando viene ag
 
 <a name="get-content"></a>
 
-### <a name="sftp---ssh-action-get-content-using-path"></a>SFTP-azione SSH: Ottieni contenuto tramite il percorso
+### <a name="sftp---ssh-action-get-content-using-path"></a>SFTP - Azione SSH: Ottenere il contenuto usando il percorso
 
 Questa operazione recupera il contenuto da un file in un server SFTP. Ad esempio, è possibile aggiungere il trigger dell'esempio precedente e una condizione che il contenuto del file deve soddisfare. Se la condizione è true, è possibile eseguire l'azione che recupera il contenuto.
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni più tecniche su questo connettore, ad esempio trigger, azioni e limiti, come descritto dal file spavalderia del connettore, vedere la [pagina di riferimento del connettore](https://docs.microsoft.com/connectors/sftpwithssh/).
+Per ulteriori dettagli tecnici su questo connettore, ad esempio trigger, azioni e limiti, come descritto dal file Swagger del connettore, vedere la [pagina di riferimento del connettore.](https://docs.microsoft.com/connectors/sftpwithssh/)
 
 > [!NOTE]
-> Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versione con etichetta ISE del connettore usa invece i [limiti dei messaggi ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
+> Per le app per la logica in un ambiente del servizio di [integrazione (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)la versione con etichetta ISE di questo connettore utilizza invece i limiti dei [messaggi ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

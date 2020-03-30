@@ -11,10 +11,10 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: 6ad9c7912eee6c3f5ec55b9cd7ab340bc79c9db7
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73837766"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prevedere una risposta con un modello semplice
@@ -32,7 +32,7 @@ Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'ele
 *Analisi scientifica dei dati per principianti* è una rapida introduzione all'analisi scientifica dei dati in cinque brevi video.
 
 * Video 1: [5 domande a cui può rispondere l'analisi scientifica dei dati](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 sec)*
-* Video 2: [Verifica della preparazione dei dati per l'analisi scientifica dei dati](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min e 56 sec)*
+* Video 2: [I dati sono pronti per l'analisi scientifica dei dati?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min e 56 sec)*
 * Video 3: [Porre una domanda a cui è possibile rispondere con i dati](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min e 17 sec)*
 * Video 4: Prevedere una risposta con un modello semplice
 * Video 5: [Copiare il lavoro di altre persone per l'analisi scientifica dei dati](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min e 18 sec)*
@@ -87,7 +87,7 @@ In questo modo si crea un *modello*. È come se si prendesse il modo reale e si 
 
 Il fatto che non tutti i punti si trovino esattamente sulla linea va bene. Gli esperti di gestione dati spiegano tutto questo affermando che esiste il modello, ovvero la linea, e che a ogni punto vengono associati alcuni *disturbi* o *varianze*. Vi è quindi la perfetta relazione sottostante e vi è il mondo reale dinamico che aggiunge disturbo e incertezza.
 
-Dal momento che si cerca di rispondere alla domanda *Quanto costa?* , è possibile parlare di *regressione*. E visto che viene usata una linea dritta, si tratta di una *regressione lineare*.
+Dal momento che si cerca di rispondere alla domanda *Quanto costa?*, è possibile parlare di *regressione*. E visto che viene usata una linea dritta, si tratta di una *regressione lineare*.
 
 ## <a name="use-the-model-to-find-the-answer"></a>Usare il modello per trovare la risposta
 Una volta pronto il modello, è possibile porgli la domanda: Quando costerà un diamante da 1,35 carati?
@@ -99,7 +99,7 @@ Per rispondere a questa domanda, occorre partire da 1,35 carati e disegnare una 
 ## <a name="create-a-confidence-interval"></a>Creare un intervallo di confidenza
 È naturale chiedersi quanto precisa sia questa previsione. È utile sapere se il diamante da 1,35 carati sarà più vicino ai $ 10.000 oppure se costerà molto più o molto meno. Per capirlo, sarà sufficiente disegnare un inviluppo attorno alla linea di regressione che include la maggior parte dei punti. Questo inviluppo viene detto *intervallo di confidenza*: si è abbastanza sicuri che i prezzi rientrino in questo inviluppo, poiché è stato così per la maggior parte degli stessi prezzi in precedenza. È possibile disegnare altre due linee orizzontali da cui la linea 1,35 carati incrocia la parte superiore e inferiore di quell'inviluppo.
 
-![intervallo di confidenza](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
+![Intervallo di confidenza](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
 A proposito dell'intervallo di confidenza è possibile affermare con sicurezza che il prezzo di un diamante da 1,35 carati costa circa $ 10.000, ma potrebbe scendere fino a $ 8.000 e salire fino a $ 12.000.
 
@@ -107,7 +107,7 @@ A proposito dell'intervallo di confidenza è possibile affermare con sicurezza c
 Abbiamo svolto un lavoro scientifico semplicemente disegnando:
 
 * Abbiamo posto una domanda a cui è stato possibile rispondere con i dati
-* È stato creato un *modello* usando una *regressione lineare*.
+* È stato creato un *modello* usando una *regressione lineare*
 * È stata realizzata una *previsione*, completa di *intervallo di confidenza*
 
 Senza matematica, né computer.
@@ -124,8 +124,8 @@ E se al posto di una semplice manciata diamanti, si trattasse di duemila o due m
 
 Oggi l'argomento del video è stata la creazione di una regressione lineare e la realizzazione di una previsione usando i dati.
 
-Assicurarsi di consultare gli altri video in "analisi scientifica dei dati per principianti" da Microsoft Azure Machine Learning Studio (classico).
+Assicurarsi di controllare gli altri video in "Data Science for Beginners" di Microsoft Azure Machine Learning Studio (classico).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Provare un primo esperimento di data science con Machine Learning Studio (classico)](create-experiment.md)
+* [Provare un primo esperimento di data science con Machine Learning Studio (classico)Try a first data science experiment with Machine Learning Studio (classic)](create-experiment.md)
 * [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

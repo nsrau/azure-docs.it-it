@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 252d5e551dad56108ad952eb0c7c3b39df0585d5
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69901779"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Gestione di asset di Servizi multimediali su più account di archiviazione  
@@ -42,11 +42,11 @@ Quando si collegano più account di archiviazione a un account di Servizi multim
 
 Altre considerazioni:
 
-Servizi multimediali usa il valore della proprietà **IAssetFile.Name** durante la creazione di URL per i contenuti in streaming, ad esempio http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà Name non può contenere i [caratteri riservati per la codifica percentuale](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#[]". Può essere presente solo un carattere '.' L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
+Servizi multimediali utilizza il valore della proprietà **IAssetFile.Name** durante la creazione di URL per il contenuto in streaming (ad esempio, http:// WAMSAccount.origin.mediaservices.windows.net/net/'GUID / IAssetFile.Name/streamingParameters). Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà Name non può contenere i [caratteri riservati per la codifica percentuale](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#[]". Può essere presente solo un carattere '.' L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
 
 ## <a name="to-attach-storage-accounts"></a>Per collegare account di archiviazione  
 
-Per collegare account di archiviazione all'account Servizi multimediali di Microsoft Azure (AMS), usare le [API di Azure Resource Manager](/rest/api/media/operations/azure-media-services-rest-api-reference) e [Powershell](/powershell/module/az.media), come illustrato nell'esempio seguente:
+Per collegare gli account di archiviazione all'account AMS, usare le API di Azure Resource Manager e [Powershell,](/powershell/module/az.media)come illustrato nell'esempio seguente:To attach storage accounts to your AMS account, use [Azure Resource Manager APIs](/rest/api/media/operations/azure-media-services-rest-api-reference) and Powershell , as shown in the following example:
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
@@ -67,7 +67,7 @@ Per collegare account di archiviazione all'account Servizi multimediali di Micro
 Attualmente, se si desidera aggiungere un account di archiviazione offline sicura all'account Servizi multimediali di Azure (AMS), l'account di archiviazione deve essere di tipo BLOB ed essere impostato come non principale.
 
 ## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>Per gestire asset di Servizi multimediali su più account di archiviazione
-Il codice seguente usa la versione più recente dell'SDK di Servizi multimediali per eseguire le attività seguenti:
+Il codice seguente usa la versione più recente dell'SDK di Servizi multimediali per eseguire le attività seguenti: 
 
 1. Visualizzare tutti gli account di archiviazione associati all'account di Servizi multimediali specificato.
 2. Recuperare il nome dell'account di archiviazione predefinito.

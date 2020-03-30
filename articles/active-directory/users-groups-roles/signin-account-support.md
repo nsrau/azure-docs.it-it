@@ -1,6 +1,6 @@
 ---
-title: La pagina di accesso Azure AD accetta account Microsoft | Microsoft Docs
-description: Come la messaggistica su schermo riflette la ricerca del nome utente durante l'accesso
+title: La pagina di accesso di Azure AD accetta gli account Microsoft. Documenti Microsoft
+description: In che modo la messaggistica su schermo riflette la ricerca del nome utente durante l'accessoHow on-screen messaging reflects username lookup during sign-in
 services: active-directory
 author: curtand
 manager: daveba
@@ -14,26 +14,26 @@ ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 221ab7c50a84650f1b2adf3fdb2b284365795f42
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74024293"
 ---
-# <a name="sign-in-options-for-microsoft-accounts-in-azure-active-directory"></a>Opzioni di accesso per gli account Microsoft in Azure Active Directory
+# <a name="sign-in-options-for-microsoft-accounts-in-azure-active-directory"></a>Opzioni di accesso per gli account Microsoft in Azure Active DirectorySign-in options for Microsoft accounts in Azure Active Directory
 
-La pagina di accesso Microsoft 365 per Azure Active Directory (Azure AD) supporta gli account aziendali o dell'Istituto di istruzione e gli account Microsoft, ma a seconda della situazione dell'utente, può essere uno o l'altro o entrambi. Ad esempio, la pagina di accesso Azure AD supporta:
+La pagina di accesso di Microsoft 365 per Azure Active Directory (Azure AD) supporta gli account aziendali o dell'istituto di istruzione e gli account Microsoft, ma a seconda della situazione dell'utente, potrebbe essere uno o l'altro o entrambi. Ad esempio, la pagina di accesso di Azure AD supporta:For example, the Azure AD sign-in page supports:
 
-* App che accettano accessi da entrambi i tipi di account
-* Organizzazioni che accettano Guest
+* App che accettano gli accesso da entrambi i tipi di account
+* Organizzazioni che accettano ospiti
 
 ## <a name="identification"></a>Identificazione
-È possibile stabilire se la pagina di accesso utilizzata dall'organizzazione supporta gli account Microsoft esaminando il testo del suggerimento nel campo nome utente. Se il testo del suggerimento dice "posta elettronica, telefono o Skype", la pagina di accesso supporta gli account Microsoft.
+È possibile stabilire se la pagina di accesso utilizzata dall'organizzazione supporta gli account Microsoft esaminando il testo del suggerimento nel campo nome utente. Se il testo del suggerimento è "Posta elettronica, telefono o Skype", la pagina di accesso supporta gli account Microsoft.
 
 ![Differenza tra le pagine di accesso dell'account](./media/signin-account-support/ui-prompt.png)
 
-Le [Opzioni di accesso aggiuntive funzionano solo per gli account Microsoft personali](https://azure.microsoft.com/updates/microsoft-account-signin-options/ ) , ma non possono essere usate per l'accesso alle risorse dell'account aziendale o dell'Istituto di istruzione.
+Le opzioni di [accesso aggiuntive funzionano solo per gli account Microsoft personali,](https://azure.microsoft.com/updates/microsoft-account-signin-options/ ) ma non possono essere usate per l'accesso alle risorse dell'account aziendale o dell'istituto di istruzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Personalizzare la personalizzazione dell'accesso](../fundamentals/add-custom-domain.md)
+[Personalizzare il branding per l'accesso](../fundamentals/add-custom-domain.md)

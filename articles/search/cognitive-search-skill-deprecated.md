@@ -1,7 +1,7 @@
 ---
 title: Competenze cognitive deprecate
 titleSuffix: Azure Cognitive Search
-description: Questa pagina contiene un elenco di competenze cognitive considerate deprecate e non sarà supportata nel prossimo futuro in Azure ricerca cognitiva skillsets.
+description: Questa pagina contiene un elenco di competenze cognitive considerate deprecate e non supportate nel prossimo futuro nelle competenze di Ricerca cognitiva di Azure.This page contains a list of cognitive skills that are considered deprecated and will not be supported in the near future in Azure Cognitive Search skillsets.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 5f3587e4398be28cbaa2372be720258196bb48ff
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72792027"
 ---
-# <a name="deprecated-cognitive-skills-in-azure-cognitive-search"></a>Competenze cognitive deprecate in Azure ricerca cognitiva
+# <a name="deprecated-cognitive-skills-in-azure-cognitive-search"></a>Competenze cognitive deprecate in Ricerca cognitiva di AzureDeprecated cognitive skills in Azure Cognitive Search
 
 Questo documento descrive le competenze cognitive considerate deprecate. Usare la guida seguente per il contenuto:
 
 * Nome della competenza: nome della competenza che sarà deprecata. Esegue il mapping all'attributo @odata.type.
-* Ultima versione API disponibile: l'ultima versione dell'API di Azure ricerca cognitiva pubblico attraverso la quale è possibile creare o aggiornare skillsets che contengono la relativa abilità deprecata.
+* Ultima versione api disponibile: l'ultima versione dell'API pubblica di Ricerca cognitiva di Azure tramite la quale è possibile creare/aggiornare i set di competenze contenenti la competenza deprecata corrispondente.
 * Fine del supporto: ultimo giorno dopo il quale la competenza corrispondente è considerata non supportata. I set di competenze creati in precedenza dovrebbero continuare a funzionare, ma si consiglia agli utenti di eseguire la migrazione da una competenza deprecata.
 * Raccomandazioni: percorso di migrazione per usare una competenza supportata. Gli utenti sono invitati a seguire le raccomandazioni per continuare a ricevere supporto.
 
@@ -34,7 +34,7 @@ Questo documento descrive le competenze cognitive considerate deprecate. Usare l
 
 15 febbraio 2019
 
-### <a name="recommendations"></a>Raccomandazioni 
+### <a name="recommendations"></a>Consigli 
 
 Usare invece [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Fornisce la maggior parte delle funzionalità di NamedEntityRecognitionSkill, ma di qualità più elevata. Include anche informazioni più dettagliate nei campi dell'output complesso.
 
@@ -145,8 +145,8 @@ Per eseguire la migrazione alla [competenza di riconoscimento entità](cognitive
         }
         ```
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
-+ [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)
++ [Come definire un set di competenze](cognitive-search-defining-skillset.md)
 + [Competenza di riconoscimento entità](cognitive-search-skill-entity-recognition.md)

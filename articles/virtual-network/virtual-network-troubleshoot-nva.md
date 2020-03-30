@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
 ms.openlocfilehash: b998043bc7d896989590ac21db5f309a81cc02bd
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71056825"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Problemi delle appliance virtuali di rete in Azure
@@ -42,7 +42,7 @@ Il supporto tecnico per le appliance virtuali di rete di terze parti e per la ri
 - Route definite dall'utente nelle subnet di rete virtuale che indirizzano il traffico dall'appliance virtuale di rete
 - Tabelle e regole di routing entro l'appliance virtuale di rete (ad esempio, da NIC1 a NIC2)
 - Traccia sulle schede di interfaccia di rete dell'appliance virtuale di rete per la verifica della ricezione e dell'invio del traffico di rete
-- Quando si usano uno SKU standard e indirizzi IP pubblici, è necessario creare un NSG e una regola esplicita per consentire il routing del traffico all'appliance virtuale di dispositivo.
+- Quando si usa uno SKU standard e indirizzi IP pubblici, è necessario che venga creato un gruppo di sicurezza di rete e una regola esplicita per consentire il traffico all'nVA.
 
 ## <a name="basic-troubleshooting-steps"></a>Procedura di base per la risoluzione dei problemi
 
@@ -83,7 +83,7 @@ Usare PowerShell
    NetworkSecurityGroup : null
    ```
 
-**Verificare la presenza di NSG quando si usa lo SKU standard PUBILC IP** Quando si usano uno SKU standard e indirizzi IP pubblici, è necessario creare un NSG e una regola esplicita per consentire il traffico verso l'appliance virtuale di dispositivo.
+**Verificare la presenza di NSG quando si utilizza Standard SKU Pubilc IP** Quando si usa uno SKU standard e indirizzi IP pubblici, è necessario che venga creato un gruppo di sicurezza di rete e una regola esplicita per consentire il traffico verso l'oggetto NVA.
 
 **Controllare se il traffico può essere indirizzato all'appliance virtuale di rete**
 
@@ -114,7 +114,7 @@ Usare PowerShell
 
 ### <a name="validate-vm-cpu"></a>Convalidare la CPU della VM
 
-Se l'utilizzo della CPU si avvicina al 100%, è possibile che si verifichino problemi che influiscono sulle cadute dei pacchetti di rete. La macchina virtuale segnala un utilizzo medio della CPU per un intervallo di tempo specifico nel portale di Azure. Durante un picco di utilizzo della CPU, esaminare il processo nella VM guest che provoca l'utilizzo elevato della CPU e attenuare il problema, se possibile. Potrebbe essere anche necessario ridimensionare la VM specificando dimensioni di SKU più elevate oppure, per un set di scalabilità di macchine virtuali, aumentare il numero di istanze o impostare il ridimensionamento automatico per l'utilizzo della CPU. Se si verifica uno di questi problemi, [contattare il fornitore dell'appliance virtuale di rete per ottenere assistenza](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines), in base alla necessità.
+Se l'utilizzo della CPU si avvicina al 100%, è possibile che si verifichino problemi che influiscono sulle cadute dei pacchetti di rete. La macchina virtuale segnala un utilizzo medio della CPU per un intervallo di tempo specifico nel portale di Azure. Durante un picco di utilizzo della CPU, esaminare il processo nella VM guest che provoca l'utilizzo elevato della CPU e attenuare il problema, se possibile. Potrebbe essere anche necessario ridimensionare la VM specificando dimensioni di SKU più elevate oppure, per un set di scalabilità di macchine virtuali, aumentare il numero di istanze o impostare il ridimensionamento automatico per l'utilizzo della CPU. Per uno di questi problemi, [contattare il fornitore dell'nVA per assistenza,](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)in base alle esigenze.
 
 ### <a name="validate-vm-network-statistics"></a>Convalidare le statistiche di rete della VM
 
@@ -129,7 +129,7 @@ Acquisire una traccia di rete simultanea nella macchina virtuale di origine, nel
 
    **Per Windows**
 
-   netsh trace Start Capture = Yes TraceFile = c:\server_IP.etl scenario = NetConnection
+   netsh trace start capture, yes file di traccia c: server_IP.etl scenario, netconnection
 
    **Per Linux**
 

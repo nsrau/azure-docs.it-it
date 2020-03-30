@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/13/2017
 ms.author: barclayn
 ms.openlocfilehash: 5635a9e1403731eabc20a04be880fd0aeb24d729
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68727347"
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>Come registrare un ticket di supporto per eventi di sicurezza
@@ -28,11 +28,11 @@ ms.locfileid: "68727347"
 
     ![Tipo di evento e definizione](./media/event-support-ticket/chart.png)
 
-3. Dopo aver selezionato il tipo di problema e la categoria, fare clic sul pulsante **Start request** (Avvia richiesta). Specificare le informazioni seguenti per consentire una migliore comprensione del problema.
+3. Dopo aver selezionato il tipo di problema e la categoria, fare clic sul pulsante '**Avvia richiesta**'. Specificare le informazioni seguenti per consentire una migliore comprensione del problema.
 
     i. Vulnerabilità e/o problema riscontrato
 
-    ii. Per le vulnerabilità, specificare CVE (mitre.org) o il calcolo CVSS3 V3 compilato (https://www.first.org/cvss/calculator/3.0).
+    ii. Per le vulnerabilità, si prega di fornire il CVE (mitre.org)https://www.first.org/cvss/calculator/3.0)o il compilato CVSS3 v3 calcolatrice ( .
 
     iii. Eventuale risoluzione o mitigazione Se disponibile, specificare la procedura di correzione.
 

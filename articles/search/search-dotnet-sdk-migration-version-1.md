@@ -1,5 +1,5 @@
 ---
-title: Eseguire l'aggiornamento a .NET SDK di ricerca di Azure versione 1,1
+title: Eseguire l'aggiornamento a Ricerca di Azure .NET SDK versione 1.1Upgrade to Azure Search .NET SDK version 1.1
 titleSuffix: Azure Cognitive Search
 description: Eseguire la migrazione di codice a .NET SDK Ricerca di Azure versione 1.1 da versioni API precedenti. Informazioni sulle novità e sulle modifiche al codice necessarie.
 manager: nitinme
@@ -10,13 +10,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 159aaa8424c3d7a711b587464b80696929f02186
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72792389"
 ---
-# <a name="upgrade-to-azure-search-net-sdk-version-11"></a>Eseguire l'aggiornamento a .NET SDK di ricerca di Azure versione 1,1
+# <a name="upgrade-to-azure-search-net-sdk-version-11"></a>Eseguire l'aggiornamento a Ricerca di Azure .NET SDK versione 1.1Upgrade to Azure Search .NET SDK version 1.1
 
 Se si usa la versione 1.0.2 di anteprima o precedente di [.NET SDK Ricerca di Azure](https://aka.ms/search-sdk), questo articolo include informazioni utili per aggiornare l'applicazione per l'uso della versione 1.1.
 
@@ -173,7 +173,7 @@ Se il codice è simile a questo:
         };
 
 ### <a name="model-class-changes"></a>Modifiche alle classi di modelli
-In seguito alle modifiche apportate alle firme descritte in [Modifiche ai metodi delle operazioni](#OperationMethodChanges), molte classi nello spazio dei nomi `Microsoft.Azure.Search.Models` sono state rinominate o rimosse. ad esempio:
+In seguito alle modifiche apportate alle firme descritte in [Modifiche ai metodi delle operazioni](#OperationMethodChanges), molte classi nello spazio dei nomi `Microsoft.Azure.Search.Models` sono state rinominate o rimosse. Ad esempio:
 
 * `IndexDefinitionResponse` è stata sostituita da `AzureOperationResponse<Index>`
 * `DocumentSearchResponse` è stata rinominata `DocumentSearchResult`

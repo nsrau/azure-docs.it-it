@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: f6f678f91e74ea9b0b68127c1786fee745508b99
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70101469"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Ripristino di emergenza per un'istanza di Database Oracle 12c in un ambiente Azure
@@ -57,7 +57,7 @@ Il cliente ha una configurazione del database Oracle locale nel sito primario. I
 
 Per questo tipo di configurazione esistono due approcci.
 
-### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-the-firewall"></a>Approccio 1: Connessioni dirette tra l'istanza locale e Azure, che richiedono porte TCP aperte sul firewall 
+### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-the-firewall"></a>Approccio 1: Connessioni dirette tra siti locali e Azure, che richiedono porte TCP aperte sul firewall 
 
 Le connessioni dirette non sono consigliate perché espongono le porte TCP al mondo esterno.
 
@@ -95,7 +95,7 @@ Il seguente è un riepilogo della configurazione di Azure:
 
 ![Schermata della pagina di topologia del ripristino di emergenza](./media/oracle-disaster-recovery/oracle_topology_03.png)
 
-## <a name="additional-reading"></a>Altre informazioni
+## <a name="additional-reading"></a>Informazioni aggiuntive
 
 - [Progettare e implementare un database Oracle in Azure](oracle-design.md)
 - [Configurare Oracle Data Guard](configure-oracle-dataguard.md)
@@ -105,5 +105,5 @@ Il seguente è un riepilogo della configurazione di Azure:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: Creare macchine virtuali a disponibilità elevata](../../linux/create-cli-complete.md)
+- [Esercitazione: Creare VM a disponibilità elevata](../../linux/create-cli-complete.md)
 - [Esplorare gli esempi dell'interfaccia della riga di comando di Azure per la distribuzione della VM](../../linux/cli-samples.md)

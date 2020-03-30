@@ -10,22 +10,22 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
 ms.openlocfilehash: 1d5313f3f0fff128dd09f9c9857b7dd9921ea4f8
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69992213"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Uso dell'interfaccia della riga di comando di Hadoop Distributed File System con Anteprima di Azure Data Lake Storage Gen2
 
-È possibile accedere e gestire i dati nell'account di archiviazione usando un'interfaccia della riga di comando Analogamente a una [Hadoop Distributed file System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Questo articolo fornisce alcuni esempi utili per iniziare.
+È possibile accedere e gestire i dati nell'account di archiviazione utilizzando un'interfaccia della riga di comando come si farebbe con un [file system distribuito Hadoop (HDFS, Hadoop Distributed File System).](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html) Questo articolo fornisce alcuni esempi che ti aiuteranno a iniziare.
 
-HDInsight consente di accedere al contenitore distribuito localmente collegato ai nodi di calcolo. È possibile accedere a questo contenitore usando la shell che interagisce direttamente con HDFS e con gli altri file system supportati da Hadoop.
+HDInsight fornisce l'accesso al contenitore distribuito collegato localmente ai nodi di calcolo. È possibile accedere a questo contenitore utilizzando la shell che interagisce direttamente con l'HDFS e gli altri file system supportati da Hadoop.
 
-Per altre informazioni sull'interfaccia della riga di comando di HDFS, vedere la [documentazione ufficiale](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) e la [Guida alle autorizzazioni di HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
+Per ulteriori informazioni sull'interfaccia della riga di comando HDFS, vedere la [documentazione ufficiale](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) e la Guida alle [autorizzazioni HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 
 >[!NOTE]
->Se si usa Azure Databricks anziché HDInsight e si vuole interagire con i dati usando un'interfaccia della riga di comando, è possibile usare l'interfaccia della riga di comando di databricks per interagire con i file system di databricks. Vedere [interfaccia](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)della riga di comando di databricks.
+>Se si usa Azure Databricks anziché HDInsight e si vuole interagire con i dati usando un'interfaccia della riga di comando, è possibile usare l'interfaccia della riga di comando databricks per interagire con il file system Databricks.If you're using Azure Databricks instead of HDInsight, and you want to interact with your data by using a command line interface, you can use the Databricks CLI to interact with the Databricks file system. Vedere [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html).
 
 ## <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Usare l’infrastruttura CLI di HDFS con un cluster Hadoop di HDInsight in Linux
 
@@ -48,7 +48,7 @@ La stringa di connessione è reperibile nella sezione "SSH + Cluster login" del 
 
     hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/
 
-* Sostituire il `<container-name>` segnaposto con il nome che si vuole assegnare al contenitore.
+* Sostituire il segnaposto `<container-name>` con il nome che si vuole assegnare al contenitore.
 
 * Sostituire il segnaposto `<storage-account-name>` con il nome del proprio account di archiviazione.
 
@@ -56,7 +56,7 @@ La stringa di connessione è reperibile nella sezione "SSH + Cluster login" del 
 
     hdfs dfs -ls <path>
 
-Sostituire il `<path>` segnaposto con l'URI del contenitore o della cartella del contenitore.
+Sostituire `<path>` il segnaposto con l'URI del contenitore o della cartella del contenitore.
 
 Ad esempio: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
 
@@ -64,7 +64,7 @@ Ad esempio: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.window
 
     hdfs dfs -mkdir [-p] <path>
 
-Sostituire il `<path>` segnaposto con il nome del contenitore radice o una cartella all'interno del contenitore.
+Sostituire `<path>` il segnaposto con il nome del contenitore radice o una cartella all'interno del contenitore.
 
 Ad esempio: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
 
@@ -120,4 +120,4 @@ Vedere [chmod](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-
 
 * [Usare un account con supporto di Azure Data Lake Storage Gen2 in Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md)
 
-* [Informazioni sugli elenchi di controllo di accesso in file e directory](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+* [Informazioni sugli elenchi di controllo di accesso su file e directory](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)

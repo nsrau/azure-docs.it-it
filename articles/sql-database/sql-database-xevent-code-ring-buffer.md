@@ -1,5 +1,5 @@
 ---
-title: Codice del buffer circolare XEvent
+title: Codice del buffer circolare XEventXEvent Ring Buffer code
 description: Fornisce un esempio di codice Transact-SQL reso semplice e veloce tramite l'uso della destinazione del buffer circolare nel database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ms.openlocfilehash: ad98b61d6339388551af93671b3d4d892942f4e4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79213975"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Codice di destinazione del buffer circolare per gli eventi estesi nel database SQL
@@ -29,7 +29,7 @@ In questo argomento viene presentato un esempio di codice Transact-SQL che:
 1. Crea una tabella con i dati a scopo dimostrativo.
 2. Crea una sessione per un evento esteso esistente, ovvero **sqlserver.sql_statement_starting**.
    
-   * L'evento è limitato a istruzioni SQL che contengono una determinata stringa di aggiornamento: **statement LIKE '%UPDATE tabEmployee%'** .
+   * L'evento è limitato a istruzioni SQL che contengono una determinata stringa di aggiornamento: **statement LIKE '%UPDATE tabEmployee%'**.
    * Sceglie di inviare l'output dell'evento a una destinazione di tipo buffer circolare, ovvero **package0.ring_buffer**.
 3. Avvia la sessione dell'evento.
 4. Esegue un paio di semplici istruzioni SQL UPDATE.
@@ -40,9 +40,9 @@ In questo argomento viene presentato un esempio di codice Transact-SQL che:
 7. Elimina la destinazione del buffer circolare, per rilasciare le relative risorse.
 8. Elimina la sessione dell'evento e la tabella dimostrativa.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-* Un account e una sottoscrizione di Azure. È possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Un account e una sottoscrizione di Azure. Puoi iscriverti per una [prova gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Qualsiasi database in cui è possibile creare una tabella.
   
   * Facoltativamente, è possibile [creare un database dimostrativo **AdventureWorksLT**](sql-database-get-started.md) in pochi minuti.
@@ -222,7 +222,7 @@ Per visualizzare i risultati, è stato fatto clic sulla cella sotto l'intestazio
 
 Quindi, nel riquadro dei risultati, è stato fatto clic sulla cella sotto l'intestazione di colonna **target_data_XML**. Tramite questo clic del mouse è stata creata un'altra scheda del file in ssms.exe, in cui è stato visualizzato il contenuto della cella del risultato, come XML.
 
-L'output è illustrato nella sezione seguente. Sembra lungo, ma si tratta solo di due elementi **>\<eventi** .
+L'output è illustrato nella sezione seguente. Sembra lungo, ma è ** \<** solo due>elementi.
 
 &nbsp;
 

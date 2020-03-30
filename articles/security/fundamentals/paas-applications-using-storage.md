@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
 ms.openlocfilehash: 675e10101d01d831aad7652c70cbfcf320085a3c
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70999176"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Procedure consigliate per la protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante Archiviazione di Azure
@@ -27,7 +27,7 @@ Questo articolo illustra un insieme di procedure consigliate di sicurezza in Arc
 
 Azure consente di distribuire e usare le risorse di archiviazione in modi che non è facile ottenere in locale. Con archiviazione di Azure è possibile raggiungere livelli elevati di scalabilità e disponibilità con un lavoro richiesto minimo. Non solo Archiviazione di Azure è la base per le macchine virtuali di Azure che eseguono Windows o Linux, ma può supportare anche applicazioni distribuite di grandi dimensioni.
 
-Archiviazione di Azure offre i quattro servizi seguenti: Archivio BLOB, Archiviazione tabelle, Archiviazione code e Archiviazione file. Per altre informazioni, vedere [Introduzione ad Archiviazione di Microsoft Azure](/azure/storage/common/storage-introduction).
+Archiviazione di Azure offre i quattro servizi seguenti: archiviazione BLOB, archiviazione tabelle, archiviazione code e archiviazione file. Per altre informazioni, vedere [Introduzione ad Archiviazione di Microsoft Azure](/azure/storage/common/storage-introduction).
 
 La [Guida alla sicurezza di Archiviazione di Azure](/azure/storage/common/storage-security-guide) è una fonte eccellente di informazioni dettagliate su Archiviazione di Azure e sulla sicurezza. Questo articolo sulle procedure consigliate fa riferimento a livello generale ad alcuni concetti illustrati nella Guida alla sicurezza con i relativi collegamenti, oltre ad altre fonti per altre informazioni.
 
@@ -64,7 +64,7 @@ Le organizzazioni che non applicano il controllo di accesso ai dati con funziona
 
 Per altre informazioni sul controllo degli accessi in base al ruolo, vedere:
 
-- [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](/azure/role-based-access-control/role-assignments-portal)
+- [Gestire l'accesso tramite il controllo degli accessi in base al ruolo e il portale di AzureManage access using RBAC and the](/azure/role-based-access-control/role-assignments-portal)
 - [Ruoli predefiniti per le risorse di Azure](/azure/role-based-access-control/built-in-roles)
 - [Guida alla sicurezza di Archiviazione di Azure](/azure/storage/common/storage-security-guide) 
 
@@ -83,5 +83,5 @@ Quando è abilitata la [crittografia del servizio di archiviazione](/azure/stora
 Questo articolo descrive una serie di procedure consigliate per la protezione delle applicazioni Web PaaS e delle applicazioni per dispositivi mobili mediante Archiviazione di Microsoft Azure. Per ulteriori informazioni sulla protezione delle distribuzioni PaaS, vedere:
 
 - [Protezione delle distribuzioni PaaS](paas-deployments.md)
-- [Protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante i Servizi app di Azure](paas-applications-using-app-services.md)
+- [Protezione delle applicazioni Web PaaS e delle applicazioni per dispositivi mobili mediante i Servizi app di Azure](paas-applications-using-app-services.md)
 - [Protezione di database PaaS in Azure](paas-applications-using-sql.md)

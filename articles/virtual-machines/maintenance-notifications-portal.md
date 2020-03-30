@@ -1,6 +1,6 @@
 ---
-title: Usare il portale per le notifiche di manutenzione
-description: Visualizzare le notifiche di manutenzione per le macchine virtuali in esecuzione in Azure e avviare la manutenzione Self-Service usando il portale.
+title: Usare il portale per le notifiche di manutenzioneUse the portal for maintenance notifications
+description: Visualizzare le notifiche di manutenzione per le macchine virtuali in esecuzione in Azure e avviare la manutenzione self-service tramite il portale.
 author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
@@ -8,31 +8,31 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
 ms.openlocfilehash: 46fcc825ac49f0181ac74e9c3e2deaea577f3329
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77115732"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-portal"></a>Gestione delle notifiche di manutenzione pianificata tramite il portale
 
-**Questo articolo si applica alle macchine virtuali che eseguono sia Linux che Windows.**
+**Questo articolo si applica alle macchine virtuali che eseguono sia Linux che Windows.This article applies to virtual machines running both Linux and Windows.**
 
-Una volta pianificata un'ondata di [manutenzione pianificata](maintenance-notifications.md) , è possibile verificare la presenza di un elenco di macchine virtuali interessate. 
+Una volta pianificata un'ondata di [manutenzione pianificata,](maintenance-notifications.md) è possibile verificare la presenza di un elenco di macchine virtuali interessate. 
 
 È possibile usare il portale di Azure per cercare le macchine virtuali pianificate per la manutenzione.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale](https://portal.azure.com)di Azure .
 
-2. Nel riquadro di spostamento a sinistra fare clic su **Macchine virtuali**.
+2. Nel riquadro di spostamento sinistro fare clic su **Macchine virtuali**.
 
-3. Nel riquadro macchine virtuali fare clic sul pulsante **modifica colonne** per aprire l'elenco delle colonne disponibili.
+3. Nel riquadro Macchine virtuali selezionare il pulsante **Modifica colonne** per aprire l'elenco delle colonne disponibili.
 
 4. Selezionare e aggiungere le colonne seguenti:
 
-   **Stato manutenzione**: Mostra lo stato di manutenzione della macchina virtuale. Ecco di seguito i valori possibili:
+   **Stato manutenzione**: Mostra lo stato di manutenzione per la macchina virtuale. Ecco di seguito i valori possibili:
       
-      | Valore | Descrizione |
+      | valore | Descrizione |
       |-------|-------------|
       | Avvia ora | La macchina virtuale si trova nella finestra di manutenzione self-service, il che consente di avviare la manutenzione manualmente. Vedere di seguito per informazioni su come avviare la manutenzione della macchina virtuale. | 
       | Pianificato | La macchina virtuale è pianificata per la manutenzione senza alcuna opzione per poter avviare manutenzione. Per informazioni relative alla finestra di manutenzione, è possibile selezionare la finestra di manutenzione pianificata in questa visualizzazione oppure fare clic sulla macchina virtuale. | 
@@ -52,7 +52,7 @@ Una volta pianificata un'ondata di [manutenzione pianificata](maintenance-notifi
 
 Azure comunica il programma di una manutenzione pianificata inviando un messaggio di posta elettronica al proprietario e ai comproprietari della sottoscrizione. È possibile aggiungere altri destinatari e canali a questa comunicazione creando avvisi del log attività di Azure. Per maggiori informazioni, vedere [Creare gli avvisi del log attività per le notifiche del servizio](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
-Assicurarsi di impostare il **tipo di evento** come **manutenzione pianificata**e i **Servizi** come **set di scalabilità di macchine virtuali** e/o **macchine virtuali**.
+Assicurarsi di impostare il **tipo di evento** su Manutenzione **pianificata**e **Servizi** su Set di **scalabilità macchina virtuale** e/o **Macchine virtuali**.
 
 ## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Avviare la manutenzione della macchina virtuale dal portale
 
@@ -69,4 +69,4 @@ Se si perde la finestra Self-service, è comunque possibile visualizzarla quando
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È anche possibile gestire la manutenzione pianificata usando l'interfaccia della riga di comando di [Azure](maintenance-notifications-cli.md) o [PowerShell](maintenance-notifications-powershell.md).
+È anche possibile gestire la manutenzione pianificata usando [l'interfaccia della riga di comando](maintenance-notifications-cli.md) di Azure o [PowerShell.](maintenance-notifications-powershell.md)

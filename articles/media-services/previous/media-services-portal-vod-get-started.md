@@ -15,23 +15,23 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 4a947c01d63e3842ead91481e480024a54380144
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69015062"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Introduzione alla distribuzione di contenuto on demand tramite il portale di Azure
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Scopri la versione più recente, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le linee guida per la [migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
 
 Questa esercitazione illustra il processo di implementazione di un servizio di base per la distribuzione di contenuti video on demand con l'applicazione Servizi multimediali di Azure nel portale di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare l'esercitazione sono necessari gli elementi seguenti:
 
-* Un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
+* Un account Azure. Per informazioni dettagliate, vedere Versione di valutazione gratuita di Azure .For [details,](https://azure.microsoft.com/pricing/free-trial/)see Azure free trial . 
 * Account di Servizi multimediali. Per creare un account Servizi multimediali, vedere [Come creare un account Servizi multimediali](media-services-portal-create-account.md).
 
 Questa esercitazione include le attività seguenti:
@@ -51,8 +51,8 @@ Uno degli scenari più frequenti dell'uso di Servizi multimediali di Azure rigua
 
 Per avviare l'endpoint di streaming:
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Selezionare **Impostazioni** > **Endpoint di streaming**. 
+1. Accedere al [portale](https://portal.azure.com/)di Azure .
+2. Selezionare **Impostazioni** > **Endpoint streaming**. 
 3. Selezionare l'endpoint di streaming predefinito. Verrà visualizzata la finestra **DETTAGLI ENDPOINT DI STREAMING PREDEFINITO** .
 4. Selezionare l'icona di **avvio**.
 5. Fare clic sul pulsante **Salva**.
@@ -61,7 +61,7 @@ Per avviare l'endpoint di streaming:
 Per riprodurre video in streaming con Servizi multimediali è necessario caricare i video di origine, codificarli in bitrate multipli e pubblicare il risultato. Il primo passaggio è illustrato in questa sezione. 
 
 1. Nel [portale di Azure ](https://portal.azure.com/) selezionare l'account Servizi multimediali di Azure.
-2. Selezionare **Impostazioni** > **Asset**. Selezionare quindi il pulsante **Carica**.
+2. Selezionare **Impostazioni** > **risorse**. Selezionare quindi il pulsante **Carica**.
    
     ![Caricare file](./media/media-services-portal-vod-get-started/media-services-upload.png)
    
@@ -84,14 +84,14 @@ Per sfruttare i vantaggi della creazione dinamica dei pacchetti è necessario co
 Per codificare il contenuto tramite Media Encoder Standard nel portale di Azure:
 
 1. Nel [portale di Azure ](https://portal.azure.com/) selezionare l'account Servizi multimediali di Azure.
-2. Selezionare **Impostazioni** > **Asset**. Selezionare l'asset da codificare.
+2. Selezionare **Impostazioni** > **risorse**. Selezionare l'asset da codificare.
 3. Selezionare il pulsante **Codifica**.
 4. Nel riquadro **Codifica un asset** selezionare il processore **Media Encoder Standard** e un set di impostazioni. Per informazioni sui set di impostazioni, vedere [Generare automaticamente una tabella di coppie bitrate-risoluzione](media-services-autogen-bitrate-ladder-with-mes.md) e [Set di impostazioni delle attività MES (Media Encoder Standard)](media-services-mes-presets-overview.md). È importante scegliere il set di impostazioni più idoneo per i video di input. Se ad esempio è noto che il video di input ha una risoluzione di 1920 × 1080 pixel, è possibile scegliere il set di impostazioni **Codec video H.264 a bitrate multiplo con risoluzione 1080p**. Se il video disponibile è a bassa risoluzione (640 × 360), non usare il set di impostazioni **Codec video H.264 a bitrate multiplo con risoluzione 1080p**.
    
    Per una gestione più semplice delle risorse è possibile modificare il nome dell'asset di output e il nome del processo.
    
    ![Codificare gli asset](./media/media-services-portal-vod-get-started/media-services-encode1.png)
-5. Selezionare **Create**.
+5. Selezionare **Crea**.
 
 ### <a name="monitor-encoding-job-progress"></a>Monitorare lo stato del processo di codifica
 Per monitorare lo stato del processo di codifica, fare clic su **Impostazioni** nella parte superiore della pagina e selezionare **Processi**.
@@ -101,8 +101,8 @@ Per monitorare lo stato del processo di codifica, fare clic su **Impostazioni** 
 ## <a name="publish-content"></a>Pubblicare contenuti
 Perché l'utente possa avere a disposizione un URL da usare per scaricare o riprodurre in streaming i contenuti, è prima necessario pubblicare un asset creando un localizzatore. I localizzatori forniscono l'accesso ai file contenuti nell'asset. Servizi multimediali di Azure supporta due tipi di localizzatori: 
 
-* **Localizzatori di streaming (OnDemandOrigin)** . I localizzatori di streaming vengono usati per il flusso adattivo. Sono esempi di flusso adattivo HLS, Smooth Streaming e MPEG-DASH. Per creare un localizzatore di streaming, l'asset deve contenere un file con estensione ism. 
-* **Localizzatori progressivi (firma di accesso condiviso)** . I localizzatori progressivi vengono usati per la distribuzione di video tramite download progressivo.
+* **Localizzatori di streaming (OnDemandOrigin)**. I localizzatori di streaming vengono usati per il flusso adattivo. Sono esempi di flusso adattivo HLS, Smooth Streaming e MPEG-DASH. Per creare un localizzatore di streaming, l'asset deve contenere un file con estensione ism. 
+* **Localizzatori progressivi (firma di accesso condiviso)**. I localizzatori progressivi vengono usati per la distribuzione di video tramite download progressivo.
 
 Per creare un URL di streaming HLS, aggiungere *(format=m3u8-aapl)* all'URL:
 
@@ -132,7 +132,7 @@ Per aggiornare la data di scadenza di un localizzatore, è possibile usare un'[A
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>Per usare il portale per la pubblicazione di un asset
 1. Nel [portale di Azure ](https://portal.azure.com/) selezionare l'account Servizi multimediali di Azure.
-2. Selezionare **Impostazioni** > **Asset**. Selezionare l'asset da pubblicare.
+2. Selezionare **Impostazioni** > **risorse**. Selezionare l'asset da pubblicare.
 3. Fare clic sul pulsante **Pubblica**.
 4. Selezionare il tipo di localizzatore.
 5. Selezionare **Aggiungi**.

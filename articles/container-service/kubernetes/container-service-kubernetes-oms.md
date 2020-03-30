@@ -8,10 +8,10 @@ ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: 02d04076ccc41d243a493838667f5e8cc6bfa5ac
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371155"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-log-analytics"></a>(DEPRECATO) Monitorare un cluster del servizio Azure Container con Log Analytics
@@ -63,7 +63,7 @@ az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUST
 
 ## <a name="monitoring-containers-with-log-analytics"></a>Monitoraggio dei contenitori con Log Analytics
 
-Log Analytics è la soluzione Microsoft per la gestione IT basata sul cloud che consente di gestire e proteggere l'infrastruttura locale e cloud. La soluzione contenitore è una soluzione in Log Analytics, che consente di visualizzare l'inventario, le prestazioni e i log del contenitore in un'unica posizione. È possibile controllare, risolvere i problemi relativi ai contenitori visualizzando i log in una posizione centralizzata e trovare un contenitore con un consumo eccessivo in un host.
+Log Analytics è la soluzione Microsoft per la gestione IT basata sul cloud che consente di gestire e proteggere l'infrastruttura locale e cloud.La soluzione di monitoraggio dei contenitori è una soluzione di Log Analytics che consente di visualizzare l'inventario, le prestazioni e i log dei contenitori in un'unica posizione. È possibile controllare, risolvere i problemi relativi ai contenitori visualizzando i log in una posizione centralizzata e trovare un contenitore con un consumo eccessivo in un host.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
@@ -92,7 +92,7 @@ kubectl create -f oms-daemonset.yaml
 ### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Installazione dell'agente di Log Analytics tramite un segreto Kubernetes
 Per proteggere l'ID e la chiave dell'area di lavoro Log Analytics è possibile usare il segreto Kubernetes come parte del file YAML di DaemonSet.
 
-- Copiare lo script, il file modello dei segreti e il file YAML di DaemonSet (dal [repository](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) e assicurarsi che siano nella stessa directory.
+- Copiare lo script, il file modello segreto e il file YAML DaemonSet (dal [repository)](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)e assicurarsi che si trovino nella stessa directory.
   - Script per la generazione di segreti: secret-gen.sh
   - Modello di segreto: secret-template.yaml
     - File DaemonSet YAML: omsagent-ds-secrets.yaml
@@ -132,11 +132,11 @@ Per proteggere l'ID e la chiave dell'area di lavoro Log Analytics è possibile u
   KEY:    88 bytes
   ```
 
-  - Creare il set di daemon omsagent eseguendo il comando seguente:
+  - Creare il set daemon omsagent eseguendo quanto segue:
   
   ```console
   kubectl create -f omsagent-ds-secrets.yaml
   ```
 
-### <a name="conclusion"></a>Conclusione
+### <a name="conclusion"></a>Conclusioni
 L'operazione è terminata. Dopo qualche minuto dovrebbe essere visualizzato il flusso di dati verso il dashboard di Log Analytics.

@@ -1,6 +1,6 @@
 ---
-title: Eliminare i BLOB di archiviazione per i log di flusso dei gruppi di sicurezza di rete in Azure Network Watcher | Microsoft Docs
-description: Questo articolo illustra come eliminare i BLOB di archiviazione del log di flusso del gruppo di sicurezza di rete che non rientrano nel periodo dei criteri di conservazione in Azure Network Watcher.
+title: Eliminare i BLOB di archiviazione per i log di flusso del gruppo di sicurezza di rete in Controllo rete di AzureDelete storage blobs for network network group flow logs in Azure Network Watcher - Documenti Microsoft
+description: Questo articolo illustra come eliminare i BLOB di archiviazione del log di flusso del gruppo di sicurezza di rete che non rientrano nel periodo dei criteri di conservazione in Watcher rete di Azure.This article explains how to delete the network security group flow log storage blobs that are outside their retention policy period in Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -14,17 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2019
 ms.author: damendo
 ms.openlocfilehash: 6d535bcc2e0831baae658796f76c8087d74c6a85
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77587210"
 ---
-# <a name="delete-network-security-group-flow-log-storage-blobs-in-network-watcher"></a>Eliminare i BLOB di archiviazione del log di flusso del gruppo di sicurezza di rete in Network Watcher
+# <a name="delete-network-security-group-flow-log-storage-blobs-in-network-watcher"></a>Eliminare i BLOB di archiviazione del log di flusso del gruppo di sicurezza di rete in Network WatcherDelete network security group flow log storage blobs in Network Watcher
 
 Attualmente si verifica un problema per cui [i log dei flussi del gruppo di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md) per Network Watcher non vengono eliminati automaticamente dall'archiviazione BLOB in base alle impostazioni dei criteri di conservazione. È ora necessario eseguire uno script di PowerShell per eliminare manualmente i log di flusso dall'account di archiviazione, come descritto in questo articolo.
 
-## <a name="run-powershell-script-to-delete-nsg-flow-logs"></a>Eseguire lo script di PowerShell per eliminare i log di flusso NSG
+## <a name="run-powershell-script-to-delete-nsg-flow-logs"></a>Eseguire lo script di PowerShell per eliminare i log di flusso del gruppo di sicurezza di reteRun PowerShell script to delete NSG flow logs
  
 Copiare e salvare lo script seguente in un percorso, ad esempio la directory di lavoro corrente. 
 
@@ -124,17 +124,17 @@ foreach ($Psflowlog in $FlowLogsList)
 Write-Output ('Retention policy for all NSGs evaluated and completed successfully')
 ```
 
-1. Immettere i parametri seguenti nello script in base alle esigenze:
-   - **SubscriptionId** [obbligatorio]: ID sottoscrizione da cui si vogliono eliminare i BLOB di log del flusso di NSG.
-   - **Location** [obbligatoria]: _stringa di percorso_ dell'area di gruppi per cui si vogliono eliminare i BLOB del log di flusso di NSG. È possibile visualizzare queste informazioni nel portale di Azure o in [GitHub](https://github.com/Azure/azure-extensions-cli/blob/beb3d3fe984cfa9c7798cb11a274c5337968cbc5/regions.go#L23).
-   - **Confermare** [facoltativo]: passare il flag di conferma se si vuole confermare manualmente l'eliminazione di ogni BLOB di archiviazione.
+1. Immettere i seguenti parametri nello script in base alle esigenze:
+   - **SubscriptionId** [Obbligatorio]: ID sottoscrizione da cui si desidera eliminare i BLOB del log di flusso del gruppo di sicurezza di rete.
+   - **Percorso** [Obbligatorio]: stringa di _posizione_ dell'area dei gruppi di sicurezza di rete per cui si desidera eliminare i BLOB del log di flusso del gruppo di sicurezza di rete. È possibile visualizzare queste informazioni nel portale di Azure o in [GitHub](https://github.com/Azure/azure-extensions-cli/blob/beb3d3fe984cfa9c7798cb11a274c5337968cbc5/regions.go#L23).
+   - **Conferma** [Facoltativo]: passare il flag di conferma se si vuole confermare manualmente l'eliminazione di ogni BLOB di archiviazione.
 
-1. Eseguire lo script salvato come illustrato nell'esempio seguente, in cui il file di script è stato salvato come **Delete-NsgFlowLogsBlobs. ps1**:
+1. Eseguire lo script salvato come illustrato nell'esempio seguente, in cui il file di script è stato salvato come **Delete-NsgFlowLogsBlobs.ps1**:
    ```
    .\Delete-NsgFlowLogsBlobs.ps1 -SubscriptionId <subscriptionId> -Location  <location> -Confirm
    ```
     
 ## <a name="next-steps"></a>Passaggi successivi
-- I clienti possono automatizzare l'esecuzione dello script usando app per la [logica di Azure](../logic-apps/logic-apps-overview.md) o automazione di [Azure](https://azure.microsoft.com/services/automation/)
-- Per altre informazioni sulla registrazione NSG, vedere [log di monitoraggio di Azure per i gruppi di sicurezza di rete (gruppi)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- I clienti possono automatizzare l'esecuzione dello script usando le app per la logica di Azure o [l'automazione di AzureCustomers](https://azure.microsoft.com/services/automation/) can automate running the script by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md) or Azure Automation
+- Per altre informazioni sulla registrazione dei gruppi di sicurezza di rete, vedere Log di Monitoraggio di Azure per i gruppi di sicurezza di [rete.](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 

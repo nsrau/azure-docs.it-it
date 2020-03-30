@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/07/2019
 ms.openlocfilehash: f00ecd19877ba6236bde5de73d450967abc1fe15
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73821038"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Ritiro del livello di servizio Premium RS (anteprima) del database SQL di Azure - Opzioni per la migrazione
@@ -26,7 +26,7 @@ Di seguito sono riportate le destinazioni di migrazione e le opzioni di prezzo p
 
 - Livelli di servizio vCore
 
-  Livelli di servizio **Utilizzo generico** e **Business critical** nel [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md). Questi due livelli di servizio sono in disponibilità generale. Il modello di acquisto basato su vCore offre anche il livello di servizio di **iperscalabilità** che si adatta alle esigenze del carico di lavoro con scalabilità automatica fino a 100 TB per database. Il livello di servizio Hyperscale garantisce prestazioni I/O paragonabili a quelle del livello di servizio Premium nel [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) a un prezzo più vicino a quello del livello di servizio Premium RS.
+  Livelli di servizio **Utilizzo generico** e **Business critical** nel [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md). Questi due livelli di servizio sono in disponibilità generale. Il modello di acquisto basato su vCore offre anche il livello di servizio **Hyperscale** che adatta su richiesta alle esigenze del carico di lavoro con scalabilità automatica fino a 100 TB per database. Il livello di servizio Hyperscale garantisce prestazioni I/O paragonabili a quelle del livello di servizio Premium nel [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) a un prezzo più vicino a quello del livello di servizio Premium RS.
 - Prezzi di sviluppo/test
 
   I [prezzi di sviluppo/test](https://azure.microsoft.com/pricing/dev-test/) consentono un risparmio fino al 55% rispetto ai prezzi con licenza inclusa per la sottoscrizione di Visual Studio.
@@ -69,10 +69,10 @@ Per ottenere una combinazione ideale di prestazioni e costi, è consigliabile es
 
 |**Se attualmente si usa…**|**Eseguire la migrazione a livelli basati su vCore comparabili…**|**Eseguire la migrazione a livelli basati su DTU comparabili…**|
 |---|---|---|
-|Premium RS 1| Iperscala 1 vCore (Gen4) o business critical 1 vCore (Gen4)|Premium 1|
-|Premium RS 2| Iperscalare 2 Vcore (Gen4) o business critical 2 Vcore (Gen4|Premium 2|
-|Premium RS 4| Iperscale 4 Vcore (Gen4) o business critical 4 Vcore (Gen4)|Premium 4
-|Premium RS 6| Iperscale 6 Vcore (Gen4) o business critical 6 Vcore (Gen4)|Premium 6|
+|Premium RS 1| Hyperscale 1 vCore (Gen4) o Business Critical 1 vCore (Gen4)|Premium 1|
+|Premium RS 2| Hyperscale 2 vCores (Gen4) o Business Critical 2 vCores (Gen4|Premium 2|
+|Premium RS 4| Hyperscale 4 vCores (Gen4) o Business Critical 4 vCores (Gen4)|Premium 4
+|Premium RS 6| Hyperscale 6 vCores (Gen4) o Business Critical 6 vCores (Gen4)|Premium 6|
 
 |**Se attualmente si usa…**|**Eseguire la migrazione a livelli basati su vCore comparabili…**|**Eseguire la migrazione a livelli basati su DTU comparabili…**|
 |---|---|---|
@@ -100,4 +100,4 @@ La migrazione di un database da un livello di servizio Premium RS a un livello d
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni dettagliate sulle dimensioni di calcolo specifiche e sulle opzioni relative alle dimensioni di archiviazione disponibili per database singoli, vedere [Limiti delle risorse basate su vCore del database SQL per database singoli](sql-database-vcore-resource-limits-single-databases.md)
-- Per informazioni dettagliate sulle dimensioni di calcolo specifiche e sulle opzioni relative alle dimensioni di archiviazione disponibili per i pool elastici, vedere [Limiti delle risorse basate su vCore del database SQL per i pool elastici](sql-database-vcore-resource-limits-elastic-pools.md).
+- Per informazioni dettagliate sulle dimensioni di calcolo specifiche e sulle opzioni relative alle dimensioni di archiviazione disponibili per i pool elastici, vedere Limiti delle risorse basate su vCore del database SQL per i [pool elastici.](sql-database-vcore-resource-limits-elastic-pools.md)

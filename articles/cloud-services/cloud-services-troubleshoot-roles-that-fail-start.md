@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: 869453d92f536a62aacc2be52598223158566ae0
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71122738"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Risolvere i problemi dei ruoli del servizio cloud che non vengono avviati
@@ -47,7 +47,7 @@ Per visualizzare informazioni sugli errori più completi, configurare il file we
 Per visualizzare errori più completi senza usare Desktop remoto:
 
 1. Aprire la soluzione in Microsoft Visual Studio.
-2. In **Esplora soluzioni**individuare il file web.config e aprirlo.
+2. In **Esplora soluzioni** individuare il file web.config e aprirlo.
 3. Nel file web.config individuare la sezione system.web e aggiungere la riga seguente:
 
     ```xml
@@ -69,15 +69,15 @@ Quando il servizio viene ridistribuito, verrà visualizzato un messaggio di erro
 7. Digitare `IPconfig`.
 8. Annotare il valore dell'indirizzo IPV4.
 9. Aprire Internet Explorer.
-10. Digitare l'indirizzo e il nome dell'applicazione Web, ad esempio `http://<IPV4 Address>/default.aspx`.
+10. Digitare l'indirizzo e il nome dell'applicazione Web, Ad esempio: `http://<IPV4 Address>/default.aspx`.
 
 Se si passa al sito Web, ora verranno restituiti messaggi di errore più espliciti:
 
 * Errore del server nell'applicazione '/'.
-* Descrizione: Si è verificata un'eccezione non gestita durante l'esecuzione della richiesta Web corrente. Per altre informazioni sull'errore e sul suo punto di origine nel codice, vedere l'analisi dello stack.
-* Dettagli eccezione: System.IO.FIleNotFoundException: Non è stato possibile caricare il file o l'assembly ' Microsoft. WindowsAzure. StorageClient, Version = 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35' o una delle relative dipendenze. Non è possibile trovare il file specificato.
+* Descrizione: Eccezione non gestita durante l'esecuzione della richiesta Web corrente. Per altre informazioni sull'errore e sul suo punto di origine nel codice, vedere l'analisi dello stack.
+* Dettagli dell'eccezione: System.IO.FIleNotFoundException: Impossibile caricare il file o l'assembly 'Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35' o una delle relative dipendenze. Non è possibile trovare il file specificato.
 
-Esempio:
+Ad esempio:
 
 ![Errore esplicito del server nell'applicazione '/'](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 
@@ -101,12 +101,12 @@ Seguire questa procedura per distribuire il servizio con IntelliTrace abilitato:
 
 1. Verificare che sia installato Azure SDK 1.3 o versione successiva.
 2. Distribuire la soluzione usando Visual Studio. Durante la distribuzione selezionare la casella di controllo **Abilita IntelliTrace per ruoli .NET 4** .
-3. Dopo l'avvio dell'istanza, aprire **Esplora server**.
+3. Una volta avviata l'istanza, aprire **Esplora server**.
 4. Espandere il nodo **Azure\\Servizi cloud** e trovare la distribuzione.
 5. Espandere la distribuzione finché non vengono visualizzate le istanze del ruolo. Fare clic con il pulsante destro del mouse su una delle istanze.
-6. Scegliere **Visualizza log IntelliTrace**. Verrà visualizzato il **Riepilogo IntelliTrace** .
+6. Selezionare **Visualizza log IntelliTrace**. Verrà aperto **Riepilogo IntelliTrace**.
 7. Individuare la sezione delle eccezioni del riepilogo. Se sono presenti eccezioni, la sezione sarà denominata **Dati eccezione**.
-8. Espandere **Dati eccezione**e cercare errori **System.IO.FileNotFoundException** analoghi al seguente:
+8. Espandere **Dati eccezione** e cercare errori **System.IO.FileNotFoundException** simili al seguente:
 
 ![Dati eccezione, assembly o file mancante](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503390.png)
 
