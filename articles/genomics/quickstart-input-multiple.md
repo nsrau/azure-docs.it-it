@@ -1,7 +1,7 @@
 ---
-title: Inviare un flusso di lavoro usando più input
+title: Inviare un flusso di lavoro usando più inputSubmit a workflow using multiple inputs
 titleSuffix: Microsoft Genomics
-description: Questo articolo illustra come inviare un flusso di lavoro al servizio genomica di Microsoft se il file di input è più FASTQ o file BAM dello stesso campione.
+description: Questo articolo illustra come inviare un flusso di lavoro al servizio Genomica di Microsoft se il file di input è più file FASTQ o BAM dello stesso esempio.
 services: genomics
 ms.service: genomics
 author: grhuynh
@@ -10,25 +10,25 @@ ms.author: grhuynh
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.openlocfilehash: b426015906a8e17674123c0c3ad2fccb9c43798f
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72248576"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>Inviare un flusso di lavoro usando più input dallo stesso esempio
 
-Questo articolo illustra come inviare un flusso di lavoro al servizio genomica di Microsoft se il file di input è più FASTQ o file BAM **provenienti dallo stesso esempio**. Se ad esempio è stato eseguito lo **stesso esempio** in più corsie sul sequencer, è possibile che il sequencer restituisca una coppia di file FASTQ per ogni corsia. Invece di concatenare questi file FASTQ prima dell'allineamento e chiamata delle varianti, è possibile inviare direttamente tutti questi input al client `msgen`. L'output dal client `msgen` sarà un **set singolo** di file, che include un file con estensione bam, bai, vcf. 
+In questo articolo viene illustrato come inviare un flusso di lavoro al servizio Genomica di Microsoft se il file di input è più file FASTQ o BAM **provenienti dallo stesso esempio**. Se ad esempio è stato eseguito lo **stesso esempio** in più corsie sul sequencer, è possibile che il sequencer restituisca una coppia di file FASTQ per ogni corsia. Invece di concatenare questi file FASTQ prima dell'allineamento e chiamata delle varianti, è possibile inviare direttamente tutti questi input al client `msgen`. L'output dal client `msgen` sarà un **set singolo** di file, che include un file con estensione bam, bai, vcf. 
 
 Occorre tuttavia ricordare che **non è possibile** combinare file FASTQ e BAM nello stesso invio. **Non è possibile** inoltre inviare più file FASTQ o BAM da più utenti singoli. 
 
-In questo articolo si presuppone che sia già stato installato ed eseguito il client `msgen` e che si abbia familiarità con l'uso di Archiviazione di Azure. Se un flusso di lavoro è stato inviato correttamente usando i dati di esempio forniti, è possibile procedere con questo articolo. 
+In questo articolo si presuppone che sia già stato installato ed eseguito il client `msgen` e che si abbia familiarità con l'uso di Archiviazione di Azure. Se un flusso di lavoro è stato inviato correttamente utilizzando i dati di esempio forniti, è possibile procedere con questo articolo. 
 
 
 ## <a name="multiple-bam-files"></a>Più file BAM
 
 ### <a name="upload-your-input-files-to-azure-storage"></a>Caricare i file di input in Archiviazione di Azure
-Si supponga che siano disponibili più file BAM come input, *reads.bam*, *additional_reads.bam* e *yet_more_reads.bam*, e che i file siano stati caricati nell'account di archiviazione *myaccount* in Azure. È necessario che siano disponibili l'URL dell'API e la chiave di accesso. Gli output devono essere disponibili in **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** .
+Si supponga che siano disponibili più file BAM come input, *reads.bam*, *additional_reads.bam* e *yet_more_reads.bam*, e che i file siano stati caricati nell'account di archiviazione *myaccount* in Azure. È necessario che siano disponibili l'URL dell'API e la chiave di accesso. Gli output devono essere disponibili in **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>**.
 
 
 ### <a name="submit-your-job-to-the-msgen-client"></a>Inviare il processo al client `msgen` 
@@ -91,7 +91,7 @@ Inviare il file `config.txt` con questa chiamata: `msgen submit -f config.txt`
 ## <a name="multiple-paired-fastq-files"></a>Più file FASTQ abbinati
 
 ### <a name="upload-your-input-files-to-azure-storage"></a>Caricare i file di input in Archiviazione di Azure
-Si supponga che siano disponibili più file FASTQ abbinati come input, *reads_1.fq.gz* e *reads_2.fq.gz*, *additional_reads_1.fq.gz* e *additional_reads_2.fq.gz* e *yet_more_reads_1.fq.gz* e *yet_more_reads_2.fq.gz*. I file sono stati caricati in un account di archiviazione *myaccount* in Azure e sono disponibili l'URL dell'API e la chiave di accesso. Gli output devono essere disponibili in **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** .
+Si supponga che siano disponibili più file FASTQ abbinati come input, *reads_1.fq.gz* e *reads_2.fq.gz*, *additional_reads_1.fq.gz* e *additional_reads_2.fq.gz* e *yet_more_reads_1.fq.gz* e *yet_more_reads_2.fq.gz*. I file sono stati caricati in un account di archiviazione *myaccount* in Azure e sono disponibili l'URL dell'API e la chiave di accesso. Gli output devono essere disponibili in **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>**.
 
 
 ### <a name="submit-your-job-to-the-msgen-client"></a>Inviare il processo al client `msgen` 

@@ -12,23 +12,23 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 11/14/2019
 ms.openlocfilehash: c3f7b33e4b42b08334cfb687024985c878dc3713
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79209433"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Come usare il database SQL di Azure
 
-In questa sezione sono disponibili varie guide, script e spiegazioni che possono essere utili per gestire e configurare il database SQL di Azure. È anche possibile trovare guide pratiche specifiche per [database singolo](sql-database-howto-single-database.md) e [Istanza gestita](sql-database-howto-managed-instance.md).
+In questa sezione sono disponibili varie guide, script e spiegazioni che possono essere utili per gestire e configurare il database SQL di Azure. È inoltre possibile trovare guide pratiche specifiche per [singolo database](sql-database-howto-single-database.md) e [istanza gestita](sql-database-howto-managed-instance.md).
 
-## <a name="load-data"></a>Caricare dati
+## <a name="load-data"></a>Caricare i dati
 
 - [Copiare un database singolo o un database in pool all'interno di Azure](sql-database-copy.md)
 - [Importare un database da un file BACPAC](sql-database-import.md)
 - [Esportare un database in un file BACPAC](sql-database-export.md)
 - [Caricare i dati con BCP](sql-database-load-from-csv-with-bcp.md)
-- [Caricare i dati con ADF](../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json)
+- [Caricare dati con ADF](../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json)
 
 ### <a name="data-sync"></a>Sincronizzazione dei dati
 
@@ -59,7 +59,7 @@ In questa sezione sono disponibili varie guide, script e spiegazioni che possono
 - [Configurare l'autorizzazione di Azure AD](sql-database-aad-authentication-configure.md)
 - [Configurare l'accesso condizionale](sql-database-conditional-access.md)
 - [Multi-Factor Authentication di AAD](sql-database-ssms-mfa-authentication.md)
-- [Configurare multi-factor auth](sql-database-ssms-mfa-authentication-configure.md)
+- [Configurare l'autenticazione a più fattori](sql-database-ssms-mfa-authentication-configure.md)
 - [Configurare i criteri di conservazione temporale](sql-database-temporal-tables-retention-policy.md)
 - [Configurare TDE con BYOK](transparent-data-encryption-byok-azure-sql-configure.md)
 - [Eseguire la rotazione delle chiavi TDE BYOK](transparent-data-encryption-byok-azure-sql-key-rotation.md)
@@ -71,7 +71,7 @@ In questa sezione sono disponibili varie guide, script e spiegazioni che possono
 
 - [Connettività](sql-database-libraries.md)
 - [Usare il connettore Spark](sql-database-spark-connector.md)
-- [Autenticare l'app ](sql-database-client-id-keys.md)
+- [Autenticare l'app](sql-database-client-id-keys.md)
 - [Usare l'invio in batch per ottenere prestazioni migliori](sql-database-use-batching-to-improve-performance.md)
 - [Linee guida per la connettività](sql-database-connectivity-issues.md)
 - [Alias DNS](dns-alias-overview.md)

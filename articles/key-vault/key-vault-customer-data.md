@@ -10,10 +10,10 @@ ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 67e1aeab4211249075b51bd0138d7875756a3483
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70883314"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Funzionalità dei dati dei clienti in Azure Key Vault
@@ -54,7 +54,7 @@ I log di diagnostica di Azure Key Vault che contengono dati personali possono es
 
 - [Registrazione dell'insieme di credenziali delle chiavi di Azure](key-vault-logging.md)
 
-- [Panoramica dell'eliminazione temporanea di Azure Key Vault](key-vault-soft-delete-cli.md)
+- [Panoramica di eliminazione temporanea di Azure Key Vault](key-vault-soft-delete-cli.md)
 
 - [Azure Key Vault key operations](https://docs.microsoft.com/rest/api/keyvault/key-operations) (Operazioni relative alle chiavi di Azure Key Vault)
 

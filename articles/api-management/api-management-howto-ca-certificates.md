@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 21d5869f2bcdfb6383b6ef89869d8098135ea7ee
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70073595"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Come aggiungere un certificato della CA personalizzato in Gestione API di Azure
@@ -29,7 +29,7 @@ Questo articolo illustra come gestire i certificati della CA di un'istanza del s
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="step1"> </a>Caricare un certificato della CA
+## <a name="upload-a-ca-certificate"></a><a name="step1"> </a>Caricare un certificato della CA
 
 ![Aggiungere certificati della CA](media/api-management-howto-ca-certificates/00.png)
 
@@ -47,14 +47,14 @@ Seguire questa procedura per caricare un nuovo certificato della CA. Se non è a
 
     ![Aggiungere certificati della CA](media/api-management-howto-ca-certificates/02.png)  
 
-5. Fare clic su **Save**. Questa operazione può richiedere qualche minuto.
+5. Fare clic su **Salva**. Questa operazione può richiedere qualche minuto.
 
     ![Aggiungere certificati della CA](media/api-management-howto-ca-certificates/03.png)  
 
 > [!NOTE]
 > È possibile caricare un certificato della CA usando il comando `New-AzApiManagementSystemCertificate` di PowerShell.
 
-## <a name="step1a"></a>Eliminare un certificato client
+## <a name="delete-a-client-certificate"></a><a name="step1a"> </a>Eliminare un certificato client
 
 Per eliminare un certificato, fare clic sul menu di scelta rapida **...** e selezionare **Elimina** accanto al certificato.
 

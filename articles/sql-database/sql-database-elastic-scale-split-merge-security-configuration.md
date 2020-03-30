@@ -12,10 +12,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: a916645f153f73a98e7fc5d4046bdf557e8acf2b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823521"
 ---
 # <a name="split-merge-security-configuration"></a>Configurazione della sicurezza del servizio di divisione e unione
@@ -58,17 +58,17 @@ Un certificato SSL è necessario per crittografare la comunicazione e autenticar
 1. [Creare un certificato autofirmato](#create-a-self-signed-certificate)
 2. [Creare un file PFX per il certificato SSL autofirmato](#create-pfx-file-for-self-signed-ssl-certificate)
 3. [Caricare il certificato SSL nel servizio cloud](#upload-ssl-certificate-to-cloud-service)
-4. [Aggiornare il certificato SSL nel file di configurazione del servizio](#update-ssl-certificate-in-service-configuration-file)
+4. [Aggiornare il certificato SSL nel file di configurazione del servizioUpdate SSL Certificate in Service Configuration File](#update-ssl-certificate-in-service-configuration-file)
 5. [Importare l'Autorità di certificazione SSL](#import-ssl-certification-authority)
 
 ### <a name="to-use-an-existing-certificate-from-the-certificate-store"></a>Per usare un certificato esistente dall'archivio certificati
 1. [Esportare il certificato SSL dall'archivio certificati](#export-ssl-certificate-from-certificate-store)
 2. [Caricare il certificato SSL nel servizio cloud](#upload-ssl-certificate-to-cloud-service)
-3. [Aggiornare il certificato SSL nel file di configurazione del servizio](#update-ssl-certificate-in-service-configuration-file)
+3. [Aggiornare il certificato SSL nel file di configurazione del servizioUpdate SSL Certificate in Service Configuration File](#update-ssl-certificate-in-service-configuration-file)
 
 ### <a name="to-use-an-existing-certificate-in-a-pfx-file"></a>Per usare un certificato esistente in un file con estensione pfx
 1. [Caricare il certificato SSL nel servizio cloud](#upload-ssl-certificate-to-cloud-service)
-2. [Aggiornare il certificato SSL nel file di configurazione del servizio](#update-ssl-certificate-in-service-configuration-file)
+2. [Aggiornare il certificato SSL nel file di configurazione del servizioUpdate SSL Certificate in Service Configuration File](#update-ssl-certificate-in-service-configuration-file)
 
 ## <a name="to-configure-client-certificates"></a>Per configurare i certificati client
 I certificati client sono necessari per autenticare le richieste al servizio. Scegliere il più appropriato dei tre seguenti scenari ed eseguirne tutti i passaggi:
@@ -107,7 +107,7 @@ L'accesso agli endpoint del servizio può essere limitato a intervalli specifici
 4. [Aggiornare il certificato di crittografia nel file di configurazione del servizio](#update-encryption-certificate-in-service-configuration-file)
 
 ### <a name="use-an-existing-certificate-from-the-certificate-store"></a>Usare un certificato esistente dall'archivio certificati
-1. [Esportare il certificato di crittografia dall'archivio certificati](#export-encryption-certificate-from-certificate-store)
+1. [Esporta certificato di crittografia dall'archivio certificati](#export-encryption-certificate-from-certificate-store)
 2. [Caricare il certificato di crittografia nel servizio cloud](#upload-encryption-certificate-to-cloud-service)
 3. [Aggiornare il certificato di crittografia nel file di configurazione del servizio](#update-encryption-certificate-in-service-configuration-file)
 
@@ -120,7 +120,7 @@ La configurazione predefinita nega qualunque accesso all'endpoint HTTP. Questa �
 La configurazione predefinita consente qualunque accesso all'endpoint HTTPS. Tale impostazione può essere limitata ulteriormente.
 
 ### <a name="changing-the-configuration"></a>Modifica della configurazione
-Il gruppo di regole di controllo di accesso che si applicano a e l'endpoint vengono configurati nella sezione **\<EndpointAcls >** nel **file di configurazione del servizio**.
+Il gruppo di regole di controllo di accesso che si applicano a e gli endpoint sono configurati nella sezione ** \<>EndpointAcls** del file di configurazione del **servizio.**
 
 ```xml
 <EndpointAcls>
@@ -129,7 +129,7 @@ Il gruppo di regole di controllo di accesso che si applicano a e l'endpoint veng
 </EndpointAcls>
 ```
 
-Le regole in un gruppo di controllo di accesso vengono configurate in una sezione di \<AccessControl nome = "" > del file di configurazione del servizio. 
+Le regole di un gruppo di \<controllo di accesso sono configurate in una sezione AccessControl name-"> del file di configurazione del servizio. 
 
 Il formato è illustrato nella documentazione relativa agli elenchi di controllo di accesso di rete.
 Ad esempio, per consentire l'accesso all'endpoint HTTPS solo per gli indirizzi IP compresi nell'intervallo da 100.100.0.0 a 100.100.255.255, le regole saranno simili alle seguenti:
@@ -358,7 +358,7 @@ Ogni utente per il quale è stato rilasciato un certificato client dovrà seguir
 * Assicurarsi che in Mostra sia visualizzato Tutti.
 * Nell'elenco selezionare il campo denominato Identificazione personale.
 * Copiare il valore dell'identificazione personale
-  * Elimina i caratteri Unicode non visibili davanti alla prima cifra
+  * Eliminare i caratteri Unicode non visibili davanti alla prima cifra
   * Elimina tutti gli spazi
 
 ## <a name="configure-allowed-clients-in-the-service-configuration-file"></a>Configurare i client consentiti nel file di configurazione del servizio

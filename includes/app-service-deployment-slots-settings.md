@@ -5,28 +5,28 @@ ms.topic: include
 ms.date: 09/18/2019
 ms.author: cephalin
 ms.openlocfilehash: e00db06346b19ef85eb77626eb2ed169d2224b6c
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71129686"
 ---
-Quando si clona la configurazione da un altro slot di distribuzione, la configurazione clonata è modificabile. Alcuni elementi di configurazione seguono il contenuto in uno scambio (non specifico dello slot), mentre altri elementi di configurazione si mantengono nello stesso slot dopo uno scambio (specifico dello slot). Negli elenchi seguenti sono riportate le impostazioni che vengono modificate durante lo scambio degli slot.
+Quando si clona la configurazione da un altro slot di distribuzione, la configurazione clonata è modificabile. Alcuni elementi di configurazione seguono il contenuto in uno scambio (non specifico dello slot), mentre altri elementi di configurazione rimangono nello stesso slot dopo uno scambio (specifico dello slot). Negli elenchi seguenti sono riportate le impostazioni che vengono modificate durante lo scambio degli slot.
 
 **Impostazioni che vengono scambiate**:
 
-* Impostazioni generali, ad esempio versione del Framework, 32/64 bit, Web socket
+* Impostazioni generali, ad esempio la versione del framework, 32/64 bit, socket Web
 * Impostazioni app (possono essere configurate per adattarsi a uno slot)
 * Stringhe di connessione (possono essere configurate per adattarsi a uno slot)
 * Mapping dei gestori
 * Certificati pubblici
 * Contenuto WebJobs
-* Connessioni ibride *
-* Integrazione della rete virtuale *
-* Endpoint di servizio *
-* Rete per la distribuzione di contenuti di Azure *
+* Connessioni ibride
+* Integrazione con la rete virtuale
+* Endpoint di servizio
+* Rete per la distribuzione di contenuti di Azure
 
-Le funzionalità contrassegnate con un asterisco (*) sono pianificate per lo scambio. 
+È prevista l'unswapped delle feature contrassegnate con un asterisco. 
 
 **Impostazioni che non vengono scambiate**:
 
@@ -37,9 +37,9 @@ Le funzionalità contrassegnate con un asterisco (*) sono pianificate per lo sca
 * Utilità di pianificazione WebJobs
 * Restrizioni IP
 * Always On
-* Impostazioni del log di diagnostica
-* Condivisione di risorse tra le origini (CORS)
+* Impostazioni del registro di diagnostica
+* Condivisione delle risorse tra origini (CORS)
 
 > [!NOTE]
-> Anche alcune impostazioni di app che si applicano alle impostazioni non scambiate non vengono scambiate. Ad esempio, poiché le impostazioni del log di diagnostica non vengono scambiate, le impostazioni dell'app correlate come `WEBSITE_HTTPLOGGING_RETENTION_DAYS` e `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` non vengono scambiate anche se non vengono visualizzate come impostazioni dello slot.
+> Anche alcune impostazioni dell'app che si applicano alle impostazioni non scambiate non vengono scambiate. Ad esempio, poiché le impostazioni del log `WEBSITE_HTTPLOGGING_RETENTION_DAYS` di `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` diagnostica non vengono scambiate, anche le impostazioni dell'app correlate, ad esempio e non vengono scambiate, anche se non vengono visualizzate come impostazioni dello slot.
 >

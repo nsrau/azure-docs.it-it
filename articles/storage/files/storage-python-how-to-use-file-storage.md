@@ -8,10 +8,10 @@ ms.date: 12/14/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 139e3009722761172b7bbd57805a7f5b07e55fc0
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68699387"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Sviluppare per File di Azure con Python
@@ -47,7 +47,7 @@ pip install azure-storage-file
 Per metodi di installazione alternativi, vedere la pagina di [Azure Storage SDK per Python su GitHub](https://github.com/Azure/azure-storage-python/).
 
 ## <a name="view-the-sample-application"></a>Visualizzare l'applicazione di esempio
-Per visualizzare ed eseguire un'applicazione di esempio che mostra come usare Python con File di Azure, vedere [Azure Storage: Getting Started with Azure Files in Python](https://github.com/Azure-Samples/storage-file-python-getting-started) (Archiviazione di Azure: Introduzione a File di Azure in Python). 
+f Per visualizzare ed eseguire un'applicazione di esempio che illustra come usare Python con i file di Azure, vedere Archiviazione di [Azure: Introduzione ai file](https://github.com/Azure-Samples/storage-file-python-getting-started)di Azure in Python.f To view and run a sample application that shows how to use Python with Azure Files, see Azure Storage: Getting Started with Azure Files in Python . 
 
 Per eseguire questa applicazione di esempio, verificare di aver installato entrambi i pacchetti `azure-storage-file` e `azure-storage-common`.
 
@@ -88,7 +88,7 @@ for file_or_dir in generator:
     print(file_or_dir.name)
 ```
 
-## <a name="upload-a-file"></a>Carica un file 
+## <a name="upload-a-file"></a>Caricare un file 
 Una condivisione file di Azure contiene almeno una directory radice in cui possono risiedere i file. In questa sezione verrà illustrato come caricare un file dall'archiviazione locale nella directory radice di una condivisione.
 
 Per creare un file e caricare dati, usare i metodi `create_file_from_path`, `create_file_from_stream`, `create_file_from_bytes` o `create_file_from_text`. Questi sono metodi di carattere generale che eseguono il blocco dei dati necessario quando le dimensioni superano i 64 MB.
@@ -107,7 +107,7 @@ file_service.create_file_from_path(
     content_settings=ContentSettings(content_type='image/png'))
 ```
 
-## <a name="download-a-file"></a>Scarica file
+## <a name="download-a-file"></a>Scaricare un file
 Per scaricare i dati da un file, usare `get_file_to_path`, `get_file_to_stream`, `get_file_to_bytes` o `get_file_to_text`. Questi sono metodi di carattere generale che eseguono il blocco dei dati necessario quando le dimensioni superano i 64 MB.
 
 Nell'esempio seguente viene illustrato l'uso di `get_file_to_path` per scaricare il contenuto del file **myfile** e archiviarlo nel file **out-sunset.png**.
@@ -180,5 +180,5 @@ file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
 Dopo aver appreso come interagire con File di Azure con Python, selezionare i collegamenti seguenti per altre informazioni.
 
 * [Centro per sviluppatori Python](https://azure.microsoft.com/develop/python/)
-* [API REST dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355)
+* [API REST di Servizi di archiviazione di AzureAzure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355)
 * [Microsoft Azure Storage SDK per Python](https://github.com/Azure/azure-storage-python)

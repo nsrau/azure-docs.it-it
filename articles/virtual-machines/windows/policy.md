@@ -1,5 +1,5 @@
 ---
-title: Applicare la sicurezza con i criteri per le macchine virtuali Windows in Azure
+title: Applicare la sicurezza con i criteri nelle macchine virtuali Windows in AzureEnforce security with policies on Windows VMs in Azure
 description: Come applicare criteri a una macchina virtuale Windows di Azure Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
 ms.openlocfilehash: a2ee5f36b7dba03bea3cc219651804c5039115d5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74032964"
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Applicare criteri alle macchine virtuali Windows con Azure Resource Manager
@@ -27,7 +27,7 @@ Tramite i criteri è possibile imporre diverse convenzioni e regole in tutta l'o
 Per un'introduzione ai criteri, vedere [Informazioni su Criteri di Azure](../../governance/policy/overview.md).
 
 ## <a name="permitted-virtual-machines"></a>Macchine virtuali permesse
-Per assicurarsi che le macchine virtuali per l'organizzazione siano compatibili con un'applicazione, è possibile limitare i sistemi operativi consentiti. Nell'esempio di criterio che segue si consente solo la creazione di macchine virtuali Windows Server 2012 R2 Datacenter:
+Per assicurarsi che le macchine virtuali dell'organizzazione siano compatibili con un'applicazione, è possibile limitare i sistemi operativi consentiti. Nell'esempio di criterio che segue si consente solo la creazione di macchine virtuali Windows Server 2012 R2 Datacenter:
 
 ```json
 {

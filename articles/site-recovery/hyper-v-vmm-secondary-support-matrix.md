@@ -1,5 +1,5 @@
 ---
-title: Supporto per Matrix-ripristino di emergenza Hyper-V in un sito VMM secondario con Azure Site Recovery
+title: Supporta il ripristino di emergenza matrice-Hyper-V in un sito VMM secondario con Azure Site Recovery
 description: Offre un riepilogo del supporto per la replica delle macchine virtuali Hyper-V di cloud VMM in un sito secondario con Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
 ms.openlocfilehash: 1126a85ed22ee17879767a93ca75dc76dd04b747
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74132957"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali Hyper-V in un sito secondario
 
-Questo articolo riepiloga gli elementi supportati quando si usa il servizio [Azure Site Recovery](site-recovery-overview.md) per replicare le VM Hyper-V gestite in Cloud System Center Virtual Machine Manager (VMM) in un sito secondario. Per replicare macchine virtuali Hyper-V in Azure, vedere [questa matrice di supporto](hyper-v-azure-support-matrix.md).
+Questo articolo riepiloga gli elementi supportati quando si usa il servizio [Azure Site Recovery](site-recovery-overview.md) per replicare le macchine virtuali Hyper-V gestite nei cloud di System Center Virtual Machine Manager (VMM) in un sito secondario. Per replicare macchine virtuali Hyper-V in Azure, vedere [questa matrice di supporto](hyper-v-azure-support-matrix.md).
 
 > [!NOTE]
 > È possibile eseguire la replica in un sito secondario solo quando gli host Hyper-V sono gestiti nei cloud VMM.
@@ -106,7 +106,7 @@ Spostare le risorse di archiviazione, la rete e le VM di Azure tra i gruppi di r
 
 Il provider coordina le comunicazioni tra server VMM. 
 
-**Più recente** | **Aggiornamenti**
+**Ultima** | **Aggiornamenti**
 --- | --- 
 5.1.19 ([disponibile dal portale](https://aka.ms/downloaddra)) | [Funzionalità e correzioni più recenti](https://support.microsoft.com/kb/3155002)
 

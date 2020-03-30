@@ -1,5 +1,5 @@
 ---
-title: Come usare l'archiviazione di Accodamento da Ruby-archiviazione di Azure
+title: Come usare l'archiviazione delle code da Ruby - Archiviazione di AzureHow to use Queue storage from Ruby - Azure Storage
 description: Informazioni su come usare il servizio di accodamento di Azure per creare ed eliminare code e per inserire, visualizzare ed eliminare messaggi. Gli esempi sono scritti in Ruby.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -9,10 +9,10 @@ ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
 ms.openlocfilehash: c7211bc805f4ed1d026faedbfdc9d53d3c1dfd93
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68721299"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Come usare l'archiviazione di accodamento da Ruby
@@ -46,7 +46,7 @@ require "azure"
 ```
 
 ## <a name="setup-an-azure-storage-connection"></a>Configurare una connessione di archiviazione di Azure
-Il modulo di Azure leggerà le variabili di ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS_KEY** per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account prima di utilizzare **Azure::QueueService** con il codice seguente:
+Il modulo azure leggerà le variabili di ambiente **COME AEURNO STORAGE ACCOUNT\_\_** e AZURE STORAGE ACCESS_KEY per le informazioni necessarie per connettersi all'account di archiviazione di Azure.The azure module will read the environment variables AZURE STORAGE ACCOUNT and **Azure\_STORAGE\_ACCESS_KEY** for information required to connect to your Azure storage account. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account prima di utilizzare **Azure::QueueService** con il codice seguente:
 
 ```ruby
 Azure.config.storage_account_name = "<your azure storage account>"
@@ -55,13 +55,13 @@ Azure.config.storage_access_key = "<your Azure storage access key>"
 
 Per ottenere questi valori da un account di archiviazione classico o di Resource Manager nel portale di Azure:
 
-1. Accedere al [Portale di Azure](https://portal.azure.com).
+1. Accedere al [portale](https://portal.azure.com)di Azure .
 2. Passare all'account di archiviazione che si desidera utilizzare.
 3. Nel pannello Impostazioni a destra fare clic su **Chiavi di accesso**.
 4. Nel pannello Chiavi di accesso visualizzato notare la chiave di accesso 1 e la chiave di accesso 2. È possibile usare una di queste indifferentemente. 
 5. Fare clic sull'icona Copia per copiare la chiave negli Appunti. 
 
-## <a name="how-to-create-a-queue"></a>Procedura: Creare una coda
+## <a name="how-to-create-a-queue"></a>Procedura: creare una coda
 La coda seguente crea un oggetto **Azure::QueueService** che consente di usare le code.
 
 ```ruby
@@ -78,28 +78,28 @@ rescue
 end
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>Procedura: Inserire un messaggio in una coda
+## <a name="how-to-insert-a-message-into-a-queue"></a>Procedura: inserire un messaggio in una coda
 Per inserire un messaggio in una coda, usare il metodo **create_message()** per creare un nuovo messaggio e aggiungerlo alla coda.
 
 ```ruby
 azure_queue_service.create_message("test-queue", "test message")
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Procedura: Visualizzare il messaggio successivo
-È possibile visualizzare il messaggio successivo di una coda senza rimuoverlo dalla coda chiamando il metodo **peek\_messages()** . Per impostazione predefinita, **peek\_messages()** visualizza un singolo messaggio. È anche possibile specificare il numero di messaggi che si desidera visualizzare.
+## <a name="how-to-peek-at-the-next-message"></a>Procedura: visualizzare il messaggio successivo
+È possibile visualizzare il messaggio successivo di una coda senza rimuoverlo dalla coda chiamando il metodo **peek\_messages()** . Per impostazione predefinita, **\_peek messages()** visualizza un singolo messaggio. È anche possibile specificare il numero di messaggi che si desidera visualizzare.
 
 ```ruby
 result = azure_queue_service.peek_messages("test-queue",
   {:number_of_messages => 10})
 ```
 
-## <a name="how-to-dequeue-the-next-message"></a>Procedura: Rimuovere il messaggio successivo dalla coda
+## <a name="how-to-dequeue-the-next-message"></a>Procedura: rimuovere il messaggio successivo dalla coda
 È possibile rimuovere un messaggio da una coda in due passaggi.
 
 1. Per impostazione predefinita, chiamando **list\_messages()** si ottiene il messaggio successivo in una coda. È anche possibile specificare il numero di messaggi che si desidera ottenere. I messaggi restituiti da **list\_messages()** diventano invisibili a qualsiasi altro codice che legge i messaggi dalla stessa coda. Passare il timeout di visibilità in secondi come parametro.
-2. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche **delete_message**.
+2. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche **delete_message()**.
 
-Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio abbia esito negativo a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice chiama **delete\_message()** immediatamente dopo l'elaborazione del messaggio.
+Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio abbia esito negativo a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice chiama **\_delete message()** subito dopo l'elaborazione del messaggio.
 
 ```ruby
 messages = azure_queue_service.list_messages("test-queue", 30)
@@ -107,7 +107,7 @@ azure_queue_service.delete_message("test-queue",
   messages[0].id, messages[0].pop_receipt)
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Procedura: Cambiare il contenuto di un messaggio in coda
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Procedura: cambiare il contenuto di un messaggio accodato
 È possibile cambiare il contenuto di un messaggio inserito nella coda. Il codice seguente usa il metodo **update_message()** per aggiornare un messaggio. Il metodo restituirà una tupla contenente il Pop Receipt del messaggio in coda e un valore di data e ora UTC che rappresenta il momento in cui il messaggio sarà visibile nella coda.
 
 ```ruby
@@ -117,7 +117,7 @@ pop_receipt, time_next_visible = azure_queue_service.update_message(
   30)
 ```
 
-## <a name="how-to-additional-options-for-dequeuing-messages"></a>Procedura: Opzioni aggiuntive per rimuovere i messaggi dalla coda
+## <a name="how-to-additional-options-for-dequeuing-messages"></a>Procedura: opzioni aggiuntive per rimuovere i messaggi dalla coda
 È possibile personalizzare il recupero di messaggi da una coda in due modi.
 
 1. È possibile recuperare un batch di messaggi.
@@ -133,7 +133,7 @@ azure_queue_service.list_messages("test-queue", 300
 end
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Procedura: Recuperare la lunghezza della coda
+## <a name="how-to-get-the-queue-length"></a>Procedura: recuperare la lunghezza delle code
 È possibile ottenere una stima sul numero di messaggi presenti in una coda. Il metodo **get\_queue\_metadata()** chiede al servizio di accodamento di restituire il conteggio approssimativo dei messaggi e i metadati relativi alla coda.
 
 ```ruby
@@ -141,14 +141,14 @@ message_count, metadata = azure_queue_service.get_queue_metadata(
   "test-queue")
 ```
 
-## <a name="how-to-delete-a-queue"></a>Procedura: Eliminare una coda
+## <a name="how-to-delete-a-queue"></a>Procedura: eliminare una coda
 Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **delete\_queue()** sull'oggetto coda.
 
 ```ruby
 azure_queue_service.delete_queue("test-queue")
 ```
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accodamento, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
 * [Blog del team di Archiviazione di Azure](https://blogs.msdn.com/b/windowsazurestorage/)

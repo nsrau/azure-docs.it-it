@@ -5,17 +5,17 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 675ad278cb8bdc0ced4eff3bd77572f44c9808fc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68857418"
 ---
 In questa sezione viene aggiornato il codice nel progetto di back-end dell'app per dispositivi mobili esistente per inviare una notifica push ogni volta che viene aggiunto un nuovo elemento. Questo processo si basa sulla funzionalità dei [modelli](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) di Hub di notifica di Azure, che abilita i push multipiattaforma. I diversi client vengono registrati per le notifiche push usando i modelli e un unico push universale può raggiungere tutte le piattaforme client.
 
 Scegliere una delle seguenti procedure che corrisponde al tipo di progetto di back-end&mdash;, che sia [ back-end .NET](#dotnet) o [back-end Node.js](#nodejs).
 
-### <a name="dotnet"></a>Progetto di back-end .NET
+### <a name="net-back-end-project"></a><a name="dotnet"></a>Progetto di back-end .NET
 
 1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto server. Scegliere quindi **Gestisci pacchetti NuGet**. Cercare `Microsoft.Azure.NotificationHubs` e quindi selezionare **Installa**. Questo processo installa la libreria Hub di notifica per l'invio di notifiche dal back-end.
 2. Nel progetto server aprire **Controller** > **TodoItemController.cs**. Aggiungere quindi le istruzioni using seguenti:
@@ -68,9 +68,9 @@ Scegliere una delle seguenti procedure che corrisponde al tipo di progetto di ba
 
 4. Pubblicare di nuovo il progetto server.
 
-### <a name="nodejs"></a>Progetto di back-end Node.js
+### <a name="nodejs-back-end-project"></a><a name="nodejs"></a>Progetto di back-end Node.js
 
-1. Configurare il progetto back-end.
+1. Impostare il progetto back-end.
 2. Sostituire il codice esistente in todoitem.js con il codice seguente:
 
     ```javascript

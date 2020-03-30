@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: ottimizzare il routing'
+title: 'Azure ExpressRoute: Ottimizzare il routingAzure ExpressRoute: Optimize routing'
 description: Questa pagina contiene informazioni dettagliate su come ottimizzare il routing in presenza di più circuiti ExpressRoute per la connessione tra Microsoft e la rete aziendale.
 services: expressroute
 author: charwen
@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: charwen
 ms.openlocfilehash: dcbae103933167c583bf0f73dc2fa09178c38bd5
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74080125"
 ---
 # <a name="optimize-expressroute-routing"></a>Ottimizzare il routing in ExpressRoute
 In presenza di più circuiti ExpressRoute sono disponibili più percorsi per connettersi a Microsoft. Il routing può quindi risultare non ottimale, ovvero è possibile che il traffico usi un percorso più lungo per raggiungere Microsoft e da Microsoft la rete del cliente. Più lungo è il percorso di rete, maggiore sarà la latenza che ha un impatto diretto sull'esperienza utente e sulle prestazioni dell'applicazione. Questo articolo descrive il problema e illustra come ottimizzare il routing con tecnologie di routing standard.
 
-## <a name="path-selection-on-microsoft-and-public-peerings"></a>Selezione percorso sui peering Microsoft e pubblico
-È importante assicurarsi che, quando si usa il peering Microsoft o pubblico, che il traffico scorra sul percorso desiderato se sono presenti uno o più circuiti ExpressRoute, nonché percorsi a Internet tramite un Internet Exchange (IX) o un provider di servizi Internet (ISP). BGP usa un algoritmo di selezione dei percorsi migliore in base a una serie di fattori, tra cui la corrispondenza del prefisso più lungo (LPM). Per assicurarsi che il traffico destinato ad Azure tramite Microsoft o il peering pubblico attraversi il percorso ExpressRoute, i clienti devono implementare l'attributo *preferenza locale* per garantire che il percorso sia sempre preferibile in ExpressRoute. 
+## <a name="path-selection-on-microsoft-and-public-peerings"></a>Selezione dei percorsi nei peer Microsoft e pubblici
+È importante assicurarsi che quando si usa il peering Microsoft o Pubblico che il traffico scorra sul percorso desiderato se si dispone di uno o più circuiti ExpressRoute, nonché percorsi verso Internet tramite un Internet Exchange (IX) o provider di servizi Internet (ISP). BGP utilizza un algoritmo di selezione del percorso migliore basato su una serie di fattori, tra cui la corrispondenza del prefisso più lunga (LPM). Per garantire che il traffico destinato ad Azure tramite Microsoft o il peering pubblico attraversi il percorso ExpressRoute, i clienti devono implementare l'attributo Preferenza locale per garantire che il percorso sia sempre preferito in ExpressRoute.To ensure that traffic destined for Azure via Microsoft or Public peering traverses the ExpressRoute path, customers must implement the *Local Preference* attribute to ensure that the path is always preferred on ExpressRoute. 
 
 > [!NOTE]
-> La preferenza locale predefinita è in genere 100. Sono più preferibili le preferenze locali più elevate. 
+> La preferenza locale predefinita è in genere 100.The default preference is typically 100. Le preferenze locali più elevate sono più preferite. 
 >
 >
 
-Si consideri lo scenario di esempio seguente:
+Si consideri lo scenario di esempio seguente:Consider the following example scenario:
 
 ![Problema caso 1 ExpressRoute: routing non ottimale dal cliente a Microsoft](./media/expressroute-optimize-routing/expressroute-localPreference.png)
 
 Nell'esempio precedente, per preferire i percorsi ExpressRoute configurare la preferenza locale come indicato di seguito. 
 
-**Configurazione Cisco IOS-XE dalla prospettiva R1:**
+**Configurazione Cisco IOS-XE dal punto di vista R1:**
 
     R1(config)#route-map prefer-ExR permit 10
     R1(config-route-map)#set local-preference 150
@@ -41,7 +41,7 @@ Nell'esempio precedente, per preferire i percorsi ExpressRoute configurare la pr
     R1(config-router)#neighbor 1.1.1.2 activate
     R1(config-router)#neighbor 1.1.1.2 route-map prefer-ExR in
 
-**Configurazione di Junos dalla prospettiva R1:**
+**Configurazione di Junos dal punto di vista R1:**
 
     user@R1# set protocols bgp group ibgp type internal
     user@R1# set protocols bgp group ibgp local-preference 150
@@ -74,7 +74,7 @@ Esistono due soluzioni al problema. La prima consiste semplicemente nell'annunci
 La seconda soluzione consiste nel continuare ad annunciare entrambi i prefissi in entrambi i circuiti ExpressRoute e, inoltre, indicare qual è il prefisso vicino a un determinato ufficio. Poiché è supportata l'anteposizione di AS PATH in BGP, si può configurare AS PATH nel prefisso per determinare il routing. In questo esempio si può estendere AS PATH per 172.2.0.0/31 negli Stati Uniti orientali, in modo che venga preferito il circuito ExpressRoute negli Stati Uniti occidentali per il traffico destinato a questo prefisso. La rete Microsoft considera infatti più breve il percorso per questo prefisso rispetto a quello negli Stati Uniti orientali. Allo stesso modo si può estendere AS PATH per 172.2.0.2/31 negli Stati Uniti occidentali, in modo che venga preferito il circuito ExpressRoute negli Stati Uniti orientali. Il routing è ottimizzato per entrambi gli uffici. Con questa progettazione, se un circuito ExpressRoute viene interrotto, Exchange Online può comunque raggiungere il cliente tramite un altro circuito ExpressRoute e la rete WAN. 
 
 > [!IMPORTANT]
-> I numeri AS privati vengono rimossi nel percorso AS per i prefissi ricevuti sul peering Microsoft quando si esegue il peering utilizzando un numero AS privato. È necessario eseguire il peering con un pubblico come e aggiungere numeri AS pubblici nel percorso AS per influenzare il routing per il peering Microsoft.
+> Rimuoviamo i numeri AS privati nel percorso AS per i prefissi ricevuti in Microsoft Peering quando si esegue il peering usando un numero AS privato. È necessario eseguire il peering con un AS pubblico e aggiungere numeri AS pubblici nel PERCORSO AS per influenzare il routing per il peering Microsoft.You need to peer with a public AS and append public AS number in the AS PATH to influence routing for Microsoft Peering.
 > 
 > 
 

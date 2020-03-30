@@ -6,51 +6,51 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 3e452cd548738e5f211899d3a6a676f883d800ce
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77132042"
 ---
-# <a name="get-drone-imagery-from-drone-partners"></a>Ottenere immagini drone da partner drone
+# <a name="get-drone-imagery-from-drone-partners"></a>Ottieni immagini di droni dai partner di droni
 
-Questo articolo descrive come è possibile importare i dati di orthomosaic dai partner di immagini drone ad Azure FarmBeats datahub. Un orthomosaic è un'illustrazione o un'immagine aerea con correzione geometrica e cucita dai dati raccolti da un drone.
+Questo articolo descrive come importare dati ortomosaici dai partner di immagini dei droni in Azure FarmBeats Datahub.This article describes how you can bring in orthomosaic data from your drone imagery partners to Azure FarmBeats Datahub. Un ortomosaico è un'illustrazione aerea o un'immagine che viene geometricamente corretta e cucita dai dati raccolti da un drone.
 
 Attualmente sono supportati i seguenti partner di immagini.
 
   ![Partner di immagini drone FarmBeats](./media/get-drone-imagery-from-drone-partner/drone-partner-1.png)
 
-L'integrazione di dati di immagini Drone con Azure FarmBeats consente di ottenere i dati di orthomosaic dai voli drone eseguiti sulla farm nel datahub. Quando i dati sono disponibili, è possibile visualizzarli nell'acceleratore FarmBeats. I dati possono essere usati per la creazione di modelli di data fusion e intelligenza artificiale e di machine learning.
+L'integrazione dei dati delle immagini dei droni con Azure FarmBeats ti aiuta a ottenere dati ortomosaici dai voli drone che conduci nella tua fattoria nell'hub dati. Una volta che i dati sono disponibili, è possibile visualizzarli in FarmBeats Accelerator. I dati possono essere utilizzati per la fusione dei dati e l'intelligenza artificiale e la creazione di modelli di apprendimento automatico.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-  - Assicurarsi di aver installato Azure FarmBeats. Per informazioni su come installare FarmBeats, vedere [Install Azure FarmBeats](install-azure-farmbeats.md).
-  - Assicurarsi di disporre della farm per cui si desidera definire le immagini dei droni nel sistema FarmBeats.
+  - Assicurarsi di aver installato Azure FarmBeats. Per informazioni su come installare FarmBeats, vedere [Installare Azure FarmBeats.](install-azure-farmbeats.md)
+  - Assicurati di avere la fattoria per la quale vuoi che le immagini dei droni siano definite nel tuo sistema FarmBeats.
 
-## <a name="enable-drone-imagery-integration-with-farmbeats"></a>Abilitare l'integrazione di immagini Drone con FarmBeats
+## <a name="enable-drone-imagery-integration-with-farmbeats"></a>Abilita l'integrazione delle immagini dei droni con FarmBeats
 
-Fornire le informazioni seguenti al provider di dispositivi per abilitare l'integrazione con FarmBeats:
+Fornire le informazioni seguenti al provider di dispositivi per consentire l'integrazione con FarmBeats:
  - Endpoint API
  - ID tenant
  - ID client
  - Segreto client
 
-Eseguire la procedura seguente.
+Seguire questa procedura.
 
-1. Scaricare questo [script](https://aka.ms/farmbeatspartnerscript)ed estrarlo nell'unità locale. Due file sono inclusi nel file zip.
-2. Accedere al [portale di Azure](https://portal.azure.com/) e aprire Azure cloud Shell. Questa opzione è disponibile sulla barra degli strumenti nell'angolo superiore destro del portale.
+1. Scaricare questo [script](https://aka.ms/farmbeatspartnerscript)ed estrarlo nell'unità locale. Due file sono all'interno del file zip.
+2. Accedere al [portale di Azure](https://portal.azure.com/) e aprire Azure Cloud Shell. Questa opzione è disponibile sulla barra degli strumenti nell'angolo superiore destro del portale.
 
-    ![Apri Azure Cloud Shell sulla barra superiore destra del portale](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
+    ![Aprire Azure Cloud Shell nella barra in alto a destra del portale](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-3. Verificare che l'ambiente sia impostato su **PowerShell**.
+3. Assicurarsi che l'ambiente sia impostato su **PowerShell**.
 
     ![Impostazione di PowerShell](./media/get-drone-imagery-from-drone-partner/power-shell-new-1.png)
 
-4. Caricare i due file scaricati al passaggio 1 nell'istanza di Cloud Shell.
+4. Caricare i due file scaricati dal passaggio 1 nell'istanza di Cloud Shell.
 
     ![Caricare file](./media/get-drone-imagery-from-drone-partner/power-shell-two-1.png)
 
-5. Passare alla directory in cui sono stati caricati i file. Per impostazione predefinita, vengono caricati nella home directory sotto il nome utente.
+5. Passare alla directory in cui sono stati caricati i file. Per impostazione predefinita, vengono caricati nella home directory con il nome utente.
 6. Eseguire lo script riportato di seguito:
 
     ```azurepowershell-interactive 
@@ -59,36 +59,36 @@ Eseguire la procedura seguente.
 
     ```
 
-7. Seguire le istruzioni visualizzate per acquisire i valori di endpoint API, ID tenant, ID client, segreto client e stringa di connessione EventHub.
+7. Seguire le istruzioni visualizzate per acquisire i valori di Endpoint API, ID tenant, ID client, Segreto client e Stringa di connessione EventHub.
 
-    Dopo aver immesso le credenziali necessarie nel sistema software drone del partner, è possibile importare tutte le farm dal sistema FarmBeats. È quindi possibile usare i dettagli della farm per eseguire la pianificazione del percorso del volo e la raccolta di immagini drone.
+    Dopo aver immesso le credenziali necessarie nel sistema software drone del partner, è possibile importare tutte le farm dal sistema FarmBeats. Quindi è possibile utilizzare i dettagli della fattoria per fare la pianificazione del percorso di volo e la raccolta di immagini drone.
 
-    Una volta che le immagini non elaborate vengono elaborate dal software dei provider di droni, il sistema software drone carica il orthomosaic Stitched e altre immagini elaborate in datahub.
+    Dopo che le immagini grezze sono state elaborate dal software dei fornitori di droni, il sistema software del drone carica l'ortomosaico cucito e altre immagini trasformate nel datahub.
 
-## <a name="view-drone-imagery"></a>Visualizza immagini drone
+## <a name="view-drone-imagery"></a>Visualizza le immagini dei droni
 
-Dopo l'invio dei dati al datahub FarmBeats, è possibile eseguire una query sull'archivio scene usando le API datahub di FarmBeats.
+Dopo l'invio dei dati all'hub dati FarmBeats, è possibile eseguire una query sull'archivio scene utilizzando le API FarmBeats Datahub.
 
-In alternativa, è possibile visualizzare l'immagine drone più recente nella pagina dei **Dettagli della farm** . Per visualizzare l'immagine, attenersi alla procedura.
+In alternativa, è possibile visualizzare l'immagine del drone più recente nella pagina **Dettagli farm.** Per visualizzare l'immagine, attenersi alla procedura.
 
-1. Selezionare la farm in cui è stata caricata l'immagine. Verrà visualizzata la pagina Dettagli **Farm** .
-2. Scorrere verso il basso fino alla sezione **mappe di precisione** più recenti.
-3. Visualizzare l'immagine nella sezione relativa alle **Immagini drone** .
+1. Selezionare la farm in cui sono state caricate le immagini. Viene visualizzata la pagina **Dettagli farm.**
+2. Scorri verso il basso fino alla sezione Mappe di **precisione** più recente.
+3. Visualizzare l'immagine nella sezione **Immagini drone.**
 
-    ![Sezione delle immagini drone](./media/get-drone-imagery-from-drone-partner/drone-imagery-1.png)
+    ![Sezione Immagini drone](./media/get-drone-imagery-from-drone-partner/drone-imagery-1.png)
 
-## <a name="download-drone-imagery"></a>Scaricare immagini drone
+## <a name="download-drone-imagery"></a>Scarica le immagini dei droni
 
-Quando si seleziona la sezione relativa alle immagini drone, viene visualizzata una finestra popup che mostra un'immagine ad alta risoluzione della orthomosaic drone.
+Quando si seleziona la sezione Immagini drone, si apre un pop-up per mostrare un'immagine ad alta risoluzione dell'ortomosaico del drone.
 
-![Orthomosaic ad alta risoluzione](./media/get-drone-imagery-from-drone-partner/download-drone-imagery-1.png)
+![Ortomosaico ad alta risoluzione](./media/get-drone-imagery-from-drone-partner/download-drone-imagery-1.png)
 
-## <a name="view-all-drone-maps"></a>Visualizza tutte le mappe drone
+## <a name="view-all-drone-maps"></a>Visualizza tutte le mappe dei droni
 
-I file e le immagini caricati dal provider drone vengono visualizzati nella sezione **Maps** . Selezionare la sezione **Maps** , filtrare in base alla **Farm**e selezionare i file appropriati da visualizzare e scaricare.
+I file e le immagini caricati dal fornitore del drone vengono visualizzati nella sezione **Mappe.** Selezionare la sezione **Mappe,** filtrare in base **alla farm**e selezionare i file appropriati da visualizzare e scaricare.
 
-  ![Sezione Maps](./media/get-drone-imagery-from-drone-partner/view-drone-maps-1.png)
+  ![Sezione Mappe](./media/get-drone-imagery-from-drone-partner/view-drone-maps-1.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come usare le [API](rest-api-in-azure-farmbeats.md) datahub di FarmBeats per ottenere le immagini dei droni.
+Scopri come usare [le API](rest-api-in-azure-farmbeats.md) FarmBeats Datahub per ottenere le immagini dei droni.

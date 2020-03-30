@@ -1,6 +1,6 @@
 ---
-title: Azure VMware Solutions (AVS)-connettere AVS private cloud alla rete di Azure con ExpressRoute
-description: Viene descritto come connettere l'ambiente di cloud privato AVS alla rete virtuale di Azure tramite ExpressRoute
+title: Azure VMware Solution by CloudSimple - Connect Private Cloud to Azure network using ExpressRoute
+description: Descrive come connettere l'ambiente CloudSimple Private Cloud alla rete virtuale di Azure usando ExpressRouteDescribes how to connect your CloudSimple Private Cloud environment to the Azure virtual network using ExpressRoute
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/14/2019
@@ -8,51 +8,51 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3d487794e219f63150142db8df4b0c1abf112947
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 9bb68ec68f4de646239477ceeaac50a7a33989fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77015236"
 ---
-# <a name="connect-your-avs-private-cloud-environment-to-the-azure-virtual-network-using-expressroute"></a>Connettere l'ambiente di cloud privato AVS alla rete virtuale di Azure usando ExpressRoute
+# <a name="connect-your-cloudsimple-private-cloud-environment-to-the-azure-virtual-network-using-expressroute"></a>Connettere l'ambiente Cloud Cloud semplice alla rete virtuale di Azure usando ExpressRouteConnect your CloudSimple Private Cloud environment to the Azure virtual network using ExpressRoute
 
-Il cloud privato AVS può essere connesso alla rete virtuale di Azure usando Azure ExpressRoute. Questa connessione con larghezza di banda elevata e bassa latenza consente di accedere ai servizi in esecuzione nella sottoscrizione di Azure dall'ambiente di cloud privato AVS.
+Your CloudSimple Private Cloud can be connected to your Azure virtual network using Azure ExpressRoute.  Questa connessione ad alta larghezza di banda e bassa latenza consente di accedere ai servizi in esecuzione nella sottoscrizione di Azure dall'ambiente cloud privato.
 
-La connessione alla rete virtuale consente di:
+La connessione di rete virtuale consente di:
 
-* Usare Azure come destinazione di backup per le macchine virtuali nel cloud privato AVS.
-* Distribuire i server del servizio di gestione delle chiavi nella sottoscrizione di Azure per crittografare l'AVS private cloud rete VSAN datastore.
-* Usare applicazioni ibride in cui il livello Web dell'applicazione viene eseguito nel cloud pubblico mentre i livelli dell'applicazione e del database vengono eseguiti nel cloud privato AVS.
+* Usare Azure come destinazione di backup per le macchine virtuali nel cloud privato.
+* Distribuire i server KMS nella sottoscrizione di Azure per crittografare l'archivio dati vSAN del cloud privato.
+* Usare applicazioni ibride in cui il livello Web dell'applicazione viene eseguito nel cloud pubblico mentre i livelli applicazione e database vengono eseguiti nel cloud privato.
 
-![Connessione Azure ExpressRoute alla rete virtuale](media/cloudsimple-azure-network-connection.png)
+![Connessione ExpressRoute di Azure alla rete virtualeAzure ExpressRoute Connection to virtual network](media/cloudsimple-azure-network-connection.png)
 
-## <a name="set-up-a-virtual-network-connection"></a>Configurare una connessione di rete virtuale
+## <a name="set-up-a-virtual-network-connection"></a>Configurare una connessione di rete virtualeSet up a virtual network connection
 
-Per configurare la connessione di rete virtuale al cloud privato AVS, sono necessari la chiave di autorizzazione, l'URI del circuito peer e l'accesso alla sottoscrizione di Azure. Queste informazioni sono disponibili nella pagina connessione della rete virtuale nel portale di AVS. Per istruzioni, vedere [ottenere informazioni sul peering per la rete virtuale di Azure per la connessione AVS](virtual-network-connection.md). In caso di problemi durante il recupero delle informazioni, inviare una <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">richiesta di supporto</a>.
+Per configurare la connessione di rete virtuale al cloud privato, sono necessari la chiave di autorizzazione, l'URI del circuito peer e l'accesso alla sottoscrizione di Azure.To set up the virtual network connection to your Private Cloud, you need your authorization key, peer circuit URI, and access to your Azure subscription. Queste informazioni sono disponibili nella pagina Connessione di rete virtuale nel portale CloudSimple.This information is available on the Virtual Network Connection page in the CloudSimple portal. Per istruzioni, vedere Ottenere informazioni sul peering per la [rete virtuale di Azure alla connessione CloudSimple](virtual-network-connection.md). In caso di problemi nell'ottenere le informazioni, inviare una richiesta di <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">supporto</a>.
 
 > [!TIP]
-> Se si ha già una rete virtuale di Azure, una subnet del gateway e un gateway di rete virtuale, è possibile procedere al passaggio 4.
+> Se si dispone già di una rete virtuale di Azure, di una subnet gateway e di un gateway di rete virtuale, è possibile andare al passaggio 4.If you already have a Azure virtual network, gateway subnet, and virtual network gateway, you can skip to step 4.
 
-1. Creare una rete virtuale nella sottoscrizione di Azure e verificare che lo spazio degli indirizzi selezionato sia diverso dallo spazio degli indirizzi del cloud privato AVS. Se è già presente una rete virtuale di Azure, è possibile usare quella esistente. Per informazioni dettagliate, vedere [creare una rete virtuale usando il portale di Azure](../virtual-network/quick-create-portal.md).
-2. Creare la subnet del gateway nella rete virtuale di Azure. Se si dispone già di una subnet del gateway nella rete virtuale di Azure, è possibile usare quella esistente. Per informazioni dettagliate, vedere [creare la subnet del gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet).
-3. Creare il gateway di rete virtuale nella rete virtuale. Se si dispone di un gateway di rete virtuale esistente, è possibile utilizzarne uno esistente. Per informazioni dettagliate, vedere [creare il gateway di rete virtuale](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-virtual-network-gateway).
-4. Creare la connessione tra la rete virtuale e il cloud privato AVS riscattando la chiave di autorizzazione come descritto in [connettere una rete virtuale a una sottoscrizione con un circuito diverso](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription).
+1. Creare una rete virtuale nella sottoscrizione di Azure e verificare che lo spazio di indirizzi selezionato sia diverso dallo spazio di indirizzi del cloud privato.  Se si dispone già di una rete virtuale di Azure, è possibile usare quella esistente.  Per informazioni dettagliate, vedere Creare una rete virtuale usando il portale di Azure.For details, see Create a [virtual network using the Azure portal.](../virtual-network/quick-create-portal.md)
+2. Creare la subnet del gateway nella rete virtuale di Azure.Create the gateway subnet on your Azure virtual network.  Se nella rete virtuale di Azure è già presente una subnet gateway, è possibile usare quella esistente. Per informazioni dettagliate, vedere [Creare la subnet del gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet).
+3. Creare il gateway di rete virtuale nella rete virtuale.  Se si dispone di un gateway di rete virtuale esistente, è possibile usare quello esistente. Per informazioni dettagliate, vedere Creare il gateway di [rete virtuale.](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-virtual-network-gateway)
+4. Creare la connessione tra la rete virtuale e il cloud privato riscattando la chiave di autorizzazione come descritto in [Connettere una rete virtuale a un circuito - sottoscrizione diversa](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription).
 
 > [!WARNING]
-> Se si usa un gateway di rete virtuale esistente e è presente una connessione ExpressRoute alla stessa località del circuito AVS ExpressRoute, la connessione non verrà stabilita. Creare una nuova rete virtuale e seguire i passaggi precedenti.
+> Se si usa un gateway di rete virtuale esistente e dispone di una connessione ExpressRoute allo stesso percorso del circuito CloudSimple ExpressRoute, la connessione non verrà stabilita.  Creare una nuova rete virtuale e seguire i passaggi precedenti.
 
-## <a name="test-the-virtual-network-connection"></a>Testare la connessione alla rete virtuale
+## <a name="test-the-virtual-network-connection"></a>Testare la connessione di rete virtualeTest the virtual network connection
 
-Dopo aver creato la connessione, è possibile controllare lo stato della connessione selezionando **Proprietà** in **Impostazioni**. Lo stato e lo stato di provisioning devono indicare operazione **riuscita**.
+Dopo aver creato la connessione, è possibile controllare lo stato della connessione selezionando **Proprietà** in **Impostazioni**.  Stato e Stato provisioning dovrebbero essere **visualizzati Come completato**.
 
 ![Stato connessione](media/azure-expressroute-connection.png)
 
-Per testare la connessione alla rete virtuale:
+Per testare la connessione di rete virtuale:To test the virtual network connection:
 
-1. Creare una macchina virtuale nella sottoscrizione di Azure.
-2. Trovare l'indirizzo IP di AVS private cloud vCenter (fare riferimento al messaggio di posta elettronica di benvenuto).
-3. Effettuare il ping del cloud vCenter dalla macchina virtuale creata nella rete virtuale di Azure.
-4. Effettuare il ping della macchina virtuale di Azure da una macchina virtuale in esecuzione in AVS private cloud vCenter.
+1. Creare una macchina virtuale nella sottoscrizione di Azure.Create a virtual machine in your Azure subscription.
+2. Trova l'indirizzo IP del tuo vCenter Private Cloud (fai riferimento alla tua email di benvenuto).
+3. Eseguire il ping del vCenter cloud dalla macchina virtuale creata nella rete virtuale di Azure.Ping your Cloud vCenter from the virtual machine created in your Azure virtual network.
+4. Eseguire il ping della macchina virtuale di Azure da una macchina virtuale in esecuzione nel cloud privato vCenter.Ping your Azure virtual machine from a virtual machine running in your Private Cloud vCenter.
 
-Se si verificano problemi durante il tentativo di stabilire la connessione, inviare una <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">richiesta di supporto</a>.
+In caso di problemi durante la creazione della connessione, inviare una richiesta di <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">supporto</a>.

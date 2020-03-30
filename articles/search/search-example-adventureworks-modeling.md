@@ -1,7 +1,7 @@
 ---
-title: 'Esempio: modellare il database di inventario AdventureWorks'
+title: 'Esempio: modellare il database AdventureWorks Inventory'
 titleSuffix: Azure Cognitive Search
-description: Informazioni su come modellare i dati relazionali, trasformarli in un set di dati bidimensionale, per l'indicizzazione e la ricerca full-text in Azure ricerca cognitiva.
+description: Informazioni su come modellare i dati relazionali, trasformandoli in un set di dati appiattito, per l'indicizzazione e la ricerca full-text in Ricerca cognitiva di Azure.Learn how to model relational data, transforming it into a flattened data set, for indexing and full text search in Azure Cognitive Search.
 author: HeidiSteen
 manager: nitinme
 ms.service: cognitive-search
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: heidist
 ms.openlocfilehash: edb6162724938962df8a7340afea6e930a0b1049
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72793004"
 ---
-# <a name="example-model-the-adventureworks-inventory-database-for-azure-cognitive-search"></a>Esempio: modellare il database di inventario AdventureWorks per Azure ricerca cognitiva
+# <a name="example-model-the-adventureworks-inventory-database-for-azure-cognitive-search"></a>Esempio: modellare il database AdventureWorks Inventory per Ricerca cognitiva di AzureExample: Model the AdventureWorks Inventory database for Azure Cognitive Search
 
-Azure ricerca cognitiva accetta un set di righe bidimensionale come input per la [pipeline di indicizzazione (inserimento dati)](search-what-is-an-index.md). Se i dati di origine provengono da un database relazionale SQL Server, in questo articolo viene illustrato un approccio per la creazione di un set di righe flat prima dell'indicizzazione, utilizzando come esempio il database di esempio AdventureWorks.
+Ricerca cognitiva di Azure accetta un set di righe bidimensionale come input per la pipeline di [indicizzazione (inserimento dati).](search-what-is-an-index.md) Se i dati di origine provengono da un database relazionale di SQL Server, in questo articolo viene illustrato un approccio per la creazione di un set di righe bidimensionale prima dell'indicizzazione, usando il database di esempio AdventureWorks come esempio.
 
 ## <a name="about-adventureworks"></a>Informazioni su AdventureWorks
 
@@ -29,13 +29,13 @@ Se si dispone di un'istanza di SQL Server, è possibile che si abbia familiarit�
 + **ProductModelProductDescription**: impostazioni locali. Ogni riga unisce in join un record di ProductModel a un record di ProductDescription per una lingua specifica
 + **ProductCategory**: nome, categoria padre
 
-L'obiettivo di questo esempio è la combinazione di tutti i dati in un set di righe bidimensionale che può essere inserito in un indice di ricerca. 
+La combinazione di tutti questi dati in un set di righe bidimensionale che può essere inserito in un indice di ricerca è l'obiettivo di questo esempio. 
 
 ## <a name="considering-our-options"></a>Opzioni possibili
 
 L'approccio ingenuo consiste nell'indicizzazione di tutte le righe della tabella Product (con i join appropriati), dato che la tabella Product contiene le informazioni più specifiche. Tale approccio, tuttavia, espone l'indice di ricerca alla generazione di un set di risultati in cui vengono percepiti duplicati. Il modello Road-650, ad esempio, è disponibile in due colori e sei misure. I risultati della query "road bikes" sarebbero quindi dominati da 12 istanze dello stesso modello, distinte solo dalla misura e dal colore. Gli altri sei modelli che soddisfano questa query verrebbero confinati tutti nel limbo della seconda pagina della ricerca.
 
-  ![Elenco prodotti](./media/search-example-adventureworks/products-list.png "Elenco prodotti")
+  ![Elenco di prodotti](./media/search-example-adventureworks/products-list.png "Elenco di prodotti")
  
 Si noti che il modello Road-650 ha dodici opzioni. Nell'indice di ricerca, la rappresentazione più efficiente di righe di entità uno-a-molti è quella di campi multivalore o con valori preaggregati.
 
@@ -43,13 +43,13 @@ Per risolvere questo problema, non basta spostare semplicemente l'indice di dest
 
 ## <a name="use-a-collection-data-type"></a>Usare il tipo di dati Collection
 
-L'approccio corretto consiste nell'utilizzare una funzionalità dello schema di ricerca che non disponga di un parallelismo diretto nel modello di database: **Collection (EDM. String)** . Questo costrutto viene definito nello schema dell'indice ricerca cognitiva di Azure. Un tipo di dati della raccolta viene usato quando è necessario rappresentare un elenco di stringhe singole, anziché una stringa molto lungo (singola). Se sono presenti tag o parole chiave, per i campi corrispondenti si usa un tipo di dati Collection.
+L'"approccio corretto" consiste nell'utilizzare una funzionalità dello schema di ricerca che non dispone di un parallelo diretto nel modello di database: **Collection(Edm.String)**. Questo costrutto è definito nello schema dell'indice di Ricerca cognitiva di Azure.This construct is defined in the Azure Cognitive Search index schema. Un tipo di dati Collection viene utilizzato quando è necessario rappresentare un elenco di singole stringhe, anziché una stringa molto lunga (singola). Se sono presenti tag o parole chiave, per i campi corrispondenti si usa un tipo di dati Collection.
 
 Se si definiscono campi di indice multivalore di tipo **Collection(Edm.String)** per colore, misura e immagine, è possibile mantenere le informazioni ausiliarie per i facet e i filtri senza inquinare l'indice con voci duplicate. Analogamente, applicare funzioni di aggregazione ai campi numerici di Product, indicizzando **minListPrice** anziché **listPrice** di ogni singolo prodotto.
 
 Con un indice così strutturato, la ricerca "mountain bike" visualizza i modelli di bicicletta discreti, mantenendo metadati importanti quali colore, misura e prezzo più basso. Lo screenshot seguente illustra tale risultato.
 
-  ![Esempio di ricerca mountain bike](./media/search-example-adventureworks/mountain-bikes-visual.png "Esempio di ricerca mountain bike")
+  ![Esempio di ricerca di mountain bike](./media/search-example-adventureworks/mountain-bikes-visual.png "Esempio di ricerca di mountain bike")
 
 ## <a name="use-script-for-data-manipulation"></a>Usare script per la manipolazione dei dati
 
@@ -163,4 +163,4 @@ WHERE
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esempio: tassonomie di facet a più livelli in Azure ricerca cognitiva](search-example-adventureworks-multilevel-faceting.md)
+> [Esempio: tassonomie di facet a più livelli in Ricerca cognitiva di AzureExample: Multi-level facet taxonomies in Azure Cognitive Search](search-example-adventureworks-multilevel-faceting.md)

@@ -1,5 +1,5 @@
 ---
-title: Come catalogare Big Data in Azure Data Catalog
+title: Come catalogare i Big Data in Azure Data CatalogHow to catalog big data in Azure Data Catalog
 description: Articolo di procedure che descrive gli schemi per usare Azure Data Catalog con origini dati di tipo Big Data, incluso l'archiviazione BLOB di Azure, Azure Data Lake e HDFS di Hadoop.
 author: JasonWHowell
 ms.author: jasonh
@@ -7,13 +7,13 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 88dc85003fa2a3e41d8a31055ff8ba9b0fcc7492
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71300580"
 ---
-# <a name="how-to-catalog-big-data-in-azure-data-catalog"></a>Come catalogare Big Data in Azure Data Catalog
+# <a name="how-to-catalog-big-data-in-azure-data-catalog"></a>Come catalogare i Big Data in Azure Data CatalogHow to catalog big data in Azure Data Catalog
 
 ## <a name="introduction"></a>Introduzione
 

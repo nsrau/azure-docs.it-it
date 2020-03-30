@@ -1,6 +1,6 @@
 ---
-title: Creare utenti in blocco (anteprima) nel portale di Azure Active Directory | Microsoft Docs
-description: Aggiungere utenti in blocco nell'interfaccia di amministrazione di Azure AD in Azure Active Directory
+title: Creazione in blocco di utenti (anteprima) nel portale di Azure Active Directory Documenti Microsoft
+description: Aggiungere utenti in blocco nell'interfaccia di amministrazione di Azure AD in Azure Active DirectoryAdd users in bulk in the Azure AD admin center in Azure Active Directory
 services: active-directory
 author: curtand
 ms.author: curtand
@@ -14,55 +14,55 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a10dfffa69652ee2b75053c04b97f6492c46811e
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72174326"
 ---
-# <a name="bulk-create-users-preview-in-azure-active-directory"></a>Creazione bulk di utenti (anteprima) in Azure Active Directory
+# <a name="bulk-create-users-preview-in-azure-active-directory"></a>Creare in blocco gli utenti (anteprima) in Azure Active Directory
 
-Azure Active Directory (Azure AD) supporta operazioni di creazione ed eliminazione di utenti in blocco, invito bulk per Guest e supporto per il download di elenchi di utenti, gruppi e membri del gruppo.
+Azure Active Directory (Azure AD) supporta le operazioni di creazione ed eliminazione di utenti in blocco, l'invito in blocco per gli ospiti e supporta il download di elenchi di utenti, gruppi e membri del gruppo.
 
 ## <a name="required-permissions"></a>Autorizzazioni necessarie
 
-Per creare in blocco gli utenti nel portale di amministrazione, è necessario effettuare l'accesso come amministratore globale o Amministratore utenti.
+Per creare utenti nel portale di amministrazione in blocco, è necessario accedere come amministratore globale o amministratore utente.
 
 ## <a name="to-create-users-in-bulk"></a>Per creare utenti in blocco
 
-1. [Accedere all'organizzazione Azure ad](https://aad.portal.azure.com) con un account amministratore dell'organizzazione.
-1. In Azure AD selezionare **utenti** > **creazione bulk**.
-1. Nella pagina **creazione bulk utente** selezionare **download** per ricevere un file con valori delimitati da virgole (CSV) di proprietà utente e quindi aggiungere Aggiungi utenti che si desidera creare.
+1. [Accedere all'organizzazione](https://aad.portal.azure.com) di Azure AD con un account amministratore utente nell'organizzazione.
+1. In Azure AD selezionare Creazione**in blocco** **utenti** > .
+1. Nella pagina **Crea utente** in blocco selezionare **Scarica** per ricevere un file di proprietà utente con valori delimitati da virgole (CSV) validi e quindi aggiungere gli utenti aggiuntivi che si desidera creare.
 
    ![Selezionare un file CSV locale in cui elencare gli utenti che si desidera aggiungere](./media/users-bulk-add/upload-button.png)
 
-1. Aprire il file CSV e aggiungere una riga per ogni utente che si vuole creare. Gli unici valori obbligatori sono **nome**, **nome dell'entità utente**, **password iniziale** e **accesso a blocchi (sì/no)** . Salvare quindi il file.
+1. Aprire il file CSV e aggiungere una riga per ogni utente che si desidera creare. Gli unici valori obbligatori sono **Nome**, **Nome entità utente**, Password **iniziale** e **Blocca accesso (Sì/No)**. Salvare quindi il file.
 
-   ![Il file CSV contiene i nomi e gli ID degli utenti da creare](./media/users-bulk-add/add-csv-file.png)
+   ![Il file CSV contiene i nomi e gli URL degli utenti da creare](./media/users-bulk-add/add-csv-file.png)
 
-1. Nella pagina **creazione in blocco dell'utente (anteprima)** , in caricare il file CSV, selezionare il file. Quando si seleziona il file e si fa clic su **Invia**, viene avviata la convalida del file CSV.
-1. Una volta convalidato il contenuto del file, il **file verrà caricato correttamente**. Se sono presenti errori, è necessario correggerli prima di poter inviare il processo.
-1. Quando il file supera la convalida, selezionare **Submit (Invia** ) per avviare l'operazione bulk di Azure che importa i nuovi utenti.
-1. Al termine dell'operazione di importazione, verrà visualizzata una notifica dello stato del processo dell'operazione bulk.
+1. Nella pagina **Crea in blocco utente (anteprima),** in Carica il file CSV, individuare il file. Quando si seleziona il file e si fa clic su **Invia**, viene avviata la convalida del file CSV.
+1. Dopo aver convalidato il contenuto del file, verrà visualizzato **File caricato correttamente**. Se sono presenti errori, è necessario correggerli prima di poter inviare il processo.
+1. Quando il file supera la convalida, selezionare **Invia** per avviare l'operazione in blocco di Azure che importa i nuovi utenti.
+1. Al termine dell'operazione di importazione, verrà visualizzata una notifica dello stato del processo dell'operazione in blocco.
 
-Se sono presenti errori, è possibile scaricare e visualizzare il file dei risultati nella pagina **risultati operazione bulk** . Il file contiene il motivo per ogni errore.
+Se sono presenti errori, è possibile scaricare e visualizzare il file dei risultati nella pagina **Risultati operazione in blocco.** Il file contiene il motivo di ogni errore.
 
 ## <a name="check-status"></a>Controlla stato
 
-È possibile visualizzare lo stato di tutte le richieste bulk in sospeso nella pagina **risultati operazione bulk (anteprima)** .
+È possibile visualizzare lo stato di tutte le richieste bulk in sospeso nella pagina **Risultati dell'operazione in blocco (anteprima).**
 
-   ![Controllare lo stato di caricamento nella pagina Risultati operazioni bulk](./media/users-bulk-add/bulk-center.png)
+   ![Controllare lo stato del caricamento nella pagina Risultati operazioni in blocco](./media/users-bulk-add/bulk-center.png)
 
-A questo punto, è possibile verificare che gli utenti creati siano presenti nell'organizzazione Azure AD nell'portale di Azure o tramite PowerShell.
+Successivamente, è possibile verificare che gli utenti creati esistano nell'organizzazione di Azure AD nel portale di Azure o tramite PowerShell.Next, you can check to see that the users you created exist in the Azure AD organization either in the Azure portal or by using PowerShell.
 
-## <a name="verify-users-in-the-azure-portal"></a>Verificare gli utenti nella portale di Azure
+## <a name="verify-users-in-the-azure-portal"></a>Verificare gli utenti nel portale di AzureVerify users in the Azure portal
 
-1. [Accedere al centro di amministrazione di Azure ad](https://aad.portal.azure.com) con un account amministratore dell'organizzazione.
+1. [Accedere all'interfaccia](https://aad.portal.azure.com) di amministrazione di Azure AD con un account amministratore utente nell'organizzazione.
 1. Nel riquadro di spostamento selezionare **Azure Active Directory**.
 1. In **Gestisci** selezionare **Utenti**.
-1. In **Mostra**selezionare **tutti gli utenti** e verificare che gli utenti creati siano elencati.
+1. In **Mostra**selezionare **Tutti gli utenti** e verificare che gli utenti creati siano elencati.
 
-### <a name="verify-users-with-powershell"></a>Verificare gli utenti con PowerShell
+### <a name="verify-users-with-powershell"></a>Verificare gli utenti con PowerShellVerify users with PowerShell
 
 Eseguire il comando seguente:
 
@@ -70,14 +70,14 @@ Eseguire il comando seguente:
 Get-AzureADUser -Filter "UserType eq 'Member'"
 ```
 
-Si noterà che gli utenti creati sono elencati.
+Si dovrebbe vedere che gli utenti che hai creato sono elencati.
 
-## <a name="bulk-import-service-limits"></a>Limiti del servizio di importazione bulk
+## <a name="bulk-import-service-limits"></a>Limiti del servizio di importazione in blocco
 
-Ogni attività bulk per la creazione di utenti può essere eseguita per un massimo di un'ora. Questo consente la creazione bulk di almeno 50.000 utenti.
+Ogni attività in blocco per creare utenti può essere eseguita per un massimo di un'ora. Ciò consente la creazione in blocco di almeno 50.000 utenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Eliminare gli utenti in blocco](users-bulk-delete.md)
-- [Scarica l'elenco di utenti](users-bulk-download.md)
-- [Ripristino in blocco degli utenti](users-bulk-restore.md)
+- [Eliminare in blocco gli utenti](users-bulk-delete.md)
+- [Scarica l'elenco degli utenti](users-bulk-download.md)
+- [Utenti di ripristino in blocco](users-bulk-restore.md)

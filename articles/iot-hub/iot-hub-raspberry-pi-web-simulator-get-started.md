@@ -1,5 +1,5 @@
 ---
-title: Connettere il simulatore Web Raspberry Pi all'hub Azure (node. js)
+title: Connettere il simulatore Web Raspberry Pi all'hub Di Azure IoT (Node.js)
 description: Connettere il simulatore Web Raspberry Pi all'hub IoT di Azure per permettere a Raspberry Pi di inviare dati al cloud di Azure.
 author: wesmc7777
 manager: philmea
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: wesmc
 ms.openlocfilehash: efbe41be6c923f3547df86fd6faeb56bff5e0802
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73954523"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Connettore il simulatore online Raspberry Pi all'hub IoT di Azure (Node.js)
@@ -50,7 +50,7 @@ Connettere il connettore Raspberry Pi simulato a un hub IoT creato. Eseguire un'
 
 ## <a name="what-you-learn"></a>Contenuto dell'esercitazione
 
-* Come creare un hub IoT di Azure e ottenere la stringa di connessione del nuovo dispositivo. Se non si ha un account Azure, [creare un account Azure gratuito](https://azure.microsoft.com/free/) in pochi minuti.
+* Come creare un hub IoT di Azure e ottenere la stringa di connessione del nuovo dispositivo. Se non si ha un account di Azure, [creare un account di Azure gratuito](https://azure.microsoft.com/free/) in pochi minuti.
 
 * Come utilizzare il simulatore online Raspberry Pi.
 
@@ -61,7 +61,7 @@ Connettere il connettore Raspberry Pi simulato a un hub IoT creato. Eseguire un'
 Fare clic sul pulsante per avviare il simulatore online Raspberry Pi.
 
 > [!div class="button"]
-> <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Avviare il simulatore Raspberry Pi</a>
+> <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Avviare Raspberry Pi Simulator</a>
 
 Esistono tre aree nel simulatore Web.
 
@@ -102,9 +102,9 @@ Dovrebbe venire visualizzato l'output seguente che mostra i dati del sensore e i
 
 ## <a name="read-the-messages-received-by-your-hub"></a>Leggere i messaggi ricevuti dall'hub
 
-Un modo per monitorare i messaggi ricevuti dall'hub delle cose dal dispositivo simulato consiste nell'usare gli strumenti di Azure per la Visual Studio Code. Per altre informazioni, vedere [usare gli strumenti di Azure per la Visual Studio Code per inviare e ricevere messaggi tra il dispositivo e l'hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)Internet.
+Un modo per monitorare i messaggi ricevuti dall'hub IoT dal dispositivo simulato consiste nell'usare gli strumenti IoT di Azure per il codice di Visual Studio.One way to monitor messages received by your IoT hub from the simulated device is to use the Azure IoT Tools for Visual Studio Code. Per altre informazioni, vedere Usare gli strumenti IoT di Azure per il codice di Visual Studio per inviare e ricevere messaggi tra il dispositivo e l'hub IoT.To learn more, see [Use Azure IoT Tools for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
-Per altri modi per elaborare i dati inviati dal dispositivo, continuare con la sezione successiva.
+Per ulteriori modi per elaborare i dati inviati dal dispositivo, passare alla sezione successiva.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

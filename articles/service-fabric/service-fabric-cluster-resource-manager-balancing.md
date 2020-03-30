@@ -1,15 +1,15 @@
 ---
-title: Bilanciare il cluster di Azure Service Fabric
+title: Bilanciare il cluster di Azure Service FabricBalance your Azure Service Fabric cluster
 description: Introduzione al bilanciamento del carico del cluster con Cluster Resource Manager di Service Fabric.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f56717c086f005b1155988e2041ff2e717e047f2
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 8e170c27923d2bb091c4121e350809b85e4c48a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79081693"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Bilanciamento del carico nel cluster di Service Fabric
@@ -27,7 +27,7 @@ Il primo set di controlli sul bilanciamento del carico sono un set di timer. Que
 Ognuno dei tipi diversi di correzioni che Cluster Resource Manager può apportare è controllato da un timer diverso che ne determina la frequenza. Quando viene attivato ogni timer, l'attività viene pianificata. Per impostazione predefinita, Resource Manager:
 
 * Analizza lo stato e applica gli aggiornamenti, ad esempio la registrazione di un nodo inattivo, ogni decimo di secondo.
-* imposta il flag di controllo della selezione host ogni secondo
+* imposta il flag di controllo del posizionamento ogni secondo
 * imposta il flag di controllo del vincolo ogni secondo
 * imposta il flag di bilanciamento ogni cinque secondi
 
@@ -79,7 +79,7 @@ Ad esempio, quando i nodi presentano errori possono procedere con interi domini 
 Cluster Resource Manager necessita di informazioni aggiuntive per determinare se il cluster è sbilanciato. Per gestire questi aspetti sono disponibili due controlli di configurazione: le *soglie di bilanciamento* e le *soglie di attività*.
 
 ## <a name="balancing-thresholds"></a>Soglie di bilanciamento del carico
-Una soglia di bilanciamento del carico è il controllo principale per attivare il ribilanciamento. La soglia di bilanciamento del carico per una metrica è espressa con un _rapporto_. Se il volume di carico sul nodo più carico diviso per il volume di carico sul nodo meno carico supera il *BalancingThreshold*della metrica, il cluster viene considerato sbilanciato. In tal caso, al successivo controllo di Cluster Resource Manager viene attivato il bilanciamento del carico. Il timer *MinLoadBalancingInterval* definisce la frequenza dei controlli eseguiti da Cluster Resource Manager se è necessario il ribilanciamento. Controllare non comporta che venga eseguita un'operazione. 
+Una soglia di bilanciamento del carico è il controllo principale per attivare il ribilanciamento. La soglia di bilanciamento per una metrica è un _rapporto_. Se il volume di carico sul nodo più carico diviso per il volume di carico sul nodo meno carico supera il *BalancingThreshold*della metrica, il cluster viene considerato sbilanciato. In tal caso, al successivo controllo di Cluster Resource Manager viene attivato il bilanciamento del carico. Il timer *MinLoadBalancingInterval* definisce la frequenza dei controlli eseguiti da Cluster Resource Manager se è necessario il ribilanciamento. Controllare non comporta che venga eseguita un'operazione. 
 
 Le soglie di bilanciamento del carico sono definite sulla base delle singole metriche nell'ambito della definizione del cluster. Per altre informazioni sulle metriche, vedere [questo articolo](service-fabric-cluster-resource-manager-metrics.md).
 
@@ -114,7 +114,7 @@ mediante ClusterConfig.json per le distribuzioni autonome o Template.json per i 
 
 <center>
 
-Esempio di soglia di bilanciamento del ![][Image1]
+![Esempio di soglia di bilanciamento][Image1]
 </center>
 
 In questo esempio ogni servizio usa una unità di una metrica. Nell'esempio in alto il carico massimo su un nodo è cinque e il carico minimo è due. Si supponga che la soglia di bilanciamento del carico per questa metrica sia tre. Dato che il rapporto nel cluster è 5/2 = 2,5 e che tale cifra è inferiore al valore tre della soglia di bilanciamento, il cluster è bilanciato. In tal caso, al successivo controllo di Cluster Resource Manager non viene attivato alcun bilanciamento del carico.
@@ -123,7 +123,7 @@ Nell'esempio in basso il carico massimo su un nodo è 10, mentre il carico minim
 
 <center>
 
-Azioni di esempio della soglia di bilanciamento del ![][Image2]
+![Azioni di esempio di soglia di bilanciamento][Image2]
 </center>
 
 > [!NOTE]
@@ -139,7 +139,7 @@ Si supponga che abbiamo mantenuto la soglia di bilanciamento su tre per questa m
 
 <center>
 
-Esempio di soglia attività ![][Image3]
+![Esempio di soglia di attività][Image3]
 </center>
 
 Proprio come le soglie di bilanciamento del carico, le soglie di attività sono definite sulla base di singoli metriche tramite la definizione del cluster:
@@ -189,7 +189,7 @@ Sicuramente è già possibile intravedere una spiegazione: la catena. Non ci son
 
 <center>
 
-![i servizi di bilanciamento del carico insieme][Image4]
+![Bilanciamento composto dei servizi][Image4]
 </center>
 
 A causa di questa catena, è possibile che uno squilibrio nelle metriche 1-4 provochi lo spostamento di repliche o istanze appartenenti ai servizi 1-3. Sappiamo anche che uno sbilanciamento delle metriche 1, 2 o 3 non può comportare movimenti in Service4. Non sarebbero di alcuna utilità, dato che lo spostamento di repliche o istanze appartenenti a Service4 non influirebbe in alcun modo sul bilanciamento delle metriche 1-3.
@@ -198,14 +198,13 @@ Cluster Resource Manager determina automaticamente i servizi correlati. Aggiunge
 
 <center>
 
-![i servizi di bilanciamento del carico insieme][Image5]
+![Bilanciamento composto dei servizi][Image5]
 </center>
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Le metriche determinano il modo in cui Cluster Resource Manger di Service Fabric gestisce il consumo e la capacità del cluster. Per altre informazioni sulle metriche e su come configurarle, vedere [questo articolo](service-fabric-cluster-resource-manager-metrics.md)
+* Le metriche determinano il modo in cui Cluster Resource Manger di Service Fabric gestisce il consumo e la capacità del cluster. Per altre informazioni sulle metriche e su come configurarle, consulta [questo articolo](service-fabric-cluster-resource-manager-metrics.md)
 * Il costo dello spostamento è un modo per segnalare a Cluster Resource Manager che alcuni servizi sono più costosi da spostare rispetto ad altri. Per altre informazioni sui costi di spostamento, vedere [questo articolo](service-fabric-cluster-resource-manager-movement-cost.md).
 * Cluster Resource Manager dispone di diverse limitazioni da configurare per rallentare la varianza del cluster. Queste limitazioni non sono in genere necessarie, ma sono eventualmente disponibili altre informazioni [qui](service-fabric-cluster-resource-manager-advanced-throttling.md)
-* Il Gestione risorse del cluster è in grado di riconoscere e gestire il sottoclustering, ovvero una situazione che talvolta si verifica quando si usano vincoli di posizionamento e bilanciamento. Per informazioni sul modo in cui il sub-clustering può influire sul bilanciamento e su come gestirlo, vedere [qui](service-fabric-cluster-resource-manager-subclustering.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
 [Image2]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png

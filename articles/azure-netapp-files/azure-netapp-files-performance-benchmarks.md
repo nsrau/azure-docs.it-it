@@ -1,6 +1,6 @@
 ---
-title: Risultati dei test di benchmark delle prestazioni per Azure NetApp Files | Microsoft Docs
-description: Descrive i risultati dei test di benchmark delle prestazioni per Azure NetApp Files a livello di volume.
+title: Risultati dei test di benchmark delle prestazioni per i file NetApp di Azure Documenti Microsoft
+description: Descrive i risultati dei test di benchmark delle prestazioni per i file NetApp di Azure a livello di volume.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -15,81 +15,81 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: b-juche
 ms.openlocfilehash: 1d6b43110046f26d8c8070b19587366588eee7b6
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68881745"
 ---
 # <a name="performance-benchmark-test-results-for-azure-netapp-files"></a>Risultati dei test di benchmark delle prestazioni per Azure NetApp Files
 
-Questo articolo descrive i risultati dei test di benchmark delle prestazioni per Azure NetApp Files a livello di volume. 
+Questo articolo descrive i risultati dei test di benchmark delle prestazioni per i file NetApp di Azure a livello di volume. 
 
-## <a name="sample-application-used-for-the-tests"></a>Applicazione di esempio usata per i test
+## <a name="sample-application-used-for-the-tests"></a>Applicazione di esempio utilizzata per i test
 
-I test delle prestazioni sono stati eseguiti con un'applicazione di esempio che usa Azure NetApp Files. L'applicazione presenta le caratteristiche seguenti: 
+I test delle prestazioni sono stati eseguiti con un'applicazione di esempio usando i file NetApp di Azure.Performance tests were run with a sample application using Azure NetApp Files. L'applicazione ha le seguenti caratteristiche: 
 
-* Un'applicazione basata su Linux compilata per il cloud
-* Può essere ridimensionato in modo lineare con le macchine virtuali aggiunte (VM) per aumentare la potenza di calcolo in base alle esigenze
-* Richiede l'accessibilità rapida di data Lake
-* Include modelli di I/O a volte casuali e talvolta sequenziali 
-    * Un modello casuale richiede una bassa latenza per grandi quantità di I/O. 
+* Un'applicazione basata su Linux creata per il cloud
+* Può scalare in modo lineare con macchine virtuali aggiunte (VM) per aumentare la potenza di calcolo in base alle esigenze
+* Richiede una rapida accessibilità del data lake
+* Ha modelli di I/O che a volte sono casuali e a volte sequenziali 
+    * Un modello casuale richiede una bassa latenza per grandi quantità di I/O.A random pattern requires low latency for large amounts of I/O. 
     * Un modello sequenziale richiede grandi quantità di larghezza di banda. 
 
-## <a name="about-the-workload-generator"></a>Informazioni sul generatore di carico di lavoro
+## <a name="about-the-workload-generator"></a>Informazioni sul generatore di carichi di lavoro
 
-I risultati provengono dai file di riepilogo di Vdbench. [Vdbench](https://www.oracle.com/technetwork/server-storage/vdbench-downloads-1901681.html) è un'utilità da riga di comando che genera carichi di lavoro di I/O su disco per convalidare le prestazioni di archiviazione. La configurazione client-server utilizzata è scalabile.  Include un singolo master/client misto e 14 VM client dedicate.
+I risultati provengono dai file di riepilogo Vdbench. [Vdbench](https://www.oracle.com/technetwork/server-storage/vdbench-downloads-1901681.html) è un'utilità della riga di comando che genera carichi di lavoro di I/O del disco per la convalida delle prestazioni di archiviazione. La configurazione client-server utilizzata è scalabile.  Include un singolo master/client misto e 14 macchine virtuali client dedicate.
 
 ## <a name="about-the-tests"></a>Informazioni sui test
 
 I test sono stati progettati per identificare i limiti che l'applicazione di esempio potrebbe avere e il tempo di risposta che curva fino ai limiti.  
 
-Sono stati eseguiti i test seguenti: 
+Sono stati eseguiti i seguenti test: 
 
 * 100% 8-KiB lettura casuale
 * 100% 8-KiB scrittura casuale
-* 100% 64-KiB lettura sequenziale
+* Lettura sequenziale 100% 64-KiB
 * 100% 64-KiB scrittura sequenziale
 * 50% 64-KiB lettura sequenziale, 50% 64-KiB scrittura sequenziale
 * 50% 8-KiB lettura casuale, 50% 8-KiB scrittura casuale
 
 ## <a name="bandwidth"></a>Larghezza di banda
 
-Azure NetApp Files offre più [livelli di servizio](azure-netapp-files-service-levels.md). Ogni livello di servizio offre una quantità di larghezza di banda diversa per TiB della capacità con provisioning (quota del volume). Viene eseguito il provisioning del limite della larghezza di banda per un volume in base alla combinazione del livello di servizio e della quota del volume. Il limite di larghezza di banda è solo un fattore per determinare la quantità effettiva di velocità effettiva che verrà realizzata.  
+File NetApp di Azure offre più livelli di [servizio.](azure-netapp-files-service-levels.md) Ogni livello di servizio offre una quantità diversa di larghezza di banda per TiB di capacità di cui è stato eseguito il provisioning (quota del volume). Il provisioning del limite di larghezza di banda per un volume viene eseguito in base alla combinazione del livello di servizio e della quota del volume. Il limite di larghezza di banda è solo uno dei fattori per determinare la quantità effettiva di velocità effettiva che verrà realizzata.  
 
-Attualmente, 4.500 MiB è la velocità effettiva massima che è stata realizzata da un carico di lavoro su un singolo volume nel test.  Con il livello di servizio Premium, una quota del volume di 70,31 TiB effettuerà il provisioning di una larghezza di banda sufficiente per tenere conto della velocità effettiva in base al calcolo 
+Attualmente, 4.500 MiB è la velocità effettiva più elevata ottenuta da un carico di lavoro rispetto a un singolo volume in fase di test.  Con il livello di servizio Premium, una quota di volume di 70.31 TiB eseguirà il provisioning di larghezza di banda sufficiente per realizzare questa velocità effettiva in base al calcolo seguente:With the Premium service level, a volume quota of 70.31 TiB will provision enough bandwidth to realize this throughput per the calculation below: 
 
 ![Formula della larghezza di banda](../media/azure-netapp-files/azure-netapp-files-bandwidth-formula.png)
 
 ![Quota e livello di servizio](../media/azure-netapp-files/azure-netapp-files-quota-service-level.png)
 
-## <a name="throughput-intensive-workloads"></a>Carichi di lavoro a elevato utilizzo di velocità effettiva
+## <a name="throughput-intensive-workloads"></a>Carichi di lavoro ad alta intensità di velocità effettiva
 
-Il test della velocità effettiva ha usato Vdbench e una combinazione di VM di archiviazione 12xD32s V3. Il volume di esempio nel test ha effettuato i seguenti numeri di velocità effettiva:
+Il test della velocità effettiva ha usato Vdbench e una combinazione di macchine virtuali di archiviazione V3 12xD32s.The throughput test used Vdbench and a combination of 12xD32s V3 storage VMs. Il volume di esempio nel test ha ottenuto i seguenti numeri di velocità effettiva:
 
 ![Test della velocità effettiva](../media/azure-netapp-files/azure-netapp-files-throughput-test.png)
 
 ## <a name="io-intensive-workloads"></a>Carichi di lavoro con utilizzo intensivo di I/O
 
-Il test di I/O ha usato Vdbench e una combinazione di VM di archiviazione 12xD32s V3. Il volume di esempio nel test ha effettuato i seguenti numeri di I/O:
+Il test di I/O ha utilizzato Vdbench e una combinazione di macchine virtuali di archiviazione V3 12xD32s. Il volume del campione nel test ha ottenuto i seguenti numeri di I/O:
 
-![Test di I/O](../media/azure-netapp-files/azure-netapp-files-io-test.png)
+![Test I/O](../media/azure-netapp-files/azure-netapp-files-io-test.png)
 
 ## <a name="latency"></a>Latenza
 
-La distanza tra le VM di test e il volume Azure NetApp Files influisca sulle prestazioni di I/O.  Il grafico seguente confronta le curve di risposta IOPS rispetto alla latenza per due diversi set di macchine virtuali.  Un set di macchine virtuali è vicino Azure NetApp Files e l'altro set è più lontano.  L'aumento della latenza per l'ulteriore set di macchine virtuali influisca sulla quantità di IOPS raggiunto a un determinato livello di parallelismo.  Indipendentemente dalle letture eseguite su un volume è possibile superare 300.000 IOPS, come illustrato di seguito: 
+La distanza tra le macchine virtuali di test e il volume File NetApp di Azure influisce sulle prestazioni di I/O.The distance between the test VMs and the Azure NetApp Files volume has an impact on the I/O performance.  Il grafico seguente confronta le curve di risposta di IOPS e latenza per due set diversi di macchine virtuali.  Un set di macchine virtuali è vicino a File NetApp di Azure e l'altro set è più lontano.  L'aumento della latenza per l'ulteriore set di macchine virtuali ha un impatto sulla quantità di Operazioni di I/O al secondo ottenute a un determinato livello di parallelismo.  Indipendentemente da ciò, le letture su un volume possono superare le 300.000 operazioni di I/O al secondo, come illustrato di seguito:Regard regardregardas, reads against a volume can exceed 300,000 IOPS as illustrated below: 
 
 ![Studio della latenza](../media/azure-netapp-files/azure-netapp-files-latency-study.png)
 
 ## <a name="summary"></a>Riepilogo
 
-I carichi di lavoro sensibili alla latenza (database) possono avere un tempo di risposta di un millisecondo. Le prestazioni transazionali possono essere superiori a 300K IOPS per un singolo volume.
+I carichi di lavoro sensibili alla latenza (database) possono avere un tempo di risposta di un millisecondo. Le prestazioni transazionali possono essere superiori a 300k IOPS per un singolo volume.
 
-Le applicazioni sensibili alla velocità effettiva (per flussi e immagini) possono avere una velocità effettiva di 4.5 GiB/s.
+Le applicazioni sensibili alla velocità effettiva (per lo streaming e l'imaging) possono avere velocità effettiva 4.5GiB/s.
 
 ## <a name="example-scripts"></a>Script di esempio
 
-Gli script di esempio seguenti sono solo a scopo dimostrativo.  Non devono essere usati per scopi di produzione.  
+Gli script di esempio seguenti sono solo a scopo dimostrativo.  Essi non devono essere utilizzati per scopi di produzione.  
 
     #
     #This script makes the following assumptions about the environment

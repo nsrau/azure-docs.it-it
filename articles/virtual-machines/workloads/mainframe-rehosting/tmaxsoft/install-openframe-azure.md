@@ -1,6 +1,6 @@
 ---
-title: Installare TmaxSoft OpenFrame in macchine virtuali di Azure
-description: Riospitare i carichi di lavoro del mainframe IBM z/OS usando l'ambiente OpenFrame di TmaxSoft in macchine virtuali di Azure.
+title: Installare TmaxSoft OpenFrame in macchine virtuali di AzureInstall TmaxSoft OpenFrame on Azure Virtual Machines
+description: Riospita i carichi di lavoro mainframe IBM z/OS usando l'ambiente OpenFrame TmaxSoft nelle macchine virtuali di Azure.Rehost your IBM z/OS mainframe workloads using TmaxSoft OpenFrame environment on Azure Virtual Machines (VMs).
 services: virtual-machines-linux
 documentationcenter: ''
 author: njray
@@ -9,57 +9,57 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.openlocfilehash: 1ad6e52c421d9cfec4640d3a330b5507d6ed3e9b
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72436055"
 ---
-# <a name="install-tmaxsoft-openframe-on-azure"></a>Installare TmaxSoft OpenFrame in Azure
+# <a name="install-tmaxsoft-openframe-on-azure"></a>Installare TmaxSoft OpenFrame in AzureInstall TmaxSoft OpenFrame on Azure
 
-Informazioni su come configurare un ambiente OpenFrame in Azure adatto per lo sviluppo, le demo, i test o i carichi di lavoro di produzione. Questa esercitazione illustra ogni passaggio.
+Informazioni su come configurare un ambiente OpenFrame in Azure adatto per carichi di lavoro di sviluppo, demo, test o produzione. Questa esercitazione illustra ogni passaggio.
 
-OpenFrame include più componenti che creano l'ambiente di emulazione mainframe in Azure. Ad esempio, OpenFrame Servizi online sostituire il middleware mainframe, ad esempio IBM Customer Information Control System (CICS) e OpenFrame batch, con il relativo componente TJES, sostituisce il sottosistema di immissione dei processi (JES) del mainframe IBM.
+OpenFrame includes multiple components that create the mainframe emulation environment on Azure. Ad esempio, i servizi online OpenFrame sostituiscono il middleware mainframe come IBM Customer Information Control System (CICS) e OpenFrame Batch, con il relativo componente TJES, sostituisce il Job Entry Subsystem (JES) del mainframe IBM.
 
-OpenFrame funziona con qualsiasi database relazionale, tra cui Oracle Database, Microsoft SQL Server, IBM DB2 e MySQL. Questa installazione di OpenFrame usa il database relazionale TmaxSoft tibero. Sia OpenFrame che tibero vengono eseguiti in un sistema operativo Linux. Questa esercitazione installa CentOS 7,3, sebbene sia possibile usare altre distribuzioni Linux supportate. Il server applicazioni OpenFrame e il database tibero sono installati in una macchina virtuale (VM).
+OpenFrame funziona con qualsiasi database relazionale, inclusi Oracle Database, Microsoft SQL Server, IBM Db2 e MySQL. Questa installazione di OpenFrame utilizza il database relazionale TmaxSoft Tibero. Sia OpenFrame che Tibero funzionano su un sistema operativo Linux. Questo tutorial installa CentOS 7.3, anche se è possibile utilizzare altre distribuzioni Linux supportate. Il server applicazioni OpenFrame e il database Tibero vengono installati in una macchina virtuale (VM).
 
-L'esercitazione illustra l'installazione dei componenti di OpenFrame suite. Alcune devono essere installate separatamente.
+L'esercitazione illustra l'installazione dei componenti della suite OpenFrame. Alcuni devono essere installati separatamente.
 
-Componenti principali di OpenFrame:
+Componenti OpenFrame principali:
 
 - Pacchetti di installazione necessari.
-- Database tibero.
-- Open Database Connectivity (ODBC) viene usato dalle applicazioni in OpenFrame per comunicare con il database di Tiberi.
-- OpenFrame base, il middleware che gestisce l'intero sistema.
-- Batch OpenFrame, la soluzione che sostituisce i sistemi batch del mainframe.
-- TACF, un modulo del servizio che controlla l'accesso degli utenti a sistemi e risorse.
-- Prosort, uno strumento di ordinamento per le transazioni batch.
+- Database del Tbero.
+- Open Database Connectivity (ODBC) viene utilizzato dalle applicazioni in OpenFrame per comunicare con il database Tibero.
+- OpenFrame Base, il middleware che gestisce l'intero sistema.
+- OpenFrame Batch, la soluzione che sostituisce i sistemi batch del mainframe.
+- TACF, un modulo di servizio che controlla l'accesso degli utenti a sistemi e risorse.
+- ProSort, uno strumento di ordinamento per le transazioni batch.
 - OFCOBOL, un compilatore che interpreta i programmi COBOL del mainframe.
 - OFASM, un compilatore che interpreta i programmi assembler del mainframe.
-- OpenFrame Server Type C (OSC), la soluzione che sostituisce il middleware del mainframe e IBM CICS.
-- Java Enterprise User Solution (JEUS), un server applicazioni web certificato per Java Enterprise Edition 6.
+- OpenFrame Server Type C (OSC), la soluzione che sostituisce il middleware mainframe e IBM CICS.
+- Java Enterprise User Solution (JEUS), un server applicazioni Web certificato per Java Enterprise Edition 6.
 - OFGW, il componente gateway OpenFrame che fornisce un listener 3270.
-- OFManager, una soluzione che fornisce funzioni operative e di gestione di OpenFrame nell'ambiente Web.
+- OFManager, una soluzione che fornisce le funzioni operative e di gestione di OpenFrame nell'ambiente Web.
 
-Altri componenti di OpenFrame necessari:
+Altri componenti OpenFrame necessari:
 
-- OSI, la soluzione che sostituisce il middleware mainframe e il controller di dominio IMS.
+- OSI, la soluzione che sostituisce il middleware mainframe e IMS DC.
 - TJES, la soluzione che fornisce l'ambiente JES del mainframe.
-- OFTSAM, la soluzione che consente di usare i file SAM (V) nel sistema aperto.
+- OFTSAM, la soluzione che consente l'utilizzo di file SAM V (V)nel sistema aperto.
 - OFHiDB, la soluzione che sostituisce il database IMS del mainframe.
 - OFPLI, un compilatore che interpreta i programmi PL/I del mainframe.
-- PROTRIEVE, una soluzione che esegue la lingua del mainframe CA-Easytrieve.
-- OFMiner, una soluzione che analizza gli asset mainframe e li esegue quindi la migrazione in Azure.
+- PROTRIEVE, una soluzione che esegue il linguaggio mainframe CA-Easytrieve.
+- OFMiner, a solution that analyzes the mainframes assets and then migrates them to Azure.
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
-La figura seguente fornisce una panoramica dei componenti dell'architettura OpenFrame 7,0 installati in questa esercitazione:
+Nella figura seguente viene fornita una panoramica dei componenti dell'architettura OpenFrame 7.0 installati in questa esercitazione:The following figure provides an overview of the OpenFrame 7.0 architectural components installed in this tutorial:
 
-![Componenti di OpenFrame](media/openframe-02.png)
+![Componenti OpenFrame](media/openframe-02.png)
 
-## <a name="azure-system-requirements"></a>Requisiti di sistema di Azure
+## <a name="azure-system-requirements"></a>Requisiti di sistema di AzureAzure system requirements
 
-La tabella seguente elenca i requisiti per l'installazione in Azure.
+The following table lists the requirements for the installation on Azure.
 <!-- markdownlint-disable MD033 -->
 
 <table>
@@ -67,27 +67,27 @@ La tabella seguente elenca i requisiti per l'installazione in Azure.
     <tr><th>Requisito</th><th>Descrizione</th></tr>
 </thead>
 <tbody>
-<tr><td>Distribuzioni Linux supportate in Azure
+<tr><td>Distribuzioni Linux supportate in AzureSupported Linux distributions on Azure
 </td>
 <td>
-Linux x86 2,6 (32 bit, 64 bit)<br/>
-Red Hat 7. x<br/>
+Linux x86 2.6 (32 bit, 64 bit)<br/>
+Cappello Rosso 7.x<br/>
 CentOS 7.x<br/>
 </td>
 </tr>
 <tr><td>Hardware
 </td>
-<td>Core: 2 (minimo)<br/>
+<td>Carote: 2 (minimo)<br/>
 Memoria: 4 GB (minimo)<br/>
-Spazio di swapping: 1 GB (minimo)<br/>
+Spazio di swap: 1 GB (minimo)<br/>
 Disco rigido: 100 GB (minimo)<br/>
 </td>
 </tr>
-<tr><td>Software facoltativo per utenti Windows
+<tr><td>Software opzionale per utenti Windows
 </td>
-<td>PuTTy: usato in questa guida per configurare le funzionalità della VM<br/>
-WinSCP: un client SFTP e un client FTP diffusi che è possibile usare<br/>
-Eclipse per Windows: piattaforma di sviluppo supportata da TmaxSoft<br/>
+<td>PuTTY: utilizzato in questa guida per configurare le funzionalità della macchina virtualePuTTY: Used in this guide to configure VM features<br/>
+WinSCP: un client SFTP e un client FTP più diffusi che è possibile utilizzare<br/>
+Eclipse per Windows: una piattaforma di sviluppo supportata da TmaxSoft<br/>
 (Microsoft Visual Studio non è supportato in questo momento)
 </td>
 </tr>
@@ -96,108 +96,108 @@ Eclipse per Windows: piattaforma di sviluppo supportata da TmaxSoft<br/>
 
 <!-- markdownlint-enable MD033 -->
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-Pianifica la spesa per alcuni giorni per assemblare tutto il software necessario e completare tutti i processi manuali.
+Pianificare l'assemblaggio di tutti i software necessari e completare tutti i processi manuali.
 
 Prima di iniziare, eseguire le operazioni seguenti:
 
-- Ottenere il supporto di installazione di OpenFrame da TmaxSoft. Se si è un cliente di TmaxSoft esistente, contattare il rappresentante di TmaxSoft per una copia con licenza. In caso contrario, richiedere una versione di valutazione di [TmaxSoft](https://www.tmaxsoft.com/contact/).
+- Ottenere il supporto di installazione OpenFrame da TmaxSoft.Get the OpenFrame installation media from TmaxSoft. Se sei un cliente TmaxSoft esistente, contatta il tuo rappresentante TmaxSoft per una copia con licenza. In caso contrario, richiedere una versione di prova da [TmaxSoft](https://www.tmaxsoft.com/contact/).
 
-- Richiedere la documentazione di OpenFrame inviando un messaggio di posta elettronica a <support@tmaxsoft.com>.
+- Richiedere la documentazione OpenFrame <support@tmaxsoft.com>inviando un messaggio di posta elettronica a .
 
-- Ottenere una sottoscrizione di Azure, se non è già presente. È anche possibile creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+- Ottenere una sottoscrizione di Azure se non ne è già inlicenza. Puoi anche creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-- Facoltativa. Configurare un tunnel VPN da sito a sito o un JumpBox per limitare l'accesso alla macchina virtuale di Azure agli utenti autorizzati dell'organizzazione. Questo passaggio non è obbligatorio, ma è una procedura consigliata.
+- Facoltativa. Configurare un tunnel VPN da sito a sito o un jumpbox che limita l'accesso alla macchina virtuale di Azure agli utenti consentiti nell'organizzazione. Questo passaggio non è obbligatorio, ma è una procedura consigliata.
 
-## <a name="set-up-a-vm-on-azure-for-openframe-and-tibero"></a>Configurare una macchina virtuale in Azure per OpenFrame e tibero
+## <a name="set-up-a-vm-on-azure-for-openframe-and-tibero"></a>Configurare una macchina virtuale in Azure per OpenFrame e TiberoSet up a VM on Azure for OpenFrame and Tibero
 
-È possibile configurare l'ambiente OpenFrame usando diversi modelli di distribuzione, ma la procedura seguente mostra come distribuire il server applicazioni OpenFrame e il database di tibero in una VM. In ambienti più grandi e per carichi di lavoro di dimensioni elevate, una procedura consigliata consiste nel distribuire il database separatamente nella propria macchina virtuale per ottenere prestazioni migliori.
+È possibile configurare l'ambiente OpenFrame utilizzando vari modelli di distribuzione, ma nella procedura seguente viene illustrato come distribuire il server applicazioni OpenFrame e il database Tibero in una macchina virtuale. In ambienti di grandi dimensioni e per carichi di lavoro di grandi dimensioni, è consigliabile distribuire il database separatamente nella propria macchina virtuale per migliorare le prestazioni.
 
-**Per creare una macchina virtuale**
+**Per creare una macchina virtualeTo create a VM**
 
-1. Passare alla portale di Azure in <https://portal.azure.com> e accedere al proprio account.
+1. Passare al portale <https://portal.azure.com> di Azure e accedere all'account.
 
 2. Fare clic su **Virtual machines**.
 
-    ![Elenco di risorse in portale di Azure](media/vm-01.png)
+    ![Elenco delle risorse nel portale di AzureResource list in Azure portal](media/vm-01.png)
 
 3. Fare clic su **Aggiungi**.
 
-    ![Aggiungi opzione in portale di Azure](media/vm-02.png)
+    ![Aggiungi opzione nel portale di AzureAdd option in Azure portal](media/vm-02.png)
 
-4. A destra dei **sistemi operativi**, fare clic su **altro**.
+4. A destra di **Sistemi operativi**fare clic su **Altro**.
 
-     ![Altre opzioni in portale di Azure](media/vm-03.png)
+     ![Altre opzioni nel portale di AzureMore option in Azure portal](media/vm-03.png)
 
-5. Fare clic su **CentOS 7,3** per seguire esattamente questa procedura dettagliata oppure è possibile scegliere un'altra distribuzione Linux supportata.
+5. Fare clic su **CentOS-based 7.3** per seguire esattamente questa procedura, oppure è possibile scegliere un'altra distribuzione Linux supportata.
 
-     ![Opzioni del sistema operativo in portale di Azure](media/vm-04.png)
+     ![Opzioni del sistema operativo nel portale di AzureOperating System options in Azure portal](media/vm-04.png)
 
-6. Nelle impostazioni di **base** immettere **nome**, **nome utente**, tipo di **autenticazione**, **sottoscrizione** (con pagamento in base al consumo è lo stile di pagamento di AWS) e **gruppo di risorse** (usare uno esistente o creare un gruppo TmaxSoft).
+6. Nelle impostazioni **di Base** immettere **Nome**, **Nome utente**, Tipo **di autenticazione**, **Sottoscrizione** (con pagamento in base al consumo è lo stile di pagamento AWS) e Gruppo **di risorse** (utilizzare uno esistente o creare un gruppo TmaxSoft).
 
-7. Al termine, inclusa la coppia di chiavi pubblica/privata per il **tipo di autenticazione**, fare clic su **Invia**.
+7. Al termine (inclusa la coppia di chiavi pubblica/privata per **Tipo di autenticazione**), fare clic su **Invia**.
 
 > [!NOTE]
-> Se si usa una chiave pubblica SSH per il **tipo di autenticazione**, vedere i passaggi nella sezione successiva per generare la coppia di chiavi pubblica/privata, quindi riprendere i passaggi qui.
+> Se si utilizza una chiave pubblica SSH per **Tipo di autenticazione**, vedere i passaggi nella sezione successiva per generare la coppia di chiavi pubblica/privata, quindi riprendere i passaggi qui.
 
-### <a name="generate-a-publicprivate-key-pair"></a>Genera una coppia di chiavi pubblica/privata
+### <a name="generate-a-publicprivate-key-pair"></a>Generare una coppia di chiavi pubblica/privata
 
-Se si usa un sistema operativo Windows, è necessario PuTTYgen per generare una coppia di chiavi pubblica/privata.
+Se si utilizza un sistema operativo Windows, è necessario PuTTYgen per generare una coppia di chiavi pubblica/privata.
 
-La chiave pubblica può essere condivisa liberamente, ma la chiave privata deve essere mantenuta interamente segreta e non deve mai essere condivisa con un'altra parte. Dopo la generazione delle chiavi, è necessario incollare la **chiave pubblica SSH** nella configurazione, ovvero caricarla nella VM Linux. Viene archiviato all'interno di chiavi di\_autorizzate all'interno della directory \~/.ssh della Home directory dell'account utente. La VM Linux è quindi in grado di riconoscere e convalidare la connessione una volta fornita la **chiave privata SSH** associata nel client SSH (in questo caso, Putty).
+La chiave pubblica può essere liberamente condivisa, ma la chiave privata deve essere mantenuta completamente segreta e non deve mai essere condivisa con un'altra parte. Dopo aver generato le chiavi, è necessario incollare la chiave pubblica SSH nella configurazione, in effetti, caricandola nella macchina virtuale Linux.After generating the keys, you must paste the **SSH public key** into the configuration, in effect, uploading it to the Linux VM. Viene memorizzato\_all'interno \~di chiavi autorizzate all'interno della directory /.ssh della home directory dell'account utente. La macchina virtuale Linux è quindi in grado di riconoscere e convalidare la connessione una volta fornita la **chiave privata SSH** associata nel client SSH (nel nostro caso, PuTTY).
 
-Quando si assegnano nuovi utenti ad accedere alla macchina virtuale: 
+Quando si concede a nuovi utenti l'accesso alla macchina virtuale:When giving new individuals access the VM: 
 
-- Ogni nuovo singolo genera le proprie chiavi pubbliche/private usando PuTTYgen.
-- Gli utenti archiviano separatamente le proprie chiavi private e inviano le informazioni sulla chiave pubblica all'amministratore della macchina virtuale.
-- L'amministratore incolla il contenuto della chiave pubblica nel \~file di chiavi di\_/.ssh/Authorized.
-- Il nuovo utente si connette tramite PuTTy.
+- Ogni nuovo individuo genera le proprie chiavi pubbliche/private utilizzando PuTTYgen.
+- Gli utenti archiviano le proprie chiavi private separatamente e inviano le informazioni sulla chiave pubblica all'amministratore della macchina virtuale.
+- L'amministratore incolla il contenuto della \~chiave pubblica nel\_file delle chiavi /.ssh/autorizzato.
+- Il nuovo individuo si connette tramite PuTTY.
 
-**Per generare una coppia di chiavi pubblica/privata**
+**Per generare una coppia di chiavi pubblica/privataTo generate a public/private key pair**
 
-1.  Scaricare PuTTYgen da <https://www.putty.org/> e installarlo usando tutte le impostazioni predefinite.
+1.  Scaricare PuTTYgen <https://www.putty.org/> da e installarlo utilizzando tutte le impostazioni predefinite.
 
-2.  Per aprire PuTTYgen, individuare la directory di installazione di PuTTy in C:\\Program Files\\PuTTy.
+2.  Per aprire PuTTYgen, individuare la directory di\\installazione\\di PuTTY in C: Programmi PuTTY.
 
-    ![Interfaccia PuTTy](media/puttygen-01.png)
+    ![Interfaccia PuTTY](media/puttygen-01.png)
 
 3.  Fare clic su **Genera**.
 
-    ![Finestra di dialogo Generatore di chiavi PuTTy](media/puttygen-02.png)
+    ![Finestra di dialogo Generatore di chiavi PuTTY](media/puttygen-02.png)
 
-4.  Dopo la generazione, salvare sia la chiave pubblica che la chiave privata. Incollare il contenuto della chiave pubblica nella sezione **chiave pubblica SSH** del riquadro **crea macchina virtuale \> nozioni di base** (illustrato nei passaggi 6 e 7 della sezione precedente).
+4.  Dopo la generazione, salvare sia la chiave pubblica che la chiave privata. Incollare il contenuto della chiave pubblica nella sezione relativa alla **chiave pubblica SSH** del riquadro Nozioni di base sulla creazione di **macchine \> virtuali** (illustrata nei passaggi 6 e 7 della sezione precedente).
 
-    ![Finestra di dialogo Generatore di chiavi PuTTy](media/puttygen-03.png)
+    ![Finestra di dialogo Generatore di chiavi PuTTY](media/puttygen-03.png)
 
-### <a name="configure-vm-features"></a>Configurare le funzionalità della VM
+### <a name="configure-vm-features"></a>Configurare le funzionalità della macchina virtualeConfigure VM features
 
-1. Nel pannello **Scegli una dimensione** in portale di Azure scegliere le impostazioni hardware del computer Linux desiderate. I requisiti *minimi* per installare sia tibero che OpenFrame sono 2 CPU e 4 GB di RAM, come illustrato in questo esempio di installazione:
+1. Nel portale di Azure scegliere le impostazioni hardware del computer Linux desiderate nel pannello **Scegliere una dimensione.** I requisiti *minimi* per l'installazione di Tibero e OpenFrame sono 2 CPU e 4 GB di RAM, come illustrato in questa installazione di esempio:The minimum requirements for installing both Tibero and OpenFrame are 2 CPUs and 4 GB RAM as shown in this example installation:
 
-    ![Creazione di una macchina virtuale-nozioni di base](media/create-vm-01.png)
+    ![Creare una macchina virtuale - Nozioni di baseCreate virtual machine - Basics](media/create-vm-01.png)
 
-2. Fare clic su **3 impostazioni** e utilizzare le impostazioni predefinite per configurare le funzionalità facoltative.
-3. Esaminare i dettagli di pagamento.
+2. Fare clic su **3 Impostazioni** e utilizzare le impostazioni predefinite per configurare le funzionalità facoltative.
+3. Rivedi i dettagli del pagamento.
 
-    ![Crea macchina virtuale-acquisto](media/create-vm-02.png)
+    ![Crea macchina virtuale - Acquisto](media/create-vm-02.png)
 
 4. Inviare le selezioni. Azure inizia a distribuire la macchina virtuale. Questo processo richiede in genere alcuni minuti.
 
-5. Quando la macchina virtuale viene distribuita, viene visualizzato il relativo dashboard, che Mostra tutte le impostazioni selezionate durante la configurazione. Prendere nota dell' **indirizzo IP pubblico**.
+5. Quando la macchina virtuale viene distribuita, viene visualizzato il relativo dashboard, che mostra tutte le impostazioni selezionate durante la configurazione. Prendere nota **dell'indirizzo IP pubblico**.
 
-    ![TMAX nel dashboard di Azure](media/create-vm-03.png)
+    ![tmax nel dashboard di Azure](media/create-vm-03.png)
 
 6. Aprire PuTTY.
 
-7. Per **nome host**Digitare il nome utente e l'indirizzo IP pubblico copiato. Ad esempio, **username\@IP pubblico**.
+7. In **Nome host**digitare il nome utente e l'indirizzo IP pubblico copiati. Ad esempio, **\@username publicip**.
 
-    ![Finestra di dialogo configurazione PuTTy](media/putty-01.png)
+    ![Finestra di dialogo Configurazione PuTTY](media/putty-01.png)
 
-8. Nella casella **categoria** fare clic su **connessione \> SSH \> auth**. Consente di specificare il percorso del file di **chiave privata** .
+8. Nella casella **Categoria** fare clic su **Connection \> SSH \> Auth**. Specificare il percorso del file di **chiave privata.**
 
-    ![Finestra di dialogo configurazione PuTTy](media/putty-02.png)
+    ![Finestra di dialogo Configurazione PuTTY](media/putty-02.png)
 
-9. Fare clic su **Apri** per avviare la finestra Putty. Se l'operazione ha esito positivo, si è connessi alla nuova VM CentOS in esecuzione in Azure.
+9. Fare clic su **Apri** per aprire la finestra PuTTY. In caso di esito positivo, si è connessi alla nuova macchina virtuale CentOS in esecuzione in Azure.If successful, you are connected to your new CentOS VM running on Azure.
 
 10. Per accedere come utente root, digitare **sudo bash**.
 
@@ -205,9 +205,9 @@ Quando si assegnano nuovi utenti ad accedere alla macchina virtuale:
 
 ## <a name="set-up-the-environment-and-packages"></a>Configurare l'ambiente e i pacchetti
 
-Ora che la macchina virtuale è stata creata ed è stato effettuato l'accesso, è necessario eseguire alcuni passaggi di installazione e installare i pacchetti di preinstallazione necessari.
+Ora che la macchina virtuale è stata creata e si è connessi, è necessario eseguire alcuni passaggi di installazione e installare i pacchetti di preinstallazione necessari.
 
-1. Eseguire il mapping del nome **ofdemo** all'indirizzo IP locale usando vi per modificare il file hosts (`vi /etc/hosts`). Supponendo che l'indirizzo IP sia 192.168.96.148 ofdemo, questo è prima della modifica:
+1. Mappare il nome **didemo** all'indirizzo IP locale utilizzando`vi /etc/hosts`vi per modificare il file hosts ( ). Supponendo che il nostro IP è 192.168.96.148 didemo, questo è prima della modifica:
 
     ```vi
     127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 
@@ -215,7 +215,7 @@ Ora che la macchina virtuale è stata creata ed è stato effettuato l'accesso, �
     <IP Address>    <your hostname>
     ```
 
-     Questa operazione è successiva alla modifica:
+     Questo è dopo la modifica:
 
     ```vi
     127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 
@@ -238,7 +238,7 @@ Ora che la macchina virtuale è stata creata ed è stato effettuato l'accesso, �
     passwd: all authentication tokens updated successfully.
     ```
 
-4. Aggiornare i parametri del kernel in/etc/sysctl.conf:
+4. Aggiornare i parametri del kernel in /etc/sysctl.conf:
 
     ```vi
     [root@ofdemo ~]# vi /etc/sysctl.conf
@@ -246,31 +246,31 @@ Ora che la macchina virtuale è stata creata ed è stato effettuato l'accesso, �
     kernel.sem = 10000 32000 10000 10000
     ```
 
-5. Aggiornare i parametri del kernel in modo dinamico senza riavvio:
+5. Aggiornare i parametri del kernel in modo dinamico senza riavviare:
 
     ```vi
     [root@ofdemo ~]# /sbin/sysctl -p
     ```
 
-6. Ottenere i pacchetti necessari: verificare che il server sia connesso a Internet, scaricare i pacchetti seguenti e quindi installarli:
+6. Ottenere i pacchetti necessari: assicurarsi che il server sia connesso a Internet, scaricare i pacchetti seguenti e quindi installarli:
 
      - dos2unix
      - glibc
      - glibc.i686 glibc.x86\_64
-     - Libaio
-     - ncurses
+     - libaio
+     - Ncurses
 
           > [!NOTE]
-          > Dopo aver installato il pacchetto ncurses, creare i collegamenti simbolici seguenti:
+          > Dopo aver installato il pacchetto ncurses, creare i seguenti collegamenti simbolici:
          ```
          ln -s /usr/lib64/libncurses.so.5.9 /usr/lib/libtermcap.so
          ln -s /usr/lib64/libncurses.so.5.9 /usr/lib/libtermcap.so.2
          ```
 
      - gcc
-     - gcc-c + +
+     - gcc-c
      - libaio-devel.x86\_64
-     - STrace
+     - Strace
      - ltrace
      - gdb
 
@@ -295,27 +295,27 @@ Java HotSpot(TM) 64-Bit Server VM (build 24.79-b02, mixed mode)
 [root@ofdemo ~]# echo $JAVA_HOME /usr/java/jdk1.7.0_79/
 ```
 
-## <a name="install-the-tibero-database"></a>Installare il database tibero
+## <a name="install-the-tibero-database"></a>Installare il database Tibero
 
-Tibero fornisce le numerose funzioni chiave nell'ambiente OpenFrame in Azure:
+Tibero provides the several key functions in the OpenFrame environment on Azure:
 
-- Tibero viene usato come archivio dati interno di OpenFrame per varie funzioni di sistema.
-- I file VSAM, inclusi KSDS, RRDS e ESDS, usano il database tibero internamente per l'archiviazione dei dati.
-- Il repository di dati TACF è archiviato in tibero.
-- Le informazioni sul catalogo di OpenFrame vengono archiviate in tibero.
-- Il database tibero può essere usato come sostituto per IBM DB2 per archiviare i dati dell'applicazione.
+- Tibero viene utilizzato come archivio dati interno OpenFrame per varie funzioni di sistema.
+- I file VSAM, inclusi KSDS, RRDS ed ESDS, utilizzano internamente il database Tibero per l'archiviazione dei dati.
+- Il repository dei dati TACF è memorizzato in Tibero.
+- Le informazioni del catalogo OpenFrame vengono memorizzate in Tibero.
+- Il database Tibero può essere utilizzato in sostituzione di IBM Db2 per memorizzare i dati dell'applicazione.
 
-**Per installare tibero**
+**Per installare Tibero**
 
-1. Verificare che il file del programma di installazione binario di tibero sia presente ed esaminare il numero di versione.
-2. Copiare il software tibero nell'account utente di tibero (oFrame). Ad esempio:
+1. Verificare che il file del programma di installazione binario Tibero sia presente ed esaminare il numero di versione.
+2. Copiare il software Tibero nell'account utente Tbero (oframe). Ad esempio:
 
     ```
     [oframe7@ofdemo ~]$ tar -xzvf tibero6-bin-6_rel_FS04-linux64-121793-opt-tested.tar.gz 
     [oframe7@ofdemo ~]$ mv license.xml /opt/tmaxdb/tibero6/license/
     ```
 
-3. Aprire. bash\_profile in vi (`vi .bash_profile`) e incollare quanto segue:
+3. Aprire il\_profilo .bash in vi (`vi .bash_profile`) e incollarvi quanto segue:
 
     ```
     # Tibero6 ENV
@@ -331,14 +331,14 @@ Tibero fornisce le numerose funzioni chiave nell'ambiente OpenFrame in Azure:
     source .bash_profile
     ```
 
-5. Generare il file TIP (un file di configurazione per tibero), quindi aprirlo in vi. Ad esempio:
+5. Generare il file di suggerimento (un file di configurazione per Tibero), quindi aprirlo in vi. Ad esempio:
 
     ```
     [oframe7@ofdemo ~]$ sh $TB_HOME/config/gen_tip.sh
     [oframe7@ofdemo ~]$ vi $TB_HOME/config/$TB_SID.tip
     ```
 
-6. Modificare \$TB\_HOME/client/config/tbdsn. TBR e inserire 127.0.0.1 invece oflocalhost come illustrato di seguito:
+6. Modificare \$\_TB HOME/client/config/tbdsn.tbr e inserire 127.0.0.1 anzichélocalhost come illustrato:
 
     ```
     TVSAM=( 
@@ -386,14 +386,14 @@ Tibero fornisce le numerose funzioni chiave nell'ambiente OpenFrame in Azure:
      ******************************************************************************
     ```
 
-8. Per riciclare tibero, arrestarlo prima di tutto con il comando `tbdown`. Ad esempio:
+8. Per riciclare Tibero, prima `tbdown` spegnerlo utilizzando il comando. Ad esempio:
 
     ```
     [oframe7@ofdemo ~]$$ tbdown 
     Tibero instance terminated (NORMAL mode).
     ```
 
-9. A questo punto, avviare tibero usando `tbboot`. Ad esempio:
+9. Ora avviare Tibero utilizzando `tbboot`. Ad esempio:
 
     ```
     [oframe7@ofdemo ~]$ tbboot
@@ -404,7 +404,7 @@ Tibero fornisce le numerose funzioni chiave nell'ambiente OpenFrame in Azure:
     Tibero instance started up (NORMAL mode).
     ```
 
-10. Per creare uno spazio di tabella, accedere al database usando SYS User (sys/tmax), quindi creare lo spazio di tabella necessario per il volume predefinito e TACF:
+10. Per creare uno spazio tabelle, accedere al database utilizzando l'utente SYS (sys/tmax), quindi creare lo spazio tabelle necessario per il volume predefinito e TACF:
 
     ```
     [oframe7@ofdemo ~]$ tbsql tibero/tmax
@@ -413,7 +413,7 @@ Tibero fornisce le numerose funzioni chiave nell'ambiente OpenFrame in Azure:
     Connected to Tibero.
     ```
 
-11. Digitare ora i comandi SQL seguenti:
+11. A questo punto digitare i seguenti comandi SQL:
 
     ```
     SQL> create tablespace "DEFVOL" datafile 'DEFVOL.dbf' size 500M autoextend on; create tablespace "TACF00" datafile 'TACF00.dbf' size 500M autoextend on; create tablespace "OFM_REPOSITORY" datafile 'ofm_repository.dbf' size 300M autoextend on;
@@ -423,7 +423,7 @@ Tibero fornisce le numerose funzioni chiave nell'ambiente OpenFrame in Azure:
     SQL> SQL> Disconnected.
     ```
 
-12. Avviare tibero e verificare che i processi di tibero siano in esecuzione:
+12. Avvio Tibero e verificare che i processi Tibero siano in esecuzione:
 
     ```
     [oframe7@ofdemo ~]$ tbboot 
@@ -432,15 +432,15 @@ Tibero fornisce le numerose funzioni chiave nell'ambiente OpenFrame in Azure:
 
 Output:
 
-![Output di tibero](media/tibero-01.png)
+![Uscita Tibero](media/tibero-01.png)
 
 ## <a name="install-odbc"></a>Installare ODBC
 
-Le applicazioni in OpenFrame comunicano con il database tibero usando l'API ODBC fornita dal progetto unixODBC open source.
+Le applicazioni in OpenFrame comunicano con il database Tibero utilizzando l'API ODBC fornita dal progetto unixODBC open-source.
 
 Per installare ODBC:
 
-1. Verificare che sia presente il file del programma di installazione unixODBC-2.3.4. tar. gz o usare il comando `wget unixODBC-2.3.4.tar.gz`. Ad esempio:
+1. Verificare che il file di installazione unixODBC-2.3.4.tar.gz sia presente o utilizzare il `wget unixODBC-2.3.4.tar.gz` comando . Ad esempio:
 
      ```
      [oframe7@ofdemo ~]$ wget ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.4.tar.gz
@@ -452,15 +452,15 @@ Per installare ODBC:
      [oframe7@ofdemo ~]$ tar -zxvf unixODBC-2.3.4.tar.gz
      ```
 
-3. Passare alla directory unixODBC-2.3.4 e generare il makefile usando le informazioni sul controllo del computer. Ad esempio:
+3. Passare alla directory unixODBC-2.3.4 e generare Makefile utilizzando le informazioni sulla macchina di controllo. Ad esempio:
 
      ```
      [oframe7@ofdemo unixODBC-2.3.4]$ ./configure --prefix=/opt/tmaxapp/unixODBC/ --sysconfdir=/opt/tmaxapp/unixODBC/etc
      ```
 
-     Per impostazione predefinita, unixODBC viene installato in/usr/local, quindi `--prefix` passa un valore per modificare il percorso. Analogamente, i file di configurazione vengono installati in/etc per impostazione predefinita, quindi `--sysconfdir` passa il valore della posizione desiderata.
+     Per impostazione predefinita, unixODBC viene installato `--prefix` in /usr /local, pertanto passa un valore per modificare il percorso. Analogamente, i file di configurazione vengono `--sysconfdir` installati in /etc per impostazione predefinita, pertanto passa il valore della posizione desiderata.
 
-4. Esegui Makefile: `[oframe7@ofdemo unixODBC-2.3.4]$ make`
+4. Esegui Makefile:`[oframe7@ofdemo unixODBC-2.3.4]$ make`
 
 5. Copiare il file eseguibile nella directory del programma dopo la compilazione. Ad esempio:
 
@@ -468,7 +468,7 @@ Per installare ODBC:
      [oframe7@ofdemo unixODBC-2.3.4]$ make install
      ```
 
-6. Usare vi per modificare il profilo bash (`vi ~/.bash_profile`) e aggiungere quanto segue:
+6. Utilizzare vi per modificare`vi ~/.bash_profile`il profilo bash ( ) e aggiungere quanto segue:
 
      ```
      # UNIX ODBC ENV 
@@ -479,7 +479,7 @@ Per installare ODBC:
      export ODBCSYSINI=$HOME
      ```
 
-7. Applicare ODBC. Modificare di conseguenza i file seguenti. Ad esempio:
+7. Applicare il ODBC. Modificare i seguenti file di conseguenza. Ad esempio:
 
      ```
      [oframe7@ofdemo unixODBC-2.3.4]$ source ~/.bash_profile
@@ -524,7 +524,7 @@ Per installare ODBC:
      password = tmax
      ```
 
-8. Creare un collegamento simbolico e convalidare la connessione al database tibero:
+8. Creare un collegamento simbolico e convalidare la connessione al database Tibero:Create a symbolic link and validate the Tibero database connection:
 
      ```
      [oframe7@ofdemo ~]$ ln $ODBC_HOME/lib/libodbc.so $ODBC_HOME/lib/libodbc.so.1 [oframe7@ofdemo ~]$ ln $ODBC_HOME/lib/libodbcinst.so 
@@ -533,19 +533,19 @@ Per installare ODBC:
      [oframe7@ofdemo lib]$ isql TVSAM tibero tmax
      ```
 
-Viene visualizzato l'output seguente:
+Verrà visualizzato l'output seguente:
 
-![Output ODBC che mostra la connessione a SQL](media/odbc-01.png)
+![ODBC output showing connected to SQL](media/odbc-01.png)
 
-## <a name="install-openframe-base"></a>Installare OpenFrame base
+## <a name="install-openframe-base"></a>Installare OpenFrame Base
 
-Il server applicazioni di base viene installato prima dei singoli servizi usati da OpenFrame per gestire il sistema in Azure, inclusi i processi del server di gestione delle transazioni.
+Il server applicazioni di base viene installato prima dei singoli servizi utilizzati da OpenFrame per gestire il sistema in Azure, inclusi i processi del server di gestione delle transazioni.
 
-**Per installare OpenFrame base**
+**Per installare OpenFrame Base**
 
-1. Assicurarsi che l'installazione di tibero abbia avuto esito positivo, quindi verificare che siano presenti i seguenti OpenFrame\_Base7\_0\_Linux\_x86\_64. bin Installer e il file di configurazione base. Properties.
+1. Assicurarsi che l'installazione del Tibero sia\_stata\_eseguita correttamente, quindi verificare che siano presenti il seguente file di installazione OpenFrame Base7 0\_Linux\_x86.bin\_e il file di configurazione base.properties.
 
-2. Aggiornare il profilo bash con le informazioni specifiche di Tiberi seguenti:
+2. Aggiornare il profilo bash con le seguenti informazioni specifiche di Tibero:
 
      ```bash
      alias ofhome='cd $OPENFRAME_HOME'
@@ -559,7 +559,7 @@ Il server applicazioni di base viene installato prima dei singoli servizi usati 
      ```
 
 3. Eseguire il profilo bash:`[oframe7@ofdemo ~]$ . .bash_profile`
-4. Verificare che i processi di tibero siano in esecuzione. Ad esempio:
+4. Assicurarsi che i processi Del Tbero siano in esecuzione. Ad esempio:
 
      ```linux
      [oframe7@ofdemo ~]$ ps -ef|grep tbsvr
@@ -568,16 +568,16 @@ Il server applicazioni di base viene installato prima dei singoli servizi usati 
     ![Base](media/base-01.png)
 
      > [!IMPORTANT]
-     > Assicurarsi di avviare tibero prima dell'installazione.
+     > Assicurarsi di avviare Tibero prima dell'installazione.
 
-5. Generare la licenza in [TechNet.tmaxsoft.com](https://technet.tmaxsoft.com/en/front/main/main.do) e inserire le licenze OpenFrame base, batch, TACF, OSC nella cartella appropriata:
+5. Generare la licenza [in](https://technet.tmaxsoft.com/en/front/main/main.do) technet.tmaxsoft.com e PUT le licenze OpenFrame Base, Batch, TACF, OSC nella cartella appropriata:
 
      ```
      [oframe7@ofdemo ~]$ cp license.dat /opt/tmaxapp/OpenFrame/core/license/
      [oframe7@ofdemo ~]$ cp lictjes.dat lictacf.dat licosc.dat $OPENFRAME_HOME/license/
      ```
 
-6. Scaricare i file binary di base OpenFrame e base. Properties:
+6. Scaricare i file OpenFrame Base binary e base.properties:
 
      ```
      [oframe7@ofdemo ~]$ vi base.properties
@@ -602,16 +602,16 @@ Il server applicazioni di base viene installato prima dei singoli servizi usati 
      OPENFRAME_LICENSE_PATH=/opt/tmaxapp/license/OPENFRAME TMAX_LICENSE_PATH=/opt/tmaxapp/license/TMAX
      ```
 
-7. Eseguire il programma di installazione utilizzando il file base. Properties. Ad esempio:
+7. Eseguire il programma di installazione utilizzando il file base.properties. Ad esempio:
 
     ```
     [oframe7@ofdemo ~]$ chmod a+x OpenFrame_Base7_0_Linux_x86_64.bin 
     [oframe7@ofdemo ~]$ ./OpenFrame_Base7_0_Linux_x86_64.bin -f base.properties
     ```
 
-    Al termine, viene riprodotto il messaggio Installazione completata.
+    Al termine, viene visualizzato il messaggio Installazione completata.
 
-8. Verificare la struttura della directory di base OpenFrame usando il comando `ls -ltr`. Ad esempio:
+8. Verificare la struttura di `ls -ltr` directory base OpenFrame utilizzando il comando . Ad esempio:
 
      ```
      [oframe7@ofdemo OpenFrame]$ ls -ltr
@@ -635,7 +635,7 @@ Il server applicazioni di base viene installato prima dei singoli servizi usati 
      drwxrwxr-x. 2 oframe7 oframe7 25 Nov 30 16:58 volume_default
      ```
 
-9. Inizio OpenFrame base:
+9. Inizio base OpenFrame:
 
      ```
      [oframe7@ofdemo ~]$ cp /usr/lib/libtermcap.so.2 $TMAXDIR/lib
@@ -645,11 +645,11 @@ Il server applicazioni di base viene installato prima dei singoli servizi usati 
 
      ![output del comando tmboot](media/base-02.png)
 
-10. Verificare che lo stato del processo sia pronto usando il comando tmadmin in si. RDY viene visualizzato nella colonna **stato** per ognuno dei processi:
+10. Verificare che lo stato del processo sia pronto utilizzando il comando tmadmin in si. RDY viene visualizzato nella colonna dello **stato** per ciascuno dei processi:
 
-     ![output del comando tmadmin](media/base-03.png)
+     ![Output del comando tmadmin](media/base-03.png)
 
-11. Arresta OpenFrame base:
+11. Arresta base OpenFrame:
 
      ```
      [oframe7@ofdemo ~]$ tmdown 
@@ -671,17 +671,17 @@ Il server applicazioni di base viene installato prima dei singoli servizi usati 
      TMDOWN: TMAX is down
      ```
 
-## <a name="install-openframe-batch"></a>Installare OpenFrame batch
+## <a name="install-openframe-batch"></a>Installare OpenFrame Batch
 
-OpenFrame batch è costituito da diversi componenti che simulano gli ambienti batch mainframe e vengono usati per eseguire processi batch in Azure.
+OpenFrame Batch consists of several components that simulate mainframe batch environments and is used to run batch jobs on Azure.
 
-**Per installare il batch**
+**Per installare Batch**
 
-1. Verificare che l'installazione di base sia stata completata, quindi verificare che il file di configurazione OpenFrame\_Batch7\_0\_fix2\_MVS\_Linux\_x86\_64. bin Installer e batch. Properties siano presenti:
+1. Assicurarsi che l'installazione di base sia\_stata\_\_eseguita\_correttamente, quindi verificare che siano presenti il file del programma di installazione di OpenFrame Batch7 0 Fix2 MVS\_Linux\_x86\_64.bin e il file di configurazione batch.properties:
 
-2. Al prompt dei comandi digitare `vi batch.properties` per modificare il file batch. Properties utilizzando vi.
+2. Al prompt dei `vi batch.properties` comandi, digitare per modificare il file batch.properties utilizzando vi.
 
-3. Modificare i parametri come indicato di seguito:
+3. Modificare i parametri come segue:
 
      ```
      OPENFRAME_HOME = /opt/tmaxapp/OpenFrame
@@ -706,13 +706,13 @@ OpenFrame batch è costituito da diversi componenti che simulano gli ambienti ba
      ./OpenFrame_Batch7_0_Fix2_MVS_Linux_x86_64.bin -f batch.properties
      ```
 
-5. Al termine dell'installazione, avviare i gruppi di OpenFrame installati digitando `tmboot` al prompt dei comandi.
+5. Al termine dell'installazione, avviare le suite `tmboot` OpenFrame installate digitando al prompt dei comandi.
 
-    ![output tmboot](media/tmboot-01.png)
+    ![Uscita tmboot](media/tmboot-01.png)
 
-6. Digitare `tmadmin` al prompt dei comandi per verificare il processo OpenFrame.
+6. Digitare `tmadmin` al prompt dei comandi per controllare il processo OpenFrame.
 
-    ![Schermata di amministrazione di tmax](media/tmadmin-01.png)
+    ![Schermata Amministratore Tmax](media/tmadmin-01.png)
 
 7. Eseguire i comandi seguenti:
 
@@ -721,7 +721,7 @@ OpenFrame batch è costituito da diversi componenti che simulano gli ambienti ba
      ADM quit for node (NODE1)
      ```
 
-8. Usare il comando `tmdown` per avviare e arrestare batch:
+8. Utilizzare `tmdown` il comando per avviare e arrestare Batch:
 
      ```
      [oframe7@ofdemo ~]$tmdown
@@ -761,13 +761,13 @@ OpenFrame batch è costituito da diversi componenti che simulano gli ambienti ba
 
 ## <a name="install-tacf"></a>Installare TACF
 
-TACF Manager è un modulo del servizio OpenFrame che controlla l'accesso degli utenti a sistemi e risorse attraverso la protezione RACF.
+TACF Manager è un modulo di servizio OpenFrame che controlla l'accesso degli utenti ai sistemi e alle risorse tramite la sicurezza RACF.
 
 **Per installare TACF**
 
-1. Verificare che siano presenti i file di configurazione OpenFrame\_Tacf7\_0\_fix2\_Linux\_x86\_64. bin e TACF. Properties.
-2. Verificare che l'installazione batch sia stata completata, quindi usare vi per aprire il file TACF. Properties (`vi tacf.properties`).
-3. Modificare i parametri di TACF:
+1. Verificare che\_il file\_\_di\_installazione\_di\_OpenFrame Tacf7 0 Fix2 Linux x86 64.bin e il file di configurazione tacf.properties siano presenti.
+2. Assicurarsi che l'installazione batch sia stata eseguita correttamente, quindi utilizzare vi per aprire il file tacf.properties ( ).`vi tacf.properties`
+3. Modificare i parametri TACF:
 
      ```
      OPENFRAME_HOME=/opt/tmaxapp/OpenFrame 
@@ -779,19 +779,19 @@ TACF Manager è un modulo del servizio OpenFrame che controlla l'accesso degli u
      TACF_TABLE_CREATE=YES
      ```
 
-4. Dopo aver completato il programma di installazione di TACF, applicare le variabili di ambiente TACF. Al prompt dei comandi digitare:
+4. Dopo aver completato il programma di installazione TACF, applicare le variabili di ambiente TACF. Al prompt dei comandi digitare:
 
      ```
      source \~/.bash\_profile
      ```
 
-5. Eseguire il programma di installazione di TACF. Al prompt dei comandi digitare:
+5. Eseguire il programma di installazione TACF. Al prompt dei comandi digitare:
 
      ```
      ./OpenFrame_Tacf7_0_Fix2_Linux_x86_64.bin -f tacf.properties
      ```
 
-     L'output ha un aspetto simile al seguente:
+     L'output è simile al seguente:
 
      ```
      Wed Dec 07 17:36:42 EDT 2016
@@ -812,7 +812,7 @@ TACF Manager è un modulo del servizio OpenFrame che controlla l'accesso degli u
      /tmp/install.dir.41422/Linux/resource/jre/lib/resources.jar /tmp/install.dir.41422/Linux/resource/jre/lib/rt.jar /tmp/install.dir.41422/Linux/resource/jre/lib/sunrsasign.jar /tmp/install.dir.41422/Linux/resource/jre/lib/jsse.jar /tmp/install.dir.41422/Linux/resource/jre/lib/jce.jar /tmp/install.dir.41422/Linux/resource/jre/lib/charsets.jar /tmp/install.dir.41422/Linux/resource/jre/lib/jfr.jar /tmp/install.dir.41422/Linux/resource/jre/classes
      ```
 
-6. Al prompt dei comandi digitare `tmboot` per riavviare OpenFrame. L'output ha un aspetto simile al seguente:
+6. Al prompt dei `tmboot` comandi digitare per riavviare OpenFrame. L'output è simile al seguente:
 
      ```
      TMBOOT for node(NODE1) is starting: 
@@ -849,15 +849,15 @@ TACF Manager è un modulo del servizio OpenFrame che controlla l'accesso degli u
      TMBOOT: SVR(tmsvr) is starting: Wed Sep  7 17:48:53 2016
      ```
 
-7. Verificare che lo stato del processo sia pronto usando `tmadmin` nel comando `si`. Ad esempio:
+7. Verificare che lo stato `tmadmin` del `si` processo sia pronto utilizzando nel comando. Ad esempio:
 
      ```
      [oframe7\@ofdemo \~]\$ tmadmin
      ```
 
-     Nella colonna **stato** viene visualizzato RDY:
+     Nella colonna dello **stato** viene visualizzato RDY:
 
-    ![RDY nella colonna stato](media/tmboot-02.png)
+    ![RDY nella colonna dello stato](media/tmboot-02.png)
 
 8. Eseguire i comandi seguenti:
 
@@ -875,7 +875,7 @@ TACF Manager è un modulo del servizio OpenFrame che controlla l'accesso degli u
      [oframe7@ofdemo ~]$ tmdow
      ```
 
-9. Arrestare il server utilizzando il comando `tmdown`. L'output ha un aspetto simile al seguente:
+9. Arrestare il server `tmdown` utilizzando il comando. L'output è simile al seguente:
 
      ```
      [oframe7@ofdemo ~]$ tmdown 
@@ -903,13 +903,13 @@ TACF Manager è un modulo del servizio OpenFrame che controlla l'accesso degli u
      TMDOWN: TMAX is down
      ```
 
-## <a name="install-prosort"></a>Installa prosort
+## <a name="install-prosort"></a>Installare ProSort
 
-Prosort è un'utilità utilizzata nelle transazioni batch per l'ordinamento dei dati.
+ProSort è un'utilità utilizzata nelle transazioni batch per l'ordinamento dei dati.
 
-**Per installare prosort**
+**Per installare ProSort**
 
-1. Verificare che l'installazione batch sia stata completata correttamente e quindi verificare che sia presente il file del programma di installazione **prosort-bin-prosort\_2sp3-linux64-2123-opt. tar. gz** .
+1. Assicurarsi che l'installazione batch sia stata eseguita correttamente, quindi verificare che il file di installazione **\_prosort-bin-prosort 2sp3-linux64-2123-opt.tar.gz** sia presente.
 
 2. Eseguire il programma di installazione utilizzando il file delle proprietà. Al prompt dei comandi digitare:
 
@@ -917,7 +917,7 @@ Prosort è un'utilità utilizzata nelle transazioni batch per l'ordinamento dei 
      tar -zxvf prosort-bin-prosort\_2sp3-linux64-2123-opt.tar.gz
      ```
 
-3. Spostare la directory di prosorte nel percorso Home. Al prompt dei comandi digitare:
+3. Spostare la directory prosort nella posizione iniziale. Al prompt dei comandi digitare:
 
      ```
      mv prosort /opt/tmaxapp/prosort
@@ -931,7 +931,7 @@ Prosort è un'utilità utilizzata nelle transazioni batch per l'ordinamento dei 
      cp /opt/tmaxsw/oflicense/prosort/license.xml /opt/tmaxapp/prosort/license
      ```
 
-5. Aprire bash. profile in vi (`vi .bash_profile`) e aggiornarlo come segue:
+5. Aprire bash.profile in`vi .bash_profile`vi ( ) e aggiornarlo come segue:
 
      ```bash
      #       PROSORT
@@ -945,7 +945,7 @@ Prosort è un'utilità utilizzata nelle transazioni batch per l'ordinamento dei 
      export PATH
      ```
 
-6. Per eseguire il profilo bash, al prompt dei comandi digitare: `. .bash_profile`
+6. Per eseguire il profilo bash, al prompt dei comandi digitare:`. .bash_profile`
 
 7. Creare il file di configurazione. Ad esempio:
 
@@ -963,7 +963,7 @@ Prosort è un'utilità utilizzata nelle transazioni batch per l'ordinamento dei 
      oframe@oframe7home/oframe7/OpenFrame/util :  ln -s DFSORT SORT
      ```
 
-9. Verificare l'installazione di prosorte eseguendo il comando `prosort -h`. Ad esempio:
+9. Verificare l'installazione di `prosort -h` ProSort eseguendo il comando . Ad esempio:
 
      ```
      oframe@oframe7: prosort -h
@@ -983,9 +983,9 @@ OFCOBOL è il compilatore OpenFrame che interpreta i programmi COBOL del mainfra
 
 **Per installare OFCOBOL**
 
-1. Assicurarsi che l'installazione batch/online sia stata completata correttamente, quindi verificare che sia presente il file OpenFrame\_COBOL3\_0\_40\_Linux\_x86\_64. bin Installer.
+1. Assicurarsi che l'installazione batch/online sia stata\_eseguita\_correttamente, quindi verificare che sia presente il file del programma di installazione OpenFrame COBOL3\_0 40\_Linux\_x86\_64.bin.
 
-2. Per eseguire il programma di installazione di OFCOBOL, al prompt dei comandi digitare:
+2. Per eseguire il programma di installazione OFCOBOL, al prompt dei comandi digitare:
 
      ```
       ./OpenFrame\_COBOL3\_0\_40\_Linux\_x86\_64.bin
@@ -1017,7 +1017,7 @@ OFCOBOL è il compilatore OpenFrame che interpreta i programmi COBOL del mainfra
      PRESS <ENTER> TO EXIT THE INSTALLER
      ```
 
-5. Aprire il profilo bash in vi (`vi .bash_profile`) e verificare che sia aggiornato con le variabili OFCOBOL.
+5. Aprire il profilo bash`vi .bash_profile`in vi ( ) e verificare che sia aggiornato con le variabili OFCOBOL.
 6. Eseguire il profilo bash. Al prompt dei comandi digitare:
 
      ```
@@ -1028,22 +1028,22 @@ OFCOBOL è il compilatore OpenFrame che interpreta i programmi COBOL del mainfra
      ```
      mv licofcob.dat $OFCOB_HOME/license
      ```
-8. Passare al file di configurazione OpenFrame tjclrun. conf e aprirlo in vi. Ad esempio:
+8. Passare al file di configurazione OpenFrame tjclrun.conf e aprirlo in vi. Ad esempio:
      ```
      [oframe7@ofdemo ~]$ cd $OPENFRAME_HOME/config 
      [oframe7@ofdemo ~]$ vi tjclrun.conf
      ```
 
-   Di seguito è illustrata la sezione SYSLIB prima della modifica:
+   Ecco la sezione SYSLIB prima della modifica:
      ```
      [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bin LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${COBDIR}/lib:/ usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib
      ```
-   Di seguito è illustrata la sezione SYSLIB dopo la modifica:
+   Ecco la sezione SYSLIB dopo la modifica:
      ```
      [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bin LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${COBDIR}/lib:/ usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib :${ODBC_HOME}/lib 
      :${OFCOB_HOME}/lib
      ```
-9. Esaminare il file OpenFrame\_COBOL\_InstallLog. log in vi e verificare che non siano presenti errori. Ad esempio:
+9. Esaminare il\_file\_OpenFrame COBOL InstallLog.log in vi e verificare che non siano presenti errori. Ad esempio:
      ```
      [oframe7@ofdemo ~]$ vi $OFCOB_HOME/UninstallerData/log/OpenFrame_COBOL_InstallLog.log 
      …….. 
@@ -1055,7 +1055,7 @@ OFCOBOL è il compilatore OpenFrame che interpreta i programmi COBOL del mainfra
      0 NonFatalErrors 
      0 FatalError
      ```
-10. Usare il comando `ofcob --version` ed esaminare il numero di versione per verificare l'installazione. Ad esempio:
+10. Utilizzare `ofcob --version` il comando ed esaminare il numero di versione per verificare l'installazione. Ad esempio:
 
      ```
      [oframe7@ofdemo ~]$ ofcob --version 
@@ -1063,15 +1063,15 @@ OFCOBOL è il compilatore OpenFrame che interpreta i programmi COBOL del mainfra
      CommitTag:: 645f3f6bf7fbe1c366a6557c55b96c48454f4bf
      ```
 
-11. Riavviare OpenFrame usando il comando `tmdown/tmboot`.
+11. Riavviare OpenFrame `tmdown/tmboot` utilizzando il comando .
 
-## <a name="install-ofasm"></a>Installare OFASM
+## <a name="install-ofasm"></a>Installazione di OFASM
 
 OFASM è il compilatore OpenFrame che interpreta i programmi assembler del mainframe.
 
 **Per installare OFASM**
 
-1. Assicurarsi che l'installazione batch/online sia stata completata correttamente, quindi verificare che sia presente il file OpenFrame\_ASM3\_0\_Linux\_x86\_64. bin Installer.
+1. Assicurarsi che l'installazione batch/online sia stata\_eseguita\_correttamente, quindi verificare che il file del programma di installazione OpenFrame ASM3 0\_Linux\_x86\_64.bin sia presente.
 
 2. Eseguire il programma di installazione. Ad esempio:
 
@@ -1081,7 +1081,7 @@ OFASM è il compilatore OpenFrame che interpreta i programmi assembler del mainf
 
 3. Leggere il contratto di licenza e premere INVIO per continuare.
 4. Accettare il contratto di licenza.
-5. Verificare che il profilo bash venga aggiornato con le variabili OFASM. Ad esempio:
+5. Verificare che il profilo bash sia aggiornato con le variabili OFASM. Ad esempio:
 
      ```
      [oframe7@ofdemo ~]$ source .bash_profile
@@ -1098,26 +1098,26 @@ OFASM è il compilatore OpenFrame che interpreta i programmi assembler del mainf
      export LD_LIBRARY_PATH="./:$OFASM_HOME/lib:$LD_LIBRARY_PATH"
      ```
 
-6. Aprire il file di configurazione OpenFrame tjclrun. conf in vi e modificarlo come segue:
+6. Aprire il file di configurazione OpenFrame tjclrun.conf in vi e modificarlo come segue:
 
      ```
      [oframe7@ofdemo ~]$ cd $OPENFRAME_HOME/config 
      [oframe7@ofdemo ~]$ vi tjclrun.conf
      ```
 
-     Di seguito è illustrata la sezione [SYSLIB] *prima* della modifica:
+     Di seguito è riportata la sezione [SYSLIB] *prima* della modifica:
 
      ```
      [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bi n:${OPENFRAME_HOME}/volume_default/SYS1.LOADLIB LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${CO BDIR}/lib:/usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib:${OFCOB_HOM E}/lib:${ODBC_HOME}/lib:${OFPLI_HOME}/lib
      ```
 
-     Di seguito è illustrata la sezione [SYSLIB] *dopo* la modifica:
+     Di seguito è riportata la sezione [SYSLIB] *dopo* la modifica:
 
      ```
      [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bi n:${OPENFRAME_HOME}/volume_default/SYS1.LOADLIB LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${CO BDIR}/lib:/usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib:${OFCOB_HOM E}/lib:${ODBC_HOME}/lib:${OFPLI_HOME}/lib:${OFASM_HOME}/lib
      ```
 
-7. Aprire il file OpenFrame\_ASM\_InstallLog. log in vi e verificare che non siano presenti errori. Ad esempio:
+7. Aprire il\_file\_OpenFrame ASM InstallLog.log in vi e verificare che non siano presenti errori. Ad esempio:
 
      ```
      [oframe7@ofdemo ~]$ vi 
@@ -1134,13 +1134,13 @@ OFASM è il compilatore OpenFrame che interpreta i programmi assembler del mainf
      0 FatalErrors
      ```
 
-8. Riavviare OpenFrame eseguendo uno dei comandi seguenti:
+8. Riavviare OpenFrame eseguendo uno dei seguenti comandi:
 
      ```
      tmdown / tmboot
      ```
 
-     o
+     -oppure-
 
      ```
      oscdown / oscboot
@@ -1152,22 +1152,22 @@ OSC è l'ambiente OpenFrame simile a IBM CICS che supporta le transazioni OLTP a
 
 **Per installare OSC**
 
-1. Verificare che l'installazione di base sia stata completata, quindi verificare che siano presenti il file di configurazione OpenFrame\_OSC7\_0\_fix2\_Linux\_x86\_64. bin e OSC. Properties.
-2. Modificare i parametri seguenti nel file osc. Properties:
+1. Assicurarsi che l'installazione di base sia\_stata eseguita correttamente, quindi verificare che siano presenti il file di installazione di OpenFrame\_OSC7\_0 Fix2\_Linux\_x86\_64.bin e il file di configurazione osc.properties.
+2. Modificare i seguenti parametri nel file osc.properties:
      ```
      OPENFRAME_HOME=/opt/tmaxapp/OpenFrame OSC_SYS_OSC_NCS_PATH=/opt/tmaxapp/OpenFrame/temp/OSC_NCS OSC_APP_OSC_TC_PATH=/opt/tmaxapp/OpenFrame/temp/OSC_TC
      ```
 
-3. Eseguire il programma di installazione usando il file delle proprietà, come illustrato di seguito:
+3. Eseguire il programma di installazione utilizzando il file delle proprietà come illustrato:
 
      ```
      [oframe7@ofdemo ~]$ chmod a+x OpenFrame_OSC7_0_Fix2_Linux_x86_64.bin [oframe7@ofdemo ~]$ ./OpenFrame_OSC7_0_Fix2_Linux_x86_64.bin -f osc.properties
      ```
 
-     Al termine, viene visualizzato il messaggio "installazione completata".
+     Al termine, viene visualizzato il messaggio "Installazione completata".
 
-4. Verificare che il profilo bash venga aggiornato con le variabili OSC.
-5. Esaminare il file OpenFrame\_OSC7\_0\_fix2\_InstallLog. log. Dovrebbe essere visualizzata una schermata analoga alla seguente:
+4. Verificare che il profilo bash sia aggiornato con le variabili OSC.
+5. Esaminare il\_file InstallLog.log di OpenFrame OSC7\_0\_Fix2.\_ L'aspetto dell'anteprima dovrebbe essere simile al seguente:
 
      ```
      Summary 
@@ -1180,13 +1180,13 @@ OSC è l'ambiente OpenFrame simile a IBM CICS che supporta le transazioni OLTP a
      0 FatalError
      ```
 
-6. Usare vi per aprire il file di configurazione ofsys. seq. Ad esempio:
+6. Utilizzare vi per aprire il file di configurazione ofsys.seq. Ad esempio:
 
      ```
      vi $OPENFRAME_HOME/config/ofsys.seq
      ```
 
-7. Nelle sezioni \#BASE e \#BATCH modificare i parametri come illustrato.
+7. Nelle \#sezioni \#BASE e BATCH, modificare i parametri come mostrato.
 
      ```
      Before changes
@@ -1238,9 +1238,9 @@ OSC è l'ambiente OpenFrame simile a IBM CICS che supporta le transazioni OLTP a
      -rwxrwxr-x. 1 oframe mqm 80 Sep  3 11:54 lictjes.da
      ```
 
-9. Per avviare e arrestare OSC, inizializzare la memoria condivisa dell'area CICS digitando `osctdlinit OSCOIVP1` al prompt dei comandi.
+9. Per avviare e arrestare OSC, inizializzare la `osctdlinit OSCOIVP1` memoria condivisa dell'area CICS digitando al prompt dei comandi.
 
-10. Eseguire `oscboot` per avviare OSC. L'output ha un aspetto simile al seguente:
+10. Eseguire `oscboot` per avviare OSC. L'output è simile al seguente:
 
      ```
      OSCBOOT : pre-processing       [ OK ]
@@ -1254,27 +1254,27 @@ OSC è l'ambiente OpenFrame simile a IBM CICS che supporta le transazioni OLTP a
           TMBOOT: TLM(tlm) is starting: Mon Sep 12 01:40:25 2016 
      ```
 
-11. Per verificare che lo stato del processo sia pronto, utilizzare il comando `tmadmin` in si. Tutti i processi devono visualizzare RDY nella colonna **stato** .
+11. Per verificare che lo stato `tmadmin` del processo sia pronto, utilizzare il comando in si. Tutti i processi devono visualizzare RDY nella colonna dello **stato.**
 
     ![Processi che visualizzano RDY](media/tmadmin-02.png)
 
-12. Arrestare OSC usando il comando `oscdown`.
+12. Arrestare OSC `oscdown` utilizzando il comando.
 
 ## <a name="install-jeus"></a>Installare JEUS
 
 JEUS (Java Enterprise User Solution) fornisce il livello di presentazione del server applicazioni Web OpenFrame.
 
-Prima di installare JEUS, installare il pacchetto di Apache Ant, che fornisce le librerie e gli strumenti da riga di comando necessari per installare JEUS.
+Prima di installare JEUS, installare il pacchetto Apache Ant, che fornisce le librerie e gli strumenti della riga di comando necessari per installare JEUS.
 
 **Per installare Apache Ant**
 
-1. Scaricare il file binario Ant usando il comando `wget`. Ad esempio:
+1. Scaricare Ant binary `wget` utilizzando il comando. Ad esempio:
 
      ```
      wget http://apache.mirror.cdnetworks.com/ant/binaries/apacheant-1.9.7-bin.tar.gz
      ```
 
-2. Utilizzare l'utilità `tar` per estrarre il file binario e spostarlo in una posizione appropriata. Ad esempio:
+2. Utilizzare `tar` l'utilità per estrarre il file binario e spostarlo in una posizione appropriata. Ad esempio:
 
      ```
      tar -xvzf apache-ant-1.9.7-bin.tar.gz
@@ -1286,7 +1286,7 @@ Prima di installare JEUS, installare il pacchetto di Apache Ant, che fornisce le
      ln -s apache-ant-1.9.7 ant
      ```
 
-4. Aprire il profilo bash in vi (`vi .bash_profile`) e aggiornarlo con le variabili seguenti:
+4. Aprire il profilo bash`vi .bash_profile`in vi ( )e aggiornarlo con le seguenti variabili:
 
      ```
      # Ant ENV
@@ -1302,20 +1302,20 @@ Prima di installare JEUS, installare il pacchetto di Apache Ant, che fornisce le
 
 **Per installare JEUS**
 
-1. Espandere il programma di installazione utilizzando l'utilità `tar`. Ad esempio:
+1. Espandere il programma `tar` di installazione utilizzando l'utilità. Ad esempio:
 
      ```
      [oframe7@ofdemo ~]$ tar -zxvf jeus704.tar.gz
      ```
 
-2. Creare una cartella **jeus** (`mkdir jeus7`) e decomprimere il file binario.
-3. Passare alla directory di **installazione** (oppure usare il parametro JEUS per il proprio ambiente). Ad esempio:
+2. Creare una cartella`mkdir jeus7` **jeus** ( ) e decomprimere il file binario.
+3. Passare alla directory di **installazione** (o utilizzare il parametro JEUS per il proprio ambiente). Ad esempio:
 
      ```
      [oframe7@ofdemo ~]$ cd jeus7/setup/
      ```
 
-4. Eseguire `ant clean-all` prima di eseguire la compilazione. L'output ha un aspetto simile al seguente:
+4. Eseguire `ant clean-all` prima di eseguire la compilazione. L'output è simile al seguente:
 
      ```
      Buildfile: /home/oframe7jeus7/setup/build.xml
@@ -1330,13 +1330,13 @@ Prima di installare JEUS, installare il pacchetto di Apache Ant, che fornisce le
      Total time: 0 seconds
      ```
 
-5.  Eseguire un backup del file Domain-config-template. Properties. Ad esempio:
+5.  Eseguire una copia di backup del file domain-config-template.properties. Ad esempio:
 
      ```
      [oframe7@ofdemo ~]$ cp domain-config-template.properties domain-configtemplate.properties.bkp
      ```
 
-6. Aprire il file Domain-config-template. Properties in vi:
+6. Aprire il file domain-config-template.properties in vi:
 
      ```
      [oframe7\@ofdemo setup]\$ vi domain-config-template.properties
@@ -1344,8 +1344,8 @@ Prima di installare JEUS, installare il pacchetto di Apache Ant, che fornisce le
 
 7. Modificare `jeus.password=jeusadmin nodename=Tmaxsoft` in `jeus.password=tmax1234 nodename=ofdemo`
 
-8. Eseguire il comando `ant install` per compilare JEUS.
-9.  Aggiornare il file del profilo\_. bash con le variabili JEUS, come illustrato di seguito:
+8. Eseguire `ant install` il comando per compilare JEUS.
+9.  Aggiornare il\_file del profilo .bash con le variabili JEUS come mostrato:
 
      ```
      # JEUS ENV 
@@ -1359,7 +1359,7 @@ Prima di installare JEUS, installare il pacchetto di Apache Ant, che fornisce le
      [oframe7@ofdemo setup]$ . .bash_profile
      ```
 
-11. *Facoltativo*. Creare un alias per l'arresto e l'avvio facili dei componenti JEUS:
+11. *Facoltativo*. Creare un alias per semplificare l'arresto e l'avvio dei componenti JEUS:
 
      ```     
      # JEUS alias
@@ -1370,13 +1370,13 @@ Prima di installare JEUS, installare il pacchetto di Apache Ant, che fornisce le
      alias dsdown=‘jeusadmin -domain jeus_domain -u administrator -p tmax1234 "local-shutdown“’
      ```
 
-12. Per verificare l'installazione, avviare il server di amministrazione di dominio come illustrato:
+12. Per verificare l'installazione, avviare il server di amministrazione del dominio come illustrato di seguito:To verify the installation, start the domain admin server as shown:
 
      ```
      [oframe7@ofdemo ~]$ startDomainAdminServer -domain jeus_domain -u administrator -p jeusadmin
      ```
 
-13. Verificare tramite accesso Web usando la sintassi:
+13. Verificare tramite accesso Web utilizzando la sintassi:
 
      ```
      http://<IP>:<port>/webadmin/login
@@ -1384,50 +1384,50 @@ Prima di installare JEUS, installare il pacchetto di Apache Ant, che fornisce le
 
      Ad esempio, <http://192.168.92.133:9736/webadmin/login.> viene visualizzata la schermata di accesso:
     
-     ![Schermata di accesso di JEUS WebAdmin](media/jeus-01.png)
+     ![Schermata di accesso JEUS WebAdmin](media/jeus-01.png)
 
      > [!NOTE]
-     > Se si verificano problemi con la sicurezza della porta, aprire la porta 9736 o disabilitare il firewall (`systemctl stop firewall`).
+     > Se si verificano problemi con la sicurezza della porta,`systemctl stop firewall`aprire la porta 9736 o disattivare il firewall ( ).
 
-14. Per modificare il nome host per Server1, fare clic su **blocca & modifica**, quindi fare clic su **Server1**. Nella finestra Server modificare il nome host nel modo seguente:
+14. Per modificare il nome host per server1, fare clic su **Blocca & Modifica**, quindi su **server1**. Nella finestra Server, modificare il nome host come segue:
 
-    1.  Modificare **NodeName** in **ofdemo**.
-    2.  Fare clic su **OK** sul lato destro della finestra.
-    3.  Fare clic su **Applica modifiche** nella parte inferiore sinistra della finestra e, per descrizione, immettere *nome host*.
+    1.  Impostare **NomeNodo su** **ofdemo**.
+    2.  Fare clic **su OK** sul lato destro della finestra.
+    3.  Fare clic su **Applica modifiche** nella parte inferiore sinistra della finestra e, per la descrizione, immettere *Hostname change*.
 
-    ![Schermata di WebAdmin JEUS](media/jeus-02.png)
+    ![Schermata WebAdmin JEUS](media/jeus-02.png)
 
-15. Verificare che la configurazione sia stata completata correttamente nella schermata di conferma.
+15. Verificare che la configurazione sia stata eseguita correttamente nella schermata di conferma.
 
-    ![schermata del server jeus_domain](media/jeus-03.png)
+    ![Schermata jeus_domain Server](media/jeus-03.png)
 
-16. Avviare il processo del server gestito "server1" usando il comando seguente:
+16. Avviare il processo del server gestito "server1" utilizzando il comando seguente:
 
      ```
      [oframe7@ofdemo ~]$ startManagedServer -domain jeus_domain -server server1 -u administrator -p jeusadmin
      ```
 
-## <a name="install-ofgw"></a>Installare OFGW
+## <a name="install-ofgw"></a>Installazione di OFGW
 
-OFGW è il gateway OpenFrame che supporta la comunicazione tra l'emulatore di terminale 3270 e la base OSI e gestisce le sessioni tra l'emulatore di terminale e l'OSI.
+OFGW è il gateway OpenFrame che supporta la comunicazione tra l'emulatore di terminale 3270 e la base OSI e gestisce le sessioni tra l'emulatore di terminale e OSI.
 
 **Per installare OFGW**
 
-1. Assicurarsi che JEUS sia stato installato correttamente, quindi verificare che sia presente il file del programma di installazione OFGW7\_0\_1\_Generic. bin.
+1. Assicurarsi che JEUS sia stato installato correttamente,\_\_quindi\_verificare che il file di installazione OFGW7 0 1 Generic.bin sia presente.
 2. Eseguire il programma di installazione. Ad esempio:
 
      ```
      [oframe7@ofdemo ~]$ ./OFGW7_0_1_Generic.bin
      ````
 
-3. Usare i percorsi seguenti per i prompt corrispondenti:
-     -   Home directory di JEUS
+3. Utilizzare le seguenti posizioni per i prompt corrispondenti:
+     -   Home directory JEUS
      -   Nome di dominio JEUS
-     -   Nome del server JEUS
-     -   Driver tibero
-     -   ID nodo tmax ofdemo
+     -   Nome server JEUS
+     -   Autista del Tbero
+     -   ID nodo Tmax ofdemo
 
-4. Accettare le altre impostazioni predefinite, quindi premere INVIO per uscire dal programma di installazione.
+4. Accettare il resto delle impostazioni predefinite, quindi premere INVIO per uscire dal programma di installazione.
 
 5. Verificare che l'URL per OFGW funzioni come previsto:
 
@@ -1437,9 +1437,9 @@ OFGW è il gateway OpenFrame che supporta la comunicazione tra l'emulatore di te
       < IP >               :8088/webterminal/
      ```
 
-     Viene visualizzata la schermata seguente:
+     Verrà visualizzata la seguente schermata:
 
-    ![OpenFrame webterminal](media/ofgw-01.png)
+    ![Finestra Web OpenFrame](media/ofgw-01.png)
 
 ## <a name="install-ofmanager"></a>Installare OFManager
 
@@ -1447,18 +1447,18 @@ OFManager fornisce funzioni operative e di gestione per OpenFrame nell'ambiente 
 
 **Per installare OFManager**
 
-1. Verificare che sia presente il file del programma di installazione OFManager7\_Generic. bin.
+1. Verificare che il\_file del programma di installazione OFManager7 Generic.bin sia presente.
 2. Eseguire il programma di installazione. Ad esempio:
 
      ```
      OFManager7_Generic.bin
      ```
 
-3.  Premere INVIO per continuare e quindi accettare il contratto di licenza.
+3.  Premere INVIO per continuare, quindi accettare il contratto di licenza.
 4.  Scegliere la cartella di installazione.
 5.  Accettare i valori predefiniti.
-6.  Scegliere tibero come database.
-7.  Premere INVIO per uscire dal programma di installazione.
+6.  Scegliere Tbero come database.
+7.  Premere Invio per uscire dal programma di installazione.
 8.  Verificare che l'URL per OFManager funzioni come previsto:
 
      ```
@@ -1466,16 +1466,16 @@ OFManager fornisce funzioni operative e di gestione per OpenFrame nell'ambiente 
      Password: SYS1
      ```
 
-Viene visualizzata la schermata Start:
+Viene visualizzata la schermata iniziale:
 
-![Schermata di accesso di TMAX OpenFrame Manager](media/ofmanager-01.png)
+![Schermata di accesso di Tmax OpenFrame Manager](media/ofmanager-01.png)
 
-Questa operazione completa l'installazione dei componenti di OpenFrame.
+Che completa l'installazione dei componenti OpenFrame.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si sta prendendo in considerazione una migrazione del mainframe, l'ecosistema di partner in espansione è disponibile per aiutare l'utente. Per indicazioni dettagliate sulla scelta di una soluzione dei partner, vedere [Platform Modernization Alliance](https://datamigration.microsoft.com/).
+Se stai considerando una migrazione mainframe, il nostro ecosistema di partner in espansione è disponibile per aiutarti. Per indicazioni dettagliate sulla scelta di una soluzione dei partner, vedere [Platform Modernization Alliance](https://datamigration.microsoft.com/).
 
--   [Inizia a usare Azure](https://docs.microsoft.com/azure/)
+-   [Introduzione ad Azure](https://docs.microsoft.com/azure/)
 -   [Documentazione di Host Integration Server (HIS)](https://docs.microsoft.com/host-integration-server/)
--   [Guida Lift-and-Shift del data center virtuale di Azure](https://blogs.msdn.microsoft.com/azurecat/2018/03/12/new-whitepaper-azure-virtual-datacenter-lift-and-shift-guide/)
+-   [Guida di sollevamento e spostamento del centro dati virtuale di AzureAzure Virtual Data Center Lift-and-Shift Guide](https://blogs.msdn.microsoft.com/azurecat/2018/03/12/new-whitepaper-azure-virtual-datacenter-lift-and-shift-guide/)

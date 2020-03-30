@@ -1,6 +1,6 @@
 ---
 title: Architettura di Apache Hadoop - Azure HDInsight
-description: Descrive Apache Hadoop archiviazione e l'elaborazione nei cluster HDInsight di Azure.
+description: Descrive l'archiviazione e l'elaborazione di Apache Hadoop nei cluster hdInsight di Azure.Describes Apache Hadoop storage and processing on Azure HDInsight clusters.
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/07/2020
 ms.openlocfilehash: 3feacd94558ba275c81469827993aef106ae633c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162209"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Architettura di Apache Hadoop in Azure HDInsight
 
-[Apache Hadoop](https://hadoop.apache.org/) include due componenti fondamentali: l'[Apache Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) che offre l'archiviazione e [Apache Hadoop Yet Another Resource Negotiatior YARN (Yet Another Resource Negotiator)](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) che supporta l'elaborazione. Con le funzionalità di archiviazione ed elaborazione un cluster diventa in grado di eseguire programmi [MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) per eseguire l'elaborazione dei dati desiderata.
+[Apache Hadoop](https://hadoop.apache.org/) include due componenti fondamentali: l'[Apache Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) che offre l'archiviazione e [Apache Hadoop Yet Another Resource Negotiatior YARN (Yet Another Resource Negotiator)](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) che supporta l'elaborazione. Con le funzionalità di archiviazione ed elaborazione, un cluster diventa in grado di eseguire programmi [MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) per eseguire l'elaborazione dei dati desiderata.
 
 > [!NOTE]  
 > Un file system HDFS non viene in genere distribuito all'interno del cluster HDInsight per fornire l'archiviazione. I componenti di Hadoop usano invece un livello di interfaccia compatibile con HDFS. La funzionalità di archiviazione effettiva viene fornita da Archiviazione di Azure o Azure Data Lake Storage. Per Hadoop, i processi MapReduce in esecuzione nel cluster di HDInsight vengono eseguiti come se fosse presente un HDFS e pertanto non necessitano di modifiche per supportare le esigenze di archiviazione. In Hadoop in HDInsight, l'archiviazione è esternalizzata, ma l'elaborazione YARN rimane un componente di base. Per altre informazioni, vedere [Introduzione ad Azure HDInsight](hadoop/apache-hadoop-introduction.md).
@@ -45,7 +45,7 @@ I NodeManager eseguono le attività che costituiscono l'applicazione, quindi seg
 
 Tutti i tipi di cluster HDInsight distribuiscono YARN. Il ResourceManager viene distribuito per la disponibilità elevata con un'istanza primaria e secondaria, che vengono eseguite rispettivamente nel primo e nel secondo nodo head all'interno del cluster. È attiva una sola istanza del ResourceManager alla volta. Le istanze di NodeManager vengono eseguite sui nodi di lavoro disponibili nel cluster.
 
-![Apache YARN in Azure HDInsight](./media/hdinsight-hadoop-architecture/apache-yarn-on-hdinsight.png)
+![Apache YARN on Azure HDInsight](./media/hdinsight-hadoop-architecture/apache-yarn-on-hdinsight.png)
 
 ## <a name="soft-delete"></a>Eliminazione temporanea
 
@@ -54,7 +54,7 @@ Per annullare l'eliminazione di un file dall'account di archiviazione, vedere:
 ### <a name="azure-storage"></a>Archiviazione di Azure
 
 * [Eliminazione temporanea per i BLOB di Archiviazione di Azure ](../storage/blobs/storage-blob-soft-delete.md)
-* [Annulla l'eliminazione del BLOB](https://docs.microsoft.com/rest/api/storageservices/undelete-blob)
+* [Annulla eliminazione BLOB](https://docs.microsoft.com/rest/api/storageservices/undelete-blob)
 
 ### <a name="azure-data-lake-storage-gen-1"></a>Azure Data Lake Storage Gen 1
 
@@ -62,11 +62,11 @@ Per annullare l'eliminazione di un file dall'account di archiviazione, vedere:
 
 ### <a name="azure-data-lake-storage-gen-2"></a>Azure Data Lake Storage Gen 2
 
-[Problemi noti relativi a Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-known-issues.md)
+[Problemi noti con Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-known-issues.md)
 
-## <a name="trash-purging"></a>Eliminazione del cestino
+## <a name="trash-purging"></a>Eliminazione del Cestino
 
-La proprietà `fs.trash.interval` da **HDFS** > **Advanced Core-site** deve rimanere nel valore predefinito `0` perché non è necessario archiviare i dati nel file system locale. Questo valore non influisce sugli account di archiviazione remoti (WASB, ADLS GEN1, ABFS)
+La `fs.trash.interval` proprietà del**sito principale avanzato** **HDFS** > deve rimanere invariata sul valore `0` predefinito perché non è consigliabile archiviare i dati nel file system locale. Questo valore non influisce sugli account di archiviazione remota (WASB, ADLS GEN1, ABFS)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

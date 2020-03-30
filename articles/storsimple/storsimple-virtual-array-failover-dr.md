@@ -1,5 +1,5 @@
 ---
-title: Failover e ripristino di emergenza per l'array virtuale StorSimple
+title: Failover e ripristino di emergenza per StorSimple Virtual Array
 description: Scoprire di più su come eseguire il failover di StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 464fa05f658dd6e6e25d79f8840ceeb939383149
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77467216"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Ripristino di emergenza e failover del dispositivo per l'array virtuale StorSimple tramite il portale di Azure
@@ -40,7 +40,7 @@ Il ripristino di emergenza è progettato come un ripristino completo del disposi
 > 
 > 
 
-Il ripristino di emergenza viene orchestrato tramite la funzionalità di failover del dispositivo e viene avviato dal pannello **dispositivi** . Questo pannello riporta tutti i dispositivi StorSimple connessi al servizio Gestione dispositivi StorSimple. Per ogni dispositivo è possibile esaminare nome descrittivo, stato, capacità fornita e massima, tipo e modello.
+Il ripristino di emergenza viene orchestrato tramite la funzionalità di failover del dispositivo e viene avviato dal pannello **Dispositivi.Disaster** recovery is orchestrated through the device failover feature and is initiated from the Devices blade. Questo pannello riporta tutti i dispositivi StorSimple connessi al servizio Gestione dispositivi StorSimple. Per ogni dispositivo è possibile esaminare nome descrittivo, stato, capacità fornita e massima, tipo e modello.
 
 ## <a name="prerequisites-for-device-failover"></a>Prerequisiti per il failover del dispositivo
 
@@ -57,7 +57,7 @@ Per il failover del dispositivo, verificare che siano soddisfatti i prerequisiti
   > 
 * Il nome del dispositivo di destinazione non può essere lo stesso del dispositivo di origine.
 * Il dispositivo di origine e quello di destinazione devono essere dello stesso tipo. Il failover di un array virtuale configurato come file server può essere eseguito solo su un altro file server. Lo stesso vale per un server iSCSI.
-* Per il ripristino di emergenza di un file server, è consigliabile aggiungere il dispositivo di destinazione nello stesso dominio del dispositivo di origine. Questa configurazione assicura che le autorizzazioni di condivisione vengano risolte automaticamente. È supportato solo il failover in un dispositivo di destinazione nello stesso dominio.
+* Per il ripristino di emergenza di un file server, è consigliabile aggiungere il dispositivo di destinazione nello stesso dominio del dispositivo di origine. Questa configurazione assicura che le autorizzazioni di condivisione vengano risolte automaticamente. È supportato solo il failover a un dispositivo di destinazione nello stesso dominio.
 * I dispositivi di destinazione disponibili per il ripristino di emergenza sono dispositivi dotati di capacità uguale o superiore rispetto al dispositivo di origine. I dispositivi connessi al servizio che non soddisfano i criteri di spazio sufficiente non sono disponibili come dispositivi di destinazione.
 
 ### <a name="other-considerations"></a>Altre considerazioni
@@ -134,11 +134,11 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo v
     
     1. Il campo del dispositivo di origine viene popolato automaticamente. Si noti la dimensione totale dei dati per il dispositivo di origine. La dimensione dei dati deve essere inferiore alla capacità disponibile sul dispositivo di destinazione. Esaminare i dettagli associati al dispositivo di origine, ad esempio il nome del dispositivo, la capacità totale e i nomi delle condivisioni di cui è stato eseguito il failover.
 
-    2. Nell'elenco a discesa dei dispositivi disponibili scegliere un **Dispositivo di destinazione**. Solo i dispositivi dotati di capacità sufficiente vengono visualizzati nell'elenco a discesa.
+    2. Nell'elenco a discesa dei dispositivi disponibili scegliere un **dispositivo di destinazione**.  Solo i dispositivi dotati di capacità sufficiente vengono visualizzati nell'elenco a discesa.
 
     3. Selezionare **Sono consapevole che questa operazione effettuerà il failover dei dati nel dispositivo di destinazione**. 
 
-    4. Fare clic su **Effettua il failover**.
+    4. Fare clic su **Fail over**.
     
         ![](./media/storsimple-virtual-array-failover-dr/failover4.png)
 11. Viene avviato un processo di failover e si riceverà una notifica. Passare a **Dispositivi > Processi** per monitorare il failover.

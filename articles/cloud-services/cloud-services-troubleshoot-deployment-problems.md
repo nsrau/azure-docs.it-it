@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: ccb08f853ae0f941dd5f9c0eca8c77f0f650905a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71122757"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Risolvere eventuali problemi di distribuzione dei servizi cloud
@@ -35,14 +35,14 @@ Quando si distribuisce un pacchetto dell'applicazione di servizi cloud in Azure,
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="problem-i-cannot-access-my-website-but-my-deployment-is-started-and-all-role-instances-are-ready"></a>Problema: Non è possibile accedere al sito Web, ma la distribuzione è stata avviata e tutte le istanze del ruolo sono pronte
+## <a name="problem-i-cannot-access-my-website-but-my-deployment-is-started-and-all-role-instances-are-ready"></a>Problema: non è possibile accedere al sito Web, ma la distribuzione è stata avviata e tutte le istanze del ruolo sono pronte.
 Il collegamento URL del sito Web mostrato nel portale non include la porta. La porta predefinita per i siti Web è 80. Se l'applicazione è configurata per l'esecuzione in una porta diversa, è necessario aggiungere all'URL il numero di porta corretto durante l'accesso al sito Web.
 
 1. Nel portale di Azure fare clic sulla distribuzione del servizio cloud.
 2. Nel riquadro **Proprietà** del portale di Azure selezionare le porte per le istanze del ruolo in **Endpoint di input**.
 3. Se la porta non è 80, aggiungere il valore di porta corretto all'URL quando si accede all'applicazione. Per specificare una porta non predefinita, digitare l'URL, seguito da due punti (:) e dal numero di porta, senza spazi.
 
-## <a name="problem-my-role-instances-recycled-without-me-doing-anything"></a>Problema: Le istanze del ruolo sono state riciclate senza eseguire alcuna operazione
+## <a name="problem-my-role-instances-recycled-without-me-doing-anything"></a>Problema: istanze del ruolo personalizzate riciclate senza intervento dell'utente.
 La correzione del servizio si verifica automaticamente quando Azure rileva nodi problematici e quindi le istanze del ruolo vengono spostate in nodi nuovi. In tal caso, è possibile che le istanze del ruolo vengano riciclate automaticamente. Per determinare se si è verificata la correzione del servizio:
 
 1. Nel portale di Azure fare clic sulla distribuzione del servizio cloud.
@@ -51,7 +51,7 @@ La correzione del servizio si verifica automaticamente quando Azure rileva nodi 
 I ruoli vengono riciclati approssimativamente una volta al mese durante gli aggiornamenti del sistema operativo host e del sistema operativo guest.  
 Per altre informazioni, vedere il post di blog sui [riavvii delle istanze del ruolo in seguito agli aggiornamenti del sistema operativo](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
 
-## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Problema: Non è possibile eseguire uno scambio VIP e ricevere un errore
+## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Problema: Non è possibile eseguire uno scambio VIP e si riceve un errore
 Non è possibile eseguire uno scambio VIP se è in corso l'aggiornamento di una distribuzione. Gli aggiornamenti di distribuzione si possono verificare automaticamente quando:
 
 * È disponibile un nuovo sistema operativo guest e sono stati configurati gli aggiornamenti automatici.
@@ -64,12 +64,12 @@ Per determinare se uno scambio VIP viene impedito da un aggiornamento automatico
 3. Ripetere i passaggi 1 e 2 per la distribuzione di produzione.
 4. Se è in corso un aggiornamento automatico, attenderne il completamento prima di provare a eseguire lo scambio VIP.
 
-## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>Problema: Un'istanza del ruolo sta eseguendo un ciclo tra avvio, inizializzazione, occupato e arrestato
+## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>Problema: Viene eseguito il ciclo di un'istanza del ruolo tra Avviato, Inizializzazione in corso, Occupato e Arrestato.
 Questa condizione potrebbe indicare un problema relativo al codice, al pacchetto o al file di configurazione dell'applicazione. In tal caso, è possibile osservare nel portale di Azure che lo stato cambia ogni pochi minuti, diventando ad esempio **Riciclo in corso**, **Occupato** o **Inizializzazione in corso**. a indicare un errore dell'applicazione che impedisce l'esecuzione dell'istanza del ruolo.
 
 Per altre informazioni sulla risoluzione di questo problema, vedere il post di blog [Azure PaaS Compute Diagnostics Data](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) (Dati di diagnostica del calcolo Azure PaaS) e [Problemi comuni che comportano il riciclo dei ruoli](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
-## <a name="problem-my-application-stopped-working"></a>Problema: L'applicazione ha smesso di funzionare
+## <a name="problem-my-application-stopped-working"></a>Problema: Arresto del funzionamento dell'applicazione
 1. Nel portale di Azure fare clic sull'istanza del ruolo.
 2. Nel riquadro **Proprietà** del portale di Azure considerare le condizioni seguenti per risolvere il problema:
    * Se l'istanza del ruolo è stata arrestata di recente (si può controllare il valore di **Conteggio interruzioni**), la distribuzione potrebbe essere in fase di aggiornamento. Attendere per verificare se il funzionamento dell'istanza del ruolo riprende autonomamente.

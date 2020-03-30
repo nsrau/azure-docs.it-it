@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 08/20/2019
 ms.author: delhan
 ms.openlocfilehash: 83751538efe4f3d3af5928caa04b265b6c867442
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71153563"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Come reimpostare la password di Linux locale nelle VM di Azure
@@ -31,13 +31,13 @@ Non è possibile accedere alla VM e viene visualizzato un messaggio indicante ch
 ## <a name="manual-password-reset-procedure"></a>Procedura di reimpostazione manuale della password
 
 > [!NOTE]
-> I passaggi seguenti non si applicano alla macchina virtuale con disco non gestito.
+> La procedura seguente non si applica alla macchina virtuale con disco non gestito.
 
-1. Creare uno snapshot per il disco del sistema operativo della macchina virtuale interessata, creare un disco dallo snapshot e quindi alporre il disco a una VM di risoluzione dei problemi. Per altre informazioni, vedere [risolvere i problemi di una VM Windows connettendo il disco del sistema operativo a una VM di ripristino usando il portale di Azure](troubleshoot-recovery-disks-portal-linux.md).
+1. Creare uno snapshot per il disco del sistema operativo della macchina virtuale interessata, creare un disco dallo snapshot e quindi collegare il disco a una macchina virtuale di risoluzione dei problemi. Per altre informazioni, vedere Risolvere i problemi di una macchina virtuale Windows collegando il disco del sistema operativo a una macchina virtuale di ripristino tramite il portale di Azure.For more information, see Troubleshoot a [Windows VM by attaching the OS disk to a recovery VM using the Azure portal.](troubleshoot-recovery-disks-portal-linux.md)
 
-2. Connettersi alla macchina virtuale per la risoluzione dei problemi usando Desktop remoto.
+2. Connettersi alla macchina virtuale per la risoluzione dei problemi tramite Desktop remoto.
 
-3.  Eseguire il comando SSH seguente nella macchina virtuale per la risoluzione dei problemi per diventare un utente con privilegi avanzati.
+3.  Eseguire il comando SSH seguente nella macchina virtuale di risoluzione dei problemi per diventare un utente con privilegi avanzati.
 
     ```bash
     sudo su
@@ -62,7 +62,7 @@ Non è possibile accedere alla VM e viene visualizzato un messaggio indicante ch
     mkdir /tempmount
     ```
 
-6.  Montare il disco del sistema operativo nel punto di montaggio. È in genere necessario montare *sdc1* o *sdc2*, a seconda della partizione di hosting nella directory */etc* del disco del computer danneggiato.
+6.  Montare il disco del sistema operativo nel punto di montaggio. In genere è necessario montare *sdc1* o *sdc2*. Questo dipenderà dalla partizione di hosting nella directory */etc* dal disco del computer danneggiato.
 
     ```bash
     mount /dev/sdc1 /tempmount
@@ -101,12 +101,12 @@ Non è possibile accedere alla VM e viene visualizzato un messaggio indicante ch
     umount /tempmount
     ```
 
-11. In portale di Azure scollegare il disco dalla macchina virtuale per la risoluzione dei problemi.
+11. Nel portale di Azure scollegare il disco dalla macchina virtuale per la risoluzione dei problemi.
 
-12. [Modificare il disco del sistema operativo per la macchina virtuale interessata](troubleshoot-recovery-disks-portal-linux.md#swap-the-os-disk-for-the-vm).
+12. [Modificare il disco del sistema operativo per la macchina virtuale interessata.](troubleshoot-recovery-disks-portal-linux.md#swap-the-os-disk-for-the-vm)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Risolvere i problemi della macchina virtuale di Azure collegando il disco del sistema operativo a un'altra macchina virtuale di Azure](https://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)
 
-* [INTERFACCIA della riga di comando di Azure: Come eliminare e ridistribuire una macchina virtuale da un disco rigido virtuale](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)
+* [Interfaccia della riga di comando di Azure: come eliminare e ridistribuire una macchina virtuale dal disco rigido virtuale](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)

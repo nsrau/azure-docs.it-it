@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
 ms.openlocfilehash: 9bbd62bc05e03641c2abe9308d9238bef23877c2
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71104976"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Come salvare e configurare la configurazione del servizio Gestione API tramite Git
@@ -52,7 +52,7 @@ Per visualizzare e configurare le impostazioni di configurazione di Git, è poss
 ![Abilitare GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> Tutti i segreti che non sono definiti come valori denominati verranno archiviati nel repository e rimarranno nella cronologia fino a quando non si disabilita e si riabilita l'accesso git. I valori denominati forniscono una posizione sicura per gestire i valori stringa costanti, inclusi i segreti, in tutti i criteri e la configurazione dell'API, quindi non è necessario archiviarli direttamente nelle istruzioni dei criteri. Per altre informazioni, vedere [come usare i valori denominati nei criteri di gestione API di Azure](api-management-howto-properties.md).
+> Tutti i segreti che non sono definiti come valori denominati verranno archiviati nel repository e rimarranno nella cronologia fino a quando non si disabilita e riabilita l'accesso Git. I valori denominati forniscono una posizione sicura per gestire valori stringa costanti, inclusi i segreti, in tutte le configurazioni e i criteri dell'API, in modo da non doverli archiviare direttamente nelle istruzioni dei criteri. Per altre informazioni vedere [Come usare i valori denominati nei criteri di Gestione API di Azure](api-management-howto-properties.md).
 >
 >
 
@@ -148,7 +148,7 @@ Per informazioni sull'esecuzione di questa operazione tramite l'API REST, vedere
 
 I file e cartelle nel repository Git locale contengono le informazioni di configurazione dell'istanza del servizio.
 
-| Elemento | DESCRIZIONE |
+| Elemento | Descrizione |
 | --- | --- |
 | Cartella api-management radice |Contiene la configurazione di livello superiore per l'istanza del servizio |
 | Cartella apis |Contiene la configurazione per le API nell'istanza del servizio |
@@ -164,7 +164,7 @@ Ogni cartella può contenere uno o più file e in alcuni casi una o più cartell
 | --- | --- |
 | json |Informazioni di configurazione dell'entità corrispondente |
 | html |Descrizioni delle entità, spesso visualizzate nel portale per sviluppatori |
-| xml |Policy statements |
+| Xml |Policy statements |
 | css |Fogli di stile per la personalizzazione del portale per sviluppatori |
 
 Questi file possono essere creati, eliminati, modificati e gestiti nel file system locale e le modifiche possono essere ridistribuite nell'istanza del servizio Gestione API.
@@ -173,7 +173,7 @@ Questi file possono essere creati, eliminati, modificati e gestiti nel file syst
 > Le entità seguenti non sono contenute nel repository Git e non possono essere configurate tramite Git.
 >
 > * [Utenti](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user)
-> * [Sottoscrizioni](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription)
+> * [Abbonamenti](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription)
 > * [Valori denominati](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/property)
 > * Entità del portale per sviluppatori diverse dagli stili
 >
@@ -249,10 +249,10 @@ La cartella `portalStyles` contiene la configurazione e i fogli di stile delle p
 ### <a name="products-folder"></a>Cartella products
 La cartella `products` contiene una cartella per ogni prodotto definito nell'istanza del servizio.
 
-* `products\<product name>\configuration.json`: configurazione del prodotto. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario chiamare l'operazione per [ottenere un prodotto specifico](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/product/get) .
+* `products\<product name>\configuration.json` : configurazione del prodotto. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario chiamare l'operazione per [ottenere un prodotto specifico](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/product/get) .
 * `products\<product name>\product.description.html`: descrizione del prodotto. Corrisponde alla proprietà `description` dell'[entità relativa al prodotto](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) nell'API REST.
 
-### <a name="templates"></a>modelli
+### <a name="templates"></a>Modelli
 La cartella `templates` contiene la configurazione per i [modelli di posta elettronica](api-management-howto-configure-notifications.md) dell'istanza del servizio.
 
 * `<template name>\configuration.json` : configurazione del modello di posta elettronica.

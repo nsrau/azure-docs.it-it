@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/22/2019
 ms.author: aschhab
 ms.openlocfilehash: 7234e33c04e742c77630f8d87481c7831fb00bf2
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70013238"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Autenticazione e autorizzazione del bus di servizio
@@ -30,15 +30,15 @@ I token della firma di accesso condiviso possono essere generati direttamente da
 > Se si usa il controllo di accesso di Azure Active Directory, anche noto come Servizio di controllo di accesso o ACS, con il bus di servizio, si noti che il supporto per questo metodo è ora limitato ed è necessario eseguire la migrazione dell'applicazione per l'uso di SAS. Per altre informazioni, vedere [questo post di blog](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/) e [questo articolo](service-bus-migrate-acs-sas.md).
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
-L'integrazione di Azure Active Directory (Azure AD) per le risorse del bus di servizio fornisce il controllo degli accessi in base al ruolo (RBAC) per un controllo con granularità fine sull'accesso di un client alle risorse. È possibile usare il controllo degli accessi in base al ruolo (RBAC) per concedere le autorizzazioni all'entità di sicurezza, che può essere un utente, un gruppo o un'entità servizio dell'applicazione. L'entità di sicurezza viene autenticata da Azure AD per restituire un token OAuth 2,0. Il token può essere usato per autorizzare una richiesta di accesso a una risorsa del bus di servizio (coda, argomento e così via).
+L'integrazione di Azure Active Directory (Azure AD) per le risorse del bus di servizio fornisce il controllo degli accessi in base al ruolo per un controllo granulare sull'accesso di un client alle risorse. È possibile utilizzare il controllo degli accessi in base al ruolo per concedere autorizzazioni all'entità di sicurezza, che può essere un utente, un gruppo o un'entità servizio dell'applicazione. L'entità di sicurezza viene autenticata da Azure AD per restituire un token OAuth 2.0.The security principal is authenticated by Azure AD to return an OAuth 2.0 token. Il token può essere utilizzato per autorizzare una richiesta di accesso a una risorsa del bus di servizio (coda, argomento e così via).
 
-Per ulteriori informazioni sull'autenticazione con Azure AD, vedere gli articoli seguenti:
+Per altre informazioni sull'autenticazione con Azure AD, vedere gli articoli seguenti:For more information about authenticating with Azure AD, see the following articles:
 
-- [Eseguire l'autenticazione con identità gestite](service-bus-managed-service-identity.md)
+- [Eseguire l'autenticazione con le identità gestite](service-bus-managed-service-identity.md)
 - [Eseguire l'autenticazione da un'applicazione](authenticate-application.md)
 
 > [!IMPORTANT]
-> L'autorizzazione di utenti o applicazioni che usano il token OAuth 2,0 restituito da Azure AD offre sicurezza e facilità d'uso superiori rispetto alle firme di accesso condiviso (SAS). Con Azure AD, non è necessario archiviare i token nel codice e rischiare potenziali vulnerabilità della sicurezza. Quando possibile, è consigliabile usare Azure AD con le applicazioni del bus di servizio di Azure. 
+> L'autorizzazione di utenti o applicazioni con token OAuth 2.0 restituito da Azure AD offre una sicurezza e un utilizzo superiori rispetto alle firme di accesso condiviso. Con Azure AD non è necessario archiviare i token nel codice e rischiare potenziali vulnerabilità della sicurezza. Quando possibile, è consigliabile usare Azure AD con le applicazioni del bus di servizio di Azure.We recommend that you use using Azure AD with your Azure Service Bus applications when possible. 
 
 
 ## <a name="shared-access-signature"></a>Firma di accesso condiviso

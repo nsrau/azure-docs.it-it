@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: abilitare BYOK Transparent Data Encryption-Istanza gestita di database SQL di Azure '
+title: 'PowerShell: Enable BYOK TDE - Azure SQL Database Managed Instance '
 description: Informazioni su come configurare un'istanza gestita di SQL di Azure per iniziare a usare Transparent Data Encryption (TDE) per BYOK per la crittografia dei dati inattivi tramite PowerShell.
 services: sql-database
 ms.service: sql-database
@@ -12,25 +12,25 @@ ms.author: mlandzic
 ms.reviewer: vanto, carlrab
 ms.date: 11/05/2019
 ms.openlocfilehash: ddffda5229c9c0d33c563e3ae7b4a884f0f92dff
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73691403"
 ---
 # <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault"></a>Gestire Transparent Data Encryption in un'istanza gestita usando una chiave personalizzata di Azure Key Vault
 
-Questo esempio di script di PowerShell configura Transparent Data Encryption (Transparent Data Encryption) con chiave gestita dal cliente per Istanza gestita SQL di Azure, usando una chiave da Azure Key Vault. Questo scenario viene spesso definito Bring Your Own Key scenario per Transparent Data Encryption. Per altre informazioni su Transparent Data Encryption con chiave gestita dal cliente, vedere Transparent Data [encryption Bring your own key to Azure SQL](../transparent-data-encryption-byok-azure-sql.md).
+Questo esempio di script di PowerShell configura Transparent Data Encryption (TDE) con chiave gestita dal cliente per l'istanza gestita SQL di Azure, usando una chiave dell'insieme di credenziali delle chiavi di Azure.This PowerShell script example configures Transparent Data Encryption (TDE) with customer-managed key for Azure SQL Managed Instance, using a key from Azure Key Vault. Questo è spesso indicato come uno scenario Bring Your Own Key per TDE. Per altre informazioni sul TDE con chiave gestita dal cliente, vedere [TDE Bring Your Own Key to Azure SQL](../transparent-data-encryption-byok-azure-sql.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Istanza gestita esistente. Vedere [usare PowerShell per creare un'istanza gestita di database SQL di Azure](sql-database-create-configure-managed-instance-powershell.md).
+- Un'istanza gestita esistente. Vedere [Usare PowerShell per creare un'istanza gestita del database SQL di Azure.See Use PowerShell to create an Azure SQL Database managed instance](sql-database-create-configure-managed-instance-powershell.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-L'uso di PowerShell in locale o con Azure Cloud Shell richiede AZ PowerShell 2.3.2 o una versione successiva. Se è necessario eseguire l'aggiornamento, vedere [install Azure PowerShell Module](/powershell/azure/install-az-ps)o eseguire lo script di esempio seguente per installare il modulo per l'utente corrente:
+L'uso di PowerShell in locale o di Azure Cloud Shell richiede l'utilizzo di PowerShell 2.3.2 o versione successiva. Se è necessario eseguire l'aggiornamento, vedere Installare il modulo di Azure PowerShell o eseguire lo script di esempio seguente per installare il modulo per l'utente corrente:If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps), or run the below sample script to install the module for the current user:
 
 `Install-Module -Name Az -AllowClobber -Scope CurrentUser`
 

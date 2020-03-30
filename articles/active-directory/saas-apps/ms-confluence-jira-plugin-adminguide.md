@@ -16,10 +16,10 @@ ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8679f9a03fded546db68f058bca716ba053aa0fe
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73161201"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guida dell'amministratore per Atlassian Jira e Confluence per Azure Active Directory
@@ -28,7 +28,7 @@ ms.locfileid: "73161201"
 
 Il plug-in Single Sign-On (SSO) di Azure Active Directory (Azure AD) consente ai clienti di Microsoft Azure AD di usare l'account aziendale o dell'istituto di istruzione per accedere ai prodotti basati sui server Atlassian Jira e Confluence. Implementa l'accesso Single Sign-On basato su SAML 2.0.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Quando gli utenti vogliono accedere all'applicazione Atlassian Jira o Confluence, nella pagina di accesso viene visualizzato il pulsante **Accedi con Azure AD**. Dopo aver fatto clic sul pulsante, viene chiesto loro di accedere tramite la pagina di accesso dell'organizzazione ad Azure Active Directory (ovvero usando l'account aziendale o dell'istituto di istruzione).
 
@@ -95,7 +95,7 @@ Per installare il plug-in, seguire questa procedura:
 
 2. Passare alla console di amministrazione di Jira/Confluence e selezionare **Add-ons** (Componenti aggiuntivi).
 
-3. Dall'Area download Microsoft scaricare il [plug-in Microsoft SAML SSO per Jira](https://www.microsoft.com/download/details.aspx?id=56506)/ [plug-in Microsoft SAML SSO per Confluence](https://www.microsoft.com/download/details.aspx?id=56503).
+3. Dall'Area download Microsoft scaricare il plug-in [Microsoft SAML SSO per Jira](https://www.microsoft.com/download/details.aspx?id=56506)/ [Microsoft SAML SSO Plugin for Confluence](https://www.microsoft.com/download/details.aspx?id=56503).
 
    Nei risultati della ricerca viene visualizzata la versione appropriata del plug-in.
 
@@ -113,11 +113,11 @@ L'immagine seguente mostra la schermata di configurazione in Jira e Confluence:
 
 * **Metadata URL** (URL dei metadati): URL per ottenere i metadati di federazione da Azure Active Directory.
 
-* **Identifiers** (Identificatori): URL usato da Azure Active Directory per convalidare l'origine della richiesta. È associato all'elemento **Identificatore** di Azure Active Directory. Il plug-in deriva automaticamente questo URL come https:// *\<dominio: porta >* /.
+* **Identifiers** (Identificatori): URL usato da Azure Active Directory per convalidare l'origine della richiesta. È associato all'elemento **Identificatore** di Azure Active Directory. Il plug-in deriva automaticamente questo URL come https://*\<dominio:porta>*/.
 
-* **Reply URL** (URL di risposta): URL di risposta nel provider di identità che avvia la procedura di accesso a SAML. È associato all'elemento **URL di risposta** di Azure Active Directory. Il plug-in deriva automaticamente questo URL come https:// *\<dominio: porta >* /plugins/servlet/SAML/auth.
+* **Reply URL** (URL di risposta): URL di risposta nel provider di identità che avvia la procedura di accesso a SAML. È associato all'elemento **URL di risposta** di Azure Active Directory. Il plug-in deriva automaticamente questo URL come https://*\<dominio:porta>*/plugins/servlet/saml/auth.
 
-* **Sign On URL** (URL di accesso): URL di accesso nel provider di identità che avvia la procedura di accesso a SAML. È associato all'elemento **Accesso** di Azure Active Directory. Il plug-in deriva automaticamente questo URL come https:// *\<dominio: porta >* /plugins/servlet/SAML/auth.
+* **Sign On URL** (URL di accesso): URL di accesso nel provider di identità che avvia la procedura di accesso a SAML. È associato all'elemento **Accesso** di Azure Active Directory. Il plug-in deriva automaticamente questo URL come https://*\<dominio:porta>*/plugins/servlet/saml/auth.
 
 * **IdP Entity ID** (ID entità provider di identità): l'ID entità usato dal provider di identità. Questo campo viene popolato quando viene risolto l'URL dei metadati.
 
@@ -139,13 +139,13 @@ L'immagine seguente mostra la schermata di configurazione in Jira e Confluence:
 
 * **Enable Single Signout**(Abilita Single Sign-Out): selezionare questa opzione se si vuole eseguire la disconnessione da Azure Active Directory quando un utente si disconnette da Jira o Confluence.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 * **Si ricevono più errori relativi ai certificati**: accedere ad Azure AD e rimuovere i vari certificati disponibili per l'app. Verificare che sia presente un solo certificato.
 
 * **Un certificato sta per scadere in Azure AD**: il rollover automatico del certificato è gestito da componenti aggiuntivi. Quando un certificato sta per scadere, è necessario che un nuovo certificato venga contrassegnato come attivo e che i certificati inutilizzati vengano eliminati. Quando un utente tenta di eseguire l'accesso a Jira in questo scenario, il plug-in recupera e salva il nuovo certificato.
 
-* **Come disabilitare WebSudo (disabilitare la sessione amministratore protetta)** :
+* **Come disabilitare WebSudo (disabilitare la sessione amministratore protetta)**:
 
   * Per Jira, le sessioni amministratore protette (ovvero la conferma della password prima di accedere alle funzioni di amministrazione) sono abilitate per impostazione predefinita. Se si vuole disabilitare questa funzionalità nell'istanza di Jira, specificare la riga seguente nel file jira-config.properties: `ira.websudo.is.disabled = true`
 

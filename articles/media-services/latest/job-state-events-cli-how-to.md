@@ -12,15 +12,15 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 619d40ab56715b4444d8e5649c7fb3401b3f57ff
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71937292"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Creare e monitorare eventi di Servizi multimediali con Griglia di eventi e l'interfaccia della riga di comando di Azure
 
-La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. Questo servizio usa le [sottoscrizioni di eventi](../../event-grid/concepts.md#event-subscriptions) per indirizzare i messaggi di evento ai sottoscrittori. Gli eventi di Servizi multimediali contengono tutte le informazioni necessarie per rispondere alle modifiche dei dati. Un evento di Servizi multimediali è riconoscibile perché la proprietà eventType inizia con "Microsoft.Media". Per altre informazioni, vedere [Schemi di eventi di Servizi multimediali](media-services-event-schemas.md).
+La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. Questo servizio utilizza [le sottoscrizioni](../../event-grid/concepts.md#event-subscriptions) di eventi per instradare i messaggi di evento ai sottoscrittori. Gli eventi di Servizi multimediali contengono tutte le informazioni necessarie per rispondere alle modifiche dei dati. Un evento di Servizi multimediali è riconoscibile perché la proprietà eventType inizia con "Microsoft.Media". Per altre informazioni, vedere [Schemi di eventi di Servizi multimediali](media-services-event-schemas.md).
 
 In questo articolo si userà l'interfaccia della riga di comando di Azure per sottoscrivere gli eventi per l'account di Servizi multimediali di Azure. Si attiveranno quindi gli eventi per visualizzare i risultati. In genere, si inviano eventi a un endpoint che elabora i dati dell'evento e intraprende azioni. In questo articolo gli eventi vengono inviati a un'app Web che raccoglie e visualizza i messaggi.
 
@@ -59,7 +59,7 @@ az account set --subscription mySubscriptionId
 
 ## <a name="subscribe-to-media-services-events"></a>Eseguire la sottoscrizione a eventi di Servizi multimediali
 
-Si esegue la sottoscrizione a un articolo per indicare a Griglia di eventi gli eventi di cui tenere traccia. L'esempio seguente sottoscrive l'account di Servizi multimediali creato e passa l'URL del sito Web creato come endpoint per la notifica degli eventi. 
+Si sottoscrive un articolo per indicare a Griglia di eventi quali eventi si desidera monitorare. Nell'esempio seguente viene sottoscritto l'account di Servizi multimediali creato e viene passato l'URL dal sito Web creato come endpoint per la notifica degli eventi. 
 
 Sostituire `<event_subscription_name>` con un nome univoco per la sottoscrizione di eventi. Per la `<resource_group_name>` e `<ams_account_name>`, specificare i valori usati durante la creazione dell'account di Servizi multimediali. Per `<endpoint_URL>`, specificare l'URL dell'app Web e aggiungere `api/updates` all'URL della home page. Se durante la sottoscrizione si specifica l'endpoint, Griglia di eventi gestisce il routing degli eventi verso l'endpoint. 
 
@@ -69,7 +69,7 @@ Sostituire `<event_subscription_name>` con un nome univoco per la sottoscrizione
     amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
     ```
 
-    Esempio:
+    Ad esempio:
 
     ```
     amsResourceId=$(az ams account show --name amsaccount --resource-group amsResourceGroup --query id --output tsv)
@@ -84,7 +84,7 @@ Sostituire `<event_subscription_name>` con un nome univoco per la sottoscrizione
     --endpoint <endpoint_URL>
     ```
 
-    Esempio:
+    Ad esempio:
 
     ```
     az eventgrid event-subscription create --source-resource-id $amsResourceId --name amsTestEventSubscription --endpoint https://amstesteventgrid.azurewebsites.net/api/updates/

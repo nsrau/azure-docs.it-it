@@ -1,5 +1,5 @@
 ---
-title: Eseguire i processi end-to-end usando i modelli-Azure Batch
+title: Eseguire processi end-to-end usando i modelli - Azure BatchRun jobs end-to-end using templates - Azure Batch
 description: Con i soli comandi dell'interfaccia della riga di comando, è possibile creare un pool, caricare dati di input, creare processi e attività associate e scaricare i dati di output risultanti.
 services: batch
 author: LauraBrenner
@@ -12,10 +12,10 @@ ms.date: 12/07/2018
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: c7459c4dc700f034feafbf133b831a52b9233d11
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77020166"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Usare il trasferimento di file e i modelli dell'interfaccia della riga di comando di Azure Batch
@@ -24,7 +24,7 @@ Usando un'estensione Azure Batch per l'interfaccia della riga di comando di Azur
 
 Creare e usare file modello JSON con l'interfaccia della riga di comando di Azure per creare pool, processi e attività di Batch. Usare i comandi di estensione dell'interfaccia della riga di comando per caricare facilmente i file di input dei processi nell'account di archiviazione associato all'account Batch e scaricare i file di output dei processi.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Un'estensione dell'interfaccia della riga di comando di Azure consente a utenti non sviluppatori di usare Batch end-to-end. Con i soli comandi dell'interfaccia della riga di comando, è possibile creare un pool, caricare dati di input, creare processi e attività associate e scaricare i dati di output risultanti. Non è necessario alcun codice aggiuntivo. Eseguire i comandi dell'interfaccia della riga di comando direttamente o integrarli negli script.
 
@@ -66,7 +66,7 @@ Per accedere a un account Batch con l'interfaccia della riga di comando di Azure
 
 I modelli di Azure Batch sono simili ai modelli di Azure Resource Manager per quanto riguarda funzionalità e sintassi. Si tratta di file JSON contenenti nomi e valori delle proprietà degli elementi, ma con i seguenti importanti concetti aggiuntivi:
 
--   **Parameters**
+-   **Parametri**
 
     -   I valori delle proprietà possono essere specificati in una sezione del corpo, in modo che quando il modello viene usato sia necessario fornire solo i valori dei parametri. È ad esempio possibile inserire la definizione completa di un pool nel corpo e definire un solo parametro come ID del pool. Per creare un pool deve quindi essere fornita solo una stringa di ID del pool.
         
@@ -260,7 +260,7 @@ Come in precedenza, l'interfaccia della riga di comando richiede di specificare 
 
 Per caricare un modello:
 
-1. In Batch Explorer selezionare **Raccolta** > **Modelli locali**.
+1. In Esplora batch selezionare**Modelli locali** **raccolta** > .
 
 2. Selezionare o trascinare un pool o un modello di processo locale.
 

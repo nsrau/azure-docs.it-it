@@ -1,5 +1,5 @@
 ---
-title: Trovare i report attività utente in portale di Azure | Microsoft Docs
+title: Trovare i report sulle attività degli utenti nel portale di Azure Documenti Microsoft
 description: Informazioni su dove trovare i report attività utente di Azure Active Directory nel portale di Azure.
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d356f8c10ae3770d9f4ade100ab0496ee58d772f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74008221"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trovare i report attività nel portale di Azure
@@ -48,40 +48,40 @@ Il report dei log di controllo consente di consolidare i report seguenti:
 
 ### <a name="filtering-on-audit-logs"></a>Filtro dei log di controllo
 
-È possibile utilizzare il filtro avanzato nel report di controllo per accedere a una categoria specifica di dati di controllo, specificandone il filtro di **categoria** . Ad esempio, per visualizzare tutte le attività correlate agli utenti, selezionare la categoria **UserManagement** . 
+È possibile utilizzare il filtro avanzato nel report di controllo per accedere a una categoria specifica di dati di controllo, specificandolo nel filtro **Categoria.** Ad esempio, per visualizzare tutte le attività correlate agli utenti, selezionare la categoria **Gestione utenti.** 
 
 Le categorie includono:
 
 - Tutti
 - AdministrativeUnit
-- ApplicationManagement
-- Autenticazione
+- ApplicationManagement (Gestione applicazioni)
+- Authentication
 - Autorizzazione
 - Contatto
 - Dispositivo
 - DeviceConfiguration
-- DirectoryManagement
-- EntitlementManagement
+- Gestione directory
+- Gestione diritti
 - GroupManagement
-- Altre
-- Criteri
-- ResourceManagement
-- RoleManagement
-- UserManagement
+- Altri
+- Policy
+- Gestione risorse
+- Gestione ruolo
+- Gestione utente
 
-È anche possibile filtrare in base a un servizio specifico usando il filtro dell'elenco a discesa del **servizio** . Ad esempio, per ottenere tutti gli eventi di controllo relativi alla gestione delle password self-service, selezionare il filtro **self-service** per la gestione delle password.
+È inoltre possibile filtrare in base a un servizio specifico usando il filtro a discesa **Servizio.You** can also filter on a specific service using the Service dropdown filter. Ad esempio, per ottenere tutti gli eventi di controllo relativi alla gestione delle password self-service, selezionare il filtro **Gestione password self-service.**
 
 I servizi includono:
 
 - Tutti
 - Verifiche di accesso
 - Provisioning degli account 
-- SSO applicazione
-- Metodi di autenticazione
+- Applicazione SSO
+- Authentication Methods
 - B2C
 - Accesso condizionale
 - Directory principale
-- Gestione entitlement
+- Gestione dei diritti
 - Identity Protection
 - Utenti invitati
 - PIM
@@ -99,7 +99,7 @@ Per accedere al report degli accessi:
 2. Selezionare la directory nell'angolo in alto a destra, quindi selezionare il pannello **Azure Active Directory** nel riquadro di spostamento a sinistra.
 3. Selezionare **Accessi** nella sezione **Attività** del pannello Azure Active Directory. 
 
-    ![Visualizzazione accessi](./media/howto-find-activity-reports/483.png "Visualizzazione accessi")
+    ![Visualizzazione Degli equivi](./media/howto-find-activity-reports/483.png "Visualizzazione Degli equivi")
 
 
 ### <a name="filtering-on-application-name"></a>Filtro in base al nome dell'applicazione
@@ -112,12 +112,12 @@ Per accedere al report degli accessi:
 
 ### <a name="anomalous-activity-reports"></a>Report Anomalie dell'attività
 
-I report di attività anomale forniscono informazioni sui rilevamenti dei rischi correlati alla sicurezza che Azure AD possibile rilevare e segnalare.
+I report di attività anomale forniscono informazioni sui rilevamenti dei rischi correlati alla sicurezza che Azure AD è in grado di rilevare e segnalare.
 
-Nella tabella seguente sono elencati i report di sicurezza delle attività anomale Azure AD e i tipi di rilevamento dei rischi corrispondenti nell'portale di Azure. Per altre informazioni, vedere [Rilevamenti dei rischi in Azure Active Directory](concept-risk-events.md).  
+Nella tabella seguente sono elencati i report sulla sicurezza delle attività anomale di Azure AD e i tipi di rilevamento dei rischi corrispondenti nel portale di Azure.The following table lists the Azure AD anomalous activity security reports, and corresponding risk detection types in the Azure portal. Per altre informazioni, vedere [Rilevamenti dei rischi in Azure Active Directory](concept-risk-events.md).  
 
 
-| Report di Anomalie dell'attività di Azure AD |  Tipo di rilevamento del rischio di Identity Protection|
+| Report di Anomalie dell'attività di Azure AD |  Tipo di rilevamento dei rischi di protezione dell'identità|
 | :--- | :--- |
 | Utenti con credenziali perse | Credenziali perse |
 | Attività di accesso irregolare | Trasferimento impossibile a posizioni atipiche |
@@ -126,18 +126,18 @@ Nella tabella seguente sono elencati i report di sicurezza delle attività anoma
 | Accessi da indirizzi IP con attività sospette | Accessi da indirizzi IP con attività sospette |
 | - | Accessi da posizioni non note |
 
-I report di sicurezza delle attività anomale Azure AD seguenti non sono inclusi come rilevamenti dei rischi nel portale di Azure:
+I report sulla sicurezza delle attività anomale di Azure AD seguenti non sono inclusi come rilevamenti dei rischi nel portale di Azure:The following Azure AD anomalous activity security reports are not included as risk detections in the Azure portal:
 
 * Accessi dopo più errori
 * Accessi da più aree geografiche
 
 
-### <a name="detected-risk-detections"></a>Rilevamento del rischio rilevato
+### <a name="detected-risk-detections"></a>Rilevamenti dei rischi rilevati
 
-È possibile accedere ai report sui rilevamenti dei rischi rilevati nella sezione **sicurezza** del pannello **Azure Active Directory** della [portale di Azure](https://portal.azure.com). I rilevamenti dei rischi rilevati vengono registrati nei report seguenti:   
+È possibile accedere ai report sui rilevamenti dei rischi rilevati nella sezione Sicurezza del pannello Azure Active Directory nel portale di Azure.You can access reports about detected risk detections in the **Security** section of the **Azure Active Directory** blade in the Azure [portal.](https://portal.azure.com) I rilevamenti dei rischi rilevati vengono registrati nei report seguenti:Detected risk detections are tracked in the following reports:   
 
 - [Utenti a rischio](concept-user-at-risk.md)
-- [Accessi a rischio](concept-risky-sign-ins.md)
+- [Inademazione rischiosa](concept-risky-sign-ins.md)
 
     ![Report sulla sicurezza](./media/howto-find-activity-reports/04.png "Report sulla sicurezza")
 
@@ -149,11 +149,11 @@ I report di sicurezza delle attività anomale Azure AD seguenti non sono inclusi
 
 I log attività (controllo o accessi) sono stati scaricati ma non vengono visualizzati tutti i record per l'orario scelto. Perché? 
 
- ![Creazione di report](./media/troubleshoot-missing-data-download/01.png)
+ ![Report](./media/troubleshoot-missing-data-download/01.png)
  
 #### <a name="cause"></a>Causa
 
-Quando si scaricano i log attività nel portale di Azure, viene limitata la scalabilità a 250000 record, ordinati in base alla prima più recente. 
+Quando si scaricano i log attività nel portale di Azure, la scalabilità viene limitata a 250000 record, ordinati prima in base ai primi. 
 
 #### <a name="resolution"></a>Risoluzione
 
@@ -165,7 +165,7 @@ Quando si scaricano i log attività nel portale di Azure, viene limitata la scal
 
 Sono state eseguite alcune azioni nel portale di Azure e si prevedeva la visualizzazione dei log di controllo per tali azioni nel pannello `Activity logs > Audit Logs`, ma non è possibile trovarli.
 
- ![Creazione di report](./media/troubleshoot-missing-audit-data/01.png)
+ ![Report](./media/troubleshoot-missing-audit-data/01.png)
  
 #### <a name="cause"></a>Causa
 
@@ -186,7 +186,7 @@ Attendere tra 15 minuti e due ore e verificare se le azioni vengono visualizzate
 
 Di recente si è eseguito l'accesso al portale di Azure e si prevedeva la visualizzazione dei log di accesso per tali azioni nel pannello `Activity logs > Sign-ins`, ma non è possibile trovarli.
 
- ![Creazione di report](./media/troubleshoot-missing-audit-data/02.png)
+ ![Report](./media/troubleshoot-missing-audit-data/02.png)
  
 #### <a name="cause"></a>Causa
 
@@ -207,13 +207,13 @@ Attendere tra 15 minuti e due ore e verificare se le azioni vengono visualizzate
 
 Non è possibile visualizzare più di 30 giorni di dati di accesso e controllo nel portale di Azure. Perché? 
 
- ![Creazione di report](./media/troubleshoot-missing-audit-data/03.png)
+ ![Report](./media/troubleshoot-missing-audit-data/03.png)
 
 #### <a name="cause"></a>Causa
 
 In base alla licenza, Azioni di Azure Active Directory archivia i report delle attività per le durate seguenti:
 
-| Report           | &nbsp; |  Azure AD Free | Azure AD P1 Premium | Azure AD P2 Premium |
+| Report           | &nbsp; |  Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | ---              | ----   |  ---           | ---                 | ---                 |
 | Directory Audit (Controllo directory)  | &nbsp; |   7 giorni     | 30 giorni             | 30 giorni             |
 | Attività di accesso | &nbsp; | Non disponibile. È possibile accedere alle informazioni di accesso per 7 giorni dal pannello del singolo profilo utente | 30 giorni | 30 giorni             |

@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: cynthn
 ms.openlocfilehash: f2dc43e1f07d449bf2f8ed39ce4523c99b551dae
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77115620"
 ---
-# <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>Cosa accade se un'interferenza del servizio Azure influisca sulle VM di Azure
+# <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>Cosa succede se un'interruzione del servizio di Azure influisce sulle macchine virtuali di AzureWhat if an Azure service disruption impacts Azure VMs
 Microsoft si impegna costantemente per garantire agli utenti la disponibilità dei servizi in base alle esigenze. Eventi imprevisti possono, tuttavia, causare interruzioni non pianificate dei servizi.
 
 La connettività e la disponibilità dei servizi Microsoft sono garantite da un contratto di servizio. I contratti di servizio relativi ai singoli servizi di Azure sono disponibili alla pagina [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/).
@@ -35,7 +35,7 @@ Questa è l'opzione migliore se non sono stati configurati Azure Site Recovery, 
 
 
 > [!NOTE]
-> Tenere presente che non è possibile controllare questo processo e che verrà eseguito solo in caso di interruzioni del servizio a livello di area. Per questo motivo, è necessario affidarsi anche ad altre strategie di backup specifiche dell'applicazione per ottenere il massimo livello di disponibilità. Per altre informazioni, vedere la sezione [Strategie dei dati per il ripristino di emergenza](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan).
+> Tenere presente che non è possibile controllare questo processo e che verrà eseguito solo in caso di interruzioni del servizio a livello di area. Per questo motivo, è necessario affidarsi anche ad altre strategie di backup specifiche dell'applicazione per ottenere il massimo livello di disponibilità. Per ulteriori informazioni, vedere la sezione relativa alle strategie di dati per il [ripristino di emergenza.](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan)
 >
 >
 

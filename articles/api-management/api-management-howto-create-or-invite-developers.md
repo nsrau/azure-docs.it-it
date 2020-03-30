@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 9de75b5537b3e267116882e7f151d893de575071
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70072457"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Come gestire gli account utente in Gestione API di Azure
@@ -27,16 +27,16 @@ In Gestione API gli sviluppatori sono gli utenti delle API esposte con Gestione 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Completare le attività in questo articolo: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
+Completare le attività riportate in questo articolo: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-developer"> </a>Creare un nuovo sviluppatore
+## <a name="create-a-new-developer"></a><a name="create-developer"> </a>Creare un nuovo sviluppatore
 
 Per aggiungere un nuovo utente, eseguire la procedura in questa sezione:
 
 1. Selezionare la scheda **Utenti** a sinistra della schermata.
-2. Premere **+Aggiungi**.
+2. Premere **il tasto Aggiungi**.
 3. Immettere le informazioni appropriate per l'utente.
 4. Fare clic su **Aggiungi**.
 
@@ -44,7 +44,7 @@ Per aggiungere un nuovo utente, eseguire la procedura in questa sezione:
 
 Per impostazione predefinita, i nuovi account sviluppatore creati sono **attivi** e associati al gruppo **Sviluppatori**. Gli account sviluppatore con stato **attivo** possono essere usati per accedere a tutte le API per cui dispongono di sottoscrizioni. Per associare il nuovo sviluppatore creato ad altri gruppi, vedere [Come associare i gruppi agli sviluppatori][How to associate groups with developers].
 
-## <a name="invite-developer"> </a>Invitare uno sviluppatore
+## <a name="invite-a-developer"></a><a name="invite-developer"> </a>Invitare uno sviluppatore
 Per invitare uno sviluppatore, eseguire la procedura in questa sezione:
 
 1. Selezionare la scheda **Utenti** a sinistra della schermata.
@@ -56,7 +56,7 @@ Quando uno sviluppatore viene invitato, gli viene inviato un messaggio di posta 
 
 Dopo l'accettazione dell'invito, l'account diventa attivo.
 
-## <a name="block-developer"></a> Disattivare o riattivare un account sviluppatore
+## <a name="deactivate-or-reactivate-a-developer-account"></a><a name="block-developer"> </a> Disattivare o riattivare un account sviluppatore
 
 Per impostazione predefinita, un nuovo account sviluppatore creato o invitato è **Attivo**. Per disattivare un account sviluppatore, fare clic su **Blocca**. Per riattivare un account sviluppatore bloccato, fare clic su **Attiva**. Un account sviluppatore bloccato non può accedere al portale per sviluppatori né chiamare le API. Per eliminare un account utente, fare clic su **Elimina**.
 
@@ -68,9 +68,9 @@ Per bloccare un utente, eseguire la procedura seguente.
 
 ## <a name="reset-a-user-password"></a>Reimpostare la password di un utente
 
-Per usare gli account utente a livello di codice, vedere la documentazione relativa all'entità User in informazioni di riferimento sull' [API REST di gestione API](/rest/api/apimanagement/) . Per reimpostare la password di un account utente su un valore specifico, è possibile usare la procedura [Update a user (Aggiornamento di un utente)](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) e specificare la password desiderata.
+Per usare gli account utente a livello di codice, vedere la documentazione dell'entità utente in [Riferimento all'API Management.To programmatically](/rest/api/apimanagement/) work with user accounts, see the User entity documentation in the API Management REST API reference. Per reimpostare la password di un account utente su un valore specifico, è possibile usare la procedura [Update a user (Aggiornamento di un utente)](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) e specificare la password desiderata.
 
-## <a name="next-steps"> </a>Passaggi successivi
+## <a name="next-steps"></a><a name="next-steps"> </a>Passaggi successivi
 Dopo aver creato un account sviluppatore, è possibile associarlo ai ruoli ed effettuarne la sottoscrizione a prodotti e API. Per altre informazioni, vedere [Come creare e usare i gruppi][How to create and use groups].
 
 [api-management-management-console]: ./media/api-management-howto-create-or-invite-developers/api-management-management-console.png

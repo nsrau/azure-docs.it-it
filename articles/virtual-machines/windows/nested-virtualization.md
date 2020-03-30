@@ -12,10 +12,10 @@ ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.openlocfilehash: 16f5bed5a2342bb1d120d0d3dc853e0bc44376dc
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74033130"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Come abilitare la virtualizzazione annidata in una macchina virtuale di Azure
@@ -26,7 +26,7 @@ Questo articolo illustra come abilitare Hyper-V in una macchina virtuale di Azur
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>Creare una VM di Azure in grado di supportare l'annidamento
 
-Creare una nuova VM Azure di Windows Server 2016.  Per riferimento rapido, tutte le macchine virtuali V3 supportano la virtualizzazione nidificata. Per un elenco completo delle dimensioni delle macchine virtuali che supportano l'annidamento, consultare l'[articolo sulle unità di calcolo di Azure](acu.md).
+Creare una nuova VM Azure di Windows Server 2016.  Per riferimento rapido, tutte le macchine virtuali v3 supportano la virtualizzazione annidata. Per un elenco completo delle dimensioni delle macchine virtuali che supportano l'annidamento, consultare l'[articolo sulle unità di calcolo di Azure](acu.md).
 
 Ricordarsi di scegliere dimensioni di macchina virtuale sufficienti a supportare le richieste di una macchina virtuale guest. In questo esempio viene usata una macchina virtuale di Azure di dimensioni D3_v3. 
 
@@ -122,7 +122,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 >[!IMPORTANT] 
 >
->L'agente guest di Azure non è supportato nelle VM annidate e può causare problemi sia nell'host che nelle VM nidificate. Non installare l'agente di Azure nelle VM annidate e non usare un'immagine per la creazione delle VM nidificate in cui è già installato l'agente guest di Azure.
+>L'agente guest di Azure non è supportato nelle macchine virtuali annidate e può causare problemi sia nell'host che nelle macchine virtuali annidate. Non installare l'agente di Azure nelle macchine virtuali annidate e non usare un'immagine per creare le macchine virtuali annidate in cui è già installato l'agente guest di Azure.Don't install the Azure agent on nested VMs, and don't use an image for creating the nested VMs that already has the Azure guest agent installed.
 
 1. Aprire la console di gestione di Hyper-V e creare una nuova macchina virtuale. Configurare la macchina virtuale per l'uso della nuova rete interna creata.
     

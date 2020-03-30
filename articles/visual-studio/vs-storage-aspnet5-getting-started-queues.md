@@ -1,5 +1,5 @@
 ---
-title: Introduzione all'archiviazione code con Visual Studio (ASP.NET Core)
+title: Introduzione all'archiviazione delle code con Visual Studio (ASP.NET Core)Get started with queue storage using Visual Studio (ASP.NET Core)
 description: Informazioni su come iniziare a usare l'archiviazione code di Azure in un progetto ASP.NET Core in Visual Studio
 services: storage
 author: ghogen
@@ -14,17 +14,17 @@ ms.date: 11/14/2017
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 5cdf6f2644788674df91b533c9444fc88ab30b09
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72300030"
 ---
 # <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-core"></a>Introduzione all'archiviazione code e ai servizi connessi di Visual Studio (ASP.NET Core)
 
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-Questo articolo descrive come iniziare a usare Archiviazione code di Azure in Visual Studio dopo aver creato o fatto riferimento a un account di archiviazione di Azure in un progetto ASP.NET Core usando la funzionalità **Servizi connessi** di Visual Studio. **Servizi connessi** consente di installare i pacchetti NuGet appropriati per accedere all'archiviazione di Azure nel progetto e di aggiungere la stringa di connessione per l'account di archiviazione ai file di configurazione del progetto. Per informazioni generali su Archiviazione di Azure, vedere la relativa [documentazione](https://azure.microsoft.com/documentation/services/storage/).
+Questo articolo descrive come iniziare a usare Archiviazione code di Azure in Visual Studio dopo aver creato o fatto riferimento a un account di archiviazione di Azure in un progetto ASP.NET Core usando la funzionalità **Servizi connessi** di Visual Studio. **Servizi connessi** consente di installare i pacchetti NuGet appropriati per accedere all'archiviazione di Azure nel progetto e di aggiungere la stringa di connessione per l'account di archiviazione ai file di configurazione del progetto. Per informazioni generali su Archiviazione di Azure, [vedere la documentazione](https://azure.microsoft.com/documentation/services/storage/) relativa all'archiviazione.
 
 Il servizio di archiviazione di accodamento di Azure consente di archiviare grandi quantità di messaggi ai quali è possibile accedere da qualsiasi parte del mondo mediante chiamate autenticate tramite HTTP o HTTPS. La dimensione massima di un singolo messaggio della coda è di 64 KB e una coda può contenere milioni di messaggi, nei limiti della capacità complessiva di un account di archiviazione. Per i dettagli sulla modifica delle code a livello di codice, vedere anche [Introduzione all'archiviazione code di Azure con .NET](../storage/queues/storage-dotnet-how-to-use-queues.md).
 
@@ -67,7 +67,7 @@ Per accedere alle code nei progetti ASP.NET Core, includere gli elementi seguent
 
 ### <a name="create-a-queue-in-code"></a>Creare una coda in codice
 
-Per creare la coda di Azure nel codice, chiamare `CreateIfNotExistsAsync`:
+Per creare la coda di `CreateIfNotExistsAsync`Azure nel codice, chiamare:To create the Azure queue in code, call:
 
 ```cs
 // Create the CloudQueue if it does not exist.

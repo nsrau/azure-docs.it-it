@@ -1,6 +1,6 @@
 ---
 title: Procedure consigliate per la configurazione di dispositivi per l'hub IoT di Azure | Microsoft Docs
-description: Informazioni sulle procedure consigliate per l'uso della gestione automatica dei dispositivi per ridurre al minimo le attività ripetitive e complesse necessarie per gestire i dispositivi Internet su larga scala.
+description: Informazioni sulle procedure consigliate per l'uso della gestione automatica dei dispositivi per ridurre al minimo le attività ripetitive e complesse coinvolte nella gestione dei dispositivi IoT su larga scala.
 author: chrisgre
 ms.author: chrisgre
 ms.date: 06/28/2019
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
 ms.openlocfilehash: a3b70af71c2ce19835ac2ef8fc8ceed79ca5fe1a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73889520"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Procedure consigliate per la configurazione di dispositivi in una soluzione IoT
@@ -26,7 +26,7 @@ La gestione automatica dei dispositivi nell'hub IoT di Azure consente di automat
 
 ## <a name="understand-automatic-device-management-for-configuring-iot-devices-at-scale"></a>Informazioni sulla gestione automatica dei dispositivi per la configurazione di dispositivi IoT su larga scala
 
-La gestione automatica dei dispositivi include i numerosi vantaggi offerti dai [dispositivi gemelli](iot-hub-devguide-device-twins.md) e dai [moduli gemelli](iot-hub-devguide-module-twins.md) per sincronizzare gli stati desiderati e segnalati tra il cloud e i dispositivi. Le [configurazioni automatiche dei dispositivi](iot-hub-auto-device-config.md) aggiornano automaticamente grandi set di dispositivi gemelli e riepilogano lo stato e la conformità. I seguenti passaggi generali descrivono come viene sviluppata e usata la gestione automatica dei dispositivi:
+La gestione automatica dei dispositivi include i numerosi vantaggi offerti dai [dispositivi gemelli](iot-hub-devguide-device-twins.md) e dai [moduli gemelli](iot-hub-devguide-module-twins.md) per sincronizzare gli stati desiderati e segnalati tra il cloud e i dispositivi. [Le configurazioni automatiche](iot-hub-auto-device-config.md) dei dispositivi aggiornano automaticamente grandi set di gemelli e riepilogano lo stato di avanzamento e la conformità. I seguenti passaggi generali descrivono come viene sviluppata e usata la gestione automatica dei dispositivi:
 
 * Il **produttore/integratore di hardware IoT** implementa le funzionalità di gestione dei dispositivi all'interno di un'applicazione incorporata usando [dispositivi gemelli](iot-hub-devguide-device-twins.md). Queste funzionalità possono includere gli aggiornamenti del firmware, l'installazione e l'aggiornamento del software e la gestione delle impostazioni.
 
@@ -66,9 +66,9 @@ Di seguito sono presentate le procedure consigliate per gli sviluppatori di solu
 
 * **Implementare le [configurazioni automatiche dei dispositivi](iot-hub-auto-device-config.md):** queste configurazioni distribuiscono e monitorano le modifiche di configurazione per grandi set di dispositivi IoT tramite dispositivi gemelli.
 
-   Le configurazioni automatiche dei dispositivi vengono assegnate a set di dispositivi gemelli tramite la **condizione di destinazione**, che consiste in una query sulle proprietà segnalate o sui tag dei dispositivi gemelli. Il **contenuto di destinazione** è il set di proprietà desiderate che verrà impostato all'interno dei dispositivi gemelli di destinazione. Il contenuto di destinazione deve essere allineato con la struttura dei dispositivi gemelli definita dal produttore/integratore dell'hardware IoT. Le **metriche** sono query sulle proprietà segnalate dal dispositivo gemello e devono anche essere allineate con la struttura del dispositivo gemello definita dal produttore o dall'integratore di hardware.
+   Le configurazioni automatiche dei dispositivi vengono assegnate a set di dispositivi gemelli tramite la **condizione di destinazione**, che consiste in una query sulle proprietà segnalate o sui tag dei dispositivi gemelli. Il **contenuto di destinazione** è il set di proprietà desiderate che verrà impostato all'interno dei dispositivi gemelli di destinazione. Il contenuto di destinazione deve essere allineato con la struttura dei dispositivi gemelli definita dal produttore/integratore dell'hardware IoT. Le **metriche** sono query sulle proprietà segnalate del dispositivo gemello e devono inoltre allinearsi alla struttura del dispositivo gemello definita dal produttore/integratore dell'hardware IoT.The metrics are queries on device twin reported properties and should also align with the device twin structure defined by the IoT hardware manufacturer/integrator.
 
-   Le configurazioni automatiche dei dispositivi vengono eseguite per la prima volta poco dopo la creazione della configurazione e quindi a intervalli di cinque minuti. Traggono anche vantaggio dall'hub delle cose che eseguono operazioni di dispositivo gemello a una velocità che non supererà mai i [limiti di limitazione](iot-hub-devguide-quotas-throttling.md) per le letture e gli aggiornamenti dei dispositivi gemelli.
+   Le configurazioni automatiche dei dispositivi vengono eseguite per la prima volta subito dopo la creazione della configurazione e quindi a intervalli di cinque minuti. Traggono vantaggio anche dall'hub IoT che esegue operazioni di dispositivo gemello a una velocità che non supererà mai [i limiti di limitazione](iot-hub-devguide-quotas-throttling.md) per le letture e gli aggiornamenti del dispositivo gemello.
 
 * **Usare il [servizio Device Provisioning](../iot-dps/how-to-manage-enrollments.md):** gli sviluppatori di soluzioni devono usare il servizio Device Provisioning per assegnare tag dei dispositivi gemelli a nuovi dispositivi, in modo che vengano configurati automaticamente dalle **configurazioni automatiche dei dispositivi** assegnate ai dispositivi gemelli con tali tag. 
 
@@ -78,7 +78,7 @@ Di seguito sono presentate le procedure consigliate per gli operatori di soluzio
 
 * **Organizzare i dispositivi per la gestione**: la soluzione IoT deve definire o consentire la creazione di anelli di qualità o altri set di dispositivi in base alle varie strategie di distribuzione, ad esempio canary. I set di dispositivi verranno usati per implementare le modifiche di configurazione ed eseguire altre operazioni di gestione dei dispositivi su larga scala.
 
-* **Eseguire modifiche di configurazione tramite un'implementazione graduale**: un'implementazione graduale è un processo in base al quale un operatore distribuisce le modifiche a un set più ampio di dispositivi IoT. L'obiettivo è apportare le modifiche gradualmente per ridurre il rischio di introdurre modifiche che causano disservizi su larga scala.  L'operatore deve usare l'interfaccia della soluzione per creare una [configurazione automatica del dispositivo](iot-hub-auto-device-config.md) e la condizione di destinazione deve essere destinata a un set di dispositivi iniziale, ad esempio un gruppo Canarie. L'operatore deve quindi convalidare la modifica della configurazione nel set iniziale di dispositivi.
+* **Eseguire modifiche di configurazione tramite un'implementazione graduale**: un'implementazione graduale è un processo in base al quale un operatore distribuisce le modifiche a un set più ampio di dispositivi IoT. L'obiettivo è apportare le modifiche gradualmente per ridurre il rischio di introdurre modifiche che causano disservizi su larga scala.L'operatore deve usare l'interfaccia della soluzione per creare una [configurazione automatica dei dispositivi](iot-hub-auto-device-config.md) e la condizione di destinazione deve essere assegnata a un set iniziale di dispositivi, ad esempio un gruppo canary. L'operatore deve quindi convalidare la modifica della configurazione nel set iniziale di dispositivi.
 
    Al termine della convalida, l'operatore aggiornerà la configurazione automatica dei dispositivi in modo da includere un set di dispositivi più ampio. L'operatore deve inoltre impostare la priorità per la configurazione in modo che sia superiore alle altre configurazioni attualmente assegnate a tali dispositivi. L'implementazione può essere monitorata tramite le metriche definite dalla configurazione automatica dei dispositivi.
 

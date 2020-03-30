@@ -16,10 +16,10 @@ ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: f5ea0ddff38532b119d8d984f2dabd6d898b44a5
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77031357"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Considerazioni relative alla sicurezza per SQL Server in Macchine virtuali di Azure
@@ -41,7 +41,7 @@ Le sezioni seguenti offrono alcuni suggerimenti e alcune considerazioni su quest
 
 ## <a name="secure-connections"></a>Connessioni sicure
 
-Quando si crea una macchina virtuale di SQL Server con un'immagine della raccolta, l'opzione **SQL Server Connectivity** (Connettività SQL Server) offre la possibilità di scegliere tra **Locale (all'interno della macchina virtuale)** , **Privata (solo all'interno della rete virtuale)** o **Pubblico (Internet)** .
+Quando si crea una macchina virtuale di SQL Server con un'immagine della raccolta, l'opzione **SQL Server Connectivity** (Connettività SQL Server) offre la possibilità di scegliere tra **Locale (all'interno della macchina virtuale)**, **Privata (solo all'interno della rete virtuale)** o **Pubblico (Internet)**.
 
 ![Connettività di SQL Server](./media/virtual-machines-windows-sql-security/sql-vm-connectivity-option.png)
 
@@ -59,7 +59,7 @@ Occorre infine considerare di abilitare le connessioni crittografate per l'istan
 
 ## <a name="encryption"></a>Crittografia
 
-Managed Disks offre la crittografia lato server e crittografia dischi di Azure. La [crittografia lato server](/azure/virtual-machines/windows/disk-encryption) offre la crittografia dei dati inattivi e protegge i dati per soddisfare gli impegni di sicurezza e conformità dell'organizzazione. [Crittografia dischi di Azure](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) usa la tecnologia BITLOCKER o dm-crypt e si integra con Azure Key Vault per crittografare i dischi del sistema operativo e dei dati. 
+I dischi gestiti offrono crittografia lato server e Crittografia disco di Azure.Managed disks offer Server Side Encryption, and Azure Disk Encryption. [La crittografia lato server](/azure/virtual-machines/windows/disk-encryption) fornisce la crittografia inattivi e protegge i dati per soddisfare gli impegni di sicurezza e conformità dell'organizzazione. [Crittografia disco di Azure](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) usa la tecnologia Bitlocker o DM-Crypt e si integra con L'insieme di credenziali delle chiavi di Azure per crittografare sia il sistema operativo che i dischi dati. 
 
 ## <a name="use-a-non-default-port"></a>Usare una porta diversa da quella predefinita
 
@@ -69,7 +69,7 @@ Per impostazione predefinita, SQL Server è in ascolto sulla porta 1433 che tutt
 
 Per configurare questa porta dopo il provisioning, sono disponibili due opzioni:
 
-- Per Gestione risorse macchine virtuali, è possibile selezionare **sicurezza** dalla [risorsa macchine virtuali SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource). Da qui è possibile modificare la porta.
+- Per le macchine virtuali di Resource Manager, è possibile selezionare **Sicurezza** dalla [risorsa Macchine virtuali SQL.](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) Da qui è possibile modificare la porta.
 
   ![Modificare la porta TCP nel portale](./media/virtual-machines-windows-sql-security/sql-vm-change-tcp-port.png)
 
@@ -99,11 +99,11 @@ Quando SQL Server è in ascolto su una porta non predefinita, è necessario spec
 
 ## <a name="additional-best-practices"></a>Procedure consigliate aggiuntive
 
-Oltre alle procedure descritte in questo argomento, è consigliabile esaminare e implementare le procedure di sicurezza consigliate sia dalle procedure di sicurezza locali tradizionali sia dalle procedure consigliate per la sicurezza delle macchine virtuali. 
+Oltre alle procedure descritte in questo argomento, è consigliabile esaminare e implementare le procedure consigliate per la sicurezza, sia dalle procedure di sicurezza locali tradizionali che dalle procedure consigliate per la sicurezza delle macchine virtuali. 
 
-Per altre informazioni sulle procedure di sicurezza locali, vedere [considerazioni sulla sicurezza per un'installazione di SQL Server](/sql/sql-server/install/security-considerations-for-a-sql-server-installation) e il [Centro sicurezza](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database). 
+Per altre informazioni sulle procedure di sicurezza locali, vedere [Considerazioni sulla sicurezza per un'installazione](/sql/sql-server/install/security-considerations-for-a-sql-server-installation) di SQL Server e il [Centro sicurezza.](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database) 
 
-Per ulteriori informazioni sulla sicurezza della macchina virtuale, vedere la [panoramica sulla sicurezza delle macchine virtuali](/azure/security/fundamentals/virtual-machines-overview).
+Per altre informazioni sulla sicurezza delle macchine virtuali, vedere Panoramica della sicurezza delle [macchine virtuali.](/azure/security/fundamentals/virtual-machines-overview)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

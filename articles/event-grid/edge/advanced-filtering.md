@@ -1,6 +1,6 @@
 ---
-title: Filtro avanzato-IoT Edge di griglia di eventi di Azure | Microsoft Docs
-description: Filtro avanzato in griglia di eventi in IoT Edge.
+title: Filtro avanzato - Azure Event Grid IoT Edge Documenti Microsoft
+description: Filtro avanzato in Griglia di eventi su Edge IoT.Advanced filtering in Event Grid on IoT Edge.
 author: HiteshMadan
 manager: rajarv
 ms.author: himad
@@ -10,22 +10,22 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: d7fdc5074f3c92eea4f236a9b1f7c823b930f391
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72992561"
 ---
 # <a name="advanced-filtering"></a>Filtro avanzato
-Griglia di eventi consente di specificare i filtri per qualsiasi proprietà nel payload JSON. Questi filtri sono modellati come set di condizioni di `AND`, con ogni condizione esterna con condizioni `OR` interne facoltative. Per ogni condizione di `AND`, specificare i valori seguenti:
+Griglia di eventi consente di specificare i filtri su qualsiasi proprietà nel payload json. Questi filtri sono modellati `AND` come set di condizioni, con ogni condizione esterna con condizioni interne `OR` facoltative. Per `AND` ogni condizione, specificare i seguenti valori:
 
-* `OperatorType`: il tipo di confronto.
-* `Key`: il percorso JSON della proprietà su cui applicare il filtro.
-* `Value`: il valore di riferimento rispetto al quale viene eseguito il filtro (o) `Values`, ovvero il set di valori di riferimento rispetto al quale viene eseguito il filtro.
+* `OperatorType`- Il tipo di confronto.
+* `Key`- Percorso json della proprietà a cui applicare il filtro.
+* `Value`- Il valore di riferimento su cui `Values` viene eseguito il filtro (o) - Il set di valori di riferimento su cui viene eseguito il filtro.
 
 ## <a name="json-syntax"></a>Sintassi JSON
 
-La sintassi JSON per un filtro avanzato è la seguente:
+La sintassi JSON per un filtro avanzato è la seguente:The JSON syntax for an advanced filter is as follows:
 
 ```json
 {
@@ -46,50 +46,50 @@ La sintassi JSON per un filtro avanzato è la seguente:
 
 ## <a name="filtering-on-array-values"></a>Applicazione di filtri ai valori di matrice
 
-Griglia di eventi non supporta attualmente l'applicazione di filtri a una matrice di valori. Se un evento in ingresso ha un valore di matrice per la chiave del filtro avanzato, l'operazione di corrispondenza ha esito negativo. L'evento in ingresso non corrisponde alla sottoscrizione di eventi.
+Griglia di eventi non supporta oggi il filtro su una matrice di valori. Se un evento in ingresso ha un valore di matrice per la chiave del filtro avanzato, l'operazione di corrispondenza ha esito negativo. L'evento in ingresso non corrisponde alla sottoscrizione dell'evento.
 
 ## <a name="and-or-not-semantics"></a>Semantica AND-OR-NOT
 
-Si noti che nell'esempio JSON riportato in precedenza `AdvancedFilters` è una matrice. Si pensi a ogni elemento `AdvancedFilter` matrice come condizione `AND`.
+Si noti che nell'esempio json fornito in precedenza, `AdvancedFilters` è una matrice. Considerare ogni `AdvancedFilter` elemento della `AND` matrice come una condizione.
 
-Per gli operatori che supportano più valori, ad esempio `NumberIn`, `NumberNotIn`, `StringIn`e così via, ogni valore viene considerato come una condizione `OR`. Pertanto, un `StringBeginsWith("a", "b", "c")` corrisponderà a qualsiasi valore stringa che inizia con `a` o `b` o `c`.
+Per gli operatori che supportano `NumberIn` `NumberNotIn`più `StringIn`valori (ad esempio , `OR` , , e così via), ogni valore viene considerato come una condizione. Pertanto, `StringBeginsWith("a", "b", "c")` a corrisponderà a qualsiasi `a` `b` valore `c`stringa che inizia con o o .
 
 > [!CAUTION]
-> Gli operatori NOT-`NumberNotIn` e `StringNotIn` si comportano come condizioni e per ogni valore specificato nel campo `Values`.
+> Gli operatori `NumberNotIn` NOT `StringNotIn` - e si comportano come `Values` condizioni AND su ogni valore specificato nel campo.
 >
-> In caso contrario, si renderà il filtro un filtro Accept-all e si eliminerà lo scopo del filtraggio.
+> In caso contrario, il filtro sarà un filtro Accept-All e verrà vanificato lo scopo del filtro.
 
 ## <a name="floating-point-rounding-behavior"></a>Comportamento di arrotondamento a virgola mobile
 
-Griglia di eventi usa il tipo di `decimal` .NET per gestire tutti i valori numerici. Il numero di valori specificati nel file JSON della sottoscrizione di eventi non è soggetto a un comportamento di arrotondamento a virgola mobile.
+Griglia di `decimal` eventi utilizza il tipo .NET per gestire tutti i valori numerici. I valori numerici specificati nella sottoscrizione di eventi JSON non sono soggetti a un comportamento di arrotondamento a virgola mobile.
 
-## <a name="case-sensitivity-of-string-filters"></a>Distinzione maiuscole/minuscole dei filtri stringa
+## <a name="case-sensitivity-of-string-filters"></a>Distinzione tra maiuscole e minuscole nei filtri stringa
 
-Tutti i confronti di stringhe non fanno distinzione tra maiuscole e minuscole. Attualmente non è possibile modificare questo comportamento.
+Tutti i confronti tra stringhe non fanno distinzione tra maiuscole e minuscole. Non c'è modo di cambiare questo comportamento oggi.
 
-## <a name="allowed-advanced-filter-keys"></a>Chiavi di filtro avanzate consentite
+## <a name="allowed-advanced-filter-keys"></a>Tasti di filtro avanzati consentiti
 
-La proprietà `Key` può essere una proprietà di primo livello nota o essere un percorso JSON con più punti, dove ogni punto indica l'esecuzione di un'istruzione in un oggetto JSON annidato.
+La `Key` proprietà può essere una proprietà di primo livello nota o essere un percorso json con più punti, in cui ogni punto indica l'esecuzione di un oggetto json annidato.
 
-Griglia di eventi non ha un significato speciale per il carattere `$` nella chiave, a differenza della specifica JSONPath.
+Griglia di eventi non ha alcun `$` significato speciale per il carattere nella chiave, a differenza della specifica JSONPath.
 
-### <a name="event-grid-schema"></a>Schema griglia di eventi
+### <a name="event-grid-schema"></a>Schema della griglia di eventi
 
-Per gli eventi nello schema di griglia di eventi:
+Per gli eventi nello schema Griglia di eventi:
 
 * ID
 * Argomento
-* Subject
+* Oggetto
 * EventType
 * DataVersion
-* Data. Prop1
-* Data. prop * Prop2. Prop3. Prop4. Prop5
+* Data.Prop1
+* Data.Prop-Prop2.Prop3.Prop4.Prop5
 
-### <a name="custom-event-schema"></a>Schema di eventi personalizzati
+### <a name="custom-event-schema"></a>Schema di eventi personalizzato
 
-Non esiste alcuna restrizione sulla `Key` nello schema di eventi personalizzato perché griglia di eventi non impone alcuno schema della busta nel payload.
+Non esiste alcuna `Key` restrizione sullo schema di eventi in personalizzato poiché Griglia di eventi non impone alcuno schema di busta sul payload.
 
-## <a name="numeric-single-value-filter-examples"></a>Esempi di filtri a valore singolo numerici
+## <a name="numeric-single-value-filter-examples"></a>Esempi numerici di filtri a valore singolo
 
 * NumberGreaterThan
 * NumberGreaterThanOrEquals
@@ -125,7 +125,7 @@ Non esiste alcuna restrizione sulla `Key` nello schema di eventi personalizzato 
 }
 ```
 
-## <a name="numeric-range-value-filter-examples"></a>Intervalli numerici-esempi di filtro valore
+## <a name="numeric-range-value-filter-examples"></a>Esempi di filtri numerici valore intervallo-valore
 
 * NumberIn
 * NumberNotIn
@@ -149,7 +149,7 @@ Non esiste alcuna restrizione sulla `Key` nello schema di eventi personalizzato 
 }
 ```
 
-## <a name="string-range-value-filter-examples"></a>Intervallo di stringhe-esempi di filtro valore
+## <a name="string-range-value-filter-examples"></a>Esempi di filtri valore intervallo stringa
 
 * StringContains
 * StringBeginsWith
@@ -191,7 +191,7 @@ Non esiste alcuna restrizione sulla `Key` nello schema di eventi personalizzato 
 }
 ```
 
-## <a name="boolean-single-value-filter-examples"></a>Esempi di filtri a valore singolo booleani
+## <a name="boolean-single-value-filter-examples"></a>Esempi di filtri booleani a valore singolo
 
 * BoolEquals
 

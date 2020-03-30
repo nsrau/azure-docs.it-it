@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 6e109c5a7f4911893c81c88ae84322fb962fff6e
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71213184"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Invio di notifiche push con Hub di notifica di Azure e Node.js
@@ -48,7 +48,7 @@ Hub di notifica di Azure offre un'infrastruttura scalabile, multipiattaforma e d
 
 ## <a name="create-a-nodejs-application"></a>Creazione di un'applicazione Node.js
 
-Il primo passaggio in questa esercitazione consiste nel creare una nuova applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node. js, vedere [creare e distribuire un'applicazione Node. js in un sito Web di Azure][nodejswebsite], [servizio cloud node. js][Node.js Cloud Service] con Windows PowerShell o [sito Web con WebMatrix][webmatrix].
+Il primo passaggio in questa esercitazione consiste nel creare una nuova applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure][nodejswebsite] e il [servizio cloud Node.js][Node.js Cloud Service] mediante Windows PowerShell oppure il [sito Web con WebMatrix][webmatrix].
 
 ## <a name="configure-your-application-to-use-notification-hubs"></a>Configurare l'applicazione per l'uso di Hub di notifica
 
@@ -82,7 +82,7 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 Ottenere il valore `connectionstring` della connessione dal [portale di Azure] seguendo questa procedura:
 
 1. Nel riquadro di spostamento a sinistra fare clic su **Sfoglia**.
-2. Selezionare **Hub di notifica**e quindi individuare l'hub da utilizzare per l'esempio. Se è necessario assistenza per la creazione di un nuovo hub di notifica, è possibile fare riferimento all' [esercitazione su Windows Store Introduzione](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) .
+2. Selezionare **Hub di notifica**e quindi individuare l'hub da utilizzare per l'esempio. Puoi fare riferimento [all'esercitazione introduttiva](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) di Windows Store se hai bisogno di aiuto per la creazione di un nuovo hub di notifica.
 3. Selezionare **Impostazioni**.
 4. Fare clic su **Criteri di accesso**. Vengono visualizzate la stringhe di connessione di accesso completo e condiviso.
 
@@ -98,7 +98,7 @@ L'oggetto `NotificationHubService` espone le istanze seguenti dell'oggetto per l
 - **Android**: usare l'oggetto `GcmService`, disponibile in `notificationHubService.gcm`
 - **iOS**: usare l'oggetto `ApnsService`, accessibile in `notificationHubService.apns`
 - **Windows Phone**: usare l'oggetto `MpnsService`, disponibile in `notificationHubService.mpns`
-- **Piattaforma UWP (Universal Windows Platform)** : usare l'oggetto `WnsService`, disponibile in `notificationHubService.wns`
+- **Piattaforma UWP (Universal Windows Platform)**: usare l'oggetto `WnsService`, disponibile in `notificationHubService.wns`
 
 ### <a name="how-to-send-push-notifications-to-android-applications"></a>Procedura: Inviare notifiche push ad applicazioni Android
 
@@ -108,7 +108,7 @@ L'oggetto `GcmService` specifica un metodo `send` che è possibile usare per inv
 - **Payload** : il payload JSON o la stringa non elaborata del messaggio.
 - **Callback** : la funzione di richiamata.
 
-Per ulteriori informazioni sul formato di payload, vedere la [documentazione del payload](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload).
+Per ulteriori informazioni sul formato del payload, vedere la [documentazione](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload)sul payload .
 
 Nel codice seguente viene usata l'istanza di `GcmService` esposta da `NotificationHubService` per inviare una notifica push a tutti i client registrati.
 
@@ -154,7 +154,7 @@ L'oggetto `MpnsService` specifica un metodo `send` che è possibile usare per in
 
 - **Tags** : l'identificatore tag. Se non viene specificato alcun tag, la notifica viene inviata a tutti i client.
 - **Payload** : il payload XML del messaggio.
-- **TargetName** - `toast` per le notifiche di tipo avviso popup. `token` per le notifiche di tipo riquadro.
+- **TargetName**  -  `toast` per le notifiche di tipo avviso popup. `token` per le notifiche di tipo riquadro.
 - **NotificationClass** : la priorità della notifica. Per i valori validi, vedere la sezione relativa agli **elementi dell'intestazione HTTP** nel documento sul [push di notifiche da un server](https://msdn.microsoft.com/library/hh221551.aspx) .
 - **Options** : intestazioni delle richieste facoltative.
 - **Callback** : la funzione di richiamata.

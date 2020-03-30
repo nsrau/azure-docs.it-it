@@ -14,10 +14,10 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dc06abca08b2522ac57552e85f7c1bac3ef854af
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68561871"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Modificare le informazioni del gruppo usando Azure Active Directory
@@ -39,19 +39,19 @@ Con Azure Active Directory (Azure AD) è possibile modificare le impostazioni di
 
 4. Selezionare il gruppo **MDM policy - West** e selezionare **Proprietà** dall'area **Gestione**.
 
-    ![Pagina Panoramica gruppo, con l'opzione membro e le informazioni evidenziate](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
+    ![Pagina Panoramica gruppo, con l'opzione Membro e le informazioni evidenziate](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
 
 5. Aggiornare le informazioni in **Impostazioni generali** in base alle esigenze, tra cui:
 
     ![Impostazioni delle proprietà per un gruppo](media/active-directory-groups-settings-azure-portal/group-properties-settings.png)
 
-    - **Nome gruppo.** Modificare il nome del gruppo esistente.
+    - **Nome del gruppo.** Modificare il nome del gruppo esistente.
     
     - **Descrizione gruppo.** Modificare la descrizione del gruppo esistente.
 
-    - **Tipo gruppo.** Non è possibile modificare il tipo di gruppo dopo che è stato creato. Per modificare **Tipo gruppo**, è necessario eliminare il gruppo e crearne uno nuovo.
+    - **Tipo di gruppo.** Non è possibile modificare il tipo di gruppo dopo che è stato creato. Per modificare **Tipo gruppo**, è necessario eliminare il gruppo e crearne uno nuovo.
     
-    - **Tipo di appartenenza.** Modificare il tipo di appartenenza. Per altre informazioni sui diversi tipi di appartenenza disponibili, vedere [Procedura: Creare un gruppo di base e aggiungere membri tramite il portale di Azure Active Directory](active-directory-groups-create-azure-portal.md).
+    - **Tipo di appartenenza.** Modificare il tipo di appartenenza. Per altre informazioni sui vari tipi di appartenenza disponibili, vedere Procedura: Creare un gruppo di base e aggiungere membri tramite il portale di Azure Active Directory.For more info about the various available membership types, [see How to: Create a basic group and add members using the Azure Active Directory portal.](active-directory-groups-create-azure-portal.md)
     
     - **ID oggetto.** Non è possibile modificare l'ID oggetto, ma è possibile copiarlo per usarlo nei comandi di PowerShell per il gruppo. Per altre informazioni sull'uso dei cmdlet di PowerShell, vedere [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](../users-groups-roles/groups-settings-v2-cmdlets.md).
 

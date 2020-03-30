@@ -1,6 +1,6 @@
 ---
-title: Gestire le dipendenze JAR-Azure HDInsight
-description: Questo articolo illustra le procedure consigliate per la gestione delle dipendenze di archivio Java (JAR) per le applicazioni HDInsight.
+title: Gestire le dipendenze JAR - Azure HDInsightManage JAR dependencies - Azure HDInsight
+description: In questo articolo vengono illustrate le procedure consigliate per la gestione delle dipendenze di Java Archive (JAR) per le applicazioni HDInsight.This article discusses best practices for managing Java Archive (JAR) dependencies for HDInsight applications.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,32 +9,32 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.openlocfilehash: da3387dd9846847f7643ded43c8cbff8ed8b166e
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77135733"
 ---
-# <a name="jar-dependency-management-best-practices"></a>Procedure consigliate per la gestione delle dipendenze JAR
+# <a name="jar-dependency-management-best-practices"></a>Best practice per la gestione delle dipendenze JAR
 
-I componenti installati nei cluster HDInsight hanno dipendenze da librerie di terze parti. In genere, questi componenti incorporati fanno riferimento a una versione specifica dei moduli comuni come guava. Quando si invia un'applicazione con le relative dipendenze, può verificarsi un conflitto tra versioni diverse dello stesso modulo. Se la versione del componente a cui si fa riferimento prima nel classpath, i componenti predefiniti possono generare eccezioni a causa dell'incompatibilità della versione. Tuttavia, se i componenti predefiniti inseriscono le rispettive dipendenze prima del classpath, l'applicazione potrebbe generare errori come `NoSuchMethod`.
+I componenti installati nei cluster HDInsight hanno dipendenze da librerie di terze parti. Di solito, una versione specifica di moduli comuni come Guava fa riferimento a questi componenti incorporati. Quando si invia un'applicazione con le relative dipendenze, può causare un conflitto tra versioni diverse dello stesso modulo. Se la versione del componente a cui si fa riferimento prima nel percorso di classe, i componenti incorporati possono generare eccezioni a causa dell'incompatibilità di versione. Tuttavia, se i componenti incorporati inseriscono prima le dipendenze nel `NoSuchMethod`percorso di classe, l'applicazione potrebbe generare errori come .
 
-Per evitare conflitti di versione, è consigliabile ombreggiare le dipendenze dell'applicazione.
+Per evitare conflitti di versione, prendere in considerazione l'ombreggiatura delle dipendenze dell'applicazione.
 
-## <a name="what-does-package-shading-mean"></a>Cosa significa l'ombreggiatura del pacchetto?
-L'ombreggiatura fornisce un modo per includere e rinominare le dipendenze. Consente di rilocare le classi e di riscrivere le risorse e il bytecode interessati per creare una copia privata delle dipendenze.
+## <a name="what-does-package-shading-mean"></a>Cosa significa ombreggiatura pacchetto?
+L'ombreggiatura consente di includere e rinominare le dipendenze. Riposiziona le classi e riscrive il bytecode e le risorse interessate per creare una copia privata delle dipendenze.
 
 ## <a name="how-to-shade-a-package"></a>Come ombreggiare un pacchetto?
 
-### <a name="use-uber-jar"></a>Usare uber-jar
-Uber-jar è un singolo file jar che contiene il file jar dell'applicazione e le relative dipendenze. Le dipendenze in uber-jar non sono ombreggiate per impostazione predefinita. In alcuni casi, è possibile che si verifichi un conflitto di versione se altri componenti o applicazioni fanno riferimento a una versione diversa di tali librerie. Per evitare questo problema, è possibile compilare un file uber-jar con alcune o tutte le dipendenze ombreggiate.
+### <a name="use-uber-jar"></a>Usa uber-jar
+Uber-jar è un singolo file jar che contiene sia il file jar dell'applicazione che le relative dipendenze. Le dipendenze in Uber-jar non sono ombreggiate per impostazione predefinita. In alcuni casi, ciò può introdurre conflitti di versione se altri componenti o applicazioni fanno riferimento a una versione diversa di tali librerie. Per evitare questo problema, è possibile creare un file Uber-Jar con alcune (o tutte) le dipendenze ombreggiate.
 
-### <a name="shade-package-using-maven"></a>Ombreggiatura di un pacchetto con Maven
-Maven può compilare applicazioni scritte sia in Java che in scala. Maven-Shade-plugin può aiutarti a creare con facilità un uber-jar ombreggiato.
+### <a name="shade-package-using-maven"></a>Pacchetto Ombreggiatura con Maven
+Maven può compilare applicazioni scritte sia in Java che in Scala. Maven-shade-plugin può aiutarti a creare facilmente un uber-jar ombreggiato.
 
-L'esempio seguente mostra un file `pom.xml` che è stato aggiornato per ombreggiare un pacchetto con Maven-Shade-plugin.  La sezione XML `<relocation>…</relocation>` sposta le classi dal pacchetto `com.google.guava` in `com.google.shaded.guava` di pacchetti spostando le voci di file JAR corrispondenti e riscrivendo il bytecode interessato.
+L'esempio seguente `pom.xml` mostra un file che è stato aggiornato per ombreggiare un pacchetto utilizzando maven-shade-plugin.  La sezione `<relocation>…</relocation>` XML sposta `com.google.guava` le `com.google.shaded.guava` classi dal pacchetto al pacchetto spostando le voci del file JAR corrispondenti e riscrivendo il bytecode interessato.
 
-Dopo la modifica di `pom.xml`, è possibile eseguire `mvn package` per compilare il file uber-jar ombreggiato.
+Dopo `pom.xml`aver cambiato `mvn package` , è possibile eseguire per costruire il uber-jar ombreggiato.
 
 ```xml
   <build>
@@ -64,10 +64,10 @@ Dopo la modifica di `pom.xml`, è possibile eseguire `mvn package` per compilare
   </build>
 ```
 
-### <a name="shade-package-using-sbt"></a>Ombreggiatura di un pacchetto con SBT
-SBT è anche uno strumento di compilazione per scala e Java. SBT non dispone di un plug-in Shade come Maven-Shade-plugin. È possibile modificare `build.sbt` file per ombreggiare i pacchetti. 
+### <a name="shade-package-using-sbt"></a>Pacchetto Ombra con SBT
+SBT è anche uno strumento di compilazione per Scala e Java. SBT non ha un plugin ombra come maven-shade-plugin. È possibile `build.sbt` modificare il file in colli ombreggiati. 
 
-Per ombreggiare `com.google.guava`, ad esempio, è possibile aggiungere il comando seguente al file `build.sbt`:
+Ad esempio, `com.google.guava`per ombreggiare , è `build.sbt` possibile aggiungere il comando seguente al file:
 
 ```scala
 assemblyShadeRules in assembly := Seq(
@@ -75,10 +75,10 @@ assemblyShadeRules in assembly := Seq(
 )
 ```
 
-È quindi possibile eseguire `sbt clean` e `sbt assembly` per compilare il file jar ombreggiato. 
+Quindi è `sbt clean` possibile `sbt assembly` eseguire e per costruire il file jar ombreggiato. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Usare gli strumenti IntelliJ di HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox)
+* [Usare gli strumenti IntelliJ di HDInsightUse HDInsight IntelliJ Tools](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox)
 
-* [Creare un'applicazione scala Maven per Spark in IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-create-standalone-application)
+* [Creare un'applicazione Scala Maven per Spark in IntelliJCreate a Scala Maven application for Spark in IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-create-standalone-application)

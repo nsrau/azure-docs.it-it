@@ -9,10 +9,10 @@ ms.date: 04/11/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: c73fb55e485d0c92d27eac2ac197a81337b9d5e1
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77016800"
 ---
 # <a name="configure-php-in-azure-app-service"></a>Configurare PHP in Servizio app di Azure
@@ -29,11 +29,11 @@ Sono anche disponibili le versioni PHP 7.0 e PHP 7.2, che però non sono abilita
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-1. Passare all'app nella [portale di Azure](https://portal.azure.com) e scorrere fino alla pagina di **configurazione** .
+1. Passare all'app nel portale di Azure e scorrere fino alla pagina Configurazione.Browse to your app in the [Azure portal](https://portal.azure.com) and scroll to the **Configuration** page.
 
-2. In **configurazione**selezionare **Impostazioni generali** e scegliere la nuova versione di php.
+2. In **Configurazione**, selezionare **Impostazioni generali** e scegliere la nuova versione PHP.
 
-3. Fare clic sul pulsante **Salva** nella parte superiore del pannello **Impostazioni generali** .
+3. Fare clic sul pulsante **Salva** nella parte superiore del pannello **Impostazioni generali.**
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure 
 
@@ -108,10 +108,10 @@ Come indicato nella sezione precedente, il modo migliore per visualizzare la ver
 1. Aggiungere una `bin` directory alla directory radice.
 2. Inserire i file con estensione `.dll` nella directory `bin` (ad esempio `php_xdebug.dll`). Verificare che le estensioni siano compatibili con la versione predefinita di PHP e con VC9 e non thread-safe (nts).
 3. Distribuire l'app.
-4. Passare all'app nel portale di Azure e fare clic sulla sezione **configurazione** che si trova sotto **Impostazioni** .
-5. Nel pannello **configurazione** selezionare **Impostazioni applicazione**.
-6. Nella sezione **Impostazioni applicazione** fare clic su **+ nuova impostazione applicazione** e creare una chiave **PHP_EXTENSIONS** . Il valore di questa chiave deve corrispondere a un percorso relativo alla radice del sito Web: **bin\your-ext-file**.
-7. Fare clic sul pulsante **Aggiorna** nella parte inferiore e quindi fare clic su **Salva** sopra la scheda **Impostazioni applicazione** .
+4. Passare all'app nel portale di Azure e fare clic sulla sezione Configurazione disponibile sotto **Impostazioni.Browse** to your app in the Azure portal and click on the **Configuration** located below Settings section.
+5. Nel pannello **Configurazione** selezionare **Impostazioni applicazione**.
+6. Nella sezione **Impostazioni applicazione,** fare clic su **Nuova impostazione dell'applicazione** e creare una **PHP_EXTENSIONS** chiave. Il valore di questa chiave deve corrispondere a un percorso relativo alla radice del sito Web: **bin\your-ext-file**.
+7. Fare clic sul pulsante **Aggiorna** in basso, quindi fare clic su **Salva** sopra la scheda **Impostazioni applicazione.**
 
 Con l'uso di una chiave **PHP_ZENDEXTENSIONS** sono supportate anche le estensioni Zend. Per abilitare più estensioni, includere un elenco separato da virgole di `.dll` file per il valore dell'impostazione dell'app.
 
@@ -119,14 +119,14 @@ Con l'uso di una chiave **PHP_ZENDEXTENSIONS** sono supportate anche le estensio
 
 Invece del runtime PHP predefinito, Servizio app può usare un runtime PHP fornito dall'utente per l'esecuzione degli script PHP. Quest'ultimo può essere configurato da un file `php.ini` analogamente fornito dall'utente. Per usare un runtime PHP personalizzato con Servizio app, attenersi alla procedura seguente.
 
-1. Ottenere una versione compatibile con VC9 o VC11 e non-thread-safe di PHP per Windows. Le versioni recenti di PHP per Windows sono disponibili qui: [https://windows.php.net/download/]. Le versioni precedenti sono disponibili in questo archivio: [https://windows.php.net/downloads/releases/archives/].
+1. Ottenere una versione compatibile con VC9 o VC11 e non-thread-safe di PHP per Windows. Le versioni recenti di PHP per [https://windows.php.net/download/]Windows sono disponibili qui: . Le versioni precedenti sono disponibili [https://windows.php.net/downloads/releases/archives/]nell'archivio qui: .
 2. Modificare il file `php.ini` per il proprio runtime. Qualsiasi impostazione di configurazione che non sia una direttiva solo a livello di sistema verrà ignorata da Servizio app. (per informazioni sulle direttive solo a livello di sistema, vedere la [Lista delle direttive php.ini]).
 3. Facoltativamente, aggiungere le estensioni al proprio runtime PHP e abilitarle nel file `php.ini` .
 4. Aggiungere una directory `bin` alla propria directory radice e inserirvi la directory contenente il proprio runtime PHP (ad esempio, `bin\php`).
 5. Distribuire l'app.
-6. Passare all'app nel portale di Azure e fare clic sul pannello **configurazione** .
-8. Nel pannello **configurazione** selezionare mapping dei **percorsi**. 
-9. Fare clic su **+ nuovo gestore** e aggiungere `*.php` al campo estensione e aggiungere il percorso del `php-cgi.exe` eseguibile nel **processore di script**. Se si inserisce il proprio runtime PHP nella directory `bin` nella radice dell'applicazione, il percorso è `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
+6. Passare all'app nel portale di Azure e fare clic sul pannello **Configurazione.Browse** to your app in the Azure portal and click on the Configuration blade.
+8. Nel pannello **Configurazione** selezionare **Mapping percorso**. 
+9. Fare clic su `*.php` **Nuovo gestore** e aggiungere al `php-cgi.exe` campo Estensione e aggiungere il percorso dell'eseguibile in **Script processor**. Se si inserisce il proprio runtime PHP nella directory `bin` nella radice dell'applicazione, il percorso è `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
 10. Nella parte inferiore, fare clic su **Aggiorna** per completare l'aggiunta del mapping del gestore.
 11. Fare clic su **Salva** per salvare le modifiche.
 
@@ -158,7 +158,7 @@ Per impostazione predefinita, il servizio app non esegue operazioni relative a c
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](https://azure.microsoft.com/develop/php/).
 
-[valutazione gratuita]: https://www.windowsazure.com/pricing/free-trial/
+[prova gratuita]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo ()]: https://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
 [Lista delle direttive php.ini]: https://www.php.net/manual/en/ini.list.php

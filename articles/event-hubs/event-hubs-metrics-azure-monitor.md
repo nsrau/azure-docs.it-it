@@ -16,15 +16,15 @@ ms.custom: seodec18
 ms.date: 09/18/2019
 ms.author: shvija
 ms.openlocfilehash: 96c346f4359740fda5638dfdbe5735c5bdfce8c9
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162651"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Metriche di Hub eventi di Azure in Monitoraggio di Azure
 
-Le metriche di hub eventi forniscono lo stato delle risorse di hub eventi nella sottoscrizione di Azure. Grazie a un set completo di dati delle metriche è possibile valutare l'integrità generale delle risorse degli hub eventi, non solo a livello di spazio dei nomi, ma anche a livello di entità. Queste statistiche possono rivelarsi importanti perché consentono di monitorare lo stato degli hub eventi. Le metriche consentono anche di risolvere i problemi senza dover contattare il supporto di Azure.
+Le metriche di Hub eventi offrono lo stato delle risorse di Hub eventi nella sottoscrizione di Azure.Event Hubs metrics give you the state of Event Hubs resources in your Azure subscription. Grazie a un set completo di dati delle metriche è possibile valutare l'integrità generale delle risorse degli hub eventi, non solo a livello di spazio dei nomi, ma anche a livello di entità. Queste statistiche possono rivelarsi importanti perché consentono di monitorare lo stato degli hub eventi. Le metriche consentono anche di risolvere i problemi senza dover contattare il supporto di Azure.
 
 Monitoraggio di Azure offre interfacce utente unificate per il monitoraggio di diversi servizi di Azure. Per altre informazioni, vedere [Panoramica sul monitoraggio in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) e l'esempio che descrive come [recuperare le metriche di Monitoraggio di Azure con .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) in GitHub.
 
@@ -49,7 +49,7 @@ Per le metriche che supportano le dimensioni, è necessario filtrare specificand
 
 ## <a name="billing"></a>Fatturazione
 
-L'uso delle metriche in Monitoraggio di Azure è attualmente gratuito. Se tuttavia si usano soluzioni aggiuntive per inserire i dati delle metriche, è possibile che la fatturazione venga effettuata da tali soluzioni. Ad esempio, la fatturazione viene effettuata da Archiviazione di Azure se i dati relativi alle metriche vengono archiviati in un account di Archiviazione di Azure. Viene anche addebitato da Azure se i dati di metrica vengono trasmessi ai log di monitoraggio di Azure per l'analisi avanzata.
+L'uso delle metriche in Monitoraggio di Azure è attualmente gratuito. Se tuttavia si usano soluzioni aggiuntive per inserire i dati delle metriche, è possibile che la fatturazione venga effettuata da tali soluzioni. Ad esempio, la fatturazione viene effettuata da Archiviazione di Azure se i dati relativi alle metriche vengono archiviati in un account di Archiviazione di Azure. La fatturazione da parte di Azure viene inoltre fatturata da Azure se si esegue il flusso dei dati delle metriche nei log di Monitoraggio di Azure per un'analisi avanzata.
 
 Le metriche seguenti offrono una panoramica dell'integrità del servizio. 
 
@@ -68,7 +68,7 @@ Conta il numero di richieste di operazioni di dati e gestione.
 | Richieste riuscite    | Numero di richieste completate inviate al servizio Hub eventi di Azure in un periodo specificato. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName |
 | Errori server  | Numero di richieste non elaborate a causa di un errore nel servizio Hub eventi di Azure in un periodo specificato. <br/><br/>Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName |
 |Errori utente |Numero di richieste non elaborate a causa di errori utente in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
-|Errori di superamento della quota |Il numero di richieste supera la quota disponibile. Per altre informazioni sulle quote degli hub eventi, vedere [questo articolo](event-hubs-quotas.md).<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
+|Errori di quota superata |Il numero di richieste supera la quota disponibile. Per altre informazioni sulle quote degli hub eventi, vedere [questo articolo](event-hubs-quotas.md).<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
 
 ## <a name="throughput-metrics"></a>Metriche di elaborazione
 
@@ -99,7 +99,7 @@ Conta il numero di richieste di operazioni di dati e gestione.
 
 | Nome misurazione | Descrizione |
 | ------------------- | ----------------- |
-|Backlog di acquisizione |Numero di byte da acquisire nella destinazione selezionata.<br/><br/> Unità: byte <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
+|Acquisisci backlog |Numero di byte da acquisire nella destinazione selezionata.<br/><br/> Unità: byte <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
 |Messaggi acquisiti |Numero di messaggi o eventi acquisiti nella destinazione selezionata in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
 |Byte acquisiti |Numero di byte acquisiti nella destinazione selezionata in un periodo specificato.<br/><br/> Unità: byte <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
 
@@ -111,17 +111,17 @@ Hub eventi di Azure supporta le dimensioni seguenti per le metriche in Monitorag
 | ------------------- | ----------------- |
 |EntityName| Hub eventi supporta le entità degli hub eventi nello spazio dei nomi.|
 
-## <a name="azure-monitor-integration-with-siem-tools"></a>Integrazione di monitoraggio di Azure con gli strumenti SIEM
-Il routing dei dati di monitoraggio (log attività, log di diagnostica e così via) a un hub eventi con monitoraggio di Azure consente di integrare facilmente gli strumenti di gestione di informazioni ed eventi di sicurezza (SIEM). Per ulteriori informazioni, vedere gli articoli e i post di Blog seguenti:
+## <a name="azure-monitor-integration-with-siem-tools"></a>Integrazione di Azure Monitor con gli strumenti SIEM
+Il routing dei dati di monitoraggio (log attività, log di diagnostica e così via) a un hub eventi con Monitoraggio di Azure consente di integrarsi facilmente con gli strumenti SIEM (Security Information and Event Management). Per altre informazioni, vedere i seguenti articoli/post di blog:
 
 - [Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)
-- [Introduzione all'integrazione log di Azure](../security/fundamentals/azure-log-integration-overview.md)
+- [Introduzione a Integrazione log di Azure](../security/fundamentals/azure-log-integration-overview.md)
 - [Usare Monitoraggio di Azure per l'integrazione con strumenti SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-Nello scenario in cui uno strumento SIEM usa i dati di log da un hub eventi, se non viene visualizzato alcun messaggio in arrivo o se si visualizzano messaggi in arrivo ma nessun messaggio in uscita nel grafico delle metriche, attenersi alla procedura seguente:
+Nello scenario in cui uno strumento SIEM utilizza i dati di log da un hub eventi, se non vengono visualizzati messaggi in arrivo o non vengono visualizzati messaggi in arrivo ma non messaggi in uscita nel grafico delle metriche, attenersi alla seguente procedura:
 
-- Se non sono presenti **messaggi in ingresso**, significa che il servizio monitoraggio di Azure non sta muovendo i log di controllo/diagnostica nell'hub eventi. In questo scenario, aprire un ticket di supporto con il team di monitoraggio di Azure. 
-- Se sono presenti messaggi in ingresso, ma **nessun messaggio in uscita**, significa che l'applicazione Siem non sta leggendo i messaggi. Contattare il provider SIEM per determinare se la configurazione dell'hub eventi è corretta.
+- Se non sono presenti **messaggi in arrivo,** significa che il servizio Monitoraggio di Azure non sta spostando i log di controllo/diagnostica nell'hub eventi. Aprire un ticket di supporto con il team di Monitoraggio di Azure in questo scenario. 
+- se sono presenti messaggi in arrivo, ma **nessun messaggio in uscita,** significa che l'applicazione SIEM non sta leggendo i messaggi. Contattare il provider SIEM per determinare se la configurazione dell'hub eventi tali applicazioni è corretta.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -131,11 +131,11 @@ Nello scenario in cui uno strumento SIEM usa i dati di log da un hub eventi, se 
 
 Per altre informazioni su Hub eventi, vedere i collegamenti seguenti:
 
-- Introduzione a un'esercitazione su Hub eventi
+- Iniziare con un'esercitazione di Hub eventi
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [Javascript](get-started-java-send-v2.md)
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)
 * [Applicazioni di esempio che usano Hub eventi](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

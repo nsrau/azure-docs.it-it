@@ -15,22 +15,22 @@ ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
 ms.openlocfilehash: 2fd2efa9de3deff1fcf983ac0fa45e412357d312
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71057277"
 ---
 # <a name="troubleshoot-rdp-issues"></a>Risolvere i problemi relativi a RDP
 
 Questa sezione descrive i problemi seguenti, relativi alla creazione di una connessione RDP a una macchina virtuale:
 
-- [Reimpostare RDP](reset-rdp.md)
-- [Risoluzione dei problemi di RDP](troubleshoot-rdp-connection.md)
-- [Risoluzione dettagliata dei problemi di RDP](detailed-troubleshoot-rdp.md)
-- [Risolvere l'errore di RDP causato dalla disabilitazione del protocollo DHCP](troubleshoot-rdp-dhcp-disabled.md)
-- [Risolvere l'errore di RDP causato dall'impostazione del gruppo di sicurezza di rete](troubleshoot-rdp-nsg-problem.md)
-- [Risolvere errori specifici ](troubleshoot-specific-rdp-errors.md)
+- [Reimposta RDP](reset-rdp.md)
+- [Risoluzione dei problemi relativi a RDP](troubleshoot-rdp-connection.md)
+- [Risoluzione dettagliata della risoluzione dei problemi RDP](detailed-troubleshoot-rdp.md)
+- [Risolvere l'errore RDP causato dalla disabilitazione del protocollo DHCP](troubleshoot-rdp-dhcp-disabled.md)
+- [Risolvere l'errore RDP causato dall'impostazione del gruppo di sicurezza di rete](troubleshoot-rdp-nsg-problem.md)
+- [Risolvere errori specificiTroubleshoot specific errors](troubleshoot-specific-rdp-errors.md)
 - [Risolvere gli errori di server licenze non trovato](troubleshoot-rdp-no-license-server.md)
 - [Risolvere i problemi di Servizi Desktop remoto](troubleshoot-remote-desktop-services-issues.md)
 - [Risolvere un errore interno](Troubleshoot-rdp-internal-error.md)

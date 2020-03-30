@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: configurare NPM per i circuiti'
+title: 'Azure ExpressRoute: Configurare NPM per i circuitiAzure ExpressRoute: Configure NPM for circuits'
 description: Configurare il monitoraggio di rete basato sul cloud per i circuiti Azure ExpressRoute. Illustra il monitoraggio su peering ExpressRoute privato e peering Microsoft.
 services: expressroute
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: cherylmc
 ms.openlocfilehash: 54fa3dcbfbbcb3153f81407a9bc9b52511405390
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74076597"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurare Monitoraggio prestazioni rete per ExpressRoute
@@ -34,7 +34,7 @@ Questo articolo illustra come configurare un'estensione di Monitoraggio prestazi
 
 * Vedere lo stato del sistema ExpressRoute da un momento precedente
 
-## <a name="workflow"></a>Flusso di lavoro
+## <a name="workflow"></a><a name="workflow"></a>Workflow
 
 Gli agenti di monitoraggio sono installati su più server, sia in locale che in Azure. Gli agenti comunicano tra loro, ma non inviano dati, inviano pacchetti di handshake TCP. La comunicazione tra gli agenti consente ad Azure di eseguire il mapping della topologia di rete e del percorso che il traffico potrebbe prendere.
 
@@ -47,19 +47,19 @@ Gli agenti di monitoraggio sono installati su più server, sia in locale che in 
 
 Se si usa già Monitoraggio prestazioni rete per monitorare altri oggetti o servizi e si dispone già dell'area di lavoro in una delle aree supportate, è possibile ignorare i passaggi 1 e 2 e iniziare la configurazione dal passaggio 3.
 
-## <a name="configure"></a>Passaggio 1: Creare un'area di lavoro
+## <a name="step-1-create-a-workspace"></a><a name="configure"></a>Passaggio 1: Creare un'area di lavoro
 
 Creare un'area di lavoro nella sottoscrizione che includa il collegamento delle reti virtuali ai circuiti ExpressRoute.
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare la sottoscrizione che include le reti virtuali di cui è stato eseguito il peer al circuito ExpressRoute. Quindi, nell'elenco di servizi in **Marketplace** cercare "Monitoraggio prestazioni rete". Nell'elenco dei risultati fare clic per aprire la pagina **Monitoraggio prestazioni rete**.
 
    >[!NOTE]
-   >È possibile creare una nuova area di lavoro o usarne una esistente. Se si vuole usare un'area di lavoro esistente, verificare che sia stata eseguita la migrazione dell'area di lavoro al nuovo linguaggio di query. [Altre informazioni...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
+   >È possibile creare una nuova area di lavoro o usarne una esistente. Se si vuole usare un'area di lavoro esistente, verificare che sia stata eseguita la migrazione dell'area di lavoro al nuovo linguaggio di query. [Ulteriori informazioni...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
    >
 
    ![portal](./media/how-to-npm/3.png)<br><br>
 2. Nella parte inferiore della pagina principale **Monitoraggio prestazioni rete** fare clic su **Crea** per aprire la pagina **Monitoraggio prestazioni rete - Crea nuova soluzione**. Fare clic su **area di lavoro Log Analytics - Selezionare un'area di lavoro** per aprire la pagina Aree di lavoro. Fare clic su **+Crea nuova area di lavoro** per aprire la pagina Area di lavoro.
-3. Nella pagina **area di lavoro log Analytics** selezionare **Crea nuovo**, quindi configurare le impostazioni seguenti:
+3. Nella pagina **Area di lavoro di Log Analytics** selezionare Crea **nuovo**, quindi configurare le impostazioni seguenti:
 
    * area di lavoro Log Analytics: immettere un nome per l'area di lavoro.
    * Sottoscrizione: in presenza di più sottoscrizioni, scegliere quella da associare alla nuova area di lavoro.
@@ -77,9 +77,9 @@ Creare un'area di lavoro nella sottoscrizione che includa il collegamento delle 
 
    ![configurazioni aggiuntive](./media/how-to-npm/5.png)
 
-## <a name="agents"></a>Passaggio 2: Installare e configurare gli agenti
+## <a name="step-2-install-and-configure-agents"></a><a name="agents"></a>Passaggio 2: Installare e configurare gli agenti
 
-### <a name="download"></a>2.1: Scaricare il file di installazione dell'agente
+### <a name="21-download-the-agent-setup-file"></a><a name="download"></a>2.1: Scaricare il file di installazione dell'agente
 
 1. Passare alla scheda **Impostazioni comuni** della pagina **Configurazione del monitoraggio prestazioni di rete** della risorsa. Fare clic sull'agente corrispondente al processore del server indicato nella sezione **Installa agenti di Log Analytics** e scaricare il file di installazione.
 2. Quindi copiare l'**ID area di lavoro** e la **chiave primaria** nel Blocco note.
@@ -87,7 +87,7 @@ Creare un'area di lavoro nella sottoscrizione che includa il collegamento delle 
 
    ![Script di PowerShell](./media/how-to-npm/7.png)
 
-### <a name="installagent"></a>2.2: Installare un agente di monitoraggio in ogni server di monitoraggio (in ogni rete virtuale che si vuole monitorare)
+### <a name="22-install-a-monitoring-agent-on-each-monitoring-server-on-each-vnet-that-you-want-to-monitor"></a><a name="installagent"></a>2.2: Installare un agente di monitoraggio in ogni server di monitoraggio (in ogni rete virtuale che si vuole monitorare)
 
 È consigliabile installare almeno due agenti su ogni lato della connessione ExpressRoute per la ridondanza (ad esempio, locale o su reti virtuali di Azure). L'agente deve essere installato in un server Windows (2008 SP1 o versione successiva). Il monitoraggio dei circuiti ExpressRoute con il sistema operativo Windows Desktop e il sistema operativo Linux non è supportato. Usare la procedura seguente per installare gli agenti:
    
@@ -96,27 +96,27 @@ Creare un'area di lavoro nella sottoscrizione che includa il collegamento delle 
   >
 
 1. Eseguire **Installa** per installare l'agente in ogni server che si vuole usare per il monitoraggio di ExpressRoute. Il server usato per il monitoraggio può essere una macchina virtuale o un server locale e deve avere accesso a Internet. È necessario installare almeno un agente in locale e un agente in ogni segmento di rete che si vuole monitorare in Azure.
-2. Nella pagina di **benvenuto** fare clic su **Avanti**.
+2. Nella pagina introduttiva**** fare clic su **Avanti**.
 3. Nella pagina **Condizioni di licenza** leggere la licenza e quindi fare clic su **Accetto**.
-4. Nella pagina **Cartella di destinazione** modificare o mantenere la cartella di installazione predefinita e quindi fare clic su **Avanti**.
-5. Nella pagina **Opzioni di installazione dell'agente** è possibile scegliere di connettere l'agente ai log di monitoraggio di Azure o Operations Manager. In alternativa è possibile omettere le scelte se si desidera configurare l'agente in un secondo momento. Dopo aver eseguito le selezioni, fare clic su **Avanti**.
+4. Nella pagina Cartella di **destinazione** modificare o mantenere la cartella di installazione predefinita e quindi fare clic su **Avanti**.
+5. Nella pagina **Opzioni di installazione agente** è possibile scegliere di connettere l'agente ai log di Monitoraggio di Azure o a Operations Manager. In alternativa è possibile omettere le scelte se si desidera configurare l'agente in un secondo momento. Dopo aver eseguito le selezioni, fare clic su **Avanti**.
 
-   * Se si sceglie di connettersi ad **Azure Log Analytics**, incollare l'**ID area di lavoro** e la **chiave dell'area di lavoro** (chiave primaria) copiati nel Blocco note nella sezione precedente. Quindi fare clic su **Next**.
+   * Se si sceglie di connettersi ad **Azure Log Analytics**, incollare l'**ID area di lavoro** e la **chiave dell'area di lavoro** (chiave primaria) copiati nel Blocco note nella sezione precedente. Fare quindi clic su **Avanti**.
 
      ![ID e chiave](./media/how-to-npm/8.png)
-   * Se si sceglie di connettersi a **Operations Manager**, nella pagina **Configurazione gruppo di gestione** digitare il **nome del gruppo di gestione**, il **nome del server di gestione** e la **porta del server di gestione**. Quindi fare clic su **Next**.
+   * Se si sceglie di connettersi a **Operations Manager**, nella pagina **Configurazione gruppo di gestione** digitare il **nome del gruppo di gestione**, il **nome del server di gestione** e la **porta del server di gestione**. Fare quindi clic su **Avanti**.
 
      ![Operations Manager](./media/how-to-npm/9.png)
-   * Nella pagina **Account azione agente** scegliere l'account di **sistema locale** o un **account di dominio o del computer locale**. Quindi fare clic su **Next**.
+   * Nella pagina **Account azione agente** scegliere l'account di **sistema locale** o un **account di dominio o del computer locale**. Fare quindi clic su **Avanti**.
 
      ![Account](./media/how-to-npm/10.png)
 6. Nella pagina **Pronto per l'installazione** rivedere le scelte effettuate e quindi fare clic su **Installa**.
 7. Nella pagina **Configurazione completata** fare clic su **Fine**.
-8. Al termine verrà visualizzato Microsoft Monitoring Agent nel Pannello di controllo. È possibile rivedere la configurazione e verificare che l'agente sia connesso ai log di monitoraggio di Azure. Quando si è connessi, l'agente visualizza un messaggio nel quale è indicato che **Microsoft Monitoring Agent ha eseguito la connessione al servizio Microsoft Operations Management Suite**.
+8. Al termine verrà visualizzato Microsoft Monitoring Agent nel Pannello di controllo. È possibile esaminare la configurazione e verificare che l'agente sia connesso ai log di Monitoraggio di Azure.You can review your configuration there, and verify that the agent is connected to Azure Monitor logs. Quando si è connessi, l'agente visualizza un messaggio nel quale è indicato che **Microsoft Monitoring Agent ha eseguito la connessione al servizio Microsoft Operations Management Suite**.
 
 9. Ripetere questa procedura per ogni rete virtuale da monitorare.
 
-### <a name="proxy"></a>2.3: Configurare le impostazioni proxy (facoltativo)
+### <a name="23-configure-proxy-settings-optional"></a><a name="proxy"></a>2.3: Configurare le impostazioni proxy (facoltativo)
 
 Se si usa un proxy Web per accedere a Internet, eseguire la procedura seguente per configurare le impostazioni proxy per Microsoft Monitoring Agent. Eseguire questa procedura per ogni server. Se è necessario configurare molti server, può risultare più semplice usare uno script per automatizzare il processo. In questo caso, vedere [Per configurare le impostazioni proxy per Microsoft Monitoring Agent tramite uno script](../log-analytics/log-analytics-windows-agent.md).
 
@@ -129,18 +129,18 @@ Per configurare le impostazioni proxy per Microsoft Monitoring Agent tramite il 
 
    ![proxy](./media/how-to-npm/11.png)
 
-### <a name="verifyagent"></a>2.4: Verificare la connettività dell'agente a OMS
+### <a name="24-verify-agent-connectivity"></a><a name="verifyagent"></a>2.4: Verificare la connettività dell'agente a OMS
 
 È possibile verificare facilmente se gli agenti comunicano.
 
 1. In un server con l'agente di monitoraggio, aprire il **Pannello di controllo**.
 2. Aprire **Microsoft Monitoring Agent**.
 3. Fare clic sulla scheda **Azure Log Analytics**.
-4. Nella colonna **stato** si noterà che l'agente si è connesso correttamente ai log di monitoraggio di Azure.
+4. Nella colonna Stato dovrebbe essere visualizzato che l'agente si è connesso correttamente ai log di Monitoraggio di Azure.In the **Status** column, you should see that the agent connected successfully to Azure Monitor logs.
 
    ![status](./media/how-to-npm/12.png)
 
-### <a name="firewall"></a>2.5: Aprire le porte del firewall nei server dell'agente di monitoraggio
+### <a name="25-open-the-firewall-ports-on-the-monitoring-agent-servers"></a><a name="firewall"></a>2.5: Aprire le porte del firewall nei server dell'agente di monitoraggio
 
 Per usare il protocollo TCP, è necessario aprire le porte del firewall per assicurarsi che gli agenti di monitoraggio possano comunicare.
 
@@ -157,7 +157,7 @@ Aprire i server degli agenti e aprire una finestra di PowerShell con privilegi a
 
 ![PowerShell_Script](./media/how-to-npm/script.png)
 
-## <a name="opennsg"></a>Passaggio 3: Configurare le regole del gruppo di sicurezza di rete
+## <a name="step-3-configure-network-security-group-rules"></a><a name="opennsg"></a>Passaggio 3: Configurare le regole del gruppo di sicurezza di rete
 
 Per monitorare i server degli agenti presenti in Azure è necessario configurare regole del gruppo di sicurezza di rete per consentire il traffico TCP su una porta usata da Monitoraggio prestazioni rete per le transazioni sintetiche. Per impostazione predefinita è la porta 8084. Ciò consente a un agente di monitoraggio installato in una macchina virtuale di Azure di comunicare con un agente di monitoraggio locale.
 
@@ -167,7 +167,7 @@ Per altre informazioni su NSG, vedere [Gruppi di sicurezza di rete](../virtual-n
 >Assicurarsi di aver installato gli agenti (sia l'agente server locale che l'agente server di Azure) e di aver eseguito lo script di PowerShell prima di procedere con questo passaggio.
 >
 
-## <a name="setupmonitor"></a>Passaggio 4: Individuare le connessioni peering
+## <a name="step-4-discover-peering-connections"></a><a name="setupmonitor"></a>Passaggio 4: Individuare le connessioni peering
 
 1. Passare al riquadro della panoramica di Monitoraggio prestazioni rete accedendo alla pagina **Tutte le risorse**, quindi fare clic sull'area di lavoro di Monitoraggio prestazioni rete inserita nell'elenco elementi consentiti.
 
@@ -182,7 +182,7 @@ Per altre informazioni su NSG, vedere [Gruppi di sicurezza di rete](../virtual-n
    * Tutte le connessioni peering Microsoft nei circuiti ExpressRoute associati alla sottoscrizione.
    * Tutte le connessioni di peering privato che si connettono alle reti virtuali associate alla sottoscrizione.
             
-## <a name="configmonitor"></a>Passaggio 5: Configurare i monitoraggi
+## <a name="step-5-configure-monitors"></a><a name="configmonitor"></a>Passaggio 5: Configurare i monitoraggi
 
 In questa sezione vengono configurati i monitoraggi. Seguire i passaggi per il tipo di peering da monitorare: **peering privato** o **peering Microsoft**.
 
@@ -218,43 +218,43 @@ Per il peering Microsoft, fare clic sulle connessioni peering Microsoft da monit
 6. Salvare le impostazioni.
 7. Dopo aver attivato le regole e selezionato i valori e gli agenti che si desidera monitorare, c'è un'attesa di circa 30-60 prima che i valori inizino a popolarsi e i riquadri **Monitoraggio di ExpressRoute** diventino disponibili.
 
-## <a name="explore"></a>Passaggio 6: Visualizzare i riquadri di monitoraggio
+## <a name="step-6-view-monitoring-tiles"></a><a name="explore"></a>Passaggio 6: Visualizzare i riquadri di monitoraggio
 
 Dopo aver visualizzato i riquadri di monitoraggio, i circuiti ExpressRoute e le risorse di connessione vengono monitorate da NPM. Per eseguire il drill-down sull'integrità delle connessioni peering Microsoft è possibile fare clic sul riquadro Peering Microsoft.
 
 ![riquadri di monitoraggio](./media/how-to-npm/15.png)
 
-### <a name="dashboard"></a>Pagina Monitoraggio prestazioni rete
+### <a name="network-performance-monitor-page"></a><a name="dashboard"></a>Pagina Monitoraggio prestazioni rete
 
 La pagina NPM contiene una pagina per ExpressRoute che mostra una panoramica dell'integrità dei circuiti e dei peering ExpressRoute.
 
 ![Dashboard](./media/how-to-npm/dashboard.png)
 
-### <a name="circuits"></a>Elenco dei circuiti
+### <a name="list-of-circuits"></a><a name="circuits"></a>Elenco dei circuiti
 
 Per visualizzare un elenco di tutti i circuiti ExpressRoute monitorati, fare clic sul riquadro **Circuiti ExpressRoute**. È possibile selezionare un circuito e visualizzare il relativo stato di integrità, i grafici di tendenza per la perdita di pacchetti, l'utilizzo della larghezza di banda e la latenza. I grafici sono interattivi. È possibile selezionare un intervallo di tempo personalizzato per tracciare i grafici. Si può trascinare il puntatore del mouse su un'area del grafico per eseguire lo zoom avanti e visualizzare i punti dati con granularità fine.
 
 ![circuit_list](./media/how-to-npm/circuits.png)
 
-#### <a name="trend"></a>Tendenza di perdita, latenza e velocità effettiva
+#### <a name="trend-of-loss-latency-and-throughput"></a><a name="trend"></a>Tendenze relative a perdita, latenza e velocità effettiva
 
-I grafici della larghezza di banda, la latenza e la perdita sono interattivi. Ogni sezione di questi grafici può essere ingrandita mediante i controlli del mouse. È possibile vedere anche i dati di larghezza di banda, latenza e perdita per altri intervalli, facendo clic su **Data/ora**, che si trova sotto il pulsante Azioni in alto a sinistra.
+I grafici della larghezza di banda, la latenza e la perdita sono interattivi. Ogni sezione di questi grafici può essere ingrandita mediante i controlli del mouse. È inoltre possibile visualizzare i dati relativi a larghezza di banda, latenza e perdita per altri intervalli facendo clic su **Data/ora**, che si trova sotto il pulsante Azioni in alto a sinistra.
 
 ![tendenza](./media/how-to-npm/16.png)
 
-### <a name="peerings"></a>Elenco dei peering
+### <a name="peerings-list"></a><a name="peerings"></a>Elenco dei peering
 
 Per visualizzare un elenco di tutte le connessioni alle reti virtuali su peering privato, fare clic sul riquadro **Peering privati** nel dashboard. È possibile selezionare una connessione di rete virtuale e visualizzare il relativo stato di integrità e i grafici di tendenza riguardanti la perdita di pacchetti, l'utilizzo della larghezza di banda e la latenza.
 
 ![elenco dei circuiti](./media/how-to-npm/peerings.png)
 
-### <a name="nodes"></a>Visualizzazione dei nodi
+### <a name="nodes-view"></a><a name="nodes"></a>Visualizzazione Nodi
 
 Per visualizzare un elenco di tutti i collegamenti tra i nodi locali e le macchine virtuali di Azure o gli endpoint del servizio Microsoft per la connessione peering ExpressRoute scelta, fare clic su **Visualizza collegamenti nodo**. È possibile visualizzare lo stato di integrità di ogni collegamento, nonché la tendenza di perdite e latenza a esso associata.
 
 ![visualizzazione dei nodi](./media/how-to-npm/nodes.png)
 
-### <a name="topology"></a>Topologia del circuito
+### <a name="circuit-topology"></a><a name="topology"></a>Topologia dei circuiti
 
 Per visualizzare la topologia del circuito, fare clic sul riquadro **Topologia**. Verrà visualizzata la vista della topologia del circuito o peering. Il diagramma della topologia indica la latenza per ogni segmento della rete. Ogni hop di livello 3 è rappresentato da un nodo del diagramma. Facendo clic su un hop, vengono visualizzate altre informazioni sull'hop.
 

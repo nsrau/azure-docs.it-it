@@ -1,6 +1,6 @@
 ---
 title: Backup e ripristino del database di Azure Analysis Services | Microsoft Docs
-description: Questo articolo descrive come eseguire il backup e il ripristino dei dati e dei metadati del modello da un database di Azure Analysis Services.
+description: Questo articolo descrive come eseguire il backup e il ripristino dei metadati e dei dati del modello da un database di Azure Analysis Services.This article describes how to backup and restore model metadata and data from an Azure Analysis Services database.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 3f63ecf560a14248fed6dea53c30a27acdf9a938
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73573441"
 ---
 # <a name="backup-and-restore"></a>Backup e ripristino
@@ -23,7 +23,7 @@ Il backup dei database modello tabulare in Azure Analysis Services è molto simi
 > 
 > 
 
-I backup vengono salvati con estensione abf. Per i modelli tabulari in memoria, vengono archiviati sia i dati del modello che i metadati. Per i modelli tabulari DirectQuery, vengono archiviati solo i metadati del modello. I backup possono essere compressi e crittografati, a seconda delle opzioni scelte.
+I backup vengono salvati con estensione .abf. Per i modelli tabulari in memoria, vengono archiviati sia i dati del modello che i metadati. Per i modelli tabulari DirectQuery, vengono archiviati solo i metadati del modello. I backup possono essere compressi e crittografati, a seconda delle opzioni scelte.
 
 
 ## <a name="configure-storage-settings"></a>Configurare le impostazioni di archiviazione
@@ -37,7 +37,7 @@ Prima di eseguire il backup, è necessario configurare le impostazioni di archiv
 
 2.  Fare clic su **Abilitata** e quindi su **Impostazioni di archiviazione**.
 
-    ![Abilita](./media/analysis-services-backup/aas-backup-enable.png)
+    ![Abilitare](./media/analysis-services-backup/aas-backup-enable.png)
 
 3. Selezionare l'account di archiviazione o crearne uno nuovo.
 
@@ -55,7 +55,7 @@ Prima di eseguire il backup, è necessario configurare le impostazioni di archiv
 
 1. In SSMS fare clic con il pulsante destro del mouse su un database > **Backup**.
 
-2. In **Backup database** > **File di backup** fare clic su **Sfoglia**.
+2. In **Backup Database** > **Backup file**, fare clic su **Sfoglia**.
 
 3. Nella finestra di dialogo **Salva file con nome** verificare il percorso della cartella e quindi digitare un nome per il file di backup. 
 
@@ -73,7 +73,7 @@ Prima di eseguire il backup, è necessario configurare le impostazioni di archiv
 ### <a name="powershell"></a>PowerShell
 Usare il cmdlet [Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase).
 
-## <a name="restore"></a>Ripristino
+## <a name="restore"></a>Restore
 Durante il ripristino, il file di backup deve essere nell'account di archiviazione configurato per il server. Se è necessario spostare un file di backup da un percorso locale all'account di archiviazione, usare [Archiviazione di Microsoft Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) o l'utilità della riga di comando [AzCopy](../storage/common/storage-use-azcopy.md). 
 
 

@@ -15,17 +15,17 @@ ms.workload: infrastructure
 ms.date: 10/15/2019
 ms.author: haroldw
 ms.openlocfilehash: 6ecae09b0efbc0e35e591b31dbb54fb49ce101b3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74035398"
 ---
 # <a name="deploy-okd-in-azure"></a>Distribuire OKD in Azure
 
 La distribuzione di OKD (in precedenza OpenShift Origin) in Azure può essere eseguita in uno dei due modi seguenti:
 
-- È possibile distribuire manualmente tutti i componenti necessari dell'infrastruttura di Azure e quindi seguire la [documentazione di OKD](https://docs.okd.io).
+- È possibile distribuire manualmente tutti i componenti dell'infrastruttura di Azure necessari e quindi seguire la [documentazione OKD.](https://docs.okd.io)
 - È anche possibile usare un [modello di Resource Manager](https://github.com/Microsoft/openshift-origin) esistente che semplifica la distribuzione del cluster OKD.
 
 ## <a name="deploy-using-the-okd-template"></a>Distribuire usando il modello OKD
