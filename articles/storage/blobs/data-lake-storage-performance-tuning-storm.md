@@ -1,5 +1,5 @@
 ---
-title: 'Ottimizzare le prestazioni: Storm, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
+title: 'Ottimizzare le prestazioni: Storm, HDInsight & Azure Data Lake Storage Gen2 . Documenti Microsoft'
 description: Linee guida per l'ottimizzazione delle prestazioni di Storm in Azure Data Lake Storage Gen2
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,22 +9,22 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 125c583512f6bae34c2dd3c3dd76a1b96a181ac1
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74327910"
 ---
 # <a name="tune-performance-storm-hdinsight--azure-data-lake-storage-gen2"></a>Ottimizzare le prestazioni: Storm, HDInsight & Azure Data Lake Storage Gen2
 
 È opportuno conoscere i fattori da tenere in considerazione quando si ottimizzano le prestazioni di una topologia di Storm in Azure. È importante, ad esempio, comprendere le caratteristiche del lavoro svolto da spout e bolt (se il lavoro è I/O o usa intensivamente la memoria). Questo articolo illustra una serie di linee guida per l'ottimizzazione delle prestazioni, inclusa la risoluzione dei problemi comuni.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un account di Azure Data Lake Storage Gen2**. Per istruzioni su come crearne uno, vedere [Guida introduttiva: creare un account di archiviazione per l'analisi](data-lake-storage-quickstart-create-account.md).
+* **Una sottoscrizione di Azure.** Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Un account di Azure Data Lake Storage Gen2**. Per istruzioni su come crearne uno, vedere [Guida introduttiva: Creare un account di archiviazione per l'analisi.](data-lake-storage-quickstart-create-account.md)
 * Un **cluster Azure HDInsight** con accesso a un account Data Lake Storage Gen2. Vedere [Usare Archiviazione Azure Data Lake Storage Gen2 con cluster Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Assicurarsi di abilitare il Desktop remoto per il cluster.
-* **Esecuzione di un cluster Storm in Data Lake Storage Gen2**. Per altre informazioni, vedere [Storm in HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
+* **Esecuzione di un cluster Storm in Data Lake Storage Gen2**. Per ulteriori informazioni, vedere [Storm su HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
 * **Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen2**.  Per informazioni sui concetti generali relativi alle prestazioni, vedere [Materiale sussidiario per l'ottimizzazione delle prestazioni in Data Lake Storage Gen2](data-lake-storage-performance-tuning-guidance.md).   
 
 ## <a name="tune-the-parallelism-of-the-topology"></a>Ottimizzare il parallelismo della topologia
@@ -95,11 +95,11 @@ Quando la topologia è in esecuzione, è possibile monitorarla nell'interfaccia 
 
 * **Number of failures** (Numero di errori). Numero di tuple la cui elaborazione non è stata completata prima del timeout.
 
-* **Capacity** (Capacità). Misura del carico di lavoro del sistema. Se questo numero è 1, i bolt stanno lavorando al massimo della velocità. Se è minore di 1, aumentare il parallelismo. Se è maggiore di 1, ridurre il parallelismo.
+* **Capacità.** Misura del carico di lavoro del sistema. Se questo numero è 1, i bolt stanno lavorando al massimo della velocità. Se è minore di 1, aumentare il parallelismo. Se è maggiore di 1, ridurre il parallelismo.
 
 ## <a name="troubleshoot-common-problems"></a>Risolvere i problemi comuni
 Ecco alcuni scenari comuni per la risoluzione dei problemi.
-* **Si è verificata la scadenza di molte Tuple.** Esaminare ogni nodo della topologia per determinare dove si trova il collo di bottiglia. La causa più comune è che i bolt non riescono a rimanere aggiornati con gli spout, di conseguenza le tuple bloccano i buffer interni mentre sono in attesa di essere elaborate. Considerare l'aumento del valore di timeout o la riduzione dello spout massimo in sospeso.
+* **Molte tuple stanno scadere.** Esaminare ogni nodo della topologia per determinare dove si trova il collo di bottiglia. La causa più comune è che i bolt non riescono a rimanere aggiornati con gli spout, di conseguenza le tuple bloccano i buffer interni mentre sono in attesa di essere elaborate. Considerare l'aumento del valore di timeout o la riduzione dello spout massimo in sospeso.
 
 * **La latenza di esecuzione dei processi totale è elevata, ma la latenza dei processi bolt è bassa.** In questo caso è possibile che le tuple non siano riconosciute in modo sufficientemente veloce. Verificare che sia presente un numero sufficiente di elementi di acknowledgment. Un'altra possibilità è che rimangano in attesa nella coda per troppo tempo prima che i bolt inizino la loro elaborazione. Ridurre lo spout massimo in sospeso.
 
@@ -110,10 +110,10 @@ Se si raggiungono i limiti di larghezza di banda di Data Lake Storage Gen2, è p
 
 Per verificare la presenza di limitazioni, abilitare la registrazione di debug sul lato client:
 
-1. In **Ambari** > **storm** > **config** > **Advanced Storm-Worker-log4j**, modificare **&lt;root level = "info"&gt;** per&lt;**root level = "debug"&gt;** . Riavviare tutti i nodi o servizi per rendere effettiva la nuova configurazione.
+1. In **Ambari** > **Storm** > **Config** > Advanced**storm-worker-log4j**, modificare ** &lt;il livello di radice "info"&gt; ** in ** &lt;root level , "debug"&gt;**. Riavviare tutti i nodi o servizi per rendere effettiva la nuova configurazione.
 2. Monitorare i log della topologia Storm sui nodi di lavoro (in /var/log/storm/worker-artifacts/&lt;NomeTopologia&gt;/&lt;porta&gt;/worker.log) per le eccezioni alle limitazioni di Data Lake Storage Gen2.
 
 ## <a name="next-steps"></a>Passaggi successivi
-L'ottimizzazione aggiuntiva delle prestazioni di Storm è reperibile in questo [blog](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/).
+In [questo blog](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/)è possibile fare riferimento a ulteriori regolazioni delle prestazioni per Storm .
 
 Per un esempio aggiuntivo da eseguire, vedere [questo in GitHub](https://github.com/hdinsight/storm-performance-automation).

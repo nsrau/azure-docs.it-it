@@ -1,6 +1,6 @@
 ---
 title: Configurare le impostazioni di Spark - Azure HDInsight
-description: Come visualizzare e configurare le impostazioni di Apache Spark per un cluster Azure HDInsight
+description: Come visualizzare e configurare le impostazioni di Apache Spark per un cluster Azure HDInsightHow to view and configure Apache Spark settings for an Azure HDInsight cluster
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.openlocfilehash: 48f19e5da8c7703cc597518246c2f62ebce3ae17
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272019"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurare le impostazioni di Apache Spark
@@ -91,7 +91,7 @@ I tre parametri principali che vengono spesso modificati per ottimizzare le conf
 > [!NOTE]  
 > Questi tre parametri di configurazione possono essere configurati a livello di cluster, per tutte le applicazioni in esecuzione nel cluster, oppure specificati per ogni singola applicazione.
 
-Un'altra fonte di informazioni sulle risorse in uso dagli executor Spark è l'interfaccia utente dell'applicazione Spark.  Nell'interfaccia utente di Spark selezionare la scheda **Executor** per visualizzare le viste di riepilogo e dei dettagli della configurazione e delle risorse utilizzate dagli executor.  Queste viste aiutano a determinare se modificare i valori predefiniti per gli executor Spark per l'intero cluster o un set specifico di esecuzioni del processo.
+Un'altra fonte di informazioni sulle risorse in uso dagli executor Spark è l'interfaccia utente dell'applicazione Spark.  Nell'interfaccia utente di Spark, selezionare la scheda **Esecutori** per visualizzare le visualizzazioni Riepilogo e Dettagli della configurazione e delle risorse utilizzate dagli esecutori.  Queste viste aiutano a determinare se modificare i valori predefiniti per gli executor Spark per l'intero cluster o un set specifico di esecuzioni del processo.
 
 ![Executor Spark](./media/apache-spark-settings/apache-spark-executors.png)
 
@@ -124,8 +124,8 @@ I cluster Spark in HDInsight includono per impostazione predefinita diversi comp
 
 * Spark Core: Spark Core, Spark SQL, API di streaming Spark, GraphX e Apache Spark MLlib.
 * Anaconda: strumento di gestione pacchetti Python.
-* [Apache Livy](https://livy.incubator.apache.org/): API REST di Apache Spark, usata per inviare processi remoti a un cluster HDInsight Spark.
-* Notebook [Jupyter](https://jupyter.org/) e [Apache Zeppelin](https://zeppelin.apache.org/): interfaccia utente interattiva basata su browser per l'interazione con il cluster Spark.
+* [Apache Livy:](https://livy.incubator.apache.org/) l'API REST Apache Spark, usata per inviare processi remoti a un cluster HDInsight Spark.
+* [Jupyter](https://jupyter.org/) e [notebook Apache zeppelin](https://zeppelin.apache.org/) - interfaccia utente interattiva basata su browser per l'interazione con il cluster Spark.
 * Driver ODBC: connette i cluster Spark in HDInsight a strumenti di business Intelligence come Microsoft Power BI e Tableau.
 
 Per le applicazioni in esecuzione nel notebook Jupyter, usare il comando `%%configure` per apportare modifiche alla configurazione dal notebook. Queste modifiche alla configurazione verranno applicate ai processi di Spark eseguiti dall'istanza del notebook. Apportare le modifiche all'inizio dell'applicazione, prima di eseguire la prima cella di codice. La configurazione modificata viene applicata alla sessione di Livy al momento della creazione.

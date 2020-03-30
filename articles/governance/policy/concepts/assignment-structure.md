@@ -1,29 +1,29 @@
 ---
 title: Dettagli della struttura di assegnazione dei criteri
-description: Descrive la definizione di assegnazione dei criteri usata da criteri di Azure per mettere in relazione le definizioni dei criteri e i parametri alle risorse per la valutazione.
+description: Descrive la definizione di assegnazione dei criteri usata dai criteri di Azure per correlare le definizioni e i parametri dei criteri alle risorse per la valutazione.
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.openlocfilehash: f03c654dfc4c8dfdf2bdc5103a5961b4d8ce1e64
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265298"
 ---
 # <a name="azure-policy-assignment-structure"></a>Struttura di assegnazione di Criteri di Azure
 
-Le assegnazioni di criteri vengono usate dai criteri di Azure per definire a quali risorse sono assegnati i criteri o le iniziative. L'assegnazione di criteri può determinare i valori dei parametri per il gruppo di risorse in fase di assegnazione, rendendo possibile il riutilizzo delle definizioni dei criteri che indirizzano le stesse proprietà delle risorse con diverse esigenze di conformità.
+Le assegnazioni dei criteri vengono usate dai criteri di Azure per definire le risorse a cui vengono assegnate i criteri o le iniziative. L'assegnazione dei criteri può determinare i valori dei parametri per il gruppo di risorse al momento dell'assegnazione, consentendo di riutilizzare le definizioni dei criteri che affrontano le stesse proprietà delle risorse con esigenze di conformità diverse.
 
-Si usa JSON per creare un'assegnazione di criteri. L'assegnazione di criteri contiene elementi per:
+Utilizzare JSON per creare un'assegnazione di criteri. L'assegnazione dei criteri contiene elementi per:
 
 - nome visualizzato
 - description
 - metadata
 - modalità di imposizione
-- definizione dei criteri
+- definizione di criteri
 - parametri
 
-Ad esempio, il codice JSON seguente mostra un'assegnazione di criteri in modalità _DoNotEnforce_ con i parametri dinamici:
+Ad esempio, il codice JSON seguente mostra un'assegnazione di criteri in modalità DoNotEnforce con parametri dinamici:For example, the following JSON shows a policy assignment in _DoNotEnforce_ mode with dynamic parameters:
 
 ```json
 {
@@ -47,34 +47,34 @@ Ad esempio, il codice JSON seguente mostra un'assegnazione di criteri in modalit
 }
 ```
 
-Tutti gli esempi di criteri di Azure sono disponibili in [esempi di criteri di Azure](../samples/index.md).
+Tutti gli esempi di Criteri di Azure sono disponibili in Esempi di criteri di Azure.All Azure Policy samples are at [Azure Policy samples](../samples/index.md).
 
 ## <a name="display-name-and-description"></a>Nome visualizzato e descrizione
 
-Usare **DisplayName** e **Description** per identificare l'assegnazione dei criteri e fornire il contesto per l'uso con il set specifico di risorse. **displayName** ha una lunghezza massima di _128_ caratteri e **description** una lunghezza massima di _512_ caratteri.
+Utilizzare **displayName** e **description** per identificare l'assegnazione dei criteri e fornire il contesto per il relativo utilizzo con il set specifico di risorse. **displayName** ha una lunghezza massima di _128_ caratteri e **description** una lunghezza massima di _512_ caratteri.
 
-## <a name="enforcement-mode"></a>Modalità di imposizione
+## <a name="enforcement-mode"></a>Modalità di applicazione
 
-La proprietà **enforcementMode** fornisce ai clienti la possibilità di testare il risultato di un criterio sulle risorse esistenti senza avviare l'effetto del criterio o attivare le voci nel [log attività di Azure](../../../azure-monitor/platform/platform-logs-overview.md). Questo scenario viene in genere definito "What If" e viene allineato a procedure di distribuzione sicure. **enforcementMode** è diverso dall'effetto [disabilitato](./effects.md#disabled) , perché questo effetto impedisce la valutazione delle risorse.
+La proprietà **enforcementMode** offre ai clienti la possibilità di testare il risultato di un criterio sulle risorse esistenti senza l'attivazione dell'effetto dei criteri o l'attivazione di voci nel log attività di [Azure.](../../../azure-monitor/platform/platform-logs-overview.md) Questo scenario viene comunemente definito "What If" e viene allineato alle procedure di distribuzione sicure. **enforcementMode** è diverso dall'effetto [Disabled,](./effects.md#disabled) in quanto tale effetto impedisce la valutazione delle risorse.
 
-Questa proprietà presenta i valori seguenti:
+Questa proprietà ha i seguenti valori:
 
-|Modalità |Valore JSON |Type |Correzione manuale |Voce del log attività |Descrizione |
+|Mode |Valore JSON |Type |Correggere manualmente |Voce del log attività |Descrizione |
 |-|-|-|-|-|-|
-|Abilitato |Default |string |Sì |Sì |L'effetto dei criteri viene applicato durante la creazione o l'aggiornamento delle risorse. |
+|Attivato |Predefinito |string |Sì |Sì |L'effetto dei criteri viene applicato durante la creazione o l'aggiornamento delle risorse. |
 |Disabled |DoNotEnforce |string |Sì |No | L'effetto dei criteri non viene applicato durante la creazione o l'aggiornamento delle risorse. |
 
-Se **enforcementMode** non è specificato nella definizione di un criterio o di un'iniziativa, viene usato il valore _predefinito_ . È possibile avviare le [attività di correzione](../how-to/remediate-resources.md) per i criteri [deployIfNotExists](./effects.md#deployifnotexists) , anche quando **enforcementMode** è impostato su _DoNotEnforce_.
+Se enforcementMode non è specificato in una definizione di criteri o di iniziativa, viene utilizzato il valore _Default.If_ **enforcementMode** isn't specified in a policy or initiative definition, the value Default is used. [È](../how-to/remediate-resources.md) possibile avviate attività di correzione per i criteri [deployIfNotExists,](./effects.md#deployifnotexists) anche quando **enforcementMode** è impostato su _DoNotEnforce_.
 
-## <a name="policy-definition-id"></a>ID definizione dei criteri
+## <a name="policy-definition-id"></a>ID definizione criteri
 
-Questo campo deve essere il nome completo del percorso di una definizione di criteri o di una definizione di iniziativa.
-`policyDefinitionId` è una stringa e non una matrice. Se più criteri vengono spesso assegnati insieme, è consigliabile usare invece un' [iniziativa](./definition-structure.md#initiatives) .
+Questo campo deve essere il nome completo del percorso di una definizione di criterio o di un'iniziativa.
+`policyDefinitionId`è una stringa e non una matrice. È consigliabile che se più criteri vengono spesso assegnati insieme, per utilizzare invece [un'iniziativa.](./definition-structure.md#initiatives)
 
 ## <a name="parameters"></a>Parametri
 
-Questo segmento dell'assegnazione di criteri fornisce i valori per i parametri definiti nella definizione dei [criteri o nella definizione di iniziativa](./definition-structure.md#parameters).
-Questa progettazione rende possibile il riutilizzo di una definizione di criteri o di un'iniziativa con diverse risorse, ma verificare la presenza di valori o risultati aziendali diversi.
+Questo segmento dell'assegnazione dei criteri fornisce i valori per i parametri definiti nella definizione dei criteri o nella [definizione dell'iniziativa.](./definition-structure.md#parameters)
+Questa progettazione consente di riutilizzare una definizione di policy o di iniziativa con risorse diverse, ma verifica la presenza di risultati o valori aziendali diversi.
 
 ```json
 "parameters": {
@@ -87,12 +87,12 @@ Questa progettazione rende possibile il riutilizzo di una definizione di criteri
 }
 ```
 
-In questo esempio, i parametri definiti in precedenza nella definizione dei criteri sono `prefix` e `suffix`. Questa particolare assegnazione di criteri imposta `prefix` a **depta** e `suffix` a **-LC**. La stessa definizione di criteri è riutilizzabile con un diverso set di parametri per un reparto diverso, riducendo la duplicazione e la complessità delle definizioni dei criteri, garantendo al tempo stesso flessibilità.
+In questo esempio, i parametri definiti `prefix` in `suffix`precedenza nella definizione dei criteri sono e . Questa particolare assegnazione dei criteri `prefix` imposta su **DeptA** e `suffix` su **-LC**. La stessa definizione di criterio è riutilizzabile con un set diverso di parametri per un reparto diverso, riducendo la duplicazione e la complessità delle definizioni dei criteri, fornendo al contempo flessibilità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sulla [struttura della definizione dei criteri](./definition-structure.md).
-- Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
-- Informazioni su come [ottenere i dati di conformità](../how-to/get-compliance-data.md).
-- Informazioni su come monitorare e [aggiornare le risorse non conformi](../how-to/remediate-resources.md).
-- Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).
+- Informazioni sulla struttura di [definizione dei criteri](./definition-structure.md).
+- Comprendere come creare criteri a livello di [codice.](../how-to/programmatically-create.md)
+- Scopri come ottenere i dati di [conformità](../how-to/get-compliance-data.md).
+- Informazioni su come [correggere le risorse non conformi.](../how-to/remediate-resources.md)
+- Esaminare le informazioni su cui si trova un gruppo di gestione con Organizzare le risorse con i gruppi di gestione di Azure.Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 71dd83db02537ed12dc2e711127e32d90603af6f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252649"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Avviare un runbook in Automazione di Azure
@@ -18,15 +18,15 @@ La tabella seguente aiuta a determinare il metodo per avviare un runbook in Auto
 
 | **Metodo** | **Caratteristiche** |
 | --- | --- |
-| [Azure portal](#start-a-runbook-with-the-azure-portal) |<li>Metodo più semplice con interfaccia utente interattiva.<br> <li>Modulo per specificare valori di parametri semplici.<br> <li>Facilità di controllo dello stato dei processi.<br> <li>Accesso autenticato con le informazioni di accesso di Azure. |
+| [Portale di Azure](#start-a-runbook-with-the-azure-portal) |<li>Metodo più semplice con interfaccia utente interattiva.<br> <li>Modulo per specificare valori di parametri semplici.<br> <li>Facilità di controllo dello stato dei processi.<br> <li>Accesso autenticato con le informazioni di accesso di Azure. |
 | [Windows PowerShell](/powershell/module/azurerm.automation/start-azurermautomationrunbook) |<li>Chiamata mediante cmdlet di Windows PowerShell nella riga di comandi.<br> <li>Possibilità di inclusione in una soluzione automatizzata con più passaggi.<br> <li>Autenticazione della richiesta con un certificato oppure con un'entità utente/entità servizio OAuth.<br> <li>Possibilità di specificare valori di parametri semplici e complessi.<br> <li>Possibilità di controllare lo stato dei processi.<br> <li>Obbligo per il client di supporto dei cmdlet di PowerShell. |
 | [API di Automazione di Azure](/rest/api/automation/) |<li>Modalità più flessibile, ma anche più complessa.<br> <li>Possibilità di chiamata da qualsiasi codice personalizzato in grado di creare richieste HTTP.<br> <li>Autenticazione della richiesta con un certificato oppure con un'entità utente/entità servizio OAuth.<br> <li>Possibilità di specificare valori di parametri semplici e complessi. *Se si chiama un runbook Python usando l'API, il payload JSON deve essere serializzato.*<br> <li>Possibilità di controllare lo stato dei processi. |
 | [Webhook](automation-webhooks.md) |<li>Avvio di Runbook da una singola richiesta HTTP.<br> <li>Autenticazione con token di sicurezza nell'URL.<br> <li>Impossibilità per il client di eseguire l'override dei valori di parametri specificati al momento della creazione del webhook. Possibilità per il Runbook di definire un singolo parametro popolato con i dettagli della richiesta HTTP.<br> <li>Impossibilità di tenere traccia dello stato dei processi tramite URL webhook. |
 | [Risposta all'avviso di Azure](../log-analytics/log-analytics-alerts.md) |<li>Avviare un runbook in risposta all'avviso di Azure.<br> <li>Configurare webhook per runbook e collegare all'avviso.<br> <li>Autenticazione con token di sicurezza nell'URL. |
-| [Pianificare](automation-schedules.md) |<li>Avvio automatico dei runbook in base a una pianificazione oraria, giornaliera, settimanale o mensile.<br> <li>Modifica della pianificazione tramite il portale di Azure, i cmdlet di PowerShell o l'API di Azure.<br> <li>Possibilità di specificare i valori di parametri da usare con la pianificazione. |
+| [Programma](automation-schedules.md) |<li>Avvio automatico dei runbook in base a una pianificazione oraria, giornaliera, settimanale o mensile.<br> <li>Modifica della pianificazione tramite il portale di Azure, i cmdlet di PowerShell o l'API di Azure.<br> <li>Possibilità di specificare i valori di parametri da usare con la pianificazione. |
 | [Da un altro Runbook](automation-child-runbooks.md) |<li>Uso di un Runbook come attività in un altro Runbook.<br> <li>Utile per funzionalità usate da più Runbook.<br> <li>Possibilità di specificare valori di parametri per Runbook figlio e usare l'output in Runbook padre. |
 
-L'immagine seguente illustra in dettaglio il processo nel ciclo di vita di un runbook. Include vari metodi di avvio di un runbook in Automazione di Azure, i componenti necessari per il ruolo di lavoro ibrido per runbook per eseguire i runbook di Automazione di Azure e le interazioni tra i vari componenti. Per altre informazioni sull'esecuzione di runbook di automazione nel proprio data center, vedere [Ruoli di lavoro ibridi per runbook](automation-hybrid-runbook-worker.md)
+L'immagine seguente illustra in dettaglio il processo nel ciclo di vita di un runbook. Include vari metodi di avvio di un runbook in Automazione di Azure, i componenti necessari per il ruolo di lavoro ibrido per runbook per eseguire i runbook di Automazione di Azure e le interazioni tra i vari componenti. Per informazioni sull'esecuzione di runbook di automazione nel data center, vedere [Lavoratori runbook ibridiTo](automation-hybrid-runbook-worker.md) learn about executing Automation runbooks in your datacenter, refer to hybrid runbook workers
 
 ![Architettura dei runbook](media/automation-starting-runbook/runbooks-architecture.png)
 
@@ -80,9 +80,9 @@ Il servizio Web Automazione di Azure fornisce funzionalità speciali per i param
 
 ### <a name="named-values"></a>Valori denominati
 
-Se il parametro è un tipo di dati [object], è possibile usare il formato JSON seguente per inviargli un elenco di valori denominati: *{Name1:'Value1', Name2:'Value2', Name3:'Value3'}* . Questi valori devono essere tipi semplici. Il runbook riceve il parametro come [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) con proprietà che corrispondono a ogni valore denominato.
+Se il parametro è un tipo di dati [object], è possibile usare il formato JSON seguente per inviargli un elenco di valori denominati: *{Name1:'Value1', Name2:'Value2', Name3:'Value3'}*. Questi valori devono essere tipi semplici. Il runbook riceve il parametro come [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) con proprietà che corrispondono a ogni valore denominato.
 
-Si esamini il runbook di test seguente, che accetta un parametro denominato user.
+Si consideri il Runbook di test seguente che accetta un parametro denominato user.
 
 ```powershell
 Workflow Test-Parameters
@@ -117,7 +117,7 @@ Smith
 
 ### <a name="arrays"></a>Matrici
 
-Se il parametro è una matrice, ad esempio [array] o [string[]], è possibile usare il formato JSON seguente per inviare un elenco di valori: *[Value1, Value2, Value3]* . Questi valori devono essere tipi semplici.
+Se il parametro è una matrice, ad esempio [array] o [string[]], è possibile usare il formato JSON seguente per inviare un elenco di valori: *[Value1, Value2, Value3]*. Questi valori devono essere tipi semplici.
 
 Si consideri il seguente runbook di test che accetta un parametro denominato *user*.
 
@@ -155,7 +155,7 @@ Smith
 
 Se il parametro è un tipo di dati **PSCredential**, è possibile specificare il nome di un [asset credenziali](automation-credentials.md)di Automazione di Azure. Il runbook recupera le credenziali con il nome specificato.
 
-Si esamini il runbook di test seguente, che accetta un parametro denominato credential.
+Si consideri il Runbook di test seguente che accetta un parametro denominato credential.
 
 ```powershell
 Workflow Test-Parameters
@@ -173,7 +173,7 @@ Workflow Test-Parameters
 My Credential
 ```
 
-Presupponendo che il nome utente nelle credenziali sia *jsmith*, si ottiene l'output seguente:
+Supponendo che il nome utente nella credenziale sia stato *jsmith*, verrà restituito il seguente output:
 
 ```output
 jsmith
@@ -183,4 +183,4 @@ jsmith
 
 * L'architettura runbook nell'articolo corrente offre una panoramica generale delle risorse di gestione di runbook in Azure e in locale con il ruolo di lavoro ibrido per runbook. Per altre informazioni sull'esecuzione di runbook di automazione nel proprio data center, vedere [Ruoli di lavoro ibridi per runbook](automation-hybrid-runbook-worker.md).
 * Per altre informazioni sulla creazione di runbook modulari che possono essere usati da altri runbook per funzioni comuni o specifiche, fare riferimento a [Runbook figlio](automation-child-runbooks.md).
-* Per altre informazioni su PowerShell, inclusi i moduli di riferimento e apprendimento del linguaggio, vedere la [documentazione di PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+* Per altre informazioni su PowerShell, inclusi i moduli di riferimento e apprendimento del linguaggio, vedere Documenti di [PowerShell](https://docs.microsoft.com/powershell/scripting/overview).

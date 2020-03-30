@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 13a3e57bb27c075fc045e87790dbe13369ed9f8e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254898"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>Usare il servizio Gestione dispositivi StorSimple per gestire i modelli di larghezza di banda StorSimple
@@ -40,9 +40,9 @@ Utilizzando le pianificazioni relative alla limitazione larghezza di banda è po
 
 Il pannello **Modelli di larghezza di banda** visualizza in formato tabulare tutti i modelli di larghezza di banda relativi al servizio e contiene le informazioni seguenti:
 
-* **Nome** : il nome univoco assegnato al modello di larghezza di banda al momento della creazione.
-* **Pianificazione** : il numero di pianificazioni incluse in un determinato modello di larghezza di banda.
-* **Utilizzato da** : il numero di volumi che utilizzano i modelli di larghezza di banda.
+* **Nome**: nome univoco assegnato al modello di larghezza di banda al momento della creazione.
+* **Pianificazione**: numero di pianificazioni contenute in un determinato modello di larghezza di banda.
+* **Utilizzato da**: numero di volumi che usano i modelli di larghezza di banda.
 
 Inoltre, è possibile trovare ulteriori informazioni per configurare i modelli di larghezza di banda in:
 
@@ -64,7 +64,7 @@ Per creare un nuovo modello di larghezza di banda, attenersi alla procedura segu
     1. Specificare un nome univoco per il modello di larghezza di banda.
     2. Definire una pianificazione per la larghezza di banda. Per creare una pianificazione:
    
-        1. Dall'elenco a discesa, selezionare i **giorni** della settimana per i quali è stata configurata la pianificazione. È possibile selezionare più giorni.        
+        1. Nell'elenco a discesa scegliere i **giorni** della settimana per cui è configurata la pianificazione. È possibile selezionare più giorni.        
         
         2. Immettere un'**Ora di inizio** nel formato _hh:mm_. Si tratta dell'orario relativo all'inizio della pianificazione.
 
@@ -116,7 +116,7 @@ Se il modello è utilizzato da qualche volume, non sarà possibile eliminarlo. V
 Per impostazione predefinita, un modello di larghezza di banda viene fornito e viene utilizzato dai contenitori di volume al fine di applicare i controlli di larghezza di banda richiesti per accedere al cloud. Il modello predefinito può essere utilizzato anche come riferimento immediato per gli utenti che creano modelli personalizzati. Di seguito, sono indicati i dettagli di questo modello predefinito:
 
 * **Nome** : notte e fine settimana senza limiti
-* **Pianificazione**: una pianificazione singola, dal lunedì al venerdì. Applica una velocità di larghezza di banda di 1 Mbps nell'intervallo d'uso del dispositivo compreso tra le 08:00 e le 17:00. La larghezza di banda è impostata su Senza limitazioni per il resto della settimana.
+* **Pianificazione**: una pianificazione singola, dal lunedì al venerdì. Applica una velocità di larghezza di banda di 1 Mbps nell'intervallo d'uso del dispositivo compreso tra le 08:00 e le 17:00. La larghezza di banda viene impostata su Illimitata per tutto il resto della settimana.
 
 È possibile modificare il modello predefinito. L'utilizzo di questo modello (incluse le versioni modificate) viene monitorato.
 
@@ -134,33 +134,33 @@ A questo punto, la pianificazione composta viene avviata a un orario scelto dall
 
 ## <a name="questions-and-answers-about-bandwidth-templates"></a>Domande e risposte sui modelli di larghezza di banda
 
-**D**. Cosa accade ai controlli della larghezza di banda nei periodi tra pianificazioni, ossia quando una pianificazione è terminata e un'altra non è ancora stata avviata?
+**Q**. Cosa accade ai controlli della larghezza di banda nei periodi tra pianificazioni, ossia quando una pianificazione è terminata e un'altra non è ancora stata avviata?
 
-**R**. In questi casi, non verranno utilizzati controlli relativi alla larghezza di banda. Ciò significa che il dispositivo può usare una larghezza di banda illimitata, quando si suddividono su livelli i dati nel cloud.
+**A**. In questi casi, non verranno utilizzati controlli relativi alla larghezza di banda. Ciò significa che il dispositivo può usare una larghezza di banda illimitata, quando si suddividono su livelli i dati nel cloud.
 
-**D**. È possibile modificare i modelli di larghezza di banda in un dispositivo offline?
+**Q**. È possibile modificare i modelli di larghezza di banda in un dispositivo offline?
 
-**R**. Non è possibile modificare i modelli di larghezza di banda nei contenitori di volume, se il dispositivo corrispondente è offline.
+**A**. Non è possibile modificare i modelli di larghezza di banda nei contenitori di volume, se il dispositivo corrispondente è offline.
 
-**D**. È possibile modificare un modello di larghezza di banda associato a un contenitore di volume, quando i volumi associati sono offline?
+**Q**. È possibile modificare un modello di larghezza di banda associato a un contenitore di volume, quando i volumi associati sono offline?
 
-**R**. È possibile modificare un modello di larghezza di banda associato a un contenitore di volume, i cui volumi sono offline. Tenere presente che quando i volumi sono offline, nessun dato viene suddiviso in livelli dal dispositivo al cloud.
+**A**. È possibile modificare un modello di larghezza di banda associato a un contenitore di volume, i cui volumi sono offline. Tenere presente che quando i volumi sono offline, nessun dato viene suddiviso in livelli dal dispositivo al cloud.
 
-**D**. È possibile eliminare un modello predefinito?
+**Q**. È possibile eliminare un modello predefinito?
 
-**R**. Sebbene sia possibile eliminare un modello predefinito, non si consiglia di effettuare tale operazione. L'utilizzo di questo modello predefinito (comprese le versioni modificate) viene monitorato. I dati di rilevamento vengono analizzati nel tempo e utilizzati al fine di migliorare il modello predefinito.
+**A**. Sebbene sia possibile eliminare un modello predefinito, non si consiglia di effettuare tale operazione. L'utilizzo di questo modello predefinito (comprese le versioni modificate) viene monitorato. I dati di rilevamento vengono analizzati nel tempo e utilizzati al fine di migliorare il modello predefinito.
 
-**D**. Come si determina la necessità di modificare i modelli di larghezza di banda?
+**Q**. Come si determina la necessità di modificare i modelli di larghezza di banda?
 
-**R**. Quando si assiste a un rallentamento o una riduzione delle prestazioni per più volte al giorno, vuol dire che è necessario modificare i modelli di larghezza di banda. In questo caso, monitorare l'archiviazione e l'utilizzo della rete controllando i grafici di input e output relativi alle prestazioni e alla produttività della rete.
+**A**. Quando si assiste a un rallentamento o una riduzione delle prestazioni per più volte al giorno, vuol dire che è necessario modificare i modelli di larghezza di banda. In questo caso, monitorare l'archiviazione e l'utilizzo della rete controllando i grafici di input e output relativi alle prestazioni e alla produttività della rete.
 
 Dai dati relativi alla produttività della rete, identificare l'orario e i contenitori di volume in cui si verifica il collo di bottiglia della rete. In questo caso, quando i dati vengono suddivisi in livelli nel cloud (informazioni disponibili nelle prestazioni di I/O per tutti i contenitori di volume da dispositivo a cloud), sarà necessario modificare i modelli di larghezza di banda associati con i contenitori di volume.
 
 Quando i modelli modificati sono in uso, è necessario monitorare di nuovo la rete per latenze significative. Se vengono rilevate, sarà necessario rivedere i modelli di larghezza di banda.
 
-**D**. Cosa accade se in più contenitori di volume del dispositivo sono presenti pianificazioni che si sovrappongono, ma alle quali vengono applicati limitazioni differenti?
+**Q**. Cosa accade se in più contenitori di volume del dispositivo sono presenti pianificazioni che si sovrappongono, ma alle quali vengono applicati limitazioni differenti?
 
-**R**. Si consideri la situazione in cui un utente dispone di un dispositivo con 3 contenitori di volume. Le pianificazioni associate a questi contenitori si sovrappongono completamente. Per ognuno di questi contenitori, i limiti di larghezza di banda usati corrispondo a 5, 10 e 15 Mbps. Quando gli input/output si verificano su tali contenitori contemporaneamente, è possibile che si applichino i 3 limiti di larghezza di banda. In questo caso, 5 Mbps poiché le richieste I/O in uscita condividono la stessa coda.
+**A**. Si consideri la situazione in cui un utente dispone di un dispositivo con 3 contenitori di volume. Le pianificazioni associate a questi contenitori si sovrappongono completamente. Per ognuno di questi contenitori, i limiti di larghezza di banda usati corrispondo a 5, 10 e 15 Mbps. Quando gli input/output si verificano su tali contenitori contemporaneamente, è possibile che si applichino i 3 limiti di larghezza di banda. In questo caso, 5 Mbps poiché le richieste I/O in uscita condividono la stessa coda.
 
 ## <a name="best-practices-for-bandwidth-templates"></a>Procedure consigliate per i modelli di larghezza di banda
 

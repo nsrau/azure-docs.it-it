@@ -1,6 +1,6 @@
 ---
-title: Scalabilità automatica V1
-description: Ridimensionamento automatico e ambiente del servizio app V1. Questo documento è disponibile solo per i clienti che usano l'ambiente del servizio app legacy V1.
+title: Scalabilità automatica v1
+description: Scalabilità automatica e ambiente del servizio app v1. Questo documento viene fornito solo per i clienti che utilizzano l'app ase versione 21 legacy.
 author: btardif
 ms.assetid: c23af2d8-d370-4b1f-9b3e-8782321ddccb
 ms.topic: article
@@ -8,16 +8,16 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 4f071c0d09fc2fa97eeea45bd82228b7eb8434a2
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74687289"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Ridimensionamento automatico e ambiente del servizio app (versione 1)
 
 > [!NOTE]
-> Questo articolo riguarda l'ambiente del servizio app v1.  Esiste una nuova versione dell'ambiente del servizio app che, oltre ad essere più facile da usare, può essere eseguita in un'infrastruttura più potente. Per altre informazioni su questa nuova versione, vedere [Introduzione ad Ambiente del servizio app](intro.md).
+> Questo articolo riguarda l'ambiente del servizio app v1.  Esiste una nuova versione dell'ambiente del servizio app che, oltre ad essere più facile da usare, può essere eseguita in un'infrastruttura più potente. Per altre informazioni sulla nuova versione, iniziare con [l'introduzione all'ambiente del servizio app](intro.md).
 > 
 
 Gli ambienti del servizio app di Azure supportano il *ridimensionamento automatico*. È possibile ridimensionare automaticamente singoli pool di lavoro in base alle metriche o alla pianificazione.
@@ -55,7 +55,7 @@ Per illustrare il ridimensionamento automatico di un ambiente del servizio app, 
 Questo articolo descrive tutte le considerazioni necessarie per configurare il ridimensionamento automatico, nonché tutte le interazioni che entrano in gioco quando si configura il ridimensionamento automatico di ambienti del servizio app ospitati in un ambiente del servizio app.
 
 ### <a name="scenario-introduction"></a>Introduzione dello scenario
-Frank è un amministratore di sistema per un'azienda che ha eseguito la migrazione di una parte dei carichi di lavoro che gestiscono in un ambiente del servizio app.
+Frank è un sysadmin per un'azienda che ha eseguito la migrazione di una parte dei carichi di lavoro gestiti in un ambiente del servizio app.
 
 L'ambiente del servizio app è configurato per la scalabilità manuale come segue:
 
@@ -68,7 +68,7 @@ Il pool di lavoro 1 viene usato per i carichi di lavoro di produzione, mentre il
 
 I piani del servizio app per il controllo di qualità e lo sviluppo vengono configurati per il ridimensionamento manuale. Il piano del servizio app di produzione è impostato per il ridimensionamento automatico, in modo da adeguarsi alle variazioni del carico e del traffico.
 
-Diego ha una notevole familiarità con l'applicazione. Sanno che le ore di picco per il carico sono comprese tra 9:00 AM e 6:00 PM, perché si tratta di un'applicazione line-of-business (LOB) usata dai dipendenti mentre si trovano in ufficio. L'utilizzo si riduce al termine della giornata lavorativa degli utenti. Al di fuori dagli orari di picco il carico è ancora presente in parte, perché gli utenti possono accedere all'app in modalità remota usando i propri dispositivi mobili o i PC di casa. Il piano di servizio app è già configurato per il ridimensionamento automatico in base all'utilizzo della CPU con le regole seguenti:
+Diego ha una notevole familiarità con l'applicazione. Sanno che le ore di punta per il carico sono tra 9:00 AM e 6:00 PM perché si tratta di un'applicazione line-of-business (LOB) che i dipendenti utilizzano mentre sono in ufficio. L'utilizzo si riduce al termine della giornata lavorativa degli utenti. Al di fuori dagli orari di picco il carico è ancora presente in parte, perché gli utenti possono accedere all'app in modalità remota usando i propri dispositivi mobili o i PC di casa. Il piano di servizio app è già configurato per il ridimensionamento automatico in base all'utilizzo della CPU con le regole seguenti:
 
 ![Impostazioni specifiche per l'app LOB.][asp-scale]
 
@@ -87,7 +87,7 @@ Diego ha una notevole familiarità con l'applicazione. Sanno che le ore di picco
 | **Risorsa:** produzione (Ambiente del servizio app) |**Risorsa:** produzione (Ambiente del servizio app) |
 | **Metrica:** % CPU |**Metrica:** % CPU |
 | **Operazione:** maggiore del 60% |**Operazione:** maggiore del 80% |
-| **Durata:** 5 minuti |**Durata:** 10 minuti |
+| **Durata:** 5 minuti |**Durata:&nbsp10** Minuti |
 | **Aggregazione temporale:** media |**Aggregazione temporale:** media |
 | **Azione:** aumenta numero di 2 |**Azione:** aumenta numero di 1 |
 | **Disattiva regole dopo (minuti):** 15 |**Disattiva regole dopo (minuti):** 20 |
@@ -212,7 +212,7 @@ Per questo scenario, Diego sa che la percentuale di errore aumenta quando i pool
 | **Risorsa:** Pool di lavoro 1 |
 | **Metrica:** % CPU |
 | **Operazione:** inferiore al 30% |
-| **Durata:** 20 minuti |
+| **Durata:&nbsp20** minuti |
 | **Aggregazione temporale:** media |
 | **Azione:** riduci numero di 3 |
 | **Disattiva regole dopo (minuti):** 120 |

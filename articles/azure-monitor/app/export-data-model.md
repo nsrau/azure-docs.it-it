@@ -4,10 +4,10 @@ description: Descrive le proprietà esportate da esportazione continua in JSON e
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: e4dd2310169476e54c06083fee11b2e4cccecd8d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663876"
 ---
 # <a name="application-insights-export-data-model"></a>Modello di dati di esportazione di Application Insights
@@ -105,13 +105,13 @@ Punti da notare:
 ## <a name="context"></a>Context
 Tutti i tipi di telemetria sono accompagnati da una sezione di contesto. Non tutti questi campi vengono trasmessi con ogni punto dati.
 
-| Percorso | Type | Note |
+| Path | Type | Note |
 | --- | --- | --- |
 | context.custom.dimensions [0] |oggetto [ ] |Coppie di stringhe chiave-valore impostate dal parametro delle proprietà personalizzate. La lunghezza massima delle chiavi 100, la lunghezza massima dei valori è 1024. Più di 100 valori univoci. La proprietà può essere cercata, ma non può essere usata per la segmentazione. Massimo 200 chiavi per ikey. |
 | context.custom.metrics [0] |oggetto [ ] |Coppie di chiave-valore impostate dai parametri delle misurazioni personalizzate e da TrackMetrics. La lunghezza massima delle chiavi 100, i valori possono essere numerici. |
 | context.data.eventTime |string |UTC |
 | context.data.isSynthetic |boolean |La richiesta proviene da un robot o un test Web. |
-| context.data.samplingRate |numero |Percentuale di telemetria generata dall'SDK inviato al portale. L'intervallo è 0,0-100,0. |
+| context.data.samplingRate |d'acquisto |Percentuale di telemetria generata dall'SDK inviato al portale. L'intervallo è 0,0-100,0. |
 | context.device |object |Dispositivo client |
 | context.device.browser |string |IE, Chrome, ... |
 | context.device.browserVersion |string |Chrome 48.0, ... |
@@ -149,12 +149,12 @@ Tutti i tipi di telemetria sono accompagnati da una sezione di contesto. Non tut
 | internal.data.documentVersion |string | |
 | internal.data.id |string | Id univoco che viene assegnato quando viene acquisito un elemento in Application Insights |
 
-## <a name="events"></a>Eventi
+## <a name="events"></a>Events
 Eventi personalizzati generati da [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
-| Percorso | Type | Note |
+| Path | Type | Note |
 | --- | --- | --- |
-| event [0] count |integer |100/(frequenza di[campionamento](../../azure-monitor/app/sampling.md) ). Ad esempio, 4 =&gt; 25%. |
+| event [0] count |integer |100/([frequenza di campionamento).](../../azure-monitor/app/sampling.md) Ad esempio, 4 =&gt; 25%. |
 | event [0] name |string |Nome evento.  Lunghezza massima: 250. |
 | event [0] url |string | |
 | event [0] urlData.base |string | |
@@ -163,10 +163,10 @@ Eventi personalizzati generati da [TrackEvent()](../../azure-monitor/app/api-cus
 ## <a name="exceptions"></a>Eccezioni
 Segnala le [eccezioni](../../azure-monitor/app/asp-net-exceptions.md) nel server e nel browser.
 
-| Percorso | Type | Note |
+| Path | Type | Note |
 | --- | --- | --- |
 | basicException [0] assembly |string | |
-| basicException [0] count |integer |100/(frequenza di[campionamento](../../azure-monitor/app/sampling.md) ). Ad esempio, 4 =&gt; 25%. |
+| basicException [0] count |integer |100/([frequenza di campionamento).](../../azure-monitor/app/sampling.md) Ad esempio, 4 =&gt; 25%. |
 | basicException [0] exceptionGroup |string | |
 | basicException [0] exceptionType |string | |
 | basicException [0] failedUserCodeMethod |string | |
@@ -192,7 +192,7 @@ Segnala le [eccezioni](../../azure-monitor/app/asp-net-exceptions.md) nel server
 ## <a name="trace-messages"></a>Messaggi di traccia
 Inviati da [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) e dagli [adattatori di registrazione](../../azure-monitor/app/asp-net-trace-logs.md).
 
-| Percorso | Type | Note |
+| Path | Type | Note |
 | --- | --- | --- |
 | message [0] loggerName |string | |
 | message [0] parameters |string | |
@@ -202,14 +202,14 @@ Inviati da [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tra
 ## <a name="remote-dependency"></a>Dipendenza remota
 Inviata da TrackDependency. Usata per segnalare le prestazioni e l'utilizzo delle [chiamate alle dipendenze](../../azure-monitor/app/asp-net-dependencies.md) nel server e delle chiamate AJAX nel browser.
 
-| Percorso | Type | Note |
+| Path | Type | Note |
 | --- | --- | --- |
 | remoteDependency [0] async |boolean | |
 | remoteDependency [0] baseName |string | |
 | remoteDependency [0] commandName |string |Ad esempio "home/index" |
-| remoteDependency [0] count |integer |100/(frequenza di[campionamento](../../azure-monitor/app/sampling.md) ). Ad esempio, 4 =&gt; 25%. |
+| remoteDependency [0] count |integer |100/([frequenza di campionamento).](../../azure-monitor/app/sampling.md) Ad esempio, 4 =&gt; 25%. |
 | remoteDependency [0] dependencyTypeName |string |HTTP, SQL... |
-| remoteDependency [0] durationMetric.value |numero |Tempo intercorso tra la chiamata e il completamento della risposta da parte di una dipendenza |
+| remoteDependency [0] durationMetric.value |d'acquisto |Tempo intercorso tra la chiamata e il completamento della risposta da parte di una dipendenza |
 | remoteDependency [0] id |string | |
 | remoteDependency [0] name |string |URL. Lunghezza massima: 250. |
 | remoteDependency [0] resultCode |string |Dalla dipendenza HTTP |
@@ -220,13 +220,13 @@ Inviata da TrackDependency. Usata per segnalare le prestazioni e l'utilizzo dell
 | remoteDependency [0] urlData.hashTag |string | |
 | remoteDependency [0] urlData.host |string |Lunghezza massima: 200 |
 
-## <a name="requests"></a>Richieste
+## <a name="requests"></a>Requests
 Inviate da [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). I moduli standard le usano per segnalare il tempo di risposta del server, calcolato nel server.
 
-| Percorso | Type | Note |
+| Path | Type | Note |
 | --- | --- | --- |
-| request [0] count |integer |100/(frequenza di[campionamento](../../azure-monitor/app/sampling.md) ). Ad esempio, 4 =&gt; 25%. |
-| request [0] durationMetric.value |numero |Tempo tra l'arrivo della richiesta e la risposta. 1e7 == 1 s |
+| request [0] count |integer |100/([frequenza di campionamento).](../../azure-monitor/app/sampling.md) Ad esempio, 4 =&gt; 25%. |
+| request [0] durationMetric.value |d'acquisto |Tempo tra l'arrivo della richiesta e la risposta. 1e7 == 1 s |
 | request [0] id |string |ID operazione |
 | request [0] name |string |GET/POST + base URL.  Lunghezza massima: 250 |
 | request [0] responseCode |integer |Risposta HTTP inviata al client |
@@ -241,7 +241,7 @@ Inviate dal browser. Misura il tempo necessario per elaborare una pagina, da qua
 
 I valori del contesto indicano la versione del sistema operativo client e del browser.
 
-| Percorso | Type | Note |
+| Path | Type | Note |
 | --- | --- | --- |
 | clientPerformance [0] clientProcess.value |integer |Tempo compreso tra la fine della ricezione del codice HTML e la visualizzazione della pagina. |
 | clientPerformance [0] name |string | |
@@ -258,9 +258,9 @@ I valori del contesto indicano la versione del sistema operativo client e del br
 ## <a name="page-views"></a>Visualizzazioni pagina
 Inviate da trackPageView() o [stopTrackPage](../../azure-monitor/app/api-custom-events-metrics.md#page-views)
 
-| Percorso | Type | Note |
+| Path | Type | Note |
 | --- | --- | --- |
-| view [0] count |integer |100/(frequenza di[campionamento](../../azure-monitor/app/sampling.md) ). Ad esempio, 4 =&gt; 25%. |
+| view [0] count |integer |100/([frequenza di campionamento).](../../azure-monitor/app/sampling.md) Ad esempio, 4 =&gt; 25%. |
 | view [0] durationMetric.value |integer |Valore facoltativo impostato in trackPageView() o da startTrackPage() - stopTrackPage(). Non corrisponde ai valori di clientPerformance. |
 | view [0] name |string |Titolo della pagina.  Lunghezza massima: 250 |
 | view [0] url |string | |
@@ -271,17 +271,17 @@ Inviate da trackPageView() o [stopTrackPage](../../azure-monitor/app/api-custom-
 ## <a name="availability"></a>Disponibilità
 Segnala i [test Web di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md).
 
-| Percorso | Type | Note |
+| Path | Type | Note |
 | --- | --- | --- |
-| availability [0] availabilityMetric.name |string |disponibilità |
-| availability [0] availabilityMetric.value |numero |1,0 o 0,0 |
-| availability [0] count |integer |100/(frequenza di[campionamento](../../azure-monitor/app/sampling.md) ). Ad esempio, 4 =&gt; 25%. |
+| availability [0] availabilityMetric.name |string |availability |
+| availability [0] availabilityMetric.value |d'acquisto |1,0 o 0,0 |
+| availability [0] count |integer |100/([frequenza di campionamento).](../../azure-monitor/app/sampling.md) Ad esempio, 4 =&gt; 25%. |
 | availability [0] dataSizeMetric.name |string | |
 | availability [0] dataSizeMetric.value |integer | |
 | availability [0] durationMetric.name |string | |
-| availability [0] durationMetric.value |numero |Durata del test. 1e7==1 s |
+| availability [0] durationMetric.value |d'acquisto |Durata del test. 1e7==1 s |
 | availability [0] message |string |Diagnostica di errori |
-| availability [0] result |string |Test superato/Test non superato |
+| availability [0] result |string |Esito positivo o negativo |
 | availability [0] runLocation |string |Origine geografica della richiesta HTTP |
 | availability [0] testName |string | |
 | availability [0] testRunId |string | |
@@ -292,7 +292,7 @@ Generata da TrackMetric().
 
 Il valore della metrica è disponibile in context.custom.metrics[0]
 
-Ad esempio,
+Ad esempio:
 
     {
      "metric": [ ],
@@ -318,7 +318,7 @@ Ad esempio,
     }
 
 ## <a name="about-metric-values"></a>Informazioni sui valori della metrica
-I valori della metrica, nei report della metrica e altrove, vengono segnalati con una struttura di oggetti standard. Ad esempio,
+I valori della metrica, nei report della metrica e altrove, vengono segnalati con una struttura di oggetti standard. Ad esempio:
 
       "durationMetric": {
         "name": "contoso.org",

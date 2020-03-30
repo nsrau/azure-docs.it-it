@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
 ms.openlocfilehash: efb6cd1a45ac14dcbd5b2b6d8e70f5ee096ddbd8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255834"
 ---
 # <a name="hyperscale-service-tier"></a>Livello di servizio Hyperscale
@@ -29,7 +29,7 @@ Il livello di servizio Hyperscale nel database SQL di Azure è il livello di ser
 
 > 
 > [!NOTE]
-> Per informazioni dettagliate sui livelli di servizio Utilizzo generico e Business critical nel modello di acquisto basato su vCore, vedere i livelli di servizio [Utilizzo generico](sql-database-service-tier-general-purpose.md) e [Business critical](sql-database-service-tier-business-critical.md). Per un confronto tra il modello di acquisto basato su vCore e quello basato su DTU, vedere [Modelli di acquisto e risorse del database SQL di Azure](sql-database-service-tiers.md).
+> Per informazioni dettagliate sui livelli di servizio Scopo generale e Business Critical nel modello di acquisto basato su vCore, vedere [General Purpose](sql-database-service-tier-general-purpose.md) and [Business Critical](sql-database-service-tier-business-critical.md) service tiers. Per un confronto tra il modello di acquisto basato su vCore e quello basato su DTU, vedere [Modelli di acquisto e risorse del database SQL di Azure](sql-database-service-tiers.md).
 
 
 ## <a name="what-are-the-hyperscale-capabilities"></a>Funzionalità del livello di servizio Hyperscale
@@ -37,7 +37,7 @@ Il livello di servizio Hyperscale nel database SQL di Azure è il livello di ser
 Il livello di servizio Hyperscale nel database SQL di Azure offre le seguenti funzionalità aggiuntive:
 
 - Supporto per database di dimensioni massime di 100 TB
-- Backup di database quasi istantanei (basati su snapshot di file archiviati nell'archivio BLOB di Azure) indipendentemente dalle dimensioni senza effetti di i/o sulle risorse di calcolo  
+- Backup di database quasi istantanei (basati su snapshot di file archiviati nell'archiviazione BLOB di Azure) indipendentemente dalle dimensioni senza impatto sulle risorse di calcolo  
 - Ripristino dei database (basati su snapshot di file) in pochi minuti anziché in ore o giorni (non è un'operazione di dimensionamento dei dati)
 - Prestazioni complessive più elevate grazie alla maggiore velocità effettiva dei log e ai tempi di esecuzione di commit delle transazioni più veloci, indipendentemente dai volumi di dati
 - Rapida scalabilità orizzontale: è possibile effettuare il provisioning di uno o più nodi di sola lettura per l'offload del carico di lavoro di lettura e per l'uso come hot standby
@@ -51,13 +51,13 @@ Per altre informazioni sulle dimensioni di calcolo per il livello di servizio Hy
 
 ## <a name="who-should-consider-the-hyperscale-service-tier"></a>Destinazione d'uso del livello di servizio Hyperscale
 
-Il livello di servizio di iperscalabilità è destinato alla maggior parte dei carichi di lavoro aziendali, poiché offre una grande flessibilità e prestazioni elevate con risorse di calcolo e archiviazione scalabili in modo indipendente. Grazie alla possibilità di ridimensionare automaticamente lo spazio di archiviazione fino a 100 TB, è un'ottima scelta per i clienti che:
+Il livello di servizio Hyperscale è destinato alla maggior parte dei carichi di lavoro aziendali in quanto offre grande flessibilità e prestazioni elevate con risorse di elaborazione e archiviazione scalabili in modo indipendente. Con la possibilità di scalare automaticamente lo storage fino a 100 TB, è un'ottima scelta per i clienti che:
 
-- Hanno database di grandi dimensioni in locale e si vuole modernizzare le applicazioni passando al cloud
-- Sono già presenti nel cloud e sono limitati dalle limitazioni massime per le dimensioni del database di altri livelli di servizio (1-4 TB)
-- Sono disponibili database di dimensioni inferiori, ma è necessario un rapido ridimensionamento verticale e orizzontale di calcolo, prestazioni elevate, backup istantaneo e ripristino rapido dei database.
+- Disporre di database di grandi dimensioni in locale e si desidera modernizzare le applicazioni passando al cloud
+- Sono già nel cloud e sono limitati dalle restrizioni di dimensione massima del database di altri livelli di servizio (1-4 TB)
+- Disporre di database più piccoli, ma richiedono scalabilità di calcolo verticale e orizzontale veloce, prestazioni elevate, backup istantaneo e ripristino rapido del database.
 
-Il livello di servizio di iperscalabilità supporta un'ampia gamma di carichi di lavoro di SQL Server, da OLTP pure a pure Analytics, ma è ottimizzato principalmente per i carichi di lavoro OLTP e di elaborazione analitica e di transazione (HTAP).
+Il livello di servizio Hyperscale supporta un'ampia gamma di carichi di lavoro di SQL Server, da OLTP puro a analisi pura, ma è ottimizzato principalmente per i carichi di lavoro OLTP e HTAP (Hybrid transaction and analytical Processing).
 
 > [!IMPORTANT]
 > I pool elastici non supportano il livello di servizio Hyperscale.
@@ -66,66 +66,66 @@ Il livello di servizio di iperscalabilità supporta un'ampia gamma di carichi di
 
 Il livello di servizio Hyperscale è disponibile solo nel [modello vCore](sql-database-service-tiers-vcore.md). Per allinearsi alla nuova architettura, il modello di prezzi è leggermente diverso da quello del livello di servizio Utilizzo generico o Business critical:
 
-- **Calcolo**:
+- **Compute**:
 
-  Il prezzo dell'unità di calcolo del livello di servizio Hyperscale è per replica. Il prezzo del [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/) viene applicato automaticamente alle repliche con scalabilità in lettura. Per impostazione predefinita, viene creata una replica primaria e una replica di sola lettura per database iperscalare.  Gli utenti possono modificare il numero totale di repliche, incluso il database primario da 1-5.
+  Il prezzo dell'unità di calcolo del livello di servizio Hyperscale è per replica. Il prezzo del [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/) viene applicato automaticamente alle repliche con scalabilità in lettura. Per impostazione predefinita, viene creata una replica primaria e una replica di sola lettura per ogni database Hyperscale.We create a primary replica and one read-only replica per Hyperscale database by default.  Gli utenti possono modificare il numero totale di repliche, incluso il database primario da 1 a 5.
 
-- **Storage** (Archiviazione):
+- **Spazio di archiviazione**:
 
-  Non è necessario specificare le dimensioni massime dei dati durante la configurazione di un database Hyperscale. Nel livello iperscalare viene addebitato lo spazio di archiviazione per il database in base all'effettiva allocazione. Lo spazio di archiviazione viene allocato automaticamente tra 40 GB e 100 TB, in 10 GB incrementi di 10 GB. Se necessario, possono crescere più file di dati contemporaneamente. Un database con iperscalabilità viene creato con una dimensione iniziale di 10 GB e inizia a crescere di 10 GB ogni 10 minuti, fino a raggiungere le dimensioni di 40 GB.
+  Non è necessario specificare le dimensioni massime dei dati durante la configurazione di un database Hyperscale. Nel livello di hyperscale viene addebitato l'archiviazione per il database in base all'allocazione effettiva. Lo spazio di archiviazione viene allocato automaticamente tra 40 GB e 100 TB, in 10 GB di incrementi di 10 GB. Più file di dati possono crescere contemporaneamente, se necessario. Un database Hyperscale viene creato con una dimensione iniziale di 10 GB e inizia a crescere di 10 GB ogni 10 minuti, fino a raggiungere la dimensione di 40 GB.
 
 Per altre informazioni sui prezzi di Hyperscale, vedere [Prezzi di Database SQL di Azure](https://azure.microsoft.com/pricing/details/sql-database/single/)
 
 ## <a name="distributed-functions-architecture"></a>Architettura con funzioni distribuite
 
-A differenza dei motori di database tradizionali che centralizzano tutte le funzioni di gestione dati in un unico percorso o processo (perfino i cosiddetti database distribuiti per la produzione dispongono attualmente di più copie di un motore dati monolitico), un database Hyperscale separa il motore di elaborazione query, in cui far divergere la semantica dei vari motori di dati, dai componenti che offrono archiviazione a lungo termine e la durabilità dei dati. In questo modo, la capacità di archiviazione può essere facilmente aumentata secondo necessità (l'obiettivo iniziale è 100 TB). Le repliche di sola lettura condividono gli stessi componenti di archiviazione, pertanto non è necessaria alcuna copia di dati per creare una nuova replica leggibile. 
+A differenza dei motori di database tradizionali che centralizzano tutte le funzioni di gestione dati in un unico percorso o processo (perfino i cosiddetti database distribuiti per la produzione dispongono attualmente di più copie di un motore dati monolitico), un database Hyperscale separa il motore di elaborazione query, in cui far divergere la semantica dei vari motori di dati, dai componenti che offrono archiviazione a lungo termine e la durabilità dei dati. In questo modo, la capacità di archiviazione può essere facilmente aumentata secondo necessità (l'obiettivo iniziale è 100 TB). Le repliche di sola lettura condividono gli stessi componenti di archiviazione, pertanto non è necessaria alcuna copia dei dati per creare una nuova replica leggibile. 
 
 Il diagramma seguente illustra i diversi tipi di nodi in un database Hyperscale:
 
 ![architettura](./media/sql-database-hyperscale/hyperscale-architecture.png)
 
-Un database con iperscalabilità contiene i diversi tipi di componenti seguenti:
+Un database Hyperscale contiene i seguenti tipi diversi di componenti:
 
 ### <a name="compute"></a>Calcolo
 
 Il nodo di calcolo è dove si trova il motore relazionale e dove si verificano tutti i gli elementi del linguaggio, dell'elaborazione delle query e così via. Tutte le interazioni dell'utente con un database Hyperscale vengono eseguite tramite questi nodi di calcolo. I nodi di calcolo presentano cache basae su SSD (con etichetta RBPEX - estensione del pool di buffer resiliente nel diagramma precedente) per ridurre al minimo il numero di round trip di rete necessari per recuperare una pagina di dati. È presente un nodo di calcolo primario in cui vengono elaborati tutti i carichi di lavoro di lettura/scrittura e le transazioni. Sono presenti uno o più nodi di calcolo secondari che fungono da nodi di hot standby per finalità di failover, oltre a fungere da nodi di calcolo di sola lettura per l'offload di carichi di lavoro di lettura (se si desidera questa funzionalità).
 
-### <a name="page-server"></a>Server della pagina
+### <a name="page-server"></a>Server di paging
 
-I servers di pagina sono sistemi che rappresentano un motore di archiviazione con scalabilità orizzontale.  Ogni server di pagina è responsabile di un subset delle pagine nel database.  Ogni controllo server di pagina è nominalmente compreso tra 128 GB e 1 TB di dati. Nessun dato è condiviso su più di un server di pagina (al di là delle repliche mantenute per ridondanza e disponibilità). Il compito di un server di pagina consiste nel fornire su richiesta le pagine del database ai nodi di calcolo e nel mantenere le pagine aggiornate man mano che le transazioni aggiornano i dati. I server di pagina vengono tenuti aggiornati riproducendo i record di log dal servizio di log. Per migliorare le prestazioni, i server di pagina gestiscono anche le cache basate su SSD. L'archiviazione a lungo termine delle pagine di dati viene mantenuta in Archiviazione di Azure per garantire maggiore affidabilità.
+I servers di pagina sono sistemi che rappresentano un motore di archiviazione con scalabilità orizzontale.  Ogni server di pagina è responsabile di un subset delle pagine nel database.  Nominalmente, ogni server di pagina controlla tra 128 GB e 1 TB di dati. Nessun dato è condiviso su più di un server di pagina (al di là delle repliche mantenute per ridondanza e disponibilità). Il compito di un server di pagina consiste nel fornire su richiesta le pagine del database ai nodi di calcolo e nel mantenere le pagine aggiornate man mano che le transazioni aggiornano i dati. I server di pagina vengono tenuti aggiornati riproducendo i record di log dal servizio di log. Per migliorare le prestazioni, i server di pagina gestiscono anche le cache basate su SSD. L'archiviazione a lungo termine delle pagine di dati viene mantenuta in Archiviazione di Azure per garantire maggiore affidabilità.
 
-### <a name="log-service"></a>Servizio di log
+### <a name="log-service"></a>Servizio di registrazione
 
-Il servizio di log accetta i record di log dalla replica di calcolo primaria, li rende persistenti in una cache durevole e li trasmette al resto delle repliche di calcolo, in modo che possano aggiornare le rispettive cache, nonché i server di pagine pertinenti, in modo che i dati possano essere aggiornati C'. In questo modo, tutte le modifiche apportate ai dati dalla replica primaria di calcolo vengono propagate tramite il servizio di log a tutte le repliche di calcolo secondarie e ai server di pagine. Infine, i record di log vengono inviati all'archiviazione a lungo termine in archiviazione di Azure, un repository di archiviazione virtualmente infinito. Questo meccanismo Elimina la necessità di un troncamento del log frequente. Il servizio di log dispone anche della cache locale per velocizzare l'accesso ai record di log.
+Il servizio di log accetta i record di log dalla replica di calcolo primaria, li rende persistenti in una cache durevole e inoltra i record di log al resto delle repliche di calcolo (in modo che possano aggiornare le cache) e i server di paging pertinenti, in modo che i dati possano essere aggiornati lì. In questo modo, tutte le modifiche ai dati dalla replica di calcolo primaria vengono propagate tramite il servizio di log a tutte le repliche di calcolo secondarie e i server di paging. Infine, i record di log vengono inviati all'archiviazione a lungo termine in Archiviazione di Azure, che è un archivio di archiviazione praticamente infinito. Questo meccanismo elimina la necessità di troncamento frequente del log. Il servizio di log dispone anche di cache locale per velocizzare l'accesso ai record di log.
 
 ### <a name="azure-storage"></a>Archiviazione di Azure
 
-Archiviazione di Azure contiene tutti i file di dati in un database. I server di paging mantengono aggiornati i file di dati in archiviazione di Azure. Questa archiviazione viene usata a scopo di backup e per la replica tra le aree di Azure. I backup vengono implementati usando gli snapshot di archiviazione dei file di dati. Le operazioni di ripristino che usano gli snapshot sono veloci indipendentemente dalla dimensione dei dati. I dati possono essere ripristinati in qualsiasi punto nel tempo entro il periodo di conservazione dei backup del database.
+Archiviazione di Azure contiene tutti i file di dati in un database. I server di paging mantengono aggiornati i file di dati in Archiviazione di Azure.Page servers keep data files in Azure Storage up to date. Questa risorsa di archiviazione viene usata a scopo di backup e per la replica tra aree di Azure.This storage is used for backup purposes, as well as for replication between Azure regions. I backup vengono implementati utilizzando snapshot di archiviazione dei file di dati. Le operazioni di ripristino tramite snapshot sono veloci indipendentemente dalle dimensioni dei dati. I dati possono essere ripristinati in qualsiasi momento entro il periodo di conservazione del backup del database.
 
 ## <a name="backup-and-restore"></a>Backup e ripristino
 
-I backup sono basati su snapshot di file e quindi sono quasi istantanei. La separazione tra archiviazione e calcolo consente di eseguire il push dell'operazione di backup/ripristino al livello di archiviazione per ridurre il carico di elaborazione della replica di calcolo primaria. Di conseguenza, il backup del database non influisca sulle prestazioni del nodo di calcolo primario. Analogamente, i ripristini vengono eseguiti ripristinando gli snapshot di file e, di conseguenza, non sono le dimensioni dell'operazione sui dati. Il ripristino è un'operazione a tempo costante ed è possibile ripristinare anche database di più terabyte in pochi minuti anziché in ore o in giorni. La creazione di nuovi database tramite il ripristino di un backup esistente sfrutta anche questa funzionalità: la creazione di copie di database a scopo di sviluppo o test, anche di database di dimensioni terabyte, è fattibile in pochi minuti.
+I backup sono basati su snapshot di file e quindi sono quasi istantanei. La separazione di archiviazione e calcolo consente di eseguire il push dell'operazione di backup/ripristino al livello di archiviazione per ridurre il carico di elaborazione nella replica di calcolo primaria. Di conseguenza, il backup del database non influisce sulle prestazioni del nodo di calcolo primario. allo stesso modo, i ripristini vengono eseguiti ripristinando gli snapshot di file e come tali non sono una dimensione dell'operazione sui dati. Il ripristino è un'operazione a tempo costante e anche i database con più terabyte possono essere ripristinati in pochi minuti anziché in ore o giorni. La creazione di nuovi database ripristinando un backup esistente sfrutta anche questa funzionalità: la creazione di copie del database a scopo di sviluppo o test, anche di database di dimensioni terabyte, è fattibile in pochi minuti.
 
 ## <a name="scale-and-performance-advantages"></a>Vantaggi di scalabilità e prestazioni
 
 Con la possibilità di accelerare/diminuore la velocità dei nodi di calcolo di sola lettura aggiuntivi, l'architettura Hyperscale offre significative funzionalità di scalabilità di lettura e consente inoltre di liberare il nodo di calcolo primario per la gestione di più richieste di scrittura. Inoltre, i nodi di calcolo possono essere aumentati o diminuiti rapidamente grazie all'architettura di archiviazione condivisa dell'architettura Hyperscale.
 
-## <a name="create-a-hyperscale-database"></a>Creare un database con iperscalabilità
+## <a name="create-a-hyperscale-database"></a>Creare un database HyperscaleCreate a Hyperscale database
 
-È possibile creare un database con iperscalabilità usando il [portale di Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) o l' [interfaccia](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)della riga di comando. I database con iperscalabilità sono disponibili solo con il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
+È possibile creare un database Hyperscale usando il portale di [Azure,](https://portal.azure.com) [T-SQL,](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) o [l'interfaccia della riga di comando.](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create) I database di hyperscale sono disponibili solo utilizzando il modello di [acquisto basato su vCore.](sql-database-service-tiers-vcore.md)
 
-Il comando T-SQL seguente crea un database Hyperscale. Nell'istruzione `CREATE DATABASE` è necessario specificare sia l'edizione che l'obiettivo del servizio. Per un elenco degli obiettivi di servizio validi, vedere i [limiti delle risorse](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen4) .
+Il comando T-SQL seguente crea un database Hyperscale. Nell'istruzione `CREATE DATABASE` è necessario specificare sia l'edizione che l'obiettivo del servizio. Fare riferimento ai [limiti di risorse](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen4) per un elenco di obiettivi di servizio validi.
 
 ```sql
 -- Create a Hyperscale Database
 CREATE DATABASE [HyperscaleDB1] (EDITION = 'Hyperscale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
 GO
 ```
-Verrà creato un database con iperscalabilità nell'hardware quinta generazione con 4 core.
+Verrà creato un database Hyperscale su hardware Gen5 con 4 core.
 
 ## <a name="migrate-an-existing-azure-sql-database-to-the-hyperscale-service-tier"></a>Eseguire la migrazione di un database SQL di Azure esistente al livello di servizio Hyperscale
 
-È possibile spostare i database SQL di Azure esistenti in iperscalabilità usando il [portale di Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) o l' [interfaccia](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)della riga di comando. A questo punto, si tratta di una migrazione unidirezionale. Non è possibile spostare i database da iperscala a un altro livello di servizio, ad eccezione dell'esportazione e dell'importazione di dati. Per il modello di prova (verifica), è consigliabile creare una copia dei database di produzione ed eseguire la migrazione della copia a iperscalabilità. La migrazione di un database SQL di Azure esistente al livello iperscalare è un'operazione di dimensionamento dei dati.
+È possibile spostare i database SQL di Azure esistenti in Hyperscale usando il portale di [Azure,](https://portal.azure.com) [T-SQL,](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) o [l'interfaccia della riga di comando.](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update) In questo momento, si tratta di una migrazione unidirezionale. Non è possibile spostare i database da Hyperscale a un altro livello di servizio, se non esportando e importando i dati. Per le prove di concetto (POC), è consigliabile creare una copia dei database di produzione e migrare la copia in Hyperscale. La migrazione di un database SQL di Azure esistente al livello Hyperscale è una dimensione dell'operazione sui dati.
 
 Il comando T-SQL seguente sposta un database nel livello di servizio Hyperscale. Nell'istruzione `ALTER DATABASE` è necessario specificare sia l'edizione che l'obiettivo del servizio.
 
@@ -137,34 +137,34 @@ GO
 
 ## <a name="connect-to-a-read-scale-replica-of-a-hyperscale-database"></a>Connettersi a una replica scalabilità in lettura di un database Hyperscale
 
-Nei database iperscalari, l'argomento `ApplicationIntent` nella stringa di connessione fornita dal client determina se la connessione viene instradata alla replica di scrittura o a una replica secondaria di sola lettura. Se `ApplicationIntent` è impostato su `READONLY` e il database non ha una replica secondaria, la connessione viene indirizzata alla replica primaria con il comportamento predefinito `ReadWrite`.
+Nei database di `ApplicationIntent` hyperscale, l'argomento nella stringa di connessione fornita dal client determina se la connessione viene instradata alla replica di scrittura o a una replica secondaria di sola lettura. Se `ApplicationIntent` è impostato su `READONLY` e il database non ha una replica secondaria, la connessione viene indirizzata alla replica primaria con il comportamento predefinito `ReadWrite`.
 
 ```cmd
 -- Connection string with application intent
 Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadOnly;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
 
-Le repliche secondarie con iperscalabilità sono tutte identiche, usando lo stesso obiettivo del livello di servizio della replica primaria. Se è presente più di una replica secondaria, il carico di lavoro viene distribuito tra tutti i database secondari disponibili. Ogni replica secondaria viene aggiornata in modo indipendente, in modo che le repliche diverse possano avere latenza dei dati diversa rispetto alla replica primaria.
+Le repliche secondarie hyperscale sono tutte identiche, usando lo stesso obiettivo del livello di servizio della replica primaria. Se sono presenti più repliche secondarie, il carico di lavoro viene distribuito tra tutti i database secondari disponibili. Ogni replica secondaria viene aggiornata in modo indipendente, pertanto repliche diverse potrebbero avere una latenza dei dati diversa rispetto alla replica primaria.
 
-## <a name="database-high-availability-in-hyperscale"></a>Disponibilità elevata del database in iperscalabilità
+## <a name="database-high-availability-in-hyperscale"></a>Database High Availability in Hyperscale
 
-Come in tutti gli altri livelli di servizio, l'iperscalabilità garantisce durabilità dei dati per le transazioni di cui è stato eseguito il commit indipendentemente dalla disponibilità della replica di calcolo L'entità del tempo di inattività dovuto alla mancata disponibilità della replica primaria dipende dal tipo di failover (pianificato e non pianificato) e dalla presenza di almeno una replica secondaria. In un failover pianificato, ad esempio un evento di manutenzione, il sistema crea la nuova replica primaria prima di avviare un failover oppure utilizza una replica secondaria esistente come destinazione del failover. In un failover non pianificato, ad esempio un errore hardware nella replica primaria, il sistema usa una replica secondaria come destinazione del failover se ne esiste una o crea una nuova replica primaria dal pool di capacità di calcolo disponibile. Nel secondo caso, la durata dei tempi di inattività è più lunga a causa di passaggi aggiuntivi necessari per creare la nuova replica primaria.
+Come in tutti gli altri livelli di servizio, Hyperscale garantisce la durabilità dei dati per le transazioni di cui è stato eseguito il commit indipendentemente dalla disponibilità della replica di calcolo. L'entità del tempo di inattività dovuto alla non disponibilità della replica primaria dipende dal tipo di failover (pianificato e non pianificato) e dalla presenza di almeno una replica secondaria. In un failover pianificato, ovvero un evento di manutenzione, il sistema crea la nuova replica primaria prima di iniziare un failover oppure usa una replica secondaria esistente come destinazione del failover. In un failover non pianificato, ovvero un errore hardware nella replica primaria, il sistema utilizza una replica secondaria come destinazione del failover, se presente, oppure crea una nuova replica primaria dal pool di capacità di calcolo disponibile. In quest'ultimo caso, la durata dei tempi di inattività è maggiore a causa dei passaggi aggiuntivi necessari per creare la nuova replica primaria.
 
-Per il contratto di contratto con iperscalabilità, vedere [SLA per database SQL di Azure](https://azure.microsoft.com/support/legal/sla/sql-database/).
+Per il servizio di archiviazione Hyperscale, vedere [SLA per il database SQL](https://azure.microsoft.com/support/legal/sla/sql-database/)di Azure.For Hyperscale SLA, see SLA for Azure SQL Database .
 
-## <a name="disaster-recovery-for-hyperscale-databases"></a>Ripristino di emergenza per database iperscalari
+## <a name="disaster-recovery-for-hyperscale-databases"></a>Ripristino di emergenza per i database di hyperscaleDisaster Recovery for Hyperscale Databases
 
-### <a name="restoring-a-hyperscale-database-to-a-different-geography"></a>Ripristino di un database con iperscalabilità in un'altra area geografica
-Se è necessario ripristinare un database iperscalabile del database SQL di Azure in un'area diversa da quella in cui è attualmente ospitata, come parte di un'operazione di ripristino di emergenza o di un'esercitazione, una rilocazione o qualsiasi altro motivo, il metodo principale consiste nell'eseguire un ripristino geografico del database.  Ciò comporta esattamente la stessa procedura usata per ripristinare qualsiasi altro database SQL di AZURE in un'area diversa:
-1. Creare un server di database SQL nell'area di destinazione se non si dispone già di un server appropriato.  Il server deve appartenere alla stessa sottoscrizione del server originale (di origine).
-2. Seguire le istruzioni riportate nell'argomento relativo al [ripristino geografico](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore) della pagina relativa al ripristino dei database SQL di Azure dai backup automatici.
+### <a name="restoring-a-hyperscale-database-to-a-different-geography"></a>Ripristino di un database Hyperscale in un'area geografica diversa
+Se è necessario ripristinare un database di hyperscale del database SQL di Azure in un'area diversa da quella in cui è attualmente ospitata, come parte di un'operazione di ripristino di emergenza o di un'operazione di ripristino di emergenza, rilocazione o qualsiasi altro motivo, il metodo principale consiste nell'eseguire un ripristino geografico del database.  Questo comporta esattamente gli stessi passaggi che si utilizzerebbe per ripristinare qualsiasi altro database SQL di AUR ON- in un'area diversa:
+1. Creare un server di database SQL nell'area di destinazione, se non si dispone già di un server appropriato.  Questo server deve essere di proprietà della stessa sottoscrizione del server originale (origine).
+2. Seguire le istruzioni nell'argomento del [ripristino geografico](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore) della pagina sul ripristino dei database SQL di Azure dai backup automatici.
 
 > [!NOTE]
-> Poiché l'origine e la destinazione si trovano in aree separate, il database non può condividere l'archiviazione snapshot con il database di origine come nei ripristini non geografici, che vengono completati molto rapidamente. Nel caso di un ripristino geografico di un database con iperscalabilità, sarà un'operazione di dimensioni dei dati, anche se la destinazione si trova nell'area abbinata dell'archiviazione con replica geografica.  Ciò significa che l'esecuzione di un ripristino geografico può richiedere tempo proporzionale alla dimensione del database da ripristinare.  Se la destinazione è nell'area abbinata, la copia sarà all'interno di un'area, che sarà notevolmente più veloce rispetto a una copia tra aree, ma sarà comunque un'operazione di dimensioni dei dati.
+> Poiché l'origine e la destinazione si trovano in aree separate, il database non può condividere l'archiviazione snapshot con il database di origine come nei ripristini non geografici, che vengono completati molto rapidamente. Nel caso di un ripristino geografico di un database Hyperscale, sarà un'operazione di dimensione dei dati, anche se la destinazione si trova nell'area associata dell'archiviazione con replica geografica.  Ciò significa che l'esecuzione di un ripristino geografico richiederà tempo proporzionale alle dimensioni del database da ripristinare.  Se la destinazione si trova nell'area abbinata, la copia sarà all'interno di un'area, che sarà significativamente più veloce di una copia tra aree, ma sarà comunque un'operazione di dimensione dei dati.
 
-## <a name=regions></a>Aree disponibili
+## <a name="available-regions"></a><a name=regions></a>Aree disponibili
 
-Il livello iperscalabile del database SQL di Azure è attualmente disponibile nelle aree geografiche seguenti:
+Il livello di Hyperscale del database SQL di Azure è attualmente disponibile nelle aree seguenti:The Azure SQL Database Hyperscale tier is currently available in the following regions:
 
 - Australia orientale
 - Australia sud-orientale
@@ -175,7 +175,7 @@ Il livello iperscalabile del database SQL di Azure è attualmente disponibile ne
 - Cina settentrionale 2
 - Asia orientale
 - Stati Uniti orientali
-- Stati Uniti orientali 2
+- Stati Orientali 2
 - Francia centrale
 - Giappone orientale
 - Giappone occidentale
@@ -192,39 +192,39 @@ Il livello iperscalabile del database SQL di Azure è attualmente disponibile ne
 - Stati Uniti occidentali
 - Stati Uniti occidentali 2
 
-Se si vuole creare un database con iperscalabilità in un'area non elencata come supportata, è possibile inviare una richiesta di onboarding tramite portale di Azure. Per istruzioni, vedere la pagina relativa agli [aumenti delle quote di richiesta per il database SQL di Azure](quota-increase-request.md) . Quando si invia la richiesta, attenersi alle linee guida seguenti:
+Se si vuole creare un database Hyperscale in un'area non elencata come supportata, è possibile inviare una richiesta di onboarding tramite il portale di Azure.If you want to create Hyperscale database in a region that is not listed as supported, you can send an onboarding request via Azure portal. Per istruzioni, vedere Richiedi aumenti delle quote per il database SQL di [Azure.For](quota-increase-request.md) instructions, see Request quota increases for Azure SQL Database for instructions. Quando invii la tua richiesta, segui le seguenti linee guida:
 
-- Usare l' [altro](quota-increase-request.md#other) tipo di quota del database SQL per la richiesta di quota.
+- Utilizzare il tipo di quota del database SQL [di richiesta di quota.](quota-increase-request.md#other)
 - Nei dettagli del testo aggiungere lo SKU di calcolo/core totali, incluse le repliche leggibili.
 - Specificare anche la TB stimata.
 
 ## <a name="known-limitations"></a>Limitazioni note
 
-Queste sono le limitazioni correnti per il livello di servizio con iperscalabilità di GA.  Si sta lavorando attivamente per rimuovere il maggior numero possibile di limitazioni.
+Queste sono le limitazioni correnti al livello di servizio Hyperscale a partire da GA.  Stiamo lavorando attivamente per rimuovere il maggior numero possibile di queste limitazioni.
 
 | Problema | Descrizione |
 | :---- | :--------- |
-| Il riquadro Gestisci backup per un server logico non mostra che i database iperscalari verranno filtrati da SQL Server  | L'iperscalabilità ha un metodo separato per la gestione dei backup e, di conseguenza, le impostazioni di conservazione a lungo termine e di conservazione dei backup temporizzate non vengono applicate/non sono valide. Di conseguenza i database Hyperscale non compaiono nel riquadro Gestisci backup. |
-| Ripristino temporizzato | Quando viene eseguita la migrazione di un database nel livello di servizio iperscalabile, il ripristino fino a un punto nel tempo precedente alla migrazione non è supportato.|
-| Ripristinare un database non iperscalabile in iperscalabilità e viceversa | Non è possibile ripristinare un database iperscalabile in un database non iperscalabile, né ripristinare un database senza iperscalabilità in un database con iperscalabilità.|
-| Se un database contiene uno o più file di dati di dimensioni superiori a 1 TB, la migrazione non riesce | In alcuni casi, potrebbe essere possibile aggirare questo problema compattando i file di grandi dimensioni in modo che siano inferiori a 1 TB. Se si esegue la migrazione di un database usato durante il processo di migrazione, assicurarsi che non ci siano file con dimensioni maggiori di 1 TB. Utilizzare la query seguente per determinare le dimensioni dei file di database. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
-| database SQL | Istanza gestita di database SQL di Azure attualmente non è supportato con i database con iperscalabilità. |
-| Pool elastici |  I pool elastici non sono attualmente supportati con l'iperscalabilità del database SQL.|
-| La migrazione al livello di servizio Hyperscale è attualmente un'operazione unidirezionale | Dopo aver completato la migrazione di un database a Hyperscale, non è possibile eseguirne la migrazione direttamente a un livello di servizio diverso. Attualmente, l'unico modo per eseguire la migrazione di un database da iperscalabilità a non iperscalare consiste nell'esportare/importare utilizzando un file BACPAC o altre tecnologie di spostamento dei dati (copia bulk, Azure Data Factory, Azure Databricks, SSIS e così via).|
-| Migrazione di database con oggetti in memoria permanenti | L'iperscalabilità supporta solo oggetti in memoria non permanenti (tipi di tabella, SPs e funzioni native).  Prima di eseguire la migrazione di un database al livello di servizio iperscalare, è necessario eliminare e ricreare le tabelle in memoria permanenti e gli altri oggetti come oggetti non in memoria.|
-| Rilevamento modifiche | Rilevamento modifiche è attualmente disponibile in anteprima pubblica e può essere abilitato nei database con iperscalabilità nuovi o esistenti. |
-| Replica geografica  | Non è ancora possibile configurare la replica geografica per l'iperscalabilità del database SQL di Azure. |
-| Copia del database | Non è ancora possibile usare la copia del database per creare un nuovo database in Azure SQL iperscalabile. |
-| Integrazione di Transparent Data Encryption/AKV | La crittografia Transparent database con Azure Key Vault (in genere denominata Bring-your-own-key o BYOK) non è ancora supportata per l'iperscalabilità del database SQL di Azure, ma Transparent Data Encryption con chiavi gestite dal servizio è completamente supportato. |
-|Funzionalità di database intelligenti | Ad eccezione dell'opzione "forza piano", tutte le altre opzioni di ottimizzazione automatica non sono ancora supportate in iperscalabilità: le opzioni potrebbero sembrare abilitate, ma non verranno eseguite raccomandazioni o azioni. |
-|Analisi delle prestazioni della query | Le informazioni dettagliate sulle prestazioni delle query non sono attualmente supportate per i database con iperscalabilità. |
-| Compatta database | DBCC SHRINKDATABASE o DBCC SHRINKFILE non è attualmente supportato per i database con iperscalabilità. |
-| Verifica dell'integrità del database | DBCC CHECKDB non è attualmente supportato per i database con iperscalabilità. Per informazioni dettagliate sulla gestione dell'integrità dei dati nel database SQL di Azure, vedere [integrità dei dati nel database SQL di Azure](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) . |
+| Il riquadro Gestisci backup per un server logico non mostra i database Hyperscale verranno filtrati dal server SQL  | Hyperscale ha un metodo separato per la gestione dei backup e come tale le impostazioni di conservazione dei backup a lungo termine e conservazione dei backup temporizzazione non si applicano / vengono invalidate. Di conseguenza i database Hyperscale non compaiono nel riquadro Gestisci backup. |
+| Ripristino temporizzato | Dopo aver eseguito la migrazione di un database nel livello di servizio Hyperscale, il ripristino in un momento precedente alla migrazione non è supportato.|
+| Ripristino di DB non Hyperscale nell'hyperscale e viceversa | Non è possibile ripristinare un database Hyperscale in un database non Hyperscale, né è possibile ripristinare un database non Hyperscale in un database Hyperscale.|
+| Se un database contiene uno o più file di dati di dimensioni superiori a 1 TB, la migrazione non riesce | In alcuni casi, potrebbe essere possibile aggirare questo problema riducendo i file di grandi dimensioni a meno di 1 TB. Se durante il processo di migrazione viene eseguito la migrazione di un database, assicurarsi che nessun file superi 1 TB. Utilizzare la query seguente per determinare le dimensioni dei file di database. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
+| database SQL | Istanza gestita database SQL di Azure non è attualmente supportata con i database Hyperscale.Azure SQL Database Managed Instance is not currently supported with Hyperscale databases. |
+| Pool elastici |  I pool elastici non sono attualmente supportati con l'hyperscale del database SQL.|
+| La migrazione al livello di servizio Hyperscale è attualmente un'operazione unidirezionale | Dopo aver completato la migrazione di un database a Hyperscale, non è possibile eseguirne la migrazione direttamente a un livello di servizio diverso. Al momento, l'unico modo per eseguire la migrazione di un database da Hyperscale a non Hyperscale consiste nell'esportare/importare usando un file BACPAC o altre tecnologie di spostamento dei dati (copia globale, Azure Data Factory, Azure Databricks, SSIS e così via).|
+| Migrazione di database con oggetti in memoria persistenti | Hyperscale supporta solo oggetti In-Memory non persistenti (tipi di tabella, SP e funzioni native).  Le tabelle in memoria persistente e altri oggetti devono essere eliminati e ricreati come oggetti non in memoria prima di eseguire la migrazione di un database al livello di servizio Hyperscale.|
+| Rilevamento modifiche | Il rilevamento delle modifiche è attualmente in anteprima pubblica e può essere abilitato in database Hyperscale nuovi o esistenti. |
+| Replica geografica  | Non è ancora possibile configurare la replica geografica per l'Hyperscale del database SQL di Azure.You cannot yet configure geo-replication for Azure SQL Database Hyperscale. |
+| Copia del database | Non è ancora possibile usare Copia del database per creare un nuovo database in Hyperscale SQL di Azure.You cannot yet use Database Copy to create a new database in Azure SQL Hyperscale. |
+| Integrazione TDE/AKV | Transparent Database Encryption using Azure Key Vault (comunemente noto come Bring-Your-Own-Key o BYOK) non è ancora supportato per l'hyperscale del database SQL di Azure, tuttavia TDE con chiavi gestite del servizio è completamente supportato. |
+|Funzionalità di database intelligenti | Ad eccezione dell'opzione "Piano di forza", tutte le altre opzioni di ottimizzazione automatica non sono ancora supportate su Hyperscale: le opzioni potrebbero sembrare abilitate, ma non verranno formulate raccomandazioni o azioni. |
+|Analisi delle prestazioni della query | Query Performance Insights non è attualmente supportato per i database di Hyperscale.Query Performance Insights is currently not supported for Hyperscale databases. |
+| Compatta database | DBCC SHRINKDATABASE o DBCC SHRINKFILE non è attualmente supportato per i database Hyperscale. |
+| Controllo dell'integrità del database | DBCC CHECKDB non è attualmente supportato per i database di Hyperscale. Per informazioni dettagliate sulla gestione dell'integrità dei dati nel database SQL di Azure, vedere Integrità dei dati nel database SQL di [Azure.See Data Integrity in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) for details on data integrity management in Azure SQL Database. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni su Hyperscale, vedere le [domande frequenti su Hyperscale](sql-database-service-tier-hyperscale-faq.md).
-- Per informazioni sui livelli di servizio, vedere [Livelli di servizio](sql-database-service-tiers.md)
+- Per informazioni sui livelli di servizio, vedere Livelli di servizioFor information about service [tiers,](sql-database-service-tiers.md) see Service tiers
 - Per informazioni sui limiti a livello di server e sottoscrizione, vedere [Panoramica dei limiti delle risorse in un server logico](sql-database-resource-limits-logical-server.md).
 - Per informazioni sui limiti del modello di acquisto per un database singolo, vedere [Limiti del modello di acquisto basato su vCore per il database SQL di Azure per un database singolo](sql-database-vcore-resource-limits-single-databases.md).
 - Per un elenco di confronto delle funzionalità, vedere [Confronto tra le funzionalità: database SQL di Azure e SQL Server](sql-database-features.md).

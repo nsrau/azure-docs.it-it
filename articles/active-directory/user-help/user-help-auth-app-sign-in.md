@@ -1,5 +1,5 @@
 ---
-title: Accedere con l'app Microsoft Authenticator-Azure AD
+title: Accedere usando l'app Microsoft Authenticator - Azure ADSign in using the Microsoft Authenticator app - Azure AD
 description: Usare l'app Microsoft Authenticator per accedere all'account aziendale o dell'istituto di istruzione oppure agli account personali Microsoft e non Microsoft, con la verifica a due fattori o l'accesso tramite telefono.
 services: active-directory
 author: curtand
@@ -12,15 +12,15 @@ ms.date: 02/25/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 9b8c44f99953d4518f0bc3f558f396250657c632
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79138944"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Accedere agli account con l'app Microsoft Authenticator
 
-L'app Microsoft Authenticator consente di accedere agli account se si usa la verifica a due fattori. La verifica a due fattori consente di accedere agli account in modo più sicuro, in particolare durante la visualizzazione di informazioni riservate. Poiché le password possono essere dimenticate, rubate o compromesse, la verifica a due fattori è un'ulteriore misura di sicurezza che consente di proteggere l'account rendendo più difficile l'intromissione di altri utenti.
+L'app Microsoft Authenticator ti aiuta ad accedere ai tuoi account se usi la verifica a due fattori. La verifica a due fattori consente di accedere agli account in modo più sicuro, in particolare durante la visualizzazione di informazioni riservate. Poiché le password possono essere dimenticate, rubate o compromesse, la verifica a due fattori è un'ulteriore misura di sicurezza che consente di proteggere l'account rendendo più difficile l'intromissione di altri utenti.
 
 È possibile usare l'app Microsoft Authenticator in diversi modi, tra cui:
 
@@ -31,7 +31,7 @@ L'app Microsoft Authenticator consente di accedere agli account se si usa la ver
   >[!Important]
   >Questo metodo di accesso tramite telefono funziona solo con gli account Microsoft personali, aziendali o dell'istituto. Con gli account non Microsoft è necessario usare il processo di verifica a due fattori standard.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di poter usare l'app Microsoft Authenticator, è necessario:
 
@@ -49,19 +49,19 @@ L'accesso tramite telefono è disponibile solo su dispositivi iOS e Android 6.0 
 
 ### <a name="turn-on-phone-sign-in"></a>Attivare l'accesso tramite telefono
 
-Aprire l'app Microsoft Authenticator, passare all'account aziendale o dell'Istituto di istruzione e attivare l'accesso tramite telefono.
+Apri l'app Microsoft Authenticator, passa all'account aziendale o dell'istituto di istruzione e attiva l'accesso al telefono.
 
-In un dispositivo Android:
+Su un dispositivo Android:
 
 - **Se sul telefono è visualizzata questa icona ![icona che indica che l'accesso è già configurato](media/user-help-auth-app-sign-in/icon.png).** Se questa icona viene visualizzata accanto al nome dell'account aziendale o dell'istituto di istruzione, significa che l'accesso tramite telefono per l'account è già stato configurato. Potrebbe essere necessario aggiungere le notifiche push per l'account per poter ricevere notifiche relative alle richieste di autenticazione esternamente all'app.
-- **Se si sta già usando l'app per la verifica a due fattori.** Se è già stata usata l'app e la verifica a due fattori, è possibile selezionare la freccia accanto al nome dell'account e quindi selezionare **Abilita l'accesso tramite telefono**.
+- **Se stai già usando l'app per la verifica a due fattori.** Se hai già utilizzato l'app e la verifica a due fattori, puoi selezionare la freccia accanto al nome dell'account e quindi **selezionare Abilita accesso telefonico**.
 - **Se non è possibile trovare l'account aziendale o dell'istituto di istruzione.** Se non è possibile trovare l'account aziendale o dell'istituto di istruzione nella schermata **Account** dell'app, significa che non è ancora stato aggiunto all'app. Aggiungere l'account aziendale o dell'istituto di istruzione eseguendo i passaggi illustrati nell'articolo [Aggiungere l'account aziendale o dell'istituto di istruzione](user-help-auth-app-add-work-school-account.md).
 
-In un dispositivo iOS:
+Su un dispositivo iOS:
 
-- **Quando si tocca il riquadro account**, l'account viene aperto in una visualizzazione a schermo intero dell'account. Se viene visualizzato l' **accesso tramite telefono abilitato,** significa che l'accesso è stato completato senza la password. Se viene visualizzato **Abilita l'accesso tramite telefono**, toccarlo per attivare l'accesso tramite telefono.
-- **Se l'app è già stata usata per la verifica a due fattori**, è possibile toccare il riquadro account per poi espanderla in una visualizzazione a schermo intero dell'account. Toccare quindi **Abilita l'accesso tramite telefono** per attivare l'accesso tramite telefono.
-- **Se non si riesce a trovare l'account aziendale o dell'Istituto di istruzione** nella schermata **account** dell'app, significa che non è ancora stato aggiunto all'app. Aggiungere l'account aziendale o dell'Istituto di istruzione attenendosi alla procedura descritta nell'articolo aggiungere l'account aziendale o dell'Istituto di istruzione.
+- **Quando si tocca il riquadro dell'account**, l'account si apre in una visualizzazione a schermo intero dell'account. Se viene **visualizzato Accesso telefonico abilitato,** significa che si è completamente configurato per l'accesso senza la password. Se vedi **Abilita accesso telefonico,** toccalo per attivare l'accesso al telefono.
+- **Se hai già utilizzato l'app per**la verifica a due fattori, puoi toccare il riquadro dell'account, che si espande in una visualizzazione a schermo intero dell'account. Quindi tocca **Abilita accesso al telefono** per attivare l'accesso al telefono.
+- **Se non riesci a trovare il tuo account aziendale o dell'istituto** di istruzione nella schermata **Account** dell'app, significa che non l'hai ancora aggiunto all'app. Aggiungere l'account aziendale o dell'istituto di istruzione eseguendo i passaggi illustrati nell'articolo Aggiungere l'account aziendale o dell'istituto di istruzione.
 
 Dopo avere attivato l'accesso tramite telefono, è possibile accedere usando solo l'app Microsoft Authenticator.
 
@@ -88,19 +88,19 @@ Dopo avere attivato l'accesso tramite telefono, è possibile accedere usando sol
 
 ### <a name="turn-on-phone-sign-in"></a>Attivare l'accesso tramite telefono 
 
-Aprire l'app Microsoft Authenticator, passare all'account aziendale o dell'Istituto di istruzione e attivare l'accesso tramite telefono.
+Apri l'app Microsoft Authenticator, passa all'account aziendale o dell'istituto di istruzione e attiva l'accesso al telefono.
 
-In un dispositivo Android:
+Su un dispositivo Android:
 
-- **Se sul telefono è visualizzata questa icona ![icona che indica che l'accesso è già configurato](media/user-help-auth-app-sign-in/icon.png).** Se questa icona viene visualizzata accanto al nome del account Microsoft personale, significa che è già stato configurato l'accesso tramite telefono per l'account. Potrebbe essere necessario aggiungere le notifiche push per l'account per poter ricevere notifiche relative alle richieste di autenticazione esternamente all'app.
-- **Se è stata usata l'app per la verifica a due fattori.** Se è già stata usata l'app e la verifica a due fattori, è possibile selezionare la freccia accanto al nome dell'account e quindi selezionare **Abilita l'accesso tramite telefono**.
-- **Se non è possibile trovare l'account aziendale o dell'istituto di istruzione.** Se non è possibile trovare l'account nella schermata **Account** dell'app, significa che non è ancora stato aggiunto all'app. Per aggiungere l'account, seguire la procedura descritta nell'articolo [aggiungere account Microsoft personali](user-help-auth-app-add-personal-ms-account.md) .
+- **Se sul telefono è visualizzata questa icona ![icona che indica che l'accesso è già configurato](media/user-help-auth-app-sign-in/icon.png).** Se questa icona viene visualizzata accanto al nome dell'account Microsoft personale, significa che l'accesso al telefono per l'account è già stato configurato. Potrebbe essere necessario aggiungere le notifiche push per l'account per poter ricevere notifiche relative alle richieste di autenticazione esternamente all'app.
+- **Se è stata usata l'app per la verifica a due fattori.** Se hai già utilizzato l'app e la verifica a due fattori, puoi selezionare la freccia accanto al nome dell'account e quindi **selezionare Abilita accesso telefonico**.
+- **Se non è possibile trovare l'account aziendale o dell'istituto di istruzione.** Se non è possibile trovare l'account nella schermata **Account** dell'app, significa che non è ancora stato aggiunto all'app. Aggiungere l'account seguendo la procedura descritta nell'articolo [Aggiungere account Microsoft personali.](user-help-auth-app-add-personal-ms-account.md)
 
-In un dispositivo iOS:
+Su un dispositivo iOS:
 
-- **Quando si tocca il riquadro account**, l'account viene aperto in una visualizzazione a schermo intero dell'account. Se viene visualizzato l' **accesso tramite telefono abilitato,** significa che l'accesso è stato completato senza la password. Se viene visualizzato **Abilita l'accesso tramite telefono**, toccarlo per attivare l'accesso tramite telefono.
-- **Se si usa già l'app per la verifica a due fattori**, è possibile toccare il riquadro account per poi espandersi in una visualizzazione a schermo intero dell'account. Toccare quindi **Abilita l'accesso tramite telefono** per attivare l'accesso tramite telefono.
-- **Se non si riesce a trovare l'account** nella schermata degli **account** dell'app, significa che non è ancora stato aggiunto all'app. Aggiungere la account Microsoft personale attenendosi alla procedura descritta nell'articolo [aggiungere account Microsoft personali](user-help-auth-app-add-personal-ms-account.md) .
+- **Quando si tocca il riquadro dell'account**, l'account si apre in una visualizzazione a schermo intero dell'account. Se viene **visualizzato Accesso telefonico abilitato,** significa che si è completamente configurato per l'accesso senza la password. Se vedi **Abilita accesso telefonico,** toccalo per attivare l'accesso al telefono.
+- **Se stai già utilizzando l'app per**la verifica a due fattori, puoi toccare il riquadro dell'account, che si espande in una visualizzazione a schermo intero dell'account. Quindi tocca **Abilita accesso al telefono** per attivare l'accesso al telefono.
+- **Se non riesci** a trovare il tuo account nella schermata **Account** dell'app, significa che non l'hai ancora aggiunto all'app. Aggiungere l'account Microsoft personale seguendo la procedura descritta nell'articolo [Aggiungere account Microsoft personali.](user-help-auth-app-add-personal-ms-account.md)
 
 ### <a name="sign-in-to-your-account-using-phone-sign-in"></a>Accedere all'account con l'accesso tramite telefono
 
@@ -112,7 +112,7 @@ In un dispositivo iOS:
 
 ## <a name="sign-in-using-two-factor-verification-for-your-account"></a>Accedere usando la verifica a due fattori per l'account
 
-Il metodo standard di verifica a due fattori richiede l'immissione del nome utente e della password nel dispositivo a cui si sta effettuando l'accesso. Si apre quindi l'app Microsoft Authenticator e si digita il codice generato in modo casuale per l'account nella casella **immettere il codice** . In un dispositivo Android, questi codici di verifica sono disponibili nella schermata **account** . In un dispositivo iOS, questi codici di verifica sono disponibili nella schermata **account** o nella visualizzazione a schermo intero di un account, a seconda del tipo di account. La verifica a due fattori per l'account viene attivata durante l'aggiunta dell'account all'app Microsoft Authenticator.
+Il metodo standard di verifica a due fattori richiede l'immissione di nome utente e password nel dispositivo a cui si sta effettuando l'accesso. Quindi, aprire l'app Microsoft Authenticator e digitare il codice generato casualmente per l'account nella casella **immettere** il codice . Su un dispositivo Android, questi codici di verifica sono disponibili nella schermata **Account.** Su un dispositivo iOS, questi codici di verifica sono disponibili nella schermata **Account** o la visualizzazione a schermo intero di un account, a seconda del tipo di account. La verifica a due fattori per l'account viene attivata durante l'aggiunta dell'account all'app Microsoft Authenticator.
 
 >[!Note]
 >Se l'account aziendale o dell'istituto di istruzione o l'account personale non è visibile nella schermata **Account** dell'app Microsoft Authenticator, significa che l'account non è stato aggiunto all'app Microsoft Authenticator. Per aggiungere l'account, vedere [Aggiungere l'account aziendale o dell'istituto di istruzione](user-help-auth-app-add-work-school-account.md) o [Aggiungere gli account personali](user-help-auth-app-add-personal-ms-account.md).
@@ -125,18 +125,18 @@ Per i passaggi necessari per accedere all'account aziendale o dell'istituto di i
 | -------- | -------- |
 | In che modo l'accesso tramite telefono è più sicuro dell'accesso tramite password? | Oggi la maggior parte delle persone accede a siti Web o alle app usando un nome utente e una password. Sfortunatamente, le password possono essere smarrite, rubate o individuate da pirati informatici.<br><br>Una volta installata, l'app Microsoft Authenticator crea una chiave nel telefono per sbloccare l'account protetto dal PIN o dal blocco biometrico del telefono. Questa chiave viene quindi usata per dimostrare l'identità dell'utente durante l'accesso.<br><br>**Importante**<br>I dati vengono usati solo per proteggere la chiave in locale. Non vengono mai inviati né archiviati nel cloud. |
 | L'accesso tramite telefono sostituisce la verifica in due passaggi? È consigliabile disattivarla? | L'accesso tramite telefono è un tipo di verifica in due passaggi in cui entrambi i passaggi vengono eseguiti sul dispositivo mobile. È consigliabile mantenere attivata la verifica in due passaggi per fornire protezione aggiuntiva per l'account. |
-| Se è stata attivata la verifica in due passaggi per l'account, è necessario approvare due notifiche? | No. L'accesso all'account Microsoft tramite il telefono viene considerato una verifica in due passaggi e di conseguenza non è necessaria una seconda approvazione. |
-| Che cosa succede se si perde il telefono o non lo si fa con me? Ricerca per categorie accedere al mio account? | È sempre possibile selezionare il collegamento Usa la tua password nella pagina di accesso per tornare a usare la password. Tuttavia, se si usa la verifica in due passaggi, sarà comunque necessario usare un secondo metodo per verificare l'identità.<br><br>**Importante**<br>È consigliabile assicurarsi di usare più di un metodo di verifica aggiornato associato all'account.<br><br>È possibile gestire i metodi di verifica per gli account personali dalla pagina [Impostazioni di sicurezza](https://account.live.com/proofs/manage). Per gli account aziendali o dell'istituto di istruzione, è possibile passare alla pagina [Verifica aggiuntiva di sicurezza](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) dell'organizzazione o alla pagina **Proteggi l'account** se l'amministratore ha attivato le informazioni di sicurezza. Per altre informazioni sulle informazioni di sicurezza, vedere [Panoramica delle informazioni di sicurezza (anteprima)](user-help-security-info-overview.md).<br><br>Se non si è in grado di gestire i metodi di verifica, è necessario contattare l'amministratore. |
-| Ricerca per categorie smettere di usare questa funzionalità e tornare a usare la password? | Per gli account personali, selezionare il collegamento **Usa la tua password** durante l'accesso. La scelta più recente viene memorizzata dal sistema e proposta per impostazione predefinita al successivo accesso. Se si vuole tornare all'accesso tramite telefono, selezionare il collegamento **Usa un'app** durante l'accesso.<br><br>Per gli account aziendali o dell'Istituto di istruzione, è necessario annullare la registrazione del dispositivo nella pagina delle **Impostazioni** dell'app Microsoft Authenticator o disabilitare il dispositivo dall'area di **attività & dei dispositivi** del profilo. Per altre informazioni sulla disabilitazione del dispositivo dal profilo, vedere [aggiornare il profilo e le informazioni sull'account dal portale app personali](my-apps-portal-end-user-update-profile.md#view-your-organization-related-profile-information). |
-| Perché non è possibile usare più di un account aziendale o dell'Istituto di istruzione per l'accesso tramite telefono? | Un telefono deve essere registrato in un solo account aziendale o dell'istituto di istruzione. Se si vuole abilitare l'accesso tramite telefono per un account aziendale o dell'Istituto di istruzione diverso, è necessario annullare la registrazione dell'account da questo dispositivo tramite la pagina **Impostazioni** . |
-| È possibile accedere al computer utilizzando il telefono? | Per il computer, è consigliabile accedere con Windows Hello in Windows 10. Windows Hello permette di usare il viso, le impronte digitali o un PIN per accedere. |
+| Se la verifica in due passaggi resta attiva per l'account, è necessario approvare due notifiche? | No. L'accesso all'account Microsoft tramite il telefono viene considerato una verifica in due passaggi e di conseguenza non è necessaria una seconda approvazione. |
+| Che cosa succede se si perde il telefono o se il telefono non è a portata di mano? Come si accede all'account in questi casi? | È sempre possibile selezionare il collegamento Usa la tua password nella pagina di accesso per tornare a usare la password. Tuttavia, se si usa la verifica in due passaggi, sarà comunque necessario usare un secondo metodo per verificare l'identità.<br><br>**Importante**<br>È consigliabile assicurarsi di usare più di un metodo di verifica aggiornato associato all'account.<br><br>È possibile gestire i metodi di verifica per gli account personali dalla pagina [Impostazioni di sicurezza](https://account.live.com/proofs/manage). Per gli account aziendali o dell'istituto di istruzione, è possibile passare alla pagina [Verifica aggiuntiva di sicurezza](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) dell'organizzazione o alla pagina **Proteggi l'account** se l'amministratore ha attivato le informazioni di sicurezza. Per ulteriori informazioni sulle info di sicurezza, vedere Panoramica delle informazioni di sicurezza [(anteprima).](user-help-security-info-overview.md)<br><br>Se non si è in grado di gestire i metodi di verifica, è necessario contattare l'amministratore. |
+| Come si smette di usare questa funzionalità per tornare a usare la password? | Per gli account personali, selezionare il collegamento **Usa la tua password** durante l'accesso. La scelta più recente viene memorizzata dal sistema e proposta per impostazione predefinita al successivo accesso. Se si vuole tornare all'accesso tramite telefono, selezionare il collegamento **Usa un'app** durante l'accesso.<br><br>Per gli account aziendali o dell'istituto di istruzione, è necessario annullare la registrazione del dispositivo dalla pagina **Impostazioni** dell'app Microsoft Authenticator oppure disabilitare il dispositivo dall'area **Dispositivi & attività** del profilo. Per ulteriori informazioni sulla disabilitazione del dispositivo dal profilo, vedere Aggiornare le informazioni del [profilo e dell'account dal portale App personali](my-apps-portal-end-user-update-profile.md#view-your-organization-related-profile-information). |
+| Perché non è possibile usare più di un account aziendale o dell'istituto di istruzione per l'accesso tramite telefono? | Un telefono deve essere registrato in un solo account aziendale o dell'istituto di istruzione. Se si desidera attivare l'accesso al telefono per un account aziendale o dell'istituto di istruzione diverso, è necessario annullare la registrazione dell'account da questo dispositivo tramite la pagina **Impostazioni.** |
+| È possibile accedere al computer tramite il telefono? | Per il computer, è consigliabile accedere con Windows Hello in Windows 10. Windows Hello permette di usare il viso, le impronte digitali o un PIN per accedere. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Se si verificano problemi durante il recupero del codice di verifica per la account Microsoft personale, vedere la sezione **risoluzione dei problemi del codice di verifica** per la risoluzione dei problemi dell'articolo [account Microsoft informazioni di sicurezza & codici di verifica](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) .
+- In caso di problemi nell'ottenere il codice di verifica per il tuo account Microsoft personale, consulta la sezione **Risoluzione dei problemi** relativi ai codici di verifica nell'articolo Codici di [sicurezza dell'account Microsoft &.](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes)
 
 - In caso di domande generali sull'app, vedere le [domande frequenti su Microsoft Authenticator](user-help-auth-app-faq.md)
 
 - Per altre informazioni sulla verifica in due passaggi, vedere [Configurare l'account per la verifica in due passaggi](multi-factor-authentication-end-user-first-time.md)
 
-- Per altre informazioni sulle informazioni di sicurezza, vedere [Panoramica delle informazioni di sicurezza (anteprima)](user-help-security-info-overview.md)
+- Per altre informazioni sulle info di sicurezza, vedere Panoramica delle informazioni di sicurezza [(anteprima)If](user-help-security-info-overview.md) you want more information about security info, see Security info (preview) overview
