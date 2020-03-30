@@ -1,15 +1,15 @@
 ---
-title: INTERFACCIA della riga di comando di Azure Service Fabric-servizio mesh sfctl
-description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per ottenere i dettagli del servizio per una risorsa dell'applicazione.
+title: Interfaccia di rete di Azure Service Fabric - servizio mesh sfctlAzure Service Fabric CLI - sfctl mesh service
+description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric.Learn about sfctl, the Azure Service Fabric command line interface. Include un elenco di comandi per ottenere i dettagli del servizio per una risorsa dell'applicazione.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 2b9f16062b02d7a1a3403d396643a7989b8976b7
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76905934"
 ---
 # <a name="sfctl-mesh-service"></a>sfctl mesh service
@@ -17,10 +17,10 @@ Consente di ottenere i dettagli del servizio ed elencare i servizi di una risors
 
 ## <a name="commands"></a>Comandi:
 
-|Comando|Description|
+|Comando|Descrizione|
 | --- | --- |
 | list | Elenca tutte le risorse del servizio. |
-| mostra | Ottiene la risorsa del servizio con il nome specificato. |
+| show | Ottiene la risorsa del servizio con il nome specificato. |
 
 ## <a name="sfctl-mesh-service-list"></a>sfctl mesh service list
 Elenca tutte le risorse del servizio.
@@ -29,13 +29,13 @@ Ottiene le informazioni su tutti i servizi di una risorsa dell'applicazione. Le 
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --app-name --application-name [obbligatorio] | Il nome dell'applicazione. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -50,14 +50,14 @@ Ottiene le informazioni sulla risorsa del servizio con il nome specificato. Le i
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --app-name --application-name [obbligatorio] | Il nome dell'applicazione. |
 | --name -n                     [obbligatorio] | Il nome del servizio. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |

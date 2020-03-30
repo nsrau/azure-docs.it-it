@@ -14,16 +14,16 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bdba55e0655a13e65e403f5da73fcb69db5dbca5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68561914"
 ---
 # <a name="delete-a-group-using-azure-active-directory"></a>Eliminare un gruppo con Azure Active Directory
 È possibile eliminare un gruppo di Azure Active Directory (Azure AD) per diversi motivi, ma i più comuni sono i seguenti:
 
-- **Tipo gruppo** è stato impostato sull'opzione errata.
+- Impostare erroneamente il **tipo di gruppo** sull'opzione errata.
 
 - È stato creato il gruppo sbagliato oppure è stato duplicato un gruppo per errore. 
 

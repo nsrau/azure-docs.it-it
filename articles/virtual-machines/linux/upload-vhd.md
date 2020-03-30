@@ -1,5 +1,5 @@
 ---
-title: Caricare o copiare una VM Linux personalizzata con l'interfaccia della riga di comando di Azure
+title: Caricare o copiare una macchina virtuale Linux personalizzata con l'interfaccia della riga di comando di AzureUpload or copy a custom Linux VM with Azure CLI
 description: Caricare o copiare una macchina virtuale personalizzata usando il modello di distribuzione di Resource Manager e l'interfaccia della riga di comando di Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 70fff041cd693a19269b11398947fb0c8ce56bb1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: b5063c8037a763c1919d2172a81c8abbbd406ace
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79267105"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060157"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Creare una macchina virtuale Linux da un disco personalizzato tramite l'interfaccia della riga di comando di Azure
 
@@ -51,7 +51,7 @@ Per completare la procedura seguente, è necessario:
 
 - Assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure tramite [az login](/cli/azure/reference-index#az-login).
 
-Negli esempi seguenti sostituire i nomi dei parametri di esempio con i propri valori, ad esempio `myResourceGroup`, `mystorageaccount`e `mydisks`.
+Negli esempi seguenti sostituire i nomi dei parametri `myResourceGroup`di `mystorageaccount`esempio `mydisks`con valori personalizzati, ad esempio , e .
 
 <a id="prepimage"> </a>
 
@@ -67,7 +67,7 @@ Azure supporta svariate distribuzioni di Linux (vedere la sezione [Distribuzioni
 * [Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Altre: distribuzioni non approvate](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-Vedere anche le [Note sull'installazione di Linux](create-upload-generic.md#general-linux-installation-notes) per suggerimenti più generali sulla preparazione di immagini Linux per Azure.
+Vedere anche le [Note generali sull'installazione di Linux](create-upload-generic.md#general-linux-installation-notes) per suggerimenti più generali sulla preparazione di immagini Linux per Azure.
 
 > [!NOTE]
 > Il [contratto di Servizio per la piattaforma Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) è applicabile alle macchine virtuali che eseguono Linux solo quando una distribuzione approvata viene usata con i dettagli di configurazione specificati nella sezione "Versioni e distribuzioni supportate" in [Distribuzioni di Linux supportate da Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -76,21 +76,21 @@ Vedere anche le [Note sull'installazione di Linux](create-upload-generic.md#gene
 
 ## <a name="option-1-upload-a-vhd"></a>Opzione 1: caricare un disco rigido virtuale
 
-È ora possibile caricare VHD direttamente in un disco gestito. Per istruzioni, vedere [caricare un disco rigido virtuale in Azure tramite l'interfaccia della riga di comando di Azure](disks-upload-vhd-to-managed-disk-cli.md).
+È ora possibile caricare direttamente il disco rigido virtuale in un disco gestito. Per istruzioni, vedere [Caricare un disco rigido virtuale in Azure usando l'interfaccia della riga di comando di Azure.For instructions, see Upload a VHD to Azure using Azure CLI.](disks-upload-vhd-to-managed-disk-cli.md)
 
 ## <a name="option-2-copy-an-existing-vm"></a>Opzione 2: copiare una macchina virtuale esistente
 
 È anche possibile creare una macchina virtuale personalizzata in Azure, copiare il disco del sistema operativo e quindi collegarlo a una nuova macchina virtuale per crearne un'altra copia. Questa è l'operazione corretta per il test, ma se si vuole usare una macchina virtuale di Azure esistente come modello per più macchine virtuali nuove, creare invece un'*immagine*. Per altre informazioni sulla creazione di un'immagine da una macchina virtuale di Azure esistente, vedere [Creare un'immagine personalizzata di una macchina virtuale di Azure tramite l'interfaccia della riga di comando](tutorial-custom-images.md).
 
-Se si vuole copiare una macchina virtuale esistente in un'altra area, potrebbe essere necessario usare azcopy per [creare una copia di un disco in un'altra area](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk). 
+Se si desidera copiare una macchina virtuale esistente in un'altra area, è possibile usare la copia elettronica per [creare una copia di un disco in un'altra area.](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) 
 
-In caso contrario, è necessario eseguire uno snapshot della macchina virtuale e quindi creare un nuovo VHD del sistema operativo dallo snapshot.
+In caso contrario, è necessario creare uno snapshot della macchina virtuale e quindi creare un nuovo disco rigido virtuale del sistema operativo dallo snapshot.
 
 ### <a name="create-a-snapshot"></a>Creare uno snapshot
 
 Questo esempio crea uno snapshot di una macchina virtuale denominata *myVM* nel gruppo di risorse *myResourceGroup* e uno snapshot denominato *osDiskSnapshot*.
 
-```azure-cli
+```azurecli
 osDiskId=$(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
 az snapshot create \
     -g myResourceGroup \
@@ -103,13 +103,13 @@ Creare un nuovo disco gestito dallo snapshot.
 
 Ottenere l'ID dello snapshot. In questo esempio, lo snapshot è denominato *osDiskSnapshot* ed è nel gruppo di risorse *myResourceGroup*.
 
-```azure-cli
+```azurecli
 snapshotId=$(az snapshot show --name osDiskSnapshot --resource-group myResourceGroup --query [id] -o tsv)
 ```
 
 Creare il disco gestito. In questo esempio si creerà un disco gestito denominato *myManagedDisk* dallo snapshot. Il disco si trova nell'archiviazione standard e ha dimensioni pari a 128 GB.
 
-```azure-cli
+```azurecli
 az disk create \
     --resource-group myResourceGroup \
     --name myManagedDisk \
@@ -118,7 +118,7 @@ az disk create \
     --source $snapshotId
 ```
 
-## <a name="create-the-vm"></a>Creazione della VM
+## <a name="create-the-vm"></a>Creare la VM
 
 Creare la macchina virtuale con [az vm create](/cli/azure/vm#az-vm-create) e collegare (--attach-os-disk) il disco gestito come disco del sistema operativo. L'esempio seguente crea una macchina virtuale denominata *myNewVM* usando il disco gestito creato dal disco rigido virtuale caricato:
 

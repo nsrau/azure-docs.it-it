@@ -1,74 +1,86 @@
 ---
-title: Modelli di colonna nel flusso di dati del mapping Azure Data Factory
-description: Creare modelli di trasformazione dei dati generalizzati usando modelli di colonna in Azure Data Factory il mapping di flussi di dati
+title: Modelli di colonna nel flusso di dati di mapping di Azure Data FactoryColumn patterns in Azure Data Factory mapping data flow
+description: Creare modelli di trasformazione dei dati generalizzati usando modelli di colonna nei flussi di dati di mapping di Azure Data FactoryCreate generalized data transformation patterns using column patterns in Azure Data Factory mapping data flows
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/21/2019
-ms.openlocfilehash: 0c9a3c2ef05f4a11933ca7fc81c7c0f87a612293
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: bfb4eeef482c4944e75b7805642bc93c23195208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79243809"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065529"
 ---
-# <a name="using-column-patterns-in-mapping-data-flow"></a>Utilizzo di modelli di colonna nel flusso di dati di mapping
+# <a name="using-column-patterns-in-mapping-data-flow"></a>Utilizzo di modelli di colonna nel mapping del flusso di datiUsing column patterns in mapping data flow
 
-Diverse trasformazioni del flusso di dati di mapping consentono di fare riferimento a colonne modello basate su modelli anziché nomi di colonna hardcoded. Questa corrispondenza è nota come *modelli di colonna*. È possibile definire criteri per la corrispondenza delle colonne in base al nome, al tipo di dati, al flusso o alla posizione anziché richiedere nomi di campo esatti. Esistono due scenari in cui i modelli di colonna sono utili:
+Diverse trasformazioni del flusso di dati di mapping consentono di fare riferimento a colonne modello in base a modelli anziché a nomi di colonna hardcoded. Questa corrispondenza è nota come modelli di *colonna*. È possibile definire modelli che corrispondono alle colonne in base al nome, al tipo di dati, al flusso o alla posizione anziché richiedere nomi di campo esatti. Esistono due scenari in cui i modelli di colonna sono utili:There are two scenarios where column patterns are useful:
 
-* Se i campi di origine in ingresso cambiano spesso, ad esempio se si modificano le colonne nei file di testo o nei database NoSQL. Questo scenario è noto come [Drift dello schema](concepts-data-flow-schema-drift.md).
-* Se si desidera eseguire un'operazione comune su un gruppo di colonne di grandi dimensioni. Ad esempio, se si desidera eseguire il cast di ogni colonna con ' Total ' nel nome della colonna in un valore Double.
+* Se i campi di origine in ingresso cambiano spesso, ad esempio nel caso di modifica delle colonne in file di testo o database NoSQL. Questo scenario è noto come [deriva dello schema](concepts-data-flow-schema-drift.md).
+* Se si desidera eseguire un'operazione comune su un gruppo di colonne di grandi dimensioni. Ad esempio, desidera eseguire il cast di ogni colonna con il nome della colonna 'totale' in un valore double.
 
-I criteri di colonna sono attualmente disponibili nelle trasformazioni Colonna derivata, aggregazione, selezione e sink.
+I modelli di colonna sono attualmente disponibili nelle trasformazioni di colonna, aggregazione, selezione e sink derivati.
 
-## <a name="column-patterns-in-derived-column-and-aggregate"></a>Modelli di colonna in colonna derivata e aggregazione
+## <a name="column-patterns-in-derived-column-and-aggregate"></a>Modelli di colonna nella colonna derivata e nell'aggregazioneColumn patterns in derived column and aggregate
 
-Per aggiungere un modello di colonna in una colonna derivata o nella scheda Aggregazioni di una trasformazione aggregazione, fare clic sull'icona a forma di segno più a destra di una colonna esistente. Selezionare **Aggiungi modello di colonna**. 
+Per aggiungere un modello di colonna in una colonna derivata o nella scheda Aggregazioni di una trasformazione di aggregazione, fare clic sull'icona più a destra di una colonna esistente. Selezionare **Aggiungi modello di colonna**. 
 
 ![modelli di colonna](media/data-flow/columnpattern.png "Criteri delle colonne")
 
-Utilizzare il [Generatore di espressioni](concepts-data-flow-expression-builder.md) per immettere la condizione di corrispondenza. Creare un'espressione booleana che corrisponda alle colonne basate sulla `name`, `type`, `stream`e `position` della colonna. Il criterio influirà su qualsiasi colonna, a cui viene applicata la deviazione o definita, in cui la condizione restituisce true.
+Utilizzare il [generatore di espressioni](concepts-data-flow-expression-builder.md) per immettere la condizione di corrispondenza. Creare un'espressione booleana che `name` `type`corrisponda alle colonne in base a , , `stream`e `position` della colonna. Il modello avrà effetto su qualsiasi colonna, derapata o definita, in cui la condizione restituisce true.
 
-Le due caselle di espressione sotto la condizione di corrispondenza specificano i nuovi nomi e i nuovi valori delle colonne interessate. Usare `$$` per fare riferimento al valore esistente del campo corrispondente. Nella casella espressione a sinistra viene definito il nome e la casella espressione a destra definisce il valore.
+Le due caselle di espressione sotto la condizione di corrispondenza specificano i nuovi nomi e i nuovi valori delle colonne interessate. Consente `$$` di fare riferimento al valore esistente del campo corrispondente. La casella di espressione a sinistra definisce il nome e la casella di espressione di destra definisce il valore.
 
 ![modelli di colonna](media/data-flow/columnpattern2.png "Criteri delle colonne")
 
-Il modello di colonna precedente corrisponde a ogni colonna di tipo Double e crea una colonna di aggregazione per ogni corrispondenza. Il nome della nuova colonna è il nome della colonna corrispondente concatenato con "_total". Il valore della nuova colonna è costituito dalla somma aggregata arrotondata del valore Double esistente.
+Il modello di colonna precedente corrisponde a ogni colonna di tipo double e crea una colonna di aggregazione per corrispondenza. Il nome della nuova colonna è il nome della colonna corrispondente concatenato a '_total'. Il valore della nuova colonna è la somma arrotondata e aggregata del valore double esistente.
 
-Per verificare che la condizione di corrispondenza sia corretta, è possibile convalidare lo schema di output delle colonne definite nella scheda **Controlla** oppure ottenere uno snapshot dei dati nella scheda **Anteprima dati** . 
+Per verificare che la condizione corrispondente sia corretta, è possibile convalidare lo schema di output delle colonne definite nella scheda **Controlla** o ottenere uno snapshot dei dati nella scheda **Anteprima dati.** 
 
 ![modelli di colonna](media/data-flow/columnpattern3.png "Criteri delle colonne")
 
 ## <a name="rule-based-mapping-in-select-and-sink"></a>Mapping basato su regole in Select e sink
 
-Quando si esegue il mapping delle colonne nell'origine e si selezionano le trasformazioni, è possibile aggiungere mapping fissi o basati su regole. Se si conosce lo schema dei dati e si prevede che colonne specifiche del set di dati di origine corrispondano sempre a nomi statici specifici, utilizzare il mapping fisso. Se si lavora con schemi flessibili, usare il mapping basato su regole per creare una corrispondenza dei criteri basata sulla `name`, `type`, `stream`e `position` di colonne. È possibile avere qualsiasi combinazione di mapping corretti e basati su regole. 
+Quando si esegue il mapping di colonne nell'origine e si selezionano trasformazioni, è possibile aggiungere mapping fissi o basati su regole. Trova la `name`corrispondenza `stream`in `position` base alle colonne , `type`, e . È possibile avere qualsiasi combinazione di mapping fissi e basati su regole. Per impostazione predefinita, per tutte le proiezioni con più di 50 colonne verrà associato per impostazione predefinita un mapping basato su regole che corrisponde a ogni colonna e restituisce il nome immesso. 
 
-Per aggiungere un mapping basato su regole, fare clic su **Aggiungi mapping** e selezionare **mapping basato su regole**.
+Per aggiungere un mapping basato su regole, fare clic su **Aggiungi mapping** e selezionare **Mapping basato su regole**.
 
-![mapping basato su regole](media/data-flow/rule2.png "Mapping basato su regole")
+![mapping basato su regole](media/data-flow/rule2.png "mapping basato su regole")
 
-Nella casella espressione a sinistra immettere la condizione di corrispondenza booleana. Nella casella espressione a destra specificare l'elemento a cui verrà eseguito il mapping della colonna corrispondente. Usare `$$` per fare riferimento al nome esistente del campo corrispondente.
+Ogni mapping basato su regole richiede due input: la condizione in base alla quale soddisfare e cosa denominare ogni colonna mappata. Entrambi i valori vengono immessi tramite il [generatore di espressioni.](concepts-data-flow-expression-builder.md) Nella casella dell'espressione a sinistra immettere la condizione di corrispondenza booleana. Nella casella di espressione a destra specificare a cosa verrà eseguito il mapping della colonna corrispondente.
 
-Se si fa clic sull'icona con la freccia di espansione verso il basso, è possibile specificare una condizione di mapping Regex.
+![mapping basato su regole](media/data-flow/rule-based-mapping.png "mapping basato su regole")
 
-Fare clic sull'icona degli occhiali accanto a un mapping basato su regole per visualizzare quali colonne definite corrispondono e a cosa sono mappate.
+Utilizzare `$$` la sintassi per fare riferimento al nome di input di una colonna corrispondente. Utilizzando l'immagine precedente come esempio, si supponga che un utente desideri trovare una corrispondenza in tutte le colonne stringa i cui nomi sono più brevi di sei caratteri. Se una colonna `test`in arrivo `$$ + '_short'` è denominata , l'espressione rinominerà la colonna `test_short`. Se questo è l'unico mapping esistente, tutte le colonne che non soddisfano la condizione verranno eliminate dai dati restituiti.
 
-![mapping basato su regole](media/data-flow/rule1.png "Mapping basato su regole")
+I modelli corrispondono sia alle colonne alla deriva che a quelle definite. Per visualizzare le colonne definite mappate da una regola, fare clic sull'icona degli occhiali accanto alla regola. Verificare l'output utilizzando l'anteprima dei dati.
 
-Nell'esempio precedente vengono creati due mapping basati sulle regole. Il primo accetta tutte le colonne non denominate "Movie" e ne esegue il mapping ai valori esistenti. La seconda regola USA Regex per trovare la corrispondenza con tutte le colonne che iniziano con "Movie" e ne esegue il mapping alla colonna "movieId".
+### <a name="regex-mapping"></a>Mapping Regex
 
-Se la regola restituisce più mapping identici, abilitare **Ignora input duplicati** o **Ignora output duplicati** per evitare duplicati.
+Se si fa clic sull'icona con la freccia rivolta verso il basso, è possibile specificare una condizione di mapping delle regex. Una condizione di mapping delle regole di espressione regolare corrisponde a tutti i nomi di colonna che corrispondono alla condizione di espressione regolare specificata. Può essere utilizzato in combinazione con mapping standard basati su regole.
 
-## <a name="pattern-matching-expression-values"></a>Criteri di ricerca dei valori di espressione.
+![mapping basato su regole](media/data-flow/regex-matching.png "mapping basato su regole")
 
-* `$$` viene convertito nel nome o nel valore di ogni corrispondenza in fase di esecuzione
-* `name` rappresenta il nome di ogni colonna in ingresso
-* `type` rappresenta il tipo di dati di ogni colonna in ingresso
-* `stream` rappresenta il nome associato a ogni flusso o trasformazione nel flusso
-* `position` è la posizione ordinale delle colonne nel flusso di dati
+L'esempio precedente corrisponde `(r)` al modello regex o a qualsiasi nome di colonna che contiene una r minuscola. Analogamente al mapping standard basato su regole, tutte le `$$` colonne corrispondenti vengono modificate dalla condizione a destra utilizzando la sintassi.
+
+### <a name="rule-based-hierarchies"></a>Gerarchie basate su regole
+
+Se la proiezione definita ha una gerarchia, è possibile utilizzare il mapping basato su regole per eseguire il mapping delle sottocolonne delle gerarchie. Specificare una condizione corrispondente e la colonna complessa di cui si desidera mappare le sottocolonne. Ogni sottocolonna corrispondente verrà emessa utilizzando la regola 'Nome come' specificata a destra.
+
+![mapping basato su regole](media/data-flow/rule-based-hierarchy.png "mapping basato su regole")
+
+Nell'esempio precedente viene confrontato `a`con tutte le sottocolonne di column complex . `a`contiene due `b` sottocolonne e `c`. Lo schema di output `b` `c` includerà due colonne e `$$`come la condizione 'Nome come' è .
+
+## <a name="pattern-matching-expression-values"></a>Valori delle espressioni di corrispondenza dei modelli.
+
+* `$$`si traduce nel nome o nel valore di ogni corrispondenza in fase di esecuzione
+* `name`rappresenta il nome di ogni colonna in ingresso
+* `type`rappresenta il tipo di dati di ogni colonna in entrata
+* `stream`rappresenta il nome associato a ogni flusso o la trasformazione nel flusso
+* `position`è la posizione ordinale delle colonne nel flusso di dati
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Altre informazioni sul [linguaggio delle espressioni](data-flow-expression-functions.md) del flusso di dati di mapping per le trasformazioni dei dati
-* Usare i modelli di colonna nella [trasformazione sink](data-flow-sink.md) e [selezionare trasformazione](data-flow-select.md) con mapping basato su regole
+* Altre informazioni sul [linguaggio](data-flow-expression-functions.md) delle espressioni del flusso di dati di mapping per le trasformazioni dei datiLearn more about the mapping data flow expression language for data transformations
+* Usare i modelli di colonna nella [trasformazione sink](data-flow-sink.md) e selezionare la [trasformazione](data-flow-select.md) con il mapping basato su regoleUse column patterns in the sink transformation and select transformation with rule-based mapping

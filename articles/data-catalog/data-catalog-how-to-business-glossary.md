@@ -1,5 +1,5 @@
 ---
-title: Configurare il glossario aziendale in Azure Data Catalog
+title: Configurare il glossario aziendale in Azure Data CatalogSet up the business glossary in Azure Data Catalog
 description: Articolo sulle procedure che illustra il glossario aziendale in Azure Data Catalog per definire e usare un vocabolario aziendale comune in base al quale assegnare tag ad asset di dati registrati.
 author: JasonWHowell
 ms.author: jasonh
@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 1065abecb1f0ef57eb13b1ec3f194f07ae01eaee
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68976799"
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>Come configurare il glossario aziendale per l'assegnazione di tag regolamentata
@@ -32,15 +32,15 @@ Usando il glossario aziendale di Data Catalog, un'organizzazione può spiegare i
 
 ## <a name="glossary-availability-and-privileges"></a>Disponibilità e privilegi del glossario
 
-Il glossario aziendale è disponibile nell'edizione Standard di Azure Data Catalog. L'edizione gratuita di Data Catalog non include un glossario e non fornisce funzionalità per l'assegnazione di tag regolamentata.
+Il glossario aziendale è disponibile nell'edizione Standard di Azure Data Catalog. L'edizione gratuita di Data Catalog non include un glossario e non fornisce funzionalità per l'assegnazione di tag regolamentati.
 
 È possibile accedere al glossario aziendale tramite l'opzione **Glossario** nel menu di spostamento del portale di Data Catalog.  
 
-![Data Catalog-accedere al glossario aziendale](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
+![Catalogo dati - Accedere al glossario aziendale](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
 
 Gli amministratori di Data Catalog e i membri del ruolo Amministratori del glossario possono creare, modificare ed eliminare i termini del glossario aziendale. Tutti gli utenti di Data Catalog possono visualizzare le definizioni dei termini e assegnare agli asset tag usando i termini del glossario.
 
-![Data Catalog-aggiungere un nuovo termine del glossario](./media/data-catalog-how-to-business-glossary/02-new-term.png)
+![Catalogo dati - Aggiungere un nuovo termine di glossario](./media/data-catalog-how-to-business-glossary/02-new-term.png)
 
 ## <a name="creating-glossary-terms"></a>Creazione dei termini di glossario
 

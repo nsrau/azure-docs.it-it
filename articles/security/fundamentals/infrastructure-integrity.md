@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
 ms.openlocfilehash: ef81e74b07a351139aa8feefbdf1b89ea7e4994f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68727197"
 ---
 # <a name="azure-infrastructure-integrity"></a>Integrità dell'infrastruttura di Azure
@@ -58,12 +58,12 @@ Azure garantisce che l'applicazione o il servizio distribuito sia raggiungibile 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'infrastruttura di Azure, vedere:
 
-- [Azure facilities, premises, and physical security](physical-security.md) (Sicurezza fisica, presupposti e strutture di Azure)
+- [Azure facilities, premises, and physical security (Sicurezza fisica, presupposti e strutture di Azure)](physical-security.md)
 - [Disponibilità dell'infrastruttura di Azure](infrastructure-availability.md)
-- [Azure information system components and boundaries](infrastructure-components.md) (Componenti e limiti del sistema informativo di Azure)
+- [Componenti e limiti del sistema informativo di Azure](infrastructure-components.md)
 - [Architettura di rete di Azure](infrastructure-network.md)
 - [Rete di produzione di Azure](production-network.md)
-- [Funzionalità di sicurezza del database SQL di Azure](infrastructure-sql.md)
-- [Azure production operations and management](infrastructure-operations.md) (Operazioni e gestione della produzione di Azure)
+- [Funzionalità di sicurezza del database SQL di AzureAzure SQL Database security features](infrastructure-sql.md)
+- [Gestione e funzionamento dell'ambiente di produzione di Azure](infrastructure-operations.md)
 - [Monitoraggio dell'infrastruttura di Azure](infrastructure-monitoring.md)
 - [Protezione dei dati dei clienti di Azure](protection-customer-data.md)

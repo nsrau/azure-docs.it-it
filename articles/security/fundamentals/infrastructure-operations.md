@@ -1,6 +1,6 @@
 ---
-title: Gestione della rete di produzione di Azure-Microsoft Azure
-description: Questo articolo descrive il modo in cui Microsoft gestisce e gestisce la rete di produzione di Azure per la protezione dei Data Center di Azure.
+title: Gestione della rete di produzione di Azure - Microsoft Azure
+description: Questo articolo descrive come Microsoft gestisce e gestisce la rete di produzione di Azure per proteggere i data center di Azure.This article describes how Microsoft manages and operates the Azure production network to secure the Azure datacenters.
 services: security
 documentationcenter: n
 author: TerryLanfear
@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 05/30/2019
 ms.author: terrylan
 ms.openlocfilehash: d41fe409b4a44a4c2af3670d76dd3a83a300feae
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68727124"
 ---
 # <a name="management-and-operation-of-the-azure-production-network"></a>Gestione e funzionamento della rete di produzione di Azure    
-Questo articolo descrive il modo in cui Microsoft gestisce e gestisce la rete di produzione di Azure per la protezione dei Data Center di Azure.
+Questo articolo descrive come Microsoft gestisce e gestisce la rete di produzione di Azure per proteggere i data center di Azure.This article describes how Microsoft manages and operates the Azure production network to secure the Azure datacenters.
 
-## <a name="monitor-log-and-report"></a>Monitoraggio, log e report
+## <a name="monitor-log-and-report"></a>Monitorare, registrare e segnalare
 
 La gestione e il funzionamento della rete di produzione di Azure sono il risultato di una collaborazione coordinata tra i team operativi di Azure e del database SQL di Azure. Nell'ambiente, i team usano vari strumenti di monitoraggio delle prestazioni delle applicazioni e del sistema. E usano strumenti appropriati per il monitoraggio della rete dei dispositivi, dei server e dei processi delle applicazioni.
 
@@ -53,12 +53,12 @@ L'accesso alle applicazioni di Azure interno è controllato attraverso l'autenti
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'infrastruttura di Azure, vedere:
 
-- [Azure facilities, premises, and physical security](physical-security.md) (Sicurezza fisica, presupposti e strutture di Azure)
+- [Azure facilities, premises, and physical security (Sicurezza fisica, presupposti e strutture di Azure)](physical-security.md)
 - [Disponibilità dell'infrastruttura di Azure](infrastructure-availability.md)
-- [Azure information system components and boundaries](infrastructure-components.md) (Componenti e limiti del sistema informativo di Azure)
+- [Componenti e limiti del sistema informativo di Azure](infrastructure-components.md)
 - [Architettura di rete di Azure](infrastructure-network.md)
 - [Rete di produzione di Azure](production-network.md)
-- [Funzionalità di sicurezza del database SQL di Azure](infrastructure-sql.md)
+- [Funzionalità di sicurezza del database SQL di AzureAzure SQL Database security features](infrastructure-sql.md)
 - [Monitoraggio dell'infrastruttura di Azure](infrastructure-monitoring.md)
 - [Integrità dell'infrastruttura di Azure](infrastructure-integrity.md)
 - [Protezione dei dati dei clienti di Azure](protection-customer-data.md)

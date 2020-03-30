@@ -1,5 +1,5 @@
 ---
-title: Utilizzare stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB
+title: Utilizzare stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DBWork with stored procedures, triggers, and UDFs in Azure Cosmos DB
 description: Questo articolo illustra concetti quali stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 706f52a6cda2bbcb0e5ca1cfe9372600fa6709d0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 23a14e7590eca6f63c92acdf6336ffaef8b54381
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79246526"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065902"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Stored procedure, trigger e funzioni definite dall'utente
 
@@ -24,24 +24,24 @@ La scrittura di stored procedure, trigger e funzioni definite dall'utente (UDF) 
 
 * **Logica procedurale:** JavaScript come linguaggio di programmazione di alto livello che fornisce un'interfaccia ricca e familiare per esprimere la logica di business. È possibile eseguire una sequenza di operazioni complesse sui dati.
 
-* **Transazioni atomiche:** Azure Cosmos DB garantisce che le operazioni del database eseguite all'interno di un singolo stored procedure o di un trigger siano atomiche. Questa funzionalità atomica consente a un'applicazione di combinare le operazioni correlate in un unico batch, in modo che o nessuna o tutte abbiano esito positivo.
+* **Transazioni atomiche:** Il database Cosmos di Azure garantisce che le operazioni di database eseguite all'interno di una singola stored procedure o di un trigger siano atomiche. Questa funzionalità atomica consente a un'applicazione di combinare le operazioni correlate in un unico batch, in modo che o nessuna o tutte abbiano esito positivo.
 
-* **Prestazioni:** I dati JSON vengono mappati in modo intrinseco al sistema di tipi di linguaggio JavaScript. Questo mapping consente un numero di ottimizzazioni, ad esempio la materializzazione differita dei documenti JSON nel pool di buffer e la relativa disponibilità su richiesta per il codice di esecuzione. Vi sono altri vantaggi relativi alle prestazioni associati all'integrazione della logica di business nel database, tra cui:
+* **Prestazioni:** I dati JSON sono intrinsecamente mappati al sistema di tipi di linguaggio JavaScript. Questo mapping consente un numero di ottimizzazioni, ad esempio la materializzazione differita dei documenti JSON nel pool di buffer e la relativa disponibilità su richiesta per il codice di esecuzione. Vi sono altri vantaggi relativi alle prestazioni associati all'integrazione della logica di business nel database, tra cui:
 
-   * Invio in *batch:* È possibile raggruppare operazioni come gli inserimenti e inviarle in blocco. Ciò comporta una drastica riduzione dei costi legati alla latenza del traffico di rete e dei costi generali di archiviazione per la creazione di transazioni separate.
+   * *Batching:* È possibile raggruppare le operazioni come gli inserimenti e inviarle in blocco. Ciò comporta una drastica riduzione dei costi legati alla latenza del traffico di rete e dei costi generali di archiviazione per la creazione di transazioni separate.
 
-   * *Pre-compilazione:* Stored procedure, trigger e funzioni definite dall'utente vengono precompilati in modo implicito nel formato di codice byte per evitare il costo di compilazione al momento della chiamata di ogni script. La precompilazione garantisce velocità elevata e footprint ridotto delle chiamate delle stored procedure.
+   * *Precompilazione:* Le stored procedure, i trigger e le funzioni definite dall'utente vengono precompilate in modo implicito nel formato del codice byte per evitare costi di compilazione al momento di ogni chiamata di script. La precompilazione garantisce velocità elevata e footprint ridotto delle chiamate delle stored procedure.
 
-   * *Sequenziazione:* A volte le operazioni richiedono un meccanismo di attivazione che può eseguire uno o più aggiornamenti ai dati. Oltre all'atomicità, esistono anche vantaggi per le prestazioni durante l'esecuzione sul lato server.
+   * *Sequenza:* A volte le operazioni richiedono un meccanismo di attivazione che può eseguire uno o ulteriori aggiornamenti ai dati. Oltre all'atomicità, esistono anche vantaggi per le prestazioni durante l'esecuzione sul lato server.
 
 * **Incapsulamento:** Le stored procedure possono essere utilizzate per raggruppare la logica in un'unica posizione. L'incapsulamento aggiunge un livello di astrazione al di sopra dei dati, consentendo l'evoluzione delle applicazioni indipendentemente dai dati. Questo livello di astrazione è utile quando i dati sono senza schema e non è necessario gestire l'aggiunta di altra logica direttamente nell'applicazione. Questa astrazione consente di proteggere i dati semplificando l'accesso dagli script.
 
 > [!TIP]
-> Le stored procedure sono ideali per operazioni di scrittura e richiedono una transazione in un valore di chiave di partizione. Quando si decide se utilizzare le stored procedure, è possibile ottimizzare l'incapsulamento della quantità massima di Scritture. In generale, le stored procedure non rappresentano il modo più efficiente per eseguire un numero elevato di operazioni di lettura o di query, pertanto l'utilizzo di stored procedure per eseguire il batch di un numero elevato di letture per tornare al client non produrrà il vantaggio desiderato. Per ottenere prestazioni ottimali, è consigliabile eseguire le operazioni di lettura sul lato client, usando Cosmos SDK. 
+> Le stored procedure sono più adatte per le operazioni che richiedono un uso intensivo della scrittura e che richiedono una transazione in un valore di chiave di partizione. Quando si decide se utilizzare le stored procedure, ottimizzare l'incapsulamento della quantità massima possibile di scritture. In generale, le stored procedure non sono il mezzo più efficiente per eseguire un numero elevato di operazioni di lettura o query, pertanto l'utilizzo di stored procedure per l'invio in batch di un numero elevato di letture da restituire al client non produrrà il vantaggio desiderato. Per ottenere prestazioni ottimali, queste operazioni di lettura pesante devono essere eseguite sul lato client, utilizzando Cosmos SDK. 
 
 ## <a name="transactions"></a>Transazioni
 
-Una transazione in un tipico database può essere definita come una sequenza di operazioni eseguite come singola unità di lavoro logica. Ogni transazione offre **garanzie di proprietà ACID**. ACID è un acronimo noto che sta per **: tomicity,** **C**onsistency, **I**solation e **D**urability. 
+Una transazione in un tipico database può essere definita come una sequenza di operazioni eseguite come singola unità di lavoro logica. Ogni transazione offre **garanzie di proprietà ACID**. ACID è un acronimo noto che sta per: **Tomicity,** **C**onsistency, **I**solation e **D**urability. 
 
 * L'atomicità garantisce che tutte le operazioni eseguite nell'ambito di una transazione siano trattate come unità singola e che venga eseguito il commit di tutte le operazioni o di nessuna di esse. 
 
@@ -55,7 +55,7 @@ In Azure Cosmos DB il runtime di JavaScript è ospitato all'interno del motore d
 
 ### <a name="scope-of-a-transaction"></a>Ambito di una transazione
 
-Se è associata a un contenitore Azure Cosmos, la stored procedure viene eseguita nell'ambito della transazione di una chiave di partizione logica. Ogni esecuzione di stored procedure deve includere un valore di chiave di partizione logica corrispondente all'ambito della transazione. Per altre informazioni, vedere l'articolo [Partizionamento di Azure Cosmos DB](partition-data.md).
+Le stored procedure sono associate a un contenitore Cosmos di Azure e l'esecuzione delle stored procedure ha come ambito una chiave di partizione logica. Le stored procedure devono includere un valore di chiave di partizione logica durante l'esecuzione che definisce la partizione logica per l'ambito della transazione. Per altre informazioni, vedere l'articolo [Partizionamento di Azure Cosmos DB](partition-data.md).
 
 ### <a name="commit-and-rollback"></a>Commit e rollback
 
@@ -83,16 +83,16 @@ Azure Cosmos DB include trigger che possono essere richiamati eseguendo un'opera
 
 ### <a name="post-triggers"></a>Post-trigger
 
-Analogamente ai pre-trigger, i post-trigger sono associati anche a un'operazione su un elemento di Azure Cosmos e non richiedono alcun parametro di input. Vengono eseguiti *dopo* il completamento dell'operazione e hanno accesso al messaggio di risposta inviato al client. Per gli esempi, vedere [Come scrivere i trigger](how-to-write-stored-procedures-triggers-udfs.md#triggers).
+Analogamente ai pre-trigger, i post-trigger, sono associati anche a un'operazione in un elemento Cosmos di Azure e non richiedono parametri di input. Vengono eseguiti *dopo* il completamento dell'operazione e hanno accesso al messaggio di risposta inviato al client. Per gli esempi, vedere [Come scrivere i trigger](how-to-write-stored-procedures-triggers-udfs.md#triggers).
 
 > [!NOTE]
-> I trigger registrati non vengono eseguiti automaticamente quando si verificano le operazioni corrispondenti (creazione/eliminazione/sostituzione/aggiornamento). Devono essere chiamati in modo esplicito durante l'esecuzione di queste operazioni. Per altre informazioni, vedere [How to Run Triggers](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) article.
+> I trigger registrati non vengono eseguiti automaticamente quando si verificano le operazioni corrispondenti (creazione/eliminazione/sostituzione/aggiornamento). Devono essere chiamati in modo esplicito durante l'esecuzione di queste operazioni. Per altre informazioni, vedere [l'articolo Come eseguire i trigger.](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers)
 
-## <a id="udfs"></a>Funzioni definite dall'utente
+## <a name="user-defined-functions"></a><a id="udfs"></a>Funzioni definite dall'utente
 
 Le funzioni definite dall'utente, o UDF, consentono di estendere la sintassi del linguaggio di query API SQL e implementare facilmente la logica di business. Possono essere chiamate solo all'interno di query. Non hanno accesso all'oggetto contesto e vanno usate come JavaScript di solo calcolo. È quindi possibile eseguire le funzioni definite dall'utente su repliche secondarie. Per gli esempi, vedere [Come scrivere funzioni definite dall'utente](how-to-write-stored-procedures-triggers-udfs.md#udfs).
 
-## <a id="jsqueryapi"></a>API di query integrate nel linguaggio JavaScript
+## <a name="javascript-language-integrated-query-api"></a><a id="jsqueryapi"></a>API di query integrate nel linguaggio JavaScript
 
 Oltre a eseguire una query utilizzando la sintassi delle query API SQL, l'[SDK sul lato server](https://azure.github.io/azure-cosmosdb-js-server) consente di eseguire query tramite un'interfaccia JavaScript senza alcuna conoscenza di SQL. L'API di query JavaScript consente di creare query a livello di codice passando funzioni predicato nella sequenza delle chiamate di funzione. Le query vengono analizzate dal runtime JavaScript ed eseguite in modo efficiente usando Azure Cosmos DB. Per altre informazioni sul supporto delle API di query JavaScript, vedere l'articolo [Utilizzo dell'API di query integrata nel linguaggio JavaScript](javascript-query-api.md). Per gli esempi, vedere l'articolo [Come scrivere stored procedure e trigger in Azure Cosmos DB usando l'API di query di JavaScript](how-to-write-javascript-query-api.md).
 

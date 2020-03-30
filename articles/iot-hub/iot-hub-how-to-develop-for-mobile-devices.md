@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: robinsh
 ms.openlocfilehash: 945b02003a443c04e692fdc06ca5714de362d074
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68883092"
 ---
 # <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>Sviluppare per dispositivi mobili tramite Azure IoT SDK
@@ -23,22 +23,22 @@ Gli elementi di Internet delle cose possono comprendere un'ampia gamma di dispos
 Gli SDK per l'hub IoT di Azure offrono supporto per la piattaforma iOS nativa tramite l'SDK C per l'hub IoT di Azure.  Può essere considerato come un SDK per iOS che è possibile incorporare nel progetto Swift oppure Objective C XCode.  Esistono due modi per usare l'SDK C in iOS:
 
 * Usare le librerie CocoaPod direttamente nel progetto XCode.  
-* Scaricare il codice sorgente per l'SDK C ed eseguire la compilazione per la piattaforma iOS seguendo le [istruzioni di compilazione](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) per macOS.  
+* Scaricare il codice sorgente per l'SDK C ed eseguire la compilazione per la piattaforma iOS seguendo le [istruzioni di compilazione](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) per MacOS.  
 
 L'SDK C per l'hub IoT di Azure viene scritto in C99 per garantire la massima portabilità su diverse piattaforme.  Il processo di portabilità comporta la scrittura di un livello di adozione sottile per i componenti specifici della piattaforma, che sono disponibili qui per [iOS](https://github.com/Azure/azure-c-shared-utility/tree/master/pal/ios-osx).  Le funzionalità dell'SDK C possono essere sfruttate nella piattaforma iOS, incluse le primitive dell'hub IoT di Azure supportate e le funzionalità specifiche dell'SDK, ad esempio i criteri di ripetizione per l'affidabilità della rete.  Anche l'interfaccia dell'SDK per iOS è simile all'interfaccia dell'SDK C per l'hub IoT di Azure.  
 
 Questi documenti illustrano dettagliatamente come sviluppare un'applicazione per un dispositivo o per un servizio in un dispositivo iOS:
 
-* [Avvio rapido: Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-ios.md)  
+* [Guida introduttiva: inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-ios.md)  
 * [Inviare messaggi dal cloud al dispositivo con l'hub IoT](iot-hub-ios-swift-c2d.md) 
 
 ### <a name="develop-with-azure-iot-hub-cocoapod-libraries"></a>Sviluppare con le librerie CocoaPod dell'hub IoT di Azure
 
 Gli SDK per l'hub IoT di Azure rilasciano un set di librerie CocoaPod di Objective-C per lo sviluppo in iOS.  Per visualizzare l'elenco più recente delle librerie CocoaPod, vedere [CocoaPods per Microsoft Azure IoT](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/samples/ios/CocoaPods.md).  Dopo aver incorporato le librerie pertinenti nel progetto XCode, è possibile scrivere il codice relativo all'hub IoT in due modi:
 
-* Funzione Objective C: se il progetto è scritto in Objective-C è possibile chiamare le API direttamente dall'SDK C per l'hub IoT di Azure.  Se il progetto è scritto in Swift è possibile chiamare `@objc func` prima di creare la funzione e procedere alla scrittura di tutte le logiche relative all'hub IoT di Azure usando il codice C oppure Objective-C.  Un insieme di esempi che li illustra entrambi è disponibile nel [repository di esempio](https://github.com/Azure-Samples/azure-iot-samples-ios).  
+* Funzione Objective C: se il progetto è scritto in Objective-C è possibile chiamare le API direttamente dall'SDK C per l'hub IoT di Azure.  Se il progetto è scritto in Swift è possibile chiamare `@objc func` prima di creare la funzione e procedere alla scrittura di tutte le logiche relative all'hub IoT di Azure usando il codice C oppure Objective-C.  Un insieme di esempi che li illustra entrambi è disponibile nella [repository degli esempi](https://github.com/Azure-Samples/azure-iot-samples-ios).  
 
-* Incorporare gli esempi C: se è stata scritta un'applicazione per dispositivi C, è possibile usarla come riferimento direttamente nel progetto XCode:
+* Incorporare gli esempi C: se è stata scritta un'applicazione per dispositivi C è possibile usarla come riferimento direttamente nel progetto XCode:
     * Aggiungere il file sample.c al progetto XCode da XCode.  
     * Aggiungere il file di intestazione per la dipendenza.  Nel [repository di esempio](https://github.com/Azure-Samples/azure-iot-samples-ios) è incluso un file di intestazione come esempio. Per altre informazioni, visitare la pagina delle documentazioni di Apple per [Objective-C](https://developer.apple.com/documentation/objectivec).
 
@@ -47,10 +47,10 @@ Azure IoT Hub Java SDK supporta la piattaforma Android.  Per la specifica versio
 
 Questi documenti illustrano dettagliatamente come sviluppare un'applicazione per un dispositivo o per un servizio in un dispositivo Android usando Gradle e Android Studio:
 
-* [Avvio rapido: Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-android.md)  
-* [Avvio rapido: Controllare un dispositivo](quickstart-control-device-android.md) 
+* [Guida introduttiva: inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-android.md)  
+* [Guida introduttiva: Controllare un dispositivo](quickstart-control-device-android.md) 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni di riferimento sulle API REST dell'hub IoT](https://docs.microsoft.com/rest/api/iothub/)
+* [Informazioni di riferimento sull'API REST dell'hub IoT](https://docs.microsoft.com/rest/api/iothub/)
 * [Codice sorgente dell'SDK C per l'hub IoT di Azure](https://github.com/Azure/azure-iot-sdk-c)

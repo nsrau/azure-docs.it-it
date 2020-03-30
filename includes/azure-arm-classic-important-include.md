@@ -2,14 +2,14 @@
 author: genlin
 ms.service: virtual-network
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 02/14/2020
 ms.author: genli
-ms.openlocfilehash: 096f46e22c87e609e875e5e44943e5d1c2ccb0ed
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 855ab5fba4bf763313030af894bfe0f9142bf8df
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180055"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80117058"
 ---
 > [!IMPORTANT]
-> Prima di iniziare a usare le risorse di Azure, è importante comprendere che Azure al momento offre due modelli di distribuzione: Azure Resource Manager e distribuzione classica. È importante comprendere i [modelli e strumenti di distribuzione](../articles/azure-classic-rm.md) prima di lavorare con le risorse di Azure. È possibile visualizzare la documentazione relativa a diversi strumenti facendo clic sulle schede nella parte superiore di questo articolo.
+> Azure ha attualmente due modelli di distribuzione: Azure Resource Manager e classico. È importante comprendere i [modelli e strumenti di distribuzione](../articles/azure-resource-manager/management/deployment-models.md) prima di lavorare con le risorse di Azure. Per visualizzare la documentazione per diversi strumenti, selezionare le schede all'inizio di questo articolo.

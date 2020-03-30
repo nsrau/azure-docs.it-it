@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: risolvere i problemi di connettività Azure AD | Microsoft Docs'
+title: 'Azure AD Connect: Risolvere i problemi di connettività di Azure AD. Documenti Microsoft'
 description: Descrive come risolvere i problemi di connettività con Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7519f47037d2d7ff37564ab27c1cc58b65ff6c14
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 72dbb404d1b4d3618909e0233f332d2f98b51516
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79253598"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049725"
 ---
-# <a name="troubleshoot-azure-ad-connectivity"></a>Risolvere i problemi di connettività Azure AD
+# <a name="troubleshoot-azure-ad-connectivity"></a>Risolvere i problemi di connettività di Azure ADTroubleshoot Azure AD connectivity
 Questo articolo illustra il funzionamento della connettività tra Azure AD Connect e Azure AD e come risolverne i problemi. Questi problemi si verificano con maggiore probabilità in un ambiente con un server proxy.
 
 ## <a name="troubleshoot-connectivity-issues-in-the-installation-wizard"></a>Risolvere i problemi di connettività nell'Installazione guidata
@@ -53,7 +53,7 @@ Nella tabella seguente sono riportate le impostazioni minime relative agli URL a
 | \*.microsoftonline.com |HTTPS/443 |Usato per configurare la directory di Azure AD e i dati di importazione/esportazione. |
 
 ## <a name="errors-in-the-wizard"></a>Errori nella procedura guidata
-L'Installazione guidata usa due diversi contesti di sicurezza. Nella pagina **Connessione ad Azure AD** usa l'utente attualmente connesso. Nella pagina **Configura** passa all'[account che esegue il servizio per il motore di sincronizzazione](reference-connect-accounts-permissions.md#adsync-service-account). La presenza di un eventuale problema sarà probabilmente già evidente nella pagina **Connessione ad Azure AD** della procedura guidata, in quanto la configurazione del proxy è globale.
+L'Installazione guidata usa due diversi contesti di sicurezza. Nella pagina **Connetti ad Azure AD**viene utilizzato l'utente attualmente connesso. Nella pagina **Configura**, viene modificato l'account che esegue il servizio per il motore di [sincronizzazione.](reference-connect-accounts-permissions.md#adsync-service-account) La presenza di un eventuale problema sarà probabilmente già evidente nella pagina **Connessione ad Azure AD** della procedura guidata, in quanto la configurazione del proxy è globale.
 
 Di seguito sono riportati i problemi più comuni che vengono visualizzati nell'Installazione guidata.
 
@@ -69,7 +69,7 @@ Se si usa un **account Microsoft** anziché un account **dell'istituto di istruz
 ![Viene usato un account Microsoft](./media/tshoot-connect-connectivity/unknownerror.png)
 
 ### <a name="the-mfa-endpoint-cannot-be-reached"></a>L'endpoint MFA non è raggiungibile
-Questo errore viene visualizzato se l'endpoint **https://secure.aadcdn.microsoftonline-p.com** non è raggiungibile e l'amministratore globale ha abilitato l'autenticazione MFA.  
+Questo errore viene **https://secure.aadcdn.microsoftonline-p.com** visualizzato se l'endpoint non è raggiungibile e l'amministratore globale ha abilitato l'autenticazione a più fattori.  
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png)
 
 * Se viene visualizzato questo errore, verificare che l'endpoint **secure.aadcdn.microsoftonline-p.com** sia stato aggiunto al proxy.
@@ -78,16 +78,16 @@ Questo errore viene visualizzato se l'endpoint **https://secure.aadcdn.microsoft
 Se l'Installazione guidata riesce a connettersi ad Azure AD, ma non è possibile verificare la password, viene visualizzato questo errore:  
 ![Password non valida.](./media/tshoot-connect-connectivity/badpassword.png)
 
-* È una password temporanea e deve essere modificata? È effettivamente la password corretta? Provare ad accedere a https://login.microsoftonline.com da un computer diverso dal server di Azure AD Connect e verificare che l'account sia utilizzabile.
+* È una password temporanea e deve essere modificata? È effettivamente la password corretta? Provare ad accedere a `https://login.microsoftonline.com` da un computer diverso dal server di Azure AD Connect e verificare che l'account sia utilizzabile.
 
 ### <a name="verify-proxy-connectivity"></a>Verificare la connettività del proxy
-Per verificare se il server Azure AD Connect può effettivamente connettersi al proxy e a Internet, usare alcuni comandi di PowerShell per controllare se il proxy consente o meno le richieste Web. Al prompt di PowerShell eseguire `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. Tecnicamente la prima chiamata viene effettuata a https://login.microsoftonline.com e anche questo URI funziona, ma la risposta dell'altro URI è più veloce.
+Per verificare se il server Azure AD Connect può effettivamente connettersi al proxy e a Internet, usare alcuni comandi di PowerShell per controllare se il proxy consente o meno le richieste Web. Al prompt di PowerShell eseguire `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. Tecnicamente la prima chiamata viene effettuata a `https://login.microsoftonline.com` e anche questo URI funziona, ma la risposta dell'altro URI è più veloce.
 
 PowerShell usa la configurazione presente in machine.config per contattare il proxy. Le impostazioni in winhttp/netsh non dovranno influire su questi cmdlet.
 
 Se il proxy è configurato correttamente, viene visualizzato lo stato corrispondente alla riuscita dell'operazione: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest200.png)
 
-Se viene visualizzato il messaggio **Impossibile effettuare la connessione al server remoto**, PowerShell sta provando a effettuare una chiamata diretta senza usare il proxy oppure il DNS non è configurato correttamente. Verificare che il file **machine.config** sia configurato correttamente.
+Se viene visualizzato **Impossibile connettersi al server remoto**, PowerShell sta tentando di effettuare una chiamata diretta senza utilizzare il proxy o DNS non è configurato correttamente. Verificare che il file **machine.config** sia configurato correttamente.
 ![unabletoconnect](./media/tshoot-connect-connectivity/invokewebrequestunable.png)
 
 Se il proxy non è configurato correttamente, verrà visualizzato un errore: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest403.png)
@@ -96,7 +96,7 @@ Se il proxy non è configurato correttamente, verrà visualizzato un errore: ![p
 | Errore | Testo dell'errore | Comment |
 | --- | --- | --- |
 | 403 |Accesso negato |Il proxy non è stato aperto per l'URL richiesto. Rivedere la configurazione del proxy e assicurarsi che gli [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) siano stati aperti. |
-| 407 |Autenticazione proxy obbligatoria |Il server proxy ha richiesto l'accesso, che non è stato eseguito. Se il server proxy richiede l'autenticazione, assicurarsi che questa impostazione sia configurata in Machine. config. Assicurarsi inoltre di utilizzare gli account di dominio per l'utente che esegue la procedura guidata e per l'account del servizio. |
+| 407 |Autenticazione proxy obbligatoria |Il server proxy ha richiesto l'accesso, che non è stato eseguito. Se il server proxy richiede l'autenticazione, assicurarsi che questa impostazione sia configurata nel file machine.config. Assicurarsi inoltre di utilizzare account di dominio per l'utente che esegue la procedura guidata e per l'account del servizio. |
 
 ### <a name="proxy-idle-timeout-setting"></a>Impostazione del timeout di inattività del proxy
 Quando Azure AD Connect invia una richiesta di esportazione ad Azure AD, potrebbero volerci fino a 5 minuti affinché Azure AD elabori la richiesta prima di generare una risposta. Questo può verificarsi soprattutto se sono presenti un numero di oggetti del gruppo con appartenenza a un gruppo di grandi dimensioni incluso nella stessa richiesta di esportazione. Verificare che il timeout di inattività del proxy sia configurato per essere superiore ai 5 minuti. In caso contrario, è possibile che si verifichino problemi di connettività intermittente con Azure Active Directory nel server di Azure AD Connect.
@@ -104,7 +104,7 @@ Quando Azure AD Connect invia una richiesta di esportazione ad Azure AD, potrebb
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Modello di comunicazione tra Azure AD Connect e Azure AD
 Se sono stati eseguiti tutti i passaggi precedenti e ancora non è possibile connettersi, si può iniziare a esaminare i log di rete. Questa sezione documenta un normale modello di connettività riuscita. Sono elencati anche alcuni diversivi comuni che possono essere ignorati durante la lettura dei log di rete.
 
-* Vengono effettuate chiamate a https://dc.services.visualstudio.com. Non è necessario che questo URL sia aperto nel proxy perché l'installazione riesca e le chiamate possono essere ignorate.
+* Vengono effettuate chiamate a `https://dc.services.visualstudio.com`. Non è necessario che questo URL sia aperto nel proxy perché l'installazione riesca e le chiamate possono essere ignorate.
 * La risoluzione DNS elenca gli host effettivi che devono essere presenti nello spazio dei nomi DNS nsatc.net e altri spazi dei nomi non in microsoftonline.com. Non sono tuttavia presenti richieste di servizi Web su nomi di server effettivi e non è necessario aggiungere tali URL al proxy.
 * Gli endpoint adminwebservice e provisioningapi sono endpoint di individuazione e servono per trovare l'endpoint effettivo da usare. Questi endpoint variano in base al paese.
 
@@ -166,7 +166,7 @@ Le credenziali sono scadute. Modificare la password.
 Non è stato possibile autorizzare l'utente a eseguire azioni in Azure AD.
 
 ### <a name="authentication-canceled"></a>Autenticazione annullata
-La richiesta di autenticazione a più fattori (AMF) è stata annullata.
+La sfida di autenticazione a più fattori (MFA) è stata annullata.
 
 <div id="connect-msolservice-failed">
 <!--

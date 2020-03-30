@@ -1,6 +1,6 @@
 ---
-title: Aggiungere account non Microsoft all'app Microsoft Authenticator-Azure AD
-description: Aggiungere account non Microsoft, ad esempio per Google o Facebook all'app Microsoft Authenticator per verificare la propria identità durante l'uso della verifica a due fattori.
+title: Aggiungere account non Microsoft all'app Microsoft Authenticator - Azure ADAdd non-Microsoft accounts to the Microsoft Authenticator app - Azure AD
+description: Aggiungi account non Microsoft, ad esempio per Google o Facebook, all'app Microsoft Authenticator per verificare la tua identità durante l'utilizzo della verifica a due fattori.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,10 +12,10 @@ ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 8650d0170e8ff910140e2b432dd1c998d19e72d8
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77063952"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Aggiungere account non Microsoft all'app Microsoft Authenticator
@@ -56,7 +56,7 @@ Per aggiungere l'account Google attivare la verifica a due fattori e quindi aggi
 
     Si riceve un codice a matrice che è possibile usare per associare automaticamente il proprio account con l'app Microsoft Authenticator. Non chiudere questa finestra.
 
-3. Aprire l'app Microsoft Authenticator, selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) nell'angolo in alto a destra e quindi selezionare **Altro account (Google, Facebook, ecc.)** .
+3. Aprire l'app Microsoft Authenticator, selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) nell'angolo in alto a destra e quindi selezionare **Altro account (Google, Facebook, ecc.)**.
 
 4. Usare la fotocamera del dispositivo per eseguire la scansione del codice a matrice dalla pagina **Configura Authenticator** nel computer.
 
@@ -80,13 +80,13 @@ Per aggiungere l'account Facebook attivare la verifica a due fattori e quindi ag
 
 ### <a name="turn-on-two-factor-verification"></a>Attivare la verifica a due fattori
 
-1. Nel computer aprire Facebook, selezionare il menu a discesa nell'angolo superiore destro e quindi andare a **Impostazioni** > **Sicurezza e accesso**.
+1. Sul computer, apri Facebook, seleziona il menu a discesa nell'angolo in alto a destra, quindi vai a **Impostazioni** > **sicurezza e accesso**.
 
     Verrà visualizzata la pagina **Sicurezza e accesso**.
 
 2. Andare all'opzione **Usa l'autenticazione a due fattori** nella sezione **Autenticazione a due fattori** e quindi selezionare **Modifica**.
 
-    Verrà visualizzata la pagina **Autenticazione a due fattori**.
+    Viene visualizzata la pagina Autenticazione a **due fattori.**
 
 3. Selezionare **Attiva**.
 
@@ -96,7 +96,7 @@ Per aggiungere l'account Facebook attivare la verifica a due fattori e quindi ag
 
     Si riceve un codice a matrice che è possibile usare per associare automaticamente il proprio account con l'app Microsoft Authenticator. Non chiudere questa finestra.
 
-2. Aprire l'app Microsoft Authenticator, selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) nell'angolo in alto a destra e quindi selezionare **Altro account (Google, Facebook, ecc.)** .
+2. Aprire l'app Microsoft Authenticator, selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) nell'angolo in alto a destra e quindi selezionare **Altro account (Google, Facebook, ecc.)**.
 
 3. Usare la fotocamera del dispositivo per eseguire la scansione del codice a matrice dalla pagina **Autenticazione a due fattori** nel computer.
 
@@ -138,7 +138,7 @@ Per aggiungere l'account GitHub attivare la verifica a due fattori e quindi aggi
 
     La pagina cambia per visualizzare un codice a matrice. Non chiudere questa pagina.
 
-4. Aprire l'app Microsoft Authenticator, selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) nell'angolo in alto a destra, selezionare **Altro account (Google, Facebook, ecc.)** , quindi selezionare **inserisci questo codice** dal testo nella parte superiore della pagina.
+4. Aprire l'app Microsoft Authenticator, selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) nell'angolo in alto a destra, selezionare **Altro account (Google, Facebook, ecc.)**, quindi selezionare **inserisci questo codice** dal testo nella parte superiore della pagina.
 
     L'app Microsoft Authenticator non riesce a eseguire la scansione del codice a matrice, pertanto è necessario immettere manualmente il codice.
 
@@ -163,13 +163,13 @@ Aggiungere l'account Amazon attivando la verifica a due fattori e quindi aggiung
 
     Verrà visualizzata la pagina **Impostazioni di sicurezza avanzate**.
 
-3. Selezionare **Attività iniziali**.
+3. Selezionare **Inizia**.
 
 4. Selezionare **App Authenticator** dalla pagina **Scegliere come ricevere i codici**.
 
     La pagina cambia per visualizzare un codice a matrice. Non chiudere questa pagina.
 
-5. Aprire l'app Microsoft Authenticator, selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) nell'angolo in alto a destra e quindi selezionare **Altro account (Google, Facebook, ecc.)** .
+5. Aprire l'app Microsoft Authenticator, selezionare **Aggiungi account** dall'icona **Customize and control** (Personalizza e controlla) nell'angolo in alto a destra e quindi selezionare **Altro account (Google, Facebook, ecc.)**.
 
 6. Usare la fotocamera del dispositivo per eseguire la scansione del codice a matrice dalla pagina **Scegli come ricevere i codici** sul computer.
 
@@ -186,7 +186,7 @@ Aggiungere l'account Amazon attivando la verifica a due fattori e quindi aggiung
 
 10. Nella pagina **Aggiungi un metodo di verifica di sicurezza** sul computer digitare il codice di verifica a sei cifre fornito dal metodo di verifica di sicurezza per l'account di Amazon e quindi selezionare **Verifica il codice e continua**.
 
-11. Nella pagina **quasi finito** decidere se rendere il computer un dispositivo attendibile, quindi selezionare **ottenuto. Attivare la verifica in due passaggi**.
+11. Nella pagina **Quasi completato** decidere se rendere il computer un dispositivo attendibile e quindi selezionare **Ricevuto. Attivare verifica in due passaggi**.
 
     Viene visualizzata la pagina **Impostazioni di sicurezza avanzate**, che mostra i dettagli aggiornati della verifica a due fattori.
 

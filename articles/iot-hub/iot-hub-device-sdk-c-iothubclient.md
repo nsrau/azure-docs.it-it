@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: robinsh
 ms.openlocfilehash: fd3e02101f206ebdb183da87089eadcbc9619b33
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68883166"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Azure IoT SDK per dispositivi per C: altre informazioni su IoTHubClient
 
-[Azure IoT SDK per dispositivi per C](iot-hub-device-sdk-c-intro.md) è il primo articolo di questa serie ha introdotto **Azure IoT SDK per dispositivi per C**. e spiegato che l'SDK comprende due livelli architetturali. Al livello di base è presente la libreria **IoTHubClient** che gestisce direttamente la comunicazione con l'hub IoT. È inclusa anche libreria **serializer**, che si basa sulla libreria IoTHubClient per fornire i servizi di serializzazione. In questo articolo sono indicati dettagli aggiuntivi sulla libreria **IoTHubClient**.
+[Azure IoT device SDK per C](iot-hub-device-sdk-c-intro.md) è il primo articolo di questa serie che introduce l'SDK del dispositivo Azure **IoT per C.** In questo articolo è stato spiegato che sono presenti due livelli dell'architettura in SDK. Al livello di base è presente la libreria **IoTHubClient** che gestisce direttamente la comunicazione con l'hub IoT. È inclusa anche libreria **serializer**, che si basa sulla libreria IoTHubClient per fornire i servizi di serializzazione. In questo articolo verranno forniti ulteriori dettagli sulla libreria **IoTHubClient.In** this article, we'll provide additional detail on the IoTHubClient library.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -64,9 +64,9 @@ Ci sono funzioni complementari per ognuna di queste API:
 * IoTHubClient\_LL\_SetMessageCallback
 * IoTHubClient\_LL\_Destroy
 
-Il nome dell'API per tutte queste funzioni include **LL**. Ad eccezione della parte **LL** del nome, i parametri di ognuna di queste funzioni sono inoltre identici ai rispettivi elementi analoghi non LL. Il comportamento di queste funzioni è tuttavia diverso per un aspetto importante.
+Tutte queste funzioni includono **LL** nel nome dell'API. Ad eccezione della parte **LL** del nome, i parametri di ognuna di queste funzioni sono inoltre identici ai rispettivi elementi analoghi non LL. Il comportamento di queste funzioni è tuttavia diverso per un aspetto importante.
 
-Quando si chiama **IoTHubClient\_CreateFromConnectionString**, le librerie sottostanti creano un nuovo thread che viene eseguito in background. Questo thread invia eventi all'hub IoT e ne riceve i messaggi. Questi thread non vengono creati quando si usano le API **LL**. La creazione del thread in background è un aspetto pratico per lo sviluppatore. Non occorre preoccuparsi in modo esplicito dell'invio di eventi e della ricezione di messaggi dall'hub IoT, perché tutto avviene automaticamente in background. Al contrario, le API **LL** offrono il controllo esplicito sulla comunicazione con l'hub IoT, se necessario.
+Quando si chiama **IoTHubClient\_CreateFromConnectionString**, le librerie sottostanti creano un nuovo thread che viene eseguito in background. Questo thread invia eventi all'hub IoT e ne riceve i messaggi. Nessun thread di questo tipo viene creato quando si lavora con le API **LL.** La creazione del thread in background è un aspetto pratico per lo sviluppatore. Non occorre preoccuparsi in modo esplicito dell'invio di eventi e della ricezione di messaggi dall'hub IoT, perché tutto avviene automaticamente in background. Al contrario, le API **LL** offrono un controllo esplicito sulla comunicazione con l'hub IoT, se necessario.
 
 Per comprendere meglio questo concetto, si esaminerà un esempio:
 
@@ -235,9 +235,9 @@ Gli argomenti di **IoTHubClient\_CreateFromConnectionString** sono la stringa di
 HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY
 ```
 
-In questa stringa sono disponibili quattro tipi di informazioni: Nome dell'hub Internet, suffisso dell'hub, ID dispositivo e chiave di accesso condiviso. Si ottiene il nome di dominio completo (FQDN) di un hub IoT quando si crea l'istanza dell'hub IoT nel portale di Azure. Si avrà così il nome dell'hub IoT (la prima parte dell'FQDN) e il suffisso dell'hub IoT (il resto dell'FQDN). L'ID dispositivo e la chiave di accesso condiviso si ottengono al momento della registrazione del dispositivo con l'hub IoT, come descritto nell'[articolo precedente](iot-hub-device-sdk-c-intro.md).
+Questa stringa contiene quattro informazioni: nome dell'hub IoT, suffisso dell'hub IoT, ID dispositivo e chiave di accesso condivisa. Si ottiene il nome di dominio completo (FQDN) di un hub IoT quando si crea l'istanza dell'hub IoT nel portale di Azure. Si avrà così il nome dell'hub IoT (la prima parte dell'FQDN) e il suffisso dell'hub IoT (il resto dell'FQDN). Si ottiene l'ID del dispositivo e la chiave di accesso condiviso quando si registra il dispositivo con l'hub IoT (come descritto [nell'articolo precedente](iot-hub-device-sdk-c-intro.md)).
 
-**IoTHubClient\_CreateFromConnectionString** offre un modo per inizializzare la libreria. Se si preferisce, è possibile creare un nuovo **IOTHUB\_CLIENT\_HANDLE** usando i singoli parametri invece della stringa di connessione del dispositivo. Questo risultato viene ottenuto con il codice seguente:
+**IoTHubClient\_CreateFromConnectionString** offre un modo per inizializzare la libreria. Se si preferisce, è possibile creare un nuovo **IOTHUB\_CLIENT\_HANDLE** usando i singoli parametri invece della stringa di connessione del dispositivo. Questo risultato si ottiene con il codice seguente:
 
 ```C
 IOTHUB_CLIENT_CONFIG iotHubClientConfig;
@@ -255,7 +255,7 @@ Può sembrare ovvio che si preferisca usare **IoTHubClient\_CreateFromConnection
 
 ## <a name="configuration-options"></a>Opzioni di configurazione
 
-Fino a questo punto, tutto ciò che è stato illustrato sul funzionamento della libreria **IoTHubClient** riflette il relativo comportamento predefinito. Sono tuttavia disponibili alcune opzioni che si possono impostare per modificare il funzionamento della libreria. Questa operazione viene eseguita sfruttando l'API **IoTHubClient\_LL\_SetOption**. Si consideri l'esempio seguente:
+Fino a questo punto, tutto ciò che è stato illustrato sul funzionamento della libreria **IoTHubClient** riflette il relativo comportamento predefinito. Sono tuttavia disponibili alcune opzioni che si possono impostare per modificare il funzionamento della libreria. Questa operazione viene eseguita sfruttando l'API **IoTHubClient\_LL\_SetOption**. Considerare questo esempio:
 
 ```C
 unsigned int timeout = 30000;
@@ -264,7 +264,7 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 Ci sono un paio di opzioni usate comunemente:
 
-* **SetBatching** (bool): se **true**, i dati destinati all'hub IoT vengono inviati in batch. Se **false**, i messaggi vengono inviati singolarmente. Il valore predefinito è **false**. È supportato l'invio in batch su AMQP/AMQP-WS, nonché l'aggiunta di proprietà di sistema nei messaggi D2C.
+* **SetBatching** (bool): se **true**, i dati destinati all'hub IoT vengono inviati in batch. Se **false**, i messaggi vengono inviati singolarmente. Il valore predefinito è **false**. È supportata l'invio in batch su AMQP / AMQP-WS, nonché l'aggiunta di proprietà di sistema nei messaggi D2C.
 
 * **Timeout** (unsigned int): questo valore è rappresentato in millisecondi. Se l'invio di una richiesta HTTPS o la ricezione di una risposta richiede più tempo di questo intervallo, si verifica il timeout della connessione.
 
@@ -272,8 +272,8 @@ L'opzione di invio in batch è importante. Per impostazione predefinita, la libr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo viene descritto in dettaglio il comportamento della libreria **IoTHubClient** inclusa in **Azure IoT SDK per dispositivi per C**. Grazie a queste informazioni si dovrebbe avere acquisito una buona conoscenza delle funzionalità della libreria **IoTHubClient**. Il secondo articolo della serie è [Azure IoT SDK per dispositivi per C - Serializzatore](iot-hub-device-sdk-c-serializer.md), che offre dettagli simili sulla libreria **serializer**.
+Questo articolo descrive in dettaglio il comportamento della libreria **IoTHubClient** disponibile in **Azure IoT device SDK per C**. Con queste informazioni, è necessario avere una buona conoscenza delle funzionalità della libreria **IoTHubClient.** Il secondo articolo della serie è [Azure IoT SDK per dispositivi per C - Serializzatore](iot-hub-device-sdk-c-serializer.md), che offre dettagli simili sulla libreria **serializer**.
 
-Per altre informazioni sullo sviluppo dell'hub IoT, vedere [Azure IoT SDK](iot-hub-devguide-sdks.md).
+Per altre informazioni sullo sviluppo dell'hub IoT, vedere gli [Azure IoT SDK](iot-hub-devguide-sdks.md).
 
 Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere l'argomento relativo alla [distribuzione di intelligenza artificiale ai dispositivi perimetrali con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).

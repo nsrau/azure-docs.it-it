@@ -4,16 +4,17 @@ description: Offre collegamenti alle risorse di risoluzione dei problemi per i d
 services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.subservice: blobs
+ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rogarana
 ms.reviewer: wmgries
-ms.openlocfilehash: c00fdf3ad02edc1faf0d3257d3836a1c2f44d682
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b81c0947327dc8e84c5d3fbbecde3aa31313cc70
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65150777"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061192"
 ---
 # <a name="troubleshoot-disks-attached-to-azure-vms"></a>Risoluzione dei problemi relativi a dischi collegati a macchine virtuali di Azure 
 
@@ -23,12 +24,12 @@ Le macchine virtuali di Azure (VM) si basano su dischi rigidi virtuali per il di
 
 In alcuni casi, è possibile riscontrare un errore durante l'eliminazione di una risorsa di archiviazione quando una macchina virtuale in una distribuzione di Resource Manager contiene dischi rigidi virtuali collegati. Per assistenza nella risoluzione di questo problema, vedere uno degli articoli seguenti: 
 
-  * Nelle macchine virtuali Linux: [Errori durante l'eliminazione di risorse in una distribuzione di Resource Manager](../../virtual-machines/linux/storage-resource-deletion-errors.md)  
-  * Nelle macchine virtuali Windows: [Errori durante l'eliminazione di risorse in una distribuzione di Resource Manager](../../virtual-machines/windows/storage-resource-deletion-errors.md)  
+  * Su macchine virtuali Linux: [Errori durante l'eliminazione di risorse di archiviazione in una distribuzione di Resource Manager](../../virtual-machines/linux/storage-resource-deletion-errors.md)  
+  * Su macchine virtuali Windows: [Errori durante l'eliminazione di risorse di archiviazione in una distribuzione di Resource Manager](../../virtual-machines/windows/storage-resource-deletion-errors.md)  
 
 ## <a name="troubleshoot-unexpected-reboots-of-vms-with-attached-vhds"></a>Risolvere i problemi relativi a riavvii imprevisti di VM con dischi rigidi virtuali collegati
 
 Se si verificano riavvii imprevisti di una macchina virtuale con un numero elevato di dischi rigidi virtuali collegati, vedere uno degli articoli seguenti:
 
-  * Nelle macchine virtuali Linux: [Riavvii imprevisti delle macchine virtuali con dischi rigidi virtuali collegati](../../virtual-machines/linux/unexpected-reboots-attached-vhds.md)
-  * Nelle macchine virtuali Windows: [Riavvii imprevisti delle macchine virtuali con dischi rigidi virtuali collegati](../../virtual-machines/linux/unexpected-reboots-attached-vhds.md)
+  * Su macchine virtuali Linux: [Riavvii imprevisti di VM con dischi rigidi virtuali collegati](../../virtual-machines/linux/unexpected-reboots-attached-vhds.md)
+  * Su macchine virtuali Windows: [Riavvii imprevisti di VM con dischi rigidi virtuali collegati](../../virtual-machines/linux/unexpected-reboots-attached-vhds.md)

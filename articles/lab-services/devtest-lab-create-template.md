@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 853c138c8cf73b41b0cebb6c1d349865e18eab6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61296054"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Creare un'immagine personalizzata da un file VHD
@@ -33,9 +33,9 @@ ms.locfileid: "61296054"
 
 La procedura seguente illustra come creare un'immagine personalizzata da un file di disco rigido virtuale (VHD) tramite il portale di Azure:
 
-1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Accedere al [portale](https://go.microsoft.com/fwlink/p/?LinkID=525040)di Azure .
 
-1. Selezionare **Tutti i servizi** e quindi **DevTest Labs** dall'elenco.
+1. Selezionare **Tutti i servizi**e quindi **DevTest Labs** dall'elenco.
 
 1. Nell'elenco dei lab selezionare il lab desiderato.  
 
@@ -60,9 +60,9 @@ La procedura seguente illustra come creare un'immagine personalizzata da un file
 
 1. È anche possibile immettere un nome, un'offerta e un editore relativi al piano, se l'immagine usata per creare l'immagine personalizzata non è un'immagine con licenza (pubblicata da Microsoft).
 
-   - **Nome del piano:** Immettere il nome dell'immagine del Marketplace (SKU) da cui è stata creata questa immagine personalizzata 
-   - **Offerta del piano:** Immettere il prodotto (offerta) dell'immagine del Marketplace da cui viene creata l'immagine personalizzata 
-   - **Editore del piano:** Immettere l'editore dell'immagine del Marketplace da cui viene creata l'immagine personalizzata
+   - **Nome del piano:** immettere il nome dell'immagine del Marketplace (SKU) a partire dalla quale viene creata l'immagine personalizzata 
+   - **Offerta del piano:** immettere il prodotto (offerta) dell'immagine del Marketplace a partire dalla quale viene creata l'immagine personalizzata 
+   - **Editore del piano:** immettere l'editore dell'immagine del Marketplace a partire dalla quale viene creata l'immagine personalizzata
 
    > [!NOTE]
    > Se l'immagine che si usa per creare un'immagine personalizzata **non** è un'immagine con licenza, questi campi sono vuoti e possono essere compilati facoltativamente. Se l'immagine **è** un'immagine con licenza, i campi vengono compilati automaticamente con le informazioni del piano. Se in questo caso si tenta di modificare queste informazioni, viene visualizzato un messaggio di avviso.
@@ -85,4 +85,4 @@ Dopo alcuni minuti, l'immagine personalizzata viene creata e archiviata nell'acc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Aggiungere una macchina virtuale all'ambiente lab](./devtest-lab-add-vm.md)
+- [Aggiungere una macchina virtuale al lab](./devtest-lab-add-vm.md)

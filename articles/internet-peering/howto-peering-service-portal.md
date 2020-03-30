@@ -1,51 +1,51 @@
 ---
-title: Abilitare il servizio di peering in un peering diretto tramite il portale
+title: Abilitare il servizio di peering in un peering diretto con il portale
 titleSuffix: Azure
-description: Abilitare il servizio di peering in un peering diretto tramite il portale
+description: Abilitare il servizio di peering in un peering diretto con il portale
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
 ms.topic: article
-ms.date: 11/27/2019
-ms.author: prmitiki
-ms.openlocfilehash: d6b67c42ef8a5ba5ae98894775d1f56cee39ba8b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.date: 3/18/2020
+ms.author: derekol
+ms.openlocfilehash: 87a65826a338f4098ae24c33939ea7f9d4475e36
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75774978"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80129910"
 ---
-# <a name="enable-peering-service-on-a-direct-peering-using-the-portal"></a>Abilitare il servizio di peering in un peering diretto tramite il portale
+# <a name="enable-peering-service-on-a-direct-peering-using-the-portal"></a>Abilitare il servizio di peering in un peering diretto con il portale
 
-Questo articolo descrive come abilitare il [servizio di peering](overview-peering-service.md) in un peering diretto usando il portale.
+In questo articolo viene descritto come abilitare il [servizio peering](overview-peering-service.md) in un peering diretto tramite il portale.
 
 Se si preferisce, è possibile completare questa guida usando [PowerShell](howto-peering-service-powershell.md).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-* Verificare i [prerequisiti](prerequisites.md) prima di iniziare la configurazione.
-* Scegliere un peering diretto nella sottoscrizione in cui si vuole abilitare il servizio peering. Se non si dispone di uno, convertire un peering diretto legacy o creare un nuovo peering diretto.
-    * Per convertire un peering diretto legacy, seguire le istruzioni riportate in [convertire un peering diretto legacy in una risorsa di Azure usando il portale](howto-legacy-direct-portal.md).
-    * Per creare un nuovo peering diretto, seguire le istruzioni riportate in [creare o modificare un peering diretto usando il portale](howto-direct-portal.md).
+* Esaminare [i prerequisiti](prerequisites.md) prima di iniziare la configurazione.
+* Scegliere un peering diretto nella sottoscrizione per cui abilitare il servizio di peering. Se non ne hai uno, converti un peering Diretto legacy o crea un nuovo peering diretto.
+    * Per convertire un peering diretto legacy, seguire le istruzioni in [Convertire un peering diretto legacy in risorse](howto-legacy-direct-portal.md)di Azure usando il portale.
+    * Per creare un nuovo peering diretto, seguire le istruzioni in [Creare o modificare un peering diretto tramite il portale](howto-direct-portal.md).
 
 ## <a name="enable-peering-service-on-a-direct-peering"></a>Abilitare il servizio di peering in un peering diretto
 
-### <a name= get></a>Visualizza peering diretto
+### <a name="view-direct-peering"></a><a name= get></a>Visualizzare il peering direttoView Direct peering
 [!INCLUDE [peering-direct-get-portal](./includes/direct-portal-get.md)]
 
-### <a name= get></a>Abilitare il peering diretto per il servizio di peering
+### <a name="enable-the-direct-peering-for-peering-service"></a><a name= get></a>Abilitare il peering diretto per il servizio peeringEnable the Direct peering for Peering Service
 
 Dopo aver aperto il peering diretto nel passaggio precedente, abilitarlo per il servizio di peering.
 [!INCLUDE [peering-direct-modify](./includes/peering-service-direct-portal.md)]
 
-## <a name="modify-a-direct-peering-connection"></a>Modificare una connessione peering diretto
+## <a name="modify-a-direct-peering-connection"></a>Modificare una connessione di peering direttoModify a Direct peering connection
 
-Se è necessario modificare le impostazioni di connessione, vedere la sezione **modificare un peering diretto** in [creare o modificare un peering diretto tramite il portale](howto-direct-portal.md)
+Se è necessario modificare le impostazioni di connessione, vedere la sezione **Modificare un peering diretto** in Creare o modificare un [peering diretto tramite il portale](howto-direct-portal.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Creare o modificare il peering di Exchange tramite il portale](howto-exchange-portal.md)
-* [Convertire un peering di Exchange legacy in una risorsa di Azure tramite il portale](howto-legacy-exchange-portal.md)
+* [Convertire un peering di Exchange legacy in una risorsa di Azure con il portale](howto-legacy-exchange-portal.md)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-Per domande frequenti, vedere domande [frequenti sul servizio peering](service-faqs.md).
+Per le domande frequenti, vedere Domande frequenti sul servizio di [peering](service-faqs.md).

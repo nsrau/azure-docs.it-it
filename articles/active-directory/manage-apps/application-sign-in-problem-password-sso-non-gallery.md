@@ -1,6 +1,6 @@
 ---
-title: Single Sign-on (SSO) basato su password nel pannello di accesso | Microsoft Docs
-description: Vengono descritte le aree problematiche che forniscono indicazioni per la risoluzione dei problemi relativi all'accesso alle applicazioni della raccolta Azure AD configurate per l'accesso Single Sign-on basato su password.
+title: Single Sign-On (SSO) basato su password nel Pannello di accesso Documenti Microsoft
+description: Vengono illustrate le aree problematiche che forniscono indicazioni per la risoluzione dei problemi relativi all'accesso alle applicazioni di raccolta di Azure AD configurate per l'accesso Single Sign-On con password.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9ca192c28757df189e531aee0ba2d8da288ba7e6
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68381231"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemi di accesso a un'applicazione della raccolta di Azure AD configurata per il Single Sign-On basato su password
@@ -62,7 +62,7 @@ Per installare l'estensione del browser per il pannello di accesso, seguire ques
 
 6.  Al termine dell'installazione, **riavviare** la sessione del browser.
 
-7.  Accedere al pannello di accesso e verificare se è possibile **avviare** le applicazioni con accesso SSO basato su password.
+7.  Accedere al pannello di accesso e verificare se è possibile **avviare** le applicazioni SSO con password
 
 È anche possibile scaricare l'estensione per Chrome e Firefox dai collegamenti diretti seguenti:
 
@@ -78,13 +78,13 @@ I prerequisiti includono:
 
 -   [Servizi di dominio Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)è già stato configurato e i computer degli utenti sono stati aggiunti al dominio.
 
--   Per modificare l'oggetto Criteri di gruppo è necessaria l'autorizzazione "Modifica impostazione". Per impostazione predefinita, i membri dei gruppi di sicurezza seguenti hanno questa autorizzazione: Amministratori di dominio, Amministratori dell'organizzazione e Proprietari autori criteri di gruppo. [Altre informazioni](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
+-   Per modificare l'oggetto Criteri di gruppo è necessaria l'autorizzazione "Modifica impostazione". Questa autorizzazione è assegnata per impostazione predefinita ai membri dei gruppi di sicurezza seguenti: Domain Administrators, Enterprise Administrators e Group Policy Creator Owners. [Scopri di più](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
 
 Per istruzioni passo passo su come configurare i Criteri di gruppo e distribuirli agli utenti, seguire l'esercitazione [Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy).
 
 ## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>Risoluzione dei problemi del pannello di accesso in Internet Explorer
 
-Per accedere a uno strumento diagnostico e per istruzioni passo passo sulla configurazione dell'estensione per IE, seguire la procedura nella sezione sulla [risoluzione dei problemi relativi all'estensione del pannello di accesso per Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
+Per accedere a uno strumento diagnostico e per istruzioni passo passo sulla configurazione dell'estensione per Internet Explorer, seguire la procedura nella sezione sulla [risoluzione dei problemi relativi all'estensione del pannello di accesso per Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
 
 ## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Come configurare l'accesso Single Sign-On basato su password per un'applicazione non inclusa nella raccolta
 
@@ -100,7 +100,7 @@ Per configurare un'applicazione della raccolta di Azure AD è necessario:
 
 Per aggiungere un'applicazione dalla raccolta di Azure AD, seguire questa procedura:
 
-1.  Aprire il [portale di Azure](https://portal.azure.com) e accedere come **Amministratore globale** o **Coamministratore**.
+1.  Aprire il portale di Azure e accedere come amministratore globale o coamministratoreOpen the [Azure portal](https://portal.azure.com) and sign in as **global Administrator** or **Co-admin**
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
@@ -120,7 +120,7 @@ Dopo un breve periodo di tempo, sarà possibile visualizzare il riquadro di conf
 
 Per configurare un accesso Single Sign-On per un'applicazione, seguire i passaggi seguenti:
 
-1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
+1. Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
@@ -130,7 +130,7 @@ Per configurare un accesso Single Sign-On per un'applicazione, seguire i passagg
 
 5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+   * Se l'applicazione che si desidera visualizzare non viene visualizzata qui, utilizzare il controllo **Filtro** nella parte superiore dell'elenco **Tutte le applicazioni** e impostare l'opzione Mostra **su** Tutte **le applicazioni.**
 
 6. Selezionare l'applicazione per cui si vuole configurare un accesso Single Sign-On
 
@@ -144,11 +144,11 @@ Per configurare un accesso Single Sign-On per un'applicazione, seguire i passagg
 
 11. È anche possibile specificare le credenziali per conto dell'utente selezionando le righe degli utenti e facendo clic su **Aggiorna credenziali**, quindi immettendo il nome utente e la password per conto degli utenti. In caso contrario, verrà richiesto agli utenti di immettere le credenziali all'avvio.
 
-### <a name="assign-users-to-the-application"></a>Assegnare gli utenti all'applicazione
+### <a name="assign-users-to-the-application"></a>Assegnare utenti all'applicazione
 
 Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa procedura:
 
-1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
+1. Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
@@ -158,7 +158,7 @@ Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa p
 
 5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+   * Se l'applicazione che si desidera visualizzare non viene visualizzata qui, utilizzare il controllo **Filtro** nella parte superiore dell'elenco **Tutte le applicazioni** e impostare l'opzione Mostra **su** Tutte **le applicazioni.**
 
 6. Selezionare nell'elenco l'applicazione che si vuole assegnare a un utente.
 
@@ -168,11 +168,11 @@ Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa p
 
 9. Fare clic sul selettore **Utenti e gruppi** nel riquadro **Aggiungi assegnazione**.
 
-10. Nella casella di ricerca **Cerca per nome o indirizzo di posta** digitare il **nome completo**  o l'**indirizzo di posta elettronica** dell'utente oggetto dell'assegnazione.
+10. Nella casella di ricerca **Cerca per nome o indirizzo di posta** digitare il **nome completo ** o l'**indirizzo di posta elettronica** dell'utente oggetto dell'assegnazione.
 
-11. Passare il puntatore sull'**utente** nell'elenco per visualizzare una **casella di controllo**. Fare clic sulla casella di controllo accanto alla foto o al logo del profilo dell'utente per aggiungere l'utente all'elenco **Selezionato**.
+11. Passare il mouse **sull'utente** nell'elenco per visualizzare una **casella di controllo.** Fare clic sulla casella di controllo accanto alla foto o al logo del profilo dell'utente per aggiungere l'utente all'elenco **Selezionato**.
 
-12. **Facoltativo:** se si vuole **aggiungere più di un utente**, digitare un altro **nome completo** o **indirizzo di posta elettronica** nella casella di ricerca **Cerca per nome o indirizzo di posta** e fare clic sulla casella di controllo per aggiungere l'utente all'elenco **Selezionati**.
+12. **Facoltativo:** se si vuole **aggiungere più di un utente**, digitare un altro **nome completo** o **indirizzo di posta elettronica** nella casella di ricerca **Cerca per nome o indirizzo di posta** e fare clic sulla casella di controllo per aggiungere l'utente all'elenco **selezionato**.
 
 13. Dopo avere selezionato gli utenti, fare clic sul pulsante **Seleziona** per aggiungerli all'elenco di utenti e gruppi da assegnare all'applicazione.
 

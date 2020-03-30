@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 748d10b994080b667885e5d0d5f4d688269e86ab
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68728037"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Mitigazioni di Microsoft Threat Modeling Tool
@@ -32,11 +32,11 @@ Visitare **[Threat Modeling Tool](threat-modeling-tool.md)** oggi stesso per ini
 
 Le soluzioni di prevenzione di Threat Modeling Tool sono suddivise in base al contesto di sicurezza dell'applicazione Web, costituito dai seguenti elementi:
 
-| Category | DESCRIZIONE |
+| Category | Descrizione |
 | -------- | ----------- |
 | **[Controllo e registrazione](threat-modeling-tool-auditing-and-logging.md)** | Chi ha fatto cosa e quando? Controllo e registrazione fanno riferimento al modo in cui l'applicazione registra gli eventi di sicurezza |
-| **[Autenticazione](threat-modeling-tool-authentication.md)** | Identificarsi L'autenticazione è il processo che permette a un'entità di dimostrare l'identità di un'altra entità, in genere mediante l'uso di credenziali, come un nome utente e una password |
-| **[Autorizzazione](threat-modeling-tool-authorization.md)** | Cosa fare L'autorizzazione è il modo in cui l'applicazione fornisce controlli sull'accesso per risorse e operazioni |
+| **[Authentication](threat-modeling-tool-authentication.md)** | informazioni sull'utente L'autenticazione è il processo che permette a un'entità di dimostrare l'identità di un'altra entità, in genere mediante l'uso di credenziali, come un nome utente e una password |
+| **[Autorizzazione](threat-modeling-tool-authorization.md)** | operazioni consentite L'autorizzazione è il modo in cui l'applicazione fornisce controlli sull'accesso per risorse e operazioni |
 | **[Sicurezza delle comunicazioni](threat-modeling-tool-communication-security.md)** | Con si sta parlando? La protezione delle comunicazioni garantisce che tutte le comunicazioni siano eseguite nel modo più sicuro possibile |
 | **[Gestione della configurazione](threat-modeling-tool-configuration-management.md)** | A nome di chi è eseguita l'applicazione? A quale database si connette? Come viene amministrata l'applicazione? Come vengono protette queste impostazioni? La gestione della configurazione fa riferimento al modo in cui l'applicazione gestisce questi problemi operativi |
 | **[Crittografia](threat-modeling-tool-cryptography.md)** | Come si mantengono i segreti (la riservatezza)? Come si mettono a prova di manomissione i dati o le librerie (integrità)? Come vengono creati i valori di inizializzazione casuali che devono essere crittograficamente sicuri? La crittografia fa riferimento al modo in cui l'applicazione garantisce riservatezza e integrità |
@@ -54,4 +54,4 @@ Di conseguenza, queste categorie vengono usate per focalizzarsi e definire le pr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulle categorie di minacce utilizzate dallo strumento per generare possibili minacce di progettazione, visitare **[Minacce di Threat Modeling Tool](threat-modeling-tool-threats.md)** .
+Per altre informazioni sulle categorie di minacce utilizzate dallo strumento per generare possibili minacce di progettazione, visitare **[Minacce di Threat Modeling Tool](threat-modeling-tool-threats.md)**.

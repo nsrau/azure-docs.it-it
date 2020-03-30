@@ -1,17 +1,17 @@
 ---
-title: Funzionalità Performance Monitor nella soluzione Monitoraggio prestazioni rete in Azure Log Analytics | Microsoft Docs
+title: Performance Monitor in Monitoraggio prestazioni rete
 description: La funzionalità Performance Monitor in Monitoraggio prestazioni rete consente di monitorare la connettività tra vari punti della rete. È possibile monitorare distribuzioni cloud e sedi locali, diversi data center e succursali e applicazioni o microservizi multilivello di importanza cruciale.
 ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: dfbc4ea8e168ced95a4239dd100cf7277e0adf7b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 126cca9d3606b378e59e4f4e1c5b52d985d19d94
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654529"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80055682"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Soluzione Monitoraggio prestazioni rete - Monitoraggio delle prestazioni
 
@@ -81,7 +81,7 @@ Per scegliere il protocollo, prendere in considerazione le informazioni seguenti
 
 * **Individuazione di più route di rete.** TCP offre maggiore precisione nell'individuazione di più route e necessita di un minor numero di agenti in ogni subnet. Ad esempio, uno o due agenti con protocollo TCP sono capaci di individuare tutti i percorsi ridondanti tra le subnet. Per ottenere risultati analoghi sono necessari diversi agenti con protocollo ICMP. Con ICMP, se è presente un numero N di route tra due subnet, è necessario usare un numero di agenti pari a oltre N5 in una subnet di origine o di destinazione.
 
-* **Precisione dei risultati.** I router e i commutatori tendono ad assegnare una priorità inferiore ai pacchetti ICMP ECHO rispetto ai pacchetti TCP. In determinati casi, quando è presente un carico eccessivo dei dispositivi di rete, i dati ottenuti dal protocollo TCP riflettono più da vicino la perdita e la latenza sperimentate dalle applicazioni. Ciò si verifica perché la maggior parte del traffico delle applicazioni fluisce attraverso TCP. In questi casi, il protocollo ICMP offre risultati meno precisi rispetto a TCP. 
+* **Accuratezza dei risultati.** I router e i commutatori tendono ad assegnare una priorità inferiore ai pacchetti ICMP ECHO rispetto ai pacchetti TCP. In determinati casi, quando è presente un carico eccessivo dei dispositivi di rete, i dati ottenuti dal protocollo TCP riflettono più da vicino la perdita e la latenza sperimentate dalle applicazioni. Ciò si verifica perché la maggior parte del traffico delle applicazioni fluisce attraverso TCP. In questi casi, il protocollo ICMP offre risultati meno precisi rispetto a TCP. 
 
 * **Configurazione del firewall.** Il protocollo TCP prevede che i pacchetti TCP vengano inviati a una porta di destinazione. La porta predefinita usata dagli agenti di Monitoraggio prestazioni rete è 8084. È possibile cambiare la porta quando si configurano gli agenti. Verificare che i firewall di rete o le regole dei gruppi di sicurezza di rete (in Azure) consentano il traffico sulla porta. È necessario assicurarsi che anche il firewall locale nei computer in cui sono installati gli agenti sia configurato per consentire il traffico su questa porta. È possibile usare script di PowerShell per configurare le regole del firewall nei computer che eseguono Windows, mentre il firewall di rete deve essere configurato manualmente. Al contrario, il protocollo ICMP non funziona attraverso una porta. Nella maggior parte degli scenari aziendali il traffico ICMP può attraversare i firewall per consentire l'uso di strumenti di diagnostica di rete come l'utilità ping. Se si riesce a eseguire il ping di un computer da un altro computer, è possibile usare il protocollo ICMP senza dover configurare i firewall manualmente.
 
@@ -94,7 +94,7 @@ Per scegliere il protocollo, prendere in considerazione le informazioni seguenti
 
 Se si sceglie di usare ICMP durante la distribuzione, è possibile passare a TCP in qualsiasi momento modificando la regola di monitoraggio predefinita.
 
-1. Passare a **Prestazioni di rete** > **Monitoraggio** > **Configura** > **Monitoraggio**. Selezionare quindi  **Default rule** (Regola predefinita). 
+1. Passare a Monitoraggio **prestazioni rete** > **Monitor** > **Configurare** > **Monitoraggio**. Selezionare quindi  **Default rule** (Regola predefinita). 
 2. Scorrere fino alla sezione **Protocollo** e selezionare il protocollo che si vuole usare. 
 3. Selezionare **Salva** per applicare l'impostazione. 
 

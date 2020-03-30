@@ -5,26 +5,26 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: 21c19027d21a87e199d74644cfc5c8f3cd52ba4c
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
-ms.translationtype: HT
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79128872"
 ---
-Per ripristinare il dispositivo, è necessario cancellare in modo sicuro tutti i dati presenti nel disco dati e nel disco di avvio del dispositivo. 
+Per ripristinare il dispositivo, è necessario cancellare in modo sicuro tutti i dati sul disco dati e sul disco di avvio del dispositivo. 
 
-Usare il cmdlet `Reset-HcsAppliance` per cancellare i dati presenti nei dischi dati e nel disco di avvio oppure solo nei dischi dati. Le opzioni `ClearData` e `BootDisk` consentono rispettivamente di cancellare i dati nei dischi dati e nel disco di avvio.
+Utilizzare `Reset-HcsAppliance` il cmdlet per eliminare sia i dischi dati che il disco di avvio o solo i dischi dati. Gli `ClearData` `BootDisk` interruttori e consentono di cancellare rispettivamente i dischi dati e il disco di avvio.
 
-L'opzione `BootDisk` consente di cancellare i dati nel disco di avvio e di rendere inutilizzabile il dispositivo. Deve essere usata solo quando è necessario restituire il dispositivo a Microsoft. Per altre informazioni, vedere [Restituire il dispositivo a Microsoft](https://docs.microsoft.com/azure/databox-online/data-box-edge-return-device).
+L'interruttore `BootDisk` cancella il disco di avvio e rende il dispositivo inutilizzabile. Deve essere utilizzato solo quando il dispositivo deve essere restituito a Microsoft. Per ulteriori informazioni, vedere [Restituire il dispositivo a Microsoft](https://docs.microsoft.com/azure/databox-online/data-box-edge-return-device).
 
-Se si usa il ripristino del dispositivo nell'interfaccia utente Web locale, vengono cancellati in modo sicuro i dati solo nei dischi dati, mentre il disco di avvio rimane intatto. Il disco di avvio contiene la configurazione del dispositivo.
+Se si utilizza la reimpostazione del dispositivo nell'interfaccia utente Web locale, solo i dischi dati vengono cancellati in modo sicuro, ma il disco di avvio viene mantenuto intatto. Il disco di avvio contiene la configurazione del dispositivo.
 
-1. [Connettersi all'interfaccia di PowerShell](#connect-to-the-powershell-interface).
+1. [Connettersi all'interfaccia](#connect-to-the-powershell-interface)di PowerShell .
 2. Al prompt dei comandi digitare:
 
     `Reset-HcsAppliance -ClearData -BootDisk`
 
-    Nell'esempio seguente viene illustrato come usare questo cmdlet:
+    Nell'esempio seguente viene illustrato come utilizzare questo cmdlet:
 
     ```powershell
     [10.128.24.33]: PS>Reset-HcsAppliance -ClearData -BootDisk

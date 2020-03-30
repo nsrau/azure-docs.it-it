@@ -1,6 +1,6 @@
 ---
-title: Localizzare l'interfaccia utente dell'app con criteri personalizzati
-description: Informazioni sulla localizzazione di un'interfaccia utente usando un criterio personalizzato in Azure Active Directory B2C.
+title: Localizzare l'interfaccia utente dell'app con criteri personalizzatiLocalize the user interface of your app with a custom policy
+description: Informazioni sulla localizzazione di un'interfaccia utente usando criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,26 +11,26 @@ ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 1401cbe1920c7c6df804aadbba1751612ba9cf06
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79126786"
 ---
-# <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Localizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C
+# <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Localizzare l'interfaccia utente dell'applicazione usando criteri personalizzati in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-La personalizzazione della lingua in Azure Active Directory B2C (Azure AD B2C) consente di adattare lingue diverse in base alle esigenze del cliente. Microsoft fornisce le traduzioni per 36 lingue, ma è anche possibile inserire le proprie traduzioni per qualsiasi lingua. Anche se l'esperienza è disponibile per una sola lingua, è possibile personalizzare qualsiasi testo nelle pagine. 
+La personalizzazione della lingua in Azure Active Directory B2C (Azure AD B2C) consente di supportare lingue diverse in base alle esigenze del cliente. Microsoft fornisce le traduzioni per 36 lingue, ma è anche possibile inserire le proprie traduzioni per qualsiasi lingua. Anche se l'esperienza è disponibile per una sola lingua, è possibile personalizzare qualsiasi testo nelle pagine. 
 
-Questo articolo illustra come supportare più impostazioni locali o lingue nel criterio per i percorsi utente. Per la localizzazione sono necessari tre passaggi: configurare l'elenco esplicito delle lingue supportate, fornire stringhe e raccolte specifiche della lingua e modificare la [definizione del contenuto](contentdefinitions.md) per la pagina. 
+Questo articolo illustra come supportare più impostazioni locali o lingue nel criterio per i percorsi utente. La localizzazione richiede tre passaggi: impostare l'elenco esplicito delle lingue supportate, fornire stringhe e raccolte specifiche della lingua e modificare la [definizione](contentdefinitions.md) del contenuto per la pagina. 
 
 ## <a name="set-up-the-list-of-supported-languages"></a>Configurare l'elenco delle lingue supportate
 
-Aprire il file delle estensioni dei criteri. Ad esempio, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em>.
+Aprire il file delle estensioni del criterio. Ad esempio, <em> `SocialAndLocalAccounts/` </em>.
 
 1. Cercare l'elemento [BuildingBlocks](buildingblocks.md). Se l'elemento non esiste, aggiungerlo.
-1. Aggiungere l'elemento `Localization` con le lingue supportate: Inglese (impostazione predefinita) e spagnolo.  
+1. Aggiungere `Localization` l'elemento con le lingue supportate: inglese (predefinito) e spagnolo.  
 
 
 ```XML
@@ -44,12 +44,12 @@ Aprire il file delle estensioni dei criteri. Ad esempio, <em>`SocialAndLocalAcco
 
 ## <a name="provide-language-specific-labels"></a>Fornire etichette specifiche della lingua
 
-Il [LocalizedResources](localization.md#localizedresources) dell'elemento `Localization` contiene l'elenco delle stringhe localizzate. L'elemento resources localizzato ha un identificatore usato per identificare in modo univoco le risorse localizzate. Questo identificatore viene usato in un secondo momento nell'elemento di [definizione del contenuto](contentdefinitions.md) .
+Il [LocalizedResources](localization.md#localizedresources) `Localization` dell'elemento contiene l'elenco delle stringhe localizzate. L'elemento resources localizzato ha un identificatore che viene utilizzato per identificare in modo univoco le risorse localizzate. Questo identificatore viene utilizzato in un secondo momento nell'elemento di definizione del [contenuto.](contentdefinitions.md)
 
-Gli elementi delle risorse localizzate vengono configurati per la definizione del contenuto e per qualsiasi lingua che si desidera supportare. Per personalizzare le pagine di iscrizione o di accesso unificate per l'inglese e lo spagnolo, aggiungere gli elementi `LocalizedResources` seguenti dopo la chiusura dell'elemento `</SupportedLanguages>`.
+Configurare gli elementi delle risorse localizzate per la definizione di contenuto e qualsiasi lingua che si desidera supportare. Per personalizzare le pagine di iscrizione o di accesso unificate `LocalizedResources` per l'inglese `</SupportedLanguages>` e lo spagnolo, aggiungere i seguenti elementi dopo la chiusura dell'elemento.
 
 > [!NOTE]
-> Nell'esempio seguente è stato aggiunto il simbolo di cancelletto `#` al supplica di ogni riga, quindi è possibile facilmente trovare le etichette localizzate sullo schermo.
+> Nell'esempio seguente è `#` stato aggiunto il simbolo cancelletto all'elemosina di ogni riga, in modo da poter trovare facilmente le etichette localizzate sullo schermo.
 
 ```XML
 <!--Local account sign-up or sign-in page English-->
@@ -216,7 +216,7 @@ Gli elementi delle risorse localizzate vengono configurati per la definizione de
 
 Incollare l'intero contenuto dell'elemento ContentDefinitions copiato come figlio dell'elemento BuildingBlocks.
 
-Nell'esempio seguente vengono aggiunte stringhe personalizzate in inglese (en) e spagnolo (es) alla pagina di iscrizione o accesso e alla pagina di iscrizione dell'account locale. Il **LocalizedResourcesReferenceId** per ogni **LocalizedResourcesReference** è lo stesso delle impostazioni locali, ma è possibile usare qualsiasi stringa come identificatore. Per ogni combinazione di lingua e pagina, puntare al **LocalizedResources** corrispondente creato in precedenza.
+Nell'esempio seguente, le stringhe personalizzate in inglese (en) e spagnolo (es) vengono aggiunte alla pagina di iscrizione o di accesso e alla pagina di iscrizione all'account locale. Il **LocalizedResourcesReferenceId** per ogni **LocalizedResourcesReference** è lo stesso delle impostazioni locali, ma è possibile usare qualsiasi stringa come identificatore. Per ogni combinazione di lingua e pagina, si punta alle **LocalizedResources** corrispondenti create in precedenza.
 
 ```XML
 <ContentDefinitions>
@@ -236,23 +236,23 @@ Nell'esempio seguente vengono aggiunte stringhe personalizzate in inglese (en) e
 </ContentDefinitions>
 ```
 
-##  <a name="upload-and-test-your-updated-custom-policy"></a>Caricare e testare i criteri personalizzati aggiornati
+##  <a name="upload-and-test-your-updated-custom-policy"></a>Caricare e testare i criteri personalizzati aggiornatiUpload and test your updated custom policy
 
 ### <a name="upload-the-custom-policy"></a>Caricare i criteri personalizzati
 
 1. Salvare il file delle estensioni.
 1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
-1. Cercare e selezionare **Azure ad B2C**.
-1. In **criteri**selezionare **Framework esperienza di identità**.
-1. Selezionare **carica criteri personalizzati**.
+1. Cercare e selezionare **Azure AD B2C**.
+1. In **Criteri**selezionare **Framework di esperienza identità**.
+1. Selezionare **Carica criterio personalizzato**.
 1. Caricare il file delle estensioni modificato in precedenza.
 
 ### <a name="test-the-custom-policy-by-using-run-now"></a>Testare i criteri personalizzati tramite **Esegui adesso**
 
-1. Selezionare il criterio caricato, quindi selezionare **Esegui ora**.
+1. Selezionare il criterio caricato e quindi selezionare **Esegui ora**.
 1. Dovrebbe essere possibile visualizzare la pagina di iscrizione o di accesso localizzata.
-1. Fare clic sul collegamento per l'iscrizione e dovrebbe essere possibile visualizzare la pagina di iscrizione localizzata.
-1. Impostare la lingua predefinita del browser su spagnolo. In alternativa, è possibile aggiungere il parametro della stringa di query `ui_locales` alla richiesta di autorizzazione. Ad esempio: 
+1. Fare clic sul collegamento di iscrizione e si dovrebbe essere in grado di visualizzare la pagina di iscrizione localizzata.
+1. Impostare la lingua predefinita del browser su Spagnolo. In alternativa, `ui_locales` è possibile aggiungere il parametro della stringa di query alla richiesta di autorizzazione. Ad esempio: 
 
 ```http
 https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_signup_signin&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es
@@ -260,6 +260,6 @@ https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/v2.0/authorize
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sull'elemento di [localizzazione](localization.md) nella Guida di riferimento a Framework dell'esperienza.
-- Vedere l'elenco degli [ID di stringa di localizzazione](localization-string-ids.md) disponibili in Azure ad B2C.
+- Ulteriori informazioni sull'elemento [di localizzazione](localization.md) sono di riferimento su IEF.
+- Vedere l'elenco degli ID stringa di [localizzazione](localization-string-ids.md) disponibili in Azure AD B2C.
 

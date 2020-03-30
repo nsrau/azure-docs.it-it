@@ -8,56 +8,56 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: raynew
 ms.openlocfilehash: aa9d776df50306ab1705426c923413b5a5d545a5
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68717359"
 ---
-# <a name="monitor-site-recovery"></a>Site Recovery di monitoraggio
+# <a name="monitor-site-recovery"></a>Monitorare Site Recovery
 
-Questo articolo illustra come monitorare [Site Recovery](site-recovery-overview.md)di Azure, usando Site Recovery il monitoraggio incorporato.  È possibile monitorare:
+In questo articolo viene illustrato come monitorare Azure Site Recovery , usando il monitoraggio integrato di Site Recovery.In this article s app how to monitor Azure [Site Recovery](site-recovery-overview.md), using Site Recovery inbuilt monitoring.  È possibile monitorare:
 
-- L'integrità e lo stato dei computer replicati da Site Recovery
-- Verificare lo stato di failover dei computer.
-- Problemi ed errori che interessano la configurazione e la replica.
+- Integrità e stato dei computer replicati da Site Recovery
+- Testare lo stato di failover dei computer.
+- Problemi ed errori che influiscono sulla configurazione e sulla replica.
 - Componenti dell'infrastruttura, ad esempio server locali.
 
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
-Prima di iniziare, è consigliabile esaminare le [domande di monitoraggio più comuni](monitoring-common-questions.md) .
+È consigliabile esaminare [le domande di monitoraggio comuni](monitoring-common-questions.md) prima di iniziare.
 
 ## <a name="monitor-in-the-dashboard"></a>Monitorare nel dashboard
 
-1. Nell'insieme di credenziali fare clic su **Panoramica**. Il dashboard dei servizi di ripristino consolida tutte le informazioni di monitoraggio per l'insieme di credenziali in un'unica posizione. Sono disponibili pagine per Site Recovery e per il servizio backup di Azure ed è possibile passare da una all'altra.
+1. Nel vault, fare clic su **Panoramica**. Il dashboard Servizi di ripristino consolida tutte le informazioni di monitoraggio per l'insieme di credenziali in un'unica posizione. Sono disponibili pagine sia per Site Recovery che per il servizio Backup di Azure ed è possibile passare da una all'altra.
 
     ![Dashboard di Site Recovery](./media/site-recovery-monitor-and-troubleshoot/dashboard.png)
 
-2. Dal dashboard eseguire il drill-down in aree diverse. 
+2. Dal dashboard, eseguire il drill-down in aree diverse. 
 
     ![Dashboard di Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
 
-3. In **elementi replicati**fare clic su **Visualizza tutto** per visualizzare tutti i server nell'insieme di credenziali.
-4. Fare clic su Dettagli stato in ogni sezione per eseguire il drill-down.
-5. In **visualizzazione infrastruttura**, ordinare le informazioni di monitoraggio per il tipo di computer che si sta replicando.
+3. In **Elementi replicati**fare clic su **Visualizza tutto** per visualizzare tutti i server nell'insieme di credenziali.
+4. Fare clic sui dettagli dello stato in ogni sezione per eseguire il drill-down.
+5. Nella **visualizzazione Infrastruttura**, ordinare le informazioni di monitoraggio in base al tipo di computer che si sta replicando.
 
 ## <a name="monitor-replicated-items"></a>Monitorare gli elementi replicati
 
-In **elementi replicati**monitorare lo stato di tutti i computer nell'insieme di credenziali in cui è abilitata la replica.
+In **Elementi replicati**monitorare l'integrità di tutti i computer nell'insieme di credenziali in cui è abilitata la replica.
 
 **Stato** | **Dettagli**
 --- | ---
-Integra | La replica sta procedendo normalmente. Non sono stati rilevati sintomi di errore o avviso.
+Healthy | La replica sta procedendo normalmente. Non sono stati rilevati sintomi di errore o avviso.
 Avviso | Sono stati rilevati uno o più sintomi di avviso che potrebbero influire sulla replica.
 Critico | Sono stati rilevati uno o più sintomi di errore di replica critici.<br/><br/> Questi sintomi di errore in genere sono indicatori del fatto che la replica è bloccata o non sta procedendo con la stessa frequenza di modifica dei dati.
 Non applicabile | Server di cui attualmente non è prevista la replica. Potrebbe includere le macchine di cui è stato eseguito il failover.
 
 ## <a name="monitor-test-failovers"></a>Monitorare i failover di test
 
-In **esito positivo test di failover**monitorare lo stato di failover per i computer nell'insieme di credenziali.
+In **Caso di esito positivo**del test di failover, monitorare lo stato del failover per i computer nell'insieme di credenziali.
 
-- È consigliabile eseguire un failover di test nelle macchine replicate almeno una volta ogni sei mesi. Si tratta di un modo per verificare che il failover funzioni come previsto, senza compromettere l'ambiente di produzione. 
+- È consigliabile eseguire un failover di test nelle macchine replicate almeno una volta ogni sei mesi. È un modo per verificare che il failover funzioni come previsto, senza interrompere l'ambiente di produzione. 
 - Un failover di test è considerato riuscito solo una volta che il failover e la pulizia dopo il failover sono stati completati correttamente.
 
 **Stato** | **Dettagli**
@@ -68,10 +68,10 @@ Non applicabile | Macchine attualmente non idonee per un failover di test. Ad es
 
 ## <a name="monitor-configuration-issues"></a>Monitorare i problemi di configurazione
 
-In **problemi di configurazione**, monitorare eventuali problemi che potrebbero invalidare la possibilità di eseguire il failover.
+In **Problemi di configurazione**monitorare eventuali problemi che potrebbero influire sulla possibilità di eseguire correttamente il failover.
 
 - I problemi di configurazione (ad eccezione della disponibilità di aggiornamenti software) vengono rilevati da un'operazione periodica del validator eseguita ogni 12 ore per impostazione predefinita. Per eseguire immediatamente l'operazione del validator, fare clic sull'icona Aggiorna accanto all'intestazione della sezione **Problemi di configurazione**.
-- Fare clic sui collegamenti per ottenere altri dettagli. Per i problemi che influiscano su computer specifici, fare clic su **richiesta attenzione** nella colonna **configurazioni di destinazione** . I dettagli includono consigli per la correzione.
+- Fare clic sui collegamenti per ottenere altri dettagli. Per problemi relativi a computer specifici, fare clic **richiede attenzione** nella colonna **Configurazioni di destinazione.** I dettagli includono consigli per la correzione.
 
 **Stato** | **Dettagli**
 --- | ---
@@ -81,22 +81,22 @@ Quota sottoscrizione |  Il totale delle quote di risorse della sottoscrizione di
 Aggiornamenti software | Disponibilità di nuovi aggiornamenti software e informazioni sulle versioni software in scadenza.
 
 
-## <a name="monitor-errors"></a>Monitoraggio degli errori
+## <a name="monitor-errors"></a>Errori di monitoraggio
 
-In **Riepilogo errori**, monitorare i sintomi di errore attualmente attivi che potrebbero influisca sulla replica dei server nell'insieme di credenziali e monitorare il numero di computer interessati.
+In **Riepilogo errori**monitorare i sintomi di errore attualmente attivi che potrebbero influire sulla replica dei server nell'insieme di credenziali e monitorare il numero di computer interessati.
 
-- Gli errori che influiscano sui componenti dell'infrastruttura locale vengono visualizzati all'inizio della sezione. Ad esempio, la mancata ricezione di un heartbeat dal provider Azure Site Recovery nel server di configurazione locale o nell'host Hyper-V.
+- Gli errori che influiscono sui componenti dell'infrastruttura locale sono all'inizio della sezione. Ad esempio, la mancata ricezione di un heartbeat dal provider di Azure Site Recovery nel server di configurazione locale o dall'host Hyper-V.
 - Vengono quindi elencati i sintomi di errore di replica che hanno effetto sui server replicati.
 - Le voci della tabella sono elencate in ordine decrescente in base alla gravità dell'errore e quindi in ordine decrescente in base al conteggio delle macchine interessate.
-- Il numero di server interessati è un modo utile per capire se un singolo problema sottostante potrebbe influisca su più computer. Ad esempio, un problema di rete potrebbe potenzialmente influire su tutti i computer che vengono replicati in Azure. 
+- Il numero di server interessati è un modo utile per capire se un singolo problema sottostante potrebbe influire su più computer. Ad esempio, un problema di rete potrebbe potenzialmente influire su tutti i computer che eseguono la replica in Azure.For example, a network glitch could potentially impact all machines that replicate to Azure. 
 - Possono verificarsi più errori di replica in un singolo server. In questo caso, il server viene conteggiato nell'elenco dei server interessati per ogni sintomo di errore. Dopo aver risolto il problema, i parametri di replica migliorano e l'errore viene cancellato dalla macchina.
 
 ## <a name="monitor-the-infrastructure"></a>Monitorare l'infrastruttura.
 
-In **visualizzazione infrastruttura**monitorare i componenti dell'infrastruttura necessari per la replica e l'integrità della connettività tra i server e i servizi di Azure.
+Nella visualizzazione Infrastruttura monitorare i componenti dell'infrastruttura coinvolti nella replica e l'integrità della connettività tra i server e i servizi di Azure.In **Infrastructure view**, monitor the infrastructure components involved in replication, and connectivity health between servers and the Azure services.
 
 - Una linea verde indica che la connessione è integra.
-- Una linea rossa con l'icona di errore sovrapposta indica l'esistenza di uno o più sintomi di errore che influiscano sulla connettività.
+- Una linea rossa con l'icona di errore sovrapposta indica l'esistenza di uno o più sintomi di errore che influiscono sulla connettività.
 -  Passare il puntatore del mouse sopra l'icona di errore per visualizzare l'errore e il numero di entità interessate. Fare clic sull'icona per visualizzare un elenco filtrato delle entità interessate.
 
     ![Visualizzazione dell'infrastruttura di Site Recovery (insieme di credenziali)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
@@ -110,7 +110,7 @@ In **visualizzazione infrastruttura**monitorare i componenti dell'infrastruttura
     **Scenario** | **Stato**  | **Visualizzazione disponibile?**
     --- |--- | ---
     **Replica tra siti locali** | Tutti gli stati | No 
-    **Replica di VM di Azure tra aree di Azure**  | Replica abilitata/replica iniziale in corso | Yes
+    **Replica di VM di Azure tra aree di Azure**  | Replica abilitata/replica iniziale in corso | Sì
     **Replica di VM di Azure tra aree di Azure** | Failover/failback | No   
     **Replica VMware in Azure** | Replica abilitata/replica iniziale in corso | Sì     
     **Replica VMware in Azure** | Failover/failback | No      
@@ -123,11 +123,11 @@ In **visualizzazione infrastruttura**monitorare i componenti dell'infrastruttura
 
 ## <a name="monitor-recovery-plans"></a>Monitorare i piani di ripristino
 
-Nei **piani di ripristino**monitorare il numero di piani, creare nuovi piani e modificare quelli esistenti.  
+In Piani di **ripristino**monitorare il numero di piani, creare nuovi piani e modificare quelli esistenti.  
 
 ## <a name="monitor-jobs"></a>Monitorare i processi
 
-In **processi**monitorare lo stato delle operazioni di Site Recovery.
+In **Processi**monitorare lo stato delle operazioni di Site Recovery.
 
 - La maggior parte delle operazioni in Azure Site Recovery viene eseguita in modo asincrono, con un processo di verifica creato e usato per tenere traccia dello stato dell'operazione. 
 - L'oggetto processo contiene tutte le informazioni necessarie per tenere traccia dello stato e dell'avanzamento dell'operazione. 
@@ -145,8 +145,8 @@ Monitorare i processi come indicato di seguito:
 
 ## <a name="monitor-virtual-machines"></a>Monitorare le macchine virtuali
 
-In **elementi replicati**ottenere un elenco di computer replicati. 
-    ![Site Recovery visualizzazione elenco elementi replicati](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
+In **Elementi replicati**ottenere un elenco di computer replicati. 
+    ![Visualizzazione dell'elenco Elementi replicati di Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
 
 2. È possibile visualizzare e filtrare le informazioni. Dal menu Azione nella parte superiore è possibile eseguire azioni per una determinata macchina, ad esempio l'esecuzione un failover di test o la visualizzazione di errori specifici.
 3. Fare clic su **Colonne** per visualizzare colonne aggiuntive, ad esempio l'obiettivo RPO, i problemi di configurazione della destinazione e gli errori di replica.
@@ -155,7 +155,7 @@ In **elementi replicati**ottenere un elenco di computer replicati.
 6. Fare clic su una macchina per visualizzare maggiori dettagli su di essa. I dettagli includono:
    - **Informazioni replica**: stato corrente e integrità della macchina.
    - **RPO** (obiettivo del punto di ripristino): RPO corrente per la macchina virtuale e ora dell'ultimo calcolo dell'RPO.
-   - **Punti di ripristino**: punti di ripristino disponibili più recenti per la macchina.
+   - **Punti di ripristino**: punti di ripristino più recenti disponibili per la macchina.
    - **Conformità failover**: indica se è stato eseguito un failover di test per la macchina, la versione dell'agente in esecuzione nella macchina (per le macchine che eseguono il servizio Mobility) ed eventuali problemi di configurazione.
    - **Errori**: elenco di sintomi di errore di replica attualmente osservati nella macchina, con le possibili cause e azioni.
    - **Eventi**: elenco cronologico di eventi recenti con conseguenze sulla macchina. I dettagli dell'errore indicano i sintomi di errore attualmente osservabili, mentre gli eventi sono costituiti da una registrazione cronologica dei problemi che potrebbero avere avuto effetto sulla macchina.
@@ -173,12 +173,12 @@ In **elementi replicati**ottenere un elenco di computer replicati.
 
 Eseguire la sottoscrizione come indicato di seguito:
 
-Nella sezione **monitoraggio** > dell'insieme di credenziali fare clic su **Site Recovery eventi**.
+Nella sezione **del** vault > di monitoraggio fare clic su **Eventi di Site Recovery**.
 1. Fare clic su **Notifiche tramite posta elettronica**.
 1. In **Notifiche tramite posta elettronica** attivare le notifiche e specificare i destinatari. È possibile inviare le notifiche a tutti gli amministratori della sottoscrizione e facoltativamente a specifici indirizzi di posta elettronica.
 
-    ![Notifiche tramite posta elettronica](./media/site-recovery-monitor-and-troubleshoot/email.png)
+    ![Notifiche di posta elettronica](./media/site-recovery-monitor-and-troubleshoot/email.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Informazioni sul](monitor-log-analytics.md) monitoraggio Site Recovery con monitoraggio di Azure.
+[Informazioni sul](monitor-log-analytics.md) monitoraggio di Site Recovery con Azure Monitor.Learn about monitoring Site Recovery with Azure Monitor.

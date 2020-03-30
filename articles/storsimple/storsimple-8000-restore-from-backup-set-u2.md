@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/23/2017
 ms.author: alkohli
 ms.openlocfilehash: 6a2e022697ced90d968075b7a4abe4163be7a539
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60723391"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Ripristinare un volume StorSimple da un set di backup
@@ -33,7 +33,7 @@ Come metodo alternativo per avviare il ripristino, passare a **Dispositivi > [Di
 
 Prima di avviare un'operazione di ripristino, consultare le avvertenze seguenti:
 
-* **È necessario portare offline il volume**: portare offline il volume sia nel dispositivo che nell'host prima di avviare l'operazione di ripristino. Anche se l'operazione di ripristino riporta automaticamente online il volume nel dispositivo, è necessario portare il dispositivo online manualmente nell'host. È possibile portare online il volume nell'host non appena il volume è online sul dispositivo (non è necessario attendere fino al completamento dell'operazione di ripristino). Per le procedure, vedere [Portare un volume offline](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline).
+* **È necessario portare offline il volume**: portare offline il volume sia nel dispositivo che nell'host prima di avviare l'operazione di ripristino. Anche se l'operazione di ripristino riporta automaticamente online il volume nel dispositivo, è necessario portare il dispositivo online manualmente nell'host. È possibile portare online il volume nell'host non appena il volume è online sul dispositivo Non è necessario attendere il completamento dell'operazione di ripristino. Per le procedure, passare a [Portare un volume non in linea](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline).
 
 * **Tipo di volume dopo il ripristino** : i volumi eliminati vengono ripristinati in base al tipo nello snapshot; ovvero i volumi aggiunti in locale vengono ripristinati come volumi aggiunti in locale e i volumi a livelli vengono ripristinati come volumi a livelli.
 
@@ -85,10 +85,10 @@ Il pannello **Catalogo di backup** fornisce una query che consente di limitare l
 
 I set di backup filtrati vengono quindi catalogati in base ai seguenti attributi:
 
-* **Nome** : nome del criterio di backup o volume associato al set di backup.
-* **Tipo** : i set di backup possono essere snapshot in locale o del cloud. Uno snapshot locale è un backup di tutti i dati di volume archiviati localmente sul dispositivo, mentre uno snapshot del cloud si riferisce al backup dei dati di volume che risiedono nel cloud. Gli snapshot in locale forniscono un accesso più rapido, mentre gli snapshot del cloud vengono scelti per la resilienza dei dati.
-* **Dimensioni** : dimensione effettiva del set di backup.
-* **Creato il** : data e ora di creazione dei backup. 
+* **Nome**: nome del volume o dei criteri di backup associati al set di backup.
+* **Tipo**: i set di backup possono essere snapshot locali o cloud. Uno snapshot locale è un backup di tutti i dati di volume archiviati localmente sul dispositivo, mentre uno snapshot del cloud si riferisce al backup dei dati di volume che risiedono nel cloud. Gli snapshot in locale forniscono un accesso più rapido, mentre gli snapshot del cloud vengono scelti per la resilienza dei dati.
+* **Dimensione**: dimensione effettiva del set di backup.
+* **Creato il:** data e ora di creazione dei backup. 
 * **Volumi**: il numero di volumi associati al set di backup.
 * **Avviato** : i backup possono essere avviati automaticamente in base a una pianificazione o manualmente dall'utente. Per pianificare i backup, è possibile utilizzare un criterio di backup. In alternativa, è possibile utilizzare l’opzione **Esegui backup** per eseguire un backup interattivo o su richiesta.
 
@@ -101,7 +101,7 @@ I set di backup filtrati vengono quindi catalogati in base ai seguenti attributi
 
 
 ### <a name="to-restore-your-volume"></a>Per ripristinare il volume
-1. Passare al servizio Gestione dispositivi StorSimple e fare clic su **Catalogo di backup**.
+1. Accedere al servizio Gestione dispositivi StorSimple e fare clic su **Catalogo backup**.
 
 2. Procedura di selezione di un set di backup:
    

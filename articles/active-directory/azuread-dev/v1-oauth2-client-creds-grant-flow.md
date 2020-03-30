@@ -2,27 +2,23 @@
 title: Autorizzazione di Azure AD da servizio a servizio con OAuth2.0 | Documentazione Microsoft
 description: Questo articolo illustra come usare i messaggi HTTP per implementare l'autenticazione da servizio a servizio usando il flusso di concessione di credenziali client OAuth2.0.
 services: active-directory
-documentationcenter: .net
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: ryanwi
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 24c9c4385f23b68e9a3efb65d2582457219fa10d
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: f2d1eaec80c8925eb7b38af848e29e944f1ebf69
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164123"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154543"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Chiamate da servizio a servizio mediante le credenziali client (certificato o segreto condiviso)
 
@@ -64,7 +60,7 @@ Quando si usa un segreto condiviso, una richiesta di token di accesso da servizi
 | resource |obbligatorio |Immettere l'URI ID app del servizio Web ricevente. Per trovare l'URI dell'ID app, nel portale di Azure fare clic su **Azure Active Directory**, fare clic su **Registrazioni per l'app**, fare clic sull'applicazione di servizio e quindi fare clic su **Impostazioni** e su **Proprietà**. |
 
 #### <a name="example"></a>Esempio
-La richiesta HTTP POST seguente richiede un [token di accesso](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) per il servizio Web https://service.contoso.com/. `client_id` identifica il servizio Web che richiede il token di accesso.
+La richiesta HTTP POST seguente richiede un [token di accesso](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) per il servizio Web `https://service.contoso.com/`. `client_id` identifica il servizio Web che richiede il token di accesso.
 
 ```
 POST /contoso.com/oauth2/token HTTP/1.1
@@ -88,7 +84,7 @@ Una richiesta di token di accesso da servizio a servizio con un certificato cont
 Si noti che i parametri sono quasi uguali a quelli usati nella richiesta tramite segreto condiviso, con l'eccezione del parametro client_secret che viene sostituito da due parametri: client_assertion_type e client_assertion.
 
 #### <a name="example"></a>Esempio
-La richiesta HTTP POST seguente richiede un token di accesso per il servizio Web https://service.contoso.com/ con un certificato. `client_id` identifica il servizio Web che richiede il token di accesso.
+La richiesta HTTP POST seguente richiede un token di accesso per il servizio Web `https://service.contoso.com/` con un certificato. `client_id` identifica il servizio Web che richiede il token di accesso.
 
 ```
 POST /<tenant_id>/oauth2/token HTTP/1.1
@@ -105,7 +101,7 @@ Una risposta corretta contiene una risposta OAuth 2.0 JSON con i parametri segue
 | Parametro | Descrizione |
 | --- | --- |
 | access_token |Token di accesso richiesto. Il servizio Web chiamante può usare questo token per l'autenticazione nel servizio Web ricevente. |
-| token_type |Indica il valore del tipo di token. L'unico tipo supportato da Azure AD è **Bearer**. Per altre informazioni sui token di connessione, vedere [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)(Framework di autorizzazione di OAuth2.0: uso dei token di connessione - RFC 6750). |
+| token_type |Indica il valore del tipo di token. L'unico tipo supportato da Azure AD è **Bearer**. Per ulteriori informazioni sui token di connessione, vedere [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | expires_in |Validità del token di accesso (espressa in secondi). |
 | expires_on |Scadenza del token di accesso. La data è rappresentata come numero di secondi da 1970-01-01T0:0:0Z UTC fino alla scadenza. Questo valore viene usato per determinare la durata dei token memorizzati nella cache. |
 | not_before |Ora da cui il token di accesso diventa utilizzabile. La data è rappresentata come numero di secondi da 1970-01-01T0:0:0Z UTC fino all'ora di validità per il token.|

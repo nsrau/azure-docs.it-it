@@ -1,17 +1,17 @@
 ---
-title: Monitorare lo stato della replica di Active Directory con Monitoraggio di Azure | Microsoft Docs
+title: Monitorare lo stato di replica di Active DirectoryMonitor Active Directory replication status
 description: Il pacchetto della soluzione Stato replica di Active Directory controlla periodicamente l'ambiente Active Directory per rilevare eventuali errori di replica.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
-ms.openlocfilehash: bfc9572e8b21692a386c510ffd3409c571eff8f4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 30b0c7c87f6d55586b931be1445b175ce58565d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77667177"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80055908"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Monitorare lo stato della replica di Active Directory con Monitoraggio di Azure
 
@@ -19,7 +19,7 @@ ms.locfileid: "77667177"
 
 Active Directory è un componente chiave di un ambiente IT aziendale. Per garantire disponibilità e prestazioni elevate, ogni controller di dominio ha la propria copia del database di Active Directory. I controller di dominio si replicano tra loro per propagare le modifiche all'interno dell'azienda. Gli errori in questo processo di replica possono causare una serie di problemi all'interno dell'azienda.
 
-La soluzione Stato replica di AD monitora regolarmente l'ambiente Active Directory per eventuali errori di replica.
+La soluzione Stato replica di Active Directory monitora regolarmente l'ambiente Active Directory per verificare la ricerca di eventuali errori di replica.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand-solution.md)]
 
@@ -28,7 +28,7 @@ Usare le informazioni seguenti per installare e configurare la soluzione.
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-* Per la soluzione Stato replica di AD è necessaria una versione supportata di .NET Framework 4.6.2 o versione successiva installata in ogni computer in cui è installato Log Analytics Agent per Windows (noto anche come Microsoft Monitoring Agent (MMA)).  L'agente viene usato da System Center 2016-Operations Manager, Operations Manager 2012 R2 e monitoraggio di Azure.
+* La soluzione Stato replica di Active Directory richiede una versione supportata di .NET Framework 4.6.2 o versione successiva installata in ogni computer in cui è installato l'agente di Log Analytics per Windows (noto anche come Microsoft Monitoring Agent (MMA)).  L'agente viene usato da System Center 2016 - Operations Manager, Operations Manager 2012 R2 e Azure Monitor.
 * La soluzione supporta controller di dominio che eseguono Windows Server 2008 e 2008 R2, Windows Server 2012 e 2012 R2 e Windows Server 2016.
 * area di lavoro Log Analytics per aggiungere la soluzione Controllo integrità Active Directory da Azure Marketplace al portale di Azure. Non è necessaria alcuna configurazione aggiuntiva.
 
@@ -44,7 +44,7 @@ Se non si intende connettere i controller di dominio direttamente a Monitoraggio
 3. Nel computer impostare la chiave del Registro di sistema seguente:<br>Chiave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**<br>Valore: **IsTarget**<br>Dati valore: **true**
 
    > [!NOTE]
-   > Queste modifiche diventano effettive solo dopo il riavvio del servizio Microsoft Monitoring Agent (HealthService. exe).
+   > Queste modifiche diventano effettive solo dopo il riavvio del servizio Microsoft Monitoring Agent (HealthService.exe).
    > ### <a name="install-solution"></a>Installare soluzione
    > Seguire il processo descritto in [Installare una soluzione di monitoraggio](solutions.md#install-a-monitoring-solution) per aggiungere la soluzione **Stato replica di Active Directory** all'area di lavoro Log Analytics. Non è richiesta alcuna ulteriore configurazione.
 
@@ -52,7 +52,7 @@ Se non si intende connettere i controller di dominio direttamente a Monitoraggio
 ## <a name="ad-replication-status-data-collection-details"></a>Dettagli sulla raccolta dati di Stato replica di Active Directory
 La tabella seguente descrive i metodi di raccolta dati e altri dettagli sul modo in cui vengono raccolti i dati per Stato replica di Active Directory.
 
-| piattaforma | Agente diretto | Agente SCOM | Archiviazione di Azure | SCOM obbligatorio? | Dati dell'agente SCOM inviati con il gruppo di gestione | Frequenza della raccolta |
+| Piattaforma | Agente diretto | Agente SCOM | Archiviazione di Azure | SCOM obbligatorio? | Dati dell'agente SCOM inviati con il gruppo di gestione | Frequenza della raccolta |
 | --- | --- | --- | --- | --- | --- | --- |
 | WINDOWS |&#8226; |&#8226; |  |  |&#8226; |ogni cinque giorni |
 
@@ -106,7 +106,7 @@ Come accennato in precedenza, il riquadro del dashboard per la soluzione Stato r
 >
 
 ### <a name="ad-replication-status-details"></a>Dettagli di Stato replica di Active Directory
-Quando si fa clic su un elemento in uno degli elenchi, è possibile accedere ad altre informazioni usando una query di log. I risultati vengono filtrati per indicare solo gli errori correlati all'elemento. Se ad esempio si fa clic sul primo controller di dominio elencato in **Stato server di destinazione (ADDC02)** , i risultati della query vengono filtrati per indicare gli errori con quel controller di dominio elencato come server di destinazione:
+Quando si fa clic su un elemento in uno degli elenchi, è possibile accedere ad altre informazioni usando una query di log. I risultati vengono filtrati per indicare solo gli errori correlati all'elemento. Se ad esempio si fa clic sul primo controller di dominio elencato in **Stato server di destinazione (ADDC02)**, i risultati della query vengono filtrati per indicare gli errori con quel controller di dominio elencato come server di destinazione:
 
 ![Errori di stato replica di Active Directory nei risultati della query](./media/ad-replication-status/oms-ad-replication-search-details.png)
 
@@ -123,26 +123,26 @@ Il campo **HelpLink** indica l'URL di una pagina di TechNet con altre informazio
 R: le informazioni vengono aggiornate ogni cinque giorni.
 
 **D: è possibile configurare la frequenza di aggiornamento dei dati?**
-R: Non attualmente.
+ R: attualmente non è possibile.
 
 **D: è necessario aggiungere tutti i controller di dominio all'area di lavoro Log Analytics per visualizzare lo stato della replica?**
-R: no, è necessario aggiungere un solo controller di dominio. Se nell'area di lavoro Log Analytics sono presenti più controller di dominio, i dati di tutti i controller verranno inviati a Monitoraggio di Azure.
+ R: no, è necessario aggiungere un solo controller di dominio. Se nell'area di lavoro Log Analytics sono presenti più controller di dominio, i dati di tutti i controller verranno inviati a Monitoraggio di Azure.
 
-**D: non si desidera aggiungere controller di dominio all'area di lavoro Log Analytics. È ancora possibile usare la soluzione Stato replica di AD?**
+**D: Non voglio aggiungere controller di dominio all'area di lavoro di Log Analytics. È comunque possibile usare la soluzione Stato replica di Active Directory?**
 
-R: Sì. È possibile impostare il valore di una chiave del Registro di sistema per abilitarla. Vedere [Abilitare controller non di dominio](#enable-non-domain-controller).
+A: Sì. È possibile impostare il valore di una chiave del Registro di sistema per abilitarla. Vedere [Abilitare controller non di dominio](#enable-non-domain-controller).
 
 **D: come si chiama il processo che esegue la raccolta dati?**
-R: AdvisorAssessment.exe
+ R: AdvisorAssessment.exe
 
 **D: quanto tempo occorre per la raccolta dati?**
-R: il tempo necessario per la raccolta dati dipende dalle dimensioni dell'ambiente Active Directory, ma in genere è inferiore a 15 minuti.
+ R: il tempo necessario per la raccolta dati dipende dalle dimensioni dell'ambiente Active Directory, ma in genere è inferiore a 15 minuti.
 
 **D: quali tipi di dati vengono raccolti?**
-R: le informazioni di replica vengono raccolte tramite LDAP.
+ R: le informazioni di replica vengono raccolte tramite LDAP.
 
 **D: è possibile definire la data/ora per la raccolta dati?**
-R: Non attualmente.
+ R: attualmente non è possibile.
 
 **D: quali autorizzazioni sono necessarie per raccogliere i dati?**
 R: le normali autorizzazioni utente in Active Directory sono sufficienti.

@@ -9,10 +9,10 @@ ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
 ms.openlocfilehash: 04df30c2a97e865d23999df26768b38cb38be607
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68855567"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Usare l'URI di Azure Data Lake Storage Gen2
@@ -43,7 +43,7 @@ Se, tuttavia, l'account che si vuole indirizzare è impostato come file system p
 
 1. **Percorso**: una rappresentazione della struttura della directory delimita da una barra (`/`).
 
-2. **Nome del file**: il nome del singolo file.
+2. **Nome file**: Il nome del singolo file.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 1/29/2019
 ms.author: barclayn
 ms.openlocfilehash: 741e6b9cad20645fdfc085623fd9492a12ac1dfc
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68726554"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Servizi e tecnologie per la sicurezza disponibili in Azure
@@ -34,7 +34,7 @@ L'elenco verrà modificato e accresciuto nel corso del tempo, parallelamente ad 
 |Service|Descrizione|
 |--------|--------|
 |[Centro&nbsp;sicurezza&nbsp;di Azure](/azure/security-center/security-center-intro)| Soluzione di protezione dei carichi di lavoro nel cloud che supporta la gestione della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro cloud ibridi.|
-|[Insieme di credenziali chiave Azure](/azure/key-vault/key-vault-overview)| Archivio di segreti sicuro per password, stringhe di connessione e altre informazioni necessarie per il funzionamento delle app. |
+|[Archivio chiavi di AzureAzure Key Vault](/azure/key-vault/key-vault-overview)| Archivio di segreti sicuro per password, stringhe di connessione e altre informazioni necessarie per il funzionamento delle app. |
 |[Log di Monitoraggio di Azure](/azure/log-analytics/log-analytics-overview)|Servizio di monitoraggio che raccoglie dati di telemetria e altri dati e fornisce un linguaggio di query e un motore di analisi per offrire informazioni dettagliate operative per le app e le risorse. Può essere usato da solo o con altri servizi, come il Centro sicurezza. |
 |[Lab di sviluppo/test Azure](/azure/lab-services/devtest-lab-overview)|Servizio che consente agli sviluppatori e ai tester di creare rapidamente ambienti in Azure riducendo al minimo gli sprechi e i costi di controllo.  |
 
@@ -48,8 +48,8 @@ L'elenco verrà modificato e accresciuto nel corso del tempo, parallelamente ad 
 |[Crittografia lato client di Azure](/azure/storage/common/storage-client-side-encryption)| Soluzione di crittografia lato client che esegue la crittografia dei dati all'interno delle applicazioni client prima di caricarli in Archiviazione di Azure. Questa soluzione gestisce inoltre la decrittografia dei dati durante il download. |
 | [Firme di accesso condiviso di Archiviazione di Azure](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)|Una firma di accesso condiviso fornisce accesso delegato controllato alle risorse dell'account di archiviazione.  |
 |[Chiavi dell'account di archiviazione di Azure](/azure/storage/common/storage-create-storage-account)| Metodo di controllo di accesso per l'archiviazione di Azure che viene usato per l'autenticazione quando si accede all'account di archiviazione. |
-|[Condivisioni file di Azure con crittografia SMB 3.0](/azure/storage/files/storage-files-introduction)|Tecnologia di sicurezza di rete che abilita la crittografia di rete automatica per il protocollo di condivisione file Server Message Block (SMB). |
-|[Analisi archiviazione di Azure](/rest/api/storageservices/Storage-Analytics)| Tecnologia per la registrazione e la generazione di metriche per i dati nell'account di archiviazione. |
+|[Azure File shares with SMB 3.0 Encryption](/azure/storage/files/storage-files-introduction)|Tecnologia di sicurezza di rete che abilita la crittografia di rete automatica per il protocollo di condivisione file Server Message Block (SMB). |
+|[Analisi di Archiviazione di AzureAzure Storage Analytics](/rest/api/storageservices/Storage-Analytics)| Tecnologia per la registrazione e la generazione di metriche per i dati nell'account di archiviazione. |
 
 <!------>
 
@@ -70,26 +70,26 @@ L'elenco verrà modificato e accresciuto nel corso del tempo, parallelamente ad 
 | [Controllo degli accessi&nbsp;in base&nbsp;al ruolo&nbsp;di Azure](/azure/active-directory/role-based-access-control-configure)|Funzionalità di controllo di accesso progettata per consentire agli utenti di accedere solo alle risorse necessarie in base ai rispettivi ruoli all'interno dell'organizzazione.  |
 | [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)|Repository di autenticazione basato sul cloud che supporta una directory multi-tenant basata sul cloud e più servizi di gestione delle identità all'interno di Azure.  |
 | [Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview)|Servizio di gestione delle identità che consente di controllare il modo in cui i clienti si iscrivono, accedono e gestiscono i rispettivi profili durante l'uso delle applicazioni basate su Azure.   |
-| [Servizi di dominio Azure Active Directory](/azure/active-directory-domain-services/overview)| Versione basata su cloud e gestita di Active Directory Domain Services. |
+| [Azure Active Directory Domain Services](/azure/active-directory-domain-services/overview)| Versione basata su cloud e gestita di Active Directory Domain Services. |
 | [Azure Multi-Factor Authentication](/azure/active-directory/authentication/multi-factor-authentication)| Infrastruttura di sicurezza che si avvale di diverse forme di autenticazione e verifica prima di consentire l'accesso a informazioni protette. |
 
 ## <a name="backup-and-disaster-recovery"></a>Backup e ripristino di emergenza
 |Service|Descrizione|
 |------|--------|
 | [Backup&nbsp;di Azure](/azure/backup/backup-introduction-to-azure-backup)| Servizio basato su Azure usato per eseguire il backup e il ripristino dei dati nel cloud di Azure. |
-| [Azure&nbsp;Site&nbsp;Recovery](/azure/site-recovery/site-recovery-overview)|Servizio online che replica i carichi di lavoro in esecuzione su computer fisici e macchine virtuali da un sito primario in una località secondaria per rendere possibile il ripristino dei servizi dopo un guasto. |
+| [Ripristino&nbsp;&nbsp;del sito di AzureAzure Site Recovery](/azure/site-recovery/site-recovery-overview)|Servizio online che replica i carichi di lavoro in esecuzione su computer fisici e macchine virtuali da un sito primario in una località secondaria per rendere possibile il ripristino dei servizi dopo un guasto. |
 
 ## <a name="networking"></a>Rete
 |Service|Descrizione|
 |------|--------|
-| [Gruppi&nbsp;di sicurezza&nbsp;di rete](/azure/virtual-network/virtual-networks-nsg)| Funzionalità di controllo di accesso basata sulla rete che usa una tupla a 5 elementi per prendere decisioni in merito alla concessione o alla negazione dell'accesso.  |
-| [Gateway VPN di Azure](/azure/vpn-gateway/vpn-gateway-about-vpngateways)| Dispositivo di rete usato come endpoint VPN per consentire l'accesso cross-premise alle reti virtuali di Azure.  |
-| [Gateway applicazione Azure](/azure/application-gateway/application-gateway-introduction)|Servizio di bilanciamento del carico avanzato per applicazioni Web, in grado di eseguire il routing in base a URL e che supporta l'offload SSL. |
-|[Web application firewall](/azure/frontdoor/waf-overview) (WAF)|Funzionalità del gateway applicazione che offre protezione centralizzata da exploit e vulnerabilità comuni per le applicazioni Web|
-| [Servizio di bilanciamento del carico di Azure](/azure/load-balancer/load-balancer-overview)|Servizio di bilanciamento del carico di rete per applicazioni TCP/UDP. |
+| [Gruppi&nbsp;&nbsp;di sicurezza di reteNetwork Security Groups](/azure/virtual-network/virtual-networks-nsg)| Funzionalità di controllo di accesso basata sulla rete che usa una tupla a 5 elementi per prendere decisioni in merito alla concessione o alla negazione dell'accesso.  |
+| [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways)| Dispositivo di rete usato come endpoint VPN per consentire l'accesso cross-premise alle reti virtuali di Azure.  |
+| [Gateway applicazione di AzureAzure Application Gateway](/azure/application-gateway/application-gateway-introduction)|Servizio di bilanciamento del carico avanzato per applicazioni Web, in grado di eseguire il routing in base a URL e che supporta l'offload SSL. |
+|[Firewall applicazione Web](/azure/frontdoor/waf-overview) (WAF)|Funzionalità del gateway applicazione che offre protezione centralizzata da exploit e vulnerabilità comuni per le applicazioni Web|
+| [Servizio di bilanciamento del carico di AzureAzure Load Balancer](/azure/load-balancer/load-balancer-overview)|Servizio di bilanciamento del carico di rete per applicazioni TCP/UDP. |
 | [ExpressRoute di Azure](/azure/expressroute/expressroute-introduction)| Collegamento WAN dedicato tra reti locali e reti virtuali di Azure. |
 | [Gestione traffico di Azure](/azure/traffic-manager/traffic-manager-overview)| Servizio di bilanciamento del carico DNS globale.|
 | [Proxy di applicazione Azure](/azure/active-directory/active-directory-application-proxy-get-started)| Front-end di autenticazione usato per proteggere l'accesso remoto per le applicazioni Web ospitate in locale. |
 |[Firewall di Azure](/azure/firewall/overview)|Servizio di sicurezza di rete gestito basato sul cloud che consente di proteggere le risorse della rete virtuale di Azure.|
-|[Protezione DDoS di Azure](/azure/virtual-network/ddos-protection-overview)|Insieme alle procedure consigliate di progettazione delle applicazioni, offre un meccanismo di difesa dagli attacchi DDoS (Distributed Denial of Service).|
-|[Endpoint servizio di rete virtuale](/azure/virtual-network/virtual-network-service-endpoints-overview)|Estende lo spazio di indirizzi privato della rete virtuale e l'identità della rete virtuale ai servizi di Azure tramite una connessione diretta.|
+|[Protezione DDoS di AzureAzure DDoS protection](/azure/virtual-network/ddos-protection-overview)|Insieme alle procedure consigliate di progettazione delle applicazioni, offre un meccanismo di difesa dagli attacchi DDoS (Distributed Denial of Service).|
+|[Endpoint del servizio di rete virtualeVirtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview)|Estende lo spazio di indirizzi privato della rete virtuale e l'identità della rete virtuale ai servizi di Azure tramite una connessione diretta.|

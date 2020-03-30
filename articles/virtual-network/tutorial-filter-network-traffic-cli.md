@@ -17,16 +17,16 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: a1ade6e823201419c3a742a36c66a50a9dc09976
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 72c8b4d57b5064af34665cff1386179e62324938
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64728811"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235085"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrare il traffico di rete con un gruppo di sicurezza di rete usando l'interfaccia della riga di comando di Azure
 
-È possibile filtrare il traffico di rete in ingresso e in uscita da una subnet di rete virtuale con un gruppo di sicurezza di rete. I gruppi di sicurezza di rete contengono regole di sicurezza per filtrare il traffico di rete in base a indirizzo IP, porta e protocollo. Le regole di sicurezza vengono applicate alle risorse distribuite in una subnet. In questo articolo viene spiegato come:
+È possibile filtrare il traffico di rete in ingresso e in uscita da una subnet di rete virtuale con un gruppo di sicurezza di rete. I gruppi di sicurezza di rete contengono regole di sicurezza per filtrare il traffico di rete in base a indirizzo IP, porta e protocollo. Le regole di sicurezza vengono applicate alle risorse distribuite in una subnet. In questo articolo vengono illustrate le operazioni seguenti:
 
 * Creare un gruppo di sicurezza di rete e le regole di sicurezza
 * Creare una rete virtuale e associare un gruppo di sicurezza di rete a una subnet
@@ -37,14 +37,14 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If](/cli/azure/install-azure-cli)you need to install or upgrade, see Install Azure CLI. 
 
 
 ## <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete
 
 Un gruppo di sicurezza di rete contiene regole di sicurezza. Le regole di sicurezza specificano un'origine e una destinazione. Le origini e le destinazioni possono essere gruppi di sicurezza delle applicazioni.
 
-### <a name="create-application-security-groups"></a>Creare gruppi di sicurezza delle applicazioni
+### <a name="create-application-security-groups"></a>Creare gruppi di sicurezza dell'applicazione
 
 Creare innanzitutto un gruppo di risorse con [az group create](/cli/azure/group) per tutte le risorse create in questo articolo. L'esempio seguente crea un gruppo di risorse nella località *eastus*: 
 
@@ -143,7 +143,7 @@ az network vnet subnet create \
 
 Creare due VM nella rete virtuale per convalidare il filtro del traffico in un passaggio successivo. 
 
-Creare una VM con il comando [az vm create](/cli/azure/vm). L'esempio seguente crea una VM che fungerà da server Web. L'opzione `--asgs myAsgWebServers` fa sì che Azure renda l'interfaccia di rete creata per la VM un membro del gruppo di sicurezza delle applicazioni *myAsgWebServers*.
+Creare una macchina virtuale con [az vm create](/cli/azure/vm). L'esempio seguente crea una VM che fungerà da server Web. L'opzione `--asgs myAsgWebServers` fa sì che Azure renda l'interfaccia di rete creata per la VM un membro del gruppo di sicurezza delle applicazioni *myAsgWebServers*.
 
 L'opzione `--nsg ""` è specificata per impedire ad Azure di creare un gruppo di sicurezza di rete predefinito per l'interfaccia di rete creata da Azure al momento della creazione della VM. Per semplificare questo articolo, viene usata una password. Le chiavi in genere vengono usate per le distribuzioni di produzione. Se si usano chiavi, occorre configurare anche l'inoltro dell'agente SSH per i passaggi rimanenti. Per altre informazioni, vedere la documentazione del client SSH. Sostituire `<replace-with-your-password>` nel comando seguente con una password a scelta.
 
@@ -164,7 +164,7 @@ az vm create \
 
 La creazione della VM richiede alcuni minuti. Dopo la creazione della VM, viene restituito un output simile all'esempio seguente: 
 
-```azurecli 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVmWeb",
@@ -177,7 +177,7 @@ La creazione della VM richiede alcuni minuti. Dopo la creazione della VM, viene 
 }
 ```
 
-Prendere nota di **publicIpAddress**. Questo indirizzo viene usato per accedere alla macchina virtuale da Internet in un passaggio successivo.  Creare una VM che funge da server di gestione:
+Prendere nota di **publicIpAddress**. Questo indirizzo viene usato per accedere alla VM da Internet in un passaggio successivo.  Creare una VM che funge da server di gestione:
 
 ```azurecli-interactive
 az vm create \
@@ -196,7 +196,7 @@ La creazione della VM richiede alcuni minuti. Dopo la creazione della VM, prende
 
 ## <a name="test-traffic-filters"></a>Testare i filtri del traffico
 
-Usare il comando seguente per creare una sessione SSH con la VM *myVmMgmt*. Sostituire  *\<publicIpAddress >* con l'indirizzo IP pubblico della macchina virtuale. Nell'esempio precedente l'indirizzo IP è *13.90.242.231*.
+Usare il comando seguente per creare una sessione SSH con la VM *myVmMgmt*. Sostituire * \<publicIpAddress>* con l'indirizzo IP pubblico della macchina virtuale. Nell'esempio precedente l'indirizzo IP è *13.90.242.231*.
 
 ```bash 
 ssh azureuser@<publicIpAddress>
@@ -230,13 +230,13 @@ Nella VM *myVmWeb* è consentito il traffico in uscita a Internet per recuperare
 curl myVmWeb
 ```
 
-Disconnettersi dalla VM *myVmMgmt*. Per verificare di poter accedere al server Web *myVmWeb* dall'esterno di Azure, digitare `curl <publicIpAddress>` dal proprio computer. La connessione ha esito positivo, perché sulla porta 80 è consentito il traffico in ingresso proveniente da Internet al gruppo di sicurezza delle applicazioni *myAsgWebServers* in cui si trova l'interfaccia di rete collegata alla VM *myVmWeb*.
+Disconnettersi dalla VM *myVmMgmt*. Per verificare di poter accedere al server Web *myVmWeb* dall'esterno di Azure, digitare `curl <publicIpAddress>` dal proprio computer. La connessione ha esito positivo, poiché la porta 80 è consentita in ingresso da Internet al gruppo di sicurezza dell'applicazione *myAsgWebServers* in cui si trova l'interfaccia di rete collegata alla macchina virtuale *myVmWeb.*
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando il gruppo di risorse e tutte le risorse in esso contenute non sono più necessari, usare [az group delete](/cli/azure/group) per rimuoverli.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --yes
 ```
 

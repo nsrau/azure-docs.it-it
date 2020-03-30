@@ -1,24 +1,24 @@
 ---
-title: Distribuisci in modo sicuro il modello con token SAS
-description: Distribuire le risorse in Azure con un modello di Azure Resource Manager protetto da un token di firma di accesso condiviso. Mostra Azure PowerShell e l'interfaccia della riga di comando di Azure.
+title: Distribuisci in modo sicuro il modello con il token di firma di accesso condivisoSecurely deploy template with SAS token
+description: Distribuire le risorse in Azure con un modello di Azure Resource Manager protetto da un token di firma di accesso condiviso. Mostra Azure PowerShell e l'interfaccia della riga di comando di Azure.Shows Azure PowerShell and Azure CLI.
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: d30e685c35f33b6fc5d3872b9287e45190ad5713
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 42eaae316d4fd0575102323933f849a3058228a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79273709"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156396"
 ---
-# <a name="deploy-private-resource-manager-template-with-sas-token"></a>Distribuire un modello di Resource Manager privato con un token SAS
+# <a name="deploy-private-arm-template-with-sas-token"></a>Distribuire il modello ARM privato con token di firma di accesso condivisoDeploy private ARM template with SAS token
 
-Quando il modello si trova in un account di archiviazione, è possibile limitare l'accesso al modello per evitare di esporlo pubblicamente. Per accedere a un modello protetto, creare un token di firma di accesso condiviso (SAS) per il modello e fornire tale token durante la distribuzione. Questo articolo illustra come usare Azure PowerShell o l'interfaccia della riga di comando di Azure per distribuire un modello con un token di firma di accesso condiviso.
+Quando il modello di Azure Resource Manager (ARM) si trova in un account di archiviazione, è possibile limitare l'accesso al modello per evitare di esporlo pubblicamente. È possibile accedere a un modello protetto creando un token di firma di accesso condiviso (SAS) per il modello e fornendo tale token durante la distribuzione. Questo articolo illustra come usare Azure PowerShell o l'interfaccia della riga di comando di Azure per distribuire un modello con un token di firma di accesso condiviso.
 
-## <a name="create-storage-account-with-secured-container"></a>Creare un account di archiviazione con un contenitore protetto
+## <a name="create-storage-account-with-secured-container"></a>Creare un account di archiviazione con un contenitore protettoCreate storage account with secured container
 
 Lo script seguente crea un account di archiviazione e un contenitore con accesso pubblico disattivato.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup `
@@ -37,7 +37,7 @@ New-AzStorageContainer `
   -Permission Off
 ```
 
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di AzureAzure](#tab/azure-cli)
 
 ```azurecli-interactive
 az group create \
@@ -61,11 +61,11 @@ az storage container create \
 
 ---
 
-## <a name="upload-template-to-storage-account"></a>Caricare il modello nell'account di archiviazione
+## <a name="upload-template-to-storage-account"></a>Caricare il modello nell'account di archiviazioneUpload template to storage account
 
-A questo punto, si è pronti per caricare il modello nell'account di archiviazione. Specificare il percorso del modello che si vuole usare.
+A questo punto, è possibile caricare il modello nell'account di archiviazione. Specificare il percorso del modello che si desidera utilizzare.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Set-AzStorageBlobContent `
@@ -73,7 +73,7 @@ Set-AzStorageBlobContent `
   -File c:\Templates\azuredeploy.json
 ```
 
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di AzureAzure](#tab/azure-cli)
 
 ```azurecli-interactive
 az storage blob upload \
@@ -90,10 +90,10 @@ az storage blob upload \
 Per distribuire un modello privato in un account di archiviazione, generare un token di firma di accesso condiviso e includerlo nell'URI del modello. Impostare l'ora di scadenza in modo da garantire un tempo sufficiente per completare la distribuzione.
 
 > [!IMPORTANT]
-> Il BLOB contenente il modello è accessibile solo al proprietario dell'account. Tuttavia, quando si crea un token di firma di accesso condiviso per il BLOB, quest'ultimo sarà accessibile a tutti gli utenti con quell'URI. Se l'URI viene intercettato da un altro utente, quest'ultimo sarà in grado di accedere al modello. Un token di firma di accesso condiviso è un modo efficace per limitare l'accesso ai modelli, ma non è consigliabile includere dati sensibili, come le password, direttamente nel modello.
+> Il BLOB contenente il modello è accessibile solo al proprietario dell'account. Tuttavia, quando si crea un token di firma di accesso condiviso per il BLOB, quest'ultimo sarà accessibile a tutti gli utenti con quell'URI. Se l'URI viene intercettato da un altro utente, quest'ultimo sarà in grado di accedere al modello. Un token di firma di accesso condiviso è un buon modo per limitare l'accesso ai modelli, ma non è consigliabile includere dati sensibili come le password direttamente nel modello.
 >
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 # get the URI with the SAS token
@@ -109,7 +109,7 @@ New-AzResourceGroupDeployment `
   -TemplateUri $templateuri
 ```
 
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di AzureAzure](#tab/azure-cli)
 
 ```azurecli-interactive
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
@@ -129,7 +129,7 @@ url=$(az storage blob url \
     --name azuredeploy.json \
     --output tsv \
     --connection-string $connection)
-az group deployment create \
+az deployment group create \
   --resource-group ExampleGroup \
   --template-uri $url?$token
 ```
@@ -140,5 +140,5 @@ Per un esempio sull'uso di un token di firma di accesso condiviso con modelli co
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per un'introduzione alla distribuzione dei modelli, vedere [Distribuire le risorse con i modelli di Resource Manager e Azure PowerShell](deploy-powershell.md).
+* Per un'introduzione alla distribuzione di modelli, vedere [Distribuire risorse con modelli ARM e Azure PowerShell.](deploy-powershell.md)
 * Per definire i parametri nel modello, vedere [Creazione di modelli](template-syntax.md#parameters).

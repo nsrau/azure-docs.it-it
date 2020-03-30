@@ -1,6 +1,6 @@
 ---
-title: Riattivare gli spazi dei nomi del servizio di controllo di accesso di Azure disabilitato
-description: Trovare e abilitare gli spazi dei nomi del servizio di controllo di accesso di Azure (ACS) e richiedere un'estensione per mantenerli abilitati fino al 4 febbraio 2019.
+title: Riattivare gli spazi dei nomi del servizio di controllo di accesso di Azure (ACS) disabilitatiReactivate disabled Azure Access Control Service (ACS) namespaces
+description: Trovare e abilitare gli spazi dei nomi del servizio di controllo di accesso di Azure e richiedere un'estensione per mantenerli abilitati fino al 4 febbraio 2019.Find and enable your Azure Access Control Service (ACS) namespaces and request an extension to keep them enabled until February 4, 2019.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +12,13 @@ ms.date: 01/21/2019
 ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.openlocfilehash: 85696a5580c4ed6c03f257787e2693a61a6158de
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: ff0ce05b13fea8409475e3415c5d810d7c79769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164617"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154866"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Procedura: Riattivare gli spazi dei nomi disabilitati del Servizio di controllo di accesso
 
@@ -25,7 +26,7 @@ ms.locfileid: "77164617"
 
 A novembre 2017 è stato annunciato il ritiro in data 7 novembre 2018 del Servizio di controllo di accesso di Microsoft Azure, un servizio di Azure Active Directory (Azure AD).
 
-A partire dalla data dell'annuncio sono stati inviati messaggi di posta elettronica all'indirizzo di amministrazione delle sottoscrizioni di ACS in merito al ritiro di ACS 12 mesi, 9 mesi, 6 mesi, 3 mesi, 1 mese, 2 settimane, 1 settimana e 1 giorno prima della data di ritiro del 7 novembre 2018.
+Da allora, abbiamo inviato e-mail all'e-mail di amministrazione degli abbonamenti ACS circa il ritiro ACS 12 mesi, 9 mesi, 6 mesi, 3 mesi, 1 mese, 2 settimane, 1 settimana e 1 giorno prima della data di pensionamento del 7 novembre 2018.
 
 Il 3 ottobre 2018 è stata annunciata (tramite posta elettronica e un [post di blog](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)) un'offerta di estensione per i clienti che non possono completare la migrazione prima del 7 novembre 2018. L'annuncio includeva anche le istruzioni per richiedere l'estensione.
 
@@ -88,14 +89,14 @@ Ulteriori estensioni non verranno più approvate automaticamente. Se è necessar
 
 ### <a name="to-request-an-extension"></a>Per richiedere un'estensione
 
-1. Accedere al portale di Azure e creare una [nuova richiesta di supporto](https://portal.azure.com/#create/Microsoft.Support).
+1. Accedere al portale di Azure e creare una nuova richiesta di [supporto.](https://portal.azure.com/#create/Microsoft.Support)
 1. Compilare il nuovo modulo di richiesta di supporto, come illustrato nell'esempio seguente.
 
     | Campo della richiesta di supporto | valore |
     |-----------------------|--------------------|
     | **Tipo di problema** | `Technical` |
     | **Sottoscrizione** | Impostare sulla propria sottoscrizione |
-    | **Service** | `All services` |
+    | **Servizio** | `All services` |
     | **Risorsa** | `General question/Resource not available` |
     | **Tipo di problema** | `ACS to SAS Migration` |
     | **Oggetto** | Descrivere il problema |

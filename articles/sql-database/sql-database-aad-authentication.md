@@ -11,16 +11,16 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 02/20/2019
-ms.openlocfilehash: bc779df06d92d2483755ae888fda121b8e493a18
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ef20c5b8babdf378b88997ae2fd7b98350c31319
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79269159"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80124914"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Usare l'autenticazione di Azure Active Directory per l'autenticazione con SQL
 
-L'autenticazione di Azure Active Directory è un meccanismo di connessione al [database SQL](sql-database-technical-overview.md) di Azure, a [Istanza gestita](sql-database-managed-instance.md) e a [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tramite le identità di Azure Active Directory (Azure AD). 
+L'autenticazione di Azure Active Directory è un meccanismo di connessione al [database SQL](sql-database-technical-overview.md) di Azure, a [Istanza gestita](sql-database-managed-instance.md) e a [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tramite le identità di Azure Active Directory (Azure AD). 
 
 > [!NOTE]
 > Questo argomento è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse.
@@ -147,7 +147,7 @@ Per le entità server (account di accesso) di Azure AD (**versione di anteprima 
 
 - Per informazioni su come creare e popolare Azure AD e quindi configurare Azure AD con il database SQL di Azure o con Azure SQL Data Warehouse, vedere [Configurare e gestire l'autenticazione di Azure Active Directory con il database SQL, con Istanza gestita oppure con SQL Data Warehouse](sql-database-aad-authentication-configure.md).
 - Per un'esercitazione sull'uso delle entità server (account di accesso) di Azure AD con Istanze gestite, vedere [Entità server (account di accesso) di Azure AD con Istanze gestite](sql-database-managed-instance-aad-security-tutorial.md)
-- Per una panoramica degli account di accesso, degli utenti, dei ruoli del database e delle autorizzazioni nel database SQL, vedere [account di accesso, utenti, ruoli del database e autorizzazioni](sql-database-manage-logins.md).
+- Per una panoramica di account di accesso, utenti, ruoli del database e autorizzazioni nel database SQL, vedere [Account di accesso, utenti, ruoli del database e autorizzazioni](sql-database-manage-logins.md).
 - Per altre informazioni sulle entità di database, vedere [Entità](https://msdn.microsoft.com/library/ms181127.aspx).
 - Per altre informazioni sui ruoli del database, vedere [Ruoli a livello di database](https://msdn.microsoft.com/library/ms189121.aspx).
 - Per la sintassi sulla creazione di entità server (account di accesso) di Azure AD per Istanze gestite, vedere [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).

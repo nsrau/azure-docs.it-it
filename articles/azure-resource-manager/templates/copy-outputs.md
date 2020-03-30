@@ -1,24 +1,24 @@
 ---
-title: Definire più istanze di un valore di output
-description: Usare l'operazione di copia in un modello di Azure Resource Manager per eseguire un'iterazione più volte quando si restituisce un valore da una distribuzione.
+title: Definire più istanze di un valore di outputDefine multiple instances of an output value
+description: Usare l'operazione di copia in un modello di Azure Resource Manager per eseguire più volte la restituzione di un valore da una distribuzione.
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: db5c548c7bd4c60357d3656b1273b0192c497459
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 3889260d02f438274c80e99e99136515499443e6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77624774"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153387"
 ---
-# <a name="output-iteration-in-azure-resource-manager-templates"></a>Iterazione di output nei modelli di Azure Resource Manager
+# <a name="output-iteration-in-arm-templates"></a>Iterazione di output nei modelli ARMOutput iteration in ARM templates
 
-Questo articolo illustra come creare più di un valore per un output nel modello di Azure Resource Manager. Aggiungendo l'elemento **Copy** alla sezione Outputs del modello, è possibile restituire dinamicamente un numero di elementi durante la distribuzione.
+Questo articolo illustra come creare più di un valore per un output nel modello di Azure Resource Manager (ARM). Aggiungendo l'elemento **copy** alla sezione outputs del modello, è possibile restituire dinamicamente un numero di elementi durante la distribuzione.
 
-È anche possibile usare copia con [risorse](copy-resources.md), [Proprietà in una risorsa](copy-properties.md)e [variabili](copy-variables.md).
+È inoltre possibile utilizzare la copia con [risorse](copy-resources.md), [le proprietà in una risorsa](copy-properties.md)e le [variabili](copy-variables.md).
 
-## <a name="outputs-iteration"></a>Iterazione degli output
+## <a name="outputs-iteration"></a>Iterazione output
 
-Il formato generale dell'elemento Copy è il seguente:
+L'elemento copy ha il seguente formato generale:
 
 ```json
 "copy": [
@@ -29,11 +29,11 @@ Il formato generale dell'elemento Copy è il seguente:
 ]
 ```
 
-La proprietà **count** specifica il numero di iterazioni desiderate per il valore di output.
+La proprietà **count** specifica il numero di iterazioni desiderato per il valore di output.
 
-La proprietà di **input** specifica le proprietà che si desidera ripetere. Si crea una matrice di elementi costruiti dal valore nella proprietà di **input** . Può essere una singola proprietà (ad esempio una stringa) o un oggetto con diverse proprietà.
+La proprietà **input** specifica le proprietà che si desidera ripetere. Creare una matrice di elementi costruiti dal valore nella proprietà **di input.** Può essere una singola proprietà (ad esempio una stringa) o un oggetto con diverse proprietà.
 
-Nell'esempio seguente viene creato un numero variabile di account di archiviazione e viene restituito un endpoint per ogni account di archiviazione:
+L'esempio seguente crea un numero variabile di account di archiviazione e restituisce un endpoint per ogni account di archiviazione:The following example creates a variable number of storage number of storage accounts and returns an endpoint for each storage account:
 
 ```json
 {
@@ -77,7 +77,7 @@ Nell'esempio seguente viene creato un numero variabile di account di archiviazio
 }
 ```
 
-Il modello precedente restituisce una matrice con i valori seguenti:
+Il modello precedente restituisce una matrice con i valori seguenti:The preceding template returns an array with the following values:
 
 ```json
 [
@@ -86,7 +86,7 @@ Il modello precedente restituisce una matrice con i valori seguenti:
 ]
 ```
 
-Nell'esempio seguente vengono restituite tre proprietà dai nuovi account di archiviazione.
+L'esempio seguente restituisce tre proprietà dai nuovi account di archiviazione.
 
 ```json
 {
@@ -134,7 +134,7 @@ Nell'esempio seguente vengono restituite tre proprietà dai nuovi account di arc
 }
 ```
 
-Nell'esempio precedente viene restituita una matrice con i valori seguenti:
+Nell'esempio precedente viene restituita una matrice con i valori seguenti:The preceding example returns an array with the following values:
 
 ```json
 [
@@ -153,11 +153,11 @@ Nell'esempio precedente viene restituita una matrice con i valori seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per eseguire un'esercitazione, vedere [Tutorial: create multiple resource instances using Resource Manager templates](template-tutorial-create-multiple-instances.md) (Esercitazione: Creare più istanze di risorse usando i modelli di Resource Manager).
-* Per altri usi dell'elemento Copy, vedere:
-  * [Iterazione delle risorse nei modelli di Azure Resource Manager](copy-resources.md)
-  * [Iterazione proprietà nei modelli di Azure Resource Manager](copy-properties.md)
-  * [Iterazione variabile nei modelli di Azure Resource Manager](copy-variables.md)
-* Per altre informazioni sulle sezioni di un modello, vedere [Authoring Azure Resource Manager Templates](template-syntax.md) (Creazione di modelli di Azure Resource Manager).
-* Per altre informazioni sulla distribuzione di modelli, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](deploy-powershell.md).
+* Per eseguire un'esercitazione, vedere [Esercitazione: creare più istanze](template-tutorial-create-multiple-instances.md)di risorse utilizzando i modelli ARM .
+* Per altri utilizzi dell'elemento copy, vedere:
+  * [Iterazione delle risorse nei modelli ARMResource iteration in ARM templates](copy-resources.md)
+  * [Iterazione delle proprietà nei modelli ARMProperty iteration in ARM templates](copy-properties.md)
+  * [Iterazione variabile nei modelli ARMVariable iteration in ARM templates](copy-variables.md)
+* Per informazioni sulle sezioni di un modello, vedere Creazione di [modelli ARM](template-syntax.md).
+* Per informazioni su come distribuire il modello, vedere [Distribuire un'applicazione con il modello ARM.](deploy-powershell.md)
 

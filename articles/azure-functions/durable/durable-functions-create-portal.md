@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: azfuncdf
 ms.openlocfilehash: 0060088acb100036c094406e01d0d736a4af88eb
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75769643"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Creare funzioni permanenti con il portale di Azure
@@ -17,12 +17,12 @@ L'estensione [Funzioni permanenti](durable-functions-overview.md) di Funzioni di
 
 > [!NOTE]
 > 
-> * Se si sviluppano funzioni permanenti C#in, è necessario prendere in considerazione [lo sviluppo di Visual Studio 2019](durable-functions-create-first-csharp.md).
+> * Se si stanno sviluppando funzioni durevoli in C, è invece necessario prendere in considerazione lo sviluppo di [Visual Studio 2019](durable-functions-create-first-csharp.md).
 > * Se si sviluppano funzioni permanenti in JavaScript, è consigliabile usare invece lo [sviluppo di Visual Studio Code](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
-Per ospitare l'esecuzione di qualsiasi funzione è necessaria un'app per le funzioni. Un'app per le funzioni consente di raggruppare le funzioni come un'unità logica per semplificare la gestione, la distribuzione, il ridimensionamento e la condivisione delle risorse. È possibile creare un'app .NET o JavaScript.
+Per ospitare l'esecuzione di qualsiasi funzione è necessaria un'app per le funzioni. Un'app per le funzioni consente di raggruppare le funzioni come unità logica per semplificare la gestione, la distribuzione, la scalabilità e la condivisione delle risorse. È possibile creare un'app .NET o JavaScript.
 
 [!INCLUDE [Create function app Azure portal](../../../includes/functions-create-function-app-portal.md)]
 
@@ -30,9 +30,9 @@ Per impostazione predefinita, l'app per le funzioni creata usa la versione 2.x d
 
 ## <a name="install-the-durable-functions-npm-package-javascript-only"></a>Installare il pacchetto npm di Durable Functions (solo JavaScript)
 
-Se si stanno creando funzioni durevoli in JavaScript, è necessario installare il [`durable-functions` pacchetto npm](https://www.npmjs.com/package/durable-functions).
+Se si creano funzioni JavaScript Durable, è necessario installare il [ `durable-functions` pacchetto npm](https://www.npmjs.com/package/durable-functions).
 
-1. Selezionare il nome dell'app per le funzioni, seguito da **Funzionalità della piattaforma**, quindi **Strumenti avanzati (Kudu)** .
+1. Selezionare il nome dell'app per le funzioni, seguito da **Funzionalità della piattaforma**, quindi **Strumenti avanzati (Kudu)**.
 
    ![Funzionalità della piattaforma Funzioni, scegliere Kudu](./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png)
 
@@ -58,7 +58,7 @@ Se si stanno creando funzioni durevoli in JavaScript, è necessario installare i
 
 ## <a name="create-an-orchestrator-function"></a>Creare una funzione di agente di orchestrazione
 
-1. Espandere l'app per le funzioni e fare clic sul pulsante **+** accanto a **Funzioni**. Se questa è la prima funzione nell'app per le funzioni, selezionare **Nel portale** e quindi **Continua**. In caso contrario, andare direttamente al passaggio 3.
+1. Espandere l'app per **+** le funzioni e fare clic sul pulsante accanto a **Funzioni**. Se questa è la prima funzione nell'app per le funzioni, selezionare **Nel portale** e quindi **Continua**. In caso contrario, andare direttamente al passaggio 3.
 
    ![Pagina della guida introduttiva di Funzioni nel portale di Azure](./media/durable-functions-create-portal/function-app-quickstart-choose-portal.png)
 
@@ -68,7 +68,7 @@ Se si stanno creando funzioni durevoli in JavaScript, è necessario installare i
 
 1. Nel campo di ricerca, digitare `durable` e scegliere il modello **Durable Functions HTTP starter**.
 
-1. Quando richiesto, selezionare **Installa** per installare l'estensione DurableTask di Azure e tutte le dipendenze nell'app per le funzioni. È sufficiente installare l'estensione una volta per una determinata app per le funzioni. Al termine dell'installazione, selezionare **Continua**.
+1. Quando richiesto, selezionare **Installa** per installare l'estensione Apple DurableTask e le eventuali dipendenze nell'app per le funzioni. È sufficiente installare l'estensione una volta per una determinata app per le funzioni. Al termine dell'installazione, selezionare **Continua**.
 
     ![Installare le estensioni di binding](./media/durable-functions-create-portal/install-durabletask-extension.png)
 
@@ -133,4 +133,4 @@ La prima funzione permanente è ora attiva e in esecuzione in Azure.
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni sui criteri di funzione permanente comuni](durable-functions-overview.md#application-patterns)
+> [Informazioni sui criteri comuni delle funzioni durevoli](durable-functions-overview.md#application-patterns)

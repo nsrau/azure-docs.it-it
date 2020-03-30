@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 7b9b536def2aa7da25fef9f3baa5efdd8b0ed6f7
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 0314095a053087a7d490926c41c6ae386c304919
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944605"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066639"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montare l'archiviazione file di Azure su VM Linux usando SMB
 
@@ -29,15 +29,15 @@ Questa guida richiede l'interfaccia della riga di comando di Azure 2.0.4 o versi
 
 Creare un gruppo di risorse denominato *myResourceGroup* nella posizione *Stati Uniti orientali*.
 
-```bash
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-Creare un nuovo account di archiviazione nel gruppo di risorse creato usando [az storage account create](/cli/azure/storage/account). Questo esempio crea un account di archiviazione denominato *mySTORAGEACCT\<numero casuale >* e inserisce il nome dell'account di archiviazione nella variabile **STORAGEACCT**. I nomi degli account di archiviazione devono essere univoci, usando `$RANDOM` si aggiunge un numero al nome e lo si rende univoco.
+Creare un nuovo account di archiviazione nel gruppo di risorse creato usando [az storage account create](/cli/azure/storage/account). In questo esempio viene creato un account di archiviazione denominato *mySTORAGEACCT\<random number>* e il nome di tale account viene inserito nella variabile **STORAGEACCT**. I nomi degli account di archiviazione devono essere univoci, usando `$RANDOM` si aggiunge un numero al nome e lo si rende univoco.
 
-```bash
+```azurecli
 STORAGEACCT=$(az storage account create \
     --resource-group "myResourceGroup" \
     --name "mystorageacct$RANDOM" \
@@ -52,7 +52,7 @@ Quando si crea un account di archiviazione, le chiavi dell'account vengono creat
 
 Visualizzare le chiavi dell'account di archiviazione tramite il comando [az storage account keys list](/cli/azure/storage/account/keys). Questo esempio archivia il valore della chiave 1 nella variabile **STORAGEKEY**.
 
-```bash
+```azurecli
 STORAGEKEY=$(az storage account keys list \
     --resource-group "myResourceGroup" \
     --account-name $STORAGEACCT \
@@ -67,7 +67,7 @@ I nomi condivisione devono essere costituiti da lettere minuscole, numeri e trat
 
 Questo esempio crea una condivisione denominata *myshare* con una quota di 10 GiB. 
 
-```bash
+```azurecli
 az storage share create --name myshare \
     --quota 10 \
     --account-name $STORAGEACCT \
@@ -103,11 +103,12 @@ Quando si riavvia la VM Linux, durante la fase di arresto viene smontata la cond
 ```bash
 //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=myStorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
+
 Per aumentare la sicurezza negli ambienti di produzione, è consigliabile archiviare le credenziali di fuori di fstab.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Uso di cloud-init per personalizzare una VM Linux durante la creazione](using-cloud-init.md)
 - [Aggiungere un disco a una VM Linux](add-disk.md)
-- [Crittografia dischi di Azure per macchine virtuali Linux](disk-encryption-overview.md)
+- [Azure Disk Encryption for Linux VMs](disk-encryption-overview.md)
 

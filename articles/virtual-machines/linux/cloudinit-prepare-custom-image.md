@@ -1,25 +1,25 @@
 ---
-title: Preparare l'immagine di macchina virtuale di Azure per l'uso con cloud-init
+title: Preparare l'immagine della macchina virtuale di Azure per l'uso con cloud-initPrepare Azure VM image for use with cloud-init
 description: Come preparare un'immagine di macchina virtuale di Azure preesistente per la distribuzione con cloud-init
 author: danis
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: danis
-ms.openlocfilehash: 73df3a12ebea3b94563d02eda8f1211401d1ae3f
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: fef41f4dc90c03e3efbe4c8a75e495c26eec64b8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78969188"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066809"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Preparare un'immagine di macchina virtuale Linux di Azure esistente da usare con cloud-init
 Questo articolo descrive come preparare una macchina virtuale di Azure esistente per ridistribuirla e renderla pronta per l'uso di cloud-init. L'immagine risultante può essere usata per distribuire una nuova macchina virtuale o un nuovo set di scalabilità di macchine virtuali, ciascuno dei quali può quindi essere ulteriormente personalizzato tramite cloud-init in fase di distribuzione.  Questi script cloud-init vengono eseguiti al primo avvio dopo il provisioning delle risorse da parte di Azure. Per altre informazioni sul funzionamento di cloud-init in modo nativo in Azure e sulle distribuzioni Linux supportate, vedere la [panoramica di cloud-init](using-cloud-init.md)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 Questo documento presuppone già la presenza di una macchina virtuale di Azure in esecuzione con una versione supportata del sistema operativo Linux. La macchina è già stata configurata in base alle esigenze, sono stati installati tutti i moduli necessari, sono stati elaborati tutti gli aggiornamenti necessari e la macchina è stata testata per verificare che soddisfi i requisiti. 
 
-## <a name="preparing-rhel-76--centos-76"></a>Preparazione di RHEL 7,6/CentOS 7,6
+## <a name="preparing-rhel-76--centos-76"></a>Preparazione di RHEL 7.6 / CentOS 7.6
 È necessario eseguire SSH nella macchina virtuale Linux ed eseguire i comandi seguenti per installare cloud-init.
 
 ```bash
@@ -29,12 +29,14 @@ sudo yum install - y cloud-init
 ```
 
 Aggiornare la sezione `cloud_init_modules` in `/etc/cloud/cloud.cfg` per includere i moduli seguenti:
+
 ```bash
 - disk_setup
 - mounts
 ```
 
 Ecco un esempio dell'aspetto di una sezione `cloud_init_modules` per utilizzo generico.
+
 ```bash
 cloud_init_modules:
  - migrator
@@ -51,7 +53,9 @@ cloud_init_modules:
  - users-groups
  - ssh
 ```
-Alcune attività correlate al provisioning e alla gestione di dischi temporanei devono essere aggiornate in `/etc/waagent.conf`. Eseguire i comandi seguenti per aggiornare le impostazioni appropriate. 
+
+Alcune attività correlate al provisioning e alla gestione di dischi temporanei devono essere aggiornate in `/etc/waagent.conf`. Eseguire i comandi seguenti per aggiornare le impostazioni appropriate.
+
 ```bash
 sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
 sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
@@ -60,7 +64,7 @@ sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.co
 cloud-init clean
 ```
 
-Consentire solo Azure come origine dati per l'agente Linux di Azure creando un nuovo file `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` usando un editor di propria scelta con la riga seguente:
+Consentire solo Azure come origine dati per l'agente `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` Linux di Azure creando un nuovo file usando un editor di propria scelta con la riga seguente:Allow only Azure as a datasource for the Azure Linux Agent by creating a new file using an editor of your choice with the following line:
 
 ```bash
 # Azure Data Source config
@@ -72,12 +76,14 @@ Se per l'immagine di Azure esistente è configurato un file di scambio e si vuol
 Per immagini basate su RedHat, seguire le istruzioni nel documento di RedHat seguente, che descrive come [rimuovere il file di scambio](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/swap-removing-file).
 
 Per immagini CentOS con il file di scambio abilitato, è possibile eseguire il comando seguente per disattivare il file di scambio:
+
 ```bash
 sudo swapoff /mnt/resource/swapfile
 ```
 
 Assicurarsi che il riferimento al file di scambio venga rimosso da `/etc/fstab`. L'output dovrebbe essere simile al seguente:
-```text
+
+```output
 # /etc/fstab
 # Accessible filesystems, by reference, are maintained under '/dev/disk'
 # See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
@@ -87,9 +93,11 @@ UUID=7c473048-a4e7-4908-bad3-a9be22e9d37d /boot xfs defaults 0 0
 ```
 
 Per risparmiare spazio e rimuovere il file di scambio, è possibile eseguire il comando seguente:
+
 ```bash
 rm /mnt/resource/swapfile
 ```
+
 ## <a name="extra-step-for-cloud-init-prepared-image"></a>Passaggio aggiuntivo per l'immagine preparata per cloud-init
 > [!NOTE]
 > Se l'immagine era in precedenza un'immagine preparata e configurata per **cloud-init**, è necessario completare i passaggi seguenti.
@@ -112,7 +120,7 @@ Per altre informazioni sui comandi di deprovisioning dell'agente Linux di Azure,
 
 Uscire dalla sessione SSH, quindi eseguire i comandi AzureCLI seguenti dalla shell Bash per deallocare, generalizzare e creare una nuova immagine di macchina virtuale di Azure.  Sostituire `myResourceGroup` e `sourceVmName` con le informazioni appropriate in base alla macchina virtuale di origine.
 
-```bash
+```azurecli
 az vm deallocate --resource-group myResourceGroup --name sourceVmName
 az vm generalize --resource-group myResourceGroup --name sourceVmName
 az image create --resource-group myResourceGroup --name myCloudInitImage --source sourceVmName

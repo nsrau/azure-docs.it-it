@@ -1,7 +1,7 @@
 ---
-title: Interpretazione dei modelli per le esecuzioni locali e remote
+title: Modella l'interpretabilità per le esecuzioni locali e remote
 titleSuffix: Azure Machine Learning
-description: Informazioni su come ottenere spiegazioni sul modo in cui il modello di Machine Learning determina l'importanza della funzionalità ed esegue stime quando si usa il Azure Machine Learning SDK.
+description: Informazioni su come ottenere spiegazioni su come il modello di apprendimento automatico determina l'importanza delle funzionalità ed esegue stime quando si usa Azure Machine Learning SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,33 +10,33 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: 19b7fbe5541bda5e6e2c265681e292f452cd57c0
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: a479982eeac325c9774e3858ec51643e8ba699c3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76044278"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064048"
 ---
-# <a name="model-interpretability-for-local-and-remote-runs"></a>Interpretazione dei modelli per le esecuzioni locali e remote
+# <a name="model-interpretability-for-local-and-remote-runs"></a>Modella l'interpretabilità per le esecuzioni locali e remote
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Questo articolo illustra come usare il pacchetto di interpretazione del Azure Machine Learning Python SDK per comprendere il motivo per cui il modello ha eseguito le stime. Si apprenderà come:
+In questo articolo imparerai a usare il pacchetto di interpretabilità di Azure Machine Learning Python SDK per capire perché il modello ha eseguito le stime. Si apprenderà come:
 
-* Interpretare i modelli di Machine Learning sottoposti a training sia localmente che su risorse di calcolo remote.
-* Archivia le spiegazioni locali e globali sulla cronologia di esecuzione di Azure.
-* Visualizzazione delle visualizzazioni di interpretazione in [Azure Machine Learning Studio](https://ml.azure.com).
-* Distribuire una descrizione del punteggio con il modello.
+* Interpretare i modelli di apprendimento automatico sottoposti a training sia in locale che su risorse di elaborazione remota.
+* Archiviare spiegazioni locali e globali nella cronologia di esecuzione di Azure.Store local and global explanations on Azure Run History.
+* Visualizzare le visualizzazioni di interpretatività in [Azure Machine Learning Studio.](https://ml.azure.com)
+* Distribuire un'esplicazione di punteggi con il modello.
 
-Per altre informazioni, vedere [interpretazione dei modelli in Azure Machine Learning](how-to-machine-learning-interpretability.md).
+Per altre informazioni, vedere Interpretabilità dei modelli in Azure Machine Learning.For more information, see [Model interpretability in Azure Machine Learning](how-to-machine-learning-interpretability.md).
 
-## <a name="local-interpretability"></a>Interpretariato locale
+## <a name="local-interpretability"></a>Interpretabilità locale
 
-Nell'esempio seguente viene illustrato come utilizzare il pacchetto di interpretazione localmente senza contattare i servizi di Azure.
+L'esempio seguente mostra come usare il pacchetto di interpretabilità in locale senza contattare i servizi di Azure.The following example shows how to use the interpretability package locally without contacting Azure services.
 
-1. Se necessario, utilizzare `pip install azureml-interpret` per ottenere il pacchetto di interpretazione.
+1. Se necessario, `pip install azureml-interpret` utilizzare per ottenere il pacchetto di interpretabilità.
 
-1. Eseguire il training di un modello di esempio in un notebook Jupyter locale.
+1. Eseguire il training di un modello di esempio in un blocco appunti Jupyter locale.
 
     ```python
     # load breast cancer dataset, a well-known small dataset that comes with scikit-learn
@@ -56,13 +56,13 @@ Nell'esempio seguente viene illustrato come utilizzare il pacchetto di interpret
     model = clf.fit(x_train, y_train)
     ```
 
-1. Chiamare il Explainer in locale.
-   * Per inizializzare un oggetto Explainer, passare il modello e alcuni dati di training al costruttore del sistema di spiegazione.
-   * Per rendere più istruttive le spiegazioni e le visualizzazioni, è possibile scegliere di passare i nomi delle funzionalità e i nomi delle classi di output se si esegue la classificazione.
+1. Chiamare l'esplicatore in locale.
+   * Per inizializzare un oggetto esplicativo, passare il modello e alcuni dati di training al costruttore dello esplicativo.
+   * Per rendere le spiegazioni e le visualizzazioni più informative, è possibile scegliere di passare i nomi delle funzionalità e i nomi delle classi di output se si esegue la classificazione.
 
-   I blocchi di codice seguenti illustrano come creare un'istanza di un oggetto Explainer con `TabularExplainer`, `MimicExplainer`e `PFIExplainer` localmente.
-   * `TabularExplainer` chiama uno dei tre Explainer SHAP sottostanti (`TreeExplainer`, `DeepExplainer`o `KernelExplainer`).
-   * `TabularExplainer` seleziona automaticamente quello più appropriato per il caso d'uso, ma è possibile chiamare direttamente ciascuno dei tre Explainer sottostanti.
+   Nei blocchi di codice seguenti viene illustrato `TabularExplainer` `MimicExplainer`come `PFIExplainer` creare un'istanza di un oggetto explainer con , e localmente.
+   * `TabularExplainer`chiama uno dei tre esplicatori SHAP sotto (`TreeExplainer`, `DeepExplainer`, o `KernelExplainer`).
+   * `TabularExplainer`seleziona automaticamente quello più appropriato per il tuo caso d'uso, ma puoi chiamare direttamente ciascuno dei suoi tre esplicatori sottostanti.
 
     ```python
     from interpret.ext.blackbox import TabularExplainer
@@ -74,7 +74,7 @@ Nell'esempio seguente viene illustrato come utilizzare il pacchetto di interpret
                                  classes=classes)
     ```
 
-    Oppure
+    o
 
     ```python
 
@@ -100,7 +100,7 @@ Nell'esempio seguente viene illustrato come utilizzare il pacchetto di interpret
                                classes=classes)
     ```
 
-    Oppure
+    o
 
     ```python
     from interpret.ext.blackbox import PFIExplainer
@@ -111,9 +111,9 @@ Nell'esempio seguente viene illustrato come utilizzare il pacchetto di interpret
                              classes=classes)
     ```
 
-### <a name="overall-global-feature-importance-values"></a>Complessiva, valori di importanza delle funzionalità globali
+### <a name="overall-global-feature-importance-values"></a>Nel complesso, i valori globali dell'importanza delle caratteristiche
 
-Vedere l'esempio seguente per ottenere i valori di importanza della funzionalità globale.
+Fare riferimento all'esempio seguente per ottenere i valori di importanza delle funzionalità globali.
 
 ```python
 
@@ -132,11 +132,11 @@ dict(zip(sorted_global_importance_names, sorted_global_importance_values))
 global_explanation.get_feature_importance_dict()
 ```
 
-### <a name="instance-level-local-feature-importance-values"></a>Valori di importanza della funzionalità locale a livello di istanza
+### <a name="instance-level-local-feature-importance-values"></a>Valori di importanza delle funzionalità locali a livello di istanzaInstance-level, local feature importance values
 
-Ottenere i valori di importanza delle funzionalità locali chiamando le spiegazioni per una singola istanza o un gruppo di istanze.
+Ottenere i valori di importanza della funzionalità locale chiamando le spiegazioni per una singola istanza o un gruppo di istanze.
 > [!NOTE]
-> `PFIExplainer` non supporta le spiegazioni locali.
+> `PFIExplainer`non supporta le spiegazioni locali.
 
 ```python
 # get explanation for the first data point in the test set
@@ -147,14 +147,14 @@ sorted_local_importance_names = local_explanation.get_ranked_local_names()
 sorted_local_importance_values = local_explanation.get_ranked_local_values()
 ```
 
-## <a name="interpretability-for-remote-runs"></a>Interpretazione per le esecuzioni remote
+## <a name="interpretability-for-remote-runs"></a>Interpretazionità per le esecuzioni remote
 
-Nell'esempio seguente viene illustrato come è possibile utilizzare la classe `ExplanationClient` per abilitare l'interpretazione del modello per le esecuzioni remote. È concettualmente simile al processo locale, ad eccezione del fatto che:
+Nell'esempio seguente viene illustrato `ExplanationClient` come utilizzare la classe per abilitare l'interpretazione del modello per le esecuzioni remote. È concettualmente simile al processo locale, ad eccezione dell'utente:
 
-* Usare il `ExplanationClient` nell'esecuzione remota per caricare il contesto di interpretazione.
+* Utilizzare `ExplanationClient` l'esecuzione remota nell'esecuzione remota per caricare il contesto di interpretabilità.
 * Scaricare il contesto in un secondo momento in un ambiente locale.
 
-1. Se necessario, utilizzare `pip install azureml-contrib-interpret` per ottenere il pacchetto necessario.
+1. Se necessario, `pip install azureml-contrib-interpret` utilizzare per ottenere il pacchetto necessario.
 
 1. Creare uno script di training in un'istanza di Jupyter Notebook locale. Ad esempio: `train_explain.py`.
 
@@ -187,9 +187,9 @@ Nell'esempio seguente viene illustrato come è possibile utilizzare la classe `E
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-1. Configurare un Azure Machine Learning calcolo come destinazione di calcolo e inviare l'esecuzione del training. Per istruzioni, vedere [impostazione di destinazioni di calcolo per il training del modello](how-to-set-up-training-targets.md#amlcompute) . È anche possibile trovare i [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) utili.
+1. Configurare un calcolo di Azure Machine Learning come destinazione di calcolo e inviare l'esecuzione del training. Per istruzioni, vedere [Impostazione di destinazioni](how-to-set-up-training-targets.md#amlcompute) di calcolo per il training del modello. È anche possibile che [i blocchi appunti](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) di esempio sia utile.
 
-1. Scaricare la spiegazione nel notebook di Jupyter locale.
+1. Scaricare la spiegazione nel blocco appunti Jupyter locale.
 
     ```python
     from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
@@ -207,13 +207,13 @@ Nell'esempio seguente viene illustrato come è possibile utilizzare la classe `E
     print('global importance names: {}'.format(global_importance_names))
     ```
 
-## <a name="raw-feature-transformations"></a>Trasformazioni di funzionalità non elaborate
+## <a name="raw-feature-transformations"></a>Trasformazioni di entità geografiche non elaborate
 
-È possibile scegliere di ottenere spiegazioni in termini di funzionalità non elaborate e non trasformate piuttosto che di funzioni progettate. Per questa opzione, è possibile passare la pipeline di trasformazione della funzionalità al Explainer in `train_explain.py`. In caso contrario, il Explainer fornisce spiegazioni in termini di funzionalità progettate.
+È possibile scegliere di ottenere spiegazioni in termini di funzionalità non elaborate e non trasformate anziché in termini di funzionalità ingegnerizzate. Per questa opzione, si passa la pipeline `train_explain.py`di trasformazione della funzionalità allo explainer in . In caso contrario, lo esplicatore fornisce spiegazioni in termini di funzionalità ingegnerizzate.
 
-Il formato delle trasformazioni supportate è identico a quello descritto in [sklearn-Pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). In generale, tutte le trasformazioni sono supportate finché operano su una singola colonna, in modo che sia chiaro che sono uno-a-molti.
+Il formato delle trasformazioni supportate è lo stesso descritto in [sklearn-pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). In generale, tutte le trasformazioni sono supportate purché operino su una singola colonna in modo che sia chiaro che sono uno-a-molti.
 
-Ottenere una spiegazione per le funzionalità RAW usando un `sklearn.compose.ColumnTransformer` o un elenco di tuple di trasformatori adattati. Nell'esempio seguente viene utilizzato `sklearn.compose.ColumnTransformer`.
+Ottenere una spiegazione per `sklearn.compose.ColumnTransformer` le funzionalità non elaborate utilizzando un o con un elenco di tuple trasformatore montato. Nell'esempio `sklearn.compose.ColumnTransformer`riportato di seguito viene utilizzato .
 
 ```python
 from sklearn.compose import ColumnTransformer
@@ -247,7 +247,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
                                      transformations=preprocessor)
 ```
 
-Se si vuole eseguire l'esempio con l'elenco delle tuple di Transformer adattate, usare il codice seguente:
+Nel caso in cui si desideri eseguire l'esempio con l'elenco delle tuple dei trasformatori adattate, utilizzare il codice seguente:
 
 ```python
 from sklearn.pipeline import Pipeline
@@ -283,41 +283,41 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 ## <a name="visualizations"></a>Visualizzazioni
 
-Dopo aver scaricato le spiegazioni nel notebook di Jupyter locale, è possibile usare il dashboard di visualizzazione per comprendere e interpretare il modello.
+Dopo aver scaricato le spiegazioni nel blocco appunti Jupyter locale, è possibile utilizzare il dashboard di visualizzazione per comprendere e interpretare il modello.
 
 ### <a name="global-visualizations"></a>Visualizzazioni globali
 
-I tracciati seguenti forniscono una visualizzazione globale del modello sottoposto a training insieme alle relative stime e spiegazioni.
+I grafici seguenti forniscono una visualizzazione globale del modello sottoposto a training insieme alle relative previsioni e spiegazioni.
 
-|Tracciato|Description|
+|Trama|Descrizione|
 |----|-----------|
 |Esplorazione dei dati| Visualizza una panoramica del set di dati insieme ai valori di stima.|
-|Importanza globale|Mostra le principali funzionalità importanti della K (configurabile K) a livello globale. Consente di comprendere il comportamento globale del modello sottostante.|
-|Esplorazione spiegazione|Viene illustrato come una funzionalità influisca su una modifica nei valori di stima del modello o sulla probabilità dei valori di stima. Mostra l'effetto dell'interazione della funzionalità.|
-|Importanza Riepilogo|Usa valori locali di importanza della funzionalità in tutti i punti dati per mostrare la distribuzione dell'effetto di ogni caratteristica sul valore di stima.|
+|Importanza globale|Mostra le principali caratteristiche importanti di K (configurabile K) a livello globale. Aiuta a comprendere il comportamento globale del modello sottostante.|
+|Spiegazione Esplorazione|Viene illustrato come una funzionalità influisce su una modifica nei valori di stima del modello o sulla probabilità di valori di stima. Mostra l'impatto dell'interazione tra le funzionalità.|
+|Importanza sommaria|Utilizza i valori di importanza delle funzionalità locali in tutti i punti dati per mostrare la distribuzione dell'impatto di ogni funzionalità sul valore di stima.|
 
-[Dashboard di visualizzazione ![globale](./media/how-to-machine-learning-interpretability-aml/global-charts.png)](./media/how-to-machine-learning-interpretability-aml/global-charts.png#lightbox)
+[![Dashboard di visualizzazione globale](./media/how-to-machine-learning-interpretability-aml/global-charts.png)](./media/how-to-machine-learning-interpretability-aml/global-charts.png#lightbox)
 
 ### <a name="local-visualizations"></a>Visualizzazioni locali
 
-È possibile caricare il tracciato di importanza della funzionalità locale per qualsiasi punto dati selezionando il singolo punto dati nel tracciato.
+È possibile caricare il grafico di importanza della feature locale per qualsiasi punto dati selezionando il singolo punto dati nel grafico.
 
-|Tracciato|Description|
+|Trama|Descrizione|
 |----|-----------|
-|Importanza locale|Mostra le principali funzionalità importanti della K (configurabile K) a livello globale. Consente di illustrare il comportamento locale del modello sottostante in un punto dati specifico.|
-|Esplorazione della perturbazione|Consente di modificare i valori delle funzionalità del punto dati selezionato e osservare le modifiche risultanti al valore di stima.|
-|Singola previsione condizionale (ICE)| Consente di modificare il valore della funzionalità da un valore minimo a un valore massimo. Consente di illustrare le modifiche apportate alla stima del punto dati quando una funzionalità viene modificata.|
+|Importanza locale|Mostra le principali caratteristiche importanti K (configurabile K) a livello globale. Consente di illustrare il comportamento locale del modello sottostante in un punto dati specifico.|
+|Esplorazione della perturbazione|Consente di modificare i valori delle entità geografiche del punto dati selezionato e di osservare le modifiche risultanti al valore di stima.|
+|Aspettativa condizionale individuale (ICE)| Consente di modificare il valore della funzione da un valore minimo a un valore massimo. Consente di illustrare come cambia la stima del punto dati quando viene modificata una funzionalità.|
 
-[Importanza della funzionalità locale del dashboard di visualizzazione ![](./media/how-to-machine-learning-interpretability-aml/local-charts.png)](./media/how-to-machine-learning-interpretability-aml/local-charts.png#lightbox)
-
-
-[![perturbazione delle funzionalità del dashboard di visualizzazione](./media/how-to-machine-learning-interpretability-aml/perturbation.gif)](./media/how-to-machine-learning-interpretability-aml/perturbation.gif#lightbox)
+[![Importanza delle funzionalità locali del dashboard di visualizzazione](./media/how-to-machine-learning-interpretability-aml/local-charts.png)](./media/how-to-machine-learning-interpretability-aml/local-charts.png#lightbox)
 
 
-[Tracciati di ghiaccio del dashboard di visualizzazione ![](./media/how-to-machine-learning-interpretability-aml/ice-plot.png)](./media/how-to-machine-learning-interpretability-aml/ice-plot.png#lightbox)
+[![Visualizzazione Dashboard Feature Perturbazione](./media/how-to-machine-learning-interpretability-aml/perturbation.gif)](./media/how-to-machine-learning-interpretability-aml/perturbation.gif#lightbox)
+
+
+[![Dashboard di visualizzazione Grafici ICE](./media/how-to-machine-learning-interpretability-aml/ice-plot.png)](./media/how-to-machine-learning-interpretability-aml/ice-plot.png#lightbox)
 
 > [!NOTE]
-> Prima di avviare il kernel Jupyter, assicurarsi di abilitare le estensioni widget per il dashboard di visualizzazione.
+> Prima dell'avvio del kernel Jupyter, assicurarsi di abilitare le estensioni widget per il dashboard di visualizzazione.
 
 * Jupyter Notebook
 
@@ -333,7 +333,7 @@ I tracciati seguenti forniscono una visualizzazione globale del modello sottopos
     jupyter labextension install microsoft-mli-widget
     ```
 
-Per caricare il dashboard di visualizzazione, usare il codice seguente.
+Per caricare il dashboard di visualizzazione, utilizzare il codice seguente.
 
 ```python
 from interpret_community.widget import ExplanationDashboard
@@ -343,33 +343,33 @@ ExplanationDashboard(global_explanation, model, x_test)
 
 ### <a name="visualization-in-azure-machine-learning-studio"></a>Visualizzazione in Azure Machine Learning Studio
 
-Se si completano i passaggi di [interpretazione remota](#interpretability-for-remote-runs) , è possibile visualizzare il dashboard di visualizzazione in [Azure Machine Learning Studio](https://ml.azure.com). Questo dashboard è una versione più semplice del dashboard di visualizzazione illustrato in precedenza. Supporta solo due schede:
+Se si completano i passaggi di [interpretabilità remota,](#interpretability-for-remote-runs) è possibile visualizzare il dashboard di visualizzazione in [Azure Machine Learning Studio.](https://ml.azure.com) Questo dashboard è una versione più semplice del dashboard di visualizzazione illustrato in precedenza. Supporta solo due schede:
 
-|Tracciato|Description|
+|Trama|Descrizione|
 |----|-----------|
-|Importanza globale|Mostra le principali funzionalità importanti della K (configurabile K) a livello globale. Consente di comprendere il comportamento globale del modello sottostante.|
-|Importanza Riepilogo|Usa valori locali di importanza della funzionalità in tutti i punti dati per mostrare la distribuzione dell'effetto di ogni caratteristica sul valore di stima.|
+|Importanza globale|Mostra le principali caratteristiche importanti di K (configurabile K) a livello globale. Aiuta a comprendere il comportamento globale del modello sottostante.|
+|Importanza sommaria|Utilizza i valori di importanza delle funzionalità locali in tutti i punti dati per mostrare la distribuzione dell'impatto di ogni funzionalità sul valore di stima.|
 
-Se sono disponibili sia la spiegazione globale che quella locale, i dati popolano entrambe le schede. Se è disponibile solo una spiegazione globale, la scheda Riepilogo priorità è disabilitata.
+Se sono disponibili spiegazioni sia globali che locali, i dati popolano entrambe le schede. Se è disponibile solo una spiegazione globale, la scheda Importanza di riepilogo è disabilitata.
 
-Seguire uno di questi percorsi per accedere al dashboard di visualizzazione in Azure Machine Learning Studio:
+Seguire uno di questi percorsi per accedere al dashboard di visualizzazione in Azure Machine Learning Studio:Follow one of these paths to access the visualization dashboard in Azure Machine Learning studio:
 
-* Riquadro **esperimenti** (anteprima)
-  1. Selezionare **Experiments (esperimenti** ) nel riquadro a sinistra per visualizzare un elenco di esperimenti eseguiti in Azure Machine Learning.
+* **Riquadro Esperimenti (anteprima)Experiments** pane (Preview)
+  1. Selezionare Esperimenti nel riquadro sinistro per visualizzare un elenco di esperimenti eseguiti in Azure Machine Learning.Select **Experiments** in the left pane to see a list of experiments that you've run on Azure Machine Learning.
   1. Selezionare un esperimento specifico per visualizzare tutte le esecuzioni dell'esperimento.
-  1. Selezionare un'esecuzione e quindi la scheda **spiegazioni** per il dashboard di visualizzazione spiegazione.
+  1. Selezionare un'esecuzione, quindi la scheda **Spiegazioni** nel dashboard di visualizzazione della spiegazione.
 
-   [Importanza della funzionalità locale del dashboard di visualizzazione ![](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
+   [![Importanza delle funzionalità locali del dashboard di visualizzazione](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
-* Riquadro **modelli**
-  1. Se il modello originale è stato registrato seguendo la procedura descritta in [distribuire modelli con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where), è possibile selezionare **modelli** nel riquadro a sinistra per visualizzarlo.
-  1. Selezionare un modello e quindi la scheda **spiegazioni** per visualizzare il dashboard di visualizzazione spiegazione.
+* **Riquadro Modelli**
+  1. Se è stato registrato il modello originale seguendo la procedura descritta in [Distribuire modelli con Azure Machine Learning,](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)è possibile selezionare **Modelli** nel riquadro sinistro per visualizzarlo.
+  1. Selezionare un modello, quindi la scheda **Spiegazioni** per visualizzare il dashboard di visualizzazione della spiegazione.
 
-## <a name="interpretability-at-inference-time"></a>Interpretazione in fase di inferenza
+## <a name="interpretability-at-inference-time"></a>Interpretabilità al momento dell'inferenza
 
-È possibile distribuire il Explainer insieme al modello originale e usarlo in fase di inferenza per fornire le informazioni sulla spiegazione locale. Sono inoltre disponibili spiegatori per il punteggio più leggeri per migliorare le prestazioni di interpretazione in fase di inferenza. Il processo di distribuzione di un Explainer con punteggio più chiaro è simile alla distribuzione di un modello e include i passaggi seguenti:
+È possibile distribuire l'esplicatore insieme al modello originale e utilizzarlo in fase di inferenza per fornire le informazioni di spiegazione locale. Offriamo anche espedienti di punteggio più leggeri per migliorare le prestazioni di interpretabilità al momento dell'inferenza. Il processo di distribuzione di un'elaborazione del punteggio più leggero è simile alla distribuzione di un modello e include i passaggi seguenti:The process of deploying a lighter-weight scoring explainer is similar to deploying a model and includes the following steps:
 
-1. Creare un oggetto spiegazione. Ad esempio, è possibile usare `TabularExplainer`:
+1. Creare un oggetto di spiegazione. Ad esempio, è `TabularExplainer`possibile utilizzare :
 
    ```python
     from interpret.ext.blackbox import TabularExplainer
@@ -382,7 +382,7 @@ Seguire uno di questi percorsi per accedere al dashboard di visualizzazione in A
                                 transformations=transformations)
    ```
 
-1. Creare una descrizione del punteggio con l'oggetto spiegazione.
+1. Creare un'esplicazione del punteggio con l'oggetto spiegazione.
 
    ```python
    from azureml.contrib.interpret.scoring.scoring_explainer import KernelScoringExplainer, save
@@ -396,7 +396,7 @@ Seguire uno di questi percorsi per accedere al dashboard di visualizzazione in A
    save(scoring_explainer, directory=OUTPUT_DIR, exist_ok=True)
    ```
 
-1. Configurare e registrare un'immagine che usa il modello di spiegazione dei punteggi.
+1. Configurare e registrare un'immagine che utilizza il modello di spiegazione del punteggio.
 
    ```python
    # register explainer model using the path from ScoringExplainer.save - could be done on remote compute
@@ -408,7 +408,7 @@ Seguire uno di questi percorsi per accedere al dashboard di visualizzazione in A
    print(scoring_explainer_model.name, scoring_explainer_model.id, scoring_explainer_model.version, sep = '\t')
    ```
 
-1. Come passaggio facoltativo, è possibile recuperare la descrizione del punteggio dal cloud e testare le spiegazioni.
+1. Come passaggio facoltativo, è possibile recuperare l'esplicatore del punteggio dal cloud e testare le spiegazioni.
 
    ```python
    from azureml.contrib.interpret.scoring.scoring_explainer import load
@@ -425,11 +425,11 @@ Seguire uno di questi percorsi per accedere al dashboard di visualizzazione in A
    print(preds)
    ```
 
-1. Distribuire l'immagine in una destinazione di calcolo attenendosi alla procedura seguente:
+1. Distribuire l'immagine in una destinazione di calcolo attenendosi alla procedura seguente:Deploy the image to a compute target, by following these steps:
 
-   1. Se necessario, registrare il modello di stima originale seguendo la procedura descritta in [distribuire modelli con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
+   1. Se necessario, registrare il modello di stima originale seguendo i passaggi descritti in [Distribuire modelli con Azure Machine Learning.](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)
 
-   1. Creare un file di assegnazione dei punteggi.
+   1. Creare un file di punteggio.
 
          ```python
          %%writefile score.py
@@ -467,7 +467,7 @@ Seguire uno di questi percorsi per accedere al dashboard di visualizzazione in A
          ```
    1. Definire la configurazione della distribuzione.
 
-         Questa configurazione dipende dai requisiti del modello. Nell'esempio seguente viene definita una configurazione che utilizza un core CPU e un GB di memoria.
+         Questa configurazione dipende dai requisiti del modello. Nell'esempio seguente viene definita una configurazione che utilizza un core della CPU e un GB di memoria.
 
          ```python
          from azureml.core.webservice import AciWebservice
@@ -479,7 +479,7 @@ Seguire uno di questi percorsi per accedere al dashboard di visualizzazione in A
                                                     description='Get local explanations for NAME_OF_THE_PROBLEM')
          ```
 
-   1. Creare un file con dipendenze dell'ambiente.
+   1. Creare un file con dipendenze di ambiente.
 
          ```python
          from azureml.core.conda_dependencies import CondaDependencies
@@ -502,7 +502,7 @@ Seguire uno di questi percorsi per accedere al dashboard di visualizzazione in A
             print(f.read())
          ```
 
-   1. Creare un dockerfile personalizzato con g + + installato.
+   1. Creare un dockerfile personalizzato con il file di file di file di installazione.
 
          ```python
          %%writefile dockerfile
@@ -558,4 +558,4 @@ Seguire uno di questi percorsi per accedere al dashboard di visualizzazione in A
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Scopri di più sull'interpretazione dei modelli](how-to-machine-learning-interpretability.md)
+[Ulteriori informazioni sull'interpretabilità dei modelli](how-to-machine-learning-interpretability.md)

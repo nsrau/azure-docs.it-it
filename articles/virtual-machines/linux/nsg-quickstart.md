@@ -1,6 +1,6 @@
 ---
-title: Aprire porte a una VM con l'interfaccia della riga di comando di Azure
-description: Informazioni su come aprire una porta o creare un endpoint per la macchina virtuale usando l'interfaccia della riga di comando di Azure.
+title: Aprire le porte a una macchina virtuale con l'interfaccia della riga di comando di AzureOpen ports to a VM with Azure CLI
+description: Informazioni su come aprire una porta o creare un endpoint nella macchina virtuale usando l'interfaccia della riga di comando di Azure.Learn how to open a port/ create an endpoint to your VM using the Azure CLI.
 author: cynthn
 manager: gwallace
 ms.service: virtual-machines
@@ -9,14 +9,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: d9488b7a466dfc67edbf2dcbee966fc1fc72e8b7
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: c29fb075fc2d8b512070d7a6cf3fef949def5894
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944550"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066620"
 ---
-# <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Aprire porte ed endpoint per una macchina virtuale con l'interfaccia della riga di comando di Azure
+# <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Aprire porte ed endpoint in una macchina virtuale con l'interfaccia della riga di comando di AzureOpen ports and endpoints to a VM with the Azure CLI
 
 Aprire una porta o creare un endpoint in una macchina virtuale (VM) di Azure tramite la creazione di un filtro di rete su una subnet o un'interfaccia di rete di VM. Questi filtri, che consentono di controllare il traffico in ingresso e in uscita, vengono inseriti in un gruppo di sicurezza di rete e collegati alla risorsa che riceve il traffico. Si userà un esempio comune di traffico Web sulla porta 80. Questo articolo illustra come aprire una porta per una VM con l'interfaccia della riga di comando di Azure. 
 
@@ -29,7 +29,7 @@ Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori de
 ## <a name="quickly-open-a-port-for-a-vm"></a>Aprire rapidamente una porta per una macchina virtuale
 Se è necessario aprire rapidamente una porta per una macchina virtuale in uno scenario di sviluppo/test, è possibile usare il comando [az vm open-port](/cli/azure/vm). Questo comando crea un gruppo di sicurezza di rete, aggiunge una regola e la applica a una macchina virtuale o una subnet. L'esempio seguente apre la porta *80* sulla macchina virtuale denominata *myVM* nel gruppo di risorse denominato *myResourceGroup*.
 
-```azure-cli
+```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 80
 ```
 
@@ -37,7 +37,7 @@ Per un maggiore controllo sulle regole, ad esempio per definire un intervallo di
 
 
 ## <a name="create-a-network-security-group-and-rules"></a>Creare un gruppo di sicurezza di rete e le regole corrispondenti
-Creare il gruppo di sicurezza di rete con [az network nsg create](/cli/azure/network/nsg). L'esempio seguente crea un gruppo di sicurezza di rete denominato *myNetworkSecurityGroup* nella posizione *eastus*:
+Creare il gruppo di sicurezza di rete con [az network nsg create](/cli/azure/network/nsg). Nell'esempio seguente viene creato un gruppo di sicurezza di rete denominato myNetworkSecurityGroup nel percorso *eastus:The* following example creates a network security group named *myNetworkSecurityGroup* in the eastus location:
 
 ```azurecli
 az network nsg create \
@@ -87,5 +87,5 @@ Per le applicazioni Web a disponibilità elevata, è consigliabile inserire le m
 ## <a name="next-steps"></a>Passaggi successivi
 In questo esempio viene creata una regola semplice per consentire il traffico HTTP. È possibile trovare informazioni sulla creazione di ambienti più dettagliati negli articoli seguenti:
 
-* [Panoramica di Azure Resource Manager](../../azure-resource-manager/management/overview.md)
+* [Panoramica di Azure Resource ManagerAzure Resource Manager overview](../../azure-resource-manager/management/overview.md)
 * [Che cos'è un gruppo di sicurezza di rete](../../virtual-network/security-overview.md)

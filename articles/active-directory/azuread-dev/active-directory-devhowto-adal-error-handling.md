@@ -1,5 +1,5 @@
 ---
-title: Procedure consigliate per la gestione degli errori dell'app client ADAL | Azure
+title: Procedure consigliate per la gestione degli errori dell'app client ADAL Azure
 description: Fornisce linee guida e procedure consigliate per la gestione degli errori per le applicazioni client ADAL.
 services: active-directory
 author: rwike77
@@ -11,12 +11,13 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/27/2017
-ms.openlocfilehash: 508d1b71873b535725f446a3b62ce17d82258495
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9fc45ead65a29f2e7567133b5af4667bdb7c79ef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77165254"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154985"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Procedure consigliate di gestione degli errori per i client di Azure Active Directory Authentication Library (ADAL)
 
@@ -43,7 +44,7 @@ Esiste un set di errori generati dal sistema operativo, che potrebbe richiedere 
 
 ### <a name="application-scenarios"></a>Scenari applicativi
 
-- Applicazioni [client native](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json#native-client) (iOS, Android, desktop .NET o Xamarin)
+- [Applicazioni client native](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json#native-client) (iOS, Android, .NET Desktop o Xamarin)
 - Applicazioni [client Web](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json#web-client) che chiamano una [risorsa](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json#resource-server) (.NET)
 
 ### <a name="error-cases-and-actionable-steps"></a>Casi di errore e azioni implementabili
@@ -188,7 +189,7 @@ Anche il sistema operativo può generare un set di errori e ciò richiede una ge
 
 ### <a name="error-cases-and-actionable-steps-native-client-applications"></a>Casi di errore e azioni implementabili: applicazioni client native
 
-Se si sta creando un'applicazione client nativa, esistono alcuni casi di gestione degli errori da prendere in considerazione che riguardano i problemi di rete, gli errori temporanei e altri errori specifici della piattaforma. Nella maggior parte dei casi, un'applicazione non deve eseguire nuovi tentativi immediati, ma attendere invece l'interazione con l'utente finale che richiede un accesso. 
+Se si sta creando un'applicazione client nativa, esistono alcuni casi di gestione degli errori da prendere in considerazione che riguardano i problemi di rete, gli errori temporanei e altri errori specifici della piattaforma. Nella maggior parte dei casi, un'applicazione non deve eseguire tentativi immediati, ma piuttosto attendere l'interazione dell'utente finale che richiede un accesso. 
 
 Esistono alcuni casi speciali in cui un singolo tentativo potrebbe risolvere il problema. Ad esempio, quando un utente deve abilitare i dati in un dispositivo o ha completato il download del broker di Azure AD dopo l'errore iniziale. 
 
@@ -198,8 +199,8 @@ La gestione degli errori nelle applicazioni native può essere definita da due c
 
 |  |  |
 |------|-------------|
-| **Caso 1**:<br>Errore irreversibile (la maggior parte dei casi) | 1. non provare immediatamente a riprovare. Presentare l'interfaccia utente dell'utente finale in base all'errore specifico che richiama un nuovo tentativo (ad esempio, "riprovare ad accedere" o "scaricare Azure AD applicazione broker"). |
-| **Caso 2**:<br>Errore non irreversibile | 1. eseguire un singolo tentativo perché l'utente finale potrebbe essere entrato in uno stato che comporta un esito positivo.<br><br>2. se il tentativo non riesce, presentare l'interfaccia utente dell'utente finale in base all'errore specifico che richiama un nuovo tentativo ("riprovare a eseguire l'accesso", "Scarica Azure AD app broker" e così via). |
+| **Caso 1**:<br>Errore irreversibile (la maggior parte dei casi) | 1. Non tentare immediatamente. Presentare l'interfaccia utente dell'utente finale in base all'errore specifico che richiama un nuovo tentativo (ad esempio, "Prova ad accedere di nuovo" o "Scarica applicazione broker di Azure AD"). |
+| **Caso 2**:<br>Errore non irreversibile | 1. Eseguire un singolo tentativo poiché l'utente finale potrebbe aver immesso uno stato che comporta un esito positivo.<br><br>2. Se un nuovo tentativo non riesce, presentare l'interfaccia utente dell'utente finale in base all'errore specifico che richiama un nuovo tentativo ("Prova ad accedere di nuovo", "Scarica l'app broker di Azure AD" e così via). |
 
 > [!IMPORTANT]
 > Se un account utente viene passato ad ADAL in una chiamata invisibile all'utente con esito negativo, la richiesta interattiva successiva consente all'utente finale di eseguire l'accesso con un account diverso. Dopo una corretta chiamata di AcquireToken con un account utente, l'applicazione deve verificare che l'utente connesso corrisponda all'oggetto utente locale dell'applicazione. Una mancata corrispondenza non genera un'eccezione (tranne che in Objective C), ma deve essere presa in considerazione nei casi in cui un utente è noto in locale prima delle richieste di autenticazione (ad esempio una chiamata invisibile all'utente non riuscita).
@@ -210,9 +211,9 @@ La gestione degli errori nelle applicazioni native può essere definita da due c
 Le linee guida seguenti offrono esempi per la gestione degli errori in combinazione con tutti i metodi ADAL AcquireToken(…) non invisibili all'utente, *tranne*: 
 
 - AcquireTokenAsync(…, IClientAssertionCertification, …)
-- AcquireTokenAsync (..., ClientCredential,...)
-- AcquireTokenAsync (..., ClientAssertion,...)
-- AcquireTokenAsync (..., UserAssertion,...)   
+- AcquireTokenAsync(..., ClientCredential, ...)
+- AcquireTokenAsync(..., ClientAssertion, ...)
+- AcquireTokenAsync(..., UserAssertion,...)   
 
 Il codice verrebbe implementato come segue:
 
@@ -372,9 +373,9 @@ Per una chiamata AcquireToken non riuscita esistono i casi seguenti:
 
 |  |  |
 |------|-------------|
-| **Caso 1**:<br>Risolvibile con una richiesta interattiva | 1. Se login () non riesce, non eseguire immediatamente un nuovo tentativo. Ripetere solo dopo la richiesta di un nuovo tentativo con un'azione dell'utente.|
-| **Caso 2**:<br>Non risolvibile con una richiesta interattiva. L'errore non è irreversibile. | 1. eseguire un singolo tentativo quando il principale dell'utente finale è entrato in uno stato che determina un esito positivo.<br><br>2. se il tentativo non riesce, presentare all'utente finale un'azione basata sull'errore specifico che può richiamare un nuovo tentativo ("riprovare a eseguire l'accesso"). |
-| **Caso 3**:<br>Non risolvibile con una richiesta interattiva. L'errore è irreversibile. | 1. non provare immediatamente a riprovare. Presentare all'utente finale un'azione basata sull'errore specifico che può richiamare un nuovo tentativo ("Ritenta l'accesso"). |
+| **Caso 1**:<br>Risolvibile con una richiesta interattiva | 1. Se login() ha esito negativo, non eseguire un nuovo tentativo immediato. Ripetere solo dopo la richiesta di un nuovo tentativo con un'azione dell'utente.|
+| **Caso 2**:<br>Non risolvibile con una richiesta interattiva. L'errore non è irreversibile. | 1. Eseguire un singolo tentativo poiché l'utente finale principale è entrato in uno stato che comporta un esito positivo.<br><br>2. Se un nuovo tentativo non riesce, presentare all'utente finale un'azione basata sull'errore specifico che può richiamare un nuovo tentativo ("Riprova ad accedere"). |
+| **Caso 3**:<br>Non risolvibile con una richiesta interattiva. L'errore è irreversibile. | 1. Non tentare immediatamente. Presentare all'utente finale un'azione basata sull'errore specifico che può richiamare un nuovo tentativo ("Ritenta l'accesso"). |
 
 Il codice verrebbe implementato come segue:
 
@@ -480,8 +481,8 @@ catch (AdalException e) {
 
 ## <a name="error-and-logging-reference"></a>Informazioni di riferimento su errori e registrazione
 
-### <a name="logging-personal-identifiable-information--organizational-identifiable-information"></a>Registrazione di informazioni personali & informazioni di identificazione dell'organizzazione 
-Per impostazione predefinita, la registrazione ADAL non acquisisce né registra informazioni personali o informazioni identificabili dall'organizzazione. La libreria consente agli sviluppatori di app di attivare questa funzionalità tramite un setter della classe Logger. Grazie alla registrazione di informazioni personali o informazioni identificabili dall'organizzazione, l'app si assume la responsabilità di gestire in modo sicuro i dati altamente sensibili e rispettare eventuali requisiti normativi.
+### <a name="logging-personal-identifiable-information--organizational-identifiable-information"></a>Registrazione delle informazioni di identificazione personale & informazioni di identificazione dell'organizzazione 
+Per impostazione predefinita, la registrazione ADAL non acquisisce o registra informazioni personali identificabili o identificabili dall'organizzazione. La libreria consente agli sviluppatori di app di attivare questa funzionalità tramite un setter della classe Logger. Registrando informazioni personali identificabili o identificabili dall'organizzazione, l'app si assume la responsabilità di gestire in modo sicuro i dati altamente sensibili e di rispettare eventuali requisiti normativi.
 
 ### <a name="net"></a>.NET
 
@@ -578,9 +579,9 @@ window.Logging = {
 
 ## <a name="related-content"></a>Contenuti correlati
 
-* [Librerie di Autenticazione di Azure AD][AAD-Auth-Libraries]
-* [Scenari di Autenticazione di Azure AD][AAD-Auth-Scenarios]
-* [Integrazione di applicazioni con Azure Active Directory][AAD-Integrating-Apps]
+* [Azure AD Authentication Libraries][AAD-Auth-Libraries] (Librerie di autenticazione di Azure AD)
+* [Scenari di autenticazione per Azure AD][AAD-Auth-Scenarios]
+* [Integrazione di applicazioni con Azure Active DirectoryIntegrating Applications with Azure Active Directory][AAD-Integrating-Apps]
 
 Usare la sezione dei commenti di seguito per fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.
 

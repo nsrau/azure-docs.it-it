@@ -1,26 +1,26 @@
 ---
-title: Resolver di attestazioni nei criteri personalizzati
+title: Sistemi di risoluzione delle attestazioni nei criteri personalizzati
 titleSuffix: Azure AD B2C
-description: Informazioni su come usare i resolver di attestazioni in un criterio personalizzato in Azure Active Directory B2C.
+description: Informazioni su come usare i resolver di attestazioni in criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/02/2020
+ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 02277d2da2e431ac1cefdd9b018af4c25f7d5a9a
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: cba97b84f77bd4e2d4cfd97601fa4f8637105eb4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189838"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80051414"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C
 
-I resolver di attestazioni nei [criteri personalizzati](custom-policy-overview.md) Azure Active Directory B2C (Azure ad B2C) forniscono informazioni sul contesto di una richiesta di autorizzazione, ad esempio il nome del criterio, l'ID di correlazione della richiesta, la lingua dell'interfaccia utente e altro ancora.
+I resolver di attestazioni nei [criteri personalizzati](custom-policy-overview.md) di Azure Active Directory B2C (Azure AD B2C) forniscono informazioni sul contesto di una richiesta di autorizzazione, ad esempio il nome del criterio, l'ID di correlazione della richiesta, la lingua dell'interfaccia utente e altro ancora.
 
 Per usare un resolver di attestazioni in un'attestazione di input o output, si definisce un **ClaimType** di tipo stringa, nell'elemento [ClaimsSchema](claimsschema.md), quindi si imposta **DefaultValue** sul resolver di attestazioni nell'elemento attestazione di input o output. Azure AD B2C legge il valore del resolver di attestazioni e usa il valore nel profilo tecnico.
 
@@ -72,10 +72,12 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 | {OIDC:LoginHint} |  Parametro di stringa di query `login_hint`. | someone@contoso.com |
 | {OIDC:MaxAge} | `max_age`. | N/D |
 | {OIDC:Nonce} |Parametro di stringa di query `Nonce`. | defaultNonce |
+| OIDC:Password| Password [del proprietario](ropc-custom.md) della risorsa la password dell'utente.| password1| 
 | {OIDC:Prompt} | Parametro di stringa di query `prompt`. | login |
+| OIDC:RedirectUri |Parametro di stringa di query `redirect_uri`. | https://jwt.ms |
 | {OIDC:Resource} |Parametro di stringa di query `resource`. | N/D |
 | {OIDC:scope} |Parametro di stringa di query `scope`. | openid |
-| {OIDC: RedirectUri} |Parametro di stringa di query `redirect_uri`. | https://jwt.ms |
+| OIDC:Nome utente| Nome utente dell'utente del flusso di credenziali del proprietario della [risorsa.](ropc-custom.md)| emily@contoso.com| 
 
 ### <a name="context"></a>Context
 
@@ -86,7 +88,7 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 | {Context:DateTimeInUtc} |Data e ora in formato UTC.  | 10/10/2018 12:00:00 PM |
 | {Context:DeploymentMode} |Modalità di distribuzione dei criteri.  | Produzione |
 | {Context:IPAddress} | Indirizzo IP utente. | 11.111.111.11 |
-| {Context: KMSI} | Indica se la casella [di controllo Mantieni l'accesso](custom-policy-keep-me-signed-in.md) è selezionata. |  true |
+| "Contesto:KMSI" | Indica se la casella di controllo [Mantieni l'accesso](custom-policy-keep-me-signed-in.md) è selezionata. |  true |
 
 ### <a name="non-protocol-parameters"></a>Parametri non di protocollo
 
@@ -94,7 +96,7 @@ I nomi di parametro inclusi in una richiesta OIDC o OAuth2 possono essere mappat
 
 | Attestazione | Descrizione | Esempio |
 | ----- | ----------------------- | --------|
-| {OAUTH-KV:campaignId} | Parametro di stringa di query. | hawaii |
+| {OAUTH-KV:campaignId} | Parametro di stringa di query. | Hawaii |
 | {OAUTH-KV:app_session} | Parametro di stringa di query. | A3C5R |
 | {OAUTH-KV:loyalty_number} | Parametro di stringa di query. | 1234 |
 | {OAUTH-KV:qualsiasi stringa di query personalizzata} | Parametro di stringa di query. | N/D |
@@ -110,42 +112,42 @@ I nomi di parametro inclusi in una richiesta OIDC o OAuth2 possono essere mappat
 
 | Attestazione | Descrizione | Esempio |
 | ----- | ----------- | --------|
-| {SAML: AuthnContextClassReferences} | Il valore dell'elemento `AuthnContextClassRef`, dalla richiesta SAML. | urn: Oasis: Names: TC: SAML: 2.0: AC: Classes: PasswordProtectedTransport |
-| {SAML: NameIdPolicyFormat} | Attributo `Format`, dall'elemento `NameIDPolicy` della richiesta SAML. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
-| {SAML: emittente} |  Il valore dell'elemento `Issuer` SAML della richiesta SAML.| https://contoso.com |
-| {SAML: AllowCreate} | Il valore dell'attributo `AllowCreate`, dall'elemento `NameIDPolicy` della richiesta SAML. | True |
-| {SAML: ForceAuthn} | Il valore dell'attributo `ForceAuthN`, dall'elemento `AuthnRequest` della richiesta SAML. | True |
-| {SAML: ProviderName} | Il valore dell'attributo `ProviderName`, dall'elemento `AuthnRequest` della richiesta SAML.| Contoso.com |
+| SAML:AuthnContextClassReferences | Valore `AuthnContextClassRef` dell'elemento, dalla richiesta SAML. | urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport |
+| SAML:NameIdPolicyFormat | Attributo `Format` dall'elemento `NameIDPolicy` della richiesta SAML. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
+| SAML:Autorità di certificazione |  Valore dell'elemento SAML `Issuer` della richiesta SAML.| `https://contoso.com` |
+| SAML:AllowCreate | Valore `AllowCreate` dell'attributo, dall'elemento `NameIDPolicy` della richiesta SAML. | True |
+| SAML:ForceAuthn | Valore `ForceAuthN` dell'attributo, dall'elemento `AuthnRequest` della richiesta SAML. | True |
+| SAML:NomeProvider | Valore `ProviderName` dell'attributo, dall'elemento `AuthnRequest` della richiesta SAML.| Contoso.com |
 
-## <a name="using-claim-resolvers"></a>Uso di resolver di attestazioni
+## <a name="using-claim-resolvers"></a>Utilizzo dei resolver di attestazioniUsing claim resolvers
 
-È possibile usare i resolver di attestazioni con gli elementi seguenti:
+È possibile usare i resolver di attestazioni con gli elementi seguenti:You can use claims resolvers with the following elements:
 
 | Elemento | Elemento | Impostazioni |
 | ----- | ----------------------- | --------|
 |Profilo tecnico di Application Insights |`InputClaim` | |
-|[Azure Active Directory](active-directory-technical-profile.md) profilo tecnico| `InputClaim`, `OutputClaim`| 1, 2|
+|[Profilo](active-directory-technical-profile.md) tecnico di Azure Active Directory| `InputClaim`, `OutputClaim`| 1, 2|
 |Profilo tecnico [OAuth2](oauth2-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
-|Profilo tecnico di [OpenID Connect](openid-connect-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
-|Profilo tecnico per la [trasformazione delle attestazioni](claims-transformation-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
-|Profilo tecnico del [provider RESTful](restful-technical-profile.md)| `InputClaim`| 1, 2|
-|Profilo tecnico [Saml2](saml-technical-profile.md)| `OutputClaim`| 1, 2|
-|Profilo tecnico [autocertificato](self-asserted-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Profilo tecnico [di OpenID Connect](openid-connect-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Profilo tecnico [per la trasformazione dei sinistri](claims-transformation-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Profilo tecnico del [fornitore RESTful](restful-technical-profile.md)| `InputClaim`| 1, 2|
+|Profilo tecnico [SAML2](saml-technical-profile.md)| `OutputClaim`| 1, 2|
+|Profilo tecnico [auto-assertio](self-asserted-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
 |[ContentDefinition](contentdefinitions.md)| `LoadUri`| |
 |[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |
 |Profilo tecnico [RelyingParty](relyingparty.md#technicalprofile)| `OutputClaim`| 2 |
 
 Impostazioni:
-1. I metadati di `IncludeClaimResolvingInClaimsHandling` devono essere impostati su `true`.
-1. L'attributo Claims di input o output `AlwaysUseDefaultValue` deve essere impostato su `true`.
+1. I `IncludeClaimResolvingInClaimsHandling` metadati devono `true`essere impostati su .
+1. L'attributo `AlwaysUseDefaultValue` delle attestazioni `true`di input o output deve essere impostato su .
 
 ## <a name="claim-resolvers-samples"></a>Esempi di resolver di attestazioni
 
 ### <a name="restful-technical-profile"></a>Profilo tecnico RESTful
 
-In un profilo tecnico [RESTful](restful-technical-profile.md) può essere utile inviare la lingua dell'utente, il nome dei criteri, l'ambito e l'ID client. Sulla base di queste attestazioni, l'API REST può eseguire logica di business personalizzata e, se necessario, generare un messaggio di errore localizzato.
+In un profilo tecnico [RESTful](restful-technical-profile.md) può essere utile inviare la lingua dell'utente, il nome dei criteri, l'ambito e l'ID client. In base alle attestazioni, l'API REST può eseguire la logica di business personalizzata e, se necessario, generare un messaggio di errore localizzato.
 
-Nell'esempio seguente viene illustrato un profilo tecnico RESTful con questo scenario:
+Nell'esempio seguente viene illustrato un profilo tecnico RESTful con questo scenario:The following example shows a RESTful technical profile with this scenario:
 
 ```XML
 <TechnicalProfile Id="REST">
@@ -173,9 +175,9 @@ Con i resolver di attestazioni è possibile precompilare il nome di accesso o l'
 
 ### <a name="dynamic-ui-customization"></a>Personalizzazione dell'interfaccia utente dinamica
 
-Azure AD B2C consente di passare i parametri della stringa di query agli endpoint della definizione del contenuto HTML per eseguire dinamicamente il rendering del contenuto della pagina. Questo consente, ad esempio, di modificare l'immagine di sfondo nella pagina Azure AD B2C iscrizione o l'accesso in base a un parametro personalizzato passato dall'applicazione Web o per dispositivi mobili. Per altre informazioni, vedere [Azure Active Directory B2C: Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati](custom-policy-ui-customization.md). È anche possibile localizzare la pagina HTML in base a un parametro di lingua oppure è possibile modificare il contenuto in base all'ID client.
+Azure AD B2C consente di passare parametri di stringa di query agli endpoint di definizione del contenuto HTML per eseguire il rendering dinamico del contenuto della pagina. In questo modo, ad esempio, è possibile modificare l'immagine di sfondo nella pagina di iscrizione o di accesso B2C di Azure AD in base a un parametro personalizzato passato dall'applicazione Web o per dispositivi mobili. Per altre informazioni, vedere [Azure Active Directory B2C: Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati](custom-policy-ui-customization.md). È anche possibile localizzare la pagina HTML in base a un parametro di lingua oppure è possibile modificare il contenuto in base all'ID client.
 
-L'esempio seguente passa il parametro della stringa di query denominato **campaignId** con il valore `hawaii`, un codice di **lingua** di `en-US`e l' **app** che rappresenta l'ID client:
+Nell'esempio seguente viene passata il parametro `Hawaii`della stringa di query denominato **campaignId** con un valore di , un codice **lingua** di `en-US`e **un'app** che rappresenta l'ID client:
 
 ```XML
 <UserJourneyBehaviors>
@@ -187,7 +189,7 @@ L'esempio seguente passa il parametro della stringa di query denominato **campai
 </UserJourneyBehaviors>
 ```
 
-Di conseguenza, Azure AD B2C invia i parametri precedenti alla pagina contenuto HTML:
+Di conseguenza, Azure AD B2C invia i parametri precedenti alla pagina di contenuto HTML:As a result, Azure AD B2C sends the above parameters to the HTML content page:
 
 ```
 /selfAsserted.aspx?campaignId=hawaii&language=en-US&app=0239a9cc-309c-4d41-87f1-31288feb2e82
@@ -195,7 +197,7 @@ Di conseguenza, Azure AD B2C invia i parametri precedenti alla pagina contenuto 
 
 ### <a name="content-definition"></a>Definizione del contenuto
 
-In una `LoadUri`[ContentDefinition](contentdefinitions.md) è possibile inviare i resolver di attestazioni per eseguire il pull del contenuto da posizioni diverse in base ai parametri utilizzati.
+In un [oggetto ContentDefinition](contentdefinitions.md) `LoadUri`è possibile inviare resolver di attestazioni per estrarre il contenuto da posizioni diverse, in base ai parametri utilizzati.
 
 ```XML
 <ContentDefinition Id="api.signuporsignin">
@@ -224,7 +226,7 @@ Con Azure Application Insights e i resolver di attestazioni è possibile ottener
 
 ### <a name="relying-party-policy"></a>Criteri della relying party
 
-In un profilo tecnico dei criteri della [relying party](relyingparty.md) , è possibile inviare l'ID tenant o l'ID di correlazione all'applicazione relying party all'interno di JWT.
+In un profilo tecnico dei criteri [della relying party,](relyingparty.md) è possibile inviare l'ID tenant o l'ID di correlazione all'applicazione relying party all'interno del token JWT.
 
 ```XML
 <RelyingParty>

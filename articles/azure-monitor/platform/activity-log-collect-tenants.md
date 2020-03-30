@@ -1,49 +1,49 @@
 ---
-title: Raccogliere i log attività di Azure in un'area di lavoro Log Analytics tra i tenant di Azure | Microsoft Docs
-description: Usare hub eventi e app per la logica per raccogliere dati dal log attività di Azure e inviarli a un'area di lavoro Log Analytics in monitoraggio di Azure in un tenant diverso.
+title: Cross-tenant Azure activity logs in Azure Monitor
+description: Usare Hub eventi e app per la logica per raccogliere dati dal log attività di Azure e inviarli a un'area di lavoro di Log Analytics in Monitoraggio di Azure in un tenant diverso.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: 52bf8b955ef4dc9cfae7fd74fbad0df744609196
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: d2f794365e15768dbf47647f2d9a8d08d5e8ba3f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669268"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80055731"
 ---
-# <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Raccogliere i log attività di Azure in monitoraggio di Azure tra Azure Active Directory tenant (legacy)
+# <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Raccogliere i log delle attività di Azure in Monitoraggio di Azure tra tenant di Azure Active Directory (legacy)Collect Azure Activity logs into Azure Monitor across Azure Active Directory tenants (legacy)
 
 > [!NOTE]
-> Questo articolo descrive il metodo legacy per la configurazione del log attività di Azure tra i tenant di Azure da raccogliere in un'area di lavoro Log Analytics.  È ora possibile raccogliere il log attività in un'area di lavoro Log Analytics usando un'impostazione di diagnostica simile a come si raccolgono i log delle risorse. Vedere [raccogliere e analizzare i log attività di Azure nell'area di lavoro log Analytics in monitoraggio di Azure](activity-log-collect.md).
+> Questo articolo descrive il metodo legacy per la configurazione del log attività di Azure tra tenant di Azure da raccogliere in un'area di lavoro di Log Analytics.This article describes the legacy method for configuring the Azure Activity log across Azure tenants to be collected in a Log Analytics workspace.  È ora possibile raccogliere il log attività in un'area di lavoro di Log Analytics usando un'impostazione di diagnostica simile alla modalità di raccolta dei log delle risorse. Vedere Raccogliere e analizzare i log delle attività di [Azure nell'area di lavoro Log Analytics in Monitoraggio di Azure.See Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](activity-log-collect.md).
 
 
-Questo articolo illustra un metodo per raccogliere i log attività di Azure in un'area di lavoro Log Analytics in monitoraggio di Azure usando il connettore di raccolta dati di Azure Log Analytics per le app per la logica. Usare il processo descritto in questo articolo quando è necessario inviare log a un'area di lavoro in un tenant di Azure Active Directory diverso. Ad esempio, è possibile che i provider di servizi gestiti intendano raccogliere log attività da una sottoscrizione del cliente e archiviarli in un'area di lavoro Log Analytics nella propria sottoscrizione.
+Questo articolo illustra un metodo per raccogliere i log attività di Azure in un'area di lavoro di Log Analytics in Monitoraggio di Azure usando il connettore dell'agente di raccolta dati di Azure Log Analytics per le app per la logica. Usare il processo descritto in questo articolo quando è necessario inviare log a un'area di lavoro in un tenant di Azure Active Directory diverso. Ad esempio, è possibile che i provider di servizi gestiti intendano raccogliere log attività da una sottoscrizione del cliente e archiviarli in un'area di lavoro Log Analytics nella propria sottoscrizione.
 
-Se l'area di lavoro Log Analytics si trova nella stessa sottoscrizione di Azure o in una sottoscrizione diversa ma nella stessa Azure Active Directory, usare la procedura descritta nell' [area di lavoro Raccogli e analizza log attività di Azure in log Analytics in monitoraggio di Azure](activity-log-collect.md) per raccogliere i log attività di Azure.
+Se l'area di lavoro di Log Analytics si trova nella stessa sottoscrizione di Azure o in una sottoscrizione diversa ma nello stesso Azure Active Directory, usare i passaggi descritti in Raccogliere e analizzare i log delle attività di [Azure nell'area](activity-log-collect.md) di lavoro Log Analytics in Monitoraggio di Azure per raccogliere i log delle attività di Azure.If the Log Analytics workspace is in the same Azure subscription, or in a different subscription but in the same Azure Active Directory, use the steps in the Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor to collect Azure Activity logs.
 
 ## <a name="overview"></a>Panoramica
 
 In base alla strategia usata in questo scenario, il log attività di Azure invia eventi a un [hub eventi](../../event-hubs/event-hubs-about.md), quindi l'[app per la logica](../../logic-apps/logic-apps-overview.md) li invia all'area di lavoro Log Analytics. 
 
-![immagine del flusso di dati dal log attività all'area di lavoro Log Analytics](media/collect-activity-logs-subscriptions/data-flow-overview.png)
+![immagine del flusso di dati dal log attività all'area di lavoro di Log Analytics](media/collect-activity-logs-subscriptions/data-flow-overview.png)
 
 I vantaggi di questo approccio includono:
-- Bassa latenza, in quanto il log attività di Azure viene inviato in flusso nell'hub eventi.  L'app per la logica viene quindi attivata e inserisce i dati nell'area di lavoro. 
+- Bassa latenza, in quanto il log attività di Azure viene inviato in flusso nell'hub eventi.  L'app per la logica viene quindi attivata e invia i dati nell'area di lavoro. 
 - Quantità minima di codice richiesta e nessuna infrastruttura server da distribuire.
 
 Questo articolo illustra come:
 1. Creare un hub eventi. 
 2. Esportare i log attività in un hub eventi usando il profilo di esportazione del log attività di Azure.
-3. Creare un'app per la logica per leggere dall'hub eventi e inviare eventi all'area di lavoro Log Analytics.
+3. Creare un'app per la logica da leggere dall'hub eventi e inviare eventi all'area di lavoro di Log Analytics.Create a Logic App to read from the Event Hub and send events to Log Analytics workspace.
 
 ## <a name="requirements"></a>Requisiti
 Di seguito sono riportati i requisiti per le risorse di Azure usate in questo scenario.
 
 - Lo spazio dei nomi dell'hub eventi non deve essere nella stessa sottoscrizione dei log di emissione della sottoscrizione. L'utente che configura l'impostazione deve disporre delle autorizzazioni di accesso appropriate per entrambe le sottoscrizioni. Se si dispone di più sottoscrizioni nella stessa istanza di Azure Active Directory, è possibile inviare i log attività per tutte le sottoscrizioni a un singolo hub eventi.
 - L'app per la logica può trovarsi in una sottoscrizione diversa rispetto all'hub eventi e non deve trovarsi nella stessa istanza di Azure Active Directory. L'app per la logica esegue la lettura dall'hub eventi usando la stessa chiave di accesso condiviso dell'hub eventi.
-- L'area di lavoro Log Analytics può trovarsi in una sottoscrizione e un'istanza di Azure Active Directory diverse rispetto all'app per la logica, ma è consigliabile la presenza nella stessa sottoscrizione, per semplicità. L'app per la logica invia all'area di lavoro usando l'ID e la chiave dell'area di lavoro Log Analytics.
+- L'area di lavoro Log Analytics può trovarsi in una sottoscrizione e un'istanza di Azure Active Directory diverse rispetto all'app per la logica, ma è consigliabile la presenza nella stessa sottoscrizione, per semplicità. L'app per la logica invia all'area di lavoro usando l'ID e la chiave dell'area di lavoro di Log Analytics.The Logic App sends to the workspace using the Log Analytics workspace ID and key.
 
 
 
@@ -51,7 +51,7 @@ Di seguito sono riportati i requisiti per le risorse di Azure usate in questo sc
 
 <!-- Follow the steps in [how to create an Event Hubs namespace and Event Hub](../../event-hubs/event-hubs-create.md) to create your event hub. -->
 
-1. Nel portale di Azure selezionare **Crea una risorsa** > **Internet delle cose** > **Hub eventi**.
+1. Nel portale di Azure selezionare **Crea una risorsa** > **Hub eventi**Internet of**Things** > .
 
    ![Nuovo hub eventi nel marketplace](media/collect-activity-logs-subscriptions/marketplace-new-event-hub.png)
 
@@ -78,7 +78,7 @@ Per abilitare il flusso del log attività, scegliere uno spazio dei nomi dell'hu
 
 È possibile usare uno spazio dei nomi dell'hub eventi che non si trova nella stessa sottoscrizione dei log di emissione della sottoscrizione, tuttavia le sottoscrizioni devono trovarsi nella stessa istanza di Azure Active Directory. L'utente che configura l'impostazione deve disporre del controllo degli accessi in base al ruolo appropriato per accedere a entrambe le sottoscrizioni. 
 
-1. Nel portale di Azure selezionare **Monitoraggio** > **Log attività**.
+1. Nel portale di Azure selezionare **Monitora** > **log attività**.
 3. Fare clic sul pulsante **Esporta** nella parte superiore della pagina.
 
    ![immagine della finestra di monitoraggio di Azure nel riquadro di spostamento](media/collect-activity-logs-subscriptions/activity-log-blade.png)
@@ -94,13 +94,13 @@ Per abilitare il flusso del log attività, scegliere uno spazio dei nomi dell'hu
 
 ## <a name="step-3---create-logic-app"></a>Passaggio 3: Creare l'app per la logica
 
-Una volta che i log attività scrivono nell'hub eventi, si crea un'app per la logica per raccogliere i log dall'hub eventi e scriverli nell'area di lavoro Log Analytics.
+Dopo aver scritto i log attività nell'hub eventi, creare un'app per la logica per raccogliere i log dall'hub eventi e scriverli nell'area di lavoro di Log Analytics.
 
 L'app per la logica include gli elementi seguenti:
 - Un trigger del [connettore dell'hub eventi](https://docs.microsoft.com/connectors/eventhubs/) per la lettura dall'hub eventi.
 - Un'[azione Analizza JSON](../../logic-apps/logic-apps-content-type.md) per estrarre gli eventi JSON.
 - Un'[azione di composizione](../../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action) (Compose) per convertire la stringa JSON in un oggetto.
-- Un [log Analytics Send Data Connector](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) per inserire i dati nell'area di lavoro log Analytics.
+- Un [connettore dati](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) di Log Analytics invia i dati per inviare i dati nell'area di lavoro di Log Analytics.A Log Analytics send data connector to post the data to the log Analytics workspace.
 
    ![immagine dell'aggiunta del trigger dell'hub eventi nelle app per la logica](media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
@@ -116,7 +116,7 @@ Per ottenere la stringa di connessione e il nome dell'hub eventi, seguire i pass
 
 ### <a name="create-a-new-blank-logic-app"></a>Creare una nuova app per la logica vuota
 
-1. Nel portale di Azure scegliere **Crea una risorsa** > **Integrazione aziendale** > **App per la logica**.
+1. Nel portale di Azure scegliere **Crea una risorsa** > **App per**la logica di**integrazione** > aziendale .
 
     ![Nuova app per la logica nel marketplace](media/collect-activity-logs-subscriptions/marketplace-new-logic-app.png)
 
@@ -126,11 +126,11 @@ Per ottenere la stringa di connessione e il nome dell'hub eventi, seguire i pass
 
    |Impostazione | Descrizione  |
    |:---|:---|
-   | Name           | Nome univoco per l'app per la logica. |
+   | Nome           | Nome univoco per l'app per la logica. |
    | Subscription   | Selezionare la sottoscrizione di Azure che conterrà l'app per la logica. |
-   | Gruppo risorse | Selezionare un gruppo di risorse di Azure esistente o crearne uno nuovo per l'app per la logica. |
+   | Gruppo di risorse | Selezionare un gruppo di risorse di Azure esistente o crearne uno nuovo per l'app per la logica. |
    | Location       | Selezionare l'area del data center per la distribuzione dell'app per la logica. |
-   | Log Analytics  | Selezionare se si vuole registrare lo stato di ogni esecuzione dell'app per la logica in un'area di lavoro Log Analytics.  |
+   | Log Analytics  | Selezionare se si vuole registrare lo stato di ogni esecuzione dell'app per la logica in un'area di lavoro di Log Analytics.Select if you want to log the status of each run of your logic app in a Log Analytics workspace.  |
 
     
 3. Selezionare **Crea**. Quando viene visualizzata la notifica **Distribuzione riuscita**, fare clic su **Vai alla risorsa** per aprire l'app per la logica.
@@ -161,9 +161,9 @@ In Progettazione app per la logica vengono ora mostrati i connettori disponibili
 
 ### <a name="add-parse-json-action"></a>Aggiungere l'azione Analizza JSON
 
-L'output dell'hub eventi contiene un payload JSON con una matrice di record. L'azione [analizza JSON](../../logic-apps/logic-apps-content-type.md) viene utilizzata per estrarre solo la matrice di record da inviare a log Analytics area di lavoro.
+L'output dell'hub eventi contiene un payload JSON con una matrice di record. L'azione Analizza JSON viene usata per estrarre solo la matrice di record per l'invio all'area di lavoro di Log Analytics.The [Parse JSON](../../logic-apps/logic-apps-content-type.md) action is used to extract just the array of records for sending to Log Analytics workspace.
 
-1. Fare clic su **Nuovo passaggio** > **Aggiungi un'azione**.
+1. Fare clic su **Nuovo passaggio** > **Aggiungi un'azione**
 2. Nella casella di ricerca digitare *analizza json* come filtro. Selezionare l'azione **Operazioni dati - Analizza JSON**.
 
    ![Aggiunta dell'azione di analisi json nelle app per la logica](media/collect-activity-logs-subscriptions/logic-apps-add-parse-json-action.png)
@@ -275,7 +275,7 @@ L'output dell'hub eventi contiene un payload JSON con una matrice di record. L'a
 ### <a name="add-compose-action"></a>Aggiungere l'azione Componi
 L'azione [Componi](../../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action) accetta l'output JSON e crea un oggetto che può essere usato dall'azione di Log Analytics.
 
-1. Fare clic su **Nuovo passaggio** > **Aggiungi un'azione**.
+1. Fare clic su **Nuovo passaggio** > **Aggiungi un'azione**
 2. Digitare *componi* come filtro e quindi selezionare l'azione **Operazioni dati - Componi**.
 
     ![Aggiungere l'azione Componi](media/collect-activity-logs-subscriptions/logic-apps-add-compose-action.png)
@@ -284,9 +284,9 @@ L'azione [Componi](../../logic-apps/logic-apps-workflow-actions-triggers.md#comp
 
 
 ### <a name="add-log-analytics-send-data-action"></a>Aggiungere l'azione di invio dati di Log Analytics
-L'azione dell' [agente di raccolta dati di Azure log Analytics](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) accetta l'oggetto dall'azione compose e lo invia a un'area di lavoro di log Analytics.
+L'azione [Raccolta dati di Azure Log Analytics](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) accetta l'oggetto dall'azione Componi e lo invia a un'area di lavoro di Log Analytics.The Azure Log Analytics Data Collector action takes the object from the Compose action and sends it to a Log Analytics workspace.
 
-1. Fare clic su **Nuovo passaggio** > **Aggiungi un'azione**.
+1. Fare clic su **Nuovo passaggio** > **Aggiungi un'azione**
 2. Digitare *log analytics* come filtro e quindi selezionare l'azione **Azure Log Analytics Data Collector - Send Data** (Agente di raccolta dati di Azure Log Analytics - Invia dati).
 
    ![Aggiunta dell'azione di invio dati di Log Analytics nelle app per la logica](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-connector.png)
@@ -299,10 +299,10 @@ L'azione dell' [agente di raccolta dati di Azure log Analytics](https://docs.mic
 
     ![Azione di configurazione dell'invio dei dati](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-configuration.png)
 
-   |Impostazione        | Valore           | Descrizione  |
+   |Impostazione        | valore           | Descrizione  |
    |---------------|---------------------------|--------------|
    |JSON Request body (Corpo della richiesta JSON)  | **Output** dell'azione **Componi** | Recupera i record dal corpo dell'azione Componi. |
-   | Nome log personalizzato | AzureActivity | Nome della tabella di log personalizzata da creare nell'area di lavoro Log Analytics per conservare i dati importati. |
+   | Nome log personalizzato | AzureActivity | Nome della tabella di log personalizzata da creare nell'area di lavoro di Log Analytics per contenere i dati importati. |
    | Time-generated-field (campo generato in base a time) | time | Non selezionare il campo JSON per **time**: digitare solo la parola time. Se si seleziona il campo JSON, la finestra di progettazione inserisce l'azione **Invia dati** in un ciclo *For Each*, che non è ciò che si vuole. |
 
 
@@ -327,7 +327,7 @@ Il passaggio finale consiste per controllare l'area di lavoro Log Analytics per 
 3.  Fare clic sul riquadro **Ricerca log** e nel riquadro Ricerca log digitare `AzureActivity_CL` nel campo della query e quindi premere INVIO o fare clic sul pulsante della ricerca a destra del campo della query. Se il log personalizzato non è stato denominato *AzureActivity*, digitare il nome scelto e aggiungere `_CL`.
 
 >[!NOTE]
-> La prima volta che un nuovo log personalizzato viene inviato all'area di lavoro di Log Analytics, potrebbe essere necessaria fino a un'ora per poter eseguire ricerche nel log personalizzato.
+> La prima volta che un nuovo log personalizzato viene inviato all'area di lavoro di Log Analytics, potrebbe essere necessario fino a un'ora per la ricerca del log personalizzato.
 
 >[!NOTE]
 > I log attività vengono scritti in una tabella personalizzata e non vengono mostrati nella [soluzione per i log attività](./activity-log-collect.md).
@@ -337,7 +337,7 @@ Il passaggio finale consiste per controllare l'area di lavoro Log Analytics per 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stata creata un'app per la logica per leggere i log attività di Azure da un hub eventi e inviarli all'area di lavoro Log Analytics per l'analisi. Per altre informazioni sulla visualizzazione dei dati in un'area di lavoro, inclusa la creazione di dashboard, vedere l'esercitazione per visualizzare i dati.
+In questo articolo è stata creata un'app per la logica per leggere i log attività di Azure da un hub eventi e inviarli all'area di lavoro log Analytics per l'analisi. Per altre informazioni sulla visualizzazione dei dati in un'area di lavoro, inclusa la creazione di dashboard, vedere l'esercitazione Visualizzare i dati.
 
 > [!div class="nextstepaction"]
 > [Esercitazione per la visualizzazione dei dati di ricerca log](./../../azure-monitor/learn/tutorial-logs-dashboards.md)

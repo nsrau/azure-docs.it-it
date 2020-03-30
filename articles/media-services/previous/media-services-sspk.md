@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
 ms.openlocfilehash: 59ac3ab2e70bfa00f19bae7e551780f2b2bb8ccb
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79096704"
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licenza per Microsoft® Smooth Streaming Client Porting Kit 
@@ -71,11 +71,11 @@ Smooth Streaming Client Final Product è disponibile in un modello a pagamento c
 * Nessun diritto per le prime 10.000 implementazioni di dispositivi ogni anno 
 
 ## <a name="licensing-procedure-and-sspk-access"></a>Procedura di gestione delle licenze e accesso a SSPK
-Per domande relative alla gestione delle licenze, inviare un messaggio di posta elettronica a [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com).
+E-mail [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) per tutte le query di licenza.
 
 Il [portale di distribuzione di SSPK](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) è accessibile a licenziatari della versione Interim registrati.
 
-I licenziatari di SSPK Interim e Final possono inviare domande tecniche a [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com).
+I licenziatari provvisori e finali SSPK possono inviare domande tecniche a [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com).
 
 ## <a name="microsoft-smooth-streaming-client-interim-product-agreement-licensees"></a>Licenziatari di contratti Microsoft Smooth Streaming Client Interim Product
 
@@ -125,7 +125,7 @@ I licenziatari di SSPK Interim e Final possono inviare domande tecniche a [smoot
 * Dongguan Digital AV Technology Corp., Ltd.
 * EchoStar Purchasing Corporation
 * Enseo, Inc.
-* FilmFlex film limitati
+* FilmFlex Movies Limited
 * Fluendo S.A.
 * FUNAI ELECTRIC CO., LTD
 * Gibson Innovations Limited
@@ -141,7 +141,7 @@ I licenziatari di SSPK Interim e Final possono inviare domande tecniche a [smoot
 * Orange SA
 * Saffron Digital Limited
 * Sagemcom Broadband SAS
-* Shenzhen Chuangwei-RGB Electronics Co. Ltd.
+* Shenzhen Chuangwei-RGB Elettronica Co.,Ltd.
 * Shenzhen Coship Electronics CO., LTD
 * Shenzhen Jiuzhou Electric Co., Ltd
 * Shenzhen Skyworth Digital Technology Co., Ltd

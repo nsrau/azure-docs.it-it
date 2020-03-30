@@ -3,15 +3,15 @@ title: Creare una cache HPC di Azure
 description: Come creare un'istanza di Cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: rohogue
-ms.openlocfilehash: 793a80e7019e72c1cb3087da02d5642639cb8d5e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
-ms.translationtype: HT
+ms.openlocfilehash: c6090d19ce530829b79dca69636c2123e2519961
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647157"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80129563"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Creare una cache HPC di Azure
 
@@ -57,7 +57,7 @@ La pagina **Tag** consente di aggiungere [tag di risorsa](https://go.microsoft.c
 
 ## <a name="finish-creating-the-cache"></a>Completare la creazione della cache
 
-Dopo aver configurato la nuova cache, fare clic sulla scheda **Rivedi e crea**. Il portale convalida le selezioni e consente di esaminare le scelte effettuate. Se tutte le voci sono state impostate correttamente, fare clic su **Crea**.
+Dopo aver configurato la nuova cache, fare clic sulla scheda **Revisione e creazione.** Il portale convalida le selezioni e consente di rivedere le scelte. Se tutte le voci sono state impostate correttamente, fare clic su **Crea**.
 
 La creazione della cache richiede circa 10 minuti. È possibile monitorare l'avanzamento dell'operazione nel pannello delle notifiche del portale di Azure.
 

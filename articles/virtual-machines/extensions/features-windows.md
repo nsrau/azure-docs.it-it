@@ -1,5 +1,5 @@
 ---
-title: Estensioni e funzionalità delle macchine virtuali di Azure per Windows
+title: Azure VM extensions and features for Windows
 description: Informazioni sulle estensioni disponibili per le macchine virtuali di Azure, raggruppate in base a ciò che forniscono o migliorano.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4eb212cb6122803f78b13e6c17a55bac5bc48286
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: cd6439bf1b1f52b8e63819e8e519fc4971d1bc2a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79250725"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066845"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Estensioni e funzionalità della macchina virtuale per Windows
 
@@ -35,14 +35,14 @@ Questo articolo offre una panoramica delle estensioni macchina virtuale, i prere
 Sono disponibili numerose estensioni della macchina virtuale di Azure, ognuna con uno specifico caso d'uso. Di seguito sono riportati alcuni esempi:
 
 - Applicare le configurazioni dello stato desiderato tramite PowerShell a una macchina virtuale usando l'estensione DSC per Windows. Per altre informazioni, vedere l'argomento relativo all'[Estensione DSC (Desired State Configuration) di Azure](dsc-overview.md).
-- Configurare il monitoraggio di una macchina virtuale con l'estensione della macchina virtuale Log Analytics Agent. Per altre informazioni, vedere [connettere le VM di Azure ai log di monitoraggio di Azure](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Configurare il monitoraggio di una macchina virtuale con l'estensione della macchina virtuale dell'agente log Analytics.Configure monitoring of a VM with the Log Analytics Agent VM extension. Per altre informazioni, vedere Connettere macchine virtuali di Azure ai log di Monitoraggio di Azure.For more information, see [Connect Azure VMs to Azure Monitor logs.](../../log-analytics/log-analytics-azure-vm-extension.md)
 - Configurare una macchina virtuale di Azure usando Chef. Per altre informazioni, vedere l'argomento [Automazione della distribuzione delle macchine virtuali di Azure con Chef](../../chef/chef-automation.md).
 - Configurare il monitoraggio dell'infrastruttura di Azure con l'estensione Datadog. Per altre informazioni, vedere il [blog Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 
 Oltre alle estensioni specifiche del processo, è disponibile un'estensione Script personalizzato per le macchine virtuali Linux e Windows. L'estensione Script personalizzato per Windows consente l'esecuzione di qualsiasi script PowerShell in una macchina virtuale. Gli script personalizzati sono utili per la progettazione di distribuzioni di Azure che richiedono una configurazione in aggiunta a quella offerta dagli strumenti nativi di Azure. Per altre informazioni, vedere [Estensione Script personalizzato per macchine virtuali Windows](custom-script-windows.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per gestire l'estensione nella macchina virtuale, è necessario aver installato l'agente Windows di Azure. Alcune estensioni individuali hanno prerequisiti, ad esempio l'accesso alle risorse o alle dipendenze.
 
@@ -50,7 +50,7 @@ Per gestire l'estensione nella macchina virtuale, è necessario aver installato 
 
 L'agente di macchine virtuali di Azure gestisce le interazioni tra una macchina virtuale di Azure e il controller di infrastruttura di Azure. L'agente di macchine virtuali è responsabile di molti aspetti funzionali della distribuzione e della gestione delle macchine virtuali di Azure, tra cui l'esecuzione delle estensioni macchina virtuale. L'agente di macchine virtuali di Azure è preinstallato nelle immagini di Azure Marketplace e può essere installato manualmente nei sistemi operativi supportati. L'agente di macchine virtuali di Azure per Windows è noto come agente guest di Windows.
 
-Per informazioni sui sistemi operativi supportati e per le istruzioni di installazione, vedere [Agente delle macchine virtuali di Azure](agent-windows.md).
+Per informazioni sui sistemi operativi supportati e sulle istruzioni di installazione, vedere Agente macchina virtuale di Azure.For information on supported operating systems and installation instructions, see [Azure virtual machine agent.](agent-windows.md)
 
 #### <a name="supported-agent-versions"></a>Versioni supportate dell'agente
 
@@ -61,18 +61,18 @@ Per garantire la migliore esperienza possibile, sono previsti requisiti minimi p
 L'agente guest di Windows viene eseguito su più sistemi operativi, tuttavia il framework delle estensioni prevede un limite per i sistemi operativi. Per altre informazioni, vedere [questo articolo](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems
 ).
 
-Alcune estensioni non sono supportate in tutti i sistemi operativi e possono generare il *codice di errore 51, "Sistema operativo non supportato"* . Vedere la documentazione della singola estensione per informazioni sul supporto.
+Alcune estensioni non sono supportate in tutti i sistemi operativi e possono generare il *codice di errore 51, "Sistema operativo non supportato"*. Vedere la documentazione della singola estensione per informazioni sul supporto.
 
 #### <a name="network-access"></a>Accesso alla rete
 
-I pacchetti di estensioni vengono scaricati dal repository delle estensioni di Archiviazione di Azure, mentre i caricamenti dello stato delle estensioni vengono pubblicati in Archiviazione di Azure. Se si usa la versione [supportata](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) degli agenti, non è necessario consentire l'accesso ad archiviazione di Azure nell'area della macchina virtuale, in quanto può usare l'agente per reindirizzare la comunicazione al controller di infrastruttura di Azure per le comunicazioni degli agenti (HostGAPlugin tramite il canale con privilegi su IP privato [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)). Se è in uso una versione non supportata dell'agente, è necessario consentire l'accesso in uscita ad Archiviazione di Azure in tale area dalla macchina virtuale.
+I pacchetti di estensioni vengono scaricati dal repository delle estensioni di Archiviazione di Azure, mentre i caricamenti dello stato delle estensioni vengono pubblicati in Archiviazione di Azure. Se si usa la versione [supportata](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) degli agenti, non è necessario consentire l'accesso ad Archiviazione di Azure nell'area della macchina virtuale, come può usare l'agente per reindirizzare la comunicazione al controller dell'infrastruttura di Azure per le comunicazioni con gli agenti (funzionalità HostGAPlugin tramite il canale con privilegi [sull'IP privato 168.63.129.16).](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16) Se è in uso una versione non supportata dell'agente, è necessario consentire l'accesso in uscita ad Archiviazione di Azure in tale area dalla macchina virtuale.
 
 > [!IMPORTANT]
-> Se è stato bloccato l'accesso a *168.63.129.16* tramite il firewall Guest o con un proxy, le estensioni hanno esito negativo indipendentemente dalla precedente. Sono necessarie le porte 80, 443 e 32526.
+> Se l'accesso è stato bloccato a *168.63.129.16* utilizzando il firewall guest o con un proxy, le estensioni hanno esito negativo indipendentemente da quanto sopra. Le porte 80, 443 e 32526 sono obbligatorie.
 
-Gli agenti possono essere usati solo per caricare i pacchetti di estensioni e lo stato della creazione di report. Ad esempio, se l'installazione di un'estensione richiede il download di uno script da GitHub (script personalizzato) o ha bisogno di accedere ad Archiviazione di Azure (Backup di Azure), allora è necessario aprire altre porte del firewall/gruppo di sicurezza di rete. Estensioni diverse hanno requisiti diversi, perché sono applicazioni indipendenti. Per le estensioni che richiedono l'accesso ad archiviazione di Azure o Azure Active Directory, è possibile consentire l'accesso usando i [tag del servizio NSG di Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) per l'archiviazione o AzureActiveDirectory.
+Gli agenti possono essere usati solo per caricare i pacchetti di estensioni e lo stato della creazione di report. Ad esempio, se l'installazione di un'estensione richiede il download di uno script da GitHub (script personalizzato) o ha bisogno di accedere ad Archiviazione di Azure (Backup di Azure), allora è necessario aprire altre porte del firewall/gruppo di sicurezza di rete. Estensioni diverse hanno requisiti diversi, perché sono applicazioni indipendenti. Per le estensioni che richiedono l'accesso ad Archiviazione di Azure o Azure Active Directory, è possibile consentire l'accesso usando i tag del servizio gruppo di sicurezza di rete di Azure all'archiviazione o ad AzureActiveDirectory.For extensions that require access to Azure Storage or Azure Active Directory, you can allow access using [Azure NSG Service Tags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) to Storage or AzureActiveDirectory.
 
-L'agente guest di Windows non dispone del supporto per il server proxy per il reindirizzamento delle richieste di traffico dell'agente tramite, il che significa che l'agente guest di Windows si basa sul proxy personalizzato (se disponibile) per accedere alle risorse su Internet o sull'host tramite IP 168.63.129.16.
+L'agente guest di Windows non dispone del supporto del server proxy per reindirizzare le richieste di traffico dell'agente tramite, il che significa che l'agente guest di Windows si baserà sul proxy personalizzato (se ne è uno) per accedere alle risorse su Internet o sull'host tramite IP 168.63.129.16.
 
 ## <a name="discover-vm-extensions"></a>Individuare le estensioni della macchina virtuale
 
@@ -252,9 +252,9 @@ Lo spostamento della proprietà del **comando da eseguire** nella configurazione
 }
 ```
 
-In una VM IaaS di Azure che usa le estensioni, nella console dei certificati, è possibile che vengano visualizzati i certificati con l'oggetto **_Generatore di certificati CRP di Windows Azure_** . In una macchina virtuale RDFE classica, questi certificati hanno il nome soggetto **_Gestione servizi di Microsoft Azure per le estensioni_** .
+In una macchina virtuale di Azure IaaS che usa le estensioni, nella console dei certificati, è possibile visualizzare i certificati con il soggetto Generatore di certificati CRP di **_Windows Azure._** In una macchina virtuale RDFE classica, questi certificati hanno il nome soggetto **_Gestione servizio di Windows Azure per le estensioni_**.
 
-Questi certificati proteggono la comunicazione tra la macchina virtuale e il relativo host durante il trasferimento delle impostazioni protette (password e altre credenziali) utilizzate dalle estensioni. I certificati vengono compilati dal controller di infrastruttura di Azure e passati all'agente di macchine virtuali. Se si arresta e si avvia la VM ogni giorno, un nuovo certificato potrebbe essere creato dal controller di infrastruttura. Il certificato viene archiviato nell'archivio dei certificati personali del computer. Questi certificati possono essere eliminati. Se necessario, l'agente di macchine virtuali crea nuovamente i certificati.
+Questi certificati garantiscono la comunicazione tra la macchina virtuale e il relativo host durante il trasferimento delle impostazioni protette (password, altre credenziali) utilizzate dalle estensioni. I certificati vengono creati dal controller dell'infrastruttura di Azure e passati all'agente di macchine virtuali. Se si arresta e si avvia la macchina virtuale ogni giorno, è possibile che venga creato un nuovo certificato dal controller di infrastruttura. Il certificato viene archiviato nell'archivio certificati personali del computer. Questi certificati possono essere eliminati. L'agente di macchine virtuali ricrea i certificati, se necessario.
 
 ### <a name="how-do-agents-and-extensions-get-updated"></a>Aggiornamento di agenti ed estensioni
 
@@ -294,7 +294,7 @@ Per verificare la versione in esecuzione, vedere [Detecting installed Windows Gu
 
 #### <a name="extension-updates"></a>Aggiornamenti delle estensioni
 
-Quando è disponibile l'aggiornamento di un'estensione, l'agente guest di Windows lo scarica e lo installa. Gli aggiornamenti automatici delle estensioni sono *secondari* oppure *aggiornamenti rapidi*. È possibile accettare o rifiutare esplicitamente gli aggiornamenti *secondari* delle estensioni quando si effettua il provisioning dell'estensione. L'esempio seguente mostra come aggiornare automaticamente le versioni secondarie in un modello di Resource Manager con *autoUpgradeMinorVersion": true,'* :
+Quando è disponibile l'aggiornamento di un'estensione, l'agente guest di Windows lo scarica e lo installa. Gli aggiornamenti automatici delle estensioni sono *secondari* oppure *aggiornamenti rapidi*. È possibile accettare o rifiutare esplicitamente gli aggiornamenti *secondari* delle estensioni quando si effettua il provisioning dell'estensione. L'esempio seguente mostra come aggiornare automaticamente le versioni secondarie in un modello di Resource Manager con *autoUpgradeMinorVersion": true,'*:
 
 ```json
     "properties": {
@@ -353,7 +353,7 @@ Ogni estensione macchina virtuale può richiedere passaggi per la risoluzione de
 
 I passaggi seguenti per la risoluzione dei problemi sono validi per tutte le estensioni macchina virtuale.
 
-1. Per controllare il log dell'agente guest di Windows, esaminare l'attività di quando il provisioning dell'estensione è stato eseguito in *C:\WindowsAzure\Logs\WaAppAgent.txt*
+1. Per controllare il registro dell'agente guest di Windows, esaminare l'attività quando è stato eseguito il provisioning dell'estensione in *C:*
 
 2. Per altri dettagli, controllare i log effettivi dell'estensione in *C:\WindowsAzure\Logs\Plugins\<extensionName>*
 
@@ -371,7 +371,7 @@ I passaggi seguenti per la risoluzione dei problemi sono validi per tutte le est
 
 ### <a name="view-extension-status"></a>Visualizzare lo stato dell'estensione
 
-Dopo l'esecuzione di un'estensione della macchina virtuale su una macchina virtuale, usare [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) per restituire lo stato dell'estensione. *Substatuses[0]* indica che il provisioning dell'estensione ha avuto esito positivo, vale a dire che l'estensione è stata distribuita alla macchina virtuale, ma l'esecuzione dell'estensione nella macchina virtuale ha avuto esito negativo (*Substatuses[1]* ).
+Dopo l'esecuzione di un'estensione di macchina virtuale in una macchina virtuale, usare [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) per restituire lo stato dell'estensione. *Substatuses[0]* indica che il provisioning dell'estensione ha avuto esito positivo, vale a dire che l'estensione è stata distribuita alla macchina virtuale, ma l'esecuzione dell'estensione nella macchina virtuale ha avuto esito negativo (*Substatuses[1]*).
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
@@ -425,8 +425,8 @@ Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "
 | --- | --- | --- |
 | Estensione Script personalizzato per Windows |Eseguire script su una macchina virtuale di Azure. |[Estensione script personalizzata per Windows](custom-script-windows.md) |
 | Estensione DSC per Windows |Estensione PowerShell DSC (Desired State Configuration) |[Estensione DSC per Windows](dsc-overview.md) |
-| Estensione di Diagnostica di Azure |Gestisce Diagnostica di Azure. |[Estensione di Diagnostica di Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Estensione dell'accesso alla VM di Azure |Gestire gli utenti e le credenziali |[Estensione dell'accesso alle macchine virtuali per Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Estensione di Diagnostica di Azure |Gestisce Diagnostica di Azure. |[Estensione Diagnostica di AzureAzure Diagnostics Extension](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
+| Estensione dell'accesso alla VM di Azure |Gestire gli utenti e le credenziali |[VM Access Extension for Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

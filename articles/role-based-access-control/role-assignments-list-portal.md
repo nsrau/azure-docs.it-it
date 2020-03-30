@@ -1,6 +1,6 @@
 ---
-title: Elencare le assegnazioni di ruolo usando RBAC di Azure e il portale di Azure
-description: Informazioni su come determinare le risorse a cui utenti, gruppi, entità servizio o identità gestite possono accedere usando il controllo degli accessi in base al ruolo di Azure (RBAC) e il portale di Azure.
+title: Elencare le assegnazioni di ruolo usando controllo degli accessi in base al ruolo di Azure e il portale di AzureList role assignments using Azure RBAC and the Azure portal
+description: Informazioni su come determinare a quali risorse gli utenti, i gruppi, le entità servizio o le identità gestite hanno accesso all'uso del controllo degli accessi in base al ruolo di Azure e del portale di Azure.Learn how to determine what resources users, groups, service principals, or managed identities have access to using Azure role-based access control (RBAC) and the Azure portal.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,62 +11,62 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/23/2020
+ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 63aef8d2036e442659145e031d384e9677c779a1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 03a3d3c7d572d7ec5b8d3ac3d527d0d59e649bc2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79245616"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062233"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Elencare le assegnazioni di ruolo usando RBAC di Azure e il portale di Azure
+# <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Elencare le assegnazioni di ruolo usando controllo degli accessi in base al ruolo di Azure e il portale di AzureList role assignments using Azure RBAC and the Azure portal
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] questo articolo descrive come elencare le assegnazioni di ruolo usando il portale di Azure.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]Questo articolo descrive come elencare le assegnazioni di ruolo usando il portale di Azure.This article describes how to list role assignments using the Azure portal.
 
 > [!NOTE]
-> Se l'organizzazione dispone di funzioni di gestione esternalizzate a un provider di servizi che usa la [gestione delle risorse delegate di Azure](../lighthouse/concepts/azure-delegated-resource-management.md), le assegnazioni di ruolo autorizzate dal provider di servizi non verranno visualizzate qui.
+> Se l'organizzazione ha esternalizzato le funzioni di gestione a un provider di servizi che utilizza la gestione delle risorse delegate di [Azure,](../lighthouse/concepts/azure-delegated-resource-management.md)le assegnazioni di ruolo autorizzate da tale provider di servizi non verranno visualizzate qui.
 
-## <a name="list-role-assignments-for-a-user-or-group"></a>Elencare le assegnazioni di ruolo per un utente o un gruppo
+## <a name="list-role-assignments-for-a-user-or-group"></a>Elencare le assegnazioni di ruolo per un utente o un gruppoList role assignments for a user or group
 
-Il modo più semplice per visualizzare i ruoli assegnati a un utente o a un gruppo in una sottoscrizione consiste nell'usare il riquadro **risorse di Azure** .
+Il modo più semplice per visualizzare i ruoli assegnati a un utente o a un gruppo in una sottoscrizione consiste nell'usare il riquadro Risorse di **Azure.The** easiest way to see the roles assigned to a user or group in a subscription is to use the Azure resources pane.
 
-1. Nella portale di Azure fare clic su **tutti i servizi** , quindi selezionare **utenti** o **gruppi**.
+1. Nel portale di Azure fare clic su **Tutti i servizi** e quindi selezionare **Utenti** o **Gruppi**.
 
-1. Fare clic sull'utente o sul gruppo per il quale si desidera elencare le assegnazioni di ruolo.
+1. Fare clic sull'utente o sul gruppo per cui si desidera elencare le assegnazioni di ruolo.
 
 1. Fare clic su **Risorse di Azure**.
 
-    Viene visualizzato un elenco di ruoli assegnati all'utente o al gruppo selezionato in diversi ambiti, ad esempio gruppo di gestione, sottoscrizione, gruppo di risorse o risorsa. Questo elenco include tutte le assegnazioni di ruolo per le quali si dispone dell'autorizzazione di lettura.
+    Viene visualizzato un elenco di ruoli assegnati all'utente o al gruppo selezionato in vari ambiti, ad esempio gruppo di gestione, sottoscrizione, gruppo di risorse o risorsa. Questo elenco include tutte le assegnazioni di ruolo che si è autorizzati a leggere.
 
     ![Assegnazione dei ruoli a un utente](./media/role-assignments-list-portal/azure-resources-user.png)    
 
-1. Per modificare la sottoscrizione, fare clic sull'elenco **sottoscrizioni** .
+1. Per modificare la sottoscrizione, fare clic sull'elenco **Sottoscrizioni.**
 
-## <a name="list-owners-of-a-subscription"></a>Elenca i proprietari di una sottoscrizione
+## <a name="list-owners-of-a-subscription"></a>Elencare i proprietari di un abbonamento
 
-Gli utenti a cui è stato assegnato il ruolo di [proprietario](built-in-roles.md#owner) per una sottoscrizione possono gestire tutti gli elementi nella sottoscrizione. Per elencare i proprietari di una sottoscrizione, seguire questa procedura.
+Gli utenti a cui è stato assegnato il ruolo [Proprietario](built-in-roles.md#owner) per una sottoscrizione possono gestire tutti gli elementi della sottoscrizione. Seguire questi passaggi per elencare i proprietari di una sottoscrizione.
 
 1. Nel portale di Azure fare clic su **Tutti i servizi** e quindi **Sottoscrizioni**.
 
-1. Fare clic sulla sottoscrizione di cui si desidera elencare i proprietari.
+1. Fare clic sull'abbonamento di cui si vuole elencare i proprietari.
 
-1. Fare clic su **Controllo di accesso (IAM)** .
+1. Fare clic su **Controllo di accesso (IAM)**.
 
 1. Fare clic sulla scheda **Assegnazioni di ruolo** per visualizzare tutte le assegnazioni di ruolo in questa sottoscrizione.
 
-1. Scorrere fino alla sezione **owners (proprietari** ) per visualizzare tutti gli utenti a cui è stato assegnato il ruolo di proprietario per questa sottoscrizione.
+1. Scorrere fino alla sezione **Proprietari** per visualizzare tutti gli utenti a cui è stato assegnato il ruolo Proprietario per la sottoscrizione.
 
-   ![Controllo di accesso alla sottoscrizione-scheda assegnazioni di ruolo](./media/role-assignments-list-portal/access-control-role-assignments-subscription.png)
+   ![Controllo di accesso alle sottoscrizioni - Scheda Assegnazioni di ruoloSubscription Access control - Role assignments tab](./media/role-assignments-list-portal/access-control-role-assignments-subscription.png)
 
-## <a name="list-role-assignments-at-a-scope"></a>Elencare le assegnazioni di ruolo in un ambito
+## <a name="list-role-assignments-at-a-scope"></a>Elencare le assegnazioni di ruolo in un ambitoList role assignments at a scope
 
-1. Nella portale di Azure fare clic su **tutti i servizi** e quindi selezionare l'ambito. È possibile ad esempio selezionare **Gruppi di gestione**, **Sottoscrizioni**, **Gruppi di risorse** o una risorsa.
+1. Nel portale di Azure fare clic su **Tutti i servizi** e quindi selezionare l'ambito. È possibile ad esempio selezionare **Gruppi di gestione**, **Sottoscrizioni**, **Gruppi di risorse** o una risorsa.
 
 1. Fare clic sulla risorsa specifica.
 
-1. Fare clic su **Controllo di accesso (IAM)** .
+1. Fare clic su **Controllo di accesso (IAM)**.
 
 1. Fare clic sulla scheda **Assegnazioni di ruolo** per visualizzare tutte le assegnazioni di ruolo in questo ambito.
 
@@ -74,15 +74,15 @@ Gli utenti a cui è stato assegnato il ruolo di [proprietario](built-in-roles.md
 
    Nella scheda Assegnazioni di ruolo è possibile visualizzare chi ha accesso a questo ambito. Si noterà che l'ambito di alcuni ruoli è **Questa risorsa**, mentre quello di altri è **(Ereditato)** da un altro ambito. L'accesso viene assegnato in modo specifico alla risorsa oppure ereditato da un'assegnazione nell'ambito padre.
 
-## <a name="list-role-assignments-for-a-user-at-a-scope"></a>Elencare le assegnazioni di ruolo per un utente in un ambito
+## <a name="list-role-assignments-for-a-user-at-a-scope"></a>Elencare le assegnazioni di ruolo per un utente in un ambitoList role assignments for a user at a scope
 
-Per elencare l'accesso per un utente, un gruppo, un'entità servizio o un'identità gestita, è possibile elencare le assegnazioni di ruolo. Attenersi alla procedura seguente per elencare le assegnazioni di ruolo per un singolo utente, gruppo, entità servizio o identità gestita in un determinato ambito.
+Per elencare l'accesso per un utente, un gruppo, un'entità servizio o un'identità gestita, elencare le relative assegnazioni di ruolo. Seguire questi passaggi per elencare le assegnazioni di ruolo per un singolo utente, gruppo, entità servizio o identità gestita in un ambito specifico.
 
-1. Nella portale di Azure fare clic su **tutti i servizi** e quindi selezionare l'ambito. È possibile ad esempio selezionare **Gruppi di gestione**, **Sottoscrizioni**, **Gruppi di risorse** o una risorsa.
+1. Nel portale di Azure fare clic su **Tutti i servizi** e quindi selezionare l'ambito. È possibile ad esempio selezionare **Gruppi di gestione**, **Sottoscrizioni**, **Gruppi di risorse** o una risorsa.
 
 1. Fare clic sulla risorsa specifica.
 
-1. Fare clic su **Controllo di accesso (IAM)** .
+1. Fare clic su **Controllo di accesso (IAM)**.
 
 1. Fare clic sulla scheda **Verifica l'accesso**.
 
@@ -100,43 +100,43 @@ Per elencare l'accesso per un utente, un gruppo, un'entità servizio o un'identi
 
     In questo riquadro è possibile visualizzare i ruoli assegnati all'entità di sicurezza e all'ambito selezionati. Se sono presenti assegnazioni negate in questo ambito o ereditate da questo ambito, verranno elencate.
 
-## <a name="list-role-assignments-for-a-system-assigned-managed-identity"></a>Elencare le assegnazioni di ruolo per un'identità gestita assegnata dal sistema
+## <a name="list-role-assignments-for-a-system-assigned-managed-identity"></a>Elencare le assegnazioni di ruolo per un'identità gestita assegnata dal sistemaList role assignments for a system-assigned managed identity
 
-1. Nella portale di Azure aprire un'identità gestita assegnata dal sistema.
+1. Nel portale di Azure aprire un'identità gestita assegnata dal sistema.
 
-1. Nel menu a sinistra fare clic su **Identity**.
+1. Nel menu a sinistra fare clic su **Identità**.
 
     ![Identità gestita assegnata dal sistema](./media/role-assignments-list-portal/identity-system-assigned.png)
 
-1. In **assegnazioni di ruolo**fare clic su **Mostra i ruoli RBAC di Azure assegnati a questa identità gestita**.
+1. In **Assegnazioni di**ruolo fare clic su **Mostra i ruoli RBAC di Azure assegnati a questa identità gestita.**
 
-    Viene visualizzato un elenco di ruoli assegnati all'identità gestita assegnata dal sistema selezionata in diversi ambiti, ad esempio gruppo di gestione, sottoscrizione, gruppo di risorse o risorsa. Questo elenco include tutte le assegnazioni di ruolo per le quali si dispone dell'autorizzazione di lettura.
+    Viene visualizzato un elenco di ruoli assegnati all'identità gestita assegnata dal sistema selezionata in vari ambiti, ad esempio gruppo di gestione, sottoscrizione, gruppo di risorse o risorsa. Questo elenco include tutte le assegnazioni di ruolo che si è autorizzati a leggere.
 
-    ![Assegnazioni di ruolo per un'identità gestita assegnata dal sistema](./media/role-assignments-list-portal/azure-resources-system-assigned.png)
+    ![Assegnazioni di ruolo per un'identità gestita assegnata dal sistemaRole assignments for a system-assigned managed identity](./media/role-assignments-list-portal/azure-resources-system-assigned.png)
 
-## <a name="list-role-assignments-for-a-user-assigned-managed-identity"></a>Elencare le assegnazioni di ruolo per un'identità gestita assegnata dall'utente
+## <a name="list-role-assignments-for-a-user-assigned-managed-identity"></a>Elencare le assegnazioni di ruolo per un'identità gestita assegnata dall'utenteList role assignments for a user-assigned managed identity
 
-1. Nella portale di Azure aprire un'identità gestita assegnata dall'utente.
+1. Nel portale di Azure aprire un'identità gestita assegnata dall'utente.
 
 1. Fare clic su **Risorse di Azure**.
 
-    Viene visualizzato un elenco di ruoli assegnati all'identità gestita assegnata dall'utente selezionata in diversi ambiti, ad esempio gruppo di gestione, sottoscrizione, gruppo di risorse o risorsa. Questo elenco include tutte le assegnazioni di ruolo per le quali si dispone dell'autorizzazione di lettura.
+    Viene visualizzato un elenco di ruoli assegnati all'identità gestita assegnata dall'utente selezionata in vari ambiti, ad esempio gruppo di gestione, sottoscrizione, gruppo di risorse o risorsa. Questo elenco include tutte le assegnazioni di ruolo che si è autorizzati a leggere.
 
-    ![Assegnazioni di ruolo per un'identità gestita assegnata dal sistema](./media/role-assignments-list-portal/azure-resources-user-assigned.png)
+    ![Assegnazioni di ruolo per un'identità gestita assegnata dal sistemaRole assignments for a system-assigned managed identity](./media/role-assignments-list-portal/azure-resources-user-assigned.png)
 
-1. Per modificare la sottoscrizione, fare clic sull'elenco **sottoscrizioni** .
+1. Per modificare la sottoscrizione, fare clic sull'elenco **Sottoscrizioni.**
 
-## <a name="list-number-of-role-assignments"></a>Elencare il numero di assegnazioni di ruolo
+## <a name="list-number-of-role-assignments"></a>Numero di assegnazioni di ruolo elenco
 
-È possibile avere fino a **2000** assegnazioni di ruolo in ogni sottoscrizione. Per tenere traccia di questi limiti, nella scheda **assegnazioni di ruolo** è incluso un grafico che elenca il numero corrente di assegnazioni di ruolo.
+È possibile avere fino a **2000** assegnazioni di ruolo in ogni sottoscrizione. Per tenere traccia di questo limite, la scheda **Assegnazioni** di ruolo include un grafico che elenca il numero di assegnazioni di ruolo per la sottoscrizione corrente.
 
-![Controllo di accesso-numero di assegnazioni di ruolo](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
+![Grafico Controllo di accesso - Numero di assegnazioni di ruolo](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
 
-Se ci si avvicina al numero massimo e si tenta di aggiungere altre assegnazioni di ruolo, verrà visualizzato un avviso nel riquadro **Aggiungi assegnazione ruolo** . È possibile ridurre il numero di assegnazioni di ruolo eliminando le assegnazioni di ruolo che non sono più necessarie o assegnando ruoli a gruppi invece che a singoli utenti.
+Se ci si avvicina al numero massimo e si tenta di aggiungere altre assegnazioni di ruolo, verrà visualizzato un avviso nel riquadro **Aggiungi assegnazione ruolo.** Per informazioni su come ridurre il numero di assegnazioni di ruolo, vedere Risolvere i problemi relativi al controllo [degli accessi in](troubleshooting.md#azure-role-assignments-limit)base al ruolo di Azure.
 
-![Controllo di accesso-avviso di aggiunta di assegnazione di ruolo](./media/role-assignments-list-portal/add-role-assignment-warning.png)
+![Controllo di accesso - Avviso di aggiunta dell'assegnazione di ruoloAccess control - Add role assignment warning](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Aggiungere o rimuovere assegnazioni di ruolo usando RBAC di Azure e il portale di Azure](role-assignments-portal.md)
+- [Aggiungere o rimuovere assegnazioni di ruolo tramite controllo degli accessi in base al ruolo di Azure e il portale di AzureAdd or remove role assignments using Azure RBAC and the Azure portal](role-assignments-portal.md)
 - [Risolvere i problemi del controllo degli accessi in base al ruolo per le risorse di Azure](troubleshooting.md)

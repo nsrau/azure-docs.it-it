@@ -1,24 +1,24 @@
 ---
-title: Risolvere i problemi di Azure Log Analytics VM Extension in monitoraggio di Azure | Microsoft Docs
+title: Risolvere i problemi relativi all'estensione della macchina virtuale di Analisi dei log di AzureTroubleshoot Azure Log Analytics
 description: Vengono descritti i sintomi, le cause e la risoluzione dei problemi più comuni con l'estensione della VM di Log Analytics per le macchine virtuali di Azure per Windows e Linux.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/06/2019
-ms.openlocfilehash: 88d76fc0c215653cf732ba7b827d82187d738fd9
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: e16531484505f055c1383aff5adb40518719d98a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77658473"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80054590"
 ---
-# <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Risoluzione dei problemi relativi all'estensione della macchina virtuale Log Analytics in monitoraggio di Azure
+# <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Risoluzione dei problemi relativi all'estensione della macchina virtuale Log Analytics in Monitoraggio di Azure
 Questo articolo fornisce indicazioni sulla risoluzione di errori che possono verificarsi con l'estensione della VM di Log Analytics per le macchine virtuali di Windows e Linux in esecuzione su Microsoft Azure e suggerisce le possibili soluzioni per risolverli.
 
 Per verificare lo stato dell'estensione eseguire questi passaggi dal portale di Azure.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al portale di [Azure](https://portal.azure.com).
 2. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **macchine virtuali**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Macchine virtuali**.
 3. Nell'elenco delle macchine virtuali trovarla e selezionarla.
 3. Nel pannello della macchina virtuale fare clic su **Extensions** (Estensioni).
@@ -37,7 +37,7 @@ Se l'estensione della VM di *Microsoft Monitoring Agent* non viene installata o 
 1. Controllare che l'agente di macchine virtuali di Azure sia installato e funzioni correttamente seguendo la procedura descritta nell'articolo [KB 2965986](https://support.microsoft.com/kb/2965986#mt1).
    * È anche possibile esaminare il file di log dell'agente di macchine virtuali `C:\WindowsAzure\logs\WaAppAgent.log`
    * Se il log non esiste, l'agente di macchine virtuali non è installato
-   * [Installare l'agente di macchine virtuali di Azure](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+   * [Installare l'agente di macchine virtuali di AzureInstall the Azure VM Agent](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 2. Esaminare i file di log dell'estensione macchina virtuale Microsoft Monitoring Agent in `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`
 3. Verificare che la macchina virtuale possa eseguire script di PowerShell
 4. Verificare che le autorizzazioni per C:\Windows\temp non siano state modificate

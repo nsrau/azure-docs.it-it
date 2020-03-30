@@ -4,21 +4,21 @@ description: Informazioni su come creare un gateway applicazione con traffico re
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 11/14/2019
+ms.date: 03/19/2020
 ms.author: victorh
-ms.topic: tutorial
-ms.openlocfilehash: 04cd390681d0492dc28308c3304753a6ecaf1c3c
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: c577859f6e8a44dd3573537aecadba638a5f6fa6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74047603"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80059379"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Creare un gateway applicazione con reindirizzamento basato su percorsi URL usando Azure PowerShell
 
-È possibile usare Azure PowerShell per configurare [regole di routing basato su URL](application-gateway-url-route-overview.md) quando si crea un [gateway applicazione](application-gateway-introduction.md). In questa esercitazione si creano pool back-end usando i [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Si creano quindi le regole di routing degli URL per garantire che il traffico Web venga reindirizzato nel pool back-end appropriato.
+È possibile usare Azure PowerShell per configurare [regole di routing basato su URL](application-gateway-url-route-overview.md) quando si crea un [gateway applicazione](application-gateway-introduction.md). In questo articolo vengono creati pool back-end utilizzando i set di [scalabilità delle macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Si creano quindi le regole di routing degli URL per garantire che il traffico Web venga reindirizzato nel pool back-end appropriato.
 
-In questa esercitazione si apprenderà come:
+In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Configurare la rete
@@ -30,7 +30,7 @@ L'esempio seguente illustra il traffico del sito in arrivo dalle porte 8080 e 80
 
 ![Esempio di routing basato su URL](./media/tutorial-url-redirect-powershell/scenario.png)
 
-Se si preferisce, è possibile completare questa esercitazione usando l'[interfaccia della riga di comando di Azure](tutorial-url-redirect-cli.md).
+Se si preferisce, è possibile completare questa procedura usando l'[interfaccia della riga di comando di Azure](tutorial-url-redirect-cli.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -38,7 +38,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 1.0.0 o successiva. Per trovare la versione, eseguire `Get-Module -ListAvailable Az`. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
+Se si sceglie di installare e usare PowerShell in locale, questa procedura richiede la versione 1.0.0 o successiva del modulo di Azure PowerShell.If you choose to install and use the PowerShell locally, this procedure requires the Azure PowerShell module version 1.0.0 or later. Per trovare la versione, eseguire `Get-Module -ListAvailable Az`. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -129,7 +129,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-default-listener-and-rule"></a>Creare il listener predefinito e la regola
 
-È necessario un listener per consentire al gateway applicazione di instradare il traffico in modo appropriato a un pool back-end. In questa esercitazione vengono creati più listener. Il primo listener di base prevede il traffico all'URL radice. Gli altri listener prevedono il traffico a URL specifici, ad esempio `http://52.168.55.24:8080/images/` oppure `http://52.168.55.24:8081/video/`.
+È necessario un listener per consentire al gateway applicazione di instradare il traffico in modo appropriato a un pool back-end. In questo articolo vengono creati più listener. Il primo listener di base prevede il traffico all'URL radice. Gli altri listener prevedono il traffico a URL specifici, ad esempio `http://52.168.55.24:8080/images/` oppure `http://52.168.55.24:8081/video/`.
 
 Creare un listener denominato *defaultListener* usando [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) con la configurazione front-end e la porta front-end create in precedenza. È necessaria una regola per comunicare al listener quale pool back-end usare per il traffico in ingresso. Creare una regola di base denominata *rule1* usando [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
@@ -346,7 +346,7 @@ Add-AzApplicationGatewayUrlPathMapConfig `
 Set-AzApplicationGateway -ApplicationGateway $appgw
 ```
 
-### <a name="add-routing-rules"></a>Aggiunta delle regole di routing
+### <a name="add-routing-rules"></a>Aggiungere le regole di routing
 
 Le regole di routing associano le mappe URL ai listener creati. È possibile aggiungere le regole denominate *defaultRule* e *redirectedRule* usando [Add-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule).
 

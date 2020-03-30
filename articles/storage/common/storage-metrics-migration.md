@@ -9,10 +9,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 537369c9466b1083723642ec9e93fcdf25056c5e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68855330"
 ---
 # <a name="azure-storage-metrics-migration"></a>Migrazione delle metriche di Archiviazione di Azure
@@ -41,7 +41,7 @@ La multidimensionalità è una delle funzionalità offerte da Monitoraggio di Az
 
 Se si leggono i dati delle metriche a livello di codice, nei programmi è necessario adottare il nuovo schema delle metriche. Per comprendere meglio le modifiche, è possibile fare riferimento al mapping illustrato nella tabella seguente:
 
-**Metriche della capacità**
+**Metriche di capacità**
 
 | Metrica precedente | Nuova metrica |
 | ------------------- | ----------------- |
@@ -78,7 +78,7 @@ L'elenco seguente include le nuove metriche non supportate in precedenza:
 | **AverageE2ELatency** | **SuccessE2ELatency** |
 | **AverageServerLatency** | **SuccessServerLatency** |
 | **ClientOtherError** | Transactions con dimensione **ResponseType** equivalente a **ClientOtherError** |
-| **ClientTimeoutError** | Transactions con dimensione **ResponseType** equivalente a **ClientTimeoutError** |
+| **ClientTimeoutError (ClientTimeoutError)** | Transactions con dimensione **ResponseType** equivalente a **ClientTimeoutError** |
 | **NetworkError** | Transactions con dimensione **ResponseType** equivalente a **NetworkError** |
 | **PercentAuthorizationError** | Transactions con dimensione **ResponseType** equivalente a **AuthorizationError** |
 | **PercentClientOtherError** | Transactions con dimensione **ResponseType** equivalente a **ClientOtherError** |
@@ -97,11 +97,11 @@ L'elenco seguente include le nuove metriche non supportate in precedenza:
 | **SASThrottlingError** | Transactions con dimensione **ResponseType** uguale a **ClientThrottlingError** or **ServerBusyError** e dimensione **Authentication** uguale a **SAS** |
 | **ServerOtherError** | Transactions con dimensione **ResponseType** equivalente a **ServerOtherError** |
 | **ServerTimeoutError** | Transactions con dimensione **ResponseType** equivalente a **ServerTimeoutError** |
-| **Success** | Transactions con dimensione **ResponseType** equivalente a **Success** |
+| **Successo** | Transactions con dimensione **ResponseType** equivalente a **Success** |
 | **ThrottlingError** | **Transactions** con dimensione **ResponseType** equivalente a **ClientThrottlingError** o **ServerBusyError**|
 | **TotalBillableRequests** | **Transazioni** |
-| **TotalEgress** | **Dati in uscita** |
-| **TotalIngress** | **Dati in ingresso** |
+| **TotalEgress** | **Uscita** |
+| **TotalIngress** | **Ingresso** |
 | **TotalRequests** | **Transazioni** |
 
 ## <a name="faq"></a>Domande frequenti
@@ -117,4 +117,4 @@ No. Per archiviare i dati delle metriche in un account di archiviazione, usare l
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Monitoraggio di Azure](../../monitoring-and-diagnostics/monitoring-overview.md)
-* [Metriche di Archiviazione di Azure in Monitoraggio di Azure](./storage-metrics-in-azure-monitor.md)
+* [Metriche di archiviazione in Monitoraggio di AzureStorage metrics in Azure Monitor](./storage-metrics-in-azure-monitor.md)

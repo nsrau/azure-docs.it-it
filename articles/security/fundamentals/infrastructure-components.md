@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 68535f70507e7a81d217f4148314a3d76ec832ea
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68727205"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Componenti e limiti del sistema informativo di Azure
@@ -82,7 +82,7 @@ I team dei servizi sono:
 - Calcolo di Azure
 - Azure Net
 - Servizi di progettazione cloud
-- ISSD: Security
+- ISSD: Sicurezza
 - Autenticazione a più fattori
 - Database SQL
 - Archiviazione
@@ -90,14 +90,14 @@ I team dei servizi sono:
 ## <a name="types-of-users"></a>Tipi di utenti
 I dipendenti (o collaboratori) di Microsoft vengono considerati utenti interni. Tutti gli altri utenti sono considerati utenti esterni. Tutti gli utenti interni Azure hanno lo stato di dipendente categorizzato con un livello di riservatezza che definisce l'accesso ai dati dei clienti (accesso o nessun accesso). La tabella seguente descrive i privilegi di utente in Azure (autorizzazione dopo l'autenticazione):
 
-| Role | Interno o esterno | Livello di riservatezza | Privilegi concessi e funzioni svolte | Tipo di accesso
+| Ruolo | Interno o esterno | Livello di riservatezza | Privilegi concessi e funzioni svolte | Tipo di accesso
 | --- | --- | --- | --- | --- |
-| Tecnico del data center di Azure | Interne | Nessun accesso ai dati dei clienti | Gestire la sicurezza fisica dei locali. Effettuare pattugliamenti dentro e fuori i data center e monitorare tutti i punti di ingresso. Accompagnare all'interno e all'esterno del data center il personale non autorizzato che fornisce servizi generali (ad esempio ristorazione o pulizia) o lavori informatici all'interno del data center. Operazioni di routine di monitoraggio e manutenzione dell'hardware di rete. Eseguire la gestione degli incidenti e gli interventi in garanzia utilizzando una varietà di strumenti. Effettuare il monitoraggio e la manutenzione di routine dell'hardware fisico nei data center. Accedere all'ambiente su richiesta dei proprietari. Capacità di eseguire indagini forensi, registrare i rapporti di operazioni non consentite e richiedere una formazione obbligatoria in materia di sicurezza e requisiti dei criteri. Proprietà operativa e manutenzione degli strumenti di sicurezza critici, come gli scanner e la raccolta dei registri. | Accesso permanente all'ambiente. |
-| Valutazione degli eventi imprevisti di Azure (tecnici Rapid Response) | Interne | Accesso ai dati dei clienti | Gestire le comunicazioni tra i team MCIO, di supporto e di ingegneria. Valutare gli eventi imprevisti della piattaforma, i problemi di distribuzione e le richieste di servizio. | Accesso JIT all'ambiente - con accesso permanente limitato per sistemi non di clienti JIT. |
-| Tecnici della distribuzione di Azure | Interne | Accesso ai dati dei clienti | Distribuzione e aggiornamenti di componenti della piattaforma, software e modifiche di configurazione pianificate per il supporto di Azure. | Accesso JIT all'ambiente - con accesso permanente limitato per sistemi non di clienti JIT. |
-| Supporto per l'interruzione del servizio clienti di Azure (tenant) | Interne | Accesso ai dati dei clienti | Esecuzione di debug e diagnosi di guasti ed errori della piattaforma per i singoli tenant del computer e gli account Azure. Analisi non riuscita. Offre correzioni critiche alla piattaforma o al cliente e miglioramenti tecnici attraverso l'assistenza. | Accesso JIT all'ambiente - con accesso permanente limitato per sistemi non di clienti JIT. |
-| Tecnici del sito live di Azure (tecnici di monitoraggio) e eventi imprevisti | Interne | Accesso ai dati dei clienti | Diagnosticare e attenuazione dello stato di integrità della piattaforma utilizzando strumenti diagnostici. Offre correzioni per i driver di volume, riparazioni derivanti da interruzioni e assistenza per le azioni di ripristino delle interruzioni. | Accesso JIT all'ambiente - con accesso permanente limitato per sistemi non di clienti JIT. |
-|Clienti Azure | Altre informazioni | N/D | N/D | N/D |
+| Tecnico del data center di Azure | Interno | Nessun accesso ai dati dei clienti | Gestire la sicurezza fisica dei locali. Effettuare pattugliamenti dentro e fuori i data center e monitorare tutti i punti di ingresso. Accompagnare all'interno e all'esterno del data center il personale non autorizzato che fornisce servizi generali (ad esempio ristorazione o pulizia) o lavori informatici all'interno del data center. Operazioni di routine di monitoraggio e manutenzione dell'hardware di rete. Eseguire la gestione degli incidenti e gli interventi in garanzia utilizzando una varietà di strumenti. Effettuare il monitoraggio e la manutenzione di routine dell'hardware fisico nei data center. Accedere all'ambiente su richiesta dei proprietari. Capacità di eseguire indagini forensi, registrare i rapporti di operazioni non consentite e richiedere una formazione obbligatoria in materia di sicurezza e requisiti dei criteri. Proprietà operativa e manutenzione degli strumenti di sicurezza critici, come gli scanner e la raccolta dei registri. | Accesso permanente all'ambiente. |
+| Valutazione degli eventi imprevisti di Azure (tecnici Rapid Response) | Interno | Accesso ai dati dei clienti | Gestire le comunicazioni tra i team MCIO, di supporto e di ingegneria. Valutare gli eventi imprevisti della piattaforma, i problemi di distribuzione e le richieste di servizio. | Accesso JIT all'ambiente - con accesso permanente limitato per sistemi non di clienti JIT. |
+| Tecnici della distribuzione di Azure | Interno | Accesso ai dati dei clienti | Distribuzione e aggiornamenti di componenti della piattaforma, software e modifiche di configurazione pianificate per il supporto di Azure. | Accesso JIT all'ambiente - con accesso permanente limitato per sistemi non di clienti JIT. |
+| Supporto per l'interruzione del servizio clienti di Azure (tenant) | Interno | Accesso ai dati dei clienti | Esecuzione di debug e diagnosi di guasti ed errori della piattaforma per i singoli tenant del computer e gli account Azure. Analisi non riuscita. Offre correzioni critiche alla piattaforma o al cliente e miglioramenti tecnici attraverso l'assistenza. | Accesso JIT all'ambiente - con accesso permanente limitato per sistemi non di clienti JIT. |
+| Tecnici del sito live di Azure (tecnici di monitoraggio) e eventi imprevisti | Interno | Accesso ai dati dei clienti | Diagnosticare e attenuazione dello stato di integrità della piattaforma utilizzando strumenti diagnostici. Offre correzioni per i driver di volume, riparazioni derivanti da interruzioni e assistenza per le azioni di ripristino delle interruzioni. | Accesso JIT all'ambiente - con accesso permanente limitato per sistemi non di clienti JIT. |
+|Clienti Azure | Esterno | N/D | N/D | N/D |
 
 Azure utilizza identificatori univoci per autenticare utenti e clienti dell'organizzazione (o processi che agiscono per conto di utenti dell'organizzazione) su tutti gli asset e i dispositivi che fanno parte dell'ambiente di Azure.
 
@@ -121,12 +121,12 @@ Il personale operativo Azure è tenuto a utilizzare workstation protette per l'a
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'infrastruttura di Azure, vedere:
 
-- [Azure facilities, premises, and physical security](physical-security.md) (Sicurezza fisica, presupposti e strutture di Azure)
+- [Azure facilities, premises, and physical security (Sicurezza fisica, presupposti e strutture di Azure)](physical-security.md)
 - [Disponibilità dell'infrastruttura di Azure](infrastructure-availability.md)
 - [Architettura di rete di Azure](infrastructure-network.md)
 - [Rete di produzione di Azure](production-network.md)
-- [Funzionalità di sicurezza del database SQL di Azure](infrastructure-sql.md)
-- [Azure production operations and management](infrastructure-operations.md) (Operazioni e gestione della produzione di Azure)
+- [Funzionalità di sicurezza del database SQL di AzureAzure SQL Database security features](infrastructure-sql.md)
+- [Gestione e funzionamento dell'ambiente di produzione di Azure](infrastructure-operations.md)
 - [Monitoraggio dell'infrastruttura di Azure](infrastructure-monitoring.md)
 - [Integrità dell'infrastruttura di Azure](infrastructure-integrity.md)
 - [Protezione dei dati dei clienti di Azure](protection-customer-data.md)
