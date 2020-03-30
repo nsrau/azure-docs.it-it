@@ -1,5 +1,5 @@
 ---
-title: Integrazione e recapito continui in Azure Data Factory
+title: Integrazione e distribuzione continue in Azure Data FactoryContinuous integration and delivery in Azure Data Factory
 description: Informazioni su come usare l'integrazione e il recapito continui per spostare le pipeline di Data Factory da un ambiente (sviluppo, test, produzione) a un altro.
 services: data-factory
 documentationcenter: ''
@@ -11,127 +11,127 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: dc0da82447b5df0735b16f46298a2f473ee61ea0
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 8bbb11a8811582bea26e784636564eb5d5a4d284
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79371376"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384331"
 ---
-# <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integrazione e recapito continui in Azure Data Factory
+# <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integrazione e distribuzione continue in Azure Data FactoryContinuous integration and delivery in Azure Data Factory
 
 ## <a name="overview"></a>Panoramica
 
-L'integrazione continua è la pratica di testare automaticamente le modifiche apportate alla codebase e il prima possibile. Il recapito continuo segue i test che si verificano durante l'integrazione continua e inserisce le modifiche in un sistema di gestione temporanea o di produzione.
+L'integrazione continua è la pratica di testare ogni modifica apportata alla codebase automaticamente e il più presto possibile.La distribuzione continua segue il test che viene eseguito durante l'integrazione continua ed esegue il push delle modifiche in un sistema di gestione temporanea o di produzione.
 
-In Azure Data Factory, l'integrazione e il recapito continuo (CI/CD) implica lo sviluppo di pipeline Data Factory da un ambiente (sviluppo, test, produzione) a un altro. È possibile usare l'integrazione di Data Factory UX con i modelli Azure Resource Manager per eseguire CI/CD.
+In Azure Data Factory l'integrazione e la distribuzione continue (CI/CD) significa spostare le pipeline di Data Factory da un ambiente (sviluppo, test, produzione) a un altro. È possibile usare l'integrazione dell'esperienza utente di Data Factory con i modelli di Azure Resource Manager per eseguire CI/CD.
 
-Nel Data Factory UX è possibile generare un modello di Gestione risorse dal menu a discesa **modello ARM** . Quando si seleziona **Esporta modello ARM**, il portale genera il modello di gestione risorse per il data factory e un file di configurazione che include tutte le stringhe di connessione e altri parametri. Si crea quindi un file di configurazione per ogni ambiente (sviluppo, test, produzione). Il file di modello di Resource Manager principale rimane lo stesso per tutti gli ambienti.
+Nell'esperienza utente di Data Factory è possibile generare un modello di Resource Manager dal menu a discesa **Modello ARM.** Quando si seleziona **Esporta modello ARM**, il portale genera il modello Resource Manager per la data factory e un file di configurazione che include tutte le stringhe di connessione e altri parametri. Quindi si crea un file di configurazione per ogni ambiente (sviluppo, test, produzione). Il file di modello di Resource Manager principale rimane lo stesso per tutti gli ambienti.
 
-Per un'introduzione di nove minuti a questa funzionalità e a una dimostrazione, Guarda questo video:
+Per un'introduzione di nove minuti a questa funzionalità e una dimostrazione, guardare questo video:For a nine-minute introduction to this feature and a demonstration, watch this video:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="cicd-lifecycle"></a>Ciclo di vita CI/CD
+## <a name="cicd-lifecycle"></a>Ciclo di vita di CI/CD
 
-Di seguito è riportata una panoramica di esempio del ciclo di vita CI/CD in un data factory di Azure configurato con Azure Repos git. Per altre informazioni su come configurare un repository git, vedere [controllo del codice sorgente in Azure Data Factory](source-control.md).
+Di seguito è riportata una panoramica di esempio del ciclo di vita ci/CD in una data factory di Azure configurata con Azure Repos Git.Below is a sample overview of the CI/CD lifecycle in an Azure data factory that's configured with Azure Repos Git. Per altre informazioni su come configurare un repository Git, vedere [Controllo del codice sorgente in Azure Data Factory.For](source-control.md)more information on how to configure a Git repository, see Source control in Azure Data Factory .
 
-1.  Un data factory di sviluppo viene creato e configurato con Azure Repos git. Tutti gli sviluppatori devono disporre dell'autorizzazione per creare risorse Data Factory come pipeline e set di impostazioni.
+1.  Una data factory di sviluppo viene creata e configurata con Azure Repos Git.A development data factory is created and configured with Azure Repos Git. Tutti gli sviluppatori devono disporre dell'autorizzazione per creare risorse di Data Factory come pipeline e set di dati.
 
-1.  Quando gli sviluppatori apportano modifiche ai Branch delle funzionalità, eseguono il debug delle esecuzioni di pipeline con le modifiche più recenti. Per ulteriori informazioni su come eseguire il debug di un'esecuzione di pipeline, vedere [sviluppo iterativo e debug con Azure Data Factory](iterative-development-debugging.md).
+1.  Come gli sviluppatori apportare modifiche nei loro rami di funzionalità, eseguire il debug delle esecuzioni della pipeline con le modifiche più recenti. Per altre informazioni su come eseguire il debug di una pipeline, vedere [Sviluppo e debug iterativi con Azure Data Factory.](iterative-development-debugging.md)
 
-1.  Una volta soddisfatte le modifiche, gli sviluppatori creano una richiesta pull dal ramo della funzionalità al ramo master o di collaborazione per approvare le modifiche apportate dai peer.
+1.  Dopo che gli sviluppatori sono soddisfatti delle modifiche, creano una richiesta pull dal ramo di funzionalità al ramo di collaborazione o master per ottenere le modifiche esaminate dai peer.
 
-1.  Dopo che una richiesta pull è stata approvata e le modifiche sono state unite nel ramo master, è possibile pubblicare le modifiche nella Factory di sviluppo.
+1.  Dopo l'approvazione di una richiesta pull e l'unione delle modifiche nel ramo master, le modifiche possono essere pubblicate nella factory di sviluppo.
 
-1.  Quando il team è pronto per distribuire le modifiche alla Factory di test e quindi alla Factory di produzione, il team esporta il modello di Gestione risorse dal ramo master.
+1.  Quando il team è pronto per distribuire le modifiche alla factory di test e quindi alla factory di produzione, esporta il modello Resource Manager dal ramo master.
 
-1.  Il modello di Gestione risorse esportato viene distribuito con diversi file di parametri nella Factory di test e nella Factory di produzione.
+1.  Il modello di Resource Manager esportato viene distribuito con file di parametri diversi nella factory di test e nella factory di produzione.
 
 ## <a name="create-a-resource-manager-template-for-each-environment"></a>Creare un modello di Resource Manager per ogni ambiente
 
-1. Nell'elenco **modello ARM** selezionare **Esporta modello ARM** per esportare il modello di gestione risorse per il data factory nell'ambiente di sviluppo.
+1. Nell'elenco **Modello ARM** selezionare **Esporta modello ARM** per esportare il modello resource Manager per la data factory nell'ambiente di sviluppo.
 
-   ![Esportare un modello di Gestione risorse](media/continuous-integration-deployment/continuous-integration-image1.png)
+   ![Esportare un modello di Resource ManagerExport a Resource Manager template](media/continuous-integration-deployment/continuous-integration-image1.png)
 
-1. Nelle data factory di test e di produzione selezionare **Importa modello ARM**. Questa azione consente di passare al portale di Azure, in cui è possibile importare il modello esportato. Selezionare **Compila un modello personalizzato nell'editor** per aprire l'editor del modello Gestione risorse.
+1. Nelle factory di dati di test e di produzione selezionare **Importa modello ARM**. Questa azione consente di passare al portale di Azure, in cui è possibile importare il modello esportato. Selezionare **Crea modello personalizzato nell'editor** per aprire l'editor dei modelli di Resource Manager.Select Build your own template in the editor to open the Resource Manager template editor.
 
-   ![Creazione di un modello personalizzato](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
+   ![Crea il tuo modello](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
-1. Selezionare **Carica file**e quindi selezionare il modello di gestione risorse generato. Si tratta del file **arm_template. JSON** che si trova nel file con estensione zip esportato nel passaggio 1.
+1. Selezionare **Carica file**e quindi selezionare il modello di Resource Manager generato. Si tratta del file **arm_template.json** che si trova nel file .zip esportato nel passaggio 1.
 
    ![Modifica del modello](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
-1. Nella sezione Impostazioni, immettere i valori di configurazione, ad esempio le credenziali del servizio collegato. Al termine, selezionare **Acquista** per distribuire il modello di gestione risorse.
+1. Nella sezione delle impostazioni immettere i valori di configurazione, ad esempio le credenziali del servizio collegato. Al termine, selezionare Acquista per distribuire il modello di Resource Manager.When you're done, select **Purchase** to deploy the Resource Manager template.
 
    ![Sezione Impostazioni](media/continuous-integration-deployment/continuous-integration-image5.png)
 
 ### <a name="connection-strings"></a>Stringhe di connessione
 
-Per informazioni su come configurare le stringhe di connessione, vedere l'articolo del connettore. Ad esempio, per il database SQL di Azure, vedere [Copiare dati da o nel database SQL di Azure tramite Azure Data Factory](connector-azure-sql-database.md). Per verificare una stringa di connessione, è possibile aprire la visualizzazione codice per la risorsa nel Data Factory UX. Nella visualizzazione codice viene rimossa la parte della password o della chiave dell'account della stringa di connessione. Per aprire la visualizzazione codice, selezionare l'icona evidenziata qui:
+Per informazioni su come configurare le stringhe di connessione, vedere l'articolo del connettore. Ad esempio, per il database SQL di Azure, vedere [Copiare dati da o nel database SQL di Azure tramite Azure Data Factory](connector-azure-sql-database.md). Per verificare una stringa di connessione, è possibile aprire la visualizzazione codice per la risorsa nell'esperienza utente di Data Factory.To verify a connection string, you can open the code view for the resource in the Data Factory UX. Nella visualizzazione codice la parte relativa alla password o alla chiave dell'account della stringa di connessione viene rimossa. Per aprire la vista Codice, selezionare l'icona evidenziata qui:
 
-![Aprire la visualizzazione codice per visualizzare la stringa di connessione](media/continuous-integration-deployment/continuous-integration-codeview.png)
+![Aprire la visualizzazione codice per visualizzare la stringa di connessioneOpen code view to see the connection string](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
-## <a name="automate-continuous-integration-by-using-azure-pipelines-releases"></a>Automatizzare l'integrazione continua con Azure Pipelines versioni
+## <a name="automate-continuous-integration-by-using-azure-pipelines-releases"></a>Automatizzare l'integrazione continua usando le versioni di Azure PipelinesAutomate continuous integration by using Azure Pipelines releases
 
-Di seguito è riportata una guida per la configurazione di una versione Azure Pipelines, che consente di automatizzare la distribuzione di un data factory in più ambienti.
+Di seguito è riportata una guida per la configurazione di una versione di Azure Pipelines, che automatizza la distribuzione di una data factory in più ambienti.
 
 ![Diagramma dell'integrazione continua con Azure Pipelines](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### <a name="requirements"></a>Requisiti
 
--   Una sottoscrizione di Azure collegata a Visual Studio Team Foundation Server o Azure Repos che usa l' [endpoint del servizio Azure Resource Manager](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
+-   Una sottoscrizione di Azure collegata a Visual Studio Team Foundation Server o Azure Repos che usa l'endpoint del [servizio Azure Resource Manager.](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager)
 
--   Data factory configurato con Azure Repos integrazione git.
+-   Una data factory configurata con l'integrazione di Azure Repos Git.A data factory configured with Azure Repos Git integration.
 
--   Un insieme di credenziali delle [chiavi di Azure](https://azure.microsoft.com/services/key-vault/) che contiene i segreti per ogni ambiente.
+-   Un insieme di [credenziali delle chiavi](https://azure.microsoft.com/services/key-vault/) di Azure che contiene i segreti per ogni ambiente.
 
 ### <a name="set-up-an-azure-pipelines-release"></a>Configurare una versione di Azure Pipelines
 
-1.  In [Azure DevOps](https://dev.azure.com/)aprire il progetto configurato con il data factory.
+1.  In [Azure DevOps](https://dev.azure.com/)aprire il progetto configurato con la data factory.
 
-1.  Sul lato sinistro della pagina selezionare **pipeline**, quindi selezionare **versioni**.
+1.  Sul lato sinistro della pagina selezionare **Pipeline**, quindi **Rilascia**.
 
-    ![Seleziona pipeline, versioni](media/continuous-integration-deployment/continuous-integration-image6.png)
+    ![Seleziona pipeline, rilasci](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-1.  Selezionare **nuova pipeline**o, se sono presenti pipeline esistenti, selezionare **nuovo** e quindi **nuova pipeline di rilascio**.
+1.  Selezionare **Nuova pipeline**oppure, se si dispone di pipeline esistenti, selezionare **Nuovo** e quindi Nuova pipeline **di rilascio**.
 
-1.  Selezionare il modello di **processo vuoto** .
+1.  Selezionare il modello **di processo Vuoto.**
 
-    ![Seleziona processo vuoto](media/continuous-integration-deployment/continuous-integration-image13.png)
+    ![Selezionare Processo vuoto](media/continuous-integration-deployment/continuous-integration-image13.png)
 
-1.  Nella casella **nome fase** immettere il nome dell'ambiente.
+1.  Nella casella **Nome fase,** immettere il nome dell'ambiente.
 
-1.  Selezionare **Aggiungi artefatto**, quindi selezionare il repository configurato con il data factory. Selezionare **adf_publish** per il **ramo predefinito**. Per la **versione predefinita**, selezionare **più recente dal ramo predefinito**.
+1.  Selezionare **Aggiungi elemento**, quindi selezionare il repository configurato con la data factory. Selezionare **adf_publish** per il **ramo Predefinito**. Per la **versione predefinita**, selezionare Più recente dal **ramo predefinito**.
 
     ![Aggiungere un elemento](media/continuous-integration-deployment/continuous-integration-image7.png)
 
 1.  Aggiungere un'attività di distribuzione di Azure Resource Manager:
 
-    a.  Nella visualizzazione stage selezionare **Visualizza attività fasi**.
+    a.  Nella vista delle fasi, selezionare **Visualizza attività fase**.
 
-    ![Visualizzazione temporanea](media/continuous-integration-deployment/continuous-integration-image14.png)
+    ![Vista dello stage](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  Creare una nuova attività. Cercare la **distribuzione del gruppo di risorse di Azure**e quindi selezionare **Aggiungi**.
+    b.  Creare una nuova attività. Cercare **Distribuzione gruppo di risorse di Azure**e quindi selezionare **Aggiungi**.
 
-    c.  Nell'attività di distribuzione selezionare la sottoscrizione, il gruppo di risorse e il percorso per la data factory di destinazione. Fornire le credenziali, se necessario.
+    c.  Nell'attività Distribuzione selezionare la sottoscrizione, il gruppo di risorse e il percorso per la data factory di destinazione. Se necessario, fornire le credenziali.
 
-    d.  Nell'elenco **azione** selezionare **Crea o Aggiorna gruppo di risorse**.
+    d.  Nell'elenco **Azione** selezionare **Crea o aggiorna gruppo di risorse.**
 
-    e.  Selezionare il pulsante con i puntini di sospensione ( **...** ) accanto alla casella **modello** . Cercare il modello di Azure Resource Manager creato usando il modello di **importazione ARM** nella sezione [creare un modello di gestione risorse per ogni ambiente](continuous-integration-deployment.md#create-a-resource-manager-template-for-each-environment) di questo articolo. Cercare questo file nella cartella <FactoryName> del ramo di adf_publish.
+    e.  Selezionare il pulsante con i conielli (**...**) accanto alla casella **Modello.** Cercare il modello di Azure Resource Manager creato usando **Importa modello ARM** nella sezione Creare un modello di Resource Manager per ogni [ambiente](continuous-integration-deployment.md#create-a-resource-manager-template-for-each-environment) di questo articolo. Cercare questo file <FactoryName> nella cartella del ramo adf_publish.
 
-    f.  Selezionare **...** accanto alla casella **parametri modello** per scegliere il file dei parametri. Il file scelto dipenderà dal fatto che sia stata creata una copia o che usi il file predefinito, ARMTemplateParametersForFactory. JSON.
+    f.  Selezionare **...** accanto alla casella **Parametri modello** per scegliere il file dei parametri. Il file scelto dipenderà dalla creazione di una copia o dal fatto che il file predefinito, ARMTemplateParametersForFactory.json.
 
-    g.  Selezionare **...** accanto alla casella **Sostituisci parametri modello** e immettere le informazioni per la data factory di destinazione. Per le credenziali provenienti da Azure Key Vault, immettere il nome del segreto tra virgolette doppie. Se, ad esempio, il nome del segreto è cred1, immettere **"$ (cred1)"** per questo valore.
+    g.  Selezionare **...** accanto alla casella **Sostituisci parametri modello** e immettere le informazioni per la data factory di destinazione. Per le credenziali provenienti dall'insieme di credenziali delle chiavi di Azure, immettere il nome del segreto tra virgolette doppie. Ad esempio, se il nome del segreto è cred1, immettere **"(cred1)"** per questo valore.
 
-    h. Selezionare **incrementale** per la **modalità di distribuzione**.
+    h. Selezionare **Incrementale** per la **modalità di distribuzione**.
 
     > [!WARNING]
-    > Se si seleziona **completa** per la **modalità di distribuzione**, le risorse esistenti potrebbero essere eliminate, incluse tutte le risorse nel gruppo di risorse di destinazione che non sono definite nel modello di gestione risorse.
+    > Se si seleziona **Completa** per la **modalità di distribuzione**, le risorse esistenti potrebbero essere eliminate, incluse tutte le risorse nel gruppo di risorse di destinazione non definite nel modello di Resource Manager.
 
-    ![Distribuzione Data Factory Prod](media/continuous-integration-deployment/continuous-integration-image9.png)
+    ![Distribuzione prod di Data Factory](media/continuous-integration-deployment/continuous-integration-image9.png)
 
 1.  Salvare la pipeline di versione.
 
@@ -140,17 +140,17 @@ Di seguito è riportata una guida per la configurazione di una versione Azure Pi
    ![Selezionare Crea versione](media/continuous-integration-deployment/continuous-integration-image10.png)
 
 > [!IMPORTANT]
-> Negli scenari CI/CD, il tipo di runtime di integrazione (IR) in ambienti diversi deve essere lo stesso. Se, ad esempio, si dispone di un runtime di integrazione self-hosted nell'ambiente di sviluppo, anche lo stesso runtime di integrazione deve essere di tipo self-hosted in altri ambienti, ad esempio test e produzione. Analogamente, se si condividono runtime di integrazione in più fasi, è necessario configurare i runtime di integrazione come self-hosted collegato in tutti gli ambienti, ad esempio sviluppo, test e produzione.
+> Negli scenari CI/CD, il tipo di runtime di integrazione (IR) in ambienti diversi deve essere lo stesso. Ad esempio, se si dispone di un prodotto a motore self-hosted nell'ambiente di sviluppo, lo stesso iR deve essere di tipo self-hosted in altri ambienti, ad esempio test e produzione. Analogamente, se si condividono runtime di integrazione in più fasi, è necessario configurare i runtime di integrazione come connessi come self-hosted in tutti gli ambienti, ad esempio sviluppo, test e produzione.
 
-### <a name="get-secrets-from-azure-key-vault"></a>Ottenere i segreti da Azure Key Vault
+### <a name="get-secrets-from-azure-key-vault"></a>Ottenere segreti dall'insieme di credenziali delle chiavi di AzureGet secrets from Azure Key Vault
 
-Se si dispone di segreti per passare un modello di Azure Resource Manager, è consigliabile usare Azure Key Vault con la versione Azure Pipelines.
+Se sono segreti per passare un modello di Azure Resource Manager, è consigliabile usare l'insieme di credenziali delle chiavi di Azure con la versione Azure Pipelines.If you have secrets to pass in an Azure Resource Manager template, we recommend that you use Azure Key Vault with the Azure Pipelines release.
 
-Esistono due modi per gestire i segreti:
+Esistono due modi per gestire i segreti:There are two ways to handle secrets:
 
 1.  Aggiungere i segreti al file dei parametri. Per altre informazioni, vedere [Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione](../azure-resource-manager/templates/key-vault-parameter.md).
 
-    Creare una copia del file dei parametri caricato nel ramo di pubblicazione. Impostare i valori dei parametri che si desidera ottenere da Key Vault utilizzando il formato seguente:
+    Creare una copia del file dei parametri caricato nel ramo di pubblicazione. Impostare i valori dei parametri che si desidera ottenere dall'insieme di credenziali delle chiavi utilizzando il seguente formato:
 
     ```json
     {
@@ -171,27 +171,27 @@ Esistono due modi per gestire i segreti:
 
     Il file dei parametri deve essere anche nel ramo di pubblicazione.
 
-1. Aggiungere un' [attività Azure Key Vault](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) prima dell'attività di distribuzione Azure Resource Manager descritta nella sezione precedente:
+1. Aggiungere [un'attività Dell'insieme di](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) credenziali delle chiavi di Azure prima dell'attività di distribuzione di Azure Resource Manager descritta nella sezione precedente:Add an Azure Key Vault task before the Azure Resource Manager Deployment task described in the previous section:
 
-    1.  Nella scheda **attività** , creare una nuova attività. Cercare **Azure Key Vault** e aggiungerlo.
+    1.  Nella scheda **Attività** creare una nuova attività. Cercare **L'insieme di credenziali delle** chiavi di Azure e aggiungerlo.
 
-    1.  Nell'attività Key Vault selezionare la sottoscrizione in cui è stato creato l'insieme di credenziali delle chiavi. Fornire le credenziali, se necessario, e quindi selezionare l'insieme di credenziali delle chiavi.
+    1.  Nell'attività Key Vault, selezionare la sottoscrizione in cui è stato creato l'insieme di credenziali delle chiavi. Specificare le credenziali, se necessario, quindi selezionare l'insieme di credenziali delle chiavi.
 
-    ![Aggiungere un'attività Key Vault](media/continuous-integration-deployment/continuous-integration-image8.png)
+    ![Aggiungere un'attività dell'insieme di credenziali delle chiaviAdd a Key Vault task](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 #### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Concedere le autorizzazioni all'agente di Azure Pipelines
 
-L'attività Azure Key Vault potrebbe non riuscire con un errore di accesso negato se non sono impostate le autorizzazioni corrette. Scaricare i log per la versione e individuare il file con estensione ps1 che contiene il comando per concedere le autorizzazioni all'agente Azure Pipelines. È possibile eseguire il comando direttamente. In alternativa, è possibile copiare l'ID entità dal file e aggiungere manualmente i criteri di accesso nel portale di Azure. `Get` e `List` sono le autorizzazioni minime necessarie.
+L'attività Dell'insieme di credenziali delle chiavi di Azure potrebbe non riuscire con un errore di accesso negato se non sono impostate le autorizzazioni corrette. Scaricare i log per la versione e individuare il file con estensione ps1 che contiene il comando per concedere autorizzazioni all'agente Pipeline di Azure.Download the logs for the release, and locate the .ps1 file that contains the command to give permissions to the Azure Pipelines agent. È possibile eseguire il comando direttamente. In alternativa, è possibile copiare l'ID entità dal file e aggiungere manualmente i criteri di accesso nel portale di Azure.Or you can copy the principal ID from the file and add the access policy manually in the Azure portal. `Get`e `List` sono le autorizzazioni minime richieste.
 
 ### <a name="update-active-triggers"></a>Aggiornare i trigger attivi
 
-La distribuzione può non riuscire se si prova ad aggiornare i trigger attivi. Per aggiornare i trigger attivi, è necessario arrestarli manualmente e quindi riavviarli dopo la distribuzione. A tale scopo, è possibile utilizzare un'attività Azure PowerShell:
+La distribuzione può non riuscire se si prova ad aggiornare i trigger attivi. Per aggiornare i trigger attivi, è necessario arrestarli manualmente e quindi riavviarli dopo la distribuzione. È possibile eseguire questa operazione usando un'attività di Azure PowerShell:You can do this by using an Azure PowerShell task:
 
-1.  Nella scheda **attività** della versione aggiungere un'attività **Azure PowerShell** . Scegliere la versione 4. * dell'attività. 
+1.  Nella scheda Attività della versione aggiungere un'attività di **Azure PowerShell.On** the **Tasks** tab of the release, add an Azure PowerShell task. Scegliere la versione dell'attività 4. 
 
-1.  Selezionare la sottoscrizione in cui si trova la factory.
+1.  Selezionare l'abbonamento in cui si trova la tua fabbrica.
 
-1.  Selezionare **percorso file script** come tipo di script. A questo scopo, è necessario salvare lo script di PowerShell nel repository. È possibile usare lo script di PowerShell seguente per arrestare i trigger:
+1.  Selezionare **Percorso file script** come tipo di script. Ciò richiede il salvataggio dello script di PowerShell nel repository. Lo script di PowerShell seguente può essere usato per arrestare i trigger:The following PowerShell script can be used to stop triggers:
 
     ```powershell
     $triggersADF = Get-AzDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
@@ -199,24 +199,24 @@ La distribuzione può non riuscire se si prova ad aggiornare i trigger attivi. P
     $triggersADF | ForEach-Object { Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
     ```
 
-È possibile completare passaggi simili (con la funzione `Start-AzDataFactoryV2Trigger`) per riavviare i trigger dopo la distribuzione.
+È possibile completare passaggi `Start-AzDataFactoryV2Trigger` simili (con la funzione) per riavviare i trigger dopo la distribuzione.
 
-### <a name="sample-pre--and-post-deployment-script"></a>Script di pre-distribuzione e post-distribuzione di esempio
+### <a name="sample-pre--and-post-deployment-script"></a>Esempio di script pre e post-distribuzione
 
-Lo script di esempio seguente può essere usato per arrestare i trigger prima della distribuzione e riavviarli in seguito. Lo script include anche il codice per eliminare le risorse che sono state rimosse. Salvare lo script in un repository git di Azure DevOps e farvi riferimento tramite un'attività Azure PowerShell usando la versione 4. *.
+Lo script di esempio seguente può essere usato per arrestare i trigger prima della distribuzione e riavviarli in un secondo momento. Lo script include anche il codice per eliminare le risorse che sono state rimosse. Salvare lo script in un repository git DevOps di Azure e farvi riferimento tramite un'attività di Azure PowerShell con la versione 4.
 
-Quando si esegue uno script di pre-distribuzione, è necessario specificare una variante dei seguenti parametri nel campo **argomenti script** .
+Quando si esegue uno script pre-distribuzione, è necessario specificare una variazione dei parametri seguenti nel campo **Argomenti script.**
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $true -deleteDeployment $false`
 
 
-Quando si esegue uno script di post-distribuzione, è necessario specificare una variante dei seguenti parametri nel campo **argomenti script** .
+Quando si esegue uno script post-distribuzione, è necessario specificare una variazione dei parametri seguenti nel campo **Argomenti script.**
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
 
-    ![Azure PowerShell task](media/continuous-integration-deployment/continuous-integration-image11.png)
+![Attività di Azure PowerShellAzure PowerShell task](media/continuous-integration-deployment/continuous-integration-image11.png)
 
-Di seguito è riportato lo script che può essere usato per pre-e post-distribuzione. Questo account per le risorse eliminate e i riferimenti alle risorse.
+Di seguito è riportato lo script che può essere utilizzato per la pre e post-distribuzione. Tiene conto delle risorse eliminate e dei riferimenti alle risorse.
 
 ```powershell
 param
@@ -366,7 +366,13 @@ if ($predeployment -eq $true) {
     Write-Host "Stopping deployed triggers"
     $triggerstostop | ForEach-Object { 
         Write-host "Disabling trigger " $_
-        Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+        Remove-AzDataFactoryV2TriggerSubscription -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force
+    $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    while ($status.Status -ne "Disabled"){
+            Start-Sleep -s 15
+            $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    }
+    Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
     }
 }
 else {
@@ -459,42 +465,48 @@ else {
     Write-Host "Starting active triggers"
     $activeTriggerNames | ForEach-Object { 
         Write-host "Enabling trigger " $_
-        Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+        Add-AzDataFactoryV2TriggerSubscription -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force
+    $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    while ($status.Status -ne "Enabled"){
+            Start-Sleep -s 15
+            $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    }
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
     }
 }
 ```
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Usare i parametri personalizzati con il modello di Resource Manager
 
-Se si è in modalità GIT, è possibile eseguire l'override delle proprietà predefinite nel modello di Gestione risorse per impostare le proprietà con parametri nel modello e le proprietà hardcoded. In questi scenari potrebbe essere necessario eseguire l'override del modello di parametrizzazione predefinito:
+Se si è in modalità GIT, è possibile eseguire l'override delle proprietà predefinite nel modello di Resource Manager per impostare le proprietà con parametri nel modello e le proprietà hardcoded. È possibile eseguire l'override del modello di parametrizzazione predefinito in questi scenari:You might want to override the default parameterization template in these scenarios:
 
-* Si utilizza l'integrazione continua/recapito continuo automatica e si desidera modificare alcune proprietà durante Gestione risorse distribuzione, ma le proprietà non sono parametrizzate per impostazione predefinita.
-* La Factory è talmente grande che il modello di Gestione risorse predefinito non è valido perché contiene un numero di parametri massimo consentito (256).
+* Si utilizza CI/CD automatizzato e si desidera modificare alcune proprietà durante la distribuzione di Resource Manager, ma le proprietà non sono parametrizzate per impostazione predefinita.
+* La factory è così grande che il modello di Resource Manager predefinito non è valido perché ha più di parametri consentiti massimi (256).
 
-In queste condizioni, per eseguire l'override del modello di parametrizzazione predefinito, creare un file denominato **ARM-Template-Parameters-Definition. JSON** nella cartella specificata come cartella radice per l'integrazione di git data factory. È necessario usare il nome esatto del file. Data Factory legge questo file da qualsiasi ramo attualmente attivo nel portale di Azure Data Factory, non solo dal ramo collaborazione. È possibile creare o modificare il file da un ramo privato, in cui è possibile testare le modifiche selezionando **Esporta modello ARM** nell'interfaccia utente. È quindi possibile unire il file nel ramo collaborazione. Se non viene trovato alcun file, viene usato il modello predefinito.
+In queste condizioni, per eseguire l'override del modello di parametrizzazione predefinito, creare un file denominato **arm-template-parameters-definition.json** nella cartella specificata come cartella radice per l'integrazione git della data factory. È necessario utilizzare il nome esatto del file. Data Factory legge questo file dal ramo in cui ci si trova attualmente nel portale di Azure Data Factory, non solo dal ramo di collaborazione. È possibile creare o modificare il file da un ramo privato, in cui è possibile testare le modifiche selezionando **Esporta modello ARM** nell'interfaccia utente. È quindi possibile unire il file nel ramo di collaborazione. Se non viene trovato alcun file, viene utilizzato il modello predefinito.
 
 > [!NOTE]
-> Un modello di parametrizzazione personalizzato non modifica il limite di parametri del modello ARM di 256. Consente di scegliere e diminuire il numero di proprietà con parametri.
+> Un modello di parametrizzazione personalizzato non modifica il limite dei parametri di modello ARM di 256.A custom parameterization template doesn't change the ARM template parameter limit of 256. Consente di scegliere e ridurre il numero di proprietà con parametri.
 
 ### <a name="syntax-of-a-custom-parameters-file"></a>Sintassi di un file dei parametri personalizzati
 
-Di seguito sono riportate alcune linee guida da seguire quando si crea il file di parametri personalizzati. Il file è costituito da una sezione per ogni tipo di entità: trigger, pipeline, servizio collegato, set di dati, Runtime di integrazione e così via.
-* Immettere il percorso della proprietà nel tipo di entità pertinente.
-* L'impostazione di un nome di proprietà su `*` indica che si desidera parametrizzare tutte le proprietà al suo interno (solo fino al primo livello, non in modo ricorsivo). È anche possibile fornire eccezioni a questa configurazione.
-* Impostando il valore di una proprietà come stringa, viene indicato che si desidera parametrizzare la proprietà. Usare il formato `<action>:<name>:<stype>`.
+Di seguito sono riportate alcune linee guida da seguire quando si crea il file dei parametri personalizzati. Il file è costituito da una sezione per ogni tipo di entità: trigger, pipeline, servizio collegato, set di dati, runtime di integrazione e così via.
+* Immettere il percorso della proprietà sotto il tipo di entità pertinente.
+* L'impostazione `*` di un nome di proprietà su indica che si desidera parametrizzare tutte le proprietà al suo ambiente (solo fino al primo livello, non in modo ricorsivo). È inoltre possibile fornire eccezioni a questa configurazione.
+* L'impostazione del valore di una proprietà come stringa indica che si desidera parametrizzare la proprietà. Utilizzare il `<action>:<name>:<stype>`formato .
    *  `<action>` può essere uno di questi caratteri:
-      * `=` significa che il valore corrente viene mantenuto come valore predefinito per il parametro.
-      * `-` significa che non si mantiene il valore predefinito per il parametro.
-      * `|` è un caso speciale per i segreti da Azure Key Vault per le stringhe di connessione o le chiavi.
-   * `<name>` è il nome del parametro. Se è vuota, prende il nome della proprietà. Se il valore inizia con un carattere di `-`, il nome viene abbreviato. Ad esempio, `AzureStorage1_properties_typeProperties_connectionString` verrebbe abbreviato in `AzureStorage1_connectionString`.
-   * `<stype>` è il tipo di parametro. Se `<stype>` è vuoto, il tipo predefinito è `string`. Valori supportati: `string`, `bool`, `number`, `object`e `securestring`.
-* La specifica di una matrice nel file di definizione indica che la proprietà corrispondente nel modello è una matrice. Data Factory scorre tutti gli oggetti nella matrice utilizzando la definizione specificata nell'oggetto di Integration runtime della matrice. Il secondo oggetto, una stringa, diventa il nome della proprietà, che viene usato come nome per il parametro per ogni iterazione.
-* Una definizione non può essere specifica di un'istanza di risorsa. Qualsiasi definizione viene applicata a tutte le risorse di quel tipo.
-* Per impostazione predefinita, vengono parametrizzate tutte le stringhe protette, ad esempio Key Vault segreti e le stringhe protette, ad esempio le stringhe di connessione, le chiavi e i token.
+      * `=` significa mantenere il valore corrente come valore predefinito per il parametro.
+      * `-` significa che non mantenere il valore predefinito per il parametro.
+      * `|` è un caso speciale per i segreti dall'insieme di credenziali delle chiavi di Azure per le stringhe di connessione o le chiavi.
+   * `<name>` è il nome del parametro. Se è vuoto, accetta il nome della proprietà. Se il valore `-` inizia con un carattere, il nome viene abbreviato. Ad esempio, `AzureStorage1_properties_typeProperties_connectionString` verrebbe `AzureStorage1_connectionString`abbreviato in .
+   * `<stype>` è il tipo di parametro. Se `<stype>` è vuoto, il `string`tipo predefinito è . `string`Valori supportati: `bool` `number`, `object`, `securestring`, , e .
+* Specificando una matrice nel file di definizione si indica che la proprietà corrispondente nel modello è una matrice. Data Factory scorre tutti gli oggetti nella matrice utilizzando la definizione specificata nell'oggetto runtime di integrazione della matrice. Il secondo oggetto, una stringa, diventa il nome della proprietà, che viene usato come nome per il parametro per ogni iterazione.
+* Una definizione non può essere specifica di un'istanza di risorsa. Qualsiasi definizione si applica a tutte le risorse di quel tipo.
+* Per impostazione predefinita, tutte le stringhe sicure, ad esempio i segreti dell'insieme di credenziali delle chiavi, e le stringhe sicure, ad esempio stringhe di connessione, chiavi e token, sono parametrizzate.
  
 ### <a name="sample-parameterization-template"></a>Modello di parametrizzazione di esempio
 
-Di seguito è riportato un esempio di come potrebbe essere un modello di parametrizzazione:
+Ecco un esempio di come potrebbe apparire un modello di parametrizzazione:Here's an example of what a parameterization template might look like:
 
 ```json
 {
@@ -555,35 +567,35 @@ Di seguito è riportato un esempio di come potrebbe essere un modello di paramet
     }
 }
 ```
-Ecco una spiegazione del modo in cui viene costruito il modello precedente, suddiviso per tipo di risorsa.
+Ecco una spiegazione di come viene costruito il modello precedente, suddiviso per tipo di risorsa.
 
 #### <a name="pipelines"></a>Pipeline
     
-* Qualsiasi proprietà nel percorso `activities/typeProperties/waitTimeInSeconds` è parametrizzata. Qualsiasi attività in una pipeline che dispone di una proprietà a livello di codice denominata `waitTimeInSeconds` (ad esempio, l'attività `Wait`) viene parametrizzata come numero, con un nome predefinito. Ma non avrà un valore predefinito nel modello di Gestione risorse. Sarà un input obbligatorio durante la distribuzione del Gestione risorse.
-* Analogamente, una proprietà denominata `headers` (ad esempio, in un'attività `Web`) viene parametrizzata con il tipo `object` (JObject). Ha un valore predefinito, che è lo stesso valore di quello della factory di origine.
+* Qualsiasi proprietà nel `activities/typeProperties/waitTimeInSeconds` percorso è parametrizzata. Qualsiasi attività in una pipeline con una `waitTimeInSeconds` proprietà a `Wait` livello di codice denominata (ad esempio, l'attività) viene parametrizzata come numero, con un nome predefinito. Ma non avrà un valore predefinito nel modello di Resource Manager.But it won't have a default value in the Resource Manager template. Sarà un input obbligatorio durante la distribuzione di Resource Manager.It will be a mandatory input during the Resource Manager deployment.
+* Analogamente, una `headers` proprietà chiamata (ad esempio, in `Web` `object` un'attività) è parametrizzata con tipo (JObject). Ha un valore predefinito, che è lo stesso valore di quello della factory di origine.
 
 #### <a name="integrationruntimes"></a>IntegrationRuntimes
 
-* Tutte le proprietà sotto il percorso `typeProperties` vengono parametrizzate con i rispettivi valori predefiniti. Sono ad esempio disponibili due proprietà in `IntegrationRuntimes` proprietà del tipo: `computeProperties` e `ssisProperties`. Entrambi i tipi di proprietà vengono creati con i rispettivi valori e tipi predefiniti (oggetto).
+* Tutte le proprietà `typeProperties` nel percorso sono parametrizzate con i rispettivi valori predefiniti. Ad esempio, sono disponibili `IntegrationRuntimes` due `computeProperties` proprietà `ssisProperties`nelle proprietà del tipo: e . Entrambi i tipi di proprietà vengono creati con i rispettivi valori e tipi predefiniti (Object).
 
 #### <a name="triggers"></a>Trigger
 
-* In `typeProperties`, due proprietà sono parametrizzate. Il primo è `maxConcurrency`, che è specificato per avere un valore predefinito ed è di tipo`string`. Il nome del parametro predefinito è `<entityName>_properties_typeProperties_maxConcurrency`.
-* Anche la proprietà `recurrence` è parametrizzata. Al suo interno, tutte le proprietà a tale livello vengono specificate per essere parametrizzate come stringhe, con i valori predefiniti e i nomi di parametro. Un'eccezione è rappresentata dalla proprietà `interval`, che è parametrizzata come tipo `number`. Il nome del parametro è con suffisso `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Analogamente, la proprietà `freq` è una stringa e viene parametrizzata come stringa. Tuttavia, la proprietà `freq` è parametrizzata senza un valore predefinito. Il nome viene abbreviato e viene suffissato. Ad esempio: `<entityName>_freq`.
+* In `typeProperties`, due proprietà sono parametrizzate. Il primo `maxConcurrency`è , che è specificato per avere`string`un valore predefinito ed è di tipo . Ha il nome `<entityName>_properties_typeProperties_maxConcurrency`di parametro predefinito .
+* Anche `recurrence` la proprietà è con parametri. Sotto di esso, tutte le proprietà a quel livello vengono specificate come stringhe, con i valori predefiniti e i nomi dei parametri. Un'eccezione `interval` è la proprietà , `number`che è parametrizzata come tipo . Il nome del parametro viene associato a un suffisso con `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Analogamente, `freq` la proprietà è una stringa e viene parametrizzata come stringa. Tuttavia, `freq` la proprietà è parametrizzata senza un valore predefinito. Il nome viene abbreviato e suffisso. Ad esempio: `<entityName>_freq`.
 
-#### <a name="linkedservices"></a>LinkedServices
+#### <a name="linkedservices"></a>LinkedServices (Servizi collegati)
 
-* I servizi collegati sono univoci. Poiché i servizi collegati e i set di impostazioni hanno un'ampia gamma di tipi, è possibile specificare una personalizzazione specifica del tipo. In questo esempio, per tutti i servizi collegati di tipo `AzureDataLakeStore`, verrà applicato un modello specifico. Per tutti gli altri (tramite `*`), verrà applicato un modello diverso.
-* La proprietà `connectionString` verrà parametrizzata come valore `securestring`. Non avrà un valore predefinito. Avrà un nome di parametro abbreviato con il suffisso `connectionString`.
-* La proprietà `secretAccessKey` è un `AzureKeyVaultSecret`, ad esempio in un servizio collegato Amazon S3. Viene automaticamente parametrizzato come segreto Azure Key Vault e recuperato dall'insieme di credenziali delle chiavi configurato. È anche possibile parametrizzare l'insieme di credenziali delle chiavi.
+* I servizi collegati sono unici. Poiché i servizi collegati e i set di dati dispongono di un'ampia gamma di tipi, è possibile fornire la personalizzazione specifica del tipo. In questo esempio, per tutti `AzureDataLakeStore`i servizi collegati di tipo , verrà applicato un modello specifico. Per tutti gli `*`altri (via ), verrà applicato un modello diverso.
+* La `connectionString` proprietà verrà parametrata come `securestring` valore. Non avrà un valore predefinito. Avrà un nome di parametro abbreviato `connectionString`che è suffisso con .
+* La `secretAccessKey` proprietà è `AzureKeyVaultSecret` un (ad esempio, in un servizio collegato Amazon S3). Viene automaticamente parametrizzato come segreto dell'insieme di credenziali delle chiavi di Azure e recuperato dall'insieme di credenziali delle chiavi configurato. È inoltre possibile parametrizzare l'insieme di credenziali delle chiavi stesso.
 
-#### <a name="datasets"></a>Dataset
+#### <a name="datasets"></a>Set di dati
 
-* Sebbene la personalizzazione specifica del tipo sia disponibile per i set di impostazioni, è possibile fornire la configurazione senza avere una configurazione a livello di \*. Nell'esempio precedente, vengono parametrizzate tutte le proprietà del set di dati in `typeProperties`.
+* Sebbene la personalizzazione specifica del tipo sia disponibile per \*i set di dati, è possibile fornire la configurazione senza disporre esplicitamente di una configurazione a livello. Nell'esempio precedente, tutte le `typeProperties` proprietà del set di dati in sono parametrizzate.
 
 ### <a name="default-parameterization-template"></a>Modello di parametrizzazione predefinito
 
-Di seguito è riportato il modello di parametrizzazione predefinito corrente. Se è necessario aggiungere solo alcuni parametri, la modifica diretta di questo modello potrebbe essere un'idea consigliata, perché non si perderà la struttura di parametrizzazione esistente.
+Di seguito è riportato il modello di parametrizzazione predefinito corrente. Se è necessario aggiungere solo alcuni parametri, la modifica diretta di questo modello potrebbe essere una buona idea perché non si perderà la struttura di parametrizzazione esistente.
 
 ```json
 {
@@ -693,7 +705,7 @@ Di seguito è riportato il modello di parametrizzazione predefinito corrente. Se
 }
 ```
 
-Nell'esempio seguente viene illustrato come aggiungere un singolo valore al modello di parametrizzazione predefinito. Si vuole solo aggiungere un ID cluster interattivo Azure Databricks esistente per un servizio collegato databricks al file dei parametri. Si noti che questo file corrisponde al file precedente, ad eccezione dell'aggiunta di `existingClusterId` nel campo proprietà di `Microsoft.DataFactory/factories/linkedServices`.
+Nell'esempio seguente viene illustrato come aggiungere un singolo valore al modello di parametrizzazione predefinito. Vogliamo solo aggiungere un ID cluster interattivo di Azure Databricks esistente per un servizio collegato Databricks al file dei parametri. Si noti che questo file è lo stesso `existingClusterId` del file `Microsoft.DataFactory/factories/linkedServices`precedente, ad eccezione dell'aggiunta di sotto il campo delle proprietà di .
 
 ```json
 {
@@ -806,63 +818,63 @@ Nell'esempio seguente viene illustrato come aggiungere un singolo valore al mode
 
 ## <a name="linked-resource-manager-templates"></a>Modelli di Resource Manager collegati
 
-Se è stata configurata l'integrazione continua/distribuzione continua per le Data Factory, è possibile che vengano superati i limiti del modello Azure Resource Manager Man mano che le dimensioni della Factory aumentano Ad esempio, un limite è il numero massimo di risorse in un modello di Gestione risorse. Per ospitare grandi Factory durante la generazione del modello di Gestione risorse completo per una factory, Data Factory ora genera modelli di Gestione risorse collegati. Con questa funzionalità, l'intero payload della factory viene suddiviso in diversi file in modo da non vincolare i limiti.
+Se hai configurato CI/CD per le data factory, potresti superare i limiti del modello di Azure Resource Manager man mano che la tua fabbrica aumenta. Ad esempio, un limite è il numero massimo di risorse in un modello di Resource Manager.For example, one limit is the maximum number of resources in a Resource Manager template. Per supportare factory di grandi dimensioni durante la generazione del modello di Resource Manager completo per una factory, Data Factory ora genera modelli di Resource Manager collegati. Con questa funzionalità, l'intero payload di fabbrica è suddiviso in diversi file in modo da non essere vincolati dai limiti.
 
-Se è stato configurato git, i modelli collegati vengono generati e salvati insieme ai modelli di Gestione risorse completi nel ramo di adf_publish in una nuova cartella denominata linkedTemplates:
+Se Git è stato configurato, i modelli collegati vengono generati e salvati insieme ai modelli completi di Resource Manager nel ramo adf_publish in una nuova cartella denominata linkedTemplates:
 
 ![Cartella dei modelli di Resource Manager collegati](media/continuous-integration-deployment/linked-resource-manager-templates.png)
 
-I modelli di Gestione risorse collegati sono in genere costituiti da un modello master e da un set di modelli figlio collegati al database master. Il modello padre è denominato ArmTemplate_master. JSON e i modelli figlio vengono denominati con il modello ArmTemplate_0. JSON, ArmTemplate_1. JSON e così via. 
+I modelli di Gestione risorse collegati sono in genere costituiti da un modello principale e da un set di modelli figlio collegati al master. Il modello padre è denominato ArmTemplate_master.json e i modelli figlio sono denominati con il modello ArmTemplate_0.json, ArmTemplate_1.json e così via. 
 
-Per usare i modelli collegati anziché il modello di Gestione risorse completo, aggiornare l'attività CI/CD in modo che punti a ArmTemplate_master. JSON anziché a ArmTemplateForFactory. JSON (modello di Gestione risorse completo). Gestione risorse anche necessario caricare i modelli collegati in un account di archiviazione in modo che Azure possa accedervi durante la distribuzione. Per altre informazioni, vedere [distribuzione di modelli di gestione risorse collegati con VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
+Per usare i modelli collegati anziché il modello completo di Resource Manager, aggiornare l'attività CI/CD in modo che punti a ArmTemplate_master.json anziché a ArmTemplateForFactory.json (il modello completo di Resource Manager). Resource Manager richiede anche il caricamento dei modelli collegati in un account di archiviazione in modo che Azure possa accedervi durante la distribuzione. Per altre info, vedere Distribuzione di modelli di [Resource Manager collegati con VSTS.](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/)
 
 Ricordarsi di aggiungere gli script di Data Factory nella pipeline CI/CD prima e dopo l'attività di distribuzione.
 
-Se Git non è configurato, è possibile accedere ai modelli collegati tramite **Esporta modello ARM** nell'elenco di **modelli ARM** .
+Se Git non è configurato, è possibile accedere ai modelli collegati tramite **Esporta modello ARM** nell'elenco Modello **ARM.**
 
-## <a name="hotfix-production-branch"></a>Ramo di produzione hotfix
+## <a name="hotfix-production-branch"></a>Ramo di produzione dell'hotfix
 
-Se si distribuisce una factory in produzione e si comprende un bug che deve essere corretto immediatamente, ma non è possibile distribuire il ramo di collaborazione corrente, potrebbe essere necessario distribuire un hotfix. Questo approccio è noto come progettazione rapida o QFE.
+Se si distribuisce una factory nell'ambiente di produzione e si rende conto che è necessario risolvere immediatamente un bug, ma non è possibile distribuire il ramo di collaborazione corrente, potrebbe essere necessario distribuire un hotfix. Questo approccio è noto come quick-fix engineering o QFE.
 
-1.  In Azure DevOps passare alla versione che è stata distribuita in produzione. Trovare l'ultimo commit distribuito.
+1.    In DevOps di Azure passare alla versione distribuita nell'ambiente di produzione. Trovare l'ultimo commit distribuito.
 
-2.  Dal messaggio di commit, ottenere l'ID commit del ramo collaborazione.
+2.    Dal messaggio di commit ottenere l'ID commit del ramo di collaborazione.
 
-3.  Creare un nuovo ramo dell'hotfix dal commit.
+3.    Creare un nuovo ramo di hotfix da tale commit.
 
-4.  Passare al Azure Data Factory UX e passare al ramo hotfix.
+4.    Passare all'esperienza utente di Azure Data Factory e passare al ramo dell'hotfix.
 
-5.  Con il Azure Data Factory UX, correggere il bug. Testare le modifiche.
+5.    Utilizzando l'esperienza utente di Azure Data Factory, correggere il bug. Testare le modifiche.
 
-6.  Dopo aver verificato la correzione, selezionare **Esporta modello ARM** per ottenere il modello di gestione risorse dell'hotfix.
+6.    Dopo aver verificato la correzione, selezionare **Esporta modello ARM** per ottenere il modello di hotfix Resource Manager.
 
-7.  Controllare manualmente questa compilazione nel ramo adf_publish.
+7.    Controllare manualmente questa compilazione nel ramo adf_publish.
 
-8.  Se la pipeline di rilascio è stata configurata in modo che venga attivata automaticamente in base alle archiviazioni di adf_publish, viene avviata automaticamente una nuova versione. In caso contrario, accodare manualmente una versione.
+8.    Se la pipeline di rilascio è stata configurata per l'attivazione automatica in base aadf_publish archiviazioni, verrà avviata automaticamente una nuova versione. In caso contrario, accodare manualmente una versione.
 
-9.  Distribuire la versione hotfix nelle factory di test e di produzione. Questa versione contiene il payload di produzione precedente e la correzione apportata nel passaggio 5.
+9.    Distribuire la versione dell'aggiornamento rapido per le factory di test e produzione. Questa versione contiene il payload di produzione precedente più la correzione effettuata nel passaggio 5.This release contains the previous production payload plus the fix that you made in step 5.
 
-10. Aggiungere le modifiche dall'hotfix al ramo Development in modo che le versioni successive non includano lo stesso bug.
+10.    Aggiungere le modifiche dall'hotfix al ramo di sviluppo in modo che le versioni successive non includeranno lo stesso bug.
 
 ## <a name="best-practices-for-cicd"></a>Procedure consigliate per la pipeline CI/CD
 
-Se si usa l'integrazione git con il data factory e si ha una pipeline di integrazione continua/distribuzione continua che sposta le modifiche dallo sviluppo a test e quindi alla produzione, è consigliabile eseguire le procedure consigliate seguenti:
+Se si usa l'integrazione Git con la data factory e si dispone di una pipeline CI/CD che sposta le modifiche dallo sviluppo al test e quindi alla produzione, è consigliabile eseguire le procedure consigliate seguenti:If you're using Git integration with your data factory and have a CI/CD pipeline that moves your changes from development into test and then to production, we recommend these best practices:
 
--   **Integrazione di git**. È necessario configurare solo la data factory di sviluppo con l'integrazione git. Le modifiche apportate ai test e alla produzione vengono distribuite tramite CI/CD e non richiedono l'integrazione di git.
+-   **Integrazione Git**. È necessario configurare solo la data factory di sviluppo con l'integrazione Git.You need to configure only your development data factory with Git integration. Le modifiche per il test e la produzione vengono distribuite tramite CI/CD e non richiedono l'integrazione Git.Changes to test and production are deployed via CI/CD and don't need Git integration.
 
--   **Script di Data Factory in CI/CD**. Prima del passaggio di distribuzione Gestione risorse in CI/CD, è necessario completare determinate attività, ad esempio l'arresto e il riavvio dei trigger e l'esecuzione della pulizia. Si consiglia di usare gli script di PowerShell prima e dopo la distribuzione. Per altre informazioni, vedere [Update Active Triggers](#update-active-triggers).
+-   **Script di Data Factory in CI/CD**. Prima del passaggio di distribuzione di Resource Manager in CI/CD, è necessario completare alcune attività, ad esempio l'arresto e il riavvio dei trigger e l'esecuzione della pulizia. È consigliabile usare gli script di PowerShell prima e dopo la distribuzione. Per ulteriori informazioni, consultate [Aggiornare i trigger attivi.](#update-active-triggers)
 
--   **Runtime di integrazione e condivisione**. I runtime di integrazione non cambiano spesso e sono simili in tutte le fasi dell'integrazione continua/recapito continuo. Quindi Data Factory si prevede di avere lo stesso nome e tipo di runtime di integrazione in tutte le fasi di CI/CD. Se si desidera condividere runtime di integrazione in tutte le fasi, è consigliabile utilizzare una factory ternaria per contenere solo i runtime di integrazione condivisi. È possibile usare questa factory condivisa in tutti gli ambienti come tipo di runtime di integrazione collegata.
+-   **Runtime di integrazione e condivisione**. I runtime di integrazione non cambiano spesso e sono simili in tutte le fasi del CI/CD. Quindi Data Factory prevede che tu abbia lo stesso nome e tipo di runtime di integrazione in tutte le fasi di CI/CD. Se si desidera condividere i runtime di integrazione in tutte le fasi, è consigliabile usare una factory ternaria solo per contenere i runtime di integrazione condivisi. È possibile usare questa factory condivisa in tutti gli ambienti come tipo di runtime di integrazione collegata.
 
--   **Insieme di credenziali delle chiavi**. Quando si usano servizi collegati basati su Azure Key Vault, è possibile sfruttarli ulteriormente mantenendo insiemi di credenziali delle chiavi distinti per ambienti diversi. È anche possibile configurare livelli di autorizzazione separati per ogni insieme di credenziali delle chiavi. Ad esempio, potrebbe non essere necessario che i membri del team dispongano delle autorizzazioni per i segreti di produzione. Se si segue questo approccio, si consiglia di proteggere gli stessi nomi di segreto in tutte le fasi. Se si mantengono gli stessi nomi, non è necessario modificare i modelli di Gestione risorse negli ambienti CI/CD, perché l'unica cosa che cambia è il nome dell'insieme di credenziali delle chiavi, che è uno dei parametri del modello di Gestione risorse.
+-   **Key Vault**. Quando si usano servizi collegati basati su Archiviazione delle chiavi di Azure, è possibile sfruttarli ulteriormente mantenendo insiemi di credenziali delle chiavi separati per ambienti diversi. È inoltre possibile configurare livelli di autorizzazione separati per ogni insieme di credenziali delle chiavi. Ad esempio, è possibile che non si desideri che i membri del team dispongano delle autorizzazioni per i segreti di produzione. Se si segue questo approccio, è consigliabile mantenere gli stessi nomi di segreto in tutte le fasi. Se si mantengono gli stessi nomi, non è necessario modificare i modelli di Resource Manager in ambienti CI/CD perché l'unica cosa che cambia è il nome dell'insieme di credenziali delle chiavi, che è uno dei parametri del modello di Resource Manager.
 
 ## <a name="unsupported-features"></a>Funzionalità non supportate
 
-- Per impostazione predefinita, Data Factory non consente il cherry-picking di commit o la pubblicazione selettiva delle risorse. Le pubblicazioni includeranno tutte le modifiche apportate all'data factory.
+- Per impostazione specifica, Data Factory non consente la selezione delle attività di raccolta dei commit o la pubblicazione selettiva delle risorse. Le pubblicazione includeranno tutte le modifiche apportate nella data factory.
 
-    - Le entità di data factory dipendono l'una dall'altra. Ad esempio, i trigger dipendono dalle pipeline e le pipeline dipendono da set di impostazioni e altre pipeline. La pubblicazione selettiva di un subset di risorse può causare comportamenti imprevisti ed errori.
-    - In rari casi in cui è necessaria la pubblicazione selettiva, provare a usare un hotfix. Per ulteriori informazioni, vedere la pagina relativa al [ramo di produzione degli hotfix](#hotfix-production-branch).
+    - Le entità factory di dati dipendono l'una dall'altra. Ad esempio, i trigger dipendono dalle pipeline e le pipeline dipendono da set di dati e altre pipeline. La pubblicazione selettiva di un sottoinsieme di risorse potrebbe causare comportamenti ed errori imprevisti.
+    - In rare occasioni in cui è necessaria la pubblicazione selettiva, prendere in considerazione l'utilizzo di un hotfix. Per ulteriori informazioni, vedere [Ramo di produzione dell'hotfix](#hotfix-production-branch).
 
 -   Non è possibile pubblicare da rami privati.
 
--   Attualmente non è possibile ospitare progetti in bitbucket.
+-   Al momento non è possibile ospitare progetti in Bitbucket.

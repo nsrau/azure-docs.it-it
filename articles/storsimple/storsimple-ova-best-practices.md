@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: a8aed646f03b777722518152354cfe80cea043a0
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 5da0297dd97c8263bdc47f1d5a3d7d2d1f835e4b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002811"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298828"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Procedure consigliate per l'array virtuale StorSimple
 
@@ -79,9 +79,9 @@ Prima di tutto, per ogni volume o condivisione a livelli la prenotazione locale 
 * Prenotazione locale di 120 GB (per un volume o una condivisione a livelli di 1 TB)
 * 330 GB per un volume o una condivisione aggiunti in locale (con l'aggiunta del 10% della prenotazione locale ai 300 GB delle dimensioni con provisioning)
 
-Lo spazio totale richiesto a livello locale fino a questo momento è il seguente: 240 GB + 120 GB + 330 GB = 690 GB.
+Lo spazio totale richiesto a livello locale fino a questo punto è: 240 GB + 120 GB + 330 GB = 690 GB.
 
-È quindi necessaria una quantità di spazio a livello locale pari alla singola prenotazione più grande. Questa quantità aggiuntiva viene usata nel caso in cui sia necessario eseguire il ripristino da uno snapshot cloud. In questo esempio, la prenotazione locale più grande è 330 GB (inclusa la prenotazione per file system), quindi è necessario aggiungerla a 690 GB: 690 GB + 330 GB = 1020 GB.
+È quindi necessaria una quantità di spazio a livello locale pari alla singola prenotazione più grande. Questa quantità aggiuntiva viene usata nel caso in cui sia necessario eseguire il ripristino da uno snapshot cloud. In questo esempio la prenotazione locale più grande è di 330 GB (inclusa la prenotazione per il file system), quindi sarà necessario aggiungere questo spazio ai 690 GB: 690 GB + 330 GB = 1020 GB.
 Se sono stati eseguiti altri ripristini successivi, è sempre possibile liberare spazio dall'operazione di ripristino precedente.
 
 Fino a questo punto è quindi necessario il 15% dello spazio locale totale per archiviare gli snapshot locali, perciò è disponibile solo l'85%. In questo esempio saranno circa 1020 GB = 0,85&ast;TB del disco dati con provisioning. Di conseguenza, il disco dati con provisioning sarà pari a (1020&ast;(1/0,85)) = 1200 GB = 1,20 TB ~ 1,25 TB (con arrotondamento al quartile più vicino)
@@ -92,7 +92,7 @@ Considerando la crescita imprevista e i nuovi ripristini, è consigliabile effet
 > È anche consigliabile effettuare il thin provisioning del disco locale, perché lo spazio di ripristino è necessario solo quando si vogliono ripristinare dati più vecchi di cinque giorni. Il ripristino a livello di elemento consente di ripristinare i dati degli ultimi cinque giorni senza richiedere spazio aggiuntivo per il ripristino.
 
 
-#### <a name="example-2"></a>Esempio 2
+#### <a name="example-2"></a>Esempio 2:
 Nell'array virtuale si vuole poter eseguire queste operazioni
 
 * Effettuare il provisioning di un volume a livelli di 2 TB
@@ -103,7 +103,7 @@ In base al 12% della prenotazione di spazio locale per i volumi o le condivision
 * Prenotazione locale di 240 GB (per un volume o una condivisione a livelli di 2 TB)
 * 330 GB per un volume o una condivisione aggiunti in locale (con l'aggiunta del 10% della prenotazione locale ai 300 GB dello spazio con provisioning)
 
-Lo spazio totale richiesto a livello locale è: 240 GB + 330 GB = 570 GB
+Lo spazio totale richiesto a livello locale è: 240 GB + 330 GB + 570 GB
 
 Lo spazio locale minimo necessario per il ripristino è 330 GB.
 
@@ -159,7 +159,7 @@ Nell'array virtuale è possibile effettuare il provisioning di condivisioni quan
 
 Tenere presenti le procedure consigliate seguenti quando si effettua il provisioning di condivisioni o volumi nel dispositivo virtuale.
 
-* Le dimensioni dei file in relazione alle dimensioni con cui è stato effettuato il provisioning di una condivisione a livelli possono compromettere le prestazioni della suddivisione in livelli. L'utilizzo di file di grandi dimensioni può comportare il rallentamento della suddivisione in livelli. Durante l'uso di file di grandi dimensioni, è consigliabile che il file più grande sia più piccolo del 3% rispetto alle dimensioni della condivisione.
+* Le dimensioni dei file in relazione alle dimensioni con cui è stato effettuato il provisioning di una condivisione a livelli possono compromettere le prestazioni della suddivisione in livelli. L'utilizzo di file di grandi dimensioni potrebbe comportare un livello di uscita lento. Quando si lavora con file di grandi dimensioni, è consigliabile che il file più grande sia inferiore al 3% delle dimensioni della condivisione.
 * Nell'array virtuale è possibile creare un massimo di 16 volumi o condivisioni. Per i limiti delle dimensioni dei volumi o delle condivisioni a livelli e aggiunti localmente, fare riferimento sempre ai [limiti di array virtuale StorSimple](storsimple-ova-limits.md).
 * Quando si crea un volume, tenere conto anche dell'utilizzo di dati previsto, nonché della crescita futura. Il volume non può essere espanso in un secondo momento.
 * Dopo aver creato il volume, non sarà possibile ridurne le dimensioni in StorSimple.
@@ -200,7 +200,7 @@ Usare le procedure consigliate seguenti quando si configurano ACR per i volumi S
 L'array virtuale StorSimple include funzionalità di sicurezza e crittografia dei dati che assicurano la riservatezza e l'integrità dei dati. Quando si usano queste funzionalità, è opportuno seguire queste procedure consigliate: 
 
 * Definire una chiave di crittografia per l'archiviazione cloud per generare la crittografia AES-256 prima dell'invio dei dati dall'array virtuale al cloud. Questa chiave non è necessaria se i dati sono crittografati inizialmente. La chiave può essere generata e protetta usando un sistema di gestione delle chiavi, ad esempio l' [insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-overview.md).
-* Quando si configura l'account di archiviazione tramite il servizio StorSimple Manager, assicurarsi di abilitare la modalità SSL per creare un canale sicuro per la comunicazione di rete tra il dispositivo StorSimple e il cloud.
+* Quando si configura l'account di archiviazione tramite il servizio StorSimple Manager, assicurarsi di abilitare la modalità TLS per creare un canale sicuro per la comunicazione di rete tra il dispositivo StorSimple e il cloud.
 * Rigenerare periodicamente le chiavi per gli account di archiviazione, mediante l'accesso al servizio di archiviazione di Azure, per tenere conto delle eventuali modifiche relative all'accesso in base alle modifiche apportate all'elenco di amministratori.
 * I dati nell'array virtuale vengono compressi e deduplicati prima di essere inviati ad Azure. Non è consigliabile usare il servizio ruolo Deduplicazione dati nell'host Windows Server.
 
@@ -215,7 +215,7 @@ Non è possibile modificare le impostazioni di frequenza e conservazione associa
 * Pianificare i backup per le ore non di punta. L'ora di inizio del backup non deve coincidere con numerose operazioni di I/O dell'host.
 * Avviare un backup manuale su richiesta quando si prevede di eseguire un failover del dispositivo o prima della finestra di manutenzione, per proteggere i dati nell'array virtuale.
 
-### <a name="restore"></a>Ripristina
+### <a name="restore"></a>Restore
 È possibile eseguire il ripristino da un set di backup in due modi: eseguire il ripristino in un altro volume o un'altra condivisione file o eseguire un ripristino a livello di elemento, disponibile solo in un array virtuale configurato come file server. Il ripristino a livello di elemento consente un ripristino granulare di file e cartelle da un backup cloud di tutte le condivisioni nel dispositivo StorSimple. Per altre informazioni, vedere [Ripristinare da un backup dell'array virtuale StorSimple](storsimple-virtual-array-clone.md).
 
 Quando si esegue un ripristino, tenere presenti queste linee guida:

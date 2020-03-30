@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
 ms.openlocfilehash: 4cd8d0901ce23fb227bb6919dee18f5aa3d063ed
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77089071"
 ---
 La versione 3 dell'API Analisi del testo consente di scegliere la versione del modello più aggiornata per i dati. Usare il parametro `model-version` facoltativo per selezionare la versione del modello appropriata per le richieste. Se questo parametro non viene specificato, per impostazione predefinita l'API verrà impostata su `latest`, ovvero la versione stabile più recente. Anche se è possibile usare la versione più recente del modello in qualsiasi richiesta, in ogni versione vengono aggiornate solo alcune funzionalità. La tabella seguente descrive le funzionalità che sono state aggiornate in ogni versione del modello:

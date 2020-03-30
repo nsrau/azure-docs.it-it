@@ -1,20 +1,18 @@
 ---
 title: Creare la pagina di destinazione nel Marketplace di Azure | Azure
 description: Informazioni su come creare una pagina di destinazione nel Marketplace di Azure e Microsoft AppSource per gli editori di app e servizi.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/04/2018
-ms.author: ellacroi
-ms.openlocfilehash: cf7d15ba375faf7dfb38bf5f691799875f2dd6e1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 6959e7ba7fbf7d9afca84a803f8df588ac9149f4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819817"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280593"
 ---
 # <a name="build-your-landing-page"></a>Creare una pagina di destinazione
 
@@ -47,7 +45,7 @@ Quando si dispone di un piano campagna pronto, creare la pagina di destinazione 
 | **Inserire l'invito all'azione in un'intestazione o in una sezione ben definita** | Incorporare i collegamenti all'inserzione pubblicata nel Marketplace in un paragrafo di testo. |
 | **Cercare le parole chiave più significative e ottimizzare la pagina per la ricerca** | Presupporre che il nome del prodotto influisca sulla maggiore visibilità nei risultati della ricerca. |
 | **Sfruttare le parole chiave usate nelle campagne pubblicitarie** | L'uso di molte parole chiave poco mirate nelle varie proprietà Web rende meno efficaci gli investimenti in pubblicità. |
-| **Mettere in primo piano i nomi dei prodotti e le parole chiave** | Costringere gli utenti a scorrere la pagina per visualizzare il nome del prodotto o della soluzione che si sta presentando. |
+| **Inserisci i nomi dei prodotti e le parole chiave pertinenti "sopra la piega"** | Costringere gli utenti a scorrere la pagina per visualizzare il nome del prodotto o della soluzione che si sta presentando. |
 | **Usare immagini con il marchio per accreditare la soluzione offerta, rispettando le linee guida definite da Microsoft, ad esempio Azure Certified** | Usare immagini del marchio Microsoft non approvate. |
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: e85696afde5f0332ff6481bfadabbde5ac2d4800
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 3492f917be8116d0eed0c7ec03ed8aa9ff506520
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894900"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80346589"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Informazioni di riferimento sugli script JSON
 > [!NOTE]
@@ -45,12 +45,12 @@ La struttura di livello superiore per una definizione di pipeline è la seguente
 
 Nella tabella seguente vengono descritte le proprietà all'interno della definizione JSON della pipeline:
 
-| Proprietà | Description | Obbligatorio
+| Proprietà | Descrizione | Obbligatoria
 -------- | ----------- | --------
 | name | Nome della pipeline. Specificare un nome che rappresenta l'azione che l'attività o la pipeline è configurata per eseguire<br/><ul><li>Numero massimo di caratteri: 260</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura (\_)</li><li>Non sono ammessi i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\\"</li></ul> |Sì |
 | description |Testo descrittivo per lo scopo dell'attività o della pipeline | No |
 | attività | Contiene un elenco di attività. | Sì |
-| start |Data e ora di inizio per la pipeline. Devono essere nel [formato ISO](https://en.wikipedia.org/wiki/ISO_8601), ad esempio: 2014-10-14T16:32:41. <br/><br/>È possibile specificare un'ora locale, ad esempio in base al fuso orario EST. Di seguito è fornito l'esempio `2016-02-27T06:00:00**-05:00`, che indica le 6 EST.<br/><br/>Le proprietà start ed end insieme specificano il periodo attivo per la pipeline. Le sezioni di output vengono generate solo in questo periodo attivo. |No<br/><br/>Se si specifica un valore per la proprietà di fine, è necessario specificare un valore anche per la proprietà di avvio.<br/><br/>L'ora di inizio e l'ora di fine possono essere entrambe vuote per creare una pipeline. È necessario specificare entrambi i valori per impostare un periodo attivo per l'esecuzione della pipeline. Se non si specificano gli orari di inizio e di fine durante la creazione di una pipeline, è possibile impostarli usando il cmdlet Set-AzDataFactoryPipelineActivePeriod in un secondo momento. |
+| start |Data e ora di inizio per la pipeline. Devono essere nel [formato ISO](https://en.wikipedia.org/wiki/ISO_8601), ad esempio: 2014-10-14T16:32:41. <br/><br/>È possibile specificare un'ora locale, ad esempio in base al fuso orario EST. Di seguito è fornito l'esempio `2016-02-27T06:00:00**-05:00`, che indica le 6 EST.<br/><br/>Le proprietà start ed end insieme specificano il periodo attivo per la pipeline. Le sezioni di output vengono generate solo in questo periodo attivo. |No<br/><br/>Se si specifica un valore per la proprietà di fine, è necessario specificare un valore anche per la proprietà di avvio.<br/><br/>L'ora di inizio e l'ora di fine possono essere entrambe vuote per creare una pipeline. È necessario specificare entrambi i valori per impostare un periodo attivo per l'esecuzione della pipeline. Se non si specificano le ore di inizio e di fine durante la creazione di una pipeline, è possibile impostarle utilizzando il cmdlet Set-AzDataFactoryPipelineActivePeriod in un secondo momento. |
 | end |Data e ora di fine per la pipeline. Se specificate, devono essere in formato ISO. Ad esempio: 2014-10-14T17:32:41 <br/><br/>È possibile specificare un'ora locale, ad esempio in base al fuso orario EST. Di seguito è fornito l'esempio `2016-02-27T06:00:00**-05:00`, che indica le 6 EST.<br/><br/>Per eseguire la pipeline illimitatamente, specificare 9999-09-09 come valore per la proprietà end. |No <br/><br/>Se si specifica un valore per la proprietà di avvio, è necessario specificare un valore anche per la proprietà di fine.<br/><br/>Vedere le note della proprietà **start** . |
 | isPaused |Se impostato su true, la pipeline non viene eseguita. Valore predefinito = false. È possibile usare questa proprietà per abilitare o disabilitare. |No |
 | pipelineMode |Metodo di pianificazione delle esecuzioni per la pipeline. I valori consentiti sono scheduled (predefinito) e onetime.<br/><br/>"Scheduled" indica che la pipeline viene eseguita a intervalli di tempo specificati in base al periodo di attività, ovvero all'ora di inizio e di fine. "Onetime" indica che la pipeline viene eseguita una sola volta. Al momento, dopo aver creato una pipeline monouso non è possibile modificarla o aggiornarla. Per informazioni dettagliate sull'impostazione onetime, vedere la sezione [Pipeline monouso](data-factory-create-pipelines.md#onetime-pipeline) . |No |
@@ -83,7 +83,7 @@ La struttura di livello superiore per un'attività all'interno di una definizion
 
 Nella tabella seguente vengono descritte le proprietà all'interno della definizione JSON dell'attività:
 
-| Tag | Description | Obbligatorio |
+| Tag | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | name |Nome dell'attività. Specificare un nome che rappresenta l'azione che l'attività è configurata per eseguire<br/><ul><li>Numero massimo di caratteri: 260</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura (\_)</li><li>Non sono ammessi i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\\"</li></ul> |Sì |
 | description |Testo descrittivo per lo scopo dell'attività. |No |
@@ -98,7 +98,7 @@ Nella tabella seguente vengono descritte le proprietà all'interno della definiz
 ### <a name="policies"></a>Criteri
 I criteri influiscono sul comportamento in fase di esecuzione di un'attività, in particolare quando viene elaborata la sezione di una tabella. La tabella seguente fornisce informazioni dettagliate.
 
-| Proprietà | Valori consentiti | Default Value | Description |
+| Proprietà | Valori consentiti | Default Value | Descrizione |
 | --- | --- | --- | --- |
 | Concorrenza |Integer <br/><br/>Valore massimo: 10 |1 |Numero di esecuzioni simultanee dell'attività.<br/><br/>Determina il numero di esecuzioni di attività parallele che possono verificarsi in sezioni diverse. Ad esempio, se un'attività deve passare attraverso grandi set di dati disponibili, con un valore di concorrenza maggiore che consente di velocizzare l'elaborazione dei dati. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina l'ordine delle sezioni di dati che vengono elaborate.<br/><br/>Ad esempio nel caso in cui si abbiano 2 sezioni, una alle 16.00 e l'altra alle 17.00, ed entrambe siano in attesa di esecuzione. Se si imposta executionPriorityOrder su NewestFirst, viene elaborata per prima la sezione delle 17:00. Allo stesso modo, se si imposta executionPriorityORder su OldestFIrst, verrà elaborata per prima la sezione delle 16:00. |
@@ -114,7 +114,7 @@ La sezione typeProperties è diversa per ogni tipo di attività. Le attività di
 L'**attività di copia** ha due sottosezioni nella sezione typeProperties: **origine** e **sink**. Vedere la sezione [Archivi dati](#data-stores) in questo articolo per esempi JSON che mostrano come usare un archivio dati come origine e/o sink.
 
 ### <a name="sample-copy-pipeline"></a>Esempio di una pipeline di copia
-In questa pipeline di esempio è presente un'attività di tipo **Copy** in the **attività** . In questo esempio, [Copia attività](data-factory-data-movement-activities.md) consente di copiare i dati da un archivio BLOB di Azure a un database SQL di Azure.
+In questa pipeline di esempio è presente un'attività di tipo **Copy** in the **attività** . In questo esempio [l'attività Copia](data-factory-data-movement-activities.md) copia i dati da un archivio BLOB di Azure a un database SQL di Azure.In this sample, the Copy activity copies data from an Azure Blob storage to an Azure SQL database.
 
 ```json
 {
@@ -221,7 +221,7 @@ Tenere presente quanto segue:
 
 * Nella sezione attività esiste una sola attività con l'oggetto **type** impostato su **HDInsightHive**.
 * Il file di script Hive, **partitionweblogs.hql**, è archiviato nell'account di archiviazione di Azure (specificato da scriptLinkedService, denominato **AzureStorageLinkedService**) e nella cartella **script** nel contenitore **adfgetstarted**.
-* La sezione **defines** viene usata per specificare le impostazioni di runtime che vengono passate allo script Hive come valori di configurazione Hive, ad esempio `${hiveconf:inputtable}` e `${hiveconf:partitionedtable}`.
+* La sezione **defines** viene utilizzata per specificare le impostazioni di runtime che vengono `${hiveconf:inputtable}`passate allo script hive come valori di configurazione Hive (ad esempio , `${hiveconf:partitionedtable}`).
 
 Vedere la sezione [Attività di trasformazione dei dati](#data-transformation-activities) in questo articolo per esempi JSON che definiscono le attività di trasformazione in una pipeline.
 
@@ -243,7 +243,7 @@ La struttura di livello superiore per una definizione di servizio collegato è l
 
 Nella tabella seguente vengono descritte le proprietà all'interno della definizione JSON dell'attività:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | -------- | ----------- | -------- |
 | name | Nome del servizio collegato. | Sì |
 | proprietà - tipo | Tipo di servizio collegato. Ad esempio: archiviazione di Azure, database SQL di Azure. |
@@ -282,7 +282,7 @@ Un set di dati in Azure Data Factory viene definito come segue:
 
 La tabella seguente descrive le proprietà nel codice JSON precedente:
 
-| Proprietà | Description | Obbligatorio | Predefinito |
+| Proprietà | Descrizione | Obbligatoria | Predefinito |
 | --- | --- | --- | --- |
 | name | Nome del set di dati. Per le regole di denominazione, vedere [Azure Data Factory: regole di denominazione](data-factory-naming-rules.md) . |Sì |ND |
 | type | Tipo del set di dati. Specificare uno dei tipi supportati da Azure Data Factory, ad esempio AzureBlob, AzureSqlTable. Vedere la sezione [Archivi dati](#data-stores) per tutti gli archivi dati e i tipi di set di dati supportati da Data Factory. |
@@ -294,7 +294,7 @@ La tabella seguente descrive le proprietà nel codice JSON precedente:
 
 Ogni colonna della sezione **struttura** contiene le proprietà seguenti:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | name |Nome della colonna. |Sì |
 | type |Tipo di dati della colonna.  |No |
@@ -312,14 +312,14 @@ structure:
 ]
 ```
 
-La tabella seguente descrive le proprietà che è possibile usare nella sezione **availability**:
+Nella tabella seguente vengono descritte le proprietà che è possibile utilizzare nella sezione relativa alla **disponibilità:**
 
-| Proprietà | Description | Obbligatorio | Predefinito |
+| Proprietà | Descrizione | Obbligatoria | Predefinito |
 | --- | --- | --- | --- |
 | frequency |Specifica l'unità di tempo per la produzione di sezioni di set di dati.<br/><br/><b>Frequenza supportata</b>: minuto, ora, giorno, settimana, mese |Sì |ND |
 | interval |Specifica un moltiplicatore per la frequenza.<br/><br/>"Intervallo di frequenza x" determina la frequenza con cui viene generata la sezione.<br/><br/>Se è necessario suddividere il set di dati su base oraria, impostare l'opzione <b>Frequenza</b> su <b>Ora</b> e <b>Intervallo</b> su <b>1</b>.<br/><br/><b>Nota</b> : se si specifica frequency come Minute, è consigliabile impostare interval su un valore non inferiore a 15 |Sì |ND |
 | style |Specifica se la sezione deve essere generata all'inizio o alla fine dell'intervallo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Se frequency è impostato su Month e style è impostato su EndOfInterval, la sezione viene generata l'ultimo giorno del mese. Se style è impostato su StartOfInterval, la sezione viene generata il primo giorno del mese.<br/><br/>Se l'opzione Frequnza è impostata su Mese e l'opzione Stile è impostata su EndOfInterval, la sezione viene generata l'ultima ora del giorno.<br/><br/>Se frequency è impostato su Hour e style è impostato su EndOfInterval, la sezione viene generata alla fine dell'ora. Ad esempio, una sezione per il periodo 13.00 - 14.00 viene generata alle 14.00. |No |EndOfInterval |
-| anchorDateTime |Definisce la posizione assoluta nel tempo usata dall'utilità di pianificazione per calcolare i limiti della sezione del set di dati. <br/><br/><b>Nota:</b> se AnchorDateTime include parti della data più granulari rispetto alla frequenza, le parti più granulari vengono ignorate. <br/><br/>Ad esempio, se l'<b>intervallo</b> è <b>orario</b> (ovvero frequenza: ora e intervallo: 1) e <b>AnchorDateTime</b> contiene <b>minuti e secondi</b>, le parti <b>minuti e secondi</b> di AnchorDateTime vengono ignorate. |No |01/01/0001 |
+| anchorDateTime |Definisce la posizione assoluta nel tempo usata dall'utilità di pianificazione per calcolare i limiti della sezione del set di dati. <br/><br/><b>Nota:</b>Se il AnchorDateTime ha parti di data che sono più granulari rispetto alla frequenza, le parti più granulari vengono ignorate. <br/><br/>Ad esempio, se <b>l'intervallo</b> è <b>orario</b> (frequenza: ora e intervallo: 1) e <b>AnchorDateTime</b> contiene <b>minuti e secondi,</b> i <b>minuti e</b> le parti dei secondi di AnchorDateTime vengono ignorati. |No |01/01/0001 |
 | offset |Intervallo di tempo in base al quale l'inizio e la fine di tutte le sezioni dei set di dati vengono spostate. <br/><br/><b>Nota:</b> se vengono specificati sia anchorDateTime che offset, il risultato sarà lo spostamento combinato. |No |ND |
 
 La sezione availability seguente specifica che il set di dati di output viene generato ogni ora oppure che il set di dati di input è disponibile ogni ora:
@@ -334,10 +334,10 @@ La sezione availability seguente specifica che il set di dati di output viene ge
 
 La sezione **policy** nella definizione del set di dati stabilisce i criteri o la condizione che le sezioni del set di dati devono soddisfare.
 
-| Nome criterio | Description | Applicato a | Obbligatorio | Predefinito |
+| Nome criterio | Descrizione | Applicato a | Obbligatoria | Predefinito |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Verifica che i dati in un **BLOB di Azure** soddisfino i requisiti relativi alle dimensioni minime (in megabyte). |BLOB Azure |No |ND |
-| minimumRows |Verifica che i dati in un **database SQL di Azure** o in una **tabella di Azure** contengano il numero minimo di righe. |<ul><li>Database SQL di Azure</li><li>tabella di Azure</li></ul> |No |ND |
+| minimumRows |Verifica che i dati in un **database SQL di Azure** o in una **tabella di Azure** contengano il numero minimo di righe. |<ul><li>database SQL di Azure</li><li>tabella di Azure</li></ul> |No |ND |
 
 **Esempio:**
 
@@ -354,7 +354,7 @@ La sezione **policy** nella definizione del set di dati stabilisce i criteri o l
 
 A meno che un set di dati non sia generato da Azure Data Factory, deve essere contrassegnato come **external**. Questa impostazione si applica in genere agli input della prima attività in una pipeline, a meno che non si usi il concatenamento di attività o di pipeline.
 
-| Nome | Description | Obbligatorio | Default Value |
+| Nome | Descrizione | Obbligatoria | Default Value |
 | --- | --- | --- | --- |
 | dataDelay |Tempo di attesa per il controllo sulla disponibilità dei dati esterni per il sezionamento specificato. Ad esempio, se i dati sono disponibili ogni ora, il controllo per vedere se i dati esterni sono disponibili e la sezione corrispondente è Ready può essere ritardato usando dataDelay.<br/><br/>Si applica solo all'ora corrente.  Ad esempio, se in questo momento sono le 13:00 e questo valore è di 10 minuti, la convalida inizia alle 13:10.<br/><br/>Questa impostazione non influisce sulle sezioni nel passato; le sezioni con i parametri Ora di fine sezione + dataDelay < Ora vengono elaborate senza alcun ritardo.<br/><br/>Valori superiori a 23:59 ore devono essere specificati nel formato `day.hours:minutes:seconds`. Per specificare 24 ore, ad esempio, non utilizzare 24:00:00; utilizzare invece 1.00:00:00. Il valore 24:00:00 viene considerato 24 giorni (24.00:00:00). Per 1 giorno e 4 ore, specificare 1:04:00:00. |No |0 |
 | retryInterval |Il tempo di attesa tra un errore e il successivo tentativo. Se un tentativo non riesce, il tentativo successivo avviene dopo retryInterval. <br/><br/>Se in questo momento sono le 13:00, viene avviato il primo tentativo. Se la durata per completare il primo controllo di convalida è 1 minuto e l'operazione non è riuscita, il tentativo successivo è alle 13:00 + 1 min (durata) + 1 min (intervallo tentativi) = 13:02. <br/><br/>Per le sezioni passate, non si verifica alcun ritardo. La ripetizione avviene immediatamente. |No |00:01:00 (1 minute) |
@@ -371,18 +371,18 @@ La sezione [Attività](#activity) ha fornito le descrizioni degli elementi JSON 
 
 Fare clic sul collegamento all'archivio a cui si è interessati per visualizzare gli schemi JSON per i servizi collegati, il set di dati e l'origine/sink dell'attività di copia.
 
-| Categoria | Archivio dati
+| Category | Archivio dati
 |:--- |:--- |
-| **Azure** |[Archivio BLOB di Azure](#azure-blob-storage) |
-| &nbsp; |Azure Data Lake Store |
+| **Azure** |[Archiviazione BLOB di Azure](#azure-blob-storage) |
+| &nbsp; |Archivio Azure Data Lake |
 | &nbsp; |[Azure Cosmos DB](#azure-cosmos-db) |
 | &nbsp; |[Database SQL di Azure](#azure-sql-database) |
 | &nbsp; |[Azure SQL Data Warehouse](#azure-sql-data-warehouse) |
-| &nbsp; |[ricerca cognitiva di Azure](#azure-cognitive-search) |
-| &nbsp; |[Archivio tabelle di Azure](#azure-table-storage) |
+| &nbsp; |[Ricerca cognitiva di Azure](#azure-cognitive-search) |
+| &nbsp; |[Archiviazione tabelle di AzureAzure Table storage](#azure-table-storage) |
 | **Database** |[Amazon Redshift](#amazon-redshift) |
 | &nbsp; |[IBM DB2](#ibm-db2) |
-| &nbsp; |[MySQL](#mysql) |
+| &nbsp; |[Mysql](#mysql) |
 | &nbsp; |[Oracle](#oracle) |
 | &nbsp; |[PostgreSQL](#postgresql) |
 | &nbsp; |[SAP Business Warehouse](#sap-business-warehouse) |
@@ -390,16 +390,16 @@ Fare clic sul collegamento all'archivio a cui si è interessati per visualizzare
 | &nbsp; |[SQL Server](#sql-server) |
 | &nbsp; |[Sybase](#sybase) |
 | &nbsp; |[Teradata](#teradata) |
-| **NoSQL** |[Cassandra](#cassandra) |
-| &nbsp; |[MongoDB](#mongodb) |
+| **Nosql** |[Cassandra](#cassandra) |
+| &nbsp; |[Mongodb](#mongodb) |
 | **File** |[Amazon S3](#amazon-s3) |
-| &nbsp; |[File system](#file-system) |
+| &nbsp; |[File System](#file-system) |
 | &nbsp; |[FTP](#ftp) |
 | &nbsp; |[HDFS](#hdfs) |
 | &nbsp; |[SFTP](#sftp) |
-| **Altro** |[HTTP](#http) |
-| &nbsp; |[OData](#odata) |
-| &nbsp; |[ODBC](#odbc) |
+| **Altri** |[HTTP](#http) |
+| &nbsp; |[Odata](#odata) |
+| &nbsp; |[Odbc](#odbc) |
 | &nbsp; |[Salesforce](#salesforce) |
 | &nbsp; |Tabella Web |
 
@@ -411,7 +411,7 @@ Esistono due tipi di servizi collegati: servizio collegato di Archiviazione di A
 #### <a name="azure-storage-linked-service"></a>Servizio collegato Archiviazione di Azure
 Per collegare un account di Archiviazione di Azure a una data factory tramite la **chiave dell'account**, creare un servizio collegato di Archiviazione di Azure. Per definire un servizio collegato di Archiviazione di Azure, impostare il **tipo** di servizio collegato su **AzureStorage**. Specificare quindi le seguenti proprietà nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | connectionString |Specificare le informazioni necessarie per connettersi all’archivio Azure per la proprietà connectionString. |Sì |
 
@@ -432,7 +432,7 @@ Per collegare un account di Archiviazione di Azure a una data factory tramite la
 #### <a name="azure-storage-sas-linked-service"></a>Servizio collegato di firma di accesso condiviso Archiviazione di Azure
 Il servizio collegato di firma di accesso condiviso Archiviazione di Azure consente di collegare un account di Archiviazione di Azure a Data factory di Azure tramite una firma di accesso condiviso. Offre a Data factory un accesso con restrizioni o limiti di tempo a tutte le risorse o a risorse specifiche (BLOB/contenitore) nella risorsa di archiviazione. Per collegare un account di Archiviazione di Azure a una data factory tramite la firma di accesso condiviso, creare un servizio collegato di firma di accesso condiviso Archiviazione di Azure. Per definire un Servizio collegato di firma di accesso condiviso Archiviazione di Azure, impostare il **tipo** del servizio collegato su **AzureStorageSas**. Specificare quindi le seguenti proprietà nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | sasUri |Specificare l'URI della firma di accesso condiviso per le risorse di Archiviazione di Azure come BLOB, contenitore o tabella. |Sì |
 
@@ -455,13 +455,13 @@ Per altre informazioni sui servizi collegati, vedere [Connettore Archiviazione B
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati BLOB di Azure, impostare il **tipo** del set di dati su **AzureBlob**. Specificare quindi le proprietà seguenti specifiche del BLOB di Azure nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | folderPath |Percorso del contenitore e della cartella nell'archivio BLOB. Esempio: myblobcontainer\myblobfolder\ |Sì |
-| fileName |Nome del BLOB. fileName è facoltativo e non applica la distinzione tra maiuscole e minuscole.<br/><br/>Se si specifica un filename, l'attività, inclusa la copia, funziona sul BLOB specifico.<br/><br/>Quando fileName non è specificato, la copia include tutti i BLOB in folderPath per il set di dati di input.<br/><br/>Quando fileName non è specificato per un set di dati di output, il nome del file generato avrà il formato seguente: `Data.<Guid>.txt` (ad esempio: data. 0a405f8a-93ff-4C6F-B3BE-f69616f1df7a. txt |No |
+| fileName |Nome del BLOB. fileName è facoltativo e non applica la distinzione tra maiuscole e minuscole.<br/><br/>Se si specifica un filename, l'attività, inclusa la copia, funziona sul BLOB specifico.<br/><br/>Quando fileName non è specificato, la copia include tutti i BLOB in folderPath per il set di dati di input.<br/><br/>Quando fileName non è specificato per un set di dati di output, `Data.<Guid>.txt` il nome del file generato sarà nel seguente formato: (ad esempio: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | partitionedBy |partitionedBy è una proprietà facoltativa. Può essere utilizzata per specificare una proprietà folderPath dinamica e un nome file per i dati della serie temporale. Ad esempio, è possibile includere parametri per ogni ora di dati in folderPath. |No |
-| format | Sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No |
-| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. I livelli supportati sono **Ottimale** e **Più veloce**. Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
+| format | Sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** in format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No |
+| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono i seguenti: **G'ip**, **Deflate**, **B-ip2**e **.** I livelli supportati sono: **Ottimale** e **Più veloce**. Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
 #### <a name="example"></a>Esempio
 
@@ -493,9 +493,9 @@ Per definire un set di dati BLOB di Azure, impostare il **tipo** del set di dati
 Per altre informazioni, vedere [Connettore BLOB di Azure](data-factory-azure-blob-connector.md#dataset-properties).
 
 ### <a name="blobsource-in-copy-activity"></a>BlobSource in attività di copia
-Se si copiano dati da Archiviazione BLOB di Azure, impostare il **tipo di origine** dell'attività di copia su **BlobSource** e specificare le proprietà seguenti nella sezione **source**:
+Se si copiano dati da un archivio BLOB di Azure, impostare il tipo di **origine** dell'attività di copia su **BlobSource**e specificare le proprietà seguenti nella sezione **di origine:**
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | ricorsiva |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True (valore predefinito), False |No |
 
@@ -538,9 +538,9 @@ Se si copiano dati da Archiviazione BLOB di Azure, impostare il **tipo di origin
 ### <a name="blobsink-in-copy-activity"></a>BlobSink in attività di copia
 Se si copiano dati in Archiviazione BLOB di Azure, impostare il **tipo di sink** dell'attività di copia su **BlobSink**e specificare le proprietà seguenti nella sezione **sink**:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| copyBehavior |Definisce il comportamento di copia quando l'origine è BlobSource o FileSystem. |<b>PreserveHierarchy:</b> mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><br/><b>FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. Il nome dei file di destinazione viene generato automaticamente. <br/><br/><b>MergeFiles (valore predefinito)</b>: unisce tutti i file della cartella di origine in un solo file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente. |No |
+| copyBehavior |Definisce il comportamento di copia quando l'origine è BlobSource o FileSystem. |<b>PreserveHierarchy</b>: mantiene la gerarchia di file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><br/><b>FlattenHierarchy</b>: tutti i file dalla cartella di origine si trovano nel primo livello della cartella di destinazione. Il nome dei file di destinazione viene generato automaticamente. <br/><br/><b>MergeFiles (valore predefinito)</b>: unisce tutti i file della cartella di origine in un solo file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente. |No |
 
 #### <a name="example-blobsink"></a>Esempio: BlobSink
 
@@ -583,16 +583,16 @@ Se si copiano dati in Archiviazione BLOB di Azure, impostare il **tipo di sink**
 
 Per altre informazioni, vedere [Connettore BLOB di Azure](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-## <a name="azure-data-lake-store"></a>Azure Data Lake Store
+## <a name="azure-data-lake-store"></a>Archivio Azure Data Lake
 
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di Azure Data Lake Store, impostare il tipo di servizio collegato su **AzureDataLakeStore** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **AzureDataLakeStore** | Sì |
+| type | La proprietà type deve essere impostata su: **AzureDataLakeStoreThe** type property must be set to: AzureDataLakeStore | Sì |
 | dataLakeStoreUri | Specificare le informazioni sull'account Archivio Azure Data Lake. Ha il formato seguente: `https://[accountname].azuredatalakestore.net/webhdfs/v1` o `adl://[accountname].azuredatalakestore.net/`. | Sì |
-| subscriptionId | ID sottoscrizione di Azure a cui appartiene Data Lake Store. | Richiesto per il sink |
+| subscriptionId | ID sottoscrizione di Azure a cui appartiene Data Lake Store.Azure subscription ID to which Data Lake Store belongs. | Richiesto per il sink |
 | resourceGroupName | Nome del gruppo di risorse di Azure a cui il Data Lake Store appartiene. | Richiesto per il sink |
 | servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì (per l'autenticazione di un'entità servizio) |
 | servicePrincipalKey | Specificare la chiave dell'applicazione. | Sì (per l'autenticazione di un'entità servizio) |
@@ -638,13 +638,13 @@ Per altre informazioni, vedere [Connettore Azure Data Lake Store](data-factory-a
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati Azure Data Lake Store, impostare il **tipo** del set di dati **AzureDataLakeStore**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | folderPath |Percorso del contenitore e della cartella nell'Archivio Azure Data Lake. |Sì |
-| fileName |Il nome del file in fileName nell'archivio di Azure Data Lake è facoltativo e distingue tra maiuscole e minuscole. fileName è facoltativo e non applica la distinzione tra maiuscole e minuscole. <br/><br/>Se si specifica un filename, l'attività, inclusa la copia, funziona sul file specifico.<br/><br/>Quando fileName non è specificato, la copia include tutti i file in folderPath per il set di dati di input.<br/><br/>Quando fileName non è specificato per un set di dati di output, il nome del file generato avrà il formato seguente: `Data.<Guid>.txt` (ad esempio: data. 0a405f8a-93ff-4C6F-B3BE-f69616f1df7a. txt |No |
+| fileName |Il nome del file in fileName nell'archivio di Azure Data Lake è facoltativo e distingue tra maiuscole e minuscole. fileName è facoltativo e non applica la distinzione tra maiuscole e minuscole. <br/><br/>Se si specifica un filename, l'attività, inclusa la copia, funziona sul file specifico.<br/><br/>Quando fileName non è specificato, la copia include tutti i file in folderPath per il set di dati di input.<br/><br/>Quando fileName non è specificato per un set di dati di output, `Data.<Guid>.txt` il nome del file generato sarà nel seguente formato: (ad esempio: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | partitionedBy |partitionedBy è una proprietà facoltativa. Può essere utilizzata per specificare una proprietà folderPath dinamica e un nome file per i dati della serie temporale. Ad esempio, è possibile includere parametri per ogni ora di dati in folderPath. |No |
-| format | Sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No |
-| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. I livelli supportati sono **Ottimale** e **Più veloce**. Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
+| format | Sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** in format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No |
+| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono i seguenti: **G'ip**, **Deflate**, **B-ip2**e **.** I livelli supportati sono: **Ottimale** e **Più veloce**. Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
 #### <a name="example"></a>Esempio
 ```json
@@ -685,7 +685,7 @@ Se si copiano dati da Azure Data Lake Store, impostare il **tipo di origine** de
 
 **AzureDataLakeStoreSource** supporta le proprietà seguenti della sezione **typeProperties**:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | ricorsiva |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True (valore predefinito), False |No |
 
@@ -730,11 +730,11 @@ Se si copiano dati da Azure Data Lake Store, impostare il **tipo di origine** de
 Per altre informazioni, vedere [Connettore Azure Data Lake Store](data-factory-azure-datalake-connector.md#copy-activity-properties).
 
 ### <a name="azure-data-lake-store-sink-in-copy-activity"></a>Sink Azure Data Lake Store in attività di copia
-Se si copiano dati in Azure Data Lake Store, impostare il **tipo di sink**  dell'attività di copia su **AzureDataLakeStoreSink** e specificare le proprietà seguenti nella sezione **sink**:
+Se si copiano dati in Azure Data Lake Store, impostare il **tipo di sink ** dell'attività di copia su **AzureDataLakeStoreSink** e specificare le proprietà seguenti nella sezione **sink**:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| copyBehavior |Specifica il comportamento di copia. |<b>PreserveHierarchy:</b> mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><br/><b>FlattenHierarchy</b>: tutti i file della cartella di origine vengono creati nel primo livello della cartella di destinazione. Il nome dei file di destinazione viene generato automaticamente.<br/><br/><b>MergeFiles</b>: unisce tutti i file della cartella di origine in un solo file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente. |No |
+| copyBehavior |Specifica il comportamento di copia. |<b>PreserveHierarchy</b>: mantiene la gerarchia di file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><br/><b>FlattenHierarchy</b>: tutti i file dalla cartella di origine vengono creati nel primo livello della cartella di destinazione. Il nome dei file di destinazione viene generato automaticamente.<br/><br/><b>MergeFiles</b>: unisce tutti i file dalla cartella di origine in un unico file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente. |No |
 
 #### <a name="example-azuredatalakestoresink"></a>Esempio: AzureDataLakeStoreSink
 ```json
@@ -884,8 +884,8 @@ Se si copiano dati in Azure Cosmos DB, impostare il **tipo di sink** dell'attivi
 | **Proprietà** | **Descrizione** | **Valori consentiti** | **Obbligatorio** |
 | --- | --- | --- | --- |
 | nestingSeparator |È necessario un carattere speciale nel nome della colonna di origine per indicare tale documento nidificato. <br/><br/>Per l'esempio sopra: `Name.First` nella tabella di output produce la struttura JSON seguente nel documento di Cosmos DB:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Carattere utilizzato per separare i livelli di nidificazione.<br/><br/>Il valore predefinito è `.` (punto). |Carattere utilizzato per separare i livelli di nidificazione. <br/><br/>Il valore predefinito è `.` (punto). |
-| writeBatchSize |Numero di richieste in parallelo per il servizio Azure Cosmos DB per creare documenti.<br/><br/>È possibile ottimizzare le prestazioni quando si copiano dati da e verso Azure Cosmos DB usando questa proprietà. È possibile prevedere prestazioni migliori quando si aumenta writeBatchSize, poiché vengono inviate più richieste in parallelo a Azure Cosmos DB. Tuttavia è necessario evitare la limitazione che può generare il messaggio di errore: "La frequenza delle richieste è troppo elevata".<br/><br/>La limitazione viene decisa da diversi fattori, tra cui le dimensioni dei documenti, il numero di termini nei documenti, i criteri di indicizzazione della raccolta di destinazione e così via. Per le operazioni di copia, è possibile usare una raccolta migliore (ad esempio, S3) per ottenere la massima velocità effettiva disponibile (2.500 unità richiesta al secondo). |Integer |No (valore predefinito: 5) |
-| writeBatchTimeout |Tempo di attesa per il completamento dell’operazione prima del timeout. |Intervallo di tempo<br/><br/> Ad esempio: "00:30:00" (30 minuti). |No |
+| writeBatchSize |Numero di richieste in parallelo per il servizio Azure Cosmos DB per creare documenti.<br/><br/>È possibile ottimizzare le prestazioni quando si copiano dati da e verso Azure Cosmos DB usando questa proprietà. È possibile prevedere prestazioni migliori quando si aumenta writeBatchSize, poiché vengono inviate più richieste in parallelo a Azure Cosmos DB. Tuttavia è necessario evitare la limitazione che può generare il messaggio di errore: "La frequenza delle richieste è troppo elevata".<br/><br/>La limitazione delle richieste è decisa da una serie di fattori, tra cui la dimensione dei documenti, il numero di termini nei documenti, la politica di indicizzazione della raccolta degli obiettivi, ecc. Per le operazioni di copia, è possibile usare una raccolta migliore (ad esempio, S3) per ottenere la velocità effettiva massima disponibile (2.500 unità richiesta al secondo). |Integer |No (valore predefinito: 5) |
+| writeBatchTimeout |Tempo di attesa per il completamento dell’operazione prima del timeout. |Intervallo di tempo<br/><br/>  Ad esempio: "00:30:00" (30 minuti). |No |
 
 #### <a name="example"></a>Esempio
 
@@ -929,12 +929,12 @@ Se si copiano dati in Azure Cosmos DB, impostare il **tipo di sink** dell'attivi
 
 Per altre informazioni, vedere l'articolo [Connettore Azure Cosmos DB](data-factory-azure-documentdb-connector.md#copy-activity-properties).
 
-## <a name="azure-sql-database"></a>Database SQL di Azure
+## <a name="azure-sql-database"></a>database SQL di Azure
 
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di Database SQL di Azure, impostare il **tipo** di servizio collegato su **AzureSqlDatabase**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | connectionString |Specificare le informazioni necessarie per connettersi all'istanza di database SQL di Azure per la proprietà connectionString. |Sì |
 
@@ -956,7 +956,7 @@ Per altre informazioni, vedere [Connettore SQL di Azure](data-factory-azure-sql-
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati del Database SQL di Azure, impostare il **tipo** di set di dati su **AzureSqlTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella o vista nell'istanza di database SQL di Azure a cui fa riferimento il servizio collegato. |Sì |
 
@@ -992,7 +992,7 @@ Per altre informazioni, vedere [Connettore SQL di Azure](data-factory-azure-sql-
 Se si copiano dati da un database SQL di Azure, impostare il **tipo di origine** dell'attività di copia su **SqlSource**e specificare le proprietà seguenti nella sezione **source**:
 
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Esempio: `select * from MyTable`. |No |
 | sqlReaderStoredProcedureName |Nome della stored procedure che legge i dati dalla tabella di origine. |Nome della stored procedure. |No |
@@ -1045,9 +1045,9 @@ Per altre informazioni, vedere [Connettore SQL di Azure](data-factory-azure-sql-
 ### <a name="sql-sink-in-copy-activity"></a>Sink SQL nell'attività di copia
 Se si copiano dati in un database SQL di Azure, impostare il **tipo di sink** dell'attività di copia su **SqlSink**e specificare le proprietà seguenti nella sezione **sink**:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |Intervallo di tempo<br/><br/> Ad esempio: "00:30:00" (30 minuti). |No |
+| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |Intervallo di tempo<br/><br/>  Ad esempio: "00:30:00" (30 minuti). |No |
 | writeBatchSize |Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize. |Numero intero (numero di righe) |No (valore predefinito: 10000) |
 | sqlWriterCleanupScript |Specificare una query da eseguire nell'attività di copia per pulire i dati di una sezione specifica. |Istruzione di query. |No |
 | sliceIdentifierColumnName |Specificare il nome di una colonna in cui inserire nell'attività di copia l'identificatore di sezione generato automaticamente che verrà usato per pulire i dati di una sezione specifica quando viene ripetuta l'esecuzione. |Nome di colonna di una colonna con tipo di dati binario (32). |No |
@@ -1100,12 +1100,12 @@ Se si copiano dati in un database SQL di Azure, impostare il **tipo di sink** de
 
 Per altre informazioni, vedere [Connettore SQL di Azure](data-factory-azure-sql-connector.md#copy-activity-properties).
 
-## <a name="azure-sql-data-warehouse"></a>SQL Data Warehouse di Azure
+## <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di Azure SQL Data Warehouse, impostare il **tipo** di servizio collegato su **AzureSqlDW**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | connectionString |Specificare le informazioni necessarie per connettersi all'istanza di Azure SQL Data Warehouse per la proprietà connectionString. |Sì |
 
@@ -1130,7 +1130,7 @@ Per altre informazioni, vedere [Connettore Azure SQL Data Warehouse](data-factor
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di Azure SQL Data Warehouse, impostare il **tipo** di set di dati su **AzureSqlDWTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella o della visualizzazione nell'istanza del database SQL Data Warehouse di Azure a cui fa riferimento il servizio collegato. |Sì |
 
@@ -1167,9 +1167,9 @@ Per altre informazioni, vedere [Connettore Azure SQL Data Warehouse](data-factor
 Se si copiano dati da un Azure SQL Data Warehouse, impostare il **tipo di origine** dell'attività di copia su **SqlDWSource**e specificare le proprietà seguenti nella sezione **source**:
 
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: `select * from MyTable`. |No |
+| sqlReaderQuery |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio `select * from MyTable`. |No |
 | sqlReaderStoredProcedureName |Nome della stored procedure che legge i dati dalla tabella di origine. |Nome della stored procedure. |No |
 | storedProcedureParameters |Parametri per la stored procedure. |Coppie nome/valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. |No |
 
@@ -1221,17 +1221,17 @@ Per altre informazioni, vedere [Connettore Azure SQL Data Warehouse](data-factor
 ### <a name="sql-dw-sink-in-copy-activity"></a>Sink SQL DW nell'attività di copia
 Se si copiano dati in un Azure SQL Data Warehouse, impostare il **tipo di sink** dell'attività di copia su **SqlDWSink**e specificare le proprietà seguenti nella sezione **sink**:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |Specificare una query da eseguire nell'attività di copia per pulire i dati di una sezione specifica. |Istruzione di query. |No |
-| allowPolyBase |Indica se usare PolyBase, quando applicabile, invece del meccanismo BULKINSERT. <br/><br/> **L'uso di PolyBase è il modo consigliato per caricare dati in SQL Data Warehouse.** |Vero <br/>False (impostazione predefinita) |No |
+| allowPolyBase |Indica se usare PolyBase, quando applicabile, invece del meccanismo BULKINSERT. <br/><br/> **L'uso di PolyBase è il modo consigliato per caricare dati in SQL Data Warehouse.** |True <br/>False (impostazione predefinita) |No |
 | polyBaseSettings |Gruppo di proprietà che è possibile specificare quando la proprietà **allowPolybase** è impostata su **true**. |&nbsp; |No |
 | rejectValue |Specifica il numero o la percentuale di righe che è possibile rifiutare prima che la query abbia esito negativo. <br/><br/>Per altre informazioni sulle opzioni di rifiuto di PolyBase, vedere la sezione **Arguments** (Argomenti) in [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) . |0 (impostazione predefinita), 1, 2, … |No |
 | rejectType |Indica se l'opzione rejectValue viene specificata come valore letterale o come percentuale. |Value (impostazione predefinita), Percentage |No |
 | rejectSampleValue |Determina il numero di righe da recuperare prima che PolyBase ricalcoli la percentuale di righe rifiutate. |1, 2, … |Sì se **rejectType** è **percentage** |
 | useTypeDefault |Specifica come gestire valori mancanti nei file di testo delimitato quando PolyBase recupera i dati dal file di testo.<br/><br/>Per altre informazioni su questa proprietà, vedere la sezione Arguments (Argomenti) in [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |True, False (valore predefinito) |No |
 | writeBatchSize |Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize. |Numero intero (numero di righe) |No (valore predefinito: 10000) |
-| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |Intervallo di tempo<br/><br/> Ad esempio: "00:30:00" (30 minuti). |No |
+| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |Intervallo di tempo<br/><br/>  Ad esempio: "00:30:00" (30 minuti). |No |
 
 #### <a name="example"></a>Esempio
 
@@ -1282,9 +1282,9 @@ Per altre informazioni, vedere [Connettore Azure SQL Data Warehouse](data-factor
 ## <a name="azure-cognitive-search"></a>Ricerca cognitiva di Azure
 
 ### <a name="linked-service"></a>Servizio collegato
-Per definire un servizio collegato di Azure ricerca cognitiva, impostare il **tipo** di servizio collegato su **AzureSearch**e specificare le proprietà seguenti nella sezione **typeProperties** :
+Per definire un servizio collegato Ricerca cognitiva di Azure, impostare il **tipo** del servizio collegato su **AzureSearch**e specificare le proprietà seguenti nella sezione **typeProperties:**
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | -------- | ----------- | -------- |
 | url | URL per il servizio di ricerca. | Sì |
 | Key | Chiave di amministrazione per il servizio di ricerca. | Sì |
@@ -1304,15 +1304,15 @@ Per definire un servizio collegato di Azure ricerca cognitiva, impostare il **ti
 }
 ```
 
-Per altre informazioni, vedere l'articolo relativo al [connettore Azure ricerca cognitiva](data-factory-azure-search-connector.md#linked-service-properties) .
+Per altre informazioni, vedere l'articolo sul [connettore di Ricerca cognitiva](data-factory-azure-search-connector.md#linked-service-properties) di Azure.For more information, see Azure Cognitive Search connector article.
 
 ### <a name="dataset"></a>Set di dati
-Per definire un set di dati ricerca cognitiva di Azure, impostare il **tipo** di set di dati su **AzureSearchIndex**e specificare le proprietà seguenti nella sezione **typeProperties** :
+Per definire un set di dati di Ricerca cognitiva di Azure, impostare il **tipo** di set di dati su **AzureSearchIndex**e specificare le proprietà seguenti nella sezione **typeProperties:**
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | -------- | ----------- | -------- |
 | type | La proprietà type deve essere impostata su **AzureSearchIndex**.| Sì |
-| indexName | Nome dell'indice di ricerca. Il servizio Data Factory non crea l'indice. L'indice deve esistere in ricerca cognitiva di Azure. | Sì |
+| indexName | Nome dell'indice di ricerca. Il servizio Data Factory non crea l'indice. L'indice deve esistere in Ricerca cognitiva di Azure.The index must exist in Azure Cognitive Search. | Sì |
 
 #### <a name="example"></a>Esempio
 
@@ -1333,12 +1333,12 @@ Per definire un set di dati ricerca cognitiva di Azure, impostare il **tipo** di
 }
 ```
 
-Per altre informazioni, vedere l'articolo relativo al [connettore Azure ricerca cognitiva](data-factory-azure-search-connector.md#dataset-properties) .
+Per altre informazioni, vedere l'articolo sul [connettore di Ricerca cognitiva](data-factory-azure-search-connector.md#dataset-properties) di Azure.For more information, see Azure Cognitive Search connector article.
 
-### <a name="azure-cognitive-search-index-sink-in-copy-activity"></a>Sink dell'indice ricerca cognitiva di Azure nell'attività di copia
-Se si copiano dati in un indice di ricerca, impostare il **tipo di sink** dell'attività di copia su **AzureSearchIndexSink**e specificare le proprietà seguenti nella sezione **sink** :
+### <a name="azure-cognitive-search-index-sink-in-copy-activity"></a>Azure Cognitive Search Index Sink in Copy Activity
+Se si copiano dati in un indice di ricerca, impostare il tipo di **sink** dell'attività di copia su **AzureSearchIndexSink**e specificare le proprietà seguenti nella **sezione** sink:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Specifica se eseguire un'unione o una sostituzione quando nell'indice esiste già un documento. | Merge (impostazione predefinita)<br/>Caricamento| No |
 | WriteBatchSize | Carica i dati nell'indice di ricerca quando la dimensione del buffer raggiunge writeBatchSize. | Da 1 a 1000. Il valore predefinito è 1000. | No |
@@ -1386,7 +1386,7 @@ Se si copiano dati in un indice di ricerca, impostare il **tipo di sink** dell'a
 }
 ```
 
-Per altre informazioni, vedere l'articolo relativo al [connettore Azure ricerca cognitiva](data-factory-azure-search-connector.md#copy-activity-properties) .
+Per altre informazioni, vedere l'articolo sul [connettore di Ricerca cognitiva](data-factory-azure-search-connector.md#copy-activity-properties) di Azure.For more information, see Azure Cognitive Search connector article.
 
 ## <a name="azure-table-storage"></a>Archiviazione tabelle di Azure
 
@@ -1396,7 +1396,7 @@ Esistono due tipi di servizi collegati: servizio collegato di Archiviazione di A
 #### <a name="azure-storage-linked-service"></a>Servizio collegato Archiviazione di Azure
 Per collegare un account di Archiviazione di Azure a una data factory tramite la **chiave dell'account**, creare un servizio collegato di Archiviazione di Azure. Per definire un servizio collegato di Archiviazione di Azure, impostare il **tipo** di servizio collegato su **AzureStorage**. Specificare quindi le seguenti proprietà nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type |La proprietà type deve essere impostata su: **AzureStorage** |Sì |
 | connectionString |Specificare le informazioni necessarie per connettersi all’archivio Azure per la proprietà connectionString. |Sì |
@@ -1418,7 +1418,7 @@ Per collegare un account di Archiviazione di Azure a una data factory tramite la
 #### <a name="azure-storage-sas-linked-service"></a>Servizio collegato di firma di accesso condiviso Archiviazione di Azure
 Il servizio collegato di firma di accesso condiviso Archiviazione di Azure consente di collegare un account di Archiviazione di Azure a Data factory di Azure tramite una firma di accesso condiviso. Offre a Data factory un accesso con restrizioni o limiti di tempo a tutte le risorse o a risorse specifiche (BLOB/contenitore) nella risorsa di archiviazione. Per collegare un account di Archiviazione di Azure a una data factory tramite la firma di accesso condiviso, creare un servizio collegato di firma di accesso condiviso Archiviazione di Azure. Per definire un Servizio collegato di firma di accesso condiviso Archiviazione di Azure, impostare il **tipo** del servizio collegato su **AzureStorageSas**. Specificare quindi le seguenti proprietà nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type |La proprietà type deve essere impostata su: **AzureStorageSas** |Sì |
 | sasUri |Specificare l'URI della firma di accesso condiviso per le risorse di Archiviazione di Azure come BLOB, contenitore o tabella. |Sì |
@@ -1442,7 +1442,7 @@ Per altre informazioni sui servizi collegati, vedere [Connettore Archiviazione t
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di Archiviazione tabelle di Azure, impostare il **tipo** di set di dati su **AzureTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'istanza del database di tabelle di Azure a cui fa riferimento il servizio collegato. |Sì. Quando si specifica tableName senza azureTableSourceQuery, tutti i record della tabella vengono copiati nella destinazione. Se si specifica anche azureTableSourceQuery, i record della tabella che soddisfa la query vengono copiati nella destinazione. |
 
@@ -1478,7 +1478,7 @@ Per altre informazioni sui servizi collegati, vedere [Connettore Archiviazione t
 ### <a name="azure-table-source-in-copy-activity"></a>Origine Tabella di Azure nell'attività di copia
 Se si copiano dati dall'archiviazione tabelle di Azure, impostare il **tipo di origine** dell'attività di copia su **AzureTableSource**e specificare le proprietà seguenti nella sezione **source**:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | AzureTableSourceQuery |Usare la query personalizzata per leggere i dati. |Stringa di query della tabella di Azure. Vedere gli esempi nella sezione successiva. |No. Quando si specifica tableName senza azureTableSourceQuery, tutti i record della tabella vengono copiati nella destinazione. Se si specifica anche azureTableSourceQuery, i record della tabella che soddisfa la query vengono copiati nella destinazione. |
 | azureTableSourceIgnoreTableNotFound |Indica se ignorare l'eccezione di tabella inesistente. |TRUE<br/>FALSE |No |
@@ -1531,12 +1531,12 @@ Per altre informazioni sui servizi collegati, vedere [Connettore Archiviazione t
 ### <a name="azure-table-sink-in-copy-activity"></a>Sink Tabella di Azure nell'attività di copia
 Se si copiano dati in un'archiviazione tabelle di Azure, impostare il **tipo di sink** dell'attività di copia su **AzureTableSink**e specificare le proprietà seguenti nella sezione **sink**:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | azureTableDefaultPartitionKeyValue |Valore predefinito della chiave di partizione che può essere usato dal sink. |Valore stringa. |No |
 | azureTablePartitionKeyName |Specificare il nome della colonna i cui valori vengono usati come chiavi di partizione. Se non specificato, AzureTableDefaultPartitionKeyValue viene usato come chiave di partizione. |Nome colonna. |No |
 | azureTableRowKeyName |Specificare il nome della colonna i cui valori vengono usati come chiavi di riga. Se non specificato, usare un GUID per ogni riga. |Nome colonna. |No |
-| azureTableInsertType |Modalità di inserimento dei dati in una tabella di Azure.<br/><br/>Questa proprietà verifica se per le righe esistenti nella tabella di output con chiavi di partizione e di riga corrispondenti i valori vengono sostituiti o uniti. <br/><br/>Per scoprire come funzionano queste impostazioni (unione e sostituzione), vedere gli argomenti [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) (Inserire o unire un'entità) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) (Inserire o sostituire un'entità). <br/><br> Queste impostazioni vengono applicate a livello di riga, non a livello di tabella, e nessuna delle due opzioni elimina le righe della tabella di output che non esistono nell'input. |merge (impostazione predefinita)<br/>replace |No |
+| azureTableInsertType |Modalità di inserimento dei dati in una tabella di Azure.<br/><br/>Questa proprietà verifica se per le righe esistenti nella tabella di output con chiavi di partizione e di riga corrispondenti i valori vengono sostituiti o uniti. <br/><br/>Per scoprire come funzionano queste impostazioni (unione e sostituzione), vedere gli argomenti [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) (Inserire o unire un'entità) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) (Inserire o sostituire un'entità). <br/><br>  Queste impostazioni vengono applicate a livello di riga, non a livello di tabella, e nessuna delle due opzioni elimina le righe della tabella di output che non esistono nell'input. |merge (impostazione predefinita)<br/>replace |No |
 | writeBatchSize |Inserisce dati nella tabella di Azure quando viene raggiunto il writeBatchSize o writeBatchTimeout. |Numero intero (numero di righe) |No (valore predefinito: 10000) |
 | writeBatchTimeout |Inserisce i dati nella tabella di Azure quando viene raggiunto writeBatchSize o writeBatchTimeout |Intervallo di tempo<br/><br/>Ad esempio: "00:20:00" (20 minuti) |No. (il valore predefinito è il timeout del client di archiviazione pari a 90 secondi) |
 
@@ -1590,7 +1590,7 @@ Per altre informazioni sui servizi collegati, vedere [Connettore Archiviazione t
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di Amazon Redshift, impostare il **tipo** di servizio collegato su **AmazonRedshift** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | server |Indirizzo IP o nome host del server Amazon Redshift. |Sì |
 | port |Il numero della porta TCP che il server Amazon Redshift usa per ascoltare le connessioni client. |No, valore predefinito: 5439 |
@@ -1621,7 +1621,7 @@ Per altre informazioni, vedere Connettore Amazon Redshift.
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di AmazonRedshift, impostare il **tipo** di set di dati su **RelationalTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella nel database Amazon Redshift a cui fa riferimento il servizio collegato. |No (se la **query** di **RelationalSource** è specificata) |
 
@@ -1650,9 +1650,9 @@ Per altre informazioni, vedere Connettore Amazon Redshift.
 ### <a name="relational-source-in-copy-activity"></a>Origine relazionale nell'attività di copia
 Se si copiano dati da Amazon Redshift, impostare il **tipo di origine** dell'attività di copia su **SqlRelationalSourceSource**e specificare le proprietà seguenti nella sezione **source**:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: `select * from MyTable`. |No (se **tableName** di **set di dati** è specificato) |
+| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio `select * from MyTable`. |No (se **tableName** di **set di dati** è specificato) |
 
 #### <a name="example"></a>Esempio
 
@@ -1702,7 +1702,7 @@ Per altre informazioni, vedere Connettore Amazon Redshift.
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di IBM DB2, impostare il **tipo** di servizio collegato su **OnPremisesDB2** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | server |Nome del server DB2. |Sì |
 | database |Nome del database DB2. |Sì |
@@ -1735,7 +1735,7 @@ Per altre informazioni, vedere Connettore IBM DB2.
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di DB2, impostare il **tipo** di set di dati su **RelationalTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'istanza del database DB2 a cui fa riferimento il servizio collegato. La proprietà tableName fa distinzione tra maiuscole e minuscole. |No (se la **query** di **RelationalSource** è specificata)
 
@@ -1769,9 +1769,9 @@ Per altre informazioni, vedere Connettore IBM DB2.
 Se si copiano dati da IBM DB2, impostare il **tipo di origine** dell'attività di copia su **RelationalSource**e specificare le proprietà seguenti nella sezione **source**:
 
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: `"query": "select * from "MySchema"."MyTable""`. |No (se **tableName** di **set di dati** è specificato) |
+| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio `"query": "select * from "MySchema"."MyTable""`. |No (se **tableName** di **set di dati** è specificato) |
 
 #### <a name="example"></a>Esempio
 ```json
@@ -1818,7 +1818,7 @@ Per altre informazioni, vedere Connettore IBM DB2.
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di MySQL, impostare il **tipo** di servizio collegato su **OnPremisesMySql** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | server |Nome del server MySQL. |Sì |
 | database |Nome del database MySQL. |Sì |
@@ -1853,7 +1853,7 @@ Per altre informazioni, vedere [Connettore MySQL](data-factory-onprem-mysql-conn
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di MySQL, impostare il **tipo** di set di dati su **RelationalTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'istanza del database MySQL a cui fa riferimento il servizio collegato. |No (se la **query** di **RelationalSource** è specificata) |
 
@@ -1887,9 +1887,9 @@ Per altre informazioni, vedere [Connettore MySQL](data-factory-onprem-mysql-conn
 Se si copiano dati da un database MySQL, impostare il **tipo di origine** dell'attività di copia su **RelationalSource**e specificare le proprietà seguenti nella sezione **source**:
 
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: `select * from MyTable`. |No (se **tableName** di **set di dati** è specificato) |
+| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio `select * from MyTable`. |No (se **tableName** di **set di dati** è specificato) |
 
 
 #### <a name="example"></a>Esempio
@@ -1940,7 +1940,7 @@ Per altre informazioni, vedere [Connettore MySQL](data-factory-onprem-mysql-conn
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di Oracle, impostare il **tipo** di servizio collegato su **OnPremisesOracle** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | driverType | Specificare il driver da usare per copiare i dati da/verso il database Oracle. I valori consentiti sono **Microsoft** o **ODP** (impostazione predefinita). Per informazioni dettagliate sui driver, vedere la sezione Versione e installazione supportate. | No |
 | connectionString | Specificare le informazioni necessarie per connettersi all'istanza del database Oracle per la proprietà connectionString. | Sì |
@@ -1966,7 +1966,7 @@ Per altre informazioni, vedere [Connettore Oracle](data-factory-onprem-oracle-co
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di Oracle, impostare il **tipo** di set di dati su **OracleTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'istanza del database Oracle a cui fa riferimento il servizio collegato. |No, se **oracleReaderQuery** di **OracleSource** è specificato |
 
@@ -2003,7 +2003,7 @@ Per altre informazioni, vedere [Connettore Oracle](data-factory-onprem-oracle-co
 ### <a name="oracle-source-in-copy-activity"></a>Origine Oracle nell'attività di copia
 Se si copiano dati da un database Oracle, impostare il **tipo di origine** dell'attività di copia su **OracleSource**e specificare le proprietà seguenti nella sezione **source**:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | oracleReaderQuery |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: `select * from MyTable` <br/><br/>Se non specificato, l'istruzione SQL eseguita: `select * from MyTable` |No (se **tableName** di **set di dati** è specificato) |
 
@@ -2055,9 +2055,9 @@ Per altre informazioni, vedere [Connettore Oracle](data-factory-onprem-oracle-co
 ### <a name="oracle-sink-in-copy-activity"></a>Sink Oracle nell'attività di copia
 Se si copiano dati in un database Oracle, impostare il **tipo di sink** dell'attività di copia su **OracleSink**e specificare le proprietà seguenti nella sezione **sink**:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |Intervallo di tempo<br/><br/> Ad esempio: "00:30:00" (30 minuti). |No |
+| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |Intervallo di tempo<br/><br/>  Ad esempio: "00:30:00" (30 minuti). |No |
 | writeBatchSize |Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize. |Numero intero (numero di righe) |No (valore predefinito: 100) |
 | sqlWriterCleanupScript |Specificare una query da eseguire nell'attività di copia per pulire i dati di una sezione specifica. |Istruzione di query. |No |
 | sliceIdentifierColumnName |Specificare il nome della colonna per l'attività di copia da riempire con l'identificatore di sezione generato automaticamente, che viene usato per eliminare i dati di una sezione specifica quando viene nuovamente eseguita. |Nome di colonna di una colonna con tipo di dati binario (32). |No |
@@ -2109,7 +2109,7 @@ Per altre informazioni, vedere [Connettore Oracle](data-factory-onprem-oracle-co
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di PostgreSQL, impostare il **tipo** di servizio collegato su **OnPremisesPostgreSql** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | server |Nome del server PostgreSQL. |Sì |
 | database |Nome del database PostgreSQL. |Sì |
@@ -2143,7 +2143,7 @@ Per altre informazioni, vedere [Connettore PostgreSQL](data-factory-onprem-postg
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di PostgreSQL, impostare il **tipo** di set di dati su **RelationalTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'istanza del database PostgreSQL a cui fa riferimento il servizio collegato. La proprietà tableName fa distinzione tra maiuscole e minuscole. |No (se la **query** di **RelationalSource** è specificata) |
 
@@ -2176,7 +2176,7 @@ Per altre informazioni, vedere [Connettore PostgreSQL](data-factory-onprem-postg
 Se si copiano dati da un database PostgreSQL, impostare il **tipo di origine** dell'attività di copia su **RelationalSource**e specificare le proprietà seguenti nella sezione **source**:
 
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: "query": "select * from \"Schema\".\"Tabella\"". |No (se **tableName** di **set di dati** è specificato) |
 
@@ -2228,7 +2228,7 @@ Per altre informazioni, vedere [Connettore PostgreSQL](data-factory-onprem-postg
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di SAP Business Warehouse (BW), impostare il **tipo** di servizio collegato su **SapBw**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-Proprietà | Description | Valori consentiti | Obbligatorio
+Proprietà | Descrizione | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
 server | Nome del server in cui si trova l'istanza di SAP BW. | string | Sì
 systemNumber | Numero del sistema SAP BW. | Numero decimale a due cifre rappresentato come stringa. | Sì
@@ -2285,7 +2285,7 @@ Per altre informazioni, vedere [Connettore SAP Business Warehouse](data-factory-
 Se si copiano dati da SAP Business Warehouse, impostare il **tipo di origine** dell'attività di copia su **RelationalSource**e specificare le proprietà seguenti nella sezione **source**:
 
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | query | Specifica la query MDX che consente di leggere i dati dall'istanza di SAP BW. | Query MDX. | Sì |
 
@@ -2338,10 +2338,10 @@ Per altre informazioni, vedere [Connettore SAP Business Warehouse](data-factory-
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di SAP HANA, impostare il **tipo** di servizio collegato su **SapHana** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-Proprietà | Description | Valori consentiti | Obbligatorio
+Proprietà | Descrizione | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
 server | Nome del server in cui si trova l'istanza di SAP HANA. Se il server usa una porta personalizzata, specificare `server:port`. | string | Sì
-authenticationType | Tipo di autenticazione. | string. "Basic" o "Windows" | Sì
+authenticationType | Tipo di autenticazione. | . "Basic" o "Windows" | Sì
 username | Nome dell'utente che ha accesso al server SAP | string | Sì
 password | Password per l'utente. | string | Sì
 gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi all'istanza di SAP HANA locale. | string | Sì
@@ -2392,7 +2392,7 @@ Per altre informazioni, vedere [Connettore SAP HANA](data-factory-sap-hana-conne
 ### <a name="relational-source-in-copy-activity"></a>Origine relazionale nell'attività di copia
 Se si copiano dati da un archivio dati SAP HANA, impostare il **tipo di origine** dell'attività di copia su **RelationalSource**e specificare le proprietà seguenti nella sezione **source**:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | query | Specifica la query SQL che consente di leggere i dati dall'istanza di SAP HANA. | Query SQL. | Sì |
 
@@ -2450,7 +2450,7 @@ Per altre informazioni, vedere [Connettore SAP HANA](data-factory-sap-hana-conne
 
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato SQL Server.
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | type |La proprietà type deve essere impostata su **OnPremisesSqlServer**. |Sì |
 | connectionString |Specificare le informazioni di connectionString necessarie per connettersi al database di SQL Server locale usando l'autenticazione di SQL o Windows. |Sì |
@@ -2458,7 +2458,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | username |Specificare il nome utente se si usa l'autenticazione Windows. Esempio: **nomedominio\\nomeutente**. |No |
 | password |Specificare la password per l'account utente specificato per il nome utente. |No |
 
-È possibile crittografare le credenziali usando il cmdlet **New-AzDataFactoryEncryptValue** e usarle nella stringa di connessione, come illustrato nell'esempio seguente (proprietà**EncryptedCredential** ):
+È possibile crittografare le credenziali utilizzando il cmdlet **New-AzDataFactoryEncryptValue** e utilizzarle nella stringa di connessione, come illustrato nell'esempio seguente ( proprietà**EncryptedCredential):**
 
 ```json
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -2503,7 +2503,7 @@ Per altre informazioni, vedere [Connettore SQL Server](data-factory-sqlserver-co
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di SQL Server, impostare il **tipo** di set di dati su **SqlServerTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella o vista nell'istanza del database di SQL Server a cui fa riferimento il servizio collegato. |Sì |
 
@@ -2539,9 +2539,9 @@ Per altre informazioni, vedere [Connettore SQL Server](data-factory-sqlserver-co
 Se si copiano dati da un database SQL Server, impostare il **tipo di origine** dell'attività di copia su **SqlSource**e specificare le proprietà seguenti nella sezione **source**:
 
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: `select * from MyTable`. Può fare riferimento a più tabelle del database a cui fa riferimento il set di dati di input. Se non specificato, l'istruzione SQL eseguita: selezionare da MyTable. |No |
+| sqlReaderQuery |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio `select * from MyTable`. Può fare riferimento a più tabelle del database a cui fa riferimento il set di dati di input. Se non specificato, l'istruzione SQL eseguita: selezionare da MyTable. |No |
 | sqlReaderStoredProcedureName |Nome della stored procedure che legge i dati dalla tabella di origine. |Nome della stored procedure. |No |
 | storedProcedureParameters |Parametri per la stored procedure. |Coppie nome/valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. |No |
 
@@ -2606,9 +2606,9 @@ Per altre informazioni, vedere [Connettore SQL Server](data-factory-sqlserver-co
 ### <a name="sql-sink-in-copy-activity"></a>Sink SQL nell'attività di copia
 Se si copiano dati da un database SQL Server, impostare il **tipo di sink** dell'attività di copia su **SqlSink**e specificare le proprietà seguenti nella sezione **ink**:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |Intervallo di tempo<br/><br/> Ad esempio: "00:30:00" (30 minuti). |No |
+| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |Intervallo di tempo<br/><br/>  Ad esempio: "00:30:00" (30 minuti). |No |
 | writeBatchSize |Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize. |Numero intero (numero di righe) |No (valore predefinito: 10000) |
 | sqlWriterCleanupScript |Specificare la query per l'attività di copia da eseguire in modo che i dati di una sezione specifica vengano eliminati. Per altre informazioni, vedere la sezione relativa alla ripetibilità. |Istruzione di query. |No |
 | sliceIdentifierColumnName |Specificare il nome della colonna per l'attività di copia da riempire con l'identificatore di sezione generato automaticamente, che viene usato per eliminare i dati di una sezione specifica quando viene nuovamente eseguita. Per altre informazioni, vedere la sezione relativa alla ripetibilità. |Nome di colonna di una colonna con tipo di dati binario (32). |No |
@@ -2667,7 +2667,7 @@ Per altre informazioni, vedere [Connettore SQL Server](data-factory-sqlserver-co
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di Sybase, impostare il **tipo** di servizio collegato su **OnPremisesSybase** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | server |Nome del server Sybase. |Sì |
 | database |Nome del database Sybase. |Sì |
@@ -2701,7 +2701,7 @@ Per altre informazioni, vedere [Connettore Sybase](data-factory-onprem-sybase-co
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di Sybase, impostare il **tipo** di set di dati su **RelationalTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'istanza del database Sybase a cui fa riferimento il servizio collegato. |No (se la **query** di **RelationalSource** è specificata) |
 
@@ -2736,9 +2736,9 @@ Per altre informazioni, vedere [Connettore Sybase](data-factory-onprem-sybase-co
 Se si copiano dati da un database Sybase, impostare il **tipo di origine** dell'attività di copia su **RelationalSource**e specificare le proprietà seguenti nella sezione **source**:
 
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: `select * from MyTable`. |No (se **tableName** di **set di dati** è specificato) |
+| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio `select * from MyTable`. |No (se **tableName** di **set di dati** è specificato) |
 
 #### <a name="example"></a>Esempio
 
@@ -2787,7 +2787,7 @@ Per altre informazioni, vedere [Connettore Sybase](data-factory-onprem-sybase-co
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di Teradata, impostare il **tipo** di servizio collegato su **OnPremisesTeradata** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | server |Nome del server Teradata. |Sì |
 | authenticationType |Tipo di autenticazione usato per connettersi al database Teradata. I valori possibili sono: anonima, di base e Windows. |Sì |
@@ -2846,9 +2846,9 @@ Per altre informazioni, vedere [Connettore Teradata](data-factory-onprem-teradat
 ### <a name="relational-source-in-copy-activity"></a>Origine relazionale nell'attività di copia
 Se si copiano dati da un database Teradata, impostare il **tipo di origine** dell'attività di copia su **RelationalSource**e specificare le proprietà seguenti nella sezione **source**:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: `select * from MyTable`. |Sì |
+| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio `select * from MyTable`. |Sì |
 
 #### <a name="example"></a>Esempio
 
@@ -2901,7 +2901,7 @@ Per altre informazioni, vedere [Connettore Teradata](data-factory-onprem-teradat
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di Cassandra, impostare il **tipo** di servizio collegato su **OnPremisesCassandra** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | host |Uno o più indirizzi IP o nomi host di server Cassandra.<br/><br/>Specificare un elenco delimitato da virgole degli indirizzi IP o nomi host per la connessione a tutti i server contemporaneamente. |Sì |
 | port |La porta TCP che il server Cassandra usa per ascoltare le connessioni client. |No, valore predefinito: 9042 |
@@ -2935,7 +2935,7 @@ Per altre informazioni, vedere [Connettore Cassandra](data-factory-onprem-cassan
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di Cassandra, impostare il **tipo** di set di dati su **Table**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | keyspace |Nome del keyspace o schema nel database Cassandra. |Sì, se **query** per **CassandraSource** non è definito. |
 | tableName |Nome della tabella in un database Cassandra. |Sì, se **query** per **CassandraSource** non è definito. |
@@ -2973,7 +2973,7 @@ Per altre informazioni, vedere [Connettore Cassandra](data-factory-onprem-cassan
 ### <a name="cassandra-source-in-copy-activity"></a>Origine Cassandra nell'attività di copia
 Se si copiano dati da Cassandra, impostare il **tipo di origine** dell'attività di copia su **Source**e specificare le proprietà seguenti nella sezione **source**:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | query |Usare la query personalizzata per leggere i dati. |Query SQL-92 o query CQL. Vedere il [riferimento a CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Quando si usa una query SQL, specificare **nome keyspace.nome tabella** per indicare la tabella su cui eseguire la query. |No (se tableName e keyspace sul set di dati sono definiti). |
 | consistencyLevel |Il livello di coerenza specifica quante repliche devono rispondere a una richiesta di lettura prima della restituzione dei dati all'applicazione client. Cassandra controlla il numero di repliche specificato perché i dati soddisfino la richiesta di lettura. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Per informazioni dettagliate, vedere [Configuring data consistency](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) (Configurazione della coerenza dei dati). |No. Il valore predefinito è ONE. |
@@ -3028,7 +3028,7 @@ Per altre informazioni, vedere [Connettore Cassandra](data-factory-onprem-cassan
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di MongoDB, impostare il **tipo** di servizio collegato su **OnPremisesMongoDB** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | server |Indirizzo IP o nome host del server MongoDB. |Sì |
 | port |Porta TCP che il server MongoDB usa per ascoltare le connessioni client. |Facoltativo, valore predefinito: 27017 |
@@ -3066,7 +3066,7 @@ Per altre informazioni, vedere [Connettore MongoDB](data-factory-on-premises-mon
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati MongoDB, impostare il **tipo** del set di dati su **DbCollection**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | collectionName |Nome della raccolta nel database MongoDB. |Sì |
 
@@ -3095,9 +3095,9 @@ Per altre informazioni, vedere [Connettore MongoDB](data-factory-on-premises-mon
 #### <a name="mongodb-source-in-copy-activity"></a>Origine MongoDB nell'attività di copia
 Se si copiano dati da MongoDB, impostare il **tipo di origine** dell'attività di copia su **Source**e specificare le proprietà seguenti nella sezione **source**:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL-92. Ad esempio: `select * from MyTable`. |No, se **collectionName** di **set di dati** è specificato |
+| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL-92. Ad esempio `select * from MyTable`. |No, se **collectionName** di **set di dati** è specificato |
 
 #### <a name="example"></a>Esempio
 
@@ -3149,7 +3149,7 @@ Per altre informazioni, vedere [Connettore MongoDB](data-factory-on-premises-mon
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di Amazon S3, impostare il **tipo** di servizio collegato su **AwsAccessKey** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | accessKeyID |ID della chiave di accesso segreta. |string |Sì |
 | secretAccessKey |La stessa chiave di accesso segreta. |La stringa segreta crittografata |Sì |
@@ -3173,14 +3173,14 @@ Per altre informazioni, vedere [Connettore Amazon S3](data-factory-amazon-simple
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di Amazon S3, impostare il **tipo** di set di dati su **AmazonS3**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | bucketName |Il nome del bucket S3. |string |Sì |
 | Key |La chiave dell'oggetto S3. |string |No |
 | prefix |Il prefisso per la chiave dell'oggetto S3. Vengono selezionati gli oggetti le cui chiavi iniziano con questo prefisso. Si applica solo quando la chiave è vuota. |string |No |
 | version |La versione dell'oggetto S3 se è stato abilitato il controllo delle versioni S3. |string |No |
-| format | Sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No | |
-| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. I livelli supportati sono **Ottimale** e **Più veloce**. Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No | |
+| format | Sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** in format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No | |
+| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono i seguenti: **G'ip**, **Deflate**, **B-ip2**e **.** I livelli supportati sono **Ottimale** e **Più veloce**. Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No | |
 
 
 > [!NOTE]
@@ -3257,7 +3257,7 @@ Per altre informazioni, vedere [Connettore Amazon S3](data-factory-amazon-simple
 Se si copiano dati da Amazon S3, impostare il **tipo di origine** dell'attività di copia su **FileSystemSource**e specificare le proprietà seguenti nella sezione **source**:
 
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | ricorsiva |Specifica se elencare in modo ricorsivo gli oggetti S3 sotto la directory. |true/false |No |
 
@@ -3311,9 +3311,9 @@ Per altre informazioni, vedere [Connettore Amazon S3](data-factory-amazon-simple
 
 
 ### <a name="linked-service"></a>Servizio collegato
-È possibile collegare un file system locale a una data factory di Azure con il servizio collegato del **file server locale** . La tabella seguente fornisce le descrizioni degli elementi JSON specifici del servizio collegato del file server locale.
+È possibile collegare un file system locale a una data factory di Azure con il servizio collegato **File Server** locale. Nella tabella seguente vengono fornite le descrizioni per gli elementi JSON specifici per il servizio collegato File Server locale.
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | type |Verificare che la proprietà type sia impostata su **OnPremisesFileServer**. |Sì |
 | host |Specifica il percorso radice della cartella da copiare. Usare il carattere di escape '\' per i caratteri speciali nella stringa. Per ottenere alcuni esempi, vedere Servizio collegato di esempio e definizioni del set di dati. |Sì |
@@ -3326,8 +3326,8 @@ Per altre informazioni, vedere [Connettore Amazon S3](data-factory-amazon-simple
 
 | Scenario | Host nella definizione del servizio collegato | folderPath nella definizione del set di dati |
 | --- | --- | --- |
-| Cartella locale nel computer del gateway di gestione dati: <br/><br/>Esempi: D:\\\* o D:\cartella\sottocartella\\\* |D:\\\\ (per Gateway di gestione dati versione 2.0 e successive) <br/><br/> localhost (per le versioni precedenti alla versione 2.0 di Gateway di gestione dati) |.\\\\ o cartella\\\\sottocartella (per Gateway di gestione dati 2.0 e versioni successive) <br/><br/>D:\\\\ o D:\\\\cartella\\\\sottocartella (per la versione del gateway precedente a 2.0) |
-| Cartella condivisa remota: <br/><br/>Esempi: \\\\myserver\\share\\\* o \\\\myserver\\share\\cartella\\sottocartella\\\* |\\\\\\\\myserver\\\\share |.\\\\ o cartella\\\\sottocartella |
+| Cartella locale nel computer del gateway di gestione dati:  <br/><br/>Esempi: D:\\\* o D:\cartella\sottocartella\\\* |D:\\\\ (per Gateway di gestione dati versione 2.0 e successive) <br/><br/> localhost (per le versioni precedenti alla versione 2.0 di Gateway di gestione dati) |.\\\\ o cartella\\\\sottocartella (per Gateway di gestione dati 2.0 e versioni successive) <br/><br/>D:\\\\ o D:\\\\cartella\\\\sottocartella (per la versione del gateway precedente a 2.0) |
+| Cartella condivisa remota:  <br/><br/>Esempi: \\\\myserver\\share\\\* o \\\\myserver\\share\\cartella\\sottocartella\\\* |\\\\\\\\myserver\\\\share |.\\\\ o cartella\\\\sottocartella |
 
 
 #### <a name="example-using-username-and-password-in-plain-text"></a>Esempio: Uso di nome utente e password in testo normale
@@ -3368,14 +3368,14 @@ Per altre informazioni, vedere [Connettore File System](data-factory-onprem-file
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di File System, impostare il **tipo** di set di dati su **FileShare**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | folderPath |Specifica il percorso secondario della cartella. Usare il carattere di escape '\' per i caratteri speciali nella stringa. Per ottenere alcuni esempi, vedere Servizio collegato di esempio e definizioni del set di dati.<br/><br/>È possibile combinare questa proprietà con **partitionBy** per ottenere percorsi di cartelle basati su data e ora di inizio/fine delle sezioni. |Sì |
 | fileName |Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella punta a tutti i file nella cartella.<br/><br/>Quando fileName non viene specificato per un set di dati di output, il formato del nome del file generato è il seguente: <br/><br/>`Data.<Guid>.txt` Esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | fileFilter |Specificare un filtro da usare per selezionare un sottoinsieme di file in folderPath anziché tutti i file. <br/><br/>I valori consentiti sono: `*` (più caratteri) e `?` (carattere singolo).<br/><br/>Esempio 1: "fileFilter": "*. log"<br/>Esempio 2: "fileFilter": 2016-1-?.txt"<br/><br/>Si noti che fileFilter è applicabile per un set di dati di input FileShare. |No |
 | partitionedBy |È possibile usare partitionedBy per specificare un valore folderPath/fileName dinamico per i dati di una serie temporale. Un esempio è folderPath con parametri per ogni ora di dati. |No |
-| format | Sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No |
-| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**, mentre i livelli supportati sono **Optimal** (Ottimale) **Fastest** (Più veloce). vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
+| format | Sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** in format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No |
+| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono i seguenti: **G'ip**, **Deflate**, **B-ip2**e **.ipDeflate**; e i livelli supportati sono: **Ottimale** e **Più Veloce**. vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
 > [!NOTE]
 > Non è possibile usare fileName e fileFilter contemporaneamente.
@@ -3442,7 +3442,7 @@ Per altre informazioni, vedere [Connettore File System](data-factory-onprem-file
 ### <a name="file-system-source-in-copy-activity"></a>Origine File System nell'attività di copia
 Se si copiano dati da File System, impostare il **tipo di origine** dell'attività di copia su **FileSystemSource**e specificare le proprietà seguenti nella sezione **source**:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | ricorsiva |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True, False (valore predefinito) |No |
 
@@ -3492,9 +3492,9 @@ Per altre informazioni, vedere [Connettore File System](data-factory-onprem-file
 ### <a name="file-system-sink-in-copy-activity"></a>Sink File System nell'attività di copia
 Se si copiano dati in File System, impostare il **tipo di sink** dell'attività di copia su **FileSystemSink**e specificare le proprietà seguenti nella sezione **sink**:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| copyBehavior |Definisce il comportamento di copia quando l'origine è BlobSource o FileSystem. |**PreserveHierarchy:** mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><br/>**FlattenHierarchy**: tutti i file della cartella di origine vengono creati nel primo livello della cartella di destinazione. Il nome dei file di destinazione viene generato automaticamente.<br/><br/>**MergeFiles**: unisce tutti i file della cartella di origine in un solo file. Se il nome file/BLOB viene specificato, il nome del file unito sarà il nome specificato. In caso contrario, verrà usato un nome file generato automaticamente. |No |
+| copyBehavior |Definisce il comportamento di copia quando l'origine è BlobSource o FileSystem. |**PreserveHierarchy:** Mantiene la gerarchia di file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><br/>**FlattenHierarchy**: tutti i file della cartella di origine vengono creati nel primo livello della cartella di destinazione. Il nome dei file di destinazione viene generato automaticamente.<br/><br/>**File unione:** Unisce tutti i file dalla cartella di origine a un unico file. Se il nome file/BLOB viene specificato, il nome del file unito sarà il nome specificato. In caso contrario, verrà usato un nome file generato automaticamente. |No |
 
 auto-
 
@@ -3548,7 +3548,7 @@ Per altre informazioni, vedere [Connettore File System](data-factory-onprem-file
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di FTP, impostare il **tipo** di servizio collegato su **FtpServer** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio | Predefinito |
+| Proprietà | Descrizione | Obbligatoria | Predefinito |
 | --- | --- | --- | --- |
 | host |Nome o indirizzo IP del server FTP |Sì |&nbsp; |
 | authenticationType |Specificare il tipo di autenticazione |Sì |Di base, anonimo |
@@ -3558,7 +3558,7 @@ Per definire un servizio collegato di FTP, impostare il **tipo** di servizio col
 | gatewayName |Nome del gateway di gestione dati per connettersi a un server FTP locale |No |&nbsp; |
 | port |Porta su cui è in ascolto il server FTP |No |21 |
 | enableSsl |Specificare se usare FTP su un canale SSL/TLS |No |true |
-| enableServerCertificateValidation |Specificare se abilitare la convalida del certificato SSL del server quando si usa FTP sul canale SSL/TLS |No |true |
+| enableServerCertificateValidation |Specificare se abilitare la convalida del certificato TLS/SSL del server quando si utilizza FTP su canale SSL/TLS |No |true |
 
 #### <a name="example-using-anonymous-authentication"></a>Esempio: uso dell'autenticazione anonima
 
@@ -3634,14 +3634,14 @@ Per altre informazioni, vedere [Connettore FTP](data-factory-ftp-connector.md#li
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di FTP, impostare il **tipo** di set di dati su **FileShare**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | folderPath |Sottopercorso alla cartella. Usare il carattere di escape "\" per i caratteri speciali nella stringa. Per ottenere alcuni esempi, vedere Servizio collegato di esempio e definizioni del set di dati.<br/><br/>È possibile combinare questa proprietà con **partitionBy** per ottenere percorsi di cartelle basati su data e ora di inizio/fine delle sezioni. |Sì
 | fileName |Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella punta a tutti i file nella cartella.<br/><br/>Quando fileName non viene specificato per un set di dati di output, il nome del file generato sarà nel formato seguente: <br/><br/>`Data.<Guid>.txt` Esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | fileFilter |Specificare un filtro da usare per selezionare un sottoinsieme di file in folderPath anziché tutti i file.<br/><br/>I valori consentiti sono: `*` (più caratteri) e `?` (carattere singolo).<br/><br/>Esempi 1: `"fileFilter": "*.log"`<br/>Esempio 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter è applicabile per un set di dati di input FileShare. Questa proprietà non è supportata con HDFS. |No |
 | partitionedBy |partitionedBy può essere usato per specificare un valore folderPath dinamico e un nome file per i dati di una serie temporale. Ad esempio, folderPath con parametri per ogni ora di dati. |No |
-| format | Sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No |
-| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**, mentre i livelli supportati sono **Optimal** (Ottimale) **Fastest** (Più veloce). Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
+| format | Sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** in format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No |
+| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono i seguenti: **G'ip**, **Deflate**, **B-ip2**e **.ipDeflate**; e i livelli supportati sono: **Ottimale** e **Più Veloce**. Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 | useBinaryTransfer |Specificare se usare la modalità di trasferimento binario. True per la modalità binaria e false per ASCII. Valore predefinito: True. Questa proprietà può essere usata solo quando il tipo di servizio collegato associato è di tipo: FtpServer. |No |
 
 > [!NOTE]
@@ -3674,7 +3674,7 @@ Per altre informazioni, vedere [Connettore FTP](data-factory-ftp-connector.md#da
 ### <a name="file-system-source-in-copy-activity"></a>Origine File System nell'attività di copia
 Se si copiano dati da un server FTP, impostare il **tipo di origine** dell'attività di copia su **FileSystemSource**e specificare le proprietà seguenti nella sezione **source**:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | ricorsiva |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True, False (valore predefinito) |No |
 
@@ -3726,7 +3726,7 @@ Per altre informazioni, vedere [Connettore FTP](data-factory-ftp-connector.md#co
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di HDFS, impostare il **tipo** di servizio collegato su **Hdfs** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | type |La proprietà type deve essere impostata su: **Hdfs** |Sì |
 | URL |URL di HDFS |Sì |
@@ -3734,7 +3734,7 @@ Per definire un servizio collegato di HDFS, impostare il **tipo** di servizio co
 | userName |Nome utente per l'autenticazione di Windows |Sì (per l'autenticazione di Windows) |
 | password |Password per l'autenticazione di Windows |Sì (per l'autenticazione di Windows) |
 | gatewayName |Nome del gateway che il servizio Data Factory deve usare per connettersi a HDFS. |Sì |
-| encryptedCredential |Output [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) delle credenziali di accesso. |No |
+| encryptedCredential |[Output New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) delle credenziali di accesso. |No |
 
 #### <a name="example-using-anonymous-authentication"></a>Esempio: uso dell'autenticazione anonima
 
@@ -3776,13 +3776,13 @@ Per altre informazioni, vedere Connettore HDFS.
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di HDFS, impostare il **tipo** di set di dati su **FileShare**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | folderPath |Percorso della cartella. Esempio: `myfolder`<br/><br/>Usare il carattere di escape "\" per i caratteri speciali nella stringa. Ad esempio: per cartella\sottocartella specificare cartella\\\\sottocartella e per d:\cartellaesempio specificare l'unità d:\\\\cartellaesempio.<br/><br/>È possibile combinare questa proprietà con **partitionBy** per ottenere percorsi di cartelle basati su data e ora di inizio/fine delle sezioni. |Sì |
-| fileName |Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella punta a tutti i file nella cartella.<br/><br/>Quando fileName non viene specificato per un set di dati di output, il nome del file generato sarà nel formato seguente: <br/><br/>`Data.<Guid>.txt`, ad esempio: data. 0a405f8a-93ff-4C6F-B3BE-f69616f1df7a. txt |No |
+| fileName |Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella punta a tutti i file nella cartella.<br/><br/>Quando fileName non viene specificato per un set di dati di output, il nome del file generato sarà nel formato seguente: <br/><br/>`Data.<Guid>.txt`(ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | partitionedBy |partitionedBy può essere usato per specificare un valore folderPath dinamico e un nome file per i dati di una serie temporale. Ad esempio, folderPath con parametri per ogni ora di dati. |No |
-| format | Sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No |
-| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. I livelli supportati sono **Ottimale** e **Più veloce**. Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
+| format | Sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** in format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No |
+| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono i seguenti: **G'ip**, **Deflate**, **B-ip2**e **.** I livelli supportati sono: **Ottimale** e **Più veloce**. Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
 > [!NOTE]
 > filename e fileFilter non possono essere usati contemporaneamente.
@@ -3814,7 +3814,7 @@ Se si copiano dati da HDFS, impostare il **tipo di origine** dell'attività di c
 
 **FileSystemSource** supporta le proprietà seguenti:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | ricorsiva |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True, False (valore predefinito) |No |
 
@@ -3862,7 +3862,7 @@ Per altre informazioni, vedere Connettore HDFS.
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di SFTP, impostare il **tipo** di servizio collegato su **Sftp** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | host | Nome o indirizzo IP del server SFTP. |Sì |
 | port |Porta su cui è in ascolto il server SFTP. Il valore predefinito è 21 |No |
@@ -3876,7 +3876,7 @@ Per definire un servizio collegato di SFTP, impostare il **tipo** di servizio co
 
 Per usare l'autenticazione di base, impostare `authenticationType` come `Basic` e specificare le proprietà seguenti oltre a quelle generiche del connettore SFTP introdotte nell'ultima sezione:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | username | Utente che ha accesso al server SFTP. |Sì |
 | password | Password per l'utente (nome utente). | Sì |
@@ -3900,7 +3900,7 @@ Per usare l'autenticazione di base, impostare `authenticationType` come `Basic` 
 }
 ```
 
-#### <a name="example-basic-authentication-with-encrypted-credential"></a>Esempio: **autenticazione di base con credenziali crittografate**
+#### <a name="example-basic-authentication-with-encrypted-credential"></a>Esempio: **autenticazione di base con credenziali crittografateExample: Basic authentication with encrypted credential**
 
 ```json
 {
@@ -3925,7 +3925,7 @@ Per usare l'autenticazione di base, impostare `authenticationType` come `Basic` 
 
 Per usare l'autenticazione di base, impostare `authenticationType` come `SshPublicKey` e specificare le proprietà seguenti oltre a quelle generiche del connettore SFTP introdotte nell'ultima sezione:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | username |Utente che ha accesso al server SFTP |Sì |
 | privateKeyPath | Specificare un percorso assoluto al file di chiave privato a cui il gateway può accedere. | Specificare `privateKeyPath` o `privateKeyContent`. <br><br> Applicare solo se si copiano i dati da un server SFTP locale. |
@@ -3976,14 +3976,14 @@ Per altre informazioni, vedere [Connettore SFTP](data-factory-sftp-connector.md#
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di SFTP, impostare il **tipo** di set di dati su **FileShare**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | folderPath |Sottopercorso alla cartella. Usare il carattere di escape "\" per i caratteri speciali nella stringa. Per ottenere alcuni esempi, vedere Servizio collegato di esempio e definizioni del set di dati.<br/><br/>È possibile combinare questa proprietà con **partitionBy** per ottenere percorsi di cartelle basati su data e ora di inizio/fine delle sezioni. |Sì |
 | fileName |Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella punta a tutti i file nella cartella.<br/><br/>Quando fileName non viene specificato per un set di dati di output, il nome del file generato sarà nel formato seguente: <br/><br/>`Data.<Guid>.txt` Esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | fileFilter |Specificare un filtro da usare per selezionare un sottoinsieme di file in folderPath anziché tutti i file.<br/><br/>I valori consentiti sono: `*` (più caratteri) e `?` (carattere singolo).<br/><br/>Esempi 1: `"fileFilter": "*.log"`<br/>Esempio 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter è applicabile per un set di dati di input FileShare. Questa proprietà non è supportata con HDFS. |No |
 | partitionedBy |partitionedBy può essere usato per specificare un valore folderPath dinamico e un nome file per i dati di una serie temporale. Ad esempio, folderPath con parametri per ogni ora di dati. |No |
-| format | Sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No |
-| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. I livelli supportati sono **Ottimale** e **Più veloce**. Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
+| format | Sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** in format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No |
+| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono i seguenti: **G'ip**, **Deflate**, **B-ip2**e **.** I livelli supportati sono: **Ottimale** e **Più veloce**. Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 | useBinaryTransfer |Specificare se usare la modalità di trasferimento binario. True per la modalità binaria e false per ASCII. Valore predefinito: True. Questa proprietà può essere usata solo quando il tipo di servizio collegato associato è di tipo: FtpServer. |No |
 
 > [!NOTE]
@@ -4015,7 +4015,7 @@ Per altre informazioni, vedere [Connettore SFTP](data-factory-sftp-connector.md#
 ### <a name="file-system-source-in-copy-activity"></a>Origine File System nell'attività di copia
 Se si copiano dati da un'origine SFTP, impostare il **tipo di origine** dell'attività di copia su **FileSystemSource**e specificare le proprietà seguenti nella sezione **source**:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | ricorsiva |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True, False (valore predefinito) |No |
 
@@ -4069,18 +4069,18 @@ Per altre informazioni, vedere [Connettore SFTP](data-factory-sftp-connector.md#
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di HTTP, impostare il **tipo** di servizio collegato su **Http** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | url | URL di base al server Web | Sì |
 | authenticationType | Specifica il tipo di autenticazione. I valori consentiti sono: **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Fare riferimento alle sezioni sotto questa tabella per altre proprietà e altri esempi JSON per questi tipi di autenticazione. | Sì |
-| enableServerCertificateValidation | Specificare se abilitare la convalida del certificato SSL del server se l'origine è un server Web HTTPS | No, il valore predefinito è true |
+| enableServerCertificateValidation | Specificare se abilitare la convalida del certificato TLS/SSL del server se l'origine è HTTPS Web Server | No, il valore predefinito è true |
 | gatewayName | Nome del gateway di gestione dati per connettersi a un'origine HTTP locale. | Sì se si copiano i dati da un'origine HTTP locale. |
 | encryptedCredential | Credenziali crittografate per accedere all'endpoint HTTP. Generate automaticamente quando si configurano le informazioni di autenticazione nella procedura di copia guidata o nella finestra di dialogo popup ClickOnce. | No. Applicare solo se si copiano i dati da un server HTTP locale. |
 
 #### <a name="example-using-basic-digest-or-windows-authentication"></a>Esempio: uso dell'autenticazione di base, Digest o Windows
 Impostare `authenticationType` come `Basic`, `Digest`, o `Windows` e specificare le proprietà seguenti oltre a quelle generiche del connettore HTTP illustrate in precedenza:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | username | Nome utente per accedere all'endpoint HTTP. | Sì |
 | password | Password per l'utente (nome utente). | Sì |
@@ -4104,7 +4104,7 @@ Impostare `authenticationType` come `Basic`, `Digest`, o `Windows` e specificare
 
 Per usare l'autenticazione di base, impostare `authenticationType` come `ClientCertificate` e specificare le proprietà seguenti oltre a quelle generiche del connettore HTTP introdotte in precedenza:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | embeddedCertData | Contenuto con codifica Base 64 dei dati binari del file di scambio di informazioni personali (PFX, Personal Information Exchange). | Specificare `embeddedCertData` o `certThumbprint`. |
 | certThumbprint | L'identificazione personale del certificato installato nell'archivio certificati del computer gateway. Applicare solo se si copiano i dati da un'origine HTTP locale. | Specificare `embeddedCertData` o `certThumbprint`. |
@@ -4114,7 +4114,7 @@ Se si usa `certThumbprint` per l'autenticazione e il certificato è installato n
 
 1. Avviare Microsoft Management Console (MMC). Aggiungere lo snap-in **Certificati** con il **Computer locale** come destinazione.
 2. Espandere **Certificati**, **Personali** e fare clic su **Certificati**.
-3. Fare clic con il tasto destro del mouse sul certificato dall'archivio personale, quindi selezionare **Tutte le attività**->**Gestisci chiavi private...**
+3. Fare clic con il pulsante destro del mouse sul certificato dall'archivio personale e selezionare **Tutte le attività**->**Gestisci chiavi private...**
 3. Nella scheda **Sicurezza** aggiungere l'account utente in cui è in esecuzione il Servizio host di Gateway di gestione dati con l'accesso in lettura al certificato.
 
 **Esempio: uso del certificato client:** questo servizio collegato collega la data factory a un server Web HTTP locale. Usa un file del certificato client installato nel computer che dispone del Gateway di gestione dati.
@@ -4157,14 +4157,14 @@ Per altre informazioni, vedere [Connettore HTTP](data-factory-http-connector.md#
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di HTTP, impostare il **tipo** di set di dati su **Http**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | relativeUrl | URL relativo della risorsa che contiene i dati. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. <br><br> Per creare un URL dinamico, è possibile usare le [unzioni e variabili di sistema di Data Factory](data-factory-functions-variables.md), ad esempio: `"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"`. | No |
 | requestMethod | Metodo HTTP. I valori consentiti sono **GET** o **POST**. | No. Il valore predefinito è `GET`. |
 | additionalHeaders | Intestazioni richiesta HTTP aggiuntive. | No |
 | requestBody | Il corpo della richiesta HTTP. | No |
 | format | Se si desidera semplicemente **recuperare i dati dall'endpoint HTTP così come sono** senza analizzarli, ignorare questa impostazione di formato. <br><br> Se si desidera analizzare i contenuti di risposta HTTP durante la copia, sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). |No |
-| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. I livelli supportati sono **Ottimale** e **Più veloce**. Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
+| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono i seguenti: **G'ip**, **Deflate**, **B-ip2**e **.** I livelli supportati sono: **Ottimale** e **Più veloce**. Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
 #### <a name="example-using-the-get-default-method"></a>Esempio: usando il metodo GET (predefinito)
 
@@ -4213,7 +4213,7 @@ Per altre informazioni, vedere [Connettore HTTP](data-factory-http-connector.md#
 ### <a name="http-source-in-copy-activity"></a>Origine HTTP nell'attività di copia
 Se si copiano dati da un'origine HTTP, impostare il **tipo di origine** dell'attività di copia su **HttpSource**e specificare le proprietà seguenti nella sezione **source**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | -------- | ----------- | -------- |
 | httpRequestTimeout | Il timeout (TimeSpan) durante il quale la richiesta HTTP attende una risposta. Si tratta del timeout per ottenere una risposta, non per leggere i dati della risposta stessa. | No. Valore predefinito: 00:01:40 |
 
@@ -4267,14 +4267,14 @@ Per altre informazioni, vedere [Connettore HTTP](data-factory-http-connector.md#
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di OData, impostare il **tipo** di servizio collegato su **OData** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | url |URL del servizio OData. |Sì |
 | authenticationType |Tipo di autenticazione usato per connettersi all'origine OData. <br/><br/> Per OData in cloud, i valori possibili sono Anonymous, Basic e OAuth. Si noti che Azure Data Factory attualmente supporta solo OAuth basato su Azure Active Directory). <br/><br/> Per OData locale, i valori possibili sono Anonima, Di base e Windows. |Sì |
 | username |Specificare il nome utente se si usa l'autenticazione di base. |Sì (solo se si usa l'autenticazione di base) |
 | password |Specificare la password per l'account utente specificato per il nome utente. |Sì (solo se si usa l'autenticazione di base) |
 | authorizedCredential |Se si usa OAuth, fare clic sul pulsante **Autorizza** nella procedura guidata di copia di Data Factory o nell'Editor e immettere le credenziali. Il valore di questa proprietà viene quindi generato automaticamente. |Sì (solo se si usa l'autenticazione OAuth) |
-| gatewayName |Nome del gateway che il servizio Data Factory deve usare per connettersi al servizio OData locale. Specificare solo se si copiano dati da un'origine OData locale. |No |
+| gatewayName |Nome del gateway che il servizio Data Factory deve usare per connettersi al servizio OData locale. Specificare solo se si copiano dati dall'origine OData locale. |No |
 
 #### <a name="example---using-basic-authentication"></a>Esempio - Uso dell'autenticazione di base
 ```json
@@ -4347,7 +4347,7 @@ Per altre informazioni, vedere [Connettore OData](data-factory-odata-connector.m
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di OData, impostare il **tipo** di set di dati su **ODataResource**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | path |Percorso della risorsa OData |No |
 
@@ -4382,7 +4382,7 @@ Per altre informazioni, vedere [Connettore OData](data-factory-odata-connector.m
 ### <a name="relational-source-in-copy-activity"></a>Origine relazionale nell'attività di copia
 Se si copiano dati da un'origine OData, impostare il **tipo di origine** dell'attività di copia su **RelationalSource**e specificare le proprietà seguenti nella sezione **source**:
 
-| Proprietà | Description | Esempio | Obbligatorio |
+| Proprietà | Descrizione | Esempio | Obbligatoria |
 | --- | --- | --- | --- |
 | query |Usare la query personalizzata per leggere i dati. |"?$select=Name, Description&$top=5" |No |
 
@@ -4437,7 +4437,7 @@ Per altre informazioni, vedere [Connettore OData](data-factory-odata-connector.m
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di ODBC, impostare il **tipo** di servizio collegato su **OnPremisesOdbc** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | connectionString |La parte delle credenziali non di accesso della stringa di connessione e una credenziale crittografata facoltativa. Vedere gli esempi nelle sezioni seguenti. |Sì |
 | credenziali |La parte delle credenziali di accesso della stringa di connessione specificata nel formato di valore della proprietà specifico del driver. Esempio: `“Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”.` |No |
@@ -4464,7 +4464,7 @@ Per definire un servizio collegato di ODBC, impostare il **tipo** di servizio co
 }
 ```
 #### <a name="example---using-basic-authentication-with-encrypted-credentials"></a>Esempio - Uso dell'autenticazione di base con credenziali crittografate
-È possibile crittografare le credenziali usando il cmdlet [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) .
+È possibile crittografare le credenziali utilizzando il cmdlet [New-AzDataFactoryEncryptValue.](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue)
 
 ```json
 {
@@ -4502,7 +4502,7 @@ Per altre informazioni, vedere [Connettore ODBC](data-factory-odbc-connector.md#
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di ODBC, impostare il **tipo** di set di dati su **RelationalTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'archivio dati ODBC. |Sì |
 
@@ -4537,9 +4537,9 @@ Per altre informazioni, vedere [Connettore ODBC](data-factory-odbc-connector.md#
 ### <a name="relational-source-in-copy-activity"></a>Origine relazionale nell'attività di copia
 Se si copiano dati da un archivio dati ODBC, impostare il **tipo di origine** dell'attività di copia su **RelationalSource**e specificare le proprietà seguenti nella sezione **source**:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: `select * from MyTable`. |Sì |
+| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio `select * from MyTable`. |Sì |
 
 #### <a name="example"></a>Esempio
 
@@ -4591,9 +4591,9 @@ Per altre informazioni, vedere [Connettore ODBC](data-factory-odbc-connector.md#
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di Salesforce, impostare il **tipo** di servizio collegato su **Salesforce** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| environmentUrl | Specificare l'URL dell'istanza di Salesforce. <br><br> -Il valore predefinito è "https:\//login.salesforce.com". <br> - Per copiare dati dalla sandbox, specificare "https://test.salesforce.com". <br> - Per copiare i dati dal dominio personalizzato, specificare ad esempio "https://[dominio].my.salesforce.com". |No |
+| environmentUrl | Specificare l'URL dell'istanza di Salesforce. <br><br> - Il valore\/predefinito è "https: /login.salesforce.com". <br> - Per copiare dati dalla sandbox, specificare "https://test.salesforce.com". <br> - Per copiare i dati dal dominio personalizzato, specificare ad esempio "https://[dominio].my.salesforce.com". |No |
 | username |Specificare un nome utente per l'account utente. |Sì |
 | password |Specificare la password per l'account utente. |Sì |
 | securityToken |Specificare un token di sicurezza per l'account utente. Per istruzioni su come ottenere o reimpostare un token di sicurezza, vedere [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Ottenere un token di sicurezza). Per informazioni generali sui token di sicurezza, vedere [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sicurezza e API). |Sì |
@@ -4619,7 +4619,7 @@ Per altre informazioni, vedere [Connettore Salesforce](data-factory-salesforce-c
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati di Salesforce, impostare il **tipo** di set di dati su **RelationalTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella in Salesforce. |No, se è specificata una **query** di **RelationalSource** |
 
@@ -4655,7 +4655,7 @@ Per altre informazioni, vedere [Connettore Salesforce](data-factory-salesforce-c
 ### <a name="relational-source-in-copy-activity"></a>Origine relazionale nell'attività di copia
 Se si copiano dati da Salesforce, impostare il **tipo di origine** dell'attività di copia su **RelationalSource**e specificare le proprietà seguenti nella sezione **source**:
 
-| Proprietà | Description | Valori consentiti | Obbligatorio |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | query |Usare la query personalizzata per leggere i dati. |Query SQL-92 o query [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Ad esempio: `select * from MyTable__c`. |No, se è specificato **tableName** per il **set di dati** |
 
@@ -4714,7 +4714,7 @@ Per altre informazioni, vedere [Connettore Salesforce](data-factory-salesforce-c
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato Web, impostare il **tipo** di servizio collegato su **Web** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | URL |URL dell'origine Web |Sì |
 | authenticationType |Anonimo. |Sì |
@@ -4741,7 +4741,7 @@ Per altre informazioni, vedere [Connettore Tabella Web](data-factory-web-table-c
 ### <a name="dataset"></a>Set di dati
 Per definire un set di dati Web, impostare il **tipo** di set di dati su **WebTable**e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type |Tipo del set di dati. Deve essere impostato su **WebTable** |Sì |
 | path |URL relativo della risorsa che contiene la tabella. |No. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
@@ -4820,21 +4820,21 @@ Per altre informazioni, vedere [Connettore Tabella Web](data-factory-web-table-c
 ## <a name="compute-environments"></a>Ambienti di calcolo
 La tabella seguente elenca gli ambienti di calcolo supportati da Data Factory e le attività di trasformazione eseguibili in tali ambienti. Fare clic sul collegamento al calcolo al quale si è interessati per visualizzare gli schemi JSON per il servizio collegato per eseguirne il collegamento a una data factory.
 
-| Ambiente di calcolo | Attività |
+| Ambiente di calcolo | attività |
 | --- | --- |
-| [Cluster HDInsight su richiesta](#on-demand-azure-hdinsight-cluster) o [il proprio cluster HDInsight](#existing-azure-hdinsight-cluster) |[Attività personalizzata .NET](#net-custom-activity), [attività Hive](#hdinsight-hive-activity), [attività Pig](#hdinsight-pig-activity), [attività MapReduce](#hdinsight-mapreduce-activity), attività di Hadoop Streaming, [attività Spark](#hdinsight-spark-activity) |
+| [Cluster HDInsight su richiesta](#on-demand-azure-hdinsight-cluster) o [il proprio cluster HDInsight](#existing-azure-hdinsight-cluster) |[Attività personalizzata .NET](#net-custom-activity), [Attività Hive](#hdinsight-hive-activity), [Attività Suina](#hdinsight-pig-activity), [Attività MapReduce](#hdinsight-mapreduce-activity), Attività di streaming Hadoop, [attività Spark](#hdinsight-spark-activity) |
 | [Azure Batch](#azure-batch) |[Attività personalizzata .NET](#net-custom-activity) |
-| [Azure Machine Learning](#azure-machine-learning) | [Attività di esecuzione batch di Machine Learning](#machine-learning-batch-execution-activity), [Attività della risorsa di aggiornamento di Machine Learning](#machine-learning-update-resource-activity) |
-| [Azure Data Lake Analytics.](#azure-data-lake-analytics) |[Attività U-SQL di Data Lake Analytics](#data-lake-analytics-u-sql-activity) |
-| [Database SQL di Azure](#azure-sql-database), [Azure SQL Data Warehouse](#azure-sql-data-warehouse), [SQL Server](#sql-server-stored-procedure) |[Stored procedure](#stored-procedure-activity) |
+| [Azure Machine Learning](#azure-machine-learning) | [Attività](#machine-learning-batch-execution-activity)di esecuzione batch di Machine Learning , Attività risorsa aggiornamento di Machine [Learning](#machine-learning-update-resource-activity) |
+| [Analisi di Azure Data Lake](#azure-data-lake-analytics) |[Attività U-SQL di Data Lake Analytics](#data-lake-analytics-u-sql-activity) |
+| [Database SQL di Azure](#azure-sql-database), [Azure SQL Data Warehouse](#azure-sql-data-warehouse), [SQL Server](#sql-server-stored-procedure) |[Stored Procedure](#stored-procedure-activity) |
 
 ## <a name="on-demand-azure-hdinsight-cluster"></a>Cluster HDInsight di Azure su richiesta
-Il servizio Data factory di Azure può creare automaticamente un cluster HDInsight su richiesta basato su Windows o Linux per elaborare i dati. La creazione del cluster avviene nella stessa area dell'account di archiviazione (proprietà linkedServiceName in JSON) associato al cluster. Su questo servizio collegato è possibile eseguire le attività di trasformazione seguenti: [attività personalizzata .NET](#net-custom-activity), [attività Hive](#hdinsight-hive-activity), [attività Pig](#hdinsight-pig-activity), [attività MapReduce](#hdinsight-mapreduce-activity), attività di Hadoop Streaming, [attività Spark](#hdinsight-spark-activity).
+Il servizio Data factory di Azure può creare automaticamente un cluster HDInsight su richiesta basato su Windows o Linux per elaborare i dati. La creazione del cluster avviene nella stessa area dell'account di archiviazione (proprietà linkedServiceName in JSON) associato al cluster. È possibile eseguire le seguenti attività di trasformazione in questo servizio [collegato: attività personalizzata .NET](#net-custom-activity), [Attività Hive](#hdinsight-hive-activity), [Attività Pig](#hdinsight-pig-activity), [Attività MapReduce](#hdinsight-mapreduce-activity), Attività di flusso Hadoop , [Attività Spark](#hdinsight-spark-activity).
 
 ### <a name="linked-service"></a>Servizio collegato
 La tabella seguente fornisce le descrizioni delle proprietà usate nella definizione JSON di Azure per un servizio collegato HDInsight su richiesta.
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | type |La proprietà type deve essere impostata su **HDInsightOnDemand**. |Sì |
 | clusterSize |Numero di nodi del ruolo di lavoro/nodi dati nel cluster. Il cluster HDInsight viene creato con 2 nodi head e il numero di nodi del ruolo di lavoro specificato per questa proprietà. I nodi sono di dimensione Standard_D3, con 4 core, quindi un cluster di 4 nodi del ruolo di lavoro ha 24 core, ossia 4\*4 = 16 core per i nodi del ruolo di lavoro + 2\*4 = 8 core per i nodi head. Vedere [Creare cluster Hadoop basati su Linux in HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) per i dettagli sul livello Standard_D3. |Sì |
@@ -4867,12 +4867,12 @@ Il codice JSON seguente definisce un servizio collegato HDInsight su richiesta b
 Per altre informazioni, vedere l'articolo relativo ai [servizi collegati di calcolo](data-factory-compute-linked-services.md).
 
 ## <a name="existing-azure-hdinsight-cluster"></a>Cluster HDInsight di Azure esistente
-È possibile creare un servizio collegato Azure HDInsight per registrare il proprio cluster HDInsight con Data Factory. Su questo servizio collegato è possibile eseguire le attività di trasformazione dei dati seguenti: [attività personalizzata .NET](#net-custom-activity), [attività Hive](#hdinsight-hive-activity), [attività Pig](#hdinsight-pig-activity), [attività MapReduce](#hdinsight-mapreduce-activity), attività di Hadoop Streaming, [attività Spark](#hdinsight-spark-activity).
+È possibile creare un servizio collegato Azure HDInsight per registrare il proprio cluster HDInsight con Data Factory. È possibile eseguire le seguenti attività di trasformazione dei dati in questo servizio [collegato: Attività personalizzata .NET](#net-custom-activity), [Attività Hive](#hdinsight-hive-activity), [Attività Pig](#hdinsight-pig-activity), [Attività MapReduce](#hdinsight-mapreduce-activity), Attività di flusso Hadoop , [Attività Spark](#hdinsight-spark-activity).
 
 ### <a name="linked-service"></a>Servizio collegato
 La tabella seguente fornisce le descrizioni delle proprietà usate nella definizione JSON di Azure di un servizio collegato HDInsight di Azure.
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | type |La proprietà type deve essere impostata su **HDInsight**. |Sì |
 | clusterUri |L'URI del cluster HDInsight. |Sì |
@@ -4905,7 +4905,7 @@ Per le versioni dei cluster di HDInsight, vedere le [versioni supportate di HDIn
 ### <a name="linked-service"></a>Servizio collegato
 La tabella seguente fornisce le descrizioni delle proprietà usate nella definizione JSON di Azure di un servizio collegato Azure Batch.
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | type |La proprietà type deve essere impostata su **AzureBatch**. |Sì |
 | accountName |Nome dell'account Azure Batch. |Sì |
@@ -4937,9 +4937,9 @@ Creare un servizio collegato di Azure Machine Learning per registrare un endpoin
 ### <a name="linked-service"></a>Servizio collegato
 La tabella seguente fornisce le descrizioni delle proprietà usate nella definizione JSON di Azure di un servizio collegato Azure Machine Learning.
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| Tipo |La proprietà type deve essere impostata su **AzureML**. |Sì |
+| Type |La proprietà type deve essere impostata su **AzureML**. |Sì |
 | mlEndpoint |L’URL del batch punteggio. |Sì |
 | apiKey |Modello dell'area di lavoro pubblicato di API. |Sì |
 
@@ -4965,15 +4965,15 @@ Creare un servizio collegato di **Azure Data Lake Analytics** per collegare un s
 
 La tabella seguente fornisce le descrizioni delle proprietà usate nella definizione JSON di un servizio collegato Azure Data Lake Analytics.
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| Tipo |La proprietà type deve essere impostata su **AzureDataLakeAnalytics**. |Sì |
+| Type |La proprietà type deve essere impostata su **AzureDataLakeAnalytics**. |Sì |
 | accountName |Nome dell'account di Azure Data Lake Analytics. |Sì |
 | dataLakeAnalyticsUri |URI di Azure Data Lake Analytics. |No |
 | authorization |Il codice di autorizzazione viene recuperato automaticamente dopo aver fatto clic sul pulsante **Autorizza** nell'editor di Data factory e aver completato l'accesso OAuth. |Sì |
 | subscriptionId |ID sottoscrizione di Azure |No (se non specificata, viene usata la sottoscrizione della Data factory). |
 | resourceGroupName |Nome del gruppo di risorse di Azure |No (se non specificata, viene usato il gruppo di risorse di Data Factory). |
-| sessionID |ID sessione dalla sessione di autorizzazione OAuth. Ogni ID di sessione è univoco e può essere utilizzato una sola volta. L'ID viene generato automaticamente nell'editor di Data Factory. |Sì |
+| sessionID |id di sessione dalla sessione di autorizzazione OAuth. Ogni ID di sessione è univoco e può essere utilizzato una sola volta. L'ID viene generato automaticamente nell'editor di Data Factory. |Sì |
 
 
 #### <a name="json-example"></a>Esempio di JSON
@@ -4996,7 +4996,7 @@ Nell'esempio seguente viene fornita la definizione JSON per un servizio collegat
 }
 ```
 
-## <a name="sql-server-stored-procedure"></a>Stored procedure SQL Server
+## <a name="sql-server-stored-procedure"></a>SQL Server Stored Procedure
 
 Si crea un servizio collegato di SQL Server e lo si usa con l' [attività di stored procedure](data-factory-stored-proc-activity.md) per richiamare una stored procedure da una pipeline Data Factory.
 
@@ -5005,7 +5005,7 @@ Si crea un servizio collegato di SQL Server e lo si usa con l' [attività di sto
 
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato SQL Server.
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | type |La proprietà type deve essere impostata su **OnPremisesSqlServer**. |Sì |
 | connectionString |Specificare le informazioni di connectionString necessarie per connettersi al database di SQL Server locale usando l'autenticazione di SQL o Windows. |Sì |
@@ -5013,7 +5013,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | username |Specificare il nome utente se si usa l'autenticazione Windows. Esempio: **nomedominio\\nomeutente**. |No |
 | password |Specificare la password per l'account utente specificato per il nome utente. |No |
 
-È possibile crittografare le credenziali usando il cmdlet **New-AzDataFactoryEncryptValue** e usarle nella stringa di connessione, come illustrato nell'esempio seguente (proprietà**EncryptedCredential** ):
+È possibile crittografare le credenziali utilizzando il cmdlet **New-AzDataFactoryEncryptValue** e utilizzarle nella stringa di connessione, come illustrato nell'esempio seguente ( proprietà**EncryptedCredential):**
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -5057,14 +5057,14 @@ Per altre informazioni, vedere [Connettore SQL Server](data-factory-sqlserver-co
 
 ## <a name="data-transformation-activities"></a>ATTIVITÀ DI TRASFORMAZIONE DEI DATI
 
-Attività | Description
+Attività | Descrizione
 -------- | -----------
-[Attività Hive di HDInsight](#hdinsight-hive-activity) | L'attività Hive di HDInsight in una pipeline di Data factory esegue query Hive sul proprio cluster HDInsight o sul cluster HDInsight su richiesta basato su Windows o Linux.
+[Attività di HDInsight Hive](#hdinsight-hive-activity) | L'attività Hive di HDInsight in una pipeline di Data factory esegue query Hive sul proprio cluster HDInsight o sul cluster HDInsight su richiesta basato su Windows o Linux.
 [Attività Pig di HDInsight](#hdinsight-pig-activity) | L'attività Pig di HDInsight in una pipeline di Data factory esegue query Pig sul proprio cluster HDInsight o sul cluster HDInsight su richiesta basato su Windows o Linux.
 [Attività MapReduce di HDInsight](#hdinsight-mapreduce-activity) | L'attività HDInsight MapReduce in una pipeline di Data Factory esegue i programmi di MapReduce nei cluster HDInsight personalizzati o su richiesta basati su Windows/Linux.
 [Attività di streaming di HDInsight](#hdinsight-streaming-activity) | L'attività HDInsight Streaming Activity in una pipeline di Data Factory esegue i programmi di Hadoop Streaming nei cluster HDInsight personalizzati o su richiesta basati su Windows/Linux.
-[Attività HDInsight Spark](#hdinsight-spark-activity) | L'attività Spark di HDInsight in una pipeline di Data Factory esegue programmi Spark nel cluster HDInsight personale.
-[Attività di esecuzione batch di Machine Learning](#machine-learning-batch-execution-activity) | Azure Data Factory consente di creare facilmente pipeline che usano un servizio Web pubblicato di Azure Machine Learning per l'analisi predittiva. Con Attività di esecuzione Batch in una pipeline di Azure Data Factory è possibile richiamare un servizio Web di Machine Learning per eseguire stime dei dati in batch.
+[Attività Spark HDInsight](#hdinsight-spark-activity) | L'attività Spark di HDInsight in una pipeline di Data Factory esegue programmi Spark nel cluster HDInsight personale.
+[Machine Learning Batch Execution Activity](#machine-learning-batch-execution-activity) | Azure Data Factory consente di creare facilmente pipeline che usano un servizio Web pubblicato di Azure Machine Learning per l'analisi predittiva. Con Attività di esecuzione Batch in una pipeline di Azure Data Factory è possibile richiamare un servizio Web di Machine Learning per eseguire stime dei dati in batch.
 [Attività della risorsa di aggiornamento di Machine Learning](#machine-learning-update-resource-activity) | Nel corso del tempo è necessario ripetere il training dei modelli predittivi negli esperimenti di assegnazione dei punteggi di Machine Learning usando nuovi set di dati di input. Una volta ripetuto il training, aggiornare il servizio Web di assegnazione dei punteggi con il modello Machine Learning di cui è stato ripetuto il training. È possibile usare l'attività di aggiornamento risorse per aggiornare il servizio Web con il nuovo modello sottoposto a training.
 [Attività stored procedure](#stored-procedure-activity) | È possibile usare l'attività stored procedure in una pipeline di Data Factory per richiamare una stored procedure in uno dei seguenti archivi dati: database SQL di Azure, Azure SQL Data Warehouse, database di SQL Server in azienda o in una macchina virtuale di Azure.
 [Attività U-SQL di Data Lake Analytics](#data-lake-analytics-u-sql-activity) | L'attività U-SQL di Data Lake Analytics esegue uno script U-SQL in un cluster di Azure Data Lake Analytics.
@@ -5074,7 +5074,7 @@ Attività | Description
 ## <a name="hdinsight-hive-activity"></a>Attività Hive di HDInsight
 In una definizione JSON di attività Hive è possibile specificare le proprietà seguenti. Il tipo di proprietà dell'attività deve essere impostato su **HDInsightHive**. È necessario creare innanzitutto un servizio collegato di HDInsight e quindi specificarne il nome come valore della proprietà **linkedServiceName**. Quando si imposta il tipo di attività HDInsightHive vengono le proprietà seguenti sono supportate nella sezione **typeProperties**:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | script |Specificare lo script Hive inline |No |
 | script path |Archiviare lo script Hive in un archivio BLOB di Azure e immettere il percorso del file. Usare la proprietà "script" o "scriptPath". Non è possibile usare entrambe le proprietà. Il nome del file distingue tra maiuscole e minuscole. |No |
@@ -5120,7 +5120,7 @@ Per altre informazioni, vedere [Attività Hive](data-factory-hive-activity.md).
 ## <a name="hdinsight-pig-activity"></a>Attività Pig di HDInsight
 In una definizione JSON di attività Pig è possibile specificare le proprietà seguenti. Il tipo di proprietà dell'attività deve essere impostato su **HDInsightPig**. È necessario creare innanzitutto un servizio collegato di HDInsight e quindi specificarne il nome come valore della proprietà **linkedServiceName**. Quando il tipo di attività è impostato su HDInsightPig, nella sezione **typeProperties** sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | script |Specificare lo script Pig inline |No |
 | script path |Archiviare lo script Pig in un archivio BLOB di Azure e immettere il percorso del file. Usare la proprietà "script" o "scriptPath". Non è possibile usare entrambe le proprietà. Il nome del file distingue tra maiuscole e minuscole. |No |
@@ -5172,7 +5172,7 @@ Per altre informazioni, vedere l'articolo Attività Pig.
 ## <a name="hdinsight-mapreduce-activity"></a>Attività MapReduce di HDInsight
 In una definizione JSON di attività MapReduce è possibile specificare le proprietà seguenti. Il tipo di proprietà dell'attività deve essere impostato su **HDInsightMapReduce**. È necessario creare innanzitutto un servizio collegato di HDInsight e quindi specificarne il nome come valore della proprietà **linkedServiceName**. Quando il tipo di attività è impostato su HDInsightMapReduce, nella sezione **typeProperties** sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | jarLinkedService | Nome del servizio collegato di Archiviazione di Azure che contiene il file JAR. | Sì |
 | jarFilePath | Percorso del file JAR nell'archiviazione di Azure. | Sì |
@@ -5230,7 +5230,7 @@ Per altre informazioni, vedere [Attività MapReduce](data-factory-map-reduce.md)
 ## <a name="hdinsight-streaming-activity"></a>Attività di streaming di HDInsight
 In una definizione JSON di attività Hadoop Streaming è possibile specificare le proprietà seguenti. Il tipo di proprietà dell'attività deve essere impostato su **HDInsightStreaming**. È necessario creare innanzitutto un servizio collegato di HDInsight e quindi specificarne il nome come valore della proprietà **linkedServiceName**. Quando il tipo di attività è impostato su HDInsightStreaming, nella sezione **typeProperties** sono supportate le proprietà seguenti:
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 | --- | --- |
 | mapper | Nome del mapper eseguibile. Nell'esempio cat.exe è l'eseguibile del mapper.|
 | reducer | Nome del reducer eseguibile. Nell'esempio wc.exe è l'eseguibile del mapper. |
@@ -5294,7 +5294,7 @@ Per altre informazioni, vedere l'argomento relativo all'[attività Hadoop Stream
 ## <a name="hdinsight-spark-activity"></a>Attività Spark di HDInsight
 In una definizione JSON di attività Spark è possibile specificare le proprietà seguenti. Il tipo di proprietà dell'attività deve essere impostato su **HDInsightSpark**. È necessario creare innanzitutto un servizio collegato di HDInsight e quindi specificarne il nome come valore della proprietà **linkedServiceName**. Quando il tipo di attività è impostato su HDInsightSpark, nella sezione **typeProperties** sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | -------- | ----------- | -------- |
 | rootPath | Contenitore BLOB di Azure e cartella che contiene il file Spark. Il nome del file distingue tra maiuscole e minuscole. | Sì |
 | entryFilePath | Percorso relativo alla cartella radice del pacchetto/codice Spark. | Sì |
@@ -5336,20 +5336,20 @@ In una definizione JSON di attività Spark è possibile specificare le propriet�
 Tenere presente quanto segue:
 
 - La proprietà **type** è impostata su **HDInsightSpark**.
-- Il **rootPath** è impostato su **adfspark\\pyFiles**, dove adfspark è il contenitore BLOB di Azure e pyFiles è la cartella di file nel contenitore. In questo esempio, l'archivio BLOB di Azure è quello associato al cluster Spark. È possibile caricare il file in un archivio di Azure diverso. In tal caso, creare un servizio collegato Archiviazione di Azure per collegare l'account di archiviazione alla data factory. Quindi, specificare il nome del servizio collegato come valore per la proprietà **sparkJobLinkedService**. Vedere le proprietà dell'attività Spark per informazioni dettagliate su questa e altre proprietà supportate dall'attività Spark.
-- La proprietà **entryFilePath** è impostata su **test.py**, ovvero il file python.
-- La proprietà **getDebugInfo** è impostata su **Sempre**, a indicare che i file di log vengono sempre generati (con esito positivo o negativo).
+- il **rootPath** è impostato su **adfspark\\pyFiles** dove adfspark è il contenitore BLOB di Azure e pyFiles è una cartella fine in tale contenitore. In questo esempio, l'archivio BLOB di Azure è quello associato al cluster Spark. È possibile caricare il file in un archivio di Azure diverso. In tal caso, creare un servizio collegato Archiviazione di Azure per collegare l'account di archiviazione alla data factory. Specificare quindi il nome del servizio collegato come valore per la proprietà **sparkJobLinkedService.** Vedere le proprietà dell'attività Spark per informazioni dettagliate su questa e altre proprietà supportate dall'attività Spark.
+- **entryFilePath** è impostato su **test.py**, ovvero il file python.
+- La proprietà **getDebugInfo** è impostata su **Always**, il che significa che i file di log vengono sempre generati (esito positivo o negativo).
 
     > [!IMPORTANT]
     > Non è consigliabile impostare questa proprietà su Sempre in un ambiente di produzione a meno che non si stia tentando di risolvere un problema.
-- La sezione **outputs** presenta un set di dati di output. Anche se il programma Spark non genera alcun output, è necessario specificare un set di dati di output. Il set di dati di output è ciò su cui si basa la pianificazione della pipeline (oraria, giornaliera e così via).
+- La sezione **outputs** ha un set di dati di output. Anche se il programma Spark non genera alcun output, è necessario specificare un set di dati di output. Il set di dati di output è ciò su cui si basa la pianificazione della pipeline (oraria, giornaliera e così via).
 
 Per altre informazioni sull'attività, vedere l'argomento relativo all'[attività Spark](data-factory-spark.md).
 
 ## <a name="machine-learning-batch-execution-activity"></a>Attività di esecuzione batch di Machine Learning
-È possibile specificare le proprietà seguenti in una definizione JSON dell'attività di esecuzione batch di Azure Machine Learning Studio. Il tipo di proprietà dell'attività deve essere impostato su **AzureMLBatchExecution**. È necessario creare prima un servizio collegato Azure Machine Learning e specificarne il nome come valore per la proprietà **linkedServiceName** . Quando il tipo di attività è impostato su AzureMLBatchExecution, nella sezione **typeProperties** sono supportate le proprietà seguenti:
+È possibile specificare le proprietà seguenti in una definizione JSON di attività di esecuzione batch di Azure Machine Learning studio.You can specify the following properties in an Azure Machine Learning studio Batch Execution Activity JSON definition. Il tipo di proprietà dell'attività deve essere impostato su **AzureMLBatchExecution**. È innanzitutto necessario creare un servizio collegato di Azure Machine Learning e specificarne il nome come valore per la proprietà **linkedServiceName.** Quando il tipo di attività è impostato su AzureMLBatchExecution, nella sezione **typeProperties** sono supportate le proprietà seguenti:
 
-Proprietà | Description | Obbligatorio
+Proprietà | Descrizione | Obbligatoria
 -------- | ----------- | --------
 webServiceInput | Il set di dati da passare come input del servizio Web di Azure Machine Learning Studio. Questo set di dati deve essere incluso anche nella sezione inputs dell'attività. |Usare webServiceInput o webServiceInputs. |
 webServiceInputs | Specificare i set di dati da passare come input del servizio Web di Azure Machine Learning Studio. Se il servizio Web accetta più input, usare la proprietà webServiceInputs invece di webServiceInput. Includere anche i set di dati a cui **webServiceInputs** fa riferimento negli **input** dell'attività. | Usare webServiceInput o webServiceInputs. |
@@ -5403,9 +5403,9 @@ Nell'esempio JSON, il servizio Web di Azure Machine Learning distribuito usa un 
 > Possono essere passati come parametri per il servizio Web solo input e output dell'attività AzureMLBatchExecution. Nel precedente snippet JSON, ad esempio, MLSqlInput è un input per l'attività AzureMLBatchExecution e viene passato come input al servizio Web tramite il parametro webServiceInput.
 
 ## <a name="machine-learning-update-resource-activity"></a>Attività della risorsa di aggiornamento di Machine Learning
-È possibile specificare le proprietà seguenti in una definizione JSON di attività della risorsa di aggiornamento Azure Machine Learning Studio. Il tipo di proprietà dell'attività deve essere impostato su **AzureMLUpdateResource**. È necessario creare prima un servizio collegato Azure Machine Learning e specificarne il nome come valore per la proprietà **linkedServiceName** . Quando il tipo di attività è impostato su AzureMLUpdateResource, nella sezione **typeProperties** sono supportate le proprietà seguenti:
+È possibile specificare le proprietà seguenti in una definizione JSON di Attività risorsa di aggiornamento di Azure Machine Learning studio. Il tipo di proprietà dell'attività deve essere impostato su **AzureMLUpdateResource**. È innanzitutto necessario creare un servizio collegato di Azure Machine Learning e specificarne il nome come valore per la proprietà **linkedServiceName.** Quando il tipo di attività è impostato su AzureMLUpdateResource, nella sezione **typeProperties** sono supportate le proprietà seguenti:
 
-Proprietà | Description | Obbligatorio
+Proprietà | Descrizione | Obbligatoria
 -------- | ----------- | --------
 trainedModelName | Nome del modello sottoposto nuovamente a training. | Sì |
 trainedModelDatasetName | Set di dati che punta al file iLearner restituito dall'operazione di ripetizione del training. | Sì |
@@ -5472,7 +5472,7 @@ La pipeline include due attività: **AzureMLBatchExecution** e **AzureMLUpdateRe
 ## <a name="data-lake-analytics-u-sql-activity"></a>Attività U-SQL di Data Lake Analytics
 In una definizione JSON di attività U-SQL è possibile specificare le proprietà seguenti. Il tipo di proprietà dell'attività deve essere impostato su **DataLakeAnalyticsU-SQL**. È necessario creare innanzitutto un servizio collegato di Azure Data Lake Analytics e quindi specificare il nome come valore della proprietà **linkedServiceName**. Quando il tipo di attività è impostato su DataLakeAnalyticsU-SQL, nella sezione **typeProperties** sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | scriptPath |Percorso della cartella contenente lo script U-SQL. Il nome del file distingue tra maiuscole e minuscole. |No (se si usa uno script) |
 | scriptLinkedService |Servizi collegati che collegano la risorsa di archiviazione contenente lo script alla Data factory |No (se si usa uno script) |
@@ -5536,23 +5536,23 @@ In una definizione JSON di attività U-SQL è possibile specificare le propriet�
 
 Per altre informazioni, vedere [Attività Data Lake Analytics U-SQL](data-factory-usql-activity.md).
 
-## <a name="stored-procedure-activity"></a>Attività delle stored procedure
+## <a name="stored-procedure-activity"></a>Attività stored procedure
 In una definizione JSON di attività stored procedure è possibile specificare le proprietà seguenti. Il tipo di proprietà dell'attività deve essere impostato su **SqlServerStoredProcedure**. È necessario creare uno dei seguenti servizi collegati e specificare il nome del servizio collegato come valore della proprietà **linkedServiceName**:
 
 - SQL Server
-- Database SQL di Azure
-- SQL Data Warehouse di Azure
+- database SQL di Azure
+- Azure SQL Data Warehouse
 
 Quando il tipo di attività è impostato su SqlServerStoredProcedure, nella sezione **typeProperties** sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | storedProcedureName |Specificare il nome della stored procedure nel database SQL di Azure o Azure SQL Data Warehouse rappresentato dal servizio collegato che usa la tabella di output. |Sì |
 | storedProcedureParameters |Specificare i valori dei parametri della stored procedure. Se è necessario passare null per un parametro, usare la sintassi "param1": null (tutte lettere minuscole). Vedere l'esempio seguente per informazioni sull'uso di questa proprietà. |No |
 
 Se si specifica un set di dati di input, questo dovrà essere disponibile (in stato 'Ready') per l'esecuzione dell'attività della stored procedure. Il set di dati di input non può essere usato nella stored procedure come parametro. Viene usato solo per verificare la dipendenza prima di iniziare l'attività della stored procedure. È necessario specificare un set di dati di output per un'attività della stored procedure.
 
-Il set di dati di output specifica la **pianificazione** per le attività della stored procedure (ogni ora, ogni settimana, ogni mese e così via). Il set di dati di output deve usare un **servizio collegato** che faccia riferimento a un database SQL di Azure, a un Azure SQL Data Warehouse o a un database SQL Server in cui si vuole che venga eseguita la stored procedure. Il set di dati di output può essere usato per passare il risultato della stored procedure per la successiva elaborazione da parte di un'altra attività ([concatenamento di attività](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) nella pipeline. Data Factory non scrive tuttavia automaticamente l'output di una stored procedure in questo set di dati. È la stored procedure a scrivere dati in una tabella SQL cui punta il set di dati di output. In alcuni casi, il set di dati di output può essere un **set di dati fittizio**che viene usato solo per specificare la pianificazione per l'esecuzione dell'attività della stored procedure.
+Il set di dati di output specifica la **pianificazione** per le attività della stored procedure (ogni ora, ogni settimana, ogni mese e così via). Il set di dati di output deve usare un **servizio collegato** che faccia riferimento a un database SQL di Azure, a un Azure SQL Data Warehouse o a un database SQL Server in cui si vuole che venga eseguita la stored procedure. Il set di dati di output può essere utilizzato come un modo per passare il risultato della stored procedure per l'elaborazione successiva da parte di un'altra attività ( attività di[concatenamento](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) nella pipeline. Data Factory non scrive tuttavia automaticamente l'output di una stored procedure in questo set di dati. È la stored procedure a scrivere dati in una tabella SQL cui punta il set di dati di output. In alcuni casi, il set di dati di output può essere un **set di dati fittizio**che viene usato solo per specificare la pianificazione per l'esecuzione dell'attività della stored procedure.
 
 ### <a name="json-example"></a>Esempio di JSON
 
@@ -5585,7 +5585,7 @@ Per altre informazioni, vedere [Attività stored procedure](data-factory-stored-
 ## <a name="net-custom-activity"></a>Attività personalizzata .NET
 In una definizione JSON di attività personalizzata .NET è possibile specificare le proprietà seguenti. Il tipo di proprietà dell'attività deve essere impostato su **DotNetActivity**. È necessario creare un servizio collegato Azure HDInsight o Azure Batch e specificare il nome del servizio collegato come valore della proprietà **linkedServiceName**. Quando il tipo di attività è impostato su DotNetActivity, nella sezione **typeProperties** sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | AssemblyName | Nome dell'assembly. Nell'esempio è: **MyDotnetActivity.dll**. | Sì |
 | EntryPoint |Nome della classe che implementa l'interfaccia IDotNetActivity. Nell'esempio è: **MyDotNetActivityNS.MyDotNetActivity** dove MyDotNetActivityNS è lo spazio dei nomi e MyDotNetActivity è la classe.  | Sì |
@@ -5642,7 +5642,7 @@ In una definizione JSON di attività personalizzata .NET è possibile specificar
 
 Per altre informazioni, vedere l'articolo relativo all'[uso delle attività personalizzate in Data Factory](data-factory-use-custom-activities.md).
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Vedere le esercitazioni seguenti:
 
 - [Esercitazione: Creare una pipeline con un'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

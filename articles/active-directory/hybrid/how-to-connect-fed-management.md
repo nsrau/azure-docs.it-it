@@ -18,12 +18,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7249f2077666530964afa16ef47d69731cee846a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: fcbeedddc65a916f869a778616779917a9571181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79261593"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331971"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gestire e personalizzare Active Directory Federation Services con Azure AD Connect
 In questo articolo viene descritto come gestire e personalizzare Active Directory Federation Services (ADFS) tramite Azure Active Directory (Azure AD) Connect. Si includono inoltre altre attività comuni di AD FS che potrebbero essere necessarie per eseguire una configurazione completa di una farm di AD FS.
@@ -32,11 +32,11 @@ In questo articolo viene descritto come gestire e personalizzare Active Director
 |:--- |:--- |
 | **Gestire AD FS** | |
 | [Ripristinare il trust](#repairthetrust) |Come ripristinare il trust federativo con Office 365. |
-| [Federazione con Azure AD utilizzando un ID di accesso alternativo](#alternateid) | Configurazione della federazione usando l'ID di accesso alternativo  |
-| [Aggiungere un server AD FS](#addadfsserver) |Come espandere una farm AD FS con un server AD FS aggiuntivo. |
+| [Eseguire la federazione con Azure AD usando un ID di accesso alternativo](#alternateid) | Configurazione della federazione usando l'ID di accesso alternativo  |
+| [Aggiungere un server ADFSAdd an AD FS server](#addadfsserver) |Come espandere una farm AD FS con un server AD FS aggiuntivo. |
 | [Aggiungere un server proxy applicazione Web AD FS](#addwapserver) |Come espandere la farm AD FS con un server Proxy applicazione Web (WAP) aggiuntivo. |
 | [Aggiunta di un dominio federato](#addfeddomain) |Come aggiungere un dominio federato. |
-| [Aggiornare il certificato SSL](how-to-connect-fed-ssl-update.md)| Come aggiornare il certificato SSL per una farm AD FS. |
+| [Aggiornare il certificato TLS/SSL](how-to-connect-fed-ssl-update.md)| Come aggiornare il certificato TLS/SSL per una farm ADFS. |
 | **Personalizzare AD FS** | |
 | [Aggiungere un'illustrazione o il logo personalizzato della società](#customlogo) |Come personalizzare la pagina di accesso ad AD FS con un'illustrazione e il logo della società. |
 | [Aggiungere una descrizione di accesso](#addsignindescription) |Come aggiungere una descrizione della pagina di accesso. |
@@ -45,7 +45,7 @@ In questo articolo viene descritto come gestire e personalizzare Active Director
 ## <a name="manage-ad-fs"></a>Gestire AD FS
 È possibile eseguire diverse operazioni relative ad Azure AD Connect con la procedura guidata di Azure AD Connect con un intervento minimo dell'utente. Al termine dell'installazione guidata di Azure AD Connect, è possibile eseguire nuovamente la procedura guidata per eseguire attività aggiuntive.
 
-## <a name="repairthetrust"></a>Riparare il trust 
+## <a name="repair-the-trust"></a><a name="repairthetrust"></a>Ripristinare il trust 
 È possibile usare Azure AD Connect per controllare lo stato corrente dell'integrità di trust di AD FS e Azure AD e intraprendere le azioni necessarie per ripristinare il trust. Per ripristinare la relazione di trust tra Azure AD e AD FS, seguire questa procedura.
 
 1. Selezionare **Ripristino del trust di AAD e AD FS** nell'elenco delle attività aggiuntive.
@@ -71,7 +71,7 @@ In questo articolo viene descritto come gestire e personalizzare Active Director
 > [!NOTE]
 > Azure AD Connect può solo ripristinare o eseguire azioni sui certificati autofirmati. I certificati di terze parti non possono essere ripristinati da Azure AD Connect.
 
-## <a name="alternateid"></a>Attuare la federazione con Azure AD tramite AlternateID 
+## <a name="federate-with-azure-ad-using-alternateid"></a><a name="alternateid"></a>Eseguire la federazione con Azure AD usando AlternateIDFederate with Azure AD using AlternateID 
 Il nome dell’entità utente locale e il nome dell'entità utente cloud devono essere preferibilmente uguali. Se il nome dell’entità utente locale usa un dominio non instradabile (ad esempio Contoso.local) o non può essere modificato a causa di dipendenze dell'applicazione locale, è consigliabile configurare l'ID di accesso alternativo. L’ID di accesso alternativo consente di configurare un'esperienza in cui gli utenti possono accedere con un attributo diverso dal relativo nome dell’entità locale, ad esempio mail. La scelta del nome dell’entità utente in Azure AD Connect ricade per impostazione predefinita sull’attributo userPrincipalName in Active Directory. Se si sceglie qualsiasi altro attributo per il nome dell'entità utente e si sta eseguendo la federazione con AD FS, Azure AD Connect configurerà AD FS per l’ID di accesso alternativo. Di seguito è riportato un esempio della scelta di un attributo diverso per il nome dell'entità utente:
 
 ![Selezione dell’attributo ID alternativo](./media/how-to-connect-fed-management/attributeselection.png)
@@ -87,7 +87,7 @@ La configurazione dell’ID di accesso alternativo per AD FS consiste in due pas
 > [!NOTE]
 > Per altre informazioni su alternateID e i passaggi per eseguire la configurazione manuale, leggere [Configurazione di ID di accesso alternativo](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id).
 
-## <a name="addadfsserver"></a>Aggiungere un server AD FS 
+## <a name="add-an-ad-fs-server"></a><a name="addadfsserver"></a>Aggiungere un server ADFSAdd an AD FS server 
 
 > [!NOTE]
 > Per aggiungere un server AD FS, Azure AD Connect richiede il file PFX del certificato. È quindi possibile eseguire questa operazione solo se la farm AD FS è stata configurata con Azure AD Connect.
@@ -108,7 +108,7 @@ La configurazione dell’ID di accesso alternativo per AD FS consiste in due pas
 
    ![Password certificato](./media/how-to-connect-fed-management/AddNewADFSServer4.PNG)
 
-    ![Specificare il certificato SSL](./media/how-to-connect-fed-management/AddNewADFSServer5.PNG)
+    ![Specificare il certificato TLS/SSL](./media/how-to-connect-fed-management/AddNewADFSServer5.PNG)
 
 5. Nella pagina **Server ADFS** immettere il nome del server o l'indirizzo IP da aggiungere alla farm ADFS.
 
@@ -120,7 +120,7 @@ La configurazione dell’ID di accesso alternativo per AD FS consiste in due pas
 
     ![Installazione completata](./media/how-to-connect-fed-management/AddNewADFSServer8.PNG)
 
-## <a name="addwapserver"></a>Aggiungere un server WAP AD FS 
+## <a name="add-an-ad-fs-wap-server"></a><a name="addwapserver"></a>Aggiungere un server WAP di ADFSAdd an AD FS WAP server 
 
 > [!NOTE]
 > Per aggiungere un server WAP, Azure AD Connect richiede il file PFX del certificato. È quindi possibile eseguire questa operazione solo se la farm AD FS è stata configurata con Azure AD Connect.
@@ -136,7 +136,7 @@ La configurazione dell’ID di accesso alternativo per AD FS consiste in due pas
 3. Nella pagina **Specificare il certificato SSL** indicare la password per il file PFX specificato durante la configurazione della farm AD FS con Azure AD Connect.
    ![Password certificato](./media/how-to-connect-fed-management/WapServer3.PNG)
 
-    ![Specificare il certificato SSL](./media/how-to-connect-fed-management/WapServer4.PNG)
+    ![Specificare il certificato TLS/SSL](./media/how-to-connect-fed-management/WapServer4.PNG)
 
 4. Aggiungere il server da usare come server WAP. Dato che il server WAP potrebbe anche non essere aggiunto al dominio, la procedura guidata richiede le credenziali amministrative da aggiungere per il server.
 
@@ -154,7 +154,7 @@ La configurazione dell’ID di accesso alternativo per AD FS consiste in due pas
 
    ![Installazione completata](./media/how-to-connect-fed-management/WapServer8.PNG)
 
-## <a name="addfeddomain"></a>Aggiunta di un dominio federato 
+## <a name="add-a-federated-domain"></a><a name="addfeddomain"></a>Aggiunta di un dominio federato 
 
 Con Azure AD Connect è facile aggiungere un dominio per la federazione con Azure AD. Azure AD Connect aggiunge il dominio per la federazione e modifica le regole attestazioni per riflettere correttamente l'autorità di certificazione quando sono presenti più domini federati con Azure AD.
 
@@ -186,7 +186,7 @@ Con Azure AD Connect è facile aggiungere un dominio per la federazione con Azur
 ## <a name="ad-fs-customization"></a>Personalizzazione di AD FS
 Le sezioni seguenti offrono informazioni dettagliate su alcune attività comuni che potrebbe essere necessario eseguire durante la configurazione della pagina di accesso ad AD FS.
 
-## <a name="customlogo"></a>Aggiungere un'illustrazione o il logo personalizzato della società 
+## <a name="add-a-custom-company-logo-or-illustration"></a><a name="customlogo"></a>Aggiungere un'illustrazione o il logo personalizzato della società 
 Per modificare il logo della società visualizzato nella pagina **Accesso** , usare la sintassi e il cmdlet di Windows PowerShell seguenti.
 
 > [!NOTE]
@@ -197,12 +197,12 @@ Per modificare il logo della società visualizzato nella pagina **Accesso** , us
 > [!NOTE]
 > Il parametro *TargetName* è obbligatorio. Il tema predefinito incluso in AD FS è denominato Predefinito.
 
-## <a name="addsignindescription"></a>Aggiungere una descrizione di accesso 
+## <a name="add-a-sign-in-description"></a><a name="addsignindescription"></a>Aggiungere una descrizione di accesso 
 Per aggiungere una descrizione alla **Pagina di accesso**stessa, usare la sintassi e il cmdlet di Windows PowerShell seguenti.
 
     Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
 
-## <a name="modclaims"></a>Modificare le regole di attestazione per AD FS 
+## <a name="modify-ad-fs-claim-rules"></a><a name="modclaims"></a>Modificare le regole attestazioni per AD FS 
 AD FS supporta un linguaggio di attestazione avanzato che può essere usato per creare regole attestazioni personalizzate. Per altre informazioni, vedere [Ruolo del linguaggio delle regole attestazioni](https://technet.microsoft.com/library/dd807118.aspx).
 
 Le sezioni seguenti descrivono come scrivere regole personalizzate per alcuni scenari relativi alla federazione di AD FS e Azure AD.
@@ -226,7 +226,7 @@ Inoltre, se si usa **add** invece di **issue**, si evita di aggiungere un rilasc
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
-Questa regola definisce un flag temporaneo denominato **idflag**, che è impostato su **useguid** se non è presente un **ms-ds-concistencyguid** popolato per l'utente. Questo perché secondo la logica di AD FS non sono ammesse attestazioni vuote. Pertanto, quando si aggiungono le attestazioni http://contoso.com/ws/2016/02/identity/claims/objectguid e http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid nella regola 1, si ottiene un'attestazione **msdsconsistencyguid** solo se il valore viene popolato per l'utente. Se non è popolato, AD FS rileva che avrà un valore vuoto e lo rimuove immediatamente. Tutti gli oggetti avranno **objectGuid**, quindi l'attestazione sarà sempre presente dopo l'esecuzione della regola 1.
+Questa regola definisce un flag temporaneo denominato **idflag**, che è impostato su **useguid** se non è presente un **ms-ds-concistencyguid** popolato per l'utente. Questo perché secondo la logica di AD FS non sono ammesse attestazioni vuote. Pertanto, quando si aggiungono le attestazioni `http://contoso.com/ws/2016/02/identity/claims/objectguid` e `http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid` nella regola 1, si ottiene un'attestazione **msdsconsistencyguid** solo se il valore viene popolato per l'utente. Se non è popolato, AD FS rileva che avrà un valore vuoto e lo rimuove immediatamente. Tutti gli oggetti avranno **objectGuid**, quindi l'attestazione sarà sempre presente dopo l'esecuzione della regola 1.
 
 **Regola 3: Rilasciare ms-ds-consistencyguid come ID non modificabile se presente**
 

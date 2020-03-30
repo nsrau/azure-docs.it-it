@@ -1,16 +1,16 @@
 ---
 title: Gestire gli aggiornamenti per più macchine virtuali Azure
-description: Questo articolo descrive come gestire gli aggiornamenti per le macchine virtuali di Azure e non Azure.
+description: Questo articolo descrive come gestire gli aggiornamenti per le macchine virtuali di Azure e non di Azure.This article describes how to manage updates for Azure and non-Azure virtual machines.
 services: automation
 ms.subservice: update-management
-ms.date: 01/16/2020
+ms.date: 03/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: de7171d3807540ae7d5f09c3a877031631248e49
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: c9a3c88ea0c3e656adf0f8c514b418cfc07c9590
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76168039"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335762"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gestire gli aggiornamenti per più macchine virtuali
 
@@ -27,23 +27,9 @@ Per usare Gestione aggiornamenti è necessario:
 
 - Una macchina virtuale o un computer con uno dei sistemi operativi supportati installato.
 
-- Accesso a un repository di aggiornamenti per le macchine virtuali Linux caricate nella soluzione.
+- Accesso a un repository di aggiornamento per le macchine virtuali Linux in cartone di base per la soluzione.
 
-## <a name="supported-operating-systems"></a>Sistemi operativi supportati
-
-Gestione aggiornamenti è supportata nei sistemi operativi seguenti:
-
-|Sistema operativo  |Note  |
-|---------|---------|
-|Windows Server 2008, Windows Server 2008 R2 RTM    | Supporta solo le valutazioni degli aggiornamenti.         |
-|Windows Server 2008 R2 SP1 e versioni successive     |È necessario Windows PowerShell 4.0 o versioni successive. ([Scaricare WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))</br> Windows PowerShell 5.1 è consigliato per la sua maggiore affidabilità. ([Scaricare WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))         |
-|CentOS 6 (x86/x64) e 7 (x64)      | |
-|Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | |
-|SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | |
-|Ubuntu 14.04 LTS, 16.04 LTS e 18.04 LTS (x86/x64)      | |
-
-> [!NOTE]
-> Per evitare che gli aggiornamenti vengano applicati al di fuori di una finestra di manutenzione in Ubuntu, riconfigurare il pacchetto Unattended-Upgrade per disabilitare gli aggiornamenti automatici. Per altre informazioni, vedere l'[argomento Aggiornamenti automatici nella Guida a Ubuntu Server](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+Per informazioni sui requisiti di sistema per la gestione degli aggiornamenti, vedere [Requisiti del client di gestione degli aggiornamenti](automation-update-management.md#clients).
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Abilitare Gestione aggiornamenti per le macchine virtuali di Azure
 
@@ -63,7 +49,7 @@ Al termine dell'onboarding, Gestione aggiornamenti è abilitata per la macchina 
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Abilitare Gestione aggiornamenti per computer e macchine virtuali non di Azure
 
-Per abilitarli con Gestione aggiornamenti, è necessario installare l'agente Log Analytics per Windows e Linux nelle macchine virtuali in esecuzione nella rete aziendale o in un altro ambiente cloud. Per informazioni sui requisiti di sistema e sui metodi supportati per distribuire l'agente nei computer ospitati all'esterno di Azure, vedere [Panoramica dell'agente di log Analytics](../azure-monitor/platform/log-analytics-agent.md).
+L'agente di Log Analytics per Windows e Linux deve essere installato nelle macchine virtuali in esecuzione nella rete aziendale o in un altro ambiente cloud per abilitarle con Gestione aggiornamenti. Per informazioni sui requisiti di sistema e sui metodi supportati per distribuire l'agente in computer ospitati all'esterno di Azure, vedere [Panoramica dell'agente log Analytics.](../azure-monitor/platform/log-analytics-agent.md)
 
 ## <a name="view-computers-attached-to-your-automation-account"></a>Visualizzare i computer associati all'account di Automazione
 
@@ -79,7 +65,7 @@ Dopo avere abilitato Gestione aggiornamenti per i computer, è possibile visuali
 
 - **Valutazione non eseguita**: i dati relativi alla valutazione dell'aggiornamento non sono stati ricevuti dal computer entro l'intervallo di tempo previsto. Per i computer Linux, l'intervallo di tempo previsto è nell'ultima ora. Per i computer Windows, l'intervallo di tempo previsto rientra nelle ultime 12 ore.
 
-Per visualizzare lo stato dell'agente, selezionare il collegamento nella colonna **UPDATE AGENT READINESS** (Idoneità agente di aggiornamento). Se si seleziona questa opzione, viene visualizzata la pagina **Ruolo di lavoro ibrido** in cui è visualizzato lo stato del ruolo di lavoro ibrido. L'immagine seguente illustra un esempio di un agente che non è stato connesso a Gestione aggiornamenti per un lungo periodo di tempo:
+Per visualizzare lo stato dell'agente, selezionare il collegamento nella colonna **Aggiorna disponibilità agente.** Se si seleziona questa opzione, viene visualizzata la pagina **Ruolo di lavoro ibrido** in cui è visualizzato lo stato del ruolo di lavoro ibrido. L'immagine seguente illustra un esempio di un agente che non è stato connesso a Gestione aggiornamenti per un lungo periodo di tempo:
 
 ![Visualizzare la scheda Computer](./media/manage-update-multi/update-agent-broken.png)
 
@@ -95,16 +81,16 @@ Gli agenti installati in macchine virtuali e computer raccolgono i dati sugli ag
 
 La tabella seguente descrive le origini connesse supportate da questa soluzione:
 
-| Origine connessa | Supportato | Description |
+| Origine connessa | Supportato | Descrizione |
 | --- | --- | --- |
-| Agenti Windows |Sì |Gestione aggiornamenti raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Windows e quindi avvia l'installazione degli aggiornamenti necessari. |
+| Agenti di Windows |Sì |Gestione aggiornamenti raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Windows e quindi avvia l'installazione degli aggiornamenti necessari. |
 | Agenti Linux |Sì |Gestione aggiornamenti raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Linux e quindi avvia l'installazione degli aggiornamenti necessari nelle distribuzioni supportate. |
 | Gruppo di gestione di Operations Manager |Sì |Gestione aggiornamenti raccoglie informazioni sugli aggiornamenti del sistema dagli agenti in un gruppo di gestione connesso. |
 | Account di archiviazione di Azure |No |Archiviazione di Azure non include informazioni sugli aggiornamenti del sistema. |
 
 ### <a name="collection-frequency"></a>Frequenza della raccolta
 
-Quando un computer completa un'analisi per la conformità degli aggiornamenti, l'agente trasmette le informazioni in blocco ai log di monitoraggio di Azure. In un computer Windows l'analisi della conformità viene eseguita ogni 12 ore per impostazione predefinita.
+Dopo che un computer ha completato un'analisi per la conformità degli aggiornamenti, l'agente inoltra le informazioni in blocco ai log di Monitoraggio di Azure.After a computer completes a scan for update compliance, the agent forwards the information in bulk to Azure Monitor logs. In un computer Windows l'analisi della conformità viene eseguita ogni 12 ore per impostazione predefinita.
 
 Oltre all'analisi pianificata, l'analisi della conformità degli aggiornamenti viene avviata entro 15 minuti dal momento del riavvio di MMA e prima e dopo l'installazione degli aggiornamenti.
 
@@ -126,17 +112,17 @@ Nel riquadro **Nuova distribuzione di aggiornamenti** specificare le informazion
 
 - **Nome**: immettere un nome univoco per identificare la distribuzione di aggiornamenti.
 - **Sistema operativo**: selezionare **Windows** o **Linux**.
-- **Gruppi da aggiornare**: definire una query basata su una combinazione di sottoscrizione, gruppi di risorse, posizioni e tag per creare un gruppo dinamico di macchine virtuali di Azure da includere nella distribuzione. Per le macchine virtuali non di Azure, le ricerche salvate vengono usate per creare un gruppo dinamico da includere nella distribuzione. Per ulteriori informazioni, vedere [gruppi dinamici](automation-update-management-groups.md).
+- **Gruppi da aggiornare:** definire una query in base a una combinazione di sottoscrizione, gruppi di risorse, posizioni e tag per creare un gruppo dinamico di macchine virtuali di Azure da includere nella distribuzione. Per le macchine virtuali non Azure, le ricerche salvate vengono usate per creare un gruppo dinamico da includere nella distribuzione. Per ulteriori informazioni, vedere [Gruppi dinamici](automation-update-management-groups.md).
 - **Computer da aggiornare**: selezionare una ricerca salvata, gruppo importato, o selezionare le macchine virtuali, per scegliere i computer che si desidera aggiornare.
 
    >[!NOTE]
-   >Se si seleziona l'opzione di ricerca salvata, non vengono restituite le identità del computer, bensì solo i nomi. Se sono presenti più macchine virtuali con lo stesso nome in più gruppi di risorse, vengono restituite nei risultati. È consigliabile usare l'opzione **gruppi da aggiornare** per assicurarsi di includere VM univoche corrispondenti ai criteri.
+   >Se si seleziona l'opzione Ricerca salvata, non viene restituito solo le identità del computer, ma solo i nomi. Se si dispone di più macchine virtuali con lo stesso nome in più gruppi di risorse, vengono restituite nei risultati. L'uso dell'opzione **Gruppi da aggiornare** è consigliato per assicurarsi di includere macchine virtuali univoche corrispondenti ai criteri.
 
-   Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**. È possibile visualizzare lo stato di integrità del computer prima di pianificare la distribuzione degli aggiornamenti. Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../azure-monitor/platform/computer-groups.md)
+   Se si sceglie **Macchine**, la disponibilità del computer viene visualizzata nella colonna **Aggiorna preparazione agente.** È possibile visualizzare lo stato di integrità del computer prima di pianificare la distribuzione degli aggiornamenti. Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../azure-monitor/platform/computer-groups.md)
 
   ![Riquadro Nuova distribuzione di aggiornamenti](./media/manage-update-multi/update-select-computers.png)
 
-- **Classificazioni aggiornamenti**: selezionare i tipi di software da includere nella distribuzione di aggiornamenti. Per una descrizione dei tipi di classificazione, vedere le [classificazioni degli aggiornamenti](automation-view-update-assessments.md#update-classifications). I tipi di classificazione sono:
+- **Classificazioni aggiornamenti**: selezionare i tipi di software da includere nella distribuzione di aggiornamenti. Per una descrizione dei tipi di classificazione, vedere [Aggiornare le classificazioni](automation-view-update-assessments.md#update-classifications). I tipi di classificazione sono:
   - Aggiornamenti critici
   - Aggiornamenti per la sicurezza
   - Aggiornamenti cumulativi
@@ -146,13 +132,13 @@ Nel riquadro **Nuova distribuzione di aggiornamenti** specificare le informazion
   - Strumenti
   - Aggiornamenti
 
-- **Includi/Escludi aggiornamenti**: apre la pagina **Includi/Escludi**. Gli aggiornamenti da includere o escludere si trovano in schede separate. Per ulteriori informazioni sulla gestione dell'inclusione, vedere [pianificare una distribuzione degli aggiornamenti](automation-tutorial-update-management.md#schedule-an-update-deployment).
+- **Includi/Escludi aggiornamenti**: apre la pagina **Includi/Escludi**. Gli aggiornamenti da includere o escludere si trovano in schede separate. Per ulteriori informazioni sulla modalità di gestione dell'inclusione, vedere [Pianificazione di una distribuzione](automation-tutorial-update-management.md#schedule-an-update-deployment)di aggiornamento .
 
 > [!NOTE]
 > Tenere presente che le esclusioni eseguono l'override delle inclusioni. Se ad esempio si definisce una regola di esclusione `*`, non vengono installate patch o pacchetti perché vengono tutti esclusi. Le patch escluse vengono ancora visualizzate come mancanti dal computer. Per i computer Linux, se un pacchetto è incluso, ma ha un pacchetto dipendente che è stato escluso, il pacchetto non viene installato.
 
 > [!NOTE]
-> Non è possibile specificare gli aggiornamenti che sono stati sostituiti per l'inclusione con la distribuzione degli aggiornamenti.
+> Non è possibile includere aggiornamenti che sono stati sostituiti nella distribuzione degli aggiornamenti.
 >
 
 - **Impostazioni pianificazione**: è possibile accettare la data e l'ora predefinite, ossia 30 minuti dopo l'ora corrente, ma anche specificare un momento diverso.
@@ -162,11 +148,11 @@ Nel riquadro **Nuova distribuzione di aggiornamenti** specificare le informazion
    ![Finestra di dialogo Impostazioni pianificazione](./media/manage-update-multi/update-set-schedule.png)
 
 - **Pre-script e post-script**: selezionare gli script da eseguire prima e dopo la distribuzione. Per altre informazioni, vedere [Gestire i pre-script e i post-script](pre-post-scripts.md).
-- **Finestra di manutenzione (minuti)** : specificare il periodo di tempo in cui deve avvenire la distribuzione di aggiornamenti. Questa impostazione consente di garantire che le modifiche vengano eseguite negli intervalli di servizio definiti.
+- **Finestra di manutenzione (minuti)**: specificare il periodo di tempo in cui deve avvenire la distribuzione di aggiornamenti. Questa impostazione consente di garantire che le modifiche vengano eseguite negli intervalli di servizio definiti.
 
 - **Controllo riavvio:** questa impostazione determina come vengono gestiti i riavvii per la distribuzione degli aggiornamenti.
 
-   |Opzione|Description|
+   |Opzione|Descrizione|
    |---|---|
    |Riavvia se necessario| **(Impostazione predefinita)** Se necessario, viene eseguito il riavvio se la finestra di manutenzione lo consente.|
    |Riavvia sempre|Il computer viene riavviato indipendentemente dal fatto che il riavvio sia richiesto o no. |
@@ -192,9 +178,9 @@ Per visualizzare il dashboard per una distribuzione di aggiornamenti, selezionar
 
 Il riquadro **Risultati aggiornamento** indica il numero totale di aggiornamenti e i risultati della distribuzione per la macchina virtuale. La tabella a destra offre una suddivisione dettagliata di ogni aggiornamento e dei risultati dell'installazione, che possono corrispondere a uno dei valori seguenti.
 
-- **Tentativo non eseguito**: l'aggiornamento non è stato installato perché il tempo disponibile in base alla finestra di manutenzione specificata non è stato sufficiente.
-- **Completato**: l'aggiornamento è stato completato.
-- **Non riuscito**: l'aggiornamento non è riuscito.
+- **Non tentato**: l'aggiornamento non è stato installato perché era disponibile tempo insufficiente in base alla finestra di manutenzione definita.
+- **Operazione riuscita:** l'aggiornamento è riuscito.
+- **Non riuscito:** l'aggiornamento non è riuscito.
 
 Per visualizzare tutte le voci di log create dalla distribuzione, selezionare **Tutti i log**.
 
@@ -204,5 +190,4 @@ Per visualizzare informazioni dettagliate sugli errori della distribuzione, sele
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su Gestione aggiornamenti, ad esempio su log, output ed errori, vedere [Soluzione Gestione aggiornamenti in Azure](../operations-management-suite/oms-solution-update-management.md).
-
+Per ulteriori informazioni sui registri, l'output e gli errori di Gestione aggiornamenti, vedere Eseguire query sui record di [aggiornamento per Gestione aggiornamenti.](automation-update-management-query-logs.md)

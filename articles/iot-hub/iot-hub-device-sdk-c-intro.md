@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: robinsh
 ms.openlocfilehash: dd12f974b9b02d919752dcb932c9ce1709d7315b
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70813784"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT SDK per dispositivi per C
@@ -111,7 +111,7 @@ In questa scheda si gestiscono i dispositivi registrati nell'hub IoT.
 
 1. Se si sceglie **Copy connection string for selected device** (Copia stringa di connessione per il dispositivo selezionato), la stringa di connessione del dispositivo viene copiata negli Appunti. Conservare una copia della stringa di connessione del dispositivo. È necessaria quando si eseguono le applicazioni di esempio descritte nelle sezioni seguenti.
 
-Dopo aver completato i passaggi precedenti, si è pronti per iniziare a eseguire il codice. La maggior parte degli esempi ha una costante all'inizio del file di origine principale che consente di immettere una stringa di connessione. Ad esempio, la riga corrispondente dell'applicazione **iothub_client\_Samples\_iothub_convenience_sample** viene visualizzata come segue.
+Dopo aver completato i passaggi precedenti, si è pronti per iniziare a eseguire il codice. La maggior parte degli esempi ha una costante all'inizio del file di origine principale che consente di immettere una stringa di connessione. Ad esempio, la riga corrispondente **dall'iothub_client\_\_esempi iothub_convenience_sampleapplicazione** viene visualizzata come segue.
 
 ```c
 static const char* connectionString = "[device connection string]";
@@ -121,12 +121,12 @@ static const char* connectionString = "[device connection string]";
 
 Nella cartella **iothub\_client** del repository [azure-iot-sdk-c](https://github.com/azure/azure-iot-sdk-c) è presente una cartella **samples** che contiene un'applicazione denominata **iothub\_client\_sample\_mqtt**.
 
-La versione di Windows dell' **applicazione\_iothub_client\_Samples iothub_convenience_sample** include la soluzione di Visual Studio seguente:
+La versione Windows dell'applicazione **iothub_convenience_sample di esempio\_\_iothub_client** include la soluzione di Visual Studio seguente:
 
   ![Esplora soluzioni di Visual Studio](./media/iot-hub-device-sdk-c-intro/iothub-client-sample-mqtt.png)
 
 > [!NOTE]
-> Se Visual Studio chiede di ridestinare il progetto alla versione più recente, accettare la richiesta.
+> Se Visual Studio richiede di ridestinare il progetto alla versione più recente, accettare il prompt.
 
 Questa soluzione contiene un singolo progetto. In questa soluzione sono installati quattro pacchetti NuGet:
 
@@ -137,7 +137,7 @@ Questa soluzione contiene un singolo progetto. In questa soluzione sono installa
 
 Il pacchetto **Microsoft.Azure.C.SharedUtility** è sempre necessario quando si usa l'SDK. Questo esempio usa il protocollo MQTT, quindi è necessario includere i pacchetti **Microsoft.Azure.umqtt** e **Microsoft.Azure.IoTHub.MqttTransport**. Sono disponibili pacchetti equivalenti per AMQP e HTTPS. L'esempio usa la libreria **IoTHubClient**, quindi è necessario includere il pacchetto **Microsoft.Azure.IoTHub.IoTHubClient** nella soluzione.
 
-È possibile trovare l'implementazione per l'applicazione di esempio nel file di origine **iothub_convenience_sample di\_iothub_client Samples\_** .
+È possibile trovare l'implementazione per l'applicazione di esempio nel file di origine **iothub_convenience_sample\_iothub_client samples.\_**
 
 I passaggi seguenti usano questa applicazione di esempio per illustrare i requisiti per l'uso della libreria **IoTHubClient**.
 
@@ -224,7 +224,7 @@ static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, v
 }
 ```
 
-Si noti la chiamata alla funzione **IoTHubMessage\_Destroy** dopo il completamento dell'invio del messaggio. Questa funzione libera le risorse allocate quando si crea il messaggio.
+Si noti la chiamata alla funzione **\_IoTHubMessage Destroy** quando hai finito con il messaggio. Questa funzione libera le risorse allocate quando si crea il messaggio.
 
 ### <a name="receive-messages"></a>Ricevere messaggi
 
@@ -339,7 +339,7 @@ Nella cartella **serializer** del [repository azure-iot-sdk-c](https://github.co
   ![Esplora soluzioni di Visual Studio per esempio MQTT](./media/iot-hub-device-sdk-c-intro/simplesample_mqtt.png)
 
 > [!NOTE]
-> Se Visual Studio chiede di ridestinare il progetto alla versione più recente, accettare la richiesta.
+> Se Visual Studio richiede di ridestinare il progetto alla versione più recente, accettare il prompt.
 
 Come con l'esempio precedente, questo include diversi pacchetti NuGet:
 
@@ -351,7 +351,7 @@ Come con l'esempio precedente, questo include diversi pacchetti NuGet:
 
 La maggior parte di questi pacchetti è stata illustrata nell'esempio precedente, ma **Microsoft.Azure.IoTHub.Serializer** è nuovo. Questo pacchetto è necessario quando si usa la libreria **serializer**.
 
-È possibile trovare l'implementazione dell'applicazione di esempio nel file **iothub_client\_Samples\_iothub_convenience_sample** .
+È possibile trovare l'implementazione dell'applicazione di esempio nel file **\_\_di esempio iothub_client iothub_convenience_sample.**
 
 Le sezioni seguenti illustrano gli elementi chiave di questo esempio.
 
@@ -392,7 +392,7 @@ Chiamare infine la funzione **CREATE\_MODEL\_INSTANCE**. **WeatherStation** è l
 
 ### <a name="define-the-model"></a>Definire il modello
 
-Un modello nella libreria **serializer** definisce i messaggi che il dispositivo può inviare all'hub IoT e i messaggi, chiamati *azioni* nel linguaggio di modellazione, che può ricevere. Per definire un modello, usare un set di macro C come nell'applicazione di esempio **iothub_client\_Samples\_iothub_convenience_sample** :
+Un modello nella libreria **serializer** definisce i messaggi che il dispositivo può inviare all'hub IoT e i messaggi, chiamati *azioni* nel linguaggio di modellazione, che può ricevere. È possibile definire un modello utilizzando un set di macro C come negli **esempi\_\_iothub_client iothub_convenience_sampleapplicazione** di esempio:
 
 ```c
 BEGIN_NAMESPACE(WeatherStation);
@@ -414,7 +414,7 @@ In questo esempio è presente un singolo modello chiamato **ContosoAnemometer**.
 
 I dati e le azioni specificati nel modello definiscono una superficie dell'API che si può usare per inviare messaggi all'hub IoT e per rispondere ai messaggi inviati al dispositivo. L'uso di questo modello può essere illustrato meglio con un esempio.
 
-### <a name="send-messages"></a>Invia messaggi
+### <a name="send-messages"></a>Inviare messaggi
 
 Il modello definisce i dati che è possibile inviare all'hub IoT. In questo esempio è uno dei due elementi dati definiti con la macro **WITH_DATA**. Sono necessari diversi passaggi per inviare i valori **DeviceId** e **WindSpeed** a un hub IoT. Il primo consiste nell'impostare i dati da inviare:
 
@@ -483,7 +483,7 @@ Il secondo parametro è un puntatore al contesto utente, lo stesso puntatore pas
 
 Non sono necessarie altre operazioni per l'invio di messaggi da dispositivo a cloud. Rimane solo da illustrare come ricevere i messaggi.
 
-### <a name="receive-messages"></a>Ricevi messaggi
+### <a name="receive-messages"></a>Ricevere messaggi
 
 La ricezione di un messaggi funziona in modo simile alla modalità d'uso dei messaggi nella libreria **IoTHubClient** . Prima di tutto occorre registrare la funzione di callback di un messaggio.
 
@@ -574,11 +574,11 @@ serializer_deinit();
 
 Ognuna di queste tre funzioni è allineata con le tre funzioni di inizializzazione descritte in precedenza. Chiamando questi API si assicura che siano liberate le risorse allocate in precedenza.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo descrive le nozioni di base relative all'uso delle librerie in **Azure IoT SDK per dispositivi per C**. Fornisce informazioni sufficienti per comprendere il contenuto dell'SDK, la relativa architettura e come iniziare a usare gli esempi per Windows. L'articolo successivo continua la descrizione dell'SDK, fornendo [altre informazioni sulla libreria IoTHubClient](iot-hub-device-sdk-c-iothubclient.md).
+Questo articolo illustra le nozioni di base sull'uso delle librerie nell'SDK del **dispositivo Azure IoT per C**. Fornisce informazioni sufficienti per comprendere cosa è incluso nell'SDK, la relativa architettura e come iniziare a usare gli esempi di Windows. L'articolo successivo continua la descrizione dell'SDK, fornendo [altre informazioni sulla libreria IoTHubClient](iot-hub-device-sdk-c-iothubclient.md).
 
-Per altre informazioni sullo sviluppo dell'hub IoT, vedere [Azure IoT SDK](iot-hub-devguide-sdks.md).
+Per altre informazioni sullo sviluppo dell'hub IoT, vedere gli [Azure IoT SDK](iot-hub-devguide-sdks.md).
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 

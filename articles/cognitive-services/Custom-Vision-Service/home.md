@@ -10,18 +10,20 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 829921ae5600873fdc8f2946ae3ff355bffb06a8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a48c553f1c96b8777e0a591f428dca3f15d7d30e
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978595"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80053647"
 ---
 # <a name="what-is-custom-vision"></a>Informazioni su Visione personalizzata
 
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
+
 Visione personalizzata è un servizio cognitivo che consente di compilare, distribuire e migliorare classificatori di immagini. Un classificatore di immagini è un servizio di intelligenza artificiale che applica etichette (che rappresentano _classi_) alle immagini, in base alle relative caratteristiche visive. A differenza del servizio [Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), il servizio Visione personalizzata consente di determinare le etichette da applicare.
 
-## <a name="what-it-does"></a>Risultato
+## <a name="what-it-does"></a>Funzione
 
 Il servizio Visione personalizzata usa un algoritmo di Machine Learning per applicare etichette alle immagini. Lo sviluppatore deve inviare gruppi di immagini in cui sono presenti o assenti le caratteristiche in questione, etichettando personalmente le immagini al momento dell'invio. L'algoritmo esegue quindi il training in base a questi dati e calcola la propria accuratezza usando le stesse immagini per testare il proprio funzionamento. Dopo il training dell'algoritmo, è possibile testarlo, ripeterne il training e infine usarlo per classificare nuove immagini in base alle esigenze dell'app. È anche possibile esportare il modello per usarlo offline.
 
@@ -29,7 +31,7 @@ Il servizio Visione personalizzata usa un algoritmo di Machine Learning per appl
 
 È possibile dividere la funzionalità di Visione personalizzata in due categorie. La **classificazione delle immagini** applica una o più etichette a un'immagine. Il **rilevamento degli oggetti** è simile, ma restituisce anche le coordinate nell'immagine in cui si trovano le etichette applicate.
 
-### <a name="optimization"></a>Ottimizzazione
+### <a name="optimization"></a>Optimization
 
 Il servizio Visione personalizzata è ottimizzato in modo da riconoscere rapidamente le principali differenze tra immagini, quindi è possibile iniziare a creare un prototipo del modello con una piccola quantità di dati. Per iniziare sono in genere sufficienti 50 immagini. Il servizio non è ideale per il rilevamento di lievi differenze nelle immagini, ad esempio per il rilevamento di piccole crepe o ammaccature negli scenari di controllo di qualità.
 

@@ -1,25 +1,25 @@
 ---
 title: Traccia distribuita in Azure Application Insights | Microsoft Docs
-description: Vengono fornite informazioni sul supporto di Microsoft per la traccia distribuita tramite l'utilità di inoltro locale e la collaborazione al progetto OpenCensus
+description: Fornisce informazioni sul supporto di Microsoft per il tracciamento distribuito attraverso la partnership nel progetto OpenCensus
 ms.topic: conceptual
 author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: d9f67250a232d4666e4655f83e9bdc7622754331
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: c2f384370c3ceaf24164e4a27adc05b1a1e1ddf7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79136741"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294969"
 ---
 # <a name="what-is-distributed-tracing"></a>Che cos'è la traccia distribuita?
 
-L'avvento di architetture di [microservizi](https://azure.com/microservices) e cloud moderne ha contribuito alla nascita di semplici servizi distribuibili in modo indipendente che consentono di ridurre i costi aumentando la disponibilità e la velocità effettiva. Mentre questi movimenti hanno reso i singoli servizi più facili da comprendere nel suo complesso, hanno reso i sistemi complessivi più difficili da motivare ed eseguire il debug.
+L'avvento delle moderne architetture cloud e [microservizi](https://azure.com/microservices) ha dato origine a servizi semplici e distribuibili in modo indipendente che possono contribuire a ridurre i costi aumentando al contempo la disponibilità e la velocità effettiva. Ma mentre questi movimenti hanno reso i singoli servizi più facili da capire nel suo complesso, hanno reso i sistemi complessivi più difficili da ragionare ed eseguire il debug.
 
-Nelle architetture monolitiche, abbiamo usato per eseguire il debug con stack di chiamate. Gli stack di chiamate sono strumenti molto utili per la visualizzazione del flusso di esecuzione (il metodo A ha chiamato il metodo B che ha chiamato il metodo C), insieme a informazioni dettagliate e parametri per ognuna delle chiamate. Si tratta di uno strumento ideale per le architetture monolitiche o i servizi in esecuzione in un singolo processo, ma come eseguire il debug quando la chiamata passa attraverso un limite di processo e non è semplicemente un riferimento nello stack locale? 
+Nelle architetture monolitiche, ci siamo abituati a eseguire il debug con gli stack di chiamate. Gli stack di chiamate sono strumenti molto utili per la visualizzazione del flusso di esecuzione (il metodo A ha chiamato il metodo B che ha chiamato il metodo C), insieme a informazioni dettagliate e parametri per ognuna delle chiamate. Si tratta di uno strumento ideale per le architetture monolitiche o i servizi in esecuzione in un singolo processo, ma come eseguire il debug quando la chiamata passa attraverso un limite di processo e non è semplicemente un riferimento nello stack locale? 
 
-Qui viene fornita la traccia distribuita.  
+È qui che entra in gioco il tracciamento distribuito.  
 
 La traccia distribuita è l'equivalente degli stack di chiamate per le architetture di microservizi e cloud moderne, con l'aggiunta di un profiler di prestazioni semplicistico. Monitoraggio di Azure offre due esperienze per l'utilizzo dei dati di traccia distribuita. La prima è costituita dalla vista della [diagnostica delle transazioni](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics), che è analoga a uno stack di chiamate con l'aggiunta di una dimensione temporale. La vista della diagnostica delle transazioni offre visibilità su una singola transazione o richiesta ed è utile per individuare la causa principale dei problemi di affidabilità e i colli di bottiglia delle prestazioni per ogni singola richiesta.
 
@@ -37,7 +37,7 @@ Le versioni di Application Insights SDK per .NET, .NET Core, Java, Node.js e Jav
 * [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
 * [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
 * [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
-* [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
+* [Javascript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
 * [Python](opencensus-python.md)
 
 Dopo avere installato e configurato la versione corretta di Application Insights SDK, le informazioni di traccia vengono raccolte automaticamente per le librerie, le tecnologie e i framework più diffusi da agenti di raccolta delle dipendenze dell'SDK automatici. L'elenco completo delle tecnologie supportate è disponibile nella [documentazione sulla raccolta automatica delle dipendenze](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies).

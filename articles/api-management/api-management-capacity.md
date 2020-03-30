@@ -12,21 +12,21 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a585ab059319b15be1f2a86bf10b7dc58da72494
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: b6d949b50be348e72cedfc3710383308b04de106
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299454"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336015"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacità di un'istanza di Gestione API di Azure
 
-La **capacità** è la [metrica di monitoraggio di Azure](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) più importante per prendere decisioni informate se ridimensionare un'istanza di gestione API per gestire un carico maggiore. La costruzione è complessa e impone determinati comportamenti.
+**La capacità** è la [metrica](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) più importante di Monitoraggio di Azure per prendere decisioni informate se ridimensionare un'istanza di Gestione API per gestire un carico maggiore. La costruzione è complessa e impone determinati comportamenti.
 
 Questo articolo descrive che cos'è la **capacità** e il relativo comportamento. Illustra come accedere alle metriche di **capacità** nel portale di Azure e suggerisce quando prendere in considerazione il ridimensionamento o l'aggiornamento dell'istanza di Gestione API.
 
 > [!IMPORTANT]
-> Questo articolo illustra come è possibile monitorare e ridimensionare l'istanza di gestione API di Azure in base alla metrica della capacità. Tuttavia, è ugualmente importante capire cosa accade quando una singola istanza di gestione API ha effettivamente *raggiunto* la capacità. Gestione API di Azure non applica alcuna limitazione a livello di servizio per impedire un sovraccarico fisico delle istanze. Quando un'istanza raggiunge la capacità fisica, si comporterà in modo analogo a qualsiasi server Web di overload che non è in grado di elaborare le richieste in ingresso: la latenza aumenterà, le connessioni verranno eliminate, si verificheranno errori di timeout e così via. Ciò significa che i client API devono essere preparati a gestire questa possibilità simile a qualsiasi altro servizio esterno, ad esempio applicando criteri di ripetizione dei tentativi.
+> Questo articolo illustra come è possibile monitorare e ridimensionare l'istanza di Gestione API di Azure in base alla metrica della capacità. Tuttavia, è altrettanto importante comprendere cosa accade quando una singola istanza di Gestione API ha effettivamente *raggiunto* la capacità. Gestione API di Azure non applicherà alcuna limitazione a livello di servizio per evitare un sovraccarico fisico delle istanze. Quando un'istanza raggiunge la sua capacità fisica, si comporterà in modo simile a qualsiasi server web sovraccaricato che non è in grado di elaborare le richieste in ingresso: la latenza aumenterà, le connessioni verranno eliminate, si verificheranno errori di timeout e così via. Ciò significa che i client API devono essere preparati a gestire questa possibilità simile a qualsiasi altro servizio esterno (ad esempio applicando criteri di ripetizione dei tentativi).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -44,15 +44,15 @@ Per eseguire i passaggi in questo articolo è necessario quanto segue:
 
 ![Metriche di capacità](./media/api-management-capacity/capacity-ingredients.png)
 
-La **capacità** è un indicatore del carico su un'istanza di gestione API. che indica l'utilizzo delle risorse (CPU, memoria) e le lunghezze delle code di rete. L'utilizzo di CPU e memoria indicano l'utilizzo delle risorse per:
+**La capacità** è un indicatore di carico in un'istanza di Gestione API. che indica l'utilizzo delle risorse (CPU, memoria) e le lunghezze delle code di rete. L'utilizzo di CPU e memoria indicano l'utilizzo delle risorse per:
 
-+ Servizi del piano dati di gestione API, ad esempio l'elaborazione della richiesta, che può includere richieste di invio o l'esecuzione di un criterio.
-+ Servizi del piano di gestione gestione API, ad esempio le azioni di gestione applicate tramite il portale di Azure o ARM, oppure il carico proveniente dal [portale per sviluppatori](api-management-howto-developer-portal.md).
-+ Processi del sistema operativo selezionati, inclusi i processi che comportano il costo di handshake SSL sulle nuove connessioni.
++ Servizi del piano dati di Gestione API, ad esempio l'elaborazione delle richieste, che possono includere l'inoltro di richieste o l'esecuzione di un criterio.
++ Servizi piani di gestione di Gestione API, ad esempio azioni di gestione applicate tramite il portale di Azure o ARM, o carico proveniente dal [portale per sviluppatori](api-management-howto-developer-portal.md).
++ Processi del sistema operativo selezionati, inclusi i processi che comportano il costo degli handshake TLS sulle nuove connessioni.
 
 La **capacità** totale è una media dei valori per ogni unità di un'istanza di Gestione API.
 
-Sebbene la **metrica della capacità** sia progettata per la superficie di problemi con l'istanza di gestione API, esistono casi in cui i problemi non si riflettono nelle modifiche apportate alla **metrica della capacità**.
+Anche se la **metrica** di capacità è progettata per far emergere i problemi con l'istanza di Gestione API, in alcuni casi i problemi non si rifletteranno nelle modifiche nella metrica di **capacità.**
 
 ## <a name="capacity-metric-behavior"></a>Comportamento delle metriche di capacità
 
@@ -71,13 +71,13 @@ A una maggiore complessità delle operazioni sulle richieste corrisponde un util
 
 I picchi di **capacità** possono anche verificarsi a intermittenza o essere maggiori di zero, anche in assenza di richieste in fase di elaborazione. Ciò si verifica a causa di azioni specifiche del sistema o della piattaforma e non devono essere presi in considerazione quando si decide se ridimensionare un'istanza.
 
-La **metrica a capacità** ridotta non significa necessariamente che l'istanza di gestione API non stia riscontrando alcun problema.
+Metrica a **bassa capacità** non significa necessariamente che l'istanza di Gestione API non presenti alcun problema.
   
 ## <a name="use-the-azure-portal-to-examine-capacity"></a>Usare il portale di Azure per esaminare la capacità
   
 ![Metriche di capacità](./media/api-management-capacity/capacity-metric.png)  
 
-1. Nel [portale di Azure](https://portal.azure.com/) passare all'istanza di Gestione API.
+1. Passare all'istanza di Gestione API nel portale di Azure.Navigate to your COMM instance in the [Azure portal](https://portal.azure.com/).
 2. Selezionare **Metriche**.
 3. Dalla sezione viola selezionare la metrica**Capacità** tra le metriche disponibili e lasciare l'aggregazione predefinita **Media**.
 
@@ -87,7 +87,7 @@ La **metrica a capacità** ridotta non significa necessariamente che l'istanza d
 4. Dalla sezione verde selezionare **Località** per la suddivisione delle metriche in base alla dimensione.
 5. Selezionare un intervallo di tempo desiderato dalla barra superiore della sezione.
 
-    È anche possibile impostare un avviso collegato alle metriche che si attivi se si verifica qualcosa di imprevisto, Ottenere, ad esempio, notifiche quando l'istanza di gestione API supera la capacità di picco prevista per più di 20 minuti.
+    È anche possibile impostare un avviso collegato alle metriche che si attivi se si verifica qualcosa di imprevisto, Ad esempio, ricevi notifiche quando l'istanza di Gestione API ha superato la capacità di picco prevista per oltre 20 minuti.
 
     >[!TIP]
     > È possibile configurare avvisi per ricevere una segnalazione quando il servizio sta per esaurire la capacità oppure usare la funzionalità di ridimensionamento automatico di Monitoraggio di Azure per aggiungere automaticamente un'unità Gestione API di Azure. L'operazione di ridimensionamento può richiedere circa 30 minuti, pertanto è consigliabile pianificare le regole di conseguenza.  

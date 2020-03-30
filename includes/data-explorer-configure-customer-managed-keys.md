@@ -4,51 +4,26 @@ ms.service: data-explorer
 ms.topic: include
 ms.date: 01/07/2020
 ms.author: orspodek
-ms.openlocfilehash: 0d78e48fead7b1f53e67860e6be8fe6d77469e87
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 7f5c02c6c009e8916ed063454e0ae6049892e95c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280603"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297885"
 ---
-Azure Esplora dati crittografa tutti i dati in un account di archiviazione inattivo. Per impostazione predefinita, i dati vengono crittografati con le chiavi gestite da Microsoft. Per un maggiore controllo sulle chiavi di crittografia, è possibile fornire chiavi gestite dal cliente da usare per la crittografia dei dati. Le chiavi gestite dal cliente devono essere archiviate in un [Azure Key Vault](/azure/key-vault/key-vault-overview). È possibile creare chiavi personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure è possibile usare un'API Azure Key Vault per generare chiavi. Il cluster Esplora dati di Azure e l'insieme di credenziali delle chiavi devono trovarsi nella stessa area, ma possono trovarsi in sottoscrizioni diverse. Per una spiegazione dettagliata delle chiavi gestite dal cliente, vedere [chiavi gestite dal cliente con Azure Key Vault](/azure/storage/common/storage-service-encryption). Questo articolo illustra come configurare le chiavi gestite dal cliente.
+Azure Data Explorer crittografa tutti i dati in un account di archiviazione inattivi. Per impostazione predefinita, i dati vengono crittografati con chiavi gestite da Microsoft.By default, data is encrypted with Microsoft-managed keys. Per un ulteriore controllo sulle chiavi di crittografia, è possibile fornire chiavi gestite dal cliente da utilizzare per la crittografia dei dati. 
 
-Per configurare le chiavi gestite dal cliente con Azure Esplora dati, è necessario [impostare due proprietà nell'insieme di credenziali delle chiavi](/azure/key-vault/key-vault-ovw-soft-delete): **eliminazione** temporanea e non **ripulitura**. Queste proprietà non sono abilitate per impostazione predefinita. Per abilitare queste proprietà, usare [PowerShell](/azure/key-vault/key-vault-soft-delete-powershell) o l'interfaccia della riga di comando di [Azure](/azure/key-vault/key-vault-soft-delete-cli). Sono supportate solo le chiavi RSA e le dimensioni della chiave 2048.
+Le chiavi gestite dal cliente devono essere archiviate in un insieme di credenziali [delle chiavi](/azure/key-vault/key-vault-overview)di Azure . È possibile creare chiavi personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare un'API dell'insieme di credenziali delle chiavi di Azure per generare le chiavi. Il cluster di Azure Data Explorer e l'insieme di credenziali delle chiavi devono trovarsi nella stessa area, ma possono trovarsi in sottoscrizioni diverse. Per una spiegazione dettagliata sulle chiavi gestite dal cliente, vedere [Chiavi gestite dal cliente con L'insieme](/azure/storage/common/storage-service-encryption)di credenziali delle chiavi di Azure . 
+
+In questo articolo viene illustrato come configurare le chiavi gestite dal cliente.
+
+## <a name="configure-azure-key-vault"></a>Configurare Azure Key Vault
+
+Per configurare le chiavi gestite dal cliente con Azure Data Explorer, è necessario [impostare due proprietà nell'insieme di credenziali](/azure/key-vault/key-vault-ovw-soft-delete)delle chiavi: **Eliminazione temporanea** e **Non eliminazione**. Queste proprietà non sono abilitate per impostazione predefinita. Per abilitare queste proprietà, eseguire **Abilitazione dell'eliminazione temporanea** e **Abilitazione della protezione** dell'eliminazione in [PowerShell](/azure/key-vault/key-vault-soft-delete-powershell) o nell'interfaccia della riga [di comando](/azure/key-vault/key-vault-soft-delete-cli) di Azure in un insieme di credenziali delle chiavi nuovo o esistente. Sono supportate solo le chiavi RSA di dimensione 2048. Per ulteriori informazioni sulle chiavi, vedere [Chiavi dell'insieme di credenziali delle chiavi](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys).
 
 > [!NOTE]
-> La crittografia dei dati tramite chiavi gestite dal cliente non è supportata nei [cluster leader e di seguito](/azure/data-explorer/follower). 
+> La crittografia dei dati tramite chiavi gestite dai clienti non è supportata nei [cluster leader e follower.](/azure/data-explorer/follower) 
 
-## <a name="assign-an-identity-to-the-cluster"></a>Assegnare un'identità al cluster
+## <a name="assign-an-identity-to-the-cluster"></a>Assegnare un'identità al clusterAssign an identity to the cluster
 
-Per abilitare le chiavi gestite dal cliente per il cluster, assegnare innanzitutto un'identità gestita assegnata dal sistema al cluster. Questa identità gestita verrà usata per concedere le autorizzazioni del cluster per accedere all'insieme di credenziali delle chiavi. Per configurare le identità gestite assegnate dal sistema, vedere [identità gestite](/azure/data-explorer/managed-identities).
-
-## <a name="create-a-new-key-vault"></a>Creare un nuovo insieme di credenziali delle chiavi
-
-Per creare un nuovo insieme di credenziali delle chiavi usando PowerShell, chiamare [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault). L'insieme di credenziali delle chiavi usato per archiviare le chiavi gestite dal cliente per la crittografia Esplora dati di Azure deve avere due impostazioni di protezione della chiave abilitate, l' **eliminazione** temporanea e non la **ripulitura**. Sostituire i valori segnaposto tra parentesi quadre con valori personalizzati nell'esempio riportato di seguito.
-
-```azurepowershell-interactive
-$keyVault = New-AzKeyVault -Name <key-vault> `
-    -ResourceGroupName <resource_group> `
-    -Location <location> `
-    -EnableSoftDelete `
-    -EnablePurgeProtection
-```
-
-## <a name="configure-the-key-vault-access-policy"></a>Configurare i criteri di accesso dell'insieme di credenziali delle chiavi
-
-Configurare quindi i criteri di accesso per l'insieme di credenziali delle chiavi in modo che il cluster disponga delle autorizzazioni di accesso. In questo passaggio si userà l'identità gestita assegnata dal sistema precedentemente assegnata al cluster. Per impostare i criteri di accesso per l'insieme di credenziali delle chiavi, chiamare [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy). Sostituire i valori segnaposto tra parentesi quadre con i propri valori e usare le variabili definite negli esempi precedenti.
-
-```azurepowershell-interactive
-Set-AzKeyVaultAccessPolicy `
-    -VaultName $keyVault.VaultName `
-    -ObjectId $cluster.Identity.PrincipalId `
-    -PermissionsToKeys wrapkey,unwrapkey,get,recover
-```
-
-## <a name="create-a-new-key"></a>Creare una nuova chiave
-
-Successivamente, creare una nuova chiave nell'insieme di credenziali delle chiavi. Per creare una nuova chiave, chiamare [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey). Sostituire i valori segnaposto tra parentesi quadre con i propri valori e usare le variabili definite negli esempi precedenti.
-
-```azurepowershell-interactive
-$key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination 'Software'
-```
+Per abilitare le chiavi gestite dal cliente per il cluster, assegnare innanzitutto un'identità gestita assegnata dal sistema al cluster. Questa identità gestita verrà usata per concedere al cluster le autorizzazioni per accedere all'insieme di credenziali delle chiavi. Per configurare le identità gestite assegnate dal sistema, vedere [le identità gestite](/azure/data-explorer/managed-identities).

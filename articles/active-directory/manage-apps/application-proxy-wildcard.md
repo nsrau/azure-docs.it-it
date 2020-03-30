@@ -1,5 +1,5 @@
 ---
-title: Applicazioni con carattere jolly nel proxy di applicazione Azure AD
+title: Applicazioni con caratteri jolly nel proxy di applicazione di Azure ADWildcard applications in the Azure AD Application Proxy
 description: Informazioni su come usare le applicazioni con carattere jolly in Azure Active Directory Application Proxy.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5a9e7be5f582051e03cba08733fcbfa697cc8f5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3ad2032497b4b01476389428f5a2ef4a3961a1c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275038"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481246"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Applicazioni con carattere jolly in Azure Active Directory Application Proxy
 
@@ -45,7 +45,7 @@ Questo articolo offre le informazioni necessarie per configurare la pubblicazion
 
 > http(s)://*.\<domain\>
 
-Ad esempio: `http(s)://*.adventure-works.com`.
+Ad esempio `http(s)://*.adventure-works.com`.
 
 Anche se gli URL interni ed esterni possono usare domini diversi, la procedura consigliata è quella di usare lo stesso dominio. Quando si pubblica l'applicazione, viene visualizzato un errore se uno degli URL non contiene un carattere jolly.
 
@@ -53,16 +53,16 @@ Se sono presenti altre applicazioni con impostazioni di configurazione diverse, 
 
 La creazione di un'applicazione con carattere jolly è basata sullo stesso [flusso di pubblicazione](application-proxy-add-on-premises-application.md) disponibile per tutte le altre applicazioni. L'unica differenza è che viene incluso un carattere jolly negli URL e potenzialmente nella configurazione SSO.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-Per iniziare, verificare di aver soddisfatto i requisiti.
+Per iniziare, assicurati di aver soddisfatto questi requisiti.
 
 ### <a name="custom-domains"></a>Domini personalizzati
 
 Mentre i [domini personalizzati](application-proxy-configure-custom-domain.md) sono facoltativi per tutte le altre applicazioni, per le applicazioni con carattere jolly costituiscono un prerequisito. Per creare domini personalizzati è necessario:
 
-1. Creare un dominio verificato in Azure.
-1. Caricare un certificato SSL in formato PFX nel proxy dell'applicazione.
+1. Creare un dominio verificato in Azure.Create a verified domain within Azure.
+1. Caricare un certificato TLS/SSL in formato PFX nel proxy di applicazione.
 
 Può essere opportuno usare un certificato con carattere jolly corrispondente all'applicazione che si intende creare. In alternativa, è anche possibile usare un certificato contenente un elenco di applicazioni specifiche. In questo caso, solo le applicazioni elencate nel certificato saranno accessibili tramite l'applicazione con carattere jolly.
 
@@ -84,11 +84,11 @@ Di seguito sono riportate alcune considerazioni da tenere in considerazione per 
 
 Per le applicazioni con carattere jolly, il campo **URL interno** deve contenere un valore con formato `http(s)://*.<domain>`.
 
-![Per URL interno, usare il formato http (s)://*. >\<dominio](./media/application-proxy-wildcard/22.png)
+![Per l'URL interno, utilizzare il formato http(s)://. \<> di dominio](./media/application-proxy-wildcard/22.png)
 
 Quando si configura un valore nel campo **URL esterno**, è necessario usare il formato seguente: `https://*.<custom domain>`
 
-![Per URL esterno usare il formato https://*.\<> di dominio personalizzato](./media/application-proxy-wildcard/21.png)
+![Per l'URL esterno, utilizzare il formato https://. \<> di dominio personalizzato](./media/application-proxy-wildcard/21.png)
 
 Altre posizioni del carattere jolly, altre stringhe regex o caratteri jolly multipli non sono supportati e possono causare errori.
 
@@ -105,7 +105,7 @@ La pubblicazione di un'applicazione come applicazione normale è il metodo prefe
 
 Se si usa questa opzione, è necessaria anche un'altra voce CNAME per il valore `AppId.domain`, ad esempio `00000000-1a11-22b2-c333-444d4d4dd444.adventure-works.com`, che punti sullo stesso percorso. È possibile trovare il valore **AppId** nella pagina delle proprietà dell'applicazione con carattere jolly:
 
-![Trovare l'ID applicazione nella pagina delle proprietà dell'app](./media/application-proxy-wildcard/01.png)
+![Trovare l'ID applicazione nella pagina delle proprietà dell'appFind the application ID on the app's property page](./media/application-proxy-wildcard/01.png)
 
 ### <a name="setting-the-homepage-url-for-the-myapps-panel"></a>Impostazione dell'URL della home page del pannello App
 
@@ -150,7 +150,7 @@ Seguendo le [procedure descritte](application-proxy-add-on-premises-application.
 
 - Nome dell'entità servizio dell'applicazione interna:
 
-    ![Esempio: carattere jolly nella configurazione SPN](./media/application-proxy-wildcard/44.png)
+    ![Esempio: caratteri jolly nella configurazione SPNExample: Wildcard in SPN configuration](./media/application-proxy-wildcard/44.png)
 
 Con la pubblicazione dell'applicazione con carattere jolly è ora possibile accedere alle tre applicazioni passando agli URL che si conoscono (ad esempio, `travel.adventure-works.com`).
 
@@ -158,9 +158,9 @@ La configurazione implementa la struttura seguente:
 
 ![Mostra la struttura implementata dalla configurazione di esempio](./media/application-proxy-wildcard/05.png)
 
-| Colore | DESCRIZIONE |
+| Colore | Descrizione |
 | ---   | ---         |
-| Blu  | Le applicazioni sono pubblicate e visibili in modo esplicito nella portale di Azure. |
+| Blu  | Applicazioni pubblicate in modo esplicito e visibili nel portale di Azure.Applications explicitly published and visible in the Azure portal. |
 | Grigio  | Applicazioni accessibili tramite l'applicazione padre. |
 
 ## <a name="scenario-2-general-wildcard-application-with-exception"></a>Scenario 2: Applicazione con carattere jolly generica con un'eccezione
@@ -173,15 +173,15 @@ Secondo le [procedure descritte](application-proxy-add-on-premises-application.m
 
 - Nel campo **URL interno** è necessario impostare **finance** anziché un carattere jolly.
 
-    ![Esempio: impostare Finance anziché un carattere jolly nell'URL interno](./media/application-proxy-wildcard/52.png)
+    ![Esempio: impostare finance invece di un carattere jolly nell'URL interno](./media/application-proxy-wildcard/52.png)
 
 - Nel campo **URL esterno** è necessario impostare **finance** anziché un carattere jolly.
 
-    ![Esempio: impostare Finance anziché un carattere jolly nell'URL esterno](./media/application-proxy-wildcard/53.png)
+    ![Esempio: impostare la finanza anziché un carattere jolly nell'URL esterno](./media/application-proxy-wildcard/53.png)
 
 - Nel campo Nome dell'entità servizio dell'applicazione interna è necessario impostare **finance** anziché un carattere jolly.
 
-    ![Esempio: impostare Finance anziché un carattere jolly nella configurazione SPN](./media/application-proxy-wildcard/54.png)
+    ![Esempio: impostare finance invece di un carattere jolly nella configurazione SPNExample: Set finance instead of a wildcard in SPN configuration](./media/application-proxy-wildcard/54.png)
 
 Questa configurazione implementa lo scenario seguente:
 
@@ -193,5 +193,5 @@ Se sono state pubblicate più applicazioni per il dominio finance e `finance.adv
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per ulteriori informazioni sui **domini personalizzati**, vedere [utilizzo di domini personalizzati nel Proxy di applicazione Azure ad](application-proxy-configure-custom-domain.md).
-- Per altre informazioni sulla **pubblicazione di applicazioni**, vedere [pubblicare applicazioni con Azure ad proxy di applicazione](application-proxy-add-on-premises-application.md)
+- Per altre informazioni sui **domini personalizzati,** vedere Utilizzo di domini personalizzati nel proxy di applicazione di [Azure AD.](application-proxy-configure-custom-domain.md)
+- Per altre informazioni sulla **pubblicazione di applicazioni,** vedere [Pubblicare applicazioni con](application-proxy-add-on-premises-application.md) il proxy di applicazione di Azure ADTo learn more about Publishing applications , see Publish applications using Azure AD Application Proxy

@@ -18,12 +18,12 @@ ms.author: billmath
 author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bd46bb820c7127c4fa6105fcc0be73bb66024c6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0f3e521fb7668305ce511aaddd63ed2cce8dfed0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60245727"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331728"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Gestire il trust di AD FS con Azure AD usando Azure AD Connect
 
@@ -56,15 +56,15 @@ Azure AD connect non aggiorna tutte le impostazioni del trust di Azure AD durant
 
 | Flusso di esecuzione | Impostazioni interessate |
 | :--- | :--- |
-| Installazione al primo passaggio (rapida) | Nessuna |
+| Installazione al primo passaggio (rapida) | nessuno |
 | Installazione al primo passaggio (nuova farm AD FS) | Viene creata una nuova farm AD FS e viene creato da zero un nuovo trust con Azure AD. |
 | Installazione al primo passaggio (farm AD FS esistente, trust di Azure AD esistente) | Identificatore del trust di Azure AD, regole di trasformazione rilascio, endpoint di Azure AD, ID alternativo (se necessario), aggiornamento automatico dei metadati |
 | Reimpostazione del trust di Azure AD | Certificato per la firma di token, algoritmo di firma dei token, identificatore del trust di Azure AD, regole di trasformazione rilascio, endpoint di Azure AD, ID alternativo (se necessario), aggiornamento automatico dei metadati |
-| Aggiunta del server federativo | Nessuna |
-| Aggiunta del server WAP | Nessuna |
+| Aggiunta del server federativo | nessuno |
+| Aggiunta del server WAP | nessuno |
 | Opzioni del dispositivo | Regole di trasformazione rilascio, autenticazione integrata di Windows per la registrazione del dispositivo |
 | Aggiunta di un dominio federato | Se il dominio viene aggiunto per la prima volta, ovvero se la configurazione passa dalla federazione di un singolo dominio alla federazione multidominio, Azure AD Connect ricreerà il trust da zero. Se il trust con Azure AD è già configurato per più domini, vengono modificate solo le regole di trasformazione rilascio |
-| Aggiornamento SSL | Nessuna |
+| Aggiorna TLS | nessuno |
 
 In tutte le operazioni in cui vengono modificate impostazioni, Azure AD Connect crea un backup delle impostazioni di trust correnti in **%ProgramData%\AADConnect\ADFS**
 
@@ -105,7 +105,7 @@ Azure AD Connect verifica che il trust di Azure AD sia sempre configurato con il
 
 Azure AD Connect versione 1.1.873.0 o successiva crea un backup delle impostazioni di trust di Azure AD ogni volta che queste vengono aggiornate. Il backup delle impostazioni di trust di Azure AD viene salvato in **%ProgramData%\AADConnect\ADFS**. Il nome file è nel formato AadTrust-&lt;data&gt;-&lt;ora&gt;.txt, ad esempio AadTrust-20180710-150216.txt
 
-![Screenshot di esempio di eseguire il backup dei trust di Azure AD](./media/how-to-connect-azure-ad-trust/backup.png)
+![Schermata di esempio di backup della relazione di trust di Azure AD](./media/how-to-connect-azure-ad-trust/backup.png)
 
 È possibile ripristinare le regole di trasformazione rilascio seguendo la procedura suggerita di seguito
 

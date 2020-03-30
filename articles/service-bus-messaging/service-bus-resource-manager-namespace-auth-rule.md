@@ -1,5 +1,5 @@
 ---
-title: Creare una regola di autorizzazione del bus di servizio usando un modello di Azure
+title: Creare una regola di autorizzazione del bus di servizio usando un modello di AzureCreate a Service Bus authorization rule using an Azure template
 description: Creare una regola di autorizzazione del bus di servizio per spazio dei nomi e coda usando un modello di Azure Resource Manager
 services: service-bus-messaging
 documentationcenter: .net
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: c795c61ec4891205ad9c77e96914d9b374fa88af
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1bfb2d2d946a85c1d051315fb29a5a63f7a00871
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426904"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384926"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Creare una regola di autorizzazione del bus di servizio per spazio dei nomi e coda usando un modello di Azure Resource Manager.
 
 Questo articolo illustra come usare un modello di Azure Resource Manager per creare una [regola di autorizzazione](service-bus-authentication-and-authorization.md#shared-access-signature) per uno spazio dei nomi e una coda del bus di servizio. L'articolo spiega come specificare le risorse da distribuire e come definire i parametri che devono essere specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
 
-Per altre informazioni sulla creazione di modelli, vedere [Creazione di modelli di Azure Resource Manager][Authoring Azure Resource Manager templates].
+Per altre informazioni sulla creazione di modelli, vedere Creazione di modelli di [Azure Resource Manager][Authoring Azure Resource Manager templates].
 
-Per il modello completo, vedere il [modello di regola di autorizzazione del bus di servizio][Service Bus auth rule template] su GitHub.
+Per il modello completo, vedere il [modello della regola di autorizzazione del bus di servizio][Service Bus auth rule template] su GitHub.
 
 > [!NOTE]
 > Questi modelli di Azure Resource Manager sono disponibili per il download e la distribuzione.
 > 
-> * [Creare uno spazio dei nomi del bus di servizio](service-bus-resource-manager-namespace.md)
+> * [Creare uno spazio dei nomi del bus di servizioCreate a Service Bus namespace](service-bus-resource-manager-namespace.md)
 > * [Creare uno spazio dei nomi del bus di servizio con coda](service-bus-resource-manager-namespace-queue.md)
 > * [Creare uno spazio dei nomi del bus di servizio con argomento e sottoscrizione](service-bus-resource-manager-namespace-topic.md)
 > * [Creare uno spazio dei nomi del bus di servizio con argomento, sottoscrizione e regola](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Per verificare la disponibilità di nuovi modelli, visitare la raccolta [Modelli di avvio rapido di Azure][Azure Quickstart Templates] e cercare **service bus**.
+> Per verificare la disponibilità di nuovi modelli, visitare la raccolta [Modelli di avvio rapido di Azure][Azure Quickstart Templates] e cercare **bus di servizio**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -45,11 +45,11 @@ Per il modello completo, vedere il [modello di regola di autorizzazione del bus 
 
 Questo modello consente di distribuire una regola di autorizzazione del bus di servizio per uno spazio dei nomi e un'identità di messaggistica (in questo caso, una coda).
 
-Questo modello usa la [firma di accesso condiviso (SAS, Shared Access Signature)](service-bus-sas.md) per l'autenticazione. La firma di accesso condiviso consente alle applicazione di eseguire l'autenticazione al bus di servizio usando una chiave di accesso configurata nello spazio dei nomi o nell'entità di messaggistica, ad esempio coda o argomento, a cui sono associati diritti specifici. È quindi possibile usare questa chiave per generare un token di firma di accesso condiviso di cui possono avvalersi i client per eseguire l'autenticazione al bus di servizio.
+Questo modello usa la firma di [accesso condiviso (SAS)](service-bus-sas.md) per l'autenticazione. La firma di accesso condiviso consente alle applicazione di eseguire l'autenticazione al bus di servizio usando una chiave di accesso configurata nello spazio dei nomi o nell'entità di messaggistica, ad esempio coda o argomento, a cui sono associati diritti specifici. È quindi possibile usare questa chiave per generare un token di firma di accesso condiviso di cui possono avvalersi i client per eseguire l'autenticazione al bus di servizio.
 
 Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
-[![Distribuzione in Azure](./media/service-bus-resource-manager-namespace-auth-rule/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F301-servicebus-create-authrule-namespace-and-queue%2Fazuredeploy.json)
+[![Distribuire in AzureDeploy to Azure](./media/service-bus-resource-manager-namespace-auth-rule/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F301-servicebus-create-authrule-namespace-and-queue%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametri
 
@@ -58,6 +58,7 @@ Gestione risorse di Azure permette di definire i parametri per i valori da speci
 Il modello definisce i parametri seguenti.
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
+
 Nome dello spazio dei nomi del bus di servizio da creare.
 
 ```json
@@ -67,6 +68,7 @@ Nome dello spazio dei nomi del bus di servizio da creare.
 ```
 
 ### <a name="namespaceauthorizationrulename"></a>namespaceAuthorizationRuleName
+
 Nome della regola di autorizzazione per lo spazio dei nomi.
 
 ```json
@@ -76,6 +78,7 @@ Nome della regola di autorizzazione per lo spazio dei nomi.
 ```
 
 ### <a name="servicebusqueuename"></a>serviceBusQueueName
+
 Nome della coda nello spazio dei nomi del bus di servizio.
 
 ```json
@@ -85,6 +88,7 @@ Nome della coda nello spazio dei nomi del bus di servizio.
 ```
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
+
 Versione API del bus di servizio del modello.
 
 ```json
@@ -97,6 +101,7 @@ Versione API del bus di servizio del modello.
 ```
 
 ## <a name="resources-to-deploy"></a>Risorse da distribuire
+
 Crea uno spazio dei nomi del bus di servizio standard di tipo **Messaggistica**e una regola di autorizzazione del bus di servizio per spazio dei nomi ed entità.
 
 ```json
@@ -152,24 +157,28 @@ Crea uno spazio dei nomi del bus di servizio standard di tipo **Messaggistica**e
 Per la sintassi e le proprietà JSON, vedere [Spazi dei nomi](/azure/templates/microsoft.servicebus/namespaces), [Code](/azure/templates/microsoft.servicebus/namespaces/queues) e [Regole di autorizzazione](/azure/templates/microsoft.servicebus/namespaces/authorizationrules).
 
 ## <a name="commands-to-run-deployment"></a>Comandi per eseguire la distribuzione
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
-```powershell
+
+```powershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
 ```
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-```azurecli
+
+```azurecli-interactive
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Dopo aver creato e distribuito le risorse con Azure Resource Manager, è possibile imparare a gestire queste risorse. Leggere gli articoli seguenti:
 
-* [Gestire Bus di servizio con PowerShell](service-bus-powershell-how-to-provision.md)
+* [Gestire il bus di servizio con PowerShell](service-bus-powershell-how-to-provision.md)
 * [Gestire le risorse del bus di servizio con Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 * [Autenticazione e autorizzazione del bus di servizio](service-bus-authentication-and-authorization.md)
 

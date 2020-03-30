@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: fa10ab5a4b1c69b359936edf91da767da08d2f98
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78943101"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Esercitazione: Creare un client di controllo ortografico per una pagina Web
@@ -27,7 +27,7 @@ Questa esercitazione illustra come:
 > - Eseguire una semplice query sull'API Controllo ortografico Bing
 > - Visualizzare i risultati della query
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per proseguire con l'esercitazione è necessaria una chiave di sottoscrizione per l'API Controllo ortografico Bing. Se non se ne possiede una, [creare una risorsa Controllo ortografico Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7) nel portale di Azure. È anche possibile usare una [chiave di valutazione](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
 

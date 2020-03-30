@@ -11,17 +11,17 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e3297319c67ad2b7c94371356cde49113c7ef737
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251609"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Piattaforme e strumenti per progetti di data science
 
-Microsoft offre una gamma completa di risorse di analisi per le piattaforme cloud o locali. che possono essere distribuiti per rendere efficiente e scalabile l'esecuzione dei progetti di data science. Le linee guida destinate ai team per l'implementazione dei progetti di data science in modo tracciabile, con controllo della versione e collaborativo sono indicate nel [processo di data science per i team](overview.md) (TDSP, Team data Science Process).  Per una descrizione dei ruoli del personale e delle rispettive attività associate che un team di data science gestisce allo scopo di normalizzare il processo, vedere [Team Data Science Process roles and tasks](roles-tasks.md) (Ruoli e attività del processo di data science per i team).
+Microsoft fornisce una gamma completa di risorse di analisi per piattaforme cloud o locali. che possono essere distribuiti per rendere efficiente e scalabile l'esecuzione dei progetti di data science. Le linee guida destinate ai team per l'implementazione dei progetti di data science in modo tracciabile, con controllo della versione e collaborativo sono indicate nel [processo di data science per i team](overview.md) (TDSP, Team data Science Process).  Per una descrizione dei ruoli del personale e delle rispettive attività associate che un team di data science gestisce allo scopo di normalizzare il processo, vedere [Team Data Science Process roles and tasks](roles-tasks.md) (Ruoli e attività del processo di data science per i team).
 
-Le risorse di analisi disponibili per data science team che usano TDSP includono:
+Le risorse di analisi disponibili per i team di data science tramite TDSP includono:The analytics resources available to data science teams using the TDSP include:
 
 - Macchine virtuali data science (sia Windows che Linux CentOS)
 - Cluster HDInsight Spark
@@ -29,7 +29,7 @@ Le risorse di analisi disponibili per data science team che usano TDSP includono
 - Azure Data Lake
 - Cluster Hive di HDInsight
 - Archiviazione file di Azure
-- SQL Server 2019 servizi R e Python
+- Servizi di SQL Server 2019 R e Python
 - Azure Databricks
 
 Questo documento descrive brevemente le risorse e contiene i collegamenti alle esercitazioni e alle procedure dettagliate che i team TDSP hanno pubblicato per imparare come usarli e iniziare a compilare applicazioni intelligenti. Altre informazioni su queste risorse sono disponibili nelle pagine del prodotto corrispondente. 
@@ -45,13 +45,13 @@ La macchina virtuale data science, offerta da Microsoft sia in ambiente Windows 
 - Power BI Desktop per Windows
 - SQL Server 2016 Developer Edition in Windows e Postgres in Linux
 
-Include anche **strumenti per ml e intelligenza artificiale** , ad esempio xgboost, MxNet e Vowpal Wabbit.
+Include anche **strumenti ML e AI** come xgboost, mxnet e Vowpal Wabbit.
 
 La macchina virtuale data science è attualmente disponibile nei sistemi operativi **Windows** e **Linux CentOS**. Scegliere le dimensioni della macchina virtuale data science da usare (numero di core CPU e quantità di memoria) in base alle esigenze dei progetti di data science che si prevede di eseguirvi. 
 
-Per ulteriori informazioni sull'edizione di Windows DSVM, vedere [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) in Azure Marketplace. Per l'edizione Linux della macchina virtuale data science, vedere [Linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/) (Macchina virtuale data science di Linux).
+Per altre informazioni sull'edizione Windows di DSVM, vedere Microsoft Data Science Virtual Machine in Azure Marketplace.For more information on Windows edition of DSVM, see [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) on the Azure Marketplace. Per l'edizione Linux della macchina virtuale data science, vedere [Linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/) (Macchina virtuale data science di Linux).
 
-Per informazioni su come eseguire in modo efficiente alcune delle attività comuni di data science in DSVM, vedere [10 operazioni che è possibile eseguire nella macchina virtuale di Data Science](../data-science-virtual-machine/vm-do-ten-things.md)
+Per informazioni su come eseguire alcune delle attività comuni di data science in modo efficiente, vedere 10 operazioni che è possibile eseguire nella macchina virtuale di analisi scientifica dei datiTo learn how to execute some of the common data science tasks on the DSVM efficiently, see [10 things you can do on the Data science Virtual Machine](../data-science-virtual-machine/vm-do-ten-things.md)
 
 
 ## <a name="azure-hdinsight-spark-clusters"></a>Cluster di Azure HDInsight Spark
@@ -72,7 +72,7 @@ Per altre informazioni su Azure SQL Data Warehouse, vedere il sito Web di [SQL D
 
 ## <a name="azure-data-lake"></a>Azure Data Lake
 
-Azure Data Lake è un repository di livello aziendale di ogni tipo di dati raccolti in un'unica posizione, prima di qualsiasi requisito formale o di uno schema imposto. Questa flessibilità consente a tutti i tipi di dati di essere archiviati in un Data Lake, indipendentemente dalla dimensione o dalla struttura relativa o dalla velocità di inserimento. Le organizzazioni possono quindi usare Hadoop o l'analisi avanzata per trovare modelli in tali Data Lake, che possono anche essere usati come repository per preparare con costi minimi i dati prima di organizzarli e di spostarli in un data warehouse.
+Azure Data Lake è come un repository a livello aziendale di ogni tipo di dati raccolti in un'unica posizione, prima di qualsiasi requisito formale o schema imposto. Questa flessibilità consente a tutti i tipi di dati di essere archiviati in un Data Lake, indipendentemente dalla dimensione o dalla struttura relativa o dalla velocità di inserimento. Le organizzazioni possono quindi usare Hadoop o l'analisi avanzata per trovare modelli in tali Data Lake, che possono anche essere usati come repository per preparare con costi minimi i dati prima di organizzarli e di spostarli in un data warehouse.
 
 Per altre informazioni su Azure Data Lake, vedere [Introducing Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/) (Introduzione ad Azure Data Lake). Per informazioni su come compilare una soluzione di data science end-to-end scalabile con Azure Data Lake, vedere [Analisi scientifica dei dati scalabile in Azure Data Lake: procedura dettagliata end-to-end](data-lake-walkthrough.md)
 
@@ -95,16 +95,16 @@ Archiviazione file di Azure offre condivisioni file nel cloud tramite il protoco
 Per i progetti di data science risulta particolarmente utile la possibilità di creare un archivio file di Azure come posizione in cui condividere i dati del progetto con i membri del team di progetto, ognuno dei quali può accedere alla stessa copia dei dati in Archiviazione file di Azure. I membri del team possono anche usare questo archivio file per condividere set di funzionalità generati durante l'esecuzione del progetto. Se il progetto prevede l'engagement dei clienti, questi ultimi possono creare una risorsa di Archiviazione file di Azure nell'ambito della propria sottoscrizione di Azure per condividere i dati e le funzionalità di progetto. In questo modo il cliente ha il controllo completo sugli asset di dati del progetto. Per altre informazioni su Archiviazione file di Azure, vedere [Introduzione ad Archiviazione file di Azure in Windows](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files) e [Come usare Archiviazione file di Azure con Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
 
-## <a name="sql-server-2019-r-and-python-services"></a>SQL Server 2019 servizi R e Python
+## <a name="sql-server-2019-r-and-python-services"></a>Servizi di SQL Server 2019 R e Python
 
-R Services (in-database) offre una piattaforma per lo sviluppo e la distribuzione di applicazioni intelligenti in grado di individuare nuove informazioni. È possibile usare il linguaggio R potente e ricco di funzionalità, inclusi i numerosi pacchetti offerti dalla community di R, per creare modelli e generare stime tramite i dati di SQL Server. Poiché R Services (in-database) integra il linguaggio R con SQL Server, le analisi vengono mantenute vicine ai dati, eliminando i costi e i rischi per la sicurezza associati allo lo stato di trasferimento dei dati.
+R Services (In-database) fornisce una piattaforma per lo sviluppo e la distribuzione di applicazioni intelligenti in grado di scoprire nuove informazioni. È possibile usare il linguaggio R potente e ricco di funzionalità, inclusi i numerosi pacchetti offerti dalla community di R, per creare modelli e generare stime tramite i dati di SQL Server. Poiché R Services (In-database) integra il linguaggio R con SQL ServerSQL Server, l'analisi viene mantenuta vicino ai dati, eliminando i costi e i rischi per la sicurezza associati allo spostamento dei dati.
 
-R Services (in-database) supporta il linguaggio R Open Source con una serie completa di strumenti e tecnologie SQL Server. in grado di offrire prestazioni, sicurezza, affidabilità e gestibilità migliori. È possibile distribuire soluzioni R con strumenti semplici e familiari. Le applicazioni di produzione possono chiamare il runtime di R e recuperare stime e oggetti visivi tramite Transact-SQL. È anche possibile usare le librerie ScaleR per migliorare la scalabilità e le prestazioni delle soluzioni R. Per altre informazioni, vedere [R Services per SQL Server](https://docs.microsoft.com/sql/advanced-analytics/r/sql-server-r-services).
+R Services (In-database) supporta il linguaggio R open source con un set completo di strumenti e tecnologie di SQL Server.R Services (In-database) supports the open source R language with a comprehensive set of SQL Server tools and technologies. in grado di offrire prestazioni, sicurezza, affidabilità e gestibilità migliori. È possibile distribuire soluzioni R con strumenti semplici e familiari. Le applicazioni di produzione possono chiamare il runtime di R e recuperare stime e oggetti visivi tramite Transact-SQL. È anche possibile usare le librerie ScaleR per migliorare la scalabilità e le prestazioni delle soluzioni R. Per altre informazioni, vedere [Sql Server R Services](https://docs.microsoft.com/sql/advanced-analytics/r/sql-server-r-services).
 
 Il team TDSP di Microsoft ha pubblicato due procedure dettagliate end-to-end che illustrano come compilare soluzioni di data science in SQL Server 2016 R Services, una per i programmatori R e una per gli sviluppatori SQL. Per i **programmatori R**, vedere [Procedura dettagliata di analisi scientifica dei dati end-to-end per R e SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). Per gli **sviluppatori SQL**, vedere [In-Database Advanced Analytics for SQL Developers (Tutorial)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers) (Esercitazione sull'analisi avanzata In-Database per sviluppatori SQL).
 
 
-## <a name="appendix"></a>Appendice - Strumenti per configurare progetti di data science
+## <a name="appendix-tools-to-set-up-data-science-projects"></a><a name="appendix"></a>Appendice - Strumenti per configurare progetti di data science
 
 ### <a name="install-git-credential-manager-on-windows"></a>Installare Git Credential Manager in Windows
 
@@ -136,7 +136,7 @@ Se si usano computer Linux (CentOS) per eseguire i comandi Git, è necessario ag
 
 1. Copiare l'intera chiave SSH, incluso *ssh-rsa*. 
 1. Accedere a Azure DevOps Services. 
-1. Fare clic su **< nome\>** nell'angolo superiore destro della pagina e fare clic su **sicurezza**. 
+1. Fare clic su **<Nome\> ** nell'angolo superiore destro della pagina e fare clic su **sicurezza**. 
     
    ![Fare clic sul nome utente e quindi su Sicurezza](./media/platforms-and-tools/resources-2-user-setting.png)
 
@@ -144,11 +144,11 @@ Se si usano computer Linux (CentOS) per eseguire i comandi Git, è necessario ag
 
    ![Fare clic su Chiavi pubbliche SSH e quindi fare clic su +Aggiungi](./media/platforms-and-tools/resources-3-add-ssh.png)
 
-1. Incollare la chiave SSH copiata nella casella di testo e salvarla.
+1. Incollare il tasto ssh copiato nella casella di testo e salvare.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Sono anche disponibili esercitazioni dettagliate complete che illustrano tutti i passaggi del processo per **scenari specifici** . Le esercitazioni sono elencate, con collegamenti e brevi descrizioni, nell'argomento [Example walkthroughs](walkthroughs.md) (Procedure dettagliate di esempio). Le esercitazioni spiegano come combinare strumenti cloud e locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente. 
 
-Per esempi che illustrano come eseguire i passaggi nel processo di analisi scientifica dei dati per i team usando Azure Machine Learning Studio (versione classica), vedere il percorso [di apprendimento con Azure ml](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) .
+Per esempi che illustrano come eseguire i passaggi nel processo di analisi scientifica dei dati del team usando Azure Machine Learning Studio (classico), vedere il percorso di apprendimento [Con Azure ML.](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)

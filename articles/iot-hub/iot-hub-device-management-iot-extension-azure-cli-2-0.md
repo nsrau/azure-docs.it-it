@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: c189ad1a6b6ebc13b71ca547176af27a43a78a7d
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 88c3d1f4213b161d5e322349a7f0e1bc1dd952e7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673449"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239654"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Usare l'estensione IoT per l'interfaccia della riga di comando di Azure per la gestione dei dispositivi dell'hub IoT di Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "78673449"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[L'estensione](https://github.com/Azure/azure-iot-cli-extension) Internet delle cose per l'interfaccia della riga di comando di Azure è un'estensione Internet open source che aggiunge le funzionalità dell'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). L'interfaccia della riga di comando di Azure include comandi per l'interazione con Azure Resource Manager e gli endpoint di gestione. Ad esempio, è possibile usare l'interfaccia della riga di comando di Azure per creare una macchina virtuale o un hub IoT di Azure. Un'estensione dell'interfaccia della riga di comando di Azure consente a un servizio di Azure di aumentare le potenzialità dell'interfaccia e all'utente di accedere a funzionalità aggiuntive specifiche del servizio. L'estensione Internet consente agli sviluppatori di accedere alla riga di comando per tutte le funzionalità del servizio Device provisioning in hub, IoT Edge e Internet.
+[L'estensione IoT per l'interfaccia della riga](https://github.com/Azure/azure-iot-cli-extension) di comando di Azure è un'estensione IoT open source che aggiunge alle funzionalità dell'interfaccia della riga di comando di [Azure.](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) L'interfaccia della riga di comando di Azure include comandi per l'interazione con Azure Resource Manager ed endpoint di gestione. Ad esempio, è possibile usare l'interfaccia della riga di comando di Azure per creare una macchina virtuale o un hub IoT di Azure. Un'estensione dell'interfaccia della riga di comando di Azure consente a un servizio di Azure di aumentare le potenzialità dell'interfaccia e all'utente di accedere a funzionalità aggiuntive specifiche del servizio. L'estensione IoT consente agli sviluppatori IoT di accedere alla riga di comando di tutte le funzionalità dell'hub IoT, dell'IoT Edge e del servizio di provisioning dei dispositivi dell'hub IoT.The IoT extension gives IoT developers command-line access to all IoT Hub, IoT Edge, and IoT Hub Device Provisioning Service capabilities.
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -35,7 +35,7 @@ ms.locfileid: "78673449"
 | Proprietà desiderate del dispositivo gemello    | Impostare determinati stati di un dispositivo, ad esempio impostare la luce verde per un LED o impostare l'intervallo di invio dei dati di telemetria su 30 minuti.         |
 | Proprietà segnalate del dispositivo gemello   | Ottenere lo stato restituito da un dispositivo. Ad esempio, il dispositivo segnala che il LED sta lampeggiando.                                    |
 | Tag dei dispositivi gemelli                  | Archiviare i metadati specifici del dispositivo nel cloud, ad esempio il percorso di distribuzione di un distributore automatico.                         |
-| Query del dispositivo gemello        | Eseguire una query su tutti i dispositivi gemelli per recuperare i dispositivi gemelli con condizioni arbitrarie, ad esempio l'identificazione dei dispositivi disponibili per l'uso. |
+| Query del dispositivo gemello        | Eseguire una query su tutti i dispositivi gemelli per recuperare i gemelli con condizioni arbitrarie, ad esempio per identificare i dispositivi disponibili per l'utilizzo. |
 
 Per altre informazioni sulle differenze e sull'uso di queste opzioni, vedere [Device-to-cloud communication guidance](iot-hub-devguide-d2c-guidance.md) (Indicazioni sulla comunicazione da dispositivo a cloud) e [Cloud-to-device communication guidance](iot-hub-devguide-c2d-guidance.md) (Indicazioni sulla comunicazione da cloud a dispositivo).
 
@@ -43,7 +43,7 @@ I dispositivi gemelli sono documenti JSON nei quali vengono archiviate informazi
 
 ## <a name="what-you-learn"></a>Contenuto dell'esercitazione
 
-Viene illustrato come usare l'estensione Internet per l'interfaccia della riga di comando di Azure con varie opzioni di gestione nel computer di sviluppo.
+Si apprenderà a usare l'estensione IoT per l'interfaccia della riga di comando di Azure con varie opzioni di gestione nel computer di sviluppo.
 
 ## <a name="what-you-do"></a>Operazioni da fare
 
@@ -51,7 +51,7 @@ Eseguire l'interfaccia della riga di comando di Azure e la relativa estensione I
 
 ## <a name="what-you-need"></a>Elementi necessari
 
-* Completare l'esercitazione del [simulatore online Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) o una delle esercitazioni sui dispositivi; ad esempio, [Raspberry Pi con node. js](iot-hub-raspberry-pi-kit-node-get-started.md). Questi elementi soddisfano i requisiti seguenti:
+* Completa il simulatore online tutorial [Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) o uno dei tutorial del dispositivo; ad esempio, [Raspberry Pi con node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Questi elementi coprono i seguenti requisiti:
 
   - Una sottoscrizione di Azure attiva.
   - Un hub IoT di Azure nella sottoscrizione.
@@ -61,7 +61,7 @@ Eseguire l'interfaccia della riga di comando di Azure e la relativa estensione I
 
 * [Python 2.7x o Python 3.x](https://www.python.org/downloads/)
 
-* L'interfaccia della riga di comando di Azure. Se è necessario eseguire l'installazione, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Come minimo, la versione dell'interfaccia della riga di comando di Azure deve essere 2.0.70 o successiva. Usare il comando `az –version` per verificare.
+* L'interfaccia della riga di comando di Azure. Se è necessario eseguire l'installazione, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Come minimo, la versione dell'interfaccia della riga di comando di Azure deve essere 2.0.70 o superiore. Usare il comando `az –version` per verificare.
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -71,13 +71,13 @@ Eseguire l'interfaccia della riga di comando di Azure e la relativa estensione I
 
 Accedere al proprio account di Azure usando il comando seguente:
 
-```bash
+```azurecli
 az login
 ```
 
 ## <a name="direct-methods"></a>Metodi diretti
 
-```bash
+```azurecli
 az iot hub invoke-device-method --device-id <your device id> \
   --hub-name <your hub name> \
   --method-name <the method name> \
@@ -88,7 +88,7 @@ az iot hub invoke-device-method --device-id <your device id> \
 
 Impostare l'intervallo di proprietà desiderato su 3000 eseguendo il comando seguente:
 
-```bash
+```azurecli
 az iot hub device-twin update -n <your hub name> \
   -d <your device id> --set properties.desired.interval = 3000
 ```
@@ -99,23 +99,23 @@ Questa proprietà può essere letta dal dispositivo.
 
 Ottenere le proprietà segnalate del dispositivo eseguendo il comando seguente:
 
-```bash
+```azurecli
 az iot hub device-twin show -n <your hub name> -d <your device id>
 ```
 
-Una delle proprietà segnalate dal dispositivo gemello è $metadata. $lastUpdated, che mostra l'ultima volta in cui l'app per dispositivo ha aggiornato il set di proprietà segnalato.
+Una delle proprietà segnalate gemelle è $metadata.$lastUpdated, che mostra l'ultima volta che l'app per dispositivi ha aggiornato il set di proprietà segnalate.
 
 ## <a name="device-twin-tags"></a>Tag del dispositivo gemello
 
 Visualizzare i tag e le proprietà del dispositivo eseguendo il comando seguente:
 
-```bash
+```azurecli
 az iot hub device-twin show --hub-name <your hub name> --device-id <your device id>
 ```
 
 Aggiungere il campo role = temperature&humidity al dispositivo eseguendo il comando seguente:
 
-```bash
+```azurecli
 az iot hub device-twin update \
   --hub-name <your hub name> \
   --device-id <your device id> \
@@ -126,14 +126,14 @@ az iot hub device-twin update \
 
 Eseguire una query su tutti i dispositivi con il tag role = 'temperature&humidity' eseguendo il comando seguente:
 
-```bash
+```azurecli
 az iot hub query --hub-name <your hub name> \
   --query-command "SELECT * FROM devices WHERE tags.role = 'temperature&humidity'"
 ```
 
 Eseguire una query su tutti i dispositivi meno quelli con il tag role = 'temperature&humidity' eseguendo il comando seguente:
 
-```bash
+```azurecli
 az iot hub query --hub-name <your hub name> \
   --query-command "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
 ```

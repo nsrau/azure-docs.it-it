@@ -10,19 +10,19 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 881546a97b01bef993cc24c6b868ec97ddf5ac36
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: db877279bcfa7e132841e342cfc25b66bb3ec384
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555727"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80283600"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Uso di Apache Flink con Hub eventi di Azure per Apache Kafka
-Questa esercitazione illustra come connettere Apache Flink all'Hub eventi abilitato per Kafka senza modificare i client di protocollo o eseguire cluster personalizzati. Hub eventi di Azure supporta [Apache Kafka versione 1.0.](https://kafka.apache.org/10/documentation.html).
+Questa esercitazione illustra come connettere Apache Flink a un hub eventi senza modificare i client di protocollo o eseguire i propri cluster. Hub eventi di Azure supporta [Apache Kafka versione 1.0.](https://kafka.apache.org/10/documentation.html).
 
-Uno dei principali vantaggi dell'uso di Apache Kafka è l'ecosistema di framework a cui si può connettere. L'Hub eventi abilitato per Kafka combina la flessibilità di Kafka con la scalabilità, la coerenza e il supporto dell'ecosistema di Azure.
+Uno dei principali vantaggi dell'uso di Apache Kafka è l'ecosistema di framework a cui si può connettere. Hub eventi combina la flessibilità di Kafka con la scalabilità, la coerenza e il supporto dell'ecosistema Azure.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > * Creare uno spazio dei nomi di Hub eventi
 > * Clonare il progetto di esempio
@@ -38,21 +38,21 @@ Per completare questa esercitazione, verificare di disporre dei prerequisiti seg
 
 * Leggere con attenzione l'articolo [Hub eventi per Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md). 
 * Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
-* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
+* [Kit di sviluppo Java (JDK) 1.7](https://aka.ms/azure-jdks)
     * In Ubuntu eseguire `apt-get install default-jdk` per installare JDK.
     * Assicurarsi di impostare la variabile di ambiente JAVA_HOME in modo che faccia riferimento alla cartella di installazione di JDK.
-* [Scaricare](https://maven.apache.org/download.cgi) e [installare](https://maven.apache.org/install.html) un archivio binario Maven.
+* [Scaricare](https://maven.apache.org/download.cgi) e [installare](https://maven.apache.org/install.html) un archivio binario Maven
     * In Ubuntu è possibile eseguire `apt-get install maven` per installare Maven.
 * [Git](https://www.git-scm.com/downloads)
     * In Ubuntu è possibile eseguire `sudo apt-get install git` per installare Git.
 
 ## <a name="create-an-event-hubs-namespace"></a>Creare uno spazio dei nomi di Hub eventi
 
-Per l'invio o la ricezione da qualsiasi servizio Hub eventi è richiesto uno spazio dei nomi di Hub eventi. Vedere [Creazione di un hub eventi con supporto per Kafka](event-hubs-create-kafka-enabled.md) per informazioni su come ottenere un endpoint Kafka di Hub eventi. Assicurarsi di copiare la stringa di connessione di Hub eventi per usarla in seguito.
+Per l'invio o la ricezione da qualsiasi servizio Hub eventi è richiesto uno spazio dei nomi di Hub eventi. Vedere [Creazione di un hub eventi con supporto per Kafka](event-hubs-create.md) per informazioni su come ottenere un endpoint Kafka di Hub eventi. Assicurarsi di copiare la stringa di connessione di Hub eventi per usarla in seguito.
 
 ## <a name="clone-the-example-project"></a>Clonare il progetto di esempio
 
-Dopo avere creato una stringa di connessione di Hub eventi con supporto per Kafka, clonare il repository di Hub eventi di Azure per Kafka e passare alla sottocartella `flink`:
+Ora che si dispone della stringa di connessione Hub eventi, clonare il `flink` repository Hub eventi di Azure per Kafka e passare alla sottocartella:
 
 ```shell
 git clone https://github.com/Azure/azure-event-hubs-for-kafka.git
@@ -119,12 +119,12 @@ mvn clean package
 mvn exec:java -Dexec.mainClass="FlinkTestConsumer"
 ```
 
-Se l'hub eventi abilitato per Kafka dispone di eventi (ad esempio, se è in esecuzione anche il producer), il consumer inizia ora a ricevere eventi dall'argomento `test`.
+Se l'hub eventi include eventi (ad esempio, se è in esecuzione anche `test`il producer), il consumer inizia ora a ricevere eventi dall'argomento.
 
 Consultare la [Guida del connettore Kafka di Flink](https://ci.apache.org/projects/flink/flink-docs-stable/dev/connectors/kafka.html) per altre informazioni sulla connessione di Flink a Kafka.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questa esercitazione ha illustrato come connettere Apache Flink all'Hub eventi abilitato per Kafka senza modificare i client di protocollo o eseguire cluster personalizzati. Nell'ambito di questa esercitazione sono stati eseguiti i passaggi seguenti: 
+In questa esercitazione si è appreso come connettere Apache Flink agli hub eventi senza modificare i client di protocollo o eseguire i propri cluster. Nell'ambito di questa esercitazione sono stati eseguiti i passaggi seguenti: 
 
 > [!div class="checklist"]
 > * Creare uno spazio dei nomi di Hub eventi
@@ -136,10 +136,10 @@ Per altre informazioni su Hub eventi e Hub eventi per Kafka, vedere l'argomento 
 
 - [Leggere le informazioni su Hub eventi](event-hubs-what-is-event-hubs.md)
 - [Hub eventi per Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-- [Come creare Hub eventi con supporto per Kafka](event-hubs-create-kafka-enabled.md)
+- [Come creare Hub eventi con supporto per Kafka](event-hubs-create.md)
 - [Trasmettere in Hub eventi dalle applicazioni Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-- [Eseguire il mirroring di un broker Kafka in un hub eventi con supporto per Kafka](event-hubs-kafka-mirror-maker-tutorial.md)
-- [Connettere Apache Spark a un hub eventi con supporto per Kafka](event-hubs-kafka-spark-tutorial.md)
-- [Integrare Kafka Connect con un hub eventi con supporto per Kafka](event-hubs-kafka-connect-tutorial.md)
-- [Connettere Akka Streams a un hub eventi con supporto per Kafka](event-hubs-kafka-akka-streams-tutorial.md)
+- [Eseguire il mirroring di un broker Kafka in un hub eventi](event-hubs-kafka-mirror-maker-tutorial.md)
+- [Connettere Apache Spark a un hub eventi](event-hubs-kafka-spark-tutorial.md)
+- [Integrazione di Kafka Connect con un hub eventi](event-hubs-kafka-connect-tutorial.md)
+- [Connettere Akka Streams a un hub eventi](event-hubs-kafka-akka-streams-tutorial.md)
 - [Esplorare gli esempi in GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)

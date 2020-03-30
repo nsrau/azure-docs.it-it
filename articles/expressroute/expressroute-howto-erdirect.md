@@ -1,6 +1,6 @@
 ---
-title: 'Azure ExpressRoute: configurare ExpressRoute Direct'
-description: Questa pagina consente di configurare ExpressRoute Direct.
+title: 'Azure ExpressRoute: Configure ExpressRoute Direct'
+description: Questa pagina consente di configurare ExpressRoute Direct.This page helps you configure ExpressRoute Direct.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: jaredro
 ms.openlocfilehash: 2722a852b1119ef619bc414bce5cb3a8ff6f8f00
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77031613"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Come configurare ExpressRoute Direct
 
 ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete globale di Microsoft in località peer distribuite in modo strategico in tutto il mondo. Per altre informazioni, vedere [Informazioni su ExpressRoute Direct](expressroute-erdirect-about.md).
 
-## <a name="resources"></a>Creare la risorsa
+## <a name="create-the-resource"></a><a name="resources"></a>Creare la risorsa
 
 1. Accedere ad Azure e selezionare la sottoscrizione. La risorsa di ExpressRoute Direct e circuiti di ExpressRoute devono essere nella stessa sottoscrizione.
 
@@ -28,7 +28,7 @@ ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete 
    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
    ```
    
-2. Registrare nuovamente la sottoscrizione a Microsoft. Network per accedere alle API expressrouteportslocation e expressrouteport.
+2. Registrare nuovamente la sottoscrizione a Microsoft.Network per accedere alle API expressrouteportslocation e expressrouteport.
 
    ```powershell
    Register-AzResourceProvider -ProviderNameSpace "Microsoft.Network"
@@ -106,7 +106,7 @@ ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete 
    > L'attributo dell'incapsulamento può anche essere impostato su Dot1Q. 
    >
 
-   **Output di esempio**:
+   **Output di esempio:Example output:**
 
    ```powershell
    Name                       : Contoso-Direct
@@ -155,7 +155,7 @@ ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete 
    Circuits                   : []
    ```
 
-## <a name="state"></a>Modificare lo stato di amministratore di collegamenti
+## <a name="change-admin-state-of-links"></a><a name="state"></a>Modificare lo stato di amministratore di collegamenti
 
   Utilizzare questo processo per condurre un test di livello 1, verificando che ogni Cross Connection sia correttamente trasferito a ciascun router per le porte primaria e secondaria.
 1. Ottenere i dettagli di ExpressRoute Direct.
@@ -174,7 +174,7 @@ ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete 
    $ERDirect.Links[1].AdminState = "Enabled"
    Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
    ```
-   **Output di esempio**:
+   **Output di esempio:Example output:**
 
    ```powershell
    Name                       : Contoso-Direct
@@ -225,15 +225,15 @@ ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete 
 
    Utilizzare la stessa procedura con `AdminState = "Disabled"` per rifiutare le porte.
 
-## <a name="circuit"></a>Creare un circuito
+## <a name="create-a-circuit"></a><a name="circuit"></a>Creare un circuito
 
 Per impostazione predefinita, è possibile creare dieci circuiti nella sottoscrizione in cui si trova la risorsa di ExpressRoute Direct. Il limite può essere aumentato contattando il supporto tecnico. Si è responsabili del monitoraggio della larghezza di banda con provisioning e di quella utilizzata. La larghezza di banda con provisioning è la somma della larghezza di banda di tutti i circuiti della risorsa ExpressRoute Direct e la larghezza di banda utilizzata è l'utilizzo fisico delle interfacce fisiche sottostanti.
 
 Esistono altre larghezze di banda del circuito che è possibile utilizzare in ExpressRoute Direct solo per supportare gli scenari descritti in precedenza. Sono: 40 Gbps e 100 Gbps.
 
-**SkuTier** può essere locale, standard o Premium.
+**SkuTier** può essere Locale, Standard o Premium.
 
-**SkuFamily** deve essere MeteredData solo se illimitato non è supportato in ExpressRoute Direct.
+**SkuFamily** deve essere MeteredData solo se unlimited non è supportato in ExpressRoute Direct.
 
 Creare un circuito nella risorsa di ExpressRoute Direct.
 
@@ -243,7 +243,7 @@ Creare un circuito nella risorsa di ExpressRoute Direct.
 
   Altre larghezze di banda sono 5.0, 10.0 e 40.0
 
-  **Output di esempio**:
+  **Output di esempio:Example output:**
 
   ```powershell
   Name                             : ExpressRoute-Direct-ckt
@@ -277,4 +277,4 @@ Creare un circuito nella risorsa di ExpressRoute Direct.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su ExpressRoute Direct, vedere la [Panoramica](expressroute-erdirect-about.md).
+Per altre informazioni su ExpressRoute Direct, vedere [Panoramica](expressroute-erdirect-about.md).

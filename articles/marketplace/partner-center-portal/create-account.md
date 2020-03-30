@@ -1,182 +1,181 @@
 ---
-title: Creare un account Marketplace commerciale nel centro per i partner
-description: Informazioni su come creare un account Marketplace commerciale nel centro per i partner.
+title: Creare un account Mercato commerciale nel Centro per i partner
+description: Scopri come creare un account Mercato commerciale nel Centro per i partner.
 author: qianw211
-manager: evansma
-ms.author: evansma
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 03/10/2020
-ms.openlocfilehash: 59f37585dfea08e9343cf052f680fd6e9531852b
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 82caf46905c0b76deae524d8b172d70b436361d0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78968833"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281358"
 ---
-# <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Creare un account Marketplace commerciale nel centro per i partner
+# <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Creare un account Mercato commerciale nel Centro per i partner
 
-Per pubblicare le offerte in [Azure Marketplace](https://azuremarketplace.microsoft.com/) o in [AppSource](https://appsource.microsoft.com/), è necessario creare un account nel programma commerciale Marketplace nel centro per i partner. In questo articolo verrà illustrato come creare un account del centro per i partner e come aggiungere nuovi editori al programma Commercial Marketplace.
+Per pubblicare le offerte in [Azure Marketplace](https://azuremarketplace.microsoft.com/) o [AppSource,](https://appsource.microsoft.com/)è necessario creare un account nel programma Commercial Marketplace nel Centro per i partner. In questo articolo verrà illustrato come creare un account del Centro per i partner e come aggiungere nuovi publisher al programma Commercial Marketplace.
 
 >[!IMPORTANT]
->Se si dispone di un account nel [portale cloud partner (CPP)](https://cloudpartner.azure.com) che è stato spostato nel centro per i partner, non è necessario creare un nuovo account. Per ulteriori informazioni, vedere [autori che passano da cpp](#publishers-moving-from-cpp) .
+>Se si dispone di un account nel [portale Cloud Partner (CPP)](https://cloudpartner.azure.com) che è stato spostato nel Centro per i partner, non è necessario creare un nuovo account. Per altre informazioni, vedere [Server di pubblicazione che si spostano da CPP.](#publishers-moving-from-cpp)
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Per creare un account nel centro per i partner, verificare di avere:
+Per creare un account nel Centro per i partner, assicurati di disporre di:
 
-- Autorità per la firma di contratti legali per conto dell'azienda.
-- Il nome dell'azienda legale, l'indirizzo e il contatto principale dell'azienda (questo può essere l'utente).
+- Autorità per firmare accordi legali per conto della società.
+- Nome legale, indirizzo e contatto principale della tua azienda (puoi essere tu).
 
 Queste informazioni verranno verificate durante il processo di creazione dell'account.
 
 Esistono due modi per creare un account:
 
-- Se non si ha familiarità con il centro per i partner e non si dispone di un account di rete Microsoft, creare l'account usando [Crea un account usando la pagina di registrazione del centro per i partner](#create-an-account-using-the-partner-center-enrollment-page).
-- Se si è già iscritti alla Microsoft Partner Network, creare un account direttamente dal centro per i partner usando [Crea un account usando le registrazioni esistenti del centro per i partner Microsoft](#create-an-account-using-existing-microsoft-partner-center-enrollments).
+- Se non si ha familiarità con il Centro per i partner e non si dispone di un account di rete Microsoft, creare l'account utilizzando [Crea un account tramite la pagina](#create-an-account-using-the-partner-center-enrollment-page)di registrazione del Centro per i partner.
+- Se sei già iscritto al Microsoft Partner Network, crea un account direttamente dal Centro per i partner usando [Crea un account usando le registrazioni del Centro per i partner Microsoft .](#create-an-account-using-existing-microsoft-partner-center-enrollments)
 
-## <a name="create-an-account-using-the-partner-center-enrollment-page"></a>Creare un account usando la pagina di registrazione del centro per i partner
+## <a name="create-an-account-using-the-partner-center-enrollment-page"></a>Creare un account tramite la pagina di registrazione del Centro per i partner
 
-Usare questo metodo se non si ha familiarità con il centro per i partner e non si è iscritti all'Microsoft Partner Network. Questa sezione illustra come creare un nuovo account del centro per i partner, inclusa la procedura per:
+Utilizzare questo metodo se non si ha familiarità con il Centro per i partner e non si è iscritti al Microsoft Partner Network. In questa sezione viene illustrato come creare un nuovo account del Centro per i partner, incluso il modo in cui:
 
-- [Registrati nella pagina di registrazione del centro per i partner](#register-on-the-partner-center-enrollment-page)
+- [Registrati nella pagina di registrazione del Centro per i partner](#register-on-the-partner-center-enrollment-page)
 - [Accedere con un account aziendale](#sign-in-with-a-work-account)
 - [Accettare i termini e le condizioni](#agree-to-terms-and-conditions)
-- [Specificare il profilo di pubblicazione](#provide-your-publisher-profile)
+- [Fornisci il tuo profilo publisher](#provide-your-publisher-profile)
 
 >[!IMPORTANT]
->Se si dispone di un account nel [portale cloud partner (CPP)](https://cloudpartner.azure.com) che è stato spostato nel centro per i partner, non è necessario creare un nuovo account. Per ulteriori informazioni, vedere [autori che passano da cpp](#publishers-moving-from-cpp) .
+>Se si dispone di un account nel [portale Cloud Partner (CPP)](https://cloudpartner.azure.com) che è stato spostato nel Centro per i partner, non è necessario creare un nuovo account. Per altre informazioni, vedere [Server di pubblicazione che si spostano da CPP.](#publishers-moving-from-cpp)
 
-### <a name="register-on-the-partner-center-enrollment-page"></a>Registrati nella pagina di registrazione del centro per i partner
+### <a name="register-on-the-partner-center-enrollment-page"></a>Registrati nella pagina di registrazione del Centro per i partner
 
-Esaminare le informazioni nella pagina [**di registrazione del centro per i partner Microsoft**](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) e quindi eseguire la registrazione per un account.
+Esaminare le informazioni nella pagina di registrazione [**iniziale**](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) del Centro per i partner Microsoft e quindi registrarsi per un account.
 
 ### <a name="sign-in-with-a-work-account"></a>Accedere con un account aziendale
 
-Accedere con un account di lavoro in modo da poter collegare il dominio dell'account di posta elettronica aziendale al nuovo account del centro per i partner. Associando questi account, i dipendenti della società possono accedere al centro per i partner con i nomi utente e le password dell'account di lavoro.
+Accedere con un account di lavoro in modo da poter collegare il dominio dell'account di posta elettronica aziendale al nuovo account del Centro per i partner. Associando questi account, i dipendenti dell'azienda possono accedere al Centro per i partner con i nomi utente e le password degli account di lavoro.
 
 >[!NOTE]
->Per verificare se la società ha già un account di lavoro, come creare un nuovo account aziendale o come configurare più account di lavoro da usare con il centro per i partner, visitare [l'account aziendale e il centro per i partner](./company-work-accounts.md).
+>Per verificare se l'azienda dispone già di un account di lavoro, come creare un nuovo account di lavoro o come impostare più account di lavoro da utilizzare con il Centro per i partner, visitare Account aziendale e Centro per i [partner.](./company-work-accounts.md)
 
-### <a name="agree-to-terms-and-conditions"></a>Accetto i termini e le condizioni
+### <a name="agree-to-terms-and-conditions"></a>Accettare termini e condizioni
 
-È necessario accettare i termini e le condizioni nel [contratto Microsoft Marketplace Publisher](https://go.microsoft.com/fwlink/?LinkID=699560).
+È necessario accettare i termini e le condizioni del [Contratto Microsoft Marketplace Publisher .](https://go.microsoft.com/fwlink/?LinkID=699560)
 
-### <a name="provide-your-publisher-profile"></a>Specificare il profilo di pubblicazione
+### <a name="provide-your-publisher-profile"></a>Fornisci il tuo profilo publisher
 
-Il profilo di pubblicazione include il nome della società e l'ID MPN. Se non è ancora stato fatto, sarà necessario partecipare al [Microsoft Partner Network](https://partner.microsoft.com/commercial). Dopo aver partecipato alla Microsoft Partner Network, verrà fornito un ID MPN.
+Il profilo dell'editore include il nome dell'azienda e l'ID MPN. Se non è ancora stato fatto, sarà necessario partecipare al [Microsoft Partner Network](https://partner.microsoft.com/commercial). Dopo l'iscrizione al Microsoft Partner Network, verrà fornito un ID MPN.
 
-Creare un ID editore. L'ID dell'editore identifica in modo univoco la società e le offerte in Marketplace e AppSource.
+Creare un ID server di pubblicazione. L'ID editore identifica in modo univoco la tua azienda e le tue offerte in Marketplace e AppSource.
 
-Dopo aver confermato le informazioni sul profilo di pubblicazione, accettare i termini e le condizioni e creare l'account del centro per i partner selezionando **accetta e continua**.
+Dopo aver confermato le informazioni del profilo dell'editore, accettare i termini e le condizioni e creare l'account del Centro per i partner selezionando **Accetta e continua**.
 
 >[!IMPORTANT]
->*L'utente deve essere autorizzato a agire per conto dell'azienda per accettare le presenti condizioni.*
+>*Devi essere autorizzato ad agire per conto della tua azienda per accettare questi termini.*
 
-Una volta effettuata la registrazione, verrà usata la pagina Panoramica del Marketplace commerciale. **Marketplace commerciale** viene visualizzato nella barra di spostamento a sinistra. Se si seleziona **impostazioni** > **Impostazioni partner** > **programmi**, si noterà che Marketplace commerciale è elencato come registrato.
+Una volta effettuata l'iscrizione, viene eseguito il passaggio alla pagina Panoramica del marketplace commerciale. **Commercial Marketplace** viene visualizzato nella barra di navigazione a sinistra. Se selezioni **Impostazioni programmi** > impostazioni**partner,** > **Programs**vedrai che Commercial Marketplace è elencato come registrato.
 
-Grazie per aver creato un account Marketplace commerciale nel centro per i partner. Per informazioni, vedere [Panoramica del Marketplace commerciale](./commercial-marketplace-overview.md). Per informazioni sull'aggiunta di editori, vedere [aggiungere nuovi editori al programma commerciale Marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
+Grazie per aver creato un account Commercial Marketplace nel Centro per i partner! Per assistenza, vedere [Panoramica del marketplace commerciale](./commercial-marketplace-overview.md). Per informazioni sull'aggiunta di editori, vedere [Aggiungere nuovi editori al programma Commercial Marketplace.](#add-new-publishers-to-the-commercial-marketplace-program)
 
-## <a name="create-an-account-using-existing-microsoft-partner-center-enrollments"></a>Creare un account usando le registrazioni esistenti del centro per i partner Microsoft
+## <a name="create-an-account-using-existing-microsoft-partner-center-enrollments"></a>Creare un account usando le registrazioni esistenti del Centro per i partner Microsoft
 
-Usare questa sezione per creare un account Marketplace commerciale se si dispone già di una registrazione nel centro per i partner Microsoft.
+Utilizzare questa sezione per creare un account Mercato commerciale se si dispone già di una registrazione nel Centro per i partner Microsoft.
 
-Esistono due tipi di registrazioni esistenti che è possibile usare per configurare l'account del Marketplace commerciale. Scegliere quello che si applica all'utente:
+Esistono due tipi di registrazioni esistenti che è possibile utilizzare per configurare l'account Commercial Marketplace. Scegli quello che si applica a te:
 
-- Se si dispone di una registrazione Microsoft Partner Network esistente, creare l'account usando [registrato nella Microsoft Partner Network](#enrolled-in-the-microsoft-partner-network).
-- Se si dispone di una registrazione del programma per sviluppatori, creare l'account usando [registrato in un programma per sviluppatori](#enrolled-in-a-developer-program).
+- Se si dispone di una registrazione esistente a Microsoft Partner Network, creare l'account utilizzando [Iscritto al Microsoft Partner Network](#enrolled-in-the-microsoft-partner-network).
+- Se si dispone di una registrazione a un programma per sviluppatori esistente, creare l'account utilizzando [Iscritti a un programma per sviluppatori.](#enrolled-in-a-developer-program)
 
-Per entrambi i metodi, seguire questa procedura:
+Per entrambi i metodi, si utilizzerà questi passaggi:
 
-- Accedere al centro per i partner usando le credenziali esistenti
-- Immettere le informazioni sul profilo di pubblicazione
+- Accedere al Centro per i partner utilizzando le credenziali esistenti
+- Immettere le informazioni del profilo di pubblicazione
 
-Assicurarsi di avere a portata di mano le informazioni sull'account.
+Assicurati di tenere a portata di mano le informazioni del tuo account.
 
 >[!IMPORTANT]
->Se si dispone di un account nel [portale cloud partner (CPP)](https://cloudpartner.azure.com/) che è stato spostato nel centro per i partner, non è necessario creare un nuovo account. Per ulteriori informazioni, vedere [autori che passano da cpp](#publishers-moving-from-cpp) .
+>Se si dispone di un account nel [portale Cloud Partner (CPP)](https://cloudpartner.azure.com/) che è stato spostato nel Centro per i partner, non è necessario creare un nuovo account. Per altre informazioni, vedere [Server di pubblicazione che si spostano da CPP.](#publishers-moving-from-cpp)
 
-### <a name="enrolled-in-the-microsoft-partner-network"></a>Registrato nella Microsoft Partner Network
+### <a name="enrolled-in-the-microsoft-partner-network"></a>Iscriversi al Microsoft Partner Network
 
-Se si è già iscritti alla Microsoft Partner Network, usare questa sezione per creare l'account direttamente dal centro per i partner.
+Se sei già iscritto al Microsoft Partner Network, usa questa sezione per creare il tuo account direttamente dal Centro per i partner.
 
-Accedere al [centro](https://partner.microsoft.com/) per i partner con l'account Microsoft Partner Network per collegare il dominio dell'account di posta elettronica aziendale al nuovo account del centro per i partner. Associando questi account, i dipendenti della società possono accedere al centro per i partner con i nomi utente e le password dell'account di lavoro.
-
->[!NOTE]
->Per verificare se la società dispone già di un account aziendale del centro per i partner, come creare un nuovo account aziendale o come configurare più account di lavoro da usare con il centro per i partner, visitare [l'account aziendale e il centro per i partner](./company-work-accounts.md).
-
-Dopo aver eseguito l'accesso, seguire questa procedura per completare la configurazione dell'account.
+Accedere al Centro per i [partner con](https://partner.microsoft.com/) l'account Microsoft Partner Network in modo da collegare il dominio dell'account di posta elettronica aziendale al nuovo account del Centro per i partner. Associando questi account, i dipendenti dell'azienda possono accedere al Centro per i partner con i nomi utente e le password dell'account aziendale.
 
 >[!NOTE]
-> Per accedere a Microsoft Partner Network è necessario disporre di un **account amministratore** o di un ruolo di **amministratore globale** .
+>Per verificare se la società dispone già di un account di lavoro del Centro per i partner, come creare un nuovo account di lavoro o come impostare più account di lavoro da utilizzare con il Centro per i partner, visitare Account aziendale e Centro per i [partner.](./company-work-accounts.md)
 
-1. Dal [centro](https://partner.microsoft.com/)per i partner selezionare **Impostazioni** > **Impostazioni partner** > programmi ** > iniziare**.
-2. Microsoft Partner Network rileva la sottoscrizione e visualizza la pagina del profilo di pubblicazione in cui immettere il nome e l'ID MPN della società.
-3. Leggere i termini e le condizioni nel [contratto Microsoft Marketplace Publisher](https://go.microsoft.com/fwlink/?LinkID=699560), quindi selezionare **accetta e continua** per completare la registrazione.
+Dopo aver effettuato l'accesso, segui questi passaggi per completare la configurazione dell'account.
+
+>[!NOTE]
+> Per accedere a Microsoft Partner Network, è necessario disporre di un **amministratore dell'account** o di un ruolo di **amministratore globale.**
+
+1. In [Centro per i partner](https://partner.microsoft.com/)selezionare **Impostazioni** > per i**programmi** > **Impostazioni** > partner**Introduzione**.
+2. Microsoft Partner Network rileva la sottoscrizione e visualizza la pagina del profilo dell'editore in cui è possibile immettere il nome dell'azienda e l'ID MPN.
+3. Leggere i termini e le condizioni del [Contratto microsoft Marketplace Publisher](https://go.microsoft.com/fwlink/?LinkID=699560)agreement , quindi selezionare **Accetta e continuare** a completare la registrazione.
 
     >[!IMPORTANT]
-    >*L'utente deve essere autorizzato a agire per conto dell'azienda per accettare le presenti condizioni.*
+    >*Devi essere autorizzato ad agire per conto della tua azienda per accettare questi termini.*
 
-Una volta effettuata la registrazione, verrà usata la pagina Panoramica del Marketplace commerciale. **Marketplace commerciale** viene visualizzato nella barra di spostamento a sinistra. Se si seleziona **impostazioni** > **Impostazioni partner** > **programmi**, si noterà che Marketplace commerciale è elencato come registrato.
+Una volta effettuata l'iscrizione, viene eseguito il passaggio alla pagina Panoramica del marketplace commerciale. **Commercial Marketplace** viene visualizzato nella barra di navigazione a sinistra. Se selezioni **Impostazioni programmi** > impostazioni**partner,** > **Programs**vedrai che Commercial Marketplace è elencato come registrato.
 
-Grazie per aver creato un account nel centro per i partner. Per informazioni, vedere [Panoramica del Marketplace commerciale](./commercial-marketplace-overview.md). Per informazioni sull'aggiunta di editori, vedere [aggiungere nuovi editori al programma commerciale Marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
+Grazie per aver creato un account nel Centro per i partner! Per assistenza, vedere [Panoramica del marketplace commerciale](./commercial-marketplace-overview.md). Per informazioni sull'aggiunta di editori, vedere [Aggiungere nuovi editori al programma Commercial Marketplace.](#add-new-publishers-to-the-commercial-marketplace-program)
 
-### <a name="enrolled-in-a-developer-program"></a>Registrato in un programma per sviluppatori
+### <a name="enrolled-in-a-developer-program"></a>Iscrizione a un programma per sviluppatori
 
-Se si è già iscritti in un programma per sviluppatori Partner Center, usare questa sezione per creare il proprio account direttamente dal centro per i partner.
+Se sei già iscritto a un programma per sviluppatori del Centro per i partner, usa questa sezione per creare il tuo account direttamente dal Centro per i partner.
 
 >[!NOTE]
->Per iscriversi al Marketplace commerciale con lo stesso account con cui si è connessi, è necessario aver eseguito la registrazione al centro per i partner usando un account aziendale. Se è stata effettuata l'iscrizione con un singolo account, la registrazione del Marketplace commerciale verrà visualizzata con un nuovo account.
+>Per registrarti al Marketplace commerciale con lo stesso account con cui hai effettuato l'accesso, devi registrarti nel Centro per i partner utilizzando un account aziendale. Se ti sei registrato con un account Individuale, la registrazione al Marketplace commerciale verrà visualizzata con un nuovo account.
 >
->Singoli account sono destinati a singoli sviluppatori che lavorano autonomamente. Gli account aziendali sono destinati a organizzazioni e aziende. Gli account aziendali consentono di inviare app con funzionalità aggiuntive. È necessaria una verifica più approfondita per gli account aziendali dopo la registrazione per confermare che si è autorizzati a configurare l'account per l'azienda. Questa verifica può richiedere da alcuni giorni a un paio di settimane e spesso include una telefonata all'azienda. Entrambi i tipi di account consentono di inviare app, componenti aggiuntivi e servizi. Per altre informazioni, vedere [tipi di account, località e tariffe](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
+>Gli account individuali sono per i singoli sviluppatori che lavorano da soli. Gli account aziendali sono destinati a organizzazioni e aziende. Gli account aziendali consentono di inviare app con funzionalità aggiuntive. Abbiamo bisogno di una maggiore verifica per gli account aziendali dopo la registrazione per confermare che sei autorizzato a configurare l'account per la tua azienda. Queste verifiche possono richiedere da pochi giorni a un paio di settimane e spesso includono una telefonata alla tua azienda. Entrambi i tipi di account consentono di inviare app, componenti aggiuntivi e servizi. Per ulteriori informazioni, consulta [Tipi di account, località e commissioni](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
 
-Accedere al [centro](https://partner.microsoft.com/) per i partner con l'account del centro per i partner Microsoft per iscriversi al programma commerciale Marketplace con lo stesso account. Iscrivendosi a Commercial Marketplace con lo stesso account, è possibile visualizzare le registrazioni dei programmi esistenti e il Marketplace commerciale nel menu di spostamento a sinistra del centro per i partner.
+Accedi al [Centro per](https://partner.microsoft.com/) i partner con il tuo account Microsoft Partner Center per iscriverti al programma Commercial Marketplace con lo stesso account. Iscrivendoti a Commercial Marketplace utilizzando lo stesso account, puoi visualizzare sia le iscrizioni ai programmi esistenti che il Marketplace commerciale nel menu di navigazione a sinistra del Centro per i partner.
 
-Dopo aver eseguito l'accesso, seguire questa procedura per completare la configurazione dell'account:
+Dopo aver effettuato l'accesso, segui questi passaggi per completare la configurazione dell'account:
 
-1. Dal centro per i partner selezionare **impostazioni** > **Impostazioni sviluppatore** > **programmi** > iniziare e immettere l' **indirizzo di posta**elettronica dell'ufficio.
-2. Completare i dettagli nella pagina del profilo di pubblicazione.
-3. Leggere i termini e le condizioni nel [contratto Microsoft Marketplace Publisher](https://go.microsoft.com/fwlink/?LinkID=699560), quindi selezionare **accetta e continua** per completare la registrazione.
+1. Nel Centro per i partner selezionare **Introduzione** > ai**programmi** > **Impostazioni** > per sviluppatori**Impostazioni per gli**sviluppatori e immettere l'indirizzo di posta elettronica di lavoro.
+2. Completare i dettagli nella pagina del profilo dell'editore.
+3. Leggere i termini e le condizioni del [Contratto microsoft Marketplace Publisher](https://go.microsoft.com/fwlink/?LinkID=699560)agreement , quindi selezionare **Accetta e continuare** a completare la registrazione.
 
     >[!Important]
-    >*L'utente deve essere autorizzato a agire per conto dell'azienda per accettare le presenti condizioni.*
+    >*Devi essere autorizzato ad agire per conto della tua azienda per accettare questi termini.*
 
-Una volta effettuata la registrazione, verrà usata la pagina Panoramica del Marketplace commerciale. **Marketplace commerciale** viene visualizzato nella barra di spostamento a sinistra. Se si seleziona **impostazioni** > **Impostazioni sviluppatore** > **programmi**, si noterà che Marketplace commerciale è elencato come registrato.
+Una volta effettuata l'iscrizione, viene eseguito il passaggio alla pagina Panoramica del marketplace commerciale. **Commercial Marketplace** viene visualizzato nella barra di navigazione a sinistra. Se si seleziona **Impostazioni** > **programmi****impostazioni** > per gli sviluppatori, verrà visualizzato che Commercial Marketplace è registrato come registrato.
 
-Grazie per aver creato un account nel centro per i partner. Per informazioni, vedere [Panoramica del Marketplace commerciale](./commercial-marketplace-overview.md). Per informazioni sull'aggiunta di editori, vedere [aggiungere nuovi editori al programma commerciale Marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
+Grazie per aver creato un account nel Centro per i partner! Per assistenza, vedere [Panoramica del marketplace commerciale](./commercial-marketplace-overview.md). Per informazioni sull'aggiunta di editori, vedere [Aggiungere nuovi editori al programma Commercial Marketplace.](#add-new-publishers-to-the-commercial-marketplace-program)
 
-## <a name="publishers-moving-from-cpp"></a>Autori che passano da CPP
+## <a name="publishers-moving-from-cpp"></a>Editori che si spostano da CPP
 
-Se è stata eseguita la migrazione dell'account dalla [portale cloud partner (CPP)](https://cloudpartner.azure.com), non è necessario creare un nuovo account del centro per i partner. È necessario avere ricevuto un collegamento personalizzato al nuovo account del centro per i partner nella posta elettronica e in una notifica di banner dopo aver eseguito l'accesso all'account CPP esistente.
+Se l'account è stato migrato dal [portale Cloud Partner (CPP),](https://cloudpartner.azure.com)non è necessario creare un nuovo account del Centro per i partner. Dovresti aver ricevuto un link personalizzato al tuo nuovo account del Centro per i partner tramite e-mail e in una notifica banner dopo aver effettuato l'accesso al tuo account CPP esistente.
 
-Dopo aver abilitato il nuovo account del centro per i partner visitando questo collegamento personalizzato, è possibile tornare al proprio account visitando il [Dashboard del Marketplace commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) nel centro per i partner.
+Dopo aver abilitato il nuovo account del Centro per i partner visitando questo collegamento personalizzato, puoi tornare al tuo account visitando il [dashboard del Marketplace commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) nel Centro per i partner.
 
-Il contratto di pubblicazione e le informazioni sul profilo della società verranno migrati al nuovo account del centro per i partner, insieme a tutte le informazioni sul profilo di pagamento dell'account configurate in precedenza, agli account utente e alle autorizzazioni e alle offerte attive associate all'account CPP.
+Il contratto di pubblicazione e le informazioni del profilo aziendale verranno migrati nel nuovo account del Centro per i partner, insieme a tutte le informazioni del profilo di pagamento dell'account configurate in precedenza, agli account utente e alle autorizzazioni e alle offerte attive associate al tuo account CPP.
 
-Una volta che le informazioni sull'account sono state spostate da CPP al centro per i partner, non verrà più usato CPP per eseguire aggiornamenti dell'account o gestire utenti, autorizzazioni e fatturazione. Per un periodo di tempo limitato, gli aggiornamenti dell'account apportati al centro per i partner verranno automaticamente aggiornati nell'account CPP di sola lettura fino alla fine della deprecazione del portale CPP.
+Dopo aver spostato le informazioni dell'account da CPP a Centro per i partner, non userai più CPP per effettuare aggiornamenti dell'account o gestire utenti, autorizzazioni e fatturazione. Per un periodo di tempo limitato, tutti gli aggiornamenti dell'account eseguiti nel Centro per i partner verranno aggiornati automaticamente nell'account CPP di sola lettura fino a quando il portale CPP non sarà deprecato.
 
-## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Aggiungere nuovi editori al programma commerciale Marketplace
+## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Aggiungere nuovi editori al programma Commercial Marketplace
 
-Un'organizzazione può avere più editori associati a un account Marketplace commerciale. Un utente esistente può aggiungere altri server di pubblicazione dopo aver eseguito l'accesso al centro per i partner selezionando **Impostazioni Account** > **autori** > **Aggiungi server di pubblicazione**.
+Un'organizzazione può avere più editori associati a un account Commercial Marketplace. Un utente esistente può aggiungere altri server di pubblicazione dopo aver effettuato l'accesso al Centro per i partner selezionando **Impostazioni** > account**Editori** > **Aggiungi server di pubblicazione**.
 
 >[!NOTE]
->Prima di aggiungere un nuovo server di pubblicazione, esaminare gli autori esistenti accedendo al centro per i partner e selezionando **Impostazioni Account** > **autori** per visualizzare un elenco di server di pubblicazione esistenti.
+>Prima di aggiungere un nuovo editore, esamina i publisher esistenti accedendo al Centro per i partner e selezionando**Editori** **impostazioni** > account per visualizzare un elenco di publisher esistenti.
 
-Un altro utente dello stesso tenant di Azure Active Directory può aggiungere un nuovo server di pubblicazione attenendosi alla procedura seguente:
+Un altro utente dello stesso tenant di Azure Active Directory può aggiungere un nuovo server di pubblicazione seguendo la procedura seguente:Another user from the same Azure Active Directory tenant can add a new publisher by following the steps below:
 
-1. Avviare il flusso di iscrizione presso il centro per i [partner Microsoft](https://partner.microsoft.com/en-us/dashboard/account/v3/enrollment/introduction/azureisv).
-2. Selezionare **Sign in with a work account** e immettere l'indirizzo di posta elettronica dell'ufficio.
-3. Selezionare il pulsante **Aggiungi server di pubblicazione** .
+1. Avviare il flusso di iscrizione nel [Microsoft Partner Center](https://partner.microsoft.com/en-us/dashboard/account/v3/enrollment/introduction/azureisv).
+2. Selezionare **Accedi con un account di lavoro** e immettere l'indirizzo di posta elettronica di lavoro.
+3. Selezionare il pulsante **Aggiungi server di pubblicazione.**
 4. Scegliere l'ID MPN che si desidera associare al server di pubblicazione.
-5. Aggiornare i **Dettagli del server di pubblicazione** nel form.
+5. Aggiornare i **dettagli dell'autore** nel modulo.
 
-   1. **Nome editore**: nome che verrà visualizzato in Azure Marketplace o AppSource con l'offerta.
-   1. **PublisherID**: identificatore utilizzato dal centro per i partner per identificare in modo univoco l'editore. Il valore predefinito per questo campo è mappato a una `PublisherID` esistente e univoca nel sistema, che non può essere riutilizzata e pertanto questo campo deve essere aggiornato.
-   1. **Informazioni di contatto**: aggiornare le informazioni di contatto quando necessario.
+   1. **Nome editore:** il nome che verrà visualizzato in Azure Marketplace o AppSource con l'offerta.
+   1. **PublisherID**: Identificatore utilizzato dal Centro per i partner per identificare in modo univoco il server di pubblicazione. L'impostazione predefinita per questo `PublisherID` campo viene mappata a un oggetto esistente e univoco nel sistema, che non può essere riutilizzato e pertanto questo campo deve essere aggiornato.
+   1. **Informazioni di contatto**: Aggiornare le informazioni di contatto quando necessario.
 
-Dopo aver completato il processo, è possibile gestire il server di pubblicazione appena creato passando al programma **Commercial Marketplace** indicato nel menu di spostamento a sinistra. Se non viene visualizzato il programma **Commercial Marketplace** , aggiornare la pagina. Il nuovo server di pubblicazione verrà visualizzato nell'elenco **Publishers** .
+Dopo aver completato il processo, è possibile gestire l'editore appena creato accedendo al programma **Commercial Marketplace** elencato nel menu di navigazione a sinistra. Se non vedi il programma **Commercial Marketplace,** aggiorna la pagina. Il nuovo editore verrà visualizzato nell'elenco **Editori.**
 
 ## <a name="next-step"></a>Passaggio successivo
 
-- [Gestisci l'account del Marketplace commerciale nel centro per i partner](./manage-account.md)
+- [Gestire l'account Del Mercato commerciale nel Centro per i partner](./manage-account.md)

@@ -1,5 +1,5 @@
 ---
-title: Uso di Visual Studio, Abilita Desktop remoto per un ruolo (servizi cloud di Azure)
+title: Usando Visual Studio, abilitare Desktop remoto per un ruolo (Servizi cloud di Azure)Using Visual Studio, enable Remote Desktop for a Role (Azure Cloud Services)
 description: Come configurare l'applicazione del servizio cloud di Azure per consentire le connessioni Desktop remoto
 services: cloud-services
 author: ghogen
@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
-ms.openlocfilehash: 96f71306c060a6a533a3ab1c0c54b49d74e5cd82
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f4622e44c795182ee68c617f335c9e1651d3adcc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298396"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294378"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Abilitare una connessione Desktop remoto per un ruolo in Servizi cloud di Azure con Visual Studio
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
-> * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+> * [Powershell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
 Desktop remoto consente di accedere al desktop di un ruolo in esecuzione in Azure. È possibile usare una connessione Desktop remoto per risolvere e diagnosticare i problemi dell'applicazione mentre è in esecuzione.
@@ -47,7 +47,7 @@ Quando si usa Visual Studio 2017 versione 15.4 e precedenti, è possibile usare 
    > [!Note]
    > I certificati necessari per una connessione Desktop remoto sono diversi da quelli usati per altre operazioni di Azure. Il certificato di accesso remoto deve avere una chiave privata.
 
-5. Selezionare un certificato dall'elenco o scegliere **&lt;Create &gt;** (Crea). Se si crea un nuovo certificato, specificare un nome descrittivo per il nuovo certificato quando viene richiesto e selezionare **OK**. Il nuovo certificato verrà visualizzato nell'elenco a discesa.
+5. Selezionare un certificato dall'elenco o scegliere ** &lt;Crea... &gt;**. Se si crea un nuovo certificato, specificare un nome descrittivo per il nuovo certificato quando viene richiesto e selezionare **OK**. Il nuovo certificato verrà visualizzato nell'elenco a discesa.
 
 6. Specificare un nome utente e una password. Non è possibile usare un account esistente. Non usare "Administrator" come nome utente per il nuovo account.
 
@@ -65,7 +65,7 @@ Se si lavora nell'ambito di un team, è invece necessario abilitare Desktop remo
 
 Questa indicazione è dovuta a una modifica nel modo in cui Visual Studio 2017 versione 15.5 e successive comunica con la macchina virtuale del servizio cloud. Quando si abilita Desktop remoto tramite la pubblicazione guidata, le versioni precedenti di Visual Studio comunicano con la macchina virtuale tramite il cosiddetto "plug-in RDP". Visual Studio 2017 versione 15.5 e successive comunica usando invece l'"estensione RDP", più sicura e flessibile. Questa modifica si allinea inoltre al fatto che anche il portale di Azure e i metodi di PowerShell per abilitare Desktop remoto usano l'estensione RDP.
 
-Quando Visual Studio comunica con l'estensione RDP, trasmette una password in testo normale tramite SSL. I file di configurazione del progetto, tuttavia, memorizzano solo una password crittografata, che può essere decrittografata in testo normale solo con il certificato locale usato originariamente per crittografarla.
+Quando Visual Studio comunica con l'estensione RDP, trasmette una password di testo normale su TLS. I file di configurazione del progetto, tuttavia, memorizzano solo una password crittografata, che può essere decrittografata in testo normale solo con il certificato locale usato originariamente per crittografarla.
 
 Se ogni volta si distribuisce il progetto di servizio cloud dallo stesso computer di sviluppo, il certificato locale sarà disponibile. In questo caso si potrà comunque usare l'opzione **Abilita Desktop remoto per tutti i ruoli** nella pubblicazione guidata.
 
@@ -86,7 +86,7 @@ Se si condivide il progetto con un team, è quindi consigliabile deselezionare l
 
 Per usare l'estensione RDP da Azure DevOps Services, includere i dettagli seguenti nella pipeline di compilazione:
 
-1. Includere `/p:ForceRDPExtensionOverPlugin=true` negli argomenti di MSBuild per assicurarsi che la distribuzione funzioni con l'estensione RDP anziché con il plug-in RDP. Esempio:
+1. Includere `/p:ForceRDPExtensionOverPlugin=true` negli argomenti di MSBuild per assicurarsi che la distribuzione funzioni con l'estensione RDP anziché con il plug-in RDP. Ad esempio:
 
     ```
     msbuild AzureCloudService5.ccproj /t:Publish /p:TargetProfile=Cloud /p:DebugType=None
@@ -95,7 +95,7 @@ Per usare l'estensione RDP da Azure DevOps Services, includere i dettagli seguen
 
 1. Dopo le istruzioni di compilazione, aggiungere il passaggio **Distribuzione del servizio cloud di Azure** e impostarne le proprietà.
 
-1. Dopo il passaggio di distribuzione, aggiungere un passaggio di **Azure PowerShell** , impostare la relativa proprietà **nome visualizzato** su "distribuzione di Azure: Abilitare l'estensione RDP "(o un altro nome appropriato) e selezionare la sottoscrizione di Azure appropriata.
+1. Dopo il passaggio di distribuzione, aggiungere un passaggio **Azure Powershell**, impostare la proprietà **Nome visualizzato** su "Distribuzione Azure: abilitare l'estensione RDP" o un altro nome appropriato e selezionare la sottoscrizione Azure appropriata.
 
 1. Impostare **Tipo di script** su "Inline" e incollare il codice seguente nel campo **Script inline**. È anche possibile creare un file `.ps1` nel progetto con questo script, impostare **Tipo di script** su "Percorso del file di script" e impostare **Percorso script** in modo da puntare al file.
 

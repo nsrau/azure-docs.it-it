@@ -1,20 +1,18 @@
 ---
-title: Offerte private | Azure Marketplace
+title: Offerte Private Azure Marketplace
 description: Offerte private in Azure Marketplace per gli editori di app e servizi.
-services: Azure, Marketplace, Compute
 author: qianw211
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/1/2018
-ms.author: pabutler
-ms.openlocfilehash: 16903d4f9b1bad8a588b1a234ac84bc9c0150c4a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 67aba077304117ad357d4e004ce7bdb25ac58352
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827835"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285045"
 ---
 # <a name="private-offers"></a>Offerte private
 
@@ -34,7 +32,7 @@ Le offerte private sono ora disponibili per le offerte di macchine virtuali, app
 
 ## <a name="creating-private-offers-using-skus-and-plans"></a>Creazione di offerte private con piani e SKU
 
-Per le *offerte nuove o esistenti con SKU o piani pubblici*, gli editori possono facilmente creare nuove varianti private creando nuovi SKU o piani e contrassegnandoli come privati.  I piani e gli [SKU privati](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) sono componenti di un'offerta e sono visibili e acquistabili solo per clienti specifici. I piani e gli SKU privati possono riutilizzare le immagini di base e/o i metadati delle offerte già pubblicati per un piano o uno SKU pubblico. Questa opzione consente agli editori di creare più varianti private di un'offerta pubblica senza dover pubblicare più versioni della stessa immagine di base e degli stessi metadati dell'offerta. Solo per le offerte per le macchine virtuali e le applicazioni Azure, quando uno SKU privato condivide un'immagine di base con uno SKU pubblico, qualsiasi modifica apportata all'immagine di base dell'offerta viene propagata in tutti gli SKU pubblici e privati usando tale immagine di base.
+Per le *offerte nuove o esistenti con SKU o piani pubblici*, gli editori possono facilmente creare nuove varianti private creando nuovi SKU o piani e contrassegnandoli come privati.  I piani e gli [SKU privati](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) sono componenti di un'offerta e sono visibili e acquistabili solo per clienti specifici. I piani e gli SKU privati possono riutilizzare le immagini di base e/o i metadati delle offerte già pubblicati per un piano o uno SKU pubblico. Questa opzione consente agli editori di creare più varianti private di un'offerta pubblica senza dover pubblicare più versioni della stessa immagine di base e degli stessi metadati dell'offerta. Per la macchina virtuale e l'applicazione Azure offre solo, quando uno SKU privato condivide un'immagine di base con uno SKU pubblico, qualsiasi modifica all'immagine di base dell'offerta verrà propagata in tutti gli SKU pubblici e privati usando tale immagine di base.
 
 Per le *nuove offerte che includono solo piani o SKU privati*, gli editori possono creare le offerte come qualsiasi altra offerta e quindi contrassegnare gli SKU o i piani come privati. Le offerte che includono solo piani o SKU privati non saranno individuabili o accessibili tramite [Azure Marketplace](https://azuremarketplace.microsoft.com) o il [portale di Azure](https://azure.microsoft.com/features/azure-portal/) per i clienti non associati all'offerta.
 
@@ -49,11 +47,11 @@ Le offerte private possono essere individuate solo tramite il [portale di Azure]
 
 ![[Offerte private]](./media/marketplace-publishers-guide/private-offer.png)
 
-Le offerte private verranno visualizzate anche nei risultati della ricerca. È sufficiente cercare il badge "privato".
+Le offerte private verranno visualizzate anche nei risultati della ricerca. Basta guardare fuori per il distintivo "Privato".
 
 >[!Note]
 >Le offerte private non sono supportate con le sottoscrizioni stabilite tramite un rivenditore del programma Cloud Solution Provider (CSP).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare a usare le offerte private, attenersi alla procedura descritta nella Guida [SKU e piani privati](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) .
+Per iniziare a utilizzare le offerte private, seguire i passaggi nella guida [SKU e piani privati.](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)

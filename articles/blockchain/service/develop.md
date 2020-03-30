@@ -1,75 +1,69 @@
 ---
-title: Panoramica sullo sviluppo di servizi blockchain di Azure
-description: Introduzione allo sviluppo di soluzioni nel servizio Azure blockchain.
-ms.date: 11/22/2019
+title: Panoramica dello sviluppo del servizio Blockchain di AzureAzure Blockchain Service development overview
+description: Introduzione allo sviluppo di soluzioni nel servizio Blockchain di Azure.Introduction on developing solutions on Azure Blockchain Service.
+ms.date: 03/26/2020
 ms.topic: conceptual
 ms.reviewer: janders
-ms.openlocfilehash: 3748a1ca473d817f536ba7c912d2485ffc14de2d
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 4a98e5ea025894303bc5c77bba0c6154a08315f2
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455887"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348371"
 ---
-# <a name="azure-blockchain-service-development-overview"></a>Panoramica sullo sviluppo di servizi blockchain di Azure
+# <a name="azure-blockchain-service-development-overview"></a>Panoramica dello sviluppo del servizio Blockchain di AzureAzure Blockchain Service development overview
 
-Con il servizio Azure blockchain è possibile creare reti blockchain del Consorzio per abilitare scenari aziendali come il rilevamento di asset, il token digitale, la fedeltà e la ricompensa, la supply chain finanziaria e la provenienza. Le sezioni seguenti introducono lo sviluppo di servizi blockchain di Azure per l'implementazione di soluzioni blockchain aziendali.
+Con il servizio Blockchain di Azure, puoi creare reti blockchain del consorzio per abilitare scenari aziendali come il monitoraggio degli asset, il token digitale, la fedeltà e la ricompensa, la sicurezza finanziaria e la provenienza. Nelle sezioni seguenti viene introdotto lo sviluppo del servizio Blockchain di Azure per l'implementazione di soluzioni blockchain aziendali.
 
-## <a name="connecting-to-azure-blockchain-service"></a>Connessione al servizio Azure blockchain
+## <a name="connecting-to-azure-blockchain-service"></a>Connessione al servizio Blockchain di AzureConnecting to Azure Blockchain Service
 
-Esistono diversi tipi di client per le reti blockchain, tra cui nodi completi, nodi leggeri e client remoti. Il servizio Azure blockchain compila una rete blockchain che include nodi. È possibile usare client diversi come gateway per il servizio Azure blockchain per lo sviluppo di blockchain. Il servizio Azure blockchain offre l'autenticazione di base o la chiave di accesso come endpoint di sviluppo. Di seguito sono riportati i client più diffusi che è possibile usare Connect.
+Esistono diversi tipi di client per le reti blockchain, inclusi nodi completi, nodi leggeri e client remoti. Il servizio Blockchain di Azure crea una rete blockchain che include nodi. È possibile usare client diversi come gateway per il servizio Blockchain di Azure per lo sviluppo blockchain. Il servizio Blockchain di Azure offre l'autenticazione di base o la chiave di accesso come endpoint di sviluppo. Di seguito sono riportati i client più diffusi che è possibile utilizzare connect.
 
 ### <a name="visual-studio-code"></a>Visual Studio Code
 
-È possibile connettersi ai membri del Consorzio usando Azure blockchain Development Kit Visual Studio Code estensione. Una volta connessi a un consorzio, è possibile compilare e distribuire contratti intelligenti a un membro del consorzio del servizio Azure Blockchain.
+È possibile connettersi ai membri del consorzio usando l'estensione di codice di Visual Studio di Azure Blockchain Development Kit.You can connect to consortium members using the Azure Blockchain Development Kit Visual Studio Code extension. Una volta connessi a un consorzio, è possibile compilare e distribuire contratti intelligenti a un membro del consorzio del servizio Azure Blockchain.
 
-Per altre informazioni, vedere [Guida introduttiva: usare Visual Studio Code per connettersi a una rete di Azure blockchain Service Consortium](connect-vscode.md).
+Per sviluppare soluzioni blockchain aziendali sofisticate, è necessario un framework di sviluppo per connettersi a diverse reti blockchain e gestire i cicli di vita dei contratti intelligenti. La maggior parte dei progetti interagisce con almeno due nodi blockchain. Gli sviluppatori utilizzano una blockchain locale durante lo sviluppo. Quando l'applicazione è pronta per il test o il rilascio, lo sviluppatore viene distribuito in una rete blockchain. Ad esempio, la principale rete Ethereum pubblica o il servizio Blockchain di Azure.For example, the main public Ethereum network or Azure Blockchain Service. Azure Blockchain Development Kit per Ethereum estensione in Visual Studio Code utilizza Tartufo. Il tartufo è un popolare framework di sviluppo blockchain per scrivere, compilare, distribuire e testare le applicazioni decentralizzate su blockchain Ethereum. Si può anche pensare al tartufo come a un framework che tenta di integrare senza soluzione di continuità lo sviluppo di contratti intelligenti e lo sviluppo web tradizionale.
 
-### <a name="metamask"></a>Metamask
+Per altre informazioni, vedere [Guida introduttiva: Usare Visual Studio Code per connettersi a](connect-vscode.md)una rete del consorzio di servizi Blockchain di Azure.For more information, see Quickstart: Use Visual Studio Code to connect to an Azure Blockchain Service consortium network .
 
-Metamask è un portafoglio basato su browser (client remoto), un client RPC e un'esplorazione di base di contratti. A differenza di altri portafogli del browser, metamask inserisce un'istanza di Web3 nel contesto JavaScript del browser, che funge da client RPC che si connette a un'ampia gamma di Ethereum blockchain (*mainnet*, *Ropsten Testnet*, *Kovan*Testnet, nodo RPC locale, e così via). È possibile configurare facilmente RPC personalizzate per connettersi al servizio Azure blockchain e avviare lo sviluppo di blockchain con Remix.
+### <a name="metamask"></a>MetaMaschera
 
-Per altre informazioni, vedere [Guida introduttiva: usare metamask per connettere e distribuire un contratto intelligente](connect-metamask.md)
+MetaMask è un portafoglio basato su browser (client remoto), client RPC ed Esplora contratti di base. A differenza di altri portafogli del browser, MetaMask inserisce un'istanza web3 nel contesto JavaScript del browser, agendo come un client RPC che si connette a una varietà di blockchain Ethereum (*mainnet*, *Ropsten testnet*, *Kovan testnet*, nodo RPC locale, ecc.). È possibile configurare RPC personalizzata facilmente per connettersi al servizio Blockchain di Azure e avviare lo sviluppo blockchain utilizzando Remix.You can set up custom RPC easily to connect to Azure Blockchain Service and start blockchain development using Remix.
+
+Per altre informazioni, vedere [Guida introduttiva: Usare MetaMask per connettere e distribuire un contratto intelligenteFor](connect-metamask.md) more information, see Quickstart: Use MetaMask to connect and deploy a smart contract
 
 ### <a name="geth"></a>Geth
 
-Geth è l'interfaccia della riga di comando per l'esecuzione di un nodo Ethereum completo implementato in go. Non è necessario eseguire il nodo completo, ma è possibile avviare la console interattiva che fornisce un ambiente di runtime JavaScript che espone un'API JavaScript per interagire con il servizio Azure blockchain.
+Geth è l'interfaccia della riga di comando per l'esecuzione di un nodo Ethereum completo implementato in Go. Non è necessario eseguire un nodo completo, ma è possibile avviare la console interattiva che fornisce un ambiente di runtime JavaScript esponendo un'API JavaScript per interagire con il servizio Blockchain di Azure.You don't need to run full node but can launch its interactive console that provides a JavaScript runtime environment exposing a JavaScript API to interact with Azure Blockchain Service.
 
-Per altre informazioni, vedere [Guida introduttiva: usare Geth per connettersi a un nodo di transazione del servizio blockchain di Azure](connect-geth.md).
+Per altre informazioni, vedere Guida introduttiva: Usare Geth per connettersi a un nodo di transazione del servizio Blockchain di Azure.For more information, see [Quickstart: Use Geth to attach to an Azure Blockchain Service transaction node.](connect-geth.md)
 
-## <a name="development-framework-configuration"></a>Configurazione del Framework di sviluppo
+## <a name="ethereum-quorum-private-transactions"></a>Transazioni private del quorum Ethereum
 
-Per sviluppare sofisticate soluzioni blockchain aziendali, è necessario un Framework di sviluppo per connettersi a diverse reti blockchain e gestire i cicli di vita di contratti intelligenti.
+Quorum è un protocollo di contabilità distribuita basato su Ethereum con la privacy delle transazioni più i contratti e nuovi meccanismi di consenso. I principali miglioramenti rispetto a Go-Ethereum includono:
 
-Tartufo è un noto framework di sviluppo blockchain per la scrittura, la compilazione, la distribuzione e il test di applicazioni decentralizzate in Ethereum blockchain. È anche possibile pensare al tartufo come a un Framework che tenta di integrare agevolmente lo sviluppo di contratti intelligenti e lo sviluppo Web tradizionale.
+* **Privacy** - Quorum supporta le transazioni private e i contratti privati attraverso la separazione dello stato pubblico e privato e utilizza scambi di messaggi crittografati peer-to-peer per il trasferimento diretto di dati privati ai partecipanti alla rete.
+* **Meccanismi di consenso alternativi** - il consenso di prova del lavoro o di prova di svolgimento non è necessario per una rete autorizzata. Quorum offre molteplici meccanismi di consenso che sono progettati per catene di consorzi come RAFT e IBFT.Il servizio Blockchain di Azure usa il meccanismo di consenso IBFT.Azure Blockchain Service uses the IBFT consensus mechanism.
+* **Autorizzazione peer:** l'autorizzazione per nodi e peer tramite contratti intelligenti garantisce che solo le parti note possano unirsi alla rete.
+* **Prestazioni più elevate** - Quorum offre prestazioni più elevate rispetto a Geth pubblico.
 
-La maggior parte dei progetti interagisce con almeno due nodi blockchain. Gli sviluppatori usano un blockchain locale durante lo sviluppo. Quando l'applicazione è pronta per il test o il rilascio, lo sviluppatore distribuisce in una rete blockchain. Ad esempio, la rete Ethereum pubblica principale o il servizio Azure blockchain. Il tartufo può essere usato per compilare e distribuire i contratti intelligenti per ogni rete e semplifica la distribuzione finale dell'applicazione. Per altre informazioni, vedere [Guida introduttiva: usare il tartufo per connettersi a una rete del servizio Azure blockchain](connect-truffle.md).
+## <a name="block-explorers"></a>Blocca esploratori
 
-## <a name="ethereum-quorum-private-transactions"></a>Transazioni private quorum Ethereum
+Gli esploratori di blocchi sono browser blockchain online che visualizzano il contenuto dei singoli blocchi, i dati dell'indirizzo delle transazioni e la cronologia. Le informazioni di base sui blocchi sono disponibili tramite Monitoraggio di Azure nel servizio Blockchain di Azure.Basic block information is available through Azure Monitor in Azure Blockchain Service. Tuttavia, se sono necessarie informazioni più dettagliate durante lo sviluppo, gli esploratori di blocchi possono essere utili.  Gli esploratori di blocchi seguenti funzionano con il servizio Blockchain di Azure:The following block explorers work with Azure Blockchain Service:
 
-Il quorum è un protocollo di Ledger distribuito basato su Ethereum con transazioni con la privacy dei contratti e nuovi meccanismi di consenso. I miglioramenti principali rispetto a go-Ethereum includono:
+* [Epirus Azure Blockchain Service Explorer](https://azuremarketplace.microsoft.com/marketplace/apps/blk-technologies.azure-blockchain-explorer-template?tab=Overview) da Web3 Labs
+* [BlockScout (Blocco)](https://github.com/Azure-Samples/blockchain/blob/master/ledger/template/ethereum-on-azure/technology-samples/blockscout/README.md)
 
-* **Privacy** : il quorum supporta le transazioni private e i contratti privati attraverso la separazione dello stato pubblico e privato e USA scambi di messaggi crittografati peer-to-peer per il trasferimento diretto dei dati privati ai partecipanti di rete.
-* **Meccanismi di consenso alternativi** : i consensi di prova di lavoro o di prova di scommessa non sono necessari per una rete con autorizzazioni. Il quorum offre diversi meccanismi di consenso, progettati per catene di Consorzio, ad esempio ZATTERa e IBFT.  Il servizio Azure blockchain usa il meccanismo di consenso IBFT.
-* **Autorizzazione peer** : il nodo e l'autorizzazione peer con contratti intelligenti garantiscono che solo le parti note possano essere aggiunte alla rete.
-* **Prestazioni più elevate** : il quorum offre prestazioni superiori rispetto a Geth pubblici.
-
-## <a name="block-explorers"></a>Esplora blocchi
-
-Gli Esplora blocchi sono browser blockchain online che visualizzano il contenuto del singolo blocco, i dati dell'indirizzo di transazione e la cronologia. Le informazioni di base sui blocchi sono disponibili tramite monitoraggio di Azure nel servizio Azure blockchain. Tuttavia, se sono necessarie informazioni più dettagliate durante lo sviluppo, gli Esplora blocchi possono essere utili.  Gli Esplora blocchi seguenti funzionano con il servizio Azure blockchain:
-
-* [Esplora servizi di Azure blockchain per Epiro](https://azuremarketplace.microsoft.com/marketplace/apps/blk-technologies.azure-blockchain-explorer-template?tab=Overview) da Web3 Labs
-* [BlockScout](https://github.com/Azure-Samples/blockchain/blob/master/ledger/template/ethereum-on-azure/technology-samples/blockscout/README.md)
-
-È anche possibile creare una finestra di esplorazione dei blocchi personalizzata usando blockchain Data Manager e Azure Cosmos DB, vedere [esercitazione: usare Data Manager blockchain per inviare dati a Azure Cosmos DB](data-manager-cosmosdb.md).
+È anche possibile creare il proprio esploratore di blocchi usando Blockchain Data Manager e Azure Cosmos DB, vedere [Esercitazione: Usare Blockchain Data Manager per inviare dati a Azure Cosmos DB.](data-manager-cosmosdb.md)
 
 ## <a name="tps-measurement"></a>Misurazione TPS
 
-Quando blockchain viene usato in più scenari aziendali, la velocità delle transazioni al secondo (TPS) è importante per evitare colli di bottiglia e inefficienze del sistema. I tassi di transazione elevati possono essere difficili da gestire all'interno di un blockchain decentralizzato. Una misurazione accurata del TPS può essere interessata da diversi fattori, ad esempio thread del server, dimensioni della coda delle transazioni, latenza di rete e sicurezza. Se è necessario misurare la velocità di TPS durante lo sviluppo, uno strumento open source comune è [ChainHammer](https://github.com/drandreaskrueger/chainhammer).
+Poiché la blockchain viene utilizzata in scenari più aziendali, la velocità delle transazioni al secondo (TPS) è importante per evitare colli di bottiglia e inefficienze del sistema. Tassi di transazione elevati possono essere difficili da mantenere all'interno di una blockchain decentralizzata. Una misurazione TPS accurata può essere influenzata da diversi fattori, ad esempio thread del server, dimensione della coda delle transazioni, latenza di rete e sicurezza. Se è necessario misurare la velocità TPS durante lo sviluppo, un popolare strumento open-source è [ChainHammer](https://github.com/drandreaskrueger/chainhammer).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Provare una guida introduttiva usando Azure blockchain Development Kit per Ethereum per la connessione a un consorzio nel servizio blockchain di Azure.
+Prova una guida introduttiva usando Azure Blockchain Development Kit per Ethereum per connetterti a un consorzio nel servizio Blockchain di Azure.Try a quickstart using Azure Blockchain Development Kit for Ethereum to attach to a consortium on Azure Blockchain Service.
 
 > [!div class="nextstepaction"]
-> [Usare Visual Studio Code per connettersi al servizio Azure blockchain](connect-vscode.md)
+> [Usare Visual Studio Code per connettersi al servizio Azure Blockchain](connect-vscode.md)

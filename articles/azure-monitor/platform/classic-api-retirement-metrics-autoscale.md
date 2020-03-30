@@ -4,12 +4,12 @@ description: Ritiro delle API classiche di metrica e scalabilità automatica, ch
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 980f4e840f7778c6ea3025db9b37a3454267bac7
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 9dfa6b278587f4ed79b1c3cd9eff1defd09ec0bd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77663556"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294666"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Ritiro da parte di Monitoraggio di Azure di API di modelli di distribuzione classici per metriche e scalabilità automatica
 
@@ -35,7 +35,7 @@ Questo articolo riguarda gli utenti che utilizzano i seguenti componenti:
 
 Se non si è certi che il codice o gli strumenti personalizzati chiamino le API classiche, esaminare quanto segue:
 
-- Controllare l'URI a cui fa riferimento il codice o lo strumento. Le API classiche usano l'URI https://management.core.windows.net. Utilizzare l'URI più recente per le API di Resource Manager che inizia con https://management.azure.com/.
+- Controllare l'URI a cui fa riferimento il codice o lo strumento. Le API classiche usano l'URI https://management.core.windows.net. Utilizzare l'URI più recente per le API di Resource Manager che inizia con `https://management.azure.com/`.
 
 - Confrontare il nome dell'assembly nel computer. L'assembly classico precedente si trova https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/.
 
@@ -58,7 +58,7 @@ La migrazione alle nuove API consente di usare funzionalità basate su Resource 
 - supporto per le dimensioni
 - granularità coerente delle metriche di 1 minuto in tutti i servizi 
 - migliore esecuzione di query
-- conservazione dei dati più elevata (93 giorni di metriche rispetto a 30 giorni) 
+- maggiore conservazione dei dati (93 giorni di metriche rispetto a 30 giorni) 
 
 In generale, come per tutti gli altri servizi di Azure, le API di Monitoraggio di Azure basate su Gestione risorse garantiscono prestazioni, scalabilità e affidabilità migliori. 
 
@@ -72,9 +72,9 @@ Non ci sarà un impatto diretto sui servizi di Azure o sui carichi di lavoro.
 
 Tutte le chiamate alle API classiche disponibili in precedenza avranno esito negativo e si riceveranno messaggi di errore simili al seguente:
 
-Per la scalabilità automatica: *questa API è stata deprecata. Usare i modelli portale di Azure, Azure monitor SDK, PowerShell, CLI o Gestione risorse per gestire le impostazioni di scalabilità*automatica.  
+Per la scalabilità automatica: *questa API è deprecata. Usare i modelli Portale di Azure, Azure Monitor SDK, PowerShell, CLI o Resource Manager per gestire le impostazioni di scalabilità automatica.*  
 
-Per le metriche: *questa API è stata deprecata. Usare la portale di Azure, Azure monitor SDK, PowerShell e l'interfaccia della riga di comando per eseguire query per le metriche*.
+Per le metriche: *questa API è deprecata. Usare il portale di Azure, Azure Monitor SDK, PowerShell, l'interfaccia della riga di comando per eseguire query per le metriche.*
 
 ## <a name="email-notifications"></a>Notifiche di posta elettronica
 
