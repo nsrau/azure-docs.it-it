@@ -1,24 +1,23 @@
 ---
 title: Come compilare il modulo delle informazioni tecniche
-description: Deprecato e collegato agli articoli del PC corrispondenti; was "spiega come immettere i valori nel modulo informazioni tecniche per una nuova app Dynamics 365 business Central."
-services: Azure, Marketplace, Cloud Partner Portal,
-author: ChJenk
+description: Deprecato e collegato agli articoli PC corrispondenti; è stata "Spiega come immettere i valori nel modulo Informazioni tecniche per una nuova app Dynamics 365 Business Central".
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.author: pabutler
-ms.openlocfilehash: ffd8b22b19b8b73c99901e854b18465586fc9e7b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 1297eb16dab082df4b224a0b9fcb482c4bc398ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820035"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80276054"
 ---
 # <a name="how-to-fill-out-the-technical-info-form"></a>Come compilare il modulo delle informazioni tecniche
 
-Il [portale cloud partner](https://cloudpartner.azure.com/) non supporta più la creazione e la gestione delle offerte di Dynamics 365 business Central. Questa funzionalità è stata invece spostata nel portale del [centro](https://partner.microsoft.com/)per i partner Microsoft. Per altre informazioni, vedere [creare una nuova offerta di Dynamics 365 business Central](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer).
+Il portale per i [partner cloud](https://cloudpartner.azure.com/) non supporta più la creazione e la gestione delle offerte di Dynamics 365 Business Central. Al contrario, questa funzionalità è stata spostata nel [portale Del Centro per i partner](https://partner.microsoft.com/)Microsoft . Per ulteriori informazioni, consultate [Creare una nuova offerta Dynamics 365 Business Central](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Prima di creare una nuova offerta di Dynamics 365 business Central, è necessario leggere [creare un account del centro](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) per i partner e quindi aprire il [Dashboard del Marketplace commerciale](https://partner.microsoft.com/dashboard/directory) con la pagina **Panoramica** selezionata. Per creare l'offerta, seguire le istruzioni riportate in [creare una nuova offerta di Dynamics 365 business Central](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer) .
+Prima di creare una nuova offerta Dynamics 365 Business Central, devi leggere [Creare un account del Centro per](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) i partner e quindi aprire il dashboard Marketplace [commerciale](https://partner.microsoft.com/dashboard/directory) con la pagina **Panoramica** selezionata. Seguire le istruzioni in Creare una nuova offerta Dynamics [365 Business Central](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer) per creare l'offerta.

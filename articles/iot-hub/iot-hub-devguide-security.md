@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.openlocfilehash: 47eae55493c5db281ee1be0f9d32f8f8190fc286
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272058"
 ---
 # <a name="control-access-to-iot-hub"></a>Controllare l'accesso all'hub IoT
@@ -45,7 +45,7 @@ Per concedere le [autorizzazioni](#iot-hub-permissions) è possibile procedere n
   | registryRead | Autorizzazioni **RegistryRead** |
   | registryReadWrite | Autorizzazioni **RegistryRead** e **RegistryWrite** |
 
-* **Credenziali di sicurezza specifiche del dispositivo**. Ogni hub IoT contiene un [registro delle identità](iot-hub-devguide-identity-registry.md). Per ogni dispositivo presente in questo registro delle identità è possibile configurare credenziali di sicurezza che concedono autorizzazioni **DeviceConnect** con ambito agli endpoint di dispositivo corrispondenti.
+* **Credenziali**di sicurezza per dispositivo . Ogni hub IoT contiene un [registro delle identità](iot-hub-devguide-identity-registry.md). Per ogni dispositivo presente in questo registro delle identità è possibile configurare credenziali di sicurezza che concedono autorizzazioni **DeviceConnect** con ambito agli endpoint di dispositivo corrispondenti.
 
 Ad esempio, in una soluzione IoT tipica:
 
@@ -108,19 +108,19 @@ Quando si usa SASL PLAIN con AMQP, un client che si connette a un hub IoT potrà
 
 ## <a name="scope-iot-hub-level-credentials"></a>Definire l'ambito delle credenziali a livello di hub IoT
 
-È possibile definire l'ambito dei criteri di sicurezza a livello di hub IoT creando token con URI di risorsa con limitazioni. L'endpoint per l'invio di messaggi da dispositivo a cloud da un dispositivo, ad esempio, è **/devices/{deviceId}/messages/events**. È anche possibile usare criteri di accesso condiviso a livello di hub IoT con autorizzazioni **DeviceConnect** per firmare un token il cui valore resourceURI è **/devices/{deviceId}** . Questo approccio crea un token che può essere usato solo per l'invio di messaggi per conto del dispositivo **deviceId**.
+È possibile definire l'ambito dei criteri di sicurezza a livello di hub IoT creando token con URI di risorsa con limitazioni. L'endpoint per l'invio di messaggi da dispositivo a cloud da un dispositivo, ad esempio, è **/devices/{deviceId}/messages/events**. È anche possibile usare criteri di accesso condiviso a livello di hub IoT con autorizzazioni **DeviceConnect** per firmare un token il cui valore resourceURI è **/devices/{deviceId}**. Questo approccio crea un token che può essere usato solo per l'invio di messaggi per conto del dispositivo **deviceId**.
 
 Questo meccanismo è simile ai [criteri dell'entità di pubblicazione di Hub eventi](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab) e consente di implementare metodi di autenticazione personalizzati.
 
 ## <a name="security-tokens"></a>Token di sicurezza
 
-Hub IoT usa i token di sicurezza per autenticare i dispositivi e i servizi ed evitare l'invio in rete delle chiavi. Inoltre, i token di sicurezza hanno una validità limitata in termini di tempo e portata. Gli [Azure IoT SDK](iot-hub-devguide-sdks.md) generano automaticamente i token senza richiedere una configurazione speciale. In alcuni scenari è necessario generare e usare direttamente i token di sicurezza. Tali scenari includono:
+Hub IoT usa i token di sicurezza per autenticare i dispositivi e i servizi ed evitare l'invio in rete delle chiavi. Inoltre, i token di sicurezza hanno una validità limitata in termini di tempo e portata. Gli SDK di [Azure IoT](iot-hub-devguide-sdks.md) generano automaticamente token senza richiedere alcuna configurazione speciale. In alcuni scenari è necessario generare e usare direttamente i token di sicurezza. Tali scenari includono:
 
 * L'uso diretto di superfici MQTT, AMQP o HTTPS.
 
 * L'implementazione del modello di servizio token, come descritto in [Autenticazione personalizzata del dispositivo](iot-hub-devguide-security.md#custom-device-and-module-authentication).
 
-Hub IoT consente ai dispositivi di autenticarsi con l'hub IoT usando [certificati X.509](iot-hub-devguide-security.md#supported-x509-certificates).
+L'hub IoT consente inoltre ai dispositivi di eseguire l'autenticazione con l'hub IoT utilizzando [i certificati X.509.](iot-hub-devguide-security.md#supported-x509-certificates)
 
 ### <a name="security-token-structure"></a>Formato del token di sicurezza
 
@@ -347,7 +347,7 @@ Il risultato, che concede l'accesso in lettura a tutte le identità dispositivo,
 
 ## <a name="supported-x509-certificates"></a>Certificati X.509 supportati
 
-È possibile usare qualsiasi certificato X.509 per autenticare un dispositivo con l'hub IoT caricando un'identificazione personale del certificato o un'autorità di certificazione (CA) nell'hub IoT di Azure. L'autenticazione tramite identificazione personale del certificato verifica che l'identificazione personale presentata corrisponda all'identificazione personale configurata. L'autenticazione tramite l'autorità di certificazione convalida la catena di certificati. In entrambi i casi, l'handshake TLS richiede che il dispositivo disponga di un certificato e di una chiave privata validi. Per informazioni dettagliate, vedere la specifica TLS, ad esempio: [RFC 5246-il protocollo Transport Layer Security (TLS) versione 1,2](https://tools.ietf.org/html/rfc5246/).
+È possibile usare qualsiasi certificato X.509 per autenticare un dispositivo con l'hub IoT caricando un'identificazione personale del certificato o un'autorità di certificazione (CA) nell'hub IoT di Azure. L'autenticazione tramite identificazioni personale del certificato verifica che l'identificazione personale presentata corrisponda all'identificazione personale configurata. L'autenticazione tramite l'autorità di certificazione convalida la catena di certificati. In entrambi i casi, l'handshake TLS richiede che il dispositivo disponga di un certificato e di una chiave privata validi. Fare riferimento alla specifica TLS per i dettagli, ad esempio: [RFC 5246 - The Transport Layer Security (TLS) Protocol Version 1.2](https://tools.ietf.org/html/rfc5246/).
 
 I certificati supportati includono:
 
@@ -443,9 +443,9 @@ La tabella seguente elenca le autorizzazioni che è possibile usare per controll
 
 | Autorizzazione | Note |
 | --- | --- |
-| **RegistryRead** |Concede l'accesso di sola lettura al registro di identità. Per altre informazioni, vedere [Registro delle identità](iot-hub-devguide-identity-registry.md). <br/>Questa autorizzazione viene usata dai servizi cloud back-end. |
-| **RegistryReadWrite** |Concede l'accesso di lettura e scrittura al registro di identità. Per altre informazioni, vedere [Registro delle identità](iot-hub-devguide-identity-registry.md). <br/>Questa autorizzazione viene usata dai servizi cloud back-end. |
-| **ServiceConnect** |Concede l'accesso alle comunicazioni per il servizio cloud e al monitoraggio degli endpoint. <br/>Concede l'autorizzazione per la ricezione di messaggi da dispositivo a cloud, l'invio di messaggi da cloud a dispositivo e il recupero degli acknowledgment di recapito corrispondenti. <br/>Concede l'autorizzazione per recuperare i riconoscimenti di recapito per i caricamenti di file. <br/>Concede l'autorizzazione per l'accesso a dispositivi/moduli gemelli per l'aggiornamento dei tag e delle proprietà indicate, il recupero delle proprietà segnalate e l'esecuzione di query. <br/>Questa autorizzazione viene usata dai servizi cloud back-end. |
+| **RegistryRead** |Concede l'accesso di sola lettura al registro di identità. Per ulteriori informazioni, vedere [Registro di identità](iot-hub-devguide-identity-registry.md). <br/>Questa autorizzazione viene usata dai servizi cloud back-end. |
+| **RegistryReadWrite (scrittura su registro)** |Concede l'accesso di lettura e scrittura al registro di identità. Per ulteriori informazioni, vedere [Registro di identità](iot-hub-devguide-identity-registry.md). <br/>Questa autorizzazione viene usata dai servizi cloud back-end. |
+| **ServiceConnect (Connessione servizi)** |Concede l'accesso alle comunicazioni per il servizio cloud e al monitoraggio degli endpoint. <br/>Concede l'autorizzazione per la ricezione di messaggi da dispositivo a cloud, l'invio di messaggi da cloud a dispositivo e il recupero degli acknowledgment di recapito corrispondenti. <br/>Concede l'autorizzazione per recuperare i riconoscimenti di recapito per i caricamenti di file. <br/>Concede l'autorizzazione per l'accesso a dispositivi/moduli gemelli per l'aggiornamento dei tag e delle proprietà indicate, il recupero delle proprietà segnalate e l'esecuzione di query. <br/>Questa autorizzazione viene usata dai servizi cloud back-end. |
 | **DeviceConnect** |Concede l'accesso agli endpoint per il dispositivo. <br/>Concede l'autorizzazione per l'invio di messaggi da dispositivo a cloud e la ricezione di messaggi da cloud a dispositivo. <br/>Concede l'autorizzazione per il caricamento di file da un dispositivo. <br/>Concede l'autorizzazione per la ricezione di notifiche su particolari proprietà del dispositivo gemello e l'aggiornamento delle proprietà segnalate di quest'ultimo. <br/>Concede l'autorizzazione per il caricamento di file. <br/>Questa autorizzazione viene usata dai dispositivi. |
 
 ## <a name="additional-reference-material"></a>Materiale di riferimento
@@ -462,7 +462,7 @@ Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida p
 
 * [Supporto di MQTT nell'hub IoT](iot-hub-mqtt-support.md) offre altre informazioni sul supporto dell'hub IoT per il protocollo MQTT.
 
-* [RFC 5246-la versione 1,2 del protocollo Transport Layer Security (TLS)](https://tools.ietf.org/html/rfc5246/) fornisce altre informazioni sull'autenticazione TLS.
+* [RFC 5246 - Il protocollo TLS (Transport Layer Security) versione 1.2](https://tools.ietf.org/html/rfc5246/) fornisce ulteriori informazioni sull'autenticazione TLS.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -470,10 +470,10 @@ In questa esercitazione si è appreso come controllare l'accesso all'hub IoT. Al
 
 * [Use device twins to synchronize state and configurations](iot-hub-devguide-device-twins.md) (Usare dispositivi gemelli per sincronizzare lo stato e le configurazioni)
 * [Richiamare un metodo diretto in un dispositivo](iot-hub-devguide-direct-methods.md)
-* [Pianificare processi in più dispositivi](iot-hub-devguide-jobs.md)
+* [Pianificare processi su più dispositivi](iot-hub-devguide-jobs.md)
 
 Per provare alcuni dei concetti descritti in questo articolo, vedere le esercitazioni sull'hub IoT seguenti:
 
-* [Introduzione all'hub IoT di Azure](quickstart-send-telemetry-node.md)
+* [Introduzione all'hub IoT di AzureGet started with Azure IoT Hub](quickstart-send-telemetry-node.md)
 * [Inviare messaggi da cloud a dispositivo con l'hub IoT](iot-hub-csharp-csharp-c2d.md)
 * [Elaborare messaggi da dispositivo a cloud dell'hub IoT](tutorial-routing.md)

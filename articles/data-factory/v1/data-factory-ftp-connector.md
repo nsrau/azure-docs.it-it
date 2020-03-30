@@ -13,10 +13,10 @@ ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 55c8bf2210eb0990a91aeff1f90e4af4db2c22ab
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281405"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Spostare dati da un server FTP usando Azure Data Factory
@@ -44,13 +44,13 @@ Se si spostano dati da un server FTP **locale** in un archivio dati cloud, ad es
 
 Il modo più semplice per creare una pipeline è usare la **Copia guidata di Data Factory**. Per una procedura dettagliata, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md).
 
-È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **PowerShell**, **Azure Resource Manager modello**, l' **API .NET**e l' **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+È inoltre possibile utilizzare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **PowerShell**, **modello Azure Resource Manager**, API **.NET**e **API REST**. Vedere [Esercitazione sull'attività](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) di copia per istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
 1. Creare i **servizi collegati** per collegare gli archivi di dati di input e output alla data factory.
-2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia.
-3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output.
+2. Creare **set di dati** per rappresentare i dati di input e output per l'operazione di copia.
+3. Creare una **pipeline** con un'attività di copia che accetta un set di dati come input e un set di dati come output.
 
 Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di Data Factory. Per un esempio con definizioni JSON per entità di Data Factory usate per copiare dati da un archivio dati FTP, vedere la sezione [Esempio JSON: copiare dati da un server FTP al BLOB di Azure](#json-example-copy-data-from-ftp-server-to-azure-blob) di questo articolo.
 
@@ -158,7 +158,7 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati. Fornisce 
 | fileName |Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella punta a tutti i file nella cartella.<br/><br/>Quando **fileName** non viene specificato per un set di dati di output, il formato del nome del file generato è il seguente: <br/><br/>`Data.<Guid>.txt` Esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | fileFilter |Specificare un filtro da usare per selezionare un sottoinsieme di file in **folderPath** anziché tutti i file.<br/><br/>I valori consentiti sono: `*` (più caratteri) e `?` (carattere singolo).<br/><br/>Esempio 1: `"fileFilter": "*.log"`<br/>Esempio 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** è applicabile per un set di dati di input FileShare. Questa proprietà non è supportata con Hadoop Distributed File System (HDFS). |No |
 | partitionedBy |Usata per specificare una proprietà **folderPath** e **fileName** dinamica per i dati della serie temporale. È ad esempio possibile specificare un **folderPath** contenente i parametri per ogni ora di dati. |No |
-| format | Sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [Formato testo](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato AVRO](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato OCR](data-factory-supported-file-and-compression-formats.md#orc-format) e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per copiare i file così come sono tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No |
+| format | Sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** in format su uno di questi valori. Per altre informazioni, vedere le sezioni [Formato testo](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato AVRO](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato OCR](data-factory-supported-file-and-compression-formats.md#orc-format) e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per copiare i file così come sono tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No |
 | compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**, mentre i livelli supportati sono **Ottimale** e **Più veloce**. Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 | useBinaryTransfer |Specificare se usare la modalità di trasferimento binario. I valori sono true per la modalità binaria (valore predefinito) e false per ASCII. Questa proprietà può essere usata solo quando il tipo di servizio collegato associato è di tipo: FtpServer. |No |
 
@@ -199,7 +199,7 @@ In questo esempio l'anno, il mese, il giorno e l'ora di SliceStart vengono estra
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulla [creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e criteri.
 
-D'altra parte, le proprietà disponibili nella sezione **typeProperties** dell'attività variano in base al tipo di attività. Per l'attività di copia, le proprietà del tipo variano in base ai tipi di origine e sink.
+Le proprietà disponibili nella sezione **typeProperties** dell'attività, d'altra parte, variano a seconda del tipo di attività. Per l'attività di copia, le proprietà del tipo variano in base ai tipi di origine e sink.
 
 Nell'attività di copia con origine di tipo **FileSystemSource**, nella sezione **typeProperties** sono disponibili le proprietà seguenti:
 
@@ -210,7 +210,7 @@ Nell'attività di copia con origine di tipo **FileSystemSource**, nella sezione 
 ## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>Esempio JSON: copiare i dati dal server FTP in BLOB di Azure
 Questo esempio illustra come copiare dati dal server FTP in Archiviazione BLOB di Azure. I dati possono tuttavia essere copiati direttamente in uno qualsiasi dei sink indicati nella sezione [Archivi dati e formati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats), usando l'attività di copia in Data Factory.
 
-Gli esempi seguenti forniscono le definizioni JSON di esempio che è possibile usare per creare una pipeline usando [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)o [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md):
+Negli esempi seguenti vengono fornite definizioni JSON di esempio che è possibile usare per creare una pipeline tramite [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)o [PowerShell:](data-factory-copy-activity-tutorial-using-powershell.md)
 
 * Un servizio collegato di tipo [FtpServer](#linked-service-properties)
 * Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
