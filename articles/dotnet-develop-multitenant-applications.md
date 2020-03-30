@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.openlocfilehash: d3e267eab056589ed38c436620dd0db185291da1
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77425902"
 ---
 # <a name="multitenant-applications-in-azure"></a>Applicazioni multi-tenant in Azure
-Un'applicazione multi-tenant è una risorsa condivisa che consente agli utenti in tenant distinti di visualizzare l'applicazione come se fosse propria. Uno scenario tipico che si presta a un'applicazione multi-tenant è quello in cui tutti gli utenti dell'applicazione da tenant diversi possono desiderare di personalizzare l'esperienza utente, ma in caso contrario hanno gli stessi requisiti aziendali di base. Esempi di grandi applicazioni multi-tenant sono Office 365, Outlook.com e visualstudio.com.
+Un'applicazione multi-tenant è una risorsa condivisa che consente agli "utenti in tenant separati" di visualizzare l'applicazione come se fosse propria. Uno scenario tipico che si presta a un'applicazione multi-tenant è quello in cui tutti gli utenti dell'applicazione da tenant diversi possono voler personalizzare l'esperienza utente, ma in caso contrario hanno gli stessi requisiti aziendali di base. Esempi di grandi applicazioni multi-tenant sono Office 365, Outlook.com e visualstudio.com.
 
 Dal punto di vista del fornitore di applicazioni, i vantaggi della multi-tenancy risiedono principalmente nell'efficienza operativa e dei costi. Una versione dell'applicazione può soddisfare le esigenze di molti tenant/client, consentendo il consolidamento di attività amministrative del sistema come il monitoraggio, l'ottimizzazione delle prestazioni, la manutenzione del software e i backup di dati.
 
@@ -38,9 +38,9 @@ Un'applicazione multi-tenant correttamente implementata offre agli utenti i vant
 * **Disponibilità**: i singoli tenant vogliono che l'applicazione sia sempre disponibile, meglio se con garanzie definite in un contratto di servizio (SLA, Service Level Agreement). Come già accennato, le attività dei singoli tenant non dovrebbero incidere sulla disponibilità dell'applicazione.
 * **Scalabilità**: è possibile scalare l'applicazione in modo da soddisfare la domanda di singoli tenant. La presenza e le azioni degli altri tenant non dovrebbero incidere sulle prestazioni dell'applicazione.
 * **Costi**: i costi sono inferiori rispetto all'esecuzione di un'applicazione single-tenant dedicata, in quanto la multi-tenancy consente la condivisione delle risorse.
-* **Personalizzabilità**. la possibilità di personalizzare l'applicazione per un singolo tenant in vari modi, ad esempio con l'aggiunta o la rimozione di funzionalità, la modifica di colori e loghi o persino l'aggiunta di un proprio codice o script.
+* **Personalizzazione**. la possibilità di personalizzare l'applicazione per un singolo tenant in vari modi, ad esempio con l'aggiunta o la rimozione di funzionalità, la modifica di colori e loghi o persino l'aggiunta di un proprio codice o script.
 
-In breve, sebbene ci siano molte considerazioni che è necessario tenere in considerazione per fornire un servizio altamente scalabile, esistono anche diversi obiettivi e requisiti comuni a molte applicazioni multi-tenant. Alcuni potrebbero non essere pertinenti in scenari specifici e l'importanza dei singoli obiettivi e requisiti varierà in ogni scenario. In quanto provider dell'applicazione multi-tenant, si avranno anche obiettivi e requisiti, ad esempio, che soddisfano gli obiettivi e i requisiti del tenant, la redditività, la fatturazione, più livelli di servizio, il provisioning, il monitoraggio della gestibilità e l'automazione.
+In breve, mentre ci sono molte considerazioni che è necessario prendere in considerazione per fornire un servizio altamente scalabile, ci sono anche una serie di obiettivi e requisiti che sono comuni a molte applicazioni multi-tenant. Alcuni potrebbero non essere pertinenti in scenari specifici e l'importanza dei singoli obiettivi e requisiti varierà in ogni scenario. In qualità di provider dell'applicazione multi-tenant, si diranno anche obiettivi e requisiti come, soddisfare gli obiettivi e i requisiti del tenant, la redditività, la fatturazione, più livelli di servizio, provisioning, monitoraggio della manutenibilità e automazione.
 
 Per altre informazioni sulle considerazioni di progettazione di un'applicazione multi-tenant vedere [Hosting di un'applicazione multi-tenant in Azure][Hosting a Multi-Tenant Application on Azure]. Per informazioni sugli schemi di architettura dati comuni delle applicazioni di database multi-tenant software come un servizio (SaaS), vedere [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md). 
 
@@ -54,12 +54,12 @@ Azure offre molte funzionalità che consentono di risolvere i principali problem
   * Ruoli di lavoro che in genere elaborano i dati nel back-end di un'applicazione.
   * Ruoli Web che solitamente fungono da front-end per le applicazioni.
 
-**Storage**
+**Archiviazione**
 
-Gestione dei dati, ad esempio il database SQL di Azure o i servizi di archiviazione di Azure, ad esempio il servizio tabelle, che fornisce servizi per l'archiviazione di grandi quantità di dati non strutturati e il servizio BLOB, che fornisce servizi per archiviare grandi quantità di testo non strutturato o dati binari come video, audio e immagini.
+Gestione dei dati, ad esempio Database SQL di Azure o servizi di archiviazione di Azure, ad esempio il servizio tabelle, che fornisce servizi per l'archiviazione di grandi quantità di dati non strutturati e il servizio BLOB, che fornisce servizi per archiviare grandi quantità di testo non strutturato o dati binari come video, audio e immagini.
 
-* Protezione dei dati multi-tenant nel database SQL per ogni tenant SQL Server account di accesso.
-* Usando le tabelle di Azure per le risorse dell'applicazione specificando criteri di accesso a livello di contenitore, è possibile modificare le autorizzazioni senza dover emettere nuovi URL per le risorse protette con le firme di accesso condiviso.
+* Protezione dei dati multitenant negli account di accesso di SQL Server per tenant nel database SQL.Securing Multitenant Data in SQL Database per-tenant SQL Server logins.
+* Usando le tabelle di Azure per le risorse dell'applicazione specificando criteri di accesso a livello di contenitore, è possibile avere la possibilità di modificare le autorizzazioni senza dover rilasciare nuovi URL per le risorse protette con firme di accesso condiviso.
 * Code di Azure per le risorse dell'applicazione - Le code di Azure sono comunemente utilizzate per attivare l'elaborazione per conto dei tenant, ma possono essere utilizzate anche per distribuire il lavoro richiesto per il provisioning o la gestione.
 * Code di bus di servizio - Per le risorse dell'applicazione che effettuano il push del lavoro a un servizio condiviso, è possibile usare una singola coda in cui ogni mittente del tenant dispone solo delle autorizzazioni (in base alle attestazioni generate da ACS) per effettuare il push a quella coda, mentre solo i ricevitori dal servizio dispongono dell'autorizzazione per effettuare il pull dei dati provenienti da più tenant dalla coda.
 
@@ -73,12 +73,12 @@ Azure offre diversi servizi di rete che supportano l'autenticazione e migliorano
 
 * La rete virtuale di Azure consente di effettuare il provisioning e la gestione delle reti private virtuali (VPN) in Azure e di collegare queste reti in modo sicuro con l'infrastruttura IT locale.
 * Rete virtuale - Gestione traffico consente di bilanciare il carico del traffico in ingresso tra più servizi di Azure ospitati, in esecuzione sia nello stesso data center sia in data center diversi distribuiti in tutto il mondo.
-* Azure Active Directory (Azure AD) è un servizio moderno basato su REST che fornisce funzionalità di gestione dell'identità e controllo di accesso per le applicazioni cloud. L'uso di Azure AD per le risorse dell'applicazione offre un modo semplice per autenticare e autorizzare gli utenti ad accedere alle applicazioni e ai servizi Web, consentendo al contempo le funzionalità di autenticazione e autorizzazione all'esterno del codice.
-* Il bus di servizio di Azure fornisce una funzionalità protetta di messaggistica e flusso dei dati per le applicazioni distribuite e ibride, ad esempio la comunicazione tra le applicazioni ospitate su Azure e le applicazioni e i servizi locali, senza richiedere complesse infrastrutture di sicurezza e firewall. Usare l'inoltro del bus di servizio per le risorse dell'applicazione per accedere ai servizi esposti come endpoint possono appartenere al tenant (ad esempio, ospitati all'esterno del sistema, ad esempio in locale), oppure è possibile eseguire il provisioning dei servizi in modo specifico per il tenant (perché i dati sensibili, specifici del tenant viaggiano tra loro.
+* Azure Active Directory (Azure AD) è un servizio moderno basato su REST che fornisce funzionalità di gestione dell'identità e controllo di accesso per le applicazioni cloud. L'uso di Azure AD per le risorse dell'applicazione offre un modo semplice per autenticare e autorizzare gli utenti ad accedere alle applicazioni e ai servizi Web, consentendo al contempo di fattorizzare le funzionalità di autenticazione e autorizzazione dal codice.
+* Il bus di servizio di Azure fornisce una funzionalità protetta di messaggistica e flusso dei dati per le applicazioni distribuite e ibride, ad esempio la comunicazione tra le applicazioni ospitate su Azure e le applicazioni e i servizi locali, senza richiedere complesse infrastrutture di sicurezza e firewall. L'utilizzo dell'inoltro del bus di servizio per le risorse dell'applicazione per accedere ai servizi esposti come endpoint può appartenere al tenant (ad esempio, ospitato all'esterno del sistema, ad esempio in locale) oppure è possibile che si esegua il provisioning dei servizi in modo specifico per il tenant (perché dati sensibili e specifici del tenant viaggiano attraverso di essi).
 
 **Provisioning delle risorse**
 
-Azure offre diversi modi per effettuare il provisioning di nuovi tenant per l'applicazione. Per le applicazioni multi-tenant che contano un ingente numero di tenant, di solito è necessario automatizzare il processo abilitando il provisioning self-service.
+Azure offre diversi modi per eseguire il provisioning di nuovi tenant per l'applicazione. Per le applicazioni multi-tenant che contano un ingente numero di tenant, di solito è necessario automatizzare il processo abilitando il provisioning self-service.
 
 * I ruoli di lavoro consentono di eseguire il provisioning e il deprovisioning delle risorse per ogni tenant (ad esempio quando un nuovo tenant effettua o annulla l'iscrizione), raccogliendo metriche per misurare l'utilizzo e gestendo la scalabilità in base a una determinata pianificazione o in risposta al superamento di soglie degli indicatori di prestazioni chiave. Questo stesso ruolo può essere utilizzato anche per effettuare il push di aggiornamenti alla soluzione.
 * È possibile utilizzare l'archivio BLOB di Azure per effettuare il provisioning delle risorse di calcolo o di archiviazione preinizializzate per i nuovi tenant, fornendo criteri di accesso a livello di contenitore per proteggere i pacchetti del servizio di calcolo, le immagini del disco rigido virtuale e altre risorse.

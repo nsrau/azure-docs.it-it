@@ -7,10 +7,10 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 6fec85c028e992c15fb9503ffb599023e668c58f
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77459940"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Aggiungere notifiche push all'app Android
@@ -60,7 +60,7 @@ In questa sezione l'app del client Android viene aggiornata in modo da gestire l
 
 Il passaggio successivo comporta l'installazione di Google Play Services. Firebase Cloud Messaging prevede alcuni requisiti minimi a livello di API per lo sviluppo e i test. È necessario che la proprietà **minSdkVersion** nel manifesto sia conforme a tali requisiti.
 
-In caso di test con un dispositivo meno recente, vedere [Aggiungere Firebase al progetto Android] (Aggiungere Firebase a un progetto Android) per determinare il livello minimo su cui è possibile impostare tale valore e applicare l'impostazione corretta.
+In caso di test con un dispositivo meno recente, vedere [Add Firebase to Your Android Project] (Aggiungere Firebase a un progetto Android) per determinare il livello minimo su cui è possibile impostare tale valore e applicare l'impostazione corretta.
 
 ### <a name="add-firebase-cloud-messaging-to-the-project"></a>Aggiungere Firebase Cloud Messaging al progetto
 
@@ -78,11 +78,11 @@ In caso di test con un dispositivo meno recente, vedere [Aggiungere Firebase al 
 
 Dopo aver completato questa esercitazione, continuare con una delle esercitazioni seguenti:
 
-* [Aggiungere l'autenticazione all'app Android](app-service-mobile-android-get-started-users.md).
+* [Aggiungi l'autenticazione alla tua app Android](app-service-mobile-android-get-started-users.md).
   Questa esercitazione spiega come aggiungere l'autenticazione al progetto introduttivo TodoList in Android tramite un provider di identità supportato.
 * [Attivare la sincronizzazione offline per l'app Android](app-service-mobile-android-get-started-offline-data.md).
   Informazioni su come aggiungere il supporto offline all'app usando il back-end di App per dispositivi mobili. Con la sincronizzazione offline è possibile interagire con un'app per dispositivi mobili &mdash;visualizzando, aggiungendo e modificando i dati&mdash; anche quando non è disponibile una connessione di rete.
 
 <!-- URLs -->
 [avvio rapido di Android]: app-service-mobile-android-get-started.md
-[Aggiungere Firebase al progetto Android]: https://firebase.google.com/docs/android/setup
+[Aggiungere Firebase al progetto Android]:https://firebase.google.com/docs/android/setup

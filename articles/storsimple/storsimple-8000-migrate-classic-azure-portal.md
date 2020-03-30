@@ -1,6 +1,6 @@
 ---
-title: Eseguire la migrazione di account di archiviazione StorSimple Device Manager, sottoscrizioni
-description: Informazioni su come eseguire la migrazione di sottoscrizioni e account di archiviazione per il servizio StorSimple Device Manager.
+title: Eseguire la migrazione di account di archiviazione, sottoscrizioni di StorSimple Device Manager
+description: Informazioni su come eseguire la migrazione di sottoscrizioni, account di archiviazione per il servizio StorSimple Device Manager.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: 428c336d98e278910b229e9c0d877a9ae6268c96
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77169713"
 ---
 # <a name="migrate-subscriptions-and-storage-accounts-associated-with-storsimple-device-manager-service"></a>Eseguire la migrazione di sottoscrizioni e account di archiviazione associati al servizio Gestione dispositivi StorSimple
@@ -29,8 +29,8 @@ Potrebbe essere necessario spostare il servizio StorSimple in una nuova registra
 
 | È possibile spostare...| Supportato| Tempo di inattività| Processo di supporto di Azure| Approccio|
 |-----|-----|-----|-----|-----|
-| Un'intera sottoscrizione (che include il servizio StorSimple e gli account di archiviazione) in un'altra registrazione? | Sì       | No       | **Trasferimento della registrazione**<br>Uso:<li>Quando si acquista un nuovo impegno di Azure con un nuovo contratto.</li><li>Si vuole eseguire la migrazione di tutti gli account e di tutte le sottoscrizioni dalla vecchia registrazione a quella nuova. Sono inclusi tutti i servizi di Azure compresi nella sottoscrizione precedente.</li> | **Passaggio 1: Aprire un ticket di supporto per le operazioni di Azure Enterprise.**<li>Passare a [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).</li><li> Selezionare **Enrollment Administration** (Amministrazione registrazione) e quindi selezionare **Transfer from one enrollment to a new enrollment** (Trasferisci da una registrazione a una nuova registrazione).<br>**Passaggio 2: Fornire le informazioni richieste**<br>Includere:<li>Numero di registrazione di origine</li><li> Numero di registrazione di destinazione</li><li>Data di validità del trasferimento|
-| Il servizio StorSimple da un account esistente a una nuova registrazione?    | Sì       | No       | **Trasferimento dell'account**<br>Usare:<li>Quando non si vuole trasferire completamente una registrazione.</li><li>Si vogliono spostare solo account specifici in una nuova registrazione.</li>| **Passaggio 1: Aprire un ticket di supporto per le operazioni di Azure Enterprise.**<li>Passare a [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).</li><li>Selezionare **Enrollment Administration** (Amministrazione registrazione) e quindi selezionare **Transfer from one enrollment to a new enrollment** (Trasferisci un account EA in una nuova registrazione).<br>**Passaggio 2: Fornire le informazioni richieste**<br>Includere:<li>Numero di registrazione di origine</li><li> Numero di registrazione di destinazione</li><li>Data di validità del trasferimento|
+| Un'intera sottoscrizione (che include il servizio StorSimple e gli account di archiviazione) in un'altra registrazione? | Sì       | No       | **Trasferimento della registrazione**<br>Uso:<li>Quando si acquista un nuovo impegno di Azure con un nuovo contratto.</li><li>Si vuole eseguire la migrazione di tutti gli account e di tutte le sottoscrizioni dalla vecchia registrazione a quella nuova. Sono inclusi tutti i servizi di Azure compresi nella sottoscrizione precedente.</li> | **Passaggio 1: Aprire un ticket di supporto per le operazioni di Azure Enterprise.**<li>Andare [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport)a .</li><li> Selezionare **Enrollment Administration** (Amministrazione registrazione) e quindi selezionare **Transfer from one enrollment to a new enrollment** (Trasferisci da una registrazione a una nuova registrazione).<br>**Passaggio 2: Fornire le informazioni richieste**<br>Includere:<li>Numero di registrazione di origine</li><li> Numero di registrazione di destinazione</li><li>Data di validità del trasferimento|
+| Il servizio StorSimple da un account esistente a una nuova registrazione?    | Sì       | No       | **Trasferimento dell'account**<br>Usare:<li>Quando non si vuole trasferire completamente una registrazione.</li><li>Si vogliono spostare solo account specifici in una nuova registrazione.</li>| **Passaggio 1: Aprire un ticket di supporto per le operazioni di Azure Enterprise.**<li>Andare [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport)a .</li><li>Selezionare **Enrollment Administration** (Amministrazione registrazione) e quindi selezionare **Transfer from one enrollment to a new enrollment** (Trasferisci un account EA in una nuova registrazione).<br>**Passaggio 2: Fornire le informazioni richieste**<br>Includere:<li>Numero di registrazione di origine</li><li> Numero di registrazione di destinazione</li><li>Data di validità del trasferimento|
 | Il servizio StorSimple da una sottoscrizione a un'altra sottoscrizione?      | No        |    Sì         | Nessuno, processo manuale|<li>Eseguire la migrazione dei dati dal dispositivo StorSimple.</li><li>Eseguire un ripristino delle impostazioni predefinite del dispositivo per eliminare i dati locali sul dispositivo.</li><li>Registrare il dispositivo con la nuova sottoscrizione in un servizio Gestione dispositivi StorSimple.</li><li>Eseguire la migrazione dei dati al dispositivo.|
 |È possibile trasferire la proprietà di una sottoscrizione di Azure a un'altra directory? | Sì       | No       | Associare una sottoscrizione esistente alla directory di Azure AD | Vedere [Per associare una sottoscrizione esistente alla directory di Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md). Per la visualizzazione corretta di tutti gli elementi potrebbero essere necessari fino a 10 minuti.|
 | Il dispositivo StorSimple da un servizio Gestione dispositivi StorSimple a un altro servizio in un'area diversa?      | No        | Sì            | Nessuno, processo manuale |Come sopra.|
