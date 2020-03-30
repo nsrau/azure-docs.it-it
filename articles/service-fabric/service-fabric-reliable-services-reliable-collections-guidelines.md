@@ -1,13 +1,13 @@
 ---
-title: Linee guida per Reliable Collections
-description: Linee guida e consigli per l'uso di Service Fabric Reliable Collections in un'applicazione Service Fabric di Azure.
+title: Linee guida per le raccolte affidabili
+description: Linee guida e consigli per l'uso di raccolte Reliable Collection di Service Fabric in un'applicazione di Azure Service Fabric.Guidelines and Recommendations for using Service Fabric Reliable Collections in an Azure Service Fabric application.
 ms.topic: conceptual
 ms.date: 12/10/2017
 ms.openlocfilehash: 37c734205877f9e0cb98ef2834462691e8e483d9
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645481"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Linee guida e consigli per Reliable Collections in Azure Service Fabric
@@ -21,7 +21,7 @@ Le linee guida sono organizzate come semplici consigli*su cosa fare* , *prendere
 * Non usare una transazione dopo che ne è stato eseguito il commit, è stata interrotta o eliminata.
 * Non usare un'enumerazione all'esterno dell'ambito di transazione nella quale è stata creata.
 * Non creare una transazione all'interno dell'istruzione `using` di un'altra transazione. Questa operazione può causare deadlock.
-* Non creare uno stato affidabile con `IReliableStateManager.GetOrAddAsync` e utilizzare lo stato affidabile nella stessa transazione. Viene restituito un valore InvalidOperationException.
+* Non creare uno `IReliableStateManager.GetOrAddAsync` stato affidabile con e utilizzare lo stato reliable nella stessa transazione. Ciò comporta un InvalidOperationException.This results in an InvalidOperationException.
 * Verificare che l'implementazione di `IComparable<TKey>` sia corretta. Il sistema presenta dipendenze su `IComparable<TKey>` per l'unione di checkpoint e righe.
 * Usare il blocco di aggiornamento durante la lettura di un elemento con l'intenzione di aggiornarlo in modo da evitare una determinata classe di deadlock.
 * Si consiglia di mantenere un numero di raccolte Reliable Collections per partizione inferiore a 1000. Preferire le raccolte Reliable Collections con più elementi.
@@ -46,9 +46,9 @@ Occorre tenere presente i concetti seguenti:
 * [Transazioni e blocchi](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Gestione dei dati
   * [Backup e ripristino](service-fabric-reliable-services-backup-restore.md)
-  * [Notifications](service-fabric-reliable-services-notifications.md)
+  * [Notifiche](service-fabric-reliable-services-notifications.md)
   * [Serializzazione e aggiornamento](service-fabric-application-upgrade-data-serialization.md)
   * [Reliable State Manager configuration (Configurazione di Reliable State Manager)](service-fabric-reliable-services-configuration.md)
 * Altro
-  * [Guida introduttiva a Reliable Services di Microsoft Azure Service Fabric](service-fabric-reliable-services-quick-start.md)
+  * [Guida introduttiva di Reliable Services](service-fabric-reliable-services-quick-start.md)
   * [Guida di riferimento per gli sviluppatori per Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

@@ -4,14 +4,14 @@ description: Eseguire l'esportazione continua dei dati Application Insights in S
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.openlocfilehash: 3ef0420cdab64f11b699fd4031ed2b0134f18609
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663676"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Procedura dettagliata: Eseguire l'esportazione in SQL da Application Insights tramite l'analisi di flusso
-Questo articolo illustra come spostare i dati di telemetria da [applicazione Azure Insights][start] in un database SQL di Azure usando l' [esportazione continua][export] e [analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/). 
+Questo articolo illustra come spostare i dati di telemetria da [Azure Application Insights][start] in un database SQL di Azure usando l'[esportazione continua][export] e l'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/). 
 
 L'esportazione continua sposta i dati di telemetria in Archiviazione di Azure in formato JSON. Gli oggetti JSON verranno analizzati con l'analisi di flusso di Azure e verranno create righe in una tabella di database.
 
@@ -21,7 +21,7 @@ Si inizierà dal presupposto che si abbia già l'app che si vuole monitorare.
 
 In questo esempio verranno usati i dati relativi alle visualizzazioni pagina, ma gli stessi criteri possono essere estesi facilmente ad altri tipi di dati, ad esempio eccezioni ed eventi personalizzati. 
 
-## <a name="add-application-insights-to-your-application"></a>Aggiungere Application Insights all'applicazione
+## <a name="add-application-insights-to-your-application"></a>Aggiunta di Application Insights all'applicazione
 Attività iniziali
 
 1. [Installare Application Insights per le pagine Web](../../azure-monitor/app/javascript.md). 
@@ -73,7 +73,7 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
 Gli eventi vengono scritti nei file BLOB in formato JSON. Ogni file può contenere uno o più eventi. A questo punto sarà possibile leggere i dati degli eventi e filtrare i campi preferiti. È possibile eseguire una serie di operazioni sui dati, ma lo scopo di questo articolo è usare l'analisi di flusso per spostare i dati in un database SQL. Sarà quindi più semplice eseguire molte query interessanti.
 
 ## <a name="create-an-azure-sql-database"></a>Creare un database SQL di Azure
-Ancora una volta, a partire dalla sottoscrizione in [portale di Azure][portal], creare il database (e un nuovo server, a meno che non ne sia già stato creato uno) in cui si scriveranno i dati.
+Iniziando di nuovo dalla sottoscrizione nel [portale di Azure][portal], creare il database (e un nuovo server, se necessario) in cui si scriveranno i dati.
 
 ![Nuovo, Dati, SQL](./media/code-sample-export-sql-stream-analytics/090-sql.png)
 
@@ -153,13 +153,13 @@ A questo punto è necessaria la chiave di accesso primaria dell'account di archi
 
 #### <a name="set-path-prefix-pattern"></a>Impostare lo schema prefisso percorso
 
-**Assicurarsi di impostare il formato della data su AAAA-MM-GG (con i trattini).**
+**Assicurarsi di impostare il formato data a AAAA-MM-GG (con trattini).**
 
 Lo schema prefisso percorso specifica il modo in cui l'analisi di flusso trova i file di input nell'archivio. È necessario configurarlo in modo che corrisponda alla modalità di archiviazione dei dati dell'esportazione continua. Impostarlo come segue:
 
     webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
-In questo esempio:
+Esempio:
 
 * `webapplication27` è il nome della risorsa di Application Insights, **tutto minuscolo**. 
 * `1234...` è la chiave di strumentazione della risorsa di Application Insights **con i trattini rimossi**. 

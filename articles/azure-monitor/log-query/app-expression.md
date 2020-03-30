@@ -1,16 +1,16 @@
 ---
 title: Espressione app() nelle query di log di Monitoraggio di Azure | Microsoft Docs
-description: L'espressione app viene usata in una query di log di monitoraggio di Azure per recuperare i dati da un'app Application Insights specifica nello stesso gruppo di risorse, in un altro gruppo di risorse o in un'altra sottoscrizione.
+description: L'espressione dell'app viene usata in una query del log di Monitoraggio di Azure per recuperare dati da un'app di Application Insights specifica nello stesso gruppo di risorse, in un altro gruppo di risorse o in un'altra sottoscrizione.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/25/2019
 ms.openlocfilehash: 5502df1cd119c0f63c65945d73431a17282ebc0c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670257"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Espressione app() in una query di Monitoraggio di Azure
@@ -30,8 +30,8 @@ L'espressione `app` viene usata in una query di Monitoraggio di Azure per recupe
 
 | Identificatore | Descrizione | Esempio
 |:---|:---|:---|
-| Nome della risorsa | Nome leggibile dell'app (anche noto come "nome componente") | app("fabrikamapp") |
-| Qualified Name | Nome completo dell'app nel formato: "subscriptionName/resourceGroup/componentName" | app('AI-Prototype/Fabrikam/fabrikamapp') |
+| Nome risorsa | Nome leggibile dell'app (anche noto come "nome componente") | app("fabrikamapp") |
+| Nome completo | Nome completo dell'app nel formato: "subscriptionName/resourceGroup/componentName" | app('AI-Prototype/Fabrikam/fabrikamapp') |
 | ID | GUID dell'app | app("988ba129-363e-4415-8fe7-8cbab5447518") |
 | ID risorsa di Azure | Identificatore della risorsa di Azure |app("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
 

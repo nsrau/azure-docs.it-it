@@ -4,10 +4,10 @@ description: Analizzare l'uso e le prestazioni dell'applicazione desktop di Wind
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.openlocfilehash: 8234b9ba2c92fc64cfa8f598db99954e00caab45
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670832"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Monitoraggio dell'utilizzo e delle prestazioni nelle applicazioni desktop di Windows classiche
@@ -20,17 +20,17 @@ Tutte le applicazioni ospitate in locale, in Azure e in altri cloud possono sfru
 3. In Visual Studio, modificare i pacchetti NuGet del progetto dell'app e aggiungere Microsoft.ApplicationInsights.WindowsServer. In alternativa, se si vuole ottenere solo l'API, senza i moduli di raccolta dei dati di telemetria standard, scegliere Microsoft.ApplicationInsights.
 4. Impostare la chiave di strumentazione nel codice:
    
-    `TelemetryConfiguration.Active.InstrumentationKey = "` *la chiave* `";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "` *nome della chiave* `";`
    
     o in ApplicationInsights.config, se è installato uno dei pacchetti di telemetria standard:
    
-    `<InstrumentationKey>`*nome della chiave*`</InstrumentationKey>` 
+    `<InstrumentationKey>`*la chiave*`</InstrumentationKey>` 
    
     Se si utilizza Applicationinsights.config, assicurarsi che le proprietà in Esplora soluzione siano impostate su **Build Action = Content, Copy to Output Directory = Copy**.
 5. [Usare l'API](../../azure-monitor/app/api-custom-events-metrics.md) per inviare dati di telemetria.
-6. Eseguire l'app e visualizzare i dati di telemetria nella risorsa creata nella portale di Azure.
+6. Eseguire l'app e visualizzare i dati di telemetria nella risorsa creata nel portale di Azure.Run your app, and see the telemetry in the resource you created in the Azure portal.
 
-## <a name="telemetry"></a>Codice di esempio
+## <a name="example-code"></a><a name="telemetry"></a>Codice di esempio
 ```csharp
 using Microsoft.ApplicationInsights;
 
@@ -68,11 +68,11 @@ using Microsoft.ApplicationInsights;
 
 ```
 
-## <a name="override-storage-of-computer-name"></a>Sostituisci archiviazione del nome del computer
+## <a name="override-storage-of-computer-name"></a>Ignora archiviazione del nome del computer
 
-Per impostazione predefinita, l'SDK raccoglie e archivia il nome computer del sistema che emette i dati di telemetria. Per eseguire l'override della raccolta è necessario usare un inizializzatore di telemetria:
+Per impostazione predefinita, questo SDK raccoglie e archivia il nome computer del sistema che genera dati di telemetria. To override collection you need to use a telemetry Initializer:
 
-**Scrivere personalizzata telemetryinitializer personalizzati come indicato di seguito.**
+**Scrivere TelemetryInitializer personalizzato come indicato di seguito.**
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -93,7 +93,7 @@ namespace CustomInitializer.Telemetry
     }
 }
 ```
-Creare un'istanza dell'inizializzatore nel metodo `Program.cs` `Main()` seguente impostazione della chiave di strumentazione:
+Creare un'istanza `Program.cs` `Main()` dell'inizializzatore nel metodo seguente impostando la chiave di strumentazione:Instantiate the initializer in the method below setting the instrumentation key:
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -109,6 +109,6 @@ Creare un'istanza dell'inizializzatore nel metodo `Program.cs` `Main()` seguente
 ## <a name="next-steps"></a>Passaggi successivi
 * [Creare un dashboard](../../azure-monitor/app/overview-dashboard.md)
 * [Ricerca diagnostica](../../azure-monitor/app/diagnostic-search.md)
-* [Esplorare le metriche](../../azure-monitor/app/metrics-explorer.md)
+* [Esplora le metriche](../../azure-monitor/app/metrics-explorer.md)
 * [Scrivere query di Analisi](../../azure-monitor/app/analytics.md)
 

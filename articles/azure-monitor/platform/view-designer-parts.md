@@ -1,20 +1,20 @@
 ---
-title: Guida di riferimento per le parti di Progettazione viste in monitoraggio di Azure | Microsoft Docs
-description: Usando Progettazione viste in monitoraggio di Azure, è possibile creare visualizzazioni personalizzate che vengono visualizzate nel portale di Azure e contengono un'ampia gamma di visualizzazioni sui dati nell'area di lavoro Log Analytics. Questo articolo è una guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.
+title: Una guida di riferimento per le parti di Progettazione viste in Monitoraggio di Azure . Documenti Microsoft
+description: Usando Progettazione viste in Monitoraggio di Azure, è possibile creare visualizzazioni personalizzate visualizzate nel portale di Azure e contengono un'ampia gamma di visualizzazioni sui dati nell'area di lavoro log Analytics.By using View Designer in Azure Monitor, you can create custom views that are displayed in the Azure portal and contain a variety of visualizations on data in the Log Analytics workspace. Questo articolo è una guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
 ms.openlocfilehash: 7dc4164cac1998a02ae62d7682f9630aa4faa619
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658558"
 ---
-# <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guida di riferimento per le parti di visualizzazione di Progettazione viste in monitoraggio di Azure
-Utilizzando Progettazione viste in monitoraggio di Azure, è possibile creare un'ampia gamma di visualizzazioni personalizzate nell'portale di Azure che consentono di visualizzare i dati nell'area di lavoro di Log Analytics. Questo articolo è una guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.
+# <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guida di riferimento alle parti di visualizzazione di Progettazione viste in Monitoraggio di Azure
+Usando Progettazione viste in Monitoraggio di Azure, è possibile creare un'ampia gamma di visualizzazioni personalizzate nel portale di Azure che consentono di visualizzare i dati nell'area di lavoro di Log Analytics.By using View Designer in Azure Monitor, you can create a variety of custom views in the Azure portal that can help you visualize data in your Log Analytics workspace. Questo articolo è una guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.
 
 Per altre informazioni su Progettazione visualizzazioni, vedere:
 
@@ -27,22 +27,22 @@ I tipi di riquadro di Progettazione viste disponibili sono descritti nella tabel
 | Tipo di vista | Descrizione |
 |:--- |:--- |
 | [Elenco di query](#list-of-queries-part) |Visualizza un elenco di query di log. È possibile selezionare ogni query per visualizzarne i risultati. |
-| [Numero ed elenco](#number-and-list-part) |Nell'intestazione viene visualizzato un singolo numero che mostra il conteggio dei record da una query di log. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
-| [Due numeri ed elenco](#two-numbers-and-list-part) |L'intestazione Visualizza due numeri che mostrano i conteggi dei record da query di log separate. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
+| [Numero ed elenco](#number-and-list-part) |L'intestazione visualizza un singolo numero che mostra un conteggio di record da una query di log. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
+| [Due numeri ed elenco](#two-numbers-and-list-part) |Nell'intestazione vengono visualizzati due numeri che mostrano i conteggi dei record di query di log separate. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
 | [Grafico ad anello ed elenco](#donut-and-list-part) |L'intestazione presenta un singolo numero che riepiloga una colonna di valori in una query di log. L'anello visualizza graficamente i risultati dei tre record principali. |
 | [Due sequenze temporali ed elenco](#two-timelines-and-list-part) |L'intestazione presenta i risultati di due query di log nel corso del tempo sotto forma di istogrammi, con un callout in cui viene visualizzato un singolo numero che riepiloga una colonna di valori in una query di log. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
 | [Informazioni](#information-part) |L'intestazione presenta testo statico e un collegamento opzionale. L'elenco visualizza uno o più elementi con titolo e testo statici. |
 | [Grafico a linee, callout ed elenco](#line-chart-callout-and-list-part) |L'intestazione presenta un grafico a linee con più serie provenienti da una query di log nel corso del tempo e un callout con un valore riepilogato. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
 | [Grafico a linee ed elenco](#line-chart-and-list-part) |L'intestazione presenta un grafico a linee con più serie provenienti da una query di log nel corso del tempo. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
-| [Parte relativa allo stack dei grafici a linee](#stack-of-line-charts-part) |Visualizza tre grafici a linee separati con più serie provenienti da una query di log nel corso del tempo. |
+| [Stack dei grafici a linee](#stack-of-line-charts-part) |Visualizza tre grafici a linee separati con più serie provenienti da una query di log nel corso del tempo. |
 
 Le sezioni successive descrivono nei dettagli i tipi di riquadro e le relative proprietà.
 
 > [!NOTE]
-> Le parti nelle viste sono basate su [query di log](../log-query/log-query-overview.md) nell'area di lavoro log Analytics. Attualmente non supportano [query tra risorse](../log-query/cross-workspace-query.md) per recuperare dati da Application Insights.
+> Le parti nelle viste sono basate su query di log nell'area di lavoro di Log Analytics.Parts in views are based on [log queries](../log-query/log-query-overview.md) in your Log Analytics workspace. Attualmente non supportano [le query tra risorse](../log-query/cross-workspace-query.md) per recuperare dati da Application Insights.They do not currently support cross resource queries to retrieve data from Application Insights.
 
 ## <a name="list-of-queries-part"></a>Parte relativa all'elenco delle query
-Nella parte elenco di query viene visualizzato un elenco di query di log. È possibile selezionare ogni query per visualizzarne i risultati. Per impostazione predefinita, la vista include una singola query ed è possibile aggiungerne altre facendo clic su **+ Query**.
+Nell'elenco delle query viene visualizzato un elenco di query di log. È possibile selezionare ogni query per visualizzarne i risultati. Per impostazione predefinita, la vista include una singola query ed è possibile aggiungerne altre facendo clic su **+ Query**.
 
 ![Visualizzazione dell'elenco delle query](media/view-designer-parts/view-list-queries.png)
 
@@ -58,7 +58,7 @@ Nella parte elenco di query viene visualizzato un elenco di query di log. È pos
 | Nome descrittivo | Nome descrittivo che viene visualizzato. |
 
 ## <a name="number-and-list-part"></a>Parte relativa a Numero ed elenco
-Nell'intestazione viene visualizzato un singolo numero che mostra il conteggio dei record da una query di log. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo.
+L'intestazione visualizza un singolo numero che mostra un conteggio di record da una query di log. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo.
 
 ![Visualizzazione dell'elenco delle query](media/view-designer-parts/view-number-list.png)
 
@@ -70,7 +70,7 @@ Nell'intestazione viene visualizzato un singolo numero che mostra il conteggio d
 | Icona |File di immagine che viene visualizzato accanto al risultato nell'intestazione. |
 | Usa icona |Selezionare questo collegamento per visualizzare l'icona. |
 | **Titolo** | |
-| Legend |Testo che viene visualizzato nella parte superiore dell'intestazione. |
+| Legenda |Testo che viene visualizzato nella parte superiore dell'intestazione. |
 | Query |Query da eseguire per l'intestazione. Viene visualizzato il numero di record restituiti dalla query. |
 | Navigazione click-through | Azione intrapresa quando si fa clic sull'intestazione.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** | |
@@ -81,13 +81,13 @@ Nell'intestazione viene visualizzato un singolo numero che mostra il conteggio d
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
-| Name |Testo che viene visualizzato nella parte superiore della prima colonna. |
-| Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
+| Nome |Testo che viene visualizzato nella parte superiore della prima colonna. |
+| valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
 ## <a name="two-numbers-and-list-part"></a>Parte relativa a Due numeri ed elenco
-L'intestazione contiene due numeri che visualizzano un conteggio di record da query di log separate. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo.
+L'intestazione ha due numeri che visualizzano un conteggio di record da query di log separate. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo.
 
 ![Visualizzazione Due numeri ed elenco](media/view-designer-parts/view-two-numbers-list.png)
 
@@ -101,7 +101,7 @@ L'intestazione contiene due numeri che visualizzano un conteggio di record da qu
 | **Navigazione nel titolo** | |
 | Navigazione click-through | Azione intrapresa quando si fa clic sull'intestazione.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Titolo** | |
-| Legend |Testo che viene visualizzato nella parte superiore dell'intestazione. |
+| Legenda |Testo che viene visualizzato nella parte superiore dell'intestazione. |
 | Query |Query da eseguire per l'intestazione. Viene visualizzato il numero di record restituiti dalla query. |
 | **Elenco** | |
 | Query |Query da eseguire per l'elenco. Vengono visualizzate le prime due proprietà per i primi dieci record nei risultati. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Le barre vengono create automaticamente in base al valore relativo della colonna numerica.<br><br>Usare il comando `Sort` nella query per ordinare i record nell'elenco. Per eseguire la query e restituire tutti i record, è possibile selezionare **Visualizza tutto**. |
@@ -112,8 +112,8 @@ L'intestazione contiene due numeri che visualizzano un conteggio di record da qu
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
-| Name |Testo che viene visualizzato nella parte superiore della prima colonna. |
-| Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
+| Nome |Testo che viene visualizzato nella parte superiore della prima colonna. |
+| valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
@@ -131,12 +131,12 @@ L'intestazione presenta un singolo numero che riepiloga una colonna di valori in
 | Usa icona |Selezionare questo collegamento per visualizzare l'icona. |
 | **Intestazione** | |
 | Titolo |Testo che viene visualizzato nella parte superiore dell'intestazione. |
-| Subtitle |Testo che viene visualizzato sotto il titolo nella parte superiore dell'intestazione. |
+| Sottotitolo |Testo che viene visualizzato sotto il titolo nella parte superiore dell'intestazione. |
 | **Anello** | |
 | Query |Query da eseguire per il grafico ad anello. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. |
 | Navigazione click-through | Azione intrapresa quando si fa clic sull'intestazione.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Anello** |**> Centro** |
-| Text |Testo che viene visualizzato sotto il valore all'interno del grafico ad anello. |
+| Testo |Testo che viene visualizzato sotto il valore all'interno del grafico ad anello. |
 | Operazione |Operazione da eseguire sulla proprietà value per riepilogarla come valore singolo.<ul><li>Somma: aggiunge i valori di tutti i record.</li><li>Percentuale: rapporto tra i record restituiti in base ai valori in **Valori dei risultati usati nell'operazione relativa al centro** e il totale dei record nella query.</li></ul> |
 | I valori dei risultati usati nell'operazione centrale |Facoltativamente, fare clic sul segno più (+) per aggiungere uno o più valori. I risultati della query saranno limitati ai record con i valori di proprietà specificati. Se non vengono aggiunti valori, nella query vengono inclusi tutti i record. |
 | **Opzioni aggiuntive** |**&gt; Colors** (Colori) |
@@ -153,8 +153,8 @@ L'intestazione presenta un singolo numero che riepiloga una colonna di valori in
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
-| Name |Testo che viene visualizzato nella parte superiore della prima colonna. |
-| Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
+| Nome |Testo che viene visualizzato nella parte superiore della prima colonna. |
+| valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
@@ -173,7 +173,7 @@ L'intestazione presenta i risultati di due query di log nel corso del tempo sott
 | **Navigazione nel titolo** | |
 | Navigazione click-through | Azione intrapresa quando si fa clic sull'intestazione.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Primo grafico<br>Secondo grafico** | |
-| Legend |Testo che viene visualizzato sotto il callout per la prima serie. |
+| Legenda |Testo che viene visualizzato sotto il callout per la prima serie. |
 | Colore |Colore da usare per le colonne della serie. |
 | Query |Query da eseguire per la prima serie. Il numero di record in ogni intervallo di tempo viene rappresentato dalle colonne del grafico. |
 | Operazione |Operazione da eseguire sulla proprietà value per riepilogarla come valore singolo per il callout.<ul><li>Somma: somma dei valori di tutti i record.</li><li>Media: media dei valori di tutti i record.</li><li>Ultimo esempio: valore dell'ultimo intervallo incluso nel grafico.</li><li>Primo esempio: valore del primo intervallo incluso nel grafico.</li><li>Conteggio: numero di tutti i record restituiti dalla query.</li></ul> |
@@ -185,8 +185,8 @@ L'intestazione presenta i risultati di due query di log nel corso del tempo sott
 | Operazione |Operazione da eseguire per il grafico sparkline. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
-| Name |Testo che viene visualizzato nella parte superiore della prima colonna. |
-| Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
+| Nome |Testo che viene visualizzato nella parte superiore della prima colonna. |
+| valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
@@ -225,7 +225,7 @@ L'intestazione presenta un grafico a linee con più serie provenienti da una que
 | Usa icona |Selezionare questo collegamento per visualizzare l'icona. |
 | **Intestazione** | |
 | Titolo |Testo che viene visualizzato nella parte superiore dell'intestazione. |
-| Subtitle |Testo che viene visualizzato sotto il titolo nella parte superiore dell'intestazione. |
+| Sottotitolo |Testo che viene visualizzato sotto il titolo nella parte superiore dell'intestazione. |
 | **Grafico a linee** | |
 | Query |Query da eseguire per il grafico a linee. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Questa query usa in genere la parola chiave *measure* per riepilogare i risultati. Se la query usa la parola chiave *interval*, l'asse X del grafico usa questo intervallo di tempo. Se la query non include la parola chiave *interval*, l'asse X usa intervalli orari. |
 | Navigazione click-through | Azione intrapresa quando si fa clic sull'intestazione.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
@@ -246,8 +246,8 @@ L'intestazione presenta un grafico a linee con più serie provenienti da una que
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
-| Name |Testo che viene visualizzato nella parte superiore della prima colonna. |
-| Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
+| Nome |Testo che viene visualizzato nella parte superiore della prima colonna. |
+| valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
@@ -265,7 +265,7 @@ L'intestazione presenta un grafico a linee con più serie provenienti da una que
 | Usa icona |Selezionare questo collegamento per visualizzare l'icona. |
 | **Intestazione** | |
 | Titolo |Testo che viene visualizzato nella parte superiore dell'intestazione. |
-| Subtitle |Testo che viene visualizzato sotto il titolo nella parte superiore dell'intestazione. |
+| Sottotitolo |Testo che viene visualizzato sotto il titolo nella parte superiore dell'intestazione. |
 | **Grafico a linee** | |
 | Query |Query da eseguire per il grafico a linee. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Questa query usa in genere la parola chiave *measure* per riepilogare i risultati. Se la query usa la parola chiave *interval*, l'asse X del grafico usa questo intervallo di tempo. Se la query non include la parola chiave *interval*, l'asse X usa intervalli orari. |
 | Navigazione click-through | Azione intrapresa quando si fa clic sull'intestazione.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
@@ -282,8 +282,8 @@ L'intestazione presenta un grafico a linee con più serie provenienti da una que
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
-| Name |Testo che viene visualizzato nella parte superiore della prima colonna. |
-| Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
+| Nome |Testo che viene visualizzato nella parte superiore della prima colonna. |
+| valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
@@ -300,7 +300,7 @@ Lo stack presenta tre grafici a linee separati con più serie provenienti da una
 | Icona |File di immagine che viene visualizzato accanto al risultato nell'intestazione. |
 | **Grafico 1<br>Grafico 2<br>Grafico 3** |**&gt; Header** (Intestazione) |
 | Titolo |Testo che viene visualizzato nella parte superiore del grafico. |
-| Subtitle |Testo che viene visualizzato sotto il titolo nella parte superiore del grafico. |
+| Sottotitolo |Testo che viene visualizzato sotto il titolo nella parte superiore del grafico. |
 | **Grafico 1<br>Grafico 2<br>Grafico 3** |**Grafico a linee** |
 | Query |Query da eseguire per il grafico a linee. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Questa query usa in genere la parola chiave *measure* per riepilogare i risultati. Se la query usa la parola chiave *interval*, l'asse X del grafico usa questo intervallo di tempo. Se la query non include la parola chiave *interval*, l'asse X usa intervalli orari. |
 | Navigazione click-through | Azione intrapresa quando si fa clic sull'intestazione.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
@@ -312,25 +312,25 @@ Lo stack presenta tre grafici a linee separati con più serie provenienti da una
 ## <a name="common-settings"></a>Impostazioni comuni
 Le sezioni seguenti descrivono le impostazioni comuni a più parti di visualizzazione.
 
-### <a name="name-value-separator"></a>Separatore di nome e valore
-Il separatore di nome e valore è il delimitatore dei singoli caratteri da usare per analizzare la proprietà text da una query di elenco in più valori. Se si specifica un delimitatore, è possibile assegnare nomi ai singoli, campi separati dallo stesso delimitatore nella casella **Nome**.
+### <a name="name-and-value-separator"></a><a name="name-value-separator"></a>Separatore di nome e valore
+Il separatore di nome e valore è il delimitatore dei singoli caratteri da usare per analizzare la proprietà text da una query di elenco in più valori. Se si specifica un delimitatore, è possibile specificare i nomi per ogni campo, separati dallo stesso delimitatore nella casella **Nome.**
 
 Si consideri, ad esempio, una proprietà denominata *Sede* nella quale vengono inclusi valori come *Redmond-Building 41* e *Bellevue-Building12*. È possibile specificare un trattino (-) come separatore di nome e valore e *City-Building* come nome. Ciò comporta l'analisi di ciascun valore in due proprietà chiamate *City* e *Building*.
 
-### <a name="click-through-navigation"></a>Navigazione click-through
-Navigazione click-through definisce l'azione che verrà intrapresa quando si fa clic su un'intestazione o un elemento elenco in una visualizzazione.  Verrà aperta una query nel [log Analytics](../../azure-monitor/log-query/portals.md) o verrà avviata un'altra visualizzazione.
+### <a name="click-through-navigation"></a><a name="click-through-navigation"></a>Navigazione click-through
+Navigazione click-through definisce l'azione che verrà intrapresa quando si fa clic su un'intestazione o un elemento elenco in una visualizzazione.  Verrà aperta una query in [Log Analytics](../../azure-monitor/log-query/portals.md) o verrà avviata un'altra visualizzazione.
 
 La tabella seguente illustra le impostazioni relative alla navigazione click-through.
 
 | Impostazione           | Descrizione |
 |:--|:--|
-| Ricerca log (automatica) | Query di log da eseguire quando si seleziona un elemento di intestazione.  Si tratta della stessa query di log su cui si basa l'elemento.
-| Ricerca dei registri        | Query di log da eseguire quando si seleziona un elemento in un elenco.  Digitare la query nella casella **Query di spostamento**.   Usare *{selected item}* per includere la sintassi per l'elemento selezionato dall'utente.  Se, ad esempio, la query include una colonna denominata *Computer* e la query di navigazione è *{selected item}* , viene eseguita una query del tipo *Computer="MyComputer"* quando si seleziona un computer. Se la query di navigazione è *Type=Event {selected item}* viene eseguita la query *Type=Event Computer="MyComputer"* . |
-| Visualizzazione              | Visualizzazione da aprire quando si seleziona un elemento intestazione o un elemento in un elenco.  Selezionare il nome di una visualizzazione nell'area di lavoro nella casella **Nome visualizzazione**. |
+| Ricerca log (automatica) | Registrare la query da eseguire quando si seleziona un elemento di intestazione.  Si tratta della stessa query di log su cui si basa l'elemento.
+| Ricerca log        | Registrare la query da eseguire quando si seleziona un elemento in un elenco.  Digitare la query nella casella **Query di spostamento**.   Usare *{selected item}* per includere la sintassi per l'elemento selezionato dall'utente.  Se, ad esempio, la query include una colonna denominata *Computer* e la query di navigazione è *{selected item}*, viene eseguita una query del tipo *Computer="MyComputer"* quando si seleziona un computer. Se la query di navigazione è *Type=Event {selected item}* viene eseguita la query *Type=Event Computer="MyComputer"*. |
+| Visualizza              | Visualizzazione da aprire quando si seleziona un elemento intestazione o un elemento in un elenco.  Selezionare il nome di una visualizzazione nell'area di lavoro nella casella **Nome visualizzazione**. |
 
 
 
-### <a name="sparklines"></a>Grafici sparkline
+### <a name="sparklines"></a><a name="sparklines"></a>Grafici sparkline
 Un grafico sparkline è un grafico a linee di piccole dimensioni che mostra le variazioni nel tempo del valore di una voce di elenco. Per le parti di visualizzazione con un elenco è possibile scegliere se visualizzare una barra orizzontale con indicato il valore relativo di una colonna numerica oppure un grafico sparkline con indicate le variazioni del valore nel tempo.
 
 La tabella seguente illustra le impostazioni di un grafico sparkline:
@@ -340,7 +340,7 @@ La tabella seguente illustra le impostazioni di un grafico sparkline:
 | Abilita grafici sparkline |Selezionare questo collegamento per visualizzare un grafico sparkline al posto di una barra orizzontale. |
 | Operazione |Se sono abilitati i grafici sparkline, questa è l'operazione da eseguire su ogni proprietà nell'elenco per calcolare i valori per il grafico sparkline.<ul><li>Ultimo esempio: ultimo valore per la serie nell'intervallo di tempo.</li><li>Max: valore massimo per la serie nell'intervallo di tempo.</li><li>Min: valore minimo per la serie nell'intervallo di tempo.</li><li>Somma: somma dei valori per la serie nell'intervallo di tempo.</li><li>Riepilogo: usa lo stesso comando `measure` della query nell'intestazione.</li></ul> |
 
-### <a name="thresholds"></a>Soglie
+### <a name="thresholds"></a><a name="thresholds"></a>Soglie
 Se si usano le soglie, è possibile visualizzare un'icona colorata accanto a ogni elemento in un elenco. Le soglie offrono un indicatore visivo rapido di elementi che superano un determinato valore o rientrano in un intervallo specifico. È, ad esempio, possibile visualizzare un'icona verde per gli elementi con un valore accettabile, gialla se il valore è compreso in un intervallo che indica un possibile problema e rosso se il valore supera un valore di errore.
 
 Quando si abilitano le soglie, è necessario specificarne una o più. Se il valore di un elemento è superiore al valore di soglia, ma inferiore al valore di soglia successivo, viene usato il colore corrispondente. Se l'elemento è superiore al valore di soglia massimo, viene usato un altro colore. 
@@ -352,9 +352,9 @@ La tabella seguente illustra le impostazioni relative alle soglie:
 | Impostazione | Descrizione |
 |:--- |:--- |
 | Abilitare le soglie |Selezionare questo collegamento per visualizzare un'icona colorata a sinistra di ogni valore. L'icona indica l'integrità del valore in relazione alle soglie specificate. |
-| Name |Nome del valore di soglia. |
-| destinazione |Valore per la soglia. Il colore di integrità di ogni elemento dell'elenco è impostato sul colore del valore di soglia massimo superato dal valore dell'elemento. Se nessun valore di soglia viene superato, viene usato un colore predefinito. |
+| Nome |Nome del valore di soglia. |
+| Soglia |Valore per la soglia. Il colore di integrità di ogni elemento dell'elenco è impostato sul colore del valore di soglia massimo superato dal valore dell'elemento. Se nessun valore di soglia viene superato, viene usato un colore predefinito. |
 | Colore |Colore che indica il valore di soglia. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni sulle [query di log](../log-query/log-query-overview.md) per supportare le query nelle parti di visualizzazione.
+* Informazioni sulle query di [log](../log-query/log-query-overview.md) per supportare le query nelle parti di visualizzazione.

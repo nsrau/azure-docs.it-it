@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1b7e4716e731e6b73e3ac60b64baa71043906fc
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77483755"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Accesso Single Sign-On facile di Azure Active Directory
@@ -36,7 +36,7 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 ![Accesso Single Sign-On facile](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
->Seamless SSO richiede che il dispositivo dell'utente sia **aggiunto** a un dominio, ma non viene usato nei dispositivi [Azure AD aggiunti](../devices/concept-azure-ad-join.md) o [Azure ad ibrido aggiunti](../devices/concept-azure-ad-join-hybrid.md) . L'accesso Single Sign-on Azure AD Unito e Azure AD ibrido Unito funziona in base al [token di aggiornamento primario](../devices/concept-primary-refresh-token.md).
+>Seamless SSO richiede che il dispositivo dell'utente sia solo aggiunto a **un dominio,** ma non viene usato nei dispositivi [aggiunti ad Azure AD](../devices/concept-azure-ad-join.md) o Azure AD ibrido di Azure [AD.](../devices/concept-azure-ad-join-hybrid.md) SSO in Azure AD aggiunto e hybrid Azure AD aggiunto funziona in base al token di [aggiornamento primario](../devices/concept-primary-refresh-token.md).
 
 ## <a name="key-benefits"></a>Vantaggi principali
 
@@ -53,8 +53,8 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 
 - Il nome utente usato per l'accesso può essere il nome utente predefinito locale (`userPrincipalName`) o un altro attributo configurato in Azure AD Connect (`Alternate ID`). Sono supportati entrambi i casi d'uso, perché l'accesso Single Sign-On facile usa l'attestazione `securityIdentifier` nel ticket Kerberos per cercare l'oggetto utente corrispondente in Azure AD.
 - L'accesso SSO facile è una funzionalità opportunistica. Se per qualche motivo ha esito negativo, l'esperienza di accesso dell'utente ritorna al comportamento normale, ovvero l'utente deve immettere la propria password nella pagina di accesso.
-- Se un'applicazione (ad esempio, `https://myapps.microsoft.com/contoso.com`) Invia un parametro di `domain_hint` (OpenID Connect) o `whr` (SAML), che identifica il tenant, o `login_hint` parametro che identifica l'utente, nella richiesta di accesso Azure AD, gli utenti accedono automaticamente senza immettere nomi utente o password.
-- Gli utenti ottengono anche un'esperienza di accesso automatico se un'applicazione (ad esempio, `https://contoso.sharepoint.com`) Invia le richieste di accesso agli endpoint di Azure AD configurati come tenant, ovvero `https://login.microsoftonline.com/contoso.com/<..>` o `https://login.microsoftonline.com/<tenant_ID>/<..>`, anziché Azure AD endpoint comune, ovvero `https://login.microsoftonline.com/common/<...>`.
+- Se un'applicazione (ad `https://myapps.microsoft.com/contoso.com`esempio, `domain_hint` ) inoltra `whr` un parametro (OpenID Connect) `login_hint` o (SAML), identificando il tenant o il parametro, identificando l'utente, nella richiesta di accesso di Azure AD, gli utenti vengono automaticamente connessi senza immettere nomi utente o password.
+- Gli utenti ottengono inoltre un'esperienza di accesso `https://contoso.sharepoint.com`invisibile all'utente se un'applicazione ( ad esempio, ) `https://login.microsoftonline.com/contoso.com/<..>` `https://login.microsoftonline.com/<tenant_ID>/<..>` invia richieste di accesso agli endpoint di `https://login.microsoftonline.com/common/<...>`Azure AD impostati come tenant, ovvero oppure, anziché l'endpoint comune di Azure AD, ovvero .
 - La disconnessione è supportata. In questo modo gli utenti possono scegliere di eseguire l'accesso con un altro account di Azure AD anziché accedere automaticamente tramite l'accesso Single Sign-On facile.
 - I client Office 365 Win32 (Outlook, Word, Excel e altri) con le versioni 16.0.8730.xxxx e successive sono supportati tramite un flusso non interattivo. Per OneDrive, è necessario attivare la [funzionalità di configurazione automatica di OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) per un'esperienza di accesso automatico.
 - Può essere abilitata da Azure AD Connect.
@@ -75,7 +75,7 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 
 \*\*Richiede Internet Explorer versione 10 o successiva. Disabilitare la modalità protetta avanzata
 
-\*\*\*Richiede una [configurazione aggiuntiva](how-to-connect-sso-quick-start.md#browser-considerations)
+\*\*\*Richiede [una configurazione aggiuntiva](how-to-connect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
 >Per Windows 10, si consiglia di usare il [join per Azure AD](../devices/concept-azure-ad-join.md) per ottenere risultati ottimali dall'accesso Single Sign-On con Azure AD.
@@ -85,7 +85,7 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 - [**Guida introduttiva**](how-to-connect-sso-quick-start.md): avvio ed esecuzione di Accesso SSO facile di Azure AD.
 - [**Piano di distribuzione**](https://aka.ms/deploymentplans/sso) - Piano di distribuzione dettagliato.
 - [**Approfondimento tecnico**](how-to-connect-sso-how-it-works.md): informazioni sul funzionamento di questa funzionalità.
-- [**Domande frequenti**](how-to-connect-sso-faq.md): risposte alle domande più frequenti.
-- [**Risoluzione dei problemi**](tshoot-connect-sso.md): informazioni su come risolvere i problemi comuni relativi a questa funzionalità.
+- [**Domande frequenti**](how-to-connect-sso-faq.md) - Risposte alle domande frequenti.
+- [**Risoluzione dei problemi:**](tshoot-connect-sso.md) informazioni su come risolvere i problemi comuni relativi alla funzionalità.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): per l'invio di richieste di nuove funzionalità.
 

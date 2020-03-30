@@ -1,6 +1,6 @@
 ---
-title: Dati distribuiti-iperscalabilità (CITUS)-database di Azure per PostgreSQL
-description: Informazioni sulle tabelle distribuite, le tabelle di riferimento, le tabelle locali e le partizioni nel database di Azure per PostgreSQL.
+title: Dati distribuiti - Hyperscale (Citus) - Database di Azure per PostgreSQLDistributed data – Hyperscale (Citus) - Azure Database for PostgreSQL
+description: Informazioni su tabelle distribuite, tabelle di riferimento, tabelle locali e partizioni nel database di Azure per PostgreSQL.Learn about distributed tables, reference tables, local tables, and shards in Azure Database for PostgreSQL.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,50 +8,50 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: ade7632dc042741a07bdb59e34e30b3fb464e0e9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243653"
 ---
-# <a name="distributed-data-in-azure-database-for-postgresql--hyperscale-citus"></a>Dati distribuiti nel database di Azure per PostgreSQL: iperscalabilità (CITUS)
+# <a name="distributed-data-in-azure-database-for-postgresql--hyperscale-citus"></a>Dati distribuiti nel database di Azure per PostgreSQL – Hyperscale (Citus)
 
-Questo articolo descrive i tre tipi di tabella in database di Azure per PostgreSQL – iperscalabilità (CITUS).
-Mostra come vengono archiviate le tabelle distribuite come partizioni e come vengono inserite le partizioni nei nodi.
+Questo articolo descrive i tre tipi di tabella in Database di Azure per PostgreSQL – Hyperscale (Citus).
+Viene illustrato come le tabelle distribuite vengono archiviate come partizioni e il modo in cui le partizioni vengono posizionate nei nodi.
 
 ## <a name="table-types"></a>Tipi di tabella
 
-Esistono tre tipi di tabelle in un gruppo di server con iperscalabilità (CITUS), ognuno usato per scopi diversi.
+Esistono tre tipi di tabelle in un gruppo di server Hyperscale (Citus), ognuna utilizzata per scopi diversi.
 
-### <a name="type-1-distributed-tables"></a>Tipo 1: tabelle distribuite
+### <a name="type-1-distributed-tables"></a>Tipo 1: Tabelle distribuiteType 1: Distributed tables
 
-Il primo tipo e più comune sono le tabelle distribuite. Sembrano essere tabelle normali per le istruzioni SQL, ma sono partizionate orizzontalmente tra i nodi del ruolo di lavoro. Ciò significa che le righe della tabella sono archiviate in nodi diversi, in tabelle di frammenti denominate partizioni.
+Il primo tipo, e più comune, è tabelle distribuite. Sembrano essere tabelle normali per le istruzioni SQL, ma sono partizionate orizzontalmente tra i nodi di lavoro. Ciò significa che le righe della tabella vengono archiviate in nodi diversi, in tabelle di frammenti denominate partizioni.
 
-Iperscale (CITUS) esegue non solo istruzioni SQL ma DDL in un cluster.
-Modifica dello schema di una tabella distribuita a cascata per aggiornare tutte le partizioni della tabella tra i ruoli di lavoro.
+Hyperscale (Citus) esegue non solo istruzioni SQL ma DDL in un cluster.
+Modifica dello schema di una tabella distribuita a catena per aggiornare tutte le partizioni della tabella tra i worker.
 
 #### <a name="distribution-column"></a>Colonna di distribuzione
 
-Iperscale (CITUS) usa il partizionamento orizzontale algoritmico per assegnare righe alle partizioni. L'assegnazione viene eseguita in modo deterministico in base al valore di una colonna di tabella denominata colonna di distribuzione. Per la distribuzione di una tabella, è necessario che l'amministratore del cluster designi questa colonna.
-La scelta corretta è importante per le prestazioni e le funzionalità.
+L'iperscala (Citus) utilizza il partizionamento orizzontale algoritmico per assegnare le righe alle partizioni. L'assegnazione viene effettuata in modo deterministico in base al valore di una colonna di tabella denominata colonna di distribuzione. L'amministratore del cluster deve designare questa colonna durante la distribuzione di una tabella.
+Fare la scelta giusta è importante per le prestazioni e la funzionalità.
 
-### <a name="type-2-reference-tables"></a>Tipo 2: tabelle di riferimento
+### <a name="type-2-reference-tables"></a>Tipo 2: Tabelle di riferimento
 
-Una tabella di riferimento è un tipo di tabella distribuita il cui intero contenuto è concentrato in un'unica partizione. La partizione viene replicata in ogni ruolo di lavoro. Le query su qualsiasi ruolo di lavoro possono accedere alle informazioni di riferimento localmente, senza l'overhead di rete della richiesta di righe da un altro nodo. Le tabelle di riferimento non includono colonne di distribuzione perché non è necessario distinguere partizioni separate per riga.
+Una tabella di riferimento è un tipo di tabella distribuita il cui intero contenuto è concentrato in un'unica partizione. La partizione viene replicata in ogni worker. Le query su qualsiasi worker possono accedere alle informazioni di riferimento in locale, senza l'overhead di rete dovuto alla richiesta di righe da un altro nodo. Le tabelle di riferimento non hanno una colonna di distribuzione perché non è necessario distinguere partizioni separate per riga.
 
-Le tabelle di riferimento sono in genere di piccole dimensioni e vengono usate per archiviare i dati rilevanti per le query in esecuzione su qualsiasi nodo di lavoro. Un esempio è l'enumerazione di valori come gli Stati degli ordini o le categorie di prodotti.
+Le tabelle di riferimento sono in genere di piccole dimensioni e vengono utilizzate per archiviare dati rilevanti per le query in esecuzione in qualsiasi nodo di lavoro. Un esempio è enumerato valori come gli stati degli ordini o le categorie di prodotti.
 
-### <a name="type-3-local-tables"></a>Tipo 3: tabelle locali
+### <a name="type-3-local-tables"></a>Tipo 3: Tabelle locali
 
-Quando si usa iperscale (CITUS), il nodo coordinatore a cui ci si connette è un normale database PostgreSQL. È possibile creare tabelle ordinarie nel coordinatore e scegliere di non partizionarle.
+Quando si utilizza Hyperscale (Citus), il nodo coordinatore a cui ci si connette è un normale database PostgreSQL. È possibile creare tabelle ordinarie nel coordinatore e scegliere di non partizionarle.
 
-Un buon candidato per le tabelle locali è costituito da piccole tabelle amministrative che non fanno parte delle query di join. Un esempio è una tabella Users per l'accesso e l'autenticazione dell'applicazione.
+Un buon candidato per le tabelle locali sarebbe piccole tabelle amministrative che non partecipano alle query di join. Un esempio è una tabella di utenti per l'accesso e l'autenticazione dell'applicazione.
 
-## <a name="shards"></a>Partizioni
+## <a name="shards"></a>Frammenti
 
-Nella sezione precedente è stata descritta la modalità di archiviazione delle tabelle distribuite come partizioni nei nodi di lavoro. In questa sezione vengono illustrati i dettagli più tecnici.
+Nella sezione precedente è stato descritto il modo in cui le tabelle distribuite vengono archiviate come partizioni nei nodi di lavoro. In questa sezione vengono illustrati ulteriori dettagli tecnici.
 
-La tabella dei metadati `pg_dist_shard` nel coordinatore contiene una riga per ogni partizione di ogni tabella distribuita nel sistema. La riga corrisponde a un ID di partizione con un intervallo di numeri interi in uno spazio hash (shardminvalue, shardmaxvalue).
+La `pg_dist_shard` tabella dei metadati nel coordinatore contiene una riga per ogni partizione di ogni tabella distribuita nel sistema. La riga corrisponde a un ID partizione con un intervallo di numeri interi in uno spazio hash (shardminvalue, shardmaxvalue).
 
 ```sql
 SELECT * from pg_dist_shard;
@@ -64,13 +64,13 @@ SELECT * from pg_dist_shard;
  (4 rows)
 ```
 
-Se il nodo coordinatore desidera determinare quale partizione include una riga di `github_events`, viene eseguito l'hashing del valore della colonna Distribution nella riga. Il nodo verifica quindi l'intervallo della partizione\'s che contiene il valore con hash. Gli intervalli vengono definiti in modo che l'immagine della funzione hash sia la relativa unione non contigua.
+Se il nodo coordinatore desidera determinare quale `github_events`partizione contiene una riga di , esegue l'ansime del valore della colonna di distribuzione nella riga. Il nodo controlla quindi\'quale intervallo di partizioni contiene il valore hash. Gli intervalli vengono definiti in modo che l'immagine della funzione hash sia la loro unione disgiunta.
 
-### <a name="shard-placements"></a>Posizionamenti della partizione
+### <a name="shard-placements"></a>Posizionamenti frammenti
 
-Si supponga che la partizione 102027 sia associata alla riga in questione. La riga viene letta o scritta in una tabella denominata `github_events_102027` in uno dei ruoli di lavoro. Quale ruolo di lavoro? Questo è determinato interamente dalle tabelle di metadati. Il mapping della partizione al ruolo di lavoro è noto come posizionamento della partizione.
+Si supponga che la partizione 102027 sia associata alla riga in questione. La riga viene letta o `github_events_102027` scritta in una tabella chiamata in uno dei worker. Quale lavoratore? Questo è determinato interamente dalle tabelle di metadati. Il mapping della partizione al worker è noto come posizionamento della partizione.
 
-Il nodo coordinatore riscrive le query in frammenti che fanno riferimento a tabelle specifiche come `github_events_102027` ed esegue tali frammenti sui ruoli di lavoro appropriati. Di seguito è riportato un esempio di esecuzione di una query dietro le quinte per individuare il nodo che contiene l'ID di partizione 102027.
+Il nodo coordinatore riscrive le query in `github_events_102027` frammenti che fanno riferimento alle tabelle specifiche come ed esegue tali frammenti sui worker appropriati. Di seguito è riportato un esempio di query eseguita dietro le quinte per trovare il nodo che contiene l'ID partizione 102027.
 
 ```sql
 SELECT
@@ -91,4 +91,4 @@ WHERE shardid = 102027;
     └─────────┴───────────┴──────────┘
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni su come [scegliere una colonna di distribuzione](concepts-hyperscale-choose-distribution-column.md) per le tabelle distribuite.
+- Informazioni su come [scegliere una colonna](concepts-hyperscale-choose-distribution-column.md) di distribuzione per le tabelle distribuite.

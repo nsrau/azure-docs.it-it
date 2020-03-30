@@ -1,28 +1,28 @@
 ---
-title: Creare e caricare un'immagine di OpenBSD
+title: Creare e caricare un'immagine OpenBSD
 description: Informazioni su come creare e caricare un disco rigido virtuale (VHD) che contiene il sistema operativo OpenBSD per creare una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure
-author: thomas1206
+author: gbowerman
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 05/24/2017
-ms.author: huishao
-ms.openlocfilehash: d4ecc539d71933c4aecc9124b903c57cb72838de
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.author: guybo
+ms.openlocfilehash: 1ad1a66d67be7aefe4d9a7acae993e8788cbb193
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78969493"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066750"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Creare e caricare un'immagine disco OpenBSD in Azure
 Questo articolo descrive come creare e caricare un disco rigido virtuale (VHD) che contiene il sistema operativo OpenBSD. Dopo il caricamento, è possibile usarlo come immagine personalizzata per creare una macchina virtuale in Azure tramite l'interfaccia della riga di comando di Azure.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 In questo articolo si presuppone che l'utente disponga degli elementi seguenti:
 
-* **Una sottoscrizione Azure**: se non è già disponibile un account, è possibile crearne uno in pochi minuti. Se si ha un abbonamento a MSDN, vedere [Credito Azure mensile per sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Altrimenti, vedere [Crea subito il tuo account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/).  
+* **Una sottoscrizione Azure**: se non è già disponibile un account, è possibile crearne uno in pochi minuti. Se si dispone di un abbonamento MSDN, vedere Credito mensile di [Azure per i sottoscrittori](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)di Visual Studio . Altrimenti, vedere [Crea subito il tuo account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/).  
 * **Interfaccia della riga di comando di Azure**: assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) e di aver eseguito l'accesso a un account Azure tramite il comando [az login](/cli/azure/reference-index).
-* **Sistema operativo OpenBSD installato in un file VHD** : è necessario installare un sistema operativo OpenBSD supportato ([6,6 versione amd64](https://ftp.openbsd.org/pub/OpenBSD/6.6/amd64/)) in un disco rigido virtuale. Sono disponibili vari strumenti per la creazione di file VHD. Ad esempio, per creare il file VHD e installare il sistema operativo, è possibile usare soluzioni di virtualizzazione come Hyper-V. Per istruzioni, vedere su come installare e usare Hyper-V, vedere [Installare Hyper-V e creare una macchina virtuale](https://technet.microsoft.com/library/hh846766.aspx).
+* **Sistema operativo OpenBSD installato in un file con estensione vhd:** un sistema operativo OpenBSD supportato ([6.6 versione AMD64](https://ftp.openbsd.org/pub/OpenBSD/6.6/amd64/)) deve essere installato su un disco rigido virtuale. Sono disponibili vari strumenti per la creazione di file VHD. Ad esempio, per creare il file VHD e installare il sistema operativo, è possibile usare soluzioni di virtualizzazione come Hyper-V. Per istruzioni, vedere su come installare e usare Hyper-V, vedere [Installare Hyper-V e creare una macchina virtuale](https://technet.microsoft.com/library/hh846766.aspx).
 
 
 ## <a name="prepare-openbsd-image-for-azure"></a>Preparare l'immagine OpenBSD per Azure
@@ -94,7 +94,7 @@ Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
 ```
 
 ## <a name="create-storage-resources-and-upload"></a>Creare e caricare risorse di archiviazione
-Creare prima un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
+Creare prima un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato myResourceGroup nella posizione *eastus:The* following example creates a resource group named *myResourceGroup* in the eastus location:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

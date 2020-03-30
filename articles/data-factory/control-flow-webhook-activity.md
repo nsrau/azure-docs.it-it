@@ -1,6 +1,6 @@
 ---
-title: Attività webhook in Azure Data Factory
-description: L'attività webhook non continua l'esecuzione della pipeline fino a quando non convalida il set di dati collegato con determinati criteri specificati dall'utente.
+title: Attività Webhook in Azure Data Factory
+description: L'attività webhook non continua l'esecuzione della pipeline finché non convalida il set di dati associato con determinati criteri specificati dall'utente.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.openlocfilehash: ced2279878ee2eb361ec7338647418658e411513
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79213010"
 ---
-# <a name="webhook-activity-in-azure-data-factory"></a>Attività webhook in Azure Data Factory
+# <a name="webhook-activity-in-azure-data-factory"></a>Attività Webhook in Azure Data Factory
 
-Un'attività webhook può controllare l'esecuzione delle pipeline tramite il codice personalizzato. Con l'attività webhook, il codice dei clienti può chiamare un endpoint e passargli un URL di callback. L'esecuzione della pipeline attende la chiamata di callback prima di procedere all'attività successiva.
+Un'attività webhook può controllare l'esecuzione di pipeline tramite il codice personalizzato. Con l'attività webhook, il codice dei clienti può chiamare un endpoint e passargli un URL di callback. L'esecuzione della pipeline attende la chiamata di callback prima di passare all'attività successiva.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -53,27 +53,27 @@ Un'attività webhook può controllare l'esecuzione delle pipeline tramite il cod
 
 Proprietà | Descrizione | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
-**nome** | Nome dell'attività del webhook. | String | Sì |
-**type** | Deve essere impostato su "webhook". | String | Sì |
-**method** | Metodo dell'API REST per l'endpoint di destinazione. | Stringa. Il tipo supportato è "POST". | Sì |
-**url** | Endpoint e percorso di destinazione. | Stringa o espressione con il valore **ResultType** di una stringa. | Sì |
-**headers** | Intestazioni che vengono inviate alla richiesta. Di seguito è riportato un esempio che imposta il linguaggio e il tipo in una richiesta: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Stringa o espressione con il valore **ResultType** di una stringa. | Sì. È necessaria un'intestazione `Content-Type` come `"headers":{ "Content-Type":"application/json"}`. |
-**body** | Rappresenta il payload inviato all'endpoint. | JSON valido o espressione con valore **RESULTTYPE** JSON. Vedere [schema del payload della richiesta](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) per lo schema del payload della richiesta. | Sì |
-**autenticazione** | Metodo di autenticazione usato per chiamare l'endpoint. I tipi supportati sono "Basic" e "ClientCertificate". Per altre informazioni, vedere [Autenticazione](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication). Se l'autenticazione non è necessaria, escludere questa proprietà. | Stringa o espressione con il valore **ResultType** di una stringa. | No |
-**timeout** | Tempo di attesa dell'attività affinché venga richiamato il callback specificato da **callBackUri** . Il valore predefinito è 10 minuti ("00:10:00"). I valori hanno il formato TimeSpan *d*. *HH*:*mm*:*SS*. | String | No |
-**Segnala stato del callback** | Consente a un utente di segnalare lo stato di errore di un'attività webhook. | Boolean | No |
+**name** | Nome dell'attività webhook. | string | Sì |
+**type** | Deve essere impostato su "WebHook". | string | Sì |
+**Metodo** | Metodo dell'API REST per l'endpoint di destinazione. | Stringa. Il tipo supportato è "POST". | Sì |
+**url** | Endpoint e percorso di destinazione. | Una stringa o un'espressione con il valore **resultType** di una stringa. | Sì |
+**Intestazioni** | Intestazioni che vengono inviate alla richiesta. Di seguito è riportato un esempio che `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`imposta la lingua e la digitazione in una richiesta: . | Una stringa o un'espressione con il valore **resultType** di una stringa. | Sì. È `Content-Type` necessaria `"headers":{ "Content-Type":"application/json"}` un'intestazione come.A header like is required. |
+**body** | Rappresenta il payload inviato all'endpoint. | JSON valido o un'espressione con il valore **resultType** di JSON. Vedere Schema di [payload](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) della richiesta per lo schema del payload della richiesta. | Sì |
+**Autenticazione** | Metodo di autenticazione utilizzato per chiamare l'endpoint. I tipi supportati sono "Basic" e "ClientCertificate". Per altre informazioni, vedere [Autenticazione](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication). Se l'autenticazione non è necessaria, escludere questa proprietà. | Una stringa o un'espressione con il valore **resultType** di una stringa. | No |
+**Timeout** | Il tempo di attesa dell'attività per richiamare il callback specificato da **callBackUri.** Il valore predefinito è 10 minuti ("00:10:00"). I valori hanno il formato TimeSpan *d*. *hh*:*mm*:*ss*. | string | No |
+**Segnala stato sulla richiamata** | Consente a un utente di segnalare lo stato di errore di un'attività webhook. | Boolean | No |
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 Un'attività webhook supporta i tipi di autenticazione seguenti.
 
-### <a name="none"></a>None
+### <a name="none"></a>nessuno
 
-Se l'autenticazione non è necessaria, non includere la proprietà di **autenticazione** .
+Se l'autenticazione non è necessaria, non includere la proprietà **di autenticazione.**
 
 ### <a name="basic"></a>Basic
 
-Specificare il nome utente e la password da usare con l'autenticazione di base.
+Specificare il nome utente e la password da utilizzare con l'autenticazione di base.
 
 ```json
 "authentication":{
@@ -97,7 +97,7 @@ Specificare il contenuto con codifica Base64 di un file PFX e una password.
 
 ### <a name="managed-identity"></a>Identità gestita
 
-Usare l'identità gestita del data factory per specificare l'URI della risorsa per cui viene richiesto il token di accesso. Per chiamare l'API di gestione delle risorse di Azure, usare `https://management.azure.com/`. Per altre informazioni sul funzionamento delle identità gestite, vedere [Cenni preliminari sulle identità gestite per le risorse di Azure](/azure/active-directory/managed-identities-azure-resources/overview).
+Usare l'identità gestita della data factory per specificare l'URI della risorsa per cui viene richiesto il token di accesso. Per chiamare l'API di gestione delle risorse di Azure, usare `https://management.azure.com/`. Per altre informazioni sul funzionamento delle identità gestite, vedere Panoramica delle identità gestite per le risorse di Azure.For more information about how managed [identities work, see the managed identities for Azure resources overview](/azure/active-directory/managed-identities-azure-resources/overview).
 
 ```json
 "authentication": {
@@ -107,21 +107,21 @@ Usare l'identità gestita del data factory per specificare l'URI della risorsa p
 ```
 
 > [!NOTE]
-> Se la data factory è configurata con un repository git, è necessario archiviare le credenziali in Azure Key Vault per usare l'autenticazione di base o del certificato client. Azure Data Factory non archivia le password in git.
+> Se la data factory è configurata con un repository Git, è necessario archiviare le credenziali nell'insieme di credenziali delle chiavi di Azure per usare l'autenticazione di base o del certificato client. Azure Data Factory doesn't store passwords in Git.
 
 ## <a name="additional-notes"></a>Note aggiuntive
 
-Data Factory passa la proprietà aggiuntiva **callBackUri** nel corpo inviato all'endpoint dell'URL. Data Factory prevede che questo URI venga richiamato prima del valore di timeout specificato. Se l'URI non viene richiamato, l'attività ha esito negativo con lo stato "timeout".
+Data Factory passa la proprietà aggiuntiva **callBackUri** nel corpo inviato all'endpoint URL. Data Factory prevede che questo URI venga richiamato prima del valore di timeout specificato. Se l'URI non viene richiamato, l'attività ha esito negativo con lo stato "TimedOut".
 
-L'attività del webhook ha esito negativo quando la chiamata all'endpoint personalizzato ha esito negativo. Qualsiasi messaggio di errore può essere aggiunto al corpo di callback e utilizzato in un'attività successiva.
+L'attività webhook ha esito negativo quando la chiamata all'endpoint personalizzato ha esito negativo. Qualsiasi messaggio di errore può essere aggiunto al corpo del callback e utilizzato in un'attività successiva.
 
-Per ogni chiamata all'API REST, si verifica il timeout del client se l'endpoint non risponde entro un minuto. Questo comportamento è la procedura consigliata standard HTTP. Per risolvere il problema, implementare uno schema 202. Nel caso corrente, l'endpoint restituisce 202 (accettato) e il client esegue il polling.
+Per ogni chiamata all'API REST, il client scade se l'endpoint non risponde entro un minuto. Questo comportamento è la procedura consigliata HTTP standard. Per risolvere questo problema, implementare un modello 202. Nel caso corrente, l'endpoint restituisce 202 (Accettato) e il client esegue il polling.
 
-Il timeout di un minuto per la richiesta non ha nulla a che fare con il timeout dell'attività. Quest'ultimo viene usato per attendere il callback specificato da **callbackUri**.
+Il timeout di un minuto nella richiesta non ha nulla a che fare con il timeout dell'attività. Quest'ultimo viene utilizzato per attendere il callback specificato da **callbackUri**.
 
 Il corpo passato all'URI di callback deve essere JSON valido. Impostare l'intestazione `Content-Type` su `application/json`.
 
-Quando si utilizza la proprietà **report status on callback** , è necessario aggiungere il codice seguente al corpo quando si effettua il callback:
+Quando si utilizza lo stato Report nella proprietà **di callback,** è necessario aggiungere il codice seguente al corpo quando si effettua il callback:
 
 ```json
 {
@@ -140,12 +140,12 @@ Quando si utilizza la proprietà **report status on callback** , è necessario a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere le seguenti attività del flusso di controllo supportate da Data Factory:
+Vedere le attività del flusso di controllo seguenti supportate da Data Factory:See the following control flow activities supported by Data Factory:
 
 - [Attività della condizione If](control-flow-if-condition-activity.md)
-- [Attività ExecutePipeline](control-flow-execute-pipeline-activity.md)
-- [Attività ForEach](control-flow-for-each-activity.md)
-- [Attività Get Metadata](control-flow-get-metadata-activity.md)
+- [Attività Esegui pipeline](control-flow-execute-pipeline-activity.md)
+- [Per ogni attività](control-flow-for-each-activity.md)
+- [Ottenere l'attività dei metadatiGet Metadata Activity](control-flow-get-metadata-activity.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 - [Attività Web](control-flow-web-activity.md)
 - [Attività Until](control-flow-until-activity.md)

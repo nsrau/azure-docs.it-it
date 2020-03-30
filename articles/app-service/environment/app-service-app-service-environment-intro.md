@@ -1,6 +1,6 @@
 ---
-title: Introduzione all'ambiente del servizio app V1
-description: Informazioni sulle funzionalità di ambiente del servizio app V1. Questo documento è disponibile solo per i clienti che usano l'ambiente del servizio app legacy V1.
+title: Introduzione all'ASE v1
+description: Informazioni sulle funzionalità di App Service Environment v1. Questo documento viene fornito solo per i clienti che utilizzano l'app ase versione 21 legacy.
 author: stefsch
 ms.assetid: 78e6d4f5-da46-4eb5-a632-b5fdc17d2394
 ms.topic: article
@@ -8,20 +8,20 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: f655b7793bfbb5bbeddfc2f1f8e7bc973dabeb4c
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74687368"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>Introduzione all'ambiente del servizio app (versione 1)
 
 > [!NOTE]
-> Questo articolo riguarda l'ambiente del servizio app v1.  Esiste una nuova versione dell'ambiente del servizio app che, oltre ad essere più facile da usare, può essere eseguita in un'infrastruttura più potente. Per altre informazioni su questa nuova versione, vedere [Introduzione ad Ambiente del servizio app](intro.md).
+> Questo articolo riguarda l'ambiente del servizio app v1.  Esiste una nuova versione dell'ambiente del servizio app che, oltre ad essere più facile da usare, può essere eseguita in un'infrastruttura più potente. Per altre informazioni sulla nuova versione, iniziare con [l'introduzione all'ambiente del servizio app](intro.md).
 
 ## <a name="overview"></a>Panoramica
 
-Un ambiente del servizio app è un'opzione del piano di servizio [Premium][PremiumTier] di [app Azure servizio](../overview.md) che fornisce un ambiente completamente isolato e dedicato per eseguire in modo sicuro app Azure app di servizio su larga scala, tra cui app Web, app per dispositivi mobili e app per le API.  
+Un ambiente del servizio app è un'opzione del piano di servizio [Premium][PremiumTier] del [servizio app](../overview.md) di Azure che offre un ambiente completamente isolato e dedicato per eseguire in modo sicuro le app del servizio app di Azure su larga scala, tra cui app Web, app per dispositivi mobili e app API.  
 
 Gli ambienti di servizi di app sono ideali per i carichi di lavoro dell'applicazione che richiedono:
 
@@ -32,7 +32,7 @@ I clienti possono creare più ambienti di servizi di applicazione in una singola
 
 Gli ambienti di servizio dell’App sono isolati per eseguire solo le applicazioni di un singolo cliente e sono sempre distribuiti in una rete virtuale.  I clienti hanno un controllo accurato sul traffico di rete sia in ingresso che in uscita dall'applicazione e le applicazioni possono stabilire connessioni protette ad alta velocità su reti virtuali alle risorse aziendali locali.
 
-Per una panoramica del modo in cui gli ambienti del servizio app abilitano la scalabilità elevata e l'accesso sicuro alla rete, vedere [AzureCon Deep Dive][AzureConDeepDive] in ambienti del servizio app.
+Per una panoramica di come gli ambienti del servizio app abilitano l'accesso alla rete con scalabilità elevata e sicura, vedere [AzureCon Deep Dive][AzureConDeepDive] on App Service Environments.
 
 Per un approfondimento sulla scalabilità orizzontale usando più ambienti del servizio app, vedere l'articolo sulle modalità di configurazione di un [footprint di app con distribuzione geografica][GeodistributedAppFootprint].
 
@@ -50,33 +50,33 @@ Un ambiente del servizio app è costituito da un pool di risorse di calcolo fron
 
 Il pool front-end contiene le risorse di calcolo responsabili della terminazione SSL e del bilanciamento del carico automatico delle richieste delle app all'interno di un ambiente del servizio app.
 
-Ogni pool di lavoro contiene risorse di calcolo allocate ai [piani di servizio app][AppServicePlan], che a loro volta contengono una o più app del servizio app Azure.  Dato che possono essere presenti fino a tre pool di lavoro diversi in un ambiente del servizio app, è possibile scegliere in modo flessibile diverse risorse di calcolo per ogni pool di lavoro.  
+Ogni pool di lavoro contiene le risorse di calcolo allocate ai [piani del servizio app][AppServicePlan], che a loro volta contengono una o più app del servizio app di Azure.  Dato che possono essere presenti fino a tre pool di lavoro diversi in un ambiente del servizio app, è possibile scegliere in modo flessibile diverse risorse di calcolo per ogni pool di lavoro.  
 
 È ad esempio possibile creare un pool di lavoro con risorse di calcolo meno potenti per i piani di servizio app dedicati allo sviluppo o al test delle app.  Un secondo (o perfino un terzo) pool di lavoro potrebbe usare risorse di calcolo più potenti dedicate ai piani di servizio app che eseguono le app di produzione.
 
-Per informazioni dettagliate sulla quantità di risorse di calcolo disponibili per il front-end e i pool di lavoro, vedere [How to Configure an ambiente del servizio app][HowToConfigureanAppServiceEnvironment].  
+Per informazioni dettagliate sulla quantità di risorse di calcolo disponibili per il front-end e i pool di lavoro, vedere [Come configurare un ambiente del servizio app][HowToConfigureanAppServiceEnvironment].  
 
-Per informazioni dettagliate sulle dimensioni delle risorse di calcolo disponibili supportate in un ambiente del servizio app, vedere la pagina [prezzi del servizio app][AppServicePricing] ed esaminare le opzioni disponibili per gli ambienti del servizio app nel piano tariffario Premium.
+Per informazioni dettagliate sulle dimensioni delle risorse di calcolo disponibili supportate in un ambiente del servizio app, visitare la pagina [Prezzi del servizio app][AppServicePricing] ed esaminare le opzioni disponibili per gli ambienti del servizio app nel piano tariffario Premium.
 
 ## <a name="virtual-network-support"></a>Supporto della rete virtuale
 
-Un ambiente del servizio app può essere creato in una rete virtuale Azure Resource Manager **o** in una rete virtuale del **modello di distribuzione** classica ([altre informazioni sulle reti virtuali][MoreInfoOnVirtualNetworks]).  Poiché un ambiente del servizio app è sempre incluso in una rete virtuale, e più precisamente, all'interno di una subnet di una rete virtuale, è possibile usufruire delle funzionalità di sicurezza delle reti virtuali per controllare le comunicazioni di rete in ingresso e in uscita.  
+Un ambiente del servizio app può essere creato **in** una rete virtuale di Azure Resource Manager **o** in una rete virtuale del modello di distribuzione classica. [Altre informazioni sulle reti virtuali][MoreInfoOnVirtualNetworks].  Poiché un ambiente del servizio app è sempre incluso in una rete virtuale, e più precisamente, all'interno di una subnet di una rete virtuale, è possibile usufruire delle funzionalità di sicurezza delle reti virtuali per controllare le comunicazioni di rete in ingresso e in uscita.  
 
 Un ambiente del servizio app può avere connessione a Internet con un indirizzo IP pubblico o connessione interna con un indirizzo del Servizio di bilanciamento del carico interno di Azure.
 
 È possibile usare i [gruppi di sicurezza di rete][NetworkSecurityGroups] per limitare le comunicazioni di rete in ingresso alla subnet in cui risiede un ambiente del servizio app.  In questo modo è possibile eseguire le app protette da dispositivi e servizi upstream, quali firewall per applicazioni Web e provider di servizi SaaS di rete.
 
-Spesso le app devono accedere a risorse aziendali, ad esempio database e servizi Web interni.  In base a un approccio comune, questi endpoint vengono resi disponibili solo al traffico di rete interno in una rete virtuale di Azure.  Quando un ambiente del servizio app viene aggiunto alla stessa rete virtuale dei servizi interni, le app in esecuzione nell'ambiente possono accedervi, inclusi gli endpoint raggiungibili tramite connessioni [da sito a sito][SiteToSite] e [Azure ExpressRoute][ExpressRoute] .
+Spesso le app devono accedere a risorse aziendali, ad esempio database e servizi Web interni.  In base a un approccio comune, questi endpoint vengono resi disponibili solo al traffico di rete interno in una rete virtuale di Azure.  Quando un ambiente del servizio app è aggiunto alla stessa rete virtuale dei servizi interni, le app in esecuzione nell'ambiente possono accedere a questi servizi, inclusi gli endpoint raggiungibili tramite connessioni [da sito a sito][SiteToSite] e connessioni [Azure ExpressRoute][ExpressRoute].
 
-Per altre informazioni sul funzionamento degli ambienti del servizio app con le reti virtuali e le reti locali, vedere gli articoli seguenti sull' [architettura di rete][NetworkArchitectureOverview], controllare il traffico in [ingresso][ControllingInboundTraffic]e [connettersi in modo sicuro ai backend][SecurelyConnectingToBackends]. 
+Per altre informazioni sul funzionamento degli ambienti del servizio app con reti virtuali e reti locali, consultare gli articoli seguenti su [architettura di rete][NetworkArchitectureOverview], [controllo del traffico in ingresso][ControllingInboundTraffic] e [connessione sicura ai back-end][SecurelyConnectingToBackends]. 
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 
-Per iniziare a usare gli ambienti del servizio app, vedere [come creare un ambiente del servizio app][HowToCreateAnAppServiceEnvironment]
+Per iniziare a usare gli ambienti del servizio app, vedere Come creare un ambiente del servizio appTo get started with App [Service Environments,][HowToCreateAnAppServiceEnvironment] see How To Create An App Service Environment
 
-Per una panoramica dell'architettura di rete ambiente del servizio app, vedere l'articolo [Panoramica dell'architettura di rete][NetworkArchitectureOverview] .
+Per una panoramica dell'architettura di rete dell'ambiente del servizio app, vedere l'articolo [Panoramica dell'architettura di rete][NetworkArchitectureOverview].
 
-Per informazioni dettagliate sull'uso di un ambiente del servizio app con ExpressRoute, vedere l'articolo seguente su [Express Route e gli ambienti del servizio app][NetworkConfigDetailsForExpressRoute].
+Per altre informazioni sull'uso di un ambiente del servizio app con ExpressRoute, vedere l'articolo seguente su [Express Route e gli ambienti del servizio app][NetworkConfigDetailsForExpressRoute].
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

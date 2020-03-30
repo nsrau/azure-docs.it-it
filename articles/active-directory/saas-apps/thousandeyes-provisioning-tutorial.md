@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: provisioning utenti per ThousandEyes-Azure AD'
+title: 'Esercitazione: Provisioning degli utenti per ThousandEyes - Azure ADTutorial: User provisioning for ThousandEyes - Azure AD'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in ThousandEyes.
 services: active-directory
 documentationcenter: ''
@@ -16,17 +16,17 @@ ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d87cffce636146eac3e557670ffc4fb2fc34ae38
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77062881"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Esercitazione: Configurare ThousandEyes per il provisioning utenti automatico
 
 Questa esercitazione descrive le procedure da eseguire in ThousandEyes e Azure AD per effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a ThousandEyes. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -60,13 +60,13 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
 ### <a name="configure-automatic-user-account-provisioning-to-thousandeyes-in-azure-ad"></a>Configurare il provisioning automatico degli account utente in ThousandEyes con Azure AD
 
-1. Nel [portale di Azure](https://portal.azure.com) passare alla sezione **Azure Active Directory > App aziendali > Tutte le applicazioni**.
+1. Nel [portale di Azure](https://portal.azure.com)passare alla sezione **Azure Active Directory > Enterprise Apps > Tutte le applicazioni.**
 
 2. Se si è già configurato ThousandEyes per l'accesso Single Sign-On, cercare l'istanza di ThousandEyes usando il campo di ricerca. In caso contrario, selezionare **Aggiungi** e cercare **ThousandEyes** nella raccolta di applicazioni. Selezionare ThousandEyes nei risultati della ricerca e aggiungerlo all'elenco delle applicazioni.
 
 3. Selezionare l'istanza di ThousandEyes e quindi la scheda **Provisioning**.
 
-4. Impostare **Modalità di provisioning** su **Automatico**.
+4. Impostare la **modalità di provisioning** su **Automatico**.
 
     ![Provisioning di ThousandEyes](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
@@ -94,8 +94,8 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+* [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Che cos'è l'accesso alle applicazioni e l'accesso Single Sign-On con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

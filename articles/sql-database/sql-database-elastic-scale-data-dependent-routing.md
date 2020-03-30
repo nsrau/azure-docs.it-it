@@ -12,17 +12,17 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: fbdf8e316368be02ebd0c4bfd320917c20d80777
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77069456"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>Usare il routing dipendente dai dati per indirizzare una query al database appropriato
 
 **Routing dipendente dai dati** è la possibilità di usare i dati in una query per instradare la richiesta a un database appropriato. Il routing dipendente dai dati costituisce un criterio fondamentale quando si usano database partizionati. Per instradare la richiesta è anche possibile usare il contesto della richiesta stessa, soprattutto se la chiave di partizionamento orizzontale non fa parte della query. Ogni query o transazione specifica in un'applicazione che usa il routing dipendente dai dati può accedere a un unico database per richiesta. Per gli strumenti elastici del database SQL di Azure, il routing viene eseguito con la classe **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager) o [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)).
 
-Per l'applicazione non è necessario rilevare le diverse stringhe di connessione o i percorsi dei database associati a diverse sezioni di dati nell'ambiente partizionato. È [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md) che, quando necessario, apre le connessioni ai database corretti in base ai dati contenuti nella mappa partizioni e al valore della chiave di partizionamento orizzontale, che costituisce la destinazione della richiesta dell'applicazione. La chiave è in genere *customer_id*, *tenant_id*, *date_key* o un altro identificatore specifico che costituisce un parametro fondamentale della richiesta del database.
+Per l'applicazione non è necessario rilevare le diverse stringhe di connessione o i percorsi dei database associati a diverse sezioni di dati nell'ambiente partizionato. È [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md) che, quando necessario, apre le connessioni ai database corretti in base ai dati contenuti nella mappa partizioni e al valore della chiave di partizionamento orizzontale, che costituisce la destinazione della richiesta dell'applicazione. La chiave è in genere il *customer_id*, *tenant_id*, *date_key*o un altro identificatore specifico che è un parametro fondamentale della richiesta di database.
 
 Per altre informazioni, vedere [all'aumento del numero di istanze di SQL Server con il routing dipendente dai dati](https://technet.microsoft.com/library/cc966448.aspx).
 

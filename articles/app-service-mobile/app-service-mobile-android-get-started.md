@@ -1,16 +1,16 @@
 ---
 title: Creare un'app per Android
-description: Seguire questa esercitazione per iniziare a usare app per dispositivi mobili di Azure backend per lo sviluppo di app Android.
+description: Seguire questa esercitazione per iniziare a usare i back-end delle app per dispositivi mobili di Azure per lo sviluppo di app Android.Follow this tutorial to get started with using Azure mobile app backends for Android app development.
 ms.assetid: 355f0959-aa7f-472c-a6c7-9eecea3a34a9
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 9be9402bff1a1263de3c6f21b78899464c50c823
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77459570"
 ---
 # <a name="create-an-android-app"></a>Creare un'app per Android
@@ -25,7 +25,7 @@ Il completamento di questa esercitazione è un prerequisito per tutte le altre e
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * [Android Developer Tools](https://developer.android.com/sdk/index.html), che include l'ambiente di sviluppo integrato di Android Studio e la piattaforma Android più recente.
-* Android SDK per dispositivi mobili di Azure.
+* SDK di Azure Mobile Android.
 * Un [account Azure attivo](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>Creare un nuovo back-end dell'app per dispositivi mobili di Azure

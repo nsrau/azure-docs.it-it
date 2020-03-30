@@ -6,11 +6,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: thweiss
-ms.openlocfilehash: 86e9854cb5a522a56cca09a6e1ea155fd8a62f14
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: c5699bb851bd0a818a987228155c62683e93f51a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77585901"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Trovare l'addebito delle unità richiesta in Azure Cosmos DB
@@ -25,7 +25,7 @@ Se si usa l'API SQL, sono disponibili diverse opzioni per trovare il consumo di 
 
 È attualmente possibile trovare l'addebito relativo alla richiesta nel portale di Azure solo per una query SQL.
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale](https://portal.azure.com/)di Azure .
 
 1. [Creare un nuovo account di Azure Cosmos](create-sql-api-dotnet.md#create-account) e inserirvi dati oppure selezionare un account Azure Cosmos esistente che contiene già dati.
 
@@ -79,9 +79,9 @@ while (query.HasMoreResults)
 
 Gli oggetti restituiti da [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) espongono una proprietà `RequestCharge`:
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/CustomDocsSampleCode.cs" id="GetRequestCharge":::
+[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/CustomDocsSampleCode.cs?name=GetRequestCharge)]
 
-Per altre informazioni, vedere [Guida introduttiva: creare un'app Web .NET usando un account API SQL in Azure Cosmos DB](create-sql-api-dotnet.md).
+Per altre informazioni, vedere [Guida introduttiva: Creare un'app Web .NET usando un account API SQL in Azure Cosmos DB.](create-sql-api-dotnet.md)
 
 ### <a name="use-the-java-sdk"></a>Usare Java SDK
 
@@ -111,7 +111,7 @@ feedResponse.forEach(result -> {
 });
 ```
 
-Per altre informazioni, vedere [Guida introduttiva: creare un'applicazione Java usando un account API SQL Azure Cosmos DB](create-sql-api-java.md).
+Per altre informazioni, vedere [Guida introduttiva: Creare un'applicazione Java usando un account API SQL di Azure Cosmos DB](create-sql-api-java.md).
 
 ### <a name="use-the-nodejs-sdk"></a>Usare Node.js SDK
 
@@ -146,7 +146,7 @@ while (query.hasMoreResults()) {
 }
 ```
 
-Per altre informazioni, vedere [Guida introduttiva: creare un'app node. js usando un account API SQL Azure Cosmos DB](create-sql-api-nodejs.md). 
+Per altre informazioni, vedere [Guida introduttiva: Creare un'app Node.js usando un account API SQL](create-sql-api-nodejs.md)del database Cosmos di Azure.For more information, see Quickstart: Build a Node.js app by using an Azure Cosmos DB SQL API account . 
 
 ### <a name="use-the-python-sdk"></a>Usare Python SDK
 
@@ -162,7 +162,7 @@ response = client.ExecuteStoredProcedure(
 request_charge = client.last_response_headers['x-ms-request-charge']
 ```
 
-Per altre informazioni, vedere [Guida introduttiva: creare un'app Python usando un account API SQL Azure Cosmos DB](create-sql-api-python.md). 
+Per altre informazioni, vedere [Guida introduttiva: Creare un'app Python usando un account API SQL di Azure Cosmos DB](create-sql-api-python.md). 
 
 ## <a name="azure-cosmos-db-api-for-mongodb"></a>API Azure Cosmos DB per MongoDB
 
@@ -172,7 +172,7 @@ L'addebito delle UR è esposto da un [comando di database](https://docs.mongodb.
 
 È attualmente possibile trovare l'addebito relativo alla richiesta nel portale di Azure solo per una query.
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale](https://portal.azure.com/)di Azure .
 
 1. [Creare un nuovo account di Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account) e inserirvi dati oppure selezionare un account esistente che contiene già dati.
 
@@ -203,7 +203,7 @@ Dictionary<string, object> stats = database.RunCommand(new GetLastRequestStatist
 double requestCharge = (double)stats["RequestCharge"];
 ```
 
-Per altre informazioni, vedere [Guida introduttiva: creare un'app Web .NET usando un'API Azure Cosmos DB per MongoDB](create-mongodb-dotnet.md).
+Per altre informazioni, vedere [Guida introduttiva: Creare un'app Web .NET usando un'API di Azure Cosmos DB per MongoDB.](create-mongodb-dotnet.md)
 
 ### <a name="use-the-mongodb-java-driver"></a>Usare il driver Java di MongoDB
 
@@ -215,7 +215,7 @@ Document stats = database.runCommand(new Document("getLastRequestStatistics", 1)
 Double requestCharge = stats.getDouble("RequestCharge");
 ```
 
-Per altre informazioni, vedere [Guida introduttiva: creare un'app Web usando l'API Azure Cosmos DB per MongoDB e Java SDK](create-mongodb-java.md).
+Per altre informazioni, vedere [Guida introduttiva: Creare un'app Web usando l'API Azure Cosmos DB per MongoDB e Java SDK.](create-mongodb-java.md)
 
 ### <a name="use-the-mongodb-nodejs-driver"></a>Usare il driver Node.js di MongoDB
 
@@ -228,7 +228,7 @@ db.command({ getLastRequestStatistics: 1 }, function(err, result) {
 });
 ```
 
-Per altre informazioni, vedere [Guida introduttiva: eseguire la migrazione di un'app Web Node. js di MongoDB esistente a Azure Cosmos DB](create-mongodb-nodejs.md).
+Per altre informazioni, vedere [Guida introduttiva: Eseguire la migrazione di un'app Web MongoDB Node.js esistente in Azure Cosmos DB.](create-mongodb-nodejs.md)
 
 ## <a name="cassandra-api"></a>API Cassandra
 
@@ -243,7 +243,7 @@ RowSet rowSet = session.Execute("SELECT table_name FROM system_schema.tables;");
 double requestCharge = BitConverter.ToDouble(rowSet.Info.IncomingPayload["RequestCharge"].Reverse().ToArray(), 0);
 ```
 
-Per altre informazioni, vedere [Guida introduttiva: creare un'app Cassandra usando .NET SDK e Azure Cosmos DB](create-cassandra-dotnet.md).
+Per altre informazioni, vedere [Guida introduttiva: Creare un'app Cassandra usando .NET SDK e Azure Cosmos DB](create-cassandra-dotnet.md).
 
 ### <a name="use-the-java-sdk"></a>Usare Java SDK
 
@@ -254,7 +254,7 @@ ResultSet resultSet = session.execute("SELECT table_name FROM system_schema.tabl
 Double requestCharge = resultSet.getExecutionInfo().getIncomingPayload().get("RequestCharge").getDouble();
 ```
 
-Per altre informazioni, vedere [Guida introduttiva: creare un'app Cassandra usando Java SDK e Azure Cosmos DB](create-cassandra-java.md).
+Per altre informazioni, vedere [Guida introduttiva: Creare un'app Cassandra usando Java SDK e Azure Cosmos DB](create-cassandra-java.md).
 
 ## <a name="gremlin-api"></a>API Gremlin
 
@@ -273,7 +273,7 @@ ResultSet<dynamic> results = client.SubmitAsync<dynamic>("g.V().count()").Result
 double requestCharge = (double)results.StatusAttributes["x-ms-request-charge"];
 ```
 
-Per altre informazioni, vedere [Guida introduttiva: creare un'applicazione .NET Framework o Core usando un account API Azure Cosmos DB Gremlin](create-graph-dotnet.md).
+Per altre informazioni, vedere [Guida introduttiva: Creare un'applicazione .NET Framework o Core usando un account API Gremlin di Azure Cosmos DB.](create-graph-dotnet.md)
 
 ### <a name="use-the-java-sdk"></a>Usare Java SDK
 
@@ -284,7 +284,7 @@ ResultSet results = client.submit("g.V().count()");
 Double requestCharge = (Double)results.statusAttributes().get().get("x-ms-request-charge");
 ```
 
-Per altre informazioni, vedere [Guida introduttiva: creare un database a grafo in Azure Cosmos DB usando Java SDK](create-graph-java.md).
+Per altre informazioni, vedere [Guida introduttiva: Creare un database grafico in Azure Cosmos DB usando Java SDK](create-graph-java.md).
 
 ## <a name="table-api"></a>API di tabella
 
@@ -299,13 +299,13 @@ if (tableResult.RequestCharge.HasValue) // would be false when using Azure Stora
 }
 ```
 
-Per altre informazioni, vedere [Guida introduttiva: creare un'app API tabella usando .NET SDK e Azure Cosmos DB](create-table-dotnet.md).
+Per altre informazioni, vedere [Guida introduttiva: Creare un'app per le API tabella usando .NET SDK e Azure Cosmos DB.](create-table-dotnet.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni su come ottimizzare il consumo di UR, vedere questi articoli:
 
-* [Velocità effettiva e unità richiesta in Azure Cosmos DB](request-units.md)
+* [Richiedere unità e velocità effettiva in Azure Cosmos DBRequest units and throughput in Azure Cosmos DB](request-units.md)
 * [Ottimizzare il costo della velocità effettiva con provisioning in Azure Cosmos DB](optimize-cost-throughput.md)
 * [Ottimizzare il costo delle query in Azure Cosmos DB](optimize-cost-queries.md)
 * [Ridimensionamento a livello globale della velocità effettiva sottoposta a provisioning](scaling-throughput.md)

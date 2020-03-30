@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 7dd49df782115c8c328eed819395209ee7217fd3
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77566064"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Introduzione alla distribuzione di contenuti su richiesta utilizzando .NET SDK  
@@ -27,12 +27,12 @@ ms.locfileid: "77566064"
 
 Questa esercitazione illustra il processo di implementazione di un servizio per la distribuzione di contenuto video on demand (VoD) di base con l'applicazione Servizi multimediali di Azure (AMS) usando Azure Media Services .NET SDK.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione è necessario quanto segue:
 
-* Un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Account di Servizi multimediali. Per creare un account Servizi multimediali, vedere [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
+* Un account Azure. Per informazioni dettagliate, vedere Versione di valutazione gratuita di Azure .For [details,](https://azure.microsoft.com/pricing/free-trial/)see Azure Free Trial .
+* Account di Servizi multimediali. Per creare un account di Servizi multimediali, vedere [Creazione di un account di Servizi multimediali](media-services-portal-create-account.md).
 * .NET Framework 4.0 o versione successiva.
 * Visual Studio.
 
@@ -66,7 +66,7 @@ Fare clic sull'immagine per visualizzarla a schermo intero.
 Uno degli scenari più frequenti dell'uso di Servizi multimediali di Azure riguarda la distribuzione di contenuto video in streaming a bitrate adattivo. Servizi multimediali include la funzionalità per la creazione dinamica dei pacchetti, che consente di distribuire contenuto con codifica MP4 a bitrate adattivo nei formati supportati da Servizi multimediali, come MPEG DASH, HLS e Smooth Streaming in modalità JIT, senza dover archiviare le versioni predefinite di ognuno di questi formati di streaming.
 
 >[!NOTE]
->Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**.
+>Quando viene creato l'account AMS, viene aggiunto un endpoint di streaming **predefinito** all'account nello stato **Arrestato.** Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**.
 
 Per avviare l'endpoint di streaming, eseguire queste operazioni:
 
@@ -81,7 +81,7 @@ Per avviare l'endpoint di streaming, eseguire queste operazioni:
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
-1. Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
+1. Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in Sviluppo di [Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
 2. Creare una nuova cartella, in un punto qualsiasi nell'unità locale, e copiare un file con estensione mp4 di cui eseguire codifica e streaming o il download progressivo. In questo esempio viene usato il percorso "C:\VideoFiles".
 
 ## <a name="connect-to-the-media-services-account"></a>Connettersi all'account di Servizi multimediali
@@ -152,11 +152,11 @@ La funzione **Main** chiama metodi che verranno definiti più in dettaglio in qu
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>Creare un nuovo asset e caricare un file video
 
-In Servizi multimediali i file digitali vengono caricati (o inseriti) in un asset. L'entità **Asset** può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli codificati, oltre ai metadati relativi a questi file.  Una volta caricati i file, il contenuto viene archiviato in modo sicuro nel cloud per ulteriori operazioni di elaborazione e streaming. I file nell'asset sono denominati **File di asset**.
+In Servizi multimediali i file digitali vengono caricati (o inseriti) in un asset. L'entità **Asset** può contenere video, audio, immagini, raccolte di miniature, tracce di testo e file di sottotitoli codificati (e i metadati relativi a questi file).  Una volta caricati i file, i contenuti vengono archiviati in modo sicuro nel cloud per un'ulteriore elaborazione e streaming. I file nell'asset sono denominati **File di asset**.
 
 Il metodo **UploadFile** definito di seguito chiama **CreateFromFile**, definito in .NET SDK Extensions. **CreateFromFile** crea un nuovo asset in cui viene caricato il file di origine specificato.
 
-Il metodo **CreateFromFile** accetta **AssetCreationOptions**, che permette di specificare una delle opzioni di creazione di asset seguenti:
+Il metodo **CreateFromFile** accetta **AssetCreationOptions**, che consente di specificare una delle seguenti opzioni di creazione degli asset:
 
 * **None** : non viene usata alcuna crittografia. Si tratta del valore predefinito. Quando si usa questa opzione, il contenuto non è protetto durante il transito, né nell'archiviazione locale.
   Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione.
@@ -246,11 +246,11 @@ Dopo aver creato i localizzatori, è possibile compilare gli URL usati per esegu
 
 #### <a name="a-streaming-url-for-mpeg-dash-has-the-following-format"></a>Un URL di streaming per MPEG DASH ha il seguente formato:
 
-{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest **(format=mpd-time-csf)**
+:nome dell'endpoint in streaming-nome file multimediali nome account, ovvero .streaming.mediaservices.windows.net//ID del localizzatore//nomefile/.ism/Manifest **(formato/mpd-time-csf)**
 
 #### <a name="a-streaming-url-for-hls-has-the-following-format"></a>Un URL di streaming per HLS ha il seguente formato:
 
-{nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest **(format=m3u8-aapl)**
+:nome dell'endpoint in streaming-nome file multimediali nome account, ovvero .streaming.mediaservices.windows.net//ID del localizzatore//nomefile/.ism/Manifest **(formato/m3u8-aapl)**
 
 #### <a name="a-streaming-url-for-smooth-streaming-has-the-following-format"></a>Un URL di streaming per Smooth Streaming ha il seguente formato:
 

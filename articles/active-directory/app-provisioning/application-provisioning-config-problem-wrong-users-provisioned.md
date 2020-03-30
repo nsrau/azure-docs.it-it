@@ -1,5 +1,5 @@
 ---
-title: Viene eseguito il provisioning di un set errato di utenti in un'app della raccolta Azure AD
+title: Viene eseguito il provisioning di un set di utenti errato in un'app Raccolta Azure AD
 description: Informazioni su come individuare i motivi per cui è in corso il provisioning di un set di utenti per un'applicazione diverso da quello previsto
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c94388011605da73666e82011bb8ef56d2af8d30
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77522782"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>È in corso il provisioning di un set errato di utenti per un'applicazione della raccolta di Azure AD
@@ -33,7 +33,7 @@ Usare le risorse seguenti per informazioni su come verificare quali utenti e gru
 
 Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa procedura:
 
-1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
+1. Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
@@ -43,7 +43,7 @@ Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa p
 
 5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+   * Se l'applicazione che si desidera visualizzare non viene visualizzata qui, utilizzare il controllo **Filtro** nella parte superiore dell'elenco **Tutte le applicazioni** e impostare l'opzione Mostra **su** Tutte **le applicazioni.**
 
 6. Selezionare nell'elenco l'applicazione che si vuole assegnare a un utente.
 
@@ -53,9 +53,9 @@ Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa p
 
 9. Fare clic sul selettore **Utenti e gruppi** nel riquadro **Aggiungi assegnazione**.
 
-10. Nella casella di ricerca **Cerca per nome o indirizzo di posta** digitare il **nome completo**  o l'**indirizzo di posta elettronica** dell'utente oggetto dell'assegnazione.
+10. Nella casella di ricerca **Cerca per nome o indirizzo di posta** digitare il **nome completo ** o l'**indirizzo di posta elettronica** dell'utente oggetto dell'assegnazione.
 
-11. Passare il puntatore sull'**utente** nell'elenco per visualizzare una **casella di controllo**. Fare clic sulla casella di controllo accanto alla foto o al logo del profilo dell'utente per aggiungere l'utente all'elenco **Selezionato**.
+11. Passare il mouse **sull'utente** nell'elenco per visualizzare una **casella di controllo.** Fare clic sulla casella di controllo accanto alla foto o al logo del profilo dell'utente per aggiungere l'utente all'elenco **Selezionato**.
 
 12. **Facoltativo:** se si vuole **aggiungere più di un utente**, digitare un altro **nome completo** o **indirizzo di posta elettronica** nella casella di ricerca **Cerca per nome o indirizzo di posta** e fare clic sulla casella di controllo per aggiungere l'utente all'elenco **selezionato**.
 
@@ -71,7 +71,7 @@ Se il provisioning è configurato e già in esecuzione per un'app, il provisioni
 
 Per assegnare uno o più gruppi direttamente a un'applicazione, seguire questa procedura:
 
-1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
+1. Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
@@ -81,7 +81,7 @@ Per assegnare uno o più gruppi direttamente a un'applicazione, seguire questa p
 
 5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+   * Se l'applicazione che si desidera visualizzare non viene visualizzata qui, utilizzare il controllo **Filtro** nella parte superiore dell'elenco **Tutte le applicazioni** e impostare l'opzione Mostra **su** Tutte **le applicazioni.**
 
 6. Selezionare nell'elenco l'applicazione che si vuole assegnare a un utente.
 

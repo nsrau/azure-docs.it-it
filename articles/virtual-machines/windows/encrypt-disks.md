@@ -1,5 +1,5 @@
 ---
-title: Crittografare i dischi in una macchina virtuale Windows in Azure
+title: Crittografare i dischi in una macchina virtuale Windows in AzureEncrypt disks on a Windows VM in Azure
 description: Crittografare i dischi virtuali in una macchina virtuale Windows per una maggiore sicurezza usando Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
 ms.openlocfilehash: 096fe779c077424b01df3ead5965cb799866a03b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74033535"
 ---
 # <a name="encrypt-virtual-disks-on-a-windows-vm"></a>Crittografare i dischi virtuali in una macchina virtuale Windows
-Per migliorare gli aspetti di sicurezza e conformità delle macchine virtuali (VM), i dischi virtuali in Azure possono essere crittografati. I dischi vengono crittografati usando chiavi di crittografia protette in un'istanza di Azure Key Vault. È possibile controllare queste chiavi di crittografia e il loro uso. Questo articolo descrive come crittografare i dischi virtuali in una macchina virtuale Windows usando Azure PowerShell. È anche possibile [crittografare le macchine virtuali Linux](../linux/disk-encryption-overview.md).
+Per migliorare gli aspetti di sicurezza e conformità delle macchine virtuali (VM), i dischi virtuali in Azure possono essere crittografati. I dischi vengono crittografati usando chiavi di crittografia protette in un'istanza di Azure Key Vault. È possibile controllare queste chiavi di crittografia e il loro uso. Questo articolo descrive come crittografare i dischi virtuali in una macchina virtuale Windows usando Azure PowerShell. È inoltre possibile [crittografare le macchine virtuali Linux](../linux/disk-encryption-overview.md).
 
  
 
@@ -60,7 +60,7 @@ La crittografia del disco non è attualmente supportata negli scenari seguenti:
 
 
 ## <a name="create-an-azure-key-vault-and-keys"></a>Creare le chiavi e un Azure Key Vault
-Prima di iniziare, verificare che sia installata la versione più recente del modulo Azure PowerShell. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview). Negli esempi di comando seguenti sostituire tutti i parametri di esempio con i propri nomi, località e valori chiave, ad esempio *myResourceGroup*, *myKeyVault*, *myVM* e così via.
+Prima di iniziare, verificare che sia installata la versione più recente del modulo Azure PowerShell. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell.For](/powershell/azure/overview)more information, see How to install and configure Azure PowerShell . Negli esempi di comando seguenti sostituire tutti i parametri di esempio con i propri nomi, località e valori chiave, ad esempio *myResourceGroup*, *myKeyVault*, *myVM* e così via.
 
 Il primo passaggio consiste nel creare un insieme di credenziali delle chiavi di Azure in cui archiviare le chiavi di crittografia. Le istanze di Azure Key Vault consentono di archiviare chiavi, chiavi private o password da implementare in tutta sicurezza in applicazioni e servizi. Per la crittografia del disco virtuale, creare un'istanza di Key Vault per archiviare una chiave di crittografia usata per crittografare o decrittografare i dischi virtuali. 
 
@@ -74,7 +74,7 @@ Register-AzResourceProvider -ProviderNamespace "Microsoft.KeyVault"
 New-AzResourceGroup -Location $location -Name $rgName
 ```
 
-L'istanza di Azure Key Vault contenente le chiavi di crittografia e le risorse di calcolo associate, come lo spazio di archiviazione e la macchina virtuale stessa, devono essere nella stessa area. Creare un Azure Key Vault con [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault) e abilitare il Key Vault per l'uso con la crittografia del disco. Specificare un nome univoco di Key Vault per *keyVaultName* come indicato di seguito:
+L'istanza di Azure Key Vault contenente le chiavi di crittografia e le risorse di calcolo associate, come lo spazio di archiviazione e la macchina virtuale stessa, devono essere nella stessa area. Creare un Azure Key Vault con [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault) e abilitare il Key Vault per l'uso con la crittografia del disco. Specificare un nome univoco dell'insieme di credenziali delle chiavi per *keyVaultName* come segue:
 
 ```azurepowershell-interactive
 $keyVaultName = "myKeyVault$(Get-Random)"

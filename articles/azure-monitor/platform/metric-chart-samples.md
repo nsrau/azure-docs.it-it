@@ -1,5 +1,5 @@
 ---
-title: Esempio di grafico delle metriche di monitoraggio di Azure
+title: Esempio di grafico metrico di Monitoraggio di AzureAzure Monitor metric chart example
 description: Informazioni sulla visualizzazione dei dati di Monitoraggio di Azure.
 author: vgorbenko
 services: azure-monitor
@@ -8,13 +8,13 @@ ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: 1aaeb853a67b36a21a09db57e015029d10cd0c36
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77660871"
 ---
-# <a name="metric-chart-examples"></a>Esempi di grafico delle metriche 
+# <a name="metric-chart-examples"></a>Esempi di grafici metrici 
 
 La piattaforma di Azure offre [più di mille metriche](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported), molte delle quali con dimensioni. Usando i [filtri di dimensione](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), applicando [suddivisioni](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), controllando il tipo di grafico e modificando le impostazioni del grafico, è possibile creare visualizzazioni diagnostiche avanzate e dashboard che forniscono informazioni dettagliate sull'integrità dell'infrastruttura e delle applicazioni. Questo articolo mostra alcuni esempi dei grafici che è possibile creare usando [Esplora metriche](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts) e illustra i passaggi necessari per configurare ciascuno di essi.
 

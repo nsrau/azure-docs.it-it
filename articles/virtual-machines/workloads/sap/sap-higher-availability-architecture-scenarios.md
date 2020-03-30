@@ -1,5 +1,5 @@
 ---
-title: Usare il riavvio delle macchine virtuali di Azure per una "disponibilità più elevata" di un sistema SAP | Microsoft Docs
+title: Usare il riavvio delle macchine virtuali di Azure per una "maggiore disponibilità" di un sistema SAP. Documenti Microsoft
 description: Uso del riavvio delle macchine virtuali dell'infrastruttura di Azure per ottenere una "maggiore disponibilità" delle applicazioni SAP
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -17,15 +17,15 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 86094fd7ff9550946e1b1c13e0773f025a0e977c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77623809"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Uso del riavvio delle macchine virtuali dell'infrastruttura di Azure per ottenere una "maggiore disponibilità" di un sistema SAP
 
-[1909114]: https://launchpad.support.sap.com/#/notes/1909114
+[1909114]:https://launchpad.support.sap.com/#/notes/1909114
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
@@ -238,15 +238,15 @@ Per i componenti SAP critici sono stati ottenuti fino a questo momento i risulta
 
 * Disponibilità elevata di server applicazioni SAP
 
-    Le istanze dei server applicazioni SAP sono componenti ridondanti. Ogni istanza dei server applicazioni SAP viene distribuita nella relativa macchina virtuale, che è in esecuzione in un dominio di errore e di aggiornamento di Azure diverso. Per ulteriori informazioni, vedere la sezione [domini di errore][planning-guide-3.2.1] e domini di [aggiornamento][planning-guide-3.2.2] . 
+    Le istanze dei server applicazioni SAP sono componenti ridondanti. Ogni istanza dei server applicazioni SAP viene distribuita nella relativa macchina virtuale, che è in esecuzione in un dominio di errore e di aggiornamento di Azure diverso. Per informazioni, vedere le sezioni [Domini di errore][planning-guide-3.2.1] e [Domini di aggiornamento][planning-guide-3.2.2]. 
 
-    È possibile verificare questa configurazione usando i set di disponibilità di Azure. Per altre informazioni, vedere la sezione [set di disponibilità di Azure][planning-guide-3.2.3] . 
+    È possibile verificare questa configurazione usando i set di disponibilità di Azure. Per altre informazioni, vedere la sezione [Set di disponibilità di Azure][planning-guide-3.2.3]. 
 
     La potenziale indisponibilità pianificata o non pianificata di un dominio di errore o di aggiornamento di Azure causerà l'indisponibilità di un numero limitato di VM con le relative istanze dei server applicazioni SAP.
 
-    Ogni istanza dei server applicazioni SAP è posizionata nel relativo account di archiviazione di Azure. La potenziale indisponibilità di un account di archiviazione di Azure causa l'indisponibilità di una sola macchina virtuale con la relativa istanza dei server applicazioni SAP. Tenere presente, tuttavia, che esiste un limite al numero di account di archiviazione di Azure che è possibile avere all'interno di una sottoscrizione di Azure. Per garantire l'avvio automatico di un'istanza di ASC/SCS dopo il riavvio della macchina virtuale, impostare il parametro di avvio automatico nel profilo di avvio dell'istanza di ASC/SCS descritto nella sezione [uso dell'avvio automatico per le istanze di SAP][planning-guide-11.5] .
+    Ogni istanza dei server applicazioni SAP è posizionata nel relativo account di archiviazione di Azure. La potenziale indisponibilità di un account di archiviazione di Azure causa l'indisponibilità di una sola macchina virtuale con la relativa istanza dei server applicazioni SAP. Tenere presente, tuttavia, che esiste un limite al numero di account di archiviazione di Azure che è possibile avere all'interno di una sottoscrizione di Azure. Per garantire l'avvio automatico dell'istanza di ASCS/SCS dopo il riavvio della macchina virtuale, assicurarsi di impostare il parametro di avvio automatico nel profilo di avvio dell'istanza di ASCS/SCS descritto nella sezione [Uso dell'avvio automatico per le istanze di SAP][planning-guide-11.5].
   
-    Per altre informazioni, vedere [disponibilità elevata per i server applicazioni SAP][planning-guide-11.4.1].
+    Per altre informazioni, vedere [Disponibilità elevata per i server applicazioni SAP][planning-guide-11.4.1].
 
     Anche se si utilizzano i dischi gestiti, i dischi vengono archiviati anche sull’account di archiviazione di Azure e possono essere non disponibili in caso di disservizio della risorsa di archiviazione.
 
@@ -254,7 +254,7 @@ Per i componenti SAP critici sono stati ottenuti fino a questo momento i risulta
 
     In questo scenario il riavvio delle VM di Azure viene usato per proteggere la VM con l'istanza di SAP ASCS/SCS installata. Nel caso di inattività pianificata o non pianificata dei server di Azure, le VM vengono riavviate in un altro server disponibile. Come accennato in precedenza, il riavvio delle VM di Azure protegge principalmente le VM e *non* le applicazioni, in questo casto l'istanza di ASCS/SCS. Con il riavvio delle macchine virtuali si otterrà indirettamente una disponibilità più elevata dell'istanza di SAP ASCS/SCS. 
 
-    Per garantire l'avvio automatico dell'istanza di ASC/SCS dopo il riavvio della macchina virtuale, impostare il parametro di avvio automatico nel profilo di avvio dell'istanza di ASC/SCS, come descritto nella sezione [uso dell'avvio automatico per le istanze di SAP][planning-guide-11.5] . Questa impostazione significa che l'istanza di ASCS/SCS come singolo punto di errore (SPOF) in esecuzione in una singola VM determinerà la disponibilità dell'intero panorama applicativo SAP.
+    Per garantire l'avvio automatico dell'istanza di ASCS/SCS dopo il riavvio della macchina virtuale, assicurarsi di impostare il parametro di avvio automatico nel profilo di avvio dell'istanza di ASCS/SCS descritto nella sezione [Uso dell'avvio automatico per le istanze di SAP][planning-guide-11.5]. Questa impostazione significa che l'istanza di ASCS/SCS come singolo punto di errore (SPOF) in esecuzione in una singola VM determinerà la disponibilità dell'intero panorama applicativo SAP.
 
 * *Disponibilità più elevata* del server DBMS
 
@@ -282,4 +282,4 @@ Presupponendo uno scenario tipico di Azure di un'istanza del server applicazioni
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni sulla disponibilità elevata in grado di riconoscere le applicazioni SAP NetWeaver, vedere [disponibilità elevata delle applicazioni SAP in Azure IaaS][sap-high-availability-architecture-scenarios-sap-app-ha].
+Per informazioni sulla disponibilità elevata completa con riconoscimento dell'applicazione SAP NetWeaver, vedere [Disponibilità elevata delle applicazioni SAP su IaaS di Azure][sap-high-availability-architecture-scenarios-sap-app-ha].

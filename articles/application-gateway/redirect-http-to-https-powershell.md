@@ -1,5 +1,5 @@
 ---
-title: Reindirizzamento da HTTP a HTTPS tramite PowerShell-applicazione Azure gateway
+title: HTTP to HTTPS redirection using PowerShell - Azure Application Gateway
 description: Informazioni su come creare un gateway applicazione con traffico reindirizzato da HTTP a HTTPS usando Azure PowerShell.
 services: application-gateway
 author: vhorne
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: ca742483bc8977327003ee18e9716ef9c43ebfe3
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77251720"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Creare un gateway applicazione con reindirizzamento da HTTP a HTTPS tramite Azure PowerShell
@@ -99,7 +99,7 @@ $pip = New-AzPublicIpAddress `
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Creare le configurazioni IP e la porta front-end
 
-Associare la subnet *myAGSubnet* creata in precedenza al gateway applicazione usando [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Assegnare *myAGPublicIPAddress* al gateway applicazione usando [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig). Quindi, è possibile creare la porta HTTPS usando [New-AzApplicationGatewayFrontendPort](/powershell/module/az.network/new-azapplicationgatewayfrontendport).
+Associare la subnet *myAGSubnet* creata in precedenza al gateway applicazione usando [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Assegnare *myAGPublicIPAddress* al gateway applicazione usando [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig). È quindi possibile creare la porta HTTPS utilizzando [New-AzApplicationGatewayFrontendPort](/powershell/module/az.network/new-azapplicationgatewayfrontendport).
 
 ```powershell
 $vnet = Get-AzVirtualNetwork `
@@ -136,7 +136,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 È necessario un listener per consentire al gateway applicazione di instradare il traffico in modo appropriato al pool back-end. In questo esempio viene creato un listener di base in ascolto del traffico HTTPS a livello dell'URL radice. 
 
-Creare un oggetto certificato usando [New-AzApplicationGatewaySslCertificate](/powershell/module/az.network/new-azapplicationgatewaysslcertificate) e quindi creare un listener denominato *appGatewayHttpListener* usando [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) con la configurazione front-end, la porta front-end e il certificato creato in precedenza. È necessaria una regola per comunicare al listener quale pool back-end usare per il traffico in ingresso. Creare una regola di base denominata *rule1* usando [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
+Creare un oggetto certificato utilizzando [New-AzApplicationGatewaySslCertificate](/powershell/module/az.network/new-azapplicationgatewaysslcertificate) e quindi creare un listener denominato *appGatewayHttpListener* utilizzando [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) con la configurazione front-end, la porta front-end e il certificato creati in precedenza. È necessaria una regola per comunicare al listener quale pool back-end usare per il traffico in ingresso. Creare una regola di base denominata *rule1* usando [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
 ```powershell
 $pwd = ConvertTo-SecureString `
@@ -189,7 +189,7 @@ $appgw = New-AzApplicationGateway `
 
 ### <a name="add-the-http-port"></a>Aggiungere la porta HTTP
 
-Aggiungere la porta HTTP al gateway applicazione usando [Add-AzApplicationGatewayFrontendPort](/powershell/module/az.network/add-azapplicationgatewayfrontendport).
+Aggiungere la porta HTTP al gateway applicazione utilizzando [Add-AzApplicationGatewayFrontendPort](/powershell/module/az.network/add-azapplicationgatewayfrontendport).
 
 ```powershell
 $appgw = Get-AzApplicationGateway `
@@ -203,7 +203,7 @@ Add-AzApplicationGatewayFrontendPort `
 
 ### <a name="add-the-http-listener"></a>Aggiungere il listener HTTP
 
-Aggiungere il listener *http denominato listener* al gateway applicazione usando [Add-AzApplicationGatewayHttpListener](/powershell/module/az.network/add-azapplicationgatewayhttplistener).
+Aggiungere il listener HTTP denominato *myListener* al gateway applicazione utilizzando [Add-AzApplicationGatewayHttpListener](/powershell/module/az.network/add-azapplicationgatewayhttplistener).
 
 ```powershell
 $fipconfig = Get-AzApplicationGatewayFrontendIPConfig `
@@ -222,7 +222,7 @@ Add-AzApplicationGatewayHttpListener `
 
 ### <a name="add-the-redirection-configuration"></a>Aggiungere la configurazione di reindirizzamento
 
-Aggiungere la configurazione di Reindirizzamento da HTTP a HTTPS al gateway applicazione usando [Add-AzApplicationGatewayRedirectConfiguration](/powershell/module/az.network/add-azapplicationgatewayredirectconfiguration).
+Aggiungere la configurazione di reindirizzamento da HTTP a HTTPS al gateway applicazione utilizzando [Add-AzApplicationGatewayRedirectConfiguration](/powershell/module/az.network/add-azapplicationgatewayredirectconfiguration).
 
 ```powershell
 $defaultListener = Get-AzApplicationGatewayHttpListener `
@@ -238,7 +238,7 @@ Add-AzApplicationGatewayRedirectConfiguration -Name httpToHttps `
 
 ### <a name="add-the-routing-rule"></a>Aggiungere la regola di routing
 
-Aggiungere la regola di routing con la configurazione di reindirizzamento al gateway applicazione usando [Add-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule).
+Aggiungere la regola di routing con la configurazione di reindirizzamento al gateway applicazione utilizzando [Add-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule).
 
 ```powershell
 $myListener = Get-AzApplicationGatewayHttpListener `

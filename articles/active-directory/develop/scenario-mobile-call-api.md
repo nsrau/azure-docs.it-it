@@ -1,7 +1,7 @@
 ---
-title: Chiamare un'API Web da un'app per dispositivi mobili | Azure
+title: Chiamare un'API Web da un'app per dispositivi mobili Azure
 titleSuffix: Microsoft identity platform
-description: Informazioni su come creare un'app per dispositivi mobili che chiama le API Web. (Chiamare un'API Web).
+description: Scopri come creare un'app per dispositivi mobili che chiama le API Web. (Chiamare un'API Web.)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,36 +17,36 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: bd848fa6f74f049f97956ef1736ac2b08f3a6148
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77160152"
 ---
-# <a name="call-a-web-api-from-a-mobile-app"></a>Chiamare un'API Web da un'app per dispositivi mobili
+# <a name="call-a-web-api-from-a-mobile-app"></a>Chiamare un'API Web da un'app per dispositivi mobiliCall a web API from a mobile app
 
-Dopo che l'app ha eseguito l'accesso a un utente e riceve i token, Microsoft Authentication Library (MSAL) espone le informazioni sull'utente, l'ambiente dell'utente e i token emessi. L'app può usare questi valori per chiamare un'API Web o visualizzare un messaggio di benvenuto all'utente.
+Dopo che l'app ha eseguito l'accesso a un utente e ha ricevuto i token, Microsoft Authentication Library (MSAL) espone informazioni sull'utente, l'ambiente dell'utente e i token rilasciati. L'app può usare questi valori per chiamare un'API Web o visualizzare un messaggio di benvenuto all'utente.
 
-In questo articolo si esaminerà prima di tutto il risultato di MSAL. Si esaminerà quindi come usare un token di accesso da `AuthenticationResult` o `result` per chiamare un'API Web protetta.
+In questo articolo, esamineremo innanzitutto il risultato MSAL. Quindi vedremo come usare un token `AuthenticationResult` di `result` accesso da o per chiamare un'API Web protetta.
 
-## <a name="msal-result"></a>Risultato di MSAL
-MSAL fornisce i valori seguenti: 
+## <a name="msal-result"></a>Risultato MSAL
+MSAL fornisce i seguenti valori: 
 
-- `AccessToken` chiama le API Web protette in una richiesta di portatore HTTP.
-- `IdToken` contiene informazioni utili sull'utente che ha eseguito l'accesso. Queste informazioni includono il nome dell'utente, il tenant principale e un identificatore univoco per l'archiviazione.
-- `ExpiresOn` è l'ora di scadenza del token. MSAL gestisce l'aggiornamento automatico di un'app.
-- `TenantId` è l'identificatore del tenant in cui l'utente ha eseguito l'accesso. Per gli utenti guest in Azure Active Directory (Azure AD) B2B, questo valore identifica il tenant in cui l'utente ha eseguito l'accesso. Il valore non identifica il tenant principale dell'utente.  
-- `Scopes` indica gli ambiti concessi con il token. Gli ambiti concessi possono essere un subset degli ambiti richiesti.
+- `AccessToken`chiamate API Web protette in una richiesta del portatore HTTP.
+- `IdToken`contiene informazioni utili sull'utente connesso. Queste informazioni includono il nome dell'utente, il tenant principale e un identificatore univoco per l'archiviazione.
+- `ExpiresOn`è l'ora di scadenza del token. MSAL gestisce l'aggiornamento automatico di un'app.
+- `TenantId`è l'identificatore del tenant a cui l'utente ha eseguito l'accesso. Per gli utenti guest in Azure Active Directory (Azure AD) B2B, questo valore identifica il tenant in cui l'utente ha eseguito l'accesso. Il valore non identifica il tenant principale dell'utente.  
+- `Scopes`indica gli ambiti concessi con il token. Gli ambiti concessi possono essere un sottoinsieme degli ambiti richiesti.
 
-MSAL fornisce anche un'astrazione per un valore `Account`. Un valore `Account` rappresenta l'account di accesso dell'utente corrente:
+MSAL fornisce anche un'astrazione per un `Account` valore. Un `Account` valore rappresenta l'account di accesso dell'utente corrente:
 
-- `HomeAccountIdentifier` identifica il tenant principale dell'utente.
-- `UserName` è il nome utente preferito dell'utente. Questo valore può essere vuoto per Azure AD B2C utenti.
-- `AccountIdentifier` identifica l'utente che ha eseguito l'accesso. Nella maggior parte dei casi, questo valore corrisponde al valore `HomeAccountIdentifier`, a meno che l'utente non sia un guest in un altro tenant.
+- `HomeAccountIdentifier`identifica il tenant principale dell'utente.
+- `UserName`è il nome utente preferito dell'utente. Questo valore potrebbe essere vuoto per gli utenti B2C di Azure AD.
+- `AccountIdentifier`identifica l'utente connesso. Nella maggior parte dei casi, `HomeAccountIdentifier` questo valore è uguale al valore, a meno che l'utente non sia guest in un altro tenant.
 
-## <a name="call-an-api"></a>Chiamare un'API
+## <a name="call-an-api"></a>Chiamare un'APICall an API
 
-Dopo aver avuto il token di accesso, è possibile chiamare un'API Web. L'app userà il token per compilare una richiesta HTTP e quindi eseguire la richiesta.
+Dopo aver creato il token di accesso, è possibile chiamare un'API Web.After you have the access token, you can call a web API. L'app utilizzerà il token per compilare una richiesta HTTP e quindi eseguire la richiesta.
 
 ### <a name="android"></a>Android
 
@@ -90,7 +90,7 @@ Dopo aver avuto il token di accesso, è possibile chiamare un'API Web. L'app use
 
 ### <a name="msal-for-ios-and-macos"></a>MSAL per iOS e MacOS
 
-I metodi per acquisire i token restituiscono un oggetto `MSALResult`. `MSALResult` espone una proprietà `accessToken`. È possibile usare `accessToken` per chiamare un'API Web. Aggiungere questa proprietà all'intestazione di autorizzazione HTTP prima di chiamare per accedere all'API Web protetta.
+I metodi per acquisire `MSALResult` token restituiscono un oggetto. `MSALResult`espone una `accessToken` proprietà. È possibile `accessToken` utilizzare per chiamare un'API Web.You can use to call a web API. Aggiungere questa proprietà all'intestazione di autorizzazione HTTP prima di chiamare per accedere all'API Web protetta.
 
 ```objc
 NSMutableURLRequest *urlRequest = [NSMutableURLRequest new];
@@ -118,17 +118,17 @@ task.resume()
 
 [!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
-## <a name="make-several-api-requests"></a>Eseguire diverse richieste API
+## <a name="make-several-api-requests"></a>Effettuare diverse richieste API
 
-Se è necessario chiamare la stessa API più volte o se è necessario chiamare più API, considerare gli argomenti seguenti quando si compila l'app:
+Se è necessario chiamare più volte la stessa API o se è necessario chiamare più API, considerare i soggetti seguenti quando si compila l'app:
 
-- **Consenso incrementale**: la piattaforma Microsoft Identity consente alle app di ottenere il consenso dell'utente quando sono necessarie le autorizzazioni anziché tutte all'inizio. Ogni volta che l'app è pronta per chiamare un'API, deve richiedere solo gli ambiti necessari.
+- **Consenso incrementale**: La piattaforma di identità Microsoft consente alle app di ottenere il consenso dell'utente quando sono necessarie le autorizzazioni anziché tutte all'inizio. Ogni volta che l'app è pronta a chiamare un'API, deve richiedere solo gli ambiti necessari.
 
-- **Accesso condizionale**: quando si effettuano diverse richieste API, in determinati scenari potrebbe essere necessario soddisfare ulteriori requisiti di accesso condizionale. I requisiti possono aumentare in questo modo se la prima richiesta non ha criteri di accesso condizionale e l'app tenta di accedere automaticamente a una nuova API che richiede l'accesso condizionale. Per gestire questo problema, assicurarsi di intercettare gli errori dalle richieste automatiche e prepararsi a eseguire una richiesta interattiva.  Per altre informazioni, vedere [linee guida per l'accesso condizionale](../azuread-dev/conditional-access-dev-guide.md).
+- **Accesso condizionale:** quando si effettuano diverse richieste API, in alcuni scenari potrebbe essere necessario soddisfare ulteriori requisiti di accesso condizionale. I requisiti possono aumentare in questo modo se la prima richiesta non ha criteri di accesso condizionale e l'app tenta di accedere in modo invisibile all'utente a una nuova API che richiede l'accesso condizionale. Per gestire questo problema, assicurarsi di intercettare gli errori dalle richieste invisibile all'utente ed essere pronti a effettuare una richiesta interattiva.  Per ulteriori informazioni, vedere [Linee guida per l'accesso condizionale](../azuread-dev/conditional-access-dev-guide.md).
 
-## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>Chiamare diverse API usando il consenso incrementale e l'accesso condizionale
+## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>Chiamare più API utilizzando il consenso incrementale e l'accesso condizionaleCall several APIs by using incremental consent and conditional access
 
-Se è necessario chiamare diverse API per lo stesso utente, dopo aver acquisito un token per l'utente, è possibile evitare di richiedere ripetutamente le credenziali chiamando in seguito `AcquireTokenSilent` per ottenere un token:
+Se è necessario chiamare più API per lo stesso utente, dopo aver acquisito un token per l'utente, `AcquireTokenSilent` è possibile evitare di chiedere ripetutamente all'utente le credenziali chiamando successivamente per ottenere un token:If you need to call several APIs for the same user, after you acquire a token for the user, you can avoid repeatedly asking the user for credentials by subsequently calling to get a token:
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -138,9 +138,9 @@ result = await app.AcquireTokenSilent("scopeApi2")
                   .ExecuteAsync();
 ```
 
-L'interazione è obbligatoria nei casi seguenti:
+L'interazione è necessaria quando:
 
-- L'utente ha acconsentito alla prima API, ma ora deve fornire il consenso per più ambiti. In questo caso, si usa il consenso incrementale.
+- L'utente ha acconsentito per la prima API, ma ora deve acconsentire a più ambiti. In questo caso, si utilizza il consenso incrementale.
 - La prima API non richiede l'autenticazione a più fattori, ma l'API successiva.
 
 ```csharp
@@ -163,4 +163,4 @@ catch(MsalUiRequiredException ex)
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Passa all'ambiente di produzione](scenario-mobile-production.md)
+> [Passare in produzione](scenario-mobile-production.md)

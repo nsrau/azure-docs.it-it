@@ -1,6 +1,6 @@
 ---
-title: Panoramica della sicurezza Azure Active Directory Identity Protection
-description: Scopri come la panoramica sulla sicurezza ti offre informazioni dettagliate sul comportamento di sicurezza dell'organizzazione.
+title: Panoramica della sicurezza di Azure Active Directory Identity ProtectionAzure Active Directory Identity Protection security overview
+description: Scopri in che modo la panoramica sulla sicurezza offre informazioni dettagliate sul livello di sicurezza della tua organizzazione.
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -12,15 +12,15 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a9550684ad154f28a02ee347fd0a79c1ec286beb
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74382189"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Active Directory Identity Protection - Panoramica della sicurezza
 
-La [Panoramica della sicurezza](https://aka.ms/IdentityProtectionRefresh) nella portale di Azure fornisce informazioni approfondite sul comportamento di sicurezza dell'organizzazione. Consente di identificare gli attacchi potenziali e comprendere l'efficacia dei criteri.
+La [panoramica sulla sicurezza](https://aka.ms/IdentityProtectionRefresh) nel portale di Azure offre informazioni dettagliate sul livello di sicurezza dell'organizzazione. Consente di identificare gli attacchi potenziali e comprendere l'efficacia dei criteri.
 
 "Panoramica della sicurezza" è diviso in linea di massima in due sezioni:
 
@@ -37,7 +37,7 @@ Questo grafico mostra il numero dei nuovi utenti a rischio rilevati nel periodo 
 
 ### <a name="new-risky-sign-ins-detected"></a>Nuovi accessi a rischio rilevati
 
-Questo grafico mostra il numero dei nuovi accessi a rischio rilevati nel periodo di tempo selezionato. È possibile filtrare la visualizzazione di questo grafico in base al tipo di rischio di accesso (in tempo reale o aggregato) e al livello di rischio di accesso (basso, medio, elevato). Gli accessi non protetti sono accessi a rischio con esito positivo in tempo reale a cui non è stata inviata una richiesta di autenticazione a più fattori. (Nota: gli accessi rischiosi a causa di rilevamenti offline non possono essere protetti in tempo reale tramite criteri di rischio di accesso). Passare il mouse sugli incrementi delle date in UTC per visualizzare il numero di accessi a rischio rilevati per quel giorno. Facendo clic su questo grafico si accede al report "Accessi a rischio".
+Questo grafico mostra il numero dei nuovi accessi a rischio rilevati nel periodo di tempo selezionato. È possibile filtrare la visualizzazione di questo grafico in base al tipo di rischio di accesso (in tempo reale o aggregato) e al livello di rischio di accesso (basso, medio, elevato). Gli accessi non protetti sono accessi a rischio con esito positivo in tempo reale a cui non è stata inviata una richiesta di autenticazione a più fattori. (Nota: gli invii rischiosi a causa dei rilevamenti offline non possono essere protetti in tempo reale dai criteri di rischio di accesso). Passare il mouse sugli incrementi delle date in UTC per visualizzare il numero di accessi a rischio rilevati per quel giorno. Facendo clic su questo grafico si accede al report "Accessi a rischio".
 
 ## <a name="tiles"></a>Riquadri
  
@@ -52,7 +52,7 @@ Il riquadro "Utenti a medio rischio", mostra il numero più recente di utenti co
 
 ### <a name="unprotected-risky-sign-ins"></a>Accessi a rischio non protetti
 
-Il riquadro "accessi a rischio" non protetto Mostra il numero di accessi a rischio in tempo reale di una settimana che non sono stati bloccati o con autenticazione a più fattori in base a criteri di accesso condizionale, criteri di rischio per la protezione delle identità o multi-factor authentication per utente. Si tratta di accessi con esito positivo potenzialmente compromessi a cui non è stata inviata una richiesta di autenticazione a più fattori. Per proteggere tali accessi in futuro, applicare un criterio di rischio di accesso. Facendo clic sul riquadro "Accessi a rischio non protetti" si viene reindirizzati al pannello di configurazione dei criteri di rischio di accesso in cui configurare il criterio per richiedere l'autenticazione a più fattori per un accesso che presenta un livello di rischio specificato.
+Il riquadro 'Accessi rischiosi non protetti' mostra il numero dell'ultima settimana di accessi rischiosi riusciti in tempo reale che non sono stati bloccati o MFA contestati da un criterio di accesso condizionale, criteri di rischio di protezione dell'identità o MFA per utente. Si tratta di accessi con esito positivo potenzialmente compromessi a cui non è stata inviata una richiesta di autenticazione a più fattori. Per proteggere tali accessi in futuro, applicare un criterio di rischio di accesso. Facendo clic sul riquadro "Accessi a rischio non protetti" si viene reindirizzati al pannello di configurazione dei criteri di rischio di accesso in cui configurare il criterio per richiedere l'autenticazione a più fattori per un accesso che presenta un livello di rischio specificato.
 
 ### <a name="legacy-authentication"></a>Autenticazione legacy
 
@@ -60,7 +60,7 @@ Il riquadro "Autenticazione legacy" mostra il numero di autenticazioni legacy de
 
 ### <a name="identity-secure-score"></a>Identity Secure Score
 
-Identity Secure Score valuta e confronta il comportamento di sicurezza con i modelli del settore. Se si fa clic sul riquadro "Identity Secure Score (Preview)", verrà reindirizzato al pannello "Identity Secure Score", in cui è possibile ottenere altre informazioni sul miglioramento del comportamento di sicurezza.
+Identity Secure Score valuta e confronta il comportamento di sicurezza con i modelli del settore. Se si fa clic sul riquadro 'Identity Secure Score (Anteprima)', verrà reindirizzato al pannello 'Identity Secure Score' dove è possibile ottenere ulteriori informazioni su come migliorare la posizione di sicurezza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

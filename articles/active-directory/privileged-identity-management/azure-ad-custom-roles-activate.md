@@ -1,5 +1,5 @@
 ---
-title: Attivare Azure AD Privileged Identity Management ruolo personalizzato (PIM)
+title: Attivare il ruolo personalizzato di Azure AD - Gestione identità con privilegi (PIM)Activate Azure AD custom role - Privileged Identity Management (PIM)
 description: Come attivare un ruolo personalizzato di Azure AD per l'assegnazione di Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cbd60d1311bd84adb303a0d329ab4e42f4d61525
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77498742"
 ---
 # <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>Attivare un ruolo personalizzato di Azure AD in Privileged Identity Management
@@ -28,23 +28,23 @@ ms.locfileid: "77498742"
 Privileged Identity Management in Azure Active Directory (Azure AD) ora supporta l'assegnazione JIT e con vincoli di tempo ai ruoli personalizzati creati per gestire le applicazioni nell'esperienza di amministrazione di Gestione delle identità e degli accessi. Per altre informazioni su come creare ruoli personalizzati per delegare la gestione delle applicazioni in Azure AD, vedere [Ruoli di amministratore personalizzati in Azure Active Directory (anteprima)](../users-groups-roles/roles-custom-overview.md).
 
 > [!NOTE]
-> I ruoli personalizzati di Azure AD non sono integrati nei ruoli della directory predefiniti durante la fase di anteprima. Non appena la funzionalità sarà disponibile a livello generale, la gestione dei ruoli verrà eseguita nell'esperienza dei ruoli predefiniti. Se viene visualizzato il banner seguente, questi ruoli devono essere gestiti [nell'esperienza dei ruoli incorporati](pim-how-to-activate-role.md) e questo articolo non si applica:
+> I ruoli personalizzati di Azure AD non sono integrati nei ruoli della directory predefiniti durante la fase di anteprima. Non appena la funzionalità sarà disponibile a livello generale, la gestione dei ruoli verrà eseguita nell'esperienza dei ruoli predefiniti. Se viene visualizzato il banner seguente, questi ruoli devono essere gestiti [nell'esperienza di ruoli predefiniti](pim-how-to-activate-role.md) e questo articolo non è applicabile:
 >
 > [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 ## <a name="activate-a-role"></a>Attivare un ruolo
 
-Quando è necessario attivare un Azure AD ruolo personalizzato, richiedere l'attivazione selezionando l'opzione di navigazione ruoli personali in Privileged Identity Management.
+Quando è necessario attivare un ruolo personalizzato di Azure AD, richiedere l'attivazione selezionando l'opzione di spostamento ruoli personali in Gestione identità con privilegi.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Aprire Azure AD [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart).
+1. Accedere [al portale](https://portal.azure.com)di Azure .
+1. Aprire [Gestione identità con privilegi](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart)di Azure AD .
 
 1. Selezionare **Ruoli personalizzati di Azure AD** per visualizzare un elenco delle assegnazioni di ruolo personalizzato di Azure AD idonee.
 
    ![Visualizzare l'elenco delle assegnazioni di ruolo personalizzato idonee](./media/azure-ad-custom-roles-activate/view-preview-roles.png)
 
 > [!Note] 
->  Prima di assegnare un ruolo, è necessario creare o configurare un ruolo. Per ulteriori informazioni sulla configurazione dei ruoli personalizzati di AAD, vedere [qui] (https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-ad-custom-roles-configure)
+>  Prima di assegnare un ruolo, è necessario creare/configurare un ruolo. Per ulteriori informazioni sulla configurazione dei ruoli personalizzati di AAD, vedere [qui] (https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-ad-custom-roles-configure)
 
 1. Nella pagina **Ruoli personalizzati di Azure AD (anteprima)** individuare l'assegnazione necessaria.
 1. Selezionare **Attivazione del ruolo** per aprire la pagina **Attiva**.

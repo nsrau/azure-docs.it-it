@@ -14,17 +14,17 @@ ms.workload: na
 ms.date: 06/29/2018
 ms.author: memildin
 ms.openlocfilehash: ef1684f11349696c22a290c90469a8d94f922e58
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77603988"
 ---
-# <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>Esaminare gli eventi imprevisti e gli avvisi nel centro sicurezza di Azure (ritirato)
-Questo documento consente di usare la funzionalità di analisi (anteprima) nel centro sicurezza di Azure per analizzare gli eventi imprevisti e gli avvisi relativi alla sicurezza.
+# <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>Esaminare gli eventi imprevisti e gli avvisi nel Centro sicurezza di Azure (ritirato)Investigate Incidents and Alerts in Azure Security Center (Retired)
+Questo documento consente di usare la funzionalità di analisi (anteprima) nel Centro sicurezza di Azure per analizzare gli avvisi e gli eventi imprevisti e gli eventi di sicurezza.
 
 > [!NOTE]
-> L'esperienza di analisi degli avvisi e degli eventi imprevisti (anteprima) è stata ritirata il 31 luglio 2019. Per ulteriori informazioni e servizi alternativi, vedere [ritiro delle funzionalità del Centro sicurezza (luglio 2019)](security-center-features-retirement-july2019.md#menu_investigate).
+> L'esperienza di analisi degli avvisi e degli incidenti (anteprima) è stata ritirata il 31 luglio 2019. Per ulteriori informazioni e servizi alternativi, vedere [Retirement of Security Center features (luglio 2019)](security-center-features-retirement-july2019.md#menu_investigate).
 
 ## <a name="what-is-investigation-in-security-center"></a>Informazioni sull'indagine nel Centro sicurezza
 La funzionalità Indagine del Centro sicurezza consente di valutare, determinare l'ambito e individuare la causa radice di un potenziale [evento imprevisto relativo alla sicurezza](https://docs.microsoft.com/azure/security-center/security-center-incident).
@@ -72,7 +72,7 @@ La scheda **Ricerca** presenta tutti i tipi di log disponibili per l'entità. Pe
 
 ### <a name="exploration"></a>Esplorazione
 
-La scheda **Esplorazione** consente al responsabile dell'indagine di esaminare i dati correlati ai diversi problemi relativi all'entità. Ad esempio, quando si esamina un computer, l'elenco dei processi eseguiti su di esso viene visualizzato nella scheda Esplorazione. In alcuni casi, la scheda esplorazione presenta dati che potrebbero indicare un problema sospetto. Il responsabile dell'indagine può esaminare i dati nella scheda o aprirli nella schermata di ricerca per esaminare set di dati di grandi dimensioni e per usare le opzioni avanzate di ricerca, ad esempio i filtri e l'esportazione in Excel.
+La scheda **Esplorazione** consente al responsabile dell'indagine di esaminare i dati correlati ai diversi problemi relativi all'entità. Ad esempio, quando un computer viene analizzato, l'elenco dei processi eseguiti su di esso viene visualizzato nella scheda di esplorazione. In alcuni casi, la scheda di esplorazione presenta dati che potrebbero indicare un problema sospetto. Il responsabile dell'indagine può esaminare i dati nella scheda o aprirli nella schermata di ricerca per esaminare set di dati di grandi dimensioni e per usare le opzioni avanzate di ricerca, ad esempio i filtri e l'esportazione in Excel.
 
 ![Esplorazione](./media/security-center-investigation/security-center-investigation-fig6.png)
 
@@ -98,7 +98,7 @@ Gli elementi seguenti vengono presentati indipendentemente dall'ambito temporale
 
 ## <a name="how-to-perform-an-investigation"></a>Procedura per l'esecuzione di un'indagine
 
-È possibile avviare l'indagine da un evento imprevisto di sicurezza o da un avviso. L'opzione scelta dipenderà dalle esigenze specifiche. I passaggi seguenti vengono usati per avviare un'indagine da un avviso:
+È possibile avviare l'indagine da un evento imprevisto di sicurezza o da un avviso. L'opzione scelta dipenderà dalle esigenze specifiche. I passaggi seguenti vengono utilizzati per avviare un'indagine da un avviso:The steps that follows are used to start an investigation from an alert:
 
 1.  Aprire il dashboard del **Centro sicurezza**.
 2.  Fare clic su **Avvisi di sicurezza** e selezionare l'evento imprevisto da analizzare.
@@ -115,6 +115,6 @@ A partire da questo punto è possibile esplorare le entità interessate dall'eve
 ## <a name="see-also"></a>Vedere anche
 In questo documento è stato descritto come usare la funzionalità Indagine nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
-* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informazioni su come gestire gli avvisi e rispondere agli eventi imprevisti di sicurezza nel Centro sicurezza.
-* [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md). Informazioni su come monitorare l'integrità delle risorse di Azure.
+* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)di Azure. Informazioni su come gestire gli avvisi e rispondere agli eventi imprevisti di sicurezza nel Centro sicurezza.
+* [Monitoraggio dell'integrità](security-center-monitoring.md)della sicurezza nel Centro sicurezza di Azure.Security health monitoring in Azure Security Center . Informazioni su come monitorare l'integrità delle risorse di Azure.
 * [Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Informazioni sui diversi tipi di avvisi di sicurezza.

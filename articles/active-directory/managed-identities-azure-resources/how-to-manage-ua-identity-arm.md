@@ -1,5 +1,5 @@
 ---
-title: Creare & eliminare un'identità gestita assegnata dall'utente usando Azure Resource Manager
+title: Creare & eliminare un'identità gestita assegnata dall'utente tramite Azure Resource ManagerCreate to delete a user-assigned managed identity using Azure Resource Manager
 description: Istruzioni dettagliate su come creare ed eliminare identità gestite assegnate dall'utente mediante Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 12/10/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 244965da4e22c0808fd1ea9088aa182b27eaf484
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253377"
 ---
 # <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>Creare, elencare ed eliminare un'identità gestita assegnata dall'utente mediante Azure Resource Manager
@@ -33,9 +33,9 @@ Non è possibile elencare ed eliminare un'identità gestita assegnata dall'utent
 
 - [Elencare un'identità gestita assegnata dall'utente](how-to-manage-ua-identity-cli.md#list-user-assigned-managed-identities)
 - [Eliminare un'identità gestita assegnata dall'utente](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-managed-identity)
-  ## <a name="prerequisites"></a>Prerequisites
+  ## <a name="prerequisites"></a>Prerequisiti
 
-- Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
+- Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
 
 ## <a name="template-creation-and-editing"></a>Creazione e modifica del modello

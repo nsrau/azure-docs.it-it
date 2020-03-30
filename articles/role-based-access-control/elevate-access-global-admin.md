@@ -16,13 +16,13 @@ ms.date: 12/03/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 1731c630cb98ac542ebcdc7aedf07f7bb63eaec0
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77137456"
 ---
-# <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevare l'accesso per gestire tutti i gruppi di gestione e le sottoscrizioni di Azure
+# <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevare l'accesso per gestire tutte le sottoscrizioni e i gruppi di gestione di AzureElevate access to manage all Azure subscriptions and management Groups
 
 Come amministratore globale in Azure Active Directory (Azure AD), potrebbe non essere disponibile l'accesso a tutte le sottoscrizioni e i gruppi di gestione nella directory. Questo articolo descrive i modi in cui è possibile elevare i privilegi di accesso a tutte le sottoscrizioni e tutti i gruppi di gestione.
 
@@ -41,7 +41,7 @@ In alcune occasioni, un amministratore globale potrebbe avere bisogno di eseguir
 
 Le risorse di Azure AD e Azure sono protette in modo indipendente le une dalle altre. Questo significa che le assegnazioni di ruolo di Azure AD non concedono l'accesso alle risorse di Azure e le assegnazioni di ruolo di Azure non concedono l'accesso ad Azure AD. Un [amministratore globale](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) di Azure AD può tuttavia assegnare a se stesso l'accesso a tutte le sottoscrizioni e ai gruppi di gestione di Azure nella directory. Usare questa funzionalità se non si ha accesso alle risorse della sottoscrizione di Azure, come le macchine virtuali o gli account di archiviazione, e si vuole usare il privilegio di amministratore globale per ottenere l'accesso a queste risorse.
 
-Quando si elevano i privilegi di accesso, si viene assegnati al ruolo [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator) nell'ambito radice (`/`). In questo modo è possibile visualizzare tutte le risorse e assegnare l'accesso in qualsiasi sottoscrizione o gruppo di gestione nella directory. Le assegnazioni di ruolo amministratore accesso utenti possono essere rimosse usando Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST.
+Quando si elevano i privilegi di accesso, si viene assegnati al ruolo [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator) nell'ambito radice (`/`).Questo consente di visualizzare tutte le risorse e assegnare l'accesso in qualsiasi sottoscrizione o gruppo di gestione nella directory. Le assegnazioni di ruolo Amministratore accesso utenti possono essere rimosse usando Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST.
 
 L'accesso con privilegi elevati dovrebbe essere rimosso una volta apportate le modifiche necessarie nell'ambito radice.
 
@@ -57,22 +57,22 @@ Seguire questa procedura per eseguire con privilegi elevati l'accesso per un amm
 
 1. Cercare e selezionare **Azure Active Directory**.
 
-   ![Selezionare Azure Active Directory-Screenshot](./media/elevate-access-global-admin/search-for-azure-active-directory.png)
+   ![Selezionare Azure Active Directory - schermata](./media/elevate-access-global-admin/search-for-azure-active-directory.png)
 
 1. In **Gestisci**selezionare **Proprietà**.
 
-   ![Selezionare le proprietà per Azure Active Directory proprietà-schermata](./media/elevate-access-global-admin/azure-active-directory-properties.png)
+   ![Selezionare Proprietà per le proprietà di Azure Active Directory - schermataSelect Properties for Azure Active Directory properties - screenshot](./media/elevate-access-global-admin/azure-active-directory-properties.png)
 
 1. In **Gestione degli accessi per le risorse di Azure** impostare l'interruttore su **Sì**.
 
    ![Gestione degli accessi per le risorse di Azure - screenshot](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
 
-   Quando si imposta l'opzione su **Sì**, viene assegnato il ruolo amministratore accesso utenti in controllo degli accessi in base al ruolo di Azure nell'ambito radice (/). In questo modo si ottiene l'autorizzazione ad assegnare ruoli in tutte le sottoscrizioni e i gruppi di gestione di Azure associati a questa directory di Azure AD. Questo interruttore è disponibile solo per gli utenti a cui è assegnato il ruolo Amministratore globale in Azure AD.
+   Quando si imposta l'interruttore su **Sì**, viene assegnato il ruolo di amministratore di accesso utente in Controllo degli accessi in base al ruolo di Azure nell'ambito radice (/). In questo modo si ottiene l'autorizzazione ad assegnare ruoli in tutte le sottoscrizioni e i gruppi di gestione di Azure associati a questa directory di Azure AD. Questo interruttore è disponibile solo per gli utenti a cui è assegnato il ruolo Amministratore globale in Azure AD.
 
    Quando si imposta l'interruttore su **No**, il ruolo Amministratore Accesso utenti nel controllo degli accessi in base al ruolo Azure viene rimosso dall'account utente. Non è quindi più possibile assegnare ruoli in tutte le sottoscrizioni e i gruppi di gestione di Azure associati a questa directory di Azure AD. È possibile visualizzare e gestire solo le sottoscrizioni e i gruppi di gestione di Azure ai quali si ha accesso.
 
     > [!NOTE]
-    > Se si usa [Azure ad Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md), la disattivazione dell'assegnazione di ruolo non comporta la modifica di questo interruttore su **No**. Per mantenere l'accesso con privilegi minimi, è consigliabile impostare questo interruttore su **No** prima di disattivare l'assegnazione di ruolo.
+    > Se si usa [Azure AD Privileged Identity Management (PIM),](../active-directory/privileged-identity-management/pim-configure.md)la disattivazione dell'assegnazione di ruolo non modifica questa impostazione su **No.** Per mantenere l'accesso con privilegi minimi, è consigliabile impostare questo interruttore su **No** prima di disattivare l'assegnazione di ruolo.
     
 1. Fare clic su **Salva** per salvare l'impostazione.
 
@@ -80,7 +80,7 @@ Seguire questa procedura per eseguire con privilegi elevati l'accesso per un amm
 
 1. Disconnettersi e accedere nuovamente per aggiornare l'accesso.
 
-    A questo punto dovrebbe essere disponibile l'accesso a tutti i gruppi di gestione e le sottoscrizioni nella directory. Quando si Visualizza il riquadro controllo di accesso (IAM), si noterà che è stato assegnato il ruolo amministratore accesso utenti nell'ambito radice.
+    A questo punto dovrebbe essere disponibile l'accesso a tutti i gruppi di gestione e le sottoscrizioni nella directory. Quando si visualizza il riquadro di controllo di accesso (IAM), si noterà che è stato assegnato il ruolo di amministratore di accesso utente nell'ambito radice.
 
    ![Assegnazioni di ruolo per la sottoscrizione con ambito radice - screenshot](./media/elevate-access-global-admin/iam-root.png)
 
@@ -90,17 +90,17 @@ Seguire questa procedura per eseguire con privilegi elevati l'accesso per un amm
 
 ### <a name="remove-elevated-access"></a>Rimuovere l'accesso con privilegi elevati
 
-Per rimuovere l'assegnazione di ruolo amministratore accesso utenti nell'ambito radice (`/`), attenersi alla seguente procedura.
+Per rimuovere l'assegnazione di ruolo`/`Amministratore accesso utenti nell'ambito radice ( ), attenersi alla seguente procedura.
 
-1. Accedere con lo stesso utente usato per elevare l'accesso.
+1. Accedere come lo stesso utente utilizzato per elevare l'accesso.
 
 1. Nell'elenco di navigazione fare clic su **Azure Active Directory** e quindi su **Proprietà**.
 
-1. Impostare la **gestione degli accessi per le risorse di Azure** nuovamente su **No**. Poiché si tratta di un'impostazione per utente, è necessario essere connessi con lo stesso utente usato per elevare i privilegi di accesso.
+1. Impostare la **gestione dell'accesso per le risorse** di Azure reinserire su **No**. Poiché si tratta di un'impostazione per utente, è necessario essere connessi con lo stesso utente usato per elevare i privilegi di accesso.
 
-    Se si tenta di rimuovere l'assegnazione di ruolo amministratore accesso utenti nel riquadro controllo di accesso (IAM), verrà visualizzato il messaggio seguente. Per rimuovere l'assegnazione di ruolo, è necessario impostare l'opzione imposta di nuovo su **No** o USA Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST.
+    Se si tenta di rimuovere l'assegnazione di ruolo Amministratore di accesso utente nel riquadro di controllo di accesso (IAM), verrà visualizzato il seguente messaggio. Per rimuovere l'assegnazione di ruolo, è necessario impostare di nuovo l'interruttore su **No** oppure usare Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST.
 
-    ![Rimuovere le assegnazioni di ruolo con ambito radice](./media/elevate-access-global-admin/iam-root-remove.png)
+    ![Rimuovere le assegnazioni di ruolo con ambito radiceRemove role assignments with root scope](./media/elevate-access-global-admin/iam-root-remove.png)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -108,7 +108,7 @@ Per rimuovere l'assegnazione di ruolo amministratore accesso utenti nell'ambito 
 
 ### <a name="list-role-assignment-at-root-scope-"></a>Elencare l'assegnazione di ruolo nell'ambito radice (/)
 
-Per elencare l'assegnazione di ruolo amministratore accesso utenti per un utente nell'ambito radice (`/`), usare il comando [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) .
+Per elencare l'assegnazione di ruolo Amministratore`/`accesso utenti per un utente nell'ambito radice ( ), utilizzare il comando [Get-AzRoleAssignment.](/powershell/module/az.resources/get-azroleassignment)
 
 ```azurepowershell
 Get-AzRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
@@ -129,9 +129,9 @@ CanDelegate        : False
 
 ### <a name="remove-elevated-access"></a>Rimuovere l'accesso con privilegi elevati
 
-Per rimuovere l'assegnazione del ruolo amministratore accesso utenti per se stessi o un altro utente nell'ambito radice (`/`), seguire questa procedura.
+Per rimuovere l'assegnazione di ruolo Amministratore accesso`/`utenti per se stessi o per un altro utente nell'ambito radice ( ), attenersi alla seguente procedura.
 
-1. Accedere come utente autorizzato a rimuovere l'accesso con privilegi elevati. Può trattarsi dello stesso utente usato per elevare l'accesso o un altro amministratore globale con accesso con privilegi elevati nell'ambito radice.
+1. Accedere come utente autorizzato a rimuovere l'accesso con privilegi elevati. Può trattarsi dello stesso utente utilizzato per elevare l'accesso o un altro amministratore globale con accesso con privilegi elevati nell'ambito radice.
 
 1. Usare il comando [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) per rimuovere l'assegnazione del ruolo Amministratore Accesso utenti.
 
@@ -144,7 +144,7 @@ Per rimuovere l'assegnazione del ruolo amministratore accesso utenti per se stes
 
 ### <a name="list-role-assignment-at-root-scope-"></a>Elencare l'assegnazione di ruolo nell'ambito radice (/)
 
-Per elencare l'assegnazione di ruolo amministratore accesso utenti per un utente nell'ambito radice (`/`), usare il comando [AZ Role Assignment list](/cli/azure/role/assignment#az-role-assignment-list) .
+Per elencare l'assegnazione di ruolo Amministratore`/`accesso utenti per un utente nell'ambito radice ( ), utilizzare il comando [elenco assegnazioni ruoli az.](/cli/azure/role/assignment#az-role-assignment-list)
 
 ```azurecli
 az role assignment list --role "User Access Administrator" --scope "/"
@@ -170,11 +170,11 @@ az role assignment list --role "User Access Administrator" --scope "/"
 
 ### <a name="remove-elevated-access"></a>Rimuovere l'accesso con privilegi elevati
 
-Per rimuovere l'assegnazione del ruolo amministratore accesso utenti per se stessi o un altro utente nell'ambito radice (`/`), seguire questa procedura.
+Per rimuovere l'assegnazione di ruolo Amministratore accesso`/`utenti per se stessi o per un altro utente nell'ambito radice ( ), attenersi alla seguente procedura.
 
-1. Accedere come utente autorizzato a rimuovere l'accesso con privilegi elevati. Può trattarsi dello stesso utente usato per elevare l'accesso o un altro amministratore globale con accesso con privilegi elevati nell'ambito radice.
+1. Accedere come utente autorizzato a rimuovere l'accesso con privilegi elevati. Può trattarsi dello stesso utente utilizzato per elevare l'accesso o un altro amministratore globale con accesso con privilegi elevati nell'ambito radice.
 
-1. Usare il comando [AZ Role Assignment Delete](/cli/azure/role/assignment#az-role-assignment-delete) per rimuovere l'assegnazione di ruolo amministratore accesso utenti.
+1. Utilizzare il comando [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete) per rimuovere l'assegnazione di ruolo Amministratore accesso utenti.
 
     ```azurecli
     az role assignment delete --assignee username@example.com --role "User Access Administrator" --scope "/"
@@ -186,13 +186,13 @@ Per rimuovere l'assegnazione del ruolo amministratore accesso utenti per se stes
 
 Usare la procedura di base seguente per eseguire con privilegi elevati l'accesso per l'amministratore globale usando l'API REST.
 
-1. Utilizzando REST, chiamare `elevateAccess`, che concede il ruolo amministratore accesso utenti nell'ambito radice (`/`).
+1. Utilizzando REST, `elevateAccess`call , che concede il ruolo`/`Diamministratore accesso utenti nell'ambito radice ( ).
 
    ```http
    POST https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01
    ```
 
-1. Creare un'[assegnazione di ruolo](/rest/api/authorization/roleassignments) per assegnare un ruolo in qualsiasi ambito. Nell'esempio seguente vengono illustrate le proprietà per l'assegnazione del ruolo {roleDefinitionID} nell'ambito radice (`/`):
+1. Creare un'[assegnazione di ruolo](/rest/api/authorization/roleassignments) per assegnare un ruolo in qualsiasi ambito. Nell'esempio seguente vengono illustrate le proprietà per l'assegnazione`/`del ruolo "roleDefinitionID" nell'ambito radice ( ):
 
    ```json
    { 
@@ -207,13 +207,13 @@ Usare la procedura di base seguente per eseguire con privilegi elevati l'accesso
    }
    ```
 
-1. Un amministratore accesso utenti può anche rimuovere le assegnazioni di ruolo nell'ambito radice (`/`).
+1. In alcuni utenti, è anche possibile rimuovere le`/`assegnazioni di ruolo nell'ambito radice ( ).
 
 1. Rimuovere i privilegi di Amministratore Accesso utenti fino a quando non saranno di nuovo necessari.
 
 ### <a name="list-role-assignments-at-root-scope-"></a>Elencare le assegnazioni di ruolo nell'ambito radice (/)
 
-È possibile elencare tutte le assegnazioni di ruolo per un utente nell'ambito radice (`/`).
+È possibile elencare tutte le assegnazioni di`/`ruolo per un utente nell'ambito radice ( ).
 
 - Chiamare [GET roleAssignments](/rest/api/authorization/roleassignments/listforscope) dove `{objectIdOfUser}` è l'ID oggetto dell'utente di cui si vogliono recuperare le assegnazioni di ruolo.
 
@@ -221,9 +221,9 @@ Usare la procedura di base seguente per eseguire con privilegi elevati l'accesso
    GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectIdOfUser}'
    ```
 
-### <a name="list-deny-assignments-at-root-scope-"></a>Elencare le assegnazioni di rifiuto nell'ambito radice (/)
+### <a name="list-deny-assignments-at-root-scope-"></a>Elenco delle assegnazioni di negazione nell'ambito radice (/)
 
-È possibile elencare tutte le assegnazioni di negazione per un utente nell'ambito radice (`/`).
+È possibile elencare tutte le assegnazioni di`/`negazione per un utente nell'ambito radice ( ).
 
 - Chiamare GET denyAssignments dove `{objectIdOfUser}` è l'ID oggetto dell'utente di cui si vogliono recuperare le assegnazioni di rifiuto.
 
@@ -233,7 +233,7 @@ Usare la procedura di base seguente per eseguire con privilegi elevati l'accesso
 
 ### <a name="remove-elevated-access"></a>Rimuovere l'accesso con privilegi elevati
 
-Quando si chiama `elevateAccess`, si crea un'assegnazione di ruolo per se stessi, quindi per revocare tali privilegi è necessario rimuovere l'assegnazione del ruolo amministratore accesso utenti per se stessi nell'ambito radice (`/`)
+Quando si `elevateAccess`chiama , si crea un'assegnazione di ruolo per se stessi, in modo da`/`revocare i privilegi è necessario rimuovere l'assegnazione di ruolo Amministratore accesso utenti per se stessi nell'ambito radice ( )
 
 1. Chiamare [GET roleDefinitions](/rest/api/authorization/roledefinitions/get) con `roleName` uguale a User Access Administrator per determinare l'ID del nome del ruolo Amministratore Accesso utenti.
 
@@ -313,7 +313,7 @@ Quando si chiama `elevateAccess`, si crea un'assegnazione di ruolo per se stessi
     }
     ```
     
-    Salvare nuovamente l'ID dal parametro `name`, in questo caso 11111111-1111-1111-1111-111111111111.
+    Ancora una volta, `name` salvare l'ID dal parametro, in questo caso 11111111-1111-1111-11111-1111111111111.
 
 1. Usare infine l'ID di assegnazione di ruolo per rimuovere l'assegnazione aggiunta da `elevateAccess`:
 

@@ -1,5 +1,5 @@
 ---
-title: "Comprendere la conservazione dei dati nell'ambiente: informazioni dettagliate su Azure Time Series | Microsoft Docs"
+title: Comprendere la conservazione dei dati nell'ambiente in uso - Azure Time Series Insight Documenti Microsoft
 description: Questo articolo descrive due impostazioni che consentono di controllare la conservazione dati nell'ambiente Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,49 +12,49 @@ ms.topic: conceptual
 ms.date: 01/10/2020
 ms.custom: seodec18
 ms.openlocfilehash: 34cf1e91b1fe5aae516c77bf2c280dfe70000611
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75894763"
 ---
-# <a name="understand-data-retention-in-azure-time-series-insights"></a>Informazioni sulla conservazione dei dati in Azure Time Series Insights
+# <a name="understand-data-retention-in-azure-time-series-insights"></a>Informazioni sulla conservazione dei dati in Azure Time Series InsightsUnderstand data retention in Azure Time Series Insights
 
-Questo articolo descrive due impostazioni primarie che influiscano sulla conservazione dei dati nell'ambiente Azure Time Series Insights.
+Questo articolo descrive due impostazioni principali che influiscono sulla conservazione dei dati nell'ambiente Azure Time Series Insights.This article describes two primary settings that impact data retention in your Azure Time Series Insights environment.
 
 ## <a name="video"></a>Video
 
-### <a name="the-following-video-summarizes-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>Il video seguente riepiloga Time Series Insights la conservazione dei dati e la relativa modalità di pianificazione.</br>
+### <a name="the-following-video-summarizes-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>Il video seguente riepiloga la conservazione dei dati di Time Series Insights e come pianificarli.</br>
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
-Ogni ambiente Azure Time Series Insights dispone di un'impostazione che controlla il **tempo di conservazione dei dati**. Il valore va da 1 a 400 giorni. I dati vengono eliminati in base alla capacità di archiviazione dell'ambiente o alla durata di conservazione, a seconda di quale si verifichi per primo.
+Ognuno degli ambienti Azure Time Series Insights ha un'impostazione che controlla il tempo di **conservazione dei dati.** Il valore va da 1 a 400 giorni. I dati vengono eliminati in base alla capacità di archiviazione dell'ambiente o alla durata di conservazione, a seconda dell'evento che si presenta per primo.
 
-Inoltre, l'ambiente di Azure Time Series Insights dispone di un **limite di archiviazione che supera** l'impostazione del comportamento. Controlla il comportamento in ingresso e ripulisce quando viene raggiunta la capacità massima di un ambiente. Quando si configura, è possibile scegliere tra due comportamenti:
+Inoltre, l'ambiente Azure Time Series Insights ha un **limite di archiviazione superato** l'impostazione di comportamento. Controlla il comportamento di ingresso ed eliminazione quando viene raggiunta la capacità massima di un ambiente. Quando lo si configura, è possibile scegliere tra due comportamenti:There are two behaviors to choose from when configuring it:
 
 - **Eliminare i dati meno recenti** (impostazione predefinita)  
 - **Sospendere il traffico in ingresso**
 
 > [!NOTE]
-> Per impostazione predefinita, quando si crea un nuovo ambiente l'assorbimento è configurato per **eliminare i dati meno recenti**. Questa impostazione può essere attivata o disattivata in base alle esigenze dopo l'ora di creazione usando il portale di Azure nella pagina **Configura** dell'ambiente Time Series Insights.
-> * Per informazioni su come configurare i criteri di conservazione, vedere [Configuring Retention in Time Series Insights](time-series-insights-how-to-configure-retention.md).
+> Per impostazione predefinita, quando si crea un nuovo ambiente l'assorbimento è configurato per **eliminare i dati meno recenti**. Questa impostazione può essere attivata o disattivata in base alle esigenze dopo il tempo di creazione usando il portale di Azure, nella pagina Configura dell'ambiente Time Series Insights.This setting can be toggled as needed after creation time using the Azure portal, on the **Configure** page of the Time Series Insights environment.
+> * Per informazioni su come configurare i criteri di conservazione, vedere [Configurazione della conservazione in Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
-Entrambi i criteri di conservazione dei dati sono descritti in dettaglio più avanti.
+Entrambi i criteri di conservazione dei dati sono descritti in dettaglio di seguito.
 
 ## <a name="purge-old-data"></a>Eliminare i dati meno recenti
 
-- **Elimina dati obsoleti** è l'impostazione predefinita per gli ambienti Azure Time Series Insights.  
-- È preferibile **eliminare i dati obsoleti** quando gli utenti vogliono avere sempre i *dati più recenti* nell'ambiente Time Series Insights.
-- L'impostazione **Ripulisci dati obsoleti** *Elimina* i dati dopo che sono stati raggiunti i limiti dell'ambiente (periodo di conservazione, dimensioni o conteggio, a seconda di quale valore viene raggiunto per primo). L'assorbimento è impostato a 30 giorni per impostazione predefinita.
-- I dati inseriti meno recenti vengono eliminati per primi (approccio "First in First out").
+- **Elimina dati obsoleti** è l'impostazione predefinita per gli ambienti Azure Time Series Insights.Purge old data is the default setting for Azure Time Series Insights environments.  
+- **L'eliminazione dei dati obsoleti** è preferibile quando gli utenti desiderano disporre sempre dei *dati più recenti* nell'ambiente Time Series Insights.
+- L'impostazione **Elimina dati precedenti** elimina i dati una volta *raggiunti* i limiti dell'ambiente (tempo di conservazione, dimensioni o conteggio, a seconda dell'evento che si trova per primo). L'assorbimento è impostato a 30 giorni per impostazione predefinita.
+- I dati meno recenti vengono eliminati per primi (approccio "First In First Out").
 
 ### <a name="example-one"></a>Esempio uno
 
 Si consideri un ambiente di esempio con il comportamento di conservazione **Continuare il traffico in ingresso ed eliminare i dati meno recenti**:
 
-Il **periodo di conservazione dei dati** è impostato su 400 giorni. La **capacità** è impostata sull'unità S1, che contiene 30 GB di capacità totale. Si supponga che in media ogni giorno si accumulino 500 MB di dati in ingresso. Questo ambiente può mantenere i dati solo per 60 giorni in base alla velocità dei dati in ingresso, poiché la capacità massima viene raggiunta a 60 giorni. I dati in ingresso si accumulano in questo modo: 500 MB al giorno x 60 giorni = 30 GB.
+**Il tempo di conservazione dei dati** è impostato su 400 giorni. La **capacità** è impostata sull'unità S1, che contiene 30 GB di capacità totale. Si supponga che in media ogni giorno si accumulino 500 MB di dati in ingresso. Questo ambiente può mantenere i dati solo per 60 giorni in base alla velocità dei dati in ingresso, poiché la capacità massima viene raggiunta a 60 giorni. I dati in ingresso si accumulano in questo modo: 500 MB al giorno x 60 giorni = 30 GB.
 
-Il 61 ° giorno l'ambiente Visualizza i dati più recenti, ma elimina i dati meno recenti, più vecchi di 60 giorni. L'eliminazione consente di creare spazio per i nuovi dati in ingresso, in modo che questi possano continuare a essere esaminati. Se l'utente desidera conservare i dati più a lungo, può aumentare le dimensioni dell'ambiente aggiungendo unità supplementari o può inserire una minore quantità di dati.  
+Il giorno 61, l'ambiente mostra i dati più recenti, ma elimina i dati meno recenti, più vecchi di 60 giorni. L'eliminazione consente di creare spazio per i nuovi dati in ingresso, in modo che questi possano continuare a essere esaminati. Se l'utente desidera conservare i dati più a lungo, può aumentare le dimensioni dell'ambiente aggiungendo unità supplementari o può inserire una minore quantità di dati.  
 
 ### <a name="example-two"></a>Esempio due
 
@@ -64,19 +64,19 @@ Se la velocità in ingresso giornaliera di questo ambiente supera 0,166 GB al gi
 
 ## <a name="pause-ingress"></a>Sospendere i dati in ingresso
 
-- L'impostazione **Sospendi ingresso** è progettata per garantire che i dati non vengano eliminati se si raggiungono i limiti relativi alle dimensioni e al numero prima del periodo di conservazione.  
-- **Sospendere** il traffico in ingresso consente agli utenti di aumentare la capacità dell'ambiente prima che i dati vengano eliminati a causa della violazione del periodo di conservazione.
-- Consente di evitare la perdita di dati, ma può creare un'opportunità per la perdita dei dati più recenti se il traffico in ingresso viene sospeso oltre il periodo di conservazione dell'origine evento.
-- Tuttavia, una volta raggiunta la capacità massima di un ambiente, l'ambiente sospende l'ingresso dei dati fino a quando non si verificano le azioni aggiuntive seguenti:
+- L'impostazione **Sospendi in ingresso** è progettata per garantire che i dati non vengano eliminati se i limiti di dimensione e conteggio vengono raggiunti prima del periodo di conservazione.  
+- **Pausa in ingresso** fornisce tempo aggiuntivo per gli utenti di aumentare la capacità del proprio ambiente prima che i dati vengono eliminati a causa di violazione del periodo di conservazione.
+- Consente di proteggerti dalla perdita di dati, ma può creare un'opportunità per la perdita dei dati più recenti se l'ingresso viene sospeso oltre il periodo di conservazione dell'origine eventi.
+- Tuttavia, una volta raggiunta la capacità massima di un ambiente, l'ambiente sospende l'ingresso dei dati fino a quando non si verificano le seguenti azioni aggiuntive:
 
-   - È possibile aumentare la capacità massima dell'ambiente per aggiungere altre unità di scala, come descritto in [come ridimensionare l'ambiente Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
-   - Viene raggiunto il periodo di conservazione dei dati e i dati vengono eliminati, portando l'ambiente al di sotto della capacità massima.
+   - Aumentare la capacità massima dell'ambiente per aggiungere più unità di scala come descritto in [come scalare l'ambiente Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+   - Il periodo di conservazione dei dati viene raggiunto e i dati vengono eliminati, portando l'ambiente al di sotto della sua capacità massima.
 
 ### <a name="example-three"></a>Esempio tre
 
-Si consideri un ambiente con un comportamento di assorbimento configurato per **sospendere il traffico in ingresso**. In questo esempio il **periodo di conservazione dei dati** è configurato per 60 giorni. La **capacità** è impostata su tre (3) unità S1. Si supponga che questo ambiente abbia ogni giorno un traffico di 2 GB di dati in ingresso. In questo ambiente il traffico in ingresso viene sospeso quando viene raggiunta la capacità massima.
+Si consideri un ambiente con un comportamento di assorbimento configurato per **sospendere il traffico in ingresso**. In questo esempio il **periodo di conservazione dei dati** è configurato per 60 giorni. **La capacità** è impostata su tre (3) unità di S1. Si supponga che questo ambiente abbia ogni giorno un traffico di 2 GB di dati in ingresso. In questo ambiente il traffico in ingresso viene sospeso quando viene raggiunta la capacità massima.
 
-A questo punto, l'ambiente Visualizza lo stesso set di dati fino a quando il traffico in ingresso riprende o finché non viene attivato il traffico in **ingresso** , che elimina i dati meno recenti per fare spazio ai nuovi dati.
+In quel momento, l'ambiente mostra lo stesso set di dati fino alla ripresa in ingresso o fino a quando non viene abilitato **l'ingresso (che** eliminerebbe i dati meno recenti per fare spazio anuovi dati).
 
 Quando il traffico in ingresso riprende:
 
@@ -88,14 +88,14 @@ Quando il traffico in ingresso riprende:
 
 Negli hub eventi interessati provare a regolare la proprietà **Conservazione messaggi** per ridurre al minimo la perdita di dati quando si verifica la sospensione del traffico in ingresso in Time Series Insights.
 
-[![la conservazione dei messaggi nell'hub eventi.](media/time-series-insights-concepts-retention/event-hub-retention.png)](media/time-series-insights-concepts-retention/event-hub-retention.png#lightbox)
+[![Conservazione messaggi dell'hub eventi.](media/time-series-insights-concepts-retention/event-hub-retention.png)](media/time-series-insights-concepts-retention/event-hub-retention.png#lightbox)
 
-Se non è configurata alcuna proprietà nell'origine evento (`timeStampPropertyName`), Time Series Insights imposta come valore predefinito il timestamp di arrivo nell'hub eventi come asse X. Se `timeStampPropertyName` è configurato come altro, l'ambiente cerca la `timeStampPropertyName` configurata nel pacchetto di dati quando vengono analizzati gli eventi.
+Se nell'origine evento (`timeStampPropertyName`), Time Series Insights per impostazione predefinita viene impostato il timestamp di arrivo all'hub eventi come asse X. Se `timeStampPropertyName` è configurato per essere qualcos'altro, `timeStampPropertyName` l'ambiente cerca il configurato nel pacchetto di dati quando gli eventi vengono analizzati.
 
-Informazioni su [come ridimensionare l'ambiente di Time Series Insights](time-series-insights-how-to-scale-your-environment.md) per ridimensionare l'ambiente in modo da supportare capacità aggiuntiva o aumentare la durata della conservazione.
+Leggere [Come ridimensionare l'ambiente Time Series Insights](time-series-insights-how-to-scale-your-environment.md) per ridimensionare l'ambiente in modo da adattarsi a capacità aggiuntive o aumentare la durata della conservazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sulla configurazione o la modifica delle impostazioni di conservazione dei dati, vedere [configurazione della conservazione in Time Series Insights](time-series-insights-how-to-configure-retention.md).
+- Per informazioni sulla configurazione o la modifica delle impostazioni di conservazione dei dati, vedere [Configurazione della conservazione in Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
-- Informazioni sulla [riduzione della latenza in Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
+- Informazioni sulla [mitigazione della latenza in Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).

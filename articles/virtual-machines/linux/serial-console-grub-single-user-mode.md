@@ -1,5 +1,5 @@
 ---
-title: Console seriale di Azure per GRUB e modalità utente singolo
+title: Azure Serial Console for GRUB and Single User Mode
 description: Uso della console seriale per grub nelle macchine virtuali di Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 87f16ec615c8b47c93745b33be12d3acd6d9177a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74035046"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Usare la Console seriale per accedere a GRUB e alla modalità utente singolo
@@ -183,7 +183,7 @@ Oracle Linux dotata di GRUB abilitata per impostazione predefinita. Per accedere
 Seguire le istruzioni per RHEL sopra per abilitare la modalità utente singolo in Oracle Linux.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* La pagina principale della documentazione di Linux relativa alla console seriale è disponibile [qui](serial-console.md).
+* La pagina principale della documentazione di Linux della console seriale si trova [qui](serial-console.md).
 * Usare la console seriale per [NMI e SysRq chiamate](serial-console-nmi-sysrq.md)
 * La console seriale è disponibile anche per macchine virtuali [Windows](../windows/serial-console.md)
 * Altre informazioni sulla [diagnostica di avvio](boot-diagnostics.md)

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 4560ca2b07826e2a071f515f147dfab8cbec3624
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254495"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Distribuire l'array virtuale StorSimple: configurarlo come server iSCSI tramite il portale di Azure
@@ -77,7 +77,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 5. I server DNS sono necessari perché vengono usati quando il dispositivo tenta di comunicare con i provider del servizio di archiviazione cloud o per risolvere il dispositivo in base al nome se è configurato come file server. Nella pagina **Impostazioni di rete** in **Server DNS**:
    
    1. Un server DNS primario e secondario viene configurato automaticamente. Se si sceglie di configurare gli indirizzi IP statici, è possibile specificare i server DNS. Per una disponibilità elevata, si consiglia di configurare un server DNS primario e uno secondario.
-   2. Fare clic su **Apply**. Si applicano e convalidano così le impostazioni di rete.
+   2. Fare clic su **Applica**. Si applicano e convalidano così le impostazioni di rete.
 6. Nella pagina **Impostazioni del dispositivo** :
    
    1. Assegnare un **Nome** univoco al dispositivo. Questo nome può avere da 1 a 15 caratteri e contenere lettere, numeri e trattini.
@@ -90,20 +90,20 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
       > Se si aggiunge il server iSCSI a un dominio, assicurarsi che l'array virtuale si trovi nella propria unità organizzativa (OU) per Microsoft Azure Active Directory e che ad esso non siano applicati oggetti Criteri di gruppo (GPO).
       > 
       > 
-   4. Viene visualizzata una finestra di dialogo. Immettere le credenziali di dominio nel formato specificato. Fare clic sull'icona del segno di spunta ![icona del segno di spunta](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png). Le credenziali di dominio vengono verificate. Se le credenziali non sono valide, viene visualizzato un messaggio di errore.
+   4. Viene visualizzata una finestra di dialogo. Immettere le credenziali di dominio nel formato specificato. Fare clic sull'icona del segno di spunta  ![icona del segno di spunta](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png). Le credenziali di dominio vengono verificate. Se le credenziali non sono valide, viene visualizzato un messaggio di errore.
       
        ![credentials](./media/storsimple-virtual-array-deploy3-iscsi-setup/image8.png)
-   5. Fare clic su **Apply**. Si applicano e convalidano così le impostazioni del dispositivo.
+   5. Fare clic su **Applica**. Si applicano e convalidano così le impostazioni del dispositivo.
 7. Configurare il server proxy Web (facoltativo). Sebbene la configurazione del proxy Web sia facoltativa, tenere presente che se si utilizza un proxy Web, è possibile configurarlo solo qui.
    
     ![configurare il proxy Web](./media/storsimple-virtual-array-deploy3-iscsi-setup/image9.png)
    
     Nella pagina **Proxy Web** :
    
-   1. Specificare l' **URL del proxy Web** in questo formato: *http:\/indirizzo/host-IP* o *FQDN: numero di porta*. Notare che gli URL HTTPS non sono supportati.
+   1. Specificare l'URL del **proxy Web** nel formato *http: http:\//host-IP address* o *FQDN:Port number*. Notare che gli URL HTTPS non sono supportati.
    2. Specificare **Autenticazione** come **Basic** o **Nessuna**.
    3. Se si usa l'autenticazione, è necessario fornire anche **Nome utente** e **Password**.
-   4. Fare clic su **Apply**. Le impostazioni proxy Web configurate vengono così convalidate e applicate.
+   4. Fare clic su **Applica**. Le impostazioni proxy Web configurate vengono così convalidate e applicate.
 8. Configurare le impostazioni ora per il dispositivo, ad esempio il fuso orario e i server NTP primari e secondari (facoltativo). I server NTP sono obbligatori in quanto il dispositivo deve sincronizzare l'ora e consentire l'autenticazione con i provider del servizio cloud.
    
     ![Impostazioni ora](./media/storsimple-virtual-array-deploy3-iscsi-setup/image10.png)
@@ -113,12 +113,12 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
    1. Nell'elenco a discesa, selezionare il **Fuso orario** in base alla posizione geografica in cui viene distribuito il dispositivo. Il fuso orario predefinito per il dispositivo è PST. Il dispositivo utilizzerà questo fuso orario per tutte le operazioni pianificate.
    2. Specificare un **Server NTP primario** per il dispositivo o accettare il valore predefinito di time.windows.com. Assicurarsi che la rete consenta il traffico NTP dal data center a Internet.
    3. Facoltativamente, specificare un **Server NTP secondario** per il dispositivo.
-   4. Fare clic su **Apply**. Le impostazioni ora configurate vengono così convalidate e applicate.
+   4. Fare clic su **Applica**. Le impostazioni ora configurate vengono così convalidate e applicate.
 9. Configurare le impostazioni del cloud per il dispositivo. In questo passaggio viene completata la configurazione del dispositivo locale, quindi si registra il dispositivo con il servizio Gestione dispositivi StorSimple.
    
    1. Immettere la **chiave di registrazione del servizio** ottenuta al **Passaggio 2: Ottenere la chiave di registrazione del servizio** in [Distribuire l'array virtuale StorSimple: preparare il portale](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
-   2. Se questo non è il primo dispositivo che si registra con questo servizio, è necessario fornire la **Chiave DEK del servizio**. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio Gestione dispositivi StorSimple. Per altre informazioni, fare riferimento a come ottenere la [chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.
-   3. Fare clic su **Register**. Il dispositivo viene così riavviato. È necessario attendere 2-3 minuti per la corretta registrazione del dispositivo. Dopo avere riavviato il dispositivo, si passa alla pagina di accesso.
+   2. Se questo non è il primo dispositivo che si sta registrando con questo servizio, è necessario fornire la chiave di crittografia dei dati del **servizio**. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio Gestione dispositivi StorSimple. Per altre informazioni, fare riferimento a come ottenere la [chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.
+   3. Fare clic su **Registra**. Il dispositivo viene così riavviato. È necessario attendere 2-3 minuti per la corretta registrazione del dispositivo. Dopo avere riavviato il dispositivo, si passa alla pagina di accesso.
       
       ![Registrare il dispositivo](./media/storsimple-virtual-array-deploy3-iscsi-setup/image11.png)
 10. Tornare al portale di Azure.
@@ -162,7 +162,7 @@ Eseguire la procedura seguente nel portale di Azure per completare l'installazio
 2. Nel pannello **Aggiungi volume** eseguire le operazioni seguenti:
    
    * Nel campo **Nome del volume** immettere un nome univoco per il volume. Il nome deve essere una stringa contenente da 3 a 127 caratteri.
-   * Nell'elenco a discesa **Tipo** specificare se creare un volume **A livelli** o **Aggiunto in locale**. Per i carichi di lavoro che richiedono garanzie locali, latenze basse e prestazioni superiori, selezionare **volume** **aggiunto in locale** . Per tutti gli altri dati, selezionare **volume**a **livelli** .
+   * Nell'elenco a discesa **Tipo** specificare se creare un volume **A livelli** o **Aggiunto in locale**. Per carichi di lavoro che richiedono garanzie locali, latenze basse e prestazioni di livello superiore, selezionare **Volume** **aggiunto in locale**. Per tutti gli altri dati, selezionare **Volume** **a livelli**.
    * Nel campo **Capacità** specificare le dimensioni del volume. Un volume a livelli deve essere compreso tra 500 GB e 5 TB e un volume aggiunto in locale deve essere compreso tra 50 e 500 GB.
      
      Per un volume aggiunto in locale viene eseguito il thick provisioning per garantire che i dati primari nel volume rimangano nel dispositivo e non si spostino sul cloud.
@@ -194,15 +194,15 @@ Eseguire i passaggi seguenti per montare, inizializzare e formattare i volumi St
 3. Nella finestra di dialogo **Individua portale destinazione** specificare l'indirizzo IP dell'interfaccia di rete abilitata per iSCSI e quindi fare clic su **OK**.
    
     ![Indirizzo IP](./media/storsimple-virtual-array-deploy3-iscsi-setup/image23.png)
-4. Nella scheda **Destinazioni** della finestra delle **proprietà dell'iniziatore iSCSI** individuare **Destinazioni individuate**. (Ogni volume sarà una destinazione individuata). Lo stato del dispositivo dovrebbe essere **inattivo**.
+4. Nella scheda **Destinazioni** della finestra delle **proprietà dell'iniziatore iSCSI** individuare **Destinazioni individuate**. (Ogni volume sarà un obiettivo scoperto.) Lo stato del dispositivo dovrebbe essere **Inattivo**.
    
     ![destinazioni individuate](./media/storsimple-virtual-array-deploy3-iscsi-setup/image24.png)
-5. Selezionare un dispositivo di destinazione e quindi fare clic su **Connetti**. Dopo aver connesso il dispositivo, lo stato deve essere modificato in **Connesso**. Per altre informazioni sull'uso dell'iniziatore iSCSI Microsoft, vedere [installazione e configurazione dell'iniziatore iSCSI Microsoft][1].
+5. Selezionare un dispositivo di destinazione e quindi fare clic su **Connetti**. Dopo aver connesso il dispositivo, lo stato deve essere modificato in **Connesso**. Per ulteriori informazioni sull'utilizzo dell'inittore iSCSI Microsoft, vedere [Installazione e configurazione dell'inittore iSCSI Microsoft][1].
    
     ![selezionare il dispositivo di destinazione](./media/storsimple-virtual-array-deploy3-iscsi-setup/image25.png)
 6. Nell'host di Windows, premere il tasto Logo Windows + X, quindi fare clic su **Esegui**.
 7. Nella finestra di dialogo **Esegui** digitare **Diskmgmt.msc**. Fare clic su **OK**. Verrà visualizzata la finestra di dialogo **Gestione disco**. Nel riquadro destro vengono visualizzati i volumi sul proprio host.
-8. Nella finestra **Gestione disco** , i volumi montati verranno visualizzati come indicato nella figura seguente. Fare clic con il pulsante destro del mouse sul volume individuato (fare clic sul nome del disco) e fare clic su **Online**.
+8. Nella finestra **Gestione disco** i volumi montati vengono visualizzati come mostrato nella figura seguente. Fare clic con il pulsante destro del mouse sul volume individuato (fare clic sul nome del disco), quindi scegliere **Online**.
    
     ![Gestione disco](./media/storsimple-virtual-array-deploy3-iscsi-setup/image26.png)
 9. Fare clic con il pulsante destro del mouse e selezionare **Inizializza disco**.
@@ -230,7 +230,7 @@ Eseguire i passaggi seguenti per montare, inizializzare e formattare i volumi St
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come usare l'interfaccia utente Web locale per [amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
+Informazioni su come utilizzare l'interfaccia utente Web locale per [amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
 ## <a name="appendix-a-get-the-iqn-of-a-windows-server-host"></a>Appendice A: Ottenere il nome qualificato iSCSI di un host di Windows Server
 
@@ -239,7 +239,7 @@ Eseguire i passaggi seguenti per ottenere il nome qualificato iSCSI (IQN) di un 
 #### <a name="to-get-the-iqn-of-a-windows-host"></a>Per ottenere il nome qualificato iSCSI di un host di Windows
 
 1. Avviare l'iniziatore iSCSI di Microsoft sull’host di Windows.
-2. Nella scheda **Configurazione** della finestra delle **proprietà dell'iniziatore iSCSI** selezionare e copiare la stringa dal campo **Nome iniziatore**.
+2. Nella scheda **Configurazione** della finestra **Proprietà invitante iSCSI** selezionare e copiare la stringa dal campo **Nome initiator.**
    
     ![Proprietà iniziatore iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/image34.png)
 3. Salvare la stringa.

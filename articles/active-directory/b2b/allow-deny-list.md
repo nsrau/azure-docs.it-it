@@ -1,5 +1,5 @@
 ---
-title: Consentire o bloccare gli inviti a organizzazioni specifiche-Azure AD
+title: Consentire o bloccare gli inviti a organizzazioni specifiche - Azure ADAllow or block invites to specific organizations - Azure AD
 description: Viene illustrato come un amministratore può usare il portale di Azure o PowerShell per impostare un elenco di accesso consentito o negato per consentire o impedire agli utenti di B2B di accedere da determinati domini.
 services: active-directory
 ms.service: active-directory
@@ -13,10 +13,10 @@ ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8b5100c4406cfd4a8395dfa177dc3cd5e911decb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74273415"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Consentire o bloccare gli inviti agli utenti B2B da organizzazioni specifiche
@@ -27,9 +27,9 @@ ms.locfileid: "74273415"
 
 - È possibile creare un elenco di accesso consentito o un elenco di accesso negato. Non è consentita la configurazione di entrambi i tipi di elenchi. Per impostazione predefinita, i domini non inclusi nell'elenco di accesso consentito vengono inclusi nell'elenco di accesso negato e viceversa. 
 - È possibile creare un solo criterio per organizzazione. È possibile aggiornare il criterio per includere ulteriori domini oppure eliminarlo per crearne uno nuovo. 
-- Il numero di domini che è possibile aggiungere a un elenco Consenti o nega è limitato solo dalla dimensione del criterio. La dimensione massima dell'intero criterio è di 25 KB (25.000 caratteri), che include l'elenco Consenti o nega e tutti gli altri parametri configurati per altre funzionalità.
+- Il numero di domini che è possibile aggiungere a un elenco Consenti o Rifiuta è limitato solo dalle dimensioni del criterio. La dimensione massima dell'intero criterio è 25 KB (25.000 caratteri), che include l'elenco Consenti o Nega e qualsiasi altro parametro configurato per altre funzionalità.
 - Questo elenco funziona in modo indipendente dagli elenchi di accesso consentito/bloccato di OneDrive for Business e SharePoint Online. Se si vuole limitare la condivisione di singoli file in SharePoint Online, è necessario impostare un elenco di accesso consentito o un elenco di accesso negato per OneDrive for Business e SharePoint Online. Per altre informazioni, vedere [Condivisione di domini con restrizioni in SharePoint Online e OneDrive for Business](https://support.office.com/article/restricted-domains-sharing-in-sharepoint-online-and-onedrive-for-business-5d7589cd-0997-4a00-a2ba-2320ec49c4e9).
-- L'elenco non si applica a utenti esterni che hanno già riscattato l'invito. L'elenco verrà applicato dopo la configurazione. Se un invito di un utente è in sospeso e si imposta un criterio che blocca il suo dominio, il tentativo dell'utente di accettare l'invito avrà esito negativo.
+- L'elenco non si applica agli utenti esterni che hanno già riscattato l'invito. L'elenco verrà applicato dopo la configurazione. Se un invito di un utente è in sospeso e si imposta un criterio che blocca il suo dominio, il tentativo dell'utente di accettare l'invito avrà esito negativo.
 
 ## <a name="set-the-allow-or-deny-list-policy-in-the-portal"></a>Impostare il criterio per l'elenco di accesso consentito o l'elenco di accesso negato nel portale
 
@@ -41,9 +41,9 @@ Questo è lo scenario più comune, in cui l'organizzazione vuole collaborare qua
 
 Per aggiungere un elenco di accesso negato:
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Selezionare **Azure Active Directory** > **Utenti** > **Impostazioni utente**.
-3. In **Utenti esterni** selezionare **Manage external collaboration settings** (Gestisci impostazioni di collaborazione esterna).
+1. Accedere al [portale](https://portal.azure.com)di Azure .
+2. Selezionare**Impostazioni** > **utente**utenti **di Azure Active Directory** > .
+3. In **Utenti esterni**selezionare Gestisci impostazioni di collaborazione **esterna.**
 4. In **Collaboration restrictions** (Restrizioni per la collaborazione) selezionare **Deny invitations to the specified domains** (Nega inviti ai domini specificati).
 5. In **Domini di destinazione** immettere il nome di uno dei domini che si vuole bloccare. Per specificare più domini, immettere ognuno in una nuova riga. Ad esempio:
 
@@ -62,10 +62,10 @@ Se si vuole usare un elenco di accesso consentito, assicurarsi di dedicare tempo
 
 Per aggiungere un elenco di accesso consentito:
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Selezionare **Azure Active Directory** > **Utenti** > **Impostazioni utente**.
-3. In **Utenti esterni** selezionare **Manage external collaboration settings** (Gestisci impostazioni di collaborazione esterna).
-4. In **Restrizioni di collaborazione** selezionare **Consenti l'invio di inviti solo ai domini specificati (più restrittivo)** .
+1. Accedere al [portale](https://portal.azure.com)di Azure .
+2. Selezionare**Impostazioni** > **utente**utenti **di Azure Active Directory** > .
+3. In **Utenti esterni**selezionare Gestisci impostazioni di collaborazione **esterna.**
+4. In **Restrizioni di collaborazione** selezionare **Consenti l'invio di inviti solo ai domini specificati (più restrittivo)**.
 5. In **DOMINI DI DESTINAZIONE** immettere il nome di uno dei domini che si vuole consentire. Per specificare più domini, immettere ognuno in una nuova riga. Ad esempio:
 
    ![Mostra l'opzione Consenti con i domini aggiunti](./media/allow-deny-list/AllowListSettings.png)
@@ -161,7 +161,7 @@ Remove-AzureADPolicy -Id $currentpolicy.Id
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per una panoramica di Azure AD B2B, vedere [Informazioni su Collaborazione B2B di Azure AD](what-is-b2b.md)
-- Per informazioni sull'accesso condizionale e la collaborazione B2B, vedere [accesso condizionale per gli utenti di collaborazione B2B](conditional-access.md).
+- Per informazioni sull'accesso condizionale e sulla collaborazione B2B, vedere Accesso condizionale per gli utenti di [Collaborazione B2B.](conditional-access.md)
 
 
 

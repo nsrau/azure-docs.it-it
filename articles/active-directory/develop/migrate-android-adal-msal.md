@@ -1,6 +1,6 @@
 ---
-title: Guida alla migrazione da ADAL a MSAL per Android | Azure
-description: Informazioni su come eseguire la migrazione dell'app Android ADAL (Azure Active Directory Authentication Library) a Microsoft Authentication Library (MSAL).
+title: Guida alla migrazione da ADAL a MSAL per Android Azure
+description: Informazioni su come eseguire la migrazione dell'app Android Azure Active Directory Authentication Library (ADAL) a Microsoft Authentication Library (MSAL).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,121 +14,121 @@ ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
 ms.openlocfilehash: 21866bb7dab3d5a093ffc4655161b80853eadfc5
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77084047"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guida alla migrazione da ADAL a MSAL per Android
 
-Questo articolo evidenzia le modifiche che è necessario eseguire per eseguire la migrazione di un'app che usa la libreria di autenticazione Azure Active Directory (ADAL) per usare Microsoft Authentication Library (MSAL).
+Questo articolo evidenzia le modifiche che è necessario apportare per eseguire la migrazione di un'app che usa Azure Active Directory Authentication Library (ADAL) per usare microsoft Authentication Library (MSAL).
 
-## <a name="difference-highlights"></a>Evidenziazioni differenze
+## <a name="difference-highlights"></a>Punti salienti della differenza
 
-ADAL funziona con l'endpoint Azure Active Directory versione 1.0. Microsoft Authentication Library (MSAL) funziona con la piattaforma di identità Microsoft, nota in precedenza come endpoint Azure Active Directory v 2.0. La piattaforma di identità Microsoft differisce da Azure Active Directory v 1.0 in quanto:
+ADAL funziona con l'endpoint di Azure Active Directory v1.0. Microsoft Authentication Library (MSAL) funziona con la piattaforma di identità Microsoft, precedentemente nota come endpoint di Azure Active Directory 2.0. La piattaforma di identità Microsoft è diversa da Azure Active Directory v1.0 in quanto:The Microsoft identity platform differs from Azure Active Directory v1.0 in that it:
 
 Supporto:
-  - Identità organizzativa (Azure Active Directory)
-  - Identità non organizzative, ad esempio Outlook.com, Xbox Live e così via
+  - Identità dell'organizzazione (Azure Active Directory)Organizational Identity (Azure Active Directory)
+  - Identità non dell'organizzazione, ad esempio Outlook.com, Xbox Live e così via
   - (Solo B2C) Accesso federato con Google, Facebook, Twitter e Amazon
 
-- È compatibile con gli standard:
-  - OAuth v 2.0
+- Gli standard sono compatibili con:
+  - OAuth v2.0
   - OpenID Connect (OIDC)
 
 L'API pubblica MSAL introduce importanti modifiche, tra cui:
 
-- Un nuovo modello per l'accesso ai token:
-  - ADAL consente di accedere ai token tramite il `AuthenticationContext`, che rappresenta il server. MSAL consente di accedere ai token tramite il `PublicClientApplication`, che rappresenta il client. Gli sviluppatori client non devono creare una nuova istanza di `PublicClientApplication` per ogni autorità con cui devono interagire. È necessaria solo una configurazione `PublicClientApplication`.
-  - Supporto per la richiesta di token di accesso usando gli ambiti oltre agli identificatori di risorsa.
-  - Supporto per il consenso incrementale. Gli sviluppatori possono richiedere gli ambiti quando l'utente accede a più funzionalità nell'app, incluse quelle non incluse durante la registrazione dell'app.
-  - Le autorità non vengono più convalidate in fase di esecuzione. Lo sviluppatore dichiara invece un elenco di "autorità note" durante lo sviluppo.
-- Modifiche API token:
-  - In ADAL `AcquireToken()` per prima cosa esegue una richiesta invisibile all'utente. In caso contrario, esegue una richiesta interattiva. Questo comportamento ha comportato la relyinging di alcuni sviluppatori solo su `AcquireToken`, che ha comportato la richiesta di credenziali da parte dell'utente in modo imprevisto. MSAL richiede che gli sviluppatori siano intenzionali quando l'utente riceve un prompt dell'interfaccia utente.
-    - `AcquireTokenSilent` restituisce sempre una richiesta invisibile all'utente che ha esito positivo o negativo.
-    - `AcquireToken` restituisce sempre una richiesta che richiede all'utente tramite l'interfaccia utente.
+- Un nuovo modello per l'accesso ai token:A new model for accessing tokens:
+  - ADAL fornisce l'accesso `AuthenticationContext`ai token tramite il , che rappresenta il server. MSAL fornisce l'accesso `PublicClientApplication`ai token tramite il , che rappresenta il client. Gli sviluppatori client non devono `PublicClientApplication` creare una nuova istanza per ogni autorità con cui devono interagire. È `PublicClientApplication` necessaria una sola configurazione.
+  - Supporto per la richiesta di token di accesso utilizzando ambiti oltre agli identificatori di risorsa.
+  - Supporto per il consenso incrementale. Gli sviluppatori possono richiedere ambiti quando l'utente accede a sempre più funzionalità nell'app, incluse quelle non incluse durante la registrazione dell'app.
+  - Le autorità non vengono più convalidate in fase di esecuzione. Invece, lo sviluppatore dichiara un elenco di 'autorità note' durante lo sviluppo.
+- Modifiche all'API token:Token API changes:
+  - In ADAL, `AcquireToken()` prima effettua una richiesta invisibile all'utente. In caso contrario, effettua una richiesta interattiva. Questo comportamento ha portato alcuni `AcquireToken`sviluppatori a basarsi solo su , che ha causato all'utente viene richiesto in modo imprevisto le credenziali, a volte. MSAL richiede che gli sviluppatori siano intenzionali quando l'utente riceve un prompt dell'interfaccia utente.
+    - `AcquireTokenSilent`genera sempre una richiesta invisibile all'utente che ha esito positivo o negativo.
+    - `AcquireToken`restituisce sempre una richiesta che richiede all'utente tramite l'interfaccia utente.
 - MSAL supporta l'accesso da un browser predefinito o da una visualizzazione Web incorporata:
-  - Per impostazione predefinita, viene usato il browser predefinito nel dispositivo. Questo consente a MSAL di usare lo stato di autenticazione (cookie) che può essere già presente per uno o più account di accesso. Se non è presente alcuno stato di autenticazione, l'autenticazione durante l'autorizzazione tramite MSAL comporta la creazione dello stato di autenticazione (cookie) per il vantaggio di altre applicazioni Web che verranno utilizzate nello stesso browser.
+  - Per impostazione predefinita, viene utilizzato il browser predefinito sul dispositivo. Ciò consente a MSAL di utilizzare lo stato di autenticazione (cookie) che potrebbe essere già presente per uno o più account connessi. Se non è presente alcuno stato di autenticazione, l'autenticazione durante l'autorizzazione tramite MSAL comporta la creazione dello stato di autenticazione (cookie) a vantaggio di altre applicazioni Web che verranno utilizzate nello stesso browser.
 - Nuovo modello di eccezione:
-  - Le eccezioni definiscono in modo più chiaro il tipo di errore che si è verificato e ciò che lo sviluppatore deve eseguire per risolverlo.
-- MSAL supporta oggetti Parameter per le chiamate `AcquireToken` e `AcquireTokenSilent`.
+  - Le eccezioni definiscono più chiaramente il tipo di errore che si è verificato e le operazioni che lo sviluppatore deve eseguire per risolverlo.
+- MSAL supporta gli `AcquireToken` oggetti `AcquireTokenSilent` parametro per e le chiamate.
 - MSAL supporta la configurazione dichiarativa per:
   - ID client, URI di reindirizzamento.
-  - Browser incorporato rispetto a quello predefinito
-  - autorità
-  - Impostazioni HTTP come il timeout di lettura e connessione
+  - Browser incorporato e predefinito
+  - Autorità
+  - Impostazioni HTTP, ad esempio timeout di lettura e connessione
 
 ## <a name="your-app-registration-and-migration-to-msal"></a>Registrazione e migrazione dell'app a MSAL
 
-Non è necessario modificare la registrazione dell'app esistente per usare MSAL. Se si desidera sfruttare il consenso incrementale/progressivo, potrebbe essere necessario esaminare la registrazione per identificare gli ambiti specifici che si desidera richiedere in modo incrementale. Di seguito sono riportate ulteriori informazioni sugli ambiti e sul consenso incrementale.
+Non è necessario modificare la registrazione dell'app esistente per usare MSAL. Se si desidera sfruttare il consenso incrementale/progressivo, potrebbe essere necessario esaminare la registrazione per identificare gli ambiti specifici che si desidera richiedere in modo incrementale. Di seguito sono necessarie ulteriori informazioni sugli ambiti e sul consenso incrementale.
 
-Nella registrazione dell'app nel portale viene visualizzata la scheda **autorizzazioni API** . Viene visualizzato un elenco di API e autorizzazioni (ambiti) a cui l'app è attualmente configurata per richiedere l'accesso. Viene inoltre visualizzato un elenco dei nomi di ambito associati a ogni autorizzazione API.
+Nella registrazione dell'app nel portale verrà visualizzata una scheda **Autorizzazioni API.** In questo modo viene fornito un elenco delle API e delle autorizzazioni (ambiti) a cui l'app è attualmente configurata per richiedere l'accesso. Viene inoltre visualizzato un elenco dei nomi di ambito associati a ogni autorizzazione API.
 
 ### <a name="user-consent"></a>Consenso dell'utente
 
-Con ADAL e l'endpoint AAD V1, il consenso dell'utente per le risorse di cui è proprietario è stato concesso al primo utilizzo. Con MSAL e la piattaforma di identità Microsoft, è possibile richiedere il consenso in modo incrementale. Il consenso incrementale è utile per le autorizzazioni che un utente può prendere in considerazione con privilegi elevati o in caso contrario, se non viene fornito con una spiegazione chiara del motivo per cui è necessaria l'autorizzazione. In ADAL queste autorizzazioni potrebbero avere comportato l'abbandono dell'accesso all'app da parte dell'utente.
+Con ADAL e l'endpoint AAD v1, il consenso dell'utente alle risorse di cui è proprietario è stato concesso al primo utilizzo. Con MSAL e la piattaforma di identità Microsoft, il consenso può essere richiesto in modo incrementale. Il consenso incrementale è utile per le autorizzazioni che un utente può considerare privilegi elevati o può altrimenti mettere in dubbio se non viene fornito con una spiegazione chiara del motivo per cui è richiesta l'autorizzazione. In ADAL, tali autorizzazioni potrebbero aver portato l'utente ad abbandonare l'accesso all'app.
 
 > [!TIP]
-> Si consiglia di usare il consenso incrementale negli scenari in cui è necessario fornire un contesto aggiuntivo all'utente per informazioni sul motivo per cui l'app necessita di un'autorizzazione.
+> Ti consigliamo l'uso del consenso incrementale negli scenari in cui devi fornire un contesto aggiuntivo all'utente sul motivo per cui la tua app necessita di un'autorizzazione.
 
 ### <a name="admin-consent"></a>Consenso dell'amministratore
 
-Gli amministratori dell'organizzazione possono fornire il consenso alle autorizzazioni richieste dall'applicazione per conto di tutti i membri della propria organizzazione. Alcune organizzazioni consentono solo agli amministratori di dare il consenso alle applicazioni. Il consenso dell'amministratore richiede l'inclusione di tutte le autorizzazioni e gli ambiti dell'API usati dall'applicazione nella registrazione dell'app.
+Gli amministratori dell'organizzazione possono concedere le autorizzazioni necessarie per l'applicazione per conto di tutti i membri dell'organizzazione. Alcune organizzazioni consentono solo agli amministratori di acconsentire alle applicazioni. Il consenso dell'amministratore richiede l'inclusione di tutte le autorizzazioni e gli ambiti dell'API usati dall'applicazione nella registrazione dell'app.
 
 > [!TIP]
-> Anche se è possibile richiedere un ambito usando MSAL per un elemento non incluso nella registrazione dell'app, è consigliabile aggiornare la registrazione dell'app in modo da includere tutte le risorse e gli ambiti a cui un utente può concedere l'autorizzazione.
+> Anche se puoi richiedere un ambito usando MSAL per un elemento non incluso nella registrazione dell'app, ti consigliamo di aggiornare la registrazione dell'app per includere tutte le risorse e gli ambiti a cui un utente potrebbe mai concedere l'autorizzazione.
 
-## <a name="migrating-from-resource-ids-to-scopes"></a>Migrazione dagli ID risorsa agli ambiti
+## <a name="migrating-from-resource-ids-to-scopes"></a>Migrazione da ID risorsa a ambitiMigrating from resource IDs to scopes
 
-### <a name="authenticate-and-request-authorization-for-all-permissions-on-first-use"></a>Autenticare e richiedere l'autorizzazione per tutte le autorizzazioni al primo utilizzo
+### <a name="authenticate-and-request-authorization-for-all-permissions-on-first-use"></a>Autenticare e richiedere l'autorizzazione per tutte le autorizzazioni al primo utilizzoAuthenticate and request authorization for all permissions on first use
 
-Se attualmente si usa ADAL e non è necessario usare il consenso incrementale, il modo più semplice per iniziare a usare MSAL consiste nel creare una richiesta `acquireToken` usando il nuovo oggetto `AcquireTokenParameter` e impostando il valore dell'ID della risorsa.
+Se attualmente si utilizza ADAL e non è necessario utilizzare il consenso incrementale, il `acquireToken` modo più `AcquireTokenParameter` semplice per iniziare a utilizzare MSAL consiste nel effettuare una richiesta utilizzando il nuovo oggetto e impostare il valore dell'ID risorsa.
 
 > [!CAUTION]
-> Non è possibile impostare entrambi gli ambiti e un ID di risorsa. Il tentativo di impostare entrambi comporterà un `IllegalArgumentException`.
+> Non è possibile impostare sia gli ambiti che un ID risorsa. Se si tenta di impostare entrambi, verrà creato un `IllegalArgumentException`file .
 
- Questo comporterà lo stesso comportamento V1 usato. Tutte le autorizzazioni richieste nella registrazione dell'app vengono richieste dall'utente durante la prima interazione.
+ Ciò comporterà lo stesso comportamento v1 utilizzato. Tutte le autorizzazioni richieste nella registrazione dell'app vengono richieste all'utente durante la prima interazione.
 
-### <a name="authenticate-and-request-permissions-only-as-needed"></a>Eseguire l'autenticazione e richiedere le autorizzazioni solo se necessario
+### <a name="authenticate-and-request-permissions-only-as-needed"></a>Autentica e richiedi le autorizzazioni solo se necessario
 
-Per sfruttare i vantaggi del consenso incrementale, creare un elenco di autorizzazioni (ambiti) che l'app usa dalla registrazione dell'app e organizzarle in due elenchi in base a:
+Per sfruttare i vantaggi del consenso incrementale, crea un elenco di autorizzazioni (ambiti) che l'app usa dalla registrazione dell'app e organizzale in due elenchi in base a:
 
-- Quali ambiti si desidera richiedere durante la prima interazione dell'utente con l'app durante l'accesso.
-- Le autorizzazioni associate a una funzionalità importante dell'app che dovrà essere spiegata anche all'utente.
+- Ambiti da richiedere durante la prima interazione dell'utente con l'app durante l'accesso.
+- Le autorizzazioni associate a una funzionalità importante dell'app che dovrai spiegare anche all'utente.
 
-Una volta organizzati gli ambiti, organizzare ogni elenco con la risorsa (API) per cui si vuole richiedere un token. Così come qualsiasi altro ambito che si desidera venga autorizzato dall'utente nello stesso momento.
+Dopo aver organizzato gli ambiti, organizzare ogni elenco in base alla risorsa (API) per cui si vuole richiedere un token. Così come tutti gli altri ambiti che si desidera che l'utente a autorizzare contemporaneamente.
 
-L'oggetto Parameters usato per eseguire la richiesta a MSAL supporta:
+L'oggetto parameters utilizzato per effettuare la richiesta a MSAL supporta:
 
-- `Scope`: elenco degli ambiti per i quali si desidera richiedere l'autorizzazione e ricevere un token di accesso.
-- `ExtraScopesToConsent`: un elenco aggiuntivo di ambiti per i quali si desidera richiedere l'autorizzazione mentre si richiede un token di accesso per un'altra risorsa. Questo elenco di ambiti consente di ridurre al minimo il numero di volte in cui è necessario richiedere l'autorizzazione dell'utente. Il che significa un minor numero di richieste di autorizzazione utente o di consenso.
+- `Scope`: elenco di ambiti per i quali si desidera richiedere l'autorizzazione e ricevere un token di accesso.
+- `ExtraScopesToConsent`: un elenco aggiuntivo di ambiti per cui si desidera richiedere l'autorizzazione mentre si richiede un token di accesso per un'altra risorsa. Questo elenco di ambiti consente di ridurre al minimo il numero di volte in cui è necessario richiedere l'autorizzazione dell'utente. Il che significa meno autorizzazione dell'utente o richieste di consenso.
 
-## <a name="migrate-from-authenticationcontext-to-publicclientapplications"></a>Eseguire la migrazione da AuthenticationContext a PublicClientApplications
+## <a name="migrate-from-authenticationcontext-to-publicclientapplications"></a>Eseguire la migrazione da AuthenticationContext a PublicClientApplicationsMigrate from AuthenticationContext to PublicClientApplications
 
-### <a name="constructing-publicclientapplication"></a>Creazione di PublicClientApplication
+### <a name="constructing-publicclientapplication"></a>Costruzione di PublicClientApplicationConstructing PublicClientApplication
 
-Quando si usa MSAL, si crea un'istanza di un `PublicClientApplication`. Questo oggetto modella l'identità dell'app e viene usato per eseguire richieste a una o più autorità. Con questo oggetto verrà configurata l'identità del client, l'URI di reindirizzamento, l'autorità predefinita, se usare il browser del dispositivo e la visualizzazione Web incorporata, il livello di log e altro ancora.
+Quando si utilizza MSAL, `PublicClientApplication`si crea un'istanza di . Questo oggetto modella l'identità dell'app e viene usato per effettuare richieste a una o più autorità. Con questo oggetto si configureranno l'identità del client, l'URI di reindirizzamento, l'autorità predefinita, se utilizzare il browser del dispositivo rispetto alla visualizzazione Web incorporata, il livello di registrazione e altro ancora.
 
-È possibile configurare in modo dichiarativo questo oggetto con JSON, che è possibile fornire come file o archiviare come una risorsa all'interno dell'APK.
+È possibile configurare in modo dichiarativo questo oggetto con JSON, che viene fornito come file o archivio come risorsa all'interno dell'APK.
 
-Sebbene questo oggetto non sia un singleton, internamente USA `Executors` condivise per le richieste interattive e non automatiche.
+Anche se questo oggetto non è un singleton, internamente utilizza condiviso `Executors` sia per le richieste interattive che silenziose.
 
-### <a name="business-to-business"></a>Business to business
+### <a name="business-to-business"></a>Business to Business
 
-In ADAL ogni organizzazione richiesta da token di accesso richiede un'istanza separata del `AuthenticationContext`. In MSAL non è più un requisito. È possibile specificare l'autorità da cui si desidera richiedere un token come parte della richiesta interattiva o invisibile all'utente.
+In ADAL, ogni organizzazione da cui si richiedono i `AuthenticationContext`token di accesso richiede un'istanza separata di . In MSAL, questo non è più un requisito. È possibile specificare l'autorità da cui si desidera richiedere un token come parte della richiesta invisibile all'utente o interattiva.
 
-### <a name="migrate-from-authority-validation-to-known-authorities"></a>Eseguire la migrazione dalla convalida dell'autorità alle autorità note
+### <a name="migrate-from-authority-validation-to-known-authorities"></a>Eseguire la migrazione dalla convalida dell'autorità alle autorità noteMigrate from authority validation to known authorities
 
-MSAL non dispone di un flag per abilitare o disabilitare la convalida dell'autorità. La convalida dell'autorità è una funzionalità di ADAL e nelle prime versioni di MSAL, che impedisce al codice di richiedere token da un'autorità potenzialmente dannosa. MSAL Recupera ora un elenco di autorità note a Microsoft e unisce tale elenco con le autorità specificate nella configurazione.
+MSAL non dispone di un flag per abilitare o disabilitare la convalida dell'autorità. La convalida dell'autorità è una funzionalità di ADAL e nelle prime versioni di MSAL, che impedisce al codice di richiedere token a un'autorità potenzialmente dannosa. MSAL ora recupera un elenco di autorità note a Microsoft e si unisce tale elenco con le autorità specificate nella configurazione.
 
 > [!TIP]
-> Se si è un utente di Azure Business to consumer (B2C), questo significa che non è più necessario disabilitare la convalida dell'autorità. In alternativa, includere tutti i criteri di Azure AD B2C supportati come autorità nella configurazione di MSAL.
+> Se si è un utente di Azure Business Business to Consumer (B2C), non è più necessario disabilitare la convalida dell'autorità. Includere invece ognuno dei criteri B2C di Azure AD supportati come autorità nella configurazione MSAL.
 
-Se si tenta di usare un'autorità che non è nota a Microsoft e non è inclusa nella configurazione, si otterrà un `UnknownAuthorityException`.
+Se si tenta di utilizzare un'autorità non nota a Microsoft e non inclusa nella configurazione, si otterrà un `UnknownAuthorityException`file .
 
 ### <a name="logging"></a>Registrazione
-È ora possibile configurare la registrazione in modo dichiarativo come parte della configurazione, come indicato di seguito:
+È ora possibile configurare in modo dichiarativo la registrazione come parte della configurazione, in questo modo:You can now declaratively configure logging as part of your configuration, like this:
 
  ```
  "logging": {
@@ -138,31 +138,31 @@ Se si tenta di usare un'autorità che non è nota a Microsoft e non è inclusa n
   }
   ```
 
-## <a name="migrate-from-userinfo-to-account"></a>Eseguire la migrazione da UserInfo a account
+## <a name="migrate-from-userinfo-to-account"></a>Eseguire la migrazione da UserInfo a AccountMigrate from UserInfo to Account
 
-In ADAL, il `AuthenticationResult` fornisce un oggetto `UserInfo` utilizzato per recuperare le informazioni sull'account autenticato. Il termine "User", che significava un agente software o umano, è stato applicato in modo da rendere difficile la comunicazione che alcune app supportano un singolo utente, che si tratti di un agente umano o software, che dispone di più account.
+In ADAL, `AuthenticationResult` fornisce `UserInfo` un oggetto utilizzato per recuperare informazioni sull'account autenticato. Il termine "utente", che significava un agente umano o software, è stato applicato in un modo che ha reso difficile comunicare che alcune applicazioni supportano un singolo utente (se un agente umano o software) che dispone di più account.
 
-Prendere in considerazione un conto bancario. È possibile avere più di un account in più di un istituto finanziario. Quando si apre un account, l'utente riceve le credenziali, ad esempio una scheda bancomat & PIN, utilizzate per accedere al saldo, i pagamenti e così via, per ogni account. Tali credenziali possono essere utilizzate solo nell'istituto finanziario che le ha rilasciate.
+Si consideri un conto bancario. È possibile avere più di un conto in più di un istituto finanziario. Quando si apre un account, all'utente vengono rilasciate credenziali, ad esempio una carta atm & PIN, che vengono utilizzate per accedere al saldo, ai pagamenti delle fatture e così via, per ogni account. Tali credenziali possono essere utilizzate solo presso l'istituto finanziario che le ha rilasciate.
 
-Per analogie, ad esempio gli account di un istituto finanziario, è possibile accedere agli account della piattaforma Microsoft Identity usando le credenziali. Queste credenziali sono registrate con o emesse da Microsoft. O da Microsoft per conto di un'organizzazione.
+Per analogia, come gli account di un istituto finanziario, gli account nella piattaforma di identità Microsoft sono accessibili tramite credenziali. Tali credenziali sono registrate o rilasciate da Microsoft. O da Microsoft per conto di un'organizzazione.
 
-Laddove la piattaforma di identità Microsoft differisce da un istituto finanziario, in questa analogia, la piattaforma di gestione delle identità Microsoft fornisce un Framework che consente a un utente di usare un account e le credenziali associate per accedere alle risorse che appartengono a più utenti e organizzazioni. Questo è come poter usare una scheda rilasciata da una banca, a un altro istituto finanziario. Questa operazione funziona perché tutte le organizzazioni in questione usano la piattaforma di identità Microsoft, che consente l'uso di un account in più organizzazioni. Di seguito è riportato un esempio:
+Se la piattaforma di identità Microsoft differisce da un istituto finanziario, in questa analogia è che la piattaforma di identità Microsoft fornisce un framework che consente a un utente di utilizzare un account, e le credenziali associate, per accedere alle risorse che appartengono a più individui e organizzazioni. Questo è come essere in grado di utilizzare una carta emessa da una banca, presso un altro istituto finanziario. Questo funziona perché tutte le organizzazioni in questione utilizzano la piattaforma di identità Microsoft, che consente di utilizzare un account tra più organizzazioni. Ad esempio:
 
-Sam funziona per Contoso.com, ma gestisce macchine virtuali di Azure appartenenti a Fabrikam.com. Per gestire le macchine virtuali di Fabrikam, Sam deve essere autorizzato ad accedervi. È possibile concedere l'accesso aggiungendo l'account di Sam a Fabrikam.com e concedendo al suo account un ruolo che consenta di lavorare con le macchine virtuali. Questa operazione viene eseguita con il portale di Azure.
+Sam lavora per Contoso.com ma gestisce le macchine virtuali di Azure che appartengono a Fabrikam.com. Affinché Sam gestisca le macchine virtuali di Fabrikam, deve essere autorizzato ad accedervi. Questo accesso può essere concesso aggiungendo l'account di Sam a Fabrikam.com e concedendo al proprio account un ruolo che gli consenta di lavorare con le macchine virtuali. Questa operazione verrà eseguita con il portale di Azure.This would be done with the Azure portal.
 
-L'aggiunta dell'account Contoso.com di Sam come membro di Fabrikam.com comporterebbe la creazione di un nuovo record in Fabrikam. com Azure Active Directory per Sam. Il record di Sam nel Azure Active Directory è noto come oggetto utente. In questo caso, tale oggetto utente punterà di nuovo all'oggetto utente di Sam in Contoso.com. L'oggetto utente Fabrikam di Sam è la rappresentazione locale di Sam e viene usato per archiviare le informazioni sull'account associato a Sam nel contesto di Fabrikam.com. In Contoso.com, il titolo di Sam è Senior DevOps Consultant. In Fabrikam, il titolo di Sam è un appaltatore-macchine virtuali. In Contoso.com, Sam non è responsabile, né autorizzato, per gestire le macchine virtuali. In Fabrikam.com, si tratta dell'unica funzione del processo. Tuttavia, Sam ha ancora un solo set di credenziali di cui tenere traccia, ovvero le credenziali emesse da Contoso.com.
+L'aggiunta dell'account Contoso.com di Sam come membro di Fabrikam.com comporterebbe la creazione di un nuovo record in Azure Active Directory per Sam di Fabrikam.com. Il record di Sam in Azure Active Directory è noto come oggetto utente. In questo caso, l'oggetto utente punterebbe all'oggetto utente di Sam in Contoso.com. L'oggetto utente Fabrikam di Sam è la rappresentazione locale di Sam e viene utilizzato per archiviare informazioni sull'account associato a Sam nel contesto di Fabrikam.com. In Contoso.com, il titolo di Sam è Senior DevOps Consultant. In Fabrikam, il titolo di Sam è Contractor-Virtual Machines. In Contoso.com, Sam non è responsabile, né autorizzato, per gestire le macchine virtuali. In Fabrikam.com, questa è la sua unica funzione lavorativa. Eppure Sam ha ancora solo un set di credenziali per tenere traccia di, che sono le credenziali rilasciate da Contoso.com.
 
-Una volta eseguita una chiamata `acquireToken` riuscita, verrà visualizzato un riferimento a un oggetto `IAccount` che può essere utilizzato nelle richieste `acquireTokenSilent` successive.
+Una volta `acquireToken` effettuata una chiamata riuscita, `IAccount` verrà visualizzato un `acquireTokenSilent` riferimento a un oggetto che può essere utilizzato nelle richieste successive.
 
 ### <a name="imultitenantaccount"></a>IMultiTenantAccount
 
-Se si dispone di un'app che accede a attestazioni relative a un account di ogni tenant in cui è rappresentato l'account, è possibile eseguire il cast di oggetti `IAccount` `IMultiTenantAccount`. Questa interfaccia fornisce una mappa di `ITenantProfiles`, con chiave in base all'ID tenant, che consente di accedere alle attestazioni che appartengono all'account in ognuno dei tenant da cui è stato richiesto un token rispetto all'account corrente.
+Se si dispone di un'app che accede alle attestazioni relative a un account `IAccount` da `IMultiTenantAccount`ognuno dei tenant in cui è rappresentato l'account, è possibile eseguire il cast di oggetti in . Questa interfaccia fornisce `ITenantProfiles`una mappa di , con chiave in base all'ID tenant, che consente di accedere alle attestazioni che appartengono all'account in ognuno dei tenant da cui è stato richiesto un token, relativo all'account corrente.
 
-Le attestazioni nella radice del `IAccount` e `IMultiTenantAccount` contengono sempre le attestazioni del tenant Home. Se non è stata ancora effettuata una richiesta per un token all'interno del tenant principale, questa raccolta sarà vuota.
+Le attestazioni alla `IAccount` radice `IMultiTenantAccount` del e contengono sempre le attestazioni dal tenant di casa. Se non è ancora stata effettuata una richiesta per un token all'interno del tenant principale, questa raccolta sarà vuota.
 
 ## <a name="other-changes"></a>Altre modifiche
 
-### <a name="use-the-new-authenticationcallback"></a>Usa il nuovo AuthenticationCallback
+### <a name="use-the-new-authenticationcallback"></a>Utilizzare il nuovo AuthenticationCallbackUse the new AuthenticationCallback
 
 ```java
 // Existing ADAL Interface
@@ -233,28 +233,28 @@ public interface SilentAuthenticationCallback {
 
 ```
 
-## <a name="migrate-to-the-new-exceptions"></a>Eseguire la migrazione alle nuove eccezioni
+## <a name="migrate-to-the-new-exceptions"></a>Eseguire la migrazione alle nuove eccezioniMigrate to the new exceptions
 
-In ADAL è presente un tipo di eccezione, `AuthenticationException`, che include un metodo per il recupero del valore enum `ADALError`.
-In MSAL è presente una gerarchia di eccezioni e ognuna ha un proprio set di codici di errore specifici associati.
+In ADAL è presente un tipo `AuthenticationException`di eccezione, , `ADALError` che include un metodo per il recupero del valore enum.
+In MSAL, esiste una gerarchia di eccezioni e ognuna ha il proprio set di codici di errore specifici associati.
 
-Elenco di eccezioni MSAL
+Elenco delle eccezioni MSAL
 
 |Eccezione  | Descrizione  |
 |---------|---------|
 | `MsalException`     | Eccezione controllata predefinita generata da MSAL.  |
-| `MsalClientException`     | Viene generata se l'errore è lato client. |
+| `MsalClientException`     | Generato se l'errore è sul lato client. |
 | `MsalArgumentException`     | Generata se uno o più argomenti di input non sono validi. |
-| `MsalClientException`     | Viene generata se l'errore è lato client. |
-| `MsalServiceException`     | Viene generata se l'errore è lato server. |
-| `MsalUserCancelException`     | Generata se l'utente ha annullato il flusso di autenticazione.  |
-| `MsalUiRequiredException`     | Viene generata se il token non può essere aggiornato in modo invisibile all'utente.  |
-| `MsalDeclinedScopeException`     | Generata se uno o più ambiti richiesti sono stati rifiutati dal server.  |
-| `MsalIntuneAppProtectionPolicyRequiredException` | Generata se per la risorsa sono abilitati i criteri di protezione MAMCA. |
+| `MsalClientException`     | Generato se l'errore è sul lato client. |
+| `MsalServiceException`     | Generato se l'errore è lato server. |
+| `MsalUserCancelException`     | Generato se l'utente ha annullato il flusso di autenticazione.  |
+| `MsalUiRequiredException`     | Generato se il token non può essere aggiornato automaticamente.  |
+| `MsalDeclinedScopeException`     | Generato se uno o più ambiti richiesti sono stati rifiutati dal server.  |
+| `MsalIntuneAppProtectionPolicyRequiredException` | Generato se la risorsa ha attivato il criterio di protezione MAMCA. |
 
-### <a name="adalerror-to-msalexception-errorcode"></a>ADALError MsalException ErrorCode
+### <a name="adalerror-to-msalexception-errorcode"></a>Da ADALError a MsalException ErrorCode
 
-### <a name="adal-logging-to-msal-logging"></a>Registrazione ADAL alla registrazione MSAL
+### <a name="adal-logging-to-msal-logging"></a>Registrazione ADAL nella registrazione MSAL
 
 ```java
 // Legacy Interface

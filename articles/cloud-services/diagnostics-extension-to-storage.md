@@ -1,6 +1,6 @@
 ---
 title: Archiviare e visualizzare i dati di diagnostica in Archiviazione di Azure
-description: Informazioni su come raccogliere i dati di diagnostica di Azure in un account di archiviazione di Azure in modo che sia possibile visualizzarli con uno dei diversi strumenti disponibili.
+description: Informazioni su come raccogliere dati di diagnostica di Azure in un account di Archiviazione di Azure per poterli visualizzare con uno dei numerosi strumenti disponibili.
 services: azure-monitor
 author: bwren
 ms.service: azure-monitor
@@ -9,10 +9,10 @@ ms.date: 08/01/2016
 ms.author: bwren
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 17430330d068fb55b45f073afecb8ba348286cb5
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77472674"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Archiviare e visualizzare i dati di diagnostica nell'account di archiviazione Azure
@@ -63,17 +63,17 @@ I dati dei log vengono archiviati nell'archivio BLOB o tabelle con i nomi seguen
 * **WADPerformanceCountersTable** : contatori delle prestazioni.
 * **WADWindowsEventLogsTable**: log eventi di Windows.
 
-**BLOB**
+**Blob**
 
 * **wad-control-container** : (solo per SDK 2.4 e versioni precedenti) contiene i file di configurazione XML che controllano Diagnostica di Azure.
-* **wad-iis-failedreqlogfiles** : contiene informazioni provenienti dai log delle richieste non riuscite di IIS.
-* **wad-iis-logfiles** : contiene informazioni sui log di IIS.
+* **wad-iis-failedreqlogfiles**: contiene le informazioni dei log delle richieste non riuscite di IIS.
+* **wad-iis-logfiles**: contiene le informazioni sui log di IIS.
 * **"custom"** : contenitore personalizzato basato sulle directory di configurazione monitorate dal monitor di diagnostica.  Il nome di questo contenitore BLOB verrà specificato in WADDirectoriesTable.
 
 ## <a name="tools-to-view-diagnostic-data"></a>Strumenti per visualizzare i dati di diagnostica
-Sono disponibili diversi strumenti per visualizzare i dati una volta trasferiti nell'account di archiviazione. Ad esempio,
+Sono disponibili diversi strumenti per visualizzare i dati una volta trasferiti nell'account di archiviazione. Ad esempio:
 
-* Esplora server in Visual Studio: se sono stati installati gli strumenti di Azure per Microsoft Visual Studio, è possibile utilizzare il nodo Archiviazione di Azure in Esplora server per visualizzare i dati Blob e Tabella di sola lettura dagli account di archiviazione di Azure. È possibile visualizzare i dati dall'account dell'emulatore di archiviazione locale e anche dagli account di archiviazione creati per Azure. Per altre informazioni, vedere [Esplorazione e gestione delle risorse di archiviazione con Esplora server](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
+* Esplora server in Visual Studio: se sono stati installati gli Strumenti di Azure per Microsoft Visual Studio, è possibile usare il nodo Archiviazione di Azure in Esplora server per visualizzare i dati di tabelle e BLOB di sola lettura dagli account di archiviazione di Azure. È possibile visualizzare i dati dall'account dell'emulatore di archiviazione locale e anche dagli account di archiviazione creati per Azure. Per altre informazioni, vedere [Esplorazione e gestione delle risorse di archiviazione con Esplora server](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma che consente di usare facilmente dati di Archiviazione di Azure in Windows, OSX e Linux.
 * [Azure Management Studio](https://www.cerebrata.com/products/azure-management-studio/introduction) include Azure Diagnostics Manager che consente di visualizzare, scaricare e gestire i dati di diagnostica raccolti dalle applicazioni in esecuzione in Azure.
 

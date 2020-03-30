@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: robinsh
 ms.openlocfilehash: 6d6a50db42924d868b57cacc415246ee6990859c
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77110484"
 ---
 # <a name="get-started-with-device-management-python"></a>Introduzione alla gestione dei dispositivi (Python)
@@ -39,7 +39,7 @@ Al termine di questa esercitazione, si avranno due app console Python:
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
 
-* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo in questo articolo usa il protocollo MQTT, che comunica sulla porta 8883. Questa porta può essere bloccata in alcuni ambienti aziendali e di rete scolastici. Per ulteriori informazioni e per risolvere questo problema, vedere la pagina relativa [alla connessione all'hub Internet (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo in questo articolo usa il protocollo MQTT, che comunica tramite la porta 8883.The device sample in this article uses MQTT protocol, which communicates over port 8883. Questa porta potrebbe essere bloccata in alcuni ambienti di rete aziendali e didattici. Per altre informazioni e soluzioni alternative per questo problema, vedere [Connettersi all'hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
@@ -59,13 +59,13 @@ In questa sezione verrà illustrato come:
 
 * Usare le proprietà segnalate per abilitare le query nei dispositivi gemelli in modo da identificare i dispositivi e l'ora dell'ultimo riavvio
 
-1. Al prompt dei comandi, eseguire il comando seguente per installare il pacchetto **Azure-** Internet:
+1. Al prompt dei comandi eseguire il comando seguente per installare il pacchetto **azure-iot-device:At** your command prompt, run the following command to install the azure-iot-device package:
 
     ```cmd/sh
     pip install azure-iot-device
     ```
 
-2. Usando un editor di testo, creare un file denominato **dmpatterns_getstarted_device. py** nella directory di lavoro.
+2. Utilizzando un editor di testo, creare un file denominato **dmpatterns_getstarted_device.py** nella directory di lavoro.
 
 3. Aggiungere le istruzioni `import` seguenti all'inizio del file **dmpatterns_getstarted_device.py**.
 
@@ -76,7 +76,7 @@ In questa sezione verrà illustrato come:
     from azure.iot.device import IoTHubDeviceClient, MethodResponse
     ```
 
-4. Aggiungere la variabile **CONNECTION_STRING** . Sostituire il valore del segnaposto `{deviceConnectionString}` con la stringa di connessione del dispositivo. Questa stringa di connessione è stata copiata in precedenza in [registrare un nuovo dispositivo nell'hub](#register-a-new-device-in-the-iot-hub).  
+4. Aggiungere la variabile **CONNECTION_STRING.** Sostituire `{deviceConnectionString}` il valore segnaposto con la stringa di connessione del dispositivo. Questa stringa di connessione è stata copiata in precedenza in [Registrare un nuovo dispositivo nell'hub IoT](#register-a-new-device-in-the-iot-hub).  
 
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"
@@ -142,7 +142,7 @@ In questa sezione verrà illustrato come:
 > [!NOTE]
 > Per semplicità, in questa esercitazione non si implementa alcun criterio di ripetizione dei tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come suggerito nell'articolo [Gestione degli errori temporanei](/azure/architecture/best-practices/transient-faults).
 
-## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub Internet
+## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub IoTGet the IoT hub connection string
 
 [!INCLUDE [iot-hub-howto-device-management-shared-access-policy-text](../../includes/iot-hub-howto-device-management-shared-access-policy-text.md)]
 
@@ -152,13 +152,13 @@ In questa sezione verrà illustrato come:
 
 In questa sezione viene creata un'app console Python che attiva un riavvio remoto in un dispositivo usando un metodo diretto. L'app esegue query nel dispositivo gemello per ottenere l'ora dell'ultimo riavvio del dispositivo in questione.
 
-1. Al prompt dei comandi, eseguire il comando seguente per installare il pacchetto **Azure-** Internet per l'hub:
+1. Al prompt dei comandi eseguire il comando seguente per installare il pacchetto **azure-iot-hub:At** your command prompt, run the following command to install the azure-iot-hub package:
 
     ```cmd/sh
     pip install azure-iot-hub
     ```
 
-2. Usando un editor di testo, creare un file denominato **dmpatterns_getstarted_service. py** nella directory di lavoro.
+2. Utilizzando un editor di testo, creare un file denominato **dmpatterns_getstarted_service.py** nella directory di lavoro.
 
 3. Aggiungere le istruzioni `import` seguenti all'inizio del file **dmpatterns_getstarted_service.py**.
 
@@ -169,7 +169,7 @@ In questa sezione viene creata un'app console Python che attiva un riavvio remot
     from azure.iot.hub.models import CloudToDeviceMethod, CloudToDeviceMethodResult, Twin
     ```
 
-4. Aggiungere le dichiarazioni di variabili seguenti. Sostituire il valore del segnaposto `{IoTHubConnectionString}` con la stringa di connessione dell'hub Internet che è stata copiata in precedenza in [ottenere la stringa di connessione dell'hub Internet](#get-the-iot-hub-connection-string). Sostituire il valore del segnaposto `{deviceId}` con l'ID del dispositivo registrato in [registrare un nuovo dispositivo nell'hub](#register-a-new-device-in-the-iot-hub)Internet.
+4. Aggiungere le dichiarazioni di variabili seguenti. Sostituire `{IoTHubConnectionString}` il valore segnaposto con la stringa di connessione dell'hub IoT copiata in precedenza in Ottenere la stringa di [connessione dell'hub IoT](#get-the-iot-hub-connection-string). Sostituire `{deviceId}` il valore segnaposto con l'ID del dispositivo registrato in [Registrare un nuovo dispositivo nell'hub IoT](#register-a-new-device-in-the-iot-hub).
 
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"
@@ -238,7 +238,7 @@ In questa sezione viene creata un'app console Python che attiva un riavvio remot
 
 ## <a name="run-the-apps"></a>Eseguire le app
 
-A questo punto si è pronti per eseguire le app.
+Ora sei pronto per eseguire le app.
 
 1. Al prompt dei comandi eseguire il comando seguente per iniziare a stare in ascolto del metodo diretto di riavvio.
 
@@ -254,12 +254,12 @@ A questo punto si è pronti per eseguire le app.
 
 3. Nella console viene visualizzata la risposta del dispositivo al metodo diretto.
 
-   Di seguito viene illustrata la risposta del dispositivo al metodo diretto di riavvio:
+   Di seguito viene illustrata la risposta del dispositivo al metodo diretto di riavvio:The following shows the device response to the reboot direct method:
 
-   ![Output app dispositivo simulato](./media/iot-hub-python-python-device-management-get-started/device.png)
+   ![Output dell'app per dispositivi simulato](./media/iot-hub-python-python-device-management-get-started/device.png)
 
-   Di seguito viene illustrato il servizio che chiama il metodo diretto di riavvio e il polling del dispositivo gemello per lo stato:
+   Di seguito viene illustrato il servizio che chiama il metodo diretto di riavvio ed esegui il polling dello stato del dispositivo gemello:The following shows the service calling the reboot direct method and polling the device twin for status:
 
-   ![Attivare l'output del servizio di riavvio](./media/iot-hub-python-python-device-management-get-started/service.png)
+   ![Output del servizio di riavvio del triggerTrigger reboot service output](./media/iot-hub-python-python-device-management-get-started/service.png)
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]

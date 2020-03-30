@@ -14,10 +14,10 @@ ms.date: 02/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a12c454906d6c6ff702b7f635a91361bbe3994c1
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616879"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Architettura di archiviazione di SAP HANA (istanze Large)
@@ -36,16 +36,16 @@ Per l'allocazione dello spazio di archiviazione, vedere la tabella seguente, che
 | S192 | 4608 GB | 1024 GB | 1536 GB | 1024 GB |
 | S192m | 11.520 GB | 1536 GB | 1792 GB | 1536 GB |
 | S192xm |  11.520 GB |  1536 GB |  1792 GB |  1536 GB |
-| S224 |  4\.224 GB |  512 GB |  1024 GB |  512 GB |
-| S224m |  8\.448 GB |  512 GB |  1024 GB |  512 GB |
+| S224 (in questo s224) |  4.224 GB |  512 GB |  1024 GB |  512 GB |
+| S224m (in stato di |  8.448 GB |  512 GB |  1024 GB |  512 GB |
 | S384 | 11.520 GB | 1536 GB | 1792 GB | 1536 GB |
 | S384m | 12.000 GB | 2050 GB | 2050 GB | 2040 GB |
 | S384xm | 16.000 GB | 2050 GB | 2050 GB | 2040 GB |
 | S384xxm |  20.000 GB | 3100 GB | 2050 GB | 3100 GB |
 | S576m | 20.000 GB | 3100 GB | 2050 GB | 3100 GB |
-| S576xm | 31.744 GB | 4\.096 GB | 2\.048 GB | 4\.096 GB |
+| S576xm | 31.744 GB | 4.096 GB | 2.048 GB | 4.096 GB |
 | S768m | 28.000 GB | 3100 GB | 2050 GB | 3100 GB |
-| S768xm | 40.960 GB | 6\.144 GB | 4\.096 GB | 6\.144 GB |
+| S768xm | 40.960 GB | 6.144 GB | 4.096 GB | 6.144 GB |
 | S960m | 36.000 GB | 4100 GB | 2050 GB | 4100 GB |
 
 
@@ -58,8 +58,8 @@ In caso di suddivisione di uno SKU delle istanze Large di HANA, ecco alcuni esem
 | 256 | 400 GB | 160 GB | 304 GB | 160 GB |
 | 512 | 768 GB | 384 GB | 512 GB | 384 GB |
 | 768 | 1280 GB | 512 GB | 768 GB | 512 GB |
-| 1\.024 | 1792 GB | 640 GB | 1024 GB | 640 GB |
-| 1\.536 | 3328 GB | 768 GB | 1280 GB | 768 GB |
+| 1.024 | 1792 GB | 640 GB | 1024 GB | 640 GB |
+| 1.536 | 3328 GB | 768 GB | 1280 GB | 768 GB |
 
 
 Queste dimensioni sono approssimative e possono variare leggermente in base alla distribuzione e agli strumenti usati per esaminare i volumi. Sono ipotizzabili anche altre dimensioni per le partizioni, ad esempio 2,5 TB. Queste dimensioni di archiviazione vengono calcolate con una formula simile a quella usata per le partizioni riportate sopra. Il termine "partizione" non significa che le risorse del sistema operativo, della memoria o della CPU sono in qualche modo partizionate. Indica le partizioni di archiviazione per le diverse istanze di HANA che si vorranno eventualmente distribuire in una singola unità di istanze Large di HANA. 
@@ -75,8 +75,8 @@ Per informazioni sui dettagli relativi al layout di archiviazione per lo scenari
 Nelle unità di istanze Large di HANA è possibile ospitare più istanze attive di SAP HANA. Per offrire le funzionalità degli snapshot di archiviazione e del ripristino di emergenza, una configurazione di questo tipo richiede un set di volumi per istanza. Attualmente, le unità di istanze Large di HANA possono essere suddivise come segue:
 
 - **S72, S72m, S96, S144, S192**: con incrementi di 256 GB e 256 GB come unità iniziale più piccola. È possibile combinare incrementi diversi, ad esempio 256 GB e 512 GB, fino al massimo della memoria dell'unità.
-- **S144m e S192m**: con incrementi di 256 GB e 512 GB come unità più piccola. È possibile combinare incrementi diversi, ad esempio 512 GB e 768 GB, fino al massimo della memoria dell'unità.
-- **Classe di tipo II**: con incrementi di 512 GB e 2 TB come unità iniziale più piccola. È possibile combinare incrementi diversi, ad esempio 512 GB, 1 TB e 1,5 TB, fino al massimo della memoria dell'unità.
+- **S144m e S192m**: In incrementi di 256 GB, con 512 GB l'unità più piccola. È possibile combinare incrementi diversi, ad esempio 512 GB e 768 GB, fino al massimo della memoria dell'unità.
+- **Classe di tipo II**: In incrementi di 512 GB, con la più piccola unità iniziale di 2 TB. È possibile combinare incrementi diversi, ad esempio 512 GB, 1 TB e 1,5 TB, fino al massimo della memoria dell'unità.
 
 Di seguito sono riportati alcuni esempi di esecuzione di più istanze di SAP HANA.
 
@@ -91,20 +91,20 @@ Di seguito sono riportati alcuni esempi di esecuzione di più istanze di SAP HAN
 Esistono anche altre varianti. 
 
 ## <a name="encryption-of-data-at-rest"></a>Crittografia dei dati inattivi
-Lo spazio di archiviazione usato per le istanze large di HANA usa la crittografia trasparente per i dati archiviati nei dischi dopo la fine dell'anno 2018. Nelle distribuzioni precedenti, è possibile scegliere di ottenere i volumi crittografati. Se si è deciso di eseguire questa opzione, è possibile richiedere di ottenere i volumi crittografati online. Il passaggio dai volumi non crittografati a quelli crittografati è trasparente e non comporta tempi di inattività. 
+L'archiviazione utilizzata per l'istanza di grandi dimensioni HANA utilizza la crittografia trasparente per i dati archiviati nei dischi dalla fine dell'anno 2018. Nelle distribuzioni precedenti, è possibile scegliere di crittografare i volumi. Se hai deciso di non selezionare questa opzione, puoi richiedere di crittografare i volumi online. Il passaggio dai volumi non crittografati a quelli crittografati è trasparente e non comporta tempi di inattività. 
 
-Con gli SKU della classe di tipo I, il volume in cui è archiviato il LUN di avvio è crittografato. Nella revisione 3 indicatori di istanze large di HANA, usando la classe di tipo II di SKU di istanze large di HANA, è necessario crittografare il LUN di avvio con i metodi del sistema operativo. Nella revisione 4 i timbri delle istanze large di HANA, usando le unità di tipo II, il volume del LUN di avvio è archiviato e viene crittografato anche per impostazione predefinita. 
+Con gli SKU della classe di tipo I, il volume in cui è archiviato il LUN di avvio è crittografato. Nella revisione 3 HANA Large Instance timbri, utilizzando la classe di tipo II di SKU di HANA Large Instance, è necessario crittografare il LUN di avvio con i metodi del sistema operativo. Nella revisione 4 timbri HANA Large Instance, utilizzando unità di tipo II il volume del LUN di avvio viene memorizzato e crittografato inattivi per impostazione predefinita. 
 
-## <a name="required-settings-for-larger-hana-instances-on-hana-large-instances"></a>Impostazioni obbligatorie per istanze HANA di grandi dimensioni in istanze large di HANA
-Lo spazio di archiviazione usato nelle istanze large di HANA presenta una limitazione delle dimensioni del file. Il [limite di dimensione è di 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) per ogni file. Diversamente dalle limitazioni delle dimensioni dei file nei file System EXT3, HANA non è in grado di riconoscere in modo implicito la limitazione di archiviazione applicata dall'archiviazione delle istanze large di HANA. Di conseguenza HANA non creerà automaticamente un nuovo file di dati quando viene raggiunto il limite delle dimensioni dei file di 16TB. Quando HANA tenta di espandere il file oltre i 16 TB, HANA segnala gli errori e il server index si arresta in modo anomalo alla fine.
+## <a name="required-settings-for-larger-hana-instances-on-hana-large-instances"></a>Impostazioni necessarie per istanze HANA più grandi in istanze HANA di grandi dimensioni
+L'archiviazione utilizzata nelle istanze HANA di grandi dimensioni presenta un limite di dimensione del file. Il [limite di dimensione è 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) per file. A differenza delle limitazioni delle dimensioni dei file nei file system EXT3, HANA non è a conoscenza implicita della limitazione di archiviazione imposta dall'archivio delle istanze di grandi dimensioni HANA. Di conseguenza HANA non creerà automaticamente un nuovo file di dati quando viene raggiunto il limite di dimensione del file di 16 TB. Man mano che HANA tenta di aumentare l'aumento del file oltre i 16 TB, HANA segnalerà errori e il server di indicizzazione si arresterà alla fine.
 
 > [!IMPORTANT]
-> Per evitare che HANA provi a espandere i file di dati oltre il limite di dimensioni di 16 TB per l'archiviazione di istanze large di HANA, è necessario impostare i parametri seguenti nel file di configurazione Global. ini di HANA
+> Per evitare che HANA tenti di aumentare i file di dati oltre il limite di 16 TB di archiviazione delle istanze di grandi dimensioni, è necessario impostare i seguenti parametri nel file di configurazione global.ini di HANA
 > 
-> - datavolume_striping = true
-> - datavolume_striping_size_gb = 15000
-> - Vedere anche la nota SAP [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
-> - Tenere presente la nota SAP [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
+> - datavolume_striping: vero
+> - datavolume_striping_size_gb 15000 USD
+> - Vedere anche [#2400005](https://launchpad.support.sap.com/#/notes/2400005) nota SAP
+> - Prestare attenzione [alle note note note](https://launchpad.support.sap.com/#/notes/2631285) di SAP #2631285
 
 
 

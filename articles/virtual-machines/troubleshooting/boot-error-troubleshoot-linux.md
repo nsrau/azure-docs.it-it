@@ -1,6 +1,6 @@
 ---
-title: Risolvere gli errori di avvio in Azure macchine virtuali Linux | Microsoft Docs
-description: Questo articolo consente di collegare gli articoli per risolvere gli errori di avvio in Azure macchine virtuali Linux.
+title: Risolvere gli errori di avvio nelle macchine virtuali di Azure Linux Documenti Microsoft
+description: Questo articolo consente di creare un collegamento ad articoli per la risoluzione degli errori di avvio nelle macchine virtuali Di Azure Linux.This article helps link you to articles to troubleshoot boot errors in Azure Linux Virtual Machines.
 services: virtual-machines-linux
 documentationCenter: ''
 author: vilibert
@@ -13,40 +13,40 @@ ms.workload: infrastructure
 ms.date: 11/20/2019
 ms.author: vilibert
 ms.openlocfilehash: 37cb201751f72918838efe5837aa0e357d483f24
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74408742"
 ---
-# <a name="troubleshoot-azure-linux-virtual-machines-boot-errors"></a>Risolvere gli errori di avvio macchine virtuali Linux di Azure
+# <a name="troubleshoot-azure-linux-virtual-machines-boot-errors"></a>Risolvere gli errori di avvio di Macchine virtuali Linux di AzureTroubleshoot Azure Linux Virtual Machines boot errors
 
-Questo articolo elenca gli errori di avvio comuni che è possibile ricevere quando si avvia una macchina virtuale (VM) Linux in Microsoft Azure. Per altre informazioni sugli errori, vedere gli articoli della sezione **Errori di avvio e soluzioni**.
+Questo articolo elenca gli errori di avvio comuni che possono essere visualizzati quando si avvia una macchina virtuale Linux (VM) in Microsoft Azure.This article lists the common boot errors that you may receive when you start a Linux virtual machine (VM) in Microsoft Azure. Per altre informazioni sugli errori, vedere gli articoli della sezione **Errori di avvio e soluzioni**.
 
 ## <a name="boot-errors-and-solutions"></a>Errori di avvio e soluzioni
 
-* [Salvataggio di GRUB](troubleshoot-vm-boot-error.md)
+* [Salvataggio GRUB](troubleshoot-vm-boot-error.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Console seriale per la macchina virtuale](serial-console-linux.md)
 
-Risolvere i problemi di una VM Linux connettendo il disco del sistema operativo a una VM di ripristino tramite Azure:
+Risolvere i problemi di una macchina virtuale Linux collegando il disco del sistema operativo a una macchina virtuale di ripristino usando Azure:Troubleshoot a Linux VM by attaching the OS disk to a recovery VM using Azure:
 
-- [Ripristino della macchina virtuale di Azure](repair-linux-vm-using-azure-virtual-machine-repair-commands.md)
+- [Riparazione di macchine virtuali di AzureAzure VM repair](repair-linux-vm-using-azure-virtual-machine-repair-commands.md)
 
- Swap su disco: questa operazione può essere automatizzata usando:
+ Scambio di dischi – questo può essere automatizzato utilizzando:
 - [Script di ripristino di Power Shell](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)
-- [Script di ripristino bash](https://github.com/sribs/azure-support-scripts)
+- [Bash Script di recupero](https://github.com/sribs/azure-support-scripts)
 
-- [CLI](troubleshoot-recovery-disks-linux.md)
+- [Cli](troubleshoot-recovery-disks-linux.md)
 - [Portale di Azure](troubleshoot-recovery-disks-portal-linux.md)
 
 
 ## <a name="disk-swap-video"></a>Video di scambio disco:
 
-Se non si ha accesso a GRUB, guardare [questo](https://youtu.be/m5t0GZ5oGAc) video e vedere come è possibile automatizzare facilmente la procedura di scambio del disco per ripristinare la macchina virtuale
+Se non si ha accesso a GRUB guardare [questo](https://youtu.be/m5t0GZ5oGAc) video e vedere, come è possibile automatizzare facilmente la procedura di scambio del disco per ripristinare la macchina virtuale
 
 ## <a name="unofficial-solution"></a>Soluzione non ufficiale
 
-Il ripristino di una macchina virtuale può anche essere eseguito con lo script BETA non supportato [Alar](https://github.com/malachma/azure-auto-recover)
+Il ripristino di una macchina virtuale può essere tentato anche con lo script BETA NON supportato [ALAR](https://github.com/malachma/azure-auto-recover)

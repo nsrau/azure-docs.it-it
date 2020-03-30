@@ -1,56 +1,56 @@
 ---
-title: Campi personalizzati in monitoraggio di Azure (anteprima) | Microsoft Docs
-description: La funzionalità campi personalizzati di monitoraggio di Azure consente di creare campi ricercabili personalizzati dai record in un'area di lavoro Log Analytics che aggiungono le proprietà di un record raccolto.  Questo articolo descrive il processo di creazione di un campo personalizzato e illustra una procedura dettagliata con un evento di esempio.
+title: Campi personalizzati in Monitor di Azure (anteprima)Custom fields in Azure Monitor (Preview) Documenti Microsoft
+description: La funzionalità Campi personalizzati di Monitoraggio di Azure consente di creare campi ricercabili dai record in un'area di lavoro di Log Analytics che si aggiungono alle proprietà di un record raccolto.  Questo articolo descrive il processo di creazione di un campo personalizzato e illustra una procedura dettagliata con un evento di esempio.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
 ms.openlocfilehash: bfb0a73631564c96a4af745fe9d7540a3a84f9c3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77655362"
 ---
-# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Creare campi personalizzati in un'area di lavoro Log Analytics in monitoraggio di Azure (anteprima)
+# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Creare campi personalizzati in un'area di lavoro di Log Analytics in Monitoraggio di Azure (anteprima)Create custom fields in a Log Analytics workspace in Azure Monitor (Preview)
 
 > [!NOTE]
-> Questo articolo descrive come analizzare i dati di testo in un'area di lavoro di Log Analytics mentre vengono raccolti. Si consiglia di analizzare i dati di testo in un filtro di query dopo che sono stati raccolti seguendo le linee guida descritte in [analizzare i dati di testo in monitoraggio di Azure](../log-query/parse-text.md). Offre diversi vantaggi rispetto all'utilizzo di campi personalizzati.
+> In questo articolo viene descritto come analizzare i dati di testo in un'area di lavoro di Log Analytics durante la raccolta. È consigliabile analizzare i dati di testo in un filtro di query dopo che è stato raccolto seguendo le indicazioni descritte in Analizzare i dati di testo in Monitoraggio di Azure.We recommend parsing text data in a query filter after it've collected following the guidance described in [Parse text data in Azure Monitor](../log-query/parse-text.md). Offre diversi vantaggi rispetto all'utilizzo di campi personalizzati.
 
-La funzionalità **campi personalizzati** di monitoraggio di Azure consente di estendere i record esistenti nell'area di lavoro log Analytics aggiungendo i propri campi ricercabili.  I campi personalizzati vengono popolati automaticamente con dati estratti da altre proprietà nello stesso record.
+La funzionalità **Campi personalizzati** di Monitoraggio di Azure consente di estendere i record esistenti nell'area di lavoro di Log Analytics aggiungendo campi ricercabili.  I campi personalizzati vengono popolati automaticamente con dati estratti da altre proprietà nello stesso record.
 
 ![Panoramica](media/custom-fields/overview.png)
 
-Il record di esempio riportato di seguito contiene dati utili nascosti nella descrizione dell'evento. L'estrazione di questi dati in una proprietà distinta lo rende disponibile per azioni quali l'ordinamento e il filtro.
+Il record di esempio riportato di seguito contiene dati utili nascosti nella descrizione dell'evento. L'estrazione di questi dati in una proprietà separata li rende disponibili per azioni quali l'ordinamento e il filtro.
 
-![Estrazione di esempio](media/custom-fields/sample-extract.png)
+![Estratto del campione](media/custom-fields/sample-extract.png)
 
 > [!NOTE]
 > Nella versione di anteprima è previsto un limite di 100 campi personalizzati nell'area di lavoro.  Tale limite verrà esteso con il passaggio della funzionalità alla disponibilità generale.
 
 ## <a name="creating-a-custom-field"></a>Creazione di un campo personalizzato
-Quando si crea un campo personalizzato, è necessario specificare a Log Analytics quali dati usare per popolare il relativo valore.  Per identificare rapidamente i dati viene usata la tecnologia FlashExtract di Microsoft Research.  Anziché richiedere di fornire istruzioni esplicite, monitoraggio di Azure apprende i dati che si vogliono estrarre dagli esempi forniti.
+Quando si crea un campo personalizzato, è necessario specificare a Log Analytics quali dati usare per popolare il relativo valore.  Per identificare rapidamente i dati viene usata la tecnologia FlashExtract di Microsoft Research.  Anziché richiedere di fornire istruzioni esplicite, Monitoraggio di Azure apprende i dati che si desidera estrarre dagli esempi forniti.
 
 Le sezioni seguenti illustrano la procedura per la creazione di un campo personalizzato.  Alla fine di questo articolo è disponibile una procedura dettagliata per l'estrazione di un campione.
 
 > [!NOTE]
-> Il campo personalizzato viene popolato come record che corrispondono ai criteri specificati vengono aggiunti all'area di lavoro Log Analytics, quindi verrà visualizzato solo nei record raccolti dopo la creazione del campo personalizzato.  Il campo personalizzato non viene aggiunto ai record già presenti nell'archivio al momento della creazione.
+> Il campo personalizzato viene popolato quando i record corrispondenti ai criteri specificati vengono aggiunti all'area di lavoro di Log Analytics, pertanto verrà visualizzato solo nei record raccolti dopo la creazione del campo personalizzato.  Il campo personalizzato non viene aggiunto ai record già presenti nell'archivio al momento della creazione.
 > 
 
 ### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>Passaggio 1: Identificare i record che conterranno il campo personalizzato
-Il primo passaggio consiste nell'identificare i record che conterranno il campo personalizzato.  Si inizia con una [query di log standard](../log-query/log-query-overview.md) e quindi si seleziona un record che funga da modello da cui il monitoraggio di Azure apprenderà.  Quando si specifica l'intenzione di estrarre i dati in un campo personalizzato, viene aperta l' **estrazione guidata campi** che permette di convalidare e affinare i criteri.
+Il primo passaggio consiste nell'identificare i record che conterranno il campo personalizzato.  Si inizia con una [query di log standard](../log-query/log-query-overview.md) e quindi si seleziona un record da utilizzare come modello da cui Verrà illustrato Monitoraggio di Azure.You start with a standard log query and then select a record to act as the model that Azure Monitor will learn from.  Quando si specifica l'intenzione di estrarre i dati in un campo personalizzato, viene aperta l' **estrazione guidata campi** che permette di convalidare e affinare i criteri.
 
-1. Passare a **log** e usare una [query per recuperare i record](../log-query/log-query-overview.md) che avranno il campo personalizzato.
+1. Passare a **Registri** e utilizzare una [query per recuperare i record](../log-query/log-query-overview.md) che avranno il campo personalizzato.
 2. Selezionare un record che Log Analytics possa usare come modello per l'estrazione dei dati con cui popolare il campo personalizzato.  Identificare i dati da estrarre da questo record. Log Analytics userà queste informazioni per determinare la logica in base alla quale popolare il campo personalizzato per tutti i record simili.
-3. Espandere le proprietà del record, fare clic sui puntini di sospensione a sinistra della proprietà Top del record e selezionare **Estrai campi da**.
-4. Viene aperta l' **estrazione guidata campi** e il record selezionato viene visualizzato nella colonna **esempio principale** .  Viene definito il campo personalizzato per i record con gli stessi valori delle proprietà selezionate.  
+3. Espandere le proprietà del record, fare clic sull'ellisse a sinistra della proprietà superiore del record e selezionare **Estrai campi da**.
+4. Viene aperta **l'Estrazione guidata campi** e il record selezionato viene visualizzato nella colonna Esempio **principale.**  Viene definito il campo personalizzato per i record con gli stessi valori delle proprietà selezionate.  
 5. Se la selezione non corrisponde esattamente al previsto, selezionare campi aggiuntivi per limitare i criteri.  Per modificare i valori dei campi per i criteri, è necessario annullare e selezionare un altro record corrispondente ai criteri scelti.
 
 ### <a name="step-2---perform-initial-extract"></a>Passaggio 2: Eseguire l'estrazione iniziale
 Dopo aver identificato i record che conterranno il campo personalizzato, occorre identificare i dati da estrarre.  Log Analytics usa queste informazioni per identificare schemi analoghi in record simili.  Nel passaggio successivo sarà possibile convalidare i risultati e fornire altri dettagli che Log Analytics potrà usare nell'analisi.
 
-1. Nel record di esempio evidenziare il testo con cui popolare il campo personalizzato.  Verrà quindi visualizzata una finestra di dialogo per fornire un nome e un tipo di dati per il campo ed eseguire l'estrazione iniziale.  I caratteri **\_CF** vengono aggiunti automaticamente.
+1. Nel record di esempio evidenziare il testo con cui popolare il campo personalizzato.  Verrà quindi visualizzata una finestra di dialogo per fornire un nome e un tipo di dati per il campo ed eseguire l'estrazione iniziale.  I ** \_** caratteri CF verranno aggiunti automaticamente.
 2. Fare clic su **Extract** per eseguire un'analisi dei record raccolti.  
 3. Le sezioni **Riepilogo** e **Risultati della ricerca** visualizzano i risultati dell'estrazione e consentono di verificarne l'accuratezza.  **Summary** visualizza i criteri usati per identificare i record e un conteggio per ciascuno dei valori di dati identificati.  **Search Results** contiene un elenco dettagliato dei record corrispondenti ai criteri.
 
@@ -73,46 +73,46 @@ Dopo aver eseguito l'estrazione iniziale, Log Analytics ne visualizza i risultat
 ## <a name="removing-a-custom-field"></a>Rimozione di un campo personalizzato
 Per rimuovere un campo personalizzato è possibile procedere in due modi.  Il primo consiste nel selezionare l'opzione **Remove** per ogni campo quando si visualizza l'elenco completo, come descritto in precedenza.  Il secondo metodo consiste nel recuperare un record e fare clic sul pulsante a sinistra del campo.  Sarà disponibile un'opzione di menu per rimuovere il campo personalizzato.
 
-## <a name="sample-walkthrough"></a>Scenario di esempio
-La sezione seguente descrive un esempio completo di creazione di un campo personalizzato.  L'esempio estrae il nome del servizio dagli eventi Windows che indicano la modifica dello stato di un servizio.  Questo comportamento si basa sugli eventi creati da Gestione controllo servizi durante l'avvio del sistema nei computer Windows.  Per seguire questo esempio, è necessario eseguire la [raccolta di eventi informativi per il registro di sistema](data-sources-windows-events.md).
+## <a name="sample-walkthrough"></a>Procedura dettagliata di esempio
+La sezione seguente descrive un esempio completo di creazione di un campo personalizzato.  L'esempio estrae il nome del servizio dagli eventi Windows che indicano la modifica dello stato di un servizio.  Ciò si basa sugli eventi creati da Gestione controllo servizi durante l'avvio del sistema nei computer Windows.This relies on events created by Service Control Manager during system startup on Windows computers.  Per seguire questo esempio, è necessario eseguire la [raccolta di eventi informativi per il registro di sistema](data-sources-windows-events.md).
 
 Immettere la query seguente per restituire tutti gli eventi di Gestione controllo servizi con ID evento 7036, ovvero l'evento che indica l'avvio o l'arresto di un servizio.
 
 ![Query](media/custom-fields/query.png)
 
-Selezionare ed espandere tutti i record con ID evento 7036.
+Selezioniamo quindi ed espandiamo qualsiasi record con ID evento 7036.
 
 ![Record di origine](media/custom-fields/source-record.png)
 
-Per definire campi personalizzati, fare clic sull'ellisse accanto alla proprietà Top.
+Definiamo i campi personalizzati facendo clic sull'ellisse accanto alla proprietà top.
 
 ![Estrarre i campi](media/custom-fields/extract-fields.png)
 
 Si aprirà l'**estrazione guidata campi** e verranno selezionati i campi **EventLog** ed **EventID** nella colonna **Esempio principale**.  Questo indica che il campo personalizzato verrà definito per gli eventi del registro di sistema con ID evento 7036.  Ciò è sufficiente e non è necessario selezionare altri campi.
 
-![Esempio principale](media/custom-fields/main-example.png)
+![Main example](media/custom-fields/main-example.png)
 
-Evidenziare il nome del servizio nella proprietà **RenderedDescription** e usare **Service** per identificare il nome del servizio.  Il campo personalizzato sarà denominato **Service_CF**. Il tipo di campo in questo caso è una stringa, quindi è possibile lasciare invariato.
+Evidenziare il nome del servizio nella proprietà **RenderedDescription** e usare **Service** per identificare il nome del servizio.  Il campo personalizzato sarà denominato **Service_CF**. Il tipo di campo in questo caso è una stringa, quindi possiamo lasciarlo invariato.
 
 ![Nome del campo](media/custom-fields/field-title.png)
 
-Si noti che il nome del servizio viene identificato in modo corretto per alcuni record ma non per altri.   I **risultati della ricerca** mostrano che parte del nome di **Scheda delle prestazioni WMI** non è stato selezionato.  Il **Riepilogo** Mostra un **programma di installazione dei moduli** identificato al posto del programma di installazione dei moduli di **Windows**.  
+Si noti che il nome del servizio viene identificato in modo corretto per alcuni record ma non per altri.   I **risultati della ricerca** mostrano che parte del nome di **Scheda delle prestazioni WMI** non è stato selezionato.  Il **riepilogo** mostra che un record ha identificato **Modules Installer** invece di Windows Modules **Installer**.  
 
-![Risultati ricerca](media/custom-fields/search-results-01.png)
+![Search Results](media/custom-fields/search-results-01.png)
 
 Iniziare dal record della **scheda delle prestazioni WMI** .  Fare clic sulla relativa icona di modifica e quindi su **Modify this highlight**.  
 
-![Modify highlight](media/custom-fields/modify-highlight.png)
+![Modificare l'evidenziazione](media/custom-fields/modify-highlight.png)
 
 Espandere l'evidenziazione per includere la parola **WMI** e quindi eseguire di nuovo l'estrazione.  
 
-![Additional examples](media/custom-fields/additional-example-01.png)
+![Altro esempio](media/custom-fields/additional-example-01.png)
 
 Ora le voci relative a **Scheda delle prestazioni WMI** risultano corrette e Log Analytics ha anche usato tali informazioni per correggere i record relativi a **Programma di installazione dei moduli di Windows**.
 
-![Risultati ricerca](media/custom-fields/search-results-02.png)
+![Search Results](media/custom-fields/search-results-02.png)
 
-È ora possibile eseguire una query per verificare che **Service_CF** venga creato, ma non è ancora stato aggiunto ad alcun record. Questo perché il campo personalizzato non funziona con i record esistenti, quindi è necessario attendere che vengano raccolti nuovi record.
+È ora possibile eseguire una query che verifica **Service_CF** viene creato ma non è ancora stato aggiunto ad alcun record. Questo perché il campo personalizzato non funziona con i record esistenti, quindi dobbiamo attendere la raccolta di nuovi record.
 
 ![Conteggio iniziale](media/custom-fields/initial-count.png)
 
@@ -122,9 +122,9 @@ Dopo un periodo di tempo in cui vengono raccolti nuovi eventi, il campo **Servic
 
 Ora il campo personalizzato può essere usato come le altre proprietà del record.  Per illustrare questo concetto, viene creata una query che raggruppa in base al nuovo campo **Service_CF** per verificare quali sono i servizi più attivi.
 
-![Query Group by](media/custom-fields/query-group.png)
+![Raggruppa per query](media/custom-fields/query-group.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni sulle [query di log](../log-query/log-query-overview.md) per compilare query usando campi personalizzati per i criteri.
+* Informazioni sulle query di [log](../log-query/log-query-overview.md) per creare query utilizzando campi personalizzati per i criteri.
 * Monitorare i [file di log personalizzati](data-sources-custom-logs.md) analizzati usando campi personalizzati.
 

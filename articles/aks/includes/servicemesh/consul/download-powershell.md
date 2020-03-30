@@ -4,13 +4,13 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 8931ba97cf72891c78e20389be10178dd2c0317a
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77594263"
 ---
-In una shell basata su PowerShell in Windows, usare `Invoke-WebRequest` per scaricare il rilascio del grafico Helm console e quindi estrarre con `Expand-Archive` come indicato di seguito:
+In una shell basata su `Invoke-WebRequest` PowerShell in Windows, utilizzare per `Expand-Archive` scaricare la versione del grafico Consul Helm e quindi estrarre con come segue:
 
 ```powershell
 # Specify the Consul Helm chart version that will be leveraged throughout these instructions

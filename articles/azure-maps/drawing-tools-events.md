@@ -1,6 +1,6 @@
 ---
-title: Aggiungere una barra degli strumenti di disegno a una mappa | Mappe Microsoft Azure
-description: In questo articolo si apprenderà come aggiungere una barra degli strumenti di disegno a una mappa usando Microsoft Azure Maps Web SDK
+title: Aggiunta di una barra degli strumenti di disegno a una mappa Mappe di Microsoft Azure
+description: In questo articolo imparerai come aggiungere una barra degli strumenti di disegno a una mappa usando Microsoft Azure Maps Web SDK
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/05/2019
@@ -9,85 +9,85 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: cf9c79f608aa3ffd1137be41ff3348f62b890867
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77198310"
 ---
 # <a name="drawing-tool-events"></a>Eventi dello strumento di disegno
 
-Quando si usano gli strumenti di disegno su una mappa, è utile rispondere a determinati eventi quando l'utente disegna sulla mappa. Questa tabella elenca tutti gli eventi supportati dalla classe `DrawingManager`.
+Quando si utilizzano gli strumenti di disegno su una mappa, è utile reagire a determinati eventi mentre l'utente disegna sulla mappa. Questa tabella elenca tutti gli `DrawingManager` eventi supportati dalla classe.
 
 | Event | Descrizione |
 |-------|-------------|
-| `drawingchanged` | Generato quando una coordinata in una forma è stata aggiunta o modificata. | 
-| `drawingchanging` | Generato quando viene visualizzata una coordinata di anteprima per una forma. Questo evento, ad esempio, viene attivato più volte quando viene trascinata una coordinata. | 
-| `drawingcomplete` | Generato quando una forma è stata completata o è stata rilevata la modalità di modifica. |
-| `drawingmodechanged` | Generato quando viene modificata la modalità di disegno. La nuova modalità di disegno viene passata nel gestore eventi. |
-| `drawingstarted` | Generato quando l'utente inizia a disegnare una forma o inserisce una forma in modalità di modifica.  |
+| `drawingchanged` | Generato quando una coordinata di una forma è stata aggiunta o modificata. | 
+| `drawingchanging` | Generato quando viene visualizzata una coordinata di anteprima per una forma. Ad esempio, questo evento verrà generato più volte quando viene trascinata una coordinata. | 
+| `drawingcomplete` | Generato quando una forma ha terminato di essere disegnata o portata fuori dalla modalità di modifica. |
+| `drawingmodechanged` | Generato quando la modalità di disegno è cambiata. La nuova modalità di disegno viene passata al gestore eventi. |
+| `drawingstarted` | Generato quando l'utente inizia a disegnare una forma o mette una forma in modalità di modifica.  |
 
-Il codice seguente illustra il funzionamento degli eventi nel modulo strumenti di disegno. Creare forme sulla mappa e osservare gli eventi generati.
+Nel codice seguente viene illustrato il funzionamento degli eventi nel modulo Strumenti di disegno. Disegna forme sulla mappa e guarda come gli eventi si attivano.
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Eventi degli strumenti di disegno" src="https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere gli <a href='https://codepen.io/azuremaps/pen/dyPMRWo'>eventi degli strumenti di disegno</a> penna di Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+Vedere gli eventi degli <a href='https://codepen.io/azuremaps/pen/dyPMRWo'>strumenti</a> <a href='https://codepen.io/azuremaps'>@azuremaps</a>disegno penna di Azure Maps ( ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 <br/>
 
 ## <a name="examples"></a>Esempi
 
-Vediamo alcuni scenari comuni che usano gli eventi degli strumenti di disegno.
+Vediamo alcuni scenari comuni che utilizzano gli eventi degli strumenti di disegno.
 
-### <a name="select-points-in-polygon-area"></a>Seleziona punti nell'area poligono
+### <a name="select-points-in-polygon-area"></a>Selezionare i punti nell'area del poligono
 
-Questo codice illustra come monitorare un evento di forme di disegno utente. Per questo esempio, il codice monitora forme di poligoni, rettangoli e cerchi. Determina quindi i punti dati della mappa che si trovano all'interno dell'area disegnata. L'evento `drawingcomplete` viene usato per attivare la logica Select. Nella logica Select il codice scorre tutti i punti dati sulla mappa. Verifica se esiste un'intersezione tra il punto e l'area della forma disegnata. Questo esempio usa la libreria open source di [Turf. js](https://turfjs.org/) per eseguire un calcolo di intersezione spaziale.
+Questo codice illustra come monitorare un evento di un utente che disegna forme. Per questo esempio, il codice monitora forme di poligoni, rettangoli e cerchi. Quindi, determina quali punti dati sulla mappa si trovano all'interno dell'area disegnata. L'evento `drawingcomplete` viene utilizzato per attivare la logica di selezione. Nella logica di selezione, il codice scorre in ciclo tutti i punti dati sulla mappa. Controlla se è presente un'intersezione del punto e dell'area della forma disegnata. In questo esempio viene utilizzata la libreria [Turf.js](https://turfjs.org/) open source per eseguire un calcolo dell'intersezione spaziale.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Seleziona dati nell'area poligono disegnata" src="https://codepen.io/azuremaps/embed/XWJdeja?height=500&theme-id=default&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere la penna <a href='https://codepen.io/azuremaps/pen/XWJdeja'>selezionare i dati nell'area poligono disegnata</a> da mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Selezionare i dati nell'area poligono disegnata" src="https://codepen.io/azuremaps/embed/XWJdeja?height=500&theme-id=default&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Vedere i dati di Selezione penna <a href='https://codepen.io/azuremaps/pen/XWJdeja'>nell'area poligono disegnato</a> da Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 <br/>
 
-### <a name="draw-and-search-in-polygon-area"></a>Estrai e cerca nell'area poligono
+### <a name="draw-and-search-in-polygon-area"></a>Disegnare e cercare nell'area del poligono
 
-Questo codice cerca i punti di interesse all'interno dell'area di una forma dopo che l'utente ha terminato di disegnare la forma. È possibile modificare ed eseguire il codice facendo clic su' modifica in codice penna ' nell'angolo in alto a destra del frame. L'evento `drawingcomplete` viene usato per attivare la logica di ricerca. Se l'utente disegna un rettangolo o un poligono, viene eseguita una ricerca all'interno della geometria. Se viene disegnato un cerchio, il raggio e la posizione centrale vengono usati per eseguire un punto di ricerca di interesse. L'evento `drawingmodechanged` viene usato per determinare quando l'utente passa alla modalità di disegno e questo evento cancella l'area di disegno.
+Questo codice cerca i punti di interesse all'interno dell'area di una forma dopo che l'utente ha finito di disegnare la forma. Puoi modificare ed eseguire il codice facendo clic su "Modifica sulla penna del codice" nell'angolo in alto a destra del fotogramma. L'evento `drawingcomplete` viene utilizzato per attivare la logica di ricerca. Se l'utente disegna un rettangolo o un poligono, viene eseguita una ricerca all'interno della geometria. Se viene disegnato un cerchio, il raggio e la posizione centrale vengono utilizzati per eseguire una ricerca del punto di interesse. L'evento `drawingmodechanged` viene utilizzato per determinare quando l'utente passa alla modalità di disegno e questo cancella l'area di disegno.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Estrai e cerca nell'area poligono" src="https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Per informazioni sulle mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>, vedere l' <a href='https://codepen.io/azuremaps/pen/eYmZGNv'>Area poligono per la ricerca e la ricerca nella</a> penna.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Disegnare e cercare nell'area del poligono" src="https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Vedere disegno <a href='https://codepen.io/azuremaps/pen/eYmZGNv'>penna e ricerca nell'area poligono</a> da Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) su <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 <br/>
 
-### <a name="create-a-measuring-tool"></a>Creazione di uno strumento di misurazione
+### <a name="create-a-measuring-tool"></a>Creare uno strumento di misura
 
-Il codice seguente mostra come è possibile usare gli eventi di disegno per creare uno strumento di misurazione. Il `drawingchanging` viene utilizzato per monitorare la forma, mentre viene disegnata. Quando l'utente sposta il mouse, vengono calcolate le dimensioni della forma. L'evento `drawingcomplete` viene utilizzato per eseguire un calcolo finale sulla forma dopo che è stato disegnato. L'evento `drawingmodechanged` viene utilizzato per determinare quando l'utente passa a una modalità di disegno. Inoltre, l'evento `drawingmodechanged` cancella l'area di disegno del disegno e cancella le informazioni di misurazione obsolete.
+Il codice seguente mostra come utilizzare gli eventi di disegno per creare uno strumento di misurazione. L'oggetto `drawingchanging` viene utilizzato per monitorare la forma, mentre viene disegnata. Quando l'utente sposta il mouse, vengono calcolate le dimensioni della forma. L'evento `drawingcomplete` viene utilizzato per eseguire un calcolo finale sulla forma dopo che è stata disegnata. L'evento `drawingmodechanged` viene utilizzato per determinare quando l'utente passa alla modalità di disegno. Inoltre, `drawingmodechanged` l'evento cancella l'area di disegno e cancella le vecchie informazioni di misurazione.
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Strumento di misurazione" src="https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere lo <a href='https://codepen.io/azuremaps/pen/RwNaZXe'>strumento di misurazione</a> delle penne di Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+Vedere <a href='https://codepen.io/azuremaps/pen/RwNaZXe'>lo strumento di misurazione</a> della penna di Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 <br/>
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come usare le funzionalità aggiuntive del modulo strumenti di disegno:
+Informazioni su come utilizzare le funzioni aggiuntive del modulo degli strumenti di disegno:
 
 > [!div class="nextstepaction"]
-> [Ottenere i dati di forma](map-get-shape-data.md)
+> [Ottenere i dati della forma](map-get-shape-data.md)
 
 > [!div class="nextstepaction"]
-> [Tipi di interazione e tasti di scelta rapida](drawing-tools-interactions-keyboard-shortcuts.md)
+> [Tipi di interazione e scelte rapide da tastiera](drawing-tools-interactions-keyboard-shortcuts.md)
 
-Altre informazioni sul modulo Servizi:
+Ulteriori informazioni sul modulo Servizi:
 
 > [!div class="nextstepaction"]
 > [Modulo Servizi](how-to-use-services-module.md)

@@ -14,10 +14,10 @@ ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cea89087742f1987f693b8bfb627bd71038a0c14
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616928"
 ---
 # <a name="sap-hana-large-instances-deployment"></a>Distribuzione di SAP HANA (istanze Large) 
@@ -36,7 +36,7 @@ Per la distribuzione di unità di istanze Large di HANA, Microsoft richiede le i
 - Per ogni area di distribuzione di Azure:
     - Intervallo di indirizzi IP /29 per le connessioni ER-P2P che connettono le reti virtuali di Azure a istanze Large di HANA.
     - Blocco CIDR /24 usato per il pool di indirizzi IP del server di istanze Large di HANA.
-    - Facoltativo quando si usa [ExpressRoute copertura globale](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) per abilitare il routing diretto da unità locali a istanze large di Hana o il routing tra unità di istanze large di Hana in diverse aree di Azure, è necessario riservare un altro intervallo di indirizzi IP. Questo intervallo specifico potrebbe non sovrapporsi ad altri intervalli di indirizzi IP definiti in precedenza.
+    - Facoltativo quando si usa ExpressRoute Global Reach per abilitare il routing diretto da unità di unità di istanza di grandi dimensioni HANA o tra unità di unità di istanza di grandi dimensioni HANA in aree di Azure diverse, è necessario riservare un altro intervallo di indirizzi IP /29.Optional when using [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) to enable direct routing from on-premises to HANA Large Instance units or routing between HANA Large Instance units in different Azure regions, you need to reserve another /29 IP address range. Questo particolare intervallo potrebbe non sovrapporsi a nessuno degli altri intervalli di indirizzi IP definiti in precedenza.
 - Valori dell'intervallo di indirizzi IP usati nell'attributo dello spazio di indirizzi di ogni rete virtuale di Azure che si connette alle istanze Large di HANA.
 - Dati per ogni sistema di istanze Large di HANA:
   - Nome host desiderato, preferibilmente con un nome di dominio completo.
@@ -50,7 +50,7 @@ Dopo che sono state fornite le informazioni indicate in precedenza, Microsoft ef
 
 Usare la sequenza seguente per connettersi alle istanze Large di HANA dopo la distribuzione da parte di Microsoft:
 
-1. [Connessione di macchine virtuali di Azure a istanze Large di HANA](hana-connect-azure-vm-large-instances.md)
-2. [Connessione di una rete virtuale a ExpressRoute per istanze Large di HANA](hana-connect-vnet-express-route.md)
+1. [Connessione di macchine virtuali di Azure a istanze di grandi dimensioni HANAConnecting Azure VMs to HANA large instances](hana-connect-azure-vm-large-instances.md)
+2. [Connessione di una rete virtuale a istanze di grandi dimensioni HANA ExpressRouteConnecting a VNet to HANA large instances ExpressRoute](hana-connect-vnet-express-route.md)
 3. [Requisiti di rete aggiuntivi (facoltativo)](hana-additional-network-requirements.md)
 

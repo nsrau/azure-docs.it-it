@@ -1,5 +1,5 @@
 ---
-title: Usare gli script di PowerShell per AzureRM per gestire i dispositivi StorSimple
+title: Usare gli script di AzureRM PowerShell per gestire i dispositivi StorSimpleUse AzureRM PowerShell scripts to manage StorSimple devices
 description: Informazioni su come usare gli script di Azure Resource Manager per automatizzare i processi di StorSimple
 author: alkohli
 ms.service: storsimple
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 03a5ef49b2d58d351d882b30b5d11e4a5ba90264
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471959"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Usare gli script basati su Azure Resource Manager SDK per gestire i dispositivi StorSimple
@@ -97,7 +97,7 @@ Lo script usato in questo esempio elenca tutti i processi in un dispositivo Stor
 
     ```
 
-### <a name="sample-output"></a>Output dell'esempio:
+### <a name="sample-output"></a>Output di esempio
 
 L'output seguente viene visualizzato quando viene eseguito lo script di esempio. L'output contiene tutti i processi eseguiti in un dispositivo registrato avviati il 25 settembre 2017 e completati entro il 2 ottobre 2017.
 

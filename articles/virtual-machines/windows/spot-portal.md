@@ -1,6 +1,6 @@
 ---
-title: Usare il portale per distribuire le VM di Azure spot
-description: Informazioni su come usare Azure PowerShell per distribuire macchine virtuali spot per risparmiare sui costi.
+title: Usare il portale per distribuire le macchine virtuali di Azure SpotUse the portal to deploy Azure Spot VMs
+description: Informazioni su come usare Azure PowerShell per distribuire macchine virtuali Spot per risparmiare sui costi.
 services: virtual-machines-windows
 author: cynthn
 manager: gwallace
@@ -10,40 +10,40 @@ ms.topic: article
 ms.date: 02/11/2020
 ms.author: cynthn
 ms.openlocfilehash: 8845d0f9277384c1cc32b31b5ea5151cd0668c79
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77158979"
 ---
-# <a name="preview-deploy-spot-vms-using-the-azure-portal"></a>Anteprima: distribuire le VM spot usando il portale di Azure
+# <a name="preview-deploy-spot-vms-using-the-azure-portal"></a>Anteprima: Distribuire macchine virtuali spot tramite il portale di AzurePreview: Deploy Spot VMs using the Azure portal
 
-L'uso di [macchine virtuali con spot](spot-vms.md) consente di sfruttare la capacità inutilizzata con un notevole risparmio sui costi. In qualsiasi momento, quando Azure necessita della capacità, l'infrastruttura di Azure eliminerà le VM spot. Quindi, le VM spot sono ottime per i carichi di lavoro in grado di gestire le interruzioni, ad esempio processi di elaborazione batch, ambienti di sviluppo/test, carichi di lavoro di calcolo di grandi dimensioni e altro ancora.
+L'uso di [Spot VMs](spot-vms.md) consente di sfruttare la nostra capacità inutilizzata con un notevole risparmio sui costi. In qualsiasi momento in cui Azure richiede la capacità, l'infrastruttura di Azure rimuovere le macchine virtuali Spot.At any in time when Azure needs the capacity back, the Azure infrastructure will evict Spot VMs. Pertanto, le macchine virtuali Spot sono ideali per i carichi di lavoro in grado di gestire interruzioni come processi di elaborazione batch, ambienti di sviluppo/test, carichi di lavoro di elaborazione di grandi dimensioni e altro ancora.
 
-I prezzi per le VM spot sono variabili in base all'area e allo SKU. Per altre informazioni, vedere prezzi delle VM per [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Per altre informazioni sull'impostazione del prezzo massimo, vedere [spot VM-prezzi](spot-vms.md#pricing).
+I prezzi per le macchine virtuali Spot sono variabili, in base all'area e all'SKU. Per altre informazioni, vedere Prezzi delle macchine virtuali per [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows.](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) Per altre informazioni sull'impostazione del prezzo massimo, vedere [Spot VMs - Pricing](spot-vms.md#pricing).
 
-È possibile impostare un prezzo massimo che si è disposti a pagare, per ora, per la macchina virtuale. Il prezzo massimo per una VM spot può essere impostato in dollari USA (USD), usando un massimo di 5 cifre decimali. Ad esempio, il valore `0.05701`sarebbe un prezzo massimo di $0,05701 USD all'ora. Se si imposta il prezzo massimo da `-1`, la macchina virtuale non verrà rimossa in base al prezzo. Il prezzo della macchina virtuale corrisponderà al prezzo corrente per spot o al prezzo di una macchina virtuale standard, che sempre è inferiore, purché siano disponibili capacità e quota.
+È possibile impostare un prezzo massimo che si è disposti a pagare, all'ora, per la macchina virtuale. Il prezzo massimo per una macchina virtuale Spot può essere impostato in dollari USA (USD), usando fino a 5 cifre decimali. Ad esempio, `0.05701`il valore sarebbe un prezzo massimo di 0,05701 USD all'ora. Se si imposta il `-1`prezzo massimo su , la macchina virtuale non verrà rimossa in base al prezzo. Il prezzo per la macchina virtuale sarà il prezzo corrente per spot o il prezzo per una macchina virtuale standard, che è sempre inferiore, purché siano disponibili capacità e quote.
 
 > [!IMPORTANT]
-> Le istanze di spot sono attualmente in anteprima pubblica.
+> Le istanze spot sono attualmente in anteprima pubblica.
 > Questa versione di anteprima non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
 
 ## <a name="create-the-vm"></a>Creare la VM
 
-Il processo di creazione di una macchina virtuale che usa le VM spot è identico a quello illustrato in dettaglio nella [Guida introduttiva](quick-create-portal.md). Quando si distribuisce una macchina virtuale, è possibile scegliere di usare un'istanza di Azure spot.
+Il processo di creazione di una macchina virtuale che usa macchine virtuali Spot è lo stesso descritto nella [guida introduttiva.](quick-create-portal.md) Quando si distribuisce una macchina virtuale, è possibile scegliere di usare un'istanza di Azure spot.When you are deploying a VM, you can choose to use an Azure spot instance.
 
 
-Nella scheda **nozioni di base** , nella sezione **Dettagli istanza** , **non** è il valore predefinito per l'uso di un'istanza di Azure spot.
+Nella sezione Dettagli istanza della scheda **Nozioni di base** No è l'impostazione predefinita per l'uso di un'istanza di Azure spot.On the Basics tab, in the **Instance details** section, **No** is the default for using an Azure spot instance.
 
-![Acquisizione schermo per la scelta di no, non usare un'istanza di Azure spot](media/spot-portal/no.png)
+![Cattura di schermata per la scelta di no, non usare un'istanza spot di Azure](media/spot-portal/no.png)
 
-Selezionando **Sì**, la sezione si espande ed è possibile scegliere il [tipo di rimozione e i criteri di rimozione](spot-vms.md#eviction-policy). 
+Si seleziona **Sì**, la sezione si espande ed è possibile scegliere il tipo di [sfratto e la politica di sfratto](spot-vms.md#eviction-policy). 
 
-![Acquisizione schermo per la scelta di sì, usare un'istanza di Azure spot](media/spot-portal/yes.png)
+![Cattura di schermata per la scelta di sì, usare un'istanza spot di AzureScreen capture for choosing yes, use an Azure spot instance](media/spot-portal/yes.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È anche possibile creare macchine virtuali spot usando [PowerShell](spot-powershell.md).
+È anche possibile creare macchine virtuali Spot usando [PowerShell](spot-powershell.md).

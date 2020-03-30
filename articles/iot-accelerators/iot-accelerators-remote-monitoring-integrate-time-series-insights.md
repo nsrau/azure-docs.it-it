@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 752529454a5b6293d9cbfdf8378b46947aed5a0e
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77564645"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrare Azure Time Series Insights con il monitoraggio remoto
@@ -24,11 +24,11 @@ L'acceleratore di soluzioni di monitoraggio remoto ora offre la distribuzione e 
 > [!NOTE]
 > Azure Time Series Insights non è attualmente disponibile nel cloud Azure Cina. Le nuove distribuzioni dell'acceleratore di soluzioni di monitoraggio remoto nel cloud Azure Cina usano Cosmos DB per tutte le operazioni di archiviazione.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa procedura, è necessario aver già distribuito una soluzione di monitoraggio remoto:
 
-* [Distribuire l'acceleratore di soluzioni di monitoraggio remoto](quickstart-remote-monitoring-deploy.md)
+* [Distribuire l'acceleratore di soluzioni di monitoraggio remotoDeploy the Remote Monitoring solution accelerator](quickstart-remote-monitoring-deploy.md)
 
 ## <a name="create-a-consumer-group"></a>Creare un gruppo di consumer
 
@@ -49,9 +49,9 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
 Successivamente, distribuire di Azure Time Series Insights come risorsa aggiuntiva nella soluzione di monitoraggio remoto e connetterla all'hub IoT.
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale](https://portal.azure.com/)di Azure .
 
-1. Selezionare **Crea una risorsa** > **Internet delle cose** > **Time Series Insights**.
+1. Selezionare **Crea una risorsa** > **Internet of Things** > **Time Series Insights**.
 
     ![Nuovo ambiente Azure Time Series Insights](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights.png)
 
@@ -61,7 +61,7 @@ Successivamente, distribuire di Azure Time Series Insights come risorsa aggiunti
     | ------- | ----- |
     | Nome ambiente | Nella schermata seguente viene usato il nome **contorosrmtsi**. Quando si completa questo passaggio, scegliere il proprio nome univoco. |
     | Subscription | Selezionare la sottoscrizione di Azure nell'elenco a discesa. |
-    | Resource group | **Usa esistente**. Selezionare il nome del gruppo di risorse di monitoraggio remoto esistente. |
+    | Resource group | **Utilizzare esistente**. Selezionare il nome del gruppo di risorse di monitoraggio remoto esistente. |
     | Location | In questo esempio viene usata l'area **Stati Uniti orientali**. Creare l'ambiente nella stessa area della soluzione di monitoraggio remoto, se possibile. |
     | Sku |**S1** |
     | Capacity | **1** |
@@ -89,14 +89,14 @@ Creare una nuova origine evento per la connessione all'hub IoT. Verificare di us
     | Impostazione | valore |
     | ------- | ----- |
     | Nome origine evento | Nella schermata seguente viene usato il nome **contosorm-iot-hub**. Quando si completa questo passaggio, usare il proprio nome univoco. |
-    | Source (Sorgente) | **Hub IoT** |
+    | Source (Sorgente) | **IoT Hub** |
     | Opzione di importazione | **Usare un hub IoT delle sottoscrizioni disponibili** |
     | ID sottoscrizione | Selezionare la sottoscrizione di Azure nell'elenco a discesa. |
     | Nome dell'hub IoT | **contosorma57a6**. Usare il nome dell'hub IoT della soluzione di monitoraggio remoto. |
     | Nome dei criteri dell'hub IoT | **iothubowner** Verificare che il criterio usato sia un criterio di proprietario. |
     | Chiave dei criteri dell'hub IoT | Il campo viene popolato automaticamente. |
     | Gruppo di consumer dell'hub IoT | **timeseriesinsights** |
-    | Formato di serializzazione eventi | **JSON**     | 
+    | Formato di serializzazione eventi | **Json**     | 
     | Nome della proprietà Timestamp | Lasciare vuoto |
 
     ![Creare un'origine evento](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
@@ -136,7 +136,7 @@ Il passaggio successivo consiste nel configurare il microservizio di gestione di
 
 1. Scegliere il gruppo di risorse **ContosoRM**.
 
-1. Trovare il processo di streaming Analisi di flusso di Azure nell'elenco delle risorse. Il nome della risorsa inizia per **streamingjobs-** .
+1. Trovare il processo di streaming Analisi di flusso di Azure nell'elenco delle risorse. Il nome della risorsa inizia per **streamingjobs-**.
 
 1. Nella parte superiore fare clic sul pulsante per arrestare i processi di streaming di Analisi di flusso di Azure.
 
@@ -191,7 +191,7 @@ Java:
 docker pull azureiotpcs/telemetry-java:1.0.2
 ```
 
-## <a name="optional-configure-the-web-ui-to-link-to-the-time-series-insights-explorer"></a>*[Facoltativo]*  Configurare l'interfaccia utente Web per connettersi a Time Series Insights Explorer
+## <a name="optional-configure-the-web-ui-to-link-to-the-time-series-insights-explorer"></a>*[Facoltativo] * Configurare l'interfaccia utente Web per connettersi a Time Series Insights Explorer
 
 Per visualizzare facilmente i dati in Time Series Insights Explorer, si consiglia di personalizzare l'interfaccia utente per collegarsi con facilità all'ambiente. A tale scopo, estrarre le ultime modifiche apportate all'interfaccia utente Web usando il comando seguente:
 
@@ -209,13 +209,13 @@ Configurare l'ambiente della distribuzione `basic` per i microservizi aggiornati
 
 1. Nel portale di Azure fare clic sulla scheda **Azure Active Directory** nel riquadro di spostamento sinistro.
 
-1. Fare clic su **Registrazioni per l'app**.
+1. Fare clic su **Registrazioni app**.
 
 1. Cercare l'applicazione **ContosoRM** e farci clic sopra.
 
-1. Passare a **Impostazioni** > **Chiavi** e creare una nuova chiave per l'applicazione. Assicurarsi di copiare il valore della chiave in una posizione sicura.
+1. Passare a**Chiavi** **di impostazioni** > e quindi creare una nuova chiave per l'applicazione. Assicurarsi di copiare il valore della chiave in una posizione sicura.
 
-1. Estrarre il [file yaml di Docker Compose più recente](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) dal repository GitHub usando il tag più recente. 
+1. Estrarre [l'ultimo file yaml docker compose](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) dal repository GitHub utilizzando il tag più recente. 
 
 1. Collegarsi con una chiave SSH alla macchina virtuale seguendo la procedura descritta in [Come usare le chiavi SSH con Windows in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
 
@@ -238,7 +238,7 @@ Configurare l'ambiente della distribuzione `basic` per i microservizi aggiornati
 1. Riavviare i contenitori Docker usando `sudo ./start.sh` dalla macchina virtuale.
 
 > [!NOTE]
-> La configurazione precedente delle variabili di ambiente è valida per le versioni di monitoraggio remoto prima di 1.0.2
+> La configurazione precedente delle variabili di ambiente è valida per le versioni di monitoraggio remoto prima della 1.0.2
 
 ### <a name="standard-deployments"></a>Distribuzioni standard
 

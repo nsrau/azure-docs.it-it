@@ -1,5 +1,5 @@
 ---
-title: Eseguire l'onboarding nel centro sicurezza di Azure con PowerShell
+title: Eseguire l'onboarding al Centro sicurezza di Azure con PowerShell
 description: Questo documento fornisce indicazioni dettagliate sul processo di onboarding del Centro sicurezza di Azure tramite i cmdlet di PowerShell.
 services: security-center
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
 ms.openlocfilehash: 5aaaf539c07a7ba2c2463d5bfd1f452853f52379
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77603679"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizzare l'onboarding del Centro sicurezza di Azure con PowerShell
@@ -37,11 +37,11 @@ In questo esempio si abiliterà il Centro sicurezza per una sottoscrizione con I
 
 3. Attivare il provisioning automatico dell'agente del Centro sicurezza, che consente di [distribuire Microsoft Monitoring Agent](security-center-enable-data-collection.md#auto-provision-mma).
 
-5. Impostare ciso dell'organizzazione [come contatto di sicurezza per gli avvisi del Centro sicurezza e gli eventi rilevanti](security-center-provide-security-contact-details.md).
+5. Impostare il [CISO](security-center-provide-security-contact-details.md)dell'organizzazione come contatto di sicurezza per gli avvisi del Centro sicurezza e gli eventi importanti.
 
 6. Assegnare i [criteri di sicurezza predefiniti](tutorial-security-policy.md) del Centro sicurezza.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di eseguire i cmdlet del Centro sicurezza, è necessario seguire questa procedura:
 
@@ -104,5 +104,5 @@ Per altre informazioni su come usare PowerShell per automatizzare l'onboarding n
 
 Per altre informazioni sul Centro sicurezza, vedere gli articoli seguenti:
 
-* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
-* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
+* [Setting security policies in Azure Security Center:](tutorial-security-policy.md) informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.Setting security policies in Azure Security Center -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Gestione e risposta agli avvisi](security-center-managing-and-responding-alerts.md) di sicurezza nel Centro sicurezza di Azure: informazioni su come gestire e rispondere agli avvisi di sicurezza.

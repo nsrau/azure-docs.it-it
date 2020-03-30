@@ -1,6 +1,6 @@
 ---
-title: Dipendenze del servizio di accesso condizionale-Azure Active Directory
-description: Informazioni sul modo in cui vengono usate le condizioni nell'accesso condizionale Azure Active Directory per attivare un criterio.
+title: Dipendenze del servizio di accesso condizionale - Azure Active DirectoryConditional Access service dependencies - Azure Active Directory
+description: Informazioni sull'uso delle condizioni in Azure Active Directory Conditional Access per attivare un criterio.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,54 +12,54 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b39238575c05d35a2d87999e08c49c0c77e99bfb
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74380020"
 ---
-# <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Che cosa sono le dipendenze del servizio in Azure Active Directory l'accesso condizionale? 
+# <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Che cosa sono le dipendenze del servizio in Azure Active Directory Conditional Access? 
 
-Con i criteri di accesso condizionale, è possibile specificare i requisiti di accesso ai siti Web e ai servizi. Ad esempio, i requisiti di accesso possono includere la richiesta di autenticazione a più fattori o di [dispositivi gestiti](require-managed-devices.md). 
+Con i criteri di accesso condizionale è possibile specificare i requisiti di accesso a siti Web e servizi. Ad esempio, i requisiti di accesso possono includere la richiesta di autenticazione a più fattori (MFA) o [dispositivi gestiti](require-managed-devices.md). 
 
-Quando si accede direttamente a un sito o a un servizio, l'effetto di un criterio correlato è in genere facile da valutare. Se, ad esempio, sono stati configurati criteri che richiedono l'autenticazione a più fattori per SharePoint Online, viene applicato l'autenticazione a più fattori per ogni accesso al portale Web di SharePoint. Tuttavia, non è sempre semplice valutare l'effetto di un criterio perché sono presenti app cloud con dipendenze da altre app cloud. Ad esempio, Microsoft teams può fornire l'accesso alle risorse in SharePoint Online. Quindi, quando si accede a Microsoft teams nello scenario corrente, si è anche soggetti ai criteri di autenticazione a più fattori di SharePoint.   
+Quando si accede direttamente a un sito o a un servizio, l'impatto di criteri correlati è in genere semplice da valutare. Ad esempio, se si dispone di un criterio che richiede l'autenticazione a più fattori per SharePoint Online configurato, l'autenticazione a più fattori viene applicata per ogni accesso al portale Web di SharePoint. Tuttavia, non è sempre semplice valutare l'impatto di un criterio perché sono presenti app cloud con dipendenze da altre app cloud. Ad esempio, Microsoft Teams può fornire l'accesso alle risorse in SharePoint Online.For example, Microsoft Teams can provide access to resources in SharePoint Online. Pertanto, quando si accede a Microsoft Teams nello scenario corrente, si è anche soggetti ai criteri di autenticazione a più fattori di SharePoint.   
 
 ## <a name="policy-enforcement"></a>Imposizione dei criteri 
 
-Se è stata configurata una dipendenza del servizio, è possibile applicare i criteri tramite l'imposizione ad associazione anticipata o ad associazione tardiva. 
+Se si dispone di una dipendenza del servizio configurata, i criteri possono essere applicati utilizzando l'imposizione con associazione anticipata o ad associazione tardiva. 
 
-- L' **imposizione di criteri ad associazione anticipata** indica che un utente deve soddisfare i criteri del servizio dipendenti prima di accedere all'app chiamante. Ad esempio, un utente deve soddisfare i criteri di SharePoint prima di accedere a Microsoft teams. 
-- L' **imposizione di criteri ad associazione tardiva** si verifica dopo che l'utente accede all'app chiamante. L'imposizione è rinviata a quando si chiamano le richieste dell'app, un token per il servizio downstream. Gli esempi includono MS teams che accedono a Planner e Office.com che accedono a SharePoint. 
+- **L'applicazione anticipata dei criteri** significa che un utente deve soddisfare i criteri del servizio dipendente prima di accedere all'app chiamante. Ad esempio, un utente deve soddisfare i criteri di SharePoint prima di accedere a MS Teams. 
+- **L'applicazione dei criteri ad associazione tardiva** si verifica dopo che l'utente accede all'app chiamante. L'imposizione viene posticipata quando si chiamano le richieste dell'app, un token per il servizio downstream. Gli esempi includono MS Teams che accedono a Planner e Office.com l'accesso a SharePoint. 
 
-Il diagramma seguente illustra le dipendenze del servizio MS teams. Le frecce solide indicano l'imposizione ad associazione anticipata. la freccia tratteggiata per Planner indica l'imposizione ad associazione tardiva. 
+Il diagramma seguente illustra le dipendenze del servizio MS Teams. Le frecce continue indicano l'imposizione con associazione anticipata della freccia tratteggiata per Planner indica l'imposizione ad associazione tardiva. 
 
 ![Dipendenze del servizio MS Teams](./media/service-dependencies/01.png)
 
-Come procedura consigliata, è consigliabile impostare criteri comuni tra app e servizi correlati, quando possibile. Un comportamento di sicurezza coerente offre la migliore esperienza utente. Ad esempio, l'impostazione di un criterio comune tra Exchange Online, SharePoint Online, Microsoft teams e Skype for business riduce significativamente le richieste impreviste che possono verificarsi da criteri diversi applicati ai servizi downstream. 
+Come procedura consigliata, è consigliabile impostare criteri comuni tra le app e i servizi correlati quando possibile. Avere una posizione di sicurezza coerente offre la migliore esperienza utente. Ad esempio, l'impostazione di un criterio comune in Exchange Online, SharePoint Online, Microsoft Teams e Skype for Business riduce significativamente i prompt imprevisti che possono derivare da criteri diversi applicati ai servizi downstream. 
 
-La tabella seguente elenca le dipendenze del servizio aggiuntive, in cui le app client devono soddisfare  
+La tabella seguente elenca le dipendenze del servizio aggiuntive, in cui le app client devono  
 
 | App client         | Servizio downstream                          | Imposizione |
 | :--                 | :--                                         | ---         | 
-| Azure Data Lake     | Gestione Microsoft Azure (portale e API) | Ad associazione anticipata |
-| Classe Microsoft | Exchange                                    | Ad associazione anticipata |
-|                     | SharePoint                                  | Ad associazione anticipata |
-| Microsoft Teams     | Exchange                                    | Ad associazione anticipata |
-|                     | Microsoft Planner                                  | Ad associazione tardiva  |
-|                     | SharePoint                                  | Ad associazione anticipata |
-|                     | Skype for Business Online                   | Ad associazione anticipata |
-| Portale di Office       | Exchange                                    | Ad associazione tardiva  |
-|                     | SharePoint                                  | Ad associazione tardiva  |
-| Gruppi di Outlook      | Exchange                                    | Ad associazione anticipata |
-|                     | SharePoint                                  | Ad associazione anticipata |
-| PowerApps           | Gestione Microsoft Azure (portale e API) | Ad associazione anticipata |
-|                     | Microsoft Azure Active Directory              | Ad associazione anticipata |
-| Project             | Dynamics CRM                                | Ad associazione anticipata |
-| Skype for Business Online  | Exchange                                    | Ad associazione anticipata |
-| Visual Studio       | Gestione Microsoft Azure (portale e API) | Ad associazione anticipata |
-| Microsoft Forms     | Exchange                                    | Ad associazione anticipata |
-|                     | SharePoint                                  | Ad associazione anticipata |
-| Microsoft To-Do     | Exchange                                    | Ad associazione anticipata |
+| Azure Data Lake     | Gestione di Microsoft Azure (portale e API) | Associazione anticipata |
+| Classe Microsoft | Exchange                                    | Associazione anticipata |
+|                     | SharePoint                                  | Associazione anticipata |
+| Microsoft Teams     | Exchange                                    | Associazione anticipata |
+|                     | Pianificatore MS                                  | Associazione tardiva  |
+|                     | SharePoint                                  | Associazione anticipata |
+|                     | Skype for Business Online                   | Associazione anticipata |
+| Portale di Office       | Exchange                                    | Associazione tardiva  |
+|                     | SharePoint                                  | Associazione tardiva  |
+| Gruppi di Outlook      | Exchange                                    | Associazione anticipata |
+|                     | SharePoint                                  | Associazione anticipata |
+| PowerApps           | Gestione di Microsoft Azure (portale e API) | Associazione anticipata |
+|                     | Microsoft Azure Active Directory              | Associazione anticipata |
+| Project             | Dynamics CRM                                | Associazione anticipata |
+| Skype for Business Online  | Exchange                                    | Associazione anticipata |
+| Visual Studio       | Gestione di Microsoft Azure (portale e API) | Associazione anticipata |
+| Microsoft Forms     | Exchange                                    | Associazione anticipata |
+|                     | SharePoint                                  | Associazione anticipata |
+| Microsoft To-Do     | Exchange                                    | Associazione anticipata |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

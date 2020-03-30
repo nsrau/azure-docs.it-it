@@ -1,6 +1,6 @@
 ---
-title: Pianificare l'applicazione cloud HR per Azure Active Directory il provisioning degli utenti
-description: Questo articolo descrive il processo di distribuzione dell'integrazione dei sistemi HR cloud, ad esempio giorni lavorativi e SuccessFactors, con Azure Active Directory. L'integrazione di Azure AD con il sistema HR cloud genera un sistema di gestione del ciclo di vita delle identità completo.
+title: Pianificare l'applicazione HR cloud per il provisioning degli utenti di Azure Active DirectoryPlan cloud HR application to Azure Active Directory user provisioning
+description: Questo articolo descrive il processo di distribuzione dell'integrazione dei sistemi HR cloud, ad esempio Workday e SuccessFactors, con Azure Active Directory.This article describes the deployment process of integrating cloud HR systems, such as Workday and SuccessFactors, with Azure Active Directory. L'integrazione di Azure AD con il sistema HR cloud si traduce in un sistema completo di gestione del ciclo di vita delle identità.
 services: active-directory
 author: martincoetzer
 manager: CelesteDG
@@ -13,408 +13,408 @@ ms.date: 11/22/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.openlocfilehash: 28abe2dfa5a1a13ba09e20202180cb5e47d94072
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77522433"
 ---
-# <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Pianificare l'applicazione cloud HR per Azure Active Directory il provisioning degli utenti
+# <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Pianificare l'applicazione HR cloud per il provisioning degli utenti di Azure Active DirectoryPlan cloud HR application to Azure Active Directory user provisioning
 
-In passato, il personale IT si fidava di metodi manuali per creare, aggiornare ed eliminare i dipendenti. Hanno usato metodi come il caricamento di file CSV o script personalizzati per sincronizzare i dati dei dipendenti. Questi processi di provisioning sono soggetti a errori, non sicuri e difficili da gestire.
+Storicamente, il personale IT si è affidato a metodi manuali per creare, aggiornare ed eliminare i dipendenti. Hanno usato metodi come il caricamento di file CSV o script personalizzati per sincronizzare i dati dei dipendenti. Questi processi di provisioning sono soggetti a errori, non sicuri e difficili da gestire.
 
-Per gestire i cicli di vita delle identità di dipendenti, fornitori o lavoratori dipendenti, il [servizio di provisioning utenti Azure Active Directory (Azure ad)](../app-provisioning/user-provisioning.md) offre l'integrazione con applicazioni HR (Human Resources) basate sul cloud. Esempi di applicazioni includono giorni lavorativi o SuccessFactors.
+Per gestire i cicli di vita delle identità di dipendenti, fornitori o lavoratori contingenti, il servizio di provisioning degli utenti di [Azure Active Directory (Azure AD)](../app-provisioning/user-provisioning.md) offre l'integrazione con le applicazioni HR (Human Resources) basate su cloud. Esempi di applicazioni includono Workday o SuccessFactors.Examples of applications include Workday or SuccessFactors.
 
-Azure AD usa questa integrazione per abilitare i flussi di lavoro delle applicazioni HR cloud (app) seguenti:
+Azure AD usa questa integrazione per abilitare i flussi di lavoro dell'applicazione HR cloud (app) seguenti:Azure AD uses this integration to enable the following cloud HR application (app) workflows:
 
-- **Effettuare il provisioning degli utenti per Active Directory:** Effettuare il provisioning di set di utenti selezionati da un'app Cloud HR in uno o più domini Active Directory.
-- **Effettuare il provisioning degli utenti solo cloud per Azure ad:** Negli scenari in cui non viene usato Active Directory, effettuare il provisioning degli utenti direttamente dall'app Cloud HR al Azure AD.
-- **Scrivere nuovamente nell'app Cloud HR:** Scrivere gli indirizzi di posta elettronica e gli attributi del nome utente dal Azure AD di nuovo all'app HR cloud.
+- **Effettuare il provisioning degli utenti in Active Directory:** Effettua il provisioning di set di utenti selezionati da un'app CLOUD HR in uno o più domini di Active Directory.
+- **Effettuare il provisioning degli utenti solo cloud in Azure AD:Provision cloud-only users to Azure AD:** Negli scenari in cui Active Directory non viene usato, eseguire il provisioning degli utenti direttamente dall'app CLOUD HR ad Azure AD.
+- **Esegui write back nell'app CLOUD HR:** Scrivere di nuovo gli indirizzi di posta elettronica e gli attributi del nome utente da Azure AD nell'app CLOUD HR.
 
 > [!NOTE]
-> Questo piano di distribuzione illustra come distribuire i flussi di lavoro delle app HR cloud con Azure AD provisioning degli utenti. Per informazioni su come distribuire il provisioning utenti automatico in app SaaS (Software as a Service), vedere [pianificare una distribuzione automatica del provisioning utenti](https://aka.ms/deploymentplans/provisioning).
+> Questo piano di distribuzione illustra come distribuire i flussi di lavoro dell'app HR cloud con il provisioning degli utenti di Azure AD. Per informazioni su come distribuire il provisioning automatico degli utenti alle app SaaS (Information User Provisioning), vedere Pianificare una distribuzione automatica del provisioning degli [utenti.](https://aka.ms/deploymentplans/provisioning)
 
 ## <a name="enabled-hr-scenarios"></a>Scenari HR abilitati
 
-Il servizio di provisioning utenti Azure AD consente l'automazione dei seguenti scenari di gestione del ciclo di vita delle identità basati sulle risorse umane:
+Il servizio di provisioning degli utenti di Azure AD consente l'automazione dei seguenti scenari di gestione del ciclo di vita delle identità basati su risorse umane:The Azure AD user provisioning service enables automation of the following HR-based identity lifecycle management scenarios:
 
-- **Assunzione di nuovi dipendenti:** Quando un nuovo dipendente viene aggiunto all'app Cloud HR, viene creato automaticamente un account utente in Active Directory e Azure AD con l'opzione per riscrivere l'indirizzo di posta elettronica e gli attributi del nome utente nell'app HR cloud.
-- **Aggiornamenti del profilo e dell'attributo del dipendente:** Quando un record dipendente, ad esempio nome, titolo o Manager, viene aggiornato nell'app HR cloud, il relativo account utente viene aggiornato automaticamente in Active Directory e Azure AD.
-- **Interruzioni dei dipendenti:** Quando un dipendente viene terminato nell'app HR cloud, il relativo account utente viene disabilitato automaticamente in Active Directory e Azure AD.
-- **Riassunzioni dei dipendenti:** Quando un dipendente viene riassunto nell'app Cloud HR, il relativo account precedente può essere riattivato automaticamente o sottoposto a provisioning per Active Directory e Azure AD.
+- **Assunzione** di nuovi dipendenti: Quando un nuovo dipendente viene aggiunto all'app CLOUD HR, viene creato automaticamente un account utente in Active Directory e Azure AD con l'opzione per riscrivere l'indirizzo di posta elettronica e gli attributi del nome utente nell'app HR cloud.
+- **Aggiornamento dell'attributo e** del profilo dei dipendenti: Quando un record dipendente, ad esempio nome, titolo o responsabile, viene aggiornato nell'app CLOUD HR, il relativo account utente viene aggiornato automaticamente in Active Directory e Azure AD.
+- **Cessazioni dei dipendenti:** Quando un dipendente viene terminato nell'app cloud HR, il relativo account utente viene disabilitato automaticamente in Active Directory e Azure AD.
+- **Assunzioni dei dipendenti:** Quando un dipendente viene riassuntato nell'app CLOUD HR, il suo account precedente può essere riattivato o rieseguito automaticamente in Active Directory e Azure AD.
 
-## <a name="who-is-this-integration-best-suited-for"></a>Per chi è questa integrazione più adatta?
+## <a name="who-is-this-integration-best-suited-for"></a>A chi è più adatta questa integrazione?
 
-L'integrazione delle app HR cloud con Azure AD provisioning degli utenti è particolarmente adatta per le organizzazioni che:
+L'integrazione dell'app CLOUD HR con il provisioning degli utenti di Azure AD è ideale per le organizzazioni che:The cloud HR app integration with Azure AD user provisioning is ideald for organizations that:
 
-- Si vuole una soluzione predefinita basata sul cloud per il provisioning utenti cloud HR.
-- Richiedere il provisioning utenti diretto dall'app Cloud HR per Active Directory o Azure AD.
-- Richiedere il provisioning degli utenti usando i dati ottenuti dall'app Cloud HR.
-- Richiedere l'Unione, lo stato di trasferimento e l'uscita degli utenti per la sincronizzazione in uno o più Active Directory foreste, domini e unità organizzative basate solo sulle informazioni sulle modifiche rilevate nell'app Cloud HR.
+- Desideri una soluzione predefinita basata su cloud per il provisioning degli utenti delle risorse umane cloud.
+- Richiedere il provisioning diretto degli utenti dall'app CLOUD HR ad Active Directory o Azure AD.
+- Richiedere agli utenti di eseguire il provisioning utilizzando i dati ottenuti dall'app CLOUD HR.
+- Richiedere l'aggiunta, lo spostamento e l'abbandono degli utenti in una o più foreste, domini e aree utente di Active Directory in base solo alle informazioni sulle modifiche rilevate nell'app HR cloud.
 - Usare Office 365 per la posta elettronica.
 
 ## <a name="learn"></a>Informazioni
 
-Il provisioning degli utenti crea una base per la governance delle identità in corso. Migliora la qualità dei processi di business che si basano sui dati di identità autorevoli.
+Il provisioning degli utenti crea una base per una governance continua delle identità. Migliora la qualità dei processi aziendali che si basano su dati di identità autorevoli.
 
 ### <a name="terms"></a>Termini
 
-Questo articolo usa i termini seguenti:
+In questo articolo vengono utilizzati i termini seguenti:
 
-- **Sistema di origine**: repository di utenti che Azure ad provisioning da. Un esempio è un'app HR cloud come la giornata lavorativa o SuccessFactors.
-- **Sistema di destinazione**: il repository di utenti a cui il Azure ad effettua il provisioning. Gli esempi sono Active Directory, Azure AD, Office 365 o altre app SaaS.
-- **Joiner-Movers-processo di uscita**: un termine usato per nuove assunzioni, trasferimenti e terminazioni usando un'app HR cloud come un sistema di record. Il processo viene completato quando il servizio esegue correttamente il provisioning degli attributi necessari per il sistema di destinazione.
+- **Sistema di origine:** il repository degli utenti di cui Azure AD effettua il provisioning. Un esempio è un'app cloud HR, ad esempio Workday o SuccessFactors.An example is a cloud HR app such as Workday or SuccessFactors.
+- Sistema di **destinazione:** il repository degli utenti a cui Azure AD esegue il provisioning. Esempi sono Active Directory, Azure AD, Office 365 o altre app SaaS.
+- **Processo Joiners-Movers-Leavers:** termine utilizzato per nuove assunzioni, trasferimenti e terminazioni tramite un'app CLOUD HR come sistema di record. Il processo viene completato quando il servizio esegue correttamente il provisioning degli attributi necessari al sistema di destinazione.
 
 ### <a name="key-benefits"></a>Vantaggi principali
 
-Questa funzionalità del provisioning IT basato su HR offre i vantaggi aziendali seguenti:
+Questa funzionalità del provisioning IT basato sulle risorse umane offre i seguenti vantaggi aziendali significativi:
 
-- **Aumentare la produttività:** È ora possibile automatizzare l'assegnazione degli account utente e delle licenze di Office 365 e fornire l'accesso ai gruppi di chiavi. Automatizzando le assegnazioni, i nuovi assunti hanno accesso immediato ai propri strumenti di lavoro e aumentano la produttività.
-- **Gestisci i rischi:** Per aumentare la sicurezza, è possibile automatizzare le modifiche in base allo stato dei dipendenti o alle appartenenze ai gruppi con dati provenienti dall'app Cloud HR. L'automazione delle modifiche garantisce che le identità degli utenti e l'accesso alle app principali vengano aggiornate automaticamente quando gli utenti passano o lasciano l'organizzazione.
-- **Conformità e governance degli indirizzi:** Azure AD supporta i log di controllo nativi per le richieste di provisioning degli utenti eseguite dalle app del sistema di origine e di destinazione. Con il controllo è possibile tenere traccia degli utenti che hanno accesso alle app da un'unica schermata.
-- **Gestione dei costi:** Il provisioning automatico riduce i costi evitando inefficienze ed errori umani associati al provisioning manuale. Riduce la necessità di soluzioni di provisioning utente personalizzate sviluppate nel tempo usando piattaforme legacy e obsolete.
+- **Aumentare la produttività:** È ora possibile automatizzare l'assegnazione di account utente e licenze di Office 365 e fornire l'accesso ai gruppi chiave. L'automazione delle assegnazioni consente ai nuovi assunti di accedere immediatamente ai propri strumenti di lavoro e aumenta la produttività.
+- **Gestire i rischi:** È possibile aumentare la sicurezza automatizzando le modifiche in base allo stato dei dipendenti o alle appartenenze ai gruppi con i dati che vengono riprodotti dall'app HR cloud. L'automazione delle modifiche garantisce che le identità utente e l'accesso alle app chiave vengano aggiornati automaticamente quando gli utenti passano la transizione o escono dall'organizzazione.
+- **Affrontare la conformità e la governance:** Azure AD supporta i log di controllo nativi per le richieste di provisioning degli utenti eseguite dalle app dei sistemi di origine e di destinazione. Con il controllo, è possibile tenere traccia di chi ha accesso alle app da un'unica schermata.
+- **Gestire i costi:** Il provisioning automatico riduce i costi evitando inefficienze ed errori umani associati al provisioning manuale. Riduce la necessità di soluzioni di provisioning degli utenti sviluppate su misura create nel tempo utilizzando piattaforme legacy e obsolete.
 
 ### <a name="licensing"></a>Gestione delle licenze
 
-Per configurare l'app HR cloud per Azure AD l'integrazione del provisioning degli utenti, è necessario disporre di una [licenza Azure ad Premium](https://azure.microsoft.com/pricing/details/active-directory/) valida e di una licenza per l'app HR cloud, ad esempio giornata lavorativa o SuccessFactors.
+Per configurare l'app HR cloud per l'integrazione di provisioning degli utenti di Azure AD, è necessaria una licenza di Azure AD Premium valida e una licenza per l'app HR cloud, ad esempio Workday o SuccessFactors.To configure the cloud HR app to Azure AD user provisioning integration, you require a valid [Azure AD Premium license](https://azure.microsoft.com/pricing/details/active-directory/) and a license for the cloud HR app, such as Workday or SuccessFactors.
 
-È anche necessaria una licenza di sottoscrizione valida Azure AD Premium P1 o superiore per ogni utente che verrà originata dall'app Cloud HR ed eseguito il provisioning in Active Directory o Azure AD. Il numero di licenze non corrette possedute nell'app HR cloud potrebbe causare errori durante il provisioning dell'utente.
+È inoltre necessaria una licenza di sottoscrizione valida di Azure AD Premium P1 o superiore per ogni utente che verrà originato dall'app HR cloud e di cui è stato eseguito il provisioning in Active Directory o Azure AD. Qualsiasi numero improprio di licenze possedute nell'app cloud HR potrebbe causare errori durante il provisioning degli utenti.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerequisiti
 
-- Azure AD l'accesso amministratore globale per configurare l'agente di provisioning Azure AD Connect.
-- Un'istanza di test e produzione dell'app HR cloud.
-- Autorizzazioni di amministratore nell'app Cloud HR per creare un utente di integrazione del sistema e apportare modifiche ai dati dei dipendenti di test a scopo di test.
-- Per il provisioning degli utenti in Active Directory, è necessario un server che esegue Windows Server 2012 o versione successiva con .NET 4.7.1 + Runtime per ospitare l' [agente di provisioning di Azure ad Connect](https://go.microsoft.com/fwlink/?linkid=847801).
-- [Azure ad Connect](../hybrid/whatis-azure-ad-connect.md) per la sincronizzazione degli utenti tra Active Directory e Azure ad.
+- Accesso di amministratore globale di Azure AD per configurare l'agente di provisioning di Azure AD Connect.Azure AD global administrator access to configure the Azure AD Connect provisioning agent.
+- Un'istanza di test e produzione dell'app CLOUD HR.
+- Autorizzazioni di amministratore nell'app CLOUD HR per creare un utente di integrazione del sistema e apportare modifiche ai dati dei dipendenti a scopo di test.
+- Per il provisioning degli utenti in Active Directory, è necessario un server che esegue Windows Server 2012 o versione successiva con runtime di .NET 4.7.1 per ospitare l'agente di [provisioning di Azure AD Connect.](https://go.microsoft.com/fwlink/?linkid=847801)
+- [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) per la sincronizzazione degli utenti tra Active Directory e Azure AD.
 
-### <a name="training-resources"></a>Risorse di formazione
+### <a name="training-resources"></a>Risorse per la formazione
 
 | **Risorse** | **Collegamento e descrizione** |
 |:-|:-|
-| Video | [Che cos'è il provisioning utenti in Active Directory di Azure?](https://youtu.be/_ZjARPpI6NI) |
-| | [Come distribuire il provisioning utenti in Active Directory di Azure](https://youtu.be/pKzyts6kfrw) |
-| Esercitazioni | [Elenco delle esercitazioni sull'integrazione di app SaaS con Azure AD](../saas-apps/tutorial-list.md) |
-| | [Esercitazione: configurare la giornata lavorativa per il provisioning utenti automatico](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
+| Video | [Che cos'è il provisioning degli utenti in Active Azure Directory?](https://youtu.be/_ZjARPpI6NI) |
+| | [Come distribuire il provisioning degli utenti in Active Azure DirectoryHow to deploy user provisioning in Active Azure Directory](https://youtu.be/pKzyts6kfrw) |
+| Esercitazioni | [Elenco di esercitazioni su come integrare le app SaaS con Azure ADList of tutorials on how to integrate SaaS apps with Azure AD](../saas-apps/tutorial-list.md) |
+| | [Esercitazione: Configurare Workday per il provisioning utenti automatico](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
 | Domande frequenti | [Provisioning utenti automatizzato](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
-| | [Provisioning da giorni lavorativi a Azure AD](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
+| | [Provisioning da Workday ad Azure AD](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
 
 ### <a name="solution-architecture"></a>Architettura della soluzione
 
-Nell'esempio seguente viene descritta l'architettura della soluzione di provisioning degli utenti end-to-end per ambienti ibridi comuni e sono inclusi:
+L'esempio seguente descrive l'architettura della soluzione di provisioning degli utenti end-to-end per ambienti ibridi comuni e include:The following example describes the end-to-end user provisioning solution architecture for common hybrid environments and includes:
 
-- **Flusso di dati HR autorevole dall'app Cloud HR al Active Directory.** In questo flusso, l'evento HR (Joiner-Movers-Leavers-processo) viene avviato nel tenant cloud HR app. Il servizio di provisioning Azure AD e l'agente di provisioning di Azure AD Connect effettuano il provisioning dei dati utente dal tenant dell'app HR cloud al Active Directory. A seconda dell'evento, può comportare operazioni di creazione, aggiornamento, abilitazione e disabilitazione in Active Directory.
-- **Sincronizzare con Azure AD e scrivere di nuovo il messaggio di posta elettronica e il nome utente dall'Active Directory locale all'app Cloud HR.** Dopo l'aggiornamento degli account in Active Directory, questo viene sincronizzato con Azure AD tramite Azure AD Connect. Gli indirizzi di posta elettronica e gli attributi del nome utente possono essere riscritti nel tenant dell'app HR cloud.
+- **Flusso di dati HR autorevoli dall'app CLOUD HR ad Active Directory.** In questo flusso, l'evento HR (processo Joiners-Movers-Leavers) viene avviato nel tenant dell'app HR cloud. Il servizio di provisioning di Azure AD e l'agente di provisioning di Azure AD Connect effettuano il provisioning dei dati utente dal tenant dell'app HR cloud in Active Directory. A seconda dell'evento, potrebbe portare a creare, aggiornare, abilitare e disabilitare le operazioni in Active Directory.
+- **Eseguire la sincronizzazione con Azure AD e scrivere la posta elettronica e il nome utente da Active Directory locale all'app HR cloud.** Dopo l'aggiornamento degli account in Active Directory, viene sincronizzato con Azure AD tramite Azure AD Connect.After the accounts are updated in Active Directory, it's synced with Azure AD through Azure AD Connect. Gli indirizzi di posta elettronica e gli attributi del nome utente possono essere riscritti nel tenant dell'app HR cloud.
 
 ![Diagramma del flusso di lavoro](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img1.png)
 
 #### <a name="description-of-workflow"></a>Descrizione del flusso di lavoro
 
-Nel diagramma sono indicati i passaggi principali seguenti:  
+Nel diagramma sono indicati i seguenti passaggi chiave:  
 
-1. Il **team HR** esegue le transazioni nel tenant del cloud HR app.
-2. **Azure ad servizio di provisioning** esegue i cicli pianificati dal tenant dell'app HR cloud e identifica le modifiche che devono essere elaborate per la sincronizzazione con Active Directory.
-3. **Azure ad servizio di provisioning** richiama l'agente di provisioning di Azure ad Connect con un payload di richiesta che contiene Active Directory operazioni di creazione, aggiornamento, abilitazione e disabilitazione dell'account.
-4. **Azure ad Connect agente di provisioning** utilizza un account del servizio per gestire i dati dell'account di Active Directory.
-5. **Azure ad Connect** esegue la [sincronizzazione](../hybrid/how-to-connect-sync-whatis.md) Delta per eseguire il pull degli aggiornamenti in Active Directory.
-6. **Active Directory** gli aggiornamenti vengono sincronizzati con Azure ad.
-7. Il **servizio di provisioning di Azure ad** scrive gli attributi di posta elettronica e il nome utente da Azure ad al tenant dell'app HR cloud.
+1. **Il team HR** esegue le transazioni nel tenant dell'app HR cloud.
+2. Il servizio di provisioning di **Azure AD** esegue i cicli pianificati dal tenant dell'app HR cloud e identifica le modifiche che devono essere elaborate per la sincronizzazione con Active Directory.
+3. **Il servizio** di provisioning di Azure AD Richiede l'agente di provisioning di Azure AD Connect con un payload di richiesta che contiene le operazioni di creazione, aggiornamento, abilitazione e disabilitazione dell'account di Active Directory.Azure AD provisioning service invokes the Azure AD Connect provisioning agent with a request payload that contains Active Directory account create, update, enable, and disable operations.
+4. **L'agente** di provisioning di Azure AD Connect usa un account del servizio per gestire i dati dell'account di Active Directory.Azure AD Connect provisioning agent uses a service account to manage Active Directory account data.
+5. **Azure AD Connect** esegue la [sincronizzazione](../hybrid/how-to-connect-sync-whatis.md) delta per eseguire il pull degli aggiornamenti in Active Directory.Azure AD Connect runs delta sync to pull updates in Active Directory.
+6. **Gli** aggiornamenti di Active Directory vengono sincronizzati con Azure AD.
+7. Il servizio di provisioning di **Azure AD** esegue il writeback dell'attributo di posta elettronica e del nome utente da Azure AD al tenant dell'app HR cloud.
 
 ## <a name="plan-the-deployment-project"></a>Pianificare il progetto di distribuzione
 
-Prendere in considerazione le esigenze organizzative quando si determina la strategia per la distribuzione nell'ambiente in uso.
+Considerare le esigenze dell'organizzazione mentre si determina la strategia per questa distribuzione nell'ambiente.
 
-### <a name="engage-the-right-stakeholders"></a>Coinvolgere gli stakeholder appropriati
+### <a name="engage-the-right-stakeholders"></a>Coinvolgi le parti interessate giuste
 
-Quando i progetti tecnologici hanno esito negativo, in genere lo fanno a causa di una mancata corrispondenza delle aspettative su conseguenze, risultati e responsabilità. Per evitare questi problemi, [assicurarsi di coinvolgere gli stakeholder appropriati](https://aka.ms/deploymentplans). Assicurarsi inoltre che i ruoli stakeholder nel progetto siano ben noti. Documentare le parti interessate e i rispettivi input e responsabilità del progetto.
+Quando i progetti tecnologici falliscono, in genere lo fanno a causa di aspettative non corrispondenti su impatto, risultati e responsabilità. Per evitare queste insidie, [assicurati di coinvolgere le parti interessate giuste.](https://aka.ms/deploymentplans) Assicurarsi inoltre che i ruoli delle parti interessate nel progetto siano ben compresi. Documentare le parti interessate e il loro input e responsabilità del progetto.
 
-Includere un rappresentante dell'organizzazione HR che può fornire input sui processi aziendali HR esistenti e sull'identità del ruolo di lavoro, oltre ai requisiti di elaborazione dei dati dei processi.
+Includere un rappresentante dell'organizzazione HR in grado di fornire input sui processi aziendali HR esistenti e sull'identità dei lavoratori, oltre ai requisiti di elaborazione dei dati dei processi.
 
 ### <a name="plan-communications"></a>Pianificare le comunicazioni
 
-La comunicazione è fondamentale per il successo di un nuovo servizio. Comunica in modo proattivo con gli utenti in merito a quando e come la loro esperienza cambierà. Informare gli utenti su come ottenere supporto se si verificano problemi.
+La comunicazione è fondamentale per il successo di ogni nuovo servizio. Comunica in modo proattivo con gli utenti quando e come cambierà la loro esperienza. Far loro sapere come ottenere supporto se si verificano problemi.
 
 ### <a name="plan-a-pilot"></a>Pianificare un progetto pilota
 
-L'integrazione di processi aziendali HR e flussi di lavoro di identità dall'app Cloud HR ai sistemi di destinazione richiede una notevole quantità di convalida dei dati, trasformazione dei dati, pulizia dei dati e test end-to-end prima di poter distribuire la soluzione in produzione.
+L'integrazione dei processi aziendali HR e dei flussi di lavoro di identità dall'app HR cloud ai sistemi di destinazione richiede una notevole quantità di convalida dei dati, trasformazione dei dati, pulizia dei dati e test end-to-end prima di poter distribuire la soluzione nell'ambiente di produzione.
 
 Eseguire la configurazione iniziale in un [ambiente pilota](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) prima di ridimensionarla a tutti gli utenti nell'ambiente di produzione.
 
-## <a name="select-cloud-hr-provisioning-connector-apps"></a>Selezionare Cloud HR provisioning Connector Apps
+## <a name="select-cloud-hr-provisioning-connector-apps"></a>Seleziona le app del connettore di provisioning DELLE risorse umane cloud
 
-Per semplificare Azure AD il provisioning dei flussi di lavoro tra l'app Cloud HR e la Active Directory, è possibile aggiungere più app del connettore di provisioning dalla raccolta di app di Azure AD:
+Per facilitare il provisioning dei flussi di lavoro di Azure AD tra l'app CLOUD HR e Active Directory, è possibile aggiungere più app connettore di provisioning dalla raccolta di app di Azure AD:To facilitate Azure AD provisioning workflows between the cloud HR app and Active Directory, you can add multiple provisioning connector apps from the Azure AD app gallery:
 
-- **App HR cloud per il provisioning dell'utente Active Directory**: questa app del connettore di provisioning facilita il provisioning degli account utente dall'app HR cloud a un singolo dominio di Active Directory. Se sono presenti più domini, è possibile aggiungere un'istanza di questa app dalla raccolta di app di Azure AD per ogni dominio di Active Directory in cui è necessario effettuare il provisioning.
-- **App HR cloud per il provisioning utenti Azure ad**: Sebbene Azure ad Connect sia lo strumento da usare per sincronizzare Active Directory utenti Azure ad, questa app del connettore di provisioning può essere usata per semplificare il provisioning degli utenti solo cloud dall'app Cloud HR a un singolo tenant di Azure ad.
-- **Write-back cloud HR app**: questa app del connettore di provisioning facilita il writeback degli indirizzi di posta elettronica dell'utente da Azure ad all'app Cloud HR.
+- **App Cloud HR per**il provisioning degli utenti di Active Directory: questa app connettore di provisioning facilita il provisioning degli account utente dall'app HR cloud a un singolo dominio di Active Directory. Se sono presenti più domini, è possibile aggiungere un'istanza di questa app dalla raccolta di app di Azure AD per ogni dominio di Active Directory in cui è necessario effettuare il provisioning.
+- **Cloud HR app per**il provisioning degli utenti di Azure AD: mentre Azure AD Connect è lo strumento che deve essere usato per sincronizzare gli utenti di Active Directory con Azure AD, questa app connettore di provisioning può essere usata per facilitare il provisioning degli utenti solo cloud dall'app CLOUD HR a un singolo tenant di Azure AD.
+- **Write-back dell'app Cloud HR:** questa app connettore di provisioning facilita il writeback degli indirizzi di posta elettronica dell'utente da Azure AD all'app CLOUD HR.
 
-Ad esempio, l'immagine seguente elenca le app del connettore per la giornata lavorativa disponibili nella raccolta di app Azure AD.
+Ad esempio, l'immagine seguente elenca le app del connettore Workday disponibili nella raccolta di app di Azure AD.
 
-![Raccolta di app del portale di Azure Active Directory](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img2.png)
+![Raccolta di app del portale di Azure Active DirectoryAzure Active Directory portal app gallery](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img2.png)
 
-### <a name="decision-flow-chart"></a>Diagramma del flusso decisionale
+### <a name="decision-flow-chart"></a>Diagramma di flusso delle decisioni
 
-Usare il seguente diagramma di flusso decisionale per identificare le app di provisioning HR cloud rilevanti per il proprio scenario.
+Utilizzare il diagramma di flusso delle decisioni seguente per identificare le app di provisioning delle risorse umane cloud rilevanti per lo scenario.
 
-![Diagramma del flusso decisionale](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img3.png)
+![Diagramma di flusso delle decisioni](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img3.png)
 
 ## <a name="design-the-azure-ad-connect-provisioning-agent-deployment-topology"></a>Progettare la topologia di distribuzione dell'agente di provisioning di Azure AD Connect
 
-L'integrazione del provisioning tra l'app Cloud HR e Active Directory richiede quattro componenti:
+L'integrazione di provisioning tra l'app CLOUD HR e Active Directory richiede quattro componenti:
 
-- Tenant app Cloud HR
-- App del connettore di provisioning
-- Agente di provisioning di Azure AD Connect
+- Tenant dell'app Cloud HR
+- App connettore di provisioning
+- Agente di provisioning di Azure AD ConnectAzure AD Connect provisioning agent
 - Dominio di Active Directory
 
-La topologia di distribuzione dell'agente di provisioning di Azure AD Connect dipende dal numero di tenant di app HR cloud e Active Directory domini figlio che si intende integrare. Se si dispone di più domini Active Directory, dipende dal fatto che i domini Active Directory siano contigui [o non contigui](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/disjoint-namespace).
+La topologia di distribuzione dell'agente di provisioning di Azure AD Connect dipende dal numero di tenant di app HR cloud e domini figlio di Active Directory che si intende integrare. Se si dispone di più domini di Active Directory, dipende dal fatto che i domini di Active Directory siano contigui o [disgiunti](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/disjoint-namespace).
 
-In base alla decisione scelta, scegliere uno degli scenari di distribuzione:
+In base alla decisione, scegliere uno degli scenari di distribuzione:
 
-- Tenant di app HR per cloud singolo-> di destinazione di uno o più domini Active Directory figlio in una foresta trusted
-- Tenant di app HR Single cloud-> destinazione di più domini figlio in una foresta Active Directory non contigua
+- Tenant dell'app HR cloud singolo-> domini figlio singoli o multipli di Active Directory in una foresta trusted
+- Singolo tenant di app HR cloud: > di destinazione di più domini figlio in una foresta di Active Directory disgiunta
 
-### <a name="single-cloud-hr-app-tenant---target-single-or-multiple-active-directory-child-domains-in-a-trusted-forest"></a>Tenant di app HR per cloud singolo-> di destinazione di uno o più domini Active Directory figlio in una foresta trusted
+### <a name="single-cloud-hr-app-tenant---target-single-or-multiple-active-directory-child-domains-in-a-trusted-forest"></a>Tenant dell'app HR cloud singolo-> domini figlio singoli o multipli di Active Directory in una foresta trusted
 
-Si consiglia la configurazione di produzione seguente:
-
-|Requisito|Recommendation|
-|:-|:-|
-|Numero di agenti di provisioning Azure AD Connect da distribuire|Due (per la disponibilità elevata e il failover)
-|Numero di app del connettore di provisioning da configurare|Un'app per dominio figlio|
-|Host server per Azure AD Connect agente di provisioning|Windows 2012 R2 + con la linea di visibilità per i controller di dominio Active Directory geolocati</br>Può coesistere con Azure AD Connect servizio|
-
-![Flusso in agenti locali](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img4.png)
-
-### <a name="single-cloud-hr-app-tenant---target-multiple-child-domains-in-a-disjoint-active-directory-forest"></a>Tenant di app HR Single cloud-> destinazione di più domini figlio in una foresta Active Directory non contigua
-
-Questo scenario implica il provisioning degli utenti dall'app Cloud HR ai domini in foreste Active Directory non contigue.
-
-Si consiglia la configurazione di produzione seguente:
+Si consiglia la seguente configurazione di produzione:
 
 |Requisito|Recommendation|
 |:-|:-|
-|Numero di agenti di provisioning di Azure AD Connect da distribuire in locale|Due per foresta Active Directory non contigua|
-|Numero di app del connettore di provisioning da configurare|Un'app per dominio figlio|
-|Host server per Azure AD Connect agente di provisioning|Windows 2012 R2 + con la linea di visibilità per i controller di dominio Active Directory geolocati</br>Può coesistere con Azure AD Connect servizio|
+|Numero di agenti di provisioning di Azure AD Connect da distribuire|Due (per disponibilità elevata e failover)
+|Numero di app connettore di provisioning da configurare|Un'app per dominio figlio|
+|Host server per l'agente di provisioning di Azure AD Connect|Windows 2012 R2 con linea di vista ai controller di dominio di Active Directory geolocalizzati</br>Può coesistere con il servizio Azure AD ConnectCan coexist with Azure AD Connect service|
 
-![Foresta Active Directory non contigua del tenant dell'app HR Single cloud](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img5.png)
+![Flusso verso agenti locali](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img4.png)
 
-### <a name="azure-ad-connect-provisioning-agent-requirements"></a>Requisiti dell'agente di provisioning Azure AD Connect
+### <a name="single-cloud-hr-app-tenant---target-multiple-child-domains-in-a-disjoint-active-directory-forest"></a>Singolo tenant di app HR cloud: > di destinazione di più domini figlio in una foresta di Active Directory disgiunta
 
-L'app HR cloud per Active Directory soluzione di provisioning degli utenti richiede la distribuzione di uno o più agenti di provisioning di Azure AD Connect in server che eseguono Windows 2012 R2 o versione successiva. Il server deve avere almeno 4 GB di RAM e .NET 4.7.1 + Runtime. Verificare che il server host disponga dell'accesso di rete al dominio Active Directory di destinazione.
+Questo scenario prevede il provisioning degli utenti dall'app CLOUD HR a domini in foreste di Active Directory disgiunte.
 
-Per preparare l'ambiente locale, la configurazione guidata dell'agente di provisioning di Azure AD Connect registra l'agente con il tenant di Azure AD, [apre le porte](../manage-apps/application-proxy-add-on-premises-application.md#open-ports), [consente l'accesso agli URL](../manage-apps/application-proxy-add-on-premises-application.md#allow-access-to-urls)e supporta la [configurazione del proxy HTTPS in uscita](../saas-apps/workday-inbound-tutorial.md#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
+Si consiglia la seguente configurazione di produzione:
 
-L'agente di provisioning utilizza un account del servizio per comunicare con i domini Active Directory. Prima di installare l'agente, creare un account del servizio in Active Directory utenti e computer che soddisfino i requisiti seguenti:
+|Requisito|Recommendation|
+|:-|:-|
+|Numero di agenti di provisioning di Azure AD Connect da distribuire in localeNumber of Azure AD Connect provisioning agents to deploy on-premises|Due per foresta di Active Directory disgiunta|
+|Numero di app connettore di provisioning da configurare|Un'app per dominio figlio|
+|Host server per l'agente di provisioning di Azure AD Connect|Windows 2012 R2 con linea di vista ai controller di dominio di Active Directory geolocalizzati</br>Può coesistere con il servizio Azure AD ConnectCan coexist with Azure AD Connect service|
 
-- Una password senza scadenza
+![Singolo tenant app HR cloud disgiunto foresta di Active Directory](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img5.png)
+
+### <a name="azure-ad-connect-provisioning-agent-requirements"></a>Requisiti dell'agente di provisioning di Azure AD ConnectAzure AD Connect provisioning agent requirements
+
+L'app cloud HR per la soluzione di provisioning degli utenti di Active Directory richiede la distribuzione di uno o più agenti di provisioning di Azure AD Connect nei server che eseguono Windows 2012 R2 o versione successiva. I server devono disporre di almeno 4 GB di RAM e di runtime di .NET 4.7.1. Assicurarsi che il server host disponga dell'accesso di rete al dominio di Active Directory di destinazione.
+
+Per preparare l'ambiente locale, la configurazione guidata dell'agente di provisioning di Azure AD Connect registra l'agente con il tenant di Azure AD, [apre le porte](../manage-apps/application-proxy-add-on-premises-application.md#open-ports), consente [l'accesso agli URL](../manage-apps/application-proxy-add-on-premises-application.md#allow-access-to-urls)e supporta la configurazione del proxy HTTPS in [uscita.](../saas-apps/workday-inbound-tutorial.md#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication)
+
+L'agente di provisioning utilizza un account di servizio per comunicare con i domini di Active Directory. Prima di installare l'agente, creare un account di servizio in Utenti e computer di Active Directory che soddisfi i requisiti seguenti:
+
+- Una password che non scade
 - Autorizzazioni di controllo delegate per la lettura, la creazione, l'eliminazione e la gestione degli account utente
 
-È possibile selezionare i controller di dominio che devono gestire le richieste di provisioning. Se si dispone di diversi controller di dominio distribuiti geograficamente, installare l'agente di provisioning nello stesso sito dei controller di dominio preferiti. Questo posizionamento migliora l'affidabilità e le prestazioni della soluzione end-to-end.
+È possibile selezionare i controller di dominio che devono gestire le richieste di provisioning. Se si dispone di più controller di dominio distribuiti geograficamente, installare l'agente di provisioning nello stesso sito dei controller di dominio preferiti. Questo posizionamento migliora l'affidabilità e le prestazioni della soluzione end-to-end.
 
-Per la disponibilità elevata, è possibile distribuire più di un Azure AD Connect agente di provisioning. Registrare l'agente per gestire lo stesso set di domini Active Directory locali.
+Per la disponibilità elevata, è possibile distribuire più di un agente di provisioning di Azure AD Connect.For high availability, you can deploy more than one Azure AD Connect provisioning agent. Registrare l'agente per gestire lo stesso set di domini di Active Directory locali.
 
-## <a name="plan-scoping-filters-and-attribute-mapping"></a>Pianificare i filtri di ambito e il mapping degli attributi
+## <a name="plan-scoping-filters-and-attribute-mapping"></a>Pianificare i filtri di ambito e il mapping degli attributiPlan scoping filters and attribute mapping
 
-Quando si Abilita il provisioning dall'app HR cloud a Active Directory o Azure AD, il portale di Azure controlla i valori dell'attributo tramite il mapping degli attributi.
+Quando si abilita il provisioning dall'app CLOUD HR ad Active Directory o Azure AD, il portale di Azure controlla i valori degli attributi tramite il mapping degli attributi.
 
-### <a name="define-scoping-filters"></a>Definire i filtri di ambito
+### <a name="define-scoping-filters"></a>Definire i filtri di ambitoDefine scoping filters
 
-Usare i [filtri di ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) per definire le regole basate su attributi che determinano quali utenti devono essere sottoposti a provisioning dall'app HR cloud per Active Directory o Azure ad.
+Usare i filtri di [ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) per definire le regole basate sugli attributi che determinano quali utenti devono essere sottoposti a provisioning dall'app CLOUD HR ad Active Directory o Azure AD.
 
-Quando si avvia il processo di join, raccogliere i requisiti seguenti:
+Quando si avvia il processo Joiner, raccogliere i requisiti seguenti:When you initiate the Joiners process, gather the following requirements:
 
-- L'app per le risorse umane cloud è usata per portare a bordo i dipendenti e i lavoratori condizionali?
-- Si prevede di usare l'app Cloud HR per Azure AD il provisioning degli utenti per gestire i dipendenti e i lavoratori condizionali?
-- Si prevede di implementare l'app Cloud HR per Azure AD il provisioning degli utenti solo per un subset di utenti dell'app Cloud HR? Un esempio può essere costituito solo da dipendenti.
+- L'app cloud HR viene utilizzata per coinvolgere sia i dipendenti che i lavoratori contingenti?
+- Si prevede di usare l'app per le risorse umane cloud per il provisioning degli utenti di Azure AD per gestire sia i dipendenti che i lavoratori contingenti?
+- Si prevede di implementare l'app HR cloud per il provisioning degli utenti di Azure AD solo per un sottoinsieme degli utenti dell'app HR cloud? Un esempio potrebbe essere solo dipendenti.
 
-A seconda dei requisiti, quando si configurano i mapping degli attributi, è possibile impostare il campo **ambito dell'oggetto di origine** in modo da selezionare i set di utenti nell'app Cloud HR nell'ambito per il provisioning in Active Directory. Per altre informazioni, vedere l'esercitazione cloud HR app per i filtri di ambito comunemente usati.
+A seconda dei requisiti, quando si configurano i mapping degli attributi, è possibile impostare il campo **Ambito oggetto** di origine per selezionare i set di utenti nell'app HR cloud che devono essere nell'ambito per il provisioning in Active Directory. Per altre informazioni, vedere l'esercitazione sull'app CLOUD HR per i filtri di ambito di uso comune.
 
 ### <a name="determine-matching-attributes"></a>Determinare gli attributi corrispondenti
 
-Con il provisioning, è possibile trovare la corrispondenza con gli account esistenti tra il sistema di origine e quello di destinazione. Quando si integra l'app Cloud HR con il servizio di provisioning di Azure AD, è possibile [configurare il mapping degli attributi](../app-provisioning/configure-automatic-user-provisioning-portal.md#mappings) per determinare quali dati utente devono fluire dall'app HR cloud a Active Directory o Azure ad.
+Con il provisioning, è possibile abbinare gli account esistenti tra il sistema di origine e quello di destinazione. Quando si integra l'app HR cloud con il servizio di provisioning di Azure AD, è possibile [configurare](../app-provisioning/configure-automatic-user-provisioning-portal.md#mappings) il mapping degli attributi per determinare quali dati utente devono essere trasportati dall'app HR cloud ad Active Directory o Azure AD.
 
-Quando si avvia il processo di join, raccogliere i requisiti seguenti:
+Quando si avvia il processo Joiner, raccogliere i requisiti seguenti:When you initiate the Joiners process, gather the following requirements:
 
-- Qual è l'ID univoco in questa app Cloud HR usato per identificare ogni utente?
-- Dal punto di vista del ciclo di vita delle identità, come si gestiscono i riassunti? I riassunti mantengono gli ID dei dipendenti precedenti?
-- Si elaborano assunzioni future con data e si creano in anticipo Active Directory account?
-- Dal punto di vista del ciclo di vita delle identità, come si gestisce la conversione dei dipendenti da un lavoratore condizionale o in caso contrario?
+- Qual è l'ID univoco in questa app CLOUD HR usata per identificare ogni utente?
+- Dal punto di vista del ciclo di vita dell'identità, come si gestiscono i reliquie? Le riassunzioni mantengono i vecchi ID dipendente?
+- Elaborano le assunzioni con data futura e create account Active Directory per loro in anticipo?
+- Dal punto di vista del ciclo di vita dell'identità, come si gestisce il dipendente alla conversione contingente dei lavoratori o in altro modo?
 - Gli utenti convertiti mantengono i vecchi account di Active Directory o ne ottengono di nuovi?
 
-A seconda dei requisiti, Azure AD supporta il mapping diretto da attributo a attributo fornendo valori costanti o [scrivendo espressioni per i mapping degli attributi](../app-provisioning/functions-for-customizing-application-data.md). Questa flessibilità consente di controllare in modo definitivo gli elementi popolati nell'attributo dell'app di destinazione. È possibile usare l' [API Microsoft Graph](../app-provisioning/export-import-provisioning-configuration.md) e Graph Explorer per esportare i mapping degli attributi e lo schema del provisioning degli utenti in un file JSON e importarli di nuovo in Azure ad.
+A seconda dei requisiti, Azure AD supporta il mapping diretto tra attributi e attributi fornendo valori costanti o [scrivendo espressioni per i mapping degli attributi.](../app-provisioning/functions-for-customizing-application-data.md) Questa flessibilità offre il controllo finale di ciò che viene popolato nell'attributo dell'app di destinazione. È possibile usare [l'API Microsoft Graph](../app-provisioning/export-import-provisioning-configuration.md) e Graph Explorer per esportare i mapping e lo schema degli attributi di provisioning degli utenti in un file JSON e importarlo nuovamente in Azure AD.
 
-Per impostazione predefinita, l'attributo nell'app Cloud HR che rappresenta l'ID dipendente univoco viene usato come attributo corrispondente *mappato all'attributo univoco in Active Directory.* Ad esempio, nello scenario di app per la giornata lavorativa viene eseguito il mapping dell'attributo **WorkerID** di **giornata lavorativa** all'attributo Active Directory **EmployeeID** .
+Per impostazione predefinita, l'attributo nell'app CLOUD HR che rappresenta l'ID dipendente univoco viene utilizzato come attributo corrispondente *mappato all'attributo univoco in Active Directory.* Ad esempio, nello scenario dell'app Workday, l'attributo **WorkerID** **Workday** viene mappato all'attributo **employeeID** di Active Directory.
 
-È possibile impostare più attributi corrispondenti e assegnare la precedenza corrispondente. Sono valutati in base alla precedenza corrispondente. Quando viene rilevata una corrispondenza la valutazione degli attributi corrispondenti termina.
+È possibile impostare più attributi corrispondenti e assegnare la precedenza corrispondente. Vengono valutati in base alla precedenza corrispondente. Quando viene rilevata una corrispondenza la valutazione degli attributi corrispondenti termina.
 
-È anche possibile [personalizzare i mapping degli attributi predefiniti](../app-provisioning/customize-application-attributes.md#understanding-attribute-mapping-types), ad esempio modificando o eliminando i mapping degli attributi esistenti. È anche possibile creare nuovi mapping degli attributi in base alle esigenze aziendali. Per altre informazioni, vedere l'esercitazione cloud HR app (ad esempio, [giornata lavorativa](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)) per un elenco di attributi personalizzati di cui eseguire il mapping.
+È inoltre possibile [personalizzare i mapping di attributi predefiniti,](../app-provisioning/customize-application-attributes.md#understanding-attribute-mapping-types)ad esempio la modifica o l'eliminazione di mapping di attributi esistenti. È inoltre possibile creare nuovi mapping di attributi in base alle esigenze aziendali. Per altre informazioni, vedere l'esercitazione sull'app HR cloud (ad esempio [Workday](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)) per un elenco di attributi personalizzati di cui eseguire il mapping.
 
 ### <a name="determine-user-account-status"></a>Determinare lo stato dell'account utente
 
 Per impostazione predefinita, l'app del connettore di provisioning esegue il mapping dello stato del profilo utente HR allo stato dell'account utente in Active Directory o Azure AD per determinare se abilitare o disabilitare l'account utente.
 
-Quando si avvia il processo di Joiner-Leavers, raccogliere i requisiti seguenti.
+Quando si avvia il processo Joiners-Leavers, raccogliere i requisiti seguenti.
 
 | Process | Requisiti |
 | - | - |
-| **Falegnami** | Dal punto di vista del ciclo di vita delle identità, come si gestiscono i riassunti? I riassunti mantengono gli ID dei dipendenti precedenti? |
-| | Si elaborano assunzioni future con data e si creano in anticipo Active Directory account? Questi account vengono creati in uno stato abilitato o disabilitato? |
-| | Dal punto di vista del ciclo di vita delle identità, come si gestisce la conversione dei dipendenti da un lavoratore condizionale o in caso contrario? |
+| **Falegnami** | Dal punto di vista del ciclo di vita dell'identità, come si gestiscono i reliquie? Le riassunzioni mantengono i vecchi ID dipendente? |
+| | Elaborano le assunzioni con data futura e create account Active Directory per loro in anticipo? Questi account vengono creati in uno stato abilitato o disabilitato? |
+| | Dal punto di vista del ciclo di vita dell'identità, come si gestisce il dipendente alla conversione contingente dei lavoratori o in altro modo? |
 | | Gli utenti convertiti mantengono i vecchi account di Active Directory o ne ottengono di nuovi? |
-| **Che** | Le terminazioni sono gestite in modo diverso per i dipendenti e i ruoli di lavoro contingente in Active Directory? |
-| | Quali date effettive vengono considerate per l'elaborazione della terminazione utente? |
-| | In che modo le conversioni dei dipendenti e dei lavoratori condizionali influiscono sugli account di Active Directory esistenti? |
-| | In che modo è possibile elaborare l'operazione di revoca in Active Directory? È necessario gestire le operazioni di annullamento se i assunzioni con data successiva vengono creati in Active Directory come parte del processo di join. |
+| **Lieviti** | Le terminazioni vengono gestite in modo diverso per i dipendenti e i lavoratori contingenti in Active Directory? |
+| | Quali date di validità vengono considerate per l'elaborazione della cessazione dell'utente? |
+| | In che modo le conversioni dei dipendenti e dei lavoratori contingenti influiscono sugli account di Active Directory esistenti? |
+| | Come si elabora l'operazione Rescind in Active Directory? Le operazioni di revoca devono essere gestite se le assunzioni datate future vengono create in Active Directory come parte del processo Joiner. |
 
-A seconda dei requisiti, è possibile personalizzare la logica di mapping usando le [espressioni Azure ad](../app-provisioning/functions-for-customizing-application-data.md) in modo che l'account Active Directory venga abilitato o disabilitato in base a una combinazione di punti dati.
+A seconda dei requisiti, è possibile personalizzare la logica di mapping usando le espressioni di [Azure AD](../app-provisioning/functions-for-customizing-application-data.md) in modo che l'account di Active Directory sia abilitato o disabilitato in base a una combinazione di punti dati.
 
-### <a name="map-cloud-hr-app-to-active-directory-user-attributes"></a>Mappare le app HR cloud a Active Directory attributi utente
+### <a name="map-cloud-hr-app-to-active-directory-user-attributes"></a>Mappare l'app HR cloud agli attributi utente di Active Directory
 
-Ogni app HR cloud viene fornita con app Cloud HR predefinite per Active Directory mapping.
+Ogni app CLOUD HR viene fornita con l'app CLOUD HR predefinita per i mapping di Active Directory.
 
-Quando si avvia il processo di Joiners-Movers-Leavers, raccogliere i requisiti seguenti.
+Quando si avvia il processo Joiners-Movers-Leavers, raccogliere i requisiti seguenti.
 
 | Process | Requisiti |
 | - | - |
-| **Falegnami** | Il processo di creazione dell'account Active Directory manuale, automatizzato o parzialmente automatizzato? |
-| | Si prevede di propagare gli attributi personalizzati dall'app HR cloud a Active Directory? |
-| **Motori** | Quali attributi si desidera elaborare ogni volta che un'operazione di spostamento viene eseguita nell'app HR cloud? |
-| | Vengono eseguite convalide di attributi specifici al momento dell'aggiornamento dell'utente? In caso affermativo, specificare i dettagli. |
-| **Che** | Le terminazioni sono gestite in modo diverso per i dipendenti e i ruoli di lavoro contingente in Active Directory? |
-| | Quali date effettive vengono considerate per l'elaborazione della terminazione utente? |
-| | In che modo le conversioni dei dipendenti e dei lavoratori condizionali influiscano sugli account di Active Directory esistenti? |
+| **Falegnami** | Il processo di creazione degli account di Active Directory è manuale, automatizzato o parzialmente automatizzato? |
+| | Si prevede di propagare gli attributi personalizzati dall'app cloud HR ad Active Directory? |
+| **Motori** | Quali attributi si desidera elaborare ogni volta che viene eseguita un'operazione Movers nell'app CLOUD HR? |
+| | Eseguire validazioni di attributi specifiche al momento degli aggiornamenti degli utenti? In caso affermativo, fornire i dettagli. |
+| **Lieviti** | Le terminazioni vengono gestite in modo diverso per i dipendenti e i lavoratori contingenti in Active Directory? |
+| | Quali date di validità vengono considerate per l'elaborazione della cessazione dell'utente? |
+| | In che modo le conversioni dei lavoratori dipendenti e dipendenti contingenti influiscono sugli account di Active Directory esistenti? |
 
-A seconda dei requisiti, è possibile modificare i mapping per soddisfare gli obiettivi di integrazione. Per altre informazioni, vedere l'esercitazione sull'app HR cloud specifica (ad esempio, [giornata lavorativa](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)) per un elenco di attributi personalizzati di cui eseguire il mapping.
+A seconda dei requisiti, è possibile modificare i mapping per soddisfare gli obiettivi di integrazione. Per altre informazioni, vedere l'esercitazione specifica sull'app HR cloud (ad esempio [Workday](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)) per un elenco di attributi personalizzati di cui eseguire il mapping.
 
-### <a name="generate-a-unique-attribute-value"></a>Genera un valore di attributo univoco
+### <a name="generate-a-unique-attribute-value"></a>Generare un valore di attributo univoco
 
-Quando si avvia il processo di join, potrebbe essere necessario generare valori di attributo univoci quando si impostano attributi come CN, samAccountName e UPN, che presenta vincoli univoci.
+Quando si avvia il processo Joiners, potrebbe essere necessario generare valori di attributo univoci quando si impostano attributi come CN, samAccountName e l'UPN, che dispone di vincoli univoci.
 
-La funzione Azure AD [SelectUniqueValues](../app-provisioning/functions-for-customizing-application-data.md#selectuniquevalue) valuta ogni regola e quindi controlla il valore generato per l'univocità nel sistema di destinazione. Per un esempio, vedere [generare un valore univoco per l'attributo userPrincipalName (UPN)](../app-provisioning/functions-for-customizing-application-data.md#generate-unique-value-for-userprincipalname-upn-attribute).
+La funzione di Azure AD [SelectUniqueValues](../app-provisioning/functions-for-customizing-application-data.md#selectuniquevalue) valuta ogni regola e quindi controlla il valore generato per verificare l'univocità nel sistema di destinazione. Per un esempio, vedere [Generare un valore univoco per l'attributo userPrincipalName (UPN).](../app-provisioning/functions-for-customizing-application-data.md#generate-unique-value-for-userprincipalname-upn-attribute)
 
 > [!NOTE]
-> Questa funzione è attualmente supportata solo per la giornata lavorativa Active Directory il provisioning degli utenti. Non può essere usato con altre app di provisioning.
+> Questa funzione è attualmente supportata solo per il provisioning degli utenti da Workday ad Active Directory. Non può essere usato con altre app di provisioning.
 
-### <a name="configure-active-directory-ou-container-assignment"></a>Configurare Active Directory assegnazione del contenitore OU
+### <a name="configure-active-directory-ou-container-assignment"></a>Configurare l'assegnazione del contenitore dell'unità organizzativa di Active Directory
 
-Si tratta di un requisito comune per inserire gli account utente Active Directory in contenitori basati su Business Unit, posizioni e reparti. Quando si avvia un processo di spostamento e in caso di modifica di un'organizzazione di supervisione, potrebbe essere necessario spostare l'utente da un'unità organizzativa a un'altra in Active Directory.
+È un requisito comune inserire gli account utente di Active Directory in contenitori in base a Business Unit, sedi e reparti. Quando si avvia un processo Movers e se viene apportata una modifica all'organizzazione di supervisione, potrebbe essere necessario spostare l'utente da un'unità organizzativa a un'altra in Active Directory.
 
-Utilizzare la funzione [Switch ()](../app-provisioning/functions-for-customizing-application-data.md#switch) per configurare la logica di business per l'assegnazione dell'unità organizzativa ed eseguirne il mapping all'attributo Active Directory **parentDistinguishedName**.
+Utilizzare la funzione [Switch()](../app-provisioning/functions-for-customizing-application-data.md#switch) per configurare la logica di business per l'assegnazione dell'unità organizzativa e mapparla all'attributo di Active Directory **parentDistinguishedName**.
 
-Se, ad esempio, si desidera creare utenti in un'unità organizzativa basata sul **comune**degli attributi HR, è possibile utilizzare l'espressione seguente:
+Ad esempio, se si desidera creare utenti in unità organizzative in base all'attributo HR **Municipality**, è possibile utilizzare l'espressione seguente:
 
 `
 Switch([Municipality], "OU=Default,OU=Users,DC=contoso,DC=com", "Dallas", "OU=Dallas,OU=Users,DC=contoso,DC=com", "Austin", "OU=Austin,OU=Users,DC=contoso,DC=com", "Seattle", "OU=Seattle,OU=Users,DC=contoso,DC=com", "London", "OU=London,OU=Users,DC=contoso,DC=com")
 `
 
-Con questa espressione, se il valore del comune è Dallas, Austin, Seattle o Londra, l'account utente verrà creato nell'unità organizzativa corrispondente. Se non esiste alcuna corrispondenza, l'account viene creato nell'unità organizzativa predefinita.
+Con questa espressione, se il valore di Municipalità è Dallas, Austin, Seattle o Londra, l'account utente verrà creato nell'unità organizzativa corrispondente. Se non c'è corrispondenza, l'account viene creato nell'unità organizzativa predefinita.
 
 ## <a name="plan-for-password-delivery-of-new-user-accounts"></a>Pianificare il recapito delle password di nuovi account utente
 
-Quando si avvia il processo di join, è necessario impostare e recapitare una password temporanea dei nuovi account utente. Con il servizio HR cloud per Azure AD il provisioning degli utenti, è possibile implementare la funzionalità di [reimpostazione Azure ad della password self-service](../authentication/quickstart-sspr.md) (SSPR) per l'utente nel primo giorno.
+Quando si avvia il processo Joiners, è necessario impostare e consegnare una password temporanea dei nuovi account utente. Con il provisioning degli utenti da monitoraggio e risorse umane di Azure AD, è possibile implementare la funzionalità di [reimpostazione della password self-service](../authentication/quickstart-sspr.md) (SSPR) di Azure AD per l'utente il primo giorno.
 
-SSPR è un modo semplice per gli amministratori IT di consentire agli utenti di reimpostare le password o sbloccare i propri account. È possibile eseguire il provisioning dell'attributo del **numero di cellulare** dall'app Cloud HR per Active Directory e sincronizzarlo con Azure ad. Dopo che l'attributo del **numero mobile** è Azure ad, è possibile abilitare SSPR per l'account dell'utente. Quindi, il primo giorno, il nuovo utente può usare il numero mobile registrato e verificato per l'autenticazione.
+SSPR è un mezzo semplice per gli amministratori IT per consentire agli utenti di reimpostare le password o sbloccare i propri account. È possibile eseguire il provisioning dell'attributo **Mobile Number** dall'app cloud HR ad Active Directory e sincronizzarlo con Azure AD. Dopo che l'attributo **Numero di cellulare** è in Azure AD, è possibile abilitare SSPR per l'account dell'utente. Poi, il primo giorno, il nuovo utente può utilizzare il numero di cellulare registrato e verificato per l'autenticazione.
 
 ## <a name="plan-for-initial-cycle"></a>Pianificare il ciclo iniziale
 
-Quando il servizio di provisioning Azure AD viene eseguito per la prima volta, viene eseguito un [ciclo iniziale](../app-provisioning/how-provisioning-works.md#initial-cycle) sull'app HR cloud per creare uno snapshot di tutti gli oggetti utente nell'app Cloud HR. Il tempo impiegato per i cicli iniziali dipende direttamente dal numero di utenti presenti nel sistema di origine. Il ciclo iniziale per alcuni tenant app Cloud HR con oltre 100.000 utenti può richiedere molto tempo.
+Quando il servizio di provisioning di Azure AD viene eseguito per la prima volta, esegue un [ciclo iniziale](../app-provisioning/how-provisioning-works.md#initial-cycle) sull'app HR cloud per creare uno snapshot di tutti gli oggetti utente nell'app HR cloud. Il tempo impiegato per i cicli iniziali dipende direttamente dal numero di utenti presenti nel sistema di origine. Il ciclo iniziale per alcuni tenant di app HR cloud con oltre 100.000 utenti può richiedere molto tempo.
 
-**Per i tenant cloud HR app di grandi dimensioni (> 30000 utenti),** eseguire il ciclo iniziale in fasi progressive. Avviare gli aggiornamenti incrementali solo dopo aver convalidato che gli attributi corretti siano impostati in Active Directory per diversi scenari di provisioning degli utenti. Seguire l'ordine qui.
+Per i tenant di app HR cloud di **grandi dimensioni (>30.000 utenti),** eseguire il ciclo iniziale in fasi progressive. Avviare gli aggiornamenti incrementali solo dopo aver verificato che gli attributi corretti vengono impostati in Active Directory per scenari di provisioning degli utenti diversi. Segui l'ordine qui.
 
 1. Eseguire il ciclo iniziale solo per un set limitato di utenti impostando il [filtro di ambito](#plan-scoping-filters-and-attribute-mapping).
-2. Verificare Active Directory il provisioning dell'account e i valori degli attributi impostati per gli utenti selezionati per la prima esecuzione. Se il risultato soddisfa le aspettative, espandere il filtro di ambito per includere progressivamente più utenti e verificare i risultati per la seconda esecuzione.
+2. Verificare il provisioning degli account di Active Directory e i valori degli attributi impostati per gli utenti selezionati per la prima esecuzione. Se il risultato soddisfa le aspettative, espandere il filtro di ambito per includere progressivamente più utenti e verificare i risultati per la seconda esecuzione.
 
-Quando si è soddisfatti dei risultati del ciclo iniziale per gli utenti di test, avviare gli [aggiornamenti incrementali](../app-provisioning/how-provisioning-works.md#incremental-cycles).
+Dopo essere soddisfatti dei risultati del ciclo iniziale per gli utenti di test, avviare [gli aggiornamenti incrementali.](../app-provisioning/how-provisioning-works.md#incremental-cycles)
 
 ## <a name="plan-testing-and-security"></a>Pianificare test e sicurezza
 
-In ogni fase della distribuzione dal progetto pilota iniziale tramite l'abilitazione del provisioning degli utenti, assicurarsi di verificare che i risultati siano quelli previsti e di controllare i cicli di provisioning.
+In ogni fase della distribuzione dal progetto pilota iniziale all'abilitazione del provisioning degli utenti, assicurarsi di testare che i risultati siano quelli previsti e di controllare i cicli di provisioning.
 
-### <a name="plan-testing"></a>Test del piano
+### <a name="plan-testing"></a>Pianificare i test
 
-Dopo aver configurato l'app HR cloud per Azure AD il provisioning degli utenti, eseguire i test case per verificare se la soluzione soddisfa i requisiti dell'organizzazione.
+Dopo aver configurato l'app HR cloud per il provisioning degli utenti di Azure AD, eseguire test case per verificare se questa soluzione soddisfa i requisiti dell'organizzazione.
 
 |Scenari|Risultati previsti|
 |:-|:-|
-|Il nuovo dipendente viene assunto nell'app Cloud HR.| -Viene effettuato il provisioning dell'account utente in Active Directory.</br>-L'utente può accedere alle app Active Directory-Domain ed eseguire le azioni desiderate.</br>-Se Azure AD Connect sincronizzazione è configurata, anche l'account utente viene creato nel Azure AD.
-|L'utente è terminato nell'app Cloud HR.|-L'account utente è disabilitato in Active Directory.</br>-L'utente non può accedere ad alcuna app aziendale protetta da Active Directory.
-|L'organizzazione di supervisione utente viene aggiornata nell'app Cloud HR.|In base al mapping degli attributi, l'account utente viene spostato da un'unità organizzativa a un'altra in Active Directory.|
-|HR aggiorna il responsabile dell'utente nell'app Cloud HR.|Il campo Manager in Active Directory viene aggiornato in modo da riflettere il nome del nuovo responsabile.|
-|HR riassume un dipendente in un nuovo ruolo.|Il comportamento dipende dal modo in cui l'app HR cloud è configurata per generare ID dipendente:</br>-Se il vecchio ID dipendente viene riutilizzato per una riassunzione, il connettore Abilita l'account Active Directory esistente per l'utente.</br>-Se il riassunzione ottiene un nuovo ID dipendente, il connettore crea un nuovo account di Active Directory per l'utente.|
-|HR converte il dipendente in un contratto di lavoro o viceversa.|Viene creato un nuovo account di Active Directory per il nuovo utente e l'account precedente viene disabilitato alla data effettiva della conversione.|
+|Il nuovo dipendente viene assunto nell'app CLOUD HR.| - Viene eseguito il provisioning dell'account utente in Active Directory.</br>- L'utente può accedere alle app del dominio di Active Directory ed eseguire le azioni desiderate.</br>- Se è configurata la sincronizzazione di Azure AD Connect, l'account utente viene creato anche in Azure AD.- If Azure AD Connect sync is configured, the user account also gets created in Azure AD.
+|L'utente viene terminato nell'app CLOUD HR.|- L'account utente è disabilitato in Active Directory.</br>- L'utente non può accedere ad tutte le app aziendali protette da Active Directory.
+|L'organizzazione di supervisione utente viene aggiornata nell'app cloud HR.|In base al mapping degli attributi, l'account utente si sposta da un'unità organizzativa a un'altra in Active Directory.|
+|HR aggiorna il responsabile dell'utente nell'app cloud HR.|Il campo manager in Active Directory viene aggiornato per riflettere il nome del nuovo responsabile.|
+|HR riaffiora un dipendente in un nuovo ruolo.|Il comportamento dipende dalla configurazione dell'app CLOUD HR per generare gli ID dei dipendenti:Behavior depends on how the cloud HR app is configured to generate employee IDs:</br>- Se il vecchio ID dipendente viene riutilizzato per una riassunzione, il connettore abilita l'account di Active Directory esistente per l'utente.</br>- Se la nuova assunzione ottiene un nuovo ID dipendente, il connettore crea un nuovo account di Active Directory per l'utente.|
+|HR converte il dipendente in un addetto al lavoro o viceversa.|Viene creato un nuovo account di Active Directory per la nuova persona e l'account precedente viene disabilitato alla data di validità della conversione.|
 
-Usare i risultati precedenti per determinare come eseguire la transizione dell'implementazione del provisioning utenti automatico in produzione in base alle tempistiche stabilite.
+Usa i risultati precedenti per determinare come eseguire la transizione dell'implementazione del provisioning automatico degli utenti nell'ambiente di produzione in base alle sequenze temporali stabilite.
 
 > [!TIP]
-> Usare tecniche quali la riduzione dei dati e lo scrubbing dei dati quando si aggiorna l'ambiente di test con i dati di produzione per rimuovere o mascherare i dati personali sensibili in conformità con gli standard di privacy e sicurezza. 
+> Utilizzare tecniche come la riduzione dei dati e lo scrubbing dei dati quando si aggiorna l'ambiente di test con i dati di produzione per rimuovere o mascherare i dati personali sensibili per soddisfare gli standard di privacy e sicurezza. 
 
 ### <a name="plan-security"></a>Pianificare la sicurezza
 
-Per la distribuzione di un nuovo servizio è in genere necessario eseguire una verifica della sicurezza. Se è richiesta o non è stata eseguita una verifica della sicurezza, vedere i molti Azure AD [white paper](https://www.microsoft.com/download/details.aspx?id=36391) che forniscono una panoramica dell'identità come servizio.
+È comune che una revisione della sicurezza sia necessaria come parte della distribuzione di un nuovo servizio. Se è necessaria o non è stata eseguita una revisione della sicurezza, vedere i numerosi [white paper](https://www.microsoft.com/download/details.aspx?id=36391) di Azure AD che forniscono una panoramica dell'identità come servizio.
 
-### <a name="plan-rollback"></a>Rollback del piano
+### <a name="plan-rollback"></a>Pianificare il rollback
 
-L'implementazione del provisioning utenti cloud HR potrebbe non funzionare nel modo desiderato nell'ambiente di produzione. In tal caso, i passaggi di rollback seguenti possono risultare utili per il ripristino di uno stato valido noto precedente.
+L'implementazione del provisioning degli utenti HR cloud potrebbe non funzionare come desiderato nell'ambiente di produzione. In tal caso, i passaggi di rollback seguenti possono essere utili per ripristinare uno stato valido noto precedente.
 
-1. Esaminare il [report di riepilogo del provisioning](../app-provisioning/check-status-user-account-provisioning.md#getting-provisioning-reports-from-the-azure-portal) e i [log di provisioning](../app-provisioning/check-status-user-account-provisioning.md#provisioning-logs-preview) per determinare le operazioni non corrette eseguite sugli utenti o sui gruppi interessati. Per altre informazioni sul report di riepilogo del provisioning e sui log, vedere [gestire il provisioning utenti dell'app HR cloud](#manage-your-configuration).
-2. L'ultimo stato valido noto degli utenti o dei gruppi interessati può essere determinato tramite i log di controllo del provisioning o rivedendo i sistemi di destinazione (Azure AD o Active Directory).
-3. Collaborare con il proprietario dell'app per aggiornare gli utenti o i gruppi interessati direttamente nell'app usando gli ultimi valori di stato validi noti.
+1. Esaminare il report di riepilogo del [provisioning](../app-provisioning/check-status-user-account-provisioning.md#getting-provisioning-reports-from-the-azure-portal) e i log di [provisioning](../app-provisioning/check-status-user-account-provisioning.md#provisioning-logs-preview) per determinare quali operazioni non corrette sono state eseguite sugli utenti o i gruppi interessati. Per altre informazioni sul report di riepilogo del provisioning e sui log, vedere Gestire il [provisioning degli utenti dell'app HR cloud.](#manage-your-configuration)
+2. L'ultimo stato valido noto degli utenti o dei gruppi interessati può essere determinato tramite i log di controllo del provisioning o esaminando i sistemi di destinazione (Azure AD o Active Directory).
+3. Collaborare con il proprietario dell'app per aggiornare gli utenti o i gruppi interessati direttamente nell'app usando gli ultimi valori di stato valido noti.
 
-## <a name="deploy-the-cloud-hr-app"></a>Distribuire l'app HR cloud
+## <a name="deploy-the-cloud-hr-app"></a>Distribuire l'app cloud HR
 
-Scegliere l'app Cloud HR allineata ai requisiti della soluzione.
+Scegli l'app CLOUD HR in linea con i requisiti della tua soluzione.
 
-**Giornata lavorativa**: per importare i profili di lavoro dalla giornata lavorativa a Active Directory e Azure ad, vedere [esercitazione: configurare la giornata lavorativa per il provisioning utenti automatico](../saas-apps/workday-inbound-tutorial.md#planning-your-deployment). Facoltativamente, è possibile scrivere nuovamente l'indirizzo di posta elettronica e il nome utente per la giornata lavorativa.
+**Workday:** per importare i profili dei lavoratori da Workday ad Active Directory e Azure AD, vedere [Esercitazione: Configurare Workday per](../saas-apps/workday-inbound-tutorial.md#planning-your-deployment)il provisioning automatico degli utenti. Facoltativamente, è possibile riscrivere l'indirizzo di posta elettronica e il nome utente in Workday.
 
 ## <a name="manage-your-configuration"></a>Gestire la configurazione
 
-Azure AD possibile fornire informazioni aggiuntive sull'utilizzo del provisioning degli utenti dell'organizzazione e sull'integrità operativa tramite i log di controllo e i report.
+Azure AD può fornire ulteriori informazioni sull'utilizzo del provisioning degli utenti e sull'integrità operativa dell'organizzazione tramite i log di controllo e i report.
 
-### <a name="gain-insights-from-reports-and-logs"></a>Ottenere informazioni dettagliate da report e log
+### <a name="gain-insights-from-reports-and-logs"></a>Ottieni informazioni dettagliate da report e log
 
-Dopo un [ciclo iniziale](../app-provisioning/how-provisioning-works.md#initial-cycle)riuscito, il servizio di provisioning Azure ad continua a eseguire aggiornamenti incrementali back-to-back a tempo indeterminato, a intervalli definiti nelle esercitazioni specifiche per ogni app, fino a quando non si verifica uno degli eventi seguenti:
+Dopo un [ciclo iniziale](../app-provisioning/how-provisioning-works.md#initial-cycle)riuscito, il servizio di provisioning di Azure AD continua a eseguire aggiornamenti incrementali back-to-back a tempo indeterminato, a intervalli definiti nelle esercitazioni specifiche per ogni app, fino a quando non si verifica uno degli eventi seguenti:
 
-- Il servizio è stato arrestato manualmente. Un nuovo ciclo iniziale viene attivato usando il [portale di Azure](https://portal.azure.com/) o il comando [API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) appropriato.
+- Il servizio viene arrestato manualmente. Un nuovo ciclo iniziale viene attivato tramite il portale di [Azure](https://portal.azure.com/) o il comando [API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) appropriato.
 - Un nuovo ciclo iniziale viene attivato a causa di una modifica nei mapping degli attributi o nei filtri di ambito.
-- Il processo di provisioning entra in quarantena a causa di una frequenza di errore elevata. Rimane in quarantena per più di quattro settimane, a quel punto viene disabilitata automaticamente.
+- Il processo di provisioning viene messo in quarantena a causa di un tasso di errore elevato. Rimane in quarantena per più di quattro settimane, quando viene disattivato automaticamente.
 
-Per esaminare questi eventi e tutte le altre attività eseguite dal servizio di provisioning, [informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md).
+Per esaminare questi eventi e tutte le altre attività eseguite dal servizio di provisioning, [vedere come esaminare i log e ottenere report sull'attività](../app-provisioning/check-status-user-account-provisioning.md)di provisioning.
 
 #### <a name="azure-monitor-logs"></a>Log di Monitoraggio di Azure
 
-Tutte le attività eseguite dal servizio di provisioning vengono registrate nei log di controllo Azure AD. È possibile instradare i log di controllo Azure AD ai log di monitoraggio di Azure per un'ulteriore analisi. Con i log di monitoraggio di Azure (noti anche come area di lavoro Log Analytics), è possibile eseguire query sui dati per individuare gli eventi, analizzare le tendenze ed eseguire la correlazione tra varie origini dati. Guarda questo [video](https://youtu.be/MP5IaCTwkQg) per scoprire i vantaggi derivanti dall'uso dei log di monitoraggio di Azure per i log Azure ad in scenari utente pratici.
+Tutte le attività eseguite dal servizio di provisioning vengono registrate nei log di controllo di Azure AD. È possibile instradare i log di controllo di Azure AD ai log di Monitoraggio di Azure per un'ulteriore analisi. Con i log di Monitoraggio di Azure (nota anche come area di lavoro log Analytics), è possibile eseguire query sui dati per trovare eventi, analizzare tendenze ed eseguire correlazioni tra varie origini dati. Guardare questo [video](https://youtu.be/MP5IaCTwkQg) per informazioni sui vantaggi dell'uso dei log di Monitoraggio di Azure per i log di Azure AD in scenari utente pratici.
 
-Installare le [visualizzazioni di log Analytics per Azure ad log attività](../reports-monitoring/howto-install-use-log-analytics-views.md) per ottenere l'accesso ai [report predefiniti](https://github.com/AzureAD/Deployment-Plans/tree/master/Log%20Analytics%20Views) relativi agli eventi di provisioning nell'ambiente.
+Installare le [visualizzazioni](../reports-monitoring/howto-install-use-log-analytics-views.md) di analisi dei log per i log attività di Azure AD per ottenere l'accesso [ai report predefiniti](https://github.com/AzureAD/Deployment-Plans/tree/master/Log%20Analytics%20Views) relativi agli eventi di provisioning nell'ambiente.
 
-Per altre informazioni, vedere come [analizzare i log attività di Azure ad con i log di monitoraggio di Azure](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md).
+Per altre informazioni, vedere come [analizzare i log](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md)attività di Azure AD con i log di Monitoraggio di Azure.For more information, see how to analyze the Azure AD activity logs with your Azure Monitor logs .
 
 ### <a name="manage-personal-data"></a>Gestire dati personali
 
-L'agente di provisioning di Azure AD Connect installato in Windows Server crea log nel registro eventi di Windows che potrebbero contenere dati personali a seconda dell'app HR cloud per Active Directory mapping degli attributi. Per rispettare gli obblighi relativi alla privacy degli utenti, configurare un'attività pianificata di Windows per cancellare il registro eventi e assicurarsi che i dati non vengano conservati oltre 48 ore.
+L'agente di provisioning di Azure AD Connect installato nel server Windows crea log nel log eventi di Windows che potrebbero contenere dati personali a seconda dell'app HR cloud per i mapping degli attributi di Active Directory.The Azure AD Connect provisioning agent installed on the Windows server creates logs in the Windows event log that might contain personal data depending on your cloud HR app to Active Directory attribute mappings. Per rispettare gli obblighi di privacy degli utenti, impostare un'attività pianificata di Windows per cancellare il registro eventi e assicurarsi che nessun dato venga mantenuto oltre le 48 ore.
 
-Azure AD servizio di provisioning non genera report, esegue analisi o fornisce informazioni dettagliate oltre 30 giorni, perché il servizio non archivia, elabora o mantiene i dati oltre i 30 giorni.
+Il servizio di provisioning di Azure AD non genera report, non esegue analisi o fornisce informazioni dettagliate oltre i 30 giorni perché il servizio non archivia, elabora o mantiene dati oltre 30 giorni.
 
-### <a name="troubleshoot"></a>Risolvere problemi
+### <a name="troubleshoot"></a>Risolvere i problemi
 
-Per risolvere eventuali problemi che potrebbero verificarsi durante il provisioning, vedere gli articoli seguenti:
+Per risolvere eventuali problemi che potrebbero verificarsi durante il provisioning, vedere gli articoli seguenti:To troubleshoot any issues that might turn up during provisioning, see the following articles:
 
-- [Problemi di configurazione del provisioning utenti in un'applicazione raccolta Azure AD](application-provisioning-config-problem.md)
-- [Sincronizzare un attributo dal Active Directory locale a Azure AD per il provisioning in un'applicazione](user-provisioning-sync-attributes-for-mapping.md)
-- [Il provisioning degli utenti in un'applicazione della raccolta Azure AD richiede ore o più](application-provisioning-when-will-provisioning-finish.md)
-- [Problem saving administrator credentials while configuring user provisioning to an Azure Active Directory Gallery application](application-provisioning-config-problem-storage-limit.md) (Problemi di salvataggio delle credenziali dell'amministratore durante la configurazione del provisioning utenti in un'applicazione della raccolta di Azure Active Directory)
-- [Nessun utente di cui è in corso il provisioning in un'applicazione raccolta Azure AD](application-provisioning-config-problem-no-users-provisioned.md)
-- [È in corso il provisioning di un set errato di utenti in un'applicazione raccolta Azure AD](application-provisioning-config-problem-wrong-users-provisioned.md)
+- [Problemi di configurazione del provisioning utenti in un'applicazione della raccolta di Azure AD](application-provisioning-config-problem.md)
+- [Sincronizzare un attributo da Active Directory locale ad Azure AD per il provisioning in un'applicazione](user-provisioning-sync-attributes-for-mapping.md)
+- [Il provisioning utenti per un'applicazione della raccolta di AD Azure richiede alcune ore o tempi maggiori](application-provisioning-when-will-provisioning-finish.md)
+- [Problemi di salvataggio delle credenziali dell'amministratore durante la configurazione del provisioning utenti in un'applicazione della raccolta di Azure Active Directory](application-provisioning-config-problem-storage-limit.md)
+- [Nessun utente è sottoposto a provisioning per un'applicazione della raccolta di Azure AD](application-provisioning-config-problem-no-users-provisioned.md)
+- [È in corso il provisioning di un set errato di utenti per un'applicazione della raccolta di Azure AD](application-provisioning-config-problem-wrong-users-provisioned.md)
 - [Configurazione di Visualizzatore eventi di Windows per la risoluzione dei problemi dell'agente](../saas-apps/workday-inbound-tutorial.md#setting-up-windows-event-viewer-for-agent-troubleshooting)
 - [Configurazione dei log di controllo del portale di Azure per la risoluzione dei problemi di servizio](../saas-apps/workday-inbound-tutorial.md#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
 - [Riconoscimento di log per operazioni di creazione per l'account utente di AD](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-ad-user-account-create-operations)
-- [Riconoscimento di log per operazioni di aggiornamento manager](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-manager-update-operations)
+- [Informazioni sui log per le operazioni di aggiornamento di ManagerUnderstanding logs for Manager update operations](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-manager-update-operations)
 - [Risoluzione degli errori più comuni](../saas-apps/workday-inbound-tutorial.md#resolving-commonly-encountered-errors)
 
 ### <a name="next-steps"></a>Passaggi successivi
 
-- [Scrittura di espressioni per i mapping degli attributi](functions-for-customizing-application-data.md)
+- [Scrittura di espressioni per i mapping di attributiWriting expressions for attribute mappings](functions-for-customizing-application-data.md)
 - [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) (Panoramica dell'API di sincronizzazione di Azure AD)
-- [Ignora l'eliminazione di account utente che non rientrano nell'ambito](skip-out-of-scope-deletions.md)
-- [Agente di provisioning di Azure AD Connect: cronologia delle versioni](provisioning-agent-release-version-history.md)
+- [Ignorare l'eliminazione degli account utente che escono dall'ambito](skip-out-of-scope-deletions.md)
+- [Agente di provisioning di Azure AD Connect: cronologia delle versioniAzure AD Connect Provisioning Agent: Version release history](provisioning-agent-release-version-history.md)

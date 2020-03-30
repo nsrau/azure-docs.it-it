@@ -1,16 +1,16 @@
 ---
 title: Creare un'app iOS
-description: Seguire questa esercitazione per iniziare a usare app per dispositivi mobili di Azure backend per lo sviluppo di iOS in Objective-C o SWIFT.
+description: Seguire questa esercitazione per iniziare a usare i back-end delle app per dispositivi mobili di Azure per lo sviluppo iOS in Objective-C o Swift.Follow this tutorial to get started with using Azure mobile app backends for iOS development in Objective-C or Swift.
 ms.assetid: 6461a899-9340-42dd-b118-ffc5ba00e846
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.openlocfilehash: 1b1114a22d33689f485aa228a8a1cf65eba719da
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461488"
 ---
 # <a name="create-an-ios-app"></a>Creare un'app iOS

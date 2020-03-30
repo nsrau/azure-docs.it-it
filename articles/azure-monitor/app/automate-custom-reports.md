@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
 ms.openlocfilehash: d91595a863901fcc420611ac644c7856e74320dd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77655124"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizzare i report personalizzati con i dati di Azure Application Insights
@@ -70,7 +70,7 @@ availabilityResults
 
 ## <a name="application-insights-scheduled-digest-report"></a>Report digest pianificato di Application Insights
 
-1. Nel portale di Azure selezionare **Crea una risorsa** > **Calcolo** > **App per le funzioni**.
+1. Nel portale di Azure selezionare Crea un'app**per**le funzioni di > **calcolo** >  **delle risorse.**
 
    ![Screenshot della creazione di un'app per le funzioni delle risorse di Azure](./media/automate-custom-reports/function-app-01.png)
 
@@ -78,16 +78,16 @@ availabilityResults
 
    ![Screenshot della creazione delle impostazioni di un'app per le funzioni delle risorse di Azure](./media/automate-custom-reports/function-app-02.png)
 
-3. Dopo avere completato la distribuzione dell'app per le funzioni, selezionare **Vai alla risorsa** .
+3. Dopo avere completato la distribuzione dell'app per le funzioni, selezionare **Vai alla risorsa **.
 
 4. Selezionare **Nuova funzione**.
 
    ![Screenshot della creazione di una nuova funzione](./media/automate-custom-reports/function-app-03.png)
 
-5. Selezionare il **_modello digest pianificato di Application Insights_** .
+5. Selezionare il **_modello digest pianificato di Application Insights_**.
 
      > [!NOTE]
-     > Per impostazione predefinita, le app per le funzioni vengono create con la versione 2. x del runtime. È necessario fare [riferimento al runtime di funzioni di Azure versione](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) **1. x** per usare il modello di digest pianificato Application Insights.  schermata di ![Runtime](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
+     > Per impostazione predefinita, le app per le funzioni vengono create con la versione di runtime 2.x.By default, function apps are created with runtime version 2.x. Per usare il modello digest pianificato di Application Insights è destinato al runtime di Funzioni di Azure.You must [target Azure Functions runtime version](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) **1.x** to use the Application Insights scheduled digest template.  ![schermata di runtime](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
 
 
 
@@ -97,7 +97,7 @@ availabilityResults
 
    ![Screenshot delle impostazioni dell'app per le funzioni](./media/automate-custom-reports/function-app-05.png)
 
-7. Selezionare **App per le funzioni** > **Funzionalità della piattaforma** > **Impostazioni applicazione**.
+7. Selezionare le**funzionalità** >  **della piattaforma di app** > per**le funzioni di funzione Impostazioni applicazione**.
 
     ![Screenshot delle impostazioni dell'app per le funzioni di Azure](./media/automate-custom-reports/function-app-07.png)
 
@@ -114,7 +114,7 @@ availabilityResults
      > [!NOTE]
      > Se non si dispone già di un account SendGrid, crearne uno. La documentazione di SendGrid per Funzioni di Azure è disponibile [qui ](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Per una spiegazione di base su come impostare SendGrid e generare una chiave API, leggere le informazioni in fondo a questo articolo. 
 
-9. Selezionare **Integra** e in Output fare clic su **SendGrid ($return)** .
+9. Selezionare **Integra** e in Output fare clic su **SendGrid ($return)**.
 
      ![Screenshot dell'output](./media/automate-custom-reports/function-app-09.png)
 
@@ -142,7 +142,7 @@ Questi passaggi sono validi solo se non è già stato configurato un account Sen
 
      ![Screenshot delle chiavi API delle impostazioni](./media/automate-custom-reports/function-app-14.png)
 
-3. Verrà avviato il sito di SendGrid. Selezionare **Impostazioni** > **Chiavi API**.
+3. Verrà avviato il sito di SendGrid. Selezionare **Impostazioni** > **chiavi API**.
 
      ![Screenshot della creazione e visualizzazione dell'app delle chiavi API](./media/automate-custom-reports/function-app-15.png)
 

@@ -16,10 +16,10 @@ ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: cenkdin;anilmur
 ms.openlocfilehash: 1d9d63aa6b3da1b8d8389722bd5af0eeed585d03
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77134964"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Usare il codificatore Wirecast per inviare un flusso live a velocità in bit singola. 
@@ -34,7 +34,7 @@ Questo articolo illustra come configurare il codificatore [Telestream Wirecast](
 In questa esercitazione viene illustrato come gestire Servizi multimediali di Azure (AMS) con lo strumento Azure Media Services Explorer (AMSE). Questo strumento può essere eseguito solo in PC Windows. Gli utenti di sistemi Mac o Linux possono usare il Portale di Azure per creare [canali](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programmi](media-services-portal-creating-live-encoder-enabled-channel.md).
 
 > [!NOTE]
-> I codificatori devono supportare TLS 1,2 quando si usano i protocolli RTMPS. Usare la versione Wirecast 13.0.2 o successiva a causa del requisito TLS 1,2.
+> I codificatori devono supportare TLS 1.2 quando si utilizzano protocolli RTMPS. Utilizzare la versione wirecast 13.0.2 o successiva a causa del requisito TLS 1.2.
 
 ## <a name="prerequisites"></a>Prerequisiti
 * [Creare un account Servizi multimediali di Azure](media-services-portal-create-account.md)
@@ -48,7 +48,7 @@ In questa esercitazione viene illustrato come gestire Servizi multimediali di Az
 * Se si usano codificatori basati su software, chiudere tutti i programmi non necessari.
 
 ## <a name="create-a-channel"></a>Creare un canale
-1. Nello strumento AMSE passare alla scheda **Live** e fare clic con il pulsante destro del mouse all'interno dell'area del canale. Scegliere **Create channel** dal menu.
+1. Nello strumento AMSE passare alla scheda **Live** e fare clic con il pulsante destro del mouse all'interno dell'area del canale. Scegliere **Create channel**  dal menu.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
@@ -65,14 +65,14 @@ In questa esercitazione viene illustrato come gestire Servizi multimediali di Az
 >
 >
 
-Durante l'avvio del canale è possibile [configurare il codificatore](media-services-configure-wirecast-live-encoder.md#configure_wirecast_rtmp).
+Durante l'avvio del canale, è possibile [configurare il codificatore](media-services-configure-wirecast-live-encoder.md#configure_wirecast_rtmp).
 
 > [!IMPORTANT]
 > La fatturazione inizia non appena il canale passa nello stato Pronto. Per altre informazioni, vedere [Stati del canale](media-services-manage-live-encoder-enabled-channels.md#states).
 >
 >
 
-## <a name="a-idconfigure_wirecast_rtmp-configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />Configurare il codificatore Telestream Wirecast
+## <a name="configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />Configurare il codificatore Telestream Wirecast
 In questa esercitazione vengono usate le seguenti impostazioni di output. Nel resto di questa sezione vengono descritti in maggiore dettaglio i passaggi di configurazione.
 
 **Video**:
@@ -97,14 +97,14 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 3. Fare clic su **OK**.
 4. Nella pagina delle impostazioni impostare il campo **Destinazione** su **Servizi multimediali di Azure**.
 
-    Il profilo di codifica è già pre-selezionato per **Azure H.264 720p 16:9 (1280x720)** . Per personalizzare queste impostazioni, selezionare l'icona raffigurante un ingranaggio a destra dell'elenco a discesa e poi scegliere **Nuovo predefinito**.
+    Il profilo di codifica è già pre-selezionato per **Azure H.264 720p 16:9 (1280x720)**. Per personalizzare queste impostazioni, selezionare l'icona raffigurante un ingranaggio a destra dell'elenco a discesa e poi scegliere **Nuovo predefinito**.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
 5. Configura le impostazioni predefinite del codificatore.
 
     Denominare il set di impostazioni e verificare le seguenti impostazioni consigliate:
 
-    **Video**
+    **Dei video**
 
    * Codificatore: MainConcept h. 264
    * Fotogrammi al secondo: 30
@@ -134,7 +134,7 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
 
-1. Scegliere **OK**.
+1. Selezionare **OK**.
 2. Nella schermata principale **Wirecast** confermare che le origini di input per video e audio sono pronte e quindi premere **Flusso** nell'angolo superiore sinistro.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)

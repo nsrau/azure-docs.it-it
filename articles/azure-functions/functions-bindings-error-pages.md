@@ -1,22 +1,22 @@
 ---
-title: Linee guida per la gestione degli errori in funzioni di Azure
-description: Informazioni su come gestire gli errori in funzioni di Azure con collegamenti a errori di binding specifici.
+title: Indicazioni sulla gestione degli errori di Funzioni di AzureAzure Functions error handling guidance
+description: Informazioni su come gestire gli errori in Funzioni di Azure con collegamenti a errori di associazione specifici.
 author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: cshoe
 ms.openlocfilehash: befdb4a8cceaef18961c1e9297e23ed5d405ff50
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77586190"
 ---
 # <a name="azure-functions-error-handling"></a>Gestione degli errori di Funzioni di Azure
 
-La gestione degli errori in funzioni di Azure è importante per evitare la perdita di dati, eventi mancanti e per monitorare l'integrità dell'applicazione.
+La gestione degli errori in Funzioni di Azure è importante per evitare perdite di dati, eventi persi e per monitorare l'integrità dell'applicazione.
 
-Questo articolo descrive le strategie generali per la gestione degli errori insieme ai collegamenti ad errori specifici dell'associazione.
+In questo articolo vengono descritte le strategie generali per la gestione degli errori insieme ai collegamenti agli errori specifici dell'associazione.
 
 ## <a name="handling-errors"></a>Gestione degli errori
 
@@ -24,7 +24,7 @@ Questo articolo descrive le strategie generali per la gestione degli errori insi
 
 ## <a name="binding-error-codes"></a>Codici degli errori di associazione
 
-Quando si esegue l'integrazione con i servizi di Azure, gli errori possono provenire dalle API dei servizi sottostanti. Le informazioni relative agli errori specifici dell'associazione sono disponibili nella sezione **eccezioni e codici restituiti** degli articoli seguenti:
+Durante l'integrazione con i servizi di Azure, gli errori possono derivare dalle API dei servizi sottostanti. Le informazioni relative agli errori specifici del binding sono disponibili nella sezione **Eccezioni e codici restituiti** dei seguenti articoli:
 
 + [Azure Cosmos DB](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 
@@ -32,9 +32,9 @@ Quando si esegue l'integrazione con i servizi di Azure, gli errori possono prove
 
 + [Hub eventi](functions-bindings-event-hubs-output.md#exceptions-and-return-codes)
 
-+ [Hub Internet](functions-bindings-event-iot-output.md#exceptions-and-return-codes)
++ [Hub IoT](functions-bindings-event-iot-output.md#exceptions-and-return-codes)
 
-+ [Hub di notifica di Azure](functions-bindings-notification-hubs.md#exceptions-and-return-codes)
++ [Hub di notifica](functions-bindings-notification-hubs.md#exceptions-and-return-codes)
 
 + [Archiviazione code](functions-bindings-storage-queue-output.md#exceptions-and-return-codes)
 

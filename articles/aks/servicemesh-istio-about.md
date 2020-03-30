@@ -1,46 +1,46 @@
 ---
 title: Panoramica di Istio
-description: Ottenere una panoramica di Istio
+description: Ottieni una panoramica di Istio
 author: paulbouwer
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 8518e30a54c2486abf84cd9ac026cc4dccb3fa84
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77593901"
 ---
 # <a name="istio"></a>Istio
 
 ## <a name="overview"></a>Panoramica
 
-[Istio][istio] è una mesh di servizi con funzionalità complete, personalizzabile ed estendibile.
+[Istio][istio] è una rete di servizi completa, personalizzabile ed estensibile.
 
 ## <a name="architecture"></a>Architecture
 
-Istio fornisce un piano dati composto da sidecar basati su [invio][envoy-proxy]. Questi proxy intelligenti controllano tutto il traffico di rete all'interno e all'esterno delle app e dei carichi di lavoro in rete.
+Istio fornisce un piano dati composto da sidecar basati su [Envoy.][envoy-proxy] Questi proxy intelligenti controllano tutto il traffico di rete in e in uscita dalle app e dai carichi di lavoro mesh.
 
 Il piano di controllo gestisce la configurazione, i criteri e i dati di telemetria tramite i [componenti][what-is-istio]seguenti:
 
-- **Mixer** : applica i criteri di controllo di accesso e di utilizzo. Raccoglie i dati di telemetria dai proxy di cui viene effettuato il push in [Prometheus][prometheus].
+- **Mixer** - Impone il controllo di accesso e i criteri di utilizzo. Raccoglie i dati di telemetria dai proxy inseriti in [Prometheus][prometheus].
 
-- **Progetto pilota** : fornisce la configurazione e i criteri di individuazione dei servizi e gestione del traffico per i proxy.
+- **Pilota:** fornisce criteri/configurazione per l'individuazione del servizio e la gestione del traffico per i proxy.
 
-- **Citadel** : fornisce funzionalità di identità e sicurezza che consentono MTLS tra i servizi.
+- **Citadel** - Fornisce funzionalità di identità e sicurezza che consentono mTLS tra i servizi.
 
-- **Cambusa** -abstracts e fornisce la configurazione ai componenti.
+- **Galley** - Astratti e fornisce la configurazione ai componenti.
 
-Il diagramma dell'architettura seguente illustra il modo in cui i vari componenti all'interno del piano dati e del piano di controllo interagiscono.
+Nel diagramma dell'architettura seguente viene illustrato l'interazione tra i vari componenti all'interno del piano dati e del piano di controllo.
 
 
-![Panoramica dei componenti e dell'architettura di Istio.](media/servicemesh/istio/about-architecture.png)
+![Panoramica dei componenti e dell'architettura Istio.](media/servicemesh/istio/about-architecture.png)
 
 
 ## <a name="selection-criteria"></a>Criteri di selezione
 
-Quando si valuta Istio per i carichi di lavoro, è importante comprendere e considerare le aree seguenti:
+È importante comprendere e considerare le aree seguenti quando si valuta Istio per i carichi di lavoro:It's important to understand and consider the following areas when evaluating Istio for your workloads:
 
 - [Obiettivi di progettazione](#design-goals)
 - [Capabilities](#capabilities)
@@ -49,49 +49,49 @@ Quando si valuta Istio per i carichi di lavoro, è importante comprendere e cons
 
 ### <a name="design-goals"></a>Obiettivi della progettazione
 
-Gli obiettivi di progettazione seguenti [guidano][design-goals] il progetto Istio:
+I seguenti obiettivi di progettazione [guidano][design-goals] il progetto Istio:
 
-- **Massimizza la trasparenza** : consente l'adozione con la quantità minima di lavoro per ottenere un valore reale dal sistema.
+- **Massimizza la trasparenza:** consente l'adozione con la quantità minima di lavoro per ottenere un valore reale dal sistema.
 
-- **Estensibilità** : deve essere in grado di crescere e adattarsi alle esigenze mutevoli.
+- **Estendibilità** - Deve essere in grado di crescere e adattarsi alle mutevoli esigenze.
 
-- **Portabilità** : è possibile eseguire facilmente in diversi tipi di ambienti: cloud, locale.
+- **Portabilità** - Esegui facilmente in diversi tipi di ambienti: cloud, locale.
 
-- **Uniformità dei criteri** : coerenza nella definizione dei criteri in diverse risorse.
+- **Uniformità politica** - Coerenza nella definizione delle politiche tra varie risorse.
 
 
 ### <a name="capabilities"></a>Capabilities
 
-In Istio è disponibile il set di funzionalità seguente:
+Istio fornisce il seguente set di funzionalità:
 
-- **Mesh** : Gateway (multicluster), macchine virtuali (espansione mesh)
+- **Mesh** – gateway (multi-cluster), macchine virtuali (espansione mesh)
 
-- **Gestione del traffico** -routing, suddivisione, timeout, interruttori, tentativi, ingresso, in uscita
+- **Gestione del traffico:** routing, divisione, timeout, interruttori di circuito, tentativi, ingresso, uscita
 
-- **Criteri** : controllo di accesso, limite di velocità, quota, adattatori di criteri personalizzati
+- **Criterio:** controllo dell'accesso, limite di frequenza, quota, adattatori criteri personalizzati
 
-- **Sicurezza** -autenticazione (JWT), autorizzazione, crittografia (MTLS), CA esterna (HashiCorp Vault)
+- **Sicurezza** – autenticazione (jwt), autorizzazione, crittografia (mTLS), CA esterna (HashiCorp Vault)
 
-- **Osservabilità** : metrica dorata, mirror, traccia, adapter personalizzati, Prometeo, grafana
+- **Osservabilità** – metriche dorate, specchio, tracciamento, adattatori personalizzati, prometeo, grafana
 
 ### <a name="scenarios"></a>Scenari
 
-Istio è particolarmente adatto e consigliato per gli scenari seguenti:
+Istio è adatto e consigliato per i seguenti scenari:
 
-- Richiedi estendibilità e set completo di funzionalità
+- Richiedi estendibilità e rich set di funzionalità
 
-- Espansione mesh per includere i carichi di lavoro basati su VM
+- Espansione mesh per includere carichi di lavoro basati su VMMesh expansion to include VM based workloads
 
-- Mesh di servizi con più cluster
+- Mesh del servizio multi-cluster
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-La documentazione seguente descrive come installare Istio in Azure Kubernetes Service (AKS):
+La documentazione seguente descrive come installare Istio nel servizio Kubernetes di Azure:The following documentation describes how you can install Istio on Azure Kubernetes Service (AKS):
 
 > [!div class="nextstepaction"]
-> [Installare Istio nel servizio Azure Kubernetes (AKS)][istio-install]
+> [Installare Istio nel servizio Azure Kubernetes][istio-install]
 
-È anche possibile esplorare ulteriormente i concetti relativi a Istio e altri modelli di distribuzione:
+È inoltre possibile esplorare ulteriormente i concetti di Istio e i modelli di distribuzione aggiuntivi:You can also further explore Istio concepts and additional deployment models:
 
 - [Concetti di Istio][what-is-istio]
 - [Modelli di distribuzione Istio][deployment-models]

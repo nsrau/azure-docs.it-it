@@ -1,5 +1,5 @@
 ---
-title: Configurare app SaaS per la collaborazione B2B-Azure AD
+title: Configurare le app SaaS per la collaborazione B2B - Azure ADConfigure SaaS apps for B2B collaboration - Azure AD
 description: Codici ed esempi di PowerShell per Collaborazione B2B in Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7c73a14c2a8cd063672bd0998368ca660f52cd5a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74272942"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configurare app SaaS per Collaborazione B2B
@@ -54,7 +54,7 @@ Per consentire agli utenti di accedere con il proprio account aziendale, è nece
 
 5. Accedere a Dropbox con l'URL di accesso della pagina **Single Sign-On**.
 
-   ![Screenshot che mostra la pagina di accesso di Dropbox](media/configure-saas-apps/sign-in-to-dropbox.png)
+   ![Screenshot della pagina di accesso di Dropbox](media/configure-saas-apps/sign-in-to-dropbox.png)
 
 6. Nel menu selezionare **Admin Console** (Console di amministrazione).
 
@@ -79,14 +79,14 @@ Al termine della configurazione nell'app Dropbox, gli utenti guest o membro rice
 
 2. Configurare l'accesso Single Sign-On nell'ordine seguente:
 
-   ![Screenshot che illustra le impostazioni di configurazione di Single Sign-On](media/configure-saas-apps/configure-box-sso.png)
+   ![Screenshot che mostra le impostazioni di configurazione del servizio Single Sign-on](media/configure-saas-apps/configure-box-sso.png)
 
-   a. Nella casella **URL di accesso** assicurarsi che l'URL di accesso sia impostato correttamente per Box nel portale di Azure. Si tratta dell'URL del tenant di Box.com e deve seguire la convenzione di denominazione *https://.box.com* .  
+   a. Nella casella **URL di accesso** assicurarsi che l'URL di accesso sia impostato correttamente per Box nel portale di Azure. Si tratta dell'URL del tenant di Box.com Deve seguire la *https://.box.com*convenzione di denominazione .  
    Il campo **Identificatore** non si applica a questa app, ma viene comunque visualizzato come obbligatorio.
 
    b. Nella casella **Identificatore utente** immettere **user.mail** (per l'accesso SSO per account guest).
 
-   C. In **Certificato di firma SAML** fare clic su **Crea nuovo certificato**.
+   c. In **Certificato di firma SAML** fare clic su **Crea nuovo certificato**.
 
    d. Per iniziare a configurare il tenant di Box.com per l'uso di Azure AD come provider di identità, scaricare il file di metadati e quindi salvarlo nell'unità locale.
 
@@ -102,7 +102,7 @@ Così come gli invitati di Dropbox, gli invitati di Box devono riscattare l'invi
 
 Vedere gli articoli seguenti su Collaborazione B2B di Azure AD:
 
-- [Che cos'è Azure AD B2B Collaboration?](what-is-b2b.md)
+- [Che cos'è la collaborazione B2B di Azure AD?](what-is-b2b.md)
 - [Gruppi dinamici e Collaborazione B2B](use-dynamic-groups.md)
 - [Mapping delle attestazioni utente per Collaborazione B2B](claims-mapping.md)
 - [Condivisione esterna di Office 365](o365-external-user.md)

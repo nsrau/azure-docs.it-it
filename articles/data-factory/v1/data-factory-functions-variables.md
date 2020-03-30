@@ -1,5 +1,5 @@
 ---
-title: Funzioni Data Factory e variabili di sistema
+title: Data Factory Functions and System Variables
 description: Fornisce un elenco delle funzioni e delle variabili di sistema di Azure Data Factory
 documentationcenter: ''
 author: djpmsft
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 9acc369e24d1bac92dea3fb6ae391a410e5f6c3d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73667659"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - Funzioni e variabili di sistema
@@ -27,10 +27,10 @@ In questo articolo vengono fornite informazioni sulle funzioni e le variabili su
 
 | Nome variabile | Descrizione | Ambito dell'oggetto | Ambito JSON e casi d'uso |
 | --- | --- | --- | --- |
-| WindowStart |Inizio dell'intervallo di tempo relativo alla finestra di esecuzione dell'attività |attività |<ol><li>Definizione delle query di selezione dei dati. Vedere gli articoli connettore a cui fa riferimento l'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) .</li> |
-| WindowEnd |Fine dell'intervallo di tempo relativo alla finestra di esecuzione dell'attività |attività |uguale a WindowStart. |
-| SliceStart |Inizio dell'intervallo di tempo relativo alla sezione di dati in fase di produzione |attività<br/>dataset |<ol><li>Definizione di nomi di file e percorsi di cartelle dinamici durante l'uso dell'[archivio BLOB di Azure](data-factory-azure-blob-connector.md) e dei [set di dati del file system](data-factory-onprem-file-system-connector.md).</li><li>Definizione delle dipendenze di input con le funzioni della data factory nella raccolta di input dell'attività.</li></ol> |
-| SliceEnd |Fine dell'intervallo di tempo relativo alla sezione di dati corrente. |attività<br/>dataset |uguale a SliceStart. |
+| WindowStart |Inizio dell'intervallo di tempo relativo alla finestra di esecuzione dell'attività |activity |<ol><li>Definizione delle query di selezione dei dati. Vedere gli articoli connettore a cui fa riferimento l'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) .</li> |
+| WindowEnd |Fine dell'intervallo di tempo relativo alla finestra di esecuzione dell'attività |activity |uguale a WindowStart. |
+| SliceStart |Inizio dell'intervallo di tempo relativo alla sezione di dati in fase di produzione |activity<br/>dataset |<ol><li>Definizione di nomi di file e percorsi di cartelle dinamici durante l'uso dell'[archivio BLOB di Azure](data-factory-azure-blob-connector.md) e dei [set di dati del file system](data-factory-onprem-file-system-connector.md).</li><li>Definizione delle dipendenze di input con le funzioni della data factory nella raccolta di input dell'attività.</li></ol> |
+| SliceEnd |Fine dell'intervallo di tempo relativo alla sezione di dati corrente. |activity<br/>dataset |uguale a SliceStart. |
 
 > [!NOTE]
 > Attualmente Data Factory richiede che la pianificazione specificata nell'attività corrisponda esattamente alla pianificazione specificata nella sezione relativa alla disponibilità del set di dati di output. Il mapping delle variabili WindowStart, WindowEnd, SliceStart e SliceEnd viene quindi sempre eseguito allo stesso periodo di tempo e a un'unica sezione di output.
@@ -56,7 +56,7 @@ Nell'esempio seguente l'anno, il mese, il giorno e l'ora di **SliceStart** vengo
 
 1. Definizione delle query di selezione dei dati (vedere gli articoli connettore a cui fa riferimento l'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) .
    
-   La sintassi per richiamare una funzione data factory è: **$$\<funzione >** per le query di selezione dei dati e altre proprietà nell'attività e nei set di dati.  
+   La sintassi per richiamare ** $$ \<** una funzione data factory è: la funzione>per le query di selezione dei dati e altre proprietà nell'attività e nei set di dati.  
 2. Definizione delle dipendenze di input con le funzioni della data factory nella raccolta di input dell'attività.
    
     La sintassi $$ non è necessaria per definire le espressioni delle dipendenze di input.     
@@ -75,11 +75,11 @@ Vedere l'argomento [Stringhe di formato di data e ora personalizzato](https://ms
 ### <a name="functions"></a>Funzioni
 Le tabelle seguenti elencano tutte le funzioni di Data factory di Azure.
 
-| Categoria | Funzione | Parametri | Descrizione |
+| Category | Funzione | Parametri | Descrizione |
 | --- | --- | --- | --- |
-| Time |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |Aggiunge Y ore all'ora X specificata. <br/><br/>Esempio: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
-| Time |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |Aggiunge Y minuti a X.<br/><br/>Esempio: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
-| Time |StartOfHour(X) |X: DateTime |Ottiene l'ora di inizio per l'ora rappresentata dal componente ora di X. <br/><br/>Esempio: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
+| Tempo |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |Aggiunge Y ore all'ora X specificata. <br/><br/>Esempio: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
+| Tempo |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |Aggiunge Y minuti a X.<br/><br/>Esempio: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
+| Tempo |StartOfHour(X) |X: DateTime  |Ottiene l'ora di inizio per l'ora rappresentata dal componente ora di X. <br/><br/>Esempio: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
 | Data |AddDays(X,Y) |X: DateTime<br/><br/>Y: int |Aggiunge Y giorni a X. <br/><br/>Esempio: 9/15/2013 12:00:00 PM + 2 giorni = 9/17/2013 12:00:00 PM.<br/><br/>È possibile anche sottrarre giorni specificando Y come un numero negativo.<br/><br/>Esempio: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
 | Data |AddMonths(X,Y) |X: DateTime<br/><br/>Y: int |Aggiunge Y mesi a X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>È possibile anche sottrarre mesi specificando Y come un numero negativo.<br/><br/>Esempio: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
 | Data |AddQuarters(X,Y) |X: DateTime <br/><br/>Y: int |Aggiunge Y * 3 mesi a X.<br/><br/>Esempio: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
@@ -92,12 +92,12 @@ Le tabelle seguenti elencano tutte le funzioni di Data factory di Azure.
 | Data |EndOfDay(X) |X: DateTime |Ottiene la data e ora che rappresenta la fine del giorno (componente giorno) X.<br/><br/>Esempio: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
 | Data |EndOfMonth(X) |X: DateTime |Ottiene la fine del mese rappresentato dal componente mese del parametro X. <br/><br/>Esempio: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (data e ora che rappresentano la fine del mese di settembre) |
 | Data |StartOfDay(X) |X: DateTime |Ottiene l'inizio del giorno rappresentato dal componente giorno del parametro X.<br/><br/>Esempio: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
-| DateTime |From(X) |X: String |Analizza la stringa X fino a una data/ora. |
-| DateTime |Ticks(X) |X: DateTime |Ottiene la proprietà dei tick del parametro X. Un tick equivale a 100 nanosecondi. Il valore di questa proprietà rappresenta il numero di tick trascorsi dalla mezzanotte 12:00:00 del 1 gennaio 0001. |
-| Text |Format(X) |X: variabile stringa |Formatta il testo (usare la combinazione `\\'` per il carattere di escape `'`).|
+| Datetime |From(X) |X: String |Analizza la stringa X fino a una data/ora. |
+| Datetime |Ticks(X) |X: DateTime |Ottiene la proprietà dei tick del parametro X. Un tick equivale a 100 nanosecondi. Il valore di questa proprietà rappresenta il numero di tick trascorsi dalla mezzanotte 12:00:00 del 1 gennaio 0001. |
+| Testo |Format(X) |X: variabile stringa |Formatta il testo (usare la combinazione `\\'` per il carattere di escape `'`).|
 
 > [!IMPORTANT]
-> Quando si usa una funzione all'interno di un'altra funzione, non è necessario usare il prefisso **$$** per la funzione interna. Ad esempio: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' and RowKey ge \\'{0: yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). In questo esempio il prefisso **$$** non viene usato per la funzione **Time.AddHours**. 
+> Quando si usa una funzione all'interno **$$** di un'altra funzione, non è necessario usare il prefisso per la funzione interna. Ad esempio: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' and RowKey ge \\'{0: yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). In questo esempio, **$$** si noti che prefisso non viene utilizzato per la funzione **Time.AddHours.** 
 
 #### <a name="example"></a>Esempio
 Nell'esempio seguente, i parametri di input e output per l'attività Hive vengono determinati usando la funzione `Text.Format` e la variabile di sistema SliceStart. 

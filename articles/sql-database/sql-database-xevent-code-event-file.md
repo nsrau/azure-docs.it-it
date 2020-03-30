@@ -1,5 +1,5 @@
 ---
-title: Codice del file evento XEvent
+title: Codice del file di evento XEvent
 description: Fornisce PowerShell e Transact-SQL per un esempio di codice in due fasi che illustra la destinazione del file evento in un evento esteso in Database SQL di Azure. Archiviazione di Azure è una parte necessaria di questo scenario.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 03/12/2019
 ms.openlocfilehash: a9bf28fb1b3c5278d25b417fc646d2ad3d6f1abc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79213984"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Codice di destinazione del file evento per eventi estesi nel database SQL
@@ -34,14 +34,14 @@ Questo argomento presenta un esempio di codice in due fasi:
   - per assegnare il contenitore di Archiviazione di Azure a una destinazione del file evento.
   - Per creare e avviare la sessione dell'evento e così via.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
+> Il modulo di PowerShell Azure Resource Manager è ancora supportato dal database SQL di Azure, ma tutto lo sviluppo futuro è per il modulo Az.Sql.The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. Per questi cmdlet, vedere [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli di AzureRm sono sostanzialmente identici.
 
-- Un account e una sottoscrizione di Azure. È possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Un account e una sottoscrizione di Azure. Puoi iscriverti per una [prova gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - Qualsiasi database in cui è possibile creare una tabella.
   
   - Facoltativamente, è possibile [creare un database dimostrativo **AdventureWorksLT**](sql-database-get-started.md) in pochi minuti.
@@ -54,7 +54,7 @@ Questo argomento presenta un esempio di codice in due fasi:
 
 - È necessario che i [moduli di Azure PowerShell](https://go.microsoft.com/?linkid=9811175) siano installati.
 
-  - I moduli forniscono comandi come- **New-AzStorageAccount**.
+  - I moduli forniscono comandi quali - **New-AzStorageAccount**.
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fase 1: Codice di PowerShell per il contenitore di archiviazione di Azure
 
@@ -74,7 +74,7 @@ Lo script inizia con comandi di pulitura dopo un'eventuale esecuzione precedente
 
 ### <a name="powershell-code"></a>Codice PowerShell
 
-Questo script di PowerShell presuppone che sia già stato installato il modulo AZ. Per informazioni, vedere [installare il modulo Azure PowerShell](/powershell/azure/install-Az-ps).
+Questo script di PowerShell presuppone che sia già stato installato il modulo Az. Per informazioni, vedere [Installare il modulo di Azure PowerShell.](/powershell/azure/install-Az-ps)
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
@@ -249,7 +249,7 @@ Lo script di PowerShell stampa alcuni valori denominati quando è terminato. È 
 6. Salvare e quindi eseguire lo script.
 
 > [!WARNING]
-> Il valore della chiave di firma di accesso condiviso generata dallo script di PowerShell precedente potrebbe iniziare con un "?" (punto interrogativo). Quando si usa la chiave di firma di accesso condiviso nello script T-SQL seguente, è necessario *rimuovere il prefisso "?"* . Le attività in caso contrario potrebbero essere bloccate dalla protezione.
+> Il valore della chiave di firma di accesso condiviso generata dallo script di PowerShell precedente potrebbe iniziare con un "?" (punto interrogativo). Quando si usa la chiave di firma di accesso condiviso nello script T-SQL seguente, è necessario *rimuovere il prefisso "?"*. Le attività in caso contrario potrebbero essere bloccate dalla protezione.
 
 ### <a name="transact-sql-code"></a>Codice Transact-SQL
 
@@ -442,9 +442,9 @@ GO
 
 ## <a name="output"></a>Output
 
-Al termine dell'esecuzione dello script Transact-SQL, fare clic su una cella sotto l'intestazione della colonna **event_data_XML**. Viene visualizzato un **\<evento >** elemento che mostra un'istruzione Update.
+Al termine dell'esecuzione dello script Transact-SQL, fare clic su una cella sotto l'intestazione della colonna **event_data_XML**. Viene visualizzato un elemento ** \<>evento** che mostra un'istruzione UPDATE.
 
-Di seguito è riportato un **\<evento >** elemento generato durante il test:
+Di seguito è ** \<riportato** un elemento>evento generato durante il test:Here is one event>element that was generated during testing:
 
 ```xml
 <event name="sql_statement_starting" package="sqlserver" timestamp="2015-09-22T19:18:45.420Z">
@@ -510,7 +510,7 @@ Per ulteriori informazioni sugli account e i contenitori nel servizio Archiviazi
 - [Come usare l'archiviazione BLOB da .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [Denominazione e riferimento a contenitori, BLOB e metadati](https://msdn.microsoft.com/library/azure/dd135715.aspx)
 - [Lavorare con il contenitore radice](https://msdn.microsoft.com/library/azure/ee395424.aspx)
-- [Lezione 1: Creare criteri di accesso archiviati e la firma di accesso condiviso in un contenitore di Azure](https://msdn.microsoft.com/library/dn466430.aspx)
+- [Lezione 1: Creare criteri di accesso archiviati e una firma di accesso condiviso in un contenitore di AzureLesson 1: Create a stored access policy and a shared access signature on an Azure container](https://msdn.microsoft.com/library/dn466430.aspx)
   - [Lezione 2: Creare credenziali di SQL Server usando una firma di accesso condiviso](https://msdn.microsoft.com/library/dn466435.aspx)
 - [Eventi estesi per Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
 

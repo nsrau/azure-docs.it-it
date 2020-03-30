@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.custom: seodec18
 ms.openlocfilehash: f7f9f6d5617ad0f9be69c47ce514d395534fd892
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74672217"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configurare il livello PremiumV2 per il servizio app di Azure
@@ -56,7 +56,7 @@ A seconda dell'ambiente di hosting, il passaggio al livello successivo può rich
 
 Nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> aprire la pagina dell'app del servizio di app.
 
-Nel riquadro di spostamento sinistro della pagina dell'app del servizio app selezionare **Aumenta prestazioni (piano di servizio app)** .
+Nel riquadro di spostamento sinistro della pagina dell'app del servizio app selezionare **Aumenta prestazioni (piano di servizio app)**.
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
@@ -68,7 +68,7 @@ Se l'operazione viene completata correttamente, nella pagina di panoramica dell'
 
 ![](media/app-service-configure-premium-tier/finished.png)
 
-### <a name="if-you-get-an-error"></a>Se si verifica un errore
+### <a name="if-you-get-an-error"></a>Se si riceve un errore
 
 Alcuni piani di servizio app non possono essere passati al livello PremiumV2 se la distribuzione del servizio app sottostante non supporta PremiumV2.  Per altri dettagli, vedere [Passare a un piano superiore da una combinazione di gruppo di risorse e area non supportata](#unsupported).
 

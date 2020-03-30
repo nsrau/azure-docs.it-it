@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: e5dc290a40342e0797001dde6cab90e12dd5cf39
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77662179"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Aggregazioni avanzate nelle query dei log di Monitoraggio di Azure
@@ -113,7 +113,7 @@ Heartbeat
 | ... | ... |
 
 ## <a name="handling-missing-bins"></a>Gestione di bin mancanti
-Un'applicazione utile di `mvexpand` è la necessità di inserire i valori predefiniti in per i contenitori mancanti. Si supponga, ad esempio, che si stia cercando il tempo di esecuzione di un determinato computer esplorando l'heartbeat. e di voler visualizzare l'origine dell'heartbeat che è riportata nella colonna _category_. In genere, si usa una semplice istruzione summarize, come indicato di seguito:
+Un'applicazione `mvexpand` utile di è la necessità di compilare i valori di default per i raccoglitori mancanti. Si supponga, ad esempio, che si sta cercando il tempo di attività di un particolare computer esplorando il relativo battito cardiaco. e di voler visualizzare l'origine dell'heartbeat che è riportata nella colonna _category_. In genere, si usa una semplice istruzione summarize, come indicato di seguito:
 
 ```Kusto
 Heartbeat

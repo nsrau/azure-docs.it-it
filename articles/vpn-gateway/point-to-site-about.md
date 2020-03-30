@@ -1,5 +1,5 @@
 ---
-title: Informazioni sulle connessioni VPN da punto a sito di Azure | Gateway VPN
+title: Informazioni sulle connessioni VPN da punto a sito di Azure VPN Gateway
 description: Questo articolo descrive le connessioni da punto a sito e consente di stabilire quale tipo di autenticazione gateway VPN da punto a sito usare.
 services: vpn-gateway
 author: cherylmc
@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: cherylmc
 ms.openlocfilehash: 78ed07560fdb15efb2de13c194549f5b433b775a
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77500608"
 ---
 # <a name="about-point-to-site-vpn"></a>Informazioni sulla VPN da punto a sito
 
 Una connessione gateway VPN da punto a sito (P2S) consente di creare una connessione sicura alla rete virtuale da un singolo computer client. Una connessione da punto a sito viene stabilita avviandola dal computer client. Questa soluzione è utile per i telelavoratori che intendono connettersi alle reti virtuali di Azure da una posizione remota, ad esempio da casa o durante una riunione. Una VPN da punto a sito è anche una soluzione utile da usare al posto di una VPN da sito a sito quando solo pochi client devono connettersi a una rete virtuale. Questo articolo si applica al modello di distribuzione di Azure Resource Manager.
 
-## <a name="protocol"></a>Protocollo usato nelle connessioni da punto a sito
+## <a name="what-protocol-does-p2s-use"></a><a name="protocol"></a>Protocollo usato nelle connessioni da punto a sito
 
 Per la VPN da punto a sito può essere usato uno dei protocolli seguenti:
 
-* **Protocollo di® OpenVPN**, un protocollo VPN basato su SSL/TLS. Una soluzione VPN SSL può penetrare i firewall, perché la maggior parte dei firewall apre la porta TCP 443 in uscita, che usa SSL. OpenVPN può essere usato per la connessione da Android, iOS (versioni 11,0 e successive), da dispositivi Windows, Linux e Mac (versioni OSX 10,13 e successive).
+* **OpenVPN® Protocollo**, un protocollo VPN basato su SSL/TLS. Una soluzione VPN SSL può penetrare nei firewall, poiché la maggior parte dei firewall apre la porta TCP 443 in uscita, utilizzata da SSL. OpenVPN può essere utilizzato per connettersi da Android, iOS (versioni 11.0 e successive), Windows, Linux e dispositivi Mac (OSX versioni 10.13 e successive).
 
-* Secure Socket Tunneling Protocol (SSTP), un protocollo VPN di proprietà basato su SSL. Una soluzione VPN SSL può penetrare i firewall, perché la maggior parte dei firewall apre la porta TCP 443 in uscita, che usa SSL. SSTP è supportato solo nei dispositivi Windows. Azure supporta tutte le versioni di Windows che hanno SSTP (Windows 7 e versioni successive).
+* Secure Socket Tunneling Protocol (SSTP), un protocollo VPN di proprietà basato su SSL. Una soluzione VPN SSL può penetrare nei firewall, poiché la maggior parte dei firewall apre la porta TCP 443 in uscita, utilizzata da SSL. SSTP è supportato solo nei dispositivi Windows. Azure supporta tutte le versioni di Windows che hanno SSTP (Windows 7 e versioni successive).
 
 * VPN IKEv2, una soluzione VPN IPsec basata su standard. VPN IKEv2 può essere usato per connettersi da dispositivi Mac (versioni OSX 10.11 e successive).
 
@@ -33,7 +33,7 @@ Per la VPN da punto a sito può essere usato uno dei protocolli seguenti:
 >IKEv2 e OpenVPN per la connessione da punto a sito sono disponibili solo per il modello di distribuzione Resource Manager. Non sono disponibili per il modello di distribuzione classica.
 >
 
-## <a name="authentication"></a>Modalità di autenticazione del client VPN da punto a sito
+## <a name="how-are-p2s-vpn-clients-authenticated"></a><a name="authentication"></a>Modalità di autenticazione del client VPN da punto a sito
 
 L'utente deve essere autenticato prima che Azure possa accettare una connessione VPN da punto a sito. Azure offre due meccanismi per autenticare un utente che esegue la connessione.
 
@@ -43,26 +43,26 @@ Quando si usa l'autenticazione del certificato nativa di Azure, per autenticare 
 
 La convalida del certificato client viene eseguita dal gateway VPN quando viene stabilita la connessione VPN da punto a sito. Il certificato radice è necessario per la convalida e deve essere caricato in Azure.
 
-### <a name="authenticate-using-native-azure-active-directory-authentication"></a>Eseguire l'autenticazione con l'autenticazione Azure Active Directory nativa
+### <a name="authenticate-using-native-azure-active-directory-authentication"></a>Eseguire l'autenticazione usando l'autenticazione nativa di Azure Active DirectoryAuthenticate using native Azure Active Directory authentication
 
-Azure AD autenticazione consente agli utenti di connettersi ad Azure usando le credenziali Azure Active Directory. L'autenticazione Azure AD nativa è supportata solo per il protocollo OpenVPN e Windows 10 e richiede l'uso del [client VPN di Azure](https://go.microsoft.com/fwlink/?linkid=2117554).
+L'autenticazione di Azure AD consente agli utenti di connettersi ad Azure usando le credenziali di Azure Active Directory.Azure AD authentication allows users to connect to Azure using their Azure Active Directory credentials. L'autenticazione nativa di Azure AD è supportata solo per il protocollo OpenVPN e Windows 10 e richiede l'uso del client VPN di [Azure.](https://go.microsoft.com/fwlink/?linkid=2117554)
 
-Con l'autenticazione Azure AD nativa, è possibile sfruttare le funzionalità di accesso condizionale di Azure AD e Multi-Factor Authentication (multi-factor authentication) per VPN.
+Con l'autenticazione nativa di Azure AD, è possibile sfruttare l'accesso condizionale di Azure AD e le funzionalità di Multi-Factor Authentication (MFA) per VPN.
 
-A livello generale, è necessario eseguire i passaggi seguenti per configurare l'autenticazione Azure AD:
+A livello generale, è necessario eseguire la procedura seguente per configurare l'autenticazione di Azure AD:At a high level, you need to perform the following steps to configure Azure AD authentication:
 
-1. [Configurare un tenant di Azure AD](openvpn-azure-ad-tenant.md)
+1. [Configurare un tenant di Azure Active Directory](openvpn-azure-ad-tenant.md)
 
-2. [Abilitare l'autenticazione Azure AD sul gateway](openvpn-azure-ad-tenant.md#enable-authentication)
+2. [Abilitare l'autenticazione di Azure AD nel gatewayEnable Azure AD authentication on the gateway](openvpn-azure-ad-tenant.md#enable-authentication)
 
-3. [Scaricare e configurare il client VPN di Azure](https://go.microsoft.com/fwlink/?linkid=2117554)
+3. [Scaricare e configurare il client VPN di AzureDownload and configure Azure VPN Client](https://go.microsoft.com/fwlink/?linkid=2117554)
 
 
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>Autenticazione con server di dominio Active Directory (AD)
 
 L'autenticazione con un dominio di AD consente agli utenti di connettersi ad Azure usando le credenziali di dominio dell'organizzazione. Richiede un server RADIUS che si integra con il server AD. Le organizzazioni possono anche sfruttare la distribuzione RADIUS esistente.
   
-Il server RADIUS può essere distribuito in locale o nella VNet di Azure. Durante l'autenticazione, il gateway VPN di Azure funge da pass-through e inoltra i messaggi di autenticazione tra il server RADIUS e il dispositivo che si connette e viceversa. È quindi importante che il gateway possa raggiungere il server RADIUS. Se il server RADIUS si trova in locale, per la raggiungibilità è necessaria una connessione VPN da sito a sito da Azure al sito locale.  
+Il server RADIUS può essere distribuito in locale o nella rete virtuale di Azure.The RADIUS server could be deployed on-premises or in your Azure VNet. Durante l'autenticazione, il gateway VPN di Azure funge da pass-through e inoltra i messaggi di autenticazione tra il server RADIUS e il dispositivo che si connette e viceversa. È quindi importante che il gateway possa raggiungere il server RADIUS. Se il server RADIUS si trova in locale, per la raggiungibilità è necessaria una connessione VPN da sito a sito da Azure al sito locale.  
   
 È anche possibile integrare il server RADIUS con Servizi certificati AD. Ciò consente di usare il server RADIUS e la distribuzione di certificati dell'organizzazione per l'autenticazione del certificato da punto a sito in alternativa all'autenticazione del certificato di Azure. Il vantaggio è che non è necessario caricare i certificati radice e i certificati revocati in Azure.
 
@@ -87,7 +87,7 @@ Il file ZIP fornisce anche i valori di alcune impostazioni importanti sul lato A
 >[!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 >
 
-## <a name="gwsku"></a>Quali SKU del gateway supportano la connessione VPN da punto a sito?
+## <a name="which-gateway-skus-support-p2s-vpn"></a><a name="gwsku"></a>Quali SKU del gateway supportano la VPN P2S?
 
 [!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
@@ -97,12 +97,12 @@ Il file ZIP fornisce anche i valori di alcune impostazioni importanti sul lato A
 >Lo SKU Basic non supporta l'autenticazione IKEv2 o RADIUS.
 >
 
-## <a name="IKE/IPsec policies"></a>Quali criteri IKE/IPsec sono configurati nei gateway VPN per P2S?
+## <a name="what-ikeipsec-policies-are-configured-on-vpn-gateways-for-p2s"></a><a name="IKE/IPsec policies"></a>Quali criteri IKE/IPsec sono configurati nei gateway VPN per P2S?
 
 
 **IKEv2**
 
-|**Crittografia** | **Integrità** | **PRF** | **Gruppo DH** |
+|**Cifrario** | **Integrità** | **PRF** | **Gruppo DH** |
 |---        | ---           | ---       | ---   |
 |GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_24 |
 |GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_14 |
@@ -124,7 +124,7 @@ Il file ZIP fornisce anche i valori di alcune impostazioni importanti sul lato A
 
 **IPsec**
 
-|**Crittografia** | **Integrità** | **Gruppo PFS** |
+|**Cifrario** | **Integrità** | **Gruppo PFS** |
 |---        | ---           | ---       |
 |GCM_AES256 | GCM_AES256 | GROUP_NONE |
 |GCM_AES256 | GCM_AES256 | GROUP_24 |
@@ -138,7 +138,7 @@ Il file ZIP fornisce anche i valori di alcune impostazioni importanti sul lato A
 | AES256    | SHA256 | GROUP_ECP256 |
 | AES256    | SHA1 | GROUP_NONE |
 
-## <a name="TLS policies"></a>Quali criteri TLS sono configurati nei gateway VPN per P2S?
+## <a name="what-tls-policies-are-configured-on-vpn-gateways-for-p2s"></a><a name="TLS policies"></a>Quali criteri TLS sono configurati nei gateway VPN per P2S?
 **TLS**
 
 |**Criteri** |
@@ -156,7 +156,7 @@ Il file ZIP fornisce anche i valori di alcune impostazioni importanti sul lato A
 |TLS_RSA_WITH_AES_128_CBC_SHA256 |
 |TLS_RSA_WITH_AES_256_CBC_SHA256 |
 
-## <a name="configure"></a>Come si configura una connessione da punto a sito?
+## <a name="how-do-i-configure-a-p2s-connection"></a><a name="configure"></a>Come si configura una connessione da punto a sito?
 
 La configurazione di una connessione da punto a sito richiede alcuni passaggi specifici. Gli articoli seguenti illustrano le procedure di configurazione di una connessione da punto a sito e contengono collegamenti per la configurazione dei dispositivi client VPN:
 
@@ -168,13 +168,13 @@ La configurazione di una connessione da punto a sito richiede alcuni passaggi sp
 
 ### <a name="to-remove-the-configuration-of-a-p2s-connection"></a>Per rimuovere la configurazione di una connessione P2S
 
-Per i passaggi, vedere le [domande frequenti](#removeconfig)più avanti.
+Per la procedura, vedere le domande frequenti , vedere le [domande frequenti](#removeconfig), di seguito.
  
-## <a name="faqcert"></a>Domande frequenti per l'autenticazione del certificato di Azure nativo
+## <a name="faq-for-native-azure-certificate-authentication"></a><a name="faqcert"></a>Domande frequenti per l'autenticazione del certificato di Azure nativo
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="faqradius"></a>Domande frequenti per l'autenticazione RADIUS
+## <a name="faq-for-radius-authentication"></a><a name="faqradius"></a>Domande frequenti per l'autenticazione RADIUS
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
@@ -184,4 +184,4 @@ Per i passaggi, vedere le [domande frequenti](#removeconfig)più avanti.
 
 * [Configurare una connessione da punto a sito usando l'autenticazione del certificato nativa di Azure](vpn-gateway-howto-point-to-site-rm-ps.md)
 
-**"OpenVPN" è un marchio di OpenVPN Inc.**
+**"OpenVPN" è un marchio registrato di OpenVPN Inc.**

@@ -1,16 +1,16 @@
 ---
-title: Resilienza della configurazione di app Azure e ripristino di emergenza
-description: Come implementare la resilienza e il ripristino di emergenza con la configurazione app Azure.
+title: Resilienza della configurazione delle app di Azure e ripristino di emergenzaAzure App Configuration resiliency and disaster recovery
+description: Su come implementare la resilienza e il ripristino di emergenza con La configurazione delle app di Azure.Lean how to implement resiliency and disaster recovery with Azure App Configuration.
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 96ef09ac081aa328014217592a7fcd3ed6314c0e
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77523765"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Resilienza e ripristino di emergenza
@@ -23,11 +23,11 @@ Per realizzare la ridondanza tra aree, è necessario creare più archivi di Conf
 
 ![Archivi con ridondanza geografica](./media/geo-redundant-app-configuration-stores.png)
 
-L'applicazione carica la configurazione da entrambi gli archivi, primario e secondario, in parallelo. Questo comportamento aumenta la probabilità di ottenere correttamente i dati di configurazione. L'utente è responsabile del mantenimento della sincronizzazione dei dati in entrambi i punti vendita. Le sezioni seguenti illustrano come è possibile creare la resilienza geografica nell'applicazione.
+L'applicazione carica la configurazione da entrambi gli archivi, primario e secondario, in parallelo. Questo comportamento aumenta la probabilità di ottenere correttamente i dati di configurazione. L'utente è responsabile della sincronizzazione dei dati in entrambi gli archivi. Nelle sezioni seguenti viene illustrato come creare la resilienza geografica nell'applicazione.
 
 ## <a name="failover-between-configuration-stores"></a>Failover tra archivi di configurazione
 
-Dal punto di vista tecnico l'applicazione non sta eseguendo un failover. Sta provando a recuperare contemporaneamente lo stesso set di dati di configurazione da due archivi di Configurazione app. Organizzare il codice in modo che carichi prima dall'archivio secondario e poi dall'archivio primario. Questo approccio garantisce che, quando disponibili, i dati di configurazione nell'archivio primario abbiano sempre la precedenza. Il frammento di codice seguente mostra come è possibile implementare questa disposizione in .NET Core:
+Dal punto di vista tecnico l'applicazione non sta eseguendo un failover. Sta provando a recuperare contemporaneamente lo stesso set di dati di configurazione da due archivi di Configurazione app. Organizzare il codice in modo che carichi prima dall'archivio secondario e poi dall'archivio primario. Questo approccio garantisce che, quando disponibili, i dati di configurazione nell'archivio primario abbiano sempre la precedenza. Il frammento di codice seguente mostra come implementare questa disposizione in .NET Core:The following code snippet shows how you can implement this arrangement in .NET Core:
 
 #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
@@ -70,9 +70,9 @@ Dal portale di Azure è possibile eseguire il push di una modifica in un altro a
 
 1. Passare alla scheda **Importazione/Esportazione** e selezionare **Esporta** > **Configurazione app** > **Destinazione** > **Selezionare una risorsa**.
 
-1. Nel pannello nuovo visualizzato specificare la sottoscrizione, il gruppo di risorse e il nome della risorsa dell'archivio secondario, quindi selezionare **applica**.
+1. Nel nuovo pannello che si apre specificare la sottoscrizione, il gruppo di risorse e il nome della risorsa dell'archivio secondario, quindi selezionare **Applica**.
 
-1. L'interfaccia utente verrà aggiornata in modo che sia possibile scegliere i dati di configurazione da esportare nell'archivio secondario. È possibile lasciare il valore di data e ora predefinito così com'è e impostare sia **Da etichetta** che **A etichetta** sullo stesso valore. Selezionare **Applica**.
+1. L'interfaccia utente verrà aggiornata in modo che sia possibile scegliere i dati di configurazione da esportare nell'archivio secondario. È possibile lasciare invariato il valore temporale predefinito e impostare sia **Da etichetta** che **Etichetta A** sullo stesso valore. Selezionare **Applica**.
 
 1. Ripetere i passaggi precedenti per tutte le modifiche di configurazione.
 

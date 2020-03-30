@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti sulle tecnologie open source
-description: Risposte alle domande più frequenti sulle tecnologie open source nel servizio app Azure.
+description: Risposte alle domande frequenti sulle tecnologie open source nel servizio app di Azure.Get answers to frequently asked questions about open-source technologies in Azure App Service.
 author: genlin
 manager: dcscontentpm
 tags: top-support-issue
@@ -10,10 +10,10 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 33590f9fc7e6c4d46123cbc7088086a3197d52ae
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74672436"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Domande frequenti sulle tecnologie open source per App Web in Azure
@@ -27,10 +27,10 @@ Questo articolo fornisce risposte alle domande frequenti sui problemi relativi a
 Per attivare la registrazione PHP:
 
 1. Accedere al [sito Web Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
-2. Nel menu in alto selezionare **Debug Console** (Console di debug)  > **CMD**.
+2. Nel menu in alto, selezionare **Debug Console** > **CMD**.
 3. Selezionare la cartella **Site** (Sito).
 4. Selezionare la cartella **wwwroot**.
-5. Selezionare l'icona **+** e quindi selezionare **New File** (Nuovo file).
+5. Selezionare **+** l'icona e quindi **Nuovo file**.
 6. Impostare **.user.ini** come nome del file.
 7. Selezionare l'icona della matita accanto a **.user.ini**.
 8. Nel file aggiungere questo codice: `log_errors=on`
@@ -138,7 +138,7 @@ Per risolvere l'errore:
 
 1. Rimuovere il file sqljdbc*.jar dalla cartella app/lib.
 2. Se si usa il server Web Tomcat o Azure Marketplace Tomcat personalizzato, copiare questo file con estensione jar nella cartella lib di Tomcat.
-3. Se si abilita Java dal portale di Azure, selezionando **Java 1.8** > **Tomcat server** (Server Tomcat), copiare il file sqljdbc.* jar nella cartella parallela all'app specifica. Aggiungere quindi l'impostazione classpath seguente al file web.config:
+3. Se si abilita Java dal portale di Azure (selezionare Il**server Tomcat** **Java 1.8** > ), copiare il file sqljdbc. Aggiungere quindi l'impostazione classpath seguente al file web.config:
 
     ```xml
     <httpPlatform>
@@ -171,7 +171,7 @@ Un'altra soluzione consiste nello scrivere un processo Web eseguito in base a un
 
 Per il Marketplace e le distribuzioni personalizzate il file di log si trova nella cartella D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs. Si noti che il percorso della cartella dipende dalla versione di Jetty in uso. Ad esempio, il percorso specificato qui è per Jetty 9.1.2. Cercare jetty_*AAAA_MM_GG*.stderrout.log.
 
-Per le distribuzioni di tipo Impostazioni dell'app nel portale il file si trova in D:\home\LogFiles. Cercare jetty_*AAAA_MM_GG*.stderrout.log.
+Per le distribuzioni di tipo Impostazioni dell'app nel portale il file si trova in D:\home\LogFiles. Cercare jetty_*YYYY_MM_DD*.stderrout.log
 
 ## <a name="can-i-send-email-from-my-azure-web-app"></a>È possibile inviare messaggi di posta elettronica dall'app Web di Azure?
 

@@ -1,6 +1,6 @@
 ---
-title: Cosa è successo al progetto processo Web (archiviazione di Visual Studio Azure)?
-description: Descrive cosa è accaduto in un progetto processo Web di Azure dopo la connessione a un account di archiviazione con i servizi connessi di Visual Studio
+title: Che cosa è successo al progetto WebJob (Visual Studio Azure Storage)?
+description: Descrive cosa è accaduto in un progetto WebJob di Azure dopo la connessione a un account di archiviazione usando i servizi connessi a Visual Studio
 services: storage
 author: ghogen
 manager: jillfra
@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 17861b7c25dfaf9bc9399e5261cdf2a5b43caf21
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72298737"
 ---
 # <a name="what-happened-to-my-webjob-project-visual-studio-azure-storage-connected-service"></a>Cosa è successo al progetto Webjob (servizio connesso a Visual Studio Archiviazione di Azure)?

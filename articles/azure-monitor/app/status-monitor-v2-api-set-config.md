@@ -1,20 +1,20 @@
 ---
-title: Informazioni di riferimento sull'API dell'agente applicazione Azure Insights
-description: Informazioni di riferimento sull'API dell'agente Application Insights. Set-ApplicationInsightsMonitoringConfig. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con le app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
+title: Informazioni di riferimento sull'API di Azure Application Insights AgentAzure Application Insights Agent API reference
+description: Informazioni di riferimento sull'API dell'agente di Application Insights.Application Insights Agent API reference. Set-ApplicationInsightsMonitoringConfig. Monitorare le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con ASP.NET app Web ospitate in locale, nelle macchine virtuali o in Azure.Works with a web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 1226b3e10adf786ed3335844a5d3f4e530911705
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671240"
 ---
-# <a name="application-insights-agent-api-set-applicationinsightsmonitoringconfig"></a>API dell'agente di Application Insights: set-ApplicationInsightsMonitoringConfig
+# <a name="application-insights-agent-api-set-applicationinsightsmonitoringconfig"></a>API dell'agente di Application Insights: Set-ApplicationInsightsMonitoringConfig
 
-Questo documento descrive un cmdlet che fa parte del modulo di [PowerShell AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+In questo documento viene descritto un cmdlet membro del [modulo PowerShell Az.ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 ## <a name="description"></a>Descrizione
 
@@ -27,21 +27,21 @@ Riavviare IIS per rendere effettive le modifiche.
 
 ## <a name="examples"></a>Esempi
 
-### <a name="example-with-a-single-instrumentation-key"></a>Esempio con una singola chiave di strumentazione
-In questo esempio, a tutte le app nel computer corrente verrà assegnata una sola chiave di strumentazione.
+### <a name="example-with-a-single-instrumentation-key"></a>Esempio con una singola chiave di strumentazioneExample with a single instrumentation key
+In questo esempio, a tutte le app nel computer corrente verrà assegnata una singola chiave di strumentazione.
 
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-### <a name="example-with-an-instrumentation-key-map"></a>Esempio con una mappa delle chiavi di strumentazione
-In questo esempio:
-- `MachineFilter` corrisponde al computer corrente usando il carattere jolly `'.*'`.
-- `AppFilter='WebAppExclude'` fornisce una chiave di strumentazione `null`. L'app specificata non verrà instrumentata.
-- `AppFilter='WebAppOne'` assegna all'app specificata una chiave di strumentazione univoca.
-- `AppFilter='WebAppTwo'` assegna all'app specificata una chiave di strumentazione univoca.
-- Infine, `AppFilter` usa anche il carattere jolly `'.*'` per trovare la corrispondenza con tutte le app Web che non corrispondono alle regole precedenti e assegnare una chiave di strumentazione predefinita.
-- Gli spazi vengono aggiunti per migliorare la leggibilità.
+### <a name="example-with-an-instrumentation-key-map"></a>Esempio con una mappa delle chiavi di strumentazioneExample with an instrumentation key map
+Esempio:
+- `MachineFilter`corrisponde al computer corrente `'.*'` utilizzando il carattere jolly.
+- `AppFilter='WebAppExclude'`fornisce `null` una chiave di strumentazione. L'app specificata non verrà instrumentata.
+- `AppFilter='WebAppOne'`assegna all'app specificata una chiave di strumentazione univoca.
+- `AppFilter='WebAppTwo'`assegna all'app specificata una chiave di strumentazione univoca.
+- Infine, `AppFilter` usa `'.*'` anche il carattere jolly per trovare la corrispondenza con tutte le app Web che non corrispondono alle regole precedenti e assegnare una chiave di strumentazione predefinita.
+- Gli spazi vengono aggiunti per la leggibilità.
 
 ```powershell
 Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
@@ -53,38 +53,38 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
 
 ## <a name="parameters"></a>Parametri
 
-### <a name="-instrumentationkey"></a>-InstrumentationKey
-**Obbligatorio.** Usare questo parametro per fornire una singola chiave di strumentazione da usare per tutte le app nel computer di destinazione.
+### <a name="-instrumentationkey"></a>-InstrumentationKey (Chiave di Strumentazione)
+**Obbligatorio.** Usare questo parametro per fornire una singola chiave di strumentazione per l'utilizzo da parte di tutte le app nel computer di destinazione.
 
-### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
-**Obbligatorio.** Usare questo parametro per specificare più chiavi di strumentazione e un mapping delle chiavi di strumentazione usate da ogni app.
-È possibile creare un singolo script di installazione per diversi computer impostando `MachineFilter`.
+### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap (mappa delle chiavi di strumentazione)
+**Obbligatorio.** Usare questo parametro per fornire più chiavi di strumentazione e un mapping delle chiavi di strumentazione usate da ogni app.
+È possibile creare un singolo script `MachineFilter`di installazione per più computer impostando .
 
 > [!IMPORTANT]
-> Le app corrisponderanno alle regole nell'ordine in cui vengono fornite le regole. Pertanto, è necessario specificare prima le regole più specifiche e le regole più generiche.
+> Le app corrisponderanno alle regole nell'ordine in cui vengono fornite le regole. Quindi è necessario specificare prima le regole più specifiche per ultime e le regole più generiche.
 
-#### <a name="schema"></a>Schema
+#### <a name="schema"></a>SCHEMA
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
 
-- **MachineFilter** è un'espressione C# regolare obbligatoria del nome del computer o della macchina virtuale.
-    - '. *' corrisponderà a tutti
-    - ' ComputerName ' corrisponderà solo ai computer con il nome specificato.
-- **AppFilter** è un'espressione C# regolare obbligatoria del nome del computer o della macchina virtuale.
-    - '. *' corrisponderà a tutti
-    - ' ApplicationName ' corrisponderà solo alle app IIS con il nome specificato.
+- **MachineFilter** è un'espressione regolare c'è obbligatoria del nome del computer o della macchina virtuale.
+    - '.' corrisponderà a tutti
+    - 'ComputerName' corrisponderà solo ai computer con il nome specificato.
+- **AppFilter** è un'espressione regolare c'è obbligatoria del nome del computer o della macchina virtuale.
+    - '.' corrisponderà a tutti
+    - 'ApplicationName' corrisponderà solo alle app IIS con il nome specificato.
 - **InstrumentationKey** è necessario per abilitare il monitoraggio delle app che corrispondono ai due filtri precedenti.
-    - Lasciare questo valore null se si desidera definire regole per escludere il monitoraggio.
+    - Lasciare null questo valore se si desidera definire regole per escludere il monitoraggio.
 
 
 ### <a name="-verbose"></a>-Verbose
-**Parametro comune.** Usare questa opzione per visualizzare i log dettagliati.
+**Parametro comune.** Utilizzare questa opzione per visualizzare i registri dettagliati.
 
 
 ## <a name="output"></a>Output
 
-Per impostazione predefinita, non viene restituito alcun output.
+Per impostazione predefinita, nessun output.
 
-#### <a name="example-verbose-output-from-setting-the-config-file-via--instrumentationkey"></a>Esempio di output dettagliato dall'impostazione del file di configurazione tramite-InstrumentationKey
+#### <a name="example-verbose-output-from-setting-the-config-file-via--instrumentationkey"></a>Esempio di output dettagliato dall'impostazione del file di configurazione tramite -InstrumentationKeyExample verbose output from setting the config file via -InstrumentationKey
 
 ```
 VERBOSE: Operation: InstallWithIkey
@@ -96,7 +96,7 @@ VERBOSE: Config File Path:
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applicationInsights.ikey.config
 ```
 
-#### <a name="example-verbose-output-from-setting-the-config-file-via--instrumentationkeymap"></a>Esempio di output dettagliato dall'impostazione del file di configurazione tramite-InstrumentationKeyMap
+#### <a name="example-verbose-output-from-setting-the-config-file-via--instrumentationkeymap"></a>Esempio di output dettagliato dall'impostazione del file di configurazione tramite -InstrumentationKeyMapExample verbose output from setting the config file via -InstrumentationKeyMap
 
 ```
 VERBOSE: Operation: InstallWithIkeyMap
@@ -114,16 +114,16 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
 
   Visualizzare i dati di telemetria:
  - [Esplora le metriche](../../azure-monitor/app/metrics-explorer.md) per monitorare le prestazioni e l'utilizzo.
-- Eseguire [ricerche negli eventi e nei log](../../azure-monitor/app/diagnostic-search.md) per diagnosticare i problemi.
-- [Usare Analytics](../../azure-monitor/app/analytics.md) per query più avanzate.
+- [Cerca eventi e log](../../azure-monitor/app/diagnostic-search.md) per diagnosticare i problemi.
+- [Usa Analytics](../../azure-monitor/app/analytics.md) per query più avanzate.
 - [Creare dashboard](../../azure-monitor/app/overview-dashboard.md).
  
  Aggiungere altri dati di telemetria:
  - [Creare test Web](monitor-web-app-availability.md) per assicurarsi che il sito rimanga attivo.
-- Aggiungere i dati di [telemetria del client Web](../../azure-monitor/app/javascript.md) per visualizzare le eccezioni dal codice della pagina Web e per abilitare le chiamate di traccia.
-- [Aggiungere il Application Insights SDK al codice per](../../azure-monitor/app/asp-net.md) poter inserire le chiamate di traccia e log
+- [Aggiungere dati di telemetria del client Web](../../azure-monitor/app/javascript.md) per visualizzare le eccezioni dal codice della pagina Web e abilitare le chiamate di traccia.
+- [Aggiungere Application Insights SDK al codice](../../azure-monitor/app/asp-net.md) per inserire chiamate di traccia e logAdd the Application Insights SDK to your code so you can insert trace and log calls
  
- Eseguire altre operazioni con Application Insights Agent:
- - Usare la guida per [risolvere i problemi relativi](status-monitor-v2-troubleshoot.md) a Application Insights Agent.
+ Fai di più con Application Insights Agent:
+ - Usare la guida per [risolvere i problemi relativi](status-monitor-v2-troubleshoot.md) all'agente application Insights.Use our guide to troubleshoot Application Insights Agent.
  - [Ottenere la configurazione](status-monitor-v2-api-get-config.md) per verificare che le impostazioni siano state registrate correttamente.
  - [Ottenere lo stato](status-monitor-v2-api-get-status.md) per controllare il monitoraggio.

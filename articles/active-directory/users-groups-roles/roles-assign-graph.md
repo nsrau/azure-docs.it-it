@@ -1,6 +1,6 @@
 ---
-title: Assegnare i ruoli di amministratore di Azure AD con Microsoft Graph API | Microsoft Docs
-description: Assegnare e rimuovere i ruoli di amministratore di Azure AD con API Graph in Azure Active Directory
+title: Assegnare ruoli di amministratore di Azure AD con l'API Microsoft Graph Documenti Microsoft
+description: Assegnare e rimuovere ruoli di amministratore di Azure AD con l'API Graph in Azure Active DirectoryAssign and remove Azure AD administrator roles with Graph API in Azure Active Directory
 services: active-directory
 author: curtand
 manager: daveba
@@ -14,19 +14,19 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3632f8a360df8837569104232b7380fdc8383953
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77559148"
 ---
-# <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Assegnare ruoli di amministratore personalizzati usando l'API Microsoft Graph in Azure Active Directory 
+# <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Assegnare ruoli di amministratore personalizzati usando l'API Microsoft Graph in Azure Active DirectoryAssign custom admin roles using the Microsoft Graph API in Azure Active Directory 
 
-È possibile automatizzare il modo in cui si assegnano i ruoli agli account utente usando l'API Microsoft Graph. Questo articolo illustra le operazioni POST, GET e DELETE su roleAssignments.
+You can automate how you assign roles to user accounts using the Microsoft Graph API. In questo articolo vengono illustrate le operazioni POST, GET e DELETE in roleAssignments.
 
 ## <a name="required-permissions"></a>Autorizzazioni necessarie
 
-Connettersi al tenant di Azure AD usando un account amministratore globale o un amministratore di identità con privilegi per assegnare o rimuovere i ruoli.
+Connettersi al tenant di Azure AD usando un account amministratore globale o un amministratore di identità con privilegi per assegnare o rimuovere ruoli.
 
 ## <a name="post-operations-on-roleassignment"></a>Operazioni POST su RoleAssignment
 
@@ -55,7 +55,7 @@ Risposta
 HTTP/1.1 201 Created
 ```
 
-Richiesta HTTP per creare un'assegnazione di ruolo in cui la definizione dell'entità o del ruolo non esiste
+Richiesta HTTP per creare un'assegnazione di ruolo in cui la definizione di entità o ruolo non esiste
 
 POST
 
@@ -79,10 +79,10 @@ Risposta
 HTTP/1.1 404 Not Found
 ```
 
-Richiesta HTTP per creare una singola assegnazione di ruolo con ambito di risorsa in una definizione di ruolo predefinita.
+Richiesta HTTP per creare un'assegnazione di ruolo con ambito singola risorsa in una definizione di ruolo incorporata.
 
 > [!NOTE] 
-> I ruoli predefiniti hanno oggi una limitazione in cui possono avere un ambito solo per l'ambito "/" dell'intera organizzazione o per l'ambito "/AU/*". L'ambito di una singola risorsa non funziona per i ruoli predefiniti, ma funziona per i ruoli personalizzati.
+> I ruoli predefiniti oggi hanno una limitazione in cui possono essere assegnati solo all'ambito "/" a livello di organizzazione o all'ambito "/AU/" . L'ambito delle singole risorse non funziona per i ruoli predefiniti, ma per i ruoli personalizzati.
 
 POST
 
@@ -124,7 +124,7 @@ HTTP/1.1 400 Bad Request
 }
 ```
 
-## <a name="get-operations-on-roleassignment"></a>Operazioni GET su RoleAssignment
+## <a name="get-operations-on-roleassignment"></a>GET Operations on RoleAssignment
 
 Richiesta HTTP per ottenere un'assegnazione di ruolo per un'entità specificata
 
@@ -192,7 +192,7 @@ HTTP/1.1 200 OK
 }
 ```
 
-## <a name="delete-operations-on-roleassignment"></a>Operazioni DELETE su RoleAssignment
+## <a name="delete-operations-on-roleassignment"></a>OPERAZIONI DELETE su RoleAssignment
 
 Richiesta HTTP per eliminare un'assegnazione di ruolo tra un utente e una definizione di ruolo.
 
@@ -207,7 +207,7 @@ Risposta
 HTTP/1.1 204 No Content
 ```
 
-Richiesta HTTP per eliminare un'assegnazione di ruolo che non esiste più
+Richiesta HTTP per eliminare un'assegnazione di ruolo non più esistente
 
 Elimina
 
@@ -221,7 +221,7 @@ Risposta
 HTTP/1.1 404 Not Found
 ```
 
-Richiesta HTTP per eliminare un'assegnazione di ruolo tra la definizione di ruolo automatica e quella predefinita
+Richiesta HTTP per eliminare un'assegnazione di ruolo tra la definizione di ruolo automatica e quella incorporata
 
 Elimina
 

@@ -1,5 +1,5 @@
 ---
-title: Abilita Transparent Data Encryption per Stretch Database
+title: Abilitare la crittografia dei dati trasparente per Stretch DatabaseEnable Transparent Data Encryption for Stretch Database
 description: Abilitare Transparent Data Encryption (TDE) per SQL Server Stretch Database in Azure
 services: sql-server-stretch-database
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.reviewer: jroth
 manager: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 465338bb793ad7b4fc406e9d1c073b9dc0dc06c8
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034005"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure"></a>Abilitare Transparent Data Encryption (TDE) per Stretch Database su Azure
@@ -30,7 +30,7 @@ ms.locfileid: "74034005"
 
 La funzionalità Transparent Data Encryption (TDE) consente di proteggersi da attività dannose eseguendo in tempo reale la crittografia e la decrittografia dei database, dei backup associati e dei file di log delle transazioni inattivi, senza dover apportare modifiche all'applicazione.
 
-TDE esegue la crittografia dell'archiviazione di un intero database usando una chiave simmetrica detta "chiave di crittografia del database". La chiave di crittografia del database è protetta da un certificato server incorporato. Il certificato server incorporato è univoco per ogni server Azure. Microsoft ruota automaticamente questi certificati almeno ogni 90 giorni. Per una descrizione generale della funzionalità TDE, vedere [Transparent Data Encryption (TDE)].
+TDE esegue la crittografia dell'archiviazione di un intero database usando una chiave simmetrica detta "chiave di crittografia del database". La chiave di crittografia del database è protetta da un certificato server incorporato. Il certificato server incorporato è univoco per ogni server Azure. Microsoft ruota automaticamente questi certificati almeno ogni 90 giorni. Per una descrizione generale di TDE, vedere [Transparent Data Encryption (TDE)].
 
 ## <a name="enabling-encryption"></a>Abilitazione della crittografia
 Per abilitare la funzionalità TDE per un database di Azure che archivia i dati migrati da un database SQL Server con Estensione abilitata, eseguire le operazioni seguenti:
@@ -38,7 +38,7 @@ Per abilitare la funzionalità TDE per un database di Azure che archivia i dati 
 1. Aprire il database nel [portale di Azure](https://portal.azure.com)
 2. Nel pannello del database fare clic sul pulsante **Impostazioni**
 3. Selezionare l'opzione **Transparent data encryption**![][1]
-4. Selezionare **Attiva** e quindi selezionare **Salva**
+4. Selezionare l'impostazione **Attivato,** quindi selezionare **Salva**
    ![][2]
 
 ## <a name="disabling-encryption"></a>Disabilitazione della crittografia
@@ -50,7 +50,7 @@ Per disabilitare TDE per un database di Azure che archivia i dati migrati da un 
 4. Selezionare **Disattiva** e quindi selezionare **Salva**
 
 <!--Anchors-->
-[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[Crittografia dei dati trasparente (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->

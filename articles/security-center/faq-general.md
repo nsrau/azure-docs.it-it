@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti sul centro sicurezza di Azure-Domande generali
-description: Domande frequenti sul centro sicurezza di Azure, un prodotto che consente di prevenire, rilevare e rispondere alle minacce
+title: Domande frequenti sul Centro sicurezza di Azure - Domande generaliAzure Security Center FAQ - General questions
+description: Domande generali frequenti sul Centro sicurezza di Azure, un prodotto che consente di prevenire, rilevare e rispondere alle minacce
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,28 +14,28 @@ ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
 ms.openlocfilehash: f9043ae1414b63f25583d52100774f3e87754a74
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77661840"
 ---
-# <a name="faq---general-questions-about-azure-security-center"></a>Domande frequenti-domande generali sul centro sicurezza di Azure
+# <a name="faq---general-questions-about-azure-security-center"></a>Domande frequenti - Domande generali sul Centro sicurezza di AzureFAQ - General questions about Azure Security Center
 
 ## <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
-Il Centro sicurezza di Azure consente di prevenire, rilevare e rispondere alle minacce con maggiore visibilità e controllo sulla sicurezza delle risorse. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
+Centro sicurezza di Azure consente di prevenire, rilevare e rispondere alle minacce con una maggiore visibilità e controllo sulla sicurezza delle risorse. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
 
-Il Centro sicurezza usa il Microsoft Monitoring Agent per raccogliere e archiviare i dati. Per informazioni dettagliate, vedere [raccolta dati nel centro sicurezza di Azure](security-center-enable-data-collection.md).
+Il Centro sicurezza usa Microsoft Monitoring Agent per raccogliere e archiviare i dati. Per informazioni dettagliate, vedere Raccolta di dati nel Centro sicurezza di [Azure.](security-center-enable-data-collection.md)
 
 
 ## <a name="how-do-i-get-azure-security-center"></a>In che modo è possibile accedere al Centro sicurezza di Azure?
-Il Centro sicurezza di Azure viene abilitato con la sottoscrizione di Microsoft Azure ed è accessibile dal [portale di Azure](https://azure.microsoft.com/features/azure-portal/). Per accedervi, accedere [al portale](https://portal.azure.com), selezionare **Sfoglia**e scorrere fino al **Centro sicurezza**.
+Il Centro sicurezza di Azure viene abilitato con la sottoscrizione di Microsoft Azure ed è accessibile dal [portale di Azure](https://azure.microsoft.com/features/azure-portal/). Per accedervi, [accedere al portale](https://portal.azure.com), selezionare **Sfoglia**e scorrere fino al **Centro sicurezza**PC .
 
 
 ## <a name="which-azure-resources-are-monitored-by-azure-security-center"></a>Quali risorse di Azure vengono monitorate dal Centro sicurezza di Azure?
 Il Centro sicurezza di Azure monitora le risorse di Azure seguenti:
 
-* Macchine virtuali (VM) (inclusi i [Servizi cloud](../cloud-services/cloud-services-choose-me.md))
+* Macchine virtuali (VM) (inclusi i [servizi cloud)](../cloud-services/cloud-services-choose-me.md)
 * set di scalabilità di macchine virtuali
 * Reti virtuali di Azure
 * Contenitori
@@ -44,11 +44,11 @@ Il Centro sicurezza di Azure monitora le risorse di Azure seguenti:
 * App Web di Azure in un [ambiente del servizio app](../app-service/environment/intro.md)
 * Soluzioni partner integrate con la sottoscrizione di Azure, ad esempio un Web application firewall, nelle VM e nell'ambiente del servizio app
 
-Inoltre, i computer non Azure (inclusi quelli locali) possono essere monitorati anche dal centro sicurezza di Azure. Sono supportati sia computer [Windows](./quick-onboard-windows-computer.md) che [computer Linux](./quick-onboard-linux-computer.md) .
+Inoltre, le macchine non Azure (incluse le applicazioni locali) possono essere monitorate anche dal Centro sicurezza di Azure.In addition, non-Azure (including on-premises) machines can also be monitored by Azure Security Center. Sono supportati sia i [computer Windows](./quick-onboard-windows-computer.md) che i [computer Linux.](./quick-onboard-linux-computer.md)
 
 
 ## <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>Come è possibile visualizzare lo stato di sicurezza corrente delle risorse Azure?
-La pagina **Panoramica del Centro sicurezza** Mostra il comportamento di sicurezza complessivo dell'ambiente suddiviso per calcolo, rete, archiviazione & dati e applicazioni. Ogni tipo di risorsa ha un indicatore che mostra le vulnerabilità di sicurezza identificate. Facendo clic su ogni sezione viene visualizzato un elenco di problemi di sicurezza identificati dal Centro sicurezza, insieme a un inventario delle risorse nella sottoscrizione.
+La pagina **Panoramica del Centro sicurezza** mostra il livello di sicurezza generale dell'ambiente suddiviso per Calcolo, Rete, Archiviazione & dati e Applicazioni. Ogni tipo di risorsa ha un indicatore che mostra le vulnerabilità di sicurezza identificate. Facendo clic su ogni sezione viene visualizzato un elenco di problemi di sicurezza identificati dal Centro sicurezza, insieme a un inventario delle risorse nella sottoscrizione.
 
 
 
@@ -86,8 +86,8 @@ Il Centro sicurezza di Azure raccoglie, analizza e unisce automaticamente i dati
 * Avvisi di sicurezza da soluzioni di sicurezza integrata dei partner, ad esempio antimalware o Web application firewall
 
 
-## Perché sono stati modificati i valori di Punteggio sicuro? <a name="secure-score-faq"></a>
-A partire da febbraio 2019, il Centro sicurezza ha regolato il Punteggio di alcune raccomandazioni, in modo da adattarsi meglio alla loro gravità. In seguito a questa modifica, è possibile che vengano apportate modifiche ai valori di Punteggio sicuro complessivi.  Per altre informazioni sul punteggio sicuro, vedere [calcolo del Punteggio sicuro](security-center-secure-score.md).
+## <a name="why-did-secure-score-values-change"></a>Perché i valori di Secure Score sono cambiati? <a name="secure-score-faq"></a>
+A partire da febbraio 2019, Centro sicurezza ha modificato il punteggio di alcune raccomandazioni, al fine di meglio adattarsi alla loro gravità. Come risultato di questa regolazione, potrebbero esserci cambiamenti nei valori complessivi di Secure Score.  Per ulteriori informazioni sul punteggio sicuro, vedere Calcolo del [punteggio sicuro](security-center-secure-score.md).
 
 
 ## <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Qual è la differenza tra le minacce rilevate e le minacce segnalate da Microsoft Security Response Center e dal Centro sicurezza di Azure?

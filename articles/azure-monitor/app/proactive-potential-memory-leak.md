@@ -1,13 +1,13 @@
 ---
-title: Rilevare le perdite di memoria-rilevamento intelligente applicazione Azure Insights
+title: Rilevare perdite di memoria - Rilevamento intelligente di Azure Application InsightsDetect memory leak - Azure Application Insights Smart Detection
 description: Monitorare le applicazioni con Azure Application Insights per rilevare potenziali perdite di memoria.
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.openlocfilehash: 85d138518dfb1313a810657016e9fe3143887b6d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671699"
 ---
 # <a name="memory-leak-detection-preview"></a>Rilevamento della perdita di memoria (anteprima)
@@ -22,8 +22,8 @@ Una notifica tipica viene generata in seguito a un aumento consistente del consu
 ## <a name="does-my-app-really-have-a-problem"></a>Verifica di problemi effettivi dell'app
 Una notifica non significa che l'app ha sicuramente un problema. Anche se i modelli di perdita di memoria indicano in genere un problema dell'applicazione, tali modelli potrebbero essere tipici di un processo specifico o avere una giustificazione naturale e in questo caso possono essere ignorati.
 
-## <a name="how-do-i-fix-it"></a>Com'è possibile risolvere il problema?
+## <a name="how-do-i-fix-it"></a>Risoluzione
 Le notifiche includono informazioni di diagnostica a supporto del processo di analisi diagnostica:
-1. **Valutazione.** La notifica indica la quantità di aumento di memoria (in GB) e l'intervallo di tempo in cui la memoria è aumentata. Ciò consente di assegnare una priorità al problema.
+1. **Triage.** La notifica indica la quantità di aumento di memoria (in GB) e l'intervallo di tempo in cui la memoria è aumentata. Ciò consente di assegnare una priorità al problema.
 2. **Ambito.** Quanti computer presentano il modello di perdita di memoria? Quante eccezioni sono state generate durante la potenziale perdita di memoria? Queste informazioni si possono ricavare dalla notifica.
-3. **Diagnosi.** Il rilevamento contiene il modello di perdita di memoria, che mostra il consumo di memoria del processo nel tempo. È anche possibile usare gli elementi e i report correlati che rimandano a informazioni di supporto, per diagnosticare meglio il problema.
+3. **Diagnosticare.** Il rilevamento contiene il modello di perdita di memoria, che mostra il consumo di memoria del processo nel tempo. È anche possibile usare gli elementi e i report correlati che rimandano a informazioni di supporto, per diagnosticare meglio il problema.

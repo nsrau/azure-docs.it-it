@@ -1,5 +1,5 @@
 ---
-title: Gestione di un'ininterrottità del servizio Azure che influisca sui servizi cloud di Azure
+title: Gestione di un'interruzione del servizio di Azure che influisce sui servizi cloud di AzureHandling an Azure service disruption that impacts Azure Cloud Services
 titleSuffix: Azure Cloud Services
 description: Informazioni sulle operazioni da eseguire in caso di un'interruzione del servizio Azure con impatto sui servizi cloud di Azure.
 services: cloud-services
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
 ms.openlocfilehash: e3f0fd88eb302dac208f43d0622ae28b31dcddc2
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77157507"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Operazioni da eseguire in caso di un'interruzione del servizio Azure con impatto sui servizi cloud di Azure
@@ -46,7 +46,7 @@ Per altre informazioni sulla creazione e la distribuzione di un'applicazione di 
 
 In base alle origini dati dell'applicazione, può essere necessario controllare le procedure di ripristino per l'origine dati dell'applicazione.
 
-* Per le origini dati di archiviazione di Azure, vedere [ridondanza di archiviazione di Azure](../storage/common/storage-redundancy.md) per controllare le opzioni disponibili in base al modello di ridondanza scelto per l'applicazione.
+* Per le origini dati di Archiviazione di Azure, vedere [Ridondanza di Archiviazione di Azure](../storage/common/storage-redundancy.md) per verificare le opzioni disponibili in base al modello di ridondanza scelto per l'applicazione.
 * Per le origini di database SQL, leggere [Panoramica: Continuità aziendale del cloud e ripristino di emergenza del database con database SQL](../sql-database/sql-database-business-continuity.md) per controllare le opzioni disponibili in base al modello di replica scelto per l'applicazione.
 
 

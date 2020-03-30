@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.reviewer: harelbr
 ms.openlocfilehash: 997c5e063c4181a597520e60e2a7669401b9677d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669744"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Avviso su problemi in Servizi cloud di Azure tramite l'integrazione di Diagnostica di Azure con Azure Application Insights
@@ -78,7 +78,7 @@ EventLogs
 | where Failures > 3
 ```
 
-## <a name="create-an-alert"></a>Creazione di un avviso
+## <a name="create-an-alert"></a>Creare un avviso
 
 Nel menu di navigazione all'interno della risorsa di Application Insights andare ad **Avvisi** e quindi selezionare **Nuova regola di avviso**.
 
@@ -91,7 +91,7 @@ Nella finestra **Crea regola** nella sezione **Definire la condizione dell'avvis
 Nella casella **Query di ricerca** incollare la query combinata preparata nel passaggio precedente.
 
 Continuare quindi con la casella **Soglia** e impostarne il valore su 0. È possibile eventualmente modificare i campi **Periodo** e **Frequenza**.
-Fare clic su **Done**.
+Fare clic su **Fine**.
 
 ![Schermata di configurazione della query logica dei segnali](./media/proactive-cloud-services/003.png)
 
@@ -111,7 +111,7 @@ Dopo aver definito il gruppo di azioni, confermare le modifiche e fare clic su *
 
 Per altre informazioni sul rilevamento automatico:
 
-[Anomalie degli errori](../../azure-monitor/app/proactive-failure-diagnostics.md)
-[Perdita di memoria](../../azure-monitor/app/proactive-potential-memory-leak.md)
-[Anomalie delle prestazioni](../../azure-monitor/app/proactive-performance-diagnostics.md)
+[Anomalie di errore Perdite](../../azure-monitor/app/proactive-failure-diagnostics.md)
+[di memoria Anomalie](../../azure-monitor/app/proactive-potential-memory-leak.md)
+delle[prestazioni](../../azure-monitor/app/proactive-performance-diagnostics.md)
 

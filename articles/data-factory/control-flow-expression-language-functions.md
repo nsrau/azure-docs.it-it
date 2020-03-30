@@ -1,6 +1,6 @@
 ---
-title: Espressioni e funzioni in Azure Data Factory
-description: In questo articolo vengono fornite informazioni sulle espressioni e sulle funzioni che è possibile utilizzare per la creazione di entità data factory.
+title: Espressione e funzioni in Azure Data FactoryExpression and functions in Azure Data Factory
+description: In questo articolo vengono fornite informazioni sulle espressioni e le funzioni che è possibile usare nella creazione di entità data factory.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
 ms.openlocfilehash: 9ef4b569fd8413d2825374c963fb272dd450cf0e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74533129"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Espressioni e funzioni in Azure Data Factory
@@ -27,13 +27,13 @@ Questo articolo offre informazioni dettagliate sulle espressioni e funzioni supp
 
 ## <a name="expressions"></a>Espressioni
 
-I valori JSON nella definizione possono essere letterali o espressioni che vengono valutate in fase di esecuzione. ad esempio:  
+I valori JSON nella definizione possono essere letterali o espressioni che vengono valutate in fase di esecuzione. Ad esempio:  
   
 ```json
 "name": "value"
 ```
 
- Oppure  
+ o  
   
 ```json
 "name": "@pipeline().parameters.password"
@@ -62,10 +62,10 @@ Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e r
 |"\@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Restituisce la stringa `Answer is: 42`.|  
 |"Answer is: \@\@{pipeline().parameters.myNumber}"| Restituisce la stringa `Answer is: @{pipeline().parameters.myNumber}`.|  
   
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 ### <a name="a-dataset-with-a-parameter"></a>Un set di dati con un parametro
-Nell'esempio seguente BlobDataset accetta un parametro denominato **path**. Il valore viene usato per impostare un valore per la proprietà **folderPath** usando l'espressione: `dataset().path`. 
+Nell'esempio seguente BlobDataset accetta un parametro denominato **path**. Il valore viene utilizzato per impostare un valore per `dataset().path`la proprietà **folderPath** utilizzando l'espressione: . 
 
 ```json
 {
@@ -139,14 +139,14 @@ Nell'esempio seguente la pipeline accetta i parametri **inputPath** e **outputPa
 }
 ```
 ### <a name="tutorial"></a>Esercitazione
-Questa [esercitazione](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) illustra come passare i parametri tra una pipeline e un'attività nonché tra le attività.
+Questa [esercitazione](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) illustra come passare i parametri tra una pipeline e un'attività, nonché tra le attività.
 
   
 ## <a name="functions"></a>Funzioni
 
 È possibile chiamare le funzioni all'interno delle espressioni. Le sezioni seguenti forniscono informazioni sulle funzioni che è possibile usare in un'espressione.  
 
-## <a name="string-functions"></a>Funzioni stringa  
+## <a name="string-functions"></a>Funzioni per i valori stringa  
 
 Per eseguire operazioni con le stringhe, è possibile usare queste funzioni di stringa e alcune [funzioni di raccolta](#collection-functions).
 Le funzioni di stringa funzionano solo sulle stringhe.
@@ -155,16 +155,16 @@ Le funzioni di stringa funzionano solo sulle stringhe.
 | --------------- | ---- |
 | [concat](control-flow-expression-language-functions.md#concat) | Combina due o più stringhe e restituisce la stringa combinata. |
 | [endsWith](control-flow-expression-language-functions.md#endswith) | Verifica se una stringa termina con la sottostringa specificata. |
-| [guid](control-flow-expression-language-functions.md#guid) | Generare un identificatore univoco globale (GUID) sotto forma di stringa. |
-| [indexOf](control-flow-expression-language-functions.md#indexof) | Restituisce la posizione iniziale di una sottostringa. |
+| [Guid](control-flow-expression-language-functions.md#guid) | Generare un identificatore univoco globale (GUID) sotto forma di stringa. |
+| [indiceDi](control-flow-expression-language-functions.md#indexof) | Restituisce la posizione iniziale di una sottostringa. |
 | [lastIndexOf](control-flow-expression-language-functions.md#lastindexof) | Restituisce la posizione iniziale o il valore di indice per l'ultima occorrenza di una sottostringa. |
-| [replace](control-flow-expression-language-functions.md#replace) | Sostituisce una sottostringa con la stringa specificata e restituisce la stringa aggiornata. |
-| [split](control-flow-expression-language-functions.md#split) | Restituisce una matrice che contiene le sottostringhe, separate da virgole, da una stringa più grande in base al carattere delimitatore specificato nella stringa originale. |
-| [startsWith](control-flow-expression-language-functions.md#startswith) | Verifica se una stringa inizia con una sottostringa specifica. |
+| [Sostituire](control-flow-expression-language-functions.md#replace) | Sostituisce una sottostringa con la stringa specificata e restituisce la stringa aggiornata. |
+| [diviso](control-flow-expression-language-functions.md#split) | Restituisce una matrice che contiene le sottostringhe, separate da virgole, da una stringa più grande in base al carattere delimitatore specificato nella stringa originale. |
+| [Startswith](control-flow-expression-language-functions.md#startswith) | Verifica se una stringa inizia con una sottostringa specifica. |
 | [substring](control-flow-expression-language-functions.md#substring) | Restituisce i caratteri di una stringa, partendo dalla posizione specificata. |
-| [toLower](control-flow-expression-language-functions.md#toLower) | Restituisce una stringa in formato minuscolo. |
-| [toUpper](control-flow-expression-language-functions.md#toUpper) | Restituisce una stringa in formato maiuscolo. |
-| [Trim](control-flow-expression-language-functions.md#trim) | Rimuove gli spazi iniziali e finali da una stringa e restituisce la stringa aggiornata. |
+| [Tolower](control-flow-expression-language-functions.md#toLower) | Restituisce una stringa in formato minuscolo. |
+| [Toupper](control-flow-expression-language-functions.md#toUpper) | Restituisce una stringa in formato maiuscolo. |
+| [Tagliare](control-flow-expression-language-functions.md#trim) | Rimuove gli spazi iniziali e finali da una stringa e restituisce la stringa aggiornata. |
 
 ## <a name="collection-functions"></a>Funzioni di raccolta
 
@@ -172,16 +172,16 @@ Per eseguire operazioni con le raccolte, generalmente matrici, stringhe e talvol
 
 | Funzione di raccolta | Attività |
 | ------------------- | ---- |
-| [contains](control-flow-expression-language-functions.md#contains) | Verifica se una raccolta ha un elemento specifico. |
-| [empty](control-flow-expression-language-functions.md#empty) | Verifica se una raccolta è vuota. |
-| [first](control-flow-expression-language-functions.md#first) | Restituisce il primo elemento di una raccolta. |
-| [intersection](control-flow-expression-language-functions.md#intersection) | Restituisce una raccolta che contiene *solo* gli elementi comuni alle raccolte specificate. |
-| [join](control-flow-expression-language-functions.md#join) | Restituisce una stringa con *tutti* gli elementi di una matrice, separati dal carattere specificato. |
-| [last](control-flow-expression-language-functions.md#last) | Restituisce l'ultimo elemento di una raccolta. |
+| [Contiene](control-flow-expression-language-functions.md#contains) | Verifica se una raccolta include un elemento specifico. |
+| [Vuoto](control-flow-expression-language-functions.md#empty) | Verifica se una raccolta è vuota. |
+| [Prima](control-flow-expression-language-functions.md#first) | Restituisce il primo elemento di una raccolta. |
+| [Intersezione](control-flow-expression-language-functions.md#intersection) | Restituisce una raccolta che contiene *solo* gli elementi comuni alle raccolte specificate. |
+| [Unirsi](control-flow-expression-language-functions.md#join) | Restituisce una stringa con *tutti* gli elementi di una matrice, separati dal carattere specificato. |
+| [Ultima](control-flow-expression-language-functions.md#last) | Restituisce l'ultimo elemento di una raccolta. |
 | [length](control-flow-expression-language-functions.md#length) | Restituisce il numero di elementi in una stringa o matrice. |
 | [skip](control-flow-expression-language-functions.md#skip) | Rimuove gli elementi dall'inizio di una raccolta e restituisce *tutti gli altri* elementi. |
 | [take](control-flow-expression-language-functions.md#take) | Restituisce gli elementi dall'inizio di una raccolta. |
-| [union](control-flow-expression-language-functions.md#union) | Restituisce una collezione che contiene *tutti* gli elementi delle raccolte specificate. | 
+| [Unione](control-flow-expression-language-functions.md#union) | Restituisce una raccolta che contiene *tutti* gli elementi delle raccolte specificate. | 
 
 ## <a name="logical-functions"></a>Funzioni logiche  
 
@@ -189,15 +189,15 @@ Queste funzioni sono utili all'interno delle condizioni e possono essere usate p
   
 | Funzione di confronto logico | Attività |
 | --------------------------- | ---- |
-| [and](control-flow-expression-language-functions.md#and) | Verifica se tutte le espressioni sono true. |
+| [E](control-flow-expression-language-functions.md#and) | Verifica se tutte le espressioni sono true. |
 | [equals](control-flow-expression-language-functions.md#equals) | Verifica se entrambi i valori sono equivalenti. |
-| [greater](control-flow-expression-language-functions.md#greater) | Verifica se il primo valore è maggiore del secondo. |
+| [greater](control-flow-expression-language-functions.md#greater) | Verifica se il primo valore è maggiore del secondo valore. |
 | [greaterOrEquals](control-flow-expression-language-functions.md#greaterOrEquals) | Verifica se il primo valore è maggiore o uguale al secondo valore. |
 | [if](control-flow-expression-language-functions.md#if) | Verifica se un'espressione è true o false. In base al risultato, restituisce un valore specificato. |
-| [less](control-flow-expression-language-functions.md#less) | Verifica se il primo valore è minore del secondo. |
+| [Meno](control-flow-expression-language-functions.md#less) | Verifica se il primo valore è minore del secondo valore. |
 | [lessOrEquals](control-flow-expression-language-functions.md#lessOrEquals) | Verifica se il primo valore è minore o uguale al secondo valore. |
 | [not](control-flow-expression-language-functions.md#not) | Verifica se un'espressione è false. |
-| [or](control-flow-expression-language-functions.md#or) | Verifica se almeno un'espressione è true. |
+| [O](control-flow-expression-language-functions.md#or) | Verifica se almeno un'espressione è true. |
   
 ## <a name="conversion-functions"></a>Funzioni di conversione  
 
@@ -211,51 +211,51 @@ Queste funzioni sono utili all'interno delle condizioni e possono essere usate p
 
 | Funzione di conversione | Attività |
 | ------------------- | ---- |
-| [array](control-flow-expression-language-functions.md#array) | Restituisce una matrice da un singolo input specificato. Per più input, vedere [createArray](control-flow-expression-language-functions.md#createArray). |
+| [Matrice](control-flow-expression-language-functions.md#array) | Restituisce una matrice da un singolo input specificato. Per più input, vedere [createArray](control-flow-expression-language-functions.md#createArray). |
 | [base64](control-flow-expression-language-functions.md#base64) | Restituisce la versione di una stringa con codifica base64. |
 | [base64ToBinary](control-flow-expression-language-functions.md#base64ToBinary) | Restituisce la versione binaria di una stringa con codifica base64. |
 | [base64ToString](control-flow-expression-language-functions.md#base64ToString) | Restituisce la versione stringa di una stringa con codifica base64. |
 | [binary](control-flow-expression-language-functions.md#binary) | Restituisce la versione binaria di un valore di input. |
 | [bool](control-flow-expression-language-functions.md#bool) | Restituisce la versione booleana di un valore di input. |
 | [coalesce](control-flow-expression-language-functions.md#coalesce) | Restituisce il primo valore non Null da uno o più parametri. |
-| [createArray](control-flow-expression-language-functions.md#createArray) | Restituisce una matrice da più input. |
-| [dataUri](control-flow-expression-language-functions.md#dataUri) | Restituisce l'URI dati di un valore di input. |
+| [createArray (matrice)](control-flow-expression-language-functions.md#createArray) | Restituisce una matrice da più input. |
+| [dataUri (informazioni in base all'](control-flow-expression-language-functions.md#dataUri) | Restituisce l'URI dati di un valore di input. |
 | [dataUriToBinary](control-flow-expression-language-functions.md#dataUriToBinary) | Restituisce la versione binaria di un URI dati. |
 | [dataUriToString](control-flow-expression-language-functions.md#dataUriToString) | Restituisce la versione stringa di un URI dati. |
 | [decodeBase64](control-flow-expression-language-functions.md#decodeBase64) | Restituisce la versione stringa di una stringa con codifica base64. |
 | [decodeDataUri](control-flow-expression-language-functions.md#decodeDataUri) | Restituisce la versione binaria di un URI dati. |
 | [decodeUriComponent](control-flow-expression-language-functions.md#decodeUriComponent) | Restituisce una stringa che sostituisce i caratteri di escape con le versioni decodificate. |
 | [encodeUriComponent](control-flow-expression-language-functions.md#encodeUriComponent) | Restituisce una stringa che sostituisce i caratteri non sicuri dell'URL con caratteri di escape. |
-| [float](control-flow-expression-language-functions.md#float) | Restituisce un numero a virgola mobile per un valore di input. |
-| [int](control-flow-expression-language-functions.md#int) | Restituisce la versione intera di una stringa. |
-| [json](control-flow-expression-language-functions.md#json) | Restituisce il valore o l'oggetto di tipo JSON (JavaScript Object Notation ) per una stringa o un elemento XML. |
-| [string](control-flow-expression-language-functions.md#string) | Restituisce la versione stringa di un valore di input. |
+| [Galleggiante](control-flow-expression-language-functions.md#float) | Restituisce un numero a virgola mobile per un valore di input. |
+| [Int](control-flow-expression-language-functions.md#int) | Restituisce la versione integer di una stringa. |
+| [Json](control-flow-expression-language-functions.md#json) | Restituisce il valore o l'oggetto di tipo JSON (JavaScript Object Notation ) per una stringa o un elemento XML. |
+| [Stringa](control-flow-expression-language-functions.md#string) | Restituisce la versione stringa di un valore di input. |
 | [uriComponent](control-flow-expression-language-functions.md#uriComponent) | Restituisce la versione codificata in formato URI per un valore di input sostituendo i caratteri non sicuri dell'URL con caratteri di escape. |
 | [uriComponentToBinary](control-flow-expression-language-functions.md#uriComponentToBinary) | Restituisce la versione binaria di una stringa con codifica URI. |
 | [uriComponentToString](control-flow-expression-language-functions.md#uriComponentToString) | Restituisce la versione stringa di una stringa con codifica URI. |
 | [xml](control-flow-expression-language-functions.md#xml) | Restituisce la versione XML di una stringa. |
-| [xpath](control-flow-expression-language-functions.md#xpath) | Verifica nel codice XML la presenza di nodi o valori che corrispondono a un'espressione XPath (XML Path Language) e restituisce i nodi o valori corrispondenti. |
+| [Xpath](control-flow-expression-language-functions.md#xpath) | Verifica nel codice XML la presenza di nodi o valori che corrispondono a un'espressione XPath (XML Path Language) e restituisce i nodi o i valori corrispondenti. |
 
 ## <a name="math-functions"></a>Funzioni matematiche  
  Queste funzioni possono essere usate per qualsiasi tipo di numero, ovvero **numeri interi** e **numeri a virgola mobile**.  
 
 | Funzione matematica | Attività |
 | ------------- | ---- |
-| [add](control-flow-expression-language-functions.md#add) | Restituisce il risultato della somma di due numeri. |
+| [aggiungi](control-flow-expression-language-functions.md#add) | Restituisce il risultato della somma di due numeri. |
 | [div](control-flow-expression-language-functions.md#div) | Restituisce il risultato della divisione di due numeri. |
-| [max](control-flow-expression-language-functions.md#max) | Restituisce il valore più alto di un set di numeri o una matrice. |
-| [min](control-flow-expression-language-functions.md#min) | Restituisce il valore più basso di un set di numeri o una matrice. |
-| [mod](control-flow-expression-language-functions.md#mod) | Restituisce il resto della divisione di due numeri. |
-| [mul](control-flow-expression-language-functions.md#mul) | Restituire il prodotto della moltiplicazione di due numeri. |
-| [rand](control-flow-expression-language-functions.md#rand) | Restituisce un numero intero casuale da un intervallo specificato. |
-| [range](control-flow-expression-language-functions.md#range) | Restituisce una matrice di numeri interi che inizia da un numero intero specificato. |
-| [sub](control-flow-expression-language-functions.md#sub) | Restituisce il risultato della sottrazione del secondo numero dal primo. |
+| [Massimo](control-flow-expression-language-functions.md#max) | Restituisce il valore più alto di un set di numeri o una matrice. |
+| [Minimo](control-flow-expression-language-functions.md#min) | Restituisce il valore più basso di un set di numeri o una matrice. |
+| [Mod](control-flow-expression-language-functions.md#mod) | Restituisce il resto della divisione di due numeri. |
+| [mul](control-flow-expression-language-functions.md#mul) | Restituisce il prodotto della moltiplicazione di due numeri. |
+| [Rand](control-flow-expression-language-functions.md#rand) | Restituisce un numero intero casuale da un intervallo specificato. |
+| [Gamma](control-flow-expression-language-functions.md#range) | Restituisce una matrice di valori interi che inizia da un valore intero specificato. |
+| [Sub](control-flow-expression-language-functions.md#sub) | Restituisce il risultato della sottrazione del secondo numero dal primo. |
   
 ## <a name="date-functions"></a>Funzioni di data  
 
 | Funzione di data e ora | Attività |
 | --------------------- | ---- |
-| [addDays](control-flow-expression-language-functions.md#addDays) | Aggiunge un numero di giorni a un timestamp. |
+| [addGiorni](control-flow-expression-language-functions.md#addDays) | Aggiunge un numero di giorni a un timestamp. |
 | [addHours](control-flow-expression-language-functions.md#addHours) | Aggiunge un numero di ore a un timestamp. |
 | [addMinutes](control-flow-expression-language-functions.md#addMinutes) | Aggiunge un numero di minuti a un timestamp. |
 | [addSeconds](control-flow-expression-language-functions.md#addSeconds) | Aggiunge un numero di secondi a un timestamp. |
@@ -264,7 +264,7 @@ Queste funzioni sono utili all'interno delle condizioni e possono essere usate p
 | [convertTimeZone](control-flow-expression-language-functions.md#convertTimeZone) | Converte un timestamp dal fuso orario di origine al fuso orario di destinazione. |
 | [convertToUtc](control-flow-expression-language-functions.md#convertToUtc) | Converte un timestamp dal fuso orario di origine a UTC (Universal Time Coordinated). |
 | [dayOfMonth](control-flow-expression-language-functions.md#dayOfMonth) | Restituisce il giorno del componente di mese di un timestamp. |
-| [dayOfWeek](control-flow-expression-language-functions.md#dayOfWeek) | Restituisce il giorno del componente settimana di un timestamp. |
+| [Dayofweek](control-flow-expression-language-functions.md#dayOfWeek) | Restituisce il giorno del componente settimana di un timestamp. |
 | [dayOfYear](control-flow-expression-language-functions.md#dayOfYear) | Restituisce il giorno del componente anno di un timestamp. |
 | [formatDateTime](control-flow-expression-language-functions.md#formatDateTime) | Restituisce la data di un timestamp. |
 | [getFutureTime](control-flow-expression-language-functions.md#getFutureTime) | Restituisce il timestamp corrente più le unità di tempo specificate. Vedere anche [addToTime](control-flow-expression-language-functions.md#addToTime). |
@@ -272,11 +272,11 @@ Queste funzioni sono utili all'interno delle condizioni e possono essere usate p
 | [startOfDay](control-flow-expression-language-functions.md#startOfDay) | Restituisce l'inizio del giorno per un timestamp. |
 | [startOfHour](control-flow-expression-language-functions.md#startOfHour) | Restituisce l'inizio dell'ora per un timestamp. |
 | [startOfMonth](control-flow-expression-language-functions.md#startOfMonth) | Restituisce l'inizio del mese per un timestamp. |
-| [subtractFromTime](control-flow-expression-language-functions.md#subtractFromTime) | Sottrae un numero di unità di tempo da un timestamp. Vedere [getPastTime](control-flow-expression-language-functions.md#getPastTime). |
+| [subtractFromTime](control-flow-expression-language-functions.md#subtractFromTime) | Sottrae un numero di unità di tempo da un timestamp. Vedere anche [getPastTime](control-flow-expression-language-functions.md#getPastTime). |
 | [ticks](control-flow-expression-language-functions.md#ticks) | Restituisce il valore della proprietà `ticks` per un timestamp specificato. |
 | [utcNow](control-flow-expression-language-functions.md#utcNow) | Restituisce il timestamp corrente come stringa. |
 
-## <a name="function-reference"></a>Riferimento alle funzioni
+## <a name="function-reference"></a>Informazioni di riferimento sulle funzioni
 
 Questa sezione elenca tutte le funzioni disponibili in ordine alfabetico.
 
@@ -290,14 +290,14 @@ Restituisce il risultato della somma di due numeri.
 add(<summand_1>, <summand_2>)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*summand_1*>, <*summand_2*> | SÌ | Integer, float o misto | Numeri da sommare |
+| <*summand_1*>, <*summand_2*> | Sì | Integer, float o misto | Numeri da sommare |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | -----| ----------- |
-| <*result-sum*> | Integer o float | Risultato della somma dei numeri specificati |
+| <*risultato-somma*> | Integer o float | Risultato della somma dei numeri specificati |
 ||||
 
 *Esempio*
@@ -320,16 +320,16 @@ Aggiunge un numero di giorni a un timestamp.
 addDays('<timestamp>', <days>, '<format>'?)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | SÌ | Stringa | Stringa contenente il timestamp |
-| <*days*> | SÌ | Integer | Numero positivo o negativo di giorni da aggiungere |
-| <*format*> | No | Stringa | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*Timestamp*> | Sì | string | Stringa contenente il timestamp |
+| <*Giorni*> | Sì | Integer | Numero positivo o negativo di giorni da aggiungere |
+| <*Formato*> | No | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*updated-timestamp*> | Stringa | Timestamp con l'aggiunta del numero di giorni specificato  |
+| <*updated-timestamp*> | string | Timestamp con l'aggiunta del numero di giorni specificato  |
 ||||
 
 *Esempio 1*
@@ -362,16 +362,16 @@ Aggiunge un numero di ore a un timestamp.
 addHours('<timestamp>', <hours>, '<format>'?)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | SÌ | Stringa | Stringa contenente il timestamp |
-| <*hours*> | SÌ | Integer | Numero positivo o negativo di ore da aggiungere |
-| <*format*> | No | Stringa | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*Timestamp*> | Sì | string | Stringa contenente il timestamp |
+| <*Ore*> | Sì | Integer | Numero positivo o negativo di ore da aggiungere |
+| <*Formato*> | No | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*updated-timestamp*> | Stringa | Timestamp con l'aggiunta del numero di ore specificato  |
+| <*updated-timestamp*> | string | Timestamp con l'aggiunta del numero di ore specificato  |
 ||||
 
 *Esempio 1*
@@ -404,16 +404,16 @@ Aggiunge un numero di minuti a un timestamp.
 addMinutes('<timestamp>', <minutes>, '<format>'?)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | SÌ | Stringa | Stringa contenente il timestamp |
-| <*minutes*> | SÌ | Integer | Numero positivo o negativo di minuti da aggiungere |
-| <*format*> | No | Stringa | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*Timestamp*> | Sì | string | Stringa contenente il timestamp |
+| <*Minuti*> | Sì | Integer | Numero positivo o negativo di minuti da aggiungere |
+| <*Formato*> | No | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*updated-timestamp*> | Stringa | Timestamp con l'aggiunta del numero di minuti specificato |
+| <*updated-timestamp*> | string | Timestamp con l'aggiunta del numero di minuti specificato |
 ||||
 
 *Esempio 1*
@@ -446,16 +446,16 @@ Aggiunge un numero di secondi a un timestamp.
 addSeconds('<timestamp>', <seconds>, '<format>'?)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | SÌ | Stringa | Stringa contenente il timestamp |
-| <*seconds*> | SÌ | Integer | Numero positivo o negativo di secondi da aggiungere |
-| <*format*> | No | Stringa | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*Timestamp*> | Sì | string | Stringa contenente il timestamp |
+| <*Secondi*> | Sì | Integer | Numero positivo o negativo di secondi da aggiungere |
+| <*Formato*> | No | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*updated-timestamp*> | Stringa | Timestamp con l'aggiunta del numero di secondi specificato  |
+| <*updated-timestamp*> | string | Timestamp con l'aggiunta del numero di secondi specificato  |
 ||||
 
 *Esempio 1*
@@ -489,17 +489,17 @@ Vedere anche [getFutureTime()](#getFutureTime).
 addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | SÌ | Stringa | Stringa contenente il timestamp |
-| <*interval*> | SÌ | Integer | Numero di unità di tempo specificate da aggiungere |
-| <*timeUnit*> | SÌ | Stringa | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | No | Stringa | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*Timestamp*> | Sì | string | Stringa contenente il timestamp |
+| <*Intervallo*> | Sì | Integer | Numero di unità di tempo specificate da aggiungere |
+| <*timeUnit (unità di misura)*> | Sì | string | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
+| <*Formato*> | No | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*updated-timestamp*> | Stringa | Timestamp con l'aggiunta del numero di unità di tempo specificato  |
+| <*updated-timestamp*> | string | Timestamp con l'aggiunta del numero di unità di tempo specificato  |
 ||||
 
 *Esempio 1*
@@ -533,14 +533,14 @@ Restituisce true se tutte le espressioni sono true o false se almeno un'espressi
 and(<expression1>, <expression2>, ...)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*expression1*>, <*expression2*>, ... | SÌ | boolean | Espressioni da verificare |
+| <*expression1*>, <*expression2*>, ... | Sì | Boolean | Espressioni da verificare |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | -----| ----------- |
-| true o false | boolean | Restituisce true se tutte le espressioni sono true. Restituisce false se almeno un'espressione è false. |
+| true o false | Boolean | Restituisce true se tutte le espressioni sono true. Restituisce false se almeno un'espressione è false. |
 ||||
 
 *Esempio 1*
@@ -586,14 +586,14 @@ Per più input, vedere [createArray()](#createArray).
 array('<value>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | SÌ | Stringa | Stringa per la creazione di una matrice |
+| <*Valore*> | Sì | string | Stringa per la creazione di una matrice |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| [<*value*>] | Array | Matrice che contiene il singolo input specificato |
+| [> *value* valore <] | Array | Matrice che contiene il singolo input specificato |
 ||||
 
 *Esempio*
@@ -616,14 +616,14 @@ Restituisce la versione di una stringa con codifica base64.
 base64('<value>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | SÌ | Stringa | Stringa di input |
+| <*Valore*> | Sì | string | Stringa di input |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*base64-string*> | Stringa | Versione della stringa di input con codifica base64 |
+| <*base64-stringa*> | string | Versione della stringa di input con codifica base64 |
 ||||
 
 *Esempio*
@@ -646,14 +646,14 @@ Restituisce la versione binaria di una stringa con codifica base64.
 base64ToBinary('<value>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | SÌ | Stringa | Stringa con codifica base64 da convertire |
+| <*Valore*> | Sì | string | Stringa con codifica base64 da convertire |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*binary-for-base64-string*> | Stringa | Versione binaria della stringa con codifica base64 |
+| <*stringa binary-for-base64*> | string | Versione binaria della stringa con codifica base64 |
 ||||
 
 *Esempio*
@@ -680,14 +680,14 @@ Anche se entrambe le funzioni hanno un comportamento analogo, è preferibile usa
 base64ToString('<value>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | SÌ | Stringa | Stringa con codifica base64 da decodificare |
+| <*Valore*> | Sì | string | Stringa con codifica base64 da decodificare |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*decoded-base64-string*> | Stringa | Versione stringa di una stringa con codifica base64 |
+| <*stringa decodificata base64*> | string | Versione stringa di una stringa con codifica base64 |
 ||||
 
 *Esempio*
@@ -702,7 +702,7 @@ E viene restituito questo risultato: `"hello"`
 
 <a name="binary"></a>
 
-### <a name="binary"></a>binary
+### <a name="binary"></a>BINARY
 
 Restituisce la versione binaria di una stringa.
 
@@ -710,14 +710,14 @@ Restituisce la versione binaria di una stringa.
 binary('<value>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | SÌ | Stringa | Stringa da convertire |
+| <*Valore*> | Sì | string | Stringa da convertire |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*binary-for-input-value*> | Stringa | Versione binaria della stringa specificata |
+| <*binario-per-valore di input*> | string | Versione binaria della stringa specificata |
 ||||
 
 *Esempio*
@@ -742,14 +742,14 @@ Restituisce la versione booleana di un valore.
 bool(<value>)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | SÌ | Qualsiasi | Valore da convertire |
+| <*Valore*> | Sì | Qualsiasi | Valore da convertire |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| true o false | boolean | Versione booleana del valore specificato |
+| true o false | Boolean | Versione booleana del valore specificato |
 ||||
 
 *Esempio*
@@ -777,14 +777,14 @@ Stringhe vuote, matrici vuote e oggetti vuoti sono non null.
 coalesce(<object_1>, <object_2>, ...)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*object_1*>, <*object_2*>, ... | SÌ | Qualsiasi, è possibile una combinazione di tipi | Uno o più elementi da verificare per determinare se sono Null |
+| <*object_1*>,> *<object_2,* ... | Sì | Qualsiasi, è possibile una combinazione di tipi | Uno o più elementi da verificare per determinare se sono Null |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*first-non-null-item*> | Qualsiasi | Primo elemento o valore non Null. Se tutti i parametri sono Null, questa funzione restituisce Null. |
+| <*primo-non-null-item*> | Qualsiasi | Primo elemento o valore non Null. Se tutti i parametri sono Null, questa funzione restituisce Null. |
 ||||
 
 *Esempio*
@@ -813,14 +813,14 @@ Combina due o più stringhe e restituisce la stringa combinata.
 concat('<text1>', '<text2>', ...)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*text1*>, <*text2*>, ... | SÌ | Stringa | Almeno due stringhe da combinare |
+| <*text1*>, <*text2*>, ... | Sì | string | Almeno due stringhe da combinare |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*text1text2...* > | Stringa | Stringa creata dalle stringhe di input combinate |
+| <*testo1testo2...*> | string | Stringa creata dalle stringhe di input combinate |
 ||||
 
 *Esempio*
@@ -837,7 +837,7 @@ E viene restituito questo risultato: `"HelloWorld"`
 
 ### <a name="contains"></a>contains
 
-Verifica se una raccolta ha un elemento specifico.
+Verifica se una raccolta include un elemento specifico.
 Restituisce true se l'elemento viene trovato o false se non viene trovato.
 Questa funzione fa distinzione tra maiuscole e minuscole.
 
@@ -852,15 +852,15 @@ In particolare, questa funzione può essere usata con questi tipi di raccolta:
 * Una *matrice* per trovare un *valore*
 * Un *dizionario* per trovare una *chiave*
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*collection*> | SÌ | String, array o dictionary | Raccolta da verificare |
-| <*value*> | SÌ | String, array o dictionary, rispettivamente | Elemento da trovare |
+| <*Collezione*> | Sì | String, array o dictionary | Raccolta da verificare |
+| <*Valore*> | Sì | String, array o dictionary, rispettivamente | Elemento da trovare |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| true o false | boolean | Restituisce true se l'elemento viene trovato. Restituisce false se l'elemento non viene trovato. |
+| true o false | Boolean | Restituisce true se l'elemento viene trovato. Restituisce false se l'elemento non viene trovato. |
 ||||
 
 *Esempio 1*
@@ -889,16 +889,16 @@ Converte un timestamp da UTC (Universal Time Coordinated) al fuso orario di dest
 convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | SÌ | Stringa | Stringa contenente il timestamp |
-| <*destinationTimeZone*> | SÌ | Stringa | Nome del fuso orario di destinazione. Per i nomi dei fusi orari, vedere [valori di indice del fuso orario Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), ma potrebbe essere necessario rimuovere la punteggiatura dal nome del fuso orario. |
-| <*format*> | No | Stringa | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*Timestamp*> | Sì | string | Stringa contenente il timestamp |
+| <*Destinationtimezone*> | Sì | string | Nome del fuso orario di destinazione. Per i nomi dei fusi orari, vedere [Valori dell'indice](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values)di fuso orario Microsoft , ma potrebbe essere necessario rimuovere qualsiasi punteggiatura dal nome del fuso orario. |
+| <*Formato*> | No | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*converted-timestamp*> | Stringa | Timestamp convertito nel fuso orario di destinazione |
+| <*convertito-timestamp*> | string | Timestamp convertito nel fuso orario di destinazione |
 ||||
 
 *Esempio 1*
@@ -931,17 +931,17 @@ Converte un timestamp dal fuso orario di origine al fuso orario di destinazione.
 convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<format>'?)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | SÌ | Stringa | Stringa contenente il timestamp |
-| <*sourceTimeZone*> | SÌ | Stringa | Nome del fuso orario di origine. Per i nomi dei fusi orari, vedere [valori di indice del fuso orario Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), ma potrebbe essere necessario rimuovere la punteggiatura dal nome del fuso orario. |
-| <*destinationTimeZone*> | SÌ | Stringa | Nome del fuso orario di destinazione. Per i nomi dei fusi orari, vedere [valori di indice del fuso orario Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), ma potrebbe essere necessario rimuovere la punteggiatura dal nome del fuso orario. |
-| <*format*> | No | Stringa | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*Timestamp*> | Sì | string | Stringa contenente il timestamp |
+| <*Sourcetimezone*> | Sì | string | Nome del fuso orario di origine. Per i nomi dei fusi orari, vedere [Valori dell'indice](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values)di fuso orario Microsoft , ma potrebbe essere necessario rimuovere qualsiasi punteggiatura dal nome del fuso orario. |
+| <*Destinationtimezone*> | Sì | string | Nome del fuso orario di destinazione. Per i nomi dei fusi orari, vedere [Valori dell'indice](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values)di fuso orario Microsoft , ma potrebbe essere necessario rimuovere qualsiasi punteggiatura dal nome del fuso orario. |
+| <*Formato*> | No | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*converted-timestamp*> | Stringa | Timestamp convertito nel fuso orario di destinazione |
+| <*convertito-timestamp*> | string | Timestamp convertito nel fuso orario di destinazione |
 ||||
 
 *Esempio 1*
@@ -974,16 +974,16 @@ Converte un timestamp dal fuso orario di origine a UTC (Universal Time Coordinat
 convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | SÌ | Stringa | Stringa contenente il timestamp |
-| <*sourceTimeZone*> | SÌ | Stringa | Nome del fuso orario di origine. Per i nomi dei fusi orari, vedere [valori di indice del fuso orario Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), ma potrebbe essere necessario rimuovere la punteggiatura dal nome del fuso orario. |
-| <*format*> | No | Stringa | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*Timestamp*> | Sì | string | Stringa contenente il timestamp |
+| <*Sourcetimezone*> | Sì | string | Nome del fuso orario di origine. Per i nomi dei fusi orari, vedere [Valori dell'indice](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values)di fuso orario Microsoft , ma potrebbe essere necessario rimuovere qualsiasi punteggiatura dal nome del fuso orario. |
+| <*Formato*> | No | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*converted-timestamp*> | Stringa | Timestamp convertito nell'ora UTC |
+| <*convertito-timestamp*> | string | Timestamp convertito nell'ora UTC |
 ||||
 
 *Esempio 1*
@@ -1017,14 +1017,14 @@ Per le matrici con input singolo, vedere [array()](#array).
 createArray('<object1>', '<object2>', ...)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*object1*>, <*object2*>, ... | SÌ | Qualsiasi, ma non sono possibili combinazioni di tipi | Almeno due elementi per creare la matrice |
+| <*object1*>, <*object2*>, ... | Sì | Qualsiasi, ma non sono possibili combinazioni di tipi | Almeno due elementi per creare la matrice |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| [<*object1*>, <*object2*>, ...] | Array | Matrice creata da tutti gli elementi di input |
+| [<> *dell'oggetto oggetto1* <,> *dell'oggetto 2,* ...] | Array | Matrice creata da tutti gli elementi di input |
 ||||
 
 *Esempio*
@@ -1047,14 +1047,14 @@ Restituisce un URI (Uniform Resource Identifier) di dati per una stringa.
 dataUri('<value>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | SÌ | Stringa | Stringa da convertire |
+| <*Valore*> | Sì | string | Stringa da convertire |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*data-uri*> | Stringa | URI di dati per la stringa di input |
+| <*data-uri*> | string | URI di dati per la stringa di input |
 ||||
 
 *Esempio*
@@ -1079,14 +1079,14 @@ Anche se entrambe le funzioni hanno un comportamento analogo, è preferibile usa
 dataUriToBinary('<value>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | SÌ | Stringa | URI di dati da convertire |
+| <*Valore*> | Sì | string | URI di dati da convertire |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*binary-for-data-uri*> | Stringa | Versione binaria dell'URI di dati |
+| <*binary-for-data-uri*> | string | Versione binaria dell'URI di dati |
 ||||
 
 *Esempio*
@@ -1114,14 +1114,14 @@ Restituisce la versione stringa di un URI (Uniform Resource Identifier) di dati.
 dataUriToString('<value>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | SÌ | Stringa | URI di dati da convertire |
+| <*Valore*> | Sì | string | URI di dati da convertire |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*string-for-data-uri*> | Stringa | Versione stringa dell'URI di dati |
+| <*stringa-per-dati-uri*> | string | Versione stringa dell'URI di dati |
 ||||
 
 *Esempio*
@@ -1144,14 +1144,14 @@ Restituisce il giorno del mese da un timestamp.
 dayOfMonth('<timestamp>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | SÌ | Stringa | Stringa contenente il timestamp |
+| <*Timestamp*> | Sì | string | Stringa contenente il timestamp |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*day-of-month*> | Integer | Giorno del mese dal timestamp specificato |
+| <*giorno del mese*> | Integer | Giorno del mese dal timestamp specificato |
 ||||
 
 *Esempio*
@@ -1174,14 +1174,14 @@ Restituisce il giorno della settimana da un timestamp.
 dayOfWeek('<timestamp>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | SÌ | Stringa | Stringa contenente il timestamp |
+| <*Timestamp*> | Sì | string | Stringa contenente il timestamp |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*day-of-week*> | Integer | Giorno della settimana dal timestamp specificato, dove domenica corrisponde a 0, lunedì a 1 e così via |
+| <*giorno della settimana*> | Integer | Giorno della settimana dal timestamp specificato, dove domenica corrisponde a 0, lunedì a 1 e così via |
 ||||
 
 *Esempio*
@@ -1204,14 +1204,14 @@ Restituisce il giorno dell'anno da un timestamp.
 dayOfYear('<timestamp>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | SÌ | Stringa | Stringa contenente il timestamp |
+| <*Timestamp*> | Sì | string | Stringa contenente il timestamp |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*day-of-year*> | Integer | Giorno dell'anno dal timestamp specificato |
+| <*giorno dell'anno*> | Integer | Giorno dell'anno dal timestamp specificato |
 ||||
 
 *Esempio*
@@ -1236,14 +1236,14 @@ Anche se entrambe le funzioni hanno un comportamento analogo, è preferibile usa
 decodeBase64('<value>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | SÌ | Stringa | Stringa con codifica base64 da decodificare |
+| <*Valore*> | Sì | string | Stringa con codifica base64 da decodificare |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*decoded-base64-string*> | Stringa | Versione stringa di una stringa con codifica base64 |
+| <*stringa decodificata base64*> | string | Versione stringa di una stringa con codifica base64 |
 ||||
 
 *Esempio*
@@ -1268,14 +1268,14 @@ Anche se entrambe le funzioni hanno un comportamento analogo, è preferibile usa
 decodeDataUri('<value>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | SÌ | Stringa | Stringa dell'URI di dati da decodificare |
+| <*Valore*> | Sì | string | Stringa dell'URI di dati da decodificare |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*binary-for-data-uri*> | Stringa | Versione binaria di una stringa di URI di dati |
+| <*binary-for-data-uri*> | string | Versione binaria di una stringa di URI di dati |
 ||||
 
 *Esempio*
@@ -1303,14 +1303,14 @@ Restituisce una stringa che sostituisce i caratteri di escape con le versioni de
 decodeUriComponent('<value>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | SÌ | Stringa | Stringa con i caratteri di escape da decodificare |
+| <*Valore*> | Sì | string | Stringa con i caratteri di escape da decodificare |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*decoded-uri*> | Stringa | Stringa aggiornata con i caratteri di escape decodificati |
+| <*decodificato-uri*> | string | Stringa aggiornata con i caratteri di escape decodificati |
 ||||
 
 *Esempio*
@@ -1334,15 +1334,15 @@ Per ottenere il resto, vedere [mod()](#mod).
 div(<dividend>, <divisor>)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*dividend*> | SÌ | Integer o float | Numero da dividere per l'oggetto *divisor* |
-| <*divisor*> | SÌ | Integer o float | Numero che divide l'oggetto *dividend*, ma che non può essere 0 |
+| <*Dividendo*> | Sì | Integer o float | Numero da dividere per l'oggetto *divisor* |
+| <*Divisore*> | Sì | Integer o float | Il numero che divide il *dividendo*, ma non può essere 0 |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*quotient-result*> | Integer | Risultato intero della divisione del primo numero per il secondo numero |
+| <*quoziente-risultato*> | Integer | Risultato intero della divisione del primo numero per il secondo numero |
 ||||
 
 *Esempio*
@@ -1368,14 +1368,14 @@ Anche se entrambe le funzioni hanno un comportamento analogo, è preferibile usa
 encodeUriComponent('<value>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | SÌ | Stringa | Stringa da convertire nel formato con codifica URI |
+| <*Valore*> | Sì | string | Stringa da convertire nel formato con codifica URI |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*encoded-uri*> | Stringa | Stringa con codifica URI con i caratteri di escape |
+| <*encoded-uri*> | string | Stringa con codifica URI con i caratteri di escape |
 ||||
 
 *Esempio*
@@ -1400,14 +1400,14 @@ empty('<collection>')
 empty([<collection>])
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*collection*> | SÌ | String, array o object | Raccolta da verificare |
+| <*Collezione*> | Sì | String, array o object | Raccolta da verificare |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| true o false | boolean | Restituisce true se la raccolta è vuota. Restituisce false se non è vuota. |
+| true o false | Boolean | Restituisce true se la raccolta è vuota. Restituisce false se non è vuota. |
 ||||
 
 *Esempio*
@@ -1436,15 +1436,15 @@ Questa funzione non fa distinzione tra maiuscole e minuscole.
 endsWith('<text>', '<searchText>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | SÌ | Stringa | Stringa da verificare |
-| <*searchText*> | SÌ | Stringa | Sottostringa finale da trovare |
+| <*Testo*> | Sì | string | Stringa da verificare |
+| <*testodiricerca*> | Sì | string | Sottostringa finale da trovare |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| true o false  | boolean | Restituisce true se la sottostringa finale viene trovata. Restituisce false se l'elemento non viene trovato. |
+| true o false  | Boolean | Restituisce true se la sottostringa finale viene trovata. Restituisce false se l'elemento non viene trovato. |
 ||||
 
 *Esempio 1*
@@ -1478,14 +1478,14 @@ Restituisce true se entrambi gli elementi sono equivalenti o false se non lo son
 equals('<object1>', '<object2>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*object1*>, <*object2*> | SÌ | Vari | Valori, espressioni o oggetti da confrontare |
+| <*object1*>, <*object2*> | Sì | Vari | Valori, espressioni o oggetti da confrontare |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| true o false | boolean | Restituisce true se entrambi gli elementi sono equivalenti. Restituisce false se gli elementi non sono equivalenti. |
+| true o false | Boolean | Restituisce true se entrambi gli elementi sono equivalenti. Restituisce false se gli elementi non sono equivalenti. |
 ||||
 
 *Esempio*
@@ -1513,14 +1513,14 @@ first('<collection>')
 first([<collection>])
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*collection*> | SÌ | String o array | Raccolta in cui trovare il primo elemento |
+| <*Collezione*> | Sì | String o array | Raccolta in cui trovare il primo elemento |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*first-collection-item*> | Qualsiasi | Primo elemento nella raccolta |
+| <*primo-collection-item*> | Qualsiasi | Primo elemento nella raccolta |
 ||||
 
 *Esempio*
@@ -1547,14 +1547,14 @@ Converte una versione stringa per un numero a virgola mobile in un numero a virg
 float('<value>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | SÌ | Stringa | Stringa con un numero a virgola mobile valido da convertire |
+| <*Valore*> | Sì | string | Stringa con un numero a virgola mobile valido da convertire |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*float-value*> | Float | Numero a virgola mobile per la stringa specificata |
+| <*valore-float*> | Float | Numero a virgola mobile per la stringa specificata |
 ||||
 
 *Esempio*
@@ -1577,15 +1577,15 @@ Restituisce un timestamp nel formato specificato.
 formatDateTime('<timestamp>', '<format>'?)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | SÌ | Stringa | Stringa contenente il timestamp |
-| <*format*> | No | Stringa | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*Timestamp*> | Sì | string | Stringa contenente il timestamp |
+| <*Formato*> | No | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*reformatted-timestamp*> | Stringa | Timestamp aggiornato nel formato specificato |
+| <*nuovo timestamp*> | string | Timestamp aggiornato nel formato specificato |
 ||||
 
 *Esempio*
@@ -1608,16 +1608,16 @@ Restituisce il timestamp corrente più le unità di tempo specificate.
 getFutureTime(<interval>, <timeUnit>, <format>?)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*interval*> | SÌ | Integer | Numero di unità di tempo specificate da aggiungere |
-| <*timeUnit*> | SÌ | Stringa | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | No | Stringa | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*Intervallo*> | Sì | Integer | Numero di unità di tempo specificate da aggiungere |
+| <*timeUnit (unità di misura)*> | Sì | string | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
+| <*Formato*> | No | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*updated-timestamp*> | Stringa | Timestamp corrente con l'aggiunta del numero di unità di tempo specificato |
+| <*updated-timestamp*> | string | Timestamp corrente con l'aggiunta del numero di unità di tempo specificato |
 ||||
 
 *Esempio 1*
@@ -1652,16 +1652,16 @@ Restituisce il timestamp corrente meno le unità di tempo specificate.
 getPastTime(<interval>, <timeUnit>, <format>?)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*interval*> | SÌ | Integer | Numero di unità di tempo specificate da sottrarre |
-| <*timeUnit*> | SÌ | Stringa | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | No | Stringa | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*Intervallo*> | Sì | Integer | Numero di unità di tempo specificate da sottrarre |
+| <*timeUnit (unità di misura)*> | Sì | string | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
+| <*Formato*> | No | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*updated-timestamp*> | Stringa | Timestamp corrente meno il numero di unità di tempo specificato |
+| <*updated-timestamp*> | string | Timestamp corrente meno il numero di unità di tempo specificato |
 ||||
 
 *Esempio 1*
@@ -1690,7 +1690,7 @@ E viene restituito questo risultato: `"Saturday, January 27, 2018"`
 
 ### <a name="greater"></a>greater
 
-Verifica se il primo valore è maggiore del secondo.
+Verifica se il primo valore è maggiore del secondo valore.
 Restituisce true se il primo valore è maggiore o false se è minore.
 
 ```
@@ -1698,15 +1698,15 @@ greater(<value>, <compareTo>)
 greater('<value>', '<compareTo>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | SÌ | Integer, float o string | Primo valore da verificare per determinare se è maggiore del secondo |
-| <*compareTo*> | SÌ | Integer, float o string, rispettivamente | Valore di confronto |
+| <*Valore*> | Sì | Integer, float o string | Primo valore da verificare per determinare se è maggiore del secondo |
+| <*confrontacon*> | Sì | Integer, float o string, rispettivamente | Valore di confronto |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| true o false | boolean | Restituisce true se il primo valore è maggiore del secondo. Restituisce false se il primo valore è minore o uguale al secondo. |
+| true o false | Boolean | Restituisce true se il primo valore è maggiore del secondo. Restituisce false se il primo valore è minore o uguale al secondo. |
 ||||
 
 *Esempio*
@@ -1735,15 +1735,15 @@ greaterOrEquals(<value>, <compareTo>)
 greaterOrEquals('<value>', '<compareTo>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | SÌ | Integer, float o string | Primo valore da verificare per determinare se è maggiore o uguale al secondo |
-| <*compareTo*> | SÌ | Integer, float o string, rispettivamente | Valore di confronto |
+| <*Valore*> | Sì | Integer, float o string | Primo valore da verificare per determinare se è maggiore o uguale al secondo |
+| <*confrontacon*> | Sì | Integer, float o string, rispettivamente | Valore di confronto |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| true o false | boolean | Restituisce true se il primo valore è maggiore o uguale al secondo. Restituisce false se il primo valore è minore del secondo. |
+| true o false | Boolean | Restituisce true se il primo valore è maggiore o uguale al secondo. Restituisce false se il primo valore è minore del secondo. |
 ||||
 
 *Esempio*
@@ -1762,7 +1762,7 @@ E vengono restituiti questi risultati:
 
 <a name="guid"></a>
 
-### <a name="guid"></a>GUID
+### <a name="guid"></a>guid
 
 Genera un identificatore univoco globale (GUID) sotto forma di stringa, ad esempio "c2ecc88d-88c8-4096-912c-d6f2e2b138ce":
 
@@ -1776,14 +1776,14 @@ guid()
 guid('<format>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*format*> | No | Stringa | [Identificatore di formato](https://msdn.microsoft.com/library/97af8hh4) singolo per il GUID restituito. Per impostazione predefinita, il formato è "D", ma è possibile usare "N", "D", "B", "P" o "X". |
+| <*Formato*> | No | string | [Identificatore di formato](https://msdn.microsoft.com/library/97af8hh4) singolo per il GUID restituito. Per impostazione predefinita, il formato è "D", ma è possibile usare "N", "D", "B", "P" o "X". |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*GUID-value*> | Stringa | GUID generato in modo casuale |
+| <*Valore GUID*> | string | GUID generato in modo casuale |
 ||||
 
 *Esempio*
@@ -1807,16 +1807,16 @@ In base al risultato, restituisce un valore specificato.
 if(<expression>, <valueIfTrue>, <valueIfFalse>)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*expression*> | SÌ | boolean | Espressione da verificare |
-| <*valueIfTrue*> | SÌ | Qualsiasi | Valore da restituire se l'espressione è true |
-| <*valueIfFalse*> | SÌ | Qualsiasi | Valore da restituire se l'espressione è false |
+| <*Espressione*> | Sì | Boolean | Espressione da verificare |
+| <*valoreSeTrue*> | Sì | Qualsiasi | Valore da restituire se l'espressione è true |
+| <*valoreIfFalse*> | Sì | Qualsiasi | Valore da restituire se l'espressione è false |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*specified-return-value*> | Qualsiasi | Valore specificato restituito a seconda del fatto che l'espressione sia true o false |
+| <*valore restituito specificato*> | Qualsiasi | Valore specificato restituito a seconda del fatto che l'espressione sia true o false |
 ||||
 
 *Esempio*
@@ -1839,15 +1839,15 @@ Questa funzione non fa distinzione tra maiuscole e minuscole e gli indici inizia
 indexOf('<text>', '<searchText>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | SÌ | Stringa | Stringa che contiene la sottostringa da trovare |
-| <*searchText*> | SÌ | Stringa | Sottostringa da trovare |
+| <*Testo*> | Sì | string | Stringa che contiene la sottostringa da trovare |
+| <*testodiricerca*> | Sì | string | Sottostringa da trovare |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*index-value*>| Integer | Posizione iniziale o valore di indice per la sottostringa specificata. <p>Se la stringa non viene trovata, viene restituito -1. |
+| <*valore indice*>| Integer | Posizione iniziale o valore di indice per la sottostringa specificata. <p>Se la stringa non viene trovata, viene restituito -1. |
 ||||
 
 *Esempio*
@@ -1862,22 +1862,22 @@ E viene restituito questo risultato: `6`
 
 <a name="int"></a>
 
-### <a name="int"></a>int
+### <a name="int"></a>INT
 
-Restituisce la versione intera di una stringa.
+Restituisce la versione integer di una stringa.
 
 ```
 int('<value>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | SÌ | Stringa | Stringa da convertire |
+| <*Valore*> | Sì | string | Stringa da convertire |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*integer-result*> | Integer | Versione integer della stringa specificata |
+| <*risultato intero*> | Integer | Versione integer della stringa specificata |
 ||||
 
 *Esempio*
@@ -1900,14 +1900,14 @@ Restituisce il valore o l'oggetto di tipo JSON (JavaScript Object Notation ) per
 json('<value>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | SÌ | Stringa o elemento XML | Stringa o elemento XML da convertire |
+| <*Valore*> | Sì | Stringa o elemento XML | Stringa o elemento XML da convertire |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*JSON-result*> | Oggetto o tipo nativo JSON | Oggetto o valore del tipo nativo JSON per la stringa o l'elemento XML specificato. Se la stringa è Null, la funzione restituisce un oggetto vuoto. |
+| <*Risultato JSON*> | Oggetto o tipo nativo JSON | Oggetto o valore del tipo nativo JSON per la stringa o l'elemento XML specificato. Se la stringa è Null, la funzione restituisce un oggetto vuoto. |
 ||||
 
 *Esempio 1*
@@ -1972,14 +1972,14 @@ intersection([<collection1>], [<collection2>], ...)
 intersection('<collection1>', '<collection2>', ...)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*collection1*>, <*collection2*>, ... | SÌ | Array o object, ma non entrambi i tipi | Raccolte da cui ottenere *solo* gli elementi comuni |
+| <*collection1*>, <*collection2*>, ... | Sì | Array o object, ma non entrambi i tipi | Raccolte da cui ottenere *solo* gli elementi comuni |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*common-items*> | Array o object, rispettivamente | Raccolta che contiene solo gli elementi comuni alle raccolte specificate |
+| <*elementi comuni*> | Array o object, rispettivamente | Raccolta che contiene solo gli elementi comuni alle raccolte specificate |
 ||||
 
 *Esempio*
@@ -2002,15 +2002,15 @@ Restituisce una stringa con tutti gli elementi di una matrice, in cui ogni carat
 join([<collection>], '<delimiter>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*collection*> | SÌ | Array | Matrice contenente gli elementi da aggiungere |
-| <*delimiter*> | SÌ | Stringa | Separatore visualizzato tra ogni carattere nella stringa risultante |
+| <*Collezione*> | Sì | Array | Matrice contenente gli elementi da aggiungere |
+| <*Delimitatore*> | Sì | string | Separatore visualizzato tra ogni carattere nella stringa risultante |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*char1*><*delimiter*><*char2*><*delimiter*>... | Stringa | Stringa risultante creata da tutti gli elementi nella matrice specificata |
+| <*char1*><*delimitatore*><char1*delimitatore* *char2*><>... | string | Stringa risultante creata da tutti gli elementi nella matrice specificata |
 ||||
 
 *Esempio*
@@ -2034,14 +2034,14 @@ last('<collection>')
 last([<collection>])
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*collection*> | SÌ | String o array | Raccolta dove trovare l'ultimo elemento |
+| <*Collezione*> | Sì | String o array | Raccolta dove trovare l'ultimo elemento |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*last-collection-item*> | String o array, rispettivamente | Ultimo elemento nella raccolta |
+| <*ultimo oggetto di raccolta*> | String o array, rispettivamente | Ultimo elemento nella raccolta |
 ||||
 
 *Esempio*
@@ -2069,15 +2069,15 @@ Questa funzione non fa distinzione tra maiuscole e minuscole e gli indici inizia
 lastIndexOf('<text>', '<searchText>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | SÌ | Stringa | Stringa che contiene la sottostringa da trovare |
-| <*searchText*> | SÌ | Stringa | Sottostringa da trovare |
+| <*Testo*> | Sì | string | Stringa che contiene la sottostringa da trovare |
+| <*testodiricerca*> | Sì | string | Sottostringa da trovare |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*ending-index-value*> | Integer | La posizione iniziale o il valore di indice per l'ultima occorrenza della sottostringa specificata. <p>Se la stringa non viene trovata, viene restituito -1. |
+| <*end-index-value*> | Integer | La posizione iniziale o il valore di indice per l'ultima occorrenza della sottostringa specificata. <p>Se la stringa non viene trovata, viene restituito -1. |
 ||||
 
 *Esempio*
@@ -2101,14 +2101,14 @@ length('<collection>')
 length([<collection>])
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*collection*> | SÌ | String o array | Raccolta con gli elementi da contare |
+| <*Collezione*> | Sì | String o array | Raccolta con gli elementi da contare |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*length-or-count*> | Integer | Numero di elementi nella raccolta |
+| <*lunghezza o conteggio*> | Integer | Numero di elementi nella raccolta |
 ||||
 
 *Esempio*
@@ -2126,7 +2126,7 @@ E viene restituito questo risultato: `4`
 
 ### <a name="less"></a>less
 
-Verifica se il primo valore è minore del secondo.
+Verifica se il primo valore è minore del secondo valore.
 Restituisce true se il primo valore è minore o false se è maggiore.
 
 ```
@@ -2134,15 +2134,15 @@ less(<value>, <compareTo>)
 less('<value>', '<compareTo>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | SÌ | Integer, float o string | Primo valore da verificare per determinare se è minore del secondo |
-| <*compareTo*> | SÌ | Integer, float o string, rispettivamente | Elemento di confronto |
+| <*Valore*> | Sì | Integer, float o string | Primo valore da verificare per determinare se è minore del secondo |
+| <*confrontacon*> | Sì | Integer, float o string, rispettivamente | Elemento di confronto |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| true o false | boolean | Restituisce true se il primo valore è minore del secondo. Restituisce false se il primo valore è maggiore o uguale al secondo. |
+| true o false | Boolean | Restituisce true se il primo valore è minore del secondo. Restituisce false se il primo valore è maggiore o uguale al secondo. |
 ||||
 
 *Esempio*
@@ -2171,15 +2171,15 @@ lessOrEquals(<value>, <compareTo>)
 lessOrEquals('<value>', '<compareTo>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | SÌ | Integer, float o string | Primo valore da verificare per determinare se è minore o uguale al secondo |
-| <*compareTo*> | SÌ | Integer, float o string, rispettivamente | Elemento di confronto |
+| <*Valore*> | Sì | Integer, float o string | Primo valore da verificare per determinare se è minore o uguale al secondo |
+| <*confrontacon*> | Sì | Integer, float o string, rispettivamente | Elemento di confronto |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| true o false  | boolean | Restituisce true se il primo valore è minore o uguale al secondo. Restituisce false se il primo valore è maggiore del secondo. |
+| true o false  | Boolean | Restituisce true se il primo valore è minore o uguale al secondo. Restituisce false se il primo valore è maggiore del secondo. |
 ||||
 
 *Esempio*
@@ -2207,15 +2207,15 @@ max(<number1>, <number2>, ...)
 max([<number1>, <number2>, ...])
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*number1*>, <*number2*>, ... | SÌ | Integer, float o entrambi | Set di numeri da cui si vuole ottenere il valore più alto |
-| [<*number1*>, <*number2*>, ...] | SÌ | Matrice - Integer, float o entrambi | Matrice di numeri da cui si vuole ottenere il valore più alto |
+| <*numero1*>, *numero2* <>, ... | Sì | Integer, float o entrambi | Set di numeri da cui si vuole ottenere il valore più alto |
+| [<*number1*>, <*number2*>, ...] | Sì | Matrice - Integer, float o entrambi | Matrice di numeri da cui si vuole ottenere il valore più alto |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*max-value*> | Integer o float | Valore più alto nella matrice o nel set di numeri specificato |
+| <*max-value (valore massimo)*> | Integer o float | Valore più alto nella matrice o nel set di numeri specificato |
 ||||
 
 *Esempio*
@@ -2231,7 +2231,7 @@ E viene restituito questo risultato: `3`
 
 <a name="min"></a>
 
-### <a name="min"></a>min
+### <a name="min"></a>Min
 
 Restituisce il valore più basso di un set di numeri o una matrice.
 
@@ -2240,15 +2240,15 @@ min(<number1>, <number2>, ...)
 min([<number1>, <number2>, ...])
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*number1*>, <*number2*>, ... | SÌ | Integer, float o entrambi | Set di numeri da cui si vuole ottenere il valore più basso |
-| [<*number1*>, <*number2*>, ...] | SÌ | Matrice - Integer, float o entrambi | Matrice di numeri da cui si vuole ottenere il valore più basso |
+| <*numero1*>, *numero2* <>, ... | Sì | Integer, float o entrambi | Set di numeri da cui si vuole ottenere il valore più basso |
+| [<*number1*>, <*number2*>, ...] | Sì | Matrice - Integer, float o entrambi | Matrice di numeri da cui si vuole ottenere il valore più basso |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*min-value*> | Integer o float | Valore più basso nella matrice o nel set di numeri specificato |
+| <*valore minimo*> | Integer o float | Valore più basso nella matrice o nel set di numeri specificato |
 ||||
 
 *Esempio*
@@ -2273,15 +2273,15 @@ Per ottenere il risultato intero, vedere [div()](#div).
 mod(<dividend>, <divisor>)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*dividend*> | SÌ | Integer o float | Numero da dividere per l'oggetto *divisor* |
-| <*divisor*> | SÌ | Integer o float | Numero che divide l'oggetto *dividend*, ma che non può essere 0. |
+| <*Dividendo*> | Sì | Integer o float | Numero da dividere per l'oggetto *divisor* |
+| <*Divisore*> | Sì | Integer o float | Numero che divide l'oggetto *dividend*, ma che non può essere 0. |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*modulo-result*> | Integer o float | Resto della divisione del primo numero per il secondo numero |
+| <*modulo-risultato*> | Integer o float | Resto della divisione del primo numero per il secondo numero |
 ||||
 
 *Esempio*
@@ -2298,21 +2298,21 @@ E viene restituito questo risultato: `1`
 
 ### <a name="mul"></a>mul
 
-Restituire il prodotto della moltiplicazione di due numeri.
+Restituisce il prodotto della moltiplicazione di due numeri.
 
 ```
 mul(<multiplicand1>, <multiplicand2>)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*multiplicand1*> | SÌ | Integer o float | Numero da moltiplicare per *multiplicand2* |
-| <*multiplicand2*> | SÌ | Integer o float | Numero che moltiplica *multiplicand1* |
+| <*multiplicand1*> | Sì | Integer o float | Numero da moltiplicare per *multiplicand2* |
+| <*multiplicand2*> | Sì | Integer o float | Numero che moltiplica *multiplicand1* |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*product-result*> | Integer o float | Prodotto della moltiplicazione del primo numero per il secondo numero |
+| <*risultato del prodotto*> | Integer o float | Prodotto della moltiplicazione del primo numero per il secondo numero |
 ||||
 
 *Esempio*
@@ -2340,14 +2340,14 @@ Restituisce true se l'espressione è false o false se è true.
 not(<expression>)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*expression*> | SÌ | boolean | Espressione da verificare |
+| <*Espressione*> | Sì | Boolean | Espressione da verificare |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| true o false | boolean | Restituisce true se l'espressione è false. Restituisce false se l'espressione è true. |
+| true o false | Boolean | Restituisce true se l'espressione è false. Restituisce false se l'espressione è true. |
 ||||
 
 *Esempio 1*
@@ -2380,7 +2380,7 @@ E vengono restituiti questi risultati:
 
 <a name="or"></a>
 
-### <a name="or"></a>Oppure
+### <a name="or"></a>o
 
 Verifica se almeno un'espressione è true.
 Restituisce true se almeno un'espressione è true o false se tutte le espressioni sono false.
@@ -2389,14 +2389,14 @@ Restituisce true se almeno un'espressione è true o false se tutte le espression
 or(<expression1>, <expression2>, ...)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*expression1*>, <*expression2*>, ... | SÌ | boolean | Espressioni da verificare |
+| <*expression1*>, <*expression2*>, ... | Sì | Boolean | Espressioni da verificare |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| true o false | boolean | Restituisce true se almeno un'espressione è true. Restituisce false se tutte le espressioni sono false. |
+| true o false | Boolean | Restituisce true se almeno un'espressione è true. Restituisce false se tutte le espressioni sono false. |
 ||||
 
 *Esempio 1*
@@ -2437,15 +2437,15 @@ Restituisce un valore intero casuale da un intervallo specificato, che include s
 rand(<minValue>, <maxValue>)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*minValue*> | SÌ | Integer | Valore intero più basso nell'intervallo |
-| <*maxValue*> | SÌ | Integer | Valore intero che segue il valore intero più alto nell'intervallo che la funzione può restituire |
+| <*Minvalue*> | Sì | Integer | Valore intero più basso nell'intervallo |
+| <*Maxvalue*> | Sì | Integer | Valore intero che segue il valore intero più alto nell'intervallo che la funzione può restituire |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*random-result*> | Integer | Valore intero casuale restituito dall'intervallo specificato |
+| <*risultato casuale*> | Integer | Valore intero casuale restituito dall'intervallo specificato |
 ||||
 
 *Esempio*
@@ -2462,19 +2462,19 @@ E restituisce uno di questi numeri come risultato: `1`, `2`, `3` o `4`
 
 ### <a name="range"></a>range
 
-Restituisce una matrice di numeri interi che inizia da un numero intero specificato.
+Restituisce una matrice di valori interi che inizia da un valore intero specificato.
 
 ```
 range(<startIndex>, <count>)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*startIndex*> | SÌ | Integer | Valore intero che avvia la matrice come primo elemento |
-| <*count*> | SÌ | Integer | Numero di valori interi nella matrice |
+| <*Startindex*> | Sì | Integer | Valore intero che avvia la matrice come primo elemento |
+| <*Conteggio*> | Sì | Integer | Numero di valori interi nella matrice |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
 | [<*range-result*>] | Array | Matrice di valori interi a partire dall'indice specificato |
 ||||
@@ -2499,16 +2499,16 @@ Sostituisce una sottostringa con la stringa specificata e restituisce la stringa
 replace('<text>', '<oldText>', '<newText>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | SÌ | Stringa | Stringa che contiene la sottostringa da sostituire |
-| <*oldText*> | SÌ | Stringa | Sottostringa da sostituire |
-| <*newText*> | SÌ | Stringa | Stringa da usare per la sostituzione |
+| <*Testo*> | Sì | string | Stringa che contiene la sottostringa da sostituire |
+| <*oldText (testo inc)*> | Sì | string | Sottostringa da sostituire |
+| <*nuovoTesto*> | Sì | string | Stringa da usare per la sostituzione |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*updated-text*> | Stringa | Stringa aggiornata dopo la sostituzione della sottostringa <p>Se la sottostringa non viene trovata, viene restituita la stringa originale. |
+| <*testo aggiornato*> | string | Stringa aggiornata dopo la sostituzione della sottostringa <p>Se la sottostringa non viene trovata, viene restituita la stringa originale. |
 ||||
 
 *Esempio*
@@ -2531,15 +2531,15 @@ Rimuove gli elementi dall'inizio di una raccolta e restituisce *tutti gli altri*
 skip([<collection>], <count>)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*collection*> | SÌ | Array | Raccolta da cui rimuovere gli elementi |
-| <*count*> | SÌ | Integer | Valore intero positivo per il numero di elementi da rimuovere nella parte iniziale |
+| <*Collezione*> | Sì | Array | Raccolta da cui rimuovere gli elementi |
+| <*Conteggio*> | Sì | Integer | Valore intero positivo per il numero di elementi da rimuovere nella parte iniziale |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| [<*updated-collection*>] | Array | Raccolta aggiornata dopo la rimozione degli elementi specificati |
+| [<> *di raccolta aggiornata]* | Array | Raccolta aggiornata dopo la rimozione degli elementi specificati |
 ||||
 
 *Esempio*
@@ -2562,13 +2562,13 @@ Restituisce una matrice che contiene sottostringhe, separate da virgole, in base
 split('<text>', '<delimiter>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | SÌ | Stringa | Stringa da suddividere in sottostringhe in base al delimitatore specificato nella stringa originale |
-| <*delimiter*> | SÌ | Stringa | Carattere nella stringa originale da usare come delimitatore |
+| <*Testo*> | Sì | string | Stringa da suddividere in sottostringhe in base al delimitatore specificato nella stringa originale |
+| <*Delimitatore*> | Sì | string | Carattere nella stringa originale da usare come delimitatore |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
 | [<*substring1*>,<*substring2*>,...] | Array | Matrice che contiene le sottostringhe della stringa originale, separate da virgole |
 ||||
@@ -2593,15 +2593,15 @@ Restituisce l'inizio del giorno per un timestamp.
 startOfDay('<timestamp>', '<format>'?)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | SÌ | Stringa | Stringa contenente il timestamp |
-| <*format*> | No | Stringa | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*Timestamp*> | Sì | string | Stringa contenente il timestamp |
+| <*Formato*> | No | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*updated-timestamp*> | Stringa | Timestamp specificato, che inizia in corrispondenza della mezzanotte esatta per il giorno |
+| <*updated-timestamp*> | string | Timestamp specificato, che inizia in corrispondenza della mezzanotte esatta per il giorno |
 ||||
 
 *Esempio*
@@ -2624,15 +2624,15 @@ Restituisce l'inizio dell'ora per un timestamp.
 startOfHour('<timestamp>', '<format>'?)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | SÌ | Stringa | Stringa contenente il timestamp |
-| <*format*> | No | Stringa | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*Timestamp*> | Sì | string | Stringa contenente il timestamp |
+| <*Formato*> | No | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*updated-timestamp*> | Stringa | Timestamp specificato, che inizia in corrispondenza dei minuti esatti per l'ora |
+| <*updated-timestamp*> | string | Timestamp specificato, che inizia in corrispondenza dei minuti esatti per l'ora |
 ||||
 
 *Esempio*
@@ -2655,15 +2655,15 @@ Restituisce l'inizio del mese per un timestamp.
 startOfMonth('<timestamp>', '<format>'?)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | SÌ | Stringa | Stringa contenente il timestamp |
-| <*format*> | No | Stringa | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*Timestamp*> | Sì | string | Stringa contenente il timestamp |
+| <*Formato*> | No | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*updated-timestamp*> | Stringa | Timestamp specificato, che inizia il primo giorno del mese in corrispondenza della mezzanotte esatta |
+| <*updated-timestamp*> | string | Timestamp specificato, che inizia il primo giorno del mese in corrispondenza della mezzanotte esatta |
 ||||
 
 *Esempio*
@@ -2688,15 +2688,15 @@ Questa funzione non fa distinzione tra maiuscole e minuscole.
 startsWith('<text>', '<searchText>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | SÌ | Stringa | Stringa da verificare |
-| <*searchText*> | SÌ | Stringa | Stringa iniziale da trovare |
+| <*Testo*> | Sì | string | Stringa da verificare |
+| <*testodiricerca*> | Sì | string | Stringa iniziale da trovare |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| true o false  | boolean | Restituisce true se la sottostringa iniziale viene trovata. Restituisce false se l'elemento non viene trovato. |
+| true o false  | Boolean | Restituisce true se la sottostringa iniziale viene trovata. Restituisce false se l'elemento non viene trovato. |
 ||||
 
 *Esempio 1*
@@ -2729,14 +2729,14 @@ Restituisce la versione stringa di un valore.
 string(<value>)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | SÌ | Qualsiasi | Valore da convertire |
+| <*Valore*> | Sì | Qualsiasi | Valore da convertire |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*string-value*> | Stringa | Versione stringa del valore specificato |
+| <*valore stringa*> | string | Versione stringa del valore specificato |
 ||||
 
 *Esempio 1*
@@ -2769,15 +2769,15 @@ Restituisce il risultato della sottrazione del secondo numero dal primo.
 sub(<minuend>, <subtrahend>)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*minuend*> | SÌ | Integer o float | Numero da cui sottrarre l'oggetto *subtrahend* |
-| <*subtrahend*> | SÌ | Integer o float | Numero da sottrarre dall'oggetto *minuend* |
+| <*minuend*> | Sì | Integer o float | Numero da cui sottrarre l'oggetto *subtrahend* |
+| <*subtrahend*> | Sì | Integer o float | Numero da sottrarre dall'oggetto *minuend* |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*result*> | Integer o float | Risultato della sottrazione del secondo numero dal primo |
+| <*Risultato*> | Integer o float | Risultato della sottrazione del secondo numero dal primo |
 ||||
 
 *Esempio*
@@ -2801,16 +2801,16 @@ I valori di Indice iniziano con il numero 0.
 substring('<text>', <startIndex>, <length>)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | SÌ | Stringa | Stringa da cui ottenere i caratteri |
-| <*startIndex*> | SÌ | Integer | Numero positivo maggiore o uguale a 0 che si desidera utilizzare come posizione iniziale o valore di indice. |
-| <*length*> | SÌ | Integer | Numero positivo di caratteri da includere nella sottostringa |
+| <*Testo*> | Sì | string | Stringa da cui ottenere i caratteri |
+| <*Startindex*> | Sì | Integer | Un numero positivo uguale o maggiore di 0 che si desidera utilizzare come posizione iniziale o valore di indice |
+| <*Lunghezza*> | Sì | Integer | Numero positivo di caratteri da includere nella sottostringa |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*substring-result*> | Stringa | Sottostringa con il numero di caratteri specificato, che inizia in corrispondenza della posizione di indice specificata nella stringa di origine |
+| <*sottostringa-risultato*> | string | Sottostringa con il numero di caratteri specificato, che inizia in corrispondenza della posizione di indice specificata nella stringa di origine |
 ||||
 
 *Esempio*
@@ -2828,23 +2828,23 @@ E viene restituito questo risultato: `"world"`
 ### <a name="subtractfromtime"></a>subtractFromTime
 
 Sottrae un numero di unità di tempo da un timestamp.
-Vedere [getPastTime](#getPastTime).
+Vedere anche [getPastTime](#getPastTime).
 
 ```
 subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | SÌ | Stringa | Stringa contenente il timestamp |
-| <*interval*> | SÌ | Integer | Numero di unità di tempo specificate da sottrarre |
-| <*timeUnit*> | SÌ | Stringa | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | No | Stringa | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*Timestamp*> | Sì | string | Stringa contenente il timestamp |
+| <*Intervallo*> | Sì | Integer | Numero di unità di tempo specificate da sottrarre |
+| <*timeUnit (unità di misura)*> | Sì | string | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
+| <*Formato*> | No | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*updated-timestamp*> | Stringa | Timestamp meno il numero di unità di tempo specificato |
+| <*updated-timestamp*> | string | Timestamp meno il numero di unità di tempo specificato |
 ||||
 
 *Esempio 1*
@@ -2878,13 +2878,13 @@ take('<collection>', <count>)
 take([<collection>], <count>)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*collection*> | SÌ | String o array | Raccolta da cui ottenere gli elementi |
-| <*count*> | SÌ | Integer | Valore intero positivo per il numero di elementi da ottenere dalla parte iniziale |
+| <*Collezione*> | Sì | String o array | Raccolta da cui ottenere gli elementi |
+| <*Conteggio*> | Sì | Integer | Valore intero positivo per il numero di elementi da ottenere dalla parte iniziale |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
 | <*subset*> o [<*subset*>] | String o array, rispettivamente | Stringa o matrice con il numero specificato di elementi presi dall'inizio della raccolta originale |
 ||||
@@ -2914,14 +2914,14 @@ Un *tick* è un intervallo di 100 nanosecondi.
 ticks('<timestamp>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | SÌ | Stringa | Stringa per un timestamp |
+| <*Timestamp*> | Sì | string | Stringa per un timestamp |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*ticks-number*> | Integer | Numero di tick dal timestamp specificato |
+| <*numero di spunta*> | Integer | Numero di tick dal timestamp specificato |
 ||||
 
 <a name="toLower"></a>
@@ -2934,14 +2934,14 @@ Restituisce una stringa in formato minuscolo. Se un carattere nella stringa non 
 toLower('<text>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | SÌ | Stringa | Stringa da restituire in formato minuscolo |
+| <*Testo*> | Sì | string | Stringa da restituire in formato minuscolo |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*lowercase-text*> | Stringa | Stringa originale in formato minuscolo |
+| <*testo minuscolo*> | string | Stringa originale in formato minuscolo |
 ||||
 
 *Esempio*
@@ -2964,14 +2964,14 @@ Restituisce una stringa in formato maiuscolo. Se un carattere nella stringa non 
 toUpper('<text>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | SÌ | Stringa | Stringa da restituire in formato maiuscolo |
+| <*Testo*> | Sì | string | Stringa da restituire in formato maiuscolo |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*uppercase-text*> | Stringa | Stringa originale in formato maiuscolo |
+| <*testo maiuscolo*> | string | Stringa originale in formato maiuscolo |
 ||||
 
 *Esempio*
@@ -2994,14 +2994,14 @@ Rimuove gli spazi iniziali e finali da una stringa e restituisce la stringa aggi
 trim('<text>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | SÌ | Stringa | Stringa da cui rimuovere gli spazi iniziali e finali |
+| <*Testo*> | Sì | string | Stringa da cui rimuovere gli spazi iniziali e finali |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*updatedText*> | Stringa | Versione aggiornata della stringa originale senza spazi iniziali o finali |
+| <*updatedText (testo)*> | string | Versione aggiornata della stringa originale senza spazi iniziali o finali |
 ||||
 
 *Esempio*
@@ -3018,7 +3018,7 @@ E viene restituito questo risultato: `"Hello World"`
 
 ### <a name="union"></a>union
 
-Restituisce una collezione che contiene *tutti* gli elementi delle raccolte specificate.
+Restituisce una raccolta che contiene *tutti* gli elementi delle raccolte specificate.
 Per essere incluso nel risultato, un elemento può essere presente in qualsiasi raccolta passata alla funzione. Se uno o più elementi hanno lo stesso nome, nel risultato viene incluso l'ultimo elemento con tale nome.
 
 ```
@@ -3026,14 +3026,14 @@ union('<collection1>', '<collection2>', ...)
 union([<collection1>], [<collection2>], ...)
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*collection1*>, <*collection2*>, ...  | SÌ | Array o object, ma non entrambi i tipi | Raccolte da cui ottenere *tutti* gli elementi |
+| <*collection1*>, <*collection2*>, ...  | Sì | Array o object, ma non entrambi i tipi | Raccolte da cui ottenere *tutti* gli elementi |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*updatedCollection*> | Array o object, rispettivamente | Raccolta con tutti gli elementi delle raccolte specificate e senza duplicati |
+| <*updatedCollection (insieme updatedCollection)*> | Array o object, rispettivamente | Raccolta con tutti gli elementi delle raccolte specificate e senza duplicati |
 ||||
 
 *Esempio*
@@ -3058,14 +3058,14 @@ Anche se entrambe le funzioni hanno un comportamento analogo, è preferibile usa
 uriComponent('<value>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | SÌ | Stringa | Stringa da convertire nel formato con codifica URI |
+| <*Valore*> | Sì | string | Stringa da convertire nel formato con codifica URI |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*encoded-uri*> | Stringa | Stringa con codifica URI con i caratteri di escape |
+| <*encoded-uri*> | string | Stringa con codifica URI con i caratteri di escape |
 ||||
 
 *Esempio*
@@ -3088,14 +3088,14 @@ Restituisce la versione binaria di un componente di un URI (Uniform Resource Ide
 uriComponentToBinary('<value>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | SÌ | Stringa | Stringa con codifica URI da convertire |
+| <*Valore*> | Sì | string | Stringa con codifica URI da convertire |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*binary-for-encoded-uri*> | Stringa | Versione binaria della stringa con codifica URI. Il contenuto binario è con codifica base64 e rappresentato da `$content`. |
+| <*binario per uri codificato*> | string | Versione binaria della stringa con codifica URI. Il contenuto binario è con codifica base64 e rappresentato da `$content`. |
 ||||
 
 *Esempio*
@@ -3123,14 +3123,14 @@ Restituisce la versione stringa di una stringa con codifica URI (Uniform Resourc
 uriComponentToString('<value>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | SÌ | Stringa | Stringa con codifica URI da decodificare |
+| <*Valore*> | Sì | string | Stringa con codifica URI da decodificare |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*decoded-uri*> | Stringa | Versione decodificata della stringa con codifica URI |
+| <*decodificato-uri*> | string | Versione decodificata della stringa con codifica URI |
 ||||
 
 *Esempio*
@@ -3155,14 +3155,14 @@ utcNow('<format>')
 
 Facoltativamente, è possibile specificare un formato diverso con il parametro <*format*>.
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*format*> | No | Stringa | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*Formato*> | No | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*current-timestamp*> | Stringa | Data e ora correnti |
+| <*timestamp corrente*> | string | Data e ora correnti |
 ||||
 
 *Esempio 1*
@@ -3197,14 +3197,14 @@ Restituisce la versione XML di una stringa contenente un oggetto JSON.
 xml('<value>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | SÌ | Stringa | Stringa con l'oggetto JSON da convertire <p>L'oggetto JSON deve avere una sola proprietà radice, che non può essere una matrice. <br>Il carattere barra rovesciata (\\) viene usato come carattere di escape per le virgolette doppie ("). |
+| <*Valore*> | Sì | string | Stringa con l'oggetto JSON da convertire <p>L'oggetto JSON deve avere una sola proprietà radice, che non può essere una matrice. <br>Il carattere barra rovesciata (\\) viene usato come carattere di escape per le virgolette doppie ("). |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*xml-version*> | Oggetto | Elemento XML codificato per la stringa o l'oggetto JSON specificato |
+| <*Versione xml*> | Oggetto | Elemento XML codificato per la stringa o l'oggetto JSON specificato |
 ||||
 
 *Esempio 1*
@@ -3249,22 +3249,22 @@ E viene restituito questo elemento XML:
 
 ### <a name="xpath"></a>xpath
 
-Verifica nel codice XML la presenza di nodi o valori che corrispondono a un'espressione XPath (XML Path Language) e restituisce i nodi o valori corrispondenti. Un'espressione XPath, o semplicemente "XPath", aiuta a spostarsi nella struttura del documento XML in modo che sia possibile selezionare i nodi o i valori di calcolo nel contenuto XML.
+Verifica nel codice XML la presenza di nodi o valori che corrispondono a un'espressione XPath (XML Path Language) e restituisce i nodi o i valori corrispondenti. Un'espressione XPath, o semplicemente "XPath", aiuta a spostarsi nella struttura del documento XML in modo che sia possibile selezionare i nodi o i valori di calcolo nel contenuto XML.
 
 ```
 xpath('<xml>', '<xpath>')
 ```
 
-| Parametro | Obbligatoria | Type | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*xml*> | SÌ | Qualsiasi | Stringa XML per eseguire la ricerca di nodi o valori che corrispondono a un valore dell'espressione XPath |
-| <*xpath*> | SÌ | Qualsiasi | Espressione XPath usata per trovare i valori o i nodi XML corrispondenti |
+| <*Xml*> | Sì | Qualsiasi | Stringa XML per eseguire la ricerca di nodi o valori che corrispondono a un valore dell'espressione XPath |
+| <*Xpath*> | Sì | Qualsiasi | Espressione XPath usata per trovare i valori o i nodi XML corrispondenti |
 |||||
 
-| Valore restituito | Type | Description |
+| Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*xml-node*> | XML | Nodo XML, quando solo un singolo nodo corrisponde all'espressione XPath specificata |
-| <*value*> | Qualsiasi | Valore di un nodo XML, quando solo un singolo valore corrisponde all'espressione XPath specificata |
+| <*nodo xml*> | XML | Nodo XML, quando solo un singolo nodo corrisponde all'espressione XPath specificata |
+| <*Valore*> | Qualsiasi | Valore di un nodo XML, quando solo un singolo valore corrisponde all'espressione XPath specificata |
 | [<*xml-node1*>, <*xml-node2*>, ...] </br>-oppure- </br>[<*value1*>, <*value2*>, ...] | Array | Matrice con tutti i valori o i nodi XML che corrispondono all'espressione XPath specificata |
 ||||
 

@@ -1,6 +1,6 @@
 ---
 title: Panoramica dello streaming live con Servizi multimediali di Azure | Documentazione Microsoft
-description: Questo articolo offre una panoramica dello streaming live con Servizi multimediali di Microsoft Azure.
+description: Questo articolo offre una panoramica del live streaming con Servizi multimediali di Microsoft Azure.This article gives an overview of live streaming using Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 99efe375fad142963214b09df24be70bc3bc9d99
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77131608"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Panoramica dello streaming live con Servizi multimediali
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Scopri la versione più recente, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le linee guida per la [migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
 
 ## <a name="overview"></a>Panoramica
 
@@ -44,24 +44,24 @@ Quando si distribuiscono eventi Live Streaming con Servizi multimediali di Azure
 
 **Servizi multimediali di Microsoft Azure** (AMS) offre la possibilità di inserire, visualizzare in anteprima, archiviare e fornire il contenuto in streaming live.
 
-Con servizi multimediali è possibile sfruttare i vantaggi della creazione [dinamica dei pacchetti](media-services-dynamic-packaging-overview.md), che consente di trasmettere i flussi live in formati MPEG Dash, HLS e Smooth Streaming dal feed di contributi inviato al servizio. Gli utenti possono riprodurre il flusso live con qualsiasi lettore compatibile per HLS, DASH o Smooth Streaming. È possibile usare Azure Media Player nelle applicazioni Web o per dispositivi mobili per distribuire il flusso in uno di questi protocolli.
+Con Servizi multimediali, puoi sfruttare la creazione dinamica di [pacchetti](media-services-dynamic-packaging-overview.md), che ti consente di trasmettere i tuoi live streaming nei formati MPEG DASH, HLS e Smooth Streaming dal feed di contributo che viene inviato al servizio. Gli utenti possono riprodurre il flusso live con qualsiasi lettore compatibile per HLS, DASH o Smooth Streaming. È possibile usare Azure Media Player nelle applicazioni web o per dispositivi mobili per distribuire lo streaming in uno di questi protocolli.
 
 > [!NOTE]
 > A partire dal 12 maggio 2018 i canali live non supporteranno più il protocollo di inserimento del flusso di trasporto RTP/MPEG-2. Eseguire la migrazione da RTP/MPEG-2 ai protocolli di inserimento RTMP o MP4 frammentato (Smooth Streaming).
 
-## <a name="streaming-endpoints-channels-programs"></a>Endpoint di streaming, canali, programmi
+## <a name="streaming-endpoints-channels-programs"></a>Streaming di endpoint, canali, programmi
 
 In Servizi multimediali di Azure, la gestione di tutte le funzionalità di live streaming è affidata a entità **Channel**, **Program** e **StreamingEndpoint**, compresi inserimento, formattazione, DVR, sicurezza, scalabilità e ridondanza.
 
 Un **canale** rappresenta una pipeline per l'elaborazione di contenuto in streaming live. Un canale può ricevere i flussi di input live nei modi seguenti:
 
-* Un codificatore live locale invia un flusso **RTMP** o **Smooth Streaming** (MP4 frammentato) a bitrate multipli al canale configurato per il recapito **pass-through**. Il recapito **pass-through** avviene quando i flussi inseriti passano attraverso i **canali** senza altre elaborazioni. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a bitrate multipli: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco ed Elemental. I codificatori Live seguenti generano output RTMP: Telestream Wirecast, HaiVision, Teradek e transcodificatori Tricaster.  Un codificatore live può anche inviare un flusso a bitrate singolo a un canale non abilitato per la codifica live, ma questa operazione non è consigliata. Quando richiesto, Servizi multimediali invia il flusso ai clienti.
+* Un codificatore live locale invia un flusso **RTMP** o **Smooth Streaming** (MP4 frammentato) a bitrate multipli al canale configurato per il recapito **pass-through**. Il recapito **pass-through** avviene quando i flussi inseriti passano attraverso i **canali** senza altre elaborazioni. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a bitrate multipli: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco ed Elemental. I seguenti codificatori live di uscita RTMP: Telestream Wirecast, Haivision, Teradek, e tricaster transcodificatori.  Un codificatore live può anche inviare un flusso a bitrate singolo a un canale non abilitato per la codifica live, ma questa operazione non è consigliata. Quando richiesto, Servizi multimediali invia il flusso ai clienti.
 
   > [!NOTE]
-  > L'uso di un metodo pass-through è il modo più economico per realizzare lo streaming live quando si eseguono più eventi per un lungo periodo di tempo e si è già investito in codificatori locali. Vedere i dettagli sui [prezzi](https://azure.microsoft.com/pricing/details/media-services/) .
+  > L'uso di un metodo pass-through è il modo più economico per realizzare lo streaming live quando si eseguono più eventi per un lungo periodo di tempo e si è già investito in codificatori locali. Vedi i dettagli [sui prezzi.](https://azure.microsoft.com/pricing/details/media-services/)
   > 
   > 
-* Un codificatore live locale invia un flusso a bitrate singolo al canale abilitato per l'esecuzione della codifica live con Servizi multimediali in uno dei seguenti formati: RTMP o Smooth Streaming (MP4 frammentato). I codificatori Live seguenti con output RTMP sono noti per funzionare con i canali di questo tipo: Telestream Wirecast. Il canale esegue quindi la codifica live del flusso in ingresso a velocità in bit singola in un flusso video a più velocità in bit (adattivo). Quando richiesto, Servizi multimediali invia il flusso ai clienti.
+* Un codificatore live locale invia un flusso a bitrate singolo al canale abilitato per l'esecuzione della codifica live con Servizi multimediali in uno dei seguenti formati: RTMP o Smooth Streaming (MP4 frammentato). I seguenti codificatori live con output RTMP sono noti per funzionare con canali di questo tipo: Telestream Wirecast. Il canale esegue quindi la codifica live del flusso in ingresso a velocità in bit singola in un flusso video a più velocità in bit (adattivo). Quando richiesto, Servizi multimediali invia il flusso ai clienti.
 
 A partire dalla versione 2.10 di Servizi multimediali, quando si crea un canale è possibile specificare in che modo il canale riceverà il flusso di input e se eseguirà o meno la codifica live del flusso. Sono disponibili due opzioni:
 
@@ -72,12 +72,12 @@ A partire dalla versione 2.10 di Servizi multimediali, quando si crea un canale 
 
 Nella tabella seguente vengono confrontati i due tipi di canale supportati in Servizi Multimediali
 
-| Caratteristica | Canale pass-through | Canale standard |
+| Funzionalità | Canale pass-through | Canale standard |
 | --- | --- | --- |
 | Input a bitrate singolo codificato in bitrate multipli nel cloud |No |Sì |
 | Risoluzione massima, numero di livelli |1080p, 8 livelli, oltre 60 fps |720p, 6 livelli, 30 fps |
 | Protocolli di input |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
-| Price |Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) e fare clic sulla scheda "Video live" |Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) |
+| Price |Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) e fare clic sulla scheda "Video live" |Vedi la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) |
 | Tempo di esecuzione massimo |24 x 7 |8 ore |
 | Supporto per l'inserimento di slate |No |Sì |
 | Supporto per annunci pubblicitari |No |Sì |
@@ -104,7 +104,7 @@ Per altre informazioni, vedere [Uso di canali abilitati per l'esecuzione della c
 
 ## <a name="description-of-a-channel-and-its-related-components"></a>Descrizione di un canale e dei relativi componenti
 
-### <a name="channel"></a>Canale
+### <a name="channel"></a>Channel
 
 In Servizi multimediali le entità [Channel](https://docs.microsoft.com/rest/api/media/operations/channel)sono responsabili dell'elaborazione dei contenuti in streaming live. Un'entità Channel, o canale, fornisce un endpoint di input (URL di inserimento) che può essere a sua volta fornito al transcodificatore live. Un'entità Channel riceve flussi di input live dal trascodificatore live e li rende disponibili per lo streaming mediante uno o più StreamingEndpoints. I canali forniscono anche un endpoint di anteprima(URL di anteprima) che consente di visualizzare in anteprima e convalidare il flusso prima dell'ulteriore elaborazione e del recapito.
 
@@ -112,9 +112,9 @@ In Servizi multimediali le entità [Channel](https://docs.microsoft.com/rest/api
 
 Ogni account di Servizi multimediali può contenere più entità Channel, Program e StreamingEndpoint. In base alle esigenze di sicurezza e alla larghezza di banda, i servizi di StreamingEndpoint possono essere dedicati a uno o più canali. Qualsiasi StreamingEndpoint può effettuare il pull da qualsiasi canale.
 
-Quando si crea un canale, è possibile specificare gli indirizzi IP consentiti in uno dei formati seguenti: Indirizzo IpV4 con 4 numeri, intervallo di indirizzi CIDR.
+Quando si crea un canale, è possibile specificare gli indirizzi IP consentiti in uno dei seguenti formati: indirizzo IpV4 con 4 numeri, intervallo di indirizzi CIDR.
 
-### <a name="program"></a>Program
+### <a name="program"></a>Programma
 Un [programma](https://docs.microsoft.com/rest/api/media/operations/program) consente di controllare la pubblicazione e l'archiviazione di segmenti in un flusso live. I programmi sono gestiti dai canali. La relazione tra queste due entità è molto simile a quella che intercorre tra di essi nei media tradizionali, in cui un canale è costituito da un flusso costante di contenuti, mentre un programma ha come ambito una serie di eventi programmati sul canale.
 È possibile specificare il numero di ore per cui si vuole mantenere il contenuto registrato per il programma impostando la proprietà **ArchiveWindowLength** . Il valore impostato può essere compreso tra 5 minuti e 25 ore.
 
@@ -137,13 +137,13 @@ L'utente ad è responsabile dell'interruzione dei canali al termine dell'utilizz
 >
 >
 
-### <a id="states"></a>Stati del canale e relativi metodi di mapping alla modalità di fatturazione
+### <a name="channel-states-and-how-they-map-to-the-billing-mode"></a><a id="states"></a>Stati del canale e relativi metodi di mapping alla modalità di fatturazione
 Si tratta dello stato attuale del canale. I valori possibili sono:
 
-* **Arrestato**. Si tratta dello stato iniziale del canale dopo la sua creazione, a meno che non sia stata selezionata l'opzione avvio automatico nel portale. In questo stato non viene eseguita alcuna fatturazione. In questo stato le proprietà del canale possono essere aggiornate ma lo streaming non è consentito.
-* **Avvio in corso**. È in corso l'avvio del canale. In questo stato non viene eseguita alcuna attività di fatturazione. In questo stato non è consentito alcun aggiornamento o streaming. Se si verifica un errore, l'entità Channel ritorna allo stato Arrestato.
+* **Arrestato**. Questo è lo stato iniziale del canale dopo la sua creazione (a meno che non sia stato selezionato l'avvio automatico nel portale). In questo stato non viene eseguita alcuna fatturazione. In questo stato le proprietà del canale possono essere aggiornate ma lo streaming non è consentito.
+* **Avvio**di . È in corso l'avvio del canale. In questo stato non viene eseguita alcuna attività di fatturazione. In questo stato non è consentito alcun aggiornamento o streaming. Se si verifica un errore, il canale torna allo stato Interrotto.
 * **In esecuzione**. Il canale è in grado di elaborare flussi live. La fatturazione è ora attiva. È necessario interrompere il canale per sospendere la fatturazione.
-* **Arresto in corso**. È in corso l'interruzione del canale. In questo stato di transizione non viene eseguita alcuna attività di fatturazione. In questo stato non è consentito alcun aggiornamento o streaming.
+* **Arresto**. È in corso l'interruzione del canale. In questo stato di transizione non viene eseguita alcuna attività di fatturazione. In questo stato non è consentito alcun aggiornamento o streaming.
 * **Eliminazione in corso**. È in corso l'eliminazione del canale. In questo stato di transizione non viene eseguita alcuna attività di fatturazione. In questo stato non è consentito alcun aggiornamento o streaming.
 
 La tabella seguente illustra il mapping degli stati del canale alla modalità di fatturazione.
@@ -162,12 +162,12 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Argomenti correlati
-[Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure](../media-services-fmp4-live-ingest-overview.md)
+[Specifica di inserimento dinamico MP4 di Servizi multimediali di AzureAzure Media Services Fragmented MP4 Live Inest Specification](../media-services-fmp4-live-ingest-overview.md)
 
-[Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md)
+[Utilizzo di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di AzureWorking with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md)
 
-[Uso di canali che ricevono il flusso live a più velocità in bit da codificatori locali](media-services-live-streaming-with-onprem-encoders.md)
+[Utilizzo di canali che ricevono il flusso live a bitrate multipli da codificatori locali](media-services-live-streaming-with-onprem-encoders.md)
 
 [Quote e limitazioni](media-services-quotas-and-limitations.md).  
 
-[Concetti su Servizi multimediali di Azure](media-services-concepts.md)
+[Concetti relativi a Servizi multimediali](media-services-concepts.md)

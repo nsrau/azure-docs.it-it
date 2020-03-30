@@ -1,20 +1,20 @@
 ---
-title: Informazioni di riferimento sull'API dell'agente applicazione Azure Insights
-description: Informazioni di riferimento sull'API dell'agente Application Insights. Get-ApplicationInsightsMonitoringConfig. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con le app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
+title: Informazioni di riferimento sull'API di Azure Application Insights AgentAzure Application Insights Agent API reference
+description: Informazioni di riferimento sull'API dell'agente di Application Insights.Application Insights Agent API reference. Get-ApplicationInsightsMonitoringConfig. Monitorare le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con ASP.NET app Web ospitate in locale, nelle macchine virtuali o in Azure.Works with a web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 93ab8f613e5634b2eabe7c02189e223d3dfbb0a8
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671274"
 ---
 # <a name="application-insights-agent-api-get-applicationinsightsmonitoringconfig"></a>API dell'agente di Application Insights: Get-ApplicationInsightsMonitoringConfig
 
-Questo articolo descrive un cmdlet che fa parte del modulo di [PowerShell AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+In questo articolo viene descritto un cmdlet membro del [modulo PowerShell Az.ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 ## <a name="description"></a>Descrizione
 
@@ -31,12 +31,12 @@ PS C:\> Get-ApplicationInsightsMonitoringConfig
 
 ## <a name="parameters"></a>Parametri
 
-Nessun parametro necessario.
+Nessun parametro richiesto.
 
 ## <a name="output"></a>Output
 
 
-#### <a name="example-output-from-reading-the-config-file"></a>Output di esempio della lettura del file di configurazione
+#### <a name="example-output-from-reading-the-config-file"></a>Output di esempio dalla lettura del file di configurazioneExample output from reading the config file
 
 ```
 RedfieldConfiguration:
@@ -50,15 +50,15 @@ Filters:
 
   Visualizzare i dati di telemetria:
  - [Esplora le metriche](../../azure-monitor/app/metrics-explorer.md) per monitorare le prestazioni e l'utilizzo.
-- Eseguire [ricerche negli eventi e nei log](../../azure-monitor/app/diagnostic-search.md) per diagnosticare i problemi.
-- Usare [Analytics](../../azure-monitor/app/analytics.md) per query più avanzate.
+- [Cerca eventi e log](../../azure-monitor/app/diagnostic-search.md) per diagnosticare i problemi.
+- Usa [l'analisi](../../azure-monitor/app/analytics.md) per query più avanzate.
 - [Creare dashboard](../../azure-monitor/app/overview-dashboard.md).
  
  Aggiungere altri dati di telemetria:
  - [Creare test Web](monitor-web-app-availability.md) per assicurarsi che il sito rimanga attivo.
-- Aggiungere i dati di [telemetria del client Web](../../azure-monitor/app/javascript.md) per visualizzare le eccezioni dal codice della pagina Web e per abilitare le chiamate di traccia.
-- [Aggiungere il Application Insights SDK al codice per](../../azure-monitor/app/asp-net.md) poter inserire le chiamate di traccia e log.
+- [Aggiungere dati di telemetria del client Web](../../azure-monitor/app/javascript.md) per visualizzare le eccezioni dal codice della pagina Web e abilitare le chiamate di traccia.
+- [Aggiungere Application Insights SDK al codice](../../azure-monitor/app/asp-net.md) in modo da poter inserire chiamate di traccia e log.
  
- Eseguire altre operazioni con Application Insights Agent:
- - Usare la guida per [risolvere i problemi relativi](status-monitor-v2-troubleshoot.md) a Application Insights Agent.
- - Apportare modifiche alla configurazione utilizzando il cmdlet [set config](status-monitor-v2-api-set-config.md) .
+ Fai di più con Application Insights Agent:
+ - Usare la guida per [risolvere i problemi relativi](status-monitor-v2-troubleshoot.md) all'agente application Insights.Use our guide to troubleshoot Application Insights Agent.
+ - Apportare modifiche alla configurazione utilizzando il cmdlet [Set config.](status-monitor-v2-api-set-config.md)

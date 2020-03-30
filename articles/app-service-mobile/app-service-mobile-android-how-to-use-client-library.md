@@ -7,10 +7,10 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 52e91d900ce0f22862904695ba8adf463219c469
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249386"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Come usare Azure Mobile Apps SDK per Android
@@ -22,11 +22,11 @@ Questa guida illustra come usare Android SDK del client per le App per dispositi
 * La gestione degli errori.
 * La personalizzazione del client.
 
-Questa guida descrive Android SDK lato client.  Per altre informazioni sugli SDK lato server per le app per dispositivi mobili, vedere usare l'SDK del back- [end .NET][10] o [come usare node. js SDK per back-end][11].
+Questa guida descrive Android SDK lato client.  Per altre informazioni sugli SDK lato server per le app per dispositivi mobili, vedere [Usare l'SDK del server back-end .NET][10] o [Come usare Node.js SDK back-end][11].
 
 ## <a name="reference-documentation"></a>Documentazione di riferimento
 
-È possibile trovare il [riferimento API Javadocs][12] per la libreria client Android su GitHub.
+È possibile trovare il [riferimento API Javadocs][12] per la libreria client Android in GitHub.
 
 ## <a name="supported-platforms"></a>Piattaforme supportate
 
@@ -40,13 +40,13 @@ Se si decide di non completare l'esercitazione introduttiva, completare le attiv
 
 * [creare un back-end dell'app per dispositivi mobili][13] da usare con l'app Android.
 * In Android Studio [aggiornare i file di compilazione Gradle](#gradle-build).
-* [Abilitare l'autorizzazione per Internet](#enable-internet).
+* [Abilitare l'autorizzazione Internet](#enable-internet).
 
-### <a name="gradle-build"></a>Aggiornare il file di compilazione Gradle
+### <a name="update-the-gradle-build-file"></a><a name="gradle-build"></a>Aggiornare il file di compilazione Gradle
 
 Modificare entrambi i file **build.gradle** :
 
-1. Aggiungere questo codice al file **Build. Gradle** a livello di *progetto* :
+1. Aggiungere questo codice al file build.gradle a livello *di progetto:Add* this code to the Project level **build.gradle** file:
 
     ```gradle
     buildscript {
@@ -70,9 +70,9 @@ Modificare entrambi i file **build.gradle** :
     implementation 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
-    La versione più recente è la 3.4.0. Le versioni supportate sono elencate [in bintray][14].
+    La versione più recente è la 3.4.0. Le versioni supportate sono elencate [su bintray][14].
 
-### <a name="enable-internet"></a>Abilitare l'autorizzazione per Internet
+### <a name="enable-internet-permission"></a><a name="enable-internet"></a>Abilitare l'autorizzazione per Internet
 
 Per accedere ad Azure, è necessario abilitare l'autorizzazione INTERNET per l'app. Se non è già abilitata, aggiungere la riga di codice seguente al file **AndroidManifest.xml** :
 
@@ -190,17 +190,17 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Per informazioni su come creare altre tabelle nel back-end di app per dispositivi mobili, vedere [procedura: definire un controller di tabella][15] (back-end .NET) o [definire tabelle con uno schema dinamico][16] (back-end node. js).
+Per informazioni su come creare altre tabelle nel back-end delle app per dispositivi mobili, vedere [Procedura: Definire un controller tabelle][15] (back-end .NET) o [Procedura: Definire le tabelle con uno schema dinamico][16] (back-end Node.js).
 
 Una tabella del back-end di App per dispositivi mobili di Azure definisce cinque campi speciali, quattro dei quali disponibili per i client:
 
-* `String id`: ID univoco globale per il record.  Come procedura consigliata, rendere l'ID la rappresentazione di stringa di un oggetto [UUID][17] .
+* `String id`: ID univoco globale per il record.  Come procedura consigliata, impostare l'ID come rappresentazione di stringa di un oggetto [UUID][17].
 * `DateTimeOffset updatedAt`: data/ora dell'ultimo aggiornamento.  Il campo updatedAt viene impostato dal server e non deve mai essere impostato dal codice client.
 * `DateTimeOffset createdAt`: data/ora di creazione dell'oggetto.  Il campo createdAt viene impostato dal server e non deve mai essere impostato dal codice client.
 * `byte[] version`: rappresentata in genere come stringa, anche la versione viene impostata dal server.
 * `boolean deleted`: indica che il record è stato eliminato, ma non ancora definitivamente.  Non usare `deleted` come proprietà nella classe.
 
-Il campo `id` è obbligatorio.  I campi `updatedAt` e `version` vengono usati per la sincronizzazione offline, rispettivamente per la sincronizzazione incrementale e per la risoluzione dei conflitti.  Il campo `createdAt` è un campo di riferimento e non viene usato dal client.  I nomi sono nomi delle proprietà usati per la trasmissione in rete e non sono modificabili.  Tuttavia, è possibile creare un mapping tra l'oggetto e i nomi "in transito" usando la libreria [Gson][3] .  Ad esempio:
+Il campo `id` è obbligatorio.  I campi `updatedAt` e `version` vengono usati per la sincronizzazione offline, rispettivamente per la sincronizzazione incrementale e per la risoluzione dei conflitti.  Il campo `createdAt` è un campo di riferimento e non viene usato dal client.  I nomi sono nomi delle proprietà usati per la trasmissione in rete e non sono modificabili.  È tuttavia possibile creare un mapping tra l'oggetto e tali nomi usando la libreria [gson][3].  Ad esempio:
 
 ```java
 package com.example.zumoappname;
@@ -260,7 +260,7 @@ public class ToDoItem
 
 ### <a name="create-a-table-reference"></a>Creare un riferimento alla tabella
 
-Per accedere a una tabella, creare innanzitutto un oggetto [MobileServiceTable][8] chiamando il metodo **GetTable** in [MobileServiceClient][9].  Questo metodo presenta due overload:
+Per accedere a una tabella, creare prima di tutto un oggetto [MobileServiceTable][8] chiamando il metodo **getTable** su [MobileServiceClient][9].  Questo metodo presenta due overload:
 
 ```java
 public class MobileServiceClient {
@@ -281,18 +281,18 @@ Il secondo overload viene usato quando il nome della tabella è diverso da quell
 MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 ```
 
-## <a name="query"></a>Eseguire una query su una tabella del back-end
+## <a name="query-a-backend-table"></a><a name="query"></a>Eseguire una query su una tabella del back-end
 
 Ottenere prima di tutto un riferimento alla tabella.  Eseguire quindi una query sul riferimento alla tabella.  Una query è qualsiasi combinazione di:
 
-* Clausola di [filtro](#filtering)`.where()`.
-* Clausola di [ordinamento](#sorting)`.orderBy()`.
-* Clausola `.select()` [selezione campo](#selection).
+* Una  [clausola di filtro](#filtering)`.where()`.
+* Una  [clausola di ordinamento](#sorting)`.orderBy()`.
+* Una  [clausola di selezione campo](#selection)`.select()`.
 * `.skip()` e `.top()` per i [risultati di paging](#paging).
 
 Le clausole devono essere presentate nell'ordine precedente.
 
-### <a name="filter"></a> Applicazione di filtri ai risultati
+### <a name="filtering-results"></a><a name="filter"></a> Applicazione di filtri ai risultati
 
 Il formato generale di una query è:
 
@@ -303,9 +303,9 @@ List<MyDataTable> results = mDataTable
     .get()              // Converts the async into a sync result
 ```
 
-L'esempio precedente restituisce tutti i risultati, fino alle dimensioni di pagina massime impostate dal server.  Il metodo `.execute()` esegue la query sul back-end.  La query viene convertita in una query [OData v3][19] prima della trasmissione al back-end di app per dispositivi mobili.  Alla ricezione, il back-end di App per dispositivi mobili converte la query in un'istruzione SQL prima di eseguirla nell'istanza di SQL Azure.  Poiché l'attività di rete richiede un certo tempo, il metodo `.execute()` restituisce una [`ListenableFuture<E>`][18].
+L'esempio precedente restituisce tutti i risultati, fino alle dimensioni di pagina massime impostate dal server.  Il metodo `.execute()` esegue la query sul back-end.  La query viene convertita in una query [OData v3][19] prima della trasmissione al back-end di App per dispositivi mobili.  Alla ricezione, il back-end di App per dispositivi mobili converte la query in un'istruzione SQL prima di eseguirla nell'istanza di SQL Azure.  Poiché l'attività di `.execute()` rete [`ListenableFuture<E>`][18]richiede del tempo, il metodo restituisce un oggetto .
 
-### <a name="filtering"></a>Filtrare i dati restituiti
+### <a name="filter-returned-data"></a><a name="filtering"></a>Filtrare i dati restituiti
 
 L'esecuzione della query seguente restituisce tutti gli elementi della tabella **ToDoItem** in cui **complete** è uguale a **false**.
 
@@ -375,9 +375,9 @@ List<ToDoItem> results = mToDoTable
     .execute().get();
 ```
 
-Per una descrizione più dettagliata ed esempi di filtro, vedere il post relativo all' [analisi delle funzionalità complesse disponibili nel modello di query client per Android][20].
+Per una descrizione più dettagliata ed esempi di filtro, vedere [Exploring the richness of the Android client query model][20] (Analisi delle funzionalità complesse disponibili nel modello di query client per Android).
 
-### <a name="sorting"></a>Ordinare i dati restituiti
+### <a name="sort-returned-data"></a><a name="sorting"></a>Ordinare i dati restituiti
 
 Il codice di esempio seguente restituisce tutti gli elementi di una tabella di oggetti **ToDoItems** elencati in ordine crescente in base al campo *text* . *mToDoTable* è il riferimento alla tabella del back-end creata in precedenza.
 
@@ -390,7 +390,7 @@ List<ToDoItem> results = mToDoTable
 
 Il primo parametro del metodo **orderBy** è una stringa uguale al nome del campo in base al quale eseguire l'ordinamento. Il secondo parametro usa l'enumerazione **QueryOrder** per specificare l'ordinamento crescente o decrescente.  Se per il filtro si usa il metodo ***where***, è necessario chiamare il metodo ***where*** prima del metodo ***orderBy***.
 
-### <a name="selection"></a>Selezionare colonne specifiche
+### <a name="select-specific-columns"></a><a name="selection"></a>Selezionare colonne specifiche
 
 Il codice seguente illustra come restituire tutti gli elementi di una tabella di oggetti **ToDoItems**, visualizzando però solo i campi **complete** e **text**. **mToDoTable** è il riferimento alla tabella del back-end creata in precedenza.
 
@@ -403,7 +403,7 @@ List<ToDoItemNarrow> result = mToDoTable
 
 I parametri della funzione select sono i nomi in formato stringa delle colonne della tabella che si vuole restituire.  Il metodo **select** deve seguire metodi come **where** e **orderBy**. Può essere seguito da metodi di paging come **skip** e **top**.
 
-### <a name="paging"></a>Restituire i dati in pagine
+### <a name="return-data-in-pages"></a><a name="paging"></a>Restituire i dati in pagine
 
 I dati vengono **SEMPRE** restituiti in pagine.  Il numero massimo di record restituiti viene impostato dal server.  Se il client richiede più record, il server restituisce il numero massimo di record.  Per impostazione predefinita, le dimensioni di pagina massime nel server sono pari a 50 record.
 
@@ -447,7 +447,7 @@ Una richiesta per tutti i record con questo metodo crea un minimo di due richies
 > [!TIP]
 > La scelta delle dimensioni di pagina appropriate è un equilibrio tra utilizzo della memoria mentre la richiesta è in corso, utilizzo della larghezza di banda e ritardo nella ricezione completa dei dati.  Il valore predefinito (50 record) è adatto a tutti i dispositivi.  Se si opera esclusivamente su dispositivi con maggiore memoria, aumentare fino a 500.  È stato osservato che l'aumento delle dimensioni di pagina oltre i 500 record comporta ritardi inaccettabili e problemi di memoria di grandi dimensioni.
 
-### <a name="chaining"></a>Procedura: Concatenare metodi di query
+### <a name="how-to-concatenate-query-methods"></a><a name="chaining"></a>Procedura: Concatenare metodi di query
 
 I metodi usati per eseguire query su tabelle di back-end possono essere concatenati. Il concatenamento dei metodi di query consente di selezionare colonne specifiche di righe filtrate ordinate e sottoposte a paging. È possibile creare filtri logici complessi.  Ogni metodo di query restituisce un oggetto Query. Per terminare la serie di metodi ed eseguire effettivamente la query, chiamare il metodo **execute** . Ad esempio:
 
@@ -472,7 +472,7 @@ I metodi con query concatenate devono essere ordinati nel modo seguente:
 3. Metodi di selezione (**select**).
 4. Metodi di paging (**skip** e **top**).
 
-## <a name="binding"></a>Associare dati all'interfaccia utente
+## <a name="bind-data-to-the-user-interface"></a><a name="binding"></a>Associare dati all'interfaccia utente
 
 L'associazione dati riguarda tre componenti:
 
@@ -480,9 +480,9 @@ L'associazione dati riguarda tre componenti:
 * Layout della schermata
 * Adattatore che collega i due componenti.
 
-Nel codice di esempio i dati vengono restituiti dalla tabella di app per dispositivi mobili di SQL Azure **ToDoItem** in una matrice. Si tratta di una delle attività più comuni per le applicazioni dati.  Le query su database restituiscono spesso una raccolta di righe che il client ottiene in un elenco o una matrice. In questo esempio la matrice è l'origine dati.  Nel codice viene specificato un layout di schermata che definisce la visualizzazione dei dati che appaiono sul dispositivo.  I due elementi vengono associati tra loro tramite un adattatore, che in questo codice è un'estensione della classe **ArrayAdapter&lt;ToDoItem&gt;** .
+Nel codice di esempio i dati vengono restituiti dalla tabella di app per dispositivi mobili di SQL Azure **ToDoItem** in una matrice. Si tratta di una delle attività più comuni per le applicazioni dati.  Le query su database restituiscono spesso una raccolta di righe che il client ottiene in un elenco o una matrice. In questo esempio la matrice è l'origine dati.  Nel codice viene specificato un layout di schermata che definisce la visualizzazione dei dati che appaiono sul dispositivo.  I due elementi vengono associati tra loro tramite un adattatore, che in questo codice è un'estensione della classe **ArrayAdapter&lt;ToDoItem&gt;**.
 
-#### <a name="layout"></a>Definire il layout
+#### <a name="define-the-layout"></a><a name="layout"></a>Definire il layout
 
 Il layout è definito da diversi frammenti di codice XML. Dato un layout esistente, il codice seguente rappresenta l'oggetto **ListView** che si vuole popolare con i dati del server.
 
@@ -511,8 +511,8 @@ Nel codice precedente l'attributo *listitem* consente di specificare l'ID del la
 </LinearLayout>
 ```
 
-#### <a name="adapter"></a>Definire l'adattatore
-Poiché l'origine dati della visualizzazione è una matrice di oggetti **ToDoItem**, viene creata una sottoclasse per l'adattatore da una classe **ArrayAdapter&lt;ToDoItem&gt;** . Questa sottoclasse consente di ottenere una visualizzazione per ogni oggetto **ToDoItem** che usa il layout **row_list_to_do**.  Nel codice viene definita la classe seguente che costituisce un'estensione della classe **ArrayAdapter&lt;E&gt;** :
+#### <a name="define-the-adapter"></a><a name="adapter"></a>Definire l'adattatore
+Poiché l'origine dati della visualizzazione è una matrice di oggetti **ToDoItem**, viene creata una sottoclasse per l'adattatore da una classe **ArrayAdapter&lt;ToDoItem&gt;**. Questa sottoclasse consente di ottenere una visualizzazione per ogni oggetto **ToDoItem** che usa il layout **row_list_to_do**.  Nel codice viene definita la classe seguente che costituisce un'estensione della classe **ArrayAdapter&lt;E&gt;**:
 
 ```java
 public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
@@ -569,7 +569,7 @@ Il secondo parametro del costruttore ToDoItemAdapter è un riferimento al layout
     listViewToDo.setAdapter(mAdapter);
 ```
 
-#### <a name="use-adapter"></a>Usare l'adattatore per l'associazione all'interfaccia utente
+#### <a name="use-the-adapter-to-bind-to-the-ui"></a><a name="use-adapter"></a>Usare l'adattatore per l'associazione all'interfaccia utente
 
 È ora possibile utilizzare l'associazione dati. Il codice seguente illustra come recuperare gli elementi nella tabella e inserisce gli elementi restituiti per l'adattatore locale.
 
@@ -602,9 +602,9 @@ Il secondo parametro del costruttore ToDoItemAdapter è un riferimento al layout
 
 Chiamare l'adattatore ogni volta che si modifica la tabella **ToDoItem** . Dal momento che le modifiche vengono fatte record per record, si gestisce una singola riga anziché una raccolta. Quando si inserisce un elemento, chiamare il metodo **add** sull'adattatore, mentre quando lo si elimina, chiamare il metodo **remove**.
 
-È possibile trovare un esempio completo nel [progetto di Guida introduttiva per Android][21].
+Un esempio completo è disponibile nel [progetto di avvio rapido per Android][21].
 
-## <a name="inserting"></a>Inserire dati nel back-end
+## <a name="insert-data-into-the-backend"></a><a name="inserting"></a>Inserire dati nel back-end
 
 Viene creata un'istanza della classe *ToDoItem* e vengono impostate le relative proprietà.
 
@@ -624,7 +624,7 @@ ToDoItem entity = mToDoTable
 
 L'entità restituita corrisponde ai dati inseriti nella tabella del back-end, inclusi l'ID e gli eventuali altri valori, ad esempio i campi `createdAt`, `updatedAt` e `version`, impostati sul back-end.
 
-Le tabelle delle app per dispositivi mobili richiedono una colonna chiave primaria denominata **ID**. Questa colonna deve essere una stringa. Il valore predefinito della colonna ID è un GUID.  È possibile specificare altri valori univoci, come gli indirizzi di posta elettronica o i nomi utente. Se non si fornisce un valore ID di stringa per un record inserito, il back-end genera un nuovo GUID.
+Le tabelle delle app per dispositivi mobili richiedono una colonna di chiave primaria denominata **id**. Questa colonna deve essere una stringa. Il valore predefinito della colonna ID è un GUID.  È possibile specificare altri valori univoci, come gli indirizzi di posta elettronica o i nomi utente. Se non si fornisce un valore ID di stringa per un record inserito, il back-end genera un nuovo GUID.
 
 I valori ID di stringa offrono i vantaggi seguenti:
 
@@ -634,7 +634,7 @@ I valori ID di stringa offrono i vantaggi seguenti:
 
 I valori ID di stringa sono **OBBLIGATORI** per il supporto di sincronizzazione offline.  Non è possibile modificare un ID dopo che è stato archiviato nel database back-end.
 
-## <a name="updating"></a>Aggiornare dati in un'app per dispositivi mobili
+## <a name="update-data-in-a-mobile-app"></a><a name="updating"></a>Aggiornare dati in un'app per dispositivi mobili
 
 Per aggiornare i dati in una tabella, passare il nuovo oggetto al metodo **update()** .
 
@@ -646,7 +646,7 @@ mToDoTable
 
 In questo esempio *item* è un riferimento a una riga nella tabella *ToDoItem* alla quale sono state apportate alcune modifiche.  Viene aggiornata la riga con lo stesso **id** .
 
-## <a name="deleting"></a>Eliminare dati in un'app per dispositivi mobili
+## <a name="delete-data-in-a-mobile-app"></a><a name="deleting"></a>Eliminare dati in un'app per dispositivi mobili
 
 Il codice seguente illustra come eliminare dati da una tabella specificando l'oggetto dati.
 
@@ -663,9 +663,9 @@ mToDoTable
     .delete(myRowId);
 ```
 
-## <a name="lookup"></a>Cercare un elemento specifico per ID
+## <a name="look-up-a-specific-item-by-id"></a><a name="lookup"></a>Cercare un elemento specifico per ID
 
-Cercare un elemento con un campo **id** specifico con il metodo **lookUp()** :
+Cercare un elemento con un campo **id** specifico con il metodo **lookUp()**:
 
 ```java
 ToDoItem result = mToDoTable
@@ -673,11 +673,11 @@ ToDoItem result = mToDoTable
     .get();
 ```
 
-## <a name="untyped"></a>Procedura: Usare dati non tipizzati
+## <a name="how-to-work-with-untyped-data"></a><a name="untyped"></a>Procedura: Usare dati non tipizzati
 
 Il modello di programmazione non tipizzato offre un controllo accurato della serializzazione JSON.  È consigliabile usarlo in alcuni scenari comuni. Un esempio di utilizzo è una tabella di back-end che contiene un numero elevato di colonne ed è necessario fare riferimento solo ad alcune di esse.  Il modello tipizzato richiede la definizione di tutte le colonne definite nel back-end di App per dispositivi mobili nella classe dati.  La maggior parte delle chiamate API per l'accesso ai dati è simile alle chiamate della programmazione tipizzata. La principale differenza consiste nel fatto che nel modello non tipizzato i metodi vengono chiamati sull'oggetto **MobileServiceJsonTable**, anziché su **MobileServiceTable**.
 
-### <a name="json_instance"></a>Creare un'istanza di una tabella non tipizzata
+### <a name="create-an-instance-of-an-untyped-table"></a><a name="json_instance"></a>Creare un'istanza di una tabella non tipizzata
 
 Analogamente al modello tipizzato, si inizia recuperando un riferimento alla tabella, ma in questo caso si tratta di un oggetto **MobileServicesJsonTable** . Ottenere il riferimento chiamando il metodo **getTable** su un'istanza del client:
 
@@ -689,8 +689,8 @@ mJsonToDoTable = mClient.getTable("ToDoItem");
 
 Dopo avere creato un'istanza di **MobileServiceJsonTable**, l'istanza contiene praticamente la stessa API disponibile con il modello di programmazione tipizzato. In alcuni casi, i metodi accettano un parametro non tipizzato anziché un parametro tipizzato.
 
-### <a name="json_insert"></a>Eseguire un inserimento in una tabella non tipizzata
-Nel codice seguente viene illustrato come eseguire un'operazione di insert. Il primo passaggio consiste nel creare un [JsonObject][1], che fa parte della libreria [Gson][3] .
+### <a name="insert-into-an-untyped-table"></a><a name="json_insert"></a>Eseguire un inserimento in una tabella non tipizzata
+Nel codice seguente viene illustrato come eseguire un'operazione di insert. Il primo passaggio consiste nel creare un oggetto [JsonObject][1], incluso nella libreria [gson][3].
 
 ```java
 JsonObject jsonItem = new JsonObject();
@@ -711,7 +711,7 @@ Se è necessario ottenere l'ID dell'oggetto inserito, usare il metodo **getAsJso
 ```java
 String id = insertedItem.getAsJsonPrimitive("id").getAsString();
 ```
-### <a name="json_delete"></a>Eliminare un'istanza da una tabella non tipizzata
+### <a name="delete-from-an-untyped-table"></a><a name="json_delete"></a>Eliminare un'istanza da una tabella non tipizzata
 Nel codice seguente viene illustrato come eliminare un'istanza, in questo caso la stessa istanza di un oggetto **JsonObject** creato nell'esempio *insert* precedente. Il codice è analogo a quello del caso tipizzato, ma il metodo ha una firma diversa poiché fa riferimento a un oggetto **JsonObject**.
 
 ```java
@@ -725,7 +725,7 @@ mToDoTable
 mToDoTable.delete(ID);
 ```
 
-### <a name="json_get"></a>Restituire tutte le righe di una tabella non tipizzata
+### <a name="return-all-rows-from-an-untyped-table"></a><a name="json_get"></a>Restituire tutte le righe di una tabella non tipizzata
 Il seguente codice illustra come recuperare un'intera tabella. Poiché si sta usando una tabella JSONO, è possibile recuperare in modo selettivo solo alcune colonne della tabella.
 
 ```java
@@ -764,7 +764,7 @@ public void showAllUntyped(View view) {
 
 Lo stesso insieme di metodi di filtro e paging disponibili per il modello tipizzato è disponibile per il modello non tipizzato.
 
-## <a name="offline-sync"></a>Implementare la sincronizzazione offline
+## <a name="implement-offline-sync"></a><a name="offline-sync"></a>Implementare la sincronizzazione offline
 
 Azure Mobile Apps Client SDK implementa anche la sincronizzazione offline dei dati usando un database SQLite per archiviare una copia locale dei dati del server.  Le operazioni eseguite su una tabella offline non richiedono la connettività per dispositivi mobili.  La sincronizzazione offline agevola la resilienza e le prestazioni a scapito di una logica più complessa per la risoluzione dei conflitti.  Azure Mobile Apps Client SDK implementa le funzionalità seguenti:
 
@@ -863,7 +863,7 @@ Se si verifica un conflitto durante un'operazione `.push()`, viene generata un'e
 
 Dopo che tutti i conflitti sono stati contrassegnati nel modo desiderato, chiamare di nuovo `.push()` per risolvere tutti i conflitti.
 
-## <a name="custom-api"></a>Chiamare un'API personalizzata
+## <a name="call-a-custom-api"></a><a name="custom-api"></a>Chiamare un'API personalizzata
 
 Un'API personalizzata consente di definire endpoint personalizzati che espongono la funzionalità del server di cui non è possibile eseguire il mapping a un'operazione di inserimento, aggiornamento, eliminazione o lettura. L'utilizzo di un'API personalizzata offre maggiore controllo sulla messaggistica, incluse la lettura e l'impostazione delle intestazioni del messaggio HTTP e la definizione di un formato del corpo del messaggio diverso da JSON.
 
@@ -889,7 +889,7 @@ public void completeItem(View view) {
 
 Nel client viene chiamato il metodo **invokeApi** , che invia una richiesta POST alla nuova API personalizzata. Il risultato restituito dall'API personalizzata viene visualizzato in una finestra di dialogo con messaggio, insieme a eventuali errori. Altre versioni di **invokeApi** consentono di inviare facoltativamente un oggetto nel corpo della richiesta, specificare il metodo HTTP e inviare parametri di query con la richiesta. Vengono fornite anche versioni non tipizzate di **invokeApi** .
 
-## <a name="authentication"></a>Aggiungere l'autenticazione all'app
+## <a name="add-authentication-to-your-app"></a><a name="authentication"></a>Aggiungere l'autenticazione all'app
 
 Le esercitazioni descrivono già in dettaglio come aggiungere queste funzionalità.
 
@@ -906,9 +906,9 @@ Per abilitare l'autenticazione nell'app, è necessario eseguire quattro passaggi
 * Limitare le autorizzazioni per la tabella solo agli utenti autenticati nel back-end del servizio app.
 * Aggiungere codice di autenticazione all'app.
 
-È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. Per modificare le richieste, è anche possibile usare il SID di un utente autenticato.  Per altre informazioni, vedere [Introduzione all'autenticazione] e la documentazione sulle procedure dell'SDK del server.
+È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. Per modificare le richieste, è anche possibile usare il SID di un utente autenticato.  Per altre informazioni, vedere [Aggiungere l'autenticazione all'app Android] e la documentazione sulle procedure dell'SDK del server.
 
-### <a name="caching"></a>Autenticazione: flusso server
+### <a name="authentication-server-flow"></a><a name="caching"></a>Autenticazione: flusso server
 
 Il codice seguente avvia la procedura di accesso del flusso server con il provider Google.  È necessaria una configurazione aggiuntiva a causa dei requisiti di sicurezza per il provider Google:
 
@@ -989,18 +989,18 @@ dependencies {
 }
 ```
 
-È possibile ottenere l'ID dell'utente connesso da un oggetto **MobileServiceUser** usando il metodo **getUserId**. Per un esempio di come usare Futures per chiamare le API di accesso asincrone, vedere [Introduzione all'autenticazione].
+È possibile ottenere l'ID dell'utente connesso da un oggetto **MobileServiceUser** usando il metodo **getUserId**. Per un esempio di come usare Futures per chiamare le API di accesso asincrone, vedere [Aggiungere l'autenticazione all'app Android].
 
 > [!WARNING]
 > Lo schema URL indicato rispetta la distinzione tra maiuscole e minuscole.  Assicurarsi che tutte le occorrenze di `{url_scheme_of_you_app}` rispettino questa distinzione.
 
-### <a name="caching"></a>Memorizzare nella cache i token di autenticazione
+### <a name="cache-authentication-tokens"></a><a name="caching"></a>Memorizzare nella cache i token di autenticazione
 
-Per memorizzare nella cache i token di autenticazione, è necessario archiviare l'ID utente e il token di autenticazione in locale nel dispositivo. Al successivo avvio dell'app, la cache viene verificata e, se sono presenti questi valori, è possibile ignorare la procedura di accesso e riattivare il client con questi dati. Questi dati sono tuttavia sensibili e devono essere crittografati per garantire la sicurezza in caso di furto del telefono.  È possibile vedere un esempio completo di come memorizzare nella cache i token di autenticazione nella [sezione token di autenticazione della cache][7].
+Per memorizzare nella cache i token di autenticazione, è necessario archiviare l'ID utente e il token di autenticazione in locale nel dispositivo. Al successivo avvio dell'app, la cache viene verificata e, se sono presenti questi valori, è possibile ignorare la procedura di accesso e riattivare il client con questi dati. Questi dati sono tuttavia sensibili e devono essere crittografati per garantire la sicurezza in caso di furto del telefono.  È possibile vedere un esempio completo della memorizzazione nella cache dei token di autenticazione nella sezione [Memorizzare nella cache i token di autenticazione][7].
 
 Quando si prova a usare un token scaduto, viene visualizzata una risposta di tipo *401 - Non autorizzato* . È possibile gestire gli errori di autenticazione tramite i filtri.  I filtri intercettano le richieste al back-end del servizio app. Il codice di filtro verifica quindi la risposta per un errore di tipo 401, attiva il processo di accesso e quindi riprende la richiesta che ha generato l'errore.
 
-### <a name="refresh"></a>Usare i token di aggiornamento
+### <a name="use-refresh-tokens"></a><a name="refresh"></a>Usare i token di aggiornamento
 
 La durata definita del token restituito dall'autenticazione e dall'autorizzazione nel servizio app di Azure è di un'ora.  Dopo questo periodo, è necessario ripetere l'autenticazione dell'utente.  Se si usa un token di lunga durata ricevuto tramite l'autenticazione basata sul flusso client, è possibile ripetere l'autenticazione con l'autenticazione e l'autorizzazione del servizio app di Azure usando lo stesso token.  Viene generato un altro token del servizio app di Azure con una nuova durata.
 
@@ -1070,11 +1070,11 @@ Vedere l'esempio di codice completo nella sezione successiva.
 
 Sostituire il metodo `onSuccess()` con il codice che si vuole usare all'esecuzione di un accesso.  La stringa `{provider}` è un provider valido: **aad** (Azure Active Directory), **facebook**, **google**, **microsoftaccount** o **twitter**.  Se è stata implementata l'autenticazione personalizzata, è anche possibile usare il tag del provider di autenticazione personalizzata.
 
-### <a name="adal"></a>Autenticare gli utenti con Active Directory Authentication Library (ADAL)
+### <a name="authenticate-users-with-the-active-directory-authentication-library-adal"></a><a name="adal"></a>Autenticare gli utenti con Active Directory Authentication Library (ADAL)
 
 È possibile usare Active Directory Authentication Library (ADAL) per far accedere gli utenti all'applicazione tramite Azure Active Directory. L'uso dell'accesso del flusso client è spesso preferibile all'uso dei metodi `loginAsync()` , perché garantisce un'esperienza utente più naturale e consente una maggiore personalizzazione.
 
-1. Configurare il back-end dell'app per dispositivi mobili per l'accesso ad Azure Active Directory seguendo l'esercitazione [Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory][22] . Assicurarsi di completare il passaggio facoltativo di registrazione di un'applicazione client nativa.
+1. Configurare il back-end dell'app per dispositivi mobili per l'accesso ad Azure Active Directory seguendo l'esercitazione [Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory][22]. Assicurarsi di completare il passaggio facoltativo di registrazione di un'applicazione client nativa.
 2. Installare ADAL modificando il file build.gradle per includere le definizioni seguenti:
 
     ```gradle
@@ -1105,7 +1105,7 @@ Sostituire il metodo `onSuccess()` con il codice che si vuole usare all'esecuzio
     * Sostituire **INSERT-AUTHORITY-HERE** con il nome del tenant in cui è stato eseguito il provisioning dell'applicazione. Il formato deve essere https://login.microsoftonline.com/contoso.onmicrosoft.com.
     * Sostituire **INSERT-RESOURCE-ID-HERE** con l'ID client per il back-end dell'app per dispositivi mobili. L'ID client è disponibile nella scheda **Avanzate** in **Impostazioni di Azure Active Directory** nel portale.
     * Sostituire **INSERT-CLIENT-ID-HERE** con l'ID client copiato dall'applicazione client nativa.
-    * Sostituire **INSERT-REDIRECT-URI-HERE** con l'endpoint */.auth/login/done* del sito, usando lo schema HTTPS. Questo valore deve essere simile a *https://contoso.azurewebsites.net/.auth/login/done* .
+    * Sostituire **INSERT-REDIRECT-URI-HERE** con l'endpoint */.auth/login/done* del sito, usando lo schema HTTPS. Questo valore deve *https://contoso.azurewebsites.net/.auth/login/done*essere simile a .
 
 ```java
 private AuthenticationContext mContext;
@@ -1170,7 +1170,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 }
 ```
 
-## <a name="filters"></a>Modificare la comunicazione client-server
+## <a name="adjust-the-client-server-communication"></a><a name="filters"></a>Modificare la comunicazione client-server
 
 La connessione client è in genere una connessione HTTP di base che usa la libreria HTTP sottostante fornita con Android SDK.  I motivi per cui potrebbe essere necessario modificarla sono diversi:
 
@@ -1267,9 +1267,9 @@ private class CustomHeaderFilter implements ServiceFilter {
 }
 ```
 
-### <a name="conversions"></a>Configurare la serializzazione automatica
+### <a name="configure-automatic-serialization"></a><a name="conversions"></a>Configurare la serializzazione automatica
 
-È possibile specificare una strategia di conversione applicabile a ogni colonna tramite l'API [Gson][3] . La libreria client Android usa [Gson][3] dietro le quinte per serializzare gli oggetti Java nei dati JSON prima che i dati vengano inviati al servizio app Azure.  Il codice seguente usa **setFieldNamingStrategy()** per impostare la strategia. Questo esempio elimina il carattere iniziale (una "m") e quindi applica il minuscolo al carattere successivo per ogni nome di campo, ad esempio, trasforma "mId" in "id".  Implementare una strategia di conversione per ridurre la necessità di annotazioni `SerializedName()` nella maggior parte dei campi.
+È possibile specificare una strategia di conversione che si applica a tutte le colonne tramite l'API [gson][3]. La libreria client Android usa [gson][3] in modo invisibile per serializzare oggetti Java in dati JSON, prima che i dati vengano inviati al Servizio app di Azure.  Il codice seguente usa **setFieldNamingStrategy()** per impostare la strategia. Questo esempio elimina il carattere iniziale (una "m") e quindi applica il minuscolo al carattere successivo per ogni nome di campo, ad esempio, trasforma "mId" in "id".  Implementare una strategia di conversione per ridurre la necessità di annotazioni `SerializedName()` nella maggior parte dei campi.
 
 ```java
 FieldNamingStrategy namingStrategy = new FieldNamingStrategy() {

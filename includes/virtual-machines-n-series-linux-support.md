@@ -9,10 +9,10 @@ ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 5dccdb6c357635e78b076b1560bf6c0c62c03753
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77135016"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Driver e distribuzioni supportati
@@ -26,15 +26,15 @@ I driver NVIDIA CUDA per le macchine virtuali serie NC, NCv2, NCv3, ND e NDv2 (f
 
 | Distribuzione | Driver |
 | --- | -- | 
-| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/> HPC basato su CentOS 7.3, 7.4, 7.5, 7.6, basata su CentOS 7.4 | NVIDIA CUDA 10,1, driver Branch R418 |
+| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/> HPC basato su CentOS 7.3, 7.4, 7.5, 7.6, basata su CentOS 7.4 | NVIDIA CUDA 10.1, filiale driver R418 |
 
 ### <a name="nvidia-grid-drivers"></a>Driver NVIDIA GRID
 
-Microsoft ridistribuisce i programmi di installazione dei driver NVIDIA GRID per le macchine virtuali serie NV e NVv3 utilizzate come workstation virtuali o per le applicazioni virtuali. Installare solo questi driver GRID nelle macchine virtuali NV di Azure, solo nei sistemi operativi elencati nella tabella seguente. Questi driver includono la licenza per il software della GPU virtuale GRID in Azure. Non è necessario configurare un server licenze software NVIDIA vGPU.
+Microsoft ridistribuisce i programmi di installazione dei driver NVIDIA GRID per le macchine virtuali NV e serie NVv3 usate come workstation virtuali o per applicazioni virtuali. Installare solo questi driver GRID nelle macchine virtuali NV di Azure, solo nei sistemi operativi elencati nella tabella seguente. Questi driver includono la licenza per il software della GPU virtuale GRID in Azure. Non è necessario configurare un server licenze software NVIDIA vGPU.
 
 | Distribuzione | Driver |
 | --- | -- |
-|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Da Red Hat Enterprise Linux 7,0 a 7,6<br/><br/>Basato su CentOS da 7,0 a 7,6<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 10,1, driver Branch R440|
+|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux Linux da 7.0 a 7.6<br/><br/>Basato su CentOS da 7,0 a 7,6<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 10.1, ramo driver R440|
 
 > [!WARNING] 
 > L'installazione di software di terze parti in prodotti Red Hat può influenzare i termini di supporto di Red Hat. Vedere l'[articolo della Knowledge base di Red Hat](https://access.redhat.com/articles/1067).

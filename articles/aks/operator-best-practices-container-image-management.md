@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: efe72157f598c336248e407c57bce92fe87da23a
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77594746"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la gestione e la sicurezza delle immagini del contenitore nel servizio Azure Kubernetes
@@ -21,15 +21,15 @@ Questo articolo illustra in particolare come proteggere i contenitori nel serviz
 > * Cercare e correggere le vulnerabilità delle immagini
 > * Attivare e ridistribuire automaticamente le immagini del contenitore quando un'immagine di base viene aggiornata
 
-È anche possibile leggere le procedure consigliate per la [sicurezza del cluster][best-practices-cluster-security] e per la [sicurezza Pod][best-practices-pod-security].
+È anche possibile leggere le procedure consigliate per la [sicurezza dei cluster][best-practices-cluster-security] e la [sicurezza dei pod][best-practices-pod-security].
 
-È anche possibile usare la [sicurezza del contenitore nel centro sicurezza][security-center-containers] per analizzare i contenitori per individuare eventuali vulnerabilità.  È disponibile anche l' [integrazione container Registry di Azure][security-center-acr] con il Centro sicurezza per proteggere le immagini e il registro di sistema da vulnerabilità.
+È anche possibile usare [La sicurezza dei contenitori nel Centro sicurezza][security-center-containers] per eseguire la scansione dei contenitori alla ricerca di vulnerabilità.  È inoltre disponibile [l'integrazione del Registro][security-center-acr] di sistema del contenitore di Azure con il Centro sicurezza per proteggere le immagini e il Registro di sistema dalle vulnerabilità.
 
 ## <a name="secure-the-images-and-run-time"></a>Proteggere le immagini e il runtime
 
 **Indicazioni sulle procedure consigliate** - Analizzare le immagini del contenitore per verificare la presenza di vulnerabilità e distribuire solo le immagini che hanno superato la convalida. Aggiornare regolarmente le immagini di base e il runtime applicazione e ridistribuire i carichi di lavoro nel cluster del servizio Azure Kubernetes.
 
-Un aspetto delicato dell'adozione dei carichi di lavoro basati su contenitore è la verifica della sicurezza delle immagini e del runtime usati per compilare le applicazioni. Come ci si assicura di non introdurre vulnerabilità per la sicurezza nelle proprie distribuzioni? Il flusso di lavoro di distribuzione deve includere un processo per analizzare le immagini del contenitore usando strumenti come [Twistlock][twistlock] o [Aqua][aqua], quindi consentire la distribuzione solo delle immagini verificate.
+Un aspetto delicato dell'adozione dei carichi di lavoro basati su contenitore è la verifica della sicurezza delle immagini e del runtime usati per compilare le applicazioni. Come ci si assicura di non introdurre vulnerabilità per la sicurezza nelle proprie distribuzioni? Il flusso di lavoro della distribuzione dovrebbe includere un processo che analizzi le immagini del contenitore usando uno strumento come [Twistlock][twistlock] o [Aqua][aqua] e quindi consenta la distribuzione delle sole immagini verificate.
 
 ![Analizzare e correggere le immagini del contenitore, convalidarle e distribuirle](media/operator-best-practices-container-security/scan-container-images-simplified.png)
 
@@ -39,17 +39,17 @@ In un esempio reale è possibile usare una pipeline di integrazione continua e d
 
 **Indicazioni sulle procedure consigliate** - Se si usano immagini di base per le immagini dell'applicazione, usare l'automazione per compilare nuove immagini quando l'immagine di base viene aggiornata. Poiché le immagini di base includono in genere correzioni per la sicurezza, aggiornare tutte le immagini del contenitore dell'applicazione downstream.
 
-Ogni volta che un'immagine di base viene aggiornata, devono essere aggiornate anche tutte le immagini del contenitore downstream. Questo processo di compilazione deve essere integrato nelle pipeline di convalida e distribuzione, ad esempio [Azure Pipelines][azure-pipelines] o Jenkins. Queste pipeline assicurano che le applicazioni continuino a essere eseguite sulle immagini di base aggiornate. Una volta convalidate le immagini del contenitore dell'applicazione, è possibile aggiornare le distribuzioni del servizio Azure Kubernetes in modo che eseguano le immagini più recenti e sicure.
+Ogni volta che un'immagine di base viene aggiornata, devono essere aggiornate anche tutte le immagini del contenitore downstream. Questo processo di compilazione deve essere integrato nelle pipeline di convalida e distribuzione come [Azure Pipelines][azure-pipelines] o Jenkins. Queste pipeline assicurano che le applicazioni continuino a essere eseguite sulle immagini di base aggiornate. Una volta convalidate le immagini del contenitore dell'applicazione, è possibile aggiornare le distribuzioni del servizio Azure Kubernetes in modo che eseguano le immagini più recenti e sicure.
 
 Le immagini del contenitore possono essere aggiornate automaticamente anche da Attività del Registro Azure Container quando l'immagine di base viene aggiornata. Questa funzionalità consente di compilare un numero limitato di immagini di base e di mantenerle regolarmente aggiornate con correzioni di bug e per la sicurezza.
 
-Per altre informazioni sugli aggiornamenti delle immagini di base, vedere [automatizzare le compilazioni di immagini sull'aggiornamento di un'immagine di base con Azure container Registry attività][acr-base-image-update].
+Per altre informazioni sugli aggiornamenti delle immagini di base, vedere [Automatizzare la compilazione di immagini in caso di aggiornamento dell'immagine di base con ACR Tasks][acr-base-image-update].
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo articolo è stato illustrato in particolare come proteggere i contenitori. Per implementare alcune di queste aree, vedere gli articoli seguenti:
 
-* [Automatizzare le compilazioni di immagini sull'aggiornamento di un'immagine di base con le attività Container Registry][acr-base-image-update]
+* [Automatizzare la compilazione di immagini in caso di aggiornamento dell'immagine di base con ACR Tasks][acr-base-image-update]
 
 <!-- EXTERNAL LINKS -->
 [azure-pipelines]: /azure/devops/pipelines/?view=vsts

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 787336f00a83d9403e3069754787743b9be6c5b1
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77050012"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Pubblicare contenuti di Servizi multimediali di Azure mediante REST 
@@ -33,7 +33,7 @@ ms.locfileid: "77050012"
 
 È inoltre possibile usare un localizzatore di streaming OnDemand per creare URL che puntano a file MP4 scaricabili in modo progressivo.  
 
-Questo articolo illustra come creare un localizzatore di streaming OnDemand, per pubblicare l'asset e compilare URL di streaming Smooth, MPEG DASH e HLS, Viene inoltre illustrato come compilare URL di download progressivo.
+Questo articolo illustra come creare un localizzatore di streaming OnDemand, per pubblicare l'asset e compilare URL di streaming Smooth, MPEG DASH e HLS, Viene inoltre illustrato come creare URL di download progressivo.
 
 La sezione [seguente](#types) mostra i tipi enum i cui valori vengono usati nelle chiamate REST.   
 
@@ -169,7 +169,7 @@ esempio:
 
     https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-## <a id="types"></a>Tipi enum
+## <a name="enum-types"></a><a id="types"></a>Tipi enum
     [Flags]
     public enum AccessPermissions
     {

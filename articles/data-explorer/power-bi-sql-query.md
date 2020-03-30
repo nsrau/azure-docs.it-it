@@ -1,6 +1,6 @@
 ---
-title: Visualizzare i dati da Esplora dati di Azure con una query Power BI SQL
-description: 'Questo articolo illustra come usare una delle tre opzioni disponibili per la visualizzazione dei dati in Power BI: una query SQL su un cluster di Azure Esplora dati.'
+title: Visualizzare i dati da Esplora dati di Azure con una query SQL di Power BI
+description: 'In questo articolo viene illustrato come usare una delle tre opzioni per la visualizzazione dei dati in Power BI: una query SQL su un cluster di Azure Data Explorer.In this article, you learn how to use one of the three options for visualizing data in Power BI: a SQL query against an Azure Data Explorer cluster.'
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
@@ -8,21 +8,21 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: d402d4c1ee77d0f97d2a5c3bdf43d0cc62aac096
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77560474"
 ---
 # <a name="visualize-data-from-azure-data-explorer-using-a-sql-query-in-power-bi"></a>Visualizzare i dati da Esplora dati di Azure usando una query SQL in Power BI
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Power BI è una soluzione di analisi aziendale che consente di visualizzare i dati e condividere i risultati all'interno dell'organizzazione.
 
-Esplora dati di Azure fornisce tre opzioni per la connessione ai dati in Power BI: usare il connettore predefinito, importare una query da Esplora dati di Azure o usare una query SQL. Questo articolo illustra come usare una query SQL per ottenere i dati e visualizzarli in un report Power BI.
+Esplora dati di Azure fornisce tre opzioni per la connessione ai dati in Power BI: usare il connettore predefinito, importare una query da Esplora dati di Azure o usare una query SQL. Questo articolo illustra come usare una query SQL per ottenere dati e visualizzarli in un report di Power BI.
 
 Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questo articolo, è necessario quanto segue:
 
@@ -50,7 +50,7 @@ Con Esplora dati di Azure si usa in genere il linguaggio di query nativo, ma è 
 
     **Impostazione** | **Valore** | **Descrizione campo**
     |---|---|---|
-    | Server | *help.kusto.windows.net* | L'URL del cluster della guida (senza *https://* ). Per altri cluster, l'URL è nel formato *\<ClusterName\>.\<Area\>.kusto.windows.net*. |
+    | Server | *help.kusto.windows.net* | L'URL del cluster della guida (senza *https://*). Per altri cluster, l'URL è nel formato * \<NomeCluster\>.\< Regione\>.kusto.windows.net .* |
     | Database | *Esempi* | Il database di esempio ospitato nel cluster con cui si effettua la connessione. |
     | Modalità connettività dati | *Importa* | Determina se Power BI Importa i dati o si connette direttamente all'origine dati. È possibile usare l'una o l'altra opzione con questo connettore. |
     | Timeout comando | Lasciare vuoto | Per quanto tempo viene eseguita la query prima che generi un errore di timeout. |
@@ -70,7 +70,7 @@ Con Esplora dati di Azure si usa in genere il linguaggio di query nativo, ma è 
 
 1. Nella schermata **help.kusto.windows.net: Samples** selezionare **Carica**.
 
-    ![Caricare dati](media/power-bi-sql-query/load-data.png)
+    ![Caricare i dati](media/power-bi-sql-query/load-data.png)
 
     La tabella verrà aperta nella finestra principale di Power BI, nella visualizzazione report, in cui è possibile creare report basati sui dati di esempio.
 
@@ -80,8 +80,8 @@ Con Esplora dati di Azure si usa in genere il linguaggio di query nativo, ma è 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se il report creato per questo articolo non è più necessario, eliminare il file Power BI Desktop (pbix).
+Se il report creato per questo articolo non è più necessario, eliminare il file di Power BI Desktop (con estensione pbix).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Visualizzare i dati usando il connettore Azure Esplora dati per Power BI](power-bi-connector.md)
+[Visualizzare i dati con il connettore Esplora dati di Azure per Power BI](power-bi-connector.md)

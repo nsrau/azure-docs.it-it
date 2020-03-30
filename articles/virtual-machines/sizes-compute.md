@@ -1,6 +1,6 @@
 ---
-title: Dimensioni delle macchine virtuali di Azure-ottimizzate per il calcolo | Microsoft Docs
-description: Elenca le diverse dimensioni ottimizzate per il calcolo disponibili per le macchine virtuali in Azure. Elenca le informazioni sul numero di vCPU, dischi dati e NIC, oltre che sulla velocità effettiva di archiviazione e sulla larghezza di banda di rete per le dimensioni di questa serie.
+title: Dimensioni delle macchine virtuali di Azure - Ottimizzazione del calcolo Documenti Microsoft
+description: Elenca le diverse dimensioni ottimizzate per il calcolo disponibili per le macchine virtuali in Azure.Lists the different compute optimized sizes available for virtual machines in Azure. Elenca le informazioni sul numero di vCPU, dischi dati e schede di interfaccia di rete, nonché la velocità effettiva di archiviazione e la larghezza di banda di rete per le dimensioni in questa serie.
 services: virtual-machines
 documentationcenter: ''
 author: jonbeck7
@@ -15,23 +15,23 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
 ms.openlocfilehash: d709d621341ef14ec158ed5af1c2df4297d66b8b
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77493631"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali ottimizzate per il calcolo
 
-Le dimensioni delle macchine virtuali ottimizzate per il calcolo hanno un rapporto elevato tra CPU e memoria. Queste dimensioni sono valide per server Web con traffico medio, appliance di rete, processi batch e server applicazioni. Questo articolo fornisce informazioni sul numero di vCPU, dischi dati e schede di rete. Sono inoltre incluse informazioni sulla velocità effettiva di archiviazione e sulla larghezza di banda di rete per ogni dimensione di questo raggruppamento.
+Le dimensioni delle macchine virtuali ottimizzate per il calcolo hanno un rapporto elevato tra CPU e memoria. Queste dimensioni sono adatte per server Web con traffico medio, appliance di rete, processi batch e server applicazioni. In questo articolo vengono fornite informazioni sul numero di vCPU, dischi dati e schede di interfaccia di rete. Include inoltre informazioni sulla velocità effettiva di archiviazione e sulla larghezza di banda di rete per ogni dimensione in questo raggruppamento.
 
-La [serie Fsv2](fsv2-series.md) è basata sul processore Intel® Xeon® Platinum 8168. Include una velocità di clock di base di livello principale di 3,4 GHz e una frequenza Turbo Single Core massima di 3,7 GHz. Le istruzioni Intel® AVX-512 sono nuove per i processori Intel scalabili. Queste istruzioni forniscono fino a un incremento delle prestazioni di 2X ai carichi di lavoro di elaborazione vettoriali nelle operazioni a virgola mobile a precisione singola e doppia. In altre parole, sono molto veloci per qualsiasi carico di lavoro di calcolo.
+La [serie Fsv2](fsv2-series.md) è basata sul processore Intel® Xeon® Platinum 8168. È dotato di una velocità di clock Turbo a tutto il core di 3,4 GHz e una frequenza massima di turbo single-core di 3,7 GHz. Le istruzioni Intel® AVX-512 sono una novità sui processori scalabili Intel. Queste istruzioni forniscono fino a un incremento delle prestazioni 2X ai carichi di lavoro di elaborazione vettoriale su operazioni a virgola mobile a precisione singola e doppia. In altre parole, sono molto veloci per qualsiasi carico di lavoro computazionale.
 
 Con un prezzo di listino orario più basso, la serie Fsv2 presenta il migliore rapporto prezzo-prestazioni nel portfolio Azure basato sull'unità di calcolo di Azure (ACU, Azure Compute Unit) per ogni vCPU.
 
 ## <a name="other-sizes"></a>Altre dimensioni
 
-- [Utilizzo generico](sizes-general.md)
+- [Finalità generale](sizes-general.md)
 - [Ottimizzate per la memoria](sizes-memory.md)
 - [Ottimizzate per l'archiviazione](sizes-storage.md)
 - [Ottimizzate per la GPU](sizes-gpu.md)

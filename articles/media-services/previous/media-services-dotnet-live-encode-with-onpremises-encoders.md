@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 11c6da0b79f169b250dc0178f76dcd885ce91668
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162889"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Come eseguire lo streaming live con codificatori locali mediante .NET
@@ -29,15 +29,15 @@ ms.locfileid: "77162889"
 > 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Scopri la versione più recente, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le linee guida per la [migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
 
 Questa esercitazione illustra come usare l'SDK di Servizi multimediali di Azure per .NET per creare un **canale** configurato per la distribuzione pass-through. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 Per completare l'esercitazione è necessario quanto segue:
 
 * Un account Azure.
-* Account di Servizi multimediali. Per creare un account Servizi multimediali, vedere [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
+* Account di Servizi multimediali. Per creare un account di Servizi multimediali, vedere [Creazione di un account di Servizi multimediali](media-services-portal-create-account.md).
 * Verificare che l'endpoint di streaming da cui si vuole trasmettere il contenuto sia nello stato **In esecuzione**. 
 * Configurare l'ambiente di sviluppo. Per ulteriori informazioni, vedere [Configurare l'ambiente](media-services-set-up-computer.md).
 * Una webcam. Ad esempio, [codificatore Telestream Wirecast](media-services-configure-wirecast-live-encoder.md).
@@ -49,7 +49,7 @@ Per completare l'esercitazione è necessario quanto segue:
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
-Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
+Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in Sviluppo di [Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="example"></a>Esempio
 

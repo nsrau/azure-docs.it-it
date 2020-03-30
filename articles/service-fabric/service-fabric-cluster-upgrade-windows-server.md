@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
 ms.openlocfilehash: 489a90180454e2b4a9dad34730fbd3c4f235a2ad
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77598103"
 ---
 # <a name="upgrade-the-service-fabric-version-that-runs-on-your-cluster"></a>Aggiornare la versione di Service Fabric eseguita nel cluster 
@@ -98,7 +98,7 @@ Per consentire il download e la registrazione automatici per la versione più re
 
 Per il processo manuale, seguire le istruzioni riportate di seguito.
 
-Modificare la configurazione del cluster per impostare la proprietà seguente su *false* prima di avviare un aggiornamento della configurazione:
+Modificare la configurazione del cluster per impostare la proprietà seguente su false prima di avviare un aggiornamento della configurazione:Modify your cluster configuration to set the following property to *false* before you start a configuration upgrade:
 
 ```json
 "fabricClusterAutoupgradeEnabled": false,

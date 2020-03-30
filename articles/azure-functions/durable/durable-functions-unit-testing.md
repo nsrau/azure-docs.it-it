@@ -4,24 +4,24 @@ description: Informazioni su come eseguire lo unit test di Funzioni durevoli.
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.openlocfilehash: 86733f8b5b80799bad3e52c643ed27465dfc7641
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74231232"
 ---
 # <a name="durable-functions-unit-testing"></a>Testing unità di Funzioni durevoli
 
-Il testing unità è una parte importante delle moderne procedure di sviluppo software. Gli unit test verificano il comportamento della logica di business e proteggono dall'introduzione futura di modifiche inosservate che causano un'interruzione. La complessità di Funzioni durevoli può facilmente aumentare e l'introduzione di unit test consentirà quindi di evitare le modifiche che causano un'interruzione. Nelle sezioni seguenti viene illustrato come unit test i tre tipi di funzione: client di orchestrazione, agente di orchestrazione e funzioni di attività.
+Il testing unità è una parte importante delle moderne procedure di sviluppo software. Gli unit test verificano il comportamento della logica di business e proteggono dall'introduzione futura di modifiche inosservate che causano un'interruzione. La complessità di Funzioni durevoli può facilmente aumentare e l'introduzione di unit test consentirà quindi di evitare le modifiche che causano un'interruzione. Nelle sezioni seguenti viene illustrato come eseguire unit test dei tre tipi di funzione: client di orchestrazione, orchestratore e funzioni di attività.
 
 > [!NOTE]
-> Questo articolo fornisce indicazioni per il testing unità per Durable Functions app destinate a Durable Functions 1. x. Non è stato ancora aggiornato per tenere conto delle modifiche introdotte in Durable Functions 2. x. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+> Questo articolo fornisce indicazioni per unit test per le app di funzioni durevoli destinate a Funzioni durevoli 1.x.This article provides guidance for unit testing for Durable Functions apps targeting Durable Functions 1.x. Non è stato ancora aggiornato per tenere conto delle modifiche introdotte in Funzioni durevoli 2.x. Per altre informazioni sulle differenze tra le versioni, vedere l'articolo Versioni di [Funzioni permanenti.](durable-functions-versions.md)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Gli esempi di questo articolo richiedono la conoscenza dei concetti e dei framework seguenti:
 
-* Testing unità
+* Unit test
 
 * Funzioni permanenti
 
@@ -31,7 +31,7 @@ Gli esempi di questo articolo richiedono la conoscenza dei concetti e dei framew
 
 ## <a name="base-classes-for-mocking"></a>Classi base per il comportamento fittizio
 
-Il mocking è supportato tramite tre classi astratte in Durable Functions 1. x:
+La simulazione è supportata tramite tre classi astratte in Durable Functions 1.x:Mocking is supported via three abstract classes in Durable Functions 1.x:
 
 * `DurableOrchestrationClientBase`
 
@@ -39,9 +39,9 @@ Il mocking è supportato tramite tre classi astratte in Durable Functions 1. x:
 
 * `DurableActivityContextBase`
 
-Queste classi sono classi di base per `DurableOrchestrationClient`, `DurableOrchestrationContext`e `DurableActivityContext` che definiscono i metodi del client di orchestrazione, dell'agente di orchestrazione e dell'attività. I comportamenti fittizi imposteranno il comportamento previsto per i metodi delle classi base in modo che lo unit test possa verificare la logica di business. Esiste un flusso di lavoro in due passaggi per il testing unità della logica di business nel client di orchestrazione e nell'agente di orchestrazione:
+Queste classi sono `DurableOrchestrationClient`classi `DurableOrchestrationContext`base `DurableActivityContext` per i metodi , , e che definiscono i metodi Client, Orchestrator e Activity dell'orchestrazione. I comportamenti fittizi imposteranno il comportamento previsto per i metodi delle classi base in modo che lo unit test possa verificare la logica di business. Esiste un flusso di lavoro in due passaggi per il testing unità della logica di business nel client di orchestrazione e nell'agente di orchestrazione:
 
-1. Utilizzare le classi base anziché l'implementazione concreta quando si definiscono le firme del client di orchestrazione e della funzione di orchestrazione.
+1. Utilizzare le classi di base anziché l'implementazione concreta quando si definiscono le firme delle funzioni client e dell'agente di orchestrazione.
 2. Negli unit test simulare il comportamento delle classi base e verificare la logica di business.
 
 Nei paragrafi seguenti sono disponibili altre informazioni dettagliate sulle funzioni di test che usano l'associazione del client di orchestrazione e l'associazione del trigger dell'agente di orchestrazione.
@@ -52,9 +52,9 @@ In questa sezione lo unit test convaliderà la logica della funzione di trigger 
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-L'attività di unit test servirà a verificare il valore dell'intestazione `Retry-After` fornita nel payload della risposta. Quindi, il unit test simula alcuni `DurableOrchestrationClientBase` metodi per garantire un comportamento prevedibile.
+L'attività di unit test servirà a verificare il valore dell'intestazione `Retry-After` fornita nel payload della risposta. Così lo unit test `DurableOrchestrationClientBase` si prenderà gioco di alcuni metodi per garantire un comportamento prevedibile.
 
-Per prima cosa, è necessaria una simulazione della classe di base `DurableOrchestrationClientBase`. Il mock può essere una nuova classe che implementa `DurableOrchestrationClientBase`. L'uso di un framework di comportamento fittizio, ad esempio [moq](https://github.com/moq/moq4), semplifica tuttavia il processo:
+In primo luogo, è necessaria `DurableOrchestrationClientBase`una simulazione della classe base, . La simulazione può essere `DurableOrchestrationClientBase`una nuova classe che implementa . L'uso di un framework di comportamento fittizio, ad esempio [moq](https://github.com/moq/moq4), semplifica tuttavia il processo:
 
 ```csharp
     // Mock DurableOrchestrationClientBase
@@ -172,7 +172,7 @@ In questa sezione lo unit test convaliderà il comportamento della funzione dell
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
-Lo unit test verificherà il formato dell'output. Gli unit test possono usare direttamente i tipi di parametro o la classe fittizia `DurableActivityContextBase`:
+Lo unit test verificherà il formato dell'output. Gli unit test possono utilizzare i `DurableActivityContextBase` tipi di parametro direttamente o classe fittizia:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceActivityTests.cs)]
 

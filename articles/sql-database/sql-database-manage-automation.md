@@ -1,5 +1,5 @@
 ---
-title: Gestire i database con automazione di Azure
+title: Gestire i database con Automazione di AzureManage databases with Azure Automation
 description: Informazioni su come è possibile usare il servizio Automazione di Azure per gestire database SQL di Azure su vasta scala.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: 9d826a75f05cf2031565f89e21d7f3667ecc8f17
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822816"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Gestire i database SQL di Azure tramite Automazione di Azure

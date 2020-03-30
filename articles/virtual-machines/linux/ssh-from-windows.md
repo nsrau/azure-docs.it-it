@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
 ms.openlocfilehash: e01fb23bbf1720f7d8df9c269373c1b8dc3ec75c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034816"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Come usare le chiavi SSH con Windows in Azure
@@ -30,24 +30,24 @@ Questo articolo descrive i modi per generare e usare chiavi *Secure Shell* (SSH)
 [!INCLUDE [virtual-machines-common-ssh-support](../../../includes/virtual-machines-common-ssh-support.md)]
 
 ## <a name="windows-packages-and-ssh-clients"></a>Pacchetti Windows e client SSH
-Per la connessione a VM Linux e la loro gestione in Azure si usa un client *SSH*. I computer Linux o macOS hanno di solito una suite di comandi SSH per generare e gestire le chiavi SSH e stabilire connessioni SSH. 
+Connettersi e gestire macchine virtuali Linux in Azure utilizzando un *client SSH*. I computer Linux o macOS hanno di solito una suite di comandi SSH per generare e gestire le chiavi SSH e stabilire connessioni SSH. 
 
-Nei computer Windows non sempre sono installati comandi SSH simili. Le versioni recenti di Windows 10 forniscono [comandi client OpenSSH](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) per creare e gestire le chiavi SSH e stabilire connessioni SSH da un prompt dei comandi. Le versioni recenti di Windows 10 includono anche il [sottosistema Windows per Linux](https://docs.microsoft.com/windows/wsl/about) per eseguire e accedere a utilità come un client SSH in modo nativo dall'interno della shell Bash. 
+Nei computer Windows non sempre sono installati comandi SSH simili. Le versioni recenti di Windows 10 forniscono [comandi client OpenSSH](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) per creare e gestire i tasti SSH e stabilire connessioni SSH da un prompt dei comandi. Le versioni recenti di Windows 10 includono anche il [sottosistema Windows per Linux](https://docs.microsoft.com/windows/wsl/about) per eseguire e accedere a utilità come un client SSH in modo nativo dall'interno della shell Bash. 
 
 Altri comuni client SSH Windows che è possibile installare in locale sono inclusi nei pacchetti seguenti:
 
-* [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)
+* [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * [Git per Windows](https://git-for-windows.github.io/)
 * [MobaXterm](https://mobaxterm.mobatek.net/)
 * [Cygwin](https://cygwin.com/)
 
 È anche possibile usare le utilità SSH disponibili in Bash in [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-* Accedere a Cloud Shell nel Web browser all'indirizzo [https://shell.azure.com](https://shell.azure.com) o nel [portale di Azure](https://portal.azure.com). 
+* Accedere a Cloud Shell [https://shell.azure.com](https://shell.azure.com) nel Web browser all'indirizzo o nel portale di [Azure.](https://portal.azure.com) 
 * Accedere a Cloud Shell come un terminale da Visual Studio Code installando l'[estensione Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
 ## <a name="create-an-ssh-key-pair"></a>Creare una coppia di chiavi SSH
-Le sezioni seguenti descrivono due opzioni per creare una coppia di chiavi SSH in Windows. È possibile usare un comando della shell (`ssh-keygen`) o uno strumento con interfaccia utente grafica (PuTTYgen). Si noti anche che quando si usa PowerShell per creare una chiave, caricare la chiave pubblica come formato SSH. com (SECSH). Quando si usa l'interfaccia della riga di comando, convertire la chiave nel formato OpenSSH prima del caricamento. 
+Le sezioni seguenti descrivono due opzioni per creare una coppia di chiavi SSH in Windows. È possibile usare un comando della shell (`ssh-keygen`) o uno strumento con interfaccia utente grafica (PuTTYgen). Si noti inoltre che quando si utilizza Powershell per creare una chiave, caricare la chiave pubblica come formato ssh.com(SECSH). Quando si usa l'interfaccia della riga di comando, convertire la chiave in formato OpenSSH prima del caricamento. 
 
 ### <a name="create-ssh-keys-with-ssh-keygen"></a>Creare chiavi SSH con ssh-keygen
 
@@ -81,7 +81,7 @@ Per creare una coppia di chiavi SSH RSA con PuTTYgen:
 
     ![Salvare il file della chiave privata PuTTY](./media/ssh-from-windows/save-ppk-file.png)
 
-    Se si vuole salvare la chiave privata nel formato OpenSSH, il formato di chiave privata usato da molti client SSH, selezionare **Conversioni** > **Esporta chiave OpenSSH**.
+    Se si desidera salvare la chiave privata nel formato OpenSSH, il formato di chiave privata utilizzato da molti client SSH, selezionare **Conversions** > **Export OpenSSH key**.
 
 ## <a name="provide-an-ssh-public-key-when-deploying-a-vm"></a>Fornire una chiave SSH pubblica quando si distribuisce una macchina virtuale
 
@@ -117,7 +117,7 @@ Se è stato installato il [pacchetto di download di PuTTY](https://www.chiark.gr
 
     ![Aprire una nuova connessione PuTTY](./media/ssh-from-windows/putty-new-connection.png)
 
-3. Selezionare la categoria **Connessione** > **SSH** > **Autorizzazione**. Individuare e selezionare la chiave privata PuTTY (file con estensione ppk):
+3. Selezionare la categoria**Autenticazione** **SSH** >  **connessione.** >  Individuare e selezionare la chiave privata PuTTY (file con estensione ppk):
 
     ![Selezionare la chiave privata PuTTY per l'autenticazione](./media/ssh-from-windows/putty-auth-dialog.png)
 
@@ -125,7 +125,7 @@ Se è stato installato il [pacchetto di download di PuTTY](https://www.chiark.gr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per la procedura dettagliata, le opzioni ed esempi avanzati sull'uso delle chiavi SSH, vedere la [procedura dettagliata per creare coppie di chiavi SSH](create-ssh-keys-detailed.md).
+* Per la procedura dettagliata, le opzioni e gli esempi avanzati di utilizzo dei tasti SSH, vedere Procedura dettagliata per creare coppie di [chiavi SSH.](create-ssh-keys-detailed.md)
 
 * Si può anche usare PowerShell in Azure Cloud Shell per generare le chiavi SSH e stabilire connessioni SSH alle VM Linux. Vedere le [informazioni di avvio rapido di PowerShell](../../cloud-shell/quickstart-powershell.md#ssh).
 

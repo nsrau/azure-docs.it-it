@@ -1,21 +1,21 @@
 ---
-title: Modello di dati di telemetria delle eccezioni di applicazione Azure Insights
+title: Modello di dati di telemetria delle eccezioni di Azure Application InsightsAzure Application Insights Exception Telemetry Data model
 description: Modello di dati di Application Insights per la telemetria delle eccezioni
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: fa9bc4efd9549cbcb1d50439989c5dea79d9d60c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671937"
 ---
 # <a name="exception-telemetry-application-insights-data-model"></a>Telemetria delle eccezioni: modello di dati di Application Insights
 
 In [Application Insights](../../azure-monitor/app/app-insights-overview.md), un'istanza di eccezione rappresenta un'eccezione gestita o non gestita che si è verificata durante l'esecuzione dell'applicazione monitorata.
 
-## <a name="problem-id"></a>ID del problema
+## <a name="problem-id"></a>ID problema
 
 Identificatore del punto nel codice in cui è stata generata l'eccezione. Usato per il raggruppamento delle eccezioni. In genere una combinazione di tipo di eccezione e una funzione dallo stack di chiamate.
 

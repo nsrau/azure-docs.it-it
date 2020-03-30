@@ -1,6 +1,6 @@
 ---
-title: Amministrare Azure Data Box/Azure Data Box Heavy usando l'interfaccia utente Web locale
-description: Viene descritto come usare l'interfaccia utente Web locale per amministrare i dispositivi Data Box e Data Box Heavy
+title: Amministrare Azure Data Box/Azure Data Box Heavy usando l'interfaccia utente Web localeAdminister Azure Data Box/Azure Data Box Heavy using local web UI
+description: Descrive come utilizzare l'interfaccia utente Web locale per amministrare i dispositivi Data Box e Data Box Heavy
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
 ms.openlocfilehash: cf7cf0a7aa2812d7a93c282cbda5f82dd83aac29
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77560185"
 ---
-# <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Usare l'interfaccia utente Web locale per amministrare il Data Box e Data Box Heavy
+# <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Usare l'interfaccia utente Web locale per amministrare la casella dati e data box HeavyUse the local web UI to administer your Data Box and Data Box Heavy
 
-Questo articolo descrive alcune delle attività di configurazione e gestione che possono essere eseguite sui dispositivi Data Box e Data Box Heavy. È possibile gestire i dispositivi Data Box e Data Box Heavy tramite l'interfaccia utente di portale di Azure e l'interfaccia utente Web locale per il dispositivo. Questo articolo è incentrato sulle attività che è possibile eseguire con l'interfaccia utente Web locale.
+In questo articolo vengono descritte alcune delle attività di configurazione e gestione che è possibile eseguire sui dispositivi Data Box e Data Box Heavy. È possibile gestire i dispositivi Data Box e Data Box Heavy tramite l'interfaccia utente del portale di Azure e l'interfaccia utente Web locale per il dispositivo. Questo articolo è incentrato sulle attività che è possibile eseguire con l'interfaccia utente Web locale.
 
-L'interfaccia utente Web locale per la Data Box e la Data Box Heavy viene usata per la configurazione iniziale del dispositivo. È anche possibile usare l'interfaccia utente Web locale per arrestare o riavviare il dispositivo, eseguire test diagnostici, aggiornare il software, visualizzare i log di copia e generare un pacchetto di log per supporto tecnico Microsoft. In un dispositivo Data Box Heavy con due nodi indipendenti, è possibile accedere a due interfacce utente Web locali separate corrispondenti a ogni nodo del dispositivo.
+L'interfaccia utente Web locale per la casella dati e la casella dati heavy viene utilizzata per la configurazione iniziale del dispositivo. È inoltre possibile utilizzare l'interfaccia utente Web locale per arrestare o riavviare il dispositivo, eseguire test diagnostici, aggiornare il software, visualizzare i log di copia e generare un pacchetto di log per il supporto tecnico Microsoft.You can also use the local web UI to shut down or restart the device, run diagnostic tests, update software, view copy logs, and generate a log package for Microsoft Support. In un dispositivo Data Box Heavy con due nodi indipendenti, è possibile accedere a due unità di gestione utente Web locali separate corrispondenti a ogni nodo del dispositivo.
 
 L'articolo include le esercitazioni seguenti:
 
@@ -31,7 +31,7 @@ L'articolo include le esercitazioni seguenti:
 
 ## <a name="generate-support-package"></a>Creare un pacchetto per il supporto
 
-Se si verificano problemi al dispositivo, è possibile creare un pacchetto di supporto dai log di sistema. Il supporto tecnico Microsoft usa questo pacchetto per risolvere il problema. Per generare un pacchetto per il supporto, seguire questa procedura:
+Se si verificano problemi al dispositivo, è possibile creare un pacchetto di supporto dai log di sistema. Il supporto tecnico Microsoft usa questo pacchetto per risolvere il problema. Per generare un pacchetto di supporto, attenersi alla seguente procedura:
 
 1. Nell'interfaccia utente Web locale passare a **Contatta il supporto tecnico** e fare clic su **Crea pacchetto per il supporto**.
 
@@ -52,9 +52,9 @@ Se si verificano problemi al dispositivo, è possibile creare un pacchetto di su
 
 ## <a name="shut-down-or-restart-your-device"></a>Arrestare o riavviare il dispositivo
 
-È possibile arrestare o riavviare il dispositivo usando l'interfaccia utente Web locale. Prima di riavviare, si consiglia di portare offline le condivisioni sull'host e quindi il dispositivo. Questa operazione consente di eliminare qualsiasi rischio di danneggiamento dei dati. Assicurarsi che al momento dell'arresto del dispositivo non sia in corso la copia dei dati.
+È possibile arrestare o riavviare il dispositivo utilizzando l'interfaccia utente Web locale. Prima di riavviare, si consiglia di portare offline le condivisioni sull'host e quindi il dispositivo. Questa operazione consente di eliminare qualsiasi rischio di danneggiamento dei dati. Assicurarsi che al momento dell'arresto del dispositivo non sia in corso la copia dei dati.
 
-Per arrestare il dispositivo, seguire questa procedura.
+Per arrestare il dispositivo, attenersi alla seguente procedura.
 
 1. Nell'interfaccia utente Web locale passare a **Arresta o riavvia**.
 2. Fare clic su **Spegni**.
@@ -70,7 +70,7 @@ Una volta arrestato il dispositivo, usare il pulsante di alimentazione sul panne
 Per riavviare Data Box seguire questa procedura.
 
 1. Nell'interfaccia utente Web locale passare a **Arresta o riavvia**.
-2. Fare clic su **Restart**.
+2. Fare clic su **Riavvia**.
 
     ![Riavviare Data Box 1](media/data-box-local-web-ui-admin/restart-local-web-ui-1.png)
 
@@ -80,11 +80,11 @@ Per riavviare Data Box seguire questa procedura.
 
 ## <a name="download-bom-or-manifest-files"></a>Scaricare la distinta base o i file manifesto
 
-La fattura del materiale (BOM) o i file manifesto contengono l'elenco dei file copiati nella Data Box o Data Box Heavy. Questi file vengono generati quando si prepara il dispositivo per la spedizione.
+La distinta materiali (BOM, Bill of Material) o i file manifesto contengono l'elenco dei file copiati nella casella dati o nella casella dati heavy. Questi file vengono generati quando si prepara il dispositivo da spedire.
 
-Prima di iniziare, verificare che il dispositivo abbia completato **prepara per la spedizione** passaggio. Seguire questa procedura per scaricare la distinta base o i file manifesto:
+Prima di iniziare, assicurati che il dispositivo abbia completato il passaggio **Prepara per la spedizione.** Seguire questa procedura per scaricare la distinta base o i file manifesto:
 
-1. Passare all'interfaccia utente Web locale per il dispositivo. Si noterà che il dispositivo ha completato la preparazione per la spedizione. Al termine della preparazione, lo stato visualizzato per il dispositivo è **Pronto per la spedizione**.
+1. Passare all'interfaccia utente Web locale per il dispositivo. Vedrai che il dispositivo ha completato la preparazione alla spedizione. Al termine della preparazione, lo stato visualizzato per il dispositivo è **Pronto per la spedizione**.
 
     ![Dispositivo pronto per la spedizione](media/data-box-portal-admin/ready-to-ship.png)
 
@@ -111,7 +111,7 @@ Prima di iniziare, verificare che il dispositivo abbia completato **prepara per 
 Usare questo elenco per verificare i file caricati nell'account di archiviazione di Azure dopo la restituzione del Data Box al data center di Azure. Di seguito è riportato un esempio di file manifesto.
 
 > [!NOTE]
-> In una Data Box Heavy sono presenti due set di file (file BOM) corrispondenti ai due nodi del dispositivo.
+> In un Data Box Heavy, sono presenti due set di file (file BOM) corrispondenti ai due nodi sul dispositivo.
 
 ```xml
 <file size="52689" crc64="0x95a62e3f2095181e">\databox\media\data-box-deploy-copy-data\prepare-to-ship2.png</file>
@@ -153,7 +153,7 @@ Usare questo elenco per verificare i file caricati nell'account di archiviazione
 <file size="3603" crc64="0x7e34c25d5606693f">\databox\TOC.yml</file>
 ```
 
-Questo file contiene l'elenco di tutti i file copiati nella Data Box o Data Box Heavy. In questo file il valore *crc64* è correlato al checksum generato per il file corrispondente.
+Questo file contiene l'elenco di tutti i file copiati nella casella dati o nella casella dati Heavy. In questo file il valore *crc64* è correlato al checksum generato per il file corrispondente.
 
 ## <a name="view-available-capacity-of-the-device"></a>Visualizzare la capacità disponibile del dispositivo
 
@@ -170,14 +170,14 @@ I checksum vengono generati per i dati per impostazione predefinita quando si pr
 
 È consigliabile non disabilitare i checksum, a meno che le prestazioni non subiscano un notevole peggioramento.
 
-1. Nell'angolo in alto a destra dell'interfaccia utente Web locale del dispositivo passare a **Impostazioni**.
+1. Nell'angolo in alto a destra dell'interfaccia utente Web locale del dispositivo, vai a **Impostazioni**.
 
     ![Disabilitare i checksum](media/data-box-local-web-ui-admin/disable-checksum.png)
 
 2. **Disabilitare** la convalida dei checksum
-3. Fare clic su **Apply**.
+3. Fare clic su **Applica**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [gestire il data box e data box Heavy tramite il portale di Azure](data-box-portal-admin.md).
+- Informazioni su come [gestire la casella dati e data box Heavy tramite il portale](data-box-portal-admin.md)di Azure.
 

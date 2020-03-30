@@ -1,5 +1,5 @@
 ---
-title: Codici di errore dell'API REST-Azure Machine Learning Studio (versione classica) | Microsoft Docs
+title: Codici di errore dell'API REST - Azure Machine Learning Studio (classico) Documenti Microsoft
 description: Questi codici errore possono essere restituiti da un'operazione in un servizio Web di Azure Machine Learning.
 keywords: ''
 services: machine-learning
@@ -13,23 +13,23 @@ ms.subservice: studio
 ms.topic: reference
 ms.date: 11/16/2016
 ms.openlocfilehash: 9e25f2fbc10eb07cc71f2a7bd34247c0191f61b9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79217765"
 ---
-# <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Codici di errore dell'API REST di Azure Machine Learning Studio (classica)
+# <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Azure Machine Learning Studio (classic) REST API Error Codes
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
  
-I codici di errore seguenti possono essere restituiti da un'operazione in un servizio Web Azure Machine Learning Studio (classico).
+I codici di errore seguenti potrebbero essere restituiti da un'operazione in un servizio Web di Azure Machine Learning Studio (classico).
  
 ## <a name="badargument-http-status-code-400"></a>BadArgument (codice di stato HTTP 400)
  
 È stato specificato un argomento non valido.
  
-Questa classe di errori indica che un argomento specificato nel codice non è valido. Potrebbe trattarsi di una credenziale o della località di una risorsa di archiviazione di Azure oppure un elemento passato al servizio Web. Esaminare il campo "codice" dell'errore nella sezione "dettagli" per diagnosticare quale argomento specifico non è valido.
+Questa classe di errori indica che un argomento specificato nel codice non è valido. Potrebbe trattarsi di una credenziale o della località di una risorsa di archiviazione di Azure oppure un elemento passato al servizio Web. Si prega di guardare il campo errore "codice" nella sezione "dettagli" per diagnosticare quale argomento specifico non era valido.
  
 | Codice di errore | Messaggio utente |
 | ---------- |--------------|
@@ -67,7 +67,7 @@ Questa classe di errori indica che un argomento specificato nel codice non è va
 | MissingWebServicePackage | Non sono stati specificati pacchetti del servizio Web. Specificare un pacchetto del servizio Web valido e riprovare. |
 | MissingWorkspaceId | Non sono stati specificati ID dell'area di lavoro. Specificare un ID dell'area di lavoro valido e riprovare. |
 | ModelConfigurationInvalid | La configurazione del modello nel pacchetto di modelli non è valida. Assicurarsi che la configurazione del modello includa la definizione degli endpoint di output, l'endpoint dell'errore standard e l'endpoint di output standard e riprovare. |
-| ModelPackageIdInvalid | ID pacchetto del modello non valido. Verificare che l'ID del pacchetto di modelli sia corretto e riprovare. |
+| ModelPackageIdInvalid | ID pacchetto modello non valido. Verificare che l'ID del pacchetto del modello sia corretto e riprovare. |
 | RequestBodyInvalid | Non è stato specificato il corpo della richiesta o si è verificato un errore durante la deserializzazione del corpo della richiesta. |
 | RequestIsEmpty | Non sono state specificate richieste. Specificare una richiesta valida e riprovare. |
 | UnexpectedParameter | Sono stati specificati parametri imprevisti. Verificare che l'ortografia di tutti i nomi di parametro sia corretta e che vengano passati solo i parametri previsti, quindi riprovare. |

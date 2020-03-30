@@ -12,17 +12,17 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: c776f4ac09626f0abd1eb754cde391a1c5447627
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74421211"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Eseguire la migrazione dei database esistenti per ottenere scalabilità orizzontale
 
 È possibile gestire facilmente i database partizionati con scalabilità orizzontale esistenti usando gli strumenti di database del database SQL di Azure, come ad esempio la [libreria client dei database elastici](sql-database-elastic-database-client-library.md). Come prima cosa convertire un set di database esistente per l'uso del [gestore delle mappe partizioni](sql-database-elastic-scale-shard-map-management.md).
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Per eseguire la migrazione di un database partizionato esistente:
 
@@ -100,7 +100,7 @@ Per usare questo modello di mapping, i valori dell'ID tenant devono essere a int
 $ShardMap = New-RangeShardMap -KeyType $([int]) -RangeShardMapName 'RangeShardMap' -ShardMapManager $ShardMapManager
 ```
 
-### <a name="option-3-list-mappings-on-an-individual-database"></a>Opzione 3: elencare i mapping in un singolo database
+### <a name="option-3-list-mappings-on-an-individual-database"></a>Opzione 3: elencare i mapping in un singolo databaseOption 3: List mappings on an individual database
 
 Per l'impostazione di questo modello è necessario anche creare una mappa di tipo elenco, come illustrato nel passaggio 2, opzione 1.
 
@@ -149,7 +149,7 @@ Get-Shards -ShardMap $ShardMap
 Get-Mappings -ShardMap $ShardMap
 ```
 
-## <a name="summary"></a>summary
+## <a name="summary"></a>Riepilogo
 
 Dopo aver completato l'installazione, è possibile iniziare a usare la libreria client di database elastici. È anche possibile usare il [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md) e le [query su più partizioni](sql-database-elastic-scale-multishard-querying.md).
 

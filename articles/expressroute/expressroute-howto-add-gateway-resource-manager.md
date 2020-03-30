@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: aggiungere un gateway a una VNet: PowerShell'
+title: 'Azure ExpressRoute: Add a gateway to a VNet: PowerShell'
 description: Questo articolo illustra come aggiungere un gateway di rete virtuale a una rete virtuale di Resource Manager già creata per ExpressRoute.
 services: expressroute
 author: charwen
@@ -9,10 +9,10 @@ ms.date: 02/21/2019
 ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: 6e6d79afa1126acb26cb8856c39ba486cce31a5e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74037419"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Configurare un gateway di rete virtuale per ExpressRoute usando PowerShell
@@ -24,17 +24,17 @@ ms.locfileid: "74037419"
 > 
 > 
 
-Questo articolo consente di aggiungere, ridimensionare e rimuovere un gateway di rete virtuale per una rete virtuale già esistente. I passaggi per questa configurazione si applicano a reti virtuali creati usando il modello di distribuzione Gestione risorse per una configurazione ExpressRoute. Per altre informazioni, vedere [Informazioni sui gateway di rete virtuale per ExpressRoute](expressroute-about-virtual-network-gateways.md).
+Questo articolo consente di aggiungere, ridimensionare e rimuovere un gateway di rete virtuale per una rete virtuale già esistente. I passaggi per questa configurazione si applicano alle reti virtuali create usando il modello di distribuzione di Resource Manager per una configurazione ExpressRoute.The steps for this configuration apply to VNets that were created using the Resource Manager deployment model for an ExpressRoute configuration. Per altre informazioni, vedere [Informazioni sui gateway di rete virtuale per ExpressRoute](expressroute-about-virtual-network-gateways.md).
 
 ## <a name="before-beginning"></a>Prima di iniziare
 
-### <a name="working-with-powershell"></a>Uso di PowerShell
+### <a name="working-with-powershell"></a>Utilizzo di PowerShellWorking with PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [working with cloud shell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
-### <a name="configuration-reference-list"></a>Elenco dei riferimenti alla configurazione
+### <a name="configuration-reference-list"></a>Elenco di riferimento per la configurazione
 
 [!INCLUDE [expressroute-gateway-rm-ps](../../includes/expressroute-gateway-rm-ps-include.md)]
 

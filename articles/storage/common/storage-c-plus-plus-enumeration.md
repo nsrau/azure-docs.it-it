@@ -1,5 +1,5 @@
 ---
-title: Elencare le risorse di C++ archiviazione di Azure con la libreria client
+title: Elencare le risorse di Archiviazione di Azure con la libreria client di C
 description: Imparare a utilizzare le API elencate nella libreria Client di archiviazione di Microsoft Azure per C++ per enumerare contenitori, BLOB, code, tabelle ed entità.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: dineshm
 ms.openlocfilehash: 0f9e80aff20c1b2663491f6d6ceb99aaec58230f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74269440"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Elenco delle risorse di archiviazione di Azure in C++
@@ -183,7 +183,7 @@ Un elenco lazy rispetto a un elenco greedy, recupera i dati solo quando necessar
 
 Le API ad elenco lazy sono incluse nella libreria client di archiviazione per C++ nella versione 2.2.0.
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 
 In questo articolo, abbiamo parlato di diversi overload per elencare le API per vari oggetti nella libreria Client di archiviazione per C++. Per riepilogare:
 
@@ -196,9 +196,9 @@ In questo articolo, abbiamo parlato di diversi overload per elencare le API per 
 
 Per ulteriori informazioni sull'archiviazione di Azure e sulla libreria Client per C++, vedere le risorse seguenti.
 
-* [Come usare l’archiviazione BLOB da C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [Come usare l'archiviazione BLOB da C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Come usare l’archiviazione tabelle da C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [Come usare l’archiviazione delle code da C++](../storage-c-plus-plus-how-to-use-queues.md)
+* [Come usare l'archiviazione delle code da C++](../storage-c-plus-plus-how-to-use-queues.md)
 * [Documentazione relativa alla libreria Client di archiviazione Azure per API C++.](https://azure.github.io/azure-storage-cpp/)
-* [Blog del team di Archiviazione di Azure](https://blogs.msdn.com/b/windowsazurestorage/)
-* [Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Blog del team di Archiviazione di AzureAzure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/)
+* [Documentazione di Archiviazione di AzureAzure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)

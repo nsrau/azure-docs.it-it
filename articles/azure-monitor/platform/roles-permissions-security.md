@@ -1,5 +1,5 @@
 ---
-title: Ruoli, autorizzazioni e sicurezza in monitoraggio di Azure
+title: Ruoli, autorizzazioni e sicurezza in Monitoraggio di AzureRoles, permissions, and security in Azure Monitor
 description: Informazioni su come usare le autorizzazioni e i ruoli predefiniti di monitoraggio di Azure per limitare l'accesso alle risorse di monitoraggio.
 author: johnkemnetz
 services: azure-monitor
@@ -8,17 +8,17 @@ ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: 81309f0b5781e6302887a5b079ed359e70659834
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658983"
 ---
-# <a name="roles-permissions-and-security-in-azure-monitor"></a>Ruoli, autorizzazioni e sicurezza in monitoraggio di Azure
+# <a name="roles-permissions-and-security-in-azure-monitor"></a>Ruoli, autorizzazioni e sicurezza in Monitoraggio di AzureRoles, permissions, and security in Azure Monitor
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Molti team hanno bisogno di regolare rigorosamente l'accesso ai dati e alle impostazioni di monitoraggio. Se, ad esempio, si dispone di membri del team che lavorano esclusivamente sul monitoraggio (tecnici del supporto tecnico, DevOps Engineers) o se si usa un provider di servizi gestiti, è possibile concedere loro l'accesso solo ai dati di monitoraggio, limitando la possibilità di creare, modificare o Elimina risorse. In questo articolo viene illustrato come applicare rapidamente un ruolo di monitoraggio predefinito nel Controllo degli accessi in base al ruolo a un utente in Azure o creare il proprio ruolo personalizzato per un utente che ha bisogno di autorizzazioni di monitoraggio limitate. Vengono poi esposte alcune considerazioni sulla sicurezza per le risorse legate al monitoraggio di Azure e viene illustrato come è possibile limitare l'accesso ai dati che contengono.
+Molti team hanno bisogno di regolare rigorosamente l'accesso ai dati e alle impostazioni di monitoraggio. Ad esempio, se si dispone di membri del team che lavorano esclusivamente sul monitoraggio (ingegneri del supporto, ingegneri DevOps) o se si utilizza un provider di servizi gestiti, è possibile concedere loro l'accesso solo ai dati di monitoraggio, limitando la loro capacità di creare, modificare o eliminare le risorse. In questo articolo viene illustrato come applicare rapidamente un ruolo di monitoraggio predefinito nel Controllo degli accessi in base al ruolo a un utente in Azure o creare il proprio ruolo personalizzato per un utente che ha bisogno di autorizzazioni di monitoraggio limitate. Vengono poi esposte alcune considerazioni sulla sicurezza per le risorse legate al monitoraggio di Azure e viene illustrato come è possibile limitare l'accesso ai dati che contengono.
 
 ## <a name="built-in-monitoring-roles"></a>Ruoli di monitoraggio predefiniti
 I ruoli predefiniti del monitoraggio di Azure consentono di limitare l'accesso alle risorse in una sottoscrizione e allo stesso tempo consentire ai responsabili del monitoraggio dell'infrastruttura di ottenere e configurare i dati necessari. Il monitoraggio di Azure fornisce due ruoli predefiniti: un lettore di monitoraggio e un collaboratore al monitoraggio.
@@ -37,10 +37,10 @@ Le persone a cui è assegnato il ruolo di lettore di monitoraggio possono visual
 * Accedere ai dati di Application Insights e visualizzarli in AI Analytics.
 * Cercare i dati dell'area di lavoro Log Analytics, inclusi i dati sull'uso dell'area di lavoro.
 * Visualizzare i gruppi di gestione di Log Analytics.
-* Recuperare lo schema di ricerca nell'area di lavoro Log Analytics.
-* Elenca i Monitoring Pack nell'area di lavoro Log Analytics.
-* Recuperare ed eseguire ricerche salvate nell'area di lavoro Log Analytics.
-* Recuperare la configurazione di archiviazione dell'area di lavoro Log Analytics.
+* Recuperare lo schema di ricerca nell'area di lavoro di Log Analytics.Retrieve the search schema in Log Analytics workspace.
+* Elencare i pacchetti di monitoraggio nell'area di lavoro di Log Analytics.List monitoring packs in Log Analytics workspace.
+* Recuperare ed eseguire le ricerche salvate nell'area di lavoro di Log Analytics.Retrieve and execute saved searches in Log Analytics workspace.
+* Recuperare la configurazione di archiviazione dell'area di lavoro di Log Analytics.Retrieve the Log Analytics workspace storage configuration.
 
 > [!NOTE]
 > Questo ruolo non concede l'accesso in lettura ai dati del registro che sono stati trasmessi a un hub eventi o archiviati in un account di archiviazione. [vedere di seguito](#security-considerations-for-monitoring-data) .
@@ -51,16 +51,16 @@ Le persone a cui è assegnato il ruolo di lettore di monitoraggio possono visual
 Le persone a cui è assegnato il ruolo di collaboratore al monitoraggio possono visualizzare tutti i dati di monitoraggio in una sottoscrizione e creare o modificare le impostazioni, ma non possono modificare altre risorse. Questo ruolo è un soprainsieme del ruolo di lettore di monitoraggio ed è adatto ai membri del team di monitoraggio di un'organizzazione o ai fornitori di servizi gestiti che, oltre alle autorizzazioni di cui sopra, devono essere in grado di:
 
 * Pubblicare dashboard di monitoraggio come dashboard condivisi.
-* Impostare [le impostazioni di diagnostica](diagnostic-settings.md) per una risorsa.\*
+* Configurare [le impostazioni di diagnostica](diagnostic-settings.md) per una risorsa.\*
 * Impostare il [profilo di log](activity-log-export.md) per una sottoscrizione.\*
 * Configurare le attività e le impostazioni delle regole di avviso tramite [Avvisi di Azure](alerts-overview.md).
 * Creare componenti e test Web di Application Insights.
 * Elencare le chiavi condivise dell'area di lavoro Log Analytics.
-* Abilitare o disabilitare i Monitoring Pack nell'area di lavoro Log Analytics.
-* Consente di creare ed eliminare ed eseguire ricerche salvate nell'area di lavoro Log Analytics.
-* Creare ed eliminare la configurazione di archiviazione dell'area di lavoro Log Analytics.
+* Abilitare o disabilitare i monitoring pack nell'area di lavoro di Log Analytics.Enable or disable monitoring packs in Log Analytics workspace.
+* Creare ed eliminare ed eseguire ricerche salvate nell'area di lavoro di Log Analytics.Create and delete and execute saved searches in Log Analytics workspace.
+* Creare ed eliminare la configurazione di archiviazione dell'area di lavoro di Log Analytics.Create and delete the Log Analytics workspace storage configuration.
 
-a \*utente deve essere concessa anche l'autorizzazione ListKeys per la risorsa di destinazione (account di archiviazione o spazio dei nomi dell'hub eventi) per impostare un profilo di log o un'impostazione di diagnostica.
+\*All'utente deve inoltre essere concessa separatamente l'autorizzazione ListKeys per la risorsa di destinazione (account di archiviazione o spazio dei nomi dell'hub eventi) per impostare un profilo di log o un'impostazione di diagnostica.
 
 > [!NOTE]
 > Questo ruolo non concede l'accesso in lettura ai dati del registro che sono stati trasmessi a un hub eventi o archiviati in un account di archiviazione. [vedere di seguito](#security-considerations-for-monitoring-data) .
@@ -181,7 +181,7 @@ Monitoraggio di Azure deve accedere alle risorse di Azure per fornire i servizi 
 ### <a name="secured-storage-accounts"></a>Account di archiviazione protetti 
 
 I dati di monitoraggio vengono spesso scritti in un account di archiviazione. È possibile assicurarsi che i dati copiati in un account di archiviazione non siano accessibili da utenti non autorizzati. Per una maggiore sicurezza, è possibile bloccare l'accesso alla rete per consentire solo alle risorse autorizzate e ai servizi Microsoft attendibili di accedere a un account di archiviazione limitando un account di archiviazione all'uso di "reti selezionate".
-![finestra di dialogo Impostazioni di archiviazione di Azure](./media/roles-permissions-security/secured-storage-example.png) monitoraggio di Azure è considerato uno dei servizi Microsoft attendibili se si consente ai servizi Microsoft attendibili di accedere all'archiviazione protetta, monitoraggio di Azure avrà accesso all'account di archiviazione protetto. Abilitazione della scrittura di log delle risorse di monitoraggio di Azure, log attività e metriche nell'account di archiviazione in base a queste condizioni protette. Ciò consentirà anche a Log Analytics di leggere i log dalla risorsa di archiviazione protetta.   
+![Configurazione di](./media/roles-permissions-security/secured-storage-example.png) Archiviazione di Azure Monitoraggio di Azure è considerata uno di questi "servizi Microsoft attendibili" Se si consente ai servizi Microsoft attendibili di accedere all'archiviazione protetta, il monitoraggio di Azure avrà accesso all'account di archiviazione protetto. abilitare la scrittura di log delle risorse, log attività e metriche di Azure Monitor nell'account di archiviazione in queste condizioni protette. Ciò consentirà anche a Log Analytics di leggere i log dalla risorsa di archiviazione protetta.   
 
 
 Per altre informazioni, vedere [Sicurezza di rete di Archiviazione di Azure](../../storage/common/storage-network-security.md)

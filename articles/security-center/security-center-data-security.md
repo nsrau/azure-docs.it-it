@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
 ms.openlocfilehash: a25bbd0f14d38a70624dbc58755c0e814753a181
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77604185"
 ---
 # <a name="azure-security-center-data-security"></a>Sicurezza dei dati nel Centro sicurezza di Azure
@@ -47,11 +47,11 @@ Il Centro sicurezza di Azure analizza i dati provenienti dalle origini seguenti 
 
 | Area geografica VM                              | Area geografica area di lavoro |
 |-------------------------------------|---------------|
-| Stati Uniti, Brasile, Sudafrica | Stati Uniti |
+| Stati Uniti, Brasile, Sud Africa | Stati Uniti |
 | Canada                              | Canada        |
-| Europa (escluso Regno Unito)   | Europa        |
+| Europa (escluso il Regno Unito)   | Europa        |
 | Regno Unito                      | Regno Unito |
-| Asia (escluso India, Giappone, Corea, Cina)   | Asia Pacifico  |
+| Asia (esclusi India, Giappone, Corea, Cina)   | Asia Pacifico  |
 | Corea del Sud                              | Asia Pacifico  |
 | India                               | India         |
 | Giappone                               | Giappone         |
@@ -80,8 +80,8 @@ Se si usa la versione gratuita del Centro sicurezza di Azure, è anche possibile
 
 I clienti possono utilizzare i dati relativi al Centro sicurezza da flussi dei dati diversi, come illustrato sotto:
 
-* **Attività di Azure**: tutti gli avvisi di sicurezza, le richieste [just-in-Time del](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) Centro sicurezza approvate e tutti gli avvisi generati dai [controlli applicazione adattivi](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
-* **Log di monitoraggio di Azure**: tutti gli avvisi di sicurezza.
+* **Attività di Azure:** tutti gli avvisi di sicurezza, le richieste [Just-in del](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) Centro sicurezza approvate e tutti gli avvisi generati dai [controlli adattivi dell'applicazione](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
+* **Log di Monitoraggio di Azure:** tutti gli avvisi di sicurezza.
 
 
 > [!NOTE]
@@ -91,7 +91,7 @@ I clienti possono utilizzare i dati relativi al Centro sicurezza da flussi dei d
 Questo documento ha illustrato come i dati vengono gestiti e protetti nel Centro sicurezza di Azure. Per altre informazioni sul Centro sicurezza di Azure, vedere:
 
 * [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md) : informazioni sulla pianificazione e considerazioni di progettazione per l'adozione del Centro sicurezza di Azure.
-* [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md) : informazioni su come monitorare l'integrità delle risorse di Azure
-* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
-* [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md) : informazioni su come monitorare l'integrità delle soluzioni dei partner.
-* [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/) : post di blog sulla sicurezza e sulla conformità di Azure
+* [Monitoraggio dell'integrità](security-center-monitoring.md) della sicurezza nel Centro sicurezza di Azure: informazioni su come monitorare l'integrità delle risorse di AzureSecurity health monitoring in Azure Security Center - Learn how to monitor the health of your Azure resources
+* [Gestione e risposta agli avvisi](security-center-managing-and-responding-alerts.md) di sicurezza nel Centro sicurezza di Azure: informazioni su come gestire e rispondere agli avvisi di sicurezzaManaging and responding to security alerts in Azure Security Center - Learn how to manage and respond to security alerts
+* [Monitoraggio delle soluzioni dei partner con](security-center-partner-solutions.md) il Centro sicurezza di Azure: informazioni su come monitorare lo stato di integrità delle soluzioni partner.
+* Blog sulla [sicurezza di Azure:](https://blogs.msdn.com/b/azuresecurity/) trova post di blog su sicurezza e conformità di AzureAzure Security Blog - Find blog posts about Azure security and compliance

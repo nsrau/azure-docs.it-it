@@ -14,15 +14,15 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.openlocfilehash: dc7771f29fb5d00aedfe5162a98f5f0c14544a7b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77161172"
 ---
 # <a name="how-azure-ad-uses-the-saml-protocol"></a>Modalità di utilizzo del protocollo SAML da parte di Azure AD
 
-Azure Active Directory (Azure AD) usa il protocollo SAML 2.0 per consentire alle applicazioni di offrire agli utenti un'esperienza di accesso Single Sign-On. I profili SAML [Single Sign-On](single-sign-on-saml-protocol.md) e [Single Sign-Out](single-sign-out-saml-protocol.md) di Azure AD specificano come vengono usati i protocolli, le associazioni e le asserzioni SAML nel servizio del provider di identità.
+Azure Active Directory (Azure AD) usa il protocollo SAML 2.0 per consentire alle applicazioni di offrire agli utenti un'esperienza di accesso Single Sign-On. I profili SAML [Single Sign-On](single-sign-on-saml-protocol.md) e [Single Sign-Out](single-sign-out-saml-protocol.md) di Azure AD spiegano come vengono utilizzate le asserzioni, i protocolli e le associazioni SAML nel servizio del provider di identità.
 
 Il protocollo SAML richiede che il provider di identità (Azure AD) e il provider del servizio (l'applicazione) si scambino informazioni su se stessi.
 
@@ -32,8 +32,8 @@ Azure AD usa l'**URI dei metadati** del servizio cloud per recuperare la chiave 
 
 Azure Active Directory espone endpoint di Single Sign-On e Single Sign-Out specifici del tenant e comuni (indipendenti dal tenant). Questi URL non sono semplici identificatori, ma rappresentano posizioni indirizzabili. È quindi possibile accedere all'endpoint per leggere i metadati.
 
-* L'endpoint specifico del tenant si trova all'indirizzo `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`. Il segnaposto *\<TenantDomainName >* rappresenta un nome di dominio registrato o un GUID TenantId di un tenant di Azure ad. Ad esempio, i metadati di federazione del tenant contoso.com sono in: https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
+* L'endpoint specifico del tenant si trova all'indirizzo `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`. Il * \<segnaposto TenantDomainName>* rappresenta un nome di dominio registrato o un GUID TenantID di un tenant di Azure AD. Ad esempio, i metadati di federazione del tenant contoso.com sono in: https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
 
 * L'endpoint indipendente dal tenant si trova all'indirizzo `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. Questo indirizzo dell'endpoint contiene **common** anziché l'ID o il nome di un domino tenant.
 
-Per informazioni sui documenti di metadati della federazione pubblicati da Azure AD, vedere [Metadati della federazione](../azuread-dev/azure-ad-federation-metadata.md).
+Per informazioni sui documenti di metadati federativi pubblicati da Azure AD, vedere [Metadati federativi](../azuread-dev/azure-ad-federation-metadata.md).

@@ -6,10 +6,10 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 11/01/2018
 ms.openlocfilehash: dd04087db32f0bbfa75dafa7e12c355e5ab7b515
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670067"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Come usare Micrometer con Azure Application Insights Java SDK
@@ -17,7 +17,7 @@ Il monitoraggio per applicazioni Micrometer misure le metriche per il codice di 
 
 ## <a name="using-spring-boot-15x"></a>Uso di Spring Boot 1.5x
 Aggiungere le dipendenze seguenti al file pom.xml or build.gradle: 
-* [Application Insights Spring-boot-Starter](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter) 2.5.0 o versione successiva
+* [Avvio](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter) a molla 2.5.0 o versione successiva di Application Insights
 * Micrometer Azure Registry 1.1.0 o versione successiva
 * [Micrometer Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 o versione successiva (esegue il backport del codice di autoconfigurazione nel framework Spring).
 * [Risorsa di ApplicationInsights](../../azure-monitor/app/create-new-resource.md )
@@ -57,7 +57,7 @@ Passaggi
 Aggiungere le dipendenze seguenti al file pom.xml or build.gradle:
 
 * Application Insights Spring-boot-starter 2.1.2 o versione successiva
-* Azure-Spring-boot-Metrics-avvii 2.0.7 o versione successiva
+* Azure-primavera-boot-metrics-starter 2.0.7 o versione successiva
 * [Risorsa di Application Insights](../../azure-monitor/app/create-new-resource.md )
 
 Passaggi:
@@ -80,7 +80,7 @@ Passaggi:
 Metriche predefinite
 
 *    Metriche configurate in modo automatico per Tomcat, JVM, metriche Logback, metriche Log4J, metriche del tempo di attività, metriche del processore, FileDescriptorMetrics.
-*    Ad esempio, se Netflix hystrix è presente nel percorso della classe, si ottengono anche queste metriche. 
+*    Ad esempio, se Netflix Hystrix è presente sul percorso di classe, otteniamo anche queste metriche. 
 *    Le metriche seguenti possono essere disponibili aggiungendo gli oggetti bean relativi. 
         - CacheMetrics (CaffeineCache, EhCache2, GuavaCache, HazelcastCache, JCache)     
         - DataBaseTableMetrics 
@@ -115,7 +115,7 @@ Come disattivare la raccolta automatica delle metriche
 
 Aggiungere le dipendenze seguenti al file pom.xml or build.gradle:
 
-* 2\.5.0 auto Web Application Insights o versione successiva
+* Application Insights Web Auto 2.5.0 o versione successiva
 * Micrometer Azure Registry 1.1.0 o versione successiva
 * [Risorsa di Application Insights](../../azure-monitor/app/create-new-resource.md )
 
@@ -137,7 +137,7 @@ Passaggi:
         </dependency>
      ```
 
-2. Inserire `ApplicationInsights.xml` file nella cartella Resources:
+2. Inserire `ApplicationInsights.xml` il file nella cartella delle risorse:
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -246,7 +246,7 @@ Passaggi:
 
 Per altre informazioni sulle metriche, vedere la [documentazione di Micrometer](https://micrometer.io/docs/).
 
-Altro codice di esempio su come creare diversi tipi di metriche è disponibile nel [repository ufficiale di Micrometer in GitHub](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
+Altro codice di esempio su come creare diversi tipi di metriche può essere trovato nel[repository ufficiale Micrometer GitHub](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
 
 ## <a name="how-to-bind-additional-metrics-collection"></a>Come associare una raccolta di metriche aggiuntive
 
@@ -260,7 +260,7 @@ Creare un oggetto bean della rispettiva categoria di metriche. Si nota ad esempi
         Return new GuavaCacheMetrics();
     }
 ```
-Esistono diverse metriche non abilitate per impostazione predefinita, ma che possono essere associate nel modo indicato in precedenza. Per un elenco completo, vedere il [repository ufficiale di Micrometer in GitHub](https://github.com/micrometer-metrics/micrometer/tree/master/micrometer-core/src/main/java/io/micrometer/core/instrument/binder ).
+Esistono diverse metriche non abilitate per impostazione predefinita, ma che possono essere associate nel modo indicato in precedenza. Per un elenco completo, fare riferimento al [repository ufficiale Micrometer GitHub](https://github.com/micrometer-metrics/micrometer/tree/master/micrometer-core/src/main/java/io/micrometer/core/instrument/binder ).
 
 ### <a name="non-spring-apps"></a>App non Spring
 Aggiungere il codice di associazione seguente al file di configurazione:
@@ -270,5 +270,5 @@ Aggiungere il codice di associazione seguente al file di configurazione:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per ulteriori informazioni su micrometro, vedere la [documentazione ufficiale del micrometro](https://micrometer.io/docs).
-* Per informazioni su Spring in Azure, vedere la documentazione ufficiale di [Spring in Azure](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable).
+* Per ulteriori informazioni su Micrometer, vedere la documentazione ufficiale di [Micrometer](https://micrometer.io/docs).
+* Per informazioni su Spring on Azure, vedere la documentazione ufficiale di [Spring on Azure.](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable)

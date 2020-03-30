@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da e verso l'archiviazione tabelle di Azure
+title: Copiare dati da e verso l'archiviazione tabelle di AzureCopy data to and from Azure Table storage
 description: Informazioni su come copiare dati da archivi di origine supportati in Archiviazione tabelle di Azure o da Archiviazione tabelle in archivi di sink supportati, usando Azure Data Factory.
 services: data-factory
 ms.author: jingwang
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/27/2019
 ms.openlocfilehash: cf79a670db4e2729c6e0a5fb7112cdc6114f465a
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77460706"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copiare dati in e da Archiviazione tabelle di Azure usando Azure Data Factory
@@ -24,22 +24,22 @@ ms.locfileid: "77460706"
 > * [Versione 1](v1/data-factory-azure-table-connector.md)
 > * [Versione corrente](connector-azure-table-storage.md)
 
-Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati in e da Archiviazione tabelle di Azure. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta informazioni generali sull'attività di copia.
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati in e da Archiviazione tabelle di Azure. Si basa sull'articolo [Panoramica dell'attività](copy-activity-overview.md) di copia che presenta una panoramica generale dell'attività di copia.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-Questo connettore di archiviazione tabelle di Azure è supportato per le attività seguenti:
+Questo connettore di archiviazione tabelle di Azure è supportato per le attività seguenti:This Azure Table storage connector is supported for the following activities:
 
 - [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
-- [Attività Lookup](control-flow-lookup-activity.md)
+- [Attività di ricerca](control-flow-lookup-activity.md)
 
-È possibile copiare dati da qualsiasi archivio di dati di origine supportato in Archiviazione tabelle. È anche possibile copiare dati da Archiviazione tabelle in qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
+È possibile copiare dati da qualsiasi archivio di dati di origine supportato in Archiviazione tabelle. È anche possibile copiare dati da Archiviazione tabelle in qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia, vedere la tabella [Archivi dati supportati.](copy-activity-overview.md#supported-data-stores-and-formats)
 
 In particolare, il connettore Tabella di Azure supporta la copia dei dati usando sia l'autenticazione basata sulla chiave dell'account sia l'autenticazione basata sulla firma di accesso condiviso del servizio.
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -55,7 +55,7 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà usate pe
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **AzureTableStorage**. |Sì |
 | connectionString | Specificare le informazioni necessarie per connettersi all'archiviazione per la proprietà connectionString. <br/>È anche possibile inserire la chiave dell'account in Azure Key Vault e rimuovere la configurazione di `accountKey` dalla stringa di connessione. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. |Sì |
-| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| connectVia | Runtime [di integrazione](concepts-integration-runtime.md) da utilizzare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 >[!NOTE]
 >L'uso di un servizio collegato di tipo "AzureStorage", è ancora supportato così com'è, tuttavia in futuro verrà consigliato di usare il nuovo tipo di servizio collegato "AzureTableStorage".
@@ -111,7 +111,7 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà usate pe
 Una firma di accesso condiviso fornisce accesso delegato controllato alle risorse dell'account di archiviazione. È possibile usarla per concedere a un client autorizzazioni limitate per gli oggetti nell'account di archiviazione per un periodo di tempo e con un set di autorizzazioni specificati. Non è necessario condividere le chiavi di accesso degli account. La firma di accesso condiviso è un URI che racchiude nei parametri di query tutte le informazioni necessarie per l'accesso autenticato a una risorsa di archiviazione. Per accedere alle risorse di archiviazione con la firma di accesso condiviso, il client deve solo passare la firma di accesso condiviso al costruttore o al metodo appropriato. Per altre informazioni sulle firme di accesso condiviso, vedere [Uso delle firme di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
-> Data Factory supporta attualmente sia le **firme di accesso condiviso del servizio** che le **firme di accesso condiviso dell'account**. Per altre informazioni sulle firme di accesso condiviso, vedere [concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)](../storage/common/storage-sas-overview.md). 
+> Data Factory supporta attualmente sia le **firme di accesso condiviso del servizio** che le **firme di accesso condiviso dell'account**. Per altre informazioni sulle firme di accesso condiviso, vedere [Concedere l'accesso limitato alle risorse di Archiviazione di Azure usando le firme](../storage/common/storage-sas-overview.md)di accesso condiviso. 
 
 > [!TIP]
 > Per generare una firma di accesso condiviso del servizio per l'account di archiviazione, è possibile eseguire i comandi di PowerShell seguenti. Sostituire i segnaposto e concedere l'autorizzazione necessaria.
@@ -123,8 +123,8 @@ Per usare l'autenticazione basata sulla firma di accesso condiviso, sono support
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **AzureTableStorage**. |Sì |
-| sasUri | Specificare l'URI SAS dell'URI della firma di accesso condiviso alla tabella. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire il token SAS in Azure Key Vault per sfruttare la rotazione automatica e rimuovere la parte del token. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. | Sì |
-| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare Azure Integration Runtime o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| sasUri | Specificare l'URI SAS dell'URI della firma di accesso condiviso alla tabella. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire il token di firma di accesso condiviso nell'insieme di credenziali delle chiavi di Azure per sfruttare la rotazione automatica e rimuovere la parte del token. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. | Sì |
+| connectVia | Runtime [di integrazione](concepts-integration-runtime.md) da utilizzare per la connessione all'archivio dati. È possibile usare Azure Integration Runtime o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 >[!NOTE]
 >L'uso di un servizio collegato di tipo "AzureStorage", è ancora supportato così com'è, tuttavia in futuro verrà consigliato di usare il nuovo tipo di servizio collegato "AzureTableStorage".
@@ -187,13 +187,13 @@ Quando si crea un URI di firma di accesso condiviso, tenere presente quanto segu
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati Tabella di Azure.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di](concepts-datasets-linked-services.md) dati. Questa sezione presenta un elenco delle proprietà supportate dal set di dati Tabella di Azure.
 
 Per copiare dati in e da Tabella di Azure, impostare la proprietà type del set di dati su **AzureTable**. Sono supportate le proprietà seguenti.
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su **AzureTable**. |Sì |
+| type | La proprietà type del dataset deve essere impostata su **AzureTable**. |Sì |
 | tableName |Nome della tabella nell'istanza del database di Archiviazione tabelle a cui fa riferimento il servizio collegato. |Sì |
 
 **Esempio:**
@@ -220,8 +220,8 @@ Per copiare dati in e da Tabella di Azure, impostare la proprietà type del set 
 
 Per gli archivi di dati privi di schema, ad esempio Tabella di Azure, Data Factory deduce lo schema in uno dei modi seguenti:
 
-* Se si specifica il mapping delle colonne nell'attività di copia, Data Factory utilizzare l'elenco colonna sul lato di origine per recuperare i dati. In questo caso, se una riga non contiene un valore per una colonna, viene inserito un valore null.
-* Se non si specifica il mapping delle colonne nell'attività di copia, Data Factory deduce lo schema usando la prima riga dei dati. In questo caso, se la prima riga non contiene lo schema completo, ad esempio se alcune colonne hanno un valore null, alcune colonne non vengono perse nel risultato dell'operazione di copia.
+* Se si specifica il mapping di colonna nell'attività di copia, Data Factory usa l'elenco delle colonne sul lato origine per recuperare i dati. In questo caso, se una riga non contiene un valore per una colonna, viene inserito un valore null.
+* Se non si specifica il mapping di colonna nell'attività di copia, Data Factory deduce lo schema utilizzando la prima riga nei dati. In questo caso, se la prima riga non contiene lo schema completo (ad esempio alcune colonne hanno un valore null), alcune colonne vengono perse nel risultato dell'operazione di copia.
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 
@@ -229,7 +229,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="azure-table-as-a-source-type"></a>Tabelle di Azure come tipo di origine
 
-Per copiare dati da Tabella di Azure, impostare il tipo di origine nell'attività di copia su **AzureTableSource**. Nella sezione **source** dell'attività di copia sono supportate le proprietà seguenti.
+Per copiare dati da Tabella di Azure, impostare il tipo di origine nell'attività di copia su **AzureTableSource**. Le proprietà seguenti sono supportate nella sezione **relativa all'origine** dell'attività di copia.
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
@@ -240,9 +240,9 @@ Per copiare dati da Tabella di Azure, impostare il tipo di origine nell'attivit�
 ### <a name="azuretablesourcequery-examples"></a>esempi di azureTableSourceQuery
 
 >[!NOTE]
->Il timeout dell'operazione di query della tabella di Azure è di 30 secondi come [applicato dal servizio tabelle di Azure](https://docs.microsoft.com/rest/api/storageservices/setting-timeouts-for-table-service-operations). Informazioni su come ottimizzare la query dalla [progettazione per l'esecuzione di query su](../storage/tables/table-storage-design-for-query.md) un articolo.
+>Timeout dell'operazione di query delle tabelle di Azure in 30 secondi come [applicata dal servizio tabelle](https://docs.microsoft.com/rest/api/storageservices/setting-timeouts-for-table-service-operations)di Azure. Informazioni su come ottimizzare la query da [Design per l'esecuzione di query](../storage/tables/table-storage-design-for-query.md) sull'articolo.
 
-In Azure Data Factory, se si desidera filtrare i dati in base a una colonna di tipo DateTime, fare riferimento a questo esempio:
+In Azure Data Factory, se si vogliono filtrare i dati in base a una colonna di tipo datetime, fare riferimento a questo esempio:In Azure Data Factory, if you want to filter the data against a datetime type column, refer to this example:
 
 ```json
 "azureTableSourceQuery": "LastModifiedTime gt datetime'2017-10-01T00:00:00' and LastModifiedTime le datetime'2017-10-02T00:00:00'"
@@ -258,7 +258,7 @@ Se si usa un parametro della pipeline, eseguire il cast del valore datetime al f
 
 ### <a name="azure-table-as-a-sink-type"></a>Tabelle di Azure come tipo di sink
 
-Per copiare dati in Tabella di Azure, impostare il tipo di sink nell'attività di copia su **AzureTableSink**. Nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti.
+Per copiare dati in Tabella di Azure, impostare il tipo di sink nell'attività di copia su **AzureTableSink**. Le proprietà seguenti sono supportate nella sezione del **sink** dell'attività di copia.
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
@@ -266,7 +266,7 @@ Per copiare dati in Tabella di Azure, impostare il tipo di sink nell'attività d
 | azureTableDefaultPartitionKeyValue |Valore predefinito della chiave di partizione che può essere usato dal sink. |No |
 | azureTablePartitionKeyName |Specificare il nome della colonna i cui valori vengono usati come chiavi di partizione. Se non specificato, viene usato "AzureTableDefaultPartitionKeyValue" come chiave di partizione. |No |
 | azureTableRowKeyName |Specificare il nome della colonna i cui valori vengono usati come chiave di riga. Se non specificato, usare un GUID per ogni riga. |No |
-| azureTableInsertType |Modalità di inserimento dei dati in una tabella di Azure. Questa proprietà verifica se per le righe esistenti nella tabella di output con chiavi di partizione e di riga corrispondenti i valori vengono sostituiti o uniti. <br/><br/>I valori consentiti sono: **merge** (predefinito) e **replace**. <br/><br> Questa impostazione si applica a livello di riga e non a livello di tabella. Nessuna delle due opzioni consente di eliminare righe nella tabella di output che non esistono nell'input. Per scoprire come funzionano le impostazioni merge e replace, vedere[Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) (Inserire o unire un'entità) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) (Inserire o sostituire un'entità). |No |
+| azureTableInsertType |Modalità di inserimento dei dati in una tabella di Azure. Questa proprietà verifica se per le righe esistenti nella tabella di output con chiavi di partizione e di riga corrispondenti i valori vengono sostituiti o uniti. <br/><br/>I valori consentiti sono **merge** (impostazione predefinita) e **replace**. <br/><br> Questa impostazione si applica a livello di riga e non a livello di tabella. Nessuna delle due opzioni consente di eliminare righe nella tabella di output che non esistono nell'input. Per scoprire come funzionano le impostazioni merge e replace, vedere[Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) (Inserire o unire un'entità) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) (Inserire o sostituire un'entità). |No |
 | writeBatchSize |Inserisce dati in Tabella di Azure quando viene raggiunto il valore di writeBatchSize o writeBatchTimeout.<br/>I valori consentiti sono integer (numero di righe). |No (il valore predefinito è 10.000) |
 | writeBatchTimeout |Inserisce dati in Tabella di Azure quando viene raggiunto il valore di writeBatchSize o writeBatchTimeout.<br/>I valori consentiti sono un intervallo di tempo. Ad esempio "00:20:00" (20 minuti). |No (il valore predefinito è 90 secondi, il timeout predefinito del client di archiviazione) |
 
@@ -334,17 +334,17 @@ Quando si spostano i dati da e verso Tabella di Azure, i seguenti [mapping defin
 | Tipo di dati di Tabella di Azure | Tipo di dati provvisorio di Data Factory | Dettagli |
 |:--- |:--- |:--- |
 | Edm.Binary |byte[] |Una matrice di byte di dimensioni fino a 64 KB. |
-| Edm.Boolean |bool |Valore Boolean. |
+| Edm.Boolean |bool |Valore booleano. |
 | Edm.DateTime |Datetime |Un valore a 64 bit espresso come Coordinated Universal Time (UTC). L'intervallo DateTime supportato inizia a mezzanotte del 1 gennaio 1601 D.C. (C.E.), UTC. L'intervallo termina il 31 dicembre 9999. |
 | Edm.Double |double |Un valore a virgola mobile a 64 bit. |
 | Edm.Guid |Guid |Un identificatore univoco globale a 128 bit. |
 | Edm.Int32 |Int32 |Un valore integer a 32 bit. |
-| Edm.Int64 |Int64 |Integer a 64 bit. |
-| Edm.String |String |Un valore con codifica UTF-16. I valori string possono avere dimensioni fino a 64 KB. |
+| Edm.Int64 |Int64 |Un valore integer a 64 bit. |
+| Edm.String |string |Un valore con codifica UTF-16. I valori string possono avere dimensioni fino a 64 KB. |
 
-## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà dell'attività di ricerca
 
-Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
+Per informazioni dettagliate sulle proprietà, selezionare [Attività di ricerca](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini e sink dall'attività di copia in Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

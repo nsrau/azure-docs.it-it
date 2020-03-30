@@ -1,16 +1,16 @@
 ---
 title: Elementi interni del Servizio Azure SignalR
-description: Informazioni sugli elementi interni del servizio Azure SignalR, sull'architettura, sulle connessioni e sul modo in cui vengono trasmessi i dati.
+description: Informazioni sugli elementi interni del servizio SignalR di Azure, sull'architettura, sulle connessioni e sulla modalità di trasmissione dei dati.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 62afa5ee6993aa1bb3c7b5926e5320ab1fa510a2
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74157602"
 ---
 # <a name="azure-signalr-service-internals"></a>Elementi interni del Servizio Azure SignalR
@@ -25,7 +25,7 @@ Il diagramma seguente descrive l'architettura tipica quando si usa il servizio S
 
 Vengono illustrate anche le differenze rispetto all'applicazione ASP.NET Core SignalR self-hosted.
 
-![Architettura](./media/signalr-concept-internals/arch.png)
+![Architecture](./media/signalr-concept-internals/arch.png)
 
 ## <a name="server-connections"></a>Connessioni server
 

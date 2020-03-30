@@ -1,6 +1,6 @@
 ---
-title: Come installare e usare le visualizzazioni di log Analytics | Microsoft Docs
-description: Informazioni su come installare e usare le visualizzazioni di log Analytics per Azure Active Directory
+title: Come installare e utilizzare le visualizzazioni di analisi dei log Documenti Microsoft
+description: Informazioni su come installare e usare le visualizzazioni di analisi dei log per Azure Active DirectoryLearn how to install and use the log analytics views for Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b17026e4cfbe69e36c8e459aa259fe16b1c9d80d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74014428"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installare e usare le viste di analisi dei log per Azure Active Directory
@@ -31,11 +31,11 @@ Le viste di analisi dei log per Azure Active Directory consentono di analizzare 
 * Log di controllo: il [report delle attività del log di controllo](concept-audit-logs.md) consente di accedere alla cronologia di ogni attività eseguita nel tenant.
 * Log di accesso: il [report delle attività di accesso](concept-sign-ins.md) consente di determinare chi ha eseguito le attività segnalate nei log di controllo.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per usare le viste di analisi dei log, è necessario:
 
-* Un'area di lavoro Log Analytics nella sottoscrizione di Azure. Informazioni su [come creare un'area di lavoro Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+* Un'area di lavoro Log Analytics nella sottoscrizione di Azure. Informazioni su come [creare un'area](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)di lavoro di Log Analytics.
 * Completare prima di tutto la procedura per [indirizzare i log attività di Azure AD all'area di lavoro Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
 * Scaricare le viste dal [repository GitHub](https://aka.ms/AADLogAnalyticsviews) nel computer locale.
 

@@ -1,5 +1,5 @@
 ---
-title: Instradare il traffico per la disponibilità elevata di applicazioni-Azure PowerShell-Traffic Manager
+title: Instradare il traffico per la vendita di sicurezza delle applicazioni - Azure PowerShell - Gestione traffico
 description: Esempio di script di Azure PowerShell - Instradare il traffico per la disponibilità elevata delle applicazioni
 services: traffic-manager
 documentationcenter: traffic-manager
@@ -13,17 +13,17 @@ ms.workload: traffic-manager
 ms.date: 05/16/2017
 ms.author: allensu
 ms.openlocfilehash: 183599fccfad1806faae3cb90de225d388b77da8
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74049244"
 ---
-# <a name="route-traffic-for-high-availability-of-applications---azure-powershell"></a>Instradare il traffico per la disponibilità elevata delle applicazioni-Azure PowerShell
+# <a name="route-traffic-for-high-availability-of-applications---azure-powershell"></a>Instradare il traffico per la disponibilità elevata delle applicazioni - Azure PowerShellRoute traffic for high availability of applications - Azure PowerShell
 
 In questo script viene creato un gruppo di risorse, due piani di servizio app, due app Web, un profilo di gestione traffico e due endpoint di gestione traffico. Gestione traffico indirizza il traffico verso l'applicazione in un'area come area primaria e nell'area secondaria quando l'applicazione nell'area primaria non è disponibile. Prima di eseguire lo script, è necessario modificare i valori MyWebApp, MyWebAppL1 e MyWebAppL2 in valori univoci in Azure. Dopo aver eseguito lo script, è possibile accedere all'app nell'area primaria con l'URL mywebapp.trafficmanager.net.
 
-Se necessario, installare Azure PowerShell usando l'istruzione presente nella [Guida di Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) e quindi eseguire `Connect-AzAccount` per creare una connessione con Azure.
+Se necessario, installare Azure PowerShell usando le istruzioni disponibili nella guida di Azure PowerShell e quindi eseguire per creare una connessione con Azure.If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and then run `Connect-AzAccount` to create a connection with Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -46,7 +46,7 @@ Remove-AzResourceGroup -Name myResourceGroup2
 
 Questo script usa i comandi seguenti per creare un gruppo di risorse, un'App Web, un profilo di Gestione traffico e tutte le risorse correlate. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
 
-| Comando | note |
+| Comando | Note |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)  | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Consente di creare un piano di servizio app. Equivale a una server farm per l'App Web di Azure. |

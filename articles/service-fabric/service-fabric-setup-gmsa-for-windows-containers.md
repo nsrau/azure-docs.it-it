@@ -1,18 +1,18 @@
 ---
-title: Configurare gMSA per i servizi contenitore di Azure Service Fabric
-description: Informazioni su come configurare gli account del servizio gestito del gruppo (gMSA) per un contenitore in esecuzione in Azure Service Fabric.
+title: Configurare gMSA per i servizi contenitore di Azure Service FabricSetup gMSA for Azure Service Fabric container services
+description: Informazioni sull'installazione di account del servizio gestito (gMSA) del gruppo per un contenitore in esecuzione in Azure Service Fabric.Learn now to setup group Managed Service Accounts (gMSA) for a container running in Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.openlocfilehash: 9873e2d7672412b0e1e22c6c2a774cf629fd728a
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75639208"
 ---
 # <a name="set-up-gmsa-for-windows-containers-running-on-service-fabric"></a>Configurare gMSA per i contenitori Windows in esecuzione in Service Fabric
 
-Per configurare gMSA (account del servizio gestito del gruppo), un file di specifica delle credenziali (`credspec`) viene posizionato in tutti i nodi del cluster. Il file può essere copiato in tutti i nodi tramite un'estensione della macchina virtuale.  Il file `credspec` deve contenere le informazioni dell'account gMSA. Per altre informazioni sul file di `credspec`, vedere [creare una specifica delle credenziali](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/manage-serviceaccounts#create-a-credential-spec). La specifica delle credenziali e il tag `Hostname` vengono specificati nel manifesto dell'applicazione. Il tag `Hostname` deve corrispondere al nome dell'account gMSA in cui viene eseguito il contenitore.  Il tag `Hostname` consente al contenitore di autenticarsi presso altri servizi nel dominio tramite l'autenticazione Kerberos.  Un esempio per specificare `Hostname` e `credspec` nel manifesto dell'applicazione è illustrato nel frammento seguente:
+Per configurare gMSA (account del servizio gestito del gruppo), un file di specifica delle credenziali (`credspec`) viene posizionato in tutti i nodi del cluster. Il file può essere copiato in tutti i nodi tramite un'estensione della macchina virtuale.  Il file `credspec` deve contenere le informazioni dell'account gMSA. Per ulteriori informazioni `credspec` sul file, vedere Creazione di [una specifica](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/manage-serviceaccounts#create-a-credential-spec)delle credenziali . La specifica delle `Hostname` credenziali e il tag vengono specificati nel manifesto dell'applicazione. Il tag `Hostname` deve corrispondere al nome dell'account gMSA in cui viene eseguito il contenitore.  Il tag `Hostname` consente al contenitore di autenticarsi presso altri servizi nel dominio tramite l'autenticazione Kerberos.  Un esempio per specificare `Hostname` e `credspec` nel manifesto dell'applicazione è illustrato nel frammento seguente:
 
 ```xml
 <Policies>

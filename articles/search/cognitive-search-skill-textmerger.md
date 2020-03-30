@@ -1,7 +1,7 @@
 ---
 title: Competenza cognitiva di unione testi
 titleSuffix: Azure Cognitive Search
-description: Unire testo da una raccolta di campi in un unico campo consolidato. Usare questa competenza cognitiva in una pipeline di arricchimento di intelligenza artificiale in Azure ricerca cognitiva.
+description: Unire testo da una raccolta di campi in un unico campo consolidato. Usare questa abilità cognitiva in una pipeline di arricchimento dell'iaformazione aico nella ricerca cognitiva di Azure.Use this cognitive skill in an AI enrichment pipeline in Azure Cognitive Search.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 98ea416305f080850d85498f74693eb2d45b0944
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162345"
 ---
 #   <a name="text-merge-cognitive-skill"></a>Competenza cognitiva di unione testi
@@ -144,4 +144,4 @@ Nell'esempio precedente si suppone l'esistenza di un campo di immagini normalizz
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
-+ [Create indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) (Creare un indicizzatore - REST)
++ [Creare un indicizzatore (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
