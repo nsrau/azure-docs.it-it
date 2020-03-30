@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d0ada9c1e6b45b1be17b15b67f67fc64fc266203
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78197590"
 ---
 # <a name="common-parameters-and-headers"></a>Parametri e intestazioni comuni
@@ -26,7 +26,7 @@ Le seguenti informazioni sono comuni a tutte le operazioni che è possibile eseg
 - Sostituire `{resource-group-name}` con il gruppo di risorse. Per altre informazioni, vedere Uso di gruppi di risorse per gestire le risorse di Azure.
 - Sostituire `{vault-name}` con il nome dell'insieme di credenziali delle chiavi nell'URI.
 - Impostare l'intestazione Content-Type su application/json.
-- Impostare l'intestazione dell'autorizzazione su un token JSON Web ottenuto da Azure Active Directory. Per altre informazioni, vedere [Autenticazione delle richieste di Azure Resource Manager](authentication-requests-and-responses.md).
+- Impostare l'intestazione dell'autorizzazione su un token JSON Web ottenuto da Azure Active Directory. Per altre informazioni, vedere Autenticazione delle richieste di Azure Resource Manager.For more information, see [Authenticating Azure Resource Manager](authentication-requests-and-responses.md) requests.
 
 ## <a name="common-error-response"></a>Risposta di errore comune
 Il servizio userà i codici di stato HTTP per indicare l'esito positivo o negativo. Gli errori contengono inoltre una risposta nel formato seguente:

@@ -9,10 +9,10 @@ ms.date: 09/15/2018
 ms.author: alkohli
 ms.custom: include file
 ms.openlocfilehash: 4ba5c8b69776b39d8a6640744b0c24600f3a0d5b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67180334"
 ---
 #### <a name="to-create-a-new-service"></a>Per creare un nuovo servizio
@@ -27,11 +27,11 @@ ms.locfileid: "67180334"
 
     1.  Specificare un **Nome della risorsa** univoco per il servizio. Il nome della risorsa è un nome descrittivo che può essere usato per identificare il servizio. Il nome può contenere da 2 a 50 caratteri che possono essere lettere, numeri e trattini. Il nome deve iniziare e terminare con una lettera o un numero.
 
-    2.  Scegliere una **Sottoscrizione** dall'elenco a discesa. La sottoscrizione viene collegata all'account di fatturazione. Questo campo non è presente se si dispone di una sola sottoscrizione.
+    2.  Selezionare una sottoscrizione nell'elenco a discesa **Sottoscrizione**. La sottoscrizione viene collegata all'account di fatturazione. Questo campo non è presente se si dispone di una sola sottoscrizione.
 
     3.  Per **Gruppo di risorse** selezionare un gruppo esistente o creare un nuovo gruppo. Per altre informazioni, vedere [Azure resource groups](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/) (Gruppi di risorse di Azure).
 
-    4.  Fornire una **Località** per il servizio. Per altre informazioni sui servizi disponibili in aree specifiche, vedere [Aree di Azure](https://azure.microsoft.com/regions/#services) . In generale, scegliere la **posizione** più vicina all'area geografica in cui si vuole distribuire il dispositivo. È inoltre possibile tenere in considerazione quanto segue:
+    4.  In **Località** specificare una località per il servizio. Per altre informazioni sui servizi disponibili in aree specifiche, vedere [Aree di Azure](https://azure.microsoft.com/regions/#services) . In generale, scegliere la **posizione** più vicina all'area geografica in cui si vuole distribuire il dispositivo. È inoltre possibile tenere in considerazione quanto segue:
 
         -   Se sono presenti altri carichi di lavoro in Azure che si intende distribuire con il dispositivo StorSimple, è consigliabile usare il data center specifico.
 
@@ -47,6 +47,6 @@ ms.locfileid: "67180334"
 
         ![Creare un nuovo servizio](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
 
-Si viene indirizzati alla pagina di destinazione **Servizio**. La creazione del servizio richiede alcuni minuti. Dopo che il servizio è stato creato, l'utente verrà informato in modo appropriato e lo stato del servizio verrà modificato in **Attivo**.
+Si viene indirizzati alla pagina di destinazione **Servizio**. La creazione del servizio richiede alcuni minuti. Al termine della creazione del servizio, viene inviata una notifica all'utente e lo stato del servizio viene modificato in **Attivo**.
 
 

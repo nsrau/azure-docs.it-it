@@ -1,7 +1,7 @@
 ---
-title: Esempi di trasformazione di attestazioni JSON per criteri personalizzati
+title: Esempi di trasformazione delle attestazioni JSON per i criteri personalizzati
 titleSuffix: Azure AD B2C
-description: Esempi di trasformazione delle attestazioni JSON per lo schema Framework dell'esperienza (Identity Experience Framework) del Azure Active Directory B2C.
+description: Esempi di trasformazione delle attestazioni JSON per lo schema Identity Experience Framework (IEF) di Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,29 +12,29 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ad8fcf578ae1c89856a9d7929af0aec813cb4082
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78187594"
 ---
 # <a name="json-claims-transformations"></a>Trasformazioni delle attestazioni JSON
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Questo articolo fornisce esempi per l'uso delle trasformazioni delle attestazioni JSON dello schema del Framework dell'esperienza di identità in Azure Active Directory B2C (Azure AD B2C). Per altre informazioni, vedere [ClaimsTransformations](claimstransformations.md).
+Questo articolo fornisce esempi per l'uso delle trasformazioni delle attestazioni JSON dello schema Identity Experience Framework in Azure Active Directory B2C (Azure AD B2C). Per altre informazioni, vedere [ClaimsTransformations](claimstransformations.md).
 
-## <a name="generatejson"></a>GenerateJson
+## <a name="generatejson"></a>GenerateJson (GenerateJson)
 
-Usare valori di attestazione o costanti per generare una stringa JSON. La stringa di percorso che segue la notazione del punto viene usata per indicare dove inserire i dati in una stringa JSON. Dopo la suddivisione in base ai punti, tutti i numeri interi vengono interpretati come l'indice di una matrice JSON e i valori non integer vengono interpretati come indice di un oggetto JSON.
+Usare valori di attestazione o costanti per generare una stringa JSON. La stringa di percorso che segue la notazione del punto viene usata per indicare dove inserire i dati in una stringa JSON. Dopo la divisione in punti, tutti i numeri interi vengono interpretati come indice di una matrice JSON e i non interi vengono interpretati come l'indice di un oggetto JSON.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | Qualsiasi stringa che segue la notazione del punto | string | JsonPath del file JSON in cui verrà inserito il valore dell'attestazione. |
-| InputParameter | Qualsiasi stringa che segue la notazione del punto | string | JsonPath del codice JSON in cui verrà inserito il valore stringa costante. |
+| InputClaim | Qualsiasi stringa che segue la notazione del punto | string | JsonPath del codice JSON in cui verrà inserito il valore dell'attestazione. |
+| InputParameter | Qualsiasi stringa che segue la notazione del punto | string | Il jsonPath del json in cui verrà inserito il valore della stringa costante. |
 | OutputClaim | outputClaim | string | Stringa JSON generata. |
 
-Nell'esempio seguente viene generata una stringa JSON basata sul valore dell'attestazione "email" e "OTP", nonché sulle stringhe costanti.
+L'esempio seguente genera una stringa JSON basata sul valore di attestazione "email" e "otp", nonché sulle stringhe costanti.
 
 ```XML
 <ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
@@ -55,15 +55,15 @@ Nell'esempio seguente viene generata una stringa JSON basata sul valore dell'att
 
 ### <a name="example"></a>Esempio
 
-La trasformazione delle attestazioni seguente restituisce un'attestazione di stringa JSON che sarà il corpo della richiesta inviata a SendGrid (un provider di posta elettronica di terze parti). La struttura dell'oggetto JSON è definita dagli ID nella notazione del punto di InputParameters e TransformationClaimTypes di InputClaims. I numeri nella notazione del punto implicano matrici. I valori provengono dalle proprietà InputClaims ' Values e InputParameters ' "value".
+La trasformazione delle attestazioni seguente restituisce un'attestazione di stringa JSON che sarà il corpo della richiesta inviata a SendGrid (un provider di posta elettronica di terze parti). La struttura dell'oggetto JSON è definita dagli ID in notazione del punto di InputParameters e TransformationClaimTypes di InputClaims. I numeri nella notazione del punto implicano matrici. I valori provengono dai valori di InputClaims e dalle proprietà "Value" di InputParameters.
 
-- Attestazioni di input:
-  - **indirizzo di posta elettronica**, trasformazione tipo di attestazione **personalizzazione. 0. a. 0. posta elettronica**: "someone@example.com"
-  - **OTP**, tipo di attestazione di trasformazione **personalizzazioni. 0. dynamic_template_data. OTP** "346349"
+- Attestazioni di input :
+  - **email**, trasformazione del tipo di attestazione **personalizations.0.to.0.email**: " "someone@example.com
+  - **otp**, tipo di attestazione di trasformazione **personalizations.0.dynamic_template_data.otp** "346349"
 - Parametro di input:
   - **template_id**: "d-4c56ffb40fa648b1aa6822283df94f60"
-  - **da. email**: "service@contoso.com"
-  - **personalizzazioni. 0. oggetto** "contoso account email verifica codice"
+  - **da.email**:service@contoso.com" "
+  - **personalizations.0.subject** "Codice di verifica e-mail dell'account Contoso"
 - Attestazione di output:
   - **requestBody**: valore JSON
 
@@ -123,7 +123,7 @@ Nell'esempio seguente la trasformazione delle attestazioni ha estratto l'element
 - Parametro di input:
     - **claimToExtract**: emailAddress
 - Attestazioni di output:
-  - **extractedClaim**: someone@example.com
+  - **estrattoRivendicazione**:someone@example.com
 
 
 ## <a name="getclaimsfromjsonarray"></a>GetClaimsFromJsonArray
@@ -174,7 +174,7 @@ Nell'esempio seguente la trasformazione delle attestazioni estrae le attestazion
     - **jsonSourceKeyName**: key
     - **jsonSourceValueName**: value
 - Attestazioni di output:
-  - **email**: "someone@example.com"
+  - **email**:someone@example.com" "
   - **displayName**: "Someone"
   - **membershipNum**: 6353399
   - **active**: true
@@ -248,9 +248,9 @@ Nell'esempio seguente la trasformazione delle attestazioni estrae il primo eleme
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-  - **inputJsonClaim**: ["someone@example.com", "Someone", 6353399]
+  - **inputJsonClaim**:someone@example.com[" ", "Qualcuno", 6353399]
 - Attestazioni di output:
-  - **extractedClaim**: someone@example.com
+  - **estrattoRivendicazione**:someone@example.com
 
 ## <a name="xmlstringtojsonstring"></a>XmlStringToJsonString
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: a5c62c67cd401c043352b06e6e6070a7fc0f1296
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67180185"
 ---
 #### <a name="to-connect-through-the-serial-console"></a>Per connettersi tramite console seriale
@@ -18,14 +18,14 @@ ms.locfileid: "67180185"
    
      ![Connessione tramite console seriale](./media/storsimple-use-putty/HCS_ConnectingDeviceS-include.png)
 4. Avviare PuTTY. 
-5. Nel riquadro destro impostare **Tipo di connessione** su **Seriale**.
+5. Nel riquadro destro modificare il valore del campo **Tipo di connessione** in **Seriale**.
 6. Nel riquadro di destra, digitare la porta COM appropriata. Assicurarsi che i parametri di configurazione seriale siano impostati come indicato di seguito:
    
    * Velocità: 115.200
    * Bit di dati: 8
    * Bit di stop: 1
-   * Parità: Nessuna
-   * Controllo di flusso: Nessuna
+   * Parità: nessuno
+   * Controllo di flusso: nessuno
      
      Queste impostazioni sono mostrate nella figura seguente.
      

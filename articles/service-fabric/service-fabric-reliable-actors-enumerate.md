@@ -1,15 +1,15 @@
 ---
 title: Enumerare gli attori in Azure Service Fabric
-description: Informazioni sull'enumerazione dei Reliable Actors e i relativi metadati in un'applicazione Service Fabric di Azure con esempi.
+description: Informazioni sull'enumerazione di Reliable Actors e sui relativi metadati in un'applicazione Azure Service Fabric usando esempi.
 author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
 ms.openlocfilehash: 1516c9005a7c4dd0adcb279e9954e5f882c575c1
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645600"
 ---
 # <a name="enumerate-service-fabric-reliable-actors"></a>Enumerare Service Fabric Reliable Actors
@@ -60,7 +60,7 @@ while (continuationToken != null);
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Gestione dello stato degli attori](service-fabric-reliable-actors-state-management.md)
-* [Ciclo di vita degli attori e Garbage Collection](service-fabric-reliable-actors-lifecycle.md)
+* [Ciclo di vita dell'attore e Garbage CollectionActor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
 * [Documentazione di riferimento delle API di Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Codice di esempio .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Codice di esempio Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)

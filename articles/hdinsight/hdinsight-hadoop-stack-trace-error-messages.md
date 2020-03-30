@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 01/03/2020
 ms.openlocfilehash: 3987a2d208bb96120d443300068ea739acbb4131
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75680248"
 ---
 # <a name="index-of-apache-hadoop-in-hdinsight-troubleshooting-articles"></a>Indice di Apache Hadoop negli articoli sulla risoluzione dei problemi di HDInsight
@@ -21,12 +21,12 @@ Gli articoli sono organizzati per tipi di errori.
 
 ## <a name="out-of-memory-error"></a>Errore di memoria insufficiente
 
-* [Correggere Apache hive un errore di memoria insufficiente in HDInsight](hdinsight-hadoop-hive-out-of-memory-error-oom.md): correggere un errore di memoria insufficiente da una query hive. Lo scenario del cliente include una query in molte tabelle di grandi dimensioni.
+* [Correggere un errore di memoria Apache Hive in HDInsight:](hdinsight-hadoop-hive-out-of-memory-error-oom.md)correggere un errore di memoria insufficiente (OOM) da una query Hive.Fix an Apache Hive out of memory error in HDInsight : Fix an out memory error (OOM) from a Hive query. Lo scenario del cliente include una query in molte tabelle di grandi dimensioni.
 
 ## <a name="apache-hive-query-performance"></a>Prestazioni delle query di Apache Hive
 
-* [Ottimizzare le query Apache hive per Apache Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md): questo articolo illustra alcuni dei metodi di ottimizzazione delle prestazioni hive più comuni che è possibile applicare alle query hive.
-* [Risolvere i problemi di Apache hive usando Azure HDInsight](hdinsight-troubleshoot-hive.md).
+* [Ottimizzare le query Apache Hive per Apache Hadoop in HDInsight:](hdinsight-hadoop-optimize-hive-query.md)questo articolo illustra alcuni metodi di ottimizzazione delle prestazioni Hive più comuni che è possibile applicare alle query Hive.Optimize Apache Hive queries for Apache Hadoop in HDInsight : This article covers some most common Hive performance optimization methods that you can apply to Hive queries.
+* [Risolvere i problemi relativi a Apache Hive usando Azure HDInsight.](hdinsight-troubleshoot-hive.md)
 
 ## <a name="more-troubleshooting-articles"></a>Altri articoli sulla risoluzione dei problemi
 

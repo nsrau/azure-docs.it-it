@@ -1,5 +1,5 @@
 ---
-title: Criteri di rischio-Azure Active Directory Identity Protection
+title: Criteri dei rischio - Azure Active Directory Identity Protection
 description: Abilitare e configurare i criteri di rischio in Azure Active Directory Identity Protection
 services: active-directory
 ms.service: active-directory
@@ -12,74 +12,74 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ffa08f7ebf013d42d6da0589ce0f1ccc97289de
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75707006"
 ---
-# <a name="how-to-configure-and-enable-risk-policies"></a>Procedura: configurare e abilitare i criteri di rischio
+# <a name="how-to-configure-and-enable-risk-policies"></a>Procedura: Configurare e abilitare i criteri di rischioHow To: Configure and enable risk policies
 
-Come illustrato nell'articolo precedente, i [criteri di protezione delle identità](concept-identity-protection-policies.md) hanno due criteri di rischio che è possibile abilitare nella directory. 
+Come abbiamo appreso nell'articolo precedente, i criteri di [protezione delle identità](concept-identity-protection-policies.md) sono disponibili due criteri di rischio che è possibile abilitare nella directory. 
 
 - Criteri di rischio di accesso
 - Criteri di rischio utente
 
-![Pagina Panoramica sicurezza per abilitare i criteri di rischio di accesso e utente](./media/howto-identity-protection-configure-risk-policies/identity-protection-security-overview.png)
+![Pagina Panoramica della sicurezza per abilitare i criteri di rischio per utenti e accesso](./media/howto-identity-protection-configure-risk-policies/identity-protection-security-overview.png)
 
-Entrambi i criteri funzionano per automatizzare la risposta ai rilevamenti dei rischi nell'ambiente e consentire agli utenti di eseguire autonomamente la correzione quando viene rilevato il rischio. 
+Entrambi i criteri funzionano per automatizzare la risposta ai rilevamenti dei rischi nell'ambiente e consentire agli utenti di correggere autonomamente quando viene rilevato il rischio. 
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
-Se l'organizzazione desidera consentire agli utenti di eseguire autonomamente la correzione quando vengono rilevati rischi, gli utenti devono essere registrati per la reimpostazione della password self-service e per Azure Multi-Factor Authentication. Per un'esperienza ottimale, è consigliabile [abilitare l'esperienza di registrazione delle informazioni di sicurezza combinata](../authentication/howto-registration-mfa-sspr-combined.md) . Consentire agli utenti di eseguire autonomamente il monitoraggio e l'aggiornamento a uno stato produttivo più rapidamente senza richiedere l'intervento dell'amministratore. Gli amministratori possono comunque visualizzare questi eventi ed esaminarli dopo il fatto. 
+Se l'organizzazione desidera consentire agli utenti di correggere autonomamente quando vengono rilevati rischi, gli utenti devono essere registrati sia per la reimpostazione della password self-service che per Azure Multi-Factor Authentication. Ti consigliamo di [abilitare l'esperienza combinata](../authentication/howto-registration-mfa-sspr-combined.md) di registrazione delle informazioni di sicurezza per un'esperienza ottimale. Consentire agli utenti di correggere autonomamente li riporta a uno stato produttivo più rapidamente senza richiedere l'intervento dell'amministratore. Gli amministratori possono comunque visualizzare questi eventi e analizzarli dopo il fatto. 
 
 ## <a name="choosing-acceptable-risk-levels"></a>Scelta di livelli di rischio accettabili
 
-È necessario che le organizzazioni decidano il livello di rischio di essere disposti ad accettare il bilanciamento dell'esperienza utente e del comportamento di sicurezza. 
+Le organizzazioni devono decidere il livello di rischio che sono disposte ad accettare il bilanciamento dell'esperienza utente e la posizione di sicurezza. 
 
-Microsoft consiglia di impostare la soglia dei criteri di rischio utente su **alta** e i criteri di rischio di accesso su **medium e versioni successive**.
+Microsoft consiglia di impostare la soglia dei criteri di rischio utente su **Alta** e i criteri di rischio di accesso su **Medio e superiore**.
 
-La scelta di una soglia **alta** riduce la frequenza di attivazione dei criteri e riduce al minimo l'impatto sugli utenti. Tuttavia, esclude i rilevamenti di rischio **basso** e **medio** dai criteri, che potrebbero non impedire a un utente malintenzionato di sfruttare un'identità compromessa. La selezione di una soglia **bassa** introduce interrupt utente aggiuntivi, ma un miglioramento del comportamento di sicurezza.
+La scelta di una soglia **alta** riduce la frequenza di attivazione dei criteri e riduce al minimo l'impatto sugli utenti. Tuttavia, esclude i rilevamenti dei rischi **di livello basso** e **medio** dal criterio, che potrebbe non impedire a un utente malintenzionato di sfruttare un'identità compromessa. La selezione di una soglia **bassa** introduce ulteriori interruzioni dell'utente, ma ha aumentato il livello di sicurezza.
 
 ## <a name="exclusions"></a>Esclusioni
 
-Tutti i criteri consentono di escludere gli utenti, ad esempio l' [accesso di emergenza o gli account amministratore break-Glass](../users-groups-roles/directory-emergency-access.md). Le organizzazioni possono determinare che devono escludere altri account da criteri specifici in base al modo in cui vengono usati gli account. Tutte le esclusioni devono essere esaminate regolarmente per verificare se sono ancora applicabili.
+Tutti i criteri consentono di escludere gli utenti, ad esempio [l'accesso di emergenza o gli account di amministratore di break-glass](../users-groups-roles/directory-emergency-access.md). Le organizzazioni possono determinare la necessità di escludere altri account da criteri specifici in base alle modalità di utilizzo degli account. Tutte le esclusioni devono essere riesaminate regolarmente per vedere se sono ancora applicabili.
 
-I [percorsi di rete](../conditional-access/location-condition.md) attendibili configurati vengono usati da Identity Protection in alcuni rilevamenti dei rischi per ridurre i falsi positivi.
+I [percorsi](../conditional-access/location-condition.md) di rete attendibili configurati vengono utilizzati da Identity Protection in alcuni rilevamenti dei rischi per ridurre i falsi positivi.
 
-## <a name="enable-policies"></a>Abilita criteri
+## <a name="enable-policies"></a>Abilitare i criteri
 
-Per abilitare il rischio utente e i criteri di rischio di accesso, completare i passaggi seguenti.
+I passaggi seguenti illustrano come abilitare i criteri di rischio utente e di accesso al rischio di accesso.
 
 1. Passare al [portale di Azure](https://portal.azure.com).
-1. Passare a **Azure Active Directory** > **sicurezza** > **Identity Protection** > **Panoramica**.
+1. **Security** > Passare a**Panoramica**di**Protezione** > identità di sicurezza di **Azure Active Directory** > .
 1. Selezionare **Configura criteri di rischio utente**.
-   1. In **assegnazioni**
-      1. **Utenti** : scegliere **tutti gli utenti** o **selezionare singoli utenti e gruppi** in caso di limitazione dell'implementazione.
-         1. Facoltativamente, è possibile scegliere di escludere gli utenti dai criteri.
-      1. **Condizioni** - la raccomandazione di Microsoft per il **rischio utente** è quella di impostare questa opzione su **alta**.
-   1. Sotto **controlli**
-      1. **Accesso** : Microsoft consiglia di **consentire l'accesso** e **richiedere la modifica della password**.
-   1. **Imponi - criteri** **in**
-   1. **Salva** : questa azione consente di tornare alla pagina **Panoramica** .
+   1. In **Assegnazioni**
+      1. **Utenti:** scegliere **Tutti gli utenti** o Seleziona individui e **gruppi** se si limita l'implementazione.
+         1. Facoltativamente, è possibile scegliere di escludere gli utenti dal criterio.
+      1. **Condizioni Rischio** - **utente** Raccomandazione da Microsoft è di impostare questa opzione su **Alta**.
+   1. In **Controlli**
+      1. **Accesso** - Il consiglio di Microsoft è quello di **consentire l'accesso** e richiedere la **modifica della password**.
+   1. **Applica criteri** - **su**
+   1. **Salva:** questa azione consente di tornare alla pagina **Panoramica.**
 1. Selezionare **Configura criteri di rischio di accesso**.
-   1. In **assegnazioni**
-      1. **Utenti** : scegliere **tutti gli utenti** o **selezionare singoli utenti e gruppi** in caso di limitazione dell'implementazione.
-         1. Facoltativamente, è possibile scegliere di escludere gli utenti dai criteri.
-      1. **Condizioni** - la raccomandazione Microsoft per il **rischio di accesso** è quella di impostare questa opzione su **media e versioni successive**.
-   1. Sotto **controlli**
-      1. **Accesso** : Microsoft consiglia di **consentire l'accesso** e **richiedere l'autenticazione**a più fattori.
-   1. **Imponi - criteri** **in**
+   1. In **Assegnazioni**
+      1. **Utenti:** scegliere **Tutti gli utenti** o Seleziona individui e **gruppi** se si limita l'implementazione.
+         1. Facoltativamente, è possibile scegliere di escludere gli utenti dal criterio.
+      1. **Condizioni** - **di rischio di accesso** Consiglia a Microsoft è di impostare questa opzione su Medio e **superiore**.
+   1. In **Controlli**
+      1. **Accesso** - Si consiglia a Microsoft di **consentire l'accesso** e **richiedere l'autenticazione**a più fattori .
+   1. **Applica criteri** - **su**
    1. **Salva**
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Abilitare i criteri di registrazione di Azure Multi-Factor Authentication](howto-identity-protection-configure-mfa-policy.md)
+- [Abilitare i criteri di registrazione di Azure Multi-Factor AuthenticationEnable Azure Multi-Factor Authentication registration policy](howto-identity-protection-configure-mfa-policy.md)
 
 - [Che cosa sono i rischi?](concept-identity-protection-risks.md)
 
-- [Esaminare i rilevamenti di rischio](howto-identity-protection-investigate-risk.md)
+- [Analizzare i rilevamenti degli eventi di rischio](howto-identity-protection-investigate-risk.md)
 
-- [Simulare i rilevamenti di rischio](howto-identity-protection-simulate-risk.md)
+- [Simulare rilevamenti degli eventi di rischio](howto-identity-protection-simulate-risk.md)

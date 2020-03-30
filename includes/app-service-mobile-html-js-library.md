@@ -5,20 +5,20 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: ff7ba04271c150018f2c55b62e40542a686608cf
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67180657"
 ---
-## <a name="create-client"></a>Creare una connessione client
+## <a name="create-a-client-connection"></a><a name="create-client"></a>Creare una connessione clientCreate a client connection
 Creare una connessione client creando un oggetto `WindowsAzure.MobileServiceClient` .  Sostituire `appUrl` con l'URL dell'app per dispositivi mobili.
 
 ```javascript
 var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
-## <a name="table-reference"></a>Usare le tabelle
+## <a name="work-with-tables"></a><a name="table-reference"></a>Utilizzare le tabelle
 Per l'accesso o l'aggiornamento dei dati, creare un riferimento alla tabella di back-end. Sostituire `tableName` con il nome della tabella
 
 ```javascript
@@ -27,15 +27,15 @@ var table = client.getTable(tableName);
 
 Dopo aver creato un riferimento a tabella, saranno disponibili le operazioni seguenti:
 
-* [Query sulla tabella](#querying)
-  * [Filtro dei dati](#table-filter)
+* [Eseguire una query su una tabella](#querying)
+  * [Filtraggio dei dati](#table-filter)
   * [Paging dei dati](#table-paging)
   * [Ordinamento dei dati](#sorting-data)
-* [Inserimento dei dati](#inserting)
+* [Inserimento di dati](#inserting)
 * [Modifica dei dati](#modifying)
 * [Eliminazione dei dati](#deleting)
 
-### <a name="querying"></a>Procedura: Eseguire query su un riferimento a tabella
+### <a name="how-to-query-a-table-reference"></a><a name="querying"></a>Procedura: Eseguire query su un riferimento a tabella
 Dopo aver creato un riferimento a tabella, è possibile usarlo per eseguire una query sui dati nel server.  Le query vengono eseguite in un linguaggio "simile a LINQ".
 Per restituire tutti i dati dalla tabella, usare il codice seguente:
 
@@ -69,7 +69,7 @@ La funzione success viene chiamata con l'oggetto results.  Non usare `for (var i
 
 Per altre informazioni sulla sintassi delle query, vedere la [documentazione relativa all'oggetto Query].
 
-#### <a name="table-filter"></a>Filtro dei dati nel server
+#### <a name="filtering-data-on-the-server"></a><a name="table-filter"></a>Filtro dei dati nel server
 È possibile usare una clausola `where` nel riferimento a tabella:
 
 ```javascript
@@ -92,7 +92,7 @@ table
     .then(success, failure);
 ```
 
-#### <a name="table-paging"></a>Paging dei dati
+#### <a name="paging-through-data"></a><a name="table-paging"></a>Paging dei dati
 Usare i metodi `take()` e `skip()`.  Ad esempio, se si vuole dividere la tabella in record di 100 righe:
 
 ```javascript
@@ -120,7 +120,7 @@ Il metodo `.includeTotalCount()` viene usato per aggiungere un campo totalCount 
 
 Si potrà quindi usare la variabile pages e alcuni pulsanti dell'interfaccia utente per fornire un elenco di pagine. Usare `loadPage()` per caricare i nuovi record per ogni pagina.  Implementare il caching per velocizzare l'accesso ai record già caricati.
 
-#### <a name="sorting-data"></a>Procedura: Restituire i dati ordinati
+#### <a name="how-to-return-sorted-data"></a><a name="sorting-data"></a>Procedura: Restituire i dati ordinati
 Usare i metodi di query `.orderBy()` o `.orderByDescending()`:
 
 ```javascript
@@ -132,7 +132,7 @@ table
 
 Per altre informazioni sull'oggetto delle query, vedere la [documentazione relativa all'oggetto Query].
 
-### <a name="inserting"></a>Procedura: Inserire dati
+### <a name="how-to-insert-data"></a><a name="inserting"></a>Procedura: Inserire dati
 Creare un oggetto JavaScript con la data appropriata e chiamare `table.insert()` in modo asincrono:
 
 ```javascript
@@ -152,7 +152,7 @@ Una volta completato l'inserimento, viene restituito l'elemento inserito con i c
 
 Node. js Server SDK per le app per dispositivi mobili supporta lo schema dinamico per scopi di sviluppo.  Lo Schema dinamico consente di aggiungere colonne alla tabella specificandole in un'operazione di inserimento o aggiornamento.  È consigliabile disattivare lo schema dinamico prima di trasferire l'applicazione in produzione.
 
-### <a name="modifying"></a>Procedura: Modificare dati
+### <a name="how-to-modify-data"></a><a name="modifying"></a>Procedura: Modificare dati
 In modo analogo al metodo `.insert()`, è consigliabile creare un oggetto Update e quindi chiamare `.update()`.  L'oggetto update deve contenere l'ID del record da aggiornare, che si ottiene durante la lettura del record o quando si chiama `.insert()`.
 
 ```javascript
@@ -168,7 +168,7 @@ table
     }, failure);
 ```
 
-### <a name="deleting"></a>Procedura: Eliminare i dati
+### <a name="how-to-delete-data"></a><a name="deleting"></a>Procedura: Eliminare dati
 Per eliminare un record, chiamare il metodo `.del()`.  Passare l'ID in un riferimento all'oggetto:
 
 ```javascript

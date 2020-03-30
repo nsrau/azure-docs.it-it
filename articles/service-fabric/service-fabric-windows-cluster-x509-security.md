@@ -1,15 +1,15 @@
 ---
-title: Proteggere un cluster in Windows usando i certificati
+title: Proteggere un cluster in Windows utilizzando i certificatiSecure a cluster on Windows by using certificates
 description: Proteggere le comunicazioni all'interno del cluster autonomo o locale di Azure Service Fabric nonché tra i client e il cluster.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 10/15/2017
 ms.author: dekapur
 ms.openlocfilehash: 5a18f957dfb7143f403d5ac30ea184023021f12c
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75613925"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Proteggere un cluster autonomo in Windows usando i certificati X.509
@@ -253,7 +253,7 @@ Per proteggere i cluster che eseguono carichi di lavoro di produzione, è necess
 Per i cluster usati solo a scopo di test, si può scegliere di usare un certificato autofirmato.
 
 ## <a name="optional-create-a-self-signed-certificate"></a>Facoltativo: creare un certificato autofirmato
-Un modo per creare un certificato autofirmato che possa essere protetto correttamente consiste nell'usare lo script CertSetup.ps1 della cartella Service Fabric SDK nella directory C:\Programmi\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Modificare questo file per cambiare il nome predefinito del certificato (Cercare il valore CN = ServiceFabricDevClusterCert). Eseguire questo script come `.\CertSetup.ps1 -Install`.
+Un modo per creare un certificato autofirmato che possa essere protetto correttamente consiste nell'usare lo script CertSetup.ps1 della cartella Service Fabric SDK nella directory C:\Programmi\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Modificare questo file per cambiare il nome predefinito del certificato (Cercare il valore CN-ServiceFabricDevClusterCert.) Eseguire questo `.\CertSetup.ps1 -Install`script come .
 
 Esportare ora il certificato in un file con estensione pfx con una password protetta. Ottenere per prima cosa l'identificazione personale del certificato. 
 1. Dal menu **Start** eseguire **Gestisci i certificati computer**. 
@@ -292,7 +292,7 @@ Dopo aver ottenuto i certificati, è possibile installarli nei nodi del cluster.
     $PfxFilePath ="C:\mypfx.pfx"
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
     ```
-3. Impostare ora il controllo di accesso per questo certificato in modo che possa essere usato dal processo di Service Fabric, eseguito con l'account Servizio di rete, con lo script seguente. Specificare l'identificazione personale del certificato e **NETWORK SERVICE** come account del servizio. È possibile controllare che gli ACL per il certificato siano corretti aprendo il certificato in **Start** > **Gestisci i certificati computer** ed esaminando **Tutte le attività** > **Gestisci chiavi private**.
+3. Impostare ora il controllo di accesso per questo certificato in modo che possa essere usato dal processo di Service Fabric, eseguito con l'account Servizio di rete, con lo script seguente. Specificare l'identificazione personale del certificato e **NETWORK SERVICE** per l'account del servizio. È possibile verificare che gli ACL sul certificato siano corretti aprendo il certificato in **Start** > **Manage computer certificates** ed looking at All **Tasks** > Manage Private**Keys**.
    
     ```powershell
     param
@@ -355,7 +355,7 @@ Per rimuovere il cluster, connettersi al nodo del cluster in cui è stato scaric
 ```
 
 > [!NOTE]
-> La configurazione non corretta del certificato può impedire la visualizzazione del cluster durante la distribuzione. Per diagnosticare automaticamente i problemi di sicurezza, consultare il gruppo di Visualizzatore eventi **Registri applicazioni e servizi** > **Microsoft Service Fabric**.
+> La configurazione non corretta del certificato può impedire la visualizzazione del cluster durante la distribuzione. Per diagnosticare autonomamente i problemi di sicurezza, esaminare il gruppo Visualizzatore eventi **Applications and Services Logs** > **Microsoft-Service Fabric**.
 > 
 > 
 

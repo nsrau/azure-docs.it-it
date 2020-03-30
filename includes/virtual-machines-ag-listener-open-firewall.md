@@ -5,23 +5,23 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: e128f3c67a41322d9c25a8d6941e937729760bf4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67180093"
 ---
 In questo passaggio si creerà una regola del firewall per aprire la porta probe per l'endpoint con carico bilanciato (59999, come specificato in precedenza) e un'altra regola per aprire la porta del listener del gruppo disponibilità. Poiché è stato creato l'endpoint con carico bilanciato nelle VM contenenti repliche del gruppo di disponibilità, è necessario aprire la porta probe e la porta del listener sulle rispettive macchine virtuali.
 
 1. Nelle macchine virtuali che ospitano le repliche, avviare **Windows Firewall con sicurezza avanzata**.
 
-2. Fare clic con il pulsante destro del mouse su **Regole connessioni in entrata** e quindi scegliere **Nuova regola**.
+2. Fare clic con il pulsante destro del mouse su **Regole in entrata** e quindi scegliere **Nuova regola**.
 
 3. Nella pagina **Tipo di regola** selezionare **Porta** e quindi fare clic su **Avanti**.
 
 4. Nella pagina **Protocollo e porte** selezionare **TCP**, digitare **59999** nella casella **Porte locali specifiche** e quindi fare clic su **Avanti**.
 
-5. Nella pagina **Azione** mantenere selezionata l'opzione **Consenti la connessione** e quindi fare clic su **Avanti**.
+5. Nella pagina **Azione** mantenere selezionata l'opzione **Consenti la connessione** e fare clic su **Avanti**.
 
 6. Nella pagina **Profilo** accettare le impostazioni predefinite e fare clic su **Avanti**.
 

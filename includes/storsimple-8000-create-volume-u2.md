@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 2abfa29671bd804ee75194ef621fe07f06c015e9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67180200"
 ---
 #### <a name="to-create-a-volume"></a>Per creare un volume
@@ -22,7 +22,7 @@ ms.locfileid: "67180200"
 
    2. Nell'elenco a discesa selezionare il contenitore del volume in cui è necessario aggiungere un volume. 
 
-   3. Digitare un **Nome** per il volume. Non è possibile rinominare un volume dopo che il volume è stato creato.
+   3. Digitare un nome per il volume.**** Non è possibile rinominare un volume dopo che il volume è stato creato.
 
    4. Nell'elenco a discesa selezionare il **tipo** per il volume. Per carichi di lavoro che richiedono garanzie locali, latenze basse e prestazioni più elevate, selezionare un volume **aggiunto in locale** . Per tutti gli altri dati, selezionare un volume **a livelli** . Se si usa questo volume per dati di archivio, selezionare la casella di controllo **Usare questo volume per i dati di archivio a cui si accede non di frequente**.
       
@@ -30,7 +30,7 @@ ms.locfileid: "67180200"
        
        Per un volume aggiunto in locale viene eseguito il thick provisioning, per garantire che i dati primari rimangano a livello locale per il dispositivo e non a livello cloud.  Se si crea un volume aggiunto in locale, il dispositivo cercherà lo spazio disponibile nei livelli locali per il provisioning del volume delle dimensioni richieste. L'operazione di creazione di un volume aggiunto in locale potrebbe comportare la distribuzione dei dati esistenti dal dispositivo al cloud e il tempo impiegato per creare il volume potrebbe essere lungo. Il tempo totale dipende dalle dimensioni del volume di cui è stato eseguito il provisioning, dalla larghezza di banda di rete disponibile e dai dati sul dispositivo.
 
-   5. Specificare la **Capacità fornita** per il volume. Prendere nota della capacità disponibile in base al tipo di volume selezionato. Le dimensioni del volume specificato non devono superare lo spazio disponibile.
+   5. Specificare la capacità fornita per il volume.**** Prendere nota della capacità disponibile in base al tipo di volume selezionato. Le dimensioni del volume specificato non devono superare lo spazio disponibile.
       
        È possibile effettuare il provisioning di volumi aggiunti in locale fino a 8,5 TB oppure di volumi a livelli fino a 200 TB nel dispositivo 8100. Nel dispositivo 8600 più grande è possibile effettuare il provisioning di volumi aggiunti in locale fino a 22,5 TB o di volumi a livelli fino a 500 TB. Poiché è necessario spazio locale sul dispositivo per ospitare il working set di volumi a livelli, la creazione di volumi aggiunti in locale influirà sullo spazio disponibile per il provisioning di volumi a livelli. Creando un volume aggiunto in locale, viene quindi ridotto lo spazio disponibile per la creazione di volumi a livelli. Analogamente, creando un volume a livelli verrà ridotto lo spazio disponibile per la creazione di volumi aggiunti in locale.
       
@@ -42,10 +42,10 @@ ms.locfileid: "67180200"
 
       1. Nel pannello **Host connessi** scegliere un record di controllo di accesso esistente o aggiungerne uno nuovo seguendo questa procedura:
 
-         1. Fornire un **Nome** per l'ACR.
-         2. In **Nome iniziatore iSCSI**, fornire il nome qualificato iSCSI (IQN) dell'host di Windows. Se non si dispone del nome qualificato iSCSI, andare a [Ottenere il nome qualificato iSCSI di un host di Windows Server](#get-the-iqn-of-a-windows-server-host).
+         1. Specificare un nome per il record di controllo di accesso.****
+         2. In **Nome iniziatore iSCSI** specificare un nome qualificato iSCSI (IQN) dell'host Windows. Se non si dispone di IQN, passare a [Ottenere l'IQN di un host Windows Server](#get-the-iqn-of-a-windows-server-host).
 
-      1. Fare clic su **Create**(Crea). Verrà creato un volume con le impostazioni specificate.
+      1. Fare clic su **Crea**. Verrà creato un volume con le impostazioni specificate.
 
          ![Fare clic su Crea](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
 

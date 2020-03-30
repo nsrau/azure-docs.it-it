@@ -9,18 +9,18 @@ ms.date: 07/01/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: d6f56f3500ab9c6b4482d2ade892dfdb46ccacb5
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67503393"
 ---
-File Premium usano un account di archiviazione univoco **FileStorage**. Questo tipo di account è progettato per carichi di lavoro con numero elevato di IOPS, velocità effettiva elevata con bassa latenza coerente. Archiviazione Premium di file si adatta alle dimensioni della condivisione con provisioning.
+I file Premium usano un account di archiviazione univoco denominato **FileStorage**. Questo tipo di account è progettato per carichi di lavoro con iops elevato, velocità effettiva elevata con latenza ridotta costante. L'archiviazione dei file Premium viene ridimensionata con la dimensione della condivisione di cui è stato eseguito il provisioning.
 
 |Area  |Destinazione  |
 |---------|---------|
-|Max effettuato il provisioning delle dimensioni     |100 TiB     |
-|Condivisioni   |Illimitato  |
+|Dimensioni massime di cui è stato eseguito il provisioning     |100 TiB     |
+|Condivisioni   |Nessuna limitazione  |
 |IOPS     |100,000    |
-|Ingress|4\.136 MiB/s     |
-|Egress|6,204 MiB/s |
+|Dati in ingresso|4.136 MiB/s     |
+|Egress|6.204 MiB/s |

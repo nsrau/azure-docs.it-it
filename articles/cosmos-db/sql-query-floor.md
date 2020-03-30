@@ -1,6 +1,6 @@
 ---
-title: PIANO in Azure Cosmos DB linguaggio di query
-description: Informazioni sulla funzione di sistema di SQL FLOOR in Azure Cosmos DB per restituire l'intero più grande minore o uguale all'espressione numerica specificata
+title: FLOOR nel linguaggio di query del database Di Azure
+description: Informazioni sulla funzione di sistema FLOOR SQL in Azure Cosmos DB per restituire il numero intero più grande minore o uguale all'espressione numerica specificata
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 04dfa6a028cf7c44bf99c665b396d51d8a0f3cef
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303189"
 ---
-# <a name="floor-azure-cosmos-db"></a>PIANO (Azure Cosmos DB)
+# <a name="floor-azure-cosmos-db"></a>FLOOR (Azure Cosmos DB)
  Restituisce l'intero maggiore che risulta minore o uguale all'espressione numerica specificata.  
   
 ## <a name="syntax"></a>Sintassi
@@ -34,7 +34,7 @@ FLOOR (<numeric_expr>)
   
 ## <a name="examples"></a>Esempi
   
-  L'esempio seguente mostra valori numerici positivi, negativi e zero con la funzione `FLOOR`.  
+  Nell'esempio seguente vengono illustrati valori numerici `FLOOR` positivi, negativi e zero con la funzione .  
   
 ```sql
 SELECT FLOOR(123.45) AS fl1, FLOOR(-123.45) AS fl2, FLOOR(0.0) AS fl3  
@@ -48,10 +48,10 @@ SELECT FLOOR(123.45) AS fl1, FLOOR(-123.45) AS fl2, FLOOR(0.0) AS fl3
 
 ## <a name="remarks"></a>Osservazioni
 
-Questa funzione di sistema trarrà vantaggio da un [indice di intervallo](index-policy.md#includeexclude-strategy).
+Questa funzione di sistema beneficerà di un [indice di intervallo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Funzioni matematiche Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduzione a Azure Cosmos DB](introduction.md)
+- [Introduzione ad Azure Cosmos DB](introduction.md)

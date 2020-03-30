@@ -1,27 +1,27 @@
 ---
-title: Montaggio del volume Secret nel gruppo di contenitori
+title: Montare il volume segreto nel gruppo di contenitoriMount secret volume to container group
 description: Informazioni su come montare un volume segreto per archiviare informazioni sensibili per l'accesso da parte delle istanze di contenitore
 ms.topic: article
 ms.date: 07/19/2018
 ms.openlocfilehash: 913e3d147519bc73c3c57b8da383f9d373f3666d
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78249942"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Montare un volume segreto in Istanze di Azure Container
 
 Usare un volume *segreto* per fornire informazioni sensibili ai contenitori di un gruppo di contenitori. Il volume *segreto* archivia i segreti nei file all'interno del volume a cui i contenitori del gruppo di contenitori possono accedere. Archiviando segreti in un volume *segreto* è possibile evitare di aggiungere dati sensibili, quali chiavi SSH o credenziali del database, al codice dell'applicazione.
 
-Tutti i volumi *segreti* sono supportati da [tmpfs][tmpfs], un filesystem con supporto di RAM; il contenuto non viene mai scritto in una risorsa di archiviazione non volatile.
+Tutti i volumi *segreti* sono supportati da [tmpfs][tmpfs], un file system supportato da RAM; i relativi contenuti non vengono mai scritti in risorse di archiviazione non volatili.
 
 > [!NOTE]
-> I volumi *segreti* attualmente sono limitati ai contenitori Linux. Per informazioni su come passare variabili di ambiente sicure per i contenitori Windows e Linux, vedere [Impostare variabili di ambiente](container-instances-environment-variables.md). Mentre stiamo lavorando per riunire tutte le funzionalità nei contenitori di Windows, è possibile trovare le attuali differenze della piattaforma nella [Panoramica](container-instances-overview.md#linux-and-windows-containers).
+> I volumi *segreti* attualmente sono limitati ai contenitori Linux. Per informazioni su come passare variabili di ambiente sicure per i contenitori Windows e Linux, vedere [Impostare variabili di ambiente](container-instances-environment-variables.md). Mentre stiamo lavorando per portare tutte le funzionalità per i contenitori di Windows, è possibile trovare le differenze di piattaforma correnti nella [panoramica](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="mount-secret-volume---azure-cli"></a>Montare un volume segreto - Interfaccia della riga di comando di Azure
 
-Per distribuire un contenitore con uno o più segreti usando l'interfaccia della riga di comando di Azure, includere i parametri `--secrets` e `--secrets-mount-path` nel comando [AZ container create][az-container-create] . Questo esempio monta un volume *segreto* costituito da due segreti, "mysecret1" e "mysecret2", in `/mnt/secrets`:
+Per distribuire un contenitore con uno o più segreti tramite l'interfaccia della riga di comando di Azure, includere i parametri `--secrets` e `--secrets-mount-path` nel comando [az container create][az-container-create]. Questo esempio monta un volume *segreto* costituito da due segreti, "mysecret1" e "mysecret2", in `/mnt/secrets`:
 
 ```azurecli-interactive
 az container create \
@@ -32,7 +32,7 @@ az container create \
     --secrets-mount-path /mnt/secrets
 ```
 
-Il seguente [AZ container Exec][az-container-exec] output Mostra l'apertura di una shell nel contenitore in esecuzione, l'elenco dei file all'interno del volume Secret, quindi la visualizzazione del relativo contenuto:
+L'output di [az container exec][az-container-exec] seguente mostra l'apertura di una shell nel contenitore in esecuzione, l'elencazione dei file all'interno del volume segreto e la successiva visualizzazione dei relativi contenuti:
 
 ```azurecli
 az container exec --resource-group myResourceGroup --name secret-volume-demo --exec-command "/bin/sh"
@@ -87,7 +87,7 @@ tags: {}
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Per eseguire la distribuzione con il modello YAML, salvare la YAML precedente in un file denominato `deploy-aci.yaml`, quindi eseguire il comando [AZ container create][az-container-create] con il parametro `--file`:
+Per eseguire la distribuzione con il modello YAML, salvare il codice YAML precedente in un file denominato `deploy-aci.yaml`, quindi eseguire il comando [az container create][az-container-create] con il parametro `--file`:
 
 ```azurecli-interactive
 # Deploy with YAML template
@@ -107,7 +107,7 @@ Il modello di Resource Manager seguente definisce un gruppo di contenitori con u
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
-Per eseguire la distribuzione con il modello di Gestione risorse, salvare il codice JSON precedente in un file denominato `deploy-aci.json`, quindi eseguire il comando [AZ Group Deployment create][az-group-deployment-create] con il parametro `--template-file`:
+Per eseguire la distribuzione con il modello di Resource Manager, salvare il codice JSON precedente in un file denominato `deploy-aci.json`, quindi eseguire il comando [az group deployment create][az-group-deployment-create] con il parametro `--template-file`:
 
 ```azurecli-interactive
 # Deploy with Resource Manager template
@@ -121,8 +121,8 @@ az group deployment create --resource-group myResourceGroup --template-file depl
 Informazioni su come montare altri tipi di volume in Istanze di Azure Container:
 
 * [Mount an Azure file share in Azure Container Instances](container-instances-volume-azure-files.md) (Montare una condivisione file di Azure in Istanze di Azure Container)
-* [Mount an emptyDir volume in Azure Container Instances](container-instances-volume-emptydir.md) (Montare un volume emptyDir in Istanze di Azure Container)
-* [Mount a gitRepo volume in Azure Container Instances](container-instances-volume-gitrepo.md) (Montare un volume gitRepo in Istanze di Azure Container)
+* [Montare un volume emptyDir in Istanze di Azure Container](container-instances-volume-emptydir.md)
+* [Montare un volume gitRepo in Istanze di Azure Container](container-instances-volume-gitrepo.md)
 
 ### <a name="secure-environment-variables"></a>Variabili di ambiente sicure
 

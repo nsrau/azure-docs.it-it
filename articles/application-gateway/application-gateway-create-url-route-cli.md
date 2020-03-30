@@ -1,5 +1,5 @@
 ---
-title: Regole di routing basato su percorso URL con l'interfaccia della riga di comando-applicazione Azure gateway
+title: URL path-based routing rules using CLI - Azure Application Gateway
 description: Informazioni su come creare regole di routing basato su percorsi URL per un gateway applicazione e un set di scalabilità di macchine virtuali usando l'interfaccia della riga di comando di Azure.
 services: application-gateway
 author: vhorne
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: 5f75ae1104297c461584e061f5a94aecd987caad
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78246776"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Creare un gateway applicazione con regole di routing basato su percorsi URL usando l'interfaccia della riga di comando di Azure
@@ -31,7 +31,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessario eseguire la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessario eseguire la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If](/cli/azure/install-azure-cli)you need to install or upgrade, see Install Azure CLI.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -229,11 +229,11 @@ az network public-ip show \
 
 ![Testare l'URL di base nel gateway applicazione](./media/application-gateway-create-url-route-cli/application-gateway-nginx.png)
 
-Modificare l'URL in `http://<ip-address>:8080/video/test.html` alla fine dell'URL di base e dovrebbe essere visualizzato qualcosa di simile all'esempio seguente:
+Modificare l'URL `http://<ip-address>:8080/video/test.html` alla fine dell'URL di base e si dovrebbe vedere qualcosa di simile al seguente esempio:
 
 ![Testare l'URL delle immagini nel gateway applicazione](./media/application-gateway-create-url-route-cli/application-gateway-nginx-images.png)
 
-Modificare l'URL in `http://<ip-address>:8080/video/test.html` e dovrebbe essere visualizzato qualcosa di simile all'esempio seguente.
+Modificare l'URL `http://<ip-address>:8080/video/test.html` in e si dovrebbe vedere qualcosa di simile all'esempio seguente.
 
 ![Testare l'URL video nel gateway applicazione](./media/application-gateway-create-url-route-cli/application-gateway-nginx-video.png)
 
