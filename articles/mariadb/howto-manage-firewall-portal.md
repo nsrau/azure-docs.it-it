@@ -1,22 +1,22 @@
 ---
-title: Gestire le regole del firewall-portale di Azure-database di Azure per MariaDB
+title: Gestire le regole del firewall - Portale di Azure - Database di Azure per MariaDBManage firewall rules - Azure portal - Azure Database for MariaDB
 description: Creare e gestire le regole del firewall di Database di Azure per MariaDB con il portale di Azure
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 70e6611cc3006424bcd1bc3a0f0838ad40c09634
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 8be8e948595cfb93049c0d6c93f421e4902e771d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766022"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530666"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Creare e gestire le regole del firewall di Database di Azure per MariaDB con il portale di Azure
-Le regole del firewall a livello di server possono essere usate per gestire l'accesso a un database di Azure per il server MariaDB da un indirizzo IP specificato o da un intervallo di indirizzi IP.
+Le regole del firewall a livello di server possono essere usate per gestire l'accesso a un database di Azure per MariaDB Server da un indirizzo IP specificato o da un intervallo di indirizzi IP.
 
-Le regole della rete virtuale (VNet) possono essere usate anche per proteggere l'accesso al server. Altre informazioni sulla [creazione e la gestione di endpoint e regole del servizio rete virtuale usando il portale di Azure](howto-manage-vnet-portal.md).
+Le regole di rete virtuale (VNet) possono essere utilizzate anche per proteggere l'accesso al server. Altre informazioni sulla creazione e la gestione di endpoint e regole del servizio di rete virtuale tramite il portale di Azure.Learn more about [creating and managing Virtual Network service endpoints and rules using the Azure portal](howto-manage-vnet-portal.md).
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Creare una regola del firewall a livello di server nel portale di Azure
 
@@ -41,7 +41,7 @@ Le regole della rete virtuale (VNet) possono essere usate anche per proteggere l
    ![Portale di Azure: fare clic su Salva](./media/howto-manage-firewall-portal/5-save-firewall-rule.png)
 
 ## <a name="connecting-from-azure"></a>Connessione da Azure
-Per consentire alle applicazioni da Azure di stabilire la connessione al server Database di Azure per MariaDB, è necessario abilitare le connessioni da Azure. Ad esempio, per ospitare un'applicazione delle app Web di Azure o un'applicazione che viene eseguita in una macchina virtuale di Azure oppure per connettersi da un gateway di gestione dati di Azure Data Factory. Le risorse non devono essere necessariamente nella stessa rete virtuale (VNet) o nello stesso gruppo di risorse perché la regola del firewall consenta tali connessioni. Quando si tenta di connettersi al server di database da un'applicazione di Azure, il firewall verifica che le connessioni da Azure siano consentite. Sono disponibili alcuni metodi per consentire questi tipi di connessioni. Un'impostazione del firewall con indirizzo iniziale e finale uguale a 0.0.0.0 indica che queste connessioni sono consentite. In alternativa, è possibile impostare l'opzione **Consenti l'accesso a Servizi di Azure** su **Sì** nel portale dal riquadro **Sicurezza connessione** e fare clic su **Salva**. Se il tentativo di connessione non è consentito, la richiesta non raggiunge il server Database di Azure per MariaDB.
+Per consentire alle applicazioni da Azure di stabilire la connessione al server di Database di Azure per MariaDB, è necessario abilitare le connessioni da Azure. Ad esempio, per ospitare un'applicazione delle app Web di Azure o un'applicazione che viene eseguita in una macchina virtuale di Azure oppure per connettersi da un gateway di gestione dati di Azure Data Factory. Le risorse non devono essere necessariamente nella stessa rete virtuale (VNet) o nello stesso gruppo di risorse perché la regola del firewall consenta tali connessioni. Quando si tenta di connettersi al server di database da un'applicazione di Azure, il firewall verifica che le connessioni da Azure siano consentite. Sono disponibili alcuni metodi per consentire questi tipi di connessioni. Un'impostazione del firewall con indirizzo iniziale e finale uguale a 0.0.0.0 indica che queste connessioni sono consentite. In alternativa, è possibile impostare l'opzione **Consenti l'accesso a Servizi di Azure** su **Sì** nel portale dal riquadro **Sicurezza connessione** e fare clic su **Salva**. Se il tentativo di connessione non è consentito, la richiesta non raggiunge il server di Database di Azure per MariaDB.
 
 > [!IMPORTANT]
 > Questa opzione permette di configurare il firewall in maniera tale da consentire tutte le connessioni da Azure, incluse le connessioni dalle sottoscrizioni di altri clienti. Quando si seleziona questa opzione, assicurarsi che l'account di accesso e le autorizzazioni utente limitino l'accesso ai soli utenti autorizzati.
@@ -49,11 +49,11 @@ Per consentire alle applicazioni da Azure di stabilire la connessione al server 
 
 ## <a name="manage-existing-firewall-rules-in-the-azure-portal"></a>Gestire regole del firewall esistenti nel portale di Azure
 Ripetere i passaggi per gestire le regole del firewall.
-* Per aggiungere il computer corrente, fare clic su **+ Aggiungi indirizzo IP corrente**. È consigliabile fare clic su **Salva** per salvare le modifiche.
-* Per aggiungere altri indirizzi IP, digitare **NOME REGOLA**, **INDIRIZZO IP INIZIALE** e **INDIRIZZO IP FINALE**. È consigliabile fare clic su **Salva** per salvare le modifiche.
-* Per modificare una regola esistente, fare clic su uno dei campi nella regola e inserire la modifica. È consigliabile fare clic su **Salva** per salvare le modifiche.
-* Per eliminare una regola esistente, fare clic sui puntini di sospensione (…) e quindi su **Elimina**. È consigliabile fare clic su **Salva** per salvare le modifiche.
+* Per aggiungere il computer corrente, fare clic su **+ Aggiungi indirizzo IP corrente**. Fare clic su **Salva** per salvare le modifiche.
+* Per aggiungere altri indirizzi IP, digitare **NOME REGOLA**, **INDIRIZZO IP INIZIALE** e **INDIRIZZO IP FINALE**. Fare clic su **Salva** per salvare le modifiche.
+* Per modificare una regola esistente, fare clic su uno dei campi nella regola e inserire la modifica. Fare clic su **Salva** per salvare le modifiche.
+* Per eliminare una regola esistente, fare clic sui puntini di sospensione (…) e quindi su **Elimina**. Fare clic su **Salva** per salvare le modifiche.
 
 ## <a name="next-steps"></a>Passaggi successivi
- - Analogamente, è possibile creare uno script per [creare e gestire regole del firewall di database di Azure per MariaDB usando l'interfaccia della riga](howto-manage-firewall-cli.md)di comando
- - Proteggere ulteriormente l'accesso al server [creando e gestendo gli endpoint e le regole del servizio rete virtuale usando il portale di Azure](howto-manage-vnet-portal.md).
+ - Analogamente, è possibile creare e gestire lo script per creare e gestire le regole del firewall del database di [Azure per MariaDB usando l'interfaccia della riga di comando](howto-manage-firewall-cli.md)di Azure.
+ - Proteggere ulteriormente l'accesso al server [creando e gestendo gli endpoint e le regole](howto-manage-vnet-portal.md)del servizio Rete virtuale tramite il portale di Azure.

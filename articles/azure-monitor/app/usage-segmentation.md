@@ -1,5 +1,5 @@
 ---
-title: Analisi di utenti, sessioni ed eventi in applicazione Azure Insights
+title: Analisi di utenti, sessioni e eventi in Azure Application Insights
 description: Analisi demografica degli utenti dell'app Web.
 ms.topic: conceptual
 author: NumberByColors
@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 56059304026b060e2215ce73e0e94e3200573a14
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670985"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Analisi di utenti, sessioni ed eventi in Application Insights
@@ -19,7 +19,7 @@ Scoprire quando le persone usano l'app Web, a quali pagine sono più interessati
 
 ![Screenshot della pagina Utenti di Application Insights](./media/usage-segmentation/0001-users.png)
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 
 Se nei pannelli degli utenti, delle sessioni e degli eventi nel portale di Application Insights non vengono ancora visualizzati i dati, leggere le [informazioni su come iniziare a usare gli strumenti d'uso](usage-overview.md).
 
@@ -60,7 +60,7 @@ La sezione **Meet your users** (Conosci gli utenti) mostra informazioni relative
 - Per abilitare le esperienze di utilizzo, iniziare a inviare [eventi personalizzati](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) o [visualizzazioni pagina](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Se si inviano già eventi personalizzati o visualizzazioni pagina, è possibile esplorare gli strumenti relativi all'uso per scoprire come gli utenti usano il servizio.
     - [Grafici a imbuto](usage-funnels.md)
-    - [Conservazione](usage-retention.md)
+    - [detenzione](usage-retention.md)
     - [Flussi degli utenti](usage-flows.md)
     - [Cartelle di lavoro](../../azure-monitor/app/usage-workbooks.md)
     - [Aggiungere il contesto utente](usage-send-user-context.md)

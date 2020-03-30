@@ -1,6 +1,6 @@
 ---
-title: Gestire gli endpoint di streaming con servizi multimediali di Azure V3
-description: Questo articolo illustra come gestire gli endpoint di streaming con servizi multimediali di Azure V3.
+title: Gestire gli endpoint di streaming con Servizi multimediali di Azure v3Manage streaming endpoints with Azure Media Services v3
+description: Questo articolo illustra come gestire gli endpoint di streaming con Servizi multimediali di Azure 3.This article demonstrates how to manage streaming endpoints with Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,39 +14,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2020
 ms.author: juliako
-ms.openlocfilehash: 5dd3cc1efd25f7ec09f897c67bebebedb84d9570
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 75ba2ad87eabd7ff6b0625ad95ab24a8ae58dd0f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79370546"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79461045"
 ---
-# <a name="manage-streaming-endpoints-with--media-services-v3"></a>Gestire gli endpoint di streaming con servizi multimediali V3
+# <a name="manage-streaming-endpoints-with--media-services-v3"></a>Gestire gli endpoint di streaming con Servizi multimediali v3Manage streaming endpoints with Media Services v3
 
-Quando l'account di Servizi multimediali viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione [dinamica dei pacchetti](dynamic-packaging-overview.md) e della [crittografia dinamica](content-protection-overview.md), l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato in **esecuzione** .
+Quando viene creato l'account di Servizi multimediali, all'account viene aggiunto un endpoint di [streaming](streaming-endpoint-concept.md) **predefinito** nello stato **Arrestato.** Per avviare lo streaming del contenuto e sfruttare la creazione di [pacchetti dinamici](dynamic-packaging-overview.md) e la [crittografia dinamica,](content-protection-overview.md)l'endpoint di streaming da cui si desidera trasmettere il contenuto deve essere nello stato **In esecuzione.**
 
-Questo articolo illustra come avviare l'endpoint di streaming.
+Questo articolo illustra come eseguire il comando [start](https://docs.microsoft.com/rest/api/media/streamingendpoints/start) nell'endpoint di streaming usando tecnologie diverse. 
  
 > [!NOTE]
 > Il costo verrà addebitato solo quando StreamingEndpoint è in stato di esecuzione.
     
 ## <a name="prerequisites"></a>Prerequisiti
 
-Recensione 
+Recensione: 
 
 * [Concetti relativi ai Servizi multimediali](concepts-overview.md)
 * [Concetto di endpoint di streaming](streaming-endpoint-concept.md)
-* [Creazione dinamica dei pacchetti](dynamic-packaging-overview.md)
+* [creazione dinamica dei pacchetti](dynamic-packaging-overview.md)
 
-## <a name="use-the-azure-portal"></a>Usare il portale di Azure
+## <a name="use-rest"></a>Usare REST
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
-1. Passare all'account di servizi multimediali di Azure.
-1. A sinistra selezionare endpoint di **streaming**.
-1. Selezionare l'endpoint di streaming che si desidera avviare, quindi fare clic su **Avvia**.
+```rest
+POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/slitestmedia10/streamingEndpoints/myStreamingEndpoint1/start?api-version=2018-07-01
+```
 
-## <a name="use-the-java-sdk"></a>Usare Java SDK
+Per altre informazioni, vedere: 
 
+* Avviare una documentazione di riferimento [streamingEndpoint.The start a StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start) reference documentation.
+* L'avvio di un endpoint di streaming è un'operazione asincrona. 
+
+    Per informazioni su come monitorare le operazioni a esecuzione prolungata, vedere [Operazioni a esecuzione prolungata](media-services-apis-overview.md).
+* Questa [raccolta Postman](https://github.com/Azure-Samples/media-services-v3-rest-postman/blob/master/Postman/Media%20Services%20v3.postman_collection.json) contiene esempi di più operazioni REST, tra cui come avviare un endpoint di streaming.
+
+## <a name="use-the-azure-portal"></a>Usare il portale di Azure 
+ 
+1. Accedere al [portale](https://portal.azure.com/)di Azure .
+1. Passare all'account di Servizi multimediali di Azure.Go to your Azure Media Services account.
+1. Nel riquadro sinistro selezionare **Endpoint di streaming**.
+1. Selezionare l'endpoint di streaming da avviare e quindi selezionare **Avvia**.
+
+## <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
+
+```cli
+az ams streaming-endpoint start [--account-name]
+                                [--ids]
+                                [--name]
+                                [--no-wait]
+                                [--resource-group]
+                                [--subscription]
+```
+
+Per ulteriori informazioni, vedere [az ams streaming-endpoint start](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest#az-ams-streaming-endpoint-start).
+
+## <a name="use-sdks"></a>Usare SDK
+
+### <a name="java"></a>Java
+    
 ```java
 if (streamingEndpoint != null) {
 // Start The Streaming Endpoint if it is not running.
@@ -55,9 +84,9 @@ if (streamingEndpoint.resourceState() != StreamingEndpointResourceState.RUNNING)
 }
 ```
 
-Vedere l' [esempio di codice Java](https://github.com/Azure-Samples/media-services-v3-java/blob/master/DynamicPackagingVODContent/StreamHLSAndDASH/src/main/java/sample/StreamHLSAndDASH.java#L128)completo.
+Vedere l'esempio completo [di codice Java](https://github.com/Azure-Samples/media-services-v3-java/blob/master/DynamicPackagingVODContent/StreamHLSAndDASH/src/main/java/sample/StreamHLSAndDASH.java#L128).
 
-## <a name="use-the-net-sdk"></a>Usare .NET SDK
+### <a name="net"></a>.NET
 
 ```csharp
 StreamingEndpoint streamingEndpoint = await client.StreamingEndpoints.GetAsync(config.ResourceGroup, config.AccountName, DefaultStreamingEndpointName);
@@ -70,36 +99,11 @@ if (streamingEndpoint != null)
     }
 ```
 
-Vedere l' [esempio di codice .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/DynamicPackagingVODContent/StreamHLSAndDASH/Program.cs#L112)completo.
+Vedere l'esempio di [codice .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/DynamicPackagingVODContent/StreamHLSAndDASH/Program.cs#L112)completo .
 
-## <a name="use-cli"></a>Usare l'interfaccia della riga di comando
-
-```cli
-az ams streaming-endpoint start [--account-name]
-                                [--ids]
-                                [--name]
-                                [--no-wait]
-                                [--resource-group]
-                                [--subscription]
-```
-
-Per altre informazioni, vedere [AZ AMS streaming-endpoint Start](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest#az-ams-streaming-endpoint-start).
-
-## <a name="use-rest"></a>Usare REST
-
-```rest
-POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/slitestmedia10/streamingEndpoints/myStreamingEndpoint1/start?api-version=2018-07-01
-```
-
-Per altre informazioni, vedere: 
-
-* La documentazione di riferimento per l' [avvio di StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start) .
-* L'avvio di un endpoint di streaming è un'operazione asincrona. 
-
-    Per informazioni dettagliate su come monitorare le operazioni con esecuzione prolungata, vedere [operazioni con esecuzione prolungata](media-services-apis-overview.md)
-* Questa [raccolta di post](https://github.com/Azure-Samples/media-services-v3-rest-postman/blob/master/Postman/Media%20Services%20v3.postman_collection.json) contiene esempi di più operazioni REST, tra cui l'avvio di un endpoint di streaming.
+---
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Specifica OpenAPI di Media Services V3 (spavalderia)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)
-* [Operazioni dell'endpoint di streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints)
+* [Specifiche OpenAPI di Servizi multimediali v3 (Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)
+* [Operazioni degli endpoint di streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints)

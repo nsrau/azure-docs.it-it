@@ -1,6 +1,6 @@
 ---
-title: Importazione/esportazione delle identità dei dispositivi dell'hub Azure Microsoft Docs
-description: Come usare l'SDK del servizio Azure per l'esecuzione di operazioni bulk nel registro delle identità per importare ed esportare le identità dei dispositivi. Le operazioni di importazione consentono di creare, aggiornare ed eliminare in blocco le identità dei dispositivi.
+title: Importazione/esportazione di identità del dispositivo dell'hub IoT di Azure Documenti Microsoft
+description: Come usare l'SDK del servizio IoT di Azure per eseguire operazioni in blocco nel registro delle identità per importare ed esportare le identità dei dispositivi. Le operazioni di importazione consentono di creare, aggiornare ed eliminare in blocco le identità dei dispositivi.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
 ms.openlocfilehash: 2a0394e6e7c17e0a4954bbdddb1d5b2811959746
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371580"
 ---
-# <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importare ed esportare le identità dei dispositivi dell'hub Internet in blocco
+# <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importare ed esportare in blocco le identità dei dispositivi dell'hub IoT
 
-Ogni hub IoT ha un registro delle identità che è possibile usare per creare le risorse per ogni dispositivo nel servizio. e per consentire di controllare gli accessi agli endpoint per il dispositivo. Questo articolo descrive come importare ed esportare in blocco le identità del dispositivo in/da un registro delle identità. Per vedere un esempio funzionante in C# e informazioni su come usare questa funzionalità quando si clona un hub in un'area diversa, vedere [come clonare un hub](iot-hub-how-to-clone.md)Internet.
+Ogni hub IoT ha un registro delle identità che è possibile usare per creare le risorse per ogni dispositivo nel servizio. e per consentire di controllare gli accessi agli endpoint per il dispositivo. Questo articolo descrive come importare ed esportare in blocco le identità del dispositivo in/da un registro delle identità. Per visualizzare un esempio funzionante in C'è e imparare a usare questa funzionalità durante la clonazione di un hub in un'area diversa, vedere [Come clonare un hub IoT](iot-hub-how-to-clone.md).
 
 > [!NOTE]
-> L'hub Internet ha recentemente aggiunto il supporto per la rete virtuale in un numero limitato di aree. Questa funzionalità consente di proteggere le operazioni di importazione ed esportazione ed elimina la necessità di passare le chiavi per l'autenticazione.  Inizialmente, il supporto per la rete virtuale è disponibile solo in queste aree: *WestUS2*, *eastus*e *SouthCentralUS*. Per altre informazioni sul supporto per le reti virtuali e sulle chiamate API per implementarlo, vedere [supporto dell'hub Internet per reti virtuali](virtual-network-support.md).
+> L'hub IoT ha recentemente aggiunto il supporto della rete virtuale in un numero limitato di aree. Questa funzionalità protegge le operazioni di importazione ed esportazione ed elimina la necessità di passare le chiavi per l'autenticazione.  Inizialmente, il supporto della rete virtuale è disponibile solo nelle seguenti aree: *WestUS2*, *EastUS*e *SouthCentralUS*. Per altre informazioni sul supporto della rete virtuale e sulle chiamate API per implementarlo, vedere [Supporto dell'hub IoT per le reti virtuali.](virtual-network-support.md)
 
 Le operazioni di importazione ed esportazione vengono eseguite nel contesto di *processi* che consentono di eseguire operazioni del servizio in blocco a fronte di un hub IoT.
 
 La classe **RegistryManager** include i metodi **ExportDevicesAsync** e **ImportDevicesAsync** che usano il framework di **processi**. Questi metodi consentono di esportare, importare e sincronizzare un intero registro delle identità dell'hub IoT.
 
-Questo argomento illustra l'uso della classe **RegistryManager** e del sistema di **processi** per eseguire importazioni ed esportazioni bulk di dispositivi da e verso il registro delle identità di un hub. Inoltre, è possibile utilizzare il servizio Device Provisioning dell'hub IoT di Azure per abilitare il provisioning automatico JIT per uno o più hub IoT senza la necessità dell'intervento umano. Per altre informazioni, vedere la [documentazione di servizio per il provisioning](/azure/iot-dps).
+In questo argomento viene illustrato l'utilizzo della classe RegistryManager e del sistema di processo per eseguire importazioni ed esportazioni in blocco di dispositivi da e verso il registro delle identità di un hub IoT.This topic discusses using the **RegistryManager** class and **Job** system to perform bulk imports and exports of devices to and from an IoT hub's identity registry. Inoltre, è possibile utilizzare il servizio Device Provisioning dell'hub IoT di Azure per abilitare il provisioning automatico JIT per uno o più hub IoT senza la necessità dell'intervento umano. Per altre informazioni, vedere la [documentazione di servizio per il provisioning](/azure/iot-dps).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -51,7 +51,7 @@ JobProperties exportJob = await
 > [!NOTE]
 > Per usare la classe il **RegistryManager** nel codice c#, aggiungere il pacchetto NuGet **Microsoft.Azure.Devices** al progetto. La classe **RegistryManager** si trova nello spazio dei nomi **Microsoft.Azure.Devices**.
 
-È possibile usare la classe **RegistryManager** per eseguire query sullo stato del **processo** usando i metadati di **JobProperties** restituiti. Per creare un'istanza della classe **RegistryManager**, usare il metodo **CreateFromConnectionString**.
+È possibile usare la classe **RegistryManager** per eseguire query sullo stato del **processo** usando i metadati di **JobProperties** restituiti. Per creare un'istanza della classe **RegistryManager,** utilizzare il metodo **CreateFromConnectionString.**
 
 ```csharp
 RegistryManager registryManager =
@@ -88,16 +88,16 @@ while(true)
 ```
 
 > [!NOTE]
-> Se l'account di archiviazione ha configurazioni del firewall che limitano la connettività dell'hub Internet, provare a usare l' [eccezione Microsoft attendibile per la prima parte](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) (disponibile in aree selezionate per hub Internet con identità del servizio gestito).
+> Se l'account di archiviazione include configurazioni del firewall che limitano la connettività dell'hub IoT, è consigliabile usare un'eccezione di [prima parte attendibile di Microsoft](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) (disponibile in determinate aree per hub IoT con identità del servizio gestito).
 
 
-## <a name="device-importexport-job-limits"></a>Limiti dei processi di importazione/esportazione del dispositivo
+## <a name="device-importexport-job-limits"></a>Limiti dei processi di importazione/esportazione dei dispositivi
 
-Sono consentiti solo 1 processo di importazione o esportazione di un dispositivo attivo alla volta per tutti i livelli di hub Internet. L'hub Internet delle cose presenta anche limiti per le operazioni di frequenza dei processi. Per altre informazioni, vedere [quote e limitazioni dell'hub di riferimento](iot-hub-devguide-quotas-throttling.md).
+Per tutti i livelli dell'hub IoT è consentito un solo processo di importazione o esportazione dei dispositivi attivo alla volta. L'hub IoT ha anche limiti per la velocità delle operazioni dei processi. Per altre informazioni, vedere [Riferimento : quote e limitazione dell'hub IoT](iot-hub-devguide-quotas-throttling.md).
 
 ## <a name="export-devices"></a>Esportare dispositivi
 
-Usare il metodo **ExportDevicesAsync** per esportare l'intero registro delle identità dell'hub Internet in un contenitore BLOB di archiviazione di Azure usando una firma di accesso condiviso (SAS). Per altre informazioni sulle firme di accesso condiviso, vedere [concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)](../storage/common/storage-sas-overview.md).
+Usare il metodo **ExportDevicesAsync** per esportare l'intero registro delle identità dell'hub IoT in un contenitore BLOB di Archiviazione di Azure usando una firma di accesso condiviso. Per altre informazioni sulle firme di accesso condiviso, vedere [Concedere l'accesso limitato alle risorse di Archiviazione di Azure usando le firme](../storage/common/storage-sas-overview.md)di accesso condiviso.
 
 Questo metodo consente di creare backup affidabili delle informazioni sui dispositivi in un contenitore BLOB che si controlla.
 
@@ -265,13 +265,13 @@ Usare la proprietà facoltativa **importMode** nei dati di serializzazione dell'
 
 | importMode | Descrizione |
 | --- | --- |
-| **createOrUpdate** |Se un dispositivo non esiste con l' **ID**specificato, viene appena registrato. <br/>Se il dispositivo esiste già, le informazioni esistenti vengono sovrascritte con i dati di input specificati senza tener conto del valore **ETag** . <br> L'utente può facoltativamente specificare i dati gemelli con i dati del dispositivo. Il valore ETag del gemello, se specificato, viene elaborato indipendentemente dall'ETAG del dispositivo. In caso di mancata corrispondenza con l'ETag del gemello esistente, viene scritto un errore nel file di log. |
-| **create** |Se un dispositivo non esiste con l' **ID**specificato, viene appena registrato. <br/>Se il dispositivo esiste già, viene scritto un errore nel file di log. <br> L'utente può facoltativamente specificare i dati gemelli con i dati del dispositivo. Il valore ETag del gemello, se specificato, viene elaborato indipendentemente dall'ETAG del dispositivo. In caso di mancata corrispondenza con l'ETag del gemello esistente, viene scritto un errore nel file di log. |
-| **update** |Se esiste già un dispositivo con l' **ID**specificato, le informazioni esistenti vengono sovrascritte con i dati di input forniti senza considerare il valore **ETag** . <br/>Se il dispositivo non esiste, viene scritto un errore nel file di log. |
-| **updateIfMatchETag** |Se esiste già un dispositivo con l' **ID**specificato, le informazioni esistenti vengono sovrascritte con i dati di input forniti solo se è presente una corrispondenza con **ETag** . <br/>Se il dispositivo non esiste, viene scritto un errore nel file di log. <br/>In caso di mancata corrispondenza con **ETag** , viene scritto un errore nel file di log. |
-| **createOrUpdateIfMatchETag** |Se un dispositivo non esiste con l' **ID**specificato, viene appena registrato. <br/>Se il dispositivo esiste già, le informazioni esistenti vengono sovrascritte con i dati di input specificati solo se viene rilevata una corrispondenza con **ETag** . <br/>In caso di mancata corrispondenza con **ETag** , viene scritto un errore nel file di log. <br> L'utente può facoltativamente specificare i dati gemelli con i dati del dispositivo. Il valore ETag del gemello, se specificato, viene elaborato indipendentemente dall'ETAG del dispositivo. In caso di mancata corrispondenza con l'ETag del gemello esistente, viene scritto un errore nel file di log. |
-| **delete** |Se esiste già un dispositivo con l' **ID**specificato, viene eliminato senza considerare il valore **ETag** . <br/>Se il dispositivo non esiste, viene scritto un errore nel file di log. |
-| **deleteIfMatchETag** |Se esiste già un dispositivo con l' **ID**specificato, viene eliminato solo se è presente una corrispondenza con **ETag** . Se il dispositivo non esiste, viene scritto un errore nel file di log. <br/>In caso di mancata corrispondenza con ETag, viene scritto un errore nel file di log. |
+| **createOrUpdate** |Se un dispositivo non esiste con **l'ID**specificato, viene appena registrato. <br/>Se il dispositivo esiste già, le informazioni esistenti vengono sovrascritte con i dati di input specificati senza tener conto del valore **ETag** . <br> L'utente può facoltativamente specificare i dati gemelli con i dati del dispositivo. L'etag del gemello, se specificato, viene elaborato indipendentemente dall'etag del dispositivo. Se si verifica una mancata corrispondenza con l'etag del gemello esistente, viene scritto un errore nel file di log. |
+| **Creare** |Se un dispositivo non esiste con **l'ID**specificato, viene appena registrato. <br/>Se il dispositivo esiste già, viene scritto un errore nel file di log. <br> L'utente può facoltativamente specificare i dati gemelli con i dati del dispositivo. L'etag del gemello, se specificato, viene elaborato indipendentemente dall'etag del dispositivo. Se si verifica una mancata corrispondenza con l'etag del gemello esistente, viene scritto un errore nel file di log. |
+| **Aggiornamento** |Se esiste già un dispositivo con **l'ID**specificato, le informazioni esistenti vengono sovrascritte con i dati di input forniti indipendentemente dal valore **ETag.** <br/>Se il dispositivo non esiste, viene scritto un errore nel file di log. |
+| **updateIfMatchETag** |Se esiste già un dispositivo con **l'ID**specificato, le informazioni esistenti vengono sovrascritte con i dati di input forniti solo se esiste una corrispondenza **ETag.** <br/>Se il dispositivo non esiste, viene scritto un errore nel file di log. <br/>In caso di mancata corrispondenza con **ETag** , viene scritto un errore nel file di log. |
+| **createOrUpdateIfMatchETag** |Se un dispositivo non esiste con **l'ID**specificato, viene appena registrato. <br/>Se il dispositivo esiste già, le informazioni esistenti vengono sovrascritte con i dati di input specificati solo se viene rilevata una corrispondenza con **ETag** . <br/>In caso di mancata corrispondenza con **ETag** , viene scritto un errore nel file di log. <br> L'utente può facoltativamente specificare i dati gemelli con i dati del dispositivo. L'etag del gemello, se specificato, viene elaborato indipendentemente dall'etag del dispositivo. Se si verifica una mancata corrispondenza con l'etag del gemello esistente, viene scritto un errore nel file di log. |
+| **Elimina** |Se un dispositivo esiste già con **l'ID**specificato, viene eliminato indipendentemente dal valore **ETag.** <br/>Se il dispositivo non esiste, viene scritto un errore nel file di log. |
+| **deleteIfMatchETag** |Se un dispositivo esiste già con **l'ID**specificato, viene eliminato solo se esiste una corrispondenza **ETag.** Se il dispositivo non esiste, viene scritto un errore nel file di log. <br/>In caso di mancata corrispondenza con ETag, viene scritto un errore nel file di log. |
 
 > [!NOTE]
 > Se i dati di serializzazione non definiscono in modo esplicito un flag **importMode** per un dispositivo, durante l'operazione di importazione l'impostazione predefinita è **createOrUpdate**.
@@ -427,18 +427,18 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo si è appreso come eseguire operazioni in blocco sul registro delle identità in un hub IoT. Molte di queste operazioni, incluse le modalità per spostare i dispositivi da un hub a un altro, vengono usate nella [sezione gestione dei dispositivi registrati per l'hub delle cose in come clonare un hub](iot-hub-how-to-clone.md#managing-the-devices-registered-to-the-iot-hub)Internet. 
+In questo articolo si è appreso come eseguire operazioni in blocco sul registro delle identità in un hub IoT. Molte di queste operazioni, tra cui come spostare i dispositivi da un hub all'altro, vengono utilizzate nella [sezione Gestione dei dispositivi registrati nell'hub IoT di Come clonare un hub IoT](iot-hub-how-to-clone.md#managing-the-devices-registered-to-the-iot-hub). 
 
-All'articolo relativo alla clonazione è associato un esempio funzionante, disponibile negli C# esempi di Internet delle cose in questa pagina: [esempi di Azure per C# ](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/), con il progetto ImportExportDevicesSample. È possibile scaricare l'esempio e provarlo; sono disponibili istruzioni nell'articolo [come clonare un hub](iot-hub-how-to-clone.md) .
+All'articolo sulla clonazione è associato un esempio funzionante, che si trova negli esempi IoT in C, in questa pagina: [Azure IoT Samples for C,](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/)con il progetto ImportExportDevicesSample. È possibile scaricare l'esempio e provarlo; ci sono istruzioni nell'articolo [Come clonare un hub IoT.](iot-hub-how-to-clone.md)
 
-Per altre informazioni sulla gestione dell'hub Azure, vedere gli articoli seguenti:
+Per altre informazioni sulla gestione dell'hub IoT di Azure, vedere gli articoli seguenti:To learn more about managing Azure IoT Hub, check out the following articles:
 
-* [Metriche di hub IoT](iot-hub-metrics.md)
-* [Log dell'hub Internet](iot-hub-monitor-resource-health.md)
+* [Metriche di Hub IoT](iot-hub-metrics.md)
+* [Registri dell'hub IoT](iot-hub-monitor-resource-health.md)
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
-* [Guida per sviluppatori dell'hub IoT](iot-hub-devguide.md)
+* [Guida per gli sviluppatori dell'hub IoT](iot-hub-devguide.md)
 * [Distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
 Per analizzare l'uso del servizio Device Provisioning dell'hub IoT per abilitare il provisioning automatico senza intervento umano, vedere: 

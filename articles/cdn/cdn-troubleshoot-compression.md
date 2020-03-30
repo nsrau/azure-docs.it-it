@@ -3,8 +3,8 @@ title: Risoluzione dei problemi di compressione di file nella rete CDN di Azure 
 description: Risolvere i problemi relativi alla compressione di file nella rete CDN di Azure.
 services: cdn
 documentationcenter: ''
-author: zhangmanling
-manager: erikre
+author: sohamnc
+manager: danielgi
 editor: ''
 ms.assetid: a6624e65-1a77-4486-b473-8d720ce28f8b
 ms.service: azure-cdn
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 5195dc3c47d2a4377147b2ef49b23bab6b3fee77
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: aff2dadee365fcdc7e14070714aa1d2cbba901ff
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593330"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476424"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Risoluzione dei problemi della compressione dei file CDN
 Questo articolo consente di risolvere i problemi relativi alla [compressione dei file CDN](cdn-improve-performance.md).
 
-Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del Supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**.
+Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto](https://azure.microsoft.com/support/options/) di Azure e fare clic su Ottieni **supporto**.
 
 ## <a name="symptom"></a>Sintomo
 La compressione per l'endpoint è abilitata, ma i file vengono restituiti non compressi.
@@ -42,6 +42,7 @@ Le cause possono essere diverse, ad esempio:
 * Il contenuto richiesto non è idoneo per la compressione.
 * La compressione non è abilitata per il tipo di file richiesto.
 * La richiesta HTTP non include un'intestazione che richiede un tipo di compressione valido.
+* Origin sta inviando contenuti in blocchi.
 
 ## <a name="troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi
 > [!TIP]
@@ -81,7 +82,7 @@ Passare all'endpoint nel [portale di Azure](https://portal.azure.com) e fare cli
 > 
 > 
 
-Passare all'endpoint nel [portale di Azure](https://portal.azure.com) e fare clic sul pulsante **Gestisci** .  Verrà aperto il portale supplementare.  Passare il puntatore sulla scheda **HTTP Grande**, quindi passare il puntatore sul riquadro a comparsa **Impostazioni della memorizzazione nella cache**.  Fare clic su **Compressione**. 
+Passare all'endpoint nel [portale di Azure](https://portal.azure.com) e fare clic sul pulsante **Gestisci** .  Verrà aperto il portale supplementare.  Passare il puntatore sulla scheda **HTTP Large** (HTTP esteso) e quindi sul riquadro a comparsa **Impostazioni cache**.  Fare clic su **Compressione**. 
 
 * Verificare se la compressione è abilitata.
 * Verificare che l'elenco dei **Tipi di file** contenga un elenco di tipi MIME delimitati da virgole (senza spazi).
@@ -97,7 +98,7 @@ Passare all'endpoint nel [portale di Azure](https://portal.azure.com) e fare cli
 
 Usando gli strumenti per sviluppatori del browser, controllare le intestazioni di risposta per verificare se il file è memorizzato nella cache nell'area in cui viene richiesto.
 
-* Controllare l'intestazione della risposta **Server** .  L'intestazione deve avere il formato **Piattaforma (POP/ID server)** , come illustrato nell'esempio seguente.
+* Controllare l'intestazione della risposta **Server** .  L'intestazione deve avere il formato **Piattaforma (POP/ID server)**, come illustrato nell'esempio seguente.
 * Controllare che l'intestazione della risposta **X-Cache** .  corrisponda a **HIT**.  
 
 ![Intestazioni di risposta CDN](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
@@ -116,6 +117,6 @@ Per essere idoneo per la compressione, un file deve avere le dimensioni seguenti
 ### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>Cercare nelle richieste nel server di origine un'intestazione **Via**
 L'intestazione HTPP **Via** indica al server Web che la richiesta viene passata da un server proxy.  Per impostazione predefinita, i server Web Microsoft IIS non comprimono le risposte quando la richiesta contiene un'intestazione **Via** .  Per eseguire l'override di questo comportamento, eseguire queste operazioni:
 
-* **IIS 6**: [Impostare HcNoCompressionForProxies = "FALSE" nelle proprietà della Metabase di IIS](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
-* **IIS 7 e successive**: [Impostare entrambe **noCompressionForHttp10** e **noCompressionForProxies** su False nella configurazione del server](https://www.iis.net/configreference/system.webserver/httpcompression)
+* **IIS 6**: [Impostare HcNoCompressionForProxies="FALSE" nelle proprietà della metabase di IIS](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
+* **IIS 7 e versioni successive**: [Impostare sia **noCompressionForHttp10** che **noCompressionForProxies** su False nella configurazione del server](https://www.iis.net/configreference/system.webserver/httpcompression)
 

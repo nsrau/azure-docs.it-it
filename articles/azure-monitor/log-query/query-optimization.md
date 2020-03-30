@@ -1,69 +1,71 @@
 ---
-title: Ottimizzare le query di log in monitoraggio di Azure
-description: Procedure consigliate per l'ottimizzazione delle query di log in monitoraggio di Azure.
+title: Ottimizzare le query di log in Monitoraggio di AzureOptimize log queries in Azure Monitor
+description: Procedure consigliate per l'ottimizzazione delle query di log in Monitoraggio di Azure.Best practices for optimizing log queries in Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/28/2019
-ms.openlocfilehash: 7316415a0f0c423a8a37477020a4ffd0ec044d73
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: c32731ce2de2b0f886a1e21ee8ccad3996e395eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79369472"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480267"
 ---
-# <a name="optimize-log-queries-in-azure-monitor"></a>Ottimizzare le query di log in monitoraggio di Azure
-Log di monitoraggio di Azure usa [Esplora dati di Azure (ADX)](/azure/data-explorer/) per archiviare i dati di log ed eseguire query per l'analisi di tali dati. Crea, gestisce e gestisce i cluster ADX per l'utente e li ottimizza per il carico di lavoro di analisi dei log. Quando si esegue una query, questa viene ottimizzata e indirizzata al cluster ADX appropriato che archivia i dati dell'area di lavoro. Sia i log di monitoraggio di Azure che Azure Esplora dati usano molti meccanismi di ottimizzazione automatica delle query. Sebbene le ottimizzazioni automatiche forniscano un incremento significativo, in alcuni casi è possibile migliorare notevolmente le prestazioni di esecuzione delle query. Questo articolo illustra le considerazioni sulle prestazioni e alcune tecniche per risolverle.
+# <a name="optimize-log-queries-in-azure-monitor"></a>Ottimizzare le query di log in Monitoraggio di AzureOptimize log queries in Azure Monitor
+Log di monitoraggio di Azure usa [Azure Data Explorer (ADX)](/azure/data-explorer/) per archiviare i dati di log ed eseguire query per l'analisi di tali dati. Crea, gestisce e gestisce automaticamente i cluster ADX e li ottimizza per il carico di lavoro dell'analisi dei log. Quando si esegue una query, questa viene ottimizzata e instradata al cluster ADX appropriato in cui sono archiviati i dati dell'area di lavoro. Sia i log di monitoraggio di Azure che Azure Data Explorer usano molti meccanismi di ottimizzazione automatica delle query. Mentre le ottimizzazioni automatiche forniscono un incremento significativo, sono in alcuni casi in cui è possibile migliorare notevolmente le prestazioni delle query. In questo articolo vengono illustrate le considerazioni sulle prestazioni e diverse tecniche per correggerle.
 
-La maggior parte delle tecniche è comune per le query che vengono eseguite direttamente nei log di Azure Esplora dati e di monitoraggio di Azure, anche se sono presenti alcune considerazioni univoche sui log di monitoraggio di Azure illustrate qui. Per altri suggerimenti sull'ottimizzazione di Azure Esplora dati, vedere procedure consigliate per le [query](/azure/kusto/query/best-practices).
+La maggior parte delle tecniche sono comuni alle query che vengono eseguite direttamente in Azure Data Explorer e nei log di Monitoraggio di Azure, anche se sono disponibili diverse considerazioni univoche dei log di Monitoraggio di Azure che vengono illustrate di seguito. Per altri suggerimenti per l'ottimizzazione di Azure Data Explorer, vedere Procedure consigliate per le [query.](/azure/kusto/query/best-practices)
 
-Query ottimizzate:
+Le query ottimizzate:
 
-- Esecuzione più veloce, riduzione della durata complessiva dell'esecuzione della query.
-- Hanno una minore probabilità di essere limitate o rifiutate.
+- Eseguire più velocemente, ridurre la durata complessiva dell'esecuzione della query.
+- Hanno minori possibilità di essere limitati o respinti.
 
-È necessario prestare particolare attenzione alle query che vengono usate per l'utilizzo ricorrente e di tipo imprevisto, ad esempio dashboard, avvisi, app per la logica e Power BI. L'impatto di una query inefficace in questi casi è sostanziale.
+È necessario prestare particolare attenzione alle query usate per l'utilizzo ricorrente e intenso, ad esempio dashboard, avvisi, app per la logica e Power BI. L'impatto di una query inefficace in questi casi è notevole.
 
-## <a name="query-performance-pane"></a>Riquadro prestazioni query
-Dopo aver eseguito una query in Log Analytics, fare clic sulla freccia rivolta verso il basso sopra i risultati della query per visualizzare il riquadro prestazioni query che mostra i risultati di diversi indicatori di prestazioni per la query. Questi indicatori di prestazioni sono descritti nella sezione seguente.
+## <a name="query-performance-pane"></a>Riquadro delle prestazioni delle query
+Dopo aver eseguito una query in Log Analytics, fare clic sulla freccia in giù sopra i risultati della query per visualizzare il riquadro delle prestazioni della query che mostra i risultati di diversi indicatori di prestazioni per la query. Questi indicatori di prestazioni sono descritti nella sezione seguente.
 
-![Riquadro prestazioni query](media/query-optimization/query-performance-pane.png)
+![Riquadro delle prestazioni delle query](media/query-optimization/query-performance-pane.png)
 
 
 ## <a name="query-performance-indicators"></a>Indicatori di prestazioni delle query
 
-Per ogni query eseguita sono disponibili gli indicatori di prestazioni della query seguenti:
+Per ogni query eseguita sono disponibili i seguenti indicatori di prestazioni delle query:
 
-- [CPU totale](#total-cpu): calcolo globale usato per elaborare la query in tutti i nodi di calcolo. Rappresenta il tempo usato per l'elaborazione, l'analisi e il recupero dei dati. 
+- [CPU totale](#total-cpu): Calcolo complessivo utilizzato per elaborare la query in tutti i nodi di calcolo. Rappresenta il tempo utilizzato per l'elaborazione, l'analisi e il recupero dei dati. 
 
-- [Dati usati per la query elaborata](#data-used-for-processed-query): dati complessivi a cui è stato eseguito l'accesso per elaborare la query. Influenzato dalla dimensione della tabella di destinazione, dall'intervallo di tempo utilizzato, dai filtri applicati e dal numero di colonne a cui si fa riferimento.
+- [Dati utilizzati per](#data-used-for-processed-query)la query elaborata: dati complessivi a cui è stato effettuato l'accesso per elaborare la query. Influenzato dalle dimensioni della tabella di destinazione, dall'intervallo di tempo utilizzato, dai filtri applicati e dal numero di colonne a cui viene fatto riferimento.
 
-- [Intervallo di tempo della query elaborata](#time-span-of-the-processed-query): gap tra i dati più recenti e meno recenti a cui è stato eseguito l'accesso per elaborare la query. Influenzato dall'intervallo di tempo esplicito specificato per la query.
+- [Intervallo di tempo della query elaborata:](#time-span-of-the-processed-query)divario tra i dati più recenti e quelli meno recenti a cui è stato effettuato l'accesso per elaborare la query. Influenzato dall'intervallo di tempo esplicito specificato per la query.
 
-- [Età dei dati elaborati](#age-of-processed-data): il gap tra ora e i dati meno recenti a cui è stato eseguito l'accesso per elaborare la query. Influisce fortemente sull'efficienza del recupero dei dati.
+- [Età dei dati elaborati](#age-of-processed-data): Il divario tra ora e i dati meno recenti a cui si è avuto accesso per elaborare la query. Influenza fortemente l'efficienza del recupero dei dati.
 
-- [Numero di aree di lavoro: numero di aree di](#number-of-workspaces)lavoro accessibili durante l'elaborazione della query a causa della selezione implicita o esplicita.
+- [Numero di aree di lavoro](#number-of-workspaces): numero di aree di lavoro a cui è stato effettuato l'accesso durante l'elaborazione della query a causa di una selezione implicita o esplicita.
 
-- [Numero di aree: numero di](#number-of-regions)aree a cui è stato eseguito l'accesso durante l'elaborazione delle query in base a una selezione implicita o esplicita delle aree di lavoro. Le query in più aree sono molto meno efficienti e gli indicatori di prestazioni presentano una copertura parziale.
+- [Numero di aree](#number-of-regions): numero di aree a cui è stato eseguito l'accesso durante l'elaborazione delle query a causa della selezione implicita o esplicita delle aree di lavoro. Le query a più aree sono molto meno efficienti e gli indicatori di prestazioni presentano una copertura parziale.
 
-- [Parallelism](#parallelism): indica il grado di esecuzione della query su più nodi da parte del sistema. Pertinente solo per le query con utilizzo elevato della CPU. Influenzato dall'utilizzo di funzioni e operatori specifici.
+- [Parallelismo](#parallelism): Indica quanto il sistema è stato in grado di eseguire questa query su più nodi. Rilevante solo per le query con un consumo elevato della CPU. Influenzato dall'utilizzo di funzioni e operatori specifici.
 
 
 ## <a name="total-cpu"></a>CPU totale
-CPU di calcolo effettiva investita per elaborare la query in tutti i nodi di elaborazione delle query. Poiché la maggior parte delle query viene eseguita su un numero elevato di nodi, questo sarà in genere molto più grande del tempo impiegato per l'esecuzione della query. 
+CPU di calcolo effettiva investita per elaborare la query in tutti i nodi di elaborazione delle query. Poiché la maggior parte delle query vengono eseguite su un numero elevato di nodi, questo sarà in genere molto più grande della durata effettivamente richiesta per l'esecuzione della query. 
 
-Tempo di elaborazione query dedicato a:
-- Recupero dati: il recupero dei dati precedenti utilizzerà più tempo del recupero dei dati recenti.
-- Elaborazione dei dati: logica e valutazione dei dati. 
+Il tempo di elaborazione delle query viene impiegato per:
+- Recupero dei dati: il recupero dei dati obsoleti richiederà più tempo rispetto al recupero dei dati recenti.
+- Elaborazione dei dati – logica e valutazione dei dati. 
 
-Oltre al tempo impiegato nei nodi di elaborazione delle query, è necessario tempo aggiuntivo per i log di monitoraggio di Azure: autenticare l'utente e verificare che sia autorizzato ad accedere a questi dati, individuare l'archivio dati, analizzare la query e allocare l'elaborazione delle query nodi. Questo tempo non è incluso nel tempo totale della CPU della query.
+Oltre al tempo trascorso nei nodi di elaborazione delle query, è disponibile ulteriore tempo da parte dei log di Monitoraggio di Azure per: autenticare l'utente e verificare che sia autorizzato ad accedere a questi dati, individuare l'archivio dati, analizzare la query e allocare l'elaborazione della query Nodi. Questo tempo non è incluso nel tempo totale CPU della query.
 
-Alcuni comandi e funzioni di query sono pesanti nell'utilizzo della CPU. Questa operazione è particolarmente valida per i comandi che analizzano JSON e XML o estraggono espressioni regolari complesse. Tale analisi può avvenire in modo esplicito tramite [parse_json ()](/azure/kusto/query/parsejsonfunction) o funzioni [parse_xml ()](/azure/kusto/query/parse-xmlfunction) o in modo implicito quando si fa riferimento a colonne dinamiche.
+### <a name="early-filtering-of-records-prior-of-using-high-cpu-functions"></a>Filtraggio precoce dei record prima dell'utilizzo di funzioni ad alta CPU
 
-Queste funzioni utilizzano la CPU in proporzione al numero di righe elaborate. L'ottimizzazione più efficiente consiste nell'aggiungere le condizioni WHERE all'inizio della query che possono filtrare il maggior numero possibile di record prima dell'esecuzione della funzione con utilizzo intensivo della CPU.
+Alcuni dei comandi e delle funzioni di query sono pesanti nel consumo della CPU. Ciò è particolarmente vero per i comandi che analizzano JSON e XML o estraggono espressioni regolari complesse. Tale analisi può avvenire in modo esplicito tramite funzioni [parse_json()](/azure/kusto/query/parsejsonfunction) o [parse_xml()](/azure/kusto/query/parse-xmlfunction) o in modo implicito quando si fa riferimento a colonne dinamiche.
 
-Ad esempio, le query seguenti producono esattamente lo stesso risultato, ma la seconda è di gran lunga la più efficiente come condizione [where](/azure/kusto/query/whereoperator) prima che l'analisi escluda molti record:
+Queste funzioni consumano CPU in proporzione al numero di righe che stanno elaborando. L'ottimizzazione più efficiente consiste nell'aggiungere le condizioni in cui nelle prime fasi della query è possibile filtrare il maggior numero possibile di record prima che venga eseguita la funzione che richiede un utilizzo intensivo della CPU.
+
+Ad esempio, le query seguenti producono esattamente lo stesso risultato, ma la seconda è di gran lunga la più efficiente della condizione [where](/azure/kusto/query/whereoperator) prima dell'analisi esclude molti record:
 
 ```Kusto
 //less efficient
@@ -86,8 +88,10 @@ SecurityEvent
 | where FileHash != "" // No need to filter out %SYSTEM32 here as it was removed before
 ```
 
-Le query che contengono clausole [where](/azure/kusto/query/whereoperator) su una colonna valutata anziché su colonne fisicamente presenti nel set di dati perdono l'efficienza. Il filtro sulle colonne valutate impedisce alcune ottimizzazioni del sistema quando vengono gestiti set di dati di grandi dimensioni.
-Ad esempio, le query seguenti producono esattamente lo stesso risultato, ma la seconda è più efficiente, perché la condizione [where](/azure/kusto/query/whereoperator) si riferisce a una colonna predefinita
+### <a name="avoid-using-evaluated-where-clauses"></a>Evitare di usare clausole where valutate
+
+Le query che contengono clausole [where](/azure/kusto/query/whereoperator) su una colonna valutata anziché su colonne fisicamente presenti nel set di dati perdono efficienza. Il filtro sulle colonne valutate impedisce alcune ottimizzazioni del sistema quando vengono gestiti set di dati di grandi dimensioni.
+Ad esempio, le query seguenti producono esattamente lo stesso risultato, ma la seconda è più efficiente della condizione [where](/azure/kusto/query/whereoperator) che fa riferimento alla colonna predefinita
 
 ```Kusto
 //less efficient
@@ -104,11 +108,13 @@ Heartbeat
 | summarize count() by Computer
 ```
 
-Mentre alcuni comandi di aggregazione come [Max ()](/azure/kusto/query/max-aggfunction), [Sum ()](/azure/kusto/query/sum-aggfunction), [Count ()](/azure/kusto/query/count-aggfunction)e [AVG ()](/azure/kusto/query/avg-aggfunction) hanno un basso effetto sulla CPU dovuti alla logica, altri sono più complessi e includono euristiche e stime che ne consentono l'esecuzione in modo efficiente. [DCount ()](/azure/kusto/query/dcount-aggfunction) , ad esempio, usa l'algoritmo HyperLogLog per fornire una stima di chiusura per il conteggio distinto di set di dati di grandi dimensioni senza contare effettivamente ogni valore. le funzioni percentile eseguono approssimazioni simili usando l'algoritmo percentile di rango più vicino. Molti dei comandi includono parametri facoltativi per ridurne l'effetto. Ad esempio, la funzione [maket ()](/azure/kusto/query/makeset-aggfunction) dispone di un parametro facoltativo per definire la dimensione massima del set, che influiscono significativamente sulla CPU e sulla memoria.
+### <a name="use-effective-aggregation-commands-and-dimmentions-in-summarize-and-join"></a>Usare comandi di aggregazione e dimenazioni efficaci per riepilogare e unire
 
-I comandi di [join](/azure/kusto/query/joinoperator?pivots=azuremonitor) e [Riepilogo](/azure/kusto/query/summarizeoperator) possono causare un utilizzo elevato della CPU durante l'elaborazione di un set di dati di grandi dimensioni. La relativa complessità è direttamente correlata al numero di valori possibili, denominati *cardinalità*, delle colonne utilizzate come `by` in riepilogo o come attributi di join. Per la spiegazione e l'ottimizzazione di join e riepilogo, vedere gli articoli della documentazione e i suggerimenti per l'ottimizzazione.
+Mentre alcuni comandi di aggregazione come [max(),](/azure/kusto/query/max-aggfunction) [sum()](/azure/kusto/query/sum-aggfunction), [count()](/azure/kusto/query/count-aggfunction)e [avg()](/azure/kusto/query/avg-aggfunction) hanno un impatto ridotto sulla CPU a causa della loro logica, altri sono più complessi e includono euristiche e stime che consentono loro di essere eseguiti in modo efficiente. Ad esempio, [dcount()](/azure/kusto/query/dcount-aggfunction) utilizza l'algoritmo HyperLogLog per fornire una stima di chiusura al conteggio distinto di set di dati di grandi dimensioni senza contare effettivamente ogni valore; le funzioni percentili stanno facendo approssimazioni simili utilizzando l'algoritmo percentile rango più vicino. Molti dei comandi includono parametri facoltativi per ridurne l'impatto. Ad esempio, la funzione [makeset()](/azure/kusto/query/makeset-aggfunction) dispone di un parametro facoltativo per definire la dimensione massima impostata, che influisce in modo significativo sulla CPU e sulla memoria.
 
-Ad esempio, le query seguenti producono esattamente lo stesso risultato perché **CounterPath** è sempre un mapping uno-a-uno con **counterName** e **nomeoggetto**. Il secondo è più efficiente perché la dimensione di aggregazione è più piccola:
+[I](/azure/kusto/query/joinoperator?pivots=azuremonitor) comandi di join e [riepilogo](/azure/kusto/query/summarizeoperator) possono causare un utilizzo elevato della CPU durante l'elaborazione di un set di dati di grandi dimensioni. La loro complessità è direttamente correlata al numero di valori possibili, denominati *cardinalità*, delle colonne che vengono eseguite come `by` attributi in summarize o as the join. Per la spiegazione e l'ottimizzazione di join e riepilogo, vedere i relativi articoli di documentazione e suggerimenti sull'ottimizzazione.
+
+Ad esempio, le query seguenti producono esattamente lo stesso risultato perché **CounterPath** è sempre mappato uno a uno a **CounterName** e **ObjectName**. Il secondo è più efficiente in quanto la dimensione di aggregazione è più piccola:The second one is more efficient as the aggregation dimension is smaller:
 
 ```Kusto
 //less efficient
@@ -123,9 +129,9 @@ Perf
 by CounterPath
 ```
 
-L'utilizzo della CPU potrebbe anche essere influenzato dalle condizioni di Where o dalle colonne estese che richiedono un calcolo intensivo. Tutti i confronti di stringhe semplici, ad esempio [Equal = =](/azure/kusto/query/datatypes-string-operators) e [StartsWith](/azure/kusto/query/datatypes-string-operators) , presentano approssimativamente lo stesso effetto della CPU mentre le corrispondenze di testo avanzate hanno un maggiore effetto. In particolare, l'operatore [has](/azure/kusto/query/datatypes-string-operators) è più efficiente dell'operatore [Contains](/azure/kusto/query/datatypes-string-operators) . A causa delle tecniche di gestione delle stringhe, è più efficiente cercare stringhe più lunghe di quattro caratteri rispetto alle stringhe brevi.
+L'utilizzo della CPU potrebbe essere influenzato anche dal punto in cui le condizioni o le colonne estese che richiedono un utilizzo intensivo dell'elaborazione. Tutti i confronti di stringhe semplici, ad esempio [uguale,](/azure/kusto/query/datatypes-string-operators) e [startswith](/azure/kusto/query/datatypes-string-operators) hanno all'incirca lo stesso impatto sulla CPU, mentre le corrispondenze di testo avanzate hanno un impatto maggiore. In particolare, l'operatore [has](/azure/kusto/query/datatypes-string-operators) è più efficiente dell'operatore [contains.](/azure/kusto/query/datatypes-string-operators) A causa delle tecniche di gestione delle stringhe, è più efficiente cercare stringhe più lunghe di quattro caratteri rispetto alle stringhe brevi.
 
-Ad esempio, le query seguenti producono risultati simili, in base ai criteri di denominazione dei computer, ma la seconda è più efficiente:
+Ad esempio, le query seguenti producono risultati simili, a seconda dei criteri di denominazione del computer, ma la seconda è più efficiente:For example, the following queries produce similar results, depending on Computer naming policy, but the second one is more efficient:
 
 ```Kusto
 //less efficient – due to filter based on contains
@@ -148,17 +154,20 @@ Heartbeat
 ```
 
 > [!NOTE]
-> Questo indicatore presenta solo la CPU del cluster immediato. In una query in più aree, rappresenta solo una delle aree. In una query con più aree di lavoro potrebbe non includere tutte le aree di lavoro.
+> Questo indicatore presenta solo la CPU del cluster immediato. Nella query su più aree, rappresenterebbe solo una delle aree. Nella query con più aree di lavoro, potrebbe non includere tutte le aree di lavoro.
 
 
-## <a name="data-used-for-processed-query"></a>Dati usati per la query elaborata
+## <a name="data-used-for-processed-query"></a>Dati utilizzati per la query elaborata
 
-Un fattore critico nell'elaborazione della query è costituito dal volume di dati analizzati e utilizzati per l'elaborazione delle query. Azure Esplora dati USA ottimizzazioni aggressive che riducono drasticamente il volume di dati rispetto ad altre piattaforme di dati. Tuttavia, nella query sono presenti fattori cruciali che possono influiscono sul volume di dati utilizzato.
-Nei log di monitoraggio di Azure, la colonna **TimeGenerated** viene usata come metodo per indicizzare i dati. La limitazione dei valori di **TimeGenerated** a un intervallo più limitato possibile comporta un miglioramento significativo delle prestazioni delle query, limitando significativamente la quantità di dati da elaborare.
+Un fattore critico nell'elaborazione della query è il volume di dati analizzati e utilizzati per l'elaborazione della query. Azure Data Explorer usa ottimizzazioni aggressive che riducono drasticamente il volume di dati rispetto ad altre piattaforme di dati. Tuttavia, esistono fattori critici nella query che possono influire sul volume di dati utilizzato.
 
-Un altro fattore che aumenta i dati elaborati è l'utilizzo di un numero elevato di tabelle. Questa situazione si verifica in genere quando vengono usati `search *` e `union *` comandi. Questi comandi forzano il sistema a valutare e analizzare i dati di tutte le tabelle nell'area di lavoro. In alcuni casi, potrebbero essere presenti centinaia di tabelle nell'area di lavoro. Provare a evitare il più possibile utilizzando "Search *" o qualsiasi ricerca senza l'ambito di una tabella specifica.
+In Registri di monitoraggio di Azure la colonna **TimeGenerated** viene usata per indicizzare i dati. Limitare i valori **TimeGenerated** al più stretto possibile un intervallo consentirà di ottenere un miglioramento significativo delle prestazioni delle query limitando in modo significativo la quantità di dati da elaborare.
 
-Ad esempio, le query seguenti producono esattamente lo stesso risultato, ma l'ultimo è di gran lunga il più efficiente:
+### <a name="avoid-unnecessary-use-of-search-and-union-operators"></a>Evitare l'uso non necessario degli operatori di ricerca e sindacalità
+
+Un altro fattore che aumenta i dati che vengono processati è l'uso di un numero elevato di tabelle. Ciò si `search *` `union *` verifica in genere quando vengono utilizzati i comandi e . Questi comandi forzano il sistema a valutare ed eseguire la scansione dei dati da tutte le tabelle nell'area di lavoro. In alcuni casi, potrebbero essere presenti centinaia di tabelle nell'area di lavoro. Cercate di evitare il più possibile l'utilizzo di "search" o qualsiasi ricerca senza decanarlo a una tabella specifica.
+
+Ad esempio, le query seguenti producono esattamente lo stesso risultato, ma l'ultima è di gran lunga la più efficiente:For example, the following queries produce exactly the same result but the last one is di gran lunga the most efficient:
 
 ```Kusto
 // This version scans all tables though only Perf has this kind of data
@@ -178,9 +187,11 @@ Perf
 | summarize count(), avg(CounterValue)  by Computer
 ```
 
-Un altro metodo per ridurre il volume di dati consiste nel disporre di condizioni [where](/azure/kusto/query/whereoperator) all'inizio della query. La piattaforma Azure Esplora dati include una cache che consente di individuare le partizioni che includono i dati rilevanti per una specifica condizione WHERE. Se, ad esempio, una query contiene `where EventID == 4624`, la query verrà distribuita solo ai nodi che gestiscono le partizioni con eventi corrispondenti.
+### <a name="add-early-filters-to-the-query"></a>Aggiungere filtri anticipati alla query
 
-Le query di esempio seguenti producono esattamente lo stesso risultato, ma la seconda è più efficiente:
+Un altro metodo per ridurre il volume di dati consiste nell'avere le condizioni [in cui](/azure/kusto/query/whereoperator) le condizioni nelle prime fasi della query. La piattaforma Azure Data Explorer include una cache che consente di sapere quali partizioni includono dati rilevanti per una condizione where specifica. Ad esempio, se `where EventID == 4624` una query contiene quindi distribuirebbe la query solo ai nodi che gestiscono le partizioni con eventi corrispondenti.
+
+Le query di esempio seguenti producono esattamente lo stesso risultato, ma la seconda è più efficiente:The following example queries produce exactly the same result but the second one is more efficient:
 
 ```Kusto
 //less efficient
@@ -194,9 +205,11 @@ SecurityEvent
 | summarize LoginSessions = dcount(LogonGuid) by Account
 ```
 
-Poiché Esplora dati di Azure è un archivio dati a colonne, il recupero di ogni colonna è indipendente dagli altri. Il numero di colonne recuperate influisce direttamente sul volume di dati generale. È necessario includere solo le colonne nell'output necessarie [Riepilogando](/azure/kusto/query/summarizeoperator) i risultati o [proiettando](/azure/kusto/query/projectoperator) le colonne specifiche. Azure Esplora dati offre diverse ottimizzazioni per ridurre il numero di colonne recuperate. Se determina che una colonna non è necessaria, ad esempio se non vi viene fatto riferimento nel comando [riepilogate](/azure/kusto/query/summarizeoperator) , non verrà recuperata.
+### <a name="reduce-the-number-of-columns-that-is-retrieved"></a>Ridurre il numero di colonne recuperate
 
-La seconda query, ad esempio, può elaborare tre volte più dati perché è necessario recuperare una colonna, ma tre:
+Poiché Azure Data Explorer è un archivio dati a colonne, il recupero di ogni colonna è indipendente dagli altri. Il numero di colonne recuperate influisce direttamente sull'intero volume di dati. È necessario includere nell'output solo le colonne necessarie [riepilogando](/azure/kusto/query/summarizeoperator) i risultati o [proiettando](/azure/kusto/query/projectoperator) le colonne specifiche. Azure Data Explorer include diverse ottimizzazioni per ridurre il numero di colonne recuperate. Se determina che una colonna non è necessaria, ad esempio se non vi viene fatto riferimento nel comando [summarize,](/azure/kusto/query/summarizeoperator) non la recupererà.
+
+Ad esempio, la seconda query può elaborare tre volte più dati poiché è necessario recuperare non una colonna ma tre:For example, the second query may process three times more data since it needs to fetch not one column but three:
 
 ```Kusto
 //Less columns --> Less data
@@ -211,14 +224,16 @@ SecurityEvent
 
 ## <a name="time-span-of-the-processed-query"></a>Intervallo di tempo della query elaborata
 
-Tutti i log nei log di monitoraggio di Azure vengono partizionati in base alla colonna **TimeGenerated** . Il numero di partizioni a cui si accede è direttamente correlato all'intervallo di tempo. La riduzione dell'intervallo di tempo è il modo più efficiente per garantire l'esecuzione di una query di richiesta.
+Tutti i log nei log di Monitoraggio di Azure vengono partizionati in base alla colonna **TimeGenerated.All** logs in Azure Monitor Logs are partitioned according to the TimeGenerated column. Il numero di partizioni a cui si accede è direttamente correlato all'intervallo di tempo. La riduzione dell'intervallo di tempo è il modo più efficiente per assicurare l'esecuzione di una query di prompt.
 
-L'intervallo di tempo può essere impostato usando il selettore dell'intervallo di tempo nella schermata Log Analytics come descritto nell' [ambito della query di log e nell'intervallo di tempo in monitoraggio di Azure log Analytics](scope.md#time-range). Si tratta del metodo consigliato perché l'intervallo di tempo selezionato viene passato al back-end usando i metadati della query. 
+L'intervallo di tempo può essere impostato usando il selettore dell'intervallo di tempo nella schermata Log Analytics, come descritto in [Log query scope and time range in Azure Monitor Log Analytics](scope.md#time-range). Questo è il metodo consigliato in quanto l'intervallo di tempo selezionato viene passato al back-end utilizzando i metadati della query. 
 
-Un metodo alternativo consiste nel includere in modo esplicito una condizione [where](/azure/kusto/query/whereoperator) in **TimeGenerated** nella query. È consigliabile utilizzare questo metodo per garantire che l'intervallo di tempo sia fisso, anche quando la query viene utilizzata da un'interfaccia diversa.
-È necessario assicurarsi che tutte le parti della query dispongano di filtri **TimeGenerated** . Quando in una query sono presenti sottoquery che recuperano dati da diverse tabelle o dalla stessa tabella, ciascuna di esse deve includere la relativa condizione [where](/azure/kusto/query/whereoperator) .
+Un metodo alternativo consiste nell'includere in modo esplicito una condizione [where](/azure/kusto/query/whereoperator) su **TimeGenerated** nella query. È necessario utilizzare questo metodo perché assicura che l'intervallo di tempo sia fisso, anche quando la query viene utilizzata da un'interfaccia diversa.
+È necessario assicurarsi che in tutte le parti della query siano disponibili filtri **TimeGenerated.** Quando una query include sottoquery il recupero di dati da varie tabelle o dalla stessa tabella, ognuna deve includere la propria condizione [where.](/azure/kusto/query/whereoperator)
 
-Ad esempio, nella query seguente, mentre la tabella delle **prestazioni** verrà analizzata solo per l'ultimo giorno, la tabella **heartbeat** verrà analizzata per tutta la cronologia, che può essere fino a due anni:
+### <a name="make-sure-all-sub-queries-have-timegenerated-filter"></a>Assicurarsi che per tutte le sottoquery sia stato definito il filtro TimeGenerated
+
+Ad esempio, nella query seguente, mentre la tabella **Perf** verrà analizzata solo per l'ultimo giorno, la tabella **Heartbeat** verrà analizzata per tutta la cronologia, che potrebbe richiedere fino a due anni:
 
 ```Kusto
 Perf
@@ -231,7 +246,7 @@ Perf
 ) on Computer
 ```
 
-Un caso comune in cui si verifica un errore di questo tipo è quando viene usato [ARG_MAX ()](/azure/kusto/query/arg-max-aggfunction) per trovare l'occorrenza più recente. Ad esempio,
+Un caso comune in cui si verifica un errore di questo tipo è quando [arg_max()](/azure/kusto/query/arg-max-aggfunction) viene utilizzato per trovare l'occorrenza più recente. Ad esempio:
 
 ```Kusto
 Perf
@@ -245,7 +260,7 @@ by Computer
 ) on Computer
 ```
 
-Questa operazione può essere facilmente corretta aggiungendo un filtro temporale nella query interna:
+Questo può essere facilmente corretto aggiungendo un filtro temporale nella query interna:
 
 ```Kusto
 Perf
@@ -259,9 +274,9 @@ by Computer
 ) on Computer
 ```
 
-Un altro esempio di questo errore è quando si esegue il filtro dell'ambito temporale subito dopo un' [Unione](/azure/kusto/query/unionoperator?pivots=azuremonitor) su più tabelle. Quando si esegue l'Unione, è necessario definire l'ambito di ogni sottoquery. È possibile utilizzare l'istruzione [Let](/azure/kusto/query/letstatement) per garantire la coerenza dell'ambito.
+Un altro esempio per questo errore è quando si esegue il filtro dell'ambito di tempo subito dopo [un'unione](/azure/kusto/query/unionoperator?pivots=azuremonitor) su più tabelle. Quando si esegue l'unione, ogni sottoquery deve avere come ambito. È possibile utilizzare [let](/azure/kusto/query/letstatement) istruzione per garantire la coerenza dell'ambito.
 
-Ad esempio, la query seguente analizzerà tutti i dati nelle tabelle *heartbeat* e *Perf* , non solo nell'ultimo giorno:
+Ad esempio, la query seguente analirà tutti i dati nelle tabelle *Heartbeat* e *Perf,* non solo nell'ultimo giorno:
 
 ```Kusto
 Heartbeat 
@@ -273,7 +288,7 @@ Heartbeat
 | summarize min(TimeGenerated) by Computer
 ```
 
-Questa query deve essere corretta nel modo seguente:
+Questa query deve essere corretta come segue:This query should be fixed as follows:
 
 ```Kusto
 let MinTime = ago(1d);
@@ -287,67 +302,69 @@ Heartbeat
 | summarize min(TimeGenerated) by Computer
 ```
 
-La misura è sempre maggiore del tempo effettivo specificato. Se, ad esempio, il filtro della query è di 7 giorni, il sistema potrebbe analizzare 7,5 o 8,1 giorni. Questo perché il sistema suddivide i dati in blocchi in dimensioni variabili. Per assicurarsi che tutti i record rilevanti vengano analizzati, analizza l'intera partizione che può coprire diverse ore e persino più di un giorno.
+### <a name="time-span-measurement-limitations"></a>Limitazioni di misurazione dell'intervallo di tempo
 
-Esistono diversi casi in cui il sistema non è in grado di fornire una misurazione accurata dell'intervallo di tempo. Questa situazione si verifica nella maggior parte dei casi in cui l'intervallo della query è inferiore a un giorno o in query con più aree di lavoro.
+La misurazione è sempre maggiore del tempo effettivo specificato. Ad esempio, se il filtro della query è di 7 giorni, il sistema potrebbe eseguire la scansione 7,5 o 8,1 giorni. Ciò è dovuto al fatto che il sistema sta partizionando i dati in blocchi in dimensioni variabili. Per garantire che tutti i record rilevanti vengono analizzati, esegue la scansione dell'intera partizione che potrebbe coprire diverse ore e anche più di un giorno.
 
+Ci sono diversi casi in cui il sistema non può fornire una misurazione accurata dell'intervallo di tempo. Ciò si verifica nella maggior parte dei casi in cui l'estensione della query si estende meno di un giorno o in query con più aree di lavoro.
 
-> [!IMPORTANT]
-> Questo indicatore presenta solo i dati elaborati nel cluster immediato. In una query in più aree, rappresenta solo una delle aree. In una query con più aree di lavoro potrebbe non includere tutte le aree di lavoro.
-
-## <a name="age-of-processed-data"></a>Età dei dati elaborati
-Azure Esplora dati usa diversi livelli di archiviazione: in memoria, dischi SSD locali e BLOB di Azure più lenti. Più recenti sono i dati, maggiore è la probabilità che vengano archiviati in un livello più efficiente con latenza inferiore, riducendo la durata e la CPU della query. Oltre ai dati stessi, il sistema dispone anche di una cache per i metadati. Con i dati meno recenti, minore è la probabilità che i metadati si trovino nella cache.
-
-Sebbene alcune query richiedano l'utilizzo di dati obsoleti, esistono casi in cui i dati obsoleti vengono utilizzati per errore. Questo errore si verifica quando le query vengono eseguite senza specificare un intervallo di tempo nei relativi metadati e non tutti i riferimenti alle tabelle includono Filter per la colonna **TimeGenerated** . In questi casi, il sistema analizzerà tutti i dati archiviati in tale tabella. Quando la conservazione dei dati è lunga, può coprire intervalli di tempo prolungati e quindi i dati che hanno un periodo di conservazione dei dati precedente.
-
-Questi casi possono essere ad esempio:
-
-- La mancata impostazione dell'intervallo di tempo in Log Analytics con una sottoquery che non è limitata. Vedere l'esempio precedente.
-- Uso dell'API senza i parametri facoltativi dell'intervallo di tempo.
-- Uso di un client che non impone un intervallo di tempo, ad esempio il connettore Power BI.
-
-Vedere gli esempi e le note nella sezione precedente, in quanto sono rilevanti anche in questo caso.
-
-## <a name="number-of-regions"></a>Numero di aree
-Esistono diverse situazioni in cui una singola query può essere eseguita in aree diverse:
-
-- Quando diverse aree di lavoro sono elencate in modo esplicito e si trovano in aree diverse.
-- Quando una query con ambito di risorsa recupera dati e i dati vengono archiviati in più aree di lavoro che si trovano in aree diverse.
-
-Per l'esecuzione di query tra aree diverse è necessario che il sistema esegua la serializzazione e il trasferimento nel back-end di grandi quantità di dati intermedi che in genere sono molto più grandi dei risultati finali della query. Limita inoltre la capacità del sistema di eseguire ottimizzazioni, euristiche e usare cache.
-Se non esiste un motivo reale per analizzare tutte queste aree, è necessario modificare l'ambito in modo che ricopra un minor numero di aree. Se l'ambito della risorsa è ridotto a icona ma vengono utilizzate ancora molte aree, potrebbe verificarsi un errore di configurazione. Ad esempio, i log di controllo e le impostazioni di diagnostica vengono inviati a diverse aree di lavoro in aree diverse o sono presenti più configurazioni di impostazioni di diagnostica. 
 
 > [!IMPORTANT]
-> Quando una query viene eseguita in diverse aree, le misurazioni di CPU e dati non saranno accurate e rappresenteranno la misurazione solo in una delle aree.
+> Questo indicatore presenta solo i dati elaborati nel cluster immediato. Nella query su più aree, rappresenterebbe solo una delle aree. Nella query con più aree di lavoro, potrebbe non includere tutte le aree di lavoro.
+
+## <a name="age-of-processed-data"></a>Età dei dati trattati
+Azure Data Explorer usa diversi livelli di archiviazione: dischi SSD locali in memoria e BLOB di Azure molto più lenti. Più recenti sono i dati, maggiore è la probabilità che vengano archiviati in un livello più performante con latenza inferiore, riducendo la durata e la CPU della query. Oltre ai dati stessi, il sistema dispone anche di una cache per i metadati. Più vecchi sono i dati, minore è la probabilità che i metadati siano nella cache.
+
+Mentre alcune query richiedono l'utilizzo di dati precedenti, ci sono casi in cui i dati obsoleti vengono utilizzati per errore. Ciò si verifica quando le query vengono eseguite senza fornire intervallo di tempo nei metadati e non tutti i riferimenti di tabella includono il filtro nella colonna **TimeGenerated.** In questi casi, il sistema analirà tutti i dati archiviati in tale tabella. Quando la conservazione dei dati è lunga, può coprire lunghi intervalli di tempo e quindi dati che sono vecchi come il periodo di conservazione dei dati.
+
+Tali casi possono essere ad esempio:
+
+- Non impostare l'intervallo di tempo in Log Analytics con una sottoquery che non è limitata. Vedere l'esempio precedente.
+- Utilizzo dell'API senza i parametri facoltativi dell'intervallo di tempo.
+- Uso di un client che non forza un intervallo di tempo, ad esempio il connettore di Power BI.
+
+Vedere esempi e note nella sezione pervious in quanto sono rilevanti anche in questo caso.
+
+## <a name="number-of-regions"></a>Numero di regioni
+Esistono diverse situazioni in cui una singola query può essere eseguita in diverse aree:There are several situations where a single query might be executed across different regions:
+
+- Quando più aree di lavoro sono elencate in modo esplicito e si trovano in aree diverse.
+- Quando una query con ambito di risorsa recupera i dati e i dati vengono archiviati in più aree di lavoro che si trovano in aree diverse.
+
+L'esecuzione di query tra aree richiede che il sistema serializzi e trasferisca blocchi di dati intermedi di grandi dimensioni di dati intermedi che in genere sono molto più grandi dei risultati finali della query. Limita inoltre la capacità del sistema di eseguire ottimizzazioni, euristica e utilizzare le cache.
+Se non vi è alcun motivo reale per eseguire la scansione di tutte queste aree, è necessario modificare l'ambito in modo che copra un numero inferiore di regioni. Se l'ambito della risorsa è ridotto al minimo ma vengono utilizzate ancora molte aree, è possibile che si verifichi una configurazione errata. Ad esempio, i log di controllo e le impostazioni di diagnostica vengono inviati a aree di lavoro diverse in aree diverse o sono presenti più configurazioni delle impostazioni di diagnostica. 
+
+> [!IMPORTANT]
+> Quando una query viene eseguita in più aree, le misurazioni della CPU e dei dati non saranno accurate e rappresenteranno la misurazione solo in una delle aree.
 
 ## <a name="number-of-workspaces"></a>Numero di aree di lavoro
-Le aree di lavoro sono contenitori logici usati per separare e amministrare i dati dei log. Il back-end ottimizza i posizionamenti dell'area di lavoro nei cluster fisici all'interno dell'area selezionata.
+Le aree di lavoro sono contenitori logici utilizzati per separare e amministrare i dati di log. Il back-end ottimizza i posizionamenti dell'area di lavoro nei cluster fisici all'interno dell'area selezionata.
 
-L'uso di più aree di lavoro può essere causato da: 
+L'utilizzo di più aree di lavoro può derivare da: 
 
-- Dove sono elencate in modo esplicito diverse aree di lavoro.
-- Quando una query con ambito di risorsa recupera dati e i dati vengono archiviati in più aree di lavoro.
+- Dove sono elencate in modo esplicito più aree di lavoro.
+- Quando una query con ambito di risorsa recupera i dati e i dati vengono archiviati in più aree di lavoro.
  
-L'esecuzione di query tra più aree e tra cluster richiede che il sistema esegua la serializzazione e il trasferimento nei blocchi back-end di grandi dimensioni di dati intermedi che in genere sono molto più grandi dei risultati finali della query. Limita inoltre la capacità di sistema di eseguire ottimizzazioni, euristiche e utilizzo di cache.
+L'esecuzione tra aree e intercluster delle query richiede che il sistema venga serializzato e trasferito nei blocchi back-end di dati intermedi che in genere sono molto più grandi dei risultati finali della query. Limita inoltre la capacità del sistema di eseguire ottimizzazioni, euristica e utilizzo delle cache.
 
 > [!IMPORTANT]
-> In alcuni scenari con più aree di lavoro, le misurazioni di CPU e dati non saranno accurate e rappresenteranno la misurazione solo per alcune delle aree di lavoro.
+> In alcuni scenari con più aree di lavoro, le misurazioni della CPU e dei dati non saranno accurate e rappresenteranno la misurazione solo per poche aree di lavoro.
 
 ## <a name="parallelism"></a>Parallelismo
-I log di monitoraggio di Azure usano cluster di grandi dimensioni di Azure Esplora dati per eseguire query e questi cluster variano in scala, ottenendo potenzialmente fino a dozzine di nodi di calcolo. Il sistema ridimensiona automaticamente i cluster in base alla logica e alla capacità di posizionamento dell'area di lavoro.
+Registri di monitoraggio di Azure utilizza cluster di grandi dimensioni di Azure Data Explorer per eseguire query e questi cluster variano in scala, potenzialmente arrivando a decine di nodi di calcolo. Il sistema ridimensiona automaticamente i cluster in base alla logica e alla capacità di posizionamento dell'area di lavoro.
 
-Per eseguire una query in modo efficiente, viene partizionata e distribuita ai nodi di calcolo in base ai dati necessari per l'elaborazione. In alcune situazioni il sistema non è in grado di eseguire questa operazione in modo efficiente. Questo può causare una lunga durata della query. 
+Per eseguire in modo efficiente una query, questa viene partizionata e distribuita ai nodi di calcolo in base ai dati necessari per l'elaborazione. Ci sono alcune situazioni in cui il sistema non può farlo in modo efficiente. Ciò può portare a una lunga durata della query. 
 
-I comportamenti di query che possono ridurre il parallelismo includono:
+I comportamenti delle query che possono ridurre il parallelismo includono:Query behaviors that can reduce parallelism include:
 
-- Utilizzo di funzioni di serializzazione e finestra come l' [operatore Serialize](/azure/kusto/query/serializeoperator), [Next ()](/azure/kusto/query/nextfunction), [Prev ()](/azure/kusto/query/prevfunction)e le funzioni [Row](/azure/kusto/query/rowcumsumfunction) . In alcuni di questi casi è possibile usare le funzioni Time Series e analisi utente. La serializzazione inefficiente può verificarsi anche se vengono usati gli operatori seguenti non alla fine della query: [Range](/azure/kusto/query/rangeoperator), [Sort](/azure/kusto/query/sortoperator), [Order](/azure/kusto/query/orderoperator), [Top](/azure/kusto/query/topoperator), [Top-battitor](/azure/kusto/query/tophittersoperator), [GetSchema](/azure/kusto/query/getschemaoperator).
--   L'utilizzo della funzione di aggregazione [DCount ()](/azure/kusto/query/dcount-aggfunction) impone al sistema la copia centrale dei valori distinti. Quando la scala dei dati è elevata, è consigliabile usare i parametri facoltativi della funzione DCount per ridurre la precisione.
--   In molti casi, l'operatore di [join](/azure/kusto/query/joinoperator?pivots=azuremonitor) abbassa il parallelismo generale. Esaminare il join casuale come alternativa quando le prestazioni sono problematiche.
--   Nelle query con ambito di risorse, i controlli di pre-esecuzione RBAC possono rimanere in situazioni in cui è presente un numero molto elevato di assegnazioni RBAC. Questa operazione può comportare controlli più lunghi che comporterebbero un parallelismo inferiore. Ad esempio, una query viene eseguita su una sottoscrizione in cui sono presenti migliaia di risorse e ogni risorsa ha numerose assegnazioni di ruolo a livello di risorsa, non nella sottoscrizione o nel gruppo di risorse.
--   Se una query elabora piccoli blocchi di dati, il suo parallelismo sarà basso perché il sistema non lo distribuisce in molti nodi di calcolo.
+- Utilizzo delle funzioni di serializzazione e finestra, ad esempio [l'operatore serialize](/azure/kusto/query/serializeoperator), [next()](/azure/kusto/query/nextfunction), [prev()](/azure/kusto/query/prevfunction)e le funzioni [di riga.](/azure/kusto/query/rowcumsumfunction) In alcuni di questi casi è possibile usare le serie temporali e le funzioni di analisi utente. La serializzazione inefficiente può verificarsi anche se vengono utilizzati i seguenti operatori non alla fine della query: [range](/azure/kusto/query/rangeoperator), [sort](/azure/kusto/query/sortoperator), [order](/azure/kusto/query/orderoperator), [top](/azure/kusto/query/topoperator), [top-hitters](/azure/kusto/query/tophittersoperator), [getschema](/azure/kusto/query/getschemaoperator).
+-    L'utilizzo della funzione di aggregazione [dcount()](/azure/kusto/query/dcount-aggfunction) forza il sistema a disporre di una copia centrale dei valori distinti. Quando la scala dei dati è elevata, è consigliabile usare i parametri facoltativi della funzione dcount per ridurre la precisione.
+-    In molti casi, l'operatore [di join](/azure/kusto/query/joinoperator?pivots=azuremonitor) riduce il parallelismo generale. Esaminare il join casuale come alternativa quando le prestazioni sono problematiche.
+-    Nelle query con ambito di risorse, i controlli RBAC pre-esecuzione possono indugiare in situazioni in cui è presente un numero molto elevato di assegnazioni RBAC. Ciò può portare a controlli più lunghi che comporterebbero un minore parallelismo. Ad esempio, una query viene eseguita in una sottoscrizione in cui sono presenti migliaia di risorse e ogni risorsa ha molte assegnazioni di ruolo a livello di risorsa, non nella sottoscrizione o nel gruppo di risorse.
+-    Se una query sta elaborando piccoli blocchi di dati, il suo parallelismo sarà basso in quanto il sistema non la distribuirà in molti nodi di calcolo.
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Documentazione di riferimento per il linguaggio di query kusto](/azure/kusto/query/).
+- [Documentazione di riferimento per il linguaggio di query Kusto](/azure/kusto/query/).

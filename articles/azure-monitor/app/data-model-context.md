@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: 8a2e3296643b13a54c4fceb11f044a2808cf2877
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671864"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Contesto dei dati di telemetria: modello di dati di Application Insights
@@ -16,7 +16,7 @@ ms.locfileid: "77671864"
 Ogni elemento di telemetria può contenere campi di contesto fortemente tipizzati. Ogni campo consente uno specifico scenario di monitoraggio. Usare la raccolta di proprietà personalizzate per archiviare informazioni contestuali personalizzate o specifiche dell'applicazione.
 
 
-## <a name="application-version"></a>Versione applicazione
+## <a name="application-version"></a>Versione dell'applicazione
 
 Le informazioni contenute nei campi di contesto dell'applicazione si riferiscono sempre all'applicazione che invia i dati di telemetria. La versione dell'applicazione viene usata per analizzare i cambiamenti nei trend di comportamento dell'applicazione e la correlazione con le distribuzioni.
 
@@ -85,14 +85,14 @@ Lunghezza massima: 128
 
 ## <a name="authenticated-user-id"></a>ID utente autenticato
 
-ID utente autenticato. Il valore opposto all'ID utente anonimo, questo campo rappresenta l'utente con un nome descrittivo. Le sue informazioni personali non vengono infatti raccolte per impostazione predefinita dalla maggior parte degli SDK.
+ID utente autenticato. L'opposto dell'ID utente anonimo, questo campo rappresenta l'utente con un nome descrittivo. Le sue informazioni personali non vengono infatti raccolte per impostazione predefinita dalla maggior parte degli SDK.
 
 Lunghezza massima: 1024
 
 
 ## <a name="account-id"></a>ID account
 
-In applicazioni multi-tenant, rappresenta l'ID o il nome dell'account con cui l'utente opera. Esempi possono essere ID sottoscrizione per portale di Azure o il nome del Blog per una piattaforma di Blog.
+In applicazioni multi-tenant, rappresenta l'ID o il nome dell'account con cui l'utente opera. Esempi possono essere l'ID sottoscrizione per il portale di Azure o il nome del blog per una piattaforma di blogging.
 
 Lunghezza massima: 1024
 
@@ -113,7 +113,7 @@ Lunghezza massima: 256
 
 ## <a name="internal-sdk-version"></a>Informazione interna: versione dell'SDK
 
-La versione dell'SDK. Per informazioni, vedere [questo articolo](https://github.com/microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md) .
+La versione dell'SDK. Vedere [questo articolo](https://github.com/microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md) per informazioni.
 
 Lunghezza massima: 64
 

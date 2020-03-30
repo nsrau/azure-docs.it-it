@@ -1,93 +1,105 @@
 ---
-title: Modello di risorsa dell'applicazione Service Fabric di Azure
-description: Questo articolo fornisce una panoramica della gestione di un'applicazione Service Fabric di Azure con Azure Resource Manager
+title: Modello di risorse dell'applicazione Azure Service FabricAzure Service Fabric application resource model
+description: Questo articolo offre una panoramica della gestione di un'applicazione Azure Service Fabric tramite Azure Resource Manager.This article provides an overview of managing an Azure Service Fabric application by using Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 44073967730d95e803f57d504aa9d8c529250a8d
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 69c10b0e9d3b7c29122c8432ab1e4bc06d3a3120
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751203"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481117"
 ---
-# <a name="service-fabric-application-resource-model"></a>Modello di risorsa dell'applicazione Service Fabric
+# <a name="service-fabric-application-resource-model"></a>Modello di risorse dell'applicazione Service FabricService Fabric application resource model
 
-Si consiglia di distribuire Service Fabric applicazioni nel cluster Service Fabric tramite Azure Resource Manager. Questo metodo rende possibile descrivere le applicazioni e i servizi in JSON e distribuirli nello stesso modello di Gestione risorse del cluster. Invece di distribuire e gestire le applicazioni tramite PowerShell o l'interfaccia della riga di comando di Azure, non è necessario attendere che il cluster sia pronto. Il processo di registrazione, provisioning e distribuzione delle applicazioni avviene in un unico passaggio. Si tratta della procedura consigliata per gestire il ciclo di vita delle applicazioni nel cluster. Per altre informazioni, vedere [procedure consigliate: infrastruttura come codice](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources).
+Sono disponibili più opzioni per la distribuzione di applicazioni di Azure Service Fabric nel cluster di Service Fabric.You have multiple options for deploying Azure Service Fabric applications on your Service Fabric cluster. È consigliabile usare Azure Resource Manager.We recommend using Azure Resource Manager. Se si usa Resource Manager, è possibile descrivere applicazioni e servizi in JSON e quindi distribuirli nello stesso modello di Resource Manager del cluster. A differenza dell'uso di PowerShell o dell'interfaccia della riga di comando di Azure per distribuire e gestire le applicazioni, se si usa Gestione risorse, non è necessario attendere che il cluster sia pronto. la registrazione, il provisioning e la distribuzione delle applicazioni possono essere eseguite in un unico passaggio. L'uso di Resource Manager è il modo migliore per gestire il ciclo di vita dell'applicazione nel cluster. Per ulteriori informazioni, vedere [Procedure consigliate: infrastruttura come codice](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources).
 
-Se possibile, gestire le applicazioni come risorse di Resource Manager in modo da usufruire dei vantaggi seguenti.
+La gestione delle applicazioni come risorse in Resource Manager consente di ottenere miglioramenti in queste aree:Managing your applications as resources in Resource Manager can help you gain improvements in these areas:
 
-* Audit trail: Resource Manager controlla ogni operazione e mantiene un *log attività* dettagliato che consente di tenere traccia di tutte le modifiche apportate a queste applicazioni e al cluster.
-* Controllo degli accessi in base al ruolo: la gestione dell'accesso ai cluster e alle applicazioni distribuite nel cluster può essere eseguita tramite lo stesso modello di Gestione risorse.
-* Azure Resource Manager (tramite la portale di Azure) diventa uno sportello unico per gestire il cluster e le distribuzioni di applicazioni critiche.
+* Audit trail: Resource Manager controlla ogni operazione e mantiene un log attività dettagliato. Un log attività consente di tenere traccia delle modifiche apportate alle applicazioni e al cluster.
+* Controllo degli accessi in base al ruolo: è possibile gestire l'accesso ai cluster e alle applicazioni distribuite nel cluster usando lo stesso modello di Resource Manager.Role-based access control: You can manage access to clusters and to applications deployed on the cluster by using the same Resource Manager template.
+* Efficienza di gestione: l'uso di Resource Manager offre un'unica posizione (il portale di Azure) per la gestione delle distribuzioni di cluster e applicazioni critiche.
 
-## <a name="service-fabric-application-life-cycle-with-azure-resource-manager"></a>Service Fabric ciclo di vita dell'applicazione con Azure Resource Manager
-
-In questo documento si apprenderà come:
+In questo documento imparerai a:
 
 > [!div class="checklist"]
 >
-> * Distribuire le risorse dell'applicazione usando Azure Resource Manager
-> * Aggiornare le risorse dell'applicazione usando Azure Resource Manager
-> * Elimina risorse dell'applicazione
+> * Distribuire le risorse dell'applicazione tramite Resource Manager.Deploy application resources by using Resource Manager.
+> * Aggiornare le risorse dell'applicazione tramite Resource Manager.Upgrade application resources by using Resource Manager.
+> * Eliminare le risorse dell'applicazione.
 
-## <a name="deploy-application-resources-using-azure-resource-manager"></a>Distribuire le risorse dell'applicazione usando Azure Resource Manager
+## <a name="deploy-application-resources"></a>Distribuire le risorse dell'applicazioneDeploy application resources
 
-Per distribuire un'applicazione e i relativi servizi usando il modello di risorsa dell'applicazione Azure Resource Manager, è necessario creare il pacchetto del codice dell'applicazione, caricare il pacchetto e quindi fare riferimento al percorso del pacchetto in un modello di Azure Resource Manager come applicazione risorse. Per altre informazioni, vedere creare [un pacchetto di un'applicazione](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg).
+I passaggi generali da eseguire per distribuire un'applicazione e i relativi servizi tramite il modello di risorse dell'applicazione Resource Manager sono:The high-level steps you take to deploy an application and its services by using the Resource Manager application resource model are:
+1. Creare il pacchetto del codice dell'applicazione.
+1. Caricare il pacchetto.
+1. Fare riferimento al percorso del pacchetto in un modello di Resource Manager come risorsa dell'applicazione. 
 
-Quindi, creare un modello di Azure Resource Manager, aggiornare il file dei parametri con i dettagli dell'applicazione e distribuirlo nel cluster di Service Fabric. Vedere gli esempi [qui](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM).
+Per ulteriori informazioni, visualizzare [Pacchetto di un'applicazione](service-fabric-package-apps.md#create-an-sfpkg).
+
+Quindi, creare un modello di Resource Manager, aggiornare il file di parametri con i dettagli dell'applicazione e distribuire il modello nel cluster di Service Fabric. [Esplorare gli esempi](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM).
 
 ### <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-Per la distribuzione di un'applicazione da un modello di Gestione risorse è necessario un account di archiviazione per organizzare l'immagine dell'applicazione. È possibile riutilizzare un account di archiviazione esistente o creare un nuovo account di archiviazione per organizzare le applicazioni. Se si vuole usare un account di archiviazione esistente, è possibile ignorare questo passaggio. 
+Per distribuire un'applicazione da un modello di Resource Manager, è necessario disporre di un account di archiviazione. L'account di archiviazione viene usato per gestire temporaneamente l'immagine dell'applicazione. 
+
+È possibile riutilizzare un account di archiviazione esistente oppure creare un nuovo account di archiviazione per la gestione temporanea delle applicazioni. Se si usa un account di archiviazione esistente, è possibile ignorare questo passaggio. 
 
 ![Creare un account di archiviazione][CreateStorageAccount]
 
-### <a name="configure-storage-account"></a>Configura account di archiviazione
+### <a name="configure-your-storage-account"></a>Configurare l'account di archiviazioneConfigure your storage account
 
-Una volta creato l'account di archiviazione, è necessario creare un contenitore BLOB in cui le applicazioni possono essere preparate per la gestione temporanea. Nella portale di Azure passare all'account di archiviazione in cui si vogliono archiviare le applicazioni. Selezionare il pannello **BLOB** , quindi fare clic sul pulsante **Aggiungi contenitore** . Le risorse del cluster possono essere protette impostando il livello di accesso pubblico su privato. L'accesso può essere concesso in diversi modi:
+Dopo aver creato l'account di archiviazione, si crea un contenitore BLOB in cui le applicazioni possono essere gestite temporaneamente. Nel portale di Azure passare all'account di archiviazione di Azure in cui si vogliono archiviare le applicazioni. Selezionare **BLOB** > **Aggiungi contenitore**. 
 
-* [Autorizzare l'accesso a BLOB e code con Azure Active Directory](../storage/common/storage-auth-aad-app.md)
-* [Concedere l'accesso ai dati di code e BLOB di Azure con il controllo degli accessi in base al ruolo nel portale di Azure](../storage/common/storage-auth-aad-rbac-portal.md)
-* [Delega dell'accesso con una firma di accesso condiviso (SAS)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature
-)
+Le risorse del cluster possono essere protette impostando il livello di accesso pubblico su **private**. È possibile concedere l'accesso in diversi modi:You can grant access in multiple ways:
 
- Per questo esempio verrà usato l'accesso in lettura anonimo per i BLOB.
+* Autorizzare l'accesso a BLOB e code tramite [Azure Active Directory.](../storage/common/storage-auth-aad-app.md)
+* Concedere l'accesso ai dati BLOB e coda di Azure usando il controllo degli accessi in base al ruolo nel portale di [Azure.](../storage/common/storage-auth-aad-rbac-portal.md)
+* Delegare l'accesso utilizzando una firma di [accesso condiviso.](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature)
+
+L'esempio nella schermata seguente usa l'accesso in lettura anonimo per i BLOB.
 
 ![Crea BLOB][CreateBlob]
 
-### <a name="stage-application-in-a-storage-account"></a>Organizzare l'applicazione in un account di archiviazione
+### <a name="stage-the-application-in-your-storage-account"></a>Scorrere l'applicazione nell'account di archiviazioneStage the application in your storage account
 
-Prima di poter distribuire l'applicazione, è necessario eseguire la gestione temporanea nell'archivio BLOB. In questa esercitazione verrà creato manualmente il pacchetto dell'applicazione, tuttavia questo passaggio può essere automatizzato.  Per altre informazioni, vedere creare [un pacchetto di un'applicazione](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg). Nei passaggi seguenti verrà utilizzata l' [applicazione di voto di esempio](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) .
+Prima di poter distribuire un'applicazione, è necessario eseguire temporaneal'applicazione nell'archiviazione BLOB. In questa esercitazione viene creato manualmente il pacchetto dell'applicazione. Tieni presente che questo passaggio può essere automatizzato. Per ulteriori informazioni, vedere Creare un pacchetto di [un'applicazione](service-fabric-package-apps.md#create-an-sfpkg). 
 
-1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto di voto e selezionare pacchetto.
-![applicazione pacchetto][PackageApplication]  
-2. Aprire la directory **.\Service-Fabric-DotNet-quickstart\Voting\pkg\Debug** che è stata creata e comprimere il contenuto in un file denominato **voter. zip** in modo che ApplicationManifest. XML si trovi alla radice del file zip.  
-![applicazione zip][ZipApplication]  
-3. Rinominare l'estensione del file da zip a **. sfpkg**.
-4. Nel portale di Azure, nel contenitore **app** dell'account di archiviazione, fare clic su **carica** e carica **Voto. sfpkg**.  
-![caricare il pacchetto dell'app][UploadAppPkg]
+In questa esercitazione viene usata [l'applicazione di esempio Voting](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart).
 
-L'applicazione è ora preparata per la gestione temporanea. A questo punto è possibile creare il modello di Azure Resource Manager per distribuire l'applicazione.
+1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto **Votazione** e quindi scegliere **Pacchetto**.
 
-### <a name="create-the-azure-resource-manager-template"></a>Creare il modello di Azure Resource Manager
+   ![Applicazione pacchetto][PackageApplication]  
+1. Passare alla directory *.* Comprimere il contenuto in un file denominato *Voting.zip*. Il file *ApplicationManifest.xml* deve trovarsi nella radice del file zip.
 
-L'applicazione di esempio contiene [modelli di Azure Resource Manager](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM) che possono essere usati per distribuire l'applicazione. I file modello sono denominati **UserApp. JSON** e **UserApp. Parameters. JSON**.
+   ![Applicazione zip][ZipApplication]  
+1. Rinominare il file per modificare l'estensione da .zip a *.sfpkg*.
+
+1. Nel portale di Azure, nel contenitore di app per **l'account** di archiviazione, selezionare **Carica**e quindi caricare **Voting.sfpkg**. 
+
+   ![Carica pacchetto dell'app][UploadAppPkg]
+
+A questo punto, l'applicazione è ora in fasi ed è possibile creare il modello resource Manager per distribuire l'applicazione.
+
+### <a name="create-the-resource-manager-template"></a>Creare il modello di Azure Resource Manager
+
+L'applicazione di esempio contiene modelli di [Azure Resource Manager](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM) che è possibile usare per distribuire l'applicazione. I nomi dei file modello sono *UserApp.json* e *UserApp.Parameters.json*.
 
 > [!NOTE]
-> Il file **UserApp. Parameters. JSON** deve essere aggiornato con il nome del cluster.
+> Il file *UserApp.Parameters.json* deve essere aggiornato con il nome del cluster.
 >
 >
 
-| Parametro              | Description                                 | Esempio                                                      | Commenti                                                     |
+| Parametro              | Descrizione                                 | Esempio                                                      | Commenti                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| clusterName            | Nome del cluster in cui si sta eseguendo la distribuzione | SF-cluster123                                                |                                                              |
+| clusterName            | Il nome del cluster in cui si esegue la distribuzione | sf-cluster123                                                |                                                              |
 | application            | Nome dell'applicazione                 | Voto                                                       |
-| applicationTypeName    | Nome del tipo di applicazione           | VotingType                                                   | Deve corrispondere a ciò che è presente in ApplicationManifest. XML                 |
-| applicationTypeVersion | Versione del tipo di applicazione         | 1.0.0                                                        | Deve corrispondere a ciò che è presente in ApplicationManifest. XML                 |
-| serviceName            | Nome del servizio         | Voto ~ VotingWeb                                             | Deve essere nel formato ApplicationName ~ ServiceType            |
-| serviceTypeName        | Nome del tipo del servizio                | VotingWeb                                                    | Deve corrispondere a ciò che si trova in ServiceManifest. XML                 |
-| appPackageUrl          | URL di archiviazione BLOB dell'applicazione     | https://servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | L'URL del pacchetto dell'applicazione nell'archivio BLOB (la procedura per impostarlo è descritto di seguito) |
+| applicationTypeName (NomeTipoApplicazione)    | Il nome del tipo dell'applicazione           | VotingTipo                                                   | Deve corrispondere a ApplicationManifest.xml                 |
+| applicationTypeVersion (gestionedei) | La versione del tipo di applicazione         | 1.0.0                                                        | Deve corrispondere a ApplicationManifest.xml                 |
+| serviceName            | Il nome del servizio         | Votazione -VotingWeb                                             | Il formato NomeApplicazione/NomeServizio            |
+| nomeservizio        | Il nome del tipo del servizio                | VotingWeb                                                    | Deve corrispondere a ServiceManifest.xml                 |
+| appPackageUrl (informazioni in questo gruppo)          | URL di archiviazione BLOB dell'applicazione     | https://servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | URL del pacchetto dell'applicazione nell'archiviazione BLOB (la procedura per impostare l'URL è descritta più avanti nell'articolo): |
 
 ```json
 {
@@ -118,17 +130,17 @@ L'applicazione di esempio contiene [modelli di Azure Resource Manager](https://g
 
 ### <a name="deploy-the-application"></a>Distribuire l'applicazione
 
-Per distribuire l'applicazione, eseguire New-AzResourceGroupDeployment per eseguire la distribuzione nel gruppo di risorse che contiene il cluster.
+Eseguire il cmdlet **New-AzResourceGroupDeployment** per distribuire l'applicazione al gruppo di risorse che contiene il cluster:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParameterFile ".\UserApp.Parameters.json" -TemplateFile ".\UserApp.json" -Verbose
 ```
 
-## <a name="upgrade-service-fabric-application-using-azure-resource-manager"></a>Aggiornare Service Fabric applicazione utilizzando Azure Resource Manager
+## <a name="upgrade-the-service-fabric-application-by-using-resource-manager"></a>Aggiornare l'applicazione Service Fabric tramite Resource Manager
 
-Le applicazioni già distribuite in un cluster Service Fabric verranno aggiornate per i motivi seguenti:
+È possibile aggiornare un'applicazione già distribuita in un cluster di Service Fabric per uno dei motivi seguenti:You might upgrade an application that's already deployed to a Service Fabric cluster for one of these reasons:
 
-1. Un nuovo servizio viene aggiunto all'applicazione. È necessario aggiungere una definizione del servizio al file Service-manifest. XML e application-manifest. XML. Per riflettere la nuova versione dell'applicazione, è necessario aggiornare la versione del tipo di applicazione da 1.0.0 a 1.0.1 [UserApp. Parameters. JSON](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM/UserApp.Parameters.json).
+* Un nuovo servizio viene aggiunto all'applicazione. Una definizione di servizio deve essere aggiunta ai file *service-manifest.xml* e *application-manifest.xml* quando un servizio viene aggiunto all'applicazione. Per riflettere una nuova versione di un'applicazione, è inoltre necessario modificare la versione del tipo di applicazione da 1.0.0 a 1.0.1 in [UserApp.Parameters.json](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM/UserApp.Parameters.json):
 
     ```json
     "applicationTypeVersion": {
@@ -142,7 +154,7 @@ Le applicazioni già distribuite in un cluster Service Fabric verranno aggiornat
     }
     ```
 
-2. All'applicazione viene aggiunta una nuova versione di un servizio esistente. Questo implica modifiche del codice dell'applicazione e aggiornamenti alla versione e al nome del tipo di app.
+* Una nuova versione di un servizio esistente viene aggiunta all'applicazione. Gli esempi includono le modifiche al codice dell'applicazione e gli aggiornamenti alla versione e al nome del tipo di app. Per questo aggiornamento, aggiornare UserApp.Parameters.json in questo modo:For this upgrade, update UserApp.Parameters.json like this:
 
     ```json
      "applicationTypeVersion": {
@@ -150,17 +162,17 @@ Le applicazioni già distribuite in un cluster Service Fabric verranno aggiornat
     },
     ```
 
-## <a name="delete-application-resources"></a>Elimina risorse dell'applicazione
+## <a name="delete-application-resources"></a>Eliminare le risorse dell'applicazioneDelete application resources
 
-Le applicazioni distribuite con il modello di risorsa dell'applicazione in Azure Resource Manager possono essere eliminate dal cluster usando i passaggi seguenti
+Per eliminare un'applicazione distribuita tramite il modello di risorse dell'applicazione in Resource Manager:To delete an application that was deployed by using the application resource model in Resource Manager:
 
-1) Ottenere l'ID risorsa per l'applicazione usando [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource?view=azps-2.5.0):
+1. Utilizzare il cmdlet [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource?view=azps-2.5.0) per ottenere l'ID risorsa per l'applicazione:
 
     ```powershell
     Get-AzResource  -Name <String> | f1
     ```
 
-2) Eliminare le risorse dell'applicazione usando [Remove-AzResource](https://docs.microsoft.com/powershell/module/az.resources/remove-azresource?view=azps-2.5.0):
+1. Utilizzare il cmdlet [Remove-AzResource](https://docs.microsoft.com/powershell/module/az.resources/remove-azresource?view=azps-2.5.0) per eliminare le risorse dell'applicazione:
 
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]
@@ -168,15 +180,13 @@ Le applicazioni distribuite con il modello di risorsa dell'applicazione in Azure
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ottenere informazioni sul modello di risorsa dell'applicazione:
+Ottenere informazioni sul modello di risorse dell'applicazione:Get information about the application resource model:
 
-* [Modellare un'applicazione in Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model)
-* [Service Fabric manifesti dell'applicazione e del servizio](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-and-service-manifests)
+* [Modellare un'applicazione in Service Fabric](service-fabric-application-model.md)
+* [Manifesti delle applicazioni e dei servizi di Service Fabric](service-fabric-application-and-service-manifests.md)
+* [Procedure consigliate: infrastruttura come codiceBest practices: Infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources)
+* [Gestire applicazioni e servizi come risorse di AzureManage applications and services as Azure resources](service-fabric-best-practices-infrastructure-as-code.md)
 
-## <a name="see-also"></a>Vedere anche
-
-* [Procedure consigliate](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
-* [Gestire le applicazioni e i servizi come risorse di Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
 
 <!--Image references-->
 [CreateStorageAccount]: ./media/service-fabric-application-model/create-storage-account.png

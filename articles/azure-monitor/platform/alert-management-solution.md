@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
 ms.openlocfilehash: 48a825f31a1c5f2eab2fbb71b6f030b8acb5617d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77668384"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Soluzione Gestione avvisi in Log Analytics
@@ -18,7 +18,7 @@ ms.locfileid: "77668384"
 ![Icona di Alert Management](media/alert-management-solution/icon.png)
 
 > [!NOTE]
->  Monitoraggio di Azure supporta ora funzionalità avanzate per [la gestione degli avvisi su larga scala](https://aka.ms/azure-alerts-overview), inclusi quelli generati da [strumenti di monitoraggio come System Center Operations Manager, Zabbix o Nagios](https://aka.ms/managing-alerts-other-monitoring-services).
+>  Monitoraggio di Azure supporta ora funzionalità avanzate per [la gestione degli avvisi su larga scala,](https://aka.ms/azure-alerts-overview)inclusi quelli generati da strumenti di monitoraggio come System Center Operations [Manager, .abbix o Nagios](https://aka.ms/managing-alerts-other-monitoring-services).
 >  
 
 
@@ -47,12 +47,12 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 
 | Origine connessa | Supporto | Descrizione |
 |:--- |:--- |:--- |
-| [Agenti Windows](agent-windows.md) | No |Gli agenti di Windows diretti non generano avvisi.  Gli avvisi di Log Analytics possono essere creati da eventi e dati sulle prestazioni raccolti dagli agenti di Windows. |
+| [Agenti di Windows](agent-windows.md) | No |Gli agenti di Windows diretti non generano avvisi.  Gli avvisi di Log Analytics possono essere creati da eventi e dati sulle prestazioni raccolti dagli agenti di Windows. |
 | [Agenti Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No |Gli agenti di Linux diretti non generano avvisi.  Gli avvisi di Log Analytics possono essere creati da eventi e dati sulle prestazioni raccolti dagli agenti di Linux.  Gli avvisi di Nagios e Zabbix vengono raccolti da quei server che richiedono l'agente Linux. |
 | [Gruppo di gestione di System Center Operations Manager](../../azure-monitor/platform/om-agents.md) |Sì |Gli avvisi che sono generati con gli agenti di Operation Manager vengono distribuiti al gruppo di gestione e quindi inoltrati a Log Analytics.<br><br>Non è necessaria una connessione diretta dall'agente Operations Manager a Log Analytics. I dati degli avvisi vengono inoltrati dal gruppo di gestione al repository di Log Analytics. |
 
 
-### <a name="collection-frequency"></a>Frequenza di raccolta
+### <a name="collection-frequency"></a>Frequenza della raccolta
 - I record degli avvisi sono disponibili per la soluzione appena vengono archiviati nel repository.
 - I dati degli avvisi vengono inviati dal gruppo di gestione di Operation Manager a Log Analytics ogni tre minuti.  
 
@@ -65,9 +65,9 @@ Fare clic su sul riquadro **Gestione avvisi** per aprire il **relativo** dashboa
 
 | Colonna | Descrizione |
 |:--- |:--- |
-| Avvisi critici |Tutti gli avvisi con un livello di gravità Critico raggruppati per nome dell'avviso.  Fare clic sul nome di un avviso per eseguire una ricerca che restituisce tutti i record per tale avviso. |
-| Avvertenze |Tutti gli avvisi con una gravità Avviso per nome dell'avviso.  Fare clic sul nome di un avviso per eseguire una ricerca che restituisce tutti i record per tale avviso. |
-| Avvisi attivi System Center Operations Manager |Tutti gli avvisi raccolti da Operations Manager con uno stato diverso da *Chiuso* raggruppati per origine che ha generato l'avviso. |
+| Critical Alerts |Tutti gli avvisi con un livello di gravità Critico raggruppati per nome dell'avviso.  Fare clic sul nome di un avviso per eseguire una ricerca che restituisce tutti i record per tale avviso. |
+| Warning Alerts |Tutti gli avvisi con una gravità Avviso per nome dell'avviso.  Fare clic sul nome di un avviso per eseguire una ricerca che restituisce tutti i record per tale avviso. |
+| Avvisi attivi di System Center Operations Manager |Tutti gli avvisi raccolti da Operations Manager con uno stato diverso da *Chiuso* raggruppati per origine che ha generato l'avviso. |
 | All Active Alerts |Tutti gli avvisi con qualsiasi gravità raggruppati per nome dell'avviso. Include solo gli avvisi Operations Manager con qualsiasi stato diverso da *Chiuso*. |
 
 Se si scorre verso destra, il dashboard elenca diverse query comuni che è possibile selezionare per eseguire una [ricerca log](../../azure-monitor/log-query/log-query-overview.md) per dati di avviso:

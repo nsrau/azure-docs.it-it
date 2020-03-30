@@ -1,18 +1,18 @@
 ---
-title: Errori di connettività temporanei-database di Azure per MariaDB
+title: Errori di connettività temporanei - Database di Azure per MariaDBTransient connectivity errors - Azure Database for MariaDB
 description: Informazioni su come gestire gli errori di connettività temporanei per Database di Azure per MariaDB.
 keywords: connessione mysql,stringa di connessione,problemi di connettività,errore temporaneo,errore di connessione
 author: jan-eng
 ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: f061f9cc6d3f03acf01995e2632b229aaea5ab8f
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 26a6ac4412f1dff450cc087382dc9b0fce443f0b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772863"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79532196"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-mariadb"></a>Gestione degli errori di connettività temporanei per Database di Azure per MariaDB
 
@@ -20,7 +20,7 @@ Questo articolo descrive come gestire gli errori temporanei nella connessione a 
 
 ## <a name="transient-errors"></a>Errori temporanei
 
-Un errore temporaneo è un errore che si risolve in modo autonomo. Questi errori generalmente si manifestano come una connessione al server di database che viene interrotta. Inoltre non è possibile aprire nuove connessioni a un server. Possono verificarsi errori temporanei, ad esempio nel caso di un errore hardware o di rete. Un altro motivo potrebbe essere una nuova versione di un servizio PaaS che viene implementato. La maggior parte di questi eventi viene automaticamente attenuata dal sistema in meno di 60 secondi. Una procedura consigliata per la progettazione e lo sviluppo di applicazioni nel cloud è la previsione di errori temporanei, presupponendo che possano accadere in qualsiasi componente e in qualunque momento e che si disponga della logica appropriata per affrontare tali situazioni.
+Un errore temporaneo è un errore che si risolve in modo autonomo. Questi errori generalmente si manifestano come una connessione al server di database che viene interrotta. Inoltre non è possibile aprire nuove connessioni a un server. Possono verificarsi errori temporanei, ad esempio nel caso di un errore hardware o di rete. Un altro motivo potrebbe essere una nuova versione di un servizio PaaS che è in fase di implementazione. La maggior parte di questi eventi vengono attenuati automaticamente dal sistema in meno di 60 secondi. Una procedura consigliata per la progettazione e lo sviluppo di applicazioni nel cloud è la previsione di errori temporanei, presupponendo che possano accadere in qualsiasi componente e in qualunque momento e che si disponga della logica appropriata per affrontare tali situazioni.
 
 ## <a name="handling-transient-errors"></a>Gestione degli errori temporanei
 
@@ -36,7 +36,7 @@ Il primo e il secondo caso sono abbastanza semplici da gestire. Provare ad aprir
 * Per ogni tentativo successivo, aumentare l'attesa in modo esponenziale, fino a 60 secondi.
 * Impostare un numero massimo di tentativi nel punto in cui l'applicazione considera l'operazione non riuscita.
 
-Quando una connessione con una transazione attiva ha esito negativo, la gestione corretta del ripristino è più difficile. Possono presentarsi due casi. Se la transazione era di sola lettura, è opportuno riaprire la connessione e riprovare la transazione. Se invece la transazione stava anche scrivendo nel database occorre stabilire se è stata sottoposta a rollback o se è riuscita prima che si verificasse l'errore temporaneo. In questo caso è possibile che la conferma di commit da parte del server di database non sia stata ricevuta.
+Quando una connessione con una transazione attiva ha esito negativo, la gestione corretta del ripristino è più difficile. Possono presentarsi due casi. Se la transazione era di sola lettura, è opportuno riaprire la connessione e riprovare la transazione. Se invece la transazione stava anche scrivendo nel database occorre stabilire se è stata sottoposta a rollback o se è riuscita prima che si verificasse l'errore temporaneo. In tal caso, è possibile che il riconoscimento del commit venga ricevuto dal server di database.
 
 Un modo per superare il problema consiste nel generare un ID univoco sul client usato per tutti i tentativi. Passare questo ID univoco come parte della transazione al server e archiviarlo in una colonna con un vincolo univoco. In questo modo è possibile riprovare a eseguire la transazione in tutta sicurezza. Il tentativo ha esito positivo se la transazione precedente è stata sottoposta a rollback e l'ID univoco generato dal client non esiste ancora nel sistema. Il tentativo ha esito negativo quando indica una violazione della chiave duplicata se l'ID univoco è stato già archiviato, perché la transazione precedente è stata completata correttamente.
 
@@ -46,4 +46,4 @@ Verificare di testare la logica di ripetizione dei tentativi. Provare, ad esempi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Risolvere i problemi di connessione a Database di Azure per MariaDB](howto-troubleshoot-common-connection-issues.md)
+* [Risolvere i problemi di connessione a database di Azure per MariaDB](howto-troubleshoot-common-connection-issues.md)

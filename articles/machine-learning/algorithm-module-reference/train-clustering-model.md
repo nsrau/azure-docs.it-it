@@ -1,7 +1,7 @@
 ---
-title: 'Modello di clustering di training: riferimento al modulo'
+title: 'Train Clustering Model: Riferimento al modulo'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare il modulo Train clustering Model in Azure Machine Learning per eseguire il training di modelli di clustering.
+description: Informazioni su come usare il modulo Train Clustering Model in Azure Machine Learning per eseguire il training dei modelli di clustering.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,50 +9,50 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 7053fab28b4a231c92f31e344cf09ffef3a6b146
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: c29baf3cdda998a2ab78c84f3311b84d37086bcd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152109"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477426"
 ---
-# <a name="train-clustering-model"></a>Modello di clustering di training
+# <a name="train-clustering-model"></a>Eseguire il training del modello di clustering
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo nella finestra di progettazione di Azure Machine Learning (anteprima).
 
-Utilizzare questo modulo per eseguire il training di un modello di clustering.
+Usare questo modulo per eseguire il training di un modello di clustering.
 
-Il modulo accetta un modello di clustering senza training che è già stato configurato usando il modulo di [clustering K-means](k-means-clustering.md) ed esegue il training del modello usando un set di dati con etichetta o senza etichetta. Il modulo consente di creare un modello sottoposto a training che è possibile utilizzare per la stima e un set di assegnazioni di cluster per ogni case nei dati di training.
+Il modulo accetta un modello di clustering non sottoposto a training già configurato utilizzando il modulo [K-Means Clustering](k-means-clustering.md) ed esegue il training del modello utilizzando un set di dati con etichetta o senza etichetta. Il modulo crea sia un modello sottoposto a training che è possibile usare per la stima e un set di assegnazioni del cluster per ogni caso nei dati di training.
 
 > [!NOTE]
-> Non è possibile eseguire il training di un modello di clustering con il modulo [Train Model](train-model.md) , che è il modulo generico per il training dei modelli di machine learning. Questo perché il [modello di training](train-model.md) funziona solo con gli algoritmi di apprendimento supervisionato. K-means e altri algoritmi di clustering consentono l'apprendimento non supervisionato, ovvero l'algoritmo può apprendere da dati senza etichetta.  
+> Non è possibile eseguire il training di un modello di clustering usando il modulo [Train Model,](train-model.md) che è il modulo generico per il training dei modelli di apprendimento automatico. Questo perché [Train Model](train-model.md) funziona solo con algoritmi di apprendimento supervisionati. I K-mezzi e altri algoritmi di clustering consentono l'apprendimento senza supervisione, il che significa che l'algoritmo può imparare da dati senza etichetta.  
   
-## <a name="how-to-use-train-clustering-model"></a>Come utilizzare il modello di clustering di Train  
+## <a name="how-to-use-train-clustering-model"></a>Come usare Train Clustering Model  
 
-1.  Aggiungere il modulo **Train clustering Model** alla pipeline nella finestra di progettazione. È possibile trovare il modulo in **Machine Learning Modules**, nella categoria **Train** .  
+1.  Aggiungere il modulo **Train Clustering Model** alla pipeline nella finestra di progettazione. È possibile trovare il modulo in **Moduli di Machine Learning**, nella categoria **Treno.**  
   
-2. Aggiungere il modulo di [clustering K-means](k-means-clustering.md) o un altro modulo personalizzato che crea un modello di clustering compatibile e impostare i parametri del modello di clustering.  
+2. Aggiungere il modulo [K-Means Clustering](k-means-clustering.md) o un altro modulo personalizzato che crea un modello di clustering compatibile e impostare i parametri del modello di clustering.  
     
-3.  Alleghi un set di dati di training all'input di destra del **modello di clustering di Train**.
+3.  Collegare un set di dati di training all'input a destra di **Train Clustering Model**.
   
-5.  In **Column set**selezionare le colonne del set di dati da utilizzare per la compilazione dei cluster. Assicurarsi di selezionare le colonne che rendono valide le funzionalità: ad esempio, evitare di usare ID o altre colonne con valori univoci o colonne con tutti gli stessi valori.
+5.  In **Set di**colonne selezionare le colonne del set di dati da utilizzare nella creazione di cluster. Assicurarsi di selezionare le colonne che presentano buone caratteristiche: ad esempio, evitare di usare ID o altre colonne con valori univoci o colonne con tutti gli stessi valori.
 
-    Se è disponibile un'etichetta, è possibile usarla come funzionalità o lasciarla invariata.  
+    Se è disponibile un'etichetta, è possibile utilizzarla come funzione o lasciarla fuori.  
   
-6. Selezionare l'opzione, **verifica l'accodamento o deseleziona solo il risultato**, se si desidera restituire i dati di training insieme all'etichetta del nuovo cluster.
+6. Selezionare l'opzione Controlla se si **aggiunge o deseleziona solo il risultato**se si desidera generare i dati di training insieme alla nuova etichetta del cluster.
 
     Se si deseleziona questa opzione, vengono restituite solo le assegnazioni del cluster. 
 
-7. Eseguire la pipeline oppure fare clic sul modulo **Train clustering Model** e selezionare **Esegui selezione**.  
+7. Inviare la pipeline oppure fare clic sul modulo **Train Clustering Model** e selezionare **Esegui selezionati**.  
   
 ### <a name="results"></a>Risultati
 
-Al termine del training:
+Dopo che l'allenamento è stato completato:
 
-+ Per salvare uno snapshot del modello sottoposto a training, selezionare la scheda **output** nel riquadro di destra del modulo **Train Model** . Selezionare l'icona **registra set di dati** per salvare il modello come modulo riutilizzabile.
++ Per salvare un'istantanea del modello sottoposto a training, selezionare la scheda **Uscite** nel pannello destro del modulo **Modulo del modello.** Selezionare l'icona **Registra set di dati** per salvare il modello come modulo riutilizzabile.
 
-+ Per generare punteggi dal modello, usare [Assegna dati ai cluster](assign-data-to-clusters.md).
++ Per generare punteggi dal modello, utilizzare [Assegna dati ai cluster](assign-data-to-clusters.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 
+Vedere il set di moduli disponibili per Azure Machine Learning.See the [set of modules available](module-reference.md) to Azure Machine Learning. 

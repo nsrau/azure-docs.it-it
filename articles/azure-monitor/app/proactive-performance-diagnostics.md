@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.openlocfilehash: 3d8de08605d3dd693eb74a84a29c2efa6cad669a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671733"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Rilevamento intelligente - anomalie nelle prestazioni
@@ -32,14 +32,14 @@ Il rilevamento intelligente richiede almeno 8 giorni di dati di telemetria in un
 
 Una notifica non significa che l'app ha sicuramente un problema. Invita semplicemente a controllare con attenzione un determinato componente.
 
-## <a name="how-do-i-fix-it"></a>Com'è possibile risolvere il problema?
+## <a name="how-do-i-fix-it"></a>Risoluzione
 
 Le notifiche includono informazioni di diagnostica. Ad esempio:
 
 
 ![Di seguito è riportato un esempio di rilevamento della riduzione del tempo di risposta del server](media/proactive-performance-diagnostics/server_response_time_degradation.png)
 
-1. **Valutazione**. La notifica mostra il numero di utenti o il numero di operazioni interessati. Ciò consente di assegnare una priorità al problema.
+1. **Triage**. La notifica mostra il numero di utenti o il numero di operazioni interessati. Ciò consente di assegnare una priorità al problema.
 2. **Ambito**. Il problema interessa solo alcune pagine o tutto il traffico? È limitato a browser o percorsi specifici? Queste informazioni si possono ricavare dalla notifica.
 3. **Diagnosi**. Spesso, le informazioni di diagnostica nella notifica suggeriscono la natura del problema. Ad esempio, se il tempo di risposta diminuisce quando la frequenza delle richieste è elevata, questo suggerisce che il server o le dipendenze sono sovraccariche. 
 
@@ -49,7 +49,7 @@ Le notifiche includono informazioni di diagnostica. Ad esempio:
 
 ## <a name="configure-email-notifications"></a>Configurare le notifiche tramite posta elettronica
 
-Le notifiche di rilevamento intelligente sono abilitate per impostazione predefinita e inviate a coloro [che dispongono dell'](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) accesso per il monitoraggio e il [monitoraggio dei collaboratori](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) alla sottoscrizione in cui risiede la risorsa Application Insights. Per modificare questa impostazione, fare clic su **Configura** nella notifica tramite posta elettronica o aprire le impostazioni di rilevamento intelligente in Application Insights. 
+Le notifiche di rilevamento intelligente sono abilitate per impostazione predefinita e inviate a coloro che dispongono dell'accesso Lettore [monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) e [Collaboratore monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) alla sottoscrizione in cui risiede la risorsa Application Insights. Per modificare questa impostazione, fare clic su **Configura** nella notifica tramite posta elettronica o aprire le impostazioni di rilevamento intelligente in Application Insights. 
   
   ![Impostazioni di rilevamento intelligente](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
@@ -70,12 +70,12 @@ I messaggi di posta elettronica sulle anomalie delle prestazioni dei rilevamenti
 * *Si possono creare regole personalizzate di rilevamento delle anomalie o personalizzare le regole esistenti?*
 
   * Non ancora, ma è possibile:
-    * [Impostare avvisi](../../azure-monitor/app/alerts.md) per essere informati quando una determinata metrica supera una soglia.
+    * [Impostare avvisi](../../azure-monitor/app/alerts.md) che indichino quando una metrica supera una soglia.
     * [Esportare dati di telemetria](../../azure-monitor/app/export-telemetry.md) in un [database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) o in [PowerBI](../../azure-monitor/app/export-power-bi.md ), in cui è possibile analizzarli personalmente.
 * *Con quale frequenza viene eseguita l'analisi?*
 
   * L'analisi viene eseguita giornalmente sui dati di telemetria dal giorno precedente, giornata completa nel fuso orario UTC.
-* *Ciò sostituisce [gli avvisi delle metriche](../../azure-monitor/app/alerts.md)?*
+* *Quindi questo sostituisce [gli avvisi di metrica?](../../azure-monitor/app/alerts.md)*
   * No.  Non viene eseguito il rilevamento di tutti i comportamenti presumibilmente ritenuti anomali dall'utente.
 
 
@@ -160,7 +160,7 @@ Non è necessario impostare regole di soglia o configurare regole. Per rilevare 
 ![Nell'avviso di posta elettronica fare clic sul collegamento per aprire il report di diagnostica in Azure](./media/proactive-performance-diagnostics/03.png)
 
 * **Quando** è visualizzata l'ora in cui è stato rilevato il problema.
-* In **Informazioni approfondite** vengono visualizzate le informazioni seguenti:
+* **Cosa** descrive:
 
   * Il problema rilevato;
   * Le caratteristiche della serie di eventi in cui è stato rilevato il comportamento anomalo.
@@ -175,7 +175,7 @@ Gli strumenti di diagnostica seguenti consentono di controllare la telemetria da
 
 * [Profiler](profiler.md) 
 * [Debugger di snapshot](../../azure-monitor/app/snapshot-debugger.md)
-* [Analisi](../../azure-monitor/log-query/get-started-portal.md)
+* [Analitica](../../azure-monitor/log-query/get-started-portal.md)
 * [Diagnostica intelligenti di Analisi](../../azure-monitor/app/analytics.md)
 
 Gli avvisi di rilevamento intelligente sono completamente automatici, tuttavia è possibile configurare avvisi aggiuntivi, se necessario.

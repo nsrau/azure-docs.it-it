@@ -1,6 +1,6 @@
 ---
-title: Distribuire con la bonifica da Azure Cloud Shell | Microsoft Docs
-description: Distribuire con la bonifica da Azure Cloud Shell
+title: Distribuzione con Terraform da Azure Cloud Shell Documenti Microsoft
+description: Eseguire la distribuzione con Terraform da Azure Cloud ShellDeploy with Terraform from Azure Cloud Shell
 services: Azure
 documentationcenter: ''
 author: tomarchermsft
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: f5939251729905d349b79a94411cf87e3873b279
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 8bacadd8941131f608411e61cc15c120c1b2bc60
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742074"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79458155"
 ---
 # <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Distribuire con Terraform da Bash in Azure Cloud Shell
-Questo articolo descrive in modo dettagliato come creare un gruppo di risorse con il [provider AzureRM di Terraform](https://www.terraform.io/docs/providers/azurerm/index.html). 
+Questo articolo descrive in modo dettagliato come creare un gruppo di risorse con il [provider AzureRM di Terraform](https://www.terraform.io/docs/providers/azurerm/index.html).
 
-Lo strumento open source [Hashicorp Terraform](https://www.terraform.io/) consente di codificare le API in file di configurazione dichiarativi che è possibile condividere tra i membri del team per la modifica, la revisione e il controllo della versione. Il provider Microsoft AzureRM viene usato per interagire con le risorse supportate da Azure Resource Manager tramite le API AzureRM. 
+Lo strumento open source [Hashicorp Terraform](https://www.terraform.io/) consente di codificare le API in file di configurazione dichiarativi che è possibile condividere tra i membri del team per la modifica, la revisione e il controllo della versione. Il provider Microsoft AzureRM viene usato per interagire con le risorse supportate da Azure Resource Manager tramite le API AzureRM.
 
 ## <a name="automatic-authentication"></a>Autenticazione automatica
 Per impostazione predefinita, Terraform viene installato in Bash in Cloud Shell. Cloud Shell esegue inoltre automaticamente l'autenticazione della sottoscrizione dell'interfaccia della riga di comando di Azure predefinita per distribuire le risorse tramite i moduli Azure di Terraform.
@@ -147,7 +147,7 @@ Il [comando terraform apply](https://www.terraform.io/docs/commands/apply.html) 
 ### <a name="verify-deployment-with-azure-cli"></a>Verificare la distribuzione con l'interfaccia della riga di comando di Azure
 Per verificare che il provisioning della risorsa sia stato completato, eseguire `az group show -n myRgName`.
 
-```azcliinteractive
+```azurecli-interactive
 az group show -n myRgName
 ```
 

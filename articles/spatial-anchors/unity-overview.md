@@ -1,6 +1,6 @@
 ---
-title: Panoramica di Unity Anchors di Azure
-description: Informazioni sul modo in cui è possibile usare gli ancoraggi spaziali di Azure nelle app Unity.
+title: Panoramica di Azure Spatial Anchors UnityAzure Spatial Anchors Unity overview
+description: Informazioni su come usare gli ancoraggi spaziali di Azure nelle app Unity.Learn how Azure Spatial Anchors can be used within Unity Apps. Esaminare le guide introduttive per Unity per HoloLens, Unity per Android e Unity per iOS.Review quickstarts for Unity for HoloLens, Unity for Android, and Unity for iOS.
 author: rgarcia
 ms.author: rgarcia
 manager: vriveras
@@ -8,25 +8,25 @@ services: azure-spatial-anchors
 ms.service: azure-spatial-anchors
 ms.date: 02/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: eea2d57c708bd3563625d6f9da19ac043b604888
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: df28fc6b5e3a1ddd9813919c8afbf21f65d731b9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246265"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471087"
 ---
-# <a name="building-in-unity-with-azure-spatial-anchors"></a>Compilazione in Unity con gli ancoraggi spaziali di Azure
+# <a name="building-in-unity-with-azure-spatial-anchors"></a>Compilazione in Unity con ancore spaziali di AzureBuilding in Unity with Azure Spatial Anchors
 
-Gli sviluppatori possono scegliere Unity per la creazione e la distribuzione di applicazioni di realtà mista che usano ancoraggi spaziali di Azure. Sono supportate le piattaforme seguenti:
+Gli sviluppatori possono scegliere Unity per la creazione e la distribuzione di applicazioni di realtà mista che usano gli ancoraggi spaziali di Azure.Developers can choose Unity for creating and deploying mixed reality applications that use Azure Spatial Anchors. Sono supportate le seguenti piattaforme:
 
-**Unity per HoloLens**
+**Unità per HoloLens**
 
-[Guida introduttiva: creare un'app HoloLens Unity che usa ancoraggi spaziali di Azure](https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-hololens)
+[Guida introduttiva: Creare un'app Unity HoloLens che usa gli ancoraggi spaziali di AzureQuickstart: Create a Unity HoloLens app that uses Azure Spatial Anchors](https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-hololens)
 
 **Unity per Android**
 
-[Guida introduttiva: creare un'app per Android Unity che usa ancoraggi spaziali di Azure](https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-android)
+[Guida introduttiva: Creare un'app Unity Android che usa gli ancoraggi spaziali di AzureQuickstart: Create a Unity Android app that uses Azure Spatial Anchors](https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-android)
 
-**Unity per iOS**
+**Unità per iOS**
 
-[Guida introduttiva: creare un'app per iOS Unity che usa ancoraggi spaziali di Azure](https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-ios)
+[Guida introduttiva: Creare un'app Unity iOS che usa gli ancoraggi spaziali di AzureQuickstart: Create a Unity iOS app that uses Azure Spatial Anchors](https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-ios)

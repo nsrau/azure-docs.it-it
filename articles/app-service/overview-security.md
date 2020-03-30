@@ -1,16 +1,16 @@
 ---
-title: Sicurezza
+title: Security
 description: Informazioni su come Servizio app di Azure consente di proteggere l'app e su come è possibile proteggere ulteriormente l'app dalle minacce.
 keywords: servizio app di azure, app web, app per dispositivi mobili, app per le api, app per le funzioni, sicurezza, proteggere, protetto, conformità, conforme, certificato, certificati, https, ftps, tls, attendibile, crittografia, crittografare, crittografato, restrizione ip, autenticazione, autorizzazione, msi, identità del servizio gestita, identità gestita, segreti, segreto, applicazione di patch, patch, versione, isolamento, isolamento rete, ddos, mitm
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 28394689048e730aa0c84e3bf807ef3afb898b1e
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: e28935f73511e5ad973929517658cc626b5a6ea2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688552"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79475375"
 ---
 # <a name="security-in-azure-app-service"></a>Sicurezza in Servizio app di Azure
 
@@ -31,14 +31,14 @@ Nelle sezioni seguenti viene illustrato come rafforzare la protezione dell'app d
 
 ## <a name="https-and-certificates"></a>HTTPS e certificati
 
-Servizio app di Azure consente di proteggere le app con [HTTPS](https://wikipedia.org/wiki/HTTPS). Al momento della creazione, il nome di dominio predefinito dell'app (\<nome_app >.azurewebsites.net) è già accessibile tramite HTTPS. Se si [configura un dominio personalizzato per l'app](app-service-web-tutorial-custom-domain.md), è necessario [proteggerlo anche con un certificato SSL](configure-ssl-bindings.md) in modo che i browser client possano creare connessioni HTTPS protette al dominio personalizzato. Il servizio app supporta diversi tipi di certificati:
+Servizio app di Azure consente di proteggere le app con [HTTPS](https://wikipedia.org/wiki/HTTPS). Al momento della creazione, il nome di dominio predefinito dell'app (\<nome_app >.azurewebsites.net) è già accessibile tramite HTTPS. Se [configuri un dominio personalizzato per la tua app,](app-service-web-tutorial-custom-domain.md)devi [anche proteggerlo con un certificato SSL](configure-ssl-bindings.md) in modo che i browser client possano stabilire connessioni HTTPS protette al dominio personalizzato. Esistono diversi tipi di certificati supportati dal servizio app:
 
-- Servizio app gratuito certificato gestito
+- Certificato gestito dal servizio app gratuito
 - Certificato del servizio app
 - Certificato di terze parti
-- Certificato importato da Azure Key Vault
+- Certificato importato dall'insieme di credenziali delle chiavi di AzureCertificate imported from Azure Key Vault
 
-Per ulteriori informazioni, vedere la pagina relativa all' [aggiunta di un certificato SSL nel servizio app Azure](configure-ssl-certificate.md).
+Per altre informazioni, vedere Aggiungere un certificato SSL nel servizio app di Azure.For more information, see [Add an SSL certificate in Azure App Service.](configure-ssl-certificate.md)
 
 ## <a name="insecure-protocols-http-tls-10-ftp"></a>Protocolli non sicuri (HTTP, TLS 1.0, FTP)
 
@@ -52,7 +52,7 @@ Il servizio app supporta FTP e FTPS per la distribuzione dei file. Se possibile,
 
 Per impostazione predefinita, l'app del servizio app accetta le richieste da tutti gli indirizzi IP da Internet, ma è possibile limitare tale accesso a un sottoinsieme ristretto di indirizzi IP. Il servizio app in Windows consente di definire un elenco di indirizzi IP che possono accedere all'app. Questo elenco può includere singoli indirizzi IP o un intervallo di indirizzi IP definito da una subnet mask. Per altre informazioni, vedere [Restrizioni IP statico del Servizio app di Azure](app-service-ip-restrictions.md).
 
-Per il servizio app in Windows, è anche possibile limitare dinamicamente gli indirizzi IP configurando il _file Web. config_. Per ulteriori informazioni, vedere [Dynamic IP Security \<dynamicIpSecurity >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+Per il servizio app in Windows, è inoltre possibile limitare gli indirizzi IP in modo dinamico configurando il _file web.config_. Per ulteriori informazioni, vedere [Dynamic IP Security \<dynamicIpSecurity>](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 ## <a name="client-authentication-and-authorization"></a>Autenticazione e autorizzazione dei client
 
@@ -65,7 +65,7 @@ La soluzione di autorizzazione e autenticazione del servizio app supporta più p
 Per eseguire l'autenticazione con un servizio back-end, il servizio app fornisce due meccanismi diversi a seconda delle esigenze:
 
 - **Identità del servizio**: si accede alla risorsa remota usando l'identità dell'app stessa. Servizio app consente di creare facilmente un'[identità gestita](overview-managed-identity.md), che può essere usata per eseguire l'autenticazione con altri servizi, come il [database SQL di Azure](/azure/sql-database/) o [Azure Key Vault](/azure/key-vault/). Per un'esercitazione completa di questo approccio, vedere [Proteggere la connessione al database SQL di Azure dal servizio app con un'identità gestita](app-service-web-tutorial-connect-msi.md).
-- **OBO (On-behalf-of)** : è possibile impostare l'accesso delegato alle risorse remote per conto dell'utente. Con Azure Active Directory come provider di autenticazione, l'app del servizio app può eseguire l'accesso delegato a un servizio remoto, come l'[API Graph di Azure Active Directory](../active-directory/develop/active-directory-graph-api.md) o un'app per le API remota nel servizio app. Per un'esercitazione completa di questo approccio, vedere [Autenticare e autorizzare gli utenti end-to-end nel servizio app di Azure](app-service-web-tutorial-auth-aad.md).
+- **OBO (On-behalf-of)**: è possibile impostare l'accesso delegato alle risorse remote per conto dell'utente. Con Azure Active Directory come provider di autenticazione, l'app del servizio app può eseguire l'accesso delegato a un servizio remoto, ad esempio [l'API Microsoft Graph](../active-directory/develop/microsoft-graph-intro.md) o un'app API remota nel servizio app. Per un'esercitazione completa di questo approccio, vedere [Autenticare e autorizzare gli utenti end-to-end nel servizio app di Azure](app-service-web-tutorial-auth-aad.md).
 
 ## <a name="connectivity-to-remote-resources"></a>Connettività alle risorse remote
 

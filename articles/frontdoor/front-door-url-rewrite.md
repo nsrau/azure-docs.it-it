@@ -1,6 +1,6 @@
 ---
-title: Servizio Frontdoor di Azure - riscrittura URL | Microsoft Docs
-description: Questo articolo aiuta a comprendere come il servizio Frontdoor di Azure, se configurato, effettui la riscrittura URL per le route.
+title: Azure Front Door - Riscrittura URL Documenti Microsoft
+description: Questo articolo consente di comprendere in che modo Azure Front Door esegue la riscrittura URL per le route, se configurata.
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: dc2126276e3e8e0d35ce8ed1f835544386659eff
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 1e5bd565be7a1cabf08ddf33c65eb12b5294249f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "60736183"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471473"
 ---
 # <a name="url-rewrite-custom-forwarding-path"></a>Riscrittura di URL (percorso di trasferimento personalizzato)
-Il servizio Frontdoor di Azure supporta la riscrittura URL consentendo di configurare un **percorso di trasferimento personalizzato** opzionale da usare quando si costruisce la richiesta da trasferire al back-end. Per impostazione predefinita, se non viene specificato alcun percorso di trasferimento personalizzato, Frontdoor copia il percorso dell'URL in ingresso nell'URL usato nella richiesta inoltrata. L'intestazione Host usata nella richiesta inoltrata viene configurata per il back-end selezionato. Vedere [Intestazione Host di back-end](front-door-backend-pool.md#hostheader) per informazioni su cosa può fare l'intestazione e come configurarla.
+La porta front-in di Azure supporta la riscrittura degli URL consentendo di configurare un percorso di **inoltro personalizzato** facoltativo da utilizzare durante la costruzione della richiesta da inoltrare al back-end. Per impostazione predefinita, se non viene specificato alcun percorso di trasferimento personalizzato, Frontdoor copia il percorso dell'URL in ingresso nell'URL usato nella richiesta inoltrata. L'intestazione Host usata nella richiesta inoltrata viene configurata per il back-end selezionato. Vedere [Intestazione Host di back-end](front-door-backend-pool.md#hostheader) per informazioni su cosa può fare l'intestazione e come configurarla.
 
 La parte più significativa della riscrittura URL che usa il percorso di inoltro personalizzato è costituita dalla copia di qualsiasi parte del percorso in ingresso corrispondente a un percorso con caratteri jolly nel percorso di trasferimento (questi segmenti di percorso sono i segmenti **verdi** indicati nell'esempio che segue):
 </br>
@@ -28,7 +28,7 @@ La parte più significativa della riscrittura URL che usa il percorso di inoltro
 ## <a name="url-rewrite-example"></a>Esempio di riscrittura URL
 Prendere in considerazione una regola di gestione con i seguenti host front-end e i percorsi configurati:
 
-| Host      | Percorsi       |
+| Hosts      | Percorsi       |
 |------------|-------------|
 | www\.contoso.com | /\*         |
 |            | /foo        |
@@ -42,12 +42,12 @@ Per esempio, nella seconda riga, si legge che per le richieste in arrivo `www.co
 
 | Richiesta in ingresso       | Percorso di corrispondenza più specifico | /          | /fwd/          | /foo/          | /foo/bar/          |
 |------------------------|--------------------------|------------|----------------|----------------|--------------------|
-| contoso.com/\.www            | /\*                      | /          | /fwd/          | /foo/          | /foo/bar/          |
-| Sub\.contoso.com/ www     | /\*                      | /**sub**   | /fwd/**sub**   | /foo/**sub**   | /foo/bar/**sub**   |
-| contoso.com/\.www**a/b/c**   | /\*                      | /**a/b/c** | /fwd/**a/b/c** | /foo/**a/b/c** | /foo/bar/**a/b/c** |
+| www\.contoso.com/            | /\*                      | /          | /fwd/          | /foo/          | /foo/bar/          |
+| www\.contoso.com/**sub**     | /\*                      | /**Sub**   | /fwd/**sub**   | /foo/**sub**   | /foo/bar/**sub**   |
+| www\.contoso.com/**a/b/c**   | /\*                      | /**a/b/c** | /fwd/**a/b/c** | /foo/**a/b/c** | /foo/bar/**a/b/c** |
 | www\.contoso.com/foo         | /foo                     | /          | /fwd/          | /foo/          | /foo/bar/          |
 | www\.contoso.com/foo/        | /foo/\*                  | /          | /fwd/          | /foo/          | /foo/bar/          |
-| www\.contoso.com/foo/**bar** | /foo/\*                  | /**bar**   | /fwd/**bar**   | /foo/**bar**   | /foo/bar/**bar**   |
+| www\.contoso.com/foo/**bar** | /foo/\*                  | /**Bar**   | /fwd/**bar**   | /foo/**barra**   | /foo/bar/**bar**   |
 
 
 ## <a name="optional-settings"></a>Impostazioni facoltative

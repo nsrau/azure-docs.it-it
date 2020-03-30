@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.openlocfilehash: 39c4c51a1bc84e06efac3674b1ee5b487f9e6729
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671138"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnostica unificata delle transazioni tra componenti
@@ -56,19 +56,19 @@ Questo riquadro comprimibile mostra i dettagli di qualsiasi elemento selezionato
 
 ![Dettagli dell'eccezione](media/transaction-diagnostics/exceptiondetail.png)
 
-## <a name="search-results"></a>Risultati ricerca
+## <a name="search-results"></a>Search Results
 
 Questo riquadro comprimibile mostra altri risultati che soddisfano i criteri del filtro. Fare clic su qualsiasi risultato per aggiornare i rispettivi dettagli delle 3 sezioni elencate in precedenza. Tentiamo di trovare gli esempi con le maggiori possibilità di ottenere dettagli disponibili da tutti i componenti, anche se il campionamento è attivo in ognuno di essi. Questi vengono visualizzati come esempi "consigliati".
 
-![Risultati ricerca](media/transaction-diagnostics/searchResults.png)
+![Search Results](media/transaction-diagnostics/searchResults.png)
 
 ## <a name="profiler-and-snapshot-debugger"></a>Profiler e Snapshot Debugger
 
 [Application Insights Profiler](../../azure-monitor/app/profiler.md) o [Snapshot Debugger](snapshot-debugger.md) consentono di eseguire la diagnostica a livello di codice dei problemi di prestazioni e degli errori. Grazie a questa esperienza è possibile visualizzare le tracce del profiler o gli snapshot di un componente con un solo clic.
 
-Se non è stato possibile ottenere il funzionamento del profiler, contattare **serviceprofilerhelp\@Microsoft.com**
+Se non è possibile ottenere il funzionamento di Profiler, contattare **serviceprofilerhelp\@microsoft.com**
 
-Se non è stato possibile ottenere Snapshot Debugger funzionante, contattare **snapshothelp\@Microsoft.com**
+Se non è stato possibile ottenere Il debugger Snapshot funziona, **contattare snapshothelp\@microsoft.com**
 
 ![Integrazione profiler](media/transaction-diagnostics/profilerTraces.png)
 
@@ -84,7 +84,7 @@ Possibili motivi:
 
 Se si dispone dell'accesso e i componenti sono instrumentati con gli SDK di Application Insights più recenti, segnalare il problema tramite il canale di feedback in alto a destra.
 
-*Vengono visualizzate righe duplicate per le dipendenze. È previsto?*
+*Vengono visualizzate righe duplicate per le dipendenze. Questo è previsto?*
 
 In questa fase la chiamata di dipendenza in uscita viene mostrata separatamente dalla richiesta in ingresso. In genere, le due chiamate hanno lo stesso aspetto, cambia solo il valore della durata a causa del round trip della rete. L'icona iniziale e lo stile diverso delle barre della durata consentono di distinguere le chiamate tra loro. Questa organizzazione dei dati crea confusione? Inviare i propri commenti.
 
@@ -94,4 +94,4 @@ Le sequenze temporali vengono modificate in base agli sfasamenti di orario nel g
 
 *Perché nella nuova esperienza manca la maggior parte delle query degli elementi correlati?*
 
-Si tratta di un comportamento legato alla progettazione del prodotto. Tutti gli elementi correlati in tutti i componenti sono già disponibili a sinistra (nelle sezioni in alto e in basso). La nuova esperienza presenta due elementi correlati che non sono riportati a sinistra: tutti i dati di telemetria generati nei cinque minuti precedenti e successivi a questo evento e la sequenza temporale dell'utente.
+Questo si verifica per motivi strutturali. Tutti gli elementi correlati in tutti i componenti sono già disponibili a sinistra (nelle sezioni in alto e in basso). La nuova esperienza presenta due elementi correlati che non sono riportati a sinistra: tutti i dati di telemetria generati nei cinque minuti precedenti e successivi a questo evento e la sequenza temporale dell'utente.
