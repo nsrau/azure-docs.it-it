@@ -1,7 +1,7 @@
 ---
 title: Importa dati
 titleSuffix: Azure Machine Learning
-description: Informazioni su come importare i dati in Azure Machine Learning Designer da varie origini dati.
+description: Informazioni su come importare i dati in Progettazione Azure Machine Learning da varie origini dati.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,66 +9,65 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.openlocfilehash: 8cd49f9714746578ec701e22f9e6b0ccce772c6b
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: bd1c2ca182ae8be8425246f691dca805bf38637b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942291"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064023"
 ---
-# <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importare i dati in Azure Machine Learning Designer (anteprima)
+# <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importare i dati nella finestra di progettazione di Azure Machine Learning (anteprima)Import your data into Azure Machine Learning designer (preview)
 
-In questo articolo si apprenderà come importare i propri dati nella finestra di progettazione per creare soluzioni personalizzate. È possibile importare i dati nella finestra di progettazione in due modi: 
+In questo articolo viene illustrato come importare i propri dati nella finestra di progettazione per creare soluzioni personalizzate. È possibile importare dati nella finestra di progettazione in due modi:There are two ways you can import data into the designer: 
 
-* **Azure Machine Learning set** di dati: registrare i [set](concept-data.md#datasets) di dati in Azure Machine Learning per abilitare funzionalità avanzate che consentono di gestire i dati.
-* **Modulo Import Data** (Importa dati): usare il modulo [Import Data (Importa dati](algorithm-module-reference/import-data.md) ) per accedere direttamente ai dati da origini dati online.
+* Set di dati di **Azure Machine Learning:** registrare i set di [dati](concept-data.md#datasets) in Azure Machine Learning per abilitare funzionalità avanzate che consentono di gestire i dati.
+* **Modulo Importa dati:** usare il modulo [Importa dati](algorithm-module-reference/import-data.md) per accedere direttamente ai dati da origini dati online.
 
-## <a name="use-azure-machine-learning-datasets"></a>Usare set di impostazioni Azure Machine Learning
+## <a name="use-azure-machine-learning-datasets"></a>Usare i set di dati di Azure Machine LearningUse Azure Machine Learning datasets
 
-È consigliabile usare i [set](concept-data.md#datasets) di dati per importare i dati nella finestra di progettazione. Quando si registra un set di dati, è possibile sfruttare appieno le funzionalità avanzate dei dati, ad esempio il controllo delle [versioni e il rilevamento](how-to-version-track-datasets.md) e il [monitoraggio dei dati](how-to-monitor-datasets.md).
+È consigliabile usare [i set](concept-data.md#datasets) di dati per importare i dati nella finestra di progettazione. Quando si registra un set di dati, è possibile sfruttare appieno le funzionalità avanzate dei dati, ad esempio il [controllo delle versioni,](how-to-version-track-datasets.md) il rilevamento e il monitoraggio dei [dati.](how-to-monitor-datasets.md)
 
-### <a name="register-a-dataset"></a>Registrare un set di dati
+### <a name="register-a-dataset"></a>Registrare un set di datiRegister a dataset
 
-È possibile registrare i set di impostazioni di [a livello esistenti con l'SDK](how-to-create-register-datasets.md#use-the-sdk) o [visivamente in Azure Machine Learning Studio](how-to-create-register-datasets.md#use-the-ui).
+È possibile registrare i dataset esistenti [in modo programmato con l'SDK](how-to-create-register-datasets.md#use-the-sdk) o [visivamente in Azure Machine Learning Studio.](how-to-create-register-datasets.md#use-the-ui)
 
-È anche possibile registrare l'output per qualsiasi modulo di progettazione come set di dati.
+È inoltre possibile registrare l'output per qualsiasi modulo della finestra di progettazione come set di dati.
 
 1. Selezionare il modulo che restituisce i dati che si desidera registrare.
 
-1. Nel riquadro Proprietà selezionare **output** > **registra set di dati**.
+1. Nel riquadro delle proprietà selezionare **Set** > di dati**Output registro**.
 
-    ![Screenshot che illustra come passare all'opzione Register DataSet](media/how-to-designer-import-data/register-dataset-designer.png)
+    ![Schermata che mostra come passare all'opzione Registra set di dati](media/how-to-designer-import-data/register-dataset-designer.png)
 
-### <a name="use-a-dataset"></a>Usare un set di dati
+### <a name="use-a-dataset"></a>Usare un set di datiUse a dataset
 
-I set di documenti registrati sono disponibili nella tavolozza dei moduli, in **set di impostazioni** > set di **impostazioni personali**. Per usare un set di dati, trascinarlo e rilasciarlo nell'area di disegno della pipeline. Quindi, connettere la porta di output del set di dati ad altri moduli della tavolozza.
+I set di dati registrati sono disponibili nella tavolozza dei moduli, in **Dataset,** > **dataset**personali . Per usare un set di dati, trascinarlo nell'area di disegno della pipeline. Quindi, collegare la porta di output del set di dati ad altri moduli nella tavolozza.
 
-![Screenshot che mostra la posizione dei set di impostazioni salvati nella tavolozza della finestra di progettazione](media/how-to-designer-import-data/use-datasets-designer.png)
-
+![Schermata che mostra la posizione dei set di dati salvati nella tavolozza della finestra di progettazione](media/how-to-designer-import-data/use-datasets-designer.png)
 
 
 > [!NOTE]
-> La finestra di progettazione supporta attualmente solo l'elaborazione di [DataSet tabulari](how-to-create-register-datasets.md#dataset-types). Se si vogliono usare i [set di file di file](how-to-create-register-datasets.md#dataset-types), usare l'SDK Azure machine learning disponibile per Python e R.
+> La finestra di progettazione supporta attualmente solo l'elaborazione di [dataset tabulari.](how-to-create-register-datasets.md#dataset-types) Se si vuole usare i set di dati dei file, usare Azure Machine Learning SDK disponibile per Python e R.If you want to use [file datasets](how-to-create-register-datasets.md#dataset-types), use the Azure Machine Learning SDK available for Python and R.
 
-## <a name="import-data-using-the-import-data-module"></a>Importare dati tramite il modulo Import Data
+## <a name="import-data-using-the-import-data-module"></a>Importare dati utilizzando il modulo Importa dati
 
-Sebbene sia consigliabile usare i set di dati per importare i dati, è anche possibile usare il modulo [Import Data](algorithm-module-reference/import-data.md) . Il modulo Import Data ignora la registrazione del set di dati in Azure Machine Learning e importa i dati direttamente da un [Archivio](concept-data.md#datastores) dati o un URL http.
+Sebbene sia consigliabile usare i set di dati per importare i dati, è anche possibile usare il modulo [Importa dati.](algorithm-module-reference/import-data.md) Il modulo Importa dati ignora la registrazione del set di dati in Azure Machine Learning e importa i dati direttamente da un [archivio dati](concept-data.md#datastores) o da un URL HTTP.
 
-Per informazioni dettagliate su come usare il modulo Import Data, vedere la [pagina Import Data Reference](algorithm-module-reference/import-data.md).
+Per informazioni dettagliate sull'utilizzo del modulo Importa dati, vedere la pagina di [riferimento Importa dati](algorithm-module-reference/import-data.md).
 
-[!NOTE]
-> Se i dati sono costituiti da più colonne, è possibile che venga visualizzato il errore "convalida non riuscita a causa di limitazioni delle dimensioni" nel modulo Import Data. Questo perché le colonne escludono la lunghezza del parametro del modulo maxmium dopo la codifica. In questo caso è consigliabile [registrare il set di dati nell'interfaccia utente dei set di dati](how-to-create-register-datasets.md#use-the-ui), che può evitare l'errore.  
+> [!NOTE]
+> Se il set di dati contiene troppe colonne, è possibile che si verifichi il seguente errore: "Convalida non riuscita a causa di limitazioni di dimensione". Per evitare questo problema, [registrare il dataset nell'interfaccia Dataset.](how-to-create-register-datasets.md#use-the-ui)
 
-## <a name="supported-sources"></a>Origini supportate
+## <a name="supported-sources"></a>Fonti supportate
 
-In questa sezione sono elencate le origini dati supportate dalla finestra di progettazione. I dati vengono inseriti nella finestra di progettazione da un archivio dati o da un set di dati [tabulare](how-to-create-register-datasets.md#dataset-types).
+In questa sezione sono elencate le origini dati supportate dalla finestra di progettazione. I dati entrano nella finestra di progettazione da un archivio dati o da un [set di dati tabulare.](how-to-create-register-datasets.md#dataset-types)
 
-### <a name="datastore-sources"></a>Origini archivio dati
-Per un elenco delle origini di archivio dati supportate, vedere [accedere ai dati nei servizi di archiviazione di Azure](how-to-access-data.md#supported-data-storage-service-types).
+### <a name="datastore-sources"></a>Origini datastore
+Per un elenco delle origini dell'archivio dati supportate, vedere [Accedere ai dati nei servizi di archiviazione](how-to-access-data.md#supported-data-storage-service-types)di Azure.For a list of supported datastore sources, see Access data in Azure storage services .
 
-### <a name="tabular-dataset-sources"></a>Origini dataset tabulari
+### <a name="tabular-dataset-sources"></a>Origini set di dati tabulariTabular dataset sources
 
-La finestra di progettazione supporta i set di impostazioni tabulari creati dalle origini seguenti:
+La finestra di progettazione supporta i set di dati tabulari creati dalle origini seguenti:The designer supports tabular datas created from the following sources:
  * File delimitati
  * File JSON
  * File Parquet
@@ -76,7 +75,7 @@ La finestra di progettazione supporta i set di impostazioni tabulari creati dall
 
 ## <a name="data-types"></a>Tipi di dati
 
-La finestra di progettazione riconosce internamente i tipi di dati seguenti:
+La finestra di progettazione riconosce internamente i tipi di dati seguenti:The designer internally recognizes the following data types:
 
 * string
 * Integer
@@ -84,12 +83,12 @@ La finestra di progettazione riconosce internamente i tipi di dati seguenti:
 * Boolean
 * Data
 
-La finestra di progettazione utilizza un tipo di dati interno per passare i dati tra i moduli. È possibile convertire in modo esplicito i dati in formato tabella dati usando il modulo [Convert to DataSet](algorithm-module-reference/convert-to-dataset.md) . Qualsiasi modulo che accetta formati diversi dal formato interno convertirà i dati in modo invisibile all'utente prima di passarli al modulo successivo.
+La finestra di progettazione utilizza un tipo di dati interno per passare i dati tra i moduli. È possibile convertire in modo esplicito i dati in formato tabella dati utilizzando il modulo Converti in [set di dati.](algorithm-module-reference/convert-to-dataset.md) Qualsiasi modulo che accetta formati diversi dal formato interno convertirà i dati in modo invisibile all'utente prima di passarli al modulo successivo.
 
-## <a name="data-constraints"></a>Vincoli di dati
+## <a name="data-constraints"></a>Vincoli dati
 
-I moduli nella finestra di progettazione sono limitati dalla dimensione della destinazione di calcolo. Per i set di impostazioni più grandi, è consigliabile usare una risorsa di calcolo Azure Machine Learning più grande. Per altre informazioni su Azure Machine Learning calcolo, vedere [che cosa sono le destinazioni di calcolo in Azure Machine Learning?](concept-compute-target.md#azure-machine-learning-compute-managed)
+I moduli nella finestra di progettazione sono limitati dalle dimensioni della destinazione di calcolo. Per set di dati di dimensioni maggiori, è consigliabile usare una risorsa di calcolo di Azure Machine Learning più grande. Per altre informazioni sul calcolo di Azure Machine Learning, vedere Quali sono le destinazioni di [calcolo in Azure Machine Learning?](concept-compute-target.md#azure-machine-learning-compute-managed)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni di base sulla finestra di progettazione con [l'esercitazione: stimare il prezzo dell'automobile con la finestra di progettazione](tutorial-designer-automobile-price-train-score.md).
+Impara le basi del designer con [Tutorial: Predict automobile price con il designer.](tutorial-designer-automobile-price-train-score.md)

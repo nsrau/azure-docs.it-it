@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi della distribuzione di OpenShift container Platform 3,11 in Azure
-description: Risolvere i problemi della distribuzione di OpenShift container Platform 3,11 in Azure.
+title: Risolvere i problemi relativi alla distribuzione di OpenShift Container Platform 3.11 in AzureTroubleshoot OpenShift Container Platform 3.11 deployment in Azure
+description: Risolvere i problemi relativi alla distribuzione di OpenShift Container Platform 3.11 in Azure.Troubleshoot OpenShift Container Platform 3.11 deployment in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 1915cce1878b9b7ec058c13167e03c3c318f3668
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bd83a1ca731d81edb76a3c1bc07113ce96adb9ec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035482"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066596"
 ---
-# <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Risolvere i problemi della distribuzione di OpenShift container Platform 3,11 in Azure
+# <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Risolvere i problemi relativi alla distribuzione di OpenShift Container Platform 3.11 in AzureTroubleshoot OpenShift Container Platform 3.11 deployment in Azure
 
 Se il cluster OpenShift non viene distribuito correttamente, il portale di Azure fornirà un output degli errori. L'output potrebbe risultare difficile da leggere, rendendo complicata l'identificazione del problema. Eseguire rapidamente un'analisi di questo output per il codice di uscita 3, 4 o 5. Di seguito vengono fornite informazioni su questi tre codici di uscita:
 
@@ -31,7 +31,7 @@ Se il cluster OpenShift non viene distribuito correttamente, il portale di Azure
 
 Per tutti gli altri codici di uscita, connettersi agli host tramite ssh per visualizzare i file di log.
 
-**Piattaforma OpenShift container 3,11**
+**OpenShift Container Platform 3.11**
 
 Stabilire una connessione SSH all'host del playbook di Ansible. Per il modello o l'offerta del Marketplace, usare il bastion host. Dal bastion, è possibile stabilire una connessione SSH a tutti gli altri nodi del cluster (master, infra, CNS, calcolo). È necessario essere radice per visualizzare i file di log. Siccome la radice è disabilitata per l'accesso SSH per impostazione predefinita, non usare la radice per stabilire una connessione SSH ad altri nodi.
 
@@ -41,9 +41,9 @@ Stabilire una connessione SSH all'host del playbook di Ansible. Per il modello O
 
 ## <a name="log-files"></a>File di log
 
-I file di log (stderr e stdout) per gli script di preparazione host si trovano in `/var/lib/waagent/custom-script/download/0` in tutti gli host. Se si è verificato un errore durante la preparazione dell'host, è possibile visualizzare questi file di log per determinare l'errore.
+I file di registro (stderr e stdout) `/var/lib/waagent/custom-script/download/0` per gli script di preparazione dell'host si trovano in tutti gli host. Se si è verificato un errore durante la preparazione dell'host, è possibile visualizzare questi file di log per determinare l'errore.
 
-Se gli script di preparazione sono stati eseguiti correttamente, sarà necessario esaminare i file di log nella directory `/var/lib/waagent/custom-script/download/1` dell'host PlayBook Ansible. Se l'errore si è verificato durante l'installazione di OpenShift, il file stdout visualizzerà l'errore. Riportare queste informazioni quando si contatta il supporto tecnico per ulteriore assistenza.
+Se gli script di preparazione sono stati `/var/lib/waagent/custom-script/download/1` eseguiti correttamente, sarà necessario esaminare i file di log nella directory dell'host playbook ansible. Se l'errore si è verificato durante l'installazione di OpenShift, il file stdout visualizzerà l'errore. Riportare queste informazioni quando si contatta il supporto tecnico per ulteriore assistenza.
 
 Output di esempio
 
@@ -92,17 +92,17 @@ Gli errori più comuni durante l'installazione sono:
 
 ### <a name="private-key-has-a-passphrase"></a>La chiave privata ha una passphrase
 
-Verrà visualizzato un errore per cui è stata negata l'autorizzazione per SSH. eseguire ssh nell'host PlayBook Ansible per verificare la presenza di una passphrase sulla chiave privata.
+Verrà visualizzato un errore che indica che l'autorizzazione è stata negata per ssh. all'ansible playbook host per verificare la presenza di una passphrase sulla chiave privata.
 
 ### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>Il segreto dell'insieme di credenziali delle chiavi con chiave privata non è stato creato correttamente
 
-La chiave privata viene copiata in Ansible PlayBook host-~/.ssh/id_rsa. Verificare che il file sia corretto. Eseguire un test aprendo una sessione SSH in uno dei nodi del cluster dall'host del playbook di Ansible.
+La chiave privata viene copiata nell'audio ansible playbook - .ssh/id_rsa. Verificare che il file sia corretto. Eseguire un test aprendo una sessione SSH in uno dei nodi del cluster dall'host del playbook di Ansible.
 
 ### <a name="service-principal-credentials-were-entered-incorrectly"></a>Le credenziali dell'entità servizio non sono state immesse in modo corretto
 
 Quando è stato fornito l'input per il modello o l'offerta del Marketplace, non sono state specificate le informazioni corrette. Assicurarsi di usare l'appId (clientId) e la password (clientSecret) corretti per l'entità servizio. Verificare eseguendo il seguente comando CLI di Azure.
 
-```bash
+```azurecli
 az login --service-principal -u <client id> -p <client secret> -t <tenant id>
 ```
 
@@ -110,7 +110,7 @@ az login --service-principal -u <client id> -p <client secret> -t <tenant id>
 
 Se il provider di servizi cloud di Azure è abilitato, l'entità servizio usata deve avere accesso come collaboratore al gruppo di risorse. Verificare eseguendo il seguente comando CLI di Azure.
 
-```bash
+```azurecli
 az group update -g <openshift resource group> --set tags.sptest=test
 ```
 
@@ -118,5 +118,5 @@ az group update -g <openshift resource group> --set tags.sptest=test
 
 Per alcuni errori, è anche possibile usare i comandi seguenti per ottenere ulteriori informazioni:
 
-1. > del servizio \<stato systemctl
+1. servizio di \<stato systemctl>
 2. journalctl -xe

@@ -14,16 +14,16 @@ ms.date: 12/21/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: c49df689ae859c93046c19af043aa2001dbb5481
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75979637"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Introduzione all'archiviazione tabelle di Azure e a Servizi connessi di Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 L’archiviazione tabelle di Azure consente di archiviare grandi quantità di dati strutturati. Il servizio è un datastore NoSQL che accetta chiamate autenticate dall'interno e dall'esterno del cloud di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati strutturati non relazionali.
 
@@ -32,7 +32,7 @@ Questa esercitazione illustra come scrivere codice ASP.NET per alcuni scenari co
 ## <a name="prerequisites"></a>Prerequisiti
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Account di archiviazione di Azure](../storage/common/storage-account-create.md)
+* [Account di archiviazione di AzureAzure storage account](../storage/common/storage-account-create.md)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -115,7 +115,7 @@ I passaggi seguenti illustrano come creare una tabella:
     }
     ```
 
-1. Nel metodo **CreateTable** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: sostituire *&lt;nome account di archiviazione>* con il nome dell'account di archiviazione Azure a cui si sta accedendo.
+1. Nel metodo **CreateTable** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: (Modificare il nome dell'account di archiviazione>con il nome dell'account di archiviazione di Azure a cui si accede).Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change * &lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -170,7 +170,7 @@ I passaggi seguenti illustrano come creare una tabella:
     <li>@Html.ActionLink("Create table", "CreateTable", "Tables")</li>
     ```
 
-1. Eseguire l'applicazione e selezionare **Crea tabella** per visualizzare risultati simili allo screenshot seguente:
+1. Eseguire l'applicazione e selezionare Crea tabella per visualizzare risultati simili alla schermata seguente:Run the application, and select **Create table** to see results similar to the following screenshot:
   
     ![Crea tabella](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
@@ -178,7 +178,7 @@ I passaggi seguenti illustrano come creare una tabella:
 
 ## <a name="add-an-entity-to-a-table"></a>Aggiungere un'entità a una tabella
 
-Per eseguire il mapping di *entità* a oggetti C\#, viene usata una classe personalizzata derivata da **TableEntity**. Per aggiungere un'entità a una classe, creare una classe che definisca le proprietà dell'entità. Questa sezione illustra come definire una classe di entità che usa il nome e il cognome del cliente rispettivamente come chiave di riga e chiave di partizione. La combinazione della chiave di riga e della chiave di partizione di un'entità consentono di identificare in modo univoco l'entità nella tabella. Le query su entità con la stessa chiave di partizione vengono eseguite più rapidamente di quelle con chiavi di partizione diverse, tuttavia l'uso di chiavi di partizione diverse assicura una maggiore scalabilità delle operazioni parallele. Tutte le proprietà da archiviare nel servizio tabelle devono essere proprietà pubbliche di un tipo supportato che espone entrambi i valori di impostazione e recupero.
+*Le entità eseguono* il mapping agli oggetti C\# utilizzando una classe personalizzata derivata da **TableEntity**. Per aggiungere un'entità a una classe, creare una classe che definisca le proprietà dell'entità. Questa sezione illustra come definire una classe di entità che usa il nome e il cognome del cliente rispettivamente come chiave di riga e chiave di partizione. La combinazione della chiave di riga e della chiave di partizione di un'entità consentono di identificare in modo univoco l'entità nella tabella. Le query su entità con la stessa chiave di partizione vengono eseguite più rapidamente di quelle con chiavi di partizione diverse, tuttavia l'uso di chiavi di partizione diverse assicura una maggiore scalabilità delle operazioni parallele. Tutte le proprietà da archiviare nel servizio tabelle devono essere proprietà pubbliche di un tipo supportato che espone entrambi i valori di impostazione e recupero.
 La classe di entità *deve* dichiarare un costruttore pubblico senza parametri.
 
 > [!NOTE]
@@ -204,7 +204,7 @@ La classe di entità *deve* dichiarare un costruttore pubblico senza parametri.
     }
     ```
 
-1. Nel metodo **AddEntity** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: sostituire *&lt;nome account di archiviazione>* con il nome dell'account di archiviazione Azure a cui si sta accedendo.
+1. Nel metodo **AddEntity** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: (Modificare il nome dell'account di archiviazione>con il nome dell'account di archiviazione di Azure a cui si accede).Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change * &lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -272,7 +272,7 @@ La classe di entità *deve* dichiarare un costruttore pubblico senza parametri.
     <li>@Html.ActionLink("Add entity", "AddEntity", "Tables")</li>
     ```
 
-1. Eseguire l'applicazione e selezionare **Aggiungi entità** per visualizzare risultati simili allo screenshot seguente:
+1. Eseguire l'applicazione e selezionare Aggiungi entità per visualizzare risultati simili alla schermata seguente:Run the application, and select **Add entity** to see results similar to the following screenshot:
   
     ![Aggiungi entità](./media/vs-storage-aspnet-getting-started-tables/add-entity-results.png)
 
@@ -299,7 +299,7 @@ Oltre ad [aggiungere entità a una tabella una alla volta](#add-an-entity-to-a-t
     }
     ```
 
-1. Nel metodo **AddEntities** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: sostituire *&lt;nome account di archiviazione>* con il nome dell'account di archiviazione Azure a cui si sta accedendo.
+1. Nel metodo **AddEntities** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: (Modificare il nome dell'account di archiviazione>con il nome dell'account di archiviazione di Azure a cui si accede).Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change * &lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -392,7 +392,7 @@ Oltre ad [aggiungere entità a una tabella una alla volta](#add-an-entity-to-a-t
     <li>@Html.ActionLink("Add entities", "AddEntities", "Tables")</li>
     ```
 
-1. Eseguire l'applicazione e selezionare **Aggiungi entità** per visualizzare risultati simili allo screenshot seguente:
+1. Eseguire l'applicazione e selezionare Aggiungi entità per visualizzare risultati simili alla schermata seguente:Run the application, and select **Add entities** to see results similar to the following screenshot:
   
     ![Aggiungi entità](./media/vs-storage-aspnet-getting-started-tables/add-entities-results.png)
 
@@ -419,7 +419,7 @@ Questa sezione illustra come ottenere una singola entità da una tabella usando 
     }
     ```
 
-1. Nel metodo **ListBlobs** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: sostituire *&lt;nome account di archiviazione>* con il nome dell'account di archiviazione Azure a cui si sta accedendo.
+1. Nel metodo **ListBlobs** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: (Modificare il nome dell'account di archiviazione>con il nome dell'account di archiviazione di Azure a cui si accede).Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change * &lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -494,7 +494,7 @@ Questa sezione illustra come ottenere una singola entità da una tabella usando 
     <li>@Html.ActionLink("Get single", "GetSingle", "Tables")</li>
     ```
 
-1. Eseguire l'applicazione e selezionare **Get Single** per visualizzare risultati simili allo screenshot seguente:
+1. Eseguire l'applicazione e selezionare Ottieni singolo per visualizzare risultati simili alla schermata seguente:Run the application, and select **Get Single** to see results similar to the following screenshot:
   
     ![Get single](./media/vs-storage-aspnet-getting-started-tables/get-single-results.png)
 
@@ -519,7 +519,7 @@ Come accennato nella sezione [Aggiungere un'entità a una tabella](#add-an-entit
     }
     ```
 
-1. Nel metodo **GetPartition** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: sostituire *&lt;nome account di archiviazione>* con il nome dell'account di archiviazione Azure a cui si sta accedendo.
+1. Nel metodo **GetPartition** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: (Modificare il nome dell'account di archiviazione>con il nome dell'account di archiviazione di Azure a cui si accede).Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change * &lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -538,7 +538,7 @@ Come accennato nella sezione [Aggiungere un'entità a una tabella](#add-an-entit
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Creare un'istanza di un oggetto **TableQuery** specificando la query nella clausola **Where**. Usando la classe **CustomerEntity** e i dati presentati nella sezione [aggiungere un batch di entità a una tabella](#add-a-batch-of-entities-to-a-table), il frammento di codice seguente esegue una query sulla tabella per tutte le entità in cui **PartitionKey** (cognome del cliente) ha un valore di "Smith":
+1. Creare un'istanza di un oggetto **TableQuery** specificando la query nella clausola **Where**. Utilizzando la classe **CustomerEntity** e i dati presentati nella sezione [Aggiungere un batch di entità a una tabella,](#add-a-batch-of-entities-to-a-table)il frammento di codice seguente esegue una query nella tabella per tutte le entità in cui **PartitionKey** (cognome del cliente) ha un valore "Smith":
 
     ```csharp
     TableQuery<CustomerEntity> query = 
@@ -604,7 +604,7 @@ Come accennato nella sezione [Aggiungere un'entità a una tabella](#add-an-entit
     <li>@Html.ActionLink("Get partition", "GetPartition", "Tables")</li>
     ```
 
-1. Eseguire l'applicazione e selezionare **Ottieni partizione** per visualizzare risultati simili allo screenshot seguente:
+1. Eseguire l'applicazione e selezionare **Ottieni partizione** per visualizzare risultati simili alla schermata seguente:Run the application, and select Get Partition to see results similar to the following screenshot:
   
     ![Get Partition](./media/vs-storage-aspnet-getting-started-tables/get-partition-results.png)
 
@@ -629,7 +629,7 @@ Questa sezione illustra come eliminare un'entità da una tabella.
     }
     ```
 
-1. Nel metodo **DeleteEntity** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: sostituire *&lt;nome account di archiviazione>* con il nome dell'account di archiviazione Azure a cui si sta accedendo.
+1. Nel metodo **DeleteEntity** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: (Modificare il nome dell'account di archiviazione>con il nome dell'account di archiviazione di Azure a cui si accede).Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change * &lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -704,12 +704,12 @@ Questa sezione illustra come eliminare un'entità da una tabella.
     <li>@Html.ActionLink("Delete entity", "DeleteEntity", "Tables")</li>
     ```
 
-1. Eseguire l'applicazione e selezionare **Elimina entità** per visualizzare risultati simili allo screenshot seguente:
+1. Eseguire l'applicazione e selezionare Elimina entità per visualizzare risultati simili alla schermata seguente:Run the application, and select **Delete entity** to see results similar to the following screenshot:
   
     ![Get single](./media/vs-storage-aspnet-getting-started-tables/delete-entity-results.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
 
-  * [Introduzione all'Archiviazione BLOB di Azure e ai Servizi connessi di Visual Studio (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)
-  * [Introduzione all'archiviazione code di Azure e ai Servizi connessi di Visual Studio (ASP.NET)](../storage/vs-storage-aspnet-getting-started-queues.md)
+  * [Introduzione all'archiviazione BLOB di Azure e aVisual Studio Connected Services (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)
+  * [Introduzione all'archiviazione code di Azure e ai servizi connessi di Visual Studio (ASP.NET)](../storage/vs-storage-aspnet-getting-started-queues.md)

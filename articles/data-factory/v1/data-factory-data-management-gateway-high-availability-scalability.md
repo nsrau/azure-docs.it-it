@@ -1,5 +1,5 @@
 ---
-title: Disponibilità elevata con gateway di gestione dati in Azure Data Factory
+title: Disponibilità elevata con gateway di gestione dati in Azure Data FactoryHigh availability with data management gateway in Azure Data Factory
 description: Questo articolo illustra come è possibile aumentare il numero di istanze di un gateway di gestione dati aggiungendo altri nodi e aumentare le prestazioni accrescendo il numero di processi simultanei che possono essere eseguiti in un nodo.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 25dbb01a4b018a51390be664472aceadea0a9524
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4ee89f4bba70bb5e81eef21247d556f65a2a1f16
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932020"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065198"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway di gestione dati: disponibilità elevata e scalabilità (anteprima)
 > [!NOTE]
@@ -53,7 +53,7 @@ Tutti questi nodi sono **attivi**. Tutti possono elaborare i processi di spostam
 
 È in genere possibile iniziare con un nodo e **aumentare il numero di istanze** per aggiungere altri nodi man mano che i nodi esistenti vengono sovraccaricati dalle operazioni di spostamento dati. È anche possibile **aumentare le prestazioni** della funzionalità di spostamento dati di un nodo del gateway accrescendo il numero di processi simultanei che possono essere eseguiti nel nodo. Questa capacità è disponibile anche con un gateway a nodo singolo, anche quando la funzionalità di scalabilità e disponibilità non è abilitata. 
 
-Un gateway con più nodi mantiene sincronizzate le credenziali degli archivi dati in tutti i nodi. Se si verifica un problema di connettività da nodo a nodo, le credenziali potrebbero non essere sincronizzate. Quando si impostano le credenziali per un archivio dati locale che usa un gateway, le credenziali vengono salvate nel nodo Dispatcher/ruolo di lavoro. Il nodo dispatcher viene sincronizzato con gli altri nodi ruolo di lavoro. Questo processo è noto come **sincronizzazione delle credenziali**. Il canale di comunicazione tra i nodi può essere **crittografato** con un certificato SSL/TLS pubblico. 
+Un gateway con più nodi mantiene sincronizzate le credenziali degli archivi dati in tutti i nodi. Se si verifica un problema di connettività da nodo a nodo, le credenziali potrebbero non essere sincronizzate. Quando si impostano le credenziali per un archivio dati locale che utilizza un gateway, le credenziali vengono salvate nel nodo dispatcher/worker. Il nodo dispatcher viene sincronizzato con gli altri nodi ruolo di lavoro. Questo processo è noto come **sincronizzazione delle credenziali**. Il canale di comunicazione tra i nodi può essere **crittografato** da un certificato SSL/TLS pubblico. 
 
 ## <a name="set-up-a-multi-node-gateway"></a>Configurare un gateway multinodo
 Questa sezione presuppone che siano stati letti i due articoli seguenti o che si abbia familiarità con i concetti illustrati in questi articoli: 
@@ -133,7 +133,7 @@ Questa sezione presuppone che siano stati letti i due articoli seguenti o che si
 È possibile aggiornare un gateway esistente per usare la funzionalità di disponibilità elevata e scalabilità. Questa funzionalità può essere usata solo con i nodi che eseguono Gateway di gestione dati versione >= 2.12.xxxx. È possibile visualizzare la versione del gateway di gestione dati installato in un computer nella scheda **Guida** di Gestione configurazione di Gateway di gestione dati. 
 
 1. Aggiornare il gateway nel computer locale alla versione più recente scaricando ed eseguendo un pacchetto di installazione MSI dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Vedere la sezione [Installazione](data-factory-data-management-gateway.md#installation) per i dettagli.  
-2. Passare al portale di Azure. Avviare la **pagina Data Factory** per la data factory. Fare clic sul riquadro Servizi collegati per avviare la **pagina Servizi collegati**. Selezionare il gateway per avviare la **pagina del gateway**. Facendo clic abilitare **Anteprima funzionalità**, come mostrato nell'immagine seguente: 
+2. Passare al portale di Azure. Avviare la **pagina Data Factory** per la data factory. Fare clic sul riquadro Servizi collegati per avviare la **pagina Servizi collegati**. Selezionare il gateway per avviare la pagina del **gateway.** Facendo clic abilitare **Anteprima funzionalità**, come mostrato nell'immagine seguente: 
 
     ![Gateway di gestione dati: abilitare l'anteprima funzionalità](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-existing-gateway-enable-high-availability.png)   
 2. Dopo avere abilitato l'anteprima funzionalità nel portale, chiudere tutte le pagine. Riaprire la **pagina del gateway** per visualizzare la nuova interfaccia utente di anteprima.
@@ -164,9 +164,9 @@ Ecco i requisiti per il certificato TLS/SSL usato per proteggere le comunicazion
 - Ogni nodo di Integration Runtime deve considerare attendibile questo certificato, nonché il computer client che esegue l'applicazione di gestione delle credenziali. 
   > [!NOTE]
   > L'applicazione di gestione delle credenziali viene usata durante l'impostazione sicura delle credenziali tramite Copia guidata nel portale di Azure. Può inoltre essere attivata da qualsiasi computer all'interno della stessa rete dell'archivio dati locale/privato.
-- I certificati con caratteri jolly sono supportati. Se il nome FQDN è **node1.domain.contoso.com**, è possibile usare * **.domain.contoso.com** come nome del soggetto del certificato.
-- I certificati SAN non sono consigliati poiché verrà usato solo l'ultimo elemento dei nomi alternativi dei soggetti, mentre tutti gli altri verranno ignorati a causa della limitazione attuale. Ad esempio, se si dispone di un certificato SAN i cui nomi alternativi dei soggetti sono **node1.domain.contoso.com** e **node2.domain.contoso.com**, è possibile usare solo questo certificato nel computer il cui nome di dominio completo è **node2.domain.contoso.com**.
-- Deve supportare tutte le dimensioni chiave supportate da Windows Server 2012 R2 per i certificati SSL.
+- I certificati con caratteri jolly sono supportati. Se il nome FQDN è **node1.domain.contoso.com**, è possibile usare ***.domain.contoso.com** come nome del soggetto del certificato.
+- I certificati SAN non sono consigliati poiché verrà usato solo l'ultimo elemento dei nomi alternativi dei soggetti, mentre tutti gli altri verranno ignorati a causa della limitazione attuale. ad esempio se si dispone di un certificato SAN i cui nomi alternativi dei soggetti sono **node1.domain.contoso.com** e **node2.domain.contoso.com**, è possibile usare solo questo certificato nel computer il cui nome di dominio completo è **node2.domain.contoso.com**.
+- Supporta qualsiasi dimensione di chiave supportata da Windows Server 2012 R2 per i certificati TLS/SSL.
 - Non sono supportati i certificati che usano chiavi CNG.
 
 #### <a name="faq-when-would-i-not-enable-this-encryption"></a>Domande frequenti: Quando non è consigliabile abilitare questo tipo di crittografia?
@@ -181,17 +181,17 @@ Nel portale di Azure è possibile visualizzare lo snapshot in tempo quasi reale 
 
 ![Gateway di gestione dati: monitoraggio di più nodi](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring.png)
 
-È possibile abilitare **Impostazioni avanzate** nella pagina **Gateway** per visualizzare le metriche avanzate, ad esempio **Rete (in/out)** , **Ruolo e Stato delle credenziali**, utile nel debug dei problemi del gateway, e **Processi simultanei (in esecuzione/limite)** che può essere modificata/cambiata in base alle esigenze durante l'ottimizzazione delle prestazioni. La tabella seguente contiene le descrizioni delle colonne dell'elenco **Nodi del gateway**:  
+È possibile abilitare **Impostazioni avanzate** nella pagina **Gateway** per visualizzare le metriche avanzate, ad esempio **Rete (in/out)**, **Ruolo e Stato delle credenziali**, utile nel debug dei problemi del gateway, e **Processi simultanei (in esecuzione/limite)** che può essere modificata/cambiata in base alle esigenze durante l'ottimizzazione delle prestazioni. La tabella seguente contiene le descrizioni delle colonne dell'elenco **Nodi del gateway**:  
 
-Proprietà monitoraggio | Description
+Proprietà monitoraggio | Descrizione
 :------------------ | :---------- 
-name | Nome del gateway logico e nodi associati al gateway.  
-Status | Stato del gateway logico e dei nodi del gateway. Esempio: online/offline/Limited/ecc. Per informazioni su questi Stati, vedere la sezione [stato del gateway](#gateway-status) . 
+Nome | Nome del gateway logico e nodi associati al gateway.  
+Stato | Stato del gateway logico e dei nodi del gateway. Esempio: Online/Offline/Limited/etc. Per informazioni su questi stati, vedere la sezione [Stato del gateway.](#gateway-status) 
 Versione | Indica la versione del gateway logico e di ogni nodo del gateway. La versione del gateway logico viene determinata in base alla versione della maggior parte dei nodi del gruppo. Se nella configurazione del gateway logico sono presenti nodi con versioni diverse, solo i nodi con lo stesso numero di versione del gateway logico funzionano correttamente. Gli altri sono in modalità limitata e devono essere aggiornati manualmente (solo se l'aggiornamento automatico non riesce). 
 Memoria disponibile | Memoria disponibile in un nodo del gateway. Questo valore è uno snapshot in tempo quasi reale. 
 Uso della CPU | Utilizzo della CPU di un nodo del gateway. Questo valore è uno snapshot in tempo quasi reale. 
 Rete (in/out) | Utilizzo della rete da parte di un nodo del gateway. Questo valore è uno snapshot in tempo quasi reale. 
-Processi simultanei (in esecuzione/limite) | Numero di processi o di attività in esecuzione in ogni nodo. Questo valore è uno snapshot in tempo quasi reale. Per limite si intende il numero massimo di processi simultanei per ogni nodo. Questo valore viene definito in base alle dimensioni del computer. È possibile aumentare il limite per la scalabilità verticale dell'esecuzione di processi simultanei in scenari avanzati, in cui CPU/memoria/rete è sottoutilizzata, ma si verifica il timeout delle attività. Questa funzionalità è disponibile anche con un gateway a nodo singolo (anche quando la funzionalità di scalabilità e disponibilità non è abilitata). Per altre informazioni, vedere la sezione [Considerazioni sulla scalabilità](#scale-considerations). 
+Processi simultanei (in esecuzione/limite) | Numero di processi o di attività in esecuzione in ogni nodo. Questo valore è uno snapshot in tempo quasi reale. Per limite si intende il numero massimo di processi simultanei per ogni nodo. Questo valore viene definito in base alle dimensioni del computer. È possibile aumentare il limite per aumentare l'esecuzione simultanea dei processi in scenari avanzati, in cui CPU/memoria/rete è sottoutilizzata, ma le attività sono in timeout. Questa funzionalità è disponibile anche con un gateway a nodo singolo (anche quando la funzionalità di scalabilità e disponibilità non è abilitata). Per altre informazioni, vedere la sezione [Considerazioni sulla scalabilità](#scale-considerations). 
 Ruolo | Esistono due tipi di ruoli: dispatcher e ruolo di lavoro. Tutti i nodi sono ruoli di lavoro e quindi possono essere tutti usati per eseguire i processi. Esiste un solo nodo dispatcher, che viene usato per eseguire il pull di attività/processi dai servizi cloud e inviarli a nodi ruolo di lavoro diversi (incluso lo stesso nodo dispatcher). 
 
 ![Gateway di gestione dati: monitoraggio avanzato di più nodi](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring-advanced.png)
@@ -200,23 +200,23 @@ Ruolo | Esistono due tipi di ruoli: dispatcher e ruolo di lavoro. Tutti i nodi s
 
 La tabella seguente indica i possibili stati di un **nodo del gateway**: 
 
-Status  | Commenti/Scenari
+Stato  | Commenti/Scenari
 :------- | :------------------
 Online | Nodo connesso al servizio Data Factory.
 Offline | Il nodo è offline.
 Aggiornamento | È in corso l'aggiornamento automatico del nodo.
-Limitata | La causa è un problema di connettività, ad esempio un problema della porta HTTP 8050, di connettività del bus di servizio o di sincronizzazione delle credenziali. 
+Limitato | La causa è un problema di connettività, ad esempio un problema della porta HTTP 8050, di connettività del bus di servizio o di sincronizzazione delle credenziali. 
 Inactive | Il nodo è in una configurazione diversa da quella della maggior parte degli altri nodi.<br/><br/> Un nodo può essere inattivo quando non riesce a connettersi agli altri nodi. 
 
 
 La tabella seguente indica i possibili stati di un **gateway logico**. Lo stato del gateway dipende dagli stati dei nodi del gateway. 
 
-Status | Commenti
+Stato | Commenti
 :----- | :-------
 Needs Registration (Registrazione necessaria) | Nessun nodo è ancora registrato per questo gateway logico
 Online | I nodi del gateway sono online
 Offline | Nessun nodo nello stato online.
-Limitata | Non tutti i nodi in questo gateway sono in uno stato integro. Questo stato è un avviso indicante che qualche nodo potrebbe essere inattivo. <br/><br/>La causa potrebbe essere un problema di sincronizzazione delle credenziali nel nodo dispatcher/ruolo di lavoro. 
+Limitato | Non tutti i nodi in questo gateway sono in uno stato integro. Questo stato è un avviso indicante che qualche nodo potrebbe essere inattivo. <br/><br/>La causa potrebbe essere un problema di sincronizzazione delle credenziali nel nodo dispatcher/ruolo di lavoro. 
 
 ### <a name="pipeline-activities-monitoring"></a>Monitoraggio di pipeline/attività
 Il portale di Azure offre un'esperienza di monitoraggio della pipeline con dettagli granulari a livello di nodo, ad esempio mostra le attività eseguite in ogni nodo. Queste informazioni possono essere utili per conoscere i problemi di prestazioni in un particolare nodo, ad esempio a causa della limitazione della larghezza di banda. 
@@ -238,11 +238,11 @@ Quando la memoria disponibile e la CPU non vengono utilizzate correttamente, ma 
 
 ## <a name="known-issuesbreaking-changes"></a>Problemi noti/modifiche significative
 
-- È attualmente possibile avere fino a quattro nodi fisici per ogni gateway logico. Se sono necessari più di quattro nodi per motivi di prestazioni, inviare un messaggio di posta elettronica a [DMGHelp@microsoft.com](mailto:DMGHelp@microsoft.com).
+- È attualmente possibile avere fino a quattro nodi fisici per ogni gateway logico. Se sono necessari più di quattro nodi [DMGHelp@microsoft.com](mailto:DMGHelp@microsoft.com)per motivi di prestazioni, inviare un messaggio di posta elettronica a .
 - Non è possibile ripetere la registrazione di un nodo del gateway con la chiave di autenticazione da un altro gateway logico per eseguire il passaggio dal gateway logico corrente. Per ripetere la registrazione, disinstallare il gateway dal nodo, reinstallare il gateway e registrarlo con la chiave di autenticazione dell'altro gateway logico. 
-- Se il proxy HTTP è necessario per tutti i nodi del gateway, impostare il proxy in diahost. exe. config e diawp. exe. config e usare Server Manager per assicurarsi che tutti i nodi abbiano lo stesso diahost. exe. config e diawip. exe. config. Per informazioni dettagliate, vedere la sezione [configurare le impostazioni proxy](data-factory-data-management-gateway.md#configure-proxy-server-settings) . 
+- Se il proxy HTTP è necessario per tutti i nodi del gateway, impostare il proxy in diahost.exe.config e diawp.exe.config e utilizzare Server Manager per assicurarsi che tutti i nodi abbiano gli stessi diahost.exe.config e diawip.exe.config. Per informazioni dettagliate, vedere la sezione [Configurare le impostazioni proxy.](data-factory-data-management-gateway.md#configure-proxy-server-settings) 
 - Per modificare la modalità di crittografia per la comunicazione tra nodi in Gateway di gestione dati, eliminare tutti i nodi nel portale tranne uno, quindi aggiungerli di nuovo dopo avere modificato la modalità di crittografia.
-- Usare un certificato SSL ufficiale se si sceglie di crittografare il canale di comunicazione tra nodi. Un certificato autofirmato può causare problemi di connettività perché lo stesso certificato potrebbe non essere considerato attendibile nell'elenco delle autorità di certificazione di altri computer. 
+- Utilizzare un certificato TLS ufficiale se si sceglie di crittografare il canale di comunicazione da nodo a nodo. Un certificato autofirmato può causare problemi di connettività perché lo stesso certificato potrebbe non essere considerato attendibile nell'elenco delle autorità di certificazione di altri computer. 
 - Non è possibile registrare un nodo del gateway in un gateway logico quando la versione del nodo è precedente alla versione del gateway logico. Eliminare tutti i nodi del gateway logico dal portale per poter registrare un nodo con una versione precedente (effettuarne il downgrade). Se si eliminano tutti i nodi di un gateway logico, installare manualmente e registrare i nuovi nodi per tale gateway logico. In questo caso l'installazione rapida non è supportata.
 - Non è possibile usare l'installazione rapida per installare i nodi in un gateway logico esistente che usa ancora le credenziali cloud. È possibile controllare se le credenziali vengono archiviate da Gestione configurazione di Gateway di gestione dati nella scheda Impostazioni.
 - Non è possibile usare l'installazione rapida per installare i nodi in un gateway logico esistente che ha la crittografia da nodo a nodo abilitata. Poiché l'impostazione della modalità di crittografia comporta l'aggiunta manuale dei certificati, l'installazione rapida non è più possibile. 

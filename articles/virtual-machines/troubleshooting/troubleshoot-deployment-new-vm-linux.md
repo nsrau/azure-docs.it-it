@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: cjiang
 ms.openlocfilehash: 98c3a6b14230e30ccbb103be741595696a20c236
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75981410"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Risolvere i problemi della distribuzione Resource Manager con la creazione di una nuova macchina virtuale Linux in Azure
@@ -52,7 +52,7 @@ Per avviare la risoluzione dei problemi, raccogliere i log delle attività per i
 
 **Risoluzione:**
 
-Per risolvere entrambi questi errori, caricare il disco rigido virtuale originale, disponibile in locale, con la stessa impostazione del sistema operativo (generalizzato/specializzato). Per caricare il disco come generalizzato, ricordarsi di eseguire prima -deprovision.
+Per risolvere entrambi questi errori, caricare il disco rigido virtuale originale, disponibile in locale, con la stessa impostazione di quella per il sistema operativo (generalizzato/specializzato). Per caricare il disco come generalizzato, ricordarsi di eseguire prima -deprovision.
 
 **Errori di acquisizione:**
 
@@ -74,9 +74,9 @@ Questo errore si verifica nelle situazioni in cui la nuova richiesta di VM viene
 * Ripetere la richiesta usando una VM di dimensioni inferiori.
 * Se le dimensioni della VM richieste non possono essere modificate:
   * Arrestare tutte le VM nel set di disponibilità.
-    Fare clic su **Gruppi di risorse** > *gruppo di risorse personale* > **Risorse** > *set di disponibilità personale* > **Macchine virtuali** > *macchina virtuale personale* > **Arresta**.
+    Fare clic su **Gruppi di risorse,** > nel gruppo > **di risorse** > *Risorse, nel set* > di disponibilità**Macchine virtuali della** > *your resource group**macchina* > virtuale**Arrestare**.
   * Dopo l'arresto di tutte le VM, creare la nuova VM con le dimensioni desiderate.
-  * Avviare prima di tutto la nuova VM e quindi selezionare le VM arrestate e fare clic su **Avvia**.
+  * Avviare prima la nuova macchina virtuale, quindi selezionare ognuna delle macchine virtuali arrestate e fare clic su **Avvia**.
 
 **Causa 2:** il cluster non ha risorse disponibili.
 

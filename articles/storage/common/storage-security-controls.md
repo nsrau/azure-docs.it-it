@@ -1,24 +1,23 @@
 ---
-title: Controlli di sicurezza per archiviazione di Azure
-description: Elenco di controllo dei controlli di sicurezza per la valutazione di archiviazione di Azure
+title: Controlli di sicurezza per Archiviazione di AzureSecurity controls for Azure Storage
+description: Elenco di controllo dei controlli di sicurezza per la valutazione di Archiviazione di Azure
 services: storage
-documentationcenter: ''
 author: msmbaldwin
-manager: rkarlin
 ms.service: storage
+ms.subservice: common
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2cc54077456fce1e7e0f47843a762beee8e715f7
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 379acaf48c02f0a579c07773cd48366d962a44f5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526757"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061122"
 ---
-# <a name="security-controls-for-azure-storage"></a>Controlli di sicurezza per archiviazione di Azure
+# <a name="security-controls-for-azure-storage"></a>Controlli di sicurezza per Archiviazione di AzureSecurity controls for Azure Storage
 
-Questo articolo descrive i controlli di sicurezza incorporati in archiviazione di Azure. 
+Questo articolo documenta i controlli di sicurezza integrati in Archiviazione di Azure.This article documents the security controls built into Azure Storage. 
 
 [!INCLUDE [Security controls Header](../../../includes/security-controls-header.md)]
 
@@ -26,42 +25,42 @@ Questo articolo descrive i controlli di sicurezza incorporati in archiviazione d
 
 | Controllo di sicurezza | Sì/No | Note |
 |---|---|--|
-| Crittografia lato server: chiavi gestite da Microsoft | Sì |  |
-| Crittografia lato server inattiva: chiavi gestite dal cliente (BYOK) | Sì | Vedere [crittografia del servizio di archiviazione uso delle chiavi gestite dal cliente nel Azure Key Vault](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
-| Crittografia a livello di colonna (servizi dati di Azure)| N/D |  |
-| Crittografia in transito (ad esempio crittografia ExpressRoute, crittografia VNet e crittografia VNet-VNet)| Sì | Supporta meccanismi HTTPS/TLS standard.  Gli utenti possono inoltre crittografare i dati prima che vengano trasmessi al servizio. |
+| Crittografia lato server inattivi: chiavi gestite da MicrosoftServer-side encryption at rest: Microsoft-managed keys | Sì |  |
+| Crittografia lato server inattivi: chiavi gestite dal cliente (BYOK)Server-side encryption at rest: customer-managed keys (BYOK) | Sì | Vedere [Crittografia del servizio di archiviazione usando chiavi gestite dal cliente in Archiviazione delle chiavi di Azure.See Storage Service Encryption using customer-managed keys in Azure Key Vault](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
+| Crittografia a livello di colonna (Azure Data Services)Column level encryption (Azure Data Services)| N/D |  |
+| Crittografia in transito (ad esempio la crittografia ExpressRoute, nella crittografia della rete virtuale e crittografia VNet-VNet)Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Sì | Supporta i meccanismi HTTPS/TLS standard.  Gli utenti possono anche crittografare i dati prima che vengano trasmessi al servizio. |
 | Chiamate API crittografate| Sì |  |
 
 ## <a name="network"></a>Rete
 
 | Controllo di sicurezza | Sì/No | Note |
 |---|---|--|
-| Supporto per endpoint di servizio| Sì |  |
-| Supporto di VNet Injection| N/D |  |
-| Isolamento rete e supporto del firewall| Sì | |
-| Supporto del tunneling forzato| N/D |  |
+| Supporto dell'endpoint di servizioService endpoint support| Sì |  |
+| Supporto per l'inserimento di vNet| N/D |  |
+| Isolamento della rete e supporto firewall| Sì | |
+| Supporto per il tunneling forzato| N/D |  |
 
-## <a name="monitoring--logging"></a>Monitoraggio & registrazione
+## <a name="monitoring--logging"></a>Monitoraggio della registrazione dei &
 
 | Controllo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Supporto di monitoraggio di Azure (log Analytics, Application Insights e così via)| Sì | Metriche di monitoraggio di Azure|
-| Registrazione e controllo del piano di gestione e controllo | Sì | Log attività Azure Resource Manager |
-| Registrazione e controllo del piano dati| Sì | Log di diagnostica del servizio.|
+| Supporto per il monitoraggio di Azure (analisi dei log, informazioni dettagliate sulle app e così via)Azure monitoring support (Log analytics, App insights, etc.)| Sì | Metriche di Monitoraggio di AzureAzure Monitor Metrics|
+| Controllo e gestione del controllo e dell'audit degli aerei | Sì | Azure Resource Manager Activity Log |
+| Registrazione e controllo dei piani dati| Sì | Registri diagnostici del servizio.|
 
 ## <a name="identity"></a>Identità
 
 | Controllo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Authentication| Sì | Azure Active Directory, chiave condivisa e token di accesso condiviso. |
-| Autorizzazione| Sì | Supportare l'autorizzazione tramite RBAC, ACL POSIX e token SAS |
+| Authentication| Sì | Azure Active Directory, Chiave condivisa, Token di accesso condiviso. |
+| Autorizzazione| Sì | Autorizzazione di supporto tramite RBAC, ACL POSIX e token di firma di accesso condivisoSupport Authorization via RBAC, POSIX ACLs, and SAS Tokens |
 
 ## <a name="configuration-management"></a>Gestione della configurazione
 
 | Controllo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Supporto per la gestione della configurazione (controllo delle versioni della configurazione e così via)| Sì | Supportare il controllo delle versioni del provider di risorse tramite API Azure Resource Manager |
+| Supporto per la gestione della configurazione (controllo delle versioni della configurazione e così via)| Sì | Supportare il controllo delle versioni del provider di risorse tramite le API di Azure Resource ManagerSupport Resource Provider versioning through Azure Resource Manager APIs |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sui [controlli di sicurezza incorporati nei servizi di Azure](../../security/fundamentals/security-controls.md).
+- Altre informazioni sui controlli di sicurezza incorporati nei servizi di Azure.Learn more about the [built-in security controls across Azure services](../../security/fundamentals/security-controls.md).

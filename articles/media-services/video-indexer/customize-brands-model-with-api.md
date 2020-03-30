@@ -1,7 +1,7 @@
 ---
-title: Usare Azure Video Indexer per personalizzare il modello Marchi
+title: Personalizzare un modello di brand con l'API Video Indexer
 titleSuffix: Azure Media Services
-description: Questo articolo illustra come usare Video Indexer di Azure per personalizzare il modello di marchi.
+description: Scopri come personalizzare un modello Brands con l'API Video Indexer.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: anzaman
-ms.openlocfilehash: 81ba4cc7be5f9361d21aaea2ba78d0fd6f0f8c95
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 79c3a7934e9152a4908f895c20ee6fbdc0f360cf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289918"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128003"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Personalizzare un modello Marchi con l'API di Video Indexer
 
-Video Indexer supporta il rilevamento del marchio dal parlato e dal testo visivo durante l'indicizzazione e la reindicizzazione di contenuto audio e video. La funzionalità di rilevamento del marchio identifica citazioni di prodotti, servizi e aziende suggerite dal database dei marchi di Bing. Se, ad esempio, il nome Microsoft viene citato in un contenuto audio o video o se appare nel testo visivo di un video, Video Indexer lo rileva come un marchio. Un modello Marchi personalizzato consente di escludere determinati marchi dal rilevamento e includere i marchi che devono far parte del modello che potrebbe non essere presente nel database di marchi di Bing.
+Video Indexer supporta il rilevamento del marchio dal parlato e dal testo visivo durante l'indicizzazione e la reindicizzazione di contenuto audio e video. La funzionalità di rilevamento del marchio identifica citazioni di prodotti, servizi e aziende suggerite dal database dei marchi di Bing. Ad esempio, se Microsoft è menzionata nei contenuti video o audio o se viene visualizzata nel testo visivo di un video, Video Indexer lo rileva come un marchio nel contenuto. Un modello Marchi personalizzato consente di escludere determinati marchi dal rilevamento e includere i marchi che devono far parte del modello che potrebbe non essere presente nel database di marchi di Bing.
 
 Per una panoramica dettagliata, vedere [Panoramica](customize-brands-model-overview.md).
 
@@ -27,15 +27,15 @@ Per una panoramica dettagliata, vedere [Panoramica](customize-brands-model-overv
 
 ## <a name="create-a-brand"></a>Creare un marchio
 
-L'API [Create a brand](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand) crea una nuova personalizzazione personalizzata e la aggiunge al modello Custom Brands per l'account specificato. 
+La creazione di [un'API](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand) di marca crea un nuovo marchio personalizzato e lo aggiunge al modello Brands personalizzato per l'account specificato.
 
 > [!NOTE]
-> Impostando **abilitato** (nel corpo) su true, il marchio nell'elenco di *inclusione* deve essere rilevato da video Indexer. Impostare **enabled** su false per inserire il marchio nell'elenco *Exclude*, in modo che non venga rilevato da Video Indexer.
+> L'impostazione `enabled` (nel corpo) su true inserisce il marchio nell'elenco *Includi* per l'Indicizzatore Video da rilevare. L'impostazione `enabled` su false inserisce il marchio nell'elenco *Escludi,* in modo che L'indicizzatore video non lo rilevi.
 
-Altri parametri che è possibile impostare nel corpo:
+Alcuni altri parametri che è possibile impostare nel corpo:
 
-* Il campo **referenceUrl** può contenere qualsiasi sito Web di riferimento per il marchio, ad esempio un collegamento alla relativa pagina di Wikipedia.
-* Il valore **tag** è un elenco di tag per il marchio. Viene visualizzato nel campo *Categoria* del marchio nel sito Web di Video Indexer. Ad esempio, il marchio "Azure" può essere contrassegnato o classificato come "Cloud".
+* Il `referenceUrl` valore può essere qualsiasi sito web di riferimento per il marchio, ad esempio un link alla sua pagina di Wikipedia.
+* Il `tags` valore è un elenco di tag per il marchio. Questo tag viene visualizzato nel campo *Categoria* del brand nel sito Web Indicizzatore video. Ad esempio, il marchio "Azure" può essere contrassegnato o classificato come "Cloud".
 
 ### <a name="response"></a>Risposta
 
@@ -61,15 +61,15 @@ La risposta specifica informazioni sul marchio che è stato appena creato seguen
 
 ## <a name="delete-a-brand"></a>Eliminare un marchio
 
-L'API [Delete a brand](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?) rimuove un marchio dal modello Custom Brands per l'account specificato. L'account viene specificato nel parametro **accountId**. Una volta chiamato correttamente, il marchio non sarà più presente negli elenchi di marchi *Include* oppure *Exclude*.
+[L'API di eliminazione](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?) di un brand rimuove un brand dal modello Brands personalizzato per l'account specificato. L'account viene `accountId` specificato nel parametro. Una volta chiamato correttamente, il marchio non sarà più presente negli elenchi di marchi *Include* oppure *Exclude*.
 
 ### <a name="response"></a>Risposta
 
-Non viene restituito contenuto quando il marchio viene eliminato.
+Non sono stati restituiti contenuti quando il marchio viene eliminato correttamente.
 
 ## <a name="get-a-specific-brand"></a>Recuperare un marchio specifico
 
-L'API [Get a brand](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?) consente di cercare i dettagli di un marchio nel modello Custom Brands per l'account specificato usando l'ID del marchio.
+L'API [Get a brand](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?) ti consente di cercare i dettagli di un brand nel modello Brands personalizzato per l'account specificato utilizzando l'ID del brand.
 
 ### <a name="response"></a>Risposta
 
@@ -94,11 +94,11 @@ La risposta specifica informazioni sul marchio che è stato cercato (usando l'ID
 ```
 
 > [!NOTE]
-> Se **enabled** è impostato su **true**, il marchio è presente nell'elenco *Include* in modo che Video Indexer lo rilevi, mentre se **enabled** è impostato su false il marchio è presente nell'elenco *Exclude*, dunque Video Indexer non lo rileverà.
+> `enabled`l'impostazione per `true` indica che il marchio è presente nell'elenco `enabled` *Includi* per l'indicizzatore video da rilevare e che il falso indica che il marchio è incluso nell'elenco *Escludi,* pertanto L'indicizzatore video non lo rileverà.
 
 ## <a name="update-a-specific-brand"></a>Aggiornare un marchio specifico
 
-L'API [Update a brand](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?) consente di cercare i dettagli di un marchio nel modello Custom Brands per l'account specificato usando l'ID del marchio.
+L'aggiornamento di [un'API](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?) del brand consente di cercare i dettagli di un brand nel modello Brands personalizzato per l'account specificato utilizzando l'ID del brand.
 
 ### <a name="response"></a>Risposta
 
@@ -124,7 +124,7 @@ La risposta specifica informazioni aggiornate sul marchio che è stato aggiornat
 
 ## <a name="get-all-of-the-brands"></a>Ottenere tutti i marchi
 
-L'API [Get All Brands](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?) restituisce tutti i marchi nel modello Custom Brands per l'account specificato, indipendentemente dal fatto che il marchio debba essere incluso nell'elenco *Includi* o *Escludi* marchi.
+L'API [Get all brands](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?) restituisce tutti i brand nel modello Brands personalizzato per l'account specificato, indipendentemente dal fatto che il brand sia destinato ad essere incluso nell'elenco *Includi* o *Escludi* brand.
 
 ### <a name="response"></a>Risposta
 
@@ -160,11 +160,11 @@ La risposta restituisce un elenco di tutti i marchi nell'account e ognuno dei re
 ```
 
 > [!NOTE]
-> Il marchio denominato *Example* è presente nell'elenco *Include* in modo che Video Indexer lo rilevi, e il marchio denominato *Example2* è presente nell'elenco *Exclude*, dunque Video Indexer non lo rileverà.
+> Il brand denominato *Example* è nell'elenco *Includi* per l'Indicizzatore Video da rilevare e il brand denominato *Example2* è nell'elenco *Exclude,* quindi L'Indicizzatore Video non lo rileverà.
 
 ## <a name="get-brands-model-settings"></a>Ottenere le impostazioni del modello Marchi
 
-L'API [Get Brands Settings](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands) restituisce le impostazioni del modello di marchi nell'account specificato. Le impostazioni del modello Marchi rappresentano se il rilevamento dal database di marchi di Bing è abilitato o meno. Se i marchi di Bing non sono abilitati, Video Indexer rileverà solo i marchi dal modello Marchi personalizzato dell'account specificato.
+L'API [get brands settings](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands) restituisce le impostazioni del modello Brands nell'account specificato. Le impostazioni del modello Marchi rappresentano se il rilevamento dal database di marchi di Bing è abilitato o meno. Se i brand Bing non sono abilitati, L'indicizzatore video rileverà solo i brand del modello Brand personalizzato dell'account specificato.
 
 ### <a name="response"></a>Risposta
 
@@ -178,17 +178,17 @@ La risposta mostra se i marchi Bing sono abilitati seguendo il formato dell'esem
 ```
 
 > [!NOTE]
-> Se **useBuiltIn** è impostato su true, i marchi Bing sono abilitati. Se *useBuiltin* è impostato su false, i marchi Bing sono disabilitati. Il valore **state** può essere ignorato perché è stato deprecato.
+> `useBuiltIn`se impostato su true rappresenta l'abilitazione dei marchi Bing. Se `useBuiltin` è false, le marche Bing sono disabilitate. Il `state` valore può essere ignorato perché è stato deprecato.
 
 ## <a name="update-brands-model-settings"></a>Aggiornare le impostazioni del modello Marchi
 
-I [marchi di aggiornamento](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?) aggiornano le impostazioni del modello di marchi nell'account specificato. Le impostazioni del modello Marchi rappresentano se il rilevamento dal database di marchi di Bing è abilitato o meno. Se i marchi di Bing non sono abilitati, Video Indexer rileverà solo i marchi dal modello Marchi personalizzato dell'account specificato.
+L'API [Update Brands](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?) aggiorna le impostazioni del modello Brands nell'account specificato. Le impostazioni del modello Marchi rappresentano se il rilevamento dal database di marchi di Bing è abilitato o meno. Se i brand Bing non sono abilitati, L'indicizzatore video rileverà solo i brand del modello Brand personalizzato dell'account specificato.
 
-Il flag **useBuiltIn** impostato su true indica che i marchi Bing sono abilitati. Se *useBuiltin* è impostato su false, i marchi Bing sono disabilitati.
+Il `useBuiltIn` flag impostato su true indica che i marchi Bing sono abilitati. Se `useBuiltin` è false, le marche Bing sono disabilitate.
 
 ### <a name="response"></a>Risposta
 
-Non viene restituito alcun contenuto quando il l'impostazione del modello Marchi viene aggiornato correttamente.
+Non sono presenti contenuti restituiti quando l'impostazione del modello Brands viene aggiornata correttamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

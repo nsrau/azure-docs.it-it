@@ -1,6 +1,6 @@
 ---
-title: Configurare Apple Push Notification Service in hub di notifica di Azure | Microsoft Docs
-description: Informazioni su come configurare un hub di notifica di Azure con le impostazioni Apple Push Notification Service (APNS).
+title: Configurare il servizio di notifica Push di Apple in Hub di notifica di Azure Documenti Microsoft
+description: Informazioni su come configurare un hub di notifica di Azure con le impostazioni di Apple Push Notification Service (APNS).
 services: notification-hubs
 author: sethmanheim
 manager: femila
@@ -12,24 +12,25 @@ ms.date: 03/25/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 116af5192236045ec50409f65a9687ffec5223b5
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: eb1122ba3de0002507589d3e607d1e39d905c308
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406126"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80127524"
 ---
-# <a name="configure-apple-push-notification-service-apns-settings-for-a-notification-hub-in-the-azure-portal"></a>Configurare le impostazioni Apple Push Notification Service (APNS) per un hub di notifica nella portale di Azure
-Questo articolo illustra come configurare le impostazioni di Apple Push Notification Service (APNS) per un hub di notifica di Azure usando il portale di Azure. 
+# <a name="configure-apple-push-notification-service-settings-for-a-notification-hub-in-the-azure-portal"></a>Configurare le impostazioni del servizio di notifica Push Apple per un hub di notifica nel portale di AzureConfigure Apple Push Notification Service settings for a notification hub in the Azure portal
 
-## <a name="prerequisites"></a>prerequisiti
+Questo articolo illustra come configurare le impostazioni di Apple Push Notification Service (APNS) per un hub di notifica di Azure usando il portale di Azure.This article shows you how to configure Apple Push Notification Service (APNS) settings for an Azure notification hub by using the Azure portal. 
+
+## <a name="prerequisites"></a>Prerequisiti
 Se non è stato già creato un hub di notifica, crearne uno ora. Per altre informazioni, vedere [Creare un hub di notifica di Azure nel portale di Azure](create-notification-hub-portal.md). 
 
-## <a name="configure-apple-push-notification-service"></a>Configurare Apple Push Notification Service
+## <a name="configure-apple-push-notification-service"></a>Configurare il servizio di notifica Push Apple
 
-La procedura seguente illustra i passaggi per configurare le impostazioni Apple Push Notification Service (APNS) per un hub di notifica:
+La procedura seguente illustra come configurare le impostazioni di Apple Push Notification Service (APNS) per un hub di notifica:
 
-1. Nella portale di Azure nella pagina Hub di **notifica** selezionare **Apple (APNS)** nel menu a sinistra.
+1. Nel portale di Azure, nella pagina **Hub di notifica,** selezionare **Apple (APNS)** nel menu a sinistra.
 
 1. Per **Modalità di autenticazione** selezionare **Certificato** oppure **Token**.
 
@@ -42,10 +43,10 @@ La procedura seguente illustra i passaggi per configurare le impostazioni Apple 
 
    b. Se si seleziona **Token**:
 
-   * Immettere i valori per **ID chiave**, **ID bundle**, **ID team** e **Token**.
+   * Immettere i valori per **ID chiave**, **ID pacchetto**, **ID team**e **Token**.
    * Selezionare la modalità **Sandbox**. In alternativa, se si vogliono inviare notifiche push agli utenti che hanno acquistato l'app dallo Store, selezionare la modalità **Produzione**.
 
      ![Screenshot della configurazione di un token APNS nel portale di Azure](./media/configure-apple-push-notification-service/notification-hubs-apple-config-token.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per un'esercitazione con istruzioni dettagliate per il push delle notifiche ai dispositivi iOS, vedere l'articolo relativo alle [notifiche push ai dispositivi iOS usando hub di notifica e APNS](notification-hubs-ios-apple-push-notification-apns-get-started.md)
+Per un'esercitazione con istruzioni dettagliate per il push delle notifiche ai dispositivi iOS, vedere l'articolo seguente: [Notifiche push ai dispositivi iOS tramite Hub di notifica e APNSFor a](notification-hubs-ios-apple-push-notification-apns-get-started.md) tutorial with step-by-step instructions for push notifications to iOS devices, see the following article: Push notifications to iOS devices by using Notification Hubs and APNS

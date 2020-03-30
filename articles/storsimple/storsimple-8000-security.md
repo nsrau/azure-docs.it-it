@@ -15,29 +15,29 @@ ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
 ms.openlocfilehash: 4598f71f9b611e68f8eb00676138784833c39f32
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75891505"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Sicurezza e protezione dei dati di StorSimple
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 La sicurezza è una delle principali preoccupazioni per chi ha intenzione di adottare una nuova tecnologia, soprattutto se usata con dati riservati o proprietari. Quando si valutano tecnologie diverse, è necessario tenere in considerazione l'aumento dei rischi e dei costi per la protezione dei dati. Microsoft Azure StorSimple offre una soluzione sia di sicurezza che di privacy per la protezione dei dati, che aiuta a garantire:
 
-* **Riservatezza** – Solo le entità autorizzate possono visualizzare i dati.
-* **Integrità** – Solo le entità autorizzate possono modificare o eliminare i dati.
+* **Riservatezza** - Solo le entità autorizzate possono visualizzare i dati.
+* **Integrità** - Solo le entità autorizzate possono modificare o eliminare i dati.
 
 La soluzione Microsoft Azure StorSimple è costituita da quattro componenti principali che interagiscono tra loro:
 
 * **Servizio Gestione dispositivi StorSimple ospitato in Microsoft Azure** – Servizio di gestione usato per la configurazione e il provisioning del dispositivo StorSimple.
 * **Dispositivo StorSimple** – Dispositivo fisico installato nel data center. Tutti gli host e i client che generano dati si connettono al dispositivo StorSimple e il dispositivo gestisce i dati e li sposta nel cloud Azure come necessario.
 * **Client/host connessi al dispositivo** – Client nell'infrastruttura che si connettono al dispositivo StorSimple e generano i dati da proteggere.
-* **Archiviazione cloud** – Posizione nel cloud di Azure in cui vengono archiviati i dati.
+* **Archiviazione cloud** Posizione nel cloud Azure in cui vengono archiviati i dati.
 
 Le sezioni seguenti descrivono le funzionalità di sicurezza di StorSimple che consentono di proteggere i singoli componenti e i relativi dati archiviati. Include inoltre un elenco di domande e risposte relative alla sicurezza di Microsoft Azure StorSimple.
 
@@ -185,7 +185,7 @@ Per garantire la sicurezza e l'integrità dei dati spostati nel cloud, StorSimpl
 
 ## <a name="protect-data-via-storage-accounts"></a>Proteggere i dati mediante gli account di archiviazione
 
-Ogni sottoscrizione di Microsoft Azure può creare uno o più account di archiviazione. Un account di archiviazione fornisce uno spazio dei nomi univoco per l'uso dei dati archiviati nel cloud di Azure. L'accesso a un account di archiviazione è controllato dalle chiavi di sottoscrizione e di accesso associate all'account di archiviazione.
+Ogni sottoscrizione di Microsoft Azure può creare uno o più account di archiviazione. Un account di archiviazione fornisce uno spazio dei nomi univoco per l'uso dei dati archiviati nel cloud di Azure. L'accesso a un account di archiviazione è controllato dalla sottoscrizione e dalle chiavi di accesso associate a tale account di archiviazione.
 
 Quando si crea un account di archiviazione, Microsoft Azure genera due chiavi di accesso alle risorse di archiviazione da 512 bit, una delle quali viene usata per l'autenticazione quando il dispositivo StorSimple accede all'account di archiviazione. Una sola di queste chiavi è in uso. L'altra chiave è tenuta di riserva per far ruotare periodicamente le chiavi. Per far ruotare le chiavi, si rende attiva la chiave secondaria e quindi si elimina la chiave primaria. È quindi possibile creare una nuova chiave da usare durante la rotazione successiva. Per motivi di sicurezza, molti data center richiedono la rotazione delle chiavi.
 
@@ -227,7 +227,7 @@ Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a 
 
 **R:** È necessario modificare subito la chiave DEK del servizio e le chiavi dell'account di archiviazione per l'account usato per suddividere i dati in livelli. Per istruzioni, vedere:
 
-* [Modificare la chiave DEK del servizio](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
+* [Modificare la chiave di crittografia dei dati del servizioChange the service data encryption key](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Rotazione delle chiavi degli account di archiviazione](storsimple-8000-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
 **D:** Ho un nuovo dispositivo StorSimple per cui viene richiesta la chiave di registrazione del servizio. Come posso ottenerla?
@@ -236,11 +236,11 @@ Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a 
 
 * [Visualizzare o rigenerare la chiave di registrazione del servizio](storsimple-8000-manage-service.md#regenerate-the-service-registration-key)
 
-**D:** Ho perso la chiave DEK del servizio. Che cosa occorre fare?
+**D:** Ho perso la chiave DEK del servizio. Cosa devo fare?
 
 **R:** Contattare il supporto Microsoft. Il personale può accedere a una sessione di supporto nel dispositivo e offrire assistenza per il recupero della chiave (ammesso che almeno un dispositivo sia online). Subito dopo aver ottenuto la chiave DEK del servizio, è consigliabile modificarla per garantire che la nuova chiave sia nota solo all'utente che la modifica. Per istruzioni, vedere:
 
-* [Modificare la chiave DEK del servizio](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
+* [Modificare la chiave di crittografia dei dati del servizioChange the service data encryption key](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 
 **D:** Ho autorizzato un dispositivo per la modifica della chiave DEK del servizio, ma il processo di modifica della chiave non è stato avviato. Cosa devo fare?
 
@@ -254,8 +254,8 @@ Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a 
 
 **R:** Modificare e reimpostare le password che consentono di accedere al dispositivo StorSimple e modificare la chiave DEK del servizio per garantire che le nuove informazioni non siano note al personale non autorizzato. Per istruzioni, vedere:
 
-* [Usare il servizio Gestione dispositivi StorSimple per modificare le password di StorSimple](storsimple-8000-change-passwords.md)
-* [Modificare la chiave DEK del servizio](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
+* [Utilizzare il servizio StorSimple Device Manager per modificare le password più semplici](storsimple-8000-change-passwords.md)
+* [Modificare la chiave di crittografia dei dati del servizioChange the service data encryption key](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Configurare CHAP per il dispositivo StorSimple](storsimple-8000-configure-chap.md)
 
 **D:** Vorrei comunicare la password di Gestione snapshot StorSimple a un host che si connette al dispositivo StorSimple, ma la password non è disponibile. In che modo è possibile risolvere questo problema?

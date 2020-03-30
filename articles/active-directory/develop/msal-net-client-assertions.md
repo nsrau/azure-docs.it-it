@@ -1,7 +1,7 @@
 ---
-title: Asserzioni client (MSAL.NET) | Azure
+title: Asserzioni client (MSAL.NET) Azure
 titleSuffix: Microsoft identity platform
-description: Informazioni sul supporto delle asserzioni client firmate per le applicazioni client riservate in Microsoft Authentication Library per .NET (MSAL.NET).
+description: Informazioni sul supporto delle asserzioni client firmate per le applicazioni client riservate in Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,33 +13,33 @@ ms.date: 11/18/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 3d73e803a31867bedbd0ff069b8c9321257b78cb
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 8c97387bfd2a362d3bf5a6b8a3252242f061da31
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695569"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050284"
 ---
 # <a name="confidential-client-assertions"></a>Asserzioni client riservate
 
-Per dimostrare la propria identità, le applicazioni client riservate scambiano un segreto con Azure AD. Il segreto può essere:
-- Segreto client (password dell'applicazione).
-- Un certificato, utilizzato per compilare un'asserzione firmata contenente attestazioni standard.
+Per dimostrare la propria identità, le applicazioni client riservate si scambiano un segreto con Azure AD. Il segreto può essere:
+- Un segreto client (password dell'applicazione).
+- Certificato, utilizzato per compilare un'asserzione firmata contenente attestazioni standard.
 
-Questo segreto può anche essere un'asserzione firmata direttamente.
+Questo segreto può anche essere direttamente un'asserzione firmata.
 
-MSAL.NET dispone di quattro metodi per fornire le credenziali o le asserzioni all'app client riservata:
+MSAL.NET dispone di quattro metodi per fornire credenziali o asserzioni all'app client riservata:
 - `.WithClientSecret()`
 - `.WithCertificate()`
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
 > [!NOTE]
-> Sebbene sia possibile usare l'API `WithClientAssertion()` per acquisire i token per il client riservato, non è consigliabile usarla per impostazione predefinita perché è più avanzata ed è progettata per gestire scenari molto specifici che non sono comuni. L'uso dell'API `.WithCertificate()` consentirà a MSAL.NET di gestire questa operazione. Questa API offre la possibilità di personalizzare la richiesta di autenticazione, se necessario, ma l'asserzione predefinita creata da `.WithCertificate()` sarà sufficiente per la maggior parte degli scenari di autenticazione. Questa API può essere usata anche come soluzione alternativa in alcuni scenari in cui MSAL.NET non riesce a eseguire l'operazione di firma internamente.
+> Sebbene sia possibile `WithClientAssertion()` usare l'API per acquisire token per il client riservato, non è consigliabile usarlo per impostazione predefinita in quanto è più avanzato ed è progettato per gestire scenari molto specifici che non sono comuni. L'utilizzo dell'API `.WithCertificate()` consentirà a MSAL.NET di gestire questa operazione per l'utente. Questa API offre la possibilità di personalizzare la richiesta di `.WithCertificate()` autenticazione, se necessario, ma l'asserzione predefinita creata da sarà sufficiente per la maggior parte degli scenari di autenticazione. Questa API può essere utilizzata anche come soluzione alternativa in alcuni scenari in cui MSAL.NET non riesce a eseguire l'operazione di firma internamente.
 
 ### <a name="signed-assertions"></a>Asserzioni firmate
 
-Un'asserzione client firmata assume il formato di un JWT firmato con il payload che contiene le attestazioni di autenticazione richieste richieste da Azure AD, codificato con Base64. Per usarla:
+Un'asserzione client firmata assume la forma di un JWT firmato con il payload contenente le attestazioni di autenticazione richieste richieste da Azure AD, codificato Base64.A signed client assertion takes the form of a signed JWT with the payload containing the required authentication claims mandated by Azure AD, Base64 encoded. Per usarla:
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();
@@ -48,18 +48,18 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-Le attestazioni previste da Azure AD sono:
+Le attestazioni previste da Azure AD sono:The claims expected by Azure AD are:
 
-Tipo di attestazione | Valore | Description
+Tipo di attestazione | valore | Descrizione
 ---------- | ---------- | ----------
-aud | https://login.microsoftonline.com/{tenantId}/v2.0 | L'attestazione "AUD" (audience) identifica i destinatari a cui è destinato il JWT (qui Azure AD) vedere [RFC 7519, sezione 4.1.3]
-exp | Gio giu 27 2019 15:04:17 GMT + 0200 (Romance Daylight Time) | L'attestazione "exp" (expiration time) identifica l'ora di scadenza a partire dalla quale o successivamente alla quale il token JWT non deve essere accettato per l'elaborazione. Vedere [RFC 7519, sezione 4.1.4]
-iss | ClientID | L'attestazione "ISS" (emittente) identifica l'entità che ha emesso il JWT. L'elaborazione di questa attestazione è specifica dell'applicazione. Il valore "ISS" è una stringa con distinzione tra maiuscole e minuscole contenente un valore StringOrURI. [RFC 7519, sezione 4.1.1]
-jti | (Guid) | L'attestazione "ITC" (ID JWT) fornisce un identificatore univoco per il JWT. Il valore dell'identificatore deve essere assegnato in modo da garantire che esista una probabilità trascurabile che lo stesso valore verrà assegnato accidentalmente a un oggetto dati diverso. Se l'applicazione usa più autorità emittenti, è necessario impedire conflitti tra i valori prodotti da autorità di certificazione diverse. L'attestazione "ITC" può essere usata per impedire la riproduzione del JWT. Il valore "ITC" è una stringa con distinzione tra maiuscole e minuscole. [RFC 7519, sezione 4.1.7]
-nbf | Gio giu 27 2019 14:54:17 GMT + 0200 (Romance Daylight Time) | L'attestazione "nbf" (not before) identifica l'ora prima della quale il token JWT non deve essere accettato per l'elaborazione. [RFC 7519, sezione 4.1.5]
-sub | ClientID | L'attestazione "Sub" (Subject) identifica l'oggetto del JWT. Le attestazioni in un JWT sono in genere istruzioni relative all'oggetto. È necessario che il valore dell'oggetto sia definito localmente come univoco nel contesto dell'emittente o sia univoco a livello globale. Vedere [RFC 7519, sezione 4.1.2]
+aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | L'attestazione "aud" (gruppo di destinatari) identifica i destinatari a cui è destinato il token JWT (in questo caso Azure AD) Vedere [RFC 7519, sezione 4.1.3]
+exp | Giovedì 27 giu 27 2019 15:04:17 GMT-0200 (ora legale) | L'attestazione "exp" (expiration time) identifica l'ora di scadenza a partire dalla quale o successivamente alla quale il token JWT non deve essere accettato per l'elaborazione. Vedere [RFC 7519, sezione 4.1.4]
+iss | "ID client" | L'attestazione "iss" (emittente) identifica il capitale che ha emesso il JWT. L'elaborazione di questa attestazione è specifica dell'applicazione. Il valore "iss" è una stringa con distinzione tra maiuscole e minuscole contenente un valore StringOrURI. [RFC 7519, Sezione 4.1.1]
+jti | (un GUID) | L'attestazione "jti" (JWT ID) fornisce un identificatore univoco per il token JWT. Il valore dell'identificatore DEVE essere assegnato in modo da garantire che vi sia una probabilità trascurabile che lo stesso valore venga assegnato accidentalmente a un oggetto dati diverso. se l'applicazione utilizza più emittenti, le collisioni DEVONO essere evitate tra i valori prodotti da emittenti diversi. L'attestazione "jti" può essere utilizzata per impedire che il token JWT venga riprodotto. Il valore "jti" è una stringa con distinzione tra maiuscole e minuscole. [RFC 7519, Sezione 4.1.7]
+nbf | Giovedì 27 giu 27 2019 14:54:17 GMT-0200 (ora legale) | L'attestazione "nbf" (not before) identifica l'ora prima della quale il token JWT non deve essere accettato per l'elaborazione. [RFC 7519, Sezione 4.1.5]
+sub | "ID client" | L'affermazione "sub" (oggetto) identifica l'oggetto del JWT. Le affermazioni in un JWT sono normalmente dichiarazioni sull'argomento. Il valore dell'oggetto DEVE essere definito come univoco a livello locale nel contesto dell'emittente o essere univoco a livello globale. Vedere [RFC 7519, sezione 4.1.2]
 
-Di seguito è riportato un esempio di creazione di queste attestazioni:
+Ecco un esempio di come creare queste affermazioni:
 
 ```csharp
 private static IDictionary<string, string> GetClaims()
@@ -85,7 +85,7 @@ private static IDictionary<string, string> GetClaims()
 }
 ```
 
-Di seguito viene illustrato come creare un'asserzione client firmata:
+Ecco come creare un'asserzione client firmata:Here is how to craft a signed client assertion:
 
 ```csharp
 string Encode(byte[] arg)
@@ -135,7 +135,7 @@ string GetSignedClientAssertion()
 
 ### <a name="alternative-method"></a>Metodo alternativo
 
-È anche possibile usare [Microsoft. IdentityModel. JsonWebTokens](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/) per creare l'asserzione. Il codice sarà più elegante, come illustrato nell'esempio seguente:
+È inoltre possibile utilizzare [Microsoft.IdentityModel.JsonWebTokens](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/) per creare l'asserzione automaticamente. Il codice sarà un più elegante come mostrato nell'esempio seguente:
 
 ```csharp
         string GetSignedClientAssertion()
@@ -168,7 +168,7 @@ string GetSignedClientAssertion()
         }
 ```
 
-Una volta eseguita l'asserzione client firmata, è possibile usarla con le API MSAL, come illustrato di seguito.
+Dopo aver firmato l'asserzione client, è possibile utilizzarla con l'API MSAL come illustrato di seguito.
 
 ```csharp
             string signedClientAssertion = GetSignedClientAssertion();
@@ -181,7 +181,7 @@ Una volta eseguita l'asserzione client firmata, è possibile usarla con le API M
 
 ### <a name="withclientclaims"></a>WithClientClaims
 
-`WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)` per impostazione predefinita produrrà un'asserzione firmata contenente le attestazioni previste da Azure AD e altre attestazioni client che si desidera inviare. Ecco un frammento di codice per eseguire questa operazione.
+`WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)`Per impostazione predefinita, verrà prodotto un'asserzione firmata contenente le attestazioni previste da Azure AD oltre a attestazioni client aggiuntive che si desidera inviare. Ecco un frammento di codice su come farlo.
 
 ```csharp
 string ipAddress = "192.168.1.2";
@@ -194,6 +194,6 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 ```
 
-Se una delle attestazioni nel dizionario passato è uguale a una delle attestazioni obbligatorie, verrà considerato il valore dell'attestazione aggiuntiva. Eseguirà l'override delle attestazioni calcolate da MSAL.NET.
+Se una delle attestazioni nel dizionario passato è uguale a una delle attestazioni obbligatorie, verrà preso in considerazione il valore dell'attestazione aggiuntiva. Eseguirà l'override delle attestazioni calcolate da MSAL.NET.
 
-Se si desidera fornire attestazioni personalizzate, incluse le attestazioni obbligatorie previste da Azure AD, passare `false` per il parametro `mergeWithDefaultClaims`.
+Se si desidera fornire attestazioni personalizzate, incluse le attestazioni `false` obbligatorie previste da Azure AD, passare per il `mergeWithDefaultClaims` parametro.

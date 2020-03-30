@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
 ms.openlocfilehash: a9d71c8aebb9cc4a0adbd461aead6e2612bd13bd
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75552492"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>Eseguire query Apache Hive con HDInsight .NET SDK
@@ -33,7 +33,7 @@ Per eseguire le procedure descritte nell'articolo sono necessari gli elementi se
     > [!IMPORTANT]  
     > A partire dal 15 settembre 2017, HDInsight .NET SDK supporta solo i risultati della query Hive in restituzione dagli account di Archiviazione di Microsoft Azure. Se si usa questo esempio con un cluster HDInsight che usa Azure Data Lake Store come archiviazione primaria, non è possibile recuperare i risultati della ricerca tramite .NET SDK.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/community/) 2013 e versioni successive. È necessario installare almeno **lo sviluppo desktop .NET** del carico di lavoro.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/community/) 2013 e oltre. Almeno **lo sviluppo di desktop .NET** del carico di lavoro deve essere installato.
 
 ## <a name="run-a-hive-query"></a>Eseguire una query Hive
 
@@ -45,7 +45,7 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei clus
 
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 
-1. Modificare il codice seguente per inizializzare i valori per le variabili: `ExistingClusterName, ExistingClusterUsername, ExistingClusterPassword,DefaultStorageAccountName,DefaultStorageAccountKey,DefaultStorageContainerName`. Usare quindi il codice modificato come intero contenuto di **Program.cs** in Visual Studio.
+1. Modificare il codice riportato di `ExistingClusterName, ExistingClusterUsername, ExistingClusterPassword,DefaultStorageAccountName,DefaultStorageAccountKey,DefaultStorageContainerName`seguito per inizializzare i valori per le variabili: . Quindi utilizzare il codice rivisto come l'intero contenuto di **Program.cs** in Visual Studio.
 
     ```csharp
     using System.Collections.Generic;
@@ -134,15 +134,15 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei clus
 
 1. Premere **F5** per eseguire l'applicazione.
 
-L'output dell'applicazione dovrebbe essere simile al seguente:
+L'output dell'applicazione dovrebbe essere simile al:
 
 ![Output processo Hive Hadoop di HDInsight](./media/apache-hadoop-use-hive-dotnet-sdk/hdinsight-hadoop-use-hive-net-sdk-output.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo si è appreso come inviare query di Apache Hive usando HDInsight .NET SDK. Per altre informazioni, vedere gli articoli seguenti:
+In questo articolo è stato illustrato come inviare query Apache Hive utilizzando HDInsight .NET SDK. Per altre informazioni, vedere gli articoli seguenti:
 
-* [Introduzione ad Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)
+* [Introduzione ad Azure HDInsightGet started with Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Creare cluster Apache Hadoop in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 * [Riferimento a HDInsight .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Usare Apache Sqoop con HDInsight](apache-hadoop-use-sqoop-mac-linux.md)

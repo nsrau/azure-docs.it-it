@@ -1,15 +1,15 @@
 ---
 title: Disponibilità dei servizi di Service Fabric
-description: Descrive il rilevamento degli errori, il failover e il ripristino di un servizio in un'applicazione Service Fabric di Azure.
+description: Descrive il rilevamento degli errori, il failover e il ripristino di un servizio in un'applicazione Azure Service Fabric.Describes fault detection, failover, and recovery of a service in an Azure Service Fabric application.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 5306439184561e8dec8303a7b149f51d6c2f6e08
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75551863"
 ---
 # <a name="availability-of-service-fabric-services"></a>Disponibilità dei servizi di Service Fabric
@@ -37,5 +37,5 @@ Per altre informazioni sui concetti relativi a Service Fabric, vedere gli artico
 - [Scalabilità dei servizi di Service Fabric](service-fabric-concepts-scalability.md)
 - [Partizionamento dei servizi di Service Fabric](service-fabric-concepts-partitioning.md)
 - [Definizione e gestione dello stato](service-fabric-concepts-state.md)
-- [Reliable Services](service-fabric-reliable-services-introduction.md)
+- [Servizi affidabili](service-fabric-reliable-services-introduction.md)
 

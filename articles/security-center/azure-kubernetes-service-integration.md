@@ -1,6 +1,6 @@
 ---
-title: Centro sicurezza di Azure e servizio Azure Kubernetes
-description: Informazioni sull'integrazione del Centro sicurezza di Azure con i servizi Kubernetes di Azure
+title: Azure Security Center and Azure Kubernetes Service
+description: Informazioni sull'integrazione del Centro sicurezza di Azure con i servizi di Azure Kubernetes
 services: security-center
 documentationcenter: na
 author: memildin
@@ -12,55 +12,53 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 0743499b019bd1c7b985636e886eee9352284a55
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: d1cd4691586b27282d221a19c5fb7a1af034ed6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616078"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125152"
 ---
-# <a name="azure-kubernetes-services-integration-with-security-center-preview"></a>Integrazione dei servizi Kubernetes di Azure con il Centro sicurezza (anteprima)
-Azure Kubernetes Service (AKS) è il servizio gestito di Microsoft per lo sviluppo, la distribuzione e la gestione di applicazioni in contenitori. 
+# <a name="azure-kubernetes-services-integration-with-security-center"></a>Azure Kubernetes Services integration with Security Center
 
-USA AKS insieme al livello standard del Centro sicurezza di Azure (Vedi i prezzi) per ottenere una maggiore visibilità [sui](security-center-pricing.md)nodi AKS, sul traffico cloud e sui controlli di sicurezza.
+Azure Kubernetes Service (AKS) è il servizio gestito di Microsoft per lo sviluppo, la distribuzione e la gestione di applicazioni containerizzate. 
 
-Il Centro sicurezza offre vantaggi di sicurezza ai cluster AKS usando i dati già raccolti dal nodo master AKS. 
+Usare AKS insieme al livello standard del Centro sicurezza di Azure (vedere [i prezzi)](security-center-pricing.md)per ottenere una visibilità più approfondita dei nodi AKS, del traffico cloud e dei controlli di sicurezza.
 
-![Panoramica di alto livello del Centro sicurezza di Azure e di Azure Kubernetes Service (AKS)](./media/azure-kubernetes-service-integration/aks-asc-integration-overview.png)
+Il Centro sicurezza offre vantaggi in termini di sicurezza ai cluster AKS utilizzando i dati già raccolti dal nodo master AKS. 
 
-Insieme, questi due strumenti costituiscono la migliore offerta di sicurezza Kubernetes nativa del cloud. 
+![Panoramica di alto livello del Centro sicurezza di Azure e del servizio Azure Kubernetes (AKS)](./media/azure-kubernetes-service-integration/aks-asc-integration-overview.png)
+
+Insieme, questi due strumenti formano la migliore offerta di sicurezza Kubernetes nativa per il cloud. 
 
 ## <a name="benefits-of-integration"></a>Vantaggi dell'integrazione
 
-L'utilizzo combinato dei due servizi fornisce:
+L'utilizzo dei due servizi insieme fornisce:
 
-* **Raccomandazioni sulla sicurezza** : il Centro sicurezza identifica le risorse AKS e le categorizza: da cluster a singole macchine virtuali. È quindi possibile visualizzare le raccomandazioni di sicurezza per ogni risorsa. Per ulteriori informazioni, vedere i suggerimenti sui contenitori nell' [elenco di riferimento di raccomandazioni](recommendations-reference.md#recs-computeapp). 
+* Consigli sulla **sicurezza:** il Centro sicurezza identifica le risorse AKS e le classifica: dai cluster alle singole macchine virtuali. È quindi possibile visualizzare le raccomandazioni per la sicurezza per risorsa. Per ulteriori informazioni, vedere le raccomandazioni relative ai contenitori [nell'elenco di riferimento delle raccomandazioni](recommendations-reference.md#recs-computeapp). 
 
-    > [!NOTE]
-    > Se il nome di una raccomandazione del Centro sicurezza termina con un tag "(anteprima)", si riferisce alla natura dell'anteprima della raccomandazione, non alla funzionalità.
+* **Protezione avanzata** dell'ambiente: il Centro sicurezza monitora costantemente la configurazione dei cluster Kubernetes e delle configurazioni Docker. Genera quindi raccomandazioni sulla sicurezza che riflettono gli standard del settore.
 
-* Protezione **avanzata dell'ambiente** : il Centro sicurezza monitora costantemente la configurazione dei cluster Kubernetes e delle configurazioni di Docker. Genera quindi raccomandazioni sulla sicurezza che riflettono gli standard di settore.
+* **Protezione in fase** di esecuzione: tramite l'analisi continua delle origini AKS seguenti, il Centro sicurezza avvisa l'utente in caso di minacce e attività dannose rilevate a livello di cluster host *e* AKS:
+    * Eventi di sicurezza non elaborati, ad esempio dati di rete e creazione di processi
+    * Il registro di controllo di Kubernetes
 
-* **Protezione** in fase di esecuzione: tramite l'analisi continua delle fonti AKS seguenti, il Centro sicurezza avvisa l'utente di minacce e attività dannose rilevate a livello di host *e* cluster AKS:
-    * Eventi di sicurezza non elaborati, ad esempio i dati di rete e la creazione di processi
-    * Log di controllo di Kubernetes
+    Per altre informazioni, vedere [protezione dalle minacce per i contenitori](threat-protection.md#azure-containers) di AzureFor more information, see threat protection for Azure containers
 
-    Per altre informazioni, vedere [protezione dalle minacce per i contenitori di Azure](threat-protection.md#azure-containers)
+    Per l'elenco dei possibili avvisi, vedere queste sezioni nella tabella di riferimento degli avvisi: Avvisi a livello di [cluster AKS](alerts-reference.md#alerts-akscluster) e Avvisi a [livello di host contenitore.](alerts-reference.md#alerts-containerhost)  
 
-    Per l'elenco dei possibili avvisi, vedere le sezioni seguenti nella tabella di riferimento degli avvisi: [avvisi a livello di cluster AKS](alerts-reference.md#alerts-akscluster) e [avvisi a livello di host del contenitore](alerts-reference.md#alerts-containerhost).  
-
-![Centro sicurezza di Azure e Azure Kubernetes Service (AKS) in modo più dettagliato](./media/azure-kubernetes-service-integration/aks-asc-integration-detailed.png)
+![Centro sicurezza di Azure e il servizio Azure Kubernetes (AKS) in modo più dettagliatoAzure Security Center and Azure Kubernetes Service (AKS) in more detail](./media/azure-kubernetes-service-integration/aks-asc-integration-detailed.png)
 
 > [!NOTE]
-> Alcuni dei dati analizzati dal centro sicurezza di Azure dall'ambiente Kubernetes possono contenere informazioni riservate.
+> Alcuni dei dati analizzati dal Centro sicurezza di Azure dall'ambiente Kubernetes possono contenere informazioni riservate.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sulle funzionalità di sicurezza del contenitore del Centro sicurezza, vedere:
+Per altre informazioni sulle funzionalità di sicurezza dei contenitori del Centro sicurezza, vedere:To learn more about security features del Security Center, see:
 
-* [Sicurezza del contenitore e del Centro sicurezza di Azure](container-security.md)
+* [Sicurezza di Azure e sicurezza dei contenitoriAzure Security Center and container security](container-security.md)
 
-* [Integrazione con Container Registry di Azure](azure-container-registry-integration.md)
+* [Integrazione con Registro Azure Container](azure-container-registry-integration.md)
 
-* [Gestione dei dati in Microsoft](https://www.microsoft.com/trust-center/privacy/data-management) : descrive i criteri per i dati dei servizi Microsoft (inclusi Azure, Intune e Office 365), i dettagli della gestione dei dati di Microsoft e i criteri di conservazione che interessano i dati
+* [Gestione dei dati in Microsoft](https://www.microsoft.com/trust-center/privacy/data-management) - Descrive i criteri dei dati dei servizi Microsoft (inclusi Azure, Intune e Office 365), i dettagli della gestione dei dati di Microsoft e i criteri di conservazione che influiscono sui dati

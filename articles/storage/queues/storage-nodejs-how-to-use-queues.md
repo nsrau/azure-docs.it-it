@@ -1,22 +1,22 @@
 ---
-title: Usare l'archiviazione code di Azure da node. js-archiviazione di Azure
+title: Usare l'archiviazione delle code di Azure da Node.js - Archiviazione di AzureUse Azure Queue storage from Node.js - Azure Storage
 description: Informazioni su come usare il servizio di accodamento di Azure per creare ed eliminare code e per inserire, visualizzare ed eliminare messaggi. Gli esempi sono scritti in Node.js.
 author: mhopkins-msft
-ms.service: storage
 ms.author: mhopkins
 ms.date: 12/08/2016
+ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 9eee7f6b321a5ba660e1a0a5a48771c599746bcb
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 7abcad03678131668700f5d2c64b9c971081cb89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673088"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060930"
 ---
-# <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Usare il servizio di Accodamento di Azure per creare ed eliminare code da node. js
+# <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Usare il servizio di coda di Azure per creare ed eliminare code da Node.jsUse Azure Queue Service to create and delete queues from Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
@@ -51,7 +51,7 @@ Per usare l'archiviazione di Azure, è necessario scaricare Azure Storage SDK pe
     +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
     ```
 
-3. È possibile eseguire manualmente il comando **ls** per verificare che sia stata creata una cartella **node\_modules**. All'interno di questa cartella si trova il pacchetto **azure-storage** , che contiene le librerie necessarie per accedere all'archiviazione.
+3. È possibile eseguire manualmente il comando **ls** per verificare che sia stata creata una cartella **\_dei moduli** nodo. All'interno di questa cartella si trova il pacchetto **azure-storage** , che contiene le librerie necessarie per accedere all'archiviazione.
 
 ### <a name="import-the-package"></a>Importare il pacchetto
 Utilizzando il Blocco note o un altro editor di testo, aggiungere quanto segue alla parte superiore del file **server.js** dell'applicazione dove si intende utilizzare l'archiviazione:
@@ -63,7 +63,7 @@ var azure = require('azure-storage');
 ## <a name="setup-an-azure-storage-connection"></a>Configurare una connessione di archiviazione di Azure
 I modulo di Azure leggerà le variabili di ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY, o AZURE\_STORAGE\_CONNECTION\_STRING per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account quando si chiama **createQueueService**.
 
-## <a name="how-to-create-a-queue"></a>Procedura: Creare una coda
+## <a name="how-to-create-a-queue"></a>Procedura: creare una coda
 La coda seguente crea un oggetto **QueueService** che consente di utilizzare le code.
 
 ```javascript
@@ -83,7 +83,7 @@ queueSvc.createQueueIfNotExists('myqueue', function(error, results, response){
 Se la coda viene creata, `result.created` è true. Se la coda esiste già, `result.created` è false.
 
 ### <a name="filters"></a>Filtri
-Le operazioni di filtro facoltative possono essere applicate alle operazioni eseguite usando **QueueService**. Le operazioni di filtro possono includere la registrazione, la ripetizione automatica dei tentativi e così via. I filtri sono oggetti che implementano un metodo con la firma:
+Le operazioni di filtro facoltative possono essere applicate alle operazioni eseguite usando **QueueService**. Le operazioni di filtro possono includere la registrazione, il nuovo tentativo automatico e così via. I filtri sono oggetti che implementano un metodo con la firma:Filters are objects that implement a method with the signature:
 
 ```javascript
 function handle (requestOptions, next)
@@ -104,7 +104,7 @@ var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var queueSvc = azure.createQueueService().withFilter(retryOperations);
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>Procedura: Inserire un messaggio in una coda
+## <a name="how-to-insert-a-message-into-a-queue"></a>Procedura: inserire un messaggio in una coda
 Per inserire un messaggio in una coda, utilizzare il metodo **createMessage** per creare un nuovo messaggio e aggiungerlo alla coda.
 
 ```javascript
@@ -115,8 +115,8 @@ queueSvc.createMessage('myqueue', "Hello world!", function(error, results, respo
 });
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Procedura: Visualizzare il messaggio successivo
-È possibile visualizzare il messaggio successivo di una coda senza rimuoverlo dalla coda chiamando il metodo **peekMessages** . Per impostazione predefinita, **peekMessages** visualizza un singolo messaggio.
+## <a name="how-to-peek-at-the-next-message"></a>Procedura: visualizzare il messaggio successivo
+È possibile visualizzare il messaggio nella parte anteriore di una coda senza rimuoverlo dalla coda chiamando il **metodo peekMessages.** Per impostazione predefinita, **peekMessages** visualizza un singolo messaggio.
 
 ```javascript
 queueSvc.peekMessages('myqueue', function(error, results, response){
@@ -133,7 +133,7 @@ queueSvc.peekMessages('myqueue', function(error, results, response){
 > 
 > 
 
-## <a name="how-to-dequeue-the-next-message"></a>Procedura: Rimuovere il messaggio successivo dalla coda
+## <a name="how-to-dequeue-the-next-message"></a>Procedura: rimuovere il messaggio successivo dalla coda
 L'elaborazione di un messaggio prevede un processo a due fasi:
 
 1. Rimozione del messaggio dalla coda.
@@ -163,7 +163,7 @@ queueSvc.getMessages('myqueue', function(error, results, response){
 > 
 > 
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Procedura: Cambiare il contenuto di un messaggio in coda
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Procedura: cambiare il contenuto di un messaggio accodato
 È possibile cambiare il contenuto di un messaggio inserito nella coda con **updateMessage**. Nell'esempio seguente viene aggiornato il testo di un messaggio:
 
 ```javascript
@@ -180,7 +180,7 @@ queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
 });
 ```
 
-## <a name="how-to-additional-options-for-dequeuing-messages"></a>Procedura: Opzioni aggiuntive per rimuovere i messaggi dalla coda
+## <a name="how-to-additional-options-for-dequeuing-messages"></a>Procedura: opzioni aggiuntive per rimuovere i messaggi dalla coda
 È possibile personalizzare il recupero di messaggi da una coda in due modi:
 
 * `options.numOfMessages` - consente di recuperare un batch di messaggi (massimo 32).
@@ -205,7 +205,7 @@ queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, 
 });
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Procedura: Recuperare la lunghezza della coda
+## <a name="how-to-get-the-queue-length"></a>Procedura: recuperare la lunghezza delle code
 **getQueueMetadata** restituisce metadati relativi alla coda, includendo il numero approssimativo di messaggi in attesa nella coda.
 
 ```javascript
@@ -216,7 +216,7 @@ queueSvc.getQueueMetadata('myqueue', function(error, results, response){
 });
 ```
 
-## <a name="how-to-list-queues"></a>Procedura: Elenca code
+## <a name="how-to-list-queues"></a>Procedura: Elenco di code
 Per recuperare un elenco di code, usare **listQueuesSegmented**. Per recuperare un elenco filtrato in base a uno specifico prefisso, usare **listQueuesSegmentedWithPrefix**.
 
 ```javascript
@@ -229,8 +229,8 @@ queueSvc.listQueuesSegmented(null, function(error, results, response){
 
 Se non possono essere restituite tutte le code, è possibile usare `result.continuationToken` come primo parametro di **listQueuesSegmented** o secondo parametro di **listQueuesSegmentedWithPrefix** per recuperare più risultati.
 
-## <a name="how-to-delete-a-queue"></a>Procedura: Eliminare una coda
-Per eliminare una coda e tutti i messaggi che contiene, chiamare il metodo **deleteQueue** sull'oggetto coda.
+## <a name="how-to-delete-a-queue"></a>Procedura: eliminare una coda
+Per eliminare una coda e tutti i messaggi in essa contenuti, chiamare il metodo **deleteQueue** sull'oggetto coda.
 
 ```javascript
 queueSvc.deleteQueue(queueName, function(error, response){
@@ -242,7 +242,7 @@ queueSvc.deleteQueue(queueName, function(error, response){
 
 Per deselezionare tutti i messaggi da una coda senza eliminarla, usare **clearMessages**.
 
-## <a name="how-to-work-with-shared-access-signatures"></a>Procedura: Usare le firme di accesso condiviso
+## <a name="how-to-work-with-shared-access-signatures"></a>Procedura: usare le firme di accesso condiviso di Azure
 Le firme di accesso condiviso rappresentano un modo sicuro per fornire accesso granulare alle code senza specificare il nome o le chiavi dell'account di archiviazione. Le firme di accesso condiviso vengono spesso usate per fornire accesso limitato alle code, ad esempio per consentire a un'app per dispositivi mobili di inviare messaggi.
 
 Un'applicazione attendibile, ad esempio un servizio basato sul cloud, genera una firma di accesso condiviso tramite il metodo **generateSharedAccessSignature** dell'oggetto **QueueService** e la fornisce a un'applicazione non attendibile o parzialmente attendibile. Si prenda ad esempio un'app per dispositivi mobili. La firma di accesso condiviso viene generata tramite un criterio che indica le date di inizio e di fine del periodo di validità della firma, nonché il livello di accesso concesso al titolare della firma di accesso condiviso.
@@ -327,8 +327,8 @@ queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 ## <a name="next-steps"></a>Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accodamento, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
-* [Blog del team di Archiviazione di Azure][Azure Storage Team Blog].
-* Archivio [Azure Storage SDK per Node][Azure Storage SDK for Node] su GitHub.
+* Visitare il blog del [team di archiviazione][Azure Storage Team Blog]di Azure .
+* Vedere il repository [Azure Storage SDK per Node][Azure Storage SDK for Node] su GitHub.
 
 
 

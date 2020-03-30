@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: e2d63626ec548f0107d7af935af32e90d6972849
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2680304bd73bdbae35b29b89f38ae2665615f5e7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435536"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239926"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Creare i cluster Apache Hadoop tramite l'API REST di Azure
 
@@ -28,9 +28,9 @@ L'API REST di Azure consente di eseguire operazioni di gestione su servizi ospit
 
 ## <a name="create-a-template"></a>Creare un modello
 
-Azure Resource Manager modelli sono documenti JSON che descrivono un **gruppo di risorse** e tutte le risorse al suo interno, ad esempio HDInsight. Questo approccio basato su modelli consente di definire le risorse necessarie per HDInsight in un unico modello.
+I modelli di Azure Resource Manager sono documenti JSON che descrivono un gruppo di **risorse** e tutte le risorse in esso in esso in esso (ad esempio HDInsight). Questo approccio basato su modelli consente di definire le risorse necessarie per HDInsight in un modello.
 
-Il documento JSON seguente è una fusione dei file di modello e di parametri ricavati da [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), che consente di creare un cluster basato su Linux usando una password per proteggere l'account utente SSH.
+Il documento JSON seguente è una fusione [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password)dei file di modello e parametri da , che crea un cluster basato su Linux utilizzando una password per proteggere l'account utente SSH.
 
    ```json
    {
@@ -212,7 +212,7 @@ Questo esempio viene usato nei passaggi di questo documento. Sostituire i *valor
 >
 > Per altre informazioni sulle dimensioni di nodo e i costi associati, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="sign-in-to-your-azure-subscription"></a>Accedi alla tua sottoscrizione di Azure
+## <a name="sign-in-to-your-azure-subscription"></a>Accedere alla sottoscrizione di Azure.
 
 Seguire i passaggi illustrati in [Introduzione all'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) e connettersi alla sottoscrizione tramite il comando `az login`.
 
@@ -223,7 +223,7 @@ Seguire i passaggi illustrati in [Introduzione all'interfaccia della riga di com
 
 1. Dalla riga di comando, usare il comando seguente per elencare le sottoscrizioni di Azure.
 
-   ```bash
+   ```azurecli
    az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
    ```
 
@@ -231,7 +231,7 @@ Seguire i passaggi illustrati in [Introduzione all'interfaccia della riga di com
 
 2. Eseguire i comandi seguenti per creare un'applicazione in Azure Active Directory.
 
-   ```bash
+   ```azurecli
    az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'
    ```
 
@@ -244,7 +244,7 @@ Seguire i passaggi illustrati in [Introduzione all'interfaccia della riga di com
 
 3. Eseguire il comando seguente per creare un'entità servizio mediante l'**ID app**.
 
-   ```bash
+   ```azurecli
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
@@ -252,7 +252,7 @@ Seguire i passaggi illustrati in [Introduzione all'interfaccia della riga di com
 
 4. Assegnare il ruolo **Owner** all'entità servizio usando il valore **ID oggetto** precedentemente restituito. Usare anche l'**ID sottoscrizione** ottenuto in precedenza.
 
-   ```bash
+   ```azurecli
    az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
    ```
 
@@ -347,7 +347,7 @@ Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisit
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che è stato creato un cluster HDInsight, usare il comando seguente per informazioni su come usare il cluster.
+Dopo aver creato correttamente un cluster HDInsight, usare quanto segue per informazioni su come usare il cluster.
 
 ### <a name="apache-hadoop-clusters"></a>Cluster Apache Hadoop
 

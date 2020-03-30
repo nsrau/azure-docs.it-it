@@ -1,6 +1,6 @@
 ---
-title: Libreria del processore del feed delle modifiche in Azure Cosmos DB
-description: Informazioni su come usare la libreria del processore dei feed delle modifiche Azure Cosmos DB per leggere il feed delle modifiche, i componenti del processore del feed delle modifiche
+title: Modificare la libreria del processore del feed in Azure Cosmos DBChange feed processor library in Azure Cosmos DB
+description: Informazioni su come usare la libreria del processore del feed di modifiche di Azure Cosmos DB per leggere il feed di modifiche, i componenti del processore del feed di modifiche
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -9,77 +9,77 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
 ms.openlocfilehash: e71b2807595aebeb1f0c8682fde119f4e267e55d
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273315"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processore dei feed di modifiche in Azure Cosmos DB 
 
-Il processore del feed delle modifiche fa parte del [Azure Cosmos DB SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3). Semplifica il processo di lettura del feed delle modifiche e la distribuzione efficace dell'elaborazione degli eventi tra più consumer.
+Il processore del feed di modifiche fa parte di [Azure Cosmos DB SDK V3.](https://github.com/Azure/azure-cosmos-dotnet-v3) Semplifica il processo di lettura del feed di modifiche e distribuisce l'elaborazione degli eventi tra più consumer in modo efficace.
 
-Il vantaggio principale della libreria del processore dei feed delle modifiche è il comportamento a tolleranza di errore che garantisce un recapito "at-least-once" di tutti gli eventi nel feed delle modifiche.
+Il vantaggio principale della libreria del processore del feed di modifiche è il suo comportamento a tolleranza di errore che assicura un recapito "almeno una volta" di tutti gli eventi nel feed di modifiche.
 
-## <a name="components-of-the-change-feed-processor"></a>Componenti del processore del feed delle modifiche
+## <a name="components-of-the-change-feed-processor"></a>Componenti del processore del feed di modifiche
 
-Sono disponibili quattro componenti principali per l'implementazione del processore del feed delle modifiche: 
+Esistono quattro componenti principali dell'implementazione del processore del feed di modifiche: 
 
-1. **Contenitore monitorato:** il contenitore monitorato include i dati da cui viene generato il feed di modifiche. Eventuali inserimenti e aggiornamenti del contenitore monitorati vengono riflessi nel feed delle modifiche del contenitore.
+1. **Contenitore monitorato:** il contenitore monitorato include i dati da cui viene generato il feed di modifiche. Eventuali inserimenti e aggiornamenti al contenitore monitorato si riflettono nel feed di modifiche del contenitore.
 
-1. **Il contenitore lease:** Il contenitore lease funge da archiviazione dello stato e coordina l'elaborazione del feed delle modifiche tra più thread di lavoro. Il contenitore lease può essere archiviato nello stesso account del contenitore monitorato o in un account separato. 
+1. **Contenitore di lease:** Il contenitore di lease funge da archivio dello stato e coordina l'elaborazione del feed di modifiche tra più worker. Il contenitore lease può essere archiviato nello stesso account del contenitore monitorato o in un account separato. 
 
-1. **Host:** Un host è un'istanza dell'applicazione che utilizza il processore del feed delle modifiche per restare in ascolto delle modifiche. Più istanze con la stessa configurazione di lease possono essere eseguite in parallelo, ma ogni istanza deve avere un **nome di istanza**diverso. 
+1. **L'ospitante:** Un host è un'istanza dell'applicazione che usa il processore del feed di modifiche per l'ascolto delle modifiche. Più istanze con la stessa configurazione di lease possono essere eseguite in parallelo, ma ogni istanza deve avere un nome di **istanza**diverso. 
 
-1. **Il delegato:** Il delegato è il codice che definisce le operazioni che lo sviluppatore desidera eseguire con ogni batch di modifiche lette dal processore del feed delle modifiche. 
+1. **Delegato:** Il delegato è il codice che definisce le operazioni che si desidera eseguire con ogni batch di modifiche letto dal processore del feed di modifiche. 
 
-Per una migliore comprensione dell'interazione tra i quattro elementi del processore dei feed di modifiche, è consigliabile esaminare un esempio nel diagramma seguente. Il contenitore monitorato archivia i documenti e USA ' City ' come chiave di partizione. Si noterà che i valori della chiave di partizione sono distribuiti in intervalli che contengono elementi. Sono disponibili due istanze dell'host e il processore del feed delle modifiche assegna diversi intervalli di valori di chiave di partizione a ogni istanza per ottimizzare la distribuzione di calcolo. Ogni intervallo viene letto in parallelo e lo stato di avanzamento viene mantenuto separatamente dagli altri intervalli nel contenitore lease.
+Per una migliore comprensione dell'interazione tra i quattro elementi del processore dei feed di modifiche, è consigliabile esaminare un esempio nel diagramma seguente. Il contenitore monitorato archivia i documenti e utilizza 'City' come chiave di partizione. Vediamo che i valori della chiave di partizione sono distribuiti in intervalli che contengono elementi. Esistono due istanze host e il processore del feed di modifiche assegna intervalli diversi di valori di chiave di partizione a ogni istanza per ottimizzare la distribuzione di calcolo. Ogni intervallo viene letto in parallelo e il relativo stato di avanzamento viene mantenuto separatamente dagli altri intervalli nel contenitore di lease.
 
 ![Esempio di processore dei feed di modifiche](./media/change-feed-processor/changefeedprocessor.png)
 
-## <a name="implementing-the-change-feed-processor"></a>Implementazione del processore del feed delle modifiche
+## <a name="implementing-the-change-feed-processor"></a>Implementazione del processore del feed di modificheImplementing the change feed processor
 
-Il punto di ingresso è sempre il contenitore monitorato, da un'istanza di `Container` chiamata `GetChangeFeedProcessorBuilder`:
+Il punto di ingresso è sempre il `Container` contenitore `GetChangeFeedProcessorBuilder`monitorato, da un'istanza chiamata :
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
 
-Dove il primo parametro è un nome distinto che descrive l'obiettivo del processore e il secondo nome è l'implementazione del delegato che gestirà le modifiche. 
+Dove il primo parametro è un nome distinto che descrive l'obiettivo di questo processore e il secondo nome è l'implementazione del delegato che gestirà le modifiche. 
 
-Un esempio di un delegato è:
+Un esempio di delegato potrebbe essere:An example of a delegate would be:
 
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
 
-Infine, definire un nome per l'istanza del processore con `WithInstanceName` e che è il contenitore per mantenere lo stato di lease con `WithLeaseContainer`.
+Infine si definisce un nome `WithInstanceName` per questa istanza del processore `WithLeaseContainer`con e che è il contenitore per mantenere lo stato di lease con .
 
-Se si chiama `Build`, viene restituita l'istanza del processore che è possibile avviare chiamando `StartAsync`.
+La `Build` chiamata ti darà l'istanza del `StartAsync`processore che puoi avviare chiamando .
 
 ## <a name="processing-life-cycle"></a>Ciclo di vita dell'elaborazione
 
-Il normale ciclo di vita di un'istanza dell'host è:
+Il normale ciclo di vita di un'istanza dell'host è:The normal life cycle of a host instance is:
 
-1. Leggere il feed delle modifiche.
-1. Se non sono state apportate modifiche, sospendere per un periodo di tempo predefinito (personalizzabile con `WithPollInterval` nel generatore) e passare a #1.
+1. Leggere il feed di modifiche.
+1. Se non ci sono modifiche, sormi per un `WithPollInterval` periodo di tempo predefinito (personalizzabile con nel Costruttore) e vai a #1.
 1. Se sono presenti modifiche, inviarle al **delegato**.
-1. Al termine dell'elaborazione **delle modifiche da**parte del delegato, aggiornare l'archivio dei lease con l'ultimo momento elaborato e passare a #1.
+1. Quando il delegato termina l'elaborazione delle modifiche **correttamente,** aggiornare l'archivio lease con l'ultimo punto elaborato nel tempo e passare a #1.
 
 ## <a name="error-handling"></a>Gestione degli errori
 
-Il processore del feed delle modifiche è resiliente agli errori del codice utente. Ciò significa che se l'implementazione del delegato presenta un'eccezione non gestita (passaggio #4), il thread che elabora tale batch di modifiche verrà arrestato e verrà creato un nuovo thread. Il nuovo thread verificherà quale sia l'ultimo punto nel tempo dell'archivio di lease per l'intervallo di valori della chiave di partizione e il riavvio da tale intervallo, inviando efficacemente lo stesso batch di modifiche al delegato. Questo comportamento continuerà fino a quando il delegato non elabora correttamente le modifiche ed è il motivo per cui il processore del feed delle modifiche ha una garanzia di "almeno una volta", perché se il codice del delegato genera, il batch verrà ritentato.
+Il processore del feed di modifiche è resiliente agli errori del codice utente. Ciò significa che se l'implementazione del delegato presenta un'eccezione non gestita (passaggio #4), l'elaborazione del thread che specifico batch di modifiche verrà arrestato e verrà creato un nuovo thread. Il nuovo thread controllerà quale era l'ultimo punto nel tempo dell'archivio lease per tale intervallo di valori di chiave di partizione e verrà riavviato da lì, inviando in modo efficace lo stesso batch di modifiche al delegato. Questo comportamento continuerà fino a quando il delegato elabora correttamente le modifiche ed è il motivo per cui il processore del feed di modifiche ha una garanzia "almeno una volta", perché se il codice delegato genera un'eccezione, verrà eseguito un nuovo tentativo di tale batch.
 
 ## <a name="dynamic-scaling"></a>Scalabilità dinamica
 
-Come indicato durante l'introduzione, il processore del feed delle modifiche può distribuire automaticamente il calcolo tra più istanze. È possibile distribuire più istanze dell'applicazione usando il processore del feed di modifiche e sfruttarne i vantaggi. gli unici requisiti principali sono:
+Come accennato durante l'introduzione, il processore del feed di modifiche può distribuire automaticamente il calcolo tra più istanze. È possibile distribuire più istanze dell'applicazione usando il processore del feed di modifiche e sfruttarla, gli unici requisiti chiave sono:
 
 1. Tutte le istanze devono avere la stessa configurazione del contenitore di lease.
 1. Tutte le istanze devono avere lo stesso nome del flusso di lavoro.
-1. Ogni istanza deve avere un nome di istanza diverso (`WithInstanceName`).
+1. Ogni istanza deve avere un`WithInstanceName`nome di istanza diverso ( ).
 
-Se si applicano queste tre condizioni, il processore del feed delle modifiche utilizzerà un algoritmo di distribuzione uguale, distribuirà tutti i lease nel contenitore di lease tra tutte le istanze in esecuzione e il calcolo parallelizzare. Un lease può essere di proprietà di un'istanza in un determinato momento, quindi il numero massimo di istanze equivale al numero di lease.
+Se si applicano queste tre condizioni, il processore del feed di modifiche, utilizzando un algoritmo di distribuzione uguale, distribuirà tutti i lease nel contenitore di lease tra tutte le istanze in esecuzione e parallelizzerà il calcolo. Un lease può essere di proprietà di una sola istanza alla volta, pertanto il numero massimo di istanze è uguale al numero di lease.
 
-È possibile aumentare e ridurre il numero di istanze e il processore del feed delle modifiche regola dinamicamente il carico ridistribuendo di conseguenza.
+Il numero di istanze può aumentare e ridurre e il processore del feed di modifiche regolerà dinamicamente il carico ridistribuendo di conseguenza.
 
-Inoltre, il processore del feed delle modifiche può adattarsi dinamicamente alla scalabilità dei contenitori a causa dell'aumento della velocità effettiva o dell'archiviazione. Quando il contenitore si espande, il processore del feed delle modifiche gestisce in modo trasparente questi scenari aumentando dinamicamente i lease e distribuendo i nuovi lease tra le istanze esistenti.
+Inoltre, il processore del feed di modifiche può adattarsi dinamicamente alla scalabilità dei contenitori a causa della velocità effettiva o degli aumenti di archiviazione. Quando il contenitore aumenta, il processore del feed di modifiche gestisce in modo trasparente questi scenari aumentando dinamicamente i lease e distribuendo i nuovi lease tra le istanze esistenti.
 
 ## <a name="change-feed-and-provisioned-throughput"></a>Feed di modifiche e velocità effettiva di cui viene effettuato il provisioning
 
@@ -96,6 +96,6 @@ Vengono addebitati i costi per le UR utilizzate, in quanto lo spostamento dei da
 È ora possibile procedere ad acquisire altre informazioni sul processore di feed di modifiche negli articoli seguenti:
 
 * [Panoramica del feed di modifiche](change-feed.md)
-* [Come eseguire la migrazione dalla libreria del processore dei feed delle modifiche](how-to-migrate-from-change-feed-library.md)
-* [Uso dello strumento di stima di feed di modifiche](how-to-use-change-feed-estimator.md)
-* [Ora di avvio del processore di feed di modifiche](how-to-configure-change-feed-start-time.md)
+* [Come eseguire la migrazione dalla libreria del processore del feed di modificheHow to migrate from the change feed processor library](how-to-migrate-from-change-feed-library.md)
+* [Uso dello strumento di stima dei feed di modifiche](how-to-use-change-feed-estimator.md)
+* [Ora di avvio del processore dei feed di modifiche](how-to-configure-change-feed-start-time.md)

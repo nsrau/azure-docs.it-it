@@ -11,51 +11,38 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 769a70cee4f5a1d5d5f77cdd4e55108e3ba40fa1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: fb11d1bdcf8145d4e78285833789b41c92b0ce4e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978701"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064869"
 ---
-# <a name="azure-event-hubs---use-firewall-rules"></a>Hub eventi di Azure: usare le regole del firewall
+# <a name="configure-ip-firewall-rules-for-an-azure-event-hubs-namespace"></a>Configurare le regole del firewall IP per uno spazio dei nomi Hub eventi di AzureConfigure IP firewall rules for an Azure Event Hubs namespace
+Per impostazione predefinita, gli spazi dei nomi degli hub eventi sono accessibili da Internet finché la richiesta viene fornita con l'autenticazione e l'autorizzazione valide. Con il firewall IP, è possibile limitarlo ulteriormente a un set di indirizzi IPv4 o intervalli di indirizzi IPv4 nella notazione [CIDR (Classless Inter-Domain Routing).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
 
-Per gli scenari in cui Hub eventi di Azure deve essere accessibile solo da determinati siti noti, le regole del firewall consentono di configurare regole per accettare il traffico proveniente da indirizzi IPv4 specifici, ad esempio quelli di un gateway NAT aziendale.
+Questa funzionalità è utile negli scenari in cui gli hub eventi di Azure devono essere accessibili solo da determinati siti noti. Le regole del firewall consentono di configurare le regole per accettare il traffico proveniente da indirizzi IPv4 specifici. Ad esempio, se si usano Hub eventi con [Azure Express Route,][express-route]è possibile creare una **regola del firewall** per consentire il traffico solo dagli indirizzi IP dell'infrastruttura locale. 
 
-## <a name="when-to-use"></a>Quando usare questa opzione
+## <a name="ip-firewall-rules"></a>Regole del firewall IP
+Le regole del firewall IP vengono applicate a livello di spazio dei nomi Hub eventi. Vengono pertanto applicate a tutte le connessioni provenienti dai client con qualsiasi protocollo supportato. Qualsiasi tentativo di connessione proveniente da un indirizzo IP che non corrisponde a una regola di indirizzi IP consentiti nello spazio dei nomi di Hub eventi viene rifiutato come non autorizzato. Nella risposta non viene fatto riferimento alla regola IP. Le regole del filtro IP vengono applicate in ordine e la prima regola corrispondente all'indirizzo IP determina l'azione di accettazione o rifiuto.
 
-Se si desidera configurare lo spazio dei nomi in Hub eventi in modo che riceva il traffico solo da un intervallo specificato di indirizzi IP e rifiutare tutto il resto, è possibile usare una *regola del firewall* per bloccare gli endpoint di Hub eventi da altri indirizzi IP. Ad esempio, se si usa hub eventi con [Azure Express Route][express-route], è possibile creare una *regola del firewall* per limitare il traffico dagli indirizzi IP dell'infrastruttura locale.
+## <a name="use-azure-portal"></a>Usare il portale di Azure
+Questa sezione illustra come usare il portale di Azure per creare regole del firewall IP per uno spazio dei nomi di Hub eventi. 
 
-## <a name="how-filter-rules-are-applied"></a>Come vengono applicate le regole di filtro
+1. Passare allo **spazio dei nomi Hub eventi** nel portale di [Azure.](https://portal.azure.com)
+2. Nel menu a sinistra selezionare l'opzione **Rete.On** the left menu, select Networking option. Se si seleziona l'opzione **Tutte le reti,** l'hub eventi accetta connessioni da qualsiasi indirizzo IP. Questa impostazione equivale a una regola che accetta l'intervallo di indirizzi IP 0.0.0.0/0.This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
 
-Le regole del filtro IP vengono applicate a livello dello spazio dei nomi di Hub eventi. Vengono pertanto applicate a tutte le connessioni provenienti dai client con qualsiasi protocollo supportato.
+    ![Firewall - Opzione Tutte le reti selezionata](./media/event-hubs-firewall/firewall-all-networks-selected.png)
+1. Per limitare l'accesso a reti e indirizzi IP specifici, selezionare l'opzione **Reti selezionate.** Nella sezione **Firewall,** attenersi alla seguente procedura:
+    1. Selezionare l'opzione **Aggiungi l'indirizzo IP del client** per concedere all'IP client corrente l'accesso allo spazio dei nomi. 
+    2. Per **l'intervallo**di indirizzi, immettere un indirizzo IPv4 specifico o un intervallo di indirizzo IPv4 in notazione CIDR. 
+    3. Specificare se si desidera **consentire ai servizi Microsoft attendibili di ignorare questo firewall.** 
 
-Qualsiasi tentativo di connessione proveniente da un indirizzo IP che non corrisponde a una regola di indirizzi IP consentiti nello spazio dei nomi di Hub eventi viene rifiutato come non autorizzato. Nella risposta non viene fatto riferimento alla regola IP.
+        ![Firewall - Opzione Tutte le reti selezionata](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
+3. Selezionare **Salva** sulla barra degli strumenti per salvare le impostazioni. Attendere alcuni minuti che la conferma venga visualizzata nelle notifiche del portale.
 
-## <a name="default-setting"></a>Impostazione predefinita
 
-Per impostazione predefinita, la griglia **Filtro IP** nel portale per Hub eventi è vuota. Questa impostazione predefinita indica che l'hub eventi in uso accetta connessioni da qualsiasi indirizzo IP. Questa impostazione predefinita equivale a una regola che accetta l'intervallo di indirizzi IP 0.0.0.0/0.
-
-## <a name="ip-filter-rule-evaluation"></a>Valutazione delle regole del filtro IP
-
-Le regole del filtro IP vengono applicate in ordine e la prima regola corrispondente all'indirizzo IP determina l'azione di accettazione o rifiuto.
-
->[!WARNING]
-> L'implementazione delle regole del firewall può impedire ad altri servizi di Azure di interagire con Hub eventi.
->
-> I servizi Microsoft attendibili non sono supportati quando sono implementate le funzionalità di filtro IP (firewall), ma saranno presto disponibili.
->
-> Scenari comuni di Azure che non supportano il filtro IP (l'elenco **NON** è esaustivo)
-> - Analisi di flusso di Azure
-> - Integrazione con Griglia di eventi di Azure
-> - Route dell'hub IoT di Azure
-> - Azure IoT Device Explorer
->
-> I servizi Microsoft seguenti devono essere in una rete virtuale
-> - App Web di Azure
-> - Funzioni di Azure
-
-### <a name="creating-a-firewall-rule-with-azure-resource-manager-templates"></a>Creazione di una regola del firewall con i modelli di Azure Resource Manager
+## <a name="use-resource-manager-template"></a>Usare i modelli di Resource Manager
 
 > [!IMPORTANT]
 > Le regole del firewall sono supportate nei livelli **standard** e **dedicato** di Hub eventi. Non sono supportate nel livello Basic.
@@ -67,7 +54,7 @@ Parametri del modello:
 - **ipMask** è un singolo indirizzo IPv4 o un blocco di indirizzi IP in notazione CIDR. Ad esempio, nella notazione CIDR, 70.37.104.0/24 rappresenta i 256 indirizzi IPv4, da 70.37.104.0 a 70.37.104.255, con 24 che indica il numero di bit di prefisso significativi per l'intervallo.
 
 > [!NOTE]
-> Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"** , che non limita le connessioni.
+> Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"**, che non limita le connessioni.
 > Quando si creano regole di rete virtuale o del firewall, occorre modificare ***"defaultAction"***
 > 
 > da
@@ -133,6 +120,7 @@ Parametri del modello:
                 "action":"Allow"
             }
           ],
+          "trustedServiceAccessEnabled": false,
           "defaultAction": "Deny"
         }
       }
@@ -147,7 +135,7 @@ Per distribuire il modello, seguire le istruzioni per [Azure Resource Manager][l
 
 Per limitare l'accesso ad Hub eventi dalle reti virtuali di Azure, vedere il collegamento seguente:
 
-- [Endpoint del servizio rete virtuale per hub eventi][lnk-vnet]
+- [Usare gli endpoint servizio di rete virtuale con Hub eventi di Azure][lnk-vnet]
 
 <!-- Links -->
 

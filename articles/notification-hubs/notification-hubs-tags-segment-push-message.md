@@ -1,6 +1,6 @@
 ---
-title: Espressioni di routing e tag in hub di notifica di Azure
-description: Informazioni su come indirizzare e contrassegnare espressioni per gli hub di notifica di Azure.
+title: Routing and tag expressions in Azure Notification Hubs
+description: Informazioni su come instradare ed applicare tag alle espressioni per gli hub di notifica di Azure.Learn how to route and tag expressions for Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -16,22 +16,22 @@ ms.date: 12/09/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: b1162e6070deba7f645298b59ffeb1898eb030a8
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 2432ac41645e373ea3a87ff7e69ef02a4e30c81d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76545773"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062306"
 ---
 # <a name="routing-and-tag-expressions"></a>Espressioni di routing e tag
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Le espressioni tag consentono di avere come destinazione set specifici di dispositivi, o più specificamente registrazioni, quando si invia una notifica push tramite hub di notifica.
 
 ## <a name="targeting-specific-registrations"></a>Destinazione su registrazioni specifiche
 
-L'unico modo per avere come destinazione registrazioni di notifiche specifiche consiste nell'associare tag ad esse, quindi utilizzare come destinazione tali tag. Come descritto in [gestione delle registrazioni](notification-hubs-push-notification-registration-management.md), per ricevere notifiche push, un'app deve registrare un handle di dispositivo in un hub di notifica. Quando l'app crea una registrazione in un hub di notifica, il back-end dell'applicazione può inviare notifiche push. Il back-end dell'applicazione può scegliere le registrazioni da utilizzare come destinazione con una notifica specifica nei modi seguenti:
+L'unico modo per avere come destinazione registrazioni di notifiche specifiche consiste nell'associare tag ad esse, quindi utilizzare come destinazione tali tag. Come descritto in [Gestione registrazioni](notification-hubs-push-notification-registration-management.md), per ricevere le notifiche push, un'app deve registrare un handle del dispositivo in un hub di notifica. Dopo che l'app crea una registrazione in un hub di notifica, il back-end dell'applicazione può inviare notifiche push. Il back-end dell'applicazione può scegliere le registrazioni da utilizzare come destinazione con una notifica specifica nei modi seguenti:
 
 1. **Trasmissione**: tutte le registrazioni nell'hub di notifica ricevono la notifica.
 2. **Tag**: tutte le registrazioni contenenti il tag specificato ricevono la notifica.
@@ -39,11 +39,11 @@ L'unico modo per avere come destinazione registrazioni di notifiche specifiche c
 
 ## <a name="tags"></a>Tag
 
-Un tag può essere qualsiasi stringa, fino a 120 caratteri, che contiene caratteri alfanumerici e i caratteri non alfanumerici seguenti:'`_`','`@`','`#`','`.`','`:`','`-`'. Nell'esempio seguente viene illustrata un'applicazione da cui è possibile ricevere notifiche di tipo avviso popup su gruppi musicali specifici. In questo scenario, un modo semplice per instradare le notifiche consiste nell'etichettare le registrazioni con tag che rappresentano le diverse bande, come illustrato nella figura seguente:
+Un tag può essere qualsiasi stringa, fino a 120 caratteri, contenente caratteri`_`alfanumerici`#`e i`.`seguenti`:`caratteri non`-`alfanumerici: ' '`@`' ' ' ' ' ' ' ' '. Nell'esempio seguente viene illustrata un'applicazione da cui è possibile ricevere notifiche di tipo avviso popup su gruppi musicali specifici. In questo scenario, un modo semplice per instradare le notifiche consiste nell'etichettare le registrazioni con tag che rappresentano le diverse bande, come nella figura seguente:In this scenario, a simple way to route notifications is to label registrations with tags that represent the different bands, as in the following figure:
 
-![Cenni preliminari sui tag](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags.png)
+![Panoramica dei tag](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags.png)
 
-Nella figura il messaggio contrassegnato con **Beatles** raggiunge solo il tablet registrato con il tag **Beatles**.
+Nella figura, il messaggio etichettato con **Beatles** raggiunge solo il tablet registrato con il tag **Beatles**.
 
 Per ulteriori informazioni sulla creazione di registrazioni per i tag, vedere [Gestione delle registrazioni](notification-hubs-push-notification-registration-management.md).
 
@@ -63,13 +63,13 @@ toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
 outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Wailers");
 ```
 
-Non è necessario eseguire il pre-provisioning di tag e può fare riferimento a più concetti specifici dell'app. Ad esempio, gli utenti di questa applicazione di esempio possono commentare i gruppi e desiderano ricevere avvisi popup, non solo per i commenti sui propri gruppi preferiti, ma anche per tutti i commenti degli amici, indipendentemente dal gruppo che stanno commentando. Nella figura seguente viene evidenziato un esempio di questo scenario:
+I tag non devono essere pre-provisioning e possono fare riferimento a più concetti specifici dell'app. Ad esempio, gli utenti di questa applicazione di esempio possono commentare i gruppi e desiderano ricevere avvisi popup, non solo per i commenti sui propri gruppi preferiti, ma anche per tutti i commenti degli amici, indipendentemente dal gruppo che stanno commentando. Nella figura seguente viene evidenziato un esempio di questo scenario:The following figure highlights an example of this scenario:
 
-![Tag-amici](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags2.png)
+![Tag amici](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags2.png)
 
-In questo esempio, Alice è interessata agli aggiornamenti per Beatles e Bob è interessato agli aggiornamenti dei lamenti. Bob è anche interessato ai commenti di Charlie e Charlie è interessato ai gemiti. Quando viene inviata una notifica per il commento di Charlie su Beatles, hub di notifica lo invia a Alice e Bob.
+In questo esempio, Alice è interessata agli aggiornamenti per i Beatles e Bob è interessato agli aggiornamenti per i Wailers. Bob è anche interessato ai commenti di Charlie, e Charlie è interessato ai Wailers. Quando viene inviata una notifica per il commento di Charlie sui Beatles, Notification Hubs lo invia sia ad Alice che a Bob.
 
-Sebbene sia possibile codificare più problemi nei tag (ad esempio, `band_Beatles` o `follows_Charlie`), i tag sono semplici stringhe e non proprietà con valori. Una registrazione corrisponde solo alla presenza o all'assenza di un tag specifico.
+Sebbene sia possibile codificare più problemi `band_Beatles` `follows_Charlie`nei tag (ad esempio, o ), i tag sono stringhe semplici e non proprietà con valori. Una registrazione corrisponde solo alla presenza o all'assenza di un tag specifico.
 
 Per un'esercitazione completa dettagliata su come usare i tag per l'invio a gruppi di interesse, vedere [Ultime notizie](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
 
@@ -78,15 +78,15 @@ Per un'esercitazione completa dettagliata su come usare i tag per l'invio a grup
 
 ## <a name="using-tags-to-target-users"></a>Uso dei tag per considerare come obiettivo gli utenti
 
-Un altro modo per usare i tag consiste nell'identificare tutti i dispositivi associati a un utente specifico. È possibile contrassegnare una registrazione con un tag che contiene l'ID utente, come illustrato nella figura seguente:
+Un altro modo per utilizzare i tag consiste nell'identificare tutti i dispositivi associati a un determinato utente. È possibile contrassegnare una registrazione con un tag che contiene l'ID utente, come illustrato nella figura seguente:You can tag a Registration with a tag that contains the user ID, as in the following figure:
 
-![Utenti tag](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags3.png)
+![Contrassegnare gli utenti](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags3.png)
 
-Nella figura il messaggio con tag `user_Alice` raggiunge tutti i dispositivi contrassegnati con `user_Alice`.
+Nella figura, il messaggio `user_Alice` contrassegnato raggiunge tutti `user_Alice`i dispositivi contrassegnati con .
 
 ## <a name="tag-expressions"></a>Espressioni tag
 
-Esistono casi in cui le notifiche devono essere destinate a un set di registrazioni identificato non da un singolo tag, ma da un'espressione booleana che usa i tag.
+In alcuni casi le notifiche devono essere destinate a un set di registrazioni identificate non da un singolo tag, ma da un'espressione booleana che usa tag.
 
 Si consideri un'applicazione sportiva che invia un promemoria su una partita tra Red Sox e Cardinals a tutte le persone di Boston. Se l'app client registra i tag relativi all'interesse per squadre e località, la notifica deve essere destinata a tutte le persone di Boston interessate ai Red Sox o ai Cardinals. Questa condizione può essere espressa con l'espressione booleana seguente:
 
@@ -96,9 +96,9 @@ Si consideri un'applicazione sportiva che invia un promemoria su una partita tra
 
 ![Espressioni tag](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags4.png)
 
-Le espressioni tag supportano gli operatori booleani comuni, ad esempio `AND` (`&&`), `OR` (`||`) e `NOT` (`!`); possono inoltre contenere parentesi. Le espressioni Tag che usano solo operatori `OR` possono fare riferimento a 20 Tag; in caso contrario, le espressioni tag sono limitate a 6 tag.
+Le espressioni di tag `AND` supportano`||`operatori `NOT` booleani comuni quali ( ),`!``&&` `OR` ( ) e ( ); possono anche contenere parentesi. Le espressioni `OR` di tag che utilizzano solo operatori possono fare riferimento a 20 tag; espressione `AND` con operatori `OR` ma nessun operatore può fare riferimento a 10 tag; in caso contrario, le espressioni di tag sono limitate a 6 tag.
 
-Di seguito è riportato un esempio per l'invio di notifiche con espressioni tag con l'SDK:
+Ecco un esempio per l'invio di notifiche con espressioni di tag utilizzando l'SDK:
 
 ```csharp
 Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;

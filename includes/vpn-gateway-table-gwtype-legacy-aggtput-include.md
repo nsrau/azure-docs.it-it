@@ -9,23 +9,23 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9734859c0bf22201c146e5d8a220f3146f6051c4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67180037"
 ---
 La tabella seguente illustra i tipi di gateway e la velocità effettiva aggregata stimata per SKU di gateway. La tabella è valida per i modelli di distribuzione classica e di Gestione risorse. 
 
-I prezzi variano a seconda dello SKU del gateway. Per altre informazioni, vedere [Gateway VPN Prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway).
+I prezzi variano a seconda dello SKU del gateway. Per ulteriori informazioni, vedere [Prezzi del gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway).
 
 Si noti che lo SKU di gateway UltraPerformance non è rappresentato in questa tabella. Per informazioni sullo SKU UltraPerformance, vedere la documentazione relativa a [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
 
 |  | **Velocità effettiva del gateway VPN (1)** | **Tunnel IPsec massimi del gateway VPN (2)** | **Velocità effettiva del gateway di ExpressRoute** | **Coesistenza gateway VPN ed ExpressRoute** |
 | --- | --- | --- | --- | --- |
 | **SKU Basic (3)(5)(6)** |100 Mbps |10 |500 Mbps (6) |No |
-| **SKU Standard (4)(5)** |100 Mbps |10 |1000 Mbps |Yes |
-| **SKU con prestazioni elevate (4)** |200 Mbps |30 |2000 Mbps |Yes |
+| **SKU Standard (4)(5)** |100 Mbps |10 |1000 Mbps |Sì |
+| **SKU con prestazioni elevate (4)** |200 Mbps |30 |2000 Mbps |Sì |
 
 
 (1) La velocità effettiva della VPN è una stima approssimativa basata sulle misurazioni tra reti virtuali nella stessa area di Azure. Non è una velocità effettiva garantita per le connessioni cross-premise tramite Internet. È la misura massima possibile per la velocità effettiva.

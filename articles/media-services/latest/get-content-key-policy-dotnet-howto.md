@@ -1,5 +1,5 @@
 ---
-title: Ottenere una chiave di firma da un criterio usando servizi multimediali di Azure V3 .NET
+title: Ottenere una chiave di firma da un criterio usando Servizi multimediali di Azure v3 .NETGet a signing key from a policy using Azure Media Services v3 .NET
 description: In questo argomento viene illustrato come ottenere una chiave di firma dai criteri esistenti usando .NET SDK di Servizi multimediali v3.
 services: media-services
 documentationcenter: ''
@@ -9,19 +9,19 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: ff27ae0fd639316f03fe89ffc906561b3ef85f6f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.custom: seodec18
+ms.openlocfilehash: 2dea262fadb61adc9e219b76f9ac048c11e650d5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79251453"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065969"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>Ottenere una chiave di firma dai criteri esistenti
 
-Uno dei principi chiave nella progettazione della versione 3 delle API è renderle più sicure. le API V3 non restituiscono segreti o credenziali per le operazioni **Get** o **List** . Vedere la spiegazione dettagliata qui: per altre informazioni, vedere [RBAC e account di servizi multimediali](rbac-overview.md)
+Uno dei principi chiave nella progettazione della versione 3 delle API è renderle più sicure. Le API v3 non restituiscono segreti o credenziali nelle operazioni **Get** o **List.** Vedere la spiegazione dettagliata qui: Per ulteriori informazioni, vedere [RBAC e Media Services accounts](rbac-overview.md)
 
 L'esempio di questo articolo mostra come usare .NET per ottenere una chiave di firma dai criteri esistenti. 
  

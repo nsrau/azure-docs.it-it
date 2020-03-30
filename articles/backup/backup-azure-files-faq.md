@@ -4,10 +4,10 @@ description: In questo articolo vengono fornite le risposte alle domande comuni 
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.openlocfilehash: c69d4642aefbd599d3783dcdfa059a0cd9d129d9
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302543"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Domande sul backup di file di Azure
@@ -36,7 +36,7 @@ Durante un tentativo di backup, la selezione di un account di archiviazione per 
 
 ### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>È possibile cambiare l'insieme di credenziali in cui si esegue il backup delle condivisioni file?
 
-Sì. Tuttavia, è necessario arrestare la [protezione in una condivisione file](manage-afs-backup.md#stop-protection-on-a-file-share) dall'insieme di credenziali connesso, [annullare la registrazione](troubleshoot-azure-files.md#configuring-backup) dell'account di archiviazione e quindi proteggerlo da un insieme di credenziali diverso.
+Sì. Tuttavia, è necessario arrestare la [protezione da una condivisione file](manage-afs-backup.md#stop-protection-on-a-file-share) dal Vault connesso, [annullare la registrazione](troubleshoot-azure-files.md#configuring-backup) di questo account di archiviazione e quindi proteggerlo da un Vault diverso.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares"></a>In quali aree geografiche è possibile eseguire il backup di condivisioni file di Azure?
 
@@ -71,19 +71,19 @@ Il backup di condivisioni file di Azure è attualmente disponibile in anteprima 
 - US Gov Texas (UGT)
 - US Gov Virginia (UGV)
 - Australia centrale (ACL)
-- India occidentale (INW)
-- Sudafrica settentrionale (SAN)
-- Emirati Arabi Uniti settentrionali (UAN)
-- Francia centrale (FRC)
-- Germania settentrionale (GN)                       
-- Germania centro-occidentale (GWC)
-- Sud Africa occidentale (SAW)
-- Emirati Arabi Uniti centrali (UAC)
-- NÈ (Norvegia orientale)     
-- NWW (Norvegia occidentale)
-- SZN (Svizzera settentrionale)
+- India Ovest(INW)
+- Sudafrica Nord (SAN)
+- Emirati Arabi Uniti Nord (UAN)
+- Francia Centrale (FRC)
+- Germania Nord (GN)                       
+- Germania Centro Ovest (GWC)
+- Sudafrica Ovest (SAW)
+- UAE Centrale (UAC)
+- NWE (Norvegia Est)     
+- NWW (Norvegia Ovest)
+- S'N (Svizzera Settentrionale)
 
-Inviare un messaggio a [AskAzureBackupTeam@microsoft.com](mailto:askazurebackupteam@microsoft.com) se è necessario usare la funzionalità in un'area geografica non indicata nell'elenco.
+Scrivi [AskAzureBackupTeam@microsoft.com](mailto:askazurebackupteam@microsoft.com) a se è necessario usarlo in un'area geografica specifica non elencata in precedenza.
 
 ### <a name="how-many-azure-file-shares-can-i-protect-in-a-vault"></a>Quante condivisioni file di Azure si possono proteggere in un insieme di credenziali?
 
@@ -103,7 +103,7 @@ Backup di Azure supporta attualmente la configurazione di backup pianificati una
 
 È previsto un limite di 200 snapshot per ogni condivisione file in qualsiasi momento. Il limite include gli snapshot creati da Backup di Azure in base ai criteri definiti. Se si iniziano a rilevare errori con i backup dopo aver raggiunto questo limite, eliminare i punti di ripristino su richiesta per poter completare i backup successivi.
 
-## <a name="restore"></a>Ripristina
+## <a name="restore"></a>Restore
 
 ### <a name="can-i-recover-from-a-deleted-azure-file-share"></a>È possibile recuperare una condivisione file di Azure eliminata?
 

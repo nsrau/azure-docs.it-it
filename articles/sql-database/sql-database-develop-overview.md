@@ -4,19 +4,17 @@ description: Informazioni sulle librerie di connettività disponibili e procedur
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
-ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 26aa9948a44727ff4c8092eb5131b1c054bf5442
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 741906bbe9de68459b2e4a704a243fde4771b3a2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79257004"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067317"
 ---
 # <a name="sql-database-application-development-overview"></a>Panoramica dello sviluppo di applicazioni del database SQL
 
@@ -55,10 +53,10 @@ Per altre informazioni sulle attività preliminari per gli eventi di manutenzion
 ## <a name="network-considerations"></a>Considerazioni sulla rete
 
 - Nel computer che ospita il programma client, verificare che il firewall consenta le comunicazioni TCP in uscita sulla porta 1433.  Altre informazioni: [Configurazione del firewall di un database SQL di Azure](sql-database-configure-firewall-settings.md).
-- Se il programma client si connette al database SQL mentre il client viene eseguito in una macchina virtuale (VM) di Azure, è necessario aprire determinati intervalli di porte nella macchina virtuale. Altre informazioni: [Porte superiori a 1433 per ADO.NET 4.5 e database SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
+- Se il programma client si connette al database SQL mentre il client viene eseguito in una macchina virtuale (VM) di Azure, è necessario aprire determinati intervalli di porte nella macchina virtuale. Ulteriori [informazioni:Porte oltre 1433 per ADO.NET 4.5 e Database SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Le connessioni client al database SQL di Azure talvolta ignorano il proxy e interagiscono direttamente con il database. Le porte diverse da 1433 diventano importanti. Per altre informazioni, vedere [Architettura della connettività del database SQL di Azure](sql-database-connectivity-architecture.md) e [Porte successive alla 1433 per ADO.NET 4.5 e database SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
-- Per la configurazione di rete per un'istanza gestita, vedere [configurazione di rete per le istanze gestite](sql-database-howto-managed-instance.md#network-configuration).
+- Per la configurazione di rete per un'istanza gestita, vedere configurazione di [rete per le istanze gestite](sql-database-howto-managed-instance.md#network-configuration).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esplorare tutte le [funzionalità del database SQL](sql-database-technical-overview.md).
+Esplora tutte le [funzionalità del database SQL](sql-database-technical-overview.md).

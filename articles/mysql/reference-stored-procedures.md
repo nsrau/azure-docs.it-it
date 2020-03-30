@@ -1,23 +1,23 @@
 ---
-title: Stored procedure di gestione-database di Azure per MySQL
-description: Informazioni sulle stored procedure in database di Azure per MySQL sono utili per configurare la replica dei dati, impostare il fuso orario e terminare le query.
+title: Procedure stored di gestione - Database di Azure per MySQLManagement stored procedures - Azure Database for MySQL
+description: Informazioni sulle stored procedure nel database di Azure per MySQL sono utili per configurare la replica dei dati, impostare il fuso orario e interrompere le query.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 7ab77f822ace61ccb023dffe6d79fb1d08278d11
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 6a3fa40eaae174d3616fd0318f81576b7c59eac7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74774941"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067693"
 ---
-# <a name="azure-database-for-mysql-management-stored-procedures"></a>Stored procedure per la gestione di database di Azure per MySQL
+# <a name="azure-database-for-mysql-management-stored-procedures"></a>Database di Azure per le stored procedure di gestione MySQLAzure Database for MySQL management stored procedures
 
-Le stored procedure sono disponibili nel database di Azure per i server MySQL per semplificare la gestione del server MySQL. Ciò include la gestione delle connessioni, delle query e della configurazione di Replica dei dati in ingresso del server.  
+Le stored procedure sono disponibili nel database di Azure per i server MySQL per semplificare la gestione del server MySQL.Stored procedures are available on Azure Database for MySQL servers to help manage your MySQL server. Ciò include la gestione delle connessioni, delle query e dell'impostazione della replica dei dati del server.  
 
-## <a name="data-in-replication-stored-procedures"></a>Stored procedure Replica dei dati in ingresso
+## <a name="data-in-replication-stored-procedures"></a>Stored procedure di replica dei datiData-in Replication stored procedures
 
 La funzione per la replica dei dati in ingresso consente di sincronizzare i dati da un server MySQL, eseguito in locale, in macchine virtuali o servizi di database ospitati da altri provider cloud, nel servizio Database di Azure per MySQL.
 
@@ -25,13 +25,13 @@ Le stored procedure descritte di seguito vengono usate per configurare o rimuove
 
 |**Nome della stored procedure**|**Parametri di input**|**Parametri di output**|**Nota sull'utilizzo**|
 |-----|-----|-----|-----|
-|*mysql.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|N/D|Per trasferire i dati con la modalità SSL, passare il contesto del certificato della CA nel parametro master_ssl_ca. </br><br>Per trasferire i dati senza SSL, passare una stringa vuota nel parametro master_ssl_ca.|
+|*mysql.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|N/D|Per trasferire i dati in modalità SSL, passare il contesto del certificato CA nel parametro master_ssl_ca. </br><br>Per trasferire i dati senza SSL, passare una stringa vuota nel parametro master_ssl_ca.|
 |*mysql.az_replication _start*|N/D|N/D|Avvia la replica.|
 |*mysql.az_replication _stop*|N/D|N/D|Arresta la replica.|
 |*mysql.az_replication _remove_master*|N/D|N/D|Rimuove la relazione di replica tra il server master e quello di replica.|
 |*mysql.az_replication_skip_counter*|N/D|N/D|Ignora un errore di replica.|
 
-Per configurare Replica dei dati in ingresso tra un master e una replica nel database di Azure per MySQL, vedere [How to configure replica dei dati in ingresso](howto-data-in-replication.md).
+Per impostare la replica dei dati tra un master e una replica nel database di Azure per MySQL, vedere [come configurare](howto-data-in-replication.md)la replica dei dati.
 
 ## <a name="other-stored-procedures"></a>Altre stored procedure
 
@@ -39,10 +39,10 @@ Le stored procedure seguenti sono disponibili nel database di Azure per MySQL pe
 
 |**Nome della stored procedure**|**Parametri di input**|**Parametri di output**|**Nota sull'utilizzo**|
 |-----|-----|-----|-----|
-|*MySQL. az_kill*|processlist_id|N/D|Equivale a [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) comando. Termina la connessione associata al processlist_id fornito dopo la terminazione di qualsiasi istruzione che la connessione è in esecuzione.|
-|*MySQL. az_kill_query*|processlist_id|N/D|Equivale a [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) comando. Termina l'istruzione attualmente in esecuzione per la connessione. Lascia attiva la connessione.|
-|*MySQL. az_load_timezone*|N/D|N/D|Carica le tabelle del fuso orario per consentire l'impostazione del parametro `time_zone` su valori denominati, ad esempio "US/Pacific".|
+|*mysql.az_kill*|processlist_id|N/D|Equivalente [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) al comando. Terminerà la connessione associata alla processlist_id fornita dopo la terminazione di qualsiasi istruzione in esecuzione.|
+|*mysql.az_kill_query*|processlist_id|N/D|Equivalente [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) al comando. Terminerà l'istruzione attualmente in esecuzione. Lascia viva la connessione stessa.|
+|*mysql.az_load_timezone*|N/D|N/D|Carica le tabelle dei `time_zone` fusi orari per consentire l'impostazione del parametro su valori denominati (ad esempio. "USA/Pacifico").|
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni su come configurare [replica dei dati in ingresso](howto-data-in-replication.md)
-- Informazioni su come usare le [tabelle del fuso orario](howto-server-parameters.md#working-with-the-time-zone-parameter)
+- Informazioni su come configurare la [replica dei dati](howto-data-in-replication.md)
+- Informazioni sull'utilizzo delle tabelle dei [fuso orari](howto-server-parameters.md#working-with-the-time-zone-parameter)

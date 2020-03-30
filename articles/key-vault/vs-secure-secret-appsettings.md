@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: cawa
 ms.openlocfilehash: 6bbadd0deb1b7b6fe1056ed7bb47dc3e666a7b9c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78197709"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Salvataggio sicuro delle impostazioni applicazione segrete per un'applicazione Web
@@ -22,11 +22,11 @@ ms.locfileid: "78197709"
 ## <a name="overview"></a>Panoramica
 Questo articolo descrive come salvare in modo sicuro le impostazioni di configurazione dell'applicazione segrete per le applicazioni Azure.
 
-Tradizionalmente tutte le impostazioni di configurazione dell'applicazione Web vengono salvate nei file di configurazione, ad esempio Web. config. Questa procedura consente di archiviare le impostazioni segrete, ad esempio le credenziali cloud, per sistemi di controllo del codice sorgente pubblici come GitHub. Nel frattempo potrebbe essere difficile seguire una procedura consigliata di sicurezza a causa dell'overhead necessario per modificare il codice sorgente e riconfigurare le impostazioni di sviluppo.
+In genere tutte le impostazioni di configurazione dell'applicazione Web vengono salvate in file di configurazione, ad esempio Web.config. Questa procedura consente di controllare le impostazioni segrete, ad esempio le credenziali Cloud, ai sistemi di controllo del codice sorgente pubblici come GitHub.This practice leads to checking in secret settings such as Cloud credentials to public source control systems like GitHub. Nel frattempo potrebbe essere difficile seguire una procedura consigliata di sicurezza a causa dell'overhead necessario per modificare il codice sorgente e riconfigurare le impostazioni di sviluppo.
 
-Per assicurarsi che il processo di sviluppo sia sicuro, gli strumenti e le librerie del Framework vengono creati per salvare le impostazioni del segreto dell'applicazione in modo sicuro con una modifica minima o senza codice sorgente.
+Per assicurarsi che il processo di sviluppo sia sicuro, vengono create librerie di strumenti e framework per salvare le impostazioni del segreto dell'applicazione in modo sicuro con modifiche minime o senza codice sorgente.
 
-## <a name="aspnet-and-net-core-applications"></a>Applicazioni ASP.NET e .NET Core
+## <a name="aspnet-and-net-core-applications"></a>applicazioni ASP.NET e .NET Core
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Salvare le impostazioni segrete nell'archivio User Secret che si trova fuori dalla cartella di controllo del codice sorgente
 Se si sta eseguendo un prototipo rapido o non si ha accesso a Internet, iniziare spostando le impostazioni segrete fuori dalla cartella di controllo del codice sorgente all'archivio User Secret. L'archivio User Secret è un file salvato nella cartella del profilo utente, in modo che i segreti non vengano archiviati nel controllo del codice sorgente. Il diagramma seguente dimostra come funziona [User Secret](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio).
@@ -43,16 +43,16 @@ Se si sviluppa un progetto ed è necessario condividere il codice sorgente in mo
     ![Creare un Azure Key Vault](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
 2. Concedere l'accesso al Key Vault a tutti i membri del team. Se il team è grande, è possibile creare un [gruppo di Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md) e aggiungere l'accesso di quel gruppo di sicurezza al Key Vault. Nel menu a discesa *Autorizzazioni segrete* selezionare *Ottieni* ed *Elenca* sotto *Operazioni di gestione dei segreti*.
-Se l'app Web è già stata creata, concedere all'app Web l'accesso all'Key Vault in modo che possa accedere all'insieme di credenziali delle chiavi senza archiviare la configurazione segreta nelle impostazioni o nei file dell'app. Cercare l'app Web in base al nome e aggiungerla nello stesso modo in cui si concede l'accesso agli utenti.
+Se l'app Web è già stata creata, concedere all'app Web l'accesso all'insieme di credenziali delle chiavi in modo che possa accedere all'insieme di credenziali delle chiavi senza archiviare la configurazione segreta in Impostazioni app o file. Cercare l'app Web in base al nome e aggiungerla nello stesso modo in cui si concede l'accesso agli utenti.
 
     ![Aggiungere criteri di accesso del Key Vault](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
-3. Aggiungere il segreto per Key Vault nel portale di Azure. Per le impostazioni di configurazione annidate, sostituire ":" con "-" in modo che il nome del segreto del Key Vault sia valido. Il segno ":" non è ammesso nel nome di un segreto del Key Vault.
+3. Aggiungere il segreto all'insieme di credenziali delle chiavi nel portale di Azure.Add your secret to Key Vault on the Azure portal. Per le impostazioni di configurazione annidate, sostituire ":" con "-" in modo che il nome del segreto del Key Vault sia valido. Il segno ":" non è ammesso nel nome di un segreto del Key Vault.
 
     ![Aggiungere il segreto del Key Vault](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
     > [!NOTE]
-    > Prima di Visual Studio 2017 V 15.6 è stato usato per consigliare l'installazione dell'estensione di autenticazione dei servizi di Azure per Visual Studio. Questa funzionalità è tuttavia deprecata perché la funzionalità è integrata in Visual Studio. Di conseguenza, se si usa una versione precedente di Visual Studio 2017, è consigliabile eseguire l'aggiornamento ad almeno 2017 15,6 o versione successiva per poter usare questa funzionalità in modo nativo e accedere all'insieme di credenziali delle chiavi usando l'identità di accesso di Visual Studio.
+    > Prima di Visual Studio 2017 V15.6 è stato usato per installare l'estensione di autenticazione dei servizi di Azure per Visual Studio.Before to Visual Studio 2017 V15.6 we used to installing the Azure Services Authentication extension for Visual Studio. Ma è deprecato ora come la funzionalità è integrata all'interno di Visual Studio . Quindi, se si utilizza una versione precedente di Visual Studio 2017 , si consiglia di eseguire l'aggiornamento ad almeno VS 2017 15.6 o superiore in modo che è possibile utilizzare questa funzionalità in modo nativo e accedere al Key-vault dall'utilizzo dell'identità di accesso di Visual Studio stesso.
     >
 
 4. Aggiungere i pacchetti NuGet seguenti al progetto:
@@ -129,7 +129,7 @@ Se si sta scrivendo un prototipo veloce e non si desidera eseguire il provisioni
     </configBuilders>
     ```
 
-4. Specificare che la sezione appSettings sta usando il generatore di configurazione segreto. Verificare che sia presente una voce per l'impostazione del segreto con un valore fittizio.
+4. Specificare che la sezione appSettings sta usando il generatore di configurazione segreto. Assicurarsi che sia presente una voce per l'impostazione segreta con un valore fittizio.
 
     ```xml
         <appSettings configBuilders="Secrets">
@@ -151,7 +151,7 @@ Seguire le istruzioni nella sezione su ASP.NET Core per configurare un Key Vault
    Microsoft.Configuration.ConfigurationBuilders.UserSecrets
    ```
 
-2. Definire Key Vault generatore di configurazione in Web. config. Inserire questa sezione prima della sezione *appSettings* . Sostituire *vaultName* in modo che sia il nome del Key Vault, se il Key Vault si trova in Azure pubblico, o l'URI completo, se si usa un sovereign cloud.
+2. Definire il generatore di configurazione dell'insieme di credenziali delle chiavi in Web.config.Define Key Vault configuration builder in Web.config. Inserire questa sezione prima della sezione *appSettings.Put* this section before appSettings section. Sostituire *vaultName* in modo che sia il nome del Key Vault, se il Key Vault si trova in Azure pubblico, o l'URI completo, se si usa un sovereign cloud.
 
     ```xml
     <configSections>

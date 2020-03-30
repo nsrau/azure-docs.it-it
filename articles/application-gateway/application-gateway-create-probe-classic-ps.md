@@ -1,5 +1,5 @@
 ---
-title: Creare un probe personalizzato usando PowerShell-applicazione Azure gateway
+title: Creare un probe personalizzato usando PowerShell - Gateway applicazione di AzureCreate a custom probe using PowerShell - Azure Azure Application Gateway
 description: Informazioni su come creare un probe personalizzato per il gateway applicazione usando PowerShell nel modello di distribuzione classica
 services: application-gateway
 author: vhorne
@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: e01a1cad98ded9d7ce8683b6adf38b5d53959774
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75966805"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Creare un probe personalizzato per il gateway applicazione di Azure (classico) con PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure portal](application-gateway-create-probe-portal.md)
+> * [Portale di Azure](application-gateway-create-probe-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-create-probe-ps.md)
-> * [PowerShell per Azure classico](application-gateway-create-probe-classic-ps.md)
+> * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
 Questo articolo illustra come aggiungere un probe personalizzato a un gateway applicazione esistente con PowerShell. I probe personalizzati sono utili per le applicazioni che dispongono di una pagina di controllo dell'integrità specifica o per quelle che non rispondono in modo corretto all'applicazione Web predefinita.
 
 > [!IMPORTANT]
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/management/deployment-models.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Informazioni su come [eseguire questa procedura con il modello di Resource Manager](application-gateway-create-probe-ps.md).
+> Azure include due diversi modelli di distribuzione per la creazione e l'utilizzo delle risorse: [Resource Manager e Classic](../azure-resource-manager/management/deployment-models.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Informazioni su come [eseguire questa procedura con il modello di Resource Manager](application-gateway-create-probe-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -53,11 +53,11 @@ Get-AzureApplicationGateway AppGwTest
 ```
 
 > [!NOTE]
-> Il valore predefinito per *InstanceCount* è 2, con un valore massimo pari a 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Small, Medium e Large.
+> Il valore predefinito per InstanceCount è 2, con un valore massimo di 10.The default value for *InstanceCount* is 2, with a maximum value of 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Small, Medium e Large.
 > 
 > 
 
-*VirtualIPs* e *DnsName* vengono visualizzati vuoti perché il gateway non è stato ancora avviato. Questi valori vengono creati quando il gateway è in esecuzione.
+*I VirtualIP* e *DnsName* vengono visualizzati come vuoti perché il gateway non è ancora stato avviato. Questi valori vengono creati quando il gateway è in esecuzione.
 
 ### <a name="configure-an-application-gateway-by-using-xml"></a>Configurare un gateway applicazione usando XML
 
@@ -140,12 +140,12 @@ Viene aggiunto un nuovo elemento di configurazione \<Probe\> per configurare i p
 
 I parametri di configurazione sono:
 
-|Parametro|Description|
+|Parametro|Descrizione|
 |---|---|
 |**Nome** |Nome di riferimento del probe personalizzato. |
 | **Protocollo** | Protocollo usato. I valori possibili sono HTTP o HTTPS.|
-| **Host** e **Path** | Percorso URL completo richiamato dal gateway applicazione per determinare l'integrità dell'istanza. Se, ad esempio, si dispone di un sito Web http:\//contoso.com/, il probe personalizzato può essere configurato per "http:\//contoso.com/path/custompath.htm" per verificare che i controlli dei probe abbiano una risposta HTTP corretta.|
-| **Interval** | Configura i controlli dell'intervallo di probe, in secondi.|
+| **Host** e **Path** | Percorso URL completo richiamato dal gateway applicazione per determinare l'integrità dell'istanza. Ad esempio, se si dispone\/di un sito Web http: /contoso.com/, il probe personalizzato può essere configurato per "http:\//contoso.com/path/custompath.htm" affinché i controlli probe abbiano una risposta HTTP corretta.|
+| **Intervallo** | Configura i controlli dell'intervallo di probe, in secondi.|
 | **Timeout** | Definisce il timeout del probe per un controllo della risposta HTTP.|
 | **UnhealthyThreshold** | Numero di risposte HTTP non riuscite necessario per contrassegnare l'istanza back-end come *non integra*.|
 

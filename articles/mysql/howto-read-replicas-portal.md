@@ -1,21 +1,21 @@
 ---
-title: Gestire le repliche di lettura-portale di Azure-database di Azure per MySQL
-description: Informazioni su come configurare e gestire le repliche di lettura nel database di Azure per MySQL usando il portale di Azure.
+title: Gestire le repliche di lettura - Portale di Azure - Database di Azure per MySQLManage read replicas - Azure portal - Azure Database for MySQL
+description: Informazioni su come configurare e gestire le repliche di lettura nel database di Azure per MySQL usando il portale di Azure.Learn how to set up and manage read replicas in Azure Database for MySQL using the Azure portal.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 56dc2df243c7ebc8e6aedf655795173c478ef99b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: b7226e5ae8c468339e02dbe87e279266e4609da8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74762607"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063487"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Come creare e gestire le repliche in lettura in Database di Azure per MySQL con il portale di Azure
 
-In questo articolo si apprenderà come creare e gestire le repliche di lettura nel database di Azure per il servizio MySQL usando il portale di Azure.
+In questo articolo verrà illustrato come creare e gestire le repliche di lettura nel servizio Database di Azure per MySQL usando il portale di Azure.In this article, you will learn how to create and manage read replicas in the Azure Database for MySQL service using the Azure portal.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -28,7 +28,7 @@ In questo articolo si apprenderà come creare e gestire le repliche di lettura n
 
 È possibile creare un server di replica in lettura seguendo questa procedura:
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Accedere al portale di [Azure](https://portal.azure.com/).
 
 2. Selezionare il server di Database di Azure per MySQL esistente da usare come master. Questa azione apre la pagina **Panoramica**.
 
@@ -40,14 +40,14 @@ In questo articolo si apprenderà come creare e gestire le repliche di lettura n
 
 5. Immettere un nome per il server di replica.
 
-    ![Database di Azure per MySQL-nome replica](./media/howto-read-replica-portal/replica-name.png)
+    ![Database di Azure per MySQL - Nome replicaAzure Database for MySQL - Replica name](./media/howto-read-replica-portal/replica-name.png)
 
-6. Selezionare il percorso per il server di replica. Il percorso predefinito è identico a quello del server master.
+6. Selezionare il percorso per il server di replica. Il percorso predefinito è lo stesso del server master.
 
-    ![Database di Azure per MySQL-percorso di replica](./media/howto-read-replica-portal/replica-location.png)
+    ![Database di Azure per MySQL - Percorso di replicaAzure Database for MySQL - Replica location](./media/howto-read-replica-portal/replica-location.png)
 
    > [!NOTE]
-   > Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l' [articolo leggere i concetti relativi alla replica](concepts-read-replicas.md). 
+   > Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l'articolo sui concetti relativi alla replica di [lettura.](concepts-read-replicas.md) 
 
 7. Selezionare **OK** per confermare la creazione della replica.
 
@@ -61,7 +61,7 @@ Dopo che è stato creato, il server di replica può essere visualizzato nel pann
 ## <a name="stop-replication-to-a-replica-server"></a>Arrestare la replica in un server di replica
 
 > [!IMPORTANT]
-> L'arresto della replica in un server è irreversibile. Dopo che la replica tra un master e una replica è stata arrestata, non è possibile annullare l'operazione. Il server di replica diventa quindi un server autonomo che supporta sia la lettura che la scrittura. Questo server non può più essere trasformato in una replica.
+> L'arresto della replica in un server è irreversibile. Dopo che la replica tra un master e una replica è stata arrestata, non è possibile annullare l'operazione. Il server di replica diventa quindi un server autonomo che supporta sia la lettura che la scrittura. Questo server non può essere di nuovo impostato come replica.
 
 Per arrestare la replica tra un server master e uno di replica dal portale di Azure, seguire questa procedura:
 

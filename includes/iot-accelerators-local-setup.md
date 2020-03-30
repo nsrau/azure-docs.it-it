@@ -9,10 +9,10 @@ ms.date: 01/17/2019
 ms.author: avneet723
 ms.custom: include file
 ms.openlocfilehash: 1f567b3d083853f9bb342bfad462e8545caa6480
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67180580"
 ---
 ## <a name="download-the-source-code"></a>Scaricare il codice sorgente
@@ -59,21 +59,21 @@ Se non sono ancora state create le risorse di Azure necessarie, seguire questa p
 
      Lo script crea un gruppo di risorse in Azure con il nome della soluzione. Questo gruppo di risorse contiene le risorse di Azure usate dall'acceleratore di soluzione. È possibile eliminare il gruppo di risorse nel momento in cui le risorse corrispondenti non sono più necessarie.
 
-     Lo script aggiunge anche un set di variabili di ambiente con un prefisso **PCS** nel computer locale. Queste variabili di ambiente forniscono i dettagli per il monitoraggio remoto sia in grado di leggere da una risorsa di Azure Key Vault. Questa risorsa insieme di credenziali delle chiavi è in cui il monitoraggio remoto verranno letti i valori di configurazione da.
+     Lo script aggiunge anche un set di variabili di ambiente con un prefisso **PCS** nel computer locale. Queste variabili di ambiente forniscono i dettagli per il monitoraggio remoto per essere in grado di leggere da una risorsa dell'insieme di credenziali delle chiavi di Azure.These environment variables provide the details for Remote Monitoring to be able to read from an Azure Key Vault resource. Questa risorsa dell'insieme di credenziali delle chiavi è la posizione da cui il monitoraggio remoto leggerà i valori di configurazione.
 
      > [!TIP]
-     > Al completamento dello script, le variabili di ambiente vengono salvate in un file denominato **\<home directory\>\\.pcs\\\<nome soluzione\>.env**. Sarà possibile usarle per distribuzioni future di acceleratori di soluzione. Tutte le variabili di ambiente impostate nel computer locale ignorano i valori nel file **services\\scripts\\local\\.env** quando si esegue **docker-compose**.
+     > Al termine dello script, le variabili di ambiente vengono salvate anche in un file denominato ** \<nome soluzione\>\\\\\<\>.env della cartella inizio .pcs**. Sarà possibile usarle per distribuzioni future di acceleratori di soluzione. Tutte le variabili di ambiente impostate nel computer locale ignorano i valori nel file **services\\scripts\\local\\.env** quando si esegue **docker-compose**.
 
 1. Uscire dall'ambiente della riga di comando.
 
 ### <a name="use-existing-azure-resources"></a>Usare le risorse di Azure esistenti
 
 Se sono già state create le risorse di Azure necessarie, creare le corrispondenti variabili di ambiente nel computer locale.
-Impostare le variabili di ambiente per le operazioni seguenti:
-* **PCS_KEYVAULT_NAME** -nome della risorsa di Azure Key Vault
-* **PCS_AAD_APPID** -ID applicazione di AAD
-* **PCS_AAD_APPSECRET** -segreto applicazione di AAD
+Impostare le variabili di ambiente per gli elementi seguenti:Set the environment variables for the following:
+* **PCS_KEYVAULT_NAME** - Nome della risorsa dell'insieme di credenziali delle chiavi di Azure
+* **PCS_AAD_APPID** - L'ID applicazione AAD
+* **PCS_AAD_APPSECRET** - Il segreto dell'applicazione AAD
 
-I valori di configurazione vengono letti da questa risorsa di Azure Key Vault. Queste variabili di ambiente possono essere salvate nel  **\<cartella principale\>\\.pcs\\\<Nome soluzione\>env** file dalla distribuzione. Tutte le variabili di ambiente impostate nel computer locale ignorano i valori nel file **services\\scripts\\local\\.env** quando si esegue **docker-compose**.
+I valori di configurazione verranno letti da questa risorsa dell'insieme di credenziali delle chiavi di Azure.Configuration values will be read from this Azure Key Vault resource. Queste variabili di ambiente possono essere salvate nel ** \<\>\\file\\\<\>.pcs nome soluzione** della cartella inizio dalla distribuzione. Tutte le variabili di ambiente impostate nel computer locale ignorano i valori nel file **services\\scripts\\local\\.env** quando si esegue **docker-compose**.
 
-Alcune configurazioni necessarie per il microservizio è archiviato in un'istanza di **Key Vault** creato nella distribuzione iniziale. Le variabili corrispondenti in Key Vault devono essere modificate in base alle esigenze.
+Parte della configurazione necessaria per il microservizio **Key Vault** viene archiviata in un'istanza dell'insieme di credenziali delle chiavi creata durante la distribuzione iniziale. Le variabili corrispondenti in keyvault devono essere modificate in base alle esigenze.

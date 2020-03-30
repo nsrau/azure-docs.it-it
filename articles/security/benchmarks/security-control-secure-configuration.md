@@ -1,5 +1,5 @@
 ---
-title: Controllo di sicurezza di Azure-configurazione sicura
+title: Azure Security Control - Secure Configuration
 description: Configurazione sicura del controllo di sicurezza
 author: msmbaldwin
 manager: rkarlin
@@ -9,206 +9,206 @@ ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.openlocfilehash: 03564effeee36ddb3316d48329ccab8ccfce75b9
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75934302"
 ---
-# <a name="security-control-secure-configuration"></a>Controllo di sicurezza: configurazione sicura
+# <a name="security-control-secure-configuration"></a>Controllo di sicurezza: Configurazione sicura
 
-Consente di stabilire, implementare e gestire attivamente (rilevare, segnalare, correggere) la configurazione di sicurezza delle risorse di Azure per impedire agli utenti malintenzionati di sfruttare le impostazioni e i servizi vulnerabili.
+Stabilire, implementare e gestire attivamente (tenere traccia, creare report e correggere) la configurazione di sicurezza delle risorse di Azure per impedire agli utenti malintenzionati di sfruttare i servizi e le impostazioni vulnerabili.
 
-## <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: definire configurazioni sicure per tutte le risorse di Azure
+## <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Stabilire configurazioni sicure per tutte le risorse di Azure7.1: Establish secure configurations for all Azure resources
 
-| ID Azure | ID CIS | Responsabilità |
+| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
 |--|--|--|
 | 7.1 | 5.1 | Customer |
 
-Usare i criteri di Azure o il Centro sicurezza di Azure per gestire le configurazioni di sicurezza per tutte le risorse di Azure.
+Usare Criteri di Azure o Centro sicurezza di Azure per gestire le configurazioni di sicurezza per tutte le risorse di Azure.Use Azure Policy or Azure Security Center to maintain security configurations for all Azure Resources.
 
-Come configurare e gestire i criteri di Azure:
+Come configurare e gestire Criteri di Azure:How to configure and manage Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-## <a name="72-establish-secure-operating-system-configurations"></a>7,2: stabilire configurazioni del sistema operativo sicure
+## <a name="72-establish-secure-operating-system-configurations"></a>7.2: Stabilire configurazioni sicure del sistema operativo
 
-| ID Azure | ID CIS | Responsabilità |
+| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
 |--|--|--|
 | 7.2 | 5.1 | Customer |
 
-Usare la raccomandazione del Centro sicurezza di Azure &quot;correggere le vulnerabilità nelle configurazioni di sicurezza nelle macchine virtuali&quot; per mantenere le configurazioni di sicurezza in tutte le risorse di calcolo.
+Usare il Consiglio &quot;di sicurezza di Azure per correggere&quot; le vulnerabilità nelle configurazioni di sicurezza nelle macchine virtuali per gestire le configurazioni di sicurezza in tutte le risorse di calcolo.
 
-Come monitorare le raccomandazioni del Centro sicurezza di Azure:
+Come monitorare i consigli del Centro sicurezza di Azure:How to monitor Azure Security Center recommendations:
 
 https://docs.microsoft.com/azure/security-center/security-center-recommendations
 
-Come correggere le raccomandazioni del Centro sicurezza di Azure:
+Come risolvere i suggerimenti del Centro sicurezza di Azure:How to remediate Azure Security Center recommendations:
 
 https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations
 
-## <a name="73-maintain-secure-azure-resource-configurations"></a>7,3: mantenere sicure le configurazioni delle risorse di Azure
+## <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Gestire le configurazioni delle risorse di Azure protette
 
-| ID Azure | ID CIS | Responsabilità |
+| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
 |--|--|--|
 | 7.3 | 5,2 | Customer |
 
-Usare criteri di Azure [deny] e [Distribuisci se non esistono] per applicare impostazioni sicure tra le risorse di Azure.
+Usare i criteri di Azure [nega] e [distribuzione se non esistono] per applicare impostazioni sicure tra le risorse di Azure.Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
-Come configurare e gestire i criteri di Azure:
+Come configurare e gestire Criteri di Azure:How to configure and manage Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Comprendere gli effetti dei criteri di Azure:
+Informazioni sugli effetti dei criteri di Azure:Understand Azure Policy Effects:
 
 https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
-## <a name="74-maintain-secure-operating-system-configurations"></a>7,4: mantenere sicure le configurazioni del sistema operativo
+## <a name="74-maintain-secure-operating-system-configurations"></a>7.4: Mantenere le configurazioni sicure del sistema operativo
 
-| ID Azure | ID CIS | Responsabilità |
+| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
 |--|--|--|
-| 7.4 | 5,2 | Condivisione |
+| 7.4 | 5,2 | Condiviso |
 
 Le immagini del sistema operativo di base vengono gestite e gestite da Microsoft.
 
 Tuttavia, è possibile applicare le impostazioni di sicurezza richieste dall'organizzazione usando i modelli di Azure Resource Manager e/o la configurazione dello stato desiderato.
 
-Come creare una macchina virtuale di Azure da un modello di Azure Resource Manager:
+Come creare una macchina virtuale di Azure da un modello di Azure Resource Manager:How to create an Azure Virtual Machine from an Azure Resource Manager template:
 
 https://docs.microsoft.com/azure/virtual-machines/windows/ps-template
 
-Comprendere la configurazione dello stato desiderato per le macchine virtuali di Azure:
+Informazioni sulla configurazione dello stato desiderato per le macchine virtuali di Azure:Understand Desired State Configuration for Azure Virtual Machines:
 
 https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-overview
 
-## <a name="75-securely-store-configuration-of-azure-resources"></a>7,5: archiviare in modo sicuro la configurazione delle risorse di Azure
+## <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Archiviare in modo sicuro la configurazione delle risorse di Azure7.5: Securely store configuration of Azure resources
 
-| ID Azure | ID CIS | Responsabilità |
+| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
 |--|--|--|
 | 7.5 | 5.3 | Customer |
 
-Se si usano definizioni di criteri di Azure personalizzate, usare Azure DevOps o Azure Repos per archiviare e gestire il codice in modo sicuro.
+Se si usano definizioni di criteri di Azure personalizzate, usare DevOps di Azure o Azure Repos per archiviare e gestire il codice in modo sicuro.
 
-Come archiviare il codice in Azure DevOps:
+Come archiviare il codice in DevOps di Azure:How to store code in Azure DevOps:
 
 https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
-Documentazione Azure Repos:
+Azure Repos Documentation:
 
 https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
-## <a name="76-securely-store-custom-operating-system-images"></a>7,6: archiviare in modo sicuro immagini del sistema operativo personalizzate
+## <a name="76-securely-store-custom-operating-system-images"></a>7.6: Memorizzare in modo sicuro immagini personalizzate del sistema operativo
 
-| ID Azure | ID CIS | Responsabilità |
+| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
 |--|--|--|
 | 7.6 | 5.3 | Customer |
 
-Se si utilizzano immagini personalizzate, utilizzare il controllo degli accessi in base al ruolo per garantire che solo gli utenti autorizzati possano accedere alle Per le immagini contenitore, archiviarle in Azure Container Registry e sfruttare il controllo degli accessi in base al ruolo per assicurarsi che solo gli utenti autorizzati possano accedere alle immagini.
+Se si usano immagini personalizzate, usare il controllo degli accessi in base al ruolo per garantire che solo gli utenti autorizzati possano accedere alle immagini. Per le immagini del contenitore, archiviarle nel Registro di sistema del contenitore di Azure e sfruttare il controllo degli accessi in base al ruolo per garantire che solo gli utenti autorizzati possano accedere alle immagini.
 
-Comprendere il RBAC in Azure:
+Informazioni sul controllo degli accessi in base al ruolo in Azure:Understand RBAC in Azure
 
 https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
 
-Comprendere RBAC per Container Registry:
+Comprendere il controllo degli accessi in base al ruolo per il Registro di sistema del contenitore:
 
 https://docs.microsoft.com/azure/container-registry/container-registry-roles
 
-Come configurare RBAC in Azure:
+Come configurare il controllo degli accessi in base al ruolo in Azure:How to configure RBAC in Azure:
 
 https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
 
-## <a name="77-deploy-system-configuration-management-tools"></a>7,7: distribuire gli strumenti di gestione della configurazione di sistema
+## <a name="77-deploy-system-configuration-management-tools"></a>7.7: Distribuire gli strumenti di gestione della configurazione di sistema
 
-| ID Azure | ID CIS | Responsabilità |
+| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
 |--|--|--|
 | 7.7 | 5.4 | Customer |
 
-Usare i criteri di Azure per inviare avvisi, controllare e applicare configurazioni di sistema. Sviluppare inoltre un processo e una pipeline per la gestione delle eccezioni dei criteri.
+Usare Criteri di Azure per avvisare, controllare e applicare le configurazioni di sistema. Inoltre, sviluppare un processo e una pipeline per la gestione delle eccezioni dei criteri.
 
-Come configurare e gestire i criteri di Azure:
+Come configurare e gestire Criteri di Azure:How to configure and manage Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-## <a name="78-deploy-system-configuration-management-tools-for-operating-systems"></a>7,8: distribuire gli strumenti di gestione della configurazione di sistema per i sistemi operativi
+## <a name="78-deploy-system-configuration-management-tools-for-operating-systems"></a>7.8: Distribuire gli strumenti di gestione della configurazione di sistema per i sistemi operativi
 
-| ID Azure | ID CIS | Responsabilità |
+| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
 |--|--|--|
 | 7.8 | 5.4 | Customer |
 
-Usare le estensioni di calcolo di Azure, ad esempio PowerShell DSC (Desired state Configuration) per Windows Compute o Linux chef Extension per Linux.
+Usare le estensioni di calcolo di Azure, ad esempio PowerShell Desired State Configuration for Windows compute o Linux Chef Extension per Linux.Use Azure compute extensions such as PowerShell Desired State Configuration for Windows compute or Linux Chef Extension for Linux.
 
-Come installare le estensioni delle macchine virtuali in Azure:
+Come installare le estensioni delle macchine virtuali in Azure:How to install Virtual Machine Extensions in Azure:
 
 https://docs.microsoft.com/azure/virtual-machines/extensions/overview#how-can-i-install-an-extension
 
-## <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7,9: implementare il monitoraggio automatizzato della configurazione per i servizi di Azure
+## <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Implementare il monitoraggio automatico della configurazione per i servizi di Azure7.9: Implement automated configuration monitoring for Azure services
 
-| ID Azure | ID CIS | Responsabilità |
+| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
 |--|--|--|
 | 7.9 | 5.5 | Customer |
 
-Usare il Centro sicurezza di Azure per eseguire analisi di base per le risorse di Azure
+Usare il Centro sicurezza di Azure per eseguire analisi di base per le risorse di AzureUse Azure Security Center to perform baseline scans for your Azure Resources
 
-Come correggere le raccomandazioni nel centro sicurezza di Azure:
+Come correggere i consigli nel Centro sicurezza di Azure:How to remediate recommendations in Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations
 
-## <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7,10: implementare il monitoraggio automatizzato della configurazione per i sistemi operativi
+## <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: Implementare il monitoraggio automatico della configurazione per i sistemi operativi
 
-| ID Azure | ID CIS | Responsabilità |
+| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
 |--|--|--|
 | 7.1 | 5.5 | Customer |
 
-Usare il Centro sicurezza di Azure per eseguire analisi di base per le impostazioni del sistema operativo e Docker per i contenitori.
+Usare il Centro sicurezza di Azure per eseguire le analisi di base per le impostazioni del sistema operativo e Docker per i contenitori.
 
-Informazioni sulle raccomandazioni del contenitore del Centro sicurezza di Azure:
+Informazioni sui consigli per i contenitori del Centro sicurezza di Azure:Understand Azure Security Center container recommendations:
 
 https://docs.microsoft.com/azure/security-center/security-center-container-recommendations
 
-## <a name="711-manage-azure-secrets-securely"></a>7,11: gestire i segreti di Azure in modo sicuro 
+## <a name="711-manage-azure-secrets-securely"></a>7.11: Gestire i segreti di Azure in modo sicuro 
 
-| ID Azure | ID CIS | Responsabilità |
+| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
 |--|--|--|
 | 7.11 | 13.1 | Customer |
 
-Usare identità del servizio gestita insieme a Azure Key Vault per semplificare e proteggere la gestione dei segreti per le applicazioni cloud.
+Usare l'identità del servizio gestito insieme a Archiviazione delle chiavi di Azure per semplificare e proteggere la gestione dei segreti per le applicazioni cloud.
 
-Come eseguire l'integrazione con le identità gestite di Azure:
+Come integrare con le identità gestite di Azure:How to integrate with Azure Managed Identities:
 
 https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Come creare un Key Vault:
+Come creare un insieme di credenziali delle chiavi:
 
 https://docs.microsoft.com/azure/key-vault/quick-create-portal
 
-Come fornire Key Vault autenticazione con un'identità gestita:
+Come fornire l'autenticazione key Vault con un'identità gestita:How to provide Key Vault authentication with a managed identity:
 
 https://docs.microsoft.com/azure/key-vault/managed-identity
 
-## <a name="712-manage-identities-securely-and-automatically"></a>7,12: gestire le identità in modo sicuro e automatico
+## <a name="712-manage-identities-securely-and-automatically"></a>7.12: Gestire le identità in modo sicuro e automatico
 
-| ID Azure | ID CIS | Responsabilità |
+| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
 |--|--|--|
 | 7.12 | 4.1 | Customer |
 
-Usare identità gestite per fornire ai servizi di Azure un'identità gestita automaticamente in Azure AD. Le identità gestite consentono di eseguire l'autenticazione a qualsiasi servizio che supporti l'autenticazione Azure AD, incluso Key Vault, senza credenziali nel codice.
+Usare le identità gestite per fornire ai servizi di Azure un'identità gestita automaticamente in Azure AD. Managed Identities consente di eseguire l'autenticazione a qualsiasi servizio che supporta l'autenticazione di Azure AD, incluso Key Vault, senza credenziali nel codice.
 
 Come configurare le identità gestite:
 
 https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
 
-## <a name="713-eliminate-unintended-credential-exposure"></a>7,13: eliminare l'esposizione delle credenziali non intenzionali
+## <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Eliminare l'esposizione di credenziali indesiderate
 
-| ID Azure | ID CIS | Responsabilità |
+| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
 |--|--|--|
-| 7,13 | 13.3 | Customer |
+| 7.13 | 13.3 | Customer |
 
-Implementare Credential scanner per identificare le credenziali all'interno del codice. Credential scanner incoraggerà inoltre lo stato di trasferimento delle credenziali individuate a posizioni più sicure, ad esempio Azure Key Vault. 
+Implementare Credential Scanner per identificare le credenziali all'interno del codice. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault. 
 
-Come configurare Credential scanner:
+Come configurare Credential Scanner:
 
 https://secdevtools.azurewebsites.net/helpcredscan.html
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il controllo di sicurezza successivo: [malware Defense](security-control-malware-defense.md)
+Vedere il controllo di sicurezza successivo: [Malware Defense](security-control-malware-defense.md)
