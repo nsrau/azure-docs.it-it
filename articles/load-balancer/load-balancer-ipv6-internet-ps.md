@@ -1,5 +1,5 @@
 ---
-title: Creare un servizio di bilanciamento del carico con connessione Internet con IPv6-Azure PowerShell
+title: Creare un servizio di bilanciamento del carico con connessione Internet con IPv6 - Azure PowerShellCreate an Internet-facing load balancer with IPv6 - Azure PowerShell
 titleSuffix: Azure Load Balancer
 description: Informazioni sulla creazione di un servizio di bilanciamento del carico con connessione Internet con IPv6 usando PowerShell per Resource Manager
 services: load-balancer
@@ -15,21 +15,21 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: e5f9762533dc2ad47f855714822ba39c645bf847
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76045461"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Introduzione alla creazione di un servizio di bilanciamento del carico con connessione Internet con IPv6 usando PowerShell per Resource Manager
 
 > [!div class="op_single_selector"]
-> * [PowerShell](load-balancer-ipv6-internet-ps.md)
-> * [Interfaccia della riga di comando di Azure](load-balancer-ipv6-internet-cli.md)
+> * [Powershell](load-balancer-ipv6-internet-ps.md)
+> * [Interfaccia della riga di comando di AzureAzure](load-balancer-ipv6-internet-cli.md)
 > * [Modello](load-balancer-ipv6-internet-template.md)
 
 >[!NOTE] 
->Questo articolo descrive una funzionalità IPv6 introduttiva per consentire ai bilanciamenti del carico di base di fornire connettività IPv4 e IPv6. Connettività IPv6 completa è ora disponibile con [IPv6 per reti virtuali di Azure](../virtual-network/ipv6-overview.md) , che integra la connettività IPv6 con le reti virtuali e include funzionalità chiave quali le regole del gruppo di sicurezza di rete IPv6, il routing definito dall'utente IPv6, il bilanciamento del carico di base e standard IPv6 e altro ancora.  IPv6 per Azure reti virtuali è lo standard consigliato per le applicazioni IPv6 in Azure. Vedere [IPv6 per la distribuzione di Azure VNET PowerShell](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 
+>In questo articolo viene descritta una funzionalità IPv6 introduttiva per consentire ai servizi di bilanciamento del carico di base di fornire connettività IPv4 e IPv6. La connettività IPv6 completa è ora disponibile con le reti virtuali [IPv6 per le reti virtuali](../virtual-network/ipv6-overview.md) che integra la connettività IPv6 con le reti virtuali e include funzionalità chiave come le regole del gruppo di sicurezza di rete IPv6, il routing definito dall'utente IPv6, il bilanciamento del carico IPv6 Basic e Standard e altro ancora.  IPv6 for Azure VNETs is the recommended standard for IPv6 applications in Azure. Vedere Distribuzione di [Powershell VNET di Windows per AzureSee IPv6 for Azure VNET Powershell Deployment](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 
 
 Azure Load Balancer è un servizio di bilanciamento del carico di livello 4 (TCP, UDP). Il servizio di bilanciamento del carico offre disponibilità elevata distribuendo il traffico in ingresso tra istanze del servizio integre in servizi cloud o macchine virtuali in un set di bilanciamento del carico . Azure Load Balancer può anche presentare tali servizi su più porte, più indirizzi IP o entrambi.
 
@@ -56,12 +56,12 @@ La procedura seguente illustra come creare un servizio di bilanciamento del cari
 Per distribuire un servizio di bilanciamento del carico è necessario creare e configurare gli oggetti seguenti:
 
 * Configurazione IP front-end: contiene gli indirizzi IP pubblici per il traffico di rete in ingresso.
-* Pool di indirizzi back-end: contiene le interfacce di rete (NIC) per le macchine virtuali che ricevono il traffico di rete dal servizio di bilanciamento del carico.
+* Pool di indirizzi back-end: contiene le interfacce di rete (NIC) per le macchine virtuali per ricevere il traffico di rete dal servizio di bilanciamento del carico.
 * Regole di bilanciamento del carico: contengono regole per il mapping di una porta pubblica nel servizio di bilanciamento del carico alle porte nel pool di indirizzi back-end.
 * Regole NAT in ingresso: contengono regole per il mapping di una porta pubblica nel servizio di bilanciamento del carico a una porta per una macchina virtuale specifica nel pool di indirizzi back-end.
 * Probe: contengono probe di integrità usati per verificare la disponibilità di istanze di macchine virtuali nel pool di indirizzi back-end.
 
-Per ulteriori informazioni, vedere [Azure Load Balancer Components](./concepts-limitations.md#load-balancer-components).
+Per altre informazioni, vedere Componenti di [Azure Load Balancer.For more information,](./concepts-limitations.md#load-balancer-components)see Azure Load Balancer components.
 
 ## <a name="set-up-powershell-to-use-resource-manager"></a>Configurazione di PowerShell per l'uso di Resource Manager
 
@@ -102,7 +102,7 @@ Assicurarsi di avere la versione di produzione più recente del modulo Azure Res
     $vnet = New-AzvirtualNetwork -Name VNet -ResourceGroupName NRP-RG -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
     ```
 
-2. Creare risorse di indirizzi IP pubblici (PIP) di Azure per il pool di indirizzi IP front-end. Assicurarsi di modificare il valore di `-DomainNameLabel` prima di eseguire i comandi seguenti. Il valore deve essere univoco all'interno dell'area di Azure.
+2. Creare risorse di indirizzi IP pubblici (PIP) di Azure per il pool di indirizzi IP front-end. Assicurarsi di modificare `-DomainNameLabel` il valore di prima di eseguire i comandi seguenti. Il valore deve essere univoco all'interno dell'area di Azure.The value must be unique within the Azure region.
 
     ```azurepowershell-interactive
     $publicIPv4 = New-AzPublicIpAddress -Name 'pub-ipv4' -ResourceGroupName NRP-RG -Location 'West US' -AllocationMethod Static -IpAddressVersion IPv4 -DomainNameLabel lbnrpipv4

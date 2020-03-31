@@ -1,5 +1,5 @@
 ---
-title: Configurare le identità gestite in Azure VMSS usando REST-Azure AD
+title: Configurare le identità gestite in Macchine virtuali di Azure usando REST - Azure ADConfigure managed identities on Azure VMSS using REST - Azure AD
 description: Istruzioni dettagliate per configurare identità gestite di sistema e assegnate dall'utente in un set di scalabilità di macchine virtuali di Azure usando CURL per eseguire le chiamate API REST.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dce9894b26d03c351a2209792cc076de91feba54
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253338"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite le chiamate API REST
@@ -35,7 +35,7 @@ Questo articolo illustra come eseguire queste operazioni di identità gestite pe
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
+- Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
 - Per eseguire le operazioni di gestione illustrate in questo articolo, l'account deve avere le seguenti assegnazioni di controllo degli accessi in base al ruolo:
 
@@ -92,8 +92,8 @@ Per creare un set di scalabilità di macchine virtuali con identità gestita ass
 
    |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
-   |*Content-Type*     | Obbligatoria. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Obbligatoria. Impostare su un token di accesso `Bearer` valido. | 
+   |*Tipo di contenuto*     | Obbligatorio. Impostare su `application/json`.        |
+   |*Autorizzazione*     | Obbligatorio. Impostare su un token di accesso `Bearer` valido. | 
 
    **Corpo della richiesta**
 
@@ -187,8 +187,8 @@ Per abilitare l'identità gestita assegnata dal sistema in un set di scalabilit�
 
    |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
-   |*Content-Type*     | Obbligatoria. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Obbligatoria. Impostare su un token di accesso `Bearer` valido. | 
+   |*Tipo di contenuto*     | Obbligatorio. Impostare su `application/json`.        |
+   |*Autorizzazione*     | Obbligatorio. Impostare su un token di accesso `Bearer` valido. | 
 
    **Corpo della richiesta**
 
@@ -220,8 +220,8 @@ Per abilitare l'identità gestita assegnata dal sistema in un set di scalabilit�
 
    |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
-   |*Content-Type*     | Obbligatoria. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Obbligatoria. Impostare su un token di accesso `Bearer` valido. |
+   |*Tipo di contenuto*     | Obbligatorio. Impostare su `application/json`.        |
+   |*Autorizzazione*     | Obbligatorio. Impostare su un token di accesso `Bearer` valido. |
  
    **Corpo della richiesta**
 
@@ -254,8 +254,8 @@ Per abilitare l'identità gestita assegnata dal sistema in un set di scalabilit�
 
    |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
-   |*Content-Type*     | Obbligatoria. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Obbligatoria. Impostare su un token di accesso `Bearer` valido. | 
+   |*Tipo di contenuto*     | Obbligatorio. Impostare su `application/json`.        |
+   |*Autorizzazione*     | Obbligatorio. Impostare su un token di accesso `Bearer` valido. | 
 
    **Corpo della richiesta**
 
@@ -298,8 +298,8 @@ Per disabilitare l'identità assegnata dal sistema in un set di scalabilità di 
 
    |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
-   |*Content-Type*     | Obbligatoria. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Obbligatoria. Impostare su un token di accesso `Bearer` valido. | 
+   |*Tipo di contenuto*     | Obbligatorio. Impostare su `application/json`.        |
+   |*Autorizzazione*     | Obbligatorio. Impostare su un token di accesso `Bearer` valido. | 
 
    **Corpo della richiesta**
 
@@ -337,7 +337,7 @@ Questa sezione illustra come aggiungere e rimuovere le identità gestite assegna
    az account get-access-token
    ``` 
 
-4. Creare un'identità gestita assegnata dall'utente usando le istruzioni disponibili qui: [Creare un'identità gestita assegnata dall'utente](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
+4. Creare un'identità gestita assegnata dall'utente utilizzando le istruzioni disponibili qui: [Creare un'identità gestita assegnata dall'utente](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
 
 5. Creare un set di scalabilità di macchine virtuali usando CURL per chiamare l'endpoint REST di Azure Resource Manager. L'esempio seguente crea un set di scalabilità di macchine virtuali denominato *myVMSS* nel gruppo di risorse *myResourceGroup*, con un'identità gestita assegnata dall'utente €`ID1`, come indicato nel corpo della richiesta dal valore `"identity":{"type":"UserAssigned"}`. Sostituire `<ACCESS TOKEN>` con il valore ricevuto nel passaggio precedente relativo alla richiesta di un token bearer di accesso e il valore `<SUBSCRIPTION ID>` appropriato per l'ambiente.
  
@@ -355,8 +355,8 @@ Questa sezione illustra come aggiungere e rimuovere le identità gestite assegna
 
    |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
-   |*Content-Type*     | Obbligatoria. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Obbligatoria. Impostare su un token di accesso `Bearer` valido. | 
+   |*Tipo di contenuto*     | Obbligatorio. Impostare su `application/json`.        |
+   |*Autorizzazione*     | Obbligatorio. Impostare su un token di accesso `Bearer` valido. | 
 
    **Corpo della richiesta**
 
@@ -442,8 +442,8 @@ Questa sezione illustra come aggiungere e rimuovere le identità gestite assegna
 
    |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
-   |*Content-Type*     | Obbligatoria. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Obbligatoria. Impostare su un token di accesso `Bearer` valido. |
+   |*Tipo di contenuto*     | Obbligatorio. Impostare su `application/json`.        |
+   |*Autorizzazione*     | Obbligatorio. Impostare su un token di accesso `Bearer` valido. |
  
    **Corpo della richiesta**
 
@@ -537,7 +537,7 @@ Questa sezione illustra come aggiungere e rimuovere le identità gestite assegna
 
    |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
-   |*autorizzazioni*     | Obbligatoria. Impostare su un token di accesso `Bearer` valido. |   
+   |*Autorizzazione*     | Obbligatorio. Impostare su un token di accesso `Bearer` valido. |   
  
 
 4. Se non si dispone di identità gestite assegnate dall'utente o dal sistema associate al set di scalabilità di macchine virtuali, usare il comando CURL seguente per chiamare l'endpoint REST di Azure Resource Manager e assegnare la prima identità gestita assegnata dall'utente al set di scalabilità di macchine virtuali.  Se sono presenti eventuali identità gestite assegnate dall'utente o dal sistema associate al set di scalabilità di macchine virtuali, passare al passaggio 5 dove viene illustrato come aggiungere le identità gestite assegnate dall'utente a un set di scalabilità di macchine virtuali, conservando allo stesso tempo l'identità gestita assegnata dal sistema.
@@ -558,8 +558,8 @@ Questa sezione illustra come aggiungere e rimuovere le identità gestite assegna
 
    |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
-   |*Content-Type*     | Obbligatoria. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Obbligatoria. Impostare su un token di accesso `Bearer` valido. | 
+   |*Tipo di contenuto*     | Obbligatorio. Impostare su `application/json`.        |
+   |*Autorizzazione*     | Obbligatorio. Impostare su un token di accesso `Bearer` valido. | 
 
    **Corpo della richiesta**
 
@@ -590,8 +590,8 @@ Questa sezione illustra come aggiungere e rimuovere le identità gestite assegna
 
    |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
-   |*Content-Type*     | Obbligatoria. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Obbligatoria. Impostare su un token di accesso `Bearer` valido. | 
+   |*Tipo di contenuto*     | Obbligatorio. Impostare su `application/json`.        |
+   |*Autorizzazione*     | Obbligatorio. Impostare su un token di accesso `Bearer` valido. | 
 
    **Corpo della richiesta**
 
@@ -626,8 +626,8 @@ Questa sezione illustra come aggiungere e rimuovere le identità gestite assegna
 
    |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
-   |*Content-Type*     | Obbligatoria. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Obbligatoria. Impostare su un token di accesso `Bearer` valido. | 
+   |*Tipo di contenuto*     | Obbligatorio. Impostare su `application/json`.        |
+   |*Autorizzazione*     | Obbligatorio. Impostare su un token di accesso `Bearer` valido. | 
 
    **Corpo della richiesta**
 
@@ -665,8 +665,8 @@ Questa sezione illustra come aggiungere e rimuovere le identità gestite assegna
 
    |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
-   |*Content-Type*     | Obbligatoria. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Obbligatoria. Impostare su un token di accesso `Bearer` valido. | 
+   |*Tipo di contenuto*     | Obbligatorio. Impostare su `application/json`.        |
+   |*Autorizzazione*     | Obbligatorio. Impostare su un token di accesso `Bearer` valido. | 
 
    **Corpo della richiesta**
 
@@ -704,7 +704,7 @@ Questa sezione illustra come aggiungere e rimuovere le identità gestite assegna
 
    |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
-   |*autorizzazioni*     | Obbligatoria. Impostare su un token di accesso `Bearer` valido. |
+   |*Autorizzazione*     | Obbligatorio. Impostare su un token di accesso `Bearer` valido. |
    
    Se sono state gestite identità assegnate alla macchina virtuale, sono elencate nella risposta nel valore `identity`. 
     
@@ -726,8 +726,8 @@ Questa sezione illustra come aggiungere e rimuovere le identità gestite assegna
 
    |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
-   |*Content-Type*     | Obbligatoria. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Obbligatoria. Impostare su un token di accesso `Bearer` valido. | 
+   |*Tipo di contenuto*     | Obbligatorio. Impostare su `application/json`.        |
+   |*Autorizzazione*     | Obbligatorio. Impostare su un token di accesso `Bearer` valido. | 
 
    **Corpo della richiesta**
 
@@ -758,8 +758,8 @@ Questa sezione illustra come aggiungere e rimuovere le identità gestite assegna
 
    |Intestazione della richiesta  |Descrizione  |
    |---------|---------|
-   |*Content-Type*     | Obbligatoria. Impostare su `application/json`.        |
-   |*autorizzazioni*     | Obbligatoria. Impostare su un token di accesso `Bearer` valido. | 
+   |*Tipo di contenuto*     | Obbligatorio. Impostare su `application/json`.        |
+   |*Autorizzazione*     | Obbligatorio. Impostare su un token di accesso `Bearer` valido. | 
 
    **Corpo della richiesta**
 
@@ -788,8 +788,8 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 |Intestazione della richiesta  |Descrizione  |
 |---------|---------|
-|*Content-Type*     | Obbligatoria. Impostare su `application/json`.        |
-|*autorizzazioni*     | Obbligatoria. Impostare su un token di accesso `Bearer` valido. | 
+|*Tipo di contenuto*     | Obbligatorio. Impostare su `application/json`.        |
+|*Autorizzazione*     | Obbligatorio. Impostare su un token di accesso `Bearer` valido. | 
 
 **Corpo della richiesta**
 
@@ -815,8 +815,8 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 |Intestazione della richiesta  |Descrizione  |
 |---------|---------|
-|*Content-Type*     | Obbligatoria. Impostare su `application/json`.        |
-|*autorizzazioni*     | Obbligatoria. Impostare su un token di accesso `Bearer` valido. | 
+|*Tipo di contenuto*     | Obbligatorio. Impostare su `application/json`.        |
+|*Autorizzazione*     | Obbligatorio. Impostare su un token di accesso `Bearer` valido. | 
 
 **Corpo della richiesta**
 

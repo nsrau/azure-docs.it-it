@@ -1,6 +1,6 @@
 ---
-title: Eseguire il provisioning di dispositivi legacy con chiavi simmetriche-servizio Device provisioning in hub Azure
-description: Come usare le chiavi simmetriche per eseguire il provisioning di dispositivi legacy con l'istanza del servizio Device provisioning (DPS)
+title: Effettuare il provisioning di dispositivi legacy usando chiavi simmetriche- Servizio di provisioning dei dispositivi hub IoT di Azure IoT
+description: Come usare le chiavi simmetriche per eseguire il provisioning di dispositivi legacy con l'istanza del servizio Device Provisioning (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/10/2019
@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 4d1a92f3ebf32d2270eb77ec9c79fe860ba090e1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75434706"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Come effettuare il provisioning di dispositivi legacy usando chiavi simmetriche
@@ -28,9 +28,9 @@ Questo articolo presuppone anche che l'aggiornamento del dispositivo venga esegu
 Questo articolo si riferisce a una workstation basata su Windows. Tuttavia, è possibile eseguire le procedure in Linux. Per un esempio di Linux, vedere [Come effettuare il provisioning per la multi-tenancy](how-to-provision-multitenant.md).
 
 > [!NOTE]
-> L'esempio usato in questo articolo è scritto in C. È disponibile anche un [ C# esempio di chiave simmetrica per il provisioning dei dispositivi](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) . Per usare questo esempio, scaricare o clonare il repository [Azure-Azure-Samples-CSharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) e seguire le istruzioni inline nel codice di esempio. È possibile seguire le istruzioni riportate in questo articolo per creare un gruppo di registrazioni con chiavi simmetriche usando il portale e per trovare l'ambito ID e le chiavi primarie e secondarie del gruppo di registrazione necessarie per eseguire l'esempio. È anche possibile creare registrazioni singole usando l'esempio.
+> L'esempio utilizzato in questo articolo è scritto in C.The sample used in this article is written in C. È disponibile anche un esempio di chiave simmetrica per il provisioning dei [dispositivi in C.](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) Per usare questo esempio, scaricare o clonare il repository [azure-iot-samples-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) e seguire le istruzioni in line nel codice di esempio. È possibile seguire le istruzioni in questo articolo per creare un gruppo di registrazione a chiave simmetrica usando il portale e trovare l'ambito ID e le chiavi primarie e secondarie del gruppo di registrazione necessarie per eseguire l'esempio. È anche possibile creare singole iscrizioni usando l'esempio.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Verrà definito un ID di registrazione univoco per ogni dispositivo in base alle informazioni che lo identificano. Ad esempio, l'indirizzo MAC o il numero di serie.
 
@@ -45,9 +45,9 @@ Il codice del dispositivo illustrato in questo articolo seguirà lo stesso model
 
 * Completamento della guida introduttiva per [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
 
-I prerequisiti seguenti sono per un ambiente di sviluppo Windows. Per Linux o macOS, vedere la sezione appropriata in [preparare l'ambiente di sviluppo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) nella documentazione di SDK.
+I prerequisiti seguenti si riferiscono a un ambiente di sviluppo Windows. Per Linux o macOS, vedere la sezione appropriata in [Preparare l'ambiente di sviluppo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) nella documentazione dell'SDK.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 con il carico di lavoro [' C++sviluppo di applicazioni desktop con '](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) abilitato. Sono supportati anche Visual Studio 2015 e Visual Studio 2017.
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) con il carico di lavoro ['Sviluppo di applicazioni desktop con C++'](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) abilitato. Sono supportati anche Visual Studio 2015 e Visual Studio 2017.
 
 * La versione più recente di [Git](https://git-scm.com/download/) installata.
 
@@ -59,11 +59,11 @@ L'SDK include il codice di esempio per il dispositivo simulato. Il dispositivo s
 
 1. Scaricare il [sistema di compilazione CMake](https://cmake.org/download/).
 
-    È importante che nel computer siano installati i prerequisiti di Visual Studio (Visual Studio e carico di lavoro 'Sviluppo di applicazioni desktop con C++') **prima** di avviare l'installazione di `CMake`. Quando i prerequisiti sono pronti e il download è stato verificato, installare il sistema di compilazione CMake.
+    È importante che i prerequisiti di Visual Studio (Visual Studio e il carico di **before** lavoro `CMake` 'Sviluppo desktop con C') sono installati nel computer, prima di avviare l'installazione. Quando i prerequisiti sono pronti e il download è stato verificato, installare il sistema di compilazione CMake.
 
 2. Trovare il nome del tag per la [versione più recente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) dell'SDK.
 
-3. Aprire un prompt dei comandi o la shell Git Bash. Eseguire i comandi seguenti per clonare la versione più recente del repository GitHub di [Azure-C SDK](https://github.com/Azure/azure-iot-sdk-c) . Usare il tag trovato nel passaggio precedente come valore per il parametro `-b`:
+3. Aprire un prompt dei comandi o la shell Git Bash. Eseguire i comandi seguenti per clonare la versione più recente del repository GitHub [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). Usare il tag trovato nel passaggio precedente come valore per il parametro `-b`:
 
     ```cmd/sh
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -205,7 +205,7 @@ In questa sezione si aggiornerà un esempio di provisioning denominato **prov\_d
 
 Questo codice di esempio simula una sequenza di avvio di dispositivo che invia la richiesta di provisioning all'istanza del servizio Device Provisioning. La sequenza di avvio consente di riconoscere il dispositivo e di assegnarlo all'hub IoT configurato nel gruppo di registrazione.
 
-1. Nel portale di Azure selezionare la scheda **Panoramica** per il servizio Device Provisioning e prendere nota del valore di **_Ambito ID_** .
+1. Nel portale di Azure selezionare la scheda **Panoramica** per il servizio Device Provisioning e prendere nota del valore di **_Ambito ID_**.
 
     ![Estrarre le informazioni dell'endpoint del servizio Device Provisioning dal pannello del portale](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -250,7 +250,7 @@ Questo codice di esempio simula una sequenza di avvio di dispositivo che invia l
 
 7. Fare clic con il pulsante destro del mouse sul progetto **prov\_dev\_client\_sample** e scegliere **Imposta come progetto di avvio**. 
 
-8. Nel menu di Visual Studio selezionare **Debug** > **Avvia senza eseguire debug** per eseguire la soluzione. Nella richiesta di ricompilare il progetto fare clic su **Sì** per ricompilare il progetto prima dell'esecuzione.
+8. Scegliere **Avvia debug** > **senza eseguire il debug** per eseguire la soluzione dal menu Visual Studio. Nella richiesta di ricompilare il progetto fare clic su **Sì** per ricompilare il progetto prima dell'esecuzione.
 
     Il seguente output è un esempio di dispositivo simulato che si avvia correttamente e si connette all'istanza del servizio di provisioning da assegnare all'hub IoT:
 
@@ -269,7 +269,7 @@ Questo codice di esempio simula una sequenza di avvio di dispositivo che invia l
     Press enter key to exit:
     ```
 
-9. Nel portale passare all'hub cose a cui è stato assegnato il dispositivo simulato e fare clic sulla scheda **dispositivi** . Al completamento del provisioning del simulato nell'hub, il relativo ID dispositivo viene visualizzato nel pannello **dispositivi** Internet, con *lo stato* **abilitato**. Potrebbe essere necessario fare clic sul pulsante **Aggiorna** nella parte superiore. 
+9. Nel portale passare all'hub IoT a cui è stato assegnato il dispositivo simulato e fare clic sulla scheda **Dispositivi IoT.In** the portal, navigate to the IoT hub your simulated device was assigned to, click the IoT Devices tab. Nel provisioning corretto dell'hub simulato, il relativo ID dispositivo viene visualizzato nel pannello **Dispositivi IoT,** con *STATUS* **come abilitato**. Potrebbe essere necessario fare clic sul pulsante **Aggiorna** nella parte superiore. 
 
     ![Il dispositivo viene registrato con l'hub IoT](./media/how-to-legacy-device-symm-key/hub-registration.png) 
 
@@ -285,9 +285,9 @@ Tenere presente che in tal modo la chiave di dispositivo derivata viene inclusa 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per ulteriori informazioni sul nuovo provisioning, vedere [concetti relativi al provisioning dei dispositivi dell'hub](concepts-device-reprovision.md) . 
-* [Avvio rapido: eseguire il provisioning di un dispositivo simulato con chiavi simmetriche](quick-create-simulated-device-symm-key.md)
-* Per ulteriori informazioni sul deprovisioning, vedere [come eseguire il deprovisioning di dispositivi precedentemente sottoposti a provisioning automatico](how-to-unprovision-devices.md) 
+* Per altre informazioni su Reprovisioning, vedere Concetti relativi al riprovisioning del nuovo provisioning dei dispositivi hub IoTTo learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
+* [Guida introduttiva: eseguire il provisioning di un dispositivo simulato con chiavi simmetriche](quick-create-simulated-device-symm-key.md)
+* Per altre informazioni sul deprovisioning, vedere Come eseguire il deprovisioning dei dispositivi precedentemente sottoposti a provisioning automaticoTo learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
 
 
 

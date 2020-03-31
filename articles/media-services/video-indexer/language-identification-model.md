@@ -1,7 +1,7 @@
 ---
-title: Usare Video Indexer per identificare automaticamente le lingue parlate-Azure
+title: Usare l'indicizzatore video per identificare automaticamente le lingue parlate - AzureUse Video Indexer to auto identify spoken languages - Azure
 titleSuffix: Azure Media Services
-description: Questo articolo descrive il modo in cui viene usato il modello di identificazione della lingua Video Indexer per identificare automaticamente la lingua parlata in un video.
+description: Questo articolo descrive come viene utilizzato il modello di identificazione della lingua dell'indicizzatore video per identificare automaticamente la lingua parlata in un video.
 services: media-services
 author: juliako
 manager: femila
@@ -11,29 +11,29 @@ ms.topic: article
 ms.date: 09/12/2019
 ms.author: ellbe
 ms.openlocfilehash: 7a2e03b8dacbf6c3ff20e02c804804b671e86d97
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76513882"
 ---
-# <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identificazione automatica della lingua parlata con il modello di identificazione della lingua
+# <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identificare automaticamente la lingua parlata con il modello di identificazione della lingua
 
-Video Indexer supporta l'identificazione automatica della lingua (LID), ovvero il processo di identificazione automatica del contenuto della lingua parlata dall'audio e l'invio del file multimediale da trascrivere nel linguaggio identificato dominante. Attualmente il coperchio supporta inglese, spagnolo, francese, tedesco, italiano, cinese (semplificato), giapponese, russo e portoghese (brasiliano). 
+Video Indexer supporta l'identificazione automatica della lingua (LID), che è il processo di identificazione automatica del contenuto linguistico vocale dall'audio e l'invio del file multimediale da trascrivere nella lingua preferita dominante. Attualmente LID supporta inglese, spagnolo, francese, tedesco, italiano, cinese (semplificato), giapponese, russo e portoghese (brasiliano). 
 
-## <a name="choosing-auto-language-identification-on-indexing"></a>Scelta dell'identificazione della lingua automatica nell'indicizzazione
+## <a name="choosing-auto-language-identification-on-indexing"></a>Scelta dell'identificazione automatica della lingua sull'indicizzazione
 
-Durante l'indicizzazione o la [reindicizzazione](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) di un video tramite l'API, scegliere l'opzione `auto detect` nel parametro `sourceLanguage`.
+Quando indicizzare o [reindicizzare](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) un `auto detect` video `sourceLanguage` utilizzando l'API, scegliere l'opzione nel parametro.
 
-Quando si usa il portale, accedere ai **video dell'account** nella [video Indexer](https://www.videoindexer.ai/) Home page e passare il puntatore del mouse sul nome del video che si vuole indicizzare nuovamente. Nell'angolo in basso a destra fare clic sul pulsante re-index. Nella finestra di dialogo **re-index video** scegliere *rilevamento automatico* dalla casella di riepilogo a discesa **lingua di origine video** .
+Quando utilizzi il portale, vai ai video del tuo **account** nella home page [dell'indicizzatore video](https://www.videoindexer.ai/) e passa il mouse sopra il nome del video che vuoi reindicizzare. Nell'angolo inferiore destro fare clic sul pulsante di reindicizzazione. Nella finestra di dialogo **Reindicizza video,** scegliete *Rilevamento automatico* dalla casella di riepilogo a discesa **Lingua sorgente video.**
 
 ![rilevamento automatico](./media/language-identification-model/auto-detect.png)
 
 ## <a name="model-output"></a>Output del modello
 
-Video Indexer Trascriva il video in base alla lingua più probabile se la confidenza per tale lingua è `> 0.6`. Se la lingua non può essere identificata in tutta sicurezza, presuppone che la lingua parlata sia l'inglese. 
+Video Indexer trascrive il video in base alla lingua più `> 0.6`probabile se la fiducia per quella lingua è . Se la lingua non può essere identificata con fiducia, presuppone che la lingua parlata sia l'inglese. 
 
-Il linguaggio dominante del modello è disponibile nel file JSON di Insights come attributo `sourceLanguage` (in root/video/Insights). Un punteggio di confidenza corrispondente è disponibile anche nell'attributo `sourceLanguageConfidence`.
+Il linguaggio dominante del modello `sourceLanguage` è disponibile nelle informazioni dettagliate JSON come attributo (in root/videos/insights). Un punteggio di confidenza corrispondente è disponibile anche sotto l'attributo. `sourceLanguageConfidence`
 
 ```json
 "insights": {
@@ -49,15 +49,15 @@ Il linguaggio dominante del modello è disponibile nel file JSON di Insights com
 
 ## <a name="guidelines-and-limitations"></a>Linee guida e limitazioni
 
-* Le lingue supportate sono inglese, spagnolo, francese, tedesco, italiano, cinese (semplificato), giapponese, russo e portoghese (Brasile).
-* Se l'audio contiene lingue diverse dall'elenco supportato, il risultato è imprevisto.
-* Se Video Indexer non è in grado di identificare la lingua con una confidenza sufficientemente elevata (`>0.6`), la lingua di fallback è l'inglese.
-* Non è disponibile alcun supporto corrente per file con audio in lingue miste. Se l'audio contiene lingue miste, il risultato è imprevisto. 
-* L'audio di bassa qualità può influito sui risultati del modello.
-* Il modello richiede almeno un minuto di riconoscimento vocale nell'audio.
-* Il modello è progettato per riconoscere un discorso di conversazione spontanea (non comandi vocali, canto e così via).
+* Le lingue supportate includono inglese, spagnolo, francese, tedesco, italiano, cinese (semplificato), giapponese, russo e portoghese brasiliano.
+* Se l'audio contiene lingue diverse dall'elenco supportato sopra, il risultato è imprevisto.
+* Se Video Indexer non è in grado`>0.6`di identificare la lingua con una confidenza sufficientemente elevata ( ), la lingua di fallback è l'inglese.
+* Non è disponibile alcun supporto corrente per i file con audio in lingue miste. Se l'audio contiene lingue miste, il risultato è imprevisto. 
+* L'audio di bassa qualità può influire sui risultati del modello.
+* Il modello richiede almeno un minuto di discorso nell'audio.
+* Il modello è progettato per riconoscere un discorso conversazionale spontaneo (non comandi vocali, canti, ecc.).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Overview](video-indexer-overview.md)
-* [Identificare e trascrivere automaticamente contenuto multilingue](multi-language-identification-transcription.md)
+* [Panoramica](video-indexer-overview.md)
+* [Identificare e trascrivere automaticamente contenuti multilingue](multi-language-identification-transcription.md)

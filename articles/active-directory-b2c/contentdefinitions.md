@@ -8,21 +8,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
+ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b55199ec2684ab7b95ce4e4988b19814c27b2cc3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 074a0a39090e22a29f778fc1c99060848c6bfd99
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79246058"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80051505"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-È possibile personalizzare l'aspetto di qualsiasi [profilo tecnico autocertificato](self-asserted-technical-profile.md). Azure Active Directory B2C (Azure AD B2C) esegue il codice nel browser del cliente e usa un approccio moderno denominato condivisione risorse tra le origini (CORS).
+È possibile personalizzare l'aspetto di qualsiasi [profilo tecnico autocertificato](self-asserted-technical-profile.md). Azure Active Directory B2C (Azure AD B2C) esegue il codice nel browser del cliente e usa un approccio moderno denominato Condivisione di risorse tra origini (CORS).
 
 Per personalizzare l'interfaccia utente, si specifica un URL nell'elemento **ContentDefinition** con contenuto HTML personalizzato. Nel profilo tecnico autocertificato oppure **OrchestrationStep**, si punta a tale identificatore di definizione del contenuto. La definizione del contenuto può contenere un elemento **LocalizedResourcesReferences** che specifica un elenco di risorse localizzate da caricare. Azure AD B2C unisce elementi dell'interfaccia utente con il contenuto HTML caricato dall'URL e quindi mostra la pagina all'utente.
 
@@ -70,7 +70,7 @@ L'elemento **ContentDefinition** contiene gli elementi seguenti:
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | Una stringa che contiene l'URL della pagina HTML5 per la definizione del contenuto. |
-| RecoveryUri | 1:1 | Una stringa che contiene l'URL della pagina HTML per la visualizzazione di un errore relativo alla definizione del contenuto. |
+| RecoveryUri | 1:1 | Una stringa che contiene l'URL della pagina HTML per la visualizzazione di un errore relativo alla definizione del contenuto. Non attualmente utilizzato, il `~/common/default_page_error.html`valore deve essere . |
 | DataUri | 1:1 | Una stringa che contiene l'URL relativo di un file HTML che fornisce l'esperienza utente da richiamare per il passaggio. |
 | Metadati | 0:1 | Una raccolta di coppie chiave/valore che contiene i metadati usati per la definizione del contenuto. |
 | LocalizedResourcesReferences | 0:1 | Una raccolta di riferimenti di risorse localizzate. Usare questo elemento per personalizzare la localizzazione di un'interfaccia utente e di un attributo delle attestazioni. |
@@ -86,7 +86,7 @@ L'elemento **DataUri** viene usato per specificare l'identificatore della pagina
 | `unifiedssp` | Viene visualizzato un modulo per eseguire l'accesso con un account locale basato su un indirizzo di posta elettronica o un nome utente. Questo valore fornisce anche la funzionalità "mantieni l'accesso" e "Password dimenticata?" collegamento. |
 | `unifiedssd` | Viene visualizzato un modulo per eseguire l'accesso con un account locale basato su un indirizzo di posta elettronica o un nome utente. |
 | `multifactor` | Vengono verificati numeri di telefono usando SMS o chiamata vocale durante la procedura di iscrizione o di accesso. |
-| `selfasserted` | Visualizza un modulo per la raccolta di dati da un utente. Ad esempio, consente agli utenti di creare o aggiornare il proprio profilo. |
+| `selfasserted` | Visualizza un modulo per raccogliere dati da un utente. Ad esempio, consente agli utenti di creare o aggiornare il proprio profilo. |
 
 ### <a name="select-a-page-layout"></a>Selezionare un layout di pagina
 
@@ -94,9 +94,9 @@ L'elemento **DataUri** viene usato per specificare l'identificatore della pagina
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-La [versione](page-layout.md) della `DataUri` specifica il pacchetto di contenuto contenente HTML, CSS e JavaScript per gli elementi dell'interfaccia utente nei criteri. Se si intende abilitare il codice JavaScript lato client, gli elementi su cui si basa il codice JavaScript non devono essere modificabili. Se non sono immutabili, le eventuali modifiche potrebbero provocare comportamenti imprevisti nelle pagine utente. Per evitare questi problemi, imporre l'utilizzo di un layout di pagina e specificare una versione del layout di pagina. In questo modo si garantisce che tutte le definizioni di contenuto su cui si basa JavaScript siano non modificabili. Anche se non si intende abilitare JavaScript, è comunque necessario specificare la versione del layout di pagina per le pagine.
+La [parte](page-layout.md) della `DataUri` versione di specifica il pacchetto di contenuto contenente HTML, CSS e JavaScript per gli elementi dell'interfaccia utente nei criteri. Se si intende abilitare il codice lato client JavaScript, gli elementi su cui si basa JavaScript devono essere non modificabili. Se non sono immutabili, eventuali modifiche potrebbero causare un comportamento imprevisto nelle pagine utente. Per evitare questi problemi, applicare l'uso di un layout di pagina e specificare una versione del layout di pagina. In questo modo si garantisce che tutte le definizioni di contenuto su cui hai basato il codice JavaScript non siano modificabili. Anche se non si intende abilitare JavaScript, è comunque necessario specificare la versione del layout di pagina per le pagine.
 
-Nell'esempio seguente viene illustrato il **DataUri** di `1.2.0``selfasserted` versione:
+L'esempio seguente mostra `selfasserted` il `1.2.0` **DataUri** della versione :
 
 ```xml
 <ContentDefinition Id="api.localaccountpasswordreset">
@@ -111,7 +111,7 @@ Nell'esempio seguente viene illustrato il **DataUri** di `1.2.0``selfasserted` v
 
 #### <a name="migrating-to-page-layout"></a>Migrazione al layout di pagina
 
-Il formato del valore deve contenere la parola `contract`: _urn: com: Microsoft: AAD: B2C: Elements:**Contract**:p Age-Name: Version_. Per specificare un layout di pagina nei criteri personalizzati che usano un valore **DataUri** precedente, usare la tabella seguente per eseguire la migrazione al nuovo formato.
+Il formato del valore deve `contract`contenere la parola : _urn:com:microsoft:aad:b2c:elements:**contratto**:page-name:version_. Per specificare un layout di pagina nei criteri personalizzati che usano un valore **DataUri** precedente, usare la tabella seguente per eseguire la migrazione al nuovo formato.
 
 | Valore di DataUri precedente | Nuovo valore di DataUri |
 | ----------------- | ----------------- |
@@ -133,7 +133,7 @@ L'elemento **Metadata** contiene gli elementi seguenti:
 
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
-| Elemento | 0:n | Metadati che fanno riferimento alla definizione del contenuto. |
+| Elemento | 0:n | Metadati correlati alla definizione del contenuto. |
 
 L'elemento **Elemento** di **Metadati** contiene gli attributi seguenti:
 
@@ -143,11 +143,11 @@ L'elemento **Elemento** di **Metadati** contiene gli attributi seguenti:
 
 #### <a name="metadata-keys"></a>Chiavi di metadati
 
-La definizione del contenuto supporta gli elementi di metadati seguenti:
+La definizione del contenuto supporta i seguenti elementi di metadati:
 
 | Chiave | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| DisplayName | No | Stringa che contiene il nome della definizione del contenuto. |
+| DisplayName | No | Stringa contenente il nome della definizione di contenuto. |
 
 ### <a name="localizedresourcesreferences"></a>LocalizedResourcesReferences
 
@@ -193,16 +193,16 @@ L'attributo ID dell'elemento **ContentDefinition** specifica il tipo di pagina c
 | **api.error** | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Pagina di errore**: Viene visualizzata una pagina di errore quando viene rilevata un'eccezione o un errore. |
 | **api.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Pagina di selezione del provider di identità** - Elenca i provider di identità tra cui gli utenti possono scegliere durante l'iscrizione. Si tratta in genere di provider di identità aziendali, provider di identità basati su social network, ad esempio Facebook e Google+, o account locali. |
 | **api.idpselections.signup** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Pagina di selezione del provider di identità**: Elenca i provider di identità tra cui gli utenti possono scegliere durante l'iscrizione. Si tratta in genere di provider di identità aziendali, provider di identità basati su social network, ad esempio Facebook e Google+, o account locali. |
-| **api.localaccountpasswordreset** | [selfasserted. cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Pagina di password dimenticata**: mostra un modulo che gli utenti devono completare per avviare la reimpostazione della password. |
-| **api.localaccountsignin** | [selfasserted. cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Pagina di accesso all'account locale**: mostra un modulo per l'accesso con un account locale basato su un indirizzo e-mail o un nome utente. Il modulo può contenere una casella di input di testo e una casella di immissione della password. |
-| **api.localaccountsignup** | [selfasserted. cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Pagina d'iscrizione all'account locale**:mostra un modulo per l'iscrizione con un account locale basato su un indirizzo e-mail o un nome utente. Il modulo può contenere diversi controlli di input, ad esempio una casella per l'immissione di testo e una per l'immissione della password, un pulsante di opzione, caselle a discesa a selezione singola e caselle di controllo con selezione multipla. |
+| **api.localaccountpasswordreset** | [selfasserted.cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Pagina di password dimenticata**: mostra un modulo che gli utenti devono completare per avviare la reimpostazione della password. |
+| **api.localaccountsignin** | [selfasserted.cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Pagina di accesso all'account locale**: mostra un modulo per l'accesso con un account locale basato su un indirizzo e-mail o un nome utente. Il modulo può contenere una casella di input di testo e una casella di immissione della password. |
+| **api.localaccountsignup** | [selfasserted.cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Pagina d'iscrizione all'account locale**:mostra un modulo per l'iscrizione con un account locale basato su un indirizzo e-mail o un nome utente. Il modulo può contenere diversi controlli di input, ad esempio una casella per l'immissione di testo e una per l'immissione della password, un pulsante di opzione, caselle a discesa a selezione singola e caselle di controllo con selezione multipla. |
 | **api.phonefactor** | [multifactor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Pagina di autenticazione a più fattori**: vengono verificati numeri di telefono usando SMS o vocali, durante l'iscrizione o l'accesso. |
-| **api.selfasserted** | [selfasserted. cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Pagina di iscrizione a un account social**: mostra un modulo che gli utenti devono completare quando effettuano l'iscrizione usando un account esistente da un provider di identità social. Questa pagina è simile alla pagina di iscrizione dell'account di social network descritta in precedenza, ad eccezione dei campi di immissione della password. |
-| **api.selfasserted.profileupdate** | [updateprofile in. cshtml](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Pagina di aggiornamento profilo**: mostra un modulo a cui gli utenti possono accedere per aggiornare il profilo. Questa pagina è simile alla pagina di iscrizione dell'account di social network, ad eccezione dei campi di immissione della password. |
-| **api.signuporsignin** | [Unified. cshtml](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Pagina unificata per l'iscrizione o accesso**: viene gestito il processo di iscrizione e accesso dell'utente. Gli utenti possono usare provider di identità aziendali, provider di identità basati su social network, ad esempio Facebook o Google +, o account locali. |
+| **api.selfasserted** | [selfasserted.cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Pagina di iscrizione a un account social**: mostra un modulo che gli utenti devono completare quando effettuano l'iscrizione usando un account esistente da un provider di identità social. Questa pagina è simile alla pagina di iscrizione dell'account di social network descritta in precedenza, ad eccezione dei campi di immissione della password. |
+| **api.selfasserted.profileupdate** | [updateprofile.cshtml (informazioni in lingua inlingua).](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Pagina di aggiornamento profilo**: mostra un modulo a cui gli utenti possono accedere per aggiornare il profilo. Questa pagina è simile alla pagina di iscrizione dell'account di social network, ad eccezione dei campi di immissione della password. |
+| **api.signuporsignin** | [unified.cshtml](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Pagina unificata per l'iscrizione o accesso**: viene gestito il processo di iscrizione e accesso dell'utente. Gli utenti possono usare provider di identità aziendali, provider di identità basati su social network, ad esempio Facebook o Google +, o account locali. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per un esempio di personalizzazione dell'interfaccia utente usando le definizioni di contenuto, vedere:
+Per un esempio di personalizzazione dell'interfaccia utente tramite le definizioni di contenuto, vedere:For an example of customizing the user interface by using content definitions, see:
 
-[Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato](custom-policy-ui-customization.md)
+[Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzatoCustomize the user interface of your application using a custom policy](custom-policy-ui-customization.md)

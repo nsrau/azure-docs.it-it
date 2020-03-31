@@ -1,7 +1,7 @@
 ---
-title: 'Informazioni di riferimento: CentOS Data Science Virtual Machine'
+title: 'Riferimento: CentOS Data Science Virtual Machine'
 titleSuffix: Azure Data Science Virtual Machine
-description: Informazioni dettagliate sugli strumenti inclusi nel Data Science Virtual Machine CentOS
+description: Dettagli sugli strumenti inclusi nella macchina virtuale CentOS Data Science
 author: gvashishtha
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -9,13 +9,13 @@ ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
 ms.openlocfilehash: db49a9f5e0e6675d93cb58d6af9c92fac21e8b74
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77525839"
 ---
-# <a name="reference-centos-linux-data-science-virtual-machine"></a>Riferimento: CentOS (Linux) Data Science Virtual Machine
+# <a name="reference-centos-linux-data-science-virtual-machine"></a>Riferimento: Macchina virtuale di analisi scientifica dei dati CentOS (Linux)
 
 La Data Science Virtual Machine (DSVM) Linux è un'immagine di macchina virtuale di Azure basata su CentOS. La DSVM Linux include una raccolta di strumenti preinstallati che è possibile usare per l'analisi dei dati e Machine Learning. 
 
@@ -58,13 +58,13 @@ R è uno dei linguaggi più diffusi per l'analisi dei dati e il Machine Learning
 
 È possibile usare Machine Learning Server per ridimensionare e operazionalizzare i modelli R in servizi Web. È possibile modificare i programmi R in uno degli editor predefiniti, ad esempio RStudio, VI o Emacs. L'editor Emacs è preinstallato nella DSVM. Il pacchetto Emacs ESS (Emacs Speaks Statistics) semplifica l'uso di file R nell'editor Emacs.
 
-Per aprire la console di R, nella shell immettere **r**. Questo comando consente di eseguire l'operazione in un ambiente interattivo. Per sviluppare il programma R, si usa in genere un editor come Emacs o vi e quindi si eseguono gli script all'interno di R. Con RStudio si ottiene un IDE completo con interfaccia grafica per sviluppare programmi R.
+Per aprire la console R, nella shell immettere **R**. Questo comando consente di passare a un ambiente interattivo. Per sviluppare il programma R, si usa in genere un editor come Emacs o vi e quindi si eseguono gli script all'interno di R. Con RStudio si ottiene un IDE completo con interfaccia grafica per sviluppare programmi R.
 
 Nella DSVM è incluso uno script R che è possibile usare per installare i [principali 20 pacchetti](https://www.kdnuggets.com/2015/06/top-20-r-packages.html). È possibile eseguire questo script nell'interfaccia interattiva di R. Come indicato in precedenza, per aprire tale interfaccia, immettere **R** nella shell.  
 
 ## <a name="python"></a>Python
 
-Anaconda Python viene installato con gli ambienti Python 3.5 e 2.7. L'ambiente 2.7 è detto _radice_, mentre l'ambiente 3.5 è detto _py35_. Questa distribuzione contiene il linguaggio Python di base con circa 300 dei più diffusi pacchetti di matematica, ingegneria e analisi dei dati.
+Anaconda Python viene installato con gli ambienti Python 3.5 e 2.7. L'ambiente 2.7 è chiamato _root_ e l'ambiente 3.5 è chiamato _py35_. Questa distribuzione contiene il linguaggio Python di base con circa 300 dei più diffusi pacchetti di matematica, ingegneria e analisi dei dati.
 
 L'ambiente py35 è il valore predefinito. Per attivare l'ambiente radice (2.7), usare questo comando:
 
@@ -110,7 +110,7 @@ Il server Jupyter Notebook è preconfigurato con i kernel Python 2, Python 3 e R
 > [!NOTE]
 > Se vengono visualizzati avvisi relativi al certificato, scegliere di continuare.
 
-È possibile accedere al server Jupyter Notebook da qualsiasi host, immettendo **https:\//\<nome DNS o indirizzo IP della DSVM\>:8000/** .
+È possibile accedere al server Jupyter Notebook da qualsiasi host, Immettere **\//\<https: nome DNS DSVM o\>indirizzo IP :8000/**.
 
 > [!NOTE]
 > La porta 8000 è aperta nel firewall per impostazione predefinita quando viene effettuato il provisioning della DSVM. 
@@ -187,11 +187,11 @@ Per altre informazioni, vedere [SQuirrel SQL](http://squirrel-sql.sourceforge.ne
 
 Anche nel pacchetto driver ODBC per SQL Server sono disponibili due strumenti da riga di comando:
 
-* **bcp**: lo strumento bcp esegue la copia bulk dei dati tra un'istanza di SQL Server e un file di dati in un formato specificato dall'utente. È possibile usarlo per importare un numero elevato di nuove righe nelle tabelle di SQL Server o per esportare dati delle tabelle in file di dati. Per importare dati in una tabella, è necessario usare un file in un formato creato per tale tabella. In alternativa, è necessario conoscere la struttura della tabella e i tipi di dati validi per le relative colonne.
+* **bcp**: lo strumento bcp copia in blocco i dati tra un'istanza di SQL ServerSQL Server e un file di dati in un formato specificato dall'utente. È possibile usarlo per importare un numero elevato di nuove righe nelle tabelle di SQL Server o per esportare dati delle tabelle in file di dati. Per importare dati in una tabella, è necessario usare un file in un formato creato per tale tabella. In alternativa, è necessario conoscere la struttura della tabella e i tipi di dati validi per le relative colonne.
 
   Per altre informazioni, vedere [Connettersi con bcp](https://msdn.microsoft.com/library/hh568446.aspx).
 
-* **SQLCMD**: è possibile usare l'utilità sqlcmd per immettere istruzioni Transact-SQL, procedure di sistema e file script al prompt dei comandi. L'utilità sqlcmd usa ODBC per eseguire batch Transact-SQL.
+* **sqlcmd**: è possibile utilizzare l'utilità sqlcmd per immettere istruzioni Transact-SQLTransact-SQL, procedure di sistema e file di script al prompt dei comandi. L'utilità sqlcmd usa ODBC per eseguire batch Transact-SQL.
 
   Per altre informazioni, vedere [Connettersi con sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
 
@@ -209,21 +209,21 @@ Le librerie per l'accesso al database sono disponibili in R e Python:
 
 Nella DSVM sono installati gli strumenti di Azure seguenti:
 
-* Interfaccia della riga di comando di Azure: è possibile usare l'interfaccia della riga di comando in Azure per creare e gestire le risorse **di Azure tramite**i comandi della shell. Per aprire gli strumenti di Azure, immettere **Azure help**. Per altre informazioni, vedere la [pagina di documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Azure Storage Explorer**: Azure Storage Explorer è uno strumento grafico che è possibile usare per esplorare gli oggetti archiviati nell'account di archiviazione di Azure e per caricare e scaricare i dati da e verso i BLOB di Azure. È possibile accedere a Esplora archivi dall'icona del collegamento sul desktop. È anche possibile aprire questo strumento da un prompt della shell digitando **StorageExplorer**. È necessario aver eseguito l'accesso da un client X2Go o avere configurato X11 Forwarding.
-* **Librerie di Azure**: le librerie seguenti sono preinstallate in DSVM:
+* **Interfaccia della riga di comando**di Azure: è possibile usare l'interfaccia della riga di comando in Azure per creare e gestire le risorse di Azure tramite comandi della shell. Per aprire gli strumenti di Azure, immettere **Azure help**. Per altre informazioni, vedere la [pagina di documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+* **Azure Storage Explorer:** Azure Storage Explorer è uno strumento grafico che è possibile usare per esplorare gli oggetti archiviati nell'account di archiviazione di Azure e per caricare e scaricare dati da e verso i BLOB di Azure.Azure Storage Explorer : Azure Storage Explorer is a graphical tool that you can use to browse through the objects that you have stored in your Azure storage account, and to upload and download data to and from Azure blobs. È possibile accedere a Esplora archivi dall'icona del collegamento sul desktop. È anche possibile aprire questo strumento da un prompt della shell digitando **StorageExplorer**. È necessario aver eseguito l'accesso da un client X2Go o avere configurato X11 Forwarding.
+* **Librerie di Azure:** le librerie seguenti sono preinstallate in DSVM:Azure libraries : The following libraries are preinstalled on the DSVM:
   
-  * **Python**: le librerie correlate ad Azure in Python sono *Azure*, *azureml*, *pydocumentdb*e *pyodbc*. Le prime tre librerie consentono di accedere ai servizi di archiviazione di Azure, Azure Machine Learning e Azure Cosmos DB, ovvero un database NoSQL in Azure. La quarta libreria, pyodbc (insieme ai driver Microsoft ODBC per SQL Server), consente l'accesso da Python a SQL Server, al database SQL di Azure e ad Azure SQL Data Warehouse tramite un'interfaccia ODBC. Immettere **pip list** per vedere elencate tutte le librerie. Assicurarsi di eseguire questo comando in Python sia nell'ambiente 2.7 che 3.5.
-  * **R**: le librerie correlate ad Azure in r sono AZUREML e RODBC.
-  * **Java**: l'elenco delle librerie Java di Azure è disponibile nella directory/DSVM/SDK/AZURESDKJAVA in dsvm. Le librerie principali sono le API di archiviazione e gestione di Azure, Azure Cosmos DB e i driver JDBC per SQL Server.  
+  * **Python**: le librerie correlate ad Azure in Python sono *azure*, *azureml*, *pydocumentdb*e *pyodbc*. Le prime tre librerie consentono di accedere ai servizi di archiviazione di Azure, Azure Machine Learning e Azure Cosmos DB, ovvero un database NoSQL in Azure. La quarta libreria, pyodbc (insieme ai driver Microsoft ODBC per SQL Server), consente l'accesso da Python a SQL Server, al database SQL di Azure e ad Azure SQL Data Warehouse tramite un'interfaccia ODBC. Immettere **pip list** per vedere elencate tutte le librerie. Assicurarsi di eseguire questo comando in Python sia nell'ambiente 2.7 che 3.5.
+  * **R**: Le librerie correlate ad Azure in R sono AzureML e RODBC.R : The Azure-related libraries in R are AzureML and RODBC.
+  * **Java:** l'elenco delle librerie Java di Azure è disponibile nella directory /dsvm/sdk/AzureSDKJava nella dSVM. Le librerie principali sono le API di archiviazione e gestione di Azure, Azure Cosmos DB e i driver JDBC per SQL Server.  
 
 È possibile accedere al [portale di Azure](https://portal.azure.com) dal browser Firefox preinstallato. Nel portale di Azure si possono creare, gestire e monitorare le risorse di Azure.
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 
-Azure Machine Learning è un servizio cloud completamente gestito che è possibile usare per creare, distribuire e condividere soluzioni di analisi predittiva. Gli esperimenti e i modelli vengono compilati dal Azure Machine Learning Studio (classico). Per accedere Azure Machine Learning da un Web browser in DSVM, passare al [Microsoft Azure Machine Learning](https://studio.azureml.net).
+Azure Machine Learning è un servizio cloud completamente gestito che è possibile usare per creare, distribuire e condividere soluzioni di analisi predittiva. È possibile compilare gli esperimenti e i modelli da Azure Machine Learning Studio (classico). Per accedere a Azure Machine Learning da un Web browser in DSVM, passare a [Microsoft Azure Machine Learning](https://studio.azureml.net).
 
-Dopo aver eseguito l'accesso alla Azure Machine Learning Studio (classica), è possibile usare un'area di disegno sperimentazione per creare un flusso logico per gli algoritmi di machine learning. È anche possibile accedere a un'istanza di Jupyter Notebook ospitata in Azure Machine Learning. Il notebook può funzionare senza interruzioni in Azure Machine Learning Studio (classico). 
+Dopo aver eseguito l'accesso ad Azure Machine Learning Studio (classico), è possibile usare un canvas di sperimentazione per creare un flusso logico per gli algoritmi di apprendimento automatico. È anche possibile accedere a un'istanza di Jupyter Notebook ospitata in Azure Machine Learning. Il blocco appunti può funzionare senza problemi con gli esperimenti in Azure Machine Learning Studio (classico). 
 
 Operazionalizzare i modelli di Machine Learning creati eseguendone il wrapping in un'interfaccia del servizio Web. In questo modo i client scritti in qualsiasi linguaggio possono richiamare le stime dai modelli di Machine Learning. Per altre informazioni, vedere [Documentazione su Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
@@ -238,11 +238,11 @@ Per informazioni su come distribuire i modelli in R e Python in Azure Machine Le
 
 La DSVM include alcuni strumenti e algoritmi di Machine Learning precompilati e preinstallati localmente. incluse le seguenti:
 
-* **Microsoft cognitive Toolkit**: un toolkit di apprendimento avanzato.
+* **Microsoft Cognitive Toolkit**: Un toolkit di deep learning.
 * **Vowpal Wabbit**: algoritmo di apprendimento rapido online.
-* **XGBoost**: strumento che fornisce algoritmi di albero con boosting ottimizzati.
+* **XGBoost**: Uno strumento che fornisce algoritmi di albero ottimizzati e potenziati.
 * **Python**: Anaconda Python integra algoritmi Machine Learning con librerie come Scikit-learn. È possibile installare altre librerie usando il comando `pip install` .
-* **R**: è disponibile una ricca libreria di funzioni di machine learning per R. le librerie preinstallate includono LM, GLM, randomForest e rpart. È possibile installare altre librerie eseguendo `install.packages(<lib name>)`.
+* **R**: Una libreria completa di funzioni di apprendimento automatico è disponibile per le librerie R. Preinstalled includono lm, glm, randomForest e rpart. È possibile installare altre librerie eseguendo `install.packages(<lib name>)`.
 
 Microsoft Cognitive Toolkit, Vowpal Wabbit e XGBoost vengono descritti in maggior dettaglio nelle sezioni successive.
 
@@ -309,7 +309,7 @@ Per altre informazioni su XGBoost, vedere la [documentazione di XGBoost](https:/
 
 ### <a name="rattle"></a>Rattle
 
-Rattle (*R* *A*analitici *t*OOL *t*o *L*guadagno *e*asily) usa l'esplorazione e la modellazione dei dati basata su GUI. Rattle:
+Rattle (*R* *A*nalytical *T*ool *T*o *L*earn *E*asily) usa la funzionalità di esplorazione e modellazione dei dati basate su GUI. Rattle:
 - Presenta riepiloghi statistici e visivi dei dati.
 - Trasforma i dati che possono essere modellati rapidamente.
 - Crea modelli con e senza supervisione dai dati.
@@ -338,11 +338,11 @@ Si apre un'interfaccia grafica con un set di schede. Seguire questi passaggi di 
 1. Selezionare l'opzione **Forest** (Foresta) e quindi **Execute** per creare una foresta casuale.
 1. Selezionare la scheda **Evaluate** (Valuta).
 1. Selezionare l'opzione **Risk** (Rischio) e quindi **Execute** per visualizzare due tracciati delle prestazioni per **Risk (Cumulative)** (Rischio cumulativo).
-1. Selezionare la scheda **Log** per visualizzare il codice R generato per le operazioni precedenti. A causa di un bug nella versione corrente di Rattle, è necessario inserire un carattere **#** prima di **Export this log** (Esporta il log) nel testo del log.
+1. Selezionare la scheda **Log** per visualizzare il codice R generato per le operazioni precedenti. (A causa di un bug nella versione corrente di **#** Rattle, è necessario inserire un carattere davanti **a Esporta questo registro** nel testo del registro.)
 1. Selezionare il pulsante **Export** (Esporta) per salvare il file di script R denominato *weather_script.R* nella home directory.
 
 È possibile uscire da Rattle e R. A questo punto è possibile modificare lo script R generato. In alternativa, usare lo script così com'è ed eseguirlo in qualsiasi momento per ripetere tutti i passaggi eseguiti nell'interfaccia utente di Rattle. Si tratta di un modo rapido, specialmente per gli utenti meno esperti di R, per eseguire funzioni di analisi e Machine Learning in un'interfaccia grafica semplice, generando automaticamente codice in R da modificare o per l'apprendimento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre domande, Prendere in considerazione la creazione di un [ticket di supporto](https://azure.microsoft.com/support/create-ticket/).
+Altre domande? Prendere in considerazione la creazione di un ticket di [supporto](https://azure.microsoft.com/support/create-ticket/).

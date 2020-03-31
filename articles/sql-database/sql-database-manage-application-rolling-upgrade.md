@@ -1,5 +1,5 @@
 ---
-title: Aggiornamenti di applicazioni in sequenza
+title: Aggiornamenti in sequenza delle applicazioni
 description: Informazioni su come usare la replica geografica del database SQL di Azure per supportare gli aggiornamenti online dell'applicazione cloud.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
 ms.openlocfilehash: 9c627c3e597fdcd3859ce02ea208fc7a8b5d612b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822865"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Gestire gli aggiornamenti in sequenza delle applicazioni cloud con la replica geografica attiva del database SQL
@@ -109,7 +109,7 @@ ALTER DATABASE <Prod_DB>
 SET (ALLOW_CONNECTIONS = NO)
 ```
 
-2. Terminare la replica geografica disconnettendo il database secondario (11). Questa azione crea una copia indipendente ma completamente sincronizzata del database di produzione. Questo database verrà aggiornato. Nell'esempio seguente viene usato Transact-SQL, ma [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) è anche disponibile. 
+2. Terminare la replica geografica disconnettendo il database secondario (11). Questa azione crea una copia indipendente ma completamente sincronizzata del database di produzione. Questo database verrà aggiornato. L'esempio seguente usa Transact-SQLTransact-SQL, ma è disponibile anche [PowerShell.The](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) following example uses Transact-SQLTransact-SQL but PowerShell is also available. 
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication
@@ -150,8 +150,8 @@ I due metodi di aggiornamento descritti nell'articolo differiscono in termini di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per la panoramica e gli scenari della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).
-* Per altre informazioni sulla replica geografica attiva del database SQL di Azure, vedere [Creare database secondari leggibili usando la replica geografica attiva](sql-database-active-geo-replication.md).
+* Per una panoramica e scenari di continuità aziendale, vedere [Panoramica della continuità aziendale](sql-database-business-continuity.md).
+* Per altre informazioni sulla replica geografica attiva del database SQL di Azure, vedere [Creare database secondari leggibili usando](sql-database-active-geo-replication.md)la replica geografica attiva.
 * Per altre informazioni sui gruppi di failover del database SQL di Azure, vedere [Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database](sql-database-auto-failover-group.md).
 * Per altre informazioni sugli ambienti di gestione temporanea nel Servizio app di Azure, vedere [Configurare gli ambienti di gestione temporanea nel Servizio app di Azure](../app-service/deploy-staging-slots.md).
 * Per informazioni su profili di Gestione traffico di Azure, vedere [Gestire un profilo di Gestione traffico di Azure](../traffic-manager/traffic-manager-manage-profiles.md).

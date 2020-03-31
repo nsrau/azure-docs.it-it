@@ -1,6 +1,6 @@
 ---
-title: ATN2 in linguaggio di query Azure Cosmos DB
-description: Informazioni sul modo in cui la funzione di sistema ATN2 SQL in Azure Cosmos DB restituisce il valore principale dell'arcotangente di y/x, espresso in radianti
+title: ATN2 nel linguaggio di query del database Cosmos di AzureATN2 in Azure Cosmos DB query language
+description: Informazioni su come la funzione del sistema SQL ATN2 in Azure Cosmos DB restituisce il valore principale della tangente ad arco di y/x, espresso in radiantiLearn about how the ATN2 SQL system function in Azure Cosmos DB returns the principal value of the arc tangent of y/x, expressed in radians
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 696e14e75998ead04c99fab2b84fc4c742d5f54a
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302662"
 ---
 # <a name="atn2-azure-cosmos-db"></a>ATN2 (Azure Cosmos DB)
@@ -26,7 +26,7 @@ ATN2(<numeric_expr>, <numeric_expr>)
 ## <a name="arguments"></a>Argomenti
   
 *numeric_expr*  
-   Espressione numerica.  
+   È un'espressione numerica.  
   
 ## <a name="return-types"></a>Tipi restituiti
   
@@ -40,13 +40,13 @@ ATN2(<numeric_expr>, <numeric_expr>)
 SELECT ATN2(35.175643, 129.44) AS atn2  
 ```  
   
- Set di risultati:  
+ Questo è il set di risultati.  
   
 ```json
 [{"atn2": 1.3054517947300646}]  
 ```  
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 Questa funzione di sistema non utilizzerà l'indice.
 
@@ -54,4 +54,4 @@ Questa funzione di sistema non utilizzerà l'indice.
 
 - [Funzioni matematiche Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduzione a Azure Cosmos DB](introduction.md)
+- [Introduzione ad Azure Cosmos DB](introduction.md)

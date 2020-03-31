@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: dd8be482009e067bf9016cc8e351fc42a2db39c7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271733"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Informazioni su chiavi, segreti e certificati
@@ -85,8 +85,8 @@ Dove:
 
 Le chiavi crittografiche in Key Vault sono rappresentate come oggetti JSON Web Key [JWK]. Le specifiche JWK/JWA di base vengono anche estese per abilitare tipi di chiave univoci per l'implementazione di Key Vault. Ad esempio, l'importazione di chiavi tramite la creazione di pacchetti HSM specifici del fornitore consente il trasporto sicuro delle chiavi, che possono essere usate solo nei moduli di protezione hardware di Key Vault.  
 
-- **Chiavi "soft"** : chiave elaborata da Key Vault nel software ma archiviata come crittografata quando inattiva tramite l'utilizzo di una chiave di sistema che si trovi in un modulo di protezione hardware. I client possono importare una chiave RSA o EC (Elliptic Curve) esistente oppure richiedere a Key Vault di generarne una.
-- **Chiavi "hard"** : chiave elaborata in un modulo di protezione hardware. Queste chiavi sono protette in uno degli scenari di sicurezza di un modulo di protezione hardware di Key Vault (è disponibile uno scenario di sicurezza per ogni area geografica per garantire l'isolamento). I client possono importare una chiave RSA o EC, in forma soft o tramite l'esportazione da un modulo di protezione hardware compatibile. I client possono anche richiedere a Key Vault di generare una chiave. Questo tipo di chiave aggiunge l'attributo key_hsm a JWK per ottenere il materiale della chiave del modulo di protezione hardware.
+- **Chiavi "soft"**: chiave elaborata da Key Vault nel software ma archiviata come crittografata quando inattiva tramite l'utilizzo di una chiave di sistema che si trovi in un modulo di protezione hardware. I client possono importare una chiave RSA o EC (Elliptic Curve) esistente oppure richiedere a Key Vault di generarne una.
+- **Chiavi "hard"**: chiave elaborata in un modulo di protezione hardware. Queste chiavi sono protette in uno degli scenari di sicurezza di un modulo di protezione hardware di Key Vault (è disponibile uno scenario di sicurezza per ogni area geografica per garantire l'isolamento). I client possono importare una chiave RSA o EC, in forma soft o tramite l'esportazione da un modulo di protezione hardware compatibile. I client possono anche richiedere a Key Vault di generare una chiave. Questo tipo di chiave aggiunge l'attributo key_hsm all'ottenimento di JWK per trasportare il materiale della chiave HSM.
 
      Per ulteriori informazioni sui limiti geografici, vedere [Centro di protezione Microsoft Azure](https://azure.microsoft.com/support/trust-center/privacy/)  
 
@@ -126,14 +126,14 @@ I moduli crittografici usati da Key Vault, moduli di protezione hardware o softw
 
 #### <a name="wrapkeyunwrapkey-encryptdecrypt"></a>ESEGUI/NON ESEGUIRE IL WRAPPING DELLA CHIAVE, CRITTOGRAFA/DECRITTOGRAFA
 
--   **RSA1_5**: crittografia della chiave RSAES-PKCS1-V1_5 [RFC3447]  
+-   **RSA1_5** - Crittografia della chiave RSAES-PKCS1-V1_5 [RFC3447]  
 -   **RSA-OAEP**: RSAES con OAEP (Optimal Asymmetric Encryption Padding) [RFC3447] con i parametri predefiniti specificati da RFC 3447 nella sezione A.2.1. Tali parametri predefiniti usano una funzione hash di SHA-1 e una funzione di generazione della maschera MGF1 con SHA-1.  
 
 #### <a name="signverify"></a>SIGN//VERIFY
 
--   **PS256** -RSASSA-PSS con sha-256 e maschera MGF1 con sha-256, come descritto in [RFC7518](https://tools.ietf.org/html/rfc7518).
--   **PS384** -RSASSA-PSS con sha-384 e maschera MGF1 con sha-384, come descritto in [RFC7518](https://tools.ietf.org/html/rfc7518).
--   **PS512** -RSASSA-PSS con sha-512 e maschera MGF1 con sha-512, come descritto in [RFC7518](https://tools.ietf.org/html/rfc7518).
+-   **PS256** - RSASSA-PSS utilizzando SHA-256 e MGF1 con SHA-256, come descritto in [RFC7518](https://tools.ietf.org/html/rfc7518).
+-   **PS384** - RSASSA-PSS utilizzando SHA-384 e MGF1 con SHA-384, come descritto in [RFC7518](https://tools.ietf.org/html/rfc7518).
+-   **PS512** - RSASSA-PSS utilizzando SHA-512 e MGF1 con SHA-512, come descritto in [RFC7518](https://tools.ietf.org/html/rfc7518).
 -   **RS256**: RSASSA-PKCS-v1_5 tramite SHA-256. Il valore di digest dell'applicazione fornito deve essere calcolato tramite SHA-256 e deve avere una lunghezza di 32 byte.  
 -   **RS384**: RSASSA-PKCS-v1_5 tramite SHA-384. Il valore di digest dell'applicazione fornito deve essere calcolato tramite SHA-384 e deve avere una lunghezza di 48 byte.  
 -   **RS512**: RSASSA-PKCS-v1_5 tramite SHA-512. Il valore di digest dell'applicazione fornito deve essere calcolato tramite SHA-512 e deve avere una lunghezza di 64 byte.  
@@ -173,7 +173,7 @@ Per ulteriori informazioni sugli oggetti JWK, vedere [JSON Web Key (JWK)](https:
 
 Oltre al materiale della chiave,è possibile specificare gli attributi seguenti. In una richiesta JSON, la parola chiave di attributi e le parentesi graffe, ' {' '}', sono necessari anche se non sono stati specificati gli attributi.  
 
-- *abilitato*: il valore predefinito booleano facoltativo è **vero**. Specifica se la chiave è abilitata e utilizzabile per le operazioni di crittografia. L'attributo *Enabled* viene usato in combinazione con *NBF* e *Exp*. Quando si verifica un'operazione tra *NBF* e *Exp*, questo sarà consentito solo se *Enabled* è impostato su **true**. Le operazioni di fuori delle finestre *nbf* / *exp* non sono impostate automaticamente, ad eccezione di alcuni tipi di operazione in [particolari condizioni](#date-time-controlled-operations).
+- *abilitato*: il valore predefinito booleano facoltativo è **vero**. Specifica se la chiave è abilitata e utilizzabile per le operazioni di crittografia. L'attributo *enabled* viene utilizzato insieme a *nbf* ed *exp*. Quando si verifica un'operazione tra *nbf* ed *exp*, questa sarà consentita solo se *enabled* è impostata su **true**. Le operazioni al di fuori della finestra*exp* *nbf* / non sono consentite automaticamente, ad eccezione di alcuni tipi di operazione in [determinate condizioni.](#date-time-controlled-operations)
 - *nbf*: il valore predefinito IntDate facoltativo è adesso. L’attributo *nbf* (non precedente) identifica l'ora prima della quale la chiave NON DEVE essere usata per le operazioni di crittografia, ad eccezione di alcuni tipi di operazione in [particolari condizioni](#date-time-controlled-operations). L'elaborazione dell’attributo *nbf* richiede che la data/ora corrente SIA successiva o uguale a data/ora non precedente elencata nell’attributo *nbf*. Key Vault PUÒ concedere un minimo margine temporale, in genere non più di qualche minuto, per tenere conto dello sfasamento di orario. Il valore DEVE essere un numero contenente un valore IntDate.  
 - *nbf*: il valore predefinito IntDate facoltativo è "per sempre". L’attributo *exp* (data di scadenza) identifica la data di scadenza in cui o precedentemente alla quale la chiave NON DEVE essere usata per l’operazione di crittografia, ad eccezione di alcuni tipi di operazione in [particolari condizioni](#date-time-controlled-operations). L'elaborazione dell’attributo *exp* richiede che la data/ora corrente SIA precedente a data/ora di scadenza elencata nell’attributo *exp*. Key Vault PUÒ concedere un minimo margine temporale, in genere non più di qualche minuto, per tenere conto dello sfasamento di orario. Il valore DEVE essere un numero contenente un valore IntDate.  
 
@@ -186,9 +186,9 @@ Per ulteriori informazioni su IntDate e altri tipi di dati, vedere [Tipi di dati
 
 #### <a name="date-time-controlled-operations"></a>Operazioni controllate in base a data e ora
 
-Le chiavi non ancora valide e scadute, che non rientrano nella finestra *nbf* / *exp*, possono essere usate per le operazioni di **decrittografia**, **annullamento del wrapping** e **verifica** (non verrà restituito l'errore 403 Accesso negato). La logica per l'utilizzo di stato non ancora valido consiste nel consentire a una chiave di essere sottoposta a test prima dell'uso di produzione. La logica per l'utilizzo di stato scaduto consiste nel consentire operazioni di ripristino sui dati creati quando la chiave risultava valida. Inoltre, è possibile disabilitare l'accesso a una chiave usando i criteri di Key Vault, o aggiornando l’attributo chiave *abilitato* per **falso**.
+Le chiavi non ancora valide e scadute, all'esterno della finestra *di fus* / *exp,* funzioneranno per **decrittografare**, **annullare**il wrapping e **verificare** le operazioni (non restituirà 403, Accesso negato). La logica per l'utilizzo di stato non ancora valido consiste nel consentire a una chiave di essere sottoposta a test prima dell'uso di produzione. La logica per l'utilizzo di stato scaduto consiste nel consentire operazioni di ripristino sui dati creati quando la chiave risultava valida. Inoltre, è possibile disabilitare l'accesso a una chiave usando i criteri di Key Vault, o aggiornando l’attributo chiave *abilitato* per **falso**.
 
-Per altre informazioni sui tipi di dati, vedere [Tipi di dati](#data-types).
+Per ulteriori informazioni sui tipi di dati, vedere [Tipi di dati](#data-types).
 
 Per altre informazioni su altri possibili attributi, vedere [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41).
 
@@ -197,13 +197,13 @@ Per altre informazioni su altri possibili attributi, vedere [JSON Web Key (JWK)]
 È possibile specificare metadati aggiuntivi specifici dell'applicazione sotto forma di tag. Key Vault supporta fino a 15 tag, ognuno dei quali può avere un nome di 256 caratteri e un valore di 256 caratteri.  
 
 >[!Note]
->I tag possono essere letti da un chiamante che ha l'autorizzazione *list* o *get* per accedere a un determinato tipo di oggetto (chiave, segreto o certificato).
+>I tag sono leggibili da un chiamante se dispongono *dell'elenco* o *ottengono* l'autorizzazione per tale tipo di oggetto (chiavi, segreti o certificati).
 
 ###  <a name="key-access-control"></a>Controllo di accesso per le chiavi
 
-Controllo di accesso per le chiavi gestite da Key Vault fornito a livello di un Key Vault che funge da contenitore delle chiavi. Il criterio di controllo di accesso per le chiavi è diverso dai criteri di controllo di accesso per i segreti nello stesso Key Vault. Gli utenti possono creare uno o più insiemi di credenziali per le chiavi e sono tenuti a mantenere una segmentazione e una gestione delle chiavi appropriate in base allo scenario. Il controllo degli accessi per le chiavi è indipendente dal controllo di accesso per i segreti.  
+Controllo di accesso per le chiavi gestite da Key Vault fornito a livello di un Key Vault che funge da contenitore delle chiavi. I criteri di controllo di accesso per le chiavi sono distinti dai criteri di controllo di accesso per i segreti nello stesso insieme di credenziali delle chiavi. Gli utenti possono creare uno o più insiemi di credenziali per le chiavi e sono tenuti a mantenere una segmentazione e una gestione delle chiavi appropriate in base allo scenario. Il controllo degli accessi per le chiavi è indipendente dal controllo di accesso per i segreti.  
 
-Le autorizzazioni seguenti possono essere concesse, su base principale utente/servizio, nella voce di controllo di accesso chiavi in un insieme di credenziali. Queste autorizzazioni rispecchiano fedelmente le operazioni consentite su un oggetto chiave.  La concessione dell'accesso a un'entità servizio nell'insieme di credenziali delle chiavi è un'operazione eseguita una sola volta e rimarrà la stessa per tutte le sottoscrizioni di Azure. È possibile usarlo per distribuire tutti i certificati desiderati. 
+Le autorizzazioni seguenti possono essere concesse, su base principale utente/servizio, nella voce di controllo di accesso chiavi in un insieme di credenziali. Queste autorizzazioni rispecchiano da vicino le operazioni consentite in un oggetto chiave.  La concessione dell'accesso a un'entità servizio nell'insieme di credenziali delle chiavi è un'operazione una tantera e rimarrà invariata per tutte le sottoscrizioni di Azure.Granting access to an service principal in key vault is a onetime operation, and it will remain same for all Azure subscriptions. È possibile utilizzarlo per distribuire tutti i certificati desiderati. 
 
 - Autorizzazioni per le operazioni di gestione delle chiavi
   - *ottieni*: leggere la parte pubblica di una chiave e i relativi attributi
@@ -243,8 +243,8 @@ Key Vault supporta anche un campo contentType per i segreti. I client possono sp
 
 Oltre ai dati dei segreti,è possibile specificare gli attributi seguenti:  
 
-- *nbf*: il valore predefinito IntDate facoltativo è **per sempre**. L’attributo *exp* (ora di scadenza) identifica l'ora di scadenza in cui o successiva alla quale i dati dei segreti NON DEVONO essere recuperati, tranne che in [situazioni particolari](#date-time-controlled-operations). Il campo è a solo scopo **informativo** e informa gli utenti del servizio di insieme di credenziali delle chiavi che non è possibile usare un segreto specifico. Il valore DEVE essere un numero contenente un valore IntDate.   
-- *nbf*: il valore predefinito IntDate facoltativo è **adesso**. L’attributo *nbf* (non precedente) identifica l'ora precedente alla quale i dati dei segreti NON DEVONO essere recuperati, tranne che in [situazioni particolari](#date-time-controlled-operations). Questo documento è esclusivamente a scopo **informativo**. Il valore DEVE essere un numero contenente un valore IntDate. 
+- *exp*: IntDate, optional, il valore predefinito è **forever**. L’attributo *exp* (ora di scadenza) identifica l'ora di scadenza in cui o successiva alla quale i dati dei segreti NON DEVONO essere recuperati, tranne che in [situazioni particolari](#date-time-controlled-operations). Il campo è a solo scopo **informativo** e informa gli utenti del servizio di insieme di credenziali delle chiavi che non è possibile usare un segreto specifico. Il valore DEVE essere un numero contenente un valore IntDate.   
+- *nbf*: IntDate, opzionale, il valore predefinito è **ora**. L’attributo *nbf* (non precedente) identifica l'ora precedente alla quale i dati dei segreti NON DEVONO essere recuperati, tranne che in [situazioni particolari](#date-time-controlled-operations). Questo documento è esclusivamente a scopo **informativo**. Il valore DEVE essere un numero contenente un valore IntDate. 
 - *abilitato*: il valore predefinito booleano facoltativo è **vero**. Questo attributo specifica se i dati dei segreti possono essere recuperati. L'attributo abilitato viene usato in combinazione con *nbf* ed *exp* quando si verifica un'operazione tra *nbf* ed *exp*, sarà consentito solo se Abilitato è impostato su **true**. Le operazioni all'esterno della finestra *nbf* ed *exp* non sono impostate automaticamente non consentiti, ad eccezione di [situazioni particolari](#date-time-controlled-operations).  
 
 Sono disponibili altri attributi di sola lettura che sono inclusi in una risposta che include gli attributi dei segreti:  
@@ -256,7 +256,7 @@ Sono disponibili altri attributi di sola lettura che sono inclusi in una rispost
 
 L’operazione **ottieni** di un segreto funzionerà per i segreti non ancora validi e scaduti, all'esterno della finestra *nbf* / *exp*. La chiamata dell’operazione **ottieni** di un segreto, per una chiave privata non ancora valida, può essere utilizzata per scopi di test. Il recupero (**get**) di un segreto scaduto può essere usato per le operazioni di ripristino.
 
-Per altre informazioni sui tipi di dati, vedere [Tipi di dati](#data-types).  
+Per ulteriori informazioni sui tipi di dati, vedere [Tipi di dati](#data-types).  
 
 ### <a name="secret-access-control"></a>Controllo di accesso per i segreti
 
@@ -282,7 +282,7 @@ Per altre informazioni sull'uso dei segreti, vedere le [operazioni relative ai s
 È possibile specificare metadati aggiuntivi specifici dell'applicazione sotto forma di tag. Key Vault supporta fino a 15 tag, ognuno dei quali può avere un nome di 256 caratteri e un valore di 256 caratteri.  
 
 >[!Note]
->I tag possono essere letti da un chiamante che ha l'autorizzazione *list* o *get* per accedere a un determinato tipo di oggetto (chiave, segreto o certificato).
+>I tag sono leggibili da un chiamante se dispongono *dell'elenco* o *ottengono* l'autorizzazione per tale tipo di oggetto (chiavi, segreti o certificati).
 
 ## <a name="key-vault-certificates"></a>Certificati Key Vault
 
@@ -317,7 +317,7 @@ Sono supportati due tipi di chiave *RSA* oppure *RSA HSM* con certificati. La po
 
 Oltre ai metadati del certificato, a una chiave e a un segreto indirizzabili, un certificato di Key Vault contiene anche attributi e tag.  
 
-#### <a name="attributes"></a>Attributes
+#### <a name="attributes"></a>Attributi
 
 Gli attributi di certificato si riflettono negli attributi della chiave e del segreto indirizzabile creati quando viene creato KV certificato.  
 
@@ -340,7 +340,7 @@ Sono disponibili altri attributi di sola lettura che sono inclusi in una rispost
  Dizionario specificato dal client di coppie chiave-valore, simile ai tag delle chiavi e dei segreti.  
 
  > [!Note]
-> I tag possono essere letti da un chiamante che ha l'autorizzazione *list* o *get* per accedere a un determinato tipo di oggetto (chiave, segreto o certificato).
+> I tag sono leggibili da un chiamante se dispongono *dell'elenco* o *ottengono* l'autorizzazione per tale tipo di oggetto (chiavi, segreti o certificati).
 
 ### <a name="certificate-policy"></a>Criteri dei certificati
 
@@ -381,7 +381,7 @@ La tabella seguente rappresenta il mapping dei criteri di utilizzo della chiave 
 
 Un oggetto del certificato Key Vault contiene una configurazione utilizzata per comunicare con un provider dell’autorità di certificazione selezionato per ordinare certificati x509.  
 
--   Partner di Key Vault con i provider di autorità di certificazione seguenti per i certificati TLS/SSL
+-   Partner del Vault delle chiavi con i seguenti provider di emittenti di certificati per i certificati TLS/SSLKey Vault partners with following certificate issuer providers for TLS/SSL certificates
 
 |**Nome provider**|**Percorsi**|
 |----------|--------|
@@ -394,7 +394,7 @@ Prima della creazione di un'autorità di certificazione in Key Vault, è necessa
 
     -   Un amministratore dell'organizzazione deve eseguire l’onboardig della propria azienda (es. Contoso) con almeno un provider di autorità di certificazione.  
 
-2. L'amministratore crea le credenziali del richiedente per Key Vault per la registrazione e il rinnovo dei certificati TLS/SSL  
+2. L'amministratore crea le credenziali del richiedente per l'insieme di credenziali delle chiavi per registrare (e rinnovare) i certificati TLS/SSL  
 
     -   Fornisce la configurazione da utilizzare per creare un oggetto dell'autorità di certificazione del provider nell'insieme di credenziali delle chiavi  
 
@@ -481,4 +481,4 @@ Per altre informazioni, vedere le operazioni relative ai certificati in [Key Vau
 ## <a name="see-also"></a>Vedere anche
 
 - [Autenticazione, richieste e risposte](authentication-requests-and-responses.md)
-- [Guida per gli sviluppatori all'insieme di credenziali delle chiavi](/azure/key-vault/key-vault-developers-guide)
+- [Key Vault Developer's Guide](/azure/key-vault/key-vault-developers-guide)

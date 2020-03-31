@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: a4a81a3e4c5759e444836162319abb97d83a4c74
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671070"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Analizzare i modelli di spostamento degli utenti con Flussi utente in Application Insights
@@ -45,13 +45,13 @@ La colonna "Passaggio 1" della visualizzazione mostra cosa hanno fatto gli utent
 
 Per impostazione predefinita, lo strumento Flussi utente esegue campionamenti casuali solo delle ultime 24 ore di visualizzazioni di pagina ed eventi personalizzati nel sito. È possibile aumentare l'intervallo di tempo e modificare il rapporto tra prestazioni e accuratezza per il campionamento casuale nel menu Modifica.
 
-Se alcune delle visualizzazioni pagina, degli eventi personalizzati e delle eccezioni non sono rilevanti, fare clic sulla **X** nei nodi da nascondere. Dopo aver selezionato i nodi da nascondere, fare clic sul pulsante **Crea grafico** sotto la visualizzazione. Per vedere tutti i nodi nascosti, fare clic sul pulsante **Modifica** ed esaminare la sezione **Eventi esclusi**.
+Se alcune delle visualizzazioni pagina, degli eventi personalizzati e delle eccezioni non sono rilevanti, fare clic sulla **X** nei nodi da nascondere. Dopo aver selezionato i nodi da nascondere, fare clic sul pulsante **Crea grafico** sotto la visualizzazione. Per visualizzare tutti i nodi nascosti, fai clic sul pulsante **Modifica,** quindi guarda la sezione **Eventi esclusi.**
 
 Se la visualizzazione non include visualizzazioni di pagina o eventi personalizzati previsti, seguire questa procedura:
 
-* Controllare la sezione **Eventi esclusi** del menu **Modifica**.
+* Controlla la sezione **Eventi esclusi** nel menu **Modifica.**
 * Usare i pulsanti più (+) sui nodi **Altri** per includere eventi meno frequenti nella visualizzazione.
-* Se la visualizzazione pagina o l'evento personalizzato previsto viene inviato raramente dagli utenti, provare ad aumentare l'intervallo di tempo della visualizzazione nel menu **Modifica**.
+* Se la visualizzazione della pagina o l'evento personalizzato previsto viene inviato raramente dagli utenti, provare ad aumentare l'intervallo di tempo della visualizzazione nel menu **Modifica.**
 * Assicurarsi che la visualizzazione pagina, l'evento personalizzato o l'eccezione prevista sia configurata per la raccolta da parte di Application Insights SDK nel codice sorgente del sito. [Altre informazioni sulla raccolta di eventi personalizzati](../../azure-monitor/app/api-custom-events-metrics.md).
 
 Per vedere più passaggi nella visualizzazione, usare gli elenchi a discesa **Passaggi precedenti** e **Passaggi successivi** sopra la visualizzazione.
@@ -66,9 +66,9 @@ Se l'evento iniziale è un evento personalizzato, la prima colonna mostra cosa h
 
 ## <a name="where-are-the-places-that-users-churn-most-from-your-site"></a>In quali punti avviene più di frequente che gli utenti abbandonino il sito?
 
-Cercare i nodi **Sessione terminata** mostrati nella parte alta delle colonne nella visualizzazione, in particolare all'inizio di un flusso. Ciò significa che molti utenti probabilmente hanno abbandonato il sito dopo aver seguito il percorso di pagine e interazioni dell'interfaccia utente precedente. In alcuni casi l'abbandono è previsto, ad esempio dopo aver completato un acquisto in un sito di e-commerce, ma in genere è segno di problemi di progettazione, prestazioni insoddisfacenti o altri aspetti del sito che è possibile migliorare.
+Controllare i nodi **Session Ended** che appaiono alti in alto in una colonna della visualizzazione, specialmente all'inizio di un flusso. Ciò significa che molti utenti probabilmente hanno abbandonato il sito dopo aver seguito il percorso di pagine e interazioni dell'interfaccia utente precedente. In alcuni casi l'abbandono è previsto, ad esempio dopo aver completato un acquisto in un sito di e-commerce, ma in genere è segno di problemi di progettazione, prestazioni insoddisfacenti o altri aspetti del sito che è possibile migliorare.
 
-Tenere presente che i nodi **Sessione terminata** si basano unicamente sui dati di telemetria raccolti da questa risorsa di Application Insights. Se Application Insights non riceve dati di telemetria per determinate interazioni dell'utente, è comunque possibile che gli utenti abbiano interagito con il sito in quei modo dopo il momento indicato come termine della sessione dallo strumento Flussi utente.
+Tenere presente che i nodi Session Ended si basano solo sui dati di telemetria raccolti da questa risorsa di Application Insights.Keep in mind, that **Session Ended** nodes are based only on telemetry collected by this Application Insights resource. Se Application Insights non riceve dati di telemetria per determinate interazioni dell'utente, è comunque possibile che gli utenti abbiano interagito con il sito in quei modo dopo il momento indicato come termine della sessione dallo strumento Flussi utente.
 
 ## <a name="are-there-places-where-users-repeat-the-same-action-over-and-over"></a>Ci sono punti in cui gli utenti ripetono più volte la stessa azione?
 
@@ -91,5 +91,5 @@ Usare le opzioni **Dividi per** nel menu **Modifica**:
 
 * [Panoramica sull'uso](usage-overview.md)
 * [Utenti, Sessioni ed Eventi](usage-segmentation.md)
-* [Conservazione](usage-retention.md)
+* [detenzione](usage-retention.md)
 * [Aggiunta di eventi personalizzati all'app](../../azure-monitor/app/api-custom-events-metrics.md)

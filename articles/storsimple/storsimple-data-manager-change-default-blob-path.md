@@ -1,5 +1,5 @@
 ---
-title: Modificare il percorso BLOB da quello predefinito
+title: Modificare il percorso BLOB dal percorso predefinitoChange blob path from the default
 description: Informazioni su come impostare una funzione di Azure per rinominare un percorso di file BLOB
 author: alkohli
 ms.service: storsimple
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: 5ba1709ae195631371e4ea72667ba9b2a4bf279e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76270620"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Cambiare il percorso BLOB predefinito
@@ -25,7 +25,7 @@ Assicurarsi di disporre di una definizione di processo configurata correttamente
 
 Per creare una funzione di Azure, seguire questa procedura:
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Passare al [portale di Azure](https://portal.azure.com/).
 
 2. Selezionare **+ Crea una risorsa**. Digitare **App per le funzioni** nella casella **Cerca** e premere **INVIO**. Selezionare e fare clic su **App per le funzioni** nell'elenco di applicazioni visualizzato.
 
@@ -54,7 +54,7 @@ Per creare una funzione di Azure, seguire questa procedura:
 
     ![Fare clic su + Nuova funzione](./media/storsimple-data-manager-change-default-blob-path/create-new-function.png)
 
-6. Selezionare il linguaggio di programmazione **C#** . Nella matrice di riquadri di modello selezionare **C#** nel riquadro **QueueTrigger-CSharp**.
+6. Selezionare il linguaggio di programmazione **C#**. Nella matrice di riquadri di modello selezionare **C#** nel riquadro **QueueTrigger-CSharp**.
 
 7. In **Queue trigger** (Trigger della coda):
 
@@ -189,11 +189,11 @@ Per creare una funzione di Azure, seguire questa procedura:
 
        ![Collegamento "Visualizza file"](./media/storsimple-data-manager-change-default-blob-path/view-files.png)
 
-    2. Fare clic su **+ Aggiungi**.
+    2. Fare clic su **Aggiungi .**
         
         ![Collegamento "Visualizza file"](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
     
-    3. Digitare **project.json** e quindi premere **INVIO**. Incollare il codice seguente nel file **project.json**:
+    3. Digitare **project.json**, quindi premere **INVIO**. Incollare il codice seguente nel file **project.json**:
 
         ```
         {

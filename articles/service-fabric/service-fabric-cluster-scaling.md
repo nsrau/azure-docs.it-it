@@ -1,14 +1,14 @@
 ---
-title: Ridimensionamento di Azure Service Fabric cluster
-description: Informazioni sul ridimensionamento dei cluster di Azure Service Fabric in orizzontale o in verticale. Poiché le esigenze dell'applicazione cambiano, è possibile Service Fabric cluster.
+title: Scalabilità del cluster di Azure Service FabricAzure Service Fabric cluster scaling
+description: Informazioni sul ridimensionamento dei cluster di Azure Service Fabric in orizzontale o in verticale. Man mano che cambiano le richieste delle applicazioni, possono variare anche i cluster di Service Fabric.As application demands change, so can Service Fabric clusters.
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: atsenthi
 ms.openlocfilehash: 9dd60a5898b648215fc8b26e49a706a7b19dfeeb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258694"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Ridimensionamento di cluster di Azure Service Fabric
@@ -28,7 +28,7 @@ Quando si ridimensiona un cluster di Azure, tenere presenti le linee guida segue
 - I tipi di nodo primario che eseguono carichi di lavoro di produzione devono contenere sempre cinque o più nodi.
 - I tipi di nodo non primario che eseguono carichi di lavoro di produzione con stato devono contenere sempre cinque o più nodi.
 - I tipi di nodo non primario che eseguono carichi di lavoro di produzione senza stato devono contenere sempre due o più nodi.
-- Qualsiasi tipo di nodo del [livello di durabilità](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Gold or Silver deve sempre contenere cinque o più nodi.
+- Qualsiasi tipo di nodo del [livello di durabilità](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Gold o Silver deve sempre contenere cinque o più nodi.
 - Non rimuovere nodi/istanze di VM casuali da un tipo di nodo. Usare sempre la funzionalità di riduzione delle prestazioni del set di scalabilità di macchine virtuali. L'eliminazione di istanze di VM casuali può influenzare negativamente la capacità dei sistemi di eseguire il bilanciamento del carico in modo corretto.
 - Se si usano regole di scalabilità automatica, impostare le regole in modo che la riduzione (rimozione di istanze di VM) venga eseguita un nodo alla volta. La riduzione delle prestazioni di più di un'istanza per volta non è sicura.
 
@@ -37,7 +37,7 @@ Poiché i tipi di nodi di Service Fabric nel cluster sono costituiti da set di s
 ### <a name="programmatic-scaling"></a>Scalabilità a livello di codice
 In molti scenari, le opzioni di [ridimensionamento di un cluster in modo manuale o mediante regole di scalabilità automatica](service-fabric-cluster-scale-up-down.md) rappresentano soluzioni valide. In scenari più avanzati, tuttavia, potrebbero non essere la scelta adatta. Alcuni potenziali svantaggi di questi approcci sono:
 
-- Per la scalabilità manuale è necessario eseguire l'accesso e richiedere in modo esplicito le operazioni di ridimensionamento. Questo approccio potrebbe non essere una soluzione valida se le operazioni di scalabilità vengono richieste di frequente oppure in momenti imprevisti.
+- La scalabilità manuale richiede l'accesso e la richiesta esplicita di operazioni di ridimensionamento. Questo approccio potrebbe non essere una soluzione valida se le operazioni di scalabilità vengono richieste di frequente oppure in momenti imprevisti.
 - Quando le regole di scalabilità automatica rimuovono un'istanza da un set di scalabilità di macchine virtuali, non rimuovono automaticamente le informazioni di questo nodo dal cluster Service Fabric associato, a meno che il tipo di nodo non disponga di un livello di durabilità Silver o Gold. Poiché funzionano a livello di set di scalabilità anziché a livello di Service Fabric, le regole di scalabilità automatica possono rimuovere i nodi Service Fabric senza arrestarli in modo normale. Questo tipo di rimozione dei nodi lascerà il nodo Service Fabric nello stato "ghost" dopo le operazioni di riduzione delle istanze. Un utente o un servizio dovrà pulire periodicamente lo stato del nodo rimosso nel cluster Service Fabric.
 - Un tipo di nodo con un livello di durabilità Gold o Silver esegue automaticamente la pulizia dei nodi rimossi. Non è necessaria una pulizia aggiuntiva.
 - Anche se le regole di scalabilità automatica supportano [molte metriche](../azure-monitor/platform/autoscale-common-metrics.md), si tratta comunque di un set limitato. Se lo scenario richiede la scalabilità basata su alcune metriche non incluse in questo set, le regole di scalabilità automatica potrebbero non essere una soluzione valida.
@@ -46,9 +46,9 @@ L'approccio da scegliere per la scalabilità di Service Fabric dipende dallo sce
 
 Esistono API Azure che consentono alle applicazioni di usare a livello di codice i set di scalabilità di macchine virtuali e i cluster Service Fabric. Se le opzioni di scalabilità automatica esistenti non funzionano per lo scenario specifico, queste API consentono di implementare una logica di scalabilità personalizzata. 
 
-Un approccio all'implementazione di questa funzionalità di scalabilità automatica "interna" consiste nell'aggiungere un nuovo servizio senza stato all'applicazione Service Fabric per gestire le operazioni di scalabilità. La creazione di un proprio servizio di scalabilità offre il massimo livello di controllo e personalizzazione sul comportamento di scalabilità dell'applicazione. Questa operazione può essere utile per gli scenari che richiedono un controllo preciso sul momento o sul modo in cui un'applicazione viene ridimensionata. Tuttavia, questo controllo è compromesso dalla complessità del codice. Questo approccio richiede un codice di scalabilità proprio, il che non è semplice. All'interno del metodo `RunAsync` del servizio, un set di trigger può determinare se la scalabilità è necessaria, inclusi i parametri di controllo, come la dimensione massima di un cluster e i tempi di raffreddamento della scalabilità.   
+Un approccio all'implementazione di questa funzionalità di scalabilità automatica "interna" consiste nell'aggiungere un nuovo servizio senza stato all'applicazione Service Fabric per gestire le operazioni di scalabilità. La creazione di un proprio servizio di scalabilità offre il massimo livello di controllo e personalizzazione sul comportamento di scalabilità dell'applicazione. Ciò può essere utile per gli scenari che richiedono un controllo preciso su quando o come un'applicazione scala in o out. Tuttavia, questo controllo viene fornito con un compromesso di complessità del codice. Questo approccio richiede un codice di scalabilità proprio, il che non è semplice. All'interno del metodo `RunAsync` del servizio, un set di trigger può determinare se la scalabilità è necessaria, inclusi i parametri di controllo, come la dimensione massima di un cluster e i tempi di raffreddamento della scalabilità.   
 
-L'API usata per le interazioni dei set di scalabilità di macchine virtuali, sia per verificare il numero corrente di istanze di macchine virtuali che per modificarlo, è la [libreria Azure Management Compute Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/). La libreria Fluent fornisce un'API facile da usare per l'interazione con i set di scalabilità di macchine virtuali.  Per interagire con il cluster Service Fabric, usare [System.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient).
+L'API usata per le interazioni del set di scalabilità delle macchine virtuali (sia per controllare il numero corrente di istanze di macchine virtuali che per modificarle) è la [libreria fluent di Azure Management Compute](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/). La libreria Fluent fornisce un'API facile da usare per l'interazione con i set di scalabilità di macchine virtuali.  Per interagire con il cluster Service Fabric, usare [System.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient).
 
 Tuttavia, non è necessario che il codice di scalabilità sia in esecuzione come servizio nel cluster di cui modificare la scalabilità. Sia `IAzure` sia `FabricClient` possono connettersi in remoto alle risorse di Azure associate; il servizio di scalabilità può quindi essere facilmente un'applicazione console o il servizio Windows in esecuzione dall'esterno dell'applicazione Service Fabric.
 
@@ -71,7 +71,7 @@ Quando si ridimensiona un cluster di Azure, tenere presenti le linee guida segue
 Il processo di ridimensionamento verticale di un tipo di nodo varia a seconda del fatto che si tratti di un tipo di nodo primario o non primario.
 
 ### <a name="scaling-non-primary-node-types"></a>Ridimensionamento di tipi di nodo non primari
-Creare un nuovo tipo di nodo con le risorse necessarie.  Aggiornare i vincoli di posizionamento dei servizi in esecuzione in modo da includere il nuovo tipo di nodo.  Gradualmente (una alla volta), ridurre a zero il numero di istanze del tipo di nodo precedente, in modo che l'affidabilità del cluster rimanga invariata.  I servizi eseguiranno gradualmente la migrazione al nuovo tipo di nodo Man mano che il vecchio tipo di nodo viene ritirato.
+Creare un nuovo tipo di nodo con le risorse necessarie.  Aggiornare i vincoli di posizionamento dei servizi in esecuzione in modo da includere il nuovo tipo di nodo.  Gradualmente (una alla volta), ridurre a zero il numero di istanze del tipo di nodo precedente, in modo che l'affidabilità del cluster rimanga invariata.  I servizi verranno gradualmente migrati al nuovo tipo di nodo quando il tipo di nodo precedente viene rimosso.
 
 ### <a name="scaling-the-primary-node-type"></a>Ridimensionamento del tipo di nodo primario
 È consigliabile non modificare lo SKU VM del tipo di nodo primario. Se è necessario aumentare la capacità del cluster, è consigliabile aggiungere più istanze. 

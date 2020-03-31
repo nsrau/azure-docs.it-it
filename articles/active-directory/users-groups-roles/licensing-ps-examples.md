@@ -1,6 +1,6 @@
 ---
-title: Esempi di PowerShell e Graph per licenze di gruppo-Azure AD | Microsoft Docs
-description: Esempi e scenari di PowerShell + Graph per Azure Active Directory licenze basate sui gruppi
+title: Esempi di PowerShell e Graph per la gestione delle licenze di gruppo - Azure AD Documenti Microsoft
+description: Esempi e scenari di PowerShell- Graph per le licenze basate su gruppi di Azure Active Directory
 services: active-directory
 keywords: Licenze di Azure AD
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5387daffcd3dd231aef5eade1c896db50947b386
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77484860"
 ---
-# <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Esempi di PowerShell e Graph per le licenze basate sui gruppi in Azure AD
+# <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Esempi di PowerShell e Graph per le licenze basate su gruppo in Azure AD
 
-La funzionalità completa per le licenze basate sui gruppi è disponibile tramite il [portale di Azure](https://portal.azure.com)e attualmente il supporto di PowerShell e Microsoft Graph è limitato alle operazioni di sola lettura. Alcune attività utili possono tuttavia essere effettuate usando i [cmdlet PowerShell di MSOnline](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) già esistenti e Microsoft Graph. In questo documento sono riportati esempi di operazioni che si possono eseguire.
+La funzionalità completa per le licenze basate su gruppo è disponibile tramite il portale di [Azure](https://portal.azure.com)e attualmente il supporto di PowerShell e Microsoft Graph è limitato alle operazioni di sola lettura. Alcune attività utili possono tuttavia essere effettuate usando i [cmdlet PowerShell di MSOnline](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) già esistenti e Microsoft Graph. In questo documento sono riportati esempi di operazioni che si possono eseguire.
 
 > [!NOTE]
-> Prima di iniziare a eseguire i cmdlet di, assicurarsi di connettersi prima all'organizzazione eseguendo il cmdlet `Connect-MsolService` .
+> Prima di iniziare l'esecuzione dei cmdlet, assicurarsi di `Connect-MsolService`  connettersi all'organizzazione eseguendo il cmdlet.
 
 > [!WARNING]
 > Il codice viene fornito come esempio a scopo dimostrativo. Se si intende usarlo nel proprio ambiente, è consigliabile testarlo prima su scala ridotta o in un tenant di test distinto. Potrebbe essere necessario modificare il codice per soddisfare le esigenze specifiche dell'ambiente.
@@ -50,7 +50,7 @@ EMSPREMIUM
 > [!NOTE]
 > I dati sono limitati alle informazioni sul prodotto (SKU). Non è possibile indicare i piani di servizio disabilitati nella licenza.
 
-Usare l'esempio seguente per ottenere gli stessi dati dal Microsoft Graph.
+Usare l'esempio seguente per ottenere gli stessi dati da Microsoft Graph.Use the following sample to get the same data from Microsoft Graph.
 
 ```
 GET https://graph.microsoft.com/v1.0/groups/99c4216a-56de-42c4-a4ac-e411cd8c7c41?$select=assignedLicenses
@@ -227,7 +227,7 @@ ObjectId                             DisplayName      License Error
 6d325baf-22b7-46fa-a2fc-a2500613ca15 Catherine Gibson MutuallyExclusiveViolation
 ```
 
-Usare il comando seguente per ottenere gli stessi dati dal Microsoft Graph:
+Usare quanto segue per ottenere gli stessi dati da Microsoft Graph:
 
 ```powershell
 GET https://graph.microsoft.com/v1.0/groups/11151866-5419-4d93-9141-0603bbf78b42/membersWithLicenseErrors
@@ -388,7 +388,7 @@ ObjectId                             SkuId       AssignedDirectly AssignedFromGr
 240622ac-b9b8-4d50-94e2-dad19a3bf4b5 contoso:EMS             True              True
 ```
 
-Graph non ha un modo semplice per mostrare il risultato, ma può essere visualizzato da questa API:
+Il grafico non ha un modo semplice per mostrare il risultato, ma può essere visto da questa API:Graph doesn't have a straightforward way to show the result, but it can be seen from this API:
 
 ```powershell
 GET https://graph.microsoft.com/v1.0/users/e61ff361-5baf-41f0-b2fd-380a6a5e406a?$select=licenseAssignmentStates
@@ -617,7 +617,7 @@ UserId                               OperationResult
 aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipping.
 ```
 > [!NOTE]
-> Aggiornare i valori per le variabili `$skuId` e `$groupId` a cui è destinata la rimozione di licenze dirette in base all'ambiente di test prima di eseguire lo script precedente. 
+> Aggiornare i valori `$skuId` per `$groupId`  le variabili e che sono destinati per la rimozione delle licenze dirette in base all'ambiente di test prima di eseguire lo script precedente. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

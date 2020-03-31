@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
 ms.openlocfilehash: 3efd92226b7c69590f3960458ffec49b63b8364f
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616697"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Distribuire SAP IDES EHP7 SP3 per SAP ERP 6.0 in Azure
@@ -99,7 +99,7 @@ Dopo l'accesso a SAP CAL, la prima pagina visualizzata è di solito la pagina **
 
     a. Immettere un **nome** di istanza.
 
-    b. Selezionare un'**area** di Azure. Per visualizzare le diverse aree di Azure disponibili, potrebbe essere necessaria una sottoscrizione di SAP CAL.
+    b. Selezionare un'area **di**Azure . Per visualizzare le diverse aree di Azure disponibili, potrebbe essere necessaria una sottoscrizione di SAP CAL.
 
     c.  Immettere la **password** master per la soluzione, come illustrato:
 

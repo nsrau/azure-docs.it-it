@@ -1,6 +1,6 @@
 ---
-title: Isolare le applicazioni del bus di servizio di Azure da interruzioni ed emergenze
-description: Questo articolo fornisce le tecniche per proteggere le applicazioni da una potenziale interruzione del bus di servizio di Azure.
+title: Isolare le applicazioni del bus di servizio di Azure in caso di interruzioni e disastriInsulate Azure Service Bus applications against outages and disasters
+description: In questo articolo vengono illustrate le tecniche per proteggere le applicazioni da una potenziale interruzione del bus di servizio di Azure.This articles provides techniques to protect applications against a potential Azure Service Bus outage.
 services: service-bus-messaging
 author: axisc
 manager: timlt
@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: 2a7f5d5eacb2d03e64ae95d34e1cf0bd37bbc7f2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259253"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Procedure consigliate per isolare le applicazioni del bus di servizio da interruzioni ed emergenze del servizio
@@ -54,9 +54,9 @@ Se l'applicazione non richiede una comunicazione mittente-ricevitore permanente,
 ### <a name="active-replication"></a>Replica attiva
 La replica attiva usa entità in entrambi gli spazi dei nomi per ogni operazione. Ogni client invia sempre due copie di un messaggio. La prima viene inviata all'entità primaria, ad esempio **contosoPrimary.servicebus.windows.net/sales**, la seconda all'entità secondaria, ad esempio **contosoSecondary.servicebus.windows.net/sales**.
 
-Un client riceve messaggi da entrambe le code. Il ricevitore elabora la prima copia di un messaggio ed elimina la seconda. Per eliminare i messaggi duplicati, il mittente deve contrassegnare ogni messaggio con un identificatore univoco. Entrambe le copie del messaggio devono essere contrassegnate con lo stesso identificatore. È possibile usare le proprietà [BrokeredMessage. MessageId][BrokeredMessage.MessageId] o [BrokeredMessage. Label][BrokeredMessage.Label] oppure una proprietà personalizzata per contrassegnare il messaggio. Il ricevitore deve mantenere l'elenco dei messaggi già ricevuti.
+Un client riceve messaggi da entrambe le code. Il ricevitore elabora la prima copia di un messaggio ed elimina la seconda. Per eliminare i messaggi duplicati, il mittente deve contrassegnare ogni messaggio con un identificatore univoco. Entrambe le copie del messaggio devono essere contrassegnate con lo stesso identificatore. Per contrassegnare il messaggio, è possibile usare la proprietà [BrokeredMessage.MessageId][BrokeredMessage.MessageId] o [BrokeredMessage.Label][BrokeredMessage.Label] oppure una proprietà personalizzata. Il ricevitore deve mantenere l'elenco dei messaggi già ricevuti.
 
-L'esempio di [replica geografica con il livello standard del bus di servizio][Geo-replication with Service Bus Standard Tier] illustra la replica attiva delle entità di messaggistica.
+L'esempio relativo alla [replica geografica con il livello standard del bus di servizio][Geo-replication with Service Bus Standard Tier] illustra la replica attiva delle entità di messaggistica.
 
 > [!NOTE]
 > Nella replica attiva il numero delle operazioni raddoppia. Di conseguenza, questo approccio può comportare costi più elevati.
@@ -73,12 +73,12 @@ In genere, la replica passiva è più vantaggiosa di quella attiva perché nella
 Quando si usa la replica passiva, negli scenari seguenti è possibile che i messaggi vengano persi o ricevuti due volte.
 
 * **Ritardo o perdita del messaggio**: si supponga che il mittente abbia inviato con esito positivo un messaggio m1 alla coda primaria e che quindi la coda diventi non disponibile prima della ricezione di m1 da parte del ricevitore. Il mittente invia un secondo messaggio m2 alla coda secondaria. Se la coda primaria è temporaneamente non disponibile, m1 viene ricevuto solo quando la coda torna nuovamente disponibile. In caso di emergenza, il destinatario potrebbe non ricevere mai m1.
-* **Ricezione di duplicati**: si supponga che il mittente invii un messaggio m alla coda primaria. Il bus di servizio elabora m ma non riesce a inviare una risposta. Dopo il timeout dell'operazione di invio, il mittente invia una copia identica di m alla coda secondaria. Se la prima copia di m viene ricevuta prima che la coda primaria diventi non disponibile, le due copie di m verranno ricevute quasi contemporaneamente. Se invece la prima copia di m non viene ricevuta prima che la coda primaria diventi non disponibile, il destinatario riceverà inizialmente solo la seconda copia di m. L'altra copia di m verrà ricevuta quando la coda primaria diventerà disponibile.
+* **Ricezione di duplicati**: si supponga che il mittente invii un messaggio m alla coda primaria. Il bus di servizio elabora m ma non riesce a inviare una risposta. Dopo il timeout dell'operazione di invio, il mittente invia una copia identica di m alla coda secondaria. Se la prima copia di m viene ricevuta prima che la coda primaria diventi non disponibile, le due copie di m verranno ricevute quasi contemporaneamente. Se invece la prima copia di m non viene ricevuta prima che la coda primaria diventi non disponibile, il ricevitore riceverà inizialmente solo la seconda copia di m. L'altra copia di m verrà ricevuta quando la coda primaria diventerà disponibile.
 
-L'esempio di [replica geografica con livello standard del bus di servizio][Geo-replication with Service Bus Standard Tier] illustra la replica passiva delle entità di messaggistica.
+L'esempio relativo alla [replica geografica con il livello standard del bus di servizio][Geo-replication with Service Bus Standard Tier] illustra la replica passiva delle entità di messaggistica.
 
 ## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Protezione degli endpoint di inoltro da interruzioni o emergenze dei data center
-La replica geografica degli endpoint di [inoltro di Azure](../service-bus-relay/relay-what-is-it.md) consente a un servizio che espone un endpoint di inoltro di essere raggiungibile in presenza di interruzioni del bus di servizio. Per ottenere la replica geografica, il servizio deve creare due endpoint di inoltro in diverse istanze di spazio dei nomi servizio. Le due istanze di spazio dei nomi servizio devono trovarsi in data center diversi e i due endpoint devono avere nomi differenti. Ad esempio, un endpoint primario può essere raggiunto in **contosoPrimary.servicebus.windows.net/myPrimaryService**, mentre il corrispettivo endpoint secondario può essere raggiunto in **contosoSecondary.servicebus.windows.net/mySecondaryService**.
+La replica geografica degli endpoint di [inoltro](../service-bus-relay/relay-what-is-it.md) di Azure consente a un servizio che espone un endpoint di inoltro di essere raggiungibile in presenza di interruzioni del bus di servizio. Per ottenere la replica geografica, il servizio deve creare due endpoint di inoltro in diverse istanze di spazio dei nomi servizio. Le due istanze di spazio dei nomi servizio devono trovarsi in data center diversi e i due endpoint devono avere nomi differenti. Ad esempio, un endpoint primario può essere raggiunto in **contosoPrimary.servicebus.windows.net/myPrimaryService**, mentre il corrispettivo endpoint secondario può essere raggiunto in **contosoSecondary.servicebus.windows.net/mySecondaryService**.
 
 Il servizio rimane quindi in ascolto su entrambi gli endpoint e un client può richiamare il servizio tramite l'uno o l'altro. Un'applicazione client seleziona casualmente uno degli inoltri come endpoint primario e invia la richiesta all'endpoint attivo. Se l'operazione ha esito negativo e viene visualizzato un codice di errore, significa che l'endpoint di inoltro non è disponibile. L'applicazione apre un canale per l'endpoint di backup e invia nuovamente la richiesta. A quel punto, l'endpoint attivo e quello di backup si scambiano i ruoli: l'applicazione client considera l'endpoint attivo precedente come nuovo endpoint di backup e l'endpoint di backup precedente come nuovo endpoint attivo. Se entrambe le operazioni di invio hanno esito negativo, i ruoli delle due entità rimangono invariati e viene restituito un errore.
 

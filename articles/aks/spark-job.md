@@ -6,26 +6,26 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 7465f8eb4357fcb6faa1d0fee0173837b6cb019b
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 4b3248cb9ab61a158f70b5a2d6ae9dd846501816
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77593650"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473626"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Esecuzione di processi Apache Spark in servizio Azure Kubernetes
 
-[Apache Spark][apache-spark] è un motore rapido per l'elaborazione di dati su larga scala. A partire dalla [versione Spark 2.3.0][spark-latest-release], Apache Spark supporta l'integrazione nativa con i cluster Kubernetes. Il servizio Azure Kubernetes è un ambiente Kubernetes gestito in esecuzione in Azure. Questo documento descrive la preparazione e l'esecuzione di processi Apache Spark in un cluster del servizio Azure Kubernetes.
+[Apache Spark][apache-spark] è un motore veloce per l'elaborazione di dati su larga scala. A partire dalla [versione 2.3.0][spark-latest-release], Apache Spark supporta l'integrazione nativa con i cluster Kubernetes. Il servizio Azure Kubernetes è un ambiente Kubernetes gestito in esecuzione in Azure. Questo documento descrive la preparazione e l'esecuzione di processi Apache Spark in un cluster del servizio Azure Kubernetes.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare la procedura descritta in questo articolo è necessario quanto segue.
 
 * Conoscenza di base di Kubernetes e [Apache Spark][spark-quickstart].
-* Account [Docker Hub][docker-hub] o un [container Registry di Azure][acr-create].
-* INTERFACCIA della riga di comando di Azure [installata][azure-cli] nel sistema di sviluppo.
+* Un account [Docker Hub][docker-hub] o un [Registro Azure Container][acr-create].
+* Interfaccia della riga di comando di Azure [installata][azure-cli] nel sistema di sviluppo.
 * [JDK 8][java-install] installato nel sistema.
-* SBT ([scala build tool][sbt-install]) installato nel sistema.
+* SBT ([strumento di compilazione Scala][sbt-install]) installato nel sistema.
 * Strumenti da riga di comando di GIT installati nel sistema.
 
 ## <a name="create-an-aks-cluster"></a>Creare un cluster AKS
@@ -40,13 +40,13 @@ Creare un gruppo di risorse per il cluster.
 az group create --name mySparkCluster --location eastus
 ```
 
-Creare un'entità servizio per il cluster. Al termine della creazione, sarà necessario disporre dell'appId e della password dell'entità servizio per il comando successivo.
+Creare un'entità servizio per il cluster. Dopo la creazione, sono necessari l'appId dell'entità servizio e la password per il comando successivo.
 
 ```azurecli
 az ad sp create-for-rbac --name SparkSP
 ```
 
-Creare il cluster AKS con nodi di dimensioni `Standard_D3_v2`e valori di appId e password passati come parametri di entità servizio e client-Secret.
+Creare il cluster AKS con `Standard_D3_v2`nodi di dimensioni e valori di appId e password passati come parametri service-principal e client-secret.
 
 ```azurecli
 az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2 --generate-ssh-keys --service-principal <APPID> --client-secret <PASSWORD>
@@ -58,7 +58,7 @@ Connettersi al cluster servizio Azure Kubernetes.
 az aks get-credentials --resource-group mySparkCluster --name mySparkCluster
 ```
 
-Se si usa Registro Azure Container per archiviare le immagini dei contenitori, configurare l'autenticazione tra servizio Azure Kubernetes e Registro Azure Container. Per la procedura, vedere la [documentazione relativa all'autenticazione di ACR][acr-aks] .
+Se si usa Registro Azure Container per archiviare le immagini dei contenitori, configurare l'autenticazione tra servizio Azure Kubernetes e Registro Azure Container. Vedere la [documentazione sull'autenticazione di Registro Azure Container][acr-aks] per questa procedura.
 
 ## <a name="build-the-spark-source"></a>Compilare l'origine Spark
 
@@ -186,7 +186,7 @@ export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-strin
 
 Caricare il file JAR nell'account di archiviazione di Azure con i comandi seguenti.
 
-```bash
+```azurecli
 CONTAINER_NAME=jars
 BLOB_NAME=SparkPi-assembly-0.1.0-SNAPSHOT.jar
 FILE_TO_UPLOAD=target/scala-2.11/SparkPi-assembly-0.1.0-SNAPSHOT.jar
@@ -217,7 +217,7 @@ Tornare alla radice del repository Spark.
 cd $sparkdir
 ```
 
-Creare un account del servizio che disponga di autorizzazioni sufficienti per l'esecuzione di un processo.
+Creare un account di servizio con autorizzazioni sufficienti per l'esecuzione di un processo.
 
 ```bash
 kubectl create serviceaccount spark
@@ -241,8 +241,10 @@ Inviare il processo usando `spark-submit`.
 Questa operazione avvia il processo Spark, che trasmette lo stato del processo alla sessione della shell. Durante l'esecuzione del processo, è possibile vedere i pod dei processi driver ed executor di Spark usando il comando kubectl get pods. Aprire una seconda sessione terminal per eseguire questi comandi.
 
 ```console
-$ kubectl get pods
+kubectl get pods
+```
 
+```output
 NAME                                               READY     STATUS     RESTARTS   AGE
 spark-pi-2232778d0f663768ab27edc35cb73040-driver   1/1       Running    0          16s
 spark-pi-2232778d0f663768ab27edc35cb73040-exec-1   0/1       Init:0/1   0          4s
@@ -270,7 +272,7 @@ kubectl get pods --show-all
 
 Output:
 
-```bash
+```output
 NAME                                               READY     STATUS      RESTARTS   AGE
 spark-pi-2232778d0f663768ab27edc35cb73040-driver   0/1       Completed   0          1m
 ```
@@ -283,7 +285,7 @@ kubectl logs spark-pi-2232778d0f663768ab27edc35cb73040-driver
 
 In questi log si può visualizzare il risultato del processo Spark, che corrisponde al valore di pi greco.
 
-```bash
+```output
 Pi is roughly 3.152155760778804
 ```
 
@@ -325,7 +327,7 @@ Quando si esegue il processo, anziché indicare un URL JAR remoto, è possibile 
 ```
 
 > [!WARNING]
-> Dalla [documentazione][spark-docs]di Spark: "l'utilità di pianificazione di Kubernetes è attualmente sperimentale. Nelle versioni future potrebbero essere apportate modifiche funzionali alla configurazione, alle immagini del contenitore e ai punti di ingresso.
+> La [documentazione][spark-docs] di Spark riporta che l'utilità di pianificazione di Kubernetes è attualmente in fase sperimentale. Nelle versioni future potrebbero essere apportate modifiche funzionali alla configurazione, alle immagini del contenitore e ai punti di ingresso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

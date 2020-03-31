@@ -5,10 +5,10 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 ms.reviewer: chroyal
 ms.openlocfilehash: 78c93880007259267b26cf53e93de722be1c7323
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77209444"
 ---
 # <a name="what-is-blockchain-data-manager-for-azure-blockchain-service"></a>Che cos'è Blockchain Data Manager per il servizio Azure Blockchain?
@@ -29,7 +29,7 @@ Ogni istanza di Blockchain Data Manager si connette a un nodo della transazione 
 
 È possibile usare Blockchain Data Manager per decodificare lo stato di eventi e proprietà configurando applicazioni di contratto intelligente all'interno di Blockchain Data Manager. Per aggiungere un contratto intelligente, fornire l'ABI e il bytecode del contratto. Blockchain Data Manager usa gli artefatti del contratto intelligente per decodificare e individuare gli indirizzi del contratto. Dopo l'aggiunta dell'applicazione blockchain all'istanza, Blockchain Data Manager individua dinamicamente l'indirizzo del contratto intelligente quando viene distribuito al consorzio e invia lo stato decodificato di eventi e proprietà alle destinazioni configurate.
 
-## <a name="deliver"></a>Fornitura
+## <a name="deliver"></a>Distribuzione
 
 Blockchain Data Manager supporta più connessioni in uscita per gli argomenti di Griglia di eventi per qualsiasi istanza di Blockchain Data Manager specificata. È possibile inviare i dati della blockchain a una o più destinazioni. Usando Blockchain Data Manager, è possibile creare una soluzione scalabile di pubblicazione dei dati basata su eventi per qualsiasi distribuzione di blockchain.
 

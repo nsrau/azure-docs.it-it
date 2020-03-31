@@ -1,6 +1,6 @@
 ---
-title: Visualizzare i dati da Esplora dati di Azure con una query importata Power BI
-description: 'Questo articolo illustra come usare una delle tre opzioni disponibili per la visualizzazione dei dati in Power BI: importazione di una query da Esplora dati di Azure.'
+title: Visualizzare i dati da Azure Data Explorer con una query importata di Power BI
+description: 'In this article, you learn how to use one of the three options for visualizing data in Power BI: importing a query from Azure Data Explorer.'
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,21 +8,21 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: ff156ab3fe74115bce8f7d6bdd3ba47b514f5ff5
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77562480"
 ---
 # <a name="visualize-data-using-a-query-imported-into-power-bi"></a>Visualizzare i dati tramite una query importata in Power BI
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Power BI è una soluzione di analisi aziendale che consente di visualizzare i dati e condividere i risultati all'interno dell'organizzazione.
 
-Esplora dati di Azure fornisce tre opzioni per la connessione ai dati in Power BI: usare il connettore predefinito, importare una query da Esplora dati di Azure o usare una query SQL. Questo articolo illustra come importare una query in modo che sia possibile ottenere i dati e visualizzarli in un report Power BI.
+Esplora dati di Azure fornisce tre opzioni per la connessione ai dati in Power BI: usare il connettore predefinito, importare una query da Esplora dati di Azure o usare una query SQL. Questo articolo illustra come importare una query in modo da poter ottenere dati e visualizzarli in un report di Power BI.
 
 Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questo articolo, è necessario quanto segue:
 
@@ -36,7 +36,7 @@ Per completare questo articolo, è necessario quanto segue:
 
 In primo luogo, si crea una query nell'app desktop di Esplora dati di Azure e la si esporta per usarla in Power BI. Quindi si effettua la connessione al cluster della guida di Esplora dati di Azure e si importa un subset dei dati dalla tabella *StormEvents*. [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
-1. In un browser passare a [https://help.kusto.windows.net/](https://help.kusto.windows.net/) per avviare l'app desktop di Esplora dati di Azure.
+1. In un browser [https://help.kusto.windows.net/](https://help.kusto.windows.net/) passare all'avvio dell'app desktop Azure Data Explorer.In a browser, go to launch the Azure Data Explorer desktop app.
 
 1. Nell'app desktop copiare la query seguente nella finestra di query alto a destra quindi eseguirla.
 
@@ -78,8 +78,8 @@ In primo luogo, si crea una query nell'app desktop di Esplora dati di Azure e la
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se il report creato per questo articolo non è più necessario, eliminare il file Power BI Desktop (pbix).
+Se il report creato per questo articolo non è più necessario, eliminare il file di Power BI Desktop (con estensione pbix).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Visualizzare i dati usando il connettore Azure Esplora dati per Power BI](power-bi-connector.md)
+[Visualizzare i dati con il connettore Esplora dati di Azure per Power BI](power-bi-connector.md)

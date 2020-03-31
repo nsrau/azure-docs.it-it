@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Eseguire la sintesi vocale, C# (piattaforma UWP) - Servizio Voce'
+title: 'Guida introduttiva: Eseguire la sintesi vocale, C# (piattaforma UWP) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: In questo articolo viene creata un'applicazione della piattaforma UWP (Universal Windows Platform) C# usando Speech SDK di Servizi cognitivi. La sintesi vocale dal testo viene eseguita in tempo reale nell'altoparlante del dispositivo. L'applicazione si basa sul pacchetto NuGet Speech SDK e su Microsoft Visual Studio 2019.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 08/19/2019
 ms.author: yinhew
 ms.openlocfilehash: 8ca97be2863bd8e45ac7937c49c464fa2f216b11
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925294"
 ---
 > [!NOTE]

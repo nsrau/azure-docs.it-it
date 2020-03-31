@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 08/06/2019
 ms.author: alkohli
 ms.openlocfilehash: 3aa1190fb713c2fbdedcb1ce84a65d4263693827
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78942550"
 ---
-# <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Sviluppare un C# modulo IOT Edge per spostare i file in data box Edge
+# <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Sviluppare un modulo IoT Edge per spostare i file in Data Box Edge
 
 Questo articolo illustra come creare un modulo di IoT Edge per la distribuzione con il dispositivo Data Box Edge. Azure Data Box Edge è una soluzione di archiviazione che consente di elaborare i dati e inviarli in rete ad Azure.
 
@@ -33,14 +33,14 @@ In questo articolo vengono illustrate le operazioni seguenti:
 Il dispositivo Data Box Edge può distribuire ed eseguire i moduli di IoT Edge. I moduli di Edge sono essenzialmente contenitori Docker che eseguono un'attività specifica, come inserire un messaggio da un dispositivo, trasformare un messaggio o inviare un messaggio a un hub IoT. In questo articolo si creerà un modulo che copia i file da una condivisione locale a una condivisione cloud nel dispositivo Data Box Edge.
 
 1. I file vengono scritti nella condivisione locale del dispositivo Data Box Edge.
-2. Il generatore di eventi del file crea un evento di file per ogni file scritto nella condivisione locale. Gli eventi di file vengono generati anche quando un file viene modificato. Gli eventi di file vengono quindi inviati all'hub di IoT Edge, nel runtime di IoT Edge.
+2. Il generatore di eventi del file crea un evento di file per ogni file scritto nella condivisione locale. Gli eventi del file vengono generati anche quando un file viene modificato. Gli eventi di file vengono quindi inviati all'hub di IoT Edge, nel runtime di IoT Edge.
 3. Il modulo personalizzato di IoT Edge elabora l'evento di file per creare un oggetto dell'evento di file che contiene anche un percorso relativo del file. Il modulo genera un percorso assoluto usando il percorso relativo del file e copia il file dalla condivisione locale alla condivisione cloud. Il modulo elimina quindi il file dalla condivisione locale.
 
 ![Funzionamento del modulo di Azure IoT Edge in Data Box Edge](./media/data-box-edge-create-iot-edge-module/how-module-works-1.png)
 
 Quando il file è nella condivisione cloud, viene caricato automaticamente nell'account di Archiviazione di Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, verificare di avere:
 
@@ -48,12 +48,12 @@ Prima di iniziare, verificare di avere:
 
     - Il dispositivo ha anche una risorsa dell'hub IoT associata.
     - Il dispositivo ha il ruolo di calcolo Edge configurato.
-    Per altre informazioni, vedere [configurare il calcolo](data-box-edge-deploy-configure-compute.md#configure-compute) per il data box Edge.
+    Per ulteriori informazioni, vedere [Configurare il calcolo](data-box-edge-deploy-configure-compute.md#configure-compute) per Data Box Edge.
 
 - Le risorse di sviluppo seguenti:
 
-    - [Visual Studio Code](https://code.visualstudio.com/).
-    - [Estensione C# per Visual Studio Code con tecnologia OmniSharp](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
+    - [Codice di Visual Studio](https://code.visualstudio.com/).
+    - [Estensione di Visual Studio Code (alimentata da OmniSharp).](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
     - [Estensione Azure IoT Edge per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
     - [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
     - [Docker CE](https://store.docker.com/editions/community/docker-ce-desktop-windows). È possibile che sia necessario creare un account per scaricare e installare il software.
@@ -62,20 +62,20 @@ Prima di iniziare, verificare di avere:
 
 Un Registro Azure Container è un registro Docker privato in Azure nel quale è possibile archiviare e gestire le immagini del contenitore Docker privato. Due servizi molto diffusi per il registro Docker disponibili nel cloud sono il Registro Azure Container e Hub Docker. Questo articolo usa il Registro contenitori.
 
-1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
+1. Accedere al portale di [https://portal.azure.com](https://portal.azure.com)Azure all'indirizzo .
 2. Selezionare **Crea una risorsa > Contenitori > Registro contenitori**. Fare clic su **Crea**.
 3. Specificare:
 
    1. Un valore **Nome registro** all'interno di Azure contenente da 5 a 50 caratteri alfanumerici.
    2. Scegliere una **sottoscrizione**.
    3. Scegliere un **gruppo di risorse** esistente oppure crearne uno nuovo.
-   4. Selezionare un **percorso**. È consigliabile inserire la stessa posizione associata alla risorsa Data Box Edge.
+   4. Selezionare una **posizione**. È consigliabile inserire la stessa posizione associata alla risorsa Data Box Edge.
    5. Impostare **Utente amministratore** su **Abilita**.
    6. Impostare lo SKU **Di base**.
 
       ![Creare un registro contenitori](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
  
-4. Selezionare **Create** (Crea).
+4. Selezionare **Crea**.
 5. Dopo aver creato il registro contenitori, passare al registro e selezionare **Chiavi di accesso**.
 
     ![Ottenere le chiavi di accesso](./media/data-box-edge-create-iot-edge-module/get-access-keys-1.png)
@@ -123,7 +123,7 @@ Creare un modello di soluzione C# che è possibile personalizzare con il proprio
 
 ### <a name="update-the-module-with-custom-code"></a>Aggiornare il modulo con il codice personalizzato
 
-1. In Esplora VS Code aprire **moduli > FileCopyModule > Program.cs**.
+1. In Esplora codice di VS aprire i **moduli > fileCopyModule > Program.cs**.
 2. Nella parte superiore dello **spazio dei nomi CSharpModule** aggiungere le istruzioni using seguenti per i tipi che verranno usati in un secondo momento. **Microsoft.Azure.Devices.Client.Transport.Mqtt** è un protocollo per inviare messaggi all'hub di IoT Edge.
 
     ```
@@ -142,7 +142,7 @@ Creare un modello di soluzione C# che è possibile personalizzare con il proprio
             private const string OutputFolderPath = "/home/output";
     ```
 
-4. Subito dopo il passaggio precedente, aggiungere la classe **fileEvent** per definire il corpo del messaggio.
+4. Immediatamente dopo il passaggio precedente, aggiungere la classe **FileEvent** per definire il corpo del messaggio.
 
     ```
     /// <summary>
@@ -158,7 +158,7 @@ Creare un modello di soluzione C# che è possibile personalizzare con il proprio
     }
     ```
 
-5. Nel **metodo init**, il codice crea e configura un oggetto **ModuleClient** . Questo oggetto consente al modulo di connettersi al runtime locale di Azure IoT Edge tramite il protocollo MQTT per inviare e ricevere messaggi. La stringa di connessione usata nel metodo Init viene specificata nel modulo dal runtime di IoT Edge. Il codice registra un callback FileCopy per ricevere i messaggi da un hub di IoT Edge tramite l'endpoint **input1**. Sostituire il **metodo init** con il codice seguente.
+5. Nel **metodo Init**il codice crea e configura un oggetto **ModuleClient** . Questo oggetto consente al modulo di connettersi al runtime locale di Azure IoT Edge tramite il protocollo MQTT per inviare e ricevere messaggi. La stringa di connessione usata nel metodo Init viene specificata nel modulo dal runtime di IoT Edge. Il codice registra un callback FileCopy per ricevere i messaggi da un hub di IoT Edge tramite l'endpoint **input1**. Sostituire il **metodo Init** con il codice seguente.
 
     ```
     /// <summary>
@@ -180,7 +180,7 @@ Creare un modello di soluzione C# che è possibile personalizzare con il proprio
     }
     ```
 
-6. Rimuovere il codice per il **Metodo PipeMessage** e, al suo posto, inserire il codice per **FileCopy**.
+6. Rimuovere il codice per **il metodo PipeMessage** e, al suo posto, inserire il codice per **FileCopy**.
 
     ```
         /// <summary>
@@ -238,14 +238,14 @@ Creare un modello di soluzione C# che è possibile personalizzare con il proprio
     ```
 
 7. Salvare questo file.
-8. È anche possibile [scaricare un esempio di codice esistente](https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/?cdn=disable) per questo progetto. È quindi possibile convalidare il file salvato rispetto al file **Program.cs** in questo esempio.
+8. È anche possibile [scaricare un esempio](https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/?cdn=disable) di codice esistente per questo progetto. È quindi possibile convalidare il file salvato rispetto al file **di program.cs** in questo esempio.
 
 ## <a name="build-your-iot-edge-solution"></a>Compilare la soluzione IoT Edge
 
 Nella sezione precedente è stata creata una soluzione IoT Edge ed è stato aggiunto il codice a FileCopyModule per copiare i file dalla condivisione locale alla condivisione cloud. È ora necessario compilare la soluzione come immagine del contenitore ed eseguirne il push nel registro contenitori.
 
-1. In VSCode passare a terminale > nuovo terminale per aprire un nuovo Visual Studio Code terminale integrato.
-2. Accedere a Docker immettendo il comando seguente nel terminale integrato.
+1. In VSCode, andare a Terminale > nuovo terminale per aprire un nuovo terminale integrato visual Studio Code.
+2. Accedere a Docker immettendo il seguente comando nel terminale integrato.
 
     `docker login <ACR login server> -u <ACR username>`
 
@@ -270,10 +270,10 @@ Nella sezione precedente è stata creata una soluzione IoT Edge ed è stato aggi
 
     È possibile che venga visualizzato l'avviso seguente che può essere ignorato:
 
-    *Program. cs (77, 44): avviso CS1998: questo metodo asincrono non dispone degli operatori ' await ' e verrà eseguito in modo sincrono. Provare a usare l'operatore ' await ' per attendere le chiamate API non bloccanti oppure ' await Task. Run (...)' per eseguire operazioni con binding alla CPU in un thread in background.*
+    *Program.cs(77,44): avviso CS1998: questo metodo asincrono non dispone di operatori 'await' e verrà eseguito in modo sincrono. Prendi in considerazione l'uso dell'operatore 'await' per attendere le chiamate API non bloccanti o 'await Task.Run(...)' per eseguire operazioni associate alla CPU su un thread in background.*
 
 4. È possibile visualizzare l'indirizzo completo dell'immagine del contenitore con tag nel terminale integrato di VS Code. L'indirizzo dell'immagine è costituito dalle informazioni presenti nel file module.json nel formato `<repository>:<version>-<platform>`. In questo articolo, dovrebbe essere simile a `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per distribuire ed eseguire questo modulo in Data Box Edge, vedere la procedura descritta in [aggiungere un modulo](data-box-edge-deploy-configure-compute.md#add-a-module).
+Per distribuire ed eseguire questo modulo in Data Box Edge, vedere la procedura descritta in [Aggiungere un modulo](data-box-edge-deploy-configure-compute.md#add-a-module).

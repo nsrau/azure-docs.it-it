@@ -1,6 +1,6 @@
 ---
-title: Aggiungere un livello Bubble a una mappa | Mappe Microsoft Azure
-description: In questo articolo si apprenderà come aggiungere un livello Bubble a una mappa usando il Microsoft Azure Maps Web SDK.
+title: Aggiunta di un layer Bolla a una mappa Mappe di Microsoft Azure
+description: In questo articolo verrà illustrato come aggiungere un layer Bubble a una mappa usando Microsoft Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -10,22 +10,22 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 7ae11734eb804715f3eb1b5edcb02fc328dafec8
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77208557"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Aggiungere un livello bolle a una mappa
 
-Questo articolo illustra come eseguire il rendering dei dati punto da un'origine dati come livello Bubble su una mappa. I livelli Bubble eseguono il rendering dei punti come cerchi sulla mappa con un raggio fisso di pixel. 
+In questo articolo viene illustrato come eseguire il rendering dei dati punto da un'origine dati come layer a bolle su una mappa. I livelli a bolle eseguono il rendering dei punti come cerchi sulla mappa con un raggio pixel fisso. 
 
 > [!TIP]
-> Per impostazione predefinita i livelli bolle eseguiranno il rendering delle coordinate di tutte le geometrie in un'origine dati. Per limitare il livello in modo che esegua il rendering solo delle funzionalità di geometria dei punti, impostare la proprietà `filter` del livello su `['==', ['geometry-type'], 'Point']` o `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` se si desidera includere anche le funzionalità MultiPoint.
+> Per impostazione predefinita i livelli bolle eseguiranno il rendering delle coordinate di tutte le geometrie in un'origine dati. Per limitare il layer in modo che `filter` esegga `['==', ['geometry-type'], 'Point']` solo `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` le feature geometria punto, impostate la proprietà del layer su o se desiderate includere anche feature MultiPoint.
 
 ## <a name="add-a-bubble-layer"></a>Aggiungere un livello per le bolle
 
-Il codice seguente carica una matrice di punti in un'origine dati. Quindi, connette i punti dati a un [livello Bubble](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). Il livello Bubble esegue il rendering del raggio di ogni bolla con cinque pixel e il colore di riempimento del bianco. E, il colore del tratto blu e una larghezza del tratto di sei pixel. 
+Il codice seguente carica una matrice di punti in un'origine dati. Quindi, collega i punti dati sono a un [layer a bolle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). Il livello bolla esegue il rendering del raggio di ogni bolla con cinque pixel e un colore di riempimento di bianco. E, un colore di tratto di blu, e una larghezza del tratto di sei pixel. 
 
 ```javascript
 //Add point locations.
@@ -53,7 +53,7 @@ map.layers.add(new atlas.layer.BubbleLayer(dataSource, null, {
 }));
 ```
 
-Di seguito è riportato l'esempio di codice completo per l'esecuzione delle funzionalità sopra riportate.
+Di seguito è riportato l'esempio di codice in esecuzione completo della funzionalità precedente.
 
 <br/>
 
@@ -62,7 +62,7 @@ Di seguito è riportato l'esempio di codice completo per l'esecuzione delle funz
 
 ## <a name="show-labels-with-a-bubble-layer"></a>Mostrare etichette con un livello bolle
 
-Questo codice illustra come usare un livello Bubble per eseguire il rendering di un punto sulla mappa. E come usare un livello di simboli per eseguire il rendering di un'etichetta. Per nascondere l'icona del livello di simboli, impostare la proprietà `image` delle opzioni dell'icona su `'none'`.
+Questo codice mostra come utilizzare un livello bolla per eseguire il rendering di un punto sulla mappa. Inoltre, come utilizzare un livello simbolo per eseguire il rendering di un'etichetta. Per nascondere l'icona del livello `image` simbolo, impostate la `'none'`proprietà delle opzioni dell'icona su .
 
 <br/>
 
@@ -91,10 +91,10 @@ Per altre informazioni sulle classi e sui metodi usati in questo articolo, veder
 Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguenti:
 
 > [!div class="nextstepaction"]
-> [Creare un'origine dati](create-data-source-web-sdk.md)
+> [Creare un'origine datiCreate a data source](create-data-source-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Aggiungere un livello per i simboli](map-add-pin.md)
+> [Aggiungere un livello simbolo](map-add-pin.md)
 
 > [!div class="nextstepaction"]
 > [Usare espressioni di stile basate sui dati](data-driven-style-expressions-web-sdk.md)
