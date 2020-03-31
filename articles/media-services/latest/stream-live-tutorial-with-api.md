@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: cb6095f1579334b9fe35a02a3006de32ff551989
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 0b6667965ddd1fce30bb2da2593e2a9274b595ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268182"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472017"
 ---
 # <a name="tutorial-stream-live-with-media-services"></a>Esercitazione: Eseguire lo streaming live con Servizi multimediali
 
@@ -34,7 +34,7 @@ L'esercitazione illustra come:
 > [!div class="checklist"]
 > * Scaricare l'app di esempio descritta nell'argomento.
 > * Esaminare il codice che esegue lo streaming live.
-> * Guardare l'evento con [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) all'indirizzo https://ampdemo.azureedge.net.
+> * Osservare l'evento con [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) all'indirizzo [https://ampdemo.azureedge.net](https://ampdemo.azureedge.net).
 > * Pulire le risorse.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

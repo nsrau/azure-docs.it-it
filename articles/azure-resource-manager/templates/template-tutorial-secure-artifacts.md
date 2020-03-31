@@ -5,20 +5,20 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7069ff363cf274ba855efc9b598d8d01e64e18d1
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: ad6ea3c68ed6f48ac48bbbdafed7f8660df23937
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250118"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239223"
 ---
-# <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Esercitazione: Proteggere gli elementi nelle distribuzioni di modelli di Azure Resource Manager
+# <a name="tutorial-secure-artifacts-in-arm-template-deployments"></a>Esercitazione: Proteggere gli artefatti nelle distribuzioni dei modelli di Azure Resource Manager
 
-Informazioni su come proteggere gli elementi usati nei modelli di Azure Resource Manager tramite un account di archiviazione di Azure con firme di accesso condiviso (SAS). Gli elementi di distribuzione sono tutti i file, oltre al file di modello principale, necessari per completare una distribuzione. Ad esempio, in [Esercitazione: Importare file BACPAC SQL con i modelli di Azure Resource Manager](./template-tutorial-deploy-sql-extensions-bacpac.md), il modello principale crea un'istanza di database SQL di Azure e chiama anche un file BACPAC per creare tabelle e inserire i dati. Il file BACPAC è un artefatto che viene archiviato in un account di archiviazione di Azure. Per accedere all'artefatto è stata usata una chiave dell'account di archiviazione. 
+Informazioni su come proteggere gli elementi usati nei modelli di Azure Resource Manager tramite un account di archiviazione di Azure con firme di accesso condiviso (SAS). Gli elementi di distribuzione sono tutti i file, oltre al file di modello principale, necessari per completare una distribuzione. Ad esempio, in [Esercitazione: Importare file BACPAC SQL con i modelli di Azure Resource Manager](./template-tutorial-deploy-sql-extensions-bacpac.md), il modello principale crea un'istanza di database SQL di Azure e chiama anche un file BACPAC per creare tabelle e inserire i dati. Il file BACPAC è un artefatto che viene archiviato in un account di archiviazione di Azure. Per accedere all'artefatto è stata usata una chiave dell'account di archiviazione.
 
 In questa esercitazione si usa la firma di accesso condiviso per concedere un accesso limitato al file BACPAC nel proprio account di archiviazione di Azure. Per altre informazioni sulle firme di accesso condiviso, vedere [Uso delle firme di accesso condiviso](../../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
-Per informazioni su come proteggere un modello collegato, vedere [Esercitazione: Creare modelli collegati di Azure Resource Manager](./template-tutorial-create-linked-templates.md).
+Per informazioni su come proteggere un modello collegato, vedere [Esercitazione: Creare modelli di Azure Resource Manager collegati](./template-tutorial-create-linked-templates.md).
 
 Questa esercitazione illustra le attività seguenti:
 
@@ -35,19 +35,19 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare modelli di Azure Resource Manager](./use-vs-code-to-create-template.md).
-* Rivedere [Esercitazione: Importare file BACPAC di SQL con modelli di Azure Resource Manager](./template-tutorial-deploy-sql-extensions-bacpac.md). Il modello usato in questa esercitazione è quello sviluppata in tale esercitazione. In questo articolo viene fornito un collegamento di download del modello completato.
+* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare i modelli di Azure Resource Manager](./use-vs-code-to-create-template.md).
+* Rivedere [Esercitazione: Importare file BACPAC SQL con i modelli di Azure Resource Manager](./template-tutorial-deploy-sql-extensions-bacpac.md). Il modello usato in questa esercitazione è quello sviluppata in tale esercitazione. In questo articolo viene fornito un collegamento di download del modello completato.
 * Per una maggiore sicurezza, usare una password generata per l'account amministratore del server SQL. Di seguito è riportato un esempio che è possibile usare per generare una password:
 
     ```console
     openssl rand -base64 32
     ```
 
-    Azure Key Vault è progettato per proteggere chiavi crittografiche e altri segreti. Per altre informazioni, vedere [Esercitazione: Integrare Azure Key Vault in Distribuzione modelli di Resource Manager](./template-tutorial-use-key-vault.md). È consigliabile anche aggiornare la password ogni tre mesi.
+    Azure Key Vault è progettato per proteggere chiavi crittografiche e altri segreti. Per altre informazioni, vedere [Esercitazione: Integrare Azure Key Vault nella distribuzione di modelli di Azure Resource Manager](./template-tutorial-use-key-vault.md). È consigliabile anche aggiornare la password ogni tre mesi.
 
 ## <a name="prepare-a-bacpac-file"></a>Preparare un file BACPAC
 
-In questa sezione si prepara il file BACPAC affinché sia accessibile in modo sicuro quando si distribuisce il modello di Resource Manager. In questa sezione sono disponibili cinque procedure:
+In questa sezione si prepara il file BACPAC affinché sia accessibile in modo sicuro quando si distribuisce il modello di Azure Resource Manager. In questa sezione sono disponibili cinque procedure:
 
 * Scaricare il file BACPAC.
 * Creare un account di archiviazione di Azure.
@@ -138,7 +138,7 @@ In questa sessione si modifica il modello creato in [Esercitazione: Importare fi
 
 ## <a name="edit-the-template"></a>Modificare il modello
 
-1. Sostituire la definizione del parametro storageAccountKey con la definizione del parametro seguente: 
+1. Sostituire la definizione del parametro storageAccountKey con la definizione del parametro seguente:
 
     ```json
         "_artifactsLocationSasToken": {
@@ -211,7 +211,7 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono stati distribuiti un server SQL e un database SQL ed è stato importato un file BACPAC tramite un token di firma di accesso condiviso. Per informazioni su come creare una pipeline di Azure per sviluppare e distribuire modelli di Resource Manager in modo continuo, vedere:
+In questa esercitazione sono stati distribuiti un server SQL e un database SQL ed è stato importato un file BACPAC tramite un token di firma di accesso condiviso. Per informazioni su come distribuire le risorse di Azure in più aree e su come usare procedure di distribuzione sicure, vedere:
 
 > [!div class="nextstepaction"]
-> [Integrazione continua con Azure Pipelines](./template-tutorial-use-azure-pipelines.md)
+> [Usare procedure di distribuzione sicure](./deployment-manager-tutorial.md)

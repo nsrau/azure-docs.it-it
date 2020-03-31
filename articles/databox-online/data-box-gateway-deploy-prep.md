@@ -8,23 +8,23 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 0446ee4fb238d2fa8447f998536c3c14d968f630
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 74fec059bdffb91f5a7774d430e2f1897f0e863c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303206"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474459"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Esercitazione: Preparare la distribuzione di Azure Data Box Gateway
 
-
-Questa è la prima di una serie di esercitazioni sulla distribuzione necessarie per distribuire completamente Azure Data Box Gateway. Descrive come preparare il portale di Azure per la distribuzione della risorsa Data Box Gateway. 
+Questa è la prima di una serie di esercitazioni sulla distribuzione necessarie per distribuire completamente Azure Data Box Gateway. Descrive come preparare il portale di Azure per la distribuzione della risorsa Data Box Gateway.
 
 Per completare il processo di installazione e configurazione sono necessari privilegi di amministratore. La preparazione del portale richiede meno di 10 minuti.
 
 In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
+>
 > * Creare una nuova risorsa
 > * Scaricare l'immagine del dispositivo virtuale
 > * Ottenere la chiave di attivazione
@@ -50,12 +50,11 @@ Di seguito sono elencati i prerequisiti di configurazione per la risorsa Data Bo
 
 Prima di iniziare, verificare che:
 
-- La sottoscrizione di Microsoft Azure sia supportata per la risorsa Data Box Gateway. Le sottoscrizioni con pagamento in base al consumo siano ugualmente supportate.
-- Si abbia accesso di tipo Proprietario o Collaboratore a livello di gruppo di risorse per le risorse Data Box Edge/Data Box Gateway, hub IoT e Archiviazione di Azure.
-
+* La sottoscrizione di Microsoft Azure sia abilitata per una risorsa Azure Stack Edge. Assicurarsi di aver usato una sottoscrizione supportata, ad esempio [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp) o [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
+* Si abbia accesso di tipo Proprietario o Collaboratore a livello di gruppo di risorse per le risorse Data Box Edge/Data Box Gateway, hub IoT e Archiviazione di Azure.
     - Per creare qualsiasi risorsa Data Box Edge/Data Box Gateway, è necessario disporre di autorizzazioni di Collaboratore o superiori con ambito a livello di gruppo di risorse. È anche necessario assicurarsi che il provider `Microsoft.DataBoxEdge` sia registrato. Per informazioni sulla registrazione, vedere [Registrare i provider di risorse](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
     - Per creare una risorsa account di archiviazione, è ugualmente necessario l'accesso di tipo Collaboratore o superiore con ambito a livello di gruppo di risorse. Archiviazione di Azure è un provider di risorse registrato per impostazione predefinita.
-- Si abbia accesso all'API Graph di Azure Active Directory Graph come utente o amministratore. Per altre informazioni, vedere [API Graph di Azure Active Directory](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+- Assicurarsi di disporre dell'accesso amministratore o utente all'API Microsoft Graph. Per altre informazioni, vedere le [Informazioni di riferimento per le autorizzazioni dell'API Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
 - Si dispone dell'account di archiviazione di Microsoft Azure con credenziali di accesso.
 
 ### <a name="for-the-data-box-gateway-device"></a>Per il dispositivo Data Box Gateway
@@ -177,7 +176,7 @@ Passare all'esercitazione successiva per informazioni su come effettuare il prov
 > [!div class="nextstepaction"]
 > [Effettuare il provisioning di Data Box Gateway in Hyper-V](./data-box-gateway-deploy-provision-hyperv.md)
 
-o
+OR
 
 > [!div class="nextstepaction"]
 > [Effettuare il provisioning di Data Box Gateway in VMware](./data-box-gateway-deploy-provision-vmware.md)

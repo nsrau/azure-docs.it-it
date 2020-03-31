@@ -17,10 +17,10 @@ ms.date: 09/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5f9d727154adf0a2099d7a9144c109cef9c91238
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70743975"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoom"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Zoom
@@ -65,10 +65,10 @@ Configurare e testare l'accesso SSO di Azure AD con Zoom usando un utente di tes
 Per configurare e testare l'accesso SSO di Azure AD con Zoom, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
 2. **[Configurare l'accesso Single Sign-On di Zoom](#configure-zoom-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-    1. **[Creare l'utente di test di Zoom](#create-zoom-test-user)** : per avere una controparte di B. Simon in Zoom collegata alla rappresentazione dell'utente in Azure AD.
+    1. **[Creare l'utente di test di Zoom](#create-zoom-test-user)** : per avere una controparte di B.Simon in Zoom collegata alla rappresentazione dell'utente in Azure AD.
 3. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
@@ -104,7 +104,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 > [!NOTE]
 > Zoom potrebbe prevedere un'attestazione basata su gruppo nel payload SAML. Se sono stati creati gruppi, contattare il [team di supporto clienti di Zoom](https://support.zoom.us/hc/) e fornire le informazioni sui gruppi in modo che possano configurarli. È necessario fornire al [team di supporto clienti di Zoom](https://support.zoom.us/hc/) anche l'ID oggetto per consentirne la configurazione. Per ottenere l'ID oggetto, vedere l'articolo sulla [configurazione di Zoom con Azure](https://support.zoom.us/hc/articles/115005887566).
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
@@ -116,7 +116,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
     1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
     1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Zoom.
 
@@ -140,13 +140,13 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 2. Fare clic sulla scheda **Single Sign-On**.
 
-    ![Scheda Single Sign-On](./media/zoom-tutorial/ic784700.png "Single Sign-On")
+    ![Scheda Single Sign-On](./media/zoom-tutorial/ic784700.png "Single sign-on")
 
 3. Fare clic sulla scheda **Security Control** (Controllo di sicurezza) e quindi passare alle impostazioni **Single Sign-On**.
 
 4. Nella sezione Single Sign-On seguire questa procedura:
 
-    ![Sezione Single Sign-On](./media/zoom-tutorial/ic784701.png "Single Sign-On")
+    ![Sezione Single Sign-On](./media/zoom-tutorial/ic784701.png "Single sign-on")
 
     a. Nella casella di testo **URL pagina di accesso** incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
@@ -166,7 +166,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     f. Nella casella di testo **Issuer** (Autorità di certificazione) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure. 
 
-    g. Fare clic su **Save**.
+    g. Fare clic su **Salva**.
 
     > [!NOTE]
     > Per altre informazioni, visitare la documentazione relativa allo zoom [https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566)

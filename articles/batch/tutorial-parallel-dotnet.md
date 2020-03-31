@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 34e43789ffb29963d5013b4acc3ea710a961c838
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 9a1a0b37b0fae52677ad989d85e947e0148ac0a5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024059"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80153217"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Esercitazione: Eseguire un carico di lavoro parallelo con Azure Batch usando l'API .NET
 
@@ -35,7 +35,7 @@ In questa esercitazione file multimediali MP4 vengono convertiti in parallelo in
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/vs) oppure [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) per Linux, macOS o Windows.
 
@@ -198,7 +198,9 @@ L'esempio crea quindi un pool di nodi di calcolo nell'account Batch con una chia
 
 Il numero di nodi e le dimensioni delle VM vengono impostati usando costanti definite. Batch supporta nodi dedicati e [nodi per priorità bassa](batch-low-pri-vms.md) e nei pool è possibile usare uno di questi tipi o entrambi. I nodi dedicati sono riservati per il pool. I nodi per priorità bassa vengono offerti a un prezzo ridotto usando la capacità in eccesso delle VM in Azure. I nodi per priorità bassa non sono disponibili se Azure non ha capacità sufficiente. L'esempio crea per impostazione predefinita un pool che contiene solo 5 nodi per priorità bassa con dimensioni *Standard_A1_v2*.
 
-L'applicazione ffmpeg viene distribuita nei nodi di calcolo aggiungendo un oggetto [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) alla configurazione del pool.
+>[Nota] Assicurarsi di controllare le quote del nodo. Per istruzioni su come creare una richiesta di aumento della quota, vedere [Quote e i limiti del servizio Batch](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbatch%2Fbatch-quota-limit%23increase-a-quota&data=02%7C01%7CLaura.Brenner%40microsoft.com%7C9843bf742920414ca3e508d7cb83e288%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637201639605899246&sdata=uKY00XhSMjDkFIPGHYmDN4TOtL4UQhFus42ncst95pg%3D&reserved=0).
+
+L'applicazione ffmpeg viene distribuita nei nodi di calcolo aggiungendo un oggetto [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) alla configurazione del pool. Per garantire l'[attivazione dell'applicazione](https://docs.microsoft.com/cli/azure/batch/application/package?view=azure-cli-latest#az-batch-application-package-activate).
 
 Il metodo [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync) invia il pool al servizio Batch.
 
@@ -335,3 +337,6 @@ Per altri esempi di uso dell'API .NET per pianificare ed elaborare i carichi di 
 
 > [!div class="nextstepaction"]
 > [Esempi C# per Batch](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)
+
+
+L'impostazione della variabile dell'istanza LowPriorityNodeCount=0 e di DedicatedNodeCount=5 ha risolto il problema e ha consentito il completamento del processo.

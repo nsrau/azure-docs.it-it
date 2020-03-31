@@ -2,14 +2,14 @@
 title: Eseguire la migrazione di macchine virtuali VMware con la soluzione Migrazione server di Azure Migrate basata su agente
 description: Informazioni su come eseguire una migrazione di macchine virtuali VMware basata su agente con Azure Migrate.
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 03/09/2020
 ms.custom: MVC
-ms.openlocfilehash: 49b576770d67ae9d2b98a8a0004f4219ecf0fae4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 64873c5185660c58cd4d07d60df3d086364d6288
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388896"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222028"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Eseguire la migrazione di macchine virtuali VMware in Azure (basata su agente)
 
@@ -156,7 +156,7 @@ Il servizio Mobility deve essere installato in tutte le macchine virtuali da rep
 
 - L'appliance di replica di Azure Migrate può eseguire un'installazione push del servizio quando si abilita la replica per una macchina virtuale oppure è possibile installarlo manualmente o tramite strumenti di installazione.
 - In questa esercitazione, il servizio Mobility verrà installato con l'installazione push.
-- Per l'installazione push è necessario preparare un account che possa essere usato da Migrazione server di Azure Migrate per accedere alla macchina virtuale.
+- Per l'installazione push è necessario preparare un account che possa essere usato da Migrazione server di Azure Migrate per accedere alla macchina virtuale. Questo account viene usato solo per l'installazione push, se non si installa manualmente il servizio di mobilità.
 
 Preparare l'account come illustrato di seguito:
 
@@ -409,7 +409,10 @@ Dopo aver verificato che la migrazione di test funzioni nel modo previsto, è po
 
 ## <a name="complete-the-migration"></a>Completare la migrazione
 
-1. Al termine della migrazione fare clic con il pulsante destro del mouse sulla VM e scegliere **Arresta migrazione**. La replica della macchina virtuale locale verrà arrestata e verrà eseguita la pulizia delle informazioni sullo stato della replica della VM.
+1. Al termine della migrazione fare clic con il pulsante destro del mouse sulla VM e scegliere **Arresta migrazione**. Vengono eseguite le operazioni seguenti:
+    - Arresta la replica per il computer locale.
+    - Rimuove il computer dal numero di **Server in fase di replica** in Azure Migrate: Server Migration.
+    - Esegue la pulizia delle informazioni sullo stato di replica per la macchina virtuale.
 2. Installare l'agente [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) o [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) per le VM di Azure sulle macchine virtuali di cui è stata eseguita la migrazione.
 3. Apportare nell'app le eventuali modifiche post-migrazione necessarie, come l'aggiornamento delle stringhe di connessione del database e delle configurazioni dei server Web.
 4. Eseguire i test di accettazione della migrazione e dell'applicazione finale sull'applicazione migrata ora in esecuzione in Azure.

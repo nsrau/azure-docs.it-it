@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b878c9e26a1f1f0e1e71e79d8f52b81f12924ef3
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: ec9349d8ed330a00a64922a44f99910f9eeeb0df
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78968405"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79136449"
 ---
 # <a name="tutorial-integrate-qlik-sense-enterprise-with-azure-active-directory"></a>Esercitazione: Integrare Qlik Sense Enterprise con Azure Active Directory
 
@@ -30,7 +30,7 @@ Questa esercitazione descrive come integrare Qlik Sense Enterprise con Azure Act
 * Abilitare gli utenti per l'accesso automatico ad Qlik Sense Enterprise con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -83,7 +83,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella pagina **Configurazione SAML di base** immettere i valori per i campi seguenti:
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL nel formato seguente: `https://<Fully Qualified Domain Name>:443{/virtualproxyprefix}/hub`
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<Fully Qualified Domain Name>:443{/virtualproxyprefix}/hub`
 
     b. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
 
@@ -93,7 +93,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     | `https://<Fully Qualified Domain Name>.qliksense.com`|
     | |
 
-    c. Nella casella di testo **URL di risposta** digitare l'URL nel formato seguente:
+    c. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente:
 
     `https://<Fully Qualified Domain Name>:443{/virtualproxyprefix}/samlauthn/`
 
@@ -263,7 +263,7 @@ Quando si seleziona il riquadro Qlik Sense Enterprise nel pannello di accesso, s
 
 - [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

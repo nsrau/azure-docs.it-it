@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/05/2019
+ms.date: 03/16/2020
 ms.author: juliako
-ms.openlocfilehash: d4175f2508edab1cf54e415652e9e9cb37b879b1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: 35be4ec2c4f5f8c299120c0ba7dbdcb1dd112473
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359535"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472034"
 ---
-# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Esercitazione: codificare un file remoto in base all'URL e trasmettere il video REST
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - REST
 
 Servizi multimediali di Azure consente di codificare i file multimediali nei formati che possono essere riprodotti in una vasta gamma di browser e dispositivi. Ad esempio, potrebbe essere necessario trasmettere il contenuto nei formati HLS o MPEG DASH di Apple. Prima dello streaming, è consigliabile codificare il file multimediale digitale di alta qualità. Per indicazioni per la codifica, vedere i [concetti correlati alla codifica](encoding-concept.md).
 
@@ -48,7 +48,7 @@ Questa esercitazione illustra come:
 
 - Installare il client REST di [Postman](https://www.getpostman.com/) per eseguire le API REST mostrate in alcune delle esercitazioni REST di AMS. 
 
-    Si sta usando **Postman** ma si può usare qualsiasi strumento REST. Tra le alternative vi sono: **Visual Studio Code** con il plug-in REST o **Telerik Fiddler**. 
+    Si sta usando **Postman** ma si può usare qualsiasi strumento REST. Altre alternative possibili: **Visual Studio Code** con il plug-in REST o **Telerik Fiddler**. 
 
 ## <a name="download-postman-files"></a>Scaricare i file Postman
 
@@ -58,7 +58,9 @@ Clonare un repository di GitHub che contiene i file di raccolta e ambiente Postm
  git clone https://github.com/Azure-Samples/media-services-v3-rest-postman.git
  ```
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+## <a name="access-api"></a>Accedere all'API
+
+Per informazioni dettagliate, vedere [Ottenere le credenziali per accedere all'API Servizi multimediali](access-api-howto.md)
 
 ## <a name="configure-postman"></a>Configurare Postman
 
@@ -75,7 +77,7 @@ Clonare un repository di GitHub che contiene i file di raccolta e ambiente Postm
     > [!Note]
     > Aggiornare le variabili di accesso con i valori ottenuti dalla sezione **Accedere all'API di Servizi multimediali** precedente.
 
-7. Fare doppio clic sul file selezionato e immettere i valori ottenuti seguendo la procedura per l'[accesso all'API](#access-the-media-services-api).
+7. Fare doppio clic sul file selezionato e immettere i valori ottenuti seguendo la procedura per l'[accesso all'API](#access-api).
 8. Chiudere la finestra di dialogo.
 9. Selezionare l'ambiente **Azure Media Service v3 Environment** nell'elenco a discesa.
 
@@ -106,7 +108,7 @@ In questa sezione vengono inviate le richieste rilevanti per la codifica e la cr
 
 ### <a name="get-azure-ad-token"></a>Ottenere il token di Azure AD 
 
-1. Nella finestra di sinistra dell'app post, selezionare "passaggio 1: ottenere il token di autenticazione AAD".
+1. Nella finestra sinistra dell'app Postman selezionare "Step 1: Get AAD Auth token" (Passaggio 1: Ottenere un token di autenticazione AAD).
 2. Selezionare quindi "Get Azure AD Token for Service Principal Authentication" (Ottieni token Azure AD per autenticazione basata su entità servizio).
 3. Fare clic su **Invia**.
 
@@ -250,7 +252,7 @@ In questo esempio l'input del processo è basato su un URL HTTPS ("https:\//nimb
 
 Il completamento del processo richiede tempo e al termine dell'elaborazione può essere opportuno ricevere una notifica. Per visualizzare lo stato del processo, è consigliabile usare Griglia di eventi. Si tratta di un servizio progettato per garantire disponibilità elevata, coerenza nelle prestazioni e scalabilità dinamica. Con Griglia di eventi, le app possono rimanere in ascolto e reagire agli eventi praticamente da tutti i servizi di Azure, oltre che da origini personalizzate. Questo semplice servizio di gestione degli eventi, reattivo e basato su HTTP, consente di creare soluzioni efficienti tramite funzioni intelligenti di filtraggio e routing di eventi.  Vedere [Instradare gli eventi verso un endpoint Web personalizzato](job-state-events-cli-how-to.md).
 
-L'oggetto **Job** assume progressivamente gli stati seguenti: **Scheduled**, **Queued**, **Processing**, **Finished** (lo stato finale). Se nel corso del processo si verifica un errore, viene restituito lo stato **Error**. Se il processo è in fase di annullamento, vengono restituiti lo stato **Canceling** e, al termine, lo stato **Canceled**.
+L'oggetto **Job** assume progressivamente gli stati seguenti: **Scheduled**, **Queued**, **Processing**, **Finished** (stato finale). Se nel corso del processo si verifica un errore, viene restituito lo stato **Error**. Se il processo è in fase di annullamento, vengono restituiti lo stato **Canceling** e, al termine, lo stato **Canceled**.
 
 #### <a name="job-error-codes"></a>Codici di errore dei processi
 

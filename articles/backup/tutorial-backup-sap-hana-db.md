@@ -2,13 +2,13 @@
 title: 'Esercitazione: Eseguire il backup di database SAP HANA nelle VM di Azure'
 description: Questa esercitazione illustra come eseguire il backup di database SAP HANA in esecuzione nelle VM di Azure in un insieme di credenziali di Servizi di ripristino di Backup di Azure.
 ms.topic: tutorial
-ms.date: 11/12/2019
-ms.openlocfilehash: bb84f6b362adf7c190f3300e6e3f1bc572153151
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 02/24/2020
+ms.openlocfilehash: f64dd74ad0e038c5cad152e20ae2255de03114e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75753982"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79501442"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Esercitazione: Eseguire il backup di database SAP HANA in una VM di Azure
 
@@ -22,36 +22,16 @@ Questa esercitazione illustra come eseguire il backup di database SAP HANA in es
 
 Per informazioni su tutti gli scenari attualmente supportati, vedere [qui](sap-hana-backup-support-matrix.md#scenario-support).
 
-## <a name="onboard-to-the-public-preview"></a>Eseguire l'onboarding nell'anteprima pubblica
-
-Eseguire l'onboarding nell'anteprima pubblica come segue:
-
-* Nel portale registrare l'ID sottoscrizione nel provider di Servizi di ripristino seguendo le istruzioni di [questo articolo](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal).
-
-* Per PowerShell, eseguire questo cmdlet. Dovrebbe essere completato come "Registrato".
-
-    ```powershell
-    Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di configurare i backup, eseguire la procedura seguente:
 
-1. Nella VM che esegue il database SAP HANA installare e abilitare i pacchetti di driver ODBC dal supporto/pacchetto SLES ufficiale usando zypper, come indicato di seguito:
-
-```bash
-sudo zypper update
-sudo zypper install unixODBC
-```
-
->[!NOTE]
-> Se non si aggiornano i repository, assicurarsi che la versione di unixODBC sia almeno 2.3.4. Per conoscere la versione di uniXODBC, eseguire `odbcinst -j` come radice
->
-
-2. Consentire la connettività dalla VM a Internet, in modo che Azure sia raggiungibile, come descritto nella [procedura seguente](#set-up-network-connectivity).
-
-3. Eseguire lo script di pre-registrazione come utente radice nella macchina virtuale in cui è installato HANA. [Questo script](https://aka.ms/scriptforpermsonhana) imposta le [autorizzazioni appropriate](#setting-up-permissions).
+* Consentire la connettività dalla VM a Internet, in modo che Azure sia raggiungibile, come descritto nella procedura [Configurare la connettività di rete](#set-up-network-connectivity) descritta di seguito.
+* È necessario che sia presente una chiave in **hdbuserstore** che soddisfi i criteri seguenti:
+  * Deve essere presente in **hdbuserstore** predefinito
+  * Per MDC, la chiave deve puntare alla porta SQL di **NAMESERVER**. Nel caso di DSC, deve puntare alla porta SQL di **INDEXSERVER**
+  * Deve avere le credenziali per aggiungere ed eliminare gli utenti
+* Eseguire lo script di configurazione di backup SAP HANA (script di pre-registrazione) come utente radice nella macchina virtuale in cui è installato HANA. [Questo script](https://aka.ms/scriptforpermsonhana) prepara il sistema HANA per il backup. Per altre informazioni sullo script di pre-registrazione, vedere la sezione [Funzionalità dello script di pre-registrazione](#what-the-pre-registration-script-does).
 
 ## <a name="set-up-network-connectivity"></a>Configurare la connettività di rete
 
@@ -110,15 +90,22 @@ Usare i tag del servizio del gruppo di sicurezza di rete | Gestione semplificata
 Usare i tag FQDN di Firewall di Azure | Gestione semplificata perché i FQDN necessari vengono gestiti automaticamente | Utilizzabile solo con Firewall di Azure
 Usare un proxy HTTP | Controllo granulare nel proxy URL di archiviazione <br/><br/> Singolo punto di accesso Internet alle VM <br/><br/> Nessun effetto in caso di modifiche degli indirizzi IP di Azure | Costi aggiuntivi per l'esecuzione di una VM con il software proxy
 
-## <a name="setting-up-permissions"></a>Configurazione delle autorizzazioni
+## <a name="what-the-pre-registration-script-does"></a>Funzionalità dello script di pre-registrazione
 
-Lo script di pre-registrazione esegue le azioni seguenti:
+L'esecuzione dello script di pre-registrazione esegue le funzioni seguenti:
 
-1. Crea AZUREWLBACKUPHANAUSER nel sistema HANA e aggiunge questi ruoli e autorizzazioni necessari:
-   * DATABASE ADMIN: per creare nuovi database durante il ripristino.
-   * CATALOG READ: per leggere il catalogo di backup.
-   * SAP_INTERNAL_HANA_SUPPORT: per accedere ad alcune tabelle private.
-2. Aggiunge una chiave a Hdbuserstore per il plug-in HANA per gestire tutte le operazioni (query su database, operazioni di ripristino, configurazione ed esecuzione del backup).
+* Installa o aggiorna tutti i pacchetti necessari richiesti dall'agente di Backup di Azure nella distribuzione.
+* Esegue i controlli della connettività di rete in uscita con i server di Backup di Azure e i servizi dipendenti come Azure Active Directory e Archiviazione di Azure.
+* Accede al sistema HANA usando la chiave utente elencata come parte dei [prerequisiti](#prerequisites). La chiave utente viene usata per creare un utente di backup (AZUREWLBACKUPHANAUSER) nel sistema HANA e può essere eliminata dopo che lo script di pre-registrazione è stato eseguito correttamente.
+* Ad AZUREWLBACKUPHANAUSER vengono assegnati questi ruoli e autorizzazioni necessari:
+  * AMMINISTRATORE DEL DATABASE (nel caso di MDC) e AMMINISTRATORE DEL BACKUP (nel caso di DSC): per creare nuovi database durante il ripristino.
+  * CATALOG READ: per leggere il catalogo di backup.
+  * SAP_INTERNAL_HANA_SUPPORT: per accedere ad alcune tabelle private.
+* Lo script aggiunge una chiave a **hdbuserstore** per AZUREWLBACKUPHANAUSER per il plug-in di backup HANA per gestire tutte le operazioni (query su database, operazioni di ripristino, configurazione ed esecuzione del backup).
+
+>[!NOTE]
+> È possibile passare in modo esplicito la chiave utente elencata come parte dei [prerequisiti](#prerequisites) come parametro allo script di pre-registrazione: `-sk SYSTEM_KEY_NAME, --system-key SYSTEM_KEY_NAME` <br><br>
+>Per informazioni sugli altri parametri accettati dallo script, usare il comando `bash msawb-plugin-config-com-sap-hana.sh --help`
 
 Per confermare la creazione della chiave, eseguire il comando HDBSQL nella macchina virtuale HANA con le credenziali SIDADM:
 
@@ -129,8 +116,7 @@ hdbuserstore list
 L'output del comando dovrebbe visualizzare la chiave {SID}{DBNAME}, con l'utente visualizzato come AZUREWLBACKUPHANAUSER.
 
 >[!NOTE]
-> Assicurarsi di avere un set univoco di file SSFS nel percorso /usr/sap/{SID}/home/.hdb/. Questo percorso dovrebbe contenere un'unica cartella.
->
+> Assicurarsi di avere un set univoco di file SSFS in `/usr/sap/{SID}/home/.hdb/`. Questo percorso dovrebbe contenere un'unica cartella.
 
 ## <a name="create-a-recovery-service-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
@@ -142,25 +128,25 @@ Per creare un insieme di credenziali dei servizi di ripristino:
 
 2. Nel menu sinistro selezionare **Tutti i servizi**
 
-![Selezionare tutti i servizi](./media/tutorial-backup-sap-hana-db/all-services.png)
+   ![Selezionare tutti i servizi](./media/tutorial-backup-sap-hana-db/all-services.png)
 
 3. Nella finestra di dialogo **Tutti i servizi** inserire **Servizi di ripristino**. L'elenco delle risorse filtra sulla base degli input. Nell'elenco delle risorse selezionare**Insieme di credenziali di Servizi di ripristino**.
 
-![Selezionare gli insiemi di credenziali di Servizi di ripristino](./media/tutorial-backup-sap-hana-db/recovery-services-vaults.png)
+   ![Selezionare gli insiemi di credenziali di Servizi di ripristino](./media/tutorial-backup-sap-hana-db/recovery-services-vaults.png)
 
 4. Nel dashboard degli insiemi di credenziali di **Servizi di ripristino** selezionare **Aggiungi**.
 
-![Aggiungere l'insieme di credenziali di Servizi di ripristino](./media/tutorial-backup-sap-hana-db/add-vault.png)
+   ![Aggiungere l'insieme di credenziali di Servizi di ripristino](./media/tutorial-backup-sap-hana-db/add-vault.png)
 
-Si apre la finestra di dialogo **Insieme di credenziali dei Servizi di ripristino**. Specificare i valori per **Nome, Sottoscrizione, Gruppo di risorse** e **Località**
+   Si apre la finestra di dialogo **Insieme di credenziali dei Servizi di ripristino**. Specificare i valori per **Nome, Sottoscrizione, Gruppo di risorse** e **Località**
 
-![Creare un insieme di credenziali di Servizi di ripristino](./media/tutorial-backup-sap-hana-db/create-vault.png)
+   ![Creare un insieme di credenziali di Servizi di ripristino](./media/tutorial-backup-sap-hana-db/create-vault.png)
 
-* **Name**: il nome viene usato per identificare l'insieme di credenziali di Servizi di ripristino e deve essere univoco per la sottoscrizione di Azure. Specificare un nome che contiene almeno due caratteri, ma non più di 50. Il nome deve iniziare con una lettera e deve contenere solo lettere, numeri e trattini. Per questa esercitazione viene usato il nome **SAPHanaVault**.
-* **Sottoscrizione** scegliere la sottoscrizione da usare. Se si è un membro di una sola sottoscrizione, verrà visualizzato tale nome. Se non si è certi della sottoscrizione da usare, scegliere quella predefinita (consigliato). Sono disponibili più opzioni solo se l'account aziendale o dell'istituto di istruzione è associato a più sottoscrizioni di Azure. In questa esercitazione viene usata la sottoscrizione **SAP HANA solution lab subscription**.
-* **Gruppo di risorse**: Usare un gruppo di risorse esistente oppure crearne uno nuovo. In questa esercitazione viene usato **SAPHANADemo**.<br>
-Selezionare **Usa esistente** e nell'elenco a discesa scegliere una risorsa per visualizzare l'elenco di gruppi di risorse disponibili nella sottoscrizione. Per creare un nuovo gruppo di risorse, selezionare **Crea nuovo** e inserire il nome. Per informazioni complete sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
-* **Località**: selezionare l'area geografica per l'insieme di credenziali. L'insieme di credenziali deve trovarsi nella stessa area della macchina virtuale che esegue SAP HANA. In questa esercitazione viene usata l'area **Stati Uniti orientali 2**.
+   * **Name**: il nome viene usato per identificare l'insieme di credenziali di Servizi di ripristino e deve essere univoco per la sottoscrizione di Azure. Specificare un nome che contiene almeno due caratteri, ma non più di 50. Il nome deve iniziare con una lettera e deve contenere solo lettere, numeri e trattini. Per questa esercitazione viene usato il nome **SAPHanaVault**.
+   * **Sottoscrizione** scegliere la sottoscrizione da usare. Se si è un membro di una sola sottoscrizione, verrà visualizzato tale nome. Se non si è certi della sottoscrizione da usare, scegliere quella predefinita (consigliato). Sono disponibili più opzioni solo se l'account aziendale o dell'istituto di istruzione è associato a più sottoscrizioni di Azure. In questa esercitazione viene usata la sottoscrizione **SAP HANA solution lab subscription**.
+   * **Gruppo di risorse**: Usare un gruppo di risorse esistente oppure crearne uno nuovo. In questa esercitazione viene usato **SAPHANADemo**.<br>
+   Selezionare **Usa esistente** e nell'elenco a discesa scegliere una risorsa per visualizzare l'elenco di gruppi di risorse disponibili nella sottoscrizione. Per creare un nuovo gruppo di risorse, selezionare **Crea nuovo** e inserire il nome. Per informazioni complete sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+   * **Località**: selezionare l'area geografica per l'insieme di credenziali. L'insieme di credenziali deve trovarsi nella stessa area della macchina virtuale che esegue SAP HANA. In questa esercitazione viene usata l'area **Stati Uniti orientali 2**.
 
 5. Selezionare **Rivedi e crea**.
 
@@ -185,15 +171,15 @@ Dopo aver individuato i database di cui eseguire il backup, abilitare il backup.
 
 1. Fare clic su **Configura backup**.
 
-![Configurare il backup](./media/tutorial-backup-sap-hana-db/configure-backup.png)
+   ![Configurare il backup](./media/tutorial-backup-sap-hana-db/configure-backup.png)
 
 2. In **Seleziona elementi per backup** selezionare uno o più database da proteggere, quindi fare clic su **OK**.
 
-![Seleziona elementi per backup](./media/tutorial-backup-sap-hana-db/select-items-to-backup.png)
+   ![Seleziona elementi per backup](./media/tutorial-backup-sap-hana-db/select-items-to-backup.png)
 
 3. In **Criteri di backup > Scegliere i criteri di backup** creare un nuovo criterio di backup per i database, seguendo le istruzioni riportate nella sezione successiva.
 
-![Scegliere i criteri di backup](./media/tutorial-backup-sap-hana-db/backup-policy.png)
+   ![Scegliere i criteri di backup](./media/tutorial-backup-sap-hana-db/backup-policy.png)
 
 4. Dopo aver creato il criterio, nel menu **Backup** fare clic su **Abilita backup**.
 
@@ -212,11 +198,11 @@ Specificare le impostazioni del criterio come segue:
 
 1. In **Nome criterio** immettere un nome per il nuovo criterio. In questo caso, immettere **SAPHANA**.
 
-![Immettere un nome per il nuovo criterio](./media/tutorial-backup-sap-hana-db/new-policy.png)
+   ![Immettere un nome per il nuovo criterio](./media/tutorial-backup-sap-hana-db/new-policy.png)
 
 2. In **Criteri di backup completo** selezionare un valore per **Frequenza di backup**. È possibile scegliere **Giornaliera** o **Settimanale**. Per questa esercitazione, scegliere la frequenza di backup **Giornaliera**.
 
-![Selezionare una frequenza di backup](./media/tutorial-backup-sap-hana-db/backup-frequency.png)
+   ![Selezionare una frequenza di backup](./media/tutorial-backup-sap-hana-db/backup-frequency.png)
 
 3. In **Intervallo conservazione** configurare le impostazioni di conservazione per il backup completo.
    * Per impostazione predefinita, sono selezionate tutte le opzioni. Deselezionare gli eventuali limiti dell'intervallo di conservazione che non si vogliono usare e impostare quelli da usare.
@@ -230,9 +216,9 @@ Specificare le impostazioni del criterio come segue:
 
    ![Criteri di backup differenziale](./media/tutorial-backup-sap-hana-db/differential-backup-policy.png)
 
->[!NOTE]
->I backup incrementali non sono attualmente supportati.
->
+   >[!NOTE]
+   >I backup incrementali non sono attualmente supportati.
+   >
 
 7. Fare clic su **OK** per salvare il criterio e tornare nel menu principale **Criteri di backup**.
 8. Selezionare **Backup del log** per aggiungere un criterio per i backup del log delle transazioni.
@@ -241,9 +227,9 @@ Specificare le impostazioni del criterio come segue:
 
     ![Criteri di backup del log](./media/tutorial-backup-sap-hana-db/log-backup-policy.png)
 
->[!NOTE]
-> I backup del log iniziano a fluire solo dopo il corretto completamento di un backup completo.
->
+   >[!NOTE]
+   > I backup del log iniziano a fluire solo dopo il corretto completamento di un backup completo.
+   >
 
 9. Fare clic su **OK** per salvare il criterio e tornare nel menu principale **Criteri di backup**.
 10. Dopo aver completato la definizione dei criteri di backup, fare clic su **OK**.

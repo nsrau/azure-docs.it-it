@@ -11,53 +11,54 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 8e3c525230c3de530a93bd61a9227e9a4d7ed10b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: bc238f08021bb9fb16b8c7319e63acebdfec3948
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933422"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80061896"
 ---
-# <a name="use-cli-to-add-an-azure-sql-database-single-database-into-a-failover-group"></a>Usare l'interfaccia della riga di comando per aggiungere un database singolo di database SQL di Azure a un gruppo di failover
+# <a name="use-cli-to-add-an-azure-sql-database-into-a-failover-group"></a>Usare l'interfaccia della riga di comando per aggiungere un database SQL di Azure a un gruppo di failover
 
-Questo esempio di script di PowerShell crea un database singolo, un gruppo di failover, aggiunge il database al gruppo di failover e testa il failover. 
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+Questo esempio di script dell'interfaccia della riga di comando di Azure crea un database singolo, un gruppo di failover, aggiunge il database al gruppo di failover e testa il failover.
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script di esempio
 
+### <a name="sign-in-to-azure"></a>Accedere ad Azure
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+```azurecli-interactive
+$subscription = "<subscriptionId>" # add subscription here
+
+az account set -s $subscription # ...or use 'az login'
+```
+
+### <a name="run-the-script"></a>Eseguire lo script
+
 [!code-azurecli-interactive[main](../../../cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh "Add single database to failover group")]
 
-## <a name="clean-up-deployment"></a>Pulire la distribuzione
+### <a name="clean-up-deployment"></a>Pulire la distribuzione
 
 Usare il comando seguente per rimuovere il gruppo di risorse e tutte le risorse correlate.
 
 ```azurecli-interactive
-az group delete --name $resourceGroupName
+az group delete --name $resource
 ```
 
-## <a name="script-explanation"></a>Spiegazione dello script
+## <a name="sample-reference"></a>Informazioni di riferimento per l'esempio
 
 Questo script usa i comandi seguenti. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
 
-| Comando | Note |
+| | |
 |---|---|
-| [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set) | Imposta una sottoscrizione come sottoscrizione attiva corrente. | 
-| [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Crea un server di database SQL che ospita database singoli e pool elastici. |
-| [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Crea le regole del firewall di un server. | 
-| [az sql db create](/cli/azure/sql/db?view=azure-cli-latest) | Crea un database. | 
-| [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create) | Crea un gruppo di failover. | 
-| [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list) | Elenca i gruppi di failover in un server. |
-| [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | Imposta il server primario del gruppo di failover eseguendo il failover di tutti i database dal server primario corrente. | 
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
+| [az sql db](/cli/azure/sql/db) | Comandi per il database. |
+| [az sql failover-group](/cli/azure/sql/failover-group) | Comandi per il gruppo di failover. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure).
+Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
 
 Per altri esempi di script dell'interfaccia della riga di comando per database SQL, vedere la [documentazione del database SQL di Azure](../sql-database-cli-samples.md).

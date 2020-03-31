@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: e8ae31122d59238ac104d7d873cf56f32977c9af
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67086510"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Esercitazione: Integrazione di Azure Active Directory con xMatters OnDemand
@@ -49,9 +49,9 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-xmatters-ondemand-from-the-gallery"></a>Aggiunta di xMatters OnDemand dalla raccolta
 
-Per configurare l'integrazione di xMatters OnDemand in Azure AD è necessario aggiungere xMatters OnDemand dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di xMatters OnDemand in Azure AD è necessario aggiungere xMatters OnDemand dalla raccolta all'elenco di app SaaS gestite.
 
-**Per aggiungere xMatters OnDemand dalla raccolta seguire questa procedura:**
+**Per aggiungere xMatters OnDemand dalla raccolta, seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
@@ -71,16 +71,16 @@ Per configurare l'integrazione di xMatters OnDemand in Azure AD è necessario ag
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con xMatters OnDemand usando un utente test di nome **Britta Simon**.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con xMatters OnDemand usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in xMatters OnDemand.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con xMatters OnDemand è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con xMatters OnDemand è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di xMatters OnDemand](#configure-xmatters-ondemand-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente test di xMatters OnDemand](#create-xmatters-ondemand-test-user)** : per avere una controparte di Britta Simon in xMatters OnDemand collegata alla rappresentazione dell'utente in Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di xMatters OnDemand](#create-xmatters-ondemand-test-user)** : per avere una controparte di Britta Simon in xMatters OnDemand collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -152,13 +152,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con xMatters OnDemand, segu
 
 2. Sulla barra degli strumenti in alto fare clic su **Admin** e quindi su **Company Details** (Dettagli società) sulla barra di spostamento a sinistra.
 
-    ![Amministratore](./media/xmatters-ondemand-tutorial/IC776795.png "Amministratore")
+    ![Admin](./media/xmatters-ondemand-tutorial/IC776795.png "Amministrativi")
 
 3. Nella pagina **Configurazione SAML** seguire la procedura seguente:
 
     ![Configurazione SAML](./media/xmatters-ondemand-tutorial/IC776796.png "Configurazione SAML")
 
-    a. Selezionare **Enable SAML**.
+    a. Selezionare **Enable SAML** (Abilita SAML).
 
     b. Nella casella di testo **Identity Provider ID** (ID provider di identità) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
 
@@ -166,13 +166,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con xMatters OnDemand, segu
 
     d. Nella casella di testo **Single Logout URL** (URL di disconnessione singolo) incollare il valore di **URL di disconnessione** copiato dal portale di Azure.
 
-    e. Nella parte superiore della pagina Informazioni sull’azienda fare clic su **Salva modifiche**.
+    e. Nella parte superiore della pagina Informazioni sull'azienda fare clic su **Salva modifiche**.
 
-    ![Dettagli dell'azienda](./media/xmatters-ondemand-tutorial/IC776797.png "Dettagli dell'azienda")
+    ![Company details](./media/xmatters-ondemand-tutorial/IC776797.png "Company details")
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -188,15 +188,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare brittasimon@yourcompanydomain.extension. Ad esempio: BrittaSimon@contoso.com
+    b. Nel campo **Nome utente** digitare brittasimon@yourcompanydomain.extension. Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abilita Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a xMatters OnDemand.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a xMatters OnDemand.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **xMatters OnDemand**.
 
@@ -220,7 +220,7 @@ In questa sezione si abilita Britta Simon per l'uso dell'accesso Single Sign-On 
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-xmatters-ondemand-test-user"></a>Creare un utente test di xMatters OnDemand
+### <a name="create-xmatters-ondemand-test-user"></a>Creare l'utente di test di xMatters OnDemand
 
 L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in xMatters OnDemand.
 
@@ -234,7 +234,7 @@ L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simo
 
 3. Nella sezione **Aggiungi un utente** eseguire la procedura seguente:
 
-    ![Aggiungere un utente](./media/xmatters-ondemand-tutorial/IC781049.png "Aggiungere un utente")
+    ![Add a User](./media/xmatters-ondemand-tutorial/IC781049.png "Aggiungi un utente")
 
     a. Selezionare **Active**.
 
@@ -246,13 +246,13 @@ L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simo
 
     e. Nella casella di testo **Site** (Sito) immettere il sito valido di un account di Azure AD valido di cui si vuole eseguire il provisioning.
 
-    f. Fare clic su **Save**.
+    f. Fare clic su **Salva**.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di xMatters OnDemand nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione xMatters OnDemand per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di xMatters OnDemand nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di xMatters OnDemand per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

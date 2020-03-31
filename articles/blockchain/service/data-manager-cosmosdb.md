@@ -1,21 +1,21 @@
 ---
 title: Usare Blockchain Data Manager per aggiornare Azure Cosmos DB - Servizio Azure Blockchain
 description: Usare Blockchain Data Manager per Servizio Azure Blockchain per inviare dati della blockchain ad Azure Cosmos DB
-ms.date: 12/04/2019
+ms.date: 03/08/2020
 ms.topic: tutorial
 ms.reviewer: chroyal
-ms.openlocfilehash: 79c39d9883b5ba618e368b0ff6d3e95f1af5bd96
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 483a5246274f63549dfb2914361ede6aa001e02e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977396"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79533182"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>Esercitazione: Usare Blockchain Data Manager per inviare dati ad Azure Cosmos DB
 
 In questa esercitazione si usa Blockchain Data Manager per il servizio Azure Blockchain per registrare i dati delle transazioni blockchain in Azure Cosmos DB. Blockchain Data Manager consente di acquisire, trasformare e distribuire i dati del libro mastro della blockchain agli argomenti di Griglia di eventi di Azure. In Griglia di eventi di Azure è possibile usare un connettore per l'app per la logica di Azure per creare documenti in un database Azure Cosmos DB. Al termine dell'esercitazione, è possibile esplorare i dati delle transazioni blockchain in Esplora dati di Azure Cosmos DB.
 
-[![Dettagli delle transazioni blockchain](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
+[![Dettagli della transazione blockchain](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 
 In questa esercitazione:
 
@@ -49,12 +49,12 @@ Un'istanza di Blockchain Data Manager connette e monitora un nodo della transazi
 
     Immettere i dettagli seguenti:
 
-    Impostazione | Esempio | DESCRIZIONE
+    Impostazione | Esempio | Descrizione
     --------|---------|------------
-    NOME | mywatcher | Immettere un nome univoco per un'istanza di Blockchain Data Manager connessa.
+    Nome | mywatcher | Immettere un nome univoco per un'istanza di Blockchain Data Manager connessa.
     Nodo di transazione | myblockchainmember | Scegliere il nodo della transazione predefinito del membro del servizio Azure Blockchain creato nel prerequisito.
     Nome connessione | cosmosdb | Immettere un nome univoco della connessione in uscita a cui vengono inviati i dati della transazione blockchain.
-    Endpoint di Griglia di eventi | mytopic | Scegliere un argomento di Griglia di eventi creato nel prerequisito. Note: L'istanza di Blockchain Data Manager e l'argomento di Griglia di eventi devono trovarsi nella stessa sottoscrizione.
+    Endpoint di Griglia di eventi | mytopic | Scegliere un argomento di Griglia di eventi creato nel prerequisito. Nota: L'istanza di Blockchain Data Manager e l'argomento di Griglia di eventi devono trovarsi nella stessa sottoscrizione.
 
 1. Selezionare **OK**.
 
@@ -108,9 +108,9 @@ Blockchain Data Manager richiede che i file ABI e bytecode del contratto siano a
 
     ![Creare un contenitore dell'account di archiviazione](./media/data-manager-cosmosdb/create-container.png)
 
-    | Impostazione | DESCRIZIONE |
+    | Impostazione | Descrizione |
     |---------|-------------|
-    | NOME  | Assegnare un nome al contenitore. Ad esempio, *smartcontract* |
+    | Nome  | Assegnare un nome al contenitore. Ad esempio, *smartcontract* |
     | Livello di accesso pubblico | Scegliere *Privato (nessun accesso anonimo)* |
 
 1. Fare clic su **OK** per creare il contenitore.
@@ -144,9 +144,9 @@ Per ogni BLOB, generare una firma di accesso condiviso.
 
     Immettere il nome dell'applicazione blockchain e gli URL dell'ABI e del bytecode del contratto intelligente.
 
-    Impostazione | DESCRIZIONE
+    Impostazione | Descrizione
     --------|------------
-    NOME | Immettere un nome univoco per l'applicazione blockchain da monitorare.
+    Nome | Immettere un nome univoco per l'applicazione blockchain da monitorare.
     Contract ABI (ABI contratto) | Percorso URL del file ABI del contratto. Per altre informazioni, vedere [Creare l'URL dell'ABI e del bytecode del contratto](#create-contract-abi-and-bytecode-url).
     Contract bytecode (Bytecode contratto) | Percorso URL del file bytecode. Per altre informazioni, vedere [Creare l'URL dell'ABI e del bytecode del contratto](#create-contract-abi-and-bytecode-url).
 
@@ -171,7 +171,7 @@ Per ogni BLOB, generare una firma di accesso condiviso.
 
     ![Impostazioni per l'aggiunta del contenitore](./media/data-manager-cosmosdb/add-container.png)
 
-    | Impostazione | DESCRIZIONE
+    | Impostazione | Descrizione
     |---------|-------------|
     | ID database | Immettere **blockchain-data** come nome del nuovo database. |
     | Velocità effettiva | Lasciare il numero di unità elaborate impostato su **400** unità richieste al secondo (UR/s). Se si vuole ridurre la latenza, è possibile aumentare la velocità effettiva in un secondo momento.|
@@ -202,7 +202,7 @@ Ogni app per la logica deve essere avviata con un trigger, che viene attivato qu
 
     ![Impostazioni del trigger di Griglia di eventi](./media/data-manager-cosmosdb/event-grid-trigger.png)
 
-    | Impostazione | DESCRIZIONE
+    | Impostazione | Descrizione
     |---------|-------------|
     | Subscription | Scegliere la sottoscrizione che contiene l'argomento di Griglia di eventi. |
     | Tipo di risorsa | Scegliere **Microsoft.EventGrid.Topics**. |
@@ -219,7 +219,7 @@ Aggiungere un'azione per creare un documento in Cosmos DB per ogni transazione. 
 
     ![Impostazioni di connessione di Cosmos DB](./media/data-manager-cosmosdb/cosmosdb-connection.png)
 
-    | Impostazione | DESCRIZIONE
+    | Impostazione | Descrizione
     |---------|-------------|
     | Connection Name (Nome connessione) | Scegliere la sottoscrizione che contiene l'argomento di Griglia di eventi. |
     | Account DocumentDB | Scegliere l'account DocumentDB creato nella sezione [Creare l'account Azure Cosmos DB](#create-azure-cosmos-db). |
@@ -247,17 +247,17 @@ L'app per la logica monitora l'argomento di Griglia di eventi. Quando viene invi
 
 ## <a name="send-a-transaction"></a>Inviare una transazione
 
-Successivamente, inviare una transazione al libro mastro della blockchain per testare quello che è stato creato. Usare lo script **sendrequest.js** creato nel prerequisito [Esercitazione: Usare Visual Studio Code per creare, compilare e distribuire contratti intelligenti](send-transaction.md).
+Successivamente, inviare una transazione al libro mastro della blockchain per testare quello che è stato creato. Usare la funzione **SendRequest** del contratto **HelloBlockchain** creata in [Esercitazione: Usare Visual Studio Code per creare, compilare e distribuire contratti intelligenti](send-transaction.md).
 
-Nel riquadro del terminale di VS Code usare Truffle per eseguire lo script nella rete blockchain per consorzi. Nella barra dei menu del riquadro del terminale selezionare la scheda **Terminale** e **PowerShell** nell'elenco a discesa.
+1. Usare la pagina di interazione con il contratto intelligente del kit di sviluppo Azure Blockchain per chiamare la funzione **SendRequest**. Fare clic con il pulsante destro del mouse su **HelloBlockchain.sol** e scegliere **Show Smart Contract Interaction Page** (Mostra la pagina di interazione con il contratto intelligente) dal menu.
 
-``` PowerShell
-truffle exec sendrequest.js --network <blockchain network>
-```
+    ![Scegliere Show Smart Contract Interaction Page dal menu](./media/data-manager-cosmosdb/contract-interaction.png)
 
-Sostituire \<blockchain network\> con il nome della rete blockchain definita in **truffle-config.js**.
+1. Scegliere l'azione del contratto **SendRequest** e immettere **Hello, Blockchain!** per il parametro **requestMessage**. Selezionare **Execute** (Esegui) per chiamare la funzione **SendRequest** tramite una transazione.
 
-![Inviare la transazione](./media/data-manager-cosmosdb/send-request.png)
+    ![Eseguire l'azione SendRequest](./media/data-manager-cosmosdb/sendrequest-action.png)
+
+La funzione SendRequest imposta i campi **RequestMessage** e **State**. Lo stato corrente per **RequestMessage** è l'argomento **Hello, Blockchain** passato. Il valore del campo **State** rimane **Request**.
 
 ## <a name="view-transaction-data"></a>Visualizzare i dati delle transazioni
 

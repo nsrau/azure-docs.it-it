@@ -11,270 +11,239 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 01/22/2019
+ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 96b6788e48b845ef7f0add11767eb36b47cac36b
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a565aba12f1b10f215d8f6cc7fc0b7247a0441d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775270"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80066293"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Esercitazione: Instradare il traffico di rete con una tabella di route usando il portale di Azure
 
-Per impostazione predefinita, Azure instrada il traffico tra tutte le subnet di una rete virtuale. È possibile creare le proprie route per eseguire l'override del routing predefinito di Azure. La possibilità di creare route personalizzate è utile se, ad esempio, si vuole indirizzare il traffico tra subnet attraverso un'appliance virtuale di rete. In questa esercitazione verranno illustrate le procedure per:
+Per impostazione predefinita, Azure instrada il traffico tra tutte le subnet di una rete virtuale. È possibile creare le proprie route per eseguire l'override del routing predefinito di Azure. Le route personalizzate sono utili quando, ad esempio, si vuole indirizzare il traffico tra subnet attraverso un'appliance virtuale di rete. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
+> * Creare un'appliance virtuale di rete che indirizza il traffico
 > * Creare una tabella di route
 > * Creare una route
-> * Creare una rete virtuale con più subnet
 > * Associare una route a una subnet
-> * Creare un'appliance virtuale di rete che indirizza il traffico
 > * Distribuire le macchine virtuali in subnet diverse
 > * Indirizzare il traffico da una subnet a un'altra attraverso un'appliance virtuale di rete
 
-Se si preferisce, è possibile completare questa esercitazione usando l'[interfaccia della riga di comando di Azure](tutorial-create-route-table-cli.md) oppure [Azure PowerShell](tutorial-create-route-table-powershell.md).
+Questa esercitazione usa il [portale di Azure](https://portal.azure.com). È anche possibile usare l'[interfaccia della riga di comando di Azure](tutorial-create-route-table-cli.md) o [Azure PowerShell](tutorial-create-route-table-powershell.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="sign-in-to-azure"></a>Accedere ad Azure
+## <a name="create-an-nva"></a>Creare un'appliance virtuale di rete
 
-Accedere al [portale di Azure](https://portal.azure.com).
+Le appliance virtuali di rete (appliance virtuali) sono macchine virtuali utili per le funzioni di rete, ad esempio l'ottimizzazione del routing e del firewall. Questa esercitazione presuppone che venga usato **Windows Server 2016 Datacenter**. Se si desidera, è possibile selezionare un altro sistema operativo.
+
+1. Nel menu del [portale di Azure](https://portal.azure.com) o dalla pagina **Home** selezionare **Crea una risorsa**.
+
+1. Scegliere **Sicurezza** > **Windows Server 2016 Datacenter**.
+
+    ![Windows Server 2016 Datacenter, creare una macchina virtuale, portale di Azure](./media/tutorial-create-route-table-portal/vm-ws2016-datacenter.png)
+
+1. Nella pagina **Crea una macchina virtuale** in **Informazioni di base** immettere o selezionare queste informazioni:
+
+    | Sezione | Impostazione | Azione |
+    | ------- | ------- | ----- |
+    | **Dettagli del progetto** | Subscription | Scegliere la propria sottoscrizione. |
+    | | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
+    | **Dettagli istanza** | Nome macchina virtuale | Immettere *myVmNva*. |
+    | | Region | Scegliere **(Stati Uniti) Stati Uniti orientali**. |
+    | | Opzioni di disponibilità | Scegliere **La ridondanza dell'infrastruttura non è richiesta**. |
+    | | Immagine | Scegliere **Windows Server 2016 Datacenter**. |
+    | | Dimensione | Lasciare l'impostazione predefinita **DS1 Standard v2**. |
+    | **Account amministratore** | Username | Immettere un nome utente a scelta. |
+    | | Password | Immettere la password desiderata che deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm). |
+    | | Confirm Password | Immettere di nuovo la password. |
+    | **Regole porta in ingresso** | Porte in ingresso pubbliche | Selezionare **Nessuna**. |
+    | **Risparmio sui costi** | Si dispone già di una licenza di Windows Server? | Selezionare **No**. |
+
+    ![Informazioni di base, Creare una macchina virtuale, portale di Azure](./media/tutorial-create-route-table-portal/basics-create-virtual-machine.png)
+
+    Selezionare quindi **Avanti: Dischi >** .
+
+1. In **Dischi** selezionare le impostazioni adatte alle proprie esigenze, quindi fare clic su **Avanti: Rete >** .
+
+1. In **Rete**:
+
+    1. Per **Rete virtuale**, selezionare **Crea nuova**.
+    
+    1. Nel campo **Nome** della finestra di dialogo **Crea rete virtuale** immettere *myVirtualNetwork*.
+
+    1. In **Spazio indirizzi** sostituire l'intervallo di indirizzi esistente con *10.0.0.0/16*.
+
+    1. In **Subnet** selezionare l'icona **Elimina** per eliminare la subnet esistente, quindi immettere le combinazioni seguenti di **Nome subnet** e **Intervallo di indirizzi**. Una volta immesso un nome e un intervallo validi, viene visualizzata una nuova riga vuota.
+
+        | Nome della subnet | Intervallo di indirizzi |
+        | ----------- | ------------- |
+        | *Pubblica* | *10.0.0.0/24* |
+        | *Privata* | *10.0.1.0/24* |
+        | *Rete perimetrale* | *10.0.2.0/24* |
+
+    1. Fare clic su **OK** per chiudere la finestra di dialogo.
+
+    1. In **Subnet** scegliere **Rete perimetrale (10.0.2.0/24)** .
+
+    1. In **Indirizzo IP pubblico** scegliere **Nessuno** perché questa macchina virtuale non si connetterà a Internet.
+
+    1. Selezionare **Avanti: Gestione >** .
+
+1. In **Gestione**:
+
+    1. In **Account di archiviazione di diagnostica** selezionare **Crea nuovo**.
+    
+    1. Nella finestra di dialogo **Crea account di archiviazione** immettere o selezionare queste informazioni:
+
+        | Impostazione | valore |
+        | ------- | ----- |
+        | Nome | *mynvastorageaccount* |
+        | Tipo di account | **Archiviazione (utilizzo generico v1)** |
+        | Prestazioni | **Standard** |
+        | Replica | **Archiviazione con ridondanza locale (LRS)** |
+    
+    1. Fare clic su **OK** per chiudere la finestra di dialogo.
+
+    1. Selezionare **Rivedi e crea**. Si verrà reindirizzati alla pagina **Rivedi e crea** e Azure convaliderà la configurazione.
+
+1. Quando viene visualizzato il messaggio **Convalida superata**, selezionare **Crea**.
+
+    La creazione della VM richiede alcuni minuti. Attendere fino a quando Azure non termina la creazione della macchina virtuale. La pagina **La distribuzione è in corso** mostrerà i dettagli della distribuzione.
+
+1. Quando la macchina virtuale è pronta, selezionare **Vai alla risorsa**.
 
 ## <a name="create-a-route-table"></a>Creare una tabella di route
 
-1. Nel menu del portale di Azure selezionare **Crea una risorsa**.
+1. Nel menu del [portale di Azure](https://portal.azure.com) o dalla pagina **Home** selezionare **Crea una risorsa**.
+
 2. Nella casella di ricerca immettere *Tabella di route*. Selezionare **Tabella di route** quando viene visualizzata nei risultati della ricerca.
+
 3. Nella pagina **Tabella di route** selezionare **Crea**.
+
 4. In **Crea tabella di route** immettere o selezionare queste informazioni:
 
     | Impostazione | valore |
     | ------- | ----- |
-    | Nome | Immettere *myRouteTablePublic*. |
-    | Subscription | Selezionare la propria sottoscrizione. |
-    | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare *OK*. |
-    | Location | Selezionare **Stati Uniti orientali**.
-    | Propagazione della route del gateway di rete virtuale | Lasciare il valore predefinito, **Abilitata**. |
+    | Nome | *myRouteTablePublic* |
+    | Subscription | Sottoscrizione in uso |
+    | Resource group | **myResourceGroup** |
+    | Location | **(Stati Uniti) Stati Uniti orientali** |
+    | Propagazione della route del gateway di rete virtuale | **Enabled** |
+
+    ![Crea tabella di route, portale di Azure](./media/tutorial-create-route-table-portal/create-route-table.png)
+
 5. Selezionare **Create** (Crea).
 
 ## <a name="create-a-route"></a>Creare una route
 
-1. Nella barra di ricerca del portale, immettere *myRouteTablePublic*.
+1. Passare al [portale di Azure](https://portal.azure.com) per gestire la tabella di route. Cercare e selezionare **Tabelle di route**.
 
-1. Selezionare **myRouteTablePublic** quando viene visualizzato nei risultati della ricerca.
+1. Selezionare il nome della tabella di route (**myRouteTablePublic**).
 
-1. Nella pagina **myRouteTablePublic**, in **Impostazioni** selezionare **Route** >  **+ Aggiungi**.
+1. Scegliere **Route** > **Aggiungi**.
 
-    ![Aggiungere la route](./media/tutorial-create-route-table-portal/add-route.png)
+    ![Aggiungi route, tabella di route, portale di Azure](./media/tutorial-create-route-table-portal/add-route.png)
 
 1. In **Aggiungi route** immettere o selezionare queste informazioni:
 
     | Impostazione | valore |
     | ------- | ----- |
-    | Nome route | Immettere *ToPrivateSubnet*. |
-    | Prefisso indirizzo | Immettere *10.0.1.0/24*. |
-    | Tipo hop successivo | Selezionare **Appliance virtuale**. |
-    | Indirizzo hop successivo | Immettere *10.0.2.4*. |
+    | Nome route | *ToPrivateSubnet* |
+    | Prefisso indirizzo | *10.0.1.0/24* (intervallo di indirizzi della subnet *privata* creata in precedenza) |
+    | Tipo hop successivo | **Appliance virtuale** |
+    | Indirizzo hop successivo | *10.0.2.4* (indirizzo compreso nell'intervallo di indirizzi della subnet di *rete perimetrale*) |
 
 1. Selezionare **OK**.
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associare una route a una subnet
 
-Prima di poter associare una tabella di route a una subnet, è necessario creare una rete virtuale e una subnet.
+1. Passare al [portale di Azure](https://portal.azure.com) per gestire la rete virtuale. Cercare e selezionare **Reti virtuali**.
 
-### <a name="create-a-virtual-network"></a>Crea rete virtuale
+1. Selezionare il nome della rete virtuale (**myVirtualNetwork**).
 
-1. Nella parte superiore sinistra della schermata, selezionare **Crea una risorsa** > **Rete** > **Rete virtuale**.
+1. Nella barra dei menu della rete virtuale scegliere **Subnet**.
 
-1. In **Crea rete virtuale** immettere o selezionare queste informazioni:
+1. Nell'elenco delle subnet della rete virtuale scegliere **Pubblica**.
 
-    | Impostazione | valore |
-    | ------- | ----- |
-    | Nome | Immettere *myVirtualNetwork*. |
-    | Spazio degli indirizzi | Immettere *10.0.0.0/16*. |
-    | Subscription | Selezionare la propria sottoscrizione. |
-    | Resource group | Selezionare ***Seleziona esistente*** > **myResourceGroup**. |
-    | Location | Lasciare il valore **Stati Uniti orientali** predefinito. |
-    | Subnet - Nome | Immettere *Pubblica*. |
-    | Subnet - Intervallo di indirizzi | Immettere *10.0.0.0/24*. |
+1. In **Tabella di route** scegliere la tabella di route creata (**myRouteTablePublic**), quindi selezionare **Salva** per associare la tabella di route alla subnet *Pubblica*.
 
-1. Accettare tutte le impostazioni predefinite e selezionare **Crea**.
-
-### <a name="add-subnets-to-the-virtual-network"></a>Aggiungere subnet alla rete virtuale
-
-1. Nella barra di ricerca del portale, immettere *myVirtualNetwork*.
-
-1. Selezionare **myVirtualNetwork** quando viene visualizzato nei risultati della ricerca.
-
-1. In **myVirtualNetwork**, in **Impostazioni** selezionare **Subnet** >  **+ Subnet**.
-
-    ![Aggiungi subnet](./media/tutorial-create-route-table-portal/add-subnet.png)
-
-1. In **Aggiungi subnet**, immettere queste informazioni:
-
-    | Impostazione | valore |
-    | ------- | ----- |
-    | Nome | Immettere *Privata*. |
-    | Spazio degli indirizzi | Immettere *10.0.1.0/24*. |
-
-1. Accettare tutte le impostazioni predefinite e selezionare **OK**.
-
-1. Selezionare nuovamente **+ Subnet**. Questa volta, immettere le informazioni seguenti:
-
-    | Impostazione | valore |
-    | ------- | ----- |
-    | Nome | Immettere *DMZ*. |
-    | Spazio degli indirizzi | Immettere *10.0.2.0/24*. |
-
-1. Come in precedenza, accettare tutte le impostazioni predefinite e selezionare **OK**.
-
-    Azure mostra tre subnet: **Pubblica**, **Privata** e **DMZ**.
-
-### <a name="associate-myroutetablepublic-to-your-public-subnet"></a>Associare myRouteTablePublic alla subnet pubblica
-
-1. Selezionare **Pubblica**.
-
-1. In **Pubblica** selezionare **Tabella di route** > **MyRouteTablePublic** > **Salva**.
-
-    ![Associare la tabella di route](./media/tutorial-create-route-table-portal/associate-route-table.png)
-
-## <a name="create-an-nva"></a>Creare un'appliance virtuale di rete
-
-Le appliance virtuali di rete sono macchine virtuali con funzioni di rete come l'ottimizzazione di routing e firewall. Se si desidera, è possibile selezionare un altro sistema operativo. Questa esercitazione presuppone che venga usato **Windows Server 2016 Datacenter**.
-
-1. Nella parte superiore sinistra della schermata, selezionare **Crea una risorsa** > **Calcolo** > **Windows Server 2016 Datacenter**.
-
-1. In **Creare una macchina virtuale - Informazioni di base**, immettere o selezionare queste informazioni:
-
-    | Impostazione | valore |
-    | ------- | ----- |
-    | **DETTAGLI DEL PROGETTO** | |
-    | Subscription | Selezionare la propria sottoscrizione. |
-    | Resource group | Selezionare **myResourceGroup**. |
-    | **DETTAGLI DELL'ISTANZA** |  |
-    | Nome macchina virtuale | Immettere *myVmNva*. |
-    | Region | Selezionare **Stati Uniti orientali**. |
-    | Opzioni di disponibilità | Lasciare l'impostazione predefinita **Nessuna ridondanza dell'infrastruttura necessaria**. |
-    | Immagine | Lasciare l'impostazione predefinita **Windows Server 2016 Datacenter**. |
-    | Dimensione | Lasciare l'impostazione predefinita **DS1 Standard v2**. |
-    | **ACCOUNT AMMINISTRATORE** |  |
-    | Username | Immettere un nome utente a scelta. |
-    | Password | Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    | Confirm Password | Reimmettere la password. |
-    | **REGOLE PORTA IN INGRESSO** |  |
-    | Porte in ingresso pubbliche | Selezionare **Nessuno**.
-    | **RISPARMIA** |  |
-    | Già in possesso di una licenza di Windows? | Lasciare il valore predefinito **No**. |
-
-1. Selezionare **Avanti: Dischi**.
-
-1. In **Creare una macchina virtuale - Dischi** selezionare le impostazioni adatte alle proprie esigenze.
-
-1. Selezionare **Avanti: Rete**.
-
-1. In **Creare una macchina virtuale - Rete**, selezionare queste informazioni:
-
-    | Impostazione | valore |
-    | ------- | ----- |
-    | Rete virtuale | Lasciare l'impostazione predefinita **myVirtualNetwork**. |
-    | Subnet | Selezionare **DMZ (10.0.2.0/24)** . |
-    | IP pubblico | Selezionare **Nessuno**. Non è necessario un indirizzo IP pubblico. La macchina virtuale, infatti, non si connetterà a Internet.|
-
-1. Lasciare i valori predefiniti di tutte le altre impostazioni e selezionare **Avanti: Gestione**.
-
-1. In **Creare una macchina virtuale - Gestione**, per **Account di archiviazione di diagnostica**, selezionare **Crea nuovo**.
-
-1. In **Crea account di archiviazione**, immettere o selezionare queste informazioni:
-
-    | Impostazione | valore |
-    | ------- | ----- |
-    | Nome | Immettere *mynvastorageaccount*. |
-    | Tipo di account | Lasciare l'impostazione predefinita **Archiviazione (utilizzo generico v1)** . |
-    | Prestazioni | Lasciare l'impostazione predefinita **Standard**. |
-    | Replica | Lasciare l'impostazione predefinita **Archiviazione con ridondanza locale**.
-
-1. Selezionare **OK**.
-
-1. Selezionare **Rivedi e crea**. Si verrà reindirizzati alla pagina **Rivedi e crea** e Azure convaliderà la configurazione.
-
-1. Quando viene visualizzato il messaggio **Convalida superata**, selezionare **Crea**.
-
-    La creazione della VM richiede alcuni minuti. Non continuare fino a quando Azure non termina la creazione della macchina virtuale. La pagina **La distribuzione è in corso** mostrerà i dettagli della distribuzione.
-
-1. Quando la macchina virtuale è pronta, selezionare **Vai alla risorsa**.
+    ![Associare la tabella di route, elenco di subnet, rete virtuale, portale di Azure](./media/tutorial-create-route-table-portal/associate-route-table.png)
 
 ## <a name="turn-on-ip-forwarding"></a>Abilitare l'inoltro IP
 
-Attivare l'inoltro IP per *myVmNva*. Quando Azure invia il traffico di rete verso *myVmNva*, se il traffico è destinato a un indirizzo IP diverso l'inoltro IP lo invierà nella posizione corretta.
+A questo punto, attivare l'inoltro IP per la nuova macchina virtuale appliance virtuale di rete, *myVmNva*. Quando Azure invia il traffico di rete verso *myVmNva*, se il traffico è destinato a un indirizzo IP diverso l'inoltro IP lo invierà alla posizione corretta.
 
-1. In **myVmNva**, in **Impostazioni** selezionare **Rete**.
+1. Passare al [portale di Azure](https://portal.azure.com) per gestire la macchina virtuale. Cercare e selezionare **Macchine virtuali**.
 
-1. Selezionare **myvmnva123**, ovvero l'interfaccia di rete creata da Azure per la macchina virtuale. Disporrà di una stringa di numeri che la renderà univoca.
+1. Selezionare il nome della macchina virtuale (**myVmNva**).
 
-    ![Rete VM](./media/tutorial-create-route-table-portal/virtual-machine-networking.png)
+1. Nella barra dei menu della macchina virtuale appliance virtuale di rete selezionare **Rete**.
 
-1. In **Impostazioni** selezionare **Configurazioni IP**.
+1. Selezionare **myvmnva123**, ovvero l'interfaccia di rete creata da Azure per la macchina virtuale. Azure aggiunge alcuni numeri per garantire un nome univoco.
 
-1. In **myvmnva123 - Configurazioni IP**, per **Inoltro IP** selezionare **Abilitato** e quindi selezionare **Salva**.
+    ![Rete, macchina virtuale appliance virtuale di rete, portale di Azure](./media/tutorial-create-route-table-portal/virtual-machine-networking.png)
 
-    ![Abilitare l'inoltro IP](./media/tutorial-create-route-table-portal/enable-ip-forwarding.png)
+1. Nella barra dei menu dell'interfaccia di rete selezionare **Configurazioni IP**.
+
+1. Nella pagina **Configurazioni IP** impostare **Inoltro IP** su **Abilitato** e quindi selezionare **Salva**.
+
+    ![Abilitare l'inoltro IP, configurazioni IP, interfaccia di rete, macchina virtuale appliance virtuale di rete, portale di Azure](./media/tutorial-create-route-table-portal/enable-ip-forwarding.png)
 
 ## <a name="create-public-and-private-virtual-machines"></a>Creare macchine virtuali pubbliche e private
 
 Creare una macchina virtuale pubblica e una macchina virtuale privata nella rete virtuale. In un secondo momento, li si userà per verificare che Azure instradi il traffico della subnet *pubblica* a quella *privata* attraverso l'appliance virtuale di rete.
 
-Completare i passaggi da 1 a 12 di [Creare un'appliance virtuale di rete](#create-an-nva). Lasciare invariata la maggior parte delle impostazioni e modificare invece questi valori:
+Per creare la macchina virtuale pubblica e la macchina virtuale privata, seguire la procedura illustrata in precedenza in [Creare un'appliance virtuale di rete](#create-an-nva). Non è necessario attendere il completamento della distribuzione o passare alla risorsa macchina virtuale. Verranno usate le stesse impostazioni, ad eccezione di quanto descritto di seguito.
 
-| Impostazione | valore |
-| ------- | ----- |
-| **MACCHINA VIRTUALE PUBBLICA** | |
-| INFORMAZIONI DI BASE |  |
-| Nome macchina virtuale | Immettere *myVmPublic*. |
-| RETE | |
-| Subnet | Selezionare **Pubblica (10.0.0.0/24)** . |
-| Indirizzo IP pubblico | Accettare il valore predefinito. |
-| Porte in ingresso pubbliche | Selezionare **Consenti porte selezionate**. |
-| Selezionare le porte in ingresso | Selezionare **HTTP** e **RDP**. |
-| GESTIONE | |
-| Account di archiviazione di diagnostica | Lasciare l'impostazione predefinita **mynvastorageaccount**. |
-| **MACCHINA VIRTUALE PRIVATA** | |
-| INFORMAZIONI DI BASE |  |
-| Nome macchina virtuale | Immettere *myVmPrivate*. |
-| RETE | |
-| Subnet | Selezionare **Privata (10.0.1.0/24)** . |
-| Indirizzo IP pubblico | Accettare il valore predefinito. |
-| Porte in ingresso pubbliche | Selezionare **Consenti porte selezionate**. |
-| Selezionare le porte in ingresso | Selezionare **HTTP** e **RDP**. |
-| GESTIONE | |
-| Account di archiviazione di diagnostica | Lasciare l'impostazione predefinita **mynvastorageaccount**. |
+Prima di selezionare **Crea** per creare la macchina virtuale pubblica o privata, passare alle due sottosezioni seguenti ([Macchina virtuale pubblica](#public-vm) e [Macchina virtuale privata](#private-vm)), che mostrano i valori che devono essere diversi. È possibile procedere alla sezione successiva ([Indirizzare il traffico attraverso un'appliance virtuale di rete](#route-traffic-through-an-nva)) dopo che Azure ha completato la distribuzione di entrambe le macchine virtuali.
 
-È possibile creare la macchina virtuale *myVmPrivate* mentre Azure crea la macchina virtuale *myVmPublic*. Prima di continuare con i passaggi rimanenti, attendere che Azure finisca di creare entrambe le macchine virtuali.
+### <a name="public-vm"></a>Macchina virtuale pubblica
+
+| Scheda | Impostazione | valore |
+| --- | ------- | ----- |
+| Nozioni di base | Resource group | **myResourceGroup** |
+| | Nome macchina virtuale | *myVmPublic* |
+| | Porte in ingresso pubbliche | **Consenti porte selezionate** |
+| | Selezionare le porte in ingresso | **HTTP** e **RDP** |
+| Rete | Rete virtuale | **myVirtualNetwork** |
+| | Subnet | **Pubblica (10.0.0.0/24)** |
+| | Indirizzo IP pubblico | Valore predefinito |
+| Gestione | Account di archiviazione di diagnostica | **mynvastorageaccount** |
+
+### <a name="private-vm"></a>Macchina virtuale privata
+
+| Scheda | Impostazione | valore |
+| --- | ------- | ----- |
+| Nozioni di base | Resource group | **myResourceGroup** |
+| | Nome macchina virtuale | *myVmPrivate* |
+| | Porte in ingresso pubbliche | **Consenti porte selezionate** |
+| | Selezionare le porte in ingresso | **HTTP** e **RDP** |
+| Rete | Rete virtuale | **myVirtualNetwork** |
+| | Subnet | **Privata (10.0.1.0/24)** |
+| | Indirizzo IP pubblico | Valore predefinito |
+| Gestione | Account di archiviazione di diagnostica | **mynvastorageaccount** |
 
 ## <a name="route-traffic-through-an-nva"></a>Indirizzare il traffico attraverso un'appliance virtuale di rete
 
 ### <a name="sign-in-to-myvmprivate-over-remote-desktop"></a>Accedere a myVmPrivate tramite desktop remoto
 
-1. Nella barra di ricerca del portale, immettere *myVmPrivate*.
+1. Passare al [portale di Azure](https://portal.azure.com) per gestire la macchina virtuale privata. Cercare e selezionare **Macchine virtuali**.
 
-1. Selezionare la macchina virtuale **myVmPrivate** quando viene visualizzata nei risultati della ricerca.
+1. Selezionare il nome della macchina virtuale privata (**myVmPrivate**).
 
-1. Selezionare **Connetti** per creare una connessione desktop remoto per la macchina virtuale *myVmPrivate*.
+1. Nella barra dei menu della macchina virtuale, selezionare **Connetti** per creare una connessione Desktop remoto per la macchina virtuale privata.
 
-1. In **Connetti alla macchina virtuale in corso** selezionare **Scarica file RDP**. Azure crea e scarica nel computer un file Remote Desktop Protocol con estensione *.rdp*.
+1. Nella pagina **Connetti tramite RDP** selezionare **Scarica file RDP**. Azure crea e scarica nel computer un file Remote Desktop Protocol con estensione *.rdp*.
 
-1. Aprire il file con estensione *.rdp* scaricato.
-
-    1. Quando richiesto, selezionare **Connetti**.
-
-    1. Immettere il nome utente e la password specificati al momento della creazione della macchina virtuale privata.
-
-    1. Potrebbe essere necessario selezionare **Altre scelte** > **Usa un account diverso** per usare le credenziali della macchina virtuale privata.
+1. Aprire il file con estensione *.rdp* scaricato. Quando richiesto, selezionare **Connetti**. Selezionare **Altre opzioni** > **Usa un account diverso**, quindi immettere il nome utente e la password specificati durante la creazione della macchina virtuale privata.
 
 1. Selezionare **OK**.
 
-    Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato.
-
-1. Selezionare **Sì** per connettersi alla macchina virtuale.
+1. Se viene visualizzato un avviso relativo al certificato durante il processo di accesso, selezionare **Sì** per connettersi alla macchina virtuale.
 
 ### <a name="enable-icmp-through-the-windows-firewall"></a>Abilitare ICPM in Windows Firewall
 
@@ -288,7 +257,7 @@ In un passaggio successivo viene usato lo strumento di tracciamento delle route 
     New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
-    In questa esercitazione si usa il tracciamento delle route per testare il routing. Per gli ambienti di produzione, non è consigliabile consentire il protocollo ICMP tramite Windows Firewall.
+    In questa esercitazione verrà usata la route di traccia per testare il routing. Per gli ambienti di produzione, non è consigliabile consentire il protocollo ICMP tramite Windows Firewall.
 
 ### <a name="turn-on-ip-forwarding-within-myvmnva"></a>Attivare l'inoltro IP in myVmNva
 
@@ -300,22 +269,22 @@ Si è [attivato l'inoltro IP](#turn-on-ip-forwarding) per interfaccia di rete de
     mstsc /v:myvmnva
     ```
 
-1. Da PowerShell in *myVmNva*, immettere questo comando per attivare l'inoltro IP:
+1. Da PowerShell nella macchina virtuale *myVmNva* immettere questo comando per attivare l'inoltro IP:
 
     ```powershell
     Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
     ```
 
-1. Riavviare la macchina virtuale *myVmNva*. Nella barra delle applicazioni selezionare **Pulsante Start** > **Pulsante di alimentazione**, **Altro (pianificato)**  > **Continua**.
+1. Riavviare la macchina virtuale *myVmNva*: Nella barra delle applicazioni selezionare **Start** > **Arresta**, **Altro (pianificato)**  > **Continua**.
 
-    Con questa operazione verrà anche disconnessa la sessione desktop remoto.
+    Con questa operazione verrà anche disconnessa la sessione Desktop remoto.
 
 1. Dopo il riavvio della macchina virtuale *myVmNva*, creare una sessione desktop remoto alla macchina virtuale *myVmPublic*. Mentre si è ancora connessi alla macchina virtuale *myVmPrivate*, aprire un prompt dei comandi ed eseguire questo comando:
 
     ```cmd
     mstsc /v:myVmPublic
     ```
-1. Nel desktop remoto di *myVmPublic* aprire PowerShell.
+1. Nel Desktop remoto di *myVmPublic* aprire PowerShell.
 
 1. Abilitare il protocollo ICMP tramite Windows Firewall immettendo il comando seguente:
 
@@ -345,7 +314,7 @@ In primo luogo, testare il routing del traffico di rete dalla macchina virtuale 
     Trace complete.
     ```
 
-    È possibile visualizzare che il primo hop è 10.0.2.4. Si tratta dell'indirizzo IP privato dell'appliance virtuale di rete. Il secondo hop è rivolto all'indirizzo IP privato della macchina virtuale *myVmPrivate*: 10.0.1.4. In precedenza è stata aggiunta la route alla tabella di route *myRouteTablePublic* ed è stata associata alla subnet *Public* (pubblica). Di conseguenza, Azure ha invia il traffico attraverso l'appliance virtuale di rete e non direttamente alla subnet *privata*.
+    Come si può notare, il primo hop è 10.0.2.4, cioè l'indirizzo IP privato dell'appliance virtuale di rete. Il secondo hop è rivolto all'indirizzo IP privato della macchina virtuale *myVmPrivate*: 10.0.1.4. In precedenza è stata aggiunta la route alla tabella di route *myRouteTablePublic* ed è stata associata alla subnet *Public* (pubblica). Di conseguenza, Azure ha invia il traffico attraverso l'appliance virtuale di rete e non direttamente alla subnet *privata*.
 
 1. Chiudere la sessione Desktop remoto alla macchina virtuale *myVmPublic*. Si rimarrà tuttavia connessi alla macchina virtuale *myVmPrivate*.
 
@@ -355,7 +324,7 @@ In primo luogo, testare il routing del traffico di rete dalla macchina virtuale 
     tracert myVmPublic
     ```
 
-    Testa il routing del traffico di rete dalla macchina virtuale *myVmPrivate* alla macchina virtuale *myVmPublic*. La risposta restituita è simile all'esempio seguente:
+    Questo comando testa il routing del traffico di rete dalla macchina virtuale *myVmPrivate* alla macchina virtuale *myVmPublic*. La risposta restituita è simile all'esempio seguente:
 
     ```cmd
     Tracing route to myVmPublic.vpgub4nqnocezhjgurw44dnxrc.bx.internal.cloudapp.net [10.0.0.4]
@@ -372,21 +341,21 @@ In primo luogo, testare il routing del traffico di rete dalla macchina virtuale 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non sono più necessari, eliminare il gruppo di risorse e tutte le risorse in esso contenute:
+Quando il gruppo di risorse non è più necessario, eliminare *myResourceGroup* e tutte le risorse al suo interno:
 
-1. Nella barra di ricerca del portale immettere *myResourceGroup*.
+1. Passare al [portale di Azure](https://portal.azure.com) per gestire il gruppo di risorse. Cercare e selezionare **Gruppi di risorse**.
 
-1. Selezionare **myResourceGroup** quando viene visualizzato nei risultati della ricerca.
+1. Selezionare il nome del gruppo di risorse, **myResourceGroup**.
 
 1. Selezionare **Elimina gruppo di risorse**.
 
-1. Immettere *myResourceGroup* in **DIGITARE IL NOME DEL GRUPPO DI RISORSE** e selezionare **Elimina**.
+1. Nella finestra di dialogo di conferma dell'eliminazione, nella casella *DIGITARE IL NOME DEL GRUPPO DI RISORSE* immettere **myResourceGroup** e quindi selezionare **Elimina**. Azure elimina *myResourceGroup* e tutte le risorse associate a tale gruppo di risorse, incluse le tabelle di route, gli account di archiviazione, le reti virtuali, le macchine virtuali, le interfacce di rete e gli indirizzi IP pubblici.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stata creata una tabella di route per poi associarla a una subnet. È stata creata una semplice appliance virtuale di rete che ha indirizzato il traffico da una subnet pubblica a una subnet privata. Ora che si è appreso come eseguire questa operazione, è possibile distribuire diverse appliance virtuali di rete configurate in precedenza da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Effettuano numerose utili funzioni di rete. Per altre informazioni sul routing, vedere [Panoramica del routing](virtual-networks-udr-overview.md) e [Gestire una tabella di route](manage-route-table.md).
+In questa esercitazione è stata creata una tabella di route per poi associarla a una subnet. È stata creata una semplice appliance virtuale di rete che ha indirizzato il traffico da una subnet pubblica a una subnet privata. A questo punto è possibile distribuire varie appliance virtuali di rete preconfigurate che offrono numerose funzioni utili da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Per altre informazioni sul routing, vedere [Panoramica del routing](virtual-networks-udr-overview.md) e [Gestire una tabella di route](manage-route-table.md).
 
-Benché sia possibile distribuire molte risorse di Azure all'interno di una rete virtuale, Azure non è in grado di distribuire le risorse per i servizi PaaS in una rete virtuale. È possibile limitare l'accesso alle risorse di alcuni servizi PaaS di Azure. La restrizione deve riguardare tuttavia solo il traffico dalla subnet di una rete virtuale. Passare all'esercitazione successiva per informazioni su come limitare l'accesso di rete alle risorse PaaS di Azure.
+Benché sia possibile distribuire molte risorse di Azure all'interno di una rete virtuale, Azure non è in grado di distribuire le risorse per i servizi PaaS in una rete virtuale. È possibile limitare l'accesso alle risorse di alcuni servizi PaaS di Azure, sebbene la limitazione sia applicabile solo al traffico da una subnet di rete virtuale. Passare all'esercitazione successiva per informazioni su come limitare l'accesso di rete alle risorse PaaS di Azure.
 
 > [!div class="nextstepaction"]
 > [Limitare l'accesso alla rete alle risorse PaaS](tutorial-restrict-network-access-to-resources.md)

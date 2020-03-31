@@ -9,14 +9,14 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: f422d1dd6c76d78448ae4fb1012a5dae8d6108b3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: 63c5f068adab58c901acf5fd26261d57e1183f0d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376611"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79481518"
 ---
-# <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Esercitazione: creare una macchina virtuale di gestione per configurare e amministrare un dominio gestito Azure Active Directory Domain Services
+# <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Esercitazione: Creare una VM di gestione per configurare e amministrare un dominio gestito di Azure Active Directory Domain Services
 
 Azure Active Directory Domain Services (AD DS) offre servizi di dominio gestiti, come l'aggiunta a un dominio, Criteri di gruppo, LDAP e l'autenticazione Kerberos/NTLM, completamente compatibili con Windows Server Active Directory. Il dominio gestito viene amministrato usando gli stessi Strumenti di amministrazione remota del server di un dominio di Active Directory Domain Services locale. Poiché Azure AD DS è un servizio gestito, alcune attività amministrative non possono essere eseguite, ad esempio l'uso del protocollo RDP (Remote Desktop Protocol) per connettersi ai controller di dominio.
 
@@ -31,7 +31,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti:
 
@@ -44,8 +44,8 @@ Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti
 * Una VM Windows Server aggiunta al dominio gestito di Azure AD DS.
     * Se necessario, seguire l'esercitazione precedente per [creare una macchina virtuale Windows Server e aggiungerla a un dominio gestito][create-join-windows-vm].
 * Un account utente membro del gruppo di *amministratori dei controller di dominio di Azure AD* nel tenant di Azure AD.
-* Un host di Azure Bastion distribuito nella rete virtuale Azure AD DS.
-    * Se necessario, [creare un host Bastion di Azure][azure-bastion].
+* Un host Azure Bastion distribuito nella rete virtuale di Azure Active Directory Domain Services.
+    * Se necessario, [creare un host Azure Bastion][azure-bastion].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -85,15 +85,16 @@ Nell'esercitazione precedente è stata creata una macchina virtuale Windows Serv
 Per iniziare, connettersi alla VM Windows Server come illustrato di seguito:
 
 1. Nel riquadro di spostamento sinistro del portale di Azure selezionare **Gruppi di risorse**. Scegliere il gruppo di risorse in cui è stata creata la VM, ad esempio *myResourceGroup*, quindi selezionare la VM, ad esempio *myVM*.
-1. Nel riquadro **Panoramica** per la VM selezionare **Connetti**, quindi **Bastion**.
+1. Nel riquadro **Panoramica** della macchina virtuale selezionare **Connetti** e quindi **Bastion**.
 
-    ![Connettersi a una macchina virtuale Windows usando Bastion nel portale di Azure](./media/join-windows-vm/connect-to-vm.png)
+    ![Connettersi alla macchina virtuale Windows tramite Bastion nel portale di Azure](./media/join-windows-vm/connect-to-vm.png)
 
-1. Immettere le credenziali per la macchina virtuale e quindi selezionare **Connetti**.
+    È anche possibile [creare e usare un host di Azure Bastion (attualmente in anteprima)][azure-bastion] per consentire l'accesso solo dal portale di Azure tramite TLS.
+1. Immettere le credenziali per la macchina virtuale, quindi selezionare **Connetti**.
 
-   ![Connettersi tramite l'host Bastion nella portale di Azure](./media/join-windows-vm/connect-to-bastion.png)
+   ![Connettersi tramite l'host Bastion nel portale di Azure](./media/join-windows-vm/connect-to-bastion.png)
 
-Se necessario, consentire al Web browser di aprire popup per la visualizzazione della connessione Bastion. Per eseguire la connessione alla macchina virtuale sono necessari alcuni secondi.
+Se necessario, consentire al Web browser di aprire finestre popup per la visualizzazione della connessione Bastion. Per stabilire la connessione con la macchina virtuale sono necessari alcuni secondi.
 
 ## <a name="install-active-directory-administrative-tools"></a>Installare gli strumenti di amministrazione di Active Directory
 
@@ -105,7 +106,7 @@ Per installare gli strumenti di amministrazione di Active Directory in una VM ag
 1. Fare clic su *Aggiungi ruoli e funzionalità* nel riquadro **Dashboard** della finestra **Server Manager**.
 1. Nella pagina **Prima di iniziare** dell'*aggiunta guidata ruoli e funzionalità* selezionare **Avanti**.
 1. Per *Tipo di installazione* lasciare selezionata l'opzione **Installazione basata su ruoli o basata su funzionalità** e selezionare **Avanti**.
-1. Nella pagina **Selezione server** scegliere la macchina virtuale corrente dal pool di server, ad esempio *MyVM.aaddscontoso.com*, quindi fare clic su **Avanti**.
+1. Nella pagina **Selezione server** scegliere la macchina virtuale corrente dal pool di server, ad esempio *myvm.aaddscontoso.com* e quindi selezionare **Avanti**.
 1. Nella pagina **Ruoli del server** fare clic su **Avanti**.
 1. Nella pagina **Funzionalità** espandere il nodo **Strumenti di amministrazione remota del server**, quindi il nodo **Strumenti di amministrazione ruoli**.
 
@@ -125,7 +126,7 @@ Una volta installati gli strumenti di amministrazione, ecco come usarli per ammi
     ![Elenco di strumenti di amministrazione installati nel server](./media/tutorial-create-management-vm/list-admin-tools.png)
 
 1. Selezionare **Centro di amministrazione di Active Directory**.
-1. Per esplorare il dominio gestito di Azure AD DS, scegliere il nome di dominio nel riquadro a sinistra, ad esempio *aaddscontoso.com*. All'inizio dell'elenco sono presenti due contenitori denominati *AADDC Computers* e *AADDC Users*.
+1. Per esplorare il dominio gestito di Azure Active Directory Domain Services, scegliere il nome di dominio nel riquadro sinistro, ad esempio *aaddscontoso.com*. All'inizio dell'elenco sono presenti due contenitori denominati *AADDC Computers* e *AADDC Users*.
 
     ![Visualizzare l'elenco dei contenitori disponibili appartenenti al dominio gestito di Azure AD DS](./media/tutorial-create-management-vm/active-directory-administrative-center.png)
 

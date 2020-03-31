@@ -9,14 +9,14 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2020
 ms.author: iainfou
-ms.openlocfilehash: 05705d14db336b15a6ddf2317f9e69464c8e575b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: f853d6d59a4c23b7b52a2a0ba800ace58c997f6e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378541"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79481586"
 ---
-# <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Esercitazione: aggiungere una macchina virtuale Windows Server a un dominio gestito
+# <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Esercitazione: Aggiungere una macchina virtuale Windows Server a un dominio gestito
 
 Azure Active Directory Domain Services (Azure AD DS) offre servizi di dominio gestiti, come l'aggiunta a un dominio, Criteri di gruppo, LDAP e l'autenticazione Kerberos/NTLM, completamente compatibili con Windows Server Active Directory. Con un dominio gestito di Azure Active Directory Domain Services, è possibile rendere disponibili alle macchine virtuali di Azure funzionalità per l'aggiunta a un dominio e la gestione. Questa esercitazione illustra come creare una macchina virtuale Windows Server e quindi aggiungerla a un dominio gestito di Azure Active Directory Domain Services.
 
@@ -29,7 +29,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione, sono necessarie le risorse seguenti:
 
@@ -39,10 +39,10 @@ Per completare l'esercitazione, sono necessarie le risorse seguenti:
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
 * Un dominio gestito di Azure Active Directory Domain Services abilitato e configurato nel tenant di Azure AD.
     * Se necessario, [creare e configurare un'istanza di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-* Un account utente che fa parte del dominio gestito Azure AD DS.
+* Un account utente che fa parte del dominio gestito di Azure AD DS.
     * Assicurarsi che sia stata eseguita la sincronizzazione dell'hash della password di Azure AD Connect o la reimpostazione della password self-service in modo che l'account sia in grado di accedere al dominio gestito di Azure Active Directory Domain Services.
-* Un host di Azure Bastion distribuito nella rete virtuale Azure AD DS.
-    * Se necessario, [creare un host Bastion di Azure][azure-bastion].
+* Un host Azure Bastion distribuito nella rete virtuale di Azure Active Directory Domain Services.
+    * Se necessario, [creare un host Azure Bastion][azure-bastion].
 
 Se si dispone già di una macchina virtuale da aggiungere a un dominio, passare alla sezione che descrive come [aggiungere la macchina virtuale al dominio gestito di Azure Active Directory Domain Services](#join-the-vm-to-the-azure-ad-ds-managed-domain).
 
@@ -72,16 +72,16 @@ Se si dispone già di una macchina virtuale da aggiungere a un dominio, passare 
     | Username             | Immettere un nome utente per l'account amministratore locale da creare nella macchina virtuale, ad esempio *azureuser* |
     | Password             | Immettere e confermare una password sicura per l'amministratore locale da creare nella macchina virtuale. Non specificare le credenziali di un account utente di dominio. |
 
-1. Per impostazione predefinita, le macchine virtuali create in Azure sono accessibili da Internet tramite RDP. Quando è abilitato il protocollo RDP, è probabile che si verifichino attacchi di accesso automatizzato, che possono disabilitare gli account con nomi comuni come *admin* o *administrator* a causa di più tentativi di accesso successivi non riusciti.
+1. Per impostazione predefinita, le macchine virtuali create in Azure sono accessibili da Internet tramite il protocollo RDP. Quando è abilitato il protocollo RDP, è probabile che si verifichino attacchi di accesso automatizzato, che possono disabilitare gli account con nomi comuni come *admin* o *administrator* a causa di più tentativi di accesso successivi non riusciti.
 
-    Il protocollo RDP deve essere abilitato solo quando necessario e limitato a un set di intervalli di indirizzi IP autorizzati. Questa configurazione consente di migliorare la sicurezza della macchina virtuale e di ridurre l'area soggetta a potenziali attacchi. In alternativa, creare e usare un host Bastion di Azure che consenta l'accesso solo tramite il portale di Azure tramite SSL. Nel passaggio successivo di questa esercitazione si userà un host di Azure Bastion per connettersi in modo sicuro alla macchina virtuale.
+    Il protocollo RDP deve essere abilitato solo quando necessario e limitato a un set di intervalli di indirizzi IP autorizzati. Questa configurazione consente di migliorare la sicurezza della macchina virtuale e di ridurre l'area soggetta a potenziali attacchi. In alternativa, è possibile creare e usare un host Azure Bastion per consentire l'accesso solo dal portale di Azure tramite TLS. Nel passaggio successivo di questa esercitazione si userà un host Azure Bastion per connettersi in modo sicuro alla macchina virtuale.
 
-    Per il momento disabilitare le connessioni RDP dirette alla macchina virtuale.
+    Per il momento, disabilitare le connessioni RDP dirette alla macchina virtuale.
 
-    In **porte in ingresso pubbliche**selezionare *nessuno*.
+    In **Porte in ingresso pubbliche** selezionare *Nessuna*.
 
-1. Al termine, selezionare **Avanti: dischi**.
-1. Dal menu a discesa per tipo di **disco del sistema operativo**scegliere *SDD standard*, quindi selezionare **Avanti: rete**.
+1. Al termine, scegliere **Avanti: Dischi**.
+1. Dal menu a discesa per **Tipo di disco del sistema operativo**, scegliere *SSD Standard* e quindi **Avanti: Rete**.
 1. La macchina virtuale deve connettersi a una subnet di rete virtuale di Azure in grado di comunicare con la subnet in cui è distribuito il dominio gestito di Azure Active Directory Domain Services. È consigliabile distribuire un dominio gestito di Azure Active Directory Domain Services nella relativa subnet dedicata. Non distribuire la macchina virtuale nella stessa subnet del dominio gestito di Azure Active Directory Domain Services.
 
     Esistono due modi principali per distribuire la macchina virtuale e connettersi a una subnet di rete virtuale appropriata:
@@ -122,23 +122,23 @@ La creazione della macchina virtuale richiede alcuni minuti. Il portale di Azure
 
 ## <a name="connect-to-the-windows-server-vm"></a>Connettersi alla macchina virtuale Windows Server
 
-Per connettersi in modo sicuro alle macchine virtuali, usare un host Bastion di Azure. Con Azure Bastion, un host gestito viene distribuito nella rete virtuale e fornisce connessioni RDP o SSH basate sul Web alle macchine virtuali. Per le macchine virtuali non sono necessari indirizzi IP pubblici e non è necessario aprire regole del gruppo di sicurezza di rete per il traffico remoto esterno. Ci si connette alle macchine virtuali usando il portale di Azure dal Web browser.
+Per connettersi in modo sicuro alle macchine virtuali, usare un host Azure Bastion. Con Azure Bastion,viene distribuito nella rete virtuale un host gestito che fornisce connessioni RDP o SSH basate sul Web alle macchine virtuali. Per le macchine virtuali non sono necessari indirizzi IP pubblici e non è necessario aprire regole del gruppo di sicurezza di rete per il traffico remoto esterno. È possibile connettersi alle macchine virtuali usando il portale di Azure dal Web browser in uso.
 
-Per usare un host Bastion per connettersi alla VM, completare i passaggi seguenti:
+Per usare un host Bastion per connettersi alla macchina virtuale, seguire questa procedura:
 
-1. Nel riquadro **Panoramica** per la VM selezionare **Connetti**, quindi **Bastion**.
+1. Nel riquadro **Panoramica** della macchina virtuale selezionare **Connetti** e quindi **Bastion**.
 
-    ![Connettersi a una macchina virtuale Windows usando Bastion nel portale di Azure](./media/join-windows-vm/connect-to-vm.png)
+    ![Connettersi alla macchina virtuale Windows tramite Bastion nel portale di Azure](./media/join-windows-vm/connect-to-vm.png)
 
 1. Immettere le credenziali per la macchina virtuale specificata nella sezione precedente, quindi selezionare **Connetti**.
 
-   ![Connettersi tramite l'host Bastion nella portale di Azure](./media/join-windows-vm/connect-to-bastion.png)
+   ![Connettersi tramite l'host Bastion nel portale di Azure](./media/join-windows-vm/connect-to-bastion.png)
 
-Se necessario, consentire al Web browser di aprire popup per la visualizzazione della connessione Bastion. Per eseguire la connessione alla macchina virtuale sono necessari alcuni secondi.
+Se necessario, consentire al Web browser di aprire finestre popup per la visualizzazione della connessione Bastion. Per stabilire la connessione con la macchina virtuale sono necessari alcuni secondi.
 
 ## <a name="join-the-vm-to-the-azure-ad-ds-managed-domain"></a>Aggiungere la macchina virtuale al dominio gestito di Azure Active Directory Domain Services
 
-Con la macchina virtuale creata e una connessione RDP basata sul Web stabilita con Azure Bastion, ora è possibile aggiungere la macchina virtuale Windows Server al dominio gestito di Azure AD DS. Questa procedura è identica a quella usata per connettere un computer a un normale dominio di Active Directory Domain Services locale.
+Una volta creata la macchina virtuale e dopo aver stabilito una connessione RDP basata sul Web tramite Azure Bastion, si aggiungerà la macchina virtuale Windows Server al dominio gestito di Azure Active Directory Domain Services. Questa procedura è identica a quella usata per connettere un computer a un normale dominio di Active Directory Domain Services locale.
 
 1. Se **Server Manager** non viene aperto per impostazione predefinita quando si accede alla macchina virtuale, selezionare il menu **Start** e quindi scegliere **Server Manager**.
 1. Nel riquadro sinistro della finestra **Server Manager** selezionare **Local Server**. Nell'area **Proprietà** del riquadro destro scegliere **Gruppo di lavoro**.
@@ -149,11 +149,11 @@ Con la macchina virtuale creata e una connessione RDP basata sul Web stabilita c
 
     ![Scegliere di modificare le proprietà del gruppo di lavoro o del dominio](./media/join-windows-vm/change-domain.png)
 
-1. Nella casella **dominio** specificare il nome del dominio gestito di Azure AD DS, ad esempio *aaddscontoso.com*, quindi fare clic su **OK**.
+1. Nella casella **Dominio** specificare il nome del dominio gestito di Azure Active Directory Domain Services, ad esempio *aaddscontoso.com*, e quindi selezionare **OK**.
 
     ![Specificare il dominio gestito di Azure Active Directory Domain Services a cui aggiungere la macchina virtuale](./media/join-windows-vm/join-domain.png)
 
-1. Immettere le credenziali di dominio per l'aggiunta al dominio. Usare le credenziali di un utente che fa parte del dominio gestito di Azure AD DS. L'account deve far parte del dominio gestito di Azure AD DS o del tenant di Azure AD. Gli account di directory esterne associate al tenant di Azure AD non possono eseguire correttamente l'autenticazione durante il processo di aggiunta al dominio. Le credenziali dell'account possono essere specificate in uno dei modi seguenti:
+1. Immettere le credenziali di dominio per l'aggiunta al dominio. Usare le credenziali di un account utente che fa parte del dominio gestito di Azure AD DS. L'account deve far parte del dominio gestito di Azure AD DS o del tenant di Azure AD. Gli account di directory esterne associate al tenant di Azure AD non possono eseguire correttamente l'autenticazione durante il processo di aggiunta al dominio. Le credenziali dell'account possono essere specificate in uno dei modi seguenti:
 
     * **Formato UPN** (consigliato): immettere il suffisso UPN (User Principal Name) per l'account utente, come configurato in Azure AD. Ad esempio, il suffisso UPN dell'utente *contosoadmin* sarà `contosoadmin@aaddscontoso.onmicrosoft.com`. Esistono un paio di casi d'uso comuni in cui il formato UPN può essere usato in modo affidabile per accedere al dominio in sostituzione del formato *SAMAccountName*:
         * Se il prefisso UPN di un utente è lungo, ad esempio *nomeutentetroppolungo*, è possibile che venga generato automaticamente il formato *SAMAccountName*.
@@ -169,7 +169,7 @@ Con la macchina virtuale creata e una connessione RDP basata sul Web stabilita c
 1. Per completare la procedura di aggiunta al dominio gestito di Azure Active Directory Domain Services, riavviare la macchina virtuale.
 
 > [!TIP]
-> È possibile aggiungere una macchina virtuale a un dominio usando PowerShell con il cmdlet [Add-Computer][add-computer]. Nell'esempio seguente viene unito il dominio *AADDSCONTOSO* , quindi viene riavviata la macchina virtuale. Quando richiesto, immettere le credenziali per un utente che fa parte del dominio gestito di Azure AD DS:
+> È possibile aggiungere una macchina virtuale a un dominio usando PowerShell con il cmdlet [Add-Computer][add-computer]. Nell'esempio seguente la macchina virtuale viene aggiunta al dominio *AADDSCONTOSO* e quindi riavviata. Quando richiesto, immettere le credenziali di un account utente che fa parte del dominio gestito di Azure AD DS:
 >
 > `Add-Computer -DomainName AADDSCONTOSO -Restart`
 >
@@ -179,7 +179,7 @@ Dopo il riavvio della macchina virtuale Windows Server, i criteri applicati nel 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Nell'esercitazione successiva si userà questa macchina virtuale Windows Server per installare gli strumenti di gestione che consentono di amministrare il dominio gestito di Azure Active Directory Domain Services. Se non si vuole continuare in questa serie di esercitazioni, vedere la procedura di pulizia seguente per [eliminare la macchina virtuale](#delete-the-vm). In caso contrario, [continuare con l'esercitazione successiva](#next-steps).
+Nell'esercitazione successiva si userà questa macchina virtuale Windows Server per installare gli strumenti di gestione che consentono di amministrare il dominio gestito di Azure Active Directory Domain Services. Se non si vuole proseguire con questa serie di esercitazioni, vedere la procedura di pulizia descritta di seguito per [eliminare la macchina virtuale](#delete-the-vm). In caso contrario, [continuare con l'esercitazione successiva](#next-steps).
 
 ### <a name="un-join-the-vm-from-azure-ad-ds-managed-domain"></a>Rimuovere la macchina virtuale dal dominio gestito di Azure Active Directory Domain Services
 

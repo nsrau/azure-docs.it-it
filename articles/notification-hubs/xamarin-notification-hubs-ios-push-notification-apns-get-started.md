@@ -1,5 +1,5 @@
 ---
-title: Inviare notifiche push a Xamarin iOS con Hub di notifica di Azure | Microsoft Docs
+title: Inviare notifiche push a Xamarin con Hub di notifica di Azure | Microsoft Docs
 description: In questa esercitazione viene illustrato come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione Xamarin.iOS.
 services: notification-hubs
 keywords: notifiche push di ios,messaggi push,notifiche push,messaggio push
@@ -18,12 +18,12 @@ ms.date: 12/05/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 05/23/2019
-ms.openlocfilehash: e693d771d9a4726a1a9d698b5b7ed61d19197bdb
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 07417427385806e61db0d7d83624d923e92eb693
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895024"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80127023"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Esercitazione: Inviare notifiche push alle app Xamarin.iOS con Hub di notifica di Azure
 
@@ -206,7 +206,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
 ## <a name="send-test-push-notifications"></a>Inviare notifiche push di prova
 
-È possibile testare rapidamente la ricezione di notifiche nell'app con l'opzione *Invio di prova* nel [portale di Azure]. Verrà inviata una notifica push di prova al dispositivo.
+È possibile testare rapidamente la ricezione di notifiche nell'app con l'opzione *Invio di prova* nel [Azure portal]. Verrà inviata una notifica push di prova al dispositivo.
 
 ![Portale di Azure - Invio di prova][30]
 
@@ -238,4 +238,4 @@ In questa esercitazione le notifiche sono state trasmesse a tutti i dispositivi 
 [Apple Push Notification Service]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [Apple Push Notification Service fwlink]: https://go.microsoft.com/fwlink/p/?LinkId=272584
 [GitHub]: https://github.com/xamarin/mobile-samples/tree/master/Azure/NotificationHubs
-[Portale di Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

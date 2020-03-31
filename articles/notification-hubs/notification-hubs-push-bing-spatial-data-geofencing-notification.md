@@ -18,14 +18,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 510e2648db3076a0e3ee2535c6058f7ed212f558
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 9f8697332d34fc044c805db6c6595fdf067ed054
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387490"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80127197"
 ---
-# <a name="tutorial-send-location-based-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Esercitazione: Inviare notifiche push in base alla posizione con Hub di notifica di Azure e i dati spaziali di Bing
+# <a name="tutorial-send-location-based-push-notifications-with-notification-hubs-and-bing-spatial-data"></a>Esercitazione: Inviare notifiche push in base Location Based con Hub di notifica e i dati spaziali Bing
 
 In questa esercitazione si apprenderà come recapitare le notifiche push in base alla posizione con Hub di notifica di Azure e i dati spaziali di Bing.
 
@@ -107,7 +107,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 
     ![](./media/notification-hubs-geofence/notification-hubs-create-blank-app.png)
 
-    Una volta completata la creazione del progetto, saranno disponibili tutte le potenzialità per l'app stessa. Ora si procederà alla configurazione dell'intera struttura del recinto virtuale. Poiché a questo scopo si vogliono usare i servizi di Bing per questa soluzione, è disponibile un endpoint API REST pubblico che consente di eseguire query su frame di posizione specifici:
+    Una volta completata la creazione del progetto, saranno disponibili tutte le potenzialità per l'app stessa. Ora si procederà alla configurazione degli elementi necessari per l'infrastruttura del recinto virtuale. Poiché a questo scopo si vogliono usare i servizi di Bing per questa soluzione, è disponibile un endpoint API REST pubblico che consente di eseguire query su frame di posizione specifici:
 
     ```text
     http://spatial.virtualearth.net/REST/v1/data/
@@ -196,7 +196,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 
     ![](./media/notification-hubs-geofence/notification-hubs-location-output.png)
 
-    Dopo aver stabilito che l'acquisizione della posizione funziona, è possibile rimuovere il gestore dell'evento per Loaded, perché non verrà più usato.
+    Dopo aver stabilito che l'acquisizione della posizione funziona, è possibile rimuovere il gestore eventi per Loaded, perché non verrà più usato.
 8. Il passaggio successivo consiste nell'acquisire le modifiche della posizione. Nella classe `LocationHelper` aggiungere il gestore dell'evento per `PositionChanged`:
 
     ```csharp
@@ -348,7 +348,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
     ```
 
     > [!NOTE]
-    > Impostare `POST_URL` nel percorso dell'applicazione web distribuita. Per ora è possibile eseguirla in locale, ma quando si lavora alla distribuzione di una versione pubblica, sarà necessario ospitarla presso un provider esterno.
+    > Impostare `POST_URL` nel percorso dell'applicazione web distribuita. Per ora è possibile eseguirla in locale, ma quando si distribuisce una versione pubblica, sarà necessario ospitarla presso un provider esterno.
 2. Registrare l'app UWP per le notifiche push. In Visual Studio fare clic su **Progetto** > **Store** > **Associa applicazione a Store**.
 
     ![](./media/notification-hubs-geofence/vs-associate-with-store.png)

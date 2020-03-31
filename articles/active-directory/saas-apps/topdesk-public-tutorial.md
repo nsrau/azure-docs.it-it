@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.openlocfilehash: e5575a2e8f776e87fcd4e6f4a7a9244752ebfd9a
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71950413"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Esercitazione: Integrazione di Azure Active Directory con TOPdesk - Public
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-topdesk---public-from-the-gallery"></a>Aggiunta di TOPdesk - Public dalla raccolta
 
-Per configurare l'integrazione di TOPdesk - Public in Azure AD, è necessario aggiungere TOPdesk - Public dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di TOPdesk - Public in Azure AD, è necessario aggiungere TOPdesk - Public dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere TOPdesk - Public dalla raccolta, seguire questa procedura:**
 
@@ -67,14 +67,14 @@ Per configurare l'integrazione di TOPdesk - Public in Azure AD, è necessario ag
 
 4. Nella casella di ricerca digitare **TOPdesk - Public**, selezionare **TOPdesk - Public** dal pannello dei risultati quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![TOPdesk - Public nell'elenco dei risultati](common/search-new-app.png)
+     ![TOPdesk - Public nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con TOPdesk - Public usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in TOPdesk - Public.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con TOPdesk - Public, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con TOPdesk - Public, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di TOPdesk - Public](#configure-topdesk---public-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
@@ -116,7 +116,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con TOPdesk - Public, compl
 
     c. Dopo il caricamento del file di metadati, il valore di **Identificatore** e **URL di risposta** viene inserito automaticamente nella sezione Configurazione SAML di base.
 
-    ![Informazioni sull'accesso Single Sign-On per URL e dominio di TOPdesk - Public](common/sp-identifier-reply.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di TOPdesk - Public](common/sp-identifier-reply.png)
 
     d. Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<companyname>.topdesk.net`
 
@@ -151,19 +151,19 @@ Per configurare l'accesso Single Sign-On di Azure AD con TOPdesk - Public, compl
 
 3. Fare clic su **Login Settings**.
    
-    ![Login Settings](./media/topdesk-public-tutorial/ic790599.png "Login Settings")
+    ![Impostazioni di accesso](./media/topdesk-public-tutorial/ic790599.png "Login Settings")
 
 4. Espandere il menu **Login Settings** (Impostazioni accesso) e quindi fare clic su **General** (Generale).
    
-    ![General](./media/topdesk-public-tutorial/ic790600.png "General")
+    ![Generale](./media/topdesk-public-tutorial/ic790600.png "Generale")
 
-5. Nell'area **Public** (Publico) della sezione di configurazione **SAML login** (Accesso SAML) seguire questa procedura:
+5. Nell'area **Public** (Pubblico) della sezione di configurazione **SAML login** (Accesso SAML) seguire questa procedura:
    
-    ![Technical Settings](./media/topdesk-public-tutorial/ic790601.png "Technical Settings")
+    ![Impostazioni tecniche](./media/topdesk-public-tutorial/ic790601.png "Technical Settings")
    
     a. Fare clic su **Download** per scaricare il file di metadati pubblici e quindi salvarlo in locale nel computer.
    
-    b. Aprire il file dei metadati scaricato e quindi individuare il nodo **AssertionConsumerService** .
+    b. Aprire il file dei metadati scaricato e quindi individuare il nodo **AssertionConsumerService**.
 
     ![AssertionConsumerService](./media/topdesk-public-tutorial/ic790619.png "AssertionConsumerService")
    
@@ -171,23 +171,23 @@ Per configurare l'accesso Single Sign-On di Azure AD con TOPdesk - Public, compl
    
 6. Per creare un file del certificato, seguire questa procedura:
     
-    ![Certificate](./media/topdesk-public-tutorial/ic790606.png "Certificate")
+    ![Certificate](./media/topdesk-public-tutorial/ic790606.png "Certificato")
     
     a. Aprire il file di metadati scaricato dal portale di Azure.
     
     b. Espandere il nodo **RoleDescriptor** con **xsi:type** corrispondente a **fed:ApplicationServiceType**.
     
-    c. Copiare il valore del nodo **X509Certificate** .
+    c. Copiare il valore del nodo **X509Certificate**.
     
     d. Salvare il valore copiato di **X509Certificate** in un file locale nel computer.
 
 7. Nell'area **Public** (Pubblica) fare clic su **Add** (Aggiungi).
     
-    ![Login SAML](./media/topdesk-public-tutorial/ic790625.png "Login SAML")
+    ![Accesso SAML](./media/topdesk-public-tutorial/ic790625.png "SAML login")
 
 8. Nella pagina **SAML configuration assistant** seguire questa procedura:
     
-    ![SAML Configuration Assistant](./media/topdesk-public-tutorial/ic790608.png "SAML Configuration Assistant")
+    ![Assistente alla configurazione SAML](./media/topdesk-public-tutorial/ic790608.png "SAML configuration assistant")
     
     a. Per caricare il file di metadati scaricato dal portale di Azure, in **Metadati della federazione** fare clic su **Sfoglia**.
 
@@ -199,11 +199,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con TOPdesk - Public, compl
 
     e. Nella casella di testo **Display name** digitare un nome per la configurazione.
 
-    f. Fare clic su **Save**.
+    f. Fare clic su **Salva**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -219,7 +219,7 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare brittasimon@yourcompanydomain.extension. Ad esempio: BrittaSimon@contoso.com
+    b. Nel campo **Nome utente** digitare brittasimon@yourcompanydomain.extension. Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
@@ -227,7 +227,7 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a TOPdesk - Public.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a TOPdesk - Public.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **TOPdesk - Public**.
 
@@ -251,7 +251,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-topdesk---public-test-user"></a>Creare un utente di test di TOPdesk - Public
+### <a name="create-topdesk---public-test-user"></a>Creare l'utente di test di TOPdesk - Public
 
 Per consentire agli utenti di Azure AD di accedere a TOPdesk - Public, è necessario effettuarne il provisioning in TOPdesk - Public. Nel caso di TOPdesk - Public, il provisioning è un'attività manuale.
 
@@ -261,7 +261,7 @@ Per consentire agli utenti di Azure AD di accedere a TOPdesk - Public, è necess
 
 2. Nel menu presente sulla parte superiore fare clic su **TOPdesk \> New (Nuovo) \> Support Files (File di supporto) \> Person (Persona)** .
    
-    ![Person](./media/topdesk-public-tutorial/ic790628.png "Person")
+    ![Person](./media/topdesk-public-tutorial/ic790628.png "Persona")
 
 3. Nella finestra di dialogo New Person seguire questa procedura:
    
@@ -273,7 +273,7 @@ Per consentire agli utenti di Azure AD di accedere a TOPdesk - Public, è necess
  
     c. Selezionare un **Site** per l'account.
  
-    d. Fare clic su **Save**.
+    d. Fare clic su **Salva**.
 
 > [!NOTE]
 > È possibile usare qualsiasi altro strumento o API di creazione account utente fornita da TOPdesk - Public per eseguire il provisioning degli account utente Azure AD.
@@ -282,7 +282,7 @@ Per consentire agli utenti di Azure AD di accedere a TOPdesk - Public, è necess
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro TOPdesk - Public nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione TOPdesk - Public per cui è stato configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro TOPdesk - Public nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di TOPdesk - Public per cui è stato configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

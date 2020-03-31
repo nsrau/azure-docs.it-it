@@ -10,22 +10,19 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/24/2020
+ms.date: 03/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 21725e64bb359b2f11086baceb186605f010b796
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 94b351ddb18ca596f47e8ef40cff8229c838d7bd
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561460"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239214"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Esercitazione: Usare gli script di distribuzione per creare un certificato autofirmato (anteprima)
 
-Informazioni su come usare gli script di distribuzione nei modelli di Azure Resource Manager. Gli script di distribuzione possono essere usati per eseguire passaggi personalizzati che non possono essere eseguiti dai modelli di Resource Manager. Ad esempio, la creazione di un certificato autofirmato.  In questa esercitazione viene creato un modello per distribuire un insieme di credenziali delle chiavi di Azure e quindi viene usata una risorsa `Microsoft.Resources/deploymentScripts` nello stesso modello per creare un certificato e infine viene aggiunto il certificato all'insieme di credenziali delle chiavi. Per altre informazioni sullo script di distribuzione, vedere [Usare gli script di distribuzione nei modelli di Azure Resource Manager](./deployment-script-template.md).
-
-> [!NOTE]
-> Lo script di distribuzione è attualmente in anteprima. Per usarlo, è necessario [iscriversi per l'anteprima](https://aka.ms/armtemplatepreviews).
+Informazioni su come usare gli script di distribuzione nei modelli di Azure Resource Manager (ARM). Gli script di distribuzione possono essere usati per eseguire passaggi personalizzati che non possono essere eseguiti dai modelli di Azure Resource Manager. Ad esempio, la creazione di un certificato autofirmato.  In questa esercitazione viene creato un modello per distribuire un insieme di credenziali delle chiavi di Azure e quindi viene usata una risorsa `Microsoft.Resources/deploymentScripts` nello stesso modello per creare un certificato e infine viene aggiunto il certificato all'insieme di credenziali delle chiavi. Per altre informazioni sullo script di distribuzione, vedere [Usare gli script di distribuzione nei modelli di Azure Resource Manager](./deployment-script-template.md).
 
 > [!IMPORTANT]
 > Due risorse dello script di distribuzione, un account di archiviazione e un'istanza del contenitore, vengono create nello stesso gruppo di risorse per l'esecuzione dello script e la risoluzione dei problemi. Queste risorse vengono in genere eliminate dal servizio di script quando l'esecuzione dello script raggiunge uno stato finale. Le risorse verranno addebitate fino a quando non vengono eliminate. Per altre informazioni, vedere [Pulire le risorse dello script di distribuzione](./deployment-script-template.md#clean-up-deployment-script-resources).
@@ -39,11 +36,11 @@ Questa esercitazione illustra le attività seguenti:
 > * Eseguire il debug dello script non riuscito
 > * Pulire le risorse
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* **[Visual Studio Code](https://code.visualstudio.com/) con l'estensione Strumenti di Resource Manager**. Vedere [Usare Visual Studio Code per creare modelli di Azure Resource Manager](./use-vs-code-to-create-template.md).
+* **[Visual Studio Code](https://code.visualstudio.com/) con l'estensione Strumenti di Resource Manager**. Vedere [Usare Visual Studio Code per creare i modelli di Azure Resource Manager](./use-vs-code-to-create-template.md).
 
 * **Identità gestita assegnata dall'utente con il ruolo di collaboratore a livello di sottoscrizione**. Questa identità viene usata per eseguire gli script di distribuzione. Per crearne una, vedere [Identità gestita assegnata dall'utente](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity). È necessario l'ID identità per distribuire il modello. Il formato dell'identità è:
 
@@ -62,7 +59,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 ## <a name="open-a-quickstart-template"></a>Aprire un modello di avvio rapido
 
-Invece di creare un modello da zero, aprire un modello da [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/). I modelli di avvio rapido di Azure costituiscono un repository di modelli di Resource Manager.
+Invece di creare un modello da zero, aprire un modello da [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/). I modelli di avvio rapido di Azure costituiscono un repository di modelli di Azure Resource Manager.
 
 Il modello usato in questo avvio rapido è denominato [Creare un insieme di credenziali delle chiavi e un segreto di Azure](https://azure.microsoft.com/resources/templates/101-key-vault-create/). Il modello crea un'insieme di credenziali delle chiavi e quindi aggiunge un segreto all'insieme di credenziali delle chiavi.
 

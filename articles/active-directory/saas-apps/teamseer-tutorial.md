@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 3e505e4823db8c9f42bbff216f30326081110dcf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67088972"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Esercitazione: Integrazione di Azure Active Directory con TeamSeer
@@ -79,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con TeamSeer, è 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di TeamSeer](#configure-teamseer-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di TeamSeer](#create-teamseer-test-user)** : per avere una controparte di Britta Simon in TeamSeer collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -128,13 +128,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con TeamSeer, seguire quest
 
 1. In un'altra finestra del Web browser accedere al sito aziendale di TeamSeer come amministratore.
 
-1. Andare ad **Amministratore risorse umane**.
+1. Passare a **HR Admin** (Amministratore risorse umane).
 
-    ![Amministratore risorse umane](./media/teamseer-tutorial/ic789634.png "Amministratore risorse umane")
+    ![HR Admin](./media/teamseer-tutorial/ic789634.png "Amministratore risorse umane")
 
 1. Fare clic su **Configura**.
 
-    ![Installazione](./media/teamseer-tutorial/ic789635.png "Installazione")
+    ![Configurazione](./media/teamseer-tutorial/ic789635.png "Configurazione")
 
 1. Fare clic su **Configura dettagli del provider SAML**.
 
@@ -152,15 +152,15 @@ Per configurare l'accesso Single Sign-On di Azure AD con TeamSeer, seguire quest
 
     ![Impostazioni SAML](./media/teamseer-tutorial/ic789638.png "Impostazioni SAML")
 
-    a. In **Test indirizzi e-mail**, digitare l’indirizzo e-mail dell’utente test.
+    a. In **Test indirizzi e-mail** digitare l'indirizzo di posta elettronica dell'utente di test.
   
     b. Nella casella di testo **Autorità di certificazione** digitare l'URL del provider di servizi.
   
-    c. Fare clic su **Save**.
+    c. Fare clic su **Salva**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -177,15 +177,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
     b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
-    Ad esempio: BrittaSimon@contoso.com
+    Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a TeamSeer.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a TeamSeer.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **TeamSeer**.
 
@@ -219,7 +219,7 @@ Per consentire agli utenti di Azure AD di accedere a TeamSeer, è necessario eff
 
 1. Passare a **HR Admin \> Users** (Amministratore risorse umane > Utenti) e quindi fare clic su **Run the New User wizard** (Esegui la procedura guidata Nuovo utente).
 
-    ![Amministratore risorse umane](./media/teamseer-tutorial/ic789640.png "Amministratore risorse umane")
+    ![HR Admin](./media/teamseer-tutorial/ic789640.png "Amministratore risorse umane")
 
 1. Nella sezione **Dettagli utente** eseguire la procedura seguente:
 
@@ -238,7 +238,7 @@ Per consentire agli utenti di Azure AD di accedere a TeamSeer, è necessario eff
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro TeamSeer nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione TeamSeer per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro TeamSeer nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di TeamSeer per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

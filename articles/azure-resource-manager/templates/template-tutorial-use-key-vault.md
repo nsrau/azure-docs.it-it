@@ -6,16 +6,16 @@ ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: bae67b0177823ab4558085db67423edea062fa3c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: a305914c5c870543e16c515880955693c2634044
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250063"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239168"
 ---
-# <a name="tutorial-integrate-azure-key-vault-in-your-resource-manager-template-deployment"></a>Esercitazione: Integrare Azure Key Vault nella distribuzione di modelli di Resource Manager
+# <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Esercitazione: Integrare Azure Key Vault nella distribuzione di modelli di Azure Resource Manager
 
-Questo articolo illustra come recuperare i segreti da Azure Key Vault e passarli come parametri quando si distribuisce Azure Resource Manager. Il valore dei parametri non viene mai esposto perché si fa riferimento solo al relativo ID dell'insieme di credenziali delle chiavi. Per altre informazioni, vedere [Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione](./key-vault-parameter.md).
+Informazioni su come recuperare i segreti da Azure Key Vault e passarli come parametri quando si distribuisce un modello di Azure Resource Manager (ARM). Il valore dei parametri non viene mai esposto perché si fa riferimento solo al relativo ID dell'insieme di credenziali delle chiavi. Per altre informazioni, vedere [Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione](./key-vault-parameter.md).
 
 Nell'esercitazione [Impostare l'ordine di distribuzione delle risorse](./template-tutorial-create-templates-with-dependent-resources.md) viene creata una macchina virtuale. È necessario specificare il nome utente e la password dell'amministratore della macchina virtuale. Invece di immettere la password, è possibile archiviarla preventivamente in Azure Key Vault e quindi personalizzare il modello per recuperare la password dall'insieme di credenziali delle chiavi durante la distribuzione.
 
@@ -39,7 +39,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare modelli di Azure Resource Manager](use-vs-code-to-create-template.md).
+* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare i modelli di Azure Resource Manager](use-vs-code-to-create-template.md).
 * Per una maggiore sicurezza, usare una password generata per l'account amministratore della macchina virtuale. Ecco un esempio di generazione di una password:
 
     ```console
@@ -49,7 +49,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 ## <a name="prepare-a-key-vault"></a>Preparare un insieme di credenziali delle chiavi
 
-In questa sezione si crea un insieme di credenziali delle chiavi e vi si aggiunge un segreto, per poter recuperare il segreto quando si distribuisce il modello. Esistono molti modi per creare un insieme di credenziali delle chiavi. In questa esercitazione si usa Azure PowerShell per distribuire un [modello di Resource Manager](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json). Questo modello consente di:
+In questa sezione si crea un insieme di credenziali delle chiavi e vi si aggiunge un segreto, per poter recuperare il segreto quando si distribuisce il modello. Esistono molti modi per creare un insieme di credenziali delle chiavi. In questa esercitazione si usa Azure PowerShell per distribuire un [modello di Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json). Questo modello consente di:
 
 * Creare un insieme di credenziali delle chiavi con la proprietà `enabledForTemplateDeployment` abilitata. Affinché il processo di distribuzione del modello possa accedere ai segreti definiti nell'insieme di credenziali delle chiavi, impostare questa proprietà su *true*.
 * Aggiungere un segreto all'insieme di credenziali delle chiavi. Il segreto contiene la password dell'amministratore della macchina virtuale.
@@ -97,7 +97,7 @@ A questo punto sono stati preparati un insieme di credenziali delle chiavi e un 
 
 ## <a name="open-a-quickstart-template"></a>Aprire un modello di avvio rapido
 
-I modelli di avvio rapido di Azure costituiscono un repository di modelli di Resource Manager. Anziché creare un modello da zero, è possibile trovare un modello di esempio e personalizzarlo. Il modello usato in questa esercitazione è il modello di [distribuzione di una macchina virtuale Windows semplice](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+I modelli di avvio rapido di Azure costituiscono un repository di modelli di Azure Resource Manager. Anziché creare un modello da zero, è possibile trovare un modello di esempio e personalizzarlo. Il modello usato in questa esercitazione è il modello di [distribuzione di una macchina virtuale Windows semplice](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. In Visual Studio Code selezionare **File** > **Apri file**.
 

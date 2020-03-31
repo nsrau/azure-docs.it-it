@@ -1,15 +1,15 @@
 ---
-title: 'Esercitazione: Eseguire un backup delle macchine virtuali di Azure su larga scala'
+title: 'Esercitazione: Eseguire il backup di più macchine virtuali di Azure'
 description: Questa esercitazione illustra come creare un insieme di credenziali di Servizi di ripristino, definire un criterio di backup e contemporaneamente eseguire il backup di più macchine virtuali.
 ms.date: 01/31/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 6034202649e6d9bce75f0069316b79b55e533490
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f9306f2ef5c4b2a53dcba17cafca9ea13b8dab43
+ms.sourcegitcommit: 940e16ff194d5163f277f98d038833b1055a1a3e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171842"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80245243"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Usare il portale di Azure per eseguire il backup di più macchine virtuali
 
@@ -44,7 +44,7 @@ L'insieme di credenziali dei Servizi di ripristino contiene i dati di backup e i
     * L'ID di sottoscrizione corrente viene visualizzato in **Sottoscrizione**. Se si dispone di sottoscrizioni aggiuntive, è possibile scegliere un'altra sottoscrizione per il nuovo insieme di credenziali.
     * Per **Gruppo di risorse**, selezionare **Usa esistente** e scegliere *myResourceGroup*. Se *myResourceGroup* non esiste, selezionare **Crea nuovo** e digitare *myResourceGroup*.
     * Dal menu a discesa **Percorso**, scegliere *Europa occidentale*.
-    * Fare clic su **Crea** per creare l'insieme di credenziali di Servizi di ripristino.
+    * Fare clic su **Crea** per creare l'insieme di credenziali dei servizi di ripristino.
 
 Un insieme di credenziali di Servizi di ripristino deve trovarsi nello stesso percorso delle macchine virtuali da proteggere. Se si hanno macchine virtuali in più aree, creare un insieme di credenziali di Servizi di ripristino in ogni area. Questa esercitazione consente di creare un insieme di credenziali di Servizi di ripristino in *Europa occidentale*, dove *myVM* (macchina virtuale creata con la Guida introduttiva) è stata creata.
 
@@ -56,7 +56,7 @@ Quando si crea un insieme di credenziali di Servizi di ripristino, per impostazi
 
 Dopo aver creato l'insieme di credenziali di Servizi di ripristino, il passaggio successivo consiste nel configurare l'insieme di credenziali per il tipo di dati e impostare i criteri di backup. I criteri di backup determinano la pianificazione relativa alla frequenza e al momento in cui acquisiti i punti di ripristino. I criteri includono anche il periodo di mantenimento dati per i punti di ripristino. Per questa esercitazione si supponga che l'azienda sia un complesso sportivo con un hotel, stadio, ristoranti e pertinenze e che si intenda proteggere i dati nelle macchine virtuali. La seguente procedura crea un criterio di backup per i dati finanziari.
 
-1. Nell'elenco degli insiemi di credenziali dei Servizi di ripristino, **myRecoveryServicesVault** per aprire il relativo dashboard.
+1. Dall'elenco degli insiemi di credenziali dei servizi di ripristino selezionare **myRecoveryServicesVault** per aprire il relativo dashboard.
 
    ![Menu Scenario aperto](./media/tutorial-backup-vm-at-scale/open-vault-from-list.png)
 

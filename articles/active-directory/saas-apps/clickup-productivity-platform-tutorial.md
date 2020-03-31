@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 4647d78255f611959bb86ca00ff6920bc823d49a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: f497955b698d7ca390b40686e94d553a7cd5c948
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73158559"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048731"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Esercitazione: Integrazione di Azure Active Directory con ClickUp Productivity Platform
 
@@ -120,7 +120,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con ClickUp Productivity Pl
 
 1. In un'altra finestra del Web browser accedere al tenant ClickUp Productivity Platform come amministratore.
 
-2. Fare clic su **User profile** (Profilo utente) e selezionare **Settings** (Impostazioni).
+2. Fare clic su **User profile** (Profilo utente) e quindi selezionare **Settings** (Impostazioni).
+
+    ![Configurazione di ClickUp Productivity](./media/clickup-productivity-platform-tutorial/configure0.png)
 
     ![Configurazione di ClickUp Productivity](./media/clickup-productivity-platform-tutorial/configure1.png)
 
@@ -142,7 +144,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ClickUp Productivity Pl
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -159,13 +161,13 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
-    Ad esempio: BrittaSimon@contoso.com
+    Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a ClickUp Productivity Platform.
 
@@ -195,7 +197,9 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 1. In un'altra finestra del Web browser accedere al tenant ClickUp Productivity Platform come amministratore.
 
-2. Fare clic su **User profile** (Profilo utente) e selezionare **Users** (Utenti).
+2. Fare clic su **User profile** (Profilo utente) e quindi selezionare **People** (Persone).
+   
+    ![Configurazione di ClickUp Productivity](./media/clickup-productivity-platform-tutorial/configure0.png)
 
     ![Configurazione di ClickUp Productivity](./media/clickup-productivity-platform-tutorial/user1.png)
 
@@ -210,7 +214,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di ClickUp Productivity Platform nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione ClickUp Productivity Platform per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di ClickUp Productivity Platform nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di ClickUp Productivity Platform per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

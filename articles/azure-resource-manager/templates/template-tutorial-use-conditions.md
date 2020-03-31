@@ -5,16 +5,16 @@ author: mumian
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 189d54454a1259d08400e3762b3fbf1c633474bd
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: f88f141257e8e614f62c7441c313002b5735116d
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250043"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239200"
 ---
-# <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Esercitazione: Usare una condizione nei modelli di Azure Resource Manager
+# <a name="tutorial-use-condition-in-arm-templates"></a>Esercitazione: Usare una condizione nei modelli di Azure Resource Manager
 
-Informazioni su come distribuire risorse di Azure in base a condizioni.
+Informazioni su come distribuire le risorse di Azure in base alle condizioni in un modello di Azure Resource Manager (ARM).
 
 Nell'esercitazione [Impostare l'ordine di distribuzione delle risorse](./template-tutorial-create-templates-with-dependent-resources.md) si creano una macchina virtuale, una rete virtuale e alcune altre risorse dipendenti, tra cui un account di archiviazione. Invece di creare ogni volta un nuovo account di archiviazione, si consente agli utenti di scegliere tra creare un nuovo account di archiviazione e usarne uno esistente. Per raggiungere questo obiettivo, si definisce un parametro aggiuntivo. Se il valore del parametro è "new", viene creato un nuovo account di archiviazione. In caso contrario, viene usato un account di archiviazione esistente con il nome specificato.
 
@@ -31,7 +31,7 @@ Questa esercitazione illustra le attività seguenti:
 Questa esercitazione illustra solo uno scenario di base relativo all'uso delle condizioni. Per altre informazioni, vedere:
 
 * [Struttura del file modello: Condizione](conditional-resource-deployment.md).
-* [Distribuire in modo condizionale una risorsa in un modello di Azure Resource Manager](/azure/architecture/building-blocks/extending-templates/conditional-deploy)
+* [Distribuire una risorsa in modo condizionale in un modello di Azure Resource Manager](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
 * [Funzioni di modello: If](./template-functions-logical.md#if).
 * [Funzioni di confronto per i modelli di Azure Resource Manager](./template-functions-comparison.md)
 
@@ -41,18 +41,18 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare modelli di Azure Resource Manager](use-vs-code-to-create-template.md).
+* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare i modelli di Azure Resource Manager](use-vs-code-to-create-template.md).
 * Per una maggiore sicurezza, usare una password generata per l'account amministratore della macchina virtuale. Di seguito è riportato un esempio della generazione di una password:
 
     ```console
     openssl rand -base64 32
     ```
 
-    Azure Key Vault è progettato per proteggere chiavi crittografiche e altri segreti. Per altre informazioni, vedere [Esercitazione: Integrare Azure Key Vault in Distribuzione modelli di Resource Manager](./template-tutorial-use-key-vault.md). È consigliabile anche aggiornare la password ogni tre mesi.
+    Azure Key Vault è progettato per proteggere chiavi crittografiche e altri segreti. Per altre informazioni, vedere [Esercitazione: Integrare Azure Key Vault nella distribuzione di modelli di Azure Resource Manager](./template-tutorial-use-key-vault.md). È consigliabile anche aggiornare la password ogni tre mesi.
 
 ## <a name="open-a-quickstart-template"></a>Aprire un modello di avvio rapido
 
-Modelli di avvio rapido di Azure è un repository di modelli di Resource Manager. Anziché creare un modello da zero, è possibile trovare un modello di esempio e personalizzarlo. Il modello usato in questa esercitazione è denominato [Distribuire una VM Windows semplice](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+I modelli di avvio rapido di Azure costituiscono un repository di modelli di Azure Resource Manager. Anziché creare un modello da zero, è possibile trovare un modello di esempio e personalizzarlo. Il modello usato in questa esercitazione è denominato [Distribuire una VM Windows semplice](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. In Visual Studio Code selezionare **File**>**Apri file**.
 2. In **Nome file** incollare l'URL seguente:

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 7a15db6bbbcd9dfd43b025b780fda5a8b1d79da2
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 3b1988656e2c15515e121df3ee71e31ce7edd750
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78946153"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79212954"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-edge"></a>Esercitazione: Trasferire i dati con Azure Data Box Edge
 
@@ -59,26 +59,28 @@ Per creare una condivisione, eseguire la procedura seguente:
     Il tipo può essere **SMB** o **NFS**. L'impostazione predefinita è SMB. SMB è l'opzione standard per i client Windows, mentre NFS è l'opzione usata per i client Linux.  
     Le opzioni rimanenti variano leggermente a seconda che si scelgano condivisioni SMB o NFS. 
 
-    c. Specificare l'account di archiviazione in cui risiederà la condivisione. 
+    c. Specificare l'account di archiviazione in cui risiederà la condivisione.
 
-    
+      > [!IMPORTANT]
+      > Verificare che per l'account di archiviazione di Azure in uso non siano impostati criteri di immutabilità se lo si usa con un dispositivo Azure Stack Edge o Data Box Gateway. Per altre informazioni, vedere [Impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+
     d. Nell'elenco a discesa **Servizio di archiviazione**, selezionare **BLOB in blocchi**, **BLOB di pagine** o **File**.  
     Il tipo di servizio selezionato dipende dal formato che si vuole applicare ai dati da usare in Azure. In questo esempio si seleziona **BLOB in blocchi** perché si vogliono archiviare i dati come BLOB in blocchi in Azure. Se si seleziona **BLOB di pagine**, verificare che i dati siano allineati su 512 byte. Ad esempio, VHDX è sempre allineato su 512 byte.
 
     e. Creare un nuovo contenitore BLOB o usarne uno esistente nell'elenco a discesa. Se si crea un contenitore BLOB, specificarne il nome. Se non esiste già un contenitore, viene creato nell'account di archiviazione con il nome della condivisione appena creato.
-   
-    f. A seconda che sia stata creata una condivisione SMB o una condivisione NFS, eseguire una delle operazioni seguenti: 
-     
-    - **Condivisione SMB**: Sotto **Utente locale con tutti i privilegi**, selezionare **Crea nuovo** oppure **Usa esistente**. Se si crea un nuovo utente locale, immettere un nome utente e password e quindi confermare la password. Vengono così assegnate le autorizzazioni all'utente locale. La modifica delle autorizzazioni a livello di condivisione non è attualmente supportata.
+
+    f. A seconda che sia stata creata una condivisione SMB o una condivisione NFS, eseguire una delle operazioni seguenti:
+
+    * **Condivisione SMB**: Sotto **Utente locale con tutti i privilegi**, selezionare **Crea nuovo** oppure **Usa esistente**. Se si crea un nuovo utente locale, immettere un nome utente e password e quindi confermare la password. Vengono così assegnate le autorizzazioni all'utente locale. La modifica delle autorizzazioni a livello di condivisione non è attualmente supportata.
 
         Se si seleziona la casella di controllo **Consenti solo operazioni di lettura** per i dati di questa condivisione, è possibile specificare utenti di sola lettura.
 
         ![Aggiunta di una condivisione SMB](./media/data-box-edge-deploy-add-shares/add-share-smb-1.png)
-   
-    - **Condivisione NFS**: Immettere l'indirizzo IP dei client autorizzati ad accedere alla condivisione.
+
+    * **Condivisione NFS**: Immettere l'indirizzo IP dei client autorizzati ad accedere alla condivisione.
 
         ![Aggiunta di una condivisione NFS](./media/data-box-edge-deploy-add-shares/add-share-nfs-1.png)
-   
+
 4. Selezionare **Crea** per creare la condivisione.
     
     Viene ricevuta una notifica che indica che la creazione della condivisione è in corso. Dopo la creazione della condivisione con le impostazioni specificate, il riquadro **Condivisioni** viene aggiornato e includerà la nuova condivisione.
