@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
 ms.openlocfilehash: 39a1dd5c3d26eeb6545a96aa35f9457bd9859c21
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251245"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personalizzazione dei set di impostazioni di Media Encoder Standard  
@@ -30,9 +30,9 @@ Questo articolo illustra come eseguire le attività di codifica avanzata con Med
 L'articolo illustra come personalizzare un set di impostazioni partendo dal set di impostazioni [Codec video H.264 a bitrate multiplo con risoluzione 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) e riducendo il numero di livelli. L'articolo [Personalizzazione dei set di impostazioni di Media Encoder Standard](media-services-advanced-encoding-with-mes.md) illustra i set di impostazioni personalizzati che è possibile usare per eseguire attività di codifica avanzata.
 
 > [!NOTE]
-> I set di impostazioni personalizzati descritti in questo articolo non possono essere usati nelle trasformazioni di [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/) o nei comandi dell'interfaccia della riga di comando. Per ulteriori informazioni, vedere le [linee guida per la migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md) .
+> I predefiniti personalizzati descritti in questo articolo non possono essere utilizzati nelle trasformazioni [Di Servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/) o nei comandi dell'interfaccia della riga di comando. Per ulteriori informazioni, vedere le linee guida per la [migrazione dalla v2 alla v3.](../latest/migrate-from-v2-to-v3.md)
 
-## <a id="customizing_presets"></a> Personalizzazione di un set di impostazioni di Media Encoder Standard
+## <a name="customizing-a-mes-preset"></a><a id="customizing_presets"></a> Personalizzazione di un set di impostazioni di Media Encoder Standard
 
 ### <a name="original-preset"></a>Set di impostazioni originale
 
@@ -113,9 +113,9 @@ Aprire il file **CustomPreset_JSON.json** e rimuovere i primi tre livelli da **H
     }  
 ```
 
-## <a id="encoding_with_dotnet"></a>Codifica con l’SDK .NET dei servizi multimediali
+## <a name="encoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Codifica con l’SDK .NET dei servizi multimediali
 
-Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguenti attività:
+Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguenti attività: 
 
 - Creare un processo di codifica.
 - Ottenere un riferimento al codificatore Media Encoder Standard.
@@ -132,7 +132,7 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
-Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
+Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in Sviluppo di [Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Esempio   
 
@@ -266,7 +266,7 @@ namespace CustomizeMESPresests
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Come codificare con una trasformazione personalizzata usando l'interfaccia della riga di comando](../latest/custom-preset-cli-howto.md)
+- [Come codificare con una trasformazione personalizzata usando l'interfaccia della riga di comandoHow to encode with a custom transform by using CLI](../latest/custom-preset-cli-howto.md)
 - [Codifica con Servizi multimediali v3](../latest/encoding-concept.md)
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali

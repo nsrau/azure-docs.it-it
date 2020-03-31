@@ -11,10 +11,10 @@ ms.date: 03/20/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: f72aedb010301f9c7b12778432c4f10feb10f7a3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79246045"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Criteri personalizzati in Azure Active Directory B2C
@@ -27,12 +27,12 @@ I criteri personalizzati sono file di configurazione che definiscono il comporta
 
 | | Flussi degli utenti | Criteri personalizzati |
 |-|-------------------|-----------------|
-| Utenti di destinazione | Tutti gli sviluppatori di applicazioni con o senza competenze di identità. | Professionisti di identità, integratori di sistemi, consulenti e team interni per la gestione di identità. Sono confortevoli con i flussi di OpenID Connect e comprendono i provider di identità e l'autenticazione basata sulle attestazioni. |
+| Utenti di destinazione | Tutti gli sviluppatori di applicazioni con o senza competenze di identità. | Professionisti di identità, integratori di sistemi, consulenti e team interni per la gestione di identità. Sono a proprio agio con i flussi OpenID Connect e comprendono i provider di identità e l'autenticazione basata sulle attestazioni. |
 | Metodo di configurazione | Portale di Azure con un'interfaccia utente (UI) intuitiva. | Modifica diretta dei file XML e caricamento nel portale di Azure. |
 | Personalizzazione dell'interfaccia utente | Personalizzazione completa dell'interfaccia utente, inclusi HTML, CSS e JavaScript.<br><br>Supporto multilingue con stringhe personalizzate. | Uguale |
 | Personalizzazione degli attributi | Attributi standard e personalizzati. | Uguale |
 | Gestione delle sessioni e dei token | Token personalizzato e opzioni di sessione multiple. | Uguale |
-| Provider di identità | Provider locale o sociale predefinito e la maggior parte dei provider di identità OIDC, ad esempio la Federazione con Azure Active Directory tenant. | OIDC, SAML e OAuth basati su standard.  L'autenticazione è inoltre possibile tramite l'integrazione con le API REST. |
+| Provider di identità | Provider locale o di social networking predefinito e la maggior parte dei provider di identità OIDC, ad esempio la federazione con tenant di Azure Active Directory.Predefined local or social provider and most OIDC identity providers, such as federation with Azure Active Directory tenants. | OIDC, SAML e OAuth basati su standard.  L'autenticazione è possibile anche tramite l'integrazione con le API REST. |
 | Attività relative all'identità | Iscrizione o accesso ad account social o locali multipli.<br><br>Reimpostazione della password self-service.<br><br>Modifica del profilo.<br><br>Autenticazione a più fattori.<br><br>Personalizzare token e sessioni.<br><br>Flussi di accesso ai token. | Completare le stesse attività dei flussi utente usando provider di identità personalizzati ambiti personalizzati.<br><br>Effettuare il provisioning di un account utente in un altro sistema al momento della registrazione.<br><br>Inviare un messaggio di posta elettronica di benvenuto con il proprio provider di servizi di posta elettronica.<br><br>Usare un archivio utente esterno Azure AD B2C.<br><br>Convalidare le informazioni date dall'utente con un sistema attendibile tramite un'API. |
 
 ## <a name="policy-files"></a>File dei criteri
@@ -55,7 +55,7 @@ L'identità del cliente e il servizio di gestione degli accessi (CIAM) in Azure 
 
 Azure AD B2C interagisce in sequenza con i provider di identità, gli utenti, altri sistemi e la directory dell'utente locale per eseguire un'attività di identità. Ad esempio accesso di un utente, registrazione di un nuovo utente o reimpostazione di una password. Il Framework dell'esperienza di gestione delle identità e un criterio (chiamato anche percorso utente o criterio del framework attendibilità) stabilisce attendibilità tra più parti e definisce in modo esplicito gli attori, le azioni, i protocolli e la sequenza di passaggi da completare.
 
-Il Framework dell'esperienza di identità è una piattaforma Azure completamente configurabile, basata su criteri e basata sul cloud che orchestra la relazione di trust tra le entità nei formati di protocollo standard, ad esempio OpenID Connect, OAuth, SAML e alcune non standard, ad esempio REST Scambi di attestazioni da sistema a sistema basato su API. Il framework crea esperienze intuitive e generiche che supportano HTML e CSS.
+Identity Experience Framework è una piattaforma di Azure completamente configurabile, basata su criteri e basata su cloud che orchestra l'attendibilità tra entità in formati di protocollo standard come OpenID Connect, OAuth, SAML e alcune non standard, ad esempio REST Scambi di attestazioni da sistema a sistema basati su API. Il framework crea esperienze intuitive e generiche che supportano HTML e CSS.
 
 Un criterio personalizzato è rappresentato come uno o più file in formato XML che fanno riferimento l'uno all'altro in una catena gerarchica. Gli elementi XML definiscono, tra gli altri elementi, lo schema delle attestazioni, le trasformazioni delle attestazioni, le definizioni di contenuto, i provider di attestazioni, i profili tecnici e le procedure di orchestrazione per i percorsi utente. Un criterio personalizzato è accessibile nella forma di uno o più file XML che vengono eseguiti dal framework dell'esperienza di gestione delle identità quando vengono chiamati da una Relying Party. Gli sviluppatori che configurano criteri personalizzati devono definire dettagliatamente le relazioni attendibili in modo da includere gli endpoint dei metadati e le definizioni di scambio per le attestazioni esatte e configurare i segreti, le chiavi e i certificati necessari per ogni provider di identità.
 

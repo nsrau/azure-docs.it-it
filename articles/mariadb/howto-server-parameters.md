@@ -1,17 +1,17 @@
 ---
-title: Configurare i parametri del server-portale di Azure database di Azure per MariaDB
+title: Configurare i parametri del server - Portale di Azure - Database di Azure per MariaDBConfigure server parameters - Azure portal - Azure Database for MariaDB
 description: Questo articolo illustra come configurare i parametri del server MariaDB in Database di Azure per MariaDB usando il portale di Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/9/2019
-ms.openlocfilehash: ba091d05aa243fab08138c96827d2f657d9755de
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 3/18/2020
+ms.openlocfilehash: 243530b4badb9b19d288a91f247eefbcf622fb87
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79251505"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536412"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Questo articolo illustra come configurare i parametri di server del Database di Azure per MariaDB usando il portale di Azure
 
@@ -37,7 +37,7 @@ L'elenco di parametri del server supportati è in continua crescita. Usare la sc
 
 Pool di buffer InnoDB e Numero max. connessioni non sono configurabili e collegati al [piano tariffario](concepts-pricing-tiers.md).
 
-|**Piano tariffario**| **vCore**|**Pool di buffer InnoDB (MB)**|
+|**Livello di determinazione dei prezzi**| **vCore**|**Pool di buffer InnoDB (MB)**|
 |---|---|---|
 |Basic| 1| 1024|
 |Basic| 2| 2560|
@@ -78,7 +78,7 @@ CALL mysql.az_load_timezone();
 ```
 
 > [!IMPORTANT]
-> È necessario riavviare il server per assicurarsi che le tabelle del fuso orario siano popolate correttamente. Per riavviare il server, usare il [portale di Azure](howto-restart-server-portal.md) o l' [interfaccia](howto-restart-server-cli.md)della riga di comando.
+> È necessario riavviare il server per assicurarsi che le tabelle del fuso orario siano popolate correttamente. Per riavviare il server, usare il [portale di Azure](howto-restart-server-portal.md) o l'interfaccia della riga di [comando.](howto-restart-server-cli.md)
 Per visualizzare i valori di fuso orario disponibili, eseguire questo comando:
 
 ```sql

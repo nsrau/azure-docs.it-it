@@ -1,117 +1,117 @@
 ---
-title: Risolvere gli avvisi del log in monitoraggio di Azure | Microsoft Docs
-description: Problemi comuni, errori e soluzioni per le regole di avviso del log in Azure.
+title: Risolvere i problemi relativi agli avvisi di log in Monitoraggio di AzureTroubleshoot log alerts in Azure Monitor Documenti Microsoft
+description: Problemi comuni, errori e soluzioni per le regole di avviso di log in Azure.Common issues, errors, and resolutions for log alert rules in Azure.
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
 ms.openlocfilehash: acb9784b745fa90fc9cd264162930020e6d64751
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249035"
 ---
-# <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Risolvere gli avvisi del log in monitoraggio di Azure  
+# <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Risolvere i problemi relativi agli avvisi di log in Monitoraggio di AzureTroubleshoot log alerts in Azure Monitor  
 
-Questo articolo illustra come risolvere i problemi comuni che possono verificarsi quando si configurano gli avvisi del log in monitoraggio di Azure. Fornisce anche soluzioni ai problemi comuni relativi alla funzionalità o alla configurazione degli avvisi del log.
+Questo articolo illustra come risolvere i problemi comuni che potrebbero verificarsi quando si configurano gli avvisi di log in Monitoraggio di Azure.This article shows you how to resolve common issues that might happen when you're setting up log alerts in Azure Monitor. Fornisce inoltre soluzioni ai problemi comuni relativi alla funzionalità o alla configurazione degli avvisi di log.
 
-Il termine *avvisi del log* descrive le regole che vengono attivate in base a una query di log in un' [area di lavoro di Azure Log Analytics](../learn/tutorial-viewdata.md) o in [applicazione Azure Insights](../../azure-monitor/app/analytics.md). Altre informazioni su funzionalità, terminologia e tipi negli [avvisi di log in monitoraggio di Azure](../platform/alerts-unified-log.md).
+Gli *avvisi di log* di termine descrivono le regole che vengono attivate in base a una query di log in un'area di lavoro di Azure Log Analytics o in Azure Application Insights.The term log alerts describe rules that fire based on a log query in [an Azure Log Analytics workspace](../learn/tutorial-viewdata.md) or in [Azure Application Insights](../../azure-monitor/app/analytics.md). Per altre informazioni sulle funzionalità, la terminologia e i tipi, vedere [Registrare avvisi in Monitoraggio di Azure.Learn](../platform/alerts-unified-log.md)more about functionality, terminology, and types in Log alerts in Azure Monitor .
 
 > [!NOTE]
-> Questo articolo non considera i casi in cui il portale di Azure Mostra una regola di avviso attivata e una notifica non viene eseguita da un gruppo di azione associato. Per questi casi, vedere i dettagli in [creare e gestire gruppi di azioni nella portale di Azure](../platform/action-groups.md).
+> Questo articolo non considera i casi in cui il portale di Azure mostra una regola di avviso attivata e una notifica non viene eseguita da un gruppo di azioni associato. In questi casi, vedere i dettagli in Creare e gestire gruppi di azioni nel portale di [Azure.](../platform/action-groups.md)
 
 ## <a name="log-alert-didnt-fire"></a>Avviso del log non attivato
 
-Ecco alcuni motivi comuni per cui lo stato di una regola di avviso del log configurata [in monitoraggio di Azure](../platform/alerts-log.md) non viene visualizzato [come *generato* quando previsto](../platform/alerts-managing-alert-states.md).
+Ecco alcuni motivi comuni per cui lo stato di una regola di avviso log configurata [in Monitoraggio di Azure](../platform/alerts-log.md) non viene visualizzato come [ *generato* quando previsto.](../platform/alerts-managing-alert-states.md)
 
-### <a name="data-ingestion-time-for-logs"></a>Tempo di inserimento dati per i log
+### <a name="data-ingestion-time-for-logs"></a>Tempo di inserimento dei dati per i logData ingestion time for logs
 
-Un avviso del log esegue periodicamente la query in base a [log Analytics](../learn/tutorial-viewdata.md) o [Application Insights](../../azure-monitor/app/analytics.md). Poiché monitoraggio di Azure elabora molti terabyte di dati provenienti da migliaia di clienti provenienti da diverse origini in tutto il mondo, il servizio è soggetto a diversi ritardi temporali. Per altre informazioni, vedere [tempo di inserimento dati nei log di monitoraggio di Azure](../platform/data-ingestion-time.md).
+Un avviso di log esegue periodicamente la query in base a [Log Analytics](../learn/tutorial-viewdata.md) o [Application Insights.](../../azure-monitor/app/analytics.md) Poiché Monitor di Azure elabora molti terabyte di dati da migliaia di clienti provenienti da diverse fonti in tutto il mondo, il servizio è suscettibile a ritardi temporali variabili. Per altre informazioni, vedere Tempo di inserimento dati nei log di Monitoraggio di Azure.For more information, see [Data ingestion time in Azure Monitor logs.](../platform/data-ingestion-time.md)
 
-Per attenuare i ritardi, il sistema attende e tenta più volte la query di avviso se rileva che i dati necessari non sono stati ancora inseriti. Il sistema ha un tempo di attesa impostato che aumenta in modo esponenziale. L'avviso del log viene attivato solo dopo che i dati sono disponibili, quindi il ritardo potrebbe essere dovuto all'inserimento lento dei dati di log.
+Per ridurre i ritardi, il sistema attende e ritenta la query di avviso più volte se rileva che i dati necessari non sono ancora stati ingeriti. Il sistema ha un tempo di attesa impostato che aumenta in modo esponenziale. L'avviso di log viene attivato solo dopo che i dati sono disponibili, pertanto il ritardo potrebbe essere dovuto a un'inserimento lento dei dati del log.
 
 ### <a name="incorrect-time-period-configured"></a>Periodo di tempo errato configurato
 
-Come descritto nell'articolo relativo alla [terminologia per gli avvisi del log](../platform/alerts-unified-log.md#log-search-alert-rule---definition-and-types), il periodo di tempo indicato nella configurazione specifica l'intervallo di tempo per la query. La query restituisce solo i record creati in questo intervallo.
+Come descritto nell'articolo sulla [terminologia per gli avvisi di log](../platform/alerts-unified-log.md#log-search-alert-rule---definition-and-types), il periodo di tempo indicato nella configurazione specifica l'intervallo di tempo per la query. La query restituisce solo i record creati all'interno di questo intervallo.
 
-Il periodo di tempo limita i dati recuperati per una query di log, in modo da evitare abusi e aggirare qualsiasi comando del tempo (ad esempio, **fa**) usato in una query di log. Se ad esempio il periodo di tempo è impostato su 60 minuti e la query viene eseguita alle 13.15, solo i record creati tra le 12.15 e le 13.15 vengono usati per la query di log. Se la query di log usa un comando time come **fa (1D)** , la query usa comunque solo i dati compresi tra il 12:15 e il 1:15 PM perché il periodo di tempo è impostato su tale intervallo.
+Il periodo di tempo limita i dati recuperati per una query di log per evitare abusi e aggira qualsiasi comando di tempo (come **fa)** utilizzato in una query di log. Se ad esempio il periodo di tempo è impostato su 60 minuti e la query viene eseguita alle 13.15, solo i record creati tra le 12.15 e le 13.15 vengono usati per la query di log. Se la query di log utilizza un comando time come **fa (1d),** la query utilizza ancora solo dati compresi tra le 12:15 e le 13:15 perché il periodo di tempo è impostato su tale intervallo.
 
-Verificare che il periodo di tempo nella configurazione corrisponda alla query. Per l'esempio illustrato in precedenza, se la query di log USA **ago (1D)** con il marcatore verde, il periodo di tempo deve essere impostato su 24 ore o 1.440 minuti (indicato in rosso). Questa impostazione garantisce che la query venga eseguita come previsto.
+Verificare che il periodo di tempo nella configurazione corrisponda alla query. Per l'esempio illustrato in precedenza, se la query di log utilizza **fa (1d)** con l'indicatore verde, il periodo di tempo deve essere impostato su 24 ore o 1.440 minuti (indicato in rosso). Questa impostazione garantisce che la query venga eseguita come previsto.
 
 ![Periodo di tempo](media/alert-log-troubleshoot/LogAlertTimePeriod.png)
 
 ### <a name="suppress-alerts-option-is-set"></a>Opzione Elimina avvisi impostata
 
-Come descritto nel passaggio 8 dell'articolo sulla [creazione di una regola di avviso del log nel portale di Azure](../platform/alerts-log.md#managing-log-alerts-from-the-azure-portal), gli avvisi del log forniscono un'opzione di **eliminazione degli avvisi** per eliminare le azioni di attivazione e notifica per un periodo di tempo configurato. Di conseguenza, si potrebbe pensare che un avviso non è stato attivato. Infatti, è stato attivato ma è stato eliminato.  
+Come descritto nel passaggio 8 dell'articolo sulla creazione di una regola di avviso di log nel portale di [Azure,](../platform/alerts-log.md#managing-log-alerts-from-the-azure-portal)gli avvisi di log forniscono un'opzione **Suppress Alerts** per eliminare le azioni di attivazione e notifica per un periodo di tempo configurato. Di conseguenza, si potrebbe pensare che non sia stato attivato un avviso. Infatti, ha sparato, ma è stato soppresso.  
 
 ![Elimina avvisi](media/alert-log-troubleshoot/LogAlertSuppress.png)
 
 ### <a name="metric-measurement-alert-rule-is-incorrect"></a>Regola di avviso di unità di misura della metrica errata
 
-Gli *avvisi del log di misurazione delle metriche* sono un sottotipo di avvisi di log con funzionalità speciali e una sintassi di query di avviso limitata. Una regola per un avviso del log di misurazione delle metriche richiede che l'output della query sia una serie temporale metrica. Ovvero, l'output è una tabella con periodi di tempo distinti e di dimensioni uguali insieme ai valori aggregati corrispondenti.
+Gli avvisi del log di *misurazione delle metriche* sono un sottotipo di avvisi di log con funzionalità speciali e una sintassi di query degli avvisi con restrizioni. Una regola per un avviso del log di misurazione metrica richiede che l'output della query sia una serie temporale metrica. Ovvero, l'output è una tabella con periodi di tempo distinti e di dimensioni uguali insieme ai valori aggregati corrispondenti.
 
-È possibile scegliere di disporre di variabili aggiuntive nella tabella insieme a **AggregatedValue**. Queste variabili possono essere utilizzate per ordinare la tabella.
+È possibile scegliere di avere variabili aggiuntive nella tabella insieme a **AggregatedValue**. Queste variabili possono essere utilizzate per ordinare la tabella.
 
-Si supponga ad esempio che una regola per un avviso del log di misurazione delle metriche sia stata configurata come segue:
+Si supponga, ad esempio, che una regola per un avviso del log di misurazione delle metriche sia stata configurata come:For example, suppose a rule for a metric measurement log alert was configured as:
 
-- Query di `search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
+- Query di`search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
 - Periodo di tempo di 6 ore
 - Soglia di 50
 - Logica di avviso di tre violazioni consecutive
-- **Aggregazione su** scelta come **$Table**
+- **Aggrega su** scelto come **$table**
 
-Poiché il comando include il **Riepilogo... in** e sono disponibili due variabili (**timestamp** e **$Table**), il sistema sceglie **$Table** per l' **aggregazione in base**a. Il sistema ordina la tabella dei risultati in base al campo **$Table** , come illustrato nello screenshot seguente. Esamina quindi più istanze di **AggregatedValue** per ogni tipo di tabella (ad esempio **availabilityResults**) per verificare se sono presenti tre o più violazioni consecutive.
+Poiché il comando include **riassumere ... e** fornisce due variabili (**timestamp** e **$table**), il sistema sceglie **$table** per **Aggregate Upon**. Il sistema ordina la tabella dei risultati in base al campo **$table,** come illustrato nella schermata seguente. Vengono quindi esaminate più istanze **di AggregatedValue** per ogni tipo di tabella (ad esempio **availabilityResults**) per verificare se sono state presenti tre o più violazioni consecutive.
 
-![Esecuzione di query di misurazione delle metriche con più valori](media/alert-log-troubleshoot/LogMMQuery.png)
+![Esecuzione di query di misurazione metrica con più valoriMetric measurement query execution with multiple values](media/alert-log-troubleshoot/LogMMQuery.png)
 
-Poiché **Aggregate** su viene definito in **$Table**, i dati vengono ordinati in base a una colonna **$Table** (indicata in rosso). Quindi si raggruppano e si cercano i tipi di **aggregazione sul** campo.
+Poiché **Aggregate Upon** è definito **in $table**, i dati vengono ordinati in base a una colonna **$table** (indicata in rosso). Quindi raggruppamo e cerchiamo i tipi di campo **Aggrega a.**
 
-Per **$Table**, ad esempio, i valori per **availabilityResults** verranno considerati come un singolo tracciato o entità (indicato in arancione). In questo valore Plot/Entity il servizio Alert controlla la presenza di tre violazioni consecutive (indicate in verde). Le violazioni attivano un avviso per il valore della tabella **availabilityResults**.
+Ad esempio, per **$table**, i valori per **availabilityResults** verranno considerati come un'unica traccia/entità (indicata in arancione). In questo value plot/entity, il servizio di avviso verifica la presenza di tre violazioni consecutive (indicate in verde). Le violazioni attivano un avviso per il valore della tabella **availabilityResults**.
 
-Analogamente, se si verificano tre violazioni consecutive per qualsiasi altro valore di **$Table**, viene attivata un'altra notifica di avviso per la stessa operazione. Il servizio Alert Ordina automaticamente i valori in un tracciato/entità (indicati in arancione) in base all'ora.
+Analogamente, se si verificano tre violazioni consecutive per qualsiasi altro valore di **$table**, viene attivata un'altra notifica di avviso per la stessa cosa. Il servizio di avviso ordina automaticamente i valori in un grafico/entità (indicato in arancione) in base al tempo.
 
-Si supponga ora che la regola per l'avviso del log di misurazione delle metriche sia stata modificata e che la query sia stata `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)`. Il resto della configurazione è rimasto invariato, inclusa la logica di avviso per tre violazioni consecutive. Per impostazione predefinita, l'opzione **aggrega su** in questo caso è **timestamp** . Nella query per il riepilogo è disponibile un solo valore **... da** (ovvero **timestamp**). Come nell'esempio precedente, l'output alla fine dell'esecuzione è come illustrato di seguito.
+Si supponga ora che la regola per l'avviso `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)`del log di misurazione delle metriche sia stata modificata e che la query sia stata modificata. Il resto della configurazione è rimasto lo stesso di prima, inclusa la logica di avviso per tre violazioni consecutive. L'opzione **Aggrega a** questo caso è **timestamp** per impostazione predefinita. Nella query viene fornito un solo valore per **riassumere ... da** (ovvero **timestamp**). Come nell'esempio precedente, l'output alla fine dell'esecuzione sarebbe illustrato di seguito.
 
-   ![Esecuzione di query di misurazione della metrica con valore singolare](media/alert-log-troubleshoot/LogMMtimestamp.png)
+   ![Esecuzione di query di misurazione metrica con valore singolareMetric measurement query execution with singular value](media/alert-log-troubleshoot/LogMMtimestamp.png)
 
-Poiché **Aggregate** su è definito in **timestamp**, i dati vengono ordinati in base alla colonna **timestamp** (indicata in rosso). Quindi, viene raggruppato in base al **timestamp**. Ad esempio, i valori per `2018-10-17T06:00:00Z` verranno considerati come un singolo tracciato o entità (indicato in arancione). In questo valore Plot/Entity il servizio Alert non troverà alcuna violazione consecutiva (poiché ogni valore di **timestamp** ha una sola voce). Quindi, l'avviso non viene mai attivato. In tal caso, l'utente deve:
+Poiché **Aggregate Upon** è definito in **timestamp**, i dati vengono ordinati in base alla colonna **timestamp** (indicata in rosso). Quindi si raggruppa in base **al timestamp**. Ad esempio, `2018-10-17T06:00:00Z` i valori per verranno considerati come un'unica trama/entità (indicata in arancione). In questo value plot/entity, il servizio di avviso non troverà violazioni consecutive (perché ogni valore **timestamp** ha una sola voce). Quindi l'avviso non viene mai attivato. In tal caso, l'utente deve:
 
-- Aggiungere una variabile fittizia o una variabile esistente (ad esempio **$Table**) per eseguire correttamente l'ordinamento usando il campo **aggregato su** .
-- Riconfigurare la regola di avviso in modo da usare la logica di avviso in base alla **violazione totale** .
+- Aggiungere una variabile fittizia o una variabile esistente (ad **esempio $table**) per eseguire correttamente l'ordinamento utilizzando il campo **Aggrega a** .
+- Riconfigurare la regola di avviso per utilizzare invece la logica di avviso in base alla **violazione totale.**
 
 ## <a name="log-alert-fired-unnecessarily"></a>Avviso del log inutilmente attivato
 
-Una [regola di avviso del log configurata in monitoraggio di Azure](../platform/alerts-log.md) può essere attivata in modo imprevisto quando la si visualizza negli [avvisi di Azure](../platform/alerts-managing-alert-states.md). Le sezioni seguenti descrivono alcuni motivi comuni.
+Una [regola](../platform/alerts-log.md) di avviso del log configurata in Monitoraggio di Azure potrebbe essere attivata in modo imprevisto quando viene visualizzata in Avvisi di Azure.A configured log alert rule in Azure Monitor might be triggered unexpectedly when you view it in Azure [Alerts](../platform/alerts-managing-alert-states.md). Nelle sezioni seguenti vengono descritti alcuni motivi comuni.
 
 ### <a name="alert-triggered-by-partial-data"></a>Avviso attivato da dati parziali
 
-Log Analytics e Application Insights sono soggetti a ritardi di inserimento ed elaborazione. Quando si esegue una query di avviso del log, è possibile che non siano disponibili dati o che siano disponibili solo alcuni dati. Per altre informazioni, vedere [tempo di inserimento dei dati di log in monitoraggio di Azure](../platform/data-ingestion-time.md).
+Analisi dei log e Application Insights sono soggette a ritardi e processi di inserimento. Quando si esegue una query di avviso del log, è possibile che non vi sia dati disponibili o che solo alcuni dati sono disponibili. Per altre informazioni, vedere Registrare il tempo di inserimento dei dati in Monitoraggio di Azure.For more information, see [Log data ingestion time in Azure Monitor.](../platform/data-ingestion-time.md)
 
-A seconda di come è stata configurata la regola di avviso, è possibile che si verifichi una mancata attivazione se non sono presenti dati o dati parziali nei log al momento dell'esecuzione dell'avviso. In questi casi, è consigliabile modificare la query o la configurazione dell'avviso.
+A seconda di come è stata configurata la regola di avviso, potrebbe verificarsi un errore di generazione se non sono presenti dati o dati parziali nei log al momento dell'esecuzione dell'avviso. In questi casi, si consiglia di modificare la query o la configurazione degli avvisi.
 
-Ad esempio, se si configura la regola di avviso del log in modo che venga attivata quando il numero di risultati di una query di Analytics è inferiore a 5, l'avviso viene attivato quando non sono presenti dati (zero record) o risultati parziali (un record). Tuttavia, dopo il ritardo di inserimento dei dati, è possibile che la stessa query con dati completi fornisca un risultato di 10 record.
+Ad esempio, se si configura la regola di avviso del log da attivare quando il numero di risultati da una query di analisi è inferiore a 5, l'avviso viene attivato quando non sono presenti dati (record zero) o risultati parziali (un record). Tuttavia, dopo il ritardo di inserimento dei dati, la stessa query con i dati completi potrebbe fornire un risultato di 10 record.
 
-### <a name="alert-query-output-is-misunderstood"></a>L'output della query di avviso non è compreso
+### <a name="alert-query-output-is-misunderstood"></a>L'output della query di avviso è frainteso
 
-La logica per gli avvisi di log viene specificata in una query di Analytics La query di analisi può usare varie funzioni matematiche e Big Data. Il servizio Alert esegue la query a intervalli specificati con i dati per un periodo di tempo specificato. Il servizio avvisi apporta modifiche minime alla query in base al tipo di avviso. È possibile visualizzare questa modifica nella sezione **query da** eseguire nella schermata **Configura logica segnale** :
+La logica per gli avvisi di log viene specificata in una query di Analytics La query di analisi può utilizzare vari Big Data e funzioni matematiche. Il servizio di avviso esegue la query a intervalli specificati con i dati per un periodo di tempo specificato. Il servizio di avviso apporta piccole modifiche alla query in base al tipo di avviso. È possibile visualizzare questa modifica nella sezione Query da eseguire nella schermata Configura logica del segnale:You can view this change in the **Query to be executed** section on the **Configure signal logic** screen:
 
 ![Query da eseguire](media/alert-log-troubleshoot/LogAlertPreview.png)
 
-La **query da eseguire** box è il servizio di avviso del log eseguito. Per comprendere l'output della query di avviso prima di creare l'avviso, è possibile eseguire la query dichiarata e l'intervallo di tempo tramite il [portale di analisi](../log-query/portals.md) o l' [API di analisi](https://docs.microsoft.com/rest/api/loganalytics/).
+La casella **Query da eseguire** è ciò che viene eseguito dal servizio di avviso di log. Se si desidera comprendere l'output della query di avviso prima di creare l'avviso, è possibile eseguire la query indicata e l'intervallo di tempo tramite il [portale di Analytics](../log-query/portals.md) o l'API di [analytics.](https://docs.microsoft.com/rest/api/loganalytics/)
 
-## <a name="log-alert-was-disabled"></a>Avviso del log disabilitato
+## <a name="log-alert-was-disabled"></a>Avviso di registro disabilitato
 
-Le sezioni seguenti elencano alcuni motivi per cui monitoraggio di Azure potrebbe disabilitare la [regola di avviso del log](../platform/alerts-log.md).
+Nelle sezioni seguenti sono elencati alcuni motivi per cui Monitoraggio azure potrebbe disabilitare la regola di avviso del [log.](../platform/alerts-log.md)
 
-### <a name="resource-where-the-alert-was-created-no-longer-exists"></a>La risorsa in cui è stato creato l'avviso non esiste più
+### <a name="resource-where-the-alert-was-created-no-longer-exists"></a>Risorsa in cui è stato creato l'avviso non esiste più
 
-Le regole di avviso del log create in monitoraggio di Azure sono destinate a una risorsa specifica, ad esempio un'area di lavoro di Azure Log Analytics, un'app applicazione Azure Insights e una risorsa di Azure. Il servizio di avviso del log eseguirà quindi una query di analisi fornita nella regola per la destinazione specificata. Tuttavia, dopo la creazione della regola, gli utenti passano spesso ad eliminare da Azure o a spostarsi all'interno di Azure, ovvero la destinazione della regola di avviso del log. Poiché la destinazione della regola di avviso non è più valida, l'esecuzione della regola ha esito negativo.
+Le regole di avviso di log create in Monitoraggio di Azure hanno come destinazione una risorsa specifica, ad esempio un'area di lavoro di Azure Log Analytics, un'app di Azure Application Insights e una risorsa di Azure.Log alert rules created in Azure Monitor target a specific resource like an Azure Log Analytics workspace, an Azure Application Insights app, and an Azure resource. Il servizio di avviso del log eseguirà quindi una query di analisi fornita nella regola per la destinazione specificata. Ma dopo la creazione della regola, gli utenti spesso passano all'eliminazione da Azure o si spostano all'interno di Azure, ovvero la destinazione della regola di avviso del log. Poiché la destinazione della regola di avviso non è più valida, l'esecuzione della regola ha esito negativo.
 
-In questi casi, monitoraggio di Azure Disabilita l'avviso del log e garantisce che non venga addebitato inutilmente quando la regola non può essere eseguita continuamente per un periodo di tempo considerevole (ad esempio una settimana). È possibile individuare l'ora esatta in cui monitoraggio di Azure ha disabilitato l'avviso di log tramite il [log attività di Azure](../../azure-resource-manager/management/view-activity-logs.md). Nel log attività di Azure viene aggiunto un evento quando monitoraggio di Azure Disabilita la regola di avviso del log.
+In questi casi, Monitoraggio solo Cost disabilita l'avviso di log e garantisce che non venga fatturato inutilmente quando la regola non può essere eseguita continuamente per un periodo considerevole (ad esempio una settimana). È possibile scoprire l'ora esatta in cui Monitoraggio di Azure ha disabilitato l'avviso di log tramite il [log attività di Azure.You](../../azure-resource-manager/management/view-activity-logs.md)can find out the exact time when Azure Monitor disabled the log alert via Azure Activity Log . In Log attività di Azure viene aggiunto un evento quando Monitoraggio azure disabilita la regola di avviso del log.
 
-L'evento di esempio seguente nel log attività di Azure è per una regola di avviso che è stata disabilitata a causa di un errore continuo.
+L'evento di esempio seguente nel Log attività di Azure è relativo a una regola di avviso disabilitata a causa di un errore continuo.
 
 ```json
 {
@@ -174,21 +174,21 @@ L'evento di esempio seguente nel log attività di Azure è per una regola di avv
 }
 ```
 
-### <a name="query-used-in-a-log-alert-is-not-valid"></a>La query utilizzata in un avviso del log non è valida
+### <a name="query-used-in-a-log-alert-is-not-valid"></a>La query utilizzata in un avviso di log non è valida
 
-Ogni regola di avviso del log creata in monitoraggio di Azure come parte della relativa configurazione deve specificare una query di analisi che il servizio avvisi sarà eseguito periodicamente. La query di analisi potrebbe avere la sintassi corretta al momento della creazione o dell'aggiornamento della regola. In alcuni casi, tuttavia, in un periodo di tempo, la query fornita nella regola di avviso del log può sviluppare problemi di sintassi e causare un errore di esecuzione della regola. Ecco alcuni motivi comuni per cui una query di analisi fornita in una regola di avviso del log può sviluppare errori:
+Ogni regola di avviso del log creata in Monitoraggio di Azure come parte della configurazione deve specificare una query di analisi che verrà eseguita periodicamente dal servizio avvisi. La query di analisi potrebbe avere una sintassi corretta al momento della creazione o dell'aggiornamento della regola. Ma a volte, in un periodo di tempo, la query fornita nella regola di avviso del log può sviluppare problemi di sintassi e causare l'esito negativo dell'esecuzione della regola. Alcuni motivi comuni per cui una query di analisi fornita in una regola di avviso del log può sviluppare errori sono:Some common reasons why an analytics query provided in a log alert rule can develop errors are:
 
-- La query viene scritta per l' [esecuzione in più risorse](../log-query/cross-workspace-query.md). E una o più delle risorse specificate non esistono più.
-- L' [avviso di log del tipo di misurazione della metrica](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules) configurato ha una query di avviso non conforme alle normative della sintassi
-- Non è stato disponibile alcun flusso di dati alla piattaforma di analisi. L' [esecuzione della query restituisce un errore](https://dev.loganalytics.io/documentation/Using-the-API/Errors) perché non sono disponibili dati per la query specificata.
-- Le modifiche nel [linguaggio di query](https://docs.microsoft.com/azure/kusto/query/) includono un formato modificato per i comandi e le funzioni. Quindi, la query fornita in precedenza in una regola di avviso non è più valida.
+- La query viene scritta per [l'esecuzione su più risorse](../log-query/cross-workspace-query.md). E una o più delle risorse specificate non esistono più.
+- [L'avviso del log del tipo di misurazione metrica](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules) configurato ha una query di avviso non conforme alle norme di sintassi
+- Non è stato eseguito alcun flusso di dati alla piattaforma di analisi. L'esecuzione della [query restituisce un errore](https://dev.loganalytics.io/documentation/Using-the-API/Errors) perché non sono presenti dati per la query fornita.
+- Le modifiche apportate al [linguaggio](https://docs.microsoft.com/azure/kusto/query/) di query includono un formato rivisto per comandi e funzioni. Pertanto, la query fornita in precedenza in una regola di avviso non è più valida.
 
-[Azure Advisor](../../advisor/advisor-overview.md) segnala questo comportamento. Viene aggiunta una raccomandazione per la regola di avviso del log specifica in Azure Advisor, sotto la categoria di disponibilità elevata con effetto medio e una descrizione della regola di avviso "Ripristina la regola di avviso del log per garantire il monitoraggio". Se una query di avviso nella regola di avviso del log non viene rettificata dopo che Azure Advisor ha fornito una raccomandazione per sette giorni, monitoraggio di Azure Disabilita l'avviso del log e verifica che non venga addebitato inutilmente quando la regola non può essere eseguita continuamente per un periodo di tempo considerevole ( come una settimana).
+[Azure Advisor](../../advisor/advisor-overview.md) avvisa l'utente di questo comportamento. Viene aggiunta una raccomandazione per la regola di avviso del log specifica in Azure Advisor, nella categoria Disponibilità elevata con impatto medio e una descrizione di "Ripristina la regola di avviso del log per garantire il monitoraggio". Se una query di avviso nella regola di avviso del log non viene rettificata dopo che Azure Advisor ha fornito una raccomandazione per sette giorni, Monitoraggio di Azure disabiliterà l'avviso di log e garantisce che non venga fatturato inutilmente quando la regola non può essere eseguita continuamente per un periodo considerevole ( come una settimana).
 
-È possibile trovare l'ora esatta in cui monitoraggio di Azure ha disattivato la regola di avviso del log cercando un evento nel [log attività di Azure](../../azure-resource-manager/management/view-activity-logs.md).
+È possibile trovare l'ora esatta in cui Monitoraggio di Azure ha disabilitato la regola di avviso del log cercando un evento nel Log attività di Azure.You can find the exact time when Azure Monitor disabled the log alert rule by looking for an event in [Azure Activity Log](../../azure-resource-manager/management/view-activity-logs.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni, fare riferimento agli [avvisi di log in Azure](../platform/alerts-unified-log.md).
 - Altre informazioni su [Application Insights](../../azure-monitor/app/analytics.md).
-- Altre informazioni sulle [query di log](../log-query/log-query-overview.md).
+- Ulteriori informazioni sulle query di [log](../log-query/log-query-overview.md).

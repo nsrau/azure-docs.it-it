@@ -9,18 +9,18 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
 ms.openlocfilehash: 610232dab776648bb3dcc7c301ec292e9acad9fc
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898518"
 ---
 # <a name="limits-quotas-and-throttle-thresholds-in-azure-scheduler"></a>Limiti, quote e soglie di Utilità di pianificazione di Azure
 
 > [!IMPORTANT]
-> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile. 
+> App per la logica di Azure sostituisce [l'Utilità](../logic-apps/logic-apps-overview.md) di pianificazione di Azure, che [viene ritirata.](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date) Per continuare a usare i processi impostati nell'utilità di pianificazione, [eseguire la migrazione ad App per la logica](../scheduler/migrate-from-scheduler-to-logic-apps.md) di Azure appena possibile. 
 >
-> L'utilità di pianificazione non è più disponibile nella portale di Azure, ma i cmdlet di [PowerShell](scheduler-powershell-reference.md) per l' [API REST](/rest/api/scheduler) e l'utilità di pianificazione di Azure restano disponibili in questo momento, in modo da poter gestire processi e raccolte di processi.
+> L'utilità di pianificazione non è più disponibile nel portale di Azure, ma i cmdlet di PowerShell [per l'API REST](/rest/api/scheduler) e [l'utilità di pianificazione](scheduler-powershell-reference.md) di Azure rimangono disponibili in questo momento in modo da poter gestire i processi e le raccolte di processi.
 
 ## <a name="limits-quotas-and-thresholds"></a>Limiti, quote e soglie
 
@@ -28,7 +28,7 @@ ms.locfileid: "78898518"
 
 ## <a name="x-ms-request-id-header"></a>L'intestazione x-ms-request-id
 
-Ogni richiesta effettuata nel servizio Utilità di pianificazione restituisce un'intestazione di risposta denominata **x-ms-request-ID**. Questa intestazione contiene un valore opaco che identifica in modo univoco la richiesta. Se una richiesta fallisce sistematicamente e si è verificato che la richiesta è formulata in modo appropriato, è possibile riportare l'errore a Microsoft usando il valore dell'intestazione di risposta **x-ms-request-id** e includendo questi dettagli: 
+Ogni richiesta effettuata sul servizio Utilità di pianificazione restituisce un'intestazione di risposta denominata **x-ms-request-id**. Questa intestazione contiene un valore opaco che identifica in modo univoco la richiesta. Se una richiesta fallisce sistematicamente e si è verificato che la richiesta è formulata in modo appropriato, è possibile riportare l'errore a Microsoft usando il valore dell'intestazione di risposta **x-ms-request-id** e includendo questi dettagli: 
 
 * Il valore **x-ms-request-id**
 * L'ora approssimativa in cui è stata effettuata la richiesta 
@@ -38,6 +38,6 @@ Ogni richiesta effettuata nel servizio Utilità di pianificazione restituisce un
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure](scheduler-concepts-terms.md)
-* [Piani e fatturazione per l'utilità di pianificazione di Azure](scheduler-plans-billing.md)
+* [Piani e fatturazione per l'Utilità di pianificazione di Azure](scheduler-plans-billing.md)
 * [Informazioni di riferimento sull'API REST dell'Utilità di pianificazione di Azure](/rest/api/scheduler)
 * [Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione di Azure](scheduler-powershell-reference.md)

@@ -1,16 +1,16 @@
 ---
-title: Regole del firewall-database di Azure per MySQL
-description: Informazioni sull'uso delle regole del firewall per abilitare le connessioni al database di Azure per il server MySQL.
+title: Regole del firewall - Database di Azure per MySQL
+description: Informazioni sull'uso delle regole del firewall per abilitare le connessioni al database di Azure per il server MySQL.Learn about using firewall rules to enable connections to your Azure Database for MySQL server.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.openlocfilehash: a82d2317314c79a82fe80c5a25afc950fb728815
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76155197"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Regole di firewall per il server MySQL del database di Azure
@@ -35,18 +35,18 @@ Se l'indirizzo IP della richiesta rientra in uno degli intervalli specificati ne
 Se l'indirizzo IP della richiesta non rientra negli intervalli specificati in una delle regole del firewall a livello di database o di server, la richiesta di connessione ha esito negativo.
 
 ## <a name="connecting-from-azure"></a>Connessione da Azure
-È consigliabile trovare l'indirizzo IP in uscita di qualsiasi applicazione o servizio e consentire in modo esplicito l'accesso a tali indirizzi o intervalli IP singoli. Ad esempio, è possibile trovare l'indirizzo IP in uscita di un servizio app Azure o usare un indirizzo IP pubblico collegato a una macchina virtuale o a un'altra risorsa (vedere di seguito per informazioni sulla connessione con l'indirizzo IP privato di una macchina virtuale tramite gli endpoint del servizio). 
+Si consiglia di trovare l'indirizzo IP in uscita di qualsiasi applicazione o servizio e consentire in modo esplicito l'accesso a tali singoli indirizzi IP o intervalli. Ad esempio, è possibile trovare l'indirizzo IP in uscita di un servizio app di Azure o usare un indirizzo IP pubblico associato a una macchina virtuale o a un'altra risorsa (vedere di seguito per informazioni sulla connessione con gli endpoint IP privato su servizio di una macchina virtuale). 
 
-Se un indirizzo IP in uscita fisso non è disponibile per il servizio di Azure, è possibile prendere in considerazione l'abilitazione delle connessioni da tutti gli indirizzi IP dei Data Center di Azure. Questa impostazione può essere abilitata dal portale di Azure impostando l'opzione **Consenti l'accesso a servizi di Azure** **su** attivato dal riquadro **sicurezza connessione** e premendo **Salva**. Dall'interfaccia della riga di comando di Azure, un'impostazione della regola del firewall con indirizzo iniziale e finale uguale a 0.0.0.0 esegue l'equivalente. Se il tentativo di connessione non è consentito, la richiesta non raggiungerà il server di Database di Azure per MySQL.
+Se un indirizzo IP in uscita fisso non è disponibile per il servizio azure, è possibile abilitare le connessioni da tutti gli indirizzi IP del data center di Azure.If a fixed outgoing IP address isn't available for your Azure service, you can consider enabling connections from all Azure datacenter IP addresses. Questa impostazione può essere abilitata dal portale di Azure impostando l'opzione **Consenti accesso ai servizi** di Azure su **ON** dal riquadro **Sicurezza connessione** e selezionando **Salva**. Dall'interfaccia della riga di comando di Azure, un'impostazione della regola del firewall con indirizzo iniziale e finale uguale a 0.0.0.0 equivale all'equivalente. Se il tentativo di connessione non è consentito, la richiesta non raggiungerà il server di Database di Azure per MySQL.
 
 > [!IMPORTANT]
-> L'opzione **Consenti l'accesso a servizi di Azure** consente di configurare il firewall in modo da consentire tutte le connessioni da Azure, incluse le connessioni dalle sottoscrizioni di altri clienti. Quando si seleziona questa opzione, assicurarsi che l'account di accesso e le autorizzazioni utente limitino l'accesso ai soli utenti autorizzati.
+> L'opzione **Consenti l'accesso ai servizi** di Azure configura il firewall per consentire tutte le connessioni da Azure, incluse le connessioni dalle sottoscrizioni di altri clienti. Quando si seleziona questa opzione, assicurarsi che l'account di accesso e le autorizzazioni utente limitino l'accesso ai soli utenti autorizzati.
 > 
 
 ![Configurare Possibilità di accedere ai servizi di Azure nel portale](./media/concepts-firewall-rules/allow-azure-services.png)
 
-### <a name="connecting-from-a-vnet"></a>Connessione da un VNet
-Per connettersi in modo sicuro al database di Azure per il server MySQL da una VNet, è consigliabile usare gli [endpoint del servizio VNet](./concepts-data-access-and-security-vnet.md). 
+### <a name="connecting-from-a-vnet"></a>Connessione da una rete virtualeConnecting from a VNet
+Per connettersi in modo sicuro al database di Azure per il server MySQL da una rete virtuale, prendere in considerazione l'utilizzo di endpoint del [servizio VNet.](./concepts-data-access-and-security-vnet.md) 
 
 ## <a name="programmatically-managing-firewall-rules"></a>Gestione di regole del firewall a livello di programmazione
 Oltre al portale di Azure, le regole del firewall possono essere gestite a livello di programmazione usando l'interfaccia della riga di comando di Azure. Vedere anche [Creare e gestire Database di Azure per le regole di firewall MySQL tramite l'interfaccia della riga di comando di Azure](./howto-manage-firewall-using-cli.md)
@@ -64,10 +64,10 @@ Quando l'accesso al servizio Database di Microsoft Azure per server MySQL non si
 
    * Ottenere indirizzi IP statici per i computer client, quindi aggiungere gli indirizzi IP come regole del firewall.
 
-* **L'IP del server sembra essere pubblico:** Le connessioni al database di Azure per il server MySQL vengono instradate tramite un gateway di Azure accessibile pubblicamente. Tuttavia, l'indirizzo IP effettivo del server è protetto dal firewall. Per altre informazioni, vedere l' [articolo sull'architettura della connettività](concepts-connectivity-architecture.md). 
+* **L'IP del server sembra essere pubblico:** Le connessioni al database di Azure per il server MySQL vengono instradate tramite un gateway di Azure accessibile pubblicamente. Tuttavia, l'indirizzo IP effettivo del server è protetto dal firewall. Per ulteriori informazioni, vedere [l'articolo sull'architettura](concepts-connectivity-architecture.md)di connettività . 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare e gestire regole del firewall di Database di Azure per MySQL con il portale di Azure](./howto-manage-firewall-using-portal.md)
-* [Creare e gestire regole del firewall di database di Azure per MySQL usando l'interfaccia della riga di comando](./howto-manage-firewall-using-cli.md)
+* [Creare e gestire le regole del firewall di Azure Database for MySQL usando il portale di AzureCreate and manage Azure Database for MySQL firewall rules using the Azure portal](./howto-manage-firewall-using-portal.md)
+* [Creare e gestire regole del firewall di Database di Azure per MySQL tramite l'interfaccia della riga di comando di Azure](./howto-manage-firewall-using-cli.md)
 - [Endpoint del servizio VNet nel database di Azure per MySQL](./concepts-data-access-and-security-vnet.md)

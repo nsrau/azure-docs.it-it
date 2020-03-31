@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/12/2018
+ms.date: 03/19/2020
 ms.author: ejarvi
-ms.openlocfilehash: 8435663dcf92e2617ea2fe9218649e94243272d2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: e975e1757b77b4aab52a59d1f0709ef9cadae94e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79250647"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066874"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Crittografia dischi di Azure per Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -26,50 +26,55 @@ ms.locfileid: "79250647"
 
 Crittografia dischi di Azure sfrutta BitLocker per fornire la crittografia completa del disco nelle macchine virtuali Azure con Windows.  Questa soluzione è integrata con Azure Key Vault per gestire le chiavi di crittografia dei dischi e i segreti nella sottoscrizione dell'insieme di credenziali delle chiavi. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-Per un elenco completo dei prerequisiti, vedere [crittografia dischi di Azure per macchine virtuali Linux](../linux/disk-encryption-overview.md), in particolare le sezioni seguenti:
+Per un elenco completo dei prerequisiti, vedere Crittografia disco di [Azure per macchine virtuali Windows,](../windows/disk-encryption-overview.md)in particolare nelle sezioni seguenti:
 
-- [Crittografia dischi di Azure per macchine virtuali Linux](../windows/disk-encryption-overview.md#supported-vms-and-operating-systems)
+- [Macchine virtuali e sistemi operativi supportati](../windows/disk-encryption-overview.md#supported-vms-and-operating-systems)
 - [Requisiti di rete](../windows/disk-encryption-overview.md#networking-requirements)
 - [Requisiti di Criteri di gruppo](../windows/disk-encryption-overview.md#group-policy-requirements)
 
-## <a name="extension-schemata"></a>Estensione schemi
+## <a name="extension-schema"></a>Schema dell'estensione
 
-Sono disponibili due schemi per l'estensione AzureDiskEncryption di Windows: v 2.2, uno schema più recente e consigliato che non usa le proprietà Azure Active Directory (AAD) e v 1.1, uno schema meno recente che richiede proprietà di AAD. È necessario utilizzare la versione dello schema corrispondente all'estensione in uso: Schema v 2.2 per la versione 2,2 dell'estensione AzureDiskEncryption, schema v 1.1 per la versione 1,1 dell'estensione AzureDiskEncryption.
+Esistono due versioni dello schema di estensione per Azure Disk Encryption (ADE):
+- v2.2 - Uno schema consigliato più recente che non usa le proprietà di Azure Active Directory (AAD).
+- v1.1 - Uno schema precedente che richiede proprietà di Azure Active Directory (AAD). 
 
-### <a name="schema-v22-no-aad-recommended"></a>Schema v 2.2: nessun AAD (consigliato)
+Per selezionare uno `typeHandlerVersion` schema di destinazione, la proprietà deve essere impostata uguale alla versione dello schema che si desidera utilizzare.
 
-Lo schema v 2.2 è consigliato per tutte le nuove macchine virtuali e non richiede proprietà Azure Active Directory.
+### <a name="schema-v22-no-aad-recommended"></a>Schema v2.2: Nessun AAD (consigliato)
+
+Lo schema v2.2 è consigliato per tutte le nuove macchine virtuali e non richiede proprietà di Azure Active Directory.The v2.2 schema is recommended for all new VMs and does not require Azure Active Directory properties.
 
 ```json
 {
   "type": "extensions",
   "name": "[name]",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2019-07-01",
   "location": "[location]",
   "properties": {
-    "publisher": "Microsoft.Azure.Security",
-    "settings": {
-      "EncryptionOperation": "[encryptionOperation]",
-      "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
-      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
-      "KekVaultResourceId": "[keyVaultResourceID]",
-      "KeyVaultURL": "[keyVaultURL]",
-      "KeyVaultResourceId": "[keyVaultResourceID]",
-      "SequenceVersion": "sequenceVersion]",
-      "VolumeType": "[volumeType]"
-    },
-  "type": "AzureDiskEncryption",
-  "typeHandlerVersion": "[extensionVersion]"
+        "publisher": "Microsoft.Azure.Security",
+        "type": "AzureDiskEncryption",
+        "typeHandlerVersion": "2.2",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "EncryptionOperation": "[encryptionOperation]",
+          "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+          "KeyVaultURL": "[keyVaultURL]",
+          "KekVaultResourceId": "[keyVaultResourceID]",
+          "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+          "KeyVaultResourceId": "[keyVaultResourceID]",
+          "SequenceVersion": "sequenceVersion]",
+          "VolumeType": "[volumeType]"
+        }
   }
 }
 ```
 
 
-### <a name="schema-v11-with-aad"></a>Schema v 1.1: con AAD 
+### <a name="schema-v11-with-aad"></a>Schema v1.1: con AAD 
 
-Lo schema 1,1 richiede `aadClientID` e `aadClientSecret` o `AADClientCertificate` ed è sconsigliato per le nuove macchine virtuali.
+Lo schema 1.1 richiede `aadClientID` e o `aadClientSecret` o `AADClientCertificate` non è consigliato per le nuove macchine virtuali.
 
 Utilizzo di `aadClientSecret`:
 
@@ -77,26 +82,26 @@ Utilizzo di `aadClientSecret`:
 {
   "type": "extensions",
   "name": "[name]",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2019-07-01",
   "location": "[location]",
   "properties": {
     "protectedSettings": {
       "AADClientSecret": "[aadClientSecret]"
     },    
     "publisher": "Microsoft.Azure.Security",
+    "type": "AzureDiskEncryption",
+    "typeHandlerVersion": "1.1",
     "settings": {
       "AADClientID": "[aadClientID]",
       "EncryptionOperation": "[encryptionOperation]",
       "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
-      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
-      "KekVaultResourceId": "[keyVaultResourceID]",
       "KeyVaultURL": "[keyVaultURL]",
       "KeyVaultResourceId": "[keyVaultResourceID]",
+      "KekVaultResourceId": "[keyVaultResourceID]",
+      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
       "SequenceVersion": "sequenceVersion]",
       "VolumeType": "[volumeType]"
-    },
-  "type": "AzureDiskEncryption",
-  "typeHandlerVersion": "[extensionVersion]"
+    }
   }
 }
 ```
@@ -107,26 +112,26 @@ Utilizzo di `AADClientCertificate`:
 {
   "type": "extensions",
   "name": "[name]",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2019-07-01",
   "location": "[location]",
   "properties": {
     "protectedSettings": {
       "AADClientCertificate": "[aadClientCertificate]"
     },    
     "publisher": "Microsoft.Azure.Security",
+    "type": "AzureDiskEncryption",
+    "typeHandlerVersion": "1.1",
     "settings": {
       "AADClientID": "[aadClientID]",
       "EncryptionOperation": "[encryptionOperation]",
       "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
-      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
-      "KekVaultResourceId": "[keyVaultResourceID]",
       "KeyVaultURL": "[keyVaultURL]",
       "KeyVaultResourceId": "[keyVaultResourceID]",
+      "KekVaultResourceId": "[keyVaultResourceID]",
+      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
       "SequenceVersion": "sequenceVersion]",
       "VolumeType": "[volumeType]"
-    },
-  "type": "AzureDiskEncryption",
-  "typeHandlerVersion": "[extensionVersion]"
+    }
   }
 }
 ```
@@ -136,38 +141,44 @@ Utilizzo di `AADClientCertificate`:
 
 | Nome | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | Data |
+| apiVersion | 2019-07-01 | Data |
 | publisher | Microsoft.Azure.Security | string |
-| type | AzureDiskEncryptionForLinux | string |
-| typeHandlerVersion | 1,1, 2,2 | string |
-| (schema 1,1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
-| (schema 1,1) AADClientSecret | password | string |
-| (schema 1,1) AADClientCertificate | thumbprint | string |
-| DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Dizionario JSON |
+| type | Crittografia di AzureDiskAzureDiskEncryption | string |
+| typeHandlerVersion | 2.2, 1.1 | string |
+| (1.1 schema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
+| (1.1 schema) AADClientSecret | password | string |
+| (1.1 schema) AADClientCertificate | thumbprint | string |
 | EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
-| KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | string |
-| KeyEncryptionKeyURL | url | string |
+| (opzionale - predefinito RSA-OAEP ) KeyEncryptionAlgorithm (Algoritme di Crittografia chiave) | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | string |
 | KeyVaultURL | url | string |
-| opzionale Passphrase | password | string | 
-| SequenceVersion | UNIQUEIDENTIFIER | string |
+| IdVaultKeyVaultResourceId | url | string |
+| (opzionale) KeyEncryptionKeyURL | url | string |
+| (opzionale) IdKekVaultResource | url | string |
+| (opzionale) Versione Di sequenza | UNIQUEIDENTIFIER | string |
 | VolumeType | Sistema operativo, dati, tutti | string |
 
 ## <a name="template-deployment"></a>Distribuzione del modello
-Per un esempio di distribuzione del modello, vedere [ Creare una nuova macchina virtuale Windows crittografata dall'immagine della raccolta](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image).
 
-## <a name="azure-cli-deployment"></a>Distribuzione dell'interfaccia della riga di comando di Azure
+Per un esempio di distribuzione di modelli basata sullo schema v2.2, vedere Modello di Guida rapida di Azure [201-encrypt-running-windows-vm-without-aad](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad).
 
-Le istruzioni sono disponibili nella versione più recente della [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure/vm/encryption?view=azure-cli-latest). 
+Per un esempio di distribuzione di modelli basata sullo schema v1.1, vedere Modello di Guida rapida di Azure [201-crittografia-running-windows-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm).
+
+>[!NOTE]
+> Inoltre, `VolumeType` se il parametro è impostato su Tutti, i dischi dati verranno crittografati solo se sono formattati correttamente. 
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risolvere problemi
+### <a name="troubleshoot"></a>Risolvere i problemi
 
-Vedere la [guida alla risoluzione dei problemi di Crittografia dischi di Azure](../../security/azure-security-disk-encryption-tsg.md).
+Per la risoluzione di problemi, consultare la [guida alla risoluzione dei problemi di Crittografia dischi di Azure](../windows/disk-encryption-troubleshooting.md).
 
 ### <a name="support"></a>Supporto
 
-Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/community/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
+Se è necessaria ulteriore assistenza in qualsiasi momento di questo articolo, è possibile contattare gli esperti di Azure nei [forum MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/community/). 
+
+In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare Ottieni supporto. Per informazioni sull'uso del supporto di Azure, leggere le [domande frequenti sul supporto di Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle estensioni, vedere [Estensioni e funzionalità della macchina virtuale per Windows](features-windows.md).
+
+* Per altre informazioni sulle estensioni, vedere [Estensioni e funzionalità della macchina virtuale per Windows](features-windows.md).
+* Per altre informazioni su Crittografia disco di Azure per Windows, vedere [Macchine virtuali Windows.For](../../security/fundamentals/azure-disk-encryption-vms-vmss.md#windows-virtual-machines)more information about Azure Disk Encryption for Windows, see Windows virtual machines .

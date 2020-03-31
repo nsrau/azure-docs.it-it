@@ -1,24 +1,24 @@
 ---
-title: 'Azure ExpressRoute: configurare ExpressRoute Direct: interfaccia della riga di comando'
-description: Questo articolo consente di configurare ExpressRoute Direct usando l'interfaccia della riga di comando di Azure
+title: 'Azure ExpressRoute: Configure ExpressRoute Direct: CLI'
+description: Questo articolo illustra ExpressRoute Direct usando l'interfaccia della riga di comando di AzureThis article helps you configure ExpressRoute Direct by using the Azure CLI
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: 47ee05113d46f66efd02978fed09cf72edc5ac1c
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: dcca1417aec52fb4bf99d5c480d81995154a68b0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049933"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481977"
 ---
-# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configurare ExpressRoute Direct usando l'interfaccia della riga di comando di Azure
+# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configurare ExpressRoute Direct tramite l'interfaccia della riga di comando di AzureConfigure ExpressRoute Direct by using the Azure CLI
 
 ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete globale di Microsoft in località di peering distribuite in modo strategico in tutto il mondo. Per altre informazioni, vedere [Informazioni su ExpressRoute Direct Connect](expressroute-erdirect-about.md).
 
-## <a name="resources"></a>Creare la risorsa
+## <a name="create-the-resource"></a><a name="resources"></a>Creare la risorsa
 
 1. Accedere ad Azure e selezionare la sottoscrizione che contiene ExpressRoute. La risorsa di ExpressRoute Direct e i circuiti ExpressRoute devono essere nella stessa sottoscrizione. Nell'interfaccia della riga di comando di Azure eseguire i comandi seguenti:
 
@@ -38,7 +38,7 @@ ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete 
    az account set --subscription "<subscription ID>"
    ```
 
-2. Registrare nuovamente la sottoscrizione a Microsoft. Network per accedere alle API expressrouteportslocation e expressrouteport
+2. Registrare nuovamente la sottoscrizione a Microsoft.Network per accedere alle API expressrouteportslocation e expressrouteport
 
    ```azurecli
    az provider register --namespace Microsoft.Network
@@ -51,7 +51,7 @@ ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete 
 
    **Output di esempio**
   
-   ```azurecli
+   ```output
    [
    {
     "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
@@ -118,7 +118,7 @@ ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete 
 
    **Output di esempio**
 
-   ```azurecli
+   ```output
    {
    "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
    "availableBandwidths": [
@@ -156,7 +156,7 @@ ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete 
 
    **Output di esempio**
 
-   ```azurecli
+   ```output
    {
    "allocationDate": "Wednesday, October 17, 2018",
    "bandwidthInGbps": 100,
@@ -208,7 +208,7 @@ ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete 
    }  
    ```
 
-## <a name="state"></a>Modificare AdminState per i collegamenti
+## <a name="change-adminstate-for-links"></a><a name="state"></a>Modificare AdminState per i collegamenti
 
 Usare questo processo per eseguire un test di livello 1. Assicurarsi che ogni Cross Connection sia correttamente trasferita a ciascun router per le porte primaria e secondaria.
 
@@ -224,7 +224,7 @@ Usare questo processo per eseguire un test di livello 1. Assicurarsi che ogni Cr
    ```
    **Output di esempio**
 
-   ```azurecli
+   ```output
    {
    "allocationDate": "Wednesday, October 17, 2018",
    "bandwidthInGbps": 100,
@@ -278,15 +278,15 @@ Usare questo processo per eseguire un test di livello 1. Assicurarsi che ogni Cr
 
    Usare la stessa procedura con `AdminState = "Disabled"` per rifiutare le porte.
 
-## <a name="circuit"></a>Creare un circuito
+## <a name="create-a-circuit"></a><a name="circuit"></a>Creare un circuito
 
 Per impostazione predefinita, è possibile creare dieci circuiti nella sottoscrizione che contiene la risorsa di ExpressRoute Direct. Il supporto tecnico Microsoft può aumentare il limite predefinito. Si è responsabili del monitoraggio della larghezza di banda con provisioning e di quella utilizzata. La larghezza di banda con provisioning è la somma della larghezza di banda di tutti i circuiti della risorsa di ExpressRoute Direct. La larghezza di banda utilizzata è l'utilizzo fisico delle interfacce fisiche sottostanti.
 
 È possibile usare altre larghezze di banda del circuito in ExpressRoute Direct solo per supportare gli scenari descritti in questo articolo. Le larghezze di banda sono 40 Gbps e 100 Gbps.
 
-**SkuTier** può essere locale, standard o Premium.
+**SkuTier** può essere Locale, Standard o Premium.
 
-**SkuFamily** deve essere MeteredData solo se illimitato non è supportato in ExpressRoute Direct.
+**SkuFamily** deve essere MeteredData solo se unlimited non è supportato in ExpressRoute Direct.
 Creare un circuito nella risorsa di ExpressRoute Direct:
 
   ```azurecli
@@ -297,7 +297,7 @@ Creare un circuito nella risorsa di ExpressRoute Direct:
 
   **Output di esempio**
 
-  ```azurecli
+  ```output
   {
   "allowClassicOperations": false,
   "allowGlobalReach": false,

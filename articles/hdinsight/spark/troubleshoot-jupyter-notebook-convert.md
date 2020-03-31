@@ -1,6 +1,6 @@
 ---
-title: Non è possibile creare il notebook di Jupyter in Azure HDInsight
-description: Descrive i passaggi di risoluzione dei problemi e le possibili soluzioni per i problemi durante l'interazione con i cluster HDInsight di Azure.
+title: Impossibile creare il blocco appunti Jupyter in Azure HDInsightUnable to create Jupyter notebook in Azure HDInsight
+description: Vengono descritti i passaggi per la risoluzione dei problemi e le possibili soluzioni per i problemi relativi all'interazione con i cluster HDInsight di Azure.Describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,19 +8,19 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/11/2020
 ms.openlocfilehash: 61e7cd8d37108b8f4eea88c4f6b6b2a8cdbfd605
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77186795"
 ---
-# <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>Non è possibile creare il notebook di Jupyter in Azure HDInsight
+# <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>Impossibile creare il blocco appunti Jupyter in Azure HDInsightUnable to create Jupyter notebook in Azure HDInsight
 
-Questo articolo descrive le procedure di risoluzione dei problemi e le possibili soluzioni per i problemi durante l'interazione con i cluster HDInsight di Azure.
+Questo articolo descrive i passaggi per la risoluzione dei problemi e le possibili soluzioni per i problemi relativi all'interazione con i cluster HDInsight di Azure.This article describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
 
 ## <a name="issue"></a>Problema
 
-Quando si avvia un notebook di Jupyter, viene visualizzato un messaggio di errore che contiene:
+Quando si avvia un blocco appunti Jupyter, viene visualizzato un messaggio di errore che contiene:
 
 ```error
 Cannot convert notebook to v5 because that version doesn't exist
@@ -28,11 +28,11 @@ Cannot convert notebook to v5 because that version doesn't exist
 
 ## <a name="cause"></a>Causa
 
-Versione non corrispondente.
+Una versione non corrispondente.
 
 ## <a name="resolution"></a>Risoluzione
 
-1. Usare il [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERname con il nome del cluster e quindi immettere il comando:
+1. Usare [il comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERNAME con il nome del cluster, quindi immettere il comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -44,15 +44,15 @@ Versione non corrispondente.
     sudo nano /usr/bin/anaconda/lib/python2.7/site-packages/nbformat/_version.py
     ```
 
-1. Modificare **5** in **4** in modo che la riga modificata appaia come segue:
+1. Modificare **5** 5 **in** modo che la riga modificata venga visualizzata come segue:
 
     ```python
     version_info = (4, 0, 3)
     ```
 
-    Salvare le modifiche immettendo **CTRL + X**, **Y**, **invio**.
+    Salvare le modifiche immettendo **Ctrl , X**, **Y**, **Invio**.
 
-1. Da un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net/#/main/services/JUPYTER`, dove `CLUSTERNAME` è il nome del cluster.
+1. Da un Web browser `https://CLUSTERNAME.azurehdinsight.net/#/main/services/JUPYTER`passare `CLUSTERNAME` a , dove è il nome del cluster.
 
 1. Riavviare il servizio Jupyter.
 
@@ -60,8 +60,8 @@ Versione non corrispondente.
 
 Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
 
-* Ottieni risposte dagli esperti di Azure tramite il [supporto della community di Azure](https://azure.microsoft.com/support/community/).
+* Ottieni risposte dagli esperti di Azure tramite il supporto della community di [Azure.](https://azure.microsoft.com/support/community/)
 
-* Connettersi con [@AzureSupport](https://twitter.com/azuresupport) : l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Connessione della community di Azure alle risorse appropriate: risposte, supporto ed esperti.
+* Connettiti [@AzureSupport](https://twitter.com/azuresupport) con - l'account ufficiale di Microsoft Azure per migliorare l'esperienza del cliente. Connessione della community di Azure alle risorse giuste: risposte, supporto ed esperti.
 
-* Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+* Per altre informazioni, è possibile inviare una richiesta di supporto dal portale di [Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selezionare **Supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** tecnico. Per informazioni più dettagliate, vedere Come creare una richiesta di supporto di Azure.For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L'accesso al supporto per la gestione e la fatturazione delle sottoscrizioni è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei piani di supporto di [Azure.](https://azure.microsoft.com/support/plans/)

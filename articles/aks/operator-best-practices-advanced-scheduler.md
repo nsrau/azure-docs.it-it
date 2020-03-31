@@ -5,15 +5,15 @@ services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: 546c1d6ae25a33c6df93469ccf8c230b4b1c474b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252896"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione nel servizio Azure Kubernetes (AKS)
 
-Quando si gestiscono i cluster nel servizio Azure Kubernetes (AKS), spesso è necessario isolare i team e i carichi di lavoro. L'utilità di pianificazione di Kubernetes offre funzionalità avanzate che consentono di controllare quali Pod possono essere pianificati in determinati nodi o in che modo le applicazioni MultiPod possono essere distribuite in modo appropriato nel cluster. 
+Quando si gestiscono i cluster nel servizio Azure Kubernetes (AKS), spesso è necessario isolare i team e i carichi di lavoro. L'utilità di pianificazione Kubernetes fornisce funzionalità avanzate che consentono di controllare quali pod possono essere pianificati su determinati nodi o come le applicazioni multi-pod possono essere distribuite in modo appropriato all'interno del cluster. 
 
 Questo articolo sulle procedure consigliate è incentrato sulle funzionalità di pianificazione avanzate di Kubernetes per gli operatori del cluster. In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -28,14 +28,14 @@ Questo articolo sulle procedure consigliate è incentrato sulle funzionalità di
 
 Quando si crea il cluster servizio Azure Kubernetes, è possibile distribuire i nodi con supporto GPU o un numero elevato di potenti CPU. Questi nodi vengono spesso usati per i carichi di lavoro di elaborazione dati di grandi dimensioni, ad esempio Machine Learning (ML) o intelligenza artificiale. Poiché questo tipo di hardware è in genere una risorsa nodo costosa da distribuire, limitare i carichi di lavoro che possono essere pianificati su questi nodi. È invece consigliabile dedicare alcuni nodi del cluster per eseguire i servizi in ingresso e impedire altri carichi di lavoro.
 
-Questo supporto per nodi diversi viene fornito usando più pool di nodi. Un cluster AKS fornisce uno o più pool di nodi.
+Questo supporto per nodi diversi viene fornito utilizzando più pool di nodi. Un cluster AKS fornisce uno o più pool di nodi.
 
 L'utilità di pianificazione di Kubernetes può usare taint e tolleranze per limitare i carichi di lavoro che possono essere eseguiti sui nodi.
 
 * Un **taint** viene applicato a un nodo per indicare che possono essere pianificati solo pod specifici.
 * Una **tolleranza** viene quindi applicata a un pod per *tollerare* un taint di un nodo.
 
-Quando si distribuisce un pod in un cluster servizio Azure Kubernetes, Kubernetes pianifica solo i pod sui nodi in cui una tolleranza è allineata con un taint. Si supponga, ad esempio, di avere un pool di nodi nel cluster AKS per i nodi con supporto GPU. Si definisce il nome, ad esempio *gpu*, quindi un valore per la pianificazione. Se si imposta questo valore su *NoSchedule*, l'utilità di pianificazione di Kubernetes non può pianificare i pod sul nodo se il pod non definisce la tolleranza appropriata.
+Quando si distribuisce un pod in un cluster servizio Azure Kubernetes, Kubernetes pianifica solo i pod sui nodi in cui una tolleranza è allineata con un taint. Ad esempio, si supponga di disporre di un pool di nodi nel cluster AKS per i nodi con supporto GPU. Si definisce il nome, ad esempio *gpu*, quindi un valore per la pianificazione. Se si imposta questo valore su *NoSchedule*, l'utilità di pianificazione di Kubernetes non può pianificare i pod sul nodo se il pod non definisce la tolleranza appropriata.
 
 ```console
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
@@ -70,26 +70,26 @@ Quando questo pod viene distribuito, ad esempio usando `kubectl apply -f gpu-tol
 
 Quando si applicano i taint, contattare gli sviluppatori e i proprietari delle applicazioni per consentire loro di definire le tolleranze richieste nelle proprie distribuzioni.
 
-Per ulteriori informazioni su macchie e tolleranze, vedere [applicazione di macchie e tolleranze][k8s-taints-tolerations].
+Per altre informazioni su taint e tolleranze, vedere l'articolo sull'[applicazione di taint e tolleranze][k8s-taints-tolerations].
 
-Per altre informazioni su come usare più pool di nodi in AKS, vedere [creare e gestire pool di nodi multipli per un cluster in AKS][use-multiple-node-pools].
+Per ulteriori informazioni su come utilizzare più pool di nodi in AKS, vedere Creare e gestire più pool di [nodi per un cluster in AKS.][use-multiple-node-pools]
 
-### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Comportamento di macchie e tolleranze in AKS
+### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Comportamento di taints e tolarazioni in AKS
 
-Quando si esegue l'aggiornamento di un pool di nodi in AKS, i guasti e le tollerazioni seguono un modello set quando vengono applicati ai nuovi nodi:
+Quando si aggiorna un pool di nodi in AKS, le annotazioni e le torazioni seguono un set di modelli man mano che vengono applicati ai nuovi nodi:When you upgrade a node pool in AKS, taints and tolerations follow a set pattern as they're applied to new nodes:
 
-- **Cluster predefiniti che usano i set di scalabilità di macchine virtuali**
-  - Si supponga di avere un cluster a due nodi, *node1* e *node2*. Si aggiorna il pool di nodi.
-  - Vengono creati due nodi aggiuntivi, *Nodo3* e *Nodo4*, e i guasti vengono passati rispettivamente.
-  - I *node1* e *node2* originali vengono eliminati.
+- **Cluster predefiniti che usano set di scalabilità di macchine virtualiDefault clusters that use virtual machine scale sets**
+  - Si supponga di disporre di un cluster a due nodi, *ovvero node1* e *node2*. Aggiornare il pool di nodi.
+  - Vengono creati due nodi aggiuntivi, *node3* e *node4*, e le taint vengono passate rispettivamente.
+  - Il *nodo 1* originale e il *nodo 2* vengono eliminati.
 
-- **Cluster senza supporto per set di scalabilità di macchine virtuali**
-  - Si supponga di avere un cluster a due nodi, *node1* e *node2*. Quando si esegue l'aggiornamento, viene creato un nodo aggiuntivo (*Nodo3*).
-  - Le macchie da *node1* vengono applicate a *Nodo3*, quindi *node1* viene quindi eliminato.
-  - Viene creato un altro nodo nuovo (denominato *node1*, dal momento in cui è stato eliminato il *node1* precedente) e vengono applicati i Taini *node2* alla nuova *node1*. Quindi, *node2* viene eliminato.
-  - In sostanza *node1* diventa *Nodo3*e *node2* diventa *node1*.
+- **Cluster senza supporto per set di scalabilità di macchine virtualiClusters without virtual machine scale set support**
+  - Anche in questo caso, si supponga di disporre di un cluster a due nodi, *ovvero node1* e *node2*. Quando si esegue l'aggiornamento, viene creato un nodo aggiuntivo (*node3*).
+  - Le taints from *node1* vengono applicate a *node3*, quindi *il nodo1* viene quindi eliminato.
+  - Viene creato un altro nuovo nodo (denominato *node1*, da quando è stato eliminato il *nodo1* precedente) e i taint *del nodo 2* vengono applicati al nuovo *nodo1*. Quindi, *nodo2* viene eliminato.
+  - In sostanza *node1* diventa *node3*e *node2* diventa *node1*.
 
-Quando si ridimensiona un pool di nodi in AKS, i guasti e le tollerazioni non vengono riportate in base alla progettazione.
+Quando si ridimensiona un pool di nodi in AKS, le annotazioni e le tolazioni non vengono riportate in base alla progettazione.
 
 ## <a name="control-pod-scheduling-using-node-selectors-and-affinity"></a>Controllare la pianificazione dei pod tramite selettori di nodo e affinità
 
@@ -127,7 +127,7 @@ spec:
 
 Quando si usano queste opzioni dell'utilità di pianificazione, contattare gli sviluppatori e i proprietari delle applicazioni per consentire loro di definire correttamente le specifiche dei pod.
 
-Per altre informazioni sull'uso dei selettori di nodo, vedere [assegnazione di Pod ai nodi][k8s-node-selector].
+Per altre informazioni sull'uso dei selettori di nodo, vedere [Assigning Pods to Nodes][k8s-node-selector] (Assegnazione di pod ai nodi).
 
 ### <a name="node-affinity"></a>Affinità tra nodi
 
@@ -163,7 +163,7 @@ spec:
 
 La parte *IgnoredDuringExecution* dell'impostazione indica che se le etichette del nodo vengono modificate, il pod non deve essere rimosso dal nodo. L'utilità di pianificazione di Kubernetes usa solo le etichette dei nodi aggiornate per la pianificazione dei nuovi pod, e non i pod già pianificati sui nodi.
 
-Per altre informazioni, vedere [affinità e anti-affinità][k8s-affinity].
+Per altre informazioni, vedere la sezione relativa ad [affinità e anti-affinità][k8s-affinity].
 
 ### <a name="inter-pod-affinity-and-anti-affinity"></a>Affinità tra pod e anti-affinità
 
@@ -176,14 +176,14 @@ Un buon esempio è un'applicazione Web che usa anche una cache Redis di Azure. �
 | webapp-1   | webapp-2   | webapp-3   |
 | cache-1    | cache-2    | cache-3    |
 
-Questo esempio è una distribuzione più complessa rispetto all'uso dei selettori di nodo o dell'affinità tra nodi. La distribuzione garantisce il controllo sul modo in cui Kubernetes pianifica i pod sui nodi e isola in modo logico le risorse. Per un esempio completo di questa applicazione Web con cache di Azure per l'esempio Redis, vedere [la pagina relativa alla condivisione percorso di Pod nello stesso nodo][k8s-pod-affinity].
+Questo esempio è una distribuzione più complessa rispetto all'uso dei selettori di nodo o dell'affinità tra nodi. La distribuzione garantisce il controllo sul modo in cui Kubernetes pianifica i pod sui nodi e isola in modo logico le risorse. Per un esempio completo di questa applicazione Web con l'esempio Cache di Azure per Redis, vedere [Co-locate pods nello stesso nodo][k8s-pod-affinity].
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Questo articolo ha illustrato le funzionalità avanzate dell'utilità di pianificazione di Kubernetes. Per altre informazioni sulle operazioni cluster in servizio Azure Kubernetes, vedere le procedure consigliate seguenti:
 
-* [Multi-tenant e isolamento del cluster][aks-best-practices-scheduler]
-* [Funzionalità dell'utilità di pianificazione di Kubernetes di base][aks-best-practices-scheduler]
+* [Isolamento cluster e multi-tenant][aks-best-practices-scheduler]
+* [Funzionalità di base dell'utilità di pianificazione di Kubernetes][aks-best-practices-scheduler]
 * [Autenticazione e autorizzazione][aks-best-practices-identity]
 
 <!-- EXTERNAL LINKS -->

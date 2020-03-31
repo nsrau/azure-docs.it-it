@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: bc08cd5183bcaac6cb77ccb0938b07893f082862
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78250218"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serializzare i dati di telemetria con i Protocol Buffers
@@ -36,7 +36,7 @@ I passaggi nella presente guida pratica illustrato come eseguire queste operazio
 
 Per seguire la procedura illustrata in questa guida pratica, sono necessari:
 
-* Visual Studio Code. È possibile scaricare [Visual Studio Code per Mac, Linux e Windows](https://code.visualstudio.com/download).
+* Visual Studio Code. È possibile scaricare [Visual Studio Code per Mac, Linux e Windows.](https://code.visualstudio.com/download)
 * .NET Core. È possibile scaricare [.NET Core per Mac, Linux e Windows](https://www.microsoft.com/net/download).
 * Postman. È possibile scaricare [Postman per Mac, Windows o Linux](https://www.getpostman.com/apps).
 * Un [hub IoT distribuito nella sottoscrizione di Azure in uso](../iot-hub/iot-hub-create-through-portal.md). Per completare la procedura descritta in questa guida, è necessaria la stringa di connessione dell'hub IoT. È possibile ottenere la stringa di connessione nel portale di Azure.
@@ -63,14 +63,14 @@ Scaricare e decomprimere il [microservizio di simulazione dispositivi](https://g
 
 Aprire la cartella **remote-monitoring-services-dotnet-master\storage-adapter** in Visual Studio Code. Fare clic su un pulsante **Ripristina** per risolvere le dipendenze non risolte.
 
-Aprire il file **.vscode/launch.json** e assegnare la stringa di connessione di Cosmos DB alla variabile di ambiente **PCS\_STORAGEADAPTER\_DOCUMENTDB\_CONNSTRING**.
+Aprire il file **.vscode/launch.json** e assegnare la stringa di connessione Cosmos DB alla variabile di ambiente **PCS\_STORAGEADAPTER\_DOCUMENTDB\_CONNSTRING.**
 
 > [!NOTE]
 > Quando si esegue localmente il microservizio nel computer, il suo funzionamento richiede comunque un'istanza di Cosmos DB in Azure.
 
 Per eseguire il microservizio di adattatore di archiviazione in locale, fare clic su **Debug \> Avvia debug**.
 
-Nella finestra **Terminale** in Visual Studio Code viene visualizzato un output del microservizio in esecuzione che include un URL per il controllo dell'integrità del servizio Web: <http://127.0.0.1:9022/v1/status>. Quando si passa a questo indirizzo, lo stato deve essere "OK: Alive and well" (OK: Attivo e in esecuzione).
+Nella finestra **Terminale** in Visual Studio Code viene visualizzato un output dal microservizio in esecuzione che include un URL per il controllo dell'integrità del servizio Web: <http://127.0.0.1:9022/v1/status>. Quando si passa a questo indirizzo, lo stato deve essere "OK: Alive and well" (OK: Attivo e in esecuzione).
 
 Lasciare il microservizio di adattatore di archiviazione in esecuzione nell'istanza corrente di Visual Studio Code fino al completamento dei passaggi successivi.
 
@@ -174,7 +174,7 @@ Se si dispone di un file **proto**, il passaggio successivo consiste nel generar
 
 1. [Scaricare il compilatore Protobuf da GitHub](https://github.com/protocolbuffers/protobuf/releases/download/v3.4.0/protoc-3.4.0-win32.zip)
 
-1. Eseguire il compilatore specificando la directory di origine, la directory di destinazione e il nome del file **proto**. Ad esempio,
+1. Eseguire il compilatore specificando la directory di origine, la directory di destinazione e il nome del file **proto**. Ad esempio:
 
     ```cmd
     protoc -I c:\temp\device-simulation-dotnet-master\Services\Models\Protobuf\proto --csharp_out=C:\temp\device-simulation-dotnet-master\Services\Models\Protobuf assettracker.proto
@@ -200,13 +200,13 @@ Aprire il file **WebService/Properties/launchSettings.json** e assegnare quanto 
 * Stringa di connessione dell'account di archiviazione alla variabile di ambiente **PCS\_AZURE\_STORAGE\_ACCOUNT**.
 * Stringa di connessione di Cosmos DB alla variabile di ambiente **PCS\_STORAGEADAPTER\_DOCUMENTDB\_CONNSTRING**.
 
-Aprire il file **WebService\appsettings.ini** e modificare le impostazioni nel modo seguente:
+Aprire il file **WebService,appsettings.ini** e modificare le impostazioni come segue:
 
 #### <a name="configure-the-solution-to-include-your-new-device-model-files"></a>Configurare la soluzione in modo da includere i nuovi file del modello di dispositivo
 
 Per impostazione predefinita, i file JSON e JS del nuovo modello di dispositivo non verranno copiati all'interno della soluzione creata. È necessario includerli esplicitamente.
 
-Aggiungere una voce al file **services\services.csproj** per ogni file da includere. Ad esempio,
+Aggiungere una voce al file **services\services.csproj** per ogni file da includere. Ad esempio:
 
 ```xml
 <None Update="data\devicemodels\assettracker-01.json">
@@ -249,11 +249,11 @@ Per configurare Postman
 
 1. Fare clic su **File \> Importa**. Fare clic su **Scegli file**.
 
-1. Selezionare **Azure IoT Device Simulation solution accelerator.postman\_collection** e **Azure IoT Device Simulation solution accelerator.postman\_environment** e fare clic su **Apri**.
+1. Selezionare **Azure IoT Device Simulation\_solution accelerator.postman collection** e **Azure\_IoT Device Simulation solution accelerator.postman environment** e fare clic su **Open**.
 
 1. Espandere **Azure IoT Device Simulation solution accelerator** (Acceleratore soluzione di simulazione dispositivi IoT Azure) per visualizzare le richieste che è possibile inviare.
 
-1. Fare clic su **No Environment** (Nessun ambiente) e selezionare **Azure IoT Device Simulation solution accelerator** (Acceleratore soluzione di simulazione dispositivi IoT Azure).
+1. Fare clic su **Nessun ambiente** e selezionare Acceleratore di soluzioni di **simulazione dispositivi Azure IoT**.
 
 Sono ora disponibili una raccolta e un ambiente caricati nell'area di lavoro di Postman che è possibile usare per interagire con il microservizio di simulazione dispositivi.
 

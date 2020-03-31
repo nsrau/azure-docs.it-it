@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 02/20/2020
 ms.author: dapine
 ms.openlocfilehash: 2ee6b12923bfd0e06343e8f185226cb72280d806
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78383854"
 ---
 In questa guida di avvio rapido si apprenderà come usare Speech Devices SDK per Android per compilare un prodotto abilitato al riconoscimento vocale o usarlo come dispositivo di [trascrizione conversazione](../conversation-transcription-service.md).
@@ -18,7 +18,7 @@ Per riprodurre le procedure di questa guida, è necessario un account di [Serviz
 
 Il codice sorgente dell'applicazione di esempio è incluso in Speech Devices SDK ed è anche [disponibile in GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare a usare Speech Devices SDK, è necessario:
 
@@ -168,7 +168,7 @@ Per convalidare la configurazione del kit di sviluppo, compilare e installare l'
 
 1. A questo punto, non resta che sperimentare.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Se non è possibile connettersi al dispositivo di riconoscimento vocale, digitare il comando seguente in una finestra del prompt dei comandi. Verrà restituito un elenco di dispositivi.
 

@@ -1,6 +1,6 @@
 ---
 title: 'Progettazione di una soluzione ibrida di gestione delle identità: strategia di adozione in Azure | Microsoft Docs'
-description: Con il controllo di accesso condizionale, Azure Active Directory controlla le condizioni specifiche definite durante l'autenticazione dell'utente e prima di consentire l'accesso all'applicazione. Se tali condizioni vengono soddisfatte, l'utente viene autenticato e gli viene consentito l'accesso all'applicazione.
+description: Con il controllo di accesso condizionale, Azure Active Directory controlla le condizioni specifiche selezionate durante l'autenticazione dell'utente e prima di consentire l'accesso all'applicazione. Se tali condizioni vengono soddisfatte, l'utente viene autenticato e gli viene consentito l'accesso all'applicazione.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e662d2c6d7939756dee6eb25ca62fef171b7d6d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67109325"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definire una strategia di adozione della soluzione ibrida di gestione delle identità
@@ -37,7 +37,7 @@ Questa prima attività prevede la determinazione delle esigenze aziendali dell'o
 ## <a name="define-an-integration-strategy"></a>Definire una strategia di integrazione
 Microsoft ha previsto tre principali scenari di integrazione, ovvero identità cloud, identità sincronizzate e identità federate.  È necessario valutare l'adozione di una di queste strategie di integrazione.  La strategia scelta può variare e le decisioni che intervengono nel processo decisionale possono basarsi sul tipo di esperienza utente che si vuole offrire, sull'eventuale infrastruttura esistente e sulla soluzione più conveniente in termini di costi.  
 
-![Scenari di integrazione](./media/plan-hybrid-identity-design-considerations/integration-scenarios.png)
+![scenari di integrazione](./media/plan-hybrid-identity-design-considerations/integration-scenarios.png)
 
 Gli scenari definiti nella figura precedente sono:
 
@@ -52,11 +52,11 @@ Gli scenari definiti nella figura precedente sono:
 
 La tabella seguente consente di determinare i vantaggi e gli svantaggi di ognuna delle strategie seguenti:
 
-| Strategia | Vantaggi | Svantaggi: |
+| Strategia | Vantaggi | Svantaggi |
 | --- | --- | --- |
-| **Identità cloud** |Più facile da gestire per le organizzazioni di piccole dimensioni. <br> Non ci sono componenti da installare in locale. Non è necessario alcun hardware aggiuntivo.<br>Facile da disabilitare se l'utente lascia la società |Gli utenti devono eseguire l'accesso per usare i carichi di lavoro nel cloud <br> Le password per le identità cloud e locale possono essere uguali oppure no |
-| **Identità sincronizzate** |La password locale consente di eseguire l'autenticazione sia alla directory locale che alla directory cloud <br>Più facile da gestire per le organizzazioni di piccole, medie o grandi dimensioni <br>Gli utenti possono usufruire dell'accesso Single Sign-On per alcune risorse <br> Metodo preferito di Microsoft per la sincronizzazione <br> Più facile da gestire |Alcuni clienti possono essere riluttanti a sincronizzare le directory con il cloud a causa di criteri specifici della società |
-| **Federato** |Gli utenti possono usufruire dell'accesso Single Sign-On <br>Se un utente cessa di lavorare in azienda, l'account viene disabilitato immediatamente e l'accesso revocato,<br> Supporta scenari avanzati che non sono disponibili con le identità sincronizzate |Altri passaggi di configurazione <br> Manutenzioni superiori <br> Può richiedere hardware aggiuntivo per l'infrastruttura del servizio token di sicurezza <br> Può richiedere hardware aggiuntivo per installare il server federativo. Se si usa AD FS, è necessario software aggiuntivo <br> È richiesta una configurazione estesa per SSO <br> Punto critico di errore se il server federativo è inattivo, gli utenti non potranno eseguire l'autenticazione |
+| **Identità cloud** |Più facile da gestire per le organizzazioni di piccole dimensioni. <br> Non ci sono componenti da installare in locale. Non è necessario alcun hardware aggiuntivo.<br> Facile da disabilitare se l'utente lascia la società |Gli utenti devono eseguire l'accesso per usare i carichi di lavoro nel cloud <br>  Le password per le identità cloud e locale possono essere uguali oppure no |
+| **Sincronizzato** |La password locale consente di eseguire l'autenticazione sia alla directory locale che alla directory cloud <br>Più facile da gestire per le organizzazioni di piccole, medie o grandi dimensioni <br>Gli utenti possono usufruire dell'accesso Single Sign-On per alcune risorse <br> Metodo preferito di Microsoft per la sincronizzazione <br>  Più facile da gestire |Alcuni clienti possono essere riluttanti a sincronizzare le directory con il cloud a causa di criteri specifici della società |
+| **Federati** |Gli utenti possono usufruire dell'accesso Single Sign-On  <br>Se un utente cessa di lavorare in azienda, l'account viene disabilitato immediatamente e l'accesso revocato,<br> Supporta scenari avanzati che non sono disponibili con le identità sincronizzate |Altri passaggi di configurazione <br> Manutenzioni superiori <br> Può richiedere hardware aggiuntivo per l'infrastruttura del servizio token di sicurezza <br> Può richiedere hardware aggiuntivo per installare il server federativo. Se si usa AD FS, è necessario software aggiuntivo <br> È richiesta una configurazione estesa per SSO <br> Punto critico di errore se il server federativo è inattivo, gli utenti non potranno eseguire l'autenticazione |
 
 ### <a name="client-experience"></a>Esperienza client
 La strategia scelta determinerà l'esperienza di accesso per gli utenti.  Le tabelle seguenti forniscono informazioni su ciò che gli utenti dovranno aspettarsi dall'esperienza di accesso.  Non tutti i provider di identità federate supportano l'accesso Single Sign-On in tutti gli scenari.
@@ -111,7 +111,7 @@ Negli anni sono stati creati numerosi strumenti di sincronizzazione per diversi 
 ### <a name="supported-topologies"></a>Topologie supportate
 Quando si definisce una strategia di sincronizzazione, è necessario determinare la topologia da usare. A seconda delle informazioni definite nel passaggio 2, è possibile stabilire la topologia corretta da usare. La topologia singola di Azure AD a foresta singola è quella più comune ed è costituita da una singola foresta Active Directory e una singola istanza di Azure AD.  Questa topologia verrà usata nella maggior parte degli scenari ed è la topologia prevista quando si usa l'installazione rapida di Azure AD Connect come illustrato nella figura seguente.
 
-![Topologie supportate](./media/plan-hybrid-identity-design-considerations/single-forest.png) singola foresta di Scenario è comune per le organizzazioni grandi e piccole dimensioni hanno spesso più foreste, come illustrato nella figura 5.
+![Topologie supportate](./media/plan-hybrid-identity-design-considerations/single-forest.png) Scenario a foresta singola È comune per le organizzazioni di grandi dimensioni e anche di piccole dimensioni avere più foreste, come illustrato nella Figura 5.
 
 > [!NOTE]
 > Per altre informazioni sulle diverse topologie locali e di Azure AD con il servizio di sincronizzazione Azure AD Connect, vedere l'articolo [Topologie per Azure AD Connect](plan-connect-topologies.md).
@@ -140,7 +140,7 @@ In questo caso, se le affermazioni seguenti sono vere, sarà necessario valutare
 
 Se le affermazioni precedenti non sono vere e sono presenti più account attivi o più cassette postali, Azure AD Connect selezionerà un account o una cassetta postale e ignorerà gli altri.  Se sono presenti cassette postali collegate ma non sono presenti altri account, gli account non verranno esportati in Azure AD e l'utente non sarà membro di alcun gruppo.  Questo comportamento è diverso da quanto accadeva in passato con DirSync ed è intenzionale, al fine di garantire un supporto migliore degli scenari con più foreste. La figura seguente mostra uno scenario con più foreste.
 
-![Più tenant di Azure AD](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
+![più tenant di Azure ADMultiple Azure AD tenants](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
 
 **Topologia multipla di Azure AD a più foreste**
 
@@ -148,7 +148,7 @@ Se le affermazioni precedenti non sono vere e sono presenti più account attivi 
 
 È invece consentita e supportata la connessione di un'istanza locale di Active Directory a più directory di Azure AD, come illustrato nella figura seguente:
 
-![foresta singola applicazione di filtri](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
+![filtro a foresta singola](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
 
 **Scenario di filtro a singola foresta**
 
@@ -158,7 +158,7 @@ Per questo scenario, devono essere vere le affermazioni seguenti:
 * Un dominio DNS può essere registrato solo in una singola directory di Azure AD, in modo che anche i nomi dell'entità utente (UPN) degli utenti nell'istanza locale di AD possano usare spazi dei nomi separati
 * Gli utenti in un'istanza di Azure AD potranno visualizzare solo gli utenti inclusi nella stessa istanza,  ma non quelli in altre istanze
 * Solo una delle directory di Azure AD può abilitare la distribuzione ibrida di Exchange con l'istanza locale di Active Directory
-* L'esclusione reciproca si applica anche al writeback.  Alcune funzionalità di writeback non sono quindi supportate con questa topologia, perché presuppongono una singola configurazione locale.  Sono inclusi:
+* L'esclusione reciproca si applica anche al writeback.  Alcune funzionalità di writeback non sono quindi supportate con questa topologia, perché presuppongono una singola configurazione locale.  ad esempio:
   * Writeback dei gruppi con la configurazione predefinita
   * Writeback dei dispositivi
 
@@ -193,9 +193,9 @@ Anche se è già stata scelta una soluzione per la strategia, è comunque necess
 | Posizione degli utenti | Opzione di progettazione preferita |
 | --- | --- |
 | Azure Active Directory |Multi-Factor Authentication nel cloud |
-| Azure AD e AD locale usando la federazione con AD FS |Entrambi |
-| Azure AD e Active Directory locale con Azure AD Connect, senza sincronizzazione delle password |Entrambi |
-| Azure AD e Active Directory locale con Azure AD Connect, con sincronizzazione delle password |Entrambi |
+| Azure AD e AD locale usando la federazione con AD FS |Entrambe |
+| Azure AD e Active Directory locale con Azure AD Connect, senza sincronizzazione delle password |Entrambe |
+| Azure AD e Active Directory locale con Azure AD Connect, con sincronizzazione delle password |Entrambe |
 | Active Directory locale |Server Multi-Factor Authentication |
 
 > [!NOTE]

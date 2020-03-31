@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Configurazione della piattaforma per C# Unity con Speech SDK - Servizio Voce'
+title: 'Guida introduttiva: Configurazione della piattaforma per C# Unity con Speech SDK - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida per configurare la piattaforma per C# Unity con il servizio Speech SDK.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 10/10/2019
 ms.author: erhopf
 ms.openlocfilehash: 8d9e05b5d8105cce8355d217cc6922c25bbe1730
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75468493"
 ---
 Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per [Unity](https://unity3d.com/).
@@ -24,7 +24,7 @@ Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/s
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Questa guida introduttiva richiede:
 

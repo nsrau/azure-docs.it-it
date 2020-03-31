@@ -1,5 +1,5 @@
 ---
-title: Eseguire il rilevamento delle intrusioni di rete con strumenti open source
+title: Eseguire il rilevamento delle intrusioni di rete con gli strumenti open source
 titleSuffix: Azure Network Watcher
 description: Questo articolo descrive come usare Azure Network Watcher e strumenti open source per eseguire il rilevamento di intrusioni di rete
 services: network-watcher
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 781f3788c9001276315a2baed7060450fa00d77a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76845024"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Eseguire il rilevamento di intrusioni di rete con Network Watcher e strumenti open source
@@ -34,7 +34,7 @@ Questo articolo illustra come configurare l'ambiente per eseguire il rilevamento
 
 Entrambi gli strumenti open source possono essere configurati in una VM di Azure, consentendo di eseguire questa analisi nell'ambiente di rete di Azure.
 
-## <a name="steps"></a>Procedure
+## <a name="steps"></a>Passaggi
 
 ### <a name="install-suricata"></a>Installare Suricata
 
@@ -215,7 +215,7 @@ Per altre istruzioni sull'installazione di Elasticsearch, vedere la pagina [Inst
     sudo /etc/init.d/logstash start
     ```
 
-Per altre istruzioni sull'installazione di Logstash, vedere la [documentazione ufficiale](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)
+Per ulteriori istruzioni sull'installazione di Logstash, fare riferimento alla [documentazione ufficiale](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)
 
 ### <a name="install-kibana"></a>Installare Kibana
 
@@ -254,7 +254,7 @@ Per questo articolo, è stato fornito un dashboard di esempio per visualizzare t
 
 Il dashboard di esempio offre diverse visualizzazioni dei log di avvisi di Suricata:
 
-1. Avvisi di GeoIP: una mappa che mostra la distribuzione degli avvisi in base al paese/regione di origine in base alla posizione geografica (determinata dall'IP)
+1. Avvisi per GeoIP: una mappa che mostra la distribuzione degli avvisi in base al paese/area geografica di origine in base alla posizione geografica (determinata da IP)
 
     ![IP geografico][3]
 

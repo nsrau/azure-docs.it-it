@@ -9,12 +9,12 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 76e34736238273f2af3fccae0ac2b5ed0ff491f0
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 0c619224201d6225d5e5c127b342f71f2f7fced9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128338"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535353"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Avviare un failover dell'account di archiviazione (anteprima)
 
@@ -27,11 +27,11 @@ Questo articolo illustra come avviare un failover per l'account di archiviazione
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-Prima di poter eseguire un failover dell'account nell'account di archiviazione, verificare di aver eseguito il passaggio seguente:
+Prima di eseguire un failover dell'account nell'account di archiviazione, assicurarsi di aver eseguito il passaggio seguente:Before you can perform an account failover on your storage account, make sure that you have performed the following step:
 
-- Verificare che l'account di archiviazione sia configurato per usare l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura. Per altre informazioni sull'archiviazione con ridondanza geografica, vedere [ridondanza di archiviazione di Azure](storage-redundancy.md).
+- Verificare che l'account di archiviazione sia configurato per usare l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura. Per altre informazioni sull'archiviazione con ridondanza geografica, vedere [Ridondanza di Archiviazione di Azure.For](storage-redundancy.md)more information about geo-redundant storage, see Azure Storage redundancy .
 
 ## <a name="important-implications-of-account-failover"></a>Implicazioni importanti del failover dell'account
 
@@ -59,14 +59,14 @@ Per avviare un failover dell'account dal portale di Azure, seguire questa proced
 
     ![Screenshot che mostra la finestra di dialogo di conferma per un failover dell'account](media/storage-initiate-account-failover/portal-failover-confirm.png)
 
-## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+## <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 Per usare PowerShell per avviare un failover dell'account, è necessario installare prima di tutto il modulo di anteprima 6.0.1. Per installare il modulo, seguire questa procedura:
 
 1. Disinstallare eventuali installazioni precedenti di Azure PowerShell:
 
     - Rimuovere da Windows eventuali installazioni precedenti di Azure PowerShell usando l'impostazione **App e funzionalità** in **Impostazioni**.
-    - Rimuovere tutti i moduli di **Azure** da `%Program Files%\WindowsPowerShell\Modules`.
+    - Rimuovere **Azure** tutti i `%Program Files%\WindowsPowerShell\Modules`moduli di Azure da .
 
 1. Assicurarsi di avere la versione più recente di PowerShellGet installata. Aprire una finestra di Windows PowerShell ed eseguire i seguenti comandi per installare la versione più recente:
 
@@ -82,7 +82,7 @@ Per usare PowerShell per avviare un failover dell'account, è necessario install
     Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. Installare un modulo di anteprima di archiviazione di Azure che supporta il failover degli account:
+1. Installare un modulo di anteprima di Archiviazione di Azure che supporta il failover dell'account:Install an Azure Storage preview module that supports account failover:
 
     ```powershell
     Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force 
@@ -96,11 +96,11 @@ Per avviare un failover dell'account da PowerShell, usare il comando seguente:
 Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
 ```
 
-## <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+## <a name="azure-cli"></a>[Interfaccia della riga di comando di AzureAzure](#tab/azure-cli)
 
 Usare l'interfaccia della riga di comando di Azure per avviare un failover dell'account, usare i comandi seguenti:
 
-```cli
+```azurecli
 az storage account show \ --name accountName \ --expand geoReplicationStats
 az storage account failover \ --name accountName
 ```
@@ -110,5 +110,5 @@ az storage account failover \ --name accountName
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Ripristino di emergenza e failover dell'account (anteprima) in Archiviazione di Azure](storage-disaster-recovery-guidance.md)
-- [Progettazione di applicazioni a disponibilità elevata con RA-GRS](storage-designing-ha-apps-with-ragrs.md)
-- [Esercitazione: creare un'applicazione a disponibilità elevata con archiviazione BLOB](../blobs/storage-create-geo-redundant-storage.md) 
+- [Progettazione di applicazioni a disponibilità elevata utilizzando RA-GRS](storage-designing-ha-apps-with-ragrs.md)
+- [Esercitazione: Creare un'applicazione a disponibilità elevata con l'archiviazione BLOBTutorial: Build a highly available application with Blob storage](../blobs/storage-create-geo-redundant-storage.md) 

@@ -1,6 +1,6 @@
 ---
-title: Effettuare il deprovisioning di dispositivi di cui è stato effettuato il provisioning con il servizio Device provisioning in hub Azure
-description: Come eseguire il deprovisioning di dispositivi di cui è stato effettuato il provisioning con il servizio Device provisioning in hub Azure
+title: Deprovisioning dei dispositivi di cui è stato eseguito il provisioning con il servizio di provisioning dei dispositivi hub IoT di Azure IoTDeprovision devices that were provisioned with Azure IoT Hub Device Provisioning Service
+description: Come eseguire il deprovisioning dei dispositivi di cui è stato eseguito il provisioning con il servizio di provisioning dei dispositivi hub IoT (DPS) di Azure IoTHow to deprovision devices that have been provisioned with Azure IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 05/11/2018
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 8a3677ba285f5b02407ca3d176979bf6c016ef9b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74974837"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Come eseguire il deprovisioning di dispositivi di cui in precedenza è stato eseguito il provisioning automatico 

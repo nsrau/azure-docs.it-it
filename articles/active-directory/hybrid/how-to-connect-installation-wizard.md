@@ -18,17 +18,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5440c54b01f62b3ad61b355f4c622a31910a65c1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261333"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Servizio di sincronizzazione Azure AD Connect: eseguire l'installazione guidata una seconda volta
 La prima volta che si esegue l'installazione guidata di Azure AD Connect, viene illustrata la procedura di configurazione dell'installazione. Se si esegue nuovamente l'installazione guidata, verranno messe a disposizione le opzioni di manutenzione.
 
 >[!IMPORTANT]
->Tenere presente che non è possibile eseguire l'installazione guidata mentre è in corso una sincronizzazione.  Prima di avviare la procedura guidata, verificare che non sia in esecuzione una sincronizzazione.
+>Tenere presente che non è possibile eseguire l'installazione guidata mentre è in corso una sincronizzazione.  Verificare che una sincronizzazione non sia in esecuzione prima di avviare la procedura guidata.
 
 L'installazione guidata si trova nel menu Start **Azure AD Connect**.
 
@@ -78,7 +78,7 @@ Quando si seleziona questa opzione, vengono elencate tutte le directory presenti
 ## <a name="configure-staging-mode"></a>Configurazione della modalità di gestione temporanea
 Questa opzione consente di abilitare e disabilitare la modalità di gestione temporanea nel server. Per altre informazioni sull'uso della modalità di gestione temporanea, vedere [Operazioni](how-to-connect-sync-staging-server.md).
 
-L'opzione indicherà se la gestione temporanea è attualmente abilitata o disabilitata:  
+L'opzione indicherà se la gestione temporanea è attualmente abilitata o disabilitata:   
 ![Opzione che visualizza anche lo stato attuale della modalità di gestione temporanea](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
 
 Per modificare lo stato, selezionare questa opzione e selezionare o deselezionare la casella di controllo.  

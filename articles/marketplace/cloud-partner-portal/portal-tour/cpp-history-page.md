@@ -1,19 +1,18 @@
 ---
-title: Pagina cronologia di controllo per Azure Marketplace
-description: Panoramica della pagina cronologia di controllo in portale Cloud Partner per Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Pagina Cronologia controllo per Azure MarketplaceAudit history page for Azure Marketplace
+description: Panoramica della pagina Cronologia controllo nel portale dei partner cloud per Azure Marketplace.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: pabutler
-ms.openlocfilehash: a09eca891c434a6bd836269908c3e2cf37fbd3f5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: cd9577a4bcdb1914ac0a7a23e4a98c31f6e43030
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821549"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288904"
 ---
 # <a name="audit-history-page"></a>Pagina Cronologia dei controlli
 

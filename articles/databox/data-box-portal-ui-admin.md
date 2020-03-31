@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
 ms.openlocfilehash: 01e3ed9f94b575aae4ce0ed12eb63e3cf40d99ce
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259968"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Usare il portale di Azure per amministrare Azure Data Box
@@ -55,7 +55,7 @@ Eseguire la procedura seguente per clonare un ordine.
 
 Il clone viene creato in pochi minuti e il portale viene aggiornato per mostrare il nuovo ordine.
 
-[![Clonazione ordine 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
+[![Ordine clone 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
 
 ## <a name="delete-order"></a>Eliminare un ordine
 
@@ -67,7 +67,7 @@ Il clone viene creato in pochi minuti e il portale viene aggiornato per mostrare
 
     ![Ricerca degli ordini in Data Box Disk](media/data-box-portal-ui-admin/search-data-box-disk-orders.png)
 
-2. Fare clic sull'ordine da eliminare e passare a **Panoramica**. Sulla barra dei comandi fare clic su **Elimina**.
+2. Fare clic sull'ordine da eliminare e passare a **Panoramica**. Nella barra dei comandi fare clic su **Elimina**.
 
     ![Eliminazione ordine 1 in Data Box Disk](media/data-box-portal-ui-admin/delete-order1.png)
 

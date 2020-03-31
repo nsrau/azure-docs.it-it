@@ -1,6 +1,6 @@
 ---
-title: Aggiornamento di avvisi classici & monitoraggio in monitoraggio di Azure
-description: Descrizione del ritiro dei servizi e delle funzionalità di monitoraggio classici, illustrati in precedenza in portale di Azure in avvisi (versione classica).
+title: Aggiornamento del monitoraggio degli avvisi classici & in Monitoraggio di AzureUpdate of classic alerting & monitoring in Azure Monitor
+description: Descrizione del ritiro dei servizi e delle funzionalità di monitoraggio classici, illustrata in precedenza nel portale di Azure in Avvisi (classica).
 author: yanivlavi
 services: azure-monitor
 ms.topic: conceptual
@@ -8,24 +8,24 @@ ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
 ms.openlocfilehash: dec4d6824644cabf8b1872da207b8554fee0b3d3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77659476"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Funzionalità unificata di avviso e monitoraggio in Monitoraggio di Azure in sostituzione delle funzionalità classiche di avviso e monitoraggio
 
 Monitoraggio di Azure è ora diventato un servizio di monitoraggio unificato dell'intero stack che supporta metriche unificate e avvisi unificati per tutte le risorse. Per altre informazioni, vedere il [post di blog sul nuovo servizio Monitoraggio di Azure](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). Le nuove piattaforme di monitoraggio e avviso di Azure sono state create per essere più veloci, intelligenti ed estendibili, per tenere il passo con la continua crescita del cloud computing e in linea con la filosofia Microsoft di cloud intelligente. 
 
-Con la nuova piattaforma di monitoraggio e avviso di Azure, verrà ritirato il sistema "classico" di monitoraggio e avviso nella sezione avvisi *classici* degli avvisi di Azure, che verrà **deprecato entro il 2019 agosto nei cloud pubblici di Azure**. Il [cloud di Azure per enti pubblici](../../azure-government/documentation-government-welcome.md) e [Azure Cina 21ViaNet](https://docs.azure.cn/) non saranno interessati.
+Con la nuova piattaforma di monitoraggio e avvisi di Azure in atto, ritireremo la piattaforma di monitoraggio e avvisi "classica" - ospitata all'interno della sezione *View classic alerts* of Azure alerts , sarà **deprecata entro agosto 2019 nei cloud pubblici**di Azure. [Il cloud di Azure per enti pubblici](../../azure-government/documentation-government-welcome.md) e Azure China [21Vianet](https://docs.azure.cn/) non saranno interessati.
 
 > [!NOTE]
-> A causa del ritardo nell'implementazione dello strumento di migrazione, la data di ritiro per la migrazione degli avvisi classica è stata [estesa al 31 agosto 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) dalla data di annuncio iniziale del 30 giugno 2019.
+> A causa del ritardo nell'implementazione dello strumento di migrazione, la data di pensionamento per la migrazione degli avvisi classici è stata [estesa al 31 agosto 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) dalla data originariamente annunciata del 30 giugno 2019.
 
  ![Avviso classico nel portale di Azure](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
-Gli utenti sono invitati a iniziare a usare la nuova piattaforma e ricreare al suo interno gli avvisi. Per i clienti che hanno un numero elevato di avvisi, stiamo [implementando fasi](alerts-understand-migration.md#rollout-phases), uno [strumento di migrazione volontario](alerts-using-migration-tool.md) per spostare gli avvisi classici esistenti nel nuovo sistema di avvisi senza compromettere o aggiungere costi.
+Gli utenti sono invitati a iniziare a usare la nuova piattaforma e ricreare al suo interno gli avvisi. Per i clienti che dispongono di un numero elevato di avvisi, stiamo [implementando in fasi,](alerts-understand-migration.md#rollout-phases)uno strumento di [migrazione volontaria](alerts-using-migration-tool.md) per spostare gli avvisi classici esistenti nel nuovo sistema di avvisi senza interruzioni o costi aggiuntivi.
 
 > [!IMPORTANT]
 > Le regole di avviso classiche create nel log attività non verranno deprecate o spostate. È possibile accedere a tutte le regole di avviso classiche create nel log attività e usarle nel loro stato corrente dalla nuova pagina Monitoraggio di Azure - Avvisi. Per altre informazioni, vedere [Creare, visualizzare e gestire gli avvisi del log attività con Monitoraggio di Azure](../../azure-monitor/platform/alerts-activity-log.md). Analogamente, è possibile accedere agli avvisi sull'integrità dei servizi e usarli nel loro stato corrente dalla nuova sezione Integrità dei servizi. Per informazioni dettagliate, vedere gli [avvisi per le notifiche sull'integrità del servizio](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
@@ -39,7 +39,7 @@ La nuova funzionalità unificata di monitoraggio e avviso per Application Insigh
 - **Metriche della piattaforma Application Insights**, per fornire popolari metriche predefinite del prodotto Application Insights. Per altre informazioni, vedere l'articolo sull'uso di [metriche della piattaforma per Application Insights nel nuovo servizio Monitoraggio di Azure](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics).
 - **Test Web e della disponibilità di Application Insights**, che offrono la possibilità di valutare la velocità di risposta e la disponibilità del server o dell'app Web. Per altre informazioni, vedere l'articolo sull'uso di [test di disponibilità e avvisi per Application Insights nel nuovo servizio Monitoraggio di Azure](../../azure-monitor/app/monitor-web-app-availability.md).
 - **Metriche personalizzate di Application Insights**, che permettono di definire e generare metriche personalizzate per il monitoraggio e gli avvisi. Per altre informazioni, vedere l'articolo sull'uso di [metriche personalizzate per Application Insights nel nuovo servizio Monitoraggio di Azure](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
-- **Anomalie errori di Application Insights (parte della funzionalità di rilevamento intelligente)** , per l'invio di notifiche automatiche quasi in tempo reale se si verifica un incremento anomalo della frequenza di chiamate di dipendenze o richieste HTTP non riuscite nell'app Web. Per altre informazioni, vedere questo articolo sull'uso del [rilevamento intelligente-anomalie degli errori](https://docs.microsoft.com/azure/azure-monitor/app/proactive-failure-diagnostics).
+- **Anomalie errori di Application Insights (parte della funzionalità di rilevamento intelligente)**, per l'invio di notifiche automatiche quasi in tempo reale se si verifica un incremento anomalo della frequenza di chiamate di dipendenze o richieste HTTP non riuscite nell'app Web. Per ulteriori informazioni, vedere questo articolo sull'utilizzo del [rilevamento intelligente - Anomalie](https://docs.microsoft.com/azure/azure-monitor/app/proactive-failure-diagnostics)di errore .
 
 ## <a name="unified-metrics-and-alerts-for-other-azure-resources"></a>Metriche e avvisi unificati per altre risorse di Azure
 
@@ -52,30 +52,30 @@ Le nuove metriche per le risorse di Azure sono disponibili come:
 ## <a name="retirement-of-classic-monitoring-and-alerting-platform"></a>Ritiro della piattaforma classica di monitoraggio e avviso
 
 Come indicato in precedenza, la piattaforma classica di monitoraggio e avviso attualmente disponibile nella [sezione Avvisi (versione classica)](../../azure-monitor/platform/alerts-classic.overview.md) del portale di Azure verrà ritirata nei prossimi mesi e sostituita dal nuovo sistema.
-Il monitoraggio e gli avvisi classici precedenti verranno ritirati il 31 agosto 2019; inclusa la chiusura di API correlate, portale di Azure interfaccia e i servizi al suo interno. In particolare, queste funzionalità verranno deprecate:
+Il monitoraggio e l'allerta classici più vecchi saranno ritirati il 31 agosto 2019; tra cui la chiusura delle API correlate, l'interfaccia del portale di Azure e i servizi in essa contenuti. In particolare, queste funzionalità verranno deprecate:
 
 - Metriche e avvisi precedenti (versione classica) per le risorse di Azure attualmente disponibili tramite la [sezione Avvisi (versione classica)](../../azure-monitor/platform/alerts-classic.overview.md) del portale di Azure, accessibili come risorsa [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)
 - Piattaforma e metriche personalizzate precedenti (versione classica) per Azure Application Insights, oltre agli avvisi attualmente disponibili tramite la [sezione Avvisi (versione classica)](../../azure-monitor/platform/alerts-classic.overview.md) del portale di Azure e accessibili come risorsa [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)
 - Avviso Anomalie errori precedente (versione classica) attualmente disponibile come funzionalità [Rilevamento intelligente in Application Insights](../../azure-monitor/app/proactive-diagnostics.md) nel portale di Azure, con avvisi configurati visualizzati nella [sezione Avvisi (versione classica)](../../azure-monitor/platform/alerts-classic.overview.md) del portale di Azure
 
-Tutti i sistemi di monitoraggio e avvisi classici, inclusi [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md), [interfaccia](../../azure-monitor/platform/alerts-classic-portal.md)della riga di comando, [portale di Azure pagina](../../azure-monitor/platform/alerts-classic-portal.md)e [modello di risorsa](../../azure-monitor/platform/alerts-enable-template.md) corrispondenti, rimarranno utilizzabili fino alla fine del 2019 agosto. 
+Tutti i sistemi classici di monitoraggio e avviso, inclusi [API,](https://msdn.microsoft.com/library/azure/dn931945.aspx) [PowerShell,](../../azure-monitor/platform/alerts-classic-portal.md) [CLI,](../../azure-monitor/platform/alerts-classic-portal.md) [pagina del portale](../../azure-monitor/platform/alerts-classic-portal.md)di Azure e modello di [risorsa,](../../azure-monitor/platform/alerts-enable-template.md) rimarranno utilizzabili fino alla fine di agosto 2019. 
 
-Alla fine del 2019 agosto, in monitoraggio di Azure:
+Alla fine di agosto 2019, in Monitoraggio di Azure:
 
-- Il servizio di monitoraggio e avviso classico verrà ritirato e non sarà più disponibile per la creazione di nuove regole di avviso.
-- Eventuali regole di avviso che continuano a esistere negli avvisi (versione classica) oltre il 2019 agosto continueranno a essere eseguite e attiveranno le notifiche, ma non saranno disponibili per la modifica.
-- A partire da settembre 2019, le regole di avviso nel monitoraggio classico & avvisi che possono essere migrate, verranno automaticamente spostate da Microsoft nell'equivalente nella nuova piattaforma di monitoraggio di Azure in fasi che durano alcune settimane. Il processo avverrà in modo fluido, senza tempi di inattività e senza alcuna perdita nella copertura del monitoraggio per i clienti.
-- Le regole di avviso di cui è stata eseguita la migrazione nella nuova piattaforma di avvisi garantiranno la copertura di monitoraggio come prima, ma genereranno le notifiche con nuovi payload. Qualsiasi indirizzo di posta elettronica, endpoint del webhook o collegamento dell'app per la logica associato alla regola di avviso classica verrà mantenuto in fase di migrazione, ma potrebbe non funzionare correttamente perché il payload degli avvisi sarà diverso nella nuova piattaforma.
-- Alcune [regole di avviso classiche che non possono essere migrate automaticamente e che](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated) richiedono azioni manuali da parte degli utenti continueranno a essere eseguite fino al 2020 giugno.
+- Il servizio di monitoraggio e avvisi classici verrà ritirato e non sarà più disponibile per la creazione di nuove regole di avviso.
+- Tutte le regole di avviso che continuano a esistere in Avvisi (classico) oltre agosto 2019 continueranno a essere eseguite e non saranno disponibili per la modifica.
+- A partire da settembre 2019, le regole di avviso nel monitoraggio classico & gli avvisi di cui è possibile eseguire la migrazione verranno automaticamente spostate da Microsoft nell'equivalente nella nuova piattaforma di monitoraggio di Azure in fasi che vanno da poche settimane. Il processo avverrà in modo fluido, senza tempi di inattività e senza alcuna perdita nella copertura del monitoraggio per i clienti.
+- Le regole di avviso di cui è stata eseguita la migrazione nella nuova piattaforma di avvisi garantiranno la copertura di monitoraggio come prima, ma genereranno le notifiche con nuovi payload. Qualsiasi indirizzo di posta elettronica, endpoint webhook o collegamento all'app per la logica associato alla regola di avviso classica verrà riportato durante la migrazione, ma potrebbe non funzionare correttamente poiché il payload dell'avviso sarà diverso nella nuova piattaforma.
+- Alcune regole di [avviso classiche che non possono essere migrate automaticamente](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated) e che richiedono un'azione manuale da parte degli utenti continueranno a essere eseguite fino a giugno 2020.
 
 > [!IMPORTANT]
-> Microsoft Azure monitor è stato implementato nello [strumento fasi per eseguire a breve la migrazione volontaria](alerts-using-migration-tool.md) delle regole di avviso classiche alla nuova piattaforma. Ed eseguirlo per forza per tutte le regole di avviso classiche ancora esistenti e di cui è possibile eseguire la migrazione, a partire dal 2019 settembre. I clienti dovranno assicurarsi che il payload delle regole di avviso classiche, dispendioso in termini di automazione, sia adattato in modo da gestire il nuovo payload da [Metriche e avvisi unificati in Application Insights](#unified-metrics-and-alerts-in-application-insights) o [Metriche e avvisi unificati per altre risorse di Azure](#unified-metrics-and-alerts-for-other-azure-resources) dopo la migrazione delle regole di avviso classiche. Per ulteriori informazioni, vedere la pagina relativa alla [preparazione alla migrazione della regola di avviso classica](alerts-prepare-migration.md)
+> Microsoft Azure Monitor è stato implementato in fasi [strumento per migrare volontariamente](alerts-using-migration-tool.md) le loro regole di avviso classiche sulla nuova piattaforma presto. Ed eseguirlo con la forza per tutte le regole di avviso classiche che esistono ancora e possono essere migrate, a partire da settembre 2019. I clienti dovranno assicurarsi che il payload delle regole di avviso classiche, dispendioso in termini di automazione, sia adattato in modo da gestire il nuovo payload da [Metriche e avvisi unificati in Application Insights](#unified-metrics-and-alerts-in-application-insights) o [Metriche e avvisi unificati per altre risorse di Azure](#unified-metrics-and-alerts-for-other-azure-resources) dopo la migrazione delle regole di avviso classiche. Per altre informazioni, vedere Preparare la migrazione delle regole di [avviso classicheFor](alerts-prepare-migration.md) more information, see prepare for classic alert rule migration
 
 Questo articolo verrà continuamente aggiornato con collegamenti e informazioni sulle nuove funzionalità di monitoraggio e avviso di Azure e sulla disponibilità di strumenti di supporto per l'adozione della nuova piattaforma Monitoraggio di Azure.
 
-## <a name="pricing-for-migrated-alert-rules"></a>Prezzi per le regole di avviso migrate
+## <a name="pricing-for-migrated-alert-rules"></a>Prezzi per le regole di avviso migrati
 
-Viene implementato uno strumento di migrazione che consente di eseguire la migrazione degli [avvisi classici](../../azure-monitor/platform/alerts-classic.overview.md) di monitoraggio di Azure alla nuova esperienza degli avvisi. Le regole di avviso migrate e i corrispondenti gruppi di azioni migrati (email, webhook o LogicApp) rimarranno gratuiti. La funzionalità con gli avvisi classici, inclusa la possibilità di modificare la soglia, il tipo di aggregazione e la granularità di aggregazione continuerà a essere disponibile gratuitamente con la regola di avviso migrata. Tuttavia, se si modifica la regola di avviso migrata in modo da usare una delle nuove funzionalità della piattaforma avvisi, le notifiche o i tipi di azione, viene applicato un addebito corrispondente. Per altre informazioni sui prezzi per le regole di avviso e le notifiche, vedere [prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/).
+È disponibile uno strumento di migrazione che consente di eseguire la migrazione [degli avvisi classici](../../azure-monitor/platform/alerts-classic.overview.md) di Monitoraggio di Azure alla nuova esperienza di avvisi. Le regole di avviso migrate e i gruppi di azioni migrati corrispondenti (e-mail, webhook o LogicApp) rimarranno gratuiti. Le funzionalità disponibili con gli avvisi classici, tra cui la possibilità di modificare la soglia, il tipo di aggregazione e la granularità di aggregazione continueranno a essere disponibili gratuitamente con la regola di avviso migrato. Tuttavia, se si modifica la regola di avviso migrata per utilizzare una delle nuove funzionalità della piattaforma di avviso, notifiche o tipi di azione, verrà applicato un addebito corrispondente. Per altre informazioni sui prezzi per le regole di avviso e le notifiche, vedere Prezzi di [Monitoraggio di Azure.For](https://azure.microsoft.com/pricing/details/monitor/)more information on the pricing for alert rules and notifications, see Azure Monitor Pricing .
 
 Di seguito sono riportati alcuni esempi di casi in cui verrà addebitato un addebito per la regola di avviso:
 
@@ -83,8 +83,8 @@ Di seguito sono riportati alcuni esempi di casi in cui verrà addebitato un adde
 - Tutti i dati inseriti e conservati oltre le unità gratuite incluse in Monitoraggio di Azure
 - Tutti i test Web multitest eseguiti da Application Insights
 - Tutte le metriche personalizzate archiviate oltre le unità gratuite incluse in Monitoraggio di Azure
-- Eventuali regole di avviso migrate modificate per l'uso di funzionalità di avviso di metrica più recenti, ad esempio frequenza, più risorse/dimensioni, [soglie dinamiche](alerts-dynamic-thresholds.md), modifica di risorse/segnali e così via.
-- Tutti i gruppi di azioni migrati che vengono modificati per usare notifiche più recenti o tipi di azione quali SMS, chiamata vocale e integrazione con ITSM.
+- Tutte le regole di avviso migrate modificate per utilizzare funzionalità di avviso metriche più recenti, ad esempio frequenza, più risorse/dimensioni, [soglie dinamiche,](alerts-dynamic-thresholds.md)modifica di risorse/segnali e così via.
+- Tutti i gruppi di azioni migrati che vengono modificati per utilizzare le notifiche più recenti o i tipi di azione come SMS, chiamate vocali e/o l'integrazione ITSM.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,15 +11,15 @@ ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 25724ba82e57c5e3800fa1a989dd4f504df1c163
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189277"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Abilitare l'autenticazione a più fattori in Azure Active Directory B2C
 
-Azure Active Directory B2C (Azure AD B2C) si integra direttamente con [multi-factor authentication di Azure](../active-directory/authentication/multi-factor-authentication.md) , in modo che sia possibile aggiungere un secondo livello di sicurezza per l'iscrizione e l'accesso alle proprie applicazioni. È possibile abilitare l'autenticazione a più fattori senza scrivere una singola riga di codice. Se i flussi utente di iscrizione e accesso sono già stati creati, è ancora possibile abilitare l'autenticazione a più fattori.
+Azure Active Directory B2C (Azure AD B2C) si integra direttamente con [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) in modo da poter aggiungere un secondo livello di sicurezza alle esperienze di iscrizione e accesso nelle applicazioni. È possibile abilitare l'autenticazione a più fattori senza scrivere una singola riga di codice. Se i flussi utente di iscrizione e accesso sono già stati creati, è ancora possibile abilitare l'autenticazione a più fattori.
 
 Questa funzionalità risulta utile per la gestione di scenari simili ai seguenti:
 

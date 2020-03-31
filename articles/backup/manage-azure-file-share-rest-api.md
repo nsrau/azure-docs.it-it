@@ -1,28 +1,28 @@
 ---
-title: Gestire il backup di condivisioni file di Azure con l'API REST
-description: Informazioni su come usare l'API REST per gestire e monitorare le condivisioni file di Azure di cui è stato eseguito il backup da backup di Azure.
+title: Gestire il backup di condivisione file di Azure con l'API RestManage Azure File share backup with Rest API
+description: Informazioni su come usare l'API REST per gestire e monitorare le condivisioni file di Azure di cui viene eseguito il backup da Backup di Azure.Learn how to use REST API to manage and monitor Azure file shares that are backed up by Azure Backup.
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 9d29b226aff568c91de8e1f19ddc0c64f8169e4d
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77444732"
 ---
-# <a name="manage-azure-file-share-backup-with-rest-api"></a>Gestire il backup di condivisioni file di Azure con l'API REST
+# <a name="manage-azure-file-share-backup-with-rest-api"></a>Gestire il backup di condivisione file di Azure con l'API RESTManage Azure File share backup with REST API
 
-Questo articolo illustra come eseguire attività di gestione e monitoraggio delle condivisioni file di Azure di cui è stato eseguito il backup da [backup di Azure](https://docs.microsoft.com/azure/backup/backup-overview).
+Questo articolo illustra come eseguire attività per la gestione e il monitoraggio delle condivisioni file di Azure di cui è stato eseguito il backup da Backup di [Azure.](https://docs.microsoft.com/azure/backup/backup-overview)
 
-## <a name="monitor-jobs"></a>Monitoraggio dei processi
+## <a name="monitor-jobs"></a>Monitorare i processi
 
-Il servizio backup di Azure attiva i processi eseguiti in background. Sono inclusi scenari come l'attivazione del backup, le operazioni di ripristino e la disabilitazione del backup. Questi processi possono essere registrati tramite i relativi ID.
+Il servizio Backup di Azure attiva i processi eseguiti in background. Sono inclusi scenari quali l'attivazione del backup, le operazioni di ripristino e la disabilitazione del backup. Questi processi possono essere registrati tramite i relativi ID.
 
 ### <a name="fetch-job-information-from-operations"></a>Recuperare le informazioni sui processi dalle operazioni
 
-Un'operazione come l'attivazione del backup restituirà sempre un jobID nella risposta.
+Un'operazione, ad esempio l'attivazione del backup, restituirà sempre un jobID nella risposta.
 
-Ad esempio, la risposta finale di un'operazione dell' [API REST di backup del trigger](backup-azure-file-share-rest-api.md#trigger-an-on-demand-backup-for-file-share) è la seguente:
+Ad esempio, la risposta finale di un'operazione [dell'API REST](backup-azure-file-share-rest-api.md#trigger-an-on-demand-backup-for-file-share) di backup del trigger è la seguente:For example, the final response of a trigger backup REST API operation is as follows:
 
 ```json
 {
@@ -38,7 +38,7 @@ Ad esempio, la risposta finale di un'operazione dell' [API REST di backup del tr
 }
 ```
 
-Il processo di backup della condivisione file di Azure è identificato dal campo **JobID** e può essere rilevato come indicato [qui](https://docs.microsoft.com/rest/api/backup/jobdetails/) usando una richiesta GET.
+Il processo di backup della condivisione file di Azure è identificato dal campo **jobId** e può essere rilevato come indicato [qui](https://docs.microsoft.com/rest/api/backup/jobdetails/) usando una richiesta GET.
 
 ### <a name="tracking-the-job"></a>Tenere traccia del processo
 
@@ -46,7 +46,7 @@ Il processo di backup della condivisione file di Azure è identificato dal campo
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
-{JobName} è il "jobId" menzionato in precedenza. La risposta è sempre "200 OK" con il campo **stato** che indica lo stato del processo. Una volta "completed" o "CompletedWithWarnings", la sezione **extendedInfo** Visualizza altri dettagli sul processo.
+Il "jobName" è il "jobId" menzionato in precedenza. La risposta è sempre "200 OK" con il campo **dello stato** che indica lo stato del processo. Una volta che è "Completed" o "CompletedWithWarnings", la sezione **extendedInfo** rivela ulteriori dettagli sul processo.
 
 ```http
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupJobs/e2ca2cf4-2eb9-4d4b-b16a-8e592d2a658b?api-version=2019-05-13'
@@ -54,13 +54,13 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 #### <a name="response"></a>Risposta
 
-Name  | Type  |  Descrizione
+Nome  | Type  |  Descrizione
 --- | --- | ----
-200 OK |  JobResource  | OK
+200 - OK |  JobResource  | OK
 
 #### <a name="response-example"></a>Esempio di risposta
 
-Una volta inviato l'URI *Get* , viene restituita una risposta 200.
+Una volta inviato l'URI *GET,* viene restituita una risposta 200.
 
 ```http
 HTTP/1.1" 200
@@ -111,9 +111,9 @@ HTTP/1.1" 200
 
 ## <a name="modify-policy"></a>Modifica dei criteri
 
-Per modificare i criteri con cui la condivisione file è protetta, è possibile utilizzare lo stesso formato dell'abilitazione della protezione. È sufficiente fornire il nuovo ID criterio nel criterio di richiesta e inviare la richiesta.
+Per modificare i criteri con cui è protetta la condivisione file, è possibile utilizzare lo stesso formato dell'abilitazione della protezione. È sufficiente fornire il nuovo ID criterio nel criterio di richiesta e inviare la richiesta.
 
-Ad esempio: per modificare i criteri di protezione di *TestShare* da *schedule1* a *schedule2*, fornire l'ID *schedule2* nel corpo della richiesta.
+Ad esempio: per modificare i criteri di protezione di *testshare* da *schedule1* a *schedule2,* specificare l'ID *schedule2* nel corpo della richiesta.
 
 ```json
 {
@@ -127,7 +127,7 @@ Ad esempio: per modificare i criteri di protezione di *TestShare* da *schedule1*
 
 ## <a name="stop-protection-but-retain-existing-data"></a>Arrestare la protezione dati, ma conservare i dati esistenti
 
-È possibile rimuovere la protezione in una condivisione file protetta, ma mantenere i dati già sottoposti a backup. A tale scopo, rimuovere i criteri nel corpo della richiesta usato per[abilitare il backup](backup-azure-file-share-rest-api.md#enable-backup-for-the-file-share) e inviare la richiesta. Una volta rimossa l'associazione con il criterio, i backup non vengono più attivati e non vengono creati nuovi punti di ripristino.
+È possibile rimuovere la protezione in una condivisione file protetta mantenendo i dati già sottoposti a backup. A tale scopo, rimuovere il criterio nel corpo della richiesta utilizzato per[abilitare](backup-azure-file-share-rest-api.md#enable-backup-for-the-file-share) il backup e inviare la richiesta. Una volta rimossa l'associazione con i criteri, i backup non vengono più attivati e non vengono creati nuovi punti di ripristino.
 
 ```json
 {
@@ -142,9 +142,9 @@ Ad esempio: per modificare i criteri di protezione di *TestShare* da *schedule1*
 
 ### <a name="sample-response"></a>Risposta di esempio
 
-L'arresto della protezione per una condivisione file è un'operazione asincrona. Tramite l'operazione viene creata un'altra operazione che deve essere rilevata. Restituisce due risposte: 202 (accettato) quando viene creata un'altra operazione e 200 quando tale operazione viene completata.
+L'arresto della protezione per una condivisione file è un'operazione asincrona. L'operazione crea un'altra operazione di cui è necessario tenere traccia. Restituisce due risposte: 202 (Accettato) quando viene creata un'altra operazione e 200 al completamento dell'operazione.
 
-Intestazione della risposta quando l'operazione viene accettata correttamente:
+Intestazione di risposta quando l'operazione viene accettata correttamente:Response header when operation is successfully accepted:
 
 ```http
 HTTP/1.1" 202
@@ -166,7 +166,7 @@ msrest.http_logger :     'Azure-AsyncOperation': 'https://management.azure.com/S
 'Content-Length': '0'
 ```
 
-Tenere quindi traccia dell'operazione risultante usando l'intestazione Location o Azure-AsyncOperation con un comando GET:
+Tenere quindi traccia dell'operazione risultante usando l'intestazione location o l'intestazione Azure-AsyncOperation con un comando GET:Then track the resulting operation using the location header or Azure-AsyncOperation header with a GET command:
 
 ```http
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupoperations/b300922a-ad9c-4181-b4cd-d42ea780ad77?api-version=2016-12-01
@@ -190,15 +190,15 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 ## <a name="stop-protection-and-delete-data"></a>Arrestare la protezione ed eliminare i dati
 
-Per rimuovere la protezione in una condivisione file protetta ed eliminare anche i dati di backup, eseguire un'operazione di eliminazione, come descritto [qui](https://docs.microsoft.com/rest/api/backup/protecteditems/delete).
+Per rimuovere la protezione da una condivisione file protetta ed eliminare anche i dati di backup, eseguire un'operazione di eliminazione come descritto [qui](https://docs.microsoft.com/rest/api/backup/protecteditems/delete).
 
 ```http
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
 ```
 
-I parametri {ContainerName} e {protectedItemName} sono impostati [qui](restore-azure-file-share-rest-api.md#fetch-containername-and-protecteditemname).
+I parametri "containerName" e "protectedItemName" sono impostati [qui](restore-azure-file-share-rest-api.md#fetch-containername-and-protecteditemname).
 
-Nell'esempio seguente viene attivata un'operazione per arrestare la protezione per la condivisione file *TestShare* protetta con *azurefilesvault*.
+Nell'esempio seguente viene attivata un'operazione per arrestare la protezione per la condivisione file *testshare* protetta con *azurefilesvault*.
 
 ```http
 DELETE https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;Storage;AzureFiles;testvault2/protectedItems/azurefileshare;testshare?api-version=2016-12-01
@@ -206,9 +206,9 @@ DELETE https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f4
 
 ### <a name="responses"></a>Risposte
 
-L'eliminazione della protezione è un'operazione asincrona. Tramite l'operazione viene creata un'altra operazione che deve essere rilevata separatamente.
-Restituisce due risposte: 202 (accettato) quando viene creata un'altra operazione e 204 (nocontent) quando tale operazione viene completata.
+La protezione dell'eliminazione è un'operazione asincrona. L'operazione crea un'altra operazione che deve essere tenuta traccia separatamente.
+Restituisce due risposte: 202 (Accettato) quando viene creata un'altra operazione e 204 (NoContent) al completamento dell'operazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su come [risolvere i problemi durante la configurazione del backup per le condivisioni file di Azure](troubleshoot-azure-files.md).
+* Informazioni su come [risolvere i problemi durante la configurazione del backup per le condivisioni file di Azure.](troubleshoot-azure-files.md)

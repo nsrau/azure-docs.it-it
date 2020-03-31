@@ -1,6 +1,6 @@
 ---
 title: Panoramica degli account utente in Azure Active Directory B2C
-description: Informazioni sui tipi di account utente che è possibile usare in Azure Active Directory B2C.
+description: Informazioni sui tipi di account utente che possono essere usati in Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,23 +11,23 @@ ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 9630e1f23b6595ca690ecafcf0c4b9bfff603f2e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78185659"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Panoramica degli account utente in Azure Active Directory B2C
 
-In Azure Active Directory B2C (Azure AD B2C), è possibile creare diversi tipi di account. Azure Active Directory, Active Directory B2B e Active Directory B2C condividere i tipi di account utente che è possibile utilizzare.
+In Azure Active Directory B2C (Azure AD B2C) è possibile creare diversi tipi di account. Azure Active Directory, Active Directory B2B e Active Directory Condivisione B2C nei tipi di account utente che possono essere utilizzati.
 
 Sono disponibili i tipi di account seguenti:
 
 - **Account aziendale**: un account aziendale può accedere alle risorse in un tenant; se dispone di un ruolo di amministratore, può gestire i tenant.
 - **Account guest**: un account guest può essere solo un account Microsoft o un utente di Azure AD che può essere usato per accedere alle applicazioni o gestire i tenant.
-- **Account del consumer** : un account utente viene usato da un utente delle applicazioni registrate con Azure ad B2C. Gli account utente possono essere creati da:
-  - Utente che attraversa un flusso utente di iscrizione in un'applicazione Azure AD B2C
-  - Uso dell'API Microsoft Graph
+- **Account consumer:** un account utente viene usato da un utente delle applicazioni registrate con Azure AD B2C. Gli account consumer possono essere creati da:
+  - L'utente che passa attraverso un flusso utente di iscrizione in un'applicazione Azure AD B2C
+  - Utilizzo dell'API Microsoft Graph
   - Uso del portale di Azure
 
 ## <a name="work-account"></a>Account aziendale
@@ -49,39 +49,39 @@ Quando si aggiunge un nuovo account aziendale, è necessario prendere in conside
 
 Per creare un nuovo account aziendale è possibile usare le informazioni seguenti:
 
-- [Azure portal](../active-directory/fundamentals/add-users-azure-active-directory.md)
+- [Portale di Azure](../active-directory/fundamentals/add-users-azure-active-directory.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
 
 ### <a name="update-a-user-profile"></a>Aggiornare un profilo utente
 
 Per aggiornare un profilo utente è possibile usare le informazioni seguenti:
 
-- [Azure portal](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
+- [Portale di Azure](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ### <a name="reset-a-password-for-a-user"></a>Reimpostare la password di un utente
 
 Per reimpostare la password di un utente è possibile usare le informazioni seguenti:
 
-- [Azure portal](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
+- [Portale di Azure](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ## <a name="guest-user"></a>Utente guest
 
 È possibile invitare utenti esterni al tenant assegnando loro il ruolo di utente guest. Uno scenario tipico per questo tipo di invito al tenant di Azure AD B2C è quello in cui è necessario condividere le responsabilità di amministrazione. Per un esempio di utilizzo di un account guest, vedere [Proprietà di un utente di Collaborazione B2B di Azure Active Directory](../active-directory/b2b/user-properties.md).
 
-Quando si invita un utente guest al tenant, viene fornito l'indirizzo di posta elettronica del destinatario e un messaggio che descrive l'invito. Il collegamento di invito indirizza l'utente alla pagina di consenso, dove è possibile selezionare il pulsante **Introduzione** e accettare il riepilogo delle autorizzazioni. Se all'indirizzo di posta elettronica non è collegata una casella di posta in arrivo, l'utente può aprire la pagina di consenso da una pagina Microsoft, usando le credenziali fornite nell'invito. L'utente deve quindi riscattare l'invito con la stessa procedura che avrebbe eseguito usando il collegamento presente nel messaggio di posta elettronica. Ad esempio: `https://myapps.microsoft.com/B2CTENANTNAME`.
+Quando si invita un utente guest al tenant, viene fornito l'indirizzo di posta elettronica del destinatario e un messaggio che descrive l'invito. Il collegamento di invito indirizza l'utente alla pagina di consenso, dove è possibile selezionare il pulsante **Introduzione** e accettare il riepilogo delle autorizzazioni. Se all'indirizzo di posta elettronica non è collegata una casella di posta in arrivo, l'utente può aprire la pagina di consenso da una pagina Microsoft, usando le credenziali fornite nell'invito. L'utente deve quindi riscattare l'invito con la stessa procedura che avrebbe eseguito usando il collegamento presente nel messaggio di posta elettronica. Ad esempio `https://myapps.microsoft.com/B2CTENANTNAME`.
 
 Per invitare un utente guest è anche possibile usare l'[API Graph di Microsoft](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-beta).
 
 ## <a name="consumer-user"></a>Utente consumer
 
-L'utente consumer può accedere ad applicazioni protette da Azure AD B2C, ma non alle risorse di Azure, ad esempio il portale di Azure. Può usare un account locale o account federati come ad esempio Facebook o Twitter. Un account utente viene creato usando un [flusso utente di iscrizione o di accesso](user-flow-overview.md), usando l'API Microsoft Graph o l'portale di Azure.
+L'utente consumer può accedere ad applicazioni protette da Azure AD B2C, ma non alle risorse di Azure, ad esempio il portale di Azure. Può usare un account locale o account federati come ad esempio Facebook o Twitter. Un account utente viene creato utilizzando un flusso utente di iscrizione o di accesso, tramite l'API Microsoft Graph o il portale di Azure.A consumer account is created by using a [sign-up or sign-in user flow,](user-flow-overview.md)using the Microsoft Graph API, or by using the Azure portal.
 
 È possibile specificare i dati raccolti quando viene creato un account consumer usando attributi utente personalizzati. Per altre informazioni, vedere [Definire attributi personalizzati in Azure Active Directory B2C](user-flow-custom-attributes.md).
 
-Per ulteriori informazioni sulla gestione degli account utente, vedere [manage Azure ad B2C user accounts with Microsoft Graph](manage-user-accounts-graph-api.md).
+Per altre informazioni sulla gestione degli account utente, vedere [Gestire gli account utente B2C](manage-user-accounts-graph-api.md)di Azure AD con Microsoft Graph.
 
 ### <a name="migrate-consumer-user-accounts"></a>Migrare gli account utente consumer
 
-Può essere necessario eseguire la migrazione degli account utente consumer esistenti da qualsiasi provider di identità ad Azure AD B2C. Per altre informazioni, vedere [migrare gli utenti a Azure ad B2C](user-migration.md).
+Può essere necessario eseguire la migrazione degli account utente consumer esistenti da qualsiasi provider di identità ad Azure AD B2C. Per altre informazioni, vedere [Eseguire la migrazione degli utenti ad Azure AD B2C.For](user-migration.md)more information, see Migrate users to Azure AD B2C .

@@ -1,74 +1,74 @@
 ---
-title: Crea avvisi Azure Advisor per nuove raccomandazioni
-description: Crea avvisi Azure Advisor per la nuova raccomandazione
+title: Creare avvisi di Azure Advisor per nuove raccomandazioniCreate Azure Advisor alerts for new recommendations
+description: Creare avvisi di Azure Advisor per una nuova raccomandazioneCreate Azure Advisor alerts for new recommendation
 ms.topic: article
 ms.date: 09/09/2019
 ms.openlocfilehash: 07cbc57ef718b6cac104d2b5238ff4e3196f197a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75443163"
 ---
-# <a name="create-azure-advisor-alerts-on-new-recommendations"></a>Crea avvisi Azure Advisor per le nuove raccomandazioni 
+# <a name="create-azure-advisor-alerts-on-new-recommendations"></a>Creare avvisi di Azure Advisor in base alle nuove raccomandazioniCreate Azure Advisor alerts on new recommendations 
 
-Questo articolo illustra come configurare un avviso per nuove raccomandazioni da Azure Advisor usando i modelli portale di Azure e Azure Resource Manager. 
+Questo articolo illustra come configurare un avviso per i nuovi consigli di Azure Advisor usando il portale di Azure e i modelli di Azure Resource Manager.This article shows you how to set up an alert for new recommendations from Azure Advisor using the Azure portal and Azure Resource Manager templates. 
 
-Ogni volta che Azure Advisor rileva una nuova raccomandazione per una delle risorse, un evento viene archiviato nel [log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview). È possibile configurare avvisi per questi eventi da Azure Advisor usando un'esperienza di creazione di avvisi specifica della raccomandazione. È possibile selezionare una sottoscrizione e, facoltativamente, un gruppo di risorse per specificare le risorse su cui si desidera ricevere gli avvisi. 
+Ogni volta che Azure Advisor rileva una nuova raccomandazione per una delle risorse, viene archiviato un evento nel log attività di Azure.Whenever Azure Advisor detects a new recommendation for one of your resources, an event is stored in [Azure Activity log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview). È possibile configurare avvisi per questi eventi da Azure Advisor usando un'esperienza di creazione degli avvisi specifica per i suggerimenti. È possibile selezionare una sottoscrizione e, facoltativamente, un gruppo di risorse per specificare le risorse per le quali si desidera ricevere avvisi. 
 
-È anche possibile determinare i tipi di raccomandazioni usando queste proprietà:
+È inoltre possibile determinare i tipi di consigli utilizzando queste proprietà:You can also determine the types of recommendations by using these properties:
 
-* Categoria
-* Livello di effetto
+* Category
+* Livello di impatto
 * Tipo di raccomandazione
 
-È anche possibile configurare l'azione che verrà eseguita quando un avviso viene attivato da:  
+È inoltre possibile configurare l'azione che verrà eseguita quando viene attivato un avviso da:You can also configure the action that will take place when an alert is triggered by:  
 
 * Selezione di un gruppo di azioni esistente
 * Creazione di un nuovo gruppo di azioni
 
-Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../azure-monitor/platform/action-groups.md).
+Per ulteriori informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi](../azure-monitor/platform/action-groups.md)di azioni .
 
 > [!NOTE] 
-> Gli avvisi di Advisor sono attualmente disponibili solo per i consigli relativi a disponibilità elevata, prestazioni e costi. Le raccomandazioni sulla sicurezza non sono supportate. 
+> Gli avvisi di Advisor sono attualmente disponibili solo per i consigli su disponibilità elevata, prestazioni e costi. Le raccomandazioni sulla sicurezza non sono supportate. 
 
 ## <a name="in-the-azure-portal"></a>Nel portale di Azure
 1. Nel **portale**selezionare **Azure Advisor**.
 
     ![Azure Advisor nel portale](./media/advisor-alerts/create1.png)
 
-2. Nella sezione **monitoraggio** del menu a sinistra selezionare **avvisi**. 
+2. Nella sezione **Monitoraggio** del menu a sinistra selezionare **Avvisi**. 
 
     ![Avvisi in Advisor](./media/advisor-alerts/create2.png)
 
-3. Selezionare **nuovo avviso di Advisor**.
+3. Selezionare **Nuovo avviso advisor**.
 
-    ![Avviso nuovo Advisor](./media/advisor-alerts/create3.png)
+    ![Avviso nuovo consulente](./media/advisor-alerts/create3.png)
 
-4. Nella sezione **ambito** selezionare la sottoscrizione e, facoltativamente, il gruppo di risorse in cui si desidera ricevere un avviso. 
+4. Nella sezione **Ambito** selezionare la sottoscrizione e, facoltativamente, il gruppo di risorse per cui si vuole ricevere un avviso. 
 
-    ![Ambito avvisi Advisor](./media/advisor-alerts/create4.png)
+    ![Ambito degli avvisi advisor](./media/advisor-alerts/create4.png)
 
-5. Nella sezione **condizione** selezionare il metodo che si vuole usare per la configurazione dell'avviso. Se si desidera ricevere un avviso per tutte le raccomandazioni per una determinata categoria e/o livello di effetto, selezionare **categoria e livello di**interesse. Se si desidera ricevere un avviso per tutte le raccomandazioni di un determinato tipo, selezionare **tipo di raccomandazione**.
+5. Nella sezione **Condizione** selezionare il metodo che si desidera utilizzare per la configurazione dell'avviso. Se si desidera avvisare per tutti i suggerimenti per una determinata categoria e/o livello di impatto, selezionare **Categoria e livello di impatto**. Se si desidera ricevere un avviso per tutti i suggerimenti di un determinato tipo, selezionare **Tipo di raccomandazione**.
 
-    ![Azure Advisor condizione di avviso](./media/advisor-alerts/create5.png)
+    ![Condizione di avviso di Azure AdvisorAzure Advisor alert condition](./media/advisor-alerts/create5.png)
 
-6. A seconda dell'opzione Configura per selezionata, sarà possibile specificare i criteri. Se si desiderano tutte le raccomandazioni, lasciare vuoti i campi rimanenti. 
+6. A seconda dell'opzione Configura per selezionata, sarà possibile specificare i criteri. Se si desiderano tutte le raccomandazioni, è sufficiente lasciare vuoti i campi rimanenti. 
 
-    ![Gruppo di azione avvisi di Advisor](./media/advisor-alerts/create6.png)
+    ![Gruppo di azioni di avviso Advisor](./media/advisor-alerts/create6.png)
 
-7. Nella sezione **gruppi di azione** selezionare **Aggiungi esistente** per usare un gruppo di azioni già creato oppure selezionare **Crea nuovo** per configurare un nuovo gruppo di [azioni](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups). 
+7. Nella sezione **Gruppi** di azioni selezionare **Aggiungi esistente** per utilizzare un gruppo di azioni già creato oppure **selezionare Crea nuovo** per impostare un nuovo gruppo di [azioni.](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) 
 
-    ![Avviso di Advisor Aggiungi esistente](./media/advisor-alerts/create7.png)
+    ![Avviso advisor aggiungere esistente](./media/advisor-alerts/create7.png)
 
-8. Nella sezione Dettagli avviso assegnare un nome e una breve descrizione all'avviso. Se si desidera che l'avviso sia abilitato, lasciare **Attiva regola al momento** della selezione impostata su **Sì**. Quindi selezionare il gruppo di risorse in cui salvare l'avviso. Questa operazione non avrà alcun effetto sull'ambito di destinazione dell'indicazione. 
+8. Nella sezione Dettagli avviso assegnare all'avviso un nome e una breve descrizione. Se si desidera che l'avviso sia abilitato, lasciare **l'opzione Abilita regola al momento** della creazione impostata su **Sì**. Selezionare quindi il gruppo di risorse in cui salvare l'avviso. Ciò non influirà sull'ambito di destinazione della raccomandazione. 
 
-    ![Banner Azure Advisor](./media/advisor-alerts/create8.png)
+    ![Azure Advisor Banner](./media/advisor-alerts/create8.png)
 
 
 ## <a name="with-an-azure-resource-manager-template"></a>Con un modello di Azure Resource Manager
 
-Questo modello di Gestione risorse crea un avviso di raccomandazione e un nuovo gruppo di azioni.
+Questo modello di Resource Manager crea un avviso di raccomandazione e un nuovo gruppo di azioni.
 
 ```json
 {
@@ -165,16 +165,16 @@ Questo modello di Gestione risorse crea un avviso di raccomandazione e un nuovo 
 }
   ```
 
-## <a name="configure-recommendation-alerts-to-use-a-webhook"></a>Configurare gli avvisi di raccomandazione per l'uso di un webhook
-Questa sezione illustra come configurare Azure Advisor avvisi per inviare i dati di raccomandazione tramite webhook ai sistemi esistenti. 
+## <a name="configure-recommendation-alerts-to-use-a-webhook"></a>Configurare gli avvisi di raccomandazione per l'utilizzo di un webhookConfigure recommendation alerts to use a webhook
+Questa sezione illustra come configurare gli avvisi di Azure Advisor per l'invio di dati di raccomandazione tramite webhook ai sistemi esistenti. 
 
-È possibile configurare avvisi per ricevere notifiche quando si dispone di una nuova raccomandazione di Advisor su una delle risorse. Questi avvisi possono ricevere notifiche tramite posta elettronica o SMS, ma possono anche essere usati per l'integrazione con i sistemi esistenti tramite un webhook. 
+È possibile impostare avvisi per ricevere una notifica quando si dispone di un nuovo suggerimento di Advisor su una delle risorse. Questi avvisi possono inviare una notifica tramite posta elettronica o SMS, ma possono anche essere utilizzati per l'integrazione con i sistemi esistenti tramite un webhook. 
 
 
-### <a name="using-the-advisor-recommendation-alert-payload"></a>Utilizzo del payload degli avvisi di consigli di Advisor
-Se si vuole integrare gli avvisi di Advisor nei propri sistemi usando un webhook, è necessario analizzare il payload JSON inviato dalla notifica. 
+### <a name="using-the-advisor-recommendation-alert-payload"></a>Utilizzo del payload dell'avviso di raccomandazione di AdvisorUsing the Advisor recommendation alert payload
+Se si desidera integrare gli avvisi di Advisor nei propri sistemi usando un webhook, sarà necessario analizzare il payload JSON inviato dalla notifica. 
 
-Quando si configura il gruppo di azioni per questo avviso, è necessario selezionare se si desidera utilizzare lo schema di avviso comune. Se si seleziona lo schema di avviso comune, il payload sarà simile al seguente: 
+Quando si imposta il gruppo di azioni per questo avviso, si seleziona se si desidera utilizzare lo schema di avviso comune. Se si seleziona lo schema di avviso comune, il payload sarà simile al seguente:If you select the common alert schema, your payload will look like: 
 
 ```json
 {  
@@ -223,7 +223,7 @@ Quando si configura il gruppo di azioni per questo avviso, è necessario selezio
 }
   ```
 
-Se non si usa lo schema comune, il payload ha un aspetto simile al seguente: 
+Se non si utilizza lo schema comune, il payload è simile al seguente:If you do not use the common schema, your payload looks like the following: 
 
 ```json
 {  
@@ -268,32 +268,32 @@ Se non si usa lo schema comune, il payload ha un aspetto simile al seguente:
 }
 ```
 
-In entrambi gli schemi è possibile identificare gli eventi di raccomandazione di Advisor cercando **EventSource** è `Recommendation` e **operationname** è `Microsoft.Advisor/recommendations/available/action`.
+In entrambi gli schemi è possibile identificare gli `Recommendation` eventi di `Microsoft.Advisor/recommendations/available/action`raccomandazione di Advisor cercando **eventSource** e **operationName** è .
 
-Di seguito sono riportate alcune delle altre importanti campi che è possibile usare: 
+Alcuni degli altri campi importanti che è possibile utilizzare sono: 
 
 * *alertTargetIDs* (nello schema comune) o *resourceId* (schema legacy)
-* *recommendationType*
-* *recommendname*
-* *recommendationCategory*
-* *recommendationImpact*
-* *recommendationResourceLink*
+* *raccomandazioneTipo*
+* *raccomandazioneNome*
+* *raccomandazioneCategoria*
+* *raccomandazioneImpatto*
+* *raccomandazioneResourceLink*
 
 
 ## <a name="manage-your-alerts"></a>Gestire gli avvisi 
 
-Da Azure Advisor è possibile modificare, eliminare o disabilitare e abilitare gli avvisi di raccomandazioni. 
+In Azure Advisor è possibile modificare, eliminare o disabilitare e abilitare gli avvisi di avviso. 
 
 1. Nel **portale**selezionare **Azure Advisor**.
 
-    ![Banner Azure Advisor](./media/advisor-alerts/create1.png)
+    ![Azure Advisor Banner](./media/advisor-alerts/create1.png)
 
-2. Nella sezione **monitoraggio** del menu a sinistra selezionare **avvisi**.
+2. Nella sezione **Monitoraggio** del menu a sinistra selezionare **Avvisi**.
 
-    ![Banner Azure Advisor](./media/advisor-alerts/create2.png)
+    ![Azure Advisor Banner](./media/advisor-alerts/create2.png)
 
-3. Per modificare un avviso, fare clic sul nome dell'avviso per aprire l'avviso e modificare i campi che si desidera modificare.
+3. Per modificare un avviso, fare clic sul nome dell'avviso per aprire l'avviso e modificare i campi da modificare.
 
-4. Per eliminare, abilitare o disabilitare un avviso, fare clic sui puntini di sospensione alla fine della riga e quindi selezionare l'azione che si desidera eseguire.
+4. Per eliminare, abilitare o disabilitare un avviso, fare clic sull'ellisse alla fine della riga e quindi selezionare l'azione che si desidera eseguire.
  
 

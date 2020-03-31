@@ -1,5 +1,5 @@
 ---
-title: Aggiungere una pagina all'interfaccia utente della soluzione di monitoraggio remoto-Azure | Microsoft Docs
+title: Aggiungere una pagina all'interfaccia utente della soluzione Monitoraggio remoto - Azure | Microsoft Docs
 description: Questo articolo illustra come aggiungere una nuova pagina all'interfaccia utente Web dell'acceleratore di soluzione Monitoraggio remoto.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: ec0b9fbdfdb96317e1e7f6fe00384ba4f8c42bcc
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 0228f317e2d3380f2387dd557a27203eb3abc4ad
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68607961"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240270"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Aggiungere una pagina personalizzata all'interfaccia utente Web dell'acceleratore di soluzione Monitoraggio remoto
 
@@ -142,7 +142,7 @@ npm install
 npm start
 ```
 
-Il comando precedente esegue localmente l'interfaccia utente all'indirizzo [http://localhost:3000/dashboard](http://localhost:3000/dashboard).
+Il comando precedente esegue [http://localhost:3000/dashboard](http://localhost:3000/dashboard)l'interfaccia utente in locale in .
 
 Senza connettere l'istanza locale dell'interfaccia utente Web locale a un'istanza distribuita dell'acceleratore di soluzione, vengono visualizzati errori nel dashboard. Questi errori non influiscono sulla possibilità di testare la nuova pagina.
 
@@ -154,17 +154,17 @@ Facoltativamente, è possibile connettere la copia in esecuzione locale dell'int
 
 1. Distribuire un'istanza **base** dell'acceleratore di soluzioni usando l'interfaccia della riga di comando **pcs**. Prendere nota del nome della distribuzione e delle credenziali specificate per la macchina virtuale. Per altre informazioni, vedere [Deploy using the CLI](iot-accelerators-remote-monitoring-deploy-cli.md) (Distribuire usando l'interfaccia della riga di comando).
 
-1. Usare il portale di Azure o [l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) per abilitare l'accesso SSH alla macchina virtuale che ospita i microservizi nella soluzione. Ad esempio:
+1. Usare il portale di Azure o [l'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) di az per abilitare l'accesso SSH alla macchina virtuale che ospita i microservizi nella soluzione. Ad esempio:
 
-    ```sh
+    ```azurecli
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    Attivare l'accesso SSH solo durante il test e lo sviluppo. Se si abilita SSH, [disabilitarlo appena possibile](../security/fundamentals/network-best-practices.md).
+    Attivare l'accesso SSH solo durante il test e lo sviluppo. Se si abilita SSH, [è necessario disabilitarlo di nuovo il prima possibile](../security/fundamentals/network-best-practices.md).
 
 1. Usare il portale di Azure o [l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) per trovare il nome e l'indirizzo IP pubblico della macchina virtuale. Ad esempio:
 
-    ```sh
+    ```azurecli
     az resource list --resource-group {your solution name} -o table
     az vm list-ip-addresses --name {your vm name from previous command} --resource-group {your solution name} -o table
     ```

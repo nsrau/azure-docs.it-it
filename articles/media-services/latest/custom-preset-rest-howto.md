@@ -1,6 +1,6 @@
 ---
-title: Codificare personalizzato di trasformazione usando servizi multimediali v3 REST - Azure | Microsoft Docs
-description: Questo argomento illustra come usare servizi multimediali di Azure v3 per codificare una trasformazione personalizzata tramite REST.
+title: Codificare la trasformazione personalizzata usando Media Services v3 REST - Azure Documenti Microsoft
+description: Questo argomento illustra come usare Servizi multimediali di Azure v3 per codificare una trasformazione personalizzata usando REST.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,33 +13,33 @@ ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
 ms.openlocfilehash: 30e22cb786e5dc2a667fe41ca8edf398cf0b7613
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65761805"
 ---
-# <a name="how-to-encode-with-a-custom-transform---rest"></a>Come codificare con una trasformazione personalizzata - REST
+# <a name="how-to-encode-with-a-custom-transform---rest"></a>Come codificare con una trasformazione personalizzata - RESTHow to encode with a custom transform - REST
 
-Durante la codifica con servizi multimediali di Azure, è possibile iniziare a usare rapidamente uno dei consigliati predefiniti incorporati, basati sulle procedure consigliate del settore, come illustrato nel [Streaming i file](stream-files-tutorial-with-rest.md#create-a-transform) esercitazione. È anche possibile creare un set di impostazioni per i requisiti specifici di uno scenario o un dispositivo di destinazione personalizzato.
+Quando si esegue la codifica con Servizi multimediali di Azure, è possibile iniziare rapidamente con una delle impostazioni predefinite predefinite predefinite consigliate, in base alle procedure consigliate del settore, come illustrato nell'esercitazione [sui file](stream-files-tutorial-with-rest.md#create-a-transform) di streaming. Puoi anche creare un predefinito personalizzato per il tuo scenario specifico o i requisiti del dispositivo.
 
 ## <a name="considerations"></a>Considerazioni
 
-Durante la creazione di set di impostazioni personalizzati, si applicano le considerazioni seguenti:
+Quando create predefiniti personalizzati, si applicano le seguenti considerazioni:
 
-* Tutti i valori per l'altezza e larghezza su contenuto AVC devono essere un multiplo di 4.
-* In servizi multimediali di Azure v3, tutte le velocità in bit di codifica sono in bit al secondo. Ciò è diverso dal set di impostazioni con le nostre API v2, che usato kilobit al secondo come unità. Ad esempio, se la velocità in bit nella versione 2 è stato specificato come 128 (kilobit/sec), in v3 valore potrebbe essere impostato su 128000 (bit/sec).
+* Tutti i valori per altezza e larghezza sul contenuto AVC devono essere un multiplo di 4.
+* In Servizi multimediali di Azure v3, tutte le velocità in bit di codifica sono in bit al secondo. Questo è diverso dai preset con le nostre API v2, che hanno usato kilobit al secondo come unità. Ad esempio, se la velocità in bit 2 è stata specificata come 128 (kilobit/secondo), in v3 verrà impostata su 128000 (bit/secondo).
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
 - [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md). <br/>Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account di Servizi multimediali. 
 - [Configurare Postman per le chiamate API REST Servizi multimediali di Azure](media-rest-apis-with-postman.md).<br/>Assicurarsi di seguire l'ultimo passaggio nell'argomento [Ottenere Token in Azure AD](media-rest-apis-with-postman.md#get-azure-ad-token). 
 
-## <a name="define-a-custom-preset"></a>Definire un set di impostazioni personalizzato
+## <a name="define-a-custom-preset"></a>Definire un predefinito personalizzato
 
-L'esempio seguente definisce il corpo della richiesta di un nuovo file di trasformazione. Si definisce un set di output che si vuole essere generato quando viene utilizzata questa trasformazione. 
+Nell'esempio seguente viene definito il corpo della richiesta di una nuova trasformazione. Definiamo un set di output che vogliamo generare quando viene usata questa trasformazione. 
 
-In questo esempio, è innanzitutto necessario aggiungere un livello AacAudio per la codifica audio e due livelli di H264Video per la codifica video. Nei livelli video, abbiamo assegnare etichette in modo che possono essere utilizzati nei nomi dei file di output. Successivamente, si desidera l'output includono anche le anteprime. Nell'esempio seguente viene specificato di immagini in formato PNG, generato al 50% della risoluzione del video di input e tre i timestamp - {25%, 50%, 75} della lunghezza del video di input. Infine, specifichiamo il formato per i file di output: uno per video e audio e l'altro per le anteprime. Poiché sono presenti più H264Layers, è necessario usare le macro che generano nomi univoci per ogni livello. È possibile usare una `{Label}` o `{Bitrate}` (macro), nell'esempio viene illustrato il primo.
+In questo esempio, aggiungiamo innanzitutto un livello AacAudio per la codifica audio e due livelli H264Video per la codifica video. Nei livelli video, assegniamo le etichette in modo che possano essere utilizzate nei nomi dei file di output. Successivamente, vogliamo che l'output includa anche le miniature. Nell'esempio seguente specifichiamo le immagini in formato PNG, generate al 50% della risoluzione del video di input, e a tre timestamp : 25%, 50%, 75 della lunghezza del video di input. Infine, specifichiamo il formato per i file di output - uno per il video e l'audio e un altro per le miniature. Poiché abbiamo più H264Layers, dobbiamo usare macro che producono nomi univoci per ogni livello. Possiamo usare una `{Label}` `{Bitrate}` o macro, l'esempio mostra il primo.
 
 ```json
 {
@@ -133,9 +133,9 @@ In questo esempio, è innanzitutto necessario aggiungere un livello AacAudio per
 
 ## <a name="create-a-new-transform"></a>Creare una nuova trasformazione  
 
-In questo esempio, si crea una **trasformare** basato su set di impostazioni personalizzato definito in precedenza. Quando si crea una trasformazione, è necessario utilizzare innanzitutto [ottenere](https://docs.microsoft.com/rest/api/media/transforms/get) per verificare se ne esiste già. Se non esiste, la trasformazione di riutilizzarlo. 
+In questo esempio viene creata una **trasformazione** basata sul predefinito personalizzato definito in precedenza. Quando si crea una trasformazione, è necessario innanzitutto utilizzare [Get](https://docs.microsoft.com/rest/api/media/transforms/get) per verificare se ne esiste già una. Se la trasformazione esiste, riutilizzarla. 
 
-Raccolta di Postman che è stato scaricato, selezionare **Trasforma e i processi**->**Create o Update trasformare**.
+Nella raccolta Postman scaricata selezionare **Trasformazioni e processi**->**Crea o Aggiorna trasformazione**.
 
 Il metodo di richiesta HTTP **PUT** è simile a:
 
@@ -143,12 +143,12 @@ Il metodo di richiesta HTTP **PUT** è simile a:
 PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
 ```
 
-Selezionare il **corpo** scheda e sostituire il corpo con il codice json del codice si [definito in precedenza](#define-a-custom-preset). Per servizi multimediali applicare la trasformazione al specificato video o audio, è necessario inviare un processo in tale trasformazione.
+Selezionare la scheda **Corpo** e sostituire il corpo con il codice json [definito in precedenza.](#define-a-custom-preset) Affinché Servizi multimediali applichi la trasformazione al video o all'audio specificato, devi inviare un lavoro in tale trasformazione.
 
-Selezionare **Send** (Invia). 
+Selezionare **Invia**. 
 
-Per servizi multimediali applicare la trasformazione al specificato video o audio, è necessario inviare un processo in tale trasformazione. Per un esempio completo che illustra come inviare un processo in una trasformazione, vedere [esercitazione: Stream file video - REST](stream-files-tutorial-with-rest.md).
+Affinché Servizi multimediali applichi la trasformazione al video o all'audio specificato, devi inviare un lavoro in tale trasformazione. Per un esempio completo che illustra come inviare un processo in una trasformazione, vedere [Esercitazione: Eseguire lo streaming di file video - REST](stream-files-tutorial-with-rest.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere [altre operazioni REST](https://docs.microsoft.com/rest/api/media/)
+Vedere [altre operazioni RESTSee other REST operations](https://docs.microsoft.com/rest/api/media/)

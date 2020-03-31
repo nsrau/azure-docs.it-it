@@ -1,5 +1,5 @@
 ---
-title: Introduzione alla rete Service Fabric di Azure
+title: Introduzione alla rete di Azure Service FabricIntroduction to Azure Service Fabric networking
 description: Informazioni su reti, gateway e routing del traffico intelligente in Azure Service Fabric Mesh.
 author: dkkapur
 ms.topic: conceptual
@@ -7,10 +7,10 @@ ms.date: 11/26/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: dc793e2991783cc9b7b46d92fcc8e0267feb529b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75459128"
 ---
 # <a name="introduction-to-networking-in-service-fabric-mesh-applications"></a>Introduzione alla rete nelle applicazioni Azure Service Fabric Mesh

@@ -5,20 +5,20 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/01/2019
-ms.openlocfilehash: 9bfadf55e4f68bb7188b27e4ef5bc03e3955f375
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/16/2020
+ms.openlocfilehash: 18cd74ac9298b7dd058de2b224f677ec0d8f2d64
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77662049"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480284"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Esempi di query di log in Monitoraggio di Azure
 Questo articolo include vari esempi di [query](log-query-overview.md) che usano il [linguaggio di query Kusto](/azure/kusto/query/) per recuperare tipi diversi di dati da Monitoraggio di Azure. Poiché vengono usati metodi diversi per consolidare e analizzare i dati, è possibile usare questi esempi per identificare strategie diverse che si possono applicare in base alle necessità.  
 
 Per informazioni dettagliate sulle diverse parole chiave usate in questi esempi, vedere il [materiale di riferimento per il linguaggio Kusto](https://docs.microsoft.com/azure/kusto/query/). Se non si ha familiarità con Monitoraggio di Azure, seguire una [lezione sulla creazione di query](get-started-queries.md).
 
-## <a name="events"></a>Eventi
+## <a name="events"></a>Events
 
 ### <a name="search-application-level-events-described-as-cryptographic"></a>Cercare gli eventi a livello di applicazione descritti come "crittografici"
 Questo esempio cerca nella tabella **Events** (Eventi) i record in cui **EventLog** è _Application_ (Applicazione) e **RenderedDescription** contiene _cryptographic_ (crittografico). La ricerca include i record delle ultime 24 ore.
@@ -229,7 +229,7 @@ protection_data | join (heartbeat_data) on Computer, round_time
 ### <a name="count-security-events-by-activity-id"></a>Contare gli eventi di sicurezza per ID attività
 
 
-Questo esempio si affida alla struttura fissa della colonna **Activity** (Attività): \<ID\>-\<Name\> (Nome).
+Questo esempio si basa sulla struttura fissa \<\>-\<della\>colonna **Activity:** ID Name .
 Analizza il valore di **Activity** (Attività) in due nuove colonne e conta le occorrenze di ogni **activityID**.
 
 ```Kusto
@@ -270,7 +270,7 @@ SecurityEvent
 ```
 
 ### <a name="parse-activity-name-and-id"></a>Analizzare l'ID e il nome dell'attività
-I due esempi seguenti si affidano alla struttura fissa della colonna **Activity** (Attività): \<ID\>-\<Name\> (Nome). Il primo esempio usa l'operatore di **analisi** per assegnare valori a due nuove colonne: **activityID** e **activityDesc**.
+I due esempi riportati di seguito si\>-\<basano sulla struttura fissa della colonna\> **Attività:** \<Nome ID . Il primo esempio usa l'operatore di **analisi** per assegnare valori a due nuove colonne: **activityID** e **activityDesc**.
 
 ```Kusto
 SecurityEvent
@@ -373,42 +373,49 @@ let suspicious_users_that_later_logged_in =
 suspicious_users_that_later_logged_in
 ```
 
-## <a name="usage"></a>Utilizzo
+## <a name="usage"></a>Uso
 
-### <a name="calculate-the-average-size-of-perf-usage-reports-per-computer"></a>Calcolare le dimensioni medie dei report sull'utilizzo delle prestazioni per computer
+Il `Usage` tipo di dati può essere utilizzato per tenere traccia del volume di dati ingerente in base alla soluzione o al tipo di dati. Esistono altre tecniche per studiare i volumi di dati ingeriti per [computer](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-computer) o sottoscrizione di [Azure, gruppo di risorse o risorse.](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-azure-resource-resource-group-or-subscription)
 
-Questo esempio calcola le dimensioni medie dei report sull'utilizzo delle prestazioni per computer, nelle ultime 3 ore.
-I risultati vengono visualizzati in un grafico a barre.
-```Kusto
+#### <a name="data-volume-by-solution"></a>Volume dati per soluzione
+
+La query utilizzata per visualizzare il volume di dati fatturabile per soluzione nell'ultimo mese (escluso l'ultimo giorno parziale) è:
+
+```kusto
 Usage 
-| where TimeGenerated > ago(3h)
-| where DataType == "Perf" 
-| where QuantityUnit == "MBytes" 
-| summarize avg(Quantity) by Computer
-| sort by avg_Quantity desc nulls last
-| render barchart
+| where TimeGenerated > ago(32d)
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution | render barchart
 ```
 
-### <a name="timechart-latency-percentiles-50-and-95"></a>Percentili di latenza del diagramma temporale 50 e 95
+Si noti `where IsBillable = true` che la clausola esclude i tipi di dati da determinate soluzioni per le quali non è previsto alcun addebito per l'inserimento.  Anche la `TimeGenerated` clausola con è solo per garantire che l'esperienza di query nel portale di Azure guarderà indietro oltre le 24 ore predefinite. Quando si utilizza il `StartTime` `EndTime` tipo di dati Utilizzo e rappresentano gli intervalli di tempo per i quali vengono presentati i risultati. 
 
-Questo esempio calcola e crea un grafico del 50esimo e del 95esimo percentile di **avgLatency** segnalata per ogni ora nelle ultime 24 ore.
+#### <a name="data-volume-by-type"></a>Volume di dati per tipo
 
-```Kusto
-Usage
-| where TimeGenerated > ago(24h)
-| summarize percentiles(AvgLatencyInSeconds, 50, 95) by bin(TimeGenerated, 1h) 
-| render timechart
+È possibile approfondire ulteriormente per visualizzare le tendenze dei dati per per tipo di dati:You can drill in further to see data trends for by data type:
+
+```kusto
+Usage 
+| where TimeGenerated > ago(32d)
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), DataType | render barchart
 ```
 
-### <a name="usage-of-specific-computers-today"></a>Utilizzo di computer specifici in data corrente
-Questo esempio recupera i dati di **utilizzo** relativi all'ultimo giorno per nomi di computer che contengono la stringa _ContosoFile_. I risultati vengono ordinati in base a **TimeGenerated**.
+O per vedere una tabella per soluzione e tipo per l'ultimo mese,
 
-```Kusto
-Usage
-| where TimeGenerated > ago(1d)
-| where  Computer contains "ContosoFile" 
-| sort by TimeGenerated desc nulls last
+```kusto
+Usage 
+| where TimeGenerated > ago(32d)
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) / 1000. by Solution, DataType
+| sort by Solution asc, DataType asc
 ```
+
+> [!NOTE]
+> Benché siano ancora inclusi nello schema, alcuni campi del tipo di dati Utilizzo sono stati deprecati e i rispettivi valori non verranno più popolati. Si tratta del campo **Computer** e dei campi correlati all'inserimento, ossia **TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** e **AverageProcessingTimeMs**.
 
 ## <a name="updates"></a>Aggiornamenti
 

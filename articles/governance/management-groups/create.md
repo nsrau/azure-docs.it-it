@@ -1,13 +1,13 @@
 ---
-title: Creare gruppi di gestione per organizzare le risorse-governance di Azure
+title: Creare gruppi di gestione per organizzare le risorse - Governance di AzureCreate management groups to organize resources - Azure Governance
 description: Informazioni su come creare gruppi di gestione di Azure per gestire più risorse tramite il portale, Azure PowerShell e l'interfaccia della riga di comando di Azure.
 ms.date: 12/18/2019
 ms.topic: conceptual
 ms.openlocfilehash: d9bb2e82404c0188094298f40da3346ee132eec3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75436524"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Creare gruppi di gestione per la gestione e l'organizzazione delle risorse
@@ -18,50 +18,50 @@ La creazione del primo gruppo di gestione nella directory può richiedere fino a
 
 ## <a name="create-a-management-group"></a>Creare un gruppo di gestione
 
-Qualsiasi utente Azure AD nel tenant può creare un gruppo di gestione senza l'autorizzazione di scrittura del gruppo di gestione assegnato a tale utente.  Questo nuovo gruppo di gestione sarà figlio del gruppo di gestione radice e al Creatore verrà assegnata un'assegnazione di ruolo "proprietario". Il servizio del gruppo di gestione consente questa possibilità, in modo che le assegnazioni di ruolo non siano necessarie a livello di radice. Nessun utente ha accesso al gruppo di gestione radice quando viene creato.  Per evitare di trovare i Azure AD amministratori globali per iniziare a usare i gruppi di gestione, è possibile creare i gruppi di gestione iniziali a livello di radice.      
+Qualsiasi utente di Azure AD nel tenant può creare un gruppo di gestione senza l'autorizzazione di scrittura del gruppo di gestione assegnata a tale utente.  Questo nuovo gruppo di gestione sarà un elemento figlio del gruppo di gestione radice e al creatore verrà assegnata un'assegnazione di ruolo "Proprietario". Il servizio del gruppo di gestione consente questa capacità in modo che le assegnazioni di ruolo non siano necessarie a livello di radice. Nessun utente ha accesso al gruppo di gestione radice al momento della creazione.  Per evitare l'ostacolo di trovare gli amministratori globali di Azure AD per iniziare a utilizzare i gruppi di gestione, è possibile creare i gruppi di gestione iniziali a livello di radice.      
 
 È possibile creare il gruppo di gestione tramite il portale, PowerShell o l'interfaccia della riga di comando di Azure. Attualmente non è possibile usare i modelli di Resource Manager per creare gruppi di gestione.
 
 ### <a name="create-in-portal"></a>Creazione nel portale
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al portale di [Azure](https://portal.azure.com).
 
-1. Selezionare **tutti i servizi** > **gestione e governance**.
+1. Selezionare **Gestione tutti i servizi** > **e governance**.
 
-1. Selezionare **Gestione costi e fatturazione**
+1. Selezionare **Gestione costi e Fatturazione**
 
-1. Nella pagina Gestione costi e gruppi di gestione di fatturazione selezionare **gruppi di gestione**
+1. Nella pagina Gestione costi - Fatturazione - Gruppi di gestione selezionare **Gruppi di gestione**
 
-1. Selezionare **+ Aggiungi gruppo di gestione**.
+1. Selezionare **: Aggiungi gruppo di gestione**.
 
-   ![Pagina per l'utilizzo di gruppi di gestione](./media/main.png)
+   ![Pagina per l'utilizzo dei gruppi di gestione](./media/main.png)
 
 1. Compilare il campo ID del gruppo di gestione.
 
-   - L'**ID del gruppo di gestione** è l'identificatore univoco della directory usato per inviare i comandi per questo gruppo di gestione. Questo identificatore non è modificabile dopo la creazione, perché è usato all'interno dell'intero sistema Azure per identificare il gruppo. Il [gruppo di gestione radice](overview.md#root-management-group-for-each-directory) viene creato automaticamente con un ID che corrisponde all'ID Azure Active Directory. Per tutti gli altri gruppi di gestione, assegnare un ID univoco.
+   - L'**ID del gruppo di gestione** è l'identificatore univoco della directory usato per inviare i comandi per questo gruppo di gestione. Questo identificatore non è modificabile dopo la creazione, perché è usato all'interno dell'intero sistema Azure per identificare il gruppo. Il gruppo di gestione radice viene creato automaticamente con un ID con ID Azure Active Directory.The [root management group](overview.md#root-management-group-for-each-directory) is automatically created with an ID that is the Azure Active Directory ID. Per tutti gli altri gruppi di gestione, assegnare un ID univoco.
    - Il nome visualizzato è il nome che viene visualizzato nel portale di Azure. Un nome visualizzato separato è un campo facoltativo al momento della creazione del gruppo di gestione e può essere modificato in qualsiasi momento.  
 
-   ![Riquadro delle opzioni per la creazione di un nuovo gruppo di gestione](./media/create_context_menu.png)  
+   ![Riquadro Opzioni per la creazione di un nuovo gruppo di gestione](./media/create_context_menu.png)  
 
 1. Selezionare **Salva**.
 
 ### <a name="create-in-powershell"></a>Creazione in PowerShell
 
-Per PowerShell, usare il cmdlet [New-AzManagementGroup](/powershell/module/az.resources/new-azmanagementgroup) per creare un nuovo gruppo di gestione.
+Per PowerShell, utilizzare il cmdlet [New-AzManagementGroup](/powershell/module/az.resources/new-azmanagementgroup) per creare un nuovo gruppo di gestione.
 
 ```azurepowershell-interactive
 New-AzManagementGroup -GroupName 'Contoso'
 ```
 
-**GroupName** è un identificatore univoco creato. Questo ID viene usato da altri comandi per fare riferimento a questo gruppo e non può essere modificato in un secondo momento.
+**GroupName** è un identificatore univoco creato. Questo ID viene utilizzato da altri comandi per fare riferimento a questo gruppo e non può essere modificato in un secondo momento.
 
-Se si desidera che il gruppo di gestione visualizzi un nome diverso all'interno del portale di Azure, aggiungere il parametro **DisplayName** . Ad esempio, per creare un gruppo di gestione con GroupName di Contoso e il nome visualizzato "contoso Group", usare il cmdlet seguente:
+Se si vuole che il gruppo di gestione mostri un nome diverso all'interno del portale di Azure, aggiungere il parametro **DisplayName.If** you want the management group to show a different name within the Azure portal, add the DisplayName parameter. Ad esempio, per creare un gruppo di gestione con GroupName di Contoso e il nome visualizzato "Contoso Group", utilizzare il seguente cmdlet:
 
 ```azurepowershell-interactive
 New-AzManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group'
 ```
 
-Negli esempi precedenti, il nuovo gruppo di gestione viene creato nel gruppo di gestione radice. Per specificare un gruppo di gestione diverso come padre, usare il parametro **parentID** .
+Negli esempi precedenti, il nuovo gruppo di gestione viene creato nel gruppo di gestione radice. Per specificare un gruppo di gestione diverso come padre, usare il parametro **ParentId.To** specify a different management group as the parent, use the ParentId parameter.
 
 ```azurepowershell-interactive
 $parentGroup = Get-AzManagementGroup -GroupName Contoso
@@ -70,21 +70,21 @@ New-AzManagementGroup -GroupName 'ContosoSubGroup' -ParentId $parentGroup.id
 
 ### <a name="create-in-azure-cli"></a>Creazione nell'interfaccia della riga di comando di Azure
 
-Per l'interfaccia della riga di comando di Azure, usare il comando [AZ Account Management-Group create](/cli/azure/account/management-group?view=azure-cli-latest#az-account-management-group-create) per creare un nuovo gruppo di gestione.
+Per l'interfaccia della riga di comando di Azure, usare il comando [az account management-group create](/cli/azure/account/management-group?view=azure-cli-latest#az-account-management-group-create) per creare un nuovo gruppo di gestione.
 
 ```azurecli-interactive
 az account management-group create --name Contoso
 ```
 
-Il **nome** è un identificatore univoco da creare. Questo ID viene usato da altri comandi per fare riferimento a questo gruppo e non può essere modificato in un secondo momento.
+Il **nome** è un identificatore univoco in fase di creazione. Questo ID viene utilizzato da altri comandi per fare riferimento a questo gruppo e non può essere modificato in un secondo momento.
 
-Se si desidera che il gruppo di gestione visualizzi un nome diverso all'interno del portale di Azure, aggiungere il parametro **Display-Name** . Ad esempio, per creare un gruppo di gestione con GroupName di Contoso e il nome visualizzato "contoso Group", utilizzare il comando seguente:
+Se si vuole che il gruppo di gestione mostri un nome diverso all'interno del portale di Azure, aggiungere il parametro **display-name.** Ad esempio, per creare un gruppo di gestione con GroupName di Contoso e il nome visualizzato "Contoso Group", utilizzare il comando seguente:
 
 ```azurecli-interactive
 az account management-group create --name Contoso --display-name 'Contoso Group'
 ```
 
-Negli esempi precedenti, il nuovo gruppo di gestione viene creato nel gruppo di gestione radice. Per specificare un gruppo di gestione diverso come padre, usare il parametro **Parent** e specificare il nome del gruppo padre.
+Negli esempi precedenti, il nuovo gruppo di gestione viene creato nel gruppo di gestione radice. Per specificare un gruppo di gestione diverso come padre, utilizzare il parametro **padre** e specificare il nome del gruppo padre.
 
 ```azurecli-interactive
 az account management-group create --name ContosoSubGroup --parent Contoso

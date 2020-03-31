@@ -16,10 +16,10 @@ ms.date: 03/14/2019
 ms.author: Juliako
 ms.reviewer: willzhan
 ms.openlocfilehash: 29a344c739d8d99da2e5c81d41a11c601e48022e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74969141"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso di castLabs per distribuire licenze Widevine a Servizi multimediali di Azure 
@@ -61,14 +61,14 @@ La tabella seguente descrive il token JWT usato in Servizi multimediali di Azure
 | Destinatari |Stringa dei destinatari rilasciata dal servizio token di sicurezza usato |
 | Claims |Set di attestazioni |
 | NotBefore |Validità di inizio del token |
-| Expires |Validità di fine del token |
+| Scadenza |Validità di fine del token |
 | SigningCredentials |Chiave condivisa tra il server licenze PlayReady, il server licenze castLabs e il servizio token di sicurezza (STS); può essere una chiave simmetrica o asimmetrica. |
 
 ### <a name="jwt-token-in-castlabs"></a>Token JWT in castLabs
 
 La tabella seguente descrive il token JWT usato in castLabs. 
 
-| name | Description |
+| Nome | Descrizione |
 | --- | --- |
 | optData |Stringa JSON contenente informazioni relative all'utente. |
 | crt |Stringa JSON contenente informazioni sull'asset, sulla relativa licenza e sui diritti di riproduzione. |
@@ -106,7 +106,7 @@ Per riprodurre un video crittografato con la crittografia comune (PlayReady e/o 
 
 1. Aprire una nuova scheda e avviare il servizio token di sicurezza: http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid].
 2. Accedere a [Azure Media Player](https://aka.ms/azuremediaplayer).
-3. Incollare l'URL di streaming
+3. Incollare l'URL di streaming 
 4. Scegliere la casella di controllo **Opzioni avanzate** .
 5. Nell'elenco a discesa **Protezione** , selezionare PlayReady e/o Widevine.
 6. Incollare il token ottenuto dal servizio token di sicurezza nella casella di testo Token. 
@@ -117,11 +117,11 @@ Per riprodurre un video crittografato con la crittografia comune (PlayReady e/o 
 
 ## <a name="additional-notes"></a>Note aggiuntive
 
-* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

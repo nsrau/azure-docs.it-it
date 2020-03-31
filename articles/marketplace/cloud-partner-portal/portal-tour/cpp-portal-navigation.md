@@ -1,19 +1,18 @@
 ---
-title: Navigazione portale Cloud Partner per Azure Marketplace
+title: Esplorazione del portale per i partner cloud per Azure Marketplace
 description: Spiegazione della navigazione all'interno del portale Cloud Partner per Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.author: pabutler
-ms.openlocfilehash: 57ccc7fb738dc23956e56e70c68405cc995a9a99
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 2c1d0eafe96d6e1533bb980ae0e4fd3c43f0e56b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821486"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278417"
 ---
 # <a name="cloud-partner-portal-navigation"></a>Spostamento nel portale Cloud Partner
 
@@ -78,7 +77,7 @@ Un riquadro di spostamento comprimibile occupa il lato sinistro del portale.  Co
 | ![Voce Tutti gli autori](./media/left-navbar4.png) | La pagina [Tutti gli autori](./cpp-all-publishers-page.md) elenca tutti gli autori partner cloud registrati correnti. |
 | ![Voce Utenti](./media/left-navbar5.png) | La pagina [Utenti](./cpp-users-page.md) elenca tutti gli account utente correnti associati ai partner cloud registrati. |
 | ![Voce Cronologia](./media/left-navbar6.png) | La pagina [Cronologia](./cpp-history-page.md) elenca gli eventi di pubblicazione e modifica delle offerte per tutti gli editori. |
-| ![Voce Informazioni dettagliate](./media/left-navbar7.png) | La pagina [Informazioni dettagliate](./cpp-insights-page.md) contiene i diversi dashboard che costituiscono la funzionalità *Informazioni dettagliate per il venditore* di questo portale. |
+| ![Voce Informazioni dettagliate](./media/left-navbar7.png) | La pagina [delle informazioni dettagliate](./cpp-insights-page.md) contiene i vari dashboard che costituiscono la funzionalità *Analisi del venditore* di questo portale. |
 | ![Voce Documentazione](./media/left-navbar8.png) | Apre una nuova scheda per la home page della documentazione per il portale Cloud Partner. Duplica la voce nel menu **Guida**. |
 | ![Voce Forum](./media/left-navbar9.png)  | Apre una nuova scheda per la home page della documentazione per la community dei partner per i marketplace AppSource e Azure. Duplica la voce nel menu **Guida**. |
 |  |  |

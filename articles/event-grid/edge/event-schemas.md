@@ -1,6 +1,6 @@
 ---
-title: 'Schemi di eventi: griglia di eventi di Azure IoT Edge | Microsoft Docs'
-description: Schemi di eventi in griglia di eventi in IoT Edge.
+title: Schemi di eventi - Azure Event Grid IoT Edge Documenti Microsoft
+description: Event schemas in Event Grid on IoT Edge.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,28 +10,28 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: ba261aeedf6574f69d3c05f8fd005c912dcc59d1
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73242459"
 ---
 # <a name="event-schemas"></a>Schemi degli eventi
 
-Il modulo di griglia di eventi accetta e recapita eventi in formato JSON. Sono attualmente disponibili tre schemi supportati da griglia di eventi:
+Il modulo Griglia di eventi accetta e recapita eventi in formato JSON. Attualmente sono supportati tre schemi da Griglia di eventi: -
 
-* **EventGridSchema**
-* **CustomSchema**
+* **EventGridSchema (SchemaDi Anni)**
+* **Schema Personalizzato**
 * **CloudEventSchema**
 
-È possibile configurare lo schema a cui deve conformarsi un server di pubblicazione durante la creazione dell'argomento. Se non è specificato, viene impostato il valore predefinito **EventGridSchema**. Gli eventi che non sono conformi allo schema previsto verranno rifiutati.
+È possibile configurare lo schema a cui un autore deve essere conforme durante la creazione dell'argomento. Se non specificato, il valore predefinito è **EventGridSchema**. Gli eventi non conformi allo schema previsto verranno rifiutati.
 
-I sottoscrittori possono inoltre configurare lo schema in cui si desidera che vengano recapitati gli eventi. Se non è specificato, il valore predefinito è schema dell'argomento.
-Lo schema di recapito del Sottoscrittore deve corrispondere allo schema di input dell'argomento. 
+I sottoscrittori possono anche configurare lo schema in cui desiderano recapitare gli eventi. Se non specificato, l'impostazione predefinita è lo schema dell'argomento.
+Attualmente lo schema di distribuzione del sottoscrittore deve corrispondere allo schema di input dell'argomento. 
 
 ## <a name="eventgrid-schema"></a>Schema EventGrid
 
-Lo schema EventGrid è costituito da un set di proprietà obbligatorie a cui deve essere conforme un'entità di pubblicazione. Ogni server di pubblicazione deve popolare i campi di primo livello.
+Lo schema EventGrid è costituito da un set di proprietà obbligatorie a cui un'entità di pubblicazione deve essere conforme. Ogni server di pubblicazione deve popolare i campi di primo livello.
 
 ```json
 [
@@ -52,17 +52,17 @@ Lo schema EventGrid è costituito da un set di proprietà obbligatorie a cui dev
 
 ### <a name="eventgrid-schema-properties"></a>Proprietà dello schema EventGrid
 
-Tutti gli eventi hanno i dati di primo livello seguenti:
+Tutti gli eventi contano i seguenti dati di primo livello:
 
-| Proprietà | Type | Obbligatoria | Description |
+| Proprietà | Type | Obbligatoria | Descrizione |
 | -------- | ---- | ----------- |-----------
-| argomento | string | No | Deve corrispondere all'argomento su cui è pubblicato. Griglia di eventi lo popola con il nome dell'argomento in cui viene pubblicato se non specificato. |
-| subject | string | SÌ | Percorso dell'oggetto dell'evento definito dall'autore. |
-| eventType | string | SÌ | Tipo di evento per questa origine evento, ad esempio BlobCreated. |
-| eventTime | string | SÌ | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| argomento | string | No | Deve corrispondere all'argomento in cui viene pubblicato. Griglia di eventi lo popola con il nome dell'argomento in cui viene pubblicato se non specificato. |
+| subject | string | Sì | Percorso dell'oggetto dell'evento definito dall'autore. |
+| eventType | string | Sì | Event type for this event source, for example, BlobCreated. |
+| eventTime | string | Sì | Ora di generazione dell'evento in base all'ora UTC del provider. |
 | ID | string | No | Identificatore univoco dell'evento. |
-| data | object | No | Utilizzato per acquisire i dati degli eventi specifici dell'entità di pubblicazione. |
-| dataVersion | string | SÌ | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| data | object | No | Utilizzato per acquisire dati di evento specifici dell'entità di pubblicazione. |
+| dataVersion | string | Sì | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
 | metadataVersion | string | No | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
 ### <a name="example--eventgrid-schema-event"></a>Esempio: evento dello schema EventGrid
@@ -85,13 +85,13 @@ Tutti gli eventi hanno i dati di primo livello seguenti:
 
 ## <a name="customevent-schema"></a>Schema CustomEvent
 
-Nello schema personalizzato non sono presenti proprietà obbligatorie applicate come lo schema EventGrid. L'entità di pubblicazione può controllare completamente lo schema dell'evento. Offre la massima flessibilità e consente gli scenari in cui è già presente un sistema basato su eventi e si vuole riusare gli eventi esistenti e/o non si vuole essere vincolati a uno schema specifico.
+Nello schema personalizzato non sono presenti proprietà obbligatorie che vengono applicate come lo schema EventGrid.In custom schema, there are no mandatory properties that are enforced like the EventGrid schema. L'entità di pubblicazione può controllare completamente lo schema degli eventi. Fornisce la massima flessibilità e consente scenari in cui si dispone di un sistema basato su eventi già in atto e si desidera riutilizzare gli eventi esistenti e/o non si desidera essere legati a uno schema specifico.
 
 ### <a name="custom-schema-properties"></a>Proprietà dello schema personalizzate
 
 Nessuna proprietà obbligatoria. Spetta all'entità di pubblicazione determinare il payload.
 
-### <a name="example--custom-schema-event"></a>Esempio: evento dello schema personalizzato
+### <a name="example--custom-schema-event"></a>Esempio: evento dello schema personalizzatoExample - Custom Schema Event
 
 ```json
 [
@@ -106,13 +106,13 @@ Nessuna proprietà obbligatoria. Spetta all'entità di pubblicazione determinare
 
 ## <a name="cloudevent-schema"></a>Schema CloudEvent
 
-Oltre agli schemi precedenti, griglia di eventi supporta in modo nativo gli eventi nello [schema JSON CloudEvents](https://github.com/cloudevents/spec/blob/master/json-format.md). CloudEvents è una specifica aperta per la descrizione dei dati degli eventi. Semplifica l'interoperabilità fornendo uno schema di eventi comune per la pubblicazione e l'utilizzo di eventi. Fa parte di [CNCF](https://www.cncf.io/) e la versione attualmente disponibile è 1,0-RC1.
+Oltre agli schemi precedenti, Griglia di eventi supporta in modo nativo gli eventi nello [schema JSON CloudEvents](https://github.com/cloudevents/spec/blob/master/json-format.md). CloudEvents è una specifica aperta per la descrizione dei dati degli eventi. Semplifica l'interoperabilità fornendo uno schema di eventi comune per la pubblicazione e l'utilizzo di eventi. Fa parte di [CNCF](https://www.cncf.io/) e attualmente disponibile versione è 1.0-rc1.
 
 ### <a name="cloudevent-schema-properties"></a>Proprietà dello schema CloudEvent
 
-Per le proprietà della busta obbligatoria, vedere la [specifica CloudEvents](https://github.com/cloudevents/spec/blob/master/json-format.md#3-envelope) .
+Fare riferimento alla [specifica CloudEvents](https://github.com/cloudevents/spec/blob/master/json-format.md#3-envelope) sulle proprietà obbligatorie della busta.
 
-### <a name="example--cloud-event"></a>Esempio: evento Cloud
+### <a name="example--cloud-event"></a>Esempio: evento cloud
 ```json
 [{
        "id": "1807",

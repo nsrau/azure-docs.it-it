@@ -1,5 +1,5 @@
 ---
-title: Dimensioni vCPU vincolate di Azure-Windows
+title: Azure constrained vCPU sizes - Windows
 description: Elenca le dimensioni delle macchine virtuali che supportano un numero di vCPU vincolato.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: jonbeck
 ms.openlocfilehash: 4121da405c2700e09bf22d1e7b42fbdc5cdc35a7
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77912835"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>Dimensioni delle macchine virtuali con supporto vCPU vincolate

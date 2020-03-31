@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 164f07f6545c1c225814958bba5722536b11a9b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 883dbc95ee77d03aee4c3231c6ab8c03f9f7f6e4
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78269429"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387836"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Installare i driver GPU AMD nelle macchine virtuali della serie N che eseguono WindowsInstall AMD GPU drivers on N-series VMs running Windows
 
@@ -40,7 +40,7 @@ Per conoscere le specifiche base, le capacità di archiviazione e i dettagli rel
 
 2. Se si è un cliente di anteprima NVv4, arrestare la macchina virtuale e attendere che si sposti allo stato Arrestato(Deal-dalloca).
 
-3. Avviare la macchina virtuale e quindi disinstallare il driver di anteprima eseguendo "amdcleanuputility-x64.exe" che si trova nella cartella "... . Il percorso esatto varia in base alla posizione dei file di installazione del driver precedenti.  
+3. Avviare la macchina virtuale e scaricare l'utilità [amD Cleanup](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe)più recente. Disinstallare il driver esistente eseguendo "amdcleanuputility-x64.exe". Si prega di NON utilizzare alcuna utilità di pulizia exisitng che è stato installato con il driver precedente.  
 
 4. Scaricare e installare il driver più recente.
 

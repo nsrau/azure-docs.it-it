@@ -1,5 +1,5 @@
 ---
-title: Configurare il ripristino di emergenza di Hyper-V (con VMM) in un sito secondario con Azure Site Recovery/PowerShell
+title: Configurare il ripristino di emergenza di Hyper-V (con VMM) in un sito secondario con Azure Site Recovery/PowerShellSet up Hyper-V (with VMM) disaster recovery to a secondary site with Azure Site Recovery/PowerShell
 description: Questo articolo descrive come configurare il ripristino di emergenza di macchine virtuali Hyper-V di cloud VMM in un sito VMM secondario usando Azure Site Recovery e PowerShell.
 services: site-recovery
 author: sujayt
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: deef7bfdbc28d744cb81da59d3ffc13a1abee54d
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77048607"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurare il ripristino di emergenza di macchine virtuali Hyper-V in un sito secondario con PowerShell (Resource Manager)
@@ -20,10 +20,10 @@ Questo articolo illustra come automatizzare la procedura per la replica di macch
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Esaminare [l'architettura e i componenti dello scenario](hyper-v-vmm-architecture.md).
-- Verificare i [requisiti di supporto](site-recovery-support-matrix-to-sec-site.md) per tutti i componenti.
+- Esaminare i [requisiti di supporto](site-recovery-support-matrix-to-sec-site.md) per tutti i componenti.
 - Assicurarsi che i server Virtual Machine Manager e gli host Hyper-V rispettino i [requisiti di supporto](site-recovery-support-matrix-to-sec-site.md).
 - Assicurarsi che le macchine virtuali da replicare siano conformi al [supporto del computer replicato](site-recovery-support-matrix-to-sec-site.md).
 
@@ -89,7 +89,7 @@ Assicurarsi che Azure PowerShell sia pronto all'uso:
    $vault = New-AzRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
    ```
 
-   È possibile recuperare l'oggetto insieme di credenziali dopo averlo creato usando il cmdlet `Get-AzRecoveryServicesVault`.
+   È possibile recuperare l'oggetto vault dopo `Get-AzRecoveryServicesVault` averlo creato utilizzando il cmdlet.
 
 ## <a name="set-the-vault-context"></a>Impostare il contesto dell'insieme di credenziali
 
@@ -210,7 +210,7 @@ Per verificare il completamento dell'operazione, attenersi alla procedura descri
 
 ##  <a name="configure-network-mapping"></a>Configurare il mapping di rete
 
-1. Usare questo comando per recuperare i server per l'insieme di credenziali corrente. Il comando Archivia i server Site Recovery nella variabile `$Servers` Array.
+1. Usare questo comando per recuperare i server per l'insieme di credenziali corrente. Il comando memorizza i `$Servers` server di Site Recovery nella variabile array.
 
    ```azurepowershell
    $Servers = Get-AzRecoveryServicesAsrFabric
@@ -227,7 +227,7 @@ Per verificare il completamento dell'operazione, attenersi alla procedura descri
    > [!NOTE]
    > Il server Virtual Machine Manager di origine può essere il primo o secondo nella matrice di server. Controllare i nomi dei server Virtual Machine Manager e recuperare le reti in modo appropriato.
 
-1. Il cmdlet crea un mapping tra la rete primaria e la rete di ripristino. Specifica la rete primaria come primo elemento di `$PrimaryNetworks`. Specifica la rete di ripristino come primo elemento di `$RecoveryNetworks`.
+1. Il cmdlet crea un mapping tra la rete primaria e la rete di ripristino. Specifica la rete primaria come primo `$PrimaryNetworks`elemento di . Specifica la rete di ripristino come `$RecoveryNetworks`primo elemento di .
 
    ```azurepowershell
    New-AzRecoveryServicesAsrNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
@@ -256,12 +256,12 @@ Dopo aver configurato correttamente server, cloud e reti, abilitare la protezion
    ```
 
 > [!NOTE]
-> Se si vuole eseguire la replica in dischi gestiti abilitati per CMK in Azure, seguire questa procedura con AZ PowerShell 3.3.0 e versioni successive:
+> Se si desidera eseguire la replica nei dischi gestiti abilitati per CMK in Azure, eseguire la procedura seguente usando Az PowerShell 3.3.0 in poi:If you wish to replicate to CMK enabled managed disks in Azure, do the following steps using Az PowerShell 3.3.0 onwards:
 >
-> 1. Abilitare il failover a Managed disks aggiornando le proprietà della macchina virtuale
-> 1. Usare il cmdlet `Get-AzRecoveryServicesAsrReplicationProtectedItem` per recuperare l'ID del disco per ogni disco dell'elemento protetto
-> 1. Creare un oggetto Dictionary usando `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` cmdlet per contenere il mapping dell'ID disco al set di crittografia del disco. Questi set di crittografia del disco devono essere creati in precedenza dall'utente nell'area di destinazione.
-> 1. Aggiornare le proprietà della macchina virtuale usando il cmdlet `Set-AzRecoveryServicesAsrReplicationProtectedItem` passando l'oggetto dizionario nel parametro **DiskIdToDiskEncryptionSetMap** .
+> 1. Abilitare il failover su dischi gestiti aggiornando le proprietà della macchina virtualeEnable failover to managed disks by updating VM properties
+> 1. Utilizzare `Get-AzRecoveryServicesAsrReplicationProtectedItem` il cmdlet per recuperare l'ID del disco per ogni disco dell'elemento protetto
+> 1. Creare un oggetto `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` dizionario utilizzando il cmdlet per contenere il mapping dell'ID disco al set di crittografia del disco. Questi set di crittografia del disco devono essere pre-creati dall'utente nell'area di destinazione.
+> 1. Aggiornare le `Set-AzRecoveryServicesAsrReplicationProtectedItem` proprietà della macchina virtuale utilizzando il cmdlet passando l'oggetto dizionario nel parametro **DiskIdToDiskEncryptionSetMap.**
 
 ## <a name="run-a-test-failover"></a>Eseguire un failover di test
 

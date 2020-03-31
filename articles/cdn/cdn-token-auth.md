@@ -15,10 +15,10 @@ ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
 ms.openlocfilehash: fa71f472294b91baebc2a6075ddb2b50123e545d
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593399"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Protezione di asset della rete CDN di Azure con l'autenticazione basata su token
@@ -33,13 +33,13 @@ L'autenticazione basata su token è un meccanismo che consente di impedire alla 
 
 L'autenticazione basata su token verifica che le richieste vengano generate da un sito attendibile imponendo nelle richieste la presenza di un valore token contenente informazioni codificate sul richiedente. Il contenuto viene distribuito a un richiedente solo se le informazioni codificate soddisfano i requisiti. In caso contrario, le richieste vengono negate. È possibile impostare i requisiti usando uno o più dei parametri seguenti:
 
-- Paese: Consentire o negare le richieste che provengono da paesi/aree geografiche specificati dal loro [internazionale](/previous-versions/azure/mt761717(v=azure.100)).
-- URL: Consentire solo le richieste che corrispondono all'asset specificato o un percorso.
-- Host: Consentire o negare le richieste che usano gli host specificati nell'intestazione della richiesta.
-- Referrer: Consentire o negare la richiesta dal referrer specificato.
-- Indirizzo IP: Consentire solo le richieste provenienti dal specifico indirizzo IP o subnet IP.
-- Protocollo: Consentire o negare le richieste basate sul protocollo usato per richiedere il contenuto.
-- Ora di scadenza: Assegnare un periodo di data e ora per assicurare che un collegamento rimanga valido solo per un periodo di tempo limitato.
+- Paese: consente o rifiuta le richieste provenienti dai paesi specificati dal [relativo codice paese](/previous-versions/azure/mt761717(v=azure.100)).
+- URL: consentire solo le richieste che corrispondono all'asset o al percorso specificato.
+- Host: consentire o negare le richieste che usano gli host specificati nell'intestazione della richiesta.
+- Referrer: consentire o negare la richiesta dal referrer specificato.
+- Indirizzo IP: consentire solo le richieste che hanno origine da un indirizzo IP o da una subnet IP specifica.
+- Protocollo: consentire o negare le richieste basate sul protocollo usato per richiedere il contenuto.
+- Scadenza: assegnare un periodo di data e ora per assicurare che un collegamento rimanga valido solo per un periodo di tempo limitato.
 
 Per altre informazioni, vedere gli esempi di configurazione dettagliati per ogni parametro in [Configurazione dell'autenticazione basata su token](#setting-up-token-authentication).
 
@@ -81,12 +81,12 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
    2. Immettere una chiave di crittografia univoca nella casella **Primary Key** (Chiave primaria) e, facoltativamente, immettere una chiave di backup nella casella **Backup Key** (Chiave di backup).
 
    3. Selezionare la versione minima di crittografia per ogni chiave nel relativo elenco **Minimum Encryption Version** (Versione minima di crittografia) e quindi selezionare **Update** (Aggiorna):
-      - **V2**: Indica che la chiave può essere usata per generare i token di versione 2.0 e 3.0. Usare questa opzione solo se si esegue una transizione da una chiave di crittografia legacy versione 2.0 a una chiave di versione 3.0.
-      - **V3**: (Scelta consigliata) Indica che la chiave può essere usata solo per generare token di versione 3.0.
+      - **V2**: indica che la chiave può essere usata per generare token di versione 2.0 e 3.0. Usare questa opzione solo se si esegue una transizione da una chiave di crittografia legacy versione 2.0 a una chiave di versione 3.0.
+      - **V3**: (impostazione consigliata) indica che la chiave può essere usata solo per generare token di versione 3.0.
 
       ![Chiave di configurazione per l'autenticazione basata su token di rete CDN](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
     
-   4. Per configurare i parametri di crittografia e generare un token, usare lo strumento di crittografia. Con lo strumento di crittografia, è possibile consentire o negare le richieste basate su ora di scadenza, paese, referrer, protocollo e indirizzo IP del client (con qualsiasi combinazione). Sebbene non esista alcun limite al numero e alla combinazione di parametri che possono essere combinati per formare un token, la lunghezza totale di un token è limitata a 512 caratteri. 
+   4. Per configurare i parametri di crittografia e generare un token, usare lo strumento di crittografia. Con lo strumento di crittografia, è possibile consentire o rifiutare le richieste in base alla scadenza, al paese, al referrer, al protocollo e all'IP client (in qualsiasi combinazione). Sebbene non esista alcun limite al numero e alla combinazione di parametri che possono essere combinati per formare un token, la lunghezza totale di un token è limitata a 512 caratteri. 
 
       ![Strumento di crittografia della rete CDN](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
@@ -96,7 +96,7 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
       > <table>
       > <tr>
       >   <th>Nome parametro</th> 
-      >   <th>DESCRIZIONE</th>
+      >   <th>Descrizione</th>
       > </tr>
       > <tr>
       >    <td><b>ec_expire</b></td>
@@ -108,23 +108,23 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
       >    <td>Consente di adattare i token a un particolare asset o percorso. Limita l'accesso alle richieste il cui URL inizia con un percorso relativo specifico. Gli URL distinguono tra maiuscole e minuscole. Inserire più percorsi separandoli con una virgola; non aggiungere spazi. A seconda dei requisiti, è possibile configurare valori diversi per ogni livello di accesso.> 
       >    Ad esempio, per l'URL `http://www.mydomain.com/pictures/city/strasbourg.png` sono consentite queste richieste per i valori di input seguenti: 
       >    <ul>
-      >       <li>Valore di input `/`: Sono consentite tutte le richieste.</li>
+      >       <li>Valore di input `/`: sono consentite tutte le richieste.</li>
       >       <li>Valore di input `/pictures`: sono consentite le richieste riportate di seguito. <ul>
       >          <li>`http://www.mydomain.com/pictures.png`</li>
       >          <li>`http://www.mydomain.com/pictures/city/strasbourg.png`</li>
       >          <li>`http://www.mydomain.com/picturesnew/city/strasbourgh.png`</li>
       >       </ul></li>
-      >       <li>Valore di input `/pictures/`: Solo le richieste contenenti il `/pictures/` percorso sono consentiti. Ad esempio `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
-      >       <li>Valore di input `/pictures/city/strasbourg.png`: Sono consentite solo le richieste per questo specifico percorso e asset.</li>
+      >       <li>Valore di input `/pictures/`: sono consentite solo le richieste contenenti il percorso `/pictures/`, Ad esempio: `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
+      >       <li>Valore di input `/pictures/city/strasbourg.png`: sono consentite solo le richieste per questo specifico percorso e asset.</li>
       >    </ul>
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>Consente solo le richieste che hanno origine da uno o più paesi specificati. Vengono negate le richieste originate da tutti gli altri paesi/aree geografiche. Uso di un [codice paese ISO 3166](/previous-versions/azure/mt761717(v=azure.100)) di due lettere per ogni singolo paese e separarli tra loro con una virgola; non aggiungere uno spazio. Ad esempio, se si desidera consentire l'accesso solo da Stati Uniti e Francia, inserire `US,FR`.</td>
+      >    <td>Consente solo le richieste provenienti da uno o più paesi/aree geografiche specificati. Le richieste provenienti da tutti gli altri paesi vengono negate. Uso di un [codice paese ISO 3166](/previous-versions/azure/mt761717(v=azure.100)) di due lettere per ogni singolo paese e separarli tra loro con una virgola; non aggiungere uno spazio. Ad esempio, se si desidera consentire l'accesso solo da Stati Uniti e Francia, inserire `US,FR`.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 
-      >    <td>Nega le richieste che hanno origine da uno o più paesi specificati. Sono consentite richieste che hanno origine da tutti gli altri paesi/aree geografiche. L'implementazione è la stessa del parametro <b>ec_country_allow</b>. Se il codice di un paese è presente in entrambi i parametri <b>ec_country_allow</b> e <b>ec_country_deny</b>, il parametro <b>ec_country_allow</b> ha la precedenza.</td>
+      >    <td>Nega le richieste provenienti da uno o più paesi/aree geografiche specificati. Sono consentite le richieste provenienti da tutti gli altri paesi.Requests that originate from all other countries/regions are allowed. L'implementazione è la stessa del parametro <b>ec_country_allow</b>. Se il codice di un paese è presente in entrambi i parametri <b>ec_country_allow</b> e <b>ec_country_deny</b>, il parametro <b>ec_country_allow</b> ha la precedenza.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_ref_allow</b></td>
@@ -140,7 +140,7 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
       > </tr>
       > <tr> 
       >    <td><b>ec_ref_deny</b></td>
-      >    <td>Respinge le richieste dal referrer specificato. L'implementazione è la stessa del parametro <b>ec_ref_allow</b>. Se un referrer è presente in entrambi i parametri <b>ec_ref_allow</b> e <b>ec_ref_deny</b>, il parametro <b>ec_ref_allow</b> ha la precedenza.</td>
+      >    <td>Respinge le richieste dal referrer specificato. L'implementazione è la stessa del <b>parametro ec_ref_allow.</b> Se un referrer è presente in entrambi i parametri <b>ec_ref_allow</b> e <b>ec_ref_deny</b>, il parametro <b>ec_ref_allow</b> ha la precedenza.</td>
       > </tr>
       > <tr> 
       >    <td><b>ec_proto_allow</b></td> 
@@ -158,11 +158,11 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
 
    5. Dopo aver immesso i valori dei parametri di crittografia, selezionare una chiave da crittografare (se sono state create una chiave primaria e una chiave di backup) dall'elenco **Key To Encrypt** (Chiave da crittografare).
     
-   6. Selezionare una versione di crittografia dal **versione di crittografia** elenco: **V2** per la versione 2 o **V3** della versione 3 (scelta consigliata). 
+   6. Selezionare una versione di crittografia dall'elenco **Encryption Version** (Versione di crittografia): **V2** per la versione 2 o **V3** per versione 3 (scelta consigliata). 
 
    7. Selezionare **Encrypt** (Crittografa) per generare il token.
 
-      Il token generato viene visualizzato nella casella **Generated Token** (Token generato). Per usare il token, aggiungerlo come stringa di query alla fine del file nel percorso dell'URL, Ad esempio `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
+      Il token generato viene visualizzato nella casella **Generated Token** (Token generato). Per usare il token, aggiungerlo come stringa di query alla fine del file nel percorso dell'URL, Ad esempio: `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
    8. Facoltativamente, verificare il token con lo strumento per decrittografare in modo che sia possibile visualizzare i parametri del token. Incollare il valore del token nella casella **Token to Decrypt** (Token da decrittografare). Selezionare la chiave di crittografia da usare dall'elenco **Key to Decrypt** (Chiave da decrittografare) e quindi selezionare **Decrypt** (Decrittografa).
 
@@ -179,11 +179,11 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
 
 4. Nel motore di regole di business è anche possibile abilitare altre funzionalità correlate all'autenticazione basata su token. Per abilitare le funzionalità seguenti, selezionarle dall'elenco **Features** (Funzionalità) e fare clic su **Abilitato**.
     
-   - **[Token Auth Denial Code](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-denial-code)** : Determina il tipo di risposta che viene restituito a un utente quando una richiesta viene rifiutata. Le regole impostate qui sostituiscono il codice di risposta impostato nella sezione **Custom Denial Handling** (Gestione negazione personalizzata) della pagina di autenticazione basata su token.
+   - **[Token Auth Denial Code](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-denial-code)** (Codice negazione autenticazione token): determina il tipo di risposta restituita all'utente quando viene negata una richiesta. Le regole impostate qui sostituiscono il codice di risposta impostato nella sezione **Custom Denial Handling** (Gestione negazione personalizzata) della pagina di autenticazione basata su token.
 
-   - **[Token Auth Ignore URL Case](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-ignore-url-case)** : Determina se l'URL usato per convalidare il token è tra maiuscole e minuscole.
+   - **[Token Auth Ignore URL Case (Maiuscole/minuscole URL rifiuto autenticazione token)](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-ignore-url-case)**: determina se l'URL usato per convalidare il token applica la distinzione tra maiuscole e minuscole.
 
-   - **[Parametro autenticazione token](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-parameter)** : Rinomina il parametro di stringa di query di autenticazione basata su token visualizzato nell'URL richiesto. 
+   - **[Token Auth Parameter (Parametro autenticazione token)](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-parameter)**: rinomina il parametro della stringa di query dell'autenticazione basata su token visualizzato nell'URL richiesto. 
         
      ![Esempio di impostazioni di autenticazione basata su token nel motore di regole di business della rete CDN](./media/cdn-token-auth/cdn-rules-engine2.png)
 

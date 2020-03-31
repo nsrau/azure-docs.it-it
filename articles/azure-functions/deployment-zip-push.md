@@ -4,10 +4,10 @@ description: Per pubblicare Funzioni di Azure, usare le funzionalità di distrib
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.openlocfilehash: 6bda0859ca4741fe74f572b204e40130c56c46fc
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75769669"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Distribuzione con file ZIP per Funzioni di Azure
@@ -16,7 +16,7 @@ Questo articolo descrive come distribuire i file di progetto dell'app per le fun
 
 Funzioni di Azure include l'intera gamma di opzioni di integrazione e distribuzione continua offerte dal Servizio app di Azure. Per altre informazioni, vedere [Distribuzione continua per Funzioni di Azure](functions-continuous-deployment.md).
 
-Per velocizzare lo sviluppo, può risultare più semplice distribuire i file di progetto dell'app per le funzioni direttamente da un file con estensione zip. L'API della distribuzione con estensione zip prende il contenuto di un file con estensione zip e lo estrae nella cartella `wwwroot` dell'app per le funzioni. La distribuzione tramite file ZIP utilizza lo stesso servizio Kudu usato per le distribuzioni basate su integrazione continua, che include:
+Per velocizzare lo sviluppo, potrebbe essere più semplice distribuire i file di progetto dell'app per le funzioni direttamente da un file con estensione zip. L'API della distribuzione con estensione zip prende il contenuto di un file con estensione zip e lo estrae nella cartella `wwwroot` dell'app per le funzioni. La distribuzione tramite file ZIP utilizza lo stesso servizio Kudu usato per le distribuzioni basate su integrazione continua, che include:
 
 + Eliminazione di file rimasti da distribuzioni precedenti.
 + Personalizzazione della distribuzione, inclusa l'esecuzione di script di distribuzione.
@@ -42,7 +42,7 @@ Quando lo sviluppo avviene in un computer locale, è facile creare un file ZIP d
 
 È possibile, tuttavia, che le funzioni siano state create tramite l'editor nel portale di Azure. È possibile scaricare un progetto di app per le funzioni esistente in uno dei modi seguenti:
 
-+ **Dal portale di Azure:**
++ **Dal portale di Azure:From the Azure portal:**
 
   1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'app per le funzioni.
 
@@ -52,7 +52,7 @@ Quando lo sviluppo avviene in un computer locale, è facile creare un file ZIP d
 
      Il file ZIP scaricato è nel formato corretto per essere ripubblicato nell'app per le funzioni utilizzando la distribuzione push con file ZIP. Il download dal portale consente anche di aggiungere i file necessari per aprire l'app per le funzioni direttamente in Visual Studio.
 
-+ **Tramite API REST:**
++ **Uso delle API REST:Using REST APIs:**
 
     Usare l'API GET di distribuzione seguente per scaricare i file dal progetto `<function_app>`: 
 
@@ -62,11 +62,11 @@ Quando lo sviluppo avviene in un computer locale, è facile creare un file ZIP d
 
 È anche possibile scaricare un file ZIP da un repository GitHub. Quando si scarica un repository GitHub come file ZIP, GitHub aggiunge un livello di cartelle aggiuntivo per il ramo. Questo livello di cartelle aggiuntivo implica che non è possibile distribuire direttamente il file ZIP così come è stato scaricato da GitHub. Se si usa un repository GitHub per mantenere l'app per le funzioni, è necessario utilizzare l'[integrazione continua](functions-continuous-deployment.md) per distribuire l'app.  
 
-## <a name="cli"></a>Eseguire la distribuzione usando l'interfaccia della riga di comando di Azure
+## <a name="deploy-by-using-azure-cli"></a><a name="cli"></a>Eseguire la distribuzione usando l'interfaccia della riga di comando di Azure
 
 Per attivare una distribuzione push, è possibile utilizzare l'interfaccia della riga di comando di Azure. Eseguire la distribuzione push di un file ZIP nell'app per le funzioni usando il comando [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). Per usare questo comando, è necessario utilizzare l'interfaccia della riga di comando di Azure 2.0.21 o versione successiva. Per visualizzare la versione dell'interfaccia della riga di comando di Azure in uso, utilizzare il comando `az --version`.
 
-Nel comando seguente sostituire il segnaposto `<zip_file_path>` con il percorso del file ZIP. Sostituire anche `<app_name>` con il nome univoco dell'app per le funzioni e sostituire `<resource_group>` con il nome del gruppo di risorse.
+Nel comando seguente sostituire il segnaposto `<zip_file_path>` con il percorso del file ZIP. Sostituire inoltre `<app_name>` con il nome univoco dell'app per le funzioni e sostituirlo `<resource_group>` con il nome del gruppo di risorse.
 
 ```azurecli-interactive
 az functionapp deployment source config-zip -g <resource_group> -n \

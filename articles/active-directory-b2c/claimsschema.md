@@ -11,10 +11,10 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 4c3b3318e941723ec333597c7e4b3e48710152d1
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78397809"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
@@ -56,7 +56,7 @@ L'elemento **ClaimType** contiene gli elementi seguenti:
 | Mask | 0:1 | Stringa di caratteri di mascheramento facoltativa che può essere applicata durante la visualizzazione dell'attestazione. Il numero di telefono 324-232-4343 ad esempio può essere mascherato come XXX-XXX-4343. |
 | UserHelpText | 0:1 | Descrizione del tipo di attestazione che può essere utile agli utenti per comprenderne lo scopo. Il valore può essere [localizzato](localization.md). |
 | UserInputType | 0:1 | Tipo di controllo di input che deve essere disponibile all'utente per l'immissione manuale dei dati di attestazione per il tipo di attestazione. Vedere i tipi di input utente definiti più avanti in questa pagina. |
-| AdminHelpText | 0:1 | Descrizione del tipo di attestazione che può essere utile per gli amministratori per comprenderne lo scopo. |
+| AdminHelpText (Testo Di AdminHelp) | 0:1 | Descrizione del tipo di attestazione che può essere utile per gli amministratori per comprenderne lo scopo. |
 | Restrizione | 0:1 | Restrizioni ai valori per questa attestazione, ad esempio un'espressione regolare (Regex) o un elenco di valori accettabili. Il valore può essere [localizzato](localization.md). |
 PredicateValidationReference| 0:1 | Riferimento a un elemento **PredicateValidationsInput**. Gli elementi **PredicateValidationReference** consentono di eseguire un processo di convalida per garantire l'inserimento solo di dati formattati adeguatamente. Per altre informazioni, vedere [Predicates](predicates.md). |
 
@@ -64,21 +64,21 @@ PredicateValidationReference| 0:1 | Riferimento a un elemento **PredicateValidat
 
 ### <a name="datatype"></a>DataType
 
-L'elemento **DataType** supporta i valori seguenti:
+L'elemento DataType supporta i valori seguenti:The **DataType** element supports the following values:
 
 | Type | Descrizione |
 | ------- | ----------- |
 |boolean|Rappresenta un valore booleano (`true` o `false`).|
-|Data| Rappresenta un istante di tempo, in genere espresso come data di un giorno. Il valore della data segue la convenzione ISO 8601.|
+|Data| Rappresenta un istante nel tempo, in genere espresso come data di un giorno. Il valore della data segue la convenzione ISO 8601.|
 |dateTime|Rappresenta un istante di tempo, in genere espresso come data e ora del giorno. Il valore della data segue la convenzione ISO 8601.|
-|duration|Rappresenta un intervallo di tempo in anni, mesi, giorni, ore, minuti e secondi. Il formato di è `PnYnMnDTnHnMnS`, dove `P` indica positivo o `N` per un valore negativo. `nY` è il numero di anni seguito da un `Y`letterale. `nMo` è il numero di mesi seguito da un `Mo`letterale. `nD` è il numero di giorni seguito da un `D`letterale. Esempi: `P21Y` rappresenta 21 anni. `P1Y2Mo` rappresenta un anno e due mesi. `P1Y2Mo5D` rappresenta un anno, due mesi e cinque giorni.  `P1Y2M5DT8H5M620S` rappresenta un anno, due mesi, cinque giorni, otto ore, cinque minuti e venti secondi.  |
+|duration|Rappresenta un intervallo di tempo in anni, mesi, giorni, ore, minuti e secondi. Il formato `PnYnMnDTnHnMnS`di `P` è , dove `N` indica positivo o per il valore negativo. `nY`è il numero di anni `Y`seguiti da un valore letterale . `nMo`è il numero di mesi `Mo`seguiti da un valore letterale . `nD`è il numero di giorni `D`seguito da un valore letterale . Esempi: `P21Y` rappresenta 21 anni. `P1Y2Mo`rappresenta un anno e due mesi. `P1Y2Mo5D`rappresenta un anno, due mesi e cinque giorni.  `P1Y2M5DT8H5M620S`rappresenta un anno, due mesi, cinque giorni, otto ore, cinque minuti e venti secondi.  |
 |phoneNumber|Rappresenta un numero di telefono. |
-|INT| Rappresenta il numero compreso tra-2.147.483.648 e 2.147.483.647|
-|long| Rappresenta il numero compreso tra-9.223.372.036.854.775.808 e 9.223.372.036.854.775.807 |
+|INT| Rappresenta un numero compreso tra -2.147.483.648 e 2.147.483.647|
+|long| Rappresenta un numero compreso tra -9.223.372.036.054.775.808 e 9.223.372.036.854.775.807 |
 |string| Rappresenta il testo come sequenza di unità di codice UTF-16.|
 |stringCollection|Rappresenta una raccolta di oggetti `string`.|
-|userIdentity| Rappresenta un'identità utente.|
-|userIdentityCollection|Rappresenta una raccolta di oggetti `userIdentity`.|
+|userIdentity (Identità utente)| Rappresenta un'identità utente.|
+|userIdentityCollection (insieme userIdentityCollection)|Rappresenta una raccolta di oggetti `userIdentity`.|
 
 ### <a name="defaultpartnerclaimtypes"></a>DefaultPartnerClaimTypes
 
@@ -128,7 +128,7 @@ L'elemento **Mask** contiene gli attributi seguenti:
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | `Type` | Sì | Tipo di maschera dell'attestazione. I valori possibili sono: `Simple` o `Regex`. Il valore `Simple` indica che viene applicata una semplice maschera di testo alla porzione iniziale di un'attestazione di tipo stringa. Il valore `Regex` indica che viene applicata un'espressione regolare all'intera attestazione di tipo stringa.  Se viene specificato il valore `Regex`, è necessario definire anche un attributo facoltativo insieme all'espressione regolare da usare. |
-| `Regex` | No | Se **`Type`** è impostato su `Regex`, specificare l'espressione regolare da usare.
+| `Regex` | No | Se **`Type`** è `Regex`impostato su , specificare l'espressione regolare da utilizzare.
 
 L'esempio seguente configura un'attestazione **PhoneNumber** con la maschera `Simple`:
 
@@ -143,7 +143,7 @@ L'esempio seguente configura un'attestazione **PhoneNumber** con la maschera `Si
 
 Il framework dell'esperienza di gestione delle identità esegue il rendering del numero di telefono e al contempo nasconde le prime sei cifre:
 
-![Attestazione del numero di telefono visualizzata nel browser con le prime sei cifre mascherate da XS](./media/claimsschema/mask.png)
+![Rivendicazione del numero di telefono visualizzata nel browser con le prime sei cifre mascherate da Xs](./media/claimsschema/mask.png)
 
 L'esempio seguente configura un'attestazione **AlternateEmail** con la maschera `Regex`:
 
@@ -158,7 +158,7 @@ L'esempio seguente configura un'attestazione **AlternateEmail** con la maschera 
 
 Il framework dell'esperienza di gestione delle identità esegue il rendering solo della prima lettera dell'indirizzo e-mail e del nome del dominio di posta elettronica:
 
-![Attestazione posta elettronica visualizzata nel browser con caratteri mascherati da asterischi](./media/claimsschema/mask-regex.png)
+![Attestazione e-mail visualizzata nel browser con caratteri mascherati da asterischi](./media/claimsschema/mask-regex.png)
 
 
 ### <a name="restriction"></a>Restrizione
@@ -178,13 +178,13 @@ L'elemento **Restriction** contiene gli elementi seguenti:
 
 #### <a name="enumeration"></a>Enumerazione
 
-L'elemento **Enumeration** definisce le opzioni disponibili che l'utente deve selezionare per un'attestazione nell'interfaccia utente, ad esempio un valore in un `CheckboxMultiSelect`, `DropdownSingleSelect`o `RadioSingleSelect`. In alternativa, è possibile definire e localizzare le opzioni disponibili con l'elemento [LocalizedCollections](localization.md#localizedcollections) . Per cercare un elemento da una raccolta di **enumerazioni** di attestazioni, usare la trasformazione delle attestazioni [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection) .
+L'elemento **Enumeration** definisce le opzioni disponibili per l'utente da selezionare `CheckboxMultiSelect`per `DropdownSingleSelect`un'attestazione nell'interfaccia utente, ad esempio un valore in un oggetto , o `RadioSingleSelect`. In alternativa, è possibile definire e localizzare le opzioni disponibili con l'elemento [LocalizedCollections.](localization.md#localizedcollections) Per cercare un elemento da una raccolta **di attestazioni Enumeration,** utilizzare [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection) trasformazione delle attestazioni.
 
 L'elemento **Enumeration** contiene gli attributi seguenti:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Text | Sì | Stringa di visualizzazione che viene mostrata all'utente nell'interfaccia utente per questa opzione. |
+| Testo | Sì | Stringa di visualizzazione che viene mostrata all'utente nell'interfaccia utente per questa opzione. |
 |valore | Sì | Valore di attestazione che viene associato alla selezione di questa opzione. |
 | SelectByDefault | No | Indica se questa opzione deve essere selezionata o meno per impostazione predefinita nell'interfaccia utente. I valori possibili sono: True o False. |
 
@@ -205,7 +205,7 @@ L'esempio seguente configura un'attestazione di elenco a discesa di **città** c
 
 Elenco a discesa delle città con valore predefinito impostato su New York:
 
-![Controllo DropDown sottoposto a rendering nel browser e visualizzazione del valore predefinito](./media/claimsschema/dropdownsingleselect.png)
+![Controllo elenco a discesa sottoposto a rendering nel browser e con il valore predefinito](./media/claimsschema/dropdownsingleselect.png)
 
 ### <a name="pattern"></a>Modello
 
@@ -214,7 +214,7 @@ L'elemento **Pattern** può contenere gli attributi seguenti:
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | RegularExpression | Sì | Espressione regolare a cui le attestazioni di questo tipo devono corrispondere per poter essere valide. |
-| HelpText | No | Messaggio di errore per gli utenti se il controllo dell'espressione regolare ha esito negativo. |
+| HelpText | No | Un messaggio di errore per gli utenti se il controllo dell'espressione regolare ha esito negativo. |
 
 L'esempio seguente configura un'attestazione **messaggio e-mail** con la convalida di input dell'espressione regolare e con il testo della Guida:
 
@@ -235,22 +235,22 @@ L'esempio seguente configura un'attestazione **messaggio e-mail** con la convali
 
 Il framework dell'esperienza di gestione delle identità esegue il rendering dell'attestazione indirizzo e-mail con la convalida di input del formato dell'indirizzo di posta elettronica:
 
-![Casella di testo che mostra il messaggio di errore attivato dalla restrizione Regex](./media/claimsschema/pattern.png)
+![Casella di testo che mostra il messaggio di errore attivato dalla restrizione dell'espressione regolare](./media/claimsschema/pattern.png)
 
 ### <a name="userinputtype"></a>UserInputType
 
-Azure AD B2C supporta molti tipi di input utente, ad esempio casella di testo, password ed elenco a discesa, che possono essere usati durante l'immissione dei dati di attestazione per il tipo di attestazione. È necessario specificare **tipo** quando si raccolgono informazioni dall'utente utilizzando un [profilo tecnico autocertificato](self-asserted-technical-profile.md) e i [controlli di visualizzazione](display-controls.md).
+Azure AD B2C supporta molti tipi di input utente, ad esempio casella di testo, password ed elenco a discesa, che possono essere usati durante l'immissione dei dati di attestazione per il tipo di attestazione. È necessario specificare **UserInputType** quando si raccolgono informazioni dall'utente utilizzando un [profilo tecnico auto-asserito](self-asserted-technical-profile.md) e controlli di [visualizzazione](display-controls.md).
 
-Tipi di input utente disponibili nell'elemento **tipo** :
+Tipi di input utente disponibili dell'elemento **UserInputType:**
 
-| UserInputType | ClaimType supportati | Descrizione |
+| UserInputType | ClaimType supportatoSupported ClaimType | Descrizione |
 | --------- | -------- | ----------- |
-|CheckboxMultiSelect| `string` |Casella di riepilogo a discesa MultiSelect. Il valore dell'attestazione è rappresentato in una stringa delimitatore da virgole dei valori selezionati. |
-|DateTimeDropdown | `date`, `dateTime` |Elenchi a discesa per selezionare un giorno, un mese e un anno. |
-|DropdownSingleSelect |`string` |Casella di riepilogo a discesa selezione singola. Il valore dell'attestazione è il valore selezionato.|
-|EmailBox | `string` |Campo di input della posta elettronica. |
-|Paragraph | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`|Campo che mostra solo il testo in un tag di paragrafo. |
-|Password | `string` |Casella di testo password.|
+|CheckboxMultiSelect| `string` |Casella di riepilogo a discesa Selezione multipla. Il valore dell'attestazione è rappresentato in una stringa delimitatore di virgola dei valori selezionati. |
+|DateTimeDropdown | `date`, `dateTime` |Menu drop per selezionare un giorno, un mese e un anno. |
+|DropdownSingleSelect |`string` |Casella di riepilogo a discesa a selezione singola. Il valore dell'attestazione è il valore selezionato.|
+|EmailBox | `string` |Campo di immissione e-mail. |
+|Paragraph | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`|Campo che mostra il testo solo in un tag di paragrafo. |
+|Password | `string` |casella di testo Password.|
 |RadioSingleSelect |`string` | Raccolta di pulsanti di opzione. Il valore dell'attestazione è il valore selezionato.|
 |Readonly | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`| Casella di testo di sola lettura. |
 |TextBox |`boolean`, `int`, `string` |Casella di testo a riga singola. |
@@ -260,7 +260,7 @@ Tipi di input utente disponibili nell'elemento **tipo** :
 
 Il tipo di input utente **TextBox** viene usato per visualizzare una casella di testo a riga singola.
 
-![TextBox che mostra le proprietà specificate nel tipo di attestazione](./media/claimsschema/textbox.png)
+![TextBox con le proprietà specificate nel tipo di attestazione](./media/claimsschema/textbox.png)
 
 ```XML
 <ClaimType Id="displayName">
@@ -394,7 +394,7 @@ Il tipo di input utente **Readonly** viene usato per visualizzare un campo di so
 
 #### <a name="paragraph"></a>Paragraph
 
-Il tipo di input utente **Paragraph** viene usato per visualizzare un campo che mostra solo testo in un tag di paragrafo,  ad esempio &lt;p&gt;testo&lt;/p&gt;. Un tipo di input utente di **paragrafo** `OutputClaim` di un profilo tecnico autocertificato, deve impostare l'attributo `Required` `false` (impostazione predefinita).
+Il tipo di input utente **Paragraph** viene usato per visualizzare un campo che mostra solo testo in un tag di paragrafo,  ad esempio &lt;p&gt;testo&lt;/p&gt;. Un tipo `OutputClaim` di input utente **Paragrafo** di profilo `Required` tecnico auto-asserito, deve impostare l'attributo `false` (impostazione predefinita).
 
 ![Utilizzo del tipo di attestazione con paragrafo (paragraph)](./media/claimsschema/paragraph.png)
 

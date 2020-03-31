@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.openlocfilehash: c700c9786f3bec4c79cae904a95deb5fd1c670b4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260865"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Attività Web in Azure Data Factory
 L'attività Web può essere usata per chiamare un endpoint REST personalizzato da una pipeline di Data Factory. È possibile passare set di dati e servizi collegati in modo che l'attività possa usarli e accedervi.
 
 > [!NOTE]
-> L'attività Web può chiamare solo URL esposti pubblicamente. Non è supportata per gli URL ospitati in una rete virtuale privata.
+> Attività Web può chiamare solo URL esposti pubblicamente. Non è supportato per gli URL ospitati in una rete virtuale privata.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -65,14 +65,14 @@ L'attività Web può essere usata per chiamare un endpoint REST personalizzato d
 
 Proprietà | Descrizione | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
-name | Nome dell'attività Web | String | Sì
-type | Deve essere impostato su **WebActivity**. | String | Sì
-metodo | Metodo API REST per l'endpoint di destinazione. | Stringa. <br/><br/>Tipi supportati: "GET", "POST", "PUT" | Sì
+name | Nome dell'attività Web | string | Sì
+type | Deve essere impostato su **WebActivity**. | string | Sì
+method | Metodo API REST per l'endpoint di destinazione. | Stringa. <br/><br/>Tipi supportati: "GET", "POST", "PUT" | Sì
 url | Endpoint e percorso di destinazione | Stringa (o espressione con l'elemento resultType della stringa). L'attività raggiungerà il timeout a 1 minuto con un errore se non riceve una risposta dall'endpoint. | Sì
-intestazioni | Intestazioni che vengono inviate alla richiesta. Ad esempio, per impostare il linguaggio e il tipo in una richiesta: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Stringa (o un'espressione con l'elemento resultType della stringa) | Sì, l'intestazione Content-type è obbligatoria. `"headers":{ "Content-Type":"application/json"}`
+headers | Intestazioni che vengono inviate alla richiesta. Ad esempio, per impostare il linguaggio e il tipo in una richiesta: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Stringa (o un'espressione con l'elemento resultType della stringa) | Sì, l'intestazione Content-type è obbligatoria. `"headers":{ "Content-Type":"application/json"}`
 Corpo | Rappresenta il payload inviato all'endpoint.  | Stringa (o espressione con l'elemento resultType della stringa). <br/><br/>Vedere lo schema del payload della richiesta nella sezione [Schema del payload della richiesta](#request-payload-schema). | Obbligatoria per i metodi POST e PUT.
 autenticazione | Metodo di autenticazione usato per chiamare l'endpoint. I tipi supportati sono "Basic" o "ClientCertificate". Per altre informazioni, vedere la sezione [Autenticazione](#authentication). Se l'autenticazione non è necessaria, escludere questa proprietà. | Stringa (o un'espressione con l'elemento resultType della stringa) | No
-dataset | Elenco di set di dati passato all'endpoint. | Matrice di riferimenti a set di dati. Può essere una matrice vuota. | Sì
+set di dati | Elenco di set di dati passato all'endpoint. | Matrice di riferimenti a set di dati. Può essere una matrice vuota. | Sì
 linkedServices | Elenco dei servizi collegati passato all'endpoint. | Matrice di riferimenti a servizi collegati. Può essere una matrice vuota. | Sì
 
 > [!NOTE]
@@ -80,19 +80,19 @@ linkedServices | Elenco dei servizi collegati passato all'endpoint. | Matrice di
 
 La tabella seguente indica i requisiti per il contenuto JSON:
 
-| Tipo di valore | Testo della richiesta | Corpo della risposta |
+| Tipo di valore | Corpo della richiesta | Corpo della risposta |
 |---|---|---|
-|oggetto JSON | Supportato | Supportato |
-|Matrice JSON | Supportato <br/>Al momento, le matrici JSON non funzionano per via di un bug. È in corso una correzione. | Unsupported |
-| Valore JSON | Supportato | Unsupported |
-| Tipo non JSON | Unsupported | Unsupported |
+|Oggetto JSON | Supportato | Supportato |
+|Matrice JSON | Supportato <br/>Al momento, le matrici JSON non funzionano per via di un bug. È in corso una correzione. | Non supportato |
+| Valore JSON | Supportato | Non supportato |
+| Tipo non JSON | Non supportato | Non supportato |
 ||||
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 Di seguito sono riportati i tipi di autenticazione supportati nell'attività Web.
 
-### <a name="none"></a>None
+### <a name="none"></a>nessuno
 
 Se l'autenticazione non è necessaria, non includere la proprietà "authentication".
 
@@ -132,7 +132,7 @@ Specificare l'URI di risorsa per cui verrà richiesto il token di accesso usando
 ```
 
 > [!NOTE]
-> Se la data factory è configurata con un repository git, è necessario archiviare le credenziali in Azure Key Vault per usare l'autenticazione di base o del certificato client. Azure Data Factory non archivia le password in git.
+> Se la data factory è configurata con un repository git, è necessario archiviare le credenziali nell'insieme di credenziali delle chiavi di Azure per usare l'autenticazione del certificato di base o client. Azure Data Factory non archivia le password in git.
 
 ## <a name="request-payload-schema"></a>Schema del payload della richiesta
 Quando si usa il metodo POST o PUT, la proprietà body rappresenta il payload che viene inviato all'endpoint. È possibile passare i servizi collegati e i set di dati come parte del payload. Di seguito è riportato lo schema per il payload:
@@ -254,7 +254,7 @@ public HttpResponseMessage Execute(JObject payload)
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere altre attività del flusso di controllo supportate da Data Factory:
 
-- [Attività ExecutePipeline](control-flow-execute-pipeline-activity.md)
-- [Attività ForEach](control-flow-for-each-activity.md)
-- [Attività Get Metadata](control-flow-get-metadata-activity.md)
+- [Attività Esegui pipeline](control-flow-execute-pipeline-activity.md)
+- [Per ogni attività](control-flow-for-each-activity.md)
+- [Ottenere l'attività dei metadatiGet Metadata Activity](control-flow-get-metadata-activity.md)
 - [Attività Lookup](control-flow-lookup-activity.md)

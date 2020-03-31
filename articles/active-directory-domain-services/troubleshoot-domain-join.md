@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi di aggiunta al dominio con Azure AD Domain Services | Microsoft Docs
-description: Informazioni su come risolvere i problemi comuni quando si tenta di aggiungere un dominio a una macchina virtuale o di connettere un'applicazione a Azure Active Directory Domain Services e non è possibile connettersi o eseguire l'autenticazione al dominio gestito.
+title: Risolvere i problemi relativi all'aggiunta a un dominio con Servizi di dominio Azure AD . Documenti Microsoft
+description: Informazioni su come risolvere i problemi comuni quando si tenta di aggiungere un dominio a una macchina virtuale o connettere un'applicazione a Servizi di dominio Azure Active Directory e non è possibile connettersi o eseguire l'autenticazione al dominio gestito.
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -11,58 +11,58 @@ ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
 ms.openlocfilehash: f187dba4eace61695a72e4b7b08731e65ff0d7f9
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78299109"
 ---
-# <a name="troubleshoot-domain-join-problems-with-an-azure-ad-domain-services-managed-domain"></a>Risolvere i problemi di aggiunta al dominio con un Azure AD Domain Services dominio gestito
+# <a name="troubleshoot-domain-join-problems-with-an-azure-ad-domain-services-managed-domain"></a>Risolvere i problemi di aggiunta a un dominio con un dominio gestito di Servizi di dominio Azure ADTroubleshoot domain-join problems with an Azure AD Domain Services managed domain
 
-Quando si tenta di aggiungere una macchina virtuale (VM) o di connettere un'applicazione a un dominio gestito di Azure Active Directory Domain Services (AD DS), è possibile che venga ricevuto un errore che non è possibile eseguire. Per risolvere i problemi relativi all'aggiunta a un dominio, esaminare i punti seguenti in cui si è verificato un problema:
+Quando si tenta di aggiungere una macchina virtuale (VM) o connettere un'applicazione a un dominio gestito di servizi di dominio Azure Active Directory (AD DS), è possibile che venga visualizzato un errore che non è possibile eseguire questa operazione. Per risolvere i problemi di aggiunta al dominio, esaminare i punti seguenti in cui si è verificato un problema:
 
-* Se non si riceve una richiesta di autenticazione, la macchina virtuale o l'applicazione non è in grado di connettersi al dominio gestito di Azure AD DS.
-    * Iniziare a risolvere [i problemi di connettività per l'aggiunta al dominio](#connectivity-issues-for-domain-join).
-* Se viene visualizzato un errore durante l'autenticazione, la connessione al dominio gestito di Azure AD DS ha esito positivo.
+* Se non si riceve una richiesta di autenticazione, la macchina virtuale o l'applicazione non può connettersi al dominio gestito di Servizi di dominio Active Directory di Azure.If you don't receive an authentication prompt, the VM or application can't connect to the Azure AD DS managed domain.
+    * Iniziare a risolvere i problemi di [connettività per l'aggiunta a un dominio](#connectivity-issues-for-domain-join).
+* Se viene visualizzato un errore durante l'autenticazione, la connessione al dominio gestito di Servizi di dominio Active Directory di Azure ha esito positivo.
     * Iniziare a risolvere i [problemi relativi alle credenziali durante l'aggiunta al dominio](#credentials-related-issues-during-domain-join).
 
 ## <a name="connectivity-issues-for-domain-join"></a>Problemi di connettività per l'aggiunta a un dominio
 
-Se la macchina virtuale non riesce a trovare il dominio gestito Azure AD DS, in genere esiste una connessione di rete o un problema di configurazione. Esaminare le seguenti procedure di risoluzione dei problemi per individuare e risolvere il problema:
+Se la macchina virtuale non riesce a trovare il dominio gestito di Azure AD DS, si verifica in genere un problema di connessione di rete o di configurazione. Esaminare la seguente procedura di risoluzione dei problemi per individuare e risolvere il problema:
 
-1. Assicurarsi che la macchina virtuale sia connessa alla stessa rete virtuale con peering abilitata per Azure AD DS. In caso contrario, la macchina virtuale non riesce a trovare e a connettersi al dominio per potersi unire.
-    * Se la VM non è connessa alla stessa rete virtuale, verificare che il peering di rete virtuale o la connessione VPN sia *attiva* o *connessa* per consentire il flusso del traffico correttamente.
-1. Provare a eseguire il ping del dominio usando il nome di dominio del dominio gestito Azure AD DS, ad esempio `ping aaddscontoso.com`.
-    * Se la risposta al ping ha esito negativo, provare a effettuare il ping degli indirizzi IP per il dominio visualizzato nella pagina panoramica nel portale per il dominio gestito Azure AD DS, ad esempio `ping 10.0.0.4`.
-    * Se è possibile effettuare correttamente il ping dell'indirizzo IP ma non del dominio, il DNS potrebbe non essere configurato correttamente. Assicurarsi di aver configurato i server DNS del dominio gestito di Azure AD DS per la rete virtuale.
-1. Provare a scaricare la cache del resolver DNS nella macchina virtuale, ad esempio `ipconfig /flushdns`.
+1. Verificare che la macchina virtuale sia connessa alla stessa rete virtuale con peered abilitata per Servizi di dominio Active Directory di Azure.Ensure the VM is connected to the same, or a peered, virtual network that's enabled for Azure AD DS. In caso contrario, la macchina virtuale non riesce a trovare e connettersi al dominio per l'aggiunta.
+    * Se la macchina virtuale non è connessa alla stessa rete virtuale, verificare che il peering di rete virtuale o la connessione VPN sia *attivo* o *connesso* per consentire il corretto flusso del traffico.
+1. Provare a eseguire il ping del dominio usando il nome `ping aaddscontoso.com`di dominio del dominio gestito di Servizi di dominio Active Directory di Azure, ad esempio .
+    * Se la risposta ping non riesce, provare a eseguire il ping degli indirizzi IP per il dominio `ping 10.0.0.4`visualizzato nella pagina di panoramica del portale per il dominio gestito di Servizi di dominio Active Directory di Azure, ad esempio .
+    * Se è possibile eseguire correttamente il ping dell'indirizzo IP ma non del dominio, DNS potrebbe non essere configurato correttamente. Assicurarsi di aver configurato i server DNS del dominio gestito di Servizi di dominio Active Directory di Azure per la rete virtuale.
+1. Provare a scaricare la cache del resolver `ipconfig /flushdns`DNS nella macchina virtuale, ad esempio .
 
-### <a name="network-security-group-nsg-configuration"></a>Configurazione del gruppo di sicurezza di rete (NSG)
+### <a name="network-security-group-nsg-configuration"></a>Configurazione del gruppo di sicurezza di rete
 
-Quando si crea un dominio gestito Azure AD DS, viene creato anche un gruppo di sicurezza di rete con le regole appropriate per l'operazione di dominio riuscita. Se si modificano o si creano regole di gruppo di sicurezza di rete aggiuntive, è possibile che le porte necessarie per Azure AD DS siano bloccate involontariamente per fornire servizi di connessione e autenticazione. Queste regole del gruppo di sicurezza di rete possono causare problemi, ad esempio il completamento della sincronizzazione delle password, gli utenti che non sono in grado di eseguire l'accesso o problemi di aggiunta al dominio.
+Quando si crea un dominio gestito di Servizi di dominio Active Directory di Azure, viene creato anche un gruppo di sicurezza di rete con le regole appropriate per il corretto funzionamento del dominio. Se si modificano o si creano regole aggiuntive per i gruppi di sicurezza di rete, è possibile bloccare inavvertitamente le porte necessarie affinché Servizi di dominio Azure fornisca servizi di connessione e autenticazione. Queste regole del gruppo di sicurezza di rete possono causare problemi come la sincronizzazione delle password non completata, gli utenti non è in grado di accedere o problemi di aggiunta al dominio.
 
-Se continuano a verificarsi problemi di connessione, esaminare i passaggi seguenti per la risoluzione dei problemi:
+Se i problemi di connessione persistono, vedere la procedura di risoluzione dei problemi seguente:
 
-1. Verificare lo stato di integrità del dominio gestito di Azure AD DS nell'portale di Azure. Se è presente un avviso per *AADDS001*, una regola del gruppo di sicurezza di rete blocca l'accesso.
-1. Esaminare le [porte richieste e le regole del gruppo di sicurezza di rete][network-ports]. Assicurarsi che nessuna regola del gruppo di sicurezza di rete applicata alla VM o alla rete virtuale da cui si sta eseguendo la connessione blocchi queste porte di rete.
-1. Una volta risolti i problemi di configurazione dei gruppi di sicurezza di rete, l'avviso *AADDS001* scompare dalla pagina di integrità in circa 2 ore. Con la connettività di rete ora disponibile, provare a aggiungere di nuovo il dominio alla macchina virtuale.
+1. Controllare lo stato di integrità del dominio gestito di Servizi di dominio Active Directory di Azure nel portale di Azure.Check the health status of your Azure AD DS managed domain in the Azure portal. Se si dispone di un avviso per *AADDS001*, una regola del gruppo di sicurezza di rete blocca l'accesso.
+1. Esaminare le [porte e le regole][network-ports]dei gruppi di sicurezza di rete necessarie . Assicurarsi che nessuna regola del gruppo di sicurezza di rete applicata alla macchina virtuale o alla rete virtuale da cui ci si connette blocchi queste porte di rete.
+1. Una volta risolti i problemi di configurazione del gruppo di sicurezza di rete, l'avviso *AADDS001* scompare dalla pagina di integrità in circa 2 ore. Con la connettività di rete ora disponibile, provare a aggiungere di nuovo alla macchina virtuale.
 
-## <a name="credentials-related-issues-during-domain-join"></a>Problemi relativi alle credenziali durante l'aggiunta a un dominio
+## <a name="credentials-related-issues-during-domain-join"></a>Problemi relativi alle credenziali durante l'aggiunta al dominioCredentials-related issues during domain-join
 
-Se viene visualizzata una finestra di dialogo in cui vengono richieste le credenziali per l'aggiunta al dominio gestito di Azure AD DS, la macchina virtuale è in grado di connettersi al dominio tramite la rete virtuale di Azure. Il processo di aggiunta al dominio non riesce a eseguire l'autenticazione al dominio o all'autorizzazione per completare il processo di aggiunta al dominio usando le credenziali fornite da.
+Se viene visualizzata una finestra di dialogo che richiede le credenziali per l'aggiunta al dominio gestito di Servizi di dominio Active Directory di Azure, la macchina virtuale è in grado di connettersi al dominio usando la rete virtuale di Azure.If you get a dialog box that asks for credentials to join the Azure AD DS managed domain, the VM is able to connect to the domain using the Azure virtual network. Il processo di aggiunta al dominio non riesce durante l'autenticazione al dominio o l'autorizzazione a completare il processo di aggiunta al dominio utilizzando le credenziali fornite.
 
-Per risolvere i problemi relativi alle credenziali, esaminare i passaggi seguenti per la risoluzione dei problemi:
+Per risolvere i problemi relativi alle credenziali, esaminare la procedura di risoluzione dei problemi seguente:To troubleshoot credentials-related issues, review the following troubleshooting steps:
 
-1. Provare a usare il formato UPN per specificare le credenziali, ad esempio `dee@aaddscontoso.onmicrosoft.com`. Verificare che il nome UPN sia configurato correttamente in Azure AD.
-    * Il *sAMAccountName* per l'account può essere generato automaticamente se sono presenti più utenti con lo stesso prefisso UPN nel tenant o se il prefisso UPN è troppo lungo. Pertanto, il formato di *sAMAccountName* per l'account può essere diverso da quello previsto o da usare nel dominio locale.
-1. Provare a usare le credenziali di un account utente che fa parte del dominio gestito di Azure AD DS per aggiungere le macchine virtuali al dominio gestito.
-1. Assicurarsi di aver abilitato la [sincronizzazione delle password][enable-password-sync] e di avere atteso il tempo sufficiente per il completamento della sincronizzazione iniziale delle password.
+1. Provare a usare il formato UPN per specificare le credenziali, ad esempio `dee@aaddscontoso.onmicrosoft.com`. Assicurarsi che questo UPN sia configurato correttamente in Azure AD.
+    * Il *SAMAccountName* per l'account può essere generato automaticamente se sono presenti più utenti con lo stesso prefisso UPN nel tenant o se il prefisso UPN è eccessivamente lungo. Pertanto, il formato *SAMAccountName* per l'account potrebbe essere diverso da quello previsto o utilizzato nel dominio locale.
+1. Provare a usare le credenziali per un account utente che fa parte del dominio gestito di Azure AD DS per aggiungere macchine virtuali al dominio gestito.
+1. Assicurarsi di aver [abilitato la sincronizzazione delle password][enable-password-sync] e di aver aspettato abbastanza a lungo per completare la sincronizzazione iniziale delle password.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per una conoscenza più approfondita dei processi di Active Directory come parte dell'operazione di aggiunta al dominio, vedere [problemi di join e di autenticazione][join-authentication-issues].
+Per una conoscenza più approfondita dei processi di Active Directory nell'ambito dell'operazione di aggiunta al dominio, vedere Problemi di [aggiunta e autenticazione][join-authentication-issues].
 
-Se si verificano ancora problemi di aggiunta della macchina virtuale al dominio gestito di Azure AD DS, [consultare la guida e aprire un ticket di supporto per Azure Active Directory][azure-ad-support].
+Se si verificano ancora problemi durante l'aggiunta della macchina virtuale al dominio gestito di Azure AD DS, trovare la Guida e aprire un ticket di [supporto per Azure Active Directory.][azure-ad-support]
 
 <!-- INTERNAL LINKS -->
 [enable-password-sync]: tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds

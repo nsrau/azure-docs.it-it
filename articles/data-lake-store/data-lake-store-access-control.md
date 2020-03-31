@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 276e691351d852d6dcb0075d47bf33af6767fc10
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260332"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controllo di accesso in Azure Data Lake Storage Gen1
@@ -45,7 +45,7 @@ Sia gli ACL di accesso che gli ACL predefiniti presentano la stessa struttura.
 
 Le autorizzazioni per un oggetto del file system sono **Lettura**, **Scrittura** ed **Esecuzione** e possono essere usate per file e cartelle come illustrato nella tabella seguente:
 
-|            |    File     |   Folder |
+|            |    File     |   Cartella |
 |------------|-------------|----------|
 | **Lettura (R)** | È possibile leggere il contenuto di un file | Per elencare il contenuto della cartella sono necessarie le autorizzazioni di **Lettura** ed **Esecuzione**|
 | **Scrittura (W)** | È possibile scrivere o aggiungere in un file | Per creare elementi figlio in una cartella sono necessarie le autorizzazioni di **Scrittura** ed **Esecuzione**. |
@@ -76,7 +76,7 @@ Di seguito sono riportati alcuni scenari comuni che consentono di comprendere qu
 | Lettura      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Accoda a | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
 | Delete    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Crea    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Create    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Elenco      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
 | Elenco      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
 | Elenco      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
@@ -124,7 +124,7 @@ L'utente che ha creato l'elemento ne è automaticamente l'utente proprietario. U
 
 ### <a name="the-owning-group"></a>Gruppo proprietario
 
-**Background**
+**Priorità bassa**
 
 Negli ACL POSIX ogni utente è associato a un "gruppo primario". L'utente "alice", ad esempio, può appartenere al gruppo "finanza". Alice può anche appartenere a più gruppi, ma uno solo è sempre designato come il suo gruppo primario. Quando Alice crea un file in POSIX, come gruppo proprietario del file viene impostato il gruppo primario di Alice, in questo caso "finanza". Il gruppo proprietario si comporta in modo analogo alle autorizzazioni assegnate per altri utenti o gruppi.
 
@@ -216,9 +216,9 @@ Quando si crea un nuovo file o una nuova cartella in una cartella esistente, l'A
 
 ### <a name="umask"></a>umask
 
-Quando si crea un file o una cartella, la proprietà umask viene usata per modificare la modalità in cui gli ACL predefiniti vengono impostati sull'elemento figlio. umask è un valore a 9 bit per le cartelle padre che contiene un valore RWX per l' **utente proprietario**, il **gruppo proprietario**e **altro**.
+Quando si crea un file o una cartella, la proprietà umask viene usata per modificare la modalità in cui gli ACL predefiniti vengono impostati sull'elemento figlio. umask è un valore a 9 bit nelle cartelle padre che contiene un valore RWX per **il proprietario dell'utente**, il **gruppo**proprietario e **altri**file .
 
-Umask per Azure Data Lake Storage Gen1 è un valore costante impostato su 007. Questo valore viene convertito in
+Umask per Azure Data Lake Storage Gen1 è un valore costante impostato su 007.The umask for Azure Data Lake Storage Gen1 is a constant value set to 007. Questo valore viene convertito in
 
 | componente umask     | Forma numerica | Forma breve | Significato |
 |---------------------|--------------|------------|---------|
@@ -270,7 +270,7 @@ Il creatore di un file o una cartella ne diventa il proprietario.
 
 Il gruppo proprietario viene copiato da quello della cartella padre in cui si crea il nuovo file o la nuova cartella.
 
-### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>Se l'utente proprietario di un file non ha le autorizzazioni RWX di cui ha bisogno, Quale operazione devo eseguire?
+### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>Se l'utente proprietario di un file non ha le autorizzazioni RWX di cui ha bisogno, Cosa devo fare?
 
 L'utente proprietario può modificare le autorizzazioni del file in modo da assegnarsi tutte le autorizzazioni RWX necessarie.
 

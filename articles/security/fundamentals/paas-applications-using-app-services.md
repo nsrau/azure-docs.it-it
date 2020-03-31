@@ -1,5 +1,5 @@
 ---
-title: Protezione di PaaS Web & applicazioni per dispositivi mobili
+title: Protezione delle applicazioni web & per dispositivi mobili di PaaS
 titleSuffix: Azure App Service
 description: 'Informazioni sulle procedure consigliate della sicurezza di Servizio app di Azure per la protezione delle applicazioni Web PaaS e delle applicazioni per dispositivi mobili. '
 services: security
@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 07/18/2019
 ms.author: terrylan
 ms.openlocfilehash: c3f3c7fbaa043a03b70ab770c06e493716c70daf
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77500289"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Procedure consigliate per la protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante Servizio app di Azure
@@ -39,9 +39,9 @@ La limitazione degli accessi è fondamentale per le organizzazioni che intendono
 Non importa quanto è valida la sicurezza impostata se si perdono le chiavi di sottoscrizione. L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Con Key Vault è possibile crittografare chiavi e segreti (ad esempio, chiavi di autenticazione, chiavi dell'account di archiviazione, chiavi di crittografia dati, file PFX e password) usando chiavi protette da moduli di protezione hardware (HSM). Per una maggiore sicurezza, è possibile importare o generare le chiavi in moduli di protezione hardware. È anche possibile utilizzare Azure Key Vault per gestire i certificati TLS con il rinnovo automatico. Per altre informazioni, vedere [Che cos'è Azure Key Vault?](../../key-vault/key-vault-overview.md)
 
 ## <a name="restrict-incoming-source-ip-addresses"></a>Limitare gli indirizzi IP di origine in ingresso
-[Ambiente del servizio app](../../app-service/environment/intro.md) ha una funzionalità di integrazione di rete virtuale che consente di limitare gli indirizzi IP di origine in ingresso tramite gruppi di sicurezza di rete (NSG). Se non si ha familiarità con le reti virtuali di Azure (VNET), si tratta di una funzionalità che consente di posizionare molte delle risorse di Azure in una rete instradabile non Internet di cui si controlla l'accesso. Per altre informazioni, vedere [Integrare un'app in una rete virtuale di Azure](../../app-service/web-sites-integrate-with-vnet.md).
+[Ambiente del servizio app](../../app-service/environment/intro.md) ha una funzionalità di integrazione di rete virtuale che consente di limitare gli indirizzi IP di origine in ingresso tramite gruppi di sicurezza di rete (NSG). Se non si ha familiarità con le reti virtuali di Azure (VNET), si tratta di una funzionalità che consente di posizionare molte delle risorse di Azure in una rete instradabile non Internet di cui si controlla l'accesso. Per altre informazioni, vedere [Integrare l'app con](../../app-service/web-sites-integrate-with-vnet.md)una rete virtuale di Azure.To learn more, see Integrate your app with an Azure Virtual Network .
 
-Per il servizio app in Windows, è anche possibile limitare dinamicamente gli indirizzi IP configurando il file Web. config. Per ulteriori informazioni, vedere [sicurezza dinamica degli indirizzi IP](/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+Per il servizio app in Windows, è anche possibile limitare gli indirizzi IP in modo dinamico configurando il file web.config. Per ulteriori informazioni, vedere [Protezione IP dinamica](/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

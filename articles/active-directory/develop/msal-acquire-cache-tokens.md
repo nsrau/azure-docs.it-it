@@ -1,5 +1,5 @@
 ---
-title: Acquisire & token della cache con MSAL | Azure
+title: Acquisire i token della cache & con MSAL Azure
 titleSuffix: Microsoft identity platform
 description: Informazioni sull'acquisizione e la memorizzazione nella cache dei token tramite Microsoft Authentication Library (MSAL).
 services: active-directory
@@ -14,13 +14,13 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: c1f1cbf85b96aade745cc4248aed4bc89e41b450
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77085160"
 ---
-# <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Acquisire e memorizzare nella cache i token tramite Microsoft Authentication Library (MSAL)
+# <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Acquisire e memorizzare nella cache i token utilizzando la libreria di autenticazione Microsoft (MSAL)
 
 I [token di accesso](access-tokens.md) consentono ai client di chiamare in modo sicuro le API Web protette da Azure. Esistono diversi modi per acquisire un token usando Microsoft Authentication Library (MSAL). Alcuni modi richiedono interazioni dell'utente tramite un Web browser. Altri non richiedono alcuna interazione dell'utente. In generale, il modo per acquisire un token dipende dal fatto che l'applicazione sia un'applicazione client pubblica (app desktop o per dispositivi mobili) oppure un'applicazione client riservata (app Web, API Web o applicazione daemon, ad esempio un servizio di Windows).
 
@@ -38,7 +38,7 @@ In MSAL è anche possibile accedere alle risorse v1.0. Per altre informazioni, v
 
 ### <a name="request-specific-scopes-for-a-web-api"></a>Richiedere ambiti specifici per un'API Web
 
-Quando l'applicazione deve richiedere i token con autorizzazioni specifiche per l'API di una risorsa, è necessario passare gli ambiti che contengono l'URI dell'ID app dell'API nel formato seguente: *&lt;URI ID app&gt;/&lt;ambito&gt;*
+Quando l'applicazione deve richiedere token con autorizzazioni specifiche per un'API di risorsa, è necessario passare gli ambiti contenenti l'URI dell'ID app dell'API nel formato seguente: * &lt;ambito URI&gt;/&lt;dell'ID dell'app&gt;*
 
 Ad esempio, gli ambiti per l'API Microsoft Graph sono: `https://graph.microsoft.com/User.Read`
 
@@ -109,6 +109,6 @@ Quando il client richiede un token di accesso, Azure AD restituisce anche un ris
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si usa MSAL per Java, vedere informazioni sulla [serializzazione della cache dei token personalizzata in MSAL per Java](msal-java-token-cache-serialization.md).
+Se si utilizza MSAL per Java, vedere La serializzazione della [cache dei token personalizzati in MSAL per Java](msal-java-token-cache-serialization.md).
 
 Informazioni sulla [gestione di errori ed eccezioni](msal-handling-exceptions.md).

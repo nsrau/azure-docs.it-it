@@ -1,6 +1,6 @@
 ---
-title: Usare macchine virtuali di Azure spot (anteprima)
-description: Informazioni su come usare le macchine virtuali di Azure spot per risparmiare sui costi
+title: Usare le macchine virtuali di Azure Spot (anteprima)Use Azure Spot VMs (Preview)
+description: Informazioni su come usare le macchine virtuali di Azure Spot per risparmiare sui costi
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 10/14/2019
 ms.author: cynthn
 ms.openlocfilehash: 9a9989f7b8e75be09a72d76f84d664504b3af474
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74790148"
 ---
-# <a name="preview-use-spot-vms-in-azure"></a>Anteprima: usare macchine virtuali spot in Azure
+# <a name="preview-use-spot-vms-in-azure"></a>Anteprima: Usare macchine virtuali spot in AzurePreview: Use Spot VMs in Azure
 
 
 [!INCLUDE [common-spot-vms](../../../includes/virtual-machines-common-spot-vms.md)]  
@@ -29,6 +29,6 @@ ms.locfileid: "74790148"
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Usare l' [interfaccia](spot-cli.md)della riga di comando, il [portale](../windows/spot-portal.md) o [PowerShell](../windows/spot-powershell.md) per distribuire le VM spot.
+Usare [l'interfaccia della riga di comando,](spot-cli.md)il portale o PowerShell per distribuire le macchine virtuali Spot.Use the CLI , [portal](../windows/spot-portal.md) or [PowerShell](../windows/spot-powershell.md) to deploy Spot VMs.
 
-È anche possibile distribuire un [set di scalabilità con le istanze di VM spot](../../virtual-machine-scale-sets/use-spot.md).
+È anche possibile distribuire un set di [scalabilità con istanze Spot VM.](../../virtual-machine-scale-sets/use-spot.md)

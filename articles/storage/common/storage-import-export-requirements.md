@@ -9,10 +9,10 @@ ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 58997b20c01f33037a5e5e149caa59e1630373ff
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255314"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisiti di sistema per Importazione/Esportazione di Azure
@@ -24,14 +24,14 @@ Questo articolo descrive i requisiti essenziali per il servizio Importazione/Esp
 Per preparare i dischi rigidi tramite lo strumento WAImportExport, sono supportati i **sistemi operativi a 64 bit seguenti che supportano Crittografia unità BitLocker**.
 
 
-|Platform |Versione |
+|Piattaforma |Versione |
 |---------|---------|
 |WINDOWS     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 ## <a name="other-required-software-for-windows-client"></a>Altri software obbligatori per il client Windows
 
-|Platform |Versione |
+|Piattaforma |Versione |
 |---------|---------|
 |.NET Framework    | 4.5.1       |
 | BitLocker        |  _          |
@@ -41,7 +41,7 @@ Per preparare i dischi rigidi tramite lo strumento WAImportExport, sono supporta
 
 Il servizio Importazione/Esportazione di Azure supporta i tipi di account di archiviazione seguenti:
 
-- Account di archiviazione standard per utilizzo generico V2 (scelta consigliata per la maggior parte degli scenari)
+- Account di archiviazione standard per scopi generali v2 (scelta consigliata per la maggior parte degli scenari)Standard General Purpose v2 storage accounts (recommended for most scenarios)
 - Account di archiviazione BLOB
 - Account di archiviazione per utilizzo generico v1 (distribuzione classica o di Azure Resource Manager),
 
@@ -50,7 +50,7 @@ Per altre informazioni sugli account di archiviazione, vedere [Panoramica degli 
 Ogni processo può essere usato per trasferire dati da o verso un solo account di archiviazione. In altre parole, un singolo processo di importazione/esportazione non può estendersi su più account di archiviazione. Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione](storage-account-create.md).
 
 > [!IMPORTANT]
-> Il servizio Importazione/Esportazione di Azure non supporta gli account di archiviazione in cui la funzionalità degli [endpoint servizio di rete virtuale](../../virtual-network/virtual-network-service-endpoints-overview.md)  è stata abilitata. 
+> Il servizio Importazione di Azure non supporta gli account di archiviazione in cui è stata abilitata la funzionalità Endpoint servizio di rete [virtuale.](../../virtual-network/virtual-network-service-endpoints-overview.md) 
 
 ## <a name="supported-storage-types"></a>Tipi di archivio supportati
 
@@ -59,8 +59,8 @@ Con il servizio Importazione/Esportazione di Azure sono supportati i tipi di arc
 
 |Processo  |Servizio di archiviazione |Supportato  |Non supportate  |
 |---------|---------|---------|---------|
-|Import     |  Archivio BLOB di Azure <br><br> Archiviazione file di Azure       | BLOB in blocchi e BLOB di pagine supportati <br><br> File supportati          |
-|Export     |   Archivio BLOB di Azure       | BLOB in blocchi, BLOB di pagine e BLOB di aggiunta supportati         | File di Azure non supportato
+|Importa     |  Archiviazione BLOB di Azure <br><br> Archiviazione file di Azure       | BLOB in blocchi e BLOB di pagine supportati <br><br> File supportati          |
+|Esportazione     |   Archiviazione BLOB di Azure       | BLOB in blocchi, BLOB di pagine e BLOB di aggiunta supportati         | File di Azure non supportato
 
 
 ## <a name="supported-hardware"></a>Hardware supportato
@@ -77,10 +77,10 @@ Con il servizio Importazione/Esportazione sono supportati i dischi inclusi nell'
 |SSD    |   2,5"      |SATA III          |
 |HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |
 
-I tipi di dischi seguenti non sono supportati:
-- USBs.
-- HDD esterno con adattatore USB incorporato.
-- Dischi che si trovano all'interno della custodia di un disco rigido esterno.
+I seguenti tipi di disco non sono supportati:
+- Usbs.
+- HDD esterno con adattatore USB integrato.
+- Dischi che si trovano all'interno dell'involucro di un HDD esterno.
 
 Un singolo processo di importazione/esportazione può avere:
 - Un massimo di 10 HDD/SSD.

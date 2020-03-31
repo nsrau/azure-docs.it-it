@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 8c577db3e9f2bff9e86c3a7c37274630f90dd680
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67180351"
 ---
-L'emulatore di archiviazione supporta un singolo account fisso e una chiave di autenticazione nota per l’autenticazione con chiave condivisa. Questo account e questa chiave sono le uniche credenziali con chiave condivisa consentite per l'utilizzo con l'emulatore di archiviazione. Sono:
+L'emulatore di archiviazione supporta un singolo account fisso e una chiave di autenticazione nota per l’autenticazione con chiave condivisa. Questo account e questa chiave sono le uniche credenziali con chiave condivisa consentite per l'utilizzo con l'emulatore di archiviazione. ovvero:
 
 ```
 Account name: devstoreaccount1
@@ -25,7 +25,7 @@ Account key: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZ
 > 
 
 #### <a name="connect-to-the-emulator-account-using-a-shortcut"></a>Connettersi all'account dell'emulatore utilizzando un collegamento
-Il modo più semplice per eseguire la connessione all'emulatore di archiviazione dall'applicazione consiste nel configurare una stringa di connessione nel file di configurazione dell'applicazione che fa riferimento al collegamento `UseDevelopmentStorage=true`. Di seguito viene riportato un esempio di stringa di connessione all'emulatore di archiviazione in un file *app.config*: 
+Il modo più semplice per eseguire la connessione all'emulatore di archiviazione dall'applicazione consiste nel configurare una stringa di connessione nel file di configurazione dell'applicazione che fa riferimento al collegamento `UseDevelopmentStorage=true`. Ecco un esempio di stringa di connessione all'emulatore di archiviazione in un file app.config:Here's an example of a connection string to the storage emulator in an *app.config* file: 
 
 ```xml
 <appSettings>

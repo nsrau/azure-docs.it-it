@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.openlocfilehash: 5794a2c754e2082fdf45ad689bdb89ea494541c2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73679865"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Attività filtro in Azure Data Factory
@@ -36,16 +36,16 @@ ms.locfileid: "73679865"
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | Descrizione | Valori consentiti | Obbligatorio
+Proprietà | Descrizione | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
-name | Nome dell'attività `Filter`. | String | Sì
-type | Deve essere impostato su **filter**. | String | Sì
-condition | Condizione da usare per il filtraggio dell'input. | Expression | Sì
+name | Nome dell'attività `Filter`. | string | Sì
+type | Deve essere impostato su **filter**. | string | Sì
+condizione | Condizione da usare per il filtraggio dell'input. | Expression | Sì
 items | Matrice di input a cui deve essere applicato il filtro. | Expression | Sì
 
 ## <a name="example"></a>Esempio
 
-In questo esempio, la pipeline contiene due attività: **Filter** e **ForEach**. L'attività filtro è configurata per filtrare la matrice di input per gli elementi con un valore maggiore di 3. L'attività ForEach scorre quindi i valori filtrati e imposta il **test** della variabile sul valore corrente.
+In questo esempio, la pipeline contiene due attività: **Filter** e **ForEach**. L'attività filtro è configurata per filtrare la matrice di input per gli elementi con un valore maggiore di 3. L'attività ForEach scorre quindi i valori filtrati e imposta la variabile **test** sul valore corrente.
 
 ```json
 {
@@ -115,9 +115,9 @@ In questo esempio, la pipeline contiene due attività: **Filter** e **ForEach**.
 Vedere altre attività del flusso di controllo supportate da Data Factory: 
 
 - [Attività della condizione If](control-flow-if-condition-activity.md)
-- [Attività ExecutePipeline](control-flow-execute-pipeline-activity.md)
-- [Attività ForEach](control-flow-for-each-activity.md)
-- [Attività Get Metadata](control-flow-get-metadata-activity.md)
+- [Attività Esegui pipeline](control-flow-execute-pipeline-activity.md)
+- [Per ogni attività](control-flow-for-each-activity.md)
+- [Ottenere l'attività dei metadatiGet Metadata Activity](control-flow-get-metadata-activity.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 - [Attività Web](control-flow-web-activity.md)
 - [Attività Until](control-flow-until-activity.md)

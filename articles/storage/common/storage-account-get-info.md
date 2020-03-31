@@ -1,7 +1,7 @@
 ---
-title: Ottenere il tipo di account di archiviazione e il nome dello SKU con .NET
+title: Ottenere il tipo di account di archiviazione e il nome dello SKU con .NETGet storage account type and SKU name with .NET
 titleSuffix: Azure Storage
-description: Informazioni su come ottenere il tipo di account di archiviazione di Azure e il nome dello SKU usando la libreria client .NET.
+description: Informazioni su come ottenere il tipo di account di Archiviazione di Azure e il nome SKU usando la libreria client .NET.
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
@@ -10,29 +10,29 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.openlocfilehash: 1495ed55c24a0f94b911d60d1db0f32940ea134a
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79137059"
 ---
-# <a name="get-storage-account-type-and-sku-name-with-net"></a>Ottenere il tipo di account di archiviazione e il nome dello SKU con .NET
+# <a name="get-storage-account-type-and-sku-name-with-net"></a>Ottenere il tipo di account di archiviazione e il nome dello SKU con .NETGet storage account type and SKU name with .NET
 
-Questo articolo illustra come ottenere il tipo di account di archiviazione di Azure e il nome dello SKU per un BLOB usando la [libreria client di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+Questo articolo illustra come ottenere il tipo di account di Archiviazione di Azure e il nome SKU per un BLOB usando la libreria client di [Archiviazione di Azure per .NET.](/dotnet/api/overview/azure/storage?view=azure-dotnet)
 
 Le informazioni sull'account sono disponibili nelle versioni del servizio a partire dalla versione 2018-03-28.
 
-## <a name="about-account-type-and-sku-name"></a>Informazioni sul tipo di account e il nome dello SKU
+## <a name="about-account-type-and-sku-name"></a>Informazioni sul tipo di account e sul nome SKU
 
-**Tipo di account**: i tipi di conto validi includono `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage`e `StorageV2`. [Panoramica dell'account di archiviazione di Azure](storage-account-overview.md) contiene altre informazioni, incluse le descrizioni dei vari account di archiviazione.
+**Tipo di account**: `BlobStorage` `BlockBlobStorage`I `FileStorage` `Storage`tipi `StorageV2`di conto validi includono , , , e . [Panoramica dell'account di archiviazione](storage-account-overview.md) di Azure include altre informazioni, incluse le descrizioni dei vari account di archiviazione.
 
-**Nome SKU**: i nomi di SKU validi includono `Premium_LRS`, `Premium_ZRS`, `Standard_GRS`, `Standard_GZRS`, `Standard_LRS`, `Standard_RAGRS`, `Standard_RAGZRS`e `Standard_ZRS`. I nomi degli SKU fanno distinzione tra maiuscole e minuscole e sono campi stringa nella [classe SkuName](/dotnet/api/microsoft.azure.management.storage.models.skuname?view=azure-dotnet).
+**Nome SKU**: i `Premium_LRS`nomi `Premium_ZRS` `Standard_GRS`di `Standard_GZRS` `Standard_LRS`SKU `Standard_RAGZRS`validi `Standard_ZRS`includono , , , , , `Standard_RAGRS`, e . I nomi degli SKU fanno distinzione tra maiuscole e minuscole e sono campi stringa nella [classe SkuName](/dotnet/api/microsoft.azure.management.storage.models.skuname?view=azure-dotnet).
 
 ## <a name="retrieve-account-information"></a>Recuperare le informazioni sull'account
 
-Per ottenere il tipo di account di archiviazione e il nome dello SKU associato a un BLOB, chiamare il metodo [GetAccountProperties](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountproperties?view=azure-dotnet) o [GetAccountPropertiesAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountpropertiesasync?view=azure-dotnet) .
+Per ottenere il tipo di account di archiviazione e il nome dello SKU associati a un BLOB, chiamare il [GetAccountProperties](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountproperties?view=azure-dotnet) o [GetAccountPropertiesAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountpropertiesasync?view=azure-dotnet) metodo.
 
-Nell'esempio di codice seguente vengono recuperate e visualizzate le proprietà dell'account di sola lettura.
+Nell'esempio di codice riportato di seguito vengono recuperate e visualizzate le proprietà dell'account di sola lettura.
 
 ```csharp
 private static async Task GetAccountInfoAsync(CloudBlob blob)
@@ -62,6 +62,6 @@ private static async Task GetAccountInfoAsync(CloudBlob blob)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sulle altre operazioni che è possibile eseguire in un account di archiviazione tramite il [portale di Azure](https://portal.azure.com) e l'API REST di Azure.
+Informazioni sulle altre operazioni che è possibile eseguire in un account di archiviazione tramite il portale di Azure e l'API REST di Azure.Learn about other operations you can perform on a storage account through the [Azure portal](https://portal.azure.com) and the Azure REST API.
 
-- [Operazione Get account information (REST)](/rest/api/storageservices/get-account-information)
+- [Operazione Get Account Information (REST)](/rest/api/storageservices/get-account-information)

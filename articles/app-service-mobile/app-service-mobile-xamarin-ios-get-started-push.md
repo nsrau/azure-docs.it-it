@@ -1,16 +1,16 @@
 ---
-title: Aggiungere notifiche push all'app Novell. iOS
-description: Informazioni su come usare il servizio app Azure per inviare notifiche push all'app Novell. iOS.
+title: Aggiungere notifiche push all'app Xamarin.iOS
+description: Informazioni su come usare il servizio app di Azure per inviare notifiche push all'app Xamarin.iOS.Learn how to use Azure App Service to send push notifications to your Xamarin.iOS app.
 ms.assetid: 2921214a-49f8-45e1-a306-a85ce21defca
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: f9c70491d06f61931ebabda859ff3a86ed035b44
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249282"
 ---
 # <a name="add-push-notifications-to-your-xamarinios-app"></a>Aggiungere notifiche push all'app Xamarin.iOS
@@ -23,7 +23,7 @@ In questa esercitazione vengono aggiunte notifiche push al progetto [avvio rapid
 
 Se non si usa il progetto server di avvio rapido scaricato, sarà necessario aggiungere il pacchetto di estensione di notifica push. Per altre informazioni, vedere [Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Completare l'esercitazione della [guida introduttiva di Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md) .
 * Un dispositivo iOS fisico. Le notifiche push non sono supportate dal simulatore iOS.
@@ -132,15 +132,15 @@ Se non si usa il progetto server di avvio rapido scaricato, sarà necessario agg
 
 L'app è ora aggiornata per il supporto delle notifiche push.
 
-## <a name="test"></a>Testare le notifiche push nell'app
+## <a name="test-push-notifications-in-your-app"></a><a name="test"></a>Testare le notifiche push nell'app
 
 1. Scegliere **Run** (Esegui) per generare il progetto e avviare l'app in un dispositivo con iOS, quindi fare clic su **OK** per accettare le notifiche push.
 
    > [!NOTE]
    > È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
 
-2. Nell'app digitare un'attività e fare clic sull'icona con il segno più ( **+** ).
-3. Verificare che venga ricevuta una notifica, quindi fare clic su **OK** per eliminarla.
+2. Nell'app digitare un'attività e quindi**+** fare clic sull'icona con il segno più ( ).
+3. Verificare che venga ricevuta una notifica, quindi fare clic **su OK** per ignorarla.
 4. Ripetere il passaggio 2 e chiudere immediatamente l'app, quindi verificare che venga visualizzata una notifica push.
 
 L'esercitazione è stata completata.

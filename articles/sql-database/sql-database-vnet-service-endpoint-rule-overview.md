@@ -1,5 +1,5 @@
 ---
-title: VNet e regole endpoint per database singoli e in pool
+title: Endpoint e regole della rete virtuale per database singoli e in pool
 description: Contrassegnare una subnet come endpoint servizio di rete virtuale. Contrassegnare quindi l'endpoint come regola di rete virtuale per ACL nel database SQL di Azure. Il database SQL accetta quindi la comunicazione da tutte le macchine virtuali e altri nodi nella subnet.
 services: sql-database
 ms.service: sql-database
@@ -11,21 +11,21 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 0562d609231d69d95f1d2b5b838663b704f8f2f3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 4faead13c10171c31e76fe2dd59be32a93a12f86
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79255743"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80124756"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Usare endpoint servizio e regole di rete virtuale per server di database
 
-Le *regole di rete virtuale* rappresentano una funzionalità di sicurezza firewall che consente di definire se il server di database per i database singoli e il pool elastico nel [database SQL](sql-database-technical-overview.md) di Azure o per i database in [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accetta le comunicazioni inviate da subnet specifiche nelle reti virtuali. Questo articolo spiega i motivi per cui la funzionalità relativa alle regole di rete virtuale rappresenti a volte la scelta ideale per consentire le comunicazioni con il database SQL di Azure e SQL Data Warehouse in modo sicuro.
+Le *regole di rete virtuale* rappresentano una funzionalità di sicurezza firewall che consente di definire se il server di database per i database singoli e il pool elastico nel [database SQL](sql-database-technical-overview.md) di Azure o per i database in [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accetta le comunicazioni inviate da subnet specifiche nelle reti virtuali. Questo articolo spiega i motivi per cui la funzionalità relativa alle regole di rete virtuale rappresenti a volte la scelta ideale per consentire le comunicazioni con il database SQL di Azure e SQL Data Warehouse in modo sicuro.
 
 > [!IMPORTANT]
 > Questo articolo è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse. Le informazioni di questo articolo *non* sono valide per la distribuzione di un'**istanza gestita** nel database SQL di Azure perché non ha un endpoint di servizio associato.
 
-Per creare una regola della rete virtuale, è necessario prima di tutto un [endpoint del servizio di rete virtuale][vm-virtual-network-service-endpoints-overview-649d] per la regola a cui fare riferimento.
+Per creare una regola di rete virtuale, deve essere disponibile un [endpoint servizio di rete virtuale][vm-virtual-network-service-endpoints-overview-649d] al quale la regola possa fare riferimento.
 
 ## <a name="how-to-create-a-virtual-network-rule"></a>Come creare una regola di rete virtuale
 
@@ -54,13 +54,13 @@ Ogni regola di rete virtuale si applica all'intero server di database SQL di Azu
 I ruoli di sicurezza sono distinti nell'amministrazione degli endpoint servizio di rete virtuale. Ogni ruolo indicato di seguito deve svolgere determinate azioni:
 
 - **Amministratore di rete:** &nbsp; attivare l'endpoint.
-- **Amministratore di database:** &nbsp; aggiornare l'elenco di controllo di accesso (ACL) per aggiungere la subnet specificata al server del database SQL.
+- **Amministratore di database:** &nbsp; aggiornare l'elenco di controllo di accesso (ACL) per aggiungere la subnet specificata al server di database SQL.
 
 *Alternativa del controllo degli accessi in base al ruolo:*
 
 I ruoli di amministratore di rete e amministratore di database hanno più funzionalità di quelle necessarie a gestire le regole di rete virtuale. È necessario solo un subset delle relative funzionalità.
 
-È possibile scegliere di usare il [controllo degli accessi in base al ruolo (RBAC)][rbac-what-is-813s] in Azure per creare un singolo ruolo personalizzato con solo il subset di funzionalità necessario. Il ruolo personalizzato può essere utilizzato invece di coinvolgere l'amministratore di rete o l'amministratore del database. La superficie di attacco dell'esposizione alla sicurezza è inferiore se si aggiunge un utente a un ruolo personalizzato, anziché aggiungere l'utente agli altri due ruoli di amministratore principali.
+È possibile scegliere di usare il [controllo degli accessi in base al ruolo (RBAC)][rbac-what-is-813s] in Azure per creare un singolo ruolo personalizzato che contiene solo il subset necessario di funzionalità. Il ruolo personalizzato può essere utilizzato invece di coinvolgere l'amministratore di rete o l'amministratore del database. L'area di superficie dell'esposizione alla sicurezza è inferiore se si aggiunge un utente a un ruolo personalizzato, rispetto all'aggiunta dell'utente agli altri due ruoli di amministratore principali.
 
 > [!NOTE]
 > In alcuni casi il database SQL di Azure e la subnet della rete virtuale sono in sottoscrizioni diverse. In questi casi è necessario garantire le configurazioni seguenti:
@@ -76,13 +76,13 @@ Per il database SQL di Azure, la funzionalità delle regole di rete virtuale pre
 
 - Ogni server di database SQL di Azure può includere fino a 128 voci ACL per qualsiasi rete virtuale specificata.
 
-- Le regole della rete virtuale si applicano solo alle reti virtuali Azure Resource Manager; e non alle reti di [modelli di distribuzione classica][arm-deployment-model-568f] .
+- Le regole di rete virtuale si applicano solo alle reti virtuali di Azure Resource Manager e non alle reti con un [modello di distribuzione classica][arm-deployment-model-568f].
 
 - L'attivazione degli endpoint servizio di rete virtuale nel database SQL di Azure abilita anche gli endpoint per i servizi MySQL e PostgreSQL Azure. Tuttavia, con gli endpoint attivati i tentativi di connessione dagli endpoint alle istanze di MySQL o PostgreSQL potrebbero avere esito negativo.
   - La causa principale è che MySQL e PostgreSQL probabilmente non possiedono una regola di rete virtuale configurata. Configurare una regola di rete virtuale per Database di Azure per MySQL e PostgreSQL; in questo modo la connessione avrà esito positivo.
 
 - Nel firewall, gli intervalli di indirizzi IP si applicano ai seguenti elementi di rete, ma non le regole di rete virtuale:
-  - [Rete privata virtuale (VPN) da sito a sito (S2S)][vpn-gateway-indexmd-608y]
+  - [VPN (rete privata virtuale) da sito a sito (S2S)][vpn-gateway-indexmd-608y]
   - Locale tramite [ExpressRoute][expressroute-indexmd-744v]
 
 ### <a name="considerations-when-using-service-endpoints"></a>Considerazioni sull'uso di endpoint del servizio
@@ -93,7 +93,7 @@ Quando si usano gli endpoint del servizio per il Database SQL di Azure, rivedere
 
 ### <a name="expressroute"></a>ExpressRoute
 
-Se si usa [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) dall'ambiente locale, per il peering pubblico o per il peering Microsoft, sarà necessario identificare gli indirizzi IP NAT usati. Per il peering pubblico, ogni circuito ExpressRoute usa per impostazione predefinita due indirizzi IP NAT applicati al traffico del servizio di Azure quando il traffico entra nel backbone della rete di Microsoft Azure. Per il peering Microsoft, gli indirizzi IP NAT usati vengono forniti dal cliente o dal provider del servizio. Per consentire l'accesso alle risorse del servizio è necessario autorizzare questi indirizzi IP pubblici nell'impostazione del firewall IP per le risorse. Per trovare gli indirizzi IP del circuito ExpressRoute per il peering pubblico, [aprire un ticket di supporto in ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) tramite il portale di Azure. Vedere altre informazioni su [NAT per il peering pubblico e il peering Microsoft ExpressRoute.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
+Se si usa [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) dall'ambiente locale, per il peering pubblico o per il peering Microsoft, sarà necessario identificare gli indirizzi IP NAT usati. Per il peering pubblico, ogni circuito ExpressRoute usa per impostazione predefinita due indirizzi IP NAT applicati al traffico del servizio di Azure quando il traffico entra nel backbone della rete di Microsoft Azure. Per il peering Microsoft, gli indirizzi IP NAT usati vengono forniti dal cliente o dal provider del servizio. Per consentire l'accesso alle risorse del servizio è necessario autorizzare questi indirizzi IP pubblici nell'impostazione del firewall IP per le risorse. Per trovare gli indirizzi IP del circuito ExpressRoute per il peering pubblico, [aprire un ticket di supporto con ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) tramite il portale di Azure. Vedere altre informazioni su [NAT per il peering pubblico e il peering Microsoft ExpressRoute.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
   
 Per consentire la comunicazione tra il circuito e il database SQL di Azure, è necessario creare regole di rete IP per gli indirizzi IP pubblici di NAT.
 
@@ -110,18 +110,18 @@ Archiviazione di Azure ha implementato la stessa funzionalità che consente di l
 
 PolyBase viene in genere usato per caricare i dati in Azure SQL Data Warehouse dagli account di archiviazione di Azure. Se l'account di archiviazione di Azure da cui si caricano i dati limita l'accesso solo a un set di subnet della rete virtuale, la connettività da PolyBase all'account verrà interrotta. Per poter usare scenari sia di importazione che di esportazione di PolyBase con Azure SQL Data Warehouse che si connette ad Archiviazione di Azure protetta con la rete virtuale, seguire la procedura descritta di seguito.
 
-#### <a name="prerequisites"></a>Prerequisites
+#### <a name="prerequisites"></a>Prerequisiti
 
 - Installare Azure PowerShell usando questa [guida](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - Se si dispone di un account di archiviazione BLOB o per utilizzo generico v1, prima è necessario eseguire l'aggiornamento all'utilizzo generico v2 usando questa [guida](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-- È necessario avere attivato l'opzione **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**  nel menu delle impostazioni **Firewall e reti virtuali** di tale account. Per altre informazioni, fare riferimento a [questa guida](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+- È necessario avere attivato l'opzione **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione ** nel menu delle impostazioni **Firewall e reti virtuali** di tale account. Per altre informazioni, fare riferimento a [questa guida](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 > [!IMPORTANT]
-> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Il modulo AzureRM continuerà a ricevere correzioni di bug fino ad almeno il 2020 dicembre.  Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici. Per altre informazioni sulla compatibilità, vedere [Introduzione al nuovo Azure PowerShell AZ Module](/powershell/azure/new-azureps-module-az).
+> Il modulo di PowerShell Azure Resource Manager è ancora supportato dal database SQL di Azure, ma tutto lo sviluppo futuro è per il modulo Az.Sql.The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. Il modulo AzureRM continuerà a ricevere correzioni di bug almeno fino a dicembre 2020.  Gli argomenti per i comandi nel modulo Az e nei moduli di AzureRm sono sostanzialmente identici. Per altre informazioni sulla compatibilità, vedere [Introduzione al nuovo modulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
 
 #### <a name="steps"></a>Passaggi
 
-1. In PowerShell **registrare il SQL Server di Azure** che ospita l'istanza di Azure SQL Data Warehouse con Azure Active Directory (AAD):
+1. In PowerShell **registrare Azure SQL Server** che ospita l'istanza di Azure SQL Data Warehouse con Azure Active Directory (AAD):In PowerShell, register your Azure SQL Server hosting your Azure SQL Data Warehouse instance with Azure Active Directory (AAD):
 
    ```powershell
    Connect-AzAccount
@@ -135,7 +135,7 @@ PolyBase viene in genere usato per caricare i dati in Azure SQL Data Warehouse d
    > - Se si dispone di un account di archiviazione BLOB o per utilizzo generico v1, è necessario **prima eseguire l'aggiornamento a v2** usando questa [guida](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Per problemi noti con Azure Data Lake Storage Gen2, fare riferimento a questa [guida](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
     
-1. Quando si è posizionati nell'account di archiviazione, passare a **Controllo di accesso (IAM)** e fare clic su **Aggiungi un'assegnazione di ruolo**. Assegnare il ruolo di **collaboratore dei dati BLOB di archiviazione** al SQL Server di Azure che ospita i Azure SQL data warehouse registrati con Azure Active Directory (AAD) come nel passaggio 1.
+1. Quando si è posizionati nell'account di archiviazione, passare a **Controllo di accesso (IAM)** e fare clic su **Aggiungi un'assegnazione di ruolo**. Assegnare il ruolo **Collaboratore dati BLOB di archiviazione** al gruppo SQL Server di Azure che ospita il data warehouse SQL di Azure registrato con Azure Active Directory (AAD) come nel passaggio 1.
 
    > [!NOTE]
    > Solo i membri con il privilegio di proprietario possono eseguire questo passaggio. Per i vari ruoli predefiniti per le risorse di Azure, fare riferimento a questa [guida](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
@@ -148,7 +148,7 @@ PolyBase viene in genere usato per caricare i dati in Azure SQL Data Warehouse d
        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
        ```
 
-   1. Creare credenziali con ambito database con **IDENTITY = 'Managed Service Identity'** :
+   1. Creare credenziali con ambito database con **IDENTITY = 'Managed Service Identity'**:
 
        ```sql
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -158,15 +158,15 @@ PolyBase viene in genere usato per caricare i dati in Azure SQL Data Warehouse d
        > - Non è necessario specificare SECRET con la chiave di accesso ad Archiviazione di Azure perché questo meccanismo in pratica usa l'[identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
        > - Il nome IDENTITY deve essere **'Managed Service Identity'** affinché la connettività di PolyBase funzioni con l'account di archiviazione di Azure protetto con la rete virtuale.
 
-   1. Creare un'origine dati esterna con `abfss://` schema per la connessione all'account di archiviazione per utilizzo generico v2 tramite la funzione polibase:
+   1. Creare un'origine `abfss://` dati esterna con uno schema per la connessione all'account di archiviazione v2 generico usando PolyBase:Create external data source with scheme for connecting to your general-purpose v2 storage account using PolyBase:
 
        ```SQL
        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
        ```
 
        > [!NOTE]
-       > - Se sono già presenti tabelle esterne associate all'account di archiviazione BLOB o per utilizzo generico v1, è necessario prima rimuovere queste tabelle esterne e quindi rimuovere l'origine dati esterna corrispondente. Quindi creare un'origine dati esterna con `abfss://` schema di connessione all'account di archiviazione per utilizzo generico v2 come descritto in precedenza e ricreare tutte le tabelle esterne usando questa nuova origine dati esterna. Per comodità, è possibile usare la procedura guidata [Genera e pubblica script](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) per generare gli script di creazione per tutte le tabelle esterne.
-       > - Per ulteriori informazioni sullo schema `abfss://`, fare riferimento a questa [Guida](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
+       > - Se sono già presenti tabelle esterne associate all'account di archiviazione BLOB o per utilizzo generico v1, è necessario prima rimuovere queste tabelle esterne e quindi rimuovere l'origine dati esterna corrispondente. Creare quindi un'origine dati esterna con `abfss://` uno schema che si connette all'account di archiviazione v2 generico come indicato in precedenza e ricreare tutte le tabelle esterne usando questa nuova origine dati esterna. Per comodità, è possibile usare la procedura guidata [Genera e pubblica script](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) per generare gli script di creazione per tutte le tabelle esterne.
+       > - Per ulteriori `abfss://` informazioni sullo schema, fare riferimento a questa [guida](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
        > - Per altre informazioni su CREATE EXTERNAL DATA SOURCE, fare riferimento a questa [guida](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
 
    1. Eseguire le query come di consueto usando le [tabelle esterne](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
@@ -181,7 +181,7 @@ In passato, prima che questa funzionalità fosse migliorata, era necessario atti
 
 La semplice impostazione di una regola del firewall non consente di proteggere il server. Per garantire la sicurezza, è anche necessario attivare gli endpoint di servizio di rete virtuale. Quando si attivano gli endpoint di servizio, la subnet della rete virtuale registra un tempo di inattività fino al termine della transizione dallo stato inattivo a quello attivo. Questo vale soprattutto per le reti virtuali di grandi dimensioni. È possibile usare il flag **IgnoreMissingVNetServiceEndpoint** per ridurre o eliminare il tempo di inattività durante la transizione.
 
-È possibile impostare il flag **IgnoreMissingVNetServiceEndpoint** usando PowerShell. Per informazioni dettagliate, vedere [PowerShell per creare un endpoint del servizio di rete virtuale e una regola per il database SQL di Azure][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+È possibile impostare il flag **IgnoreMissingVNetServiceEndpoint** usando PowerShell. Per informazioni dettagliate, vedere [Usare PowerShell per creare un endpoint servizio di rete virtuale e una regola per il database SQL di Azure][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
 ## <a name="errors-40914-and-40615"></a>Errori 40914 e 40615
 
@@ -189,7 +189,7 @@ L'errore di connessione 40914 è correlato alle *regole di rete virtuale*, come 
 
 ### <a name="error-40914"></a>Errore 40914
 
-*Testo del messaggio:* Impossibile aprire il server ' *[nome-server]* ' richiesto dall'accesso. Al client non è consentito accedere al server.
+*Testo del messaggio:* Impossibile aprire il server '*[nome-server]*' richiesto dall'accesso. Al client non è consentito accedere al server.
 
 *Descrizione dell'errore:* il client si trova in una subnet che include endpoint server di rete virtuale. Tuttavia, il server di database SQL di Azure non è associato ad alcuna regola di rete virtuale che concede alla subnet il diritto di comunicare con il database SQL.
 
@@ -207,7 +207,7 @@ L'errore di connessione 40914 è correlato alle *regole di rete virtuale*, come 
 
 ## <a name="portal-can-create-a-virtual-network-rule"></a>Il portale può creare una regola di rete virtuale
 
-Questa sezione illustra come è possibile usare la [portale di Azure][http-azure-portal-link-ref-477t] per creare una *regola della rete virtuale* nel database SQL di Azure. La regola indica al database SQL di accettare le comunicazioni da una subnet specifica contrassegnata come *endpoint servizio di rete virtuale*.
+Questa sezione illustra come usare il [portale di Azure][http-azure-portal-link-ref-477t] per creare una *regola di rete virtuale* nel database SQL di Azure. La regola indica al database SQL di accettare le comunicazioni da una subnet specifica contrassegnata come *endpoint servizio di rete virtuale*.
 
 > [!NOTE]
 > Se si intende aggiungere un endpoint di servizio alle regole del firewall della rete virtuale del server di database SQL di Azure, verificare per prima cosa che gli endpoint di servizio siano attivati per la subnet.
@@ -216,33 +216,33 @@ Questa sezione illustra come è possibile usare la [portale di Azure][http-azure
 
 ## <a name="powershell-alternative"></a>Alternativa PowerShell
 
-Uno script può anche creare regole di rete virtuale usando il cmdlet di PowerShell **New-AzSqlServerVirtualNetworkRule** o [AZ Network VNET create](/cli/azure/network/vnet#az-network-vnet-create). Se interessato, vedere [PowerShell per creare un endpoint del servizio di rete virtuale e una regola per il database SQL di Azure][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+Uno script può anche creare regole di rete virtuale utilizzando il cmdlet di PowerShell **New-AzSqlServerVirtualNetworkRule** o [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Se interessati, vedere [Usare PowerShell per creare un endpoint servizio di rete virtuale e una regola per il database SQL di Azure][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
 ## <a name="rest-api-alternative"></a>Alternativa API REST
 
 Internamente, i cmdlet di PowerShell per le azioni SQL sulle reti virtuali chiamano API REST. È possibile chiamare direttamente le API REST.
 
-- [Regole della rete virtuale: operazioni][rest-api-virtual-network-rules-operations-862r]
+- [Regole di rete virtuale: operazioni][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 È necessario avere già una subnet contrassegnata con lo specifico *nome del tipo* di endpoint servizio di rete virtuale pertinente per il database SQL di Azure.
 
 - Il nome del tipo di endpoint pertinente è **Microsoft.Sql**.
-- Se la subnet potrebbe non essere contrassegnata con il nome del tipo, vedere [verificare che la subnet sia un endpoint][sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100].
+- Se la subnet non è contrassegnata con il nome del tipo, vedere [Verificare che la subnet sia un endpoint][sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100].
 
 <a name="a-portal-steps-for-vnet-rule-200" />
 
 ## <a name="azure-portal-steps"></a>Procedure del portale di Azure
 
-1. Accedere al [portale di Azure][http-azure-portal-link-ref-477t].
+1. Accedere al [portale][http-azure-portal-link-ref-477t]di Azure .
 
-2. Cercare e selezionare **SQL Server**, quindi selezionare il server. In **sicurezza**selezionare **firewall e reti virtuali**.
+2. Cercare e selezionare **SERVER SQL**, quindi selezionare il server. In **Sicurezza**selezionare **Firewall e reti virtuali.**
 
 3. Impostare il controllo **Consenti l'accesso a Servizi di Azure** su OFF.
 
     > [!IMPORTANT]
-    > Se si lascia il controllo impostato su ON, il server di database SQL di Azure accetta la comunicazione da qualsiasi subnet all'interno del limite di Azure, ad esempio l'origine da uno degli indirizzi IP riconosciuti come quelli compresi negli intervalli definiti per i Data Center di Azure. Lasciando il controllo impostato su SÌ, il numero di accessi potrebbe essere eccessivo dal punto di vista della sicurezza. La funzionalità di endpoint servizio di rete virtuale di Microsoft Azure, in sinergia con la funzionalità delle regole di rete virtuale del database SQL, consente di ridurre la superficie di attacco per la sicurezza.
+    > Se si lascia il controllo impostato su ON, il server di database SQL di Azure accetta la comunicazione da qualsiasi subnet all'interno del limite di Azure, ovvero proveniente da uno degli indirizzi IP riconosciuti come quelli inclusi negli intervalli definiti per i data center di Azure.If you leave the control set to ON, your Azure SQL Database server accepts communication from any subnet within the Azure boundary such as originating from one of the IP addresses that is recognized as those within ranges defined for Azure data centers. Lasciando il controllo impostato su SÌ, il numero di accessi potrebbe essere eccessivo dal punto di vista della sicurezza. La funzionalità di endpoint servizio di rete virtuale di Microsoft Azure, in sinergia con la funzionalità delle regole di rete virtuale del database SQL, consente di ridurre la superficie di attacco per la sicurezza.
 
 4. Fare clic sul controllo **+ Aggiungi esistenti** nella sezione **Reti virtuali**.
 
@@ -252,7 +252,7 @@ Internamente, i cmdlet di PowerShell per le azioni SQL sulle reti virtuali chiam
 
     > [!TIP]
     > È necessario includere il **prefisso dell'indirizzo** corretto per la subnet. Il valore è disponibile nel portale.
-    > Esplorare **tutte le risorse** &gt; **tutti i tipi** &gt; **reti virtuali**. Il filtro visualizza le reti virtuali. Fare clic sulla rete virtuale desiderata e quindi su **Subnet**. La colonna **INTERVALLO DI INDIRIZZI** contiene il prefisso dell'indirizzo desiderato.
+    > Passare a **Tutte le risorse** &gt; **Tutti i tipi** &gt; **Reti virtuali**. Il filtro visualizza le reti virtuali. Fare clic sulla rete virtuale desiderata e quindi su **Subnet**. La colonna **INTERVALLO DI INDIRIZZI** contiene il prefisso dell'indirizzo desiderato.
 
     ![Compilare i campi per la nuova regola.][image-portal-firewall-create-update-vnet-rule-20-png]
 
@@ -273,15 +273,15 @@ Internamente, i cmdlet di PowerShell per le azioni SQL sulle reti virtuali chiam
 
 ## <a name="related-articles"></a>Articoli correlati
 
-- [Endpoint del servizio rete virtuale di Azure][vm-virtual-network-service-endpoints-overview-649d]
-- [Regole del firewall a livello di server e di database per il database SQL di Azure][sql-db-firewall-rules-config-715d]
+- [Endpoint servizio di rete virtuale di Azure][vm-virtual-network-service-endpoints-overview-649d]
+- [Regole firewall a livello di database e di server di database SQL di Azure][sql-db-firewall-rules-config-715d]
 
 La funzionalità delle regole di rete virtuale per il database SQL di Azure è disponibile dalla fine di settembre 2017.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Usare PowerShell per creare un endpoint del servizio di rete virtuale e quindi una regola della rete virtuale per il database SQL di Azure.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
-- [Regole della rete virtuale: operazioni][rest-api-virtual-network-rules-operations-862r] con le API REST
+- [Usare PowerShell per creare un endpoint del servizio di rete virtuale e quindi una regola di rete virtuale per il database SQL di Azure.Use PowerShell to create a virtual network service endpoint, and then a virtual network rule for Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
+- [Regole di rete virtuale: operazioni][rest-api-virtual-network-rules-operations-862r] con le API REST
 
 <!-- Link references, to images. -->
 [image-portal-firewall-vnet-add-existing-10-png]: media/sql-database-vnet-service-endpoint-rule-overview/portal-firewall-vnet-add-existing-10.png

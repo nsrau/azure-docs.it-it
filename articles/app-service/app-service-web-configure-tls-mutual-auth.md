@@ -1,53 +1,53 @@
 ---
 title: Configurare l'autenticazione reciproca TLS
-description: Informazioni su come autenticare i certificati client in TLS. App Azure servizio può rendere disponibile il certificato client per il codice dell'app per la verifica.
+description: Informazioni su come autenticare i certificati client su TLS. Il servizio app di Azure può rendere il certificato client disponibile per il codice dell'app per la verifica.
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 10/01/2019
 ms.custom: seodec18
 ms.openlocfilehash: 357ea2cc598bca3e008a74f021895e1e45a3874f
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78301005"
 ---
-# <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configurare l'autenticazione reciproca TLS per il servizio app Azure
+# <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configurare l'autenticazione reciproca TLS per il servizio app di AzureConfigure TLS mutual authentication for Azure App Service
 
-È possibile limitare l'accesso all'app di Servizio app di Azure abilitandone diversi tipi di autenticazione. Un modo per eseguire questa operazione consiste nel richiedere un certificato client quando la richiesta client è su TLS/SSL e convalidare il certificato. Questo meccanismo è denominato autenticazione reciproca TLS o autenticazione del certificato client. Questo articolo illustra come configurare l'app per l'uso dell'autenticazione del certificato client.
+È possibile limitare l'accesso all'app di Servizio app di Azure abilitandone diversi tipi di autenticazione. Un modo per farlo è richiedere un certificato client quando la richiesta del client è su TLS/SSL e convalidare il certificato. Questo meccanismo è denominato autenticazione reciproca TLS o autenticazione del certificato client. Questo articolo illustra come configurare l'app per l'uso dell'autenticazione del certificato client.
 
 > [!NOTE]
-> se si accede al sito tramite HTTP e non HTTPS, non si riceveranno i certificati client. Quindi, se l'applicazione richiede certificati client, è consigliabile non consentire le richieste all'applicazione tramite HTTP.
+> se si accede al sito tramite HTTP e non HTTPS, non si riceveranno i certificati client. Pertanto, se l'applicazione richiede certificati client, non è necessario consentire richieste all'applicazione tramite HTTP.
 >
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
-## <a name="enable-client-certificates"></a>Abilita certificati client
+## <a name="enable-client-certificates"></a>Abilitare i certificati client
 
-Per configurare l'app in modo da richiedere i certificati client, è necessario impostare l'impostazione di `clientCertEnabled` per l'app su `true`. Per impostare l'impostazione, eseguire il comando seguente nella [cloud Shell](https://shell.azure.com).
+Per configurare l'app in modo che `clientCertEnabled` richieda `true`certificati client, devi impostare l'impostazione per l'app su . Per impostare l'impostazione, eseguire il comando seguente in [Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
 ```
 
-## <a name="exclude-paths-from-requiring-authentication"></a>Escludere i percorsi dalla richiesta di autenticazione
+## <a name="exclude-paths-from-requiring-authentication"></a>Escludere i percorsi dalla richiesta di autenticazioneExclude paths from requiring authentication
 
-Quando si Abilita l'autenticazione reciproca per l'applicazione, tutti i percorsi sotto la radice dell'app richiedono un certificato client per l'accesso. Per consentire a determinati percorsi di rimanere aperti per l'accesso anonimo, è possibile definire i percorsi di esclusione come parte della configurazione dell'applicazione.
+Quando si abilita l'autenticazione reciproca per l'applicazione, tutti i percorsi nella radice dell'app richiederanno un certificato client per l'accesso. Per consentire a determinati percorsi di rimanere aperti per l'accesso anonimo, è possibile definire i percorsi di esclusione come parte della configurazione dell'applicazione.
 
-È possibile configurare i percorsi di esclusione selezionando **configurazione** > **Impostazioni generali** e definendo un percorso di esclusione. In questo esempio, qualsiasi elemento sotto `/public` percorso dell'applicazione non richiede un certificato client.
+I percorsi di esclusione possono essere configurati selezionando**Impostazioni generali** **configurazione** > e definendo un percorso di esclusione. In questo esempio, `/public` qualsiasi elemento nel percorso dell'applicazione non richiederebbe un certificato client.
 
-![Percorsi di esclusione dei certificati][exclusion-paths]
+![Percorsi di esclusione certificati][exclusion-paths]
 
 
 ## <a name="access-client-certificate"></a>Accedere al certificato client
 
-Nel servizio app, la terminazione SSL della richiesta viene eseguita presso il servizio di bilanciamento del carico front-end. Quando si invia la richiesta al codice dell'app con i [certificati client abilitati](#enable-client-certificates), il servizio app inserisce un'intestazione di richiesta `X-ARR-ClientCert` con il certificato client. Il servizio app non esegue alcuna operazione con questo certificato client, tranne che per l'invio all'app. Il codice dell'app è responsabile della convalida del certificato client.
+In App Service, la chiusura SSL della richiesta viene eseguita nel servizio di bilanciamento del carico front-end. Quando si inoltra la richiesta al codice dell'app `X-ARR-ClientCert` con i certificati client [abilitati,](#enable-client-certificates)il servizio app inserisce un'intestazione di richiesta con il certificato client. Il servizio app non esegue alcuna operazione con questo certificato client se non l'inoltro all'app. Il codice dell'app è responsabile della convalida del certificato client.
 
-Per ASP.NET, il certificato client è disponibile tramite la proprietà **HttpRequest. ClientCertificate** .
+Ad ASP.NET, il certificato client è disponibile tramite la proprietà **HttpRequest.ClientCertificate.For** example, the client certificate is available through the HttpRequest.ClientCertificate property.
 
-Per gli altri stack di applicazioni (node. js, PHP e così via), il certificato client è disponibile nell'app tramite un valore con codifica Base64 nell'intestazione della richiesta `X-ARR-ClientCert`.
+Per altri stack di applicazioni (Node.js, PHP e così via), il certificato client è `X-ARR-ClientCert` disponibile nell'app tramite un valore con codifica base64 nell'intestazione della richiesta.
 
-## <a name="aspnet-sample"></a>Esempio ASP.NET
+## <a name="aspnet-sample"></a>ASP.NET campione
 
 ```csharp
     using System;
@@ -171,9 +171,9 @@ Per gli altri stack di applicazioni (node. js, PHP e così via), il certificato 
     }
 ```
 
-## <a name="nodejs-sample"></a>Esempio node. js
+## <a name="nodejs-sample"></a>Esempio Di Nodo.js
 
-Il codice di esempio node. js seguente ottiene l'intestazione `X-ARR-ClientCert` e USA [node-Forge](https://github.com/digitalbazaar/forge) per convertire la stringa PEM con codifica Base64 in un oggetto certificato e convalidarla:
+Il codice di esempio Node.js seguente ottiene l'intestazione `X-ARR-ClientCert` e usa [node-forge](https://github.com/digitalbazaar/forge) per convertire la stringa PEM con codifica base64 in un oggetto certificato e convalidarla:
 
 ```javascript
 import { NextFunction, Request, Response } from 'express';
@@ -218,7 +218,7 @@ export class AuthorizationHandler {
 
 ## <a name="java-sample"></a>Esempio Java
 
-La classe Java seguente codifica il certificato da `X-ARR-ClientCert` a un'istanza di `X509Certificate`. `certificateIsValid()` verifica che l'identificazione personale del certificato corrisponda a quella specificata nel costruttore e che il certificato non sia scaduto.
+La classe Java seguente codifica `X-ARR-ClientCert` il `X509Certificate` certificato da un'istanza. `certificateIsValid()`verifica che l'identificazione personale del certificato corrisponda a quella specificata nel costruttore e che il certificato non sia scaduto.
 
 
 ```java

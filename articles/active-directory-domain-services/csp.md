@@ -1,5 +1,5 @@
 ---
-title: Azure AD Domain Services per i provider di soluzioni cloud | Microsoft Docs
+title: Servizi di dominio Azure AD per i provider di soluzioni cloud Documenti Microsoft
 description: Azure Active Directory Domain Services per Azure Cloud Solution Provider.
 services: active-directory-ds
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: iainfou
 ms.openlocfilehash: 1134c078ee36a146cb1e1cbf8ca46f6cd9f8d775
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72754433"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure Active Directory (AD) Domain Services per Azure Cloud Solution Provider (CSP)
@@ -28,7 +28,7 @@ Questo articolo spiega come utilizzare Azure AD Domain Services in una sottoscri
 ## <a name="overview-of-azure-csp"></a>Panoramica di Azure CSP
 Azure CSP è un programma per Microsoft Partner e offre un canale di licenza per vari servizi cloud di Microsoft. Azure CSP permette ai partner di gestire le vendite, avere il controllo sulla relazione di fatturazione, fornire supporto tecnico e per la fatturazione e rappresentare l'unico punto di contatto dei clienti. Inoltre, Azure CSP include un set completo di strumenti, tra cui un portale self-service e le API associate. Questi strumenti consentono ai partner CSP di effettuare agevolmente il provisioning, gestire le risorse di Azure e fornire la fatturazione dei clienti e delle relative sottoscrizioni.
 
-Il [portale Centro per i partner](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview) funge da punto di ingresso per tutti i partner di Azure CSP. Offre funzionalità complete per la gestione dei clienti, elaborazione automatica e altro ancora. I partner di Azure CSP possono utilizzare le funzionalità del Centro per i partner tramite un'interfaccia utente basata sul Web o mediante PowerShell e varie chiamate API.
+Il [portale del Centro per](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview) i partner per i partner partner partner funge da punto di ingresso per tutti i partner di Azure CSP. Offre funzionalità complete per la gestione dei clienti, elaborazione automatica e altro ancora. I partner di Azure CSP possono utilizzare le funzionalità del Centro per i partner tramite un'interfaccia utente basata sul Web o mediante PowerShell e varie chiamate API.
 
 Il diagramma seguente illustra il funzionamento del modello CSP a livello generale. Contoso ha una directory di Azure AD. Ha una partnership con un CSP, che distribuisce e gestisce le risorse nella propria sottoscrizione Azure CSP. Contoso può anche avere sottoscrizioni di Azure regolari (dirette), fatturate direttamente alla società stessa.
 
@@ -43,7 +43,7 @@ Azure AD Domain Services offre servizi compatibili di AD di Windows Server in Az
 
 Azure AD Domain Services ora supporta le sottoscrizioni di Azure CSP. È ora possibile distribuire un'applicazione in una sottoscrizione di Azure CSP associata alla directory di Azure AD del cliente. Di conseguenza, il personale di supporto può gestire, amministrare e offrire assistenza per le macchine virtuali in cui è distribuita l'applicazione utilizzando le credenziali aziendali. Inoltre, è possibile effettuare il provisioning di un dominio gestito di Azure AD Domain Services per la directory di Azure AD del cliente. L'applicazione è connessa al dominio gestito del cliente. Le funzionalità all'interno dell'applicazione basate su Kerberos/NTLM, LDAP o l'[API System.DirectoryServices](/dotnet/api/system.directoryservices) funzionano perfettamente con la directory del cliente. I clienti finali traggono notevoli vantaggi dall'utilizzo dell'applicazione come servizio, senza doversi preoccupare della manutenzione dell'infrastruttura in cui è distribuita l'applicazione.
 
-Tutta la fatturazione per le risorse di Azure utilizzate nella sottoscrizione, tra cui Azure AD Domain Services, viene addebitata all'utente. Si mantiene il controllo completo sulla relazione con il cliente quando si tratta di vendite, fatturazione, supporto tecnico e così via. Con la flessibilità della piattaforma Azure CSP, un piccolo team di agenti di supporto può servire molti clienti di questo tipo che dispongono di istanze dell'applicazione distribuita.
+Tutta la fatturazione per le risorse di Azure utilizzate nella sottoscrizione, tra cui Azure AD Domain Services, viene addebitata all'utente. Mantenete il pieno controllo sul rapporto con il cliente quando si tratta di vendite, fatturazione, supporto tecnico, ecc. Con la flessibilità della piattaforma Azure CSP, un piccolo team di agenti di supporto può servire molti di questi clienti che dispongono di istanze dell'applicazione distribuita.
 
 
 ## <a name="csp-deployment-models-for-azure-ad-domain-services"></a>Modelli di distribuzione CSP per Azure AD Domain Services
@@ -56,7 +56,7 @@ In questo modello di distribuzione, Azure AD Domain Services è abilitato in una
 
 ![Modello di distribuzione diretta](./media/csp/csp_direct_deployment_model.png)
 
-In questo modello di distribuzione, gli agenti di amministrazione del provider CSP possono amministrare le identità per il cliente. Questi agenti di amministrazione hanno la possibilità di effettuare il provisioning di nuovi utenti, gruppi, aggiungere applicazioni all'interno della directory Azure AD del cliente e così via. Questo modello di distribuzione può essere adatto per organizzazioni di piccole dimensioni che non dispongono di un amministratore di identità dedicato o che preferiscono al partner CSP di amministrare le identità per loro conto.
+In questo modello di distribuzione, gli agenti di amministrazione del provider CSP possono amministrare le identità per il cliente. Questi agenti di amministrazione hanno la possibilità di effettuare il provisioning di nuovi utenti, gruppi, aggiungere applicazioni all'interno della directory di Azure AD del cliente e così via. Questo modello di distribuzione può essere adatto per le organizzazioni più piccole che non dispongono di un amministratore di identità dedicato o preferiscono che il partner CSP gestisca le identità per loro conto.
 
 
 ### <a name="peered-deployment-model"></a>Modello di distribuzione con peering
@@ -83,11 +83,11 @@ Le considerazioni importanti che seguono si applicano all'amministrazione di un 
   > Non è possibile accedere al dominio gestito utilizzando le credenziali di un utente amministratore CSP. A tale scopo, utilizzare le credenziali di un account utente appartenente alla directory Azure AD del cliente. Queste credenziali sono necessarie per attività quali l'aggiunta di macchine virtuali al dominio gestito, l'amministrazione di DNS, l'amministrazione di criteri di gruppo e così via.
   >
 
-* **L'account utente creato per l'amministrazione continuativa deve essere aggiunto al gruppo "Amministratori di AAD DC":** tale gruppo ha i privilegi necessari per eseguire alcune attività di amministrazione delegate per il dominio gestito. Queste attività includono la configurazione DNS, la creazione di unità organizzative, l'amministrazione di criteri di gruppo e così via. Affinché un partner CSP esegua tali attività in un dominio gestito, è necessario creare un account utente nella directory Azure AD del cliente. Le credenziali per questo account devono essere condivise con gli agenti di amministrazione del partner CSP. L'account utente, inoltre, deve essere aggiunto al gruppo "Amministratori di AAD DC" per abilitare l'esecuzione delle attività di configurazione nel dominio gestito con questo account utente.
+* **L'account utente creato per l'amministrazione continuativa deve essere aggiunto al gruppo "Amministratori di AAD DC":** tale gruppo ha i privilegi necessari per eseguire alcune attività di amministrazione delegate per il dominio gestito. Queste attività includono la configurazione del DNS, la creazione di unità organizzative, l'amministrazione dei criteri di gruppo e così via. Affinché un partner CSP esegua tali attività in un dominio gestito, è necessario creare un account utente all'interno della directory di Azure AD del cliente. Le credenziali per questo account devono essere condivise con gli agenti di amministrazione del partner CSP. L'account utente, inoltre, deve essere aggiunto al gruppo "Amministratori di AAD DC" per abilitare l'esecuzione delle attività di configurazione nel dominio gestito con questo account utente.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Effettuare la registrazione al programma Azure CSP](https://docs.microsoft.com/partner-center/enrolling-in-the-csp-program) e iniziare a generare nuovi affari tramite Azure CSP.
+* [Iscriversi al programma Azure CSP](https://docs.microsoft.com/partner-center/enrolling-in-the-csp-program) e iniziare a creare business tramite Azure CSP.
 * Esaminare l'elenco di [servizi di Azure disponibili in Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services).
 * [Abilitare Azure AD Domain Services con PowerShell](powershell-create-instance.md)
 * [Introduzione ad Azure AD Domain Services](tutorial-create-instance.md)

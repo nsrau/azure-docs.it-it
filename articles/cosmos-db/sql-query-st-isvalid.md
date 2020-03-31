@@ -1,6 +1,6 @@
 ---
-title: ST_ISVALID in linguaggio di query Azure Cosmos DB
-description: Informazioni sulla funzione di sistema SQL ST_ISVALID in Azure Cosmos DB.
+title: ST_ISVALID nel linguaggio di query del database Cosmos di Azure
+description: Informazioni sulla funzione del sistema SQL ST_ISVALID in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 8fbddbe82ae13585b8259a66dffaeef8024baf5d
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71349372"
 ---
 # <a name="st_isvalid-azure-cosmos-db"></a>ST_ISVALID (Azure Cosmos DB)
@@ -26,7 +26,7 @@ ST_ISVALID(<spatial_expr>)
 ## <a name="arguments"></a>Argomenti
   
 *spatial_expr*  
-   È un'espressione punto, poligono o LineString GeoJSON.  
+   È un'espressione GeoJSON Point, Polygon o LineString.  
   
 ## <a name="return-types"></a>Tipi restituiti
   
@@ -54,4 +54,4 @@ SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] }) AS b
 
 - [Funzioni spaziali Azure Cosmos DB](sql-query-spatial-functions.md)
 - [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduzione a Azure Cosmos DB](introduction.md)
+- [Introduzione ad Azure Cosmos DB](introduction.md)

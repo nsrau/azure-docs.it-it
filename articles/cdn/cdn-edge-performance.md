@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: b8a65d4ae6aaac78e642c851a66b745a940fa0ad
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593906"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analizzare le prestazioni del nodo perimetrale nella rete CDN di Microsoft Azure
@@ -40,7 +40,7 @@ I dati dell'attività della rete CDN devono essere raccolti dal modulo di analis
 > 
 > 
 
-## <a name="dashboard"></a>dashboard
+## <a name="dashboard"></a>Dashboard
 Il dashboard relativo alle analisi delle prestazioni perimetrali tiene traccia del traffico corrente e cronologico della rete CDN tramite un grafico e le statistiche. Usare questo dashboard per rilevare le tendenze recenti e a lungo termine relative alle prestazioni del traffico della rete CDN per l'account specifico.
 
 Il dashboard è costituito da:
@@ -70,7 +70,7 @@ Il dashboard contiene un grafico che tiene traccia di una metrica nel periodo di
 * Fare clic sull'opzione per visualizzare l'anno precedente per attivare o disattivare un overlay delle attività dell'anno precedente per lo stesso periodo di tempo nel grafico. Questo tipo di confronto fornisce approfondimenti relativi ai modelli di utilizzo a lungo termine della rete CDN. L'angolo superiore destro del grafico include una legenda che indica il codice colore per ogni grafico a linee.
 
 #### <a name="updating-the-chart"></a>Aggiornamento del grafico
-* Intervallo di tempo: selezionare uno degli elementi seguenti:
+* Intervallo di tempo: eseguire una delle operazioni seguenti.
   * Selezionare l'area desiderata nella sequenza temporale. Il grafico verrà aggiornato con i dati corrispondenti al periodo di tempo selezionato.
   * Fare doppio clic sul grafico per visualizzare tutti i dati cronologici disponibili, per un massimo di due anni.
 * Metrica: fare clic sull'icona del grafico visualizzata accanto alla metrica desiderata. Il grafico e la sequenza temporale verranno aggiornati con i dati per la metrica corrispondente.
@@ -126,7 +126,7 @@ Lo scopo di queste metriche consiste nel tenere traccia delle prestazioni comple
 #### <a name="secure-traffic-metrics"></a>Metriche relative al traffico sicuro
 Lo scopo di queste metriche consiste nel tenere traccia delle prestazioni della rete CDN per il traffico HTTPS.
 
-| Campo | DESCRIZIONE |
+| Campo | Descrizione |
 | --- | --- |
 | Efficienza della cache sicura |Indica la percentuale dei dati trasferiti per richieste HTTPS che sono state fornite dalla cache. Questa metrica indica quando una versione del contenuto richiesto memorizzata nella cache è stata fornita direttamente dalla rete CDN (server perimetrali) ai richiedenti (ad esempio un Web browser) su HTTPS. |
 | Velocità di trasferimento sicuro |Indica la velocità media di trasferimento dei contenuti dalla rete CDN (server perimetrali) ai richiedenti (ad esempio server Web) su HTTPS. |
@@ -184,7 +184,7 @@ Ogni report in questo modulo contiene un grafico e statistiche relative a larghe
 | Errori 5xx |Contiene un grafico a barre che consente di visualizzare le prime 10 richieste che hanno avuto come risultato un codice di risposta incluso nell'intervallo 500.  I codici di risposta di tipo 502 - Gateway non valido e 504 - Timeout gateway sono esclusi da questo report. |
 
 ## <a name="see-also"></a>Vedere anche
-* [Panoramica della rete CDN di Azure](cdn-overview.md)
+* [Panoramica della rete CDN di AzureAzure CDN Overview](cdn-overview.md)
 * [Statistiche in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-stats.md)
 * [Override del comportamento HTTP predefinito mediante il motore regole](cdn-rules-engine.md)
 * [Report HTTP avanzati](cdn-advanced-http-reports.md)

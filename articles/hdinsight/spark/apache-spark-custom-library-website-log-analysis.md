@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.openlocfilehash: c6bf26d8f3a73db6ee69b2aa0de73872911893bf
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75552713"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analizzare i log del sito Web usando una libreria Python personalizzata con cluster Apache Spark in HDInsight
@@ -27,26 +27,26 @@ Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo dedicato
 
 In questa sezione viene usato il notebook di [Jupyter](https://jupyter.org) associato a un cluster Apache Spark in HDInsight per eseguire i processi che elaborano i dati di esempio non elaborati e li salvano come tabella Hive. I dati di esempio sono un file con estensione csv (hvac.csv) disponibile in tutti i cluster per impostazione predefinita.
 
-Una volta salvati i dati come Apache Hive tabella, nella sezione successiva si eseguirà la connessione alla tabella hive usando gli strumenti di business intelligence, ad esempio Power BI e tableau.
+Dopo aver salvato i dati come tabella Apache Hive, nella sezione successiva ci si connetterà alla tabella Hive usando strumenti di BI come Power BI e Tableau.Once your data is saved as an Apache Hive table, in the next section we'll connect to the Hive table using BI tools such as Power BI and Tableau.
 
-1. Da un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net/jupyter`, dove `CLUSTERNAME` è il nome del cluster.
+1. Da un Web browser `https://CLUSTERNAME.azurehdinsight.net/jupyter`passare `CLUSTERNAME` a , dove è il nome del cluster.
 
-1. Creare un nuovo notebook. Selezionare **nuovo**e quindi **PySpark**.
+1. Creare un nuovo notebook. Selezionare **Nuovo**, quindi **PySpark**.
 
     ![Creare un nuovo notebook Apache Jupyter](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Creare un nuovo notebook Jupyter")
 
-1. Un nuovo notebook verrà creato e aperto con il nome Untitled.pynb. Selezionare il nome del notebook nella parte superiore e immettere un nome descrittivo.
+1. Un nuovo notebook verrà creato e aperto con il nome Untitled.pynb. Selezionare il nome del blocco appunti nella parte superiore e immettere un nome descrittivo.
 
     ![Specificare un nome per il notebook](./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png "Specificare un nome per il notebook")
 
-1. Poiché è stato creato un notebook usando il kernel PySpark, non è necessario creare contesti in modo esplicito. I contesti Spark e Hive vengono creati automaticamente quando si esegue la prima cella di codice. È possibile iniziare con l'importazione dei tipi necessari per questo scenario. Incollare il frammento di codice seguente in una cella vuota e quindi premere **MAIUSC + INVIO**.
+1. Poiché è stato creato un blocco appunti utilizzando il kernel PySpark, non è necessario creare contesti in modo esplicito. I contesti Spark e Hive vengono creati automaticamente quando si esegue la prima cella di codice. È possibile iniziare con l'importazione dei tipi necessari per questo scenario. Incollare il frammento di codice seguente in una cella vuota e quindi premere **MAIUSC e INVIO.**
 
     ```pyspark
     from pyspark.sql import Row
     from pyspark.sql.types import *
     ```
 
-1. Creare un RDD con i dati di log di esempio già disponibili nel cluster. È possibile accedere ai dati nell'account di archiviazione predefinito associato al cluster in `\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log`. Eseguire questo codice:
+1. Creare un RDD con i dati di log di esempio già disponibili nel cluster. È possibile accedere ai dati nell'account `\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log`di archiviazione predefinito associato al cluster in . Eseguire questo codice:
 
     ```pyspark
     logs = sc.textFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
@@ -58,7 +58,7 @@ Una volta salvati i dati come Apache Hive tabella, nella sezione successiva si e
     logs.take(5)
     ```
 
-    Verrà visualizzato un output simile al testo seguente:
+    Verrà visualizzato un output simile al testo seguente:You should see an output similar to the following text:
 
     ```output
     [u'#Software: Microsoft Internet Information Services 8.0',
@@ -70,9 +70,9 @@ Una volta salvati i dati come Apache Hive tabella, nella sezione successiva si e
 
 ## <a name="analyze-log-data-using-a-custom-python-library"></a>Analizzare i dati di log usando una libreria personalizzata di Python
 
-1. Nell'output precedente, le prime due righe includono le informazioni di intestazione e ogni riga rimanente corrisponde allo schema descritto nell'intestazione. L'analisi di tali log potrebbe essere complessa. Quindi, viene usata una libreria personalizzata di Python (**iislogparser.py**) che semplifica notevolmente l'analisi di tali log. Per impostazione predefinita, questa libreria è inclusa nel cluster Spark in HDInsight in `/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py`.
+1. Nell'output precedente, le prime due righe includono le informazioni di intestazione e ogni riga rimanente corrisponde allo schema descritto nell'intestazione. L'analisi di tali log potrebbe essere complessa. Quindi, viene usata una libreria personalizzata di Python (**iislogparser.py**) che semplifica notevolmente l'analisi di tali log. Per impostazione predefinita, questa libreria è inclusa `/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py`nel cluster Spark in HDInsight in .
 
-    Tuttavia, questa libreria non si trova nel `PYTHONPATH` quindi non è possibile usarla usando un'istruzione Import come `import iislogparser`. Per usare questa libreria è necessario distribuirla a tutti i nodi di lavoro. Eseguire il frammento di codice seguente.
+    Tuttavia, questa libreria non `PYTHONPATH` è in modo che non possiamo `import iislogparser`usarlo utilizzando un'istruzione import come . Per usare questa libreria è necessario distribuirla a tutti i nodi di lavoro. Eseguire il frammento di codice seguente.
 
     ```pyspark
     sc.addPyFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
@@ -93,14 +93,14 @@ Una volta salvati i dati come Apache Hive tabella, nella sezione successiva si e
     logLines.take(2)
     ```
 
-   L'output dovrebbe essere simile al testo seguente:
+   L'output dovrebbe essere simile al testo seguente:The output should be similar to the following text:
 
     ```output
     [2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step2.png X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 53175 871 46,
     2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step3.png X-ARR-LOG-ID=9eace870-2f49-4efd-b204-0d170da46b4a 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 51237 871 32]
     ```
 
-1. La classe `LogLine`, a sua volta, offre alcuni metodi utili, ad esempio `is_error()`, che determina se una voce di log contiene un codice di errore. Utilizzare questa classe per calcolare il numero di errori nelle righe di log estratte, quindi registrare tutti gli errori in un file diverso.
+1. La classe `LogLine`, a sua volta, offre alcuni metodi utili, ad esempio `is_error()`, che determina se una voce di log contiene un codice di errore. Utilizzare questa classe per calcolare il numero di errori nelle righe di log estratte e quindi registrare tutti gli errori in un file diverso.
 
     ```pyspark
     errors = logLines.filter(lambda p: p.is_error())
@@ -110,7 +110,7 @@ Una volta salvati i dati come Apache Hive tabella, nella sezione successiva si e
     errors.map(lambda p: str(p)).saveAsTextFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
     ```
 
-    L'output deve essere stato `There are 30 errors and 646 log entries`.
+    L'output `There are 30 errors and 646 log entries`deve essere stato.
 
 1. È anche possibile usare **Matplotlib** per costruire una visualizzazione dei dati. Ad esempio, se si vuole isolare la causa delle richieste in esecuzione da molto tempo si potrebbero trovare i file che mediamente richiedono più tempo per servire una richiesta. Il frammento di codice seguente recupera le 25 risorse principali che hanno impiegato più tempo per servire una richiesta.
 
@@ -124,7 +124,7 @@ Una volta salvati i dati come Apache Hive tabella, nella sezione successiva si e
     avgTimeTakenByKey(logLines.map(lambda p: (p.cs_uri_stem, p))).top(25, lambda x: x[1])
     ```
 
-   Verrà visualizzato un output simile al testo seguente:
+   Verrà visualizzato un output simile al testo seguente:You should see an output like the following text:
 
     ```output
     [(u'/blogposts/mvc4/step13.png', 197.5),
@@ -174,9 +174,9 @@ Una volta salvati i dati come Apache Hive tabella, nella sezione successiva si e
 
    Il comando speciale `%%sql` seguito da `-o averagetime` assicura che l'output della query venga mantenuto in locale nel server Jupyter, di solito il nodo head del cluster. L'output viene mantenuto come frame di dati [Pandas](https://pandas.pydata.org/) con il nome specificato **averagetime**.
 
-   Verrà visualizzato un output simile all'immagine seguente:
+   Verrà visualizzato un output simile all'immagine seguente:You should see an output like the following image:
 
-   ![output della query SQL di HDInsight jupyter](./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "Output della query SQL")
+   ![output della query sql di giudizio hdinsight jupyter](./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "Output della query SQL")
 
    Per altre informazioni sul comando Magic `%%sql`, vedere [Parametri supportati con il comando Magic %%sql](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
@@ -192,15 +192,15 @@ Una volta salvati i dati come Apache Hive tabella, nella sezione successiva si e
     plt.ylabel('Average time taken for request (ms)')
     ```
 
-   Verrà visualizzato un output simile all'immagine seguente:
+   Verrà visualizzato un output simile all'immagine seguente:You should see an output like the following image:
 
-   ![traccia di analisi del log Web Apache Spark](./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Output Matplotlib")
+   ![apache spark web log analisi grafico](./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Output Matplotlib")
 
-1. Al termine dell'esecuzione dell'applicazione, è necessario arrestare il notebook per rilasciare le risorse. Per fare ciò, dal menu **File** del notebook fare clic su **Close and Halt** (Chiudi e interrompi). Questa azione arresterà e chiuderà il notebook.
+1. Al termine dell'esecuzione dell'applicazione, è necessario arrestare il notebook per rilasciare le risorse. Per fare ciò, dal menu **File** del notebook fare clic su **Close and Halt** (Chiudi e interrompi). Questa azione verrà chiusa e chiusa il blocco appunti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare gli articoli seguenti:
+Esplora i seguenti articoli:
 
 * [Panoramica: Apache Spark su Azure HDInsight](apache-spark-overview.md)
 * [Usare pacchetti esterni con i notebook Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
