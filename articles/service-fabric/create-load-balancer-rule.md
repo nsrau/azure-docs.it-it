@@ -4,10 +4,10 @@ description: Configurare un'istanza di Azure Load Balancer per aprire le porte p
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: f4599b2e0174381ab7df04aeeb33db7e3ee60f26
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77025385"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Aprire le porte per un cluster di Service Fabric
@@ -50,7 +50,7 @@ az network lb rule create --backend-port 40000 --frontend-port 39999 --protocol 
 
 Il comando dell'interfaccia della riga di comando di Azure include alcuni parametri descritti nella tabella seguente:
 
-| Parametro | Description |
+| Parametro | Descrizione |
 | --------- | ----------- |
 | `--backend-port`  | Porta su cui è in ascolto l'applicazione di Service Fabric. |
 | `--frontend-port` | Porta esposta dal servizio di bilanciamento del carico per le connessioni esterne. |

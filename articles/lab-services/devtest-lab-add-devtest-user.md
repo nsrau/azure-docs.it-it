@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
 ms.openlocfilehash: a9426c20ae23fd3dad4cdba25590ff2eac271896
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284278"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Aggiungere proprietari e utenti in Azure DevTest Labs
@@ -64,8 +64,8 @@ La tabella seguente illustra le azioni che possono essere eseguite dagli utenti 
 Proprietari e utenti possono essere aggiunti a livello di lab tramite il portale di Azure. Un utente può essere un utente esterne con un [account Microsoft](devtest-lab-faq.md#what-is-a-microsoft-account)valido.
 Il processo di aggiunta di un proprietario o di un utente a un lab in Azure DevTest Labs prevede i passaggi seguenti:
 
-1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Selezionare **Tutti i servizi** e quindi **DevTest Labs** dall'elenco.
+1. Accedere al [portale](https://go.microsoft.com/fwlink/p/?LinkID=525040)di Azure .
+2. Selezionare **Tutti i servizi**e quindi **DevTest Labs** dall'elenco.
 3. Nell'elenco dei lab selezionare il lab desiderato.
 4. Nel pannello del lab selezionare **Configurazione e criteri**. 
 5. Nella pagina **Configurazione e criteri** selezionare **Controllo di accesso (IAM)** nel menu a sinistra. 
@@ -119,7 +119,7 @@ Le autorizzazioni di Azure vengono propagate dall'ambito padre all'ambito figlio
 
 Per aggiungere un proprietario a una sottoscrizione di Azure, seguire questi passaggi:
 
-1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Accedere al [portale](https://go.microsoft.com/fwlink/p/?LinkID=525040)di Azure .
 2. Selezionare **Tutti i servizi** e quindi **Sottoscrizioni** dall'elenco.
 3. Selezionare la sottoscrizione da usare.
 4. Selezionare l'icona **Accesso** . 
@@ -131,7 +131,7 @@ Per aggiungere un proprietario a una sottoscrizione di Azure, seguire questi pas
 6. Nel pannello **Selezionare un ruolo** selezionare **Proprietario**.
 7. Nel pannello **Aggiungi utenti** immettere l'indirizzo di posta elettronica o il nome dell'utente che si vuole aggiungere come proprietario. Se l'utente non viene trovato, si riceve un messaggio di errore che spiega il problema. Se l'utente viene trovato, tale utente viene elencato sotto la casella di testo **Utente** .
 8. Selezionare il nome utente individuato.
-9. Scegliere **Seleziona**.
+9. Selezionare **Seleziona**.
 10. Selezionare **OK** per chiudere il pannello **Aggiungi accesso**.
 11. Quando si torna al pannello **Utenti** , l'utente risulta aggiunto come proprietario. Questo utente è ora un proprietario di qualsiasi lab creato in questa sottoscrizione e quindi può eseguire le attività del proprietario. 
 

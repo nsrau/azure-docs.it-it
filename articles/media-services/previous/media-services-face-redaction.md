@@ -1,6 +1,6 @@
 ---
 title: Offuscare i volti con Analisi Servizi multimediali di Azure | Documentazione Microsoft
-description: Azure Media Redactor è un processore di contenuti multimediali Analisi Servizi multimediali di Azure che offre la scalabilità dei volti nel cloud. Questo articolo illustra come offuscare i visi con analisi servizi multimediali di Azure.
+description: Azure Media Redactor è un processore multimediale di Azure Media Analytics che offre una redazione facciale scalabile nel cloud. Questo articolo illustra come redigere i volti con l'analisi multimediale di Azure.This article demonstrates how to redact faces with Azure media analytics.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6a1b7a76ef1efda51f09ac733b3d434235ff40ef
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74900307"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Offuscare i volti con Analisi Servizi multimediali di Azure 
 ## <a name="overview"></a>Panoramica
-**Azure Media Redactor** è un processore di contenuti multimediali di [Analisi Servizi multimediali di Azure](media-services-analytics-overview.md) che offre funzionalità scalabili di offuscamento dei volti nel cloud. L'offuscamento dei volti consente di modificare un video per sfocare i volti di persone selezionate. Può essere opportuno usare tale servizio in scenari di pubblica sicurezza e notizie giornalistiche. Offuscare manualmente alcuni minuti di filmato contenenti più volti può richiedere ore, ma con questo servizio il processo di offuscamento dei volti richiederà pochi semplici passaggi. Per altre informazioni, vedere [questo](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
+**Azure Media Redactor** è un processore di contenuti multimediali di [Analisi Servizi multimediali di Azure](media-services-analytics-overview.md) che offre funzionalità scalabili di offuscamento dei volti nel cloud. L'offuscamento dei volti consente di modificare un video per sfocare i volti di persone selezionate. Può essere opportuno usare tale servizio in scenari di pubblica sicurezza e notizie giornalistiche. Offuscare manualmente alcuni minuti di filmato contenenti più volti può richiedere ore, ma con questo servizio il processo di offuscamento dei volti richiederà pochi semplici passaggi. Per ulteriori informazioni, consultate [questo](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
 Questo articolo contiene informazioni dettagliate su **Azure Media Redactor** e illustra come usare questa funzionalità con Media Services SDK per .NET.
 
@@ -34,7 +34,7 @@ In aggiunta a una modalità interamente automatica, esiste un flusso di lavoro i
 ### <a name="combined-mode"></a>Modalità combinata
 Questa modalità produce automaticamente un file mp4 offuscato senza alcun input manuale.
 
-| Stage | File Name | Note |
+| Fase | File Name | Note |
 | --- | --- | --- |
 | Asset di input |foo.bar |Video in formato WMV, MOV o MP4 |
 | Configurazione di input |Set di impostazioni di configurazione del processo |{'version':'1.0', 'options': {'mode':'combined'}} |
@@ -49,7 +49,7 @@ Questa modalità produce automaticamente un file mp4 offuscato senza alcun input
 ### <a name="analyze-mode"></a>Modalità analisi
 Nel flusso di lavoro in due passaggi, il passaggio dell' **analisi** usa un input video e produce un file JSON di posizioni di volti e immagini jpg di ogni volto rilevato.
 
-| Stage | File Name | Note |
+| Fase | File Name | Note |
 | --- | --- | --- |
 | Asset di input |foo.bar |Video in formato WMV, MPV o MP4 |
 | Configurazione di input |Set di impostazioni di configurazione del processo |{'version':'1.0', 'options': {'mode':'analyze'}} |
@@ -114,7 +114,7 @@ Gli input includono un elenco di ID da sfocare, il video originale e il file JSO
 
 L'output del passaggio dell'analisi non include il video originale. Il video deve essere caricato nell'asset di input per l'attività della modalità offuscamento ed essere selezionato come file primario.
 
-| Stage | File Name | Note |
+| Fase | File Name | Note |
 | --- | --- | --- |
 | Asset di input |foo.bar |Video in formato WMV, MPV o MP4. Stesso video del passaggio 1. |
 | Asset di input |foo_annotations.json |File di metadati delle annotazioni della prima fase, con modifiche facoltative. |
@@ -145,17 +145,17 @@ Di seguito sono riportati alcuni esempi dei tipi di sfocature.
     {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
 ```
 
-#### <a name="low"></a>Basse
+#### <a name="low"></a>Basso
 
-![Basse](./media/media-services-face-redaction/blur1.png)
+![Basso](./media/media-services-face-redaction/blur1.png)
  
 #### <a name="med"></a>Med
 
 ![Med](./media/media-services-face-redaction/blur2.png)
 
-#### <a name="high"></a>Alte
+#### <a name="high"></a>Alto
 
-![Alte](./media/media-services-face-redaction/blur3.png)
+![Alto](./media/media-services-face-redaction/blur3.png)
 
 #### <a name="box"></a>Box
 
@@ -191,7 +191,7 @@ Il programma seguente illustra come:
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
-Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
+Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in Sviluppo di [Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Esempio
 
@@ -367,7 +367,7 @@ namespace FaceRedaction
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Collegamenti correlati

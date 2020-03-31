@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Riconoscimento vocale da un microfono, C++ (Windows) - Servizio Voce'
+title: 'Guida introduttiva: Riconoscimento vocale da un microfono, C++ (Windows) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in C++ in Windows Desktop con Speech SDK
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 12/17/2019
 ms.author: wolfma
 ms.openlocfilehash: 416c2893ebf07cd638f3f1c06c709db2586245d1
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925878"
 ---
 ## <a name="prerequisites"></a>Prerequisiti

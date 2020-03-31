@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 77b64f09b7fd1429eb23c4407c729dfc0aafdf2b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60461034"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurare il ripristino di emergenza di VMware in un ambiente multi-tenancy con il programma Cloud Solution Provider (CSP)
@@ -39,7 +39,7 @@ Per configurare la replica VMware è necessario eseguire queste operazioni:
 
     ![Pagina Informazioni account](./media/vmware-azure-multi-tenant-csp-disaster-recovery/customer-add-filled.png)
 
-5. Fare quindi clic su **Avanti: Sottoscrizioni**.
+5. Quindi fare clic su **Successivo: Sottoscrizioni**.
 6. Nella pagina di selezione delle sottoscrizioni selezionare la casella di controllo **Microsoft Azure**. È possibile aggiungere altre sottoscrizioni subito o in qualsiasi momento nel futuro.
 7. Nella pagina **Revisione** verificare i dettagli del tenant e quindi fare clic su **Invia**.
 8. Dopo aver creato l'account tenant verrà visualizzata una pagina di conferma con i dettagli dell'account predefinito e la password per la sottoscrizione. Salvare le informazioni e modificare eventualmente la password in un secondo momento tramite la pagina di accesso del portale di Azure.
@@ -52,7 +52,7 @@ Queste informazioni possono essere condivise con il tenant così come sono oppur
 
 1. Nella pagina **Clienti** fare clic sul nome dell'account tenant.
 2. Nella pagina **Sottoscrizioni** dell'account tenant è possibile monitorare le sottoscrizioni esistenti per l'account e aggiungerne altre, se necessario.
-3. Per gestire le operazioni di ripristino di emergenza del tenant, selezionare l'opzione **Tutte le risorse (portale di Azure)** . Verrà così consentito l'accesso alle sottoscrizioni di Azure del tenant.
+3. Per gestire le operazioni di ripristino di emergenza del tenant, selezionare l'opzione **Tutte le risorse (portale di Azure)**. Verrà così consentito l'accesso alle sottoscrizioni di Azure del tenant.
 
     ![Collegamento Tutte le risorse](./media/vmware-azure-multi-tenant-csp-disaster-recovery/all-resources-select.png)  
 
@@ -65,7 +65,7 @@ A questo punto è possibile eseguire tutte le operazioni di Site Recovery per il
 ## <a name="assign-tenant-access-to-the-subscription"></a>Assegnare l'accesso tenant alla sottoscrizione
 
 1. Verificare che sia configurata l'infrastruttura del ripristino di emergenza. I partner accedere alle sottoscrizioni del tenant tramite il portale CSP, a prescindere che il ripristino di emergenza sia gestito o self-service. Configurare l'insieme di credenziali e registrare l'infrastruttura nelle sottoscrizioni del tenant.
-2. Fornire l'[account creato](#create-a-tenant-account) al tenant.
+2. Fornire al tenant [l'account creato.](#create-a-tenant-account)
 3. È possibile aggiungere un nuovo utente alla sottoscrizione tenant tramite il portale CSP come indicato di seguito:
 
     a) Accedere alla pagina delle sottoscrizioni CSP del tenant e quindi selezionare l'opzione **Users and licenses** (Utenti e licenze).
@@ -82,7 +82,7 @@ A questo punto è possibile eseguire tutte le operazioni di Site Recovery per il
 
       ![Aggiungere un utente](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
 
-- Per la maggior parte delle operazioni di gestione è sufficiente il ruolo *Collaboratore*. Gli utenti con questo livello di accesso possono eseguire qualsiasi operazione su una sottoscrizione, tranne modificare i livelli di accesso. Per questa operazione è infatti richiesto il livello di accesso *Proprietario*.
+- Per la maggior parte delle operazioni di gestione, il ruolo *Collaboratore* è sufficiente. Gli utenti con questo livello di accesso possono eseguire qualsiasi operazione su una sottoscrizione, tranne modificare i livelli di accesso. Per questa operazione è infatti richiesto il livello di accesso *Proprietario*.
 - Site Recovery ha anche tre [ruoli utente predefiniti](site-recovery-role-based-linked-access-control.md) che possono essere usati per limitare ulteriormente i livelli di accesso in base alle esigenze.
 
 ## <a name="multi-tenant-environments"></a>Ambienti multi-tenant
@@ -99,6 +99,6 @@ Impostando le sottoscrizioni di tenant come descritto in questo articolo, è pos
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Altre informazioni](site-recovery-role-based-linked-access-control.md) sul controllo degli accessi in base al ruolo per gestire le distribuzioni di Azure Site Recovery.
-- [Altre informazioni](vmware-azure-architecture.md) sull'architettura della replica da VMware ad Azure.
+- Altre informazioni [sull'architettura](vmware-azure-architecture.md)di replica da VMware ad Azure .
 - [Esaminare l'esercitazione](vmware-azure-tutorial.md) per la replica di macchine virtuali VMware in Azure.
 Altre informazioni sugli [ambienti multi-tenant](vmware-azure-multi-tenant-overview.md) per la replica di macchine virtuali VMware in Azure.

@@ -1,6 +1,6 @@
 ---
-title: Reidratare i dati BLOB dal livello archivio
-description: Riattivare i BLOB dalla risorsa di archiviazione dell'archivio per poter accedere ai dati.
+title: Reidratare i dati BLOB dal livello di archiviazioneRehydrate blob data from the archive tier
+description: Reidratare i BLOB dall'archivio in modo da poter accedere ai dati.
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
@@ -10,68 +10,68 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
 ms.openlocfilehash: 0a7012d9daa808933a51ac05862a8a9aa4cfcf77
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77614790"
 ---
-# <a name="rehydrate-blob-data-from-the-archive-tier"></a>Reidratare i dati BLOB dal livello archivio
+# <a name="rehydrate-blob-data-from-the-archive-tier"></a>Reidratare i dati BLOB dal livello di archiviazioneRehydrate blob data from the archive tier
 
-Mentre un BLOB si trova nel livello di accesso archivio, viene considerato offline e non può essere letto o modificato. I metadati del BLOB rimangono online e disponibili, consentendo di elencare il BLOB e le relative proprietà. La lettura e la modifica dei dati BLOB sono disponibili solo con i livelli online, ad esempio Hot o cool. Sono disponibili due opzioni per recuperare e accedere ai dati archiviati nel livello di accesso archivio.
+Mentre un BLOB si trova nel livello di accesso all'archivio, viene considerato offline e non può essere letto o modificato. I metadati del BLOB rimangono online e disponibili, consentendo di elencare il BLOB e le relative proprietà. La lettura e la modifica dei dati BLOB sono disponibili solo con i livelli online, ad esempio hot o cool. Sono disponibili due opzioni per recuperare e accedere ai dati archiviati nel livello di accesso all'archivio.
 
-1. [Reidratare un BLOB archiviato in un livello online](#rehydrate-an-archived-blob-to-an-online-tier) : riattivare un BLOB di archiviazione ad accesso frequente o sporadico modificando il relativo livello usando l'operazione di [impostazione del livello BLOB](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) .
-2. [Copiare un BLOB archiviato in un livello online](#copy-an-archived-blob-to-an-online-tier) : creare una nuova copia di un BLOB di archiviazione usando l'operazione [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/copy-blob) . Specificare un nome di BLOB diverso e un livello di destinazione ad accesso frequente o sporadico.
+1. [Reidratare un BLOB archiviato in un livello online:](#rehydrate-an-archived-blob-to-an-online-tier) reidratare un BLOB di archiviazione in caldo o freddo modificandone il livello tramite l'operazione [Imposta livello BLOB.](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier)
+2. [Copiare un BLOB archiviato in un livello online:](#copy-an-archived-blob-to-an-online-tier) creare una nuova copia di un BLOB di archiviazione usando l'operazione [Copia BLOB.](https://docs.microsoft.com/rest/api/storageservices/copy-blob) Specificare un nome di BLOB diverso e un livello di destinazione con un valore hot o cool.
 
- Per altre informazioni sui livelli, vedere [archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](storage-blob-storage-tiers.md).
+ Per altre informazioni sui livelli, vedere Archiviazione BLOB di Azure: livelli di [accesso a caldo, ad accesso a freddo e archiviazione.](storage-blob-storage-tiers.md)
 
-## <a name="rehydrate-an-archived-blob-to-an-online-tier"></a>Reidratare un BLOB archiviato in un livello online
+## <a name="rehydrate-an-archived-blob-to-an-online-tier"></a>Reidratare un BLOB archiviato in un livello onlineRehydrate an archived blob to an online tier
 
 [!INCLUDE [storage-blob-rehydration](../../../includes/storage-blob-rehydrate-include.md)]
 
 ## <a name="copy-an-archived-blob-to-an-online-tier"></a>Copiare un BLOB archiviato in un livello online
 
-Se non si vuole riattivare il BLOB di archiviazione, è possibile scegliere di eseguire un'operazione di [copia del BLOB](https://docs.microsoft.com/rest/api/storageservices/copy-blob) . Il BLOB originale rimarrà invariato nell'archivio mentre viene creato un nuovo BLOB nel livello di accesso frequente o ad accesso sporadico in linea. Nell'operazione copy BLOB, è anche possibile impostare la proprietà facoltativa *x-ms-reidratate-Priority* su standard o High (Preview) per specificare la priorità in base alla quale si vuole creare la copia BLOB.
+Se non si vuole reidratare il BLOB di archivio, è possibile scegliere di eseguire un'operazione [di copia BLOB.](https://docs.microsoft.com/rest/api/storageservices/copy-blob) Il BLOB originale rimarrà invariato nell'archivio mentre viene creato un nuovo BLOB nel livello a caldo o freddo online su cui lavorare. Nell'operazione Copia BLOB è inoltre possibile impostare la proprietà facoltativa *x-ms-rehydrate-priority* su Standard o Alta (anteprima) per specificare la priorità con cui si vuole creare la copia BLOB.
 
-I BLOB di archiviazione possono essere copiati solo nei livelli di destinazione online all'interno dello stesso account di archiviazione. La copia di un BLOB di archiviazione in un altro BLOB di archiviazione non è supportata.
+I BLOB di archiviazione possono essere copiati solo nei livelli di destinazione online all'interno dello stesso account di archiviazione. La copia di un BLOB di archivio in un altro BLOB di archivio non è supportata.
 
-Il completamento della copia di un BLOB dall'archivio può richiedere ore, a seconda della priorità di reidratazione selezionata. Dietro le quinte, l'operazione **Copy Blob** legge il BLOB di origine dell'archivio per creare un nuovo BLOB online nel livello di destinazione selezionato. Il nuovo BLOB può essere visibile quando si elencano i BLOB, ma i dati non sono disponibili finché non viene completata la lettura dal BLOB di archiviazione di origine e i dati vengono scritti nel nuovo BLOB di destinazione online. Il nuovo BLOB è una copia indipendente e qualsiasi modifica o eliminazione non influisce sul BLOB di archiviazione di origine.
+Il completamento della copia di un BLOB dall'archivio può richiedere ore a seconda della priorità di reidrato selezionata. Dietro le quinte, l'operazione **Copia BLOB** legge il BLOB di origine dell'archivio per creare un nuovo BLOB online nel livello di destinazione selezionato. Il nuovo BLOB potrebbe essere visibile quando si elencano i BLOB, ma i dati non sono disponibili fino al completamento della lettura dal BLOB di archiviazione di origine e fino a quando non viene scritta la lettura dal BLOB di archiviazione di origine e i dati vengono scritti nel nuovo BLOB di destinazione online. Il nuovo BLOB è come copia indipendente e qualsiasi modifica o eliminazione non influisce sul BLOB di archivio di origine.
 
 ## <a name="pricing-and-billing"></a>Prezzi e fatturazione
 
-La reidratazione dei BLOB fuori dall'archivio in livelli ad accesso frequente o sporadico viene addebitata come operazioni di lettura e recupero dati. L'uso della priorità alta (anteprima) prevede costi operativi e di recupero dei dati più elevati rispetto alla priorità standard. La riattivazione con priorità alta viene visualizzata come una voce separata nella fattura. Se una richiesta con priorità alta per restituire un BLOB di archiviazione di pochi gigabyte richiede più di 5 ore, non verrà addebitata la tariffa per il recupero con priorità alta. Tuttavia, le tariffe di recupero standard si applicano anche quando la riattivazione è stata classificata in ordine di priorità su altre richieste.
+I BLOB di reidratazione non archiviati in livelli a caldo o freddi vengono addebitati come operazioni di lettura e recupero dei dati. L'utilizzo di Priorità alta (anteprima) presenta costi di funzionamento e recupero dati più elevati rispetto alla priorità standard. La reidratazione ad alta priorità viene visualizzata come un elemento pubblicitario separato sulla fattura. Se una richiesta con priorità alta per restituire un BLOB di archivio di pochi gigabyte richiede più di 5 ore, non verrà addebitata la velocità di recupero con priorità alta. Tuttavia, i tassi di recupero standard si applicano ancora quando la reidratazione è stata classificata in priorità rispetto ad altre richieste.
 
-La copia di BLOB dall'archivio in livelli ad accesso frequente o sporadico viene addebitata come operazioni di lettura e recupero dati. Per la creazione della nuova copia BLOB viene addebitata un'operazione di scrittura. Le tariffe per l'eliminazione anticipata non si applicano quando si esegue la copia in un BLOB online perché il BLOB di origine rimane invariato nel livello archivio. Se selezionato, verranno applicati addebiti per il recupero con priorità alta.
+La copia dei BLOB dall'archivio in livelli hot o cool vengono addebitati come operazioni di lettura e recupero dei dati. Un'operazione di scrittura viene addebitata per la creazione della nuova copia BLOB. Le tariffe di eliminazione anticipata non si applicano quando si copia in un BLOB online perché il BLOB di origine rimane non modificato nel livello di archiviazione. Se selezionato, vengono applicati costi di recupero ad alta priorità.
 
-I BLOB nel livello archivio devono essere archiviati per almeno 180 giorni. Se si eliminano o si riattivano i BLOB archiviati prima di 180 giorni, le tariffe per l'eliminazione anticipata
+I BLOB nel livello di archiviazione devono essere archiviati per un minimo di 180 giorni. L'eliminazione o la reidratazione dei BLOB archiviati prima di 180 giorni comporterà costi di eliminazione anticipata.
 
 > [!NOTE]
-> Per altre informazioni sui prezzi per i BLOB in blocchi e la riattivazione dei dati, vedere [prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/). Per ulteriori informazioni sugli addebiti per il trasferimento di dati in uscita, vedere [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/).
+> Per altre informazioni sui prezzi per i BLOB in blocchi e la reidratazione dei dati, vedere Prezzi di Archiviazione di Azure.For more information about pricing for block blobs and data rehydration, see [Azure Storage Pricing.](https://azure.microsoft.com/pricing/details/storage/blobs/) Per ulteriori informazioni sugli addebiti per il trasferimento dei dati in uscita, vedere [Dettagli sui prezzi dei trasferimenti](https://azure.microsoft.com/pricing/details/data-transfers/)di dati .
 
 ## <a name="quickstart-scenarios"></a>Scenari introduttivi
 
-### <a name="rehydrate-an-archive-blob-to-an-online-tier"></a>Reidratare un BLOB di archiviazione in un livello online
+### <a name="rehydrate-an-archive-blob-to-an-online-tier"></a>Reidratare un BLOB di archiviazione a un livello onlineRehydrate an archive blob to an online tier
 # <a name="portal"></a>[Portale](#tab/azure-portal)
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale](https://portal.azure.com)di Azure .
 
-1. Nella portale di Azure cercare e selezionare **tutte le risorse**.
+1. Nel portale di Azure cercare e selezionare **Tutte le risorse**.
 
 1. Selezionare l'account di archiviazione.
 
 1. Selezionare il contenitore e quindi selezionare il BLOB.
 
-1. In **proprietà BLOB**selezionare **modifica livello**.
+1. In **Proprietà BLOB**selezionare **Cambia livello**.
 
-1. Selezionare il **livello** accesso frequente o **ad** accesso sporadico. 
+1. Selezionare il livello di accesso **Caldo** o **Freddo.** 
 
-1. Selezionare una priorità di reidratazione **standard** o **alta**.
+1. Selezionare una priorità **di** reidratazione standard o **alta**.
 
-1. Selezionare **Save (Salva** ) nella parte inferiore.
+1. Seleziona **Salva** in basso.
 
-![Modificare il livello dell'account di archiviazione](media/storage-tiers/blob-access-tier.png)
+![Modificare il livello dell'account di archiviazioneChange storage account tier](media/storage-tiers/blob-access-tier.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Lo script di PowerShell seguente può essere usato per modificare il livello BLOB di un BLOB di archiviazione. La variabile `$rgName` deve essere inizializzata con il nome del gruppo di risorse. La variabile `$accountName` deve essere inizializzata con il nome dell'account di archiviazione. La variabile `$containerName` deve essere inizializzata con il nome del contenitore. La variabile `$blobName` deve essere inizializzata con il nome del BLOB. 
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+Lo script di PowerShell seguente può essere usato per modificare il livello BLOB di un BLOB di archiviazione. La `$rgName` variabile deve essere inizializzata con il nome del gruppo di risorse. La `$accountName` variabile deve essere inizializzata con il nome dell'account di archiviazione. La `$containerName` variabile deve essere inizializzata con il nome del contenitore. La `$blobName` variabile deve essere inizializzata con il nome del BLOB. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names
 $rgName = ""
@@ -91,8 +91,8 @@ $blob.ICloudBlob.SetStandardBlobTier("Hot", “Standard”)
 ```
 ---
 
-### <a name="copy-an-archive-blob-to-a-new-blob-with-an-online-tier"></a>Copiare un BLOB di archiviazione in un nuovo BLOB con un livello online
-Lo script di PowerShell seguente può essere usato per copiare un BLOB di archiviazione in un nuovo BLOB all'interno dello stesso account di archiviazione. La variabile `$rgName` deve essere inizializzata con il nome del gruppo di risorse. La variabile `$accountName` deve essere inizializzata con il nome dell'account di archiviazione. Le variabili `$srcContainerName` e `$destContainerName` devono essere inizializzate con i nomi dei contenitori. Le variabili `$srcBlobName` e `$destBlobName` devono essere inizializzate con i nomi dei BLOB. 
+### <a name="copy-an-archive-blob-to-a-new-blob-with-an-online-tier"></a>Copiare un BLOB di archiviazione in un nuovo BLOB con un livello onlineCopy an archive blob to a new blob with an online tier
+Lo script di PowerShell seguente può essere usato per copiare un BLOB di archiviazione in un nuovo BLOB all'interno dello stesso account di archiviazione. La `$rgName` variabile deve essere inizializzata con il nome del gruppo di risorse. La `$accountName` variabile deve essere inizializzata con il nome dell'account di archiviazione. Le `$srcContainerName` `$destContainerName` variabili e devono essere inizializzate con i nomi dei contenitori. Le `$srcBlobName` `$destBlobName` variabili e devono essere inizializzate con i nomi blob. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names
 $rgName = ""
@@ -112,7 +112,7 @@ Start-AzStorageBlobCopy -SrcContainer $srcContainerName -SrcBlob $srcBlobName -D
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni sui livelli di archiviazione BLOB](storage-blob-storage-tiers.md)
+* [Informazioni sui livelli di archiviazione BLOBLearn about Blob Storage Tiers](storage-blob-storage-tiers.md)
 * [Controllare i prezzi di accesso frequente, accesso sporadico e archivio negli account di archiviazione BLOB e per utilizzo generico v2 in base all'area](https://azure.microsoft.com/pricing/details/storage/)
 * [Gestire il ciclo di vita di Archiviazione BLOB di Azure](storage-lifecycle-management-concepts.md)
 * [Verificare i prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/)

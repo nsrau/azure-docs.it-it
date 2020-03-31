@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a61dcca1f78b6ba444a2deefcf6b8bb4fd5c5087
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60581300"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Eseguire il backup di condivisioni o volumi nell'array virtuale StorSimple
@@ -32,7 +32,7 @@ Le informazioni contenute in questa esercitazione si applicano solo all'array vi
 
 ## <a name="back-up-shares-and-volumes"></a>Backup di condivisioni e volumi
 
-I backup garantiscono la protezione temporizzata, migliorano la recuperabilità e riducono al minimo i tempi di ripristino per le condivisioni e i volumi. È possibile eseguire il backup di una condivisione o volume nel dispositivo StorSimple in due modi: **Pianificata** oppure **manuale**. Ognuno di questi metodi è descritto nelle sezioni seguenti.
+I backup garantiscono la protezione temporizzata, migliorano la recuperabilità e riducono al minimo i tempi di ripristino per le condivisioni e i volumi. È possibile eseguire il backup di una condivisione o di un volume sul dispositivo StorSimple in due modi: **Pianificato** o **Manuale**. Ognuno di questi metodi è descritto nelle sezioni seguenti.
 
 ## <a name="change-the-backup-start-time"></a>Modificare l'ora di inizio dei backup
 
@@ -58,7 +58,7 @@ L'array virtuale StorSimple dispone di un criterio di backup predefinito che si 
    
     ![passare a Criteri di backup](./media/storsimple-virtual-array-backup/changebuschedule5.png)
 
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**.
 
 ### <a name="take-a-manual-backup"></a>Creazione di un backup manuale
 
@@ -108,7 +108,7 @@ Per visualizzare i backup esistenti, eseguire la procedura seguente nel portale 
    
      ![Filtro backup](./media/storsimple-virtual-array-backup/viewbackups2.png)
 
-3. Fare clic su **Apply**. Viene visualizzato l'elenco filtrato dei backup nel pannello **Catalogo di backup**. Si noti che è possibile visualizzare solo 100 elementi di backup alla volta.
+3. Fare clic su **Applica**. Viene visualizzato l'elenco filtrato dei backup nel pannello **Catalogo di backup**. Si noti che è possibile visualizzare solo 100 elementi di backup alla volta.
    
     ![Catalogo di backup aggiornato](./media/storsimple-virtual-array-backup/viewbackups3.png)
 

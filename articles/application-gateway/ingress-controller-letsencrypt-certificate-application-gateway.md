@@ -1,6 +1,6 @@
 ---
-title: Usare i certificati LetsEncrypt.org con il gateway applicazione
-description: Questo articolo fornisce informazioni su come ottenere un certificato da LetsEncrypt.org e usarlo nel gateway applicazione per i cluster AKS.
+title: Usare i certificati di LetsEncrypt.org con il gateway applicazioneUse a certificates with Application Gateway
+description: In questo articolo vengono fornite informazioni su come ottenere un certificato da LetsEncrypt.org e usarlo nel gateway applicazione per i cluster AKS.
 services: application-gateway
 author: caya
 ms.service: application-gateway
@@ -8,25 +8,25 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 92e9747865f1a0910c8bae4001cc597ae9ea3da6
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73957975"
 ---
-# <a name="use-certificates-with-letsencryptorg-on-application-gateway-for-aks-clusters"></a>Usare i certificati con LetsEncrypt.org nel gateway applicazione per i cluster AKS
+# <a name="use-certificates-with-letsencryptorg-on-application-gateway-for-aks-clusters"></a>Usare i certificati con LetsEncrypt.org nel gateway applicazione per i cluster AKSUse certificates with LetsEncrypt.org on Application Gateway for AKS clusters
 
-Questa sezione Configura la AKS per sfruttare [LetsEncrypt.org](https://letsencrypt.org/) e ottenere automaticamente un certificato TLS/SSL per il dominio. Il certificato verrà installato nel gateway applicazione, che eseguirà la terminazione SSL/TLS per il cluster AKS. La configurazione descritta di seguito usa il componente aggiuntivo [Cert-Manager](https://github.com/jetstack/cert-manager) Kubernetes, che consente di automatizzare la creazione e la gestione dei certificati.
+In questa sezione viene configurato l'AKS per sfruttare [LetsEncrypt.org](https://letsencrypt.org/) e ottenere automaticamente un certificato TLS/SSL per il dominio. Il certificato verrà installato nel gateway applicazione, che eseguirà la terminazione SSL/TLS per il cluster AKS. La configurazione descritta di seguito utilizza il componente aggiuntivo Kubernetes del [cert-manager,](https://github.com/jetstack/cert-manager) che automatizza la creazione e la gestione dei certificati.
 
-Attenersi alla procedura seguente per installare [Cert-Manager](https://docs.cert-manager.io) nel cluster AKS esistente.
+Seguire i passaggi seguenti per installare [cert-manager](https://docs.cert-manager.io) nel cluster AKS esistente.
 
-1. Grafico Helm
+1. Grafico Del timhelm
 
-    Eseguire lo script seguente per installare il grafico Helm `cert-manager`. In tal modo, si verificheranno i seguenti eventi:
+    Eseguire lo script seguente `cert-manager` per installare il grafico helm. In tal modo, si verificheranno i seguenti eventi:
 
-    - creare un nuovo spazio dei nomi di `cert-manager` nel servizio contenitore di AKS
-    - creare le CRD seguenti: certificate, Challenge, ClusterIssuer, Issuer, Order
-    - installare il grafico Cert-Manager (da [docs.Cert-Manager.io)](https://docs.cert-manager.io/en/latest/getting-started/install/kubernetes.html#steps)
+    - creare un `cert-manager` nuovo spazio dei nomi in AKS
+    - creare i seguenti CRD: Certificato, Sfida, ClusterIssuer, Autorità emittente, Ordine
+    - installare il grafico cert-manager (da [docs.cert-manager.io)](https://docs.cert-manager.io/en/latest/getting-started/install/kubernetes.html#steps)
 
     ```bash
     #!/bin/bash
@@ -56,14 +56,14 @@ Attenersi alla procedura seguente per installare [Cert-Manager](https://docs.cer
 
 2. Risorsa ClusterIssuer
 
-    Creare una risorsa `ClusterIssuer`. È necessario per `cert-manager` rappresentare l'autorità di certificazione `Lets Encrypt` in cui verranno ottenuti i certificati firmati.
+    Creare `ClusterIssuer` una risorsa. È richiesto `cert-manager` da per `Lets Encrypt` rappresentare l'autorità di certificazione in cui verranno ottenuti i certificati firmati.
 
-    Utilizzando la risorsa `ClusterIssuer` senza spazio dei nomi, Cert-Manager emetterà certificati che possono essere utilizzati da più spazi dei nomi. `Let’s Encrypt` usa il protocollo ACME per verificare di avere controllato un determinato nome di dominio e di emettere un certificato. Per ulteriori informazioni sulla configurazione di `ClusterIssuer` proprietà, vedere [qui](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html). `ClusterIssuer` indicherà `cert-manager` emettere certificati utilizzando l'ambiente di gestione temporanea `Lets Encrypt` utilizzato per il testing (il certificato radice non presente negli archivi di attendibilità browser/client).
+    Utilizzando la risorsa non `ClusterIssuer` spazi dei nomi, cert-manager emetterà certificati che possono essere utilizzati da più spazi dei nomi. `Let’s Encrypt`utilizza il protocollo ACME per verificare che si controlla un determinato nome di dominio ed emettere un certificato. Ulteriori dettagli sulla `ClusterIssuer` configurazione delle proprietà [sono disponibili qui](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html). `ClusterIssuer`indicherà `cert-manager` di emettere certificati utilizzando l'ambiente `Lets Encrypt` di gestione temporanea utilizzato per il test (il certificato radice non presente negli archivi di attendibilità del browser/client).
 
-    Il tipo di richiesta di verifica predefinito nel YAML seguente è `http01`. Altre problematiche sono documentate sui [tipi letsencrypt.org-Challenge](https://letsencrypt.org/docs/challenge-types/)
+    Il tipo di verifica predefinito in `http01`YAML riportato di seguito è . Altre sfide sono documentate su [letsencrypt.org - Tipi di sfida](https://letsencrypt.org/docs/challenge-types/)
 
     > [!IMPORTANT] 
-    > Aggiornare `<YOUR.EMAIL@ADDRESS>` in YAML di seguito
+    > Aggiornamento `<YOUR.EMAIL@ADDRESS>` nel YAML qui sotto
 
     ```bash
     #!/bin/bash
@@ -93,15 +93,15 @@ Attenersi alla procedura seguente per installare [Cert-Manager](https://docs.cer
     EOF
     ```
 
-3. Distribuisci app
+3. Distribuire l'app
 
-    Creare una risorsa di ingresso per esporre l'applicazione `guestbook` usando il gateway applicazione con la consente di crittografare il certificato.
+    Creare una risorsa Ingress `guestbook` per esporre l'applicazione utilizzando il gateway applicazione con il certificato Lets Encrypt.
 
-    Verificare che il gateway applicazione disponga di una configurazione IP front-end pubblica con un nome DNS (usando il dominio di `azure.com` predefinito oppure effettuare il provisioning di un servizio di `Azure DNS Zone` e assegnare il proprio dominio personalizzato).
-    Si noti l'annotazione `certmanager.k8s.io/cluster-issuer: letsencrypt-staging`, che indica a Cert-Manager di elaborare la risorsa di ingresso con tag.
+    Verificare che il gateway applicazione disponga di una configurazione IP `azure.com` front-end `Azure DNS Zone` pubblica con un nome DNS (utilizzando il dominio predefinito o effettuando il provisioning di un servizio e assegnare il proprio dominio personalizzato).
+    Si noti l'annotazione `certmanager.k8s.io/cluster-issuer: letsencrypt-staging`, che indica a cert-manager di elaborare la risorsa Ingress con tag.
 
     > [!IMPORTANT] 
-    > Aggiornare `<PLACEHOLDERS.COM>` nell'YAML seguente con il proprio dominio (o il gateway applicazione, ad esempio ' kh-aks-ingress.westeurope.cloudapp.azure.com ')
+    > Aggiornamento `<PLACEHOLDERS.COM>` nel File YAML riportato di seguito con il proprio dominio (o quello del gateway applicazione, ad esempio 'kh-aks-ingress.westeurope.cloudapp.azure.com')
 
     ```bash
     kubectl apply -f - <<EOF
@@ -127,15 +127,15 @@ Attenersi alla procedura seguente per installare [Cert-Manager](https://docs.cer
     EOF
     ```
 
-    Dopo alcuni secondi, è possibile accedere al servizio `guestbook` tramite l'URL HTTPS del gateway applicazione usando il certificato `Lets Encrypt` di **gestione temporanea** emesso automaticamente.
-    Il browser potrebbe avvertire l'utente di un'autorità di certificazione non valida. Il certificato di gestione temporanea viene emesso dal `CN=Fake LE Intermediate X1`. Ciò indica che il sistema ha funzionato come previsto e che si è pronti per il certificato di produzione.
+    Dopo alcuni secondi, è `guestbook` possibile accedere al servizio tramite l'URL HTTPS del gateway applicazione utilizzando il certificato di **gestione temporanea** `Lets Encrypt` emesso automaticamente.
+    Il tuo browser potrebbe avvisarti di un'autorità certi non valida. Il certificato di `CN=Fake LE Intermediate X1`gestione temporanea viene emesso da . Questa è un'indicazione che il sistema ha funzionato come previsto e si è pronti per il certificato di produzione.
 
 4. Certificato di produzione
 
-    Quando il certificato di gestione temporanea è stato configurato correttamente, è possibile passare a un server ACME di produzione:
-    1. Sostituire l'annotazione di gestione temporanea nella risorsa in ingresso con: `certmanager.k8s.io/cluster-issuer: letsencrypt-prod`
-    1. Eliminare il `ClusterIssuer` di staging esistente creato nel passaggio precedente e crearne uno nuovo sostituendo il server ACME dal ClusterIssuer YAML precedente con `https://acme-v02.api.letsencrypt.org/directory`
+    Una volta configurato correttamente il certificato di gestione temporanea, è possibile passare a un server ACME di produzione:
+    1. Sostituire l'annotazione di gestione temporanea nella risorsa Ingress con:Replace the staging annotation on your Ingress resource with:`certmanager.k8s.io/cluster-issuer: letsencrypt-prod`
+    1. Eliminare la `ClusterIssuer` gestione temporanea esistente creata nel passaggio precedente e crearne una nuova sostituendo il server ACME da ClusterIssuer YAML precedente con`https://acme-v02.api.letsencrypt.org/directory`
 
 5. Scadenza e rinnovo del certificato
 
-    Prima della scadenza del certificato `Lets Encrypt`, `cert-manager` aggiornerà automaticamente il certificato nell'archivio segreto Kubernetes. A questo punto, il controller di ingresso del gateway applicazione applicherà il segreto aggiornato a cui viene fatto riferimento nelle risorse di ingresso usate per configurare il gateway applicazione.
+    Prima `Lets Encrypt` della scadenza del `cert-manager` certificato, il certificato verrà aggiornato automaticamente nell'archivio segreto Kubernetes. A questo punto, Application Gateway Ingress Controller applicherà il segreto aggiornato a cui si fa riferimento nelle risorse in ingresso che utilizza per configurare il gateway applicazione.

@@ -1,6 +1,6 @@
 ---
-title: Usare DNS di Azure con altri servizi di Azure
-description: In questo percorso di apprendimento iniziare a usare DNS di Azure per risolvere i nomi di altri servizi di Azure
+title: Usare DNS di Azure con altri servizi di AzureUse Azure DNS with other Azure services
+description: In questo percorso di apprendimento, introduzione su come usare DNS di Azure per risolvere i nomi per altri servizi di Azure
 services: dns
 documentationcenter: na
 author: rohinkoul
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/21/2016
 ms.author: rohink
 ms.openlocfilehash: fa2c1ced6405c967ca33562d6215b304b8507e5a
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76937245"
 ---
 # <a name="how-azure-dns-works-with-other-azure-services"></a>Funzionamento del servizio DNS di Azure con altri servizi di Azure
@@ -31,12 +31,12 @@ Il servizio DNS di Azure è un servizio ospitato di risoluzione nomi e di gestio
 
 Nella tabella seguente vengono illustrati i tipi di record supportati che è possibile usare per i vari servizi di Azure. Come si può vedere nella tabella, il servizio DNS di Azure supporta soltanto i record DNS per le risorse di rete con connessione Internet. Il servizio DNS di Azure non può essere usato per la risoluzione nomi degli indirizzi interni e privati.
 
-| Servizio di Azure | interfaccia di rete | Description |
+| Servizio di Azure | interfaccia di rete | Descrizione |
 | --- | --- | --- |
 | Gateway applicazione di Azure |[IP pubblico front-end](dns-custom-domain.md#public-ip-address) |È possibile creare un record DNS A o CNAME. |
 | Azure Load Balancer |[IP pubblico front-end](dns-custom-domain.md#public-ip-address) |È possibile creare un record DNS A o CNAME. Al servizio di bilanciamento del carico può essere assegnato dinamicamente un indirizzo IP pubblico IPv6. Creare un record CNAME per un indirizzo IPv6. |
 | Gestione traffico di Azure |Nome pubblico |È possibile creare un record alias che esegua il mapping al nome trafficmanager.net assegnato al profilo di Gestione traffico. Per altre informazioni, consultare [Esercitazione: Configurare un record alias per supportare nomi di dominio vertice con Gestione traffico](tutorial-alias-tm.md). |
 | Servizi cloud di Azure |[IP pubblico](dns-custom-domain.md#public-ip-address) |Per gli indirizzi IP allocati staticamente, è possibile creare un record DNS A. Per gli indirizzi IP allocati dinamicamente, è necessario creare un record CNAME che si associa al nome *cloudapp.net* .|
-| Servizio app di Azure | [IP esterno](dns-custom-domain.md#app-service-web-apps) |Per gli indirizzi IP esterni, è possibile creare un record DNS A. In caso contrario, è necessario creare un record CNAME che viene associato al nome di azurewebsites.net. Per maggiori informazioni, vedere [Eseguire il mapping di un nome di dominio personalizzato in un'app Azure](../app-service/app-service-web-tutorial-custom-domain.md). |
+| Servizio app di Azure | [IP esterno](dns-custom-domain.md#app-service-web-apps) |Per gli indirizzi IP esterni, è possibile creare un record DNS A. In caso contrario, è necessario creare un record CNAME che viene associato al nome di azurewebsites.net. Per altre informazioni, vedere Eseguire il mapping di un nome di [dominio personalizzato a un'app di Azure.For](../app-service/app-service-web-tutorial-custom-domain.md)more information, see Map a custom domain name to an Azure app. |
 | Macchine virtuali di Azure Resource Manager |[IP pubblico](dns-custom-domain.md#public-ip-address) |Le macchine virtuali di Resource Manager possono avere indirizzi IP pubblici. Una macchina virtuale con un indirizzo IP pubblico può essere anche dietro a un servizio di bilanciamento del carico. È possibile creare un record DNS A, CNAME o alias per l'indirizzo pubblico. Il nome personalizzato può essere usato per aggirare l'indirizzo VIP sul bilanciamento del carico. |
 | Macchine virtuali classiche |[IP pubblico](dns-custom-domain.md#public-ip-address) |Le macchine virtuali classiche create con PowerShell o l'interfaccia della riga di comando possono essere configurate con un indirizzo virtuale (riservato) dinamico o statico. È possibile creare rispettivamente un record DNS A o CNAME. |

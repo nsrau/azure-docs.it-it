@@ -1,6 +1,6 @@
 ---
-title: Compattazione di Azure VMware Solutions (AVS) cloud privato
-description: Viene descritto come compattare un cloud privato AVS.
+title: Riduci la soluzione Azure VMware dal cloudSimple Private Cloud
+description: Viene descritto come ridurre un cloud privato cloud semplice.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 07/01/2019
@@ -8,60 +8,59 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0ea764081cd0b4d5c6d44cd7364d1e9a89a3cec3
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 602dca105e91c55c591388a833a36e71f951da8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77014267"
 ---
-# <a name="shrink-an-avs-private-cloud"></a>Compattare un cloud privato AVS
+# <a name="shrink-a-cloudsimple-private-cloud"></a>Ridurre un cloud semplice cloud privato
 
-AVS offre la flessibilità necessaria per compattare dinamicamente un cloud privato AVS. Un cloud privato AVS è costituito da uno o più cluster vSphere. Ogni cluster può avere da 3 a 16 nodi. Quando si compatta un cloud privato AVS, si rimuove un nodo dal cluster esistente o si elimina un intero cluster. 
+CloudSimple offre la flessibilità necessaria per ridurre dinamicamente un cloud privato.  Un cloud privato è costituito da uno o più cluster vSphere. Ogni cluster può avere da 3 a 16 nodi. Quando si riduce un cloud privato, si rimuove un nodo dal cluster esistente o si elimina un intero cluster. 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Prima di compattare un cloud privato AVS, è necessario soddisfare le condizioni seguenti. Il cluster di gestione (primo cluster) viene creato al momento della creazione del cloud privato AVS. Non può essere eliminato.
+Le seguenti condizioni devono essere soddisfatte per la riduzione di un cloud privato.  Impossibile eliminare il cluster di gestione (primo cluster) creato al momento della creazione di un cloud privato.
 
-* Un cluster vSphere deve avere tre nodi. Un cluster con solo tre nodi non può essere compattato.
-* Lo spazio di archiviazione totale utilizzato non deve superare la capacità totale dopo la compattazione del cluster.
-* Controllare se le regole DRS (Distributed Resource Scheduler) impediscono vMotion di una macchina virtuale. Se sono presenti regole, disabilitare o eliminare le regole. Le regole DRS includono le regole di affinità da macchina virtuale a host.
+* Un cluster vSphere deve avere tre nodi.  Un cluster con solo tre nodi non può essere ridotto.
+* Lo spazio di archiviazione totale utilizzato non deve superare la capacità totale dopo la riduzione del cluster.
+* Verificare se le regole DRS (Distributed Resource Scheduler) impedisce vMotion di una macchina virtuale.  Se sono presenti regole, disabilitarle o eliminarle.  Le regole DRS includono la macchina virtuale per ospitare le regole di affinità.
 
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-## <a name="sign-in-to-azure"></a>Accedere a Azure
+Accedere al portale di [https://portal.azure.com](https://portal.azure.com)Azure all'indirizzo .
 
-Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
+## <a name="shrink-a-private-cloud"></a>Ridurre un cloud privato
 
-## <a name="shrinking-an-avs-private-cloud"></a>Compattazione di un cloud privato AVS
+1. [Accedere al portale CloudSimple](access-cloudsimple-portal.md).
 
-1. [Accedere al portale AVS](access-cloudsimple-portal.md).
+2. Aprire la pagina **Risorse.**
 
-2. Aprire la pagina **risorse** .
+3. Fare clic sul cloud privato che si desidera ridurre
 
-3. Fare clic sul cloud privato AVS che si vuole compattare
+4. Nella pagina di riepilogo fare clic su **Riduci**.
 
-4. Nella pagina Riepilogo fare clic su **compatta**.
+    ![Riduci cloud privato](media/shrink-private-cloud.png)
 
-    ![Compattare il cloud privato AVS](media/shrink-private-cloud.png)
+5. Selezionare il cluster che si desidera ridurre o eliminare. 
 
-5. Selezionare il cluster che si desidera compattare o eliminare. 
+    ![Riduci cloud privato - seleziona cluster](media/shrink-private-cloud-select-cluster.png)
 
-    ![Compattare il cloud privato AVS: selezionare un cluster](media/shrink-private-cloud-select-cluster.png)
-
-6. Selezionare **Rimuovi un nodo** o **Elimina l'intero cluster**. 
+6. Selezionare **Rimuovi un nodo** o Elimina **l'intero cluster**. 
 
 7. Verificare la capacità del cluster
 
-8. Fare clic su **Invia** per compattare il cloud privato AVS.
+8. Fare clic su **Invia** per ridurre il cloud privato.
 
-Viene avviata la compattazione del cloud privato AVS. È possibile monitorare lo stato di avanzamento nelle attività. Il processo di compattazione può richiedere alcune ore a seconda dei dati, che devono essere risincronizzati in rete VSAN.
+Viene avviata la riduzione del cloud privato.  È possibile monitorare lo stato di avanzamento delle attività.  Il processo di compattazione può richiedere alcune ore a seconda dei dati, che devono essere risincronizzati in vSAN.
 
 > [!NOTE]
-> 1. Se si riduce un cloud privato eliminando l'ultimo o l'unico cluster nel Data Center, il Data Center non verrà eliminato.
-> 2. Se si verifica una violazione della regola DRS, il nodo non verrà rimosso dal cluster e la descrizione dell'attività indica che la rimozione di un nodo violerà le regole DRS sul cluster.    
+> 1. Se si riduce un cloud privato eliminando l'ultimo o l'unico cluster nel data center, il data center non verrà eliminato.
+> 2. Se si verifica una violazione della regola DRS, il nodo non verrà rimosso dal cluster e la descrizione dell'attività mostra che la rimozione di un nodo violerà le regole DRS nel cluster.    
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Utilizzare macchine virtuali VMware in Azure](quickstart-create-vmware-virtual-machine.md)
-* Altre informazioni sui [cloud privati AVS](cloudsimple-private-cloud.md)
+* [Utilizzare VM di VMware in Azure](quickstart-create-vmware-virtual-machine.md)
+* Ulteriori informazioni sui [cloud privati](cloudsimple-private-cloud.md)

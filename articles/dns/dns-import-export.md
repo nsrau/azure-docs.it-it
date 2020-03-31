@@ -1,5 +1,5 @@
 ---
-title: Importare ed esportare un file di zona del dominio-interfaccia della riga di comando di Azure
+title: Importare ed esportare un file di zona di dominio - Interfaccia della riga di comando di AzureImport and export a domain zone file - Azure CLI
 titleSuffix: Azure DNS
 description: Informazioni su come importare ed esportare un file di zona DNS in DNS di Azure con l'interfaccia della riga di comando di Azure
 services: dns
@@ -9,10 +9,10 @@ ms.date: 4/3/2019
 ms.author: rohink
 ms.topic: conceptual
 ms.openlocfilehash: a5c2fdde564eba2d95e7f14f4d47e4d381739d5d
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79365169"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importare ed esportare un file di zona DNS usando l'interfaccia della riga di comando di Azure
@@ -54,7 +54,7 @@ Le note seguenti forniscono altri dettagli tecnici sul processo di importazione 
 * La direttiva `$TTL` è facoltativa e supportata. Se non si specifica una direttiva `$TTL`, i record senza una TTL esplicita vengono importati e impostati su una TLL predefinita di 3600 secondi. Quando per due record nello stesso set di record sono specificati TTL diversi, viene usato il valore più basso.
 * La direttiva `$ORIGIN` è facoltativa e supportata. Se `$ORIGIN` non è impostata, il valore predefinito usato è il nome della zona specificato nella riga di comando, con "." di terminazione.
 * Le direttive `$INCLUDE` e `$GENERATE` non sono supportate.
-* Questi tipi di record sono supportati: A, AAAA, CAA, CNAME, MX, NS, SOA, SRV e TXT.
+* Sono supportati i seguenti tipi di record: A, AAAA, CAA, CNAME, MX, NS, SOA, SRV e TXT.
 * Il record SOA viene creato automaticamente da DNS di Azure quando si crea una zona. Quando si importa un file di zona, tutti i parametri SOA vengono rilevati dal file di zona *tranne* il parametro `host`. Questo parametro usa il valore fornito da DNS di Azure. Questo parametro deve infatti fare riferimento al server dei nomi primario fornito da DNS di Azure.
 * Anche il set di record del server dei nomi al vertice della zona viene creato automaticamente da DNS di Azure quando si crea la zona. Viene importata solo la durata TTL di questo set di record. Questi record contengono i nomi dei server dei nomi forniti da DNS di Azure. I dati dei record non vengono sovrascritti dai valori contenuti nel file di zona importato.
 * Durante l'anteprima pubblica, DNS di Azure supporta solo i record TXT a stringa singola. I record TXT multistringa vengono concatenati e troncati a 255 caratteri.

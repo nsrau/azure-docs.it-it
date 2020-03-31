@@ -1,6 +1,6 @@
 ---
 title: Panoramica delle API di Inoltro di Azure | Documentazione Microsoft
-description: Questo articolo fornisce una panoramica delle API di inoltro di Azure disponibili (.NET Standard, .NET Framework, node. js e così via)
+description: Questo articolo offre una panoramica delle API di inoltro di Azure disponibili (.NET Standard, .NET Framework, Node.js e così via).
 services: event-hubs
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 41d9e2026c19c959dc6fe2546b0ef699571ec7cd
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76513967"
 ---
 # <a name="available-relay-apis"></a>API di Inoltro disponibili
@@ -31,9 +31,9 @@ La sezione [Informazioni aggiuntive](#additional-information) contiene altre inf
 
 | Linguaggio/Piattaforma | Funzionalità disponibile | Pacchetto client | Archivio |
 | --- | --- | --- | --- |
-| .NET Standard | Connessioni ibride | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.Relay/) | [GitHub](https://github.com/azure/azure-relay-dotnet) |
+| .NET Standard | connessioni ibride | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.Relay/) | [GitHub](https://github.com/azure/azure-relay-dotnet) |
 | .NET Framework | Inoltro WCF | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | N/D |
-| Nodo | Connessioni ibride | [Websocket: `hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[Websocket: `hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[Richieste HTTP: `hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
+| Nodo | connessioni ibride | [Websockets:`hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[Websockets:`hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[Richieste HTTP:`hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
 
 ### <a name="additional-information"></a>Informazioni aggiuntive
 
@@ -59,4 +59,4 @@ Informazioni dettagliate su questi moduli sono disponibili nel repository GitHub
 
 Per altre informazioni sul servizio di inoltro di Azure, vedere i collegamenti seguenti:
 * [Che cos'è il servizio di inoltro di Azure?](relay-what-is-it.md)
-* [Domande frequenti sull'inoltro](relay-faq.md)
+* [Domande frequenti sul servizio di inoltro](relay-faq.md)

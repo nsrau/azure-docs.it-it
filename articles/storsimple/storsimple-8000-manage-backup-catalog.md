@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 07d9e03f1631ebce88a7a7c2e33be62f21dda522
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60319672"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>Usare il servizio Gestione dispositivi StorSimple per gestire il catalogo di backup
@@ -33,15 +33,15 @@ Il pannello **Catalogo di backup** fornisce una query per limitare la selezione 
 
 * **Dispositivo** : il dispositivo in cui è stato creato il set di backup.
 * **Criterio di backup o Volume**: il criterio di backup o volume associato a questo set di backup.
-* **Da e A** - intervallo di data e ora di creazione del set di backup.
+* **Da e A**: intervallo di date e ore in cui è stato creato il set di backup.
 
 I set di backup filtrati vengono quindi catalogati in base ai seguenti attributi:
 
-* **Nome** : nome del criterio di backup o volume associato al set di backup.
-* **Dimensioni** : dimensione effettiva del set di backup.
-* **Creato il** : data e ora di creazione dei backup. 
-* **Tipo** : i set di backup possono essere snapshot in locale o del cloud. Uno snapshot locale è un backup di tutti i dati di volume archiviati localmente sul dispositivo, mentre uno snapshot del cloud si riferisce al backup dei dati di volume che risiedono nel cloud. Gli snapshot in locale forniscono un accesso più rapido, mentre gli snapshot del cloud vengono scelti per la resilienza dei dati.
-* **Avviato da** : i backup possono essere avviati automaticamente da una pianificazione o manualmente dall'utente. Per pianificare i backup, è possibile usare un criterio di backup. In alternativa, è possibile usare l'opzione **Esegui backup** per eseguire un backup manuale.
+* **Nome**: nome del volume o dei criteri di backup associati al set di backup.
+* **Dimensione**: dimensione effettiva del set di backup.
+* **Creato il**: data e ora di creazione dei backup. 
+* **Tipo**: i set di backup possono essere snapshot locali o cloud. Uno snapshot locale è un backup di tutti i dati di volume archiviati localmente sul dispositivo, mentre uno snapshot del cloud si riferisce al backup dei dati di volume che risiedono nel cloud. Gli snapshot in locale forniscono un accesso più rapido, mentre gli snapshot del cloud vengono scelti per la resilienza dei dati.
+* **Avviato da**: i backup possono essere avviati automaticamente in base a una pianificazione o manualmente da un utente. Per pianificare i backup, è possibile usare un criterio di backup. In alternativa, è possibile usare l'opzione **Esegui backup** per eseguire un backup manuale.
 
 ## <a name="list-backup-sets-for-a-backup-policy"></a>Elencare i set di backup di un criterio di backup
 Completare la procedura seguente per elencare tutti i backup di un criterio di backup.

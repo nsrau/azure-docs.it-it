@@ -1,15 +1,15 @@
 ---
-title: INTERFACCIA della riga di comando di Azure Service Fabric-pianificazione Chaos sfctl
-description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per la pianificazione Chaos.
+title: Interfaccia di comando di Azure Service Fabric- pianificazione del caos sfctlAzure Service Fabric CLI- sfctl chaos schedule
+description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric.Learn about sfctl, the Azure Service Fabric command line interface. Include un elenco di comandi per la pianificazione del caos.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 29b365c48e405830e238945f1d94156f477c15b4
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76906177"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
@@ -17,7 +17,7 @@ Ottiene e imposta la pianificazione di chaos.
 
 ## <a name="commands"></a>Comandi:
 
-|Comando|Description|
+|Comando|Descrizione|
 | --- | --- |
 | get | Ottiene la pianificazione di Chaos che definisce quando e come eseguire Chaos. |
 | set | Imposta la pianificazione usata da Chaos. |
@@ -29,13 +29,13 @@ Ottiene la versione della pianificazione di Chaos in uso e la pianificazione di 
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -46,11 +46,11 @@ Ottiene la versione della pianificazione di Chaos in uso e la pianificazione di 
 ## <a name="sfctl-chaos-schedule-set"></a>sfctl chaos schedule set
 Imposta la pianificazione usata da Chaos.
 
-Chaos pianificherà automaticamente le esecuzioni in base alla pianificazione di Chaos. La pianificazione Chaos verrà aggiornata se la versione specificata corrisponde alla versione sul server. Quando si aggiorna la pianificazione Chaos, la versione sul server viene incrementata di 1. La versione sul server eseguirà il ritorno a 0 dopo il raggiungimento di un numero elevato. Se Chaos è in esecuzione quando viene effettuata la chiamata, la chiamata avrà esito negativo.
+Chaos pianificherà automaticamente le esecuzioni in base alla pianificazione di Chaos. La pianificazione del caos verrà aggiornata se la versione fornita corrisponde alla versione sul server. Quando si aggiorna la pianificazione del caos, la versione sul server viene incrementata di 1. La versione sul server verrà eseguito il wrapping a 0 dopo aver raggiunto un numero elevato. Se Chaos è in esecuzione quando viene effettuata la chiamata, la chiamata avrà esito negativo.
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --chaos-parameters-dictionary | Elenco con codifica JSON che rappresenta un mapping di nomi di stringa agli elementi ChaosParameter che devono essere usati dai processi. |
 | --expiry-date-utc | Data e ora in cui smettere di usare la pianificazione per pianificare Chaos.  Impostazione predefinita\: 9999-12-31T23\:59\:59.999Z. |
@@ -61,7 +61,7 @@ Chaos pianificherà automaticamente le esecuzioni in base alla pianificazione di
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |

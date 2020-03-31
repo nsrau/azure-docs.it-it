@@ -8,10 +8,10 @@ ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
 ms.openlocfilehash: 11a6debe735459b617f6f93c3f67a32350dd4623
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76549054"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(DEPRECATO) Pipeline CI/CD completa per distribuire un'applicazione multi-contenitore nel servizio Azure Container con Docker Swarm usando Azure DevOps Services
@@ -44,13 +44,13 @@ Prima di iniziare questa esercitazione, è necessario soddisfare i requisiti seg
 
 - [Creare un cluster Swarm nel servizio Azure Container](container-service-deployment.md)
 - [Connettersi a un cluster Swarm nel servizio Azure Container](../container-service-connect.md)
-- [Creare un Registro Azure Container](../../container-registry/container-registry-get-started-portal.md)
+- [Creare un registro contenitori di AzureCreate an Azure container registry](../../container-registry/container-registry-get-started-portal.md)
 - [Disporre di un'organizzazione di Azure DevOps Services e di un progetto creato](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 - [Creare una fork del repository GitHub nell'account GitHub](https://github.com/jcorioland/MyShop/)
 
 [!INCLUDE [container-service-swarm-mode-note](../../../includes/container-service-swarm-mode-note.md)]
 
-È inoltre necessario disporre di un computer Ubuntu (14.04 o 16.04) con Docker. Il computer viene usato da servizi Azure DevOps Services durante i processi Azure Pipelines. Un modo per creare questa macchina virtuale consiste nell'usare l'immagine disponibile in Azure Marketplace. 
+È inoltre necessario disporre di un computer Ubuntu (14.04 o 16.04) con Docker. Il computer viene usato da servizi Azure DevOps Services durante i processi Azure Pipelines. Un modo per creare questo computer consiste nell'usare l'immagine disponibile in Azure Marketplace. 
 
 ## <a name="step-1-configure-your-azure-devops-services-organization"></a>Passaggio 1: Configurare l'organizzazione di Azure DevOps Services 
 
@@ -80,7 +80,7 @@ Configurare una connessione tra il progetto di Azure DevOps Services e l'account
 
     ![Azure DevOps Services - Connessione esterna](./media/container-service-docker-swarm-setup-ci-cd/vsts-services-menu.png)
 
-1. A sinistra fare clic su **Nuovo endpoint del servizio** > **GitHub**.
+1. A sinistra, fai clic su **Nuovo endpoint** > del servizio**GitHub**.
 
     ![Azure DevOps Services - GitHub](./media/container-service-docker-swarm-setup-ci-cd/vsts-github.png)
 
@@ -147,7 +147,7 @@ Nei passaggi successivi viene definito il flusso di lavoro di compilazione. Esis
 
     ![Azure DevOps Services - Registro Docker](./media/container-service-docker-swarm-setup-ci-cd/vsts-docker-build.png)
 
-    Per l'operazione di compilazione, selezionare il Registro Azure Container, l'azione **Build an image** (Compila un'immagine) e il file Docker che definisce ogni immagine. Impostare **Build context** (Contesto compilazione) come directory radice del file Docker e definire **Nome immagine**. 
+    Per l'operazione di compilazione, selezionare il registro contenitori di Azure, l'azione **Crea un'immagine** e Dockerfile che definisce ogni immagine. Impostare **Build context** (Contesto compilazione) come directory radice del file Docker e definire **Nome immagine**. 
     
     Come mostrato nella schermata precedente, il nome dell'immagine deve iniziare con l'URI del Registro Azure Container. È anche possibile usare una variabile di compilazione per assegnare parametri al tag dell'immagine, in questo esempio l'identificatore di compilazione.
 
@@ -159,7 +159,7 @@ Nei passaggi successivi viene definito il flusso di lavoro di compilazione. Esis
 
 1. Dopo aver configurato i passaggi di compilazione e push per ognuna delle cinque immagini, aggiungere altri due passaggi nel flusso di lavoro di compilazione.
 
-    a. Un'attività della riga di comando che usa uno script bash per sostituire l'occorrenza di *BuildNumber* nel file Docker-compose. yml con l'ID di compilazione corrente. Per informazioni dettagliate, vedere la schermata seguente.
+    a. Attività della riga di comando che utilizza uno script bash per sostituire l'occorrenza di *BuildNumber* nel file docker-compose.yml con l'ID di compilazione corrente. Vedere la schermata seguente per i dettagli.
 
     ![Azure DevOps Services- Aggiornamento del file Compose](./media/container-service-docker-swarm-setup-ci-cd/vsts-build-replace-build-number.png)
 
@@ -177,9 +177,9 @@ Servizi di Azure DevOps consente di [gestire le versioni in vari ambienti](https
 
 ### <a name="initial-release-setup"></a>Configurazione iniziale del rilascio
 
-1. Per creare una pipeline di versione, fare clic su **Rilascio** >  **+ Rilascio**
+1. Per creare una pipeline di rilascio, fare clic su **Rilasci** > **e rilascio**
 
-1. Per configurare l'origine dell'elemento, fare clic su **Elementi** > **Collega un'origine elemento**. In questo caso, è possibile collegare questa nuova pipeline di versione alla compilazione definita nel passaggio precedente. In questo modo, il file docker-compose.yml è disponibile nel processo di rilascio.
+1. Per configurare l'origine dell'elemento, fare clic su **Collegamento elementi** > **a un'origine artefatto**. In questo caso, è possibile collegare questa nuova pipeline di versione alla compilazione definita nel passaggio precedente. In questo modo, il file docker-compose.yml è disponibile nel processo di rilascio.
 
     ![Azure DevOps Services - Rilascio di artefatti](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-artefacts.png) 
 
@@ -220,6 +220,6 @@ Il flusso di lavoro di rilascio è composto da due attività che vengono aggiunt
 
 Dopo aver completato la configurazione, è il momento di testare la nuova pipeline CI/CD. Il modo più semplice per eseguire il test consiste nell'aggiornare il codice sorgente ed eseguire il commit delle modifiche nel repository GitHub. Pochi secondi dopo aver effettuato il push del codice, verrà visualizzata una nuova compilazione in esecuzione in Azure DevOps Services. Dopo il suo completamento, verrà attivato un nuovo rilascio, che distribuirà la nuova versione dell'applicazione nel cluster del servizio Azure Container.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
-* Per ulteriori informazioni su CI/CD con Azure DevOps Services, vedere l'articolo della [documentazione Azure Pipelines](/azure/devops/pipelines/?view=azure-devops) .
+* Per altre informazioni su CI/CD con i servizi DevOps di Azure, vedere l'articolo Documentazione sulle pipeline di Azure.For more information about CI/CD with Azure DevOps Services, see the [Azure Pipelines Documentation](/azure/devops/pipelines/?view=azure-devops) article.

@@ -1,6 +1,6 @@
 ---
-title: Aggiungere un'entità di database per Esplora dati di Azure usando un modello di Azure Resource Manager
-description: Questo articolo illustra come aggiungere entità di database per Esplora dati di Azure usando un modello di Azure Resource Manager.
+title: Aggiungere un'entità di database per Azure Data Explorer usando un modello di Azure Resource ManagerAdd database principal for Azure Data Explorer by using an Azure Resource Manager template
+description: In questo articolo viene illustrato come aggiungere entità di database per Azure Data Explorer usando un modello di Azure Resource Manager.In this article, you learn how to add database principals for Azure Data Explorer by using an Azure Resource Manager template.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -8,29 +8,29 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.openlocfilehash: 80fcf4b6c5d64dde7bd1c5475fb6a3dbafd7f907
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76965112"
 ---
-# <a name="add-database-principals-for-azure-data-explorer-by-using-an-azure-resource-manager-template"></a>Aggiungere entità di database per Esplora dati di Azure tramite un modello di Azure Resource Manager
+# <a name="add-database-principals-for-azure-data-explorer-by-using-an-azure-resource-manager-template"></a>Aggiungere entità di database per Azure Data Explorer usando un modello di Azure Resource ManagerAdd database principals for Azure Data Explorer by using an Azure Resource Manager template
 
 > [!div class="op_single_selector"]
-> * [C#](database-principal-csharp.md)
+> * [C #](database-principal-csharp.md)
 > * [Python](database-principal-python.md)
-> * [Modello di Azure Resource Manager](database-principal-resource-manager.md)
+> * [Modello di Azure Resource ManagerAzure Resource Manager template](database-principal-resource-manager.md)
 
-Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. In questo articolo si aggiungono entità di database per Esplora dati di Azure usando un modello di Azure Resource Manager.
+Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. In questo articolo si aggiungono le entità di database per Azure Data Explorer usando un modello di Azure Resource Manager.In this article, you add database principals for Azure Data Explorer by using an Azure Resource Manager template.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* Creare [un cluster e un database](create-cluster-database-portal.md)
+* Creare [un cluster e un databaseCreate a cluster and database](create-cluster-database-portal.md)
 
-## <a name="azure-resource-manager-template-for-adding-a-database-principal"></a>Modello di Azure Resource Manager per l'aggiunta di un'entità di database
+## <a name="azure-resource-manager-template-for-adding-a-database-principal"></a>Modello di Azure Resource Manager per l'aggiunta di un'entità di databaseAzure Resource Manager template for adding a database principal
 
-Nell'esempio seguente viene illustrato un modello di Azure Resource Manager per l'aggiunta di un'entità di database.  È possibile [modificare e distribuire il modello nel portale di Azure](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) usando il modulo.
+L'esempio seguente mostra un modello di Azure Resource Manager per l'aggiunta di un'entità di database.  È possibile [modificare e distribuire il modello nel portale](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) di Azure usando il modulo.
 
 ```json
 {

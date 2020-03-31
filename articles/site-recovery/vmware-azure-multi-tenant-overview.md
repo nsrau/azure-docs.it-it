@@ -1,5 +1,5 @@
 ---
-title: Ripristino di emergenza multi-tenant di macchine virtuali VMware con Azure Site Recovery
+title: Ripristino di emergenza multi-tenant della macchina virtuale VMware con Azure Site Recovery
 description: Offre una panoramica del supporto di Azure Site Recovery per il ripristino di emergenza di VMware in un programma CSP per ambiente multi-tenant.
 author: mayurigupta13
 manager: rochakm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 840049265d3b6e4d2fddd794646bfd5691aab9a1
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74083997"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Panoramica del supporto multi-tenant per il ripristino di emergenza da VMware ad Azure con CSP
@@ -76,10 +76,10 @@ Configurare il server di configurazione con un account a cui sia assegnato un ru
 2. Assegnare al ruolo le autorizzazioni seguenti:
 
    * **Datastore** (Archivio dati): Allocate space (Alloca spazio), Browse datastore (Sfoglia archivio dati), Low level file operations (Operazioni file di livello basso), Remove file (Rimuovi file), Update virtual machine files (Aggiorna file macchina virtuale)
-   * **Network** (Rete): Network assign (Assegnazione rete)
+   * **Rete**: Assegnazione di rete
    * **Resource** (Risorsa): Assign VM to resource pool (Assegna macchina virtuale a pool di risorse), Migrate powered off VM (Esegui migrazione macchina virtuale spenta), Migrate powered on VM (Esegui migrazione macchina virtuale accesa)
-   * **Tasks** (Attività): Create task (Crea attività), Update task (Aggiorna attività)
-   * **VM - Configuration (Configurazione)** : All (Tutto)
+   * **Attività**: Crea attività, Aggiorna attività
+   * **VM - Configuration (Configurazione)**: All (Tutto)
    * **VM - Interaction (Interazione)** > Answer question (Rispondi alla domanda), Device connection (Connessione dispositivo), Configure CD media (Configura supporto CD), Configure floppy media (Configura supporto floppy), Power off (Spegni), Power on (Accendi), VMware tools install (Installazione strumenti VMware)
    * **VM - Inventory (Inventario)** > Create from existing (Crea da esistente), Create new (Crea nuovo), Register (Registra), Unregister (Annulla registrazione)
    * **VM - Provisioning** > Allow virtual machine download (Consenti download macchina virtuale), Allow virtual machine files upload (Consenti upload file macchina virtuale)
@@ -89,13 +89,13 @@ Configurare il server di configurazione con un account a cui sia assegnato un ru
 
 3. Assegnare i livelli di accesso all'account vCenter (usato nel server di configurazione del tenant) per diversi oggetti, come segue:
 
->| Object | Ruolo | Osservazioni |
+>| Oggetto | Ruolo | Osservazioni |
 >| --- | --- | --- |
 >| vCenter | Read-Only | Necessario solo per consentire l'accesso a vCenter per la gestione di oggetti diversi. Questa autorizzazione può essere rimossa se l'account non dovrà mai essere offerto a un tenant o usato per operazioni di gestione in vCenter. |
 >| Data center | Azure_Site_Recovery |  |
 >| Host e cluster host | Azure_Site_Recovery | Assicura nuovamente che l'accesso sia a livello di oggetto, in modo che solo gli host accessibili abbiano VM tenant prima del failover e dopo il failback. |
 >| Archivio dati e cluster archivio dati | Azure_Site_Recovery | Come sopra. |
->| Network | Azure_Site_Recovery |  |
+>| Rete | Azure_Site_Recovery |  |
 >| Server di gestione | Azure_Site_Recovery | Include l'accesso a tutti i componenti, CS, PS e MT, al di fuori della macchina CS. |
 >| Macchine virtuali tenant | Azure_Site_Recovery | Assicura che anche le eventuali nuove macchine virtuali tenant di un particolare tenant abbiano questo accesso, altrimenti non potranno essere rilevate attraverso il Portale di Azure. |
 
@@ -120,7 +120,7 @@ Per limitare le operazioni di ripristino di emergenza fino al solo failover (val
 
 1. Passare al portale di Azure e nell'insieme di credenziali creato in precedenza registrare il server vCenter nel server di configurazione usando l'account vCenter creato.
 2. Completare il processo di preparazione dell'infrastruttura per Site Recovery seguendo la procedura consueta.
-3. Le macchine virtuali sono ora pronte per essere replicate. Verificare che in **Replica** > **Seleziona macchine virtuali** siano visualizzate solo le VM del tenant.
+3. Le macchine virtuali sono ora pronte per essere replicate. Verificare che in **Replica selezione** > **macchine virtuali**vengano visualizzate solo le macchine virtuali del tenant .
 
 ## <a name="dedicated-hosting-solution"></a>Soluzione di hosting dedicato
 

@@ -1,5 +1,5 @@
 ---
-title: Copiare un BLOB con .NET-archiviazione di Azure
+title: Copiare un BLOB con .NET - Archiviazione di AzureCopy a blob with .NET - Azure Storage
 description: Informazioni su come copiare un BLOB nell'account di archiviazione di Azure usando la libreria client .NET.
 services: storage
 author: mhopkins-msft
@@ -9,46 +9,46 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: 9ffa69980f020580376aea447f40ac615f26cf03
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79135888"
 ---
-# <a name="copy-a-blob-with-net"></a>Copiare un BLOB con .NET
+# <a name="copy-a-blob-with-net"></a>Copiare un BLOB con .NETCopy a blob with .NET
 
-Questo articolo illustra come copiare un BLOB con un account di archiviazione di Azure. Viene inoltre illustrato come interrompere un'operazione di copia asincrona. Il codice di esempio usa la [libreria client di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+Questo articolo illustra come copiare un BLOB con un account di archiviazione di Azure.This article demonstrates how to copy a blob with an Azure Storage account. Viene inoltre illustrato come interrompere un'operazione di copia asincrona. Il codice di esempio usa la [libreria client di Archiviazione di Azure per .NET.](/dotnet/api/overview/azure/storage?view=azure-dotnet)
 
 ## <a name="about-copying-blobs"></a>Informazioni sulla copia di BLOB
 
-Quando si copia un BLOB nello stesso account di archiviazione, si tratta di un'operazione sincrona. Quando si esegue la copia tra gli account, si tratta di un'operazione asincrona. I metodi [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) e [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) restituiscono un valore ID di copia usato per controllare lo stato o per interrompere l'operazione di copia.
+Quando si copia un BLOB all'interno dello stesso account di archiviazione, si tratta di un'operazione sincrona. Quando si copiano tra account è un'operazione asincrona. I metodi [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) e [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) restituiscono un valore ID di copia utilizzato per controllare lo stato o interrompere l'operazione di copia.
 
-Il BLOB di origine per un'operazione di copia può essere un BLOB in blocchi, un BLOB di Accodamento, un BLOB di pagine o uno snapshot. Se il Blob di destinazione esiste già, deve essere dello stesso tipo del Blob di origine. Eventuali Blob di destinazione esistenti verranno sovrascritti. 
+Il BLOB di origine per un'operazione di copia può essere un BLOB in blocchi, un BLOB di accodamento, un BLOB di pagine o uno snapshot. Se il Blob di destinazione esiste già, deve essere dello stesso tipo del Blob di origine. Eventuali Blob di destinazione esistenti verranno sovrascritti. 
 
-Non è possibile modificare il BLOB di destinazione mentre è in corso un'operazione di copia. A un Blob di destinazione può corrispondere una sola operazione di copia Blob in attesa. In altre parole, un BLOB non può essere la destinazione di più operazioni di copia in sospeso.
+Il BLOB di destinazione non può essere modificato mentre è in corso un'operazione di copia. A un Blob di destinazione può corrispondere una sola operazione di copia Blob in attesa. In altre parole, un BLOB non può essere la destinazione per più operazioni di copia in sospeso.
 
-L'intero BLOB o file di origine viene sempre copiato. La copia di un intervallo di byte o di un set di blocchi non è supportata.
+Viene sempre copiato l'intero BLOB o file di origine. La copia di un intervallo di byte o di un set di blocchi non è supportata.
 
-Quando viene copiato un BLOB, le proprietà di sistema vengono copiate nel BLOB di destinazione con gli stessi valori.
+Quando un BLOB viene copiato, le proprietà di sistema vengono copiate nel BLOB di destinazione con gli stessi valori.
 
-Per tutti i tipi di BLOB, è possibile controllare la proprietà [CopyState. status](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet) nel BLOB di destinazione per ottenere lo stato dell'operazione di copia. Al termine della copia, verrà eseguito il commit del Blob finale.
+Per tutti i tipi di BLOB, è possibile controllare la proprietà [CopyState.Status](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet) nel BLOB di destinazione per ottenere lo stato dell'operazione di copia. Al termine della copia, verrà eseguito il commit del Blob finale.
 
 Un'operazione di copia può assumere uno dei seguenti formati:
 
-  - È possibile copiare un Blob di origine in un Blob di destinazione con un nome diverso. Il BLOB di destinazione può essere un BLOB esistente dello stesso tipo di BLOB (blocco, Accodamento o pagina) oppure può essere un nuovo blob creato dall'operazione di copia.
-  - È possibile copiare un BLOB di origine in un BLOB di destinazione con lo stesso nome, sostituendo in modo efficace il BLOB di destinazione. Tale operazione di copia rimuove tutti i blocchi di cui non è stato eseguito il commit e sovrascrive i metadati del BLOB di destinazione.
-  - È possibile copiare un file di origine nel servizio file di Azure in un BLOB di destinazione. Il BLOB di destinazione può essere un BLOB in blocchi esistente oppure può essere un nuovo BLOB in blocchi creato dall'operazione di copia. La copia da file a BLOB di pagine o BLOB di Accodamento non è supportata.
+  - È possibile copiare un Blob di origine in un Blob di destinazione con un nome diverso. Il BLOB di destinazione può essere un BLOB esistente dello stesso tipo di BLOB (blocco, aggiunta o pagina) o può essere un nuovo BLOB creato dall'operazione di copia.
+  - È possibile copiare un BLOB di origine in un BLOB di destinazione con lo stesso nome, sostituendo in modo efficace il BLOB di destinazione. Un'operazione di copia di questo tipo rimuove tutti i blocchi di cui non è stato eseguito il commit e sovrascrive i metadati del BLOB di destinazione.
+  - È possibile copiare un file di origine nel servizio File di Azure in un BLOB di destinazione. Il BLOB di destinazione può essere un BLOB in blocchi esistente o un nuovo BLOB in blocchi creato dall'operazione di copia. La copia da file ai BLOB di pagine o all'aggiunta di BLOB non è supportata.
   - È possibile copiare uno snapshot sul relativo BLOB di base. Promuovendo uno snapshot alla posizione del BLOB di base, è possibile ripristinare la versione precedente di un BLOB.
   - È possibile copiare uno snapshot in un BLOB di destinazione con un nome diverso. Il BLOB di destinazione risultante è un BLOB scrivibile, non uno snapshot.
 
-## <a name="copy-a-blob"></a>Copiare un BLOB
+## <a name="copy-a-blob"></a>Copiare un BLOBCopy a blob
 
-Per copiare un BLOB, chiamare uno dei metodi seguenti:
+Per copiare un BLOB, chiamare uno dei metodi seguenti:To copy a blob, call one of the following methods:
 
- - [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet)
+ - [StartCopy (Copia inizio)](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet)
  - [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet)
 
-L'esempio di codice seguente ottiene un riferimento a un blob creato in precedenza e lo copia in un nuovo BLOB nello stesso contenitore:
+L'esempio di codice seguente ottiene un riferimento a un BLOB creato in precedenza e lo copia in un nuovo BLOB nello stesso contenitore:The following code example gets a reference to a blob created previously and copies it to a new blob in the same container:
 
 ```csharp
 private static async Task CopyBlockBlobAsync(CloudBlobContainer container)
@@ -107,13 +107,13 @@ private static async Task CopyBlockBlobAsync(CloudBlobContainer container)
 }
 ```
 
-## <a name="abort-a-blob-copy-operation"></a>Interrompi un'operazione di copia BLOB
+## <a name="abort-a-blob-copy-operation"></a>Interrompere un'operazione di copia BLOBAbort a blob copy operation
 
-L'interruzione di un'operazione di copia comporta un BLOB di destinazione di lunghezza zero per i BLOB in blocchi, i BLOB di Accodamento e i BLOB di pagine. Tuttavia, i metadati per il BLOB di destinazione avranno i nuovi valori copiati dal BLOB di origine o impostati in modo esplicito nella chiamata a [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) o [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) . Per preservare i metadati originali prima della copia, creare uno snapshot del BLOB di destinazione prima di chiamare `StartCopy` o `StartCopyAsync`.
+L'interruzione di un'operazione di copia genera un BLOB di destinazione di lunghezza zero per i BLOB di blocchi, l'aggiunta di BLOB e i BLOB di pagine. Tuttavia, i metadati per il BLOB di destinazione avranno i nuovi valori copiati dal BLOB di origine o impostati in modo esplicito nella chiamata StartCopy o StartCopyAsync.However, the metadata for the destination blob will have the new values copied from the source blob or set explicitly in the [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) or [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) call. Per mantenere i metadati originali precedenti alla copia, creare `StartCopy` `StartCopyAsync`uno snapshot del BLOB di destinazione prima di chiamare o .
 
-Quando si interrompe un'operazione di copia BLOB in corso, [CopyState. status](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet#Microsoft_Azure_Storage_Blob_CopyState_Status) del BLOB di destinazione è impostato su [CopyStatus. Aborted](/dotnet/api/microsoft.azure.storage.blob.copystatus?view=azure-dotnet).
+Quando si interrompe un'operazione di copia BLOB in corso, [CopyState.Status](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet#Microsoft_Azure_Storage_Blob_CopyState_Status) del BLOB di destinazione viene impostato su [CopyStatus.Aborted](/dotnet/api/microsoft.azure.storage.blob.copystatus?view=azure-dotnet).
 
-I metodi [AbortCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopy?view=azure-dotnet) e [AbortCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopyasync?view=azure-dotnet) annullano un'operazione di copia BLOB in corso e lasciano un BLOB di destinazione con lunghezza zero e metadati completi.
+I metodi [AbortCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopy?view=azure-dotnet) e [AbortCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopyasync?view=azure-dotnet) annullano un'operazione di copia del BLOB in corso e lasciano un BLOB di destinazione con lunghezza zero e metadati completi.
 
 ```csharp
 // Fetch the destination blob's properties before checking the copy state.
@@ -131,7 +131,7 @@ if (destBlob.CopyState.Status == CopyStatus.Pending)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Gli argomenti seguenti contengono informazioni sulla copia di BLOB e l'interruzione delle operazioni di copia in corso usando le API REST di Azure.
+The following topics contain information about copying blobs and aborting ongoing copy operations by using the Azure REST APIs.
 
 - [Copy Blob](/rest/api/storageservices/copy-blob)
-- [Interrompi copia BLOB](/rest/api/storageservices/abort-copy-blob)
+- [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob)

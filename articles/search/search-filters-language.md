@@ -1,7 +1,7 @@
 ---
-title: Filtra per lingua in un indice di ricerca
+title: Filtrare in base alla lingua in un indice di ricerca
 titleSuffix: Azure Cognitive Search
-description: Criteri di filtro per supportare la ricerca in più lingue, l'ambito dell'esecuzione di query in campi specifici della lingua.
+description: Criteri di filtro per supportare la ricerca in più lingue, l'ambito dell'esecuzione delle query a campi specifici del linguaggio.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,28 +9,28 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 5dbf32610e54df4ff009d4cb0a0b080babb4ec73
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74112056"
 ---
-# <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Come filtrare in base alla lingua in Azure ricerca cognitiva 
+# <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Come filtrare in base alla lingua in Ricerca cognitiva di AzureHow to filter by language in Azure Cognitive Search 
 
-Il requisito principale in un'applicazione di ricerca multilingue è la possibilità di eseguire la ricerca e recuperare i risultati nella lingua dell'utente. In Azure ricerca cognitiva, un modo per soddisfare i requisiti della lingua di un'app multilingue consiste nel creare una serie di campi dedicati all'archiviazione di stringhe in una lingua specifica e quindi limitare la ricerca full-text solo a questi campi in fase di query.
+Il requisito principale in un'applicazione di ricerca multilingue è la possibilità di eseguire la ricerca e recuperare i risultati nella lingua dell'utente. In Ricerca cognitiva di Azure un modo per soddisfare i requisiti linguistici di un'app multilingue consiste nel creare una serie di campi dedicati all'archiviazione di stringhe in una lingua specifica e quindi vincolare la ricerca full-text solo a tali campi in fase di query.
 
 I parametri di query nella richiesta vengono usati sia per definire l'ambito dell'operazione di ricerca sia per ridurre quindi i risultati di tutti i campi che non forniscono contenuto compatibile con l'esperienza di ricerca che si vuole offrire.
 
-| parametri | Scopo |
+| Parametri | Scopo |
 |-----------|--------------|
 | **searchFields** | Limita la ricerca full-text all'elenco dei campi denominati. |
 | **$select** | Riduce la risposta in modo da includere solo i campi specificati. Per impostazione predefinita, vengono restituiti tutti i campi recuperabili. Il parametro **$select** permette di scegliere quali restituire. |
 
-Il successo di questa tecnica si basa sull'integrità del contenuto dei campi. Azure ricerca cognitiva non converte le stringhe o esegue il rilevamento della lingua. È responsabilità dell'utente assicurarsi che i campi contengano le stringhe previste.
+Il successo di questa tecnica si basa sull'integrità del contenuto dei campi. Ricerca cognitiva di Azure non traduce stringhe né esegue il rilevamento della lingua. È responsabilità dell'utente assicurarsi che i campi contengano le stringhe previste.
 
 ## <a name="define-fields-for-content-in-different-languages"></a>Definire i campi per il contenuto in lingue diverse
 
-In ricerca cognitiva di Azure le query sono destinate a un singolo indice. Gli sviluppatori che vogliono fornire stringhe specifiche della lingua in un'unica esperienza di ricerca in genere definiscono campi dedicati per l'archiviazione dei valori: un campo per le stringhe in inglese, uno per il francese e così via. 
+In Ricerca cognitiva di Azure le query hanno come destinazione un singolo indice. Gli sviluppatori che vogliono fornire stringhe specifiche della lingua in un'unica esperienza di ricerca in genere definiscono campi dedicati per l'archiviazione dei valori: un campo per le stringhe in inglese, uno per il francese e così via. 
 
 Negli esempi, incluso l'[esempio sui dati immobiliari](search-get-started-portal.md) mostrato di seguito, possono essere state osservate definizioni di campo simili allo screenshot seguente. Notare come questo esempio mostri le assegnazioni dell'analizzatore di lingua per i campi nell'indice. I campi che contengono stringhe hanno prestazioni migliori nella ricerca full-text se associati a un analizzatore progettato per gestire le regole linguistiche della lingua di destinazione.
 
@@ -62,8 +62,8 @@ parameters =
 
 ## <a name="see-also"></a>Vedere anche
 
-+ [Filtri in ricerca cognitiva di Azure](search-filters.md)
++ [Filtri in Ricerca cognitiva di AzureFilters in Azure Cognitive Search](search-filters.md)
 + [Analizzatori di linguaggi](https://docs.microsoft.com/rest/api/searchservice/language-support)
-+ [Funzionamento della ricerca full-text in Azure ricerca cognitiva](search-lucene-query-architecture.md)
++ [Funzionamento della ricerca full-text in Ricerca cognitiva di Azure](search-lucene-query-architecture.md)
 + [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (API REST di Ricerca di documenti)
 

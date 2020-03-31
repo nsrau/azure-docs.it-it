@@ -1,6 +1,6 @@
 ---
-title: Network Watcher creare log di flusso NSG usando un modello di Azure Resource Manager
-description: Usare un modello di Azure Resource Manager e PowerShell per configurare facilmente i log di flusso NSG.
+title: Network Watcher - Creare log di flusso del gruppo di sicurezza di rete usando un modello di Azure Resource ManagerNetwork Watcher - Create NSG flow logs using an Azure Resource Manager template
+description: Usare un modello di Azure Resource Manager e PowerShell per configurare facilmente i log di flusso del gruppo di sicurezza di rete.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -15,31 +15,31 @@ ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
 ms.openlocfilehash: 35d185a625a81a259c366a45999769ecf76c6a7d
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77538159"
 ---
-# <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Configurare i log di flusso NSG da un modello di Azure Resource Manager
+# <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Configurare i log di flusso del gruppo di sicurezza di rete da un modello di Azure Resource ManagerConfigure NSG Flow Logs from an Azure Resource Manager template
 
 > [!div class="op_single_selector"]
-> - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
-> - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-> - [Interfaccia della riga di comando di Azure](network-watcher-nsg-flow-logging-cli.md)
+> - [Portale di Azure](network-watcher-nsg-flow-logging-portal.md)
+> - [Powershell](network-watcher-nsg-flow-logging-powershell.md)
+> - [Interfaccia della riga di comando di AzureAzure](network-watcher-nsg-flow-logging-cli.md)
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 
-[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) è il modo nativo e potente di Azure per gestire l' [infrastruttura come codice](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code).
+[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) è il modo nativo ed efficace di Azure per gestire [l'infrastruttura come codice.](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code)
 
-Questo articolo illustra come abilitare i [log di flusso NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) a livello di codice usando un modello di Azure Resource Manager e Azure PowerShell. Per iniziare, è necessario fornire una panoramica delle proprietà dell'oggetto log del flusso NSG, seguito da alcuni modelli di esempio. Quindi il modello di distribuzione viene usato con un'istanza di PowerShell locale.
+Questo articolo illustra come abilitare i log di flusso del gruppo di sicurezza di rete a livello di codice usando un modello di Azure Resource Manager e Azure PowerShell.This article shows how to enable [NSG Flow Logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) programmatically using an Azure Resource Manager template and Azure PowerShell. Iniziamo fornendo una panoramica delle proprietà dell'oggetto Registro di flusso del gruppo di sicurezza di gruppo, seguito da alcuni modelli di esempio. Quindi distribuire il modello utilizzando un'istanza di PowerShell locale.
 
 
-## <a name="nsg-flow-logs-object"></a>Oggetto log del flusso NSG
+## <a name="nsg-flow-logs-object"></a>Oggetto Registri di flusso del gruppo di sicurezza di rete
 
-L'oggetto log del flusso NSG con tutti i parametri è illustrato di seguito.
-Per una panoramica completa delle proprietà, è possibile leggere il [riferimento al modello dei log di flusso NSG](https://docs.microsoft.com/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters).
+L'oggetto Registri di flusso del gruppo di sicurezza di rete con tutti i parametri è illustrato di seguito.
+Per una panoramica completa delle proprietà, è possibile leggere il riferimento al [modello Registri di flusso del gruppo](https://docs.microsoft.com/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters)di sicurezza di rete .
 
 ```json
 {
@@ -69,7 +69,7 @@ Per una panoramica completa delle proprietà, è possibile leggere il [riferimen
     }
   }
 ```
-Per creare una risorsa Microsoft. Network/networkWatchers/dashboard, aggiungere il codice JSON precedente alla sezione Resources del modello.
+Per creare una risorsa Microsoft.Network/networkWatchers/flowLogs, aggiungere il codice JSON precedente alla sezione resources del modello.
 
 
 ## <a name="creating-your-template"></a>Creazione del modello
@@ -77,12 +77,12 @@ Per creare una risorsa Microsoft. Network/networkWatchers/dashboard, aggiungere 
 Se si usano i modelli di Azure Resource Manager per la prima volta, è possibile ottenere altre informazioni usando i collegamenti seguenti.
 
 * [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell#deploy-local-template)
-* [Esercitazione: creare e distribuire il primo modello di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell)
+* [Esercitazione: Creare e distribuire il primo modello di Azure Resource ManagerTutorial: Create and deploy your first Azure Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell)
 
 
-Di seguito sono riportati due esempi di modelli completi per configurare i log di flusso NSG.
+Di seguito sono riportati due esempi di modelli completi per impostare i registri di flusso del gruppo di sicurezza di rete.
 
-**Esempio 1**: la versione più semplice del precedente con i parametri minimi passati. Il modello seguente Abilita i log dei flussi di NSG in un NSG di destinazione e li archivia in un determinato account di archiviazione.
+**Esempio 1**: La versione più semplice di quanto sopra con parametri minimi passati. Il modello seguente abilita i registri di flusso del gruppo di sicurezza di rete in un gruppo di sicurezza di rete di destinazione e li archivia in un determinato account di archiviazione.
 
 ```json
 {
@@ -110,11 +110,11 @@ Di seguito sono riportati due esempi di modelli completi per configurare i log d
 ```
 
 > [!NOTE]
-> * Il nome della risorsa ha il formato "risorsa padre > risorsa/Child". In questo caso, la risorsa padre è l'istanza di Network Watcher regionale (Format: NetworkWatcher_<RegionName>. Esempio: NetworkWatcher_centraluseuap)
-> * targetResourceId è l'ID risorsa del NSG di destinazione
+> * Il nome della risorsa ha il formato "Risorsa padre>/Risorsa figlio". In questo caso, la risorsa padre è<RegionName>l'istanza di Network Watcher regionale (Format: NetworkWatcher_ . Esempio: NetworkWatcher_centraluseuap)
+> * targetResourceId è l'ID risorsa del gruppo di sicurezza di sicurezza di gruppo di destinazione
 > * storageId è l'ID risorsa dell'account di archiviazione di destinazione
 
-**Esempio 2**: i modelli seguenti abilitano i log di flusso NSG (versione 2) con un periodo di conservazione per 5 giorni. Abilitazione di Analisi del traffico con un intervallo di elaborazione di 10 minuti.
+**Esempio 2:** i modelli seguenti che abilitano i registri di flusso del gruppo di sicurezza di rete (versione 2) con una conservazione per 5 giorni. Abilitazione di Analisi del traffico con un intervallo di elaborazione di 10 minuti.
 
 ```json
 {
@@ -153,12 +153,12 @@ Di seguito sono riportati due esempi di modelli completi per configurare i log d
 }
 ```
 
-## <a name="deploying-your-azure-resource-manager-template"></a>Distribuzione del modello di Azure Resource Manager
+## <a name="deploying-your-azure-resource-manager-template"></a>Distribuzione del modello di Azure Resource ManagerDeploying your Azure Resource Manager template
 
-Questa esercitazione presuppone che si disponga di un gruppo di risorse esistente e di un NSG è possibile abilitare la registrazione del flusso.
-È possibile salvare i modelli di esempio precedenti in locale come `azuredeploy.json`. Aggiornare i valori delle proprietà in modo che puntino a risorse valide nella sottoscrizione.
+Questa esercitazione presuppone che si disponga di un gruppo di risorse esistente e di un gruppo di sicurezza di rete che è possibile abilitare l'accesso al flusso.
+È possibile salvare uno qualsiasi dei `azuredeploy.json`modelli di esempio precedenti localmente come . Aggiornare i valori delle proprietà in modo che puntino a risorse valide nella sottoscrizione.
 
-Per distribuire il modello, eseguire il comando seguente in PowerShell.
+Per distribuire il modello, eseguire il comando seguente in PowerShell.To deploy the template, run the following command in PowerShell.
 ```azurepowershell
 New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatcherRG `
     -TemplateFile "C:\MyTemplates\azuredeploy.json"
@@ -167,12 +167,12 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 
 ## <a name="verifying-your-deployment"></a>Verifica della distribuzione
 
-Esistono due modi per verificare se la distribuzione ha avuto esito positivo. Nella console di PowerShell verrà visualizzato "ProvisioningState" come "succeeded". È anche possibile visitare la [pagina del portale dei log di flusso di NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) per confermare le modifiche. Se si sono verificati problemi con la distribuzione, vedere [risolvere gli errori comuni di distribuzione di Azure con Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors).
+Esistono un paio di modi per verificare se la distribuzione è riuscita. La console di PowerShell dovrebbe visualizzare "ProvisioningState" come "Succeeded". Inoltre, è possibile visitare la pagina del [portale Registri di flusso del gruppo](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) di sicurezza di rete per confermare le modifiche. Se si sono verificati problemi con la distribuzione, vedere Risolvere gli errori comuni di distribuzione di [Azure con Azure Resource Manager.](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors)
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come visualizzare i dati del flusso NSG usando:
+Scopri come visualizzare i dati del flusso NSG usando:
 * [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 * [Strumenti open source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
-* [Analisi del traffico di Azure](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [Analisi del traffico di AzureAzure Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
