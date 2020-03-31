@@ -1,5 +1,5 @@
 ---
-title: Esempio di app multi-tenant-SaaS Wingtip
+title: Esempio di app multi-tenant - Wingtip SaaS
 description: Illustra i passaggi e il materiale sussidiario per l'installazione e l'esecuzione dell'applicazione multi-tenant di esempio che usa Database SQL di Azure, nell'esempio Wingtip Tickets SaaS.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 162d1f269c65ad98afa30e8e96370bbdceca99bd
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74132288"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Linee guida generali per l'uso delle app SaaS di esempio Wingtip Tickets
@@ -24,7 +24,7 @@ Questo articolo contiene indicazioni generali per l'esecuzione di applicazioni S
 
 ## <a name="download-and-unblock-the-wingtip-tickets-saas-scripts"></a>Scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets
 
-I contenuti eseguibili (script, DLL) possono venire bloccati da Windows quando i file ZIP vengono scaricati da un'origine esterna ed estratti. Quando si estraggono gli script da un file ZIP, **seguire questa procedura per sbloccare il file ZIP prima di estrarlo**. In questo modo sarà possibile eseguire gli script.
+I contenuti eseguibili (script, DLL) possono essere bloccati da Windows quando si scaricano e si estraggono i file ZIP da un'origine esterna. Quando si estraggono gli script da un file ZIP, **seguire questa procedura per sbloccare il file ZIP prima di estrarlo**. In questo modo sarà possibile eseguire gli script.
 
 1. Passare al repository GitHub SaaS Wingtip Tickets per il modello di tenancy del database che si desidera esplorare:
     - [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
@@ -37,7 +37,7 @@ I contenuti eseguibili (script, DLL) possono venire bloccati da Windows quando i
 6. Fare clic su **OK**.
 7. Estrarre i file.
 
-Gli script si trovano nella cartella *..\\Learning Modules*.
+Gli script si trovano nel *percorso .. \\* nella cartella Moduli di apprendimento.
 
 
 ## <a name="working-with-the-wingtip-tickets-powershell-scripts"></a>Uso degli script di PowerShell per Wingtip Tickets
@@ -56,7 +56,7 @@ Impostando qui questi valori specifici della distribuzione, non sarà necessario
 
 ### <a name="execute-the-scripts-by-pressing-f5"></a>Eseguire gli script premendo F5
 
-Vari script usano *$PSScriptRoot* per esplorare le cartelle e *$PSScriptRoot* viene valutato solo quando gli script vengono eseguiti premendo **F5**.  L'evidenziazione e l'esecuzione di una selezione (**F8**) può causare errori, quindi premere **F5** durante l'esecuzione degli script.
+Vari script usano *$PSScriptRoot* per esplorare le cartelle e *$PSScriptRoot* viene valutato solo quando gli script vengono eseguiti premendo **F5**.L'evidenziazione e l'esecuzione di una selezione (**F8**) può causare errori, quindi premere **F5** per l'esecuzione di script.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>Eseguire gli script un'istruzione alla volta per esaminare l'implementazione
 
@@ -78,9 +78,9 @@ Usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/
 
 La distribuzione dispone inizialmente di tenant e di server di database SQL del catalogo a cui connettersi. La denominazione dei server varia a seconda del modello tenancy di database (vedere di seguito per le specifiche).
 
-   - **Applicazione autonoma:** server per ogni tenant (ad esempio, server *contosoconcerthall-&lt;Utente&gt;* ) e *catalog-sa-&lt;Utente&gt;*
-   - **Database per tenant:** server *tenants1-dpt-&lt;Utente&gt;* e *catalog-dpt-&lt;Utente&gt;*
-   - **Database multi-tenant:** server *tenants1-mt-&lt;Utente&gt;* e *catalog-mt-&lt;Utente&gt;*
+   - **Applicazione autonoma:** server per ogni tenant (ad esempio, server *contosoconcerthall-&lt;Utente&gt;*) e *catalog-sa-&lt;Utente&gt;*
+   - **Database per tenant: server ** *tenants1-dpt-&lt;Utente&gt;* e *catalog-dpt-&lt;Utente&gt;*
+   - **Database multi-tenant: server ** *tenants1-mt-&lt;Utente&gt;* e *catalog-mt-&lt;Utente&gt;*
 
 Per assicurare una connessione demo corretta, tutti i server hanno una [regola del firewall](sql-database-firewall-configure.md) che consente tutti gli IP.
 
@@ -89,14 +89,14 @@ Per assicurare una connessione demo corretta, tutti i server hanno una [regola d
     - **Applicazione autonoma:** server di singoli tenant (ad esempio *contosoconcerthall-&lt;Utente&gt;.database.windows.net*)
     - **Database per tenant:** *tenants1-dpt-&lt;Utente&gt;.database.windows.net*
     - **Database multi-tenant:** *tenants1-mt-&lt;Utente&gt;.database.windows.net*
-2. Fare clic su **Connetti** > **Motore di database...** :
+2. Fare clic su **Connetti** > **motore di database...**:
 
    ![server di catalogo](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. Credenziali demo: login = *Developer*, password = *P\@ssword1*
+3. Credenziali demo sono: Login , *sviluppatore*, Password , *P\@ssword1*
 
     L'immagine seguente illustra l'accesso per il modello *Database per tenant*.
-    ![connessione](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
+    ![connection](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
 
 
 

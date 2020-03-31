@@ -12,10 +12,10 @@ ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 01dd03eb0ed17fc43e62c8f749dfa2de78e38f69
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74974581"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-java"></a>Guida introduttiva: Generare un'anteprima con l'API REST di Visione artificiale e Java
@@ -60,7 +60,7 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
 
 1. Sostituire la classe pubblica `Main` con il codice seguente.
 1. Facoltativamente, sostituire il valore di `imageToAnalyze` con l'URL di un'altra immagine per la quale si vuole generare un'anteprima.
-1. Salvare, quindi compilare il progetto Java.
+1. Salvare e quindi compilare il progetto Java.
 1. Se si usa un ambiente di sviluppo integrato, eseguire `Main`. In caso contrario, aprire una finestra del prompt dei comandi e usare il comando `java` per eseguire la classe compilata. Ad esempio: `java Main`.
 
 ```java
@@ -157,7 +157,7 @@ public class Main {
 
 ## <a name="examine-the-response"></a>Esaminare i risultati
 
-Una risposta positiva viene inviata sotto forma di dati binari, come rappresentazione dei dati dell'immagine per l'anteprima. Se la richiesta ha esito positivo, l'anteprima viene generata dai dati binari della risposta e visualizzata in una finestra separata, creata dall'applicazione di esempio. Se la richiesta ha esito negativo, la risposte viene visualizzata nella finestra della console. La risposta a una richiesta con esito negativo contiene un codice di errore e un messaggio utile per determinarne la causa.
+Una risposta positiva è costituita dai dati binari che rappresentano i dati dell'immagine per l'anteprima. Se la richiesta ha esito positivo, l'anteprima viene generata dai dati binari della risposta e visualizzata in una finestra separata, creata dall'applicazione di esempio. Se la richiesta ha esito negativo, la risposta viene visualizzata nella finestra della console. La risposta a una richiesta con esito negativo contiene un codice di errore e un messaggio utile per determinarne la causa.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

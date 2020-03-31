@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti sul servizio di inoltro di Azure | Microsoft Docs
-description: Questo articolo fornisce le risposte ad alcune domande frequenti sul servizio di inoltro di Azure.
+description: Questo articolo fornisce le risposte ad alcune delle domande frequenti sul servizio di inoltro di Azure.This article provides answers to some of the frequently asked questions about the Azure Relay service.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: d5032b427316a3c4e07013af4e8214e239a6efb3
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76514001"
 ---
 # <a name="azure-relay-faqs"></a>Domande frequenti sul servizio di inoltro di Azure
@@ -36,13 +36,13 @@ Il [servizio di inoltro di Azure](relay-what-is-it.md) facilita le applicazioni 
 Uno [spazio dei nomi](relay-create-namespace-portal.md) è un contenitore di ambiti che è possibile usare per gestire le risorse di inoltro nell'applicazione. È necessario creare uno spazio dei nomi per usare l'inoltro. Questo è uno dei primi passaggi nella guida introduttiva.
 
 ### <a name="what-happened-to-service-bus-relay-service"></a>Quali novità interessano il servizio di inoltro del bus di servizio?
-Il servizio in precedenza chiamato Inoltro del bus di servizio ora si chiama [Inoltro WCF](service-bus-relay-tutorial.md). È possibile continuare a usarlo come un tempo. La funzionalità Connessioni ibride è una versione aggiornata di un servizio trasferito da Servizi BizTalk di Azure. Verrà fornito ancora il supporto per l'inoltro WCF e per Connessioni ibride.
+Il servizio di inoltro del bus di servizio precedentemente denominato è ora denominato [inoltro WCF](service-bus-relay-tutorial.md). È possibile continuare a usarlo come un tempo. La funzionalità Connessioni ibride è una versione aggiornata di un servizio trasferito da Servizi BizTalk di Azure. Verrà fornito ancora il supporto per l'inoltro WCF e per Connessioni ibride.
 
 ## <a name="pricing"></a>Prezzi
 Questa sezione contiene le risposte ad alcune domande frequenti sulla struttura dei prezzi del servizio di inoltro. Per informazioni generali sui prezzi di Azure, vedere [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/). Per informazioni complete sui prezzi del servizio di inoltro, vedere la pagina contenente i [dettagli dei prezzi del bus di servizio][Pricing overview].
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Come vengono addebitati i costi di Connessioni ibride e Inoltro WCF?
-Per informazioni complete sui prezzi di inoltro, vedere la tabella [connessioni ibride e i relay WCF][Pricing overview] nella pagina Dettagli prezzi del bus di servizio. Oltre ai prezzi indicati in questa pagina, vengono addebitati i trasferimenti di dati associati in uscita dal data center in cui è stato effettuato il provisioning dell'applicazione.
+Per informazioni complete sui prezzi di inoltro, vedere la tabella relativa alle [connessioni ibride e agli inoltri WCF][Pricing overview] nella pagina dei dettagli dei prezzi del bus di servizio. Oltre ai prezzi indicati in questa pagina, vengono addebitati i trasferimenti di dati associati in uscita dal data center in cui è stato effettuato il provisioning dell'applicazione.
 
 ### <a name="how-am-i-billed-for-hybrid-connections"></a>Come viene fatturato l'uso di Connessioni ibride?
 Ecco tre scenari di fatturazione di esempio per Connessioni ibride:
@@ -65,34 +65,34 @@ Si noti che i prezzi usati negli esempi sono applicabili solo durante il periodo
 
 ### <a name="how-are-hours-calculated-for-relay"></a>Come vengono calcolate le ore per l'inoltro?
 
-L'inoltro WCF è disponibile solo negli spazi dei nomi di livello Standard. Prezzi e [quote di connessione](../service-bus-messaging/service-bus-quotas.md) per i servizi di inoltro restano invariati in caso contrario. Ciò significa che gli inoltri continueranno a essere addebitati in base al numero di messaggi (non alle operazioni) e alle ore per l'inoltro. Per altre informazioni, vedere la tabella relativa alle [connessioni ibride e agli inoltri WCF](https://azure.microsoft.com/pricing/details/service-bus/) nella pagina dei dettagli dei prezzi.
+L'inoltro WCF è disponibile solo negli spazi dei nomi di livello Standard. Prezzi e [quote di connessione](../service-bus-messaging/service-bus-quotas.md) per i servizi di inoltro restano invariati in caso contrario. Ciò significa che gli inoltri continueranno a essere addebitati in base al numero di messaggi (non alle operazioni) e alle ore per l'inoltro. Per altre informazioni, vedere la tabella ["Connessioni ibride e inoltri WCF"](https://azure.microsoft.com/pricing/details/service-bus/) nella pagina dei dettagli sui prezzi.
 
 ### <a name="what-if-i-have-more-than-one-listener-connected-to-a-specific-relay"></a>Che cosa succede se più listener sono connessi a uno specifico inoltro?
 In alcuni casi, a un singolo inoltro possono essere connessi più listener. Un inoltro viene considerato "aperto" quando vi è connesso almeno un listener di inoltro. L'aggiunta di listener a un inoltro aperto genera ore per l'inoltro aggiuntive. Il numero di mittenti di inoltro, ossia di client che richiamano o inviano messaggi agli inoltri, connessi a un inoltro non influisce sul calcolo delle ore per l'inoltro.
 
 ### <a name="how-is-the-messages-meter-calculated-for-wcf-relays"></a>Come viene calcolata la misurazione dei messaggi per gli inoltri WCF?
-Si**applica solo agli inoltri WCF. I messaggi non sono un costo per Connessioni ibride.** )
+(**Questo vale solo per gli inoltri WCF. I messaggi non sono un costo per le connessioni ibride.**)
 
 In generale, i messaggi fatturabili per gli inoltri vengono calcolati con lo stesso metodo usato per le entità con broker, come code, argomenti e sottoscrizioni, descritti in precedenza. Esistono tuttavia alcune differenze significative.
 
 L'invio di un messaggio a un inoltro del bus di servizio viene considerato come invio "diretto" al listener di inoltro che riceve il messaggio. Non viene gestito come operazione di invio all'inoltro del bus di servizio, seguito da un recapito al listener di inoltro. Una chiamata al servizio di tipo richiesta-risposta di dimensioni fino a 64 KB per un listener di inoltro genera due messaggi fatturabili, uno per la richiesta e uno per la risposta, presupponendo che anche la risposta sia pari a 64 KB o a un valore inferiore. Questo comportamento è diverso dall'uso di una coda per la mediazione tra un client e un servizio. Se si usa una coda per la mediazione tra un client e un servizio, lo stesso modello di richiesta-risposta richiede l'invio di una richiesta alla coda, seguita da un'operazione di rimozione dalla coda/recapito dalla coda al servizio. Questa operazione è seguita dall'invio di una risposta a un'altra coda e da un'operazione di rimozione dalla coda o recapito da tale coda al client. Presupponendo sempre le stesse dimensioni (fino a 64 KB), il modello di accodamento mediato comporterà 4 messaggi fatturabili. Verrà addebitato per due volte il numero di messaggi per implementare lo stesso modello completato usando l'inoltro. L'uso delle code per applicare questo modello presenta ovviamente alcuni vantaggi, tra cui durabilità e livellamento del carico. Questi vantaggi possono giustificare costi aggiuntivi.
 
-Gli inoltri aperti con il binding WCF **netTCPRelay** considerano i messaggi non come singoli messaggi, ma come flusso di dati che attraversa il sistema. Quando si usa questo binding, solo il mittente e il listener hanno visibilità sulla struttura dei singoli messaggi inviati/ricevuti. Per gli inoltri che usano il binding **netTCPRelay**, tutti i dati vengono considerati come flusso per il calcolo dei messaggi fatturabili. In questo caso, il bus di servizio calcola la quantità totale di dati inviati o ricevuti mediante ciascun inoltro ogni 5 minuti. Quindi divide la quantità totale di dati per 64 KB per determinare il numero di messaggi fatturabili per questo inoltro durante questo periodo di tempo.
+Gli inoltri aperti con il binding WCF **netTCPRelay** considerano i messaggi non come singoli messaggi, ma come flusso di dati che attraversa il sistema. Quando si usa questo binding, solo il mittente e il listener hanno visibilità sulla struttura dei singoli messaggi inviati/ricevuti. Per gli inoltri che utilizzano l'associazione **netTCPRelay,** tutti i dati vengono considerati come un flusso per il calcolo dei messaggi fatturabili. In questo caso, il bus di servizio calcola la quantità totale di dati inviati o ricevuti mediante ciascun inoltro ogni 5 minuti. Quindi divide la quantità totale di dati per 64 KB per determinare il numero di messaggi fatturabili per questo inoltro durante questo periodo di tempo.
 
 ## <a name="quotas"></a>Quote
-| Nome della quota | Ambito |  Note | Valore |
+| Nome della quota | Scope |  Note | valore |
 | --- | --- | --- | --- |
-| Listener simultanei per un inoltro |Persona giuridica |Le richieste successive di connessioni aggiuntive vengono rifiutate e il codice chiamante riceverà un'eccezione. |25 |
-| Connessioni di inoltro simultanee per tutti gli endpoint di inoltro in uno spazio dei nomi del servizio |Spazio dei nomi |- |5\.000 |
+| Listener simultanei per un inoltro |Entità |Le richieste successive di connessioni aggiuntive vengono rifiutate e il codice chiamante riceverà un'eccezione. |25 |
+| Connessioni di inoltro simultanee per tutti gli endpoint di inoltro in uno spazio dei nomi del servizio |Spazio dei nomi |- |5.000 |
 | Endpoint di inoltro per ogni spazio dei nomi del servizio |Spazio dei nomi |- |10,000 |
 | Dimensione dei messaggi per gli inoltri [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) e [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) |Spazio dei nomi |I messaggi in ingresso che superano queste quote vengono rifiutati e il codice chiamante riceve un'eccezione. |64 KB |
-| Dimensione dei messaggi per gli inoltri [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) e [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) |Spazio dei nomi |Nessun limite alla dimensione dei messaggi. |Senza limiti |
+| Dimensione dei messaggi per gli inoltri [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) e [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) |Spazio dei nomi |Nessun limite alla dimensione dei messaggi. |Nessuna limitazione |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>Per il servizio di inoltro sono previste quote di utilizzo?
 Per impostazione predefinita per qualsiasi servizio cloud, Microsoft imposta una quota di utilizzo mensile aggregata che viene calcolata su tutte le sottoscrizioni di un cliente. In alcuni casi le esigenze del cliente possono superare questi limiti. È possibile contattare il servizio clienti in qualsiasi momento per comunicare esigenze specifiche e consentire un adeguamento appropriato di tali limiti. Per il bus di servizio, le quote di utilizzo aggregate sono le seguenti:
 
 * 5 miliardi di messaggi
-* 2 milioni di ore di relè
+* 2 milioni di ore di inoltro
 
 Anche se si riserva il diritto di disabilitare un account che superi le quote di utilizzo previste in un mese, Microsoft invierà una notifica tramite posta elettronica ed effettuerà diversi tentativi di contattare il cliente prima di intraprendere qualsiasi azione. I clienti che superano tali quote saranno comunque responsabili degli addebiti delle eccedenze.
 
@@ -125,16 +125,16 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-suggested-actions-you-can-take"></a>Quali sono alcune eccezioni generate dalle API del servizio di inoltro di Azure e le azioni consigliate?
-Per una descrizione delle eccezioni comuni e delle azioni suggerite che è possibile eseguire, vedere [eccezioni di inoltro][Relay exceptions].
+Per una descrizione di eccezioni comuni e delle azioni consigliate, vedere [Eccezioni di inoltro][Relay exceptions].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>Cos'è una firma di accesso condiviso e quali linguaggi è possibile usare per generare una firma?
-Le firme di accesso condiviso sono un meccanismo di autenticazione basato su hash sicuri SHA-256 o URI. Per informazioni su come generare le firme in node. js, PHP, Python, Java, C e C#, vedere autenticazione del [bus di servizio con firme di accesso condiviso][Shared Access Signatures].
+Le firme di accesso condiviso sono un meccanismo di autenticazione basato su hash sicuri SHA-256 o URI. Per informazioni su come generare firme personalizzate in Node.js, PHP, Python, Java, C e C, vedere [Autenticazione del bus][Shared Access Signatures]di servizio con firme di accesso condiviso .
 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>È possibile aggiungere all'elenco elementi consentiti gli endpoint di inoltro?
 Sì. Il client di inoltro stabilisce connessioni al servizio di inoltro di Azure usando nomi di dominio completi. I clienti possono quindi aggiungere una voce per `*.servicebus.windows.net` nei firewall che supportano l'aggiunta all'elenco elementi consentiti per DNS.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Creare uno spazio dei nomi](relay-create-namespace-portal.md)
+* [Creare uno spazio dei nomiCreate a namespace](relay-create-namespace-portal.md)
 * [Introduzione a .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introduzione a Node](relay-hybrid-connections-node-get-started.md)
 

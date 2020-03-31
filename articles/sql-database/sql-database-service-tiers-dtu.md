@@ -1,5 +1,5 @@
 ---
-title: Livelli di servizio-modello di acquisto basato su DTU
+title: Livelli di servizio - Modello di acquisto basato su DTUService tiers - DTU-based purchase model
 description: Informazioni sui livelli di servizio nel modello di acquisto basato su DTU per database singoli e in pool per offrire dimensioni di calcolo e di archiviazione.
 services: sql-database
 ms.service: sql-database
@@ -12,15 +12,15 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
 ms.openlocfilehash: 2f316e57e407a0588e77f56d6e1fbe8c19ba5fee
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75562120"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Livelli di servizio nel modello di acquisto basato su DTU
 
-I livelli di servizio nel modello di acquisto basato su DTU si differenziano in base a diverse dimensioni di calcolo con una quantità fissa di risorse di archiviazione, un periodo di conservazione fisso per i backup e un prezzo fisso. Tutti i livelli di servizio nel modello di acquisto basato su DTU offrono flessibilità per modificare le dimensioni di calcolo con [tempi di inattività](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)minimi. Tuttavia, esiste un passaggio rispetto al periodo in cui la connettività viene persa nel database per un breve intervallo di tempo, che può essere mitigato usando la logica di ripetizione dei tentativi. La fatturazione per i database singoli e i pool elastici viene effettuata con frequenza oraria in base al livello di servizio e alle dimensioni di calcolo.
+I livelli di servizio nel modello di acquisto basato su DTU si differenziano in base a diverse dimensioni di calcolo con una quantità fissa di risorse di archiviazione, un periodo di conservazione fisso per i backup e un prezzo fisso. Tutti i livelli di servizio nel modello di acquisto basato su DTU offrono flessibilità per modificare le dimensioni di elaborazione con tempi di [inattività](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)minimi; Tuttavia, è disponibile un passaggio per un periodo in cui la connettività viene persa al database per un breve periodo di tempo, che può essere attenuato usando la logica di ripetizione dei tentativi. La fatturazione per i database singoli e i pool elastici viene effettuata con frequenza oraria in base al livello di servizio e alle dimensioni di calcolo.
 
 > [!IMPORTANT]
 > L'istanza gestita del database SQL non supporta un modello di acquisto basato su DTU. Per altre informazioni, vedere l'articolo relativo a [Istanza gestita di database SQL di Azure](sql-database-managed-instance.md).
@@ -35,26 +35,26 @@ La scelta di un livello di servizio dipende soprattutto dai requisiti in termini
 | :-- | --: |--:| --:|
 |Carico di lavoro di destinazione|Sviluppo e produzione|Sviluppo e produzione|Sviluppo e produzione|
 |Contratto di servizio relativo al tempo di attività|99,99%|99,99%|99,99%|
-|Conservazione del backup massima|7 giorni|35 giorni|35 giorni|
-|CPU|Basse|Basso, medio, elevato|Medio, elevato|
-|Velocità effettiva di I/O (approssimativa) |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
+|Massima conservazione dei backup|7 giorni|35 giorni|35 giorni|
+|CPU|Basso|Basso, medio, elevato|Medio, elevato|
+|Velocità effettiva di I/O (approssimativa) |1-5 operazioni di I/O al secondo per DTU| 1-5 operazioni di I/O al secondo per DTU | 25 operazioni di I/O al secondo per DTU|
 |Latenza di I/O (approssimativa)|5 ms (lettura), 10 ms (scrittura)|5 ms (lettura), 10 ms (scrittura)|2 ms (lettura/scrittura)|
 |Indicizzazione ColumnStore |N/D|S3 e superiore|Supportato|
 |OLTP in memoria|N/D|N/D|Supportato|
 |||||
 
 > [!IMPORTANT]
-> I livelli di servizio Basic, Standard S0, S1 e S2 forniscono meno di una vCore (CPU).  Per i carichi di lavoro con utilizzo intensivo della CPU, è consigliabile un livello di servizio di S3 o superiore. 
+> I livelli di servizio Basic, Standard S0, S1 e S2 forniscono meno di un vCore (CPU).  Per i carichi di lavoro che richiedono un utilizzo intensivo della CPU, è consigliabile un livello di servizio di livello S3 o superiore. 
 >
->Per quanto riguarda l'archiviazione dei dati, i livelli di servizio Basic, Standard S0 e S1 sono posizionati in BLOB di pagine standard. I BLOB di pagine standard usano supporti di archiviazione basati su unità disco rigido e sono più adatti per lo sviluppo, il test e altri carichi di lavoro ad accesso sporadico, meno sensibili alla variabilità delle prestazioni.
+>Per quanto riguarda l'archiviazione dei dati, i livelli di servizio Basic, Standard S0 e S1 vengono inseriti nei BLOB di pagine standard. I BLOB di pagine standard usano supporti di archiviazione basati su unità disco rigido (HDD) e sono più adatti per lo sviluppo, il test e altri carichi di lavoro a cui si accede raramente, meno sensibili alla variabilità delle prestazioni.
 >
 
 > [!NOTE]
-> È possibile ottenere un database SQL di Azure gratuito a livello di servizio Basic insieme a un account Azure gratuito per esplorare Azure. Per informazioni, vedere [Crea un database cloud gestito con il tuo account Azure gratuito](https://azure.microsoft.com/free/services/sql-database/).
+> È possibile ottenere un database SQL di Azure gratuito al livello di servizio Basic insieme a un account gratuito di Azure per esplorare Azure.You can get a free Azure SQL database at the Basic service tier in conjunction with an Azure free account to explore Azure. Per informazioni, vedere [Crea un database cloud gestito con il tuo account Azure gratuito](https://azure.microsoft.com/free/services/sql-database/).
 
 ## <a name="single-database-dtu-and-storage-limits"></a>DTU database singolo e limiti di archiviazione
 
-Le dimensioni di calcolo per i database singoli sono espresse in unità di transazione di database (DTU), quelle per i pool elastici sono espresse in unità di transazione di database elastico (eDTU). Per altre informazioni su DTU e edtu, vedere [modello di acquisto basato su DTU](sql-database-purchase-models.md#dtu-based-purchasing-model).
+Le dimensioni di calcolo per i database singoli sono espresse in unità di transazione di database (DTU), quelle per i pool elastici sono espresse in unità di transazione di database elastico (eDTU). Per ulteriori informazioni sulle DTU e sulle eDTU, vedere Modello di [acquisto basato su DTU.](sql-database-purchase-models.md#dtu-based-purchasing-model)
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: |
@@ -63,7 +63,7 @@ Le dimensioni di calcolo per i database singoli sono espresse in unità di trans
 |||||
 
 > [!IMPORTANT]
-> In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [Gestire lo spazio file nel database SQL di Azure](sql-database-file-space-management.md).
+> In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere Gestire lo spazio file nel database SQL di Azure.For more information, see [Manage file space in Azure SQL Database.](sql-database-file-space-management.md)
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>eDTU pool elastico, archiviazione e limiti del database in pool
 
@@ -77,9 +77,9 @@ Le dimensioni di calcolo per i database singoli sono espresse in unità di trans
 |||||
 
 > [!IMPORTANT]
-> Più di 1 TB di spazio di archiviazione nel livello Premium è attualmente disponibile in tutte le aree, ad eccezione di: Cina orientale, Cina settentrionale, Germania centrale, Germania nord-orientale, Stati Uniti centro-occidentali, US DoD aree e Stati Uniti centrali. In queste aree la quantità massima di risorse di archiviazione nel livello Premium è limitata a 1 TB.  Per altre informazioni, vedere le [limitazioni correnti di P11 e P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
+> Più di 1 TB di spazio di archiviazione nel livello Premium è attualmente disponibile in tutte le aree geografiche ad eccezione di Cina orientale, Cina settentrionale, Germania centrale, Germania nord-est, Stati Uniti centro-occidentali, regioni del Dipartimento della Corea degli Stati Uniti e Governo degli Stati Uniti centrale. In queste aree la quantità massima di spazio di archiviazione nel livello Premium è limitata a 1 TB.  Per altre informazioni, vedere le [limitazioni correnti di P11 e P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
 > [!IMPORTANT]
-> In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [Gestire lo spazio file nel database SQL di Azure](sql-database-file-space-management.md).
+> In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere Gestire lo spazio file nel database SQL di Azure.For more information, see [manage file space in Azure SQL Database.](sql-database-file-space-management.md)
 
 ## <a name="dtu-benchmark"></a>Benchmark DTU
 
@@ -109,7 +109,7 @@ Le dimensioni del database si basano su un "fattore di scala" (SF), che determin
 
 Il carico di lavoro è costituito da nove tipi di transazioni, come illustrato nella tabella riportata di seguito. Ogni transazione è progettata per evidenziare un insieme specifico di caratteristiche di sistema nel motore di database e nell'hardware del sistema, con un contrasto elevato rispetto alle altre transazioni. Questo approccio consente di valutare l'impatto dei diversi componenti sulle prestazioni globali. La transazione "Operazioni lettura intense" ad esempio produce un numero significativo di operazioni di lettura dal disco.
 
-| Tipo di transazione | Description |
+| Tipo di transazione | Descrizione |
 | --- | --- |
 | Operazioni lettura leggere |SELECT, in memoria, sola lettura |
 | Operazioni lettura medie |SELECT, principalmente in memoria, sola lettura |
@@ -118,7 +118,7 @@ Il carico di lavoro è costituito da nove tipi di transazioni, come illustrato n
 | Operazioni aggiornamento intense |UPDATE, principalmente non in memoria, lettura/scrittura |
 | Operazioni inserimento leggere |INSERT, in memoria, lettura/scrittura |
 | Operazioni inserimento intense |INSERT, principalmente non in memoria, lettura/scrittura |
-| Elimina |DELETE, combinazione in memoria e non in memoria, lettura/scrittura |
+| Delete |DELETE, combinazione in memoria e non in memoria, lettura/scrittura |
 | Operazioni CPU intense |SELECT, in memoria, carico CPU relativamente pesante, sola lettura |
 
 ### <a name="workload-mix"></a>Combinazione di carichi di lavoro
@@ -134,7 +134,7 @@ Le transazioni vengono selezionate casualmente da una distribuzione ponderata co
 | Operazioni aggiornamento intense |3 |
 | Operazioni inserimento leggere |3 |
 | Operazioni inserimento intense |2 |
-| Elimina |2 |
+| Delete |2 |
 | Operazioni CPU intense |10 |
 
 ### <a name="users-and-pacing"></a>Utenti e velocità

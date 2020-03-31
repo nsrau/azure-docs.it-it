@@ -1,5 +1,5 @@
 ---
-title: Introduzione alla risoluzione dei problemi delle risorse
+title: Introduzione alla risoluzione dei problemi relativi alle risorse
 titleSuffix: Azure Network Watcher
 description: Questa pagina fornisce una panoramica delle funzionalità di risoluzione dei problemi delle risorse di Network Watcher
 services: network-watcher
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
 ms.openlocfilehash: 199b4fc762919c2e3988f477c14d09fc23b0136b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840690"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduzione alla risoluzione dei problemi delle risorse in Azure Network Watcher
@@ -47,7 +47,7 @@ Le tabelle seguenti illustrano i diversi tipi di errore (ID relativi ai risultat
 
 ### <a name="gateway"></a>Gateway
 
-| Tipo di errore | Motivo | Log|
+| Tipo di errore | Motivo | File di log|
 |---|---|---|
 | NoFault | Nessun errore rilevato |Sì|
 | GatewayNotFound | Impossibile trovare il gateway o il gateway non è stato sottoposto a provisioning |No|
@@ -62,7 +62,7 @@ Le tabelle seguenti illustrano i diversi tipi di errore (ID relativi ai risultat
 
 ### <a name="connection"></a>Connessione
 
-| Tipo di errore | Motivo | Log|
+| Tipo di errore | Motivo | File di log|
 |---|---|---|
 | NoFault | Nessun errore rilevato |Sì|
 | GatewayNotFound | Impossibile trovare il gateway o il gateway non è stato sottoposto a provisioning |No|
@@ -73,7 +73,7 @@ Le tabelle seguenti illustrano i diversi tipi di errore (ID relativi ai risultat
 | ConnectionIsMarkedDisconnected | La connessione viene contrassegnata come "disconnected" |No|
 | ConnectionNotConfiguredOnGateway | La connessione per il servizio sottostante non è stata configurata. | Sì |
 | ConnectionMarkedStandby | Il servizio sottostante viene contrassegnato come "standby".| Sì|
-| Autenticazione | Mancata corrispondenza della chiave precondivisa | Sì|
+| Authentication | Mancata corrispondenza della chiave precondivisa | Sì|
 | PeerReachability | Il gateway peer non è raggiungibile. | Sì|
 | IkePolicyMismatch | Il gateway peer ha criteri IKE non supportati da Azure. | Sì|
 | WfpParse Error | Si è verificato un errore durante l'analisi del log WFP. |Sì|

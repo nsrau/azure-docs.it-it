@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect: Eseguire l'aggiornamento da una versione precedente | Microsoft Docs"
+title: "Azure AD Connect: Eseguire l'aggiornamento da una versione precedente | Documentazione Microsoft"
 description: Illustra i diversi metodi per eseguire l'aggiornamento alla versione più recente di Azure Active Directory Connect, tra cui l'aggiornamento sul posto e la migrazione swing.
 services: active-directory
 documentationcenter: ''
@@ -17,17 +17,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a3e7373a8b0354a3d08debf944f2f77f1609382
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60347692"
 ---
-# <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Eseguire l'aggiornamento da una versione precedente
+# <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Eseguire l'aggiornamento da una versione precedente alla versione più recente
 Questo argomento descrive i diversi metodi che è possibile usare per aggiornare l'installazione di Azure Active Directory (Azure AD) Connect alla versione più recente. È consigliabile mantenersi sempre al passo con le versioni di Azure AD Connect. È anche possibile usare le procedure illustrate nella sezione [Migrazione swing](#swing-migration), che consentono di apportare modifiche significative alla configurazione.
 
 >[!NOTE]
-> È attualmente supportata per eseguire l'aggiornamento da una qualsiasi versione di Azure AD Connect alla versione corrente. Non sono supportati gli aggiornamenti sul posto di DirSync o ADSync e una migrazione swing è obbligatorio.  Se si vuole eseguire l'aggiornamento da DirSync, vedere [aggiornamento dallo strumento di sincronizzazione Azure AD (DirSync)](how-to-dirsync-upgrade-get-started.md) o nella [migrazione Swing](#swing-migration) sezione.  </br>In pratica, i clienti con versioni molto obsolete potrebbero verificarsi problemi non direttamente correlati ad Azure AD Connect. I server che sono stati in ambiente di produzione per diversi anni, hanno avuto in genere applicate le patch di diversi e non tutti questi possono essere prese in considerazione.  In generale, i clienti che non sono aggiornati in 12-18 mesi devono considerare un aggiornamento swing come questa è l'opzione più conservativo e meno rischioso.
+> È attualmente supportato per l'aggiornamento da qualsiasi versione di Azure AD Connect alla versione corrente. Gli aggiornamenti sul posto di DirSync o ADSync non sono supportati ed è necessaria una migrazione swing.  Se si vuole eseguire l'aggiornamento da DirSync, vedere Eseguire l'aggiornamento dallo strumento di sincronizzazione di Azure AD (DirSync) o la sezione Migrazione Swing.If you want to upgrade from DirSync, see [Upgrade from Azure AD sync tool (DirSync)](how-to-dirsync-upgrade-get-started.md) or the [Swing migration](#swing-migration) section.  </br>In practice, customers on extremely old versions may encounter problems not directly related to Azure AD Connect. I server che sono stati in produzione per diversi anni, in genere hanno avuto diverse patch applicate a loro e non tutti questi possono essere presi in considerazione.  In generale, i clienti che non hanno effettuato l'aggiornamento in 12-18 mesi dovrebbero considerare invece un aggiornamento swing in quanto questa è l'opzione più conservativa e meno rischiosa.
 
 Se si vuole eseguire l'aggiornamento da DirSync, vedere invece l'argomento relativo all'[aggiornamento dallo strumento di sincronizzazione di Azure AD (DirSync)](how-to-dirsync-upgrade-get-started.md) .
 
@@ -35,14 +35,14 @@ Esistono diverse strategie per eseguire l'aggiornamento di Azure AD Connect.
 
 | Metodo | Descrizione |
 | --- | --- |
-| [Aggiornamento automatico](how-to-connect-install-automatic-upgrade.md) |Si tratta del metodo più semplice per i clienti con installazione rapida. |
+| [aggiornamento automatico](how-to-connect-install-automatic-upgrade.md) |Si tratta del metodo più semplice per i clienti con installazione rapida. |
 | [Aggiornamento sul posto](#in-place-upgrade) |Se si ha un singolo server, è possibile eseguire un aggiornamento sul posto dell'installazione nello stesso server. |
 | [Migrazione swing](#swing-migration) |Se si usano due server, è possibile preparare uno dei due con la nuova versione o configurazione e, quando si è pronti, modificare il server attivo. |
 
 Per informazioni sulle autorizzazioni, vedere le [autorizzazioni necessarie per un aggiornamento](reference-connect-accounts-permissions.md#upgrade).
 
 > [!NOTE]
-> Dopo avere consentito al nuovo server Azure AD Connect di avviare la sincronizzazione delle modifiche ad Azure AD, non si deve più usare DirSync o Azure AD Sync. Il downgrade da Azure AD Connect ai client legacy, inclusi DirSync e Azure AD Sync, non è supportato e può causare problemi come la perdita di dati in Azure AD.
+> Dopo aver abilitato il nuovo server Azure AD Connect per avviare la sincronizzazione delle modifiche ad Azure AD, non è necessario eseguire il rollback all'uso di DirSync o della sincronizzazione di Azure AD. Il downgrade da Azure AD Connect ai client legacy, inclusi DirSync e Azure AD Sync, non è supportato e può causare problemi come la perdita di dati in Azure AD.
 
 ## <a name="in-place-upgrade"></a>Aggiornamento sul posto
 Un aggiornamento sul posto è indicato per il passaggio da Azure AD Sync o Azure AD Connect. Non è possibile usarlo per lo spostamento da DirSync o per una soluzione con Forefront Identity Manager (FIM) e Azure AD Connect.
@@ -135,14 +135,14 @@ Durante l'aggiornamento sul posto, è possibile che vengano introdotte modifiche
 
 Per aggiungere le sostituzioni per l'importazione completa e per la sincronizzazione completa in un connettore arbitrario, eseguire il cmdlet seguente: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 La sezione seguente contiene informazioni sulla risoluzione dei problemi che possono essere utili se si verifica un problema durante l'aggiornamento di Azure AD Connect.
 
 ### <a name="azure-active-directory-connector-missing-error-during-azure-ad-connect-upgrade"></a>Errore di assenza del connettore di Azure Active Directory durante l'aggiornamento di AD Azure Connect
 
 Quando si esegue l'aggiornamento di Azure AD Connect da una versione precedente, si potrebbe ottenere l'errore seguente all'inizio dell'aggiornamento 
 
-![Tipi di errore](./media/how-to-upgrade-previous-version/error1.png)
+![Errore](./media/how-to-upgrade-previous-version/error1.png)
 
 Questo errore si verifica perché il connettore di Azure Active Directory con l'identificatore, b891884f-051e-4a83-95af-2544101c9083, non esiste nella configurazione corrente di Azure AD Connect. Per verificare questa eventualità, aprire una finestra di PowerShell, eseguire il cmdlet `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
 
@@ -168,4 +168,4 @@ Se si desidera installare una versione più recente di Azure AD Connect: chiuder
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).
+Altre informazioni [sull'integrazione delle identità locali con Azure Active Directory.](whatis-hybrid-identity.md)

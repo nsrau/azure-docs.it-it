@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: alkohli
 ms.openlocfilehash: 4622a8575d7b6a38226ee3a980c05f143c128356
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: MT
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68963528"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Installazione sicura e funzionamento del dispositivo StorSimple
@@ -33,12 +33,12 @@ Leggere tutte le informazioni di sicurezza e integrità in questo articolo che s
 ## <a name="safety-icon-conventions"></a>Convenzioni di sicurezza
 Ecco le icone dove sono visualizzate le precauzioni di sicurezza da osservare durante l'installazione e l'esecuzione del dispositivo Microsoft Azure StorSimple.
 
-| Icona | Description |
+| Icona | Descrizione |
 |:--- |:--- |
 | ![Icona di pericolo](./media/storsimple-safety/IC740879.png) **PERICOLO!** |Indica una situazione di pericolo che, se non viene evitato, comporterà morte o gravi ferite. Questa parola deve essere limitata a situazioni più estreme. |
-| ![Icona di avviso](./media/storsimple-safety/IC740879.png)**AVVISO!** |Indica una situazione di pericolo che, se non viene evitata, può comportare morte o gravi ferite. |
-| ![Icona di avviso](./media/storsimple-safety/IC740879.png)**ATTENZIONE:** |Indica una situazione di pericolo che, se non viene evitato, comporterà ferite lievi o limitate. |
-| ![Icona di notifica](./media/storsimple-safety/IC740881.png)**NOTIFICA:** |Indica le informazioni considerate importanti, ma non correlate al rischio. |
+| ![Icona](./media/storsimple-safety/IC740879.png) di avviso **AVVISO!** |Indica una situazione di pericolo che, se non viene evitata, può comportare morte o gravi ferite. |
+| ![Icona di avviso](./media/storsimple-safety/IC740879.png) **ATTENZIONE:** |Indica una situazione di pericolo che, se non viene evitato, comporterà ferite lievi o limitate. |
+| ![Icona di notifica](./media/storsimple-safety/IC740881.png) **NOTIFICA:** |Indica le informazioni considerate importanti, ma non correlate al rischio. |
 | ![Icona di scossa elettrica](./media/storsimple-safety/IC740882.png) **pericolo di scosse elettriche** |Voltaggio |
 | ![Icona peso elevato](./media/storsimple-safety/IC740883.png) **Pesante** | |
 | ![Nessuna icona di parti riparabili dall'utente](./media/storsimple-safety/IC740879.png) **Nessuna parte riparabile dall'utente** |Non accedere a meno che non si sia stati adeguatamente formati. |
@@ -74,7 +74,7 @@ Per ridurre il rischio di surriscaldamento o fiamme dalle connessioni elettriche
 * Per conformità ai requisiti termici, emissione e sicurezza applicabili, le coperture non devono essere rimosse  e tutti gli alloggiamenti devono essere popolati con i moduli plug-in o unità spazi vuoti.
 * Assicurarsi che l'attrezzatura venga utilizzata nel modo specificato dal produttore. Se il dispositivo viene utilizzato in modo non specificato dal produttore, la protezione fornita dai dispositivi potrebbe non riuscire.
 
-![Icona di notifica](./media/storsimple-safety/IC740881.png)**NOTIFICA:**
+![Icona di notifica](./media/storsimple-safety/IC740881.png) **NOTIFICA:**
 
 Per il corretto funzionamento dell'apparecchiatura e per evitare danni al prodotto:
 
@@ -102,7 +102,7 @@ Per ridurre la probabilità di ferite, scosse elettriche o morte:
 * La progettazione del sistema di distribuzione elettrica deve prendere in considerazione la perdita di massa totale di corrente di tutti gli alimentatori in tutti i contenitori. Si noti che ogni alimentatore in ciascun alloggiamento ha una perdita terra corrente massima di mA 1.0 a 60 Hz, 264 volt. Il rack potrebbe richiedere l'assegnazione di etichette con "elevata perdita corrente. La connessione a terra è essenziale prima della connessione di un alimentatore."
 * Il Rack, se configurato con allegati, deve soddisfare i requisiti di sicurezza di UL 60950-1 e IEC 60950-1/EN 60950-1.
 
-![Icona di notifica](./media/storsimple-safety/IC740881.png)**NOTIFICA:**
+![Icona di notifica](./media/storsimple-safety/IC740881.png) **NOTIFICA:**
 
 Per il raffreddamento corretto del sistema rack:
 
@@ -118,7 +118,7 @@ Per ridurre la probabilità di ferite, scosse elettriche o morte:
 
 * Non rimuovere le coperture dal PCM. Non esiste il rischio di scosse elettriche all'interno. Per restituire il PCM e ottenere una sostituzione, [contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
 
-![Icona di notifica](./media/storsimple-safety/IC740881.png)**NOTIFICA:**
+![Icona di notifica](./media/storsimple-safety/IC740881.png) **NOTIFICA:**
 
 Per il corretto funzionamento dell'apparecchiatura e per evitare danni al prodotto:
 
@@ -126,7 +126,7 @@ Per il corretto funzionamento dell'apparecchiatura e per evitare danni al prodot
 * Non rimuovere un PCM a meno che non possa essere installata immediatamente una sostituzione. L'enclosure non deve essere attivata senza tutti i moduli sul posto.
 
 ## <a name="electrostatic-discharge-esd-precautions"></a>Precauzioni di scarico elettrostatico (ESD)
-![Icona di notifica](./media/storsimple-safety/IC740881.png)**NOTIFICA:**
+![Icona di notifica](./media/storsimple-safety/IC740881.png) **NOTIFICA:**
 
 Osservare le seguenti precauzioni relative a ESD .
 
@@ -138,7 +138,7 @@ Osservare le seguenti precauzioni relative a ESD .
 ## <a name="battery-disposal-precautions"></a>Precauzioni relative alla disposizione della batteria
 L'alimentatore utilizza una batteria speciale per proteggere il contenuto della memoria durante l'interruzione dell'alimentazione temporanea, a breve termine. La batteria è inserita nel PCM. Ricordare le seguenti informazioni riguardo la batteria.
 
-![Icona di avviso](./media/storsimple-safety/IC740879.png)**AVVISO!**
+![Icona](./media/storsimple-safety/IC740879.png) di avviso **AVVISO!**
 
 Per ridurre il rischio di cortometraggi, incendio, esplosione, ferite o morte:
 
@@ -146,9 +146,9 @@ Per ridurre il rischio di cortometraggi, incendio, esplosione, ferite o morte:
 * Non smontare, macinare, o scaldare al di sopra di 60 gradi Celsius (140 gradi Fahrenheit) di calore o incenerire. Sostituire la batteria PCM solo con la batteria fornita. L’utilizzo di un'altra batteria può costituire un rischio di incendio o esplosione.
 * Utilizzare delimitatori finali protettivi per le batterie se queste vengono rimossi dal gruppo di continuità.
 
-![Icona di notifica](./media/storsimple-safety/IC740881.png)**NOTIFICA:**
+![Icona di notifica](./media/storsimple-safety/IC740881.png) **NOTIFICA:**
 
-Al momento della spedizione o del trasporto delle batterie per via aerea, seguire il documento di istruzioni di batteria litio IATA disponibile all'indirizzo [https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
+Quando si spediscono o trasportano in altro modo le batterie in aereo, seguire il documento IATA Liithium Battery Guidance disponibile all'indirizzo[https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
 Dopo aver esaminato questi avvisi sulla sicurezza, i passaggi successivi sono per decomprimere, togliere e cablare il vostro dispositivo.
 

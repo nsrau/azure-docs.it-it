@@ -1,5 +1,5 @@
 ---
-title: Gestire Azure Data Lake Analytics usando l'interfaccia della riga di comando di Azure
+title: Gestire Azure Data Lake Analytics usando l'interfaccia della riga di comando di AzureManage Azure Data Lake Analytics using Azure CLI
 description: Questo articolo descrive come usare l'interfaccia della riga di comando di Azure per gestire processi, origini dati e utenti di Data Lake Analytics.
 services: data-lake-analytics
 author: jasonwhowell
@@ -8,12 +8,12 @@ ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: d66926d8ba87096537800d22a9c116b7b10d23cf
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 69a48952ef273acb8cf7eb0ec5968e12b962b622
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309746"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79454364"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Gestire Azure Data Lake Analytics mediante l’interfaccia della riga di comando (CLI) di Azure
 
@@ -90,8 +90,8 @@ Elencare gli account di Data Lake Analytics all'interno di un gruppo di risorse 
 
 Data Lake Analytics supporta attualmente le due origini dati seguenti:
 
-* [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Archiviazione di Azure](../storage/common/storage-introduction.md)
+* [Archivio di Azure Data Lake](../data-lake-store/data-lake-store-overview.md)
+* [Archiviazione di AzureAzure Storage](../storage/common/storage-introduction.md)
 
 Quando si crea un account di Analytics, è necessario impostare un account di archiviazione di Azure Data Lake come account di archiviazione predefinito. L'account di Data Lake Store predefinito viene usato per archiviare i metadati e i log di controllo dei processi. Dopo aver creato un account di Analytics, è possibile aggiungere altri account di archiviazione di Data Lake e/o account di archiviazione di Azure. 
 
@@ -193,11 +193,11 @@ Utilizzare il comando list per cercare l'id del processo e quindi utilizzare can
 
 ## <a name="pipelines-and-recurrences"></a>Pipeline e ricorrenze
 
-**Ottenere informazioni su pipeline e ricorrenze**
+**Ottenere informazioni sulle pipeline e l'intervallo di esecuzione**
 
 Usare i comandi `az dla job pipeline` per visualizzare le informazioni relative alle pipeline per i processi inviati in precedenza.
 
-```
+```azurecli
 az dla job pipeline list --account "<Data Lake Analytics Account Name>"
 
 az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeline-identity "<Pipeline ID>"
@@ -205,15 +205,15 @@ az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeli
 
 Usare i comandi `az dla job recurrence` per visualizzare le informazioni relative alle ricorrenze per i processi inviati in precedenza.
 
-```
+```azurecli
 az dla job recurrence list --account "<Data Lake Analytics Account Name>"
 
 az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
 
 ## <a name="see-also"></a>Vedere anche
-* [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-* [Esercitazione: Introduzione ad Azure Data Lake Analytics con il portale di Azure](data-lake-analytics-get-started-portal.md)
-* [Gestire Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-manage-use-portal.md)
-* [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+* [Panoramica di Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
+* [Introduzione a Data Lake Analytics con il portale di AzureGet started with Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md)
+* [Gestire Azure Data Lake Analytics tramite il portale di AzureManage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md)
+* [Monitorare e risolvere i problemi relativi ai processi di Azure Data Lake Analytics tramite il portale di AzureMonitor and troubleshoot Azure Data Lake Analytics jobs using Azure portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 

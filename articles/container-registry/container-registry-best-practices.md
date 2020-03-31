@@ -4,17 +4,17 @@ description: Informazioni su come usare Registro Azure Container in modo efficac
 ms.topic: article
 ms.date: 09/27/2018
 ms.openlocfilehash: 233d84b8bfa6f3d8c800e76032ef74a643db11ca
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247072"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Procedure consigliate per Registro Azure Container
 
 Seguendo queste procedure consigliate, è possibile contribuire a sfruttare al massimo le prestazioni e la convenienza del Registro contenitori privato Docker in Azure.
 
-Vedere anche [Suggerimenti per l'assegnazione di tag e il controllo delle versioni delle immagini del contenitore](container-registry-image-tag-version.md) per strategie per le immagini tag e versione nel registro di sistema. 
+Vedere anche [Consigli per l'assegnazione di tag e il controllo delle versioni](container-registry-image-tag-version.md) delle immagini del contenitore per le strategie per contrassegnare e utilizzare le immagini di versione nel Registro di sistema. 
 
 ## <a name="network-close-deployment"></a>Distribuzione in reti vicine
 
@@ -33,7 +33,7 @@ Per capire come usare la replica geografica, vedere il tutorial in tre parti [Pr
 
 Con l'uso di spazi dei nomi dell'archivio, è possibile consentire la condivisione di un singolo registro in più gruppi all'interno dell'organizzazione. I registri possono essere condivisi tra le distribuzioni e i team. Registro Azure Container supporta spazi dei nomi annidati, abilitando l'isolamento in gruppo.
 
-Si considerino ad esempio i tag delle immagini del contenitore seguenti: Le immagini utilizzate a livello aziendale, ad esempio `aspnetcore`, vengono inserite nello spazio dei nomi radice, mentre le immagini del contenitore di proprietà dei prodotti e dei gruppi marketing utilizzano i propri spazi dei nomi.
+Si considerino ad esempio i tag delle immagini del contenitore seguenti: Le immagini utilizzate a livello `aspnetcore`aziendale, ad esempio , vengono inserite nello spazio dei nomi radice, mentre le immagini contenitore di proprietà dei gruppi Products e Marketing utilizzano ognuna i propri spazi dei nomi.
 
 - *contoso.azurecr.io/aspnetcore:2.0*
 - *contoso.azurecr.io/products/widget/web:1*
@@ -59,9 +59,9 @@ Per informazioni dettagliate sull'autenticazione a Registro Azure Container, ved
 
 ## <a name="manage-registry-size"></a>Gestire le dimensioni del registro
 
-I vincoli di archiviazione di [ogni SKU del registro contenitori][container-registry-skus] hanno lo scopo di allinearsi con uno scenario tipico: **Basic** per iniziare, **standard** per la maggior parte delle applicazioni di produzione e **Premium** per le prestazioni con iperscalabilità e la [replica geografica][container-registry-geo-replication]. Per tutta la durata del registro, è necessario gestirne le dimensioni eliminando periodicamente il contenuto non usato.
+I vincoli di archiviazione di ogni SKU del [registro contenitori][container-registry-skus] hanno lo scopo di allinearsi con uno scenario tipico: **Basic** per iniziare, **Standard** per la maggior parte delle applicazioni di produzione e **Premium** per le prestazioni con iperscalabilità e la [replica geografica][container-registry-geo-replication]. Per tutta la durata del registro, è necessario gestirne le dimensioni eliminando periodicamente il contenuto non usato.
 
-Usare il comando dell'interfaccia della riga di comando di Azure [AZ ACR Show-Usage][az-acr-show-usage] per visualizzare le dimensioni correnti del registro di sistema:
+Usare il comando dell'interfaccia della riga di comando di Azure [az acr show-usage][az-acr-show-usage] per visualizzare le dimensioni correnti del registro:
 
 ```azurecli
 az acr show-usage --resource-group myResourceGroup --name myregistry --output table

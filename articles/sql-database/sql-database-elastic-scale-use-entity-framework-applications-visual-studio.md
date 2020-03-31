@@ -1,5 +1,5 @@
 ---
-title: Uso della libreria client dei database elastici con Entity Framework
+title: Utilizzo della libreria client di database elastica con Entity FrameworkUsing elastic database client library with Entity Framework
 description: Usare la libreria client del database elastico e Entity Framework per la codifica di database
 services: sql-database
 ms.service: sql-database
@@ -12,22 +12,22 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
 ms.openlocfilehash: 1653a904875964d86864c59c718603a6dacdcbda
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77087181"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Libreria client dei database elastici con Entity Framework
 
-Questo documento illustra le modifiche necessarie in un'applicazione Entity Framework per l'integrazione con le funzionalità degli [strumenti del database elastico](sql-database-elastic-scale-introduction.md). Vengono descritti in particolare la [gestione delle mappe partizioni](sql-database-elastic-scale-shard-map-management.md) e il [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md) con l'approccio **Code First** di Entity Framework. L'esercitazione [Code First per un nuovo database](https://msdn.microsoft.com/data/jj193542.aspx) per Entity Framework servirà da esempio nell'intero documento. Il codice di esempio che accompagna questo documento fa parte del set di esempi sugli strumenti dei database elastici negli esempi di codice di Visual Studio.
+Questo documento illustra le modifiche necessarie in un'applicazione Entity Framework per l'integrazione con le funzionalità degli [strumenti del database elastico](sql-database-elastic-scale-introduction.md). L'obiettivo è la composizione della gestione della [mappa partizioni](sql-database-elastic-scale-shard-map-management.md) e del [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md) con l'approccio di Entity Framework Code **First.** L'esercitazione [Code First per un nuovo database](https://msdn.microsoft.com/data/jj193542.aspx) per Entity Framework servirà da esempio nell'intero documento. Il codice di esempio che accompagna questo documento fa parte del set di esempi sugli strumenti dei database elastici negli esempi di codice di Visual Studio.
 
 ## <a name="downloading-and-running-the-sample-code"></a>Download ed esecuzione del codice di esempio
 
 Per scaricare il codice per questo articolo:
 
 * È richiesto Visual Studio 2012 o versione successiva. 
-* Scaricare l' [esempio di integrazione degli strumenti di database elastici per Azure SQL-Entity Framework](https://github.com/Azure/elastic-db-tools/). Decomprimere l'esempio in un percorso a piacere.
+* Scaricare l'esempio di integrazione di Entity Framework per [Gli strumenti di database elastico per SQL di Azure - Integrazione](https://github.com/Azure/elastic-db-tools/)di Entity Framework . Decomprimere l'esempio in un percorso a piacere.
 * Avviare Visual Studio. 
 * In Visual Studio selezionare File -> Apri progetto/soluzione. 
 * Nella finestra di dialogo **Apri progetto** passare all'esempio scaricato e selezionare **EntityFrameworkCodeFirst.sln** per aprirlo. 
@@ -44,8 +44,8 @@ Dopo aver creato questi database, riempire i segnaposto nel file **Program.cs** 
 
 Gli sviluppatori Entity Framework si basano su uno dei quattro seguenti flussi di lavoro per compilare le applicazioni e garantire la persistenza degli oggetti applicazione:
 
-* **Code First (nuovo database)** : lo sviluppatore Entity Framework crea il modello nel codice dell'applicazione ed Entity Framework genera il database a partire dal codice. 
-* **Code First (database esistente)** : lo sviluppatore consente a Entity Framework di generare il codice dell'applicazione per il modello da un database esistente.
+* **Code First (nuovo database)**: lo sviluppatore Entity Framework crea il modello nel codice dell'applicazione ed Entity Framework genera il database a partire dal codice. 
+* **Code First (database esistente)**: lo sviluppatore consente a Entity Framework di generare il codice dell'applicazione per il modello da un database esistente.
 * **Model First**: lo sviluppatore crea il modello in Entity Framework Designer e quindi Entity Framework crea il database a partire dal modello.
 * **Database First**: lo sviluppatore usa gli strumenti di Entity Framework per dedurre il modello da un database esistente. 
 
@@ -133,7 +133,7 @@ public DbSet<Blog> Blogs { get; set; }
   * La mappa partizioni crea la connessione aperta alla partizione che contiene lo shardlet per la chiave di partizionamento orizzontale specificata.
   * Tale connessione aperta viene nuovamente passata al costruttore di classe base di DbContext per indicare che Entity Framework deve usare quella anziché crearne automaticamente una nuova. In questo modo, la connessione è stata contrassegnata dall’API client dei database elastici al fine di garantire coerenza durante le operazioni di gestione della mappa partizioni.
 
-Nel proprio codice usare il nuovo costruttore per la sottoclasse DbContext anziché il costruttore predefinito. Di seguito è fornito un esempio: 
+Nel proprio codice usare il nuovo costruttore per la sottoclasse DbContext anziché il costruttore predefinito. Esempio: 
 
 ```csharp
 // Create and save a new blog.
@@ -273,9 +273,9 @@ Gli approcci descritti in questo documento implicano due limitazioni:
 * Le modifiche all'applicazione che implicano modifiche dello schema del database devono passare attraverso le migrazioni di Entity Framework su tutte le partizioni. Il codice di esempio per questo documento non illustra come eseguire questa operazione. Provare a usare Update-Database con un parametro ConnectionString per eseguire l'iterazione su tutte le partizioni oppure estrarre lo script T-SQL per la migrazione in sospeso usando Update-Database con l'opzione –Script e applicare lo script T-SQL alle partizioni.  
 * Data una richiesta, si presuppone che tutta la relativa elaborazione di database sia contenuta in una singola partizione identificata dalla chiave di partizionamento orizzontale fornita dalla richiesta. Questo presupposto, tuttavia, non è sempre valido, ad esempio quando non è possibile rendere disponibile una chiave di partizionamento orizzontale. A questo scopo, la libreria client fornisce la classe **MultiShardQuery** che implementa un'astrazione delle connessioni per l'esecuzione di query su più partizioni. L'uso di **MultiShardQuery** in combinazione con Entity Framework esula dall'ambito di questo documento
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 
-Seguendo le procedure descritte in questo documento, le applicazioni Entity Framework possono usufruire della funzionalità di routing dipendente dai dati della libreria client dei database elastici mediante il refactoring dei costruttori delle sottoclassi **DbContext** usate nelle applicazioni stesse. Questo limita il numero di modifiche necessarie nelle posizioni in cui sono già presenti classi **DbContext**. Inoltre, le applicazioni Entity Framework possono continuare a usufruire della distribuzione automatica dello schema combinando le operazioni che richiamano le migrazioni Entity Framework con la registrazione di nuove partizioni e mapping nella mappa partizioni. 
+Seguendo le procedure descritte in questo documento, le applicazioni Entity Framework possono usufruire della funzionalità di routing dipendente dai dati della libreria client dei database elastici mediante il refactoring dei costruttori delle sottoclassi **DbContext** usate nelle applicazioni stesse. In questo modo vengono limitate le modifiche necessarie alle posizioni in cui esistono già classi **DbContext.This** limits the changes required to those places where DbContext classes already exist. Inoltre, le applicazioni Entity Framework possono continuare a usufruire della distribuzione automatica dello schema combinando le operazioni che richiamano le migrazioni Entity Framework con la registrazione di nuove partizioni e mapping nella mappa partizioni. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

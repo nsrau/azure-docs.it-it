@@ -1,5 +1,5 @@
 ---
-title: Installare Microsoft Azure StorSimple dispositivo 8100
+title: Installare il dispositivo Microsoft Azure StorSimple 8100Install Microsoft Azure StorSimple 8100 device
 description: Viene descritto come disimballare, montare su rack e cablare il dispositivo StorSimple 8100 prima di distribuire e configurare il software.
 author: alkohli
 ms.assetid: 6098a01e-c031-488a-a8d7-0b607ce665e1
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 113b72ddf7e5d508c8a0b577d4004d4fbd83e8e5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267586"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8100
@@ -27,7 +27,7 @@ Nella seguente procedura vengono fornite istruzioni chiare e dettagliate su come
 ### <a name="prepare-to-unpack-your-device"></a>Preparazione del disimballaggio del dispositivo
 Prima di disimballare il dispositivo, consultare le informazioni seguenti.
 
-icona di avviso ![](./media/storsimple-safety/IC740879.png)![icona del peso elevato](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **avviso.**
+![Icona di avviso](./media/storsimple-safety/IC740879.png)![icona peso elevato](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **AVVISO**
 
 1. Accertarsi che siano disponibili almeno due persone per sostenere il peso dell'enclosure, nel caso in cui debba essere trasportato manualmente. Un'enclosure completamente configurata può pesare fino a 32 kg.
 2. Posizionare la scatola su una superficie piana e orizzontale.
@@ -38,7 +38,7 @@ Successivamente, completare la procedura seguente per disimballare il dispositiv
 1. Controllare le scatole e le protezioni in schiuma per verificare l'eventuale presenza di ammaccature, tagli, danni provocati dall'acqua o altri danni evidenti. Se la scatola o le protezioni risultano danneggiate in modo grave, non aprire la confezione. [Contattare il Supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) per istruzioni su come verificare il corretto funzionamento del dispositivo.
 2. Disimballare la scatola. La figura seguente illustra il dispositivo StorSimple disimballato.
    
-     ![Disimballaggio del dispositivo di archiviazione](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
+     ![Disimballare il dispositivo di archiviazione](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
    
     **Dispositivo di archiviazione disimballato**
    
@@ -83,7 +83,7 @@ Il dispositivo deve essere installato su un rack standard da 48,26 cm (19 pollic
 2. Verificare che nell'ambiente in cui si intende effettuare l'installazione sia disponibile una fonte di alimentazione CA standard indipendente o un'unità PDU (Power Distribution Unit) rack con un gruppo di continuità.
 3. Assicurarsi che nel rack in cui si intende montare il dispositivo sia disponibile uno slot 2U.
 
-icona di avviso ![](./media/storsimple-safety/IC740879.png)![icona del peso elevato](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **avviso.**
+![Icona di avviso](./media/storsimple-safety/IC740879.png)![icona peso elevato](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **AVVISO**
 
 Se si prevede di trasportare il dispositivo a mano, assicurarsi che siano disponibili due persone. Un'enclosure completamente configurata può pesare fino a 32 kg.
 
@@ -100,7 +100,7 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
 #### <a name="to-install-the-device-on-the-rails"></a>Per installare il dispositivo sulle guide
 1. Eseguire questo passaggio solo se non ci sono guide interne installate sul dispositivo. In genere, le guide sono preinstallate. In caso contrario, installare le slitte delle guide destra e sinistra ai lati dello chassis dell'enclosure. Tali slitte vengono fissate a ciascun lato con sei viti metriche. Per un migliore orientamento, le slitte delle guide sono contrassegnate con le diciture **LH – Front** (sinistra - anteriore) e **RH – Front** (destra - anteriore), mentre l'estremità a contatto con la parte posteriore dell'enclosure è affusolata.<br/>
    
-    ![Collegamento delle slitte delle guide al telaio dell'enclosure](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
+    ![Fissaggio delle slitte delle guide allo chassis dell'enclosure](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
     **Fissaggio delle slitte delle guide interne ai lati dello chassis**
    
@@ -114,7 +114,7 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
 4. Fissare il gruppo guida agli elementi verticali del rack con due delle viti metriche fornite. Usare una vite per l'elemento anteriore e una per quello posteriore.
 5. Ripetere la procedura per l'altro gruppo guida.<br/>
    
-     ![Collegamento delle slitte delle guide all'armadio rack](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
+     ![Fissaggio delle slitte delle guide all'armadio rack](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
    
     **Fissaggio dei gruppi guida esterna al rack**
    
@@ -191,18 +191,18 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
    |   6 |Porte seriali |
 2. Per il cablaggio di rete vedere la seguente figura. La configurazione minima di rete è indicata da linee blu continue. La configurazione aggiuntiva richiesta per una disponibilità elevata e prestazioni ottimali è indicata da linee tratteggiate.
 
-    ![Cavo del dispositivo 2U per la rete](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
+    ![Cablare il dispositivo 2U per la rete](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
     **Cablaggio di rete per il dispositivo**
 
    |Etichetta | Descrizione |
    |----- | ----------- |
-   | A    | LAN con accesso a Internet |
-   | B    | Controller 0 |
+   | Una     | LAN con accesso a Internet |
+   | b    | Controller 0 |
    | C    | PCM 0 |
    | D    | Controller 1 |
    | E    | PCM 1 |
-   | F, G | Host |
+   | F, G | Hosts |
    | 0-5  | Interfacce di rete |
 
 

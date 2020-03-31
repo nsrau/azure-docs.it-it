@@ -1,13 +1,13 @@
 ---
-title: Errori di risorsa non trovati
-description: Viene descritto come risolvere gli errori quando non è possibile trovare una risorsa durante la distribuzione con un modello di Azure Resource Manager.
+title: Errori di risorsa non trovata
+description: Viene descritto come risolvere gli errori quando non è possibile trovare una risorsa durante la distribuzione con un modello di Azure Resource Manager.Describes how to resolve errors when a resource can't be found when deploying with an Azure Resource Manager template.
 ms.topic: troubleshooting
 ms.date: 01/21/2020
 ms.openlocfilehash: b6f433118092e46f734d4b65040dd97c2fcb58d9
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773253"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>Risolvere gli errori relativi alle risorse di Azure non trovate
@@ -91,11 +91,11 @@ Cercare un'espressione contenente la funzione [reference](template-functions-res
 
 ## <a name="solution-4---get-managed-identity-from-resource"></a>Soluzione 4: ottenere l'identità gestita dalla risorsa
 
-Se si distribuisce una risorsa che crea in modo implicito un' [identità gestita](../../active-directory/managed-identities-azure-resources/overview.md), è necessario attendere che la risorsa venga distribuita prima di recuperare i valori nell'identità gestita. Se si passa il nome dell'identità gestita alla funzione [Reference](template-functions-resource.md#reference) , gestione risorse tenta di risolvere il riferimento prima della distribuzione della risorsa e dell'identità. Al contrario, passare il nome della risorsa a cui viene applicata l'identità. Questo approccio assicura che la risorsa e l'identità gestita vengano distribuite prima che Gestione risorse risolve la funzione di riferimento.
+Se si distribuisce una risorsa che crea in modo implicito [un'identità gestita,](../../active-directory/managed-identities-azure-resources/overview.md)è necessario attendere che tale risorsa venga distribuita prima di recuperare i valori nell'identità gestita. Se si passa il nome dell'identità gestita alla funzione di [riferimento,](template-functions-resource.md#reference) Resource Manager tenta di risolvere il riferimento prima che la risorsa e l'identità vengano distribuite. Passare invece il nome della risorsa a cui viene applicata l'identità. Questo approccio garantisce che la risorsa e l'identità gestita vengano distribuite prima che Resource Manager risolva la funzione di riferimento.
 
-Nella funzione Reference usare `Full` per ottenere tutte le proprietà, inclusa l'identità gestita.
+Nella funzione di `Full` riferimento, utilizzare per ottenere tutte le proprietà inclusa l'identità gestita.
 
-Ad esempio, per ottenere l'ID tenant per un'identità gestita applicata a un set di scalabilità di macchine virtuali, usare:
+Ad esempio, per ottenere l'ID tenant per un'identità gestita applicata a un set di scalabilità di macchine virtuali, usare:For example, to get the tenant ID for a managed identity that is applied to a virtual machine scale set, use:
 
 ```json
 "tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').Identity.tenantId]"

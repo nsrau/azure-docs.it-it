@@ -1,5 +1,5 @@
 ---
-title: Personalizzare la reimpostazione della password self-service-Azure Active Directory
+title: Personalizzare la reimpostazione della password self-service - Azure Active DirectoryCustomize self-service password reset - Azure Active Directory
 description: Opzioni di personalizzazione per la reimpostazione della password self-service di Azure AD
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6f7f59f7bcc93edafa3cbb47bd432b52bde985c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75979465"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizzare la funzionalità di Azure AD per la reimpostazione della password self-service
@@ -24,28 +24,28 @@ I professionisti IT che vogliono distribuire la reimpostazione della password se
 
 ## <a name="customize-the-contact-your-administrator-link"></a>Personalizzare il collegamento "Contatta l'amministratore"
 
-Per gli utenti con reimpostazione della password self-service è disponibile un collegamento "contattare l'amministratore" nel portale di reimpostazione della password. Se un utente seleziona questo collegamento, effettuerà una delle due operazioni seguenti:
+Gli utenti self-service per la reimpostazione della password dispongono di un collegamento "Contatta l'amministratore" nel portale di reimpostazione della password. Se un utente seleziona questo collegamento, eseguirà una delle due operazioni seguenti:If a user selects this link, it will do one of two things:
 
 * Se lasciato nello stato predefinito:
-   * Viene inviato un messaggio di posta elettronica agli amministratori e viene chiesto di fornire assistenza per la modifica della password dell'utente. Vedere il [messaggio di posta elettronica di esempio](#sample-email) seguente.
+   * La posta elettronica viene inviata agli amministratori e chiede loro di fornire assistenza nella modifica della password dell'utente. Vedere [l'e-mail di esempio](#sample-email) di seguito.
 * Se personalizzato:
-   * Invia l'utente a una pagina Web o a un indirizzo di posta elettronica specificato dall'amministratore per assistenza.
+   * Invia l'utente a una pagina Web o a un indirizzo e-mail specificato dall'amministratore per assistenza.
 
 > [!TIP]
-> Se si Personalizza questa impostazione, è consigliabile impostarla su un elemento con cui gli utenti hanno già familiarità per il supporto
+> Se si personalizza questa impostazione, si consiglia di impostare questo elemento per qualcosa che gli utenti hanno già familiarità con per il supporto
 
 > [!WARNING]
-> Se si Personalizza questa impostazione con un indirizzo di posta elettronica e un account che richiedono la reimpostazione della password, l'utente potrebbe non essere in grado di richiedere assistenza.
+> Se si personalizza questa impostazione con un indirizzo di posta elettronica e un account che richiede la reimpostazione della password, l'utente potrebbe non essere in grado di richiedere assistenza.
 
 ### <a name="sample-email"></a>Esempio di messaggio di posta elettronica
 
-![Richiesta di esempio per reimpostare la posta elettronica inviata all'amministratore][Contact]
+![Richiesta di esempio per reimpostare i messaggi di posta elettronica inviati all'amministratore][Contact]
 
 Questo contatto di posta elettronica viene inviato ai destinatari seguenti nell'ordine seguente:
 
-1. Se viene assegnato il ruolo di **amministratore del supporto tecnico** o la **password** , agli amministratori con questi ruoli viene inviata una notifica.
-1. Se non è stato assegnato alcun amministratore del supporto tecnico o amministratore delle password, viene inviata una notifica agli amministratori con il ruolo di **amministratore utente** .
-1. Se nessuno dei ruoli precedenti viene assegnato, viene inviata una notifica agli **amministratori globali** .
+1. Se viene assegnato il ruolo di **amministratore del supporto tecnico** o di amministratore della **password,** gli amministratori con questi ruoli ricevono una notifica.
+1. Se non vengono assegnati amministratori del supporto tecnico o amministratori di password, gli amministratori con il ruolo di **amministratore utente** ricevono una notifica.
+1. Se nessuno dei ruoli precedenti viene assegnato, gli **amministratori globali** ricevono una notifica.
 
 In tutti i casi, viene inviata una notifica a un massimo di 100 destinatari totali.
 
@@ -55,8 +55,8 @@ Per altre informazioni sui diversi ruoli di amministratore e su come assegnarli,
 
 Se l'organizzazione non vuole inviare notifiche agli amministratori circa le richieste di reimpostazione della password, è possibile abilitare la configurazione seguente:
 
-* Abilitare la reimpostazione self-service delle password per tutti gli utenti finali. Questa opzione è in **Reimpostazione password** > **Proprietà**. Se non si vuole che gli utenti reimpostino le proprie password, è possibile definire l'ambito di accesso a un gruppo vuoto. *Questa opzione non è consigliata.*
-* Personalizzare il collegamento al supporto tecnico per fornire un URL Web o mailto: indirizzo che gli utenti possono usare per ottenere assistenza. Questa opzione si trova in **Reimpostazione password** > **Personalizzazione** > **Indirizzo di posta elettronica o URL del supporto tecnico**.
+* Abilitare la reimpostazione self-service delle password per tutti gli utenti finali. Questa opzione si trova in**Proprietà** **reimpostazione** > password . Se non si vuole che gli utenti reimpostino le proprie password, è possibile definire l'ambito di accesso a un gruppo vuoto. *Questa opzione non è consigliata.*
+* Personalizzare il collegamento al supporto tecnico per fornire un URL Web o mailto: indirizzo che gli utenti possono usare per ottenere assistenza. Questa opzione si trova in **Modifica password** > **Personalizzazione** > Indirizzo di**posta elettronica o URL personalizzato.**
 
 ## <a name="customize-the-ad-fs-sign-in-page-for-sspr"></a>Personalizzare la pagina di accesso di AD FS per la reimpostazione della password self-service
 
@@ -76,14 +76,14 @@ Gli elementi grafici scelti vengono visualizzati nelle circostanze seguenti:
 
 * Dopo che l'utente immette il proprio nome utente
 * Se l'utente accede all'URL personalizzato:
-   * Passando il parametro `whr` alla pagina di reimpostazione della password, ad esempio `https://login.microsoftonline.com/?whr=contoso.com`
-   * Passando il parametro `username` alla pagina di reimpostazione della password, ad esempio `https://login.microsoftonline.com/?username=admin@contoso.com`
+   * Passando il `whr` parametro alla pagina di reimpostazione della password,`https://login.microsoftonline.com/?whr=contoso.com`
+   * Passando il `username` parametro alla pagina di reimpostazione della password,`https://login.microsoftonline.com/?username=admin@contoso.com`
 
 Per Informazioni dettagliate su come configurare le informazioni personalizzate distintive dell'azienda, vedere l'articolo [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso](../fundamentals/customize-branding.md).
 
 ### <a name="directory-name"></a>Nome della directory
 
-È possibile modificare l'attributo del nome della directory in **Azure Active Directory** > **Proprietà**. È possibile visualizzare un nome descrittivo per l'organizzazione nel portale e nelle comunicazioni automatizzate. Questa opzione è la più visibile nei messaggi di posta elettronica automatizzati nei formati seguenti:
+È possibile modificare l'attributo del nome della directory in**Proprietà**di **Azure Active Directory** > . È possibile visualizzare un nome descrittivo per l'organizzazione nel portale e nelle comunicazioni automatizzate. Questa opzione è la più visibile nei messaggi di posta elettronica automatizzati nei formati seguenti:
 
 * Nome descrittivo nel messaggio di posta elettronica, ad esempio "Microsoft per conto di demo CONTOSO"
 * Riga dell'oggetto nel messaggio di posta elettronica, ad esempio "Codice di verifica dell'indirizzo di posta elettronica dell'account demo CONTOSO"
@@ -92,15 +92,15 @@ Per Informazioni dettagliate su come configurare le informazioni personalizzate 
 
 * [Come completare l'implementazione della reimpostazione della password self-service per gli utenti](howto-sspr-deployment.md)
 * [Reimpostare o modificare la password](../user-help/active-directory-passwords-update-your-own-password.md)
-* [Registrarsi per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md)
-* [Domande sulle licenze](concept-sspr-licensing.md)
+* [Registrati per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md)
+* [Hai una domanda di licenza?](concept-sspr-licensing.md)
 * [Dati usati dalla reimpostazione della password self-service e dati da immettere per gli utenti](howto-sspr-authenticationdata.md)
 * [Metodi di autenticazione disponibili per gli utenti](concept-sspr-howitworks.md#authentication-methods)
 * [Opzioni dei criteri per la reimpostazione della password self-service](concept-sspr-policy.md)
 * [Panoramica del writeback delle password](howto-sspr-writeback.md)
 * [Come creare un report sull'attività relativa alla reimpostazione della password self-service](howto-sspr-reporting.md)
 * [Informazioni sulle opzioni della reimpostazione della password self-service](concept-sspr-howitworks.md)
-* [Credo che qualcosa sia rotto. Ricerca per categorie risolvere i problemi di SSPR?](active-directory-passwords-troubleshoot.md)
+* [Credo che qualcosa sia rotto. Come si risolvono i problemi relativi a SSPR?](active-directory-passwords-troubleshoot.md)
 * [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)
 
-[Contact]: ./media/concept-sspr-customization/sspr-contact-admin.png "Contattare l'amministratore per assistenza per la reimpostazione dell'esempio di indirizzo di posta elettronica della password"
+[Contact]: ./media/concept-sspr-customization/sspr-contact-admin.png "Contattare l'amministratore per assistenza nella reimpostazione dell'esempio di posta elettronica della password"

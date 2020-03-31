@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 08/12/2019
 ms.author: cephalin
 ms.openlocfilehash: 92e39f128e90ba83a919388e217f0edc86f81770
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75769668"
 ---
-## <a name="rest"></a>Distribuire il file con estensione zip con le API REST 
+## <a name="deploy-zip-file-with-rest-apis"></a><a name="rest"></a>Distribuire il file con estensione zip con le API REST 
 
 È possibile usare le [API REST del servizio distribuzione](https://github.com/projectkudu/kudu/wiki/REST-API) per distribuire il file ZIP nella propria app in Azure. Per eseguire la distribuzione, inviare una richiesta POST all'indirizzo https://<app_name>.scm.azurewebsites.net/api/zipdeploy. La richiesta POST deve contenere il file ZIP nel corpo del messaggio. Le credenziali di distribuzione per l'app vengono fornite nella richiesta usando l'autenticazione di base HTTP. Per altre informazioni, vedere le [informazioni di riferimento sulla distribuzione push tramite file ZIP](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file). 
 
@@ -33,7 +33,7 @@ curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/deploymen
 
 ### <a name="with-powershell"></a>Con PowerShell
 
-L'esempio seguente usa [Publish-AzWebapp](/powershell/module/az.websites/publish-azwebapp) per caricare il file zip. Sostituire i segnaposto `<group-name>`, `<app-name>` e `<zip-file-path>`.
+Nell'esempio seguente viene utilizzato [Publish-AzWebapp](/powershell/module/az.websites/publish-azwebapp) per caricare il file con estensione zip. Sostituire i segnaposto `<group-name>`, `<app-name>` e `<zip-file-path>`.
 
 ```powershell
 Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <zip-file-path>
@@ -41,7 +41,7 @@ Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <
 
 Questa richiesta attiva la distribuzione push dal file ZIP caricato. 
 
-Per esaminare le distribuzioni correnti e precedenti, eseguire i comandi seguenti. Anche in questo caso, sostituire i segnaposto `<deployment-user>`, `<deployment-password>`e `<app-name>`.
+Per esaminare le distribuzioni correnti e precedenti, eseguire i comandi seguenti. Sostituire nuovamente `<deployment-user>`i `<deployment-password>`segnaposto `<app-name>` , e .
 
 ```bash
 $username = "<deployment-user>"

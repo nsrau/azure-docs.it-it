@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 673a801e218d055bf482dc97972e36584cddd402
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721337"
 ---
 # <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Creare e ottimizzare le tabelle per l'importazione rapida in parallelo dei dati in SQL Server in una macchina virtuale di Azure
@@ -57,7 +57,7 @@ Nell'esempio seguente vengono creati un nuovo database con tre filegroup diverso
 ## <a name="create-a-partitioned-table"></a>Creare una tabella partizionata
 Per creare tabelle partizionate in base allo schema dei dati, mappate ai filegroup del database creato nel passaggio precedente, è prima necessario creare una funzione e uno schema di partizione. Quando i dati vengono importati in blocco nelle tabelle partizionate, i record vengono distribuiti tra i filegroup secondo uno schema di partizione, come descritto di seguito.
 
-### <a name="1-create-a-partition-function"></a>1. creare una funzione di partizione
+### <a name="1-create-a-partition-function"></a>1. Creare una funzione di partizione
 [Creare una funzione di partizione](https://msdn.microsoft.com/library/ms187802.aspx) Questa funzione definisce l'intervallo di valori/limiti da includere in ogni tabella delle partizioni, ad esempio per limitare le partizioni per mese (some\_datetime\_field) nell'anno 2013:
   
         CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
@@ -66,7 +66,7 @@ Per creare tabelle partizionate in base allo schema dei dati, mappate ai filegro
             '20130501', '20130601', '20130701', '20130801',
             '20130901', '20131001', '20131101', '20131201' )
 
-### <a name="2-create-a-partition-scheme"></a>2. creare uno schema di partizione
+### <a name="2-create-a-partition-scheme"></a>2. Creare uno schema di partizione
 [Creare uno schema di partizione](https://msdn.microsoft.com/library/ms179854.aspx). Questo schema esegue il mapping di ogni intervallo di partizione della funzione di partizione a un filegroup fisico, ad esempio:
   
         CREATE PARTITION SCHEME <DatetimeFieldPScheme> AS  
@@ -85,7 +85,7 @@ Per creare tabelle partizionate in base allo schema dei dati, mappate ai filegro
         INNER JOIN sys.partition_range_values prng ON prng.function_id=pfun.function_id
         WHERE pfun.name = <DatetimeFieldPFN>
 
-### <a name="3-create-a-partition-table"></a>3. creare una tabella di partizione
+### <a name="3-create-a-partition-table"></a>3. Creare una tabella di partizione
 [Creare tabelle partizionate](https://msdn.microsoft.com/library/ms174979.aspx) in base allo schema dei dati e specificare lo schema di partizione e il campo di vincolo usati per partizionare la tabella, ad esempio:
   
         CREATE TABLE <table_name> ( [include schema definition here] )
@@ -99,7 +99,7 @@ Per altre informazioni, vedere [Creazione di tabelle e indici partizionati](http
 * [Modificare il database](https://msdn.microsoft.com/library/bb522682.aspx) per modificare lo schema di registrazione delle transazioni in BULK_LOGGED e ridurre il sovraccarico della registrazione, ad esempio:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
-* Per accelerare il caricamento dei dati, avviare le operazioni di importazione in blocco in parallelo. Per suggerimenti su come velocizzare l'importazione bulk di Big Data nei database SQL Server, vedere [caricare 1 TB in meno di un'ora](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
+* Per accelerare il caricamento dei dati, avviare le operazioni di importazione in blocco in parallelo. Per suggerimenti su come velocizzare l'importazione bulk di Big Data nei database di SQL Server, vedere [Caricare 1 TB in meno di 1 ora.](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx)
 
 Il seguente script di PowerShell è un esempio di caricamento dei dati parallelo tramite BCP.
 

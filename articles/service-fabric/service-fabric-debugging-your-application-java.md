@@ -1,15 +1,15 @@
 ---
-title: Eseguire il debug dell'applicazione in Eclipse
+title: Debug your application in Eclipse
 description: Migliorare l'affidabilità e le prestazioni dei servizi sviluppandoli ed eseguendone il debug in Eclipse in un cluster di sviluppo locale.
 author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: suhuruli
 ms.openlocfilehash: 15448a9bd8998a99e8fce578b05130694ecd5fd0
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614486"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Eseguire il debug dell'applicazione Service Fabric di Java con Eclipse
@@ -42,4 +42,4 @@ Se l'applicazione si arresta in modo anomalo, è possibile abilitare elementi co
 ### <a name="next-steps"></a>Passaggi successivi
 
 * [Raccogliere log con Diagnostica di Azure](service-fabric-diagnostics-how-to-setup-lad.md).
-* [Monitorare e diagnosticare servizi in una configurazione di sviluppo con computer locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).
+* [Monitorare e diagnosticare](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)i servizi in locale .
