@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 03/03/2020
-ms.openlocfilehash: 27dae07328af125c25512ab9f1eb81d0f4eda99b
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.date: 03/24/2020
+ms.openlocfilehash: 475f89fc5b33948864fd83c39ee8058ab6908cad
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78271314"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80247198"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novità di Ricerca cognitiva di Azure
 
@@ -26,6 +26,12 @@ Ecco cosa c'è di nuovo nel servizio. Aggiungere un segnalibro a questa pagina p
 Il servizio Ricerca di Azure è stato rinominato in **Ricerca cognitiva di Azure** per riflettere l'uso più ampio (ancora facoltativo) delle competenze cognitive e dell'elaborazione di intelligenza artificiale nelle operazioni principali. Le versioni delle API, i pacchetti NuGet, gli spazi dei nomi e gli endpoint sono rimasti invariati. Le soluzioni di ricerca nuove ed esistenti non sono interessate dalla modifica del nome del servizio.
 
 ## <a name="feature-announcements"></a>Annunci di funzionalità
+
+### <a name="march-2020"></a>Marzo 2020
+
++ L'[eliminazione temporanea di BLOB nativi (anteprima)](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) significa che l'indicizzatore di archiviazione BLOB di Azure in Ricerca cognitiva di Azure riconoscerà i BLOB in uno stato di eliminazione temporanea e rimuoverà il documento di ricerca corrispondente durante l'indicizzazione.
+
++ È ora disponibile una nuova [API REST di gestione stabile (2020-03-13)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions). 
 
 ### <a name="february-2020"></a>Febbraio 2020
 

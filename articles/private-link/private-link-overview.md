@@ -8,21 +8,15 @@ ms.topic: overview
 ms.date: 02/27/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 710c5a780841135344d92e93a02f97963b36b09e
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 3218a2de890124915d62afa86fd5f3dca1e72b2e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921391"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80063090"
 ---
 # <a name="what-is-azure-private-link"></a>Che cos'è Collegamento privato di Azure? 
-Collegamento privato di Azure consente di accedere ai servizi PaaS di Azure, ad esempio:
- 
- - **Archiviazione di Azure**
- - **Azure Cosmos DB**
- - **Database SQL di Azure**
-
-Collegamento privato consente di accedere a servizi di clienti e partner ospitati tramite un [endpoint privato](private-endpoint-overview.md) nella rete virtuale.
+Collegamento privato di Azure consente di accedere ai servizi PaaS di Azure, ad esempio Archiviazione di Azure e Database SQL, nonché ai servizi di proprietà di clienti/partner ospitati in Azure tramite un [endpoint privato](private-endpoint-overview.md) nella rete virtuale.
 
 Il traffico tra la rete virtuale e il servizio attraversa la rete del backbone Microsoft. L'esposizione del servizio sulla rete Internet pubblica non è più necessaria. È possibile creare un [servizio Collegamento privato](private-link-service-overview.md) personale nella rete virtuale e distribuirlo ai clienti. Collegamento privato di Azure offre un'esperienza coerente di configurazione e utilizzo per i servizi PaaS di Azure, i servizi di proprietà dei clienti e quelli condivisi dei partner.
 
@@ -48,16 +42,26 @@ Collegamento privato di Azure offre i vantaggi descritti di seguito.
 
 |Scenario  |Servizi supportati  |Aree disponibili | Stato  |
 |:---------|:-------------------|:-----------------|:--------|
-|Collegamento privato per servizi di proprietà dei clienti|Servizi di Collegamento privato dietro Azure Load Balancer | Tutte le aree pubbliche  | GA <br/> [Altre informazioni](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
-|Collegamento privato per servizi PaaS di Azure   | Archiviazione di Azure        |  Tutte le aree pubbliche      | Anteprima <br/> [Altre informazioni](/azure/storage/common/storage-private-endpoints)  |
-|  | Azure Data Lake Storage Gen2        |  Tutte le aree pubbliche      | Anteprima <br/> [Altre informazioni](/azure/storage/common/storage-private-endpoints)  |
-|  |  database SQL di Azure         | Tutte le aree pubbliche      |   Anteprima <br/> [Altre informazioni](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
-||Azure SQL Data Warehouse| Tutte le aree pubbliche |Anteprima <br/> [Altre informazioni](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
-||Azure Cosmos DB| Stati Uniti centro-occidentali, Stati Uniti occidentali, Stati Uniti centro-settentrionali |Anteprima <br/> [Altre informazioni](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
-|  |  Database di Azure per PostgreSQL - Server singolo         | Tutte le aree pubbliche      |   Anteprima <br/> [Altre informazioni](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
-|  |  Database di Azure per MySQL         | Tutte le aree pubbliche      |   Anteprima <br/> [Altre informazioni](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
-|  |  Database di Azure per MariaDB         | Tutte le aree pubbliche      |   Anteprima <br/> [Altre informazioni](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
-|  |  Insieme di credenziali chiave di Azure         | Tutte le aree pubbliche      |   Anteprima   <br/> [Altre informazioni](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
+|Collegamento privato per servizi di proprietà dei clienti |Servizi di Collegamento privato dietro Azure Load Balancer | Tutte le aree pubbliche  | GA <br/> [Altre informazioni](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
+|Collegamento privato per servizi PaaS di Azure   | Archiviazione di Azure        |  Tutte le aree pubbliche      | GA <br/> [Altre informazioni](/azure/storage/common/storage-private-endpoints)  |
+|  | Azure Data Lake Storage Gen2        |  Tutte le aree pubbliche      | GA <br/> [Altre informazioni](/azure/storage/common/storage-private-endpoints)  |
+|  |  database SQL di Azure         | Tutte le aree pubbliche      |   GA <br/> [Altre informazioni](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
+|  |Azure Synapse Analytics (SQL Data Warehouse)| Tutte le aree pubbliche |GA <br/> [Altre informazioni](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
+|  |Azure Cosmos DB|  STATI UNITI ORIENTALI, STATI UNITI ORIENTALI 2, STATI UNITI OCCIDENTALI, STATI UNITI OCCIDENTALI 2, STATI UNITI CENTRALI, STATI UNITI CENTRO-SETTENTRIONALI, STATI UNITI CENTRO-OCCIDENTALI, STATI UNITI CENTRO-SETTENTRIONALI, EUROPA SETTENTRIONALE, EUROPA OCCIDENTALE  |GA <br/> [Altre informazioni](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
+|  |  Database di Azure per PostgreSQL - Server singolo         | Tutte le aree pubbliche      |   GA <br/> [Altre informazioni](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
+|  |  Database di Azure per MySQL         | Tutte le aree pubbliche      |   GA <br/> [Altre informazioni](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
+|  |  Database di Azure per MariaDB         | Tutte le aree pubbliche      |   GA <br/> [Altre informazioni](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
+|  |  Insieme di credenziali chiave di Azure         | Tutte le aree pubbliche      |   GA   <br/> [Altre informazioni](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
+|  |Servizio Azure Kubernetes - API Kubernetes | Tutte le aree pubbliche      |   GA   <br/> [Altre informazioni](https://docs.microsoft.com/azure/aks/private-clusters)   |
+|  |Ricerca di Azure | STATI UNITI ORIENTALI, STATI UNITI OCCIDENTALI 2, STATI UNITI CENTRO-MERIDIONALI |   Anteprima    |
+|  |Registro Azure Container | Tutte le aree pubbliche      |   Anteprima   |
+|  |Configurazione app di Azure | Tutte le aree pubbliche      |   Anteprima   |
+|  |Backup di Azure | STATI UNITI ORIENTALI, STATI UNITI OCCIDENTALI 2, STATI UNITI CENTRO-MERIDIONALI     |   Anteprima   |
+|  |Hub eventi di Azure | Tutte le aree pubbliche      |   Anteprima    |
+|  |Bus di servizio di Azure | Tutte le aree pubbliche      |   Anteprima   |
+|  |Servizio di inoltro di Azure | Tutte le aree pubbliche      |   Anteprima   |
+|  |Griglia di eventi di Azure| Tutte le aree pubbliche      |   Anteprima   <br/> [Altre informazioni](https://docs.microsoft.com/azure/event-grid/network-security)   |
+|  |App Web di Azure | STATI UNITI ORIENTALI, STATI UNITI OCCIDENTALI 2, STATI UNITI CENTRO-MERIDIONALI      |   Anteprima   <br/> [Altre informazioni](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
 
 Per le notifiche più aggiornate, vedere la [pagina degli aggiornamenti relativi a Rete virtuale di Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 

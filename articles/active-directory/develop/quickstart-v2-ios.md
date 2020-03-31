@@ -12,14 +12,14 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: f0b4d1f557006ba8a343a0497262cc5c8254e86c
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 090f59c4074ca2613c3bd32030b0869a1cd4e9d8
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561583"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80129035"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Avvio rapido: Accesso utenti e chiamata dell'API Microsoft Graph da un'app iOS o macOS
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Guida introduttiva: Accesso utenti e chiamata dell'API Microsoft Graph da un'app iOS o macOS
 
 Questo avvio rapido contiene un esempio di codice che illustra in che modo un'applicazione nativa iOS o macOS può usare Microsoft Identity Platform per consentire l'accesso ad account personali, di lavoro o dell'istituto di istruzione, ottenere un token di accesso e chiamare l'API Microsoft Graph.
 
@@ -270,25 +270,30 @@ self.applicationContext!.acquireToken(with: parameters) { (result, error) in /* 
 Le app non dovrebbero richiedere agli utenti di accedere ogni volta che richiedono un token. Se l'utente ha già eseguito l'accesso, questo metodo consente alle app di richiedere i token in modo invisibile all'utente. 
 
 ```swift
-guard let account = try self.applicationContext!.allAccounts().first else { return }
-        
-let silentParams = MSALSilentTokenParameters(scopes: kScopes, account: account)
-self.applicationContext!.acquireTokenSilent(with: silentParams) { (result, error) in /* Add your handling logic */}
+self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previousAccount, error) in
+            
+   guard let account = currentAccount else {
+      return
+   }
+            
+   let silentParams = MSALSilentTokenParameters(scopes: self.kScopes, account: account)
+   self.applicationContext!.acquireTokenSilent(with: silentParams) { (result, error) in /* Add your handling logic */}
+}
 ```
 
 > |Dove: ||
 > |---------|---------|
 > | `scopes` | Contiene gli ambiti richiesti, ovvero `[ "user.read" ]` per Microsoft Graph o `[ "<Application ID URL>/scope" ]` per le API Web personalizzate (`api://<Application ID>/access_as_user`) |
-> | `account` | Indica l'account per il quale viene richiesto un token. Questo argomento di avvio rapido riguarda un'applicazione con singolo account. Se si vuole creare un'app con più account, è necessario definire la logica per identificare l'account da usare per le richieste di token usando `applicationContext.account(forHomeAccountId: self.homeAccountId)` |
+> | `account` | Indica l'account per il quale viene richiesto un token. Questo argomento di avvio rapido riguarda un'applicazione con singolo account. Se si vuole creare un'app con più account, è necessario definire la logica per identificare l'account da usare per le richieste di token usando `accountsFromDeviceForParameters:completionBlock:` e passando il valore corretto di `accountIdentifier` |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Provare l'esercitazione per iOS per una guida dettagliata completa sulla creazione di applicazioni, tra cui una spiegazione completa di questo avvio rapido.
+Provare l'esercitazione per iOS e macOS per una guida dettagliata completa sulla creazione di applicazioni, tra cui una spiegazione completa di questo argomento di avvio rapido.
 
 ### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>Informazioni su come creare l'applicazione usata in questo avvio rapido
 
 > [!div class="nextstepaction"]
-> [Chiamare l'API Microsoft Graph da un'applicazione iOS](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
+> [Esercitazione sulla chiamata all'API Graph per iOS e macOS](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

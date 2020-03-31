@@ -9,19 +9,19 @@ ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2019
-ms.openlocfilehash: 857cfb4587d7b73a59fafac83dadbef3ad920ebf
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 03/23/2020
+ms.openlocfilehash: c94ac0c27d747da1a98cd9d67ced91a5913147e6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75971431"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80132694"
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Avvio rapido: Eseguire un processo Spark in Azure Databricks con il modello di Azure Resource Manager
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Guida di avvio rapido: Eseguire un processo Spark in Azure Databricks con il modello di Azure Resource Manager
 
 In questa guida di avvio rapido si usa un modello di Azure Resource Manager per creare un'area di lavoro di Azure Databricks con un cluster Apache Spark. Si esegue un processo nel cluster e si usano grafici personalizzati per produrre report in tempo reale dall'utilizzo gratuito/a pagamento in base ai dati demografici.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 
@@ -60,6 +60,8 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il m
 4. La creazione dell'area di lavoro richiede alcuni minuti, durante i quali il portale visualizza il riquadro **Invio della distribuzione per Azure Databricks** a destra. Potrebbe essere necessario scorrere verso destra nel dashboard per visualizzare il riquadro. È presente anche un indicatore di stato nella parte superiore della schermata. È possibile esaminare lo stato di avanzamento nelle due aree.
 
    ![Riquadro di distribuzione di Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-deployment-tile.png "Riquadro di distribuzione di Databricks")
+
+   Quando la distribuzione di un'area di lavoro non riesce, l'area di lavoro viene creata comunque anche se in uno stato di errore. Eliminare l'area di lavoro in errore e crearne una nuova per risolvere gli errori di distribuzione. Quando si elimina l'area di lavoro in errore, vengono eliminati anche il gruppo di risorse gestite e tutte le eventuali risorse distribuite correttamente.
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Creare un cluster Spark in Databricks
 
@@ -170,7 +172,7 @@ Eseguire le operazioni seguenti per creare un blocco appunti in Databricks, conf
    * Impostare **Values** (Valori) su **level**.
    * Impostare **Aggregation** (Aggregazione) su **COUNT** (CONTEGGIO).
 
-   Fare clic su **Apply**.
+   Fare clic su **Applica**.
 
 9. L'output mostra la rappresentazione visiva illustrata nello screenshot seguente:
 

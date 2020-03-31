@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva di Configurazione app di Azure con ASP.NET Core | Microsoft Docs
+title: Guida di avvio rapido di Configurazione app di Azure con ASP.NET Core | Microsoft Docs
 description: Guida di avvio rapido per l'uso di Configurazione app di Azure con app ASP.NET Core
 services: azure-app-configuration
 author: lisaguthrie
@@ -8,18 +8,18 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: ee50d180c579e117c16f1a956871068f0a46e976
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 537dabe09c41012b9e15998ce3af8198dcfb62d3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77498566"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80245775"
 ---
-# <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Avvio rapido: Creare un'app ASP.NET Core con Configurazione app di Azure
+# <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Guida di avvio rapido: Creare un'app ASP.NET Core con Configurazione app di Azure
 
 In questa guida di avvio rapido si userà Configurazione app di Azure per centralizzare l'archiviazione e la gestione delle impostazioni di un'applicazione ASP.NET Core. ASP.NET Core crea un singolo oggetto configurazione basato su chiave-valore usando le impostazioni di una o più origini dati specificate da un'applicazione. Queste origini dati sono note come *provider di configurazione*. Dato che il client .NET Core di Configurazione app viene implementato come provider di configurazione, il servizio risulta come un'altra origine dati.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 - [ASP.NET Core SDK](https://dotnet.microsoft.com/download)
@@ -31,16 +31,16 @@ In questa guida di avvio rapido si userà Configurazione app di Azure per centra
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selezionare **Esplora configurazioni** > **Crea** per aggiungere le coppie chiave-valore seguenti:
+6. Selezionare **Esplora configurazioni** > **Crea** > **Coppia chiave-valore** per aggiungere le coppie chiave-valore seguenti:
 
-    | Chiave | valore |
+    | Chiave | Valore |
     |---|---|
-    | TestApp:Settings:BackgroundColor | bianco |
+    | TestApp:Settings:BackgroundColor | White |
     | TestApp:Settings:FontSize | 24 |
-    | TestApp:Settings:FontColor | Nero |
+    | TestApp:Settings:FontColor | Black |
     | TestApp:Settings:Message | Dati di Configurazione app di Azure |
 
-    Lasciare vuoti i campi **Etichetta** e **Tipo di contenuto** per il momento.
+    Lasciare vuoti i campi **Etichetta** e **Tipo di contenuto** per il momento. Selezionare **Applica**.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Creare un'app Web ASP.NET Core
 
@@ -58,44 +58,51 @@ dotnet new mvc --no-https
 
 Per usare Secret Manager, aggiungere un elemento `UserSecretsId` al file con estensione *csproj*.
 
-Aprire il file con estensione *csproj*. Aggiungere un elemento `UserSecretsId` come illustrato di seguito. È possibile usare lo stesso GUID oppure sostituire questo valore con uno proprio. Salvare il file.
+1. Aprire il file con estensione *csproj*.
 
-> [!IMPORTANT]
-> `CreateHostBuilder` sostituisce `CreateWebHostBuilder` in .NET Core 3.0.  Selezionare la sintassi corretta in base all'ambiente.
+1.  Aggiungere un elemento `UserSecretsId` come illustrato di seguito. È possibile usare lo stesso GUID oppure sostituire questo valore con uno proprio.
 
-#### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
-
-```xml
-<Project Sdk="Microsoft.NET.Sdk.Web">
-
-    <PropertyGroup>
-        <TargetFramework>netcoreapp2.1</TargetFramework>
-        <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
-    </PropertyGroup>
-
-    <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.App" />
-        <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-    </ItemGroup>
-
-</Project>
-```
-
-#### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
-
-```xml
-<Project Sdk="Microsoft.NET.Sdk.Web">
+    > [!IMPORTANT]
+    > `CreateHostBuilder` sostituisce `CreateWebHostBuilder` in .NET Core 3.0.  Selezionare la sintassi corretta in base all'ambiente.
     
-    <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
-        <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
-    </PropertyGroup>
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+    
+    ```xml
+    <Project Sdk="Microsoft.NET.Sdk.Web">
+    
+        <PropertyGroup>
+            <TargetFramework>netcoreapp2.1</TargetFramework>
+            <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
+        </PropertyGroup>
+    
+        <ItemGroup>
+            <PackageReference Include="Microsoft.AspNetCore.App" />
+            <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+        </ItemGroup>
+    
+    </Project>
+    ```
+    
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
+    
+    ```xml
+    <Project Sdk="Microsoft.NET.Sdk.Web">
+        
+        <PropertyGroup>
+            <TargetFramework>netcoreapp3.1</TargetFramework>
+            <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
+        </PropertyGroup>
+    
+    </Project>
+    ```
+    ---
 
-</Project>
-```
----
+1. Salvare il file con estensione *csproj*.
 
-Lo strumento Secret Manager archivia i dati sensibili per operazioni di sviluppo al di fuori dell'albero del progetto. Questo approccio contribuisce a impedire la condivisione accidentale dei segreti dell'app all'interno del codice sorgente. Per altre informazioni su Secret Manager, vedere [Archiviazione sicura dei segreti delle app in fase di sviluppo in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets).
+Lo strumento Secret Manager archivia i dati sensibili per operazioni di sviluppo al di fuori dell'albero del progetto. Questo approccio contribuisce a impedire la condivisione accidentale dei segreti dell'app all'interno del codice sorgente.
+
+> [!TIP]
+> Per altre informazioni su Secret Manager, vedere [Archiviazione sicura dei segreti delle app in fase di sviluppo in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets).
 
 ## <a name="connect-to-an-app-configuration-store"></a>Connettersi a un archivio di Configurazione app
 
@@ -113,7 +120,7 @@ Lo strumento Secret Manager archivia i dati sensibili per operazioni di sviluppo
 
 1. Aggiungere un segreto denominato *ConnectionStrings:AppConfig* a Secret Manager.
 
-    Questo segreto contiene la stringa di connessione per accedere all'archivio di Configurazione app. Sostituire il valore nel comando seguente con la stringa di connessione per l'archivio di Configurazione app.
+    Questo segreto contiene la stringa di connessione per accedere all'archivio di Configurazione app. Sostituire il valore nel comando seguente con la stringa di connessione per l'archivio di Configurazione app. È possibile trovare la stringa di connessione in **Chiavi di accesso** nel portale di Azure.
 
     Questo comando deve essere eseguito nella stessa directory del file con estensione *csproj*.
 

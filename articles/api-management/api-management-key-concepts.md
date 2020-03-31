@@ -14,11 +14,11 @@ ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
 ms.openlocfilehash: 8d7fa8b8119ddf1769b36bcb55831047d6242470
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374475"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215209"
 ---
 # <a name="about-api-management"></a>Informazioni su Gestione API
 
@@ -60,7 +60,7 @@ Il sistema è costituito dai componenti seguenti:
   * Creare un account ed eseguire la sottoscrizione per ottenere le chiavi API.
   * Accedere all'analisi di utilizzo personalizzata.
 
-Per altre informazioni, vedere il white paper in formato PDF [Cloud-based API Management: Harnessing the Power of APIs](https://j.mp/ms-apim-whitepaper) sulla gestione delle API basate sul cloud. Questo white paper introduttivo sulla gestione delle API redatto da CITO Research tratta gli argomenti seguenti: 
+Per altre informazioni, vedere [Gestione API basate sul cloud: sfruttare appieno i vantaggi delle API](https://j.mp/ms-apim-whitepaper) white paper PDF. Questo white paper introduttivo sulla gestione delle API redatto da CITO Research tratta gli argomenti seguenti: 
  
  * Problematiche e requisiti comuni delle API
  * Disaccoppiamento delle API e presentazione delle facciate
@@ -71,17 +71,17 @@ Per altre informazioni, vedere il white paper in formato PDF [Cloud-based API Ma
  * Uso di soluzioni cloud e locali a confronto
  * Gestione API di Azure
  
-## <a name="apis"> </a>API e operazioni
+## <a name="apis-and-operations"></a><a name="apis"> </a>API e operazioni
 Le API costituiscono la base di un'istanza del servizio Gestione API. Ogni API rappresenta un set di operazioni a disposizione degli sviluppatori. Ogni API contiene un riferimento al servizio back-end che implementa l'API e le relative operazioni sono mappate alle operazioni implementate dal servizio back-end. Le operazioni in Gestione API sono altamente configurabili e offrono il controllo sul mapping degli URL, sui parametri di query e percorsi, sul contenuto della richiesta e della risposta e sulla memorizzazione nella cache della risposta delle operazioni. È anche possibile implementare i criteri relativi a restrizioni IP, quote e limitazione di frequenza al livello dell'API o della singola operazione.
 
 Per altre informazioni, vedere [Come creare API in Gestione API di Azure][How to create APIs] e [Come aggiungere operazioni a un'API in Gestione API di Azure][How to add operations to an API].
 
-## <a name="products"></a> Prodotti
+## <a name="products"></a><a name="products"> </a> Prodotti
 I prodotti rappresentano il modo in cui le API sono presentate agli sviluppatori. I prodotti in Gestione API contengono una o più API e sono configurati con un titolo, una descrizione e le condizioni per l'utilizzo. I prodotti possono essere **aperti** o **protetti**. Per usare i prodotti protetti, è prima di tutto necessaria una sottoscrizione, mentre i prodotti aperti possono essere usati senza sottoscrizione. Quando un prodotto è pronto per essere usato dagli sviluppatori, può essere pubblicato. Dopo la pubblicazione, gli sviluppatori possono visualizzare il prodotto e, nel caso dei prodotti protetti, possono sottoscriverlo. L'approvazione della sottoscrizione è configurata al livello del prodotto e può richiedere l'approvazione dell'amministratore o essere approvata automaticamente.
 
 I gruppi permettono di gestire la visibilità dei prodotti agli sviluppatori. I prodotti garantiscono la visibilità ai gruppi e gli sviluppatori possono visualizzare ed effettuare la sottoscrizione ai prodotti visibili ai gruppi ai quali appartengono. 
 
-## <a name="groups"></a> Gruppi di
+## <a name="groups"></a><a name="groups"> </a> Gruppi
 I gruppi permettono di gestire la visibilità dei prodotti agli sviluppatori. Gestione API include i gruppi di sistema non modificabili seguenti:
 
 * **Amministratori** : gli amministratori delle sottoscrizioni di Azure sono membri di questo gruppo. Gli amministratori gestiscono le istanze del servizio Gestione API e creano le API, le operazioni e i prodotti usati dagli sviluppatori.
@@ -92,14 +92,14 @@ Oltre a questi gruppi di sistema, gli amministratori possono creare gruppi perso
 
 Per altre informazioni, vedere [Come creare e usare i gruppi][How to create and use groups].
 
-## <a name="developers"></a> Sviluppatori
+## <a name="developers"></a><a name="developers"> </a> Sviluppatori
 Gli sviluppatori rappresentano gli account utente nell'istanza del servizio Gestione API. Gli sviluppatori possono essere creati o invitati a partecipare dagli amministratori oppure possono iscriversi nel [Portale per sviluppatori][Developer portal]. Ogni sviluppatore è membro di uno o più gruppi e può effettuare la sottoscrizione ai prodotti che concedono la visibilità a tali gruppi.
 
 Quando gli sviluppatori effettuano la sottoscrizione a un prodotto, viene concessa loro la chiave primaria e secondaria per il prodotto. Questa chiave viene usata per effettuare le chiamate alle API del prodotto.
 
 Per altre informazioni, vedere [Come creare o invitare sviluppatori][How to create or invite developers] e [Come associare gruppi a sviluppatori][How to associate groups with developers].
 
-## <a name="policies"></a> Criteri di
+## <a name="policies"></a><a name="policies"> </a> Criteri
 I criteri sono una funzionalità avanzata di Gestione API e consentono al portale di Azure di modificare il comportamento dell'API tramite la configurazione. I criteri sono una raccolta di istruzioni che vengono eseguite in modo sequenziale sulla richiesta o la risposta di un'API. Le istruzioni più comuni includono la conversione di formato da XML a JSON e la limitazione della frequenza delle chiamate per limitare il numero di chiamate in ingresso da uno sviluppatore. Sono anche disponibili numerosi altri criteri.
 
 Le espressioni di criteri possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei criteri di Gestione API, salvo diversamente specificato dai criteri. Alcuni criteri, come [choose](/azure/api-management/api-management-advanced-policies#choose) e [set variable](/azure/api-management/api-management-advanced-policies#set-variable), sono basati su espressioni di criteri. Per altre informazioni, vedere [Criteri avanzati](/azure/api-management/api-management-advanced-policies#AdvancedPolicies) ed [Espressioni di criteri](/azure/api-management/api-management-policy-expressions).
@@ -108,7 +108,7 @@ Le espressioni di criteri possono essere usate come valori di attributo o valori
 Per un elenco completo dei criteri di Gestione API, vedere [Riferimenti per i criteri][Policy reference]. Per altre informazioni sull'uso e la configurazione dei criteri, vedere [Criteri di Gestione API][API Management policies]. Per un'esercitazione sulla creazione di un prodotto con criteri per la limitazione della frequenza e per le quote, vedere [Come creare e configurare impostazioni di prodotto avanzate][How create and configure advanced product settings].
 
 
-## <a name="developer-portal"></a> Portale per sviluppatori
+## <a name="developer-portal"></a><a name="developer-portal"> </a> Portale per sviluppatori
 Il portale per sviluppatori consente agli sviluppatori di visualizzare informazioni sulle API, visualizzare e chiamare operazioni ed effettuare la sottoscrizione ai prodotti. I potenziali clienti possono visitare il portale per sviluppatori, visualizzare API e operazioni ed effettuare l'iscrizione. L'URL del portale per sviluppatori è disponibile nel dashboard del portale di Azure per l'istanza del servizio Gestione API.
 
 È possibile personalizzare l'aspetto del portale per sviluppatori aggiungendo contenuto personalizzato, personalizzando gli stili e aggiungendo il proprio logo.
@@ -123,7 +123,7 @@ Per altre informazioni su Gestione API, guardare la presentazione seguente dalla
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Completare la guida introduttiva seguente e iniziare a usare Gestione API:
+Completare la guida di avvio rapido seguente e iniziare a usare Gestione API:
 
 > [!div class="nextstepaction"]
 > [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)

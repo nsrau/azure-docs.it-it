@@ -1,19 +1,17 @@
 ---
 title: File di inclusione
 description: File di inclusione
-services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 06/05/2019
+ms.date: 03/25/2020
 ms.author: dacoulte
-ms.custom: include file
-ms.openlocfilehash: ea87e51e66985f860cd6d10595a32facde1dc639
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 19b43c857058b3af50db3bc1b42ec1ae558ee884
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67133428"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80272634"
 ---
 Per Criteri di Azure è previsto un numero massimo per ogni tipo di oggetto. La voce _Ambito_ indica la sottoscrizione o il [gruppo di gestione](../articles/governance/management-groups/overview.md).
 
@@ -28,3 +26,4 @@ Per Criteri di Azure è previsto un numero massimo per ogni tipo di oggetto. La 
 | Definizione di iniziativa | Parametri | 100 |
 | Assegnazioni di criteri o iniziative | Esclusioni (notScopes) | 400 |
 | Regola dei criteri | Istruzioni condizionali annidate | 512 |
+| Attività di correzione | Risorse | 1000 |

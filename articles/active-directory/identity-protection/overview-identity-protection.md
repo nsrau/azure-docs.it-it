@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 10/18/2019
+ms.date: 03/17/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e928d67ba7102df3d342e77705ea895f9230ff3
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: d2b1d9748b243dcc2104ce7b8e0e8735a7b7276f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887701"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79497669"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Cos'è Azure Active Directory Identity Protection?
 
@@ -46,14 +46,14 @@ Nel [post di blog di ottobre 2018](https://techcommunity.microsoft.com/t5/Azure-
 
 Identity Protection consente di identificare i rischi suddivisi nelle classificazioni seguenti:
 
-| Tipo di rilevamento dei rischi | DESCRIZIONE |
+| Tipo di rilevamento dei rischi | Descrizione |
 | --- | --- |
 | Trasferimento atipico | Accesso da una posizione insolita in base agli accessi recenti dell'utente. |
 | Indirizzo IP anonimo | Accesso da indirizzo IP anonimo (ad esempio Tor Browser, VPN per navigazione in anonimato). |
 | Proprietà di accesso insolite | Accesso con proprietà non osservate di recente per l'utente specificato. |
 | Indirizzo IP collegato a malware | Accesso da indirizzo IP collegato a malware |
 | Credenziali perse | Questo rilevamento dei rischi indica che le credenziali valide dell'utente sono andate perse |
-| Intelligence per le minacce di Azure AD | Le origini di intelligence Microsoft per le minacce interne ed esterne hanno identificato uno schema di attacco noto. |
+| Intelligence per le minacce di Azure AD | Le origini di intelligence Microsoft per le minacce interne ed esterne hanno identificato uno schema di attacco noto |
 
 Per maggiori dettagli su questi rischi e su come/quando vengono calcolati, vedere l'articolo [Che cosa sono i rischi?](concept-identity-protection-risks.md).
 
@@ -78,6 +78,15 @@ Per informazioni sull'integrazione delle informazioni di Identity Protection con
 ## <a name="permissions"></a>Autorizzazioni
 
 Per poter accedere, Identity Protection richiede che gli utenti abbiano uno dei ruoli seguenti: Ruolo con autorizzazioni di lettura per la sicurezza, Operatore per la sicurezza, Ruolo con autorizzazioni di lettura globali o Amministratore globale.
+
+| Ruolo | Operazione consentita | Non è possibile |
+| --- | --- | --- |
+| Amministratore globale | Accesso completo a Identity Protection |   |
+| Amministratore della sicurezza | Accesso completo a Identity Protection | Reimpostare la password di un utente |
+| Operatore per la sicurezza | Visualizzazione di tutti i report di Identity Protection e del pannello Panoramica <br><br> Ignorare i rischi per gli utenti, confermare l'accesso sicuro, confermare la compromissione | Configurare o cambiare i criteri <br><br> Reimpostare la password di un utente <br><br> Configurare gli avvisi |
+| Ruolo con autorizzazioni di lettura per la sicurezza | Visualizzazione di tutti i report di Identity Protection e del pannello Panoramica | Configurare o cambiare i criteri <br><br> Reimpostare la password di un utente <br><br> Configurare gli avvisi <br><br> Inviare feedback sui rilevamenti |
+
+Gli amministratori di accesso condizionale possono anche creare criteri che tengono conto del rischio di accesso come condizione. Per altre informazioni, vedere l'articolo [Accesso condizionale: condizioni](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
 
 ## <a name="license-requirements"></a>Requisiti relativi alle licenze
 

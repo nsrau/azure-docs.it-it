@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: 2af153e5cf09cf331be016066e9c9210a0d39b03
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 25128442cd922f6b9130586e245695b6880f661c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838169"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80257615"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Guida introduttiva: Creare un'istanza gestita di database SQL di Azure
 
@@ -51,7 +51,7 @@ I passaggi seguenti illustrano come creare un'istanza gestita:
 
    Usare la tabella seguente come riferimento per le informazioni necessarie in questa scheda.
 
-   | Impostazione| Valore consigliato | DESCRIZIONE |
+   | Impostazione| Valore consigliato | Descrizione |
    | ------ | --------------- | ----------- |
    | **Sottoscrizione** | Sottoscrizione in uso. | Una sottoscrizione che fornisce l'autorizzazione per creare nuove risorse. |
    | **Gruppo di risorse** | Gruppo di risorse nuovo o esistente.|Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming).|
@@ -74,7 +74,7 @@ I passaggi seguenti illustrano come creare un'istanza gestita:
 
    Usare la tabella seguente come riferimento per le informazioni necessarie in questa scheda.
 
-   | Impostazione| Valore consigliato | DESCRIZIONE |
+   | Impostazione| Valore consigliato | Descrizione |
    | ------ | --------------- | ----------- |
    | **Rete virtuale** | Selezionare **Crea nuova rete virtuale** o una rete virtuale valida e una subnet.| Se una rete o una subnet non è disponibile, prima di selezionarla come destinazione per la nuova istanza gestita, è necessario [modificarla per soddisfare i requisiti di rete](sql-database-managed-instance-configure-vnet-subnet.md). Per informazioni sui requisiti per la configurazione dell'ambiente di rete per un'istanza gestita, vedere [Configurare una rete virtuale per un'istanza gestita](sql-database-managed-instance-connectivity-architecture.md). |
    | **Tipo di connessione** | Scegliere tra un tipo di connessione proxy e uno con reindirizzamento.|Per altre informazioni sui tipi di connessione, vedere [Criteri di connessione del database SQL di Azure](sql-database-connectivity-architecture.md#connection-policy).|
@@ -91,7 +91,7 @@ I passaggi seguenti illustrano come creare un'istanza gestita:
 
    Usare la tabella seguente come riferimento per le informazioni necessarie in questa scheda.
 
-   | Impostazione| Valore consigliato | DESCRIZIONE |
+   | Impostazione| Valore consigliato | Descrizione |
    | ------ | --------------- | ----------- |
    | **Regole di confronto** | Scegliere le regole di confronto da usare per l'istanza gestita. In caso di migrazione di database da SQL Server, controllare le regole di confronto di origine con `SELECT SERVERPROPERTY(N'Collation')` e usare tale valore.| Per informazioni sulle regole di confronto, vedere [Impostare o modificare le regole di confronto del server](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
    | **Fuso orario** | Selezionare il fuso orario osservato dall'istanza gestita.|Per altre informazioni, vedere [Fusi orari](sql-database-managed-instance-timezone.md).|
@@ -122,6 +122,10 @@ I passaggi seguenti illustrano come creare un'istanza gestita:
 > 1. Nel portale di Azure aprire il gruppo di risorse in cui si sta distribuendo un'istanza gestita (specificato nella scheda **Informazioni di base**).
 > 2. Selezionare **Distribuzioni**.
 > 3. Selezionare l'operazione di distribuzione di istanza gestita in corso.
+
+> [!IMPORTANT]
+> Per ottenere lo stato della creazione dell'istanza gestita, è necessario avere **autorizzazioni di lettura** per il gruppo di risorse. Se non si ha questa autorizzazione o la si revoca mentre è in corso la creazione dell'istanza gestita, è possibile che l'istanza gestita non sia visibile nell'elenco delle distribuzioni del gruppo di risorse.
+>
 
 ## <a name="post-deployment-operations"></a>Operazioni post-distribuzione
 

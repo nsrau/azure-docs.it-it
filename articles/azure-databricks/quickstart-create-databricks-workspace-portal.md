@@ -8,20 +8,20 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
-ms.date: 05/08/2019
+ms.date: 03/23/2020
 ms.custom: mvc
-ms.openlocfilehash: 46bad14978957ab474cfc0eda3e523874246d3f3
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: d6af521238a034bc22612335119f08284b87eb4b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586224"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80132699"
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Avvio rapido: Eseguire un processo Spark in Azure Databricks mediante il portale di Azure
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Guida di avvio rapido: Eseguire un processo Spark in Azure Databricks mediante il portale di Azure
 
 In questa guida di avvio rapido si usa il portale di Azure per creare un'area di lavoro di Azure Databricks con un cluster Apache Spark. Si esegue un processo nel cluster e si usano grafici personalizzati per produrre report in tempo reale da Boston Safety Data.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 
@@ -58,6 +58,8 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il p
 3. Selezionare **Rivedi e crea** e quindi **Crea**. La creazione dell'area di lavoro richiede alcuni minuti, durante i quali è possibile visualizzare lo stato della distribuzione in **Notifiche**. Al termine di questo processo, l'account utente viene aggiunto automaticamente come utente amministratore nell'area di lavoro.
 
     ![Riquadro di distribuzione di Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Riquadro di distribuzione di Databricks")
+
+    Quando la distribuzione di un'area di lavoro non riesce, l'area di lavoro viene creata comunque anche se in uno stato di errore. Eliminare l'area di lavoro in errore e crearne una nuova per risolvere gli errori di distribuzione. Quando si elimina l'area di lavoro in errore, vengono eliminati anche il gruppo di risorse gestite e tutte le eventuali risorse distribuite correttamente.
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Creare un cluster Spark in Databricks
 

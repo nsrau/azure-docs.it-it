@@ -3,17 +3,17 @@ title: Introduzione a Code di Azure - Archiviazione di Azure
 description: Introduzione a Code di Azure
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 06/07/2019
+ms.date: 03/18/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: overview
 ms.reviewer: cbrooks
-ms.openlocfilehash: 0e8bac8344bec06b58a22b8c9162cd8bd22ee700
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 4a2bea77578282d68d86bc1a8cea765aa2cbd555
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750443"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80060857"
 ---
 # <a name="what-are-azure-queues"></a>Che cosa sono le code di Azure?
 
@@ -23,7 +23,7 @@ Archiviazione code di Azure è un servizio per l'archiviazione di un numero elev
 
 Il servizio di accodamento contiene i componenti seguenti:
 
-![Concetti delle code](./media/storage-queues-introduction/queue1.png)
+![Diagramma che mostra la relazione tra un account di archiviazione, le code e i messaggi](./media/storage-queues-introduction/queue1.png)
 
 * **Formato URL:** è possibile fare riferimento alle code usando il formato URL seguente:
 

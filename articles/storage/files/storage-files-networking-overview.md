@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 09d7f93c7a1d8ad9e567ecfe0bb3854d9d54f6e0
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 383ad5e5063a0a207320a517c34f3b41cc57804a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597746"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067158"
 ---
 # <a name="azure-files-networking-considerations"></a>Considerazioni sulla rete per File di Azure 
 È possibile connettersi a una condivisione file di Azure in due modi:
@@ -22,7 +22,9 @@ ms.locfileid: "77597746"
 
 Questo articolo è incentrato sulla configurazione della rete per i casi d'uso che richiedono l'accesso diretto alla condivisione file di Azure invece che tramite Sincronizzazione file di Azure. Per altre informazioni sulle considerazioni di rete per una distribuzione di Sincronizzazione file di Azure, vedere [Configurazione delle impostazioni di proxy e firewall di Sincronizzazione file di Azure](storage-sync-files-firewall-and-proxy.md).
 
-La configurazione di rete per le condivisioni file di Azure viene eseguita nell'account di archiviazione di Azure. Un account di archiviazione è un costrutto di gestione che rappresenta un pool di archiviazione condiviso in cui è possibile distribuire più condivisioni file oltre ad altre risorse di archiviazione, ad esempio contenitori BLOB o code. Gli account di archiviazione espongono più impostazioni che consentono di proteggere l'accesso tramite rete alle condivisioni file: endpoint di rete, impostazioni del firewall dell'account di archiviazione e crittografia in transito.
+La configurazione di rete per le condivisioni file di Azure viene eseguita nell'account di archiviazione di Azure. Un account di archiviazione è un costrutto di gestione che rappresenta un pool di archiviazione condiviso in cui è possibile distribuire più condivisioni file oltre ad altre risorse di archiviazione, ad esempio contenitori BLOB o code. Gli account di archiviazione espongono più impostazioni che consentono di proteggere l'accesso tramite rete alle condivisioni file: endpoint di rete, impostazioni del firewall dell'account di archiviazione e crittografia in transito. 
+
+Prima di seguire questa guida concettuale, è consigliabile leggere [Pianificazione della distribuzione di File di Azure](storage-files-planning.md).
 
 ## <a name="accessing-your-azure-file-shares"></a>Accesso alle condivisioni file di Azure
 Le condivisioni file di Azure distribuite all'interno di un account di archiviazione diventano immediatamente accessibili tramite l'endpoint pubblico dell'account di archiviazione. Questo significa che le richieste autenticate, ad esempio quelle autorizzate dall'identità di accesso di un utente, possono avere origine in modo sicuro all'interno o all'esterno di Azure. 
@@ -65,6 +67,8 @@ L'uso di endpoint privati con File di Azure consente di:
 - Connettersi in modo sicuro alle condivisioni file di Azure dalle reti locali usando una connessione VPN o ExpressRoute con peering privato.
 - Proteggere le condivisioni file di Azure configurando il firewall dell'account di archiviazione in modo da bloccare tutte le connessioni all'endpoint pubblico. Per impostazione predefinita, la creazione di un endpoint privato non blocca le connessioni all'endpoint pubblico.
 - Aumentare la sicurezza per la rete virtuale consentendo di bloccare l'esfiltrazione dei dati dalla rete virtuale e dai limiti di peering.
+
+Per creare un endpoint privato, vedere [Configurazione di endpoint privati per File di Azure](storage-files-networking-endpoints.md).
 
 ### <a name="private-endpoints-and-dns"></a>Endpoint privati e DNS
 Quando si crea un endpoint privato, per impostazione predefinita si crea anche una zona DNS privato (o se ne aggiorna una esistente) corrispondente al sottodominio `privatelink`. Per quanto riguarda la creazione di una zona DNS privato, non è in realtà necessario usare un endpoint privato per l'account di archiviazione, ma è consigliabile in generale ed è necessario in modo esplicito quando si monta la condivisione file di Azure con un'entità utente di Active Directory o si accede dall'API FileREST.
@@ -126,7 +130,7 @@ Il motivo è che l'account di archiviazione può esporre sia l'endpoint pubblico
 
 - Modificare il file hosts nei client per fare in modo che `storageaccount.file.core.windows.net` venga risolto nell'indirizzo IP privato dell'endpoint privato desiderato. Questa scelta è assolutamente sconsigliata per gli ambienti di produzione, perché sarà necessario apportare queste modifiche in ogni client in cui si vogliono montare le condivisioni file di Azure e le modifiche apportate all'account di archiviazione o all'endpoint privato non verranno gestite automaticamente.
 - Creare un record A per `storageaccount.file.core.windows.net` nei server DNS locali. Questa opzione offre il vantaggio che è possibile risolvere automaticamente l'account di archiviazione per i client nell'ambiente locale senza la necessità di configurarli singolarmente. Tuttavia, questa soluzione è altrettanto debole della modifica del file hosts, perché le modifiche non vengono rispecchiate. Ciononostante, potrebbe rivelarsi la scelta migliore per alcuni ambienti.
-- Inoltrare la zona `core.windows.net` dai server DNS locali alla zona DNS privato di Azure. L'host DNS privato di Azure è raggiungibile tramite un indirizzo IP speciale (`168.63.129.16`) accessibile solo all'interno delle reti virtuali collegate alla zona DNS privato di Azure. Per aggirare questa limitazione, è possibile eseguire ulteriori server DNS all'interno della rete virtuale che inoltreranno `core.windows.net` alla zona DNS privato di Azure. Per semplificare questa configurazione, sono disponibili cmdlet di PowerShell che distribuiscono automaticamente i server DNS nella rete virtuale di Azure e li configurano come si desidera.
+- Inoltrare la zona `core.windows.net` dai server DNS locali alla zona DNS privato di Azure. L'host DNS privato di Azure è raggiungibile tramite un indirizzo IP speciale (`168.63.129.16`) accessibile solo all'interno delle reti virtuali collegate alla zona DNS privato di Azure. Per aggirare questa limitazione, è possibile eseguire ulteriori server DNS all'interno della rete virtuale che inoltreranno `core.windows.net` alla zona DNS privato di Azure. Per semplificare questa configurazione, sono disponibili cmdlet di PowerShell che distribuiscono automaticamente i server DNS nella rete virtuale di Azure e li configurano come si desidera. Per informazioni su come configurare l'inoltro DNS, vedere [Configurazione di DNS con File di Azure](storage-files-networking-dns.md).
 
 ## <a name="storage-account-firewall-settings"></a>Impostazioni del firewall dell'account di archiviazione
 Un firewall è un criterio di rete che controlla quali richieste sono autorizzate ad accedere all'endpoint pubblico per un account di archiviazione. Usando il firewall dell'account di archiviazione, è possibile limitare l'accesso all'endpoint pubblico dell'account di archiviazione consentendolo solo a determinati indirizzi IP o intervalli oppure a una rete virtuale. In generale, la maggior parte dei criteri del firewall per un account di archiviazione limiterà l'accesso di rete a una o più reti virtuali. 

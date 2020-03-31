@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 02/05/2019
+ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 74747e1bc5247e2a95a180b7361eafe8ca795bc2
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 1d2140ca0064e2eb6b12726bcee7bf5362de8fbe
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160707"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79408284"
 ---
-# <a name="quickstart-set-up-a-tenant"></a>Avvio rapido: Configurare un tenant
+# <a name="quickstart-set-up-a-tenant"></a>Guida introduttiva: Configurare un tenant
 
 Microsoft Identity Platform consente agli sviluppatori di creare app che si rivolgono a un'ampia gamma di identità e ambienti Microsoft 365 personalizzati. Per iniziare a usare Microsoft Identity Platform occorre accedere a un ambiente, detto anche tenant di Azure AD, in grado di registrare e gestire le app, accedere ai dati di Microsoft 365 e distribuire le restrizioni di accesso condizionale e tenant personalizzate.
 
@@ -72,6 +72,6 @@ Per iniziare a creare app che consentono l'accesso agli account di social e loca
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Provare un'esercitazione introduttiva di scrittura del codice e iniziare ad autenticare gli utenti. 
-* Per altri esempi di codice approfonditi, consultare la sezione **Esercitazioni** della documentazione.
-* Si intende distribuire l'app nel cloud? Verificare [la distribuzione di contenitori in Azure](https://docs.microsoft.com/azure/index#pivot=products&panel=containers). 
+* [Registrare un'app](quickstart-register-app.md) e integrarla con Microsoft Identity Platform. 
+* Informazioni sulle [nozioni di base dell'autenticazione](authentication-scenarios.md).
+* Per informazioni sulla relazione tra sottoscrizioni e un tenant di Azure AD, vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md).

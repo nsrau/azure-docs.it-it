@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Archiviazione BLOB di Azure per JavaScript v10 nel browser'
+title: 'Guida introduttiva: Archiviazione BLOB di Azure per JavaScript v10 nel browser'
 description: Informazioni su come caricare, elencare ed eliminare i BLOB usando l'SDK JavaScript v10 in una pagina HTML.
 services: storage
 author: mhopkins-msft
@@ -9,20 +9,20 @@ ms.author: mhopkins
 ms.date: 01/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 257af309ebdb9080c3cd60b8b89a2c992ecf5145
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: da5db7d956b1ba8aa1ac245b77fe0d4cb31909c1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906579"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80061454"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-browser"></a>Avvio rapido: Gestire i BLOB con JavaScript v10 SDK nel browser
+# <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-browser"></a>Guida introduttiva: Gestire i BLOB con JavaScript v10 SDK nel browser
 
 In questo argomento di avvio rapido viene illustrato come gestire i BLOB usando codice JavaScript eseguito interamente nel browser. I BLOB sono oggetti che possono contenere grandi quantità di dati di testo o binari, tra cui immagini, documenti, flussi multimediali e dati di archiviazione. Verranno usate le misure di sicurezza necessarie per garantire l'accesso protetto all'account di archiviazione BLOB.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Un account dell'Archiviazione di Azure. [Creare un account di archiviazione](../common/storage-account-create.md).
@@ -43,7 +43,7 @@ La tabella seguente descrive ogni impostazione CORS e spiega i valori usati per 
 |Impostazione  |valore  | Descrizione |
 |---------|---------|---------|
 | Origini consentite | * | Accetta un elenco delimitato da virgole dei domini impostati come origini accettabili. Impostando il valore su `*`, tutti i domini potranno accedere all'account di archiviazione. |
-| Verbi consentiti     | delete, get, head, merge, post, options e put | Elenca i verbi HTTP che possono essere eseguiti sull'account di archiviazione. Ai fini di questa guida introduttiva, selezionare tutte le opzioni disponibili. |
+| Metodi consentiti     | delete, get, head, merge, post, options e put | Elenca i verbi HTTP che possono essere eseguiti sull'account di archiviazione. Ai fini di questa guida introduttiva, selezionare tutte le opzioni disponibili. |
 | Intestazioni consentite | * | Definisce un elenco di intestazioni della richiesta (comprese le intestazioni con prefisso) consentite per l'account di archiviazione. Impostando il valore su `*`, tutte le intestazioni potranno accedere. |
 | Intestazioni esposte | * | Elenca le intestazioni di risposta consentite dall'account. Impostando il valore su `*`, l'account potrà inviare qualsiasi intestazione.  |
 | Tempo trascorso massimo (secondi) | 86400 | Periodo massimo di memorizzazione della richiesta OPTIONS preliminare nella cache di un browser. Il valore *86400* consente la conservazione della cache per un giorno intero. |

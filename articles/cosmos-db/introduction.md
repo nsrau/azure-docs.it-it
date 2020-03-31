@@ -6,20 +6,20 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: f322a240835d86697ae18c984700f22ca7b00145
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 2a09d5af013e804f33327855fb7b9f2104bc225c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882175"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215249"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Introduzione ad Azure Cosmos DB
 
 Le applicazioni moderne devono garantire velocità di risposta elevate ed essere sempre online. Per ottenere bassa latenza e disponibilità elevata, è necessario che le istanze di queste applicazioni siano distribuite in data center vicini agli utenti. Le applicazioni devono rispondere in tempo reale alle importanti modifiche nell'utilizzo negli orari di punta, archiviare volumi sempre maggiori di dati e renderli disponibili agli utenti in millisecondi.
 
-Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. Con un semplice clic su un pulsante, Cosmos DB garantisce la scalabilità elastica e indipendente della velocità effettiva e delle risorse di archiviazione tra un numero qualsiasi di aree di Azure del mondo. È possibile ridimensionare in modo elastico la velocità effettiva e le risorse di archiviazione e sfruttare i vantaggi dell'accesso rapido ai dati con latenze inferiori al millisecondo usando l'API preferita tra SQL, MongoDB, Cassandra, Tables o Gremlin. Cosmos DB offre [contratti di servizio](https://aka.ms/acdbsla) completi per garantire velocità effettiva, latenza, disponibilità e coerenza, qualcosa che nessun altro servizio di database offre.
+Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. Con un semplice clic su un pulsante, Cosmos DB garantisce la scalabilità elastica e indipendente della velocità effettiva e delle risorse di archiviazione tra un numero qualsiasi di aree di Azure del mondo. È possibile ridimensionare in modo elastico la velocità effettiva e le risorse di archiviazione e sfruttare i vantaggi dell'accesso rapido ai dati con latenze inferiori al millisecondo usando l'API preferita tra cui SQL, MongoDB, Cassandra, Tables o Gremlin. Cosmos DB offre [contratti di servizio](https://aka.ms/acdbsla) completi per garantire velocità effettiva, latenza, disponibilità e coerenza, qualcosa che nessun altro servizio di database offre.
 
-È possibile [provare Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure, gratuitamente e senza impegno.
+È possibile [provare gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure, a titolo gratuito e senza impegno, oppure usare il [livello gratuito di Azure Cosmos DB](optimize-dev-test.md#azure-cosmos-db-free-tier) per ottenere un account che include gratuitamente le prime 400 UR/s e 5 GB di spazio di archiviazione.
 
 > [!div class="nextstepaction"]
 > [Prova gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)
@@ -95,7 +95,7 @@ Qualsiasi [applicazione Web, per dispositivi mobili, di gioco e IoT](use-cases.m
 
 Altre informazioni sui concetti di base di Cosmos DB per la [distribuzione globale chiavi in mano](distribute-data-globally.md), il [partizionamento](partitioning-overview.md) e il [provisioning della velocità effettiva](request-units.md).
 
-Per un'introduzione ad Azure Cosmos DB, fare riferimento alle guide introduttive seguenti:
+Per un'introduzione ad Azure Cosmos DB, fare riferimento alle guide di avvio rapido seguenti:
 
 * [Introduzione all'API SQL di Azure Cosmos DB](create-sql-api-dotnet.md)
 * [Come iniziare a usare l'API di Azure Cosmos DB per MongoDB](create-mongodb-nodejs.md)

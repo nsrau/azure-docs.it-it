@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: rohink
-ms.openlocfilehash: 36ad1c47e115f06aea2017a049cefe36304504bf
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: e19850243498fc24c9a726f4603590df15f3a046
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934831"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79531516"
 ---
-# <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>Avvio rapido: Creare un profilo di Gestione traffico per un'applicazione Web a disponibilità elevata usando l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>Guida introduttiva: Creare un profilo di Gestione traffico per un'applicazione Web a disponibilità elevata usando l'interfaccia della riga di comando di Azure
 
 Questo argomento di avvio rapido descrive come creare un profilo di Gestione traffico che fornisce disponibilità elevata per l'applicazione Web.
 
@@ -88,6 +88,7 @@ az appservice plan create \
     --sku S1
 
 ```
+
 ### <a name="create-a-web-app-in-the-app-service-plan"></a>Creare un'app Web nel piano di servizio app
 Creare due istanze dell'applicazione Web nei piani di servizio app nelle aree di Azure *Stati Uniti orientali* ed *Europa occidentale* usando [az webapp create](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create).
 
@@ -127,6 +128,7 @@ az webapp show \
     --query id
 
 ```
+
 Prendere nota dell'ID visualizzato nell'output e usare il comando seguente per aggiungere l'endpoint:
 
 ```azurecli-interactive
@@ -151,6 +153,7 @@ az webapp show \
     --query id
 
 ```
+
 Prendere nota dell'ID visualizzato nell'output e usare il comando seguente per aggiungere l'endpoint:
 
 ```azurecli-interactive
@@ -212,7 +215,7 @@ Copiare il valore **RelativeDnsName**. Il nome DNS del profilo di Gestione traff
 
 Al termine, eliminare i gruppi di risorse, le applicazioni Web e tutte le risorse correlate usando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete).
 
-```azurepowershell-interactive
+```azurecli-interactive
 
 az group delete \
     --resource-group myResourceGroup

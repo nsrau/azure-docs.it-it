@@ -1,7 +1,7 @@
 ---
-title: "Portale di Azure: Eseguire query con l'editor di query"
-description: Informazioni su come connettersi al database SQL nel portale di Azure usando l'editor di query SQL. Eseguire quindi istruzioni Transact-SQL (T-SQL) per eseguire query e modificare i dati.
-keywords: connettersi a database sql,portale di azure, portale, editor di query
+title: Eseguire query su un database SQL con l'editor di query nel portale di Azure
+description: Informazioni su come usare l'editor di query per eseguire query T-SQL (Transact-SQL) su un database SQL di Azure.
+keywords: connettersi a database sql,query su database sql, portale di azure, portale, editor di query
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,86 +11,92 @@ ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
-ms.date: 10/24/2019
-ms.openlocfilehash: b3ccc2a5343cf02127990dca80a1300959fa06a3
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.date: 03/12/2020
+ms.openlocfilehash: 5847ef3033d257faef4831785b8abd864d54e835
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79087172"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79209590"
 ---
-# <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Guida introduttiva: Usare l'editor di query SQL del portale di Azure per connettersi ed eseguire query sui dati
+# <a name="quickstart-use-the-azure-portals-query-editor-to-query-a-sql-database"></a>Guida introduttiva: Usare l'editor di query del portale di Azure per eseguire query su un database SQL
 
-L'editor di query SQL è uno strumento del browser nel portale di Azure che consente di eseguire facilmente query SQL sul database SQL di Azure o su Azure SQL Data Warehouse. In questa guida introduttiva si usa l'editor di query per connettersi a un database SQL e quindi eseguire query e inserire, aggiornare ed eliminare dati con istruzioni Transact-SQL.
+L'editor di query è uno strumento del portale di Azure per l'esecuzione di query SQL sul database SQL di Azure o su Azure SQL Data Warehouse. 
+
+In questo argomento di avvio rapido si userà l'editor di query per eseguire query T-SQL (Transact-SQL) su un database SQL di Azure.
+
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa esercitazione, sono necessari:
+Per completare questo argomento di avvio rapido, è necessario il database di esempio AdventureWorksLT. Se non si ha una copia di lavoro del database SQL AdventureWorksLT, vedere questo articolo per crearne rapidamente una:
 
-- un database SQL di Azure. Per creare e quindi configurare un database in Database SQL di Azure è possibile usare una di queste guide introduttive:
+- [Avvio rapido: Creare un database SQL di Azure singolo usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure](sql-database-single-database-get-started.md) 
 
-  || Database singolo |
-  |:--- |:--- |
-  | Create| [Portale](sql-database-single-database-get-started.md) |
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
-  | Configurare | [Regola del firewall IP a livello di server](sql-database-server-level-firewall-rule.md)|
-  |||
+### <a name="configure-network-settings"></a>Configurare le impostazioni di rete
 
-> [!NOTE]
-> L'editor di query usa le porte 443 e 1443 per comunicare.  Assicurarsi di aver abilitato il traffico HTTPS in uscita su queste porte. È anche necessario aggiungere l'indirizzo IP in uscita per le regole del firewall consentite del server per accedere ai database e ai data warehouse.
+Se si verifica uno degli errori seguenti nell'editor di query: *Le impostazioni di rete locali potrebbero impedire all'editor di query di inviare query. Fare clic qui per le istruzioni su come configurare le impostazioni di rete* oppure *Non è stato possibile stabilire una connessione al server. Questo potrebbe indicare un problema con la configurazione locale del firewall o le impostazioni del proxy di rete*, le informazioni importanti seguenti dovrebbero consentire di risolverlo:
 
-## <a name="sign-in-the-azure-portal"></a>Accedere al portale di Azure
+> [!IMPORTANT]
+> L'editor di query usa le porte 443 e 1443 per comunicare. Assicurarsi di aver abilitato il traffico HTTPS in uscita su queste porte. È anche necessario [aggiungere l'indirizzo IP in uscita per le regole del firewall consentite del server](sql-database-server-level-firewall-rule.md) per accedere ai database e ai data warehouse.
 
-Accedere al [portale di Azure](https://portal.azure.com/).
 
-## <a name="connect-using-sql-authentication"></a>Connettersi con l'autenticazione SQL
+## <a name="open-the-sql-database-query-editor"></a>Aprire l'editor di query del database SQL
 
-1. Passare al portale di Azure per connettersi a un database SQL. Cercare e selezionare **Database SQL**.
+1. Accedere al [portale di Azure](https://portal.azure.com/) e selezionare il database SQL su cui eseguire query.
 
-    ![Passare all'elenco dei database SQL, portale di Azure](./media/sql-database-connect-query-portal/search-for-sql-databases.png)
-
-2. Selezionare il database SQL.
-
-    ![Selezionare un database SQL, portale di Azure](./media/sql-database-connect-query-portal/select-a-sql-database.png)
-
-3. Dal menu **Database SQL** scegliere **Editor di query (anteprima)** .
+2. Dal menu **Database SQL** scegliere **Editor di query (anteprima)** .
 
     ![Cercare l'editor di query](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
-4. Nella pagina **Accesso**, sotto l'etichetta **Autenticazione di SQL Server**, immettere l'ID di **Accesso** e la **Password** dell'account amministratore del server usato per creare il database. Selezionare **OK**.
+
+## <a name="establish-a-connection-to-the-database"></a>Stabilire una connessione con il database
+
+Anche se è stato eseguito l'accesso al portale, è comunque necessario fornire le credenziali per accedere al database SQL. Per connettersi al database, è possibile usare l'autenticazione SQL o Azure Active Directory.
+
+### <a name="connect-using-sql-authentication"></a>Connettersi con l'autenticazione SQL
+
+1. Nella pagina **Accesso**, in **Autenticazione di SQL Server**, immettere l'**account di accesso** e la **password** di un utente che ha accesso al database. In caso di dubbi, usare l'account di accesso e la password dell'amministratore del server di database.
 
     ![sign in](./media/sql-database-connect-query-portal/login-menu.png)
 
-## <a name="connect-using-azure-active-directory"></a>Connettersi con Azure Active Directory
+2. Selezionare **OK**.
 
-La configurazione di un amministratore di Azure Active Directory (Azure AD) consente di usare una singola identità per accedere al portale di Azure e al database SQL. Seguire questa procedura per configurare un amministratore di Azure AD per SQL Server.
+
+### <a name="connect-using-azure-active-directory"></a>Connettersi con Azure Active Directory
+
+La configurazione di un amministratore di Azure Active Directory (Azure AD) consente di usare una singola identità per accedere al portale di Azure e al database SQL. Per connettersi al database con Azure AD, seguire questa procedura per configurare un amministratore di Azure AD per il server SQL.
 
 > [!NOTE]
 > * Gli account di posta elettronica (ad esempio outlook.com, gmail.com, yahoo.com e così via) non sono ancora supportati come amministratori di Azure AD. Assicurarsi di scegliere un utente creato in modo nativo o federato in Azure AD.
 > * L'accesso come amministratore di Azure AD non funziona con account per cui è abilitata l'autenticazione a due fattori.
 
-1. Dal menu del portale di Azure o nella pagina **Home** selezionare **Tutte le risorse**.
+#### <a name="set-an-active-directory-admin-for-the-database-server"></a>Impostare un amministratore di Active Directory per il server di database
 
-2. Selezionare il server SQL.
+1. Nel portale di Azure selezionare il server SQL.
 
-3. Dal menu **SQL Server**, in **Impostazioni**, scegliere **Amministratore di Active Directory**.
+2. Scegliere **Amministratore di Active Directory** dal menu **SQL Server**.
 
-4. Sulla barra degli strumenti della pagina **Amministratore di Active Directory** di SQL Server selezionare **Imposta amministratore** e scegliere l'utente o il gruppo da usare come amministratore di Azure AD.
+3. Sulla barra degli strumenti della pagina **Amministratore di Active Directory** del server SQL selezionare **Imposta amministratore** e scegliere l'utente o il gruppo da usare come amministratore di Azure AD.
 
     ![Active Directory: selezione](./media/sql-database-connect-query-portal/select-active-directory.png)
 
-5. Nella casella di ricerca della pagina **Aggiungi amministratore** immettere un utente o un gruppo da trovare, selezionarlo come amministratore e quindi scegliere il pulsante **Seleziona**.
+4. Nella casella di ricerca della pagina **Aggiungi amministratore** immettere un utente o un gruppo da trovare, selezionarlo come amministratore e quindi scegliere il pulsante **Seleziona**.
 
-6. Di nuovo sulla barra degli strumenti della pagina **Amministratore di Active Directory** di SQL Server selezionare **Salva**.
+5. Di nuovo sulla barra degli strumenti della pagina **Amministratore di Active Directory** di SQL Server selezionare **Salva**.
 
-7. Dal menu **SQL Server** scegliere **Database SQL** e quindi selezionare il database SQL desiderato.
+### <a name="connect-to-the-database"></a>Stabilire la connessione al database
 
-8. Dal menu **Database SQL** scegliere **Editor di query (anteprima)** . Nella pagina **Accesso**, sotto l'etichetta **Autenticazione di Active Directory**, viene visualizzato un messaggio che indica che si è avuto accesso se si è amministratori di Azure AD. Selezionare quindi il pulsante **Continua come** *\<ID utente o gruppo>* .
+6. Dal menu **SQL Server** scegliere **Database SQL** e quindi selezionare il database SQL desiderato.
 
-## <a name="view-data"></a>Visualizzare i dati
+7. Dal menu **Database SQL** scegliere **Editor di query (anteprima)** . Nella pagina **Accesso**, sotto l'etichetta **Autenticazione di Active Directory**, viene visualizzato un messaggio che indica che si è avuto accesso se si è amministratori di Azure AD. Selezionare quindi il pulsante **Continua come** *\<ID utente o gruppo>* . Se la pagina indica che l'accesso non è riuscito, potrebbe essere necessario aggiornarla.
 
-1. Dopo l'autenticazione, incollare il codice SQL seguente nell'editor di query per recuperare i primi 20 prodotti per categoria.
+## <a name="query-a-sql-database"></a>Eseguire query su un database SQL
+
+Le query di esempio seguenti dovrebbero essere eseguite correttamente sul database di esempio AdventureWorksLT.
+
+### <a name="run-a-select-query"></a>Eseguire una query SELECT
+
+1. Incollare la query seguente nell'editor di query:
 
    ```sql
     SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -99,13 +105,15 @@ La configurazione di un amministratore di Azure Active Directory (Azure AD) cons
     ON pc.productcategoryid = p.productcategoryid;
    ```
 
-2. Selezionare **Esegui** sulla barra degli strumenti e quindi esaminare l'output nel riquadro **Risultati**.
+2. Selezionare **Esegui** e quindi esaminare l'output nel riquadro **Risultati**.
 
    ![Risultati dell'Editor di query](./media/sql-database-connect-query-portal/query-editor-results.png)
 
-## <a name="insert-data"></a>Inserire i dati
+3. Facoltativamente, è possibile salvare la query come file con estensione sql oppure esportare i dati restituiti come file JSON, CSV o XML.
 
-Eseguire l'istruzione [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL seguente per aggiungere un nuovo prodotto nella tabella `SalesLT.Product`.
+### <a name="run-an-insert-query"></a>Eseguire una query INSERT
+
+Eseguire l'istruzione T-SQL [INSERT](/sql/t-sql/statements/insert-transact-sql/) seguente per aggiungere un nuovo prodotto nella tabella `SalesLT.Product`.
 
 1. Sostituire la query precedente con questa.
 
@@ -133,9 +141,9 @@ Eseguire l'istruzione [INSERT](https://msdn.microsoft.com/library/ms174335.aspx)
 2. Selezionare **Esegui** per inserire una nuova riga nella tabella `Product`. Nel riquadro **Messaggi** verrà visualizzato **Query succeeded: Affected rows: 1** (Query riuscita. Righe interessate: 1).
 
 
-## <a name="update-data"></a>Aggiornare i dati
+### <a name="run-an-update-query"></a>Eseguire una query UPDATE
 
-Eseguire l'istruzione [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL seguente per modificare il nuovo prodotto.
+Eseguire l'istruzione T-SQL [UPDATE](/sql/t-sql/queries/update-transact-sql/) seguente per modificare il nuovo prodotto.
 
 1. Sostituire la query precedente con questa.
 
@@ -147,9 +155,9 @@ Eseguire l'istruzione [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx)
 
 2. Selezionare **Esegui** per aggiornare la riga specificata nella tabella `Product`. Nel riquadro **Messaggi** verrà visualizzato **Query succeeded: Affected rows: 1** (Query riuscita. Righe interessate: 1).
 
-## <a name="delete-data"></a>Eliminare i dati
+### <a name="run-a-delete-query"></a>Eseguire una query DELETE
 
-Eseguire l'istruzione [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL seguente per rimuovere il nuovo prodotto.
+Eseguire l'istruzione T-SQL [DELETE](/sql/t-sql/statements/delete-transact-sql/) seguente per rimuovere il nuovo prodotto.
 
 1. Sostituire la query precedente con questa:
 
@@ -165,11 +173,11 @@ Eseguire l'istruzione [DELETE](https://msdn.microsoft.com/library/ms189835.aspx)
 
 Quando si usa l'editor di query è necessario tenere presente quanto segue.
 
-* L'editor di query usa le porte 443 e 1443 per comunicare.  Assicurarsi di aver abilitato il traffico HTTPS in uscita su queste porte. È anche necessario aggiungere l'indirizzo IP in uscita per le regole del firewall consentite del server per accedere ai database e ai data warehouse.
+* L'editor di query usa le porte 443 e 1443 per comunicare. Assicurarsi di aver abilitato il traffico HTTPS in uscita su queste porte. È anche necessario aggiungere l'indirizzo IP in uscita per le regole del firewall consentite del server per accedere ai database e ai data warehouse.
 
 * L'editor di query funziona con Collegamento privato senza la necessità di aggiungere l'indirizzo IP del client al firewall del database SQL
 
-* Premendo F5, la pagina dell'editor di query verrà aggiornata e qualsiasi query su cui si sta lavorando andrà persa.
+* Premendo **F5**, la pagina dell'editor di query verrà aggiornata e qualsiasi query in uso andrà persa.
 
 * L'editor di query non supporta la connessione al database `master`.
 
@@ -177,11 +185,11 @@ Quando si usa l'editor di query è necessario tenere presente quanto segue.
 
 * L'editor di query supporta solo la proiezione cilindrica per i tipi di dati Geography.
 
-* Non è disponibile alcun supporto per IntelliSense per le tabelle e le viste di database. L'editor supporta tuttavia il completamento automatico per i nomi già digitati.
+* Per tabelle e viste di database non è previsto il supporto di IntelliSense, ma l'editor supporta il completamento automatico dei nomi già digitati.
 
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul supporto per Transact-SQL disponibile nei database SQL di Azure, vedere [Risoluzione delle differenze di Transact-SQL durante la migrazione al database SQL](sql-database-transact-sql-information.md).
+Per altre informazioni sul supporto per T-SQL (Transact-SQL) disponibile nei database SQL di Azure, vedere [Risoluzione delle differenze di Transact-SQL durante la migrazione al database SQL](sql-database-transact-sql-information.md).

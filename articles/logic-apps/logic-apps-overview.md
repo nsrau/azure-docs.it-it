@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: overview
 ms.custom: mvc
-ms.date: 06/29/2018
-ms.openlocfilehash: 2327632fc2a71855874bb8fe45e97af430fa696a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/11/2020
+ms.openlocfilehash: 0ba41d63195c906b57046dc6c9fd57c9f08399ab
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358985"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290549"
 ---
 # <a name="overview---what-is-azure-logic-apps"></a>Panoramica - Informazioni su App per la logica di Azure
 
@@ -36,7 +36,7 @@ Per creare soluzioni di integrazione aziendale con App per la logica di Azure, �
 
 Ogni flusso di lavoro delle app per la logica inizia con un trigger, che viene attivato quando si verifica un evento specifico oppure quando nuovi dati disponibili soddisfano criteri specifici. Molti trigger forniti dai connettori in App per la logica includono funzionalità di pianificazione di base e consentono quindi di configurare la frequenza di esecuzione dei carichi di lavoro. Per una pianificazione più complessa o ricorrenze avanzate, è possibile usare un trigger di ricorrenza come primo passaggio dei flussi di lavoro. Per altre informazioni, vedere l'articolo sui [flussi di lavoro basati su pianificazione](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
-Ogni volta che il trigger viene attivato, il motore di App per la logica crea un'istanza dell'app per la logica che esegue le azioni nel flusso di lavoro. Queste azioni possono anche includere conversioni di dati e controlli di flusso, ad esempio istruzioni condizionali, istruzioni switch, cicli e diramazioni. Ad esempio, questa app per la logica viene avviata con un trigger di Dynamics 365 che include il criterio predefinito "Quando un record viene aggiornato". Se il trigger rileva un evento che soddisfa questo criterio, il trigger viene attivato ed esegue le azioni del flusso di lavoro. In questo caso, le azioni includono la trasformazione XML, gli aggiornamenti dei dati, la diramazione delle decisioni e le notifiche tramite posta elettronica.
+Ogni volta che il trigger viene attivato, il motore di App per la logica crea un'istanza dell'app per la logica che esegue le azioni nel flusso di lavoro. Queste azioni possono anche includere conversioni di dati e controlli di flusso di lavoro, ad esempio istruzioni condizionali, istruzioni switch, cicli e diramazioni. Ad esempio, questa app per la logica viene avviata con un trigger di Dynamics 365 che include il criterio predefinito "Quando un record viene aggiornato". Se il trigger rileva un evento che soddisfa questo criterio, il trigger viene attivato ed esegue le azioni del flusso di lavoro. In questo caso, le azioni includono la trasformazione XML, gli aggiornamenti dei dati, la diramazione delle decisioni e le notifiche tramite posta elettronica.
 
 ![Finestra di progettazione di App per la logica - app per la logica di esempio](./media/logic-apps-overview/azure-logic-apps-designer.png)
 
@@ -100,6 +100,18 @@ Ragionando sull'altra direzione, BizTalk Server può connettersi a e comunicare 
 
 È possibile creare le app per la logica sotto forma di modelli di Azure Resource Manager per poter [automatizzare la distribuzione di app per la logica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) in più aree e ambienti.
 
+### <a name="access-resources-inside-azure-virtual-networks"></a>Accedere alle risorse all'interno di reti virtuali di Azure
+
+Quando si crea un [*ambiente del servizio di integrazione* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), le app per la logica possono accedere a risorse protette, come le macchine virtuali (VM) e altri sistemi o servizi all'interno di una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). Un ISE è un'istanza isolata del servizio App per la logica che usa risorse dedicate e viene eseguita separatamente dal servizio App per la logica "globale" e multi-tenant.
+
+L'esecuzione di app per la logica in un'istanza isolata separata consente di ridurre il potenziale impatto degli altri tenant di Azure sulle prestazioni delle app nel cosiddetto [effetto "noisy neighbor"](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). Un ISE offre inoltre questi vantaggi:
+
+* Disponibilità di indirizzi IP statici separati dagli indirizzi IP statici condivisi dalle app per la logica nel servizio multi-tenant. È anche possibile configurare un unico indirizzo IP in uscita pubblico, statico e prevedibile per comunicare con i sistemi di destinazione. In questo modo, non è necessario configurare ulteriori aperture del firewall in questi sistemi di destinazione per ogni ISE.
+
+* Aumento dei limiti per durata dell'esecuzione, conservazione dell'archiviazione, velocità effettiva, timeout di richieste e risposte HTTP, dimensioni dei messaggi e richieste di connettori personalizzati. Per altre informazioni, vedere [Limiti e configurazione per App per la logica di Azure](../logic-apps/logic-apps-limits-and-config.md).
+
+Quando si crea un ISE, Azure lo *inserisce* o lo distribuisce nella rete virtuale di Azure. È quindi possibile usare questo ISE come posizione per le app per la logica e gli account di integrazione che richiedono l'accesso. Per altre informazioni sulla creazione di un ISE, vedere [Connettersi alle reti virtuali di Azure da App per la logica di Azure](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
+
 ### <a name="built-in-extensibility"></a>Estendibilità incorporata
 
 Se non si trova il connettore che si vuole usare per eseguire codice personalizzato, è possibile estendere le app per la logica creando e chiamando su richiesta frammenti di codice personalizzato tramite [Funzioni di Azure](../azure-functions/functions-overview.md). È possibile creare [API](../logic-apps/logic-apps-create-api-app.md) e [connettori personalizzati](../logic-apps/custom-connector-overview.md) richiamabili dalle app per la logica.
@@ -114,6 +126,10 @@ Per altre informazioni su App per la logica, guardare i video introduttivi segue
 * [Enterprise integration with Microsoft Azure Logic Apps](https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK2188) (Integrazione aziendale con App per la logica di Microsoft Azure)
 * [Building advanced business processes with Logic Apps](https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3179) (Creazione di processi aziendali avanzati con App per la logica)
 
+## <a name="how-does-logic-apps-differ-from-functions-webjobs-and-power-automate"></a>Differenze tra App per la logica e Funzioni, Processi Web e Power Automate
+
+Tutti questi servizi consentono di mettere insieme e connettere sistemi diversi. Ogni servizio presenta vantaggi e svantaggi, di conseguenza combinarne le funzionalità è il modo ideale per creare rapidamente un sistema di integrazione completo e scalabile. Per altre informazioni, vedere [Scegliere tra App per la logica, Funzioni, Processi Web e Power Automate](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
+
 <a name="logic-app-concepts"></a>
 
 ## <a name="key-terms"></a>Termini chiave
@@ -124,15 +140,11 @@ Per altre informazioni su App per la logica, guardare i video introduttivi segue
 
 * **Trigger**: molti connettori gestiti da Microsoft forniscono trigger che vengono attivati in caso di eventi o di nuovi dati che soddisfano condizioni specificate. Ad esempio, un evento potrebbe ottenere un messaggio di posta elettronica o rilevare modifiche nell'account di archiviazione di Azure. Ogni volta che il trigger viene attivato, il motore di App per la logica crea una nuova istanza dell'app per la logica che esegue il flusso di lavoro.
 
-* **Azioni**: per azioni si intendono tutti i passaggi che si verificano dopo il trigger. Ogni azione è in genere associata a un'operazione definita da un connettore gestito, un'API personalizzata o un connettore personalizzato.
+* **Azioni**: Le azioni corrispondono a tutti i passaggi eseguiti dopo l'attivazione del trigger. Ogni azione è in genere associata a un'operazione definita da un connettore gestito, un'API personalizzata o un connettore personalizzato.
 
 * **Enterprise Integration Pack**: per scenari di integrazione più avanzati, App per la logica include funzionalità di BizTalk Server. Enterprise Integration Pack fornisce connettori che permettono alle app per la logica di eseguire facilmente la convalida, la trasformazione e molto altro ancora.
 
-## <a name="how-does-logic-apps-differ-from-functions-webjobs-and-flow"></a>Differenze tra App per la logica e Funzioni, Processi Web e Flow
-
-Tutti questi servizi consentono di mettere insieme e connettere sistemi diversi. Ogni servizio presenta vantaggi e svantaggi, di conseguenza combinarne le funzionalità è il modo ideale per creare rapidamente un sistema di integrazione completo e scalabile. Per altre informazioni, vedere [Scegliere tra Flow, App per la logica, Funzioni e Processi Web](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
-
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 
 App per la logica è uno dei numerosi servizi ospitati in Microsoft Azure. Di conseguenza, prima di iniziare, è necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 

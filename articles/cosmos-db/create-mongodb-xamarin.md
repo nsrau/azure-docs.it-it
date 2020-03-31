@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/20/2018
+ms.date: 03/16/2020
 ms.author: masoucou
-ms.openlocfilehash: a21e3705fe367e478ec02b82ec83c4ad7cfb4151
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 98b0ddf345ebd19e2cd974db3891e88c9f72530d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445452"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79481688"
 ---
-# <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Guida introduttiva: Creare un'app Xamarin.Forms con .NET SDK e l'API di Azure Cosmos DB per MongoDB
+# <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Guida di avvio rapido: Creare un'app Xamarin.Forms con .NET SDK e l'API di Azure Cosmos DB per MongoDB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -28,7 +28,7 @@ ms.locfileid: "75445452"
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave-valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB.
 
-Questa guida introduttiva illustra come creare un [account Cosmos configurato con l'API di Azure Cosmos DB per MongoDB](mongodb-introduction.md), un database di documenti e una raccolta usando il portale di Azure. Si creerà quindi un'app Xamarin.Forms Todo usando il [driver .NET MongoDB](https://docs.mongodb.com/ecosystem/drivers/csharp/).
+Questa guida di avvio rapido illustra come creare un [account Cosmos configurato con l'API di Azure Cosmos DB per MongoDB](mongodb-introduction.md), un database di documenti e una raccolta usando il portale di Azure. Si creerà quindi un'app Xamarin.Forms Todo usando il [driver .NET MongoDB](https://docs.mongodb.com/ecosystem/drivers/csharp/).
 
 ## <a name="prerequisites-to-run-the-sample-app"></a>Prerequisiti per eseguire l'app di esempio
 
@@ -52,10 +52,18 @@ L'esempio descritto in questo articolo è compatibile con MongoDB.Driver version
 
 Prima di tutto, scaricare l'app di esempio da GitHub. L'app implementa un'app Todo con il modello di archiviazione dei documenti di MongoDB.
 
-1. Aprire un prompt dei comandi, creare una nuova cartella denominata git-samples e quindi chiudere il prompt dei comandi.
+
+
+# <a name="windows"></a>[Windows](#tab/windows)
+
+1. In Windows aprire un prompt dei comandi oppure in Mac aprire il terminale, creare una nuova cartella denominata git-samples e quindi chiudere la finestra.
+
+    ```batch
+    md "C:\git-samples"
+    ```
 
     ```bash
-    md "C:\git-samples"
+    mkdir '$home\git-samples\
     ```
 
 2. Aprire una finestra del terminale Git, ad esempio Git Bash, ed eseguire il comando `cd` per passare a una nuova cartella in cui installare l'app di esempio.
@@ -86,6 +94,8 @@ I frammenti seguenti provengono tutti dalla classe `MongoService`, nel percorso 
 
     settings.SslSettings =
         new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
+
+    settings.RetryWrites = false;
 
     MongoClient mongoClient = new MongoClient(settings);
     ```
@@ -160,6 +170,11 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 3. Copia il valore della **stringa di connessione primaria** dal portale (usando il pulsante di copia) e impostarlo come valore del campo **ConnectionString** nel file **APIKeys.cs**.
 
+4. Rimuovere `&replicaSet=globaldb` dalla stringa di connessione. Se non si rimuove il valore dalla stringa di query, verrà restituito un errore di runtime.
+
+> [!IMPORTANT]
+> È necessario rimuovere la coppia chiave-valore `&replicaSet=globaldb` dalla stringa di query della stringa di connessione per evitare un errore di runtime.
+
 L'app è stata aggiornata con tutte le informazioni necessarie per comunicare con Azure Cosmos DB.
 
 ## <a name="run-the-app"></a>Eseguire l'app
@@ -189,7 +204,7 @@ L'app è stata aggiornata con tutte le informazioni necessarie per comunicare co
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva si è appreso come creare un account Azure Cosmos DB ed eseguire un'app Xamarin.Forms con l'API per MongoDB. È ora possibile importare dati aggiuntivi nell'account Cosmos DB.
+In questa guida di avvio rapido si è appreso come creare un account Azure Cosmos DB ed eseguire un'app Xamarin.Forms con l'API per MongoDB. È ora possibile importare dati aggiuntivi nell'account Cosmos DB.
 
 > [!div class="nextstepaction"]
 > [Importare i dati in Azure Cosmos DB configurato con l'API di Azure Cosmos DB per MongoDB](mongodb-migrate.md)

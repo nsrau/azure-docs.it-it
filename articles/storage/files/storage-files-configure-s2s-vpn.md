@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7762366f68bee2cd8c44e81bb22366c504ff1a73
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: ae3d38d92990d7a1af4146c25b017286ebd29352
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484422"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80061030"
 ---
 # <a name="configure-a-site-to-site-vpn-for-use-with-azure-files"></a>Configurare una VPN da sito a sito per l'uso con File di Azure
 È possibile usare una connessione VPN da sito a sito per montare le condivisioni file di Azure su SMB dalla rete locale, senza aprire la porta 445. È possibile configurare una VPN da sito a sito usando il servizio [Gateway VPN di Azure](../../vpn-gateway/vpn-gateway-about-vpngateways.md), ovvero una risorsa di Azure che offre servizi VPN e viene distribuita in un gruppo di risorse insieme ad account di archiviazione o altre risorse di Azure.
@@ -24,7 +24,9 @@ Per una descrizione completa delle opzioni di rete disponibili per File di Azure
 Questo articolo illustra i passaggi della configurazione di una VPN da sito a sito per montare le condivisioni file di Azure direttamente in locale. Se si vuole instradare il traffico di sincronizzazione per Sincronizzazione file di Azure tramite una VPN da sito a sito, vedere come [configurare le impostazioni di proxy e firewall di Sincronizzazione file di Azure](storage-sync-files-firewall-and-proxy.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
-- Una condivisione file di Azure che si vuole montare in locale. Con la VPN da sito a sito, è possibile usare una condivisione file di Azure [standard](storage-how-to-create-file-share.md) o [Premium](storage-how-to-create-premium-fileshare.md).
+- Una condivisione file di Azure che si vuole montare in locale. Le condivisioni file di Azure vengono distribuite all'interno degli account di archiviazione, ovvero costrutti di gestione che rappresentano un pool di archiviazione condiviso in cui è possibile distribuire più condivisione file, oltra ad altre risorse come contenitori BLOB o code. Per altre informazioni su come distribuire condivisioni file di Azure e account di archiviazione, vedere [Creare una condivisione file di Azure](storage-how-to-create-file-share.md).
+
+- Un endpoint privato per l'account di archiviazione contenente l'archiviazione file di Azure da montare in locale. Per altre informazioni su come creare un endpoint privato, vedere [Configurazione degli endpoint di rete di File di Azure](storage-files-networking-endpoints.md?tabs=azure-portal). 
 
 - Un'appliance o un server di rete nel data center locale compatibile con il gateway VPN di Azure. File di Azure è indipendente dall'appliance di rete locale scelta, ma il gateway VPN di Azure mantiene un [elenco di dispositivi testati](../../vpn-gateway/vpn-gateway-about-vpn-devices.md). Per la selezione di un'appliance di rete, è opportuno tenere presente che dispositivi diversi offrono funzionalità, caratteristiche di prestazioni e funzionalità di gestione diverse.
 
@@ -46,7 +48,7 @@ Nel sommario del portale di Azure selezionare **Crea una nuova risorsa** e cerca
 
 Per la distribuzione di un gateway VPN di Azure, è necessario compilare i campi seguenti:
 
-- **Nome**: il nome della risorsa di Azure per il gateway VPN. Può essere qualsiasi nome che si ritiene utile per la gestione.
+- **Name**: il nome della risorsa di Azure per il gateway VPN. Può essere qualsiasi nome che si ritiene utile per la gestione.
 - **Area**: l'area in cui verrà distribuito il gateway VPN.
 - **Tipo di gateway**: per la distribuzione di una VPN da sito a sito, è necessario selezionare **VPN**.
 - **Tipo VPN**: è possibile scegliere *Basato su route* o **Basato su criteri** a seconda del dispositivo VPN in uso. Le VPN basate su route supportano IKEv2, mentre quelle basate su criteri supportano IKEv1. Per altre informazioni sui due tipi di gateway VPN, vedere [Informazioni sui gateway VPN basati su criteri e basati su route](../../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md#about)
@@ -63,7 +65,7 @@ Un gateway di rete locale è una risorsa di Azure che rappresenta l'appliance di
 
 Per la distribuzione della risorsa gateway di rete locale, è necessario compilare i campi seguenti:
 
-- **Nome**: il nome della risorsa di Azure per il gateway di rete locale. Può essere qualsiasi nome che si ritiene utile per la gestione.
+- **Name**: il nome della risorsa di Azure per il gateway di rete locale. Può essere qualsiasi nome che si ritiene utile per la gestione.
 - **Indirizzo IP**: l'indirizzo IP pubblico del gateway locale in locale.
 - **Spazio degli indirizzi**: gli intervalli di indirizzi per la rete rappresentata da questo gateway di rete locale. È possibile aggiungere più intervalli dello spazio di indirizzi, ma assicurarsi che gli intervalli specificati non si sovrappongano a quelli di altre reti a cui ci si vuole connettere. 
 - **Configura le impostazioni BGP:** configurare le impostazioni BGP solo se la configurazione richiede questa impostazione. Per altre informazioni su questa impostazione, vedere [Informazioni su BGP con i gateway VPN di Azure](../../vpn-gateway/vpn-gateway-bgp-overview.md).
@@ -76,27 +78,10 @@ Selezionare **Crea** per creare la risorsa gateway di rete locale.
 ## <a name="configure-on-premises-network-appliance"></a>Configurare l'appliance di rete locale
 I passaggi specifici per configurare l'appliance di rete locale variano in base all'appliance di rete selezionata dall'organizzazione. A seconda del dispositivo scelto dall'organizzazione, l'[elenco di dispositivi testati](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) potrebbe avere un collegamento alle istruzioni del fornitore per la configurazione con il gateway VPN di Azure.
 
-## <a name="create-private-endpoint-preview"></a>Creare un endpoint privato (anteprima)
-La creazione di un endpoint privato per l'account di archiviazione fornisce all'account di archiviazione di un indirizzo IP incluso nello spazio degli indirizzi IP della rete virtuale. Quando si monta la condivisione file di Azure dall'ambiente locale usando questo indirizzo IP privato, le regole di routing definite automaticamente dall'installazione della VPN instraderanno la richiesta di montaggio all'account di archiviazione tramite la VPN. 
-
-Nel pannello account di archiviazione selezionare **Connessioni endpoint privato** nel sommario a sinistra e quindi **+ Endpoint privato** per creare un nuovo endpoint privato. La procedura guidata risultante include più pagine da completare:
-
-![Screenshot della sezione Informazioni di base della sezione per creare un endpoint privato](media/storage-files-configure-s2s-vpn/create-private-endpoint-1.png)
-
-Nella scheda **Informazioni di base** selezionare il gruppo di risorse, il nome e l'area da usare per l'endpoint privato, che non devono necessariamente corrispondere a quelli dell'account di archiviazione, anche se l'endpoint privato deve essere creato nella stessa area della rete virtuale in cui inserirlo.
-
-Nella scheda **Risorsa** selezionare il pulsante di opzione **Connettersi a una risorsa di Azure nella directory**. In **Tipo di risorsa** selezionare **Microsoft.Storage/storageAccounts**. Il campo **Risorsa** corrisponde all'account di archiviazione con la condivisione file di Azure a cui connettersi. La sottorisorsa di destinazione è **file**, perché la procedura riguarda File di Azure.
-
-La scheda **Configurazione** consente di selezionare la rete virtuale e la subnet specifiche a cui aggiungere l'endpoint privato. Selezionare la rete virtuale creata in precedenza. È necessario selezionare una subnet distinta da quella aggiunta all'endpoint di servizio in precedenza.
-
-La scheda **Configurazione** consente anche di configurare una zona DNS privato. Questa operazione non è necessaria, ma consente di usare un percorso UNC intuitivo, ad esempio `\\mystorageaccount.privatelink.file.core.windows.net\myshare`, invece di uno con un indirizzo IP per montare la condivisione file di Azure. A questo scopo è anche possibile usare i propri server DNS all'interno della rete virtuale.
-
-Fare clic su **Rivedi e crea** per creare l'endpoint privato. Una volta creato l'endpoint privato, verranno visualizzate due nuove risorse: una risorsa endpoint privato e un'interfaccia di rete virtuale abbinata. La risorsa interfaccia di rete virtuale avrà l'indirizzo IP privato dedicato dell'account di archiviazione. 
-
 ## <a name="create-the-site-to-site-connection"></a>Creare la connessione da sito a sito
 Per completare la distribuzione di una VPN da sito a sito, è necessario creare una connessione tra l'appliance di rete locale (rappresentata dalla risorsa gateway di rete locale) e il gateway VPN. A questo scopo, passare al gateway VPN creato in precedenza. Nel sommario del gateway VPN selezionare **Connessioni** e fare clic su **Aggiungi**. Nel riquadro **Aggiungi connessione** è necessario completare i campi seguenti:
 
-- **Nome**: il nome della connessione. Un gateway VPN può ospitare più connessioni, quindi selezionare un nome utile per la gestione che distinguerà questa particolare connessione dalle altre.
+- **Name**: il nome della connessione. Un gateway VPN può ospitare più connessioni, quindi selezionare un nome utile per la gestione che distinguerà questa particolare connessione dalle altre.
 - **Tipo di connessione**: poiché si tratta di una connessione da sito a sito, selezionare **Da sito a sito (IPSec)** nell'elenco a discesa.
 - **Gateway di rete virtuale**: questo campo è impostato automaticamente sul gateway VPN con cui si sta creando la connessione e non può essere cambiato.
 - **Gateway di rete locale**: questo è il gateway di rete locale da connettere al gateway VPN. Il riquadro di selezione risultante dovrebbe avere il nome del gateway di rete locale creato in precedenza.

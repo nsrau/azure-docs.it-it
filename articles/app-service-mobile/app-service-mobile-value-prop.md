@@ -1,18 +1,18 @@
 ---
-title: Informazioni sulle app per dispositivi mobili
+title: Informazioni su App per dispositivi mobili
 description: Informazioni sui vantaggi che il servizio app può apportare alle app per dispositivi mobili aziendali.
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
 ms.tgt_pltfrm: mobile-multiple
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 06/25/2019
-ms.openlocfilehash: 73fdf7f09ebb5073829f9787917946e8053f8e12
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
-ms.translationtype: MT
+ms.openlocfilehash: 33548f202046310b91fc79d38ac7d8fb18a8727e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461437"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79499433"
 ---
-# <a name="getting-started"> </a>Informazioni sulle app per dispositivi mobili nel servizio app Azure
+# <a name="about-mobile-apps-in-azure-app-service"></a><a name="getting-started"> </a>Informazioni su App per dispositivi mobili nel servizio app di Azure
 
 Il servizio app di Azure è un'offerta di [piattaforma distribuita come servizio ](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) interamente gestita per sviluppatori professionisti. Il servizio offre un set completo di funzionalità per scenari Web, per dispositivi mobili e di integrazione. 
 
@@ -23,50 +23,50 @@ La funzionalità App per dispositivi mobili del servizio app di Azure offre a in
 ## <a name="why-mobile-apps"></a>Perché le app per dispositivi mobili?
 Con la funzionalità App per dispositivi mobili, è possibile:
 
-* **Compilare app native e multipiattaforma**. Sia che si compilino app native iOS, Android e Windows o app multipiattaforma Xamarin o Cordova (PhoneGap), è possibile sfruttare il servizio app usando SDK nativi.
-* **Connettersi ai sistemi aziendali**. Con la funzionalità App per dispositivi mobili, è possibile aggiungere l'accesso aziendale in pochi minuti e connettersi alle risorse aziendali locali o nel cloud.
-* **Compilare app offline con sincronizzazione dei dati**. È possibile aumentare la produttività della forza lavoro mobile compilando app eseguibili offline e usando App per dispositivi mobili per sincronizzare i dati in background quando è disponibile la connettività con qualsiasi origine dati o API SaaS (Software as a Service) aziendale.
-* **Inviare notifiche push a milioni di utenti in pochi secondi**. È possibile coinvolgere i clienti con notifiche push immediate su qualsiasi dispositivo, personalizzate in base alle specifiche esigenze e inviate al momento giusto.
+* **Compilare app native e multipiattaforma**: sia che si compilino app native iOS, Android e Windows o app multipiattaforma Xamarin o Cordova (PhoneGap), è possibile sfruttare il servizio app usando SDK nativi.
+* **Connettersi ai sistemi aziendali**: con la funzionalità App per dispositivi mobili, è possibile aggiungere l'accesso aziendale in pochi minuti e connettersi alle risorse aziendali locali o nel cloud.
+* **Compilare app offline con sincronizzazione dei dati**: è possibile aumentare la produttività della forza lavoro mobile compilando app eseguibili offline e usando App per dispositivi mobili per sincronizzare i dati in background quando è disponibile la connettività con qualsiasi origine dati o API SaaS (Software as a Service) aziendale.
+* **Inviare notifiche push a milioni di utenti in pochi secondi**: è possibile coinvolgere i clienti con notifiche push immediate su qualsiasi dispositivo, personalizzate in base alle specifiche esigenze e inviate al momento giusto.
 
 ## <a name="mobile-apps-features"></a>Funzionalità di App per dispositivi mobili
 Le funzionalità seguenti sono importanti per lo sviluppo per dispositivi mobili abilitati per il cloud:
 
-* **Autenticazione e autorizzazione**. Supporto provider di identità, tra cui Azure Active Directory per l'autenticazione aziendale, nonché provider di servizi di social networking come Facebook, Google, Twitter e account Microsoft. App per dispositivi mobili offre un servizio OAuth 2.0 per ogni provider. È anche possibile integrare l'SDK del provider di identità per funzionalità specifiche del provider.
+* **Autenticazione e autorizzazione**: supporto provider di identità, tra cui Azure Active Directory per l'autenticazione aziendale, nonché provider di servizi di social networking come Facebook, Google, Twitter e account Microsoft. App per dispositivi mobili offre un servizio OAuth 2.0 per ogni provider. È anche possibile integrare l'SDK del provider di identità per funzionalità specifiche del provider.
 
     Altre informazioni sulle [funzionalità di autenticazione].
 
-* **Accesso ai dati**. App per dispositivi mobili offre un'origine dati OData v3 ottimizzata per dispositivi mobili collegata al database SQL di Azure o a un'istanza locale di SQL Server. Dato che questo servizio può essere basato su Entity Framework, consente una facile integrazione con altri provider di dati NoSQL e SQL, tra cui [Archivio tabelle di Azure], MongoDB e [Azure Cosmos DB], e provider di API SaaS come Office 365 e Salesforce.com.
+* **Accesso ai dati**: App per dispositivi mobili offre un'origine dati OData v3 ottimizzata per dispositivi mobili collegata al database SQL di Azure o a un'istanza locale di SQL Server. Dato che questo servizio può essere basato su Entity Framework, consente una facile integrazione con altri provider di dati NoSQL e SQL, tra cui [Archivio tabelle di Azure], MongoDB e [Azure Cosmos DB], e provider di API SaaS come Office 365 e Salesforce.com.
 
-* **Sincronizzazione offline**. Gli SDK client facilitano la compilazione di applicazioni per dispositivi mobili solide e reattive che funzionano con un set di dati offline. Il set di dati può essere sincronizzato con i dati back-end, con supporto della risoluzione dei conflitti.
+* **Sincronizzazione offline**: gli SDK client facilitano la compilazione di applicazioni per dispositivi mobili solide e reattive che funzionano con un set di dati offline. Il set di dati può essere sincronizzato con i dati back-end, con supporto della risoluzione dei conflitti.
 
   Altre informazioni sulle [funzionalità dati].
 
-* **Notifiche push**. Gli SDK client si integrano facilmente con le funzionalità di registrazione di Hub di notifica di Azure, consentendo di inviare notifiche push a milioni di utenti contemporaneamente.
+* **Notifiche push**: gli SDK client si integrano facilmente con le funzionalità di registrazione di Hub di notifica di Azure, consentendo di inviare notifiche push a milioni di utenti contemporaneamente.
 
   Altre informazioni sulle [funzionalità di notifica push].
 
-* **SDK client**. È disponibile un set completo di SDK client che coprono lo sviluppo nativo ([iOS], [Android] e [Windows]), multipiattaforma ([Xamarin.iOS, Xamarin.Android] e [Xamarin.Forms]) e di applicazioni ibride ([Apache Cordova]). Ogni SDK client è disponibile con una licenza MIT ed è open source.
+* **Client SDK**: è disponibile un set completo di SDK client che coprono lo sviluppo nativo ([iOS], [Android] e [Windows]), multipiattaforma ([Xamarin.iOS, Xamarin.Android] e [Xamarin.Forms]) e di applicazioni ibride ([Apache Cordova]). Ogni SDK client è disponibile con una licenza MIT ed è open source.
 
 ## <a name="azure-app-service-features"></a>Funzionalità del servizio app di Azure
 Le funzionalità della piattaforma seguenti sono utili per i siti di produzione per dispositivi mobili:
 
-* **Scalabilità automatica**. Il servizio app consente di aumentare rapidamente le prestazioni o il numero di istanze per gestire qualsiasi carico di lavoro in ingresso dei clienti. È possibile selezionare manualmente il numero e le dimensioni delle VM o configurare la scalabilità automatica per ridimensionare il back-end delle app per dispositivi mobili in base al carico o alla pianificazione.
+* **Ridimensionamento automatico**: il servizio app consente di aumentare rapidamente le prestazioni o il numero di istanze per gestire qualsiasi carico di lavoro in ingresso dei clienti. È possibile selezionare manualmente il numero e le dimensioni delle VM o configurare la scalabilità automatica per ridimensionare il back-end delle app per dispositivi mobili in base al carico o alla pianificazione.
 
   Altre informazioni sulla [scalabilità automatica].
 
-* **Ambienti di staging**. Il servizio app può eseguire più versioni del sito e consente così di eseguire test A/B, test in ambiente di produzione nell'ambito di un piano DevOps più ampio e staging sul posto di un nuovo back-end.
+* **Ambienti di staging**: il servizio app può eseguire più versioni del sito e consente così di eseguire test A/B, test in ambiente di produzione nell'ambito di un piano DevOps più ampio e staging sul posto di un nuovo back-end.
 
   Altre informazioni sugli [ambienti di staging].
 
-* **Distribuzione continua**. Il servizio app può integrarsi con i sistemi comuni per la gestione del _controllo del codice sorgente_ e consente così di distribuire facilmente una nuova versione del back-end.
+* **Distribuzione continua**: il servizio app può integrarsi con i sistemi comuni per la gestione del _controllo del codice sorgente_ e consente così di distribuire facilmente una nuova versione del back-end.
 
   Altre informazioni sulle [opzioni di distribuzione](../app-service/deploy-local-git.md).
 
-* **Rete virtuale**. Il servizio app può connettersi alle risorse locali usando una rete virtuale, Azure ExpressRoute o connessioni ibride.
+* **Reti virtuali**: il servizio app può connettersi alle risorse locali usando una rete virtuale, Azure ExpressRoute o connessioni ibride.
 
   Altre informazioni su [connessioni ibride], [reti virtuali] ed [ExpressRoute].
 
-* **Ambienti isolati e dedicati**. Per eseguire in modo sicuro le app del Servizio app di Azure, è possibile eseguire il servizio app in un ambiente completamente isolato e dedicato. Un ambiente di questo tipo è ideale per i carichi di lavoro delle applicazioni che richiedono scalabilità elevata, isolamento o accesso alla rete sicuro.
+* **Ambienti isolati e dedicati**: per eseguire in modo sicuro le app del Servizio app di Azure, è possibile eseguire il servizio app in un ambiente completamente isolato e dedicato. Un ambiente di questo tipo è ideale per i carichi di lavoro delle applicazioni che richiedono scalabilità elevata, isolamento o accesso alla rete sicuro.
 
   Altre informazioni sugli [ambienti del servizio app].
 

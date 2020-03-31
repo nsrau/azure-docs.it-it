@@ -4,18 +4,18 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: a1bedf97f5ae7c48e5bcb47880a25ee1219b917b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e5213a20036385ff25373252e6670d8bd86a4b07
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67179931"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80056668"
 ---
-Altre guide introduttive di questa raccolta si basano sui valori di questa guida introduttiva. Se si prevede di continuare a usare le guide introduttive successive o i servizi creati con questa guida introduttiva, non eseguire la pulizia delle risorse.
+Altre guide di avvio rapido di questa raccolta si basano sulla presente guida di avvio rapido. Se si prevede di continuare a usare le guide di avvio rapido o i servizi creati con questa guida di avvio rapido, non eseguire la pulizia delle risorse.
 
 Il termine *risorse* in Azure si riferisce ad app per le funzioni, funzioni, account di archiviazione e così via. Le risorse sono raggruppate in *gruppi di risorse*, ed è possibile eliminare tutti gli elementi in un gruppo eliminando il gruppo. 
 
-Per completare queste guide introduttive sono state create risorse. Per tali risorse potrebbero venire addebitati costi, a seconda dello [stato dell'account](https://azure.microsoft.com/account/) e dei [prezzi dei servizi](https://azure.microsoft.com/pricing/). Se le risorse non sono più necessarie, ecco come eliminarle:
+Per completare queste guide di avvio rapido sono state create risorse. Per tali risorse potrebbero venire addebitati costi, a seconda dello [stato dell'account](https://azure.microsoft.com/account/) e dei [prezzi dei servizi](https://azure.microsoft.com/pricing/). Se le risorse non sono più necessarie, ecco come eliminarle:
 
 1. Nel portale di Azure passare alla pagina **Gruppo di risorse**. 
 
@@ -23,7 +23,7 @@ Per completare queste guide introduttive sono state create risorse. Per tali ris
 
    ![Selezionare il gruppo di risorse da eliminare dalla pagina dell'app per le funzioni.](./media/functions-quickstart-cleanup/functions-app-delete-resource-group.png)
 
-   Per visualizzare tale pagina dal dashboard, selezionare **Gruppi di risorse** e quindi selezionare il gruppo di risorse usato nella guida introduttiva.
+   Per visualizzare tale pagina dal dashboard, selezionare **Gruppi di risorse** e quindi selezionare il gruppo di risorse usato nella guida di avvio rapido.
 
 2. Nella pagina **Gruppo di risorse** esaminare l'elenco delle risorse incluse e verificare che siano quelle da eliminare.
  

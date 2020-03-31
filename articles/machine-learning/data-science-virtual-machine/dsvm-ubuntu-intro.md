@@ -1,21 +1,21 @@
 ---
-title: 'Guida introduttiva: creare un Data Science Virtual Machine Ubuntu'
+title: 'Guida introduttiva: Creare una Data Science Virtual Machine Ubuntu'
 titleSuffix: Azure Data Science Virtual Machine
 description: Configurare e creare una Data Science Virtual Machine per Linux (Ubuntu) per attività di analisi e Machine Learning.
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: gvashishtha
-ms.author: gopalv
+author: lobrien
+ms.author: laobri
 ms.topic: quickstart
-ms.date: 12/31/2019
-ms.openlocfilehash: 5d139cbd59b1b3e63786ae22bbd3b934de37cd49
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/10/2020
+ms.openlocfilehash: f7629b4724e85f93a8dfe3e37ac2b2155288d235
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360629"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290509"
 ---
-# <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Guida introduttiva: configurare la Data Science Virtual Machine per Linux (Ubuntu)
+# <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Guida introduttiva: Configurare la Data Science Virtual Machine per Linux (Ubuntu)
 
 Iniziare a usare una Data Science Virtual Machine Ubuntu 18.04.
 
@@ -29,7 +29,7 @@ Si noti che gli account gratuiti di Azure non supportano gli SKU delle macchine 
 Di seguito sono elencati i passaggi per la creazione della Data Science Virtual Machine Ubuntu 18.04:
 
 1. Passare al [portale di Azure](https://portal.azure.com). È possibile che venga richiesto di accedere all'account Azure, se non è stato ancora eseguito l'accesso.
-1. Trovare l'elenco delle macchine virtuali digitando "data science virtual machine", quindi selezionare "Data Science Virtual Machine - Ubuntu 18.04 (anteprima)".
+1. Trovare l'elenco delle macchine virtuali digitando "data science virtual machine", quindi selezionare "Data Science Virtual Machine - Ubuntu 18.04"
 
 1. Nella finestra successiva selezionare **Crea**.
 
@@ -39,13 +39,13 @@ Di seguito sono elencati i passaggi per la creazione della Data Science Virtual 
 
     1. **Nozioni di base**:
     
-       * **Sottoscrizione**: se si dispone di più di una sottoscrizione, selezionare quella in cui il computer verrà creato e fatturato. È necessario disporre di privilegi di creazione delle risorse per questa sottoscrizione.
-       * **Gruppo di risorse**: creare un nuovo gruppo o utilizzarne uno esistente.
+       * **Sottoscrizione** Se si hanno più sottoscrizioni, selezionare quella in cui verrà creata e fatturata la macchina virtuale. È necessario disporre di privilegi di creazione delle risorse per questa sottoscrizione.
+       * **Gruppo di risorse**: creare un nuovo gruppo di risorse o selezionarne uno esistente.
        * **Nome macchina virtuale**: immettere il nome della macchina virtuale. È il nome con cui verrà visualizzata nel portale di Azure.
        * **Area**: selezionare il data center più appropriato. Per l'accesso più veloce alla rete, in genere è il data center che include la maggior parte dei dati o è più vicino alla propria posizione fisica. Vedere altre informazioni sulle [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/).
-       * **Image**: lasciare il valore predefinito.
-       * **Dimensioni**: questa operazione dovrebbe essere popolata automaticamente con una dimensione appropriata per i carichi di lavoro generali. Vedere altre informazioni sulle [dimensioni delle VM Linux in Azure](../../virtual-machines/linux/sizes.md).
-       * **Tipo di autenticazione**: per un'installazione più rapida, selezionare "password". 
+       * **Immagine**: Lasciare il valore predefinito.
+       * **Size**: questo campo dovrebbe essere completato automaticamente con una dimensione appropriata per carichi di lavoro generali. Vedere altre informazioni sulle [dimensioni delle VM Linux in Azure](../../virtual-machines/linux/sizes.md).
+       * **Tipo di autenticazione**: per velocizzare la configurazione, selezionare "Password". 
          
          > [!NOTE]
          > Se si intende usare JupyterHub, assicurarsi di selezionare "Password", perché JupyterHub *non* è configurato per l'uso di chiavi pubbliche SSH.
@@ -60,7 +60,7 @@ Di seguito sono elencati i passaggi per la creazione della Data Science Virtual 
    1. Selezionare **Rivedi e crea**.
    1. **Rivedi e crea**
       * Verificare che tutte le informazioni immesse siano corrette. 
-      * Selezionare **Crea**.
+      * Selezionare **Create** (Crea).
     
     Per il provisioning sono necessari circa 5 minuti. Lo stato viene visualizzato nel portale di Azure.
 
@@ -94,18 +94,18 @@ Nella VM Linux è già stato effettuato il provisioning del server X2Go ed è po
 
 1. Nella finestra di configurazione risultante immettere i parametri di configurazione seguenti.
    * **Scheda Session**(Sessione):
-     * **Host**: immettere l'indirizzo IP della macchina virtuale che è stata annotata in precedenza.
-     * **Login**: immettere il nome utente nella VM Linux.
-     * **SSH Port**(Porta SSH): lasciare il valore predefinito 22.
-     * **Session Type**(Tipo sessione): modificare il valore in **XFCE**. Attualmente, la VM Linux supporta solo l'ambiente desktop XFCE.
-   * **Scheda Media**(Supporti): è possibile disattivare il supporto audio e la stampa client se non è necessario usarli.
-   * **Shared folders**(Cartelle condivise): se si intende montare directory dei computer client nella VM Linux, aggiungere in questa scheda le directory dei computer client da condividere con la VM.
+     * **Host**: immettere l'indirizzo IP della VM, di cui si è preso nota in precedenza.
+     * **Accesso**: immettere il nome utente nella VM Linux.
+     * **Porta SSH**: lasciare il valore predefinito 22.
+     * **Tipo di sessione**: modificare il valore in **XFCE**. Attualmente, la VM Linux supporta solo l'ambiente desktop XFCE.
+   * **Scheda Supporti**: è possibile disattivare il supporto audio e la stampa client se non è necessario usarli.
+   * **Cartelle condivise**: se si prevede di montare directory dei computer client nella VM Linux, aggiungere in questa scheda le directory dei computer client da condividere con la VM.
 
    ![Configurazione di X2Go](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
-1. Scegliere **OK**.
+1. Selezionare **OK**.
 1. Fare clic sulla casella nel riquadro destro della finestra di X2Go per visualizzare la schermata di accesso per la VM.
 1. Immettere la password per la VM.
-1. Scegliere **OK**.
+1. Selezionare **OK**.
 1. Per completare la connessione potrebbe essere necessario concedere a X2Go l'autorizzazione per ignorare il firewall.
 1. Verrà ora visualizzata l'interfaccia grafica per la DSVM Ubuntu. 
 
@@ -118,13 +118,14 @@ La DSVM Ubuntu esegue [JupyterHub](https://github.com/jupyterhub/jupyterhub), un
       ![Indirizzo IP del computer Ubuntu](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png)
 
    1. Dal computer locale aprire un Web browser e passare a https:\//ip-vm:8000, sostituendo "ip-vm" con l'indirizzo IP di cui si è preso nota in precedenza.
+   1. È probabile che il browser impedisca l'apertura diretta della pagina, segnalando che si è verificato un errore di certificato. La DSVM fornisce sicurezza tramite un certificato autofirmato. La maggior parte dei browser consentirà di fare clic dopo questo avviso. Molti browser continueranno a fornire un certo tipo di avviso visivo sul certificato nell'intera sessione Web.
    1. Immettere il nome utente e la password usati per creare la VM ed eseguire l'accesso. 
 
       ![Immettere l'account di accesso Jupyter](./media/dsvm-ubuntu-intro/jupyter-login.png)
 
    1. Esplorare i numerosi notebook di esempio disponibili.
 
-Sono disponibili anche JupyterLab, la prossima generazione di notebook Jupyter e JupyterHub. Per accedervi, accedere a JupyterHub e quindi passare all'URL https:\//ip-vm:8000/user/nome-utente/lab, sostituendo "nome-utente" con il nome utente scelto durante la configurazione della VM.
+Sono disponibili anche JupyterLab, la prossima generazione di notebook Jupyter e JupyterHub. Per accedervi, accedere a JupyterHub e quindi passare all'URL https:\//ip-vm:8000/user/nome-utente/lab, sostituendo "nome-utente" con il nome utente scelto durante la configurazione della VM. Anche in questo caso, l'accesso al sito potrebbe essere inizialmente bloccato a causa di un errore del certificato.
 
 È possibile impostare JupyterLab come server notebook predefinito aggiungendo questa riga al file `/etc/jupyterhub/jupyterhub_config.py`:
 

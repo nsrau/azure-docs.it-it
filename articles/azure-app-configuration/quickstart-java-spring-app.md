@@ -1,6 +1,6 @@
 ---
 title: Avvio rapido per imparare a usare Configurazione app di Azure
-description: Guida introduttiva per l'uso di Configurazione app di Azure con le app Java Spring.
+description: Guida di avvio rapido per l'uso di Configurazione app di Azure con le app Java Spring.
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -10,14 +10,14 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: lcozzens
-ms.openlocfilehash: 2521adfda731c06c879f5cfeb6283567228bf664
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: c156d5f1242674adc53a2a813e9b2c140221ecfb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919363"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80245311"
 ---
-# <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Guida introduttiva: Creare un'app Java Spring con Configurazione app di Azure
+# <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Guida di avvio rapido: Creare un'app Java Spring con Configurazione app di Azure
 
 In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'app Java Spring per centralizzare l'archiviazione e la gestione delle impostazioni dell'applicazione separatamente dal codice.
 
@@ -31,13 +31,15 @@ In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'a
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-1. Selezionare **Configuration Explorer** >  **+ Crea** per aggiungere le coppie chiave-valore seguenti:
+6. Selezionare **Esplora configurazioni** >  **+ Crea** > **Coppia chiave-valore** per aggiungere le chiavi chiave-valore seguenti:
 
-    | Chiave | valore |
+    | Chiave | Valore |
     |---|---|
     | /application/config.message | Ciao |
 
     Lasciare vuoti i campi **Etichetta** e **Tipo di contenuto** per il momento.
+
+7. Selezionare **Applica**.
 
 ## <a name="create-a-spring-boot-app"></a>Compilare l'app Spring Boot
 
@@ -146,7 +148,7 @@ Usare [Spring Initializr](https://start.spring.io/) per creare un nuovo progetto
 
 1. Impostare una variabile di ambiente denominata **APP_CONFIGURATION_CONNECTION_STRING** sulla chiave di accesso all'archivio di Configurazione app. Al prompt dei comandi eseguire questo comando e riavviare il prompt per rendere effettiva la modifica:
 
-    ```CLI
+    ```cmd
         setx APP_CONFIGURATION_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
     ```
 
@@ -158,7 +160,7 @@ Usare [Spring Initializr](https://start.spring.io/) per creare un nuovo progetto
 
     Se si usa macOS o Linux, eseguire il comando seguente:
 
-    ```console
+    ```cmd
         export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
     ```
 
@@ -166,14 +168,14 @@ Usare [Spring Initializr](https://start.spring.io/) per creare un nuovo progetto
 
 1. Compilare l'applicazione Spring Boot con Maven ed eseguirla, ad esempio:
 
-    ```CLI
+    ```cmd
     mvn clean package
     mvn spring-boot:run
     ```
 
 2. Quando l'applicazione è in esecuzione, è possibile testarla usando *curl*, ad esempio:
 
-      ```CLI
+      ```cmd
       curl -X GET http://localhost:8080/
       ```
 
@@ -185,7 +187,7 @@ Usare [Spring Initializr](https://start.spring.io/) per creare un nuovo progetto
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido è stato creato un nuovo archivio di Configurazione app, che è stato usato con un'app Java Spring. Per altre informazioni, vedere [Spring in Azure](https://docs.microsoft.com/java/azure/spring-framework/). Per informazioni su come usare un'identità gestita di Azure per semplificare l'accesso a Configurazione app, continuare con l'esercitazione successiva.
+In questa guida di avvio rapido è stato creato un nuovo archivio di Configurazione app, che è stato usato con un'app Java Spring. Per altre informazioni, vedere [Spring in Azure](https://docs.microsoft.com/java/azure/spring-framework/). Per informazioni su come abilitare l'app Java Spring per aggiornare in modo dinamico le impostazioni di configurazione, continuare con l'esercitazione successiva.
 
 > [!div class="nextstepaction"]
-> [Integrazione dell'identità gestita](./howto-integrate-azure-managed-service-identity.md)
+> [Abilitare la configurazione dinamica](./enable-dynamic-configuration-java-spring-app.md)

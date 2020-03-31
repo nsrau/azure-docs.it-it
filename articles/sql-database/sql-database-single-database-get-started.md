@@ -1,6 +1,6 @@
 ---
 title: Creare un database singolo
-description: Informazioni su come creare un database singolo ed eseguire query nel database SQL di Azure usando il portale di Azure, PowerShell e l'interfaccia della riga di comando di Azure.
+description: Creare un database SQL di Azure singolo usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure. Eseguire query sul database con l'editor di query nel portale di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -10,48 +10,43 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein, vanto
-ms.date: 02/14/2020
-ms.openlocfilehash: 2dacdfaa5443707ab82ae53922ac439319375276
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.date: 03/10/2020
+ms.openlocfilehash: 638adaac699bb7aa2774f5cbd37dc8394a2baee3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77252137"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215429"
 ---
-# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Avvio rapido: Creare un database singolo nel database SQL di Azure usando il portale di Azure, PowerShell e l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-an-azure-sql-database-single-database"></a>Guida introduttiva: Crea un database SQL di Azure singolo
 
-La creazione di un [database singolo](sql-database-single-database.md) è l'opzione di distribuzione più semplice e rapida per la creazione di database nel database SQL di Azure. Questa guida introduttiva mostra come creare un database singolo e quindi eseguire query usando il portale di Azure.
+In questo argomento di avvio rapido si usa il portale di Azure, uno script di Azure PowerShell o uno script dell'interfaccia della riga di comando di Azure per creare un database SQL di Azure singolo. È quindi possibile eseguire query sul database con l'**editor di query** nel portale di Azure. 
 
-Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/). 
+Un [database singolo](sql-database-single-database.md) è l'opzione di distribuzione più semplice e rapida per Database SQL di Azure. È possibile gestire un database singolo all'interno di un [server di database SQL](sql-database-servers.md), che si trova in un [gruppo di risorse di Azure ](../azure-resource-manager/management/overview.md) in un'area di Azure specificata. In questo argomento di avvio rapido vengono creati un nuovo gruppo di risorse e un server SQL per il nuovo database.
 
-Per tutti i passaggi di questa guida introduttiva, accedere al [portale di Azure](https://portal.azure.com/).
+È quindi possibile creare un database singolo nel livello di calcolo *con provisioning* o *serverless*. Per un database con provisioning viene preallocata una quantità fissa di risorse di calcolo, tra cui CPU e memoria, e viene usato uno dei due [modelli di acquisto](sql-database-purchase-models.md) disponibili. In questo argomento di avvio rapido viene creato un database con provisioning usando il modello di acquisto [basato su vCore](sql-database-service-tiers-vcore.md), ma è anche possibile scegliere un modello [basato su unità di elaborazione di database](sql-database-service-tiers-DTU.md). 
+
+Il livello di calcolo serverless è disponibile solo nel modello di acquisto basato su vCore e include una gamma di risorse di calcolo ridimensionate automaticamente, tra cui CPU e memoria. Per creare un database singolo nel livello di calcolo serverless, vedere [Creare database serverless](sql-database-serverless.md#create-new-database-in-serverless-compute-tier).
+
+## <a name="prerequisite"></a>Prerequisito
+
+- Una sottoscrizione di Azure attiva. Se non se ne ha una, [creare un account gratuito](https://azure.microsoft.com/free/). 
 
 ## <a name="create-a-single-database"></a>Creare un database singolo
-
-Un database singolo può essere creato nel livello di calcolo con provisioning o serverless.
-
-- A un database singolo nel livello di elaborazione con provisioning viene preassegnata una quantità fissa di risorse di elaborazione, incluse CPU e memoria, usando uno dei due [modelli di acquisto](sql-database-purchase-models.md).
-- Un database singolo nel livello di elaborazione serverless dispone di una gamma di risorse di elaborazione, comprendenti la CPU e la memoria che vengono ridimensionate automaticamente, ed è disponibile solo nei [modelli di acquisto basati su vCore](sql-database-service-tiers-vcore.md).
-
-Quando si crea un database singolo, si definisce anche un [server di database SQL](sql-database-servers.md) per gestirlo e lo si inserisce all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md) in un'area geografica specificata.
-
-> [!NOTE]
-> Questo argomento di avvio rapido usa il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md), ma è disponibile anche il [modello di acquisto basato su DTU](sql-database-service-tiers-DTU.md).
-
-Per creare un database singolo contenente i dati di esempio di AdventureWorksLT:
 
 [!INCLUDE [sql-database-create-single-database](includes/sql-database-create-single-database.md)]
 
 ## <a name="query-the-database"></a>Eseguire query sul database
 
-Dopo aver creato il database, usare lo strumento di query predefinito nel portale di Azure per connettersi ed eseguire query sui dati.
+Dopo aver creato il database, è possibile usare l'**editor di query** predefinito per portale di Azure per connettersi ed eseguire query sui dati.
 
+1. Nel portale cercare e selezionare **Database SQL**, quindi selezionare il database nell'elenco.
 1. Nella pagina **Database SQL** del database selezionare **Editor di query (anteprima)** nel menu a sinistra.
+1. Immettere le credenziali di accesso di amministratore server e selezionare **OK**.
+   
+   ![Accedere all'editor di query](./media/sql-database-single-database-get-started/query-editor-login.png)
 
-   ![Accedere all'editor di query](./media/sql-database-get-started-portal/query-editor-login.png)
-
-2. Immettere le informazioni di accesso e selezionare **OK**.
-3. Immettere la query seguente nel riquadro **Editor di query**.
+1. Immettere la query seguente nel riquadro **Editor di query**.
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -60,28 +55,47 @@ Dopo aver creato il database, usare lo strumento di query predefinito nel portal
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-4. Selezionare **Esegui** e quindi esaminare i risultati della query nel riquadro **Risultati**.
+1. Selezionare **Esegui** e quindi esaminare i risultati della query nel riquadro **Risultati**.
 
-   ![Risultati nell'editor di query](./media/sql-database-get-started-portal/query-editor-results.png)
+   ![Risultati nell'editor di query](./media/sql-database-single-database-get-started/query-editor-results.png)
 
-5. Chiudere la pagina **Editor di query** e selezionare **OK** quando richiesto per rimuovere le modifiche non salvate.
+1. Chiudere la pagina **Editor di query** e selezionare **OK** quando richiesto per rimuovere le modifiche non salvate.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si vuole procedere con i [Passaggi successivi](#next-steps), conservare il gruppo di risorse, il server di database e il database singolo. I passaggi successivi illustrano come connettersi al database ed eseguire query con diversi metodi.
+Mantenere il gruppo di risorse, il server e il database singolo per procedere con i passaggi successivi e acquisire informazioni su come connettersi al database ed eseguire query con metodi diversi.
 
-Al termine, sarà possibile eliminare queste risorse come segue:
+Dopo aver finito di usare queste risorse, è possibile eliminare il gruppo di risorse creato, eliminando in questo modo anche il server e il database singolo al suo interno.
 
-1. Nel menu a sinistra nel portale di Azure selezionare **Gruppi di risorse** e quindi **myResourceGroup**.
-2. Nella pagina del gruppo di risorse selezionare **Elimina gruppo di risorse**.
-3. Immettere *myResourceGroup* nel campo e quindi selezionare **Elimina**.
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
+Per eliminare **myResourceGroup** e tutte le relative risorse con il portale di Azure:
+
+1. Nel portale cercare e selezionare **Gruppi di risorse** e quindi selezionare **myResourceGroup** nell'elenco.
+1. Nella pagina del gruppo di risorse selezionare **Elimina gruppo di risorse**.
+1. In **Digitare il nome del gruppo di risorse** immettere *myResourceGroup* e quindi selezionare **Elimina**.
+
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Per eliminare il gruppo di risorse e tutte le relative risorse, eseguire il comando dell'interfaccia della riga di comando di Azure seguente usando il nome del gruppo di risorse:
+
+```azurecli-interactive
+az group delete --name <your resource group>
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Per eliminare il gruppo di risorse e tutte le relative risorse, eseguire il cmdlet di PowerShell seguente, usando il nome del gruppo di risorse:
+
+ ```azurepowershell-interactive
+Remove-AzResourceGroup -Name <your resource group>
+```
+
+---
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Creare una regola del firewall a livello di server per connettersi al database singolo da strumenti locali o remoti. Per altre informazioni, vedere [Creare una regola di firewall a livello di server](sql-database-server-level-firewall-rule.md).
-- Dopo aver creato una regola del firewall a livello di server, [connettersi al database ed eseguire query](sql-database-connect-query.md) usando diversi strumenti e linguaggi.
-  - [Connettersi ed eseguire query usando SQL Server Management Studio](sql-database-connect-query-ssms.md)
-  - [Connettersi ed eseguire query usando Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
-- Per creare un database singolo nel livello di elaborazione con provisioning usando l'interfaccia della riga di comando di Azure, vedere [Esempi di interfaccia della riga di comando di Azure](sql-database-cli-samples.md).
-- Per creare un database singolo nel livello di elaborazione con provisioning usando Azure PowerShell, vedere [Esempi di Azure PowerShell](sql-database-powershell-samples.md).
-- Per creare un database singolo nel livello di elaborazione serverless con Azure PowerShell, vedere [Creare database serverless](sql-database-serverless.md#create-new-database-in-serverless-compute-tier).
+[Connettersi ed eseguire query](sql-database-connect-query.md) sul database con strumenti e linguaggi diversi:
+> [!div class="nextstepaction"]
+> [Connettersi ed eseguire query usando SQL Server Management Studio](sql-database-connect-query-ssms.md)
+> 
+> [Connettersi ed eseguire query usando Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)

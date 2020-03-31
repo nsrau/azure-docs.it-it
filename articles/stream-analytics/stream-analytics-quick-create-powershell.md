@@ -7,14 +7,14 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 5fd38a781a58da530ad805bbeee352858eb33b41
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
-ms.translationtype: MT
+ms.openlocfilehash: 84c132c333e4d6ba052029350f275ebf499a906f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78892744"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79536803"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Guida introduttiva: creare un processo di analisi di flusso usando Azure PowerShell
+# <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Guida introduttiva: Creare un processo di Analisi di flusso usando Azure PowerShell
 
 Il modulo Azure PowerShell viene usato per creare e gestire le risorse di Azure usando cmdlet o script di PowerShell. Questa guida introduttiva illustra in dettaglio l'uso del modulo Azure PowerShell per distribuire ed eseguire un processo di Analisi di flusso di Azure.
 
@@ -28,7 +28,7 @@ Il processo di esempio legge i dati in streaming da un dispositivo hub IoT. I da
 
 * Per questa guida di avvio rapido è richiesto il modulo Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata nel computer locale. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-* Alcune azioni dell'hub Internet non sono supportate da Azure PowerShell e devono essere completate usando l'interfaccia della riga di comando di Azure versione 2.0.70 o successiva e l'estensione per l'interfaccia della riga di comando di Azure [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e usare `az extension add --name azure-iot` per installare l'estensione IoT.
+* Alcune azioni dell'hub IoT non sono supportate da Azure PowerShell e devono essere completate usando l'interfaccia della riga di comando di Azure versione 2.0.70 o successiva e la relativa estensione IoT. [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e usare `az extension add --name azure-iot` per installare l'estensione IoT.
 
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
@@ -104,7 +104,7 @@ Il blocco di codice dell'interfaccia della riga di comando di Azure riportato di
 
     **Esempio di output:**
 
-    ```azurecli
+    ```output
     HostName=MyASAIoTHub.azure-devices.net;DeviceId=MyASAIoTDevice;SharedAccessKey=a2mnUsg52+NIgYudxYYUNXI67r0JmNubmfVafojG8=
     ```
 
@@ -297,6 +297,7 @@ New-AzStreamAnalyticsTransformation `
   -File $jobTransformationDefinitionFile `
   -Name $jobTransformationName -Force
 ```
+
 ## <a name="run-the-iot-simulator"></a>Eseguire il simulatore IoT
 
 1. Aprire il [simulatore online Azure IoT Raspberry Pi](https://azure-samples.github.io/raspberry-pi-web-simulator/).

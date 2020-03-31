@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 804b46cd5238c189063608d067c0b40fcd3e306d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: 8d72ee529966fe0db8bf496533453c81064a81a5
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379329"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79501784"
 ---
 ::: zone target="docs" 
 
-# <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Esercitazione: copiare dati in Azure Data Box tramite SMB
+# <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Esercitazione: Copiare dati in Azure Data Box tramite SMB
 
 ::: zone-end
 
@@ -44,7 +44,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Prima di iniziare, verificare che:
 
-1. L'esercitazione è stata completata [: configurare Azure Data Box](data-box-deploy-set-up.md).
+1. Aver completato l'esercitazione descritta in [Esercitazione: Configurare Azure Data Box](data-box-deploy-set-up.md).
 2. Aver ricevuto Data Box e che lo stato dell'ordine nel portale sia **Recapitati**.
 3. Sia disponibile un computer host con i dati da copiare nel Data Box. Il computer host deve:
     - Eseguire un [sistema operativo supportato](data-box-system-requirements.md).
@@ -107,22 +107,21 @@ Se si usa un computer host Windows Server, eseguire le operazioni seguenti per c
 Se si usa un client Linux, usare il comando seguente per montare la condivisione SMB. Il parametro "vers" di seguito è la versione di SMB supportata dall'host Linux. Collegare la versione appropriata nel comando seguente. Per le versioni di SMB supportate da Data Box,vedere [File system supportati per client Linux](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
 
     `sudo mount -t nfs -o vers=2.1 10.126.76.172:/devicemanagertest1_BlockBlob /home/databoxubuntuhost/databox`
-    
-
 
 ## <a name="copy-data-to-data-box"></a>Copiare i dati nel Data Box
 
 Dopo aver stabilito la connessione alle condivisioni Data Box, il passaggio successivo consiste nel copiare i dati. Prima di procedere alla copia dei dati, tenere conto delle considerazioni seguenti:
 
-- Assicurarsi di copiare i dati nelle condivisioni corrispondenti al formato dei dati appropriato. Ad esempio, copiare i dati del BLOB in blocchi nella condivisione per i BLOB in blocchi. Copiare i dischi rigidi virtuali nel BLOB di pagine. Se il formato dei dati non corrisponde al tipo di condivisione appropriato, il caricamento dei dati in Azure non riuscirà.
--  Durante la copia dei dati, assicurarsi che le dimensioni dei dati siano conformi ai limiti di dimensione descritti in [Limiti per l'archiviazione di Azure e per Azure Data Box](data-box-limits.md).
-- Se i dati caricati dal Data Box vengono caricati contemporaneamente da altre applicazioni all'esterno del Data Box, è possibile che si verifichino errori del processo di caricamento e il danneggiamento dei dati.
-- È consigliabile eseguire le operazioni seguenti:
-    - Non usare contemporaneamente SMB e NFS.
-    - Copiare gli stessi dati nella stessa destinazione finale in Azure. 
-     
+* Assicurarsi di copiare i dati nelle condivisioni corrispondenti al formato dei dati appropriato. Ad esempio, copiare i dati del BLOB in blocchi nella condivisione per i BLOB in blocchi. Copiare i dischi rigidi virtuali nel BLOB di pagine. Se il formato dei dati non corrisponde al tipo di condivisione appropriato, il caricamento dei dati in Azure non riuscirà.
+*  Durante la copia dei dati, assicurarsi che le dimensioni dei dati siano conformi ai limiti di dimensione descritti in [Limiti per l'archiviazione di Azure e per Azure Data Box](data-box-limits.md).
+* Se i dati caricati dal Data Box vengono caricati contemporaneamente da altre applicazioni all'esterno del Data Box, è possibile che si verifichino errori del processo di caricamento e il danneggiamento dei dati.
+* È consigliabile:
+  * Non usare contemporaneamente SMB e NFS.
+  * Copiare gli stessi dati nella stessa destinazione finale in Azure.
+
   In questi casi, non è possibile prevedere il risultato finale.
-- Creare sempre una cartella per i file che si intende copiare nella condivisione e quindi copiare i file in questa cartella. La cartella creata nelle condivisioni di BLOB in blocchi e BLOB di pagine rappresenta un contenitore in cui i dati vengono caricati come BLOB. Non è possibile copiare direttamente i file nella cartella *root* dell'account di archiviazione.
+* Creare sempre una cartella per i file che si intende copiare nella condivisione e quindi copiare i file in questa cartella. La cartella creata nelle condivisioni di BLOB in blocchi e BLOB di pagine rappresenta un contenitore in cui i dati vengono caricati come BLOB. Non è possibile copiare direttamente i file nella cartella *root* dell'account di archiviazione.
+* Assicurarsi di mantenere una copia dei dati di origine fino a quando non è possibile confermare che Data Box ha trasferito i dati in Archiviazione di Azure.
 
 Dopo aver stabilito la connessione alla condivisione SMB, avviare la copia dei dati. È possibile usare qualsiasi strumento di copia file compatibile con SMB, ad esempio Robocopy, per copiare i dati. È possibile avviare più processi di copia tramite Robocopy. Usare il comando seguente:
     
@@ -208,7 +207,7 @@ L'esempio seguente mostra l'output del comando robocopy per la copia dei file ne
 
 Per ottimizzare le prestazioni, usare i parametri robocopy seguenti durante la copia dei dati.
 
-|    Platform    |    Prevalentemente file di piccole dimensioni < 512 KB                           |    Prevalentemente file di medie dimensioni 512 KB-1 MB                      |    Prevalentemente file di grandi dimensioni > 1 MB                             |   
+|    Piattaforma    |    Prevalentemente file di piccole dimensioni < 512 KB                           |    Prevalentemente file di medie dimensioni 512 KB-1 MB                      |    Prevalentemente file di grandi dimensioni > 1 MB                             |   
 |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
 |    Data Box         |    2 sessioni di Robocopy <br> 16 thread per sessione    |    3 sessioni di Robocopy <br> 16 thread per sessione    |    2 sessioni di Robocopy <br> 24 thread per sessione    |
 
@@ -238,7 +237,7 @@ In ogni caso assicurarsi che i nomi delle condivisioni e delle cartelle e le dim
 2. Per ottenere le credenziali di accesso alle condivisioni, passare alla pagina **Connetti e copia** nell'interfaccia utente Web locale di Data Box.
 3. Per copiare i dati nelle condivisioni, usare uno strumento di copia file compatibile con SMB, ad esempio Robocopy. 
 
-Per istruzioni dettagliate, vedere [esercitazione: copiare dati in Azure Data Box tramite SMB](data-box-deploy-copy-data.md).
+Per le istruzioni dettagliate, vedere [Esercitazione: Copiare dati in Azure Data Box tramite SMB](data-box-deploy-copy-data.md).
 
 ## <a name="copy-data-via-nfs"></a>Copiare i dati tramite NFS
 
@@ -249,21 +248,21 @@ Per istruzioni dettagliate, vedere [esercitazione: copiare dati in Azure Data Bo
 2. Per ottenere le credenziali di accesso alle condivisioni, passare alla pagina **Connetti e copia** nell'interfaccia utente Web locale di Data Box.
 3. Per copiare i dati, usare il comando `cp` o `rsync`.
 
-Per istruzioni dettagliate, vedere [esercitazione: copiare dati in Azure Data Box tramite NFS](data-box-deploy-copy-data-via-nfs.md).
+Per le istruzioni dettagliate, vedere [Esercitazione: Copiare dati in Azure Data Box tramite NFS](data-box-deploy-copy-data-via-nfs.md).
 
 ## <a name="copy-data-via-rest"></a>Copiare dati tramite REST
 
 1. Per copiare i dati usando l'archivio BLOB di Data Box tramite API REST, è possibile connettersi tramite *http* o *https*.
 2. Per copiare dati nell'archivio BLOB di Data Box, è possibile usare AzCopy.
 
-Per istruzioni dettagliate, vedere [esercitazione: copiare dati in Azure Data Box archiviazione BLOB tramite le API REST](data-box-deploy-copy-data-via-nfs.md).
+Per le istruzioni dettagliate, vedere [Esercitazione: Copiare dati nell'archiviazione BLOB di Azure Data Box tramite API REST](data-box-deploy-copy-data-via-nfs.md).
 
 ## <a name="copy-data-via-data-copy-service"></a>Copiare dati tramite il servizio di copia dei dati
 
 1. Per copiare i dati usando il servizio di copia dei dati è necessario creare un processo. Nell'interfaccia utente Web locale del dispositivo Data Box passare a **Gestisci > Copia dati > Crea**. 
 2. Immettere i parametri e creare un processo.
 
-Per istruzioni dettagliate, vedere [esercitazione: usare il servizio di copia dei dati per copiare i dati in Azure Data Box](data-box-deploy-copy-data-via-copy-service.md).
+Per le istruzioni dettagliate, vedere [Esercitazione: Usare il servizio di copia dei dati per copiare i dati in Azure Data Box](data-box-deploy-copy-data-via-copy-service.md).
 
 ## <a name="copy-data-to-managed-disks"></a>Copiare i dati nei dischi gestiti
 
@@ -271,7 +270,7 @@ Per istruzioni dettagliate, vedere [esercitazione: usare il servizio di copia de
 2. È possibile connettersi a Data Box tramite condivisioni SMB o NFS.
 3. È quindi possibile copiare i dati tramite gli strumenti SMB o NFS.
 
-Per istruzioni dettagliate, vedere [esercitazione: usare Data Box per importare dati come dischi gestiti in Azure](data-box-deploy-copy-data-from-vhds.md).
+Per le istruzioni dettagliate, vedere [Esercitazione: Usare Data Box per importare dati come dischi gestiti in Azure](data-box-deploy-copy-data-from-vhds.md).
 
 ::: zone-end
 
