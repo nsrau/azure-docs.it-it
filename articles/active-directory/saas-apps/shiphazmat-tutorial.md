@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a08b247a6c1b2f954f66aa4b853532142d3aaba
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: c0a795418e46a9fb256bd920732afcd875f88a6b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78205841"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79136432"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-shiphazmat"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con ShipHazmat
 
@@ -155,7 +155,7 @@ Quando si fa clic sul riquadro di ShipHazmat nel pannello di accesso, si dovrebb
 
 - [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

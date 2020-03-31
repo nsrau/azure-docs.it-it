@@ -10,14 +10,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 07621bd2d0593ea3896aba0deb65e0b856e5987b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6fd8573c78d80c950bdeb41ec01e2835def3979a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432253"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79204257"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Esercitazione 1: Prevedere il rischio di credito - Azure Machine Learning Studio (versione classica)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -38,7 +40,7 @@ In questa parte dell'esercitazione verranno eseguite queste operazioni:
 
 È quindi possibile usare questo esperimento per [eseguire il training dei modelli nella seconda parte](tutorial-part2-credit-risk-train.md) e quindi [distribuirli nella terza parte](tutorial-part3-credit-risk-deploy.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Questa esercitazione presuppone che Machine Learning Studio (versione classica) sia già stato usato almeno una volta e che alcuni concetti di Machine Learning siano noti, ma non si dà per scontato che l'utente sia un esperto.
 
@@ -66,7 +68,7 @@ Dopo aver creato l'area di lavoro, aprire Machine Learning Studio (versione clas
 > Nella pagina **SETTINGS** fare clic su **USERS** e quindi su **INVITE MORE USERS** nella parte inferiore della finestra.
 > 
 
-## <a name="upload"></a>Caricare i dati esistenti
+## <a name="upload-existing-data"></a><a name="upload"></a>Caricare i dati esistenti
 
 Per sviluppare un modello predittivo per il rischio di credito, sono necessari dati che è possibile usare per eseguire il training e quindi testare il modello. Per questa esercitazione verrà usato il set di dati "UCI Statlog (German Credit Data)" del repository di apprendimento automatico della UC Irvine, disponibile al seguente indirizzo:  
 <a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>

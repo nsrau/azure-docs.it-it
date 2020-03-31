@@ -11,73 +11,61 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/25/2019
+ms.date: 03/19/2020
 ms.author: jeedes
-ms.openlocfilehash: bd9e916d1e50d9d5bc0717a1d283b3dcf5d383c9
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: 22b673ef481593247b6ee1007c13390a498c66be
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037021"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048624"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Esercitazione: Integrazione di Azure Active Directory con SharePoint locale
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sharepoint-on-premises"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con SharePoint locale
 
-Questa esercitazione descrive come integrare SharePoint locale con Azure Active Directory (Azure AD).
-L'integrazione di SharePoint locale con Azure AD offre i vantaggi seguenti:
+Questa esercitazione descrive come integrare SharePoint locale con Azure Active Directory (Azure AD). Integrando SharePoint locale con Azure AD, è possibile:
 
-* È possibile controllare in Azure AD chi può accedere a SharePoint locale.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a SharePoint locale con gli account Azure AD personali.
-* È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
+* Controllare in Azure AD chi può accedere a SharePoint locale.
+* Abilitare gli utenti per l'accesso automatico a SharePoint locale con gli account Azure AD personali.
+* Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per configurare l'integrazione di Azure AD con SharePoint locale, sono necessari gli elementi seguenti:
+Per iniziare, sono necessari gli elementi seguenti:
 
-* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente di Azure AD, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
-* Sottoscrizione di SharePoint locale abilitata per l'accesso Single Sign-On
+* Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
+* Sottoscrizione di SharePoint locale abilitata per l'accesso Single Sign-On (SSO).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
 * SharePoint locale supporta l'accesso SSO avviato da **SP**
+* Dopo aver configurato SharePoint locale, è possibile applicare i controlli sessione che consentono di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Per informazioni su come sincronizzare i profili utente da SharePoint locale ad Azure AD, fare clic su questo [collegamento](https://docs.microsoft.com/archive/blogs/kaevans/sharepoint-2013-user-profile-sync-for-claims-users).
 
 ## <a name="adding-sharepoint-on-premises-from-the-gallery"></a>Aggiunta di SharePoint locale dalla raccolta
 
 Per configurare l'integrazione di SharePoint locale in Azure AD, è necessario aggiungere SharePoint locale dalla raccolta all'elenco di app SaaS gestite.
 
-**Per aggiungere SharePoint locale dalla raccolta, seguire questa procedura:**
+1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
 
-1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
-
-    ![Pulsante Azure Active Directory](common/select-azuread.png)
-
-    > [!NOTE]   
+    > [!NOTE]
     > Se l'elemento non è disponibile, può essere aperto anche tramite il collegamento **Tutti i servizi** corretto nella parte superiore del riquadro di spostamento sinistro. Nella panoramica seguente il collegamento **Azure Active Directory** si trova nella sezione **Identità** oppure può essere cercato usando la casella di testo di filtro.
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
+1. Nella sezione **Aggiungi dalla raccolta** digitare **SharePoint locale** nella casella di ricerca.
+1. Selezionare **SharePoint locale** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
+## <a name="configure-and-test-azure-ad-single-sign-on-for-sharepoint-on-premises"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per SharePoint locale
 
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+Configurare e testare l'accesso SSO di Azure AD con SharePoint locale usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in SharePoint locale.
 
-    ![Pulsante Nuova applicazione](common/add-new-app.png)
-
-4. Nella casella di ricerca digitare **SharePoint locale**, selezionare **SharePoint locale** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
-
-    ![SharePoint locale nell'elenco risultati](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
-
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con SharePoint locale usando un utente di test di nome **Britta Simon**.
-Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in SharePoint locale.
-
-Per configurare e testare l'accesso Single Sign-On di Azure AD con SharePoint locale, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso SSO di Azure AD con SharePoint locale, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di SharePoint locale](#configure-sharepoint-on-premises-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
@@ -107,7 +95,6 @@ Per configurare l'accesso Single Sign-On di Azure AD con SharePoint locale, segu
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di SharePoint locale](common/sp-identifier-reply.png)
 
     a. Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
@@ -134,7 +121,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con SharePoint locale, segu
 
     a. URL di accesso
 
-    b. Identificatore Azure AD
+    b. Identificatore di Azure AD
 
     c. URL di chiusura sessione
 
@@ -166,7 +153,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con SharePoint locale, segu
     $ap = New-SPTrustedIdentityTokenIssuer -Name "AzureAD" -Description "SharePoint secured by Azure AD" -realm $realm -ImportTrustCertificate $cert -ClaimsMappings $map,$map2,$map3,$map4,$map5 -SignInUrl $wsfedurl -IdentifierClaim "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
     ```
 
-    Successivamente, eseguire questi passaggi per abilitare il provider di identità attendibili per l'applicazione:
+    Successivamente, seguire questa procedura per abilitare il provider di identità attendibili per l'applicazione:
 
     a. In Amministrazione centrale passare a **Gestione applicazione Web** e selezionare l'applicazione Web che si vuole proteggere con Azure AD.
 
@@ -318,6 +305,7 @@ La configurazione funziona per una singola applicazione Web, ma necessita di una
     $t.UseWReplyParameter=$true
     $t.Update()
     ```
+
 6. In Amministrazione centrale passare all'applicazione Web e abilitare il provider di identità attendibili esistente. È necessario anche configurare l'URL nella pagina di accesso come una pagina di accesso personalizzata `/_trust/`.
 
 7. In Amministrazione centrale fare clic sull'applicazione Web e scegliere **Criteri utente**. Aggiungere un utente con le autorizzazioni appropriate, come illustrato in precedenza in questo articolo.
@@ -359,7 +347,7 @@ Per assistenza in questo scenario, esiste una soluzione open source denominata [
 
 ### <a name="create-sharepoint-on-premises-test-user"></a>Creare l'utente di test di SharePoint locale
 
-In questa sezione viene creato un utente di nome Britta Simon in SharePoint locale. Collaborare con il  [team di supporto di SharePoint locale](https://support.office.com/) per aggiungere gli utenti alla piattaforma SharePoint locale. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in SharePoint locale. Collaborare con il [team di supporto di SharePoint locale](https://support.office.com/) per aggiungere gli utenti alla piattaforma SharePoint locale. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
@@ -371,6 +359,8 @@ Quando si fa clic sul riquadro di SharePoint locale nel pannello di accesso, si 
 
 - [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

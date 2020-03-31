@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 40ec859802da2f00154e750ea717da3da0f46568
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: fae4206e555c85fe0555ce1c4366cd57dd386f1e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512862"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79471830"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Esercitazione: Configurare HTTPS per un dominio personalizzato di Frontdoor
 
@@ -44,7 +44,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di poter completare i passaggi di questa esercitazione, è necessario creare una frontdoor ed eseguire l'onboarding di almeno un dominio personalizzato. Per altre informazioni, vedere [Esercitazione: Aggiungere un dominio personalizzato alla frontdoor](front-door-custom-domain.md).
 
@@ -83,10 +83,10 @@ Per abilitare la funzionalità HTTPS, è possibile usare un certificato personal
 
 2. Certificati di Azure Key Vault: è possibile caricare direttamente nell'account Azure Key Vault un certificato già esistente oppure creare un nuovo certificato direttamente tramite Azure Key Vault presso una delle autorità di certificazione (CA) partner con cui Azure Key Vault è integrato. Caricare il certificato come oggetto **certificato**, anziché come **segreto**.
 
-> [!IMPORTANT]
-> È necessario caricare il certificato in formato PFX **senza** la protezione con password.
+> [!NOTE]
+> Per il certificato SSL, il servizio Frontdoor non supporta i certificati con algoritmi basati su crittografia a curva ellittica.
 
-#### <a name="register-azure-front-door-service"></a>Registrare il servizio Frontdoor di Azure
+#### <a name="register-azure-front-door"></a>Registrare il servizio Frontdoor di Azure
 
 Registrare l'entità servizio per il servizio Frontdoor di Azure come app in Azure Active Directory tramite PowerShell.
 
@@ -99,7 +99,7 @@ Registrare l'entità servizio per il servizio Frontdoor di Azure come app in Azu
 
      `New-AzADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
 
-#### <a name="grant-azure-front-door-service-access-to-your-key-vault"></a>Concedere al servizio Frontdoor di Azure l'accesso all'insieme di credenziali delle chiavi
+#### <a name="grant-azure-front-door-access-to-your-key-vault"></a>Concedere al servizio Frontdoor di Azure l'accesso all'insieme di credenziali delle chiavi
  
 Concedere al servizio Frontdoor di Azure l'autorizzazione ad accedere ai certificati nell'account Azure Key Vault.
 
@@ -113,9 +113,9 @@ Concedere al servizio Frontdoor di Azure l'autorizzazione ad accedere ai certifi
 
 5. Selezionare **OK**. 
 
-    Il servizio Frontdoor di Azure può ora accedere a questo Key Vault e ai certificati in esso archiviati.
+    Il servizio Frontdoor di Azure può ora accedere a questa istanza di Key Vault e ai certificati archiviati.
  
-#### <a name="select-the-certificate-for-azure-front-door-service-to-deploy"></a>Selezionare il certificato per il servizio Frontdoor di Azure da distribuire
+#### <a name="select-the-certificate-for-azure-front-door-to-deploy"></a>Selezionare il certificato per il servizio Frontdoor di Azure da distribuire
  
 1. Tornare alla frontdoor nel portale. 
 
@@ -252,7 +252,7 @@ La tabella seguente illustra l'avanzamento dell'operazione per la disabilitazion
 
 2. *Viene usata una configurazione TLS/SSL basata su IP o su SNI?*
 
-    Il servizio Frontdoor di Azure usa TLS/SSL SNI.
+    Il servizio Frontdoor di Azure usa SNI TLS/SSL.
 
 3. *Cosa accade se non si riceve il messaggio di verifica del dominio da DigiCert?*
 
