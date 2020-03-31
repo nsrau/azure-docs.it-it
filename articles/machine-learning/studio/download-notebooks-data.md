@@ -1,7 +1,7 @@
 ---
-title: Come scaricare i dati dei notebook (anteprima)
+title: Come scaricare i dati dei blocchi appunti (anteprima)
 titleSuffix: ML Studio (classic) - Azure
-description: Come scaricare i dati dei notebook (anteprima) in ML Studio (versione classica).
+description: Come scaricare i dati dei blocchi appunti (anteprima) in ML Studio (classico).
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
@@ -9,25 +9,25 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 03/12/2020
 ms.openlocfilehash: 9c4215d2c2e811b4c6369ee3773fb811695da4fd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79204359"
 ---
-# <a name="download-notebookspreview-data"></a>Scarica i dati dei notebook (anteprima)
+# <a name="download-notebookspreview-data"></a>Scaricare i dati dei blocchi appunti (anteprima)Download Notebooks(preview) data
 
-La funzionalità Notebooks (anteprima) verrà rimossa il *13 2020 aprile*. Dopo tale data, la scheda Notebooks (anteprima) scomparirà e non sarà possibile ripristinare i dati dei notebook. Scaricare i dati dei notebook prima del 13 2020 aprile.
+La funzionalità Blocchi appunti (anteprima) verrà rimossa il *13 aprile 2020.* Dopo tale data, la scheda Blocchi appunti (anteprima) scomparirà e i dati dei blocchi appunti non possono essere ripristinati. Scaricare i dati dei blocchi appunti prima del 13 aprile 2020.
 
-Questo articolo fornisce istruzioni dettagliate su come scaricare i dati dei notebook (anteprima).
+In questo articolo vengono fornite istruzioni dettagliate su come scaricare i dati dei blocchi appunti (anteprima).
 
-1. Passare alla scheda **Notebooks (notebook** ) in Azure Machine Learning Studio (classico).
-    ![passare alla scheda notebook.](./media/download-notebooks/notebooks-list.png)
+1. Passare alla scheda **Blocchi appunti** in Azure Machine Learning Studio (classico).
+    ![Passare alla scheda Blocchi appunti!](./media/download-notebooks/notebooks-list.png)
 
-1. Selezionare il notebook che si vuole scaricare. Verrà aperto in Jupyter.
-    ![selezionare un notebook](./media/download-notebooks/select-notebook.png) il download di più notebook contemporaneamente non è supportato.
+1. Selezionare il blocco appunti da scaricare. Si aprirà a Jupyter.
+    ![Selezionare](./media/download-notebooks/select-notebook.png) un blocco appunti Il download di più blocchi appunti contemporaneamente non è supportato.
 
-1. Passare a **file** -> **scaricare come**e selezionare un'opzione di formattazione.
-    opzioni di download di ![notebook](./media/download-notebooks/download-options.PNG)
+1. Vai a **File** -> **Scarica come**e seleziona un'opzione di formato.
+    ![Opzioni di download dei blocchi appunti](./media/download-notebooks/download-options.PNG)
 
-1. Dopo aver selezionato un'opzione, il file del notebook si avvierà per il download. Ignorare gli errori 500 o 502 visualizzati, che non avranno alcun effetto sul download.
+1. Dopo aver selezionato un'opzione, verrà avviato il download del file del blocco appunti. Ignorare eventuali errori 500 o 502 che vengono visualizzati, non influiranno sul download.

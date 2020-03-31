@@ -1,19 +1,18 @@
 ---
-title: Descrizione del Marketplace per un modulo di Azure IoT Edge | Azure Marketplace
+title: Descrizione del Marketplace per un modulo Di Azure IoT Edge Azure Marketplace
 description: Creare la descrizione del marketplace per un modulo IoT Edge.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: 8021b6fe40e006a95b3eeff1031606c38cc47b87
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.author: dsindona
+ms.openlocfilehash: 3ff65a637c1d3722e773ab27f051b3b5bc109a23
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721626"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281732"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Scheda Marketplace del modulo IoT Edge
 
@@ -30,11 +29,11 @@ La tabella seguente descrive lo scopo e il contenuto di questi campi. I campi ob
 
 |  **Campo**                |     **Descrizione**                                                          |
 |  ---------                |     ---------------                                                          |
-| **\* titolo**                 | Titolo dell'offerta. Verrà visualizzato in posizione prominente nel marketplace.  La lunghezza massima consentita è di 50 caratteri. <!--ADD PICTURE IN ACTION-->|
+| **Titolo\***                 | Titolo dell'offerta. Verrà visualizzato in posizione prominente nel marketplace.  La lunghezza massima consentita è di 50 caratteri. <!--ADD PICTURE IN ACTION-->|
 | **Riepilogo\***               | Breve riepilogo dell'offerta. La lunghezza massima consentita è di 100 caratteri. <!--ADD PICTURE IN ACTION-->|
-| **\* di riepilogo lungo**          | Riepilogo più lungo dell'offerta (sebbene possa essere coincidere con il **riepilogo**).  La lunghezza massima consentita è di 256 caratteri. <!--ADD PICTURE IN ACTION-->|
-| **Descrizione\***           | Descrizione dell'offerta.  La lunghezza massima consentita è di 3000 caratteri. Supporta la formattazione HTML semplice.<br/> Deve includere un paragrafo di *requisiti hardware minimi* nella parte inferiore, Ad esempio: <br/> <p><u>Requisiti hardware minimi:</u> sistema operativo Linux x64 e arm32, 1 GB di RAM, risorsa di archiviazione da 500 MB</p>
-| **Identificatore marketing\***  | URL univoco da associare a questa offerta. Include in genere il nome dell'organizzazione e della soluzione. La lunghezza massima consentita è di 50 caratteri.  Ad esempio, <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
+| **Riassunto lungo\***          | Riepilogo più lungo dell'offerta (sebbene possa essere coincidere con il **riepilogo**).  La lunghezza massima consentita è di 256 caratteri. <!--ADD PICTURE IN ACTION-->|
+| **Descrizione\***           | Descrizione dell'offerta.  La lunghezza massima consentita è di 3000 caratteri. Supporta la formattazione HTML semplice.<br/> Deve includere un paragrafo di *requisiti hardware minimi* nella parte inferiore, ad esempio: <br/> <p><u>Requisiti hardware minimi:</u> sistema operativo Linux x64 e arm32, 1 GB di RAM, risorsa di archiviazione da 500 MB</p>
+| **Identificatore di marketing\***  | URL univoco da associare a questa offerta. Include in genere il nome dell'organizzazione e della soluzione. La lunghezza massima consentita è di 50 caratteri.  Ad esempio: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
 | **Preview Subscription IDs** (ID sottoscrizione di anteprima) | Aggiungere da uno a 100 identificatori di sottoscrizione di visualizzatori anteprima. Queste sottoscrizioni consentite avranno accesso all'offerta dopo la pubblicazione, prima che venga attivata. |
 | **Collegamenti utili**          | Selezione multipla di categorie commerciali e tecniche a cui associare l'offerta in modo ottimale.  È consentita una selezione massima di 10 elementi. Assicurarsi di aggiungere almeno un collegamento alla documentazione e un collegamento ai dispositivi IoT Edge compatibili dal [catalogo di dispositivi Azure IoT](https://catalog.azureiotsolutions.com/). |
 | **Categorie suggerite\*** | Scegliere fino a cinque categorie. Verranno visualizzati nella pagina dei dettagli del prodotto. Nelle pagine del browser tutti i moduli IoT Edge vengono visualizzati nella categoria *Internet delle cose \> Modulo IoT Edge*.|
@@ -85,18 +84,18 @@ Questa sezione include le sottosezioni seguenti: **Logos** (Logo), **Screenshot*
 
 |  **Campo**                |     **Descrizione**                                                          |
 |  ---------                |     ---------------                                                          |
-| *Logos* (Logo)  | Vedere le schermate precedenti per scoprire come e dove verranno usati i logo.  |
-| **Small\***                 | Formato PNG 40x40 pixel                                                     |
-| **Medium\***                | Formato PNG 90x90 pixel                                                     |
-| **Large\***                 | Formato PNG 115x115 pixel                                                  |
-| **\* Wide**                  | Formato PNG 255x115 pixel                                                   |
+| *Loghi*  | Vedere le schermate precedenti per scoprire come e dove verranno usati i logo.  |
+| **Piccolo\***                 | Formato PNG 40x40 pixel                                                     |
+| **Medio\***                | Formato PNG 90x90 pixel                                                     |
+| **Grande\***                 | Formato PNG 115x115 pixel                                                  |
+| **Ampia\***                  | Formato PNG 255x115 pixel                                                   |
 | **Hero** (Banner)                  | Formato PNG 815x290 pixel  Facoltativo. Una volta caricata, tuttavia, l'icona del banner non può essere eliminata. |
 | *Screenshot*  | Gli screenshot vengono visualizzati nella pagina dei dettagli del prodotto. Si tratta di un ottimo metodo per comunicare in modo visivo ciò che fa il modulo IoT Edge e come funziona. Ad esempio, è possibile mostrare diagrammi di architettura o illustrazioni di casi d'uso. Facoltativi, ma non più di cinque per SKU. |
 | **Nome**                  | Nome o titolo. La lunghezza massima consentita è di 100 caratteri.                             |
 | **Immagine**                 | Acquisizione di schermata. Formato PNG 533x324                               |
 | *Video*  | I video vengono visualizzati nella pagina dei dettagli del prodotto. Si tratta di un ottimo metodo per comunicare in modo visivo ciò che fa il modulo IoT Edge e come funziona. |
 | **Nome**                  | Nome o titolo. La lunghezza massima consentita è di 100 caratteri.                             |
-| **Collegamento**                  | URL del video, ospitato in YouTube o Vimeo                                        |
+| **Link**                  | URL del video, ospitato in YouTube o Vimeo                                        |
 | **Anteprima**             | Formato PNG 533x324 pixel                                                     |
 |  |  |
 
@@ -165,9 +164,9 @@ Questa sezione consente di specificare i due documenti legali necessari per ogni
 
 |  **Campo**                    |     **Descrizione**                                                          |
 |  ---------                    |     ---------------                                                          |
-| **\* dell'URL dell'informativa sulla privacy**      | URL dell'informativa sulla privacy pubblicata                                            |
-| **USA constract standard\***  | Indica se utilizzare il modello di contratto Microsoft standard.  Per ulteriori informazioni, vedere [contratto standard](https://docs.microsoft.com/azure/marketplace/standard-contract).   |
-| **Condizioni per l'utilizzo\***            | *Condizioni per l'utilizzo* come HTML semplice inline o collegamento alla pagina delle condizioni per l'utilizzo pubblicate     |
+| **URL dell'Informativa sulla privacy\***      | URL dell'informativa sulla privacy pubblicata                                            |
+| **Usa constrazione standard\***  | Se utilizzare il modello di contratto standard Microsoft.  Per ulteriori informazioni, vedere [Contratto standard](https://docs.microsoft.com/azure/marketplace/standard-contract).   |
+| **Condizioni d'uso\***            | *Condizioni per l'utilizzo* come HTML semplice in linea o link alla tua pagina delle condizioni per l'utilizzo pubblicate     |
 |  |  |
 
 

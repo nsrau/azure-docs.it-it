@@ -1,6 +1,6 @@
 ---
-title: Integrare i log con ArcSight usando monitoraggio di Azure | Microsoft Docs
-description: Informazioni su come integrare i log di Azure Active Directory con ArcSight usando monitoraggio di Azure
+title: Integrazione dei log con ArcSight con Monitoraggio di Azure . Documenti Microsoft
+description: Informazioni su come integrare i log di Azure Active Directory con ArcSight usando Monitoraggio di Azure
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 05002c1b11ef31b61fb4036f09dc8edcdafca767
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75608381"
 ---
-# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integrare i log di Azure Active Directory con ArcSight usando monitoraggio di Azure
+# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integrare i log di Azure Active Directory con ArcSight usando Monitoraggio di Azure
 
 [Micro Focus ArcSight](https://software.microfocus.com/products/siem-security-information-event-management/overview) è una soluzione SIEM (informazioni di sicurezza e gestione degli eventi) che aiuta a rilevare e rispondere alle minacce alla sicurezza nella piattaforma. È ora possibile indirizzare i log di Azure Active Directory (Azure AD) ad ArcSight tramite Monitoraggio di Azure usando il connettore ArcSight per Azure AD. Questa funzionalità consente di monitorare il tenant in caso di violazione della sicurezza tramite ArcSight.  
 

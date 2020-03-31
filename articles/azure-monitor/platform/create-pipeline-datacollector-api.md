@@ -1,17 +1,17 @@
 ---
-title: Creare una pipeline di dati con l'API dell'agente di raccolta dati di monitoraggio di Azure | Microsoft Docs
+title: Usare l'API dell'agente di raccolta dati per creare una pipeline di datiUse Data Collector API to create a data pipeline
 description: È possibile usare l'API dell'agente di raccolta dati HTTP di Monitoraggio di Azure per aggiungere dati JSON POST all'area di lavoro Log Analytics da qualsiasi client in grado di chiamare l'API REST. Questo articolo descrive come caricare i dati archiviati in un file in modo automatico.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/09/2018
-ms.openlocfilehash: 0300b44577725ddb272086713220d3318f1726fe
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 96c64f6a0167b678f14bf0199069ecd6b4c8d57a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77655336"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80055103"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Creare una pipeline di dati con l'API dell'Agente di raccolta dati
 
@@ -20,7 +20,7 @@ L'[API dell'agente di raccolta dati di Monitoraggio di Azure](data-collector-api
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>Problema di esempio
-Nella parte restante di questo articolo, verranno esaminati i dati relativi alle visualizzazioni pagina in Application Insights. Nel nostro scenario ipotetico, vogliamo correlare le informazioni geografiche raccolte per impostazione predefinita da Application Insights SDK ai dati personalizzati che contengono la popolazione di ogni paese/area geografica del mondo, con l'obiettivo di identificare la posizione in cui è necessario spendere il maggior numero di dollari di marketing. 
+Nella parte restante di questo articolo, verranno esaminati i dati relativi alle visualizzazioni pagina in Application Insights. Nel nostro ipotetico scenario, vogliamo correlare le informazioni geografiche raccolte per impostazione predefinita da Application Insights SDK ai dati personalizzati contenenti la popolazione di ogni paese/area geografica del mondo, con l'obiettivo di identificare dove dovremmo spendere la maggior parte dei dollari di marketing. 
 
 A questo scopo verrà usata un'origine dati pubblica, come ad esempio gli [UN World Population Prospect](https://esa.un.org/unpd/wpp/). I dati seguiranno il seguente schema semplice:
 

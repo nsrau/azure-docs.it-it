@@ -1,6 +1,6 @@
 ---
-title: Guida alla configurazione di un computer modello Windows | Microsoft Docs
-description: Procedura generica per preparare un computer modello Windows in Lab Services.  Questi passaggi includono l'impostazione Windows Update pianificazione, l'installazione di OneDrive e l'installazione di Office.
+title: Guida alla configurazione di una macchina modello di Windows Documenti Microsoft
+description: Passaggi generici per preparare un computer modello di Windows in Lab Services.Generic steps to prepare a Windows template machine in Lab Services.  Questi passaggi includono l'impostazione della pianificazione di Windows Update, l'installazione di OneDrive e l'installazione di Office.
 services: lab-services
 documentationcenter: na
 author: EMaher
@@ -11,28 +11,28 @@ ms.topic: article
 ms.date: 11/21/2019
 ms.author: enewman
 ms.openlocfilehash: c52a1212d160adce3a0a0638164833bc2907a856
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76515004"
 ---
-# <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guida alla configurazione di un computer modello Windows in Azure Lab Services
+# <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guida alla configurazione di un computer modello di Windows in Azure Lab Services
 
-Se si sta configurando un computer modello Windows 10 per Azure Lab Services, di seguito sono riportate alcune procedure consigliate e suggerimenti da prendere in considerazione. I passaggi di configurazione riportati di seguito sono tutti facoltativi.  Tuttavia, questi passaggi preliminari possono aiutare a rendere gli studenti più produttivi, ridurre al minimo le interruzioni temporali delle classi e assicurarsi che usino le tecnologie più recenti.
+Se stai configurando un computer modello di Windows 10 per Azure Lab Services, ecco alcune procedure consigliate e suggerimenti da considerare. I passaggi di configurazione riportati di seguito sono tutti facoltativi.  Tuttavia, questi passaggi preparatori potrebbero aiutare a rendere gli studenti più produttivi, ridurre al minimo le interruzioni del tempo della classe e assicurarsi che utilizzino le tecnologie più recenti.
 
 >[!IMPORTANT]
->Questo articolo contiene i frammenti di codice di PowerShell per semplificare il processo di modifica dei modelli di computer.  Per tutti gli script di PowerShell mostrati, è necessario eseguirli in Windows PowerShell con privilegi di amministratore. In Windows 10, un modo rapido per farlo è fare clic con il pulsante destro del mouse sul menu Start e scegliere "Windows PowerShell (admin)".
+>Questo articolo contiene frammenti di PowerShell per semplificare il processo di modifica del modello di computer.  Per tutti gli script di PowerShell illustrati, è consigliabile eseguirli in Windows PowerShell con privilegi di amministratore. In Windows 10, un modo rapido per farlo è quello di fare clic con il pulsante destro del mouse sul menu Start e scegliere "Windows PowerShell (Admin)".
 
 ## <a name="install-and-configure-onedrive"></a>Installare e configurare OneDrive
 
-Per evitare che i dati degli studenti vadano persi se una macchina virtuale viene reimpostata, è consigliabile che gli studenti riportino i dati nel cloud.  Microsoft OneDrive può aiutare gli studenti a proteggere i dati.  
+Per proteggere i dati degli studenti dalla perdita in caso di reimpostazione di una macchina virtuale, è consigliabile eseguire il backup dei dati nel cloud.  Microsoft OneDrive può aiutare gli studenti a proteggere i propri dati.  
 
 ### <a name="install-onedrive"></a>Installare OneDrive
 
-Per scaricare e installare manualmente OneDrive, vedere le pagine di download di [OneDrive](https://onedrive.live.com/about/download/) o [OneDrive for business](https://onedrive.live.com/about/business/) .
+Per scaricare e installare manualmente OneDrive, vedere le pagine di download di [OneDrive](https://onedrive.live.com/about/download/) o [OneDrive for Business.](https://onedrive.live.com/about/business/)
 
-È anche possibile usare lo script di PowerShell seguente.  La versione più recente di OneDrive verrà scaricata e installata automaticamente.  Una volta installato il client di OneDrive, eseguire il programma di installazione.  In questo esempio viene usata l'opzione `/allUsers` per installare OneDrive per tutti gli utenti del computer. Si usa anche l'opzione `/silent` per installare OneDrive in modo invisibile all'utente.
+È anche possibile usare lo script di PowerShell seguente.  Scaricherà e installerà automaticamente l'ultima versione di OneDrive.  Una volta installato il client OneDrive, eseguire il programma di installazione.  In questo esempio viene `/allUsers` usato l'opzione per installare OneDrive per tutti gli utenti del computer. Usiamo anche `/silent` l'interruttore per installare Silently OneDrive.
 
 ```powershell
 Write-Host "Downloading OneDrive Client..."
@@ -52,21 +52,21 @@ Write-Host "Installing OneDrive..."
 
 ### <a name="onedrive-customizations"></a>Personalizzazioni di OneDrive
 
-Sono disponibili molte [personalizzazioni che è possibile eseguire per OneDrive](https://docs.microsoft.com/onedrive/use-group-policy). Ecco alcune delle personalizzazioni più comuni.
+Ci sono molte [personalizzazioni che possono essere fatte a OneDrive](https://docs.microsoft.com/onedrive/use-group-policy). Esaminiamo alcune delle personalizzazioni più comuni.
 
-#### <a name="silently-move-windows-known-folders-to-onedrive"></a>Sposta automaticamente le cartelle note di Windows in OneDrive
+#### <a name="silently-move-windows-known-folders-to-onedrive"></a>Spostare in modo invisibile all'utente le cartelle note di Windows in OneDrive
 
-Cartelle quali documenti, download e immagini vengono spesso usate per archiviare i file degli studenti. Per assicurarsi che venga eseguito il backup di queste cartelle in OneDrive, è consigliabile spostare queste cartelle in OneDrive.
+Cartelle come Documenti, Download e Immagini vengono spesso utilizzate per archiviare i file degli studenti. Per assicurarsi che venga eseguito il backup di queste cartelle in OneDrive, è consigliabile spostare queste cartelle in OneDrive.
 
-Se ci si trova in un computer che non usa Active Directory, gli utenti possono spostare manualmente le cartelle in OneDrive dopo l'autenticazione in OneDrive.
+Se ci si trova in un computer che non utilizza Active Directory, gli utenti possono spostare manualmente tali cartelle in OneDrive dopo l'autenticazione in OneDrive.
 
-1. Apre Esplora file
-2. Fare clic con il pulsante destro del mouse sulla cartella documenti, download o immagini.
-3. Passare a proprietà > percorso.  Spostare la cartella in una nuova cartella nella directory OneDrive
+1. Apri Esplora file
+2. Fare clic con il pulsante destro del mouse sulla cartella Documenti, Download o Immagini.
+3. Passare a Proprietà > posizione.  Spostare la cartella in una nuova cartella nella directory di OneDrive.
 
-Se la macchina virtuale è connessa a Active Directory, è possibile impostare il computer modello in modo da richiedere automaticamente agli studenti di spostare le cartelle note in OneDrive.  
+Se la macchina virtuale è connessa ad Active Directory, è possibile impostare la macchina modello in modo che gli studenti spostino automaticamente le cartelle note in OneDrive.  
 
-Per prima cosa è necessario recuperare l'ID tenant di Office.  Per altre istruzioni, vedere [trovare l'ID tenant di Office 365](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id).  È anche possibile ottenere l'ID tenant di Office 365 usando il seguente PowerShell.
+È necessario recuperare prima l'ID tenant di Office.  Per ulteriori istruzioni, vedere [l'ID tenant di Office 365](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id).  È anche possibile ottenere l'ID tenant di Office 365 usando PowerShell seguente.
 
 ```powershell
 Install-Module MSOnline -Confirm
@@ -76,7 +76,7 @@ $officeTenantID = Get-MSOLCompanyInformation |
     Select-Object -expand Guid
 ```
 
-Dopo aver ottenuto l'ID tenant di Office 365, impostare OneDrive per chiedere di spostare le cartelle note in OneDrive usando il PowerShell seguente.
+Dopo aver creato l'ID tenant di Office 365, impostare OneDrive in modo che venga richiesto di spostare le cartelle note in OneDrive usando PowerShell seguente.
 
 ```powershell
 if ($officeTenantID -eq $null)
@@ -88,9 +88,9 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
     -Name "KFMSilentOptIn" -Value $officeTenantID -PropertyType STRING
 ```
 
-### <a name="use-onedrive-files-on-demand"></a>Usare i file OneDrive su richiesta
+### <a name="use-onedrive-files-on-demand"></a>Usare i file di OneDrive su richiesta
 
-Gli studenti potrebbero avere molti file all'interno degli account OneDrive. Per risparmiare spazio nel computer e ridurre i tempi di download, è consigliabile fare in modo che tutti i file archiviati nell'account OneDrive dello studente siano su richiesta.  I file su richiesta vengono scaricati solo dopo che un utente ha eseguito l'accesso al file.
+Gli studenti potrebbero avere molti file all'interno dei loro account OneDrive. Per risparmiare spazio sul computer e ridurre il tempo di download, è consigliabile fare in modo che tutti i file archiviati nell'account OneDrive dello studente siano su richiesta.  I file su richiesta vengono scaricati solo dopo l'accesso del file da parte di un utente.
 
 ```powershell
 New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive" -Force
@@ -98,9 +98,9 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
     -Name "FilesOnDemandEnabled" -Value "00000001" -PropertyType DWORD
 ```
 
-### <a name="silently-sign-in-users-to-onedrive"></a>Accedi automaticamente agli utenti a OneDrive
+### <a name="silently-sign-in-users-to-onedrive"></a>Accedere in modo invisibile all'utente agli utenti a OneDrive
 
-È possibile impostare OneDrive in modo che acceda automaticamente con le credenziali di Windows dell'utente che ha eseguito l'accesso.  L'accesso automatico è utile per le classi in cui lo studente accede con le proprie credenziali di Office 365 School.
+OneDrive può essere impostato per l'accesso automatico con le credenziali di Windows dell'utente connesso.  L'accesso automatico è utile per i corsi in cui lo studente accede con le credenziali dell'istituto di istruzione di Office 365.
 
 ```powershell
 New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
@@ -110,7 +110,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
 
 ### <a name="disable-the-tutorial-that-appears-at-the-end-of-onedrive-setup"></a>Disabilitare l'esercitazione visualizzata alla fine dell'installazione di OneDrive
 
-Questa impostazione consente di impedire l'avvio dell'esercitazione in un Web browser alla fine del programma di installazione di OneDrive.
+Questa impostazione consente di impedire l'avvio dell'esercitazione in un Web browser al termine dell'installazione di OneDrive.
 
 ```powershell
 New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive" -Force
@@ -118,9 +118,9 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
     -Name "DisableTutorial" -Value "00000001" -PropertyType DWORD -Force
 ```
 
-### <a name="set-the-maximum-size-of-a-file-that-to-be-download-automatically"></a>Consente di impostare le dimensioni massime di un file da scaricare automaticamente
+### <a name="set-the-maximum-size-of-a-file-that-to-be-download-automatically"></a>Impostare la dimensione massima di un file da scaricare automaticamente
 
-Questa impostazione viene usata in combinazione con l'accesso automatico degli utenti al client di sincronizzazione OneDrive con le credenziali di Windows nei dispositivi in cui non sono abilitati i file OneDrive su richiesta. A tutti gli utenti con un OneDrive maggiore della soglia specificata (in MB) verrà richiesto di scegliere le cartelle che vogliono sincronizzare prima che il client di sincronizzazione OneDrive (OneDrive. exe) scarichi i file.  Nell'esempio "1111-2222-3333-4444" è l'ID tenant di Office 365 e 0005000 imposta una soglia di 5 GB.
+Questa impostazione viene usata insieme agli utenti di accesso invisibile all'utente al client di sincronizzazione di OneDrive con le credenziali di Windows nei dispositivi in cui i file di OneDrive non sono abilitati per la richiesta. A qualsiasi utente con un OneDrive di dimensioni superiori alla soglia specificata (in MB) verrà richiesto di scegliere le cartelle da sincronizzare prima che il client di sincronizzazione di OneDrive (OneDrive.exe) scarichi i file.  In questo esempio, "1111-2222-3333-4444" è l'ID tenant di Office 365 e 0005000 imposta una soglia di 5 GB.
 
 ```powershell
 New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
@@ -133,16 +133,16 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive\DiskSpaceChec
 
 ### <a name="install-microsoft-office-365"></a>Installare Microsoft Office 365
 
-Se il computer modello richiede Office, è consigliabile installare Office tramite lo [strumento di distribuzione di Office (ODT)](https://www.microsoft.com/download/details.aspx?id=49117 ). È necessario creare un file di configurazione riutilizzabile usando il [servizio di configurazione client di office 365](https://config.office.com/) per scegliere l'architettura, le funzionalità necessarie per Office e la frequenza di aggiornamento.
+Se il computer modello necessita di Office, è consigliabile eseguire l'installazione di Office tramite lo Strumento di distribuzione di [Office (ODT)](https://www.microsoft.com/download/details.aspx?id=49117 ). Sarà necessario creare un file di configurazione riutilizzabile usando il servizio di configurazione client di [Office 365](https://config.office.com/) per scegliere l'architettura, le funzionalità necessarie da Office e la frequenza di aggiornamento.
 
-1. Passare al [servizio configurazione client di Office 365](https://config.office.com/) e scaricare il file di configurazione.
-2. Scaricare [lo strumento di distribuzione di Office](https://www.microsoft.com/download/details.aspx?id=49117).  Il file scaricato verrà `setup.exe`.
-3. Eseguire `setup.exe /download configuration.xml` per scaricare i componenti di Office.
-4. Eseguire `setup.exe /configure configuration.xml` per installare i componenti di Office.
+1. Passare al servizio di configurazione client di [Office 365](https://config.office.com/) e scaricare il proprio file di configurazione.
+2. Scaricare [lo Strumento di distribuzione di Office](https://www.microsoft.com/download/details.aspx?id=49117).  Il file `setup.exe`scaricato sarà .
+3. Consente `setup.exe /download configuration.xml` di scaricare i componenti di Office.
+4. Eseguire `setup.exe /configure configuration.xml` questa opzione per installare i componenti di Office.
 
-### <a name="change-the-microsoft-office-365-update-channel"></a>Modificare il canale di aggiornamento Microsoft Office 365
+### <a name="change-the-microsoft-office-365-update-channel"></a>Modificare il canale di aggiornamento di Microsoft Office 365
 
-Utilizzando lo strumento di configurazione di Office, è possibile impostare la frequenza con cui Office riceve gli aggiornamenti. Tuttavia, se è necessario modificare la frequenza con cui Office riceve gli aggiornamenti dopo l'installazione, è possibile modificare l'URL del canale di aggiornamento. Gli indirizzi URL del canale di aggiornamento sono reperibili in [modificare il canale di aggiornamento di Office 365 ProPlus per i dispositivi nell'organizzazione](https://docs.microsoft.com/deployoffice/change-update-channels). Nell'esempio seguente viene illustrato come impostare Office 365 per l'utilizzo del canale di aggiornamento mensile.
+Utilizzando lo Strumento di configurazione di Office, è possibile impostare la frequenza con cui Office riceve gli aggiornamenti. Tuttavia, se è necessario modificare la frequenza con cui Office riceve gli aggiornamenti dopo l'installazione, è possibile modificare l'URL del canale di aggiornamento. Gli indirizzi URL del canale di aggiornamento sono disponibili in Modificare il canale di aggiornamento di [Office 365 ProPlus per i dispositivi dell'organizzazione.](https://docs.microsoft.com/deployoffice/change-update-channels) L'esempio seguente mostra come impostare Office 365 per l'uso del canale di aggiornamento mensile.
 
 ```powershell
 # Update to the Office 365 Monthly Channel
@@ -156,12 +156,12 @@ Set-ItemProperty
 
 ### <a name="install-the-latest-windows-updates"></a>Installare gli aggiornamenti di Windows più recenti
 
-È consigliabile installare gli aggiornamenti Microsoft più recenti nel computer modello per motivi di sicurezza prima di pubblicare la macchina virtuale del modello.  È anche possibile evitare che gli studenti si interrompano durante il lavoro quando gli aggiornamenti vengono eseguiti in momenti imprevisti.
+È consigliabile installare gli aggiornamenti Microsoft più recenti nel computer modello per motivi di sicurezza prima di pubblicare la macchina virtuale del modello.  Si evita anche potenzialmente gli studenti di essere interrotto nel loro lavoro quando gli aggiornamenti vengono eseguiti in momenti imprevisti.
 
-1. Avviare **le impostazioni** dal menu Start
-2. Fare clic su **aggiorna** & sicurezza
+1. Avvia **impostazioni** dal menu Start
+2. Fare clic su **Aggiorna** & sicurezza
 3. Fare clic su **Controlla aggiornamenti**
-4. Gli aggiornamenti vengono scaricati e installati.
+4. Gli aggiornamenti verranno scaricati e installati.
 
 È anche possibile usare PowerShell per aggiornare il computer modello.
 
@@ -174,28 +174,28 @@ Set-ExecutionPolicy default -Force
 ```
 
 >[!NOTE]
->Alcuni aggiornamenti potrebbero richiedere il riavvio del computer.  Verrà richiesto se è necessario riavviare il computer.
+>Alcuni aggiornamenti potrebbero richiedere il riavvio del computer.  Verrà richiesto se è necessario un riavvio.
 
-### <a name="install-the-latest-updates-for-microsoft-store-apps"></a>Installare gli aggiornamenti più recenti per le app Microsoft Store
+### <a name="install-the-latest-updates-for-microsoft-store-apps"></a>Installare gli aggiornamenti più recenti per le app di Microsoft Store
 
-Si consiglia di aggiornare tutte le app Microsoft Store alle versioni più recenti.  Di seguito sono riportate le istruzioni per aggiornare manualmente le applicazioni dal Microsoft Store.  
+Ti consigliamo di aggiornare tutte le app di Microsoft Store alle versioni più recenti.  Ecco le istruzioni per aggiornare manualmente le applicazioni da Microsoft Store.  
 
-1. Avviare **Microsoft Store** applicazione.
+1. Avviare l'applicazione **Microsoft Store.**
 2. Fare clic sui puntini di sospensione (...) accanto alla foto dell'utente nell'angolo superiore dell'applicazione.
-3. Selezionare **Scarica** e Aggiorna dal menu a discesa.
-4. Fare clic sul pulsante **get update** .
+3. Seleziona **Scarica** e aggiorna dal menu a discesa.
+4. Fare clic sul pulsante **Ottieni aggiornamento.**
 
-È anche possibile usare PowerShell per aggiornare Microsoft Store applicazioni già installate.
+È inoltre possibile utilizzare Powershell per aggiornare le applicazioni di Microsoft Store già installate.
 
 ```powershell
 (Get-WmiObject -Namespace "root\cimv2\mdm\dmmap" -Class "MDM_EnterpriseModernAppManagement_AppManagement01").UpdateScanMethod()
 ```
 
-### <a name="stop-automatic-windows-updates"></a>Arrestare gli aggiornamenti automatici di Windows
+### <a name="stop-automatic-windows-updates"></a>Interrompere gli aggiornamenti automatici di Windows
 
-Dopo l'aggiornamento di Windows alla versione più recente, è possibile prendere in considerazione l'arresto degli aggiornamenti di Windows.  Gli aggiornamenti automatici potrebbero interferire con l'ora della classe pianificata.  Se il corso è più lungo, prendere in considerazione la possibilità di chiedere agli studenti di controllare manualmente la disponibilità di aggiornamenti o di impostare gli aggiornamenti automatici per un periodo di tempo non compreso nelle ore della classe pianificata.  Per ulteriori informazioni sulle opzioni di personalizzazione per Windows Update, vedere la pagina relativa alla [gestione delle impostazioni di Windows Update aggiuntive](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings).
+Dopo aver aggiornato Windows alla versione più recente, potresti prendere in considerazione l'interruzione degli aggiornamenti di Windows.  Gli aggiornamenti automatici potrebbero interferire con l'orario pianificato.  Se il corso è più lungo, è consigliabile chiedere agli studenti di controllare manualmente la disponibilità di aggiornamenti o impostare gli aggiornamenti automatici per un orario al di fuori dell'orario di lezione pianificato.  Per ulteriori informazioni sulle opzioni di personalizzazione per Windows Update, vedere [Gestire ulteriori impostazioni](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings)di Windows Update .
 
-Gli aggiornamenti automatici di Windows possono essere interrotti usando il seguente script di PowerShell.
+Aggiornamenti automatici di Windows potrebbero essere arrestati utilizzando il seguente script di PowerShell.
 
 ```powershell
 New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\AU"
@@ -203,34 +203,34 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\AU"
     -Name "NoAutoUpdate" -Value "1" -PropertyType DWORD
 ```
 
-## <a name="install-foreign-language-packs"></a>Installare i Language Pack esterni
+## <a name="install-foreign-language-packs"></a>Installare i Language Pack per le lingue straniere
 
-Se sono necessarie altre lingue installate nella macchina virtuale, è possibile aggiungerle tramite la Microsoft Store.
+Se nella macchina virtuale sono necessarie altre lingue installate, è possibile aggiungerle tramite Microsoft Store.
 
 1. Avvia Microsoft Store
-2. Cerca "Language Pack"
+2. Cercare "Language Pack"
 3. Scegliere la lingua da installare
 
-Se è già stato effettuato l'accesso alla macchina virtuale modello, usare il [collegamento "installa il Language Pack"](ms-settings:regionlanguage?activationSource=SMC-IA-4027670) per passare direttamente alla pagina delle impostazioni appropriate.
+Se si è già connessi alla macchina virtuale del modello, usare il [collegamento "Installa Language Pack"](ms-settings:regionlanguage?activationSource=SMC-IA-4027670) per passare direttamente alla pagina delle impostazioni appropriata.
 
 ## <a name="remove-unneeded-built-in-apps"></a>Rimuovere le app predefinite non necessarie
 
-Windows 10 è dotato di molte applicazioni predefinite che potrebbero non essere necessarie per una classe specifica. Per semplificare l'immagine del computer per gli studenti, potrebbe essere necessario disinstallare alcune applicazioni dal computer modello.  Per visualizzare un elenco delle applicazioni installate, usare il cmdlet `Get-AppxPackage` di PowerShell.  Nell'esempio seguente vengono illustrate tutte le applicazioni installate che possono essere rimosse.
+Windows 10 viene fornito con molte applicazioni integrate che potrebbero non essere necessarie per la tua classe specifica. Per semplificare l'immagine della macchina per gli studenti, è possibile disinstallare alcune applicazioni dalla macchina modello.  Per visualizzare un elenco delle applicazioni `Get-AppxPackage` installate, utilizzare il cmdlet PowerShell.  L'esempio seguente mostra tutte le applicazioni installate che possono essere rimosse.
 
 ```powershell
 Get-AppxPackage | Where {$_.NonRemovable -eq $false} | select Name
 ```
 
-Per rimuovere un'applicazione, usare il cmdlet Remove-appx.  Nell'esempio seguente viene illustrato come rimuovere tutti gli elementi correlati a XBox.
+Per rimuovere un'applicazione, utilizzare il cmdlet Remove-Appx.  L'esempio seguente mostra come rimuovere tutto ciò che riguarda XBox.
 
 ```powershell
 Get-AppxPackage -Name *xbox* | foreach { if (-not $_.NonRemovable) { Remove-AppxPackage $_} }
 ```
 
-## <a name="install-common-teaching-related-applications"></a>Installare applicazioni comuni correlate all'insegnamento
+## <a name="install-common-teaching-related-applications"></a>Installare applicazioni comuni relative all'insegnamento
 
-Installare altre app comunemente usate per l'insegnamento tramite l'app di Windows Store. I suggerimenti includono applicazioni come [Microsoft whiteboard app](https://www.microsoft.com/store/productId/9MSPC6MP8FM4), [Microsoft teams](https://www.microsoft.com/store/productId/9MSPC6MP8FM4)e [Minecraft Education Edition](https://education.minecraft.net/). Queste applicazioni devono essere installate manualmente tramite Windows Store o tramite i rispettivi siti Web nella macchina virtuale del modello.
+Installa altre app comunemente usate per insegnare tramite l'app di Windows Store. I suggerimenti includono applicazioni come [Microsoft Whiteboard app](https://www.microsoft.com/store/productId/9MSPC6MP8FM4), [Microsoft Teams](https://www.microsoft.com/store/productId/9MSPC6MP8FM4)e Minecraft [Education Edition](https://education.minecraft.net/). Queste applicazioni devono essere installate manualmente tramite Windows Store o i rispettivi siti Web nella macchina virtuale modello.
 
 ## <a name="conclusion"></a>Conclusioni
 
-Questo articolo ha illustrato i passaggi facoltativi per preparare la VM modello di Windows per una classe efficace.  I passaggi includono l'installazione di OneDrive e l'installazione di Office 365, l'installazione degli aggiornamenti per Windows e l'installazione degli aggiornamenti per Microsoft Store app.  È stato inoltre illustrato come impostare gli aggiornamenti di una pianificazione più adatta per la classe.  
+Questo articolo illustra i passaggi facoltativi per preparare la macchina virtuale del modello di Windows per una classe efficace.  I passaggi includono l'installazione di OneDrive e l'installazione di Office 365, l'installazione degli aggiornamenti per Windows e l'installazione degli aggiornamenti per le app di Microsoft Store.  Abbiamo anche discusso come impostare gli aggiornamenti di un programma che funziona meglio per la tua classe.  
