@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 01/27/2020
+ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0a32ee682490c5930b8c48d069087020c4763dcb
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: e62b3c551f41bca0055f35cf6bf62c59d921c73b
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127763"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80294821"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Informazioni su Desktop virtuale Windows 
 
@@ -123,11 +123,32 @@ Per prestazioni ottimali, assicurarsi che la rete soddisfi i requisiti seguenti:
 
 I seguenti client Desktop remoto supportano Desktop virtuale Windows:
 
-* [Windows](connect-windows-7-and-10.md)
+* [Desktop di Windows](connect-windows-7-and-10.md)
 * [Web](connect-web.md)
-* [Mac](connect-macos.md)
+* [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
 * [Android (anteprima)](connect-android.md)
+
+> [!IMPORTANT]
+> Desktop virtuale Windows non supporta il client RADC (RemoteApp and Desktop Connections) o il client Connessione Desktop remoto.
+
+> [!IMPORTANT]
+> Desktop virtuale Windows non supporta attualmente il client Desktop remoto di Windows Store. Il supporto per questo client verrà aggiunto in una versione futura.
+
+I client Desktop remoto devono avere accesso agli URL seguenti:
+
+|Indirizzo|Porta in uscita|Scopo|Client|
+|---|---|---|---|
+|*.wvd.microsoft.com|Porta TCP 443|Traffico del servizio|Tutti|
+|*.servicebus.windows.net|Porta TCP 443|Dati per la risoluzione dei problemi|Tutti|
+|go.microsoft.com|Porta TCP 443|FWLink Microsoft|Tutti|
+|aka.ms|Porta TCP 443|Abbreviazione URL Microsoft|Tutti|
+|docs.microsoft.com|Porta TCP 443|Documentazione|Tutti|
+|privacy.microsoft.com|Porta TCP 443|Informativa sulla privacy|Tutti|
+|query.prod.cms.rt.microsoft.com|Porta TCP 443|Aggiornamenti client|Desktop di Windows|
+
+>[!IMPORTANT]
+>L'apertura di questi URL è essenziale per un'esperienza client affidabile. Il blocco dell'accesso a questi URL non è supportato e influirà sulle funzionalità del servizio. Questi URL corrispondono solo a siti e risorse del client e non includono gli URL di altri servizi come Azure Active Directory.
 
 ## <a name="supported-virtual-machine-os-images"></a>Immagini di sistema operativo supportate per le macchine virtuali
 

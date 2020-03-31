@@ -9,10 +9,10 @@ ms.date: 03/06/2020
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 034e966d259f1ca5f22eec5935013de32c883b59
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "80056634"
 ---
 Il modello di progetto Funzioni di Azure in Visual Studio crea un progetto che è possibile pubblicare in un'app per le funzioni in Azure. È possibile usare un'app per le funzioni per raggruppare le funzioni in un'unità logica e semplificare la gestione, la distribuzione, il ridimensionamento e la condivisione delle risorse.
@@ -25,11 +25,11 @@ Il modello di progetto Funzioni di Azure in Visual Studio crea un progetto che �
 
 1. Per le impostazioni di **Nuovo progetto - &lt;nome del progetto&gt;** usare i valori nella tabella seguente:
 
-    | Impostazione      | Valore  | Descrizione                      |
+    | Impostazione      | valore  | Descrizione                      |
     | ------------ |  ------- |----------------------------------------- |
     | **Runtime di Funzioni** | **Funzioni di Azure v2 <br />(.NET Core)** | Con questo valore viene creato un progetto per le funzioni che usa la versione 2.x del runtime di Funzioni di Azure e supporta .NET Core. Funzioni di Azure 1.x supporta .NET Framework. Per altre informazioni, vedere [Panoramica delle versioni del runtime per Funzioni di Azure](../articles/azure-functions/functions-versions.md).   |
     | **Modello di funzione** | **Trigger HTTP** | Con questo valore viene creata una funzione attivata da una richiesta HTTP. |
-    | **Account di archiviazione**  | **Emulatore di archiviazione** | Poiché per una funzione di Azure è richiesto un account di archiviazione, ne viene assegnato o creato uno quando si pubblica il progetto in Azure. Un trigger HTTP non usa una stringa di connessione dell'account di archiviazione di Azure. Tutti gli altri tipi di trigger richiedono una stringa di connessione dell'account di archiviazione di Azure valida.  |
+    | **Storage Account**  | **Emulatore di archiviazione** | Poiché per una funzione di Azure è richiesto un account di archiviazione, ne viene assegnato o creato uno quando si pubblica il progetto in Azure. Un trigger HTTP non usa una stringa di connessione dell'account di archiviazione di Azure. Tutti gli altri tipi di trigger richiedono una stringa di connessione dell'account di archiviazione di Azure valida.  |
     | **Diritti di accesso** | **Anonimo** | Viene creata una funzione che può essere attivata da qualsiasi client senza dover fornire una chiave. Questa impostazione di autorizzazione consente di testare più facilmente la nuova funzione. Per altre informazioni sulle chiavi e l'autorizzazione, vedere [Chiavi di autorizzazione](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) in [Associazioni di webhook e HTTP](../articles/azure-functions/functions-bindings-http-webhook.md). |
     
 

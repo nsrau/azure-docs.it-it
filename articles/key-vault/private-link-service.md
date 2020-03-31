@@ -6,12 +6,12 @@ ms.author: sudbalas
 ms.date: 03/08/2020
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 6a5cc5bbdb56e308d79b8eb2c8db546184cedb39
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 53036a43cbb0fe3c3a1e61f7124fe7dcbef228f3
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79080344"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80388934"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrare Key Vault con Collegamento privato di Azure
 
@@ -19,11 +19,11 @@ Il servizio Collegamento privato di Azure consente di accedere ai servizi di Azu
 
 Un endpoint privato di Azure è un'interfaccia di rete che connette privatamente e in modo sicuro a un servizio basato su Collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della rete virtuale, introducendo efficacemente il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute o connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile connettersi a un'istanza di una risorsa di Azure, garantendo il massimo livello di granularità nel controllo di accesso.
 
-Per altre informazioni, vedere [Che cos'è Collegamento privato di Azure? (Anteprima)](../private-link/private-link-overview.md).
+Per altre informazioni, vedere [Che cos'è Collegamento privato di Azure?](../private-link/private-link-overview.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per integrare un insieme di credenziali delle chiavi con Collegamento privato di Azure (anteprima), è necessario quanto segue:
+Per integrare un insieme di credenziali delle chiavi con Collegamento privato di Azure, è necessario quanto segue:
 
 - Un insieme di credenziali delle chiavi.
 - Una rete virtuale di Azure.
@@ -46,7 +46,7 @@ Creare prima di tutto una rete virtuale seguendo la procedura descritta nell'art
 
 Dopo aver configurato le informazioni di base dell'insieme di credenziali delle chiavi, selezionare la scheda Rete e seguire questa procedura:
 
-1. Selezionare il pulsante di opzione Endpoint privato (anteprima) nella scheda Rete.
+1. Selezionare il pulsante di opzione Endpoint privato nella scheda Rete.
 1. Fare clic sul pulsante "+ Aggiungi" per aggiungere un endpoint privato.
 
     ![Immagine](./media/private-link-service-1.png)
@@ -57,7 +57,7 @@ Dopo aver configurato le informazioni di base dell'insieme di credenziali delle 
 1. Lasciare invariata l'opzione "Integra con la zona DNS privato".  
 1. Selezionare "Ok".
 
-    ![Immagine](./media/private-link-service-2.png)
+    ![Immagine](./media/private-link-service-8.png)
  
 Sarà ora possibile visualizzare l'endpoint privato configurato. È ora possibile eliminare e modificare questo endpoint privato. Selezionare il pulsante "Rivedi e crea" e creare l'insieme di credenziali delle chiavi. Il completamento della distribuzione richiederà 5-10 minuti. 
 
@@ -69,7 +69,7 @@ Se si dispone già di un insieme di credenziali delle chiavi, è possibile crear
 1. Nella barra di ricerca digitare "key vaults".
 1. Selezionare nell'elenco l'insieme di credenziali delle chiavi in cui si vuole aggiungere un endpoint privato.
 1. Selezionare la scheda "Rete" in Impostazioni.
-1. Selezionare la scheda Connessioni endpoint privato (anteprima) nella parte superiore della pagina.
+1. Selezionare la scheda Connessioni endpoint privato nella parte superiore della pagina.
 1. Selezionare il pulsante "+ Endpoint privato" nella parte superiore della pagina.
 
     ![Immagine](./media/private-link-service-3.png) ![Immagine](./media/private-link-service-4.png)
@@ -100,6 +100,10 @@ az provider register -n Microsoft.KeyVault
 ### <a name="create-a-new-key-vault"></a>Creare una nuova istanza di Key Vault
 ```console
 az keyvault create --name {KEY VAULT NAME} --resource-group {RG} --location {AZURE REGION}
+```
+### <a name="turn-on-key-vault-firewall"></a>Attivare il firewall di Key Vault
+```console
+az keyvault update --name {KEY VAULT NAME} --resource-group {RG} --location {AZURE REGION} --default-action deny
 ```
 ### <a name="create-a-virtual-network"></a>Creare una rete virtuale
 ```console
@@ -220,9 +224,9 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 ## <a name="limitations-and-design-considerations"></a>Limitazioni e considerazioni di progettazione
 
-**Pricing** (Prezzi): per informazioni sui prezzi, vedere [Prezzi di Collegamento privato di Azure (Anteprima)](https://azure.microsoft.com/pricing/details/private-link/).
+**Pricing** (Prezzi): per informazioni sui prezzi, vedere [Prezzi di Collegamento privato di Azure](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitazioni**:  l'endpoint privato per Azure Key Vault è in anteprima pubblica. Questa funzionalità è disponibile in tutte le aree pubbliche di Azure.
+**Limitazioni**:  l'endpoint privato per Azure Key Vault è disponibile solo nelle aree di Azure pubbliche.
 
 **Numero massimo di endpoint privati per Key Vault**: 64.
 
@@ -232,5 +236,5 @@ Per altre informazioni, vedere [Servizio Collegamento privato di Azure: Limitazi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su [Collegamento privato di Azure (anteprima)](../private-link/private-link-service-overview.md)
+- Altre informazioni su [Collegamento privato di Azure](../private-link/private-link-service-overview.md)
 - Altre informazioni su [Azure Key Vault](key-vault-overview.md)

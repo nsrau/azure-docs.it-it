@@ -1,14 +1,14 @@
 ---
 title: Indice di esempi di criteri
 description: Indice dei criteri predefiniti di Criteri di Azure. Tag delle categorie, conformità alle normative, Key Vault, Kubernetes, configurazione Guest e altro ancora.
-ms.date: 01/31/2020
+ms.date: 03/25/2020
 ms.topic: sample
-ms.openlocfilehash: 11e36ba71e1b88f279e824948dffa809f16fd443
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: d990f911612c8e1f5ab7cdbdae7efe362aa70bb5
+ms.sourcegitcommit: 2a09565db8681cdb76607e7ed51eecf68f4ff8f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/25/2020
-ms.locfileid: "77168040"
+ms.locfileid: "80257173"
 ---
 # <a name="azure-policy-samples"></a>Esempi di Criteri di Azure
 
@@ -31,6 +31,10 @@ Di seguito sono riportati esempi di modelli diversi di utilizzo del linguaggio e
 - [Operatore count](./pattern-count-operator.md)
 - [Raggruppamento di definizioni di criteri in un'iniziativa](./pattern-group-with-initiative.md)
 - [Distribuzione di risorse con deployIfNotExists](./pattern-deploy-resources.md)
+
+## <a name="other-samples"></a>Altri esempi
+
+- [GitHub - Repository dei criteri della community](https://github.com/Azure/Community-Policy)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

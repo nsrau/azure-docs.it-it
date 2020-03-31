@@ -64,6 +64,14 @@
       href: load-balancer-security-controls.md
 - name: Procedure
   items:
+    - name: Set di scalabilità di macchine virtuali
+      items:
+        - name: Uso con un'istanza esistente di Azure Load Balancer - Portale
+          href: configure-vm-scale-set-portal.md
+        - name: Uso con un'istanza esistente di Azure Load Balancer - PowerShell
+          href: configure-vm-scale-set-powershell.md
+        - name: Uso con un'istanza esistente di Azure Load Balancer - Interfaccia della riga di comando
+          href: configure-vm-scale-set-cli.md
     - name: Aggiornare Load Balancer Basic a Load Balancer Standard
       items:
         - name: Aggiornare Load Balancer pubblico Basic
@@ -125,7 +133,7 @@
       items:
         - name: Risolvere i problemi di Azure Load Balancer
           href: load-balancer-troubleshoot.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=load-balancer'

@@ -24,6 +24,8 @@
           href: cloud-governed-management-for-on-premises.md
         - name: Quattro passaggi per definire una soluzione avanzata di Identity Foundation
           href: four-steps.md
+        - name: Scegliere un metodo di autenticazione delle identità ibride
+          href: choose-ad-authn.md
     - name: Azure AD Connect e Connect Health
       items:
         - name: Informazioni su Azure AD Connect e Connect Health
@@ -90,7 +92,7 @@
           href: concept-azure-ad-connect-sync-user-and-contacts.md
         - name: Informazioni sugli attributi shadow
           href: how-to-connect-syncservice-shadow-attributes.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Installazione e aggiornamento
       items:
@@ -312,7 +314,9 @@
           href: tshoot-connect-attribute-not-syncing.md
         - name: Problemi di installazione
           href: tshoot-connect-install-issues.md
-- name: riferimento
+        - name: Modifiche dei nomi UPN
+          href: howto-troubleshoot-upn-changes.md
+- name: Informazioni di riferimento
   items:
     - name: Porte e protocolli necessari per la soluzione ibrida di gestione delle identità
       href: reference-connect-ports.md

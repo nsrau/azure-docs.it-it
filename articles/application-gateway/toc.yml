@@ -15,6 +15,9 @@
       href: quick-create-powershell.md
     - name: Creare il gateway applicazione - Interfaccia della riga di comando di Azure
       href: quick-create-cli.md
+    - name: Creare il gateway applicazione - Modello di Resource Manager
+      displayName: Resource Manager
+      href: quick-create-template.md
 - name: Esercitazioni
   items:
     - name: Proteggere con SSL
@@ -47,6 +50,8 @@
           href: application-gateway-components.md
         - name: Panoramica della configurazione
           href: configuration-overview.md
+    - name: Supporto del traffico elevato
+      href: high-traffic-support.md
     - name: Ridimensionamento automatico nello SKU v2
       href: application-gateway-autoscaling-zone-redundant.md
     - name: Routing.

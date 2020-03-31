@@ -69,18 +69,24 @@
           href: boot-diagnostics.md
         - name: Errori di BitLocker
           href: troubleshoot-bitlocker-boot-error.md
-        - name: Controllo degli errori del file system
-          href: troubleshoot-check-disk-boot-error.md
         - name: Errori con schermata blu
           href: troubleshoot-common-blue-screen-error.md
-        - name: L'avvio della VM è bloccato
-          href: troubleshoot-vm-boot-configure-update.md
+        - name: Controllo degli errori del file system
+          href: troubleshoot-check-disk-boot-error.md
+        - name: Processo critico disabilitato
+          href: troubleshoot-guide-critical-process-died.md
         - name: Si è verificato un errore di un servizio critico
           href: troubleshoot-critical-service-failed-boot-error.md
+        - name: Non è un disco di avvio
+          href: troubleshoot-guide-not-bootable-disk.md
         - name: Ciclo di riavvio
           href: troubleshoot-reboot-loop.md
         - name: Blocco in Windows Update
           href: troubleshoot-stuck-updating-boot-error.md
+        - name: L'avvio della VM è bloccato
+          href: troubleshoot-vm-boot-configure-update.md
+        - name: Non è possibile avviare la macchina virtuale a causa di Windows Boot Manager
+          href: troubleshoot-guide-windows-boot-manager-menu.md
 - name: Impossibile connettersi alla macchina virtuale
   items:
     - name: RDP

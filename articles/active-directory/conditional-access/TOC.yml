@@ -58,22 +58,24 @@
       href: best-practices.md
     - name: Criteri comuni di accesso condizionale
       items:
+        - name: Bloccare l'autenticazione legacy
+          href: howto-conditional-access-policy-block-legacy.md
         - name: Richiedere l'autenticazione a più fattori per gli amministratori
           href: howto-conditional-access-policy-admin-mfa.md
         - name: Richiedere l'autenticazione a più fattori per la gestione di Azure
           href: howto-conditional-access-policy-azure-management.md
         - name: Richiedere l'autenticazione a più fattori per tutti gli utenti
           href: howto-conditional-access-policy-all-users-mfa.md
-        - name: Bloccare l'autenticazione legacy
-          href: howto-conditional-access-policy-block-legacy.md
         - name: Accesso condizionale basato sul rischio
           href: howto-conditional-access-policy-risk.md
-        - name: Richiedere una località attendibile per la registrazione dell'autenticazione a più fattori
+        - name: Proteggere la registrazione dell'informazione di sicurezza
           href: howto-conditional-access-policy-registration.md
         - name: Bloccare l'accesso in base alla località
           href: howto-conditional-access-policy-location.md
         - name: Richiede dispositivi conformi
           href: howto-conditional-access-policy-compliant-device.md
+        - name: Blocca accesso
+          href: howto-conditional-access-policy-block-access.md
     - name: Bloccare l'autenticazione legacy
       href: block-legacy-authentication.md
     - name: Richiedere app client approvate
@@ -92,8 +94,10 @@
       href: howto-conditional-access-session-lifetime.md
     - name: Eseguire la migrazione di criteri classici
       href: policy-migration-mfa.md
-    - name: risoluzione dei problemi
+    - name: Risoluzione dei problemi
       items:
+        - name: Risolvere i problemi di accesso
+          href: troubleshoot-conditional-access.md
         - name: Risolvere i problemi durante l'uso dello strumento What If
           href: troubleshoot-conditional-access-what-if.md
 - name: Risorse

@@ -31,6 +31,11 @@
     - name: Gestire i dati di Automazione di Azure
       href: automation-managing-data.md
       displayName: backup
+    - name: Risolvere problemi
+      items:
+        - name: Risoluzione dei problemi dell'account di Automazione
+          href: troubleshoot/automation-account.md
+          displayName: troubleshoot
 - name: Automazione dei processi
   items:
     - name: Panoramica di Hybrid Runbook Workers
@@ -286,7 +291,7 @@
         - name: Risolvere i problemi di State Configuration (DSC)
           href: troubleshoot/desired-state-configuration.md
           displayName: 'Desired State Configuration, troubleshoot'
-    - name: Riferimento
+    - name: Informazioni di riferimento
       items:
         - name: Soluzioni della community
           items:
@@ -356,7 +361,7 @@
     - name: Eseguire la migrazione dall'agente di orchestrazione
       href: automation-orchestrator-migration.md
       displayName: 'SCORCH, runbooks'
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.automation

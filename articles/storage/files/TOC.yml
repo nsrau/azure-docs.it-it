@@ -39,8 +39,11 @@
       href: storage-files-scale-targets.md
     - name: Autenticazione e autorizzazione basate su identità
       href: storage-files-active-directory-overview.md
-    - name: Crittografia dei dati inattivi
+    - name: Crittografia dei dati inattivi di Archiviazione di Azure
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      items:
+        - name: Chiavi gestite dal cliente con Azure Key Vault
+          href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Offerte di conformità
       href: ../common/storage-compliance-offerings.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Sviluppo
@@ -93,6 +96,10 @@
           href: storage-how-to-use-files-mac.md
     - name: Rete
       items:
+        - name: Configurare gli endpoint di rete di File di Azure
+          href: storage-files-networking-endpoints.md
+        - name: Configurazione dell'inoltro DNS per File di Azure
+          href: storage-files-networking-dns.md
         - name: Configurare la VPN da sito a sito
           href: storage-files-configure-s2s-vpn.md
         - name: Configurare la VPN da punto a sito in Windows
@@ -117,12 +124,22 @@
           href: storage-sync-files-monitoring.md
     - name: Migrazione
       items:
-        - name: Eseguire la migrazione a Sincronizzazione file di Azure
-          href: storage-sync-offline-data-transfer.md
-        - name: Guida alla migrazione di StorSimple 8100 e 8600
-          href: storage-files-migration-storsimple-8000.md
-        - name: Guida alla migrazione di StorSimple 1200
-          href: storage-files-migration-storsimple-1200.md
+        - name: Eseguire la migrazione a condivisioni file di Azure
+          href: storage-files-migration-overview.md
+        - name: Scegliere una distribuzione ibrida come destinazione
+          items:
+            - name: Eseguire la migrazione di dati in blocco a Sincronizzazione file di Azure con Azure DataBox
+              href: storage-sync-offline-data-transfer.md
+            - name: Eseguire la migrazione da Linux a un file server ibrido con Sincronizzazione file di Azure
+              href: storage-files-migration-linux-hybrid.md
+            - name: Eseguire la migrazione da un server NAS locale a un file server ibrido con Sincronizzazione file di Azure
+              href: storage-files-migration-nas-hybrid.md
+        - name: Da StorSimple
+          items:
+            - name: Guida alla migrazione di StorSimple 8100 e 8600
+              href: storage-files-migration-storsimple-8000.md
+            - name: Guida alla migrazione di StorSimple 1200
+              href: storage-files-migration-storsimple-1200.md
     - name: Sviluppo
       items:
         - name: Configurare le stringhe di connessione

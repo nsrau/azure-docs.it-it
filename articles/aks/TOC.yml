@@ -14,7 +14,8 @@
           href: kubernetes-walkthrough.md
         - name: Usare il portale di Azure
           href: kubernetes-walkthrough-portal.md
-        - name: Usare il modello di Resource Manager
+        - name: Usare un modello di Azure Resource Manager
+          displayName: Resource Manager
           href: kubernetes-walkthrough-rm-template.md
     - name: Sviluppare applicazioni
       expanded: true
@@ -73,6 +74,8 @@
       href: concepts-storage.md
     - name: Scalabilità
       href: concepts-scale.md
+    - name: Ripristino automatico del nodo
+      href: node-auto-repair.md
     - name: Procedure consigliate
       items:
         - name: Panoramica
@@ -123,6 +126,8 @@
           href: upgrade-cluster.md
         - name: Elaborare gli aggiornamenti del sistema operativo del nodo
           href: node-updates-kured.md
+        - name: Configurare un cluster del servizio Azure Kubernetes
+          href: cluster-configuration.md
         - name: Integrare un Registro Azure Container con un cluster del servizio Azure Kubernetes
           href: cluster-container-registry-integration.md
         - name: Creare nodi virtuali
@@ -198,7 +203,7 @@
       items:
         - name: Creare un'entità servizio
           href: kubernetes-service-principal.md
-        - name: Usare le identità gestite (anteprima)
+        - name: Usare identità gestite
           href: use-managed-identity.md
         - name: Limitare l'accesso al file di configurazione del cluster
           href: control-kubeconfig-access.md
@@ -216,6 +221,8 @@
           href: limit-egress-traffic.md
         - name: Abilitare l'integrazione di Azure Active Directory
           items:
+            - name: Integrare Azure AD (anteprima)
+              href: azure-ad-v2.md
             - name: Utilizzare l’interfaccia della riga di comando di Azure
               href: azure-ad-integration-cli.md
             - name: Usare il portale di Azure

@@ -41,6 +41,10 @@
       href: tutorial-visual-search-image-upload.md
     - name: Ritagliare e cercare in un'area di un'immagine
       href: tutorial-visual-search-crop-area-results.md
+    - name: Trovare immagini simili da ricerche precedenti
+      href: tutorial-visual-search-insights-token.md
+    - name: Creare un'app Web a pagina singola
+      href: tutorial-bing-visual-search-single-page-app.md
 - name: Esempi
   items:
     - name: Esempi di codice
@@ -63,11 +67,7 @@
     - name: Ridimensionare e ritagliare le anteprime
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md
-    - name: Cercare un'immagine con i token delle informazioni dettagliate dell'immagine
-      href: tutorial-visual-search-insights-token.md
-    - name: Creare un'app Web a pagina singola
-      href: tutorial-bing-visual-search-single-page-app.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: API REST v7
       href: 'https://aka.ms/bingvisualsearchreferencedoc'

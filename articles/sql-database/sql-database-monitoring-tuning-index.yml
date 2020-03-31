@@ -3,7 +3,7 @@ title: Monitoraggio e ottimizzazione delle prestazioni di Database SQL di Azure
 summary: Database SQL di Azure fornisce gli strumenti per raccogliere metriche e informazioni diagnostiche per il monitoraggio e il miglioramento delle prestazioni del database.
 metadata:
   title: Documentazione su monitoraggio e ottimizzazione delle prestazioni di Database SQL di Azure
-  description: Database SQL di Azure fornisce gli strumenti per raccogliere metriche e informazioni diagnostiche per il monitoraggio e il miglioramento delle prestazioni del database.
+  description: Informazioni sugli strumenti di monitoraggio e ottimizzazione delle prestazioni del database SQL di Azure che consentono di raccogliere metriche e diagnostica e migliorare le prestazioni del database.
   ms.service: sql-database
   ms.subservice: performance
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   author: CarlRabeler
   ms.author: carlrab
   ms.date: 03/10/2020
-  ms.openlocfilehash: 43f74ea126ab7e028b39a86e2eb1edad4cae41a2
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: bc2c2a64cfce8bde6f04835bf090b632b8839a6f
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "79208901"
+  ms.lasthandoff: 03/27/2020
+  ms.locfileid: "80373109"
 landingContent:
 - title: Informazioni su monitoraggio e ottimizzazione delle prestazioni
   linkLists:

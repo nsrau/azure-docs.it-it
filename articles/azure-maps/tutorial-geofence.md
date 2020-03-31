@@ -1,20 +1,20 @@
 ---
 title: 'Esercitazione: Creare un recinto virtuale e monitorare i dispositivi su una mappa | Mappe di Microsoft Azure'
 description: Informazioni su come configurare un recinto virtuale e monitorare i dispositivi in relazione al recinto virtuale usando il servizio spaziale di Mappe di Microsoft Azure.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e0e918a2508bb65de176b030a73598e221aff676
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 126829f12d71e40511c26e781cb191988c1d031e
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77370193"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80333874"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Esercitazione: Configurare un recinto virtuale con Mappe di Azure
 
@@ -32,7 +32,7 @@ In questa esercitazione verrà illustrato come:
 > *   Usare le API del servizio del recinto virtuale di Mappe di Azure per verificare se un asset di costruzione si trova nel cantiere o meno.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="create-an-azure-maps-account"></a>Creare un account di Mappe di Azure 
 
@@ -150,13 +150,13 @@ Dopo aver installato l'app Postman, seguire questi passaggi per caricare il reci
    }
    ```
 
-5. Fare clic su Send (Invia) e quindi esaminare l'intestazione della risposta. In caso di esito positivo, l'intestazione **Location** conterrà l'URI dello stato. Il formato dell'URI dello stato sarà il seguente. 
+5. Fare clic su Send (Invia) e quindi esaminare l'intestazione della risposta. In caso di esito positivo, l'intestazione **Location** conterrà l'URI dello stato. Il formato dell'URI dello stato sarà il seguente. Il valore uploadStatusId non è compreso tra { }. È pratica comune usare { } per visualizzare i valori che l'utente deve immettere oppure valori diversi per utenti diversi.
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-6. Copiare l'URI dello stato e aggiungere la chiave di sottoscrizione. Il formato dell'URI dello stato deve essere simile a quello riportato di seguito. Si noti che nel formato seguente è necessario modificare {subscription-key}, incluse le parentesi { }, con la chiave di sottoscrizione.
+6. Copiare l'URI dello stato e aggiungere la chiave di sottoscrizione. Il formato dell'URI dello stato deve essere simile a quello riportato di seguito. Si noti che nel formato seguente è necessario modificare {subscription-key}, non includendo le parentesi { }, con la chiave di sottoscrizione.
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
@@ -166,7 +166,8 @@ Dopo aver installato l'app Postman, seguire questi passaggi per caricare il reci
 
    ```JSON
    {
-    "udid" : "{udId}"
+    "status": "Succeeded",
+    "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udId}?api-version=1.0"
    }
    ```
 

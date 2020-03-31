@@ -95,6 +95,9 @@
     - name: Training dei modelli
       displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
       href: concept-train-machine-learning-model.md
+    - name: Training distribuito
+      displayName: 'parallellization, deep learning, deep neural network, dnn'
+      href: concept-distributed-training.md
     - name: Gestione modelli (MLOps)
       displayName: 'deploy, deployment, publish, production, operationalize, operationalization'
       href: concept-model-management-and-deployment.md
@@ -111,6 +114,9 @@
     - name: Funzionalità automatizzate di Machine Learning
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
+    - name: Gestire i problemi di Machine Learning
+      displayName: 'automl, auto ml, risks'
+      href: concept-manage-ml-pitfalls.md
     - name: Istanza di calcolo
       displayName: 'resource, dsvm, Data Science Virtual Machine'
       href: concept-compute-instance.md
@@ -184,39 +190,47 @@
           href: concept-train-model-git-integration.md
     - name: Usare i dati
       items:
-        - name: Connettersi ai dati in Archiviazione di Azure
-          displayName: 'blob, get, fileshare, access storage, mount, download'
-          href: how-to-access-data.md
-        - name: Recuperare dati da un archivio dati
-          displayName: 'data, data set, register, access data'
-          href: how-to-create-register-datasets.md
-        - name: Eseguire il training con set di dati
-          displayName: 'data, dataset, mount'
-          href: how-to-train-with-datasets.md
-        - name: Importare dati nella finestra di progettazione
-          displayName: 'designer, data, import, dataset, datastore'
-          href: how-to-designer-import-data.md
-        - name: Rilevare la deriva nei set di dati
-          displayName: 'data, dataset'
-          href: how-to-monitor-datasets.md
-        - name: Eseguire il controllo delle versioni e tenere traccia dei set di dati
-          displayName: 'data, data set'
-          href: how-to-version-track-datasets.md
-        - name: Ottenere dati etichettati
-          displayName: 'data, dataset, labeling'
-          href: how-to-create-labeling-projects.md
-        - name: Etichettare immagini
-          displayName: 'data, dataset, labeling'
-          href: how-to-label-images.md
-        - name: Creare set di dati con etichette
-          displayName: 'data, labels, torchvision'
-          href: how-to-use-labeled-dataset.md
-        - name: Inserimento dati con Azure Data Factory
-          displayName: 'data, ingestion, adf'
-          href: how-to-data-ingest-adf.md
-        - name: DevOps per l'inserimento dati
-          displayName: 'data, ingestion, devops'
-          href: how-to-cicd-data-ingestion.md
+        - name: Dati etichetta
+          items:
+            - name: Ottenere dati etichettati
+              displayName: 'data, dataset, labeling'
+              href: how-to-create-labeling-projects.md
+            - name: Etichettare immagini
+              displayName: 'data, dataset, labeling'
+              href: how-to-label-images.md
+            - name: Creare set di dati con etichette
+              displayName: 'data, labels, torchvision'
+              href: how-to-use-labeled-dataset.md
+        - name: Recuperare i dati
+          items:
+            - name: Inserimento dati con Azure Data Factory
+              displayName: 'data, ingestion, adf'
+              href: how-to-data-ingest-adf.md
+            - name: DevOps per l'inserimento dati
+              displayName: 'data, ingestion, devops'
+              href: how-to-cicd-data-ingestion.md
+            - name: Importare dati nella finestra di progettazione
+              displayName: 'designer, data, import, dataset, datastore'
+              href: how-to-designer-import-data.md
+        - name: Accedere ai dati
+          items:
+            - name: Connettersi ad Archiviazione di Azure
+              displayName: 'blob, get, fileshare, access, mount, download, data lake'
+              href: how-to-access-data.md
+            - name: Recuperare dati da un archivio dati
+              displayName: 'data, data set, register, access data'
+              href: how-to-create-register-datasets.md
+        - name: Gestire e utilizzare i dati
+          items:
+            - name: Eseguire il training con set di dati
+              displayName: 'data, dataset, mount'
+              href: how-to-train-with-datasets.md
+            - name: Rilevare la deriva nei set di dati
+              displayName: 'data, dataset'
+              href: how-to-monitor-datasets.md
+            - name: Eseguire il controllo delle versioni e tenere traccia dei set di dati
+              displayName: 'data, data set'
+              href: how-to-version-track-datasets.md
     - name: Eseguire il training dei modelli
       items:
         - name: Usare le stime per Machine Learning
@@ -337,6 +351,7 @@
         - name: Attivare una pipeline
           href: how-to-trigger-published-pipeline.md
         - name: Debug e risoluzione dei problemi delle pipeline
+          displayName: designer
           href: how-to-debug-pipelines.md
         - name: Debug delle pipeline in Application Insights
           displayname: 'pipelines, log, monitor'

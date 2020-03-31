@@ -5,8 +5,12 @@
   items:
     - name: Informazioni su Azure Active Directory
       href: active-directory-whatis.md
+    - name: Confrontare Azure AD con AD DS
+      href: active-directory-compare-azure-ad-to-ad.md
     - name: Novità di Azure Active Directory
       href: whats-new.md
+    - name: Novità di Microsoft 365 Government
+      href: whats-new-microsoft-365-government.md
 - name: Avvi rapidi
   expanded: true
   items:
@@ -17,9 +21,7 @@
 - name: Concetti
   expanded: true
   items:
-    - name: Punteggio di sicurezza delle identità
-      href: identity-secure-score.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Abilitare MFA
           href: concept-fundamentals-mfa-get-started.md
@@ -27,24 +29,30 @@
           href: concept-fundamentals-security-defaults.md
         - name: Bloccare l'autenticazione legacy
           href: concept-fundamentals-block-legacy-authentication.md
-    - name: Gestione dei gruppi e dell'accesso
-      href: active-directory-manage-groups.md
-    - name: Licenze basate sui gruppi
-      href: active-directory-licensing-whatis-azure-portal.md
-    - name: Architettura di Azure AD
-      href: active-directory-architecture.md
-    - name: Autorizzazioni utente predefinite
-      href: users-default-permissions.md
-    - name: 'Distribuzione 30, 90 e successive'
+        - name: Punteggio di sicurezza delle identità
+          href: identity-secure-score.md
+    - name: Gruppi e utenti
+      items:
+        - name: Gestione dei gruppi e dell'accesso
+          href: active-directory-manage-groups.md
+        - name: Licenze basate sui gruppi
+          href: active-directory-licensing-whatis-azure-portal.md
+        - name: Autorizzazioni utente predefinite
+          href: users-default-permissions.md
+    - name: Architecture
+      items:
+        - name: Architettura di Azure AD
+          href: active-directory-architecture.md
+    - name: Guida alla distribuzione
+      items:
+        - name: 'Distribuzione 30, 90 e successive'
       href: active-directory-deployment-checklist-p2.md
-    - name: Archiviazione dei dati relativi alle identità per la UE
-      href: active-directory-data-storage-eu.md
-    - name: Archiviazione dei dati relativi alle identità per l'Australia e la Nuova Zelanda
-      href: active-directory-data-storage-australia-newzealand.md
-    - name: Novità di Microsoft 365 Government
-      href: whats-new-microsoft-365-government.md
-    - name: Confrontare Azure AD con AD DS
-      href: active-directory-compare-azure-ad-to-ad.md
+    - name: Archiviazione dei dati
+      items:
+        - name: Archiviazione dei dati relativi alle identità per l'Europa
+          href: active-directory-data-storage-eu.md
+        - name: Archiviazione dei dati relativi alle identità per l'Australia e la Nuova Zelanda
+          href: active-directory-data-storage-australia-newzealand.md
     - name: Informazioni di riferimento sulle operazioni di Azure AD
       items:
         - name: Introduzione
@@ -60,7 +68,7 @@
 - name: Guide pratiche
   expanded: true
   items:
-    - name: Organizzazione
+    - name: Organization
       items:
         - name: Iscriversi ad Azure AD come organizzazione
           href: sign-up-organization.md

@@ -1,0 +1,342 @@
+### YamlMime:Hub
+title: Documentazione di Rete di Azure
+summary: Informazioni sui servizi di rete di Azure disponibili che forniscono la connettività alle risorse in Azure, consentono di distribuire e proteggere le applicazioni e contribuiscono alla sicurezza della rete.
+brand: azure
+metadata:
+  title: Documentazione di Rete di Azure
+  description: I servizi di rete di Azure forniscono la connettività alle risorse in Azure, consentono di distribuire e proteggere le applicazioni e contribuiscono alla sicurezza della rete.
+  ms.service: virtual-network
+  ms.topic: hub-page
+  ms.collection: 
+  author: KumudD
+  ms.author: kumud
+  manager: mtillman
+  ms.date: 03/17/2020
+  ms.openlocfilehash: 5745c6c9a7f380d7e9b1d8d59d56a81581c66e14
+  ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 03/26/2020
+  ms.locfileid: "80294326"
+highlightedContent:
+  items:
+  - title: Che cos'è Rete di Azure?
+    itemType: overview
+    url: networking-overview.md
+  - title: Novità di Rete di Azure
+    itemType: whats-new
+    url: https://azure.microsoft.com/updates/?category=networking
+  - title: Opzioni di bilanciamento del carico in Azure
+    itemType: architecture
+    url: https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview
+  - title: Topologia di rete hub-spoke in Azure
+    itemType: architecture
+    url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+  - title: Accesso privato a un server di database SQL
+    itemType: tutorial
+    url: ../private-link/create-private-endpoint-portal.md
+  - title: Lavorare in remoto con i servizi di Azure
+    itemType: concept
+    url: working-remotely-support.md
+conceptualContent:
+  items:
+  - title: Rete virtuale
+    links:
+    - url: ../virtual-network/virtual-networks-overview.md
+      itemType: concept
+      text: Che cos'è la rete virtuale di Azure?
+    - url: ../virtual-network/tutorial-restrict-network-access-to-resources.md
+      itemType: tutorial
+      text: Limitare l'accesso di rete alle risorse
+    - url: ../virtual-network/tutorial-connect-virtual-networks-portal.md
+      itemType: tutorial
+      text: Connettere le reti virtuali di Azure
+    - url: ../virtual-network/diagnose-network-traffic-filter-problem.md
+      itemType: how-to-guide
+      text: Risolvere i problemi di filtro del traffico di rete
+    footerLink:
+      url: ../virtual-network/index.yml
+      text: Altre informazioni
+  - title: Connettere l'ambiente locale ad Azure - Crittografia VPN
+    links:
+    - url: ../vpn-gateway/vpn-gateway-about-vpngateways.md
+      itemType: overview
+      text: Che cos'è Gateway VPN di Azure?
+    - url: ../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
+      itemType: tutorial
+      text: Connessioni da sito a sito
+    - url: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
+      itemType: how-to-guide
+      text: Connessioni da punto a sito
+    - url: ../vpn-gateway/vpn-gateway-troubleshoot.md
+      itemType: how-to-guide
+      text: Risolvere i problemi di Gateway VPN
+    footerLink:
+      url: ../vpn-gateway/index.yml
+      text: Altre informazioni
+  - title: Estendere l'ambiente locale in Azure - Connessione privata
+    links:
+    - url: ../expressroute/expressroute-introduction.md
+      itemType: concept
+      text: Che cos'è Azure ExpressRoute?
+    - url: ../expressroute/expressroute-howto-circuit-portal-resource-manager.md
+      itemType: tutorial
+      text: Creare e modificare un circuito ExpressRoute
+    - url: ../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md
+      itemType: tutorial
+      text: Collegare una rete virtuale a un circuito ExpressRoute
+    - url: ../expressroute/expressroute-troubleshooting-network-performance.md
+      itemType: how-to-guide
+      text: Risolvere i problemi di prestazioni di rete
+    footerLink:
+      url: ../expressroute/index.yml
+      text: Altre informazioni
+  - title: DNS
+    links:
+    - url: ../dns/dns-overview.md
+      itemType: overview
+      text: Che cos'è DNS di Azure?
+    - url: ../private-link/private-endpoint-overview.md
+      itemType: overview
+      text: Che cos'è DNS privato di Azure?
+    - url: ../dns/dns-delegate-domain-azure-dns.md
+      itemType: tutorial
+      text: Ospitare il dominio e il sottodominio
+    - url: ../dns/dns-getstarted-portal.md
+      itemType: tutorial
+      text: Risolvere i problemi di DNS di Azure
+    footerLink:
+      url: ../dns/index.yml
+      text: Altre informazioni
+  - title: Servizio di bilanciamento del carico di rete
+    links:
+    - url: ../load-balancer/load-balancer-overview.md
+      itemType: overview
+      text: Informazioni su Azure Load Balancer
+    - url: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
+      itemType: quickstart
+      text: Bilanciare il carico del traffico Internet verso le macchine virtuali
+    - url: ../load-balancer/tutorial-load-balancer-port-forwarding-portal.md
+      itemType: tutorial
+      text: Configurare il port forwarding
+    - url: ../load-balancer/load-balancer-troubleshoot.md
+      itemType: how-to-guide
+      text: Risolvere i problemi di Azure Load Balancer
+    footerLink:
+      url: ../load-balancer/index.yml
+      text: Altre informazioni
+  - title: Servizio di bilanciamento del carico basato su DNS
+    links:
+    - url: ../traffic-manager/traffic-manager-overview.md
+      itemType: overview
+      text: Che cos'è Gestione traffico di Azure?
+    - url: ../traffic-manager/tutorial-traffic-manager-improve-website-response.md
+      itemType: tutorial
+      text: Indirizzare il traffico per una bassa latenza
+    - url: ../traffic-manager/traffic-manager-routing-methods.md
+      itemType: concept
+      text: Metodi di instradamento del traffico
+    - url: ../traffic-manager/traffic-manager-troubleshooting-degraded.md
+      itemType: how-to-guide
+      text: Risolvere i problemi di prestazioni degradate in Gestione traffico
+    footerLink:
+      url: ../traffic-manager/index.yml
+      text: Altre informazioni
+  - title: Servizio di bilanciamento del carico di applicazioni Web
+    links:
+    - url: ../application-gateway/overview.md
+      itemType: overview
+      text: Cos'è il gateway applicazione di Azure?
+    - url: ../application-gateway/quick-create-portal.md
+      itemType: quickstart
+      text: Indirizzare il traffico Web con il portale
+    - url: ../application-gateway/application-gateway-faq.md
+      itemType: concept
+      text: Domande frequenti
+    - url: ../application-gateway/application-gateway-troubleshooting-502.md
+      itemType: how-to-guide
+      text: Risolvere gli errori di tipo Gateway non valido
+    footerLink:
+      url: ../application-gateway/index.yml
+      text: Altre informazioni
+  - title: Servizio di bilanciamento del carico globale
+    links:
+    - url: ../frontdoor/front-door-overview.md
+      itemType: overview
+      text: Informazioni sul servizio Frontdoor di Azure
+    - url: ../frontdoor/front-door-custom-domain.md
+      itemType: how-to-guide
+      text: Aggiungere un dominio personalizzato al servizio Frontdoor di Azure
+    - url: ../frontdoor/front-door-how-to-redirect-https.md
+      itemType: how-to-guide
+      text: Reindirizzamento del traffico HTTP a HTTPS
+    - url: ../frontdoor/front-door-troubleshoot-routing.md
+      itemType: how-to-guide
+      text: Risolvere i problemi di routing
+    footerLink:
+      url: ../frontdoor/index.yml
+      text: Altre informazioni
+  - title: Monitorare l'integrità della rete
+    links:
+    - url: ../network-watcher/network-watcher-monitoring-overview.md
+      itemType: overview
+      text: Informazioni su Azure Network Watcher
+    - url: ../network-watcher/traffic-analytics.md
+      itemType: concept
+      text: Analisi del traffico in Azure
+    - url: ../network-watcher/network-watcher-nsg-flow-logging-portal.md
+      itemType: tutorial
+      text: Registrare il flusso del traffico di rete da e verso una VM
+    footerLink:
+      url: ../network-watcher/index.yml
+      text: Altre informazioni
+  - title: Firewall di rete
+    links:
+    - url: ../firewall/overview.md
+      itemType: overview
+      text: Informazioni sul firewall di Azure
+    - url: ../firewall/tutorial-firewall-deploy-portal.md
+      itemType: tutorial
+      text: Distribuire e configurare Firewall di Azure
+    - url: ../firewall/tutorial-firewall-dnat.md
+      itemType: tutorial
+      text: Filtrare il traffico Internet in ingresso con Firewall di Azure
+    footerLink:
+      url: ../firewall/index.yml
+      text: Altre informazioni
+  - title: Proteggere l'accesso alle VM di Azure
+    links:
+    - url: ../bastion/bastion-overview.md
+      itemType: overview
+      text: Che cos'è Azure Bastion?
+    - url: ../bastion/bastion-create-host-portal.md
+      itemType: how-to-guide
+      text: Creare un host Azure Bastion
+    - url: ../bastion/troubleshoot.md
+      itemType: how-to-guide
+      text: Risolvere i problemi di Azure Bastion
+    footerLink:
+      url: ../bastion/index.yml
+      text: Altre informazioni
+  - title: Gestione della sicurezza di rete
+    links:
+    - url: ../firewall-manager/overview.md
+      itemType: overview
+      text: Che cos'è Gestione firewall di Azure?
+    - url: ../firewall-manager/secured-virtual-hub.md
+      itemType: concept
+      text: Che cos'è un hub virtuale protetto?
+    - url: ../firewall-manager/secure-cloud-network.md
+      itemType: tutorial
+      text: Proteggere la rete WAN virtuale con Gestione firewall di Azure
+    footerLink:
+      url: ../firewall-manager/index.yml
+      text: Altre informazioni
+  - title: Web application firewall
+    links:
+    - url: ../web-application-firewall/overview.md
+      itemType: overview
+      text: Che cos'è Web Application Firewall di Azure?
+    - url: ../web-application-firewall/ag/ag-overview.md
+      itemType: concept
+      text: WAF nel gateway applicazione
+    - url: ../web-application-firewall/afds/afds-overview.md
+      itemType: concept
+      text: WAF nel servizio Frontdoor di Azure
+    - url: ../web-application-firewall/cdn/cdn-overview.md
+      itemType: concept
+      text: WAF nella rete CDN di Azure
+    - url: ../web-application-firewall/ag/web-application-firewall-troubleshoot.md
+      itemType: how-to-guide
+      text: Risolvere i problemi di WAF per il gateway applicazione
+    footerLink:
+      url: ../web-application-firewall/index.yml
+      text: Altre informazioni
+  - title: Accesso privato a un servizio
+    links:
+    - url: ../private-link/private-link-overview.md
+      itemType: overview
+      text: Che cos'è Collegamento privato di Azure?
+    - url: ../private-link/private-endpoint-overview.md
+      itemType: concept
+      text: Che cos'è l'endpoint privato di Azure?
+    - url: ../private-link/troubleshoot-private-link-connectivity.md
+      itemType: how-to-guide
+      text: Risolvere i problemi di Collegamento privato di Azure
+    footerLink:
+      url: ../private-link/index.yml
+      text: Altre informazioni
+  - title: Protezione DDoS
+    links:
+    - url: ../virtual-network/ddos-protection-overview.md
+      itemType: overview
+      text: Che cos'è la protezione DDoS di Azure Standard?
+    - url: ../virtual-network/manage-ddos-protection.md
+      itemType: how-to-guide
+      text: Gestire la protezione DDoS
+    - url: ../virtual-network/ddos-protection-partner-onboarding.md
+      itemType: concept
+      text: Eseguire l'onboarding dei partner
+    footerLink:
+      url: https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices
+      text: Altre informazioni
+  - title: Rete per la distribuzione di contenuti
+    links:
+    - url: ../cdn/cdn-overview.md
+      itemType: overview
+      text: Che cos'è la rete di distribuzione dei contenuti di Azure?
+    - url: ../cdn/cdn-create-new-endpoint.md
+      itemType: quickstart
+      text: Creare un profilo e un endpoint della rete CDN
+    - url: ../cdn/cdn-standard-rules-engine-reference.md
+      itemType: concept
+      text: Informazioni di riferimento sul motore regole standard per la rete CDN di Azure
+    - url: ../cdn/cdn-troubleshoot-endpoint.md
+      itemType: how-to-guide
+      text: Risolvere i problemi degli endpoint della rete CDN di Azure
+    footerLink:
+      url: ../cdn/index.yml
+      text: Altre informazioni
+  - title: Connettività automatizzata delle filiali
+    links:
+    - url: ../virtual-wan/virtual-wan-about.md
+      itemType: overview
+      text: Che cos'è la rete WAN virtuale di Azure?
+    - url: ../virtual-wan/virtual-wan-global-transit-network-architecture.md
+      itemType: concept
+      text: Architettura della rete di transito globale - Rete WAN virtuale di Azure
+    - url: ../virtual-wan/virtual-wan-locations-partners.md
+      itemType: concept
+      text: Partner e località della rete WAN virtuale di Azure
+    - url: ../virtual-wan/migrate-from-hub-spoke-topology.md
+      itemType: how-to-guide
+      text: Eseguire la migrazione dalla topologia hub-spoke
+    footerLink:
+      url: ../virtual-wan/index.yml
+      text: Altre informazioni
+  - title: Servizi di peering
+    links:
+    - url: ../peering-service/about.md
+      itemType: overview
+      text: Che cos'è il Servizio di peering di Azure?
+    - url: ../internet-peering/overview.md
+      itemType: overview
+      text: Che cos'è il peering Internet?
+    - url: ../internet-peering/overview-peering-service.md
+      itemType: concept
+      text: Confronto tra peering Internet e Servizio di peering in Azure
+    footerLink:
+      url: ../peering-service/index.yml
+      text: Altre informazioni
+additionalContent:
+  sections:
+  - items:
+    - title: Comandi di Azure PowerShell per la rete di Azure
+      summary: Informazioni sui cmdlet per la rete di Azure.
+      url: https://docs.microsoft.com/en-us/powershell/module/az.network/?view=azps-3.5.0#networking
+    - title: Comandi dell'interfaccia della riga di comando di Azure per la rete di Azure
+      summary: Trovare i comandi di rete di Azure nelle informazioni di riferimento sull'interfaccia della riga di comando.
+      url: https://docs.microsoft.com/en-us/cli/azure/network?view=azure-cli-latest
+    - title: Blog nella rete di Azure
+      summary: Visualizzare i blog più recenti nella rete di Azure.
+      url: https://azure.microsoft.com/blog/topics/networking/
