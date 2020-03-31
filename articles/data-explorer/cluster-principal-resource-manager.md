@@ -1,6 +1,6 @@
 ---
-title: Aggiungere entità del cluster per Esplora dati di Azure usando un modello di Azure Resource Manager
-description: Questo articolo illustra come aggiungere entità cluster per Esplora dati di Azure usando un modello di Azure Resource Manager.
+title: Aggiungere entità cluster per Azure Data Explorer usando un modello di Azure Resource ManagerAdd cluster principals for Azure Data Explorer by using an Azure Resource Manager template
+description: In questo articolo viene illustrato come aggiungere entità cluster per Azure Data Explorer usando un modello di Azure Resource Manager.In this article, you learn how to add cluster principals for Azure Data Explorer by using an Azure Resource Manager template.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -8,29 +8,29 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.openlocfilehash: 22423568ab0b3b55d8d9566df4829eb6070b5f8c
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76965047"
 ---
-# <a name="add-cluster-principals-for-azure-data-explorer-by-using-an-azure-resource-manager-template"></a>Aggiungere entità del cluster per Esplora dati di Azure usando un modello di Azure Resource Manager
+# <a name="add-cluster-principals-for-azure-data-explorer-by-using-an-azure-resource-manager-template"></a>Aggiungere entità cluster per Azure Data Explorer usando un modello di Azure Resource ManagerAdd cluster principals for Azure Data Explorer by using an Azure Resource Manager template
 
 > [!div class="op_single_selector"]
-> * [C#](cluster-principal-csharp.md)
+> * [C #](cluster-principal-csharp.md)
 > * [Python](cluster-principal-python.md)
-> * [Modello di Azure Resource Manager](cluster-principal-resource-manager.md)
+> * [Modello di Azure Resource ManagerAzure Resource Manager template](cluster-principal-resource-manager.md)
 
-Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. In questo articolo si aggiungono le entità del cluster per Esplora dati di Azure usando un modello di Azure Resource Manager.
+Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. In questo articolo si aggiungono le entità cluster per Azure Data Explorer usando un modello di Azure Resource Manager.In this article, you add cluster principals for Azure Data Explorer by using an Azure Resource Manager template.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * [Creare un cluster](create-cluster-database-portal.md).
 
-## <a name="azure-resource-manager-template-for-adding-a-cluster-principal"></a>Modello di Azure Resource Manager per l'aggiunta di un'entità cluster
+## <a name="azure-resource-manager-template-for-adding-a-cluster-principal"></a>Modello di Azure Resource Manager per l'aggiunta di un'entità clusterAzure Resource Manager template for adding a cluster principal
 
-Nell'esempio seguente viene illustrato un modello di Azure Resource Manager per l'aggiunta di un'entità cluster.  È possibile [modificare e distribuire il modello nel portale di Azure](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) usando il modulo.
+L'esempio seguente mostra un modello di Azure Resource Manager per l'aggiunta di un'entità cluster.  È possibile [modificare e distribuire il modello nel portale](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) di Azure usando il modulo.
 
 ```json
 {
@@ -97,4 +97,4 @@ Nell'esempio seguente viene illustrato un modello di Azure Resource Manager per 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Aggiungere entità di database](database-principal-resource-manager.md)
+* [Aggiungere entità di databaseAdd database principals](database-principal-resource-manager.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare una chiave LUIS'
+title: 'Guida introduttiva: Creare una chiave LUIS'
 titleSuffix: Azure Cognitive Services
 description: Questo argomento di avvio rapido illustra come creare un'applicazione LUIS e ottenere una chiave.
 services: cognitive-services
@@ -11,15 +11,15 @@ ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: dapine
 ms.openlocfilehash: 5b1a5ac4867379457d161d07f4f4f2fc2d8ee6c3
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77119589"
 ---
-# <a name="quickstart-getting-a-luis-endpoint-key"></a>Avvio rapido: Ottenere una chiave dell'endpoint LUIS
+# <a name="quickstart-getting-a-luis-endpoint-key"></a>Guida introduttiva: Ottenere una chiave dell'endpoint LUIS
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione, è necessario disporre degli elementi seguenti:
 

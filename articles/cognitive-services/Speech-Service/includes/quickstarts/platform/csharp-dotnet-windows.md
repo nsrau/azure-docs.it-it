@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Configurazione della piattaforma per .NET Framework (Windows) con Speech SDK - Servizio Voce'
+title: 'Guida introduttiva: Configurazione della piattaforma per .NET Framework (Windows) con Speech SDK - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida per configurare la piattaforma per C# in .NET Framework per Windows con il servizio Speech SDK.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 10/10/2019
 ms.author: erhopf
 ms.openlocfilehash: a09b969ee3e11aeb04f338cf035b21b5da9bd952
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925236"
 ---
 Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per .NET Framework (Windows). Se si vuole solo il nome del pacchetto per iniziare autonomamente, eseguire `Install-Package Microsoft.CognitiveServices.Speech` nella console NuGet.
@@ -23,7 +23,7 @@ Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/s
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa guida di avvio rapido richiede:
+Questa guida introduttiva richiede:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 

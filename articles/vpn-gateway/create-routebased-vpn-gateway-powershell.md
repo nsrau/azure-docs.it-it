@@ -1,5 +1,5 @@
 ---
-title: 'Gateway VPN di Azure: creare un gateway basato su Route: PowerShell'
+title: 'Gateway VPN di Azure: Creare un gateway basato su route: PowerShellAzure VPN-gateway: Create route-based gateway: PowerShell'
 description: Creare rapidamente un gateway VPN basato su route usando PowerShell
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: 8a4bb9d2ac7b8124fa9b1e00f3ecceda4f4a4cdf
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77152959"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>Creare un gateway VPN basato su route usando PowerShell
@@ -28,13 +28,13 @@ Seguendo i passaggi in questo articolo si creeranno una rete virtuale, una subne
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse di Azure con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Creare un gruppo di risorse. Se si esegue PowerShell in locale, aprire la console di PowerShell con privilegi elevati e connettersi ad Azure usando il comando `Connect-AzAccount`.
+Creare un gruppo di risorse di Azure con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Creare un gruppo di risorse. Se si esegue PowerShell in locale, aprire la console di PowerShell `Connect-AzAccount` con privilegi elevati e connettersi ad Azure usando il comando.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name TestRG1 -Location EastUS
 ```
 
-## <a name="vnet"></a>Creare una rete virtuale
+## <a name="create-a-virtual-network"></a><a name="vnet"></a>Creare una rete virtualeCreate a virtual network
 
 Creare una rete virtuale con [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). L'esempio seguente crea una rete virtuale denominata **VNet1** nella posizione **EastUS**:
 
@@ -62,7 +62,7 @@ Impostare la configurazione della subnet per la rete virtuale usando il cmdlet [
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
-## <a name="gwsubnet"></a>Aggiungere una subnet del gateway
+## <a name="add-a-gateway-subnet"></a><a name="gwsubnet"></a>Aggiungere una subnet del gateway
 
 La subnet del gateway contiene gli indirizzi IP riservati usati dai servizi del gateway di rete virtuale. Per aggiungere una subnet del gateway, usare gli esempi seguenti:
 
@@ -84,7 +84,7 @@ Impostare la configurazione della subnet per la rete virtuale usando il cmdlet [
 $vnet | Set-AzVirtualNetwork
 ```
 
-## <a name="PublicIP"></a>Richiedere un indirizzo IP pubblico
+## <a name="request-a-public-ip-address"></a><a name="PublicIP"></a>Richiedere un indirizzo IP pubblico
 
 Un gateway VPN deve avere un indirizzo IP pubblico allocato in modo dinamico. Si tratta dell'indirizzo IP specificato durante la creazione di una connessione in un gateway VPN. Usare l'esempio seguente per richiedere un indirizzo IP pubblico:
 
@@ -92,7 +92,7 @@ Un gateway VPN deve avere un indirizzo IP pubblico allocato in modo dinamico. Si
 $gwpip= New-AzPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
 ```
 
-## <a name="GatewayIPConfig"></a>Creare la configurazione dell'indirizzo IP del gateway
+## <a name="create-the-gateway-ip-address-configuration"></a><a name="GatewayIPConfig"></a>Creare la configurazione dell'indirizzo IP del gateway
 
 La configurazione del gateway definisce la subnet e l'indirizzo IP pubblico da utilizzare. Per creare la configurazione del gateway, usare l'esempio seguente:
 
@@ -101,7 +101,7 @@ $vnet = Get-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1
 $subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 $gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 ```
-## <a name="CreateGateway"></a>Creare il gateway VPN
+## <a name="create-the-vpn-gateway"></a><a name="CreateGateway"></a>Creare il gateway VPN
 
 La creazione di un gateway VPN può richiedere almeno 45 minuti. Al termine della creazione del gateway, è possibile creare una connessione tra la propria rete virtuale e un'altra rete virtuale oppure tra la propria rete virtuale e una posizione locale. Creare un gateway VPN usando il cmdlet [New-AzVirtualNetworkGateway](/powershell/module/az.network/New-azVirtualNetworkGateway).
 
@@ -111,7 +111,7 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -VpnType RouteBased -GatewaySku VpnGw1
 ```
 
-## <a name="viewgw"></a>Visualizzare il gateway VPN
+## <a name="view-the-vpn-gateway"></a><a name="viewgw"></a>Visualizzare il gateway VPN
 
 È possibile visualizzare il gateway VPN usando il cmdlet [Get-AzVirtualNetworkGateway](/powershell/module/az.network/Get-azVirtualNetworkGateway).
 
@@ -164,7 +164,7 @@ BgpSettings            : {
      
 ```
 
-## <a name="viewgwpip"></a>Visualizzare l'indirizzo IP pubblico
+## <a name="view-the-public-ip-address"></a><a name="viewgwpip"></a>Visualizzare l'indirizzo IP pubblico
 
 Per visualizzare l'indirizzo IP pubblico del gateway VPN, usare il cmdlet [Get-AzPublicIpAddress](/powershell/module/az.network/Get-azPublicIpAddress).
 

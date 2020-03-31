@@ -1,5 +1,5 @@
 ---
-title: Trasformare il codice XML tra i formati
+title: Trasformare XML tra formati
 description: Creare trasformazioni o mappe per convertire i dati XML tra i formati in App per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/08/2016
 ms.openlocfilehash: 500769a39ba7658b35c1abb80101f6234170c941
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792387"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Creare mappe per trasformare i dati XML tra i formati in App per la logica di Azure con Enterprise Integration Pack
@@ -36,7 +36,7 @@ Dopo aver caricato il file della trasformazione/mappa nell'account di integrazio
 
 Una volta soddisfatti i requisiti, è ora di creare l'app per la logica:  
 
-1. Creare un'app per la logica e [collegarla all'account di integrazione](../logic-apps/logic-apps-enterprise-integration-accounts.md "Informazioni su come collegare un account di integrazione a un'app per la logica") che contiene la mappa.
+1. Creare un'app per la logica e [collegarla all'account](../logic-apps/logic-apps-enterprise-integration-accounts.md "Informazioni sul collegamento di un account di integrazione a un'app per la logicaLearn to link an integration account to a Logic app") di integrazione che contiene la mappa.
 2. Aggiungere un trigger **Richiesta** all'app per la logica.  
    ![](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
 3. Aggiungere l'azione **Trasforma XML** selezionando prima **Aggiungi un'azione**   
@@ -52,7 +52,7 @@ Una volta soddisfatti i requisiti, è ora di creare l'app per la logica:
 
 7. Selezionare il nome della **MAPPA** che si vuole usare per eseguire la trasformazione. La mappa deve essere già presente nell'account di integrazione. In un passaggio precedente è stato concesso l'accesso dell'app per la logica all'account di integrazione che contiene la mappa.      
    ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
-8. Salvare il lavoro  
+8. Salvare il lavoro   
     ![](./media/logic-apps-enterprise-integration-transforms/transform-5.png) 
 
 A questo punto, la configurazione della mappa è completa. In un'applicazione reale è possibile archiviare i dati trasformati in un'applicazione LOB, ad esempio SalesForce. È possibile eseguire facilmente questa azione inviando l'output della trasformazione a Salesforce. 
@@ -133,7 +133,7 @@ Per impostazione predefinita, la risposta ottenuta dalla trasformazione inizia c
 
 
 
-## <a name="learn-more"></a>Altre informazioni.
-* [Altre informazioni su Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Informazioni sulle Enterprise Integration Pack")  
-* [Altre informazioni sulle mappe](../logic-apps/logic-apps-enterprise-integration-maps.md "Informazioni sulle mappe di Enterprise Integration")  
+## <a name="learn-more"></a>Altre informazioni
+* [Altre informazioni su Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Scopri di più su Enterprise Integration Pack")  
+* [Altre informazioni sulle mappe](../logic-apps/logic-apps-enterprise-integration-maps.md "Informazioni sulle mappe di integrazione aziendale")  
 

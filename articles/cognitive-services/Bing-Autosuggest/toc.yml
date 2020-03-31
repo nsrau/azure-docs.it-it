@@ -7,27 +7,29 @@
     - name: Confrontare le API di ricerca Bing
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: Guide introduttive per l'API REST
+- name: Avvi rapidi
   expanded: true
   items:
-    - name: 'C#'
-      href: quickstarts/csharp.md
-    - name: Java
-      href: quickstarts/java.md
-    - name: Node.js
-      href: quickstarts/nodejs.md
-    - name: PHP
-      href: quickstarts/php.md
-    - name: Python
-      href: quickstarts/python.md
-    - name: Ruby
-      href: quickstarts/ruby.md
-- name: Libreria client
-  items:
-    - name: 'C#'
-      href: quickstarts/csharp-sdk.md
-    - name: Go
-      href: quickstarts/go-sdk.md
+    - name: API REST
+      items:
+        - name: 'C#'
+          href: quickstarts/csharp.md
+        - name: Java
+          href: quickstarts/java.md
+        - name: Node.js
+          href: quickstarts/nodejs.md
+        - name: PHP
+          href: quickstarts/php.md
+        - name: Python
+          href: quickstarts/python.md
+        - name: Ruby
+          href: quickstarts/ruby.md
+    - name: Libreria client
+      items:
+        - name: 'C#'
+          href: quickstarts/csharp-sdk.md
+        - name: Go
+          href: quickstarts/go-sdk.md
 - name: Esercitazioni
   items:
     - name: App Web a singola pagina
@@ -42,7 +44,7 @@
       href: concepts/get-suggestions.md
     - name: Invio di richieste
       href: concepts/sending-requests.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: API Suggerimenti automatici Bing v7
       href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference'
@@ -69,7 +71,7 @@
       href: 'https://cognitive.uservoice.com/forums/598198-bing-autosuggest'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/search?q=bing+autosuggest'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'

@@ -12,12 +12,12 @@ metadata:
   author: spelluru
   ms.author: spelluru
   ms.date: 01/29/2020
-  ms.openlocfilehash: 28cfe37f6058dbedb11fb6fe01d932cbb10cbd18
-  ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+  ms.openlocfilehash: 957a942efd618003dd3ff3f9f76be72799770859
+  ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 02/12/2020
-  ms.locfileid: "77162957"
+  ms.lasthandoff: 03/26/2020
+  ms.locfileid: "80288292"
 landingContent:
 - title: Informazioni su Hub eventi
   linkLists:
@@ -70,7 +70,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Creare hub eventi con supporto per Apache Kafka
-      url: event-hubs-create-kafka-enabled.md
+      url: event-hubs-create.md
     - text: Eseguire il mirroring di un broker Kafka in un hub eventi
       url: event-hubs-kafka-mirror-maker-tutorial.md
     - text: Connettere Apache Spark a un hub eventi
@@ -143,7 +143,7 @@ landingContent:
       url: event-hubs-ip-filtering.md
     - text: Usare endpoint servizio di rete virtuale
       url: event-hubs-service-endpoints.md
+    - text: Usare endpoint privati
+      url: private-link-service.md
     - text: Configurare le chiavi gestite dal cliente per la crittografia dei dati inattivi
       url: configure-customer-managed-key.md
-    - text: Abilitare l'integrazione di reti virtuali e firewall
-      url: event-hubs-tutorial-virtual-networks-firewalls.md

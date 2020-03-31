@@ -1,5 +1,5 @@
 ---
-title: Configurare un listener esterno per i gruppi di disponibilità
+title: Configurare un listener esterno per i gruppi di disponibilitàConfigure an external listener for availability groups
 description: Questa esercitazione illustra in dettaglio la procedura per creare un listener del gruppo di disponibilità AlwaysOn in Azure accessibile dall'esterno con l'indirizzo IP virtuale pubblico del servizio cloud associato.
 services: virtual-machines-windows
 documentationcenter: na
@@ -16,23 +16,23 @@ ms.date: 05/31/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: ca13d5e8369d007188a17352913519172ed8744e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75978191"
 ---
-# <a name="configure-an-external-listener-for-availability-groups-on-azure-sql-server-vms"></a>Configurare un listener esterno per i gruppi di disponibilità in macchine virtuali SQL Server di Azure
+# <a name="configure-an-external-listener-for-availability-groups-on-azure-sql-server-vms"></a>Configurare un listener esterno per i gruppi di disponibilità nelle macchine virtuali di Azure SQL ServerConfigure an external listener for availability Groups on Azure SQL Server VMs
 > [!div class="op_single_selector"]
 > * [Listener interno](../classic/ps-sql-int-listener.md)
-> * [External Listener](../classic/ps-sql-ext-listener.md)
+> * [Listener esterno](../classic/ps-sql-ext-listener.md)
 > 
 > 
 
 Questo argomento illustra come configurare un listener per un gruppo di disponibilità AlwaysOn accessibile esternamente su Internet. Ciò è possibile tramite l'associazione dell'indirizzo **IP virtuale pubblico (indirizzo VIP)** del servizio cloud con il listener.
 
 > [!IMPORTANT] 
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../azure-resource-manager/management/deployment-models.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
+> Azure include due diversi modelli di distribuzione per la creazione e l'utilizzo delle risorse: [Resource Manager e Classic](../../../azure-resource-manager/management/deployment-models.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
 
 Il gruppo di disponibilità può contenere repliche solo locali, solo di Azure oppure sia locali che di Azure per le configurazioni ibride. Le repliche di Azure possono trovarsi nella stessa area o in più aree grazie a più reti virtuali (VNet). I passaggi seguenti presuppongono che sia già stato [configurato un gruppo di disponibilità](../classic/portal-sql-alwayson-availability-groups.md) ma che non sia stato configurato un listener.
 
@@ -53,12 +53,12 @@ Questo articolo illustra la creazione di un listener che usa il **bilanciamento 
 ## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>Creare endpoint VM con bilanciamento del carico con Direct Server Return
 Il servizio di bilanciamento del carico esterno usa l'indirizzo IP virtuale pubblico del servizio cloud che ospita le VM. Non è quindi necessario creare o configurare il servizio di bilanciamento del carico in questo caso.
 
-È necessario creare un endpoint con carico bilanciato per ogni macchina virtuale che ospita una replica di Azure. Se si dispongono di repliche in più aree, ogni replica per tale area deve essere nello stesso servizio cloud nella stessa rete virtuale. Le repliche di creazione del gruppo di disponibilità che si estendono su più aree di Azure richiedono la configurazione di più reti virtuali. Per altre informazioni sulla configurazione della connettività tra reti virtuali, vedere [Configurare la connettività tra reti virtuali](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+È necessario creare un endpoint con carico bilanciato per ogni macchina virtuale che ospita una replica di Azure. Se si dispongono di repliche in più aree, ogni replica per tale area deve essere nello stesso servizio cloud nella stessa rete virtuale. Le repliche di creazione del gruppo di disponibilità che si estendono su più aree di Azure richiedono la configurazione di più reti virtuali. Per ulteriori informazioni sulla configurazione della connettività tra reti virtuali, vedere [Configurare la connettività da vNet a vNet.](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 
 1. Nel portale di Azure, passare a ogni macchina virtuale che ospita una replica e visualizzare i dettagli.
-2. Scegliere la scheda **Endpoint** per ognuna delle macchine virtuali.
-3. Verificare che il **nome** e la **porta pubblica** specificati per l'endpoint del listener non siano già in uso. Nell'esempio seguente, il nome è "MyEndpoint" e la porta è "1433".
-4. Nel client locale, scaricare e installare [l'ultimo modulo PowerShell](https://azure.microsoft.com/downloads/).
+2. Fare clic sulla scheda **Endpoint** per ognuna delle VM.
+3. Verificare che il **Nome** e la **Porta pubblica** dell'endpoint del listener che si desidera usare non siano già in uso. Nell'esempio seguente, il nome è "MyEndpoint" e la porta è "1433".
+4. Nel client locale scaricare e installare [il modulo PowerShell più recente.](https://azure.microsoft.com/downloads/)
 5. Avviare **Azure PowerShell**. Viene aperta una nuova sessione di PowerShell con i moduli amministrativi di Azure caricati.
 6. Eseguire **Get-AzurePublishSettingsFile**. Questo cmdlet conduce a un browser per scaricare un file di impostazioni di pubblicazione in una directory locale. Se richiesto, immettere le credenziali di accesso per la sottoscrizione di Azure.
 7. Eseguire il comando **Import-AzurePublishSettingsFile** con il percorso del file di impostazioni di pubblicazione che si è scaricato:
@@ -95,8 +95,8 @@ Creare il listener del gruppo di disponibilità in due passaggi. Creare prima di
 [!INCLUDE [firewall](../../../../includes/virtual-machines-ag-listener-create-listener.md)]
 
 ### <a name="configure-the-cluster-resources-in-powershell"></a>Configurare le risorse del cluster in PowerShell
-1. Per il servizio di bilanciamento del carico esterno, è necessario ottenere l'indirizzo IP virtuale pubblico del servizio cloud contenente le repliche. Accedere al portale di Azure. Passare al servizio cloud che contiene la macchina virtuale del gruppo di disponibilità. Aprire la visualizzazione **Dashboard** .
-2. Annotare l'indirizzo visualizzato sotto **Indirizzo IP virtuale pubblico (VIP)** . Se la soluzione interessa più reti virtuali, ripetere questo passaggio per ogni servizio cloud che contiene una macchina virtuale che ospita una replica.
+1. Per il servizio di bilanciamento del carico esterno, è necessario ottenere l'indirizzo IP virtuale pubblico del servizio cloud contenente le repliche. Accedere al portale di Azure. Passare al servizio cloud che contiene la macchina virtuale del gruppo di disponibilità. Aprire la vista **Dashboard**.
+2. Annotare l'indirizzo visualizzato sotto **Public Virtual IP (VIP) Address**. Se la soluzione interessa più reti virtuali, ripetere questo passaggio per ogni servizio cloud che contiene una macchina virtuale che ospita una replica.
 3. Su una delle macchine virtuali copiare lo script di PowerShell seguente in un editor di testo e impostare le variabili sui valori annotati prima.
    
         # Define variables
@@ -123,7 +123,7 @@ Creare il listener del gruppo di disponibilità in due passaggi. Creare prima di
 [!INCLUDE [Test-Listener-Within-VNET](../../../../includes/virtual-machines-ag-listener-test.md)]
 
 ## <a name="test-the-availability-group-listener-over-the-internet"></a>Testare il listener del gruppo di disponibilità (su Internet)
-Per accedere al listener dall'esterno della rete virtuale, è necessario usare il bilanciamento del carico esterno/pubblico (descritto in questo argomento) invece di ILB, che è accessibile solo all'interno della stessa VNet. Nella stringa di connessione specificare il nome del servizio cloud. Ad esempio, se è disponibile un servizio cloud con nome *mycloudservice*, l'istruzione sqlcmd sarà analoga alla seguente:
+Per accedere al listener dall'esterno della rete virtuale, è necessario usare il bilanciamento del carico esterno/pubblico (descritto in questo argomento) anziché ILB, accessibile solo all'interno della stessa rete virtuale. Nella stringa di connessione specificare il nome del servizio cloud. Ad esempio, se è disponibile un servizio cloud con nome *mycloudservice*, l'istruzione sqlcmd sarà analoga alla seguente:
 
     sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 

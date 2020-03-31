@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Aggiungere domande e risposte nel portale di QnA Maker'
+title: 'Guida introduttiva: Aggiungere domande e risposte nel portale di QnA Maker'
 description: Questo argomento di avvio rapido illustra come aggiungere set di domande e risposte con metadati in modo che gli utenti possano trovare la risposta corretta per la loro domanda.
 services: cognitive-services
 author: diberry
@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.date: 02/08/2020
 ms.author: diberry
 ms.openlocfilehash: 25c0fe549dfc850a53b06f79f348a87cba3b70a1
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77109939"
 ---
-# <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Avvio rapido: Aggiungere domande e risposte con il portale di QnA Maker
+# <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Guida introduttiva: Aggiungere domande e risposte con il portale di QnA Maker
 
 Una volta creata una knowledge base, aggiungere i set di domande e risposte con i metadati per filtrare la risposta. Le domande riportate nella tabella seguente sono relative ai limiti dei servizi di Azure, ma ognuna riguarda un servizio di Azure diverso.
 
@@ -33,7 +33,7 @@ Una volta aggiunti i metadati a un set di domande e risposte, l'applicazione cli
 * Ricevere tutte le risposte, ma elaborarle successivamente in base ai metadati di ogni risposta.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Completare gli [argomenti di avvio rapido precedenti](./create-publish-knowledge-base.md)
 

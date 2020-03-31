@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 12/19/2019
 ms.author: aahi
 ms.openlocfilehash: 2398bfa2ce828e716831cc7ce438bd1c241ca5f8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75378535"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Esercitazione: Integrare Power BI con il servizio cognitivo Analisi del testo
@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come:
 > * Usare l'API Frasi chiave di Analisi del testo per estrarre le frasi più importanti dal feedback dei clienti
 > * Creare una nuvola di parole dal feedback dei clienti
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 <a name="Prerequisites"></a>
 
 - Microsoft Power BI Desktop. [Download gratuito](https://powerbi.microsoft.com/get-started/).

@@ -7,7 +7,7 @@
     - name: Confrontare le API di ricerca Bing
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: Guide introduttive per l'API REST
+- name: Avvi rapidi
   expanded: true
   items:
     - name: API REST
@@ -47,7 +47,7 @@
       href: concepts/search-for-entities.md
     - name: Invio delle richieste di ricerca
       href: concepts/sending-requests.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Requisiti per l'uso e la visualizzazione delle API di ricerca Bing
       href: ../Bing-Web-Search/use-display-requirements.md
@@ -74,7 +74,7 @@
       href: 'https://cognitive.uservoice.com/forums/601036-bing-entity-search-api'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/search?q=bing+entity+search'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'

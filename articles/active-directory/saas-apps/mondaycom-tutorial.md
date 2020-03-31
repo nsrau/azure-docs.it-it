@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7126b6e40c7d76244ec5cd62566c4bad6dc0529
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5c0353bdcce6bb4917d13de9b8f254ee77de1a4c
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75430897"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80297924"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mondaycom"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con monday.com
 
@@ -57,7 +57,6 @@ Per configurare l'integrazione di monday.com in Azure AD, è necessario aggiunge
 1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **monday.com** nella casella di ricerca.
 1. Selezionare **monday.com** nel riquadro dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
-
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-mondaycom"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per monday.com
 
@@ -106,7 +105,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<YOUR_DOMAIN>.monday.com`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di monday.com](mailto:dev@food.ee). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di monday.com](https://monday.com/contact-us/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 1. L'applicazione monday.com prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti.
 
@@ -114,8 +113,8 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Oltre quelli elencati in precedenza, l'applicazione monday.com prevede il passaggio di altri attributi nella risposta SAML. Tali attributi sono indicati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
 
-    | Nome | Attributo di origine|
-    | ---------------| --------------- |
+    | Nome | Attributo di origine |
+    |--|--|
     | Email | user.mail |
     | FirstName | user.givenname |
     | LastName | user.surname |
@@ -135,7 +134,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
-   1. Nel campo **Nome** immettere `B.Simon`.  
+   1. Nel campo **Nome** immettere `B.Simon`.
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Fare clic su **Crea**.
@@ -182,8 +181,8 @@ In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di 
 
     ![Configurazione di monday.com](./media/mondaycom-tutorial/configuration03.png)
 
-    >[!NOTE]
-    >Per altri dettagli, vedere [questo](https://support.monday.com/hc/articles/360000460605-SAML-Single-Sign-on?abcb=34642) articolo
+    > [!NOTE]
+    > Per altri dettagli, vedere [questo](https://support.monday.com/hc/articles/360000460605-SAML-Single-Sign-on?abcb=34642) articolo
 
 ### <a name="create-mondaycom-test-user"></a>Creare l'utente di test di monday.com
 

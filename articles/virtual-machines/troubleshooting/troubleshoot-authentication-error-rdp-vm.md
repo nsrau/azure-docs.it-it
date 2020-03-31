@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: b7a561907e3f1968eb9adead3606822d7a1321c8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266975"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Risolvere gli errori di autenticazione quando si usa RDP per connettersi a una macchina virtuale di Azure
@@ -31,15 +31,15 @@ Si acquisisce uno screenshot di una macchina virtuale di Azure che mostra la sch
 
 ### <a name="error-message-1"></a>Messaggio di errore 1
 
-**Si è verificato un errore di autenticazione. Impossibile contattare l'autorità di sicurezza locale.**
+**Si è verificato un errore di autenticazione. Impossibile contattare l'autorità di protezione locale.**
 
 ### <a name="error-message-2"></a>Messaggio di errore 2
 
-**Il computer remoto a cui si sta tentando di connettersi richiede Autenticazione a livello di rete (NLA), ma non è possibile contattare il controller di dominio Windows per eseguire NLA. Se si è un amministratore del computer remoto, è possibile disabilitare NLA usando le opzioni disponibili nella scheda Remote della finestra di dialogo Proprietà del sistema.**
+**Il computer remoto a cui si sta tentando di connettersi richiede l'autenticazione a livello di rete (NLA, Network Level Authentication), ma non è possibile contattare il controller di dominio Windows per eseguire NLA. Se si è un amministratore del computer remoto, è possibile disabilitare NLA utilizzando le opzioni nella scheda Remoto della finestra di dialogo Proprietà del sistema.**
 
 ### <a name="error-message-3-generic-connection-error"></a>Messaggio di errore 3 (errore di connessione generico)
 
-**Il computer non è in grado di connettersi al computer remoto. Provare a connettersi di nuovo. se il problema persiste, contattare il proprietario del computer remoto o l'amministratore di rete.**
+**Questo computer non è in grado di connettersi al computer remoto. Se il problema persiste, contattare il proprietario del computer remoto o l'amministratore di rete.**
 
 ## <a name="cause"></a>Causa
 
@@ -124,7 +124,7 @@ REG add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-T
 REG add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f
 ```
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 ### <a name="for-domain-joined-vms"></a>Per le macchine virtuali aggiunte a un dominio
 
@@ -246,7 +246,7 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Prot
 > [!Note]
 > Ottenere la versione x.x di SSH/TLS dai log del sistema operativo guest sugli errori SCHANNEL.
 
-#### <a name="fips-compliant"></a>Controllare le connessioni con algoritmi conformi a FIPS
+#### <a name="check-fips-compliant-algorithms-connections"></a><a name="fips-compliant"></a>Controllare le connessioni con algoritmi conformi a FIPS
 
 È possibile configurare Desktop remoto in modo che usi solo connessioni con algoritmi conformi a FIPS. A questo scopo si può usare una chiave del Registro di sistema. Aprire una finestra del prompt dei comandi con privilegi elevati ed eseguire una query sulle chiavi seguenti:
 

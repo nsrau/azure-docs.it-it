@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 54a18bb20ab9af3ad794ed678ea3234a712bf5cb
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 0399e1659fb7cc6a650c6b3c1d0189c8802d4904
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531163"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80064320"
 ---
 # <a name="what-is-iot-plug-and-play-preview"></a>Informazioni su Plug and Play IoT (anteprima)
 
@@ -75,9 +75,9 @@ Gli sviluppatori di dispositivi possono inviare prodotti hardware IoT per la cer
 - Superamento del set automatizzato di test di convalida per il dispositivo.
 - Pubblicazione nel catalogo dei dispositivi Certified per IoT.
 
-## <a name="regional-availability"></a>Disponibilità internazionale
+## <a name="regional-availability"></a>Disponibilità a livello di area
 
-Nella fase di anteprima pubblica Plug and Play IoT è disponibile nelle aree Europa settentrionale, Stati Uniti centrali e Giappone orientale. Assicurarsi quindi che l'hub venga creato in una di queste aree.
+Durante l'anteprima pubblica, Plug and Play IoT è disponibile in tutte le aree.
 
 ## <a name="message-quotas-in-iot-hub"></a>Quote messaggi nell'hub IoT
 Nella fase di anteprima pubblica i dispositivi Plug and Play IoT inviano messaggi distinti per ogni interfaccia. Questo comportamento può implicare un aumento del numero di messaggi conteggiati ai fini della [quota messaggi](../iot-hub/iot-hub-devguide-quotas-throttling.md).

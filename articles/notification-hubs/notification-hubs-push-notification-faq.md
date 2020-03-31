@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti sugli hub di notifica di Azure | Microsoft Docs
-description: Domande frequenti sulla progettazione e l'implementazione di soluzioni in hub di notifica di Azure.
+title: Domande frequenti sugli hub di notifica di Azure Documenti Microsoft
+description: Domande frequenti sulla progettazione e l'implementazione di soluzioni in Hub di notifica di Azure.FAQs about designing and implementing solutions on Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: mobile
 author: sethmanheim
@@ -18,15 +18,15 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
 ms.openlocfilehash: 3212520f37d33a2d8fb1b071506f688b9f75f15c
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76263830"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notifiche push sicure con Hub di notifica di Azure - Domande frequenti
 
-## <a name="general"></a>Informazioni di carattere generale
+## <a name="general"></a>Generale
 
 ### <a name="what-is-the-resource-structure-of-notification-hubs"></a>Che cos'è la struttura di risorse di Hub di notifica?
 
@@ -43,20 +43,20 @@ Per informazioni dettagliate e aggiornate sui prezzi, vedere la pagina [Prezzi d
 Funzionalità del livello Standard:
 
 * **Telemetria avanzata**: è possibile usare Hub di notifica per la telemetria per messaggio per tenere traccia delle richieste push e i commenti di Platform Notification System per il debug.
-* **Multi-tenant**: è possibile usare le credenziali Platform Notification System a livello di spazio dei nomi. Questa opzione consente di suddividere facilmente i tenant in hub all'interno del medesimo spazio dei nomi.
+* **Multi-tenancy**: È possibile utilizzare le credenziali del sistema di notifica della piattaforma a livello di spazio dei nomi. Questa opzione consente di suddividere facilmente i tenant in hub all'interno del medesimo spazio dei nomi.
 * **Push pianificati**: è possibile le notifiche da inviare.
-* **Operazioni bulk**: Abilita la funzionalità di esportazione/importazione delle registrazioni come descritto nel documento relativo all' [esportazione/importazione delle registrazioni] .
+* **Operazioni collettive**: Abilita le funzionalità di esportazione/importazione delle registrazioni come descritto nel documento [Esporta/Importa registrazioni.]
 
 ### <a name="what-is-the-notification-hubs-sla"></a>Qual è il contratto di servizio di Hub di notifica?
 
 Per i livelli Basic e Standard di Hub di notifica, le applicazioni correttamente configurate possono inviare notifiche push o eseguire operazioni di gestione delle registrazioni almeno per il 99,9% del tempo. Per altre informazioni sul Contratto di servizio, visitare la pagina del [contratto di servizio per Hub di notifica](https://azure.microsoft.com/support/legal/sla/notification-hubs/).
 
 > [!NOTE]
-> Poiché le notifiche push dipendono da sistemi di notifica della piattaforma di terze parti, ad esempio il servizio di notifica push di Apple (APNs) e Firebase Cloud Messaging (FCM) di Google, non esiste alcuna garanzia del contratto di servizio per la consegna di tali messaggi. Dopo che Hub di notifica ha inviato i batch a Platform Notification System, come garantito dal contratto di servizio, è Platform Notification System a dover recapitare i push, senza garanzia del contratto di servizio.
+> Poiché le notifiche push dipendono da sistemi di notifica della piattaforma di terze parti, ad esempio il servizio di notifica Push (APN) di Apple e Firebase Cloud Messaging (FCM) di Google, non esiste alcuna garanzia del contratto di servizio per il recapito di questi messaggi. Dopo che Hub di notifica ha inviato i batch a Platform Notification System, come garantito dal contratto di servizio, è Platform Notification System a dover recapitare i push, senza garanzia del contratto di servizio.
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Come eseguire l'aggiornamento o il downgrade di un hub o di uno spazio dei nomi a un livello diverso?
 
-Passare al **[Azure portal]**  > **Spazi dei nomi di Hub di notifica** o **Hub di notifica**. Selezionare la risorsa che si desidera aggiornare, quindi passare al **piano tariffario**. Tenere presenti i requisiti seguenti:
+Passare al **[portale]** > di Azure**Notification Hubs Namespaces** o **Notification Hubs**. Selezionare la risorsa che si desidera aggiornare, quindi passare al **piano tariffario**. Tenere presenti i requisiti seguenti:
 
 * Il piano tariffario aggiornato si applica a *tutti* gli hub nello spazio dei nomi in uso.
 * Se il conteggio dei dispositivi supera il limite del livello a cui si passa, è necessario eliminare i dispositivi prima effettuare il downgrade.
@@ -69,7 +69,7 @@ Gli SDK server sono disponibili per .NET, Java, Node.js, PHP e Python. Le API di
 
 ### <a name="which-client-platforms-do-you-support"></a>Quali piattaforme client sono supportate?
 
-Sono supportate le notifiche push per [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Novell ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) e Android e [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Per altre informazioni, vedere la pagina [Esercitazioni introduttive si Hub di notifica].
+Le notifiche push sono supportate per [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), Android [China (tramite Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) e Android e [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Per altre informazioni, vedere la pagina [Introduzione ad Hub di notifica].
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>Sono supportate le notifiche via SMS, messaggi di posta elettronica o Web?
 
@@ -79,14 +79,14 @@ Hub di notifica invia notifiche ai dispositivi che eseguono app per dispositivi 
 
 Per informazioni dettagliate sul numero di dispositivi supportati, vedere la pagina [Prezzi di Hub di notifica].
 
-Se è necessario il supporto per più di 10 milioni dispositivi registrati, è necessario partizionare i dispositivi su più hub.
+Se è necessario il supporto per più di 10 milioni di dispositivi registrati, è necessario partizionare i dispositivi tra più hub.
 
 ### <a name="how-many-push-notifications-can-i-send-out"></a>Quante notifiche push si può inviare?
 
 A seconda del piano selezionato, Hub di notifica di Azure passa automaticamente a un piano superiore in base al numero di notifiche inviate nel sistema.
 
 > [!NOTE]
-> Il costo complessivo dell'utilizzo può aumentare in base al numero di notifiche push inviate. È importante conoscere i limiti dei piani descritti nella pagina [Prezzi di Hub di notifica].
+> Il costo di utilizzo complessivo può aumentare in base al numero di notifiche push inviate. È importante conoscere i limiti dei piani descritti nella pagina [Prezzi di Hub di notifica].
 
 I clienti usano Hub di notifica per inviare milioni di notifiche push ogni giorno. Non è necessario eseguire alcuna operazione particolare per ridimensionare la copertura delle notifiche push, purché si usi Hub di notifica di Azure.
 
@@ -127,7 +127,7 @@ Gli spazi dei nomi possono essere usati anche per il raggruppamento di distribuz
 
 #### <a name="geo-distribution"></a>Distribuzione geografica
 
-La distribuzione geografica non è sempre fondamentale negli scenari di notifiche push. Varie PNS (ad esempio, APNs o FCM) che forniscono notifiche push ai dispositivi non sono distribuite in modo uniforme.
+La distribuzione geografica non è sempre fondamentale negli scenari di notifiche push. Vari PNS (ad esempio, APN o FCM) che recapitano notifiche push ai dispositivi non sono distribuiti in modo uniforme.
 
 Se si ha un'applicazione che viene usata a livello globale, è possibile creare hub in vari spazi dei nomi tramite il servizio Hub di notifica in diverse aree di Azure nel mondo.
 
@@ -151,13 +151,13 @@ Tutte le connessioni, dal mittente a Hub notifiche di Azure al PNS, usano HTTPS.
 > [!NOTE]
 > Hub di notifica di Azure non registra il payload dei messaggi.
 
-Per l'invio di payload sensibili è consigliabile usare un modello push sicuro. Il mittente invia una notifica ping con un identificatore di messaggio al dispositivo senza il payload sensibile. Quando l'app sul dispositivo riceve il payload, l'applicazione chiama un'API sicura direttamente per recuperare i dettagli del messaggio. Per informazioni di guida su come implementare questo modello, vedere la pagina sull'[Esercitazione sul push sicuro di Hub di notifica].
+Per l'invio di payload sensibili è consigliabile usare un modello push sicuro. Il mittente invia una notifica ping con un identificatore di messaggio al dispositivo senza il payload sensibile. Quando l'app sul dispositivo riceve il payload, l'applicazione chiama un'API sicura direttamente per recuperare i dettagli del messaggio. Per informazioni di guida su come implementare questo modello, vedere la pagina sull'[esercitazione relativa al push sicuro di Hub di notifica].
 
 ## <a name="operations"></a>Operazioni
 
 ### <a name="what-support-is-provided-for-disaster-recovery"></a>Quale supporto è fornito per il ripristino di emergenza?
 
-È fornita la copertura del ripristino di emergenza dei metadati (nome di Hub di notifica, stringa di connessione e altre informazioni fondamentali) sul lato del servizio. Quando viene attivato uno scenario di ripristino di emergenza, i dati delle registrazioni sono l'*unico segmento* dell'infrastruttura di Hub di notifica che andrà perso. È necessario implementare una soluzione per ripopolare questi dati nel nuovo hub dopo il ripristino:
+È fornita la copertura del ripristino di emergenza dei metadati (nome di Hub di notifica, stringa di connessione e altre informazioni fondamentali) sul lato del servizio. Quando viene attivato uno scenario di ripristino di emergenza, i dati delle registrazioni sono l'*unico segmento* dell'infrastruttura di Hub di notifica che andrà perso. È necessario implementare una soluzione per ripopolare questi dati nel nuovo hub dopo il ripristino:You must implement a solution to repopulate this data into your new hub post-recovery:
 
 1. Creare un hub di notifica secondario in un controller di dominio diverso. È consigliabile crearne uno dall'inizio per proteggersi da un evento di ripristino di emergenza che potrebbe interferire con le capacità di gestione. È anche possibile crearne uno al momento dell'evento di ripristino di emergenza.
 
@@ -175,34 +175,34 @@ Se non si ha un back-end, all'avvio dell'app nei dispositivi di destinazione vie
 
 Vi sarà un periodo di tempo in cui i dispositivi con app non aperte non riceveranno le notifiche.
 
-### <a name="is-all-of-my-data-stored-in-encrypted-form"></a>Tutti i dati vengono archiviati in formato crittografato?
+### <a name="is-all-of-my-data-stored-in-encrypted-form"></a>Tutti i miei dati sono memorizzati in forma crittografata?
 
-Hub di notifica di Azure crittografa tutti i dati dei clienti inattivi, ad eccezione dei tag di registrazione. Per questo motivo, è consigliabile non archiviare dati personali o riservati usando i tag.
+Hub di notifica di Azure crittografa tutti i dati dei clienti inattivi, ad eccezione dei tag di registrazione. Per questo motivo, è consigliabile non archiviare dati personali o riservati utilizzando i tag.
 
 ### <a name="is-there-audit-log-capability"></a>È disponibile una funzionalità di log di controllo?
 
-Sì. Tutte le operazioni di gestione di Hub di notifica aggiornano il log attività di Azure, esposto nel [Azure portal]. Il log attività di Azure offre informazioni approfondite sulle operazioni eseguite sulle risorse nelle sottoscrizioni. L'uso del log attività consente di acquisire informazioni dettagliate su qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sulle risorse nella sottoscrizione. È anche possibile comprendere lo stato delle operazioni e altre proprietà pertinenti. Tuttavia, il log attività non include operazioni di lettura (GET).
+Sì. Tutte le operazioni di gestione di Hub di notifica aggiornano il log attività di Azure, esposto nel [portale di Azure]. Il log attività di Azure offre informazioni approfondite sulle operazioni eseguite sulle risorse nelle sottoscrizioni. L'uso del log attività consente di acquisire informazioni dettagliate su qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sulle risorse nella sottoscrizione. È anche possibile comprendere lo stato delle operazioni e altre proprietà pertinenti. Tuttavia, il log attività non include operazioni di lettura (GET).
 
 ## <a name="monitoring-and-troubleshooting"></a>Monitoraggio e risoluzione dei problemi
 
 ### <a name="what-troubleshooting-capabilities-are-available"></a>Quali funzionalità di risoluzione dei problemi sono disponibili?
 
-Hub di notifica di Azure fornisce numerose funzionalità per la risoluzione dei problemi, in particolare nello scenario frequente delle notifiche eliminate. Per informazioni dettagliate, vedere il white paper sulla [Risoluzione dei problemi di Hub di notifica].
+Hub di notifica di Azure fornisce numerose funzionalità per la risoluzione dei problemi, in particolare nello scenario frequente delle notifiche eliminate. Per informazioni dettagliate, vedere il white paper sulla [risoluzione dei problemi relativi a Hub di notifica].
 
 ### <a name="what-telemetry-features-are-available"></a>Sono disponibili le funzionalità di telemetria?
 
-Hub di notifica di Azure consente la visualizzazione dei dati di telemetria nel [Azure portal]. Per informazioni dettagliate sulle metriche, vedere la pagina relativa alle [metriche di Hub di notifica].
+Hub di notifica di Azure consente la visualizzazione dei dati di telemetria nel [portale di Azure]. Per informazioni dettagliate sulle metriche, vedere la pagina relativa alle [metriche di Hub di notifica].
 
-È anche possibile accedere alle metriche a livello di codice. Per altre informazioni, vedere gli articoli seguenti:
+È anche possibile accedere a livello di codice alle metriche. Per altre informazioni, vedere gli articoli seguenti:
 
-- [Recuperare le metriche di monitoraggio di Azure con .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). In questo esempio vengono utilizzati il nome utente e la password. Per usare un certificato, eseguire l'overload del metodo FromServicePrincipal per fornire un certificato, come illustrato in [questo esempio](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
-- [Recupero di metriche e log attività per una risorsa](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
+- [Recuperare le metriche di Monitoraggio di Azure con .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). In questo esempio vengono utilizzati il nome utente e la password. Per utilizzare un certificato, eseguire l'overload del metodo FromServicePrincipal per fornire un certificato, come illustrato in [questo esempio.](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs) 
+- [Recupero di metriche e log attività per una risorsaGetting metrics and activity logs for a resource](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
 - [Procedura dettagliata sull'API REST di monitoraggio di Azure](../azure-monitor/platform/rest-api-walkthrough.md)
 
 > [!NOTE]
-> Le notifiche riuscite significano semplicemente che le notifiche push sono state recapitate al PNS esterno, ad esempio APNs per iOS e macOS o FCM per i dispositivi Android. È responsabilità del PNS inviare le notifiche ai dispositivi di destinazione. In genere il PNS non espone le metriche di recapito a terze parti.  
+> Le notifiche riuscite significano semplicemente che le notifiche push sono state recapitate ai PNS esterni (ad esempio, APN per iOS e macOS o FCM per dispositivi Android). È responsabilità del PNS inviare le notifiche ai dispositivi di destinazione. In genere il PNS non espone le metriche di recapito a terze parti.  
 
-[Azure portal]: https://portal.azure.com
+[Portale di Azure]: https://portal.azure.com
 [Prezzi di Hub di notifica]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [API REST di Hub di notifica]: https://msdn.microsoft.com/library/azure/dn530746.aspx
@@ -214,7 +214,7 @@ Hub di notifica di Azure consente la visualizzazione dei dati di telemetria nel 
 [Esercitazione sul push sicuro di Hub di notifica]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [Risoluzione dei problemi di Hub di notifica]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Metriche di Hub di notifica]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
-[esportazione/importazione delle registrazioni]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
-[Azure portal]: https://portal.azure.com
+[esportazione/importazione di registrazioni]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
+[Portale di Azure]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [App Service Pricing]: https://azure.microsoft.com/pricing/details/app-service/

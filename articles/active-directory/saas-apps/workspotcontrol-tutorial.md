@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Workspot Control | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Workspot Control | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On per Azure Active Directory e Workspot Control.
 services: active-directory
 documentationCenter: na
@@ -22,7 +22,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/24/2020
 ms.locfileid: "67086671"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Esercitazione: Integrazione di Azure Active Directory con Workspot Control
+# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Esercitazione: integrazione di Azure Active Directory con Workspot Control
 
 Questa esercitazione descrive come integrare Workspot Control con Azure Active Directory (Azure AD). Integrando Workspot Control con Azure AD:
 
@@ -32,7 +32,7 @@ Questa esercitazione descrive come integrare Workspot Control con Azure Active D
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Workspot Control, sono necessari i requisiti seguenti:
 
@@ -90,7 +90,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con Workspot Control, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Workspot Control** nel [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione [Workspot Control](https://portal.azure.com/) nel **portale di Azure** selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 

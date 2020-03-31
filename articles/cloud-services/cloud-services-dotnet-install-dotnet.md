@@ -11,32 +11,32 @@ ms.topic: article
 ms.date: 06/22/2018
 ms.author: tagore
 ms.openlocfilehash: c830dc0ee38ad808579a62274e3db87d0696e099
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79214714"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Installare .NET nei ruoli di Servizi cloud di Azure
 Questo articolo illustra come installare versioni di .NET Framework non incluse nel sistema operativo guest di Azure. È possibile usare .NET nel sistema operativo guest per configurare i ruoli Web e di lavoro del servizio cloud.
 
-Ad esempio, è possibile installare .NET Framework 4.6.2 nella famiglia 4 del sistema operativo guest, che non è disponibile con nessuna versione di .NET Framework 4,6. (La famiglia di sistemi operativi guest 5 è con .NET Framework 4,6). Per informazioni aggiornate sulle versioni del sistema operativo guest di Azure, vedere le [notizie sulla versione del sistema operativo guest Azure](cloud-services-guestos-update-matrix.md). 
+Ad esempio, è possibile installare .NET Framework 4.6.2 nella famiglia di sistema operativo guest 4, che non viene fornito con qualsiasi versione di.NET Framework 4.6. (La famiglia di sistema operativo guest 5 viene fornito con .NET Framework 4.6.) Per le informazioni più recenti sulle versioni del sistema operativo guest di Azure, vedere le notizie sulla versione del [sistema operativo guest di Azure.](cloud-services-guestos-update-matrix.md) 
 
 >[!IMPORTANT]
->Azure SDK 2,9 contiene una restrizione per la distribuzione di .NET Framework 4,6 sulla famiglia di sistemi operativi guest 4 o versioni precedenti. Nel sito di [Microsoft Docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9) è disponibile una correzione alla restrizione.
+>Azure SDK 2.9 contiene una restrizione sulla distribuzione di .NET Framework 4.6 nella famiglia di problemi del sistema operativo guest 4 o versioni precedenti. Nel sito di [Microsoft Docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9) è disponibile una correzione alla restrizione.
 
 Per installare .NET nei ruoli Web e di lavoro, includere il programma di installazione Web di .NET come parte del progetto di servizio cloud. Avviare il programma di installazione come parte delle attività di avvio del ruolo. 
 
 ## <a name="add-the-net-installer-to-your-project"></a>Aggiungere al progetto il programma di installazione .NET
 Per scaricare il programma di installazione Web per .NET Framework, scegliere la versione da installare:
 
-* [Programma di installazione Web di .NET Framework 4,8](https://dotnet.microsoft.com/download/thank-you/net48)
-* [Programma di installazione Web 4.7.2 .NET Framework](https://go.microsoft.com/fwlink/?LinkId=863262)
-* [Programma di installazione Web 4.6.2 .NET Framework](https://www.microsoft.com/download/details.aspx?id=53345)
+* [Programma di installazione Web di .NET Framework 4.8](https://dotnet.microsoft.com/download/thank-you/net48)
+* [Programma di installazione Web di .NET Framework 4.7.2](https://go.microsoft.com/fwlink/?LinkId=863262)
+* [Programma di installazione Web di .NET Framework 4.6.2](https://www.microsoft.com/download/details.aspx?id=53345)
 
 Per aggiungere il programma di installazione per un ruolo *Web*:
   1. In **Ruoli** del progetto di servizio cloud in **Esplora soluzioni** fare clic con il pulsante destro del mouse sul ruolo *Web* e scegliere **Aggiungi** > **Nuova cartella**. Creare una cartella denominata **bin**.
-  2. Fare clic con il pulsante destro del mouse sulla cartella bin e scegliere **Aggiungi** > **Elemento esistente**. Selezionare il programma di installazione .NET e aggiungerlo alla cartella bin.
+  2. Fare clic con il pulsante destro del mouse sulla cartella bin e selezionare **Aggiungi** > **elemento esistente**. Selezionare il programma di installazione .NET e aggiungerlo alla cartella bin.
   
 Per aggiungere il programma di installazione per un ruolo *di lavoro*:
 * Fare clic con il pulsante destro del mouse sul ruolo *di lavoro* e scegliere **Aggiungi** > **Elemento esistente**. Selezionare il programma di installazione .NET e aggiungerlo al ruolo. 
@@ -44,14 +44,14 @@ Per aggiungere il programma di installazione per un ruolo *di lavoro*:
 I file aggiunti in questo modo alla cartella di contenuto del ruolo vengono aggiunti automaticamente al pacchetto del servizio cloud. I file vengono quindi distribuiti in una posizione analoga nella macchina virtuale. Ripetere questo processo per tutti i ruoli Web e di lavoro nel servizio cloud, in modo che tutti i ruoli abbiano una copia del programma di installazione.
 
 > [!NOTE]
-> È necessario installare .NET Framework 4.6.2 nel ruolo del servizio cloud anche se l'applicazione è destinata .NET Framework 4,6. Il sistema operativo guest include l'[aggiornamento 3098779](https://support.microsoft.com/kb/3098779) e l'[aggiornamento 3097997](https://support.microsoft.com/kb/3097997) della Knowledge Base. I problemi possono verificarsi quando si eseguono le applicazioni .NET se .NET Framework 4,6 è installato sugli aggiornamenti della Knowledge base. Per evitare questi problemi, installare .NET Framework 4.6.2 invece della versione 4,6. Per altre informazioni, vedere gli articoli [3118750](https://support.microsoft.com/kb/3118750) e [4340191](https://support.microsoft.com/kb/4340191) della Knowledge Base.
+> È consigliabile installare .NET Framework 4.6.2 nel ruolo del servizio cloud anche se l'applicazione è destinata a .NET Framework 4.6.You should install .NET Framework 4.6.2 on your cloud service role even if your application targets .NET Framework 4.6. Il sistema operativo guest include l'[aggiornamento 3098779](https://support.microsoft.com/kb/3098779) e l'[aggiornamento 3097997](https://support.microsoft.com/kb/3097997) della Knowledge Base. Possono verificarsi problemi quando si eseguono le applicazioni .NET se .NET Framework 4.6 è installato sopra gli aggiornamenti della Knowledge Base. Per evitare questi problemi, installare .NET Framework 4.6.2 anziché la versione 4.6. Per altre informazioni, vedere gli articoli [3118750](https://support.microsoft.com/kb/3118750) e [4340191](https://support.microsoft.com/kb/4340191) della Knowledge Base.
 > 
 > 
 
 ![Contenuto del ruolo con i file del programma di installazione][1]
 
 ## <a name="define-startup-tasks-for-your-roles"></a>Definire le attività di avvio per i ruoli
-È possibile usare le attività di avvio per eseguire operazioni prima dell'avvio di un ruolo. Per assicurarsi che il framework venga installato prima di eseguire qualsiasi codice dell'applicazione, installare .NET Framework come parte dell'attività di avvio. Per altre informazioni sulle attività di avvio, vedere [Eseguire attività di avvio in Azure](cloud-services-startup-tasks.md). 
+È possibile usare le attività di avvio per eseguire operazioni prima dell'avvio di un ruolo. Per assicurarsi che il framework venga installato prima di eseguire qualsiasi codice dell'applicazione, installare .NET Framework come parte dell'attività di avvio. Per altre informazioni sulle attività di avvio, vedere Eseguire attività di avvio in Azure.For more information on startup tasks, see [Run startup tasks in Azure.](cloud-services-startup-tasks.md) 
 
 1. Aggiungere il contenuto seguente al file ServiceDefinition.csdef nel nodo **WebRole** o **WorkerRole** per tutti i ruoli:
    
@@ -82,7 +82,7 @@ I file aggiunti in questo modo alla cartella di contenuto del ruolo vengono aggi
 
 2. Creare un file denominato **install.cmd** e aggiungere al file lo script di installazione seguente.
 
-   Lo script verifica se la versione di .NET Framework specificata è già installata nel computer eseguendo una query sul registro. Se la versione del .NET Framework non è installata, viene aperto il programma di installazione Web di .NET Framework. Per consentire la risoluzione di eventuali problemi, lo script registra tutte le attività in un file denominato startuptasklog-(data e ora corrente).txt memorizzato nell'archiviazione locale **InstallLogs**.
+   Lo script verifica se la versione di .NET Framework specificata è già installata nel computer eseguendo una query sul registro. Se la versione di .NET Framework non è installata, viene aperto il programma di installazione Web di .NET Framework. Per consentire la risoluzione di eventuali problemi, lo script registra tutte le attività in un file denominato startuptasklog-(data e ora corrente).txt memorizzato nell'archiviazione locale **InstallLogs**.
    
    > [!IMPORTANT]
    > Usare un editor di testo di base, come Blocco note di Windows, per creare il file install.cmd. Se si usa Visual Studio per creare un file di testo e si modifica l'estensione in cmd, il file potrebbe ancora contenere un byte order mark UTF-8. Il byte order mark può provocare un errore quando viene eseguita la prima riga dello script. Per evitare questo errore, creare la prima riga dello script come istruzione REM che possa essere ignorata dall'elaborazione dell'ordine dei byte. 
@@ -197,7 +197,7 @@ I file aggiunti in questo modo alla cartella di contenuto del ruolo vengono aggi
    EXIT /B 0
    ```
 
-3. Aggiungere il file install.cmd a ogni ruolo tramite **Aggiungi** > **Elemento esistente** in **Esplora soluzioni**, come descritto in precedenza in questo argomento. 
+3. Aggiungere il file install.cmd a ogni ruolo utilizzando **Aggiungi** > **elemento esistente** in Esplora **soluzioni** come descritto in precedenza in questo argomento. 
 
     Al termine, tutti i ruoli avranno a disposizione il file del programma di installazione di .NET e il file install.cmd.
 
@@ -224,8 +224,8 @@ Quando si distribuisce il servizio cloud, le attività di avvio installano .NET 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Installazione di .NET Framework][Installing the .NET Framework]
-* [Determinare quali versioni di .NET Framework sono installate][How to: Determine Which .NET Framework Versions Are Installed]
-* [Risoluzione dei problemi relativi alle installazioni di .NET Framework][Troubleshooting .NET Framework Installations]
+* [Determinare quali sono le versioni di .NET Framework installate][How to: Determine Which .NET Framework Versions Are Installed]
+* [Risoluzione dei problemi relativi alle installazioni di .NET FrameworkTroubleshooting .NET Framework installations][Troubleshooting .NET Framework Installations]
 
 [How to: Determine Which .NET Framework Versions Are Installed]: /dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed
 [Installing the .NET Framework]: /dotnet/framework/install/guide-for-developers

@@ -1,17 +1,17 @@
 ---
-title: 'Avvio rapido: Creare e usare un ciclo di apprendimento con SDK - Personalizza esperienze'
+title: 'Guida introduttiva: Creare e usare un ciclo di apprendimento con SDK - Personalizza esperienze'
 description: Questo argomento di avvio rapido illustra come creare e gestire una knowledge base usando l'SDK client.
 ms.topic: quickstart
 ms.date: 01/15/2020
 zone_pivot_groups: programming-languages-set-six
 ms.openlocfilehash: 7ebe22227b4323b2e6b1c3fc9ca31e171d1d97cd
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77524870"
 ---
-# <a name="quickstart-personalizer-client-library"></a>Avvio rapido: Libreria client di Personalizza esperienze
+# <a name="quickstart-personalizer-client-library"></a>Guida introduttiva: Libreria client di Personalizza esperienze
 
 Visualizzare il contenuto personalizzato in questa guida di avvio rapido con il servizio Personalizza esperienze.
 

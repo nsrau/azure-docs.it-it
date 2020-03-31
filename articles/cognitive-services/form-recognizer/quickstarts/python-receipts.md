@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Estrarre i dati delle ricevute usando Python - Riconoscimento modulo'
+title: 'Guida introduttiva: Estrarre i dati delle ricevute usando Python - Riconoscimento modulo'
 titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido si userà l'API REST Riconoscimento modulo con Python per estrarre i dati dalle immagini delle ricevute di vendita USA.
 author: PatrickFarley
@@ -10,19 +10,19 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.openlocfilehash: 2224ec64712ff9d1745231f39a1521ae941304ff
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77118761"
 ---
-# <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Avvio rapido: Estrarre i dati delle ricevute usando l'API REST di Riconoscimento modulo con Python
+# <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Guida introduttiva: Estrarre i dati delle ricevute usando l'API REST di Riconoscimento modulo con Python
 
 In questo argomento di avvio rapido si userà l'API REST Riconoscimento modulo di Azure con Python per estrarre e identificare informazioni pertinenti nelle ricevute di vendita USA.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questo argomento di avvio rapido è necessario disporre di quanto segue:
 - [Python](https://www.python.org/downloads/) installato, se si vuole eseguire l'esempio in locale.

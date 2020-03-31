@@ -1,6 +1,6 @@
 ---
-title: Monitorare le prestazioni di Azure Esplora dati, l'utilizzo dei & di integrità con le metriche
-description: Informazioni su come usare le metriche di Esplora dati di Azure per monitorare le prestazioni, l'integrità e l'utilizzo del cluster.
+title: Monitorare le prestazioni, l'integrità & l'utilizzo di Azure Data Explorer con le metricheMonitor Azure Data Explorer performance, health & usage with metrics
+description: Informazioni su come usare le metriche di Azure Data Explorer per monitorare le prestazioni, l'integrità e l'utilizzo del cluster.
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
@@ -8,108 +8,108 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/19/2020
 ms.openlocfilehash: 1319b8cd6ac8a0eb83381c24bcde9996458e47a7
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77560305"
 ---
-# <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>Monitora le prestazioni, l'integrità e l'utilizzo di Azure Esplora dati con le metriche
+# <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>Monitorare le prestazioni, l'integrità e l'utilizzo di Azure Data Explorer con le metricheMonitor Azure Data Explorer performance, health, and usage with metrics
 
-Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per l'analisi in tempo reale di volumi elevati di dati in streaming provenienti da applicazioni, siti Web, dispositivi IoT e altro ancora. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. Le metriche di Azure Esplora dati forniscono indicatori chiave per l'integrità e le prestazioni delle risorse del cluster. Usare le metriche descritte in dettaglio in questo articolo per monitorare l'integrità e le prestazioni del cluster Esplora dati di Azure nello scenario specifico come metriche autonome. È anche possibile usare le metriche come base per i Dashboard operativi di [Azure](/azure/azure-portal/azure-portal-dashboards) e gli [avvisi di Azure](/azure/azure-monitor/platform/alerts-metric-overview).
+Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per l'analisi in tempo reale di volumi elevati di dati in streaming provenienti da applicazioni, siti Web, dispositivi IoT e altro ancora. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. Le metriche di Azure Data Explorer forniscono indicatori chiave relativi all'integrità e alle prestazioni delle risorse del cluster. Usare le metriche descritte in dettaglio in questo articolo per monitorare l'integrità e le prestazioni del cluster di Azure Data Explorer nello scenario specifico come metriche autonome. È anche possibile usare le metriche come base per i dashboard di Azure operativi e gli avvisi di Azure.You can also use metrics as the basis for operational [Azure Dashboards](/azure/azure-portal/azure-portal-dashboards) and [Azure Alerts](/azure/azure-monitor/platform/alerts-metric-overview).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha un [account Azure](https://azure.microsoft.com/free/), è possibile crearne uno gratuito.
-* Un [cluster e un database](create-cluster-database-portal.md).
+* Una sottoscrizione di Azure. Se non si dispone di uno, è possibile creare un [account Azure gratuito.](https://azure.microsoft.com/free/)
+* Un [cluster e](create-cluster-database-portal.md)un database .
 
-## <a name="using-metrics"></a>Uso delle metriche
+## <a name="using-metrics"></a>Utilizzo delle metriche
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
-1. Nel cluster di Azure Esplora dati selezionare **metrica** per aprire il riquadro metriche e iniziare l'analisi nel cluster.
-    ![selezionare](media/using-metrics/select-metrics.png)metrica.
-1. Nel riquadro metriche: ![riquadro metriche](media/using-metrics/metrics-pane.png)
-    1. Per creare un grafico delle metriche, selezionare nome della **metrica** e **aggregazione** pertinente per ogni metrica. I selezionatori **dello spazio dei nomi** della **risorsa** e della metrica sono pre-selezionati per il cluster Azure Esplora dati. Per altre informazioni sulle diverse metriche, vedere la pagina relativa alle [metriche di Azure Esplora dati supportate](#supported-azure-data-explorer-metrics).
+1. Accedere al [portale](https://portal.azure.com/)di Azure .
+1. Nel cluster Azure Data Explorer selezionare **Metriche** per aprire il riquadro delle metriche e avviare l'analisi nel cluster.
+    ![Selezionare](media/using-metrics/select-metrics.png)Metriche .
+1. Nel riquadro ![Metriche: Metriche](media/using-metrics/metrics-pane.png)
+    1. Per creare un grafico metrico, selezionare **Nome metrica** e **Aggregazione** pertinente per metrica. Le selezioni Spazio dei nomi **delle risorse** e delle **metriche** sono preselezionate per il cluster Azure Data Explorer.The Resource and Metric Namespace pickers are pre-selected for your Azure Data Explorer cluster. Per altre informazioni sulle diverse metriche, vedere [Metriche](#supported-azure-data-explorer-metrics)di Azure Data Explorer supportate.
     1. Selezionare **Aggiungi metrica** per visualizzare più metriche tracciate nello stesso grafico.
-    1. Selezionare **+ nuovo grafico** per visualizzare più grafici in un'unica visualizzazione.
-    1. Usare selezione ora per modificare l'intervallo di tempo (impostazione predefinita: ultime 24 ore).
-    1. Usare [ **Aggiungi filtro** e **applicare la suddivisione** per le](/azure/azure-monitor/platform/metrics-getting-started#apply-dimension-filters-and-splitting) metriche con dimensioni.
-    1. Selezionare Aggiungi **al dashboard** per aggiungere la configurazione del grafico ai dashboard in modo che sia possibile visualizzarla di nuovo.
-    1. Impostare **nuova regola di avviso** per visualizzare le metriche usando i criteri di impostazione. La nuova regola di avviso includerà la risorsa di destinazione, la metrica, la suddivisione e le dimensioni di filtro del grafico. Modificare queste impostazioni nel [riquadro di creazione della regola di avviso](/azure/azure-monitor/platform/metrics-charts#create-alert-rules).
+    1. Per visualizzare più grafici in un'unica visualizzazione, selezionare **: Nuovo grafico.**
+    1. Usa il controllo selezione ora per modificare l'intervallo di tempo (impostazione predefinita: ultime 24 ore).
+    1. Usa [ **Aggiungi filtro** e **Applica divisione** ](/azure/azure-monitor/platform/metrics-getting-started#apply-dimension-filters-and-splitting) per le metriche con dimensioni.
+    1. Selezionare **Aggiungi al dashboard** per aggiungere la configurazione del grafico ai dashboard in modo da poterlo visualizzare di nuovo.
+    1. Impostare **Nuova regola** di avviso per visualizzare le metriche utilizzando i criteri impostati. La nuova regola di avviso includerà la risorsa di destinazione, la metrica, la suddivisione e le dimensioni di filtro del grafico. Modificare queste impostazioni nel [riquadro di creazione della regola](/azure/azure-monitor/platform/metrics-charts#create-alert-rules)di avviso.
 
-Informazioni aggiuntive sull'utilizzo del [Esplora metriche](/azure/azure-monitor/platform/metrics-getting-started).
+Ulteriori informazioni sull'utilizzo di [Esplora metriche](/azure/azure-monitor/platform/metrics-getting-started).
 
-## <a name="supported-azure-data-explorer-metrics"></a>Metriche di Azure Esplora dati supportate
+## <a name="supported-azure-data-explorer-metrics"></a>Metriche di Azure Data Explorer supportateSupported Azure Data Explorer metrics
 
-Le metriche di Azure Esplora dati supportate sono suddivise in diverse categorie in base all'utilizzo. 
+Le metriche di Azure Data Explorer supportate sono suddivise in varie categorie in base all'utilizzo. 
 
 ### <a name="cluster-health-metrics"></a>Metriche di integrità del cluster
 
-Le metriche di integrità del cluster tengono traccia dell'integrità generale del cluster. Sono inclusi l'utilizzo delle risorse e dell'inserimento e la velocità di risposta.
+Le metriche di integrità del cluster tengono traccia dell'integrità generale del cluster. Ciò include l'utilizzo delle risorse e dell'inserimento e la velocità di risposta.
 
-**Metrica** | **Unità** | **Aggregazione** | **Descrizione metrica** | **Dimensioni** |
+**Metrica** | **Unità** | **Aggregazione** | **Descrizione della metrica** | **Dimensioni** |
 |---|---|---|---|---|
-| Utilizzo della cache | Percentuale | AVG, Max, min | Percentuale di risorse della cache allocata attualmente in uso dal cluster. Cache è la dimensione dell'unità SSD allocata per l'attività utente in base ai criteri di cache definiti. Un utilizzo medio della cache del 80% o meno è uno stato sostenibile per un cluster. Se l'utilizzo medio della cache è superiore al 80%, il cluster deve essere [scalato fino](manage-cluster-vertical-scaling.md) a un piano tariffario ottimizzato per l'archiviazione o [ridimensionato](manage-cluster-horizontal-scaling.md) a più istanze. In alternativa, adattare i criteri di cache (un minor numero di giorni nella cache). Se l'utilizzo della cache è superiore al 100%, la dimensione dei dati da memorizzare nella cache, in base ai criteri di memorizzazione nella cache, è maggiore delle dimensioni totali della cache nel cluster. | nessuno |
-| CPU | Percentuale | AVG, Max, min | Percentuale di risorse di calcolo allocate attualmente utilizzate dai computer del cluster. Una CPU media di 80% o meno è sostenibile per un cluster. Il valore massimo della CPU è pari al 100%, ovvero non sono disponibili risorse di calcolo aggiuntive per elaborare i dati. Quando un cluster non funziona correttamente, controllare il valore massimo della CPU per determinare se sono presenti CPU specifiche bloccate. | nessuno |
-| Utilizzo dell'inserimento | Percentuale | AVG, Max, min | Percentuale di risorse effettive usate per inserire i dati dalle risorse totali allocate, nei criteri di capacità, per eseguire l'inserimento. I criteri di capacità predefiniti non sono più di 512 operazioni di inserimento simultanee o il 75% delle risorse del cluster investito nell'inserimento. L'utilizzo medio dell'inserimento del 80% o meno è uno stato sostenibile per un cluster. Il valore massimo di utilizzo dell'inserimento è pari al 100%, il che significa che viene utilizzata tutta la capacità di inserimento del cluster e che può verificarsi una coda di inserimento. | nessuno |
-| Keep-Alive | Conteggio | Avg | Rileva la velocità di risposta del cluster. Un cluster completamente reattivo restituisce il valore 1 e un cluster bloccato o disconnesso restituisce 0. |
-| Numero totale di comandi limitati | Conteggio | AVG, Max, min, Sum | Numero di comandi limitati (rifiutati) nel cluster, poiché è stato raggiunto il numero massimo consentito di comandi simultanei (paralleli). | nessuno |
-| Numero totale di extent | Conteggio | AVG, Max, min, Sum | Numero totale di extent dei dati nel cluster. Le modifiche apportate a questa metrica possono implicare modifiche massive della struttura dei dati e un carico elevato sul cluster, poiché l'Unione degli extent dei dati è un'attività con utilizzo intensivo della CPU | nessuno |
+| Utilizzo della cache | Percentuale | Avg, Max, Min | Percentuale di risorse della cache allocate attualmente utilizzate dal cluster. Cache è la dimensione di SSD allocata per l'attività dell'utente in base ai criteri di cache definiti. Un utilizzo medio della cache pari o inferiore all'80% è uno stato sostenibile per un cluster. Se l'utilizzo medio della cache è superiore all'80%, il cluster deve essere [scalato fino](manage-cluster-vertical-scaling.md) a un piano tariffario ottimizzato per l'archiviazione o [eseguito](manage-cluster-horizontal-scaling.md) per più istanze. In alternativa, adattare i criteri di cache (meno giorni nella cache). Se l'utilizzo della cache è superiore al 100%, la dimensione dei dati da memorizzare nella cache, in base ai criteri di memorizzazione nella cache, è maggiore della dimensione totale della cache nel cluster. | nessuno |
+| CPU | Percentuale | Avg, Max, Min | Percentuale di risorse di calcolo allocate attualmente utilizzate dai computer nel cluster. Una CPU media pari o inferiore all'80% è sostenibile per un cluster. Il valore massimo della CPU è 100%, il che significa che non sono presenti risorse di calcolo aggiuntive per elaborare i dati. Quando un cluster non funziona bene, controllare il valore massimo della CPU per determinare se sono presenti CPU specifiche che sono bloccate. | nessuno |
+| Utilizzo dell'ingestione | Percentuale | Avg, Max, Min | Percentuale di risorse effettive utilizzate per l'inserimento di dati dalle risorse totali allocate, nei criteri di capacità, per eseguire l'inserimento. Il criterio di capacità predefinito non è più di 512 operazioni di inserimento simultanee o il 75% delle risorse cluster investite nell'inserimento. L'utilizzo medio dell'ingestione pari o inferiore all'80% è uno stato sostenibile per un cluster. Il valore massimo di utilizzo dell'inserimento è 100%, il che significa che viene utilizzata tutta la capacità di inserimento del cluster e può verificarsi una coda di inserimento. | nessuno |
+| Mantieni vivo | Conteggio | Avg | Tiene traccia della velocità di risposta del cluster. Un cluster completamente reattivo restituisce il valore 1 e un cluster bloccato o disconnesso restituisce 0.A fully responsive cluster returns value 1 and a blocked or disconnected cluster returns 0. |
+| Numero totale di comandi limitati | Conteggio | Media, Max, Min, Somma | Il numero di comandi limitati (rifiutati) nel cluster, poiché è stato raggiunto il numero massimo consentito di comandi simultanei (paralleli). | nessuno |
+| Numero totale di estensioni | Conteggio | Media, Max, Min, Somma | Numero totale di estensioni di dati nel cluster. Le modifiche in questa metrica possono implicare enormi modifiche della struttura dei dati e un carico elevato nel cluster, poiché l'unione degli extent di dati è un'attività elevata di CPU. | nessuno |
 | | | | |
 
-### <a name="export-health-and-performance-metrics"></a>Esportare le metriche di integrità e prestazioni
+### <a name="export-health-and-performance-metrics"></a>Esportare le metriche relative all'integrità e alle prestazioni
 
-Le metriche delle prestazioni e dello stato di esportazione tengono traccia dell'integrità e delle prestazioni generali delle operazioni di esportazione, ad esempio la latenza, i risultati, il numero di record e l'utilizzo.
+Le metriche di integrità e prestazioni delle esportazioni tengono traccia dell'integrità generale e delle prestazioni delle operazioni di esportazione, ad esempio ritardo, risultati, numero di record e utilizzo.
 
-**Metrica** | **Unità** | **Aggregazione** | **Descrizione metrica** | **Dimensioni** |
+**Metrica** | **Unità** | **Aggregazione** | **Descrizione della metrica** | **Dimensioni** |
 |---|---|---|---|---|
-Numero di esportazioni continue dei record esportati    | Conteggio | SUM | Numero di record esportati in tutti i processi di esportazione continua. | nessuno |
-Latenza massima di esportazione continua |    Conteggio   | Max   | Ritardo (in minuti) segnalato dai processi di esportazione continua nel cluster. | nessuno |
-Conteggio in sospeso esportazione continua | Conteggio | Max   | Numero di processi di esportazione continua in sospeso. Questi processi sono pronti per l'esecuzione, ma in attesa in una coda, probabilmente a causa di una capacità insufficiente. 
-Risultato dell'esportazione continua    | Conteggio |   Conteggio   | Esito positivo o negativo di ogni esecuzione di esportazione continua. | ContinuousExportName |
-Esporta utilizzo |    Percentuale | Max   | Capacità di esportazione utilizzata, al di fuori della capacità di esportazione totale nel cluster (compreso tra 0 e 100). | nessuno |
+Numero di esportazione continua di record esportati    | Conteggio | SUM | Numero di record esportati in tutti i processi di esportazione continua. | nessuno |
+Esportazione continua ritardo massimo |    Conteggio   | Max   | Il ritardo (in minuti) segnalato dai processi di esportazione continua nel cluster. | nessuno |
+Conteggio continuo esportazione in sospeso | Conteggio | Max   | Numero di processi di esportazione continua in sospeso. Questi processi sono pronti per l'esecuzione ma in attesa in una coda, probabilmente a causa di capacità insufficiente). 
+Risultato dell'esportazione continua    | Conteggio |   Conteggio   | Risultato di ogni esecuzione dell'esportazione continua. | ContinuousExportName (NomeEsportazione continua) |
+Utilizzo delle esportazioni |    Percentuale | Max   | Capacità di esportazione utilizzata, al di fuori della capacità di esportazione totale nel cluster (tra 0 e 100). | nessuno |
 | | | | |
 
-### <a name="ingestion-health-and-performance-metrics"></a>Misurazione dello stato e delle prestazioni di inserimento
+### <a name="ingestion-health-and-performance-metrics"></a>Metriche relative all'integrità e alle prestazioni dell'ingestione
 
-Le metriche relative a integrità e prestazioni di inserimento tengono traccia dell'integrità generale e delle prestazioni delle operazioni di inserimento, ad esempio latenza, risultati e volume.
+Le metriche di integrità e prestazioni dell'inserimento tengono traccia dell'integrità generale e delle prestazioni delle operazioni di inserimento, ad esempio latenza, risultati e volume.
 
-**Metrica** | **Unità** | **Aggregazione** | **Descrizione metrica** | **Dimensioni** |
+**Metrica** | **Unità** | **Aggregazione** | **Descrizione della metrica** | **Dimensioni** |
 |---|---|---|---|---|
-| Eventi elaborati (per gli hub eventi/tutto) | Conteggio | Max, min, Sum | Numero totale di eventi letti dall'hub eventi ed elaborati dal cluster. Gli eventi vengono suddivisi in eventi rifiutati ed eventi accettati dal motore del cluster. | EventStatus |
-| Latenza inserimento | Secondi | AVG, Max, min | Latenza dei dati inseriti, dal momento in cui i dati sono stati ricevuti nel cluster fino a quando non sono pronti per la query. Il periodo di latenza di inserimento dipende dallo scenario di inserimento. | nessuno |
-| Risultato inserimento | Conteggio | Conteggio | Numero totale di operazioni di inserimento non riuscite e riuscite. Utilizzare **applica suddivisione** per creare bucket di esito positivo e risultati non riusciti e analizzare le dimensioni (**valore** > **stato**).| IngestionResultDetails |
-| Volume di inserimento (in MB) | Conteggio | Max, Sum | Dimensioni totali dei dati inseriti nel cluster (in MB) prima della compressione. | Database |
+| Eventi elaborati (per hub evento/IoT) | Conteggio | Max, Min, Somma | Numero totale di eventi letti dagli hub eventi ed elaborati dal cluster. Gli eventi vengono suddivisi in eventi rifiutati e accettati dal motore del cluster. | EventStatus |
+| Latenza di ingestione | Secondi | Avg, Max, Min | Latenza dei dati ingeriti, dal momento in cui i dati sono stati ricevuti nel cluster fino a quando non sono pronti per la query. Il periodo di latenza di inserimento dipende dallo scenario di inserimento. | nessuno |
+| Risultato dell'ingestione | Conteggio | Conteggio | Numero totale di operazioni di inserimento non riuscite e riuscite. Utilizzare **applica divisione** per creare bucket di risultati riusciti e non riusciti e analizzare le dimensioni (**Stato****valore** > ).| IngestionResultDetails |
+| Volume di ingestione (in MB) | Conteggio | Max, Somma | La dimensione totale dei dati ingeriti nel cluster (in MB) prima della compressione. | Database |
 | | | | |  
 
 ### <a name="query-performance"></a>Prestazioni delle query
 
 Le metriche delle prestazioni delle query tengono traccia della durata delle query e del numero totale di query simultanee o limitate.
 
-**Metrica** | **Unità** | **Aggregazione** | **Descrizione metrica** | **Dimensioni** |
+**Metrica** | **Unità** | **Aggregazione** | **Descrizione della metrica** | **Dimensioni** |
 |---|---|---|---|---|
-| Durata delle query | Millisecondi | AVG, min, Max, Sum | Tempo totale fino alla ricezione dei risultati della query (non include la latenza di rete). | QueryStatus |
-| Numero totale di query simultanee | Conteggio | AVG, Max, min, Sum | Il numero di query eseguite in parallelo nel cluster. Questa metrica è un modo efficace per stimare il carico sul cluster. | nessuno |
-| Numero totale di query limitate | Conteggio | AVG, Max, min, Sum | Numero di query limitate (rifiutate) nel cluster. Il numero massimo di query simultanee (parallele) consentite è definito nei criteri di query simultanei. | nessuno |
+| Durata delle query | Millisecondi | Media, Min, Max, Somma | Tempo totale fino alla ricezione dei risultati della query (non include la latenza di rete). | QueryStatus |
+| Numero totale di query simultanee | Conteggio | Media, Max, Min, Somma | Il numero di query eseguite in parallelo nel cluster. Questa metrica è un buon modo per stimare il carico sul cluster. | nessuno |
+| Numero totale di query limitate | Conteggio | Media, Max, Min, Somma | Numero di query limitate (rifiutate) nel cluster. Il numero massimo di query simultanee (parallele) consentite è definito nei criteri di query simultanei. | nessuno |
 | | | | |
 
-### <a name="streaming-ingest-metrics"></a>Metriche di inserimento di flussi
+### <a name="streaming-ingest-metrics"></a>Metriche di inserimento in streaming
 
-Le metriche di inserimento del flusso tengono traccia dei dati di inserimento del flusso e della frequenza delle richieste, della durata e dei risultati.
+Le metriche di inserimento in streaming tengono traccia dei dati di inserimento in streaming e della frequenza, della durata e dei risultati delle richieste.
 
-**Metrica** | **Unità** | **Aggregazione** | **Descrizione metrica** | **Dimensioni** |
+**Metrica** | **Unità** | **Aggregazione** | **Descrizione della metrica** | **Dimensioni** |
 |---|---|---|---|---|
-Velocità dati di inserimento dei flussi |    Conteggio   | RateRequestsPerSecond | Volume totale dei dati inseriti nel cluster. | nessuno |
-Durata inserimento flusso   | Millisecondi  | AVG, Max, min | Durata totale di tutte le richieste di inserimento di flussi. | nessuno |
-Frequenza delle richieste di inserimento di flussi   | Conteggio | Count, AVG, Max, min, Sum | Numero totale di richieste di inserimento di flussi. | nessuno |
-Risultato inserimento flusso | Conteggio | Avg   | Numero totale di richieste di inserimento di flussi in base al tipo di risultato. | Risultato |
+Velocità dati di inserimento in streamingStreaming Ingest Data Rate |    Conteggio   | RateRequestsPerSecond | Volume totale dei dati ingeriti nel cluster. | nessuno |
+Durata dell'inserimento in streaming   | Millisecondi  | Avg, Max, Min | Durata totale di tutte le richieste di inserimento in streaming. | nessuno |
+Frequenza richieste inserimento in streaming   | Conteggio | Conteggio, Media, Max, Min, Somma | Numero totale di richieste di inserimento in streaming. | nessuno |
+Risultato dell'inserimento in streaming | Conteggio | Avg   | Numero totale di richieste di inserimento in streaming per tipo di risultato. | Risultato |
 | | | | |
 
-Altre informazioni sulle [metriche del cluster di Azure Esplora dati supportate](/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters).
+Ulteriori informazioni sulle [metriche](/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters)del cluster di Azure Data Explorer supportate.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esercitazione: inserire ed eseguire query sui dati di monitoraggio in Azure Esplora dati](/azure/data-explorer/ingest-data-no-code)
+* [Esercitazione: Eseguire l'inserimento dei dati e il monitoraggio delle query in Esplora dati di AzureTutorial: Ingest and query monitoring data in Azure Data Explorer](/azure/data-explorer/ingest-data-no-code)
 * [Monitorare le operazioni di inserimento in Esplora dati di Azure usando i log di diagnostica](/azure/data-explorer/using-diagnostic-logs)
-* [Guida introduttiva: Eseguire query sui dati in Esplora dati di Azure](web-query-data.md)
+* [Avvio rapido: Eseguire query sui dati in Esplora dati di Azure](web-query-data.md)

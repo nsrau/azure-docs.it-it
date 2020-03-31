@@ -9,14 +9,16 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: c4e2253229f4461bcb6a2a9fe3e561f3cde29760
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: c433d99fd96e99d418fd5500c1075e68dfb1742c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170245"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80053587"
 ---
 # <a name="what-is-the-azure-face-service"></a>Che cos'è il servizio Viso di Azure?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Il servizio Viso di Servizi cognitivi di Azure offre gli algoritmi per rilevare, riconoscere e analizzare i visi umani nelle immagini. La possibilità di elaborare le informazioni relative ai visi umani è importante in molti scenari di software diversi, tra cui sicurezza, interfaccia utente naturale, analisi e gestione del contenuto di immagini, app per dispositivi mobili e robotica.
 

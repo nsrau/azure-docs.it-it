@@ -1,5 +1,5 @@
 ---
-title: Disponibilità elevata di SAP HANA in macchine virtuali di Azure in RHEL | Microsoft Docs
+title: Disponibilità elevata di SAP HANA in macchine virtuali di Azure in RHEL . Documenti Microsoft
 description: Configurare la disponibilità elevata di SAP HANA in Macchine virtuali di Azure (VM).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 01/28/2020
 ms.author: radeltch
 ms.openlocfilehash: 5e3512ce86bdf96a5e6cfcf0e4459b656a5ac5bc
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77565860"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Disponibilità elevata di SAP HANA in macchine virtuali di Azure su Red Hat Enterprise Linux
@@ -27,18 +27,18 @@ ms.locfileid: "77565860"
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
 [1944799]:https://launchpad.support.sap.com/#/notes/1944799
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
-[2292690]: https://launchpad.support.sap.com/#/notes/2292690
-[2455582]: https://launchpad.support.sap.com/#/notes/2455582
-[2002167]: https://launchpad.support.sap.com/#/notes/2002167
-[2009879]: https://launchpad.support.sap.com/#/notes/2009879
+[2292690]:https://launchpad.support.sap.com/#/notes/2292690
+[2455582]:https://launchpad.support.sap.com/#/notes/2455582
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[2009879]:https://launchpad.support.sap.com/#/notes/2009879
 
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
@@ -65,9 +65,9 @@ Leggere prima di tutto i documenti e le note SAP seguenti:
 * La nota SAP [2243692] contiene informazioni sulle licenze SAP in Linux in Azure.
 * La nota SAP [1999351] contiene informazioni aggiuntive sulla risoluzione dei problemi per l'estensione di monitoraggio avanzato di Azure per SAP.
 * [Community WIKI SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contiene tutte le note su SAP necessarie per Linux.
-* [Pianificazione e implementazione di macchine virtuali di Azure per SAP in Linux][planning-guide]
-* [Distribuzione di macchine virtuali di Azure per SAP in Linux (questo articolo)][deployment-guide]
-* [Distribuzione DBMS di macchine virtuali di Azure per SAP in Linux][dbms-guide]
+* [Pianificazione e implementazione di Macchine virtuali di Azure per SAP in Linux][planning-guide]
+* [Distribuzione di Macchine virtuali di Azure per SAP in Linux (questo articolo)Azure Virtual Machines deployment for SAP on Linux (this article)][deployment-guide]
+* [Distribuzione DBMS di Macchine virtuali di Azure per SAP in Linux][dbms-guide]
 * [SAP HANA system replication in pacemaker cluster](https://access.redhat.com/articles/3004101) (Replica di sistema SAP HANA nel cluster Pacemaker)
 * Documentazione generale di RHEL
   * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index) (Panoramica dei componenti aggiuntivi a disponibilità elevata)
@@ -107,8 +107,8 @@ Per distribuire il modello, seguire questi passaggi:
     * **Tipo di database**: selezionare **HANA**.
     * **Sap System Size** (Dimensioni sistema SAP): immettere il numero di istanze SAP fornite dal nuovo sistema. Se non si è certi del numero di istanze SAP necessarie per il sistema, chiedere all'integratore di sistemi o al partner tecnologico SAP.
     * **System Availability**: selezionare **HA**.
-    * **Nome utente amministratore, password amministratore o chiave SSH**: viene creato un nuovo utente che può essere usato per accedere al computer.
-    * **ID subnet**: se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID in genere ha il formato **/subscriptions/\<ID sottoscrizione>/resourceGroups/\<nome gruppo di risorse>/providers/Microsoft.Network/virtualNetworks/\<nome rete virtuale>/subnets/\<nome subnet>** . Lasciare vuoto se si vuole creare una nuova rete virtuale
+    * **Nome utente amministratore, password amministratore o chiave SSH:** viene creato un nuovo utente che può essere utilizzato per accedere al computer.
+    * **ID subnet:** se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è definita una subnet a cui deve essere assegnata la macchina virtuale, assegnare un nome all'ID della subnet specifica. L'ID in genere ha il formato **/subscriptions/\<ID sottoscrizione>/resourceGroups/\<nome gruppo di risorse>/providers/Microsoft.Network/virtualNetworks/\<nome rete virtuale>/subnets/\<nome subnet>**. Lasciare vuoto se si vuole creare una nuova rete virtuale
 
 ### <a name="manual-deployment"></a>Distribuzione manuale
 
@@ -116,19 +116,19 @@ Per distribuire il modello, seguire questi passaggi:
 1. Creare una rete virtuale.
 1. Creare un set di disponibilità.  
    Impostare il numero massimo di domini di aggiornamento.
-1. Creare un servizio di bilanciamento del carico (interno). Si consiglia [Load Balancer standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+1. Creare un servizio di bilanciamento del carico (interno). È consigliabile il servizio di [bilanciamento del carico standard.](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
    * Selezionare la rete virtuale creata nel passaggio 2.
 1. Creare la macchina virtuale 1.  
    Usare almeno Red Hat Enterprise Linux 7.4 per SAP HANA. In questo esempio viene usata l'immagine di Red Hat Enterprise Linux 7.4 per SAP HANA <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> Selezionare il set di disponibilità creato al passaggio 3.
 1. Creare la macchina virtuale 2.  
    Usare almeno Red Hat Enterprise Linux 7.4 per SAP HANA. In questo esempio viene usata l'immagine di Red Hat Enterprise Linux 7.4 per SAP HANA <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> Selezionare il set di disponibilità creato al passaggio 3.
 1. Aggiungere dischi dati.
-1. Se si usa Load Balancer standard, seguire questa procedura di configurazione:
+1. Se si usa il servizio di bilanciamento del carico standard, seguire questi passaggi di configurazione:If using standard load balancer, follow these configuration steps:
    1. Prima, creare il pool di indirizzi IP front-end:
 
       1. Aprire il servizio di bilanciamento del carico, selezionare **Pool di indirizzi IP front-end** e quindi **Aggiungi**.
       1. Immettere il nome del nuovo pool di indirizzi IP front-end (ad esempio, **hana-frontend**).
-      1. Impostare **Assegnazione** su **Statico** e immettere l'indirizzo IP (ad esempio, **10.0.0.13**).
+      1. Impostare **Assegnazione su** **Statico** e immettere l'indirizzo IP (ad esempio, **10.0.0.13**).
       1. Selezionare **OK**.
       1. Dopo aver creato il nuovo pool di indirizzi IP front-end, annotare l'indirizzo IP del pool.
 
@@ -137,7 +137,7 @@ Per distribuire il modello, seguire questi passaggi:
       1. Aprire il servizio di bilanciamento del carico, selezionare **Pool back-end** e quindi **Aggiungi**.
       1. Immettere il nome del nuovo pool back-end (ad esempio, **hana-backend**).
       1. Selezionare **Aggiungi una macchina virtuale**.
-      1. Selezionare * * macchina virtuale * *.
+      1. Selezionare la macchina virtuale .
       1. Selezionare le macchine virtuali del cluster SAP HANA e i relativi indirizzi IP.
       1. Selezionare **Aggiungi**.
 
@@ -148,25 +148,25 @@ Per distribuire il modello, seguire questi passaggi:
       1. Selezionare **TCP** come protocollo e la porta 625**03**. Lasciare il valore di **Intervallo** impostato su 5 e il valore di **Soglia di non integrità** impostato su 2.
       1. Selezionare **OK**.
 
-   1. Successivamente, creare le regole di bilanciamento del carico:
+   1. Successivamente, creare le regole di bilanciamento del carico:Next, create the load-balancing rules:
    
       1. Aprire il servizio di bilanciamento del carico, selezionare **Regole di bilanciamento del carico** e quindi **Aggiungi**.
-      1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio **Hana-lb**.
-      1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creato in precedenza (ad esempio, **Hana-frontend**, **Hana-backend** e **Hana-HP**).
-      1. Selezionare **porte a disponibilità elevata**.
+      1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio **hana-lb**.
+      1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza, ad esempio **hana-frontend**, **hana-backend** e **hana-hp**.
+      1. Selezionare **Porte HA**.
       1. Aumentare il valore di **Timeout di inattività** a 30 minuti.
       1. Assicurarsi di selezionare **Abilita l'indirizzo IP mobile**.
       1. Selezionare **OK**.
 
    > [!Note]
-   > Quando le macchine virtuali senza indirizzi IP pubblici vengono inserite nel pool back-end del servizio di bilanciamento del carico di Azure standard (nessun indirizzo IP pubblico), non vi sarà connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing a endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere [connettività degli endpoint pubblici per le macchine virtuali con Azure Load Balancer standard negli scenari di disponibilità elevata di SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+   > Quando le macchine virtuali senza indirizzi IP pubblici vengono inserite nel pool back-end del servizio di bilanciamento del carico standard di Azure interno (nessun indirizzo IP pubblico), non sarà disponibile alcuna connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing agli endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere Connettività degli endpoint pubblici per macchine virtuali che [usano Azure Standard Load Balancer in scenari di disponibilità elevata SAP.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)  
 
-1. In alternativa, se lo scenario prevede l'uso del servizio di bilanciamento del carico di base, seguire questa procedura di configurazione:
+1. In alternativa, se lo scenario prevede l'uso del servizio di bilanciamento del carico di base, seguire questi passaggi di configurazione:Alternatively, if your scenario dictates using basic load balancer, follow these configuration steps:
    1. Configurare il servizio di bilanciamento del carico. Prima, creare il pool di indirizzi IP front-end:
 
       1. Aprire il servizio di bilanciamento del carico, selezionare **Pool di indirizzi IP front-end** e quindi **Aggiungi**.
       1. Immettere il nome del nuovo pool di indirizzi IP front-end (ad esempio, **hana-frontend**).
-      1. Impostare **Assegnazione** su **Statico** e immettere l'indirizzo IP (ad esempio, **10.0.0.13**).
+      1. Impostare **Assegnazione su** **Statico** e immettere l'indirizzo IP (ad esempio, **10.0.0.13**).
       1. Selezionare **OK**.
       1. Dopo aver creato il nuovo pool di indirizzi IP front-end, annotare l'indirizzo IP del pool.
 
@@ -200,7 +200,7 @@ Per distribuire il modello, seguire questi passaggi:
    1. Per SAP HANA 2.0, creare le regole di bilanciamento del carico per il database di sistema:
 
       1. Aprire il servizio di bilanciamento del carico, selezionare **Regole di bilanciamento del carico** e quindi **Aggiungi**.
-      1. Immettere il nome della nuova regola di bilanciamento del carico (ad esempio, hana-lb-3**03**13).
+      1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio hana-lb-3**03**13.
       1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza (ad esempio, **hana-frontend**).
       1. Lasciare il valore di **Protocollo** impostato su **TCP** e immettere la porta 3**03**13.
       1. Aumentare il valore di **Timeout di inattività** a 30 minuti.
@@ -211,7 +211,7 @@ Per distribuire il modello, seguire questi passaggi:
    1. Per SAP HANA 2.0, creare prima le regole di bilanciamento del carico per il database tenant:
 
       1. Aprire il servizio di bilanciamento del carico, selezionare **Regole di bilanciamento del carico** e quindi **Aggiungi**.
-      1. Immettere il nome della nuova regola di bilanciamento del carico (ad esempio, hana-lb-3**03**40).
+      1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio hana-lb-3**03**40.
       1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza (ad esempio, **hana-frontend**).
       1. Lasciare il valore di **Protocollo** impostato su **TCP** e immettere la porta 3**03**40.
       1. Aumentare il valore di **Timeout di inattività** a 30 minuti.
@@ -219,21 +219,21 @@ Per distribuire il modello, seguire questi passaggi:
       1. Selezionare **OK**.
       1. Ripetere questi passaggi per le porte 3**03**41 e 3**03**42.
 
-Per ulteriori informazioni sulle porte necessarie per SAP HANA, vedere il capitolo [connessioni ai database tenant](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) nella Guida ai [database tenant di SAP Hana](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) o la [Nota SAP 2388694][2388694].
+Per altre informazioni sulle porte necessarie per SAP HANA, leggere il capitolo [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) (Connessioni a database tenant) della guida [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) (Database tenant SAP HANA) o la [nota SAP 2388694][2388694].
 
 > [!IMPORTANT]
-> Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net. IPv4. tcp_timestamps** su **0**. Per informazioni dettagliate, vedere [Load Balancer Probe di integrità](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Non abilitare timestamp TCP nelle macchine virtuali di Azure posizionati dietro Azure Load Balancer.Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. L'abilitazione dei timestamp TCP causerà l'esito negativo dei probe di integrità. Impostare il parametro **net.ipv4.tcp_timestamps su** **0**. Per informazioni dettagliate, vedere [Sondati di integrità di Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 > Vedere anche la nota SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
 
 ## <a name="install-sap-hana"></a>Installare SAP HANA
 
 Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
-* **[T]** : il passaggio si applica a tutti i nodi.
-* **[1]** : il passaggio si applica solo al nodo 1.
-* **[2]** : Il passaggio si applica solo al nodo 2 del cluster Pacemaker.
+* **[T]**: il passaggio si applica a tutti i nodi.
+* **[1]**: il passaggio si applica solo al nodo 1.
+* **[2]**: Il passaggio si applica solo al nodo 2 del cluster Pacemaker.
 
-1. **[T]** Configurare il layout dei dischi: **gestione volumi logici (LVM, Logical Volume Manager)** .
+1. **[T]** Configurare il layout dei dischi: **gestione volumi logici (LVM, Logical Volume Manager)**.
 
    È consigliabile usare LVM per i volumi che archiviano file di log e dati. L'esempio seguente presuppone che le macchine virtuali abbiano quattro dischi dati collegati, usati per creare due volumi.
 
@@ -373,14 +373,14 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 1. **[T]** Aggiornare l'agente host SAP.
 
-   Scaricare l'archivio più recente dell'agente host SAP da [SAP Software Center][sap-swcenter] ed eseguire il comando seguente per aggiornare l'agente. Sostituire il percorso dell'archivio in modo da puntare al file scaricato:
+   Scaricare l'archivio dell'agente host SAP più recente dal sito [SAP Software Center][sap-swcenter] ed eseguire il comando seguente per aggiornare l'agente. Sostituire il percorso dell'archivio in modo da puntare al file scaricato:
 
    <pre><code>sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive &lt;path to SAP Host Agent SAR&gt;
    </code></pre>
 
 1. **[T]** Configurare il firewall
 
-   Creare la regola del firewall per la porta probe del servizio di bilanciamento del carico di Azure.
+   Creare la regola del firewall per la porta probe del servizio di bilanciamento del carico di Azure.Create the firewall rule for the Azure load balancer probe port.
 
    <pre><code>sudo firewall-cmd --zone=public --add-port=625<b>03</b>/tcp
    sudo firewall-cmd --zone=public --add-port=625<b>03</b>/tcp --permanent
@@ -390,9 +390,9 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
-* **[T]** : il passaggio si applica a tutti i nodi.
-* **[1]** : il passaggio si applica solo al nodo 1.
-* **[2]** : Il passaggio si applica solo al nodo 2 del cluster Pacemaker.
+* **[T]**: il passaggio si applica a tutti i nodi.
+* **[1]**: il passaggio si applica solo al nodo 1.
+* **[2]**: Il passaggio si applica solo al nodo 2 del cluster Pacemaker.
 
 1. **[T]** Configurare il firewall
 
@@ -420,14 +420,14 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
    Se si usa SAP HANA 2.0 o MDC, creare un database tenant per il sistema SAP NetWeaver. Sostituire **NW1** con il SID del sistema SAP.
 
-   Eseguire come < hanasid\>ADM il seguente comando:
+   Esegui come <\>hanasid adm il seguente comando:
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
-1. **[1]** Configurare la replica di sistema nel primo nodo:
+1. **[1]** Configurare la replica di sistema sul primo nodo:
 
-   Eseguire il backup dei database come < hanasid\>ADM:
+   Eseguire il backup dei\>database come <hanasid adm:
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -447,7 +447,7 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 1. **[2]** Configurare la replica di sistema nel secondo nodo:
     
-   Registrare il secondo nodo per avviare la replica di sistema. Eseguire il comando seguente come < hanasid\>ADM:
+   Registrare il secondo nodo per avviare la replica di sistema. Eseguire il comando seguente come\><hanasid adm:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>
@@ -455,7 +455,7 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 1. **[1]** Verificare lo stato della replica
 
-   Verificare lo stato della replica e attendere che tutti i database siano sincronizzati. Se lo stato rimane sconosciuto, controllare le impostazioni del firewall.
+   Controllare lo stato della replica e attendere che tutti i database siano sincronizzati. Se lo stato rimane UNKNOWN, controllare le impostazioni del firewall.
 
    <pre><code>sudo su - <b>hn1</b>adm -c "python /usr/sap/<b>HN1</b>/HDB<b>03</b>/exe/python_support/systemReplicationStatus.py"
    # | Database | Host     | Port  | Service Name | Volume ID | Site ID | Site Name | Secondary | Secondary | Secondary | Secondary | Secondary     | Replication | Replication | Replication    |
@@ -481,9 +481,9 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
-* **[T]** : il passaggio si applica a tutti i nodi.
-* **[1]** : il passaggio si applica solo al nodo 1.
-* **[2]** : Il passaggio si applica solo al nodo 2 del cluster Pacemaker.
+* **[T]**: il passaggio si applica a tutti i nodi.
+* **[1]**: il passaggio si applica solo al nodo 1.
+* **[2]**: Il passaggio si applica solo al nodo 2 del cluster Pacemaker.
 
 1. **[T]** Configurare il firewall
 
@@ -495,7 +495,7 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 1. **[1]** Creare gli utenti richiesti.
 
-   Eseguire il comando seguente come radice. Assicurarsi di sostituire le stringhe in grassetto (ID di sistema HANA **HN1** e numero di istanza **03**) con i valori dell'installazione di SAP HANA in uso:
+   Eseguire il comando seguente come root. Assicurarsi di sostituire le stringhe in grassetto (HANA System ID **HN1** e numero di istanza **03**) con i valori dell'installazione SAP HANA:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"'
@@ -505,7 +505,7 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 1. **[T]** Creare una voce di archivio chiavi.
 
-   Eseguire il comando seguente come root per creare una nuova voce dell'archivio chiavi:
+   Eseguire il comando seguente come root per creare una nuova voce keystore:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
@@ -513,7 +513,7 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 1. **[1]** Eseguire il backup del database.
 
-   Eseguire il backup dei database come radice:
+   Eseguire il backup dei database come root:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
@@ -526,7 +526,7 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 1. **[1]** Configurare la replica di sistema nel primo nodo.
 
-   Creare il sito primario come < hanasid\>ADM:
+   Creare il sito primario\>come <hanasid adm:
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -534,7 +534,7 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 1. **[2]** Configurare la replica di sistema nel nodo secondario.
 
-   Registrare il sito secondario come < hanasid\>ADM:
+   Registrare il sito secondario\>come <hanasid adm:
 
    <pre><code>HDB stop
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>
@@ -592,7 +592,7 @@ sudo pcs property set maintenance-mode=false
 Assicurarsi che lo stato del cluster sia corretto e che tutte le risorse siano avviate. Non è importante il nodo su cui sono in esecuzione le risorse.
 
 > [!NOTE]
-> I timeout nella configurazione precedente sono solo esempi e possono essere adattati alla configurazione specifica di HANA. Ad esempio, potrebbe essere necessario aumentare il timeout di avvio, se l'avvio del database di SAP HANA richiede più tempo.  
+> I timeout nella configurazione di cui sopra sono solo esempi e potrebbe essere necessario adattarsi alla configurazione HANA specifica. Ad esempio, potrebbe essere necessario aumentare il timeout di avvio, se l'avvio del database SAP HANA richiede più tempo.  
 
 <pre><code>sudo pcs status
 
@@ -695,7 +695,7 @@ Resource Group: g_ip_HN1_03
 </code></pre>
 
 È possibile testare la configurazione dell'agente di isolamento di Azure disabilitando l'interfaccia di rete nel nodo in cui SAP HANA viene eseguito come master.
-Per una descrizione su come simulare un errore di rete, vedere l' [articolo della Knowledge base 79523 di Red Hat](https://access.redhat.com/solutions/79523) . In questo esempio viene usato lo script net_breaker per bloccare tutti gli accessi alla rete.
+Vedere [l'articolo 79523 della Knowledge Base](https://access.redhat.com/solutions/79523) di Red Hat per una descrizione su come simulare un errore di rete. In questo esempio viene usato lo script net_breaker per bloccare tutti gli accessi alla rete.
 
 <pre><code>[root@hn1-db-1 ~]# sh ./net_breaker.sh BreakCommCmd 10.0.0.6
 </code></pre>
@@ -778,7 +778,7 @@ Resource Group: g_ip_HN1_03
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Pianificazione e implementazione di macchine virtuali di Azure per SAP][planning-guide]
+* [Pianificazione e implementazione di Macchine virtuali di Azure per SAP][planning-guide]
 * [Distribuzione di macchine virtuali di Azure per SAP][deployment-guide]
-* [Distribuzione DBMS di macchine virtuali di Azure per SAP][dbms-guide]
+* [Distribuzione DBMS di Macchine virtuali di Azure per SAP][dbms-guide]
 * Per informazioni su come configurare la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA in Azure (istanze Large), vedere [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze Large) in Azure](hana-overview-high-availability-disaster-recovery.md)

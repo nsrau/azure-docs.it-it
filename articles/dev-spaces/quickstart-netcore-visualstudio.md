@@ -8,12 +8,12 @@ keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 5deebf7a51917a2b199ad525ab087fd5b0268c18
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 5d0d1541600f4c10b021d5d7f7f435f1aa5ae589
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245040"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80239712"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>Guida introduttiva: Eseguire il debug e l'iterazione in Kubernetes: Visual Studio e .NET Core - Azure Dev Spaces
 
@@ -94,7 +94,9 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:62266
 Completed warmup for project 'webfrontend' in 125 seconds.
 ```
 
-Nell'esempio precedente l'URL pubblico è http://default.webfrontend.1234567890abcdef1234.eus.azds.io/. Passare all'URL pubblico del servizio e interagire con il servizio in esecuzione nel proprio spazio.
+Nell'esempio precedente l'URL pubblico è http://default.webfrontend.1234567890abcdef1234.eus.azds.io/. 
+
+Selezionare **Debug** e quindi **Avvia debug**. Dopo alcuni secondi, il servizio verrà avviato e Visual Studio aprirà un browser con l'URL pubblico del servizio. Se non viene aperto automaticamente un browser, passare all'URL pubblico del servizio in un browser e interagire con il servizio in esecuzione nello spazio di Dev Spaces.
 
 È possibile che questo processo abbia disabilitato l'accesso pubblico al proprio servizio. Per abilitare l'accesso pubblico, è possibile aggiornare il [valore ingress in *values.yaml*][ingress-update].
 
@@ -106,7 +108,7 @@ Se Visual Studio è ancora connesso allo spazio di sviluppo, fare clic sul pulsa
 ViewData["Message"] = "Your application description page in Azure.";
 ```
 
-Salvare le modifiche e avviare il servizio scegliendo **Azure Dev Spaces** dal menu a discesa delle impostazioni di avvio. Aprire l'URL pubblico del servizio in un browser e fare clic su *Informazioni*. Notare che viene visualizzato il messaggio aggiornato.
+Salvare le modifiche e selezionare **Debug** e quindi **Avvia debug**. Dopo alcuni secondi, il servizio verrà avviato e Visual Studio aprirà un browser con l'URL pubblico del servizio. Se non viene aperto automaticamente un browser, passare all'URL pubblico del servizio in un browser e fare clic su *Informazioni*. Notare che viene visualizzato il messaggio aggiornato.
 
 Invece di ricompilare e ridistribuire una nuova immagine del contenitore ogni volta che vengono apportate modifiche al codice, Azure Dev Spaces ricompila in modo incrementale il codice nel contenitore esistente in modo da velocizzare il ciclo di modifica/debug.
 
@@ -133,5 +135,5 @@ az group delete --name MyResourceGroup --yes --no-wait
 > [!div class="nextstepaction"]
 > [Uso di più contenitori e sviluppo in team](multi-service-netcore-visualstudio.md)
 
-[ingress-update]: how-dev-spaces-works.md#how-running-your-code-is-configured
+[ingress-update]: how-dev-spaces-works-up.md#how-running-your-code-is-configured
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

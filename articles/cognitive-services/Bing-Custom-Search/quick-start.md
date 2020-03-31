@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare una prima istanza di Ricerca personalizzata Bing'
+title: 'Guida introduttiva: Creare una prima istanza di Ricerca personalizzata Bing'
 titleSuffix: Azure Cognitive Services
 description: Questo argomento di avvio rapido illustra come creare un'istanza personalizzata di Bing per eseguire ricerche in domini e pagine Web definiti dall'utente.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 45478c8e4f5003ff41eb8b486d67caa452739cd4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b8287250df4e278d4904e31121ed7d2df208e1c9
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384747"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80238844"
 ---
-# <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Avvio rapido: Creare la prima istanza di Ricerca personalizzata Bing
+# <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Guida introduttiva: Creare la prima istanza di Ricerca personalizzata Bing
 
 Per usare Ricerca personalizzata Bing è necessario creare un'istanza di ricerca personalizzata che definisce la visualizzazione o sezione del Web. L'istanza contiene i domini pubblici, i siti Web e le pagine Web in cui eseguire la ricerca e le eventuali modifiche di classificazione desiderate. 
 
@@ -25,7 +25,7 @@ Per creare l'istanza, usare il [portale di Ricerca personalizzata Bing](https://
 
 ![Immagine del portale di Ricerca personalizzata Bing](media/blockedCustomSrch.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 

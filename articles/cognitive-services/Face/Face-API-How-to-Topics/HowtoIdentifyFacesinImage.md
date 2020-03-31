@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
 ms.openlocfilehash: 0b1cf99fe6e2aa4d7fcb12c3fb96b10b42c7c0b7
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169906"
 ---
 # <a name="example-identify-faces-in-images"></a>Esempio: Identificare i visi nelle immagini
@@ -80,7 +80,7 @@ CreatePersonResult friend1 = await faceClient.PersonGroupPerson.CreateAsync(
  
 // Define Bill and Clare in the same way
 ```
-### <a name="step2-2"></a> Passaggio 2.2: Rilevare i visi e registrarli per la persona corretta
+### <a name="step-22-detect-faces-and-register-them-to-the-correct-person"></a><a name="step2-2"></a> Passaggio 2.2: Rilevare i visi e registrarli per la persona corretta
 Il rilevamento viene eseguito inviando una richiesta Web "POST" all'API [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (Viso - Rilevamento) con il file di immagine nel corpo della richiesta HTTP. Quando si usa la libreria client, il rilevamento dei visi viene eseguito tramite uno dei metodi Detect..Async per la classe FaceClient.
 
 Per ogni viso rilevato è possibile chiamare [PersonGroup Person – Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) (PersonGroup Person – Aggiunta viso) per aggiungerlo alla persona corretta.

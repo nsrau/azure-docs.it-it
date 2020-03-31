@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Libreria client di Ricerca visiva Bing per Java | Microsoft Docs'
+title: 'Guida introduttiva: Libreria client di Ricerca visiva Bing per Java | Microsoft Docs'
 description: Caricare un'immagine usando l'SDK di Ricerca visiva Bing e ottenere informazioni dettagliate su di essa.
 services: cognitive-services
 author: aahill
@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
 ms.openlocfilehash: 5a6d39fa6e10ad0ad102f9d25ffd252ec9e0fa8a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75379496"
 ---
-# <a name="quickstart-bing-visual-search-client-library-for-java"></a>Avvio rapido: Libreria client di Ricerca visiva Bing per Java
+# <a name="quickstart-bing-visual-search-client-library-for-java"></a>Guida introduttiva: Libreria client di Ricerca visiva Bing per Java
 
 Questo argomento costituisce un'introduzione alla libreria client di Ricerca visiva Bing per Java. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. 
 
@@ -27,7 +27,7 @@ Usare la libreria client di Ricerca visiva Bing per Java per:
 
 [Documentazione di riferimento](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingVisualSearch) | [Artefatto (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-visualsearch/) | [Esempi](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * La versione corrente di [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)

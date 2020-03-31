@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Eseguire una ricerca con Ruby - API Ricerca Web Bing'
+title: 'Guida introduttiva: Eseguire una ricerca con Ruby - API Ricerca Web Bing'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per inviare richieste all'API REST Ricerca Web Bing usando Ruby e ricevere una risposta JSON
 services: cognitive-services
@@ -12,17 +12,17 @@ ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 5f3e05752967be8872c0e6fd9008bfae05d950fa
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169542"
 ---
-# <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>Avvio rapido: Usare Ruby per chiamare l'API Ricerca Web Bing  
+# <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>Guida introduttiva: Usare Ruby per chiamare l'API Ricerca Web Bing  
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca Web Bing e ricevere la risposta JSON. Questa applicazione Ruby invia una richiesta di ricerca all'API e visualizza la risposta. L'applicazione è scritta in Ruby, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di eseguire i passaggi illustrati in questa guida introduttiva, verificare di avere quanto segue:
 

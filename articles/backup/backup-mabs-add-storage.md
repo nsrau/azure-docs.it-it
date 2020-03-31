@@ -4,10 +4,10 @@ description: Informazioni sulle nuove funzionalità del server di Backup di Azur
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: c6346d7b0275a00271c1787b378a63b8365edf2d
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74172370"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Aggiungere risorse di archiviazione al server di Backup di Azure
@@ -18,7 +18,7 @@ Il server di Backup di Azure V2 e versioni successive supporta Modern Backup Sto
 > Per usare Modern Backup Storage, è necessario eseguire il server di Backup V2 o V3 Windows Server 2016 oppure V3 in Windows Server 2019.
 > Se si esegue il server di Backup V2 in una versione precedente di Windows Server, il server di Backup di Azure non può avvalersi di Modern Backup Storage. Invece, i carichi di lavoro vengono protetti come avviene nel server di Backup V1. Per ulteriori informazioni, vedere la [matrice di protezione](backup-mabs-protection-matrix.md) della versione del server di backup.
 >
-> Per ottenere prestazioni di backup avanzate, è consigliabile distribuire MAB V3 con archiviazione a livelli in Windows Server 2019. Per i passaggi necessari per configurare l'archiviazione a livelli, vedere l'articolo relativo alla configurazione di[MBS con archiviazione a livelli](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage).
+> Per ottenere prestazioni di backup avanzate, è consigliabile distribuire MABS v3 con archiviazione a livelli in Windows Server 2019.To achieve enhanced backup performances we recommend to deploy MABS v3 with tiered storage on Windows Server 2019. Fare riferimento all'articolo di DPM "[Set up MBS with Tiered Storage](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)" per la procedura di configurazione dell'archiviazione a più livelli.
 
 ## <a name="volumes-in-backup-server"></a>Volumi nel server di Backup
 
@@ -36,7 +36,7 @@ Il server di Backup V2 o versione successiva accetta volumi di archiviazione. Qu
 
 L'uso del server di Backup V2 o versione successiva con volumi come archiviazione su disco consente di mantenere il controllo sull'archiviazione. Un volume può essere un singolo disco. Tuttavia, se si desidera estendere l'archiviazione in futuro, creare un volume da un disco creato utilizzando spazi di archiviazione. Ciò può essere utile se si desidera espandere il volume per l'archiviazione di backup. In questa sezione sono presentate le procedure consigliate per la creazione di un volume con questa configurazione.
 
-1. In Server Manager selezionare **Servizi file e archiviazione** > **Volumi** > **Pool di archiviazione**. In **DISCHI FISICI**, selezionare **Nuovo pool di archiviazione**.
+1. In Server Manager selezionare**Pool di archiviazione****volumi** > di **Servizi file e archiviazione** > . In **DISCHI FISICI**, selezionare **Nuovo pool di archiviazione**.
 
     ![Creare un nuovo pool di archiviazione](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
@@ -56,7 +56,7 @@ L'uso del server di Backup V2 o versione successiva con volumi come archiviazion
 
     ![Creare un nuovo volume](./media/backup-mabs-add-storage/mabs-add-storage-5.png)
 
-6. Nella finestra di dialogo **Selezionare il server e il disco** selezionare il server e il nuovo disco. Quindi selezionare **Avanti**.
+6. Nella finestra di dialogo **Selezionare il server e il disco** selezionare il server e il nuovo disco. Selezionare quindi **Avanti**.
 
     ![Selezionare il server e il disco](./media/backup-mabs-add-storage/mabs-add-storage-6.png)
 
@@ -64,8 +64,8 @@ L'uso del server di Backup V2 o versione successiva con volumi come archiviazion
 
 > [!NOTE]
 >
-> - Aggiungere un solo disco al pool per limitare il numero di colonne a 1. Sarà quindi possibile aggiungere i dischi in base alle esigenze in seguito.
-> - Se si aggiungono più dischi al pool di archiviazione in un go, il numero di dischi viene archiviato come numero di colonne. Quando vengono aggiunti più dischi, possono essere solo un multiplo del numero di colonne.
+> - Aggiungere un solo disco al pool per mantenere il numero di colonne a 1. È quindi possibile aggiungere dischi all'occorrenza in un secondo momento.
+> - Se si aggiungono più dischi contemporaneamente al pool di archiviazione, il numero di dischi viene archiviato come numero di colonne. Quando vengono aggiunti più dischi, possono solo essere un multiplo del numero di colonne.
 
 Per aggiungere un volume al server di backup, nel riquadro **Gestione** ripetere l'analisi dell'archiviazione e quindi selezionare **Aggiungi**. Viene visualizzato un elenco di tutti i volumi disponibili per l'aggiunta per l'archiviazione del server di backup. Dopo l'aggiunta dei volumi disponibili all'elenco dei volumi selezionati, è possibile assegnare loro un nome descrittivo per agevolarne la gestione. Per formattare questi volumi in ReFS e consentire al server di backup di sfruttare i vantaggi di Modern Backup Storage, selezionare **OK**.
 
@@ -77,7 +77,7 @@ Con l'archiviazione del carico di lavoro, è possibile selezionare i volumi in c
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-È possibile configurare l'archiviazione in grado di riconoscere il carico di lavoro usando il cmdlet di PowerShell Update-DPMDiskStorage, che aggiorna le proprietà di un volume nel pool di archiviazione in un server di Backup di Azure.
+È possibile configurare l'archiviazione in grado di riconoscere il carico di lavoro usando il cmdlet di PowerShell Update-DPMDiskStorage, che aggiorna le proprietà di un volume nel pool di archiviazione in un server di Backup di Azure.You can set up workload-aware storage by using the PowerShell cmdlet Update-DPMDiskStorage, which updates the properties of a volume in the storage pool on an Azure Backup Server.
 
 Sintassi:
 
@@ -119,7 +119,7 @@ Se si desidera usare lo spazio di archiviazione legacy con il server di backup, 
 
 Per aggiungere spazio di archiviazione su disco:
 
-1. Nella Console di amministrazione selezionare **Gestione** > **Spazio di archiviazione su disco** > **Aggiungi**.
+1. Nella Console di amministrazione selezionare **Gestione** > **spazio di archiviazione** > su disco**Aggiungi**.
 
     ![Finestra di dialogo Aggiungi spazio di archiviazione su disco](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 

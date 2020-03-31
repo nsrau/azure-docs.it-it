@@ -4,10 +4,10 @@ description: Informazioni sul servizio Azure Blueprints, che consente di creare,
 ms.date: 11/21/2019
 ms.topic: overview
 ms.openlocfilehash: 07d84d658d88e977cd73176861e5c5e080c02857
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74321770"
 ---
 # <a name="what-is-azure-blueprints"></a>Informazioni su Azure Blueprint
@@ -48,7 +48,7 @@ I criteri possono essere inclusi nella definizione di un progetto come i vari _a
 
 Un progetto è costituito da _artefatti_. Azure Blueprint supporta attualmente le seguenti risorse come artefatti:
 
-|Risorsa  | Opzioni della gerarchia| DESCRIZIONE  |
+|Risorsa  | Opzioni della gerarchia| Descrizione  |
 |---------|---------|---------|
 |Gruppi di risorse | Subscription | Creare un nuovo gruppo di risorse per l'uso da parte di altri artefatti nel progetto.  Questi gruppi di risorse segnaposto consentono di organizzare le risorse strutturandole esattamente nel modo desiderato e forniscono un limitatore di ambito per i criteri e gli artefatti di assegnazione dei ruoli inclusi, nonché per i modelli di Azure Resource Manager. |
 |Modello di Azure Resource Manager | Sottoscrizione, gruppo di risorse | Vengono usati modelli, inclusi quelli annidati e collegati, per comporre ambienti complessi. Esempi di ambienti complessi sono: una farm di SharePoint, la configurazione dello stato di Automazione di Azure o un'area di lavoro Log Analytics. |
@@ -77,7 +77,7 @@ Quando si crea un progetto per la prima volta, questo viene considerato in modal
 
 ## <a name="blueprint-assignment"></a>Assegnazione progetto
 
-Ogni **Versione** **pubblicata** di un progetto può essere assegnata (con un nome di lunghezza massima di 90 caratteri) a una sottoscrizione esistente. Nel portale il progetto imposta la **versione** **pubblicata** più di recente come predefinita. Se sono presenti parametri dell'artefatto (o parametri di progetto), questi vengono definiti durante il processo di assegnazione.
+Ogni **versione** **pubblicata** di un progetto può essere assegnata (con un nome contenente al massimo 90 caratteri) a una sottoscrizione esistente. Nel portale il progetto imposta la **versione** **pubblicata** più di recente come predefinita. Se sono presenti parametri dell'artefatto (o parametri di progetto), questi vengono definiti durante il processo di assegnazione.
 
 ## <a name="permissions-in-azure-blueprints"></a>Autorizzazioni in Azure Blueprint
 
@@ -106,7 +106,7 @@ Per assegnare o annullare l'assegnazione di un progetto l'account necessita dell
 
 Sono disponibili i ruoli predefiniti seguenti:
 
-|Ruolo Controllo degli accessi in base al ruolo | DESCRIZIONE |
+|Ruolo Controllo degli accessi in base al ruolo | Descrizione |
 |-|-|
 |[Proprietario](../../role-based-access-control/built-in-roles.md#owner) | Oltre ad altre autorizzazioni, include tutte le autorizzazioni correlate ad Azure Blueprint. |
 |[Collaboratore](../../role-based-access-control/built-in-roles.md#contributor) | Oltre ad altre autorizzazioni, può creare ed eliminare definizioni di progetto, ma non ha le autorizzazioni per l'assegnazione di progetti. |
@@ -124,10 +124,10 @@ Per determinati campi, esistono le limitazioni seguenti:
 
 |Oggetto|Campo|Caratteri consentiti|Max. Length|
 |-|-|-|-|
-|Progetto|NOME|lettere, numeri, trattini e punti|48|
+|Progetto|Nome|lettere, numeri, trattini e punti|48|
 |Progetto|Versione|lettere, numeri, trattini e punti|20|
-|Assegnazione progetto|NOME|lettere, numeri, trattini e punti|90|
-|Artefatto del progetto|NOME|lettere, numeri, trattini e punti|48|
+|Assegnazione progetto|Nome|lettere, numeri, trattini e punti|90|
+|Artefatto del progetto|Nome|lettere, numeri, trattini e punti|48|
 
 ## <a name="video-overview"></a>Video introduttivo
 

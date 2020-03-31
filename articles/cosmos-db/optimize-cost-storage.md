@@ -7,17 +7,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.openlocfilehash: 1508adda761fcba7ba70df3bb212d3eb4e32f242
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72754951"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Ottimizzare i costi di archiviazione in Azure Cosmos DB
 
-Azure Cosmos DB offre archiviazione e velocità effettiva illimitate. A differenza della velocità effettiva, di cui è necessario effettuare il provisioning o è necessario configurare nei contenitori o database di Azure Cosmos, l'archiviazione viene fatturata in base al consumo. La fatturazione viene effettuata solo per lo spazio di archiviazione logico utilizzato e non è necessario riservare in anticipo alcuno spazio di archiviazione. L'archiviazione viene scalata automaticamente in base ai dati aggiunti o rimossi in un contenitore di Azure Cosmos.
+Azure Cosmos DB offre archiviazione e velocità effettiva illimitate. A differenza della velocità effettiva, di cui è necessario effettuare il provisioning o è necessario configurare nei contenitori o database di Azure Cosmos, l'archiviazione viene fatturata in base al consumo. La fatturazione viene effettuata solo per lo spazio di archiviazione logico utilizzato e non è necessario riservare in anticipo alcuno spazio di archiviazione. L'archiviazione viene ridimensionata automaticamente verso l'alto e verso il basso in base ai dati aggiunti o rimossi in un contenitore Cosmos di Azure.Storage automatically scale up and down based on the data that add or remove to an Azure Cosmos container.
 
-## <a name="storage-cost"></a>Costo delle risorse di archiviazione
+## <a name="storage-cost"></a>Costo di archiviazione
 
 Lo spazio di archiviazione viene fatturato in GB. Lo spazio di archiviazione locale basato su unità SSD viene usato dai dati e dall'indicizzazione. Lo spazio di archiviazione totale usato è uguale allo spazio di archiviazione richiesto dai dati e dagli indici usati in tutte le aree in cui si usa Azure Cosmos DB. Se si replica a livello globale un account Azure Cosmos in tre aree, si pagherà il costo di archiviazione totale in ognuna di queste tre aree. Per stimare i requisiti di archiviazione, vedere lo strumento [Capacity Planner](https://www.documentdb.com/capacityplanner). Il costo dell'archiviazione in Azure Cosmos DB è di $0,25 GB/mese. Per gli ultimi aggiornamenti, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/). È possibile impostare gli avvisi per determinare lo spazio di archiviazione usato dal contenitore Azure Cosmos. Per monitorare lo spazio di archiviazione, vedere l'articolo [Monitorare Azure Cosmos DB](monitor-accounts.md).
 
@@ -39,7 +39,7 @@ Se si vogliono archiviare tipi di dati multimediali avanzati, ad esempio video, 
 
 ## <a name="check-storage-consumed"></a>Controllare lo spazio di archiviazione utilizzato
 
-Per controllare lo spazio di archiviazione utilizzato da un contenitore di Azure Cosmos, è possibile eseguire una richiesta HEAD o GET per il contenitore e controllare le intestazioni `x-ms-request-quota` e `x-ms-request-usage`. In alternativa, quando si usa .NET SDK, è possibile usare le proprietà [le](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100))e [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) per ottenere lo spazio di archiviazione utilizzato.
+Per controllare lo spazio di archiviazione utilizzato da un contenitore di Azure Cosmos, è possibile eseguire una richiesta HEAD o GET per il contenitore e controllare le intestazioni `x-ms-request-quota` e `x-ms-request-usage`. In alternativa, quando si utilizza .NET SDK, è possibile utilizzare le proprietà [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100))e [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) per ottenere lo spazio di archiviazione utilizzato.
 
 ## <a name="using-sdk"></a>Uso dell'SDK
 
@@ -54,10 +54,10 @@ Console.WriteLine("Item size quota: {0}, usage: {1}", collectionInfo.DocumentQuo
 
 È ora possibile passare ad altre informazioni sull'ottimizzazione dei costi in Azure Cosmos DB con gli articoli seguenti:
 
-* Altre informazioni sull'[ottimizzazione di sviluppo e test](optimize-dev-test.md)
+* Altre informazioni sull'[Ottimizzazione di sviluppo e test](optimize-dev-test.md)
 * Altre informazioni su [come comprendere la fatturazione di Azure Cosmos DB](understand-your-bill.md)
-* Altre informazioni sull'[ottimizzazione dei costi della velocità effettiva](optimize-cost-throughput.md)
+* Altre informazioni sull'[Ottimizzazione dei costi della velocità effettiva](optimize-cost-throughput.md)
 * Altre informazioni sull'[ottimizzazione del costo delle operazioni di lettura e scrittura](optimize-cost-reads-writes.md)
 * Altre informazioni sull'[ottimizzazione del costo delle query](optimize-cost-queries.md)
-* Altre informazioni sull'[ottimizzazione dei costi degli account Azure Cosmos multiarea](optimize-cost-regions.md)
+* Altre informazioni sull'[ottimizzazione dei costi degli account Azure Cosmos multi-area](optimize-cost-regions.md)
 

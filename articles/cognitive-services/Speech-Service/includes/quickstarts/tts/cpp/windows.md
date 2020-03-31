@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Eseguire la sintesi vocale, C++ (Windows) - Servizio Voce'
+title: 'Guida introduttiva: Eseguire la sintesi vocale, C++ (Windows) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come seguire la sintesi vocale in C++ su Windows Desktop con Speech SDK
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 08/24/2019
 ms.author: yinhew
 ms.openlocfilehash: ab2193a1ea34b176e5f97806f0099dfc86d75965
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925423"
 ---
 ## <a name="prerequisites"></a>Prerequisiti

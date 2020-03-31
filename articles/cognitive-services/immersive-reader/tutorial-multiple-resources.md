@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: skamal
 ms.openlocfilehash: 3912d55b13f3977818e8d898efa651ffeb1a798a
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76046476"
 ---
 # <a name="tutorial-integrate-multiple-immersive-reader-resources"></a>Esercitazione: Integrare più risorse dello strumento di lettura immersiva
@@ -26,7 +26,7 @@ Nella [panoramica](./overview.md) si è appreso che cos'è lo strumento di lettu
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Seguire l'[argomento di avvio rapido](./quickstart-nodejs.md) per creare un'app Web che avvia lo strumento di lettura immersiva con Node.js. In questo argomento di avvio rapido si configura una singola risorsa dello strumento di lettura immersiva. Questa esercitazione sviluppa ulteriormente questo scenario.
 
