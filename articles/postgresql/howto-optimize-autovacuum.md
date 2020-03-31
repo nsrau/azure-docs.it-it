@@ -1,19 +1,19 @@
 ---
-title: Ottimizzare autovacuum-database di Azure per PostgreSQL-server singolo
-description: Questo articolo descrive come è possibile ottimizzare autovacuum in un database di Azure per PostgreSQL-server singolo
+title: Ottimizzare l'autovuoto - Database di Azure per PostgreSQL - Server singoloOptimize autovacuum - Azure Database for PostgreSQL - Single Server
+description: Questo articolo descrive come ottimizzare il controllo automatico in un database di Azure per PostgreSQL - Server singolo
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 1917bd6744e100db54fe959292e29486f8a1784b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74770187"
 ---
-# <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Ottimizzare autovacuum in un database di Azure per PostgreSQL-server singolo
+# <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Ottimizzare l'autovuoto in un database di Azure per PostgreSQL - singolo serverOptimize autovacuum on an Azure Database for PostgreSQL - Single Server
 Questo articolo descrive come ottimizzare efficacemente i processi autovacuum in un server di Database di Azure per PostgreSQL.
 
 ## <a name="overview-of-autovacuum"></a>Panoramica dei processi autovacuum
@@ -44,7 +44,7 @@ I parametri di configurazione che controllano i processi autovacuum si basano su
 
 Ecco alcuni parametri di configurazione di processi autovacuum che è possibile aggiornare in base alle domande precedenti, con alcune indicazioni.
 
-Parametro|Description|Valore predefinito
+Parametro|Descrizione|Valore predefinito
 ---|---|---
 autovacuum_vacuum_threshold|Specifica il numero minimo di tuple aggiornate o eliminate necessarie per attivare un'operazione vacuum in una tabella. Il valore predefinito è 50 tuple. Impostare questo parametro solo nel file postgresql.conf o nella riga di comando del server. Per eseguire l'override dell'impostazione per le singole tabelle, modificare i parametri di archiviazione della tabella stessa.|50
 autovacuum_vacuum_scale_factor|Specifica una frazione delle dimensioni della tabella da aggiungere a autovacuum_vacuum_threshold quando si decide se attivare un'operazione vacuum. Il valore predefinito è 0,2, ovvero il 20% delle dimensioni della tabella. Impostare questo parametro solo nel file postgresql.conf o nella riga di comando del server. Per eseguire l'override dell'impostazione per le singole tabelle, modificare i parametri di archiviazione della tabella stessa.|5 percento
@@ -91,7 +91,7 @@ Il parametro autovacuum_max_workers determina il numero massimo di processi auto
 Con PostgreSQL, è possibile impostare questi parametri a livello di tabella oppure a livello di istanza. Attualmente è possibile impostare questi parametri a livello di tabella solo nel Database di Azure per PostgreSQL.
 
 ## <a name="optimize-autovacuum-per-table"></a>Ottimizzare i processi autovacuum per ogni tabella
-È possibile configurare tutti i parametri di configurazione precedente per ogni tabella. Ecco un esempio:
+È possibile configurare tutti i parametri di configurazione precedente per ogni tabella. Ad esempio:
 ```sql
 ALTER TABLE t SET (autovacuum_vacuum_threshold = 1000);
 ALTER TABLE t SET (autovacuum_vacuum_scale_factor = 0.1);

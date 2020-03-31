@@ -1,5 +1,5 @@
 ---
-title: Inviare notifiche push a utenti specifici usando hub di notifica di Azure | Microsoft Docs
+title: Inviare notifiche push a utenti specifici usando Hub di notifica di Azure. Documenti Microsoft
 description: Informazioni su come eseguire il push di notifiche a utenti specifici con Hub di notifica di Azure.
 documentationcenter: ios
 author: sethm
@@ -17,17 +17,17 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 48135ea614bbab4ca6649a83895ae5f632918c61
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72387468"
 ---
-# <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Esercitazione: inviare notifiche push a utenti specifici usando hub di notifica di Azure
+# <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Esercitazione: Inviare notifiche push a utenti specifici usando Hub di notifica di AzureTutorial: Send push notifications to specific users using Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-Questa esercitazione spiega come usare gli hub di notifica di Azure per inviare notifiche push agli utenti di una determinata app installata su dispositivi specifici. Per autenticare i client e generare le notifiche viene usato un back-end di API Web ASP.NET, come illustrato nell'argomento [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) (Registrazione dal back-end dell'app).
+In questa esercitazione viene illustrato come usare Hub di notifica di Azure per inviare notifiche push a un utente specifico dell'app su un dispositivo specifico. Per autenticare i client e generare le notifiche viene usato un back-end di API Web ASP.NET, come illustrato nell'argomento [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) (Registrazione dal back-end dell'app).
 
 In questa esercitazione vengono completati i passaggi seguenti:
 
@@ -56,7 +56,7 @@ Se si desidera usare le app per dispositivi mobili come servizio back-end, veder
 
 2. Nel file `Main.storyboard` aggiungere i componenti illustrati nello screenshot dalla libreria di oggetti.
 
-    ![Modifica storyboard in Xcode Interface Builder][1]
+    ![Modificare lo storyboard nel generatore di interfaccia XcodeEdit storyboard in Xcode interface builder][1]
 
    * **Nome utente**: oggetto UITextField con testo segnaposto, *Enter Username*, immediatamente sotto l'etichetta per l'invio dei risultati e limitato dai margini sinistro e destro.
    * **Password**: oggetto UITextField con testo segnaposto, *Enter Password*, immediatamente sotto il campo di testo del nome utente e limitato dai margini sinistro e destro. Selezionare l'opzione **Secure Text Entry** in Attribute Inspector sotto *Return Key*.
@@ -88,7 +88,7 @@ Se si desidera usare le app per dispositivi mobili come servizio back-end, veder
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. In `ViewController.h` aggiungere l'elemento seguente `#define` sotto le istruzioni di importazione. Sostituire il segnaposto `<Enter Your Backend Endpoint>` con l'URL di destinazione usato per distribuire il back-end dell'app nella sezione precedente. Ad esempio `http://your_backend.azurewebsites.net`.
+4. In `ViewController.h` aggiungere l'elemento seguente `#define` sotto le istruzioni di importazione. Sostituire il segnaposto `<Enter Your Backend Endpoint>` con l'URL di destinazione usato per distribuire il back-end dell'app nella sezione precedente. Ad esempio: `http://your_backend.azurewebsites.net`.
 
     ```objc
     #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"

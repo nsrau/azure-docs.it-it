@@ -1,19 +1,19 @@
 ---
-title: Backup e ripristino-portale di Azure-database di Azure per PostgreSQL-server singolo
-description: Questo articolo descrive come ripristinare un server in database di Azure per PostgreSQL-server singolo usando il portale di Azure.
+title: Backup e ripristino - Portale di Azure - Database di Azure per PostgreSQL - Server singolo
+description: Questo articolo descrive come ripristinare un server nel database di Azure per PostgreSQL - Singolo server usando il portale di Azure.This article describes how to restore a server in Azure Database for PostgreSQL - Single Server using the Azure portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.openlocfilehash: fb13e4f062976e39c3cec607001e6982db228873
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74765631"
 ---
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Come eseguire il backup e il ripristino di un server in database di Azure per PostgreSQL-server singolo usando il portale di Azure
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Come eseguire il backup e il ripristino di un server nel database di Azure per PostgreSQL - Singolo server tramite il portale di AzureHow to backup and restore a server in Azure Database for PostgreSQL - Single Server using the Azure portal
 
 ## <a name="backup-happens-automatically"></a>Il backup viene eseguito automaticamente
 Il backup dei server Database di Azure per PostgreSQL viene eseguito periodicamente per abilitare le funzionalità di ripristino. L'uso di questa funzionalità consente di ripristinare il server e tutti i suoi database a un momento precedente nel nuovo server.
@@ -33,7 +33,7 @@ Quando si crea un server nel portale di Azure, la finestra **Piano tariffario** 
 Per altre informazioni sull'impostazione di questi valori durante la creazione, vedere la [guida introduttiva del server Database di Azure per PostgreSQL](quickstart-create-server-database-portal.md).
 
 È possibile modificare il periodo di conservazione dei backup di un server seguendo questa procedura:
-1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Accedere al portale di [Azure](https://portal.azure.com/).
 2. Selezionare il server di Database di Azure per PostgreSQL. Questa azione apre la pagina **Panoramica**.
 3. Selezionare **Piano tariffario** nel menu in **IMPOSTAZIONI**. Con il dispositivo di scorrimento è possibile modificare il **periodo di conservazione dei backup** impostandolo su un numero di giorni compreso tra 7 e 35.
 Nello screenshot seguente, il periodo è stato aumentato a 34 giorni.
@@ -69,14 +69,14 @@ La procedura seguente consente di ripristinare il server di esempio a un momento
 
 Il nuovo server creato con il ripristino temporizzato ha il nome e la password di accesso dell'amministratore validi per il server esistente nel momento scelto per il ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
 
-Il nuovo server creato durante un ripristino non include le regole del firewall o gli endpoint del servizio VNet esistenti nel server originale. Queste regole devono essere impostate separatamente per questo nuovo server.
+Il nuovo server creato durante un ripristino non dispone delle regole del firewall o degli endpoint del servizio VNet esistenti nel server originale. Queste regole devono essere impostate separatamente per questo nuovo server.
 
 
 ## <a name="geo-restore"></a>Ripristino geografico
 
 Se il server è stato configurato per backup con ridondanza geografica, è possibile creare un nuovo server dal backup di quel server esistente. Questo nuovo server può essere creato in qualsiasi area in cui è disponibile Database di Azure per PostgreSQL.  
 
-1. Selezionare il pulsante **Crea una risorsa** (+) nell'angolo superiore sinistro del portale. Selezionare **Database** > **Database di Azure per PostgreSQL**.
+1. Nell'angolo superiore sinistro del portale, selezionare il pulsante **Crea una risorsa** (sezione ). Selezionare **Database** > **di Azure database per PostgreSQL**.
 
    ![Opzione "Database di Azure per PostgreSQL"](./media/howto-restore-server-portal/1-navigate-to-postgres.png)
 
@@ -92,7 +92,7 @@ Se il server è stato configurato per backup con ridondanza geografica, è possi
 
 Il nuovo server creato con il ripristino geografico ha il nome e la password di accesso dell'amministratore validi per il server esistente al momento dell'avvio del ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
 
-Il nuovo server creato durante un ripristino non include le regole del firewall o gli endpoint del servizio VNet esistenti nel server originale. Queste regole devono essere impostate separatamente per questo nuovo server.
+Il nuovo server creato durante un ripristino non dispone delle regole del firewall o degli endpoint del servizio VNet esistenti nel server originale. Queste regole devono essere impostate separatamente per questo nuovo server.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

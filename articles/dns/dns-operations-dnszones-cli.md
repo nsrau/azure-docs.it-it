@@ -14,18 +14,18 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: rohink
 ms.openlocfilehash: 413c2ab3ee04249c2bb52bf42ca6a31a58fb9082
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76936936"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Come gestire le zone DNS in DNS di Azure DNS usando l'interfaccia della riga di comando di Azure
 
 > [!div class="op_single_selector"]
 > * [Portale](dns-operations-dnszones-portal.md)
-> * [PowerShell](dns-operations-dnszones.md)
-> * [Interfaccia della riga di comando di Azure](dns-operations-dnszones-cli.md)
+> * [Powershell](dns-operations-dnszones.md)
+> * [Interfaccia della riga di comando di AzureAzure](dns-operations-dnszones-cli.md)
 
 
 Questa guida illustra come gestire le zone DNS usando l'interfaccia della riga di comando di Azure multipiattaforma, disponibile per Windows, Mac e Linux. È anche possibile gestire le zone DNS usando [Azure PowerShell](dns-operations-dnszones.md) o il portale di Azure.
@@ -48,7 +48,7 @@ Prima di iniziare la configurazione, verificare di essere in possesso degli elem
 
 ### <a name="sign-in-to-your-azure-account"></a>Accedere con l'account Azure
 
-Aprire una finestra della console ed eseguire l'autenticazione con le credenziali. Per altre informazioni, vedere [Accedere ad Azure dall'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+Aprire una finestra della console ed eseguire l'autenticazione con le credenziali. Per altre informazioni, vedere [Accedere ad Azure dall'interfaccia della riga di comando di AzureFor more information,](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) see Log in to Azure from the Azure CLI
 
 ```
 az login
@@ -68,8 +68,8 @@ Scegliere quali sottoscrizioni Azure usare.
 az account set --subscription "subscription name"
 ```
 
-### <a name="optional-to-installuse-azure-dns-private-zones-feature"></a>Facoltativo: per installare/usare Zone private di DNS di Azure funzionalità
-La funzionalità zona privata di DNS di Azure è disponibile tramite un'estensione dell'interfaccia della riga di comando di Azure. Installare l'estensione "dns" dell'interfaccia della riga di comando di Azure 
+### <a name="optional-to-installuse-azure-dns-private-zones-feature"></a>Facoltativo: per installare/usare la funzionalità Aree private DNS di AzureOptional: To install/use Azure DNS Private zones feature
+The Azure DNS Private Zone feature is available via an extension to the Azure CLI. Installare l'estensione "dns" dell'interfaccia della riga di comando di Azure 
 ```
 az extension add --name dns
 ``` 
@@ -98,7 +98,7 @@ az network dns zone create --help
 
 Una zona DNS viene creata utilizzando il comando `az network dns zone create` . Per altre informazioni, vedere `az network dns zone create -h`.
 
-L'esempio seguente crea una zona DNS denominata *contoso.com* nel gruppo di risorse denominato *MyResourceGroup*:
+Nell'esempio seguente viene creata una zona DNS denominata contoso.com nel gruppo di risorse denominato MyResourceGroup:The following example creates a DNS zone called *contoso.com* in the resource group called *MyResourceGroup:*
 
 ```azurecli
 az network dns zone create --resource-group MyResourceGroup --name contoso.com

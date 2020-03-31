@@ -1,15 +1,15 @@
 ---
-title: Gestione risorse di Service Fabric cluster-gruppi di applicazioni
-description: Informazioni generali sulla funzionalità dei gruppi di applicazioni in Cluster Resource Manager di Service Fabric
+title: Gestione risorse cluster dell'infrastruttura del servizio - Gruppi di applicazioniService Fabric Cluster Resource Manager - Application Groups
+description: 'Informazioni generali sulla funzionalità dei gruppi di applicazioni in Cluster Resource Manager di Service Fabric '
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 988c7ce52125800c16aa785d5b1458604a927ecd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75452158"
 ---
 # <a name="introduction-to-application-groups"></a>Introduzione ai gruppi di applicazioni
@@ -28,7 +28,7 @@ Nell'immagine seguente è mostrata un'istanza di applicazione con e senza un num
 
 <center>
 
-![istanza dell'applicazione che definisce il numero massimo di nodi][Image1]
+![Istanza di applicazione che definisce il numero massimo di nodi][Image1]
 </center>
 
 Nell'esempio a sinistra, l'applicazione non ha un numero massimo di nodi definito, e ha tre servizi. Cluster Resource Manager ha distribuito tutte le repliche tra sei nodi disponibili per ottenere il bilanciamento ottimale nel cluster (il comportamento predefinito). Nell'esempio a destra, notiamo la stessa applicazione limitata a tre nodi.
@@ -110,7 +110,7 @@ Di seguito viene illustrato un esempio di come viene riservata la capacità:
 
 <center>
 
-![le istanze dell'applicazione che definiscono la capacità riservata][Image2]
+![Istanze di applicazione che definiscono la capacità riservata][Image2]
 </center>
 
 Nell'esempio a sinistra, le applicazioni non hanno una capacità definita. Cluster Resource Manager bilancia tutti gli elementi in base alle normali regole.
@@ -206,7 +206,7 @@ Le restrizioni vengono applicate sia durante la creazione dell'applicazione sia 
 - Per informazioni sul modo in cui Cluster Resource Manager gestisce e bilancia il carico nel cluster, vedere l'articolo relativo al [bilanciamento del carico](service-fabric-cluster-resource-manager-balancing.md)
 - Partire dall'inizio e vedere l' [introduzione a Cluster Resource Manager di Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
 - Per altre informazioni sul funzionamento generale delle metriche, vedere l'articolo sulle [metriche di carico di Service Fabric](service-fabric-cluster-resource-manager-metrics.md)
-- Cluster Resource Manager dispone di varie opzioni per descrivere il cluster. Per altre informazioni a riguardo vedere l'articolo [Descrivere un cluster di Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
+- Cluster Resource Manager dispone di varie opzioni per descrivere il cluster. Per altre informazioni su di essi, vedere questo articolo sulla descrizione di un cluster di [Service FabricTo](service-fabric-cluster-resource-manager-cluster-description.md) find out more about them, check out this article on describing a Service Fabric cluster
 
 [Image1]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-max-nodes.png
 [Image2]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-reserved-capacity.png

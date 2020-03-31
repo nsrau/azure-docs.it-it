@@ -1,17 +1,17 @@
 ---
-title: Assegnare criteri di accesso agli endpoint di servizio
+title: Assegnare criteri di accesso agli endpoint del servizioAssign access policies to service endpoints
 description: Informazioni su come assegnare criteri di accesso di sicurezza agli endpoint HTTP o HTTPS nel servizio di Service Fabric.
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.openlocfilehash: c7d30e85848f045b5724bb8bdc6e5c810102c044
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614656"
 ---
 # <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Assegnare un criterio di accesso di sicurezza per gli endpoint HTTP e HTTPS
-Se si applicano criteri run-as e il manifesto del servizio dichiara le risorse di endpoint HTTP, è necessario specificare **SecurityAccessPolicy**.  **SecurityAccessPolicy** assicura che le porte allocate a questi endpoint siano limitate all'account utente usato per l'esecuzione del servizio. In caso contrario, **http.sys** non ha accesso al servizio e le chiamate del client hanno esito negativo. L'esempio seguente applica l'account Customer1 a un endpoint denominato **EndpointName**, a cui assegna diritti di accesso completi.
+Se si applicano criteri run-as e il manifesto del servizio dichiara le risorse di endpoint HTTP, è necessario specificare **SecurityAccessPolicy**.  **SecurityAccessPolicy** assicura che le porte allocate a questi endpoint siano limitate all'account utente usato per l'esecuzione del servizio. In caso contrario, **http.sys** non ha accesso al servizio e si verificano errori con le chiamate dal client. L'esempio seguente applica l'account Customer1 a un endpoint denominato **EndpointName**, a cui assegna diritti di accesso completi.
 
 ```xml
 <Policies>

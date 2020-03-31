@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 741cbc82f2ed3ffffb553b146d981b4e35a273f4
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68726673"
 ---
 # <a name="azure-customer-data-protection"></a>Protezione dei dati dei clienti di Azure   
@@ -33,32 +33,32 @@ Al personale di supporto di Azure vengono assegnati account aziendali Active Dir
 
 Tutti i tentativi di accesso vengono monitorati e possono essere visualizzati tramite un set di report di base.
 
-## <a name="data-protection"></a>Protezione dati
+## <a name="data-protection"></a>Protezione dei dati
 Azure offre ai clienti un livello efficace di sicurezza dei dati, per impostazione predefinita e come opzione.
 
-**Separazione dei dati**: Azure è un servizio multi-tenant, ovvero un servizio in cui le distribuzioni e le macchine virtuali di più clienti vengono archiviate nello stesso hardware fisico. Microsoft usa l'isolamento logico per separare i dati di ogni cliente dagli altri. La separazione offre i vantaggi economici e di ridimensionamento dei servizi multi-tenant, impedendo al contempo in modo rigoroso ai clienti di accedere ai dati altrui.
+**Separazione dei dati**: Azure è un servizio multi-tenant, ovvero un servizio in cui le distribuzioni e le macchine virtuali di molti clienti vengono archiviate nello stesso hardware fisico. Microsoft usa l'isolamento logico per separare i dati di ogni cliente dagli altri. La separazione offre i vantaggi economici e di ridimensionamento dei servizi multi-tenant, impedendo al contempo in modo rigoroso ai clienti di accedere ai dati altrui.
 
 **Protezione dei dati inattivi**: i clienti sono tenuti a garantire che i dati archiviati in Azure vengano crittografati in base ai propri standard. Azure offre un'ampia gamma di funzionalità di crittografia, fornendo ai clienti la flessibilità di scegliere la soluzione che meglio rispondono alle loro esigenze. Azure Key Vault consente ai clienti di mantenere in modo semplice il controllo sulle chiavi usate dalle applicazioni e dai servizi cloud per crittografare i dati. Crittografia dischi di Azure permette inoltre ai clienti di crittografare le macchine virtuali, mentre la crittografia del servizio di archiviazione di Azure consente di crittografare tutti i dati inseriti nell'account di archiviazione di un cliente.
 
-**Protezione dei dati in movimento**: i clienti possono abilitare la crittografia del traffico tra le proprie macchine virtuali e gli utenti finali. Azure protegge i dati in movimento da o verso i componenti esterni e a livello interno, ad esempio tra due reti virtuali. Azure usa il protocollo TLS (Transport Layer Security) 1.2 o superiore, standard del settore, con chiavi di crittografia RSA/SHA256 a 2,048 bit, come consigliato da CESG/NCSC, per crittografare le comunicazioni tra:
+**Protezione dei dati in movimento**: i clienti possono abilitare la crittografia del traffico tra le proprie VM e gli utenti finali. Azure protegge i dati in movimento da o verso i componenti esterni e a livello interno, ad esempio tra due reti virtuali. Azure usa il protocollo TLS (Transport Layer Security) 1.2 o superiore, standard del settore, con chiavi di crittografia RSA/SHA256 a 2,048 bit, come consigliato da CESG/NCSC, per crittografare le comunicazioni tra:
 
 - il cliente e il cloud e
 - i sistemi e i data center di Azure (internamente).
 
-**Crittografia**: la crittografia dei dati archiviati e in movimento può essere distribuita dai clienti come procedura consigliata per garantire la riservatezza e l'integrità dei dati. È molto semplice per i clienti configurare i servizi cloud di Azure per l'uso di SSL al fine di proteggere le comunicazioni da Internet e anche tra le proprie VM ospitate in Azure.
+**Crittografia**: la crittografia dei dati archiviati e in transito può essere distribuita da clienti come procedura consigliata per garantire la riservatezza e l'integrità dei dati. È molto semplice per i clienti configurare i servizi cloud di Azure per l'uso di SSL al fine di proteggere le comunicazioni da Internet e anche tra le proprie VM ospitate in Azure.
 
-**Ridondanza dei dati**: Microsoft consente di proteggere i dati in caso di attacco informatico o danni fisici in un data center. I clienti possono scegliere varie opzioni:
+**Ridondanza dei dati**: Microsoft consente di assicurare la protezione dei dati in caso di attacco informatico o danni fisici in un data center. I clienti possono scegliere varie opzioni:
 
-- Archiviazione in-Country/in-Region per considerazioni sulla conformità o sulla latenza.
-- Archiviazione out-of-Country/out-of-Region a scopo di sicurezza o ripristino di emergenza.
+- Archiviazione nazionale/area geografica per considerazioni sulla conformità o sulla latenza.
+- Archiviazione fuori paese/fuori area per motivi di sicurezza o ripristino di emergenza.
 
 I dati possono essere replicati all'interno di un'area geografica selezionata per la ridondanza, ma non possono essere trasmessi al suo esterno. I clienti hanno più opzioni a disposizione per la replica dei dati, tra cui il numero delle copie e il numero e la posizione dei data center di replica.
 
 Quando si crea un account di archiviazione, selezionare una delle opzioni di replica seguenti:
 
-- **Archiviazione con ridondanza locale**.  Con l'archiviazione con ridondanza locale vengono conservate tre copie dei dati. Tale tipo di archiviazione viene replicato per tre volte all'interno di una singola struttura di una singola area. Questa opzione di archiviazione con ridondanza locale protegge i dati dai normali errori hardware ma non dagli errori di una singola struttura.
-- **Archiviazione con ridondanza della zona (ZRS)** .  Con l'archiviazione con ridondanza della zona vengono conservate tre copie dei dati. Questa opzione viene replicata tre volte in due o tre strutture per garantire una durabilità maggiore rispetto all'archiviazione con ridondanza locale. La replica viene eseguita in una singola area o in due aree. Questa opzione ZRS consente di garantire la durabilità dei dati all'interno di una singola area.
-- **Archiviazione con ridondanza geografica**: L'archiviazione con ridondanza geografica è abilitata per impostazione predefinita quando si crea l'account di archiviazione. Con tale tipo di archiviazione vengono conservate sei copie dei dati. Con l'archiviazione con ridondanza geografica, i dati vengono replicati tre volte all'interno dell'area primaria. I dati vengono replicati per tre volte anche in un'area secondaria situata a centinaia di chilometri di distanza dall'area primaria, fornendo il massimo livello di durabilità. In caso di errore nell'area primaria, il servizio di Archiviazione di Azure esegue il failover all'area secondaria. L'archiviazione con ridondanza geografica consente di garantire la durabilità dei dati in due aree distinte.
+- **Archiviazione con ridondanza locale (LRS)**: con l'archiviazione con ridondanza locale vengono conservate tre copie dei dati. Tale tipo di archiviazione viene replicato per tre volte all'interno di una singola struttura di una singola area. Questa opzione di archiviazione con ridondanza locale protegge i dati dai normali errori hardware ma non dagli errori di una singola struttura.
+- **Archiviazione con ridondanza della zona (ZRS)**: con l'archiviazione con ridondanza della zona vengono conservate tre copie dei dati. Questa opzione viene replicata tre volte in due o tre strutture per garantire una durabilità maggiore rispetto all'archiviazione con ridondanza locale. La replica viene eseguita in una singola area o in due aree. Questa opzione ZRS consente di garantire la durabilità dei dati all'interno di una singola area.
+- **Archiviazione con ridondanza geografica**: l'archiviazione con ridondanza geografica con accesso in lettura è abilitata per impostazione predefinita quando si crea l'account di archiviazione. Con tale tipo di archiviazione vengono conservate sei copie dei dati. Con l'archiviazione con ridondanza geografica, i dati vengono replicati tre volte all'interno dell'area primaria. I dati vengono replicati per tre volte anche in un'area secondaria situata a centinaia di chilometri di distanza dall'area primaria, fornendo il massimo livello di durabilità. In caso di errore nell'area primaria, il servizio di Archiviazione di Azure esegue il failover all'area secondaria. L'archiviazione con ridondanza geografica consente di garantire la durabilità dei dati in due aree distinte.
 
 **Distruzione dei dati**: quando i clienti eliminano i dati o cessano di usare Azure, Microsoft applica rigidi standard per la sovrascrittura delle risorse di archiviazione prima del riutilizzo ed esegue l'eliminazione fisica dell'hardware ritirato. Microsoft esegue l'eliminazione completa dei dati su richiesta dei clienti e al termine del contratto.
 
@@ -76,12 +76,12 @@ I clienti di Azure sono tenuti a garantire la conformità ai requisiti di e-disc
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'infrastruttura di Azure, vedere:
 
-- [Azure facilities, premises, and physical security](physical-security.md) (Sicurezza fisica, presupposti e strutture di Azure)
+- [Azure facilities, premises, and physical security (Sicurezza fisica, presupposti e strutture di Azure)](physical-security.md)
 - [Disponibilità dell'infrastruttura di Azure](infrastructure-availability.md)
-- [Azure information system components and boundaries](infrastructure-components.md) (Componenti e limiti del sistema informativo di Azure)
+- [Componenti e limiti del sistema informativo di Azure](infrastructure-components.md)
 - [Architettura di rete di Azure](infrastructure-network.md)
 - [Rete di produzione di Azure](production-network.md)
-- [Funzionalità di sicurezza del database SQL di Azure](infrastructure-sql.md)
-- [Azure production operations and management](infrastructure-operations.md) (Operazioni e gestione della produzione di Azure)
+- [Funzionalità di sicurezza del database SQL di AzureAzure SQL Database security features](infrastructure-sql.md)
+- [Gestione e funzionamento dell'ambiente di produzione di Azure](infrastructure-operations.md)
 - [Monitoraggio dell'infrastruttura di Azure](infrastructure-monitoring.md)
 - [Integrità dell'infrastruttura di Azure](infrastructure-integrity.md)

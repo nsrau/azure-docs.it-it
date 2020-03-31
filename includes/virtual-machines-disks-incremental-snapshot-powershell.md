@@ -9,10 +9,10 @@ ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 3eec6583ebdff35d7e40d2eec305a947de0cb87c
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79299457"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
@@ -26,17 +26,17 @@ ms.locfileid: "79299457"
 
 ## <a name="powershell"></a>PowerShell
 
-È possibile utilizzare Azure PowerShell per creare uno snapshot incrementale. Sarà necessaria la versione più recente di Azure PowerShell, il seguente comando lo installerà o aggiornerà l'installazione esistente alla versione più recente:
+È possibile usare Azure PowerShell per creare uno snapshot incrementale. È necessaria la versione più recente di Azure PowerShell, il comando seguente verrà installato o aggiornare l'installazione esistente alla versione più recente:You will need the latest version of Azure PowerShell, the following command will either install it or update your existing installation to latest:
 
 ```PowerShell
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
 ```
 
-Una volta installato, accedere alla sessione di PowerShell con `az login`.
+Una volta installato, accedere alla sessione `az login`di PowerShell con .
 
-Per creare uno snapshot incrementale con Azure PowerShell, impostare la configurazione con [New-AzSnapShotConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) con il parametro `-Incremental` e quindi passarlo come variabile a [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) tramite il parametro `-Snapshot`.
+Per creare uno snapshot incrementale con Azure PowerShell, impostare `-Incremental` la configurazione con [New-AzSnapShotConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) con `-Snapshot` il parametro e quindi passarla come variabile a [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) tramite il parametro.
 
-Sostituire `<yourDiskNameHere>`, `<yourResourceGroupNameHere>`e `<yourDesiredSnapShotNameHere>` con i valori, quindi è possibile usare lo script seguente per creare uno snapshot incrementale:
+Sostituire `<yourDiskNameHere>` `<yourResourceGroupNameHere>`, `<yourDesiredSnapShotNameHere>` e con i valori, è possibile utilizzare lo script seguente per creare uno snapshot incrementale:
 
 ```PowerShell
 # Get the disk that you need to backup by creating an incremental snapshot
@@ -47,9 +47,9 @@ $snapshotConfig=New-AzSnapshotConfig -SourceUri $yourDisk.Id -Location $yourDisk
 New-AzSnapshot -ResourceGroupName <yourResourceGroupNameHere> -SnapshotName <yourDesiredSnapshotNameHere> -Snapshot $snapshotConfig 
 ```
 
-È possibile identificare gli snapshot incrementali dallo stesso disco con le proprietà `SourceResourceId` e `SourceUniqueId` degli snapshot. `SourceResourceId` è l'ID di risorsa Azure Resource Manager del disco padre. `SourceUniqueId` è il valore ereditato dalla proprietà `UniqueId` del disco. Se si elimina un disco e quindi si crea un nuovo disco con lo stesso nome, viene modificato il valore della proprietà `UniqueId`.
+È possibile identificare snapshot incrementali dallo `SourceResourceId` stesso `SourceUniqueId` disco con le proprietà e le proprietà degli snapshot. `SourceResourceId`è l'ID risorsa di Azure Resource Manager del disco padre. `SourceUniqueId`è il valore ereditato dalla `UniqueId` proprietà del disco. Se si elimina un disco e quindi si crea un nuovo `UniqueId` disco con lo stesso nome, il valore della proprietà cambia.
 
-È possibile usare `SourceResourceId` e `SourceUniqueId` per creare un elenco di tutti gli snapshot associati a un disco specifico. Sostituire `<yourResourceGroupNameHere>` con il valore, quindi è possibile usare l'esempio seguente per elencare gli snapshot incrementali esistenti:
+È possibile `SourceResourceId` `SourceUniqueId` utilizzare e creare un elenco di tutti gli snapshot associati a un disco specifico. Sostituire `<yourResourceGroupNameHere>` con il valore e quindi è possibile utilizzare l'esempio seguente per elencare gli snapshot incrementali esistenti:
 
 ```PowerShell
 $snapshots = Get-AzSnapshot -ResourceGroupName <yourResourceGroupNameHere>
@@ -69,7 +69,7 @@ $incrementalSnapshots
 
 ## <a name="resource-manager-template"></a>Modello di Resource Manager
 
-È inoltre possibile utilizzare Azure Resource Manager modelli per creare uno snapshot incrementale. È necessario assicurarsi che apiVersion sia impostato su **2019-03-01** e che anche la proprietà incrementale sia impostata su true. Il frammento di codice seguente è un esempio di creazione di uno snapshot incrementale con i modelli di Gestione risorse:
+È anche possibile usare i modelli di Azure Resource Manager per creare uno snapshot incrementale. È necessario assicurarsi che apiVersion è impostato su **2019-03-01** e che anche la proprietà incrementale è impostata su true. Il frammento di codice seguente è un esempio di come creare uno snapshot incrementale con i modelli di Resource Manager:The following snippet is an example of how to create an incremental snapshot with Resource Manager templates:
 
 ```json
 {
@@ -105,4 +105,4 @@ $incrementalSnapshots
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si vuole vedere il codice di esempio che illustra la funzionalità differenziale degli snapshot incrementali, usando .NET, vedere [copiare i backup di Azure Managed disks in un'altra area con funzionalità differenziali di snapshot incrementali](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).
+Se si vuole vedere codice di esempio che illustra la funzionalità differenziale degli snapshot incrementali tramite .NET, vedere Copiare backup di dischi gestiti di Azure in [un'altra area con funzionalità differenziali di snapshot incrementali.](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots)

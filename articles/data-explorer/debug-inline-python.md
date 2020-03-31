@@ -1,6 +1,6 @@
 ---
-title: Eseguire il debug del linguaggio di query kusto inline Python usando VS Code-Azure Esplora dati
-description: Informazioni su come eseguire il debug di Python inline di Kusto Query Language (KQL) con VS Code.
+title: Debug Kusto query language inline Python using VS Code - Azure Data Explorer
+description: Informazioni su come eseguire il debug di Kusto query language (KQL) inline Python usando il codice VS.
 author: orspod
 ms.author: orspodek
 ms.reviewer: adieldar
@@ -8,48 +8,48 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.openlocfilehash: 96bd66f96b04bd7032d976ba9ebbbeb60c8415e7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75444465"
 ---
-# <a name="debug-kusto-query-language-inline-python-using-vs-code"></a>Debug del linguaggio di query kusto inline Python con VS Code
+# <a name="debug-kusto-query-language-inline-python-using-vs-code"></a>Debug Kusto query language inline Python using VS Code
 
-Azure Esplora dati supporta l'esecuzione di codice Python incorporato nel linguaggio di query kusto usando il plug-in [Python ()](/azure/kusto/query/pythonplugin). Il runtime del plug-in è ospitato in una sandbox, un ambiente Python isolato e sicuro. La funzionalità di plug-in Python () estende le funzionalità native di linguaggio di query kusto con il grande archivio di pacchetti OSS Python. Questa estensione consente di eseguire algoritmi avanzati, ad esempio Machine Learning, intelligenza artificiale, statistica e Time Series come parte della query.
+Azure Data Explorer supporta l'esecuzione di codice Python incorporato nel linguaggio di query Kusto usando il [plug-in python().](/azure/kusto/query/pythonplugin) Il runtime del plugin è ospitato in una sandbox, un ambiente Python isolato e sicuro. La funzionalità del plug-in python() estende le funzionalità native del linguaggio di query Kusto con l'enorme archivio dei pacchetti OSS Python. Questa estensione consente di eseguire algoritmi avanzati, ad esempio machine learning, intelligenza artificiale, statistiche e serie temporali come parte della query.
 
-Gli strumenti del linguaggio di query kusto non sono utili per lo sviluppo e il debug degli algoritmi Python. Sviluppare quindi l'algoritmo nei Integrated Development Environment Python preferiti, ad esempio Jupyter, PyCharm, VS o VS Code. Al termine dell'algoritmo, copiare e incollare in KQL. Per migliorare e semplificare questo flusso di lavoro, Azure Esplora dati supporta l'integrazione tra kusto Explorer o i client dell'interfaccia utente Web e VS Code per la creazione e il debug di codice Python inline KQL. 
+Gli strumenti del linguaggio di query Kusto non sono utili per lo sviluppo e il debug di algoritmi Python. Pertanto, sviluppare l'algoritmo sul vostro ambiente di sviluppo python-integrato preferito come Jupyter, PyCharm, VS, o VS Code. Quando l'algoritmo è completo, copia e incolla in KQL. Per migliorare e semplificare questo flusso di lavoro, Azure Data Explorer supporta l'integrazione tra Kusto Explorer o client dell'interfaccia utente Web e codice VS per la creazione e il debug di codice Python inline KQL. 
 
 > [!NOTE]
-> Questo flusso di lavoro può essere utilizzato solo per eseguire il debug di tabelle di input relativamente piccole (fino a pochi MB). Pertanto, potrebbe essere necessario limitare l'input per il debug.  Se è necessario elaborare una tabella di grandi dimensioni, limitarla per il debug con `| take`, `| sample`o `where rand() < 0.x`.
+> Questo flusso di lavoro può essere utilizzato solo per eseguire il debug di tabelle di input relativamente piccole (fino a pochi MB). Pertanto, potrebbe essere necessario limitare l'input per il debug.  Se è necessario elaborare una tabella di `| take` `| sample`grandi `where rand() < 0.x`dimensioni, limitarla per il debug utilizzando , , o .
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. Installare la [distribuzione anaconda](https://www.anaconda.com/distribution/#download-section)di Python. In **Opzioni avanzate**selezionare **Aggiungi Anaconda alla variabile di ambiente Path**.
-2. Installare [Visual Studio Code](https://code.visualstudio.com/Download)
-3. Installare l' [estensione Python per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
+1. Installare Python [Anaconda Distribuzione](https://www.anaconda.com/distribution/#download-section). In **Opzioni avanzate**selezionare Aggiungi **Anaconda alla variabile**di ambiente PATH .
+2. Installare il [codice di Visual StudioInstall Visual Studio Code](https://code.visualstudio.com/Download)
+3. Installare [l'estensione Python per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
-## <a name="run-your-query-in-your-client-application"></a>Eseguire la query nell'applicazione client
+## <a name="run-your-query-in-your-client-application"></a>Eseguire la query nell'applicazione clientRun your query in your client application
 
-1. Nell'applicazione client, anteporre al prefisso una query contenente Python inline con `set query_python_debug;`
+1. Nell'applicazione client, anteporre a una query contenente Python inline`set query_python_debug;`
 1. Consente di eseguire la query.
-    * Kusto Explorer: VS Code viene avviato automaticamente con lo script *debug_python. py* .
-    * Interfaccia utente Web di Kustori: 
-        1. Scaricare e salvare *debug_python. py*, *DF. txt*e *kargs. txt*. In finestra selezionare **Consenti**. **Salva** i file nella directory selezionata. 
+    * Kusto Explorer: il codice VS viene avviato automaticamente con lo script *debug_python.py.*
+    * Interfaccia utente Web di Kusto: 
+        1. Scaricare e salvare *debug_python.py*, *df.txt*e *kargs.txt*. Nella finestra selezionare **Consenti**. **Salvare i** file nella directory selezionata. 
 
-            ![L'interfaccia utente Web Scarica i file Python inline](media/debug-inline-python/webui-inline-python.png)
+            ![Web UI scarica i file pitining inline](media/debug-inline-python/webui-inline-python.png)
 
-        1. Fare clic con il pulsante destro del mouse su *debug_python. py* e aprire con Visual Studio Code. 
-        Lo script *debug_python. py* contiene il codice Python inline dalla query KQL, preceduto dal codice del modello per inizializzare il frame di dati di input da *DF. txt* e il dizionario dei parametri da *kargs. txt*.    
+        1. Fare clic con il pulsante destro del mouse su *debug_python.py* e aprire con codice VS. 
+        Lo script *debug_python.py* contiene il codice Python inline, dalla query KQL, preceduto dal codice del modello per inizializzare il frame di dati di input da *df.txt* e il dizionario dei parametri da *kargs.txt*.    
             
-1. In Visual Studio Code avviare il debugger di Visual Studio Code: **debug** > **avviare il debug (F5)** , selezionare configurazione di **Python** . Il debugger verrà avviato e verrà automaticamente punto di interruzione per eseguire il debug del codice inline.
+1. Nel codice VS, avviare il debugger del codice VS: **Debug Avvio** > debug (F5) , selezionare configurazione Python.In VS code, launch the VS code debugger: Debug**Start Debugging (F5)**, select **Python** configuration. Il debugger verrà avviato e si stendo automaticamente per eseguire il debug del codice inline.
 
-### <a name="how-does-inline-python-debugging-in-vs-code-work"></a>In che modo il debug python inline in VS Code funziona?
+### <a name="how-does-inline-python-debugging-in-vs-code-work"></a>Come funziona il debug Python inline nel codice VS?
 
-1. La query viene analizzata ed eseguita nel server fino a quando non viene raggiunta la clausola `| evaluate python()` richiesta.
-1. Il sandbox Python viene richiamato, ma anziché eseguire il codice, serializza la tabella di input, il dizionario dei parametri e il codice e li invia nuovamente al client.
-1. Questi tre oggetti vengono salvati in tre file: *DF. txt*, *kargs. txt*e *debug_python. py* nella directory selezionata (interfaccia utente Web) o nella directory% Temp% del client (kusto Explorer).
-1. Visual Studio Code viene avviato, precaricato con il file *debug_python. py* che contiene un codice prefisso per inizializzare DF e kargs dai rispettivi file, seguito dallo script Python incorporato nella query KQL.
+1. La query viene analizzata ed eseguita `| evaluate python()` nel server fino a quando non viene raggiunta la clausola obbligatoria.
+1. La sandbox Python viene richiamata ma invece di eseguire il codice, serializza la tabella di input, il dizionario dei parametri e il codice e li invia al client.
+1. Questi tre oggetti vengono salvati in tre file: *df.txt*, *kargs.txt*e *debug_python.py* nella directory selezionata (Web UI) o nella directory %TEMP% del client (Kusto Explorer).
+1. Viene avviato il codice VS, precaricato con il file *debug_python.py* che contiene un codice di prefisso per inizializzare df e kargs dai rispettivi file, seguito dallo script Python incorporato nella query KQL.
 
 ## <a name="query-example"></a>Esempio di query
 
@@ -64,16 +64,16 @@ Gli strumenti del linguaggio di query kusto non sono utili per lo sviluppo e il 
     , pack('exp', 4))
     ```
 
-    Vedere la tabella risultante:
+    Vedere la tabella risultante:See the resulting table:
 
-    | x  | X4  |
+    | x  | x4 (in questo modo)  |
     |---------|---------|
     | 1     |   1      |
     | 2     |   16      |
     | 3     |   81      |
     | 4     |    256     |
     
-1. Eseguire la stessa query KQL nell'applicazione client usando `set query_python_debug;`:
+1. Eseguire la stessa query KQL `set query_python_debug;`nell'applicazione client utilizzando:
 
     ```kusto
     set query_python_debug;
@@ -85,13 +85,13 @@ Gli strumenti del linguaggio di query kusto non sono utili per lo sviluppo e il 
     , pack('exp', 4))
     ```
 
-1. VS Code viene avviato:
+1. Viene avviato il codice VS:
 
-    ![avvia Visual Studio Code](media/debug-inline-python/launch-vs-code.png)
+    ![lanciare il codice VS](media/debug-inline-python/launch-vs-code.png)
 
-1. VS Code esegue il debug e stampa il frame di risultati ' Result ' nella console di debug:
+1. VS Codice esegue il debug e stampa 'risultato' frame dati nella console di debug:
 
-    ![Debug di Visual Studio Code](media/debug-inline-python/debug-vs-code.png)
+    ![Debug del codice VS](media/debug-inline-python/debug-vs-code.png)
 
 > [!NOTE]
-> Potrebbero esserci differenze tra l'immagine di Python sandbox e l'installazione locale. [Controllare l'immagine sandbox per i pacchetti specifici eseguendo una query sul plug-in](https://github.com/Azure/azure-kusto-analytics-lib/blob/master/Utils/functions/get_modules_version.csl).
+> Potrebbero esserci differenze tra l'immagine sandbox Python e l'installazione locale. [Controllare l'immagine sandbox per pacchetti specifici eseguendo una query sul plugin](https://github.com/Azure/azure-kusto-analytics-lib/blob/master/Utils/functions/get_modules_version.csl).

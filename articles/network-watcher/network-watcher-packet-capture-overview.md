@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 1f17463125cead64bd58a2d07e53eee4d3cfcd70
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840809"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Introduzione all'acquisizione di pacchetti di variabili in Azure Network Watcher
@@ -31,7 +31,7 @@ Per limitare le informazioni acquisite alle sole informazioni desiderate, sono d
 
 **Acquisisci configurazione**
 
-|Proprietà|Description|
+|Proprietà|Descrizione|
 |---|---|
 |**Numero massimo di byte per pacchetto (byte)** | Numero di byte acquisiti da ogni pacchetto. Se lasciato vuoto, vengono acquisiti tutti i byte. Numero di byte acquisiti da ogni pacchetto. Se lasciato vuoto, vengono acquisiti tutti i byte. Se è necessaria solo l'intestazione IPv4, indicare qui 34 |
 |**Numero massimo di byte per sessione (byte)** | Numero totale di byte acquisiti, quando viene raggiunto il valore di termine della sessione.|
@@ -39,7 +39,7 @@ Per limitare le informazioni acquisite alle sole informazioni desiderate, sono d
 
 **Filtro (facoltativo)**
 
-|Proprietà|Description|
+|Proprietà|Descrizione|
 |---|---|
 |**Protocollo** | Protocollo per filtrare l'acquisizione di pacchetti. I valori disponibili sono TCP, UDP e Tutti.|
 |**Indirizzo IP locale** | Questo valore filtra l'acquisizione di pacchetti per ottenere i pacchetti in cui l'indirizzo IP locale corrisponde a questo valore del filtro.|

@@ -1,7 +1,7 @@
 ---
-title: Modellare i dati relazionali SQL per l'importazione e l'indicizzazione
+title: Modellare i dati relazionali SQL per l'importazione e l'indicizzazioneModel SQL relational data for import and indexing
 titleSuffix: Azure Cognitive Search
-description: Informazioni su come modellare i dati relazionali, denormalizzati in un set di risultati Flat, per l'indicizzazione e la ricerca full-text in Azure ricerca cognitiva.
+description: Informazioni su come modellare i dati relazionali, denormalizzati in un set di risultati flat, per l'indicizzazione e la ricerca full-text in Ricerca cognitiva di Azure.Learn how to model relational data, de-normalized into a flat result set, for indexing and full text search in Azure Cognitive Search.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -9,46 +9,46 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 3b973dd05d23d190c77986ca9bf6d39656739cd8
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72790085"
 ---
-# <a name="how-to-model-relational-sql-data-for-import-and-indexing-in-azure-cognitive-search"></a>Come modellare i dati SQL relazionali per l'importazione e l'indicizzazione in Azure ricerca cognitiva
+# <a name="how-to-model-relational-sql-data-for-import-and-indexing-in-azure-cognitive-search"></a>Come modellare i dati SQL relazionali per l'importazione e l'indicizzazione in Ricerca cognitiva di AzureHow to model relational SQL data for import and indexing in Azure Cognitive Search
 
-Azure ricerca cognitiva accetta un set di righe flat come input per la [pipeline di indicizzazione](search-what-is-an-index.md). Se i dati di origine provengono da tabelle unite in join in un database relazionale SQL Server, in questo articolo viene illustrato come costruire il set di risultati e come modellare una relazione padre-figlio in un indice di ricerca cognitiva di Azure.
+Ricerca cognitiva di Azure accetta un set di righe flat come input per la [pipeline di indicizzazione.](search-what-is-an-index.md) Se i dati di origine hanno origine da tabelle unite in join in un database relazionale di SQL Server, in questo articolo viene illustrato come creare il set di risultati e come modellare una relazione padre-figlio in un indice di Ricerca cognitiva di Azure.If your source data originates from joined tables in a SQL Server relational database, this article explains how to construct the result set, and how to model a parent-child relationship in an Azure Cognitive Search index.
 
-Come esempio, si farà riferimento a un ipotetico database di Hotel, basato sui [dati dimostrativi](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels). Si supponga che il database sia costituito da una tabella Hotels $ con 50 Hotels e da una tabella Rooms $ con camere di tipo, tariffe e servizi diversi, per un totale di 750 chat room. Esiste una relazione uno-a-molti tra le tabelle. In questo approccio, una vista fornirà la query che restituisce 50 righe, una riga per ogni albergo, con i dettagli della stanza associati incorporati in ogni riga.
+A dire il vero, ci riferiremo a un ipotetico database degli hotel, basato sui [dati dimostrativi.](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels) Si supponga che il database sia costituito da una tabella Hotels con 50 hotel e da un tavolo Rooms con camere di vario tipo, tariffe e servizi, per un totale di 750 camere. Esiste una relazione uno-a-molti tra le tabelle. Nel nostro approccio, una vista fornirà la query che restituisce 50 righe, una riga per hotel, con i dettagli della stanza associati incorporati in ogni riga.
 
-   ![Tabelle e viste nel database di Hotel](media/index-sql-relational-data/hotels-database-tables-view.png "Tabelle e viste nel database di Hotel")
+   ![Tabelle e viste nel database Hotels](media/index-sql-relational-data/hotels-database-tables-view.png "Tabelle e viste nel database Hotels")
 
 
 ## <a name="the-problem-of-denormalized-data"></a>Il problema dei dati denormalizzati
 
-Una delle complicazioni legate all'uso di relazioni uno-a-molti è che le query standard basate su tabelle unite in join restituiscono dati denormalizzati, che non funzionano correttamente in uno scenario di ricerca cognitiva di Azure. Si consideri l'esempio seguente che unisce Alberghi e chat room.
+Una delle sfide nell'uso di relazioni uno-a-molti è che le query standard basate su tabelle unite in join restituiranno dati denormalizzati, che non funzionano bene in uno scenario di Ricerca cognitiva di Azure.One of the challenges in working with one-to-many relationships is that standard queries built on joined tables will return denormalized data, which doesn't work well in an Azure Cognitive Search scenario. Si consideri l'esempio seguente che unisce hotel e camere.
 
 ```sql
 SELECT * FROM Hotels$
 INNER JOIN Rooms$
 ON Rooms$.HotelID = Hotels$.HotelID
 ```
-I risultati di questa query restituiscono tutti i campi dell'oggetto, seguiti da tutti i campi della stanza, con le informazioni preliminari sugli hotel ripetute per ogni valore di room.
+I risultati di questa query restituiscono tutti i campi dell'Hotel, seguiti da tutti i campi della camera, con le informazioni preliminari sull'hotel ripetute per ogni valore della camera.
 
-   ![Dati denormalizzati, dati di Hotel ridondanti quando vengono aggiunti campi room](media/index-sql-relational-data/denormalize-data-query.png "Dati denormalizzati, dati di Hotel ridondanti quando vengono aggiunti campi room")
+   ![Dati denormalizzati, dati ridondanti dell'hotel quando vengono aggiunti i campi della stanza](media/index-sql-relational-data/denormalize-data-query.png "Dati denormalizzati, dati ridondanti dell'hotel quando vengono aggiunti i campi della stanza")
 
 
-Quando la query ha esito positivo sulla superficie (fornendo tutti i dati in un set di righe Flat), non riesce a fornire la struttura del documento corretta per l'esperienza di ricerca prevista. Durante l'indicizzazione, Azure ricerca cognitiva creerà un documento di ricerca per ogni riga inserita. Se i documenti di ricerca sono simili ai risultati precedenti, è possibile che vengano percepiti duplicati, ovvero sette documenti distinti per l'Hotel Twin Dome. Una query su "Hotels in Florida" restituisce sette risultati solo per l'Hotel Twin Dome, inserendo altri alberghi rilevanti nei risultati della ricerca.
+Anche se la query ha esito positivo sulla superficie (fornendo tutti i dati in un set di righe semplice), non riesce a fornire la struttura di documento corretta per l'esperienza di ricerca prevista. Durante l'indicizzazione, Ricerca cognitiva di Azure creerà un documento di ricerca per ogni riga ingerita. Se i documenti di ricerca sembravano i risultati di cui sopra, si sarebbe percepito duplicati - sette documenti separati per l'hotel Twin Dome da solo. Una query su "hotel in Florida" restituirebbe sette risultati solo per l'hotel Twin Dome, spingendo altri alberghi rilevanti in profondità nei risultati di ricerca.
 
-Per ottenere l'esperienza prevista di un documento per ogni albergo, è necessario fornire un set di righe con la granularità corretta, ma con informazioni complete. Fortunatamente, è possibile eseguire questa operazione con facilità adottando le tecniche descritte in questo articolo.
+Per ottenere l'esperienza prevista di un documento per hotel, è necessario fornire un set di righe alla granularità corretta, ma con informazioni complete. Fortunatamente, è possibile farlo facilmente adottando le tecniche in questo articolo.
 
-## <a name="define-a-query-that-returns-embedded-json"></a>Definire una query che restituisca JSON incorporato
+## <a name="define-a-query-that-returns-embedded-json"></a>Definire una query che restituisce JSON incorporatoDefine a query that returns embedded JSON
 
-Per fornire l'esperienza di ricerca prevista, il set di dati deve essere costituito da una riga per ogni documento di ricerca in Azure ricerca cognitiva. In questo esempio, si vuole una riga per ogni albergo, ma si vuole che gli utenti siano in grado di eseguire ricerche in altri campi correlati alla chat, ad esempio la tariffa notturna, le dimensioni e il numero di letti, oppure una vista della spiaggia, che tutti fanno parte di un dettaglio della chat.
+Per offrire l'esperienza di ricerca prevista, il set di dati deve essere costituito da una riga per ogni documento di ricerca in Ricerca cognitiva di Azure.To deliver the expected search experience, your data set should consist of one row for each search document in Azure Cognitive Search. Nel nostro esempio, vogliamo una riga per ogni hotel, ma vogliamo anche che i nostri utenti siano in grado di cercare in altri campi relativi alla stanza a cui tengono, come la tariffa notturna, le dimensioni e il numero di letti o una vista sulla spiaggia, tutti parte dei dettagli di una stanza.
 
-La soluzione consiste nell'acquisire i dettagli della stanza come JSON annidato e quindi inserire la struttura JSON in un campo in una visualizzazione, come illustrato nel secondo passaggio. 
+La soluzione consiste nell'acquisire i dettagli della room come JSON annidato e quindi inserire la struttura JSON in un campo in una visualizzazione, come illustrato nel secondo passaggio. 
 
-1. Si supponga di disporre di due tabelle unite in join, Hotels $ e chats $, che contengono i dettagli per gli alberghi 50 e 750 e che vengono unite in join nel campo dei Hotel. Singolarmente, queste tabelle contengono 50 Hotels e 750 chat room correlate.
+1. Si supponga di disporre di due tabelle unite, Hotels e Rooms, che contengono dettagli per 50 hotel e 750 camere, e sono uniti nel campo HotelID. Individualmente, questi tavoli contengono 50 hotel e 750 camere correlate.
 
     ```sql
     CREATE TABLE [dbo].[Hotels$](
@@ -84,7 +84,7 @@ La soluzione consiste nell'acquisire i dettagli della stanza come JSON annidato 
     GO
     ```
 
-2. Creare una vista composta da tutti i campi della tabella padre (`SELECT * from dbo.Hotels$`), con l'aggiunta di un nuovo campo *room* che contiene l'output di una query nidificata. Una clausola **for JSON auto** in `SELECT * from dbo.Rooms$` struttura l'output come JSON. 
+2. Creare una visualizzazione composta da tutti`SELECT * from dbo.Hotels$`i campi della tabella padre ( ), con l'aggiunta di un nuovo campo *Stanze* contenente l'output di una query nidificata. Una clausola FOR `SELECT * from dbo.Rooms$` JSON **AUTO** nelle strutture dell'output come JSON. 
 
      ```sql
    CREATE VIEW [dbo].[HotelRooms]
@@ -96,24 +96,24 @@ La soluzione consiste nell'acquisire i dettagli della stanza come JSON annidato 
    GO
    ```
 
-   Nella schermata seguente viene illustrata la visualizzazione risultante, con il campo *chats* nvarchar nella parte inferiore. Il campo *chats* esiste solo nella vista hotelrooms.
+   La schermata seguente mostra la visualizzazione risultante, con *il* campo Rooms nvarchar nella parte inferiore. Il campo *Camere* esiste solo nella vista HotelRooms.
 
-   ![Visualizzazione HotelRooms](media/index-sql-relational-data/hotelsrooms-view.png "Visualizzazione HoteRooms")
+   ![Vista HotelRooms](media/index-sql-relational-data/hotelsrooms-view.png "Visualizzazione HoteRooms")
 
-1. Eseguire `SELECT * FROM dbo.HotelRooms` per recuperare il set di righe. Questa query restituisce 50 righe, una per ogni albergo, con le informazioni sulla stanza associate come raccolta JSON. 
+1. Eseguire `SELECT * FROM dbo.HotelRooms` per recuperare il set di righe. Questa query restituisce 50 righe, una per hotel, con informazioni sulla stanza associate come raccolta JSON. 
 
-   ![Set di righe dalla vista HotelRooms](media/index-sql-relational-data/hotelrooms-rowset.png "Set di righe dalla vista HotelRooms")
+   ![Set di righe dalla visualizzazione HotelRoomsRowset from HotelRooms view](media/index-sql-relational-data/hotelrooms-rowset.png "Set di righe dalla visualizzazione HotelRoomsRowset from HotelRooms view")
 
-Questo set di righe è ora pronto per l'importazione in Azure ricerca cognitiva.
+Questo set di righe è ora pronto per l'importazione in Ricerca cognitiva di Azure.This rowset is now ready for import into Azure Cognitive Search.
 
 > [!NOTE]
-> Questo approccio presuppone che il codice JSON incorporato sia inferiore al [limite massimo di dimensioni della colonna di SQL Server](https://docs.microsoft.com/sql/sql-server/maximum-capacity-specifications-for-sql-server). Se i dati non si adattano, è possibile provare un approccio programmatico, come illustrato nell' [esempio: modellare il database di inventario AdventureWorks per Azure ricerca cognitiva](search-example-adventureworks-modeling.md).
+> Questo approccio presuppone che JSON incorporato sia inferiore ai [limiti di dimensione massima delle colonne di SQL Server.](https://docs.microsoft.com/sql/sql-server/maximum-capacity-specifications-for-sql-server) Se i dati non rientrano, è possibile provare un approccio a livello di codice, come illustrato in [Esempio: modellare il database adventureWorks Inventory per Ricerca cognitiva di Azure](search-example-adventureworks-modeling.md).
 
- ## <a name="use-a-complex-collection-for-the-many-side-of-a-one-to-many-relationship"></a>Usare una raccolta complessa per il lato "molti" di una relazione uno-a-molti
+ ## <a name="use-a-complex-collection-for-the-many-side-of-a-one-to-many-relationship"></a>Utilizzare una raccolta complessa per il lato "molti" di una relazione uno-a-molti
 
-Sul lato ricerca cognitiva di Azure, creare uno schema dell'indice che modella la relazione uno-a-molti usando JSON annidato. Il set di risultati creato nella sezione precedente corrisponde generalmente allo schema di indice fornito di seguito (si tagliano alcuni campi per brevità).
+Sul lato Ricerca cognitiva di Azure creare uno schema di indice che modelli la relazione uno-a-molti usando JSON annidato. Il set di risultati creato nella sezione precedente corrisponde in genere allo schema dell'indice fornito di seguito (alcuni campi sono stati tagliati per brevità).
 
-L'esempio seguente è simile all'esempio di [come modellare tipi di dati complessi](search-howto-complex-data-types.md#creating-complex-fields). La struttura *room* , che è stata l'area di interesse di questo articolo, si trova nella raccolta Fields di un indice denominato *Hotels*. Questo esempio mostra anche un tipo complesso per *Address*, che differisce dalle *chat room* in quanto è costituito da un set fisso di elementi, in contrapposizione al numero arbitrario multiplo di elementi consentiti in una raccolta.
+L'esempio seguente è simile all'esempio in [Come modellare tipi di dati complessi.](search-howto-complex-data-types.md#creating-complex-fields) La struttura *Rooms,* che è stata al centro di questo articolo, è nella raccolta di campi di un indice denominato *hotels*. In questo esempio viene inoltre illustrato un tipo complesso per *Address*, che differisce da *Rooms* in quanto è composto da un set fisso di elementi, anziché il numero multiplo arbitrario di elementi consentiti in una raccolta.
 
 ```json
 {
@@ -148,15 +148,15 @@ L'esempio seguente è simile all'esempio di [come modellare tipi di dati comples
 }
 ```
 
-Dato il set di risultati precedente e lo schema dell'indice precedente, sono disponibili tutti i componenti necessari per un'operazione di indicizzazione corretta. Il set di dati flat soddisfa i requisiti di indicizzazione ma conserva le informazioni dettagliate. Nell'indice del ricerca cognitiva di Azure i risultati della ricerca rientrano facilmente in entità basate su Hotel, mantenendo al contempo il contesto delle singole chat e dei rispettivi attributi.
+Dato il set di risultati precedente e lo schema dell'indice precedente, si dispone di tutti i componenti necessari per una corretta operazione di indicizzazione. Il set di dati appiattito soddisfa i requisiti di indicizzazione ma conserva le informazioni di dettaglio. Nell'indice di Ricerca cognitiva di Azure, i risultati della ricerca cadranno facilmente nelle entità basate su hotel, preservando il contesto delle singole chat room e dei relativi attributi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Utilizzando il proprio set di dati, è possibile utilizzare la [procedura guidata Importa dati](search-import-data-portal.md) per creare e caricare l'indice. La procedura guidata rileva la raccolta JSON incorporata, ad esempio quella contenuta in *chat room*, e deduce uno schema di indice che include una raccolta di tipi complessi. 
+Utilizzando il proprio set di dati, è possibile utilizzare [l'Importazione guidata dati](search-import-data-portal.md) per creare e caricare l'indice. La procedura guidata rileva l'insieme JSON incorporato, ad esempio quello contenuto in *Rooms*, e deduce uno schema di indice che include una raccolta di tipi complessi. 
 
-  ![Indice derivato dall'importazione guidata dati](media/index-sql-relational-data/search-index-rooms-complex-collection.png "Indice derivato dall'importazione guidata dati")
+  ![Indicizzazione dedotto dall'Importazione guidata dati](media/index-sql-relational-data/search-index-rooms-complex-collection.png "Indicizzazione dedotto dall'Importazione guidata dati")
 
-Per informazioni sui passaggi di base della procedura guidata Importa dati, provare a eseguire la Guida introduttiva seguente.
+Provare la guida introduttiva seguente per informazioni sui passaggi di base dell'Importazione guidata dati.
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: creare un indice di ricerca usando portale di Azure](search-get-started-portal.md)
+> [Guida introduttiva: Creare un indice di ricerca usando il portale di AzureQuickstart: Create a search index using Azure portal](search-get-started-portal.md)

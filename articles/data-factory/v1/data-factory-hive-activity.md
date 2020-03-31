@@ -1,5 +1,5 @@
 ---
-title: Trasformare i dati usando l'attività hive-Azure
+title: Trasformare i dati usando attività Hive - AzureTransform data using Hive Activity - Azure
 description: Informazioni su come usare l'attività Hive in una data factory di Azure per eseguire query Hive in un cluster HDInsight su richiesta o nel proprio cluster HDInsight.
 services: data-factory
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: d153f8c316cbb76e063f07f7f823c8d9c4a21f87
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74703346"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Trasformare dati usando l'attività Hive in Azure Data Factory 
@@ -26,7 +26,7 @@ ms.locfileid: "74703346"
 > * [Attività MapReduce](data-factory-map-reduce.md)
 > * [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
 > * [Attività Spark](data-factory-spark.md)
-> * [Attività di esecuzione batch di Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+> * [Machine Learning Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
 > * [Attività della risorsa di aggiornamento di Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 > * [Attività stored procedure](data-factory-stored-proc-activity.md)
 > * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
@@ -38,7 +38,7 @@ ms.locfileid: "74703346"
 L'attività Hive di HDInsight in una [pipeline](data-factory-create-pipelines.md) di Data Factory esegue query Hive sul [proprio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) cluster HDInsight o sul cluster HDInsight [su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) basato su Windows o Linux. Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](data-factory-data-transformation-activities.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate.
 
 > [!NOTE] 
-> Se non si ha familiarità con Azure Data Factory, prima di leggere questo articolo leggere [Introduzione ad Azure Data Factory](data-factory-introduction.md) ed eseguire l'esercitazione [Creare la prima pipeline di dati](data-factory-build-your-first-pipeline.md) . 
+> Se non si ha familiarità con Azure Data Factory, leggere l'[Introduzione ad Azure Data Factory](data-factory-introduction.md) ed eseguire l'esercitazione: [Creare la prima pipeline di dati](data-factory-build-your-first-pipeline.md) prima di leggere questo articolo. 
 
 ## <a name="syntax"></a>Sintassi
 
@@ -72,14 +72,14 @@ L'attività Hive di HDInsight in una [pipeline](data-factory-create-pipelines.md
 }
 ```
 ## <a name="syntax-details"></a>Dettagli sintassi
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| name |Nome dell'attività |SÌ |
+| name |Nome dell'attività |Sì |
 | description |Testo descrittivo per lo scopo dell'attività |No |
-| type |HDinsightHive |SÌ |
+| type |HDinsightHive |Sì |
 | inputs |Input utilizzati dall'attività Hive |No |
-| outputs |Output generati dall'attività Hive |SÌ |
-| linkedServiceName |Riferimento al cluster HDInsight registrato come servizio collegato in Data factory |SÌ |
+| outputs |Output generati dall'attività Hive |Sì |
+| linkedServiceName |Riferimento al cluster HDInsight registrato come servizio collegato in Data factory |Sì |
 | script |Specificare lo script Hive inline |No |
 | scriptPath |Archiviare lo script Hive in un archivio BLOB di Azure e immettere il percorso del file. Usare la proprietà "script" o "scriptPath". Non è possibile usare entrambe le proprietà. Il nome del file distingue tra maiuscole e minuscole. |No |
 | defines |Specificare i parametri come coppie chiave/valore per fare riferimento ad essi nello script Hive usando "hiveconf" |No |
@@ -129,7 +129,7 @@ Per eseguire lo script Hive in una pipeline di Data factory, è necessario segui
 1. Creare un servizio collegato per registrare [il proprio cluster di elaborazione di HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) oppure configurare [un cluster di elaborazione di HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). In questo esempio il servizio collegato è denominato "HDInsightLinkedService".
 2. Creare un [servizio collegato](data-factory-azure-blob-connector.md) per configurare la connessione all'archivio BLOB di Azure che ospita i dati. In questo esempio il servizio collegato è denominato "StorageLinkedService".
 3. Creare [set di dati](data-factory-create-datasets.md) che puntano ai dati di input e output. In questo esempio il set di dati di input è denominato "HiveSampleIn", mentre il set di dati di output è denominato "HiveSampleOut".
-4. Copiare la query Hive come file nell'archivio BLOB di Azure configurato nel passaggio 2. Se la risorsa di archiviazione che deve ospitare i dati è diverso da quello che ospita il file di query, creare un altro servizio collegato di Archiviazione di Azure e fare riferimento a quest'ultimo nell'attività. Usare **scriptPath** per specificare il percorso del file di query Hive e **scriptLinkedService** per specificare la risorsa di archiviazione di Azure contenente il file di script. 
+4. Copiare la query Hive come file nell'archivio BLOB di Azure configurato nel passaggio 2. Se la risorsa di archiviazione che deve ospitare i dati è diverso da quello che ospita il file di query, creare un altro servizio collegato di Archiviazione di Azure e fare riferimento a quest'ultimo nell'attività. Usare **scriptPath** per specificare il percorso del file di query hive e **scriptLinkedService** per specificare l'archiviazione di Azure che contiene il file di script. 
    
    > [!NOTE]
    > È anche possibile fornire lo script Hive inline nella definizione dell'attività tramite la proprietà **script** . Si sconsiglia tuttavia questo approccio perché è necessario eseguire l'escape di tutti i caratteri speciali dello script nel documento JSON, con possibili problemi di debug. Si consiglia di seguire il passaggio 4.
@@ -215,7 +215,7 @@ Per usare lo script con parametri Hive, eseguire le operazioni seguenti:
       }
     }
     ```
-* Nello script Hive fare riferimento al parametro tramite **${hiveconf:parameterName}** . 
+* Nello script Hive fare riferimento al parametro tramite **${hiveconf:parameterName}**. 
   
     ```
     DROP TABLE IF EXISTS HiveSampleIn; 

@@ -5,10 +5,10 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 239ea2eb4d5bc8d326d5ca503a18b149252dc1be
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69558830"
 ---
 > [!div class="op_single_selector"]
@@ -17,7 +17,7 @@ ms.locfileid: "69558830"
 > * [Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
 > * [Python](../articles/iot-hub/iot-hub-python-python-device-management-get-started.md)
 
-Le app back-end possono usare le primitive dell'hub Azure, ad esempio i [metodi diretti][lnk-c2dmethod]e i [dispositivi gemelli][lnk-devtwin] , per avviare e monitorare le azioni di gestione dei dispositivi in modalità remota. Questa esercitazione mostra il funzionamento combinato di un'app back-end e un'app per dispositivo per avviare e monitorare il riavvio remoto di un dispositivo tramite l'hub IoT.
+Le app back-end possono usare primitive dell'hub IoT di Azure, ad esempio i [metodi diretti][lnk-c2dmethod] e il [dispositivo gemello][lnk-devtwin], per avviare e monitorare le azioni di gestione nei dispositivi in modalità remota. Questa esercitazione mostra il funzionamento combinato di un'app back-end e un'app per dispositivo per avviare e monitorare il riavvio remoto di un dispositivo tramite l'hub IoT.
 
 [!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
 

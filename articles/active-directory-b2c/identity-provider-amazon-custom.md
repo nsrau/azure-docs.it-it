@@ -1,5 +1,5 @@
 ---
-title: Configurare l'accesso con un account Amazon usando criteri personalizzati
+title: Configurare l'accesso con un account Amazon utilizzando criteri personalizzati
 titleSuffix: Azure AD B2C
 description: Configurare l'accesso con un account Amazon in Azure Active Directory B2C usando criteri personalizzati.
 services: active-directory-b2c
@@ -12,22 +12,22 @@ ms.date: 10/05/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2de891ee109677f92ff603759701f7732f5951ba
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78188512"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account Amazon usando criteri personalizzati in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Questo articolo illustra come abilitare l'accesso per gli utenti da un account Amazon usando [criteri personalizzati](custom-policy-overview.md) in Azure Active Directory B2C (Azure ad B2C).
+Questo articolo illustra come abilitare l'accesso per gli utenti da un account Amazon usando [criteri personalizzati](custom-policy-overview.md) in Azure Active Directory B2C (Azure AD B2C).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Completare la procedura descritta in [Introduzione ai criteri personalizzati](custom-policy-get-started.md).
-- Se non si ha già un account Amazon, crearne uno all'indirizzo [https://www.amazon.com/](https://www.amazon.com/).
+- Se non hai già un account Amazon, [https://www.amazon.com/](https://www.amazon.com/)creane uno all'indirizzo .
 
 ## <a name="register-the-application"></a>Registrare l'applicazione
 
@@ -37,15 +37,15 @@ Per abilitare l'accesso per gli utenti da un account Amazon, è necessario crear
 2. Se non è già stato fatto, fare clic su **Sign Up**(Iscrizione), seguire la procedura di registrazione per sviluppatori e accettare le condizioni.
 3. Selezionare **Registra nuova applicazione**.
 4. Immettere un **Name**, una **Descrizione** e un **URL dell'informativa sulla Privacy**, quindi fare clic su **Salva**. L'Informativa sulla privacy è una pagina gestita dall'utente che fornisce informazioni sulla privacy per gli utenti.
-5. Nella sezione **Impostazioni Web** copiare i valori dell'**ID client**. Selezionare **Mostra il segreto** per ottenere il segreto client e quindi copiarlo. Sono necessari entrambi per configurare un account Amazon come provider di identità nel tenant. **Client Segreto** è un'importante credenziale di sicurezza.
+5. Nella sezione **Impostazioni Web** copiare i valori dell'**ID client**. Selezionare **Mostra il segreto** per ottenere il segreto client e quindi copiarlo. Sono necessari entrambi per configurare un account Amazon come provider di identità nel tenant. **Client Secret** è un'importante credenziale di sicurezza.
 6. Nella sezione **Impostazioni Web**, selezionare **Modifica**, quindi immettere `https://your-tenant-name.b2clogin.com` in **Allowed JavaScript Origins** (Origini JavaScript consentite) e `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **Allowed Return URLs** (URL restituiti consentiti). Sostituire `your-tenant-name` con il nome del tenant. Usare lettere minuscole quando si immette il nome del tenant, anche se questo viene definito con lettere maiuscole in Azure AD B2C.
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 ## <a name="create-a-policy-key"></a>Creare una chiave dei criteri
 
 È necessario archiviare il segreto client registrato in precedenza nel tenant di Azure AD B2C.
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale](https://portal.azure.com/)di Azure .
 2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 4. Nella pagina Panoramica selezionare **Framework dell'esperienza di gestione delle identità**.
@@ -149,13 +149,13 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
     <ClaimsExchange Id="AmazonExchange" TechnicalProfileReferenceId="Amazon-OAuth" />
     ```
 
-    Aggiornare il valore di **TechnicalProfileReferenceId** con l'ID del profilo tecnico creato in precedenza. Ad esempio: `Amazon-OAuth`.
+    Aggiornare il valore di **TechnicalProfileReferenceId** all'ID del profilo tecnico creato in precedenza. Ad esempio: `Amazon-OAuth`.
 
 3. Salvare il file *TrustFrameworkExtensions.xml* e caricarlo di nuovo per la verifica.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Creare un'applicazione Azure AD B2C
 
-La comunicazione con Azure AD B2C avviene tramite un'applicazione registrata nel tenant B2C. Questa sezione elenca i passaggi facoltativi che è possibile completare per creare un'applicazione di test, se non è già stato fatto.
+La comunicazione con Azure AD B2C avviene tramite un'applicazione che viene eseguita nella registrazione nel tenant B2C. Questa sezione elenca i passaggi facoltativi che è possibile completare per creare un'applicazione di test, se non è già stato fatto.
 
 [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: Identità del modulo Hub Azure Internet e modulo gemello (Python)
+title: Identità e modulo gemello dell'hub IoT di Azure (Python)Azure IoT Hub module identity and module twin (Python)
 description: Come creare l'identità del modulo e aggiornare il modulo gemello usando gli SDK per IoT per Python.
 author: chrissie926
 ms.service: iot-hub
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: menchi
 ms.openlocfilehash: e18d448d9aee0137f1167d23a2bbf53486d0c764
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73953856"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>Introduzione all'identità del modulo dell'hub Internet e al modulo gemello (Python)
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>Introduzione all'identità del modulo Hub IoT e al modulo gemello (Python)
 
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
@@ -31,7 +31,7 @@ Al termine di questa esercitazione si hanno due app Python:
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
@@ -39,7 +39,7 @@ Al termine di questa esercitazione si hanno due app Python:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub Internet
+## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub IoTGet the IoT hub connection string
 
 [!INCLUDE [iot-hub-howto-module-twin-shared-access-policy-text](../../includes/iot-hub-howto-module-twin-shared-access-policy-text.md)]
 
@@ -47,7 +47,7 @@ Al termine di questa esercitazione si hanno due app Python:
 
 ## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Creare un'identità del dispositivo e un'identità del modulo nell'hub IoT
 
-In questa sezione si scriverà un'app Python che crea un'identità del dispositivo e un'identità del modulo nel registro delle identità dell'hub IoT. Un dispositivo o un modulo non può connettersi all'hub IoT se non ha una voce nel registro delle identità. Per ulteriori informazioni, vedere la sezione "Registro di identità" della [Guida](iot-hub-devguide-identity-registry.md)per gli sviluppatori dell'hub Internet. Quando si esegue questa app console vengono generati un ID e una chiave univoci sia per il dispositivo che per il modulo. Il dispositivo e il modulo usano questi valori per identificarsi quando inviano messaggi da dispositivo a cloud all'hub IoT. Negli ID viene fatta distinzione tra maiuscole e minuscole.
+In questa sezione si scriverà un'app Python che crea un'identità del dispositivo e un'identità del modulo nel registro delle identità dell'hub IoT. Un dispositivo o un modulo non può connettersi all'hub IoT se non ha una voce nel registro delle identità. Per ulteriori informazioni, vedere la sezione "Registro di identità" della [Guida per gli sviluppatori dell'hub IoT](iot-hub-devguide-identity-registry.md). Quando si esegue questa app console vengono generati un ID e una chiave univoci sia per il dispositivo che per il modulo. Il dispositivo e il modulo usano questi valori per identificarsi quando inviano messaggi da dispositivo a cloud all'hub IoT. Negli ID viene fatta distinzione tra maiuscole e minuscole.
 
 Aggiungere il codice seguente al file Python:
 
@@ -85,21 +85,21 @@ except KeyboardInterrupt:
     print("IoTHubRegistryManager sample stopped")
 ```
 
-Questa app crea un'identità del dispositivo con ID **myFirstDevice** e un'identità del modulo con ID **myFirstModule** per il dispositivo **myFirstDevice**. Se tale ID modulo esiste già nel registro delle identità, il codice recupera semplicemente le informazioni sul modulo esistente. L'app Visualizza quindi la chiave primaria per tale identità. Questa chiave verrà usata dall'app per modulo simulato per connettersi all'hub IoT.
+Questa app crea un'identità del dispositivo con ID **myFirstDevice** e un'identità del modulo con ID **myFirstModule** per il dispositivo **myFirstDevice**. Se tale ID modulo esiste già nel registro delle identità, il codice recupera semplicemente le informazioni sul modulo esistente. L'app visualizza quindi la chiave primaria per tale identità. Questa chiave verrà usata dall'app per modulo simulato per connettersi all'hub IoT.
 
 > [!NOTE]
-> Il registro delle identità dell'hub IoT archivia solo le identità del dispositivo e del modulo per abilitare l'accesso sicuro all'hub. Il registro delle identità archivia gli ID dispositivo e le chiavi da usare come credenziali di sicurezza. Il registro delle identità archivia anche un flag di abilitazione/disabilitazione per ogni dispositivo che consente di disabilitare l'accesso per un dispositivo. Se l'applicazione deve archiviare altri metadati specifici del dispositivo, dovrà usare un archivio specifico dell'applicazione. Non esiste alcun flag abilitato/disabilitato per le identità del modulo. Per altre informazioni, vedere la [Guida per gli sviluppatori dell'hub IoT](iot-hub-devguide-identity-registry.md).
+> Il registro delle identità dell'hub IoT archivia solo le identità del dispositivo e del modulo per abilitare l'accesso sicuro all'hub. Il registro delle identità archivia gli ID dispositivo e le chiavi da usare come credenziali di sicurezza. Il registro delle identità archivia anche un flag di abilitazione/disabilitazione per ogni dispositivo che consente di disabilitare l'accesso per un dispositivo. Se l'applicazione deve archiviare altri metadati specifici del dispositivo, dovrà usare un archivio specifico dell'applicazione. Non esiste alcun flag abilitato/disabilitato per le identità del modulo. Per altre informazioni, vedere [La guida per gli sviluppatori dell'hub IoT](iot-hub-devguide-identity-registry.md).
 >
 
 ## <a name="update-the-module-twin-using-python-device-sdk"></a>Aggiornare il modulo gemello usando l'SDK per dispositivi Python
 
 In questa sezione, nel dispositivo simulato viene creata un'app Python che aggiorna le proprietà restituite del modulo gemello.
 
-1. **Ottenere la stringa di connessione del modulo** , ora se si accede al [portale di Azure](https://portal.azure.com/). Passare all'hub IoT e fare clic su Dispositivi IoT. Trovare myFirstDevice e aprirlo. Si vedrà che myFirstModule è stato creato correttamente. Copiare la stringa di connessione del modulo. Sarà necessaria nel prossimo passaggio.
+1. **Ottenere la stringa** di connessione del modulo, ora se si accede al portale di [Azure](https://portal.azure.com/). Passare all'hub IoT e fare clic su Dispositivi IoT. Trovare myFirstDevice e aprirlo. Si vedrà che myFirstModule è stato creato correttamente. Copiare la stringa di connessione del modulo. Sarà necessaria nel prossimo passaggio.
 
    ![Dettagli del modulo nel portale di Azure](./media/iot-hub-python-python-module-twin-getstarted/module-detail.png)
 
-2. **Crea app UpdateModuleTwinReportedProperties**
+2. **Creare l'app UpdateModuleTwinReportedPropertiesCreate UpdateModuleTwinReportedProperties app**
 
    Aggiungere le istruzione `using` seguenti all'inizio del file **Program.cs** :
 

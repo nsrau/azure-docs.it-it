@@ -12,10 +12,10 @@ ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
 ms.openlocfilehash: ee929fa227cb105b73bc929c13a768aabef37ce3
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75771684"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Procedure consigliate per la sincronizzazione dati SQL 
@@ -25,9 +25,9 @@ Questo articolo descrive le procedure consigliate per la sincronizzazione dati S
 Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure](sql-database-sync-data.md).
 
 > [!IMPORTANT]
-> Al momento, la sincronizzazione dati SQL di Azure **non** supporta Istanza gestita di database SQL di Azure.
+> La sincronizzazione dati SQL di Azure **non** supporta l'istanza gestita del database SQL di Azure in questo momento.
 
-## <a name="security-and-reliability"></a>Sicurezza e affidabilità
+## <a name="security-and-reliability"></a><a name="security-and-reliability"></a>Sicurezza e affidabilità
 
 ### <a name="client-agent"></a>Agente client
 
@@ -41,7 +41,7 @@ Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati
 
 -   **Per la configurazione della sincronizzazione**. Create/Alter Table; Alter Database; Create Procedure; Select/ Alter Schema; Create User-Defined Type.
 
--   **Per la sincronizzazione continua**. SELECT/INSERT/UPDATE/DELETE per le tabelle selezionate per la sincronizzazione e su tabelle di rilevamento e metadati di sincronizzazione; Autorizzazione Execute per le stored procedure create dal servizio. Autorizzazione Execute per i tipi di tabella definiti dall'utente.
+-   **Per la sincronizzazione in corso**. Selezionare/inserire/aggiornare/eliminare nelle tabelle selezionate per la sincronizzazione e nei metadati di sincronizzazione e nelle tabelle di rilevamento; Autorizzazione di esecuzione per le stored procedure create dal servizio; Autorizzazione di esecuzione per i tipi di tabella definiti dall'utente.
 
 -   **Per il deprovisioning**. Alter su tabelle che fanno parte della sincronizzazione; Select/Delete su tabelle di metadati di sincronizzazione; Control su tabelle di rilevamento della sincronizzazione, stored procedure e tipi di tabelle definiti dall'utente.
 
@@ -52,7 +52,7 @@ Il database SQL di Azure supporta un solo set di credenziali. Per eseguire quest
 
 ## <a name="setup"></a>Configurazione
 
-### <a name="database-considerations-and-constraints"></a>Vincoli e considerazioni sui database
+### <a name="database-considerations-and-constraints"></a><a name="database-considerations-and-constraints"></a>Vincoli e considerazioni sui database
 
 #### <a name="sql-database-instance-size"></a>Dimensione dell'istanza del database SQL
 
@@ -61,7 +61,7 @@ Quando si crea una nuova istanza di database SQL, impostare la dimensione massim
 > [!IMPORTANT]
 > Sincronizzazione dati SQL archivia altri metadati con ogni database. Tenere conto di questi metadati quando si calcola lo spazio necessario. La maggiore quantità di overhead è correlata alla larghezza delle tabelle (ad esempio, le tabelle strette richiedono più overhead) e alla quantità di traffico.
 
-### <a name="table-considerations-and-constraints"></a>Vincoli e considerazioni sulle tabelle
+### <a name="table-considerations-and-constraints"></a><a name="table-considerations-and-constraints"></a>Vincoli e considerazioni sulle tabelle
 
 #### <a name="selecting-tables"></a>Selezione di tabelle
 
@@ -77,7 +77,7 @@ Prima di usare la sincronizzazione dati SQL in fase di produzione, testare le pr
 
 Le tabelle vuote offrono le migliori prestazioni al momento dell'inizializzazione. Se la tabella di destinazione è vuota, la sincronizzazione dati usa l'inserimento in blocco per caricare i dati. In caso contrario, la sincronizzazione dei dati esegue un confronto e l'inserimento riga per riga per verificare la presenza di conflitti. Se le prestazioni non sono un problema, tuttavia, è possibile impostare la sincronizzazione tra le tabelle che contengono già i dati.
 
-### <a name="provisioning-destination-databases"></a>Provisioning dei database di destinazione
+### <a name="provisioning-destination-databases"></a><a name="provisioning-destination-databases"></a>Provisioning dei database di destinazione
 
 La sincronizzazione dati SQL consente il provisioning automatico di base dei database.
 
@@ -94,14 +94,14 @@ Per quanto riguarda il provisioning automatico, la sincronizzazione dati SQL pre
 -   Non viene eseguito il provisioning dei trigger esistenti nelle tabelle di origine.  
 -   Non vengono create viste e stored procedure nel database di destinazione.
 -   Le azioni ON UPDATE CASCADE e ON DELETE CASCADE su vincoli di chiave esterna non vengono ricreate nelle tabelle di destinazione.
--   Se sono presenti colonne decimali o numeriche con una precisione maggiore di 28, sincronizzazione dati SQL possibile che si verifichi un errore di overflow della conversione durante la sincronizzazione. È consigliabile limitare la precisione delle colonne decimali o numeriche a 28 o meno.
+-   Se si dispone di colonne decimali o numeriche con una precisione maggiore di 28, la sincronizzazione dati SQL potrebbe verificarsi un problema di overflow della conversione durante la sincronizzazione. È consigliabile limitare la precisione delle colonne decimali o numeriche a 28 o meno.
 
 #### <a name="recommendations"></a>Consigli
 
 -   Usare la funzionalità di provisioning automatico della sincronizzazione dati SQL solo per testare il servizio.  
 -   Per la fase di produzione eseguire il provisioning dello schema del database.
 
-### <a name="locate-hub"></a> Ubicazione del database hub
+### <a name="where-to-locate-the-hub-database"></a><a name="locate-hub"></a>Dove individuare il database hub
 
 #### <a name="enterprise-to-cloud-scenario"></a>Scenario da azienda a cloud
 
@@ -118,7 +118,7 @@ Applicare le linee guida precedenti a configurazioni più complesse di gruppi di
 
 ## <a name="sync"></a>Sincronizzazione
 
-### <a name="avoid-a-slow-and-costly-initial-synchronization"></a> Evitare una sincronizzazione iniziale lenta e dispendiosa
+### <a name="avoid-slow-and-costly-initial-sync"></a><a name="avoid-a-slow-and-costly-initial-synchronization"></a> Evitare una sincronizzazione iniziale lenta e dispendiosa
 
 Questa sezione prende in esame la sincronizzazione iniziale di un gruppo di sincronizzazione e spiega come evitare che per tale sincronizzazione iniziale siano richiesti tempi più lunghi e costi più elevati del necessario.
 
@@ -132,13 +132,13 @@ Se i database si trovano in data center diversi, ogni riga deve spostarsi da un 
 
 Se possibile, iniziare con i dati in un unico database del gruppo di sincronizzazione.
 
-### <a name="design-to-avoid-synchronization-loops"></a> Progettazione che evita i cicli di sincronizzazione
+### <a name="design-to-avoid-sync-loops"></a><a name="design-to-avoid-synchronization-loops"></a> Progettazione che evita i cicli di sincronizzazione
 
 Si verifica un ciclo di sincronizzazione quando all'interno di un gruppo di sincronizzazione sono presenti riferimenti circolari. In uno scenario di questo tipo ogni modifica in un database viene replicata in modo circolare e all'infinito nei database del gruppo di sincronizzazione.   
 
 È consigliabile evitare i cicli di sincronizzazione in quanto possono provocare una riduzione delle prestazioni e un aumento significativo dei costi.
 
-### <a name="handling-changes-that-fail-to-propagate"></a> Modifiche che non vengono propagate
+### <a name="changes-that-fail-to-propagate"></a><a name="handling-changes-that-fail-to-propagate"></a> Modifiche che non vengono propagate
 
 #### <a name="reasons-that-changes-fail-to-propagate"></a>Cause della mancata propagazione delle modifiche
 
@@ -164,13 +164,13 @@ Monitorare regolarmente l'integrità del database e del gruppo di sincronizzazio
 
 ## <a name="maintenance"></a>Manutenzione
 
-### <a name="avoid-out-of-date-databases-and-sync-groups"></a>Evitare database e gruppi di sincronizzazione non aggiornati
+### <a name="avoid-out-of-date-databases-and-sync-groups"></a><a name="avoid-out-of-date-databases-and-sync-groups"></a>Evitare database e gruppi di sincronizzazione non aggiornati
 
-È possibile che un gruppo di sincronizzazione o un database all'interno di un gruppo di sincronizzazione non sia più aggiornato. Quando lo stato di un gruppo di sincronizzazione è **Out-of-date** (Non aggiornato), il gruppo smette di funzionare. Quando lo stato di un database è **Out-of-date** (Non aggiornato), può verificarsi una perdita di dati. È consigliabile evitare questo scenario anziché provare a risolvere il problema.
+È possibile che un gruppo di sincronizzazione o un database all'interno di un gruppo di sincronizzazione non sia più aggiornato. Quando lo stato di un gruppo di sincronizzazione è **Non aggiornato,** smette di funzionare. Quando lo stato di un database è **Out-of-date** (Non aggiornato), può verificarsi una perdita di dati. È consigliabile evitare questo scenario anziché provare a risolvere il problema.
 
 #### <a name="avoid-out-of-date-databases"></a>Evitare database e gruppi di sincronizzazione non aggiornati
 
-Lo stato di un database viene impostato su **Out-of-date** (Non aggiornato) quando il database è offline da almeno 45 giorni. Per evitare che lo stato di un database venga impostato su **Out-of-date** (Non aggiornato), verificare che nessun database rimanga offline per 45 giorni o più.
+Lo stato di un database è impostato su **Non aggiornato** quando è stato offline per 45 giorni o più. Per evitare che lo stato di un database venga impostato su **Out-of-date** (Non aggiornato), verificare che nessun database rimanga offline per 45 giorni o più.
 
 #### <a name="avoid-out-of-date-sync-groups"></a>Evitare i gruppi di sincronizzazione non aggiornati
 
@@ -189,7 +189,7 @@ Per evitare che i gruppi di sincronizzazione non vengano aggiornati:
 -   Aggiornare i valori delle chiavi esterne per includere i valori contenuti nelle righe con esito negativo.
 -   Aggiornare i valori dei dati nella riga con esito negativo in modo che siano compatibili con lo schema o con le chiavi esterne nel database di destinazione.
 
-### <a name="avoid-deprovisioning-issues"></a>Evitare problemi di deprovisioning
+### <a name="avoid-deprovisioning-issues"></a><a name="avoid-deprovisioning-issues"></a>Evitare problemi di deprovisioning
 
 In alcuni casi, l'annullamento della registrazione di un database con un agente client può causare un errore di sincronizzazione.
 
@@ -210,7 +210,7 @@ Per risolvere il problema:
 2. Riaggiungere il database a ogni gruppo di sincronizzazione da cui è stato rimosso.  
 3. Distribuire ogni gruppo di sincronizzazione interessato (questa operazione esegue il provisioning del database).  
 
-### <a name="modifying-your-sync-group"></a>Modifica di un gruppo di sincronizzazione
+### <a name="modifying-a-sync-group"></a><a name="modifying-your-sync-group"></a>Modifica di un gruppo di sincronizzazione
 
 Non provare a rimuovere un database da un gruppo di sincronizzazione e quindi a modificare il gruppo senza aver prima distribuito una delle modifiche.
 
@@ -218,13 +218,13 @@ Rimuovere prima un database da un gruppo di sincronizzazione. Distribuire quindi
 
 Se si prova a rimuovere un database e quindi a modificare un gruppo di sincronizzazione senza aver prima distribuito una delle modifiche, una delle due operazioni avrà esito negativo. L'interfaccia del portale può essere visualizzata in modo incoerente. In questo caso, aggiornare la pagina per ripristinare lo stato corretto.
 
-### <a name="avoid-schema-refresh-timeout"></a>Evitare il timeout dell'aggiornamento dello schema
+### <a name="avoid-schema-refresh-timeout"></a>Evitare il timeout di aggiornamento dello schemaAvoid schema refresh timeout
 
-Se si dispone di uno schema complesso da sincronizzare, durante un aggiornamento dello schema potrebbe verificarsi un "timeout dell'operazione" Se il database dei metadati di sincronizzazione dispone di uno SKU inferiore (ad esempio: Basic). 
+Se si dispone di uno schema complesso da sincronizzare, è possibile riscontrare un "timeout di operazione" durante un aggiornamento dello schema se il database dei metadati di sincronizzazione ha uno SKU inferiore (ad esempio: basic). 
 
 #### <a name="solution"></a>Soluzione
 
-Per attenuare questo problema, aumentare le prestazioni del database dei metadati di sincronizzazione per avere uno SKU superiore, ad esempio S3. 
+Per ridurre questo problema, aumentare il database dei metadati di sincronizzazione per avere uno SKU più alto, ad esempio S3. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla sincronizzazione dati SQL, vedere:

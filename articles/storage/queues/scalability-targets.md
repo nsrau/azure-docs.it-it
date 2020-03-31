@@ -1,7 +1,7 @@
 ---
 title: Obiettivi di scalabilità e prestazioni per l'archiviazione code
 titleSuffix: Azure Storage
-description: Informazioni sugli obiettivi di scalabilità e prestazioni per l'archiviazione code.
+description: Informazioni sugli obiettivi di scalabilità e prestazioni per l'archiviazione delle code.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,23 +10,23 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: queues
 ms.openlocfilehash: 464807a7bf4a20b540e2d5344b721c8844bd7bca
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75750492"
 ---
 # <a name="scalability-and-performance-targets-for-queue-storage"></a>Obiettivi di scalabilità e prestazioni per l'archiviazione code
 
 [!INCLUDE [storage-scalability-intro-include](../../../includes/storage-scalability-intro-include.md)]
 
-## <a name="scale-targets-for-queue-storage"></a>Obiettivi di scalabilità per l'archiviazione code
+## <a name="scale-targets-for-queue-storage"></a>Obiettivi di scalabilità per l'archiviazione delle codeScale targets for Queue storage
 
 [!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-- [Elenco di controllo di prestazioni e scalabilità per l'archiviazione code](storage-performance-checklist.md)
-- [Obiettivi di scalabilità per gli account di archiviazione standard](../common/scalability-targets-standard-account.md)
-- [Obiettivi di scalabilità per il provider di risorse di archiviazione di Azure](../common/scalability-targets-resource-provider.md)
+- [Elenco di controllo di prestazioni e scalabilità di archiviazione code](storage-performance-checklist.md)
+- [Obiettivi di scalabilità per gli account di archiviazione standardScalability targets for standard storage accounts](../common/scalability-targets-standard-account.md)
+- [Obiettivi di scalabilità per il provider di risorse di Archiviazione di AzureScalability targets for the Azure Storage resource provider](../common/scalability-targets-resource-provider.md)
 - [Limiti e quote della sottoscrizione di Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md)

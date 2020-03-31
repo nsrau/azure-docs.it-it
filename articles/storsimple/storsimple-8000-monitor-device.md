@@ -1,5 +1,5 @@
 ---
-title: Monitorare il dispositivo StorSimple serie 8000
+title: Monitorare il dispositivo della serie StorSimple 8000
 description: Viene descritto come usare il servizio Gestione dispositivi di StorSimple per monitorare uso, prestazioni I/O e uso della capacità.
 author: alkohli
 ms.service: storsimple
@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 10/17/2017
 ms.author: alkohli
 ms.openlocfilehash: b3b77024606c5cdb02ff7bdd357c2d14a2415efa
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76277048"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Usare il servizio Gestione dispositivi di StorSimple per monitorare il dispositivo StorSimple
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 È possibile usare il servizio Gestione dispositivi di StorSimple per monitorare dispositivi specifici all'interno della soluzione StorSimple. È possibile creare grafici personalizzati basati su prestazioni I/O, uso della capacità, velocità effettiva della rete e metriche delle prestazioni del dispositivo, per poi aggiungerli al dashboard. Per altre informazioni, vedere [customize your portal dashboard](../azure-portal/azure-portal-dashboards.md) (personalizzare il dashboard del portale).
 
 Per visualizzare le informazioni di monitoraggio per un dispositivo specifico, nel portale di Azure selezionare il servizio Gestione dispositivi di StorSimple. Selezionare il dispositivo dall'elenco dei dispositivi e passare a **Monitoraggio**. Sarà quindi possibile visualizzare i grafici **Capacità**, **Utilizzo** e **Prestazioni** per il dispositivo selezionato.
 
-## <a name="capacity"></a>Capacità
+## <a name="capacity"></a>Capacity
 Il grafico **Capacità** tiene traccia dello spazio disponibile e dello spazio restante sul dispositivo. La capacità residua viene quindi visualizzata come aggiunta in locale o a livelli.
 
 La capacità fornita e quella residua sono ulteriormente suddivise in volumi aggiunti in locale e a più livelli. Per ogni volume sono mostrate la capacità di cui è stato eseguito il provisioning e la capacità residua nel dispositivo.
@@ -104,7 +104,7 @@ I grafici seguenti mostrano l'uso della capacità di archiviazione primaria di u
 
 ![Uso dell'archiviazione locale dopo lo snapshot cloud](./media/storsimple-8000-monitor-device/device-local-storage-after-cloudsnapshot.png)
 
-## <a name="performance"></a>Performance
+## <a name="performance"></a>Prestazioni
 **Prestazioni** tiene traccia delle metriche correlate al numero di operazioni di lettura e scrittura tra le interfacce dell'iniziatore iSCSI nel server host e il dispositivo o il dispositivo e il cloud. Questa operazione può essere misurata per un volume specifico, un contenitore del volume specifico o tutti i contenitori del volume. Il grafico Prestazioni include anche l'uso della CPU e la velocità effettiva della rete per le diverse interfacce di rete presenti nel dispositivo.
 
 ### <a name="io-performance-for-initiator-to-device"></a>Prestazioni I/O da iniziatore a dispositivo

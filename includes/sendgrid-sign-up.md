@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: gwallace
 ms.openlocfilehash: e38cecfe206f21f9189493e7ed6e8f0cadda9cd9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75463472"
 ---
-I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratuiti ogni mese. Questi 25.000 di messaggi di posta elettronica mensili gratuiti ti consentono di accedere a report avanzati e analisi e a [tutte le API][all APIs] (Web, SMTP, Event, Parse e altro ancora). Per informazioni sui servizi aggiuntivi forniti da SendGrid, visitare la pagina [soluzioni SendGrid][SendGrid Solutions] .
+I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratuiti ogni mese. Queste 25.000 e-mail mensili gratuite ti daranno accesso a report e analisi avanzate e a [tutte le API][all APIs] (Web, SMTP, Event, Parse e altro). Per informazioni sui servizi aggiuntivi offerti da SendGrid, vedere la pagina delle [soluzioni di SendGrid][SendGrid Solutions].
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Per iscriversi a un account SendGrid
-1. Accedere al [portale di Azure][Azure portal].
-2. Nel menu portale di Azure o nella home page selezionare **Crea una risorsa**.
+1. Accedere al [portale][Azure portal]di Azure .
+2. Nel menu del portale di Azure o nella home page selezionare **Crea una risorsa**.
 
     ![command-bar-new][command-bar-new]
 3. Cercare e selezionare **SendGrid**.
@@ -26,19 +26,19 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
     ![creazione di SendGrid][sendgrid-create]
 5. Immettere un **nome** per identificare il proprio servizio SendGrid nelle impostazioni di Azure. I nomi devono essere composti da un numero di caratteri compreso tra 1 e 100 e possono includere solo caratteri alfanumerici, trattini, punti e caratteri di sottolineatura. Il nome deve essere univoco nell'elenco di elementi di Azure Store sottoscritti.
 6. Immettere e confermare la **password**.
-7. Scegliere la propria **sottoscrizione**.
+7. Scegli il tuo **Abbonamento**.
 8. Creare un nuovo **gruppo di risorse** o selezionarne uno esistente.
 9. Nella sezione **Piano tariffario** selezionare il piano di SendGrid a cui si desidera iscriversi.
 
     ![prezzi di SendGrid][sendgrid-pricing]
 10. Se disponibile, immettere un **codice di promozione**.
 11. Inserire le **informazioni di contatto**.
-12. Riesaminare e accettare le **Note legali**.
-13. Dopo aver confermato l'acquisto, viene visualizzata una finestra popup con **esito positivo** e l'account viene visualizzato nell'elenco.
+12. Rivedere e accettare i **Termini legali**.
+13. Dopo aver confermato l'acquisto, verrà visualizzato un popup **Distribuzione completata** e l'account verrà visualizzato nell'elenco.
 
     ![all-resources][all-resources]
 
-    Dopo avere completato l'acquisto e avere fatto clic sul pulsante **Gestisci** per avviare il processo di verifica dei messaggi di posta elettronica, SendGrid invierà un'email in cui si chiede di verificare l'account. Se non si riceve questo messaggio di posta elettronica o si verificano problemi durante la verifica dell'account, vedere le domande frequenti.
+    Dopo avere completato l'acquisto e avere fatto clic sul pulsante **Gestisci** per avviare il processo di verifica dei messaggi di posta elettronica, SendGrid invierà un'email in cui si chiede di verificare l'account. Se non ricevi questa e-mail o hai problemi a verificare il tuo account, consulta le nostre FAQ.
 
     ![manage][manage]
 
@@ -76,7 +76,7 @@ Per gestire le impostazioni di recapito della posta, fare clic sul **pulsante Ge
 
 ![manage][manage]
 
-Per altre informazioni sull'invio di messaggi di posta elettronica tramite SendGrid, vedere la [Panoramica dell'API di posta elettronica][Email API Overview].
+Per altre informazioni sull'invio di posta elettronica tramite SendGrid, vedere la [panoramica dell'API Email][Email API Overview].
 
 <!--images-->
 

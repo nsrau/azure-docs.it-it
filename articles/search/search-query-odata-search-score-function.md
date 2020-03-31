@@ -1,7 +1,7 @@
 ---
-title: Riferimento alla funzione di ricerca OData. Score
+title: Riferimento alla funzione OData search.score
 titleSuffix: Azure Cognitive Search
-description: Sintassi e documentazione di riferimento per l'uso della funzione search. Score in Azure ricerca cognitiva query.
+description: Sintassi e documentazione di riferimento per l'uso della funzione search.score nelle query di Ricerca cognitiva di Azure.Syntax and reference documentation for using the search.score function in Azure Cognitive Search queries.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -20,28 +20,28 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 2439d4f03184f8dbb85b229b3908dff95013b4bc
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113130"
 ---
-# <a name="odata-searchscore-function-in-azure-cognitive-search"></a>Funzione `search.score` OData in Azure ricerca cognitiva
+# <a name="odata-searchscore-function-in-azure-cognitive-search"></a>Funzione `search.score` OData in Ricerca cognitiva di AzureOData function in Azure Cognitive Search
 
-Quando si invia una query ad Azure ricerca cognitiva senza il [parametro **$OrderBy** ](search-query-odata-orderby.md), i risultati restituiti verranno ordinati in ordine decrescente in base al Punteggio di pertinenza. Anche quando si usa **$OrderBy**, per impostazione predefinita viene usato il Punteggio di pertinenza per interrompere i vincoli. Tuttavia, a volte è utile usare il Punteggio di pertinenza come criterio di ordinamento iniziale e altri criteri come il tie-breaker. La funzione `search.score` consente di eseguire questa operazione.
+Quando si invia una query a Ricerca cognitiva di Azure senza il [parametro **$orderby** ](search-query-odata-orderby.md), i risultati restituiti verranno ordinati in ordine decrescente in base al punteggio di pertinenza. Anche quando si utilizza **$orderby**, il punteggio di pertinenza verrà utilizzato per interrompere i legami per impostazione predefinita. Tuttavia, a volte è utile utilizzare il punteggio di pertinenza come criterio di ordinamento iniziale e alcuni altri criteri come tie-breaker. La `search.score` funzione consente di eseguire questa operazione.
 
 ## <a name="syntax"></a>Sintassi
 
-La sintassi per `search.score` in **$orderby** è `search.score()`. La funzione `search.score` non accetta parametri. Può essere usato con l'identificatore di ordinamento `asc` o `desc`, come per qualsiasi altra clausola nel parametro **$OrderBy** . Può trovarsi in qualsiasi punto dell'elenco dei criteri di ordinamento.
+La sintassi per `search.score` in **$orderby** è `search.score()`. La funzione `search.score` non accetta parametri. Può essere utilizzato `asc` con `desc` l'identificatore o sort-sort, proprio come qualsiasi altra clausola nel **parametro $orderby.** Può essere visualizzato in qualsiasi punto dell'elenco dei criteri di ordinamento.
 
 ## <a name="example"></a>Esempio
 
-Ordinare gli hotel in ordine decrescente in base a `search.score` e `rating`, quindi in ordine crescente in base alla distanza tra le coordinate specificate, in modo che tra due alberghi con valutazioni identiche, il più vicino venga elencato per primo:
+Ordinare gli hotel in `search.score` `rating`ordine decrescente per e , quindi in ordine crescente in base alla distanza dalle coordinate specificate in modo che tra due hotel con valutazioni identiche, quello più vicino sia elencato per primo:
 
     search.score() desc,rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
 
 ## <a name="next-steps"></a>Passaggi successivi  
 
-- [Cenni preliminari sul linguaggio di espressioni OData per ricerca cognitiva di Azure](query-odata-filter-orderby-syntax.md)
-- [Informazioni di riferimento sulla sintassi delle espressioni OData per ricerca cognitiva di Azure](search-query-odata-syntax-reference.md)
-- [Eseguire ricerche &#40;nei documenti ricerca cognitiva API est di Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
+- [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
+- [Documenti di ricerca &#40;&#41;API EST di Ricerca cognitiva di AzureSearch Documents &#40;Azure Cognitive Search EST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

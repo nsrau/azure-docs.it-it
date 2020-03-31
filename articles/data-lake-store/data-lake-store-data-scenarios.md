@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 0b16154edbda4bedfd4e9b680ba4311e7a235212
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: a8f9b66bf9a301888f2371fb1c58a4845c2232b4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79265649"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536157"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Uso di Azure Data Lake Storage Gen1 per i requisiti di Big Data
 
@@ -38,13 +38,13 @@ Questa sezione descrive le diverse origini dei dati e i diversi modi in cui i da
 ### <a name="ad-hoc-data"></a>Dati ad hoc
 Si tratta di set di dati di piccole dimensioni usati per la creazione del prototipo di un'applicazione Big Data. L'inserimento di dati ad hoc può essere eseguito in modi diversi, a seconda dell'origine dei dati.
 
-| Origine dati | Inserire usando |
+| origine dati | Inserire usando |
 | --- | --- |
-| Computer locale |<ul> <li>[Portale di Azure](data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Interfaccia della riga di comando di Azure](data-lake-store-get-started-cli-2.0.md)</li> <li>[Usare Strumenti di Data Lake per Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
-| BLOB di Archiviazione di Azure |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[strumento AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp in esecuzione nel cluster HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
+| Computer locale |<ul> <li>[Portale di Azure](data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Interfaccia della riga di comando di AzureAzure](data-lake-store-get-started-cli-2.0.md)</li> <li>[Usare Strumenti di Data Lake per Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
+| BLOB di Archiviazione di Azure |<ul> <li>[Data Factory di AzureAzure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[Strumento AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp in esecuzione nel cluster HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Dati di streaming
-Rappresenta i dati che possono essere generati da varie origini, ad esempio applicazioni, dispositivi, sensori e così via. Questi dati possono essere inseriti in Data Lake Storage Gen1 da un'ampia gamma di strumenti. Questi strumenti in genere acquisiscono ed elaborano i dati dei singoli eventi in tempo reale e quindi scrivono gli eventi in batch in Data Lake Storage Gen1 affinché possano essere elaborati ulteriormente.
+Questo rappresenta i dati che possono essere generati da varie fonti come applicazioni, dispositivi, sensori, ecc. Questi dati possono essere inseriti in Data Lake Storage Gen1 da una varietà di strumenti. Questi strumenti in genere acquisiscono ed elaborano i dati dei singoli eventi in tempo reale e quindi scrivono gli eventi in batch in Data Lake Storage Gen1 affinché possano essere elaborati ulteriormente.
 
 Di seguito sono elencati gli strumenti che è possibile usare:
 
@@ -56,15 +56,15 @@ Di seguito sono elencati gli strumenti che è possibile usare:
 È inoltre possibile recuperare i dati dai database relazionali. I database relazionali raccolgono nel tempo elevate quantità di dati che possono fornire informazioni significative se elaborate tramite una pipeline Big Data. Per spostare tali dati in Data Lake Storage Gen1, è possibile usare gli strumenti seguenti.
 
 * [Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
-* [Azure Data Factory](../data-factory/copy-activity-overview.md)
+* [Data Factory di AzureAzure Data Factory](../data-factory/copy-activity-overview.md)
 
 ### <a name="web-server-log-data-upload-using-custom-applications"></a>Dati di log del server Web (caricamento tramite applicazioni personalizzate)
 Questo tipo di set di dati è indicato in modo specifico perché l'analisi dei dati di log dei server Web è un caso d'uso comune per le applicazioni di Big Data e richiede il caricamento di grandi volumi di file di log in Data Lake Storage Gen1. Per scrivere script o applicazioni per il caricamento dei dati è possibile usare uno degli strumenti seguenti.
 
-* [Interfaccia della riga di comando di Azure](data-lake-store-get-started-cli-2.0.md)
+* [Interfaccia della riga di comando di AzureAzure](data-lake-store-get-started-cli-2.0.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [.NET SDK di Azure Data Lake Storage Gen1](data-lake-store-get-started-net-sdk.md)
-* [Azure Data Factory](../data-factory/copy-activity-overview.md)
+* [Data Factory di AzureAzure Data Factory](../data-factory/copy-activity-overview.md)
 
 Per il caricamento di dati di log del server Web e per il caricamento di altri tipi di dati, ad esempio i dati delle valutazioni dei social network, è consigliabile scrivere script o applicazioni personalizzate che offrono la flessibilità di includere il componente di caricamento dei dati come parte dell'applicazione Big Data più grande. In alcuni casi, questo codice può essere rappresentato da uno script o un'utilità della riga di comando. In altri casi, il codice può essere usato per integrare l'elaborazione di Big Data in un'applicazione o una soluzione aziendale.
 
@@ -73,7 +73,7 @@ La maggior parte dei tipi di cluster HDInsight (Hadoop, HBase, Storm) supporta D
 
 * [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
 * [Servizio AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
-* [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
+* [Data Factory di AzureAzure Data Factory](../data-factory/connector-azure-data-lake-store.md)
 
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>Dati archiviati in locale o in cluster IaaS Hadoop
 Grandi quantità di dati possono essere archiviati in cluster Hadoop esistenti, localmente, nei computer che usano HDFS. I cluster Hadoop potrebbero essere in una distribuzione locale o all'interno di un cluster IaaS in Azure. Potrebbe essere necessario copiare tali dati in Azure Data Lake Storage Gen1 una sola volta o regolarmente. Sono disponibili diverse opzioni che è possibile usare per ottenere questo. Di seguito è riportato un elenco di alternative con i relativi compromessi.
@@ -81,8 +81,8 @@ Grandi quantità di dati possono essere archiviati in cluster Hadoop esistenti, 
 | Approccio | Dettagli | Vantaggi | Considerazioni |
 | --- | --- | --- | --- |
 | Usare Azure Data Factory (ADF) per copiare i dati direttamente dai cluster Hadoop in Azure Data Lake Storage Gen1 |[ADF supporta HDFS come origine dati](../data-factory/connector-hdfs.md) |ADF fornisce il supporto nativo per HDFS e il monitoraggio e gestione end-to-end di prima classe |Richiede che il gateway di gestione dati sia distribuito localmente nel cluster IaaS |
-| Esportare dati da Hadoop come file. Copiare quindi i file in Azure Data Lake Storage Gen1 usando un meccanismo appropriato. |È possibile copiare i file in Azure Data Lake Storage Gen1 usando: <ul><li>[Azure PowerShell per sistema operativo Windows](data-lake-store-get-started-powershell.md)</li><li>[Interfaccia della riga di comando di Azure](data-lake-store-get-started-cli-2.0.md)</li><li>App personalizzata che usa qualsiasi SDK di Data Lake Storage Gen1</li></ul> |Guida introduttiva per iniziare. È possibile eseguire caricamenti personalizzati |Processo in più passaggi che prevede più tecnologie. La gestione e il monitoraggio miglioreranno fino a rappresentare una sfida nel corso del tempo data la natura personalizzata degli strumenti |
-| Usare Distcp per copiare dati da Hadoop ad Archiviazione di Azure. Copiare quindi i dati da Archiviazione di Azure a Data Lake Storage Gen1 usando un meccanismo appropriato. |È possibile copiare i dati da Archiviazione di Azure a Data Lake Storage Gen1 usando: <ul><li>[Azure Data Factory](../data-factory/copy-activity-overview.md)</li><li>[strumento AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp Apache in esecuzione nei cluster HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li></ul> |È possibile usare strumenti open source. |Processo in più passaggi che prevede più tecnologie |
+| Esportare dati da Hadoop come file. Copiare quindi i file in Azure Data Lake Storage Gen1 usando un meccanismo appropriato. |È possibile copiare i file in Azure Data Lake Storage Gen1 usando: <ul><li>[Azure PowerShell per sistema operativo Windows](data-lake-store-get-started-powershell.md)</li><li>[Interfaccia della riga di comando di AzureAzure](data-lake-store-get-started-cli-2.0.md)</li><li>App personalizzata che usa qualsiasi SDK di Data Lake Storage Gen1</li></ul> |Guida introduttiva per iniziare. È possibile eseguire caricamenti personalizzati |Processo in più passaggi che prevede più tecnologie. La gestione e il monitoraggio miglioreranno fino a rappresentare una sfida nel corso del tempo data la natura personalizzata degli strumenti |
+| Usare Distcp per copiare dati da Hadoop ad Archiviazione di Azure. Copiare quindi i dati da Archiviazione di Azure a Data Lake Storage Gen1 usando un meccanismo appropriato. |È possibile copiare i dati da Archiviazione di Azure a Data Lake Storage Gen1 usando: <ul><li>[Data Factory di AzureAzure Data Factory](../data-factory/copy-activity-overview.md)</li><li>[Strumento AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp Apache in esecuzione nei cluster HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li></ul> |È possibile usare strumenti open source. |Processo in più passaggi che prevede più tecnologie |
 
 ### <a name="really-large-datasets"></a>Set di dati di grandi dimensioni
 L'uso dei metodi descritti in precedenza per il caricamento di set di dati di più terabyte può talvolta risultare lento e costoso. In questi casi, è possibile usare le opzioni seguenti.
@@ -116,19 +116,19 @@ Esaminare gli esempi seguenti.
 In questi casi, è possibile usare le opzioni seguenti:
 
 * [Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
-* [Azure Data Factory](../data-factory/copy-activity-overview.md)
+* [Data Factory di AzureAzure Data Factory](../data-factory/copy-activity-overview.md)
 * [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
 
 È anche possibile usare i metodi seguenti per scrivere un'applicazione o uno script personalizzato per scaricare i dati da Data Lake Storage Gen1.
 
-* [Interfaccia della riga di comando di Azure](data-lake-store-get-started-cli-2.0.md)
+* [Interfaccia della riga di comando di AzureAzure](data-lake-store-get-started-cli-2.0.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [.NET SDK di Azure Data Lake Storage Gen1](data-lake-store-get-started-net-sdk.md)
 
 ## <a name="visualize-data-in-data-lake-storage-gen1"></a>Visualizzare i dati in Data Lake Storage Gen1
 È possibile usare una combinazione di servizi per creare rappresentazioni visive dei dati archiviati in Data Lake Storage Gen1.
 
-![Visualizza dati in Data Lake Storage Gen1](./media/data-lake-store-data-scenarios/visualize-data.png "Visualizzare i dati in Data Lake Storage Gen1")
+![Visualizzare i dati in Data Lake Storage Gen1](./media/data-lake-store-data-scenarios/visualize-data.png "Visualizzare i dati in Data Lake Storage Gen1")
 
 * Iniziare usando [Azure Data Factory per spostare i dati da Data Lake Storage Gen1 ad Azure SQL Data Warehouse](../data-factory/copy-activity-overview.md)
-* Successivamente è possibile [integrare Power BI con Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) per creare la rappresentazione visiva dei dati.
+* Successivamente è possibile [integrare Power BI con Azure SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) per creare la rappresentazione visiva dei dati.

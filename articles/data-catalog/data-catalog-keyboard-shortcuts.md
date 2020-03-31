@@ -1,16 +1,16 @@
 ---
 title: Scelte rapide da tastiera per Catalogo dati di Azure
-description: Questo articolo illustra un elenco di tasti di scelta rapida che è possibile usare in Azure Data Catalog.
+description: Questo articolo illustra un elenco di tasti di scelta rapida che è possibile usare in Azure Data Catalog.This article shows a list of keyboard shortcuts that you can use in Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 72d1ce0ded61b1143f99769319892981f3cd1c10
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69014442"
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Scelte rapide da tastiera per Catalogo dati di Azure
@@ -20,7 +20,7 @@ ms.locfileid: "69014442"
 ### <a name="general-keyboard-shortcuts"></a>Scelte rapide da tastiera generali
 | Operazione | Premere |
 | --- | --- |
-| Passare da un controllo a un altro in una pagina |TAB |
+| Passare da un controllo a un altro in una pagina |Scheda |
 | Scegliere un'opzione |INVIO o BARRA SPAZIATRICE |
 | Ingrandire la pagina. |Tasto WINDOWS+Freccia SU |
 | Ripristinare o ridurre a icona la pagina. |Tasto WINDOWS+Freccia GIÙ |
@@ -50,7 +50,7 @@ ms.locfileid: "69014442"
 | Selezionare la casella di controllo Includi anteprima (se disponibile) |ALT+P |
 | Selezionare la casella di controllo Includi profilo dati (se disponibile) |ALT+D |
 | Passare da un elemento all'altro dell'elenco |Freccia SU o freccia GIÙ |
-| Espandere un nodo della visualizzazione albero nella gerarchia server. |Freccia DESTRA |
+| Espandere un nodo della visualizzazione albero nella gerarchia server. |FRECCIA DESTRA |
 | Spostare gli elementi selezionati per **Oggetti disponibili** oppure **Oggetti da registrare** |BARRA SPAZIATRICE |
 
 ### <a name="publish-progress-page"></a>Pagina di stato della pubblicazione
@@ -58,7 +58,7 @@ ms.locfileid: "69014442"
 | --- | --- |
 | Scegliere il pulsante Annulla. |ALT+C |
 | Scegliere il pulsante Registra altri oggetti. |ALT+R |
-| Scegliere il pulsante Visualizza portale. |ALT+V |
+| Scegliere il pulsante Visualizza portale. |ALT + V |
 
 ### <a name="publish-progress-page"></a>Pagina di stato della pubblicazione
 | Operazione | Premere |

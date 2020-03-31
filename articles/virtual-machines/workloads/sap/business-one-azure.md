@@ -16,10 +16,10 @@ ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 18409f93ab50f7d031ec78a55b9eaf8ad1b85a49
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70101421"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One nelle macchine virtuali di Azure
@@ -37,7 +37,7 @@ Per usare questa guida sono necessarie conoscenze di base dei componenti di Azur
 - [Macchine virtuali di Azure in Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 - [Macchine virtuali di Azure in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Rete di Azure e gestione di reti virtuali con PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-virtual-network)
-- [Rete virtuale e reti virtuali di Azure con CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
+- [Azure networking and virtual networks with CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 - [Gestire i dischi di Azure con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
 Anche se si è interessati solo a Business One, il documento [Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) può essere una buona fonte di informazioni.
@@ -129,7 +129,7 @@ Per distribuire SQL Server come DBMS per Business One, consultare il documento [
 
 La tabella seguente presenta le dimensioni approssimative del lato DBMS per SQL Server:
 
-| Numero di utenti | CPU virtuali | Memoria | Tipi di macchine virtuali di esempio |
+| Numero di utenti | vCPU | Memoria | Tipi di macchine virtuali di esempio |
 | --- | --- | --- | --- |
 | Fino a 20 | 4 | 16 GB | D4s_v3, E4s_v3 |
 | Fino a 40 | 8 | 32 GB | D8s_v3, E8s_v3 |
@@ -150,7 +150,7 @@ Per le strategie di backup e ripristino di SAP HANA, è consigliabile leggere [G
 Per questi componenti, le considerazioni relative all'archiviazione non sono di primaria importanza. Tuttavia, per avere una piattaforma affidabile, è opportuno usare Archiviazione Premium di Azure per questa macchina virtuale, anche per il disco rigido virtuale di base. Per definire la dimensione della macchina virtuale, seguire le informazioni riportate in [SAP Business One Hardware Requirements Guide](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf) (Guida ai requisiti hardware di SAP Business One). Per Azure, esaminare e calcolare con attenzione i requisiti indicati nel capitolo 2.4 del documento. Quando si calcolano i requisiti, per trovare la macchina virtuale ideale è necessario confrontarli con i dati riportati nei documenti seguenti:
 
 - [Dimensioni per le macchine virtuali Windows in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
-- [Nota SAP n. 1928533](https://launchpad.support.sap.com/#/notes/1928533)
+- [#1928533 nota SAP](https://launchpad.support.sap.com/#/notes/1928533)
 
 Confrontare i requisiti di CPU e memoria rispetto ai dati riportati nella documentazione Microsoft. Inoltre, quando si scelgono le macchine virtuali, tenere presente la velocità effettiva della rete.
 

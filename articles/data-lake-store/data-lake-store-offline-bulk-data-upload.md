@@ -1,21 +1,21 @@
 ---
-title: Caricare set di dati di grandi dimensioni in metodi Azure Data Lake Storage Gen1 offline
-description: Usare il servizio di importazione/esportazione per copiare dati da un archivio BLOB di Azure a Azure Data Lake Storage Gen1
+title: Caricare set di dati di grandi dimensioni in Azure Data Lake Storage Gen1 - metodi offlineUpload large data set to Azure Data Lake Storage Gen1 - offline methods
+description: Usare il servizio Importazione/Esportazione per copiare i dati dall'archiviazione BLOB di Azure in Archiviazione di Azure Data Lake Gen1Use the Import/Export service to copy data from Azure Blob storage to Azure Data Lake Storage Gen1
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: aa3eb0bcd9ddd2a094563efe326f7af7e9e8708a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73839305"
 ---
-# <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-storage-gen1"></a>Usare il servizio importazione/esportazione di Azure per la copia offline dei dati in Data Lake Storage Gen1
+# <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-storage-gen1"></a>Usare il servizio Importazione/Esportazione di Azure per la copia offline dei dati in Data Lake Storage Gen1Use the Azure Import/Export service for offline copy of data to Data Lake Storage Gen1
 
-Questo articolo illustra come copiare set di dati di grandi dimensioni (> 200 GB) in Data Lake Storage Gen1 usando metodi di copia offline, ad esempio il [servizio importazione/esportazione di Azure](../storage/common/storage-import-export-service.md). In particolare, il file usato come esempio in questo articolo ha una dimensione di 339.420.860.416 byte, vale a dire circa 319 GB sul disco. Chiameremo questo file 319GB.tsv.
+In questo articolo verrà illustrato come copiare set di dati di grandi dimensioni (>200 GB) in Data Lake Storage Gen1 usando metodi di copia offline, ad esempio il [servizio Importazione/Esportazione](../storage/common/storage-import-export-service.md)di Azure. In particolare, il file usato come esempio in questo articolo ha una dimensione di 339.420.860.416 byte, vale a dire circa 319 GB sul disco. Chiameremo questo file 319GB.tsv.
 
 Il servizio Importazione/Esportazione di Azure consente di trasferire in modo sicuro grandi quantità di dati nell'archiviazione BLOB di Azure attraverso la spedizione delle unità disco rigido a un data center di Azure.
 
@@ -23,13 +23,13 @@ Il servizio Importazione/Esportazione di Azure consente di trasferire in modo si
 
 Per eseguire le procedure descritte è necessario:
 
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un account di archiviazione di Azure**.
+* **Una sottoscrizione di Azure.** Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Un account di archiviazione**di Azure.
 * **Un account Azure Data Lake Storage Gen1**. Per istruzioni su come crearne uno, vedere [Iniziare a usare Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
 
 ## <a name="prepare-the-data"></a>Preparare i dati
 
-Prima di usare il servizio di importazione/esportazione, è necessario suddividere il file di dati da trasferire **in copie di dimensioni inferiori a 200 GB**. Lo strumento di importazione non funziona con file di dimensioni superiori a 200 GB. In questo articolo il file viene suddiviso in blocchi di 100 GB ciascuno. A tale scopo è possibile usare [Cygwin](https://cygwin.com/install.html). Cygwin supporta i comandi di Linux. In questo caso usare il comando seguente:
+Prima di usare il servizio di importazione/esportazione, è necessario suddividere il file di dati da trasferire **in copie di dimensioni inferiori a 200 GB**. Lo strumento di importazione non funziona con file di dimensioni superiori a 200 GB. In questo articolo, dividiamo il file in blocchi di 100 GB ciascuno. A tale scopo è possibile usare [Cygwin](https://cygwin.com/install.html). Cygwin supporta i comandi di Linux. In questo caso usare il comando seguente:
 
     split -b 100m 319GB.tsv
 
@@ -65,7 +65,7 @@ Per preparare le unità disco rigido, seguire le istruzioni in [Usare il servizi
 
 A questo punto è possibile spedire fisicamente i dischi a un data center di Azure, dove i dati verranno copiati nei BLOB di Archiviazione di Azure specificato durante la creazione del processo di importazione. Inoltre, se durante la creazione del processo si è scelto di inserire le informazioni di rilevamento in un secondo momento, è possibile tornare al processo di importazione e aggiornare il numero di tracciabilità.
 
-## <a name="copy-data-from-blobs-to-data-lake-storage-gen1"></a>Copia i dati da BLOB a Data Lake Storage Gen1
+## <a name="copy-data-from-blobs-to-data-lake-storage-gen1"></a>Copiare i dati dai BLOB a Data Lake Storage Gen1
 
 Completato il processo di importazione, è possibile verificare se i dati sono disponibili nei BLOB di Archiviazione di Azure specificati. È quindi possibile usare diversi metodi per trasferire i dati dai BLOB ad Azure Data Lake Storage Gen1. Per tutte le opzioni disponibili per il caricamento di dati, vedere [Inserire i dati in Data Lake Storage Gen1](data-lake-store-data-scenarios.md#ingest-data-into-data-lake-storage-gen1).
 
