@@ -1,5 +1,5 @@
 ---
-title: 'Creare un gateway VPN di Azure basato su Route: interfaccia della riga di comando'
+title: 'Creare un gateway VPN di Azure basato sulla route: CLICreate a route-based Azure VPN Gateway: CLI'
 description: Informazioni per imparare rapidamente a creare un gateway VPN tramite l'interfaccia della riga di comando
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1f0cc1d63f8560399d1d71c8d010c37bd2c5e387
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 121790fce220874babedf67cd72471caa7e92ae6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778754"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80241094"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>Creare un gateway VPN basato su route usando l'interfaccia della riga di comando
 
@@ -29,15 +29,15 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 Creare un gruppo di risorse con il comando [az group create](/cli/azure/group). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. 
 
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name TestRG1 --location eastus
 ```
 
-## <a name="vnet"></a>Creare una rete virtuale
+## <a name="create-a-virtual-network"></a><a name="vnet"></a>Creare una rete virtualeCreate a virtual network
 
 Creare una rete virtuale con il comando [az network vnet create](/cli/azure/network/vnet). L'esempio seguente crea una rete virtuale denominata **VNet1** nella posizione **EastUS**:
 
-```azurecli-interactive 
+```azurecli-interactive
 az network vnet create \
   -n VNet1 \
   -g TestRG1 \
@@ -47,11 +47,11 @@ az network vnet create \
   --subnet-prefix 10.1.0.0/24
 ```
 
-## <a name="gwsubnet"></a>Aggiungere una subnet del gateway
+## <a name="add-a-gateway-subnet"></a><a name="gwsubnet"></a>Aggiungere una subnet del gateway
 
 La subnet del gateway contiene gli indirizzi IP riservati usati dai servizi del gateway di rete virtuale. Per aggiungere una subnet del gateway, usare gli esempi seguenti:
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network vnet subnet create \
   --vnet-name VNet1 \
   -n GatewaySubnet \
@@ -59,7 +59,7 @@ az network vnet subnet create \
   --address-prefix 10.1.255.0/27 
 ```
 
-## <a name="PublicIP"></a>Richiedere un indirizzo IP pubblico
+## <a name="request-a-public-ip-address"></a><a name="PublicIP"></a>Richiedere un indirizzo IP pubblico
 
 Un gateway VPN deve avere un indirizzo IP pubblico allocato in modo dinamico. L'indirizzo IP pubblico verrà allocato al gateway VPN creato per la rete virtuale. Usare l'esempio seguente per richiedere un indirizzo IP pubblico:
 
@@ -70,7 +70,7 @@ az network public-ip create \
   --allocation-method Dynamic 
 ```
 
-## <a name="CreateGateway"></a>Creare il gateway VPN
+## <a name="create-the-vpn-gateway"></a><a name="CreateGateway"></a>Creare il gateway VPN
 
 Creare il gateway VPN usando il comando [az network vnet-gateway create](/cli/azure/group).
 
@@ -91,7 +91,7 @@ az network vnet-gateway create \
 
 La creazione di un gateway VPN può richiedere almeno 45 minuti.
 
-## <a name="viewgw"></a>Visualizzare il gateway VPN
+## <a name="view-the-vpn-gateway"></a><a name="viewgw"></a>Visualizzare il gateway VPN
 
 ```azurecli-interactive
 az network vnet-gateway show \
@@ -101,7 +101,7 @@ az network vnet-gateway show \
 
 La risposta sarà simile alla seguente:
 
-```
+```output
 {
   "activeActive": false,
   "bgpSettings": null,
@@ -159,7 +159,7 @@ Il valore associato al campo **ipAddress** è l'indirizzo IP pubblico del gatewa
 
 Esempio di risposta:
 
-```
+```output
 {
   "dnsSettings": null,
   "etag": "W/\"a12d4d03-b27a-46cc-b222-8d9364b8166a\"",
@@ -170,6 +170,7 @@ Esempio di risposta:
     "etag": null,
     "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW/ipConfigurations/vnetGatewayConfig0",
 ```
+
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando le risorse create non sono più necessarie, usare il comando [az group delete](/cli/azure/group) per eliminare il gruppo di risorse. Questa operazione eliminerà il gruppo di risorse e tutte le risorse in esso contenute.

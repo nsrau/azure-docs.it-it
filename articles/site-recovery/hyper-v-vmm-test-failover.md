@@ -1,5 +1,5 @@
 ---
-title: Eseguire un'esercitazione sul ripristino di emergenza NHyper-V in un sito secondario con Azure Site Recovery
+title: Eseguire un'esercitazione sul ripristino di emergenza di NHyper-V in un sito secondario con Azure Site RecoveryRun a NHyper-V disaster recovery drill to a secondary site with Azure Site Recovery
 description: Informazioni su come eseguire un'esercitazione sul ripristino di emergenza per macchine virtuali Hyper-V di cloud VMM in un data center locale secondario usando Azure Site Recovery.
 author: rajani-janaki-ram
 manager: rochakm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 0363911574a076b13cb72591fb2564364e096c76
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257966"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Eseguire un'esercitazione sul ripristino di emergenza per macchine virtuali Hyper-V in un sito secondario
@@ -94,7 +94,7 @@ Se si desidera semplicemente verificare che una macchina virtuale possa eseguire
 Se le macchine virtuali che partecipano al failover di test usano DHCP, creare un server DHCP di test all'interno della rete isolata ai fini del failover di test.
 
 
-### <a name="prepare-active-directory"></a>Preparazione di Active Directory
+### <a name="prepare-active-directory"></a>Preparare Active Directory
 Per eseguire un failover di test per testare l'applicazione, è necessaria una copia dell'ambiente Active Directory di produzione nell'ambiente di test. Per altre informazioni, vedere le [considerazioni sul failover di test di Active Directory](site-recovery-active-directory.md#test-failover-considerations).
 
 ### <a name="prepare-dns"></a>Preparare DNS
@@ -117,13 +117,13 @@ Preparare un server DNS per il failover di test come segue:
 
 ## <a name="run-a-test-failover"></a>Eseguire un failover di test
 
-Questa procedura descrive come eseguire un failover di test per un piano di ripristino. In alternativa è possibile effettuare il failover per una singola macchina nella scheda **Macchine virtuali**.
+Questa procedura descrive come eseguire un failover di test per un piano di ripristino. In alternativa, è possibile eseguire il failover per una singola macchina virtuale nella scheda **Macchine virtuali.**
 
-1. Selezionare **Piani di ripristino** > *nome_pianodiripristino*. Fare clic su **Failover** > **Test Failover**.
+1. Selezionare **Piani** > di ripristino*recoveryplan_name*. Fare clic su**Failover di test** **di failover** > .
 2. Nel pannello **Failover di test** specificare come le macchine virtuali di replica devono essere connesse alle reti dopo il failover di test.
 3. Tenere traccia dello stato di avanzamento del failover nella scheda **Processi** .
 4. Dopo il completamento del failover verificare che le macchine virtuali vengano avviate correttamente.
-5. Al termine fare clic su **Cleanup test failover** (Pulizia failover di test) nel piano di ripristino. Fare clic su **Note** per registrare e salvare eventuali osservazioni associate al failover di test. Questa operazione elimina le macchine virtuali e le reti create da Site Recovery durante il failover di test. 
+5. Al termine fare clic su **Cleanup test failover** (Pulizia failover di test) nel piano di ripristino. In **Notes**registrare e salvare eventuali osservazioni associate al failover di test. Questa operazione elimina le macchine virtuali e le reti create da Site Recovery durante il failover di test. 
 
 ![Failover di test](./media/hyper-v-vmm-test-failover/TestFailover.png)
  

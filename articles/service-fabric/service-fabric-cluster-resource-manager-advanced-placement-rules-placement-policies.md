@@ -1,15 +1,15 @@
 ---
-title: Criteri di posizionamento Gestione risorse del cluster Service Fabric
+title: Gestione risorse cluster dell'infrastruttura di servizio - Criteri di posizionamentoService Fabric Cluster Resource Manager - Placement Policies
 description: Panoramica su altre politiche e regole per i servizi di Service Fabric
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 9aea157d03f344e07a81f0588d3e0127f17ca75d
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75834435"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Criteri di posizionamento per i servizi di Service Fabric
@@ -36,8 +36,8 @@ Il criterio di posizionamento **InvalidDomain** consente di specificare che un p
 
 <center>
 
-![][Image1]
-di esempio di dominio non valido </center>
+![Esempio di dominio non valido][Image1]
+</center>
 
 Codice:
 
@@ -57,8 +57,8 @@ I criteri di selezione del dominio richiesto richiedono che il servizio sia pres
 
 <center>
 
-![][Image2]
-di esempio di dominio necessario </center>
+![Esempio di dominio obbligatorio][Image2]
+</center>
 
 Codice:
 
@@ -79,8 +79,8 @@ Il dominio primario preferito specifica il dominio di errore per posizionare il 
 
 <center>
 
-![domini primari preferiti e][Image3]
-di failover </center>
+![Failover e domini primari preferiti][Image3]
+</center>
 
 ```csharp
 ServicePlacementPreferPrimaryDomainPolicyDescription primaryDomain = new ServicePlacementPreferPrimaryDomainPolicyDescription();

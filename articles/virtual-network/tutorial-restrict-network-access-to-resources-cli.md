@@ -1,5 +1,5 @@
 ---
-title: Limitare l'accesso di rete alle risorse PaaS-interfaccia della riga di comando di Azure
+title: Limitare l'accesso di rete alle risorse PaaS - Interfaccia della riga di comando di AzureRestrict network access to PaaS resources - Azure CLI
 description: In questo articolo viene descritto come limitare l'accesso di rete alle risorse di Azure, ad esempio Archiviazione di Azure e il database SQL di Azure, tramite endpoint servizio di rete virtuale con l'interfaccia della riga di comando di Azure.
 services: virtual-network
 documentationcenter: virtual-network
@@ -18,32 +18,32 @@ ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: f2dcc714bc9052dd51f114e24f0b9bd74b87480c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74186394"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Limitare l'accesso di rete alle risorse PaaS con gli endpoint servizio di rete virtuale usando l'interfaccia della riga di comando di Azure
 
-Gli endpoint servizio di rete virtuale consentono di limitare l'accesso di rete ad alcune risorse dei servizi di Azure a una subnet della rete virtuale. È anche possibile rimuovere l'accesso Internet alle risorse. Gli endpoint di servizio forniscono la connessione diretta dalla rete virtuale ai servizi di Azure supportati, consentendo di usare lo spazio indirizzi privato della rete virtuale per accedere ai servizi di Azure. Il traffico destinato alle risorse di Azure tramite gli endpoint di servizio rimane sempre nella rete backbone di Microsoft Azure. In questo articolo viene spiegato come:
+Gli endpoint servizio di rete virtuale consentono di limitare l'accesso di rete ad alcune risorse dei servizi di Azure a una subnet della rete virtuale. È anche possibile rimuovere l'accesso Internet alle risorse. Gli endpoint di servizio forniscono la connessione diretta dalla rete virtuale ai servizi di Azure supportati, consentendo di usare lo spazio indirizzi privato della rete virtuale per accedere ai servizi di Azure. Il traffico destinato alle risorse di Azure tramite gli endpoint di servizio rimane sempre nella rete backbone di Microsoft Azure. In questo articolo vengono illustrate le operazioni seguenti:
 
 * Creare una rete virtuale con una subnet
 * Aggiungere una subnet e abilitare un endpoint di servizio
 * Creare una risorsa di Azure e consentire l'accesso di rete alla risorsa da una sola subnet
 * Distribuire una macchina virtuale (VM) in ogni subnet
 * Verificare che venga consentito l'accesso a una risorsa da una subnet
-* Verificare che venga negato l'accesso a una risorsa da una subnet e da Internet
+* Verificare che venga rifiutato l'accesso a una risorsa da una subnet e da Internet
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questa guida introduttiva richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questa guida introduttiva richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If]( /cli/azure/install-azure-cli)you need to install or upgrade, see Install Azure CLI. 
 
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
 
-Prima di creare una rete virtuale, è necessario creare un gruppo di risorse per la rete virtuale e tutte le altre risorse create in questo articolo. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
+Prima di creare una rete virtuale, è necessario creare un gruppo di risorse per la rete virtuale e tutte le altre risorse create in questo articolo. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nel percorso *eastus.*
 
 ```azurecli-interactive
 az group create \
@@ -64,7 +64,7 @@ az network vnet create \
 
 ## <a name="enable-a-service-endpoint"></a>Abilitare un endpoint di servizio 
 
-È possibile abilitare gli endpoint di servizio solo per i servizi che supportano tali endpoint. Visualizzare i servizi abilitati per gli endpoint di servizio in una località di Azure con [az network vnet list-endpoint-services](/cli/azure/network/vnet). L'esempio seguente restituisce un elenco di servizi abilitati per gli endpoint servizio nell'area *eastus*. L'elenco dei servizi restituiti aumenterà nel corso del tempo perché altri servizi di Azure verranno abilitati per gli endpoint di servizio.
+È possibile abilitare gli endpoint di servizio solo per i servizi che supportano tali endpoint. Visualizzare i servizi abilitati per gli endpoint di servizio in una località di Azure con [az network vnet list-endpoint-services](/cli/azure/network/vnet). L'esempio seguente restituisce un elenco di servizi abilitati per gli endpoint di servizio nell'area *eastus*. L'elenco dei servizi restituiti aumenterà nel corso del tempo perché altri servizi di Azure verranno abilitati per gli endpoint di servizio.
 
 ```azurecli-interactive
 az network vnet list-endpoint-services \
@@ -120,7 +120,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-Ogni gruppo di sicurezza di rete contiene diverse [regole di sicurezza predefinite](security-overview.md#default-security-rules). La regola che segue sostituisce una regola di sicurezza predefinita che consente l'accesso in uscita a tutti gli indirizzi IP pubblici. L'opzione `destination-address-prefix "Internet"` nega l'accesso in uscita a tutti gli indirizzi IP pubblici. La regola precedente esegue l'override di questa regola, a causa della priorità più alta, che consente l'accesso agli indirizzi IP pubblici di Archiviazione di Azure.
+Ogni gruppo di sicurezza di rete contiene diverse regole di [sicurezza predefinite.](security-overview.md#default-security-rules) La regola che segue esegue l'override di una regola di sicurezza predefinita che consente l'accesso in uscita a tutti gli indirizzi IP pubblici. L'opzione `destination-address-prefix "Internet"` nega l'accesso in uscita a tutti gli indirizzi IP pubblici. La regola precedente esegue l'override di questa regola, a causa della priorità più alta, che consente l'accesso agli indirizzi IP pubblici di Archiviazione di Azure.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -137,7 +137,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-La regola seguente consente il traffico SSH in ingresso verso la subnet da qualsiasi posizione. La regola esegue l'override di una regola di sicurezza predefinita che rifiuta tutto il traffico in ingresso da Internet. SSH è consentito alla subnet in modo che la connettività possa essere testata in un passaggio successivo.
+La regola seguente consente il traffico SSH in ingresso nella subnet da qualsiasi posizione. La regola esegue l'override di una regola di sicurezza predefinita che rifiuta tutto il traffico in ingresso da Internet. SSH è consentito alla subnet in modo che la connettività possa essere testata in un passaggio successivo.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -156,7 +156,7 @@ az network nsg rule create \
 
 ## <a name="restrict-network-access-to-a-resource"></a>Limitare l'accesso di rete a una risorsa
 
-I passaggi necessari per limitare l'accesso di rete alle risorse create tramite i servizi di Azure abilitati per gli endpoint di servizio variano a seconda dei servizi. Vedere la documentazione relativa ai singoli servizi per i passaggi specifici. La parte rimanente di questo articolo descrive, a titolo di esempio, i passaggi da eseguire per limitare l'accesso di rete per un account di archiviazione di Azure.
+I passaggi necessari per limitare l'accesso di rete alle risorse create tramite i servizi di Azure abilitati per gli endpoint di servizio variano a seconda dei servizi. Vedere la documentazione relativa ai singoli servizi per i passaggi specifici. La parte rimanente di questo articolo include, a titolo di esempio, i passaggi da eseguire per limitare l'accesso di rete per un account di archiviazione di Azure.
 
 ### <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
@@ -223,7 +223,7 @@ az storage account network-rule add \
 ```
 ## <a name="create-virtual-machines"></a>Creare macchine virtuali
 
-Per testare l'accesso di rete per un account di archiviazione, distribuire una macchina virtuale in ogni subnet.
+Per testare l'accesso di rete a un account di archiviazione, distribuire una VM in ogni subnet.
 
 ### <a name="create-the-first-virtual-machine"></a>Creare la prima macchina virtuale
 
@@ -272,7 +272,7 @@ La creazione della VM richiede alcuni minuti. Dopo la creazione, prendere nota d
 
 ## <a name="confirm-access-to-storage-account"></a>Verificare che venga consentito l'accesso a un account di archiviazione
 
-Eseguire SSH nella VM *myVmPrivate*. Sostituire *\<> publicIpAddress* con l'indirizzo IP pubblico della macchina virtuale *myVmPrivate* .
+Eseguire SSH nella VM *myVmPrivate*. Sostituire * \<publicIpAddress>* con l'indirizzo IP pubblico della macchina virtuale *myVmPrivate.Replace publicIpAddress*>with the public IP address of your myVmPrivate VM.
 
 ```bash 
 ssh <publicIpAddress>
@@ -302,7 +302,7 @@ Non si ricevono risposte perché il gruppo di sicurezza di rete associato alla s
 
 Uscire dalla sessione SSH alla macchina virtuale *myVmPrivate*.
 
-## <a name="confirm-access-is-denied-to-storage-account"></a>Verificare che venga negato l'accesso a un account di archiviazione
+## <a name="confirm-access-is-denied-to-storage-account"></a>Verificare che venga rifiutato l'accesso a un account di archiviazione
 
 Usare il comando seguente per creare una sessione SSH con la VM *myVmPublic*. Sostituire `<publicIpAddress>` con l'indirizzo IP pubblico della macchina virtuale *myVmPublic*: 
 
@@ -316,13 +316,13 @@ Creare una directory per un punto di montaggio:
 sudo mkdir /mnt/MyAzureFileShare
 ```
 
-Provare a montare la condivisione file di Azure nella directory creata. Questo articolo presuppone che sia stata distribuita la versione più recente di Ubuntu. Se si usano versioni meno recenti di Ubuntu, vedere [Eseguire il montaggio in Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per istruzioni aggiuntive sul montaggio di condivisioni file. Prima di eseguire il comando seguente, sostituire `<storage-account-name>` con il nome dell'account e `<storage-account-key>` con la chiave recuperata in [Creare un account di archiviazione](#create-a-storage-account):
+Provare a montare la condivisione file di Azure nella directory creata. Questo articolo presuppone che sia stata distribuita la versione più recente di Ubuntu. Se si usano versioni meno recenti di Ubuntu, vedere [Eseguire il montaggio in Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per istruzioni aggiuntive sul montaggio di condivisioni file. Prima di eseguire il `<storage-account-name>` comando seguente, `<storage-account-key>` sostituire con il nome dell'account e con la chiave recuperata in [Creare un account di archiviazione:](#create-a-storage-account)
 
 ```bash
 sudo mount --types cifs //storage-account-name>.file.core.windows.net/my-file-share /mnt/MyAzureFileShare --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
 ```
 
-L'accesso viene rifiutato e viene visualizzato un errore `mount error(13): Permission denied` perché la VM *myVmPublic* viene distribuita nella subnet *pubblica*. La subnet *pubblica* non ha un endpoint di servizio abilitato per Archiviazione di Azure e l'account di archiviazione consente l'accesso di rete solo dalla subnet *privata* e non dalla subnet *pubblica*.
+L'accesso viene rifiutato e viene visualizzato un errore `mount error(13): Permission denied` perché la VM *myVmPublic* viene distribuita nella subnet *pubblica*. La subnet *Public* non ha un endpoint di servizio abilitato per Archiviazione di Azure e l'account di archiviazione consente l'accesso di rete solo dalla subnet *Private* e non dalla subnet *Public*.
 
 Uscire dalla sessione SSH alla macchina virtuale *myVmPublic*.
 

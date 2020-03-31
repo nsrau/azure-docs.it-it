@@ -1,5 +1,5 @@
 ---
-title: Concetti relativi al ripristino di checkpoint e riproduzione in analisi di flusso di Azure
+title: Checkpoint and replay recovery concepts in Azure Stream Analytics
 description: Questo articolo illustra i concetti di checkpoint e riproduzione per il ripristino dei processi in Analisi di flusso di Azure.
 author: mamccrea
 ms.author: mamccrea
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: f5bb2b97d7da770828c2f4f03167483ad2044c79
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75426398"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Concetti di checkpoint e riproduzione nei processi di Analisi di flusso di Azure
 Questo articolo illustra i concetti di checkpoint interno e riproduzione in Analisi di flusso di Azure e il relativo impatto sul ripristino dei processi. Ogni volta che viene eseguito un processo di Analisi di flusso, le informazioni sullo stato vengono mantenute all'interno del servizio e salvate periodicamente in un checkpoint. In alcuni scenari le informazioni dei checkpoint vengono usate per il ripristino dei processi in caso di errore o di aggiornamento. In altre circostanze il checkpoint non può essere usato per il ripristino ed è necessario procedere alla riproduzione.
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>Logica di query con stato negli elementi temporali
-Una delle esclusive funzionalità dei processi di Analisi di flusso di Azure è l'esecuzione dell'elaborazione con stato, ad esempio per funzioni di aggregazione finestra, join temporali e funzioni di analisi temporali. Ognuno di questi operatori mantiene le informazioni sullo stato durante l'esecuzione del processo. La dimensione massima della finestra per questi elementi della query è di sette giorni. 
+Una delle esclusive funzionalità dei processi di Analisi di flusso di Azure è l'esecuzione dell'elaborazione con stato, ad esempio per funzioni di aggregazione finestra, join temporali e funzioni di analisi temporali. Ognuno di questi operatori mantiene le informazioni sullo stato durante l'esecuzione del processo.La dimensione massima della finestra temporale per questi elementi di query è sette giorni. 
 
 Il concetto di finestra temporale è presente in diversi elementi di query di Analisi di flusso:
 1. Funzioni di aggregazione finestra (GROUP BY di finestre temporali scorrevoli, di salto e a cascata)

@@ -1,13 +1,13 @@
 ---
-title: Informazioni sulla sicurezza delle applicazioni di Azure Service Fabric
+title: Informazioni sulla sicurezza delle applicazioni di Azure Service FabricLearn about Azure Service Fabric application security
 description: Panoramica su come eseguire in sicurezza applicazioni di microservizi in Service Fabric. Informazioni su come eseguire servizi e script di avvio con account di sicurezza diversi, autenticare e autorizzare utenti, gestire i segreti delle applicazioni, proteggere comunicazioni di servizio, usare un gateway API e proteggere i dati inattivi delle applicazioni.
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.openlocfilehash: 6c40bf66d1068310790d1440174eeb5b2a571154
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75452245"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Sicurezza del servizio e dell'applicazione Service Fabric
@@ -20,12 +20,12 @@ Questo articolo non è una guida alla sicurezza dei microservizi, poiché online
 ## <a name="authentication-and-authorization"></a>Autenticazione e autorizzazione
 È spesso necessario che le risorse e le API esposte da un servizio vengano limitate a determinati client o utenti attendibili. ovvero il processo con cui si accerta in modo affidabile l'identità di un utente.  mentre l'autorizzazione è il processo che rende le API o i servizi disponibili per alcuni utenti autenticati, ma non per altri.
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 Il primo passaggio del processo decisionale relativo all'attendibilità a livello di API è l'autenticazione, ovvero il processo con cui si accerta in modo affidabile l'identità di un utente.  In scenari di microservizi, l'autenticazione viene in genere gestita centralmente. Se si usa un gateway API, tuttavia, è possibile [scaricare l'autenticazione](/azure/architecture/patterns/gateway-offloading) sul gateway. Se si usa questo approccio, accertarsi che i singoli servizi non possano essere raggiunti direttamente (senza il gateway API), a meno che non siano stati configurati strumenti di sicurezza aggiuntivi per l'autenticazione dei messaggi, indipendentemente dal fatto che provengano o meno dal gateway.
 
 Se è possibile accedere direttamente ai servizi, per autenticare gli utenti è possibile usare un servizio di autenticazione come Azure Active Directory o un microservizio di autenticazione dedicato che svolge la funzione di servizio token di sicurezza. Le decisioni sull'attendibilità vengono condivise tra i servizi tramite cookie o token di sicurezza. 
 
-Per ASP.NET Core, il principale meccanismo di [autenticazione degli utenti](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) è il sistema di appartenenze ASP.NET Core Identity, che archivia le informazioni sugli utenti (inclusi dati di accesso, ruoli e attestazioni) in un archivio dati configurato dallo sviluppatore. ASP.NET Core Identity supporta l'autenticazione a due fattori,  Sono supportati anche i provider di autenticazione esterni, in modo che gli utenti possano accedere usando i processi di autenticazione esistenti da provider come Microsoft, Google, Facebook o Twitter.
+Per ASP.NET Core, il principale meccanismo di [autenticazione degli utenti](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) è il sistema di appartenenze ASP.NET Core Identity, che archivia le informazioni sugli utenti (inclusi dati di accesso, ruoli e attestazioni) in un archivio dati configurato dallo sviluppatore. ASP.NET Core Identity supporta l'autenticazione a due fattori,  Sono supportati anche i provider di autenticazione esterni, in modo che gli utenti possano accedere utilizzando i processi di autenticazione esistenti da provider come Microsoft, Google, Facebook o Twitter.
 
 ### <a name="authorization"></a>Autorizzazione
 Dopo l'autenticazione, i servizi devono autorizzare l'accesso utente o determinare cosa può fare un utente. Questo processo, ad esempio, consente a un servizio di rendere le API disponibili per alcuni utenti autenticati, ma non per tutti. L'autorizzazione è ortogonale e indipendente dall'autenticazione, che costituisce invece il processo con cui si accerta l'identità di un utente. L'autenticazione, inoltre, può creare una o più identità per l'utente corrente.
@@ -40,7 +40,7 @@ In Service Fabric un gateway può essere qualsiasi servizio senza stato, ad esem
 Gestione API si integra direttamente in Service Fabric, consentendo di pubblicare API con un ampio set di regole di routing nei servizi Service Fabric back-end.  Consente inoltre di proteggere l'accesso ai servizi back-end, impedire attacchi DoS con la limitazione o verificare chiavi API, token JWT, certificati e altre credenziali. Per altre informazioni, vedere [Panoramica di Service Fabric con Gestione API di Azure](service-fabric-api-management-overview.md).
 
 ## <a name="manage-application-secrets"></a>Gestire i segreti dell'applicazione
-I segreti possono essere informazioni riservate, ad esempio le stringhe di connessione di archiviazione, le password o altri valori che non devono essere gestiti in testo normale. Questo articolo usa Azure Key Vault per gestire chiavi e segreti. Tuttavia, l' *uso* di segreti in un'applicazione è indipendente dalla piattaforma cloud per consentire alle applicazioni di essere distribuite in un cluster ospitato in un punto qualsiasi.
+I segreti possono essere informazioni riservate, ad esempio le stringhe di connessione di archiviazione, le password o altri valori che non devono essere gestiti in testo normale. Questo articolo usa Azure Key Vault per gestire chiavi e segreti. Tuttavia, *l'utilizzo* di segreti in un'applicazione è indipendente dalla piattaforma cloud per consentire la distribuzione delle applicazioni in un cluster ospitato ovunque.
 
 Il metodo consigliato per gestire le impostazioni di configurazione del servizio è tramite i [pacchetti di configurazione del servizio][config-package]. I pacchetti di configurazione dispongono di controllo delle versioni e sono aggiornabili tramite gli aggiornamenti in sequenza gestiti con convalida dell'integrità e rollback automatico. Questo approccio è da preferire alla configurazione globale in quanto riduce le probabilità di un'interruzione del servizio globale. I segreti crittografati non rappresentano un'eccezione. Service Fabric offre funzionalità incorporate per crittografare e decrittografare i valori in un file Settings.xml del pacchetto configurazione tramite la crittografia del certificato.
 
@@ -55,7 +55,7 @@ In questo flusso sono presenti quattro passaggi principali:
 3. Crittografare i valori dei segreti quando si distribuisce un'applicazione con il certificato e inserirli nel file di configurazione Settings.xml del servizio.
 4. Leggere i valori crittografati risultati da Settings. XML eseguendo la decrittografia con lo stesso certificato di crittografia. 
 
-[Azure Key Vault][key-vault-get-started] viene usato come percorso di archiviazione sicuro per i certificati e come modo per ottenere i certificati installati nei cluster Service fabric in Azure. Se non si esegue la distribuzione in Azure, non è necessario usare l'insieme di credenziali delle chiavi per gestire i segreti nelle applicazioni di Service Fabric.
+[Azure Key Vault][key-vault-get-started] viene usato come percorso di archiviazione sicuro per i certificati e come un modo per ottenere i certificati installati nei cluster Service Fabric in Azure. Se non si esegue la distribuzione in Azure, non è necessario usare l'insieme di credenziali delle chiavi per gestire i segreti nelle applicazioni di Service Fabric.
 
 Per un esempio, vedere [Gestire i segreti dell'applicazione](service-fabric-application-secret-management.md).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 292b53fac6c970fb961e8ad4ce7774c080e52422
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: dbb9b0f865c7ec5d9d29e2310ae41abbec287bd6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718872"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79464963"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Disabilitare il firewall del sistema operativo guest nella macchina virtuale di Azure
 
@@ -27,7 +27,7 @@ Questo articolo fornisce informazioni di riferimento per le situazioni in cui si
 
 ## <a name="solution"></a>Soluzione
 
-La procedura descritta in questo articolo deve essere usata come soluzione alternativa che consenta di concentrarsi sulla risoluzione del problema reale, ossia la corretta configurazione delle regole del firewall. È consigliabile abilitare il componente Windows Firewall per Microsoft. Il modo in cui vengono configurate le regole del firewall dipende dal livello di accesso alla macchina virtuale richiesta.
+La procedura descritta in questo articolo deve essere usata come soluzione alternativa che consenta di concentrarsi sulla risoluzione del problema reale, ossia la corretta configurazione delle regole del firewall. È consigliabile Microsoft avere attivato il componente Windows Firewall. La modalità di configurazione delle regole del firewall dipende dal livello di accesso alla macchina virtuale necessario.
 
 ### <a name="online-solutions"></a>Soluzioni online 
 
@@ -70,7 +70,7 @@ Se è in funzione un agente di Azure, è possibile usare l'[estensione dello scr
     ```
 
 > [!Note]
-> Se il firewall viene impostato tramite un oggetto Criteri di gruppo, questo metodo potrebbe non funzionare perché questo comando modifica solo le voci del registro di sistema locale. Se è applicato un criterio, eseguirà l'override di questa modifica. 
+> Se il firewall è configurato tramite un oggetto Criteri di gruppo, questo metodo potrebbe non funzionare perché questo comando modifica solo le voci del Registro di sistema locale. Se è applicato un criterio, eseguirà l'override di questa modifica. 
 
 #### <a name="mitigation-3-pstools-commands"></a>Mitigazione 3: Comandi PSTools
 
@@ -90,9 +90,9 @@ Se è in funzione un agente di Azure, è possibile usare l'[estensione dello scr
 
 Seguire questa procedura per usare il [Registro di sistema remoto](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
 
-1.  Nella macchina virtuale per la risoluzione dei problemi avviare l'editor del Registro di sistema e quindi passare a **File** > **Connetti a Registro di sistema in rete**.
+1.  Nella macchina virtuale per la risoluzione dei problemi avviare l'editor del Registro di sistema e quindi passare a**Registro**di sistema di rete **di Connessione file** > .
 
-2.  Aprire il ramo \System del *computer di destinazione*e specificare i valori seguenti:
+2.  Aprire il ramo *TARGET MACHINE*-SYSTEM e specificare i seguenti valori:
 
     ```
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile\EnableFirewall           -->        0 
@@ -100,15 +100,15 @@ Seguire questa procedura per usare il [Registro di sistema remoto](https://suppo
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\StandardProfile\EnableFirewall         -->        0
     ```
 
-3.  Riavviare il servizio. Poiché non è possibile eseguire questa operazione tramite il Registro di sistema remoto, è necessario usare la console Servizi.
+3.  Riavviare il servizio. Poiché non è possibile eseguire questa operazione utilizzando il Registro di sistema remoto, è necessario utilizzare Remote Service Console.
 
-4.  Aprire un'istanza di **Services. msc**.
+4.  Aprire un'istanza di **Services.msc**.
 
-5.  Fare clic su **Servizi (computer locale)** .
+5.  Fare clic su **Servizi (computer locale)**.
 
 6.  Selezionare **Connetti a un altro computer**.
 
-7.  Immettere l' **indirizzo IP privato (DIP)** della macchina virtuale con problemi.
+7.  Immettere **l'indirizzo IP privato (DIP)** della macchina virtuale che presenta il problema.
 
 8.  Riavviare il criterio firewall locale.
 

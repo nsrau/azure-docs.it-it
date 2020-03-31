@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 1d244d7b62fcfefeec6f628f473274ae982bf4d8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 0b1b22095c77344ed71762d3d51b12f19d9f1811
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79272994"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79458053"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Risoluzione dei problemi e limitazioni di Azure Cloud Shell
 
@@ -29,10 +29,10 @@ Le soluzioni note per i problemi in Azure Cloud Shell includono:
 
 ## <a name="general-troubleshooting"></a>Risoluzione dei problemi generali
 
-### <a name="error-running-azuread-cmdlets-in-powershell"></a>Errore durante l'esecuzione di cmdlet AzureAD in PowerShell
+### <a name="error-running-azuread-cmdlets-in-powershell"></a>Errore durante l'esecuzione dei cmdlet di AzureAD in PowerShellError running AzureAD cmdlets in PowerShell
 
-- **Dettagli**: quando si eseguono cmdlet AzureAD come `Get-AzureADUser` in cloud Shell, è possibile che venga visualizzato un errore: `You must call the Connect-AzureAD cmdlet before calling any other cmdlets`. 
-- **Soluzione**: eseguire il cmdlet `Connect-AzureAD`. In precedenza Cloud Shell questo cmdlet veniva eseguito automaticamente durante l'avvio di PowerShell. Per velocizzare l'ora di avvio, il cmdlet non viene più eseguito automaticamente. È possibile scegliere di ripristinare il comportamento precedente aggiungendo `Connect-AzureAD` al file di $PROFILE in PowerShell.
+- **Dettagli**: quando si eseguono `Get-AzureADUser` cmdlet di AzureAD come `You must call the Connect-AzureAD cmdlet before calling any other cmdlets`in Cloud Shell, è possibile che venga visualizzato un errore: . 
+- **Soluzione:** eseguire `Connect-AzureAD` il cmdlet. In precedenza, Cloud Shell eseguiva automaticamente questo cmdlet durante l'avvio di PowerShell. Per velocizzare l'ora di inizio, il cmdlet non viene più eseguito automaticamente. È possibile scegliere di ripristinare `Connect-AzureAD` il comportamento precedente aggiungendo al file di $PROFILE in PowerShell.You can choose to restore the previous behavior by adding to the $PROFILE file in PowerShell.
 
 ### <a name="early-timeouts-in-firefox"></a>Timeout anticipati in FireFox
 
@@ -41,12 +41,12 @@ Le soluzioni note per i problemi in Azure Cloud Shell includono:
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>Disabilitazione di Cloud Shell in un ambiente di rete bloccato
 
-- **Dettagli**: gli amministratori possono decidere di disabilitare l'accesso a Cloud Shell per gli utenti. Cloud Shell usa l'accesso al dominio `ux.console.azure.com`, che può essere negato, impedendo l'accesso ai entryPoints di Cloud Shell, tra cui portal.azure.com, shell.azure.com, Visual Studio Code estensione account Azure e docs.microsoft.com. Nel cloud del governo degli Stati Uniti, il EntryPoint è `ux.console.azure.us`; non esiste alcun shell.azure.us corrispondente.
-- **Soluzione**: limitare l'accesso ai `ux.console.azure.com` o `ux.console.azure.us` tramite le impostazioni di rete per l'ambiente. L'icona Cloud Shell continuerà a esistere nell'portale di Azure, ma non si connetterà correttamente al servizio.
+- **Dettagli**: gli amministratori possono decidere di disabilitare l'accesso a Cloud Shell per gli utenti. Cloud Shell utilizza l'accesso `ux.console.azure.com` al dominio, che può essere negato, interrompendo qualsiasi accesso ai punti di ingresso di Cloud Shell, tra cui portal.azure.com, shell.azure.com, Visual Studio Code Azure Account Extension e docs.microsoft.com. Nel cloud del governo degli `ux.console.azure.us`Stati Uniti, il punto di ingresso è ; non esiste un shell.azure.us corrispondente.
+- **Soluzione**: limitare l'accesso alle `ux.console.azure.com` impostazioni di rete o `ux.console.azure.us` tramite le impostazioni di rete. L'icona di Cloud Shell sarà ancora presente nel portale di Azure, ma non si connetterà correttamente al servizio.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Finestra di dialogo archiviazione - Errore: 403 RequestDisallowedByPolicy
 
-- **Dettagli**: quando si crea un account di archiviazione tramite cloud Shell, l'operazione ha esito negativo a causa di criteri di Azure inseriti dall'amministratore. Il messaggio di errore includerà: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **Dettagli**: quando si crea un account di archiviazione tramite Cloud Shell, non viene esito positivo a causa di un criterio di Azure inserito dall'amministratore. Il messaggio di errore includerà:`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
 - **Risoluzione**: contattare l'amministratore di Azure per rimuovere o aggiornare i criteri di Azure che impediscono di creare l'archiviazione.
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>Finestra di dialogo archiviazione - Errore: 400 DisallowedOperation
@@ -59,7 +59,7 @@ Le soluzioni note per i problemi in Azure Cloud Shell includono:
 - **Risoluzione**: verificare di aver configurato le impostazioni di rete per abilitare l'invio di richieste https e di richieste websocket ai domini in *.console.azure.com.
 
 ### <a name="set-your-cloud-shell-connection-to-support-using-tls-12"></a>Impostare la connessione di Cloud Shell per supportare l'uso di TLS 1.2
- - **Dettagli**: per definire la versione di TLS per la connessione cloud Shell, è necessario impostare le impostazioni specifiche del browser.
+ - **Dettagli**: Per definire la versione di TLS per la connessione a Cloud Shell, è necessario impostare le impostazioni specifiche del browser.
  - **Risoluzione**: passare alle impostazioni di sicurezza del browser e selezionare la casella di controllo accanto a "Usa TLS 1.2".
 
 ## <a name="bash-troubleshooting"></a>Risoluzione dei problemi di Bash
@@ -92,11 +92,11 @@ Le soluzioni note per i problemi in Azure Cloud Shell includono:
 
 Di seguito vengono descritte le limitazioni note di Azure Cloud Shell:
 
-### <a name="quota-limitations"></a>Limitazioni della quota
+### <a name="quota-limitations"></a>Limitazioni delle quote
 
-Azure Cloud Shell ha un limite di 20 utenti simultanei per ogni tenant per area. Se si tenta di aprire più sessioni simultanee rispetto al limite, verrà visualizzato l'errore "tenant utente Over quota". Se è necessario disporre di più sessioni aperte (ad esempio per le sessioni di training), contattare il supporto tecnico prima dell'utilizzo previsto per richiedere un aumento della quota.
+Azure Cloud Shell ha un limite di 20 utenti simultanei per tenant per ogni area. Se si tenta di aprire più sessioni simultanee oltre al limite, verrà visualizzato un errore "Tenant User Over Quota". Se hai la necessità legittima di avere più sessioni aperte di questa (ad esempio per le sessioni di formazione), contatta il supporto prima dell'utilizzo previsto per richiedere un aumento della quota.
 
-Cloud Shell viene fornito come servizio gratuito ed è progettato per essere usato per configurare l'ambiente di Azure, non come piattaforma di calcolo per utilizzo generico. Un utilizzo automatizzato eccessivo può essere considerato in violazione delle condizioni di servizio di Azure e può comportare il blocco dell'accesso Cloud Shell.
+Cloud Shell viene fornito come servizio gratuito ed è progettato per essere utilizzato per configurare l'ambiente Azure, non come piattaforma di elaborazione generica. Un utilizzo eccessivo dell'automazione può essere considerato in violazione delle Condizioni di servizio di Azure e potrebbe causare il blocco dell'accesso a Cloud Shell.
 
 ### <a name="system-state-and-persistence"></a>Persistenza e stato del sistema
 
@@ -210,5 +210,8 @@ PowerShell:
   $token= ((Invoke-WebRequest -Uri "$env:MSI_ENDPOINT`?resource=https://management.core.windows.net/" -Headers @{Metadata='true'}).content |  ConvertFrom-Json).access_token
   Invoke-WebRequest -Method Delete -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
   ```
-## <a name="azure-government-limitations"></a>Limitazioni di Azure per enti pubblici
-Azure Cloud Shell in Azure per enti pubblici è accessibile solo tramite l'portale di Azure.
+## <a name="azure-government-limitations"></a>Limitazioni di Azure per enti pubbliciAzure Government limitations
+Azure Cloud Shell in Azure per enti pubblici è accessibile solo tramite il portale di Azure.Azure Cloud Shell in Azure Government is only accessible through the Azure portal.
+
+>[!Note]
+> La connessione a gCC-High o Government DoD Clouds per Exchange Online non è attualmente supportata.

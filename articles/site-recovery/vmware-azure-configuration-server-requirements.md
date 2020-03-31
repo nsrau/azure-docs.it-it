@@ -1,5 +1,5 @@
 ---
-title: 'Ripristino di emergenza di VMware: requisiti del server di configurazione in Azure Site Recovery'
+title: Requisiti del server di configurazione di emergenza di VMware in Azure Site Recovery
 description: Questo articolo descrive il supporto e i requisiti relativi alla distribuzione di un server di configurazione per il ripristino di emergenza di VMware in Azure con Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/09/2019
 ms.author: raynew
 ms.openlocfilehash: 0b0942b517c8dc83c048bd1203a58d9861515dfb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257407"
 ---
 # <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>Requisiti del server di configurazione per il ripristino di emergenza di VMware in Azure

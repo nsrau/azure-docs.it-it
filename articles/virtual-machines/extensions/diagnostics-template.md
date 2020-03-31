@@ -1,6 +1,6 @@
 ---
-title: Aggiungere la diagnostica del & di monitoraggio a una macchina virtuale di Azure
-description: Usare un modello di Azure Resource Manager per creare una nuova macchina virtuale Windows con l'estensione diagnostica di Azure.
+title: Aggiungere il monitoraggio della diagnostica & a una macchina virtuale di AzureAdd monitoring & diagnostics to an Azure virtual machine
+description: Usare un modello di Azure Resource Manager per creare una nuova macchina virtuale Windows con l'estensione di diagnostica di Azure.Use an Azure Resource Manager template to create a new Windows virtual machine with Azure diagnostics extension.
 services: virtual-machines-windows
 documentationcenter: ''
 author: sbtron
@@ -16,10 +16,10 @@ ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2490c3de60e0deac6a1a4ddc5abc95cb46e240b2
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74073833"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Usare monitoraggio e diagnostica con una macchina virtuale Windows e modelli di Azure Resource Manager
@@ -177,6 +177,6 @@ Ogni tabella WADMetrics include le colonne seguenti:
 * **Average**: valore medio (totale/conteggio) del contatore delle prestazioni nel periodo di aggregazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per un modello di esempio completo di macchina virtuale Windows con estensione Diagnostica, vedere [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
+* Per un modello di esempio completo di una macchina virtuale Windows con estensione di diagnostica, vedere [201-vm-monitoring-diagnostics-extensionFor](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension) a complete sample template of a Windows virtual machine with diagnostics extension, see 201-vm-monitoring-diagnostics-extension   
 * Distribuire il modello di Azure Resource Manager con [Azure PowerShell](../windows/ps-template.md) o la [riga di comando di Azure](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* Altre informazioni sulla [Creazione di modelli di Gestione risorse di Azure](../../resource-group-authoring-templates.md)
+* Altre informazioni sulla creazione di modelli di [Azure Resource ManagerLearn](../../resource-group-authoring-templates.md) more about authoring Azure Resource Manager templates

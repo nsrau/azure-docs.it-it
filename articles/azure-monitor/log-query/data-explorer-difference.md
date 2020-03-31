@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
 ms.openlocfilehash: b4601968a318388086a60ef98e4359ae01f652ed
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77662103"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Differenze nel linguaggio di query di log di Monitoraggio di Azure
@@ -40,7 +40,7 @@ Le sezioni seguenti descrivono gli elementi del linguaggio di query Kusto che no
 
 ### <a name="operators-not-supported-in-azure-monitor"></a>Operatori non supportati in Monitoraggio di Azure
 
-* [Join tra cluster](/azure/kusto/query/joincrosscluster)
+* [Aggiunta a più cluster](/azure/kusto/query/joincrosscluster)
 * [Operatore externaldata](/azure/kusto/query/externaldata-operator)
 
 ### <a name="plugins-not-supported-in-azure-monitor"></a>Plug-in non supportati in Monitoraggio di Azure

@@ -1,5 +1,5 @@
 ---
-title: Configurare gli indirizzi IP dopo il failover in un sito secondario con Azure Site Recovery
+title: Configurare l'indirizzamento IP dopo il failover in un sito secondario con Azure Site RecoverySet up IP addressing after failover to a secondary site with Azure Site Recovery
 description: Descrive come configurare l'indirizzo IP per la connessione alle macchine virtuali in un sito secondario locale dopo il ripristino di emergenza e il failover con Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: a61f7ff69e648262eb721eb61a98b09dbbee924c
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73961435"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configurare l'indirizzo IP per la connessione a un sito secondario locale dopo il failover
@@ -127,5 +127,5 @@ In questo esempio sono disponibili diversi indirizzi IP nei siti primari e secon
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Eseguire un failover](hyper-v-vmm-failover-failback.md)
+[Eseguire un failoverRun a failover](hyper-v-vmm-failover-failback.md)
 

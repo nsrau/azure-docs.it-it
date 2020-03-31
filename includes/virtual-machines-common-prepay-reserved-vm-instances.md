@@ -3,28 +3,28 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 11/21/2019
-ms.openlocfilehash: 119ef52bd801f66cd25a844d3a87b1906881c484
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 03/27/2020
+ms.openlocfilehash: d41affc55134ad34c325c12ab4a14f4013c58f9e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76021082"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371655"
 ---
-Quando si esegue il commit in un'istanza di VM riservata di Azure, è possibile risparmiare denaro. Lo sconto della prenotazione si applica automaticamente alle macchine virtuali in esecuzione corrispondenti all'ambito di prenotazione e agli attributi. Non è necessario assegnare una prenotazione a una macchina virtuale per ottenere gli sconti. Un acquisto di istanze riservate copre solo la parte di calcolo dell'utilizzo della VM. Per le macchine virtuali Windows, il contatore utilizzo è suddiviso in due contatori distinti. È disponibile un contatore di calcolo, che corrisponde al contatore Linux e a un contatore IP di Windows. Gli addebiti visualizzati quando si effettua l'acquisto sono solo per i costi di calcolo. Gli addebiti non includono i costi del software Windows. Per altre informazioni sui costi del software, vedere [costi software non inclusi nelle istanze di VM riservate di Azure](../articles/cost-management-billing/reservations/reserved-instance-windows-software-costs.md).
+Quando si esegue il commit in un'istanza di macchina virtuale riservata di Azure, è possibile risparmiare denaro. Lo sconto della prenotazione si applica automaticamente alle macchine virtuali in esecuzione corrispondenti all'ambito di prenotazione e agli attributi. Non è necessario assegnare una prenotazione a una macchina virtuale per ottenere gli sconti. Un acquisto di istanze riservate copre solo la parte di calcolo dell'utilizzo della macchina virtuale. Per le macchine virtuali Windows, il misuratore di utilizzo viene suddiviso in due metri separati. C'è un misuratore di calcolo, che è lo stesso del metro Linux, e un misuratore IP di Windows. Gli addebiti visualizzati quando si effettua l'acquisto sono solo per i costi di calcolo. Gli addebiti non includono i costi del software Windows. Per altre informazioni sui costi software, vedere [Costi software non inclusi nelle istanze di vm riservate di Azure.For](../articles/cost-management-billing/reservations/reserved-instance-windows-software-costs.md)more information about software costs, see Software costs not included with Azure Reserved VM Instances .
 
 ## <a name="determine-the-right-vm-size-before-you-buy"></a>Determinare le dimensioni corrette delle macchine virtuali prima dell'acquisto
 
-Prima di acquistare una prenotazione, è necessario determinare le dimensioni della macchina virtuale necessaria. Le sezioni seguenti consentono di determinare le dimensioni appropriate per la macchina virtuale.
+Prima di acquistare una prenotazione, è necessario determinare le dimensioni della macchina virtuale necessaria. Le sezioni seguenti consentono di determinare le dimensioni corrette della macchina virtuale.
 
-### <a name="use-reservation-recommendations"></a>USA consigli sulla prenotazione
+### <a name="use-reservation-recommendations"></a>Utilizzare i consigli di prenotazione
 
-È possibile usare le raccomandazioni di prenotazione per determinare le prenotazioni da acquistare.
+È possibile utilizzare le raccomandazioni di prenotazione per determinare le prenotazioni da acquistare.
 
-- I consigli di acquisto e la quantità consigliata vengono visualizzati quando si acquista un'istanza riservata della macchina virtuale nell'portale di Azure.
+- I consigli di acquisto e la quantità consigliata vengono visualizzati quando si acquista un'istanza riservata della macchina virtuale nel portale di Azure.Purchase recommendations and recommended quantity are show when you purchase a VM reserved instance in the Azure portal.
 - Azure Advisor fornisce consigli di acquisto per le singole sottoscrizioni.  
-- È possibile usare le API per ottenere raccomandazioni di acquisto sia per l'ambito condiviso sia per l'ambito di una singola sottoscrizione. Per altre informazioni, vedere [API di raccomandazione per l'acquisto di istanze riservate per i clienti aziendali](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
-- Per i clienti Enterprise Agreement (EA) e Microsoft Customer Agreement (MCA), i consigli di acquisto per gli ambiti di abbonamento condiviso e singolo sono disponibili con il [pacchetto di contenuto Informazioni dettagliate sul consumo di Azure Power bi](/power-bi/service-connect-to-azure-consumption-insights).
+- È possibile usare le API per ottenere consigli di acquisto sia per l'ambito condiviso che per l'ambito della sottoscrizione singola. Per ulteriori informazioni, vedere API di raccomandazione per [l'acquisto di istanze riservate per i clienti aziendali.](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation)
+- Per i clienti con contratto Enterprise Agreement (EA) e Microsoft Customer Agreement (MCA), i consigli di acquisto per gli ambiti di sottoscrizione condivisa e singola sono disponibili con il pacchetto di contenuto Power BI di [Azure Consumption Insights.](/power-bi/service-connect-to-azure-consumption-insights)
 
 ### <a name="services-that-get-vm-reservation-discounts"></a>Servizi che ottengono sconti per la prenotazione di macchine virtuali
 
@@ -37,7 +37,7 @@ L'impostazione della flessibilità delle dimensioni dell'istanza determina quali
 Indipendentemente dal fatto che l'impostazione sia attivata o disattivata, gli sconti per la prenotazione vengono applicati automaticamente a qualsiasi utilizzo di macchine virtuali corrispondente quando *ConsumedService* è `Microsoft.Compute`. Controllare quindi i dati di utilizzo per il valore *ConsumedService*. Di seguito sono riportati alcuni esempi:
 
 - Macchine virtuali
-- Set di scalabilità di macchine virtuali
+- set di scalabilità di macchine virtuali
 - Servizio contenitore
 - Distribuzioni di Azure Batch (in modalità sottoscrizioni utente)
 - Servizio Azure Kubernetes
@@ -56,96 +56,95 @@ Controllare il valore *ConsumedService* nei dati di utilizzo per determinare se 
 Per altre informazioni sulla flessibilità delle dimensioni istanza, vedere [Flessibilità di dimensioni delle macchine virtuali con le istanze di macchina virtuale riservate](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 
 ### <a name="analyze-your-usage-information"></a>Analizzare le informazioni sull'utilizzo
-Analizzare le informazioni sull'utilizzo per determinare le prenotazioni da acquistare.
 
-I dati di utilizzo sono disponibili nel file di utilizzo e nelle API. Usarli insieme per determinare la prenotazione da acquistare. Verificare la presenza di istanze di VM con utilizzo elevato su base giornaliera per determinare la quantità di prenotazioni da acquistare.
+Analizza le informazioni sull'utilizzo per determinare le prenotazioni da acquistare. I dati di utilizzo sono disponibili nel file di utilizzo e nelle API. Utilizzarli insieme per determinare quale prenotazione acquistare. Verificare la presenza di istanze di macchine virtuali con utilizzo elevato su base giornaliera per determinare la quantità di prenotazioni da acquistare. Evitare `Meter` la `Product` sottocategoria e i campi nei dati di utilizzo. Non distinguono tra dimensioni di macchine virtuali che usano l'archiviazione Premium.They don't distinguish between VM sizes that use premium storage. Se si usano questi campi per determinare la dimensione della macchina virtuale per l'acquisto della prenotazione, è possibile acquistare la dimensione errata. Quindi non otterrai lo sconto sulla prenotazione che ti aspetti. Fare invece `AdditionalInfo` riferimento al campo nel file di utilizzo o nell'API di utilizzo per determinare le dimensioni corrette della macchina virtuale.
 
-Evitare i campi `Meter` Subcategory e `Product` nei dati di utilizzo. Non si distinguono tra le dimensioni delle macchine virtuali che usano archiviazione Premium. Se si usano questi campi per determinare le dimensioni della macchina virtuale per l'acquisto della prenotazione, è possibile che si verifichino dimensioni errate. Non sarà quindi possibile usufruire dello sconto di prenotazione previsto. Al contrario, fare riferimento al campo `AdditionalInfo` nel file di utilizzo o nell'API di utilizzo per determinare le dimensioni corrette della macchina virtuale.
+Il file di utilizzo mostra gli addebiti in base al periodo di fatturazione e all'utilizzo giornaliero. Per informazioni sul download del file di utilizzo, vedere [Visualizzare e scaricare l'utilizzo e gli addebiti](../articles/cost-management-billing/understand/download-azure-daily-usage.md)di Azure. Quindi, utilizzando le informazioni del file di utilizzo, è possibile [determinare quale prenotazione acquistare.](../articles/cost-management-billing/reservations/determine-reservation-purchase.md)
 
-### <a name="purchase-restriction-considerations"></a>Considerazioni sulla restrizione degli acquisti
+### <a name="purchase-restriction-considerations"></a>Considerazioni sulle restrizioni all'acquisto
 
-Le istanze di VM riservate sono disponibili per la maggior parte delle dimensioni delle VM con alcune eccezioni. Gli sconti per le prenotazioni non sono applicabili alle macchine virtuali seguenti:
+Le istanze di macchine virtuali riservate sono disponibili per la maggior parte delle dimensioni delle macchine virtuali con alcune eccezioni. Gli sconti di prenotazione non si applicano alle macchine virtuali seguenti:Reservation discounts don't apply for the following VMs:
 
-- Serie **VM** : serie A, serie AV2 o G.
+- **Serie VM** - Serie A, Serie Av2 o serie G.
 
-- **Anteprima o promozione di macchine virtuali** : qualsiasi serie di VM o dimensione in anteprima o che usa il contatore promozionale.
+- **Anteprima o macchine virtuali Promo:** qualsiasi serie di MACCHINE virtuali o dimensioni in anteprima o che usa un misuratore promozionale.
 
-- **Cloud** : le prenotazioni non sono disponibili per l'acquisto nelle aree Germania o Cina.
+- **Cloud:** le prenotazioni non sono disponibili per l'acquisto in Germania o in Cina.
 
-- **Quota insufficiente** : una prenotazione con ambito limitato a una singola sottoscrizione deve avere una quota di vCPU disponibile nella sottoscrizione per il nuovo ri. Ad esempio, se la sottoscrizione di destinazione ha un limite di quota pari a 10 vCPU per la serie D, non sarà possibile acquistare una prenotazione per 11 istanze Standard_D1. Il controllo della quota per le prenotazioni include le macchine virtuali già distribuite nella sottoscrizione. Ad esempio, se la sottoscrizione include una quota di 10 vCPU per la serie D e distribuisce due istanze Standard_D1, sarà possibile acquistare una prenotazione per le 10 istanze Standard_D1 nella sottoscrizione. Per risolvere il problema, è possibile [creare una richiesta di aumento delle quote](../articles/azure-portal/supportability/resource-manager-core-quotas-request.md) .
+- **Quota insufficiente:** una prenotazione con ambito a una singola sottoscrizione deve disporre della quota vCPU disponibile nella sottoscrizione per il nuovo RI. Ad esempio, se la sottoscrizione di destinazione ha un limite di quota pari a 10 vCPU per la serie D, non sarà possibile acquistare una prenotazione per 11 istanze Standard_D1. Il controllo della quota per le prenotazioni include le macchine virtuali già distribuite nella sottoscrizione. Ad esempio, se la sottoscrizione include una quota di 10 vCPU per la serie D e distribuisce due istanze Standard_D1, sarà possibile acquistare una prenotazione per le 10 istanze Standard_D1 nella sottoscrizione. È possibile creare una richiesta di [aumento dell'offerta](../articles/azure-portal/supportability/resource-manager-core-quotas-request.md) per risolvere il problema.
 
-- **Restrizioni di capacità** : in rari casi, Azure limita l'acquisto di nuove prenotazioni per subset di dimensioni di VM, a causa della capacità ridotta in un'area.
+- Restrizioni di **capacità:** in rari casi, Azure limita l'acquisto di nuove prenotazioni per subset di dimensioni di VM, a causa della bassa capacità in un'area.
 
 ## <a name="buy-a-reserved-vm-instance"></a>Acquistare un'istanza di macchina virtuale riservata
 
-È possibile acquistare un'istanza di macchina virtuale riservata nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Usare [pagamenti anticipati o mensili](../articles/cost-management-billing/reservations/monthly-payments-reservations.md) per acquistare la prenotazione.
-Questi requisiti si applicano all'acquisto di un'istanza di macchina virtuale riservata:
+È possibile acquistare un'istanza di macchina virtuale riservata nel portale di Azure.You can buy a reserved VM instance in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Usare [pagamenti anticipati o mensili](../articles/cost-management-billing/reservations/monthly-payments-reservations.md) per acquistare la prenotazione.
+Questi requisiti si applicano all'acquisto di un'istanza di macchina virtuale riservata:These requirements apply to buying a reserved VM instance:
 
-- È necessario avere un ruolo proprietario per almeno una sottoscrizione EA o una sottoscrizione con pagamento in base al consumo.
-- Per le sottoscrizioni EA, l'opzione **Aggiungi istanze riservate** deve essere abilitata nel [portale EA](https://ea.azure.com/). In alternativa, se tale impostazione è disabilitata, è necessario essere un amministratore EA per la sottoscrizione.
+- È necessario essere in un ruolo proprietario per almeno una sottoscrizione EA o una sottoscrizione con una tariffa con pagamento in base al quale è possibile.
+- Per le sottoscrizioni EA, l'opzione **Aggiungi istanze riservate** deve essere abilitata nel [portale EA.](https://ea.azure.com/) Se tale impostazione è disabilitata, è necessario essere un amministratore del contratto EA della sottoscrizione.
 - Per il programma Cloud Solution Provider (CSP), solo gli agenti di amministrazione o gli agenti di vendita possono acquistare le prenotazioni.
 
 Per acquistare un'istanza:
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Selezionare **Tutti i servizi** > **Prenotazioni**.
-1. Selezionare **Aggiungi** per acquistare una nuova prenotazione e quindi fare clic su **macchina virtuale**.
+1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Selezionare Tutte le**prenotazioni** **dei servizi** > .
+1. Selezionare **Aggiungi** per acquistare una nuova prenotazione, quindi fare clic su **Macchina virtuale**.
 1. Compilare i campi obbligatori. Lo sconto relativo alla prenotazione viene applicato alle istanze di macchine virtuali in esecuzione che corrispondono agli attributi. Il numero di istanze di macchine virtuali a cui viene applicato lo sconto dipende dall'ambito e dalla quantità selezionati.
 
-Se si dispone di un contratto Enterprise, è possibile utilizzare l' **opzione Aggiungi ulteriore** per aggiungere rapidamente ulteriori istanze. L'opzione non è disponibile per altri tipi di sottoscrizione.
+Se si dispone di un accordo EA, è possibile utilizzare **l'opzione Aggiungi altro** per aggiungere rapidamente altre istanze. L'opzione non è disponibile per altri tipi di sottoscrizione.
 
 
-| Campo      | Description|
+| Campo      | Descrizione|
 |------------|--------------|
-|Sottoscrizione|La sottoscrizione usata per pagare la prenotazione. Al metodo di pagamento per la sottoscrizione vengono addebitati i costi per la prenotazione. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numeri di offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto di servizio Microsoft o una sottoscrizione singola con tariffe a consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Gli addebiti vengono dedotti dal saldo dell'impegno monetario, se disponibile, o addebitati come eccedenze. Per una sottoscrizione con tariffe con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.|    
-|Ambito       |L'ambito della prenotazione può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona: <ul><li>**Gruppo di risorse singolo**: lo sconto per la prenotazione si applica solo alle risorse corrispondenti incluse nel gruppo di risorse selezionato.</li><li>**Sottoscrizione singola**: lo sconto della prenotazione viene applicato alle risorse corrispondenti incluse nella sottoscrizione selezionata.</li><li>**Condiviso**: lo sconto della prenotazione viene applicato alle risorse corrispondenti nelle sottoscrizioni idonee incluse nel contesto di fatturazione. Per i clienti con contratto Enterprise, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni che prevedono tariffe con pagamento in base al consumo, l'ambito di fatturazione è costituito da tutte le sottoscrizioni idonee create dall'amministratore account.</li></ul>|
-|Area    |L'area di Azure coperta dalla prenotazione.|    
-|Dimensioni VM     |Le dimensioni delle istanze della macchina virtuale.|
-|Ottimizza per     |Per impostazione predefinita, è selezionata la flessibilità delle dimensioni delle istanze di VM. Fare clic su **Impostazioni avanzate** per modificare il valore di flessibilità delle dimensioni dell'istanza per applicare lo sconto di prenotazione ad altre macchine virtuali nello stesso [gruppo di dimensioni della macchina virtuale](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md). La priorità di capacità assegna la capacità del data center dando priorità alle distribuzioni. Offre una maggiore fiducia nella capacità di avviare le istanze di macchine virtuali quando necessario. La priorità di capacità è disponibile solo quando l'ambito della prenotazione è sottoscrizione singola. |
-|Durata        |Un anno o tre anni.|
-|Quantità    |Il numero di istanze acquistate all'interno della prenotazione. La quantità è il numero di istanze di macchina virtuale in esecuzione che possono ottenere lo sconto sulla fatturazione. Se ad esempio si esegue 10 Standard_D2 macchine virtuali negli Stati Uniti orientali, è necessario specificare Quantity come 10 per ottimizzare il vantaggio per tutte le macchine virtuali in esecuzione. |
+|Subscription|La sottoscrizione usata per pagare la prenotazione. Al metodo di pagamento della sottoscrizione vengono addebitati i costi per la prenotazione. Il tipo di sottoscrizione deve essere un contratto Enterprise (numeri di offerta: MS-A-R-0017P o MS-A-R-0148P) o contratto microsoft con contratto cliente o una singola sottoscrizione con tariffe con pagamento in base al costo (numeri di offerta: MS-A-R-0003P o MS-A-R-0023P). Gli addebiti vengono detratti dal saldo dell'impegno monetario, se disponibile, o addebitati come eccessivamente. Per un abbonamento con tariffe con pagamento in base al pagamento, gli addebiti vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura.|    
+|Scope       |L'ambito della prenotazione può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona: <ul><li>**Gruppo di risorse singolo**: lo sconto per la prenotazione si applica solo alle risorse corrispondenti incluse nel gruppo di risorse selezionato.</li><li>**Sottoscrizione singola**: lo sconto della prenotazione viene applicato alle risorse corrispondenti incluse nella sottoscrizione selezionata.</li><li>**Condiviso**: lo sconto della prenotazione viene applicato alle risorse corrispondenti nelle sottoscrizioni idonee incluse nel contesto di fatturazione. Per i clienti EA, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni che prevedono tariffe con pagamento in base al consumo, l'ambito di fatturazione è costituito da tutte le sottoscrizioni idonee create dall'amministratore account.</li></ul>|
+|Region    |Area di Azure coperta dalla prenotazione.|    
+|Dimensioni macchina virtuale     |Le dimensioni delle istanze della macchina virtuale.|
+|Ottimizza per     |La flessibilità delle dimensioni dell'istanza della macchina virtuale è selezionata per impostazione predefinita. Fare clic su **Impostazioni avanzate** per modificare il valore di flessibilità delle dimensioni dell'istanza per applicare lo sconto prenotazione ad altre macchine virtuali nello stesso gruppo di dimensioni della [macchina virtuale.](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md) La priorità di capacità assegna la capacità del data center dando priorità alle distribuzioni. Offre maggiore sicurezza nella possibilità di avviare le istanze della macchina virtuale quando necessario. La priorità di capacità è disponibile solo quando l'ambito della prenotazione è sottoscrizione singola. |
+|Termine        |Un anno o tre anni.|
+|Quantità    |Il numero di istanze acquistate all'interno della prenotazione. La quantità è il numero di istanze di macchina virtuale in esecuzione che possono ottenere lo sconto sulla fatturazione. Ad esempio, se si eseguono 10 macchine virtuali Standard_D2 negli Stati Uniti orientali, è necessario specificare la quantità come 10 per ottimizzare il vantaggio per tutte le macchine virtuali in esecuzione. |
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
 
-## <a name="usage-data-and-reservation-utilization"></a>Utilizzo prenotazione e dati di utilizzo
+## <a name="usage-data-and-reservation-utilization"></a>Dati di utilizzo e utilizzo delle prenotazioni
 
-I dati di utilizzo hanno un prezzo effettivo pari a zero per l'utilizzo che ottiene uno sconto sulla prenotazione. È possibile visualizzare l'istanza di macchina virtuale che ha ricevuto lo sconto di prenotazione per ogni prenotazione.
+I dati di utilizzo hanno un prezzo effettivo pari a zero per l'utilizzo che ottiene uno sconto sulla prenotazione. È possibile vedere quale istanza della macchina virtuale ha ricevuto lo sconto di prenotazione per ogni prenotazione.
 
-Per altre informazioni su come vengono visualizzati gli sconti di prenotazione nei dati di utilizzo, vedere informazioni [sull'utilizzo delle prenotazioni di Azure per la registrazione Enterprise](../articles/cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) se si è clienti con contratto Enterprise. Se si ha una sottoscrizione singola, vedere [informazioni sull'utilizzo della prenotazione di Azure per la sottoscrizione con pagamento in base al consumo](../articles/cost-management-billing/reservations/understand-reserved-instance-usage.md).
+Per altre informazioni su come vengono visualizzati gli sconti di prenotazione nei dati di utilizzo, vedere [Informazioni sull'utilizzo](../articles/cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) della prenotazione di Azure per la registrazione Enterprise se si è un cliente EA. Se si ha una singola sottoscrizione, vedere [Informazioni sull'utilizzo](../articles/cost-management-billing/reservations/understand-reserved-instance-usage.md)della prenotazione di Azure per la sottoscrizione con pagamento in base al consumo.
 
 ## <a name="change-a-reservation-after-purchase"></a>Modificare una prenotazione dopo l'acquisto
 
 Dopo l'acquisto, a una prenotazione è possibile apportare i tipi di modifiche seguenti:
 
 - Aggiornare l'ambito della prenotazione
-- Flessibilità delle dimensioni dell'istanza (se applicabile)
+- Flessibilità delle dimensioni dell'istanza (se applicabile)Instance size flexibility (if applicable)
 - Proprietario
 
-È anche possibile dividere una prenotazione in blocchi più piccoli e unire le prenotazioni già suddivise. Nessuna delle modifiche genera una nuova transazione commerciale o modifica la data di fine della prenotazione.
+È inoltre possibile dividere una prenotazione in blocchi più piccoli e unire le prenotazioni già suddivise. Nessuna delle modifiche causa una nuova transazione commerciale o modifica la data di fine della prenotazione.
 
-Non è possibile apportare i seguenti tipi di modifiche dopo l'acquisto, direttamente:
+Non è possibile apportare i seguenti tipi di modifiche direttamente dopo l'acquisto:
 
-- Area della prenotazione esistente
+- Regione di una prenotazione esistente
 - SKU
 - Quantità
-- Durata
+- Duration
 
-Tuttavia, se si desidera apportare modifiche, è possibile *scambiare* una prenotazione.
+Tuttavia, è possibile *scambiare* una prenotazione se si desidera apportare modifiche.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Annullare o scambiare le prenotazioni oppure chiedere il rimborso
 
 È possibile annullare o scambiare le prenotazioni oppure chiederne il rimborso con determinate limitazioni. Per altre informazioni, vedere [Scambi e rimborsi self-service per le prenotazioni di Azure](../articles/cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se hai domande o hai bisogno di aiuto, [crea una richiesta](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)di supporto .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni su come gestire una prenotazione, vedere [Gestire le prenotazioni di Azure](../articles/cost-management-billing/reservations/manage-reserved-vm-instance.md).
 - Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
     - [Informazioni sulle prenotazioni di Azure](../articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
-    - [Gestire le prenotazioni in Azure](../articles/cost-management-billing/reservations/manage-reserved-vm-instance.md)
+    - [Gestire le prenotazioni in AzureManage Reservations in Azure](../articles/cost-management-billing/reservations/manage-reserved-vm-instance.md)
     - [Informazioni su come viene applicato lo sconto sulla prenotazione](../articles/cost-management-billing/manage/understand-vm-reservation-charges.md)
     - [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](../articles/cost-management-billing/reservations/understand-reserved-instance-usage.md)
     - [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](../articles/cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)

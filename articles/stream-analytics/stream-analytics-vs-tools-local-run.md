@@ -1,5 +1,5 @@
 ---
-title: Testare le query di analisi di flusso di Azure localmente in Visual Studio
+title: Testare le query di Analisi di flusso di Azure in locale in Visual StudioTest Azure Stream Analytics queries locally in Visual Studio
 description: Questo articolo descrive come eseguire test locali delle query con gli strumenti di Analisi di flusso di Azure per Visual Studio.
 author: su-jie
 ms.author: sujie
@@ -8,15 +8,15 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.openlocfilehash: 34c8555356d5c0142d7b677c8119fe66806ab064
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76834910"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Eseguire test locali delle query di Analisi di flusso con Visual Studio
 
-È possibile usare gli strumenti di analisi di flusso di Azure per Visual Studio per testare i processi di analisi di flusso localmente con dati di esempio o [dati dinamici](stream-analytics-live-data-local-testing.md). 
+È possibile usare gli strumenti di Analisi di flusso di Azure per Visual Studio per testare i processi di Analisi di flusso in locale con dati di esempio o [dati dinamici.](stream-analytics-live-data-local-testing.md) 
 
 Per imparare a creare un processo di Analisi di flusso con Visual Studio, usare questa [Guida introduttiva](stream-analytics-quick-create-vs.md).
 
@@ -58,7 +58,7 @@ Controllare i risultati nella cartella locale.
    
 
 ### <a name="sample-input"></a>Input di esempio
-È anche possibile raccogliere i dati di input dalle origini di input in un file locale. Fare clic con il pulsante destro del mouse sul file di configurazione degli input e selezionare **Dati di esempio**. 
+È anche possibile raccogliere i dati di input dalle origini di input in un file locale. Fare clic con il pulsante destro del mouse sul file di configurazione di input e selezionare **Dati di esempio**. 
 
 ![Dati di esempio](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-01.png)
 
@@ -66,7 +66,7 @@ Controllare i risultati nella cartella locale.
 
 ![Configurazione dati di esempio](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-02.png)
  
-Nella finestra **Output** viene visualizzato lo stato dell'operazione. 
+È possibile visualizzare lo stato di avanzamento nella finestra Output.You can see the progress in **the Output** window. 
 
 ![Output dei dati di esempio](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-03.png)
 

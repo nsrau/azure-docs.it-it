@@ -1,6 +1,6 @@
 ---
-title: Valutare un numero elevato di server fisici per la migrazione ad Azure con Azure Migrate | Microsoft Docs
-description: Viene descritto come valutare un numero elevato di server fisici per la migrazione ad Azure usando il servizio Azure Migrate.
+title: Valutare un numero elevato di server fisici per la migrazione ad Azure con Azure Migrate . Documenti Microsoft
+description: Descrive come valutare un numero elevato di server fisici per la migrazione ad Azure usando il servizio Azure Migrate.Describes how to assess large numbers of physical servers for migration to Azure using the Azure Migrate service.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 01/19/2020
 ms.author: hamusa
 ms.openlocfilehash: a19a1b6e7416667079ab07fc5440ee8828c26bf4
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76294370"
 ---
-# <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Valutare un numero elevato di server fisici per la migrazione ad Azure
+# <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Valutare un numero elevato di server fisici per la migrazione ad AzureAssess large numbers of physical servers for migration to Azure
 
-Questo articolo descrive come valutare un numero elevato di server fisici locali per la migrazione ad Azure, usando lo strumento di valutazione di Azure Migrate server.
+Questo articolo descrive come valutare un numero elevato di server fisici locali per la migrazione ad Azure usando lo strumento di valutazione del server di Azure Migrate.This article describes how to assess large numbers of on-premises physical servers for migration to Azure, using the Azure Migrate Server Assessment tool.
 
 [Azure Migrate](migrate-services-overview.md) offre un hub di strumenti che consentono di individuare, valutare ed eseguire la migrazione di app, infrastruttura e carichi di lavoro a Microsoft Azure. L'hub include gli strumenti di Azure Migrate e offerte di fornitori di software indipendenti (ISV) di terze parti. 
 
@@ -30,57 +30,57 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 
 > [!NOTE]
-> Se si vuole provare un modello di prova per valutare un paio di server prima di valutare la scalabilità, seguire la [serie di esercitazioni](tutorial-prepare-physical.md).
+> Se si desidera provare un proof-of-concept per valutare un paio di server prima di valutare su larga scala, seguire la nostra [serie di tutorial](tutorial-prepare-physical.md).
 
-## <a name="plan-for-assessment"></a>Pianificare la valutazione
+## <a name="plan-for-assessment"></a>Piano per la valutazione
 
-Quando si pianifica la valutazione di un numero elevato di server fisici, è necessario considerare alcuni aspetti:
+Quando si pianifica la valutazione di un numero elevato di server fisici, è necessario considerare un paio di aspetti:
 
-- **Pianificare Azure migrate progetti**: scoprire come distribuire progetti di Azure migrate. Se, ad esempio, i Data Center si trovano in aree geografiche diverse oppure è necessario archiviare i metadati relativi a individuazione, valutazione o migrazione in un'altra area geografica, potrebbero essere necessari più progetti.
-- **Dispositivi del piano**: Azure migrate usa un'appliance Azure migrate locale, distribuita in un computer Windows, per individuare continuamente i server per la valutazione e la migrazione. Il dispositivo monitora le modifiche apportate all'ambiente, ad esempio l'aggiunta di VM, dischi o schede di rete. Invia inoltre i metadati e i dati sulle prestazioni relativi ad Azure. È necessario determinare il numero di Appliance da distribuire.
+- **Pianificare**i progetti di Azure Migrate: informazioni su come distribuire progetti di Azure Migrate.Plan Azure Migrate projects : How out how to deploy Azure Migrate projects. Ad esempio, se i data center si trovano in aree geografiche diverse o è necessario archiviare metadati correlati all'individuazione, alla valutazione o alla migrazione in un'area geografica diversa, potrebbero essere necessari più progetti.
+- **Pianificare le appliance:** Azure Migrate usa un'appliance di Azure Migrate locale, distribuita in un computer Windows, per individuare continuamente i server per la valutazione e la migrazione. L'appliance monitora le modifiche dell'ambiente, ad esempio l'aggiunta di macchine virtuali, dischi o schede di rete. Invia inoltre metadati e dati sulle prestazioni su di essi ad Azure.It also sends metadata and performance data about them to Azure. È necessario determinare il numero di appliance da distribuire.
 
 
 ## <a name="planning-limits"></a>Limiti di pianificazione
  
-Usare i limiti riepilogati in questa tabella per la pianificazione.
+Utilizzare i limiti riepilogati in questa tabella per la pianificazione.
 
 **Pianificazione** | **Limiti**
 --- | --- 
-**Progetti Azure Migrate** | Valutazione di un massimo di 35.000 server in un progetto.
-**Appliance Azure Migrate** | Un appliance può individuare fino a 250 Server.<br/> Un appliance può essere associato solo a un singolo progetto Azure Migrate.<br/> Un numero qualsiasi di Appliance può essere associato a un singolo progetto di Azure Migrate. <br/><br/> 
+**Progetti di azure migrateAzure Migrate projects** | Valutare fino a 35.000 server in un progetto.
+**Appliance Azure Migrate** | Un apparecchio può scoprire fino a 250 server.<br/> Un'appliance può essere associata solo a un singolo progetto di Azure Migrate.An appliance can only be associated with a single Azure Migrate project.<br/> È possibile associare un numero qualsiasi di appliance a un singolo progetto di Azure Migrate.Any number of appliances can be associated with a single Azure Migrate project. <br/><br/> 
 **Gruppo** | È possibile aggiungere fino a 35.000 server in un singolo gruppo.
-**Valutazione Azure Migrate** | È possibile valutare fino a 35.000 server in una singola valutazione.
+**Valutazione di Azure MigrateAzure Migrate assessment** | È possibile valutare fino a 35.000 server in un'unica valutazione.
 
 
 ## <a name="other-planning-considerations"></a>Altre considerazioni sulla pianificazione
 
-- Per avviare l'individuazione dal dispositivo, è necessario selezionare ciascun server fisico. 
+- Per avviare l'individuazione dall'appliance, è necessario selezionare ogni server fisico. 
 
 ## <a name="prepare-for-assessment"></a>Prepararsi per la valutazione
 
-Preparare i server fisici e di Azure per la valutazione del server. 
+Preparare Azure e i server fisici per la valutazione del server. 
 
-1. Verificare i [requisiti e le limitazioni del supporto per i server fisici](migrate-support-matrix-physical.md).
-2. Configurare le autorizzazioni per l'account di Azure per interagire con Azure Migrate.
+1. Verificare [i requisiti e le limitazioni](migrate-support-matrix-physical.md)del supporto del server fisico .
+2. Configurare le autorizzazioni per l'account Azure per interagire con Azure Migrate.Set up permissions for your Azure account to interact with Azure Migrate.
 3. Preparare i server fisici.
 
-Per configurare queste impostazioni, seguire le istruzioni riportate in [questa esercitazione](tutorial-prepare-physical.md) .
+Seguire le istruzioni in [questa esercitazione](tutorial-prepare-physical.md) per configurare queste impostazioni.
 
 ## <a name="create-a-project"></a>Creare un progetto
 
-In conformità ai requisiti di pianificazione, eseguire le operazioni seguenti:
+In conformità con i requisiti di pianificazione, eseguire le operazioni seguenti:
 
 1. Creare un progetto di Azure Migrate.
-2. Aggiungere lo strumento Azure Migrate server assessment ai progetti.
+2. Aggiungere lo strumento di valutazione del server di Azure Migrate ai progetti.
 
-[Altre informazioni](how-to-add-tool-first-time.md)
+[Scopri di più](how-to-add-tool-first-time.md)
 
-## <a name="create-and-review-an-assessment"></a>Creare ed esaminare una valutazione
+## <a name="create-and-review-an-assessment"></a>Creare e rivedere una valutazione
 
 1. Creare valutazioni per i server fisici.
 1. Esaminare le valutazioni in preparazione per la pianificazione della migrazione.
 
-[Altre](tutorial-assess-physical.md) informazioni sulla creazione e la revisione delle valutazioni.
+[Ulteriori informazioni](tutorial-assess-physical.md) sulla creazione e la revisione delle valutazioni.
     
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -88,9 +88,9 @@ In conformità ai requisiti di pianificazione, eseguire le operazioni seguenti:
 In questo articolo si apprenderà come:
  
 > [!div class="checklist"] 
-> * Pianificato per la scalabilità Azure Migrate valutazioni per i server fisici.
-> * Server fisici e di Azure preparati per la valutazione.
-> * Creazione di un progetto Azure Migrate ed esecuzione di valutazioni.
-> * Revisione delle valutazioni in preparazione alla migrazione.
+> * Pianificato di ridimensionare le valutazioni di Azure Migrate per i server fisici.
+> * Azure preparato e server fisici per la valutazione.
+> * Creazione di un progetto Azure Migrate ed è stata eseguita le valutazioni.
+> * Valutazioni riviste in preparazione per la migrazione.
 
-A questo punto, [informazioni su come](concepts-assessment-calculation.md) vengono calcolate le valutazioni e su come [modificare le valutazioni](how-to-modify-assessment.md).
+A [questo](concepts-assessment-calculation.md) punto, scopri come vengono calcolate le valutazioni e come [modificare le valutazioni.](how-to-modify-assessment.md)

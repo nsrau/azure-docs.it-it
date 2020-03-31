@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 5625ff7e4fc51b9b6b894698719247902a480f44
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243939"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Informazioni di riferimento sui modelli di dati per i modelli di Gestione API di Azure
@@ -34,15 +34,15 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 -   [API](#API)  
 -   [Riepilogo delle API](#APISummary)  
 -   [Applicazione](#Application)  
--   [Allegato](#Attachment)  
+-   [Attachment](#Attachment)  
 -   [Codice di esempio](#Sample)  
 -   [Commento](#Comment)  
--   [Filtri](#Filtering)  
+-   [Filtro](#Filtering)  
 -   [Intestazione](#Header)  
 -   [Richiesta HTTP](#HTTPRequest)  
 -   [Risposta HTTP](#HTTPResponse)  
 -   [Problema](#Issue)  
--   [operazione](#Operation)  
+-   [Operazione](#Operation)  
 -   [Menu operazione](#Menu)  
 -   [Voce di menu operazione](#MenuItem)  
 -   [Paging](#Paging)  
@@ -56,7 +56,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 -   [Accesso utente](#UseSignIn)  
 -   [Accesso utente](#UserSignUp)  
   
-##  <a name="API"></a>API  
+##  <a name="api"></a><a name="API"></a>Api  
  L'entità `API` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -70,7 +70,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`authenticationSettings`|[Impostazioni di autenticazione del server di autorizzazione](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Raccolta delle impostazioni di autenticazione incluse in questa API.|  
 |`subscriptionKeyParameterNames`|object|Proprietà facoltativa che può essere usata per specificare nomi personalizzati per i parametri di query e/o intestazione contenenti la chiave di sottoscrizione. Quando è presente, questa proprietà deve contenere almeno una delle due proprietà seguenti.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
-##  <a name="APISummary"></a>Riepilogo delle API  
+##  <a name="api-summary"></a><a name="APISummary"></a>Riepilogo API  
  L'entità `API summary` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -79,7 +79,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`name`|string|Nome dell'API. Non deve essere vuoto. La lunghezza massima consentita è di 100 caratteri.|  
 |`description`|string|Descrizione dell'API. Non deve essere vuoto. Può includere tag di formattazione HTML. La lunghezza massima consentita è di 1000 caratteri.|  
   
-##  <a name="Application"></a> Applicazione  
+##  <a name="application"></a><a name="Application"></a>Applicazione  
  L'entità `application` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -90,14 +90,14 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`Url`|URI|URI per l'applicazione.|  
 |`Version`|string|Informazioni sulla versione per l'applicazione.|  
 |`Requirements`|string|Descrizione dei requisiti dell'applicazione.|  
-|`State`|numero|Stato attuale dell'applicazione.<br /><br /> - 0 - Registrato<br /><br /> - 1 - Inviato<br /><br /> - 2 - Pubblicato<br /><br /> - 3 - Rifiutato<br /><br /> - 4 - Non pubblicato|  
+|`State`|d'acquisto|Stato attuale dell'applicazione.<br /><br /> - 0 - Registrato<br /><br /> - 1 - Inviato<br /><br /> - 2 - Pubblicato<br /><br /> - 3 - Rifiutato<br /><br /> - 4 - Non pubblicato|  
 |`RegistrationDate`|Datetime|Data e ora della registrazione dell'applicazione.|  
-|`CategoryId`|numero|Categoria dell'applicazione (finanza, intrattenimento e così via).|  
+|`CategoryId`|d'acquisto|Categoria dell'applicazione (finanza, intrattenimento e così via).|  
 |`DeveloperId`|string|Identificatore univoco dello sviluppatore che ha inviato l'applicazione.|  
 |`Attachments`|Raccolta di entità [allegato](#Attachment).|Tutti gli allegati per l'applicazione, ad esempio schermate o icone.|  
-|`Icon`|[Allegato](#Attachment)|Icona per l'applicazione.|  
+|`Icon`|[Attachment](#Attachment)|Icona per l'applicazione.|  
   
-##  <a name="Attachment"></a>Allegato  
+##  <a name="attachment"></a><a name="Attachment"></a>Allegato  
  L'entità `attachment` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -107,7 +107,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`Type`|string|Tipo di allegato.|  
 |`ContentType`|string|Tipo di supporti dell'allegato.|  
   
-##  <a name="Sample"></a>Codice di esempio  
+##  <a name="code-sample"></a><a name="Sample"></a>Esempio di codice  
   
 |Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
@@ -124,23 +124,23 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`headers`|Raccolta di entità [intestazione](#Header).|Intestazioni per l'operazione.|  
 |`parameters`|Raccolta di entità[parametro](#Parameter).|Parametri definiti per l'operazione.|  
   
-##  <a name="Comment"></a>Commento  
+##  <a name="comment"></a><a name="Comment"></a>Commento  
  L'entità `API` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
-|`Id`|numero|ID del commento.|  
+|`Id`|d'acquisto|ID del commento.|  
 |`CommentText`|string|Corpo del commento. Può includere HTML.|  
 |`DeveloperCompany`|string|Nome della società dello sviluppatore.|  
 |`PostedOn`|Datetime|Data e ora di pubblicazione del commento.|  
   
-##  <a name="Issue"></a>Problema  
+##  <a name="issue"></a><a name="Issue"></a>Problema  
  L'entità `issue` ha le proprietà seguenti.  
   
 |Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`Id`|string|Identificatore univoco per il problema.|  
-|`ApiID`|string|ID dell'API per cui è stato segnalato il problema.|  
+|`ApiID`|string|ID per l'API per cui è stato segnalato questo problema.|  
 |`Title`|string|Titolo del problema.|  
 |`Description`|string|Descrizione del problema.|  
 |`SubscriptionDeveloperName`|string|Nome dello sviluppatore che ha segnalato il problema.|  
@@ -150,7 +150,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`Attachments`|Raccolta di entità [allegato](api-management-template-data-model-reference.md#Attachment).|Qualsiasi allegato al problema.|  
 |`Services`|Raccolta di entità [API](#API).|Le API sottoscritte dall'utente che ha registrato il problema.|  
   
-##  <a name="Filtering"></a>Filtri  
+##  <a name="filtering"></a><a name="Filtering"></a>Filtro  
  L'entità `filtering` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -158,7 +158,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`Pattern`|string|Termine di ricerca corrente; o `null` se non è presente alcun termine di ricerca.|  
 |`Placeholder`|string|Il testo da visualizzare nella casella di ricerca quando non è presente alcun termine di ricerca specificato.|  
   
-##  <a name="Header"></a>Intestazione  
+##  <a name="header"></a><a name="Header"></a>Intestazione  
  Questa sezione descrive la rappresentazione di `parameter`.  
   
 |Proprietà|Type|Descrizione|  
@@ -171,7 +171,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`required`|boolean|Se l'intestazione è obbligatoria.|  
 |`readOnly`|boolean|Se l'intestazione è di sola lettura.|  
   
-##  <a name="HTTPRequest"></a>Richiesta HTTP  
+##  <a name="http-request"></a><a name="HTTPRequest"></a>Richiesta HTTP  
  Questa sezione descrive la rappresentazione di `request`.  
   
 |Proprietà|Type|Descrizione|  
@@ -181,7 +181,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`parameters`|matrice di valori [Parametro](#Parameter)|Raccolta di parametri della richiesta dell'operazione.|  
 |`representations`|matrice di valori [Rappresentazione](#Representation)|Raccolta di rappresentazioni della richiesta dell'operazione.|  
   
-##  <a name="HTTPResponse"></a>Risposta HTTP  
+##  <a name="http-response"></a><a name="HTTPResponse"></a>Risposta HTTP  
  Questa sezione descrive la rappresentazione di `response`.  
   
 |Proprietà|Type|Descrizione|  
@@ -190,7 +190,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`description`|string|Descrizione della risposta dell'operazione.|  
 |`representations`|matrice di valori [Rappresentazione](#Representation)|Raccolta di rappresentazioni della risposta dell'operazione.|  
   
-##  <a name="Operation"></a>Operazione  
+##  <a name="operation"></a><a name="Operation"></a>Operazione  
  L'entità `operation` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -205,7 +205,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`request`|[Richiesta HTTP](#HTTPRequest)|Entità contenente i dettagli della richiesta.|  
 |`responses`|matrice di valori [Risposta HTTP](#HTTPResponse)|Matrice di entità [Risposta HTTP](#HTTPResponse) dell'operazione.|  
   
-##  <a name="Menu"></a>Menu operazione  
+##  <a name="operation-menu"></a><a name="Menu"></a>Menu Operazione  
  L'entità `operation menu` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -215,7 +215,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`Action`|string|Tipo di menu.|  
 |`MenuItems`|Raccolta di entità [Voce di menu operazione](#MenuItem).|Operazioni per l'API corrente.|  
   
-##  <a name="MenuItem"></a>Voce di menu operazione  
+##  <a name="operation-menu-item"></a><a name="MenuItem"></a>Voce di menu Operazione  
  L'entità `operation menu item` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -224,18 +224,18 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`Title`|string|Descrizione dell'operazione.|  
 |`HttpMethod`|string|Metodo HTTP dell'operazione.|  
   
-##  <a name="Paging"></a>Paging  
+##  <a name="paging"></a><a name="Paging"></a>Paging  
  L'entità `paging` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
-|`Page`|numero|Numero di pagina corrente.|  
-|`PageSize`|numero|Numero massimo di risultati da visualizzare in una singola pagina.|  
-|`TotalItemCount`|numero|Numero di elementi per la visualizzazione.|  
+|`Page`|d'acquisto|Numero di pagina corrente.|  
+|`PageSize`|d'acquisto|Numero massimo di risultati da visualizzare in una singola pagina.|  
+|`TotalItemCount`|d'acquisto|Numero di elementi per la visualizzazione.|  
 |`ShowAll`|boolean|Se si desidera mostrare tutti risultati in una singola pagina.|  
-|`PageCount`|numero|Numero di pagine dei risultati.|  
+|`PageCount`|d'acquisto|Numero di pagine dei risultati.|  
   
-##  <a name="Parameter"></a>Parametro  
+##  <a name="parameter"></a><a name="Parameter"></a>Parametro  
  Questa sezione descrive la rappresentazione di `parameter`.  
   
 |Proprietà|Type|Descrizione|  
@@ -245,23 +245,23 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`value`|string|Valore del parametro.|  
 |`options`|matrice di valori string|Valori definiti per i valori del parametro di query.|  
 |`required`|boolean|Indica se il parametro è obbligatorio o no.|  
-|`kind`|numero|Se questo parametro è un parametro di percorso (1) o un parametro di stringa di query (2).|  
+|`kind`|d'acquisto|Se questo parametro è un parametro di percorso (1) o un parametro di stringa di query (2).|  
 |`typeName`|string|Tipo di parametro.|  
   
-##  <a name="Product"></a>Prodotto  
+##  <a name="product"></a><a name="Product"></a>Prodotto  
  L'entità `product` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`Id`|string|Identificatore di risorsa. Identifica in modo univoco il prodotto all'interno dell'istanza del servizio Gestione API corrente. Il valore è un URL relativo valido nel formato `products/{pid}` dove `{pid}` è un identificatore di prodotto. Questa proprietà è di sola lettura.|  
-|`Title`|string|Nome del prodotto Non deve essere vuoto. La lunghezza massima consentita è di 100 caratteri.|  
+|`Title`|string|Nome del prodotto. Non deve essere vuoto. La lunghezza massima consentita è di 100 caratteri.|  
 |`Description`|string|Descrizione del prodotto. Non deve essere vuoto. Può includere tag di formattazione HTML. La lunghezza massima consentita è di 1000 caratteri.|  
 |`Terms`|string|Condizioni per l'utilizzo del prodotto. Gli sviluppatori che tentano di sottoscrivere il prodotto vengono presentati e devono accettare queste condizioni prima di poter completare il processo di sottoscrizione.|  
-|`ProductState`|numero|Specifica se il prodotto è pubblicato o no. I prodotti pubblicati possono essere individuati dagli sviluppatori nel portale per sviluppatori. I prodotti non pubblicati sono visibili solo agli amministratori.<br /><br /> I valori consentiti per lo stato del prodotto sono:<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
+|`ProductState`|d'acquisto|Specifica se il prodotto è pubblicato o no. I prodotti pubblicati possono essere individuati dagli sviluppatori nel portale per sviluppatori. I prodotti non pubblicati sono visibili solo agli amministratori.<br /><br /> I valori consentiti per lo stato del prodotto sono:<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
 |`AllowMultipleSubscriptions`|boolean|Specifica se un utente può avere più sottoscrizioni al prodotto nello stesso momento.|  
-|`MultipleSubscriptionsCount`|numero|Numero massimo di sottoscrizioni per questo prodotto di cui può disporre contemporaneamente un utente.|  
+|`MultipleSubscriptionsCount`|d'acquisto|Numero massimo di sottoscrizioni per questo prodotto di cui può disporre contemporaneamente un utente.|  
   
-##  <a name="Provider"></a>Provider  
+##  <a name="provider"></a><a name="Provider"></a>Provider  
  L'entità `provider` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -270,7 +270,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`AuthenticationType`|string|Tipo di provider. (Azure Active Directory, account di accesso di Facebook, account Google, account Microsoft, Twitter).|  
 |`Caption`|string|Nome visualizzato del provider.|  
   
-##  <a name="Representation"></a>Rappresentazione  
+##  <a name="representation"></a><a name="Representation"></a>Rappresentazione  
  Questa sezione descrive una `representation`.  
   
 |Proprietà|Type|Descrizione|  
@@ -278,14 +278,14 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`contentType`|string|Specifica un tipo di contenuto registrato o personalizzato per questa rappresentazione, ad esempio `application/xml`.|  
 |`sample`|string|Un esempio della rappresentazione.|  
   
-##  <a name="Subscription"></a>Sottoscrizione  
+##  <a name="subscription"></a>Sottoscrizione <a name="Subscription"></a>  
  L'entità `subscription` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`Id`|string|Identificatore di risorsa. Identifica in modo univoco la sottoscrizione all'interno dell'istanza del servizio Gestione API corrente. Il valore è un URL relativo valido nel formato `subscriptions/{sid}` dove `{sid}` è un identificatore di sottoscrizione. Questa proprietà è di sola lettura.|  
 |`ProductId`|string|Identificatore di risorsa per il prodotto relativo al prodotto sottoscritto. Il valore è un URL relativo valido nel formato `products/{pid}` dove `{pid}` è un identificatore di prodotto.|  
-|`ProductTitle`|string|Nome del prodotto Non deve essere vuoto. La lunghezza massima consentita è di 100 caratteri.|  
+|`ProductTitle`|string|Nome del prodotto. Non deve essere vuoto. La lunghezza massima consentita è di 100 caratteri.|  
 |`ProductDescription`|string|Descrizione del prodotto. Non deve essere vuoto. Può includere tag di formattazione HTML. La lunghezza massima consentita è di 1000 caratteri.|  
 |`ProductDetailsUrl`|string|URL relativo per i dettagli del prodotto.|  
 |`state`|string|Stato della sottoscrizione. Gli stati possibili sono elencati di seguito:<br /><br /> - `0 - suspended`: la sottoscrizione è bloccata e il sottoscrittore non può chiamare le API del prodotto.<br /><br /> - `1 - active`: la sottoscrizione è attiva.<br /><br /> - `2 - expired`: la sottoscrizione ha raggiunto la data di scadenza ed è stata disattivata.<br /><br /> - `3 - submitted`: la richiesta di sottoscrizione è stata eseguita dallo sviluppatore, ma non è ancora stata approvata o rifiutata.<br /><br /> - `4 - rejected`: la richiesta di sottoscrizione è stata rifiutata da un amministratore.<br /><br /> - `5 - cancelled`: la sottoscrizione è stata annullata dallo sviluppatore o dall'amministratore.|  
@@ -296,15 +296,15 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`StartDate`|dateTime|Data di inizio per la sottoscrizione, in formato ISO 8601: `2014-06-24T16:25:00Z`.|  
 |`ExpirationDate`|dateTime|Data di scadenza per la sottoscrizione, in formato ISO 8601: `2014-06-24T16:25:00Z`.|  
 |`NotificationDate`|dateTime|Data di notifica per la sottoscrizione, in formato ISO 8601: `2014-06-24T16:25:00Z`.|  
-|`primaryKey`|string|Chiave di sottoscrizione primaria. La lunghezza massima è di 256 caratteri.|  
-|`secondaryKey`|string|Chiave di sottoscrizione secondaria. La lunghezza massima è di 256 caratteri.|  
+|`primaryKey`|string|Chiave di sottoscrizione primaria. La lunghezza massima consentita è di 256 caratteri.|  
+|`secondaryKey`|string|Chiave di sottoscrizione secondaria. La lunghezza massima consentita è di 256 caratteri.|  
 |`CanBeRenewed`|boolean|Se la sottoscrizione può essere rinnovata dall'utente corrente.|  
 |`HasExpired`|boolean|Se la sottoscrizione è scaduta.|  
 |`IsRejected`|boolean|Se la richiesta di sottoscrizione è stata negata.|  
 |`CancelUrl`|string|URL relativo per annullare la sottoscrizione.|  
 |`RenewUrl`|string|URL relativo per rinnovare la sottoscrizione.|  
   
-##  <a name="SubscriptionSummary"></a>Riepilogo delle sottoscrizioni  
+##  <a name="subscription-summary"></a><a name="SubscriptionSummary"></a>Riepilogo dell'abbonamento  
  L'entità `subscription summary` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -312,7 +312,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`Id`|string|Identificatore di risorsa. Identifica in modo univoco la sottoscrizione all'interno dell'istanza del servizio Gestione API corrente. Il valore è un URL relativo valido nel formato `subscriptions/{sid}` dove `{sid}` è un identificatore di sottoscrizione. Questa proprietà è di sola lettura.|  
 |`DisplayName`|string|Nome visualizzato della sottoscrizione|  
   
-##  <a name="UserAccountInfo"></a>Informazioni sull'account utente  
+##  <a name="user-account-info"></a><a name="UserAccountInfo"></a>Informazioni sull'account utente  
  L'entità `user account info` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -325,7 +325,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`ProviderName`|string|Nome del provider di autenticazione.|  
 |`IsBasicAccount`|boolean|True se l'account è stato registrato usando posta elettronica e password; false se l'account è stata registrato usando un provider.|  
   
-##  <a name="UseSignIn"></a>Accesso utente  
+##  <a name="user-sign-in"></a><a name="UseSignIn"></a>Accesso utente  
  L'entità `user sign in` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -343,16 +343,16 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`UserRegistrationTerms`|string|Condizioni che l'utente deve accettare prima dell'accesso.|  
 |`UserRegistrationTermsEnabled`|boolean|Se le condizioni sono accettate.|  
   
-##  <a name="UserSignUp"></a>Iscrizione utente  
+##  <a name="user-sign-up"></a><a name="UserSignUp"></a>Iscrizione utente  
  L'entità `user sign up` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`PasswordConfirm`|boolean|Valore usato per il controllo dell'iscrizione [sign-up](api-management-page-controls.md#sign-up).|  
 |`Password`|string|Password dell'account utente.|  
-|`PasswordVerdictLevel`|numero|Valore usato per il controllo dell'iscrizione [sign-up](api-management-page-controls.md#sign-up).|  
+|`PasswordVerdictLevel`|d'acquisto|Valore usato per il controllo dell'iscrizione [sign-up](api-management-page-controls.md#sign-up).|  
 |`UserRegistrationTerms`|string|Condizioni che l'utente deve accettare prima dell'accesso.|  
-|`UserRegistrationTermsOptions`|numero|Valore usato per il controllo dell'iscrizione [sign-up](api-management-page-controls.md#sign-up).|  
+|`UserRegistrationTermsOptions`|d'acquisto|Valore usato per il controllo dell'iscrizione [sign-up](api-management-page-controls.md#sign-up).|  
 |`ConsentAccepted`|boolean|Valore usato per il controllo dell'iscrizione [sign-up](api-management-page-controls.md#sign-up).|  
 |`Email`|string|Indirizzo di posta elettronica. Non deve essere vuoto e deve essere univoco all'interno dell'istanza del servizio. La lunghezza massima consentita è di 254 caratteri.|  
 |`FirstName`|string|Nome. Non deve essere vuoto. La lunghezza massima consentita è di 100 caratteri.|  

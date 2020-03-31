@@ -1,5 +1,5 @@
 ---
-title: Hosting di più siti con l'interfaccia della riga di comando-applicazione Azure gateway
+title: Hosting di più siti tramite CLI - Gateway applicazione di AzureMultiple site hosting using CLI - Azure Application Gateway
 description: Informazioni su come creare un gateway applicazione che ospita più siti usando l'interfaccia della riga di comando di Azure.
 services: application-gateway
 author: vhorne
@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 5edc2e5228146aee913027a83e495d94c003e237
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 0e58d9ecfbd0731fc9bf91664763e73d8c56e64a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74047343"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294759"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Creare un gateway applicazione con l'hosting di più siti usando l'interfaccia della riga di comando di Azure
 
-È possibile usare l'interfaccia della riga di comando di Azure per configurare l'[hosting di più siti Web](application-gateway-multi-site-overview.md) quando si crea un [gateway applicazione](application-gateway-introduction.md). In questa esercitazione si creano pool back-end usando set di scalabilità di macchine virtuali, e quindi si configurano i listener e le regole in base ai domini di cui si è proprietari per assicurarsi che il traffico Web raggiunga i server appropriati nei pool. Questa esercitazione presuppone che l'utente sia proprietario di più domini e che usi gli esempi di *www.contoso.com* e *www.fabrikam.com*.
+È possibile usare l'interfaccia della riga di comando di Azure per configurare l'[hosting di più siti Web](application-gateway-multi-site-overview.md) quando si crea un [gateway applicazione](application-gateway-introduction.md). In questa esercitazione si creano pool back-end usando set di scalabilità di macchine virtuali e quindi si configurano i listener e le regole in base ai domini di cui si è proprietari per assicurarsi che il traffico Web raggiunga i server appropriati nei pool. In questa esercitazione si presuppone che `www.contoso.com` si `www.fabrikam.com`è proprietari di più domini e vengono utilizzati esempi di e .
 
-In questo articolo viene spiegato come:
+In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Configurare la rete
@@ -33,7 +33,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessario eseguire la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessario eseguire la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If](/cli/azure/install-azure-cli)you need to install or upgrade, see Install Azure CLI.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -110,9 +110,9 @@ az network application-gateway address-pool create \
   --name fabrikamPool
 ```
 
-### <a name="add-listeners"></a>Aggiunta di listener
+### <a name="add-listeners"></a>Aggiungere i listener
 
-È necessario un listener per consentire al gateway applicazione di instradare il traffico in modo appropriato al pool back-end. In questa esercitazione si creano due listener per i due domini. In questo esempio vengono creati i listener per i domini *www.contoso.com* e *www.fabrikam.com*. 
+È necessario un listener per consentire al gateway applicazione di instradare il traffico in modo appropriato al pool back-end. In questa esercitazione vengono creati due listener per i due domini. In questo esempio vengono creati i listener per i domini *www.contoso.com* e *www.fabrikam.com*. 
 
 Aggiungere i listener *contosoListener* e *fabrikamListener* necessari per instradare il traffico usando [az network application-gateway http-listener create](/cli/azure/network/application-gateway).
 
@@ -133,7 +133,7 @@ az network application-gateway http-listener create \
   --host-name www.fabrikam.com   
   ```
 
-### <a name="add-routing-rules"></a>Aggiunta delle regole di routing
+### <a name="add-routing-rules"></a>Aggiungere le regole di routing
 
 Le regole vengono elaborate nell'ordine in cui sono state create e il traffico viene indirizzato usando la prima regola corrispondente all'URL inviato al gateway applicazione. Se ad esempio si dispone di due regole, una che usa un listener di base e una che usa un listener multisito, entrambe sulla stessa porta, la regola con il listener multisito deve essere elencata prima della regola con il listener di base per funzionare come previsto. 
 
@@ -222,7 +222,7 @@ Non è consigliabile usare record A perché l'indirizzo VIP può cambiare quando
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-Immettere il nome di dominio nella barra degli indirizzi del browser, Ad esempio, http\://www.contoso.com.
+Immettere il nome di dominio nella barra degli indirizzi del browser. Ad esempio,\:http //www.contoso.com.
 
 ![Testare il sito contoso nel gateway applicazione](./media/tutorial-multisite-cli/application-gateway-nginxtest1.png)
 
@@ -232,7 +232,7 @@ Sostituire l'indirizzo con l'altro dominio come nell'esempio seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare la rete

@@ -1,5 +1,5 @@
 ---
-title: Applicare la sicurezza con i criteri nelle VM Linux in Azure
+title: Applicare la sicurezza con i criteri nelle macchine virtuali Linux in AzureEnforce security with policies on Linux VMs in Azure
 description: Come applicare criteri a una macchina virtuale Linux di Azure Resource Manager
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
 ms.openlocfilehash: 7ab48430ae4d6585c908b53017122096175abac3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74035312"
 ---
 # <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>Applicare criteri alle VM Linux con Azure Resource Manager
@@ -27,7 +27,7 @@ Tramite i criteri è possibile imporre diverse convenzioni e regole in tutta l'o
 Per un'introduzione ai criteri, vedere [Informazioni su Criteri di Azure](../../governance/policy/overview.md).
 
 ## <a name="permitted-virtual-machines"></a>Macchine virtuali permesse
-Per assicurarsi che le macchine virtuali per l'organizzazione siano compatibili con un'applicazione, è possibile limitare i sistemi operativi consentiti. Questo criterio di esempio consente di creare solo macchine virtuali Ubuntu 14.04.2-LTS.
+Per assicurarsi che le macchine virtuali dell'organizzazione siano compatibili con un'applicazione, è possibile limitare i sistemi operativi consentiti. Questo criterio di esempio consente di creare solo macchine virtuali Ubuntu 14.04.2-LTS.
 
 ```json
 {

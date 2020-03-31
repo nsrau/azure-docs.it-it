@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/6/2018
 ms.author: rohink
 ms.openlocfilehash: 4012b32eb2684126b8dc64b9e86bf35a016e9fba
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76936832"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Gestire record e set di record DNS con il portale di Azure
@@ -70,14 +70,14 @@ Dopo aver salvato il record, i valori per il set di record nel pannello **Zona D
 È possibile usare il portale di Azure per rimuovere i record da un set di record. Si noti che la rimozione dell'ultimo record da un set di record non elimina il set di record.
 
 1. Cercare il record nel pannello **Proprietà del set di record** per il set di record.
-2. Fare clic sul record da rimuovere. Selezionare **Rimuovi**.
+2. Fare clic sul record da rimuovere. Quindi selezionare **Rimuovi**.
 
     ![Rimuovere un record](./media/dns-operations-recordsets-portal/removerecord500.png)
 
 3. Fare clic su **Salva** nella parte superiore del pannello per salvare le impostazioni.
 4. Dopo aver rimosso il record, i valori per il set di record nel pannello **Zona DNS** rifletteranno la rimozione.
 
-## <a name="delete"></a>Eliminare un set di record
+## <a name="delete-a-record-set"></a><a name="delete"></a>Eliminare un set di record
 
 1. Fare clic su **Elimina** nel pannello **Proprietà del set di record** per il set di record.
 

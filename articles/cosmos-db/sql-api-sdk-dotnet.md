@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: API SQL .NET, SDK e risorse'
+title: "Database Cosmos di Azure: RISORSE dell'API SQL .NET, SDK &"
 description: Tutte le informazioni sull'SDK e sull'API .NET per SQL, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le versioni di Azure Cosmos DB .NET SDK.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -9,17 +9,17 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
 ms.openlocfilehash: a368f5c66d5a44faa23a726343d74489024185e6
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72177743"
 ---
-# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>.NET SDK di Azure Cosmos DB per l'API SQL: download e note sulla versione
+# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK per API SQL: download e note sulla versione
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET Standard](sql-api-sdk-dotnet-standard.md)
-> * [Feed delle modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [Feed di modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
@@ -28,13 +28,13 @@ ms.locfileid: "72177743"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provider di risorse REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Executor in blocco-.NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Executor in blocco-Java](sql-api-sdk-bulk-executor-java.md)
+> * [Esecutore in blocco - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
-|**Download dell'SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)|
-|**Documentazione sull'API**|[Documentazione di riferimento API .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
+|**Download dell'SDK**|[Nuget](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)|
+|**Documentazione API**|[Documentazione di riferimento per le API .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
 |**Esempi**|[Esempi di codice .NET](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples)|
 |**Introduzione**|[Introduzione ad Azure Cosmos DB .NET SDK](sql-api-get-started.md)|
 |**Esercitazione sull'app Web**|[Sviluppo di applicazioni Web con Azure Cosmos DB](sql-api-dotnet-application.md)|
@@ -43,7 +43,7 @@ ms.locfileid: "72177743"
 ## <a name="release-notes"></a>Note sulla versione
 
 > [!NOTE]
-> Se si usa .NET Framework, vedere la versione 3. x più recente di [.NET SDK](sql-api-sdk-dotnet-standard.md), che è destinata .NET standard. 
+> Se si utilizza .NET Framework, vedere la versione più recente 3.x di [.NET SDK](sql-api-sdk-dotnet-standard.md), destinata a .NET Standard. 
 
 [!INCLUDE[Release notes](~/samples-cosmosdb-dotnet-v2/changelog.md)]
 

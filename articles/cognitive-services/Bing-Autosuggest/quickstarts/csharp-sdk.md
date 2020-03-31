@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Libreria client di Suggerimenti automatici Bing per .NET | Microsoft Docs'
+title: 'Guida introduttiva: Libreria client di Suggerimenti automatici Bing per .NET | Microsoft Docs'
 description: Introduzione alla libreria client di Suggerimenti automatici Bing per .NET e informazioni su come ottenere suggerimenti per la ricerca in base a stringhe di query parziali.
 services: cognitive-services
 author: aahill
@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.date: 12/20/2019
 ms.author: aahi
 ms.openlocfilehash: 6bcd89422188d8c0064547c37b4d425f47dd6496
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75450978"
 ---
-# <a name="quickstart-bing-autosuggest-client-library-for-net"></a>Avvio rapido: Libreria client di Suggerimenti automatici Bing per .NET
+# <a name="quickstart-bing-autosuggest-client-library-for-net"></a>Guida introduttiva: Libreria client di Suggerimenti automatici Bing per .NET
 
 Introduzione alla libreria client di Suggerimenti automatici Bing per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 
@@ -24,7 +24,7 @@ Usare la libreria client di Suggerimenti automatici Bing per .NET per ottenere s
 
 [Documentazione di riferimento](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingAutoSuggest) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.AutoSuggest/) | [Codice di esempio](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/BingAutoSuggest/Program.cs)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Versione corrente di [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
@@ -48,7 +48,7 @@ Usando la chiave e l'endpoint della risorsa creata, creare due variabili di ambi
 
 Usare le istruzioni per il sistema operativo in uso.
 <!-- replace the below endpoint and key examples -->
-#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+#### <a name="windows"></a>[Windows](#tab/windows)
 
 ```console
 setx AUTOSUGGEST_SUBSCRIPTION_KEY <replace-with-your-autosuggest-api-key>
@@ -57,7 +57,7 @@ setx AUTOSUGGEST_ENDPOINT <replace-with-your-autosuggest-api-endpoint>
 
 Dopo aver aggiunto la variabile di ambiente, riavviare la finestra della console.
 
-#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+#### <a name="linux"></a>[Linux](#tab/linux)
 
 ```bash
 export AUTOSUGGEST_SUBSCRIPTION_KEY=<replace-with-your-autosuggest-api-key>
@@ -66,7 +66,7 @@ export AUTOSUGGEST_ENDPOINT=<replace-with-your-autosuggest-api-endpoint>
 
 Dopo avere aggiunto la variabile di ambiente, eseguire `source ~/.bashrc` dalla finestra della console per rendere effettive le modifiche.
 
-#### <a name="macostabunix"></a>[macOS](#tab/unix)
+#### <a name="macos"></a>[macOS](#tab/unix)
 
 Modificare `.bash_profile` e aggiungere la variabile di ambiente:
 

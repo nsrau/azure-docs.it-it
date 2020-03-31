@@ -8,10 +8,10 @@ ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: 01abcc961d1c2ad9d3e2cf35f82e62929bc2fb89
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371138"
 ---
 # <a name="deprecated-using-the-kubernetes-web-ui-with-azure-container-service"></a>(DEPRECATO) Uso dell'interfaccia utente Web Kubernetes con il servizio Azure Container
@@ -65,7 +65,7 @@ Viene aperto un Web browser configurato per comunicare con un proxy sicuro che c
 
     Viene visualizzata una finestra di dialogo in cui è possibile iniziare a creare l'applicazione.
 
-2. Assegnare il nome `hello-nginx`. Utilizzare il contenitore [`nginx` da Docker](https://hub.docker.com/_/nginx/) e distribuire tre repliche del servizio web.
+2. Assegnare il nome `hello-nginx`. Usare [ `nginx` il contenitore da Docker](https://hub.docker.com/_/nginx/) e distribuire tre repliche di questo servizio Web.
 
     ![Finestra di dialogo Pod Create Kubernetes (Crea podcast Kubernetes)](./media/container-service-kubernetes-ui/nginx.png)
 

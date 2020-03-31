@@ -12,10 +12,10 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shg
 ms.openlocfilehash: c112fb0b2d0eb3b8a66731948f48c8038a2296f8
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77023651"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introduzione all'SDK di Batch per Node.js
@@ -67,7 +67,7 @@ Questo comando installa l'ultima versione dell'SDK azure-batch per Node.
 
 ### <a name="step-2-create-an-azure-batch-account"></a>Passaggio 2: Creare un account Azure Batch
 
-È possibile crearlo dal [portale di Azure](batch-account-create-portal.md) o dalla riga di comando ([PowerShell](batch-powershell-cmdlets-get-started.md) /[interfaccia](/cli/azure)della riga di comando di Azure).
+È possibile crearlo dal [portale di Azure](batch-account-create-portal.md) o dalla riga di comando ([PowerShell](batch-powershell-cmdlets-get-started.md) /[Azure CLI](/cli/azure)).
 
 Di seguito sono riportati i comandi per creare un account tramite l'interfaccia della riga di comando di Azure.
 

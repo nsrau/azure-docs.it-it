@@ -1,6 +1,6 @@
 ---
 title: Gestire cluster ML Services in Azure HDInsight - Azure
-description: Informazioni su come gestire varie attività nel cluster di servizi ML in Azure HDInsight.
+description: Informazioni su come gestire varie attività nel cluster di servizi di ML in Azure HDInsight.Learn how to manage various tasks on ML Services cluster in Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,30 +9,30 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.openlocfilehash: b2c16c27c0dfc0c30a99c52544cc4d2278eadfc7
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75647731"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gestire cluster ML Services in Azure HDInsight
 
-Questo articolo illustra come gestire un cluster di servizi di gestione delle risorse di Azure esistente in Azure HDInsight per eseguire attività quali l'aggiunta di più utenti simultanei, la connessione remota a un cluster di ML Services, la modifica del contesto di calcolo e così via.
+In questo articolo viene illustrato come gestire un cluster di Servizi Di LL esistente in Azure HDInsight per eseguire attività quali l'aggiunta di più utenti simultanei, la connessione remota a un cluster di servizi di ML, la modifica del contesto di calcolo e così via.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un cluster ML Services in HDInsight. Vedere [Creare cluster di Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selezionare **ML Services** per **Tipo di cluster**.
 
-* Un client Secure Shell (SSH): un client SSH viene usato per connettersi in modalità remota al cluster HDInsight ed eseguire i comandi direttamente nel cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Un client Secure Shell (SSH): il client SSH viene usato per connettersi da remoto al cluster HDInsight e per eseguire i comandi direttamente sul cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="enable-multiple-concurrent-users"></a>Abilitare più utenti simultanei
 
 È possibile abilitare più utenti simultanei per un cluster ML Services in HDInsight aggiungendo altri utenti per il nodo perimetrale in cui viene eseguita la versione Community di RStudio. Quando si crea un cluster HDInsight, è necessario specificare due utenti: un utente HTTP e un utente SSH.
 
-![Parametri di accesso portale di Azure HDI](./media/r-server-hdinsight-manage/hdi-concurrent-users1.png)
+![Parametri di accesso al portale di Azure HDIHDI Azure portal login parameters](./media/r-server-hdinsight-manage/hdi-concurrent-users1.png)
 
 - **Nome utente dell'account di accesso del cluster**: utente HTTP per l'autenticazione tramite il gateway HDInsight usato per proteggere i cluster HDInsight creati. Questo utente HTTP viene usato per accedere all'interfaccia utente di Apache Ambari, all'interfaccia utente di Apache Hadoop YARN e ad altri componenti di interfaccia utente.
-- **Nome utente Secure Shell (SSH)** : utente SSH per accedere al cluster tramite Secure Shell. È un utente del sistema Linux per tutti i nodi head, di lavoro e perimetrali. È così possibile usare Secure Shell per accedere a qualsiasi nodo di un cluster remoto.
+- **Secure Shell (SSH) username**: un utente SSH per accedere al cluster tramite shell sicura. È un utente del sistema Linux per tutti i nodi head, di lavoro e perimetrali. È così possibile usare Secure Shell per accedere a qualsiasi nodo di un cluster remoto.
 
 La versione RStudio Server Community usata nel cluster ML Services in HDInsight accetta solo un nome utente e una password Linux come meccanismo di accesso. Non supporta il passaggio di token. Quando dunque si prova ad accedere a R Studio per la prima volta in un cluster ML Services, è necessario eseguire l'accesso due volte.
 
@@ -64,7 +64,7 @@ Per aggiungere un utente al nodo perimetrale, eseguire questi comandi:
 
 Lo screenshot seguente illustra gli output.
 
-![Screenshot output utenti simultanei](./media/r-server-hdinsight-manage/hdi-concurrent-users2.png)
+![immagine di output utenti simultanei](./media/r-server-hdinsight-manage/hdi-concurrent-users2.png)
 
 Quando viene richiesto di immettere la password Kerberos corrente, è sufficiente premere **INVIO** per ignorare la richiesta. L'opzione `-m` nel comando `useradd` indica che il sistema creerà una home directory per l'utente, obbligatoria per la versione Community di RStudio.
 
@@ -106,7 +106,7 @@ Per altre informazioni, vedere la sezione "Using Microsoft Machine Learning Serv
 
 ## <a name="use-a-compute-context"></a>Usare un contesto di calcolo
 
-Un contesto di calcolo consente di controllare se il calcolo viene eseguito localmente sul nodo perimetrale o distribuito sui nodi del cluster HDInsight.  Per un esempio di impostazione di un contesto di calcolo con il server RStudio, vedere [eseguire uno script R in un cluster di servizi ml in Azure HDInsight usando rstudio server](machine-learning-services-quickstart-job-rstudio.md).
+Un contesto di calcolo consente di controllare se il calcolo viene eseguito localmente sul nodo perimetrale o distribuito sui nodi del cluster HDInsight.  Per un esempio di impostazione di un contesto di calcolo con RStudio Server, vedere Eseguire uno script R in un cluster di servizi ML in Azure HDInsight usando RStudio Server.For an example of setting a compute context with RStudio Server, see [Execute an R script on an ML Services cluster in Azure HDInsight using RStudio Server.](machine-learning-services-quickstart-job-rstudio.md)
 
 ## <a name="distribute-r-code-to-multiple-nodes"></a>Distribuire il codice R su più nodi
 
@@ -203,9 +203,9 @@ Per installare pacchetti R nei nodi di lavoro del cluster, è necessario usare u
    > [!NOTE]
    > 1. Per impostazione predefinita, tutti i pacchetti R vengono installati da uno snapshot dell'archivio MRAN di Microsoft coerente con la versione di ML Server che è stata installata. L'installazione di versioni più recenti dei pacchetti espone al rischio di incompatibilità. Questo tipo di installazione è tuttavia possibile specificando `useCRAN` come primo elemento dell'elenco dei pacchetti, ad esempio `useCRAN bitops, stringr, arules`.  
    > 2. Alcuni pacchetti R richiedono librerie di sistema di Linux aggiuntive. Per praticità in HDInsight ML Services sono state preinstallate le dipendenze necessarie per i 100 pacchetti R più diffusi. Tuttavia, se i pacchetti R installati richiedono altre librerie, è necessario scaricare lo script di base usato qui e continuare la procedura per installare le librerie di sistema. È quindi necessario caricare lo script modificato in un contenitore BLOB pubblico su Archiviazione di Azure e usare lo script modificato per installare i pacchetti.
-   >    Per altre informazioni sullo sviluppo di azioni script, vedere l'articolo [Sviluppo di azioni script con HDInsight](../hdinsight-hadoop-script-actions-linux.md).
+   >    Per ulteriori informazioni sullo sviluppo di azioni script, vedere Sviluppo di azioni di [script](../hdinsight-hadoop-script-actions-linux.md).
 
-   ![portale di Azure invia azione script](./media/r-server-hdinsight-manage/submit-script-action.png)
+   ![Azione di invio script del portale di AzureAzure portal submit script action](./media/r-server-hdinsight-manage/submit-script-action.png)
 
 4. Selezionare **Crea** per eseguire lo script. Una volta completato lo script, i pacchetti R sono disponibili su tutti i nodi del ruolo di lavoro.
 

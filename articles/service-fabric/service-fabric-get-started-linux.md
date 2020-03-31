@@ -1,13 +1,13 @@
 ---
-title: Configurare l'ambiente di sviluppo in Linux
+title: Configurare l'ambiente di sviluppo in LinuxSet up your development environment on Linux
 description: Installare il runtime e l'SDK e creare un cluster di sviluppo locale in Linux. Al termine della configurazione, sarà possibile iniziare a sviluppare applicazioni.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 572b1509f45a7f5bf2c63619809f01d17c3493d1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258434"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparare l'ambiente di sviluppo in Linux
@@ -179,7 +179,7 @@ Dopo aver completato l'installazione, avviare un cluster locale.
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-2. Aprire un Web browser e passare a [Service Fabric Explorer](http://localhost:19080/Explorer) (`http://localhost:19080/Explorer`). All'avvio del cluster viene visualizzato il dashboard di Service Fabric Explorer. Per il completamento della configurazione del cluster possono essere richiesti alcuni minuti. Se il browser non riesce ad aprire l'URL o Service Fabric Explorer non visualizza il sistema come pronto, attendere qualche minuto e riprovare.
+2. Aprire un Web browser e passare`http://localhost:19080/Explorer`a Service Fabric [Explorer](http://localhost:19080/Explorer) ( ). All'avvio del cluster viene visualizzato il dashboard di Service Fabric Explorer. Per il completamento della configurazione del cluster possono essere richiesti alcuni minuti. Se il browser non riesce ad aprire l'URL o Service Fabric Explorer non visualizza il sistema come pronto, attendere qualche minuto e riprovare.
 
     ![Service Fabric Explorer in Linux][sfx-linux]
 
@@ -220,7 +220,7 @@ Service Fabric offre gli strumenti di scaffolding che consentono di creare appli
     sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
     ```
 
-Al termine dell'installazione dei generatori, creare i servizi contenitore o eseguibili guest eseguendo rispettivamente `yo azuresfguest` o `yo azuresfcontainer`.
+Al termine dell'installazione dei generatori, creare i servizi contenitore o eseguibili guest eseguendo rispettivamente `yo azuresfcontainer` o `yo azuresfguest`.
 
 ## <a name="set-up-net-core-20-development"></a>Configurare lo sviluppo .NET Core 2.0
 
@@ -261,13 +261,13 @@ Per compilare servizi di Service Fabric con Java, installare Gradle per eseguire
 > 
 > In Ubuntu si consiglia di eseguire l'installazione direttamente dal sito di Eclipse invece di usare un programma di installazione di pacchetti (`apt` o `apt-get`). In questo modo si è certi di ottenere la versione più aggiornata di Eclipse. È possibile installare l'IDE di Eclipse per sviluppatori Java o per sviluppatori Java EE.
 
-1. In Eclipse verificare che siano installati Eclipse Neon o versione successiva e Buildship versione 2.2.1 o successiva. Controllare le versioni dei componenti installati selezionando **Help** > **About Eclipse** > **Installation Details** (?, Informazioni su Eclipse, Dettagli installazione). Per aggiornare la compilazione, è possibile usare le istruzioni riportate in [Eclipse Building: plug-in Eclipse per Gradle][buildship-update].
+1. In Eclipse verificare che siano installati Eclipse Neon o versione successiva e Buildship versione 2.2.1 o successiva. Controllare le versioni dei componenti installati selezionando **Guida** > sui**dettagli**di installazione di**Eclipse** > . È possibile aggiornare Buildship seguendo le istruzioni riportate in [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: plug-in Eclipse per Gradle).
 
-2. Per installare il plug-in Service Fabric, selezionare **Help** > **Install New Software** (? > Installa nuovo software).
+2. Per installare il plug-in Service Fabric, selezionare Help Install New Software **(Installazione** > **nuovo software).**
 
-3. Nella casella **Work with** (Lavora con) immettere **https://dl.microsoft.com/eclipse** .
+3. Nella casella **Work with** (Lavora con) immettere **https://dl.microsoft.com/eclipse**.
 
-4. Fare clic su **Aggiungi**.
+4. Selezionare **Aggiungi**.
 
     ![Pagina relativa al software disponibile][sf-eclipse-plugin]
 
@@ -275,7 +275,7 @@ Per compilare servizi di Service Fabric con Java, installare Gradle per eseguire
 
 6. Eseguire la procedura d'installazione. Accettare quindi il contratto di licenza con l'utente finale.
 
-Se il plug-in Eclipse per Service Fabric è già installato, verificare che la versione sia la più recente. Controllare selezionando **Help** > **About Eclipse** > **Installation Details** (?, Informazioni su Eclipse, Dettagli installazione). Quindi cercare Service Fabric nell'elenco dei plug-in installati. Selezionare **Aggiorna** se è disponibile una versione più recente.
+Se il plug-in Eclipse per Service Fabric è già installato, verificare che la versione sia la più recente. Controllare selezionando **Guida** > su**Dettagli installazione****Eclipse** > . Quindi cercare Service Fabric nell'elenco dei plug-in installati. Selezionare **Aggiorna** se è disponibile una versione più recente.
 
 Per altre informazioni, vedere [Plug-in Service Fabric per lo sviluppo di applicazioni Java in Eclipse](service-fabric-get-started-eclipse.md).
 

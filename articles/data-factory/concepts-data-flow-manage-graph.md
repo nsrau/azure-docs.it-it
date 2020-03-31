@@ -1,6 +1,6 @@
 ---
 title: Grafici del flusso di dati
-description: Come usare data factory grafici del flusso di dati
+description: Come usare i grafici del flusso di dati della data factoryHow to work with data factory data flow graphs
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -8,42 +8,42 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/04/2019
 ms.openlocfilehash: da180bfb1aec29fa15b070fd73ba84d708ada927
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74928315"
 ---
 # <a name="mapping-data-flow-graphs"></a>Mapping dei grafici del flusso di dati
 
-L'area di progettazione flussi di dati di mapping è una superficie di "costruzione" in cui i flussi di dati vengono compilati dall'alto verso il basso e da sinistra verso destra. A ogni trasformazione contrassegnata da un segno più (+) è associata una casella degli strumenti. È possibile concentrarsi sulla logica di business invece di collegare i nodi tramite le estremità in un ambiente DAG in formato libero.
+L'area di progettazione dei flussi di dati di mapping è un'area di "costruzione" in cui si compilano i flussi di dati dall'alto verso il basso, da sinistra a destra. A ogni trasformazione contrassegnata da un segno più (+) è associata una casella degli strumenti. È possibile concentrarsi sulla logica di business invece di collegare i nodi tramite le estremità in un ambiente DAG in formato libero.
 
-Di seguito sono riportati i meccanismi predefiniti per gestire il grafico del flusso di dati.
+Di seguito sono riportati i meccanismi incorporati per gestire il grafico del flusso di dati.
 
 ## <a name="move-nodes"></a>Spostamento di nodi
 
-![Opzioni di trasformazione aggregazione](media/data-flow/agghead.png "Aggregator (intestazione)")
+![Opzioni di trasformazione Aggrega](media/data-flow/agghead.png "intestazione aggregatore")
 
-Senza un paradigma di trascinamento della selezione, il modo per "spostare" un nodo di trasformazione consiste nel modificare il flusso in ingresso. Con questa funzionalità si possono invece spostare le trasformazioni nell'area di progettazione modificando il "flusso in ingresso".
+Senza un paradigma di trascinamento della selezione, il modo per "spostare" un nodo di trasformazione, consiste nel modificare il flusso in ingresso. Con questa funzionalità si possono invece spostare le trasformazioni nell'area di progettazione modificando il "flusso in ingresso".
 
 ## <a name="streams-of-data-inside-of-data-flow"></a>Flussi di dati all'interno del flusso di dati
 
-In Flusso di dati di Azure Data Factory lo spostamento delle trasformazioni viene rappresentato tramite flussi. Nel riquadro Impostazioni trasformazione verrà visualizzato un campo "flusso in ingresso". Nel campo è indicato il flusso di dati in ingresso destinato a tale trasformazione. È possibile modificare la posizione fisica del nodo della trasformazione nel grafico facendo clic sul nome del flusso in ingresso e selezionando un altro flusso di dati. La trasformazione corrente su tale flusso, insieme a tutte le trasformazioni successive, verranno così spostate nella nuova posizione.
+In Flusso di dati di Azure Data Factory lo spostamento delle trasformazioni viene rappresentato tramite flussi. Nel riquadro delle impostazioni di trasformazione verrà visualizzato un campo "Flusso in ingresso". Nel campo è indicato il flusso di dati in ingresso destinato a tale trasformazione. È possibile modificare la posizione fisica del nodo della trasformazione nel grafico facendo clic sul nome del flusso in ingresso e selezionando un altro flusso di dati. La trasformazione corrente su tale flusso, insieme a tutte le trasformazioni successive, verranno così spostate nella nuova posizione.
 
 Se si sposta una trasformazione con una o più trasformazioni successive, la nuova posizione nel flusso di dati verrà unita tramite un nuovo ramo.
 
 Se dopo il nodo selezionato non sono presenti trasformazioni successive, nella nuova posizione verrà spostata solo la trasformazione associata a tale nodo.
 
-## <a name="hide-graph-and-show-graph"></a>Nascondi grafico e Mostra grafico
+## <a name="hide-graph-and-show-graph"></a>Nascondi grafico e mostra grafico
 
-È presente un pulsante all'estrema destra del riquadro di configurazione inferiore, in cui è possibile espandere il riquadro inferiore fino a schermo intero quando si lavora con le configurazioni di trasformazione. Questo consentirà di usare i pulsanti "indietro" e "Avanti" per spostarsi tra le configurazioni del grafo. Per tornare alla visualizzazione grafico, fare clic sul pulsante giù e tornare alla schermata di divisione.
+Nell'estrema destra del riquadro di configurazione inferiore è presente un pulsante in cui è possibile espandere il riquadro inferiore a schermo intero quando si lavora sulle configurazioni di trasformazione. Questo vi permetterà di utilizzare i pulsanti "precedente" e "successivo" per navigare attraverso le configurazioni del grafico. Per tornare alla visualizzazione grafica, fare clic sul pulsante verso il basso e tornare alla visualizzazione a schermo diviso.
 
 ## <a name="search-graph"></a>Grafico di ricerca
 
-È possibile cercare il grafico con il pulsante Cerca nell'area di progettazione.
+È possibile cercare il grafico con il pulsante di ricerca nell'area di progettazione.
 
-![Search](media/data-flow/search001.png "Grafico di ricerca")
+![Ricerca](media/data-flow/search001.png "Grafico di ricerca")
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver completato la progettazione del flusso di dati, attivare il pulsante debug e testarlo in modalità debug direttamente nella [finestra di progettazione del flusso di dati](concepts-data-flow-debug-mode.md) o nel debug della [pipeline](control-flow-execute-data-flow-activity.md).
+Dopo aver completato la progettazione del flusso di dati, attivare il pulsante di debug e testarlo in modalità di debug direttamente nella finestra di [progettazione](concepts-data-flow-debug-mode.md) del flusso di dati o nel [debug della pipeline.](control-flow-execute-data-flow-activity.md)

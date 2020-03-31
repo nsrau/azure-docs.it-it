@@ -1,6 +1,6 @@
 ---
-title: Documenti del ruolo di amministratore tra Microsoft 365 Services-Azure AD | Microsoft Docs
-description: Trovare i riferimenti alle API e al contenuto per i ruoli di amministratore per i servizi Microsoft 365 in Azure Active Directory
+title: Documenti sui ruoli di amministratore nei servizi di Microsoft 365 - Azure AD Documenti Microsoft
+description: Trovare contenuti e riferimenti API per i ruoli di amministratore per i servizi Microsoft 365 in Azure Active DirectoryFind content and API references for administrator roles for Microsoft 365 services in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,13 +15,13 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 430b65217da33185cd3b5c235fb148f3350e1bfe
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74024447"
 ---
-# <a name="administrator-roles-for-microsoft-365-services"></a>Ruoli di amministratore per i servizi Microsoft 365
+# <a name="administrator-roles-for-microsoft-365-services"></a>Ruoli di amministratore per i servizi di Microsoft 365
 
 Tutti i prodotti di Microsoft 365 possono essere gestiti con i ruoli amministrativi in Azure AD. Alcuni prodotti forniscono anche ulteriori ruoli specifici per tale prodotto. Per informazioni sui ruoli supportati da ogni prodotto, consultare la tabella seguente. Discussioni generali sui problemi di delega sono reperibili in [Pianificazione della delega del ruolo in Azure Active Directory](roles-concept-delegation.md).
 

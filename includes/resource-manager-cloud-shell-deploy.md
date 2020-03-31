@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: aac2f3ea2b52ac0319f96279deed13c1145749bd
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74451434"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>Distribuire il modello da Cloud Shell
 
 È possibile usare [Cloud Shell](../articles/cloud-shell/overview.md) per distribuire il modello. Per distribuire un modello esterno, specificare l'URI del modello, proprio come si farebbe per qualsiasi distribuzione esterna. Per distribuire un modello locale, è innanzitutto necessario caricare il modello nell'account di archiviazione per Cloud Shell. Questa sezione descrive come caricare il modello nell'account di Cloud Shell e distribuirlo come un file locale. Per informazioni sulla configurazione di Cloud Shell per il primo utilizzo, vedere [Panoramica di Azure Cloud Shell](../articles/cloud-shell/overview.md).
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale](https://portal.azure.com)di Azure .
 
 1. Selezionare il gruppo di risorse di Cloud Shell. Il modello del nome è `cloud-shell-storage-<region>`.
 

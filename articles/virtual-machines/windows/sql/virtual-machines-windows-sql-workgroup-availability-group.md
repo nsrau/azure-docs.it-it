@@ -1,6 +1,6 @@
 ---
-title: Configurare un gruppo di disponibilità del gruppo di lavoro indipendente dal dominio
-description: Informazioni su come configurare un gruppo di disponibilità di gruppi di lavoro indipendente da Dominio di Active Directory Always On in una macchina virtuale SQL Server in Azure.
+title: Configurare un gruppo di disponibilità del gruppo di lavoro indipendente dal dominioConfigure a domain-independent workgroup availability group availability group
+description: Informazioni su come configurare un gruppo di disponibilità AlwaysOn di un gruppo di lavoro alwayson in una macchina virtuale di SQL Server in Azure.Learn how to configure an Active Directory Domain-independent workgroup Always On availability group on a SQL Server virtual machine in Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -14,72 +14,72 @@ ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
 ms.openlocfilehash: 72c04cf5e3e5fbdeac2d267dfc7b2703bd37a1c2
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77122675"
 ---
-# <a name="configure-a-workgroup-availability-group"></a>Configurare un gruppo di disponibilità del gruppo di lavoro 
+# <a name="configure-a-workgroup-availability-group"></a>Configurare un gruppo di disponibilità del gruppo di lavoroConfigure a workgroup availability group 
 
-Questo articolo illustra i passaggi necessari per creare un Active Directory cluster indipendente dal dominio con un gruppo di disponibilità Always On; Questa operazione è nota anche come cluster del gruppo di lavoro. Questo articolo è incentrato sui passaggi relativi alla preparazione e alla configurazione del gruppo di lavoro e del gruppo di disponibilità e illustra i passaggi trattati in altri articoli, ad esempio la modalità di creazione del cluster o la distribuzione del gruppo di disponibilità. 
+In questo articolo vengono illustrati i passaggi necessari per creare un cluster indipendente dal dominio di Active Directory con un gruppo di disponibilità AlwaysOnAlways On availability group. questo è noto anche come un cluster di gruppi di lavoro. Questo articolo è incentrato sui passaggi rilevanti per la preparazione e la configurazione del gruppo di lavoro e del gruppo di disponibilità e sui pulsanti di glossing sui passaggi descritti in altri articoli, ad esempio su come creare il cluster o distribuire il gruppo di disponibilità. 
 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per configurare un gruppo di disponibilità del gruppo di lavoro, è necessario quanto segue:
-- Almeno due macchine virtuali Windows Server 2016 (o versioni successive) che eseguono SQL Server 2016 (o versione successiva), distribuite nello stesso set di disponibilità o in diverse zone di disponibilità, usando indirizzi IP statici. 
-- Una rete locale con almeno 4 indirizzi IP liberi nella subnet. 
-- Un account in ogni computer del gruppo Administrator che dispone anche dei diritti di amministratore di sistema all'interno SQL Server. 
+Per configurare un gruppo di disponibilità del gruppo di lavoro, è necessario quanto segue:To configure a workgroup availability group, you need the following:
+- Almeno due macchine virtuali Windows Server 2016 (o versioni successive) che eseguono SQL Server 2016 (o versione successiva), distribuite nello stesso set di disponibilità o zone di disponibilità diverse usando indirizzi IP statici. 
+- Una rete locale con un minimo di 4 indirizzi IP liberi nella subnet. 
+- Un account in ogni computer nel gruppo di amministratori che dispone anche di diritti sysadmin all'interno di SQL Server. 
 - Porte aperte: TCP 1433, TCP 5022, TCP 59999. 
 
-Per riferimento, in questo articolo vengono usati i parametri seguenti, ma è possibile modificarli quando necessario: 
+Per riferimento, i seguenti parametri vengono utilizzati in questo articolo, ma possono essere modificati in base alle esigenze:For reference, the following parameters are used in this article, but can be modified as is necessary: 
 
 | **Nome** | **Parametro** |
 | :------ | :---------------------------------- |
-| **Node1**   | AGNode1 (10.0.0.4) |
-| **Node2**   | AGNode2 (10.0.0.5) |
+| **Nodo 1**   | AGNode1 (10.0.0.4) |
+| **Nodo 2**   | AGNode2 (10.0.0.5) |
 | **Nome cluster** | AGWGAG (10.0.0.6) |
 | **Listener** | AGListener (10.0.0.7) | 
 | **Suffisso DNS** | ag.wgcluster.example.com | 
-| **Nome gruppo di lavoro** | AGWorkgroup | 
+| **Nome del gruppo di lavoro** | Gruppo AGWork | 
 | &nbsp; | &nbsp; |
 
 ## <a name="set-dns-suffix"></a>Imposta suffisso DNS 
 
-In questo passaggio, configurare il suffisso DNS per entrambi i server. Ad esempio: `ag.wgcluster.example.com`. Questo consente di utilizzare il nome dell'oggetto a cui si desidera connettersi come indirizzo completo all'interno della rete, ad esempio `AGNode1.ag.wgcluster.example.com`. 
+In questo passaggio configurare il suffisso DNS per entrambi i server. Ad esempio: `ag.wgcluster.example.com`. In questo modo è possibile utilizzare il nome dell'oggetto a cui si `AGNode1.ag.wgcluster.example.com`desidera connettersi come indirizzo completo all'interno della rete, ad esempio . 
 
-Per configurare il suffisso DNS, attenersi alla procedura seguente:
+Per configurare il suffisso DNS, attenersi alla seguente procedura:
 
 1. RDP nel primo nodo e aprire Server Manager. 
-1. Selezionare **server locale** e quindi selezionare il nome della macchina virtuale in **nome computer**. 
-1. Selezionare **Cambia..** . in **per rinominare il computer..** .. 
-1. Modificare il nome del gruppo di lavoro in modo che sia significativo, ad esempio `AGWORKGROUP`: 
+1. Selezionare **Server locale** e quindi selezionare il nome della macchina virtuale in **Nome computer**. 
+1. Selezionare **Cambia...** in **Per rinominare il computer...**. 
+1. Modificare il nome del gruppo di lavoro in `AGWORKGROUP`modo che sia significativo, ad esempio: 
 
    ![Modificare il nome del gruppo di lavoro](media/virtual-machines-windows-sql-workgroup-availability-group/1-change-workgroup-name.png)
 
-1. Selezionare **altro...** per aprire la finestra di dialogo **suffisso DNS e nome computer NetBIOS** . 
-1. Digitare il nome del suffisso DNS in **suffisso DNS primario del computer**, ad esempio `ag.wgcluster.example.com` e quindi selezionare **OK**: 
+1. Selezionare **Altro...** per aprire la finestra di **dialogo Suffisso DNS e nome NetBIOS del computer.** 
+1. Digitare il nome del suffisso DNS in **Suffisso DNS primario del computer**, ad `ag.wgcluster.example.com` esempio , quindi selezionare **OK:** 
 
    ![Aggiungi suffisso DNS](media/virtual-machines-windows-sql-workgroup-availability-group/2-add-dns-suffix.png)
 
-1. Verificare che il **nome del computer completo** mostri ora il suffisso DNS, quindi selezionare **OK** per salvare le modifiche: 
+1. Verificare che il **nome completo** del computer sia ora visualizzato il suffisso DNS e quindi selezionare **OK** per salvare le modifiche: 
 
    ![Aggiungi suffisso DNS](media/virtual-machines-windows-sql-workgroup-availability-group/3-confirm-full-computer-name.png)
 
 1. Riavviare il server quando richiesto. 
-1. Ripetere questi passaggi in tutti gli altri nodi da usare per il gruppo di disponibilità. 
+1. Ripetere questi passaggi su tutti gli altri nodi da utilizzare per il gruppo di disponibilità. 
 
 ## <a name="edit-host-file"></a>Modifica file host
 
-Poiché non esiste alcun Active Directory, non è possibile autenticare le connessioni di Windows. Di conseguenza, assegnare l'attendibilità modificando il file host con un editor di testo. 
+Poiché non è presente alcuna directory attiva, non è possibile autenticare le connessioni di Windows. Di conseguenza, assegnare l'attendibilità modificando il file host con un editor di testo. 
 
 Per modificare il file host, attenersi alla seguente procedura:
 
 1. RDP nella macchina virtuale. 
-1. Usare **Esplora file** per passare a `c:\windows\system32\drivers\etc`. 
-1. Fare clic con il pulsante destro del mouse sul file **hosts** e aprire il file con il **blocco note** o qualsiasi altro editor di testo.
-1. Alla fine del file, aggiungere una voce per ogni nodo, il gruppo di disponibilità e il listener nel formato `IP Address, DNS Suffix #comment`, ad esempio: 
+1. Utilizzare **Esplora file** `c:\windows\system32\drivers\etc`per passare a . 
+1. Fare clic con il pulsante destro del mouse sul file **hosts** e aprire il file con **Blocco note** (o qualsiasi altro editor di testo).
+1. Alla fine del file, aggiungere una voce per ogni nodo, il gruppo `IP Address, DNS Suffix #comment` di disponibilità e il listener sotto forma di simile:At the end of the file, add an entry for each node, the availability group, and the listener in the form of like: 
 
    ```
    10.0.0.4 AGNode1.ag.wgcluster.example.com #Availability group node
@@ -92,9 +92,9 @@ Per modificare il file host, attenersi alla seguente procedura:
 
 ## <a name="set-permissions"></a>Impostare autorizzazioni
 
-Poiché non esistono Active Directory per gestire le autorizzazioni, è necessario consentire manualmente a un account amministratore locale non incorporato di creare il cluster. 
+Poiché non è disponibile alcunactive Directory per gestire le autorizzazioni, è necessario consentire manualmente a un account amministratore locale non incorporato di creare il cluster. 
 
-A tale scopo, eseguire il cmdlet di PowerShell seguente in una sessione di PowerShell amministrativa in ogni nodo: 
+A tale scopo, eseguire il seguente cmdlet PowerShell in una sessione di PowerShell amministrativa su ogni nodo: 
 
 ```PowerShell
 
@@ -103,46 +103,46 @@ new-itemproperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\
 
 ## <a name="create-the-failover-cluster"></a>Creare il cluster di failover
 
-In questo passaggio verrà creato il cluster di failover di. Se non si ha familiarità con questi passaggi, è possibile seguirli dall' [esercitazione sul cluster di failover](virtual-machines-windows-portal-sql-create-failover-cluster.md#step-2-configure-the-windows-server-failover-cluster-with-storage-spaces-direct).
+In questo passaggio verrà creato il cluster di failover. Se non si ha familiarità con questi passaggi, è possibile seguirli [dall'esercitazione](virtual-machines-windows-portal-sql-create-failover-cluster.md#step-2-configure-the-windows-server-failover-cluster-with-storage-spaces-direct)sul cluster di failover.
 
-Differenze rilevanti tra l'esercitazione e operazioni da eseguire per un cluster di gruppi di lavoro:
-- Deselezionare **archiviazione**e **spazi di archiviazione diretta** quando si esegue la convalida del cluster. 
+Notevoli differenze tra l'esercitazione e le operazioni da eseguire per un cluster di gruppi di lavoro:Notevol differences between the tutorial and what should be done for a workgroup cluster:
+- Deselezionare **Archiviazione**e **Spazi di archiviazione diretta** durante l'esecuzione della convalida del cluster. 
 - Quando si aggiungono i nodi al cluster, aggiungere il nome completo, ad esempio:
    - `AGNode1.ag.wgcluster.example.com`
    - `AGNode2.ag.wgcluster.example.com`
-- Deselezionare **la casella di controllo Aggiungi tutte le archiviazioni idonee al cluster**. 
+- Deselezionare **Aggiungi tutte le risorse di archiviazione idonee al cluster**. 
 
-Una volta creato il cluster, assegnare un indirizzo IP del cluster statico. A tale scopo, eseguire la procedura seguente:
+Dopo aver creato il cluster, assegnare un indirizzo IP del cluster statico. A questo scopo, attenersi alla procedura seguente:
 
-1. In uno dei nodi aprire **Gestione cluster di failover**, selezionare il cluster, fare clic con il pulsante destro del mouse sul **Nome: \<ClusterNam >** in **risorse principali del cluster** , quindi selezionare **Proprietà**. 
+1. In uno dei nodi aprire **Gestione cluster**di failover , selezionare il cluster, fare clic con il pulsante destro del mouse sulla **>Nome: \<ClusterNam** in **Risorse principali cluster** e quindi scegliere **Proprietà**. 
 
    ![Proprietà di avvio per il nome del cluster](media/virtual-machines-windows-sql-workgroup-availability-group/5-launch-cluster-name-properties.png)
 
-1. Selezionare l'indirizzo IP in **indirizzi IP** e fare clic su **modifica**. 
-1. Selezionare **USA statico**, specificare l'indirizzo IP del cluster e quindi fare clic su **OK**: 
+1. Selezionare l'indirizzo IP in **Indirizzi IP** e selezionare **Modifica**. 
+1. Selezionare **Usa statico**, specificare l'indirizzo IP del cluster e quindi scegliere **OK**: 
 
-   ![Fornire un indirizzo IP statico per il cluster](media/virtual-machines-windows-sql-workgroup-availability-group/6-provide-static-ip-for-cluster.png)
+   ![Fornire un indirizzo IP statico per il clusterProvide a static IP address for the cluster](media/virtual-machines-windows-sql-workgroup-availability-group/6-provide-static-ip-for-cluster.png)
 
-1. Verificare che le impostazioni siano corrette e quindi fare clic su **OK** per salvarle:
+1. Verificare che le impostazioni siano corrette e quindi selezionare **OK** per salvarle:
 
-   ![Verificare le proprietà del cluster](media/virtual-machines-windows-sql-workgroup-availability-group/7-verify-cluster-properties.png)
+   ![Verificare le proprietà del clusterVerify cluster properties](media/virtual-machines-windows-sql-workgroup-availability-group/7-verify-cluster-properties.png)
 
 ## <a name="create-a-cloud-witness"></a>Creare un cloud di controllo 
 
-In questo passaggio, configurare un server di controllo della condivisione cloud. Se non si ha familiarità con i passaggi, vedere l' [esercitazione sul cluster di failover](virtual-machines-windows-portal-sql-create-failover-cluster.md#create-a-cloud-witness). 
+In questo passaggio configurare un controllo di condivisione cloud. Se non si ha familiarità con la procedura, vedere [l'esercitazione](virtual-machines-windows-portal-sql-create-failover-cluster.md#create-a-cloud-witness)sul cluster di failover . 
 
-## <a name="enable-availability-group-feature"></a>Abilitare la funzionalità gruppo di disponibilità 
+## <a name="enable-availability-group-feature"></a>Abilitare la funzionalità del gruppo di disponibilitàEnable availability group feature 
 
-In questo passaggio abilitare la funzionalità gruppo di disponibilità. Se non si ha familiarità con i passaggi, vedere l'esercitazione relativa al [gruppo di disponibilità](virtual-machines-windows-portal-sql-availability-group-tutorial.md#enable-availability-groups). 
+In questo passaggio abilitare la funzionalità del gruppo di disponibilità. Se non si ha familiarità con la procedura, vedere [l'esercitazione](virtual-machines-windows-portal-sql-availability-group-tutorial.md#enable-availability-groups)sul gruppo di disponibilità . 
 
-## <a name="create-keys-and-certificate"></a>Creazione di chiavi e certificati
+## <a name="create-keys-and-certificate"></a>Creare chiavi e certificati
 
-In questo passaggio, creare i certificati utilizzati da un account di accesso SQL sull'endpoint crittografato. Creare una cartella in ogni nodo per conservare i backup dei certificati, ad esempio `c:\certs`. 
+In questo passaggio creare i certificati utilizzati da un account di accesso SQL nell'endpoint crittografato. Creare una cartella in ogni nodo per contenere i backup del certificato, ad `c:\certs`esempio . 
 
-Per configurare il primo nodo, attenersi alla procedura seguente: 
+Per configurare il primo nodo, attenersi alla seguente procedura: 
 
-1. Aprire **SQL Server Management Studio** e connettersi al primo nodo, ad esempio `AGNode1`. 
-1. Aprire una **nuova** finestra di query ed eseguire l'istruzione Transact-SQL (T-SQL) seguente dopo l'aggiornamento a una password complessa e sicura:
+1. Aprire **SQL Server Management Studio** e connettersi `AGNode1`al primo nodo, ad esempio . 
+1. Aprire una finestra **Nuova query** ed eseguire la seguente istruzione Transact-SQL (T-SQL) dopo l'aggiornamento a una password complessa e sicura:
 
    ```sql
    USE master;  
@@ -160,7 +160,7 @@ Per configurare il primo nodo, attenersi alla procedura seguente:
    GO  
    ```
 
-1. Successivamente, creare l'endpoint HADR e usare il certificato per l'autenticazione eseguendo l'istruzione Transact-SQL (T-SQL):
+1. Successivamente, creare l'endpoint HADR e utilizzare il certificato per l'autenticazione eseguendo questa istruzione Transact-SQL (T-SQL):Next, create the HADR endpoint, and use the certificate for authentication by running this Transact-SQL (T-SQL) statement:
 
    ```sql
    --CREATE or ALTER the mirroring endpoint
@@ -178,13 +178,13 @@ Per configurare il primo nodo, attenersi alla procedura seguente:
    GO  
    ```
 
-1. Usare **Esplora file** per passare al percorso del file in cui si trova il certificato, ad esempio `c:\certs`. 
-1. Eseguire manualmente una copia del certificato, ad esempio `AGNode1Cert.crt`, dal primo nodo e trasferirlo nello stesso percorso nel secondo nodo. 
+1. Utilizzare **Esplora file** per passare al percorso del `c:\certs`file in cui si trova il certificato, ad esempio . 
+1. Creare manualmente una copia del `AGNode1Cert.crt`certificato, ad esempio , dal primo nodo e trasferirla nella stessa posizione sul secondo nodo. 
 
-Per configurare il secondo nodo, attenersi alla procedura seguente: 
+Per configurare il secondo nodo, attenersi alla seguente procedura: 
 
-1. Connettersi al secondo nodo con **SQL Server Management Studio**, ad esempio `AGNode2`. 
-1. In una **nuova** finestra di query eseguire l'istruzione Transact-SQL (T-SQL) seguente dopo l'aggiornamento a una password complessa e sicura: 
+1. Connettersi al secondo nodo con **SQL Server Management StudioSQL Server Management Studio**, ad `AGNode2`esempio . 
+1. In una finestra **Nuova query** eseguire la seguente istruzione Transact-SQL (T-SQL) dopo l'aggiornamento a una password complessa e sicura: 
 
    ```sql
    USE master;  
@@ -201,7 +201,7 @@ Per configurare il secondo nodo, attenersi alla procedura seguente:
    GO
    ```
 
-1. Successivamente, creare l'endpoint HADR e usare il certificato per l'autenticazione eseguendo l'istruzione Transact-SQL (T-SQL):
+1. Successivamente, creare l'endpoint HADR e utilizzare il certificato per l'autenticazione eseguendo questa istruzione Transact-SQL (T-SQL):Next, create the HADR endpoint, and use the certificate for authentication by running this Transact-SQL (T-SQL) statement:
 
    ```sql
    --CREATE or ALTER the mirroring endpoint
@@ -219,16 +219,16 @@ Per configurare il secondo nodo, attenersi alla procedura seguente:
    GO  
    ```
 
-1. Usare **Esplora file** per passare al percorso del file in cui si trova il certificato, ad esempio `c:\certs`. 
-1. Eseguire manualmente una copia del certificato, ad esempio `AGNode2Cert.crt`, dal secondo nodo e trasferirlo nello stesso percorso del primo nodo. 
+1. Utilizzare **Esplora file** per passare al percorso del `c:\certs`file in cui si trova il certificato, ad esempio . 
+1. Creare manualmente una copia del `AGNode2Cert.crt`certificato, ad esempio , dal secondo nodo e trasferirla nella stessa posizione nel primo nodo. 
 
-Se sono presenti altri nodi nel cluster, ripetere questi passaggi anche in questo caso, modificando i rispettivi nomi di certificato. 
+Se nel cluster sono presenti altri nodi, ripetere questi passaggi, modificando anche i rispettivi nomi di certificato. 
 
-## <a name="create-logins"></a>Crea account di accesso
+## <a name="create-logins"></a>Creare account di accesso
 
-L'autenticazione del certificato viene usata per sincronizzare i dati tra i nodi. Per consentire questa operazione, creare un account di accesso per l'altro nodo, creare un utente per l'account di accesso, creare un certificato per l'account di accesso per l'utilizzo del certificato di cui è stato eseguito il backup, quindi concedere la connessione nell'endpoint del mirroring. 
+L'autenticazione del certificato viene utilizzata per sincronizzare i dati tra i nodi. A tale scopo, creare un account di accesso per l'altro nodo, creare un utente per l'account di accesso, creare un certificato per l'account di accesso per utilizzare il certificato di cui è stato eseguito il backup e quindi concedere la connessione nell'endpoint del mirroring. 
 
-A tale scopo, eseguire prima la query Transact-SQL (T-SQL) seguente sul primo nodo, ad esempio `AGNode1`: 
+A tale scopo, eseguire innanzitutto la query Transact-SQL (T-SQL) seguente nel primo nodo, ad `AGNode1`esempio: 
 
 ```sql
 --create a login for the AGNode2
@@ -251,7 +251,7 @@ GRANT CONNECT ON ENDPOINT::hadr_endpoint TO [AGNode2_login];
 GO
 ```
 
-Eseguire quindi la query Transact-SQL (T-SQL) seguente sul secondo nodo, ad esempio `AGNode2`: 
+Eseguire quindi la query Transact-SQL (T-SQL) seguente nel `AGNode2`secondo nodo, ad esempio: 
 
 ```sql
 --create a login for the AGNode1
@@ -274,22 +274,22 @@ GRANT CONNECT ON ENDPOINT::hadr_endpoint TO [AGNode1_login];
 GO
 ```
 
-Se sono presenti altri nodi nel cluster, ripetere questi passaggi anche in questo caso, modificando il rispettivo certificato e i rispettivi nomi utente. 
+Se nel cluster sono presenti altri nodi, ripetere questi passaggi, modificando anche il rispettivo certificato e i nomi utente. 
 
 ## <a name="configure-availability-group"></a>Configurare un gruppo di disponibilità
 
-In questo passaggio, configurare il gruppo di disponibilità e aggiungervi i database. Non creare un listener in questo momento. Se non si ha familiarità con i passaggi, vedere l'esercitazione relativa al [gruppo di disponibilità](virtual-machines-windows-portal-sql-availability-group-tutorial.md#create-the-availability-group). Assicurarsi di avviare un failover e un failback per verificare che tutto funzioni come dovrebbe essere. 
+In questo passaggio configurare il gruppo di disponibilità e aggiungervi i database. Non creare un listener in questo momento. Se non si ha familiarità con la procedura, vedere [l'esercitazione](virtual-machines-windows-portal-sql-availability-group-tutorial.md#create-the-availability-group)sul gruppo di disponibilità . Assicurarsi di avviare un failover e un failback per verificare che tutto funzioni come dovrebbe. 
 
    > [!NOTE]
-   > Se si verifica un errore durante il processo di sincronizzazione, potrebbe essere necessario concedere `NT AUTHORITY\SYSTEM` diritti sysadmin per creare risorse cluster sul primo nodo, ad esempio `AGNode1` temporaneamente. 
+   > Se si verifica un errore durante il processo `NT AUTHORITY\SYSTEM` di sincronizzazione, potrebbe essere necessario concedere `AGNode1` i diritti sysadmin per creare le risorse cluster nel primo nodo, ad esempio temporaneamente. 
 
-## <a name="configure-load-balancer"></a>Configurare il servizio di bilanciamento del carico
+## <a name="configure-load-balancer"></a>Configurare il servizio di bilanciamento del caricoConfigure load
 
-In questo passaggio finale configurare il servizio di bilanciamento del carico usando il [portale di Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md) o [PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+In questo passaggio finale configurare il servizio di bilanciamento del carico usando il portale di Azure o [PowerShellIn](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) this final step, configure the load balancer using either the [Azure portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md) or PowerShell
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È anche possibile usare [AZ SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) per configurare un gruppo di disponibilità. 
+È anche possibile usare [Az SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) per configurare un gruppo di disponibilità. 
 
 

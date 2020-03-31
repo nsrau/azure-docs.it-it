@@ -15,6 +15,8 @@
       href: web-query-data.md
 - name: Esercitazioni
   items:
+    - name: Scrivere query
+      href: write-queries.md
     - name: Inserimento di BLOB programmatici E2E
       items:
         - name: 'C#'
@@ -32,14 +34,22 @@
         - name: Panoramica dell'inserimento dati
           displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
           href: ingest-data-overview.md
+        - name: Proprietà di inserimento dati
+          href: ingestion-properties.md
+        - name: Formati per l'inserimento dati
+          href: ingestion-supported-formats.md
     - name: Linguaggio di query Kusto
       items:
         - name: Guida di riferimento rapido
           href: kql-quick-reference.md
     - name: Panoramica della visualizzazione dei dati
       href: viz-overview.md
-    - name: Panoramica della sicurezza
-      href: security.md
+    - name: Security
+      items:
+        - name: Panoramica della sicurezza
+          href: security.md
+        - name: Baseline di sicurezza
+          href: security-baseline.md
 - name: Guide pratiche
   items:
     - name: Creare un cluster e un database
@@ -60,6 +70,8 @@
           href: ingest-data-one-click.md
         - name: Inserimento del flusso
           href: ingest-data-streaming.md
+        - name: Uso di LightIngest
+          href: lightingest.md
         - name: Hub eventi
           items:
             - name: Portale di Azure
@@ -106,8 +118,6 @@
           href: ingest-json-formats.md
     - name: Eseguire query sui dati
       items:
-        - name: Scrivere query
-          href: write-queries.md
         - name: Eseguire query sui dati in Azure Data Lake
           href: data-lake-query-data.md
         - name: Eseguire query sui dati in Monitoraggio di Azure
@@ -158,12 +168,22 @@
           href: k2bridge.md
     - name: Sicurezza
       items:
+        - name: Isolamento rete (rete virtuale)
+          items:
+            - name: Creare un cluster nella rete virtuale - Portale
+              href: vnet-create-cluster-portal.md
+            - name: Distribuire il cluster nella rete virtuale
+              href: vnet-deployment.md
+            - name: 'Risolvere i problemi di creazione, connettività e funzionamento del cluster della rete virtuale'
+              href: vnet-deploy-troubleshoot.md
         - name: Gestire la sicurezza del cluster
           href: manage-cluster-security.md
         - name: Configurare le identità gestite
           href: managed-identities.md
         - name: Configurare le chiavi gestite dal cliente
           items:
+            - name: Portale
+              href: customer-managed-keys-portal.md
             - name: 'C#'
               href: customer-managed-keys-csharp.md
             - name: Modello di Azure Resource Manager
@@ -214,10 +234,6 @@
               href: delete-data.md
             - name: Gestire i dati duplicati
               href: dealing-with-duplicates.md
-    - name: Distribuire
-      items:
-        - name: Distribuire il cluster nella rete virtuale
-          href: vnet-deployment.md
     - name: Monitorare
       items:
         - name: Usare i log di diagnostica per monitorare l'inserimento
@@ -236,6 +252,12 @@
               href: data-factory-template.md
             - name: Eseguire comandi di controllo con Azure Data Factory
               href: data-factory-command-activity.md
+        - name: Connettore Microsoft Flow
+          items:
+            - name: Connettore Microsoft Flow
+              href: flow.md
+            - name: Esempi di utilizzo del connettore Microsoft Flow
+              href: flow-usage.md
         - name: Connettore Apache Spark
           href: spark-connector.md
         - name: Connettersi da Databricks tramite Python

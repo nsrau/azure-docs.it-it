@@ -1,17 +1,17 @@
 ---
-title: 'Avvio rapido: Libreria client di creazione di LUIS (Language Understanding)'
+title: 'Guida introduttiva: Libreria client di creazione di LUIS (Language Understanding)'
 description: Questo argomento di avvio rapido illustra come usare la libreria client di LUIS. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 ms.topic: quickstart
 ms.date: 01/14/2020
 zone_pivot_groups: programming-languages-set-diberry-3core
 ms.openlocfilehash: 614d40bb3e5bc8b83a2307b89cd517fdf7913dbe
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77524445"
 ---
-# <a name="quickstart-language-understanding-luis-authoring-client-library"></a>Avvio rapido: Libreria client di creazione di LUIS (Language Understanding)
+# <a name="quickstart-language-understanding-luis-authoring-client-library"></a>Guida introduttiva: Libreria client di creazione di LUIS (Language Understanding)
 
 Introduzione alla libreria client di LUIS (Language Understanding). Seguire questi passaggi per installare l'SDK e provare il codice di esempio per le attività di base.  Language Understanding (LUIS) consente di applicare l'intelligence dell'apprendimento automatico personalizzato al testo in linguaggio naturale parlato di un utente per prevedere il significato generale ed estrarre informazioni pertinenti e dettagliate.
 

@@ -1,21 +1,21 @@
 ---
-title: Usare sys_schema-database di Azure per MySQL
-description: Informazioni su come usare sys_schema per individuare i problemi di prestazioni e gestire il database in database di Azure per MySQL.
+title: Usare sys_schema - Database di Azure per MySQLUse you - Azure Database for MySQL
+description: Informazioni su come usare sys_schema per trovare problemi di prestazioni e gestire il database nel database di Azure per MySQL.Learn how to use you and use performance issues and maintain database in Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 12/02/2019
-ms.openlocfilehash: 50552b87fad9d8f58ff8c48dc03463d4c901bf99
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
-ms.translationtype: MT
+ms.date: 3/18/2020
+ms.openlocfilehash: a35a586a519ff78e8b32d986b92bd008b2c6b858
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775946"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067877"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Come usare sys_schema per l'ottimizzazione delle prestazioni e la manutenzione del database in Database di Azure per MySQL
 
-Il performance_schema MySQL, disponibile per la prima volta in MySQL 5,5, fornisce la strumentazione per molte risorse server essenziali, ad esempio l'allocazione di memoria, i programmi archiviati, il blocco dei metadati e così via. Tuttavia, il performance_schema contiene più di 80 tabelle e il recupero delle informazioni necessarie spesso richiede l'Unione di tabelle all'interno del performance_schema, nonché le tabelle dal information_schema. Basato su performance_schema e information_schema, sys_schema offre un'efficace raccolta di [viste intuitive](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) in un database di sola lettura completamente abilitato in Database di Azure per MySQL versione 5.7.
+Il performance_schema MySQL, disponibile per la prima volta in MySQL 5.5, fornisce strumentazione per molte risorse essenziali del server come l'allocazione di memoria, programmi memorizzati, blocco dei metadati e così via. Tuttavia, il performance_schema contiene più di 80 tabelle e spesso per ottenere le informazioni necessarie è necessario unire le tabelle all'interno del performance_schema, nonché le tabelle dell'information_schema. Basato su performance_schema e information_schema, sys_schema offre un'efficace raccolta di [viste intuitive](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) in un database di sola lettura completamente abilitato in Database di Azure per MySQL versione 5.7.
 
 ![viste di sys_schema](./media/howto-troubleshoot-sys-schema/sys-schema-views.png)
 
@@ -29,7 +29,7 @@ Il database sys_schema include 52 viste, ognuna con uno dei prefissi seguenti:
 - User: risorse utilizzate e raggruppate in base agli utenti. Ad esempio I/O su file, connessioni e memoria.
 - Wait: eventi di attesa raggruppati in base a host o utente.
 
-Di seguito verranno esaminati alcuni modelli di utilizzo comuni di sys_schema. Per iniziare, i modelli di utilizzo verranno raggruppati in due categorie: **ottimizzazione delle prestazioni** e **manutenzione del database**.
+Esaminiamo ora alcuni modelli di utilizzo comuni del sys_schema. Per iniziare, i modelli di utilizzo verranno raggruppati in due categorie: **Ottimizzazione delle prestazioni** e **Manutenzione database**.
 
 ## <a name="performance-tuning"></a>Ottimizzazione delle prestazioni
 
@@ -55,7 +55,7 @@ Per risolvere i problemi di prestazioni del database, potrebbe essere utile iden
 
 ![riepilogo in base alle istruzioni](./media/howto-troubleshoot-sys-schema/summary-by-statement.png)
 
-In questo esempio, Database di Azure per MySQL ha dedicato 53 minuti allo scaricamento del log di query slog 44579 volte. Si tratta di molto tempo e di molte operazioni di I/O. È possibile ridurre questa attività disabilitando il log query lente o riducendo la frequenza di registrazione nel log query lente nel portale di Azure.
+In questo esempio, Database di Azure per MySQL ha dedicato 53 minuti allo scaricamento del log di query slog 44579 volte. Questo è un lungo periodo di tempo e molti IO. È possibile ridurre questa attività disabilitando il log query lente o riducendo la frequenza di registrazione nel log query lente nel portale di Azure.
 
 ## <a name="database-maintenance"></a>Manutenzione del database
 
@@ -75,7 +75,7 @@ Gli indici sono strumenti validi per migliorare le prestazioni di lettura, ma co
 
 ![indici ridondanti](./media/howto-troubleshoot-sys-schema/redundant-indexes.png)
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 
 In sintesi, il database sys_schema è un valido strumento sia per l'ottimizzazione delle prestazioni che per la manutenzione del database. Assicurarsi di sfruttare i vantaggi di questa funzionalità in Database di Azure per MySQL. 
 

@@ -1,15 +1,15 @@
 ---
-title: Panoramica della comunicazione Reliable Services
+title: Panoramica della comunicazione di Reliable Services
 description: Panoramica sul modello di comunicazione di Reliable Services, compresi i listener di apertura nei servizi, gli endpoint di risoluzione e la comunicazione tra servizi.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: 3c1a6cfa5227369bf1cde4af087019727c22c0c2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75462946"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Come usare le API di comunicazione di Reliable Services

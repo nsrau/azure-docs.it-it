@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: 4fe1ee3ccf2849943959889838ba0f22fb64bb9a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273059"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Attività di avvio comuni del servizio cloud
@@ -25,7 +25,7 @@ Per comprendere il funzionamento delle attività di avvio e in particolare la mo
 > 
 
 ## <a name="define-environment-variables-before-a-role-starts"></a>Definire le variabili di ambiente prima dell'avvio di un ruolo
-Se si devono definire le variabili di ambiente per un'attività specifica, usare l'elemento [Environment] all'interno dell'elemento [Attività].
+Se si devono definire le variabili di ambiente per un'attività specifica, usare l'elemento [Environment] all'interno dell'elemento [Task].
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -125,7 +125,7 @@ Il secondo controlla le connessioni tra la macchina virtuale e i processi al suo
 
 In Azure vengono create regole di firewall per i processi avviati nei ruoli. Quando si avvia un servizio o un programma, ad esempio, in Azure vengono create automaticamente le regole di firewall necessarie per consentire la comunicazione del servizio con Internet. Tuttavia, se si crea un servizio che viene avviato da un processo esterno al ruolo, come un servizio COM+ o un'attività pianificata di Windows, è necessario creare manualmente una regola di firewall per consentire l'accesso al servizio. Queste regole di firewall possono essere create usando un'attività di avvio.
 
-In un'attività di avvio che crea una regola di firewall l'attributo [executionContext][attività] deve essere impostato su **elevato** diverso da zero. Aggiungere l'attività di avvio seguente per il file [ServiceDefinition.csdef] .
+In un'attività di avvio che crea una regola di firewall l'attributo [executionContext][Task] deve essere impostato su **elevato** diverso da zero. Aggiungere l'attività di avvio seguente per il file [ServiceDefinition.csdef] .
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -300,7 +300,7 @@ string fileContent = System.IO.File.ReadAllText(System.IO.Path.Combine(localStor
 
 Per eseguire nell'emulatore di calcolo azioni diverse da quelle eseguite nel cloud, è necessario creare una variabile di ambiente nel file [ServiceDefinition.csdef] e testare la variabile di ambiente su un valore durante l'attività di avvio.
 
-Per creare la variabile di ambiente, aggiungere l'elemento [Variabile]/[RoleInstanceValue] e creare un valore XPath di `/RoleEnvironment/Deployment/@emulated`. Il valore della variabile di ambiente **%ComputeEmulatorRunning%** è `true` durante l'esecuzione nell'emulatore di calcolo e `false` durante l'esecuzione nel cloud.
+Per creare la variabile [Variable]/di ambiente, aggiungere l'elemento Variable `/RoleEnvironment/Deployment/@emulated`[RoleInstanceValue] e creare un valore XPath pari a . Il valore della variabile di ambiente **%ComputeEmulatorRunning%** è `true` durante l'esecuzione nell'emulatore di calcolo e `false` durante l'esecuzione nel cloud.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -377,7 +377,7 @@ EXIT /B 0
 Di seguito sono riportate alcune procedure consigliate da seguire durante la configurazione dell'attività per il ruolo Web o di lavoro.
 
 ### <a name="always-log-startup-activities"></a>Registrare sempre le attività di avvio
-In Visual Studio non è previsto un debugger per analizzare i file batch, pertanto è buona pratica ottenere quanti più dati possibile sul funzionamento di tali file. La registrazione dell'output dei file batch, sia **stdout** che **stderr**, può fornire informazioni importanti quando si tenta di eseguire il debug e correggere i file batch. Per registrare sia **stdout** che **stderr** nel file StartupLog.txt nella directory a cui fa riferimento la variabile di ambiente **%TEMP%** , aggiungere il testo `>>  "%TEMP%\\StartupLog.txt" 2>&1` alla fine delle righe specifiche che si desidera registrare. Ad esempio, per eseguire setup.exe nella directory **%PathToApp1Install%** :
+In Visual Studio non è previsto un debugger per analizzare i file batch, pertanto è buona pratica ottenere quanti più dati possibile sul funzionamento di tali file. La registrazione dell'output dei file batch, sia **stdout** che **stderr**, può fornire informazioni importanti quando si tenta di eseguire il debug e correggere i file batch. Per registrare sia **stdout** che **stderr** nel file StartupLog.txt nella directory a cui fa riferimento la variabile di ambiente **%TEMP%**, aggiungere il testo `>>  "%TEMP%\\StartupLog.txt" 2>&1` alla fine delle righe specifiche che si desidera registrare. Ad esempio, per eseguire setup.exe nella directory **%PathToApp1Install%** :
 
     "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
 
@@ -466,12 +466,12 @@ Esempio di output nel file **StartupLog.txt**:
 ### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>Impostare l'attributo executionContext in modo appropriato per le attività di avvio
 Impostare i privilegi in modo appropriato per l'attività di avvio. In alcuni casi le attività di avvio devono essere eseguite con privilegi elevati anche se il ruolo viene eseguito con privilegi normali.
 
-Lo strumento da riga di comando [executionContext][attività] imposta il livello di privilegio dell'attività di avvio. L'uso di `executionContext="limited"` indica che l'attività di avvio dispone dello stesso livello di privilegio del ruolo. L'uso di `executionContext="elevated"` indica che l'attività di avvio dispone di privilegi di amministratore, cioè potrà eseguire attività amministrative, senza fornire privilegi di amministratore al ruolo.
+Lo strumento da riga di comando [executionContext][Task] imposta il livello di privilegio dell'attività di avvio. L'uso di `executionContext="limited"` indica che l'attività di avvio dispone dello stesso livello di privilegio del ruolo. L'uso di `executionContext="elevated"` indica che l'attività di avvio dispone di privilegi di amministratore, cioè potrà eseguire attività amministrative, senza fornire privilegi di amministratore al ruolo.
 
 Un esempio di attività di avvio che richiede privilegi elevati è un'attività di avvio che usa **AppCmd.exe** per configurare IIS. **AppCmd.exe** richiede `executionContext="elevated"`.
 
 ### <a name="use-the-appropriate-tasktype"></a>Usare l'attributo taskType appropriato
-Lo strumento da riga di comando [taskType][attività] determina la modalità di esecuzione dell'attività di avvio. Sono disponibili tre valori: **simple**, **background** e **foreground**. Le attività in background e in primo piano (foreground) vengono avviate in modo asincrono e le attività semplici (simple) vengono eseguite in modo sincrono una alla volta.
+Lo strumento da riga di comando [taskType][Task] determina la modalità di esecuzione dell'attività di avvio. Sono disponibili tre valori: **simple**, **background** e **foreground**. Le attività in background e in primo piano (foreground) vengono avviate in modo asincrono e le attività semplici (simple) vengono eseguite in modo sincrono una alla volta.
 
 Con le attività di avvio **simple** è possibile impostare l'ordine in cui le attività si verificano in base all'ordine in cui le attività sono elencate nel file ServiceDefinition.csdef. Se un'attività **simple** termina con un codice di uscita diverso da zero, la procedura di avvio viene arrestata e il ruolo non viene avviato.
 
@@ -504,14 +504,14 @@ Altre informazioni sul funzionamento delle [attività](cloud-services-startup-ta
 [Attività]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
-[Environment]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
+[Ambiente]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
 [Variabile]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
-[RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
+[Valore di RoleInstance]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-[Endpoints]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
+[Endpoint]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
-[RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
+[Valore di RoleInstance]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
 
 

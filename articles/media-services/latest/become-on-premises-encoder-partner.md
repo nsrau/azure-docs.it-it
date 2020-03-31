@@ -1,5 +1,5 @@
 ---
-title: Diventare un partner del codificatore locale-servizi multimediali di Azure
+title: Diventare un partner codificatore locale - Servizi multimediali di Azure
 description: Questo articolo illustra come verificare i codificatori di streaming live locali.
 services: media-services
 author: johndeu
@@ -9,13 +9,13 @@ ms.date: 03/02/2020
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: f98d9942f8c30f06b0144503b056c1e8a393ae52
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79298632"
 ---
-# <a name="how-to-verify-your-on-premises-live-streaming-encoder"></a>Come verificare il codificatore Live streaming locale
+# <a name="how-to-verify-your-on-premises-live-streaming-encoder"></a>Come verificare il codificatore di streaming live locale
 
 Servizi multimediali di Azure offre ai partner di codificatore locale il vantaggio di promuovere il loro prodotto consigliandolo ai clienti aziendali. Per diventare un partner di codificatore locale, è necessario verificare la compatibilità del proprio codificatore locale con Servizi multimediali. A questo scopo, completare le verifiche seguenti.
 
@@ -27,9 +27,9 @@ Servizi multimediali di Azure offre ai partner di codificatore locale il vantagg
 2. Creare e avviare l'evento live **pass-through**. <br/> Per altre informazioni, vedere [Stati e fatturazione dell'evento live](live-event-states-billing.md).
 3. Ottenere gli URL di inserimento e configurare il codificatore locale per usare l'URL per l’invio del flusso live a bitrate multipli a Servizi multimediali.
 4. Ottenere l'URL di anteprima e usarlo per verificare che l'input dal codificatore venga effettivamente ricevuto.
-5. Creare un nuovo oggetto **Asset**.
-6. Creare un **LiveOutput** e usare il nome dell'asset creato.
-7. Creare un **localizzatore di streaming** con i tipi di **Criterio di streaming** predefiniti.
+5. Creare un nuovo oggetto **Asset.**
+6. Create un **Live Output** e utilizzate il nome della risorsa creata.
+7. Creare un **localizzatore** di streaming con i tipi di criteri di **streaming** incorporati.
 8. Elencare i percorsi nel **localizzatore di streaming** per ottenere gli URL da usare.
 9. Ottenere il nome host per l'**endpoint di streaming** da cui si desidera trasmettere.
 10. Combinare l'URL del passaggio 8 con il nome host del passaggio 9 per ottenere l'URL completo.
@@ -46,9 +46,9 @@ Servizi multimediali di Azure offre ai partner di codificatore locale il vantagg
 2. Creare e avviare l'evento live di **codifica live**. <br/> Per altre informazioni, vedere [Stati e fatturazione dell'evento live](live-event-states-billing.md).
 3. Ottenere gli URL di inserimento e configurare il codificatore per eseguire il push di un flusso live a bitrate singolo a Servizi multimediali.
 4. Ottenere l'URL di anteprima e usarlo per verificare che l'input dal codificatore venga effettivamente ricevuto.
-5. Creare un nuovo oggetto **Asset**.
-6. Creare un **LiveOutput** e usare il nome dell'asset creato.
-7. Creare un **localizzatore di streaming** con i tipi di **Criterio di streaming** predefiniti.
+5. Creare un nuovo oggetto **Asset.**
+6. Create un **Live Output** e utilizzate il nome della risorsa creata.
+7. Creare un **localizzatore** di streaming con i tipi di criteri di **streaming** incorporati.
 8. Elencare i percorsi nel **localizzatore di streaming** per ottenere gli URL da usare.
 9. Ottenere il nome host per l'**endpoint di streaming** da cui si desidera trasmettere.
 10. Combinare l'URL del passaggio 8 con il nome host del passaggio 9 per ottenere l'URL completo.

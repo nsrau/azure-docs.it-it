@@ -1,7 +1,7 @@
 ---
 title: Predicates e PredicateValidations
 titleSuffix: Azure AD B2C
-description: Impedisci l'aggiunta di dati in formato non valido al tenant di Azure AD B2C usando criteri personalizzati in Azure Active Directory B2C.
+description: Impedire l'aggiunta di dati in formato non corretto al tenant B2C di Azure AD usando criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,27 +12,27 @@ ms.date: 02/24/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: cc61ef5980a8019514f05c1db47f2300fff3603b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
-ms.translationtype: MT
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78187237"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates e PredicateValidations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-I **predicati** e gli elementi **PredicateValidations** consentono di eseguire un processo di convalida per assicurarsi che vengano immessi nel tenant Azure Active Directory B2C (Azure ad B2C) solo i dati in formato corretto.
+Gli elementi **Predicates** e **PredicateValidations** consentono di eseguire un processo di convalida per garantire che solo i dati formati correttamente vengano immessi nel tenant B2C (Azure AD B2C) di Azure Active Directory.
 
 Il diagramma seguente mostra la relazione tra gli elementi:
 
-![Diagramma che mostra i predicati e la relazione di convalida del predicato](./media/predicates/predicates.png)
+![Diagramma che mostra la relazione Predicati e convalide predicati](./media/predicates/predicates.png)
 
 ## <a name="predicates"></a>Predicati
 
 L'elemento **Predicate** definisce una convalida di base per controllare il valore di un tipo di attestazione e restituisce `true` o `false`. La convalida viene eseguita usando un elemento **Method** specificato e un set di elementi **Parameter** pertinenti al metodo. Un predicato può ad esempio controllare se la lunghezza di un valore di attestazione di tipo stringa rientra nell'intervallo di parametri minimo e massimo specificato o se un valore di attestazione di tipo stringa contiene un set di caratteri. L'elemento **UserHelpText** visualizza un messaggio di errore agli utenti se il controllo ha esito negativo. Il valore dell'elemento **UserHelpText** può essere localizzato usando la [funzionalità di personalizzazione della lingua](localization.md).
 
-L'elemento **Predicates** deve apparire direttamente dopo l'elemento **ClaimsSchema** all'interno dell'elemento [BuildingBlocks](buildingblocks.md) .
+L'elemento **Predicates** deve essere visualizzato direttamente dopo l'elemento **ClaimsSchema** all'interno dell'elemento [BuildingBlocks.](buildingblocks.md)
 
 L'elemento **Predicates** contiene l'elemento seguente:
 
@@ -52,7 +52,7 @@ L'elemento **Predicate** contiene gli elementi seguenti:
 
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
-| UserHelpText | 0:1 | Deprecato Un messaggio di errore per gli utenti se il controllo ha esito negativo. |
+| UserHelpText | 0:1 | (Obsoleto) Un messaggio di errore per gli utenti se il controllo ha esito negativo. |
 | Parametri | 1:1 | Parametri del tipo di metodo della convalida della stringa. |
 
 L'elemento **Parameters** contiene gli elementi seguenti:
@@ -113,7 +113,7 @@ L'esempio seguente mostra un metodo `IsDateRange` con i parametri `Minimum` e `M
 
 Mentre i predicati definiscono la convalida da controllare rispetto a un tipo di attestazione, gli elementi **PredicateValidations** raggruppano un set di predicati per formare la convalida di un input utente che può essere applicata a un tipo di attestazione. Ogni elemento **PredicateValidation** contiene un set di elementi **PredicateGroup** che contengono un set di elementi **PredicateReference** che punta a un elemento **Predicate**. Per passare la convalida, il valore dell'attestazione deve superare tutti i testi di qualsiasi predicato in tutto il **PredicateGroup** con i rispettivi set di elementi **PredicateReference**.
 
-L'elemento **PredicateValidations** deve essere visualizzato direttamente dopo l'elemento **Predicates** all'interno dell'elemento [BuildingBlocks](buildingblocks.md) .
+Il **PredicateValidations** elemento deve essere visualizzato direttamente dopo il **Predicates** elemento all'interno di [BuildingBlocks](buildingblocks.md) elemento.
 
 ```XML
 <PredicateValidations>
@@ -197,7 +197,7 @@ Con gli elementi **Predicates** e **PredicateValidationsInput** è possibile con
 - **Lowercase** con il metodo `IncludesCharacters`, convalida che la password contiene una lettera minuscola.
 - **Uppercase** con il metodo `IncludesCharacters` convalida che la password contiene una lettera maiuscola.
 - **Number** con il metodo `IncludesCharacters` convalida che la password contiene una cifra.
-- **Simbolo** che usa il metodo `IncludesCharacters`, verifica che la password contenga uno dei diversi caratteri simbolo.
+- **Simbolo** che `IncludesCharacters` utilizza il metodo, convalida che la password contiene uno dei diversi caratteri simbolo.
 - **PIN** con il metodo `MatchesRegex` convalida che la password contiene solo numeri.
 - **AllowedAADCharacters** con il metodo `MatchesRegex` convalida che la password è costituita solo da caratteri non validi.
 - **DisallowedWhitespace** con il metodo `MatchesRegex` convalida che la password non inizia o non finisce con un carattere di spazio.
@@ -343,7 +343,7 @@ Nel tipo di attestazione aggiungere l'elemento **PredicateValidationReference** 
 
 Di seguito viene illustrato come vengono organizzati gli elementi quando Azure AD B2C visualizza il messaggio di errore:
 
-![Diagramma dell'esempio di complessità della password predicato e PredicateGroup](./media/predicates/predicates-pass.png)
+![Esempio di complessità delle password di Predicate e PredicateGroup](./media/predicates/predicates-pass.png)
 
 ## <a name="configure-a-date-range"></a>Configurare un intervallo di date
 

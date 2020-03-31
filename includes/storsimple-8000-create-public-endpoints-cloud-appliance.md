@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 1cf5bbdad555c50c418851904f36a578522843b2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67180209"
 ---
 #### <a name="to-create-public-endpoints-on-the-cloud-appliance"></a>Per creare endpoint pubblici nell'appliance cloud
@@ -31,7 +31,7 @@ ms.locfileid: "67180209"
 
         Nel pannello Aggiungi regola di sicurezza in ingresso:
 
-        1. Per il **nome**, digitare il nome dell'endpoint seguente: WinRMHttps.
+        1. Per **Nome**digitare il nome seguente per l'endpoint: WinRMHttps.
         
         2. In **Priorità** selezionare un numero minore di 1000 (priorità per la regola predefinita). Maggiore è questo numero, minore è la priorità.
 
@@ -39,7 +39,7 @@ ms.locfileid: "67180209"
 
         4. In **Servizio** selezionare **WinRM**. **Protocollo** viene automaticamente impostato su **TCP** e **Intervallo di porte** viene impostato su **5986**.
 
-        5. Fare clic su **OK** per creare la regola.
+        5. Fare clic **su OK** per creare la regola.
 
             ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt5.png)
 
@@ -49,7 +49,7 @@ ms.locfileid: "67180209"
         ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt7.png)
 
     3. Selezionare la rete virtuale, quindi selezionare la subnet appropriata.
-    4. Fare clic su **OK** per creare la regola.
+    4. Fare clic **su OK** per creare la regola.
 
         ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt11.png)
 

@@ -1,16 +1,16 @@
 ---
-title: Introduzione all'autenticazione in Novell Android
-description: Informazioni su come usare le app per dispositivi mobili per autenticare gli utenti dell'app Novell Android con provider di identità come AAD, Google, Facebook, Twitter e Microsoft.
+title: Introduzione all'autenticazione in Xamarin Android
+description: Scopri come utilizzare le app per dispositivi mobili per autenticare gli utenti della tua app Xamarin Per Android con provider di identità come AAD, Google, Facebook, Twitter e Microsoft.
 ms.assetid: 570fc12b-46a9-4722-b2e0-0d1c45fb2152
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: fa70b7419e1877ab2daba49ad154cdfd5a8d2cba
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77458954"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Aggiungere l'autenticazione all'app per Xamarin.Android
@@ -19,12 +19,12 @@ ms.locfileid: "77458954"
 ## <a name="overview"></a>Panoramica
 Questo argomento descrive come autenticare gli utenti di un'app per dispositivi mobili dall'applicazione client. In questa esercitazione si aggiungerà l'autenticazione al progetto di guida introduttiva tramite un provider di identità supportato dal servizio App per dispositivi mobili di Azure. Una volta completate l'autenticazione e l'autorizzazione nell'app per dispositivi mobili, verrà visualizzato il valore dell'ID utente.
 
-Questa esercitazione è basata sulla guida introduttiva dell'app mobile. È anche necessario completare prima l'esercitazione [Creare un'app per Xamarin.Android]. Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere il pacchetto di estensione di autenticazione al progetto. Per altre informazioni sui pacchetti di estensione server, vedere l'articolo relativo all' [utilizzo dell'SDK del server back-end .NET per app per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Questa esercitazione è basata sulla guida introduttiva dell'app mobile. È anche necessario completare prima l'esercitazione [Creare un'app per Xamarin.Android]. Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere il pacchetto di estensione di autenticazione al progetto. Per altre informazioni sui pacchetti di estensione server, vedere l'articolo [Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a name="register"></a>Registrare l'app per l'autenticazione e configurare i servizi app
+## <a name="register-your-app-for-authentication-and-configure-app-services"></a><a name="register"></a>Registrare l'app per l'autenticazione e configurare i servizi app
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Aggiungere l'app agli URL di reindirizzamento esterni consentiti
+## <a name="add-your-app-to-the-allowed-external-redirect-urls"></a><a name="redirecturl"></a>Aggiungere l'app agli URL di reindirizzamento esterni consentiti
 
 L'autenticazione sicura richiede la definizione di un nuovo schema URL per l'app. In questo modo il sistema di autenticazione reindirizza all'app al termine del processo di autenticazione. In questa esercitazione si usa lo schema URL _appname_. È tuttavia possibile usare QUALSIASI schema URL. Lo schema deve essere univoco per l'applicazione per dispositivi mobili. Per abilitare il reindirizzamento sul lato server:
 
@@ -36,16 +36,16 @@ L'autenticazione sicura richiede la definizione di un nuovo schema URL per l'app
 
 4. Fare clic su **OK**.
 
-5. Fare clic su **Save**.
+5. Fare clic su **Salva**.
 
-## <a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati
+## <a name="restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 In Visual Studio o Xamarin Studio, eseguire il progetto client su un dispositivo o un emulatore. Verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (Non autorizzato). L'eccezione non gestita viene generata perché l'app prova ad accedere al back-end dell'app per dispositivi mobili come utente non autenticato. La tabella *TodoItem* richiede ora l'autenticazione.
 
 Si aggiornerà quindi l'app client per richiedere le risorse dal back-end dell'app per dispositivi mobili con un utente autenticato.
 
-## <a name="add-authentication"></a>Aggiungere l'autenticazione all'app
+## <a name="add-authentication-to-the-app"></a><a name="add-authentication"></a>Aggiungere l'autenticazione all'app
 L'applicazione viene aggiornata per richiedere agli utenti di toccare il pulsante **Accedi** ed eseguire l'autenticazione prima della visualizzazione dei dati.
 
 1. Aggiungere il codice seguente alla classe **TodoActivity** :

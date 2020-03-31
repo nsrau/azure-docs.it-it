@@ -4,10 +4,10 @@ description: Documentazione di riferimento per le impostazioni o le variabili di
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.openlocfilehash: 3853ccbfd492bfaf4a82d62e6d31ab938285ee2e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79277830"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Riferimento per le impostazioni dell’app per Funzioni di Azure
@@ -28,18 +28,18 @@ La chiave di strumentazione di Application Insights se si usa Application Insigh
 
 ## <a name="azure_functions_environment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
-Nella versione 2. x e nelle versioni successive del runtime di funzioni, configura il comportamento dell'app in base all'ambiente di Runtime. Questo valore viene [letto durante l'inizializzazione](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). È possibile impostare `AZURE_FUNCTIONS_ENVIRONMENT` su qualsiasi valore, ma sono supportati [tre valori](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) : [sviluppo](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [gestione temporanea](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)e [produzione](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Quando `AZURE_FUNCTIONS_ENVIRONMENT` non è impostato, il valore predefinito è `Development` in un ambiente locale e `Production` in Azure. Questa impostazione deve essere utilizzata al posto di `ASPNETCORE_ENVIRONMENT` per impostare l'ambiente di Runtime. 
+Nella versione 2.x e nelle versioni successive del runtime di Funzioni, configura il comportamento dell'app in base all'ambiente di runtime. Questo valore viene [letto durante l'inizializzazione.](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43) È possibile `AZURE_FUNCTIONS_ENVIRONMENT` impostare su qualsiasi valore, ma sono supportati [tre valori:](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) [Sviluppo](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [Gestione temporanea](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)e [Produzione](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Quando `AZURE_FUNCTIONS_ENVIRONMENT` non è impostato, il `Development` valore predefinito `Production` è in un ambiente locale e in Azure.When isn't set, it defaults to on a local environment and on Azure. Questa impostazione deve `ASPNETCORE_ENVIRONMENT` essere utilizzata al posto di impostare l'ambiente di runtime. 
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
-Stringa di connessione dell’account di archiviazione facoltativo per l'archiviazione dei log e la visualizzazione nella scheda **Monitor** nel portale. Questa impostazione è valida solo per le app destinate alla versione 1. x del runtime di funzioni di Azure. L'account di archiviazione deve essere un'istanza generica che supporta i BLOB, le code e le tabelle. Per altre informazioni, vedere [requisiti dell'account di archiviazione](storage-considerations.md#storage-account-requirements).
+Stringa di connessione dell’account di archiviazione facoltativo per l'archiviazione dei log e la visualizzazione nella scheda **Monitor** nel portale. Questa impostazione è valida solo per le app destinate alla versione 1.x del runtime di Funzioni di Azure.This setting is only valid for apps that target version 1.x of the Azure Functions runtime. L'account di archiviazione deve essere un'istanza generica che supporta i BLOB, le code e le tabelle. Per altre informazioni, vedere [Requisiti dell'account di archiviazione](storage-considerations.md#storage-account-requirements).
 
 |Chiave|Valore di esempio|
 |---|------------|
 |AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>|
 
 > [!NOTE]
-> Per migliorare le prestazioni e l'esperienza, il runtime versione 2. x e versioni successive USA APPINSIGHTS_INSTRUMENTATIONKEY e Application Insights per il monitoraggio anziché `AzureWebJobsDashboard`.
+> Per migliorare le prestazioni e l'esperienza, la versione di runtime `AzureWebJobsDashboard`2.x e versioni successive usa APPINSIGHTS_INSTRUMENTATIONKEY e App Insights per il monitoraggio anziché .
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
@@ -95,7 +95,7 @@ Percorso per il compilatore usato per TypeScript. Consente di eseguire l'overrid
 
 ## <a name="function_app_edit_mode"></a>FUNCTION\_APP\_EDIT\_MODE
 
-Determina se la modifica nella portale di Azure è abilitata. I valori validi sono "readwrite" e "readonly".
+Indica se la modifica nel portale di Azure è abilitata. I valori validi sono "readwrite" e "readonly".
 
 |Chiave|Valore di esempio|
 |---|------------|
@@ -109,31 +109,31 @@ La versione del runtime di Funzioni da utilizzare in questa app per le funzioni.
 |---|------------|
 |FUNCTIONS\_EXTENSION\_VERSION|~2|
 
-## <a name="functions_v2_compatibility_mode"></a>FUNZIONI\_V2\_COMPATIBILITY\_MODE
+## <a name="functions_v2_compatibility_mode"></a>FUNZIONI\_\_V2\_COMPATIBILITY MODE
 
-Questa impostazione consente all'app per le funzioni di essere eseguita in una modalità compatibile con la versione 2. x sul runtime della versione 3. x. Usare questa impostazione solo se si verificano problemi durante [l'aggiornamento dell'app per le funzioni dalla versione 2. x alla versione 3. x del runtime](functions-versions.md#migrating-from-2x-to-3x). 
+Questa impostazione consente all'app per le funzioni di essere eseguita in una modalità compatibile con la versione 2.x nel runtime della versione 3.x. Utilizzare questa impostazione solo se si verificano problemi durante [l'aggiornamento dell'app per le funzioni dalla versione 2.x alla versione 3.x del runtime.](functions-versions.md#migrating-from-2x-to-3x) 
 
 >[!IMPORTANT]
-> Questa impostazione è destinata solo a una soluzione alternativa a breve termine durante l'aggiornamento dell'applicazione per l'esecuzione corretta nella versione 3. x. Questa impostazione è supportata fino a quando il [Runtime 2. x è supportato](functions-versions.md). Se si verificano problemi che impediscono l'esecuzione dell'app nella versione 3. x senza usare questa impostazione, [segnalare il problema](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md).
+> Questa impostazione è intesa solo come soluzione alternativa a breve termine durante l'aggiornamento dell'app per la corretta esecuzione nella versione 3.x. Questa impostazione è supportata finché il [runtime 2.x è supportato.](functions-versions.md) Se riscontri problemi che impediscono l'esecuzione dell'app nella versione 3.x senza utilizzare questa impostazione, [segnala il problema.](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md)
 
-Richiede che le [funzioni\_\_versione delle estensioni](functions-app-settings.md#functions_extension_version) siano impostate su `~3`.
-
-|Chiave|Valore di esempio|
-|---|------------|
-|FUNZIONI\_V2\_COMPATIBILITY\_MODE|true|
-
-## <a name="functions_worker_process_count"></a>FUNZIONI\_il processo di\_di lavoro\_conteggio
-
-Specifica il numero massimo di processi di lavoro della lingua, il cui valore predefinito è `1`. Il valore massimo consentito è `10`. Le chiamate di funzione sono distribuite uniformemente tra i processi di lavoro del linguaggio. I processi di lavoro del linguaggio vengono generati ogni 10 secondi finché non viene raggiunto il conteggio impostato dalle funzioni\_WORKer\_PROCESS\_COUNT. L'utilizzo di più processi di lavoro in linguaggio non equivale al [ridimensionamento](functions-scale.md). Provare a usare questa impostazione quando il carico di lavoro include una combinazione di chiamate con binding CPU e I/O. Questa impostazione si applica a tutte le lingue non-.NET.
+Richiede che [LA versione di EXTENSION\_\_di FUNCTIONS](functions-app-settings.md#functions_extension_version) sia impostata su . `~3`
 
 |Chiave|Valore di esempio|
 |---|------------|
-|FUNZIONI\_il processo di\_di lavoro\_conteggio|2|
+|FUNZIONI\_\_V2\_COMPATIBILITY MODE|true|
+
+## <a name="functions_worker_process_count"></a>CONTEGGIO\_\_PROCESSI\_DI LAVORO FUNZIONI
+
+Specifica il numero massimo di processi di lavoro linguistico, con un valore predefinito di `1`. Il valore massimo `10`consentito è . Le chiamate di funzione sono distribuite in modo uniforme tra i processi di lavoro linguistico. I processi di lavoro linguistico vengono generati ogni 10\_\_secondi\_fino a quando non viene raggiunto il conteggio impostato da FUNCTIONS WORKER PROCESS COUNT. L'utilizzo di più processi di lavoro linguistico non equivale al [ridimensionamento.](functions-scale.md) È consigliabile usare questa impostazione quando il carico di lavoro include una combinazione di chiamate associate alla CPU e associate a I/O.Consider using this setting when your workload has a mix of CPU-bound and I/O-bound invocations. Questa impostazione si applica a tutte le lingue non-.NET.
+
+|Chiave|Valore di esempio|
+|---|------------|
+|CONTEGGIO\_\_PROCESSI\_DI LAVORO FUNZIONI|2|
 
 
 ## <a name="functions_worker_runtime"></a>FUNCTIONS\_WORKER\_RUNTIME
 
-Il runtime del ruolo di lavoro del linguaggio da caricare nell'app per le funzioni.  Corrisponderà al linguaggio usato nell'applicazione (ad esempio, "dotnet"). Per le funzioni in più lingue, sarà necessario pubblicarle in più app, ciascuna con un valore del runtime del ruolo di lavoro corrispondente.  I valori validi sono `dotnet`C#(F#/), `node` (JavaScript/typescript), `java` (Java), `powershell` (PowerShell) e `python` (Python).
+Il runtime del ruolo di lavoro del linguaggio da caricare nell'app per le funzioni.  Corrisponderà al linguaggio usato nell'applicazione (ad esempio, "dotnet"). Per le funzioni in più lingue, sarà necessario pubblicarle in più app, ciascuna con un valore del runtime del ruolo di lavoro corrispondente.  I valori `dotnet` validi sono (C `node` , F , `java` ), (JavaScript/TypeScript), (Java), `powershell` (PowerShell) e `python` (Python).
 
 |Chiave|Valore di esempio|
 |---|------------|
@@ -141,7 +141,7 @@ Il runtime del ruolo di lavoro del linguaggio da caricare nell'app per le funzio
 
 ## <a name="website_contentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
-Per l'utilizzo & solo piani Premium. Stringa di connessione per l'account di archiviazione in cui sono archiviati il codice e la configurazione dell’app per le funzioni. Vedere [Creare un'app per le funzioni](functions-infrastructure-as-code.md#create-a-function-app).
+Solo per i piani Consumo & Premium. Stringa di connessione per l'account di archiviazione in cui sono archiviati il codice e la configurazione dell’app per le funzioni. Vedere [Creare un'app per le funzioni](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Chiave|Valore di esempio|
 |---|------------|
@@ -149,7 +149,7 @@ Per l'utilizzo & solo piani Premium. Stringa di connessione per l'account di arc
 
 ## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 
-Per l'utilizzo & solo piani Premium. Il percorso del file per il codice e la configurazione dell’app per le funzioni. Usato con WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Il valore predefinito è una stringa univoca che inizia con il nome dell’app per le funzioni. Vedere [Creare un'app per le funzioni](functions-infrastructure-as-code.md#create-a-function-app).
+Solo per i piani Consumo & Premium. Il percorso del file per il codice e la configurazione dell’app per le funzioni. Usato con WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Il valore predefinito è una stringa univoca che inizia con il nome dell’app per le funzioni. Vedere [Creare un'app per le funzioni](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Chiave|Valore di esempio|
 |---|------------|
@@ -169,11 +169,11 @@ Il numero massimo di istanze che l'app per le funzioni è in grado di scalare or
 ## <a name="website_node_default_version"></a>WEBSITE\_NODE\_DEFAULT_VERSION
 
 _Solo Windows._  
-Imposta la versione di node. js da usare quando si esegue l'app per le funzioni in Windows. È consigliabile usare una tilde (~) per fare in modo che il runtime usi la versione disponibile più recente della versione principale di destinazione. Se, ad esempio, è impostato su `~10`, viene utilizzata la versione più recente di node. JS 10. Quando una versione principale è destinata a una tilde, non è necessario aggiornare manualmente la versione secondaria. 
+Imposta la versione di Node.js da utilizzare quando si esegue l'app per le funzioni in Windows. È necessario utilizzare una tilde () per fare in modo che il runtime utilizzi l'ultima versione disponibile della versione principale di destinazione. Ad esempio, se `~10`impostato su , viene utilizzata la versione più recente di Node.js 10. Quando una versione principale è destinata a una tilde, non è necessario aggiornare manualmente la versione secondaria. 
 
 |Chiave|Valore di esempio|
 |---|------------|
-|WEBSITE\_NODE\_DEFAULT_VERSION|~ 10|
+|WEBSITE\_NODE\_DEFAULT_VERSION|10 USD|
 
 ## <a name="website_run_from_package"></a>WEBSITE\_RUN\_FROM\_PACKAGE
 
@@ -191,8 +191,8 @@ Per impostazione predefinita, i proxy di funzioni usano un collegamento per invi
 
 |Chiave|valore|Descrizione|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Le chiamate con un URL back-end che punta a una funzione nell'app per le funzioni locale non verranno più inviate direttamente alla funzione e verranno invece indirizzate di nuovo al front-end HTTP per il app per le funzioni|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Si tratta del valore predefinito. Le chiamate con un URL back-end che punta a una funzione nella app per le funzioni locale verranno indirizzate direttamente a tale funzione|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Le chiamate con un URL back-end che punta a una funzione nell'app funzione locale non verranno più inviate direttamente alla funzione e verranno invece indirizzate al front-end HTTP per l'app per le funzioni|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Si tratta del valore predefinito. Le chiamate con un URL back-end che punta a una funzione nell'app per le funzioni locale verranno inoltrate direttamente a tale funzione|
 
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES

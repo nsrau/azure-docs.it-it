@@ -9,14 +9,16 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 0d78f3cc4f2b12b2d9f45878a0c1b91263112689
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 6b19dc11438274ecf6218d5c0bd8c9ef3dafbf01
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118550"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80052424"
 ---
 # <a name="what-is-form-recognizer"></a>Informazioni su Riconoscimento modulo
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Riconoscimento modulo di Azure è un servizio cognitivo che usa la tecnologia di Machine Learning per identificare ed estrarre coppie chiave-valore e dati di tabelle da documenti modulo. Inserisce il testo dai moduli e restituisce dati strutturati che includono le relazioni del file originale. È possibile ottenere in modo rapido risultati accurati e su misura per il contenuto specifico, senza alcun intervento manuale impegnativo o competenze approfondite di data science. Riconoscimento modulo è costituito da modelli personalizzati, dal modello predefinito di ricevuta e dall'API di layout. È possibile chiamare i modelli di Riconoscimento modulo usando un'API REST per ridurre la complessità e integrarli nel flusso di lavoro o nell'applicazione.
 
@@ -49,7 +51,7 @@ Riconoscimento modulo include anche un modello per la lettura di ricevute di ven
 
 ## <a name="layout-api"></a>API di layout
 
-Riconoscimento modulo può anche estrarre la struttura di testo e tabelle (il numero di righe e colonne associate al testo) tramite riconoscimento ottico dei caratteri (OCR) in alta definizione. 
+Riconoscimento modulo può anche estrarre la struttura di testo e tabelle (il numero di righe e colonne associate al testo) tramite riconoscimento ottico dei caratteri (OCR) in alta definizione.
 
 ## <a name="get-started"></a>Introduzione
 
@@ -59,9 +61,9 @@ Seguire un argomento di avvio rapido per iniziare a estrarre i dati dai moduli. 
   * Training senza etichette
     * [Avvio rapido: Eseguire il training di un modello di riconoscimento modulo ed estrarre dati dai moduli usando l'API REST con cURL](quickstarts/curl-train-extract.md)
     * [Avvio rapido: Eseguire il training di un modello di riconoscimento modulo ed estrarre dati dai moduli usando l'API REST con Python](quickstarts/python-train-extract.md)
-  * Training con etichette 
+  * Training con etichette
     * [Eseguire il training di un modello di Riconoscimento modulo con le etichette usando lo strumento di etichettatura campioni](quickstarts/label-tool.md)
-    * [Eseguire il training di un modello di Riconoscimento modulo con le etichette usando l'API REST e Python](quickstarts/python-labeled-data.md) 
+    * [Eseguire il training di un modello di Riconoscimento modulo con le etichette usando l'API REST e Python](quickstarts/python-labeled-data.md)
 * Ricevute predefinite: estrarre dati dalle ricevute di vendita USA
   * [Avvio rapido: Estrarre i dati delle ricevute usando cURL](quickstarts/curl-receipts.md)
   * [Avvio rapido: Estrarre i dati delle ricevute usando Python](quickstarts/python-receipts.md)
@@ -92,7 +94,7 @@ I requisiti di input per il modello di ricevuta sono leggermente diversi.
 
 * Il formato deve essere JPEG, PNG, BMP, PDF (testo o digitalizzato) o TIFF.
 * Le dimensioni dei file devono essere minori di 20 MB.
-* Per le immagini, le dimensioni devono essere comprese tra 50 x 50 pixel e 10000 x 10000 pixel. 
+* Per le immagini, le dimensioni devono essere comprese tra 50 x 50 pixel e 10000 x 10000 pixel.
 * Le dimensioni dei PDF devono essere al massimo di 17 x 17 pollici, corrispondenti a formati della carta Legal o A3 e inferiori.
 * Per PDF e TIFF, vengono elaborate solo le prime 200 pagine (con una sottoscrizione di livello gratuito, vengono elaborate solo le prime due pagine).
 
