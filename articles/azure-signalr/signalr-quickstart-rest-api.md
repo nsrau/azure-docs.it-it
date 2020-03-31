@@ -7,21 +7,21 @@ ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 17371e3bd426ea81b5e7e07610aac0073ea972c9
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74157691"
 ---
-# <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Guida introduttiva: Trasmettere messaggi in tempo reale dall'app console
+# <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Guida di avvio rapido: Trasmettere messaggi in tempo reale dall'app console
 
 Il servizio Azure SignalR fornisce l'[API REST](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md) per supportare scenari di comunicazione da server a client, ad esempio la trasmissione. È possibile scegliere qualsiasi linguaggio di programmazione che possa effettuare chiamate all'API REST. È possibile inviare messaggi a tutti i client connessi, a un client specifico in base al nome o a un gruppo di client.
 
-In questa guida introduttiva si apprenderà come inviare messaggi da un'app da riga di comando alle app client connesse in C#.
+In questa guida di avvio rapido si apprenderà come inviare messaggi da un'app da riga di comando alle app client connesse in C#.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa guida introduttiva può essere eseguita su macOS, Windows o Linux.
+Questa guida di avvio rapido può essere eseguita su macOS, Windows o Linux.
 
 * [ASP.NET Core SDK](https://www.microsoft.com/net/download/core)
 * Un editor di testo o editor di codice di propria scelta.
@@ -111,7 +111,7 @@ broadcast
 
 È possibile avviare più client con nomi diversi.
 
-## <a name="usage"> </a> Integrazione con IDE di terze parti
+## <a name="integration-with-third-party-services"></a><a name="usage"> </a> Integrazione con IDE di terze parti
 
 Il servizio Azure SignalR consente l'integrazione di servizi di terze parti con il sistema.
 

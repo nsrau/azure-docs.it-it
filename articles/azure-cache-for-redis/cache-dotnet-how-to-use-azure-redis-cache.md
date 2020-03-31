@@ -1,25 +1,25 @@
 ---
-title: 'Avvio rapido: Usare Azure Cache for Redis con app .NET'
-description: Questa guida introduttiva illustra come accedere a Cache Redis di Azure dalle app .NET
+title: 'Guida di avvio rapido: Usare Azure Cache for Redis con app .NET'
+description: Questa guida di avvio rapido illustra come accedere a Cache Redis di Azure dalle app .NET
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/18/2018
-ms.openlocfilehash: b22d40e29d2150592f2753edd789458fbf25911f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/11/2020
+ms.openlocfilehash: 6384416c2feef3c9a9517bce08374a7667eb5d6b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433519"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79369064"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Avvio rapido: Usare Azure Cache for Redis con un'applicazione .NET Framework
+# <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Guida di avvio rapido: Usare Azure Cache for Redis con un'applicazione .NET Framework
 
 In questa guida di avvio rapido si incorpora Azure Cache for Redis in un'app .NET Framework per accedere a una cache sicura e dedicata accessibile da qualsiasi applicazione in Azure. Si usa specificamente il client [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) con codice C# in un'app console .NET.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/)
@@ -49,8 +49,7 @@ Sostituire `<access-key>` con la chiave primaria per la cache.
 
 In Visual Studio fare clic su **File** > **Nuovo** > **Progetto**.
 
-In **Visual C#** fare clic su **Desktop classico di Windows** e quindi fare clic su **App console** e su **OK** per creare una nuova applicazione console.
-
+Selezionare **App console (.NET Framework)** e quindi **Avanti** per configurare l'app. Digitare un **nome di progetto** e fare clic su **Crea** per creare una nuova applicazione console.
 
 <a name="configure-the-cache-clients"></a>
 
@@ -128,7 +127,7 @@ Aggiungere il codice seguente per la routine `Main` della classe `Program` per l
         {
             // Connection refers to a property that returns a ConnectionMultiplexer
             // as shown in the previous example.
-            IDatabase cache = lazyConnection.Value.GetDatabase();
+            IDatabase cache = Connection.GetDatabase();
 
             // Perform cache operations using the cache object...
 
@@ -256,7 +255,7 @@ Dopo qualche istante il gruppo di risorse e tutte le risorse che contiene vengon
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva si è visto come usare Cache Redis di Azure da un'applicazione .NET. Continuare con la guida introduttiva successiva per usare Cache Redis di Azure con un'app Web ASP.NET.
+In questa guida di avvio rapido si è visto come usare Cache Redis di Azure da un'applicazione .NET. Continuare con la guida di avvio rapido successiva per usare Cache Redis di Azure con un'app Web ASP.NET.
 
 > [!div class="nextstepaction"]
 > [Creare un'app Web ASP.NET che usa Cache Redis di Azure.](./cache-web-app-howto.md)

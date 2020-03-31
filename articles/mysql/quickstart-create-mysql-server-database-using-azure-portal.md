@@ -1,22 +1,22 @@
 ---
-title: 'Avvio rapido: Creare un server - Portale di Azure - Database di Azure per MySQL'
+title: 'Guida di avvio rapido: Creare un server - Portale di Azure - Database di Azure per MySQL'
 description: Questo articolo contiene informazioni dettagliate su come usare il portale di Azure per creare rapidamente un database di Azure di esempio per il server MySQL in circa cinque minuti.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/02/2019
-ms.openlocfilehash: bbf2e3204cb1e703aba445822bfb699fae13a112
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 3/20/2020
+ms.openlocfilehash: 50a3eebaa18674a0d0a7e9da88b8d3386e5016c5
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454320"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067778"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Creare un database di Azure per il server MySQL con il portale di Azure
 
-Database di Azure per MySQL è un servizio gestito che consente di eseguire, gestire e ridimensionare database MySQL a disponibilità elevata nel cloud. Questa guida introduttiva illustra come creare un server Database di Azure per MySQL in circa cinque minuti usando il portale di Azure.  
+Database di Azure per MySQL è un servizio gestito che consente di eseguire, gestire e ridimensionare database MySQL a disponibilità elevata nel cloud. Questa guida di avvio rapido illustra come creare un server Database di Azure per MySQL in circa cinque minuti usando il portale di Azure.  
 
 Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -57,7 +57,7 @@ Seguire questa procedura per creare un database di Azure per il server MySQL:
 
    ![Creare un server: finestra del piano tariffario](./media/quickstart-create-mysql-server-database-using-azure-portal/3-pricing-tier.png)
 
-4. Selezionare **Crea** per effettuare il provisioning del server. Il provisioning può richiedere fino a 20 minuti.
+4. Selezionare **Rivedi e crea** per effettuare il provisioning del server. Il provisioning può richiedere fino a 20 minuti.
    
 5. Selezionare **Notifiche** sulla barra degli strumenti (icona a forma di campana) per monitorare il processo di distribuzione.
    
@@ -84,7 +84,7 @@ Il servizio Database di Azure per MySQL crea un firewall a livello di server, ch
    > 
 
 ## <a name="get-the-connection-information"></a>Ottenere le informazioni di connessione
-Per connettersi al server di database, è necessario il nome del server completo e le credenziali di accesso amministratore. È possibile che si sia preso nota prima di questi valori durante la lettura dell'articolo introduttivo. In caso contrario, è possibile trovare facilmente il nome del server e le informazioni di accesso nella pagina **Proprietà** o nella pagina **Panoramica** del server nel portale di Azure.
+Per connettersi al server di database, è necessario il nome del server completo e le credenziali di accesso amministratore. È possibile che si sia preso nota prima di questi valori durante la lettura dell'articolo relativo all'avvio rapido. In caso contrario, è possibile trovare facilmente il nome del server e le informazioni di accesso nella pagina **Proprietà** o nella pagina **Panoramica** del server nel portale di Azure.
 
 A tale scopo, seguire questa procedura: 
 
@@ -171,7 +171,7 @@ Ora che si è connessi al database di Azure per il server MySQL e si è creato u
 ## <a name="connect-to-the-server-by-using-the-mysql-workbench-gui-tool"></a>Connettersi al server con lo strumento con interfaccia utente grafica MySQL Workbench
 Per connettersi al server con lo strumento con interfaccia utente grafica MySQL Workbench, seguire questa procedura:
 
-1.  Aprire l'applicazione MySQL Workbench nel computer client. È possibile scaricare e installare MySQL Workbench dalla pagina [Download MySQL Workbench](https://dev.mysql.com/downloads/workbench/) (Scaricare MySQL Workbench).
+1.    Aprire l'applicazione MySQL Workbench nel computer client. È possibile scaricare e installare MySQL Workbench dalla pagina [Download MySQL Workbench](https://dev.mysql.com/downloads/workbench/) (Scaricare MySQL Workbench).
 
 2. Crea una nuova connessione. Fare clic sull'icona del segno più (+) accanto all'intestazione **MySQL Connections** (Connessioni MySQL).
 
@@ -191,20 +191,20 @@ Per connettersi al server con lo strumento con interfaccia utente grafica MySQL 
 4. Selezionare **Test Connection** (Test connessione) per verificare che tutti i parametri siano configurati correttamente. Selezionare quindi **OK** per salvare la connessione. 
 
     > [!NOTE]
-    > SSL viene applicato per impostazione predefinita nel server e richiede una configurazione aggiuntiva per completare la connessione. Per altre informazioni, vedere [Configurare la connettività SSL nell'applicazione per la connessione sicura a Database di Azure per MySQL](./howto-configure-ssl.md). Per disabilitare SSL per questa guida introduttiva, passare al portale di Azure. Selezionare quindi la pagina Sicurezza connessione per disabilitare l'interruttore **Imponi connessione SSL**.
+    > SSL viene applicato per impostazione predefinita nel server e richiede una configurazione aggiuntiva per completare la connessione. Per altre informazioni, vedere [Configurare la connettività SSL nell'applicazione per la connessione sicura a Database di Azure per MySQL](./howto-configure-ssl.md). Per disabilitare SSL per questa guida di avvio rapido, passare al portale di Azure. Selezionare quindi la pagina Sicurezza connessione per disabilitare l'interruttore **Imponi connessione SSL**.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-È possibile eseguire la pulizia delle risorse create nel corso della guida introduttiva in due modi. Si può eliminare il [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md), in modo da includere tutte le risorse del gruppo. Se invece si vogliono mantenere intatte le altre risorse, eliminare solo la risorsa server.
+È possibile eseguire la pulizia delle risorse create nel corso della guida di avvio rapido in due modi. Si può eliminare il [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md), in modo da includere tutte le risorse del gruppo. Se invece si vogliono mantenere intatte le altre risorse, eliminare solo la risorsa server.
 
 > [!TIP]
-> Altre guide introduttive della raccolta si basano su questa. Se si intende continuare a usare le guide introduttive, non eseguire la pulizia delle risorse create in questa. Se non si intende continuare, usare la procedura seguente per eliminare tutte le risorse create con questa guida introduttiva.
+> Altre guide di avvio rapido della raccolta si basano su questa. Se si intende continuare a usare le guide di avvio rapido, non eseguire la pulizia delle risorse create in questa. Se non si intende continuare, usare la procedura seguente per eliminare tutte le risorse create con questa guida di avvio rapido.
 >
 
 Per eliminare l'intero gruppo di risorse, incluso il server appena creato, seguire questa procedura:
 
-1.  Individuare il gruppo di risorse nel portale di Azure. Scegliere **Gruppi di risorse** dal menu a sinistra e quindi selezionare il nome del gruppo di risorse, che in questo esempio è **myresourcegroup**.
+1.    Individuare il gruppo di risorse nel portale di Azure. Scegliere **Gruppi di risorse** dal menu a sinistra e quindi selezionare il nome del gruppo di risorse, che in questo esempio è **myresourcegroup**.
 
-2.  Nella pagina del gruppo di risorse selezionare **Elimina**. Immettere quindi nella casella il nome del gruppo di risorse, in questo esempio **myresourcegroup**, per confermare l'eliminazione e selezionare **Elimina**.
+2.    Nella pagina del gruppo di risorse selezionare **Elimina**. Immettere quindi nella casella il nome del gruppo di risorse, in questo esempio **myresourcegroup**, per confermare l'eliminazione e selezionare **Elimina**.
 
 Per eliminare solo il server appena creato, seguire questa procedura:
 

@@ -1,6 +1,6 @@
 ---
-title: Guida introduttiva di Configurazione app di Azure con .NET Framework | Microsoft Docs
-description: Guida introduttiva per l'uso di Configurazione app di Azure con le app .NET Framework
+title: Guida di avvio rapido di Configurazione app di Azure con .NET Framework | Microsoft Docs
+description: Guida di avvio rapido per l'uso di Configurazione app di Azure con le app .NET Framework
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -8,18 +8,18 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: lcozzens
-ms.openlocfilehash: 8190265753bddb3038c5403411c4be193dd8075c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1c56088a2c51c50c7f9cf1ff1e790d580fdb08d8
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433629"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80245396"
 ---
-# <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Avvio rapido: Creare un'app .NET Framework con Configurazione app di Azure
+# <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Guida di avvio rapido: Creare un'app .NET Framework con Configurazione app di Azure
 
 In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'app console basata su .NET Framework per centralizzare l'archiviazione e la gestione delle impostazioni dell'applicazione separatamente dal codice.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
@@ -29,13 +29,15 @@ In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'a
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selezionare **Esplora configurazioni** > **Crea** per aggiungere le coppie chiave-valore seguenti:
+6. Selezionare **Esplora configurazioni** > **Crea** > **Coppia chiave-valore** per aggiungere le coppie chiave-valore seguenti:
 
-    | Chiave | valore |
+    | Chiave | Valore |
     |---|---|
     | TestApp:Settings:Message | Dati di Configurazione app di Azure |
 
     Lasciare vuoti i campi **Etichetta** e **Tipo di contenuto** per il momento.
+
+7. Selezionare **Applica**.
 
 ## <a name="create-a-net-console-app"></a>Creare un'app console .NET
 
@@ -92,7 +94,7 @@ In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'a
 
 1. Impostare una variabile di ambiente denominata **ConnectionString** sulla stringa di connessione dell'archivio di Configurazione app. Se si usa il prompt dei comandi di Windows, eseguire il comando seguente:
 
-    ```CLI
+    ```cmd
         setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 

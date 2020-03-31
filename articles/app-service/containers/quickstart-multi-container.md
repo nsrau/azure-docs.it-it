@@ -1,18 +1,18 @@
 ---
-title: "Guida introduttiva: Creare un'app multicontenitore"
+title: "Guida di avvio rapido: Creare un'app multicontenitore"
 description: Informazioni su come distribuire la prima app multicontenitore nel servizio app di Azure.
 keywords: servizio app di azure, app web, linux, docker, compose, multicontenitore, multi-contenitore, app web per contenitori, più contenitori, contenitore, wordpress, db azure per mysql, database di produzione con contenitori
 author: msangapu-msft
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 19544d9ea9a86b6c0ad98debc7361f4579cbc998
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 62e34859775cb8c574d8d463f636ed81dce8ece3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78247027"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80045878"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Creare un'app multi-contenitore (anteprima) con una configurazione di Docker Compose
 
@@ -21,7 +21,7 @@ ms.locfileid: "78247027"
 
 [App Web per contenitori](app-service-linux-intro.md) offre un modo flessibile per usare le immagini Docker. Questa guida di avvio rapido illustra come distribuire un'app multi-contenitore (anteprima) in App Web per contenitori in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) con una configurazione di Docker Compose.
 
-Questa guida introduttiva verrà completata in Cloud Shell, ma gli stessi comandi possono essere eseguiti anche in locale con l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) (2.0.32 o versioni successive). 
+Questa guida di avvio rapido verrà completata in Cloud Shell, ma gli stessi comandi possono essere eseguiti anche in locale con l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) (2.0.32 o versioni successive). 
 
 ![App multi-contenitore di esempio in App Web per contenitori][1]
 
@@ -31,7 +31,7 @@ Questa guida introduttiva verrà completata in Cloud Shell, ma gli stessi comand
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
 
-Per questa guida introduttiva, usare il file Compose da [Docker](https://docs.docker.com/compose/wordpress/#define-the-project). Il file di configurazione è disponibile negli [Esempi di Azure](https://github.com/Azure-Samples/multicontainerwordpress).
+Per questa guida di avvio rapido, usare il file Compose da [Docker](https://docs.docker.com/compose/wordpress/#define-the-project). Il file di configurazione è disponibile negli [Esempi di Azure](https://github.com/Azure-Samples/multicontainerwordpress).
 
 [!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 
@@ -96,6 +96,9 @@ Al termine della creazione del piano di servizio app, l'interfaccia della riga d
 ```
 
 ## <a name="create-a-docker-compose-app"></a>Creare un'app Docker Compose
+
+> [!NOTE]
+> Al momento per Docker Compose in Servizi app di Azure è previsto un limite di 4.000 caratteri.
 
 Nel terminale Cloud Shell creare un'[app Web](app-service-linux-intro.md) multi-contenitore nel piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Non dimenticare di sostituire _\<app_name>_ con un nome univoco per l'app (i caratteri validi sono `a-z`, `0-9` e `-`).
 

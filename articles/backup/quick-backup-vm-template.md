@@ -4,17 +4,19 @@ description: Informazioni su come eseguire il backup delle macchine virtuali con
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.custom: mvc
-ms.openlocfilehash: 721213dcdd4751de936968b7e67a4b5d31b8d9ec
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.custom: mvc,subject-armqs
+ms.openlocfilehash: c40dc7ef8fc55acade709b1ffbbd86ff306f7f0e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980646"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79459243"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-resource-manager-template"></a>Eseguire il backup di una macchina virtuale in Azure usando un modello di Azure Resource Manager
 
 [Backup di Azure](backup-overview.md) esegue il backup di computer e app locali, oltre che delle VM di Azure. Questo articolo descrive come eseguire il backup di una macchina virtuale di Azure con un modello di Azure Resource Manager e Azure PowerShell. Questo argomento di avvio rapido illustra il processo di distribuzione di un modello di Resource Manager per creare un insieme di credenziali di Servizi di ripristino. Per altre informazioni sullo sviluppo di modelli di Resource Manager, vedere la [documentazione di Resource Manager](/azure/azure-resource-manager/) e le [informazioni di riferimento sui modelli](/azure/templates/microsoft.recoveryservices/allversions).
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 In alternativa, è possibile eseguire il backup di una VM con [Azure PowerShell](./quick-backup-vm-powershell.md), l'[interfaccia della riga di comando di Azure](quick-backup-vm-cli.md) oppure nel [portale di Azure](quick-backup-vm-portal.md).
 
@@ -22,7 +24,24 @@ In alternativa, è possibile eseguire il backup di una VM con [Azure PowerShell]
 
 Un [insieme di credenziali di Servizi di ripristino](backup-azure-recovery-services-vault-overview.md) è un contenitore logico in cui vengono archiviati i dati di backup per le risorse protette, ad esempio le VM di Azure. Quando viene eseguito, il processo di backup crea un punto di ripristino all'interno dell'insieme di credenziali di Servizi di ripristino. È quindi possibile usare uno di questi punti di ripristino per ripristinare i dati a un dato momento.
 
+### <a name="review-the-template"></a>Rivedere il modello
+
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/). Questo modello consente di distribuire una semplice macchina virtuale Windows e un insieme di credenziali di Servizi di ripristino configurato con i criteri di protezione predefiniti.
+
+:::code language="json" source="~/quickstart-templates/101-recovery-services-create-vm-and-configure-backup/azuredeploy.json" range="1-247" highlight="221-245":::
+
+Nel modello sono definite le risorse seguenti:
+
+- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts)
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
+- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
+- [**Microsoft.RecoveryServices/vaults**](/azure/templates/microsoft.recoveryservices/vaults)
+- [**Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems**](/azure/templates/microsoft.recoveryservices/vaults/backupfabrics/protectioncontainers/protecteditems)
+
+### <a name="deploy-the-template"></a>Distribuire il modello
 
 Per distribuire il modello, selezionare **Prova** per aprire Azure Cloud Shell e quindi incollare lo script PowerShell seguente nella finestra della shell. Per incollare il codice, fare clic con il pulsante destro del mouse nella finestra della shell e quindi selezionare **Incolla**.
 
@@ -42,11 +61,13 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 In questo argomento di avvio rapido, per la distribuzione del modello di Resource Manager viene usato Azure PowerShell. Per distribuire i modelli è anche possibile usare il [portale di Azure](../azure-resource-manager/templates/deploy-portal.md), l'[interfaccia della riga di comando di Azure](../azure-resource-manager/templates/deploy-cli.md) e l'[API Rest](../azure-resource-manager/templates/deploy-rest.md).
 
-## <a name="start-a-backup-job"></a>Avviare un processo di backup
+## <a name="validate-the-deployment"></a>Convalidare la distribuzione
+
+### <a name="start-a-backup-job"></a>Avviare un processo di backup
 
 Il modello crea una macchina virtuale e abilita il backup nella macchina virtuale. Dopo aver distribuito il modello, è necessario avviare un processo di backup. Per altre informazioni, vedere [Avviare un processo di backup](./quick-backup-vm-powershell.md#start-a-backup-job).
 
-## <a name="monitor-the-backup-job"></a>Monitorare il processo di backup
+### <a name="monitor-the-backup-job"></a>Monitorare il processo di backup
 
 Per monitorare il processo di backup, vedere [Monitorare il processo di backup](./quick-backup-vm-powershell.md#monitor-the-backup-job).
 
@@ -68,7 +89,8 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stato creato un insieme di credenziali di Servizi di ripristino, è stata abilitata la protezione per una VM ed è stato creato il punto di ripristino iniziale.
+In questa guida di avvio rapido è stato creato un insieme di credenziali di Servizi di ripristino, è stata abilitata la protezione per una VM ed è stato creato il punto di ripristino iniziale.
 
 - [Informazioni su come](tutorial-backup-vm-at-scale.md) eseguire il backup delle VM nel portale di Azure.
 - [Informazioni su come](tutorial-restore-disk.md) ripristinare rapidamente una VM
+- [Informazioni su come](../azure-resource-manager/templates/template-tutorial-create-first-template.md) creare modelli di Resource Manager.

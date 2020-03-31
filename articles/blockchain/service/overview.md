@@ -1,15 +1,15 @@
 ---
 title: Panoramica del servizio Azure Blockchain
 description: Panoramica del servizio Azure Blockchain
-ms.date: 11/21/2019
+ms.date: 03/12/2020
 ms.topic: overview
-ms.reviewer: janders
-ms.openlocfilehash: 55e1be191b21c7c66b013f70d83fe6c046488e05
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.reviewer: ravastra
+ms.openlocfilehash: b9f5deb501fb93327fa5d5cfcfd5bb583ed6135e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75387378"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79205081"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Che cos'è il servizio Azure Blockchain?
 
@@ -29,7 +29,7 @@ Per distribuire il servizio Azure Blockchain, è possibile usare il portale di A
 
 ### <a name="performance-and-service-tiers"></a>Prestazioni e livelli di servizio
 
-Il servizio Azure Blockchain offre due livelli di servizio: *Di base* e *Standard*. Ogni livello offre prestazioni e funzionalità diverse per supportare diversi tipi di attività, da carichi di lavoro di test e sviluppo leggeri fino a distribuzioni delle blockchain di produzione con scalabilità elevata. Entrambi i livelli includono almeno un nodo della transazione e un nodo di convalida (Di base) oppure due nodi di convalida (Standard).
+Il servizio Azure Blockchain offre due livelli di servizio: *Di base* e *Standard*. Ogni livello offre prestazioni e funzionalità diverse per supportare diversi tipi di attività, da carichi di lavoro di test e sviluppo leggeri fino a distribuzioni delle blockchain di produzione con scalabilità elevata. Usare il livello *Basic* per lo sviluppo, il test e i modelli di verifica. Usare il livello *Standard* per le distribuzioni di produzione. Entrambi i livelli includono almeno un nodo della transazione e un nodo di convalida (Di base) oppure due nodi di convalida (Standard). 
 
 ![Piani tariffari](./media/overview/pricing-tiers.png)
 

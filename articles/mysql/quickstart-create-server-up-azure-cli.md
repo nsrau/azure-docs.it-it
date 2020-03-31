@@ -1,26 +1,26 @@
 ---
-title: 'Guida introduttiva: Creare un database di Azure per MySQL con az mysql up'
+title: 'Guida di avvio rapido: Creare un database di Azure per MySQL con az mysql up'
 description: Guida di avvio rapido per creare un server Database di Azure per MySQL con un comando dell'interfaccia della riga di comando di Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 4bb5c62a7df53548ff59a03c6ccc8fb28f1503d3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 7b81e88fe6f658fdf4c1857c6082100894c6f2f6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765684"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067714"
 ---
-# <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Guida introduttiva: Creare un'istanza di Database di Azure per MySQL con un semplice comando dell'interfaccia della riga di comando di Azure - az mysql up (anteprima)
+# <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Guida di avvio rapido: Creare un'istanza di Database di Azure per MySQL con un semplice comando dell'interfaccia della riga di comando di Azure - az mysql up (anteprima)
 
 > [!IMPORTANT]
 > Il comando [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) dell'interfaccia della riga di comando di Azure è disponibile in anteprima.
 
-Il database di Azure per MySQL è un servizio gestito che consente di eseguire, gestire e scalare dei database MySQL a disponibilità elevata nel cloud. L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questo argomento di avvio rapido illustra come usare il comando [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) per creare un server Database di Azure per MySQL con l'interfaccia della riga di comando di Azure. Oltre a creare il server, il comando `az mysql up` crea un database di esempio e un utente ROOT nel database, apre il firewall per i servizi di Azure e crea regole del firewall predefinite per il computer client. In questo modo il processo di sviluppo risulta più rapido.
+Il database di Azure per MySQL è un servizio gestito che consente di eseguire, gestire e scalare dei database MySQL a disponibilità elevata nel cloud. L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questo argomento di avvio rapido illustra come usare il comando [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) per creare un server Database di Azure per MySQL con l'interfaccia della riga di comando di Azure. Oltre a creare il server, il comando `az mysql up` crea un database di esempio e un utente root nel database, apre il firewall per i servizi di Azure e crea regole del firewall predefinite per il computer client. In questo modo il processo di sviluppo risulta più rapido.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -34,7 +34,7 @@ Per questo articolo è necessario eseguire in locale l'interfaccia della riga di
 az login
 ```
 
-Se si possiedono più sottoscrizioni, scegliere quella appropriata in cui verrà fatturata la risorsa. Selezionare l'ID sottoscrizione specifico sotto l'account tramite il comando [az account set](/cli/azure/account). Sostituire il segnaposto "subscription id" con la proprietà **subscription id** dell'output di **az login** per la sottoscrizione.
+Se si possiedono più sottoscrizioni, scegliere quella appropriata in cui verrà fatturata la risorsa. Selezionare l'ID sottoscrizione specifico sotto l'account tramite il comando [az account set](/cli/azure/account). Sostituire il segnaposto "subscription ID" con la proprietà **subscription ID** dell'output di **az login** per la sottoscrizione.
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -63,7 +63,7 @@ resource-group | Generata dal sistema | Nuovo gruppo di risorse di Azure.
 sku-name | GP_Gen5_2 | Il nome dello SKU. Segue la convenzione {piano tariffario}\_{generazione di calcolo}\_{Vcore} in sintassi abbreviata. L'impostazione predefinita è un server per utilizzo generico di quinta generazione con 2 vCore. Per altre informazioni sui livelli, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/mysql/).
 backup-retention | 7 | Specifica per quanto tempo deve essere conservato un backup. L'unità è giorni.
 geo-redundant-backup | Disabled | Indica se abilitare i backup con ridondanza geografica per questo server.
-location | westus2 | Località di Azure per il server.
+posizione | westus2 | Località di Azure per il server.
 ssl-enforcement | Disabled | Indica se abilitare SSL per questo server.
 storage-size | 5120 | Capacità di archiviazione del server (l'unità è MB).
 version | 5.7 | La versione principale di MySQL.
@@ -79,7 +79,7 @@ Dopo la creazione del server, vengono applicate le impostazioni seguenti:
 - Viene attivata l'opzione "Consenti l'accesso a Servizi di Azure". Questa impostazione configura il firewall del server in modo da accettare connessioni da tutte le risorse di Azure, incluse le risorse non incluse nella sottoscrizione dell'utente.
 - Il parametro `wait_timeout` è impostato su 8 ore
 - Viene creato un database vuoto denominato "sampledb".
-- Viene creato un nuovo utente denominato "root" con i privilegi per "sampledb".
+- Viene creato un nuovo utente denominato "root" con privilegi per "sampledb".
 
 > [!NOTE]
 > Database di Azure per MySQL comunica sulla porta 3306. Quando si esegue la connessione da una rete aziendale, il traffico in uscita sulla porta 3306 potrebbe non essere consentito dal firewall della rete. Richiedere al reparto IT di aprire la porta 3306 per la connessione al server.

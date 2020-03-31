@@ -1,20 +1,20 @@
 ---
-title: Guida introduttiva di Configurazione app di Azure con Funzioni di Azure | Microsoft Docs
-description: Guida introduttiva per l'uso di Configurazione app di Azure con Funzioni di Azure.
+title: Guida di avvio rapido di Configurazione app di Azure con Funzioni di Azure | Microsoft Docs
+description: Guida di avvio rapido per l'uso di Configurazione app di Azure con Funzioni di Azure.
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 1/9/2019
 ms.author: lcozzens
-ms.openlocfilehash: 71a330523f1d3393a365fec29fb66f5c9773b6cc
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 2f6efdad7ab0685e58d2edd73bc36b758e8dbae2
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78207065"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80245498"
 ---
-# <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Guida introduttiva: Creare un'app Funzioni di Azure con Configurazione app di Azure
+# <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Guida di avvio rapido: Creare un'app Funzioni di Azure con Configurazione app di Azure
 
 In questa guida di avvio rapido si incorpora il servizio Configurazione app di Azure in un'app Funzioni di Azure per centralizzare l'archiviazione e la gestione di tutte le impostazioni dell'applicazione separatamente dal codice.
 
@@ -28,13 +28,15 @@ In questa guida di avvio rapido si incorpora il servizio Configurazione app di A
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selezionare **Configuration Explorer** >  **+ Crea** per aggiungere le coppie chiave-valore seguenti:
+6. Selezionare **Esplora configurazioni** >  **+ Crea** > **Coppia chiave-valore** per aggiungere le chiavi chiave-valore seguenti:
 
-    | Chiave | valore |
+    | Chiave | Valore |
     |---|---|
     | TestApp:Settings:Message | Dati di Configurazione app di Azure |
 
     Lasciare vuoti i campi **Etichetta** e **Tipo di contenuto** per il momento.
+
+7. Selezionare **Applica**.
 
 ## <a name="create-a-functions-app"></a>Creare un'app Funzioni
 
@@ -85,7 +87,7 @@ In questa guida di avvio rapido si incorpora il servizio Configurazione app di A
 
 1. Impostare una variabile di ambiente denominata **ConnectionString** sulla chiave di accesso all'archivio di Configurazione app. Se si usa il prompt dei comandi di Windows, eseguire il comando seguente e riavviare il prompt per rendere effettiva la modifica:
 
-    ```CLI
+    ```cmd
         setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 
@@ -105,11 +107,11 @@ In questa guida di avvio rapido si incorpora il servizio Configurazione app di A
 
 3. Copiare l'URL della funzione dall'output di runtime di Funzioni di Azure.
 
-    ![Guida introduttiva: debug di funzioni in VS](./media/quickstarts/function-visual-studio-debugging.png)
+    ![Guida di avvio rapido: debug di funzioni in VS](./media/quickstarts/function-visual-studio-debugging.png)
 
 4. Incollare l'URL per la richiesta HTTP nella barra degli indirizzi del browser. L'immagine seguente mostra la risposta nel browser alla richiesta GET locale restituita dalla funzione.
 
-    ![Guida introduttiva: avvio della funzione in locale](./media/quickstarts/dotnet-core-function-launch-local.png)
+    ![Guida di avvio rapido: avvio della funzione in locale](./media/quickstarts/dotnet-core-function-launch-local.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

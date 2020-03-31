@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: Impostare e recuperare un segreto da Key Vault usando PowerShell'
-description: In questo avvio rapido sono disponibili informazioni su come creare, recuperare ed eliminare segreti da Azure Key Vault usando PowerShell
+title: 'Guida di avvio rapido: Impostare e recuperare un segreto da Key Vault usando PowerShell'
+description: In questa guida di avvio rapido sono disponibili informazioni su come creare, recuperare ed eliminare segreti da un'istanza di Azure Key Vault usando Azure PowerShell.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f2b3b7d42ec7eac6dba402c0f553760548c78044
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 627d74f48c0f2b3da8665cd255102f36869477c2
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197794"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79472759"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault usando PowerShell
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Guida di avvio rapido: Impostare e recuperare un segreto da Azure Key Vault usando PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Azure Key Vault è un servizio cloud che funziona come archivio protetto dei segreti. È possibile archiviare in modo sicuro chiavi, password, certificati e altri segreti. Per altre informazioni su Key Vault, vedere la [panoramica](key-vault-overview.md). In questa guida introduttiva si usa PowerShell per creare un'istanza di Key Vault. Verrà quindi archiviato un segreto nell'insieme di credenziali appena creato.
+Azure Key Vault è un servizio cloud che funziona come archivio protetto dei segreti. È possibile archiviare in modo sicuro chiavi, password, certificati e altri segreti. Per altre informazioni su Key Vault, vedere la [panoramica](key-vault-overview.md). In questa guida di avvio rapido si usa PowerShell per creare un'istanza di Key Vault. Verrà quindi archiviato un segreto nell'insieme di credenziali appena creato.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -46,7 +46,7 @@ New-AzResourceGroup -Name ContosoResourceGroup -Location EastUS
 
 Creata quindi un'istanza di Key Vault. Per questo passaggio sono necessarie alcune informazioni:
 
-Anche se si usa "Contoso KeyVault2" come nome dell'istanza di Key Vault in questa guida introduttiva, è necessario usare un nome univoco.
+Anche se si usa "Contoso KeyVault2" come nome dell'istanza di Key Vault in questa guida di avvio rapido, è necessario usare un nome univoco.
 
 - **Nome dell'insieme di credenziali** Contoso-Vault2.
 - **Nome del gruppo di risorse** ContosoResourceGroup.
@@ -91,7 +91,7 @@ A questo punto è stata creata un'istanza di Key Vault nella quale è stato arch
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
- Altre guide introduttive ed esercitazioni della raccolta si basano su questa. Se si prevede di usare altre guide introduttive ed esercitazioni, è consigliabile non cancellare le risorse create.
+ Altre guide di avvio rapido ed esercitazioni della raccolta si basano su questa. Se si prevede di usare altre guide di avvio rapido ed esercitazioni, è consigliabile non cancellare le risorse create.
 
 Quando non servono più, è possibile usare il comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuovere il gruppo di risorse, l'istanza di Key Vault e tutte le risorse correlate.
 

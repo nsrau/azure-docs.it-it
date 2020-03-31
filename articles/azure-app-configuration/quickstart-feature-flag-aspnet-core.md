@@ -6,14 +6,14 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: a4fbba65af5afbd27a3fd2c7d41858e33b4d812c
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: d8582dfc796fe3e87b8bdc5be763dddfb5d0176b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78163880"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80245413"
 ---
-# <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Guida introduttiva: Aggiungere i flag di funzionalità a un'app ASP.NET Core
+# <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Guida di avvio rapido: Aggiungere i flag di funzionalità a un'app ASP.NET Core
 
 Questa guida di avvio rapido illustra come creare un'implementazione end-to-end di gestione delle funzionalità in un'applicazione ASP.NET Core tramite Configurazione app di Azure. Verrà usato il servizio Configurazione app per archiviare tutti i flag funzionalità in una posizione centralizzata e controllarne gli stati. 
 
@@ -33,7 +33,7 @@ Le librerie di Gestione funzionalità di .NET Core estendono il framework con il
     > [!div class="mx-imgBorder"]
     > ![Abilitare un flag funzionalità denominato Beta](media/add-beta-feature-flag.png)
 
-    Per il momento lasciare il campo `label` non definito.
+    Per il momento lasciare il campo `label` non definito. Selezionare **Applica** per salvare il nuovo flag di funzionalità.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Creare un'app Web ASP.NET Core
 
@@ -49,41 +49,53 @@ Usare l'[interfaccia della riga di comando di .NET Core](https://docs.microsoft.
 
 ## <a name="add-secret-manager"></a>Aggiungere Secret Manager
 
-Aggiungere lo [strumento Secret Manager](https://docs.microsoft.com/aspnet/core/security/app-secrets) al progetto. Lo strumento Secret Manager archivia i dati sensibili per operazioni di sviluppo al di fuori dell'albero del progetto. Questo approccio contribuisce a impedire la condivisione accidentale dei segreti dell'app all'interno del codice sorgente.
-
-> [!IMPORTANT]
-> Esistono differenze significative tra .NET Core 2.x e 3.x.  Selezionare la sintassi corretta in base all'ambiente.
+Per usare Secret Manager, aggiungere un elemento `UserSecretsId` al file con estensione *csproj*.
 
 1. Aprire il file con estensione *csproj*.
-1. Aggiungere un elemento `UserSecretsId` come illustrato nell'esempio seguente e sostituire il relativo valore con il proprio, che in genere è un GUID:
+
+1.  Aggiungere un elemento `UserSecretsId` come illustrato di seguito. È possibile usare lo stesso GUID oppure sostituire questo valore con uno proprio.
+
+    > [!IMPORTANT]
+    > `CreateHostBuilder` sostituisce `CreateWebHostBuilder` in .NET Core 3.0.  Selezionare la sintassi corretta in base all'ambiente.
 
     #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
 
-    <PropertyGroup>
-        <TargetFramework>netcoreapp2.1</TargetFramework>
-        <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
-    </PropertyGroup>
+        <PropertyGroup>
+            <TargetFramework>netcoreapp2.1</TargetFramework>
+            <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
+        </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.App" />
-        <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-    </ItemGroup>
+        <ItemGroup>
+            <PackageReference Include="Microsoft.AspNetCore.App" />
+            <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+        </ItemGroup>
 
     </Project>
     ```
+
     #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
+
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
-    
+
         <PropertyGroup>
             <TargetFramework>netcoreapp3.1</TargetFramework>
             <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
         </PropertyGroup>
+
     </Project>
     ```
     ---
+
+1. Salvare il file con estensione *csproj*.
+
+Lo strumento Secret Manager archivia i dati sensibili per operazioni di sviluppo al di fuori dell'albero del progetto. Questo approccio contribuisce a impedire la condivisione accidentale dei segreti dell'app all'interno del codice sorgente.
+
+> [!TIP]
+> Per altre informazioni su Secret Manager, vedere [Archiviazione sicura dei segreti delle app in fase di sviluppo in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets).
 
 ## <a name="connect-to-an-app-configuration-store"></a>Connettersi a un archivio di Configurazione app
 
@@ -102,7 +114,7 @@ Aggiungere lo [strumento Secret Manager](https://docs.microsoft.com/aspnet/core/
 
 1. Aggiungere un segreto denominato **ConnectionStrings:AppConfig** a Secret Manager.
 
-    Questo segreto contiene la stringa di connessione per accedere all'archivio di Configurazione app. Sostituire il valore `<your_connection_string>` nel comando seguente con la stringa di connessione per l'archivio di Configurazione app.
+    Questo segreto contiene la stringa di connessione per accedere all'archivio di Configurazione app. Sostituire il valore `<your_connection_string>` nel comando seguente con la stringa di connessione per l'archivio di Configurazione app. È possibile trovare la stringa di connessione in **Chiavi di accesso** nel portale di Azure.
 
     Questo comando deve essere eseguito nella stessa directory del file con estensione *csproj*.
 
@@ -347,7 +359,7 @@ Aggiungere lo [strumento Secret Manager](https://docs.microsoft.com/aspnet/core/
 
 1. Aggiornare la pagina del browser per visualizzare le nuove impostazioni di configurazione.
 
-    ![Guida introduttiva: avvio dell'app in locale](./media/quickstarts/aspnet-core-feature-flag-local-after.png)
+    ![Guida di avvio rapido: avvio dell'app in locale](./media/quickstarts/aspnet-core-feature-flag-local-after.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

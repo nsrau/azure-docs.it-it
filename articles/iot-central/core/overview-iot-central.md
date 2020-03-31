@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 71d595ecb3a6900da3df79651ee2dddda594b9de
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 6c50e5892aca37bac47e68a9ae17435611c99817
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589412"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80157467"
 ---
 # <a name="what-is-azure-iot-central"></a>Informazioni su Azure IoT Central
 
@@ -39,12 +39,10 @@ Per IoT Central, questo articolo descrive:
 - I processi non supportano i tipi complessi.
 - I tipi di schema della matrice non sono supportati.
 - Sono supportati solo l'SDK per dispositivi C e gli SDK per dispositivi e servizi Node.js.
-- È disponibile solo nelle località Stati Uniti, Europa, Asia Pacifico e Australia.
+- IoT Central è attualmente disponibile nelle località seguenti: Stati Uniti, Europa, Asia Pacifico, Australia, Regno Unito e Giappone.
+- Non è possibile usare il modello di applicazione **Applicazione personalizzata (legacy)** nelle località Regno Unito e Giappone.
 - I modelli di funzionalità di dispositivo devono includere tutte le interfacce definite inline nello stesso file.
 - Il supporto per [Plug and Play IoT](../../iot-pnp/overview-iot-plug-and-play.md) è in anteprima ed è disponibile solo in alcune aree selezionate.
-
-    > [!NOTE]
-    > Per creare un'applicazione in anteprima con il supporto per i dispositivi Plug and Play IoT, contattare il supporto tecnico.
 
 ## <a name="personas"></a>Utenti tipo
 
@@ -76,7 +74,6 @@ Questo modello di dispositivo include:
 - Un _modello di funzionalità di dispositivo_ in cui sono descritte le funzionalità che un dispositivo deve implementare, ad esempio i dati di telemetria inviati e le proprietà segnalate.
 - Proprietà cloud non archiviate nel dispositivo.
 - Personalizzazioni, dashboard e moduli che fanno parte dell'applicazione IoT Central.
-
 
 ### <a name="pricing"></a>Prezzi
 
