@@ -1,30 +1,30 @@
 ---
-title: Aggiungi autenticazione in Apache Cordova
-description: Informazioni su come usare le app per dispositivi mobili nel servizio app Azure per autenticare gli utenti dell'app Apache Cordova con provider di identità, ad esempio Google, Facebook, Twitter e Microsoft.
+title: Aggiungere l'autenticazione su Apache Cordova
+description: Scopri come usare le app per dispositivi mobili nel servizio app di Azure per autenticare gli utenti della tua app Apache Cordova con provider di identità come Google, Facebook, Twitter e Microsoft.
 ms.assetid: 10dd6dc9-ddf5-423d-8205-00ad74929f0d
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 3714ce2a8098608851991115aa82afdc00d08a47
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77459389"
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>Aggiungere l'autenticazione all'app Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 ## <a name="summary"></a>Riepilogo
-Questa esercitazione consente di aggiungere l'autenticazione al progetto introduttivo TodoList in Apache Cordova tramite un provider di identità supportato. Questa esercitazione è basata sull'esercitazione relativa alla [Introduzione alle app per dispositivi mobili] , che deve essere completata per prima.
+Questa esercitazione consente di aggiungere l'autenticazione al progetto introduttivo TodoList in Apache Cordova tramite un provider di identità supportato. Questa esercitazione è basata sull'esercitazione relativa alla [creazione di un'app per dispositivi mobili] , che deve essere completata per prima.
 
-## <a name="register"></a>Registrare l'app per l'autenticazione e configurare il servizio app
+## <a name="register-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>Registrare l'app per l'autenticazione e configurare il servizio app
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 [Guardare un video che illustra una procedura simile](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-8-Azure-authentication)
 
-## <a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati
+## <a name="restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 A questo punto, è possibile verificare che l'accesso anonimo al back-end è stato disabilitato. In Visual Studio:
@@ -35,7 +35,7 @@ A questo punto, è possibile verificare che l'accesso anonimo al back-end è sta
 
 A questo punto, aggiornare l'app per autenticare gli utenti prima di richiedere risorse al back-end dell'app per dispositivi mobili.
 
-## <a name="add-authentication"></a>Aggiungere l'autenticazione all'app
+## <a name="add-authentication-to-the-app"></a><a name="add-authentication"></a>Aggiungere l'autenticazione all'app
 1. Aprire il progetto in **Visual Studio**, quindi aprire il file `www/index.html` per la modifica.
 2. Individuare il meta tag `Content-Security-Policy` nella sezione di intestazione.  Aggiungere l'host di OAuth all'elenco di origini consentite.
 
@@ -52,7 +52,7 @@ A questo punto, aggiornare l'app per autenticare gli utenti prima di richiedere 
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'
             data: gap: https://login.microsoftonline.com https://yourapp.azurewebsites.net; style-src 'self'">
 
-    Sostituire `https://login.microsoftonline.com` con l'host di OAuth indicato nella tabella precedente.  Per altre informazioni sul metatag content-security-policy, vedere la [documentazione relativa a Content-Security-Policy].
+    Sostituire `https://login.microsoftonline.com` con l'host di OAuth indicato nella tabella precedente.  Per altre informazioni sul metatag content-security-policy, vedere la [documentazione su Content-Security-Policy].
 
     Alcuni provider di autenticazione non richiedono modifiche a Content-Security-Policy quando viene usato in dispositivi mobili appropriati.  Ad esempio, non sono richieste modifiche a Content-Security-Policy quando si usa l'autenticazione di Google in un dispositivo Android.
 
@@ -85,7 +85,7 @@ A questo punto, aggiornare l'app per autenticare gli utenti prima di richiedere 
 4. Nel codice aggiunto, sostituire `SDK_Provider_Name` con il nome del provider di accesso. Ad esempio, per Azure Active Directory usare `client.login('aad')`.
 5. Eseguire il progetto.  Al termine dell'inizializzazione del progetto, nell'applicazione viene visualizzata la pagina di accesso di OAuth per il provider di autenticazione scelto.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a><a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni, vedere [Autenticazione e autorizzazione] con il servizio app di Azure.
 * Continuare l'esercitazione aggiungendo [Notifiche Push] all'app Apache Cordova.
 
@@ -99,7 +99,7 @@ Informazioni su come usare gli SDK.
 [Introduzione alle app per dispositivi mobili]: app-service-mobile-cordova-get-started.md
 [documentazione relativa a Content-Security-Policy]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
 [Notifiche push]: app-service-mobile-cordova-get-started-push.md
-[Autenticazione e autorizzazione]: app-service-mobile-auth.md
+[Informazioni sull'autenticazione]: app-service-mobile-auth.md
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md

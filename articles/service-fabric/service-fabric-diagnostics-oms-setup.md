@@ -1,23 +1,23 @@
 ---
-title: Configurare il monitoraggio con i log di monitoraggio di Azure
-description: Informazioni su come configurare i log di monitoraggio di Azure per la visualizzazione e l'analisi degli eventi per monitorare i cluster di Azure Service Fabric.
+title: Configurare il monitoraggio con i log di Monitoraggio di AzureSet up monitoring with Azure Monitor logs
+description: Informazioni su come configurare i log di Monitoraggio di Azure per la visualizzazione e l'analisi degli eventi per monitorare i cluster di Azure Service Fabric.Learn how to set up Azure Monitor logs for visualizing and analyzing events to monitor your Azure Service Fabric clusters.
 author: srrengar
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: srrengar
 ms.openlocfilehash: cf0fab9942dcbb7ee09e554f2c9ba8738f208009
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75609928"
 ---
-# <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Configurare i log di monitoraggio di Azure per un cluster
+# <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Configurare i log di Monitoraggio di Azure per un clusterSet up Azure Monitor logs for a cluster
 
-I log di Monitoraggio di Azure sono consigliati per il monitoraggio di eventi a livello di cluster. È possibile configurare l'area di lavoro Log Analytics tramite Azure Resource Manager, PowerShell o Azure Marketplace. Se si gestisce un modello di Gestione risorse aggiornato della distribuzione per un uso futuro, usare lo stesso modello per configurare l'ambiente dei log di monitoraggio di Azure. La distribuzione tramite Marketplace è più semplice se è già disponibile un cluster distribuito, con il servizio di diagnostica abilitato. Se non si ha accesso a livello di sottoscrizione nell'account in cui si sta eseguendo la distribuzione, eseguire la distribuzione usando PowerShell o il modello di Resource Manager.
+I log di Monitoraggio di Azure sono consigliati per il monitoraggio di eventi a livello di cluster. È possibile configurare l'area di lavoro Log Analytics tramite Azure Resource Manager, PowerShell o Azure Marketplace. Se si mantiene un modello di Resource Manager aggiornato della distribuzione per un uso futuro, usare lo stesso modello per configurare l'ambiente dei log di Monitoraggio di Azure.If you maintain an updated Resource Manager template of your deployment for future use, use the same template to set up your Azure Monitor logs environment. La distribuzione tramite Marketplace è più semplice se è già disponibile un cluster distribuito, con il servizio di diagnostica abilitato. Se non si ha accesso a livello di sottoscrizione nell'account in cui si sta eseguendo la distribuzione, eseguire la distribuzione usando PowerShell o il modello di Resource Manager.
 
 > [!NOTE]
-> Per configurare i log di monitoraggio di Azure per monitorare il cluster, è necessario abilitare la diagnostica per visualizzare gli eventi a livello di cluster o di piattaforma. Fare riferimento alle procedure per la [configurazione della diagnostica nei cluster Windows](service-fabric-diagnostics-event-aggregation-wad.md) e la [configurazione della diagnostica nei cluster Linux](service-fabric-diagnostics-oms-syslog.md) per altre informazioni.
+> Per configurare i log di Monitoraggio di Azure per monitorare il cluster, è necessario che la diagnostica sia abilitata per visualizzare gli eventi a livello di cluster o di piattaforma. Fare riferimento alle procedure per la [configurazione della diagnostica nei cluster Windows](service-fabric-diagnostics-event-aggregation-wad.md) e la [configurazione della diagnostica nei cluster Linux](service-fabric-diagnostics-oms-syslog.md) per altre informazioni.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -32,7 +32,7 @@ Se si intende aggiungere un'area di lavoro Log Analytics dopo aver distribuito u
 
 2. Cercare **Analisi Service Fabric**. Selezionare la risorsa visualizzata.
 
-3. Selezionare **Create** (Crea).
+3. Selezionare **Crea**.
 
     ![Analisi Service Fabric in Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
@@ -40,10 +40,10 @@ Se si intende aggiungere un'area di lavoro Log Analytics dopo aver distribuito u
 
 5. Al termine, selezionare di nuovo **Crea** nella parte inferiore della finestra di creazione di Analisi Service Fabric. Assicurarsi che la nuova area di lavoro sia visualizzata in **Area di lavoro OMS**. Questa azione aggiunge la soluzione all'area di lavoro creata.
 
-Se si usa Windows, continuare con i passaggi seguenti per connettere i log di monitoraggio di Azure all'account di archiviazione in cui sono archiviati gli eventi del cluster. 
+Se si usa Windows, continuare con la procedura seguente per connettere i log di Monitoraggio di Azure all'account di archiviazione in cui sono archiviati gli eventi del cluster. 
 
 >[!NOTE]
->La soluzione Analisi Service Fabric è supportata solo per i cluster Windows. Per i cluster Linux, vedere l'articolo su [come configurare i log di monitoraggio di Azure per i cluster Linux](service-fabric-diagnostics-oms-syslog.md).  
+>La soluzione Service Fabric Analytics è supportata solo per i cluster Windows.The Service Fabric Analytics solution is only supported for Windows clusters. Per i cluster Linux, vedere l'articolo su come configurare i log di Monitoraggio di [Azure per i cluster Linux.For Linux clusters,](service-fabric-diagnostics-oms-syslog.md)check out our article on how to set up Azure Monitor logs for Linux clusters .  
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Connettere l'area di lavoro Log Analytics al cluster 
 
@@ -53,7 +53,7 @@ Se si usa Windows, continuare con i passaggi seguenti per connettere i log di mo
 
 3. Nella pagina **Log account di archiviazione** selezionare **Aggiungi** nella parte superiore per aggiungere i log del cluster all'area di lavoro.
 
-4. Selezionare **Account di archiviazione** per aggiungere l'account appropriato creato nel cluster. Se è stato usato il nome predefinito, l'account di archiviazione è **sfdg\<resourceGroupName\>** . È anche possibile verificare con il modello di Azure Resource Manager usato per distribuire il cluster, controllando il valore usato per **applicationDiagnosticsStorageAccountName**. Se il nome non viene visualizzato, scorrere verso il basso e selezionare **Carica altro**. Selezionare il nome dell'account di archiviazione.
+4. Selezionare **Account di archiviazione** per aggiungere l'account appropriato creato nel cluster. Se è stato usato il nome predefinito, l'account di archiviazione è **sfdg\<resourceGroupName\>**. È anche possibile verificare con il modello di Azure Resource Manager usato per distribuire il cluster, controllando il valore usato per **applicationDiagnosticsStorageAccountName**. Se il nome non viene visualizzato, scorrere verso il basso e selezionare **Carica altro**. Selezionare il nome dell'account di archiviazione.
 
 5. Specificare il Tipo di dati. Impostarlo su **Eventi di Service Fabric**.
 
@@ -61,14 +61,14 @@ Se si usa Windows, continuare con i passaggi seguenti per connettere i log di mo
 
 7. Selezionare **OK** per connettere l'area di lavoro ai log del cluster.
 
-    ![Aggiungere log dell'account di archiviazione ai log di monitoraggio di Azure](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
+    ![Aggiungere log dell'account di archiviazione ai log di Monitoraggio di AzureAdd storage account logs to Azure Monitor logs](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
 
 L'account viene ora visualizzato come parte dei log degli account di archiviazione nelle origini dati dell'area di lavoro.
 
 La soluzione Analisi Service Fabric è stata aggiunta in un'area di lavoro Log Analytics, che è ora connessa correttamente alla piattaforma del cluster e alla tabella del log applicazioni. È possibile aggiungere altre origini all'area di lavoro nello stesso modo.
 
 
-## <a name="deploy-azure-monitor-logs-with-azure-resource-manager"></a>Distribuire i log di monitoraggio di Azure con Azure Resource Manager
+## <a name="deploy-azure-monitor-logs-with-azure-resource-manager"></a>Distribuire i log di Monitoraggio di Azure con Azure Resource ManagerDeploy Azure Monitor logs with Azure Resource Manager
 
 Quando si distribuisce un cluster con un modello di Resource Manager, il modello crea una nuova area di lavoro Log Analytics, aggiunge la soluzione Service Fabric all'area di lavoro e la configura per leggere i dati dalle tabelle di archiviazione appropriate.
 
@@ -81,7 +81,7 @@ Quando si distribuisce un cluster con un modello di Resource Manager, il modello
 * Configurare l'area di lavoro Log Analytics per la lettura degli eventi da queste tabelle
 
 
-È possibile distribuire il modello come aggiornamento Gestione risorse al cluster usando l'API `New-AzResourceGroupDeployment` nel modulo Azure PowerShell. Un comando di esempio potrebbe essere:
+È possibile distribuire il modello come aggiornamento di `New-AzResourceGroupDeployment` Resource Manager al cluster usando l'API nel modulo di Azure PowerShell.You can deploy the template as a Resource Manager upgrade to your cluster by using the API in the Azure PowerShell module. Un comando di esempio potrebbe essere:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "<resourceGroupName>" -TemplateFile "<templatefile>.json" 
@@ -89,9 +89,9 @@ New-AzResourceGroupDeployment -ResourceGroupName "<resourceGroupName>" -Template
 
 Azure Resource Manager rileva che questo comando è un aggiornamento a una risorsa esistente. Elabora solo le modifiche tra il modello che definisce la distribuzione esistente e il nuovo modello fornito.
 
-## <a name="deploy-azure-monitor-logs-with-azure-powershell"></a>Distribuire i log di monitoraggio di Azure con Azure PowerShell
+## <a name="deploy-azure-monitor-logs-with-azure-powershell"></a>Distribuire i log di Monitoraggio di Azure con Azure PowerShellDeploy Azure Monitor logs with Azure PowerShell
 
-È anche possibile distribuire la risorsa log Analytics tramite PowerShell usando il comando `New-AzOperationalInsightsWorkspace`. Per usare questo metodo, assicurarsi che sia installato [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Usare questo script per creare una nuova area di lavoro Log Analytics e aggiungervi la soluzione Service Fabric: 
+È anche possibile distribuire la risorsa di `New-AzOperationalInsightsWorkspace` analisi dei log tramite PowerShell usando il comando. Per usare questo metodo, assicurarsi che sia installato [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Usare questo script per creare una nuova area di lavoro Log Analytics e aggiungervi la soluzione Service Fabric: 
 
 ```powershell
 
@@ -117,11 +117,11 @@ Set-AzOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -Wor
 
 ```
 
-Al termine, seguire i passaggi della sezione precedente per connettere i log di monitoraggio di Azure all'account di archiviazione appropriato.
+Al termine, seguire i passaggi nella sezione precedente per connettere i log di Monitoraggio di Azure all'account di archiviazione appropriato.
 
-È anche possibile aggiungere altre soluzioni o apportare altre modifiche all'area di lavoro Log Analytics usando PowerShell. Per altre informazioni, vedere [gestire i log di monitoraggio di Azure con PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md).
+È anche possibile aggiungere altre soluzioni o apportare altre modifiche all'area di lavoro Log Analytics usando PowerShell. Per altre informazioni, vedere Gestire i log di [Monitoraggio di Azure tramite PowerShell.To](../azure-monitor/platform/powershell-workspace-configuration.md)learn more, see Manage Azure Monitor logs using PowerShell.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Distribuire l'agente di Log Analytics](service-fabric-diagnostics-oms-agent.md) sui nodi per raccogliere contatori delle prestazioni, statistiche Docker e registri per i contenitori
-* Acquisire familiarità con le funzionalità di [Ricerca log ed esecuzione di query](../log-analytics/log-analytics-log-searches.md) disponibili nell'ambito dei log di monitoraggio di Azure
-* [Usare Progettazione viste per creare visualizzazioni personalizzate nei log di monitoraggio di Azure](../azure-monitor/platform/view-designer.md)
+* Acquisire familiarità con le funzionalità di [ricerca dei log e di query](../log-analytics/log-analytics-log-searches.md) offerte come parte dei log di Monitoraggio di Azure
+* [Usare Progettazione viste per creare visualizzazioni personalizzate nei log di Monitoraggio di AzureUse View Designer to create custom views in Azure Monitor logs](../azure-monitor/platform/view-designer.md)

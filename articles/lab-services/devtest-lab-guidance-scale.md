@@ -14,10 +14,10 @@ ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 3a48cef2210721bf7116b1c4ad1169779288f47d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75644835"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Aumentare l'infrastruttura di Azure DevTestLabs
@@ -46,7 +46,7 @@ Di seguito vengono esposti i vantaggi di ogni approccio.
 L'approccio con un'unica sottoscrizione spesso non è gestibile in un'azienda di grandi dimensioni. La scelta di limitare il numero di sottoscrizioni offre tuttavia i benefici seguenti:
 
 - **Previsione** dei costi per l'azienda.  La determinazione del budget diventa molto più semplice con una singola sottoscrizione perché tutte le risorse sono riunite in un unico pool. Questo approccio consente di prendere le decisioni con più facilità in merito a quando esercitare misure di controllo dei costi in una fase specifica del ciclo di fatturazione.
-- La **gestibilità** di macchine virtuali, artefatti, formule, configurazione di rete, autorizzazioni, criteri e così via è più semplice, poiché tutti gli aggiornamenti sono necessari solo in una sottoscrizione, anziché eseguire aggiornamenti in molte sottoscrizioni.
+- **La gestibilità** di macchine virtuali, elementi, formule, configurazione di rete, autorizzazioni, criteri e così via è più semplice poiché tutti gli aggiornamenti sono necessari solo in una sottoscrizione anziché eseguire aggiornamenti in molte sottoscrizioni.
 - Il lavoro richiesto per le **reti** risulta enormemente semplificato in una singola sottoscrizione per le aziende per cui la connettività locale è un requisito. La connessione di reti virtuali tra le sottoscrizioni (modello hub-spoke) è necessaria con sottoscrizioni aggiuntive e richiede configurazione, gestione, spazi di indirizzi IP aggiuntivi e altro ancora.
 - La **collaborazione nei team** è più facile se tutti lavorano nella stessa sottoscrizione. È ad esempio più facile riassegnare una VM a un collega, condividere le risorse con il team e così via.
 
@@ -62,7 +62,7 @@ Nell'azienda possono essere presenti alcuni limiti agli estremi dello spettro. P
 ## <a name="roles-and-responsibilities"></a>Ruoli e responsabilità
 Un modello di verifica di DevTest Labs prevede tre ruoli primari con responsabilità definite: proprietario della sottoscrizione, proprietario di DevTest Labs, utente di DevTest Labs e, facoltativamente, un collaboratore.
 
-- **Proprietario** della sottoscrizione: il proprietario della sottoscrizione dispone dei diritti per amministrare una sottoscrizione di Azure, tra cui l'assegnazione di utenti, la gestione dei criteri, la creazione di & la gestione della topologia di rete, la richiesta di aumenti Per altre informazioni, vedere [questo articolo](../role-based-access-control/rbac-and-directory-admin-roles.md).
+- **Proprietario della sottoscrizione:** il proprietario della sottoscrizione dispone dei diritti per amministrare una sottoscrizione di Azure, inclusa l'assegnazione degli utenti, la gestione dei criteri, la creazione di & la gestione della topologia di rete, la richiesta di aumenti delle quote e così via. Per ulteriori informazioni, vedere [questo articolo](../role-based-access-control/rbac-and-directory-admin-roles.md).
 - **Proprietario di DevTest Labs**: il proprietario di DevTest Labs dispone dell'accesso amministrativo completo al lab. Questo ruolo è responsabile dell'aggiunta/rimozione di utenti, delle impostazioni dei costi di gestione, delle impostazioni di lab generali e di altre attività basate su macchine virtuali/artefatti. Un proprietario del lab dispone anche di tutti i diritti di un utente di DevTest Labs.
 - **Utente di DevTest Labs**: l'utente di DevTest Labs può creare e usare le macchine virtuali nel lab. Dispone di alcune capacità amministrative minime sulle macchine virtuali che crea (avvio/arresto/eliminazione/configurazione delle proprie macchine virtuali). Non può gestire le macchine virtuali di altri utenti.
 

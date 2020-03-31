@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc88640cdff4f716902a80bb149913b961d40ae3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261021"
 ---
-# <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: server di staging e ripristino di emergenza
+# <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Server di gestione temporanea e ripristino di emergenzaAzure AD Connect: Staging server and disaster recovery
 Con un server in modalità di gestione temporanea è possibile apportare modifiche alla configurazione e visualizzarle in anteprima prima di attivare il server. È anche possibile eseguire operazioni di importazione e sincronizzazione complete per verificare che tutte le modifiche siano previste prima di introdurle nell'ambiente di produzione.
 
 ## <a name="staging-mode"></a>Modalità di gestione temporanea
@@ -52,7 +52,7 @@ Per applicare questo metodo, seguire questa procedura:
 1. [Preparare](#prepare)
 2. [Configurazione](#configuration)
 3. [Importare e sincronizzare](#import-and-synchronize)
-4. [Verificare](#verify)
+4. [Verifica](#verify)
 5. [Cambiare il server attivo](#switch-active-server)
 
 #### <a name="prepare"></a>Preparazione
@@ -64,10 +64,10 @@ Per applicare questo metodo, seguire questa procedura:
 Se si sono apportate modifiche personalizzate al server primario e si desidera confrontare la configurazione con server di gestione temporanea, usare l'[analizzatore di configurazione di Azure AD Connect](https://github.com/Microsoft/AADConnectConfigDocumenter).
 
 #### <a name="import-and-synchronize"></a>Importare e sincronizzare
-1. Selezionare **Connettori** e quindi selezionare il primo connettore con il tipo **Servizi di dominio Active Directory**. Fare clic su **Run** (Esegui), selezionare **Full import** (Importazione completa) e fare clic su **OK**. Eseguire questi passaggi per tutti i connettori di questo tipo.
-2. Selezionare il connettore con il tipo **Azure Active Directory (Microsoft)** . Fare clic su **Run** (Esegui), selezionare **Full import** (Importazione completa) e fare clic su **OK**.
+1. Selezionare **Connettori**, quindi selezionare il primo connettore di tipo **Servizi di dominio Active Directory**. Fare clic su **Run** (Esegui), selezionare **Full import** (Importazione completa) e fare clic su **OK**. Eseguire questi passaggi per tutti i connettori di questo tipo.
+2. Selezionare il connettore con il tipo **Azure Active Directory (Microsoft)**. Fare clic su **Run** (Esegui), selezionare **Full import** (Importazione completa) e fare clic su **OK**.
 3. Assicurarsi che la scheda Connectors (Connettori) sia ancora selezionata. Per ogni connettore con il tipo **Active Directory Domain Services** fare clic su **Run** (Esegui), selezionare **Delta Synchronization** (Sincronizzazione delta) e fare clic su **OK**.
-4. Selezionare il connettore con il tipo **Azure Active Directory (Microsoft)** . Fare clic su **Run** (Esegui), selezionare **Delta Synchronization** (Sincronizzazione delta) e quindi fare clic su **OK**.
+4. Selezionare il connettore con il tipo **Azure Active Directory (Microsoft)**. Fare clic su **Run** (Esegui), selezionare **Delta Synchronization** (Sincronizzazione delta) e quindi fare clic su **OK**.
 
 È stata eseguita l'esportazione delle modifiche in modalità di gestione temporanea in Azure AD e in AD locale (se si usa una distribuzione ibrida di Exchange). I passaggi successivi consentono di ispezionare quali sono gli elementi che stanno per essere modificati prima di avviare effettivamente l'esportazione nelle directory.
 
@@ -115,7 +115,7 @@ Il server del motore di sincronizzazione non archivia lo stato degli oggetti, qu
 ### <a name="have-a-spare-standby-server---staging-mode"></a>Avere un server di standby di riserva, in modalità di gestione temporanea
 Nel caso di un ambiente più complesso, è consigliabile avere uno o più server di standby. Durante l'installazione è possibile abilitare un server in **modalità di gestione temporanea**.
 
-Per altre informazioni, vedere le [modalità di gestione temporanea](#staging-mode).
+Per ulteriori informazioni, vedere [Modalità di gestione temporanea](#staging-mode).
 
 ### <a name="use-virtual-machines"></a>Usare macchine virtuali
 Un metodo comune e supportato consiste nell'eseguire il motore di sincronizzazione in una macchina virtuale. Nel caso di un problema dell'host, è possibile eseguire la migrazione dell'immagine del server del motore di sincronizzazione in un altro server.

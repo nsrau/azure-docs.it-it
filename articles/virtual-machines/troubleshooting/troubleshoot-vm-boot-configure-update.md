@@ -14,21 +14,21 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
 ms.openlocfilehash: da45e24898bc3b5aead250077af69a61bdb33bab
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73749633"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>L'avvio della macchina virtuale si blocca su un messaggio analogo a "Preparazione di Windows. Non spegnere il computer" in Azure
 
-Questo articolo descrive le schermate "preparazione" e "preparazione di Windows" che possono verificarsi quando si avvia una macchina virtuale (VM) Windows in Microsoft Azure. Sono incluse le procedure per raccogliere i dati per un ticket di supporto.
+In questo articolo vengono descritte le schermate "Getting ready" e "Getting Windows Ready" che possono verificarsi quando si avvia una macchina virtuale Windows (VM) in Microsoft Azure. Sono incluse le procedure per raccogliere i dati per un ticket di supporto.
 
  
 
 ## <a name="symptoms"></a>Sintomi
 
-Una macchina virtuale Windows non viene avviata. Quando si usa la **diagnostica di avvio** per ottenere lo screenshot della macchina virtuale, è possibile che nella macchina virtuale venga visualizzato il messaggio "preparazione" o "recupero di Windows pronto".
+Una macchina virtuale Windows non viene avviata. Quando si usa la diagnostica di **avvio** per ottenere la schermata della macchina virtuale, è possibile che nella macchina virtuale venga visualizzato il messaggio "Preparazione" o "Preparazione di Windows".
 
 ![Esempio di messaggio per Windows Server 2012 R2](./media/troubleshoot-vm-configure-update-boot/message1.png)
 
@@ -40,19 +40,19 @@ Questo problema si verifica in genere quando il server esegue il riavvio finale 
 
 ## <a name="collect-an-os-memory-dump"></a>Raccogliere un dump di memoria del sistema operativo
 
-Se il problema non si risolve dopo l'attesa dell'elaborazione delle modifiche, è necessario raccogliere un file di dump della memoria e contattare il supporto tecnico. Per raccogliere il file dump, seguire questa procedura:
+Se il problema non si risolve dopo aver atteso il processo delle modifiche, è necessario raccogliere un file di immagine della memoria e contattare il supporto tecnico. Per raccogliere il file dump, seguire questa procedura:
 
 ### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Collegare il disco del sistema operativo alla macchina virtuale di ripristino
 
 1. Creare uno snapshot del disco del sistema operativo della macchina virtuale interessata come backup. Per altre informazioni, vedere [Snapshot di un disco](../windows/snapshot-copy-managed-disk.md).
-2. [Collegare il disco del sistema operativo alla macchina virtuale di ripristino](../windows/troubleshoot-recovery-disks-portal.md).
+2. [Collegare il disco del sistema operativo a una macchina virtuale](../windows/troubleshoot-recovery-disks-portal.md)di ripristino.
 3. Connettersi tramite Desktop remoto alla macchina virtuale di ripristino. 
-4. Se il disco del sistema operativo è crittografato, è necessario disattivare la crittografia prima di procedere al passaggio successivo. Per altre informazioni, vedere [decrittografare il disco del sistema operativo crittografato nella macchina virtuale che non può essere avviato](troubleshoot-bitlocker-boot-error.md#solution).
+4. Se il disco del sistema operativo è crittografato, è necessario disattivare la crittografia prima di passare al passaggio successivo. Per altre informazioni, vedere [Decrittografare il disco del sistema operativo crittografato nella macchina virtuale che non è in grado di avviare.](troubleshoot-bitlocker-boot-error.md#solution)
 
 ### <a name="locate-dump-file-and-submit-a-support-ticket"></a>Individuare il file dump e inviare un ticket di supporto
 
 1. Nella macchina virtuale di ripristino passare alla cartella Windows nel disco del sistema operativo collegato. Se la lettera di unità assegnata al disco del sistema operativo collegato è F, è necessario passare a F:\Windows.
-2. Individuare il file Memory. dmp, quindi [inviare un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) al file dump. 
+2. Individuare il file memory.dmp e quindi [inviare un ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) di supporto con il file dump. 
 
 Se non è possibile individuare il file dump, procedere al passaggio successivo per abilitare il log Dump e la console seriale.
 
@@ -61,7 +61,7 @@ Se non è possibile individuare il file dump, procedere al passaggio successivo 
 Per abilitare il log Dump e la console seriale, eseguire lo script seguente.
 
 1. Aprire una sessione del prompt dei comandi con privilegi elevati (Esegui come amministratore).
-2. Eseguire lo script seguente:
+2. Eseguire lo script riportato di seguito:
 
     In questo script si presuppone che la lettera di unità assegnata al disco del sistema operativo collegato sia F. Sostituirla con il valore appropriato per la specifica macchina virtuale.
 
@@ -98,10 +98,10 @@ Per abilitare il log Dump e la console seriale, eseguire lo script seguente.
             reg unload HKLM\BROKENSYSTEM
 
 3. [Scollegare il disco del sistema operativo e quindi ricollegarlo alla macchina virtuale interessata](../windows/troubleshoot-recovery-disks-portal.md).
-4. Avviare la macchina virtuale e accedere alla console seriale.
-5. Selezionare **Invia interrupt non mascherabile (NMI)** per attivare il dump della memoria.
-    ![l'immagine sulla posizione in cui inviare l'interrupt non mascherabile](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)
-6. Alleghi nuovamente il disco del sistema operativo a una macchina virtuale di ripristino, Raccogli file dump.
+4. Avviare la macchina virtuale e accedere alla Console seriale.
+5. Selezionare **Invia interrupt non mascherabile (NMI)** per attivare l'immagine della memoria.
+    ![l'immagine su dove inviare Interrupt non mascherabile](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)
+6. Collegare nuovamente il disco del sistema operativo a una macchina virtuale di ripristino, raccogliere il file di dump.
 
 ## <a name="contact-microsoft-support"></a>Contattare il supporto Microsoft
 

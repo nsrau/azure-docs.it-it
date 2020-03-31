@@ -1,25 +1,25 @@
 ---
-title: Copertura della geocodifica | Mappe Microsoft Azure
-description: Il processo di conversione dell'indirizzo di posizione nelle coordinate di latitudine e Longitudine è noto come geocodifica. In questo articolo vengono fornite informazioni sulle aree con copertura geocodifica in Microsoft Azure maps.
-author: farah-alyasari
-ms.author: v-faalya
+title: Copertura della geocodifica Mappe di Microsoft Azure
+description: Il processo di conversione dell'indirizzo di posizione in coordinate di latitudine e longitudine è noto come geocodifica. In this article, you will learn about regions with Geocoding Coverage in Microsoft Azure Maps.
+author: philmea
+ms.author: philmea
 ms.date: 12/31/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 149dd0a3e709bbf4660aaae176f76f560de873e2
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 9836bd35b16c4c308b7c9d096b104c0cec68a34c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210056"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335657"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Copertura per la geocodifica in Mappe di Azure
 
-Quando si cerca un percorso con mappe di Azure, il servizio di ricerca, ad esempio [Ottieni indirizzo](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress)di ricerca, accetta i termini di ricerca e restituisce le coordinate di latitudine e longitudine. Questo processo è denominato geocodifica. Tuttavia, le mappe di Azure non hanno lo stesso livello di informazioni e accuratezza per tutte le aree e i paesi. Usare questo articolo per determinare il tipo di posizioni che è possibile cercare in modo affidabile in ogni area. 
+Quando si cerca una posizione con Azure Maps, il servizio di ricerca, ad esempio [Ottieni indirizzo di ricerca](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress), accetta i termini di ricerca e restituisce le coordinate di latitudine e longitudine. Questo processo è chiamato geocodifica. Tuttavia, Azure Maps non ha lo stesso livello di informazioni e precisione per tutte le aree e i paesi. Usare questo articolo per determinare il tipo di posizioni che è possibile cercare in modo affidabile in ogni area. 
 
-La possibilità di geocodificare in un paese/area geografica dipende dalla copertura dei dati stradali e dalla precisione della geocodifica del servizio di geocodifica. Vengono usate le categorizzazioni seguenti per specificare il livello di supporto per la geocodifica in ogni paese/area geografica.
+La possibilità di geocodificare in un paese dipende dalla copertura dei dati stradali e dalla precisione di geocodifica del servizio di geocodifica. Le seguenti categorizzazioni vengono utilizzate per specificare il livello di supporto della geocodifica in ogni paese/area geografica.
 * **Punti di indirizzo**: i dati degli indirizzi possono essere risolti in una coordinata di latitudine/longitudine all'interno del lotto di indirizzo (limite di proprietà). Talvolta definito come accurato in modo "Rooftop". Questo è il massimo livello di accuratezza disponibile per gli indirizzi. 
 * **Numeri civici**: Gli indirizzi sono interpolati a una coordinata latitudine/longitudine sulla strada.
 * **Livello stradale**: Gli indirizzi vengono risolti in base alla coordinata latitudine/longitudine della strada che contiene l'indirizzo. Il numero civico può non essere elaborato.
@@ -27,7 +27,7 @@ La possibilità di geocodificare in un paese/area geografica dipende dalla coper
 
 ## <a name="americas"></a>Americhe
 
-| Country/Region                                       | Punti di indirizzo | Numeri di abitazione | Livello rete stradale | Livello città | Punti d'interesse |
+| Paese/Area geografica                                       | Punti di indirizzo | Numeri di abitazione | Livello rete stradale | Livello città | Punti d'interesse |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Anguilla                                            |                 |                |              |      ✓     |          ✓         |
 | Antartide                                          |                 |                |              |      ✓     |          ✓         |
@@ -83,12 +83,12 @@ La possibilità di geocodificare in un paese/area geografica dipende dalla coper
 | Stati Uniti d'America                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Uruguay                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
-| Isole Vergini britanniche                              |                 |                |              |      ✓     |          ✓         |
-| Isole Vergini americane                                 |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Isole Vergini Britanniche                              |                 |                |              |      ✓     |          ✓         |
+| Isole Vergini Americane                                 |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 
 ## <a name="asia-pacific"></a>Asia Pacifico
 
-| Country/Region                                      | Punti di indirizzo |Numeri di abitazione | Livello rete stradale | Livello città | Punti d'interesse |
+| Paese/Area geografica                                      | Punti di indirizzo |Numeri di abitazione | Livello rete stradale | Livello città | Punti d'interesse |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Isole Samoa americane                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Australia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -105,12 +105,12 @@ La possibilità di geocodificare in un paese/area geografica dipende dalla coper
 | Figi                                                |                  |                |              |      ✓     |          ✓        |
 | Polinesia francese                                    |                 |                |              |      ✓     |          ✓         |
 | Isole Heard e McDonald                   |                 |                |              |      ✓     |          ✓         |
-| Hong Kong - R.A.S.                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| RAS di Hong Kong                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonesia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | India                                               |        ✓        |        ✓       |       ✓      |      ✓     |                   |
-| Japan                                               |                 |                |              |      ✓     |          ✓         |
+| Giappone                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
-| Korea                                         |                 |                |              |      ✓     |          ✓         |
+| Corea del Sud                                         |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
 | RAS di Macao                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malaysia                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -129,7 +129,7 @@ La possibilità di geocodificare in un paese/area geografica dipende dalla coper
 | Papua Nuova Guinea                                    |                 |                |              |      ✓     |          ✓         |
 | Filippine                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Pitcairn                                            |                 |                |              |      ✓     |          ✓         |
-| Isole Samoa                                               |                 |                |              |      ✓     |          ✓         |
+| Isole Samoa                                                |                 |                |              |      ✓     |          ✓         |
 | Isole Senkaku/Diaoyutai                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Singapore                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Isole Salomone                                     |                 |                |              |      ✓     |          ✓         |
@@ -147,7 +147,7 @@ La possibilità di geocodificare in un paese/area geografica dipende dalla coper
 
 ## <a name="europe"></a>Europa
 
-| Country/Region                                      | Punti di indirizzo |Numeri di abitazione | Livello rete stradale | Livello città | Punti d'interesse |
+| Paese/Area geografica                                      | Punti di indirizzo |Numeri di abitazione | Livello rete stradale | Livello città | Punti d'interesse |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Albania                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Andorra                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -160,14 +160,14 @@ La possibilità di geocodificare in un paese/area geografica dipende dalla coper
 | Bielorussia                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Croazia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Cipro                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Repubblica Ceca                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Repubblica ceca                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Danimarca                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Estonia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Isole Fær Øer                                       |                 |                |              |      ✓     |          ✓         |
 | Finlandia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| France                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Francia                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Georgia                                             |        ✓        |        ✓       |              |      ✓     |          ✓         |
-| Germany                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Germania                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Gibilterra                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Grecia                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Groenlandia                                           |                 |                |              |      ✓     |          ✓         |
@@ -217,12 +217,12 @@ La possibilità di geocodificare in un paese/area geografica dipende dalla coper
 
 ## <a name="middle-east-and-africa"></a>Medio Oriente e Africa
 
-| Country/Region                                      | Punti di indirizzo |Numeri di abitazione | Livello rete stradale | Livello città | Punti d'interesse |
+| Paese/Area geografica                                      | Punti di indirizzo |Numeri di abitazione | Livello rete stradale | Livello città | Punti d'interesse |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Afghanistan                                         |                 |                |              |      ✓     |          ✓         |
 | Algeria                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Angola                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Bahrein                                             |        ✓        |       ✓        |       ✓      |      ✓     |          ✓         |
+| Bahrain                                             |        ✓        |       ✓        |       ✓      |      ✓     |          ✓         |
 | Benin                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Botswana                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Isola Bouvet                                       |                 |                |              |      ✓     |          ✓         |
@@ -251,7 +251,7 @@ La possibilità di geocodificare in un paese/area geografica dipende dalla coper
 | Israele                                              |        ✓        |       ✓        |              |      ✓     |          ✓         |
 | Giordania                                              |        ✓        |       ✓        |       ✓      |      ✓     |          ✓         |
 | Kenya                                               |                 |                |       ✓      |      ✓     |          ✓         |
-| Al Kuwait                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Kuwait                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Libano                                             |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Lesotho                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Liberia                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -280,7 +280,7 @@ La possibilità di geocodificare in un paese/area geografica dipende dalla coper
 | Seychelles                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Sierra Leone                                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Somalia                                             |                 |                |              |      ✓     |          ✓         |
-| Sudafrica                                        |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Sud Africa                                        |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Sudan del Sud                                         |                 |                |       ✓      |      ✓     |          ✓         |
 | Sudan                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Swaziland                                           |                 |                |       ✓      |      ✓     |          ✓         |

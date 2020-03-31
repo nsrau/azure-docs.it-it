@@ -1,6 +1,6 @@
 ---
-title: Account del servizio gestito del gruppo per Azure AD Domain Services | Microsoft Docs
-description: Informazioni su come creare un account del servizio gestito del gruppo (gMSA) per l'uso con Azure Active Directory Domain Services domini gestiti
+title: Account del servizio gestito di gruppo per Servizi di dominio Azure AD Documenti Microsoft
+description: Informazioni su come creare un account del servizio gestito di gruppo (gMSA) da usare con i domini gestiti di Servizi di dominio Azure Active Directory
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -12,73 +12,73 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: iainfou
 ms.openlocfilehash: 58749e4518f6fa73c8641ce38483c101576047aa
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77614086"
 ---
-# <a name="create-a-group-managed-service-account-gmsa-in-azure-ad-domain-services"></a>Creare un account del servizio gestito del gruppo (gMSA) in Azure AD Domain Services
+# <a name="create-a-group-managed-service-account-gmsa-in-azure-ad-domain-services"></a>Creare un account del servizio gestito di gruppo (gMSA) in Servizi di dominio Azure ADCreate a group managed service account (gMSA) in Azure AD Domain Services
 
-Le applicazioni e i servizi spesso necessitano di un'identità per autenticarsi con altre risorse. È ad esempio possibile che un servizio Web debba eseguire l'autenticazione con un servizio di database. Se un'applicazione o un servizio dispone di più istanze, ad esempio un server farm Web, la creazione e la configurazione manuale delle identità per tali risorse richiede molto tempo.
+Le applicazioni e i servizi spesso necessitano di un'identità per autenticarsi con altre risorse. Ad esempio, un servizio Web potrebbe essere necessario eseguire l'autenticazione con un servizio di database. Se un'applicazione o un servizio dispone di più istanze, ad esempio una server farm Web, la creazione e la configurazione manuale delle identità per tali risorse richiede molto tempo.
 
-È invece possibile creare un account del servizio gestito del gruppo (gMSA) nel dominio gestito Azure Active Directory Domain Services (Azure AD DS). Il sistema operativo Windows gestisce automaticamente le credenziali per un gMSA, semplificando la gestione di gruppi di risorse di grandi dimensioni.
+È invece possibile creare un account del servizio gestito di gruppo (gMSA) nel dominio gestito Servizi di dominio Azure Active Directory (Azure AD DS). Il sistema operativo Windows gestisce automaticamente le credenziali per un gMSA, semplificando la gestione di grandi gruppi di risorse.
 
-Questo articolo illustra come creare un gMSA in un dominio gestito Azure AD DS usando Azure PowerShell.
+Questo articolo illustra come creare un gMSA in un dominio gestito di Servizi di dominio Active Directory di Azure usando Azure PowerShell.This article shows you how to create a gMSA in an Azure AD DS managed domain using Azure PowerShell.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Per completare questo articolo, sono necessari i privilegi e le risorse seguenti:
+Per completare questo articolo, sono necessarie le risorse e i privilegi seguenti:To complete this article, you need the following resources and privileges:
 
 * Una sottoscrizione di Azure attiva.
     * Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un tenant di Azure Active Directory associato alla sottoscrizione, sincronizzato con una directory locale o con una directory solo cloud.
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
 * Un dominio gestito di Azure Active Directory Domain Services abilitato e configurato nel tenant di Azure AD.
-    * Se necessario, completare l'esercitazione per [creare e configurare un'istanza di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-* Una macchina virtuale di gestione di Windows Server aggiunta al dominio gestito di Azure AD DS.
-    * Se necessario, completare l'esercitazione per [creare una macchina virtuale di gestione][tutorial-create-management-vm].
+    * Se necessario, completare l'esercitazione per [creare e configurare un'istanza][create-azure-ad-ds-instance]di Servizi di dominio Azure Active Directory.
+* Una macchina virtuale di gestione di Windows Server aggiunta al dominio gestito di Servizi di dominio Active Directory di Azure.A Windows Server management VM that is joined to the Azure AD DS managed domain.
+    * Se necessario, completare l'esercitazione per creare una macchina virtuale di [gestione.][tutorial-create-management-vm]
 
-## <a name="managed-service-accounts-overview"></a>Panoramica degli account del servizio gestiti
+## <a name="managed-service-accounts-overview"></a>Panoramica degli account del servizio gestito
 
 Un account del servizio gestito autonomo (sMSA) è un account di dominio la cui password viene gestita automaticamente. Questo approccio semplifica la gestione del nome dell'entità servizio (SPN) e consente la gestione delegata ad altri amministratori. Non è necessario creare e ruotare manualmente le credenziali per l'account.
 
-Un account del servizio gestito del gruppo (gMSA) offre la stessa semplificazione della gestione, ma per più server nel dominio. Un gMSA consente a tutte le istanze di un servizio ospitato in un server farm di usare la stessa entità servizio per il funzionamento dei protocolli di autenticazione reciproca. Quando un gMSA viene usato come entità servizio, il sistema operativo Windows gestisce nuovamente la password dell'account anziché affidarsi all'amministratore.
+Un account del servizio gestito di gruppo (gMSA) fornisce la stessa semplificazione di gestione, ma per più server nel dominio. Un account gMSA consente a tutte le istanze di un servizio ospitato in una server farm di utilizzare la stessa entità servizio per il funzionamento dei protocolli di autenticazione reciproca. Quando un gMSA viene usato come entità servizio, il sistema operativo Windows gestisce nuovamente la password dell'account anziché affidarsi all'amministratore.
 
-Per ulteriori informazioni, vedere [Panoramica degli account del servizio gestito del gruppo (gMSA)][gmsa-overview].
+Per ulteriori informazioni, vedere Panoramica degli account di servizio gestiti di [gruppo (gMSA).][gmsa-overview]
 
-## <a name="using-service-accounts-in-azure-ad-ds"></a>Uso degli account del servizio in Azure AD DS
+## <a name="using-service-accounts-in-azure-ad-ds"></a>Uso di account di servizio in Azure AD DSUsing service accounts in Azure AD DS
 
-Poiché i domini gestiti di Azure AD DS sono bloccati e gestiti da Microsoft, è necessario tenere presenti alcune considerazioni relative all'utilizzo degli account del servizio:
+Poiché i domini gestiti di Servizi di dominio Active Directory di Azure sono bloccati e gestiti da Microsoft, esistono alcune considerazioni quando si usano gli account di servizio:As Azure AD DS managed domains are locked down and managed by Microsoft, there are some considerations when using service accounts:
 
-* Creare account del servizio in unità organizzative (OU) personalizzate nel dominio gestito.
-    * Non è possibile creare un account del servizio nelle ou *Aaddc computers users* o *computer aaddc Computers* predefiniti.
-    * Al contrario, [creare un'unità organizzativa personalizzata][create-custom-ou] nel dominio gestito di Azure AD DS, quindi creare gli account del servizio nell'unità organizzativa personalizzata.
-* La chiave radice di servizi di distribuzione chiavi (KDS) è già creata.
-    * La chiave radice KDS viene utilizzata per generare e recuperare le password per servizi gestiti. In Azure AD DS viene creata automaticamente la radice KDS.
-    * Non si dispone dei privilegi necessari per crearne un altro o visualizzare la chiave radice KDS predefinita.
+* Creare account di servizio in unità organizzative personalizzate nel dominio gestito.
+    * Non è possibile creare un account di servizio nelle applicazioni *AADDC* predefinite o nelle aree di gestione delle varie tà *dipendenti.*
+    * Creare invece [un'unità organizzativa personalizzata][create-custom-ou] nel dominio gestito di Servizi di dominio Active Directory di Azure e quindi creare account di servizio in tale unità organizzativa personalizzata.
+* La chiave radice di Key Distribution Services (KDS) è stata creata in precedenza.
+    * La chiave radice KDS viene utilizzata per generare e recuperare le password per gMSA. In Azure AD DS viene creata automaticamente la radice KDS.In Azure AD DS, the KDS root is created for you.
+    * Non si dispone dei privilegi per crearne un altro o visualizzare la chiave radice KDS predefinita.
 
-## <a name="create-a-gmsa"></a>Creare un gMSA
+## <a name="create-a-gmsa"></a>Creare un account del servizio gestito di gruppo
 
-Per prima cosa, creare un'unità organizzativa personalizzata usando il cmdlet [New-ADOrganizationalUnit][New-AdOrganizationalUnit] . Per altre informazioni sulla creazione e la gestione di unità organizzative personalizzate, vedere [ou personalizzate in Azure AD DS][create-custom-ou].
+Creare innanzitutto un'unità organizzativa personalizzata utilizzando il cmdlet [New-ADOrganizationalUnit.][New-AdOrganizationalUnit] Per altre informazioni sulla creazione e la gestione di aree utente personalizzate, vedere [OSu personalizzate in Azure AD DS.][create-custom-ou]
 
 > [!TIP]
-> Per completare questi passaggi per creare un gMSA, [usare la VM di gestione][tutorial-create-management-vm]. Questa macchina virtuale di gestione deve avere già i cmdlet e la connessione necessari ad PowerShell per il dominio gestito.
+> Per completare questi passaggi per creare un file GMSA, usare la macchina virtuale di [gestione.][tutorial-create-management-vm] Questa macchina virtuale di gestione deve già disporre dei cmdlet di AD PowerShell necessari e della connessione al dominio gestito.
 
-Nell'esempio seguente viene creata una OU personalizzata denominata *myNewOU* nel dominio gestito Azure AD DS denominato *aaddscontoso.com*. Usare la propria unità organizzativa e il nome di dominio gestito:
+Nell'esempio seguente viene creata un'unità organizzativa personalizzata denominata *myNewOU* nel dominio gestito di Servizi di dominio Active Directory di Azure denominato *aaddscontoso.com*. Utilizzare la propria unità organizzativa e il nome di dominio gestito:
 
 ```powershell
 New-ADOrganizationalUnit -Name "myNewOU" -Path "DC=aaddscontoso,DC=COM"
 ```
 
-A questo punto, creare un gMSA con il cmdlet [New-ADServiceAccount][New-ADServiceAccount] . Vengono definiti i parametri di esempio seguenti:
+Creare ora un gMSA utilizzando il cmdlet [New-ADServiceAccount.][New-ADServiceAccount] Vengono definiti i seguenti parametri di esempio:
 
 * **-Name** è impostato su *WebFarmSvc*
 * **-Path** parametro specifica l'unità organizzativa personalizzata per il gMSA creato nel passaggio precedente.
-* Le voci DNS e i nomi dell'entità servizio sono impostati per *WebFarmSvc.aaddscontoso.com*
-* Le entità in *AADDSCONTOSO-server $* possono recuperare la password usando l'identità.
+* Le voci DNS e i nomi delle entità servizio vengono impostati per *WebFarmSvc.aaddscontoso.com*
+* Le entità in *AADDSCONTOSO-SERVER* sono autorizzate a recuperare la password che utilizza l'identità.
 
-Specificare i nomi e i nomi di dominio.
+Specificare i propri nomi e nomi di dominio.
 
 ```powershell
 New-ADServiceAccount -Name WebFarmSvc `
@@ -93,11 +93,11 @@ New-ADServiceAccount -Name WebFarmSvc `
     -PrincipalsAllowedToRetrieveManagedPassword AADDSCONTOSO-SERVER$
 ```
 
-È ora possibile configurare le applicazioni e i servizi per l'uso di gMSA in base alle esigenze.
+Le applicazioni e i servizi possono ora essere configurati per utilizzare il file GMSA in base alle esigenze.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni su servizi gestiti, vedere la pagina relativa all' [Introduzione agli account del servizio gestiti del gruppo][gmsa-start].
+Per ulteriori informazioni sui sistemi di gestione delle risorse di sistema, vedere Introduzione agli account del [servizio gestito di gruppo.][gmsa-start]
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

@@ -1,5 +1,5 @@
 ---
-title: Filtro geografico in un dominio per il servizio front door di Azure
+title: Filtro geografico in un dominio per Azure Front Door Service
 description: Questo articolo fornisce informazioni sui criteri di filtro geografico per il servizio Frontdoor di Azure
 services: web-application-firewall
 author: vhorne
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: 7c49892f97d9c15efcaecccb6133c67133e81c87
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: e287da94a71fccabddb90f3f5a3699f4c4cf22a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79137561"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79472606"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Cos'è il filtro geografico in un dominio per il servizio Frontdoor di Azure?
 
@@ -21,7 +21,7 @@ Per impostazione predefinita, il servizio Frontdoor di Azure risponde alle richi
 
 I criteri WAF includono in genere un set di regole personalizzate. Una regola è costituita da condizioni di corrispondenza, un'azione e una priorità. Nella condizione di corrispondenza si definisce una variabile di corrispondenza, un operatore e un valore di corrispondenza.  Per la regola di filtro geografico, la variabile di corrispondenza è REMOTE_ADDR, l'operatore è GeoMatch e il valore è il codice di due lettere del paese che interessa. È possibile combinare una condizione GeoMatch e una condizione di corrispondenza stringa REQUEST_URI per creare una regola di filtro geografico basato sul percorso.
 
-È possibile configurare un criterio di filtro geografico per la porta anteriore usando il portale di Azure, [Azure PowerShell](waf-front-door-tutorial-geo-filtering.md) o il [modello di avvio rapido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
+È possibile configurare criteri di filtro geografico per il proprio Frontdoor usando [Azure PowerShell](waf-front-door-tutorial-geo-filtering.md) oppure il nostro [modello di avvio rapido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
 ## <a name="country-code-reference"></a>Riferimento per gli indicativi dei paesi
 

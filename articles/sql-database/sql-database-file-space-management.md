@@ -1,5 +1,5 @@
 ---
-title: Gestione spazio file per database singoli o in pool
+title: Gestione dello spazio file di database singolo/in pool
 description: Questa pagina descrive come gestire lo spazio file con database singoli e in pool nel database SQL di Azure e fornisce esempi di codice per determinare se sia necessario compattare un database singolo o in pool e come eseguire un'operazione di compattazione del database.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: 007bbffbd7c4fcad339f88eb78991eb39fb829e6
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74420976"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Gestire lo spazio file per database singoli e in pool nel database SQL di Azure
@@ -25,7 +25,7 @@ Questo articolo descrive i diversi tipi di spazio di archiviazione per database 
 > [!NOTE]
 > Le informazioni di questo articolo non sono valide per l'opzione di distribuzione dell'istanza gestita nel database SQL di Azure.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Con i database singoli e in pool nel database SQL di Azure sono disponibili modelli di carico di lavoro in cui l'allocazione dei file di dati sottostanti per i database può superare la quantità di pagine di dati usate. Questa condizione si può verificare quando lo spazio usato aumenta e i dati vengono successivamente eliminati. Ciò è dovuto al fatto che lo spazio file allocato non viene recuperato automaticamente quando i dati vengono eliminati.
 
@@ -49,7 +49,7 @@ Le API seguenti misurano invece anche le dimensioni dello spazio allocato per i 
 
 ### <a name="shrinking-data-files"></a>Compattazione dei file di dati
 
-Il servizio database SQL non compatta automaticamente i file di dati per recuperare spazio allocato non usato a causa del potenziale impatto sulle prestazioni dei database.  I clienti possono tuttavia compattare i file di dati in modalità self-service quando preferiscono seguendo la procedura illustrata in [Recuperare lo spazio allocato non usato](#reclaim-unused-allocated-space).
+Il servizio database SQL non compatta automaticamente i file di dati per recuperare spazio allocato non usato a causa del potenziale impatto sulle prestazioni dei database.  Tuttavia, i clienti possono compattare i file di dati tramite self-service in un momento di loro scelta seguendo la procedura descritta in recupero dello [spazio allocato inutilizzato](#reclaim-unused-allocated-space).
 
 > [!NOTE]
 > A differenza dei file di dati, il servizio di database SQL compatta automaticamente i file di log, in quanto tale operazione non influisce sulle prestazioni del database.
@@ -140,12 +140,12 @@ ORDER BY end_time DESC
 
 ### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>Spazio di dati del pool elastico allocato e spazio allocato non usato
 
-Modificare gli esempi seguenti per restituire una tabella che elenca lo spazio allocato e lo spazio allocato non usato per ogni database in un pool elastico. La tabella dispone i database in ordine decrescente in base alla quantità di spazio allocato non usato.  L'unità di misura dei risultati di query è costituita da MB.  
+Modificare gli esempi seguenti per restituire una tabella in cui è elencato lo spazio allocato e lo spazio allocato inutilizzato per ogni database in un pool elastico. La tabella dispone i database in ordine decrescente in base alla quantità di spazio allocato non usato.  L'unità di misura dei risultati di query è costituita da MB.  
 
 I risultati delle query per determinare lo spazio allocato per ogni database nel pool possono essere sommati per determinare lo spazio totale allocato per il pool elastico. Lo spazio allocato del pool elastico non deve superare le dimensioni massime del pool elastico.  
 
 > [!IMPORTANT]
-> Il modulo Azure Resource Manager di PowerShell (RM) è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Il modulo AzureRM continuerà a ricevere correzioni di bug fino ad almeno il 2020 dicembre.  Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici. Per altre informazioni sulla compatibilità, vedere [Introduzione al nuovo Azure PowerShell AZ Module](/powershell/azure/new-azureps-module-az).
+> Il modulo Di PowerShell Azure Resource Manager (RM) è ancora supportato dal database SQL di Azure, ma tutto lo sviluppo futuro è per il modulo Az.Sql.The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. Il modulo AzureRM continuerà a ricevere correzioni di bug almeno fino a dicembre 2020.  Gli argomenti per i comandi nel modulo Az e nei moduli di AzureRm sono sostanzialmente identici. Per altre informazioni sulla compatibilità, vedere [Introduzione al nuovo modulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
 
 Lo script di PowerShell richiede il modulo SQL Server PowerShell. Vedere [Scaricare il modulo PowerShell](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) per l'installazione.
 

@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
 ms.openlocfilehash: ab3f596000216e8555bb84d0d47aff9a6e969eeb
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169891"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Esempio: Come analizzare video in tempo reale

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 12/09/2019
-ms.author: maheshb
-ms.openlocfilehash: 88a8cc0dbedeb9398637ab9a02323e9b2a6b8627
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 03/24/2020
+ms.author: aahi
+ms.openlocfilehash: 7ea8b272871e681bd9caacf8cf1a84eb91d8849d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975262"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80238899"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-c"></a>Guida introduttiva: Chiamare l'endpoint di Ricerca personalizzata Bing usando C# 
 
@@ -78,7 +78,7 @@ Usare questo argomento di avvio rapido per iniziare a richiedere risultati della
     var searchTerm = args.Length > 0 ? args[0]:"microsoft";
     ```
 
-4. Creare l'URL della richiesta aggiungendo il termine di ricerca al parametro di query `q=` e l'ID di configurazione personalizzato dell'istanza di ricerca a `customconfig=`. Separare i parametri con un carattere `&`. `url` può essere l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
+4. Creare l'URL della richiesta aggiungendo il termine di ricerca al parametro di query `q=` e l'ID di configurazione personalizzata dell'istanza di ricerca a `customconfig=`. Separare i parametri con un carattere `&`. `url` può essere l'endpoint globale seguente o l'endpoint [sottodominio personalizzato](../../cognitive-services/cognitive-services-custom-subdomains.md) visualizzato nel portale di Azure per la risorsa.
 
     ```csharp
     var url = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?" +

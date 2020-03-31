@@ -1,6 +1,6 @@
 ---
-title: Configurare l'accelerazione automatica dell'accesso usando l'individuazione dell'area di autenticazione principale
-description: Informazioni su come configurare i criteri di individuazione dell'area di autenticazione principale per l'autenticazione Azure Active Directory per gli utenti federati, inclusi l'accelerazione automatica e gli hint di dominio.
+title: Configurare l'accelerazione automatica dell'accesso tramite Individuazione area di autenticazione principale
+description: Informazioni su come configurare i criteri di individuazione dell'area di autenticazione dell'area di autenticazione principale per l'autenticazione di Azure Active Directory per gli utenti federati, inclusi l'accelerazione automatica e gli hint di dominio.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,15 +16,15 @@ ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60bfc964ffc394b3f79c9d279158003f383b7331
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78943434"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurare i comportamenti delle informazioni di accesso di Azure Active Directory per un'applicazione usando criteri di individuazione dell'area di autenticazione principale
 
-Questo articolo fornisce un'introduzione alla configurazione di Azure Active Directory comportamento di autenticazione per gli utenti federati. Viene illustrata la configurazione delle restrizioni di accelerazione automatica e di autenticazione per gli utenti di domini federati.
+Questo articolo fornisce un'introduzione alla configurazione del comportamento di autenticazione di Azure Active Directory per gli utenti federati. Viene illustrata la configurazione delle restrizioni di accelerazione automatica e di autenticazione per gli utenti di domini federati.
 
 ## <a name="home-realm-discovery"></a>Individuazione dell'area di autenticazione principale
 L'individuazione dell'area di autenticazione principale (HRD) è il processo che consente ad Azure Active Directory (Azure AD) di determinare, al momento dell'accesso, dove deve eseguire l'autenticazione l'utente.  Quando un utente effettua l'accesso a un tenant di Azure AD per accedere a una risorsa, o nella pagina di accesso comune di Azure AD, l'utente digita un nome utente (UPN). Azure AD lo usa per individuare dove l'utente deve effettuare l'accesso. 
@@ -100,7 +100,7 @@ I criteri diventano effettivi per una specifica applicazione solo quando sono co
 
 Un solo criterio HRD può essere attivo in un'entità servizio in qualsiasi momento.  
 
-È possibile usare i cmdlet di Azure Active Directory PowerShell per creare e gestire i criteri HRD.
+È possibile usare i cmdlet PowerShell di Azure Active Directory per creare e gestire i criteri HRD.
 
 Di seguito è riportato un esempio di definizione di criteri HRD:
     
@@ -150,7 +150,7 @@ Verrà usato un cmdlet Azure AD PowerShell per esaminare in modo dettagliato alc
 - Elenco delle applicazioni per cui sono configurati i criteri.
 
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerequisiti
 Negli esempi seguenti è possibile creare, aggiornare, collegare ed eliminare criteri su entità servizio di un'applicazione in Azure AD.
 
 1.  Per iniziare, scaricare la versione di anteprima dei cmdlet Azure AD PowerShell più recente. 
@@ -209,7 +209,7 @@ Per eseguire i criteri HRD dopo la rispettiva creazione, è possibile assegnarli
 
 È possibile usare il portale oppure è possibile eseguire una query [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta). Per visualizzare tutte le entità servizio dell'organizzazione, è inoltre possibile passare allo [strumento Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) e accedere all'account Azure AD. 
 
-Poiché si usa PowerShell, è possibile usare il cmdlet seguente per elencare le entità servizio e i relativi ID.
+Poiché si utilizza PowerShell, è possibile utilizzare il cmdlet seguente per elencare le entità servizio e i relativi ID.
 
 ``` powershell
 Get-AzureADServicePrincipal
@@ -268,5 +268,5 @@ Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>Passaggi successivi
 - Per altre informazioni sul funzionamento dell'autenticazione in Azure AD, vedere [Scenari di autenticazione per Azure AD](../develop/authentication-scenarios.md).
-- Per ulteriori informazioni sull'Single Sign-On utente, vedere [Single Sign-on to Applications in Azure Active Directory](what-is-single-sign-on.md).
-- Per una panoramica di tutti i contenuti correlati agli sviluppatori, visitare la [piattaforma Microsoft Identity](../develop/v2-overview.md) .
+- Per altre informazioni sull'accesso Single Sign-On degli utenti, vedere [Single Sign-On to applications in Azure Active Directory](what-is-single-sign-on.md).
+- Visita la [piattaforma di identità Microsoft](../develop/v2-overview.md) per una panoramica di tutti i contenuti correlati agli sviluppatori.

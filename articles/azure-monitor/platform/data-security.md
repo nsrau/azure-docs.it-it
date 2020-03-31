@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2019
-ms.openlocfilehash: 0ac169060f7ba0e58aeb3e36e3af1629b6453fc1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 63d8d8d3701a9adca4bd01e6e061877f5d0bd245
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79274866"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80333353"
 ---
 # <a name="log-analytics-data-security"></a>Sicurezza dei dati di Log Analytics
 Scopo di questo documento è fornire informazioni specifiche per Log Analytics, una funzionalità di Monitoraggio di Azure, che integrino le informazioni disponibili nel [Centro protezione di Azure](../../security/fundamentals/trust-center.md).  
@@ -43,14 +43,14 @@ Non è consigliabile impostare in modo esplicito l'agente perché usi solo il pr
 | --- | --- | --- |
 |Linux | Le distribuzioni Linux si basano generalmente su [OpenSSL](https://www.openssl.org) per supportare TLS 1.2.  | Controllare nel [log delle modifiche di OpenSSL](https://www.openssl.org/news/changelog.html) per assicurarsi che la versione di OpenSSL sia supportata.|
 | Windows 8.0 - 10 | Supportato e abilitato per impostazione predefinita. | Assicurarsi che le [impostazioni predefinite](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) siano ancora in uso.  |
-| Windows Server 2012 - 2016 | Supportato e abilitato per impostazione predefinita. | Assicurarsi che le [impostazioni predefinite](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) siano ancora in uso |
+| Windows Server 2012 - 2016 | Supportato e abilitato per impostazione predefinita. | Per confermare che si sta ancora utilizzando le [impostazioni predefinite](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 SP1 e Windows Server 2008 R2 SP1 | Supportato ma non abilitato per impostazione predefinita. | Vedere la pagina [Transport Layer Security (TLS) registry settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) (Impostazioni del Registro di sistema di Transport Layer Security (TLS)) per informazioni dettagliate su come eseguire l'abilitazione.  |
 
 ## <a name="data-segregation"></a>Separazione dei dati
 Dopo essere stati inseriti nel servizio Log Analytics, i dati vengono mantenuti separati logicamente in ogni componente del servizio. Tutti i dati vengono contrassegnati in base all'area di lavoro. Tale contrassegno persiste per tutto il ciclo di vita dei dati e viene applicato a ogni livello del servizio. I dati sono archiviati in un database dedicato nel cluster di archiviazione nell'area selezionata.
 
 ## <a name="data-retention"></a>Conservazione dei dati
-I dati di ricerca nei log indicizzati vengono archiviati e conservati in base al piano tariffario. Per altre informazioni, vedere [Prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+I dati di ricerca nei log indicizzati vengono archiviati e conservati in base al piano tariffario. Per ulteriori informazioni, vedere [Log Analytics Pricing](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 Microsoft conserva i dati secondo i termini del [contratto di sottoscrizione](https://azure.microsoft.com/support/legal/subscription-agreement/).  L'eliminazione dei dati del cliente non comporta la distruzione delle unità fisiche.  
 
@@ -66,7 +66,7 @@ La tabella seguente elenca alcune delle soluzioni disponibili e propone alcuni e
 
 La tabella seguente mostra esempi di tipi di dati:
 
-| **Tipo di dati** | **Fields** |
+| **Tipo di dati** | **Campi** |
 | --- | --- |
 | Avviso |Alert Name, Alert Description, BaseManagedEntityId, Problem ID, IsMonitorAlert, RuleId, ResolutionState, Priority, Severity, Category, Owner, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
 | Configurazione |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
@@ -136,7 +136,7 @@ Il diagramma seguente mostra un'architettura di sicurezza cloud come flusso di i
 
 ![Immagine relativa alla sicurezza e alla raccolta dati di Log Analytics](./media/data-security/log-analytics-data-security-diagram.png)
 
-## <a name="1-sign-up-for-log-analytics-and-collect-data"></a>1. iscriversi per Log Analytics e raccogliere i dati
+## <a name="1-sign-up-for-log-analytics-and-collect-data"></a>1. Iscriviti a Log Analytics e raccogli dati
 Per permettere all'organizzazione di inviare dati a Log Analytics, configurare un agente Windows o Linux in esecuzione sulle macchine virtuali Azure o sui computer fisici o virtuali nell'ambiente o in un altro provider di servizi cloud.  Se si usa Operations Manager, dal gruppo di gestione configurare l'agente di Operations Manager. Gli utenti (che possono essere utenti singoli o gruppi) creano una o più aree di lavoro di Log Analytics e registrano gli agenti usando uno degli account seguenti:
 
 * [ID aziendale](../../active-directory/fundamentals/sign-up-organization.md)
@@ -150,8 +150,8 @@ Tutte le comunicazioni tra i sistemi connessi e il servizio di Log Analytics son
 
 Ogni tipo di agente raccoglie dati per Log Analytics. Il tipo di dati raccolti dipende dai tipi di soluzioni usati. È possibile visualizzare un riepilogo della raccolta di dati in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](../../azure-monitor/insights/solutions.md). Inoltre, per la maggior parte delle soluzioni sono disponibili altre informazioni dettagliate sulla raccolta. Una soluzione è costituita da un bundle di visualizzazioni, query di ricerca, regole di raccolta dati e logica di elaborazione predefinite. Solo gli amministratori possono usare Log Analytics per importare una soluzione. Dopo l'importazione, la soluzione viene spostata nei server di gestione di Operations Manager (se usati) e quindi negli agenti scelti. Gli agenti raccoglieranno quindi i dati.
 
-## <a name="2-send-data-from-agents"></a>2. inviare dati dagli agenti
-Si registrano tutti i tipi di agente con una chiave di registrazione e viene stabilita una connessione sicura tra l'agente e il servizio Log Analytics usando l'autenticazione basata su certificati e SSL con la porta 443. Log Analytics usa un archivio segreto per generare e gestire le chiavi. Le chiavi private sono soggette a rotazione ogni 90 giorni, vengono archiviate in Azure e sono gestite dalle operazioni di Azure in ottemperanza alle procedure consigliate in materia di conformità e normative.
+## <a name="2-send-data-from-agents"></a>2. Invio dei dati dagli agenti
+Si registrano tutti i tipi di agente con una chiave di registrazione e viene stabilita una connessione sicura tra l'agente e il servizio Log Analytics utilizzando l'autenticazione basata su certificati e TLS con la porta 443. Log Analytics usa un archivio segreto per generare e gestire le chiavi. Le chiavi private sono soggette a rotazione ogni 90 giorni, vengono archiviate in Azure e sono gestite dalle operazioni di Azure in ottemperanza alle procedure consigliate in materia di conformità e normative.
 
 Con Operations Manager, il gruppo di gestione registrato con un'area di lavoro Log Analytics stabilisce una connessione HTTPS protetta con un server di gestione di Operations Manager.
 
@@ -161,14 +161,14 @@ Per ogni agente che invia report a un gruppo di gestione di Operations Manager i
 
 I dati memorizzati nella cache dell'agente del server di gestione o Windows sono protetti dall'archivio credenziali del sistema operativo. Se il servizio non può elaborare i dati dopo due ore, i dati vengono accodati dagli agenti. Se la coda si riempie, l'agente inizia a eliminare i tipi di dati, a partire dai dati sulle prestazioni. Il limite delle code agente è una chiave di registro modificabile quando necessario. I dati raccolti vengono compressi e inviati al servizio ignorando i database dei gruppi di gestione di Operations Manager, che in questo modo non vengono sovraccaricati. Dopo l'invio, i dati raccolti vengono rimossi dalla cache.
 
-Come descritto sopra, i dati provenienti dal server di gestione o dagli agenti connessi direttamente vengono inviati tramite SSL ai data center di Microsoft Azure. Facoltativamente, è possibile usare ExpressRoute per proteggere ulteriormente i dati. ExpressRoute è un modo per connettersi direttamente ad Azure da una rete WAN esistente, ad esempio una rete VPN MPLS (multi-protocol label switching), fornita da un provider di servizi di rete. Per altre informazioni, vedere [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+Come descritto in precedenza, i dati dal server di gestione o dagli agenti connessi direttamente vengono inviati tramite TLS ai data center di Microsoft Azure.As described above, data from the management server or direct-connected agents is sent over TLS to Microsoft Azure datacenters. Facoltativamente, è possibile usare ExpressRoute per proteggere ulteriormente i dati. ExpressRoute è un modo per connettersi direttamente ad Azure da una rete WAN esistente, ad esempio una rete VPN MPLS (multi-protocol label switching), fornita da un provider di servizi di rete. Per altre informazioni, vedere [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
-## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. il servizio Log Analytics riceve ed elabora i dati
+## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. Il servizio Log Analytics riceve ed elabora i dati
 Per garantire che i dati in arrivo provengano da un'origine attendibile, il servizio Log Analytics convalida i certificati e l'integrità dei dati con l'autenticazione di Azure. I dati non elaborati vengono quindi archiviati in un Hub di eventi di Azure nell'area in cui verranno infine archiviati i dati inattivi. Il tipo dei dati archiviati dipende dai tipi di soluzioni importati e usati per raccogliere i dati. Successivamente, il servizio Log Analytics elabora i dati non elaborati e li inserisce nel database.
 
-Il periodo di conservazione dei dati raccolti archiviati nel database varia a seconda del piano tariffario selezionato. Per il livello *gratuito*, i dati raccolti sono disponibili per sette giorni. Per il livello *a pagamento*, i dati raccolti sono disponibili per 31 giorni per impostazione predefinita, ma è possibile estendere il periodo a 730 giorni. I dati vengono archiviati in modalità crittografata quando sono inattivi in Archiviazione di Azure, per garantirne la riservatezza, e vengono replicati all'interno dell'area locale mediante archiviazione con ridondanza locale (LRS). Le ultime due settimane di dati vengono archiviate anche nella cache basata su SSD e questa cache è crittografata.
+Il periodo di conservazione dei dati raccolti archiviati nel database varia a seconda del piano tariffario selezionato. Per il livello *gratuito*, i dati raccolti sono disponibili per sette giorni. Per il livello *a pagamento*, i dati raccolti sono disponibili per 31 giorni per impostazione predefinita, ma è possibile estendere il periodo a 730 giorni. I dati vengono archiviati in modalità crittografata quando sono inattivi in Archiviazione di Azure, per garantirne la riservatezza, e vengono replicati all'interno dell'area locale mediante archiviazione con ridondanza locale (LRS). Le ultime due settimane di dati vengono archiviate anche nella cache basata su SSD e questa cache viene crittografata.
 
-## <a name="4-use-log-analytics-to-access-the-data"></a>4. utilizzare Log Analytics per accedere ai dati
+## <a name="4-use-log-analytics-to-access-the-data"></a>4. Utilizzare Log Analytics per accedere ai dati
 Per accedere all'area di lavoro Log Analytics, accedere al portale di Azure usando l'account aziendale o l'account Microsoft configurato prima. Tutto il traffico tra il portale e il servizio Log Analytics viene inviato tramite un canale HTTPS sicuro. Quando si usa il portale, viene generato un ID di sessione nel client utente (Web browser) e i dati vengono archiviati in una cache locale fino al termine della sessione. Dopodiché, la cache viene svuotata. I cookie sul lato client, che non contengono informazioni personali, non vengono rimossi automaticamente. I cookie di sessione sono protetti e contrassegnati HTTPOnly. Dopo un periodo di inattività prestabilito, la sessione del portale di Azure termina.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,5 +1,5 @@
 ---
-title: Connettività del servizio della soluzione Monitoraggio prestazioni rete-Azure Log Analytics
+title: Connettività del servizio di monitoraggio delle prestazioni di rete - Analisi dei log di AzureNetwork Performance Monitor solution Service Connectivity - Azure Log Analytics
 description: Usare la funzionalità Monitoraggio connettività servizio in Monitoraggio prestazioni rete per monitorare la connettività di rete a qualsiasi endpoint con una porta TCP aperta.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
 ms.openlocfilehash: 93f3820b7cf1db85b9ff4cd514fe22efc75a90d9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249243"
 ---
 # <a name="service-connectivity-monitor"></a>Monitoraggio connettività servizio
@@ -30,7 +30,7 @@ Con Monitoraggio connettività servizio è possibile eseguire le funzioni seguen
 
 
 ## <a name="configuration"></a>Configurazione 
-Per aprire la configurazione per Monitoraggio prestazioni rete, aprire la [soluzione Monitoraggio prestazioni rete](network-performance-monitor.md) e selezionare **Configura**.
+Per aprire la configurazione di Monitoraggio prestazioni rete, aprire la [soluzione Monitoraggio prestazioni rete](network-performance-monitor.md) e selezionare **Configura**.
 
 ![Configurare Monitoraggio prestazioni rete](media/network-performance-monitor-service-endpoint/npm-configure-button.png)
 
@@ -57,12 +57,12 @@ Iniziare a creare i test per monitorare la connettività di rete agli endpoint d
 
     * Selezionare **Web** per monitorare la connettività a un servizio che risponde a richieste HTTP/S, ad esempio outlook.office365.com o bing.com.<br>
     * Selezionare **Rete** per monitorare la connettività a un servizio che risponde a una richiesta TCP, ma non risponde a richieste HTTP/S, ad esempio un server SQL, un server FTP o una porta SSH. 
-    * Ad esempio: per creare un test Web in un account di archiviazione BLOB, selezionare **Web** e immettere target come *yourstorageaccount*. blob.Core.Windows.NET. Analogamente, è possibile creare test per altre archiviazioni di tabelle, archiviazione code e File di Azure usando [questo collegamento.](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
+    * Ad esempio: per creare un test Web in un account di archiviazione BLOB, selezionare **Web** e immettere target come *accountdiarchiviazione*.blob.core.windows.net. Analogamente, è possibile creare test per altri dati di archiviazione tabelle, archiviazione delle code e file di Azure usando [questo collegamento.](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
 4. Se non si vuole eseguire misure di rete, ad esempio latenza di rete, perdita di pacchetti e individuazione della topologia, deselezionare la casella di controllo **Esegui misure di rete**. Per sfruttare al meglio la funzionalità, lasciare questa opzione selezionata. 
 5. In **Destinazione** immettere l'indirizzo URL/FQDN/IP per cui si vuole monitorare la connettività di rete.
 6. In **Numero di porta** immettere il numero di porta del servizio di destinazione. 
 7. In **Frequenza test** immettere un valore per la frequenza con cui si vuole eseguire il test. 
-8. Selezionare i nodi da cui si vuole monitorare la connettività della rete al servizio. Verificare che il numero di agenti aggiunto per test sia inferiore a 150. Qualsiasi agente può testare il numero massimo di agenti/endpoint 150.
+8. Selezionare i nodi da cui si vuole monitorare la connettività della rete al servizio. Assicurarsi che il numero di agenti aggiunti per test sia inferiore a 150.Ensure that the number of agents added per test is less than 150. Qualsiasi agente può testare un massimo di 150 endpoint/agenti.
 
     >[!NOTE]
     > Per i nodi basati su server Windows, la funzionalità usa richieste basate su TCP per eseguire le misure di rete. Per i nodi basati su client Windows, la funzionalità usa richieste basate su ICMP per eseguire le misure di rete. In alcuni casi, l'applicazione di destinazione blocca le richieste basate su ICMP in ingresso quando i nodi sono basati su client Windows. In questo caso, la soluzione non riesce a eseguire le misure di rete. In tali casi è consigliabile usare nodi basati su server Windows. 
@@ -121,16 +121,16 @@ Se si osserva un'anomalia, seguire questa procedura:
 
 * Se l'esecuzione dell'applicazione risulta rallentata, determinare se le prestazioni dell'applicazione non soddisfacenti sono dovute alla rete o a qualche problema da parte del provider dell'applicazione.
 
-## <a name="gcc-office-urls-for-us-government-customers"></a>URL di Office GCC per i clienti del governo degli Stati Uniti
-Per l'area Virginia del governo degli Stati Uniti, solo gli URL DOD sono incorporati in NPM. I clienti che usano gli URL GCC devono creare test personalizzati e aggiungere ogni URL singolarmente.
+## <a name="gcc-office-urls-for-us-government-customers"></a>URL dell'ufficio GCC per i clienti del governo degli Stati Uniti
+Per la regione Virginia del governo degli Stati Uniti, solo gli URL DOD sono NPM incorporati. I clienti che utilizzano gli URL GCC devono creare test personalizzati e aggiungere ogni URL singolarmente.
 
 | Campo | GCC |
 |:---   |:--- |
 | Portale di Office 365 e condiviso | portal.apps.mil |
-| Autenticazione e identità di Office 365 | * login.microsoftonline.us <br> * api.login.microsoftonline.com <br> * clientconfig.microsoftonline-p.net <br> * login.microsoftonline.com <br> * login.microsoftonline-p.com <br> * login.windows.net <br> * loginex.microsoftonline.com <br> * login-us.microsoftonline.com <br> * nexus.microsoftonline-p.com <br> * mscrl.microsoft.com <br> * secure.aadcdn.microsoftonline-p.com |
-| Office Online | * adminwebservice.gov.us.microsoftonline.com <br>  * adminwebservice-s1-bn1a.microsoftonline.com <br> * adminwebservice-s1-dm2a.microsoftonline.com <br> * becws.gov.us.microsoftonline.com <br> * provisioningapi.gov.us.microsoftonline.com <br> * officehome.msocdn.us <br> * prod.msocdn.us <br> * portal.office365.us <br> * webshell.suite.office365.us <br> * www. office365.us <br> * activation.sls.microsoft.com <br> * crl.microsoft.com <br> * go.microsoft.com <br> * insertmedia.bing.office.net <br> * ocsa.officeapps.live.com <br> * ocsredir.officeapps.live.com <br> * ocws.officeapps.live.com <br> * office15client.microsoft.com <br>* officecdn.microsoft.com <br> * officecdn.microsoft.com.edgesuite.net <br> * officepreviewredir.microsoft.com <br> * officeredir.microsoft.com <br> * ols.officeapps.live.com  <br> * r.office.microsoft.com <br> * cdn.odc.officeapps.live.com <br> * odc.officeapps.live.com <br> * officeclient.microsoft.com |
-| Exchange Online | * outlook.office365.us <br> * attachments.office365-net.us <br> * autodiscover-s.office365.us <br> * manage.office365.us <br> * scc.office365.us |
-| Microsoft Teams | gov.teams.microsoft.us | 
+| Autenticazione e identità di Office 365 | Login.microsoftonline.us di lavoro <br> Api.login.microsoftonline.com <br> La clientconfig.microsoftonline-p.net <br> - login.microsoftonline.com <br> - login.microsoftonline-p.com <br> Login.windows.net <br> Loginex.microsoftonline.com <br> Login-us.microsoftonline.com del tipo <br> - nexus.microsoftonline-p.com <br> Mscrl.microsoft.com <br> Secure.aadcdn.microsoftonline-p.com |
+| Office Online | La adminwebservice.gov.us.microsoftonline.com <br>  - adminwebservice-s1-bn1a.microsoftonline.com <br> - adminwebservice-s1-dm2a.microsoftonline.com <br> - becws.gov.us.microsoftonline.com <br> - provisioningapi.gov.us.microsoftonline.com <br> La officehome.msocdn.us <br> Prod.msocdn.us <br> portal.office365.us <br> - webshell.suite.office365.us <br> www .office365.us <br> Activation.sls.microsoft.com activation.sls.microsoft.com <br> - crl.microsoft.com <br> Go.microsoft.com <br> Insertmedia.bing.office.net <br> ocsa.officeapps.live.com <br> - ocsredir.officeapps.live.com <br> Ocws.officeapps.live.com <br> Office15client.microsoft.com <br>Officecdn.microsoft.com <br> Officecdn.microsoft.com.edgesuite.net <br> - officepreviewredir.microsoft.com <br> Officeredir.microsoft.com <br> - ols.officeapps.live.com  <br> - r.office.microsoft.com <br> - cdn.odc.officeapps.live.com <br> - odc.officeapps.live.com <br> Officeclient.microsoft.com di lavoro |
+| Exchange Online | Outlook.office365.us <br> attachments.office365-net.us di lavoro <br> - autodiscover-s.office365.us <br> - manage.office365.us <br> - scc.office365.us |
+| Team MS | gov.teams.microsoft.us | 
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Effettuare una ricerca nei log](../../azure-monitor/log-query/log-query-overview.md) per visualizzare i record dettagliati dei dati delle prestazioni di rete.

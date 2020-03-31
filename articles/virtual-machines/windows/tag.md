@@ -1,5 +1,5 @@
 ---
-title: Come contrassegnare una risorsa VM Windows in Azure
+title: Come contrassegnare una risorsa di macchina virtuale Windows in AzureHow to tag a Windows VM resource in Azure
 description: Informazioni sull’assegnazione di tag a una macchina virtuale Windows creata in Azure con il modello di distribuzione di Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
 ms.openlocfilehash: b646b1a14d6cedcafa662192229daa570a0d2441
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616435"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Come assegnare un tag a una macchina virtuale Windows in Azure
@@ -27,7 +27,7 @@ Questo articolo descrive diversi modi per contrassegnare una macchina virtuale W
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
 ## <a name="tagging-with-powershell"></a>Assegnazione di tag tramite PowerShell
-Per creare, aggiungere ed eliminare i tag tramite PowerShell, è prima necessario configurare l’ [ambiente PowerShell con Gestione risorse di Azure][PowerShell environment with Azure Resource Manager]. Dopo aver completato l'installazione, è possibile inserire tag su risorse di calcolo, rete e archiviazione al momento della creazione o dopo la creazione della risorsa tramite PowerShell. Questo articolo si concentrerà su come visualizzare o modificare tag inseriti nelle macchine virtuali.
+Per creare, aggiungere ed eliminare i tag tramite PowerShell, è prima necessario configurare l'[ambiente PowerShell con Azure Resource Manager][PowerShell environment with Azure Resource Manager]. Dopo aver completato l'installazione, è possibile inserire tag su risorse di calcolo, rete e archiviazione al momento della creazione o dopo la creazione della risorsa tramite PowerShell. Questo articolo si concentrerà su come visualizzare o modificare tag inseriti nelle macchine virtuali.
 
  
 
@@ -63,7 +63,7 @@ Il secondo comando consente di visualizzare i tag per la variabile specificata.
     Environment   Production
 ```
 
-Il terzo comando aggiunge un altro tag alla variabile *$tags* . Si noti l'uso di **+=** per aggiungere la nuova coppia chiave/valore all'elenco *$tags* .
+Il terzo comando aggiunge un altro tag alla variabile *$tags* . Si noti **+=** l'utilizzo di per aggiungere la nuova coppia chiave/valore all'elenco *$tags.*
 
         PS C:\> $tags += @{Location="MyLocation"}
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
 ms.openlocfilehash: 40abd048b047bbece79b7c05d36a1fb189a4f28d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77656926"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di configurazione e gestione per Servizi cloud di Azure: domande frequenti
@@ -33,17 +33,17 @@ Questo articolo include le domande frequenti relative ai problemi di configurazi
 - [Perché la catena di certificati del certificato SSL del servizio cloud non è completa?](#why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete)
 - [Qual è lo scopo del certificato di crittografia degli strumenti di Microsoft Azure per le estensioni?](#what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions)
 - [Come è possibile generare una richiesta di firma del certificato senza usare RPD per l'istanza?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
-- [Il certificato di gestione dei servizi cloud sta per scadere. Come rinnovarla?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
+- [Il certificato di gestione del servizio cloud sta per scadere. Come rinnovarlo?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
 - [Come è possibile automatizzare l'installazione del certificato SSL principale (con estensione pfx) e del certificato intermedio (con estensione p7b)?](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
 - [Qual è lo scopo del certificato "Microsoft Azure Service Management for MachineKey"?](#what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate)
 
 **Monitoraggio e registrazione**
 
-- [Quali sono le funzionalità future del servizio cloud nel portale di Azure che consentono la gestione e il monitoraggio delle applicazioni?](#what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications)
+- [Quali sono le prossime funzionalità del servizio cloud nel portale di Azure che consentono di gestire e monitorare le applicazioni?](#what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications)
 - [Perché IIS smette di scrivere nella directory dei log?](#why-does-iis-stop-writing-to-the-log-directory)
 - [Come si abilita la registrazione di Diagnostica di Microsoft Azure per Servizi cloud?](#how-do-i-enable-wad-logging-for-cloud-services)
 
-**Network configuration**
+**Configurazione di rete**
 
 - [Come si imposta il timeout di inattività per Azure Load Balancer?](#how-do-i-set-the-idle-timeout-for-azure-load-balancer)
 - [Come si associa un indirizzo IP statico a un servizio cloud?](#how-do-i-associate-a-static-ip-address-to-my-cloud-service)
@@ -53,24 +53,24 @@ Questo articolo include le domande frequenti relative ai problemi di configurazi
 **Autorizzazioni**
 
 - [I tecnici interni Microsoft possono usare desktop remoto per le istanze dei servizi cloud senza autorizzazione?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
-- [Non è possibile usare desktop remoto per la macchina virtuale del servizio cloud tramite il file RDP. Si è verificato l'errore seguente: si è verificato un errore di autenticazione (codice: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
+- [Non è possibile eseguire il collegamento remoto da desktop a VM del servizio cloud utilizzando il file RDP. Viene visualizzato il seguente errore: Si è verificato un errore di autenticazione (codice: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
 
 **Ridimensionamento**
 
 - [Impossibile eseguire la scalabilità per un numero di istanze superiore a X](#i-cannot-scale-beyond-x-instances)
 - [Come è possibile configurare la scalabilità automatica in base alle metriche di memoria?](#how-can-i-configure-auto-scale-based-on-memory-metrics)
 
-**Domande generiche**
+**Generico**
 
 - [Come si aggiunge "nosniff" al sito Web?](#how-do-i-add-nosniff-to-my-website)
 - [Come si personalizza IIS per un ruolo Web?](#how-do-i-customize-iis-for-a-web-role)
 - [Qual è il limite di quota per il servizio cloud?](#what-is-the-quota-limit-for-my-cloud-service)
 - [Perché l'unità della macchina virtuale del servizio cloud ha pochissimo spazio libero su disco?](#why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space)
-- [Come è possibile aggiungere un'estensione antimalware per Servizi cloud in modo automatico?](#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
+- [Come è possibile aggiungere un'estensione Antimalware per Servizi cloud in modo automatico?](#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
 - [Come è possibile abilitare Indicazione nome server (SNI) per Servizi cloud?](#how-to-enable-server-name-indication-sni-for-cloud-services)
 - [Come è possibile aggiungere tag al servizio cloud di Azure?](#how-can-i-add-tags-to-my-azure-cloud-service)
-- [Il portale di Azure non Visualizza la versione dell'SDK del servizio cloud. Come posso ottenerla?](#the-azure-portal-doesnt-display-the-sdk-version-of-my-cloud-service-how-can-i-get-that)
-- [Desidero arrestare il servizio cloud per diversi mesi. Come ridurre i costi di fatturazione del servizio cloud senza perdere l'indirizzo IP?](#i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address)
+- [Il portale di Azure non visualizza la versione SDK del servizio cloud. Come posso ottenerlo?](#the-azure-portal-doesnt-display-the-sdk-version-of-my-cloud-service-how-can-i-get-that)
+- [Voglio chiudere il servizio cloud per diversi mesi. Come ridurre i costi di fatturazione del servizio cloud senza perdere l'indirizzo IP?](#i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address)
 
 
 ## <a name="certificates"></a>Certificati
@@ -91,7 +91,7 @@ Per indicazioni, vedere il documento seguente:
 
 [Obtaining a certificate for use with Windows Azure Web Sites (WAWS)](https://azure.microsoft.com/blog/obtaining-a-certificate-for-use-with-windows-azure-web-sites-waws/) (Ottenere un certificato per l'uso con Siti Web di Azure)
 
-La richiesta di firma del certificato è semplicemente un file di testo. Non è necessario che tale file venga creato dal computer in cui il certificato verrà usato. Sebbene questo documento sia scritto per un servizio app, la creazione di CSR è generica e si applica anche ai servizi cloud.
+La richiesta di firma del certificato è semplicemente un file di testo. Non è necessario che tale file venga creato dal computer in cui il certificato verrà usato.Anche se questo documento è scritto per un servizio app, la creazione della richiesta di firma del certificato è generica e si applica anche a Servizi cloud.
 
 ### <a name="my-cloud-service-management-certificate-is-expiring-how-to-renew-it"></a>Qual è la procedura per rinnovare il certificato di gestione del servizio cloud in scadenza?
 
@@ -109,10 +109,10 @@ La richiesta di firma del certificato è semplicemente un file di testo. Non è 
 
 ### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>Qual è lo scopo del certificato "Microsoft Azure Service Management for MachineKey"?
 
-Questo certificato viene usato per crittografare le chiavi computer nei ruoli Web di Azure. Per altre informazioni, vedere [questo avviso](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
+Questo certificato viene usato per crittografare le chiavi computer nei ruoli Web di Azure. Per saperne di più, dai un'occhiata a [questo advisory](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
 
 Per altre informazioni, vedere gli articoli seguenti:
-- [Come configurare ed eseguire attività di avvio per un servizio cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
+- [Come configurare ed eseguire attività di avvio per un servizio cloudHow to configure and run startup tasks for a Cloud Service](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
 - [Attività di avvio comuni del servizio cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
 
 ## <a name="monitoring-and-logging"></a>Monitoraggio e registrazione
@@ -131,19 +131,19 @@ Sarà disponibile a breve la possibilità di scegliere BLOB o locale come percor
 Possibilità di monitorare le metriche a livello di istanza. In [Come monitorare i servizi cloud](cloud-services-how-to-monitor.md) sono disponibili funzionalità di monitoraggio aggiuntive.
 
 ### <a name="why-does-iis-stop-writing-to-the-log-directory"></a>Perché IIS smette di scrivere nella directory dei log?
-È stata superata la quota di archiviazione locale per la scrittura nella directory dei log. Per risolvere il problema, è possibile eseguire una delle tre operazioni seguenti:
+È stata superata la quota di archiviazione locale per la scrittura nella directory dei log.Per risolvere il problema, è possibile eseguire una delle tre operazioni seguenti:
 * Abilitare la diagnostica per IIS e spostare periodicamente la diagnostica nell'archiviazione BLOB.
 * Rimuovere manualmente i file di log dalla directory di registrazione.
 * Aumentare il limite di quota per le risorse locali.
 
 Per altre informazioni, vedere i documenti seguenti:
-* [Archiviare e visualizzare i dati di diagnostica in Archiviazione di Azure](/azure/storage/common/storage-introduction)
+* [Archiviare e visualizzare i dati di diagnostica in Archiviazione di AzureStore and view diagnostic data in Azure Storage](/azure/storage/common/storage-introduction)
 * [IIS Logs stop writing in Cloud Service](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/) (I log di IIS non vengono più scritti nel servizio cloud)
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Come si abilita la registrazione di Diagnostica di Microsoft Azure per Servizi cloud?
 È possibile abilitare la registrazione di Diagnostica di Microsoft Azure tramite le opzioni seguenti:
 1. [Abilitare da Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
-2. [Abilita tramite codice .NET](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
+2. [Abilitare tramite codice .NETEnable through .NET code](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
 3. [Abilitare tramite PowerShell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
 
 Per ottenere le impostazioni di Diagnostica di Microsoft Azure corrente del servizio cloud, è possibile usare il comando [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) di PowerShell oppure è possibile visualizzarle tramite il portale dal pannello "Servizi cloud --> Estensioni".
@@ -176,9 +176,9 @@ Per altre informazioni, vedere [New: Configurable Idle Timeout for Azure Load Ba
 Per configurare un indirizzo IP statico, è necessario creare un IP riservato. Questo indirizzo IP riservato può essere associato a un nuovo servizio cloud o a una distribuzione esistente. Vedere i documenti seguenti per informazioni dettagliate:
 * [Come creare un indirizzo IP riservato](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#manage-reserved-vips)
 * [Riservare l'indirizzo IP di un servizio cloud esistente](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
-* [Associare un indirizzo IP riservato a un nuovo servizio cloud](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-new-cloud-service)
+* [Associare un IP riservato a un nuovo servizio cloud](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-new-cloud-service)
 * [Associare un indirizzo IP riservato a una distribuzione in esecuzione](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-running-deployment)
-* [Associare un indirizzo IP riservato a un servizio cloud usando un file cscfg](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
+* [Associare un indirizzo IP riservato a un servizio cloud usando un file di configurazione del servizio](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
 ### <a name="what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides"></a>Quali sono le caratteristiche e le funzionalità fornite dai sistemi di base di rilevamento e prevenzione delle intrusioni e di prevenzione degli attacchi DDoS di Azure?
 Azure offre sistemi di rilevamento e prevenzione delle intrusioni nei server fisici dei data center per consentire la difesa dalle minacce. I clienti possono anche distribuire soluzioni di sicurezza di terze parti, ad esempio web application firewall, firewall di rete, antimalware, sistemi di rilevamento delle intrusioni, sistemi di prevenzione e altro ancora. Per altre informazioni, vedere [Protect your data and assets and comply with global security standards](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity) (Proteggere dati e asset e rispettare gli standard di sicurezza globali).
@@ -208,7 +208,7 @@ Per altre informazioni, vedere:
 Dopo questa operazione è possibile verificare l'abilitazione del protocollo HTTP/2 usando uno dei metodi seguenti:
 
 - Abilitare la versione del protocollo nei log di IIS ed esaminare i log di IIS. HTTP/2 verrà indicato nei log. 
-- Abilitare lo strumento di sviluppo F12 in Internet Explorer o Microsoft Edge e passare alla scheda rete per verificare il protocollo. 
+- Abilitare lo strumento di sviluppo F12 in Internet Explorer o Microsoft Edge e passare alla scheda Rete per verificare il protocollo. 
 
 Per altre informazioni, vedere [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2) (HTTP/2 in IIS).
 
@@ -226,7 +226,7 @@ Microsoft segue un processo rigoroso che non consente ai tecnici interni di usar
 
 ### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Non è possibile usare desktop remoto con la macchina virtuale del servizio cloud tramite il file RDP. Viene visualizzato l'errore seguente: Si è verificato un errore di autenticazione (codice: 0x80004005)
 
-Questo errore può verificarsi se si usa il file RDP da un computer aggiunto ad Azure Active Directory. Per risolvere questo problema, effettuare le operazioni seguenti:
+Questo errore può verificarsi se si usa il file RDP da un computer aggiunto ad Azure Active Directory. Per risolvere il problema, seguire questa procedura:
 
 1. Fare clic con il pulsante destro del mouse sul file RDP scaricato e quindi scegliere **Modifica**.
 2. Aggiungere "&#92;" come prefisso prima del nome utente. Ad esempio, usare **.\nomeutente** invece di **nomeutente**.
@@ -282,7 +282,7 @@ Vedere [Limiti specifici del servizio](../azure-resource-manager/management/azur
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Perché l'unità della macchina virtuale del servizio cloud ha pochissimo spazio libero su disco?
 Questo comportamento è previsto e non dovrebbe causare alcun problema all'applicazione. L'inserimento nel giornale di registrazione è attivato per l'unità %approot% nelle macchine virtuali PaaS di Azure e ciò comporta essenzialmente l'utilizzo del doppio della quantità di spazio normalmente occupata dai file. Ci sono tuttavia alcuni aspetti da considerare che permettono di capire come questo non sia un vero problema.
 
-Le dimensioni dell'unità% AppRoot% vengono calcolate come \<dimensioni di. cspkg + max journal size + un margine di spazio libero > o 1,5 GB, a seconda del valore maggiore. Le dimensioni della VM non sono rilevanti per questo calcolo. Le dimensioni della VM influiscono solo sulle dimensioni del disco C temporaneo. 
+La dimensione dell'unità %approot% viene calcolata come \<dimensione di .cspkg - dimensione massima del giornale di registrazione, ovvero un margine di spazio libero> o 1,5 GB, a seconda di quale sia maggiore. Le dimensioni della VM non sono rilevanti per questo calcolo. Le dimensioni della VM influiscono solo sulle dimensioni del disco C temporaneo. 
 
 La scrittura nell'unità %approot% non è supportata. Se si scrive nella VM di Azure, è necessario farlo in una risorsa LocalStorage temporanea (o in un'altra posizione, ad esempio archiviazione BLOB, File di Azure e così via). La quantità di spazio disponibile nella cartella %approot% non è quindi significativa. Se non si è certi del fatto che l'applicazione scriva nell'unità %approot%, è possibile lasciare il servizio in esecuzione per alcuni giorni e quindi confrontare le dimensioni prima e dopo. 
 
@@ -303,22 +303,22 @@ Per altre informazioni sugli scenari di distribuzione dell'estensione Antimalwar
 
 È possibile abilitare SNI in Servizi cloud usando uno dei metodi seguenti:
 
-**Metodo 1: Usare PowerShell**
+**Metodo 1: utilizzo di PowerShell**
 
-È possibile configurare l'associazione SNI tramite il cmdlet si PowerShell **New-WebBinding** in un'attività di avvio per un'istanza di ruolo del servizio cloud, come indicato di seguito:
+Il binding SNI può essere configurato usando il cmdlet Di PowerShell New-WebBinding in un'attività di avvio per un'istanza del ruolo Servizio cloud come indicato di seguito:The SNI binding can be configured using the PowerShell cmdlet **New-WebBinding** in a startup task for a Cloud Service role instance as below:
     
     New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags 
     
 Come descritto [qui](https://technet.microsoft.com/library/ee790567.aspx), $sslFlags potrebbe assumere uno dei valori seguenti:
 
-|Valore|Significato|
+|valore|Significato|
 ------|------
 |0|Nessuna indicazione nome server|
 |1|Indicazione nome server abilitata|
 |2|Associazione non SNI che usa l'archivio certificati centrale|
 |3|Associazione SNI che usa l'archivio certificati centrale|
  
-**Metodo 2: Usare il codice**
+**Metodo 2: utilizzo del codice**
 
 È possibile configurare l'associazione SNI anche tramite il codice nell'attività di avvio del ruolo, come descritto in questo [post di blog](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/):
 

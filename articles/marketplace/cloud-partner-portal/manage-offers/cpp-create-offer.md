@@ -1,19 +1,18 @@
 ---
-title: Creare offerte del Marketplace | Azure Marketplace
+title: Creazione di offerte Marketplace Azure Marketplace
 description: Creare offerte in Azure Marketplace e nel marketplace di AppSource usando il portale Cloud Partner
-services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: pabutler
-ms.openlocfilehash: 4aa4e154c99f20963485a98d1a21af4ae2b7a1b1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: d14940eff569a80759e9db0bfa2d6d1541a01377
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828104"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286473"
 ---
 # <a name="create-azure-marketplace-and-appsource-offers"></a>Creare offerte di Azure Marketplace e AppSource
 
@@ -34,10 +33,10 @@ Nella barra orizzontale sopra l'area di input dei dati vengono visualizzati i pu
 |   Pulsante    |   Scopo                                                          |
 |   ------    |  --------                                                          |
 | **Salva**    | Salva tutte le modifiche recenti apportate ai dati.  È necessario salvare manualmente le modifiche prima uscire dalla pagina, altrimenti andranno perse. | 
-| **Annulla** | Annulla le modifiche recenti apportate ai dati (dall'ultimo salvataggio).             |
+| **Rimuovi** | Annulla le modifiche recenti apportate ai dati (dall'ultimo salvataggio).             |
 | **Confronta** | Confronta lo stato dell'offerta corrente con l'offerta pubblicata.  Questo pulsante viene abilitato solo dopo la pubblicazione di un'offerta.  |
 | **Pubblica** | Avvia il processo di pubblicazione dell'offerta.                       |
-| **Eliminazione**  | Elimina l'offerta dopo che è stata creata ma prima della pubblicazione. |
+| **Elimina**  | Elimina l'offerta dopo che è stata creata ma prima della pubblicazione. |
 |   |   |
 
 

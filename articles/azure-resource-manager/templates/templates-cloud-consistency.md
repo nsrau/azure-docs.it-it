@@ -1,28 +1,28 @@
 ---
-title: Riutilizza modelli tra cloud
+title: Riutilizzare i modelli tra cloud
 description: Sviluppare modelli di Azure Resource Manager che funzionano in modo coerente per ambienti cloud diversi. È possibile creare nuovi modelli o aggiornare quelli esistenti per Azure Stack.
 author: marcvaneijk
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: fa0df19053c3c238e3c00c46733cb4626dd64072
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: c5095efef5d4bef44993bdd9cd52dbdef17378a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773138"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156107"
 ---
-# <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>I modelli di Azure Resource Manager possono essere sviluppati per la coerenza cloud
+# <a name="develop-arm-templates-for-cloud-consistency"></a>Sviluppare modelli ARM per la coerenza cloudDevelop ARM templates for cloud consistency
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
-Uno dei vantaggi principali di Azure è la coerenza. Gli investimenti per lo sviluppo di una posizione sono riutilizzabili in un'altra. Un modello rende le distribuzioni coerenti e ripetibili in tutti gli ambienti, inclusi i cloud sovrani Azure, Azure e Azure Stack. Per riutilizzare i modelli nei cloud, tuttavia, è necessario considerare le dipendenze specifiche del cloud, come spiega questa guida.
+Uno dei vantaggi principali di Azure è la coerenza. Gli investimenti per lo sviluppo di una posizione sono riutilizzabili in un'altra. Un modello di Azure Resource Manager (ARM) rende le distribuzioni coerenti e ripetibili tra gli ambienti, inclusi i cloud sovrani di Azure, Azure e Azure Stack globali. Per riutilizzare i modelli nei cloud, tuttavia, è necessario considerare le dipendenze specifiche del cloud, come spiega questa guida.
 
 Microsoft offre servizi cloud intelligenti e pronti per l'uso per l'azienda in molte posizioni, tra cui:
 
 * La piattaforma globale Azure supportata dalla rete in crescita dei data center gestiti da Microsoft nelle regioni di tutto il mondo.
-* Cloud sovrani isolati come Azure Germania, Azure per enti pubblici e Azure Cina 21Vianet. I cloud sovrani offrono una piattaforma coerente con molte delle stesse funzionalità a cui i clienti di tutto il mondo Azure hanno accesso.
+* Cloud sovrani isolati come Azure Germania, Azure per enti pubblici e Azure China 21Vianet.Isolated sovereign clouds like Azure Germany, Azure Government, and Azure China 21Vianet. I cloud sovrani offrono una piattaforma coerente con molte delle stesse funzionalità a cui i clienti di tutto il mondo Azure hanno accesso.
 * Azure Stack, piattaforma su cloud ibrido che consente di distribuire i servizi di Azure dal data center dell'organizzazione. Le aziende possono impostare Azure Stack nei propri data center o utilizzare i servizi Azure dei fornitori di servizi, eseguendo Azure Stack nelle proprie strutture (a volte note come aree ospitate).
 
 Alla base di tutti i cloud, Azure Resource Manager fornisce un'API che consente a un'ampia varietà di interfacce utente di comunicare con la piattaforma Azure. Questa API ti offre potenti funzionalità di infrastruttura come codice. Qualsiasi tipo di risorsa disponibile sulla piattaforma cloud Azure può essere distribuito e configurato con Azure Resource Manager. Con un unico modello, è possibile distribuire e configurare l'applicazione completa in uno stato finale operativo.
@@ -33,7 +33,7 @@ La coerenza di Azure globale, dei cloud sovrani, dei cloud ospitati e di una clo
 
 Tuttavia, anche se i cloud globali, sovrani, ospitati e ibridi forniscono servizi coerenti, non tutti i cloud sono identici. Di conseguenza, è possibile creare un modello con dipendenze da funzionalità disponibili solo in un cloud specifico.
 
-Il resto di questa guida descrive le aree da considerare quando si pianifica di sviluppare nuovi modelli di Azure Resource Manager o di aggiornare quelli esistenti per Azure Stack. In generale, la checklist di controllo deve includere quanto segue:
+The rest of this guide describes the areas to consider when planning to develop new or updating existing ARM templates for Azure Stack. In generale, la checklist di controllo deve includere quanto segue:
 
 * Verificare che le funzioni, gli endpoint, i servizi e le altre risorse del modello siano disponibili nelle posizioni di distribuzione di destinazione.
 * Memorizzare modelli annidati e artefatti di configurazione in posizioni accessibili per garantire l'accesso attraverso i cloud.
@@ -41,17 +41,17 @@ Il resto di questa guida descrive le aree da considerare quando si pianifica di 
 * Assicurarsi che i parametri del modello utilizzati lavorino nei cloud di destinazione.
 * Verificare che siano disponibili le proprietà specifiche delle risorse nei cloud di destinazione.
 
-Per un'introduzione ai modelli di Azure Resource Manger, vedere [Distribuzione modelli](overview.md).
+Per un'introduzione ai modelli ARM, vedere [Distribuzione di](overview.md)modelli .
 
 ## <a name="ensure-template-functions-work"></a>Assicurarsi che le funzioni di modello vengano eseguite correttamente
 
-La sintassi di base di un modello di Resource Manager è JSON. I modelli usano un superset di JSON, estendendo la sintassi con espressioni e funzioni. Il processore del linguaggio del modello viene spesso aggiornato per supportare le funzioni di modello aggiuntive. Per una spiegazione dettagliata delle funzioni di modello disponibili, vedere [Funzioni del modello di Gestione risorse di Azure](template-functions.md).
+La sintassi di base di un modello ARM è JSON. I modelli usano un superset di JSON, estendendo la sintassi con espressioni e funzioni. Il processore del linguaggio del modello viene spesso aggiornato per supportare le funzioni di modello aggiuntive. Per una spiegazione dettagliata delle funzioni del modello disponibili, vedere Funzioni del [modello ARM](template-functions.md).
 
 Le nuove funzioni di modello che vengono introdotte in Azure Resource Manager non sono immediatamente disponibili nei cloud sovrani o nello Azure Stack. Per distribuire un modello con successo, tutte le funzioni a cui si fa riferimento nel modello devono essere disponibili nel cloud di destinazione.
 
 Le funzionalità di Azure Resource Manager saranno sempre introdotte prima di tutto in Azure globale. È possibile utilizzare il seguente script PowerShell per verificare se le nuove funzioni dei template sono disponibili anche in Azure Stack:
 
-1. Creare un clone del repository GitHub: [https://github.com/marcvaneijk/arm-template-functions](https://github.com/marcvaneijk/arm-template-functions).
+1. Creare un clone del repository [https://github.com/marcvaneijk/arm-template-functions](https://github.com/marcvaneijk/arm-template-functions)GitHub: .
 
 1. Dopo aver creato un clone locale del repository, connettersi all’Azure Resource Manager della destinazione con PowerShell.
 
@@ -444,7 +444,7 @@ Gli spazi dei nomi degli endpoint possono anche essere utilizzati nell'output di
 In generale, evitare di codificare in modo rigido gli endpoint in un modello. La procedura consigliata consiste nell'utilizzare la funzione di modello di riferimento per recuperare gli endpoint in modo dinamico. Ad esempio, l'endpoint codificato in modo rigido più di frequente è lo spazio dei nomi di endpoint per gli account di archiviazione. Ogni account di archiviazione dispone di un FQDN unico che viene creato concatenando il nome dell'account di archiviazione con lo spazio dei nomi dell'endpoint. Un account di archiviazione BLOB denominato mystorageaccount1 genera FQDN diversi a seconda del cloud:
 
 * **mystorageaccount1.blob.core.windows.net** quando creato nel cloud di Azure globale.
-* **mystorageaccount1.blob.Core.chinacloudapi.cn** quando viene creato nel cloud 21ViaNet di Azure per la Cina.
+* **mystorageaccount1.blob.core.chinacloudapi.cn** quando viene creato nel cloud azure China 21Vianet.Mystorageaccount1.blob.core.chinacloudapi.cn when created in the Azure China 21Vianet cloud.
 
 La seguente funzione del modello di riferimento recupera lo spazio dei nomi degli endpoint dal provider di risorse di memorizzazione:
 
@@ -497,7 +497,7 @@ Questo comando richiede un paio di minuti per restituire tutte le immagini dispo
 
 Se si rendono disponibili queste immagini per macchina virtuale ad Azure Stack, verrà consumato tutto lo spazio di archiviazione disponibile. Per adattarsi anche alle unità di scala più piccole, Azure Stack consente di selezionare le immagini che si desidera aggiungere a un ambiente.
 
-Il seguente esempio di codice mostra un approccio coerente per fare riferimento ai parametri dell’editore, dell'offerta e dello SKU nei modelli di Azure Resource Manager:
+L'esempio di codice seguente mostra un approccio coerente per fare riferimento ai parametri publisher, offer e SKU nei modelli ARM:
 
 ```json
 "storageProfile": {
@@ -651,7 +651,7 @@ Per ottenere un elenco di editori, usare il comando [Get-AzureRmVmImagePublisher
 
 ## <a name="tips-for-testing-and-automation"></a>Suggerimenti per il test e l’automazione
 
-Tenere traccia di tutte le impostazioni, capacità e limitazioni correlate durante la creazione di un modello è una vera sfida. L'approccio comune è sviluppare e testare i modelli in un unico cloud prima di utilizzare altre posizioni come destinazione. Tuttavia, prima vengono eseguiti i test nel processo di creazione, meno problemi ci saranno da risolvere e meno sarà necessario riscrivere il codice da parte del team di sviluppo. Le distribuzioni che non riescono a causa delle dipendenze dalla posizione possono richiedere molto tempo per la risoluzione dei problemi. Ecco perché è consigliabile l'esecuzione di test automatizzati non appena possibile nel ciclo di creazione. In definitiva, sarà necessario meno tempo di sviluppo e meno risorse e gli artefatti coerenti con il cloud diventeranno ancora più importanti.
+Tenere traccia di tutte le impostazioni, capacità e limitazioni correlate durante la creazione di un modello è una vera sfida. L'approccio comune è sviluppare e testare i modelli in un unico cloud prima di utilizzare altre posizioni come destinazione. Tuttavia, prima vengono eseguiti i test nel processo di creazione, meno problemi ci saranno da risolvere e meno sarà necessario riscrivere il codice da parte del team di sviluppo. Le distribuzioni che non riescono a causa delle dipendenze dalla posizione possono richiedere molto tempo per la risoluzione dei problemi. Ecco perché consigliamo di testare automatizzati il prima possibile nel ciclo di creazione. In definitiva, sarà necessario meno tempo di sviluppo e meno risorse e gli artefatti coerenti con il cloud diventeranno ancora più importanti.
 
 L'immagine seguente mostra un esempio tipico di processo di sviluppo per un team che utilizza un ambiente di sviluppo integrato (IDE). In diverse fasi della sequenza temporale, vengono eseguiti diversi tipi di test. In questo caso, due sviluppatori stanno lavorando sulla stessa soluzione, ma questo scenario si applica allo stesso modo a un singolo sviluppatore o a un team di grandi dimensioni. Ogni sviluppatore tipicamente crea una copia locale di un repository centrale, permettendo a ciascuno di lavorare sulla copia locale senza influire sugli altri che possono lavorare sugli stessi file.
 
@@ -668,4 +668,4 @@ Prendere in considerazione i suggerimenti seguenti per il test e l’automazione
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Considerazioni sui modelli di Azure Resource Manager](/azure-stack/user/azure-stack-develop-templates)
-* [Procedure consigliate per i modelli di Azure Resource Manager](template-syntax.md)
+* [Procedure consigliate per i modelli ARM](template-syntax.md)

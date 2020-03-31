@@ -1,6 +1,6 @@
 ---
 title: Endpoint di sicurezza nel servizio Device Provisioning in hub IoT | Microsoft Docs
-description: "Concetti: come controllare l'accesso al servizio Device provisioning (DPS) per le app back-end. Include informazioni sui token di sicurezza."
+description: "Concetti: è possibile controllare l'accesso al servizio DPS (Device Provisioning) IoT per le app back-end. Include informazioni sui token di sicurezza."
 author: wesmc7777
 manager: philmea
 ms.service: iot-dps
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
 ms.openlocfilehash: 2a7e0932d226b1533c039b8529c2c11de06cf525
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79285149"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Controllo dell'accesso al servizio Device Provisioning in hub IoT di Azure
@@ -32,7 +32,7 @@ L'articolo illustra:
 
 Per concedere le [autorizzazioni](#device-provisioning-service-permissions) è possibile procedere nei modi seguenti:
 
-* **Criteri di autorizzazione dell'accesso condiviso**. I criteri di accesso condiviso possono concedere qualsiasi combinazione di [autorizzazioni](#device-provisioning-service-permissions). È possibile definire i criteri nel [portale di Azure][lnk-management-portal]o a livello di codice usando le [API REST del servizio Device provisioning][lnk-resource-provider-apis]. Un servizio di provisioning appena creato ha i criteri predefiniti seguenti:
+* **Criteri**di autorizzazione di accesso condiviso . I criteri di accesso condiviso possono concedere qualsiasi combinazione di [autorizzazioni](#device-provisioning-service-permissions). È possibile definire i criteri nel [portale di Azure][lnk-management-portal] o a livello di codice usando le [API REST del servizio Device Provisioning][lnk-resource-provider-apis]. Un servizio di provisioning appena creato ha i criteri predefiniti seguenti:
 
 * **provisioningserviceowner**: criteri con tutte le autorizzazioni.
 
@@ -44,7 +44,7 @@ Per concedere le [autorizzazioni](#device-provisioning-service-permissions) è p
 Servizio Device Provisioning in hub IoT di Azure concede l'accesso agli endpoint tramite la verifica di un token rispetto ai criteri di accesso condiviso. Le credenziali di sicurezza, ad esempio le chiavi asimmetriche, non vengono mai trasmesse in rete.
 
 > [!NOTE]
-> Il provider di risorse del servizio Device provisioning viene protetto tramite la sottoscrizione di Azure, così come tutti i provider nella [Azure Resource Manager][lnk-azure-resource-manager].
+> Il servizio Device Provisioning viene protetto tramite la sottoscrizione di Azure, analogamente a tutti i provider in [Azure Resource Manager][lnk-azure-resource-manager].
 
 Per altre informazioni sulla creazione e sull'uso di token di sicurezza, vedere la sezione seguente.
 
@@ -57,11 +57,11 @@ SharedAccessSignature sr =
 ```
 
 > [!NOTE]
-> Gli [SDK del servizio Device provisioning di Azure][lnk-sdks] , generano automaticamente i token durante la connessione al servizio.
+> Gli [SDK del servizio Device Provisioning in hub IoT][lnk-sdks] generano automaticamente i token durante la connessione al servizio.
 
 ## <a name="security-tokens"></a>Token di sicurezza
 
-Il servizio Device Provisioning usa i token di sicurezza per autenticare i servizi ed evitare l'invio in rete delle chiavi. Inoltre, i token di sicurezza hanno una validità limitata in termini di tempo e portata. Gli [SDK del servizio Device provisioning di Azure][lnk-sdks] Internet generano automaticamente i token senza richiedere alcuna configurazione speciale. In alcuni scenari è necessario generare e usare direttamente i token di sicurezza. Questi scenari includono l'uso diretto di superfici HTTP.
+Il servizio Device Provisioning usa i token di sicurezza per autenticare i servizi ed evitare l'invio in rete delle chiavi. Inoltre, i token di sicurezza hanno una validità limitata in termini di tempo e portata. Gli [SDK del servizio Device Provisioning in hub IoT][lnk-sdks] generano automaticamente i token senza richiedere una configurazione speciale. In alcuni scenari è necessario generare e usare direttamente i token di sicurezza. Questi scenari includono l'uso diretto di superfici HTTP.
 
 ### <a name="security-token-structure"></a>Formato del token di sicurezza
 

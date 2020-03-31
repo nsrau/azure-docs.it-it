@@ -17,16 +17,16 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: ff5897766bb56b76a34940ecd786773fd844a336
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fa94b93e081ab6334c39b848068f50682f5f1f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683106"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235061"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Instradare il traffico di rete con una tabella di route usando l'interfaccia della riga di comando di Azure
 
-Per impostazione predefinita, Azure instrada automaticamente il traffico tra tutte le subnet di una rete virtuale. È possibile creare le proprie route per eseguire l'override del routing predefinito di Azure. La possibilità di creare route personalizzate è utile se, ad esempio, si vuole indirizzare il traffico tra subnet attraverso un'appliance virtuale di rete. In questo articolo viene spiegato come:
+Per impostazione predefinita, Azure indirizza automaticamente il traffico tra tutte le subnet di una rete virtuale. È possibile creare le proprie route per eseguire l'override del routing predefinito di Azure. La possibilità di creare route personalizzate è utile se, ad esempio, si vuole indirizzare il traffico tra subnet attraverso un'appliance virtuale di rete. In questo articolo vengono illustrate le operazioni seguenti:
 
 * Creare una tabella di route
 * Creare una route
@@ -40,7 +40,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questa guida introduttiva richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questa guida introduttiva richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If](/cli/azure/install-azure-cli)you need to install or upgrade, see Install Azure CLI. 
 
 ## <a name="create-a-route-table"></a>Creare una tabella di route
 
@@ -51,11 +51,11 @@ Prima di poter creare una tabella di route, creare un gruppo di risorse con [az 
 az group create \
   --name myResourceGroup \
   --location eastus
-``` 
+```
 
 Creare una tabella di route con [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create). L'esempio seguente crea una tabella di route denominata *myRouteTablePublic*. 
 
-```azurecli-interactive 
+```azurecli-interactive
 # Create a route table
 az network route-table create \
   --resource-group myResourceGroup \
@@ -74,7 +74,7 @@ az network route-table route create \
   --address-prefix 10.0.1.0/24 \
   --next-hop-type VirtualAppliance \
   --next-hop-ip-address 10.0.2.4
-``` 
+```
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associare una route a una subnet
 
@@ -123,7 +123,7 @@ Un'appliance virtuale di rete è una macchina virtuale che svolge una funzione d
 
 Creare un'appliance virtuale di rete nella subnet *DMZ* con [az vm create](/cli/azure/vm). Quando si crea una macchina virtuale, Azure crea e assegna un indirizzo IP pubblico alla macchina virtuale, per impostazione predefinita. Il parametro `--public-ip-address ""` indica ad Azure di non creare e assegnare un indirizzo IP pubblico alla macchina virtuale, perché non è necessario connettersi alla macchina virtuale da Internet. Il comando crea le chiavi SSH, se non esistono già in una posizione predefinita. Per usare un set specifico di chiavi, utilizzare l'opzione `--ssh-key-value`.
 
-```azure-cli-interactive
+```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
   --name myVmNva \
@@ -155,6 +155,7 @@ az vm extension set \
   --publisher Microsoft.Azure.Extensions \
   --settings '{"commandToExecute":"sudo sysctl -w net.ipv4.ip_forward=1"}'
 ```
+
 L'esecuzione del comando può richiedere fino a un minuto.
 
 ## <a name="create-virtual-machines"></a>Creare macchine virtuali
@@ -192,7 +193,7 @@ az vm create \
 
 La creazione della VM richiede alcuni minuti. Dopo aver creato la macchina virtuale, l'interfaccia della riga di comando di Azure mostra informazioni simili all'esempio seguente: 
 
-```azurecli 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVmPrivate",
@@ -204,13 +205,14 @@ La creazione della VM richiede alcuni minuti. Dopo aver creato la macchina virtu
   "resourceGroup": "myResourceGroup"
 }
 ```
-Prendere nota di **publicIpAddress**. Questo indirizzo viene usato per accedere alla macchina virtuale da Internet in un passaggio successivo.
+
+Prendere nota di **publicIpAddress**. Questo indirizzo viene usato per accedere alla VM da Internet in un passaggio successivo.
 
 ## <a name="route-traffic-through-an-nva"></a>Indirizzare il traffico attraverso un'appliance virtuale di rete
 
-Usare il comando seguente per creare una sessione SSH con la macchina virtuale *myVmPrivate*. Sostituire  *\<publicIpAddress >* con l'indirizzo IP pubblico della macchina virtuale. Nell'esempio precedente l'indirizzo IP è *13.90.242.231*.
+Usare il comando seguente per creare una sessione SSH con la macchina virtuale *myVmPrivate*. Sostituire * \<publicIpAddress>* con l'indirizzo IP pubblico della macchina virtuale. Nell'esempio precedente l'indirizzo IP è *13.90.242.231*.
 
-```bash 
+```bash
 ssh azureuser@<publicIpAddress>
 ```
 
@@ -218,7 +220,7 @@ Quando viene richiesto di immettere una password, specificare la password selezi
 
 Usare il comando seguente per installare il traceroute nella macchina virtuale *myVmPrivate*:
 
-```bash 
+```bash
 sudo apt-get install traceroute
 ```
 
@@ -230,7 +232,7 @@ traceroute myVmPublic
 
 La risposta restituita è simile all'esempio seguente:
 
-```bash
+```output
 traceroute to myVmPublic (10.0.0.4), 30 hops max, 60 byte packets
 1  10.0.0.4 (10.0.0.4)  1.404 ms  1.403 ms  1.398 ms
 ```
@@ -239,13 +241,13 @@ Come si può osservare, il traffico viene indirizzato direttamente dalla macchin
 
 Usare il comando seguente per stabilire una connessione SSH alla macchina virtuale *myVmPublic* dalla macchina virtuale *myVmPrivate*:
 
-```bash 
+```bash
 ssh azureuser@myVmPublic
 ```
 
 Usare il comando seguente per installare il traceroute nella macchina virtuale *myVmPublic*:
 
-```bash 
+```bash
 sudo apt-get install traceroute
 ```
 
@@ -257,11 +259,12 @@ traceroute myVmPrivate
 
 La risposta restituita è simile all'esempio seguente:
 
-```bash
+```output
 traceroute to myVmPrivate (10.0.1.4), 30 hops max, 60 byte packets
 1  10.0.2.4 (10.0.2.4)  0.781 ms  0.780 ms  0.775 ms
 2  10.0.1.4 (10.0.0.4)  1.404 ms  1.403 ms  1.398 ms
 ```
+
 Come si può notare, il primo hop è 10.0.2.4, cioè l'indirizzo IP privato dell'appliance virtuale di rete. Il secondo hop è 10.0.1.4, ossia l'indirizzo IP privato della macchina virtuale *myVmPrivate*. A causa della route aggiunta alla tabella di route *myRouteTablePublic* e associata alla subnet *Public*, Azure ha indirizzato il traffico di Azure attraverso l'appliance virtuale di rete, invece che direttamente alla subnet *Private*.
 
 Chiudere le sessioni SSH a entrambe le macchine virtuali *myVmPublic* e *myVmPrivate*.
@@ -270,7 +273,7 @@ Chiudere le sessioni SSH a entrambe le macchine virtuali *myVmPublic* e *myVmPri
 
 Quando il gruppo di risorse e tutte le risorse in esso contenute non sono più necessari, usare [az group delete](/cli/azure/group) per rimuoverli.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --yes
 ```
 

@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 38f9c432191ac613c1c0f8c02458e8bc4bf8232a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 020208a8b67d248c02fc659d4dc48fa22d333839
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79267547"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298813"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisiti di sistema StorSimple Virtual Array
 
@@ -49,7 +49,7 @@ I requisiti software includono le informazioni su Web browser supportati, versio
 | --- | --- |
 | Numero minimo di processori virtuali (memorie centrali) |4 |
 | Memoria minima (RAM) |8 GB <br> Per un file server, 8 GB per meno di 2 milioni di file e 16 GB per 2 - 4 milioni di file|
-| Spazio su disco<sup>1</sup> |Disco sistema operativo: 80 GB <br></br>Disco dati: da 500 GB a 8 TB |
+| Spazio su disco<sup>1</sup> |Disco sistema operativo: 80 GB  <br></br>Disco dati: da 500 GB a 8 TB |
 | Numero minimo di interfaccia o interfacce di rete |1 |
 | Larghezza di banda Internet <sup>2</sup> |Larghezza di banda minima necessaria: 5 Mbps <br> Larghezza di banda consigliata: 100 Mbps <br> La velocità del trasferimento di dati si adatta in base alla larghezza di banda di Internet. Ad esempio, per trasferire 100 GB di dati a 5 Mbps sono necessari 2 giorni. Questo potrebbe causare degli errori di backup perché i backup giornalieri non vengono completati in un giorno. Con una larghezza di banda di 100 Mbps si possono trasferire 100 GB di dati in 2,5 ore.   |
 
@@ -69,7 +69,7 @@ I seguenti requisiti software si riferiscono agli iniziatori iSCSI che accedono 
 
 | **Sistemi operativi supportati** | **Versione richiesta** | **Requisiti aggiuntivi/note** |
 | --- | --- | --- |
-| Windows Server |2008 R2 SP1, 2012, 2012 R2 |StorSimple consente di creare volumi di thin provisioning o di provisioning completo. Non è in grado di creare volumi con provisioning parziale. I volumi iSCSI StorSimple sono supportati solo nei seguenti casi: <ul><li>Volumi semplici su dischi di base Windows.</li><li>NTFS Windows per la formattazione di un volume.</li> |
+| Windows Server |2008 R2 SP1, 2012, 2012 R2 |StorSimple consente di creare volumi di thin provisioning o di provisioning completo. Non è in grado di creare volumi con provisioning parziale. I volumi iSCSI StorSimple sono supportati solo nei seguenti casi:  <ul><li>Volumi semplici su dischi di base Windows.</li><li>NTFS Windows per la formattazione di un volume.</li> |
 
 I seguenti requisiti software si riferiscono ai client SMB che accedono all'array virtuale StorSimple (configurato come file server).
 
@@ -102,7 +102,7 @@ La tabella seguente elenca le porte che devono essere aperte nel firewall per co
 <sup>1</sup> Nessuna porta in ingresso deve essere aperta sulla rete Internet pubblica.
 
 > [!IMPORTANT]
-> Verificare che il firewall non modifichi o decrittografi il traffico SSL tra il dispositivo StorSimple e Azure.
+> Verificare che il firewall non modifichi o decrittografate il traffico TLS tra il dispositivo StorSimple e Azure.
 > 
 > 
 

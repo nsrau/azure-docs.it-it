@@ -1,6 +1,6 @@
 ---
-title: Concetti relativi ai Lab della classe-Azure Lab Services | Microsoft Docs
-description: Scopri i concetti di base di Lab Services e come può semplificare la creazione e la gestione dei Lab.
+title: Concetti di Classroom Labs - Servizi di laboratorio di Azure Documenti Microsoft
+description: Scopri i concetti di base di Servizi di laboratorio e come può semplificare la creazione e la gestione dei lab.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,35 +14,35 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: spelluru
 ms.openlocfilehash: 15fd3c18d059466c2b2bd5e2431013f393092b4b
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77526230"
 ---
 # <a name="classroom-labs-concepts"></a>Concetti sui lab per le classi
 
-L'elenco seguente contiene i concetti e le definizioni principali dei servizi Lab:
+L'elenco seguente contiene i concetti e le definizioni chiave di Lab Services:
 
 ## <a name="quota"></a>Quota
 
-Quota è il limite di tempo (in ore) che un insegnante può impostare affinché uno studente possa usare una macchina virtuale Lab. Può essere impostato su 0 o su un numero specifico di ore. Se la quota è impostata su 0, uno studente può utilizzare la macchina virtuale solo quando è in esecuzione una pianificazione o quando un insegnante accende manualmente la macchina virtuale per lo studente.  
+La quota è il limite di tempo (in ore) che un insegnante può impostare affinché uno studente usi una macchina virtuale del lab. Può essere impostato su 0 o su un numero specifico di ore. Se la quota è impostata su 0, uno studente può usare la macchina virtuale solo quando è in esecuzione una pianificazione o quando un insegnante attiva manualmente la macchina virtuale per lo studente.  
 
-Le ore di quota vengono conteggiate quando lo studente avvia la macchina virtuale del Lab.  Se un insegnante avvia manualmente la macchina virtuale del Lab per uno studente, le ore di quota non vengono usate per tale studente.
+Le ore di quota vengono conteggiate quando lo studente avvia la macchina virtuale del laboratorio.  Se un insegnante avvia manualmente la macchina virtuale del laboratorio per uno studente, le ore di quota non vengono usate per lo studente.
 
 ## <a name="schedules"></a>Pianificazioni
 
-Le pianificazioni sono gli intervalli di tempo che un insegnante può creare per la classe, in modo che le macchine virtuali degli studenti siano disponibili per il tempo delle classi.  Le pianificazioni possono essere una sola volta o ricorrenti.  Le ore di quota non vengono utilizzate quando si esegue una pianificazione.
+Le pianificazioni sono le fasce orarie che un insegnante può creare per la classe in modo che le macchine virtuali degli studenti siano disponibili per il tempo della lezione.  Le pianificazioni possono essere una tantum o ricorrenti.  Le ore di quota non vengono utilizzate quando è in esecuzione una pianificazione.
 
-Sono disponibili tre tipi di pianificazioni: standard, solo di avvio e di arresto.
+Esistono tre tipi di pianificazioni: Standard, Solo avvio e Solo arresto.
 
-- **Standard**.  Questa pianificazione avvierà tutte le VM studente all'ora di inizio specificata e arresterà tutte le VM studente all'ora di arresto specificata.
-- **Solo avvia**.   Questa pianificazione avvierà tutte le macchine virtuali degli studenti all'ora specificata.  Le macchine virtuali degli studenti non verranno arrestate fino a quando uno studente non arresta la macchina virtuale tramite il portale di Azure Lab Services o si verifica una pianificazione di solo arresto.
-- **Interrompi solo**.  Questa pianificazione arresterà tutte le macchine virtuali degli studenti all'ora specificata.  
+- **Standard**.  Questa pianificazione avvierà tutte le macchine virtuali degli studenti all'ora di inizio specificata e arresterà tutte le macchine virtuali degli studenti all'ora di arresto specificata.
+- **Avvia solo**.   Questa pianificazione avvierà tutte le macchine virtuali degli studenti all'ora specificata.  Le macchine virtuali degli studenti non verranno interrotte finché uno studente non arresta la macchina virtuale tramite il portale di Azure Lab Services o non si verifica una pianificazione di sola interruzione.
+- **Interrompi solo**.  Questa pianificazione interromperà tutte le macchine virtuali degli studenti all'ora specificata.  
 
 ## <a name="template-virtual-machine"></a>Macchina virtuale modello
 
-Una macchina virtuale modello in un Lab è un'immagine di macchina virtuale di base da cui vengono create tutte le macchine virtuali degli utenti. I docenti e i creatori di Lab configurano la macchina virtuale del modello e la configurano con il software che vogliono fornire ai partecipanti di formazione per eseguire laboratori. Quando si pubblica una macchina virtuale modello, Azure Lab Services crea o aggiorna le VM Lab basate sulla macchina virtuale modello.
+Una macchina virtuale modello in un lab è un'immagine di macchina virtuale di base da cui vengono create le macchine virtuali di tutti gli utenti. I creatori di laboratorio configurano la macchina virtuale modello e la configurano con il software che desiderano fornire ai partecipanti alla formazione per eseguire esercitazioni. Quando si pubblica una macchina virtuale modello, Azure Lab Services crea o aggiorna le macchine virtuali lab in base alla macchina virtuale modello.
 
 ## <a name="user-profiles"></a>Profili utente
 
@@ -56,7 +56,7 @@ L'amministratore IT delle risorse cloud aziendali che possiede la sottoscrizione
 - Gestisce e configura i criteri in tutti i lab.
 - Concede le autorizzazioni agli utenti dell'organizzazione per la creazione di un lab all'interno dell'account del lab.
 
-### <a name="professor"></a>Professor
+### <a name="professor"></a>Professore
 
 In genere, gli utenti con il ruolo di docente o trainer online creano i lab per le classi con un account lab. Il docente esegue le attività seguenti:
 

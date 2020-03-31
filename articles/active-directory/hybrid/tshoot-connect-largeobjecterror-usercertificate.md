@@ -18,17 +18,17 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "62095490"
 ---
-# <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Servizio di sincronizzazione Azure AD Connect: gestione degli errori LargeObject causati dall'attributo userCertificate
+# <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Sincronizzazione di Azure AD Connect: gestione degli errori LargeObject causati dall'attributo userCertificate
 
 Azure AD applica un limite massimo di **15** valori del certificato nell'attributo **userCertificate**. Se Azure AD Connect esporta un oggetto con più di 15 valori in Azure AD, Azure AD restituisce un errore **LargeObject** con il messaggio:
 
->*"L'oggetto di cui è stato eseguito il provisioning presenta dimensioni troppo elevate. Ridurre il numero di valori attributo dell'oggetto. L'operazione sarà ritentata durante il successivo ciclo di sincronizzazione...."*
+>*"L'oggetto di cui è stato eseguito il provisioning è troppo grande. Tagliare il numero di valori di attributo su questo oggetto. L'operazione verrà ritentata nel ciclo di sincronizzazione successivo..."*
 
 L'errore LargeObject può essere causato da altri attributi di AD. Per verificare che sia effettivamente causato dall'attributo userCertificate, è necessario confrontarlo con l'oggetto in AD locale o in [Ricerca metaverse di Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-mvsearch).
 
@@ -81,7 +81,7 @@ Verificare che non venga eseguita alcuna sincronizzazione durante l'implementazi
 
 1. Avviare **Synchronization Service Manager** passando ad AVVIA → Servizio di sincronizzazione.
 
-1. Andare nella scheda **Operazioni** e verificare che nessuna operazione presenti lo stato *"in corso"* .
+1. Andare nella scheda **Operazioni** e verificare che nessuna operazione presenti lo stato *"in corso"*.
 
 ### <a name="step-2-find-the-existing-outbound-sync-rule-for-usercertificate-attribute"></a>Passaggio 2. Trovare la regola di sincronizzazione in uscita esistente per l'attributo userCertificate
 Una regola di sincronizzazione esistente dovrebbe essere abilitata e configurata per l'esportazione dell'attributo userCertificate per gli oggetti Utente in Azure AD. Individuare questa regola di sincronizzazione per scoprirne la configurazione **precedente** e il **filtro ambito**:
@@ -90,12 +90,12 @@ Una regola di sincronizzazione esistente dovrebbe essere abilitata e configurata
 
 2. Configurare i filtri della ricerca con i valori seguenti:
 
-    | Attributo | Value |
+    | Attributo | valore |
     | --- | --- |
     | Direction |**Outbound** |
-    | MV Object Type |**Person** |
+    | MV Object Type |**Persona** |
     | Connettore |*nome del connettore Azure AD* |
-    | Connector Object Type |**user** |
+    | Connector Object Type |**Utente** |
     | MV attribute |**userCertificate** |
 
 3. Se si usano le regole di sincronizzazione predefinite in Azure AD Connector per esportare l'attributo userCertficiate per gli oggetti Utente, è necessario ritornare alla regola *"Out to AAD – User ExchangeOnline"* ("Per AAD: utente ExchangeOnline").
@@ -105,7 +105,7 @@ Una regola di sincronizzazione esistente dovrebbe essere abilitata e configurata
 7. Nella schermata di modifica, selezionare la scheda **Scoping filter** (Filtro ambito).
 8. Annotare la configurazione del filtro ambito. Se si usa la regola di sincronizzazione predefinita, devono essere presenti esattamente **un gruppo di filtri ambito contenente due clausole**, tra cui:
 
-    | Attributo | Operator | Value |
+    | Attributo | Operatore | valore |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Utente |
     | cloudMastered | NOTEQUAL | True |
@@ -115,25 +115,25 @@ La nuova regola di sincronizzazione deve avere lo stesso **filtro ambito** e la 
 1. Nell'editor per le regole di sincronizzazione, fare clic sul pulsante **Aggiungi nuova regola**.
 2. Nella **scheda Descrizione**, inserire la configurazione seguente:
 
-    | Attributo | Value | Dettagli |
+    | Attributo | valore | Dettagli |
     | --- | --- | --- |
-    | Name | *Specificare un nome* | Ad esempio *"Per AAD: esegue l'override personalizzato per userCertificate"* |
-    | Descrizione | *Inserire una descrizione* | Ad esempio *"Se l'attributo userCertificate contiene più di 15 valori, esportare NULL".* |
+    | Nome | *Specificare un nome* | Ad esempio *"Per AAD: esegue l'override personalizzato per userCertificate"* |
+    | Descrizione | *Fornire una descrizione* | Ad esempio *"Se l'attributo userCertificate contiene più di 15 valori, esportare NULL".* |
     | Connected System | *Selezionare il connettore di Azure AD* |
-    | Connected System Object Type | **user** | |
-    | Metaverse Object Type | **person** | |
-    | Tipo di collegamento | **Join** | |
+    | Connected System Object Type | **Utente** | |
+    | Metaverse Object Type | **Persona** | |
+    | Tipo di collegamento | **Aggiungi** | |
     | Precedenza | *Scegliere un numero compreso tra 1 e 99* | Il numero scelto non deve essere usato da una regola di sincronizzazione esistente e deve avere un valore inferiore, e pertanto priorità più alta, rispetto alla regola di sincronizzazione esistente. |
 
 3. Andare nella scheda **Filtro ambito** e implementare lo stesso filtro ambito che usa la regola di sincronizzazione esistente.
 4. Ignora la scheda **Join rules** (Regole di unione).
 5. Andare nella scheda **Trasformazioni** per aggiungere una nuova trasformazione tramite la configurazione seguente:
 
-    | Attributo | Value |
+    | Attributo | valore |
     | --- | --- |
-    | Flow Type |**Expression** |
+    | Flow Type |**Espressione** |
     | Target Attribute |**userCertificate** |
-    | Source Attribute |*usare l'espressione seguente*: `IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
+    | Attributo di origine |*Utilizzare l'espressione seguente:*`IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
     
 6. Per creare la regola di sincronizzazione, fare clic sul pulsante **Aggiungi**.
 
@@ -145,7 +145,7 @@ Si tratta di verificare che la regola di sincronizzazione creata funzioni corret
 4. Nella schermata di popup Anteprima selezionare **Sincronizzazione completa** e fare clic su **Anteprima commit**.
 5. Chiudere la schermata Anteprima e la schermata Connector Space Object Properties (Proprietà dell'oggetto spazio connettore).
 6. Passare alla scheda **Connettori** in Synchronization Service Manager.
-7. Fare clic con il tasto destro del mouse sul connettore di **Azure AD** e selezionare **Esegui...**
+7. Fare clic con il pulsante destro del mouse su **Azure AD** Connector e selezionare **Esegui...**
 8. Nella finestra popup Run Connector (Esegui connettore) selezionare il passaggio **Esporta** e fare clic su **OK**.
 9. Attendere il completamento dell'esportazione in Azure AD e confermare che non siano presenti altri errori LargeObject in questo oggetto specifico.
 
@@ -159,7 +159,7 @@ Dopo aver aggiunto la regola di sincronizzazione, è necessario eseguire un pass
 
 ### <a name="step-6-verify-there-are-no-unexpected-changes-waiting-to-be-exported-to-azure-ad"></a>Passaggio 6. Verificare che non siano presenti modifiche impreviste in attesa di esportazione in Azure AD
 1. Passare alla scheda **Connettori** in Synchronization Service Manager.
-2. Fare clic con il tasto destro del mouse sul connettore di **Azure AD** e selezionare **Search Connector Space** (Spazio connettore di ricerca).
+2. Fare clic con il pulsante destro del mouse su **Azure AD** Connector e selezionare Search **Connector Space**.
 3. Nella finestra popup Search Connector Space (Spazio connettore di ricerca):
     1. Impostare Ambito su **Pending Export** (Esportazione in sospeso).
     2. Selezionare tutte e 3 le caselle di controllo, tra cui **Aggiungi**, **Modifica** ed **Elimina**.
@@ -169,7 +169,7 @@ Dopo aver aggiunto la regola di sincronizzazione, è necessario eseguire un pass
 ### <a name="step-7-export-the-changes-to-azure-ad"></a>Passaggio 7. Esportare le modifiche in Azure AD
 Per esportare le modifiche in Azure AD:
 1. Passare alla scheda **Connettori** in Synchronization Service Manager.
-2. Fare clic con il tasto destro del mouse sul connettore di **Azure AD** e selezionare **Esegui...**
+2. Fare clic con il pulsante destro del mouse su **Azure AD** Connector e selezionare **Esegui...**
 4. Nella finestra popup Run Connector (Esegui connettore) selezionare il passaggio **Esporta** e fare clic su **OK**.
 5. Attendere il completamento dell'esportazione in Azure AD e confermare che non siano presenti altri errori LargeObject.
 

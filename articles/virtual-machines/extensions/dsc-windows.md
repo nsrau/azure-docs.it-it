@@ -1,5 +1,5 @@
 ---
-title: Gestore dell'estensione DSC (Desired state Configuration) di Azure
+title: Gestore dell'estensione di configurazione dello stato desiderato di AzureAzure Desired State Configuration Extension Handler
 description: Caricare e applicare una configurazione DSC PowerShell in una macchina virtuale di Azure tramite l'estensione DSC
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
 ms.openlocfilehash: 592c731d1851ac36cf9b57864750df0603b6c3fd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253962"
 ---
 # <a name="powershell-dsc-extension"></a>Estensione DSC di PowerShell
@@ -32,11 +32,11 @@ L'estensione DSC di PowerShell per Windows è pubblicata e supportata da Microso
 
 L'estensione DSC supporta i seguenti sistemi operativi
 
-Windows Server 2019, Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 SP1, client Windows 7/8.1/10
+Windows Server 2019, Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1/10
 
 ### <a name="internet-connectivity"></a>Connettività Internet
 
-Per l'estensione DSC per Windows è necessario che la macchina virtuale di destinazione sia in grado di comunicare con Azure e il percorso del pacchetto di configurazione (file zip) se archiviato in una posizione esterna ad Azure. 
+The DSC extension for Windows requires that the target virtual machine is able to communicate with Azure and the location of the configuration package (.zip file) if it is stored in a location outside of Azure. 
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 
@@ -97,16 +97,16 @@ Il JSON seguente illustra lo schema per la sezione delle impostazioni dell'esten
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| Name | Valore/Esempio | Tipo di dati |
+| Nome | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
-| apiVersion | 2018-10-01 | date |
+| apiVersion | 2018-10-01 | Data |
 | publisher | Microsoft.Powershell.DSC | string |
 | type | DSC | string |
-| typeHandlerVersion | 2.77 | int |
+| typeHandlerVersion | 2.77 | INT |
 
 ### <a name="settings-property-values"></a>Valori delle proprietà delle impostazioni
 
-| Name | Tipo di dati | Descrizione
+| Nome | Tipo di dati | Descrizione
 | ---- | ---- | ---- |
 | settings.wmfVersion | string | Specifica la versione di Windows Management Framework da installare nella macchina virtuale. Se si imposta questa proprietà su "più recente", verrà installata la versione più recente di WMF. Gli unici valori attuali possibili per questa proprietà sono "4.0", "5.0" e "più recente". Questi valori possibili sono soggetti ad aggiornamenti. Il valore predefinito è "più recente". |
 | settings.configuration.url | string | Specifica il percorso URL da cui scaricare il file ZIP della configurazione DSC. Se l'URL specificato richiede un token di firma di accesso condiviso per accedere, sarà necessario impostare la proprietà protectedSettings.configurationUrlSasToken sul valore del token di firma di accesso condiviso. Questa proprietà è obbligatoria se settings.configuration.script e/o settings.configuration.function sono definiti.
@@ -115,12 +115,12 @@ Il JSON seguente illustra lo schema per la sezione delle impostazioni dell'esten
 | settings.configurationArguments | Raccolta | Definisce i parametri da passare alla configurazione DSC. Questa proprietà non verrà crittografata.
 | settings.configurationData.url | string | Specifica l'URL da cui scaricare il file di dati di configurazione con estensione pds1 da usare come input per la configurazione DSC. Se l'URL specificato richiede un token di firma di accesso condiviso per accedere, sarà necessario impostare la proprietà protectedSettings.configurationDataUrlSasToken sul valore del token di firma di accesso condiviso.
 | settings.privacy.dataEnabled | string | Abilita o disabilita la raccolta di dati di telemetria. Gli unici valori possibili per questa proprietà sono "Abilita", "Disabilita", '' o $null. Lasciando questa proprietà vuota o con valore null verrà abilitata la raccolta di dati di telemetria.
-| settings.advancedOptions.forcePullAndApply | Bool | Questa impostazione è progettata per migliorare l'esperienza di utilizzo dell'estensione per registrare i nodi con Azure Automation DSC.  Se il valore è `$true`, l'estensione attenderà la prima esecuzione del pull della configurazione dal servizio prima di restituire esito positivo o negativo.  Se il valore è impostato su $false, lo stato restituito dall'estensione indica solo se il nodo è stato registrato correttamente con la configurazione dello stato di automazione di Azure e la configurazione del nodo non verrà eseguita durante la registrazione.
+| settings.advancedOptions.forcePullAndApply | Bool | Questa impostazione è progettata per migliorare l'esperienza di utilizzo dell'estensione per registrare i nodi con DSC di automazione di Azure.This setting is designed to enhance the experience of working with the extension to register nodes with Azure Automation DSC.  Se il `$true`valore è , l'estensione attenderà la prima esecuzione della configurazione estratta dal servizio prima di restituire esito positivo o negativo.  Se il valore è impostato su $false, lo stato restituito dall'estensione farà riferimento solo alla registrazione del nodo con La configurazione dello stato di automazione di Azure e la configurazione del nodo non verrà eseguita durante la registrazione.
 | settings.advancedOptions.downloadMappings | Raccolta | Definisce posizioni alternative per scaricare le dipendenze, ad esempio WMF e .NET
 
 ### <a name="protected-settings-property-values"></a>Valori di proprietà delle impostazioni protette
 
-| Name | Tipo di dati | Descrizione
+| Nome | Tipo di dati | Descrizione
 | ---- | ---- | ---- |
 | protectedSettings.configurationArguments | string | Definisce i parametri da passare alla configurazione DSC. Questa proprietà verrà crittografata. |
 | protectedSettings.configurationUrlSasToken | string | Specifica il token di firma di accesso condiviso per accedere all'URL definito da configuration.url. Questa proprietà verrà crittografata. |
@@ -131,11 +131,11 @@ Il JSON seguente illustra lo schema per la sezione delle impostazioni dell'esten
 
 Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager.
 I modelli rappresentano la scelta migliore quando si distribuiscono una o più macchine virtuali per cui è necessaria una configurazione post-distribuzione.
-Un modello di Gestione risorse di esempio che include l'estensione DSC per Windows si trova nella [raccolta di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91).
+Un modello di Resource Manager di esempio che include l'estensione DSC per Windows è disponibile nella [raccolta di avvio rapido](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91)di Azure.A sample Resource Manager template that includes the DSC extension for Windows can be found on the Azure Quick Start Gallery .
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risoluzione dei problemi
+### <a name="troubleshoot"></a>Risolvere i problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite l'interfaccia della riga di comando di Azure. Per visualizzare lo stato di distribuzione delle estensioni per una determinata VM, eseguire il comando seguente nell'interfaccia della riga di comando di Azure.
 
@@ -148,7 +148,7 @@ Il pacchetto di estensione viene scaricato e distribuito in questa posizione nel
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}
 ```
 
-Il file di stato dell'estensione contiene i codici di stato secondario e di esito positivo/errore insieme all'errore e alla descrizione dettagliati per ogni esecuzione dell'estensione.
+Il file di stato dell'estensione contiene i codici di errore/errore di stato secondari o di stato insieme all'errore dettagliato e alla descrizione per ogni esecuzione dell'estensione.
 ```
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}\Status\{0}.Status  -> {0} being the sequence number
 ```
@@ -161,7 +161,7 @@ C:\WindowsAzure\Logs\Plugins\{Extension_Name}\{Extension_Version}
 
 ### <a name="error-codes-and-their-meanings"></a>Codici di errore e relativi significati
 
-| Codice errore | Significato | Azione possibile |
+| Codice di errore | Significato | Azione possibile |
 | :---: | --- | --- |
 | 1000 | Errore generico | Il messaggio per questo errore viene fornito dall'eccezione specifica nei log di estensione |
 | 52 | Errore di installazione dell'estensione | Il messaggio per questo errore viene fornito dall'eccezione specifica |
@@ -172,4 +172,4 @@ C:\WindowsAzure\Logs\Plugins\{Extension_Name}\{Extension_Version}
 
 ### <a name="support"></a>Supporto
 
-Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
+Se è necessaria ulteriore assistenza in qualsiasi momento di questo articolo, è possibile contattare gli esperti di Azure nei [forum MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto](https://azure.microsoft.com/support/options/) di Azure e selezionare Ottieni supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).

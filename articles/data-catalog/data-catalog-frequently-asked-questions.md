@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 3877648723a8866ec7d9c5f1987ae3a276114d5e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7dbb1b4a8b85350b8bf8a6df0c9035a19055444c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73152048"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79409020"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Domande frequenti sul Catalogo dati di Azure
 Questo articolo fornisce le risposte alle domande frequenti relative al servizio Azure Data Catalog.
@@ -34,7 +34,7 @@ Data Catalog è progettato per gli utenti tecnici e non tecnici, tra cui:
 Attualmente i servizi di Data Catalog sono disponibili nei data center seguenti:
 
 * Stati Uniti occidentali
-* Stati Uniti Orientali
+* Stati Uniti orientali
 * Europa occidentale
 * Europa settentrionale
 * Australia orientale
@@ -53,13 +53,13 @@ Per un elenco di origini dati attualmente supportate, vedere [Riferimento per l'
 ## <a name="how-do-i-request-support-for-another-data-source"></a>Come si richiede il supporto per un'altra origine dati?
 Per inviare le richieste di funzionalità e altri commenti, andare su [Data Catalog in Azure Feedback Forums](https://feedback.azure.com/forums/906052-data-catalog/category/320788-data-sources).
 
-## <a name="why-do-i-get-an-error-catalog-already-exists-when-i-try-to-create-a-new-catalog"></a>Perché è *già presente un catalogo* degli errori quando si tenta di creare un nuovo catalogo?
+## <a name="why-do-i-get-an-error-catalog-already-exists-when-i-try-to-create-a-new-catalog"></a>Perché viene visualizzato un *errore Catalogo già esistente* quando si tenta di creare un nuovo catalogo?
 
-Quando si acquista Office 365 E5 con Power BI Pro licenza, Microsoft crea automaticamente un catalogo predefinito nell'area della sottoscrizione. Questo catalogo usa lo SKU gratuito. La licenza utente di Office 365/Power BI viene gestita nella pagina di amministrazione di Office 365. 
+Quando si acquista Office 365 E5 con licenza Power BI Pro, Microsoft crea automaticamente un catalogo predefinito nell'area della sottoscrizione. Questo catalogo usa lo SKU gratuito. La licenza utente di Office 365/ Power BI viene gestita nella pagina Amministrazione di Office 365.The Office 365 / Power BI user license is managed in the Office 365 Administration page. 
 
-Tuttavia, questo tipo di catalogo dati non dispone di un' **opzione di amministratore** e non è visibile nel **portale di Azure**. Non è possibile eliminare questo tipo di catalogo dati. Analogamente, non è consentito rinominare il Catalogo dati e non è possibile spostarlo in un'altra area. 
+Tuttavia, questo tipo di catalogo dati non dispone di **un'opzione di amministratore** e non è visibile nel portale di **Azure.** Non è possibile eliminare questo tipo di catalogo dati. Analogamente, non è consentito rinominare il catalogo dati e non è possibile spostarlo in un'altra area. 
 
-Gli account utente a cui è stata assegnata una licenza di Power BI Pro automatica hanno accesso al Catalogo dati a causa del contratto di licenza quando hanno effettuato l'iscrizione a Office 365 E5 con la licenza di Power BI Pro. Questo tipo di utente ha accesso completo agli asset di Data Catalog senza privilegi amministrativi. Questo tipo di utente *non* fa parte del ruolo **utente Catalog** in Azure Data Catalog.
+Gli account utente a cui è assegnata una licenza di Power BI Pro automatica hanno accesso al catalogo dati a causa del Contratto di licenza al momento dell'iscrizione a Office 365 E5 con la licenza Power BI Pro. Questo tipo di utente ha accesso completo alle risorse del catalogo dati senza privilegi amministrativi. Questo tipo di utente non fa parte del ruolo Utente catalogo in Azure Data Catalog.That kind of user is *not* part of **Catalog User** role in Azure Data Catalog.
 
 
 ## <a name="how-do-i-get-started-with-data-catalog"></a>Come si inizia a usare Data Catalog?
@@ -87,7 +87,7 @@ Le proprietà specifiche variano in base all'origine dati, ma in genere il servi
 >
 
 > [!NOTE]
-> Per le origini dati come SQL Server Analysis Services che hanno una proprietà **Description** ottimale, lo strumento di registrazione dell'origine dati di Data Catalog estrae il valore della proprietà. Per i database relazionali SQL Server *locali* che non dispongono di una proprietà **Description** di prima classe, lo strumento di registrazione dell'origine dati Data Catalog estrae il valore dalla proprietà estesa **MS_Description** per oggetti e colonne. Per altre informazioni, vedere [Uso di proprietà estese su oggetti di database](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> Per le origini dati come SQL Server Analysis Services che hanno una proprietà **Description** ottimale, lo strumento di registrazione dell'origine dati di Data Catalog estrae il valore della proprietà. Per i database *relazionali* di SQL Server locali che non dispongono di una proprietà **Description** di prima classe, lo strumento di registrazione dell'origine dati di Data Catalog estrae il valore dalla proprietà estesa **ms_description** per oggetti e colonne. Questa proprietà non è supportata per SQL Azure.This property is not supported for SQL Azure. Per altre informazioni, vedere [Uso di proprietà estese su oggetti di database](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 >
 >
 

@@ -1,5 +1,5 @@
 ---
-title: Introduzione all'archiviazione BLOB con Visual Studio (progetti processo Web)
+title: Introduzione all'archiviazione BLOB con Visual Studio (progetti WebJob)Get started with blob storage using Visual Studio (WebJob projects)
 description: Informazioni su come iniziare a usare il servizio di archiviazione di BLOB di Azure in un progetto WebJob dopo aver eseguito la connessione a un account di archiviazione di Azure con i servizi connessi di Visual Studio.
 services: storage
 author: ghogen
@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 90aa824b7df575eb2783ece5bd88322f0b55f0a2
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72299970"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Introduzione all'archiviazione BLOB di Azure e ai servizi relativi a Visual Studio (progetti WebJob)
@@ -79,9 +79,9 @@ L'esempio di codice seguente modifica l'estensione del file mentre copia i BLOB 
 ## <a name="types-that-you-can-bind-to-blobs"></a>Tipi che possono essere associati a BLOB
 È possibile usare l'attributo **BlobTrigger** per i tipi seguenti:
 
-* **string**
+* **Stringa**
 * **TextReader**
-* **Stream**
+* **Flusso**
 * **ICloudBlob**
 * **CloudBlockBlob**
 * **CloudPageBlob**
@@ -145,11 +145,11 @@ Il numero massimo di tentativi è configurabile. La stessa impostazione **MaxDeq
 
 Il messaggio di coda per i BLOB non elaborabili è un oggetto JSON che contiene le seguenti proprietà:
 
-* FunctionId (nel formato *{processo Web Name}* . Funzioni. *{Nome funzione}* , ad esempio: WebJob1.Functions.CopyBlob)
+* FunctionId (nel formato *{Nome processo Web}*.Functions.*{Nome funzione}*, ad esempio: WebJob1.Functions.CopyBlob)
 * BlobType ("BlockBlob" o "PageBlob")
 * ContainerName
 * BlobName
-* Valore ETag (identificatore di versione del BLOB, ad esempio: "0x8D1DC6E70A277EF")
+* ETag (identificatore di versione del BLOB, ad esempio: "0x8D1DC6E70A277EF")
 
 Nell'esempio di codice seguente la funzione **CopyBlob** contiene codice che ne determina l'esito negativo ogni volta che viene chiamata. Dopo che l'SDK chiama la funzione per il numero massimo di tentativi, nella coda di BLOB non elaborabili viene creato un messaggio elaborato dalla funzione **LogPoisonBlob** .
 
@@ -194,7 +194,7 @@ WebJobs SDK verifica che nessuna funzione **BlobTrigger** venga chiamata più vo
 
 Le conferme di BLOB vengono archiviate in un contenitore denominato *azure-webjobs-hosts* nell'account di archiviazione di Azure specificato dalla stringa di connessione AzureWebJobsStorage. Una conferma di BLOB contiene le seguenti informazioni:
 
-* Funzione chiamata per il BLOB (" *{processo Web Name}* . Funzioni. *{Nome funzione}* ", ad esempio: "WebJob1. Functions. CopyBlob")
+* La funzione chiamata per il BLOB ("*{Nome processo Web}*.Functions.*{Nome funzione}*", ad esempio: "WebJob1.Functions.CopyBlob")
 * Il nome del contenitore
 * Il tipo di BLOB ("BlockBlob" o "PageBlob")
 * Il nome del BLOB
@@ -208,7 +208,7 @@ Per informazioni su come gestire l'elaborazione di BLOB attivata da un messaggio
 Tra gli argomenti correlati trattati nell'articolo sono inclusi i seguenti:
 
 * Funzioni asincrone
-* Più istanze
+* Istanze multiple
 * Arresto normale
 * Usare gli attributi di WebJobs SDK nel corpo di una funzione
 * Impostare le stringhe di connessione SDK nel codice.

@@ -1,5 +1,5 @@
 ---
-title: Visualizzare i log di flusso NSG-Elastic stack
+title: Visualizzare i log di flusso del gruppo di sicurezza di rete - Stack elastico
 titleSuffix: Azure Network Watcher
 description: Gestire e analizzare i log di flusso dei gruppi di sicurezza di rete in Azure con Network Watcher ed Elastic Stack.
 services: network-watcher
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: e567994038fb4f71ef86dc577760ecf4699a0b1d
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840639"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizzare i log dei flussi dei gruppi di sicurezza di rete di Azure Network Watcher con strumenti open source
@@ -34,10 +34,10 @@ In questo articolo si configurerà una soluzione che consentirà di visualizzare
 
 ![scenario][scenario]
 
-## <a name="steps"></a>Procedure
+## <a name="steps"></a>Passaggi
 
 ### <a name="enable-network-security-group-flow-logging"></a>Abilitare la registrazione dei flussi dei gruppi di sicurezza di rete
-Per questo scenario, è necessario abilitare la registrazione dei flussi dei gruppi di sicurezza di rete in almeno un gruppo di sicurezza di rete nel proprio account. Per istruzioni in proposito, vedere [Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md).
+Per questo scenario, è necessario abilitare la registrazione dei flussi dei gruppi di sicurezza di rete in almeno un gruppo di sicurezza di rete nel proprio account. Per istruzioni sull'abilitazione dei registri del flusso di sicurezza di rete, vedere il seguente articolo [Introduzione alla registrazione del flusso per](network-watcher-nsg-flow-logging-overview.md)i gruppi di sicurezza di rete .
 
 ### <a name="set-up-the-elastic-stack"></a>Configurare Elastic Stack
 Connettendo i log dei flussi dei gruppi di sicurezza di rete con Elastic Stack, è possibile creare un dashboard Kibana che consente di eseguire ricerche e analisi, creare grafici e ottenere informazioni significative dai log.

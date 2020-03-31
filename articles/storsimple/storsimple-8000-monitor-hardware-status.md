@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
 ms.openlocfilehash: a987239669e7437a179f5f24034f4dbe45535663
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254742"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Usare il servizio Gestione dispositivi StorSimple per monitorare i componenti hardware e lo stato
@@ -31,8 +31,8 @@ Nel pannello **Stato e integrità hardware** è indicato lo stato dell'hardware 
 Nell'elenco dei componenti per 8100, sono disponibili tre sezioni che descrivono:
 
 * **Componenti condivisi**: questi non fanno parte dei controller, ad esempio unità disco, chassis, componenti del modulo di alimentazione e raffreddamento (PCM) e sensori di temperatura PCM, tensione linea e corrente linea.
-* **Componenti controller 0** : i componenti che si trovano nel controller 0, ad esempio controller, espansore SAS e connettore, sensori di temperatura controller e le varie interfacce di rete.
-* **Componenti controller 1** : i componenti che costituiscono il controller 1, simili a quelli indicati per il controller 0.
+* **Componenti controller 0**: componenti presenti sul controller 0, ad esempio controller, espansore e connettore SAS, sensori di temperatura del controller e varie interfacce di rete.
+* **Componenti controller 1**: componenti che fanno parte del controller 1, analoghi a quelli elencati per il controller 0.
 
 Un dispositivo 8600 dispone di componenti aggiuntivi che corrispondono allo chassis EBOD (Extended Bunch of Disks). Nell'elenco dei componenti, sono disponibili cinque sezioni. Di queste, tre solo le sezioni che contengono i componenti nello chassis principale e sono identici a quelli descritti per 8100. Esistono due sezioni aggiuntive per lo chassis EBOD che descrivono:
 
@@ -60,7 +60,7 @@ Per visualizzare lo stato dell'hardware di un componente del dispositivo, proced
    * **Segno di spunta verde**: indica che un componente è integro con lo stato **OK**.
    * **Giallo**: indica un componente danneggiato con lo stato **Avviso**.
    * **Punto esclamativo rosso**: indica che un componente è nello stato di **Errore**.
-   * **Bianco con testo nero** : indica che un componente non è presente.
+   * **Bianco con testo nero**: indica un componente non presente.
    
    La schermata seguente mostra un dispositivo con componenti negli stati **OK**, **Avviso** ed **Errore**.
        

@@ -1,5 +1,5 @@
 ---
-title: Opzioni di risoluzione dei nomi DNS per macchine virtuali Linux
+title: DNS Name resolution options for Linux VMs
 description: Scenari di risoluzione dei nomi per macchine virtuali Linux in IaaS di Azure, inclusi i servizi DNS forniti, DNS esterno ibrido e possibilità di usare il proprio server DNS.
 author: RicksterCDN
 ms.service: virtual-machines-linux
@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: rclaus
 ms.openlocfilehash: 3d5ecaf67dcff182c7dace474b7bda45cdfd5c58
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969326"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opzioni di risoluzione dei nomi DNS per macchine virtuali Linux in Azure
@@ -35,7 +35,7 @@ Nella tabella seguente vengono illustrate diverse ipotesi e le corrispondenti so
 Oltre alla risoluzione dei nomi DNS pubblici, Azure offre la risoluzione dei nomi interni per macchine virtuali e istanze del ruolo che si trovano all'interno della stessa rete virtuale. In reti virtuali basate su Azure Resource Manager, il suffisso DNS è coerente attraverso la rete virtuale; il nome FQDN non è necessario. I nomi DNS possono essere assegnati sia a schede di interfaccia di rete (NIC), sia a macchine virtuali. Sebbene la risoluzione dei nomi fornita da Azure non richieda alcuna configurazione, non è la scelta più appropriata per tutti gli scenari di distribuzione, come illustrato nella tabella precedente.
 
 ### <a name="features-and-considerations"></a>Funzionalità e considerazioni
-**Funzionalità**
+**Caratteristiche:**
 
 * Non è necessaria alcuna configurazione per usare la risoluzione dei nomi fornita da Azure.
 * Il servizio di risoluzione dei nomi fornito da Azure ha un'elevata disponibilità. Non è necessario creare e gestire i cluster dei server DNS propri.
@@ -64,14 +64,14 @@ Sono disponibili diversi pacchetti di memorizzazione nella cache DNS, ad esempio
 **Ubuntu (usa resolvconf)**
   * Installare il pacchetto dnsmasq ("sudo apt-get install dnsmasq").
 
-**SUSE (usa netconf)** :
+**SUSE (utilizza netconf)**:
 1. Installare il pacchetto dnsmasq ("sudo zypper install dnsmasq").
 2. Abilitare il servizio dnsmasq ("systemctl enable dnsmasq.service").
 3. Avviare il servizio dnsmasq ("systemctl start dnsmasq.service").
 4. Modificare "/etc/sysconfig/network/config" e sostituire NETCONFIG_DNS_FORWARDER="" con "dnsmasq".
 5. Aggiornare resolv.conf ("netconfig update") per impostare la cache come resolver DNS locale.
 
-**CentOS di Rogue Wave Software (in precedenza OpenLogic) (usa NetworkManager)**
+**CentOS di Rogue Wave Software (precedentemente OpenLogic; utilizza NetworkManager)**
 1. Installare il pacchetto dnsmasq ("sudo yum install dnsmasq").
 2. Abilitare il servizio dnsmasq ("systemctl enable dnsmasq.service").
 3. Avviare il servizio dnsmasq ("systemctl start dnsmasq.service").
@@ -96,7 +96,7 @@ Per verificare le impostazioni correnti in una macchina virtuale Linux, aprire i
 
 Il file resolv.conf viene generato automaticamente e non deve essere modificato. La procedura specifica per aggiungere la riga "options" varia a seconda della distribuzione:
 
-**Ubuntu** (usa resolvconf)
+**Ubuntu** (utilizza resolvconf)
 1. Aggiungere la riga per le opzioni in "/etc/resolveconf/resolv.conf.d/head".
 2. Eseguire "resolvconf -u" per aggiornare.
 

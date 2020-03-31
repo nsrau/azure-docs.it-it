@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: sngun
 ms.openlocfilehash: 2306dbe234e171ac613c33458df1990b767637df
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79128379"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Distribuire Azure Cosmos DB e app Web del servizio app di Azure tramite un modello di Azure Resource Manager
-Questa esercitazione illustra come usare un modello di Azure Resource Manager per distribuire e integrare [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), l'app Web del [servizio app Azure](https://go.microsoft.com/fwlink/?LinkId=529714) e un'applicazione Web di esempio.
+Questa esercitazione illustra come usare un modello di Azure Resource Manager per distribuire e integrare [Microsoft Azure Cosmos DB,](https://azure.microsoft.com/services/cosmos-db/)l'app Web [del servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714) e un'applicazione Web di esempio.
 
 Con il modello di Azure Resource Manager è possibile automatizzare facilmente la distribuzione e la configurazione delle risorse di Azure.  Questa esercitazione illustra come distribuire un'applicazione Web e configurare automaticamente le informazioni relative alla connessione dell'account Azure Cosmos DB.
 
@@ -25,7 +25,7 @@ Dopo aver completato questa esercitazione, si potrà rispondere alle domande seg
 
 <a id="Prerequisites"></a>
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 > [!TIP]
 > Anche se questa esercitazione non presuppone alcuna esperienza nell'uso di JSON o dei modelli di Azure Resource Manager, se si vogliono modificare i modelli o le opzioni di distribuzione cui viene fatto riferimento, è necessario conoscere ciascuna di queste aree.
 > 
@@ -33,7 +33,7 @@ Dopo aver completato questa esercitazione, si potrà rispondere alle domande seg
 
 Prima di seguire le istruzioni di questa esercitazione, verificare di avere una sottoscrizione di Azure. Azure è una piattaforma basata su sottoscrizione.  Per altre informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto](https://azure.microsoft.com/pricing/purchase-options/), [Offerte per i membri](https://azure.microsoft.com/pricing/member-offers/) oppure [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a id="CreateDB"></a>Passaggio 1: Scaricare i file del modello
+## <a name="step-1-download-the-template-files"></a><a id="CreateDB"></a>Passaggio 1: Scaricare i file del modello
 Per iniziare, scaricare i file di modello necessari per questa esercitazione.
 
 1. Scaricare il modello di [esempio per creare un account Azure Cosmos DB e app Web e per distribuire un'applicazione demo](https://portalcontent.blob.core.windows.net/samples/DocDBWebsiteTodo.json) in una cartella locale, ad esempio C:\Azure Cosmos DBTemplates. Questo modello distribuisce un account Azure Cosmos DB, un'app Web del servizio app e un'applicazione Web.  L'applicazione Web viene anche configurata automaticamente per connettersi all'account Azure Cosmos DB.
@@ -51,12 +51,12 @@ Si procederà ora alla distribuzione del primo modello.
 
 1. Accedere al [portale di Azure](https://portal.azure.com), fare clic su Nuovo e ricercare "Distribuzione modello".
     ![Screenshot dell'interfaccia utente della distribuzione del modello](./media/create-website/TemplateDeployment1.png)
-2. Selezionare l'elemento Distribuzione modelli e fare clic su **crea** ![screenshot dell'interfaccia utente della distribuzione del modello](./media/create-website/TemplateDeployment2.png)
+2. Selezionare la voce Distribuzione modello e fare clic su **Crea** ![Screenshot dell'interfaccia utente della distribuzione del modello](./media/create-website/TemplateDeployment2.png)
 3. Fare clic su **Modifica modello**, incollare il contenuto del file del modello DocDBWebsiteTodo.json e fare clic su **Salva**.
    ![Screenshot dell'interfaccia utente della distribuzione del modello](./media/create-website/TemplateDeployment3.png)
 4. Fare clic su **Modifica parametri**, specificare i valori per ogni parametro obbligatorio e fare clic su **OK**.  I parametri sono i seguenti:
    
-   1. SITEname: specifica il nome dell'app Web del servizio app e viene usato per costruire l'URL usato per accedere all'app Web. Se ad esempio si specifica "mydemodocdbwebapp", l'URL con cui si accede all'app Web viene `mydemodocdbwebapp.azurewebsites.net`.
+   1. SITENAME: specifica il nome dell'app Web del servizio app e viene utilizzato per costruire l'URL utilizzato per accedere all'app Web (ad esempio, `mydemodocdbwebapp.azurewebsites.net`se si specifica "mydemodocdbwebapp", l'URL con cui si accede all'app Web è ).
    2. HOSTINGPLANNAME: specifica il nome del piano di hosting del servizio app da creare.
    3. LOCATION: specifica la posizione di Azure in cui creare le risorse di Azure Cosmos DB e dell'app Web.
    4. DATABASEACCOUNTNAME: specifica il nome dell'account Azure Cosmos DB da creare.   
@@ -69,7 +69,7 @@ Si procederà ora alla distribuzione del primo modello.
    ![Screenshot dell'interfaccia utente della distribuzione del modello](./media/create-website/TemplateDeployment6.png)
 7. Al termine della distribuzione, viene aperto il riquadro del gruppo di risorse.
    ![Screenshot del riquadro del gruppo di risorse](./media/create-website/TemplateDeployment7.png)  
-8. Per usare l'applicazione, passare all'URL dell'app Web (nell'esempio precedente, l'URL verrebbe `http://mydemodocdbwebapp.azurewebsites.net`).  Verrà visualizzata l'applicazione Web seguente:
+8. Per utilizzare l'applicazione, passare all'URL dell'app Web `http://mydemodocdbwebapp.azurewebsites.net`(nell'esempio precedente, l'URL sarebbe ).  Verrà visualizzata l'applicazione Web seguente:
    
    ![Applicazione di esempio](./media/create-website/image2.png)
 9. Proseguire e creare qualche attività nell'app Web, quindi tornare al riquadro del gruppo di risorse nel portale di Azure. Fare clic sulla risorsa dell'account Azure Cosmos DB nell'elenco delle risorse e quindi su **Esplora dati**.
@@ -88,7 +88,7 @@ Si procederà ora alla distribuzione del secondo modello.  Questo modello è uti
 
 1. Nel [portale di Azure](https://portal.azure.com), fare clic su Nuovo e ricercare "Distribuzione modello".
     ![Screenshot dell'interfaccia utente della distribuzione del modello](./media/create-website/TemplateDeployment1.png)
-2. Selezionare l'elemento Distribuzione modelli e fare clic su **crea** ![screenshot dell'interfaccia utente della distribuzione del modello](./media/create-website/TemplateDeployment2.png)
+2. Selezionare la voce Distribuzione modello e fare clic su **Crea** ![Screenshot dell'interfaccia utente della distribuzione del modello](./media/create-website/TemplateDeployment2.png)
 3. Fare clic su **Modifica modello**, incollare il contenuto del file del modello DocDBWebSite.json e fare clic su **Salva**.
    ![Screenshot dell'interfaccia utente della distribuzione del modello](./media/create-website/TemplateDeployment3.png)
 4. Fare clic su **Modifica parametri**, specificare i valori per ogni parametro obbligatorio e fare clic su **OK**.  I parametri sono i seguenti:
@@ -106,7 +106,7 @@ Si procederà ora alla distribuzione del secondo modello.  Questo modello è uti
    ![Screenshot dell'interfaccia utente della distribuzione del modello](./media/create-website/TemplateDeployment6.png)
 7. Al termine della distribuzione, viene aperto il riquadro del gruppo di risorse.
    ![Screenshot del riquadro del gruppo di risorse](./media/create-website/TemplateDeployment7.png)  
-8. Fare clic sulla risorsa dell'app Web nell'elenco delle risorse e quindi fare clic su **Impostazioni applicazione** ![screenshot del gruppo di risorse](./media/create-website/TemplateDeployment9.png)  
+8. Fare clic sulla risorsa dell'App Web nell'elenco delle risorse, quindi su **Impostazioni applicazione** ![Screenshot del gruppo di risorse](./media/create-website/TemplateDeployment9.png)  
 9. Si noti la presenza di impostazioni dell'applicazione per l'endpoint di Azure Cosmos DB e per ognuna delle relative chiavi master.
 
     ![Screenshot delle impostazioni dell'applicazione](./media/create-website/TemplateDeployment10.png)  
@@ -122,7 +122,7 @@ Congratulazioni! È stata completata la distribuzione di Azure Cosmos DB, di un'
 * Per altre informazioni sui modelli di Gestione risorse di Azure, vedere [qui](https://msdn.microsoft.com/library/azure/dn790549.aspx).
 
 ## <a name="whats-changed"></a>Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](https://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una guida alla modifica da siti Web a servizio app, vedere: [Servizio app di Azure e il relativo impatto sui servizi di Azure esistentiFor](https://go.microsoft.com/fwlink/?LinkId=529714) a guide to the change from Websites to App Service see: Azure App Service and Its Impact on Existing Azure Services
 
 > [!NOTE]
 > Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.

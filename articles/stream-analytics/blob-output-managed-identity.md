@@ -1,42 +1,42 @@
 ---
-title: Autenticare l'output di BLOB con l'identità gestita analisi di flusso di Azure
-description: Questo articolo descrive come usare le identità gestite per autenticare il processo di analisi di flusso di Azure nell'output di archiviazione BLOB di Azure.
+title: Autenticare l'output BLOB con Managed Identity Azure Stream AnalyticsAuthenticate blob output with Managed Identity Azure Stream Analytics
+description: Questo articolo descrive come usare le identità gestite per autenticare il processo di Analisi di flusso di Azure nell'output di archiviazione BLOB di Azure.This article describes how to use managed identities to authenticate your Azure Stream Analytics job to Azure Blob storage output.
 author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.openlocfilehash: 13f48a9e0bc3ed8f8c4d5f1b7da4b6c03f54cdf8
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79129965"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Usare l'identità gestita per autenticare il processo di analisi di flusso di Azure nell'output di archiviazione BLOB di Azure
+# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Usare l'identità gestita per autenticare il processo di Analisi di flusso di Azure nell'output di Archiviazione BLOB di AzureUse Managed Identity to authenticate your Azure Stream Analytics job to Azure Blob Storage output
 
-[Autenticazione dell'identità gestita](../active-directory/managed-identities-azure-resources/overview.md) per l'output nell'archiviazione BLOB di Azure consente ai processi di analisi di flusso di accedere direttamente a un account di archiviazione invece di usare una stringa di connessione. Oltre a una maggiore sicurezza, questa funzionalità consente anche di scrivere i dati in un account di archiviazione in una rete virtuale (VNET) in Azure.
+[L'autenticazione dell'identità gestita](../active-directory/managed-identities-azure-resources/overview.md) per l'output nell'archiviazione BLOB di Azure offre ai processi di Analisi di flusso l'accesso diretto a un account di archiviazione anziché usare una stringa di connessione. In addition to improved security, this feature also enables you to write data to a storage account in a Virtual Network (VNET) within Azure.
 
-Questo articolo illustra come abilitare l'identità gestita per gli output del BLOB di un processo di analisi di flusso tramite il portale di Azure e tramite una distribuzione di Azure Resource Manager.
+Questo articolo illustra come abilitare l'identità gestita per gli output BLOB di un processo di Analisi di flusso tramite il portale di Azure e una distribuzione di Azure Resource Manager.This article shows you how to enable Managed Identity for the Blob output(s) of a Stream Analytics job through the Azure portal and through an Azure Resource Manager deployment.
 
-## <a name="create-the-stream-analytics-job-using-the-azure-portal"></a>Creare il processo di analisi di flusso usando il portale di Azure
+## <a name="create-the-stream-analytics-job-using-the-azure-portal"></a>Creare il processo di Analisi di flusso tramite il portale di AzureCreate the Stream Analytics job using the Azure portal
 
-1. Creare un nuovo processo di analisi di flusso o aprire un processo esistente nel portale di Azure. Dalla barra dei menu disponibile sul lato sinistro della schermata selezionare **identità gestita** situata in **Configura**. Verificare che sia selezionata l'opzione "Usa identità gestita assegnata dal sistema" e quindi fare clic sul pulsante **Salva** nella parte inferiore della schermata.
+1. Creare un nuovo processo di Analisi di flusso o aprire un processo esistente nel portale di Azure.Create a new Stream Analytics job or open an existing job in the Azure portal. Dalla barra dei menu situata sul lato sinistro dello schermo, selezionare **Identità gestita** in **Configura**. Assicurarsi che l'opzione "Usa identità gestita assegnata dal sistema" sia selezionata, quindi fare clic sul pulsante **Salva** nella parte inferiore dello schermo.
 
-   ![Configurare l'identità gestita di analisi di flusso](./media/common/stream-analytics-enable-managed-identity.png)
+   ![Configurare l'identità gestita di Analisi di flussoConfigure Stream Analytics managed identity](./media/common/stream-analytics-enable-managed-identity.png)
 
-2. Nella finestra Proprietà output del sink di output di archiviazione BLOB di Azure selezionare l'elenco a discesa modalità di autenticazione e scegliere **identità gestita**. Per informazioni sulle altre proprietà di output, vedere [comprendere gli output di analisi di flusso di Azure](./stream-analytics-define-outputs.md). Al termine, fare clic su **Salva**.
+2. Nella finestra delle proprietà di output del sink di output di Archiviazione BLOB di Azure selezionare l'elenco a discesa Modalità di autenticazione e scegliere **Identità gestita**. Per informazioni sulle altre proprietà di output, vedere Informazioni sugli output di Analisi di flusso di [Azure.](./stream-analytics-define-outputs.md) Al termine, fare clic su **Salva**.
 
-   ![Configurare l'output dell'archiviazione BLOB di Azure](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-blob-output-blade.png)
+   ![Configurare l'output di archiviazione BLOB di AzureConfigure Azure Blob storage output](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-blob-output-blade.png)
 
-3. Ora che il processo è stato creato, vedere la sezione [concedere l'accesso al processo di analisi di flusso all'account di archiviazione](#give-the-stream-analytics-job-access-to-your-storage-account) di questo articolo.
+3. Ora che il processo è stato creato, vedere la sezione Concedere al processo di [Analisi di flusso l'accesso all'account](#give-the-stream-analytics-job-access-to-your-storage-account) di archiviazione di questo articolo.
 
 ## <a name="azure-resource-manager-deployment"></a>Distribuzione Azure Resource Manager
 
-L'uso di Azure Resource Manager consente di automatizzare completamente la distribuzione del processo di analisi di flusso. È possibile distribuire modelli di Gestione risorse usando Azure PowerShell o l' [interfaccia](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)della riga di comando di Azure. Gli esempi seguenti usano l'interfaccia della riga di comando di Azure.
+L'uso di Azure Resource Manager consente di automatizzare completamente la distribuzione del processo di Analisi di flusso. È possibile distribuire modelli di Resource Manager usando Azure PowerShell o l'interfaccia della riga di comando di Azure.You can deploy Resource Manager templates using either Azure PowerShell or the [Azure CLI.](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) The below examples use the Azure CLI.
 
 
-1. È possibile creare una risorsa **Microsoft. StreamAnalytics/streaming** con un'identità gestita includendo la proprietà seguente nella sezione delle risorse del modello di gestione risorse:
+1. È possibile creare una risorsa Microsoft.StreamAnalytics/streamingjobs con un'identità gestita includendo la proprietà seguente nella sezione delle risorse del modello di Resource Manager:You can create a **Microsoft.StreamAnalytics/streamingjobs** resource with a Managed Identity by including the following property in the resource section of your Resource Manager template:
 
     ```json
     "Identity": {
@@ -44,7 +44,7 @@ L'uso di Azure Resource Manager consente di automatizzare completamente la distr
     },
     ```
 
-   Questa proprietà indica Azure Resource Manager di creare e gestire l'identità per il processo di analisi di flusso. Di seguito è riportato un esempio di Gestione risorse modello che distribuisce un processo di analisi di flusso con identità gestita abilitata e un sink di output BLOB che usa l'identità gestita:
+   Questa proprietà indica ad Azure Resource Manager di creare e gestire l'identità per il processo di Analisi di flusso. Di seguito è riportato un modello di Resource Manager di esempio che distribuisce un processo di Analisi di flusso con l'identità gestita abilitata e un sink di output BLOB che usa l'identità gestita:Below is an example Resource Manager template that deploys a Stream Analytics job with Managed Identity enabled and a Blob output sink that uses Managed Identity:
 
     ```json
     {
@@ -95,7 +95,7 @@ L'uso di Azure Resource Manager consente di automatizzare completamente la distr
     }
     ```
 
-    Il processo precedente può essere distribuito nel gruppo di risorse **ExampleGroup** usando il comando dell'interfaccia della riga di comando di Azure seguente:
+    Il processo precedente può essere distribuito nel gruppo di risorse ExampleGroup usando il comando dell'interfaccia della riga di comando di Azure seguente:The above job can be deployed to the Resource group **ExampleGroup** using the below Azure CLI command:
 
     ```azurecli
     az group deployment create --resource-group ExampleGroup -template-file StreamingJob.json
@@ -107,7 +107,7 @@ L'uso di Azure Resource Manager consente di automatizzare completamente la distr
     az resource show --ids /subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.StreamAnalytics/StreamingJobs/{RESOURCE_NAME}
     ```
 
-    Il comando precedente restituirà una risposta simile alla seguente:
+    Il comando di cui sopra restituirà una risposta simile alla seguente:
 
     ```json
     {
@@ -146,61 +146,61 @@ L'uso di Azure Resource Manager consente di automatizzare completamente la distr
     }
     ```
 
-   Prendere nota del **PrincipalId** dalla definizione del processo, che identifica l'identità gestita del processo all'interno Azure Active Directory e verrà usato nel passaggio successivo per concedere al processo di analisi di flusso l'accesso all'account di archiviazione.
+   Prendere nota di **principalId** dalla definizione del processo, che identifica l'identità gestita del processo all'interno di Azure Active Directory e verrà usato nel passaggio successivo per concedere al processo di Analisi di flusso l'accesso all'account di archiviazione.
 
-3. Ora che il processo è stato creato, vedere la sezione [concedere l'accesso al processo di analisi di flusso all'account di archiviazione](#give-the-stream-analytics-job-access-to-your-storage-account) di questo articolo.
+3. Ora che il processo è stato creato, vedere la sezione Concedere al processo di [Analisi di flusso l'accesso all'account](#give-the-stream-analytics-job-access-to-your-storage-account) di archiviazione di questo articolo.
 
 
-## <a name="give-the-stream-analytics-job-access-to-your-storage-account"></a>Consentire al processo di analisi di flusso di accedere all'account di archiviazione
+## <a name="give-the-stream-analytics-job-access-to-your-storage-account"></a>Concedere al processo di Analisi di flusso l'accesso all'account di archiviazione
 
-Ci sono due livelli di accesso che è possibile scegliere di assegnare al processo di analisi di flusso:
+Esistono due livelli di accesso che puoi scegliere per fornire il tuo lavoro di Analisi di flusso:
 
 1. **Accesso a livello di contenitore:** questa opzione consente al processo di accedere a un contenitore esistente specifico.
-2. **Accesso a livello di account:** questa opzione fornisce al processo l'accesso generale all'account di archiviazione, inclusa la possibilità di creare nuovi contenitori.
+2. **Accesso a livello** di account: questa opzione consente al processo di accedere in generale all'account di archiviazione, inclusa la possibilità di creare nuovi contenitori.
 
-A meno che non sia necessario il processo per creare contenitori per conto dell'utente, è consigliabile scegliere l' **accesso a livello di contenitore** poiché questa opzione concede al processo il livello minimo di accesso necessario. Entrambe le opzioni sono illustrate di seguito per la portale di Azure e la riga di comando.
+A meno che il processo non sia necessario per creare contenitori per conto dell'utente, è consigliabile scegliere Accesso a livello di **contenitore** poiché questa opzione concederà al processo il livello minimo di accesso richiesto. Entrambe le opzioni sono illustrate di seguito per il portale di Azure e la riga di comando.
 
-### <a name="grant-access-via-the-azure-portal"></a>Concedi l'accesso tramite il portale di Azure
+### <a name="grant-access-via-the-azure-portal"></a>Concedere l'accesso tramite il portale di AzureGrant access via the Azure portal
 
 #### <a name="container-level-access"></a>Accesso a livello di contenitore
 
 1. Passare al riquadro di configurazione del contenitore all'interno dell'account di archiviazione.
 
-2. Selezionare **controllo di accesso (IAM)** sul lato sinistro.
+2. Selezionare **Controllo di accesso (IAM)** sul lato sinistro.
 
-3. Nella sezione "aggiungere un'assegnazione di ruolo" fare clic su **Aggiungi**.
+3. Nella sezione "Aggiungi assegnazione ruolo" fare clic su **Aggiungi**.
 
-4. Nel riquadro assegnazione ruolo:
+4. Nel riquadro di assegnazione dei ruoli:
 
-    1. Impostare il **ruolo** su "collaboratore dati BLOB di archiviazione"
-    2. Verificare che l'elenco a discesa **assegna accesso a** sia impostato su "Azure ad utente, gruppo o entità servizio".
-    3. Digitare il nome del processo di analisi di flusso nel campo di ricerca.
-    4. Selezionare il processo di analisi di flusso e fare clic su **Salva**.
+    1. Impostare il **ruolo su** "Collaboratore dati BLOB di archiviazione"Set the Role to "Storage Blob Data Contributor"
+    2. Verificare che l'elenco a discesa **Assegna accesso a** sia impostato su "Utente, gruppo o entità servizio di Azure AD".
+    3. Digita il nome del tuo lavoro di Analisi di flusso nel campo di ricerca.
+    4. Selezionare il processo di Analisi di flusso e fare clic su **Salva**.
 
-   ![Concessione dell'accesso al contenitore](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-container-access-portal.png)
+   ![Concedere l'accesso al contenitoreGrant container access](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-container-access-portal.png)
 
 #### <a name="account-level-access"></a>Accesso a livello di account
 
 1. Passare all'account di archiviazione.
 
-2. Selezionare **controllo di accesso (IAM)** sul lato sinistro.
+2. Selezionare **Controllo di accesso (IAM)** sul lato sinistro.
 
-3. Nella sezione "aggiungere un'assegnazione di ruolo" fare clic su **Aggiungi**.
+3. Nella sezione "Aggiungi assegnazione ruolo" fare clic su **Aggiungi**.
 
-4. Nel riquadro assegnazione ruolo:
+4. Nel riquadro di assegnazione dei ruoli:
 
-    1. Impostare il **ruolo** su "collaboratore dati BLOB di archiviazione"
-    2. Verificare che l'elenco a discesa **assegna accesso a** sia impostato su "Azure ad utente, gruppo o entità servizio".
-    3. Digitare il nome del processo di analisi di flusso nel campo di ricerca.
-    4. Selezionare il processo di analisi di flusso e fare clic su **Salva**.
+    1. Impostare il **ruolo su** "Collaboratore dati BLOB di archiviazione"Set the Role to "Storage Blob Data Contributor"
+    2. Verificare che l'elenco a discesa **Assegna accesso a** sia impostato su "Utente, gruppo o entità servizio di Azure AD".
+    3. Digita il nome del tuo lavoro di Analisi di flusso nel campo di ricerca.
+    4. Selezionare il processo di Analisi di flusso e fare clic su **Salva**.
 
-   ![Concessione dell'accesso all'account](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-account-access-portal.png)
+   ![Concedere l'accesso all'account](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-account-access-portal.png)
 
-### <a name="grant-access-via-the-command-line"></a>Concessione dell'accesso tramite la riga di comando
+### <a name="grant-access-via-the-command-line"></a>Concedere l'accesso tramite la riga di comandoGrant access via the command line
 
 #### <a name="container-level-access"></a>Accesso a livello di contenitore
 
-Per concedere l'accesso a un contenitore specifico, eseguire il comando seguente usando l'interfaccia della riga di comando di Azure:
+To give access to a specific container, run the following command using the Azure CLI:
 
    ```azurecli
    az role assignment create --role "Storage Blob Data Contributor" --assignee <principal-id> --scope /subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
@@ -208,7 +208,7 @@ Per concedere l'accesso a un contenitore specifico, eseguire il comando seguente
 
 #### <a name="account-level-access"></a>Accesso a livello di account
 
-Per concedere l'accesso all'intero account, eseguire il comando seguente usando l'interfaccia della riga di comando di Azure:
+To give access to the entire account, run the following command using the Azure CLI:
 
    ```azurecli
    az role assignment create --role "Storage Blob Data Contributor" --assignee <principal-id> --scope /subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
@@ -216,26 +216,26 @@ Per concedere l'accesso all'intero account, eseguire il comando seguente usando 
 
 ## <a name="enable-vnet-access"></a>Abilitare l'accesso VNET
 
-Quando si configurano i **firewall e le reti virtuali**dell'account di archiviazione, è possibile facoltativamente consentire il traffico di rete da altri servizi Microsoft attendibili. Quando analisi di flusso esegue l'autenticazione con l'identità gestita, fornisce la prova che la richiesta proviene da un servizio attendibile. Di seguito sono riportate le istruzioni per abilitare questa eccezione di accesso VNET.
+Quando si configurano **i firewall e le reti virtuali**dell'account di archiviazione, è possibile consentire facoltativamente il traffico di rete da altri servizi Microsoft attendibili. Quando Analisi di flusso esegue l'autenticazione tramite Managed Identity, fornisce la prova che la richiesta proviene da un servizio attendibile. Di seguito sono riportate le istruzioni per abilitare questa eccezione di accesso VNET.
 
-1.  Passare al riquadro "firewall e reti virtuali" nel riquadro di configurazione dell'account di archiviazione.
+1.  Passare al riquadro "Firewall e reti virtuali" all'interno del riquadro di configurazione dell'account di archiviazione.
 2.  Verificare che l'opzione "Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione" sia abilitata.
-3.  Se è stato abilitato, fare clic su **Salva**.
+3.  Se è stata abilitata, fare clic su **Salva**.
 
    ![Abilitare l'accesso VNET](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-vnet-exception.png)
 
 ## <a name="limitations"></a>Limitazioni
-Di seguito sono riportate le limitazioni correnti di questa funzionalità:
+Di seguito sono riportate le attuali limitazioni di questa funzione:
 
 1. Account di archiviazione di Azure classici.
 
-2. Account Azure senza Azure Active Directory.
+2. Azure accounts without Azure Active Directory.
 
-3. L'accesso multi-tenant non è supportato. L'entità servizio creata per un determinato processo di analisi di flusso deve trovarsi nello stesso tenant Azure Active Directory in cui è stato creato il processo e non può essere usata con una risorsa che risiede in un tenant di Azure Active Directory diverso.
+3. L'accesso multi-tenant non è supportato. L'entità servizio creata per un determinato processo di Analisi di flusso deve risiedere nello stesso tenant di Azure Active Directory in cui è stato creato il processo e non può essere usata con una risorsa che risiede in un tenant di Azure Active Directory diverso.
 
-4. L' [identità assegnata dall'utente](../active-directory/managed-identities-azure-resources/overview.md) non è supportata. Ciò significa che l'utente non è in grado di immettere la propria entità servizio per l'uso da parte del processo di analisi di flusso. L'entità servizio deve essere generata da analisi di flusso di Azure.
+4. [L'identità assegnata dall'utente](../active-directory/managed-identities-azure-resources/overview.md) non è supportata. Ciò significa che l'utente non è in grado di immettere la propria entità servizio per essere utilizzato dal processo di Analisi di flusso. L'entità servizio deve essere generata da Analisi di flusso di Azure.The service principal must be generated by Azure Stream Analytics.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni sugli output di Analisi di flusso di Azure](./stream-analytics-define-outputs.md)
-* [Partizionamento dell'output del BLOB personalizzato di analisi di flusso di Azure](./stream-analytics-custom-path-patterns-blob-storage-output.md)
+* [Partizionamento dell'output dei BLOB personalizzato in Analisi di flusso di Azure](./stream-analytics-custom-path-patterns-blob-storage-output.md)

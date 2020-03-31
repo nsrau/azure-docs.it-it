@@ -1,67 +1,66 @@
 ---
-title: Dashboard ratings and Reviews in Commercial Marketplace Analytics nel centro per i partner
-description: Informazioni su come accedere a una visualizzazione consolidata dei suggerimenti dei clienti per le offerte in Azure Marketplace e AppSource.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+title: Dashboard Valutazioni e recensioni nell'analisi di Commercial Marketplace nel Centro per i partner
+description: Informazioni su come accedere a una visualizzazione consolidata dei commenti e suggerimenti dei clienti per le offerte in Azure Marketplace e AppSource.
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: dedf2aa429414b6a6a03d70f1f8e355c6629d83e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2995cd2a97329aa8b7947145150c6a3501346fdb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480398"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275663"
 ---
-# <a name="ratings-and-reviews-dashboard-in-commercial-marketplace-analytics"></a>Dashboard ratings and Reviews in Commercial Marketplace Analytics
+# <a name="ratings-and-reviews-dashboard-in-commercial-marketplace-analytics"></a>Dashboard valutazioni e recensioni nell'analisi di Commercial Marketplace
 
-Questo articolo fornisce informazioni sulle classificazioni & dashboard di revisioni nel centro per i partner. Questo dashboard consente di visualizzare una visualizzazione consolidata dei suggerimenti dei clienti per le offerte in Azure Marketplace e AppSource.
+In questo articolo vengono fornite informazioni sul dashboard Valutazioni & recensioni nel Centro per i partner. Questo dashboard visualizza una visualizzazione consolidata dei commenti e suggerimenti dei clienti per le offerte in Azure Marketplace e AppSource.This dashboard displays a consolidated view of customer feedback for offers on Azure Marketplace and AppSource.
 
-Per accedere alle **classificazioni & Dashboard delle recensioni** negli strumenti di analisi del centro per i partner, aprire il dashboard **[analizza](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** in Marketplace commerciale.
+Per accedere al **dashboard Valutazioni & recensioni** negli strumenti di analisi del Centro per i partner, aprire il dashboard **[Analizza](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** in Commercial Marketplace.
 
 >[!NOTE]
-> Per le definizioni dettagliate della terminologia di analisi, vedere [le domande frequenti e la terminologia per l'analisi del Marketplace commerciale](./faq-terminology.md).
+> Per le definizioni dettagliate della terminologia dell'analisi, vedere [Domande frequenti e terminologia per l'analisi](./faq-terminology.md)di Commercial Marketplace.
 
-## <a name="ratings--reviews"></a>Valutazioni & valutazioni
+## <a name="ratings--reviews"></a>Valutazioni & recensioni
 
-Man mano che i clienti navigano, eseguono ricerche e acquistano offerte in entrambi i Marketplace, possono lasciare valutazioni e recensioni per le offerte acquisite.
+Mentre i clienti sfogliano, cercano e acquistano offerte in entrambi i mercati, possono lasciare valutazioni e recensioni per le offerte che hanno acquisito.
 
-- I clienti possono inviare una nuova valutazione o rivedere e aggiornare o eliminare una valutazione o una revisione esistente. I clienti possono apportare modifiche solo alle classificazioni e alle revisioni di cui sono proprietari.  
-- Le revisioni vengono pubblicate nella scheda verifiche della pagina di visualizzazione del prodotto dell'offerta in Azure Marketplace o in AppSource. I clienti possono includere il nome o il post in modo anonimo.  
+- I clienti possono inviare una nuova valutazione o rivedere e aggiornare o eliminare una valutazione esistente o una recensione che hanno inviato. I clienti possono apportare modifiche solo alle valutazioni e alle recensioni di cui è proprietario.  
+- Le recensioni vengono pubblicate nella scheda Recensioni nella pagina di visualizzazione del prodotto dell'offerta in Azure Marketplace o AppSource. I clienti possono includere il proprio nome o pubblicare post in modo anonimo.  
 
-Il **Dashboard valutazioni & rivedere** Visualizza le tendenze e le informazioni dettagliate di questa attività da parte dei clienti. È possibile visualizzare una rappresentazione grafica degli elementi seguenti:
+Nel **dashboard Valutazioni & revisione** vengono visualizzate le tendenze e le informazioni dettagliate di questa attività da parte dei clienti. È possibile visualizzare una rappresentazione grafica dei seguenti elementi:
 
-- Valutazioni & valutazioni  
-- Esaminare i commenti
+- Valutazioni & recensioni  
+- Commentare i commenti
 
-Le **schede vetrine del Marketplace** consentono agli editori di visualizzare le metriche dell'offerta separatamente nelle schede AppSource & Azure Marketplace. Per visualizzare specifiche metriche dell'offerta, selezionare l'offerta dall'elenco a discesa offerta.
+Le schede dello storefront marketplace consentono agli editori di visualizzare le metriche dell'offerta separatamente nelle schede AppSource & Azure Marketplace.The **Marketplace storefront tabs** allow publishers to view their offer metrics separately in the AppSource & Azure Marketplace tabs. Per visualizzare metriche di offerta specifiche, seleziona l'offerta dall'elenco a discesa dell'offerta.
 
 
-### <a name="ratings-and-reviews-summary"></a>Riepilogo valutazioni e valutazioni
+### <a name="ratings-and-reviews-summary"></a>Riepilogo delle valutazioni e delle recensioni
 
-Nella sezione rating & revisioni riepilogo vengono visualizzate le metriche seguenti per un intervallo di date selezionato:
+La sezione valutazione & riepilogo recensioni mostra le metriche seguenti per un intervallo di date selezionato:
 
-- **Valutazione media:** Classificazione a stelle media ponderata di tutte le classificazioni inviate dai clienti per l'offerta selezionata.
-- **Suddivisione classificazione:** Suddivisione della classificazione a stelle per numero di clienti che hanno inviato valutazioni. Il grafico a barre è in pila con le classificazioni effettive e modificate (conteggio classificazione aggiornato).
-- **Totale classificazioni:** Conteggio complessivo delle classificazioni inviate. Questo conteggio include anche le classificazioni con e senza revisioni.
-- **Classificazioni con le revisioni:** Numero di revisioni inviate.
+- **Valutazione media:** Valutazione a stelle media ponderata di tutte le valutazioni inviate dai clienti per l'offerta selezionata.
+- **Suddivisione della valutazione:** Suddivisione della classificazione a stelle per il numero di clienti che hanno inviato valutazioni. Il grafico a barre è in pila con valutazioni effettive e riviste (conteggio delle valutazioni aggiornato).
+- **Valutazioni totali:** Conteggio complessivo delle valutazioni inviate. Questo conteggio include anche le valutazioni con e senza recensioni.
+- **Valutazioni con recensioni:** Conteggio delle recensioni inviate.
 
-![Riepilogo analisi classificazioni e recensioni del centro per i partner](./media/analyze-ratings-summary.png)
+![Riepilogo delle valutazioni e delle recensioni delle valutazioni e delle recensioni del Centro per i partner](./media/analyze-ratings-summary.png)
 
-### <a name="review-comments"></a>Esaminare i commenti
+### <a name="review-comments"></a>Commentare i commenti
 
-Le revisioni vengono visualizzate in ordine cronologico quando sono state pubblicate. Nella visualizzazione predefinita vengono visualizzate tutte le revisioni ed è possibile filtrare le verifiche per classificazione a stelle usando il **filtro classificazione** nel menu a discesa. Inoltre, è possibile eseguire ricerche in base a parole chiave visualizzate nella revisione.  
+Le recensioni vengono visualizzate in ordine cronologico per la data di registrazione. La visualizzazione predefinita mostra tutte le recensioni ed è possibile filtrare le recensioni in base alla classificazione a stelle utilizzando il **filtro Valutazione** nel menu a discesa. Inoltre, è possibile cercare in base alle parole chiave visualizzate nella revisione.  
 
-![Commenti di analisi per il centro per i partner](./media/analyze-reviews.png)
+![Centro per i partner analizzare i commenti di revisione](./media/analyze-reviews.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica dei report di analisi disponibili nel Marketplace commerciale del centro per i partner, vedere [analisi per il Marketplace commerciale nel centro per i partner](./analytics.md).
-- Per i grafici, le tendenze e i valori dei dati aggregati che riepilogano l'attività del Marketplace per l'offerta, vedere [dashboard di riepilogo in analisi del Marketplace commerciale](./summary-dashboard.md).
-- Per informazioni sugli ordini in un formato grafico e scaricabile, vedere [Dashboard Orders in Commercial Marketplace Analytics](./orders-dashboard.md).
-- Per la macchina virtuale (VM) offre metriche di fatturazione di utilizzo e a consumo, vedere [dashboard di utilizzo in analisi del Marketplace commerciale](./usage-dashboard.md).
-- Per informazioni dettagliate sui clienti, incluse le tendenze di crescita, vedere [dashboard dei clienti in analisi del Marketplace commerciale](./customer-dashboard.md).
-- Per un elenco delle richieste di download negli ultimi 30 giorni, vedere la pagina relativa ai [download del dashboard in Commercial Marketplace Analytics](./downloads-dashboard.md).
-- Per le domande frequenti sull'analisi del Marketplace commerciale e per un dizionario completo dei termini dati, vedere [le domande frequenti e la terminologia per l'analisi del Marketplace commerciale](./faq-terminology.md).
+- Per una panoramica dei report di analisi disponibili nel Marketplace commerciale del Centro per i partner, vedere Analisi per il Marketplace commerciale nel Centro per i [partner.](./analytics.md)
+- Per grafici, tendenze e valori dei dati aggregati che riepilogano l'attività del marketplace per la tua offerta, vedi [Dashboard di riepilogo nell'analisi](./summary-dashboard.md)di Commercial Marketplace.
+- Per informazioni sugli ordini in un formato grafico e scaricabile, vedere [Orders Dashboard in Commercial Marketplace analytics](./orders-dashboard.md).
+- Per la macchina virtuale (VM) offre l'utilizzo e le metriche di fatturazione a consumo, vedere [Dashboard di utilizzo nell'analisi](./usage-dashboard.md)di Commercial Marketplace.
+- Per informazioni dettagliate sui clienti, incluse le tendenze di crescita, vedere [Dashboard dei clienti nell'analisi](./customer-dashboard.md)di Commercial Marketplace .
+- Per un elenco delle richieste di download negli ultimi 30 giorni, vedere [Download Dashboard in Commercial Marketplace analytics](./downloads-dashboard.md).
+- Per le domande frequenti sull'analisi di Commercial Marketplace e per un dizionario completo dei termini relativi ai dati, vedere [Domande frequenti e terminologia per l'analisi](./faq-terminology.md)di Commercial Marketplace .

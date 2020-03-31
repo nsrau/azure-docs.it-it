@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.openlocfilehash: d2b25fb93a1e35ffa82cf49c60d181b841b1692d
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616186"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Risorse di documentazione per l'arricchimento tramite intelligenza artificiale in Ricerca cognitiva di Azure
@@ -23,9 +23,9 @@ Gli articoli seguenti rappresentano la documentazione completa per l'arricchimen
 
 ## <a name="getting-started"></a>Introduzione
 + [Introduzione all'intelligenza artificiale nella ricerca cognitiva di Azure](cognitive-search-concept-intro.md)
-+ [Guida introduttiva: creare un di competenze cognitive nell'portale di Azure](cognitive-search-quickstart-blob.md)
-+ [Esercitazione: indicizzazione arricchita con intelligenza artificiale](cognitive-search-tutorial-blob.md)
-+ [Esempio: creazione di un'abilità personalizzata per l'arricchimento di intelligenza artificiale](cognitive-search-create-custom-skill-example.md)
++ [Guida introduttiva: Creare un set di competenze cognitive nel portale di AzureQuickstart: Create a cognitive skillset in the Azure portal](cognitive-search-quickstart-blob.md)
++ [Esercitazione: Indicizzazione avanzata con aiDiTutorial: Enriched indexing with AI](cognitive-search-tutorial-blob.md)
++ [Esempio: creazione di una competenza personalizzata per l'arricchimento dell'iAExample: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>Guida alle procedure
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)

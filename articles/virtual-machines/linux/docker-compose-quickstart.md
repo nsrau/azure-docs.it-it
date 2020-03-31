@@ -1,27 +1,27 @@
 ---
 title: Usare Docker Compose
-description: Come installare e usare Docker e compose in macchine virtuali Linux con l'interfaccia della riga di comando di Azure.
+description: Come installare e usare Docker e Compose in macchine virtuali Linux con l'interfaccia della riga di comando di Azure.How to install and use Docker and Compose on Linux virtual machines with the Azure CLI.
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: cynthn
 ms.openlocfilehash: 434a3ef8c9bc1738252d59a5dca5bec16d85e45e
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78970314"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Introduzione a Docker e Compose per la definizione e l'esecuzione di un'applicazione multi-contenitore in Azure
-Con [Compose](https://github.com/docker/compose) si usa un file di testo semplice per definire un'applicazione costituita da più contenitori Docker. Si avvia quindi l'applicazione mediante un unico comando che effettua le operazioni necessarie per distribuire l'ambiente definito. Come esempio, questo articolo illustra come configurare rapidamente un blog WordPress con un database SQL MariaDB back-end in una macchina virtuale di Ubuntu. È possibile usare Compose anche per configurare applicazioni più complesse.
+Con [Compose](https://github.com/docker/compose), si utilizza un semplice file di testo per definire un'applicazione costituita da più contenitori Docker. Si avvia quindi l'applicazione mediante un unico comando che effettua le operazioni necessarie per distribuire l'ambiente definito. Come esempio, questo articolo illustra come configurare rapidamente un blog WordPress con un database SQL MariaDB back-end in una macchina virtuale di Ubuntu. È possibile usare Compose anche per configurare applicazioni più complesse.
 
 Questo articolo è stato testato l'ultima volta il 14/02/2019 tramite [Azure Cloud Shell](https://shell.azure.com/bash) e l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) versione 2.0.58.
 
 ## <a name="create-docker-host-with-azure-cli"></a>Creare un host Docker con l'interfaccia della riga di comando di Azure
 Installare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e accedere all'account di Azure con il comando [az login](/cli/azure/reference-index).
 
-Innanzitutto, creare un gruppo di risorse per l'ambiente di Docker con il comando [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
+Innanzitutto, creare un gruppo di risorse per l'ambiente di Docker con il comando [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato myResourceGroup nella posizione *eastus:The* following example creates a resource group named *myResourceGroup* in the eastus location:
 
 ```azurecli-interactive
 az group create --name myDockerGroup --location eastus

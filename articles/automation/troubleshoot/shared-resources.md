@@ -1,6 +1,6 @@
 ---
 title: Risolvere i problemi relativi alle risorse condivise di Automazione di Azure
-description: Informazioni su come risolvere i problemi relativi alle risorse condivise di automazione di Azure che supportano manuali operativi.
+description: Informazioni su come risolvere i problemi relativi alle risorse condivise di Automazione di Azure che supportano i runbook.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.openlocfilehash: 4cea558b11d7ee7bbe838cecbd061cd487b536d2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278324"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Risolvere i problemi relativi alle risorse condivise
@@ -21,7 +21,7 @@ Questo articolo illustra alcune procedure per la risoluzione dei problemi che si
 
 ## <a name="modules"></a>Moduli
 
-### <a name="module-stuck-importing"></a>Scenario: Il modulo si blocca durante l'importazione
+### <a name="scenario-a-module-is-stuck-importing"></a><a name="module-stuck-importing"></a>Scenario: Il modulo si blocca durante l'importazione
 
 #### <a name="issue"></a>Problema
 
@@ -39,11 +39,11 @@ Per risolvere questo problema è necessario rimuovere il modulo bloccato nello s
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
 
-### <a name="update-azure-modules-importing"></a>Scenario: l'importazione di moduli AzureRM è bloccata dopo il tentativo di aggiornamento
+### <a name="scenario-azurerm-modules-are-stuck-importing-after-trying-to-update-them"></a><a name="update-azure-modules-importing"></a>Scenario: i moduli di AzureRM vengono bloccati durante il tentativo di aggiornarliScenario: AzureRM modules are stuck importing after trying to update them
 
 #### <a name="issue"></a>Problema
 
-Un banner con il messaggio seguente rimane nell'account dopo aver tentato di aggiornare i moduli di AzureRM:
+Un banner con il messaggio seguente rimane nell'account dopo aver tentato di aggiornare i moduli di AzureRM:A banner with the following message stays in your account after trying to update your AzureRM modules:
 
 ```error
 Azure modules are being updated
@@ -51,13 +51,13 @@ Azure modules are being updated
 
 #### <a name="cause"></a>Causa
 
-Si è verificato un problema noto relativo all'aggiornamento dei moduli AzureRM in un account di automazione che si trova in un gruppo di risorse con un nome numerico che inizia con 0.
+Si è verificato un problema noto con l'aggiornamento dei moduli di AzureRM in un account di automazione che si trova in un gruppo di risorse con un nome numerico che inizia con 0.There is a known issue with updating the AzureRM modules in an Automation Account that is in a resource group with a numeric name that starts with 0.
 
 #### <a name="resolution"></a>Risoluzione
 
-Per aggiornare i moduli di Azure nell'account di automazione, è necessario che si trovi in un gruppo di risorse con un nome alfanumerico. I gruppi di risorse con nomi numerici che iniziano con 0 non sono in grado di aggiornare i moduli AzureRM in questo momento.
+Per aggiornare i moduli di Azure nell'account di automazione, deve trovarsi in un gruppo di risorse con un nome alfanumerico. I gruppi di risorse con nomi numerici che iniziano con 0 non sono in grado di aggiornare i moduli di AzureRM in questo momento.
 
-### <a name="module-fails-to-import"></a>Scenario: L'importazione del modulo non riesce o i cmdlet non possono essere eseguiti dopo l'importazione
+### <a name="scenario-module-fails-to-import-or-cmdlets-cant-be-executed-after-importing"></a><a name="module-fails-to-import"></a>Scenario: L'importazione del modulo non riesce o i cmdlet non possono essere eseguiti dopo l'importazione
 
 #### <a name="issue"></a>Problema
 
@@ -76,11 +76,11 @@ Di seguito sono elencati alcuni motivi comuni che possono causare un'importazion
 
 una qualsiasi delle soluzioni seguenti consente di correggere il problema:
 
-* Assicurarsi che il modulo sia conforme al formato seguente: NomeModulo.Zip **->** NomeModulo o NumeroVersione **->** (NomeModulo.psm1, NomeModulo.psd1)
+* Assicurarsi che il modulo segua il **->** seguente formato: **->** NomeModulo. nomemodulo zip o numero di versione (ModuleName.psm1, ModuleName.psd1)
 * Aprire il file con estensione psd1 e vedere se il modulo include dipendenze. In caso affermativo, caricare i moduli nell'account di automazione.
 * Assicurarsi che le eventuali DLL a cui viene fatto riferimento siano presenti nella cartella del modulo.
 
-### <a name="all-modules-suspended"></a>Scenario: Update-AzureModule. ps1 viene sospeso durante l'aggiornamento di moduli
+### <a name="scenario-update-azuremoduleps1-suspends-when-updating-modules"></a><a name="all-modules-suspended"></a>Scenario: update-AzureModule.ps1 viene sospeso durante l'aggiornamento dei moduliScenario: Update-AzureModule.ps1 suspends when updating modules
 
 #### <a name="issue"></a>Problema
 
@@ -118,7 +118,7 @@ Se il processo di aggiornamento viene sospeso, è necessario aggiungere il param
 
 ## <a name="run-as-accounts"></a>Account RunAs
 
-### <a name="unable-create-update"></a>Scenario: non è possibile creare o aggiornare un account RunAs
+### <a name="scenario-youre-unable-to-create-or-update-a-run-as-account"></a><a name="unable-create-update"></a>Scenario: non è possibile creare o aggiornare un account RunAs
 
 #### <a name="issue"></a>Problema
 
@@ -138,11 +138,11 @@ Per creare o aggiornare un account RunAs è necessario disporre delle autorizzaz
 
 Se il problema è causato da un blocco, verificare che sia possibile rimuoverlo. Passare quindi alla risorsa bloccata, fare clic con il pulsante destro del mouse sul blocco e scegliere **Elimina** per rimuovere il blocco.
 
-### <a name="iphelper"></a>Scenario: viene visualizzato l'errore "Impossibile trovare un punto di ingresso denominato ' GetPerAdapterInfo ' nella DLL ' iplpapi. dll '" durante l'esecuzione di un Runbook.
+### <a name="scenario-you-receive-the-error-unable-to-find-an-entry-point-named-getperadapterinfo-in-dll-iplpapidll-when-executing-a-runbook"></a><a name="iphelper"></a>Scenario: viene visualizzato l'errore "Impossibile trovare un punto di ingresso denominato 'GetPerAdapterInfo' nella DLL 'iplpapi.dll'" durante l'esecuzione di un runbook.
 
 #### <a name="issue"></a>Problema
 
-Quando si esegue un Runbook, si riceve l'eccezione seguente:
+Quando si esegue un runbook si riceve la seguente eccezione:
 
 ```error
 Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
@@ -154,7 +154,7 @@ Questo errore è probabilmente causato da un [account RunAs](../manage-runas-acc
 
 #### <a name="resolution"></a>Risoluzione
 
-Verificare che l' [account RunAs](../manage-runas-account.md) sia configurato correttamente. Una volta configurata correttamente, verificare di avere il codice corretto nel Runbook per l'autenticazione con Azure. L'esempio seguente illustra un frammento di codice per l'autenticazione in Azure in una Runbook usando un account RunAs.
+Assicurarsi che [l'account RunAs](../manage-runas-account.md) sia configurato correttamente. Dopo averconfigurato correttamente, assicurarsi di avere il codice corretto nel runbook per eseguire l'autenticazione con Azure.Once it is configured correctly, ensure you have the proper code in your runbook to authenticate with Azure. L'esempio seguente mostra un frammento di codice per l'autenticazione in Azure in un runbook usando un account RunAs.The following example shows a snippet of code to authenticate to Azure in a runbook using a RunAs Account.
 
 ```powershell
 $connection = Get-AutomationConnection -Name AzureRunAsConnection
@@ -167,5 +167,5 @@ Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
 Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
 
 * Ottieni risposte dagli esperti di Azure tramite i [forum di Azure](https://azure.microsoft.com/support/forums/)
-* Collegarsi a [@AzureSupport](https://twitter.com/azuresupport), l'account Microsoft Azure ufficiale per il miglioramento dell'esperienza dei clienti che mette in contatto la community di Azure con le risorse corrette: risposte, supporto ed esperti.
-* Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.
+* Connettiti [@AzureSupport](https://twitter.com/azuresupport) con l'account ufficiale di Microsoft Azure per migliorare l'esperienza dei clienti connettendo la community di Azure alle risorse giuste: risposte, supporto ed esperti.
+* Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Passare al [sito del supporto](https://azure.microsoft.com/support/options/) di Azure e selezionare Ottieni **supporto**.

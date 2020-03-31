@@ -1,6 +1,6 @@
 ---
-title: Schema di eventi di griglia di eventi di Azure Machine Learning
-description: Descrive le proprietà fornite per area di lavoro di Machine Learning eventi con griglia di eventi di Azure
+title: Schema di eventi di Azure Event Grid Machine LearningAzure Event Grid Machine Learning event schema
+description: Descrive le proprietà fornite per gli eventi dell'area di lavoro di Machine Learning con Griglia di eventi di AzureDescribes the properties that are provided for Machine Learning Workspace events with Azure Event Grid
 services: event-grid
 author: jenns
 ms.service: event-grid
@@ -8,37 +8,37 @@ ms.topic: reference
 ms.date: 10/18/2019
 ms.author: jenns
 ms.openlocfilehash: 4051598a9abd787f6707e67a8c4dab12fc6d626a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79202145"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-machine-learning"></a>Schema di eventi di griglia di eventi di Azure per Azure Machine Learning
+# <a name="azure-event-grid-event-schema-for-azure-machine-learning"></a>Azure Event Grid event schema for Azure Machine Learning
 
-Questo articolo fornisce le proprietà e lo schema per gli eventi dell'area di lavoro di machine learning. Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
+Questo articolo fornisce le proprietà e lo schema per gli eventi dell'area di lavoro di Machine Learning.This article provides the properties and schema for machine learning workspace events. Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
 
-Per un elenco degli script e delle esercitazioni di esempio, vedere [origine evento AzureML](event-sources.md#azure-machine-learning).
+Per un elenco di script ed esercitazioni di esempio, vedere [Origine evento Di AzureML.](event-sources.md#azure-machine-learning)
 
 ## <a name="available-event-types"></a>Tipi di evento disponibili
 
-Azure Machine Learning emette i tipi di evento seguenti:
+Azure Machine Learning genera i tipi di evento seguenti:Azure Machine Learning emits the following event types:
 
 | Tipo di evento | Descrizione |
 | ---------- | ----------- |
-| Microsoft. MachineLearningServices. ModelRegistered | Generato quando una nuova versione del modello o del modello è stata registrata correttamente. |
-| Microsoft. MachineLearningServices. ModelDeployed | Generato quando i modelli sono stati distribuiti correttamente in un endpoint. |
-| Microsoft. MachineLearningServices. RunCompleted | Generato quando un'esecuzione è stata completata correttamente. |
-| Microsoft. MachineLearningServices. DatasetDriftDetected | Generato quando il monitoraggio della deriva del set di dati rileva la deriva. |
-| Microsoft. MachineLearningServices. RunStatusChanged | Generato quando lo stato di un'esecuzione diventa ' failed '. |
+| Microsoft.MachineLearningServices.ModelRegistered | Generato quando una nuova versione del modello o del modello è stata registrata correttamente. |
+| Microsoft.MachineLearningServices.ModelDeployed | Generato quando i modelli sono stati distribuiti correttamente in un endpoint. |
+| Microsoft.MachineLearningServices.RunCompleted | Generato quando un'esecuzione è stata completata correttamente. |
+| Microsoft.MachineLearningServices.DatasetDriftDetected | Generato quando un monitoraggio della deriva del set di dati rileva la deriva. |
+| Microsoft.MachineLearningServices.RunStatusChanged | Generato quando lo stato di esecuzione diventa 'failed'. |
 
-## <a name="the-contents-of-an-event-response"></a>Contenuto di una risposta di evento
+## <a name="the-contents-of-an-event-response"></a>Il contenuto di una risposta all'evento
 
-Quando viene attivato un evento, il servizio griglia di eventi invia i dati relativi all'evento all'endpoint di sottoscrizione.
+Quando viene attivato un evento, il servizio Griglia di eventi invia i dati relativi a tale evento all'endpoint di sottoscrizione.
 
-Questa sezione contiene un esempio dell'aspetto dei dati per ogni evento.
+Questa sezione contiene un esempio dell'aspetto di tali dati per ogni evento.
 
-### <a name="microsoftmachinelearningservicesmodelregistered-event"></a>Evento Microsoft. MachineLearningServices. ModelRegistered
+### <a name="microsoftmachinelearningservicesmodelregistered-event"></a>Evento Microsoft.MachineLearningServices.ModelRegistered
 
 ```json
 [{
@@ -63,7 +63,7 @@ Questa sezione contiene un esempio dell'aspetto dei dati per ogni evento.
 }]
 ```
 
-### <a name="microsoftmachinelearningservicesmodeldeployed-event"></a>Evento Microsoft. MachineLearningServices. ModelDeployed
+### <a name="microsoftmachinelearningservicesmodeldeployed-event"></a>Microsoft.MachineLearningServices.ModelDeployed (evento)
 
 ```json
 [{
@@ -89,7 +89,7 @@ Questa sezione contiene un esempio dell'aspetto dei dati per ogni evento.
 }]
 ```
 
-### <a name="microsoftmachinelearningservicesruncompleted-event"></a>Evento Microsoft. MachineLearningServices. RunCompleted
+### <a name="microsoftmachinelearningservicesruncompleted-event"></a>Microsoft.MachineLearningServices.RunCompleted (evento)
 
 ```json
 [{
@@ -125,7 +125,7 @@ Questa sezione contiene un esempio dell'aspetto dei dati per ogni evento.
 }]
 ```
 
-### <a name="microsoftmachinelearningservicesdatasetdriftdetected-event"></a>Evento Microsoft. MachineLearningServices. DatasetDriftDetected
+### <a name="microsoftmachinelearningservicesdatasetdriftdetected-event"></a>Evento Microsoft.MachineLearningServices.DatasetDriftDetected
 
 ```json
 [{
@@ -149,7 +149,7 @@ Questa sezione contiene un esempio dell'aspetto dei dati per ogni evento.
 }]
 ```
 
-### <a name="microsoftmachinelearningservicesrunstatuschanged-event"></a>Evento Microsoft. MachineLearningServices. RunStatusChanged
+### <a name="microsoftmachinelearningservicesrunstatuschanged-event"></a>Evento Microsoft.MachineLearningServices.RunStatusChanged
 
 ```json
 [{
@@ -204,66 +204,66 @@ Un evento presenta i seguenti dati di primo livello:
 | dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
 | metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
-L'oggetto dati presenta le proprietà seguenti per ogni tipo di evento:
+L'oggetto dati ha le seguenti proprietà per ogni tipo di evento:
 
-### <a name="microsoftmachinelearningservicesmodelregistered"></a>Microsoft. MachineLearningServices. ModelRegistered
+### <a name="microsoftmachinelearningservicesmodelregistered"></a>Microsoft.MachineLearningServices.ModelRegistered
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | ModelName | string | Nome del modello registrato. |
-| ModelVersion | string | Versione del modello registrato. |
-| ModelTags | object | Tag del modello registrato. |
-| ModelProperties | object | Proprietà del modello registrato. |
+| VersioneModello | string | Versione del modello registrata. |
+| Modelli | object | Tag del modello registrato. |
+| ModelProperties (Proprietà Modello) | object | Proprietà del modello registrato. |
 
-### <a name="microsoftmachinelearningservicesmodeldeployed"></a>Microsoft. MachineLearningServices. ModelDeployed
+### <a name="microsoftmachinelearningservicesmodeldeployed"></a>Microsoft.MachineLearningServices.ModelDeployed
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | ServiceName | string | Nome del servizio distribuito. |
-| ServiceComputeType | string | Tipo di calcolo (ad esempio, ACI, AKS) del servizio distribuito. |
-  | ModelIds | string | Elenco delimitato da virgole di ID modello. ID dei modelli distribuiti nel servizio. |
-| ServiceTags | object | Tag del servizio distribuito. |
-| ServiceProperties | object | Proprietà del servizio distribuito. |
+| ServiceComputeType (Tipo di servizio) | string | Tipo di calcolo (ad esempio ACI, AKS) del servizio distribuito. |
+  | ModelIds (Id modello) | string | Elenco separato da virgole di ID modello. ID dei modelli distribuiti nel servizio. |
+| ServiceTag (Tag di servizio) | object | Tag del servizio distribuito. |
+| ServiceProperties (Proprietà Servizio) | object | Proprietà del servizio distribuito. |
 
-### <a name="microsoftmachinelearningservicesruncompleted"></a>Microsoft. MachineLearningServices. RunCompleted
-
-| Proprietà | Type | Descrizione |
-| -------- | ---- | ----------- |
-| ExperimentId | string | ID dell'esperimento a cui appartiene l'esecuzione. |
-| Experimentname | string | Nome dell'esperimento a cui appartiene l'esecuzione. |
-| RunId | string | ID dell'esecuzione completata. |
-| RunType | string | Tipo di esecuzione dell'esecuzione completata. |
-| RunTags | object | Tag dell'esecuzione completata. |
-| RunProperties | object | Proprietà dell'esecuzione completata. |
-
-### <a name="microsoftmachinelearningservicesdatasetdriftdetected"></a>Microsoft. MachineLearningServices. DatasetDriftDetected
+### <a name="microsoftmachinelearningservicesruncompleted"></a>Microsoft.MachineLearningServices.RunCompleted
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| DataDriftId | string | ID del monitoraggio della deriva dati che ha attivato l'evento. |
-| Datadriftname | string | Nome del monitoraggio della deriva dati che ha attivato l'evento. |
-| RunId | string | ID dell'esecuzione che ha rilevato la deriva dei dati. |
+| Id Esperimento | string | ID dell'esperimento a cui appartiene l'esecuzione. |
+| Nome Esperimento | string | Nome dell'esperimento a cui appartiene l'esecuzione. |
+| Id esecuzione | string | ID dell'esecuzione completata. |
+| Tipo Run | string | Tipo di esecuzione dell'esecuzione completata. |
+| Tag Di Esecuzione | object | I tag dell'esecuzione completata. |
+| Proprietà RunProperties | object | Proprietà dell'esecuzione completata. |
+
+### <a name="microsoftmachinelearningservicesdatasetdriftdetected"></a>Microsoft.MachineLearningServices.DatasetDriftDetected
+
+| Proprietà | Type | Descrizione |
+| -------- | ---- | ----------- |
+| DataDriftId | string | ID del monitoraggio della deriva dei dati che ha attivato l'evento. |
+| DataDriftName | string | Nome del monitoraggio della deriva dei dati che ha attivato l'evento. |
+| Id esecuzione | string | ID dell'esecuzione che ha rilevato la deriva dei dati. |
 | BaseDatasetId | string | ID del set di dati di base utilizzato per rilevare la deriva. |
 | TargetDatasetId | string | ID del set di dati di destinazione utilizzato per rilevare la deriva. |
-| DriftCoefficient | double | Risultato coefficiente che ha generato l'evento. |
-| StartTime | Datetime | Ora di inizio della serie temporale del set di dati di destinazione che ha provocato il rilevamento della deviazione.  |
-| EndTime | Datetime | Ora di fine della serie temporale del set di dati di destinazione che ha generato il rilevamento della deviazione. |
+| DriftCoefficiente | double | Risultato del coefficiente che ha attivato l'evento. |
+| StartTime | Datetime | Ora di inizio della serie temporale del set di dati di destinazione che ha determinato il rilevamento della deriva.  |
+| EndTime | Datetime | Ora di fine della serie temporale del set di dati di destinazione che ha determinato il rilevamento della deriva. |
 
-### <a name="microsoftmachinelearningservicesrunstatuschanged"></a>Microsoft. MachineLearningServices. RunStatusChanged
+### <a name="microsoftmachinelearningservicesrunstatuschanged"></a>Microsoft.MachineLearningServices.RunStatusChanged
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| ExperimentId | string | ID dell'esperimento a cui appartiene l'esecuzione. |
-| Experimentname | string | Nome dell'esperimento a cui appartiene l'esecuzione. |
-| RunId | string | ID dell'esecuzione completata. |
-| RunType | string | Tipo di esecuzione dell'esecuzione completata. |
-| RunTags | object | Tag dell'esecuzione completata. |
-| RunProperties | object | Proprietà dell'esecuzione completata. |
-| RunStatus | string | Stato dell'esecuzione. |
+| Id Esperimento | string | ID dell'esperimento a cui appartiene l'esecuzione. |
+| Nome Esperimento | string | Nome dell'esperimento a cui appartiene l'esecuzione. |
+| Id esecuzione | string | ID dell'esecuzione completata. |
+| Tipo Run | string | Tipo di esecuzione dell'esecuzione completata. |
+| Tag Di Esecuzione | object | I tag dell'esecuzione completata. |
+| Proprietà RunProperties | object | Proprietà dell'esecuzione completata. |
+| RunStatus (Stato esecuzione) | string | Stato dell'esecuzione. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per un'introduzione a Griglia di eventi di Azure, vedere [Informazioni su Griglia di eventi](overview.md)
-* Per altre informazioni sulla creazione di una sottoscrizione di griglia di eventi di Azure, vedere [schema di sottoscrizione di griglia di eventi](subscription-creation-schema.md)
-* Per un'introduzione all'uso di griglia di eventi di Azure con Azure Machine Learning, vedere [utilizzare eventi Azure Machine Learning](/azure/machine-learning/service/concept-event-grid-integration)
-* Per un esempio dell'uso di griglia di eventi di Azure con Azure Machine Learning, vedere [creare flussi di lavoro di machine learning basati su eventi](/azure/machine-learning/service/how-to-use-event-grid)
+* Per altre informazioni sulla creazione di una sottoscrizione di Griglia di eventi di Azure, vedere Schema della sottoscrizione di Griglia di eventiFor more information about creating an Azure Event Grid subscription subscription, see [Event Grid subscription schema](subscription-creation-schema.md)
+* Per un'introduzione all'uso di Griglia di eventi di Azure con Azure Machine Learning, vedere Usare gli eventi di [Azure Machine LearningFor](/azure/machine-learning/service/concept-event-grid-integration) an introduction to using Azure Event Grid with Azure Machine Learning, see Consume Azure Machine Learning events
+* Per un esempio di utilizzo di Griglia di eventi di Azure con Azure Machine Learning, vedere Creare flussi di lavoro di Machine Learning basati su eventiFor an example of using Azure Event Grid with Azure Machine Learning, see [Create event driven Machine Learning workflows](/azure/machine-learning/service/how-to-use-event-grid)

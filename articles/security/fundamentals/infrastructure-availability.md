@@ -1,6 +1,6 @@
 ---
-title: Disponibilità dell'infrastruttura di Azure-sicurezza di Azure
-description: Questo articolo fornisce informazioni sulle operazioni svolte da Microsoft per proteggere l'infrastruttura di Azure e fornire la massima disponibilità dei dati dei clienti.
+title: Disponibilità dell'infrastruttura di Azure - Sicurezza di AzureAzure infrastructure availability - Azure security
+description: Questo articolo fornisce informazioni sulle operazioni eseguite da Microsoft per proteggere l'infrastruttura di Azure e garantire la massima disponibilità dei dati dei clienti.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
 ms.openlocfilehash: c50c4faf47caf0a7519d61fdc8989ec9fd809d78
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68727223"
 ---
 # <a name="azure-infrastructure-availability"></a>Disponibilità dell'infrastruttura di Azure
-Questo articolo fornisce informazioni sulle operazioni svolte da Microsoft per proteggere l'infrastruttura di Azure e fornire la massima disponibilità dei dati dei clienti. Azure offre una solida disponibilità, basata su un'estesa ridondanza ottenuta grazie alla tecnologia di virtualizzazione.
+Questo articolo fornisce informazioni sulle operazioni eseguite da Microsoft per proteggere l'infrastruttura di Azure e garantire la massima disponibilità dei dati dei clienti. Azure offre una solida disponibilità, basata su un'estesa ridondanza ottenuta grazie alla tecnologia di virtualizzazione.
 
 ## <a name="temporary-outages-and-natural-disaster"></a>Interruzioni temporanee e disastri naturali
 Il team delle operazioni e dell'infrastruttura Microsoft Cloud progetta, crea, opera e migliora l'infrastruttura cloud. Tale team assicura che l'infrastruttura di Azure offra disponibilità e affidabilità elevate, alta efficienza e scalabilità intelligente. Il team fornisce un cloud più sicuro, privato e attendibile.
@@ -46,12 +46,12 @@ Azure offre funzioni di archiviazione grazie a un servizio durevole e scalabile 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'infrastruttura di Azure, vedere:
 
-- [Azure facilities, premises, and physical security](physical-security.md) (Sicurezza fisica, presupposti e strutture di Azure)
-- [Azure information system components and boundaries](infrastructure-components.md) (Componenti e limiti del sistema informativo di Azure)
+- [Azure facilities, premises, and physical security (Sicurezza fisica, presupposti e strutture di Azure)](physical-security.md)
+- [Componenti e limiti del sistema informativo di Azure](infrastructure-components.md)
 - [Architettura di rete di Azure](infrastructure-network.md)
 - [Rete di produzione di Azure](production-network.md)
-- [Funzionalità di sicurezza del database SQL di Azure](infrastructure-sql.md)
-- [Azure production operations and management](infrastructure-operations.md) (Operazioni e gestione della produzione di Azure)
+- [Funzionalità di sicurezza del database SQL di AzureAzure SQL Database security features](infrastructure-sql.md)
+- [Gestione e funzionamento dell'ambiente di produzione di Azure](infrastructure-operations.md)
 - [Monitoraggio dell'infrastruttura di Azure](infrastructure-monitoring.md)
 - [Integrità dell'infrastruttura di Azure](infrastructure-integrity.md)
 - [Protezione dei dati dei clienti di Azure](protection-customer-data.md)

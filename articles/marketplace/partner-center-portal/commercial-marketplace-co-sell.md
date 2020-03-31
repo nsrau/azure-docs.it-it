@@ -1,108 +1,107 @@
 ---
-title: Opzione di co-selling nel centro per i partner | Azure Marketplace
-description: Le informazioni fornite nella scheda co-selling dell'offerta verranno utilizzate dai team di vendita Microsoft per ottenere ulteriori informazioni sulla soluzione durante la valutazione delle esigenze dei clienti.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+title: Opzione di co-selling nel Centro per i partner Azure Marketplace
+description: Le informazioni fornite nella scheda Co-selling dell'offerta verranno utilizzate dai team di vendita Microsoft per ottenere ulteriori informazioni sulla soluzione durante la valutazione delle esigenze dei clienti.
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 5f5f98b908ce54624a5d73a2ed74b2e9ea8966ff
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3b0b38b767495b1a06405f0d41222b73baee8d53
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431963"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277074"
 ---
-# <a name="co-sell-option-in-partner-center"></a>Opzione di co-selling nel centro per i partner
+# <a name="co-sell-option-in-partner-center"></a>Opzione di co-selling nel Centro per i partner
 
-Fornire informazioni sulla scheda co-Sell è interamente facoltativo. È necessario per ottenere lo stato pronto per la co-selling e per il co-selling IP. Le informazioni fornite verranno utilizzate dai team di vendita Microsoft per ottenere ulteriori informazioni sulla soluzione durante la valutazione dell'idoneità alle esigenze dei clienti. Non è disponibile direttamente per i clienti. Per ulteriori informazioni, vedere la pagina relativa alla [vendita tramite Microsoft](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer#sell-through-microsoft).
+Fornire informazioni sulla scheda Co-selling è completamente facoltativo. È necessario per ottenere lo status di Co-sell Ready e IP Co-sell Ready. Le informazioni fornite verranno utilizzate dai team di vendita Microsoft per ottenere ulteriori informazioni sulla soluzione durante la valutazione della misura in base alle esigenze dei clienti. Non è disponibile direttamente per i clienti. Per ulteriori informazioni, vedere [vendere tramite Microsoft](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer#sell-through-microsoft).
 
-L'opzione di co-selling nel centro per i partner è attualmente disponibile per alcuni tipi di offerte. Il supporto per i tipi di offerta aggiuntivi sarà reso disponibile nel corso del tempo.
+L'opzione di co-selling nel Centro per i partner è attualmente disponibile per alcuni tipi di offerta. Il supporto per ulteriori tipi di offerta sarà reso disponibile nel tempo.
 
-| **Tipo di offerta** | **Pagina di co-selling disponibile nel centro per i partner** |
+| **Tipo di offerta** | **Pagina di co-selling disponibile nel Centro per i partner** |
 |    -----------------------    |    -----------------------------  |
-| SaaS (software as a Service) |     Disponibilità generale circa feb. 2020      |
-| Dynamics 365 per Customer Engagement & PowerApps      |     Ora disponibile      |
+| Software as a Service (SaaS) |     Disponibilità generale intorno a 2020      |
+| Dynamics 365 per il coinvolgimento dei clienti & PowerApps      |     Ora disponibile      |
 | Dynamics 365 for Operations     |     Ora disponibile       |
-| Dynamics 365 Business Central      |  Disponibilità generale circa feb. 2020     |
-| Applicazione di Azure     |     Disponibilità generale circa feb. 2020     |
-| Valutazione di conformità delle      |     Da annunciare       |
-| Contenitore di Azure     |     Da annunciare       |
-| Servizio di consulenza      |     Da annunciare       |
-| Modulo IoT Edge      |     Da annunciare       |
-| App del servizio Power BI     |     Da annunciare       |
+| Dynamics 365 Business Central      |  Disponibilità generale intorno a 2020     |
+| Applicazione di Azure     |     Disponibilità generale intorno a 2020     |
+| Macchina virtuale di Azure      |     In attesa di essere annunciato       |
+| Contenitore di AzureAzure Container     |     In attesa di essere annunciato       |
+| Servizio di consulenza      |     In attesa di essere annunciato       |
+| Modulo Edge IoT      |     In attesa di essere annunciato       |
+| App del servizio Power BI     |     In attesa di essere annunciato       |
 |  |
 
 ## <a name="listing"></a>Elenco
 
-Gli elenchi di co-selling aiuteranno i team di vendita Microsoft a commercializzare la tua soluzione a un pubblico più ampio.
+Le inserzioni di co-selling aiuteranno i team di vendita Microsoft a commercializzare la tua soluzione a un pubblico più ampio.
 
-- Scegliere le piattaforme Microsoft con cui l'offerta viene compilata, si estende o si integra con.
-- Selezionare i segmenti di mercato a cui è destinata l'offerta.
+- Scegli le piattaforme Microsoft con cui è creata, prolungao o con cui si integra.
+- Seleziona i segmenti di mercato a cui è destinata la tua offerta.
 - Selezionare un [tipo di soluzione](#solution-type) per l'offerta.
-- Scegliere fino a tre [aree](#solution-areas) e sottoaree della soluzione.
+- Scegliere fino a tre [aree](#solution-areas) di soluzione e sottoaree.
 
 ### <a name="solution-type"></a>Tipo di soluzione
 
-I tipi di soluzioni consentono di definire gli scenari in cui l'offerta è progettata per l'indirizzo.
+I tipi di soluzione consentono di definire gli scenari progettati dall'offerta per soddisfare.
 
 | **Tipo di soluzione**    | **Descrizione**  |
 | :------------------- | :-------------------|
-| Dispositivo (hardware) | Offerta che prevede la creazione o la vendita di hardware da un produttore di dispositivi. |
-| IP (applicazione) | App o altro materiale con copyright concesso in licenza per l'uso da parte del cliente. Ad esempio, un programma CRM che può essere concesso in licenza e installato in locale. |
-| Servizio | Esperienza pratica per uno specifico progetto monouso, spesso fornito tramite consulenti. Ad esempio: configurazione di un database del cliente per un client (con il client che assume la responsabilità di gestire il database dopo il recapito). |
-| Servizio gestito | Esperienza pratica per un progetto basato sul cloud, in genere su base continuativa. Ad esempio: fornire una piattaforma e strumenti per l'esecuzione di un database online, con una gestione continuativa fornita dal provider di servizi gestiti. |
+| Dispositivo (hardware) | Un'offerta che prevede la creazione o la vendita di hardware da un produttore di dispositivi. |
+| IP (applicazione) | App o altro materiale protetto da copyright concesso in licenza per l'uso del cliente. Ad esempio: un programma CRM che può essere concesso in licenza e installato in locale. |
+| Service | Competenza pratica per un progetto specifico, spesso fornito tramite consulenti. Ad esempio: impostazione di un database clienti per un cliente (con il cliente che assume la responsabilità del funzionamento del database dopo la consegna). |
+| Servizio gestito | Competenze pratica per un progetto basato sul cloud, di solito su base continuativa. Ad esempio: fornire una piattaforma e strumenti per l'esecuzione di un database online, con una gestione continua fornita dal provider di servizi gestiti. |
 
-### <a name="solution-areas"></a>Aree della soluzione
+### <a name="solution-areas"></a>Aree di soluzione
 
 Le aree della soluzione consentono di definire ulteriormente la soluzione.
 
-È possibile aggiungere fino a tre aree della soluzione per l'offerta. Per ogni area della soluzione è possibile scegliere fino a due sottoaree della soluzione. Per selezionare più sottocategorie, usare la chiave di `Ctrl` (in Windows) o il tasto di comando (Mac OS).
+Puoi aggiungere fino a tre aree di soluzione per la tua offerta. Per ogni area della soluzione, è possibile scegliere fino a due sottoaree della soluzione. Per selezionare più sottocategorie, usate il `Ctrl` tasto (su Windows) o il tasto Comando (su Mac OS).
 
 ## <a name="documents"></a>Documenti
 
-È possibile fornire garanzie per Microsoft da usare per valutare le esigenze dei clienti.
+È possibile fornire garanzie per Microsoft da utilizzare per valutare le esigenze dei clienti.
 
-| **Documents** (Documenti)    | **Descrizione**  |
+| **Documenti**    | **Descrizione**  |
 | :------------------- | :-------------------|
-| *Un cercapersone del cliente* | Descrizione dell'offerta da parte del cliente. I team di vendita Microsoft possono condividere queste informazioni con i clienti per determinare se l'offerta potrebbe essere una scelta ottimale e per assicurarsi che sia pronta per i clienti. <br> <br> Usare uno dei modelli pertinenti disponibili nel centro per i partner: <br> <ul> <li> Microsoft Azure modello a un cercapersone </li> <li> Microsoft Dynamics 365 1-modello di cercapersone </li> <li> Office 365 1-modello di cercapersone </li> <li> Windows 10 1-modello di cercapersone </li> </ul>
+| *Cliente con un solo cercapersone* | Descrizione della tua offerta pronta per il cliente. I team di vendita Microsoft possono condividere queste informazioni con i clienti per determinare se l'offerta potrebbe essere adatta e per assicurarsi che sia pronta per i clienti. <br> <br> Utilizzare uno dei modelli pertinenti disponibili nel Centro per i partner: <br> <ul> <li> Modello di un pager di Microsoft AzureMicrosoft Azure one-pager template </li> <li> Modello di un pager di Microsoft Dynamics 365 </li> <li> Modello di un pager di Office 365 </li> <li> Modello di un pager di Windows 10 </li> </ul>
  |
-| *Presentazione del cliente* | Slide deck per passare la soluzione e la relativa proposta di valore. Dopo aver verificato che l'offerta sia pronta per il cliente, i team di vendita Microsoft possono condividere la presentazione con i clienti per esprimere il valore che entrambe le aziende portano quando distribuiscono una soluzione congiunta. La presentazione dovrebbe comprendere le funzionalità della soluzione, il modo in cui può aiutare i clienti, i settori a cui è destinata la soluzione e il modo in cui vengono confrontati con le soluzioni in competizione. <br> <br> Usare il modello disponibile nel centro per i partner.|
-| *case study cliente* | Queste informazioni indicano a un potenziale cliente la distribuzione corretta di questa soluzione nei casi precedenti. <br> <br> Usare il modello disponibile nel centro per i partner. |
-| *WINS del cliente verificabile (facoltativo)* | Esempi specifici di successi dei clienti dopo la distribuzione della soluzione. |
-| *Deck pitch deck (facoltativo)* | Una presentazione con informazioni che consentiranno ai rivenditori di canale di ottenere ulteriori informazioni sulla soluzione e di preparare i team di vendita a vendere l'offerta. Include in genere un passo dell'ascensore, informazioni sui clienti di destinazione, domande per chiedere ai clienti, punti di discussione e collegamenti a video, documentazione e informazioni di supporto. |
-| *Diagrammi dell'architettura di riferimento* | Documento che mostra il modello che rappresenta l'indirizzo IP creato dal partner, insieme alla relazione con i servizi cloud Microsoft e in che modo soddisfa i requisiti tecnici del programma di co-selling IP. |
-| *Altri documenti* | Facoltativamente, è possibile caricare fino a cinque documenti o video aggiuntivi per consentire ai team di vendita Microsoft e ai rivenditori di canale di ottenere ulteriori informazioni su soluzione, organizzazione e/o differenziazione. |
-| *URL di riferimento esterno* | Il collegamento al sito del prodotto, in cui i team di vendita e i rivenditori di canale Microsoft possono ottenere ulteriori informazioni sulla soluzione. |
+| *Presentazione del cliente* | Presentazione per lanciare la soluzione e la sua proposta di valore. Dopo aver verificato che l'offerta sia pronta per i clienti, i team di vendita Microsoft possono condividere la presentazione con i clienti per articolare il valore che entrambe le aziende apportano quando distribuiscono una soluzione congiunta. La presentazione dovrebbe coprire le operazioni eseguite dalla soluzione, come può aiutare i clienti, a quali settori è destinata la soluzione e come viene confrontata con le soluzioni concorrenti. <br> <br> Usa il modello disponibile nel Centro per i partner.|
+| *Caso di studio del cliente* | Queste informazioni mostrano a un potenziale cliente come l'utente e Microsoft hanno distribuito correttamente questa soluzione in casi precedenti. <br> <br> Usa il modello disponibile nel Centro per i partner. |
+| *Vittorie verificabili per i clienti (opzionale)* | Esempi specifici di successi dei clienti dopo la distribuzione della soluzione. |
+| *Mazzo di piazzole del canale (opzionale)* | Una presentazione con informazioni che aiuteranno i rivenditori del canale a conoscere meglio la tua soluzione e a preparare i loro team di vendita a vendere la tua offerta. In genere include un passo dell'ascensore, informazioni sui clienti target, domande da porre ai clienti, punti di discussione e collegamenti a video, documentazione e informazioni di supporto. |
+| *Diagrammi dell'architettura di riferimento* | Documento che mostra il modello che rappresenta l'IP creato dal partner, insieme alla relazione con i servizi cloud Microsoft e al modo in cui soddisfa i requisiti tecnici del programma di co-selling IP. |
+| *Altri documenti* | Facoltativamente, puoi caricare fino a cinque documenti o video aggiuntivi per aiutare i team di vendita E i rivenditori di canali Microsoft a ottenere ulteriori informazioni sulla tua soluzione, organizzazione e/o differenziatori. |
+| *URL di riferimento esterno* | Il collegamento al sito del prodotto, in cui i team di vendita E i rivenditori di canale Microsoft possono ottenere ulteriori informazioni sulla soluzione. |
 
 ## <a name="contacts"></a>Contatti
 
-Le informazioni di contatto consentono ai team di vendita Microsoft e ai rivenditori di canale di richiedere informazioni aggiuntive dalla risorsa appropriata nell'organizzazione. Le informazioni di contatto sono disponibili per tutti i team di vendita Microsoft. Se si sceglie di rendere disponibile l'offerta nel programma CSP, le informazioni di contatto sono disponibili anche per i rivenditori di canali.
+Le informazioni di contatto consentono ai team di vendita e ai rivenditori di canale Microsoft di richiedere informazioni aggiuntive dalla risorsa appropriata nell'organizzazione. Le informazioni di contatto sono disponibili per tutti i team di vendita Microsoft. Se scegli di rendere disponibile la tua offerta nel programma CSP, queste informazioni di contatto sono disponibili anche per i rivenditori di canale.
 
-In questo documento vengono fornite indicazioni sui diversi ruoli per i partner e su come scegliere tra di essi. È possibile fornire i contatti scaricando il modello CSV dal centro per i partner, inserendo ogni riga con le informazioni sul contatto e importando il file CSV. Se si importa un file CSV, i contatti esistenti vengono sovrascritti.
+Questo documento fornisce indicazioni sui diversi ruoli per i partner e su come scegliere tra di essi. Puoi fornire i tuoi contatti scaricando il modello CSV dal Centro per i partner, compilando ogni riga con le informazioni sul contatto e importando questo file CSV. L'importazione di un file CSV sovrascriverà i contatti esistenti.
 
-È anche possibile esportare l'elenco di contatti di un'offerta esistente e quindi apportare modifiche a tale file.
+È inoltre possibile esportare l'elenco esistente di contatti di un'offerta e quindi apportare modifiche a tale file.
 
-* *Nome (obbligatorio)* : nome del contatto.
-* *Indirizzo di posta elettronica (obbligatorio)* : indirizzo di posta elettronica del contatto.
-* *Titolo processo (obbligatorio)* : titolo processo.
-* *Role (obbligatorio)* : usare uno dei ruoli seguenti in questo campo nel modello.
+* *Nome (obbligatorio)*: Il nome del contatto.
+* *Indirizzo e-mail (obbligatorio):* indirizzo e-mail del contatto.
+* *Titolo professionale (obbligatorio)*: Titolo professionale.
+* *Ruolo (obbligatorio):* utilizzare uno dei ruoli seguenti in questo campo nel modello.
 
     | **Ruolo**    | **Descrizione**  |
     | :------------------- | :-------------------|
-    | *:::no-loc text="Partner marketing":::* | Questo ruolo è incentrato sul marketing della soluzione e sulla collaborazione con le attività di marketing dei team di vendita e dei rivenditori di canale Microsoft. Il punto principale di contatto per gli impegni di marketing e l'offerta di contenuti, ad esempio descrizioni di prodotti, immagini e video. |
-    | *:::no-loc text="Partner sales":::* | Questo ruolo è incentrato sulla vendita della soluzione e sulla collaborazione delle vendite con i team di vendita Microsoft e i rivenditori di canali. Per le soluzioni di co-selling, indicare almeno un contatto per le vendite partner per ogni area in cui si vuole essere co-selling pronto. Lo stesso contatto per le vendite partner può coprire più aree. |
-    | *:::no-loc text="Partner technical sales":::* | Supporta l'architettura tecnica e le considerazioni sulla distribuzione durante il ciclo di vendita, l'integrazione post-vendita e i periodi di distribuzione. |
-    | *:::no-loc text="Partner customer success manager":::* | In genere, supporta la post-distribuzione dei clienti, per consentire loro di sfruttare al meglio la soluzione e di aumentarne il footprint all'interno dell'organizzazione del cliente. |
+    | *:::no-loc text="Partner marketing":::* | Questo ruolo si concentra sul marketing della tua soluzione e sulla collaborazione sulle attività di marketing con i team di vendita Microsoft e i rivenditori di canali. Il punto di contatto principale per gli impegni di marketing e offrire contenuti di presentazione, ad esempio le descrizioni dei prodotti, le immagini e i video. |
+    | *:::no-loc text="Partner sales":::* | Questo ruolo si concentra sulla vendita della soluzione e sulla collaborazione sulle vendite con i team di vendita E i rivenditori di canali Microsoft. Per le soluzioni di co-selling, indicare almeno un contatto di vendita partner per area geografica in cui si desidera essere Co-sell Ready. Lo stesso contatto di vendita partner può coprire più regioni. |
+    | *:::no-loc text="Partner technical sales":::* | Supporta l'architettura tecnica e le considerazioni di distribuzione durante il ciclo di vendita, l'integrazione post-vendita e i periodi di distribuzione. |
+    | *:::no-loc text="Partner customer success manager":::* | In genere supporta i clienti dopo la distribuzione, per aiutarli a ottenere il massimo dalla soluzione e aumentare la propria impronta all'interno dell'organizzazione del cliente. |
 
-* *Paesi/aree geografiche (obbligatorio):*  Quando si compila il modello, usare i [due codici di paese/area geografica elencati](./commercial-marketplace-co-sell-countries.md). Se il contatto copre tutti i paesi o le aree geografiche, usare il codice "OOO" di tre lettere. Se un contatto copre più di un paese/area geografica, immettere ognuno dei due codici letterali separati da una virgola (ad esempio, immettere "US, CA, FR" senza virgolette nel modello).
+* *Paesi/regioni (obbligatorio):*  Durante la compilazione del modello, utilizzare i [codici paese delle due lettere come indicato.](./commercial-marketplace-co-sell-countries.md) Se il contatto copre tutti i paesi/aree geografiche, utilizzare il codice di tre lettere "OOO". Se un contatto copre più di un paese, immettere ognuno dei due codici di lettere separati da una virgola (ad esempio, immettere "US, CA, FR" senza virgolette nel modello).
 
-    I paesi/aree geografiche devono riflettere il territorio di ogni contatto. I team di vendita Microsoft e i rivenditori di canale utilizzeranno queste informazioni per richiedere informazioni o collaborare alle vendite all'interno di un determinato paese/area geografica.
+    I paesi/aree geografiche devono riflettere il territorio di ogni contatto. I team di vendita e i rivenditori di canale Microsoft utilizzeranno queste informazioni per richiedere informazioni o collaborare alle vendite all'interno del paese/area geografica specifica.
 
-* *Stati/Province (facoltativo):*  Quando si compila il modello, usare il formato XX-XX elencato nella [tabella States/Province](./commercial-marketplace-co-sell-states.md).
+* *Stati/Provvedimenti (facoltativo):*  Durante la compilazione del modello, utilizzare il formato XX-XX elencato nella [tabella Stati/Province .](./commercial-marketplace-co-sell-states.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni, vedere [vendere con Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
+- Per ulteriori informazioni, vedere [Vendere con Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
