@@ -1,15 +1,15 @@
 ---
-title: Elemento MultiStorageAccountCombo dell'interfaccia utente
+title: Elemento dell'interfaccia utente MultiStorageAccountCombo
 description: Questo articolo illustra l'elemento dell'interfaccia utente Microsoft.Storage.MultiStorageAccountCombo per il portale di Azure.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: 06412a1f08f1f242a3f3bd9be17b795ee09fcf9d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75651878"
 ---
 # <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Elemento dell'interfaccia utente Microsoft.Storage.MultiStorageAccountCombo

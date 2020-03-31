@@ -1,6 +1,6 @@
 ---
 title: Origini evento di Griglia di eventi di Azure
-description: Sottoscrizioni di Azure, Container Registry, argomenti personalizzati, Hub eventi, hub degli oggetti, Key Vault, servizi multimediali, gruppi di risorse, bus di servizio, archiviazione, mappe, configurazione dell'app, Signal R, Machine Learning.
+description: Sottoscrizioni di Azure, Registro di sistema contenitore, argomenti personalizzati, hub eventi, hub IoT, Vault delle chiavi, Servizi multimediali, gruppi di risorse, bus di servizio, archiviazione, mappe, configurazione delle app, segnale R, Machine Learning.Azure subscriptions, Container Registry, custom topics, Event Hubs, IoT Hub, Key Vault, Media Services, resource groups, Service Bus, Storage, Maps, App Configuration, Signal R, Machine Learning.
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
 ms.openlocfilehash: d4a426ea1432d0266b7ae9344afefe8ddac1d030
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264999"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Origini evento di Griglia di eventi di Azure
@@ -74,7 +74,7 @@ Per esempi di Hub eventi come gestore, vedere [Gestore di Hub eventi](event-hand
 
 ## <a name="iot-hub"></a>Hub IoT
 
-Sottoscrivere gli eventi dell'hub Internet per rispondere agli eventi di creazione, eliminazione, connessione, disconnessione e telemetria del dispositivo.
+Sottoscrivere gli eventi dell'hub IoT per rispondere agli eventi di creazione, eliminazione, connessione, connessione e telemetria del dispositivo.
 
 |Titolo  |Descrizione  |
 |---------|---------|
@@ -83,17 +83,17 @@ Sottoscrivere gli eventi dell'hub Internet per rispondere agli eventi di creazio
 | [Schema di eventi](event-schema-iot-hub.md) | Illustra i campi negli eventi dell'hub IoT. |
 | [Ordinare eventi correlati a dispositivi connessi e disconnessi](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Illustra come ordinare gli eventi dello stato di connessione del dispositivo. |
 
-## <a name="key-vault-preview"></a>Key Vault (anteprima)
+## <a name="key-vault-preview"></a>Archivio chiavi (anteprima)Key Vault (preview)
 
 L'integrazione di Key Vault con Griglia di eventi è attualmente in fase di anteprima. 
 
-Sottoscrivere gli eventi di Key Vault per ricevere una notifica quando un segreto sta per scadere, scade un segreto o un segreto ha una nuova versione disponibile. 
+Sottoscrivere gli eventi dell'insieme di credenziali delle chiavi per ricevere una notifica quando un segreto sta per scadere, un segreto scade o un segreto ha una nuova versione disponibile. 
 
 |Titolo  |Descrizione  |
 |---------|---------|
-| [Monitoraggio di eventi di Key Vault con griglia di eventi di Azure](../key-vault/event-grid-overview.md) | Panoramica dell'integrazione di Key Vault con griglia di eventi. |
-| [Esercitazione: creare e monitorare Key Vault eventi con griglia di eventi](../key-vault/event-grid-tutorial.md) | Informazioni su come configurare le notifiche di griglia di eventi per Key Vault. |
-| [Schema di eventi](event-schema-key-vault.md) | Mostra i campi negli eventi Key Vault. |
+| [Monitoraggio degli eventi dell'insieme di credenziali delle chiavi con Griglia di eventi di AzureMonitoring Key Vault events with Azure Event Grid](../key-vault/event-grid-overview.md) | Panoramica dell'integrazione dell'insieme di credenziali delle chiavi con Griglia di eventi. |
+| [Esercitazione: Creare e monitorare gli eventi dell'insieme di credenziali delle chiavi con Griglia di eventiTutorial: Create and monitor Key Vault events with Event Grid](../key-vault/event-grid-tutorial.md) | Scopri come impostare le notifiche di Griglia di eventi per Key Vault. |
+| [Schema di eventi](event-schema-key-vault.md) | Mostra i campi negli eventi dell'insieme di credenziali delle chiavi. |
 
 ## <a name="media-services"></a>Servizi multimediali
 
@@ -117,7 +117,7 @@ Sottoscrivere gli eventi dei gruppi di risorse per rispondere alle modifiche app
 | [PowerShell: sottoscrivere eventi per un gruppo di risorse](./scripts/event-grid-powershell-resource-group.md) | Script di esempio che sottoscrive eventi per un gruppo di risorse. Invia eventi a un webhook. |
 | [PowerShell: sottoscrivere eventi per un gruppo di risorse e applicare un filtro per una risorsa](./scripts/event-grid-powershell-resource-group-filter.md) | Script di esempio che sottoscrive eventi per un gruppo di risorse e applica un filtro per una risorsa. |
 | [Modello di Resource Manager: sottoscrizione della risorsa](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook) | Sottoscrive eventi per una sottoscrizione di Azure o un gruppo di risorse. Invia eventi a un webhook. |
-| [Schema di eventi](event-schema-resource-groups.md) | Illustra i campi negli eventi dei gruppi di risorse. |
+| [Schema evento](event-schema-resource-groups.md) | Illustra i campi negli eventi dei gruppi di risorse. |
 
 ## <a name="service-bus"></a>Bus di servizio
 
@@ -134,7 +134,7 @@ Sottoscrivere gli eventi del bus di servizio per rispondere ai messaggi senza un
 Sottoscrivere gli eventi di archiviazione BLOB per rispondere agli eventi creati ed eliminati dai BLOB.
 
 >[!NOTE]
-> Solo gli account di archiviazione di tipo **archiviazione V2 (utilizzo generico v2)** e **BlobStorage** supportano l'integrazione degli eventi. **Archiviazione (utilizzo generico V1)** *non* supporta l'integrazione con griglia di eventi.
+> Solo gli account di archiviazione di tipo **archiviazione V2 (utilizzo generico v2)** e **BlobStorage** supportano l'integrazione degli eventi. **L'archiviazione (generica v1)** *non* supporta l'integrazione con Griglia di eventi.
 
 |Titolo  |Descrizione  |
 |---------|---------|
@@ -153,35 +153,35 @@ Eseguire la sottoscrizione agli eventi di Mappe di Azure per rispondere agli eve
 |Titolo  |Descrizione  |
 |---------|---------|
 | [Reagire agli eventi di Mappe di Azure con Griglia di eventi](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Panoramica dell'integrazione di Mappe di Azure con Griglia di eventi. |
-| [Esercitazione: configurare una rete virtuale](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Questa esercitazione illustra i passaggi di base per la configurazione di un recinto virtuale con Mappe di Azure. Si usa Griglia di eventi di Azure per trasmettere i risultati del recinto virtuale e configurare una notifica in base ai risultati del recinto virtuale stesso. |
+| [Esercitazione: Impostare un geofence](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Questa esercitazione illustra i passaggi di base per la configurazione di un recinto virtuale con Mappe di Azure. Si usa Griglia di eventi di Azure per trasmettere i risultati del recinto virtuale e configurare una notifica in base ai risultati del recinto virtuale stesso. |
 | [Schema di eventi](event-schema-azure-maps.md) | Mostra i campi negli eventi di Mappe di Azure. |
 
 ## <a name="app-configuration"></a>Configurazione app
-Sottoscrivere gli eventi di configurazione di app Azure per rispondere agli eventi di modifica chiave-valore.
+Sottoscrivere gli eventi di configurazione delle app di Azure per rispondere agli eventi di modifica chiave-valore.
 
 |Titolo | Descrizione |
 |---------|---------|
-| [Reagire agli eventi di configurazione di app Azure tramite griglia di eventi](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Panoramica dell'integrazione di app Azure configurazione con griglia di eventi. |
-| [Guida introduttiva: indirizzare eventi di configurazione app Azure a un endpoint Web personalizzato con l'interfaccia della riga di comando](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Illustra come usare l'interfaccia della riga di comando di Azure per inviare eventi di configurazione app Azure a un webhook. |
-| [Schema di eventi](event-schema-app-configuration.md) | Mostra i campi negli eventi di configurazione app Azure. |
+| [Reagire agli eventi di configurazione delle app di Azure usando Griglia di eventiReact to Azure App Configuration events by using Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Panoramica dell'integrazione della configurazione delle app di Azure con Griglia di eventi. |
+| [Guida introduttiva: indirizzare gli eventi di configurazione dell'app di Azure a un endpoint Web personalizzato con l'interfaccia della riga di comando di AzureQuickstart: route Azure App Configuration events to a custom web endpoint with Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Viene illustrato come usare l'interfaccia della riga di comando di Azure per inviare eventi di configurazione delle app di Azure a un WebHook.Shows how to use Azure CLI to send Azure App Configuration events to a WebHook. |
+| [Schema di eventi](event-schema-app-configuration.md) | Mostra i campi negli eventi di configurazione delle app di Azure. |
 
 ## <a name="azure-signalr"></a>Servizio Azure SignalR
-Sottoscrivere gli eventi del servizio Azure SignalR per rispondere agli eventi di connessione client.
+Sottoscrivere gli eventi del servizio SignalR di Azure per rispondere agli eventi di connessione client.
 
 |Titolo | Descrizione |
 |---------|---------|
-| [Reagire agli eventi del servizio Azure SignalR usando griglia di eventi](../azure-signalr/signalr-concept-event-grid-integration.md) | Panoramica dell'integrazione del servizio SignalR di Azure con griglia di eventi. |
-| [Come inviare eventi del servizio Azure SignalR a griglia di eventi](../azure-signalr/signalr-howto-event-grid-integration.md) | Mostra come inviare eventi del servizio Azure SignalR a un'applicazione tramite griglia di eventi. |
-| [Schema di eventi](event-schema-azure-signalr.md) | Mostra i campi negli eventi del servizio Azure SignalR. |
+| [Reagire agli eventi del servizio SignalR di Azure usando Griglia di eventiReact to Azure SignalR Service events by using Event Grid](../azure-signalr/signalr-concept-event-grid-integration.md) | Panoramica dell'integrazione del servizio SignalR di Azure con La griglia di eventi. |
+| [Come inviare eventi del servizio SignalR di Azure alla griglia di eventiHow to send Azure SignalR Service events to Event Grid](../azure-signalr/signalr-howto-event-grid-integration.md) | Viene illustrato come inviare eventi del servizio SignalR di Azure a un'applicazione tramite Griglia di eventi. |
+| [Schema di eventi](event-schema-azure-signalr.md) | Mostra i campi negli eventi del servizio SignalR di Azure. |
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 
-Sottoscrivere gli eventi dell'area di lavoro Azure Machine Learning per rispondere alla registrazione del modello.
+Sottoscrivere gli eventi dell'area di lavoro di Azure Machine Learning per rispondere alla registrazione del modello.
 
 | Titolo | Descrizione |
 | ----- | ----- |
-| [USA eventi Azure Machine Learning](../machine-learning/concept-event-grid-integration.md) | Panoramica dell'integrazione di Azure Machine Learning con griglia di eventi. |
-| [Schema di eventi di griglia di eventi di Azure per Azure Machine Learning](event-schema-machine-learning.md) | Mostra i campi negli eventi Azure Machine Learning. |
+| [Usare gli eventi di Azure Machine LearningConsume Azure Machine Learning events](../machine-learning/concept-event-grid-integration.md) | Panoramica dell'integrazione di Azure Machine Learning con Griglia di eventi. |
+| [Azure Event Grid event schema for Azure Machine Learning](event-schema-machine-learning.md) | Mostra i campi negli eventi di Azure Machine Learning. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

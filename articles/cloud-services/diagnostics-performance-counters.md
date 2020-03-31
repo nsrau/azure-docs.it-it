@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: tagore
 ms.openlocfilehash: 3b4028a09f69acd5d7a6579b4610785ed32e227d
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77469528"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Raccogliere dati con i contatori delle prestazioni per il servizio cloud di Azure
@@ -103,7 +103,7 @@ Ogni contatore delle prestazioni è rappresentato come elemento `<Add>` in `<Cou
 
 Application Insights raccoglie automaticamente i dati per i contatori delle prestazioni seguenti:
 
-* \Processo (?? APP_WIN32_PROC? Tempo processore\%
+* Processo(?? APP_WIN32_PROC??) \% Tempo processore
 * \Memory\Available Bytes
 * \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
 * \Process(??APP_WIN32_PROC??)\Private Bytes
@@ -115,11 +115,11 @@ Per altre informazioni, vedere [Contatori delle prestazioni di sistema in Applic
 ### <a name="azure-diagnostics"></a>Diagnostica Azure
 
 > [!IMPORTANT]
-> Tutti questi dati vengono aggregati nell'account di archiviazione, ma il portale **non** fornisce un modo nativo per rappresentarli graficamente. È consigliabile integrare un altro servizio di diagnostica, come Application Insights, nell'applicazione.
+> Sebbene tutti questi dati vengano aggregati nell'account di archiviazione, il portale **non** fornisce un modo nativo per rappresentare graficamente i dati. È consigliabile integrare un altro servizio di diagnostica, come Application Insights, nell'applicazione.
 
 L'estensione Diagnostica di Azure per Servizi cloud consente di specificare quali contatori delle prestazioni includere nella raccolta di dati. Per configurare Diagnostica di Azure, vedere [Presentazione del monitoraggio del servizio cloud](cloud-services-how-to-monitor.md#setup-diagnostics-extension).
 
-I contatori delle prestazioni da includere nella raccolta vengono definiti nel file **diagnostics.wadcfgx**. Aprire questo file (è definito per ogni ruolo) in Visual Studio e individuare l'elemento **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters**. Aggiungere un nuovo elemento **PerformanceCounterConfiguration** come elemento figlio. Questo elemento ha due attributi: `counterSpecifier` e `sampleRate`. L'attributo `counterSpecifier` definisce il set di contatori delle prestazioni di sistema (descritto nella sezione precedente) da includere nella raccolta. Il valore `sampleRate` indica la frequenza di polling di tale valore. Nel suo complesso, tutti i contatori delle prestazioni vengono trasferiti in Azure in base al valore dell'attributo `PerformanceCounters` dell'elemento padre `scheduledTransferPeriod`.
+I contatori delle prestazioni da includere nella raccolta vengono definiti nel file **diagnostics.wadcfgx**. Aprire questo file (è definito per ruolo) in Visual Studio e trovare l'elemento**PerformanceCounters** Di **DiagnosticaConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration.** >  Aggiungere un nuovo elemento **PerformanceCounterConfiguration** come elemento figlio. Questo elemento ha due attributi: `counterSpecifier` e `sampleRate`. L'attributo `counterSpecifier` definisce il set di contatori delle prestazioni di sistema (descritto nella sezione precedente) da includere nella raccolta. Il valore `sampleRate` indica la frequenza di polling di tale valore. Nel suo complesso, tutti i contatori delle prestazioni vengono trasferiti in Azure in base al valore dell'attributo `scheduledTransferPeriod` dell'elemento padre `PerformanceCounters`.
 
 Per altre informazioni sull'elemento dello schema `PerformanceCounters`, vedere [Schema di configurazione di Diagnostica di Azure](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element).
 
@@ -259,7 +259,7 @@ Come già indicato, i contatori delle prestazioni per Application Insights vengo
 
 ### <a name="azure-diagnostics"></a>Diagnostica Azure
 
-Come indicato in precedenza, i contatori delle prestazioni da includere nella raccolta sono definiti nel file **diagnostics.wadcfgx**. Aprire questo file (è definito per ogni ruolo) in Visual Studio e individuare l'elemento **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters**. Aggiungere un nuovo elemento **PerformanceCounterConfiguration** come elemento figlio. Impostare l'attributo `counterSpecifier` sulla categoria e il nome del contatore delle prestazioni creato nel codice. 
+Come indicato in precedenza, i contatori delle prestazioni da includere nella raccolta sono definiti nel file **diagnostics.wadcfgx**. Aprire questo file (è definito per ruolo) in Visual Studio e trovare l'elemento**PerformanceCounters** Di **DiagnosticaConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration.** >  Aggiungere un nuovo elemento **PerformanceCounterConfiguration** come elemento figlio. Impostare l'attributo `counterSpecifier` sulla categoria e il nome del contatore delle prestazioni creato nel codice. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

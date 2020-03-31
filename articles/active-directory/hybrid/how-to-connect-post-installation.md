@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c204029557a73dc3f02015afb92c0fdbf0d4d50e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261294"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Passaggi successivi e come gestire Azure AD Connect
@@ -47,23 +47,23 @@ Usare il portale di Azure per controllare lo stato di una sincronizzazione.
 ### <a name="to-verify-the-scheduled-synchronization-task"></a>Per verificare l'attività di sincronizzazione pianificata
 1. Accedere al portale di Azure come amministratore.
 2. A sinistra, selezionare **Active Directory**.
-3. A sinistra selezionare **Azure ad Connect**
+3. A sinistra, seleziona **Azure AD Connect**
 4. Nella parte superiore della pagina prendere nota dell'ultima sincronizzazione.
 
-![Tempo sincronizzazione directory](./media/how-to-connect-post-installation/verify2.png)
+![Ora sincronizzazione directory](./media/how-to-connect-post-installation/verify2.png)
 
 ## <a name="start-a-scheduled-synchronization-task"></a>Avviare un'attività di sincronizzazione pianificata
-Se è necessario eseguire un'attività di sincronizzazione, è possibile procedere nel modo seguente:
+Se è necessario eseguire un'attività di sincronizzazione, è possibile eseguire questa operazione:If you need to run a synchronization task, you can do this by:
 
-1. Fare doppio clic sul collegamento Azure AD Connect desktop per avviare la procedura guidata.
-2. Fare clic su **Configure**.
-3. Nella schermata attività selezionare le **Opzioni Personalizza sincronizzazione** e fare clic su **Avanti** .
+1. Fare doppio clic sul collegamento sul desktop di Azure AD Connect per avviare la procedura guidata.
+2. Fare clic su **Configura**.
+3. Nella schermata delle attività, selezionare le **opzioni di sincronizzazione personalizza** e fare clic su **Avanti**
 4. Immettere le credenziali di Azure AD
 5. Fare clic su **Avanti**. Fare clic su **Avanti**.  Fare clic su **Avanti**.
-5.  Nella schermata **pronto per** la configurazione assicurarsi che la casella **Avvia il processo di sincronizzazione al termine della configurazione** sia selezionata.
-6.  Fare clic su **Configure**.
+5.  Nella schermata **Pronto per** la configurazione verificare che la casella Avvia il processo di **sincronizzazione al termine** della configurazione sia selezionata.
+6.  Fare clic su **Configura**.
 
-Per altre informazioni sull'utilità di pianificazione della sincronizzazione di Azure AD Connect, vedere [Utilità di pianificazione di Azure AD Connect](how-to-connect-sync-feature-scheduler.md).
+Per altre informazioni sull'utilità di pianificazione della sincronizzazione di Azure AD Connect, vedere Utilità di pianificazione di Azure AD Connect.For more information on the Azure AD Connect sync Scheduler, see [Azure AD Connect Scheduler.](how-to-connect-sync-feature-scheduler.md)
 
 ## <a name="additional-tasks-available-in-azure-ad-connect"></a>Attività aggiuntive disponibili in Azure AD Connect
 Dopo l'installazione iniziale di Azure AD Connect è sempre possibile riavviare la procedura guidata dalla pagina iniziale di Azure AD Connect o dal collegamento sul dekstop.  Si noterà che la riesecuzione della procedura guidata fornisce alcune nuove opzioni sotto forma di Attività aggiuntive.  
@@ -74,15 +74,15 @@ La tabella seguente include un riepilogo di tali attività e una breve descrizio
 
 | Attività aggiuntive | Descrizione |
 | --- | --- |
-|**Impostazioni privacy**|Visualizzare i dati di telemetria condivisi con Microsoft.|
-|**Visualizza la configurazione corrente**|Consente di visualizzare la soluzione Azure AD Connect corrente.  Include impostazioni generali, directory sincronizzate e impostazioni di sincronizzazione. |
+|**Impostazioni sulla privacy**|Visualizzare i dati di telemetria condivisi con Microsoft.View what telemetry data is being shared with Microsoft.|
+|**Visualizzazione della configurazione corrente**|Consente di visualizzare la soluzione Azure AD Connect corrente.  Include impostazioni generali, directory sincronizzate e impostazioni di sincronizzazione. |
 | **Personalizzazione delle opzioni di sincronizzazione** |Consente di modificare la configurazione corrente, come l'aggiunta di altre foreste di Active Directory alla configurazione o l'attivazione di opzioni di sincronizzazione, ad esempio writeback di utenti, gruppi, dispositivi o password. |
-|**Configurare le opzioni del dispositivo**|Opzioni del dispositivo disponibili per la sincronizzazione|
-|**Aggiorna schema directory**|Consente di aggiungere nuovi oggetti directory locali per la sincronizzazione|
+|**Configura le opzioni del dispositivo**|Opzioni del dispositivo disponibili per la sincronizzazione|
+|**Aggiorna lo schema della directory**|Consente di aggiungere nuovi oggetti directory locali per la sincronizzazione|
 |**Configurare la modalità di gestione temporanea** |Informazioni relative alla gestione temporanea non vengono sincronizzate immediatamente e non vengono esportate in Azure AD o in Active Directory locale.  Con questa funzionalità è possibile visualizzare in anteprima le sincronizzazioni prima che si verifichino. |
-|**Modifica dell'accesso utente**|Modificare il metodo di autenticazione usato dagli utenti per accedere|
-|**Gestisci federazione**|Gestire l'infrastruttura di AD FS, rinnovare i certificati e aggiungere AD FS server|
-|**Risolvere i problemi**|Guida alla risoluzione dei problemi di Azure AD Connect|
+|**Modificare l'accesso utente**|Modificare il metodo di autenticazione utilizzato dagli utenti per l'accesso|
+|**Gestire la federazione**|Gestire l'infrastruttura ADFS, rinnovare i certificati e aggiungere server ADFSManage your AD FS infrastructure, renew certificates, and add AD FS servers|
+|**Risolvere i problemi**|Assistenza per la risoluzione dei problemi di Azure AD Connect|
 
 ## <a name="next-steps"></a>Passaggi successivi
-Altre informazioni sull'[integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).
+Altre informazioni [sull'integrazione delle identità locali con Azure Active Directory.](whatis-hybrid-identity.md)

@@ -1,5 +1,5 @@
 ---
-title: Supporto per il ripristino di emergenza VMware/fisico in un sito secondario con Azure Site Recovery
+title: Supporto per VMware/ripristino di emergenza fisico in un sito secondario con Azure Site RecoverySupport for VMware/physical disaster recovery to a secondary site with Azure Site Recovery
 description: Questo articolo presenta un riepilogo del supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in un sito secondario con Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: cabd3f7693c6b6b86bf0324bdafdfe1377d1ece8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256796"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in un sito secondario
@@ -26,9 +26,9 @@ Questo articolo presenta un riepilogo degli elementi supportati quando si usa il
 > La replica di macchine virtuali VMware locali e server fisici viene eseguita usando InMage Scout. InMage Scout è incluso nella sottoscrizione del servizio Azure Site Recovery.
 
 ## <a name="end-of-support-announcement"></a>Annuncio di fine del supporto
-Lo scenario Site Recovery per la replica tra i data center fisici o VMware locali sta raggiungendo la fine del supporto.
+Lo scenario di Site Recovery per la replica tra VMware locale o data center fisici sta raggiungendo la fine del supporto.
 
-- Dal 2018 agosto lo scenario non può essere configurato nell'insieme di credenziali di servizi di ripristino e il software Inmage Scout non può essere scaricato dall'insieme di credenziali. Le distribuzioni esistenti saranno supportate.
+- Da agosto 2018, lo scenario non può essere configurato nell'insieme di credenziali dei servizi di recupero e il software InMage Scout non può essere scaricato dall'insieme di credenziali. Le distribuzioni esistenti saranno supportate.
 - - Dal 31 dicembre 2020 lo scenario non sarà più supportato.
 I partner esistenti possono caricare nuovi clienti nello scenario finché non termina il supporto.
 - Durante il 2018 e il 2019 verranno rilasciati due aggiornamenti:
@@ -124,7 +124,7 @@ Il servizio Mobility coordina la replica fra server VMware locali/server fisici 
 | **Aggiornamento** | **Dettagli** |
 | --- | --- |
 |Aggiornamenti di Scout | Gli aggiornamenti di Scout sono cumulativi. <br/><br/> [Informazioni introduttive e su come scaricare](vmware-physical-secondary-disaster-recovery.md#updates) gli aggiornamenti più recenti di Scout |
-|Aggiornamenti dei componenti | Gli aggiornamenti di Scout includono gli aggiornamenti di tutti i componenti, tra cui server RX, server di configurazione, server di destinazione di elaborazione e master, server vContinuum e server di origine che si vuole proteggere.<br/><br/> [Altre informazioni](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|
+|Aggiornamenti dei componenti | Gli aggiornamenti di Scout includono gli aggiornamenti di tutti i componenti, tra cui server RX, server di configurazione, server di destinazione di elaborazione e master, server vContinuum e server di origine che si vuole proteggere.<br/><br/> [Scopri di più](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|
 
 
 ## <a name="next-steps"></a>Passaggi successivi

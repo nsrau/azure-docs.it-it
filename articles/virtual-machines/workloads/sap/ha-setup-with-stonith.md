@@ -14,16 +14,16 @@ ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4060dbe936af8ff1f9dd8c958f64834cb06525de
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77615091"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configurazione della disponibilità elevata in SUSE con STONITH
 Questo documento contiene le istruzioni dettagliate per configurare la disponibilità elevata nel sistema operativo SUSE usando il dispositivo STONITH.
 
-**Dichiarazione di non responsabilità:** *questa guida è derivata dal test della configurazione nell'ambiente Microsoft Hana large instances, che funziona correttamente. Poiché il team di gestione dei servizi Microsoft per le istanze large di HANA non supporta il sistema operativo, potrebbe essere necessario contattare SUSE per eventuali ulteriori operazioni di risoluzione dei problemi o chiarimenti sul livello del sistema operativo. Il team di gestione dei servizi Microsoft configura il dispositivo STONITH e supporta completamente e può essere richiesto per la risoluzione dei problemi relativi ai dispositivi STONITH.*
+**Dichiarazione di non responsabilità:** *questa guida viene derivata testando l'installazione nell'ambiente Microsoft HANA Large Instances, che funziona correttamente. Poiché il team di gestione dei servizi Microsoft per le istanze di grandi dimensioni HANA non supporta il sistema operativo, potrebbe essere necessario contattare SUSE per qualsiasi ulteriore risoluzione dei problemi o chiarimenti sul livello del sistema operativo. Il team di gestione dei servizi Microsoft configura il dispositivo STONITH e supporta completamente e può essere coinvolto per la risoluzione dei problemi* relativi ai dispositivi STONITH.
 ## <a name="overview"></a>Panoramica
 Per configurare la disponibilità elevata usando il clustering SUSE, è necessario soddisfare i prerequisiti seguenti.
 ### <a name="pre-requisites"></a>Prerequisiti
@@ -63,7 +63,7 @@ Per configurare la disponibilità elevata end-to-end usando STONITH, è necessar
 7.  Configurare le risorse per il cluster
 8.  Testare il processo di failover
 
-## <a name="1---identify-the-sbd-device"></a>1. identificare il dispositivo SBD
+## <a name="1---identify-the-sbd-device"></a>1. Identificare il dispositivo SBD
 Questa sezione descrive come determinare il dispositivo SBD per la configurazione dopo che il team di gestione dei servizi Microsoft ha configurato STONITH. **Questa sezione si applica solo ai clienti esistenti**. Il team di gestione dei servizi Microsoft fornisce il nome del dispositivo SBD ai nuovi clienti che possono ignorare questa sezione.
 
 1.1 Sostituire */etc/iscsi/initiatorname.isci* con 
@@ -85,14 +85,14 @@ iscsiadm -m discovery -t st -p <IP address provided by Service Management>:3260
 
 ![iSCSIadmDiscovery.png](media/HowToHLI/HASetupWithStonith/iSCSIadmDiscovery.png)
 
-1.4 Eseguire il comando per accedere al dispositivo iSCSI e visualizzare quattro sessioni. Eseguirlo su **entrambi** i nodi.
+1.4 Eseguire il comando per accedere al dispositivo iSCSI e visualizzare quattro sessioni. Eseguirlo su **entrambi i** nodi.
 
 ```
 iscsiadm -m node -l
 ```
 ![iSCSIadmLogin.png](media/HowToHLI/HASetupWithStonith/iSCSIadmLogin.png)
 
-1,5 eseguire lo script Rescan: *rescan-SCSI-bus.sh*.  Questo script Mostra i nuovi dischi creati automaticamente.  Eseguirlo su entrambi i nodi. Verrà visualizzato un numero LUN maggiore di zero (ad esempio: 1, 2 e così via)
+1.5 Eseguire lo script di ripetizione dell'analisi: *rescan-scsi-bus.sh*.  Questo script mostra i nuovi dischi creati automaticamente.  Eseguirlo su entrambi i nodi. Verrà visualizzato un numero LUN maggiore di zero (ad esempio: 1, 2 e così via)
 
 ```
 rescan-scsi-bus.sh
@@ -107,7 +107,7 @@ rescan-scsi-bus.sh
 
 ![fdisk-l.png](media/HowToHLI/HASetupWithStonith/fdisk-l.png)
 
-## <a name="2---initialize-the-sbd-device"></a>2. inizializzare il dispositivo SBD
+## <a name="2---initialize-the-sbd-device"></a>2. Inizializzare il dispositivo SBD
 
 2.1 Inizializzare il dispositivo SBD su **entrambi** i nodi
 
@@ -122,7 +122,7 @@ sbd -d <SBD Device Name> create
 sbd -d <SBD Device Name> dump
 ```
 
-## <a name="3---configuring-the-cluster"></a>3. configurazione del cluster
+## <a name="3---configuring-the-cluster"></a>3. Configurazione del cluster
 Questa sezione descrive i passaggi per configurare il cluster SUSE a disponibilità elevata.
 ### <a name="31-package-installation"></a>3.1 Installazione del pacchetto
 3.1.1 Controllare che i modelli ha_sles e SAPHanaSR-doc siano installati. Se non sono installati, è necessario installarli. Installarli su **entrambi** i nodi.
@@ -145,8 +145,8 @@ Fare clic su **cancel** (Annulla), perché il pacchetto halk2 è già installato
 
 Fare clic su **Continue** (Continua)
 
-Valore previsto=numero di nodi distribuiti (in questo caso, 2) ![yast-Cluster-Security.png](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png) Fare clic su **Next** (Avanti)
-![yast-cluster-configure-csync2.png](media/HowToHLI/HASetupWithStonith/yast-cluster-configure-csync2.png) Aggiungere i nomi dei nodi e quindi fare clic su "Add suggested files" (Aggiungi file suggeriti)
+Valore previsto: numero di nodi distribuiti ![(in questo caso 2) yast-Cluster-Security.png](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png) Fare clic](media/HowToHLI/HASetupWithStonith/yast-cluster-configure-csync2.png) su **Avanti**
+![yast-cluster-configure-csync2.png Aggiungere i nomi dei nodi e quindi fare clic su "Aggiungi file suggeriti"
 
 Fare clic su "Turn csync2 ON" (Attiva csync2)
 
@@ -160,13 +160,13 @@ L'autenticazione viene eseguita usando gli indirizzi IP e le chiavi precondivise
 
 ![yast-cluster-conntrackd.png](media/HowToHLI/HASetupWithStonith/yast-cluster-conntrackd.png)
 
-Fare clic su **Next** (Avanti)
+Fare clic su **Avanti**
 ![yast-cluster-service.png](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
 
 L'impostazione predefinita di Booting (Avvio) è "Off" (No). Impostarlo su "On" (Sì) per avviare Pacemaker durante il bootstrap. È possibile effettuare la scelta in base ai requisiti di configurazione.
 Fare clic su **Next** (Avanti) per completare la configurazione del cluster.
 
-## <a name="4---setting-up-the-softdog-watchdog"></a>4. configurazione del watchdog softdog
+## <a name="4---setting-up-the-softdog-watchdog"></a>4. Impostazione del watchdog Softdog
 Questa sezione descrive la configurazione del watchdog (softdog).
 
 4.1 Aggiungere la riga seguente a */etc/init.d/boot.local* in **entrambi** i nodi.
@@ -233,7 +233,7 @@ systemctl start pacemaker
 
 Se il servizio Pacemaker *ha esito negativo*, vedere *Scenario 5: Il servizio Pacemaker ha esito negativo*
 
-## <a name="5---joining-the-cluster"></a>5. aggiunta al cluster
+## <a name="5---joining-the-cluster"></a>5. Aggiunta al cluster
 Questa sezione descrive come aggiungere il nodo al cluster.
 
 ### <a name="51-add-the-node"></a>5.1 Aggiungere il nodo
@@ -243,7 +243,7 @@ ha-cluster-join
 ```
 Se viene visualizzato un *errore* durante l'aggiunta al cluster, vedere *Scenario 6: Non è possibile aggiungere node2 al cluster*.
 
-## <a name="6---validating-the-cluster"></a>6. convalida del cluster
+## <a name="6---validating-the-cluster"></a>6. Convalida del cluster
 
 ### <a name="61-start-the-cluster-service"></a>6.1 Avviare il servizio cluster
 Per controllare e, facoltativamente, avviare il cluster per la prima volta in **entrambi** i nodi.
@@ -257,9 +257,9 @@ Eseguire il comando *crm_mon* per assicurarsi che **entrambi** i nodi siano onli
 ```
 crm_mon
 ```
-![CRM-Mon. png](media/HowToHLI/HASetupWithStonith/crm-mon.png) è inoltre possibile accedere a Hawk per verificare lo stato del cluster *https://\<nodo IP >: 7630*. L'utente predefinito è hacluster e la password è linux. Se necessario, è possibile modificare la password usando il comando *passwd*.
+![crm-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png) È inoltre possibile accedere al falco per controllare lo stato del cluster *https://\<nodo IP>:7630*. L'utente predefinito è hacluster e la password è linux. Se necessario, è possibile modificare la password usando il comando *passwd*.
 
-## <a name="7-configure-cluster-properties-and-resources"></a>7. configurare le proprietà e le risorse del cluster 
+## <a name="7-configure-cluster-properties-and-resources"></a>7. Configurare le proprietà e le risorse del cluster 
 Questa sezione descrive i passaggi per configurare le risorse del cluster.
 In questo esempio, configurare la risorsa seguente. Per configurare le altre, se necessario, vedere la guida alla disponibilità elevata di SUSE. È necessario eseguire questa configurazione solo su **uno dei nodi**. Eseguire l'operazione nel nodo primario.
 
@@ -322,11 +322,11 @@ crm configure load update crm-vip.txt
 Quando si esegue il comando *crm_mon*, è possibile visualizzare le due risorse.
 ![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
-È anche possibile visualizzare lo stato in *https://\<indirizzo IP del nodo >: 7630/CIB/Live/state*
+Inoltre, è possibile visualizzare lo stato *all'indirizzo IP del nodo https://\<>:7630/cib/live/state*
 
 ![hawlk-status-page.png](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
 
-## <a name="8-testing-the-failover-process"></a>8. test del processo di failover
+## <a name="8-testing-the-failover-process"></a>8. Test del processo di failover
 Per testare il processo di failover, arrestare il servizio Pacemaker in node1. Viene effettuato il failover delle risorse in node2.
 ```
 Service pacemaker stop
@@ -334,14 +334,14 @@ Service pacemaker stop
 Arrestare ora il servizio Pacemaker in **node2**. È stato effettuato il failover delle risorse in **node1**
 
 **Prima del failover**  
-![before-failover. png](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
+![Prima del failover.png](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
 
 **Dopo il failover**  
-![after-failover. png](media/HowToHLI/HASetupWithStonith/after-failover.png)  
-![CRM-Mon-after-failover. png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
+![dopo il failover.png](media/HowToHLI/HASetupWithStonith/after-failover.png)  
+![crm-mon-after-failover.png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
 
 
-## <a name="9-troubleshooting"></a>9. risoluzione dei problemi
+## <a name="9-troubleshooting"></a>9. Risoluzione dei problemi
 Questa sezione descrive alcuni scenari di errore, che possono verificarsi durante la configurazione, anche se non necessariamente.
 
 ### <a name="scenario-1-cluster-node-not-online"></a>Scenario 1: Nodo del cluster non online
@@ -371,7 +371,7 @@ Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal
 ### <a name="scenario-2-yast2-does-not-show-graphical-view"></a>Scenario 2: yast2 non mostra la visualizzazione grafica
 In questo documento viene usata la schermata grafica di yast2 per configurare il cluster a disponibilità elevata. Se yast2 non si apre con la finestra grafica illustrata e genera l'errore Qt, seguire questa procedura. Se si apre con la finestra grafica, è possibile ignorare la procedura.
 
-**Error (Errore) (Error (Errore)e)**
+**Errore**
 
 ![yast2-qt-gui-error.png](media/HowToHLI/HASetupWithStonith/yast2-qt-gui-error.png)
 
@@ -533,7 +533,7 @@ Dopo la correzione precedente, node2 verrà aggiunto al cluster
 
 ![ha-cluster-join-fix.png](media/HowToHLI/HASetupWithStonith/ha-cluster-join-fix.png)
 
-## <a name="10-general-documentation"></a>10. documentazione generale
+## <a name="10-general-documentation"></a>10. Documentazione generale
 Per altre informazioni sulla configurazione della disponibilità elevata di SUSE, vedere gli articoli seguenti: 
 
 - [SAP HANA SR Performance Optimized Scenario](https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf ) (Scenario di ottimizzazione delle prestazioni di SAP HANA SR)

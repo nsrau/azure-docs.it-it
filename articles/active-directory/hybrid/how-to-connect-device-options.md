@@ -17,17 +17,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 96ddcdb67ef079cfa23902a1dcb03b0ec61077fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67109538"
 ---
-# <a name="azure-ad-connect-device-options"></a>Azure AD Connect: Opzioni del dispositivo
+# <a name="azure-ad-connect-device-options"></a>Azure AD Connect: opzioni del dispositivo
 
 La documentazione seguente offre informazioni sulle diverse opzioni del dispositivo disponibili in Azure AD Connect. È possibile usare Azure AD Connect per configurare le due operazioni seguenti: 
 * **Aggiunta ad Azure AD ibrido**: se l'ambiente ha un footprint AD locale e si vogliono i vantaggi di Azure AD, è possibile implementare dispositivi aggiunti all'identità ibrida di Azure AD. Questi dispositivi vengono aggiunti sia ad Active Directory locale che ad Azure Active Directory.
-* **Writeback dispositivi**: Il writeback dei dispositivi viene usato per abilitare l'accesso condizionale in base ai dispositivi di ADFS (2012 R2 o versione successiva) protetti i dispositivi
+* **Writeback dei**dispositivi: il writeback dei dispositivi viene usato per abilitare l'accesso condizionale in base ai dispositivi per i dispositivi protetti da ADFS (2012 R2 o versione successiva)
 
 ## <a name="configure-device-options-in-azure-ad-connect"></a>Configurare le opzioni del dispositivo in Azure AD Connect
 
@@ -35,7 +35,7 @@ La documentazione seguente offre informazioni sulle diverse opzioni del disposit
     ![Configurare le opzioni del dispositivo](./media/how-to-connect-device-options/deviceoptions.png) 
 
     Nella pagina **Panoramica** vengono visualizzati i dettagli.
-    ![Panoramica](./media/how-to-connect-device-options/deviceoverview.png)
+    ![Overview](./media/how-to-connect-device-options/deviceoverview.png)
 
     >[!NOTE]
     > Il nuovo Configura le opzioni del dispositivo è disponibile solo nella versione 1.1.819.0 e successive.

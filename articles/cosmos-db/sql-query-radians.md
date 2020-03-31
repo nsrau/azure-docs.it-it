@@ -1,6 +1,6 @@
 ---
-title: RADIAnti nel linguaggio di query Azure Cosmos DB
-description: Informazioni sulla funzione di sistema SQL RADIAnti in Azure Cosmos DB.
+title: RADIANI nel linguaggio di query di Azure Cosmos DB
+description: Informazioni sulla funzione di sistema SQL RADIANTI in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 7831ef4bbd65bce7329b1ecf0f602b110a16834b
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302237"
 ---
-# <a name="radians-azure-cosmos-db"></a>RADIAnti (Azure Cosmos DB)
+# <a name="radians-azure-cosmos-db"></a>RADIANTI (Azure Cosmos DB)
  Restituisce l'equivalente in radianti dell'espressione numerica specificata espressa in gradi.  
   
 ## <a name="syntax"></a>Sintassi
@@ -26,7 +26,7 @@ RADIANS (<numeric_expr>)
 ## <a name="arguments"></a>Argomenti
   
 *numeric_expr*  
-   Espressione numerica.  
+   È un'espressione numerica.  
   
 ## <a name="return-types"></a>Tipi restituiti
   
@@ -40,7 +40,7 @@ RADIANS (<numeric_expr>)
 SELECT RADIANS(-45.01) AS r1, RADIANS(-181.01) AS r2, RADIANS(0) AS r3, RADIANS(0.1472738) AS r4, RADIANS(197.1099392) AS r5  
 ```  
   
-  Set di risultati:  
+  Questo è il set di risultati.  
   
 ```json
 [{  
@@ -52,7 +52,7 @@ SELECT RADIANS(-45.01) AS r1, RADIANS(-181.01) AS r2, RADIANS(0) AS r3, RADIANS(
    }]  
 ```  
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 Questa funzione di sistema non utilizzerà l'indice.
 
@@ -60,4 +60,4 @@ Questa funzione di sistema non utilizzerà l'indice.
 
 - [Funzioni matematiche Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduzione a Azure Cosmos DB](introduction.md)
+- [Introduzione ad Azure Cosmos DB](introduction.md)

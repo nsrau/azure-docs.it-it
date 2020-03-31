@@ -1,16 +1,16 @@
 ---
 title: Informazioni su come gestire gli account di database in Azure Cosmos DB
-description: Informazioni su come gestire Azure Cosmos DB risorse usando i modelli portale di Azure, PowerShell, CLI e Azure Resource Manager
+description: Informazioni su come gestire le risorse del database Cosmos di Azure usando il portale di Azure, PowerShell, l'interfaccia della riga di comando e i modelli di Azure Resource Manager
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
 ms.openlocfilehash: 61670d757611bd0c1dd11c389282b18edb3d7fa1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247384"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gestire un account Azure Cosmos
@@ -19,31 +19,31 @@ Questo articolo descrive come gestire varie attività relative a un account Azur
 
 ## <a name="create-an-account"></a>Creare un account
 
-### <a id="create-database-account-via-portal"></a>Portale di Azure
+### <a name="azure-portal"></a><a id="create-database-account-via-portal"></a>Portale di Azure
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-### <a id="create-database-account-via-cli"></a>
+### <a name="azure-cli"></a><a id="create-database-account-via-cli"></a>Interfaccia della riga di comando di AzureAzure
 
-Vedere [creare un account di Azure Cosmos DB con l'interfaccia della riga di comando di Azure](manage-with-cli.md#create-an-azure-cosmos-db-account)
+Vedere [Creare un account di database Di Azure Cosmos con l'interfaccia della riga di comando di AzureSee see Create an Azure Cosmos DB account with Azure CLI](manage-with-cli.md#create-an-azure-cosmos-db-account)
 
-### <a id="create-database-account-via-ps"></a>Azure PowerShell
+### <a name="azure-powershell"></a><a id="create-database-account-via-ps"></a>Azure PowerShell
 
-Vedere [creare un account Azure Cosmos DB con PowerShell](manage-with-powershell.md#create-account)
+Vedere [Creare un account di database Cosmos di Azure con PowershellSee Create an Azure Cosmos DB account with Powershell](manage-with-powershell.md#create-account)
 
-### <a id="create-database-account-via-arm-template"></a>Modello di Azure Resource Manager
+### <a name="azure-resource-manager-template"></a><a id="create-database-account-via-arm-template"></a>Modello di Azure Resource ManagerAzure Resource Manager template
 
-Questo modello di Azure Resource Manager creerà un account Azure Cosmos per l'API SQL configurato con due aree e opzioni per selezionare il livello di coerenza, il failover automatico e il multimaster. Per distribuire il modello, fare clic su Deploy to Azure (Distribuisci in Azure) nella pagina README relativa alla [creazione di un account Azure Cosmos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql).
+Questo modello di Azure Resource Manager creerà un account Azure Cosmos per l'API SQL configurata con due aree e opzioni per selezionare il livello di coerenza, il failover automatico e il multimaster. Per distribuire il modello, fare clic su Deploy to Azure (Distribuisci in Azure) nella pagina README relativa alla [creazione di un account Azure Cosmos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql).
 
 ## <a name="addremove-regions-from-your-database-account"></a>Aggiungere o rimuovere aree dall'account di database
 
-### <a id="add-remove-regions-via-portal"></a>Portale di Azure
+### <a name="azure-portal"></a><a id="add-remove-regions-via-portal"></a>Portale di Azure
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al portale di [Azure](https://portal.azure.com).
 
 1. Passare all'account Azure Cosmos e aprire il menu **Replica i dati a livello globale**.
 
-1. Per aggiungere aree, selezionare gli esagoni sulla mappa con l'etichetta **+** corrispondente alle aree geografiche desiderate. In alternativa, per aggiungere un'area, selezionare l'opzione **+ Aggiungi area** e scegliere un'area dal menu a discesa.
+1. Per aggiungere regioni, selezionare gli esagoni **+** sulla mappa con l'etichetta corrispondente alle regioni desiderate. In alternativa, per aggiungere un'area, selezionare l'opzione **+ Aggiungi area** e scegliere un'area dal menu a discesa.
 
 1. Per rimuovere aree, deselezionare una o più aree nella mappa selezionando gli esagoni blu con segni di spunta. In alternativa, selezionare l'icona del cestino (🗑) accanto all'area sul lato destro.
 
@@ -55,31 +55,31 @@ In modalità di scrittura in una singola area non è possibile rimuovere l'area 
 
 In modalità di scrittura in più aree è possibile aggiungere o rimuovere qualsiasi area, purché resti almeno un'area.
 
-### <a id="add-remove-regions-via-cli"></a>
+### <a name="azure-cli"></a><a id="add-remove-regions-via-cli"></a>Interfaccia della riga di comando di AzureAzure
 
-Vedere [aggiungere o rimuovere aree con l'interfaccia della riga di comando di Azure](manage-with-cli.md#add-or-remove-regions)
+Vedere [Aggiungere o rimuovere aree con](manage-with-cli.md#add-or-remove-regions) l'interfaccia della riga di comando di Azure
 
-### <a id="add-remove-regions-via-ps"></a>Azure PowerShell
+### <a name="azure-powershell"></a><a id="add-remove-regions-via-ps"></a>Azure PowerShell
 
-Vedere [aggiungere o rimuovere aree con PowerShell](manage-with-powershell.md#update-account)
+Vedere [Aggiungere o rimuovere aree con Powershell](manage-with-powershell.md#update-account)
 
-## <a id="configure-multiple-write-regions"></a>Configurare più aree di scrittura
+## <a name="configure-multiple-write-regions"></a><a id="configure-multiple-write-regions"></a>Configurare più aree di scrittura
 
-### <a id="configure-multiple-write-regions-portal"></a>Portale di Azure
+### <a name="azure-portal"></a><a id="configure-multiple-write-regions-portal"></a>Portale di Azure
 
 Aprire la scheda **Replica i dati a livello globale** e selezionare **Abilita** per abilitare le operazioni di scrittura in più aree. Dopo aver abilitato tali operazioni, tutte le aree di lettura di cui si dispone attualmente nell'account diventeranno aree di lettura e scrittura.
 
 ![Screenshot relativo alla configurazione della funzionalità multimaster per l'account Azure Cosmos](./media/how-to-manage-database-account/single-to-multi-master.png)
 
-### <a id="configure-multiple-write-regions-cli"></a>
+### <a name="azure-cli"></a><a id="configure-multiple-write-regions-cli"></a>Interfaccia della riga di comando di AzureAzure
 
-Vedere [abilitare aree con più scritture con l'interfaccia della riga di comando di Azure](manage-with-cli.md#enable-multiple-write-regions)
+Vedere [Abilitare aree con più scrittura con l'interfaccia della riga di comando di AzureSee Enable multiple-write regions with Azure CLI](manage-with-cli.md#enable-multiple-write-regions)
 
-### <a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
+### <a name="azure-powershell"></a><a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
 
-Vedere [abilitare aree con più scritture con PowerShell](manage-with-powershell.md#multi-master)
+Vedere [Abilitare le aree a scrittura multipla con Powershell](manage-with-powershell.md#multi-master)
 
-### <a id="configure-multiple-write-regions-arm"></a>modello di Resource Manager
+### <a name="resource-manager-template"></a><a id="configure-multiple-write-regions-arm"></a>Modello di Resource Manager
 
 È possibile eseguire la migrazione di un account da master singolo a multimaster distribuendo il modello di Resource Manager usato per creare l'account e impostando `enableMultipleWriteLocations: true`. Il modello di Azure Resource Manager seguente è il modello minimo essenziale che distribuirà un account Azure Cosmos per l'API SQL con due aree e più località di scrittura abilitate.
 
@@ -139,11 +139,11 @@ Vedere [abilitare aree con più scritture con PowerShell](manage-with-powershell
 }
 ```
 
-## <a id="automatic-failover"></a>Abilitare il failover automatico per l'account Azure Cosmos
+## <a name="enable-automatic-failover-for-your-azure-cosmos-account"></a><a id="automatic-failover"></a>Abilitare il failover automatico per l'account Azure Cosmos
 
 L'opzione di failover automatico consente ad Azure Cosmos DB di eseguire il failover all'area con la priorità di failover più alta senza alcuna azione da parte dell'utente nel caso in cui un'area diventasse non disponibile. Quando il failover automatico è abilitato, è possibile modificare la priorità delle aree. Per abilitare il failover automatico, è necessario che l'account abbia almeno due aree.
 
-### <a id="enable-automatic-failover-via-portal"></a>Portale di Azure
+### <a name="azure-portal"></a><a id="enable-automatic-failover-via-portal"></a>Portale di Azure
 
 1. Dall'account Azure Cosmos aprire il riquadro **Replica i dati a livello globale**.
 
@@ -157,13 +157,13 @@ L'opzione di failover automatico consente ad Azure Cosmos DB di eseguire il fail
 
    ![Menu del portale Failover automatico](./media/how-to-manage-database-account/automatic-failover.png)
 
-### <a id="enable-automatic-failover-via-cli"></a>
+### <a name="azure-cli"></a><a id="enable-automatic-failover-via-cli"></a>Interfaccia della riga di comando di AzureAzure
 
-Vedere [abilitare il failover automatico con l'interfaccia della riga di comando di Azure](manage-with-cli.md#enable-automatic-failover)
+Vedere [Abilitare](manage-with-cli.md#enable-automatic-failover) il failover automatico con l'interfaccia della riga di comando di Azure
 
-### <a id="enable-automatic-failover-via-ps"></a>Azure PowerShell
+### <a name="azure-powershell"></a><a id="enable-automatic-failover-via-ps"></a>Azure PowerShell
 
-Vedere [abilitare il failover automatico con PowerShell](manage-with-powershell.md#enable-automatic-failover)
+Vedere [Abilitare](manage-with-powershell.md#enable-automatic-failover) il failover automatico con Powershell
 
 ## <a name="set-failover-priorities-for-your-azure-cosmos-account"></a>Impostare le priorità di failover per l'account Azure Cosmos
 
@@ -172,7 +172,7 @@ Dopo aver configurato un account Cosmos per il failover automatico, è possibile
 > [!IMPORTANT]
 > Se l'account è configurato per il failover automatico, non è possibile modificare l'area di scrittura (priorità di failover zero). Per cambiare l'area di scrittura, è necessario disabilitare il failover automatico ed eseguire un failover manuale.
 
-### <a id="set-failover-priorities-via-portal"></a>Portale di Azure
+### <a name="azure-portal"></a><a id="set-failover-priorities-via-portal"></a>Portale di Azure
 
 1. Dall'account Azure Cosmos aprire il riquadro **Replica i dati a livello globale**.
 
@@ -188,15 +188,15 @@ Dopo aver configurato un account Cosmos per il failover automatico, è possibile
 
    ![Menu del portale Failover automatico](./media/how-to-manage-database-account/automatic-failover.png)
 
-### <a id="set-failover-priorities-via-cli"></a>
+### <a name="azure-cli"></a><a id="set-failover-priorities-via-cli"></a>Interfaccia della riga di comando di AzureAzure
 
-Vedere [impostare priorità di failover con l'interfaccia della riga di comando di Azure](manage-with-cli.md#set-failover-priority)
+Vedere [Impostare la priorità di failover con l'interfaccia della riga di comando](manage-with-cli.md#set-failover-priority) di Azure
 
-### <a id="set-failover-priorities-via-ps"></a>Azure PowerShell
+### <a name="azure-powershell"></a><a id="set-failover-priorities-via-ps"></a>Azure PowerShell
 
-Vedere [impostare la priorità di failover con PowerShell](manage-with-powershell.md#modify-failover-priority)
+Vedere [Impostare](manage-with-powershell.md#modify-failover-priority) la priorità di failover con Powershell
 
-## <a id="manual-failover"></a>Eseguire un failover manuale per un account Azure Cosmos
+## <a name="perform-manual-failover-on-an-azure-cosmos-account"></a><a id="manual-failover"></a>Eseguire un failover manuale per un account Azure Cosmos
 
 > [!IMPORTANT]
 > Affinché questa operazione abbia esito positivo, è necessario configurare l'account Azure Cosmos per il failover manuale.
@@ -206,7 +206,7 @@ Il processo di esecuzione di un failover manuale prevede la modifica dell'area d
 > [!NOTE]
 > Non è possibile sottoporre a failover manuale gli account multimaster. Per le applicazioni che usano l'SDK di Azure Cosmos, l'SDK rileverà quando un'area diventa non disponibile e quindi eseguirà automaticamente il reindirizzamento all'area successiva più vicina, se nell'SDK viene usata l'API multihosting.
 
-### <a id="enable-manual-failover-via-portal"></a>Portale di Azure
+### <a name="azure-portal"></a><a id="enable-manual-failover-via-portal"></a>Portale di Azure
 
 1. Passare all'account Azure Cosmos e aprire il menu **Replica i dati a livello globale**.
 
@@ -220,13 +220,13 @@ Il processo di esecuzione di un failover manuale prevede la modifica dell'area d
 
    ![Menu del portale Failover manuale](./media/how-to-manage-database-account/manual-failover.png)
 
-### <a id="enable-manual-failover-via-cli"></a>
+### <a name="azure-cli"></a><a id="enable-manual-failover-via-cli"></a>Interfaccia della riga di comando di AzureAzure
 
-Vedere [attivare il failover manuale con l'interfaccia della riga di comando di Azure](manage-with-cli.md#trigger-manual-failover)
+Vedere [Attivare il failover manuale con l'interfaccia della riga](manage-with-cli.md#trigger-manual-failover) di comando di Azure
 
-### <a id="enable-manual-failover-via-ps"></a>Azure PowerShell
+### <a name="azure-powershell"></a><a id="enable-manual-failover-via-ps"></a>Azure PowerShell
 
-Vedere [attivare il failover manuale con PowerShell](manage-with-powershell.md#trigger-manual-failover)
+Vedere [Attivare il failover manuale con Powershell](manage-with-powershell.md#trigger-manual-failover)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

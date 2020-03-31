@@ -1,5 +1,5 @@
 ---
-title: Creare e gestire una macchina virtuale di Azure usandoC#
+title: 'Creare e gestire una macchina virtuale di Azure usando CCreate and Manage an Azure Virtual Machine Using C #'
 description: Usare C# e Azure Resource Manager per distribuire una macchina virtuale e tutte le relative risorse di supporto.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.openlocfilehash: 3930e51f63615abd21a7b04199a0f4767925792a
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78944508"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Creare e gestire macchine virtuali Windows in Azure tramite C# #
@@ -39,14 +39,14 @@ L'esecuzione di questi passaggi richiede circa 20 minuti.
 ## <a name="create-a-visual-studio-project"></a>Creare un progetto di Visual Studio
 
 1. Se non è già installato, installare [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Selezionare **Sviluppo per desktop .NET** nella pagina Carichi di lavoro e quindi fare clic su **Installa**. Nel riepilogo si noti che **Strumenti di sviluppo per .NET Framework 4-4.6** viene selezionato automaticamente. Se Visual Studio è già stato installato, è possibile aggiungere il carico di lavoro .NET usando l'utilità di avvio di Visual Studio.
-2. In Visual Studio fare clic su **File** > **Nuovo** > **Progetto**.
-3. In **Modelli** > **Visual C#** selezionare **App console (.NET Framework)** , immettere *myDotnetProject* come nome del progetto, selezionare il percorso del progetto e quindi fare clic su **OK**.
+2. In Visual Studio fare clic su **File** > **nuovo** > **progetto**.
+3. In **Modelli** > in**Visual C,** selezionare App console **(.NET Framework)**, immettere *myDotnetProject* come nome del progetto, selezionare il percorso del progetto e quindi fare clic su **OK**.
 
 ## <a name="install-the-package"></a>Installare il pacchetto
 
 I pacchetti NuGet sono il modo più semplice per installare le librerie necessarie per completare questi passaggi. Per ottenere le librerie necessarie in Visual Studio, eseguire questa procedura:
 
-1. Fare clic su **Strumenti** > **Gestione pacchetti NuGet** e quindi su **Console di Gestione pacchetti**.
+1. Fare clic su **Strumenti** > **di Gestione pacchetti Nuget**, quindi su Console di gestione **pacchetti**.
 2. Nella console digitare il comando seguente:
 
     ```
@@ -59,7 +59,7 @@ Prima di iniziare questo passaggio, assicurarsi di avere accesso a un'[entità s
 
 ### <a name="create-the-authorization-file"></a>Creare il file di autorizzazione
 
-1. In Esplora soluzioni fare clic con il pulsante destro del mouse su *myDotnetProject* > **Aggiungi** > **Nuovo elemento** e quindi selezionare **File di testo** in *Elementi di Visual C#* . Assegnare al file il nome *azureauth.properties* e quindi fare clic su **Aggiungi**.
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse su *myDotnetProject* > **Add** > **New Item**, quindi scegliere File di **testo** in Elementi di *Visual C.* Assegnare al file il nome *azureauth.properties* e quindi fare clic su **Aggiungi**.
 2. Aggiungere le proprietà di autorizzazione seguenti:
 
     ```
@@ -73,7 +73,7 @@ Prima di iniziare questo passaggio, assicurarsi di avere accesso a un'[entità s
     graphURL=https://graph.microsoft.com/
     ```
 
-    Sostituire **&lt;subscription-id&gt;** con l'identificatore della sottoscrizione, **&lt;application-id&gt;** con l'identificatore dell'applicazione Active Directory, **&lt;authentication-key&gt;** con la chiave dell'applicazione e **&lt;tenant-id&gt;** con l'identificatore del tenant.
+    ** &lt;Sostituire&gt; subscription-id** con l'identificatore di sottoscrizione, ** &lt;application-id&gt; ** con l'identificatore dell'applicazione Active Directory, ** &lt;authentication-key&gt; ** con la chiave dell'applicazione e ** &lt;tenant-id&gt; ** con l'identificatore tenant.
 
 3. Salvare il file azureauth.properties. 
 4. Impostare una variabile di ambiente Windows denominata AZURE_AUTH_LOCATION con il percorso completo verso il file di autorizzazione creato. Ad esempio, è possibile usare il comando PowerShell seguente:
@@ -84,7 +84,7 @@ Prima di iniziare questo passaggio, assicurarsi di avere accesso a un'[entità s
 
 ### <a name="create-the-management-client"></a>Creare il client di gestione
 
-1. Aprire il file Program.cs per il progetto creato. Aggiungere quindi queste istruzioni using alle istruzioni esistenti all'inizio del file:
+1. Aprire il file Program.cs per il progetto creato. Quindi, aggiungere queste istruzioni using alle istruzioni esistenti all'inizio del file:
 
     ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;
@@ -143,7 +143,7 @@ var availabilitySet = azure.AvailabilitySets.Define("myAVSet")
 
 ### <a name="create-the-public-ip-address"></a>Creare l'indirizzo IP pubblico
 
-Un [indirizzo IP pubblico](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) è necessario per comunicare con la macchina virtuale.
+Per comunicare con la macchina virtuale è necessario [un indirizzo IP pubblico.](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 
 Per creare l'indirizzo IP pubblico della macchina virtuale, aggiungere questo codice al metodo Main:
    
@@ -364,7 +364,7 @@ Console.ReadLine();
 
 ### <a name="add-a-data-disk-to-the-vm"></a>Aggiungere un disco dati alla VM
 
-Per aggiungere un disco dati alla macchina virtuale, aggiungere questo codice al metodo Main. Questo esempio aggiunge un disco dati di dimensioni pari a 2 GB, un LUN pari a 0 e un tipo di memorizzazione nella cache di ReadWrite:
+Per aggiungere un disco dati alla macchina virtuale, aggiungere questo codice al metodo Main.To add a data disk to the virtual machine, add this code to the Main method. In questo esempio viene aggiunto un disco dati di 2 GB, un LUN pari a 0 e un tipo di memorizzazione nella cache ReadWrite:
 
 ```csharp
 Console.WriteLine("Adding data disk to vm...");

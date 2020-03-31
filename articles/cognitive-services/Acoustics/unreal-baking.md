@@ -12,10 +12,10 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7a868a5f9b06499e23710399733b0659d97f900d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68854896"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Esercitazione sul bake in Unreal con Progetto Acustica
@@ -196,7 +196,7 @@ Dopo aver avviato un bake, è possibile chiudere Unreal. A seconda del progetto,
 
 Le credenziali di Azure vengono archiviate in modo sicuro nel computer locale e associate al progetto Unreal. Vengono usate esclusivamente per stabilire una connessione sicura ad Azure.
 
-### <a name="Estimating-bake-cost"></a> Stima dei costi del bake di Azure
+### <a name="estimating-azure-bake-cost"></a><a name="Estimating-bake-cost"></a> Stima dei costi del bake di Azure
 
 Per calcolare quanto costerà un determinato bake, moltiplicare il valore visualizzato di **Estimated Compute Cost** (Costo di calcolo stimato), che indica una durata, per il costo orario nella valuta locale del **tipo di nodo di VM** selezionato. Il risultato non includerà il tempo necessario per avere i nodi operativi. Ad esempio, se come tipo di nodo si seleziona **Standard_F8s_v2**, che ha un costo di $ 0,40/ora e il costo di calcolo stimato è di 3 ore e 57 minuti, il costo stimato per l'esecuzione del processo sarà $ 0,40 * 4 ore circa = all'incirca $ 1,60. Il costo effettivo sarà probabilmente di poco superiore a causa del tempo aggiuntivo necessario per avviare i nodi. È possibile trovare il costo orario del nodo nella pagina [Prezzi di Azure Batch](https://azure.microsoft.com/pricing/details/virtual-machines/linux). Come categoria selezionare "Con ottimizzazione per il calcolo" o "High Performance Computing".
 
@@ -204,7 +204,7 @@ Per calcolare quanto costerà un determinato bake, moltiplicare il valore visual
 
 Dopo aver completato il bake, verificare che i voxel e i punti di probe siano nelle posizioni previste eseguendo il plug-in di runtime.
 
-## <a name="Data-Files"></a>File di dati
+## <a name="data-files"></a><a name="Data-Files"></a>File di dati
 
 Sono quattro i file di dati creati da questo plug-in in punti diversi. Solo uno di essi è necessario in fase di esecuzione e viene inserito nella cartella Content/Acoustics del progetto, aggiunta automaticamente al percorso di creazione pacchetto del progetto. Gli altri tre si trovano nella cartella dei dati di acustica e non vengono inclusi nel pacchetto.
 

@@ -1,7 +1,7 @@
 ---
 title: Guida alla risoluzione dei problemi di distribuzione
 titleSuffix: Azure Machine Learning
-description: Informazioni su come risolvere, risolvere e risolvere i problemi relativi agli errori di distribuzione comuni di Docker con il servizio Azure Kubernetes e le istanze di contenitore di Azure con Azure Machine Learning.
+description: Informazioni su come risolvere, risolvere e risolvere gli errori di distribuzione di Docker comuni con il servizio Azure Kubernetes e le istanze del contenitore di Azure usando Azure Machine Learning.Learn how to work, solve, and troubleshoot the common Docker deployment errors with Azure Kubernetes Service and Azure Container Instances using Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,47 +12,47 @@ ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.custom: seodec18
 ms.openlocfilehash: fab46f7d7ae74ad643ce3f122b27b0dc767f5a78
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78399676"
 ---
-# <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Risoluzione dei problemi relativi a Azure Machine Learning servizio Azure Kubernetes e alla distribuzione di istanze di contenitore di Azure
+# <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Risoluzione dei problemi relativi al servizio Azure Machine Learning Azure Kubernetes E alla distribuzione delle istanze del contenitore di AzureTroubleshooting Azure Machine Learning Azure Kubernetes Service and Azure Container Instances deployment
 
-Informazioni su come risolvere gli errori comuni di distribuzione di Docker con istanze di contenitore di Azure (ACI) e Azure Kubernetes Service (AKS) usando Azure Machine Learning.
+Informazioni su come risolvere o risolvere errori comuni di distribuzione di Docker con le istanze del contenitore di Azure (ACI) e il servizio Azure Kubernetes (AKS) con Azure Machine Learning.Learn how to work or solve common Docker deployment errors with Azure Container Instances (ACI) and Azure Kubernetes Service (AKS) using Azure Machine Learning.
 
 Quando si distribuisce un modello in Azure Machine Learning, il sistema esegue una serie di attività.
 
-L'approccio consigliato e quello più aggiornato per la distribuzione del modello è tramite l'API [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) che usa un oggetto [Environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) come parametro di input. In questo caso il servizio creerà un'immagine Docker di base per l'utente durante la fase di distribuzione e monterà tutti i modelli richiesti in un'unica chiamata. Le attività di distribuzione di base sono:
+L'approccio consigliato e più aggiornato per la distribuzione del modello è tramite l'API [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) usando un oggetto [Environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) come parametro di input. In questo caso il nostro servizio creerà automaticamente un'immagine docker di base durante la fase di distribuzione e monterà i modelli richiesti in un'unica chiamata. Le attività di distribuzione di base sono:The basic deployment tasks are:
 
 1. Registrare il modello nel registro dei modelli dell'area di lavoro.
 
 2. Definire la configurazione dell'inferenza:
-    1. Creare un oggetto [ambiente](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) in base alle dipendenze specificate nel file YAML dell'ambiente o usare uno degli ambienti di approvvigionamento.
+    1. Creare un oggetto [Environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) in base alle dipendenze specificate nel file yaml dell'ambiente o utilizzare uno degli ambienti acquistati.
     2. Creare una configurazione di inferenza (oggetto InferenceConfig) in base all'ambiente e allo script di assegnazione dei punteggi.
 
-3. Distribuire il modello nel servizio istanza di contenitore di Azure (ACI) o in Azure Kubernetes Service (AKS).
+3. Distribuire il modello nel servizio Istanza contenitore di Azure o nel servizio Azure Kubernetes (AKS).
 
 Per altre informazioni su questa procedura, vedere [Gestire e distribuire modelli con il servizio Azure Machine Learning](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-* Una **sottoscrizione di Azure**. Se non si dispone di un, provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
-* [SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-* Estensione dell'interfaccia della riga [di comando per Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* Una **sottoscrizione di Azure.** Se non si dispone di uno, provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
+* Azure [Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* [L'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)di Azure .
+* [L'estensione CLI per Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Per eseguire il debug in locale, è necessario disporre di un'installazione Docker funzionante nel sistema locale.
 
-    Per verificare l'installazione di Docker, usare il comando `docker run hello-world` da un terminale o da un prompt dei comandi. Per informazioni sull'installazione di Docker o sulla risoluzione dei problemi relativi agli errori di Docker, vedere la [documentazione](https://docs.docker.com/)di Docker.
+    Per verificare l'installazione di `docker run hello-world` Docker, utilizzare il comando da un terminale o da un prompt dei comandi. Per informazioni sull'installazione di Docker o sulla risoluzione dei problemi relativi agli errori Docker, vedere la documentazione di [Docker](https://docs.docker.com/).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 Se si verifica un problema, la prima cosa da fare è suddividere l'attività di distribuzione (descritta in precedenza) in singoli passaggi per isolare il problema.
 
-Supponendo che si stia usando il metodo di distribuzione nuovo/consigliato tramite l'API [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) con un oggetto [Environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) come parametro di input, il codice può essere suddiviso in tre passaggi principali:
+Supponendo che si stia utilizzando il metodo di distribuzione nuovo/consigliato tramite l'API [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) con un oggetto [Environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) come parametro di input, il codice può essere suddiviso in tre passaggi principali:
 
-1. Registrare il modello. Ecco un esempio di codice:
+1. Registrare il modello. Di seguito è riportato un codice di esempio:Here is some sample code:
 
     ```python
     from azureml.core.model import Model
@@ -65,7 +65,7 @@ Supponendo che si stia usando il metodo di distribuzione nuovo/consigliato trami
     model = Model.register(model_path='my_model.pkl', model_name='my_best_model', workspace=ws)
     ```
 
-2. Definire la configurazione dell'inferenza per la distribuzione:
+2. Definire la configurazione di inferenza per la distribuzione:Define inference configuration for deployment:
 
     ```python
     from azureml.core.model import InferenceConfig
@@ -77,7 +77,7 @@ Supponendo che si stia usando il metodo di distribuzione nuovo/consigliato trami
     inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
     ```
 
-3. Distribuire il modello usando la configurazione di inferenza creata nel passaggio precedente:
+3. Distribuire il modello usando la configurazione di inferenza creata nel passaggio precedente:Deploy the model using the inference configuration created in the previous step:
 
     ```python
     from azureml.core.webservice import AciWebservice
@@ -97,12 +97,12 @@ Una volta suddiviso il processo di distribuzione in singole attività, è possib
 
 ## <a name="debug-locally"></a>Eseguire il debug in locale
 
-Se si verificano problemi durante la distribuzione di un modello in ACI o AKS, provare a distribuirlo come servizio Web locale. L'utilizzo di un servizio Web locale rende più semplice la risoluzione dei problemi. L'immagine Docker contenente il modello viene scaricata e avviata nel sistema locale.
+Se si verificano problemi durante la distribuzione di un modello in ACI o AKS, provare a distribuirlo come servizio Web locale. L'utilizzo di un servizio Web locale semplifica la risoluzione dei problemi. L'immagine Docker contenente il modello viene scaricata e avviata nel sistema locale.
 
 > [!WARNING]
 > Le distribuzioni di servizi Web locali non sono supportate per gli scenari di produzione.
 
-Per eseguire la distribuzione in locale, modificare il codice per usare `LocalWebservice.deploy_configuration()` per creare una configurazione di distribuzione. Usare quindi `Model.deploy()` per distribuire il servizio. Nell'esempio seguente viene distribuito un modello (contenuto nella variabile del modello) come servizio Web locale:
+Per eseguire la distribuzione in `LocalWebservice.deploy_configuration()` locale, modificare il codice da utilizzare per creare una configurazione di distribuzione. Utilizzare `Model.deploy()` quindi per distribuire il servizio. L'esempio seguente distribuisce un modello (contenuto nella variabile di modello) come servizio Web locale:The following example deploys a model (contained in the model variable) as a local web service:
 
 ```python
 from azureml.core.environment import Environment
@@ -124,9 +124,9 @@ service.wait_for_deployment(True)
 print(service.port)
 ```
 
-Si noti che se si definisce YAML specifica conda, è necessario elencare azureml-defaults con Version > = 1.0.45 come dipendenza PIP. Questo pacchetto contiene le funzionalità necessarie per ospitare il modello come servizio Web.
+Si noti che se si sta definendo la propria specifica conda YAML, è necessario elencare i valori predefiniti di azureml con la versione >- 1.0.45 come dipendenza pip. Questo pacchetto contiene le funzionalità necessarie per ospitare il modello come servizio Web.
 
-A questo punto, è possibile usare il servizio come di consueto. Ad esempio, nel codice seguente viene illustrato l'invio di dati al servizio:
+A questo punto, è possibile lavorare con il servizio come di consueto. Ad esempio, il codice seguente illustra l'invio di dati al servizio:For example, the following code demonstrates sending data to the service:
 
 ```python
 import json
@@ -142,14 +142,14 @@ prediction = service.run(input_data=test_sample)
 print(prediction)
 ```
 
-Per altre informazioni sulla personalizzazione dell'ambiente Python, vedere [creare e gestire ambienti per il training e la distribuzione](how-to-use-environments.md). 
+Per ulteriori informazioni sulla personalizzazione dell'ambiente Python, vedere [Creare e gestire ambienti per la formazione e](how-to-use-environments.md)la distribuzione . 
 
 ### <a name="update-the-service"></a>Aggiornare il servizio
 
-Durante i test locali, potrebbe essere necessario aggiornare il file di `score.py` per aggiungere la registrazione o tentare di risolvere eventuali problemi individuati. Per ricaricare le modifiche apportate al file di `score.py`, utilizzare `reload()`. Il codice seguente, ad esempio, consente di ricaricare lo script per il servizio e quindi di inviarvi dati. Il Punteggio dei dati viene eseguito tramite il file `score.py` aggiornato:
+Durante i test locali, potrebbe `score.py` essere necessario aggiornare il file per aggiungere la registrazione o tentare di risolvere eventuali problemi rilevati. Per ricaricare le `score.py` modifiche `reload()`apportate al file, utilizzare . Ad esempio, il codice seguente ricarica lo script per il servizio e quindi vi invia i dati. I dati vengono valutati `score.py` utilizzando il file aggiornato:
 
 > [!IMPORTANT]
-> Il metodo `reload` è disponibile solo per le distribuzioni locali. Per informazioni sull'aggiornamento di una distribuzione di a un'altra destinazione di calcolo, vedere la sezione relativa all'aggiornamento di [deploy Models](how-to-deploy-and-where.md#update).
+> Il `reload` metodo è disponibile solo per le distribuzioni locali. Per informazioni sull'aggiornamento di una distribuzione a un'altra destinazione di calcolo, vedere la sezione relativa all'aggiornamento di [Deploy models](how-to-deploy-and-where.md#update).
 
 ```python
 service.reload()
@@ -157,9 +157,9 @@ print(service.run(input_data=test_sample))
 ```
 
 > [!NOTE]
-> Lo script viene ricaricato dalla posizione specificata dal `InferenceConfig` oggetto utilizzato dal servizio.
+> Lo script viene ricaricato dal `InferenceConfig` percorso specificato dall'oggetto utilizzato dal servizio.
 
-Per modificare il modello, le dipendenze conda o la configurazione della distribuzione, utilizzare [Update ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#update--args-). Nell'esempio seguente viene aggiornato il modello utilizzato dal servizio:
+Per modificare il modello, le dipendenze Conda o la configurazione della distribuzione, utilizzate [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#update--args-). L'esempio seguente aggiorna il modello utilizzato dal servizio:The following example updates the model used by the service:
 
 ```python
 service.update([different_model], inference_config, deployment_config)
@@ -167,11 +167,11 @@ service.update([different_model], inference_config, deployment_config)
 
 ### <a name="delete-the-service"></a>Eliminare il servizio
 
-Per eliminare il servizio, utilizzare [Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#delete--).
+Per eliminare il servizio, utilizzare [delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#delete--).
 
-### <a id="dockerlog"></a>Esaminare il log di Docker
+### <a name="inspect-the-docker-log"></a><a id="dockerlog"></a>Esaminare il registro Docker
 
-È possibile visualizzare i messaggi dettagliati del log del motore Docker dall'oggetto di servizio. È possibile visualizzare il log per ACI, AKS e distribuzioni locali. Nell'esempio seguente viene illustrato come stampare i log.
+È possibile visualizzare i messaggi dettagliati del log del motore Docker dall'oggetto di servizio. È possibile visualizzare il registro per le distribuzioni ACI, AKS e Local. Nell'esempio seguente viene illustrato come stampare i log.
 
 ```python
 # if you already have the service object handy
@@ -183,13 +183,13 @@ print(ws.webservices['mysvc'].get_logs())
 
 ## <a name="service-launch-fails"></a>Errore di avvio del servizio
 
-Dopo che l'immagine è stata compilata correttamente, il sistema tenta di avviare un contenitore usando la configurazione di distribuzione. Nell'ambito del processo di avvio del contenitore, il sistema richiama la funzione `init()` nello script di assegnazione dei punteggi. Se la funzione `init()` contiene eccezioni non rilevate, nel messaggio di errore potrebbe essere visualizzato l'errore **CrashLoopBackOff**.
+Dopo che l'immagine è stata compilata correttamente, il sistema tenta di avviare un contenitore utilizzando la configurazione di distribuzione. Nell'ambito del processo di avvio del contenitore, il sistema richiama la funzione `init()` nello script di assegnazione dei punteggi. Se la funzione `init()` contiene eccezioni non rilevate, nel messaggio di errore potrebbe essere visualizzato l'errore **CrashLoopBackOff**.
 
-Usare le informazioni nella sezione [esaminare il registro Docker](#dockerlog) per controllare i log.
+Usare le informazioni nella sezione [Esaminare il registro Docker](#dockerlog) per controllare i log.
 
 ## <a name="function-fails-get_model_path"></a>Errore della funzione: get_model_path()
 
-Spesso, nella funzione `init()` nello script di assegnazione dei punteggi, viene chiamata la funzione [Model. get_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) per individuare un file di modello o una cartella di file di modello nel contenitore. Se non è possibile trovare il file o la cartella del modello, la funzione ha esito negativo. Il modo più semplice per eseguire il debug di questo errore consiste nell'eseguire il codice Python seguente nella shell del contenitore:
+Spesso, nella `init()` funzione nello script di assegnazione dei punteggi, la funzione [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) viene chiamata per individuare un file di modello o una cartella di file di modello nel contenitore. Se non è possibile trovare il file o la cartella del modello, la funzione ha esito negativo. Il modo più semplice per eseguire il debug di questo errore consiste nell'eseguire il codice Python seguente nella shell del contenitore:
 
 ```python
 from azureml.core.model import Model
@@ -198,7 +198,7 @@ logging.basicConfig(level=logging.DEBUG)
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
-Questo esempio Mostra come stampare il percorso locale (relativo a `/var/azureml-app`) nel contenitore in cui lo script di assegnazione dei punteggi è in attesa di trovare il file o la cartella del modello. È quindi possibile verificare se il file o la cartella si trova effettivamente dove dovrebbe essere.
+In questo esempio viene stampato `/var/azureml-app`il percorso locale (relativo a ) nel contenitore in cui lo script di assegnazione del punteggio prevede di trovare il file o la cartella del modello. È quindi possibile verificare se il file o la cartella si trova effettivamente dove dovrebbe essere.
 
 L'impostazione del livello di registrazione su DEBUG può causare la registrazione di informazioni aggiuntive, che possono essere utili per identificare l'errore.
 
@@ -219,30 +219,30 @@ def run(input_data):
         return json.dumps({"error": result})
 ```
 
-**Nota**: la restituzione di messaggi di errore dalla chiamata a `run(input_data)` dovrebbe essere eseguita solo a scopo di debug. Per motivi di sicurezza, non è necessario restituire messaggi di errore in questo modo in un ambiente di produzione.
+**Nota**: la restituzione di messaggi di errore dalla chiamata a `run(input_data)` dovrebbe essere eseguita solo a scopo di debug. Per motivi di sicurezza, è consigliabile non restituire messaggi di errore in questo modo in un ambiente di produzione.
 
 ## <a name="http-status-code-502"></a>Codice di stato HTTP 502
 
-Un codice di stato 502 indica che il servizio ha generato un'eccezione o si è arrestato in modo anomalo nel metodo `run()` del file score.py. Usare le informazioni in questo articolo per eseguire il debug del file.
+Un codice di stato 502 indica che il servizio `run()` ha generato un'eccezione o si è arrestato in modo anomalo nel metodo del file di score.py. Utilizzare le informazioni contenute in questo articolo per eseguire il debug del file.
 
 ## <a name="http-status-code-503"></a>Codice di stato HTTP 503
 
-Le distribuzioni del servizio Azure Kubernetes supportano la scalabilità automatica, che consente di aggiungere le repliche per supportare un carico aggiuntivo. Tuttavia, la scalabilità automatica è progettata per gestire modifiche **graduali** del carico. Se si ricevono picchi elevati di richieste al secondo, i client possono ricevere un codice di stato HTTP 503.
+Le distribuzioni del servizio Azure Kubernetes supportano la scalabilità automatica, che consente l'aggiunta di repliche per supportare un carico aggiuntivo. Tuttavia, il ridimensionamento automatico è progettato per gestire le modifiche **graduali** nel carico. Se si ricevono picchi di richieste di grandi dimensioni al secondo, i client potrebbero ricevere un codice di stato HTTP 503.If you receive large spikes in requests per second, clients may receive an HTTP status code 503.
 
-Esistono due elementi che consentono di prevenire i codici di stato 503:
+Ci sono due cose che possono aiutare a prevenire i codici di stato 503:
 
-* Modificare il livello di utilizzo a cui la scalabilità automatica crea nuove repliche.
+* Modificare il livello di utilizzo in corrispondenza del quale la scalabilità automatica crea nuove repliche.
     
-    Per impostazione predefinita, l'utilizzo della destinazione per la scalabilità automatica è impostato su 70%, il che significa che il servizio è in grado di gestire picchi di richieste al secondo (RPS) fino al 30%. È possibile modificare la destinazione di utilizzo impostando il `autoscale_target_utilization` su un valore inferiore.
+    Per impostazione predefinita, la scalabilità automatica dell'utilizzo della destinazione è impostata su 70%, il che significa che il servizio è in grado di gestire picchi di richieste al secondo (RPS) fino al 30%. È possibile regolare l'obiettivo di utilizzo impostando il `autoscale_target_utilization` valore su un valore inferiore.
 
     > [!IMPORTANT]
-    > Questa modifica non comporta la creazione di repliche *più veloci*. Vengono invece creati con una soglia di utilizzo inferiore. Anziché attendere fino al 70% del servizio, la modifica del valore sul 30% comporta la creazione di repliche quando si verifica l'utilizzo del 30%.
+    > Questa modifica non determina la creazione *più rapida delle*repliche. Al contrario, vengono creati a una soglia di utilizzo inferiore. Invece di attendere che il servizio sia utilizzato al 70%, la modifica del valore in 30% causa la creazione di repliche quando si verifica un utilizzo del 30%.
     
-    Se il servizio Web sta già usando le repliche massime correnti e vengono ancora visualizzati 503 codici di stato, aumentare il valore di `autoscale_max_replicas` per aumentare il numero massimo di repliche.
+    Se il servizio Web sta già utilizzando le repliche max correnti e `autoscale_max_replicas` vengono ancora visualizzato codici di stato 503, aumentare il valore per aumentare il numero massimo di repliche.
 
 * Modificare il numero minimo di repliche. L'aumento delle repliche minime fornisce un pool più grande per gestire i picchi in ingresso.
 
-    Per aumentare il numero minimo di repliche, impostare `autoscale_min_replicas` su un valore più alto. È possibile calcolare le repliche richieste usando il codice seguente, sostituendo i valori con i valori specifici del progetto:
+    Per aumentare il numero minimo `autoscale_min_replicas` di repliche, impostare su un valore superiore. È possibile calcolare le repliche necessarie utilizzando il codice seguente, sostituendo i valori con valori specifici per il progetto:You can calculate the required replicas by using the following code, placing values with values specific to your project:
 
     ```python
     from math import ceil
@@ -262,40 +262,40 @@ Esistono due elementi che consentono di prevenire i codici di stato 503:
     ```
 
     > [!NOTE]
-    > Se si ricevono picchi di richiesta di dimensioni maggiori di quelle che possono essere gestite da una nuova replica minima, è possibile che si riceva nuovamente 503S. Ad esempio, quando aumenta il traffico verso il servizio, potrebbe essere necessario aumentare le repliche minime.
+    > Se si ricevono picchi di richiesta superiori a quelli che le nuove repliche minime sono in grado di gestire, è possibile ricevere di nuovo 503s. Ad esempio, con l'aumento del traffico verso il servizio, potrebbe essere necessario aumentare le repliche minime.
 
-Per ulteriori informazioni sull'impostazione di `autoscale_target_utilization`, `autoscale_max_replicas`e `autoscale_min_replicas` per, vedere la Guida di riferimento al modulo [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) .
+Per ulteriori informazioni `autoscale_target_utilization` `autoscale_max_replicas`sull'impostazione di , , e `autoscale_min_replicas` per, vedere le informazioni di riferimento sul modulo [AksWebservice.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py)
 
 ## <a name="http-status-code-504"></a>Codice di stato HTTP 504
 
-Un codice di stato 504 indica che si è verificato il timeout della richiesta. Il timeout predefinito è di 1 minuto.
+Un codice di stato 504 indica che la richiesta è scaduta. Il timeout predefinito è 1 minuto.
 
-È possibile aumentare il timeout o provare ad accelerare il servizio modificando il score.py per rimuovere le chiamate non necessarie. Se queste azioni non consentono di risolvere il problema, usare le informazioni in questo articolo per eseguire il debug del file score.py. Il codice può trovarsi in uno stato bloccato o in un ciclo infinito.
+È possibile aumentare il timeout o tentare di velocizzare il servizio modificando il score.py per rimuovere le chiamate non necessarie. Se queste azioni non risolvano il problema, utilizzare le informazioni contenute in questo articolo per eseguire il debug del file di score.py. Il codice può essere in uno stato bloccato o un ciclo infinito.
 
 ## <a name="advanced-debugging"></a>Debug avanzato
 
-In alcuni casi, potrebbe essere necessario eseguire il debug interattivo del codice Python contenuto nella distribuzione del modello. Ad esempio, se lo script di ingresso ha esito negativo e il motivo non può essere determinato da una registrazione aggiuntiva. Utilizzando Visual Studio Code e il Python Tools for Visual Studio (PTVSD), è possibile connettersi al codice in esecuzione all'interno del contenitore docker.
+In alcuni casi, potrebbe essere necessario eseguire il debug interattivo del codice Python contenuto nella distribuzione del modello. Ad esempio, se lo script di immissione non riesce e il motivo non può essere determinato da una registrazione aggiuntiva. Utilizzando Visual Studio Code e Python Tools per Visual Studio (PTVSD), è possibile connettersi al codice in esecuzione all'interno del contenitore Docker.
 
 > [!IMPORTANT]
-> Questo metodo di debug non funziona quando si usa `Model.deploy()` e `LocalWebservice.deploy_configuration` per distribuire un modello localmente. Al contrario, è necessario creare un'immagine utilizzando il metodo [Model. Package ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-) .
+> Questo metodo di debug non `Model.deploy()` `LocalWebservice.deploy_configuration` funziona quando si utilizza e per distribuire un modello in locale. Al contrario, è necessario creare un'immagine utilizzando il metodo [Model.package().](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-)
 
-Per le distribuzioni di servizi Web locali è necessaria un'installazione Docker funzionante nel sistema locale. Per altre informazioni sull'uso di Docker, vedere la [documentazione di Docker](https://docs.docker.com/).
+Le distribuzioni dei servizi Web locali richiedono un'installazione di Docker funzionante nel sistema locale. Per ulteriori informazioni sull'utilizzo di Docker, vedere la documentazione di [Docker](https://docs.docker.com/).
 
 ### <a name="configure-development-environment"></a>Configurare l'ambiente di sviluppo
 
-1. Per installare il Python Tools for Visual Studio (PTVSD) nell'ambiente di sviluppo locale VS Code, utilizzare il comando seguente:
+1. Per installare Python Tools per Visual Studio (PTVSD) nell'ambiente di sviluppo del codice VS locale, utilizzare il comando seguente:
 
     ```
     python -m pip install --upgrade ptvsd
     ```
 
-    Per ulteriori informazioni sull'utilizzo di PTVSD con VS Code, vedere [Remote Debugging](https://code.visualstudio.com/docs/python/debugging#_remote-debugging).
+    Per ulteriori informazioni sull'utilizzo di PTVSD con codice VS, vedere [Debug remoto](https://code.visualstudio.com/docs/python/debugging#_remote-debugging).
 
-1. Per configurare VS Code per la comunicazione con l'immagine Docker, creare una nuova configurazione di debug:
+1. Per configurare il codice VS per comunicare con l'immagine Docker, creare una nuova configurazione di debug:To configure VS Code to communicate with the Docker image, create a new debug configuration:
 
-    1. Da VS Code selezionare il menu __debug__ e quindi selezionare __Apri configurazioni__. Viene aperto un file denominato __Launch. JSON__ .
+    1. Da Codice VS, selezionare il menu __Debug__ e quindi selezionare __Apri configurazioni__. Viene aperto un file denominato __launch.json.__
 
-    1. Nel file __Launch. JSON__ trovare la riga che contiene `"configurations": [`e inserire il testo seguente:
+    1. Nel file __launch.json__ individuare la `"configurations": [`riga che contiene e inserire il testo seguente dopo di esso:
 
         ```json
         {
@@ -314,15 +314,15 @@ Per le distribuzioni di servizi Web locali è necessaria un'installazione Docker
         ```
 
         > [!IMPORTANT]
-        > Se nella sezione configurazioni sono già presenti altre voci, aggiungere una virgola (,) dopo il codice inserito.
+        > Se sono già presenti altre voci nella sezione delle configurazioni, aggiungere una virgola (,) dopo il codice inserito.
 
-        Questa sezione si connette al contenitore Docker usando la porta 5678.
+        Questa sezione si collega al contenitore Docker utilizzando la porta 5678.
 
-    1. Salvare il file __Launch. JSON__ .
+    1. Salvare il file __launch.json.__
 
-### <a name="create-an-image-that-includes-ptvsd"></a>Creare un'immagine che includa PTVSD
+### <a name="create-an-image-that-includes-ptvsd"></a>Creare un'immagine che include PTVSD
 
-1. Modificare l'ambiente conda per la distribuzione in modo che includa PTVSD. Nell'esempio seguente viene illustrato come aggiungerlo utilizzando il parametro `pip_packages`:
+1. Modificare l'ambiente conda per la distribuzione in modo che includa PTVSD. Nell'esempio seguente viene `pip_packages` illustrata l'aggiunta utilizzando il parametro :
 
     ```python
     from azureml.core.conda_dependencies import CondaDependencies 
@@ -338,7 +338,7 @@ Per le distribuzioni di servizi Web locali è necessaria un'installazione Docker
         f.write(myenv.serialize_to_string())
     ```
 
-1. Per avviare PTVSD e attendere la connessione all'avvio del servizio, aggiungere quanto segue all'inizio del file di `score.py`:
+1. Per avviare PTVSD e attendere una connessione all'avvio del `score.py` servizio, aggiungere quanto segue all'inizio del file:
 
     ```python
     import ptvsd
@@ -349,10 +349,10 @@ Per le distribuzioni di servizi Web locali è necessaria un'installazione Docker
     print("Debugger attached...")
     ```
 
-1. Creare un'immagine in base alla definizione dell'ambiente ed eseguire il pull dell'immagine nel registro di sistema locale. Durante il debug, potrebbe essere necessario apportare modifiche ai file dell'immagine senza ricrearla. Per installare un editor di testo (VIM) nell'immagine Docker, usare le proprietà `Environment.docker.base_image` e `Environment.docker.base_dockerfile`:
+1. Creare un'immagine in base alla definizione dell'ambiente ed eseguire il pull dell'immagine nel Registro di sistema locale. Durante il debug, è possibile apportare modifiche ai file nell'immagine senza doverla ricreare. Per installare un editor di testo (vim) `Environment.docker.base_image` nell'immagine Docker, utilizzare le proprietà e: `Environment.docker.base_dockerfile`
 
     > [!NOTE]
-    > In questo esempio si presuppone che `ws` punti all'area di lavoro Azure Machine Learning e che `model` sia il modello distribuito. Il file di `myenv.yml` contiene le dipendenze conda create nel passaggio 1.
+    > Questo esempio presuppone `ws` che punti all'area di `model` lavoro di Azure Machine Learning e che sia il modello distribuito. Il `myenv.yml` file contiene le dipendenze conda create nel passaggio 1.The file contains the conda dependencies created in step 1.
 
     ```python
     from azureml.core.conda_dependencies import CondaDependencies
@@ -369,76 +369,76 @@ Per le distribuzioni di servizi Web locali è necessaria un'installazione Docker
     package.pull()
     ```
 
-    Una volta che l'immagine è stata creata e scaricata, il percorso dell'immagine (inclusi repository, nome e tag, che in questo caso è anche il digest) viene visualizzato in un messaggio simile al seguente:
+    Una volta che l'immagine è stata creata e scaricata, il percorso dell'immagine (include repository, nome e tag, che in questo caso è anche il suo digest) viene visualizzato in un messaggio simile al seguente:
 
     ```text
     Status: Downloaded newer image for myregistry.azurecr.io/package@sha256:<image-digest>
     ```
 
-1. Per semplificare l'utilizzo dell'immagine, utilizzare il comando seguente per aggiungere un tag. Sostituire `myimagepath` con il valore location del passaggio precedente.
+1. Per semplificare l'utilizzo dell'immagine, utilizzare il comando seguente per aggiungere un tag. Sostituire `myimagepath` con il valore di posizione del passaggio precedente.
 
     ```bash
     docker tag myimagepath debug:1
     ```
 
-    Per il resto dei passaggi, è possibile fare riferimento all'immagine locale come `debug:1` al posto del valore del percorso dell'immagine completa.
+    Per il resto dei passaggi, è possibile `debug:1` fare riferimento all'immagine locale come anziché il valore del percorso completo dell'immagine.
 
-### <a name="debug-the-service"></a>Eseguire il debug del servizio
+### <a name="debug-the-service"></a>Eseguire il debug del servizioDebug the service
 
 > [!TIP]
-> Se si imposta un timeout per la connessione PTVSD nel file di `score.py`, è necessario connettere VS Code alla sessione di debug prima della scadenza del timeout. Avviare VS Code, aprire la copia locale di `score.py`, impostare un punto di interruzione e fare in modo che sia pronto a procedere prima di usare la procedura descritta in questa sezione.
+> Se si imposta un timeout per la `score.py` connessione PTVSD nel file, è necessario connettere VS Code alla sessione di debug prima della scadenza del timeout. Avviare il codice VS, `score.py`aprire la copia locale di , impostare un punto di interruzione e renderlo pronto per l'uso prima di eseguire la procedura descritta in questa sezione.
 >
-> Per ulteriori informazioni sul debug e sull'impostazione di punti di interruzione, vedere [debug](https://code.visualstudio.com/Docs/editor/debugging).
+> Per ulteriori informazioni sul debug e sull'impostazione dei punti di interruzione, vedere [Debug](https://code.visualstudio.com/Docs/editor/debugging).
 
-1. Per avviare un contenitore Docker usando l'immagine, usare il comando seguente:
+1. Per avviare un contenitore Docker utilizzando l'immagine, utilizzare il comando seguente:To start a Docker container using the image, use the following command:
 
     ```bash
     docker run --rm --name debug -p 8000:5001 -p 5678:5678 debug:1
     ```
 
-1. Per aggiungere VS Code a PTVSD all'interno del contenitore, aprire VS Code e usare il tasto F5 oppure selezionare __debug__. Quando richiesto, selezionare la configurazione __Azure Machine Learning: Docker debug__ . È anche possibile selezionare l'icona debug dalla barra laterale, la voce di __debug Azure Machine Learning: Docker__ dal menu a discesa debug e quindi usare la freccia verde per collegare il debugger.
+1. Per collegare il codice VS a PTVSD all'interno del contenitore, aprire il codice VS e utilizzare il tasto F5 o selezionare __Debug__. Quando richiesto, selezionare la configurazione di __Azure Machine Learning: Docker Debug.When__ prompted, select the Azure Machine Learning: Docker Debug configuration. È anche possibile selezionare l'icona di debug dalla barra laterale, la voce __Azure Machine Learning: Docker Debug__ dal menu a discesa Debug e quindi usare la freccia verde per connettere il debugger.
 
-    ![Icona debug, pulsante Avvia debug e selettore configurazione](./media/how-to-troubleshoot-deployment/start-debugging.png)
+    ![L'icona di debug, il pulsante di avvio del debug e il selettore di configurazione](./media/how-to-troubleshoot-deployment/start-debugging.png)
 
-A questo punto, VS Code si connette a PTVSD all'interno del contenitore Docker e si arresta in corrispondenza del punto di interruzione impostato in precedenza. È ora possibile esaminare il codice durante l'esecuzione, visualizzare le variabili e così via.
+A questo punto, il codice VS si connette a PTVSD all'interno del contenitore Docker e si arresta in corrispondenza del punto di interruzione impostato in precedenza. È ora possibile eseguire il codice un'istruzione alla volta durante l'esecuzione, visualizzare le variabili e così via.
 
-Per altre informazioni sull'uso di VS Code per eseguire il debug di Python, vedere [eseguire il debug del codice Python](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019).
+Per altre informazioni sull'uso del codice VS per eseguire il debug di Python, vedere [Eseguire il debug del codice Python](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019).
 
 <a id="editfiles"></a>
 ### <a name="modify-the-container-files"></a>Modificare i file contenitore
 
-Per apportare modifiche ai file nell'immagine, è possibile connettersi al contenitore in esecuzione ed eseguire una shell bash. Da qui è possibile usare VIM per modificare i file:
+Per apportare modifiche ai file nell'immagine, è possibile collegarsi al contenitore in esecuzione ed eseguire una shell bash. Da lì, è possibile utilizzare vim per modificare i file:
 
-1. Per connettersi al contenitore in esecuzione e avviare una shell bash nel contenitore, usare il comando seguente:
+1. Per connettersi al contenitore in esecuzione e avviare una shell bash nel contenitore, utilizzare il comando seguente:
 
     ```bash
     docker exec -it debug /bin/bash
     ```
 
-1. Per trovare i file usati dal servizio, usare il comando seguente dalla shell bash nel contenitore se la directory predefinita è diversa da `/var/azureml-app`:
+1. Per trovare i file utilizzati dal servizio, utilizzare il seguente comando dalla shell `/var/azureml-app`bash nel contenitore se la directory predefinita è diversa da:
 
     ```bash
     cd /var/azureml-app
     ```
 
-    Da qui è possibile usare VIM per modificare il file di `score.py`. Per altre informazioni sull'uso di vim, vedere [uso dell'editor vim](https://www.tldp.org/LDP/intro-linux/html/sect_06_02.html).
+    Da qui, è possibile utilizzare `score.py` vim per modificare il file. Per ulteriori informazioni sull'utilizzo di vim, consultate [Utilizzo dell'editor Vim.](https://www.tldp.org/LDP/intro-linux/html/sect_06_02.html)
 
-1. Le modifiche apportate a un contenitore non sono in genere rese permanente. Per salvare le modifiche apportate, usare il comando seguente prima di uscire dalla shell avviata nel passaggio precedente, ovvero in un'altra shell:
+1. Le modifiche apportate a un contenitore non vengono in genere rese persistenti. Per salvare le modifiche apportate, utilizzare il comando seguente, prima di uscire dalla shell avviata nel passaggio precedente, ovvero in un'altra shell:
 
     ```bash
     docker commit debug debug:2
     ```
 
-    Questo comando crea una nuova immagine denominata `debug:2` che contiene le modifiche.
+    Questo comando crea una `debug:2` nuova immagine denominata che contiene le modifiche.
 
     > [!TIP]
-    > Per rendere effettive le modifiche, sarà necessario arrestare il contenitore corrente e iniziare a usare la nuova versione.
+    > È necessario arrestare il contenitore corrente e iniziare a utilizzare la nuova versione prima che le modifiche abbiano effetto.
 
-1. Assicurarsi di rispettare le modifiche apportate ai file nel contenitore sincronizzati con i file locali utilizzati VS Code. In caso contrario, l'esperienza del debugger non funzionerà come previsto.
+1. Assicurarsi di mantenere sincronizzate le modifiche apportate ai file nel contenitore con i file locali utilizzati da VS Code. In caso contrario, l'esperienza del debugger non funzionerà come previsto.
 
 ### <a name="stop-the-container"></a>Arrestare il contenitore
 
-Per arrestare il contenitore, usare il comando seguente:
+Per arrestare il contenitore, utilizzare il comando seguente:
 
 ```bash
 docker stop debug
@@ -449,4 +449,4 @@ docker stop debug
 Altre informazioni sulla distribuzione:
 
 * [Come e dove distribuire modelli](how-to-deploy-and-where.md)
-* [Esercitazione: eseguire il Training & distribuire modelli](tutorial-train-models-with-aml.md)
+* [Esercitazione: Eseguire il & distribuire i modelliTutorial: Train & deploy models](tutorial-train-models-with-aml.md)

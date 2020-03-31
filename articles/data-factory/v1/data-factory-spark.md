@@ -12,22 +12,22 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: ce5fb014c7d954b3e8430a86430c6a666adff204
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75969236"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Chiamare i programmi Spark dalle pipeline Azure Data Factory
 
 > [!div class="op_single_selector" title1="Attività di trasformazione"]
 > * [Attività Hive](data-factory-hive-activity.md)
-> * [Attività Pig](data-factory-pig-activity.md)
+> * [Attività suina](data-factory-pig-activity.md)
 > * [Attività MapReduce](data-factory-map-reduce.md)
-> * [Attività di streaming di Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
 > * [Attività Spark](data-factory-spark.md)
 > * [Machine Learning Bach Execution Activity](data-factory-azure-ml-batch-execution-activity.md) (Attività di esecuzione batch di Machine Learning)
-> * [Attività Aggiorna risorsa di Machine Learning ](data-factory-azure-ml-update-resource-activity.md)
+> * [Attività della risorsa di aggiornamento di Machine LearningMachine Learning Update Resource activity](data-factory-azure-ml-update-resource-activity.md)
 > * [Attività stored procedure](data-factory-stored-proc-activity.md)
 > * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
 > * [Attività personalizzata .NET](data-factory-use-custom-activities.md)
@@ -63,9 +63,9 @@ Di seguito viene illustrata la procedura usata in genere per creare una pipeline
 ### <a name="create-a-data-factory"></a>Creare una data factory
 Per creare una data factory, seguire questa procedura:
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale](https://portal.azure.com/)di Azure .
 
-1. Selezionare **Nuovo** > **Dati e analisi** > **Data Factory**.
+1. Selezionare **Nuovi** > **dati - Data** > **Factory**di analisi .
 
 1. Nel pannello **Nuova data factory** immettere **SparkDF** nel campo **Nome**.
 
@@ -78,10 +78,10 @@ Per creare una data factory, seguire questa procedura:
 
 1. Selezionare la casella di controllo **Aggiungi al dashboard**.
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
    > [!IMPORTANT]
-   > Per creare istanze di data factory, l'utente deve essere membro del ruolo [Collaboratore Data factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) a livello di sottoscrizione/gruppo di risorse.
+   > Per creare istanze di Data Factory, è necessario essere membri del ruolo di [collaboratore](../../role-based-access-control/built-in-roles.md#data-factory-contributor) di Data Factory a livello di sottoscrizione/gruppo di risorse.
 
 1. Nel dashboard del portale di Azure viene visualizzata la data factory creata.
 
@@ -105,20 +105,20 @@ In questo passaggio, l'account di archiviazione viene collegato alla data factor
 
    ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. Sostituire **nome account** e **chiave account** con il nome e la chiave di accesso dell'account di archiviazione. Per informazioni su come ottenere la chiave di accesso alle archiviazione, vedere [gestire le chiavi di accesso all'account di archiviazione](../../storage/common/storage-account-keys-manage.md).
+1. Sostituire **nome account** e **chiave account** con il nome e la chiave di accesso dell'account di archiviazione. Per informazioni su come recuperare la chiave di accesso alle risorse di archiviazione, vedere [Gestire le chiavi di accesso all'account di archiviazione](../../storage/common/storage-account-keys-manage.md).
 
 1. Per distribuire il servizio collegato, selezionare **Distribuisci** sulla barra dei comandi. Al termine della distribuzione del servizio collegato, la finestra Bozza-1 viene nascosta e nella visualizzazione struttura ad albero a sinistra viene visualizzato **AzureStorageLinkedService**.
 
 #### <a name="create-an-hdinsight-linked-service"></a>Creare un servizio collegato HDInsight
 In questo passaggio viene creato un servizio collegato HDInsight per collegare il cluster Spark HDInsight alla data factory. In questo esempio il cluster HDInsight viene usato per eseguire il programma Spark specificato nell'attività Spark della pipeline.
 
-1. Nell'editor di Data Factory selezionare **Altro** > **Nuovo calcolo** > **Cluster HDInsight**.
+1. Nell'Editor factory di dati selezionare **Altro** > nuovo**cluster HDInsight****di calcolo.** > 
 
     ![Creare un servizio collegato HDInsight](media/data-factory-spark/new-hdinsight-linked-service.png)
 
 1. Copiare e incollare il frammento di codice seguente nella finestra Bozza-1. Nell'editor JSON eseguire la procedura seguente:
 
-    a. Specificare l'URI per il cluster Spark HDInsight. Ad esempio: `https://<sparkclustername>.azurehdinsight.net/`.
+    a. Specificare l'URI per il cluster Spark HDInsight. Ad esempio `https://<sparkclustername>.azurehdinsight.net/`.
 
     b. Specificare il nome dell'utente che ha accesso al cluster Spark.
 
@@ -152,7 +152,7 @@ In questo passaggio viene creato un servizio collegato HDInsight per collegare i
 ### <a name="create-the-output-dataset"></a>Creare il set di dati di output
 Il set di dati di output è ciò su cui si basa la pianificazione (oraria, giornaliera). È quindi necessario specificare nella pipeline un set di dati di output per l'attività Spark, anche se l'attività non genera alcun output. La specifica di un set di dati di input per l'attività è facoltativa.
 
-1. Nell'editor di Data Factory fare clic su **Altro** > **Nuovo set di dati** > **Archiviazione BLOB di Azure**.
+1. Nell'Editor di Data Factory selezionare Altro**nuovo set di dati** > Archiviazione BLOB di Azure.In the Data Factory Editor, select **More** > New dataset**Azure Blob storage**.
 
 1. Copiare e incollare il frammento di codice seguente nella finestra Bozza-1. Il frammento JSON definisce un set di dati denominato **OutputDataset**. Specificare anche che i risultati devono essere archiviati nel contenitore BLOB denominato **adfspark** e nella cartella denominata **pyFiles/output**. Come accennato in precedenza, questo set di dati è fittizio. Il programma Spark in questo esempio non genera alcun output. La sezione **availability** specifica che il set di dati di output viene prodotto su base giornaliera.
 
@@ -183,7 +183,7 @@ Il set di dati di output è ciò su cui si basa la pianificazione (oraria, giorn
 ### <a name="create-a-pipeline"></a>Creare una pipeline
 In questo passaggio viene creata una pipeline con un'attività HDInsightSpark. La pianificazione è al momento basata sul set di dati di output. È quindi necessario creare un set di dati di output anche se l'attività non genera alcun output. Se l'attività non richiede input, è possibile ignorare la creazione del set di dati di input. Pertanto in questo esempio non viene specificato alcun set di dati di input.
 
-1. Nell'editor di Data Factory selezionare **Altro** > **Nuova pipeline**.
+1. Nell'Editor factory dati selezionare **Altro** > **nuovo pipeline**.
 
 1. Sostituire lo script nella finestra Bozza-1 con lo script seguente:
 
@@ -217,16 +217,16 @@ In questo passaggio viene creata una pipeline con un'attività HDInsightSpark. L
 
     a. La proprietà **type** è impostata su **HDInsightSpark**.
 
-    b. La proprietà **rootPath** è impostata su **adfspark\\pyFiles**, dove adfspark è il contenitore BLOB e pyFiles è la cartella di file nel contenitore. In questo esempio, l'archivio BLOB è quello associato al cluster Spark. È possibile caricare il file in un account di archiviazione diverso. In tal caso, creare un servizio collegato di archiviazione per collegare l'account di archiviazione alla data factory. Quindi, specificare il nome del servizio collegato come valore per la proprietà **sparkJobLinkedService**. Per altre informazioni su questa e altre proprietà supportate dall'attività Spark, vedere [Proprietà dell'attività Spark](#spark-activity-properties).
+    b. La proprietà **rootPath** è impostata su **adfspark\\pyFiles**, dove adfspark è il contenitore BLOB e pyFiles è la cartella di file nel contenitore. In questo esempio, l'archivio BLOB è quello associato al cluster Spark. È possibile caricare il file in un account di archiviazione diverso. In tal caso, creare un servizio collegato di archiviazione per collegare l'account di archiviazione alla data factory. Specificare quindi il nome del servizio collegato come valore per la proprietà **sparkJobLinkedService.** Per altre informazioni su questa e altre proprietà supportate dall'attività Spark, vedere [Proprietà dell'attività Spark](#spark-activity-properties).
 
     c. La proprietà **entryFilePath** è impostata su **test.py**, ovvero sul file Python.
 
-    d. La proprietà **getDebugInfo** è impostata su **Sempre**, a indicare che i file di log vengono sempre generati (con esito positivo o negativo).
+    d. La proprietà **getDebugInfo** è impostata su **Always**, il che significa che i file di log vengono sempre generati (esito positivo o negativo).
 
     > [!IMPORTANT]
     > Non è consigliabile impostare questa proprietà su `Always` in un ambiente di produzione, a meno che non si stia tentando di risolvere un problema.
 
-    e. La sezione **outputs** presenta un set di dati di output. Anche se il programma Spark non genera alcun output, è necessario specificare un set di dati di output. Il set di dati di output è ciò su cui si basa la pianificazione della pipeline (oraria, giornaliera).
+    e. La sezione **outputs** ha un set di dati di output. Anche se il programma Spark non genera alcun output, è necessario specificare un set di dati di output. Il set di dati di output è ciò su cui si basa la pianificazione della pipeline (oraria, giornaliera).
 
     Per altre informazioni sulle proprietà supportate dall'attività Spark, vedere la sezione [Proprietà dell'attività Spark](#spark-activity-properties).
 
@@ -249,7 +249,7 @@ In questo passaggio viene creata una pipeline con un'attività HDInsightSpark. L
 
 1. Avviare il notebook di Jupyter per il cluster HDInsight Spark passando a [questo sito Web](https://CLUSTERNAME.azurehdinsight.net/jupyter). È anche possibile aprire il dashboard del cluster Spark HDInsight e quindi avviare il notebook di Jupyter.
 
-1. Per avviare un nuovo notebook selezionare **Nuovo** > **PySpark**.
+1. Selezionare **Nuovo** > **PySpark** per avviare un nuovo blocco appunti.
 
     ![Nuovo notebook Jupyter](media/data-factory-spark/jupyter-new-book.png)
 
@@ -265,7 +265,7 @@ In questo passaggio viene creata una pipeline con un'attività HDInsightSpark. L
     ![Risultati della query Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
 
 <!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
-Per istruzioni dettagliate, vedere la sezione [Eseguire una query SQL Spark](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
+ Per istruzioni dettagliate, vedere la sezione [Eseguire una query SQL Spark](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 
 ### <a name="troubleshooting"></a>Risoluzione dei problemi
 Poiché getDebugInfo è impostato su **Always** (Sempre), è possibile vedere una sottocartella log nella cartella pyFiles nel contenitore BLOB di Azure. Il file di log nella cartella log offre informazioni aggiuntive. Tale file è particolarmente utile quando si verifica un errore. In un ambiente di produzione è consigliabile impostarlo su **Failure** (Operazione non riuscita).
@@ -324,7 +324,7 @@ Di seguito è riportata la definizione JSON di esempio di una pipeline con un'at
 
 La tabella seguente descrive le proprietà JSON usate nella definizione JSON.
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | -------- | ----------- | -------- |
 | name | Nome dell'attività nella pipeline. | Sì |
 | description | Testo che descrive la funzione dell'attività. | No |
@@ -344,7 +344,7 @@ L'attività Spark non supporta uno script inline come invece fanno le attività 
 
 Creare la struttura di cartelle seguente nell'archivio BLOB a cui fa riferimento il servizio collegato HDInsight. Caricare quindi i file dipendenti nelle sottocartelle appropriate all'interno della cartella radice rappresentata da **entryFilePath**. Caricare, ad esempio, i file Python nella sottocartella pyFiles e i file jar nella sottocartella jars della cartella radice. In runtime, il servizio Data Factory prevede la struttura di cartelle seguente nell'archivio BLOB:
 
-| Path | Description | Obbligatorio | Tipo |
+| Path | Descrizione | Obbligatoria | Type |
 | ---- | ----------- | -------- | ---- |
 | . | Percorso radice del processo Spark nel servizio collegato di archiviazione. | Sì | Cartella |
 | &lt;definito dall'utente &gt; | Percorso che punta al file di ingresso del processo Spark. | Sì | File |

@@ -10,21 +10,21 @@ ms.date: 09/07/2018
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: a7b58e96918d26851812aa96c18043121c081e94
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77023923"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Monitorare le soluzioni Batch conteggiando attività e nodi in base allo stato
 
 Per monitorare e gestire soluzioni Azure Batch su larga scala, è necessario un conteggio accurato delle risorse in vari stati. Azure Batch offre operazioni efficienti per ottenere i conteggi per le *attività* e i *nodi di calcolo* di Batch. Usare queste operazioni anziché le query dell'elenco che potrebbero richiedere molto tempo per restituire informazioni dettagliate su raccolte di attività o nodi di grandi dimensioni.
 
-* [Ottieni conteggi attività][rest_get_task_counts] ottiene un numero aggregato di attività attive, in esecuzione e completate in un processo e di attività che hanno avuto esito positivo o negativo. 
+* L'operazione di [recupero dei conteggi delle attività][rest_get_task_counts] consente di avere un conteggio aggregato delle attività attive, in corso e completate in un processo e delle attività che hanno avuto esito positivo o negativo. 
 
   Conteggiando le attività in ogni stato, è possibile visualizzare più facilmente lo stato di avanzamento di un processo a un utente o rilevare ritardi o errori imprevisti che possono influire sul processo. Il recupero dei conteggi è disponibile a partire dall'API del servizio Batch versione 2017-06-01.5.1 e negli SDK e strumenti correlati.
 
-* Il [conteggio dei nodi del pool di elenchi][rest_get_node_counts] ottiene il numero di nodi di calcolo dedicati e con priorità bassa in ogni pool che si trovano in diversi stati: creazione, inattività, offline, interrotto, riavvio, ricreazione dell'immagine, avvio e altro. 
+* L'operazione di [conteggio dei nodi del pool][rest_get_node_counts] riceve il numero di nodi di calcolo dedicati e con priorità bassa di ogni pool in vari stati: creazione, inattività, non in linea, annullamento, riavvio, ricreazione immagine, avvio e altri. 
 
   Conteggiando i nodi in ogni stato, è possibile determinare quando sono disponibili le risorse di calcolo adeguata per eseguire i processi e identificare potenziali problemi nei pool. L'elenco dei conteggi dei nodi del pool è disponibile a partire dall'API del servizio Batch versione 2018-03-01.6.1 e negli SDK e strumenti correlati.
 
@@ -35,9 +35,9 @@ Se si usa una versione del servizio che non supporta le operazioni di conteggio 
 L'operazione di recupero dei conteggi delle attività conta le attività in base agli stati seguenti:
 
 - **Attiva**: l'attività è accodata e può essere eseguita, ma non è attualmente assegnata a un nodo di calcolo. Un'attività è `active` anche se [dipende da un'attività padre](batch-task-dependencies.md) non ancora completata. 
-- **In esecuzione**: l'attività è stata assegnata a un nodo di calcolo, ma non è ancora completata. Un'attività viene conteggiata come `running` quando il suo stato è `preparing` o `running`, come indicato dall'operazione [ottenere informazioni su un'attività][rest_get_task] .
+- **In esecuzione**: l'attività è stata assegnata a un nodo di calcolo, ma non è ancora completata. Un'attività viene conteggiata come `running` quando il suo stato è `preparing` o `running`, come indicato dall'operazione di [recupero delle informazioni su un'attività][rest_get_task].
 - **Completata**: l'attività non è più idonea per l'esecuzione, perché è stata completata correttamente o è terminata con esito negativo e ha anche superato il limite di tentativi. 
-- **Riuscita**: un'attività il cui risultato dell'esecuzione è `success`. Batch determina se un'attività ha avuto esito positivo o negativo controllando la proprietà `TaskExecutionResult` della proprietà [executionInfo][rest_get_exec_info] .
+- **Riuscita**: un'attività il cui risultato dell'esecuzione è `success`. Batch determina se un'attività ha avuto esito positivo o negativo controllando la proprietà `TaskExecutionResult` della proprietà [executionInfo][rest_get_exec_info].
 - **Non riuscita**: un'attività il cui risultato dell'esecuzione è `failure`.
 
 L'esempio di codice .NET seguente mostra come recuperare i conteggi delle attività in base allo stato: 
@@ -71,7 +71,7 @@ L'operazione di conteggio dei nodi del pool conta i nodi di calcolo di ogni pool
 - **Reimaging**: un nodo in cui viene reinstallato il sistema operativo.
 - **Running**: nodo che esegue una o più attività (diversa dall'attività di avvio).
 - **Starting**: nodo in cui viene avviato il servizio Batch. 
-- **StartTaskFailed** : nodo in cui l' [attività di avvio][rest_start_task] ha avuto esito negativo ed esaurito tutti i tentativi e in cui `waitForSuccess` è impostato sull'attività di avvio. Il nodo non può essere usato per l'esecuzione di attività.
+- **StartTaskFailed**: nodo in cui l'[attività di avvio][rest_start_task] non è riuscita e ha esaurito tutti i tentativi e in cui `waitForSuccess` è impostato sull'attività di avvio. Il nodo non può essere usato per l'esecuzione di attività.
 - **Unknown**: nodo che ha perso il contatto con il servizio Batch e il cui stato non è noto.
 - **Unusable**: nodo che non può essere usato per l'esecuzione di attività a causa di errori.
 - **WaitingForStartTask**: nodo in cui l'attività ha iniziato l'esecuzione, ma è impostato `waitForSuccess` e l'attività di avvio non è stata completata.

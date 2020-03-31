@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: informazioni di riferimento su PowerShell ADSyncConfig | Microsoft Docs'
+title: 'Azure AD Connect: Informazioni di riferimento sul modulo di PowerShell ADSyncConfig | Microsoft Docs'
 description: Questo documento fornisce informazioni di riferimento sul modulo di PowerShell ADSyncConfig.psm1.
 author: billmath
 manager: daveba
@@ -11,13 +11,13 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 554bb99121190198982f64deb6ee0674aa8831ed
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60381196"
 ---
-# <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect:  informazioni di riferimento sul modulo di PowerShell ADSyncConfig
+# <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect: Informazioni di riferimento sul modulo di PowerShell ADSyncConfig
 La documentazione seguente fornisce informazioni di riferimento sul modulo di PowerShell ADSyncConfig.psm1 incluso in Azure AD Connect.
 
 
@@ -26,7 +26,7 @@ La documentazione seguente fornisce informazioni di riferimento sul modulo di Po
 ### <a name="synopsis"></a>RIEPILOGO
 Ottiene il dominio e il nome dell'account configurato in ogni connettore AD
 
-### <a name="syntax"></a>SINTASSI
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncADConnectorAccount
@@ -47,7 +47,7 @@ Get-ADSyncADConnectorAccount
 ### <a name="synopsis"></a>RIEPILOGO
 Ottiene gli oggetti di AD con l'ereditarietà delle autorizzazioni disabilitata
 
-### <a name="syntax"></a>SINTASSI
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncObjectsWithInheritanceDisabled [-SearchBase] <String> [[-ObjectClass] <String>] [<CommonParameters>]
@@ -79,7 +79,7 @@ Find all types of objects with disabled inheritance in a OU
 
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase OU=AzureAD,DC=Contoso,DC=com -ObjectClass '*'
 
-### <a name="parameters"></a>PARAMETRI
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-searchbase"></a>-SearchBase
 Base di ricerca della query LDAP, che può essere un nome distinto del dominio AD o un nome di dominio completo
@@ -97,7 +97,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-objectclass"></a>-ObjectClass
-Classe degli oggetti in cui eseguire la ricerca, che può essere "*" (per qualsiasi classe di oggetti), "utente", "gruppo", "contenitore" e così via. Per impostazione predefinita, questa funzione cerca la classe di oggetti "organizationalUnit".
+La classe degli oggetti in cui eseguire la ricerca può essere ''' (per qualsiasi classe di oggetti), 'utente', 'gruppo', 'contenitore' e così via. Per impostazione predefinita, questa funzione cercherà la classe di oggetti 'organizationalUnit'.
 
 ```yaml
 Type: String
@@ -120,7 +120,7 @@ Per altre informazioni, vedere about_CommonParameters (https://go.microsoft.com/
 ### <a name="synopsis"></a>RIEPILOGO
 Inizializza la foresta e il dominio di Active Directory per le autorizzazioni di lettura di base.
 
-### <a name="syntax"></a>SINTASSI
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="userdomain"></a>UserDomain
 ```
@@ -176,7 +176,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=AzureAD,
 Set-ADSyncBasicReadPermissions -ADConnectorAccountName 'ADConnector' -ADConnectorAccountDomain 'Contoso.com' -ADobjectDN 'OU=AzureAD,DC=Contoso,DC=com'
 ```
 
-### <a name="parameters"></a>PARAMETRI
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
 Nome dell'account Active Directory che viene o verrà usato dal servizio di sincronizzazione Azure AD Connect per gestire gli oggetti nella directory.
@@ -270,7 +270,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-confirm"></a>-Confirm
-Richiede conferma prima di eseguire il cmdlet.
+Richiede la conferma dell'utente prima di eseguire il cmdlet.
 
 ```yaml
 Type: SwitchParameter
@@ -293,7 +293,7 @@ Per altre informazioni, vedere about_CommonParameters (https://go.microsoft.com/
 ### <a name="synopsis"></a>RIEPILOGO
 Inizializza la foresta e il dominio di Active Directory per la funzionalità di distribuzione ibrida Exchange.
 
-### <a name="syntax"></a>SINTASSI
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="userdomain"></a>UserDomain
 ```
@@ -343,7 +343,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=Azu
 Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName 'ADConnector' -ADConnectorAccountDomain 'Contoso.com' -ADobjectDN 'OU=AzureAD,DC=Contoso,DC=com'
 ```
 
-### <a name="parameters"></a>PARAMETRI
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
 Nome dell'account Active Directory che viene o verrà usato dal servizio di sincronizzazione Azure AD Connect per gestire gli oggetti nella directory.
@@ -437,7 +437,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-confirm"></a>-Confirm
-Richiede conferma prima di eseguire il cmdlet.
+Richiede la conferma dell'utente prima di eseguire il cmdlet.
 
 ```yaml
 Type: SwitchParameter
@@ -460,7 +460,7 @@ Per altre informazioni, vedere about_CommonParameters (https://go.microsoft.com/
 ### <a name="synopsis"></a>RIEPILOGO
 Inizializza la foresta e il dominio di Active Directory per la funzionalità Cartelle pubbliche della posta di Exchange.
 
-### <a name="syntax"></a>SINTASSI
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="userdomain"></a>UserDomain
 ```
@@ -505,7 +505,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN 'CN=ADConnec
 Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountName 'ADConnector' -ADConnectorAccountDomain 'Contoso.com' -ADobjectDN 'OU=AzureAD,DC=Contoso,DC=com'
 ```
 
-### <a name="parameters"></a>PARAMETRI
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
 Nome dell'account Active Directory che viene o verrà usato dal servizio di sincronizzazione Azure AD Connect per gestire gli oggetti nella directory.
@@ -599,7 +599,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-confirm"></a>-Confirm
-Richiede conferma prima di eseguire il cmdlet.
+Richiede la conferma dell'utente prima di eseguire il cmdlet.
 
 ```yaml
 Type: SwitchParameter
@@ -622,7 +622,7 @@ Per altre informazioni, vedere about_CommonParameters (https://go.microsoft.com/
 ### <a name="synopsis"></a>RIEPILOGO
 Inizializza la foresta e il dominio di Active Directory per la funzionalità mS-DS-ConsistencyGuid.
 
-### <a name="syntax"></a>SINTASSI
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="userdomain"></a>UserDomain
 ```
@@ -666,7 +666,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN 'CN=ADConnector,O
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName 'ADConnector' -ADConnectorAccountDomain 'Contoso.com' -ADobjectDN 'OU=AzureAD,DC=Contoso,DC=com'
 ```
 
-### <a name="parameters"></a>PARAMETRI
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
 Nome dell'account Active Directory che viene o verrà usato dal servizio di sincronizzazione Azure AD Connect per gestire gli oggetti nella directory.
@@ -760,7 +760,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-confirm"></a>-Confirm
-Richiede conferma prima di eseguire il cmdlet.
+Richiede la conferma dell'utente prima di eseguire il cmdlet.
 
 ```yaml
 Type: SwitchParameter
@@ -783,7 +783,7 @@ Per altre informazioni, vedere about_CommonParameters (https://go.microsoft.com/
 ### <a name="synopsis"></a>RIEPILOGO
 Inizializza la foresta e il dominio di Active Directory per la sincronizzazione dell'hash delle password.
 
-### <a name="syntax"></a>SINTASSI
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="userdomain"></a>UserDomain
 ```
@@ -817,7 +817,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName 'ADConnector' -ADC
 Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=AzureAD,DC=Contoso,DC=com'
 ```
 
-### <a name="parameters"></a>PARAMETRI
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
 Nome dell'account Active Directory che verrà usato dal servizio di sincronizzazione Azure AD Connect per gestire gli oggetti nella directory.
@@ -881,7 +881,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-confirm"></a>-Confirm
-Richiede conferma prima di eseguire il cmdlet.
+Richiede la conferma dell'utente prima di eseguire il cmdlet.
 
 ```yaml
 Type: SwitchParameter
@@ -904,7 +904,7 @@ Per altre informazioni, vedere about_CommonParameters (https://go.microsoft.com/
 ### <a name="synopsis"></a>RIEPILOGO
 Inizializza la foresta e il dominio di Active Directory per il writeback delle password da Azure AD.
 
-### <a name="syntax"></a>SINTASSI
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="userdomain"></a>UserDomain
 ```
@@ -952,7 +952,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=
 Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountName 'ADConnector' -ADConnectorAccountDomain 'Contoso.com' -ADobjectDN 'OU=AzureAD,DC=Contoso,DC=com'
 ```
 
-### <a name="parameters"></a>PARAMETRI
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
 Nome dell'account Active Directory che viene o verrà usato dal servizio di sincronizzazione Azure AD Connect per gestire gli oggetti nella directory.
@@ -1046,7 +1046,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-confirm"></a>-Confirm
-Richiede conferma prima di eseguire il cmdlet.
+Richiede la conferma dell'utente prima di eseguire il cmdlet.
 
 ```yaml
 Type: SwitchParameter
@@ -1071,7 +1071,7 @@ Limita le autorizzazioni su un oggetto AD non altrimenti incluso in alcun gruppo
 Un esempio tipico è l'account AD Connect (MSOL) creato automaticamente da AAD Connect.
 Questo account ha autorizzazioni di replica su tutti i domini, ma può essere facilmente compromesso in quanto non è protetto.
 
-### <a name="syntax"></a>SINTASSI
+### <a name="syntax"></a>SYNTAX
 
 ```
 Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential>
@@ -1111,7 +1111,7 @@ Assegnare le autorizzazioni specifiche seguenti:
 Set-ADSyncRestrictedPermissions -ADConnectorAccountDN "CN=TestAccount1,CN=Users,DC=Contoso,DC=com" -Credential $(Get-Credential)
 ```
 
-### <a name="parameters"></a>PARAMETRI
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectoraccountdn"></a>-ADConnectorAccountDN
 Nome distinto dell'account Active Directory di cui occorre limitare le autorizzazioni.
@@ -1177,7 +1177,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-confirm"></a>-Confirm
-Richiede conferma prima di eseguire il cmdlet.
+Richiede la conferma dell'utente prima di eseguire il cmdlet.
 
 ```yaml
 Type: SwitchParameter
@@ -1200,7 +1200,7 @@ Per altre informazioni, vedere about_CommonParameters (https://go.microsoft.com/
 ### <a name="synopsis"></a>RIEPILOGO
 Inizializza la foresta e il dominio di Active Directory per il writeback dei gruppi da Azure AD.
 
-### <a name="syntax"></a>SINTASSI
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="userdomain"></a>UserDomain
 ```
@@ -1245,7 +1245,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN 'CN=ADConnector
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName 'ADConnector' -ADConnectorAccountDomain 'Contoso.com' -ADobjectDN 'OU=AzureAD,DC=Contoso,DC=com'
 ```
 
-### <a name="parameters"></a>PARAMETRI
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
 Nome dell'account Active Directory che viene o verrà usato dal servizio di sincronizzazione Azure AD Connect per gestire gli oggetti nella directory.
@@ -1339,7 +1339,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-confirm"></a>-Confirm
-Richiede conferma prima di eseguire il cmdlet.
+Richiede la conferma dell'utente prima di eseguire il cmdlet.
 
 ```yaml
 Type: SwitchParameter
@@ -1362,7 +1362,7 @@ Per altre informazioni, vedere about_CommonParameters (https://go.microsoft.com/
 ### <a name="synopsis"></a>RIEPILOGO
 Mostra le autorizzazioni di un oggetto AD specificato.
 
-### <a name="syntax"></a>SINTASSI
+### <a name="syntax"></a>SYNTAX
 
 ```
 Show-ADSyncADObjectPermissions [-ADobjectDN] <String> [<CommonParameters>]
@@ -1379,7 +1379,7 @@ ADobjectDN deve essere specificato in un formato DistinguishedName.
 Show-ADSyncADObjectPermissions -ADobjectDN 'OU=AzureAD,DC=Contoso,DC=com'
 ```
 
-### <a name="parameters"></a>PARAMETRI
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adobjectdn"></a>-ADobjectDN
 {{Fill ADobjectDN Description}}

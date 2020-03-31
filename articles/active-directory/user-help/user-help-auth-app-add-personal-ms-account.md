@@ -1,6 +1,6 @@
 ---
-title: Aggiungere un account Microsoft personale all'app Microsoft Authenticator-Azure AD
-description: Aggiungere account Microsoft personali, ad esempio per Outlook.com o Xbox LIVE, all'app Microsoft Authenticator per verificare la propria identità durante l'uso della verifica a due fattori.
+title: Aggiungere un account Microsoft personale all'app Microsoft Authenticator - Azure ADAdd a personal Microsoft account to the Microsoft Authenticator app - Azure AD
+description: Aggiungere account Microsoft personali, ad esempio ad Outlook.com o Xbox LIVE all'app Microsoft Authenticator, per verificare l'identità durante l'utilizzo della verifica a due fattori.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,17 +12,17 @@ ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 289c00e28fd82b78b321732628ff85d22c64cabf
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77062303"
 ---
 # <a name="add-personal-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Aggiungere account Microsoft personali all'app Microsoft Authenticator
 
 Aggiungere gli account Microsoft personali, ad esempio per Outlook.com e Xbox LIVE all'app Microsoft Authenticator per il processo di verifica a due fattori standard e il metodo di accesso telefono senza password.
 
-- **Metodo standard di verifica a due fattori.** Digitare il nome utente e la password nel dispositivo al quale si esegue l'accesso e quindi scegliere se l'app Microsoft Authenticator invii una notifica o se copiare il codice di verifica associato dalla schermata **Account**  dell'App Microsoft Authenticator.
+- **Metodo standard di verifica a due fattori.** Digitare il nome utente e la password nel dispositivo al quale si esegue l'accesso e quindi scegliere se l'app Microsoft Authenticator invii una notifica o se copiare il codice di verifica associato dalla schermata **Account ** dell'App Microsoft Authenticator.
 
 - **Accesso senza password.** Digitare il nome utente nel dispositivo al quale si esegue l'accesso per l'account Microsoft personale e quindi usare il proprio dispositivo mobile per verificare l'identità tramite l'impronta digitale, il viso o il PIN. Per questo metodo, non è necessario immettere la password.
 
@@ -69,6 +69,6 @@ Aggiungere gli account Microsoft personali, ad esempio per Outlook.com e Xbox LI
 
 - Dopo aver aggiunto gli account all'app, è possibile accedere usando l'app Authenticator nel dispositivo. Per altre informazioni, consultare [Accedere con l'app](user-help-auth-app-sign-in.md).
 
-- Se si verificano problemi durante il recupero del codice di verifica per la account Microsoft personale, vedere la sezione **risoluzione dei problemi del codice di verifica** per la risoluzione dei problemi dell'articolo [account Microsoft informazioni di sicurezza & codici di verifica](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) .
+- In caso di problemi nell'ottenere il codice di verifica per il tuo account Microsoft personale, consulta la sezione **Risoluzione dei problemi** relativi ai codici di verifica nell'articolo Codici di [sicurezza dell'account Microsoft &.](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes)
 
 - Per i dispositivi che eseguono iOS, è anche possibile eseguire il backup nel cloud delle credenziali dell'account e delle relative impostazioni dell'app, ad esempio l'ordine degli account. Per altre informazioni, consultare [Eseguire il backup e il ripristino con l'app Microsoft Authenticator](user-help-auth-app-backup-recovery.md).

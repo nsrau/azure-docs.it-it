@@ -1,6 +1,6 @@
 ---
-title: Usare più tenant in Sentinel di Azure per i provider di servizi MSSP | Microsoft Docs
-description: Come usare più tenant in Sentinel di Azure per i provider di servizi MSSP.
+title: Usare più tenant di Azure Sentinel per i provider di servizi MSSP Documenti Microsoft
+description: Come usare più tenant di Azure Sentinel per i provider di servizi MSSP.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,37 +14,37 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: caa79b572d0024b93abd2d32ca99d92cc2a8b4bb
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: fdb58686fcdd18a8e2861aab533717dbc91e8893
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77582076"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476016"
 ---
-# <a name="work-with-multiple-tenants-in-azure-sentinel"></a>Usare più tenant in Sentinel di Azure 
+# <a name="work-with-multiple-tenants-in-azure-sentinel"></a>Usare più tenant in Azure SentinelWork with multiple tenants in Azure Sentinel 
 
-Se si è un provider di servizi di sicurezza gestito (MSSP) e si usa [Azure Lighthouse](../lighthouse/overview.md) per gestire il SoC (Security Operations Center) dei clienti, sarà possibile gestire le risorse di Azure Sentinel dei clienti senza connettersi direttamente al tenant del cliente, dal proprio tenant di Azure. 
+Se si è un provider di servizi di sicurezza gestita (MSSP) e si usa [Azure Lighthouse](../lighthouse/overview.md) per gestire i centri operativi di sicurezza (SOC) dei clienti, sarà possibile gestire le risorse di Azure Sentinel dei clienti senza connettersi direttamente al tenant del cliente dal proprio tenant di Azure. 
 
-## <a name="prerequisites"></a>Prerequisites
-- [Onboarding di Azure Lighthouse](../lighthouse/how-to/onboard-customer.md)
-- Per il corretto funzionamento, il tenant deve essere registrato nel provider di risorse di Azure Sentinel in almeno una sottoscrizione. Se si dispone di una sentinella di Azure registrata nel tenant, si è pronti per iniziare. In caso contrario, nella portale di Azure selezionare **sottoscrizioni** seguite da **provider di risorse** , quindi cercare `Microsoft.Security.Insights` e selezionare **registra**.
-   ![controllare i provider di risorse](media/multiple-tenants-service-providers/check-resource-provider.png)
-## <a name="how-to-access-azure-sentinel-from-other-tenants"></a>Come accedere a Sentinel di Azure da altri tenant
-1. In **directory + sottoscrizione**selezionare le directory delegate e le sottoscrizioni in cui si trovano le aree di lavoro di Azure Sentinel del cliente.
+## <a name="prerequisites"></a>Prerequisiti
+- [Faro di bordo di Azure](../lighthouse/how-to/onboard-customer.md)
+- Affinché questa operazione funzioni correttamente, il tenant deve essere registrato nel provider di risorse di Azure Sentinel in almeno una sottoscrizione. Se nel tenant è presente un messaggio di Azure Sentinel registrato, è possibile iniziare. In caso contrario, selezionare **Sottoscrizioni** dal portale di Azure, seguito da **Provider di risorse.**  Quindi, dalla schermata **SOC - Provider di risorse,** cercare e selezionare `Microsoft.OperationalInsights` e `Microsoft.SecurityInsights`, quindi selezionare **Registra**.
+   ![Controllare i provider di risorseCheck resource providers](media/multiple-tenants-service-providers/check-resource-provider.png)
+## <a name="how-to-access-azure-sentinel-from-other-tenants"></a>Come accedere ad Azure Sentinel da altri tenantHow to access Azure Sentinel from other tenants
+1. In **Directory e sottoscrizione**selezionare le directory delegate e le sottoscrizioni in cui si trovano le aree di lavoro di Azure Sentinel del cliente.
 
    ![Generare gli eventi imprevisti della sicurezza](media/multiple-tenants-service-providers/directory-subscription.png)
 
-1. Aprire Sentinel di Azure. Verranno visualizzate tutte le aree di lavoro nelle sottoscrizioni selezionate e sarà possibile usarle senza problemi, come qualsiasi area di lavoro nel tenant.
+1. Aprire Azure Sentinel.Open Azure Sentinel. Tutte le aree di lavoro verranno visualizzate nelle sottoscrizioni selezionate e sarà possibile utilizzarle senza problemi, ad esempio tutte le aree di lavoro nel tenant.
 
 > [!NOTE]
-> Non sarà possibile distribuire i connettori in Sentinel di Azure dall'interno di un'area di lavoro gestita. Per distribuire un connettore, è necessario accedere direttamente al tenant in cui si vuole distribuire un connettore ed eseguire l'autenticazione con le autorizzazioni necessarie.
+> Non sarà possibile distribuire connettori in Azure Sentinel dall'interno di un'area di lavoro gestita. Per distribuire un connettore, è necessario accedere direttamente al tenant in cui si desidera distribuire un connettore ed autenticarvi con le autorizzazioni necessarie.
 
 
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo documento si è appreso come gestire facilmente più tenant di Sentinel di Azure. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
+In questo documento è stato illustrato come gestire senza problemi più tenant di Azure Sentinel.In this document, you learned how to manage multiple Azure Sentinel tenants seamlessly. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
 - Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
 

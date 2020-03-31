@@ -1,5 +1,5 @@
 ---
-title: Creare una VM Linux con l'API REST
+title: Creare una macchina virtuale Linux con l'API RESTCreate a Linux VM with the REST API
 description: Informazioni su come creare una macchina virtuale Linux in Azure che usa l'autenticazione SSH e Managed Disks tramite l'API REST di Azure.
 author: cynthn
 ms.service: virtual-machines-linux
@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 1594c030839cccdd48c4b032c6ad92f746f78e26
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78970265"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Creare una macchina virtuale Linux che usa l'autenticazione SSH con l'API REST
@@ -45,8 +45,8 @@ Gli argomenti seguenti sono obbligatori:
 
 | Intestazione della richiesta   | Descrizione |
 |------------------|-----------------|
-| *Content-Type:*  | Obbligatorio. Impostare su `application/json`. |
-| *Authorization:* | Obbligatorio. Impostare un `Bearer` [token di accesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) valido. |
+| *Tipo di contenuto:*  | Obbligatorio. Impostare su `application/json`. |
+| *Autorizzazione:* | Obbligatorio. Impostare un `Bearer` [token di accesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) valido. |
 
 Per informazioni generali sul lavoro con le operazioni con API REST, vedere [Componenti di una richiesta/risposta dell'API REST](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -118,7 +118,7 @@ Un esempio di corpo di richiesta è riportato di seguito. Assicurarsi di specifi
 }
 ```
 
-Per un elenco completo delle definizioni disponibili nel corpo della richiesta, vedere [macchine virtuali creare o aggiornare le definizioni del corpo della richiesta](/rest/api/compute/virtualmachines/createorupdate#definitions).
+Per un elenco completo delle definizioni disponibili nel corpo della richiesta, vedere Le definizioni del corpo della richiesta di ambiente virtuale, vedere [Le definizioni](/rest/api/compute/virtualmachines/createorupdate#definitions)del corpo della richiesta di ambiente virtuale .
 
 ## <a name="sending-the-request"></a>Invio della richiesta
 
@@ -150,5 +150,5 @@ Per altre informazioni sulle API REST di Azure o su altri strumenti di gestione,
 
 - [API REST del provider Calcolo di Azure](/rest/api/compute/)
 - [Introduzione all'API REST di Azure](/rest/api/azure/)
-- [Interfaccia della riga di comando di Azure](/cli/azure/)
+- [Interfaccia della riga di comando di AzureAzure](/cli/azure/)
 - [Modulo di Azure PowerShell](/powershell/azure/overview)

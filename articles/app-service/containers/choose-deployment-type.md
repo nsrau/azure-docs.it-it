@@ -1,6 +1,6 @@
 ---
-title: Opzioni di distribuzione per i contenitori Linux
-description: Decidere tra la distribuzione personalizzata del contenitore Docker, il multicontenitore e un Framework di applicazione incorporato per il servizio app in Linux.
+title: Opzioni di distribuzione per i contenitori LinuxDeployment options for Linux containers
+description: Decidere tra la distribuzione di contenitori Docker personalizzati, multi-contenitore e un framework di applicazione incorporato per il servizio app in Linux.Decide between custom Docker container deployment, multi-container and a built-in application framework for App Service on Linux.
 keywords: Servizio app di Azure, app Web, Linux, OSS
 author: msangapu-msft
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 05/04/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 7c4025e393c196fb98455bac26e94e5f252840b9
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74687505"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>Immagine personalizzata, multi-contenitore o immagine della piattaforma predefinita?
@@ -19,7 +19,7 @@ ms.locfileid: "74687505"
 Il [servizio app in Linux](app-service-linux-intro.md) offre tre percorsi diversi per pubblicare un'applicazione sul Web:
 
 - **Distribuzione di immagini personalizzate**: integrare l'app in un'immagine Docker che contiene tutti i file e le dipendenze in un pacchetto pronto per l'esecuzione.
-- **Distribuzione multicontenitore**: "contenitore Docker" l'app in più contenitori usando un file di configurazione Docker compose.
+- **Distribuzione multi-contenitore:**"Dockerize" dell'app in più contenitori usando un file di configurazione Docker Compose.Multi-container deployment : "Dockerize" your app across multiple containers using a Docker Compose configuration file.
 - **Distribuzione di app con un'immagine della piattaforma predefinita**: le immagini di piattaforma predefinite contengono runtime e dipendenze di app Web comuni, come Node e PHP. Usare uno qualsiasi dei [metodi di distribuzione di Servizio app di Azure](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) per distribuire l'app nello spazio di archiviazione dell'app Web e quindi usare un'immagine della piattaforma predefinita per eseguirla.
 
 ## <a name="which-method-is-right-for-your-app"></a>Qual è il metodo più appropriato per l'app? 
@@ -38,15 +38,15 @@ Ecco i principali fattori da prendere in considerazione:
 ## <a name="next-steps"></a>Passaggi successivi
 
 Contenitore personalizzato:
-* [Esegui contenitore personalizzato](quickstart-docker-go.md)
+* [Eseguire il contenitore personalizzato](quickstart-docker-go.md)
 
-Più contenitori:
-* [Creare un'app a più contenitori](quickstart-multi-container.md)
+Multi-contenitore:
+* [Creare un'app multicontenitore](quickstart-multi-container.md)
 
-Gli articoli seguenti consentono di iniziare a usare il servizio app in Linux con un'immagine della piattaforma incorporata:
+Gli articoli seguenti consentono di iniziare a usare il servizio app in Linux con un'immagine della piattaforma incorporata:The following articles get you started with App Service on Linux with a built-in platform image:
 
 * [.NET Core](quickstart-dotnetcore.md)
-* [PHP](quickstart-php.md)
+* [Php](quickstart-php.md)
 * [Node.js](quickstart-nodejs.md)
 * [Java](quickstart-java.md)
 * [Python](quickstart-python.md)

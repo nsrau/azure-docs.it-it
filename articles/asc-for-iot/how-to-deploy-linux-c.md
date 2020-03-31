@@ -1,6 +1,6 @@
 ---
-title: Guida per l'installazione e la distribuzione dell'agente di Linux C del Centro sicurezza di Azure per l'agente Microsoft Docs
-description: Informazioni su come installare il Centro sicurezza di Azure per l'agente Internet in Linux a 32 bit e a 64 bit.
+title: Guida all'installazione e distribuzione dell'agente Linux C del Centro sicurezza di Azure per l'agente IoT Documenti Microsoft
+description: Informazioni su come installare il Centro sicurezza di Azure per l'agente IoT sia in Linux a 32 bit che a 64 bit.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,41 +16,41 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 7578811c37cd0bbe47821dadacce5fa5974f56cf
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68812722"
 ---
-# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Distribuire il Centro sicurezza di Azure per l'agente di sicurezza basato su tutto il linguaggio C per Linux
+# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Distribuire un agente di sicurezza per Linux basato su C del Centro sicurezza di Azure per IoT
 
-Questa guida illustra come installare e distribuire il Centro sicurezza di Azure per l'agente di sicurezza basato sul linguaggio C per l'it in Linux.
+Questa guida illustra come installare e distribuire il Centro sicurezza di Azure per l'agente di sicurezza basato su C IoT su Linux.This guide explains how to install and deploy the Azure Security Center for IoT C-based security agent on Linux.
 
 Questa guida illustra come eseguire queste operazioni: 
 > [!div class="checklist"]
-> * Installa
-> * Verifica distribuzione
+> * Installazione di
+> * Verificare la distribuzione
 > * Disinstallare l'agente
-> * Risolvere problemi 
+> * Risolvere i problemi 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per altre piattaforme e versioni degli agenti, vedere [scegliere l'agente di sicurezza appropriato](how-to-deploy-agent.md).
+Per altre piattaforme e ruoli di agente, vedere [Scegliere l'agente](how-to-deploy-agent.md)di sicurezza corretto.
 
-1. Per distribuire l'agente protezione, sono necessari i diritti di amministratore locale nel computer in cui si vuole installare (sudo).
+1. Per distribuire l'agente di sicurezza, sono necessari diritti di amministratore locale nel computer in cui si desidera eseguire l'installazione (sudo).
 
 1. [Creare un modulo di sicurezza](quickstart-create-security-twin.md) per il dispositivo.
 
 ## <a name="installation"></a>Installazione 
 
-Per installare e distribuire l'agente sicurezza, utilizzare il flusso di lavoro seguente:
+Per installare e distribuire l'agente di sicurezza, utilizzare il flusso di lavoro seguente:
 
 
 1. Scaricare la versione più recente nel computer da [GitHub](https://aka.ms/iot-security-github-c).
 
-1. Estrarre il contenuto del pacchetto e passare alla cartella _/src/Installation_
+1. Estrarre il contenuto del pacchetto e passare alla cartella _/src/installation._
 
-1. Aggiungere le autorizzazioni in esecuzione allo **script InstallSecurityAgent** eseguendo il comando seguente:
+1. Aggiungere le autorizzazioni di esecuzione per **lo script InstallSecurityAgent** eseguendo il comando seguente:
     
    ```
    chmod +x InstallSecurityAgent.sh
@@ -64,7 +64,7 @@ Per installare e distribuire l'agente sicurezza, utilizzare il flusso di lavoro 
    
    Per altre informazioni sui parametri di autenticazione, vedere la pagina [Come configurare l'autenticazione](concept-security-agent-authentication-methods.md).
 
-Questo script esegue la funzione seguente:
+Questo script esegue la funzione seguente:This script performs the following function:
 
 1. Installazione dei prerequisiti.
 
@@ -84,15 +84,15 @@ Per disinstallare l'agente, eseguire lo script con il parametro –-uninstall:
 
     ./InstallSecurityAgent.sh -–uninstall
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 Controllare lo stato di distribuzione eseguendo:
 
     systemctl status ASCIoTAgent.service
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Leggi il Centro sicurezza di Azure per [informazioni generali](overview.md) sul servizio Internet
-- Scopri di più sul centro sicurezza di Azure per l' [architettura dell'it](architecture.md)
+- Leggi la [panoramica](overview.md) del Centro sicurezza di Azure per il servizio IoT
+- Altre informazioni sul Centro sicurezza di Azure per l'architettura IoTLearn more about Azure Security Center for IoT [Architecture](architecture.md)
 - Abilitare il [servizio](quickstart-onboard-iot-hub.md)
 - Leggere le [Domande frequenti](resources-frequently-asked-questions.md)
-- Informazioni sugli [avvisi di sicurezza](concept-security-alerts.md)
+- Comprendere gli [avvisi di sicurezzaUnderstand security alerts](concept-security-alerts.md)

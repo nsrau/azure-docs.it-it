@@ -7,10 +7,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: f23ac2d693492695c398893c103d5a77a0e93129
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461471"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Aggiungere notifiche push all'app Xamarin.Forms
@@ -25,9 +25,9 @@ Se non si usa il progetto server di avvio rapido scaricato, sarà necessario agg
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per iOS sono necessari un dispositivo iOS fisico e un'[appartenenza all'Apple Developer Program](https://developer.apple.com/programs/ios/). [Il simulatore iOS non supporta le notifiche push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html).
+Per iOS sono necessari un dispositivo iOS fisico e un'[appartenenza all'Apple Developer Program](https://developer.apple.com/programs/ios/). Il [simulatore iOS non supporta le notifiche push.](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html)
 
-## <a name="configure-hub"></a>Configurare un hub di notifica
+## <a name="configure-a-notification-hub"></a><a name="configure-hub"></a>Configurare un hub di notifica
 
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
@@ -73,7 +73,7 @@ Dopo aver configurato il back-end con FCM, è possibile aggiungere componenti e 
 
 #### <a name="implementing-the-firebase-instance-id-service"></a>Implementazione del servizio Instance ID di Firebase
 
-1. Aggiungere una nuova classe denominata **al progetto**Droid`FirebaseRegistrationService`, quindi assicurarsi che le istruzioni `using` seguenti siano presenti all'inizio del file:
+1. Aggiungere una nuova classe denominata `FirebaseRegistrationService` al progetto **Droid**, quindi assicurarsi che le istruzioni `using` seguenti siano presenti all'inizio del file:
 
     ```csharp
     using System.Threading.Tasks;
@@ -116,7 +116,7 @@ Dopo aver configurato il back-end con FCM, è possibile aggiungere componenti e 
 
 #### <a name="registering-with-the-azure-notification-hub"></a>Registrazione con l'Hub di notifica di Azure
 
-1. Aggiungere una nuova classe denominata **al progetto**Droid`AzureNotificationHubService`, quindi assicurarsi che le istruzioni `using` seguenti siano presenti all'inizio del file:
+1. Aggiungere una nuova classe denominata `AzureNotificationHubService` al progetto **Droid**, quindi assicurarsi che le istruzioni `using` seguenti siano presenti all'inizio del file:
 
     ```csharp
     using System;
@@ -159,7 +159,7 @@ Dopo aver configurato il back-end con FCM, è possibile aggiungere componenti e 
 
 #### <a name="displaying-the-contents-of-a-push-notification"></a>Visualizzazione del contenuto di una notifica push
 
-1. Aggiungere una nuova classe denominata **al progetto**Droid`FirebaseNotificationService`, quindi assicurarsi che le istruzioni `using` seguenti siano presenti all'inizio del file:
+1. Aggiungere una nuova classe denominata `FirebaseNotificationService` al progetto **Droid**, quindi assicurarsi che le istruzioni `using` seguenti siano presenti all'inizio del file:
 
     ```csharp
     using Android.App;
@@ -222,10 +222,10 @@ Dopo aver configurato il back-end con FCM, è possibile aggiungere componenti e 
 I primi due passaggi sono necessari solo per i test eseguiti in un emulatore.
 
 1. Assicurarsi che l'operazione di distribuzione o debug venga eseguita su un dispositivo o un emulatore configurato con Google Play Services. Per eseguire questa verifica, controllare che le app **Play** siano installate nel dispositivo o emulatore.
-2. Aggiungere un account Google al dispositivo Android facendo clic su **App** > **Impostazioni** > **Aggiunti account**. Seguire quindi le istruzioni per aggiungere un account Google esistente al dispositivo o per crearne uno nuovo.
+2. Aggiungere un account Google al dispositivo Android facendo clic su**Impostazioni** >  **app** > **Aggiungi account**. Seguire quindi le istruzioni per aggiungere un account Google esistente al dispositivo o per crearne uno nuovo.
 3. In Visual Studio o Xamarin Studio fare clic con il pulsante destro del mouse sul progetto **Droid** e scegliere **Imposta come progetto di avvio**.
 4. Fare clic su **Esegui** per creare il progetto e avviare l'app sul dispositivo Android o sull'emulatore.
-5. Nell'app digitare un'attività e fare clic sull'icona con il segno più ( **+** ).
+5. Nell'app digitare un'attività e quindi**+** fare clic sull'icona con il segno più ( ).
 6. Assicurarsi di ricevere una notifica quando viene aggiunto un elemento.
 
 ## <a name="configure-and-run-the-ios-project-optional"></a>Configurare ed eseguire il progetto iOS (facoltativo)
@@ -319,7 +319,7 @@ L'app è ora aggiornata per il supporto delle notifiche push.
    > [!NOTE]
    > È necessario accettare le notifiche push in modo esplicito dall'app. Questa richiesta viene visualizzata solo la prima volta che si esegue l'app.
 
-3. Nell'app digitare un'attività e fare clic sull'icona con il segno più ( **+** ).
+3. Nell'app digitare un'attività e quindi**+** fare clic sull'icona con il segno più ( ).
 4. Verificare che venga ricevuta una notifica e quindi fare clic su **OK** per ignorarla.
 
 ## <a name="configure-and-run-windows-projects-optional"></a>Configurare ed eseguire progetti Windows (facoltativo)
@@ -348,7 +348,7 @@ Questa sezione illustra l'esecuzione dei progetti Xamarin.Forms WinApp e WinPhon
 
     Sostituire `<your_TodoItemManager_portable_class_namespace>` con lo spazio dei nomi del progetto portabile che contiene la classe `TodoItemManager`.
 
-2. Nel file App.xaml.cs aggiungere il metodo **InitNotificationsAsync** seguente:
+2. In App.xaml.cs aggiungere il metodo InitNotificationsAsync seguente:In example, add the following **InitNotificationsAsync** method:
 
     ```csharp
     private async Task InitNotificationsAsync()
@@ -390,8 +390,8 @@ Questa sezione illustra l'esecuzione dei progetti Xamarin.Forms WinApp e WinPhon
 #### <a name="test-push-notifications-in-your-windows-app"></a>Testare le notifiche push nell'app di Windows
 
 1. In Visual Studio fare clic con il pulsante destro del mouse su un progetto Windows e quindi scegliere **Imposta come progetto di avvio**.
-2. Premere il pulsante **Esegui** per compilare il progetto e avviare l'app.
-3. Nell'app digitare un nome per un nuovo elemento todoitem, quindi fare clic sull'icona del segno più ( **+** ) per aggiungerlo.
+2. Premi il pulsante **Esegui** per compilare il progetto e avviare l'app.
+3. Nell'app digitare un nome per un nuovo elemento todoitem e quindi fare clic sull'icona più (**+**) per aggiungerlo.
 4. Assicurarsi di ricevere una notifica quando viene aggiunto l'elemento.
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -402,7 +402,7 @@ Altre informazioni sulle notifiche push:
 * [Firebase Cloud Messaging](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/firebase-cloud-messaging/)
 * [Remote Notifications with Firebase Cloud Messaging](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/remote-notifications-with-fcm/) (Notifiche remote con Firebase Cloud Messaging)
 * [Diagnose push notification issues](../notification-hubs/notification-hubs-push-notification-fixer.md)  
-  (Diagnosticare i problemi relativi alle notifiche push) Esistono varie ragioni per cui le notifiche possono essere eliminate o non giungere ai dispositivi. Questo argomento illustra come analizzare e capire la causa radice degli errori relativi alle notifiche push.
+   (Diagnosticare i problemi relativi alle notifiche push) Esistono varie ragioni per cui le notifiche possono essere eliminate o non giungere ai dispositivi. Questo argomento illustra come analizzare e capire la causa radice degli errori relativi alle notifiche push.
 
 È possibile anche proseguire con una delle esercitazioni seguenti:
 

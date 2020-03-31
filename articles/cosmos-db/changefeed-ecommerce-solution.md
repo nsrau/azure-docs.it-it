@@ -1,6 +1,6 @@
 ---
 title: Usare il feed di modifiche di Azure Cosmos DB per visualizzare l'analisi dei dati in tempo reale
-description: Questo articolo descrive il modo in cui il feed delle modifiche può essere usato da un'azienda di vendita al dettaglio per comprendere i modelli utente, eseguire analisi e visualizzazione dei dati in tempo reale
+description: In questo articolo viene descritto come il feed di modifiche può essere utilizzato da una società di vendita al dettaglio per comprendere i modelli utente, eseguire l'analisi e la visualizzazione dei dati in tempo reale
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
 ms.openlocfilehash: c0c1a28dc399d3f176f92e656621fec1bc92dbfc
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76513493"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Usare il feed di modifiche di Azure Cosmos DB per visualizzare l'analisi dei dati in tempo reale
 
-Il feed di modifiche Azure Cosmos DB è un meccanismo per ottenere un feed continuo e incrementale di record da un contenitore di Azure Cosmos durante la creazione o la modifica di tali record. Il supporto del feed di modifiche rimane in ascolto del contenitore per qualsiasi modifica. Restituisce quindi l'elenco di documenti cambiati nell'ordine in cui sono stati modificati. Per altre informazioni sul feed di modifiche, vedere l'articolo sull'[uso di feed di modifiche](change-feed.md). 
+Il feed di modifiche del database Cosmos di Azure è un meccanismo per ottenere un feed continuo e incrementale di record da un contenitore Cosmos di Azure durante la creazione o la modifica di tali record. Il supporto del feed di modifiche rimane in ascolto del contenitore per qualsiasi modifica. Restituisce quindi l'elenco di documenti cambiati nell'ordine in cui sono stati modificati. Per altre informazioni sul feed di modifiche, vedere l'articolo sull'[uso di feed di modifiche](change-feed.md). 
 
 Questo articolo descrive come il feed di modifiche può essere usato da una società di e-commerce al dettaglio per comprendere i criteri definiti dall'utente ed eseguire la visualizzazione e l'analisi dei dati in tempo reale. Verranno analizzati eventi, ad esempio un utente che visualizza un elemento, aggiunge un elemento al carrello o acquista un elemento. Quando si verifica uno di questi eventi, viene creato un nuovo record e il feed di modifiche registra quel record. Il feed di modifiche quindi attiva una serie di passaggi che consentono la visualizzazione delle metriche che analizzano le prestazioni aziendali e l'attività risultante. Le metriche di esempio che è possibile visualizzare includono i ricavi, i visitatori univoci del sito, gli elementi più diffusi e il prezzo medio degli elementi che vengono visualizzati rispetto a quelli aggiunti al carrello e a quelli acquistati. Queste metriche di esempio consentono a una società di e-commerce di valutare la popolarità del sito, sviluppare le strategie relative a pubblicità e prezzi e prendere decisioni riguardanti gli inventari in cui investire.
 
@@ -41,9 +41,9 @@ Il diagramma seguente rappresenta il flusso di dati e i componenti coinvolti nel
    }
    ```
 
-2. **Cosmos DB:** I dati generati vengono archiviati in un contenitore di Azure Cosmos.  
+2. **Cosmos DB:** I dati generati vengono archiviati in un contenitore Cosmos di Azure.The generated data is stored in an Azure Cosmos container.  
 
-3. **Feed delle modifiche:** Il feed di modifiche resterà in ascolto delle modifiche apportate al contenitore Azure Cosmos. Ogni volta che viene aggiunto un nuovo documento nella raccolta (ovvero quando si verifica un evento ad esempio un utente che visualizza un elemento, aggiunge un elemento al carrello o acquista un elemento), il feed di modifiche attiverà una [funzione di Azure](../azure-functions/functions-overview.md).  
+3. **Cambia feed:** Il feed di modifiche ascolterà le modifiche apportate al contenitore Cosmos di Azure.The change feed will listen for changes to the Azure Cosmos container. Ogni volta che viene aggiunto un nuovo documento nella raccolta (ovvero quando si verifica un evento ad esempio un utente che visualizza un elemento, aggiunge un elemento al carrello o acquista un elemento), il feed di modifiche attiverà una [funzione di Azure](../azure-functions/functions-overview.md).  
 
 4. **Funzione di Azure:** la funzione di Azure elabora i nuovi dati e li invia a un [Hub eventi di Azure](../event-hubs/event-hubs-about.md).  
 
@@ -93,7 +93,7 @@ Creare le risorse di Azure richieste dalla soluzione: Azure Cosmos DB, Account d
 
 Ora sarà possibile creare una raccolta per memorizzare gli eventi del sito di e-commerce. Quando un utente visualizza un elemento, aggiunge un elemento al carrello o acquista un articolo, la raccolta riceverà un record che include l'azione ("visualizzato", "aggiunto" o "acquistato"), il nome dell'elemento, il prezzo dell'elemento e il numero di ID del carrello dell'utente coinvolti.
 
-1. Passare a [portale di Azure](https://portal.azure.com/) e individuare l' **account Azure Cosmos DB** creato dalla distribuzione del modello.  
+1. Passare al portale di [Azure](https://portal.azure.com/) e trovare l'account **database Cosmos di Azure** creato dalla distribuzione del modello.  
 
 2. Dal riquadro **Esplora dati**, selezionare **Nuova raccolta** e compilare il modulo con i dettagli seguenti:  
 
@@ -101,7 +101,7 @@ Ora sarà possibile creare una raccolta per memorizzare gli eventi del sito di e
    * Per il campo id della **Raccolta**, inserire **changefeedlabcollection**.  
    * Per la **chiave di partizione** inserire **/elemento**. Si tratta di un campo con distinzione tra maiuscole/minuscole, pertanto assicurarsi di compilarlo correttamente.  
    * Per **Velocità effettiva** inserire **10000**.  
-   * Selezionare il pulsante **OK**.  
+   * Selezionare il pulsante **OK.**  
 
 3. Creare quindi un'altra raccolta denominata **lease** per l'elaborazione del feed di modifiche. La raccolta di lease coordina l'elaborazione del feed di modifiche in più processi di lavoro. Una raccolta separata viene usata per archiviare i lease con un lease per partizione.  
 
@@ -111,13 +111,13 @@ Ora sarà possibile creare una raccolta per memorizzare gli eventi del sito di e
    * Per il campo **id raccolta**, inserire **lease**.  
    * Per **Capacità di archiviazione**, selezionare **Fissa**.  
    * Lasciare il campo della **velocità effettiva** impostato sul valore predefinito.  
-   * Selezionare il pulsante **OK**.
+   * Selezionare il pulsante **OK.**
 
 ## <a name="get-the-connection-string-and-keys"></a>Ottiene la stringa di connessione e le chiavi
 
 ### <a name="get-the-azure-cosmos-db-connection-string"></a>Ottenere la stringa di connessione di Azure Cosmos DB
 
-1. Passare a [portale di Azure](https://portal.azure.com/) e individuare l' **account Azure Cosmos DB** creato dalla distribuzione del modello.  
+1. Passare al portale di [Azure](https://portal.azure.com/) e trovare l'account **database Cosmos di Azure** creato dalla distribuzione del modello.  
 
 2. Passare al riquadro delle **Chiavi**, copiare la STRINGA DI CONNESSIONE PRIMARIA e copiarla in un blocco note o un altro documento di cui si disporrà durante l'intera esercitazione. È consigliabile chiamarla **Stringa di connessione di Cosmos DB**. È necessario copiare la stringa nel codice in un secondo momento, quindi prenderne nota e ricordare dove è archiviata.
 
@@ -143,7 +143,7 @@ Hub eventi di Azure riceve i dati dell'evento, li archivia, li elabora e inoltra
 
 ## <a name="set-up-azure-function-to-read-the-change-feed"></a>Impostare una funzione di Azure per leggere il feed di modifiche
 
-Quando viene creato un nuovo documento o un documento corrente viene modificato in un contenitore Cosmos, il feed delle modifiche aggiunge automaticamente il documento modificato alla cronologia delle modifiche apportate alla raccolta. Ora è necessario compilare ed eseguire una funzione di Azure che elabori i feed di modifiche. Quando un documento viene creato o modificato nella raccolta creata, la funzione di Azure verrà attivata dal feed di modifiche. La funzione di Azure invierà quindi il documento modificato per l'Hub eventi.
+Quando viene creato un nuovo documento o un documento corrente viene modificato in un contenitore Cosmos, il feed di modifiche aggiunge automaticamente tale documento modificato alla cronologia delle modifiche della raccolta. Ora è necessario compilare ed eseguire una funzione di Azure che elabori i feed di modifiche. Quando un documento viene creato o modificato nella raccolta creata, la funzione di Azure verrà attivata dal feed di modifiche. La funzione di Azure invierà quindi il documento modificato per l'Hub eventi.
 
 1. Tornare al repository clonato nel dispositivo.  
 
@@ -177,7 +177,7 @@ Per vedere come feed di modifiche elabora nuove azioni in un sito di e-commerce,
  
 6. Attendere l'esecuzione del programma. Le stelle indicano che i dati sono in arrivo! Mantenere il programma in esecuzione, è importante che vengono raccolti molti dati.  
 
-7. Se si passa a [portale di Azure](https://portal.azure.com/) , quindi all'account Cosmos DB all'interno del gruppo di risorse e quindi a **Esplora dati**, si vedranno i dati casuali importati nella **changefeedlabcollection** .
+7. Se si passa al portale di [Azure](https://portal.azure.com/) , quindi all'account Cosmos DB all'interno del gruppo di risorse, quindi a **Esplora dati**, verranno visualizzati i dati randomizzati importati in **changefeedlabcollection** .
  
    ![Dati generati nel portale](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
 
@@ -185,7 +185,7 @@ Per vedere come feed di modifiche elabora nuove azioni in un sito di e-commerce,
 
 Analisi di flusso di Azure è un servizio cloud completamente gestito per l'elaborazione dei dati in streaming in tempo reale. In questa esercitazione si userà l'analisi del flusso per elaborare nuovi eventi da Hub eventi (ad esempio quando un elemento è visualizzato, aggiunto al carrello o acquistato), per incorporare tali eventi nell'analisi dei dati in tempo reale e per inviarli a Power BI per la visualizzazione.
 
-1. Dal [portale di Azure](https://portal.azure.com/)passare al gruppo di risorse e quindi a **streamjob1** (il processo di analisi di flusso creato in prelab).  
+1. Dal [portale di Azure](https://portal.azure.com/)passare al gruppo di risorse, quindi a **streamjob1** (il processo di analisi del flusso creato nel prelab).  
 
 2. Selezionare **Input** come illustrato di seguito.  
 
@@ -250,7 +250,7 @@ Power BI è una suite di strumenti di analisi business che consente di analizzar
  
 5. Selezionare **averagePrice** da **SET DI DATI** e quindi selezionare **Avanti**.  
 
-6. Nel campo **Tipo di visualizzazione**, scegliere **Grafico a barre raggruppate** dal menu a discesa. In **Asse**, aggiungere un'azione. Lasciare in sospeso **Legenda** senza aggiungere alcun dato. Quindi, nella sezione successiva denominata **value**, aggiungere **AVG**. Selezionare **Avanti**, quindi denominare il grafico e selezionare **applica**. Dovrebbe essere possibile visualizzare un nuovo grafico nella dashboard!  
+6. Nel campo **Tipo di visualizzazione**, scegliere **Grafico a barre raggruppate** dal menu a discesa. In **Asse**, aggiungere un'azione. Lasciare in sospeso **Legenda** senza aggiungere alcun dato. Quindi, nella sezione successiva denominata **Valore**, aggiungere **avg**. Selezionare **Avanti**, quindi titolo del grafico e infine **Applica**. Dovrebbe essere possibile visualizzare un nuovo grafico nella dashboard!  
 
 7. A questo punto, se si desidera visualizzare altre metriche, è possibile tornare alla schermata **streamjob1** e creare altri tre output con i campi seguenti.
 
@@ -318,11 +318,11 @@ Power BI è una suite di strumenti di analisi business che consente di analizzar
 
 ## <a name="optional-visualize-with-an-e-commerce-site"></a>Facoltativo: visualizzazione con un sito di e-commerce
 
-A questo punto, sarà possibile osservare come è possibile usare il nuovo strumento di analisi dei dati per la connessione con un vero sito di e-commerce. Per creare il sito di e-commerce, usare un database di Azure Cosmos per archiviare l'elenco delle categorie di prodotti (donne, uomini, unisex), il catalogo dei prodotti e un elenco degli elementi più diffusi.
+A questo punto, sarà possibile osservare come è possibile usare il nuovo strumento di analisi dei dati per la connessione con un vero sito di e-commerce. Per creare il sito di e-commerce, usare un database Cosmos di Azure per archiviare l'elenco delle categorie di prodotti (Donna, Uomini, Unisex), il catalogo prodotti e un elenco degli elementi più popolari.
 
-1. Tornare alla [portale di Azure](https://portal.azure.com/), quindi all' **account di Cosmos DB**, quindi **Esplora dati**.  
+1. Tornare al [portale di Azure](https://portal.azure.com/), quindi all'account **Cosmos DB**, quindi a Esplora **dati**.  
 
-   Aggiungere due raccolte in **prodotti** - **changefeedlabdatabase** e **categorie** con capacità di archiviazione fissa.
+   Aggiungere due raccolte in**prodotti** **changefeedlabdatabase** - e **categorie** con capacità di archiviazione fissa.
 
    Aggiungere un'altra raccolta in **changefeedlabdatabase** chiamata **topItems** e **/Item** come chiave di partizione.
 
@@ -390,7 +390,7 @@ A questo punto, sarà possibile osservare come è possibile usare il nuovo strum
 
 ## <a name="delete-the-resources"></a>Eliminare le risorse
 
-Per eliminare le risorse create durante il Lab, passare al gruppo di risorse in [portale di Azure](https://portal.azure.com/), quindi selezionare **Elimina gruppo di risorse** dal menu nella parte superiore della pagina e seguire le istruzioni fornite.
+Per eliminare le risorse create durante questa esercitazione, passare al gruppo di risorse nel [portale](https://portal.azure.com/)di Azure , quindi selezionare **Elimina gruppo di risorse** dal menu nella parte superiore della pagina e seguire le istruzioni fornite.
 
 ## <a name="next-steps"></a>Passaggi successivi 
   

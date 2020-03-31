@@ -1,15 +1,15 @@
 ---
-title: Convertire le app di servizi cloud di Azure in Service Fabric
+title: Convertire le app di Servizi cloud di Azure in Service Fabric
 description: Questa guida confronta i ruoli di lavoro e Web di Servizi Cloud con i servizi senza stato di Service Fabric per facilitare la migrazione da Servizi cloud a Service Fabric.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: caf067f793ca2086bc068907e86a82266627d128
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75463331"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guida alla conversione di ruoli di lavoro e Web in servizi senza stato di Service Fabric
@@ -23,7 +23,7 @@ La differenza è che il progetto di Servizi cloud abbina la distribuzione dell'a
 ![Confronto tra i progetti di Servizi cloud e Service Fabric][3]
 
 ## <a name="worker-role-to-stateless-service"></a>Da ruolo di lavoro a servizio senza stato
-Concettualmente un ruolo di lavoro rappresenta un carico di lavoro senza stato, ovvero ogni istanza del carico di lavoro è identica e le richieste possono essere indirizzate a qualsiasi istanza in qualsiasi momento. Non è previsto che ogni istanza ricordi la richiesta precedente. Lo stato in cui viene eseguito il carico di lavoro è gestito da un archivio stati esterno, ad esempio archiviazione tabelle di Azure o Azure Cosmos DB. In Service Fabric questo tipo di carico di lavoro è rappresentato da un servizio senza stato. L'approccio più semplice per la migrazione di un ruolo di lavoro a Service Fabric può avvenire mediante la conversione di codice del ruolo di lavoro in un servizio senza stato.
+Concettualmente un ruolo di lavoro rappresenta un carico di lavoro senza stato, ovvero ogni istanza del carico di lavoro è identica e le richieste possono essere indirizzate a qualsiasi istanza in qualsiasi momento. Non è previsto che ogni istanza ricordi la richiesta precedente. State that the workload operates on is managed by an external state store, such as Azure Table Storage or Azure Cosmos DB. In Service Fabric questo tipo di carico di lavoro è rappresentato da un servizio senza stato. L'approccio più semplice per la migrazione di un ruolo di lavoro a Service Fabric può avvenire mediante la conversione di codice del ruolo di lavoro in un servizio senza stato.
 
 ![Da ruolo di lavoro a servizio senza stato][4]
 
@@ -42,7 +42,7 @@ Le API del servizio di Service Fabric e del ruolo di lavoro offrono punti di ing
 
 | **Punto di ingresso** | **Istanze del ruolo di lavoro** | **Servizio di Service Fabric** |
 | --- | --- | --- |
-| Elaborazione |`Run()` |`RunAsync()` |
+| Elaborazione in corso |`Run()` |`RunAsync()` |
 | Avvio della macchina virtuale |`OnStart()` |N/D |
 | Arresto della macchina virtuale |`OnStop()` |N/D |
 | Apertura del listener per le richieste client |N/D |<ul><li> `CreateServiceInstanceListener()` per servizi senza stato</li><li>`CreateServiceReplicaListener()` per servizi con stato</li></ul> |
@@ -112,7 +112,7 @@ L'API dell'ambiente di Servizi cloud fornisce informazioni e funzionalità per l
 | **Attività dell'ambiente** | **Servizi cloud** | **Service Fabric** |
 | --- | --- | --- |
 | Impostazioni di configurazione e notifica di modifiche |`RoleEnvironment` |`CodePackageActivationContext` |
-| Risorse di archiviazione locali |`RoleEnvironment` |`CodePackageActivationContext` |
+| Archiviazione locale |`RoleEnvironment` |`CodePackageActivationContext` |
 | Informazioni sull'endpoint |`RoleInstance` <ul><li>Istanza corrente: `RoleEnvironment.CurrentRoleInstance`</li><li>Altri ruoli e istanze: `RoleEnvironment.Roles`</li> |<ul><li>`NodeContext` per l'indirizzo del nodo corrente</li><li>`FabricClient` e `ServicePartitionResolver` per l'individuazione di endpoint di servizio</li> |
 | Emulazione dell'ambiente |`RoleEnvironment.IsEmulated` |N/D |
 | Evento di modifica simultanea |`RoleEnvironment` |N/D |

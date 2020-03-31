@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
 ms.openlocfilehash: c076b8dcea350f9ddd66977e89ce99b81f377b17
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669047"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook per gli avvisi del log attività di Azure
@@ -19,7 +19,7 @@ Per altre informazioni sugli avvisi del log di attività, vedere come [creare gl
 Per informazioni su gruppi di azioni, vedere come [creare gruppi di azioni](../../azure-monitor/platform/action-groups.md).
 
 > [!NOTE]
-> È anche possibile usare lo [schema di avviso comune](https://aka.ms/commonAlertSchemaDocs), che offre il vantaggio di avere un singolo payload di avviso estendibile e unificato per tutti i servizi di avviso in monitoraggio di Azure, per le integrazioni del webhook. [Informazioni sulle definizioni comuni dello schema di avviso.](https://aka.ms/commonAlertSchemaDefinitions)
+> È anche possibile usare lo schema di [avviso comune,](https://aka.ms/commonAlertSchemaDocs)che offre il vantaggio di disporre di un singolo payload di avviso estensibile e unificato in tutti i servizi di avviso in Monitoraggio di Azure, per le integrazioni webhook. [Informazioni sulle definizioni dello schema di avviso comuni.](https://aka.ms/commonAlertSchemaDefinitions)
 
 
 ## <a name="authenticate-the-webhook"></a>Autenticazione del webhook
@@ -28,7 +28,7 @@ Facoltativamente il webhook può usare l'autorizzazione basata su token per l'au
 ## <a name="payload-schema"></a>Schema del payload
 Il payload JSON contenuto nell'operazione POST varia a seconda del campo data.context.activityLog.eventSource del payload.
 
-### <a name="common"></a>Comune
+### <a name="common"></a>Comuni
 
 ```json
 {
@@ -57,7 +57,7 @@ Il payload JSON contenuto nell'operazione POST varia a seconda del campo data.co
 }
 ```
 
-### <a name="administrative"></a>Informazioni amministrative
+### <a name="administrative"></a>Administrative
 
 ```json
 {
@@ -85,7 +85,7 @@ Il payload JSON contenuto nell'operazione POST varia a seconda del campo data.co
 }
 ```
 
-### <a name="security"></a>Sicurezza
+### <a name="security"></a>Security
 
 ```json
 {
@@ -128,7 +128,7 @@ Il payload JSON contenuto nell'operazione POST varia a seconda del campo data.co
 }
 ```
 
-### <a name="recommendation"></a>Indicazione
+### <a name="recommendation"></a>Recommendation
 
 ```json
 {
@@ -254,20 +254,20 @@ Per i dettagli su schemi specifici relativi agli avvisi del log attività per le
 }
 ```
 
-| Nome elemento | Descrizione |
+| Nome dell'elemento | Descrizione |
 | --- | --- |
-| stato |Usato per avvisi relativi alle metriche. Sempre impostato su "Activated" per gli avvisi del registro attività. |
-| context |Contesto dell'evento. |
+| status |Usato per avvisi relativi alle metriche. Sempre impostato su "Activated" per gli avvisi del registro attività. |
+| contesto |Contesto dell'evento. |
 | resourceProviderName |Provider della risorsa interessata. |
 | conditionType |Sempre "Event". |
 | name |Nome della regola di avviso. |
 | id |ID risorsa dell'avviso. |
 | description |Descrizione dell'avviso impostata al momento della creazione dell'avviso. |
 | subscriptionId |ID sottoscrizione di Azure. |
-| timestamp |Data e ora in cui l'evento è stato generato dal servizio di Azure che ha elaborato la richiesta. |
+|  timestamp |Data e ora in cui l'evento è stato generato dal servizio di Azure che ha elaborato la richiesta. |
 | resourceId |ID della risorsa interessata. |
 | resourceGroupName |Nome del gruppo di risorse della risorsa interessata. |
-| connessione |Set di coppie `<Key, Value>` (cioè `Dictionary<String, String>`), inclusi dettagli relativi all'evento. |
+| properties |Set di coppie `<Key, Value>` (cioè `Dictionary<String, String>`), inclusi dettagli relativi all'evento. |
 | event |Elemento contenente i metadati relativi all'evento. |
 | authorization |Proprietà di controllo degli accessi in base al ruolo per l'evento. Queste proprietà includono in genere action, role e scope. |
 | category |Categoria dell'evento. I valori supportati includono Administrative, Alert, Security, ServiceHealth e Recommendation. |
@@ -280,15 +280,15 @@ Per i dettagli su schemi specifici relativi agli avvisi del log attività per le
 | level |Uno dei valori seguenti: Critical, Error, Warning e Informational. |
 | operationId |In genere un GUID condiviso tra gli eventi corrispondenti a una singola operazione. |
 | operationName |Nome dell'operazione. |
-| connessione |Proprietà dell'evento. |
-| stato |Stringa. Stato dell'operazione. I valori comuni includono: Started, In Progress, Succeeded, Failed, Active e Resolved. |
+| properties |Proprietà dell'evento. |
+| status |Stringa. Stato dell'operazione. I valori comuni includono: Started, In Progress, Succeeded, Failed, Active e Resolved. |
 | subStatus |In genere include il codice di stato HTTP della chiamata REST corrispondente. Può includere anche altre stringhe che descrivono uno stato secondario. I valori di stato secondario comuni includono OK (codice di stato HTTP: 200), Created (codice di stato HTTP: 201), Accepted (codice di stato HTTP: 202), No Content (codice di stato HTTP: 204), Bad Request (codice di stato HTTP: 400), Not Found (codice di stato HTTP: 404), Conflict (codice di stato HTTP: 409), Internal Server Error (codice di stato HTTP: 500), Service Unavailable (codice di stato HTTP: 503), Gateway Timeout (codice di stato HTTP: 504). |
 
 Per i dettagli su schemi specifici relativi a tutti gli altri avvisi del log attività, vedere [Panoramica del log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Altre informazioni sul log attività](../../azure-monitor/platform/platform-logs-overview.md).
-* [Eseguire gli script di Automazione di Azure (runbook) sugli avvisi di Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
+* [Ulteriori informazioni sul registro attività](../../azure-monitor/platform/platform-logs-overview.md).
+* Eseguire gli script di automazione di [Azure (Runbooks) negli avvisi di Azure.Execute Azure automation scripts (Runbooks) on Azure alerts](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [Usare un'app per la logica per inviare SMS tramite Twilio da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Questo esempio si riferisce agli avvisi relativi alle metriche, ma può essere modificato per funzionare con un avviso del log attività.
 * [Usare un'app per la logica per inviare un messaggio Slack da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Questo esempio si riferisce agli avvisi relativi alle metriche, ma può essere modificato per funzionare con un avviso del log attività.
 * [Usare un'app per la logica per inviare un messaggio a una coda di Azure da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Questo esempio si riferisce agli avvisi relativi alle metriche, ma può essere modificato per funzionare con un avviso del log attività.

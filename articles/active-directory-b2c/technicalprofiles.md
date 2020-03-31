@@ -12,10 +12,10 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5196615b6b935e4d37565298be03ad315163d132
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264310"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
@@ -77,7 +77,7 @@ L'elemento **TechnicalProfile** contiene l'attributo seguente:
 
 | Attributo | Obbligatoria | Descrizione |
 |---------|---------|---------|
-| Id | Sì | Un identificatore univoco del profilo tecnico. È possibile fare riferimento al profilo tecnico usando questo identificatore dagli altri elementi nel file dei criteri. Ad esempio, **OrchestrationSteps** e **ValidationTechnicalProfile**. |
+| ID | Sì | Un identificatore univoco del profilo tecnico. È possibile fare riferimento al profilo tecnico usando questo identificatore dagli altri elementi nel file dei criteri. Ad esempio, **OrchestrationSteps** e **ValidationTechnicalProfile**. |
 
 L'elemento **TechnicalProfile** contiene gli elementi seguenti:
 
@@ -94,12 +94,12 @@ L'elemento **TechnicalProfile** contiene gli elementi seguenti:
 | InputClaimsTransformations | 0:1 | Un elenco di riferimenti definiti in precedenza per le trasformazioni di attestazioni che devono essere eseguiti prima che le attestazioni siano inviate al provider di attestazioni o relying party. |
 | InputClaims | 0:1 | Un elenco dei riferimenti definiti in precedenza per i tipi di attestazione eseguiti come input nel profilo tecnico. |
 | PersistedClaims | 0:1 | Un elenco dei riferimenti definiti in precedenza per i tipi di attestazione mantenuti dal provider di attestazioni che si riferisce al profilo tecnico. |
-| DisplayClaims | 0:1 | Elenco dei riferimenti definiti in precedenza ai tipi di attestazione presentati dal provider di attestazioni correlato al [profilo tecnico autocertificato](self-asserted-technical-profile.md). La funzionalità DisplayClaims è attualmente in fase di **Anteprima**. |
+| DisplayClaims | 0:1 | Elenco dei riferimenti definiti in precedenza ai tipi di attestazione presentati dal provider di attestazioni relativo al [profilo tecnico auto-asserito.](self-asserted-technical-profile.md) La funzionalità DisplayClaims è attualmente in **anteprima.** |
 | OutputClaims | 0:1 | Un elenco dei riferimenti definiti in precedenza per i tipi di attestazione eseguiti come output nel profilo tecnico. |
 | OutputClaimsTransformations | 0:1 | Un elenco di riferimenti definiti in precedenza per le trasformazioni di attestazioni che devono essere eseguiti prima che le attestazioni siano ricevute dal provider di attestazioni. |
-| ValidationTechnicalProfiles | 0:n | Un elenco di riferimenti ad altri profili tecnici che il profilo tecnico usa ai fini della convalida. Per altre informazioni, vedere il [profilo tecnico di convalida](validation-technical-profile.md)|
+| ValidationTechnicalProfiles | 0:n | Un elenco di riferimenti ad altri profili tecnici che il profilo tecnico usa ai fini della convalida. Per ulteriori informazioni, vedere [profilo tecnico](validation-technical-profile.md) di convalida|
 | SubjectNamingInfo | 0:1 | Controlla la produzione del nome del soggetto nei token in cui il nome del soggetto è specificato separatamente dalle attestazioni. Ad esempio OAuth o SAML.  |
-| IncludeInSso | 0:1 |  Indica se l'utilizzo di questo profilo tecnico deve applicare il comportamento Single Sign-On (SSO) per la sessione o richiede l'interazione esplicita. Questo elemento è valido solo nei profili SelfAsserted utilizzati all'interno di un profilo tecnico di convalida. I valori possibili sono: `true` (impostazione predefinita) o `false`. |
+| IncludeInSso | 0:1 |  Se l'utilizzo di questo profilo tecnico deve applicare il comportamento SSO (Single Sign-On) per la sessione o richiedere un'interazione esplicita. Questo elemento è valido solo nei profili SelfAsserted utilizzati all'interno di un profilo tecnico di convalida. I valori possibili sono: `true` (impostazione predefinita) o `false`. |
 | IncludeClaimsFromTechnicalProfile | 0:1 | Un identificatore del profilo tecnico da cui si desidera aggiungere tutte le attestazioni di input e output al profilo tecnico. Il profilo tecnico a cui si fa riferimento deve essere definito nello stesso file di criteri. |
 | IncludeTechnicalProfile |0:1 | Un identificatore del profilo tecnico da cui si desidera aggiungere tutti i dati al profilo tecnico. |
 | UseTechnicalProfileForSessionManagement | 0:1 | Un profilo tecnico diverso da usare per la gestione della sessione. |
@@ -111,8 +111,8 @@ L'elemento **Protocollo** contiene gli attributi seguenti:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Name | Sì | Nome di un protocollo valido supportato da Azure AD B2C usato come parte del profilo tecnico. Valori possibili: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary`o `None`. |
-| Handler | No | Quando il nome del protocollo è impostato su `Proprietary`, specificare il nome completo dell'assembly usato da Azure AD B2C per determinare il gestore di protocollo. |
+| Nome | Sì | Nome di un protocollo valido supportato da Azure AD B2C usato come parte del profilo tecnico. `OAuth1`Valori possibili: `OAuth2` `SAML2`, `OpenIdConnect` `Proprietary`, `None`, , , o . |
+| Gestore | No | Quando il nome del protocollo è impostato su `Proprietary`, specificare il nome completo dell'assembly usato da Azure AD B2C per determinare il gestore di protocollo. |
 
 ## <a name="metadata"></a>Metadati
 
@@ -144,7 +144,7 @@ L'elemento **Chiave** contiene l'attributo seguente:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Id | No | Un identificatore univoco di una coppia di chiavi specifica a cui fanno riferimento altri elementi nel file dei criteri. |
+| ID | No | Un identificatore univoco di una coppia di chiavi specifica a cui fanno riferimento altri elementi nel file dei criteri. |
 | StorageReferenceId | Sì | Un identificatore di un contenitore di chiavi di archiviazione a cui fanno riferimento altri elementi nel file dei criteri. |
 
 ## <a name="inputclaimstransformations"></a>InputClaimsTransformations
@@ -183,25 +183,25 @@ L'elemento **InputClaim** contiene gli attributi seguenti:
 
 ## <a name="displayclaims"></a>DisplayClaims
 
-L'elemento **DisplayClaims** contiene l'elemento seguente:
+L'elemento **DisplayClaims** contiene il seguente elemento:
 
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | DisplayClaim | 1:n | Un tipo di attestazione di input previsto. |
 
-La funzionalità DislayClaims è attualmente in fase di **Anteprima**.
+La funzionalità DislayClaims è attualmente in **anteprima.**
 
 ### <a name="displayclaim"></a>DisplayClaim
 
-L'elemento **DisplayClaim** contiene gli attributi seguenti:
+L'elemento **DisplayClaim** contiene i seguenti attributi:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | No | L'identificatore di un tipo di attestazione già definito nella sezione ClaimsSchema del file dei criteri o del file dei criteri padre. |
-| DisplayControlReferenceId | No | Identificatore di un [controllo di visualizzazione](display-controls.md) già definito nella sezione ClaimsSchema del file di criteri o del file di criteri padre. |
+| DisplayControlReferenceId | No | Identificatore di un controllo di [visualizzazione](display-controls.md) già definito nella sezione ClaimsSchema del file dei criteri o del file dei criteri padre. |
 | Obbligatoria | No | Indica se l'attestazione di visualizzazione è obbligatoria. |
 
-Per **DisplayClaim** è necessario specificare un `ClaimTypeReferenceId` o `DisplayControlReferenceId`.
+**DisplayClaim** richiede di specificare `ClaimTypeReferenceId` `DisplayControlReferenceId`un oggetto o .
 
 ### <a name="persistedclaims"></a>PersistedClaims
 
@@ -286,7 +286,7 @@ L'elemento **IncludeTechnicalProfile** contiene l'attributo seguente:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| ReferenceId | Sì | Identificatore di un profilo tecnico già definito nel file dei criteri o nel file dei criteri padre. |
+| ReferenceId | Sì | Identificatore di un profilo tecnico già definito nel file di criteri o nel file dei criteri padre. |
 
 ## <a name="usetechnicalprofileforsessionmanagement"></a>UseTechnicalProfileForSessionManagement
 

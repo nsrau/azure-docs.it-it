@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: b-juche
 ms.openlocfilehash: 8f50b2ad34c705c8d3831d8243f136c41d750dc0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60691099"
 ---
 # <a name="set-up-a-capacity-pool"></a>Configurare un pool di capacità
@@ -49,7 +49,7 @@ La configurazione di un pool di capacità consente di creare volumi al suo inter
      Questo campo mostra le prestazioni di destinazione per il pool di capacità.  
      Specificare il livello di servizio per il pool di capacità: [**Premium**](azure-netapp-files-service-levels.md#Premium) o [**Standard**](azure-netapp-files-service-levels.md#Standard).
 
-   * **Dimensioni**     
+   * **Dimensione**     
      Specificare le dimensioni del pool di capacità da acquistare.        
      Le dimensioni minime del pool di capacità sono di 4 TiB. È possibile creare un pool con dimensioni in multipli di 4 TiB.   
       
