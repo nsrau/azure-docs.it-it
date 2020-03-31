@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 8c5b3fcc1cb2ac481be0b435c48ce213c716edde
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 05968fdd9e2ddfd89bd9310c744d9ee699f440d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78198168"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472725"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-net-app-to-store-secrets-in-azure-key-vault"></a>Esercitazione: Usare una macchina virtuale Linux e un'app .NET per archiviare segreti in Azure Key Vault
 
@@ -43,7 +43,7 @@ Prima di iniziare, leggere i [concetti di base di Key Vault](basic-concepts.md).
 
 ## <a name="understand-managed-service-identity"></a>Informazioni sull'identità del servizio gestita
 
-Azure Key Vault consente di archiviare le credenziali in una posizione sicura in modo che non siano incluse nel codice, tuttavia per recuperarle è necessario eseguire l'autenticazione con Azure Key Vault. Tuttavia, per eseguire l'autenticazione in Key Vault, sono necessarie le credenziali. Si tratta di un classico problema di bootstrap. Con Azure e Azure Active Directory (Azure AD), l'identità del servizio gestita può fornire un'identità di bootstrap che semplifica il processo iniziale.
+Azure Key Vault consente di archiviare le credenziali in modo sicuro per evitare che siano mostrate nel codice, tuttavia per recuperarle è necessario eseguire l'autenticazione ad Azure Key Vault. Tuttavia, per eseguire l'autenticazione in Key Vault, sono necessarie le credenziali. Si tratta di un classico problema di bootstrap. Con Azure e Azure Active Directory (Azure AD), l'identità del servizio gestita può fornire un'identità di bootstrap che semplifica il processo iniziale.
 
 Quando si abilita l'identità del servizio gestita per un servizio di Azure come Macchine virtuali, Servizio app o Funzioni, Azure crea un'entità servizio per l'istanza del servizio in Azure Active Directory. Azure inserisce quindi le credenziali per l'entità servizio nell'istanza del servizio.
 
@@ -114,7 +114,7 @@ az vm create \
 
 La creazione della macchina virtuale e delle risorse di supporto richiede alcuni minuti. L'output di esempio seguente mostra che l'operazione di creazione della macchina virtuale ha avuto esito positivo.
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -139,7 +139,7 @@ az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourRe
 
 L'output del comando dovrebbe essere:
 
-```azurecli
+```output
 {
   "systemAssignedIdentity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "userAssignedIdentities": {}

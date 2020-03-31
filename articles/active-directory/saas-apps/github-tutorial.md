@@ -15,20 +15,19 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f4084532ac370880df69d825927240c297dd371
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: e812e1b03637a3ecd7a45f02664c4e3547f1aef1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129897"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79138978"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con GitHub
 
 Questa esercitazione descrive come integrare GitHub con Azure Active Directory (Azure AD). Integrando GitHub con Azure AD, è possibile:
 
-* Controllare in Azure AD chi può accedere a GitHub.
-* Abilitare gli utenti per l'accesso automatico a GitHub con gli account Azure AD personali.
-* Gestire gli account in un'unica posizione centrale: il portale di Azure.
+* Controllare in Azure AD chi può accedere all'organizzazione GitHub Enterprise Cloud.
+* Gestire l'accesso all'organizzazione GitHub Enterprise Cloud in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -45,7 +44,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 * GitHub supporta l'accesso SSO avviato da **SP**
 
-* GitHub supporta il provisioning utenti [**automatico**](github-provisioning-tutorial.md)
+* GitHub supporta il provisioning utenti [**automatico** (inviti a organizzazioni)](github-provisioning-tutorial.md)
 * Dopo aver configurato GitHub, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-github-from-the-gallery"></a>Aggiunta di GitHub dalla raccolta
@@ -179,7 +178,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ### <a name="create-github-test-user"></a>Creare l'utente di test di GitHub
 
-Questa sezione descrive come creare un utente di nome Britta Simon in GitHub. GitHub supporta il provisioning utenti automatico, che è abilitato per impostazione predefinita. Altri dettagli su come configurare il provisioning utenti automatico sono disponibili [qui](github-provisioning-tutorial.md).
+Questa sezione descrive come creare un utente chiamato Britta Simon in GitHub. GitHub supporta il provisioning utenti automatico, che è abilitato per impostazione predefinita. Altri dettagli su come configurare il provisioning utenti automatico sono disponibili [qui](github-provisioning-tutorial.md).
 
 **Per creare un utente manualmente, seguire questa procedura:**
 

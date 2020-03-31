@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 29addcd62afd193af83196b2d942e9778ff3f031
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67099417"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Esercitazione: Integrazione di Azure Active Directory con Jitbit Helpdesk
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-jitbit-helpdesk-from-the-gallery"></a>Aggiunta di Jitbit Helpdesk dalla raccolta
 
-Per configurare l'integrazione di Jitbit Helpdesk in Azure AD, è necessario aggiungere Jitbit Helpdesk dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di Jitbit Helpdesk in Azure AD, è necessario aggiungere Jitbit Helpdesk dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Jitbit Helpdesk dalla raccolta, seguire questa procedura:**
 
@@ -71,16 +71,16 @@ Per configurare l'integrazione di Jitbit Helpdesk in Azure AD, è necessario agg
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Jitbit Helpdesk usando un utente test di nome **Britta Simon**.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Jitbit Helpdesk usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Jitbit Helpdesk.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Jitbit Helpdesk, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Jitbit Helpdesk, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Jitbit Helpdesk](#configure-jitbit-helpdesk-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Jitbit Helpdesk](#create-jitbit-helpdesk-test-user)** : per avere una controparte di Britta Simon in Jitbit Helpdesk collegata alla relativa rappresentazione in Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di Jitbit Helpdesk](#create-jitbit-helpdesk-test-user)** : per avere una controparte di Britta Simon in Jitbit Helpdesk collegata alla relativa rappresentazione in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -135,13 +135,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con Jitbit Helpdesk, seguir
 
 1. In un'altra finestra del Web browser accedere al sito aziendale di Jitbit Helpdesk come amministratore.
 
-1. Nel barra degli strumenti in alto fare clic su **Administration**.
+1. Nel barra degli strumenti in alto fare clic su **Administration** (Amministrazione).
 
-    ![Amministrazione](./media/jitbit-helpdesk-tutorial/ic777681.png "Amministrazione")
+    ![Administration](./media/jitbit-helpdesk-tutorial/ic777681.png "Amministrazione")
 
-1. Fare clic su **General settings**.
+1. Fare clic su **General settings** (Impostazioni generali).
 
-    ![Users, companies and permissions](./media/jitbit-helpdesk-tutorial/ic777680.png "Users, companies and permissions")
+    ![Users, companies, and permissions](./media/jitbit-helpdesk-tutorial/ic777680.png "Users, companies, and permissions")
 
 1. Nella sezione di configurazione **Authentication settings** seguire questa procedura:
 
@@ -155,9 +155,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Jitbit Helpdesk, seguir
 
     d. Fare clic su **Salva modifiche**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -174,15 +174,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
     b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
-    Ad esempio: BrittaSimon@contoso.com
+    Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Jitbit Helpdesk.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Jitbit Helpdesk.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Jitbit Helpdesk**.
 
@@ -206,7 +206,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-jitbit-helpdesk-test-user"></a>Creare un utente di test di Jitbit Helpdesk
+### <a name="create-jitbit-helpdesk-test-user"></a>Creare l'utente di test di Jitbit Helpdesk
 
 Per consentire agli utenti di Azure AD di accedere a Jitbit Helpdesk, è necessario eseguirne il provisioning in Jitbit Helpdesk. Nel caso di Jitbit Helpdesk, il provisioning è un'attività manuale.
 
@@ -220,15 +220,15 @@ Per consentire agli utenti di Azure AD di accedere a Jitbit Helpdesk, è necessa
 
 1. Fare clic su **Users, companies and permissions**.
 
-    ![Users, companies and permissions](./media/jitbit-helpdesk-tutorial/ic777682.png "Users, companies and permissions")
+    ![Users, companies, and permissions](./media/jitbit-helpdesk-tutorial/ic777682.png "Users, companies, and permissions")
 
 1. Fare clic su **Add User**.
 
-    ![Aggiungere un utente](./media/jitbit-helpdesk-tutorial/ic777685.png "Aggiungere un utente")
+    ![Aggiungere l'utente](./media/jitbit-helpdesk-tutorial/ic777685.png "Add User")
 
 1. Nella sezione Create immettere i dati dell'account di Azure AD di cui si desidera eseguire il provisioning come indicato di seguito:
 
-    ![Creare](./media/jitbit-helpdesk-tutorial/ic777686.png "Creare")
+    ![Creare](./media/jitbit-helpdesk-tutorial/ic777686.png "Create")
 
    a. Nella casella di testo **Username** (Nome utente) digitare il nome dell'utente, ad esempio **BrittaSimon**.
 
@@ -238,7 +238,7 @@ Per consentire agli utenti di Azure AD di accedere a Jitbit Helpdesk, è necessa
 
    d. Digitare il cognome dell'utente, ad esempio **Simon**, nella casella di testo **Last Name** (Cognome).
 
-   e. Fare clic su **Create**(Crea).
+   e. Fare clic su **Crea**.
 
 > [!NOTE]
 > È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Jitbit Helpdesk per eseguire il provisioning degli account utente di Azure AD.
@@ -247,7 +247,7 @@ Per consentire agli utenti di Azure AD di accedere a Jitbit Helpdesk, è necessa
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Jitbit Helpdesk nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Jitbit Helpdesk per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Jitbit Helpdesk nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Jitbit Helpdesk per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

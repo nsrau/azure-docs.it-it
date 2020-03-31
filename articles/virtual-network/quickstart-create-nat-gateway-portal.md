@@ -14,19 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: c6da4b54dbc982c69e9d3004a5da8f63deffa3e9
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 1ff13d8ef0ca4c6cf499c3245d3ef14370283075
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246023"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80066394"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-the-azure-portal"></a>Guida introduttiva: Creare un gateway NAT usando il portale di Azure
 
 Questa guida di avvio rapido illustra come usare il servizio NAT di rete virtuale di Azure. Verrà creato un gateway NAT per fornire connettività in uscita per una macchina virtuale in Azure. 
 
->[!NOTE] 
->Il servizio NAT di rete virtuale di Azure è attualmente disponibile come anteprima pubblica e in un set limitato di [aree](./nat-overview.md#region-availability). Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
+Se si preferisce, per eseguire questa procedura è possibile usare l'[interfaccia della riga di comando di Azure](quickstart-create-nat-gateway-cli.md), [Azure PowerShell](quickstart-create-nat-gateway-powershell.md) o distribuire un [Modello di ARM](quickstart-create-nat-gateway-powershell.md) in alternativa al portale.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -179,6 +178,5 @@ Esaminare le metriche in Monitoraggio di Azure per visualizzare il servizio NAT 
 - Avvio rapido per la distribuzione della [risorsa gateway NAT tramite l'interfaccia della riga di comando di Azure](./quickstart-create-nat-gateway-cli.md).
 - Avvio rapido per la distribuzione della [risorsa gateway NAT tramite Azure PowerShell](./quickstart-create-nat-gateway-powershell.md).
 - Avvio rapido per la distribuzione della [risorsa gateway NAT tramite il portale di Azure](./quickstart-create-nat-gateway-portal.md).
-- [Inviare commenti e suggerimenti sull'anteprima pubblica](https://aka.ms/natfeedback).
 > [!div class="nextstepaction"]
 

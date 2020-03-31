@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 579c1984ee1906519980bbed154921a20ed40b79
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: ef0d79cae11a382bcca0ddb61e1d4a04b5db41e9
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77466978"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79501871"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Esercitazione: Usare il servizio di copia dei dati per copiare i dati in Azure Data Box (anteprima)
 
@@ -28,9 +28,10 @@ Usare il servizio di copia dei dati:
 In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
+>
 > * Copiare i dati nel Data Box
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, verificare che:
 
@@ -43,9 +44,13 @@ Prima di iniziare, verificare che:
 
 Dopo aver stabilito la connessione al dispositivo NAS, il passaggio successivo consiste nel copiare i dati. Prima di procedere alla copia dei dati, tenere conto delle considerazioni seguenti:
 
-- Durante la copia dei dati, assicurarsi che le dimensioni dei dati siano conformi ai limiti di dimensione descritti nell'articolo [Limiti per l'archiviazione di Azure e per Azure Data Box](data-box-limits.md).
-- Se i dati caricati da Data Box vengono caricati contemporaneamente da altre applicazioni all'esterno di Data Box, potrebbero verificarsi errori nel processo di caricamento e il danneggiamento dei dati.
-- Se i dati vengono modificati durante la lettura da parte del servizio di copia, potrebbero verificarsi errori o il danneggiamento dei dati.
+* Durante la copia dei dati, assicurarsi che le dimensioni dei dati siano conformi ai limiti di dimensione descritti nell'articolo [Limiti per l'archiviazione di Azure e per Azure Data Box](data-box-limits.md).
+
+* Se i dati caricati da Data Box vengono caricati contemporaneamente da altre applicazioni all'esterno di Data Box, potrebbero verificarsi errori nel processo di caricamento e il danneggiamento dei dati.
+
+* Se i dati vengono modificati durante la lettura da parte del servizio di copia, potrebbero verificarsi errori o il danneggiamento dei dati.
+
+* Assicurarsi di mantenere una copia dei dati di origine fino a quando non è possibile confermare che Data Box ha trasferito i dati in Archiviazione di Azure.
 
 Per copiare i dati usando il servizio di copia dei dati è necessario creare un processo:
 

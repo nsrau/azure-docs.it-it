@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 63c531cc0e600d82df74154adb212be76ba9b4de
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: c1a847a315a264591c0d003ff691d9938c2bf0f5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368548"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474425"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Esercitazione: Distribuzione di moduli di protezione hardware in una rete virtuale esistente con PowerShell
 
@@ -38,7 +38,7 @@ L'esercitazione è incentrata sull'integrazione di una coppia di moduli di prote
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 HSM dedicato di Azure non è attualmente disponibile nel portale di Azure, di conseguenza l'interazione con il servizio avverrà interamente tramite riga di comando o con PowerShell. In questa esercitazione verrà usato PowerShell in Azure Cloud Shell. Se non si ha familiarità con PowerShell, seguire le istruzioni introduttive disponibili nell'[introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
@@ -250,15 +250,7 @@ Se il dispositivo HSM non è più necessario, può essere eliminato come risorsa
 > [!NOTE]
 > In caso di problemi con la configurazione del dispositivo Gemalto, contattare il [supporto tecnico di Gemalto](https://safenet.gemalto.com/technical-support/).
 
-Se si vuole rimuovere solo la risorsa del modulo di protezione hardware in Azure, è possibile usare il comando seguente sostituendo le variabili "$" con parametri univoci:
-
-```powershel
-
-Remove-AzureRmResource -Resourceid ` /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName
-
-```
-
-Se le risorse di questo gruppo di risorse non sono più necessarie, è possibile rimuoverle tutte con il comando seguente:
+Se si vuole rimuovere solo la risorsa modulo di protezione hardware in Azure, è possibile usare il comando seguente sostituendo le variabili "$" con parametri univoci:
 
 ```powershell
 
@@ -276,5 +268,5 @@ Al termine dei passaggi di questa esercitazione, le risorse di HSM dedicato sono
 * [Disponibilità elevata](high-availability.md)
 * [Sicurezza fisica](physical-security.md)
 * [Rete](networking.md)
-* [Monitoraggio](monitoring.md)
+* [Monitoring](monitoring.md)
 * [Supporto](supportability.md)

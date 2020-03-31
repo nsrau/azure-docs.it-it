@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc8ba01ea8a443c4f8a3a8e7b911dcc605ee61ea
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 149718dcd325ef6bd6a6754ba100ffdc34be0a07
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78967698"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79136415"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-signalfx"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con SignalFx
 
@@ -30,7 +30,7 @@ Questa esercitazione descrive come integrare SignalFx con Azure Active Directory
 * Abilitare gli utenti per l'accesso automatico a SignalFx con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione: il portale di Azure.
 
-Per altre informazioni sull'integrazione di applicazioni SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on).
+Per altre informazioni sull'integrazione di applicazioni SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -57,7 +57,7 @@ Usare queste istruzioni per aggiungere l'applicazione SignalFx all'elenco di app
 1. Selezionare **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 1. Selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** immettere e selezionare **SignalFx** nella casella di ricerca.
-    * Potrebbe essere necessario attendere alcuni minuti prima che l'applicazione venga aggiunta al tenant.
+     * Potrebbe essere necessario attendere alcuni minuti prima che l'applicazione venga aggiunta al tenant.
 1. Lasciare aperto il portale di Azure e quindi aprire una nuova scheda Web.    
 
 ## <a name="step-2-begin-signalfx-sso-configuration"></a>Passaggio 2: Avviare la configurazione dell'accesso Single Sign-On per SignalFx
@@ -148,7 +148,7 @@ Usare queste istruzioni per consentire all'utente di test di usare l'accesso Sin
 1. Accanto a **Certificate (Base64)** (Certificato (Base64)) fare clic su **Upload File** (Carica file) e quindi individuare il file del **certificato con codifica Base64** scaricato in precedenza dal portale di Azure.
 1. Accanto a **Azure AD Identifier** (Identificatore Azure AD), incollare il valore di **Identificatore Azure AD** copiato in precedenza dal portale di Azure. 
 1. Accanto a **Federation Metadata URL** (URL dei metadati della federazione) incollare il valore di **URL dei metadati di federazione dell'app** copiato in precedenza dal portale di Azure. 
-1. Fare clic su **Save** (Salva).
+1. Fare clic su **Salva**.
 
 ## <a name="step-7-test-sso"></a>Passaggio 7: Testare l'accesso SSO
 
@@ -175,7 +175,7 @@ Esaminare le informazioni seguenti relative a come testare l'accesso Single Sign
 
 - [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

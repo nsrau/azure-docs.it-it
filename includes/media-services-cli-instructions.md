@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: db431d7815cfcc006563bd6da438154ef77ae6e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ebbac39c8850737ea6f9ef333e45d305a520655
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66814817"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79461215"
 ---
-## <a name="cli-shell"></a>Shell dell'interfaccia della riga di comando
+## <a name="use-cli-shell"></a>Usare la shell dell'interfaccia della riga di comando
 
 Per eseguire i comandi dell'interfaccia della riga di comando, è consigliabile usare [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest). **Cloud Shell** è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Gli strumenti comuni di Azure sono preinstallati e configurati in Cloud Shell per l'uso con l'account. Offre la flessibilità necessaria per scegliere l'esperienza shell più adatta al proprio modo di lavorare. Gli utenti Linux possono scegliere un'esperienza Bash, mentre gli utenti Windows possono scegliere PowerShell.
 
@@ -43,7 +43,7 @@ Percorso relativo verso il file (tutti i sistemi operativi)
 Percorso file assoluto nei sistemi operativi Windows e Linux/Mac
 
 * `@ "/usr/home/mytestfile.json"`
-*   `@"c:\tmp\user\mytestfile.json"`
+*    `@"c:\tmp\user\mytestfile.json"`
 
 Usare `{file}` se il comando chiede di specificare il percorso del file. Ad esempio: `az ams transform create -a amsaccount -g resourceGroup -n custom --preset .\customPreset.json`. <br/> Usare `@{file}` se il comando caricherà il file specificato. Ad esempio: `az ams account-filter create -a amsaccount -g resourceGroup -n filterName --tracks @tracks.json`.
 

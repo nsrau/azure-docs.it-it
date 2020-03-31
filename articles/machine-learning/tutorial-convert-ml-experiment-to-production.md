@@ -6,13 +6,13 @@ author: bjcmit
 ms.author: brysmith
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 02/10/2020
-ms.openlocfilehash: 5a7c4ce6d5868efef4cfb4fbe2183ec8337ff5b6
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.date: 03/13/2020
+ms.openlocfilehash: f40c2b5f7134458b3f8cb492652bebf14388634c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78301846"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79477137"
 ---
 # <a name="tutorial-convert-ml-experimental-code-to-production-code"></a>Esercitazione: Convertire il codice sperimentale di ML in codice di produzione
 
@@ -29,7 +29,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Generare il [modello MLOpsPython](https://github.com/microsoft/MLOpsPython/generate) e usare i notebook `experimentation/Diabetes Ridge Regression Training.ipynb` e `experimentation/Diabetes Ridge Regression Scoring.ipynb`. Questi notebook vengono usati come esempio di conversione dalla sperimentazione alla produzione.
+- Generare il [modello MLOpsPython](https://github.com/microsoft/MLOpsPython/generate) e usare i notebook `experimentation/Diabetes Ridge Regression Training.ipynb` e `experimentation/Diabetes Ridge Regression Scoring.ipynb`. Questi notebook vengono usati come esempio di conversione dalla sperimentazione alla produzione. Questi notebook sono disponibili all'indirizzo [https://github.com/microsoft/MLOpsPython/tree/master/experimentation](https://github.com/microsoft/MLOpsPython/tree/master/experimentation).
 - Installare nbconvert. Seguire solo le istruzioni di installazione nella sezione __Installazione di nbconvert__ nella pagina [Installazione](https://nbconvert.readthedocs.io/en/latest/install.html).
 
 ## <a name="remove-all-nonessential-code"></a>Rimuovere tutto il codice non essenziale

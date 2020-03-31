@@ -11,18 +11,18 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
-ms.openlocfilehash: 16091286aecc6dfdbcfa833a76920ff4bc9c64de
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b254621cc414fb9b2b76263957adc80da6e9c22d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821119"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79213998"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>Modelli di Azure Resource Manager per Database SQL di Azure
 
 I modelli di Azure Resource Manager consentono di definire un'infrastruttura come codice e di distribuire le soluzioni nel cloud di Azure.
 
-## <a name="single-database--elastic-pooltabsingle-database"></a>[Database singolo e pool elastico](#tab/single-database)
+## <a name="single-database--elastic-pool"></a>[Database singolo e pool elastico](#tab/single-database)
 
 La tabella seguente include collegamenti ai modelli di Azure Resource Manager per il database SQL di Azure.
 
@@ -34,14 +34,14 @@ La tabella seguente include collegamenti ai modelli di Azure Resource Manager pe
 | [Gruppi di failover](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-with-failover-group) | Questo modello crea due server logici SQL di Azure, un database SQL e un gruppo di failover.|
 | [Rilevamento delle minacce](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-threat-detection-db-policy-multiple-databases) | Questo modello consente di distribuire un server logico SQL di Azure e di impostare un database SQL di Azure con la funzionalità Rilevamento minacce abilitata, con un indirizzo di posta elettronica per gli avvisi per ogni database. Rilevamento minacce fa parte dell'offerta Advanced Threat Protection (ATP) SQL e fornisce un livello di sicurezza che risponde alle potenziali minacce su server e database SQL.|
 | [Controllo per Archiviazione BLOB di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage) | Questo modello consente di distribuire un server logico SQL di Azure con il controllo abilitato per la scrittura dei log di controllo in un'archiviazione BLOB. Il controllo per il database SQL di Azure consente di tenere traccia degli eventi di database e di registrarli in un log di controllo che può essere inserito nell'account di Archiviazione di Azure, nell'area di lavoro di OMS o in Hub eventi.|
-| [Controllo per Hub eventi di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub) | Questo modello consente di distribuire un server SQL di Azure con il controllo abilitato per la scrittura dei log di controllo in hub eventi esistente. Per inviare gli eventi di controllo all'hub eventi, specificare le impostazioni di controllo con `Enabled` `State` e impostare `IsAzureMonitorTargetEnabled` su `true`. Configurare inoltre le impostazioni di diagnostica con la categoria dei log di diagnostica `SQLSecurityAuditEvents` nel database `master` (per il controllo a livello di server). Il controllo per il database SQL di Azure e SQL Data Warehouse consente di tenere traccia degli eventi di database e di registrarli in un log di controllo che può essere inserito nell'account di archiviazione di Azure, nell'area di lavoro di OMS o in Hub eventi.|
+| [Controllo per Hub eventi di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub) | Questo modello consente di distribuire un server SQL di Azure con il controllo abilitato per la scrittura dei log di controllo in hub eventi esistente. Per inviare gli eventi di controllo all'hub eventi, specificare le impostazioni di controllo con `Enabled` `State` e impostare `IsAzureMonitorTargetEnabled` su `true`. Configurare inoltre le impostazioni di diagnostica con la categoria di log `SQLSecurityAuditEvents` nel database `master` (per il controllo a livello del server). Il controllo per il database SQL di Azure e SQL Data Warehouse consente di tenere traccia degli eventi di database e di registrarli in un log di controllo che può essere inserito nell'account di archiviazione di Azure, nell'area di lavoro di OMS o in Hub eventi.|
 | [App Web di Azure con database SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database) | Questo esempio crea un'app Web di Azure gratuita e un database SQL al livello di servizio "Basic".|
 | [App Web di Azure e Cache Redis con database SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) | Questo modello crea un'app Web, una cache Redis e un database SQL nello stesso gruppo di risorse, quindi crea due stringhe di connessione nell'app Web per il database SQL e la cache Redis.|
 | [Importazione di dati da archiviazione BLOB con ADF V2](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-v2-blob-to-sql-copy) | Questo modello di Azure Resource Manager crea Azure Data Factory V2 che copia i dati da Archiviazione BLOB di Azure al database SQL.|
 | [Cluster HDInsight con un database SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | Questo modello consente di creare un cluster HDInsight, un server di database SQL, un database SQL e due tabelle. Viene usato nell'articolo [Usare Sqoop con Hadoop in HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-sqoop) |
 | [App per la logica di Azure che esegue una stored procedure SQL in base a una pianificazione](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc) | Questo modello consente di creare un'app per la logica che eseguirà una stored procedure SQL in base a una pianificazione. Tutti gli argomenti per la procedura possono essere inseriti nella sezione del corpo del modello.|
 
-## <a name="managed-instancetabmanaged-instance"></a>[Istanza gestita](#tab/managed-instance)
+## <a name="managed-instance"></a>[Istanza gestita](#tab/managed-instance)
 
 La tabella seguente include collegamenti ai modelli di Azure Resource Manager per Database SQL di Azure - Istanza gestita.
 

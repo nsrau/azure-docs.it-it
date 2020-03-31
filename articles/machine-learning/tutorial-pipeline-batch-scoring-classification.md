@@ -1,44 +1,45 @@
 ---
-title: "Esercitazione: pipeline ML per l'assegnazione dei punteggi batch"
+title: "Esercitazione: Pipeline di Machine Learning per l'assegnazione di punteggi in batch"
 titleSuffix: Azure Machine Learning
-description: In questa esercitazione si creerà una pipeline di Machine Learning per l'assegnazione di punteggi batch con un modello di classificazione delle immagini in Azure Machine Learning. Le pipeline di Machine Learning ottimizzano il flusso di lavoro offrendo velocità, portabilità e possibilità di riutilizzo e consentendo così di concentrarsi sulle proprie competenze di Machine Learning anziché sull'infrastruttura e l'automazione.
+description: In questa esercitazione verrà creata una pipeline di Machine Learning per l'assegnazione di punteggi batch in un modello di classificazione delle immagini. Azure Machine Learning consente di concentrarsi su Machine Learning anziché preoccuparsi dell'infrastruttura e dell'automazione.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
-ms.reviewer: trbye
-ms.date: 02/10/2020
-ms.openlocfilehash: cb99861a53c6802598cf925121f1821f74e7d76f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.reviewer: laobri
+ms.date: 03/11/2020
+ms.openlocfilehash: 1ccd7a7f33c6ee5cab8b7173d8eb93365b6cb587
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355082"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472221"
 ---
-# <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Esercitazione: creare una pipeline di Azure Machine Learning per il Punteggio batch
+# <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Esercitazione: Creare una pipeline di Azure Machine Learning per l'assegnazione di punteggi batch
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In questa esercitazione si usa una pipeline di Azure Machine Learning per eseguire un processo di assegnazione di punteggi in batch. Questo esempio usa il modello Tensorflow di rete neurale convoluzionale [Inception-V3](https://arxiv.org/abs/1512.00567), già sottoposto a training, per classificare le immagini senza etichetta. Dopo aver creato e pubblicato una pipeline, configurare un endpoint REST da usare per attivare la pipeline da qualsiasi libreria HTTP in qualsiasi piattaforma.
+Informazioni su come creare una pipeline di Azure Machine Learning per eseguire un processo di assegnazione di punteggi batch. Le pipeline di Machine Learning ottimizzano il flusso di lavoro offrendo velocità, portabilità e possibilità di riutilizzo per consentire così di concentrarsi su Machine Learning anziché sull'infrastruttura e l'automazione. Dopo aver creato e pubblicato una pipeline, configurare un endpoint REST da usare per attivare la pipeline da qualsiasi libreria HTTP in qualsiasi piattaforma. 
 
-Le pipeline di Machine Learning ottimizzano il flusso di lavoro offrendo velocità, portabilità e possibilità di riutilizzo e consentendo così di concentrarsi sulle proprie competenze di Machine Learning anziché sull'infrastruttura e l'automazione. [Altre informazioni sulle pipeline di Machine Learning](concept-ml-pipelines.md).
+Questo esempio usa il modello di rete neurale convoluzionale [Inception-V3](https://arxiv.org/abs/1512.00567) già sottoposto a training implementato in Tensorflow per classificare le immagini senza etichetta. [Altre informazioni sulle pipeline di Machine Learning](concept-ml-pipelines.md).
 
 In questa esercitazione si completano le attività seguenti:
 
 > [!div class="checklist"]
-> * Configurare l'area di lavoro e scaricare i dati di esempio
-> * Creare oggetti dati per recuperare e restituire i dati
+> * Configurare l'area di lavoro 
+> * Scaricare e archiviare i dati di esempio
+> * Creare oggetti set di dati per recuperare e restituire i dati
 > * Scaricare, preparare e registrare il modello nell'area di lavoro
 > * Effettuare il provisioning di destinazioni di calcolo e creare uno script di assegnazione del punteggio
-> * Usare la classe `ParallelRunStep` per il Punteggio batch asincrono
+> * Usare la classe `ParallelRunStep` per l'assegnazione di punteggi batch asincrona
 > * Compilare, eseguire e pubblicare una pipeline
 > * Abilitare un endpoint REST per la pipeline
 
 Se non si ha una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Se non si ha già un'area di lavoro di Azure Machine Learning o una macchina virtuale per notebook, completare la [parte 1 dell'esercitazione sull'installazione](tutorial-1st-experiment-sdk-setup.md).
 * Al termine dell'esercitazione sull'installazione, usare lo stesso server notebook per aprire il notebook *tutorials/machine-learning-pipelines-advanced/tutorial-pipeline-batch-scoring-classification.ipynb*.
@@ -57,7 +58,7 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-### <a name="create-a-datastore-for-sample-images"></a>Creare un archivio dati per le immagini di esempio
+## <a name="create-a-datastore-for-sample-images"></a>Creare un archivio dati per le immagini di esempio
 
 Nell'account `pipelinedata` ottenere l'esempio di dati pubblici di valutazione di ImageNet dal contenitore BLOB pubblico `sampledata`. Chiamare `register_azure_blob_container()` per rendere i dati disponibili per l'area di lavoro con il nome `images_datastore`. Quindi impostare l'archivio dati predefinito dell'area di lavoro come archivio dati di output. Usare l'archivio dati di output per assegnare punteggi all'output nella pipeline.
 
@@ -73,7 +74,7 @@ batchscore_blob = Datastore.register_azure_blob_container(ws,
 def_data_store = ws.get_default_datastore()
 ```
 
-## <a name="create-data-objects"></a>Creare gli oggetti dati
+## <a name="create-dataset-objects"></a>Creare oggetti set di dati
 
 Durante la compilazione delle pipeline vengono usati oggetti `Dataset` per leggere i dati dagli archivi dati dell'area di lavoro e oggetti `PipelineData` per trasferire i dati intermedi tra i passaggi della pipeline.
 
@@ -97,7 +98,7 @@ output_dir = PipelineData(name="scores",
                           output_path_on_compute="batchscoring/results")
 ```
 
-Registrare quindi i set di impostazioni nell'area di lavoro.
+Registrare quindi i set di dati nell'area di lavoro.
 
 ```python
 
@@ -163,10 +164,10 @@ except ComputeTargetException:
 
 Per l'assegnazione di punteggi, creare uno script di assegnazione di punteggi in batch, denominato `batch_scoring.py`, e scriverlo nella directory corrente. Lo script recupera le immagini di input, applica il modello di classificazione e restituisce le previsioni in un file di risultati.
 
-Lo script `batch_scoring.py` accetta i parametri seguenti, che vengono passati dalla `ParallelRunStep` creata in un secondo momento:
+Lo script `batch_scoring.py` accetta i parametri seguenti, che vengono passati dal passaggio `ParallelRunStep` che verrà creato più avanti in questa esercitazione:
 
 - `--model_name`: il nome del modello usato.
-- `--labels_name`: il nome del `Dataset` che include il file di `labels.txt`.
+- `--labels_name`: Nome del `Dataset` che include il file `labels.txt`.
 
 L'infrastruttura delle pipeline usa la classe `ArgumentParser` per passare i parametri nei passaggi della pipeline. Ad esempio, nel codice seguente al primo argomento `--model_name` viene assegnato l'identificatore della proprietà `model_name`. Nella funzione `init()` si usa `Model.get_model_path(args.model_name)` per accedere a questa proprietà.
 
@@ -259,9 +260,9 @@ def run(mini_batch):
 > [!TIP]
 > La pipeline di questa esercitazione include un solo passaggio e scrive l'output in un file. Per le pipeline con più passaggi, si usa anche `ArgumentParser` per definire una directory in cui scrivere i dati di output come input per i passaggi successivi. Per un esempio del passaggio di dati tra più passaggi della pipeline usando il modello di progettazione `ArgumentParser`, vedere il [notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb).
 
-## <a name="build-and-run-the-pipeline"></a>Compilare ed eseguire la pipeline
+## <a name="build-the-pipeline"></a>Creare la pipeline
 
-Prima di eseguire la pipeline, creare un oggetto che definisce l'ambiente Python e le dipendenze necessarie per lo script `batch_scoring.py`. La dipendenza principale richiesta è Tensorflow, ma è anche possibile installare `azureml-defaults` per i processi in background. Creare un oggetto `RunConfiguration` usando le dipendenze. Specificare inoltre il supporto di Docker e della GPU Docker.
+Prima di eseguire la pipeline, creare un oggetto che definisce l'ambiente Python e le dipendenze necessarie per lo script `batch_scoring.py`. La dipendenza principale necessaria è Tensorflow, ma occorre installare anche `azureml-defaults` per i processi in background. Creare un oggetto `RunConfiguration` usando le dipendenze. Specificare inoltre il supporto di Docker e della GPU Docker.
 
 ```python
 from azureml.core import Environment
@@ -274,7 +275,7 @@ env.python.conda_dependencies = cd
 env.docker.base_image = DEFAULT_GPU_IMAGE
 ```
 
-### <a name="create-the-configuration-to-wrap-the-script"></a>Creare la configurazione per eseguire il wrapping dello script
+### <a name="create-the-configuration-to-wrap-the-script"></a>Creare la configurazione per il wrapping dello script
 
 Creare il passaggio della pipeline usando lo script, la configurazione dell'ambiente e i parametri. Specificare la destinazione di calcolo già collegata all'area di lavoro.
 
@@ -324,7 +325,7 @@ batch_score_step = ParallelRunStep(
 
 Per un elenco di tutte le classi che è possibile usare per i diversi tipi di passaggio, vedere il [pacchetto dei passaggi](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py).
 
-### <a name="run-the-pipeline"></a>Eseguire la pipeline
+## <a name="submit-the-pipeline"></a>Inviare la pipeline
 
 Eseguire ora la pipeline Creare prima di tutto un oggetto `Pipeline` usando il riferimento all'area di lavoro e il passaggio della pipeline creato. Il parametro `steps` è una matrice di passaggi. In questo caso, è presente un solo passaggio per l'assegnazione di punteggi in batch. Per creare pipeline con più passaggi, inserire i passaggi nell'ordine corretto in questa matrice.
 
@@ -377,7 +378,7 @@ published_pipeline = pipeline_run.publish_pipeline(
 published_pipeline
 ```
 
-Per eseguire la pipeline dall'endpoint REST, è necessaria un'intestazione di autenticazione di tipo connessione OAuth2. L'esempio seguente usa l'autenticazione interattiva (a scopo illustrativo), ma per la maggior parte degli scenari di produzione che richiedono l'autenticazione automatica o senza intestazioni, usare l'autenticazione basata su entità servizio, come [descritto in questo articolo](how-to-setup-authentication.md).
+Per eseguire la pipeline dall'endpoint REST, è necessaria un'intestazione di autenticazione di tipo connessione OAuth2. L'esempio seguente usa l'autenticazione interattiva a scopo illustrativo, ma per la maggior parte degli scenari di produzione che richiedono l'autenticazione automatica o headless, usare l'autenticazione basata su entità servizio, come [descritto in questo articolo](how-to-setup-authentication.md).
 
 L'autenticazione basata su entità servizio implica la creazione di una *registrazione dell'app* in *Azure Active Directory*. Generare prima di tutto un segreto client, quindi concedere al ruolo dell'entità servizio l'*accesso* all'area di lavoro di Machine Learning. Usare la classe [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) per gestire il flusso di autenticazione. 
 

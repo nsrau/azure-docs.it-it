@@ -9,14 +9,16 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 01/10/2020
-ms.openlocfilehash: 16e4a7e2f06d2630c970f8daa4428e7a184a79df
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 878b64fe6dd491adbb61c4c74cf4a5fc039858cd
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163042"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79371410"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Esercitazione: Distribuire Anteprima di Gemelli digitali di Azure e configurare un grafo spaziale
+
+[!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
 
 È possibile usare il servizio di Anteprima di Gemelli digitali di Azure per riunire persone, luoghi e dispositivi in un sistema spaziale coerente. Questa serie di esercitazioni illustra come usare Gemelli digitali di Azure per determinare l'occupazione di una stanza con condizioni ottimali di temperatura e qualità dell'aria. 
 
@@ -36,7 +38,7 @@ Nella prima esercitazione di questa serie si apprenderà come:
 
 Queste esercitazioni usano e modificano gli stessi esempi usati nella [guida introduttiva alla ricerca di stanze disponibili](quickstart-view-occupancy-dotnet.md) per fornire informazioni più dettagliate e approfondite sui concetti.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Una sottoscrizione di Azure. Se non si ha un account Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

@@ -1,14 +1,14 @@
 ---
 title: Controlli dell'esempio di progetto DoD Impact Level 4
 description: Mapping dei controlli dell'esempio di progetto DoD Impact Level 4. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
-ms.date: 02/09/2020
+ms.date: 03/06/2020
 ms.topic: sample
-ms.openlocfilehash: 15ab3bc8bf53d54161ecc3b1f0dc138c3ff923c1
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 001c838ed6a19269a6abbcebd59ee2e344b6a296
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77154709"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79415394"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto DoD Impact Level 4
 
@@ -83,6 +83,20 @@ Questo progetto consente di monitorare e controllare l'accesso remoto assegnando
 - Il debug remoto deve essere disattivato per l'app per le funzioni
 - Il debug remoto deve essere disattivato per l'applicazione Web
 
+## <a name="ac-23-data-mining"></a>AC-23 Data mining
+
+Questo progetto assegna le definizioni dei criteri che consentono di assicurarsi che le notifiche di sicurezza siano abilitate correttamente. Questo progetto garantisce inoltre che il controllo e la funzionalità Sicurezza dei dati avanzata siano configurati nei server SQL.
+
+- Sicurezza dei dati avanzata deve essere abilitata nei server SQL
+- La sicurezza dei dati avanzata deve essere abilitata nelle istanze gestite di SQL
+- È consigliabile che i Tipi di Advanced Threat Protection siano impostati su "Tutti" nelle impostazioni di Sicurezza dei dati avanzata in SQL Server
+- È consigliabile che i Tipi di Advanced Threat Protection siano impostati su "Tutti" nelle impostazioni di Sicurezza dei dati avanzata nell'istanza gestita di SQL
+- È consigliabile abilitare il controllo nelle impostazioni di Sicurezza dei dati avanzata in SQL Server
+- Le notifiche tramite posta elettronica agli amministratori e ai proprietari della sottoscrizione devono essere abilitate nelle impostazioni di Sicurezza dei dati avanzata del server SQL
+- Le notifiche tramite posta elettronica agli amministratori e ai proprietari della sottoscrizione devono essere abilitate nelle impostazioni di Sicurezza dei dati avanzata dell'istanza gestita di SQL
+- Le impostazioni avanzate di sicurezza dei dati per SQL Server devono contenere un indirizzo di posta elettronica a cui ricevere gli avvisi di sicurezza
+- Le impostazioni avanzate di sicurezza dei dati per l'istanza gestita di SQL devono contenere un indirizzo di posta elettronica a cui ricevere gli avvisi di sicurezza
+
 ## <a name="au-3-2-content-of-audit-records--centralized-management-of-planned-audit-record-content"></a>AU-3 (2) Contenuto dei record di controllo | Gestione centralizzata del contenuto dei record di controllo pianificati
 
 I dati del log applicazioni raccolti da Monitoraggio di Azure vengono archiviati in un'area di lavoro Log Analytics per la centralizzazione della configurazione e della gestione. Questo progetto consente di assicurarsi che gli eventi vengano registrati assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) che controllano e impongono la distribuzione dell'agente di Log Analytics nelle macchine virtuali di Azure.
@@ -123,8 +137,6 @@ Controllano anche la configurazione dei log di diagnostica per fornire informazi
 Per informazioni dettagliate sull'analisi e sul monitoraggio della vulnerabilità, è consigliabile sfruttare anche Azure Sentinel e il Centro sicurezza di Azure.
 
 - \[Anteprima\]: La soluzione Valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali
-- \[Anteprima\]: Abilita Monitoraggio di Azure per le macchine virtuali
-- \[Anteprima\]: Abilita Monitoraggio di Azure per i set di scalabilità di macchine virtuali
 - La valutazione delle vulnerabilità deve essere abilitata nei server SQL
 - Audit diagnostic setting (Controllare le impostazioni di diagnostica)
 - La valutazione delle vulnerabilità deve essere abilitata nelle istanze gestite di SQL
@@ -133,6 +145,8 @@ Per informazioni dettagliate sull'analisi e sul monitoraggio della vulnerabilit�
 - Le vulnerabilità dei database SQL devono essere risolte
 - Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità
 - Le vulnerabilità nella configurazione di sicurezza dei set di scalabilità di macchine virtuali devono essere risolte
+- \[Anteprima\]: Controlla la distribuzione dell'agente di Log Analytics - Immagine macchina virtuale (sistema operativo) non in elenco
+- \[Anteprima\]: Controlla la distribuzione dell'agente di Log Analytics nei set di scalabilità di macchine virtuali - Immagine macchina virtuale (sistema operativo) non in elenco
 
 ## <a name="au-12-audit-generation"></a>AU-12 Generazione di controlli
 
@@ -236,6 +250,16 @@ Questo progetto consente di imporre password complesse assegnando definizioni di
 - \[Anteprima\]: Distribuisci i requisiti per controllare le macchine virtuali Windows che non limitano la lunghezza minima della password a 14 caratteri
 - \[Anteprima\]: Distribuisci i requisiti per controllare le macchine virtuali Windows che non archiviano le password usando la crittografia reversibile
 
+## <a name="ir-6-2-incident-reporting--vulnerabilities-related-to-incidents"></a>IR-6 (2) Segnalazione di eventi imprevisti | Vulnerabilità correlate agli eventi imprevisti
+
+Questo progetto fornisce le definizioni dei criteri per il controllo dei record con l'analisi della valutazione della vulnerabilità in macchine virtuali, set di scalabilità di macchine virtuali e server SQL. Queste informazioni dettagliate forniscono dati in tempo reale sullo stato di sicurezza delle risorse distribuite e consentono di assegnare priorità alle azioni correttive.
+
+- Le vulnerabilità nella configurazione di sicurezza dei set di scalabilità di macchine virtuali devono essere risolte
+- Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità
+- Le vulnerabilità nella configurazione di sicurezza delle macchine devono essere risolte
+- È consigliabile correggere le vulnerabilità nelle configurazioni della sicurezza dei contenitori
+- Le vulnerabilità dei database SQL devono essere risolte
+
 ## <a name="ra-5-vulnerability-scanning"></a>RA-5 Analisi delle vulnerabilità
 
 Questo progetto consente di gestire le vulnerabilità dei sistemi informativi assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) che monitorano le vulnerabilità del sistema operativo, nonché di SQL e delle macchine virtuali nel Centro sicurezza di Azure. Centro sicurezza di Azure fornisce funzionalità di report che consentono di ricevere informazioni dettagliate in tempo reale sullo stato di sicurezza delle risorse di Azure distribuite. Questo progetto assegna anche definizioni di criteri che controllano e impongono l'uso di Sicurezza dei dati avanzata nei server SQL. Sicurezza dei dati avanzata include le funzionalità Valutazione della vulnerabilità e Advanced Threat Protection che consentono di comprendere le vulnerabilità nelle risorse distribuite.
@@ -312,6 +336,30 @@ Questo progetto consente di gestire le vulnerabilità dei sistemi informativi as
 - Le vulnerabilità dei database SQL devono essere risolte
 - Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità
 
+## <a name="si-02-06-flaw-remediation--removal-of-previous-versions-of-software--firmware"></a>SI-02 (06) Correzione degli errori | Rimozione delle versioni precedenti del software/firmware
+
+Questo progetto assegna le definizioni dei criteri per assicurarsi che le applicazioni usino la versione più recente di .NET Framework, HTTP, Java, PHP, Python e TLS. Questo progetto assegna anche una definizione dei criteri che garantisce che i servizi Kubernetes vengano aggiornati alla relativa versione non vulnerabile.
+
+- Assicurarsi che la versione di '.NET Framework' sia la più recente, se usata come parte dell'app per le API
+- Assicurarsi che la versione di '.NET Framework' sia la più recente, se usata come parte dell'app per le funzioni
+- Assicurarsi che la versione di '.NET Framework' sia la più recente, se usata come parte dell'app Web
+- Assicurarsi che la 'versione di HTTP' sia la più recente, se usata per eseguire l'app per le API
+- Assicurarsi che la 'versione di HTTP' sia la più recente, se usata per eseguire l'app per le funzioni
+- Assicurarsi che la 'versione di HTTP' sia la più recente, se usata per eseguire l'app Web
+- Assicurarsi che la 'versione di Java' sia la più recente, se usata come parte dell'app per le API
+- Assicurarsi che la 'versione di Java' sia la più recente, se usata come parte dell'app per le funzioni
+- Assicurarsi che la 'versione di Java' sia la più recente, se usata come parte dell'app Web
+- Assicurarsi che la 'versione di PHP' sia la più recente, se usata come parte dell'app per le API
+- Assicurarsi che la 'versione di PHP' sia la più recente, se usata come parte dell'app per le funzioni
+- Assicurarsi che la 'versione di PHP' sia la più recente, se usata come parte dell'app Web
+- Assicurarsi che la 'versione di Python' sia la più recente, se usata come parte dell'app per le API
+- Assicurarsi che la 'versione di Python' sia la più recente, se usata come parte dell'app per le funzioni
+- Assicurarsi che la 'versione di Python' sia la più recente, se usata come parte dell'app Web
+- Nell'app per le API è necessario usare la versione più recente di TLS
+- Nell'app per le funzioni è necessario usare la versione più recente di TLS
+- Nell'app Web è necessario usare la versione più recente di TLS
+- \[Anteprima\]: I servizi Kubernetes devono essere aggiornati a una versione di Kubernetes non vulnerabile
+
 ## <a name="si-3-malicious-code-protection"></a>SI-3 Protezione dal malware
 
 Questo progetto consente di gestire Endpoint Protection, inclusa la protezione dal malware, assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) che monitorano la presenza di Endpoint Protection nelle macchine virtuali nel Centro sicurezza di Azure e impongono la soluzione antimalware Microsoft nelle macchine virtuali Windows.
@@ -347,6 +395,18 @@ Questo progetto consente di monitorare il sistema controllando e imponendo la re
 - Distribuisci Rilevamento minacce nelle istanze di SQL Server
 - Percorsi consentiti
 - Località consentite per i gruppi di risorse
+
+## <a name="si-4-12-information-system-monitoring--automated-alerts"></a>SI-4 (12) Monitoraggio dei sistemi informativi | Avvisi automatizzati
+
+Questo progetto assegna le definizioni dei criteri che consentono di assicurarsi che le notifiche di sicurezza siano abilitate correttamente. Inoltre, questo progetto garantisce che per il Centro sicurezza di Azure sia abilitato il piano tariffario Standard. Si noti che il piano tariffario Standard consente il rilevamento delle minacce per reti e macchine virtuali e fornisce informazioni sulle minacce, rilevamento delle anomalie e analisi del comportamento nel Centro sicurezza di Azure.
+
+- È consigliabile abilitare le notifiche di posta elettronica al proprietario della sottoscrizione per gli avvisi con gravità alta
+- È consigliabile fornire un indirizzo di posta elettronica dei contatti di sicurezza per la sottoscrizione 
+- Le notifiche tramite posta elettronica agli amministratori e ai proprietari della sottoscrizione devono essere abilitate nelle impostazioni di Sicurezza dei dati avanzata dell'istanza gestita di SQL 
+- Le notifiche tramite posta elettronica agli amministratori e ai proprietari della sottoscrizione devono essere abilitate nelle impostazioni di Sicurezza dei dati avanzata del server SQL 
+- È consigliabile fornire il numero di telefono dei contatti di sicurezza per la sottoscrizione
+- Le impostazioni avanzate di sicurezza dei dati per SQL Server devono contenere un indirizzo di posta elettronica a cui ricevere gli avvisi di sicurezza
+- È consigliabile selezionare il piano tariffario Standard del Centro sicurezza
 
 ## <a name="si-4-18-information-system-monitoring--analyze-traffic--covert-exfiltration"></a>SI-4 (18) Monitoraggio dei sistemi informativi | Analizzare il traffico/esfiltrazioni nascoste
 

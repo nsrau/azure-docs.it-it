@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 50ccf0d6db5a50f7dd89732bc870ced6bcf1c2d7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 9e0ed3454f11907c5f183f08fd2ec51db3384225
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034397"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80154322"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Esercitazione: Creare uno stack MongoDB, Express, AngularJS e Node.js (MEAN) in una macchina virtuale Linux in Azure
 
@@ -349,7 +349,7 @@ In questa esercitazione si è creata un'applicazione Web che tiene traccia dei r
 > * Accedere alle route con AngularJS
 > * Eseguire l'applicazione
 
-Passare all'esercitazione successiva per apprendere come proteggere i server Web con i certificati SSL.
+Passare all'esercitazione successiva per apprendere come proteggere i server Web con i certificati TLS.
 
 > [!div class="nextstepaction"]
-> [Secure web server with SSL (Proteggere il server Web con SSL)](tutorial-secure-web-server.md)
+> [Proteggere il server Web con TLS](tutorial-secure-web-server.md)

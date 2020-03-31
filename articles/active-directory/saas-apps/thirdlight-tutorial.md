@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 448d46cd21a63488c4f567d5555fe6406fc0fa73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67089101"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>Esercitazione: Integrazione di Azure Active Directory con ThirdLight
@@ -78,7 +78,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con ThirdLight, �
 2. **[Configurare l'accesso Single Sign-On di ThirdLight](#configure-thirdlight-single-sign-on)** sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** per abilitare l'accesso Single Sign-On di Azure AD per tale utente.
-5. **[Creare un utente di test di ThirdLight](#create-a-thirdlight-test-user)** collegato alla rappresentazione dell'utente in Azure AD.
+5. **[Creare l'utente di test di ThirdLight](#create-a-thirdlight-test-user)** collegato alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -134,7 +134,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ThirdLight, seguire que
 
 1. Passare a **Configuration** > **System Administration** > **SAML2** (Configurazione > Amministrazione del sistema > SAML2):
 
-    ![Amministrazione del sistema](./media/thirdlight-tutorial/ic805843.png "Amministrazione del sistema")
+    ![Amministrazione del sistema](./media/thirdlight-tutorial/ic805843.png "Amministrazione sistema")
 
 1. Nella sezione della configurazione SAML2 seguire questa procedura.
   
@@ -148,7 +148,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ThirdLight, seguire que
 
     1. Selezionare **Save SAML2 settings** (Salva impostazioni SAML2).
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome Britta Simon nel portale di Azure.
 
@@ -172,7 +172,7 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
     1. Selezionare **Create** (Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a ThirdLight.
 
@@ -198,11 +198,11 @@ In questa sezione si abiliterà Britta Simon all'uso dell'accesso Single Sign-On
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna**.
 
-### <a name="create-a-thirdlight-test-user"></a>Creare un utente di test di ThirdLight
+### <a name="create-a-thirdlight-test-user"></a>Creare l'utente di test di ThirdLight
 
 Per consentire agli utenti di Azure AD di accedere a ThirdLight, è necessario aggiungerli a ThirdLight. È necessario aggiungerli manualmente.
 
-Per creare un account utente, seguire questi passaggi:
+Per creare un account utente, seguire questa procedura:
 
 1. Accedere al sito aziendale di ThirdLight come amministratore.
 

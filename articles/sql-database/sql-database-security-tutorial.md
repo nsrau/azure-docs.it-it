@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 05ea21f7b3221425e5b052797d79e629fdfe3ba5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 9e3c5c12157a007bcad59a78b4623ff4d5a0041f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360530"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222588"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Esercitazione: Proteggere un database singolo o in pool
 
@@ -149,7 +149,7 @@ Per informazioni sulla configurazione di Azure AD, vedere:
 
 ## <a name="manage-database-access"></a>Gestire l'accesso al database
 
-Per gestire l'accesso al database, aggiungervi gli utenti oppure consentire loro l'accesso tramite stringhe di connessione sicure. Le stringhe di connessione sono utili per le applicazioni esterne. Per altre informazioni, vedere gli articoli relativi al [controllo di accesso per il database SQL di Azure](sql-database-control-access.md) e all'[autenticazione di AD](sql-database-aad-authentication.md).
+Per gestire l'accesso al database, aggiungervi gli utenti oppure consentire loro l'accesso tramite stringhe di connessione sicure. Le stringhe di connessione sono utili per le applicazioni esterne. Per altre informazioni, vedere [Gestire gli account di accesso e gli account utente](sql-database-manage-logins.md) e [Autenticazione di Active Directory](sql-database-aad-authentication.md).
 
 Per aggiungere utenti, scegliere il tipo di autenticazione del database:
 

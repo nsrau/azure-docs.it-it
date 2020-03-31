@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 179a6181efdc6c31d50d3b5b3f708fd9149dadd3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: 90ed4bf8f0389619f130e998ed76c720442092b2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384723"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474476"
 ---
-# <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Esercitazione: preparare la distribuzione di Azure Data Box Edge  
+# <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Esercitazione: Preparare la distribuzione di Azure Data Box Edge  
 
 Questa è la prima di una serie di esercitazioni sulla distribuzione necessarie per distribuire completamente Azure Data Box Edge. Questa esercitazione descrive come preparare il portale di Azure per la distribuzione di una risorsa Data Box Edge.
 
@@ -25,12 +25,13 @@ Per completare il processo di installazione e configurazione sono necessari priv
 In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
+>
 > * Creare una nuova risorsa
 > * Ottenere la chiave di attivazione
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-### <a name="get-started"></a>Attività iniziali
+### <a name="get-started"></a>Introduzione
 
 Per distribuire Data Box Edge, fare riferimento alle esercitazioni seguenti nella sequenza indicata.
 
@@ -52,13 +53,12 @@ Di seguito sono indicati i prerequisiti di configurazione per la risorsa Data Bo
 
 Prima di iniziare, verificare che:
 
-- La sottoscrizione di Microsoft Azure sia abilitata per la risorsa Data Box Edge. Le sottoscrizioni con pagamento in base al consumo non sono supportate.
-- Si abbia accesso di tipo Proprietario o Collaboratore a livello di gruppo di risorse per le risorse Data Box Edge/Data Box Gateway, hub IoT e Archiviazione di Azure.
-
+* La sottoscrizione di Microsoft Azure sia abilitata per una risorsa Azure Stack Edge. Assicurarsi di aver usato una sottoscrizione supportata, ad esempio [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp) o [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
+* Si abbia accesso di tipo Proprietario o Collaboratore a livello di gruppo di risorse per le risorse Data Box Edge/Data Box Gateway, hub IoT e Archiviazione di Azure.
     - Per creare qualsiasi risorsa Data Box Edge/Data Box Gateway, è necessario disporre di autorizzazioni di Collaboratore o superiori con ambito a livello di gruppo di risorse. È anche necessario assicurarsi che il provider `Microsoft.DataBoxEdge` sia registrato. Per informazioni sulla registrazione, vedere [Registrare i provider di risorse](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
     - Per creare qualsiasi risorsa hub IoT, assicurarsi che il provider Microsoft.Devices sia registrato. Per informazioni sulla registrazione, vedere [Registrare i provider di risorse](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
     - Per creare una risorsa account di archiviazione, è ugualmente necessario l'accesso di tipo Collaboratore o superiore con ambito a livello di gruppo di risorse. Archiviazione di Azure è un provider di risorse registrato per impostazione predefinita.
-- Si abbia accesso all'API Graph di Azure Active Directory Graph come utente o amministratore. Per altre informazioni, vedere [API Graph di Azure Active Directory](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+- Assicurarsi di disporre dell'accesso amministratore o utente all'API Microsoft Graph. Per altre informazioni, vedere le [Informazioni di riferimento per le autorizzazioni dell'API Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
 - Si dispone dell'account di archiviazione di Microsoft Azure con credenziali di accesso.
 
 ### <a name="for-the-data-box-edge-device"></a>Per il dispositivo Data Box Edge
@@ -66,7 +66,7 @@ Prima di iniziare, verificare che:
 Prima di distribuire un dispositivo fisico, è necessario:
 
 - Aver esaminato le informazioni sulla sicurezza incluse nel pacchetto di spedizione.
-- Si dispone di uno slot 1U disponibile in un rack standard di 19 "nel Data Center per il montaggio su rack del dispositivo.
+- Avere uno slot 1U disponibile in un rack standard da 19 pollici nel data center per montare in rack il dispositivo.
 - Avere accesso a una superficie di lavoro orizzontale, stabile e piana su cui collocare il dispositivo in sicurezza.
 - Che sia disponibile una fonte di alimentazione CA standard indipendente o un'unità PDU rack con un gruppo di continuità (UPS) nell'ambiente in cui si intende configurare il dispositivo.
 - Avere accesso a un dispositivo fisico.
@@ -94,8 +94,8 @@ Per creare la risorsa Data Box Edge, completare i passaggi seguenti nel portale 
     - Portale di Azure all'URL [https://portal.azure.com](https://portal.azure.com).
     - Portale di Azure per enti pubblici all'URL [https://portal.azure.us](https://portal.azure.us). Per altri dettagli, vedere l'articolo su come [connettersi ad Azure per enti pubblici con il portale](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
-2. Nel riquadro sinistro selezionare **Crea una risorsa**. Cercare **Data Box Edge/Data Box Gateway**. Selezionare **Data Box Edge/Data Box Gateway**. Selezionare **Crea**.
-3. Selezionare la sottoscrizione che si vuole usare per il dispositivo Data Box Edge. Selezionare l'area in cui si vuole distribuire la risorsa Data Box Edge. Per un elenco di tutte le aree in cui è disponibile la risorsa Azure Stack Edge, vedere [prodotti Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
+2. Nel riquadro sinistro selezionare **Crea una risorsa**. Cercare **Data Box Edge/Data Box Gateway**. Selezionare **Data Box Edge/Data Box Gateway**. Selezionare **Create** (Crea).
+3. Selezionare la sottoscrizione che si vuole usare per il dispositivo Data Box Edge. Selezionare l'area in cui si vuole distribuire la risorsa Data Box Edge. Per un elenco delle aree in cui la risorsa Azure Stack Edge è disponibile, vedere l'[elenco dei prodotti Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
 
     Scegliere la località più vicina all'area geografica in cui si vuole distribuire il dispositivo. L'area archivia solo i metadati per la gestione del dispositivo. I dati effettivi possono essere archiviati in qualsiasi account di archiviazione.
     
@@ -105,34 +105,34 @@ Per creare la risorsa Data Box Edge, completare i passaggi seguenti nel portale 
 
 3. Nella scheda **Informazioni di base** immettere o selezionare quanto segue in **Dettagli del progetto**.
     
-    |Impostazione  |Valore  |
+    |Impostazione  |valore  |
     |---------|---------|
     |Subscription    |Questo campo viene popolato automaticamente in base alla selezione precedente. La sottoscrizione viene collegata all'account di fatturazione. |
-    |Gruppo di risorse  |Selezionare un gruppo esistente o crearne uno nuovo.<br>Altre informazioni sui [gruppi di risorse di Azure](../azure-resource-manager/management/overview.md).     |
+    |Resource group  |Selezionare un gruppo esistente o crearne uno nuovo.<br>Altre informazioni sui [gruppi di risorse di Azure](../azure-resource-manager/management/overview.md).     |
 
 4. Immettere o selezionare quanto segue in **Dettagli istanza**.
 
-    |Impostazione  |Valore  |
+    |Impostazione  |valore  |
     |---------|---------|
-    |Name   | Nome descrittivo per identificare la risorsa.<br>Il nome deve contenere da 2 a 50 caratteri tra lettere, numeri e trattini.<br> Il nome deve iniziare e finire con una lettera o un numero.        |
-    |Region     |Per un elenco di tutte le aree in cui è disponibile la risorsa Azure Stack Edge, vedere [prodotti Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Se si usa Azure per enti pubblici, sono disponibili tutte le aree per enti pubblici riportate in [Aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Scegliere la località più vicina all'area geografica in cui si vuole distribuire il dispositivo.|
+    |Nome   | Nome descrittivo per identificare la risorsa.<br>Il nome deve contenere da 2 a 50 caratteri tra lettere, numeri e trattini.<br> Il nome deve iniziare e finire con una lettera o un numero.        |
+    |Region     |Per un elenco delle aree in cui la risorsa Azure Stack Edge è disponibile, vedere l'[elenco dei prodotti Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Se si usa Azure per enti pubblici, sono disponibili tutte le aree per enti pubblici riportate in [Aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Scegliere la località più vicina all'area geografica in cui si vuole distribuire il dispositivo.|
 
     ![Dettagli del progetto e dell'istanza](media/data-box-edge-deploy-prep/data-box-edge-resource.png)
 
-5. Selezionare **Avanti: indirizzo di spedizione**.
+5. Selezionare **Avanti: Indirizzo di spedizione**.
 
     - Se si ha già un dispositivo, selezionare la casella combinata **Ho un dispositivo Data Box Edge**.
     - Se si sta ordinando un nuovo dispositivo, immettere il nome del contatto, la società, l'indirizzo a cui spedire il dispositivo e le informazioni di contatto.
 
     ![Indirizzo di spedizione per il nuovo dispositivo](media/data-box-edge-deploy-prep/data-box-edge-resource1.png)
 
-6. Selezionare **Avanti: verifica + crea**.
+6. Selezionare **Avanti: Rivedi e crea**.
 
 7. Nella scheda **Rivedi e crea** esaminare i **dettagli sui prezzi**, le **condizioni per l'utilizzo** e i dettagli della risorsa. Selezionare la casella combinata **Dichiaro di aver esaminato le informazioni fornite e di accettare le condizioni relative alla privacy**.
 
     ![Esaminare i dettagli della risorsa Data Box Edge e le condizioni relative alla privacy](media/data-box-edge-deploy-prep/data-box-edge-resource2.png)
 
-8. Selezionare **Crea**.
+8. Selezionare **Create** (Crea).
 
 La creazione della risorsa richiede alcuni minuti. Al termine della creazione e della distribuzione della risorsa, si riceverà una notifica. Selezionare **Vai alla risorsa**.
 

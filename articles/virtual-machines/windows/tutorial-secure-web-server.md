@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Proteggere un server Web Windows con i certificati SSL in Azure'
-description: In questa esercitazione viene illustrato come usare Azure PowerShell per proteggere una macchina virtuale Windows che esegue il server Web IIS con certificati SSL archiviati in Azure Key Vault.
+title: 'Esercitazione: Proteggere un server Web Windows con i certificati TLS/SSL in Azure'
+description: In questa esercitazione viene illustrato come usare Azure PowerShell per proteggere una macchina virtuale Windows che esegue il server Web IIS con certificati TLS/SSL archiviati in Azure Key Vault.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,25 +15,25 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6185ad4f0e043329c4e833b97a09922ba0238a82
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 5b084f8a226d1cfd5bab2cc81512fb51fa6bf41c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264238"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80154288"
 ---
-# <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Esercitazione: Proteggere un server Web su una macchina virtuale Windows in Azure con i certificati SSL archiviati in Key Vault
+# <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Esercitazione: Proteggere un server Web in una macchina virtuale Windows in Azure con i certificati TLS/SSL archiviati in Key Vault
 
 > [!NOTE]
 > Attualmente questa documentazione si applica solo alle immagini generalizzate. Se si prova a seguire questa esercitazione usando un disco specializzato, si riceverà un errore. 
 
-Per proteggere i server Web, è possibile usare un certificato Secure Sockets Layer (SSL) per crittografare il traffico Web. Questi certificati SSL possono essere archiviati in Azure Key Vault e consentono distribuzioni sicure dei certificati nelle macchine virtuali (VM) Windows in Azure. In questa esercitazione si apprenderà come:
+Per proteggere i server Web, è possibile usare un certificato Transport Layer Security (TLS), precedentemente noto come Secure Sockets Layer (SSL), per crittografare il traffico Web. Questi certificati TLS/SSL possono essere archiviati in Azure Key Vault e consentono distribuzioni sicure dei certificati nelle macchine virtuali Windows in Azure. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un Azure Key Vault
 > * Generare o caricare un certificato in Key Vault
 > * Creare una macchina virtuale e installare il server Web IIS
-> * Inserire il certificato nella macchina virtuale e configurare IIS con un'associazione SSL
+> * Inserire il certificato nella macchina virtuale e configurare IIS con un'associazione TLS
 
 
 ## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
@@ -50,7 +50,7 @@ Invece di usare un'immagine di macchina virtuale personalizzata che include cert
 
 
 ## <a name="create-an-azure-key-vault"></a>Creare un Azure Key Vault
-Per poter creare un'istanza di Key Vault e i certificati, creare prima di tutto un gruppo di risorse con [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupSecureWeb* nella località *East US*:
+Per poter creare un'istanza di Key Vault e i certificati, creare prima di tutto un gruppo di risorse con [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupSecureWeb* nella località *Stati Uniti orientali*:
 
 ```azurepowershell-interactive
 $resourceGroup = "myResourceGroupSecureWeb"
@@ -172,13 +172,13 @@ Il sito Web IIS protetto viene quindi visualizzato come illustrato nell'esempio 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione si è protetto un server Web IIS con un certificato SSL archiviato in Azure Key Vault. Si è appreso come:
+In questa esercitazione si è protetto un server Web IIS con un certificato TLS/SSL archiviato in Azure Key Vault. Si è appreso come:
 
 > [!div class="checklist"]
 > * Creare un Azure Key Vault
 > * Generare o caricare un certificato in Key Vault
 > * Creare una macchina virtuale e installare il server Web IIS
-> * Inserire il certificato nella macchina virtuale e configurare IIS con un'associazione SSL
+> * Inserire il certificato nella macchina virtuale e configurare IIS con un'associazione TLS
 
 Seguire questo collegamento per vedere esempi di script predefiniti delle macchine virtuali.
 

@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione sulla classificazione di immagini: Distribuire i modelli'
 titleSuffix: Azure Machine Learning
-description: Questa esercitazione mostra come usare Azure Machine Learning per distribuire un modello di classificazione delle immagini con scikit-learn in un notebook Jupyter per Python. Questa esercitazione è la seconda di una serie in due parti.
+description: Questa esercitazione, la seconda di una serie in due parti, mostra come usare Azure Machine Learning per distribuire un modello di classificazione delle immagini con scikit-learn in un notebook Jupyter per Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,19 +10,17 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 071a8dd40d87e5df6fc5c65b789bb63b515dc60a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 81e02492f7e79b87e1513a910afe4719908adbbb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116495"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80159077"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Esercitazione: Distribuire un modello di classificazione delle immagini in Istanze di Azure Container
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Questa esercitazione è la **seconda di una serie in due parti**. Nell'[esercitazione precedente](tutorial-train-models-with-aml.md), è stato eseguito il training di modelli di machine learning e quindi registrato un modello nell'area di lavoro sul cloud.  
-
-Si è ora pronti per distribuire il modello come servizio Web in [Istanze di Azure Container](https://docs.microsoft.com/azure/container-instances/). Un servizio Web è un'immagine, in questo caso un'immagine Docker. Incapsula la logica di assegnazione dei punteggi e il modello stesso. 
+Questa esercitazione è la **seconda di una serie in due parti**. Nell'[esercitazione precedente](tutorial-train-models-with-aml.md), è stato eseguito il training di modelli di machine learning e quindi registrato un modello nell'area di lavoro sul cloud.  A questo punto, si è pronti per distribuire il modello come servizio Web. Un servizio Web è un'immagine, in questo caso un'immagine Docker. Incapsula la logica di assegnazione dei punteggi e il modello stesso. 
 
 In questa parte dell'esercitazione si usa Azure Machine Learning per le attività seguenti:
 
@@ -38,7 +36,7 @@ Istanze di Container è un'ottima soluzione per testare e comprendere il flusso 
 >[!NOTE]
 > Il codice di questo articolo è stato testato con Azure Machine Learning SDK versione 1.0.41.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire il notebook, completare innanzitutto il training del modello in [Esercitazione (parte 1): Eseguire il training di un modello di classificazione delle immagini](tutorial-train-models-with-aml.md).   Aprire quindi il notebook *img-classification-part2-deploy.ipynb* nella cartella *tutorials/image-classification-mnist-data* clonata.
 
@@ -50,7 +48,7 @@ Questa esercitazione è disponibile anche in [GitHub](https://github.com/Azure/M
 > Passare ora al notebook di Jupyter se si desidera leggere durante l'esecuzione del codice.
 > Per eseguire una singola cella di codice in un notebook, fare clic sulla cella di codice e premere **MAIUSC + INVIO**. In alternativa, eseguire l'intero notebook scegliendo **Esegui tutto** dalla barra degli strumenti superiore.
 
-## <a name="start"></a>Configurare l'ambiente
+## <a name="set-up-the-environment"></a><a name="start"></a>Configurare l'ambiente
 
 Iniziare configurando un ambiente di test.
 
@@ -299,7 +297,6 @@ Ottenere l'endpoint HTTP del servizio Web di assegnazione dei punteggi, che acce
 ```python
 print(service.scoring_uri)
 ```
-
 
 ## <a name="test-the-deployed-service"></a>Testare il servizio distribuito
 

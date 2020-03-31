@@ -5,16 +5,16 @@ author: mumian
 ms.date: 12/03/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: dab69c32f7277cd5d746e001b36118e673401bca
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: e1cce566fb7aab286c57f32d9348e51dd0a7c1ee
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250126"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239330"
 ---
-# <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Esercitazione: Creare modelli collegati di Azure Resource Manager
+# <a name="tutorial-create-linked-arm-templates"></a>Esercitazione: Creare modelli di Azure Resource Manager collegati
 
-Informazioni su come creare modelli collegati di Azure Resource Manager. Utilizzando modelli collegati, è possibile avere un modello che chiama un altro modello. È utile per la modularizzazione del modelli. In questa esercitazione si usa lo stesso modello di [Esercitazione: Creare modelli di Azure Resource Manager con risorse dipendenti](./template-tutorial-create-templates-with-dependent-resources.md), operazione che crea una macchina virtuale, una rete virtuale e altre risorse dipendenti, tra cui un account di archiviazione. Separare la creazione della risorsa account dell'account di archiviazione da un modello collegato.
+Informazioni su come creare modelli di Azure Resource Manager collegati. Utilizzando modelli collegati, è possibile avere un modello che chiama un altro modello. È utile per la modularizzazione del modelli. In questa esercitazione si usa lo stesso modello di [Esercitazione: Creare modelli di Azure Resource Manager con risorse dipendenti](./template-tutorial-create-templates-with-dependent-resources.md), operazione che crea una macchina virtuale, una rete virtuale e altre risorse dipendenti, tra cui un account di archiviazione. Separare la creazione della risorsa account dell'account di archiviazione da un modello collegato.
 
 La chiamata di un modello collegato è simile a una chiamata di funzione.  Verrà anche illustrato come passare i valori dei parametri al modello collegato e come ottenere i "valori restituiti" da tale modello.
 
@@ -39,18 +39,18 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare modelli di Azure Resource Manager](use-vs-code-to-create-template.md).
+* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare i modelli di Azure Resource Manager](use-vs-code-to-create-template.md).
 * Per una maggiore sicurezza, usare una password generata per l'account amministratore della macchina virtuale. Di seguito è riportato un esempio della generazione di una password:
 
     ```console
     openssl rand -base64 32
     ```
 
-    Azure Key Vault è progettato per proteggere chiavi crittografiche e altri segreti. Per altre informazioni, vedere [Esercitazione: Integrare Azure Key Vault in Distribuzione modelli di Resource Manager](./template-tutorial-use-key-vault.md). È consigliabile anche aggiornare la password ogni tre mesi.
+    Azure Key Vault è progettato per proteggere chiavi crittografiche e altri segreti. Per altre informazioni, vedere [Esercitazione: Integrare Azure Key Vault nella distribuzione di modelli di Azure Resource Manager](./template-tutorial-use-key-vault.md). È consigliabile anche aggiornare la password ogni tre mesi.
 
 ## <a name="open-a-quickstart-template"></a>Aprire un modello di avvio rapido
 
-Modelli di avvio rapido di Azure è un repository di modelli di Resource Manager. Anziché creare un modello da zero, è possibile trovare un modello di esempio e personalizzarlo. Il modello usato in questa esercitazione è denominato [Distribuire una VM Windows semplice](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/). Si tratta dello stesso modello di [Esercitazione: Creare modelli di Azure Resource Manager con risorse dipendenti](./template-tutorial-create-templates-with-dependent-resources.md). Si salvano due copie dello stesso modello da utilizzare come:
+I modelli di avvio rapido di Azure costituiscono un repository di modelli di Azure Resource Manager. Anziché creare un modello da zero, è possibile trovare un modello di esempio e personalizzarlo. Il modello usato in questa esercitazione è denominato [Distribuire una VM Windows semplice](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/). Si tratta dello stesso modello di [Esercitazione: Creare modelli di Azure Resource Manager con risorse dipendenti](./template-tutorial-create-templates-with-dependent-resources.md). Si salvano due copie dello stesso modello da utilizzare come:
 
 * **Il modello principale**: creare tutte le risorse, ad eccezione dell'account di archiviazione.
 * **Il modello collegato**: creare l'account di archiviazione.

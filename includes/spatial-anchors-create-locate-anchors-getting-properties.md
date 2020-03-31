@@ -1,11 +1,11 @@
 ---
 ms.openlocfilehash: c5ca85c0dfe8d601821a78c02b2230c0909c8003
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67179858"
 ---
-È possibile aggiornare la posizione di un ancoraggio una volta che è stata creata nel servizio, è necessario creare un nuovo punto di ancoraggio ed eliminare quello precedente per tenere traccia di una nuova posizione.
+Non è possibile aggiornare la posizione di un ancoraggio dopo che è stata creato nel servizio, ma è necessario creare un nuovo ancoraggio ed eliminare quello precedente per tenere traccia di una nuova posizione.
 
-Se non è necessario individuare un punto di ancoraggio per aggiornare le relative proprietà, è possibile usare la `GetAnchorPropertiesAsync()` metodo, che restituisce un `CloudSpatialAnchor` oggetto con proprietà.
+Se non è necessario individuare un ancoraggio per aggiornarne le proprietà, è possibile usare il metodo `GetAnchorPropertiesAsync()`, che restituisce un oggetto `CloudSpatialAnchor` con le proprietà.

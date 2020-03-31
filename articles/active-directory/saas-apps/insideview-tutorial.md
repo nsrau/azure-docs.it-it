@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
 ms.openlocfilehash: 2149b8410104b39652b176895a31b42e094265f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67100097"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Esercitazione: Integrazione di Azure Active Directory con InsideView
@@ -79,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con InsideView, �
 2. **[Configurare l'accesso Single Sign-On di InsideView](#configure-insideview-single-sign-on)** sul lato dell'applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** per abilitare l'accesso Single Sign-On di Azure AD per tale utente.
-5. **[Creare un utente di test di InsideView](#create-an-insideview-test-user)** collegato alla rappresentazione di Azure AD dell'utente.
+5. **[Creare l'utente di test di InsideView](#create-an-insideview-test-user)** collegato alla rappresentazione di Azure AD dell'utente.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -131,7 +131,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con InsideView, seguire que
 
 1. Nella parte superiore della finestra selezionare **Admin** (Amministrazione), **SingleSignOn Settings** (Impostazioni Single Sign-On) e quindi **Add SAML** (Aggiungi SAML).
    
-   ![Impostazioni di Single Sign-On SAML](./media/insideview-tutorial/ic794135.png "Impostazioni di Single Sign-On SAML")
+   ![Impostazioni Single Sign-On SAML](./media/insideview-tutorial/ic794135.png "Impostazioni Single Sign-On SAML")
 
 1. Nella sezione **Add a New SAML** (Aggiungi nuovo SAML) seguire questa procedura.
 
@@ -153,7 +153,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con InsideView, seguire que
 
     1. Selezionare **Salva**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome Britta Simon nel portale di Azure.
 
@@ -177,7 +177,7 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
     1. Selezionare **Create** (Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a InsideView.
 
@@ -216,7 +216,7 @@ Per creare utenti o contatti in InsideView, contattare il [team di supporto di I
 
 Il passaggio finale consiste nel testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si seleziona il riquadro di InsideView nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di InsideView per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Accedere e usare le app nel portale App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si seleziona il riquadro di InsideView nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di InsideView per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Accedere e usare le app nel portale di My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

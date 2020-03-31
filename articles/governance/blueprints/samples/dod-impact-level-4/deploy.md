@@ -1,14 +1,14 @@
 ---
 title: Esempio di progetto DoD Impact Level 4
 description: Procedura di distribuzione per l'esempio di progetto DoD Impact Level 4, inclusi i dettagli dei parametri degli artefatti del progetto.
-ms.date: 02/09/2020
+ms.date: 03/06/2020
 ms.topic: sample
-ms.openlocfilehash: 087b5947f86d33e44cd72754b79acd457674d545
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: c92e24327bc1879b8fea89cf85a50f845e473810
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77154699"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79415309"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>Distribuire l'esempio di progetto DoD Impact Level 4
 
@@ -132,7 +132,8 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 |\[Anteprima\]: DoD Impact Level 4|Assegnazione di criteri|L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di proprietario per la sottoscrizione|Per informazioni sugli effetti dei criteri, vedere [Informazioni sugli effetti di Criteri di Azure](../../../policy/concepts/effects.md).|
 |\[Anteprima\]: DoD Impact Level 4|Assegnazione di criteri|L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di scrittura per la sottoscrizione|Per informazioni sugli effetti dei criteri, vedere [Informazioni sugli effetti di Criteri di Azure](../../../policy/concepts/effects.md).|
 |\[Anteprima\]: DoD Impact Level 4|Assegnazione di criteri|Il backup con ridondanza geografica a lungo termine deve essere abilitato per i database SQL di Azure|Per informazioni sugli effetti dei criteri, vedere [Informazioni sugli effetti di Criteri di Azure](../../../policy/concepts/effects.md).|
-
+|Percorsi consentiti|Assegnazione dei criteri|Località consentite|Questi criteri consentono di limitare le posizioni che l'organizzazione può specificare durante la distribuzione delle risorse. Usare per imporre requisiti di conformità geografica.|
+|Località consentite per i gruppi di risorse|Assegnazione dei criteri |Località consentite|Questi criteri consentono di limitare le località in cui l'organizzazione può creare gruppi di risorse. Usare per imporre requisiti di conformità geografica.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

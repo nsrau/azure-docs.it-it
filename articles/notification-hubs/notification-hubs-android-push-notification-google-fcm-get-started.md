@@ -1,5 +1,5 @@
 ---
-title: Inviare notifiche push ad Android con Hub di notifica di Azure e Firebase Cloud Messaging | Microsoft Docs
+title: Inviare notifiche push ad Android con Hub di notifica di Azure e Firebase | Microsoft Docs
 description: In questa esercitazione si apprenderà come usare Hub di notifica di Azure e Google Firebase Cloud Messaging per inviare notifiche push ai dispositivi Android.
 services: notification-hubs
 documentationcenter: android
@@ -18,14 +18,14 @@ ms.date: 09/11/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: 1af109405118754daa08adf848f1da3f04534455
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e0682a33540cafd8ebab1bb248d462b30ee4dc2a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387513"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80127531"
 ---
-# <a name="tutorial-send-push-notifications-to-android-devices-using-google-firebase-cloud-messaging"></a>Esercitazione: Inviare notifiche push ai dispositivi Android con Google Firebase Cloud Messaging
+# <a name="tutorial-send-push-notifications-to-android-devices-using-firebase"></a>Esercitazione: Inviare notifiche push ai dispositivi Android con Firebase
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -86,7 +86,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
 L'hub è ora configurato per l'uso di Firebase Cloud Messaging. Sono anche disponibili le stringhe di connessione necessarie per inviare notifiche a un dispositivo e registrare un'app per la ricezione di notifiche.
 
-## <a id="connecting-app"></a>Connettere l'app all'hub di notifica
+## <a name="connect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Connettere l'app all'hub di notifica
 
 ### <a name="add-google-play-services-to-the-project"></a>Aggiungere Google Play Services al progetto
 
@@ -177,8 +177,8 @@ L'hub è ora configurato per l'uso di Firebase Cloud Messaging. Sono anche dispo
 
     Aggiornare questi tre segnaposto nel codice seguente per la classe `NotificationSettings`:
 
-   * **HubListenConnectionString**: la stringa di connessione **DefaultListenAccessSignature** per l'hub. È possibile copiare la stringa di connessione facendo clic su **Criteri di accesso** nell'hub nel [portale di Azure].
-   * **HubName**: Usare il nome dell'hub visualizzato nella pagina dell'hub del [portale di Azure].
+   * **HubListenConnectionString**: la stringa di connessione **DefaultListenAccessSignature** per l'hub. È possibile copiare la stringa di connessione facendo clic su **Criteri di accesso** nell'hub nel [Azure portal].
+   * **HubName**: Usare il nome dell'hub visualizzato nella pagina dell'hub del [Azure portal].
 
      `NotificationSettings` :
 
@@ -407,7 +407,7 @@ L'hub è ora configurato per l'uso di Firebase Cloud Messaging. Sono anche dispo
     }
     ```
 
-9. Il metodo `ToastNotify` usa il controllo *"Hello World"* `TextView` per segnalare lo stato e le notifiche in modo permanente nell'app. Nel layout **res** > **layout** > **activity_main.xml** aggiungere l'ID seguente per questo controllo.
+9. Il metodo `ToastNotify` usa il controllo *"Hello World"* `TextView` per segnalare lo stato e le notifiche in modo persistente nell'app. Nel layout **res** > **layout** > **activity_main.xml** aggiungere l'ID seguente per questo controllo.
 
     ```java
     android:id="@+id/text_hello"
@@ -540,7 +540,7 @@ L'hub è ora configurato per l'uso di Firebase Cloud Messaging. Sono anche dispo
 
 ## <a name="test-send-notification-from-the-notification-hub"></a>Testare la notifica di invio dall'hub di notifica
 
-È possibile inviare notifiche push dal [portale di Azure] eseguendo questi passaggi:
+È possibile inviare notifiche push dal [Azure portal] eseguendo questi passaggi:
 
 1. Nella pagina Hub di notifica per l'hub nel portale di Azure selezionare **Invio di prova** nella sezione **Risoluzione dei problemi**.
 3. Per **Platforms** (Piattaforme) selezionare **Android**.
@@ -573,4 +573,4 @@ In questa esercitazione è stato usato Firebase Cloud Messaging per trasmettere 
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: https://go.microsoft.com/fwlink/?LinkId=389800
 [Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
-[Portale di Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

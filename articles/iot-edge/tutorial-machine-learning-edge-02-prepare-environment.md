@@ -4,16 +4,16 @@ description: "Esercitazione: Preparare l'ambiente per lo sviluppo e la distribuz
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 1/23/2020
+ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9809a9b4d644a1fa11fe9cce1cbd35b037206b29
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 42c776d4d6c3973e7c222c9c9adf3e5105f6c84f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944284"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79296804"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Esercitazione: Configurare un ambiente di Machine Learning in IoT Edge
 
@@ -189,18 +189,19 @@ Durante la creazione dell'hub IoT, lo script eseguito nella sezione precedente h
 
 1. Espandere la sezione **Archiviazione**:
 
-   ![Verificare che turbofandevicestorage sia presente nell'elenco di endpoint personalizzati](media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png)
+   ![Verificare che turbofanDeviceStorage sia presente nell'elenco di endpoint personalizzati](media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png)
 
-   In effetti **turbofandevicestorage** è incluso nell'elenco di endpoint personalizzati. Notare le caratteristiche seguenti sull'endpoint:
+   In effetti **turbofanDeviceStorage** è incluso nell'elenco di endpoint personalizzati. Notare le caratteristiche seguenti sull'endpoint:
 
    * Punta al contenitore di archiviazione BLOB creato, denominato `devicedata`, come indicato da **Nome contenitore**.
    * Il **formato del nome file** include partition come ultimo elemento. Questo formato è più pratico per le operazioni sui file che verranno eseguite in seguito con Azure Notebooks nell'esercitazione.
+   * Lo **Stato** deve essere integro.
 
 1. Selezionare la scheda **Route**.
 
 1. Selezionare la route denominata **turbofanDeviceDataToStorage**.
 
-1. Nella pagina**Dettagli route** notare che l'endpoint della route è **turbofanDeviceStorage**.
+1. Nella pagina **Dettagli route** notare che l'endpoint della route è **turbofanDeviceStorage**.
 
    ![Esaminare i dettagli relativi alla route turbofanDeviceDataToStorage](media/tutorial-machine-learning-edge-02-prepare-environment/route-details.png)
 

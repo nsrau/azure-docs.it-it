@@ -5,16 +5,16 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ab12b206d5bb82956a8b607368af44ea0eaca40e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 30b66414e87f642bc72b8723ebff57f2e9009f17
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471036"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239245"
 ---
-# <a name="tutorial-troubleshoot-resource-manager-template-deployments"></a>Esercitazione: Risolvere i problemi delle distribuzioni dei modelli di Resource Manager
+# <a name="tutorial-troubleshoot-arm-template-deployments"></a>Esercitazione: Risolvere i problemi delle distribuzioni di modelli di Azure Resource Manager
 
-Questa esercitazione illustra come risolvere gli errori nelle distribuzioni dei modelli di Resource Manager. Nel corso dell'esercitazione si configurano due errori in un modello e si apprende come usare i log attività e la cronologia di distribuzione per risolvere i problemi.
+Questa esercitazione illustra come risolvere gli errori nelle distribuzioni dei modelli di Azure Resource Manager (ARM). Nel corso dell'esercitazione si configurano due errori in un modello e si apprende come usare i log attività e la cronologia di distribuzione per risolvere i problemi.
 
 Alla distribuzione dei modelli sono correlati due tipi di errori:
 
@@ -35,11 +35,11 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare modelli di Azure Resource Manager](use-vs-code-to-create-template.md).
+* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare i modelli di Azure Resource Manager](use-vs-code-to-create-template.md).
 
 ## <a name="create-a-problematic-template"></a>Creare un modello con errori
 
@@ -128,4 +128,4 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione ha illustrato come risolvere gli errori nelle distribuzioni dei modelli di Resource Manager.  Per altre informazioni, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](common-deployment-errors.md).
+Questa esercitazione ha illustrato come risolvere gli errori nelle distribuzioni dei modelli di Azure Resource Manager.  Per altre informazioni, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](common-deployment-errors.md).

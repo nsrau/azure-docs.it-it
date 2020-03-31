@@ -12,14 +12,14 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 263c7fc208a9dd92858845a948e0f64df8ba2952
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
-ms.translationtype: MT
+ms.openlocfilehash: 73aa01ea08c8bab1395516c31bb46dbfd88045db
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78968375"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79481416"
 ---
-# <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Esercitazione: aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory
+# <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory
 
 Azure Active Directory (Azure AD) contiene un servizio proxy di applicazione che consente agli utenti di accedere alle applicazioni locali effettuando l'accesso con il proprio account Azure AD. Questa esercitazione consente di preparare l'ambiente per l'uso con il proxy di applicazione. Quando l'ambiente è pronto, si userà il portale di Azure per aggiungere un'applicazione locale al tenant di Azure AD.
 
@@ -90,7 +90,7 @@ Aprire le porte seguenti al traffico **in uscita**.
 
    | Numero della porta | Uso |
    | --- | --- |
-   | 80 | Download degli elenchi di revoche di certificati (CRL) durante la convalida del certificato SSL |
+   | 80 | Download degli elenchi di revoche di certificati (CRL) durante la convalida del certificato TLS/SSL |
    | 443 | Tutte le comunicazioni in uscita con il servizio proxy di applicazione |
 
 Se il firewall regola il traffico in base agli utenti di origine, aprire anche le porte 80 e 443 per il traffico proveniente da servizi di Windows in esecuzione come servizio di rete.
@@ -128,7 +128,7 @@ Per installare il connettore:
 
 ### <a name="general-remarks"></a>Osservazioni generali
 
-Se in precedenza è stato installato un connettore, reinstallarlo per ottenere la versione più recente. Per visualizzare informazioni sulle versioni rilasciate in precedenza e sulle modifiche da essi incluse, vedere [proxy di applicazione: cronologia delle versioni](application-proxy-release-version-history.md).
+Se in precedenza è stato installato un connettore, reinstallarlo per ottenere la versione più recente. Per informazioni sulle versioni rilasciate in precedenza e le modifiche incluse, vedere [Cronologia delle versioni del proxy di applicazione](application-proxy-release-version-history.md).
 
 Se si sceglie di avere più server Windows per le applicazioni locali, è necessario installare e registrare il connettore in ogni server. È possibile organizzare i connettori in gruppi di connettori. Per altre informazioni, vedere [Gruppi di connettori](application-proxy-connector-groups.md).
 

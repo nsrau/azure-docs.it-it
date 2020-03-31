@@ -6,19 +6,19 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 10/09/2019
-ms.openlocfilehash: 1d1ddb84c000efaf58356ffdd15382e0b74aa744
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 03/18/2020
+ms.openlocfilehash: b184a42c52384440445181ac44c616c3139e064f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494874"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80130707"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Esercitazione: Creare cluster Apache Hadoop on demand in HDInsight con Azure Data Factory
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-In questa esercitazione si apprenderà come creare un cluster [Apache Hadoop](https://hadoop.apache.org/) su richiesta in Azure HDInsight con Azure Data Factory. Si useranno quindi le pipeline di dati in Azure Data Factory per eseguire i processi Hive ed eliminare il cluster. Al termine di questa esercitazione, si apprenderà come rendere operativa l'esecuzione di un processo Big Data in cui la creazione del cluster, l'esecuzione del processo e l'eliminazione del cluster vengono eseguite in base a una pianificazione.
+Questa esercitazione illustra come creare un cluster [Apache Hadoop](./hadoop/apache-hadoop-introduction.md) su richiesta in Azure HDInsight con Azure Data Factory. Si useranno quindi le pipeline di dati in Azure Data Factory per eseguire i processi Hive ed eliminare il cluster. Al termine di questa esercitazione, si apprenderà come rendere operativa l'esecuzione di un processo Big Data in cui la creazione del cluster, l'esecuzione del processo e l'eliminazione del cluster vengono eseguite in base a una pianificazione.
 
 Questa esercitazione illustra le attività seguenti:
 
@@ -42,7 +42,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="create-preliminary-azure-objects"></a>Creare oggetti di Azure preliminari
 
-In questa sezione si creeranno diversi oggetti che verranno usati per il cluster HDInsight creato su richiesta. L'account di archiviazione creato conterrà lo script [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) di esempio, `partitionweblogs.hql`, che consente di simulare un processo [Apache Hive](https://hive.apache.org/) di esempio eseguito nel cluster.
+In questa sezione si creeranno diversi oggetti che verranno usati per il cluster HDInsight creato su richiesta. L'account di archiviazione creato conterrà lo script [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) di esempio, `partitionweblogs.hql`, che consente di simulare un processo Apache Hive di esempio eseguito nel cluster.
 
 In questa sezione viene usato uno script Azure PowerShell per creare l'account di archiviazione e copiare i file necessari al suo interno. Lo script di esempio di Azure PowerShell di questa sezione consente di eseguire queste operazioni:
 
@@ -52,7 +52,7 @@ In questa sezione viene usato uno script Azure PowerShell per creare l'account d
 4. Creare un contenitore BLOB nell'account di archiviazione
 5. Copiare lo script HiveQL di esempio (**partitionweblogs.hql**) nel contenitore BLOB. Lo script è disponibile all'indirizzo [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql). Lo script di esempio è già disponibile in un altro contenitore BLOB pubblico. Questo script di PowerShell esegue una copia di questi file nell'account di archiviazione di Azure creato.
 
-**Per creare un account di archiviazione e copiare i file con Azure PowerShell:**
+### <a name="create-storage-account-and-copy-files"></a>Creare l'account di archiviazione e copiare i file
 
 > [!IMPORTANT]  
 > Specificare i nomi del gruppo di risorse di Azure e dell'account di archiviazione di Azure che verranno creati dallo script.
@@ -151,7 +151,7 @@ write-host "Storage Account Key: $destStorageAccountKey"
 Write-host "`nScript completed" -ForegroundColor Green
 ```
 
-**Per verificare la creazione dell'account di archiviazione**
+### <a name="verify-storage-account"></a>Verificare l'account di archiviazione
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Da sinistra passare a **Tutti i servizi** > **Generale** > **Gruppi di risorse**.
@@ -167,18 +167,18 @@ Write-host "`nScript completed" -ForegroundColor Green
 
 In Azure Data Factory, una data factory può includere una o più pipeline di dati. Una pipeline di dati include una o più attività. Sono disponibili due tipi di attività:
 
-- [Attività di spostamento dei dati](../data-factory/copy-activity-overview.md) che vengono usate per spostare dati da un archivio dati di origine a un archivio dati di destinazione.
-- [Attività di trasformazione dei dati](../data-factory/transform-data.md). Le attività di trasformazione dei dati vengono usate per trasformare/elaborare i dati. L'attività Hive di HDInsight è una delle attività di trasformazione supportate da Data Factory. L'attività di trasformazione Hive verrà usata in questa esercitazione.
+* [Attività di spostamento dati](../data-factory/copy-activity-overview.md). Le attività di spostamento dati consentono di spostare dati da un archivio dati di origine a un archivio dati di destinazione.
+* [Attività di trasformazione dei dati](../data-factory/transform-data.md). Le attività di trasformazione dei dati vengono usate per trasformare/elaborare i dati. L'attività Hive di HDInsight è una delle attività di trasformazione supportate da Data Factory. L'attività di trasformazione Hive verrà usata in questa esercitazione.
 
 In questo articolo viene configurata l'attività Hive per la creazione di un cluster Hadoop di HDInsight on demand. Ecco cosa accade quando l'attività viene eseguita per elaborare i dati:
 
-1. Viene creato automaticamente un cluster Hadoop di HDInsight JIT per elaborare la sezione. 
+1. Viene creato automaticamente un cluster Hadoop di HDInsight JIT per elaborare la sezione.
 
 2. I dati di input vengono elaborati eseguendo uno script HiveQL nel cluster. In questa esercitazione, lo script HiveQL associato all'attività Hive esegue queste azioni:
 
-    - Usa la tabella esistente (*hivesampletable*) per creare un'altra tabella **HiveSampleOut**.
-    - Popola la tabella **HiveSampleOut** solo con colonne specifiche dalla tabella *hivesampletable* originale.
-    
+    * Usa la tabella esistente (*hivesampletable*) per creare un'altra tabella **HiveSampleOut**.
+    * Popola la tabella **HiveSampleOut** solo con colonne specifiche dalla tabella *hivesampletable* originale.
+
 3. Il cluster Hadoop di HDInsight viene eliminato al termine dell'elaborazione ed è inattivo per l'intervallo di tempo configurato (impostazione timeToLive). Se la sezione dati successiva è disponibile per l'elaborazione entro il tempo di inattività di timeToLive, per l'elaborazione della sezione viene usato lo stesso cluster.  
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
@@ -191,16 +191,16 @@ In questo articolo viene configurata l'attività Hive per la creazione di un clu
 
 3. Immettere o selezionare i valori seguenti per il riquadro **Nuova data factory**:
 
-    |Proprietà  |Valore  |
+    |Proprietà  |valore  |
     |---------|---------|
-    |Name | Immettere un nome per la data factory. Il nome deve essere univoco a livello globale.|
-    |Subscription | Selezionare la sottoscrizione di Azure. |
-    |Resource group | Selezionare **Use existing** (Usa esistente) e quindi selezionare il gruppo di risorse creato con lo script di PowerShell. |
+    |Nome | Immettere un nome per la data factory. Il nome deve essere univoco a livello globale.|
     |Versione | Lasciare **V2**. |
+    |Subscription | Selezionare la sottoscrizione di Azure. |
+    |Resource group | Selezionare il gruppo di risorse creato con lo script di PowerShell. |
     |Location | Il percorso viene automaticamente impostato sulla posizione specificata durante la creazione del gruppo di risorse precedente. Per questa esercitazione la posizione è impostata su **Stati Uniti orientali**. |
     |Abilitare GIT|Deselezionare questa casella.|
 
-    ![Creare Azure Data Factory tramite il portale di Azure](./media/hdinsight-hadoop-create-linux-clusters-adf/create-data-factory-portal.png "Creare Azure Data Factory tramite il portale di Azure")
+    ![Creare Azure Data Factory tramite il portale di Azure](./media/hdinsight-hadoop-create-linux-clusters-adf/azure-portal-create-data-factory.png "Creare Azure Data Factory tramite il portale di Azure")
 
 4. Selezionare **Create** (Crea). La creazione di una data factory potrebbe richiedere tra 2 e 4 minuti.
 
@@ -214,8 +214,8 @@ In questo articolo viene configurata l'attività Hive per la creazione di un clu
 
 In questa sezione si creano due servizi collegati nella data factory.
 
-- Un **servizio collegato Archiviazione di Azure** che collega un account di archiviazione di Azure alla data factory. Questo archivio viene usato dal cluster HDInsight su richiesta. Include anche lo script Hive che è in esecuzione nel cluster.
-- Un **servizio collegato HDInsight su richiesta**. Azure Data Factory crea automaticamente un cluster HDInsight ed esegue lo script Hive. Elimina quindi il cluster HDInsight dopo un tempo di inattività preconfigurato.
+* Un **servizio collegato Archiviazione di Azure** che collega un account di archiviazione di Azure alla data factory. Questo archivio viene usato dal cluster HDInsight su richiesta. Include anche lo script Hive che è in esecuzione nel cluster.
+* Un **servizio collegato HDInsight su richiesta**. Azure Data Factory crea automaticamente un cluster HDInsight ed esegue lo script Hive. Elimina quindi il cluster HDInsight dopo un tempo di inattività preconfigurato.
 
 ### <a name="create-an-azure-storage-linked-service"></a>Creare un servizio collegato Archiviazione di Azure
 
@@ -233,9 +233,9 @@ In questa sezione si creano due servizi collegati nella data factory.
 
 4. Specificare i valori seguenti per il servizio collegato di archiviazione:
 
-    |Proprietà |Valore |
+    |Proprietà |valore |
     |---|---|
-    |Name |Immettere `HDIStorageLinkedService`.|
+    |Nome |Immettere `HDIStorageLinkedService`.|
     |Sottoscrizione di Azure |Selezionare la sottoscrizione dall'elenco a discesa.|
     |Nome dell'account di archiviazione |Selezionare l'account di Archiviazione di Azure creato con lo script di PowerShell.|
 
@@ -255,9 +255,9 @@ In questa sezione si creano due servizi collegati nella data factory.
 
 4. Nella finestra **Nuovo Servizio collegato** immettere i valori seguenti e lasciare le altre impostazioni sui valori predefiniti:
 
-    | Proprietà | Valore |
+    | Proprietà | valore |
     | --- | --- |
-    | Name | Immettere `HDInsightLinkedService`.|
+    | Nome | Immettere `HDInsightLinkedService`.|
     | Type | Selezionare **On-demand HDInsight** (HDInsight su richiesta). |
     | Servizio collegato Archiviazione di Azure | Selezionare `HDIStorageLinkedService`. |
     | Tipo di cluster | Selezionare **hadoop** |
@@ -282,15 +282,15 @@ In questa sezione si creano due servizi collegati nella data factory.
 
     ![Creare una pipeline in Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-create-pipeline.png "Creare una pipeline in Azure Data Factory")
 
-2. Nella casella degli strumenti **Attività** espandere **HDInsight** e trascinare l'attività **Hive** nell'area di progettazione della pipeline. Nella scheda **Generale** specificare un nome per l'attività.
+1. Nella casella degli strumenti **Attività** espandere **HDInsight** e trascinare l'attività **Hive** nell'area di progettazione della pipeline. Nella scheda **Generale** specificare un nome per l'attività.
 
     ![Aggiungere attività alla pipeline di Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-add-hive-pipeline.png "Aggiungere attività alla pipeline di Data Factory")
 
-3. Assicurarsi che l'attività Hive sia selezionata, selezionare la scheda **Cluster HDInsight** e nell'elenco a discesa **HDInsight Linked Service** (Servizio collegato HDInsight) selezionare il servizio collegato creato in precedenza per HDInsight, **HDInsightLinkedService**.
+1. Assicurarsi che l'attività Hive sia selezionata, selezionare la scheda **Cluster HDInsight** e nell'elenco a discesa **HDInsight Linked Service** (Servizio collegato HDInsight) selezionare il servizio collegato creato in precedenza per HDInsight, **HDInsightLinkedService**.
 
     ![Specificare i dettagli del cluster HDInsight per la pipeline](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-hive-activity-select-hdinsight-linked-service.png "Specificare i dettagli del cluster HDInsight per la pipeline")
 
-4. Selezionare la scheda **Script** e completare questa procedura:
+1. Selezionare la scheda **Script** e completare questa procedura:
 
     1. Per **Servizio script collegato** selezionare **HDIStorageLinkedService** dall'elenco a discesa. Questo è il valore del servizio di archiviazione collegato creato in precedenza.
 
@@ -298,8 +298,10 @@ In questa sezione si creano due servizi collegati nella data factory.
 
         ![Specificare i dettagli dello script Hive per la pipeline](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-path.png "Specificare i dettagli dello script Hive per la pipeline")
 
-    1. In **Avanzate** > **Parametri**, selezionare **Auto-fill from script** (Compila automaticamente da script). Questa opzione ricerca tutti i parametri nello script Hive che richiedono valori in fase di esecuzione. Lo script usato (**partitionweblogs.hql**) ha un parametro **Output**. Specificare il **valore** nel formato `wasbs://adfgetstarted@<StorageAccount>.blob.core.windows.net/outputfolder/` in modo fare riferimento a una cartella esistente in Archiviazione di Azure. Il percorso fa distinzione tra maiuscole e minuscole. Questo è il percorso in cui verrà archiviato l'output dello script. Lo schema `wasbs` è necessario perché per gli account di archiviazione è ora abilitato il trasferimento sicuro necessario per impostazione predefinita.
-    
+    1. In **Avanzate** > **Parametri**, selezionare **Auto-fill from script** (Compila automaticamente da script). Questa opzione ricerca tutti i parametri nello script Hive che richiedono valori in fase di esecuzione.
+
+    1. Nella casella di testo **Valore** aggiungere la cartella esistente nel formato `wasbs://adfgetstarted@<StorageAccount>.blob.core.windows.net/outputfolder/`. Per il percorso viene applicata la distinzione tra maiuscole e minuscole. Questo è il percorso in cui verrà archiviato l'output dello script. Lo schema `wasbs` è necessario perché per gli account di archiviazione è ora abilitato il trasferimento sicuro necessario per impostazione predefinita.
+
         ![Specificare i parametri per lo script Hive](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-parameters.png "Specificare i parametri per lo script Hive")
 
 1. Per convalidare la pipeline, selezionare **Convalida**. Selezionare il pulsante **>>** (freccia destra) per chiudere la finestra di convalida.
@@ -316,7 +318,7 @@ In questa sezione si creano due servizi collegati nella data factory.
 
     ![Attivare la pipeline di Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-trigger-pipeline.png "Attivare la pipeline di Azure Data Factory")
 
-2. Selezionare **Fine** nella barra laterale popup.
+2. Selezionare **OK** nella barra laterale popup.
 
 ## <a name="monitor-a-pipeline"></a>Monitorare una pipeline
 
@@ -334,11 +336,11 @@ In questa sezione si creano due servizi collegati nella data factory.
 
 1. Per verificare l'output, nel portale di Azure passare all'account di archiviazione usato per questa esercitazione. Verranno visualizzate le cartelle o i contenitori seguenti:
 
-    - Viene visualizzato **adfgerstarted/outputfolder** che contiene l'output dello script Hive che è stato eseguito come parte della pipeline.
+    * Viene visualizzato **adfgerstarted/outputfolder** che contiene l'output dello script Hive che è stato eseguito come parte della pipeline.
 
-    - Viene visualizzato un contenitore **adfhdidatafactory-\<linked-service-name>-\<timestamp>** . Questo contenitore è il percorso di archiviazione predefinito del cluster HDInsight che è stato creato come parte dell'esecuzione della pipeline.
+    * Viene visualizzato un contenitore **adfhdidatafactory-\<linked-service-name>-\<timestamp>** . Questo contenitore è il percorso di archiviazione predefinito del cluster HDInsight che è stato creato come parte dell'esecuzione della pipeline.
 
-    - Viene visualizzato un contenitore **adfjobs** che include i log del processo di Azure Data Factory.  
+    * Viene visualizzato un contenitore **adfjobs** che include i log del processo di Azure Data Factory.  
 
         ![Verificare l'output della pipeline di Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-verify-output.png "Verificare l'output della pipeline di Azure Data Factory")
 
@@ -361,7 +363,8 @@ In alternativa, è possibile eliminare l'intero gruppo di risorse creato per que
 1. Immettere il nome del gruppo di risorse per confermare l'eliminazione e quindi fare clic su **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Questo articolo descrive come usare Azure Data Factory per creare il cluster HDInsight on demand per l'elaborazione dei processi [Apache Hive](https://hive.apache.org/). Passare al prossimo articolo per apprendere come creare cluster HDInsight con una configurazione personalizzata.
 
 > [!div class="nextstepaction"]
->[Creare cluster HDInsight di Azure con la configurazione personalizzata](hdinsight-hadoop-provision-linux-clusters.md)
+> [Creare cluster HDInsight di Azure con la configurazione personalizzata](hdinsight-hadoop-provision-linux-clusters.md)

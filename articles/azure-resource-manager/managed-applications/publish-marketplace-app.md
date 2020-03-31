@@ -5,14 +5,14 @@ author: tfitzmac
 ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 73d4ccbda854d631248daef439aa3bd232d42e06
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: a42ee5d6f7f40d391acb743ef85f671f25804749
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75649068"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472997"
 ---
-# <a name="azure-managed-applications-in-the-marketplace"></a>Applicazioni gestite di Azure nel marketplace
+# <a name="tutorial-publish-azure-managed-applications-in-the-marketplace"></a>Esercitazione: Pubblicare un'applicazione gestita di Azure nel Marketplace
 
 I fornitori possono usare le applicazioni gestite per offrire le proprie soluzioni a tutti i clienti di Azure Marketplace. Per fornitori si intendono i provider di servizi gestiti, i fornitori di software indipendente e gli integratori di sistemi. Le applicazioni gestite riducono l'overhead derivante da manutenzione e gestione per i clienti. I fornitori possono vendere l'infrastruttura e il software tramite il marketplace. Possono collegare servizi e supporto operativo alle applicazioni gestite. Per altre informazioni, vedere [Panoramica delle applicazioni gestite di Azure](overview.md).
 

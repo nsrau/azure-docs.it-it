@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 03/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 58a7689263f9bc761eb0b904a9376c1ca0112c13
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: f2b51213dfc6d7e55f76e78b92d12111f84736be
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128095"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79365390"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Esercitazione: Creare un pool di host per convalidare gli aggiornamenti dei servizi
 
@@ -76,7 +76,7 @@ Gli aggiornamenti del servizio vengono eseguiti mensilmente. Se sono presenti pr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che è stato creato un pool di host di convalida, è possibile imparare a distribuire e connettersi a uno strumento di gestione per la gestione delle risorse di Desktop virtuale Microsoft.
+Ora che è stato creato un pool di host di convalida, si apprenderà a usare Integrità dei servizi di Azure per monitorare la distribuzione di Desktop virtuale Windows. 
 
 > [!div class="nextstepaction"]
-> [Esercitazione per la distribuzione di uno strumento di gestione](./manage-resources-using-ui.md)
+> [Configurare gli avvisi dei servizi](./set-up-service-alerts.md)

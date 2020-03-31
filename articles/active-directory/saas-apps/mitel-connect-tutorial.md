@@ -16,17 +16,17 @@ ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
 ms.openlocfilehash: 30a4dcbd15d8a47d99b3a61879a7e61938d3b133
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160545"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect"></a>Esercitazione: Integrazione di Azure Active Directory con Mitel MiCloud Connect
 
 Questa esercitazione descrive come integrare Mitel MiCloud Connect con Azure Active Directory (Azure AD). L'integrazione di MiCloud Connect con Azure AD offre i vantaggi seguenti:
 
-* È possibile controllare in Azure AD chi ha accesso alle app MiCloud Connect usando le credenziali aziendali.
+* È possibile controllare in Azure AD chi può accedere alle app MiCloud Connect usando le credenziali aziendali.
 * È possibile abilitare gli utenti dell'account per l'accesso automatico (Single Sign-On) a MiCloud Connect con gli account Azure AD personali.
 
 
@@ -79,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure Ad con MiCloud Conne
 1. **[Configurare MiCloud Connect per l'accesso SSO con Azure AD](#configure-micloud-connect-for-sso-with-azure-ad)** : per abilitare gli utenti per l'uso di questa funzionalità e configurare le impostazioni di SSO sul lato applicazione.
 2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-4. **[Creare un utente di test di Mitel MiCloud Connect](#create-a-mitel-micloud-connect-test-user)** : per avere una controparte di Britta Simon in MiCloud Connect collegata alla relativa rappresentazione in Azure AD.
+4. **[Creare l'utente di test di Mitel MiCloud Connect](#create-a-mitel-micloud-connect-test-user)** : per avere una controparte di Britta Simon in MiCloud Connect collegata alla relativa rappresentazione in Azure AD.
 5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-micloud-connect-for-sso-with-azure-ad"></a>Configurare MiCloud Connect per l'accesso SSO con Azure AD
@@ -172,7 +172,7 @@ Ad esempio: BrittaSimon@contoso.com.
 
     d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Mitel Connect.
 
@@ -198,7 +198,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic su **Assegna**.
 
-### <a name="create-a-mitel-micloud-connect-test-user"></a>Creare un utente di test di Mitel MiCloud Connect
+### <a name="create-a-mitel-micloud-connect-test-user"></a>Creare l'utente di test di Mitel MiCloud Connect
 
 In questa sezione viene creato un utente di nome Britta Simon nell'account di MiCloud Connect. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
@@ -214,7 +214,7 @@ Esempio: [brittasimon@contoso.com](mailto:brittasimon@contoso.com)
 * **Nome utente:** `brittasimon@<yourcompanydomain>.<extension>`  
 Esempio: [brittasimon@contoso.com](mailto:brittasimon@contoso.com); il nome utente corrisponde in genere all'indirizzo di posta elettronica aziendale
 
-**NOTA:** il nome utente di MiCloud Connect deve essere identico all'indirizzo di posta elettronica dell'utente in Azure.
+**NOTA** il nome utente di MiCloud Connect deve essere identico all'indirizzo di posta elettronica dell'utente in Azure.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

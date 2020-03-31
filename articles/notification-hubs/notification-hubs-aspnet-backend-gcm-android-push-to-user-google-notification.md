@@ -17,14 +17,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: b68d77bfdcf3fee0285b3c03ae0c598a3f6875c0
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 709926671e1ad4d8beefaf0f1cff4c56b1948ca3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531140"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80127375"
 ---
-# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Esercitazione: Effettuare il push di notifiche a utenti specifici dell'applicazione Android con Hub di notifica di Azure e Google Cloud Messaging (deprecato)
+# <a name="tutorial-send-push-notification-to-specific-android-users-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Esercitazione: Inviare notifiche push a utenti Android specifici con Hub di notifica di Azure e Google Cloud Messaging (deprecato)
 
 > [!WARNING]
 > A partire dal 10 aprile 2018, Google ha deprecato Google Cloud Messaging (GCM). Il server GCM e le API client sono deprecati e verranno rimossi entro il 29 maggio 2019. Per altre informazioni, vedere le [domande frequenti su GCM ed FCM](https://developers.google.com/cloud-messaging/faq).
@@ -40,7 +40,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 > * Aggiornare un'applicazione Android.
 > * Testare l'app
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Completare l'[Esercitazione: Effettuare il push di notifiche ai dispositivi Android con Hub di notifica di Azure e Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md) prima di avviare questa esercitazione.
 

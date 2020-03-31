@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con ITRP | Microsoft Docs'
-description: In questa esercitazione si apprenderà come configurare l'accesso Single Sign-On tra Azure Active Directory e ITRP.
+description: Questa esercitazione descrive come configurare l'accesso Single Sign-On tra Azure Active Directory e ITRP.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: d44391624e29d2bdd182bb07452e0e8def2d1407
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67656684"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Esercitazione: Integrazione di Azure Active Directory con ITRP
@@ -79,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con ITRP, è nece
 2. **[Configurare l'accesso Single Sign-On di ITRP](#configure-itrp-single-sign-on)** sul lato dell'applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** per abilitare l'accesso Single Sign-On di Azure AD per tale utente.
-5. **[Creare un utente di test di ITRP](#create-an-itrp-test-user)** collegato alla rappresentazione di Azure AD dell'utente.
+5. **[Creare l'utente di test di ITRP](#create-an-itrp-test-user)** collegato alla rappresentazione di Azure AD dell'utente.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -139,17 +139,17 @@ Per configurare l'accesso Single Sign-On di Azure AD con ITRP, seguire questa pr
 
 1. Nella parte superiore della finestra selezionare l'icona **Settings** (Impostazioni):
 
-    ![Icona Settings (Impostazioni)](./media/itrp-tutorial/ic775570.png "Icona Settings (Impostazioni)")
+    ![Icona Impostazioni](./media/itrp-tutorial/ic775570.png "Icona Impostazioni")
 
 1. Nel riquadro sinistro selezionare **Single Sign-On**:
 
-    ![Selezionare Single Sign-On](./media/itrp-tutorial/ic775571.png "Selezionare Single Sign-On")
+    ![Selezione di Single Sign-On](./media/itrp-tutorial/ic775571.png "Selezionare Single Sign-On")
 
 1. Nella sezione di configurazione per **Single Sign-On** seguire questa procedura.
 
-    ![Sezione Single Sign-On](./media/itrp-tutorial/ic775572.png "Single Sign-On")
+    ![Sezione Single Sign-On](./media/itrp-tutorial/ic775572.png "Sezione Single Sign-On")
 
-    ![Sezione Single Sign-On](./media/itrp-tutorial/ic775573.png "Single Sign-On")
+    ![Sezione Single Sign-On](./media/itrp-tutorial/ic775573.png "Sezione Single Sign-On")
 
     1. Selezionare **Enabled**.
 
@@ -161,7 +161,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ITRP, seguire questa pr
 
     1. Selezionare **Salva**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome Britta Simon nel portale di Azure.
 
@@ -185,7 +185,7 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
     1. Selezionare **Create** (Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a ITRP.
 
@@ -211,29 +211,29 @@ In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Si
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna**.
 
-### <a name="create-an-itrp-test-user"></a>Creare un utente di test di ITRP
+### <a name="create-an-itrp-test-user"></a>Creare l'utente di test di ITRP
 
 Per consentire agli utenti di Azure AD di accedere a ITRP, aggiungerli a ITRP. È necessario aggiungerli manualmente.
 
-Per creare un account utente, seguire questi passaggi:
+Per creare un account utente, seguire questa procedura:
 
 1. Accedere al tenant ITRP.
 
 1. Nella parte superiore della finestra selezionare l'icona **Records** (Record):
 
-    ![Icona Records (Record)](./media/itrp-tutorial/ic775575.png "Icona Records (Record)")
+    ![Icona Records](./media/itrp-tutorial/ic775575.png "Icona Records")
 
 1. Nel menu selezionare **People** (Persone):
 
-    ![Selezionare People (Persone)](./media/itrp-tutorial/ic775587.png "Selezionare People (Persone)")
+    ![Selezione di People](./media/itrp-tutorial/ic775587.png "Selezione di People")
 
 1. Selezionare il segno più ( **+** ) per aggiungere una nuova persona:
 
-    ![Selezionare il segno più](./media/itrp-tutorial/ic775576.png "Selezionare il segno più")
+    ![Selezione del segno più](./media/itrp-tutorial/ic775576.png "Selezione del segno più")
 
 1. Nella finestra di dialogo **Add New Person** (Aggiungi nuova persona) seguire questa procedura.
 
-    ![Finestra di dialogo Add New Person (Aggiungi nuova persona)](./media/itrp-tutorial/ic775577.png "Finestra di dialogo Add New Person (Aggiungi nuova persona)")
+    ![Finestra di dialogo Add New Person](./media/itrp-tutorial/ic775577.png "Finestra di dialogo Add New Person")
 
     1. Immettere il nome e l'indirizzo di posta elettronica di un account Azure AD valido che si vuole aggiungere.
 
@@ -246,7 +246,7 @@ Per creare un account utente, seguire questi passaggi:
 
 Il passaggio finale consiste nel testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si seleziona il riquadro di ITRP nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di ITRP per cui si è configurato l'accesso SSO. Per altre informazioni sul Pannello di accesso, vedere [Accedere e usare le app nel portale App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si seleziona il riquadro di ITRP nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di ITRP per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Accedere e usare le app nel portale di My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

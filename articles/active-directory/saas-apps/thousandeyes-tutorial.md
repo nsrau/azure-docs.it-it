@@ -17,10 +17,10 @@ ms.date: 10/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd179049f88454c62244cf1819cee08ef78d0633
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72373243"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-thousandeyes"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con ThousandEyes
@@ -132,9 +132,9 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. In un'altra finestra del browser Web accedere al sito aziendale di **ThousandEyes** come amministratore.
 
-2. Nel menu in alto fare clic su **Impostazioni**.
+2. Nel menu in alto fare clic su **Settings** (Impostazioni).
 
-    ![Impostazioni](./media/thousandeyes-tutorial/ic790066.png "Impostazioni")
+    ![Settings](./media/thousandeyes-tutorial/ic790066.png "Impostazioni")
 
 3. Fare clic su **Account**
 
@@ -142,11 +142,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 4. Fare clic sulla scheda **Security & Authentication** (Sicurezza e autenticazione).
 
-    ![Sicurezza e autenticazione](./media/thousandeyes-tutorial/ic790068.png "Security e autenticazione")
+    ![Security & Authentication](./media/thousandeyes-tutorial/ic790068.png "Protezione e autenticazione")
 
-5. Nella sezione **Setup Single Sign-On** eseguire la procedura seguente:
+5. Nella sezione **Setup Single Sign-On** (Configura Single Sign-On) seguire questa procedura:
 
-    ![Configurare l'accesso Single Sign-On](./media/thousandeyes-tutorial/ic790069.png "Configurare l'accesso Single Sign-On")
+    ![Setup Single Sign-On](./media/thousandeyes-tutorial/ic790069.png "Setup Single Sign-On")
 
     a. Selezionare **Enable Single Sign-On**.
 
@@ -158,11 +158,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     e. In **Certificato di verifica** fare clic su **Scegli file** e quindi caricare il certificato scaricato dal portale di Azure.
 
-    f. Fare clic su **Save**.
+    f. Fare clic su **Salva**.
 
 ### <a name="create-thousandeyes-test-user"></a>Creare l'utente di test di ThousandEyes
 
-Questa sezione descrive come creare un utente chiamato Britta Simon in ThousandEyes. ThousandEyes supporta il provisioning utenti automatico, che è abilitato per impostazione predefinita. È possibile scoprire più dettagli [qui](thousandeyes-provisioning-tutorial.md) su come configurare il provisioning utenti automatico.
+Questa sezione descrive come creare un utente chiamato Britta Simon in ThousandEyes. ThousandEyes supporta il provisioning utenti automatico, che è abilitato per impostazione predefinita. Altri dettagli su come configurare il provisioning utenti automatico sono disponibili [qui](thousandeyes-provisioning-tutorial.md).
 
 **Per creare un utente manualmente, seguire questa procedura:**
 
@@ -178,11 +178,11 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in ThousandE
 
 4. Fare clic sulla scheda **Accounts & Users** (Account e utenti).
 
-    ![Account e utenti](./media/thousandeyes-tutorial/IC790073.png "Account e utenti")
+    ![Accounts & Users](./media/thousandeyes-tutorial/IC790073.png "Account e utenti")
 
 5. Nella sezione **Add Users & Accounts** (Account e utenti) eseguire la procedura seguente:
 
-    ![Aggiungere account utente](./media/thousandeyes-tutorial/IC790074.png "Aggiungere account utente")
+    ![Add Users & Accounts](./media/thousandeyes-tutorial/IC790074.png "Aggiungi account utente")
 
     a. Nella casella di testo **Name** (Nome) digitare il nome dell'utente, ad esempio **B.Simon**.
 

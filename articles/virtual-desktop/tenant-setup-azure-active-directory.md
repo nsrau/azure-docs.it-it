@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6a70e52771828de6cc9fad7998097d70c28a64fd
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
-ms.translationtype: MT
+ms.openlocfilehash: 9f9f7f709d31967e892900ccb25657a5963c0379
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127418"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79370220"
 ---
-# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Esercitazione: creare un tenant in un desktop virtuale Windows
+# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Esercitazione: Creare un tenant in Desktop virtuale Windows
 
 La creazione di un tenant di Desktop virtuale Windows è il primo passaggio per lo sviluppo di una soluzione di virtualizzazione desktop. Un tenant è un gruppo di uno o più pool di host. Ogni pool di host è costituito da più host di sessione, in esecuzione come macchine virtuali in Azure e registrati nel servizio Desktop virtuale Windows. Ogni pool di host è inoltre costituito da uno o più gruppi di app usati per pubblicare le risorse delle applicazioni desktop e remote per gli utenti. Con un tenant è possibile creare pool di host e gruppi di app, assegnare utenti e stabilire connessioni tramite il servizio.
 
@@ -73,7 +73,7 @@ L'assegnazione del ruolo applicazione TenantCreator a un utente di Azure Active 
 
 Per assegnare il ruolo applicazione TenantCreator:
 
-1. Passare alla [portale di Azure](https://portal.azure.com) per gestire il ruolo applicazione TenantCreator. Cercare e selezionare **Applicazioni aziendali**. Se si usano più tenant di Azure Active Directory, la procedura consigliata è di aprire una sessione privata del browser e di copiare e incollare gli URL nella barra degli indirizzi.
+1. Accedere al [portale di Azure](https://portal.azure.com) per gestire il ruolo applicazione TenantCreator. Cercare e selezionare **Applicazioni aziendali**. Se si usano più tenant di Azure Active Directory, la procedura consigliata è di aprire una sessione privata del browser e di copiare e incollare gli URL nella barra degli indirizzi.
 
    ![Screenshot della ricerca di applicazioni aziendali nel portale di Azure](media/azure-portal-enterprise-applications.png)
 2. All'interno di **Applicazioni aziendali** cercare **Desktop virtuale Windows**. Verranno visualizzate le due applicazioni per cui è stato fornito il consenso nella sezione precedente. Tra queste due app, selezionare **Desktop virtuale Windows**.
@@ -82,7 +82,7 @@ Per assegnare il ruolo applicazione TenantCreator:
 3. Selezionare **Utenti e gruppi**. Come si può vedere, l'amministratore che ha concesso il consenso per l'applicazione è già presente nell'elenco con il ruolo **Accesso predefinito**. Questo ruolo non è sufficiente per creare un tenant di Desktop virtuale Windows. Continuare a seguire queste istruzioni per aggiungere il ruolo **TenantCreator** a un utente.
    
    ![Screenshot degli utenti e dei gruppi assegnati per gestire l'applicazione aziendale "Desktop virtuale Windows". Lo screenshot illustra solo un'assegnazione, relativa ad "Accesso predefinito".](media/tenant-default-access.png)
-4. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nel pannello **Aggiungi assegnazione**.
+4. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella scheda **Aggiungi assegnazione**.
 5. Cercare un account utente che creerà il tenant di Desktop virtuale Windows. Per semplicità, può essere l'account di amministratore globale.
    - Se si usa un provider di identità Microsoft, ad esempio contosoadmin@live.com o contosoadmin@outlook.com, potrebbe non essere possibile accedere a Desktop virtuale Windows. È consigliabile usare invece un account specifico del dominio come admin@contoso.com o admin@contoso.onmicrosoft.com.
 

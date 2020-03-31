@@ -17,10 +17,10 @@ ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b28390dba009226d493f5bfc6a5270b067f5bba0
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73570532"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>Esercitazione: Integrare Sage Intacct con Azure Active Directory
@@ -108,7 +108,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     f. Fare clic su **OK**.
 
-    g. Fare clic su **Save**.
+    g. Fare clic su **Salva**.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -154,15 +154,15 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Fare clic sulla scheda **Company** (Azienda) e quindi su **Company Info** (Informazioni sull'azienda).
 
-    ![Azienda](./media/intacct-tutorial/ic790037.png "Azienda")
+    ![Company](./media/intacct-tutorial/ic790037.png "Company")
 
 1. Fare clic sulla scheda **Security** (Sicurezza) e quindi su **Edit** (Modifica).
 
-    ![Sicurezza](./media/intacct-tutorial/ic790038.png "Sicurezza")
+    ![Sicurezza](./media/intacct-tutorial/ic790038.png "Security")
 
 1. Nella sezione **Single sign on (SSO)** seguire questa procedura:
 
-    ![Single sign on](./media/intacct-tutorial/ic790039.png "single sign on")
+    ![Single sign on](./media/intacct-tutorial/ic790039.png "Single Sign-On")
 
     a. Selezionare **Abilita Single Sign-On**.
 
@@ -174,7 +174,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     e. Aprire il certificato con codifica **Base 64** nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella **Certificato**.
 
-    f. Fare clic su **Save**.
+    f. Fare clic su **Salva**.
 
 ### <a name="create-sage-intacct-test-user"></a>Creare l'utente di test di Sage Intacct
 
@@ -186,15 +186,15 @@ Per consentire agli utenti di Azure AD di accedere a Sage Intacct, è necessario
 
 1. Fare clic sulla scheda **Company** (Azienda) e quindi su **Users** (Utenti).
 
-    ![Utenti](./media/intacct-tutorial/ic790041.png "Utenti")
+    ![Users](./media/intacct-tutorial/ic790041.png "Utenti")
 
 1. Fare clic sulla scheda **Add** (Aggiungi).
 
-    ![Aggiungi](./media/intacct-tutorial/ic790042.png "Aggiungi")
+    ![Add](./media/intacct-tutorial/ic790042.png "Add")
 
-1. Nella sezione **Informazioni utente** seguire questa procedura:
+1. Nella sezione **User Information** (Informazioni utente) seguire questa procedura:
 
-    ![Informazioni utente](./media/intacct-tutorial/ic790043.png "Informazioni utente")
+    ![User Information](./media/intacct-tutorial/ic790043.png "Informazioni utente")
 
     a. Nelle caselle di testo **User ID**, **Last name**, **First name**, **Email address**, **Title** e **Phone** immettere l'ID utente, il cognome, il nome, l'indirizzo di posta elettronica, la posizione e il numero di telefono di un account Azure AD di cui si vuole eseguire il provisioning nella sezione **Informazioni utente**.
 
@@ -203,13 +203,13 @@ Per consentire agli utenti di Azure AD di accedere a Sage Intacct, è necessario
 
     b. Selezionare i **privilegi di amministratore** di un account Azure AD di cui si vuole eseguire il provisioning.
 
-    c. Fare clic su **Save**. 
+    c. Fare clic su **Salva**. 
     
     d. Il titolare dell'account Azure AD riceve un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo.
 
 1. Fare clic sulla scheda **Single sign-on** e assicurarsi che il campo **Federated SSO user ID** (ID utente SSO federato) nello screenshot seguente e il valore **Source Attribute** (Attributo di origine), di cui è stato eseguito il mapping a `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` nella sezione **Attributi utente** del portale di Azure, siano identici.
 
-    ![Informazioni utente](./media/intacct-tutorial/ic790044.png "Informazioni utente")
+    ![User Information](./media/intacct-tutorial/ic790044.png "Informazioni utente")
 
 > [!NOTE]
 > Per effettuare il provisioning degli account utente di Azure AD, è possibile usare altri strumenti o API per la creazione di account utente Intacct forniti da Sage Intacct.

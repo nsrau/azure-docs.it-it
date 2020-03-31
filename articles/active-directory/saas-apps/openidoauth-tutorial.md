@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbf9cde8dd2032e81abe0fb2572c2181d4ba21ee
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: f8a2c962c69ead28c4e79b663010eab77a499f5c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160223"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048424"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configurare un'applicazione OpenID/OAuth dalla raccolta di app di Azure AD
 
@@ -41,7 +41,7 @@ ms.locfileid: "73160223"
 
 4. Nella casella di ricerca digitare il nome dell'applicazione. Selezionare l'applicazione desiderata dal pannello dei risultati e iscriversi all'applicazione.
 
-    ![OpenID nell'elenco dei risultati](common/search-new-app.png)
+    ![OpenID nell'elenco risultati](common/search-new-app.png)
 
     > [!NOTE]
     > Per le app OpenID Connect e OAuth il pulsante **Aggiungi** è disabilitato per impostazione predefinita. In questo caso l'amministratore del tenant deve selezionare il pulsante di iscrizione e fornire il consenso all'applicazione. L'applicazione viene quindi aggiunta al tenant del cliente, in cui è possibile eseguire le configurazioni. Non è necessario aggiungere l'applicazione in modo esplicito.
@@ -71,7 +71,7 @@ L'utente o l'amministratore può a questo punto fornire il consenso all'applicaz
 > [!NOTE]
 > Se l'applicazione viene resa disponibile agli utenti in più directory, è necessario un meccanismo per determinare il tenant attivo. Un'applicazione a tenant singolo deve cercare un utente solo nella propria directory. Un'applicazione multi-tenant deve identificare un utente specifico in tute le directory in Azure AD.
 > 
-> A questo scopo, Azure AD offre un endpoint di autenticazione comune in cui qualsiasi applicazione multi-tenant può indirizzare le richieste di accesso, invece di un endpoint specifico di un tenant. Questo endpoint è [https://login.microsoftonline.com/common](https://login.microsoftonline.com/common) per tutte le directory di Azure AD. Un endpoint specifico del tenant può essere ad esempio [https://login.microsoftonline.com/contoso.onmicrosoft.com](https://login.microsoftonline.com/contoso.onmicrosoft.com). 
+> A questo scopo, Azure AD offre un endpoint di autenticazione comune in cui qualsiasi applicazione multi-tenant può indirizzare le richieste di accesso, invece di un endpoint specifico di un tenant. Questo endpoint è `https://login.microsoftonline.com/common` per tutte le directory di Azure AD. Un endpoint specifico del tenant può essere ad esempio `https://login.microsoftonline.com/contoso.onmicrosoft.com`. 
 >
 > L'endpoint comune è importante da considerare quando si sviluppa l'applicazione. È necessaria la logica richiesta per gestire più tenant durante l'accesso, la disconnessione e la convalida del token.
 
@@ -121,7 +121,7 @@ I passaggi seguenti illustrano il funzionamento dell'esperienza di consenso per 
 
     ![API Graph](./media/openidoauth-tutorial/graphapi.png)
 
-2. Considerare che le autorizzazioni dell'applicazione siano state aggiornate. L'applicazione è in esecuzione e un utente sta per usarla per la prima volta. L'applicazione deve prima ottenere un codice di autorizzazione dall'endpoint di Azure AD/dell'autorizzazione. Il codice di autorizzazione può quindi essere usato per acquisire un nuovo un token di accesso e aggiornamento.
+2. Tenere presente che le autorizzazioni dell'applicazione sono state aggiornate. L'applicazione è in esecuzione e un utente sta per usarla per la prima volta. L'applicazione deve prima ottenere un codice di autorizzazione dall'endpoint di Azure AD/dell'autorizzazione. Il codice di autorizzazione può quindi essere usato per acquisire un nuovo un token di accesso e aggiornamento.
 
 3. Se l'utente non è già autenticato, l'endpoint di Azure AD/dell'autorizzazione richiede l'accesso.
 
@@ -144,7 +144,7 @@ In qualità di amministratore, è possibile inoltre consentire le autorizzazioni
 > [!NOTE]
 > La concessione esplicita del consenso usando il pulsante **Concedi consenso amministratore** è ora richiesta per le applicazioni a pagina singola (SPA) che usano ADAL.js. In caso contrario, l'applicazione non funziona quando viene richiesto il token di accesso.
 
-Le autorizzazioni solo app richiedono il consenso dell'amministratore tenant. Se l'applicazione richiede un'autorizzazione solo per app e un utente tenta di accedere all'applicazione, viene visualizzato un messaggio di errore che informa che l'utente non è in grado di fornire il consenso.
+Le autorizzazioni solo app richiedono il consenso dell'amministratore del tenant. Se l'applicazione richiede un'autorizzazione solo per app e un utente tenta di accedere all'applicazione, viene visualizzato un messaggio di errore che informa che l'utente non è in grado di fornire il consenso.
 
 Se l'applicazione usa autorizzazioni che richiedono il consenso dell'amministratore, è necessario che sia presente un movimento, ad esempio un pulsante o un collegamento, con cui l'amministratore può avviare l'azione. La richiesta inviata dall'applicazione per questa azione è la richiesta di autorizzazione OAuth2/OpenID Connect standard, che include anche il parametro *prompt=admin_consent* della stringa di query. 
 
@@ -152,6 +152,6 @@ Dopo che l'amministratore ha fornito il consenso e l'entità servizio è stata c
 
 Un amministratore tenant può disabilitare la possibilità che gli utenti normali possano il consenso alle applicazioni. Se questa funzionalità è disabilitata, è necessario usare il consenso dell'amministratore come obbligatorio sempre per l'applicazione nel tenant. Per testare l'applicazione con il consenso dell'utente finale disabilitato, è possibile trovare l'opzione di configurazione nel [portale di Azure](https://portal.azure.com/), nella sezione [Impostazioni utente](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) in **Applicazioni aziendali**.
 
-Il parametro *prompt=admin_consent* può essere usato anche dalle applicazioni richiedenti autorizzazioni che non necessitano del consenso dell'amministratore. Un esempio è rappresentato da un'applicazione che richiede un'esperienza in cui l'amministratore del tenant "si iscrive" una volta e a nessun altro utente viene richiesto il consenso da tale punto in poi.
+Il parametro *prompt=admin_consent* può essere usato anche dalle applicazioni richiedenti autorizzazioni che non necessitano del consenso dell'amministratore. Un esempio è rappresentato da un'applicazione che richiede un'esperienza in cui l'amministratore del tenant "si iscrive" una sola volta e da quel momento non viene richiesto il consenso di altri utenti.
 
 Si immagini che un'applicazione richieda il consenso dell'amministratore e un amministratore esegua l'accesso senza il parametro *prompt=admin_consent* inviato. Se l'amministratore concede il consenso all'applicazione, viene applicato solo per l'account utente. Gli utenti normali non possono comunque eseguire l'accesso o fornire il consenso all'applicazione. Questa funzionalità è utile se si vuole assegnare all'amministratore del tenant la possibilità di esplorare l'applicazione prima di consentire l'accesso ad altri utenti.

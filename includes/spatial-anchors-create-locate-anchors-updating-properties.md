@@ -1,11 +1,11 @@
 ---
 ms.openlocfilehash: 8ebb10f955be8f3004fdbdc595ea0fefc0d2b7ea
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67179860"
 ---
 ## <a name="update-properties"></a>Aggiornare le proprietà
 
-Per aggiornare le proprietà in un ancoraggio, si utilizza il `UpdateAnchorProperties()` (metodo). Se due o più dispositivi tenta di aggiornare le proprietà per lo stesso ancoraggio allo stesso tempo, utilizziamo un modello di concorrenza ottimistica. Il che significa che la prima scrittura "vincente".  Tutte le altre operazioni di scrittura verrà visualizzato un errore di "Concorrenza": è necessario un aggiornamento delle proprietà prima di riprovare.
+Per aggiornare le proprietà di un ancoraggio, si usa il metodo `UpdateAnchorProperties()`. Se due o più dispositivi provano ad aggiornare le proprietà per lo stesso ancoraggio nello stesso momento, viene usato un modello di concorrenza ottimistica, in base al quale prevale la prima operazione di scrittura eseguita.  Per tutte le altre operazioni di scrittura verrà restituito un errore di "concorrenza" e sarà necessario aggiornare le proprietà prima di riprovare.

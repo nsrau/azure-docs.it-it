@@ -12,10 +12,10 @@ ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 03/12/2018
 ms.openlocfilehash: 39b8745b65eccd8e4d1b5986490e30be443ad656
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74913507"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Eseguire un notebook di Databricks con l'attività dei notebook di Databricks in Azure Data Factory
@@ -92,7 +92,7 @@ In questa sezione viene creato un servizio collegato Databricks. Questo servizio
     
     ![Crea una nuova connessione](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image6.png)
 
-1.  Nella finestra **New Linked Service** (Nuovo servizio collegato) selezionare **Compute** (Calcolo) \> **Azure Databricks** e quindi fare clic su **Continue** (Continua).
+1.  Nella finestra **Nuovo servizio collegato** selezionare **Calcolo** \> **Azure Databricks** e quindi fare clic su **Continua**.
     
     ![Specificare un servizio collegato Azure Databricks](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image7.png)
 

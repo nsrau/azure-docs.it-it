@@ -1,5 +1,5 @@
 ---
-title: Eseguire il push di notifiche a dispositivi Windows Phone specifici con Hub di notifica di Azure | Microsoft Docs
+title: Inviare notifiche push a dispositivi Windows Phone specifici con Hub di notifica di Azure | Microsoft Docs
 description: Questa esercitazione descrive come usare Hub di notifica di Azure per inviare notifiche push a dispositivi Windows Phone 8 o Windows Phone 8.1 specifici (non tutti) registrati con il back-end dell'applicazione.
 services: notification-hubs
 documentationcenter: windows
@@ -17,14 +17,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 88326b07a96dcc8ce7a72f8709a88c2662f48707
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 72ecb5bdb6bb024c5e4422548dd11888c03e4799
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213399"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80126949"
 ---
-# <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>Esercitazione: Effettuare il push di notifiche a dispositivi Windows Phone specifici con Hub di notifica di Azure
+# <a name="tutorial-send-push-notifications-to-specific-windows-phones-using-azure-notification-hubs"></a>Esercitazione: Inviare notifiche push a dispositivi Windows Phone specifici con Hub di notifica di Azure
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -35,7 +35,7 @@ Questa esercitazione descrive come usare Hub di notifica di Azure per inviare no
 > [!NOTE]
 > L’SDK Hub di notifica per Windows Phone [AZURE.NOTE] non supporta l'uso di Windows Push Notification Service (WNS) con app per Windows Phone 8.1 Silverlight. Per usare WNS (invece di MPNS) con le app di Windows Phone 8.1 Silverlight, completare l'[Esercitazione su Hub di notifica - Windows Phone Silverlight] seguente che usa le API REST.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Aggiungere la selezione delle categorie all'app per dispositivi mobili

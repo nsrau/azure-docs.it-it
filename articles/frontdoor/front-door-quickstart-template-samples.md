@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2018
 ms.author: sharadag
-ms.openlocfilehash: 2684c9852cb3e946d8ec1840fc166053204dfae0
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: de3b13162e7828542331e7e7a34d0101f7feaf71
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184600"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79471654"
 ---
 # <a name="azure-resource-manager-deployment-model-templates-for-front-door"></a>Modello di distribuzione Azure Resource Manager per Frontdoor
 
-La tabella seguente contiene collegamenti ai modelli di distribuzione di Azure Resource Manager per il servizio Frontdoor di Azure. 
+La tabella seguente contiene collegamenti ai modelli di distribuzione Azure Resource Manager per il servizio Frontdoor di Azure. 
 
 | | |
 | ---| ---|

@@ -1,5 +1,5 @@
 ---
-title: Eseguire il push di notifiche alle app Windows Phone con Hub di notifica di Azure | Microsoft Docs
+title: Inviare notifiche push alle app Windows Phone con Hub di notifica di Azure | Microsoft Docs
 description: Questa esercitazione descrive come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione per Windows Phone 8 o Windows Phone 8.1 Silverlight.
 services: notification-hubs
 documentationcenter: windows
@@ -18,14 +18,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 7f026dd5953dd233b0183d8ce7978f647fb8c6af
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 9cad4bfc474ef23492858ed3b0a6447932b589b4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213465"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80127077"
 ---
-# <a name="tutorial-push-notifications-to-windows-phone-apps-by-using-azure-notification-hubs"></a>Esercitazione: Effettuare il push di notifiche alle app Windows Phone con Hub di notifica di Azure
+# <a name="tutorial-send-push-notifications-to-windows-phone-apps-using-notification-hubs"></a>Esercitazione: Inviare notifiche push alle app Windows Phone con Hub di notifica
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -36,7 +36,7 @@ In questa esercitazione si creerà un'app per Windows Phone 8 vuota che riceve n
 > [!NOTE]
 > L’SDK Hub di notifica per Windows Phone [AZURE.NOTE] non supporta l'uso di Windows Push Notification Service (WNS) con app per Windows Phone 8.1 Silverlight. Per usare WNS (invece di MPNS) con le app di Windows Phone 8.1 Silverlight, completare la seguente [Esercitazione su Hub di notifica - Windows Phone Silverlight]che usa le API REST.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un hub di notifica

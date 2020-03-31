@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 1de2e70ccafbbde49e764437bfe8ce94602747b6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6d603dbf2746608f499ba37b4f17b533b64bc941
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034443"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80154356"
 ---
 # <a name="tutorial-install-a-lemp-web-server-on-a-linux-virtual-machine-in-azure"></a>Esercitazione: Installare un server Web LEMP in una macchina virtuale Linux in Azure
 
@@ -170,10 +170,10 @@ In questa esercitazione si è distribuito un server LEMP in Azure. Si è appreso
 > * Verificare l'installazione e la configurazione
 > * Installare WordPress nello stack LEMP
 
-Passare all'esercitazione successiva per apprendere come proteggere i server Web con i certificati SSL.
+Passare all'esercitazione successiva per apprendere come proteggere i server Web con i certificati TLS/SSL.
 
 > [!div class="nextstepaction"]
-> [Secure web server with SSL (Proteggere il server Web con SSL)](tutorial-secure-web-server.md)
+> [Proteggere il server Web con TLS](tutorial-secure-web-server.md)
 
 [2]: ./media/tutorial-lemp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lemp-stack/nginx.png
