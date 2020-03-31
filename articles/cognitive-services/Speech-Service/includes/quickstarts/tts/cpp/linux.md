@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Eseguire la sintesi vocale, C++ (Linux) - Servizio Voce'
+title: 'Guida introduttiva: Eseguire la sintesi vocale, C++ (Linux) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sulla sintesi vocale in C++ su Linux con Speech SDK
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 07/05/2019
 ms.author: yinhew
 ms.openlocfilehash: 40befc98c2280418a443ff80e4d246b6e2957e56
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78924721"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
