@@ -1,13 +1,13 @@
 ---
-title: Serializzazione di oggetti Reliable Collection
-description: Informazioni sulla serializzazione degli oggetti di Azure Service Fabric Reliable Collections, inclusa la strategia predefinita e come definire la serializzazione personalizzata.
+title: Serializzazione dell'oggetto Reliable Collection
+description: Informazioni sulla serializzazione degli oggetti Reliable Collections di Azure Service Fabric, inclusa la strategia predefinita e come definire la serializzazione personalizzata.'
 ms.topic: conceptual
 ms.date: 5/8/2017
 ms.openlocfilehash: 666e1bb45a9c75ee143f15a0d871d6ae1408eca9
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75639548"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serializzazione di un oggetto Reliable Collections in Azure Service Fabric
@@ -23,7 +23,7 @@ Reliable State Manager include serializzatori predefiniti per alcuni tipi comuni
 I serializzatori predefiniti risultano più efficienti perché sanno che i loro tipi non possono essere modificati e non hanno bisogno di includere informazioni sul tipo quali il nome.
 
 Reliable State Manager dispone di un serializzatore predefinito per i tipi seguenti: 
-- GUID
+- Guid
 - bool
 - byte
 - sbyte
@@ -33,7 +33,7 @@ Reliable State Manager dispone di un serializzatore predefinito per i tipi segue
 - decimal
 - double
 - float
-- int
+- INT
 - uint
 - long
 - ulong
@@ -44,7 +44,7 @@ Reliable State Manager dispone di un serializzatore predefinito per i tipi segue
 
 I serializzatori personalizzati vengono comunemente usati per migliorare le prestazioni o per crittografare i dati in rete e su disco. Tra le altre ragioni, i serializzatori personalizzati sono in genere più efficienti dei serializzatori generici poiché questi non devono serializzare le informazioni sul tipo. 
 
-[IReliableStateManager. TryAddStateSerializer\<t >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) viene usato per registrare un serializzatore personalizzato per il tipo specificato t. Questa registrazione dovrebbe verificarsi nella costruzione di StatefulServiceBase per garantire che prima dell'avvio del ripristino, tutte le raccolte Reliable Collections abbiano accesso al serializzatore pertinente per leggere i dati salvati in modo permanente.
+[IReliableStateManager.TryAddStateSerializer\<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) viene utilizzato per registrare un serializzatore personalizzato per il tipo specificato T. Questa registrazione deve avvenire nella costruzione di StatefulServiceBase per garantire che prima dell'avvio del ripristino tutte le raccolte Reliable Collections abbiano accesso al serializzatore pertinente per leggere i dati persistenti.
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)
@@ -62,10 +62,10 @@ public StatefulBackendService(StatefulServiceContext context)
 
 ### <a name="how-to-implement-a-custom-serializer"></a>Come implementare un serializzatore personalizzato
 
-Un serializzatore personalizzato deve implementare l'interfaccia [IStateSerializer\<t >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) .
+Un serializzatore personalizzato deve implementare l'interfaccia [T>\<IStateSerializer.](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1)
 
 > [!NOTE]
-> IStateSerializer\<T > include un overload per la scrittura e la lettura che accetta una T aggiuntiva denominata valore di base. Questa API è per la serializzazione differenziale. Attualmente la funzionalità di serializzazione differenziale non è esposta. Di conseguenza, questi due overload non vengono chiamati fino a quando la serializzazione differenziale non è esposta e abilitata.
+> IStateSerializer\<T> include un overload per Write and Read che accetta un valore di base T aggiuntivo denominato. Questa API è per la serializzazione differenziale. Attualmente la funzionalità di serializzazione differenziale non è esposta. Di conseguenza, questi due overload non vengono chiamati fino a quando la serializzazione differenziale non è esposta e abilitata.
 
 Di seguito è riportato un esempio di un tipo personalizzato denominato OrderKey che contiene quattro proprietà
 
@@ -85,7 +85,7 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 }
 ```
 
-Di seguito è riportato un esempio di implementazione di IStateSerializer\<OrderKey >.
+Di seguito è riportato\<un esempio di implementazione di IStateSerializer OrderKey>.
 Si noti che gli overload Write e Read che accettano baseValue chiamano il rispettivo overload per la compatibilità di inoltro.
 
 ```csharp
@@ -141,7 +141,7 @@ In questo modo ogni versione può leggere tutto quanto è in grado di leggere, s
   * [Serializzazione e aggiornamento](service-fabric-application-upgrade-data-serialization.md)
   * [Guida di riferimento per gli sviluppatori per Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
   * [Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio](service-fabric-application-upgrade-tutorial.md) descrive la procedura di aggiornamento di un'applicazione con Visual Studio.
-  * [Aggiornamento di un'applicazione di Service Fabric mediante PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) descrive la procedura di aggiornamento di un'applicazione tramite PowerShell.
-  * Controllare l’aggiornamento dell'applicazione tramite [Parametri di aggiornamento](service-fabric-application-upgrade-parameters.md).
-  * Informazioni su come usare funzionalità avanzate durante l'aggiornamento dell'applicazione facendo riferimento ad [Argomenti avanzati](service-fabric-application-upgrade-advanced.md).
-  * Per informazioni su come risolvere problemi comuni negli aggiornamenti dell'applicazione, vedere i passaggi indicati in [Risoluzione dei problemi relativi agli aggiornamenti dell'applicazione](service-fabric-application-upgrade-troubleshooting.md).
+  * [L'aggiornamento dell'applicazione tramite Powershell](service-fabric-application-upgrade-tutorial-powershell.md) illustra l'aggiornamento di un'applicazione tramite PowerShell.Upgrading your Application Using Powershell walks you through an application upgrade using PowerShell.
+  * Controllare la modalità di aggiornamento dell'applicazione utilizzando [i parametri](service-fabric-application-upgrade-parameters.md)di aggiornamento .
+  * Per informazioni su come utilizzare le funzionalità avanzate durante l'aggiornamento dell'applicazione, fare riferimento ad [Argomenti avanzati](service-fabric-application-upgrade-advanced.md).
+  * Risolvere i problemi comuni negli aggiornamenti delle applicazioni facendo riferimento alla procedura descritta in [Risoluzione dei problemi](service-fabric-application-upgrade-troubleshooting.md)relativi agli aggiornamenti delle applicazioni .

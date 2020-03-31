@@ -10,10 +10,10 @@ ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.openlocfilehash: 4273828c9c2bdb75fcbc1de45da55c5a03dd615f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66156417"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gestire Azure Data Lake Analytics tramite Azure PowerShell
@@ -28,10 +28,10 @@ Questo articolo descrive come gestire utenti, processi, origini dati e account A
 Per usare PowerShell con Data Lake Analytics, raccogliere le informazioni seguenti: 
 
 * **ID sottoscrizione**: l'ID della sottoscrizione di Azure in cui è presente l'account Data Lake Analytics.
-* **Gruppo di risorse**: il nome del gruppo di risorse di Azure che contiene l'account Data Lake Analytics.
+* **Gruppo di risorse**: il nome del gruppo di risorse di Azure che contiene l'account di Data Lake Analytics.
 * **Nome dell'account Data Lake Analytics**: il nome dell'account Data Lake Analytics.
 * **Nome dell'account Data Lake Store predefinito**: ogni account Data Lake Analytics ha un account Data Lake Store predefinito.
-* **Località**: la posizione dell'account Data Lake Analytics, ad esempio "Stati Uniti orientali 2" o altre posizioni supportate.
+* **Posizione**: la posizione dell'account di Data Lake Analytics, ad esempio "Stati Uniti orientali 2" o altre posizioni supportate.
 
 I frammenti di codice di PowerShell in questa esercitazione usano le variabili seguenti per archiviare queste informazioni
 
@@ -121,8 +121,8 @@ Test-AdlAnalyticsAccount -Name $adla
 ## <a name="manage-data-sources"></a>Gestire le origini dati
 Azure Data Lake Analytics supporta attualmente le origini dati seguenti:
 
-* [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Archiviazione di Azure](../storage/common/storage-introduction.md)
+* [Archivio di Azure Data Lake](../data-lake-store/data-lake-store-overview.md)
+* [Archiviazione di AzureAzure Storage](../storage/common/storage-introduction.md)
 
 Ogni account Data Lake Analytics ha un account Data Lake Store predefinito. L'account di Data Lake Store predefinito viene usato per archiviare i metadati e i log di controllo dei processi. 
 
@@ -243,9 +243,9 @@ Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 Usare il parametro `-Result` per rilevare se i processi finiti sono stati completati correttamente. Dispone di questi valori:
 
 * Operazione annullata
-* Failed
-* Nessuna
-* Succeeded
+* Operazione non riuscita
+* nessuno
+* Operazione completata
 
 ``` powershell
 # List Successful jobs.
@@ -553,9 +553,9 @@ foreach ($sub in $subs)
 
 ## <a name="create-a-data-lake-analytics-account-using-a-template"></a>Creare un account Data Lake Analytics usando un modello
 
-È inoltre possibile usare un modello di gruppo di risorse di Azure tramite l'esempio seguente: [Creare un account Data Lake Analytics usando un modello](https://github.com/Azure-Samples/data-lake-analytics-create-account-with-arm-template)
+È anche possibile usare un modello di gruppo di risorse di Azure con l'esempio seguente: [Creare un account Data Lake Analytics usando un modello](https://github.com/Azure-Samples/data-lake-analytics-create-account-with-arm-template)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-* Introduzione ad Azure Data Lake Analytics con [il portale di Azure](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [Interfaccia della riga di comando di Azure](data-lake-analytics-get-started-cli.md)
-* Gestire Azure Data Lake Analytics con [il portale di Azure](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [l'interfaccia della riga di comando](data-lake-analytics-manage-use-cli.md) 
+* [Panoramica di Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
+* Introduzione a Data Lake Analytics usando il [portale](data-lake-analytics-get-started-portal.md) | di Azure[Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [Azure CLI](data-lake-analytics-get-started-cli.md)
+* Gestire Azure Data Lake Analytics usando l'interfaccia[della riga di comando](data-lake-analytics-manage-use-cli.md) di Azure [PowerShell](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) |  

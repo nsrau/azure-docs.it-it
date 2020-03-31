@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Libreria client di Content Moderator per Python'
+title: 'Guida introduttiva: Libreria client di Content Moderator per Python'
 titleSuffix: Azure Cognitive Services
 description: Questo argomento di avvio rapido illustra come usare la libreria client di Content Moderator di Servizi cognitivi Microsoft per Python.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.openlocfilehash: 31cdc9663283b580acc10e7ac8d5a77f9036a7a8
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76772346"
 ---
-# <a name="quickstart-content-moderator-client-library-for-python"></a>Avvio rapido: Libreria client di Content Moderator per Python
+# <a name="quickstart-content-moderator-client-library-for-python"></a>Guida introduttiva: Libreria client di Content Moderator per Python
 
 Introduzione alla libreria client di Content Moderator per Python. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Content Moderator è un servizio cognitivo che verifica la presenza di materiale potenzialmente offensivo, rischioso o altrimenti indesiderato in contenuti di testo, immagini e video. Quando tale materiale viene trovato, il servizio applica al contenuto apposite etichette (flag). L'app può quindi gestire il contenuto contrassegnato per garantire la conformità alle normative o gestire un ambiente con le caratteristiche previste per gli utenti.
 
@@ -31,7 +31,7 @@ Usare la libreria client di Content Moderator per Python per:
 
 [Documentazione di riferimento](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator) | [Pacchetto (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/) | [Esempi](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)

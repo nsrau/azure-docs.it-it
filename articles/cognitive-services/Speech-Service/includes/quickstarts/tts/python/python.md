@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Eseguire la sintesi vocale, Python - Servizio Voce'
+title: 'Guida introduttiva: Eseguire la sintesi vocale, Python - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sulla sintesi vocale in Python con Speech SDK
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 19/14/2020
 ms.author: dapine
 ms.openlocfilehash: 58f2b3693b924197dda1e396ae71192776ca276e
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925208"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
@@ -37,13 +37,13 @@ Se si verifica un problema o manca una funzionalità, vedere le [opzioni di supp
 
 ### <a name="run-the-sample"></a>Eseguire l'esempio
 
-È possibile copiare il [codice di esempio](#sample-code) da questa guida di avvio rapido in un file di origine `quickstart.py` ed eseguirlo nell'ambiente di sviluppo integrato o nella console:
+È possibile copiare il [codice di esempio](#sample-code) da questa guida introduttiva in un file di origine `quickstart.py` ed eseguirlo nell'ambiente di sviluppo integrato o nella console:
 
 ```sh
 python quickstart.py
 ```
 
-In alternativa è possibile scaricare questa esercitazione della guida di avvio rapido come notebook [Jupyter](https://jupyter.org) dal [repository degli esempi di Speech SDK](https://aka.ms/csspeech/samples) ed eseguirla come notebook.
+In alternativa è possibile scaricare questa esercitazione della guida introduttiva come notebook [Jupyter](https://jupyter.org) dal [repository degli esempi di Speech SDK](https://aka.ms/csspeech/samples) ed eseguirla come notebook.
 
 ### <a name="sample-code"></a>Codice di esempio
 

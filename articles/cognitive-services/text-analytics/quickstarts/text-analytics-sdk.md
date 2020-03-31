@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 02/24/2020
+ms.date: 03/24/2020
 ms.author: aahi
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: c6883b9b79adfc4f91af354147d45ea27d806d78
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: cc3f48ec1113f954336cfae0bda2cba2499d9a1d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396103"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80240105"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Guida introduttiva: Usare la libreria client di Analisi del testo
 
@@ -44,7 +44,6 @@ Usare la libreria client di Analisi del testo per eseguire queste operazioni:
 
 > [!IMPORTANT]
 > * Questo argomento di avvio rapido riguarda solo la versione `3.0-preview` della libreria client di Analisi del testo, che include un'anteprima pubblica con funzionalità migliorate di [analisi del sentiment](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) e [riconoscimento di entità denominate](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
->    * Assicurarsi di seguire solo le istruzioni per la versione in uso.
 > * Il codice di questo articolo usa metodi sincroni e archiviazione con credenziali non protette per motivi di semplicità. Per gli scenari di produzione, è consigliabile usare metodi asincroni in batch per favorire prestazioni e scalabilità. Vedere la documentazione di riferimento di seguito.
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
@@ -57,6 +56,7 @@ Usare la libreria client di Analisi del testo per eseguire queste operazioni:
 > * L'ultima versione di anteprima dell'API Analisi del testo è `3.0-preview`, che include un'anteprima pubblica con funzionalità migliorate di [analisi del sentiment](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) e [riconoscimento di entità denominate](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). L'ultima versione stabile è `2.1`.
 >    * Assicurarsi di seguire solo le istruzioni per la versione in uso.
 > * Il codice di questo articolo usa metodi sincroni e archiviazione con credenziali non protette per motivi di semplicità. Per gli scenari di produzione, è consigliabile usare metodi asincroni in batch per favorire prestazioni e scalabilità. Vedere la documentazione di riferimento di seguito.
+> * È anche possibile eseguire questa versione della libreria client di Analisi del testo [nel browser](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
 
 [!INCLUDE [NodeJS quickstart](../includes/quickstarts/nodejs-sdk.md)]
 

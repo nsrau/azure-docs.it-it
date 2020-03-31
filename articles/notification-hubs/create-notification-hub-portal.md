@@ -12,14 +12,14 @@ ms.date: 02/14/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: 53abc28a6923c2d55b3bb39defb08778485a9744
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3aeeb989d15dc74849c85fa58cbefa891809f3c5
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "71212451"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80347082"
 ---
-# <a name="create-an-azure-notification-hub-in-the-azure-portal"></a>Creare un hub di notifica di Azure nel portale di Azure 
+# <a name="quickstart-create-an-azure-notification-hub-in-the-azure-portal"></a>Guida introduttiva: Creare un hub di notifica di Azure nel portale di Azure 
 Hub di notifica di Azure offre un motore di push di facile uso e con scalabilità orizzontale che consente di inviare notifiche a qualsiasi piattaforma (iOS, Android, Windows, Kindle, Baidu e così via) da qualsiasi back-end (cloud o locale). Per altre informazioni sul servizio, vedere [Informazioni su Hub di notifica](notification-hubs-push-notification-overview.md).
 
 In questa guida introduttiva viene creato un hub di notifica nel portale di Azure. La prima sezione illustra i passaggi per creare uno spazio dei nomi Hub di notifica e un hub in tale spazio dei nomi. La seconda sezione descrive i passaggi per creare un hub di notifica in uno spazio dei nomi Hub di notifica esistente. 

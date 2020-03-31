@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Riconoscere l'input penna con l'API REST Riconoscimento input penna e Java"
+title: "Guida introduttiva: Riconoscere l'input penna con l'API REST Riconoscimento input penna e Java"
 titleSuffix: Azure Cognitive Services
 description: Questo argomento di avvio rapido illustra come usare l'API Riconoscimento input penna per avviare il riconoscimento di tratti input penna.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
 ms.openlocfilehash: d2cd4e56477ea39587ce318538c9ddd84c51b03b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75448114"
 ---
-# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Avvio rapido: Riconoscere l'input penna con l'API REST Riconoscimento input penna e Java
+# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Guida introduttiva: Riconoscere l'input penna con l'API REST Riconoscimento input penna e Java
 
 Usare questa guida di avvio rapido per iniziare a usare l'API Riconoscimento input penna su tratti input penna. Questa applicazione Java invia una richiesta API contenenti i dati del tratto input penna in formato JSON e riceve la risposta.
 
@@ -29,7 +29,7 @@ In genere è necessario chiamare l'API da un'app di input penna. Questa guida di
 
 Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - [Java&trade; Development Kit (JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) versione successiva.
 

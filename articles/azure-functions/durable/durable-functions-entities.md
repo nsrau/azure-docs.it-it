@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d469d52a6db6c3640d07b46422ffe669a898dde8
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 6ecf3bb5999296b2f5f8f5c25616fac8e0278cda
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76262997"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80132514"
 ---
 # <a name="entity-functions"></a>Funzioni di entità
 
@@ -41,7 +41,7 @@ Per richiamare un'operazione su un'entità, specificare gli elementi seguenti:
 * **ID entità** dell'entità di destinazione.
 * **Nome dell'operazione**, ovvero una stringa che specifica l'operazione da eseguire. L'entità `Counter`, ad esempio, potrebbe supportare le operazioni `add`, `get` o `reset`.
 * **Input dell'operazione**, ovvero un parametro di input facoltativo per l'operazione. L'operazione di addizione, ad esempio, può accettare come input un valore intero.
-* **Ora pianificata*, un parametro facoltativo che consente di specificare l'ora di recapito dell'operazione. È ad esempio possibile pianificare con la massima affidabilità un'operazione in modo che venga eseguita diversi giorni dopo.
+* **Ora pianificata**, un parametro facoltativo che consente di specificare l'ora di recapito dell'operazione. È ad esempio possibile pianificare con la massima affidabilità un'operazione in modo che venga eseguita diversi giorni dopo.
 
 Le operazioni possono restituire un valore di risultato oppure un risultato di errore, ad esempio un errore JavaScript o un'eccezione .NET. Il risultato o l'errore può essere osservato dalle orchestrazioni che hanno chiamato l'operazione.
 
@@ -55,7 +55,7 @@ Le due API distinte per la definizione di entità sono attualmente le seguenti:
 
 **Sintassi basata su classe (solo .NET)** in cui le entità e le operazioni sono rappresentate da classi e metodi. Questa sintassi produce codice più facilmente leggibile e consente di richiamare le operazioni in modo indipendente dai tipi. La sintassi basata su classe è un livello sottile sopra la sintassi basata su funzione e quindi entrambe le varianti possono essere usate in modo intercambiabile nella stessa applicazione.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ### <a name="example-function-based-syntax---c"></a>Esempio: Sintassi basata su funzioni - C#
 
@@ -109,7 +109,7 @@ Lo stato di questa entità è un oggetto di tipo `Counter`, che contiene un camp
 
 Per altre informazioni sulla sintassi basata su classe e su come usarla, vedere [Definizione di classi di entità](durable-functions-dotnet-entities.md#defining-entity-classes).
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ### <a name="example-javascript-entity"></a>Esempio: Entità JavaScript
 
@@ -171,7 +171,7 @@ Gli esempi seguenti illustrano le diverse modalità di accesso alle entità.
 
 Per accedere alle entità da una funzione di Azure ordinaria, detta anche funzione client, usare l'[associazione client di entità](durable-functions-bindings.md#entity-client). L'esempio seguente illustra una funzione attivata da una coda che segnala un'entità usando questa associazione.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 > [!NOTE]
 > Per semplicità, negli esempi seguenti viene illustrata la sintassi a tipizzazione debole per l'accesso alle entità. In generale, è consigliabile [accedere alle entità tramite interfacce](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) per un maggiore controllo del tipo.
@@ -189,7 +189,7 @@ public static Task Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -209,7 +209,7 @@ Il termine *segnalazione* indica che la chiamata dell'API di entità è unidirez
 
 Le funzioni client possono anche eseguire query sullo stato delle entità, come illustrato nell'esempio seguente:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("QueryCounter")]
@@ -223,7 +223,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -244,7 +244,7 @@ Le query sullo stato dell'entità vengono inviate all'archivio di rilevamento du
 
 Le funzioni dell'agente di orchestrazione possono accedere alle entità mediante API nel [binding del trigger di orchestrazione](durable-functions-bindings.md#orchestration-trigger). L'esempio di codice seguente illustra una funzione dell'agente di orchestrazione che chiama e segnala un'entità `Counter`.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CounterOrchestration")]
@@ -263,7 +263,7 @@ public static async Task Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -291,7 +291,7 @@ Solo le orchestrazioni sono in grado di chiamare entità e ottenere una risposta
 Una funzione di entità può inviare segnali ad altre entità (o anche a se stessa) durante l'esecuzione di un'operazione.
 È ad esempio possibile modificare l'esempio di entità `Counter` precedente in modo da inviare un segnale "milestone-reached" a un'entità di monitoraggio quando il contatore raggiunge il valore 100.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
    case "add":
@@ -306,7 +306,7 @@ Una funzione di entità può inviare segnali ad altre entità (o anche a se stes
         break;
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
     case "add":
@@ -321,7 +321,7 @@ Una funzione di entità può inviare segnali ad altre entità (o anche a se stes
 
 ---
 
-## <a name="entity-coordination"></a>Coordinamento delle entità (attualmente solo .NET)
+## <a name="entity-coordination-currently-net-only"></a><a name="entity-coordination"></a>Coordinamento delle entità (attualmente solo .NET)
 
 In alcuni casi può essere necessario coordinare le operazioni tra più entità. In un'applicazione bancaria, ad esempio, potrebbero essere presenti entità che rappresentano singoli conti bancari. Quando si trasferiscono i fondi da un conto a un altro, è necessario verificare che il conto di origine disponga di fondi sufficienti. È anche necessario verificare che gli aggiornamenti per i conti di origine e di destinazione vengano eseguiti in modo coerente a livello di transazione.
 

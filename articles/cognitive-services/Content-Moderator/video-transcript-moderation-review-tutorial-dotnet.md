@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: 2fbd4270221cb23a4f99a0f8155bb1de76472f31
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74976979"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Esercitazione: Moderazione di video e trascrizioni
@@ -44,7 +44,7 @@ Questa esercitazione illustra come:
 
 Modificare il file `App.config` e aggiungere il nome del tenant di Active Directory, gli endpoint del servizio e le chiavi di sottoscrizione indicate da `#####`. Sono necessarie le informazioni seguenti:
 
-|Chiave|DESCRIZIONE|
+|Chiave|Descrizione|
 |-|-|
 |`AzureMediaServiceRestApiEndpoint`|Endpoint per l'API Servizi multimediali di Azure (AMS)|
 |`ClientSecret`|Chiave di sottoscrizione per Servizi multimediali di Azure|
@@ -60,7 +60,7 @@ La classe `Program` in `Program.cs` è il punto di ingresso principale per l'app
 
 ### <a name="methods-of-program-class"></a>Metodi della classe Program
 
-|Metodo|DESCRIZIONE|
+|Metodo|Descrizione|
 |-|-|
 |`Main`|Analizza la riga di comando, raccoglie l'input utente e inizia l'elaborazione.|
 |`ProcessVideo`|Comprime, carica, modera e crea revisioni video.|
@@ -88,7 +88,7 @@ Se non sono presenti argomenti della riga di comando, `Main()` chiama `GetUserIn
 
 Indipendentemente dal fatto che le opzioni del programma provengano dalla riga di comando e dall'input utente interattivo, `Main()` chiama in seguito `Initialize()` per creare le istanze seguenti:
 
-|Classe|DESCRIZIONE|
+|Classe|Descrizione|
 |-|-|
 |`AMSComponent`|Comprime i file video prima di inviarli per la moderazione.|
 |`AMSconfigurations`|Interfaccia i dati di configurazione dell'applicazione trovati in `App.config`.|
@@ -121,11 +121,11 @@ Il codice che comprime un singolo file video è la classe `AmsComponent` in `AMS
 
 [!code-csharp[CompressVideo](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/AMSComponent.cs?range=31-59)]
 
-Il codice esegue queste operazioni:
+Il codice esegue i passaggi seguenti:
 
 - Verifica che configurazione in `App.config` contenga tutti i dati necessari
 - Verifica che il file binario `ffmpeg` sia presente
-- Compilazione del nome file di output aggiungendo `_c.mp4` al nome di base del file (ad esempio `Example.mp4`  ->  `Example_c.mp4`)
+- Compilazione del nome file di output aggiungendo `_c.mp4` al nome di base del file (ad esempio `Example.mp4` -> `Example_c.mp4`)
 - Compilazione di una stringa della riga di comando per eseguire la conversione
 - Avvio di un'elaborazione `ffmpeg` dalla riga di comando
 - Attesa del video da elaborare

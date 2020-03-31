@@ -14,7 +14,7 @@ ms.locfileid: "79223888"
 
 Questa pagina è un indice delle definizioni di criteri predefiniti di Criteri di Azure.
 
-Il nome di ogni criterio predefinito include un collegamento all'origine della definizione di criterio nel portale di Azure. Usare il collegamento nella colonna **Origine** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy). Le iniziative predefinite sono raggruppate in base alla proprietà **categoria** nei **metadati**. Per passare a una **categoria** specifica, usare il menu sul lato destro della pagina. Altrimenti, premere <kbd>CTRL</kbd>-<kbd>F</kbd> per usare la funzionalità di ricerca del browser.
+Il nome di ogni criterio predefinito include un collegamento all'origine della definizione di criterio nel portale di Azure. Usare il collegamento nella colonna **Origine** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy). Le definizioni predefinite sono raggruppate in base alla proprietà **categoria** nei **metadati**. Per passare a una **categoria** specifica, usare il menu sul lato destro della pagina. Altrimenti, premere <kbd>CTRL</kbd>-<kbd>F</kbd> per usare la funzionalità di ricerca del browser.
 
 [!INCLUDE [azure-policy-samples-policies-index](../../../../includes/azure-policy-samples-policies-index.md)]
 

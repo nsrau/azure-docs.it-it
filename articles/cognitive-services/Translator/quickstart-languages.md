@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Ottenere l'elenco delle lingue supportate - API Traduzione testuale"
+title: "Guida introduttiva: Ottenere l'elenco delle lingue supportate - API Traduzione testuale"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari usando l'API Traduzione testuale.
 services: cognitive-services
@@ -12,13 +12,13 @@ ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
 ms.openlocfilehash: d992fcec6071ea9883f2db61d6c54f41a9615867
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77525142"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages"></a>Avvio rapido: Usare l'API Traduzione testuale per ottenere un elenco delle lingue supportate
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages"></a>Guida introduttiva: Usare l'API Traduzione testuale per ottenere un elenco delle lingue supportate
 
 In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari usando l'API Traduzione testuale.
 

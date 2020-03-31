@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9a76d4f083c791bb1e3c29b4068c2f82f3cd0bc5
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 21d8659e13506777f6045272f68c69dd63f09cf5
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973697"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80244682"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-python"></a>Guida introduttiva: Generare un'anteprima usando l'API REST Visione artificiale e Python
 
@@ -34,6 +34,8 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Per creare ed eseguire l'esempio, copiare questo codice nell'editor di codice. 
 
 ```python
+import os
+import sys
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
 # %matplotlib inline

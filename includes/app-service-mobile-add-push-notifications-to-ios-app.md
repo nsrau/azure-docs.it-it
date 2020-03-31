@@ -5,13 +5,13 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: a53d2b259bc4ece12c4ccb1cf47409cd2f0af86f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67180832"
 ---
-**Objective-C**:
+**Obiettivo-C**:
 
 1. In **QSAppDelegate.m** importare iOS SDK e **QSTodoService.h**:
 
@@ -28,7 +28,7 @@ ms.locfileid: "67180832"
     [[UIApplication sharedApplication] registerForRemoteNotifications];
     ```
 
-3. In **QSAppDelegate.m**aggiungere i metodi del gestore seguenti. L'app è ora aggiornata per il supporto delle notifiche push. 
+3. In **QSAppDelegate.m**aggiungere i seguenti metodi del gestore. L'app è ora aggiornata per il supporto delle notifiche push. 
 
     ```objc
     // Registration with APNs is successful

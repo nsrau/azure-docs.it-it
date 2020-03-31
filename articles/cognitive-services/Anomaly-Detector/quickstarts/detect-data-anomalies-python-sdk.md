@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Rilevare anomalie nei dati con la libreria client di Rilevamento anomalie per Python'
+title: 'Guida introduttiva: Rilevare anomalie nei dati con la libreria client di Rilevamento anomalie per Python'
 titleSuffix: Azure Cognitive Services
 description: Questo argomento di avvio rapido illustra come usare l'API Rilevamento anomalie per rilevare le anomalie nelle serie di dati, come batch o in streaming.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 11/19/2019
+ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 0493f9e4b45d8d4804d1933bb923d3483b87005e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 451d5b0eb4fea8ba9764268d963bb7b021414f4b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448984"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80239079"
 ---
-# <a name="quickstart-anomaly-detector-client-library-for-python"></a>Avvio rapido: Libreria client di Rilevamento anomalie per Python
+# <a name="quickstart-anomaly-detector-client-library-for-python"></a>Guida introduttiva: Libreria client di Rilevamento anomalie per Python
 
 Questo argomento costituisce un'introduzione alla libreria client di Rilevamento anomalie per Python. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Il servizio Rilevamento anomalie consente di trovare le anomalie nei dati delle serie temporali applicando automaticamente i modelli di mapping più appropriati, indipendentemente dal settore, dallo scenario o dal volume di dati.
 
@@ -28,7 +28,7 @@ Usare la libreria client di Rilevamento anomalie per Python per:
 
 [Documentazione di riferimento della libreria](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [Pacchetto (PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [Trovare il codice di esempio in GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/python-sdk-sample.py)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Chiave di Rilevamento anomalie ed endpoint

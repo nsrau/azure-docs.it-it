@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
 ms.openlocfilehash: eba7d7ad009b2ef0442a916983489489eb5cceb8
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74806661"
 ---
-# <a name="use-the-net-sdk-for-apache-hbase"></a>Usare .NET SDK per Apache HBase
+# <a name="use-the-net-sdk-for-apache-hbase"></a>Utilizzare .NET SDK per Apache HBase
 
 [Apache HBase](apache-hbase-overview.md) fornisce due opzioni principali per lavorare con i dati: [query Apache Hive e chiamate all'API RESTful di HBase](apache-hbase-tutorial-get-started-linux.md). È possibile lavorare direttamente con l'API REST usando il comando `curl` o un'utilità analoga.
 
@@ -58,7 +58,7 @@ if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 }
 ```
 
-Questa nuova tabella include famiglie a due colonne, T1 e T2. Poiché le famiglie di colonne vengono archiviate separatamente in oggetti HFile diversi, è opportuno disporre di una famiglia di colonne distinta per i dati su cui vengono eseguite frequentemente query. Nell'esempio nella sezione [Inserire dati](#insert-data) seguente le colonne vengono aggiunte alla famiglia di colonne t1.
+Questa nuova tabella ha famiglie a due colonne, t1 e t2. Poiché le famiglie di colonne vengono archiviate separatamente in oggetti HFile diversi, è opportuno disporre di una famiglia di colonne distinta per i dati su cui vengono eseguite frequentemente query. Nell'esempio nella sezione [Inserire dati](#insert-data) seguente le colonne vengono aggiunte alla famiglia di colonne t1.
 
 ## <a name="delete-a-table"></a>Eliminare una tabella
 
@@ -68,7 +68,7 @@ Per eliminare una tabella:
 await client.DeleteTableAsync("RestSDKTable");
 ```
 
-## <a name="insert-data"></a>Inserire dati
+## <a name="insert-data"></a>Inserire i dati
 
 Per inserire dati, specificare una chiave di riga univoca come identificatore di riga. Tutti i dati vengono archiviati in una matrice `byte[]`. Il codice seguente definisce e aggiunge le colonne `title`, `director` e `release_date` alla famiglia di colonne t1, in quanto sono le colonne di uso più frequente. Le colonne `description` e `tagline` vengono aggiunte alla famiglia di colonne t2. È possibile partizionare i dati in famiglie di colonne in base alle esigenze.
 
@@ -112,9 +112,9 @@ set.rows.Add(row);
 await client.StoreCellsAsync("RestSDKTable", set);
 ```
 
-HBase implementa [BigTable cloud](https://cloud.google.com/bigtable/), quindi il formato dati è simile all'immagine seguente:
+HBase implementa [Cloud BigTable](https://cloud.google.com/bigtable/), in modo che il formato dei dati sia simile all'immagine seguente:
 
-![Output dei dati di esempio di Apache HBase](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
+![Output dei dati di esempio Apache HBase](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
 
 ## <a name="select-data"></a>Selezionare i dati
 

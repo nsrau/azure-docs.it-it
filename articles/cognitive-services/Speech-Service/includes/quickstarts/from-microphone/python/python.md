@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Riconoscimento vocale da un microfono, Python - Servizio Voce'
+title: 'Guida introduttiva: Riconoscimento vocale da un microfono, Python - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida per creare un'applicazione console di riconoscimento vocale che usa Speech SDK per Python. Al termine, sarà possibile usare il microfono nel computer per trascrivere contenuti vocali in tempo reale.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 07/05/2019
 ms.author: chlandsi
 ms.openlocfilehash: a2d5614aeeedb88cd9b2c41baed317761443d17c
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925139"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
@@ -38,13 +38,13 @@ Se si verifica un problema o manca una funzionalità, vedere le [opzioni di supp
 
 ### <a name="run-the-sample"></a>Eseguire l'esempio
 
-È possibile copiare il [codice di esempio](#sample-code) da questa guida di avvio rapido in un file di origine `quickstart.py` ed eseguirlo nell'ambiente di sviluppo integrato o nella console:
+È possibile copiare il [codice di esempio](#sample-code) da questa guida introduttiva in un file di origine `quickstart.py` ed eseguirlo nell'ambiente di sviluppo integrato o nella console:
 
 ```sh
 python quickstart.py
 ```
 
-In alternativa è possibile scaricare questa esercitazione della guida di avvio rapido come notebook [Jupyter](https://jupyter.org) dal [repository degli esempi di Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) ed eseguirla come notebook.
+In alternativa è possibile scaricare questa esercitazione della guida introduttiva come notebook [Jupyter](https://jupyter.org) dal [repository degli esempi di Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) ed eseguirla come notebook.
 
 ### <a name="sample-code"></a>Codice di esempio
 

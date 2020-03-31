@@ -11,14 +11,14 @@ metadata:
   manager: nitinme
   ms.service: speech-service
   ms.topic: hub-page
-  ms.date: 03/04/2020
+  ms.date: 03/24/2020
   ms.author: dapine
-  ms.openlocfilehash: 0071d4da31e4739ccf53e9570bc7d0ed61c01bc4
-  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+  ms.openlocfilehash: f047af5d14ed6b18c559f814b35d730ba7ce0f6a
+  ms.sourcegitcommit: 940e16ff194d5163f277f98d038833b1055a1a3e
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/09/2020
-  ms.locfileid: "78943325"
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "80244325"
 highlightedContent:
   items:
   - title: Informazioni sul Servizio di riconoscimento vocale
@@ -37,15 +37,15 @@ conceptualContent:
   items:
   - title: Riconoscimento vocale
     links:
+    - itemType: how-to-guide
+      text: Nozioni di base sul riconoscimento vocale
+      url: speech-to-text-basics.md
     - itemType: quickstart
       text: Riconoscimento vocale da un microfono
       url: quickstarts/speech-to-text-from-microphone.md
     - itemType: quickstart
-      text: Riconoscimento vocale in modalità batch
-      url: batch-transcription.md
-    - itemType: how-to-guide
-      text: Personalizzare il riconoscimento vocale per le app
-      url: how-to-custom-speech.md
+      text: Riconoscimento vocale da un file audio
+      url: quickstarts/speech-to-text-from-file.md
     footerLink:
       text: Altre informazioni
       url: index-speech-to-text.yml
@@ -94,10 +94,10 @@ conceptualContent:
   - title: Scenari di conversazione
     links:
     - itemType: overview
-      text: Informazioni sulla trascrizione conversazione
+      text: Informazioni sulla trascrizione conversazione (riunioni)
       url: conversation-transcription.md
     - itemType: overview
-      text: Informazioni sulle conversazioni per più dispositivi
+      text: Informazioni sulle conversazioni per più dispositivi (riunioni)
       url: multi-device-conversation.md
     - itemType: how-to-guide
       text: Trascrizioni di call center
@@ -152,9 +152,6 @@ conceptualContent:
     - itemType: how-to-guide
       text: Eseguire la migrazione da Riconoscimento vocale Bing
       url: how-to-migrate-from-bing-speech.md
-    - itemType: how-to-guide
-      text: Eseguire la migrazione dal servizio Riconoscimento vocale personalizzato
-      url: how-to-migrate-from-custom-speech-service.md
     - itemType: how-to-guide
       text: Eseguire la migrazione dalll'API Traduzione vocale
       url: how-to-migrate-from-translator-speech-api.md

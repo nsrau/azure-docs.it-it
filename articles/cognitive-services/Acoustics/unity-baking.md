@@ -12,10 +12,10 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: 310decf8053ea16ba46250ba3aabe81c9c254e5e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72243116"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Esercitazione sul bake in Unity con Progetto Acustica
@@ -201,7 +201,7 @@ Per garantire la sicurezza, le credenziali di Azure vengono archiviate nel compu
    ![Stato dell'attività di bake](media/azure-batch-task-state.png)  
 
 
-### <a name="Estimating-bake-cost"></a> Stimare il costo del bake di Azure
+### <a name="estimate-azure-bake-cost"></a><a name="Estimating-bake-cost"></a> Stimare il costo del bake di Azure
 
 Per stimare quanto costerà un bake, iniziare con il valore di **Estimated Compute Cost** (Costo di calcolo stimato), che indica una durata. Moltiplicare questo valore per il costo orario nella valuta locale per il tipo di nodo di macchina virtuale selezionato in **VM Node Type**. Tenere presente che il risultato non includerà il tempo necessario per l'avvio dei nodi.
 
@@ -209,7 +209,7 @@ Supponiamo ad esempio di selezionare **Standard_F8s_v2** come tipo di nodo, che 
 
 Per informazioni sui costi orari dei nodi, vedere [Prezzi di Macchine virtuali Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux). Selezionare **Ottimizzate per il calcolo** o **High Performance Computing (HPC)** come categoria.
 
-## <a name="Local-bake"></a> Effettuare il bake della scena nel PC
+## <a name="bake-your-scene-on-your-pc"></a><a name="Local-bake"></a> Effettuare il bake della scena nel PC
 È possibile effettuare il bake della scena anche nel proprio PC. Questo metodo può essere utile per eseguire esperimenti con l'acustica in scene di piccole dimensioni prima di creare un account Azure Batch. Tenere presente, però, che la simulazione dell'acustica locale può richiedere molto tempo, a seconda delle dimensioni della scena.
 
 ### <a name="minimum-hardware-requirements"></a>Requisiti hardware minimi
@@ -233,7 +233,7 @@ Installare e configurare Docker nel computer che elaborerà la simulazione:
 2. Per avviare la simulazione, eseguire lo script *runlocalbake.bat* in Windows o lo script *runlocalbake.sh* in MacOS. Lo script recupera l'immagine Docker di Progetto Acustica con il set di strumenti necessario per l'elaborazione della simulazione e avvia la simulazione.
 3. Al termine della simulazione, copiare il file con estensione *ace* risultante nel progetto Unity. Per assicurarsi che Unity lo riconosca come file binario, aggiungere ".bytes" all'estensione del file (ad esempio "Scene1.ace.bytes"). I log dettagliati della simulazione sono archiviati in *AcousticsLog.txt*. Se si verificano problemi, esaminare questo file per facilitare la diagnosi del problema.
 
-## <a name="Data-Files"></a> File di dati aggiunti dal processo di bake
+## <a name="data-files-added-by-the-bake-process"></a><a name="Data-Files"></a> File di dati aggiunti dal processo di bake
 
 Durante il processo di bake vengono creati i quattro file di dati seguenti. Uno contiene i risultati della simulazione e ha il titolo specificato dall'utente. Gli altri archiviano i dati correlati all'editor Unity.
 

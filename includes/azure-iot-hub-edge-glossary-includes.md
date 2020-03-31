@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: dobett
 ms.openlocfilehash: c95bca125ea70cf32acad0d5ea67c3ad195ed704
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67180266"
 ---
 ## <a name="automatic-device-management"></a>Gestione automatica dei dispositivi
@@ -39,7 +39,7 @@ La parte del runtime di IoT Edge responsabile delle comunicazioni da modulo a mo
 Un dispositivo IoT Edge senza dispositivo downstream. 
 
 ## <a name="iot-edge-module"></a>Modulo IoT Edge
-Un modulo IoT Edge è un contenitore Docker che è possibile distribuire su dispositivi IoT Edge. Esegue un'attività specifica, come inserire un messaggio da un dispositivo, trasformare un messaggio o inviare un messaggio a un hub IoT. Comunica inoltre con altri moduli e invia dati al runtime di IoT Edge. [Informazioni sui requisiti e gli strumenti per sviluppare moduli IoT Edge](https://docs.microsoft.com/azure/iot-edge/module-development).
+Un modulo IoT Edge è un contenitore Docker che è possibile distribuire su dispositivi IoT Edge. Esegue un'attività specifica, come inserire un messaggio da un dispositivo, trasformare un messaggio o inviare un messaggio a un hub IoT. Comunica inoltre con altri moduli e invia dati al runtime di IoT Edge. [Comprendere i requisiti e gli strumenti per lo sviluppo di moduli IoT Edge](https://docs.microsoft.com/azure/iot-edge/module-development).
 
 ## <a name="iot-edge-module-identity"></a>Identità del modulo IoT Edge
 Un record nel registro delle identità del modulo dell'hub IoT con informazioni dettagliate sull'esistenza e le credenziali di sicurezza che devono essere usate da un modulo per eseguire l'autenticazione con un hub Edge o l'hub IoT.
@@ -60,4 +60,4 @@ Il runtime di IoT Edge include tutti i componenti distribuiti da Microsoft per e
 Operazione che copia il contenuto di un file manifesto di IoT Edge in un modulo gemello del dispositivo. L'API sottostante è del tipo generico "applica configurazione", ovvero si limita ad accettare un file manifesto di IoT Edge come input.
 
 ## <a name="iot-edge-target-condition"></a>Condizione di destinazione di IoT Edge
-In una distribuzione di IoT Edge, la condizione di destinazione è una qualsiasi condizione booleana presente nei tag di dispositivi gemelli che consente di selezionare i dispositivi di destinazione della distribuzione, ad esempio **tag.environment = prod**. La condizione di destinazione viene costantemente valutata in modo da includere eventuali nuovi dispositivi conformi ai requisiti o rimuovere dispositivi non più conformi. Per altre informazioni, vedere [Condizione di destinazione](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring#target-condition)
+In una distribuzione di IoT Edge, la condizione Di destinazione è qualsiasi condizione booleana nei tag dei dispositivi gemelli per selezionare i dispositivi di destinazione della distribuzione, ad esempio **tag.environment - prod**. La condizione di destinazione viene continuamente valutata per includere tutti i nuovi dispositivi che soddisfano i requisiti o rimuovere i dispositivi che non lo fanno più. Per altre informazioni, vedere [Condizione di destinazione](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring#target-condition)

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/13/2019
 ms.author: erhopf
 ms.openlocfilehash: 0bcdd315fe11b7472166a5a9ad4f7395e22d2126
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72675611"
 ---
 Per creare un progetto di Visual Studio per lo sviluppo di app per dispositivi mobili multipiattaforma con .NET usando Xamarin, è necessario:
@@ -68,7 +68,7 @@ Installare il [pacchetto NuGet Speech SDK](https://aka.ms/csspeech/nuget) e fare
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul file della soluzione. Scegliere **Gestisci pacchetti NuGet per la soluzione** per passare alla finestra **NuGet - Soluzione**.
 
-1. Selezionare **Esplora**.
+1. Selezionare **Sfoglia**.
 
    ![Screenshot della finestra di dialogo Gestisci pacchetti per la soluzione](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-nuget-solution-browse.png)
 

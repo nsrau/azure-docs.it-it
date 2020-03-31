@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Eseguire la sintesi vocale, C# (Unity) - Servizio Voce'
+title: 'Guida introduttiva: Eseguire la sintesi vocale, C# (Unity) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida per creare un'applicazione di sintesi vocale con Unity e Speech SDK per Unity. Al termine, la sintesi vocale dal testo verrà eseguita in tempo reale nell'altoparlante del dispositivo.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 9/19/2019
 ms.author: yinhew
 ms.openlocfilehash: 73a4477547c562a9960fe72b352e906676eadae5
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78924995"
 ---
 > [!NOTE]
@@ -48,7 +48,7 @@ Aggiungere alla scena un'interfaccia utente minimalista, costituita da un campo 
 
 Al termine, l'interfaccia utente dovrebbe essere simile allo screenshot seguente:
 
-[![Screenshot dell'interfaccia utente di questa guida di avvio rapido nell'editor di Unity](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-unity-ui-inline.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-unity-ui-expanded.png#lightbox)
+[![Screenshot dell'interfaccia utente di questa guida introduttiva nell'editor di Unity](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-unity-ui-inline.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-unity-ui-expanded.png#lightbox)
 
 ## <a name="add-the-sample-code"></a>Aggiungere il codice di esempio
 

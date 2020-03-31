@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Libreria client di Riconoscimento modulo per .NET'
+title: 'Guida introduttiva: Libreria client di Riconoscimento modulo per .NET'
 description: Questo argomento di avvio rapido illustra come usare la libreria client di Riconoscimento modulo per .NET per eseguire il training, estrarre, analizzare e ottenere l'output di dati strutturati.
 services: cognitive-services
 author: PatrickFarley
@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: b9db9daf06b59e1a26a9b03a93aff63984841862
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77118357"
 ---
-# <a name="quickstart-form-recognizer-client-library-for-net"></a>Avvio rapido: Libreria client di Riconoscimento modulo per .NET
+# <a name="quickstart-form-recognizer-client-library-for-net"></a>Guida introduttiva: Libreria client di Riconoscimento modulo per .NET
 
 Introduzione alla libreria client di Riconoscimento modulo per .NET. Riconoscimento modulo è un servizio cognitivo che usa la tecnologia di Machine Learning per identificare ed estrarre coppie chiave-valore e dati di tabella da documenti modulo. Restituisce quindi dati strutturati che includono le relazioni nel file originale. Seguire questi passaggi per installare il pacchetto SDK e provare il codice di esempio per le attività di base.
 
@@ -30,7 +30,7 @@ Usare la libreria client di Riconoscimento modulo per .NET per:
 
 [Documentazione di riferimento](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/FormRecognizer) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/).
 * Un BLOB di Archiviazione di Azure contenente un set di dati di training. Consultare [Compilare un training set per un modello personalizzato](../build-training-data-set.md) per suggerimenti e opzioni per la creazione di dati di training. Per questo argomento di avvio rapido, è possibile usare i file inclusi nella cartella **Train** del [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451).

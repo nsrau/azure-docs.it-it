@@ -4,10 +4,10 @@ description: Usando C#, creare un chat bot integrato con Language Understanding 
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.openlocfilehash: 2381f4cba39f81ab593f3149a2708f442156f30d
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76987998"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Esercitazione: Usare un bot app Web abilitato con Language Understanding in C#
@@ -22,7 +22,7 @@ Usare C# per creare un chatbot integrato con Language Understanding (LUIS). Il b
 > * Avviare bot ed emulatore localmente nel computer in uso
 > * Visualizzare i risultati di espressione nel bot
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * [Bot Emulator](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)

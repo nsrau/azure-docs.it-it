@@ -12,10 +12,10 @@ ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 6cb9dadc107c6907f1ccb28a876270e577f10395
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74977302"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-curl"></a>Guida introduttiva: Generare un'anteprima con l'API REST di Visione artificiale e cURL
@@ -38,7 +38,7 @@ Per eseguire l'esempio, seguire questa procedura:
 1. Copiare il codice seguente in un editor.
 1. Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione valida.
 1. Sostituire `<File>` con il percorso e il nome del file per salvare l'anteprima.
-1. Modificare l'URL della richiesta (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.1`) in modo da usare l'indirizzo in cui si sono ottenute le chiavi di sottoscrizione, se necessario.
+1. Modificare l'URL della richiesta (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.1`) impostando l'indirizzo in cui si sono ottenute le chiavi di sottoscrizione, se necessario.
 1. Facoltativamente, modificare l'immagine (`{\"url\":\"...`) da analizzare.
 1. Aprire un prompt dei comandi in un computer in cui è installato cURL.
 1. Incollare il codice nella finestra ed eseguire il comando.

@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 02/18/2020
+ms.date: 03/13/2020
 ms.author: victorh
-ms.openlocfilehash: 0ba2ce30cee3ff7e3a9f71b4f1b0928fa84e775d
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 149782f627d586e927c828506a7d4f1b5437b987
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443151"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79366275"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>Che cos'è Anteprima di Gestione firewall di Azure?
 
@@ -80,13 +80,14 @@ Anteprima di Gestione firewall di Azure presenta i problemi noti seguenti:
 
 |Problema  |Descrizione  |Strategia di riduzione del rischio  |
 |---------|---------|---------|
-|Limitazioni relative al filtro di terze parti|Il filtro del traffico V2I con provider di terze parti non è supportato con Firewall di Azure B2V e V2V.|Analisi momentaneamente in corso.|
-|La suddivisione del traffico non è supportata al momento|Office 365 e la suddivisione del traffico PaaS pubblico di Azure non sono supportati al momento. Di conseguenza, se si seleziona un provider di terze parti per V2I o B2I, vengono inviati tramite il servizio partner anche tutti i PaaS pubblici di Azure e il traffico di Office 365.|Al momento è in corso un'analisi della suddivisione del traffico nell'hub.
-|Un unico hub virtuale protetto per area|Non è possibile avere più hub virtuali protetti per area.|Creare più reti WAN virtuali in un'area.|
-|I criteri di base devono trovarsi nella stessa area dei criteri locali|Creare tutti i criteri locali nella stessa area dei criteri di base. È comunque possibile applicare un criterio creato in un'area in un hub protetto di un'altra area.|Analisi momentaneamente in corso.|
-|Comunicazione tra hub non funzionante con l'hub virtuale protetto|La comunicazione tra hub virtuali protetti non è ancora supportata.|Analisi momentaneamente in corso.|
+|Limitazioni relative al filtro di terze parti.|Il filtro del traffico V2I con provider di terze parti non è supportato con Firewall di Azure B2V e V2V.|Analisi in corso|
+|La suddivisione del traffico non è attualmente supportata.|Office 365 e la suddivisione del traffico PaaS pubblico di Azure non sono supportati al momento. Di conseguenza, se si seleziona un provider di terze parti per V2I o B2I, vengono inviati tramite il servizio partner anche tutti i PaaS pubblici di Azure e il traffico di Office 365.|È attualmente in corso l'analisi della suddivisione del traffico nell'hub.
+|Un unico hub virtuale protetto per area.|Non è possibile avere più hub virtuali protetti per area.|Creare più reti WAN virtuali in un'area.|
+|I criteri di base devono trovarsi nella stessa area dei criteri locali.|Creare tutti i criteri locali nella stessa area dei criteri di base. È comunque possibile applicare un criterio creato in un'area in un hub protetto di un'altra area.|Analisi in corso|
+|Comunicazione tra hub non funzionante con l'hub virtuale protetto|La comunicazione tra hub virtuali protetti non è ancora supportata.|Analisi in corso|
 |Tutti gli hub virtuali protetti che condividono la stessa rete WAN virtuale devono risiedere nello stesso gruppo di risorse.|Questo comportamento è attualmente allineato agli hub di rete WAN virtuale.|Creare più reti WAN virtuali per consentire la creazione di hub virtuali protetti in gruppi di risorse diversi.|
-|I gruppi IP non sono supportati nei criteri firewall|I gruppi IP sono in anteprima pubblica e non sono attualmente supportati con regole del firewall tradizionali.|Correzione in corso.
+|I gruppi IP non sono supportati nei criteri firewall.|I gruppi IP sono in anteprima pubblica e non sono attualmente supportati con regole del firewall tradizionali.|Correzione in corso.
+|Le sottoscrizioni Cloud Solution Provider (CSP) non sono supportate.|Le [sottoscrizioni CSP](https://azure.microsoft.com/offers/ms-azr-0145p/) non sono attualmente supportate.|Analisi in corso
 
 ## <a name="next-steps"></a>Passaggi successivi
 

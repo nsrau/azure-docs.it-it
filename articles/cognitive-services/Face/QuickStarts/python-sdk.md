@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Libreria client dell'API Viso per Python"
+title: "Guida introduttiva: Libreria client dell'API Viso per Python"
 description: Questo argomento di avvio rapido illustra come usare la libreria client di Viso per Python per rilevare, trovare similitudini, identificare, verificare e altro ancora.
 services: cognitive-services
 author: PatrickFarley
@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: 7ac1b85ee44627990931cfc7b3a65f6f7a661b3f
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76165824"
 ---
-# <a name="quickstart-face-client-library-for-python"></a>Avvio rapido: Libreria client dell'API Viso per Python
+# <a name="quickstart-face-client-library-for-python"></a>Guida introduttiva: Libreria client dell'API Viso per Python
 
 Introduzione alla libreria client dell'API Viso per Python. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Il servizio Viso fornisce l'accesso ad algoritmi avanzati per il rilevamento e il riconoscimento dei visi umani nelle immagini.
 
@@ -31,7 +31,7 @@ Usare la libreria client dell'API Viso per Python per:
 
 [Documentazione di riferimento](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Pacchetto (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [Esempi](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)

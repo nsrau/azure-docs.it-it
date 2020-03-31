@@ -11,10 +11,10 @@ ms.topic: include
 ms.custom: include file
 ms.author: diberry
 ms.openlocfilehash: 631185c20b816191530158fab2b7cd1ed68c3092
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77371597"
 ---
 Usare la libreria client di creazione di Language Understanding (LUIS) per Python per eseguire queste operazioni:
@@ -26,7 +26,7 @@ Usare la libreria client di creazione di Language Understanding (LUIS) per Pytho
 
 [Documentazione di riferimento](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [Pacchetto di creazione (PyPI)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [Esempi](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Account del portale di Language Understanding (LUIS): [È possibile crearne uno gratuitamente](https://www.luis.ai).
 * [Python 3.x](https://www.python.org/)

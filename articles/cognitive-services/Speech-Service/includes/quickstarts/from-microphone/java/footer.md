@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Riconoscimento vocale da un microfono, Java - Servizio Voce'
+title: 'Guida introduttiva: Riconoscimento vocale da un microfono, Java - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 ms.openlocfilehash: 44c92b4aec100600d98c502895d5a95dd3b14abb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75467740"
 ---
 > [!div class="nextstepaction"]

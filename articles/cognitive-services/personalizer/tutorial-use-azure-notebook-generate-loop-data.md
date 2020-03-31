@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: diberry
 ms.openlocfilehash: 03e8b658f7edf4640d738e5ea3af84953185d0f5
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76986836"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Esercitazione: Usare Personalizza esperienze in Azure Notebooks
@@ -64,7 +64,7 @@ Il sistema riceve la richiesta, quindi confronta la previsione con la scelta not
 > Questa è una simulazione, quindi l'algoritmo per la ricompensa è semplice. In uno scenario reale l'algoritmo dovrebbe usare la logica di business, possibilmente con pesi per diversi aspetti dell'esperienza del cliente, per determinare il punteggio di ricompensa.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un account [Azure Notebooks](https://notebooks.azure.com/).
 * Una [risorsa di Personalizza esperienze](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).

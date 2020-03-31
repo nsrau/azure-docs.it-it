@@ -1,5 +1,5 @@
 ---
-title: Introduzione al server di autenticazione a più fattori di Azure-Azure Active Directory
+title: Introduzione a Azure MFA Server - Azure Active Directory
 description: Guida introduttiva dettagliata al server Azure MFA locale
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,22 +12,22 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 53428039055005693f30f63a709105b77fe65f8f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263699"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introduzione al server Azure Multi-Factor Authentication
 
 <center>
 
-![Introduzione a server multi-factor authentication](./media/howto-mfaserver-deploy/server2.png)</center> locale
+![Introduzione all'autenticazione a più fattori di MFA Server locale](./media/howto-mfaserver-deploy/server2.png)</center>
 
 Questa pagina include una nuova installazione del server che include l'impostazione di Active Directory locale. Se il server MFA è già installato e lo si vuole aggiornare, vedere [Upgrade to the latest Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade.md) (Eseguire l'aggiornamento al server Azure Multi-Factor Authentication più recente). Per informazioni sull'installazione solo del servizio Web, vedere [Distribuzione del servizio Web App Mobile di Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-mobileapp.md).
 
 > [!IMPORTANT]
-> A partire dal 1 ° luglio 2019, Microsoft non offrirà più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori dagli utenti devono usare Azure Multi-Factor Authentication basato sul cloud. I clienti esistenti che hanno attivato il server di autenticazione a più fattori prima del 1 ° luglio potranno scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
+> A partire dal 1 luglio 2019, Microsoft non offrirà più MFA Server per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori dai propri utenti devono usare L'autenticazione a più fattori di Azure basata su cloud. I clienti esistenti che hanno attivato MFA Server prima del 1 luglio potranno scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
 
 ## <a name="plan-your-deployment"></a>Pianificare la distribuzione
 
@@ -95,12 +95,12 @@ Se non si usa la funzionalità di conferma dell'evento e gli utenti non usano ap
 
 Seguire questi passaggi per scaricare il server Azure Multi-Factor Authentication dal portale di Azure:
 
-1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
-2. Cercare e selezionare *Azure Active Directory*. Selezionare **sicurezza** > **autenticazione**a più fattori.
-3. In **Manager Server**di autenticazione a più fattori selezionare **Impostazioni server**.
+1. Accedere al [portale](https://portal.azure.com) di Azure come amministratore.
+2. Cercare e selezionare *Azure Active Directory*. Selezionare **Security** > **MFA**.
+3. In **Server autenticazione a più fattori**di gestione selezionare Impostazioni **server**.
 4. Selezionare **Scarica** e seguire le istruzioni nella pagina di download per salvare il programma di installazione. 
 
-   ![Scaricare il server di autenticazione a più fattori dal portale di Azure](./media/howto-mfaserver-deploy/downloadportal.png)
+   ![Scaricare MFA Server dal portale di AzureDownload MFA Server from the Azure portal](./media/howto-mfaserver-deploy/downloadportal.png)
 
 5. Tenere aperta questa pagina, perché sarà necessaria dopo l'esecuzione del programma di installazione.
 
@@ -113,12 +113,12 @@ Dopo averlo scaricato, è possibile installare e configurare il server. Assicura
 3. Al termine dell'installazione, fare clic su **Fine**. Viene avviata la configurazione guidata.
 4. Nella schermata iniziale della configurazione guidata selezionare **Non utilizzare la Configurazione guidata autenticazione** e fare clic su **Avanti**. La procedura guidata viene chiusa e viene avviato il server.
 
-   ![Ignora utilizzo della configurazione guidata autenticazione](./media/howto-mfaserver-deploy/skip2.png)
+   ![Ignorare l'utilizzo della Configurazione guidata autenticazione](./media/howto-mfaserver-deploy/skip2.png)
 
 5. Tornare alla pagina da cui è stato scaricato il server e fare clic sul pulsante **Genera credenziali di attivazione**. Copiare queste informazioni nel server Azure MFA nelle apposite caselle e fare clic su **Attiva**.
 
 > [!NOTE]
-> Solo gli amministratori globali sono in grado di generare le credenziali di attivazione nella portale di Azure.
+> Solo gli amministratori globali sono in grado di generare credenziali di attivazione nel portale di Azure.Only global administrators are able to generate activation credentials in the Azure portal.
 
 ## <a name="send-users-an-email"></a>Inviare agli utenti un messaggio di posta elettronica
 
@@ -136,7 +136,7 @@ Fare clic sull'icona del messaggio di posta elettronica a sinistra per configura
 
 Nella scheda Contenuto messaggio è possibile visualizzare i modelli di messaggio di posta elettronica disponibili per la selezione. A seconda della modalità di configurazione scelta per l'esecuzione della verifica in due passaggi, è possibile scegliere il modello che meglio si adatta alle proprie esigenze.
 
-![Modelli di posta elettronica del server multi-factor authentication nella console](./media/howto-mfaserver-deploy/email2.png)
+![Modelli di posta elettronica di MFA Server nella console](./media/howto-mfaserver-deploy/email2.png)
 
 ## <a name="import-users-from-active-directory"></a>Importare gli utenti da Active Directory
 
@@ -149,7 +149,7 @@ Ora che il server è installato, è possibile aggiungere gli utenti. È possibil
 3. A questo punto è possibile eseguire la ricerca di singoli utenti o effettuare una ricerca delle unità organizzative con utenti all'interno di Active Directory. In questo caso, viene specificata l'unità organizzativa utenti.
 4. Selezionare tutti gli utenti a destra e fare clic su **Importa**. Verrà visualizzata una finestra popup che informa che tutte le operazioni sono state eseguite correttamente. Chiudere la finestra di importazione.
 
-   ![Importazione utente server multi-factor authentication da Active Directory](./media/howto-mfaserver-deploy/import2.png)
+   ![Importazione utente di MFA Server da Active Directory](./media/howto-mfaserver-deploy/import2.png)
 
 ### <a name="automated-synchronization-with-active-directory"></a>Sincronizzazione automatica con Active Directory
 
@@ -177,7 +177,7 @@ Quando si usa il server Multi-Factor Authentication (MFA) locale, i dati di un u
 Oltre a questi campi, il risultato della verifica (esito positivo/rifiuto) e il motivo di eventuali rifiuti vengono archiviati insieme ai dati di autenticazione e sono disponibili nei report di autenticazione/utilizzo.
 
 > [!IMPORTANT]
-> A partire da marzo 2019, le opzioni per le telefonate non saranno disponibili per gli utenti del server multi-factor authentication in tenant Azure AD gratuiti/di valutazione. Questa modifica non ha alcun effetto sui messaggi SMS. La telefonata continuerà a essere disponibile per gli utenti in tenant Azure AD a pagamento. Questa modifica ha effetto solo sui tenant di Azure AD gratuiti/di valutazione.
+> A partire da marzo 2019 le opzioni di chiamata telefonica non saranno disponibili per gli utenti di MFA Server nei tenant di Azure AD gratuito/di valutazione. I messaggi SMS non sono interessati da questa modifica. La telefonata continuerà a essere disponibile per gli utenti nei tenant di Azure AD a pagamento. Questa modifica influisce solo sui tenant di Azure AD gratuiti/di valutazione.
 
 ## <a name="back-up-and-restore-azure-mfa-server"></a>Eseguire il backup e il ripristino del server Azure MFA
 

@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e Node.js"
+title: "Guida introduttiva: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e Node.js"
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come iniziare rapidamente a suggerire termini di ricerca in tempo reale con l'API Suggerimenti automatici Bing.
 services: cognitive-services
@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 9a5cce8102e3a1b3f9beaad8c42b278c56560be9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 11dc0d4f80e14c293fde4e84b5e97d39fe594629
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384935"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80238946"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Avvio rapido: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e Node.js
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Guida introduttiva: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e Node.js
 
 Usare questa guida di avvio rapido per iniziare a eseguire chiamate all'API Suggerimenti automatici Bing e ottenere la risposta JSON. Questa semplice applicazione Node.js invia una query di ricerca parziale all'API e restituisce suggerimenti per le ricerche. L'applicazione è scritta in JavaScript, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * [Node.js 6](https://nodejs.org/en/download/) o versione successiva
 

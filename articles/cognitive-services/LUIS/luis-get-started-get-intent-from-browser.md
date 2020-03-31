@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Ottenere la finalità tramite browser - LUIS'
+title: 'Guida introduttiva: Ottenere la finalità tramite browser - LUIS'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si usa un'app LUIS pubblica disponibile per stabilire l'intenzione di un utente partendo da un testo discorsivo in un browser.
 services: cognitive-services
@@ -12,17 +12,17 @@ ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: diberry
 ms.openlocfilehash: e06bb4c09b3ebab25c0c0ef8ac5c51f6842f34cd
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76987955"
 ---
-# <a name="quickstart-get-intent-with-a-browser"></a>Avvio rapido: Ottenere la finalità tramite un browser
+# <a name="quickstart-get-intent-with-a-browser"></a>Guida introduttiva: Ottenere la finalità tramite un browser
 
 Per comprendere ciò che restituisce un endpoint di stima LUIS, visualizzare un risultato di stima in un Web browser.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire query su un'app pubblica, sono necessari gli elementi seguenti:
 
@@ -34,7 +34,7 @@ Per eseguire query su un'app pubblica, sono necessari gli elementi seguenti:
 1. Aprire un Web browser.
 1. Usare gli URL completi seguenti, sostituendo `YOUR-KEY` con la propria chiave di creazione o di previsioni LUIS. Le richieste sono richieste GET e includono l'autorizzazione, con la chiave di creazione o di previsioni LUIS, come parametro della stringa di query.
 
-    #### <a name="v3-prediction-requesttabv3-1-1"></a>[Richiesta di previsione V3](#tab/V3-1-1)
+    #### <a name="v3-prediction-request"></a>[Richiesta di previsione V3](#tab/V3-1-1)
 
 
     Il formato dell'URL V3 per una richiesta dell'endpoint **GET** (per slot) è:
@@ -43,7 +43,7 @@ Per eseguire query su un'app pubblica, sono necessari gli elementi seguenti:
     https://westus.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-KEY
     `
 
-    #### <a name="v2-prediction-requesttabv2-1-2"></a>[Richiesta di previsione V2](#tab/V2-1-2)
+    #### <a name="v2-prediction-request"></a>[Richiesta di previsione V2](#tab/V2-1-2)
 
     Il formato dell'URL V2 per una richiesta dell'endpoint **GET** è:
 
@@ -53,7 +53,7 @@ Per eseguire query su un'app pubblica, sono necessari gli elementi seguenti:
 
 1. Incollare l'URL in una finestra del browser e premere INVIO. Il browser visualizzerà un risultato JSON che indica che LUIS rileva la finalità `HomeAutomation.TurnOn` come finalità principale e l'entità `HomeAutomation.Operation` con il valore `on`.
 
-    #### <a name="v3-prediction-responsetabv3-2-1"></a>[Risposta di previsione V3](#tab/V3-2-1)
+    #### <a name="v3-prediction-response"></a>[Risposta di previsione V3](#tab/V3-2-1)
 
     ```JSON
     {
@@ -74,7 +74,7 @@ Per eseguire query su un'app pubblica, sono necessari gli elementi seguenti:
     }
     ```
 
-    #### <a name="v2-prediction-responsetabv2-2-2"></a>[Risposta di previsione V2](#tab/V2-2-2)
+    #### <a name="v2-prediction-response"></a>[Risposta di previsione V2](#tab/V2-2-2)
 
     ```json
     {
@@ -99,7 +99,7 @@ Per eseguire query su un'app pubblica, sono necessari gli elementi seguenti:
 
 1. Per visualizzare tutte le finalità, aggiungere il parametro della stringa di query appropriato.
 
-    #### <a name="v3-prediction-endpointtabv3-3-1"></a>[Endpoint di previsione V3](#tab/V3-3-1)
+    #### <a name="v3-prediction-endpoint"></a>[Endpoint di previsione V3](#tab/V3-3-1)
 
     Aggiungere `show-all-intents=true` alla fine della stringa di query per **visualizzare tutte le finalità**:
 
@@ -132,7 +132,7 @@ Per eseguire query su un'app pubblica, sono necessari gli elementi seguenti:
     }
     ```
 
-    #### <a name="v2-prediction-endpointtabv2"></a>[Endpoint di previsione V2](#tab/V2)
+    #### <a name="v2-prediction-endpoint"></a>[Endpoint di previsione V2](#tab/V2)
 
     Aggiungere `verbose=true` alla fine della stringa di query per **visualizzare tutte le finalità**:
 

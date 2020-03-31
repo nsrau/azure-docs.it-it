@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e PHP"
+title: "Guida introduttiva: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e PHP"
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come iniziare rapidamente a suggerire termini di ricerca in tempo reale con l'API Suggerimenti automatici Bing.
 services: cognitive-services
@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 64874791be62ec1ed5c1c5874fb055efa4b44dc3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0aa309ba34abdfbe91493498ae6ec49785e0e0d4
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384721"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80238990"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>Avvio rapido: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e PHP
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>Guida introduttiva: Suggerire query di ricerca con l'API REST Suggerimenti automatici Bing e PHP
 
 Usare questa guida di avvio rapido per iniziare a eseguire chiamate all'API Suggerimenti automatici Bing e ottenere la risposta JSON. Questa semplice applicazione PHP invia una query di ricerca parziale all'API e restituisce suggerimenti per le ricerche. L'applicazione è scritta in PHP, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * [PHP 5.6.x](https://php.net/downloads.php) o versione successiva
 

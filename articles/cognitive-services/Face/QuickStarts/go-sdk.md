@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Libreria client di Viso per Go | Microsoft Docs'
+title: 'Guida introduttiva: Libreria client di Viso per Go | Microsoft Docs'
 description: Introduzione alla libreria client di Viso per Go.
 services: cognitive-services
 author: PatrickFarley
@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.openlocfilehash: 2db40150167a8f16242b2feb15b77820fa1970a9
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76961228"
 ---
-# <a name="quickstart-face-client-library-for-go"></a>Avvio rapido: Libreria client di Viso per Go
+# <a name="quickstart-face-client-library-for-go"></a>Guida introduttiva: Libreria client di Viso per Go
 
 Introduzione alla libreria client di Viso per Go. Seguire questa procedura per installare la libreria e provare gli esempi di attività di base. Il servizio Viso fornisce l'accesso ad algoritmi avanzati per il rilevamento e il riconoscimento dei visi umani nelle immagini.
 
@@ -30,7 +30,7 @@ Installare la libreria client del servizio Viso per Go per:
 
 [Documentazione di riferimento](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face) | [Download dell'SDK](https://github.com/Azure/azure-sdk-for-go)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/)
 * Versione più recente di [Go](https://golang.org/dl/)
@@ -63,7 +63,7 @@ Usando la chiave e l'endpoint della risorsa creata, creare due variabili di ambi
 
 Usare le istruzioni per il sistema operativo in uso.
 <!-- replace the below endpoint and key examples -->
-#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+#### <a name="windows"></a>[Windows](#tab/windows)
 
 ```console
 setx FACE_SUBSCRIPTION_KEY <replace-with-your-product-name-key>
@@ -72,7 +72,7 @@ setx FACE_ENDPOINT <replace-with-your-product-name-endpoint>
 
 Dopo aver aggiunto la variabile di ambiente, riavviare la finestra della console.
 
-#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+#### <a name="linux"></a>[Linux](#tab/linux)
 
 ```bash
 export FACE_SUBSCRIPTION_KEY=<replace-with-your-product-name-key>
@@ -81,7 +81,7 @@ export FACE_ENDPOINT=<replace-with-your-product-name-endpoint>
 
 Dopo avere aggiunto la variabile di ambiente, eseguire `source ~/.bashrc` dalla finestra della console per rendere effettive le modifiche.
 
-#### <a name="macostabunix"></a>[macOS](#tab/unix)
+#### <a name="macos"></a>[macOS](#tab/unix)
 
 Modificare `.bash_profile` e aggiungere la variabile di ambiente:
 

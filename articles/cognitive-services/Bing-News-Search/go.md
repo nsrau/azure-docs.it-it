@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Ottenere notizie usando l'API REST Ricerca notizie Bing e Go"
+title: "Guida introduttiva: Ottenere notizie usando l'API REST Ricerca notizie Bing e Go"
 titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido viene usato il linguaggio Go per chiamare l'API Ricerca notizie Bing. I risultati includono i nomi e gli URL delle fonti di notizie identificate dalla stringa di query.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: a72859e378bc1f97ebaed6a11ea3b250a33651d5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: aaeb905c9cdc1e7b74e21d3c191f6a24a94fcd7d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448535"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80053817"
 ---
-# <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>Avvio rapido: Ottenere i risultati delle notizie usando l'API REST Ricerca notizie Bing e Go
+# <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>Guida introduttiva: Ottenere i risultati delle notizie usando l'API REST Ricerca notizie Bing e Go
 
 In questo argomento di avvio rapido viene usato il linguaggio Go per chiamare l'API Ricerca notizie Bing. I risultati includono i nomi e gli URL delle fonti di notizie identificate dalla stringa di query.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 * Installare i [file binari Go](https://golang.org/dl/)
 * Installare la libreria go-spew per visualizzare i risultati tramite lo strumento per la riformattazione
     * Installare questa libreria: `$ go get -u https://github.com/davecgh/go-spew`
@@ -73,13 +73,13 @@ type NewsAnswer struct {
                 Width   int  `json: "width"`
                 Height  int   `json: "height"`
             } `json: "thumbnail"` 
+            } `json: "image"` 
             Description  string  `json: "description"`
             Provider  []struct   {
                 Type   string    `json: "_type"`
                 Name  string     `json: "name"`
             } `json: "provider"` 
             DatePublished   string   `json: "datePublished"`
-        } `json: "image"` 
     } `json: "value"` 
 }
 

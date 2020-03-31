@@ -9,10 +9,10 @@ ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: 02247adb9852a72b386feb2ef0924b0f1b3d6277
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75895226"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Risolvere i problemi di Apache Hive tramite Azure HDInsight
@@ -39,7 +39,7 @@ Informazioni sui problemi principali che possono verificarsi quando si usano i p
     hive -f alltables.sql
     ```
 
-Il codice nella procedura di risoluzione presuppone che i percorsi di dati nel nuovo cluster siano uguali ai percorsi di dati nel cluster precedente. Se i percorsi dei dati sono diversi, è possibile modificare manualmente il file di `alltables.sql` generato in modo da riflettere le modifiche.
+Il codice nella procedura di risoluzione presuppone che i percorsi di dati nel nuovo cluster siano uguali ai percorsi di dati nel cluster precedente. Se i percorsi dei dati sono `alltables.sql` diversi, è possibile modificare manualmente il file generato per riflettere eventuali modifiche.
 
 ### <a name="additional-reading"></a>Informazioni aggiuntive
 
@@ -63,7 +63,7 @@ Il codice nella procedura di risoluzione presuppone che i percorsi di dati nel n
    /var/log/hive/hivemetastore.log
    ```
 
-4. Per visualizzare i log del server hive, usare il comando seguente:
+4. Per visualizzare i registri del server Hive, utilizzare il comando seguente:To view Hive server logs, use the following command:
 
    ```apache
    /var/log/hive/hiveserver2.log
@@ -99,7 +99,7 @@ Il codice nella procedura di risoluzione presuppone che i percorsi di dati nel n
 
 - [Hive configuration properties](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties) (Proprietà di configurazione di Hive)
 
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Come si analizzano i dati di un grafo aciclico diretto di Apache Tez in un percorso critico del cluster?
+## <a name="how-do-i-analyze-apache-tez-dag-data-on-a-cluster-critical-path"></a><a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Come si analizzano i dati di un grafo aciclico diretto di Apache Tez in un percorso critico del cluster?
 
 ### <a name="resolution-steps"></a>Procedura per la risoluzione
 
@@ -157,7 +157,7 @@ Esistono due modi per raccogliere i dati di un grafo aciclico diretto di Tez:
   3. Selezionare il grafo aciclico diretto da visualizzare.
   4. Selezionare **Download data** (Scarica dati).
 
-### <a name="additional-reading-end"></a>Informazioni aggiuntive
+### <a name="additional-reading"></a><a name="additional-reading-end"></a>Informazioni aggiuntive
 
 [Connettersi a un cluster HDInsight usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -165,8 +165,8 @@ Esistono due modi per raccogliere i dati di un grafo aciclico diretto di Tez:
 
 Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
 
-- Ottieni risposte dagli esperti di Azure tramite il [supporto della community di Azure](https://azure.microsoft.com/support/community/).
+- Ottieni risposte dagli esperti di Azure tramite il supporto della community di [Azure.](https://azure.microsoft.com/support/community/)
 
-- Connettersi con [@AzureSupport](https://twitter.com/azuresupport) : l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Connessione della community di Azure alle risorse appropriate: risposte, supporto ed esperti.
+- Connettiti [@AzureSupport](https://twitter.com/azuresupport) con - l'account ufficiale di Microsoft Azure per migliorare l'esperienza del cliente. Connessione della community di Azure alle risorse giuste: risposte, supporto ed esperti.
 
-- Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+- Per altre informazioni, è possibile inviare una richiesta di supporto dal portale di [Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selezionare **Supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** tecnico. Per informazioni più dettagliate, vedere Come creare una richiesta di supporto di Azure.For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L'accesso al supporto per la gestione e la fatturazione delle sottoscrizioni è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei piani di supporto di [Azure.](https://azure.microsoft.com/support/plans/)

@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 07/17/2019
 ms.author: pafarley
 ms.openlocfilehash: 07e7cc991f127bf4bb4f466c0108962786e45bce
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68423556"
 ---
 Si noti il dispositivo di scorrimento **Probability Threshold** (Soglia probabilità) nel riquadro sinistro della scheda **Prestazioni**. Questo è il livello di confidenza che una stima deve avere per essere considerata corretta (ai fini del calcolo della precisione e del richiamo). 

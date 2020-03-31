@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: e3d9f63d2f365d5f91f205dc57b1d28e42711403
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 015631efc0077bdaab9a335b4a38fbf4f927e22d
+  ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "80129813"
+  ms.lasthandoff: 03/26/2020
+  ms.locfileid: "80286014"
 highlightedContent:
   items:
   - title: Guida introduttiva per gli sviluppatori in Azure
@@ -32,7 +32,7 @@ highlightedContent:
     url: https://docs.microsoft.com/azure/cloud-adoption-framework/
   - title: Sviluppare le proprie competenze con Microsoft Learn
     itemType: learn
-    url: https://docs.microsoft.com/learn/browse/?products=azure&resource_type=learning%20path
+    url: https://docs.microsoft.com/learn/browse/?products=azure&resource_type=learning+path
 productDirectory:
   title: Esplorare i prodotti di Azure
   items:
@@ -278,7 +278,7 @@ productDirectory:
     azureCategories:
     - analytics
     url: data-explorer/index.yml
-  - title: Archiviazione di Azure Data Lake
+  - title: Azure Data Lake Storage
     summary: Funzionalità di data lake estremamente scalabili e sicure basate su Archiviazione BLOB di Azure
     imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
     azureCategories:
