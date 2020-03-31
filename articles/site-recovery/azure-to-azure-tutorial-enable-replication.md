@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 1/24/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 979b390f65363b43f33ce2f09d26844c3cc1a2e8
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: c5d2bbe920f87421550fadf30a7e7e9d23931bfd
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759790"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80292479"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure
 
@@ -27,7 +27,7 @@ Questa esercitazione illustra come configurare il ripristino di emergenza per le
 > [!NOTE]
 > Questo articolo contiene le istruzioni per distribuire il ripristino di emergenza con le impostazioni più semplici. Per informazioni sulle impostazioni personalizzate, leggere gli articoli nella [sezione Procedure](azure-to-azure-how-to-enable-replication.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 
@@ -75,7 +75,7 @@ Se si usa un proxy firewall basato su URL per controllare la connettività in us
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Connettività in uscita per gli intervalli di indirizzi IP
 
-Se si usa un gruppo di sicurezza di rete, creare regole dei gruppi di sicurezza di rete basate su tag del servizio per l'accesso ad Archiviazione di Azure, Azure Active Directory, servizio Site Recovery e monitoraggio di Site Recovery. [Altre informazioni](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)
+Se si usa un gruppo di sicurezza di rete, creare regole dei gruppi di sicurezza di rete basate su tag del servizio per l'accesso ad Archiviazione di Azure, Azure Active Directory, servizio Site Recovery e monitoraggio di Site Recovery. [Altre informazioni](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)
 
 ## <a name="verify-azure-vm-certificates"></a>Verificare i certificati della macchina virtuale di Azure
 

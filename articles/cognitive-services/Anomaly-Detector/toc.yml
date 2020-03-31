@@ -48,7 +48,7 @@
   items:
     - name: Procedure consigliate per l'API Rilevamento anomalie
       href: concepts/anomaly-detection-best-practices.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Informazioni di riferimento sulle API REST
       href: 'https://aka.ms/anomaly-detector-rest-api-ref'
@@ -78,9 +78,19 @@
       href: 'https://arxiv.org/abs/1906.03821'
 - name: Risorse
   items:
+    - name: Supporto
+      items:
+        - name: Supporto
+          href: 'https://aka.ms/adsupport'
+        - name: Stack Overflow
+          href: 'https://aka.ms/adso'
+        - name: MSDN
+          href: 'https://aka.ms/admsdn'
+        - name: User Voice
+          href: 'https://aka.ms/aduservoice'
     - name: Prezzi
       href: 'https://aka.ms/adpricing'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://aka.ms/adregion'
     - name: Contenuto generato dall'utente
       href: user-generated-content.md
@@ -90,13 +100,3 @@
       href: 'https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/'
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-- name: Supporto
-  items:
-    - name: Supporto
-      href: 'https://aka.ms/adsupport'
-    - name: Stack Overflow
-      href: 'https://aka.ms/adso'
-    - name: MSDN
-      href: 'https://aka.ms/admsdn'
-    - name: User Voice
-      href: 'https://aka.ms/aduservoice'

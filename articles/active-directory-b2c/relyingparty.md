@@ -11,17 +11,17 @@ ms.date: 02/24/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 90ac6f35cafbe63e8c6cdb77450089d00c0e3099
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264349"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-L'elemento **RelyingParty** specifica il percorso utente da applicare per la richiesta corrente Azure Active Directory B2C (Azure ad B2C). Specifica inoltre l'elenco di attestazioni richiesto dall'applicazione relying party (RP) come parte del token emesso. Un'applicazione RP, ad esempio un'applicazione Web, mobile o desktop, chiama il file dei criteri RP. Il file di criteri RP esegue un'attività specifica, ad esempio l'accesso, la reimpostazione di una password o la modifica di un profilo. Più applicazioni possono usare gli stessi criteri RP e una singola applicazione può usare più criteri. Tutte le applicazioni RP ricevono lo stesso token con attestazioni e l'utente segue lo stesso percorso.
+L'elemento **RelyingParty** specifica il percorso utente da applicare per la richiesta corrente ad Azure Active Directory B2C (Azure AD B2C). Specifica inoltre l'elenco di attestazioni richiesto dall'applicazione relying party (RP) come parte del token emesso. Un'applicazione RP, ad esempio un'applicazione Web, mobile o desktop, chiama il file dei criteri RP. Il file di criteri RP esegue un'attività specifica, ad esempio l'accesso, la reimpostazione di una password o la modifica di un profilo. Più applicazioni possono usare gli stessi criteri RP e una singola applicazione può usare più criteri. Tutte le applicazioni RP ricevono lo stesso token con attestazioni e l'utente segue lo stesso percorso.
 
 L'esempio seguente mostra un elemento **RelyingParty** nel file dei criteri *B2C_1A_signup_signin*:
 
@@ -117,7 +117,7 @@ L'elemento **UserJourneyBehaviors** contiene gli elementi seguenti:
 | SessionExpiryInSeconds | 0:1 | Durata del cookie di sessione di Azure AD B2C specificato come intero e archiviato nel browser dell'utente dopo l'autenticazione. |
 | JourneyInsights | 0:1 | Chiave di strumentazione di Azure Application Insights da usare. |
 | ContentDefinitionParameters | 0:1 | Elenco di coppie chiave-valore da accodare all'URI di caricamento della definizione del contenuto. |
-|ScriptExecution| 0:1| Modalità di esecuzione [JavaScript](javascript-samples.md) supportate. Valori possibili: `Allow` o `Disallow` (impostazione predefinita).
+|ScriptExecution| 0:1| Modalità di esecuzione [JavaScript](javascript-samples.md) supportate. Valori `Allow` possibili: `Disallow` o (predefinito).
 
 ### <a name="singlesignon"></a>SingleSignOn
 
@@ -127,7 +127,7 @@ L'elemento **SingleSignOn** contiene l'attributo seguente:
 | --------- | -------- | ----------- |
 | Scope | Sì | Ambito del comportamento di Single Sign-On (SSO). I valori possibili sono: `Suppressed`, `Tenant`, `Application` o `Policy`. Il valore `Suppressed` indica che il comportamento viene eliminato. Ad esempio, nel caso di una sessione di Single Sign-On, non viene mantenuta alcuna sessione per l'utente, a cui viene sempre richiesta la selezione di un provider di identità. Il valore `TrustFramework` indica che il comportamento viene applicato per tutti i criteri del framework attendibilità. Ad esempio, a un utente che naviga in due percorsi di criteri per un framework attendibilità non viene richiesto di selezionare un provider di identità. Il valore `Tenant` indica che il comportamento viene applicato a tutti i criteri nel tenant. Ad esempio, a un utente che naviga in due percorsi di criteri per un tenant non viene richiesto di selezionare un provider di identità. Il valore `Application` indica che il comportamento viene applicato a tutti i criteri per l'applicazione che esegue la richiesta. Ad esempio, a un utente che naviga in due percorsi di criteri per un'applicazione non viene richiesto di selezionare un provider di identità. Il valore `Policy` indica che il comportamento si applica solo a un criterio. Ad esempio, a un utente che naviga in due percorsi di criteri per un framework attendibilità viene richiesto di selezionare un provider di identità in caso passaggio da un criterio a un altro. |
 | KeepAliveInDays | Sì | Controlla per quanto tempo l'utente rimane connesso. Se si imposta il valore su 0, la funzionalità KMSI viene disattivata. Per altre informazioni, vedere [Mantenere l'accesso](custom-policy-keep-me-signed-in.md). |
-|EnforceIdTokenHintOnLogout| No|  Forzare il passaggio di un token ID emesso in precedenza all'endpoint di disconnessione come hint per la sessione autenticata corrente dell'utente finale con il client. I valori possibili sono: `false` (impostazione predefinita) o `true`. Per altre informazioni, vedere [accesso Web con OpenID Connect](openid-connect.md).  |
+|EnforceIdTokenHintOnLogoutEnforceIdTokenHintOnLogout| No|  Forzare il passaggio di un token ID rilasciato in precedenza all'endpoint di disconnessione come suggerimento sulla sessione autenticata corrente dell'utente finale con il client. I valori possibili sono: `false` (impostazione predefinita) o `true`. Per ulteriori informazioni, vedere [Accesso Web con OpenID Connect](openid-connect.md).  |
 
 
 ## <a name="journeyinsights"></a>JourneyInsights
@@ -211,7 +211,7 @@ L'elemento **OutputClaim** contiene gli attributi seguenti:
 ### <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
 Con l'elemento **SubjectNameingInfo** viene controllato il valore del soggetto del token:
-- **Token JWT** : attestazione `sub`. Indica l'entità di sicurezza su cui il token rilascia informazioni, ad esempio l'utente di un'applicazione. Questo valore non è modificabile e non può essere riassegnato o riutilizzato. Può essere usato per eseguire controlli di autorizzazione sicuri, ad esempio quando il token viene usato per accedere a una risorsa. Per impostazione predefinita, l'attestazione dell'oggetto viene popolata con l'ID oggetto dell'utente nella directory. Per altre informazioni, vedere [Configurazione di token, sessione e accesso Single Sign-On](session-behavior.md).
+- **Token JWT** `sub` - l'attestazione. Indica l'entità di sicurezza su cui il token rilascia informazioni, ad esempio l'utente di un'applicazione. Questo valore non è modificabile e non può essere riassegnato o riutilizzato. Può essere usato per eseguire controlli di autorizzazione sicuri, ad esempio quando il token viene usato per accedere a una risorsa. Per impostazione predefinita, l'attestazione dell'oggetto viene popolata con l'ID oggetto dell'utente nella directory. Per altre informazioni, vedere [Configurazione di token, sessione e accesso Single Sign-On](session-behavior.md).
 - **Token SAML** - Elemento `<Subject><NameID>` che identifica il soggetto.
 
 L'elemento **SubjectNamingInfo** contiene l'attributo seguente:
@@ -220,7 +220,7 @@ L'elemento **SubjectNamingInfo** contiene l'attributo seguente:
 | --------- | -------- | ----------- |
 | ClaimType | Sì | Riferimento all'elemento **PartnerClaimType** di un'attestazione di output. Le attestazioni di output devono essere definite nella raccolta **OutputClaims** di criteri della relying party. |
 
-Nell'esempio seguente viene illustrato come definire un relying party OpenID Connect. Le informazioni sul nome del soggetto sono configurate come `objectId`:
+Nell'esempio seguente viene illustrato come definire una relying party OpenID Connect.The following example shows how to define an OpenID Connect relying party. Le informazioni sul nome del soggetto sono configurate come `objectId`:
 
 ```XML
 <RelyingParty>

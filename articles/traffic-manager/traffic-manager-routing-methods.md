@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: rohink
 ms.openlocfilehash: 4a035506943eeffa2c3fc4fec27c47da4136683b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250907"
 ---
 # <a name="traffic-manager-routing-methods"></a>Metodi di routing di Gestione traffico
@@ -23,9 +23,9 @@ Gestione traffico di Azure supporta sei metodi di routing del traffico per deter
 
 In Gestione traffico sono disponibili i metodi di routing del traffico seguenti:
 
-* **[Priorità](#priority-traffic-routing-method):** selezionare **Priorità** quando si vuole usare un endpoint di servizio primario per tutto il traffico e prevedere endpoint di backup nel caso in cui l'endpoint primario o gli endpoint di backup non siano disponibili.
-* **[Ponderato](#weighted):** selezionare **Ponderato** quando si vuole distribuire il traffico in un set di endpoint in modo uniforme o in base alle ponderazioni definite.
-* **[Prestazioni](#performance):** selezionare **Prestazioni** quando gli endpoint si trovano in aree geografiche diverse e si vuole che gli utenti finali usino l'endpoint "più vicino" in termini di latenza di rete più bassa.
+* **[Priorità:](#priority-traffic-routing-method)** selezionare **Priorità** quando si desidera utilizzare un endpoint del servizio primario per tutto il traffico e fornire backup nel caso in cui gli endpoint primario o di backup non siano disponibili.
+* **[Ponderato](#weighted):** Selezionare **Ponderato** quando si desidera distribuire il traffico tra un set di endpoint, in modo uniforme o in base ai pesi definiti dall'utente.
+* **[Prestazioni:](#performance)** selezionare **Prestazioni** quando sono presenti endpoint in posizioni geografiche diverse e si desidera che gli utenti finali utilizzino l'endpoint "più vicino" in termini di latenza di rete più bassa.
 * **[Geografico](#geographic):** selezionare **Geografico** in modo che gli utenti vengono indirizzati a endpoint specifici (Azure, Esterno o Annidato) in base alla posizione geografica da cui provengono le query DNS. Questo consente ai clienti di Gestione traffico di abilitare scenari in cui è importante conoscere l'area geografica dell'utente ed eseguirne il routing in base a questa. Ne sono esempi la presenza di determinati requisiti sui dati, la localizzazione del contenuto e dell'esperienza dell'utente e la misurazione del traffico da aree diverse.
 * **[Multivalore](#multivalue):** selezionare **Multivalore** per i profili di Gestione traffico che possono avere come endpoint solo indirizzi IPv4/IPv6. Quando viene ricevuta una query per profili di questo tipo, vengono restituiti tutti gli endpoint integri.
 * **[Subnet](#subnet):** selezionare il metodo di routing del traffico **Subnet** per eseguire il mapping di set di intervalli di indirizzi IP dell'utente finale a uno specifico endpoint all'interno di un profilo di Gestione traffico. Al ricevimento di una richiesta, verrà restituito l'endpoint mappato per l'indirizzo IP di origine della richiesta. 
@@ -45,7 +45,7 @@ Il profilo di Gestione traffico contiene un elenco con priorità di endpoint di 
 
 In Azure Resource Manager la priorità degli endpoint viene configurata in modo esplicito, definendo la proprietà "priority" di ogni endpoint. Questa proprietà accetta un valore compreso tra 1 e 1000, dove i valori più bassi rappresentano una priorità più elevata. Gli endpoint non possono avere lo stesso valore di priorità. La proprietà è facoltativa e, se viene omessa, viene usata una priorità predefinita in base all'ordine degli endpoint.
 
-## <a name = "weighted"></a>Metodo di routing del traffico Ponderato
+## <a name="weighted-traffic-routing-method"></a><a name = "weighted"></a>Metodo di routing del traffico Ponderato
 Il metodo di routing del traffico "Ponderato" consente di distribuire il traffico tra tutti gli endpoint in modo uniforme o con un peso predefinito.
 
 ![Metodo di routing del traffico "Ponderato" di Gestione traffico di Azure](media/traffic-manager-routing-methods/weighted.png)
@@ -72,7 +72,7 @@ I casi d'uso comuni in cui può verificarsi questa situazione includono:
 
 Questi effetti della memorizzazione nella cache DNS non riguardano solo Gestione traffico di Azure, ma sono comuni a tutti i sistemi di routing del traffico basati su DNS. In alcuni casi, la cancellazione della cache DNS in modo esplicito può risolvere il problema. In altri casi, può essere più appropriato un metodo di routing del traffico alternativo.
 
-## <a name = "performance"></a>Metodo di routing del traffico Prestazioni
+## <a name="performance-traffic-routing-method"></a><a name = "performance"></a>Metodo di routing del traffico Prestazioni
 
 La velocità di risposta di molte applicazioni può essere migliorata distribuendo gli endpoint in due o più posizioni a livello globale e indirizzando il traffico alla posizione più vicina. Questo è lo scopo del metodo di routing del traffico "Prestazioni".
 
@@ -96,7 +96,7 @@ Punti da notare:
 * L'algoritmo che sceglie l'endpoint è deterministico. Le query DNS ripetute dallo stesso client vengono indirizzate allo stesso endpoint. Quando viaggiano, i client solitamente usano server DNS ricorsivi diversi, e possono pertanto essere indirizzati a un endpoint differente. Il routing potrebbe inoltre risentire degli aggiornamenti della tabella della latenza di Internet. Ne consegue che il metodo di routing del traffico "Prestazioni" non garantisce che un client sia sempre indirizzato allo stesso endpoint.
 * Quando viene aggiornata la tabella della latenza di Internet, è possibile notare che alcuni client vengono indirizzati a un endpoint diverso. Ciò riflette un routing più accurato in base ai dati di latenza correnti. Questi aggiornamenti sono essenziali per garantire la precisione del routing del traffico Prestazioni man mano che Internet si evolve.
 
-## <a name = "geographic"></a>Metodo di routing del traffico Geografico
+## <a name="geographic-traffic-routing-method"></a><a name = "geographic"></a>Metodo di routing del traffico Geografico
 
 I profili di Gestione traffico possono essere configurati per l'uso del metodo di routing Geografico, in modo che gli utenti vengono indirizzati a endpoint specifici (Azure, Esterno o Annidato) in base alla posizione geografica da cui provengono le query DNS. Questo consente ai clienti di Gestione traffico di abilitare scenari in cui è importante conoscere l'area geografica dell'utente ed eseguirne il routing in base a questa. Ne sono esempi la presenza di determinati requisiti sui dati, la localizzazione del contenuto e dell'esperienza dell'utente e la misurazione del traffico da aree diverse.
 Quando un profilo è configurato per il routing geografico, ogni endpoint associato al profilo deve avere un set di aree geografiche assegnate. Un'area geografica può avere i seguenti livelli di granularità 
@@ -109,7 +109,7 @@ Quando un'area o un gruppo di aree è assegnato a un endpoint, tutte le richiest
 
 ![Metodo geografico di routing del traffico di Gestione traffico di Azure](./media/traffic-manager-routing-methods/geographic.png)
 
-Gestione traffico legge l'indirizzo IP di origine della query DNS e decide da quale area geografica è stato originato. Verifica quindi se esiste un endpoint a cui è mappata questa area geografica. Questa ricerca viene avviata al livello di granularità più basso (stato/provincia dove è supportato, altrimenti a livello di paese/area geografica) e arriva fino al livello più alto che è il **mondo**. La prima corrispondenza trovata usando questo attraversamento viene indicata come endpoint da restituire nella risposta alla query. In caso di corrispondenza con un endpoint di tipo nidificato, viene restituito un endpoint all'interno di tale profilo figlio, in base al suo metodo di routing. I punti seguenti sono applicabili a questo comportamento:
+Gestione traffico legge l'indirizzo IP di origine della query DNS e decide da quale area geografica è stato originato. Verifica quindi se esiste un endpoint a cui è mappata questa area geografica. Questa ricerca inizia al livello di granularità più basso (Stato/Provincia in cui è supportata, altrimenti a livello di paese/area geografica) e passa fino al livello più alto, ovvero **World**. La prima corrispondenza trovata usando questo attraversamento viene indicata come endpoint da restituire nella risposta alla query. In caso di corrispondenza con un endpoint di tipo nidificato, viene restituito un endpoint all'interno di tale profilo figlio, in base al suo metodo di routing. I punti seguenti sono applicabili a questo comportamento:
 
 - Un'area geografica può essere mappata a un solo endpoint in un profilo di Gestione traffico quando il tipo di routing è quello geografico. Ciò garantisce che il routing degli utenti sia deterministico e i clienti possano abilitare scenari che richiedono limiti geografici non ambigui.
 - Se l'area geografica di un utente ricade entro il mapping geografico di due endpoint diversi, Gestione traffico seleziona l'endpoint con la granularità più bassa e non considera le richieste di routing di tale area all'altro endpoint. Ad esempio, si consideri un profilo con il tipo di routing geografico e con due endpoint: Endpoint1 ed Endpoint2. L'Endpoint1 è configurato per ricevere il traffico dall'Irlanda e l'Endpoint2 è configurato per ricevere il traffico dall'Europa. Se una richiesta proviene dall'Irlanda, viene sempre instradata all'Endpoint1.
@@ -125,38 +125,38 @@ Come spiegato in [Modalità di funzionamento di Gestione traffico](traffic-manag
 
 ### <a name="faqs"></a>Domande frequenti
 
-* [Quali sono alcuni casi d'uso in cui il routing geografico è utile?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-geographic-routing-is-useful)
+* [Quali sono alcuni casi di uso in cui il routing geografico è utile?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-geographic-routing-is-useful)
 
-* [Ricerca per categorie decidere se utilizzare il metodo di routing delle prestazioni o il metodo di routing geografico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method)
+* [Come si decide se è consigliabile usare il metodo di routing relativo alle prestazioni o geografico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method)
 
 * [Quali sono le aree supportate da Gestione traffico per il routing geografico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing)
 
-* [In che modo gestione traffico determina la posizione da cui un utente esegue una query?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-determine-where-a-user-is-querying-from)
+* [In che modo Gestione traffico determina da dove un utente sta eseguendo una query?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-determine-where-a-user-is-querying-from)
 
-* [Si garantisce che gestione traffico possa determinare correttamente l'esatta posizione geografica dell'utente in ogni caso?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case)
+* [È garantito che in ogni caso Gestione traffico determini correttamente l'esatta posizione geografica dell'utente?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case)
 
-* [Un endpoint deve trovarsi fisicamente nella stessa area in cui è configurato per il routing geografico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing)
+* [Un endpoint deve trovarsi fisicamente nella stessa area di quello con cui è configurato per il routing geografico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing)
 
-* [È possibile assegnare aree geografiche agli endpoint in un profilo non configurato per eseguire il routing geografico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing)
+* [È possibile assegnare aree geografiche agli endpoint in un profilo che non è configurato per eseguire il routing geografico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing)
 
-* [Perché viene ricevuto un errore quando si tenta di modificare il metodo di routing di un profilo esistente in geografico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic)
+* [Perché si riceve un errore quando si tenta di cambiare il metodo di routing di un profilo esistente in geografico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic)
 
-* [Perché si consiglia vivamente ai clienti di creare profili annidati anziché endpoint in un profilo con routing geografico abilitato?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled)
+* [Perché è decisamente consigliato che i clienti creino profili nidificati anziché endpoint in un profilo con il routing geografico abilitato?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled)
 
-* [Sono previste restrizioni per la versione dell'API che supporta questo tipo di routing?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type)
+* [Ci sono restrizioni sulla versione API che supporta questo tipo di routing?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type)
 
-## <a name = "multivalue"></a>Metodo di routing del traffico Multivalore
-Il metodo di routing del traffico **Multivalore** consente di ottenere più endpoint integri in un'unica risposta a una query DNS. Ciò consente al chiamante di eseguire tentativi sul lato client con altri endpoint nel caso in cui un endpoint restituito non risponda. Questo modello può aumentare la disponibilità di un servizio e ridurre la latenza associata a una nuova query DNS per ottenere un endpoint integro. Il metodo di routing Multivalore funziona solo se tutti gli endpoint di tipo Esterno sono specificati come indirizzi IPv4 o IPv6. Quando si riceve una query per profili di questo tipo, tutti gli endpoint integri vengono restituiti e sono soggetti a un numero massimo di restituzioni configurabili.
+## <a name="multivalue-traffic-routing-method"></a><a name = "multivalue"></a>Metodo di routing del traffico Multivalore
+Il metodo di routing del traffico **Multivalore** consente di ottenere più endpoint integri in un'unica risposta a una query DNS. Ciò consente al chiamante di eseguire tentativi sul lato client con altri endpoint nel caso in cui un endpoint restituito non venga risposto. Questo modello può aumentare la disponibilità di un servizio e ridurre la latenza associata a una nuova query DNS per ottenere un endpoint integro. Il metodo di routing Multivalore funziona solo se tutti gli endpoint di tipo Esterno sono specificati come indirizzi IPv4 o IPv6. Quando si riceve una query per profili di questo tipo, tutti gli endpoint integri vengono restituiti e sono soggetti a un numero massimo di restituzioni configurabili.
 
 ### <a name="faqs"></a>Domande frequenti
 
-* [Quali sono alcuni casi d'uso in cui il routing multivalore è utile?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-multivalue-routing-is-useful)
+* [Quali sono alcuni casi di uso in cui il routing multivalore è utile?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-multivalue-routing-is-useful)
 
 * [Quanti endpoint vengono restituiti quando si usa il routing multivalore?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-endpoints-are-returned-when-multivalue-routing-is-used)
 
-* [Si otterrà lo stesso set di endpoint quando si usa il routing multivalore?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used)
+* [Si riceve lo stesso set di endpoint quando si usa il routing multivalore?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used)
 
-## <a name = "subnet"></a>Metodo di routing del traffico Subnet
+## <a name="subnet-traffic-routing-method"></a><a name = "subnet"></a>Metodo di routing del traffico Subnet
 Il metodo di routing del traffico **Subnet** consente di eseguire il mapping di un set di intervalli di indirizzi IP dell'utente finale a endpoint specifici di un profilo. Successivamente, se Gestione traffico riceve una query DNS per tale profilo, controllerà l'indirizzo IP di origine della richiesta (nella maggior parte dei casi si tratta dell'indirizzo IP in uscita del resolver DNS usato dal chiamante), determinerà l'endpoint a cui eseguire il mapping e restituirà l'endpoint nella risposta alla query. 
 
 L'indirizzo IP di cui eseguire il mapping a un endpoint può essere specificato come intervallo CIDR, ad esempio 1.2.3.0/24, o come intervallo di indirizzi, ad esempio 1.2.3.4-5.6.7.8. Gli intervalli IP associati a un endpoint devono essere univoci nell'ambito di tale profilo e non possono sovrapporsi con il set di indirizzi IP di un endpoint diverso nello stesso profilo.
@@ -166,20 +166,20 @@ Se si definisce un endpoint senza intervallo di indirizzi, questo funziona come 
 
 ### <a name="faqs"></a>Domande frequenti
 
-* [Quali sono alcuni casi d'uso in cui il routing delle subnet è utile?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-subnet-routing-is-useful)
+* [Quali sono alcuni casi di uso in cui il routing della subnet è utile?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-subnet-routing-is-useful)
 
-* [In che modo gestione traffico conosce l'indirizzo IP dell'utente finale?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-know-the-ip-address-of-the-end-user)
+* [In che modo Gestione traffico riconosce l'indirizzo IP dell'utente finale?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-know-the-ip-address-of-the-end-user)
 
-* [Come è possibile specificare gli indirizzi IP quando si usa il routing della subnet?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-ip-addresses-when-using-subnet-routing)
+* [Come si possono specificare gli indirizzi IP quando si usa il routing Subnet?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-ip-addresses-when-using-subnet-routing)
 
-* [Come è possibile specificare un endpoint di fallback quando si usa il routing della subnet?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing)
+* [Come si può specificare un endpoint di fallback quando si usa il routing Subnet?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing)
 
-* [Cosa accade se un endpoint viene disabilitato in un profilo del tipo di routing della subnet?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile)
+* [Cosa accade se un endpoint è disabilitato in un profilo con routing Subnet?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile)
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come sviluppare applicazioni a disponibilità elevata tramite [Informazioni sul monitoraggio di Gestione traffico](traffic-manager-monitoring.md)
+Informazioni su come sviluppare applicazioni a disponibilità elevata usando il [monitoraggio degli endpoint](traffic-manager-monitoring.md) di Gestione traffico
 
 
 

@@ -5,18 +5,18 @@ keywords: azure, chef, devops, client, installare, portale
 ms.date: 02/22/2020
 ms.topic: article
 ms.openlocfilehash: 6e46133c598c44b314077f2d020852416d3d2745
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77586360"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Installare il client Chef dal portale di Azure
 È possibile aggiungere l'estensione client Chef direttamente su un computer Windows o Linux dal portale di Azure. Questo articolo illustra nel dettaglio il processo usando una macchina virtuale Linux nuova.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-- **Sottoscrizione di Azure**: se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
+- **Sottoscrizione di Azure:** se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
 - **Chef**: se non si ha un account Chef attivo, iscriversi a una [prova gratuita di Chef ospitato](https://manage.chef.io/signup). Per proseguire con le istruzioni di questo articolo è necessario avere i valori seguenti dell'account Chef:
   - Chiave organization_validation
@@ -26,7 +26,7 @@ ms.locfileid: "77586360"
 ## <a name="install-the-chef-extension-on-a-new-linux-virtual-machine"></a>Installare l'estensione Chef in una nuova macchina virtuale Linux
 In questa sezione si usa il portale di Azure per creare una macchina virtuale Linux. La procedura illustra anche come installare l'estensione Chef nella nuova macchina virtuale.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Passare al [portale di Azure](https://portal.azure.com).
 
 1. Nel menu a sinistra selezionare l'opzione **Macchine virtuali**. Se l'opzione **Macchine virtuali** non è disponibile, selezionare **Tutti i servizi** e quindi **Macchine virtuali**.
 
@@ -78,25 +78,25 @@ In questa sezione si usa il portale di Azure per creare una macchina virtuale Li
 
 1. Nella scheda **Installa estensione** specificare i valori seguenti e quindi scegliere **OK**.
 
-    - **URL del server Chef**: Immettere l'URL del server Chef che include il nome dell'organizzazione, ad esempio, *https://api.chef.io/organization/mycompany* .
-    - **Nome nodo chef** : immettere il nome del nodo chef.
-    - **Elenco di esecuzione** : immettere l'elenco di esecuzione chef aggiunto al computer. Questo valore può essere lasciato vuoto.
-    - **Nome client di convalida** : immettere il nome del client di convalida chef. Ad esempio, `tarcher-validator`.
+    - **URL del server Chef**: Immettere l'URL del server Chef che include il nome dell'organizzazione, ad esempio, *https://api.chef.io/organization/mycompany*.
+    - **Nome nodo Chef:** immettere il nome del nodo Chef.
+    - **Elenco di esecuzione:** immettere l'elenco di esecuzione Chef aggiunto alla macchina. Questo valore può essere lasciato vuoto.
+    - **Nome client di convalida:** immettere il nome del client di convalida Chef.Validation client name: Enter the Chef Validation Client Name. ad esempio, `tarcher-validator`.
     - **Chiave di convalida**: selezionare un file contenente la chiave di convalida usata per il bootstrap delle macchine.
-    - **File di configurazione client** : selezionare un file di configurazione per chef-client. Questo valore può essere lasciato vuoto.
+    - **File di configurazione client:** selezionare un file di configurazione per chef-client. Questo valore può essere lasciato vuoto.
     - **Chef Client version** (Versione client Chef): immettere la versione del client Chef da installare. Questo valore può essere lasciato vuoto, che installa la versione più recente.
     - **SSL Verification Mode** (Modalità di verifica SSL): selezionare **Nessuna** o **Peer**. *Nessuno* è stato selezionato per la demo.
     - **Chef Environment** (Ambiente Chef): specificare l'ambiente Chef del quale è membro il nodo corrente. Questo valore può essere lasciato vuoto.
-    - **Secret Data Bag crittografato** : selezionare un file contenente il segreto per il contenitore di dati crittografato a cui deve accedere il computer. Questo valore può essere lasciato vuoto.
-    - **Certificato SSL di chef server** : selezionare il certificato SSL assegnato al server chef. Questo valore può essere lasciato vuoto.
+    - **Segreto borsa dati crittografati** - Selezionare un file contenente il segreto per il contenitore di dati crittografati a cui questa macchina deve accedere. Questo valore può essere lasciato vuoto.
+    - **Certificato SSL del** server Chef: selezionare il certificato SSL assegnato al server Chef. Questo valore può essere lasciato vuoto.
 
       ![Installazione del server Chef in una macchina virtuale Linux](./media/chef-extension-portal/install-extension.png)
 
-1. Quando viene visualizzata la scheda **estensioni** , fare clic su **OK**.
+1. Quando viene visualizzata la scheda **Estensioni,** selezionare **OK**.
 
-1. Quando viene visualizzata la scheda **Impostazioni** , fare clic su **OK**.
+1. Quando viene visualizzata la scheda **Impostazioni,** selezionare **OK**.
 
-1. Quando viene visualizzata la scheda **Crea** , viene visualizzato un riepilogo delle opzioni selezionate e immesse. Verificare le informazioni e il **condizioni per l'utilizzo**e selezionare **Crea**.
+1. Quando viene visualizzata la scheda **Crea,** viene visualizzato un riepilogo delle opzioni selezionate e immesse. Verificare le informazioni e le **Condizioni per l'utilizzo**, quindi selezionare **Crea**.
 
 Al completamento del processo di creazione e distribuzione della macchina virtuale con l'estensione Chef, una notifica indica l'esito positivo o negativo dell'operazione. Al completamento della creazione della nuova macchina virtuale nel portale di Azure, viene aperta automaticamente la pagina delle risorse della macchina virtuale.
 

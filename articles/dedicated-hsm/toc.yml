@@ -26,6 +26,8 @@
   items:
     - name: Scelta dell'architettura di distribuzione
       href: deployment-architecture.md
+    - name: Risoluzione dei problemi
+      href: troubleshoot.md
 - name: Risorse
   items:
     - name: Domande frequenti

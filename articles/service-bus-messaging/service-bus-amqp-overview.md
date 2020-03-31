@@ -1,6 +1,6 @@
 ---
-title: Panoramica di AMQP 1,0 nel bus di servizio di Azure
-description: Informazioni su come il bus di servizio di Azure supporta Advance Message Queueing Protocol (AMQP), un protocollo standard aperto.
+title: Panoramica di AMQP 1.0 nel bus di servizio di AzureOverview of AMQP 1.0 in Azure Service Bus
+description: Informazioni su come il bus di servizio di Azure supporta Advanced Message Queuing Protocol (AMQP), un protocollo standard aperto.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 50d21cfe8136b9c794eae5104bbb34e28f7c1661
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76759313"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Supporto per il protocollo AMQP 1.0 nel bus di servizio
@@ -71,7 +71,7 @@ La figura riportata di seguito illustra una distribuzione di esempio, in cui i c
 
 È attualmente possibile utilizzare le librerie client seguenti con il bus di servizio:
 
-| Lingua | Library |
+| Linguaggio | Libreria |
 | --- | --- |
 | Java |Client Apache Qpid Java Message Service (JMS)<br/>Client IIT Software SwiftMQ Java |
 | C |Apache Qpid Proton-C |

@@ -12,10 +12,10 @@ ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 298228eedb73298f00654f4f72c201d9ed671090
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72177053"
 ---
 # <a name="call-the-computer-vision-api"></a>Chiamare l'API Visione artificiale
@@ -177,7 +177,7 @@ Ad esempio:
 }
 ```
 
-Campo | Type | Content
+Campo | Type | Contenuto
 ------|------|------|
 Tag  | `object` | L'oggetto di primo livello per una matrice di tag.
 tags[].Name | `string`  | La parola chiave del classificatore di tag.
@@ -239,7 +239,7 @@ Per i modelli specifici del dominio che usano l'opzione 2 (analisi avanzata), il
 
 Il campo categories è un elenco di una o più delle [86 categorie](../Category-Taxonomy.md) della tassonomia originale. Le categorie che terminano con un carattere di sottolineatura corrisponderanno alla categoria in oggetto e ai relativi elementi figlio (ad esempio, "people_" o "people_group" per il modello celebrities).
 
-Campo   | Type  | Content
+Campo   | Type  | Contenuto
 ------|------|------|
 Categorie | `object`   | L'oggetto di primo livello.
 categories[].name    | `string` | Il nome dell'elenco delle 86 categorie di tassonomia.

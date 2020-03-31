@@ -2,14 +2,14 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/10/2020
+ms.date: 03/20/2020
 ms.author: dapine
-ms.openlocfilehash: b3d7ea44acac99cc8077993f679bdcea2e5018fa
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: e01e6f0e38abe9bdd3afa83306b90725daf287ce
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79081861"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80117116"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -34,13 +34,13 @@ Se si verifica un problema o manca una funzionalità, vedere le [opzioni di supp
 
 ### <a name="run-the-sample"></a>Eseguire l'esempio
 
-È possibile copiare il [codice di esempio](#sample-code) da questa guida di avvio rapido in un file di origine `quickstart.py` ed eseguirlo nell'ambiente di sviluppo integrato o nella console:
+È possibile copiare il [codice di esempio](#sample-code) da questa guida introduttiva in un file di origine `quickstart.py` ed eseguirlo nell'ambiente di sviluppo integrato o nella console:
 
-```sh
+```Bash
 python quickstart.py
 ```
 
-In alternativa è possibile scaricare questa esercitazione della guida di avvio rapido come notebook [Jupyter](https://jupyter.org) dal [repository degli esempi di Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) ed eseguirla come notebook.
+In alternativa è possibile scaricare questa esercitazione della guida introduttiva come notebook [Jupyter](https://jupyter.org) dal [repository degli esempi di Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) ed eseguirla come notebook.
 
 ### <a name="sample-code"></a>Codice di esempio
 
@@ -58,7 +58,7 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_r
 # Creates an audio configuration that points to an audio file.
 # Replace with your own audio filename.
 audio_filename = "whatstheweatherlike.wav"
-audio_input = speechsdk.AudioConfig(filename=audio_filename)
+audio_input = speechsdk.audio.AudioConfig(filename=audio_filename)
 
 # Creates a recognizer with the given settings
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)

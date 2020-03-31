@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: anroth
 ms.openlocfilehash: 8aef46f0b9c3dc526f1fbed3d9bc59f97771b509
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169996"
 ---
-# <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Avvio rapido: Come creare un rilevatore di oggetti con Visione personalizzata
+# <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Guida introduttiva: Come creare un rilevatore di oggetti con Visione personalizzata
 
 In questa esercitazione dell'avvio rapido, si apprenderà a creare un rilevatore di oggetti tramite il sito Web di Visione personalizzata. Dopo aver creato un modello di rilevatore, è possibile usare il servizio Visione personalizzata per il rilevamento oggetti.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un set di immagini con cui eseguire il training del modello di rilevatore. È possibile usare il set di [immagini di esempio](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) in GitHub. In alternativa, è possibile scegliere immagini personalizzate usando i suggerimenti seguenti.
 

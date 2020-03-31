@@ -1,17 +1,17 @@
 ---
-title: "Avvio rapido: Usare l'SDK per creare e gestire una knowledge base - QnA Maker"
+title: "Guida introduttiva: Usare l'SDK per creare e gestire una knowledge base - QnA Maker"
 description: Questo argomento di avvio rapido illustra come creare e gestire una knowledge base usando l'SDK client.
 ms.topic: quickstart
 ms.date: 01/13/2020
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 33725eb54e8a78547f4bf82d6a8f6fae58fdb5cb
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 065f88ce12037109773b7023972c151d968840a8
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524419"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "79218483"
 ---
-# <a name="quickstart-create-and-manage-knowledge-base"></a>Avvio rapido: Creare e gestire una knowledge base
+# <a name="quickstart-create-and-manage-knowledge-base"></a>Guida introduttiva: Creare e gestire una knowledge base
 
 Introduzione alla libreria client di QnA Maker. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.  QnA Maker consente di sviluppare un servizio di domande e risposte a partire dal contenuto semistrutturato, ad esempio documenti con domande frequenti, URL e manuali di prodotti.
 
@@ -30,7 +30,7 @@ Introduzione alla libreria client di QnA Maker. Seguire questi passaggi per inst
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
->[Esercitazione: Creare una knowledge base e rispondere](../tutorials/create-publish-query-in-portal.md)
+>[Esercitazione: Testare la knowledge base con un file batch](./batch-testing.md)
 
 * [Informazioni sull'API QnA Maker](../Overview/overview.md)
 * [Modificare una knowledge base](../how-to/edit-knowledge-base.md)

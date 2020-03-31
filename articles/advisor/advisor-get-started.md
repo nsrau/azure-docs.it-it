@@ -4,10 +4,10 @@ description: Introduzione ad Azure Advisor.
 ms.topic: article
 ms.date: 02/01/2019
 ms.openlocfilehash: 8c2699030b1a6d428ddc2a4db40a66003824cf10
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259630"
 ---
 # <a name="get-started-with-azure-advisor"></a>Introduzione ad Azure Advisor
@@ -19,7 +19,7 @@ Informazioni su come accedere ad Advisor tramite il portale di Azure, ricevere e
 
 ## <a name="get-recommendations"></a>Ottenere raccomandazioni
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale](https://portal.azure.com)di Azure .
 
 1. Nel riquadro sinistro fare clic su **Advisor**.  Se Advisor non è disponibile nel riquadro sinistro, fare clic su **Tutti i servizi**.  Nel riquadro del menu dei servizi, in **Monitoraggio e gestione** fare clic su **Advisor**. Verrà visualizzato il dashboard di Advisor.
 
@@ -88,7 +88,7 @@ Informazioni su come accedere ad Advisor tramite il portale di Azure, ricevere e
 
 Questa procedura configura la regola di utilizzo medio della CPU per il consiglio sulle macchine virtuali a utilizzo ridotto.
 
-Advisor monitora l'utilizzo della macchina virtuale per 7 giorni e quindi identifica le macchine virtuali con utilizzo ridotto. Le macchine virtuali sono considerate con scarso utilizzo se l'utilizzo della CPU è pari al 5% o inferiore e l'utilizzo della rete è inferiore al 2% o se il carico di lavoro corrente può essere adattato da una dimensione di macchina virtuale inferiore.
+Advisor monitora l'utilizzo delle macchine virtuali per 7 giorni e quindi identifica le macchine virtuali a basso utilizzo. Le macchine virtuali sono considerate a basso utilizzo se l'utilizzo della CPU è pari o inferiore al 5% e l'utilizzo della rete è inferiore al 2% o se il carico di lavoro corrente può essere supportato da una dimensione di macchina virtuale inferiore.
 
 Per un'individuazione più mirata delle macchine virtuali a utilizzo ridotto, è possibile perfezionare la regola di utilizzo medio della CPU in base alla sottoscrizione.  La regola di utilizzo della CPU può essere impostata su 5%, 10%, 15% o 20%.
 
@@ -124,7 +124,7 @@ L'opzione di download rispetta tutti i filtri che sono stati applicati al dashbo
 Per altre informazioni su Advisor, vedere:
 
 - [Introduction to Azure Advisor](advisor-overview.md) (Presentazione di Azure Advisor)
-- [Advisor High Availability recommendations](advisor-high-availability-recommendations.md) (Consigli di Advisor sulla disponibilità elevata)
+- [Consigli di Advisor sulla disponibilità elevata](advisor-high-availability-recommendations.md)
 - [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)
-- [Advisor Performance recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sulle prestazioni)
+- [Consigli di Advisor sulle prestazioni](advisor-performance-recommendations.md)
 - [Advisor Cost recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sui costi)

@@ -1,13 +1,13 @@
 ---
-title: Creare un'applicazione contenitore di Service Fabric di Azure in Linux
+title: Creare un'applicazione contenitore di Azure Service Fabric in LinuxCreate an Azure Service Fabric container application on Linux
 description: Creare la prima applicazione contenitore Linux in Azure Service Fabric. Compilare un'immagine Docker con l'applicazione, eseguire il push dell'immagine in un registro contenitori e compilare e distribuire un'applicazione contenitore di Service Fabric.
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.openlocfilehash: f2f8c7884323667f843382b02c73a570e58617f1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75457966"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Creare la prima applicazione contenitore di Service Fabric in Linux
@@ -113,9 +113,9 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *name* assegna un nome al contenitore in esecuzione, anziché l'ID contenitore.
 
-Connettersi al contenitore in esecuzione. Aprire un Web browser puntando all'indirizzo IP restituito sulla porta 4000, ad esempio "http:\//localhost: 4000". Verrà visualizzata l'intestazione "Hello World!" nel browser.
+Connettersi al contenitore in esecuzione. Aprire un browser Web che punta all'indirizzo IP restituito sulla porta\/4000, ad esempio "http: /localhost:4000". Verrà visualizzata l'intestazione "Hello World!" nel browser.
 
-![Benvenuto!][hello-world]
+![Hello World!][hello-world]
 
 Per arrestare il contenitore, eseguire:
 
@@ -132,9 +132,9 @@ docker rm my-web-site
 ## <a name="push-the-image-to-the-container-registry"></a>Effettuare il push dell'immagine nel registro contenitori
 Dopo aver verificato l'esecuzione dell'applicazione in Docker, eseguire il push dell'immagine nel registro all'interno di Registro Azure Container.
 
-Eseguire `docker login` per accedere al registro contenitori con le [credenziali del registro](../container-registry/container-registry-authentication.md)di sistema.
+Eseguire `docker login` per accedere al Registro di sistema del contenitore con [le credenziali del Registro di sistema](../container-registry/container-registry-authentication.md).
 
-L'esempio seguente passa l'ID e la password di un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md) di Azure Active Directory. Ad esempio, è possibile che sia stata assegnata un'entità servizio al registro per uno scenario di automazione. In alternativa, è possibile accedere usando il nome utente e la password del registro di sistema.
+L'esempio seguente passa l'ID e la password di un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md) di Azure Active Directory. Ad esempio, è possibile che sia stata assegnata un'entità servizio al registro per uno scenario di automazione. In alternativa, è possibile accedere utilizzando il nome utente e la password del Registro di sistema.
 
 ```bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -171,10 +171,10 @@ Specificare il mapping della porta nel formato appropriato. Per questo articolo,
 
 ## <a name="configure-container-repository-authentication"></a>Configurare l'autenticazione del repository di contenitori
 
-Vedere [autenticazione del repository di contenitori](configure-container-repository-credentials.md)per informazioni su come configurare diversi tipi di autenticazione per il download di immagini del contenitore.
+Vedere [Autenticazione del repository contenitore](configure-container-repository-credentials.md)per informazioni su come configurare diversi tipi di autenticazione per il download di immagini contenitore.
 
 ## <a name="configure-isolation-mode"></a>Configurare la modalità di isolamento
-Con la versione di runtime 6,3, l'isolamento delle macchine virtuali è supportato per i contenitori Linux, supportando quindi due modalità di isolamento per i contenitori: processo e Hyper-V. Con la modalità di isolamento Hyper-V, i kernel sono isolati tra ogni contenitore e l'host contenitore. L'isolamento di Hyper-V viene implementato usando [Clear Containers](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). La modalità di isolamento viene specificata per i cluster Linux nell'elemento `ServicePackageContainerPolicy` nel file manifesto dell'applicazione. Le modalità di isolamento specificabili sono `process`, `hyperv` e `default`. Il valore predefinito è la modalità di isolamento processo. Il frammento seguente indica come è specificata la modalità di isolamento nel file manifesto dell'applicazione.
+Con la versione runtime 6.3, l'isolamento delle macchine virtuali è supportato per i contenitori Linux, supportando in tal modo due modalità di isolamento per i contenitori: process e Hyper-V. Con la modalità di isolamento Hyper-V, i kernel sono isolati tra ogni contenitore e l'host contenitore. L'isolamento di Hyper-V viene implementato tramite [Clear Containers](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). La modalità di isolamento viene specificata per i cluster Linux nell'elemento `ServicePackageContainerPolicy` nel file manifesto dell'applicazione. Le modalità di isolamento specificabili sono `process`, `hyperv` e `default`. Il valore predefinito è la modalità di isolamento processo. Il frammento seguente indica come è specificata la modalità di isolamento nel file manifesto dell'applicazione.
 
 ```xml
 <ServiceManifestImport>
@@ -208,7 +208,7 @@ La [governance delle risorse](service-fabric-resource-governance.md) limita le r
 
 A partire dalla versione 6.1, Service Fabric integra automaticamente gli eventi di [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) nel report relativo all'integrità del sistema. Se **HEALTHCHECK** è stato abilitato nel contenitore, Service Fabric fornirà informazioni sull'integrità ogni volta che lo stato dell'integrità del contenitore subisce modifiche, in base a quanto segnalato da Docker. Un report sull'integrità di tipo **OK** verrà visualizzato in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) quando il valore *health_status* è *healthy* e un report di tipo **AVVISO** verrà visualizzato quando il valore *health_status* è *unhealthy*. 
 
-A partire dalla versione di aggiornamento più recente di v 6.4, è possibile specificare che le valutazioni di Docker HEALTHCHECK devono essere segnalate come un errore. Se questa opzione è abilitata, viene visualizzato un report di integrità **OK** quando *health_status* è *integro* e viene visualizzato un **errore** quando *health_status* non è *integro*.
+A partire dall'ultima versione di aggiornamento della versione 6.4, è possibile specificare che le valutazioni di GOCHECK di docker devono essere segnalate come errore. Se questa opzione è attivata, verrà visualizzato un report di integrità **OK** quando *health_status* è *integro* e verrà visualizzato **ERROR** quando *health_status* non è *integro.*
 
 L'istruzione **HEALTHCHECK** che fa riferimento alla verifica effettiva eseguita per il monitoraggio dell'integrità dei contenitori deve essere presente nel Dockerfile usato durante la generazione dell'immagine del contenitore.
 
@@ -232,11 +232,11 @@ L'istruzione **HEALTHCHECK** che fa riferimento alla verifica effettiva eseguita
     </Policies>
 </ServiceManifestImport>
 ```
-Per impostazione predefinita, *IncludeDockerHealthStatusInSystemHealthReport* è impostato su **true**, *l'opzione restartcontaineronunhealthydockerhealthstatus* è impostato su **false**e *TreatContainerUnhealthyStatusAsError* è impostato su **false**. 
+Per impostazione predefinita *IncludeDockerHealthStatusInSystemHealthReport* è impostato su **true**, *RestartContainerOnUnhealthyDockerHealthStatus* è impostato su **false**e *TreatContainerUnhealthyStatusAsError* è impostato su **false**. 
 
 Se l'opzione *RestartContainerOnUnhealthyDockerHealthStatus* è impostata su **true**, un contenitore che segnala ripetutamente uno stato non integro viene riavviato, possibilmente su altri nodi.
 
-Se *TreatContainerUnhealthyStatusAsError* è impostato su **true**, i report sull'integrità degli **errori** verranno visualizzati quando il *health_status* del contenitore non è *integro*.
+Se *TreatContainerUnhealthyStatusAsError* è impostato su **true**, i report di stato **di errore** verranno visualizzati quando l'health_status del contenitore non è *integro.* *health_status*
 
 Se si vuole disabilitare l'integrazione di **HEALTHCHECK** per l'intero cluster di Service Fabric, sarà necessario impostare [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) su **false**.
 
@@ -256,11 +256,11 @@ Usare lo script di installazione messo a disposizione nei modelli in https://git
 ./install.sh
 ```
 
-Aprire un browser e passare a Service Fabric Explorer all'indirizzo http:\//localhost: 19080/Explorer (sostituire localhost con l'indirizzo IP privato della macchina virtuale se si usa un vagabondo in Mac OS X). Espandere il nodo delle applicazioni, nel quale sarà ora presente una voce per il tipo di applicazione e un'altra per la prima istanza del tipo.
+Aprire un browser e passare a\/Service Fabric Explorer all'indirizzo http: /localhost:19080/Explorer (sostituire localhost con l'IP privato della macchina virtuale se si usa Vagrant in Mac OS X). Espandere il nodo delle applicazioni, nel quale sarà ora presente una voce per il tipo di applicazione e un'altra per la prima istanza del tipo.
 
-Connettersi al contenitore in esecuzione. Aprire un Web browser puntando all'indirizzo IP restituito sulla porta 4000, ad esempio "http:\//localhost: 4000". Verrà visualizzata l'intestazione "Hello World!" nel browser.
+Connettersi al contenitore in esecuzione. Aprire un browser Web che punta all'indirizzo IP restituito sulla porta\/4000, ad esempio "http: /localhost:4000". Verrà visualizzata l'intestazione "Hello World!" nel browser.
 
-![Benvenuto!][hello-world]
+![Hello World!][hello-world]
 
 
 ## <a name="clean-up"></a>Eseguire la pulizia

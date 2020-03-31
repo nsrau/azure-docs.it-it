@@ -1,28 +1,28 @@
 ---
-title: Configurare un'appliance Azure Migrate per i server fisici
-description: Informazioni su come configurare un appliance Azure Migrate per la valutazione del server fisico.
+title: Configurare un'appliance di Azure Migrate per i server fisiciSet up an Azure Migrate appliance for physical servers
+description: Informazioni su come configurare un'appliance Di Azure Migrate per la valutazione del server fisico.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: raynew
 ms.openlocfilehash: b60a30e5e30ee81cbaca7d5e4691ccedac2462b6
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77598171"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurare un'appliance per i server fisici
 
-Questo articolo descrive come configurare l'appliance Azure Migrate se si sta valutando server fisici con lo strumento di valutazione Azure Migrate: Server.
+Questo articolo descrive come configurare l'appliance Di Azure Migrate se si valutano i server fisici con lo strumento Azure Migrate: Server Assessment.This article describes how to set up the Azure Migrate appliance if you're assessing physical servers with the Azure Migrate: Server Assessment tool.
 
-Il Azure Migrate Appliance è un'appliance semplice, usata da Azure Migrate Assessment server per eseguire le operazioni seguenti:
+L'appliance Azure Migrate è un'appliance leggera, usata da Azure Migrate Server Assessment per eseguire le operazioni seguenti:The Azure Migrate appliance is a lightweight appliance, used by Azure Migrate Server Assessment to do the following:
 
 - Individuare i server locali.
-- Inviare i metadati e i dati sulle prestazioni per i server individuati a Azure Migrate server assessment.
+- Inviare i metadati e i dati sulle prestazioni per i server individuati a Valutazione server di azure di migrazione.
 
-[Altre](migrate-appliance.md) informazioni sull'appliance Azure migrate.
+[Altre informazioni](migrate-appliance.md) sull'appliance Di Azure Migrate.Learn more about the Azure Migrate appliance.
 
 
 ## <a name="appliance-deployment-steps"></a>Passaggi di distribuzione dell'appliance
@@ -37,8 +37,8 @@ Per configurare l'appliance occorre:
 
 Scaricare il file compresso per l'appliance.
 
-1. In **obiettivi di migrazione** > **Server** > **Azure migrate: server Assessment**, fare clic su **individua**.
-2. In **Individua macchine virtuali** > **I computer sono virtualizzati?** selezionare **Sì, con Hyper-V**.
+1. In **Migration Goals** > **Servers** > **Azure Migrate: Server Assessment**, fare clic su **Individua**.
+2. In **Discover machines** > **Le macchine sono virtualizzate?**, fare clic su **Non virtualizzato/Altro**.
 3. Fare clic su **Scarica** per scaricare il file compresso.
 
     ![Scaricare la VM](./media/tutorial-assess-physical/download-appliance.png)
@@ -52,7 +52,7 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 2. Eseguire il comando seguente per generare il codice hash per il disco rigido virtuale
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  Per la versione più recente del dispositivo, l'hash generato deve corrispondere a queste [Impostazioni](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical#verify-security).
+3.  Per la versione più recente dell'appliance, l'hash generato deve corrispondere a queste [impostazioni.](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical#verify-security)
 
 
 
@@ -61,11 +61,11 @@ Lo script del programma di installazione esegue le operazioni seguenti:
 
 - Installa gli agenti e un'applicazione Web per l'individuazione e la valutazione dei server fisici.
 - Installa i ruoli di Windows, tra cui il Servizio Attivazione Windows, IIS e PowerShell ISE.
-- Scarica e installa un modulo di IIS riscrivibile. [Altre informazioni](https://www.microsoft.com/download/details.aspx?id=7435).
+- Scarica e installa un modulo di IIS riscrivibile. [Scopri di più](https://www.microsoft.com/download/details.aspx?id=7435).
 - Aggiorna una chiave del Registro di sistema (HKLM) con i dettagli delle impostazioni permanenti per Azure Migrate.
 - Crea i seguenti file nei relativi percorsi:
-    - **File di configurazione**: %Programdata%\Microsoft Azure\Config
-    - **File di log**: %Programdata%\Microsoft Azure\Logs
+    - **File di configurazione**: %Programdata%
+    - **File di log**: %Programdata%
 
 Eseguire lo script nel modo seguente:
 
@@ -85,39 +85,39 @@ In caso di problemi, è possibile accedere ai log degli script in C:\ProgramData
 
 ### <a name="verify-appliance-access-to-azure"></a>Verificare l'accesso dell'appliance ad Azure
 
-Assicurarsi che la macchina virtuale dell'appliance possa connettersi agli [URL di Azure](migrate-appliance.md#url-access)richiesti.
+Assicurarsi che la macchina virtuale dell'appliance possa connettersi agli URL di [Azure](migrate-appliance.md#url-access)necessari.
 
 ## <a name="configure-the-appliance"></a>Configurare l'appliance
 
 Configurare l'appliance per la prima volta.
 
-1. Aprire un browser in qualsiasi computer in grado di connettersi alla macchina virtuale e aprire l'URL dell'app Web dell'appliance: ***nome dell'appliance https://o indirizzo IP*: 44368**.
+1. Aprire un browser in qualsiasi computer in grado di connettersi alla macchina virtuale e aprire l'URL dell'app Web dell'appliance: **https://*nome dell'appliance o indirizzo IP*: 44368**.
 
    In alternativa, è possibile aprire l'app dal desktop facendo clic sul relativo collegamento.
 2. Nell'app Web selezionare **Set up prerequisites** (Configura i prerequisiti) ed eseguire le operazioni seguenti:
-    - **Licenza**: accettare le condizioni di licenza e leggere le informazioni di terze parti.
-    - **Connettività**: l'app verifica che la macchina virtuale abbia accesso a Internet. Se la VM usa un proxy:
+    - **Licenza**: Accettare le condizioni di licenza e leggere le informazioni di terze parti.
+    - **Connettività**: L'app controlla che la macchina virtuale disponga dell'accesso a Internet.Connectivity : The app checks that the VM has internet access. Se la VM usa un proxy:
         - Fare clic su **Proxy settings** (Impostazioni proxy) e specificare l'indirizzo e la porta di ascolto del proxy in formato http://ProxyIPAddress o http://ProxyFQDN.
         - Se il proxy richiede l'autenticazione, specificare le credenziali.
         - È supportato solo il proxy HTTP.
-    - **Sincronizzazione dell'ora**: viene verificata l'ora. Per il corretto funzionamento dell'individuazione di VM, l'ora dell'appliance deve essere sincronizzata con l'ora di Internet.
-    - **Installare gli aggiornamenti**: Azure migrate server Assessment verifica che nel dispositivo siano installati gli aggiornamenti più recenti.
+    - **Sincronizzazione dell'ora**: L'ora è verificata. Per il corretto funzionamento dell'individuazione di VM, l'ora dell'appliance deve essere sincronizzata con l'ora di Internet.
+    - **Installare gli aggiornamenti:** Azure Migrate Server Assessment verifica che nell'appliance siano installati gli aggiornamenti più recenti.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrare l'appliance con Azure Migrate
 
-1. Fare clic su **Log in** (Accedi). Se l'opzione non è visualizzata, verificare di aver disabilitato il blocco popup nel browser.
+1. Fare clic su **Accedi**. Se l'opzione non è visualizzata, verificare di aver disabilitato il blocco popup nel browser.
 2. Nella nuova scheda accedere con le credenziali di Azure.
     - Accedere con il nome utente e la password.
     - L'accesso con un PIN non è supportato.
 3. Dopo aver eseguito l'accesso, tornare all'app Web.
 4. Selezionare la sottoscrizione in cui è stato creato il progetto di Azure Migrate. Quindi selezionare il progetto.
 5. Specificare un nome per l'appliance. Il nome deve essere costituito da un massimo di 14 caratteri alfanumerici.
-6. Fare clic su **Register**.
+6. Fare clic su **Registra**.
 
 
 ## <a name="start-continuous-discovery"></a>Avviare l'individuazione continua
 
-Connettersi dal dispositivo ai server fisici e avviare l'individuazione.
+Connettersi dall'appliance ai server fisici e avviare l'individuazione.
 
 1. Fare clic su **Aggiungi credenziali** per specificare le credenziali dell'account che verranno usate dall'appliance per individuare i server.  
 2. Specificare il **sistema operativo**, il nome descrittivo per le credenziali, il **nome utente**, la **password** e fare clic su **Aggiungi**.
@@ -135,9 +135,9 @@ Viene avviata l'individuazione. Per visualizzare i metadati delle VM individuate
 Al termine dell'individuazione, è possibile verificare che i server vengano visualizzati nel portale.
 
 1. Aprire il dashboard di Azure Migrate.
-2. Nella pagina **Azure migrate-server** > **Azure migrate: server Assessment** fare clic sull'icona che Visualizza il numero di **server individuati**.
+2. Nella pagina **Migrazione di Azure - Server** > **Migrazione: Valutazione server** fare clic sull'icona che visualizza il conteggio dei server **individuati.**
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Provare [la valutazione dei server fisici](tutorial-assess-physical.md) con Azure migrate Assessment server.
+Provare la [valutazione dei server fisici](tutorial-assess-physical.md) con Azure Migrate Server Assessment.

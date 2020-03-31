@@ -1,5 +1,5 @@
 ---
-title: ID del contesto utente per tenere traccia dell'attività applicazione Azure informazioni dettagliate
+title: ID del contesto utente per tenere traccia dell'attività - Azure Application InsightsUser context IDs to track activity - Azure Application Insights
 description: Tenere traccia delle azioni degli utenti nel servizio assegnando a ognuno una stringa ID univoca persistente in Application Insights.
 ms.topic: conceptual
 author: NumberByColors
@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
 ms.openlocfilehash: beb5a0f7ad3733aaf12b0880af4fba23a705a7e8
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670934"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Invio degli ID del contesto utente per abilitare esperienze di utilizzo in Azure Application Insights
@@ -133,5 +133,5 @@ namespace MvcWebRole.Telemetry
     - [Panoramica sull'uso](usage-overview.md)
     - [Utenti, Sessioni ed Eventi](usage-segmentation.md)
     - [Grafici a imbuto](usage-funnels.md)
-    - [Conservazione](usage-retention.md)
+    - [detenzione](usage-retention.md)
     - [Cartelle di lavoro](../../azure-monitor/app/usage-workbooks.md)

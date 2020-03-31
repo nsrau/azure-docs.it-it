@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2018
 ms.author: sharadag
-ms.openlocfilehash: 67a4f9eb3290ba09a2c19325464cf7ad224856e7
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: a98a933113322509f6fda8678350e9415d0b4058
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184507"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79471422"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Guida introduttiva: Creare una frontdoor per un'applicazione Web globale a disponibilità elevata
 
@@ -37,9 +37,9 @@ Per questa guida introduttiva è necessario aver distribuito due istanze di un'a
 1. In alto a sinistra nello schermo selezionare **Crea una risorsa** > **Web** > **App Web** > **Crea**.
 2. In **App Web** immettere o selezionare le informazioni seguenti e immettere le impostazioni predefinite nei casi in cui non è specificato alcun valore:
 
-     | Impostazione         | Valore     |
+     | Impostazione         | valore     |
      | ---              | ---  |
-     | NOME           | Immettere un nome univoco per l'app Web  |
+     | Nome           | Immettere un nome univoco per l'app Web  |
      | Resource group          | Selezionare **Nuovo** e quindi digitare *myResourceGroupFD1* |
      | Piano di servizio app/Località         | Selezionare **Nuovo**.  Nel piano di servizio app immettere *myAppServicePlanEastUS* e quindi selezionare **OK**. 
      |      Location  |   Stati Uniti orientali        |
@@ -49,11 +49,11 @@ Per questa guida introduttiva è necessario aver distribuito due istanze di un'a
 4. Quando l'app Web viene distribuita correttamente, viene creato un sito Web predefinito.
 5. Ripetere i passaggi da 1 a 3 per creare un secondo sito Web in un'area di Azure diversa con le impostazioni seguenti:
 
-     | Impostazione         | Valore     |
+     | Impostazione         | valore     |
      | ---              | ---  |
-     | NOME           | Immettere un nome univoco per l'app Web  |
+     | Nome           | Immettere un nome univoco per l'app Web  |
      | Resource group          | Selezionare **Nuovo** e quindi digitare *myResourceGroupFD2* |
-     | Piano di servizio app/Località         | Selezionare **Nuovo**.  Nel piano di servizio app immettere *myAppServicePlanWestEurope* e quindi selezionare **OK**. 
+     | Piano di servizio app/Località         | Selezionare **Nuovo**.  Nel piano di servizio app immettere *myAppServicePlanWestEuropa* e quindi selezionare **OK**. 
      |      Location  |   Europa occidentale      |
     |||
 
@@ -74,15 +74,15 @@ Successivamente, è necessario configurare uno o più back-end dell'applicazione
 2. Successivamente, fare clic su Add Backends (Aggiungi back-end) per aggiungere i siti Web creati in precedenza.
 3. Selezionare Servizio app come **Tipo di host di destinazione**, selezionare la sottoscrizione in cui è stato creato il sito Web e quindi scegliere il primo sito Web da **Nome host di destinazione**, ovvero  *myAppServicePlanEastUS.azurewebsites.net*.
 4. Lasciare i campi restanti così come sono e fare clic su **Aggiungi**.
-5. Ripetere i passaggi da 2 a 4 per aggiungere l'altro sito Web, vale a dire, *myAppServicePlanWestEurope.azurewebsites.net*
-6. Facoltativamente, è possibile aggiornare le impostazioni di Probe integrità e Bilanciamento del carico per il pool back-end, ma dovrebbero funzionare anche i valori predefiniti. Fare clic su **Aggiungi**.
+5. Ripetere i passaggi da 2 a 4 per aggiungere l'altro sito Web, vale a dire, *myAppServicePlanWestEuropa.azurewebsites.net*
+6. Facoltativamente, si può scegliere di aggiornare le impostazioni di bilanciamento del carico e dei probe di integrità per il pool back-end, ma dovrebbero funzionare anche i valori predefiniti. Scegliere **Aggiungi**.
 
 
 ### <a name="c-add-a-routing-rule"></a>C. Aggiungere una regola di routing
 Infine, fare clic sull'icona '+' in regole di Routing per configurare una regola di routing. Questo è necessario per eseguire il mapping dell'host front-end con il pool back-end, che in sostanza consiste nel configurare che, quando `myappfrontend.azurefd.net` riceve una richiesta, deve inoltrarla al pool back-end`myBackendPool`. Fare clic su **Aggiungi** per aggiungere la regola di routing per la frontdoor. A questo punto si dovrebbe essere pronti per la creazione della frontdoor, quindi fare clic su **Rivedi e crea**.
 
 >[!WARNING]
-> È **necessario** assicurarsi che ognuno degli host front-end nella frontdoor disponga di una regola di routing con un percorso predefinito ('/\*') associato. Questo vuol dire che tra tutte le regole di routing deve esisterne almeno una per ognuno degli host front-end definita nel percorso predefinito ('/\*'). In caso contrario, è possibile che il traffico degli utenti finali non venga instradato in modo corretto.
+> È **necessario** assicurarsi che ognuno degli host front-end nella frontdoor disponga di una regola di routing con un percorso predefinito ('/\*') associato. Questo vuol dire che tra tutte le regole di gestione deve esisterne almeno una per ognuno degli host front-end definita nel percorso predefinito ('/\*'). In caso contrario, è possibile che il traffico degli utenti finali non venga instradato in modo corretto.
 
 ## <a name="view-front-door-in-action"></a>Esaminare Frontdoor in azione
 Dopo aver creato una frontdoor, occorreranno alcuni minuti perché la configurazione sia distribuita ovunque a livello globale. Al termine della distribuzione, accedere all'host front-end creato, ovvero aprire un Web browser e raggiungere l'URL `myappfrontend.azurefd.net`. La richiesta verrà automaticamente instradata al back-end più vicino tra quelli specificati nel pool back-end. 

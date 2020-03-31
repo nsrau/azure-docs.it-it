@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Testare la knowledge base con domande batch'
+title: 'Guida introduttiva: Testare la knowledge base con domande batch'
 titleSuffix: Azure Cognitive Services
 description: ''
 services: cognitive-services
@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 02/08/2020
 ms.author: diberry
 ms.openlocfilehash: e16166c741b99c1af5b36f2c7ccd25b01f7544ba
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77109001"
 ---
-# <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Avvio rapido: Testare la Knowledge base con domande batch e risposte previste
+# <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Guida introduttiva: Testare la Knowledge base con domande batch e risposte previste
 
 Usare lo strumento di test batch di QnA Maker per testare le knowledge base nella risorsa QnA Maker e verificare le risposte previste, i punteggi di attendibilità e i prompt multiturno.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Creare un servizio di QnA Maker](create-publish-knowledge-base.md) o usarne uno esistente in lingua inglese.

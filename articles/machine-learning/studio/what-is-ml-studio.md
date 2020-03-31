@@ -10,17 +10,15 @@ ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
-ms.date: 10/17/2019
-ms.openlocfilehash: 8179e36342f4f3544a1ecd503d7f136ea437d374
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 03/24/2020
+ms.openlocfilehash: c1772ceb514e46542129759711f2d45db39abf82
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79217814"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371949"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>Che cos'è Machine Learning Studio (versione classica)?
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -29,6 +27,9 @@ Microsoft Machine Learning Studio (versione classica) è uno strumento di trasci
 Machine Learning Studio (versione classica) è il punto di incontro di scienza dei dati, analisi predittive, risorse cloud e dati.
 
 ## <a name="the-machine-learning-studio-classic--interactive-workspace"></a>Area di lavoro interattiva di Machine Learning Studio (versione classica)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 Per sviluppare un modello di analisi predittiva, in genere si usano dati provenienti da una o più origini, che vengono trasformati e analizzati tramite varie funzioni di modifica dei dati e statistiche e da cui viene generato un set di risultati. Lo sviluppo di un modello come questo è un processo iterativo. Man mano che si modificano le varie funzioni e i relativi parametri, i risultati convergono fino a quando l'utente non è soddisfatto del modello sottoposto a training.
 
 Azure Machine Learning Studio (versione classica) offre un'area di lavoro grafica e interattiva per eseguire facilmente le operazioni di compilazione, test e iterazione di un modello di analisi predittiva. È possibile trascinare la selezione di ***set di dati*** e ***moduli*** di analisi in un'area di disegno interattiva, collegandoli tra loro per ottenere un ***esperimento*** da eseguire in Machine Learning Studio (versione classica). Per eseguire l'iterazione della progettazione del modello, modificare l'esperimento, salvare eventualmente una copia e ripeterne l'esecuzione. Quando si è pronti, è possibile convertire l'***esperimento di training*** in un ***esperimento predittivo*** e quindi pubblicarlo come un ***servizio Web*** in modo che altri utenti possano accedere al modello.
@@ -36,30 +37,6 @@ Azure Machine Learning Studio (versione classica) offre un'area di lavoro grafic
 Non sono necessarie operazioni di programmazione, è sufficiente collegare visivamente i set di dati e i moduli per costruire un modello di analisi predittiva.
 
 ![Diagramma di Azure Machine Learning Studio (versione classica): Creare esperimenti, leggere dati per molte origini, scrivere dati con punteggio, scrivere modelli.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
-
-<a name="compare"></a>
-## <a name="how-does-machine-learning-studio-classic-differ-from-azure-machine-learning"></a>Quali sono le differenze tra Machine Learning Studio (versione classica) e Azure Machine Learning?
-
-[Azure Machine Learning](../overview-what-is-azure-ml.md) offre gli SDK **e** la finestra di progettazione di Azure Machine Learning (anteprima) per eseguire rapidamente la preparazione dei dati e il training e la distribuzione dei modelli di Machine Learning. La finestra di progettazione offre un'esperienza di trascinamento della selezione simile a Studio (versione classica). A differenza della piattaforma di calcolo proprietaria di Studio, tuttavia, la finestra di progettazione usa le risorse di calcolo dell'utente ed è pienamente integrata in Azure Machine Learning.
-
-Ecco un confronto rapido:
-
-|| Machine Learning Studio (versione classica) | Azure Machine Learning |
-|---| --- | --- |
-| Interfaccia per il trascinamento della selezione | Sì | Sì - [Finestra di progettazione di Azure Machine Learning (anteprima)](../concept-designer.md) |
-| Esperimento | Scalabile (limite dei dati di training di 10 GB) | Ridimensionamento con destinazione di calcolo |
-| Moduli per l'interfaccia di trascinamento della selezione | Molti | Set iniziale di [moduli](../algorithm-module-reference/module-reference.md) più diffusi|
-|Destinazioni di calcolo del training| Destinazione di calcolo proprietaria, solo supporto di CPU| Supporta destinazioni di calcolo di Azure Machine Learning (GPU o CPU) e macchine virtuali per Notebook.<br/>([Altre destinazioni di calcolo supportate nell'SDK](../concept-compute-target.md#train))|
-|Destinazioni di calcolo di inferenza| Formato di servizio Web proprietario, non personalizzabile |  Servizio Azure Kubernetes e Servizi di calcolo di Azure Machine Learning <br/>([Altre destinazioni di calcolo supportate nell'SDK](../how-to-deploy-and-where.md)) |
-| Pipeline di Machine Learning | Non supportate | [Pipeline](../concept-ml-pipelines.md) supportate |
-| MLOps | Gestione e distribuzione dei modelli di base | Distribuzione configurabile - controllo delle versioni e rilevamento di modelli e pipeline |
-| Formato dei modelli | Formato proprietario, solo Studio (versione classica) | Formato standard a seconda del tipo di processo di training |
-|Training automatizzato dei modelli e ottimizzazione degli iperparametri | No | Non ancora presente nella finestra di progettazione <br/> ([Supportato nell'SDK e nella pagina di destinazione dell'area di lavoro](../concept-automated-ml.md)) | 
-
-Provare la finestra di progettazione con [Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione](../tutorial-designer-automobile-price-train-score.md)
-
-> [!NOTE]
-> I modelli creati in Studio (versione classica) non possono essere distribuiti né gestiti con Azure Machine Learning. I modelli creati e distribuiti nella finestra di progettazione del servizio possono invece essere gestiti nell'area di lavoro di Azure Machine Learning.
 
 ## <a name="download-the-machine-learning-studio-classic-overview-diagram"></a>Scaricare il diagramma della panoramica di Machine Learning Studio (versione classica)
 Scaricare il diagramma **Panoramica delle funzionalità di Microsoft Azure Machine Learning Studio (versione classica)** per avere una panoramica di alto livello delle funzionalità di Machine Learning Studio (versione classica). Per tenerlo a portata di mano, stampare il diagramma in formato tabloid (27 x 43 cm circa).

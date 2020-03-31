@@ -1,5 +1,5 @@
 ---
-title: Formati di file supportati in Azure Data Factory (legacy)
+title: Formati di file supportati in Azure Data Factory (legacy)Supported file formats in Azure Data Factory (legacy)
 description: Questo argomento descrive i formati di file e i codici di compressione supportati dai connettori basati su file in Azure Data Factory.
 author: linda33wj
 manager: shwang
@@ -10,33 +10,33 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.openlocfilehash: 423706c391e8d8c2c609798d9f50e5a22f5c39bb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260683"
 ---
-# <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Formati di file supportati e codec di compressione in Azure Data Factory (legacy)
+# <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Formati di file e codec di compressione supportati in Azure Data Factory (legacy)
 
-*Questo articolo si applica ai connettori seguenti: [Amazon S3](connector-amazon-simple-storage-service.md), [BLOB di Azure](connector-azure-blob-storage.md), [Azure Data Lake storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md), [archiviazione file di Azure](connector-azure-file-storage.md), [file System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [http](connector-http.md)e [SFTP](connector-sftp.md).*
+*Questo articolo si applica ai connettori seguenti: [Amazon S3](connector-amazon-simple-storage-service.md), Blob di [Azure](connector-azure-blob-storage.md), Azure Data Lake [Storage Gen1](connector-azure-data-lake-store.md), Azure Data Lake Storage [Gen2](connector-azure-data-lake-storage.md), [Archiviazione file di Azure](connector-azure-file-storage.md), File [System](connector-file-system.md), [FTP](connector-ftp.md), Google [Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md)e [SFTP](connector-sftp.md).*
 
 >[!IMPORTANT]
->Data Factory introdotto un nuovo modello di DataSet basato su formato, vedere l'articolo relativo al formato corrispondente con i dettagli: <br>[formato - avro](format-avro.md)<br>[formato binario](format-binary.md) - <br>[formato testo delimitato](format-delimited-text.md) da - <br>[formato JSON](format-json.md) - <br>[formato ORC](format-orc.md) - <br>[formato Parquet](format-parquet.md) - <br>Le configurazioni Rest indicate in questo articolo sono ancora supportate così come sono per le versioni precedenti di Compabitility. Si consiglia di utilizzare il nuovo modello in futuro. 
+>Data Factory ha introdotto un nuovo modello di set di dati basato su formato, vedere l'articolo di formato corrispondente con i dettagli:Data Factory introduced new format-based dataset model, see corresponding format article with details: <br>- [Formato Avro](format-avro.md)<br>- [Formato binario](format-binary.md)<br>- [Formato di testo delimitato](format-delimited-text.md)<br>- [Formato JSON](format-json.md)<br>- [Formato ORC](format-orc.md)<br>- [Formato parquet](format-parquet.md)<br>Le configurazioni rest menzionate in questo articolo sono ancora supportate così com'è per la compabitilità all'indietro. Si consiglia di utilizzare il nuovo modello in futuro. 
 
-## <a name="text-format"></a>Formato testo (legacy)
+## <a name="text-format-legacy"></a><a name="text-format"></a>Formato testo (legacy)
 
 >[!NOTE]
->Per informazioni sul nuovo modello, vedere l'articolo relativo al [formato testo delimitato](format-delimited-text.md) . Le configurazioni seguenti nel set di dati dell'archivio dati basato su file sono ancora supportate così come sono per le Compabitility precedenti. Si consiglia di utilizzare il nuovo modello in futuro.
+>Informazioni sul nuovo modello dall'articolo [Formato testo delimitato.](format-delimited-text.md) Le configurazioni seguenti nel set di dati dell'archivio dati basato su file sono ancora supportate così come per la conformità all'indietro. Si consiglia di utilizzare il nuovo modello in futuro.
 
 Se si vuole leggere da un file di testo o scrivere in un file di testo, impostare la proprietà `type` nella sezione `format` del set di dati **TextFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio di TextFormat](#textformat-example) sulla configurazione.
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| columnDelimiter |Il carattere usato per separare le colonne in un file. È possibile usare un carattere non stampabile raro che potrebbe non esistere nei dati. Ad esempio, specificare "\u0001", che rappresenta l'inizio intestazione (SOH). |È consentito un solo carattere. Il valore **predefinito** è la **virgola (",")** . <br/><br/>Per usare un carattere Unicode, vedere i [caratteri Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) per ottenere il codice corrispondente. |No |
-| rowDelimiter |carattere usato per separare le righe in un file. |È consentito un solo carattere. Sono consentiti i seguenti valori **predefiniti** in lettura: **["\r\n", "\r", "\n"]** e **"\r\n"** in scrittura. |No |
+| columnDelimiter |Il carattere usato per separare le colonne in un file. È possibile usare un carattere non stampabile raro che potrebbe non esistere nei dati. Ad esempio, specificare "\u0001", che rappresenta l'inizio intestazione (SOH). |È consentito un solo carattere. Il valore **predefinito** è **virgola (',')**. <br/><br/>Per usare un carattere Unicode, vedere i [caratteri Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) per ottenere il codice corrispondente. |No |
+| rowDelimiter |carattere usato per separare le righe in un file. |È consentito un solo carattere. Il valore **predefinito** è uno dei seguenti valori letti: **["r"n", "'r",'n']** e **"'r'n"** in scrittura. |No |
 | escapeChar |carattere speciale usato per eseguire l'escape di un delimitatore di colonna nel contenuto del file di input. <br/><br/>Non è possibile specificare sia escapeChar sia quoteChar per una tabella. |È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Ad esempio, se è presente una virgola (",") come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: "Hello, world"), è possibile definire "$" come carattere di escape e usare la stringa "Hello$, world" nell'origine. |No |
 | quoteChar |carattere usato per inserire un valore stringa tra virgolette. I delimitatori di riga e colonna all'interno delle virgolette sono considerati come parte del valore della stringa. Questa proprietà è applicabile ai set di dati di input e di output.<br/><br/>Non è possibile specificare sia escapeChar sia quoteChar per una tabella. |È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Ad esempio, se è presente una virgola (",") come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello, world>), è possibile definire " (virgolette doppie) come carattere di virgolette e usare la stringa "Hello, world" nell'origine. |No |
-| nullValue |uno o più caratteri usati per rappresentare un valore null. |Uno o più caratteri. I valori **predefiniti** sono **"\N" e "NULL"** in lettura e **"\N"** in scrittura. |No |
+| nullValue |uno o più caratteri usati per rappresentare un valore null. |Uno o più caratteri. I valori **di default** sono **""N" e "NULL"** in lettura e **"N"** in scrittura. |No |
 | encodingName |specifica il nome della codifica. |Un nome di codifica valido. Vedere [Proprietà Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Esempio: windows-1250 o shift_jis. Il valore **predefinito** è **UTF-8**. |No |
 | firstRowAsHeader |Specifica se considerare la prima riga come intestazione. In un set di dati di input Data factory legge la prima riga come intestazione. In un set di dati di output Data factory scrive la prima riga come intestazione. <br/><br/>Vedere [Scenari per l'uso di `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) per gli scenari di esempio. |True<br/><b>False (impostazione predefinita)</b> |No |
 | skipLineCount |Indica il numero di righe **non vuote** da ignorare durante la lettura di dati da file di input. Se vengono specificati sia skipLineCount che firstRowAsHeader, le righe vengono ignorate e quindi le informazioni dell'intestazione vengono lette dal file di input. <br/><br/>Vedere [Scenari per l'uso di `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) per gli scenari di esempio. |Integer |No |
@@ -77,10 +77,10 @@ Per usare `escapeChar` invece di `quoteChar`, sostituire la riga con `quoteChar`
 * Si desidera copiare da un file di testo contenente una riga di intestazione a un sink non basato su file ed eliminare tale riga. Specificare `firstRowAsHeader` come true nel set di dati di input.
 * Si desidera copiare da un file di testo e ignorare alcune righe all'inizio che non contengono né dati né un'intestazione. Specificare `skipLineCount` per indicare il numero di righe da ignorare. Se il resto del file contiene una riga di intestazione, è anche possibile specificare `firstRowAsHeader`. Se sono specificati sia `skipLineCount` che `firstRowAsHeader`, le righe vengono ignorate e le informazioni di intestazione vengono lette dal file di input.
 
-## <a name="json-format"></a>Formato JSON (legacy)
+## <a name="json-format-legacy"></a><a name="json-format"></a>Formato JSON (legacy)
 
 >[!NOTE]
->Per informazioni sul nuovo modello, vedere l'articolo [formato JSON](format-json.md) . Le configurazioni seguenti nel set di dati dell'archivio dati basato su file sono ancora supportate così come sono per le Compabitility precedenti. Si consiglia di utilizzare il nuovo modello in futuro.
+>Informazioni sul nuovo modello dall'articolo [in formato JSON.](format-json.md) Le configurazioni seguenti nel set di dati dell'archivio dati basato su file sono ancora supportate così come per la conformità all'indietro. Si consiglia di utilizzare il nuovo modello in futuro.
 
 Per **importare/esportare un file JSON senza modifiche in/da Azure Cosmos DB**, vedere la sezione relativa all'importazione/esportazione di documenti JSON nell'articolo [Move data to/from Azure Cosmos DB (Spostare dati da e verso Azure Cosmos DB)](connector-azure-cosmos-db.md).
 
@@ -90,12 +90,12 @@ Per analizzare i file JSON o scrivere i dati in formato JSON, impostare la propr
 | --- | --- | --- |
 | filePattern |Indicare il modello dei dati archiviati in ogni file JSON. I valori consentiti sono: **setOfObjects** e **arrayOfObjects**. Il valore **predefinito** è **setOfObjects**. Vedere la sezione [Modelli di file JSON](#json-file-patterns) per i dettagli su questi modelli. |No |
 | jsonNodeReference | Per eseguire l'iterazione dei dati ed estrarli dagli oggetti presenti nel campo di una matrice con lo stesso modello, specificare il percorso JSON di tale matrice. Questa proprietà è supportata solo quando si copiano dati **da** file JSON. | No |
-| jsonPathDefinition | Specificare l'espressione del percorso JSON per ogni mapping colonne con un nome di colonna personalizzato. Iniziare con una lettera minuscola. Questa proprietà è supportata solo quando si copiano dati **da** file JSON ed è possibile estrarre dati dall'oggetto o dalla matrice. <br/><br/> Per i campi sotto l'oggetto radice, iniziare con la radice $. Per i campi nella matrice scelta dalla proprietà `jsonNodeReference`, iniziare dall'elemento matrice. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione. | No |
-| encodingName |specifica il nome della codifica. Per l'elenco di nomi di codifica validi, vedere: Proprietà [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) . Ad esempio: windows-1250 o shift_jis. Il valore **predefinito** è **UTF-8**. |No |
+| jsonPathDefinition | Specificare l'espressione del percorso JSON per ogni mapping colonne con un nome di colonna personalizzato. Iniziare con una lettera minuscola. Questa proprietà è supportata solo quando si copiano dati **da** file JSON ed è possibile estrarre dati da oggetti o matrici. <br/><br/> Per i campi sotto l'oggetto radice, iniziare con la radice $. Per i campi nella matrice scelta dalla proprietà `jsonNodeReference`, iniziare dall'elemento matrice. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione. | No |
+| encodingName |specifica il nome della codifica. Per l'elenco di nomi di codifica validi, vedere: Proprietà [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) . Ad esempio: windows-1250 o shift_jis. Il valore **predefinito** è: **UTF-8**. |No |
 | nestingSeparator |Carattere utilizzato per separare i livelli di nidificazione. Il valore predefinito è "." (punto). |No |
 
 >[!NOTE]
->Per il caso di applicazione incrociata di dati in una matrice in più righe (caso 1-> esempio 2 in [esempi di JsonFormat](#jsonformat-example)), è possibile scegliere di espandere solo una singola matrice utilizzando la proprietà `jsonNodeReference`.
+>Per i casi di applicazione incrociata di dati in matrice in più righe (caso 1 -> `jsonNodeReference`esempio 2 negli esempi di [JsonFormat](#jsonformat-example)), è possibile scegliere di espandere una singola matrice utilizzando la proprietà .
 
 ### <a name="json-file-patterns"></a>Modelli di file JSON
 
@@ -226,7 +226,7 @@ e lo si vuole copiare in una tabella SQL di Azure nel formato seguente, estraend
 | --- | --- | --- | --- | --- |
 | ed0e4960-d9c5-11e6-85dc-d7996816aad3 | PC | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 1/13/2017 11:24:37 AM |
 
-Il set di dati di input con il tipo **JsonFormat** è definito come segue (definizione parziale che include solo le parti pertinenti). Più in particolare:
+Il set di dati di input con tipo **JsonFormat** è definito come segue: (definizione parziale con solo le parti rilevanti). Più in particolare:
 
 - La sezione `structure` definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Per altre informazioni, vedere [Eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati di destinazione](copy-activity-schema-and-type-mapping.md).
 - `jsonPathDefinition` specifica il percorso JSON per ogni colonna indicante da dove estrarre i dati. Per copiare i dati dalla matrice, è possibile usare `array[x].property` per estrarre il valore della proprietà specificata dall'oggetto `xth`, oppure è possibile usare `array[*].property` per trovare il valore in qualsiasi oggetto contenente tale proprietà.
@@ -301,10 +301,10 @@ e lo si vuole copiare in una tabella SQL di Azure nel formato seguente, rendendo
 | 01 | 20170122 | P3 | 231 | `[{"sanmateo":"No 1"}]` |
 
 
-Il set di dati di input con il tipo **JsonFormat** è definito come segue (definizione parziale che include solo le parti pertinenti). Più in particolare:
+Il set di dati di input con tipo **JsonFormat** è definito come segue: (definizione parziale con solo le parti rilevanti). Più in particolare:
 
 - La sezione `structure` definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Per altre informazioni, vedere [Eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati di destinazione](copy-activity-schema-and-type-mapping.md).
-- `jsonNodeReference` indica di eseguire un'iterazione ed estrarre i dati dagli oggetti con lo stesso modello in `orderlines`di **matrici** .
+- `jsonNodeReference` indica di seguire l'iterazione dei dati e di estrarli dagli oggetti con lo stesso modello sotto la **matrice** `orderlines`.
 - `jsonPathDefinition` specifica il percorso JSON per ogni colonna indicante da dove estrarre i dati. In questo esempio `ordernumber`, `orderdate` e `city` sono sotto l'oggetto radice con il percorso JSON che inizia con `$.`, mentre `order_pd` e `order_price` sono definiti con il percorso derivato dall'elemento matrice senza `$.`.
 
 ```json
@@ -404,12 +404,12 @@ Il set di dati di output con il tipo **JsonFormat** è definito come segue (defi
 }
 ```
 
-## <a name="parquet-format"></a>Formato parquet (legacy)
+## <a name="parquet-format-legacy"></a><a name="parquet-format"></a>Formato parquet (legacy)
 
 >[!NOTE]
->Per informazioni sul nuovo modello, vedere l'articolo relativo al [formato parquet](format-parquet.md) . Le configurazioni seguenti nel set di dati dell'archivio dati basato su file sono ancora supportate così come sono per le Compabitility precedenti. Si consiglia di utilizzare il nuovo modello in futuro.
+>Scopri il nuovo modello dall'articolo in [formato Parquet.](format-parquet.md) Le configurazioni seguenti nel set di dati dell'archivio dati basato su file sono ancora supportate così come per la conformità all'indietro. Si consiglia di utilizzare il nuovo modello in futuro.
 
-Se si desidera analizzare i file parquet o scrivere i dati in formato parquet, impostare la proprietà `format` `type` su **ParquetFormat**. Non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
+Per analizzare i file Parquet o scrivere i dati in formato Parquet, impostare la proprietà `format` `type` su **ParquetFormat**. Non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
 
 ```json
 "format":
@@ -427,9 +427,9 @@ Tenere presente quanto segue:
 > [!IMPORTANT]
 > Per le copie attivate dal runtime di integrazione self-hosted, ad esempio tra l'archivio dati locale e quello nel cloud, se non si esegue una copia **identica** dei file Parquet, è necessario installare **JRE 8 (Java Runtime Environment) a 64 bit o OpenJDK** nel computer del runtime di integrazione. Per informazioni più dettagliate, vedere il paragrafo seguente.
 
-Per la copia in esecuzione nel runtime di integrazione self-hosted con la serializzazione/deserializzazione dei file Parquet, il file di definizione dell'applicazione (AFD) individua il runtime Java eseguendo prima una ricerca di JRE nel Registro di sistema *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* . In caso di esito negativo, esegue una ricerca di OpenJDK nella variabile di sistema *`JAVA_HOME`* .
+Per la copia in esecuzione su Runtime di runtime self-hosted con serializzazione/deserializzazione *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* dei file Parquet, ADF individua *`JAVA_HOME`* il runtime Java controllando innanzitutto il Registro di sistema per JRE, se non viene trovato, in secondo luogo controllando la variabile di sistema per OpenJDK.
 
-- **Per usare JRE**: il runtime di integrazione a 64 bit richiede jre a 64 bit. disponibile [qui](https://go.microsoft.com/fwlink/?LinkId=808605).
+- **Per utilizzare JRE**: l'IR a 64 bit richiede JRE a 64 bit. disponibile [qui](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **Per usare OpenJDK**: è supportato a partire dalla versione 3.13 del runtime di integrazione. Includere jvm.dll in un pacchetto con tutti gli altri assembly necessari di OpenJDK nel computer del runtime di integrazione self-hosted e impostare di conseguenza la variabile di ambiente di sistema JAVA_HOME.
 
 >[!TIP]
@@ -464,12 +464,12 @@ Esempio: impostare la variabile `_JAVA_OPTIONS` con il valore `-Xms256m -Xmx16g`
 | Char | Binary | Utf8 | Utf8 |
 | CharArray | Non supportate | N/D | N/D |
 
-## <a name="orc-format"></a>Formato ORC (legacy)
+## <a name="orc-format-legacy"></a><a name="orc-format"></a>Formato ORC (legacy)
 
 >[!NOTE]
->Per informazioni sul nuovo modello, vedere l'articolo relativo al [formato ORC](format-orc.md) . Le configurazioni seguenti nel set di dati dell'archivio dati basato su file sono ancora supportate così come sono per le Compabitility precedenti. Si consiglia di utilizzare il nuovo modello in futuro.
+>Scopri il nuovo modello dall'articolo in [formato ORC.](format-orc.md) Le configurazioni seguenti nel set di dati dell'archivio dati basato su file sono ancora supportate così come per la conformità all'indietro. Si consiglia di utilizzare il nuovo modello in futuro.
 
-Se si desidera analizzare i file ORC o scrivere i dati in formato ORC, impostare la proprietà `format` `type` su **OrcFormat**. Non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
+Per analizzare i file ORC o scrivere i dati in formato ORC, impostare la proprietà `format` `type` su **OrcFormat**. Non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
 
 ```json
 "format":
@@ -487,9 +487,9 @@ Tenere presente quanto segue:
 > [!IMPORTANT]
 > Per le copie attivate dal runtime di integrazione self-hosted, ad esempio tra l'archivio dati locale e quello nel cloud, se non si esegue una copia **identica** dei file ORC, è necessario installare **JRE 8 (Java Runtime Environment) a 64 bit o OpenJDK** nel computer del runtime di integrazione. Per informazioni più dettagliate, vedere il paragrafo seguente.
 
-Per la copia in esecuzione nel runtime di integrazione self-hosted con la serializzazione/deserializzazione dei file ORC, il file di definizione dell'applicazione (AFD) individua il runtime Java eseguendo prima una ricerca di JRE nel Registro di sistema *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* . In caso di esito negativo, esegue una ricerca di OpenJDK nella variabile di sistema *`JAVA_HOME`* .
+Per la copia in esecuzione su Runtime di runtime self-hosted con serializzazione/deserializzazione *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* dei file ORC, ADF individua *`JAVA_HOME`* il runtime Java controllando innanzitutto il Registro di sistema per JRE, se non viene trovato, in secondo luogo controllando la variabile di sistema per OpenJDK.
 
-- **Per usare JRE**: il runtime di integrazione a 64 bit richiede jre a 64 bit. disponibile [qui](https://go.microsoft.com/fwlink/?LinkId=808605).
+- **Per utilizzare JRE**: l'IR a 64 bit richiede JRE a 64 bit. disponibile [qui](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **Per usare OpenJDK**: è supportato a partire dalla versione 3.13 del runtime di integrazione. Includere jvm.dll in un pacchetto con tutti gli altri assembly necessari di OpenJDK nel computer del runtime di integrazione self-hosted e impostare di conseguenza la variabile di ambiente di sistema JAVA_HOME.
 
 ### <a name="data-type-mapping-for-orc-files"></a>Mapping dei tipi di dati per i file ORC
@@ -516,12 +516,12 @@ Per la copia in esecuzione nel runtime di integrazione self-hosted con la serial
 | Guid | string |
 | Char | Char(1) |
 
-## <a name="avro-format"></a>Formato AVRO (legacy)
+## <a name="avro-format-legacy"></a><a name="avro-format"></a>Formato AVRO (legacy)
 
 >[!NOTE]
->Per informazioni sul nuovo modello, vedere l'articolo relativo al [formato avro](format-avro.md) . Le configurazioni seguenti nel set di dati dell'archivio dati basato su file sono ancora supportate così come sono per le Compabitility precedenti. Si consiglia di utilizzare il nuovo modello in futuro.
+>Imparare il nuovo modello dall'articolo [in formato Avro.](format-avro.md) Le configurazioni seguenti nel set di dati dell'archivio dati basato su file sono ancora supportate così come per la conformità all'indietro. Si consiglia di utilizzare il nuovo modello in futuro.
 
-Se si vuole analizzare i file avro o scrivere i dati in formato Avro, impostare la proprietà `format` `type` su **AvroFormat**. Non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
+Per analizzare i file Avro o scrivere i dati in formato Avro, impostare la proprietà `format` `type` su **AvroFormat**. Non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
 
 ```json
 "format":
@@ -536,14 +536,14 @@ Tenere presente quanto segue:
 
 * I [tipi di dati complessi](https://avro.apache.org/docs/current/spec.html#schema_complex) non sono supportati (record, enumerazioni, matrici, mappe, unioni e dati fissi).
 
-## <a name="compression-support"></a>Supporto della compressione (legacy)
+## <a name="compression-support-legacy"></a><a name="compression-support"></a>Supporto della compressione (legacy)
 
 Azure Data Factory supporta la compressione/decompressione dei dati durante la copia. Quando si specifica una proprietà `compression` in un set di dati di input, l'attività di copia legge i dati compressi dall'origine e li decomprime. Quando si specifica la proprietà in un set di dati di output, l'attività di copia comprime e quindi scrive i dati nel sink. Di seguito vengono forniti alcuni scenari di esempio:
 
-* Leggere i dati compressi GZIP da un BLOB di Azure, decomprimerli e scrivere i dati del risultato in un database SQL di Azure. Definire il set di dati di input del BLOB di Azure con la proprietà `compression` `type` come GZIP.
-* Leggere i dati da un file di testo normale dal file system locale, comprimerli usando il formato GZIP e scrivere i dati compressi in un BLOB di Azure. Si definisce un set di dati di output del BLOB di Azure con la proprietà `compression` `type` come GZip.
-* Leggere il file con estensione zip dal server FTP, decomprimerlo per ottenere i file all'interno e inserire i file in Azure Data Lake Store. Si definisce un set di dati FTP di input con la proprietà `compression` `type` come ZipDeflate.
-* Leggere i dati compressi GZIP da un BLOB di Azure, decomprimerli, comprimerli usando BZIP2 e scrivere i dati del risultato in un BLOB di Azure. Definire il set di dati del BLOB di Azure di input con `compression` `type` impostato su GZIP e il set di dati di output con `compression` `type` impostato su BZIP2.
+* Leggere i dati compressi GZIP da un BLOB di Azure, decomprimerli e scrivere i dati del risultato in un database SQL di Azure. Il set di dati blob `compression` `type` di Azure di input viene definito con la proprietà come G-IP.
+* Leggere i dati da un file di testo normale dal file system locale, comprimerli usando il formato GZIP e scrivere i dati compressi in un BLOB di Azure. Si definisce un set `compression` `type` di dati blob di Azure di output con la proprietà come G.ip.
+* Leggere il file con estensione zip dal server FTP, decomprimerlo per ottenere i file all'interno e inserire i file in Azure Data Lake Store. È possibile definire un `compression` `type` set di dati FTP di input con la proprietà come .ipDeflate.
+* Leggere i dati compressi GZIP da un BLOB di Azure, decomprimerli, comprimerli usando BZIP2 e scrivere i dati del risultato in un BLOB di Azure. Il set di dati `compression` `type` blob di Azure di input `compression` `type` viene definito con set di file , ovvero il set di dati di output con impostato su B-IP2.
 
 Per specificare la compressione per un set di dati, usare la proprietà **compression** nel set di dati JSON come illustrato di seguito:
 
@@ -573,7 +573,7 @@ Per specificare la compressione per un set di dati, usare la proprietà **compre
 
 La sezione **compression** ha due proprietà:
 
-* **Type:** codec di compressione, che può essere **GZIP**, **Deflate**, **BZIP2** o **ZipDeflate**. Nota Quando si usa l'attività di copia per decomprimere i file ZipDeflate e scrivere nell'archivio dati sink basato su file, i file vengono estratti nella cartella: `<path specified in dataset>/<folder named as source zip file>/`.
+* **Tipo :** il codec di compressione, che può essere **G-IP**, **Deflate**, **B.IP2**o **.IPDeflate**. Si noti che quando si utilizza l'attività di copia per decomprimere i file zipDeflate `<path specified in dataset>/<folder named as source zip file>/`e scrivere nell'archivio dati sink basato su file, i file verranno estratti nella cartella: .
 * **Level:** rapporto di compressione, che può essere **Optimal** o **Fastest**.
 
   * **Fastest:** l'operazione di compressione deve essere completata il più rapidamente possibile, anche se il file risultante non viene compresso in modo ottimale.
@@ -586,13 +586,13 @@ La sezione **compression** ha due proprietà:
 
 ## <a name="unsupported-file-types-and-compression-formats"></a>Tipi di file e formati di compressione non supportati
 
-È possibile utilizzare le funzionalità di estendibilità di Azure Data Factory per trasformare i file non supportati.
-Due opzioni includono funzioni di Azure e attività personalizzate usando Azure Batch.
+È possibile usare le funzionalità di estendibilità di Azure Data Factory per trasformare i file non supportati.
+Due opzioni includono Funzioni di Azure e attività personalizzate tramite Azure Batch.Two options include Azure Functions and custom tasks by using Azure Batch.
 
-È possibile vedere un esempio che usa una funzione di Azure per [estrarre il contenuto di un file tar](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). Per altre informazioni, vedere [attività di funzioni di Azure](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity).
+È possibile visualizzare un esempio che usa una funzione di Azure per [estrarre il contenuto di un file tar.](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction) Per altre informazioni, vedere Attività di Funzioni di Azure.For more information, see [Azure Functions activity](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity).
 
-È anche possibile compilare questa funzionalità usando un'attività DotNet personalizzata. Altre informazioni sono disponibili [qui](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity)
+È inoltre possibile compilare questa funzionalità utilizzando un'attività dotnet personalizzata. Ulteriori informazioni [sono](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity) disponibili qui
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sui formati di file supportati più recenti e sulle compressioni dai [formati di file supportati e dalle compressioni](supported-file-formats-and-compression-codecs.md).
+Informazioni sui formati di file e le compressioni più recenti supportati da [Formati di file e compressioni supportati.](supported-file-formats-and-compression-codecs.md)

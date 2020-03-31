@@ -11,10 +11,10 @@ ms.date: 11/13/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 56cbeb8e8fe21f4b39c2f5c6af43e83ae330e5d5
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189974"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Abilitare il controllo dell'accesso in base all'età in Azure Active Directory B2C
@@ -23,15 +23,15 @@ ms.locfileid: "78189974"
 >Questa funzionalità è disponibile in anteprima pubblica. Non usarla per le applicazioni di produzione.
 >
 
-Il controllo Age in Azure Active Directory B2C (Azure AD B2C) consente di identificare i minorenni che vogliono usare l'applicazione. È possibile scegliere di impedire ai minori di accedere all'applicazione. In alternativa, gli utenti possono tornare all'applicazione e identificare la propria fascia di età e il relativo stato di consenso dei genitori. Con Azure AD B2C è possibile bloccare i minori privi del consenso dei genitori. Azure AD B2C può inoltre essere configurato in modo da consentire all'applicazione di decidere come gestire l'accesso dei minori.
+L'età in Azure Active Directory B2C (Azure AD B2C) consente di identificare i minori che vogliono usare l'applicazione. È possibile scegliere di impedire ai minori di accedere all'applicazione. In alternativa, gli utenti possono tornare all'applicazione e identificare la propria fascia di età e il relativo stato di consenso dei genitori. Con Azure AD B2C è possibile bloccare i minori privi del consenso dei genitori. Azure AD B2C può inoltre essere configurato in modo da consentire all'applicazione di decidere come gestire l'accesso dei minori.
 
-Dopo aver abilitato il controllo Age nel [flusso utente](user-flow-overview.md), gli utenti vengono invitati quando sono nati e in quale paese/area geografica vivono. Se un utente esegue l'accesso senza avere precedentemente immesso queste informazioni, dovrà farlo al successivo accesso. Le regole vengono applicate ogni volta che un utente esegue l'accesso.
+Dopo aver abilitato l'invecchiamento nel [flusso utente,](user-flow-overview.md)agli utenti viene chiesto quando sono nati e in quale paese/area geografica vivono. Se un utente esegue l'accesso senza avere precedentemente immesso queste informazioni, dovrà farlo al successivo accesso. Le regole vengono applicate ogni volta che un utente esegue l'accesso.
 
 Azure AD B2C usa le informazioni immesse dall'utente per stabilire se si tratta di un minore. Il campo **ageGroup** viene aggiornato di conseguenza nel rispettivo account. Il valore può essere `null`, `Undefined`, `Minor`, `Adult` e `NotAdult`.  I campi **ageGroup** e **consentProvidedForMinor** vengono quindi usati per calcolare il valore di **legalAgeGroupClassification**.
 
 Il controllo dell'accesso in base all'età prevede due valori: l'età in cui un utente non è più considerato un minore e l'età in cui un minore deve avere il consenso dei genitori. La tabella seguente elenca le regole per l'età che vengono usate per identificare un minore e un minore che necessita del consenso.
 
-| Paese/Area geografica | Nome del paese/area geografica | Minore età per cui richiedere il consenso | Minore età |
+| Paese/Area geografica | Nome paese/area geografica | Minore età per cui richiedere il consenso | Minore età |
 | -------------- | ------------------- | ----------------- | --------- |
 | Predefinito | nessuno | nessuno | 18 |
 | AE | Emirati Arabi Uniti | nessuno | 21 |
@@ -90,7 +90,7 @@ Per i flussi utente che consentono la registrazione, l'accesso o entrambi, è po
 
 Per usare il controllo dell'accesso in base all'età in un flusso utente, è necessario configurare il tenant in modo tale da supportare proprietà aggiuntive.
 
-1. Assicurarsi di usare la directory che contiene il tenant Azure AD B2C selezionando il filtro **directory + sottoscrizione** nel menu in alto. Selezionare la directory contenente il tenant.
+1. Assicurarsi di usare la directory che contiene il tenant B2C di Azure AD selezionando il filtro **Directory e sottoscrizione** nel menu in alto. Selezionare la directory contenente il tenant.
 2. Selezionare **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo.
 3. Selezionare **Proprietà** per il tenant nel menu a sinistra.
 2. Nella sezione **Controllo dell'accesso in base all'età** fare clic su **Configura**.

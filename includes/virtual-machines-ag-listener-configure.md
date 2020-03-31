@@ -5,30 +5,30 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 73ba78eca710f0b98b2a209494519cb8003e554b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75469242"
 ---
 Il listener del gruppo di disponibilità è un nome di rete e indirizzo IP sul quale è in ascolto il gruppo di disponibilità di SQL Server. Per creare il listener del gruppo di disponibilità, seguire questa procedura:
 
-1. <a name="getnet"></a>Ottenere il nome della risorsa della rete del cluster.
+1. <a name="getnet"></a>Ottenere il nome della risorsa di rete del cluster.
 
     a. Usare RDP per connettersi alla macchina virtuale di Azure che ospita la replica primaria. 
 
     b. Aprire Gestione cluster di failover.
 
-    c. Selezionare il nodo **Reti** e annotare il nome di rete del cluster. Usare questo nome nella variabile `$ClusterNetworkName` nello script di PowerShell. Nell'immagine seguente il nome della rete di cluster è **Cluster Network 1**:
+    c. Selezionare il nodo **Reti** e annotare il nome della rete di cluster. Usare questo nome nella variabile `$ClusterNetworkName` nello script di PowerShell. Nell'immagine seguente il nome della rete di cluster è **Cluster Network 1**:
 
    ![Nome rete di cluster](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
 
 1. <a name="addcap"></a>Aggiungere il punto di accesso client.  
     Il punto di accesso client è il nome della rete che le applicazioni useranno per connettersi ai database nel gruppo di disponibilità. Creare il punto di accesso client in Gestione cluster di failover.
 
-    a. Espandere il nome di cluster, quindi fare clic su **Ruoli**.
+    a. Espandere il nome del cluster, quindi fare clic su **Ruoli**.
 
-    b. Nel pannello **Ruoli** fare clic con il pulsante destro del mouse sul nome del gruppo di disponibilità e quindi scegliere **Aggiungi risorsa** > **Punto di accesso client**.
+    b. Nel riquadro **Ruoli** fare clic con il pulsante destro del mouse sul nome del gruppo di disponibilità e quindi **scegliere Aggiungi** > punto di**accesso client**risorsa .
 
    ![Punto di accesso client](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
 
@@ -76,7 +76,7 @@ Il listener del gruppo di disponibilità è un nome di rete e indirizzo IP sul q
 
    ![Risorsa IP](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
 
-    c. Fare clic sulla scheda **dipendenze** . Verificare che l'indirizzo IP sia una dipendenza. In caso contrario, impostare una dipendenza sull'indirizzo IP. Se sono presenti più risorse elencate, verificare che gli indirizzi abbiano le dipendenze OR, e non quelle AND. Fare clic su **OK**. 
+    c. Fare clic sulla scheda **Dipendenze** . Verificare che l'indirizzo IP sia una dipendenza. In caso contrario, impostare una dipendenza sull'indirizzo IP. Se sono presenti più risorse elencate, verificare che gli indirizzi abbiano le dipendenze OR, e non quelle AND. Fare clic su **OK**. 
 
    ![Risorsa IP](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
@@ -84,7 +84,7 @@ Il listener del gruppo di disponibilità è un nome di rete e indirizzo IP sul q
     >È possibile confermare che le dipendenze sono state configurate correttamente. In Gestione cluster di failover passare a Ruoli, fare clic con il pulsante destro del mouse sul gruppo di disponibilità, scegliere **Altre azioni** e infine fare clic su **Visualizza rapporto dipendenze**. Quando le dipendenze sono configurate correttamente, il gruppo di disponibilità dipende dal nome della rete e il nome della rete dipende dall'indirizzo IP. 
 
 
-1. <a name="setparam"></a>Impostare i parametri del cluster in PowerShell.
+1. <a name="setparam"></a>Impostare i parametri del cluster in PowerShell.Set the cluster parameters in PowerShell.
 
    a. Copiare lo script di PowerShell seguente in una delle istanze di SQL Server. Aggiornare le variabili per l'ambiente.
 
@@ -118,7 +118,7 @@ Se necessario, ripetere i passaggi precedenti per impostare i parametri del clus
 
 1. Copiare il **nome** dell'indirizzo IP. Potrebbe essere `Cluster IP Address`. 
 
-1. <a name="setwsfcparam"></a>Impostare i parametri del cluster in PowerShell.
+1. <a name="setwsfcparam"></a>Impostare i parametri del cluster in PowerShell.Set the cluster parameters in PowerShell.
   
    a. Copiare lo script di PowerShell seguente in una delle istanze di SQL Server. Aggiornare le variabili per l'ambiente.
 
@@ -140,4 +140,4 @@ Se necessario, ripetere i passaggi precedenti per impostare i parametri del clus
    b. Impostare i parametri del cluster eseguendo lo script di PowerShell in uno dei nodi del cluster.  
 
 >[!WARNING]
->La porta del probe di integrità del listener del gruppo di disponibilità deve essere diversa dalla porta del probe di integrità dell'indirizzo IP principale del cluster. In questi esempi, la porta del listener è 59999 e la porta Probe di integrità dell'indirizzo IP principale del cluster è 58888. Entrambe le porte richiedono una regola di assenso del traffico in ingresso del firewall.
+>La porta del probe di integrità del listener del gruppo di disponibilità deve essere diversa dalla porta del probe di integrità dell'indirizzo IP principale del cluster. In questi esempi, la porta del listener è 59999 e la porta del probe di integrità dell'indirizzo IP principale del cluster è 58888.In these examples, the listener port is 59999 and the cluster core IP address health probe port is 58888. Entrambe le porte richiedono una regola di assenso del traffico in ingresso del firewall.

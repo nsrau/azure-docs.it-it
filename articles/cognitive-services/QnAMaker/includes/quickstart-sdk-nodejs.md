@@ -1,13 +1,13 @@
 ---
-title: 'Avvio rapido: Libreria client di QnA Maker per Node.js'
+title: 'Guida introduttiva: Libreria client di QnA Maker per Node.js'
 description: Questo argomento di avvio rapido illustra come usare la libreria client di QnA Maker per Node.js.
 ms.topic: quickstart
 ms.date: 01/13/2020
 ms.openlocfilehash: 05e6d2c77a351c22c73f0bdb54daeaf0e03f4a9d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76020913"
 ---
 Usare la libreria client di QnA Maker per Node.js per eseguire queste operazioni:
@@ -23,7 +23,7 @@ Usare la libreria client di QnA Maker per Node.js per eseguire queste operazioni
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Versione corrente di [Node.js](https://nodejs.org).

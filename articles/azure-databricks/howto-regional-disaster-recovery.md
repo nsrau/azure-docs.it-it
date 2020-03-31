@@ -9,10 +9,10 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.openlocfilehash: 2604d5b357feacce3493b4a4ded971144262611d
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77161937"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Ripristino di emergenza a livello di area per cluster di Azure Databricks
@@ -21,7 +21,7 @@ Questo articolo descrive un'architettura di ripristino di emergenza per i cluste
 
 ## <a name="azure-databricks-architecture"></a>Architettura di Azure Databricks
 
-A livello generale, quando si crea un'area di lavoro di Azure Databricks dal portale di Azure, viene distribuita un'[appliance gestita](../azure-resource-manager/managed-applications/overview.md) come risorsa di Azure nella sottoscrizione, nell'area di Azure selezionata (ad esempio, Stati Uniti occidentali). L'appliance viene distribuita in una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) con un [gruppo di sicurezza di rete](../virtual-network/manage-network-security-group.md) e un account di archiviazione di Azure, disponibile nella sottoscrizione. La rete virtuale offre sicurezza a livello di perimetro all'area di lavoro di Databricks ed è protetta tramite il gruppo di sicurezza di rete. Nell'area di lavoro è possibile creare i cluster di Databricks specificando il tipo di macchina virtuale del ruolo di lavoro e del driver e la versione del runtime di Databricks. I dati salvati in modo permanente sono disponibili nell'account di archiviazione, che può essere un archivio BLOB di Azure o Azure Data Lake Storage. Dopo aver creato il cluster, è possibile eseguire i processi tramite notebook, API REST ed endpoint ODBC/JDBC associandoli a un cluster specifico.
+A livello generale, quando si crea un'area di lavoro di Azure Databricks dal portale di Azure, viene distribuita un'[appliance gestita](../azure-resource-manager/managed-applications/overview.md) come risorsa di Azure nella sottoscrizione, nell'area di Azure selezionata (ad esempio, Stati Uniti occidentali). L'appliance viene distribuita in una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) con un [gruppo di sicurezza di rete](../virtual-network/manage-network-security-group.md) e un account di archiviazione di Azure, disponibile nella sottoscrizione. La rete virtuale offre sicurezza a livello di perimetro all'area di lavoro di Databricks ed è protetta tramite il gruppo di sicurezza di rete. Nell'area di lavoro è possibile creare i cluster di Databricks specificando il tipo di macchina virtuale del ruolo di lavoro e del driver e la versione del runtime di Databricks. I dati persistenti sono disponibili nell'account di archiviazione, che può essere Archiviazione BLOB di Azure o Archiviazione di Azure Data Lake.The persisted data is available in your storage account, which can be Azure Blob Storage or Azure Data Lake Storage. Dopo aver creato il cluster, è possibile eseguire i processi tramite notebook, API REST ed endpoint ODBC/JDBC associandoli a un cluster specifico.
 
 Il piano di controllo di Databricks gestisce e monitora l'ambiente dell'area di lavoro di Databricks. Qualsiasi operazione di gestione, come la creazione di un cluster, verrà avviata dal piano di controllo. Tutti i metadati, ad esempio i processi pianificati, vengono archiviati in un database di Azure con replica geografica per la tolleranza di errore.
 
@@ -37,7 +37,7 @@ Per creare una topologia di ripristino di emergenza a livello di area, rispettar
 
    1. Effettuare il provisioning di più aree di lavoro di Azure Databricks in aree di Azure separate. Ad esempio, creare l'area di lavoro principale di Azure Databricks in Stati Uniti orientali 2. Creare l'area di lavoro secondaria di Azure Databricks per il ripristino di emergenza in un'area separata, ad esempio Stati Uniti occidentali.
 
-   2. Usare l' [archiviazione con ridondanza geografica](../storage/common/storage-redundancy.md). I dati associati a Azure Databricks vengono archiviati per impostazione predefinita in Archiviazione di Azure. Anche i risultati dei processi di Databricks vengono archiviati per impostazione predefinita in Archiviazione BLOB di Azure e pertanto i dati elaborati rimangono altamente disponibili dopo che il cluster è terminato. Poiché la risorsa di archiviazione e il cluster di Databricks si trovano nella stessa area, è necessario usare l'archiviazione con ridondanza geografica in modo da poter accedere ai dati nell'area secondaria se quella primaria non è più accessibile.
+   2. Utilizzare [l'archiviazione con ridondanza geografica](../storage/common/storage-redundancy.md). I dati associati a Azure Databricks vengono archiviati per impostazione predefinita in Archiviazione di Azure. Anche i risultati dei processi di Databricks vengono archiviati per impostazione predefinita in Archiviazione BLOB di Azure e pertanto i dati elaborati rimangono altamente disponibili dopo che il cluster è terminato. Poiché la risorsa di archiviazione e il cluster di Databricks si trovano nella stessa area, è necessario usare l'archiviazione con ridondanza geografica in modo da poter accedere ai dati nell'area secondaria se quella primaria non è più accessibile.
 
    3. Dopo aver creato l'area secondaria, è necessario eseguire la migrazione di utenti, cartelle degli utenti, notebook, configurazione di cluster, configurazione di processi, librerie, dati di archiviazione e script di inizializzazione e riconfigurare il controllo di accesso. Altri dettagli sono descritti nella sezione seguente.
 
@@ -284,9 +284,9 @@ Per creare una topologia di ripristino di emergenza a livello di area, rispettar
 
    Attualmente non è disponibile un modo semplice per eseguire la migrazione di librerie da un'area di lavoro a un'altra. Come soluzione alternativa, è possibile reinstallare le librerie nella nuova area di lavoro manualmente oppure automatizzare questa operazione usando in combinazione l'[interfaccia della riga di comando per Databricks](https://github.com/databricks/databricks-cli#dbfs-cli-examples), per caricare le librerie personalizzate nell'area di lavoro, e l'[interfaccia della riga di comando per le librerie](https://github.com/databricks/databricks-cli#libraries-cli).
 
-8. **Eseguire la migrazione di archiviazione BLOB di Azure e Azure Data Lake Storage montaggi**
+8. **Eseguire la migrazione dell'archiviazione BLOB di Azure e dei supporti di Archiviazione di Azure Data LakeMigrate Azure blob storage and Azure Data Lake Storage mounts**
 
-   Rimontare manualmente tutti i punti di montaggio di [archiviazione BLOB di Azure](/azure/databricks/data/data-sources/azure/azure-storage) e [Azure Data Lake Storage (gen 2)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) usando una soluzione basata su notebook. Se le risorse di archiviazione sono state montate nell'area di lavoro primaria, questa operazione deve essere ripetuta nell'area di lavoro secondaria. Non è disponibile alcuna API esterna per le operazioni di montaggio.
+   Rimontare manualmente tutti i punti di [installazione BLOB](/azure/databricks/data/data-sources/azure/azure-storage) di Azure e Azure Data Lake [Storage (generazione 2)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) usando una soluzione basata su notebook. Se le risorse di archiviazione sono state montate nell'area di lavoro primaria, questa operazione deve essere ripetuta nell'area di lavoro secondaria. Non è disponibile alcuna API esterna per le operazioni di montaggio.
 
 9. **Eseguire la migrazione degli script di inizializzazione dei cluster**
 
@@ -306,9 +306,9 @@ Per creare una topologia di ripristino di emergenza a livello di area, rispettar
 
     In tal caso, riapplicare manualmente il controllo di accesso alle risorse (notebook, cluster, processi, tabelle).
 
-## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Ripristino di emergenza per l'ecosistema di Azure
+## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Ripristino di emergenza per l'ecosistema di AzureDisaster recovery for your Azure ecosystem
 
-Se si usano altri servizi di Azure, assicurarsi di implementare anche le procedure consigliate per il ripristino di emergenza per questi servizi. Se ad esempio si sceglie di usare un'istanza di metastore Hive esterna, è consigliabile prendere in considerazione il ripristino di emergenza per [SQL Server di Azure](../sql-database/sql-database-disaster-recovery.md), [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md)e/o [database di Azure per MySQL](../mysql/concepts-business-continuity.md). Per informazioni generali sul ripristino di emergenza, vedere [ripristino di emergenza per le applicazioni Azure](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
+Se si usano altri servizi di Azure, assicurarsi di implementare le procedure consigliate per il ripristino di emergenza anche per tali servizi. Ad esempio, se si sceglie di usare un'istanza esterna del metastore Hive, è consigliabile prendere in considerazione il ripristino di emergenza per [Azure SQL Server](../sql-database/sql-database-disaster-recovery.md), Azure [HDInsight](../hdinsight/hdinsight-high-availability-linux.md)e/o [Azure Database per MySQL](../mysql/concepts-business-continuity.md). Per informazioni generali sul ripristino di emergenza, vedere [Ripristino di emergenza per le applicazioni](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications)di Azure.For general information about disaster recovery, see Disaster recovery for Azure applications.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

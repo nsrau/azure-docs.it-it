@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Tradurre la voce in voce - Servizio Voce'
+title: 'Guida introduttiva: Tradurre la voce in voce - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido si userà Speech SDK per tradurre in modo interattivo la voce di una lingua nel testo di un'altra.
 services: cognitive-services
@@ -12,13 +12,13 @@ ms.date: 02/10/2020
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: 8babb8b096f815bfd8d9da4c3e8040e650952544
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77119293"
 ---
-# <a name="quickstart-translate-speech-to-speech"></a>Avvio rapido: Tradurre la voce in voce
+# <a name="quickstart-translate-speech-to-speech"></a>Guida introduttiva: Tradurre la voce in voce
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/translate-sts/header.md)]

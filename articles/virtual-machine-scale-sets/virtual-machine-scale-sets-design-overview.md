@@ -1,6 +1,6 @@
 ---
-title: Considerazioni di progettazione per i set di scalabilità di macchine virtuali di Azure
-description: Informazioni sulle considerazioni di progettazione per i set di scalabilità di macchine virtuali di Azure. Confrontare le funzionalità dei set di scalabilità con le funzionalità della VM.
+title: Considerazioni sulla progettazione per i set di scalabilità delle macchine virtuali di AzureDesign Considerations for Azure Virtual Machine Scale Sets
+description: Informazioni sulle considerazioni di progettazione per i set di scalabilità di macchine virtuali di Azure.Learn about the design considerations for your Azure Virtual Machine Scale Sets. Confrontare le funzionalità dei set di scalabilità con le funzionalità della macchina virtuale.
 keywords: macchina virtuale linux,set di scalabilità macchine virtuali
 author: mayanknayar
 tags: azure-resource-manager
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/01/2017
 ms.author: manayar
 ms.openlocfilehash: b427319fdba634ea3c61681baa30547450709dc1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250777"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considerazioni sulla progettazione per i set di scalabilità

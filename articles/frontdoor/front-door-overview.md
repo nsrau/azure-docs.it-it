@@ -1,6 +1,6 @@
 ---
-title: Servizio Frontdoor di Azure | Microsoft Docs
-description: Questo articolo offre una panoramica di Azure Frontdoor. È possibile scoprire se si tratta della scelta giusta per il bilanciamento del carico del traffico utente per l'applicazione specifica.
+title: Frontdoor di Azure | Microsoft Docs
+description: Questo articolo offre una panoramica di Azure Frontdoor. È possibile scoprire se è la scelta giusta per bilanciare il carico del traffico degli utenti per la propria applicazione.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2019
 ms.author: sharadag
-ms.openlocfilehash: e92e51e8aabf24f1c5c4db31e2e203f391620ecc
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 0ee35f4f0b4bd8c46a0445e2905ae3b50d11f721
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423480"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79471650"
 ---
-# <a name="what-is-azure-front-door-service"></a>Informazioni sul servizio Frontdoor di Azure
-Il servizio Frontdoor di Azure consente di definire, gestire e monitorare il routing globale del traffico Web, rendendo le prestazioni ottimali e il failover globale immediato per una disponibilità elevata. Con Frontdoor è possibile trasformare il consumer globale (multi-area) e le applicazioni aziendali in applicazioni moderne, solide, personalizzate e dalle alte prestazioni, in API, con contenuti che raggiungono un audience globale grazie ad Azure.
+# <a name="what-is-azure-front-door"></a>Che cos'è il servizio Frontdoor di Azure?
+Frontdoor di Azure consente di definire, gestire e monitorare il routing globale del traffico Web, offrendo prestazioni ottimali e failover globale immediato per una disponibilità elevata. Con Frontdoor è possibile trasformare applicazioni aziendali e consumer globali (multi-area) in affidabili applicazioni moderne personalizzate ad alte prestazioni, API e contenuto che grazie ad Azure raggiunge un pubblico globale.
 
 Il Frontdoor funziona a livello 7 o HTTP e usa il protocollo di anycast con split TCP e con la rete globale di Microsoft per migliorare connettività globale. Pertanto, per la selezione del metodo di routing nella configurazione, è possibile garantire che Frontdoor instradi le richieste del client nel back-end dell'applicazione più veloce e maggiormente disponibile. Il backend di un'applicazione può essere qualsiasi servizio internet ospitato all'interno o all'esterno di Azure. Frontdoor offre diversi [metodi di routing del traffico](front-door-routing-methods.md) e [opzioni di monitoraggio dell'integrità del back-end](front-door-health-probes.md) per soddisfare diverse esigenze delle applicazioni e i modelli di failover automatico. Simile a [Gestione traffico](../traffic-manager/traffic-manager-overview.md), Frontdoor è resiliente agli errori, compreso l'errore di un'intera area di Azure.
 
@@ -44,7 +44,7 @@ Il routing basato su percorso URL consente di instradare il traffico verso pool 
 Ad esempio, per le richieste `http://www.contoso.com/users/*` viene eseguito il rounting verso UserProfilePool, mentre per le richieste `http://www.contoso.com/products/*` viene eseguito il rounting verso ProductInventoryPool.  Frontdoor consente scenari di corrispondenza del percorso ancora più complessi usando i migliori algoritmi di corrispondenza. Pertanto, se nessuno dei criteri del percorso trova corrispondenza, viene selezionata la regola di gestione predefinita per `http://www.contoso.com/*` e il traffico viene indirizzato alla regola di gestione catch predefinita. Per altre informazioni vedere [Route Matching](front-door-route-matching.md) (Corridspondenza delle route).
 
 ## <a name="multiple-site-hosting"></a>Hosting di più siti
-L'hosting di più siti consente di configurare più siti Web nella stessa configurazione di Frontdoor. Questa funzionalità consente di configurare una topologia più efficiente per le distribuzioni aggiungendo diversi siti Web a una singola configurazione di Frontdoor. A seconda dell'architettura dell'applicazione, è possibile configurare il servizio Frontdoor di Azure per indirizzare ogni sito Web al proprio pool di back-end o per indirizzare diversi siti Web allo stesso pool di back-end. Ad esempio, Frontdoor può servire il traffico per `images.contoso.com` e `videos.contoso.com` da due pool di back-end denominati ImagePool e VideoPool. In alternativa è possibile configurare entrambi gli host di front-end per indirizzare il traffico verso un pool di back-end singolo denominato MediaPool.
+L'hosting di più siti consente di configurare più siti Web nella stessa configurazione di Frontdoor. Questa funzionalità consente di configurare una topologia più efficiente per le distribuzioni aggiungendo diversi siti Web a una singola configurazione di Frontdoor. A seconda dell'architettura dell'applicazione, è possibile configurare Frontdoor di Azure in modo da indirizzare ogni sito Web al rispettivo pool back-end oppure ottenere l'indirizzamento di diversi siti Web allo stesso pool back-end. Ad esempio, Frontdoor può servire il traffico per `images.contoso.com` e `videos.contoso.com` da due pool di back-end denominati ImagePool e VideoPool. In alternativa è possibile configurare entrambi gli host di front-end per indirizzare il traffico verso un pool di back-end singolo denominato MediaPool.
 
 Analogamente, è possibile avere due domini diversi `www.contoso.com` e `www.fabrikam.com` configurati sullo stesso Frontdoor.
 
@@ -66,9 +66,9 @@ La stessa piattaforma Frontdoor è protetta da [Protezione DDoS di Azure](../vir
 ## <a name="url-redirection"></a>Reindirizzamento URL
 Con la forte richiesta degli addetti ai lavori per un supporto solo per comunicazioni sicure, le applicazioni Web dovrebbero reindirizzare automaticamente il traffico da HTTP a HTTPS. Questo garantisce che tutte le comunicazioni tra gli utenti e l'applicazione si verifichino tramite un percorso crittografato. 
 
-Tradizionalmente, i proprietari delle applicazioni soddisfano questo requisito con la creazione di un servizio dedicato, il cui unico scopo è il reindirizzamento a HTTPS delle richieste ricevute su HTTP. Il servizio Frontdoor di Azure offre la possibilità di reindirizzare il traffico da HTTP a HTTPS. Questo semplifica la configurazione delle applicazioni, ottimizza l'utilizzo delle risorse e supporta i nuovi scenari di reindirizzamento, tra cui il reindirizzamento globale e basato sul percorso. Il reindirizzamento degli URL dal servizio Frontdoor di Azure non è limitato al reindirizzamento da HTTP a HTTPS, ma anche a un nome host diverso, a un percorso diverso o a una nuova stringa di query nell'URL.
+Tradizionalmente, i proprietari delle applicazioni soddisfano questo requisito con la creazione di un servizio dedicato, il cui unico scopo è il reindirizzamento a HTTPS delle richieste ricevute su HTTP. Frontdoor di Azure offre la possibilità di reindirizzare il traffico da HTTP ad HTTPS. Questo semplifica la configurazione delle applicazioni, ottimizza l'utilizzo delle risorse e supporta i nuovi scenari di reindirizzamento, tra cui il reindirizzamento globale e basato sul percorso. Il reindirizzamento URL da Frontdoor di Azure non è limitato al reindirizzamento da HTTP ad HTTPS, ma include anche il reindirizzamento a un nome host diverso, a un percorso diverso o a una nuova stringa di query nell'URL.
 
-Per altre informazioni, vedere come [reindirizzare il traffico](front-door-url-redirect.md) con il servizio Frontdoor di Azure.
+Per altre informazioni, vedere come [reindirizzare il traffico](front-door-url-redirect.md) con Frontdoor di Azure.
 
 ## <a name="url-rewrite"></a>Riscrittura URL
 Frontdoor supporta [URL rewrite](front-door-url-rewrite.md) (riscrivere URL) consentendo di configurare un percorso di trasferimento personalizzato opzionale da usare quando si costruisce la richiesta da trasferire al back-end. Frontdoor consente inoltre di configurare l'Intestazione host da inviare quando si trasferisce la richiesta al back-end.
@@ -76,7 +76,7 @@ Frontdoor supporta [URL rewrite](front-door-url-rewrite.md) (riscrivere URL) con
 ## <a name="protocol-support---ipv6-and-http2-traffic"></a>Supporto del protocollo: traffico IPv6 e HTTP/2
 Frontdoor di Azure supporta nativamente a connettività IPv6 end-to-end oltre al protocollo HTTP/2. 
 
-I protocolli HTTP/2 consentono una comunicazione full duplex tra i back-end dell'applicazione e un client su una connessione TCP con esecuzione prolungata. HTTP/2 consente una comunicazione più interattiva tra il back-end e il client che può essere bidirezionale senza necessità di polling come richiesto per le implementazioni basate su HTTP. Il protocollo HTTP/2 dispone di un overhead ridotto, a differenza di HTTP, e può riutilizzare la stessa connessione TCP per più richieste o risposte, con conseguente utilizzo più efficiente delle risorse. Altre informazioni su [Supporto HTTP/2 del servizio Frontdoor di Azure](front-door-http2.md).
+I protocolli HTTP/2 consentono una comunicazione full duplex tra i back-end dell'applicazione e un client su una connessione TCP con esecuzione prolungata. HTTP/2 consente una comunicazione più interattiva tra il back-end e il client che può essere bidirezionale senza necessità di polling come richiesto per le implementazioni basate su HTTP. Il protocollo HTTP/2 dispone di un overhead ridotto, a differenza di HTTP, e può riutilizzare la stessa connessione TCP per più richieste o risposte, con conseguente utilizzo più efficiente delle risorse. Vedere altre informazioni sul [supporto HTTP/2 in Frontdoor di Azure](front-door-http2.md).
 
 ## <a name="pricing"></a>Prezzi
 

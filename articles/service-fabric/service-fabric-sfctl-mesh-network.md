@@ -1,15 +1,15 @@
 ---
-title: INTERFACCIA della riga di comando di Azure Service Fabric-rete mesh sfctl
-description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per ottenere ed eliminare Service Fabric risorse di rete mesh.
+title: Interfaccia di rete di Azure Service Fabric- rete mesh sfctlAzure Service Fabric CLI- sfctl mesh network
+description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric.Learn about sfctl, the Azure Service Fabric command line interface. Include un elenco di comandi per ottenere ed eliminare le risorse di rete di Service Fabric Mesh.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 9aa0b6795508cb94200c486df092b867c1086316
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76906005"
 ---
 # <a name="sfctl-mesh-network"></a>sfctl mesh network
@@ -17,11 +17,11 @@ Consente di ottenere ed eliminare le risorse di rete mesh.
 
 ## <a name="commands"></a>Comandi:
 
-|Comando|Description|
+|Comando|Descrizione|
 | --- | --- |
 | delete | Elimina la risorsa di rete. |
 | list | Elimina tutte le risorse di rete. |
-| mostra | Ottiene la risorsa di rete con il nome specificato. |
+| show | Ottiene la risorsa di rete con il nome specificato. |
 
 ## <a name="sfctl-mesh-network-delete"></a>sfctl mesh network delete
 Elimina la risorsa di rete.
@@ -30,13 +30,13 @@ Elimina la risorsa di rete identificata dal nome.
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --name -n [Obbligatorio] | Nome della rete. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -51,7 +51,7 @@ Ottiene le informazioni su tutte le risorse di rete in un determinato gruppo di 
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -66,13 +66,13 @@ Ottiene le informazioni sulla risorsa di rete con il nome specificato. Le inform
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --name -n [Obbligatorio] | Nome della rete. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |

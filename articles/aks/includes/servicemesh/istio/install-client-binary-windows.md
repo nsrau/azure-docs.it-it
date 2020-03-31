@@ -4,15 +4,15 @@ ms.topic: include
 ms.date: 11/15/2019
 ms.author: pabouwer
 ms.openlocfilehash: 562382cc1cfb6adb7e65d76e717df4c4e2962ba7
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77593975"
 ---
-## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Scaricare e installare il file binario client istioctl di Istio
+## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Scaricare e installare il file binario del client Istio Istio Istioctl
 
-In una shell basata su PowerShell in Windows usare `Invoke-WebRequest` per scaricare la versione Istio e quindi estrarla con `Expand-Archive` come indicato di seguito:
+In una shell basata su `Invoke-WebRequest` PowerShell in Windows, utilizzare per `Expand-Archive` scaricare la versione Istio e quindi estrarre con come segue:In a PowerShell-based shell on Windows, use to download the Istio release and then extract with as follows:
 
 ```powershell
 # Specify the Istio version that will be leveraged throughout these instructions
@@ -24,7 +24,7 @@ $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github
 Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
 ```
 
-Il `istioctl` binario client viene eseguito nel computer client e consente di interagire con la mesh del servizio Istio. Usare i comandi seguenti per installare il file binario client di Istio `istioctl` in una shell basata su PowerShell in Windows. Questi comandi copiano il file binario client `istioctl` in una cartella Istio e quindi lo rendono disponibile sia immediatamente (nella shell corrente) che in modo permanente (tra i riavvii della Shell) tramite il `PATH`. Non sono necessari privilegi elevati (amministratore) per eseguire questi comandi e non è necessario riavviare la Shell.
+Il `istioctl` file binario client viene eseguito nel computer client e consente di interagire con la rete mesh del servizio Istio. Usare i comandi seguenti per `istioctl` installare il file binario del client Istio in una shell basata su PowerShell in Windows.Use the following commands to install the Istio client binary in a PowerShell-based shell on Windows. Questi comandi `istioctl` copiano il file binario del client in una cartella Istio e quindi lo rendono `PATH`disponibile sia immediatamente (nella shell corrente) che in modo permanente (tra i riavvii della shell) tramite il file . Non sono necessari privilegi elevati (amministratore) per eseguire questi comandi e non è necessario riavviare la shell.
 
 ```powershell
 # Copy istioctl.exe to C:\Istio

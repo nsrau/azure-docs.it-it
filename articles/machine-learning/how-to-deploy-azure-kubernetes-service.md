@@ -1,7 +1,7 @@
 ---
-title: Come distribuire i modelli nel servizio Azure Kubernetes
+title: Come distribuire modelli nel servizio Azure KubernetesHow to deploy models to Azure Kubernetes Service
 titleSuffix: Azure Machine Learning
-description: Informazioni su come distribuire i modelli di Azure Machine Learning come servizio Web usando il servizio Azure Kubernetes.
+description: Informazioni su come distribuire i modelli di Azure Machine Learning come servizio Web usando il servizio Azure Kubernetes.Learn how to deploy your Azure Machine Learning models as a web service using Azure Kubernetes Service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,63 +11,63 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 01/16/2020
 ms.openlocfilehash: db2e80ebb6cbe5f31f2d99a1403a15daf38fd877
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76722408"
 ---
-# <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuire un modello in un cluster del servizio Kubernetes di Azure
+# <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuire un modello in un cluster di servizi Azure KubernetesDeploy a model to an Azure Kubernetes Service cluster
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Informazioni su come usare Azure Machine Learning per distribuire un modello come servizio Web in Azure Kubernetes Service (AKS). Il servizio Azure Kubernetes è ideale per distribuzioni di produzione su vasta scala. Usare il servizio Azure Kubernetes se sono necessarie una o più delle funzionalità seguenti:
+Informazioni su come usare Azure Machine Learning per distribuire un modello come servizio Web nel servizio Azure Kubernetes.Learn how to use Azure Machine Learning to deploy a model as a web service on Azure Kubernetes Service (AKS). Il servizio Azure Kubernetes è utile per le distribuzioni di produzione su larga scala. Usare il servizio Azure Kubernetes se sono necessarie una o più delle funzionalità seguenti:Use Azure Kubernetes service if you need one or more of the following capabilities:
 
-- __Tempo di risposta rapido__.
-- __Scalabilità__ automatica del servizio distribuito.
-- Opzioni di __accelerazione hardware__ quali GPU e FPGA (Field-Programmable Gate Array).
-
-> [!IMPORTANT]
-> Il ridimensionamento del cluster non viene fornito tramite il Azure Machine Learning SDK. Per altre informazioni sul ridimensionamento dei nodi in un cluster AKS, vedere [ridimensionare il numero di nodi in un cluster AKS](../aks/scale-cluster.md).
-
-Quando si esegue la distribuzione nel servizio Azure Kubernetes, viene distribuito in un cluster AKS __connesso all'area di lavoro__. Esistono due modi per connettere un cluster AKS all'area di lavoro:
-
-* Creare il cluster AKS usando il Azure Machine Learning SDK, l'interfaccia della riga di comando di Machine Learning o [Azure Machine Learning Studio](https://ml.azure.com). Questo processo connette automaticamente il cluster all'area di lavoro.
-* Alleghi un cluster AKS esistente all'area di lavoro Azure Machine Learning. È possibile collegare un cluster usando il Azure Machine Learning SDK, l'interfaccia della riga di comando di Machine Learning o Azure Machine Learning Studio.
+- __Tempi di risposta rapidi__.
+- __Scalabilità automatica__ del servizio distribuito.
+- __Opzioni di accelerazione hardware__ come GPU e FPGA (Field-programmable gate array).
 
 > [!IMPORTANT]
-> Il processo di creazione o allegato è un'attività una sola volta. Quando un cluster AKS è connesso all'area di lavoro, è possibile usarlo per le distribuzioni. È possibile scollegare o eliminare il cluster AKS se non è più necessario. Una volta scollegato o eliminato, non sarà più possibile eseguire la distribuzione nel cluster.
+> Il ridimensionamento del cluster non viene fornito tramite Azure Machine Learning SDK. Per altre informazioni sulla scalabilità dei nodi in un cluster AKS, vedere Ridimensionare il numero di nodi [in un cluster AKS](../aks/scale-cluster.md).
+
+Quando si esegue la distribuzione nel servizio Azure Kubernetes, si esegue la distribuzione in un cluster AKS __connesso all'area di lavoro.__ Esistono due modi per connettere un cluster AKS all'area di lavoro:
+
+* Creare il cluster AKS usando Azure Machine Learning SDK, l'interfaccia della riga di comando di Machine Learning o [lo studio di Azure Machine Learning.](https://ml.azure.com) Questo processo connette automaticamente il cluster all'area di lavoro.
+* Collegare un cluster AKS esistente all'area di lavoro di Azure Machine Learning.Attach an existing AKS cluster to your Azure Machine Learning workspace. Un cluster può essere collegato usando Azure Machine Learning SDK, l'interfaccia della riga di comando di Machine Learning o Azure Machine Learning Studio.A cluster can be attached using the Azure Machine Learning SDK, Machine Learning CLI, or Azure Machine Learning studio.
+
+> [!IMPORTANT]
+> Il processo di creazione o allegato è un'attività unica. Dopo aver connesso un cluster AKS all'area di lavoro, è possibile utilizzarlo per le distribuzioni. È possibile scollegare o eliminare il cluster AKS se non è più necessario. Una volta scollegato o eliminato, non sarà più possibile eseguire la distribuzione nel cluster.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
+- Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere [Creare un'area](how-to-manage-workspace.md)di lavoro di Azure Machine Learning.For more information, see Create an Azure Machine Learning workspace .
 
-- Un modello di apprendimento automatico registrato nell'area di lavoro. Se non si dispone di un modello registrato, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
+- Un modello di apprendimento automatico registrato nell'area di lavoro. Se non si dispone di un modello registrato, vedere [Come e dove distribuire i modelli](how-to-deploy-and-where.md).
 
-- Estensione dell'interfaccia della riga [di comando di Azure per il servizio Machine Learning](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)o l' [estensione di Visual Studio code Azure Machine Learning](tutorial-setup-vscode-extension.md).
+- [L'estensione dell'interfaccia della](reference-azure-machine-learning-cli.md)riga di comando di Azure per il servizio Machine Learning , [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)o l'estensione di codice di Visual Studio di Azure [Machine Learning](tutorial-setup-vscode-extension.md).
 
-- I frammenti di codice __Python__ in questo articolo presuppongono che siano impostate le variabili seguenti:
+- I frammenti di codice __Python__ in questo articolo presuppongono che siano impostate le seguenti variabili:
 
-    * `ws`: impostare sull'area di lavoro.
-    * `model`: impostare sul modello registrato.
-    * `inference_config`: impostare sulla configurazione di inferenza per il modello.
+    * `ws`- Impostare l'area di lavoro.
+    * `model`- Impostare il modello registrato.
+    * `inference_config`- Impostare la configurazione di inferenza per il modello.
 
-    Per ulteriori informazioni sull'impostazione di queste variabili, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
+    Per ulteriori informazioni sull'impostazione di queste variabili, vedere [Come e dove distribuire i modelli](how-to-deploy-and-where.md).
 
-- I frammenti di codice dell' __interfaccia__ della riga di comando in questo articolo presuppongono che sia stato creato un documento `inferenceconfig.json`. Per ulteriori informazioni sulla creazione di questo documento, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
+- I frammenti __CLI__ in questo articolo presuppongono che sia stato creato un `inferenceconfig.json` documento. Per ulteriori informazioni sulla creazione di questo documento, vedere [Come e dove distribuire i modelli](how-to-deploy-and-where.md).
 
-## <a name="create-a-new-aks-cluster"></a>Creare un nuovo cluster AKS
+## <a name="create-a-new-aks-cluster"></a>Creare un nuovo cluster AKSCreate a new AKS cluster
 
-**Tempo stimato**: circa 20 minuti.
+**Stima del tempo**: circa 20 minuti.
 
-La creazione o il fissaggio di un cluster AKS è un processo di tipo One-Time per l'area di lavoro. È possibile riutilizzare questo cluster per più distribuzioni. Se si elimina il cluster o il gruppo di risorse che lo contiene, è necessario creare un nuovo cluster la volta successiva che è necessario distribuire. È possibile collegare più cluster AKS all'area di lavoro.
+La creazione o il collegamento di un cluster AKS è un processo una tantera per l'area di lavoro. È possibile riutilizzare questo cluster per più distribuzioni. Se si elimina il cluster o il gruppo di risorse che lo contiene, è necessario creare un nuovo cluster alla successiva distribuzione. È possibile avere più cluster AKS collegati all'area di lavoro.
 
 > [!TIP]
-> Se si vuole proteggere il cluster AKS con una rete virtuale di Azure, è necessario creare prima la rete virtuale. Per altre informazioni, vedere la pagina relativa a [sperimentazione e inferenza sicure con rete virtuale di Azure](how-to-enable-virtual-network.md#aksvnet).
+> Se si vuole proteggere il cluster AKS usando una rete virtuale di Azure, è innanzitutto necessario creare la rete virtuale. Per altre informazioni, vedere Secure experimentation e inference with Azure Virtual Network .For more information, see [Secure experimentation and inference with Azure Virtual Network](how-to-enable-virtual-network.md#aksvnet).
 
-Se si vuole creare un cluster AKS per __lo sviluppo__, la __convalida__e il __test__ anziché l'ambiente di produzione, è possibile specificare lo __scopo del cluster__ per il __test__di sviluppo.
+Se si desidera creare un cluster AKS per __lo sviluppo__, la __convalida__e il __test__ anziché la produzione, è possibile specificare lo scopo del __cluster__ per il test di __sviluppo.__
 
 > [!WARNING]
-> Se si imposta `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, il cluster creato non è adatto per il traffico a livello di produzione e può aumentare i tempi di inferenza. Anche i cluster di sviluppo/test non garantiscono la tolleranza di errore. Si consiglia almeno 2 CPU virtuali per i cluster di sviluppo/test.
+> Se si `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`imposta , il cluster creato non è adatto per il traffico a livello di produzione e può aumentare i tempi di inferenza. Anche i cluster di sviluppo/test non garantiscono la tolleranza di errore. È consigliabile utilizzare almeno 2 CPU virtuali per i cluster di sviluppo/test.
 
 Gli esempi seguenti illustrano come creare un nuovo cluster AKS usando l'SDK e l'interfaccia della riga di comando:
 
@@ -92,16 +92,16 @@ aks_target.wait_for_completion(show_output = True)
 ```
 
 > [!IMPORTANT]
-> Per [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), se si scelgono valori personalizzati per `agent_count` e `vm_size`e `cluster_purpose` non è `DEV_TEST`, è necessario assicurarsi che `agent_count` moltiplicato per `vm_size` sia maggiore o uguale a 12 CPU virtuali. Se ad esempio si usa un `vm_size` di "Standard_D3_v2", che ha 4 CPU virtuali, è necessario selezionare un `agent_count` di 3 o superiore.
+> Per [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), se si `agent_count` selezionano valori personalizzati per `vm_size`e , e `cluster_purpose` non `DEV_TEST`è , è necessario assicurarsi che `agent_count` moltiplicato per `vm_size` sia maggiore o uguale a 12 CPU virtuali. Ad esempio, se `vm_size` si utilizza un di "Standard_D3_v2", che dispone `agent_count` di 4 CPU virtuali, è necessario scegliere un 3 o superiore.
 >
-> Il Azure Machine Learning SDK non fornisce il supporto per il ridimensionamento di un cluster AKS. Per ridimensionare i nodi del cluster, usare l'interfaccia utente per il cluster AKS in Azure Machine Learning Studio. È possibile modificare solo il numero di nodi, non le dimensioni della macchina virtuale del cluster.
+> Azure Machine Learning SDK non fornisce il supporto per la scalabilità di un cluster AKS. Per ridimensionare i nodi nel cluster, usare l'interfaccia utente per il cluster AKS in Azure Machine Learning Studio.To scale the nodes in the cluster, use the UI for your AKS cluster in the Azure Machine Learning studio. È possibile modificare solo il numero di nodi, non le dimensioni della macchina virtuale del cluster.
 
-Per ulteriori informazioni sulle classi, i metodi e i parametri utilizzati in questo esempio, vedere i documenti di riferimento seguenti:
+Per ulteriori informazioni sulle classi, i metodi e i parametri utilizzati in questo esempio, vedere i seguenti documenti di riferimento:
 
 * [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py)
-* [AksCompute. provisioning_configuration](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
-* [ComputeTarget. Create](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#create-workspace--name--provisioning-configuration-)
-* [ComputeTarget. wait_for_completion](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#wait-for-completion-show-output-false-)
+* [AksCompute.provisioning_configuration](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
+* [ComputeTarget.create](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#create-workspace--name--provisioning-configuration-)
+* [ComputeTarget.wait_for_completion](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#wait-for-completion-show-output-false-)
 
 **Uso dell'interfaccia della riga di comando**
 
@@ -109,36 +109,36 @@ Per ulteriori informazioni sulle classi, i metodi e i parametri utilizzati in qu
 az ml computetarget create aks -n myaks
 ```
 
-Per ulteriori informazioni, vedere il riferimento [AZ ml computetarget create AKS](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-aks) .
+Per altre informazioni, vedere il riferimento [az ml computetarget create aks.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-aks)
 
-## <a name="attach-an-existing-aks-cluster"></a>Alleghi un cluster AKS esistente
+## <a name="attach-an-existing-aks-cluster"></a>Collegare un cluster AKS esistente
 
-**Tempo stimato:** Circa 5 minuti.
+**Stima del tempo:** Circa 5 minuti.
 
-Se si dispone già del cluster AKS nella sottoscrizione di Azure ed è la versione 1,17 o una versione precedente, è possibile usarla per distribuire l'immagine.
+Se nella sottoscrizione di Azure è già presente un cluster AKS che è versione 1.17 o inferiore, è possibile usarlo per distribuire l'immagine.
 
 > [!TIP]
-> Il cluster AKS esistente può trovarsi in un'area di Azure diversa dall'area di lavoro Azure Machine Learning.
+> Il cluster AKS esistente può trovarsi in un'area di Azure diversa dall'area di lavoro di Azure Machine Learning.The existing AKS cluster can be in a Azure region other than your Azure Machine Learning workspace.
 >
-> Se si vuole proteggere il cluster AKS con una rete virtuale di Azure, è necessario creare prima la rete virtuale. Per altre informazioni, vedere la pagina relativa a [sperimentazione e inferenza sicure con rete virtuale di Azure](how-to-enable-virtual-network.md#aksvnet).
+> Se si vuole proteggere il cluster AKS usando una rete virtuale di Azure, è innanzitutto necessario creare la rete virtuale. Per altre informazioni, vedere Secure experimentation e inference with Azure Virtual Network .For more information, see [Secure experimentation and inference with Azure Virtual Network](how-to-enable-virtual-network.md#aksvnet).
 
-Quando si connette un cluster AKS a un'area di lavoro, è possibile definire il modo in cui si userà il cluster impostando il parametro `cluster_purpose`.
+Quando si collega un cluster AKS a un'area di lavoro, `cluster_purpose` è possibile definire la modalità di utilizzo del cluster impostando il parametro.
 
-Se non si imposta il parametro `cluster_purpose` o si imposta `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`, il cluster deve avere almeno 12 CPU virtuali disponibili.
+Se non si `cluster_purpose` imposta il `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`parametro o si imposta , il cluster deve disporre di almeno 12 CPU virtuali.
 
-Se si imposta `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, non è necessario che il cluster disponga di 12 CPU virtuali. Per lo sviluppo e il test sono consigliate almeno 2 CPU virtuali. Tuttavia, un cluster configurato per lo sviluppo/test non è adatto per il traffico a livello di produzione e può aumentare i tempi di inferenza. Anche i cluster di sviluppo/test non garantiscono la tolleranza di errore.
+Se si `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`imposta , non è necessario che il cluster disponga di 12 CPU virtuali. Consigliamo almeno 2 CPU virtuali per lo sviluppo/test. Tuttavia, un cluster configurato per sviluppo/test non è adatto per il traffico a livello di produzione e può aumentare i tempi di inferenza. Anche i cluster di sviluppo/test non garantiscono la tolleranza di errore.
 
 > [!WARNING]
-> Non creare più allegati simultanei nello stesso cluster AKS dall'area di lavoro. Ad esempio, se si connette un cluster AKS a un'area di lavoro usando due nomi diversi. Ogni nuovo allegato interromperà gli allegati esistenti precedenti.
+> Non creare più allegati simultanei allo stesso cluster AKS dall'area di lavoro. Ad esempio, collegare un cluster AKS a un'area di lavoro utilizzando due nomi diversi. Ogni nuovo allegato interromperà gli allegati esistenti precedenti.
 >
-> Se si vuole ricollegare un cluster AKS, ad esempio per modificare SSL o altre impostazioni di configurazione del cluster, è necessario innanzitutto rimuovere l'allegato esistente usando [AksCompute. Detach ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#detach--).
+> Se si desidera ricollegare un cluster AKS, ad esempio per modificare SSL o un'altra impostazione di configurazione del cluster, è necessario innanzitutto rimuovere l'allegato esistente utilizzando [AksCompute.detach()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#detach--).
 
-Per altre informazioni sulla creazione di un cluster AKS con l'interfaccia della riga di comando di Azure o il portale, vedere gli articoli seguenti:
+Per altre informazioni sulla creazione di un cluster AKS usando l'interfaccia della riga di comando o il portale di Azure, vedere gli articoli seguenti:For more information on creating an AKS cluster using the Azure CLI or portal, see the following articles:
 
 * [Creare un cluster AKS (CLI)](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
-* [Creare un cluster AKS (portale)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
+* [Creare un cluster AKS (portale)Create an AKS cluster (portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
-Gli esempi seguenti illustrano come alleghi un cluster AKS esistente all'area di lavoro:
+Negli esempi seguenti viene illustrato come collegare un cluster AKS esistente all'area di lavoro:The following examples demonstrate how to attach an existing AKS cluster to your workspace:
 
 **Uso dell'SDK**
 
@@ -157,15 +157,15 @@ attach_config = AksCompute.attach_configuration(resource_group = resource_group,
 aks_target = ComputeTarget.attach(ws, 'myaks', attach_config)
 ```
 
-Per ulteriori informazioni sulle classi, i metodi e i parametri utilizzati in questo esempio, vedere i documenti di riferimento seguenti:
+Per ulteriori informazioni sulle classi, i metodi e i parametri utilizzati in questo esempio, vedere i seguenti documenti di riferimento:
 
-* [AksCompute. attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
+* [AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
 * [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py)
-* [AksCompute. Connetti](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#attach-workspace--name--attach-configuration-)
+* [AksCompute.attach](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#attach-workspace--name--attach-configuration-)
 
 **Uso dell'interfaccia della riga di comando**
 
-Per alleghi un cluster esistente usando l'interfaccia della riga di comando, è necessario ottenere l'ID risorsa del cluster esistente. Per ottenere questo valore, utilizzare il comando seguente. Sostituire `myexistingcluster` con il nome del cluster AKS. Sostituire `myresourcegroup` con il gruppo di risorse che contiene il cluster:
+Per collegare un cluster esistente tramite l'interfaccia della riga di comando, è necessario ottenere l'ID risorsa del cluster esistente. Per ottenere questo valore, utilizzare il comando seguente. Sostituire `myexistingcluster` con il nome del cluster AKS. Sostituire `myresourcegroup` con il gruppo di risorse che contiene il cluster:Replace with the resource group that contains the cluster:
 
 ```azurecli
 az aks show -n myexistingcluster -g myresourcegroup --query id
@@ -177,17 +177,17 @@ Il comando restituisce un valore simile al testo seguente:
 /subscriptions/{GUID}/resourcegroups/{myresourcegroup}/providers/Microsoft.ContainerService/managedClusters/{myexistingcluster}
 ```
 
-Per alleghi il cluster esistente all'area di lavoro, usare il comando seguente. Sostituire `aksresourceid` con il valore restituito dal comando precedente. Sostituire `myresourcegroup` con il gruppo di risorse che contiene l'area di lavoro. Sostituire `myworkspace` con il nome dell'area di lavoro.
+Per collegare il cluster esistente all'area di lavoro, utilizzare il comando seguente. Sostituire `aksresourceid` con il valore restituito dal comando precedente. Sostituire `myresourcegroup` con il gruppo di risorse che contiene l'area di lavoro. Sostituire `myworkspace` con il nome dell'area di lavoro.
 
 ```azurecli
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
 ```
 
-Per ulteriori informazioni, vedere la Guida di riferimento al comando [AZ ml computetarget per l'associazione AKS](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks) .
+Per altre informazioni, vedere il riferimento [az ml computetarget attach aks.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks)
 
 ## <a name="deploy-to-aks"></a>Distribuire in servizio Azure Kubernetes
 
-Per distribuire un modello nel servizio Azure Kubernetes, creare una __configurazione di distribuzione__ che descriva le risorse di calcolo necessarie. Ad esempio, numero di core e memoria. È inoltre necessaria una __configurazione di inferenza__, che descrive l'ambiente necessario per ospitare il modello e il servizio Web. Per ulteriori informazioni sulla creazione della configurazione di inferenza, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
+Per distribuire un modello nel servizio Azure Kubernetes, creare una configurazione di __distribuzione__ che descriva le risorse di calcolo necessarie. Ad esempio, numero di core e memoria. È inoltre necessaria una configurazione di __inferenza__, che descrive l'ambiente necessario per ospitare il modello e il servizio Web. Per ulteriori informazioni sulla creazione della configurazione di inferenza, vedere [Come e dove distribuire](how-to-deploy-and-where.md)i modelli .
 
 ### <a name="using-the-sdk"></a>Uso dell'SDK
 
@@ -206,16 +206,16 @@ print(service.state)
 print(service.get_logs())
 ```
 
-Per ulteriori informazioni sulle classi, i metodi e i parametri utilizzati in questo esempio, vedere i documenti di riferimento seguenti:
+Per ulteriori informazioni sulle classi, i metodi e i parametri utilizzati in questo esempio, vedere i seguenti documenti di riferimento:
 
 * [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute?view=azure-ml-py)
-* [AksWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py)
-* [Model. deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
-* [WebService. wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#wait-for-deployment-show-output-false-)
+* [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py)
+* [Modello.deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
+* [Webservice.wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#wait-for-deployment-show-output-false-)
 
 ### <a name="using-the-cli"></a>Uso dell'interfaccia della riga di comando
 
-Per eseguire la distribuzione usando l'interfaccia della riga di comando, usare il comando seguente. Sostituire `myaks` con il nome della destinazione di calcolo AKS. Sostituire `mymodel:1` con il nome e la versione del modello registrato. Sostituire `myservice` con il nome da assegnare al servizio:
+Per eseguire la distribuzione tramite l'interfaccia della riga di comando, utilizzare il comando seguente. Sostituire `myaks` con il nome della destinazione di calcolo AKS. Sostituire `mymodel:1` con il nome e la versione del modello registrato. Sostituire `myservice` con il nome per assegnare questo servizio:Replace with the name to give this service:
 
 ```azurecli-interactive
 az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
@@ -223,20 +223,20 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-Per ulteriori informazioni, vedere il riferimento [AZ ml Model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) .
+Per altre informazioni, vedere il riferimento alla distribuzione del [modello az ml.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy)
 
 ### <a name="using-vs-code"></a>Uso di VS Code
 
-Per informazioni sull'uso di VS Code, vedere [Deploy to AKS by the vs code Extension](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model).
+Per informazioni sull'utilizzo del codice VS, vedere [distribuire in AKS tramite l'estensione del codice VS](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model).
 
 > [!IMPORTANT]
-> Per la distribuzione tramite VS Code è necessario che il cluster AKS venga creato o collegato all'area di lavoro in anticipo.
+> La distribuzione tramite codice VS richiede in anticipo che il cluster AKS venga creato o collegato all'area di lavoro.
 
-## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Distribuire modelli in AKS usando l'implementazione controllata (anteprima)
-Analizzare e innalzare di livello le versioni del modello in modo controllato usando gli endpoint. Distribuire fino a 6 versioni dietro un singolo endpoint e configurare la percentuale di assegnazione di punteggi al traffico per ogni versione distribuita. È possibile abilitare App Insights per visualizzare le metriche operative degli endpoint e delle versioni distribuite.
+## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Distribuire modelli in AKS usando l'implementazione controllata (anteprima)Deploy models to AKS using controlled rollout (preview)
+Analizzare e promuovere le versioni dei modelli in modo controllato utilizzando gli endpoint. Distribuire fino a 6 versioni dietro un singolo endpoint e configurare la percentuale di traffico di assegnazione dei punteggi a ogni versione distribuita. È possibile abilitare le informazioni dettagliate sulle app per visualizzare le metriche operative degli endpoint e delle versioni distribuite.
 
 ### <a name="create-an-endpoint"></a>Creare un endpoint
-Quando si è pronti per distribuire i modelli, creare un endpoint di assegnazione dei punteggi e distribuire la prima versione. Il passaggio seguente mostra come distribuire e creare l'endpoint usando l'SDK. La prima distribuzione verrà definita come la versione predefinita, il che significa che il percentile di traffico non specificato in tutte le versioni passerà alla versione predefinita.  
+Quando si è pronti per distribuire i modelli, creare un endpoint di assegnazione del punteggio e distribuire la prima versione. Nel passaggio seguente viene illustrato come distribuire e creare l'endpoint utilizzando l'SDK. La prima distribuzione verrà definita come la versione predefinita, il che significa che il percentile del traffico non specificato in tutte le versioni passerà alla versione predefinita.  
 
 ```python
 import azureml.core,
@@ -260,9 +260,9 @@ endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, m
  endpoint = Model.deploy(ws, endpoint_name, [model], inference_config, endpoint_deployment_config, compute)
  ```
 
-### <a name="update-and-add-versions-to-an-endpoint"></a>Aggiornare e aggiungere versioni a un endpoint
+### <a name="update-and-add-versions-to-an-endpoint"></a>Aggiornare e aggiungere versioni a un endpointUpdate and add versions to an endpoint
 
-Aggiungere un'altra versione all'endpoint e configurare il punteggio del traffico di assegnazione dei punteggi per la versione. Esistono due tipi di versioni, un controllo e una versione di trattamento. Per confrontare con una sola versione di un controllo, è possibile eseguire più versioni di trattamento.
+Aggiungere un'altra versione all'endpoint e configurare il percentile del traffico di punteggio per la versione. Ci sono due tipi di versioni, un controllo e una versione di trattamento. Ci può essere più versione di trattamento per aiutare a confrontare con una singola versione di controllo.
 
  ```python
 from azureml.core.webservice import AksEndpoint
@@ -277,7 +277,7 @@ endpoint.create_version(version_name = version_name_add,
                         traffic_percentile = 10)
 ```
 
-Aggiornare le versioni esistenti o eliminarle in un endpoint. È possibile modificare il tipo predefinito, il tipo di controllo e il percentile del traffico della versione.
+Aggiornare le versioni esistenti o eliminarle in un endpoint. È possibile modificare il tipo predefinito della versione, il tipo di controllo e il percentile del traffico.
 
  ```python
 from azureml.core.webservice import AksEndpoint
@@ -297,19 +297,19 @@ endpoint.delete_version(version_name="versionb")
 
 ## <a name="web-service-authentication"></a>Autenticazione del servizio Web
 
-Quando si esegue la distribuzione nel servizio Azure Kubernetes, l'autenticazione __basata su chiavi__ è abilitata per impostazione predefinita. È anche possibile abilitare l'autenticazione __basata su token__ . Per l'autenticazione basata su token è necessario che i client usino un account Azure Active Directory per richiedere un token di autenticazione, usato per eseguire richieste al servizio distribuito.
+Quando si esegue la distribuzione nel servizio Azure Kubernetes, l'autenticazione __basata su chiave__ è abilitata per impostazione predefinita. È inoltre possibile abilitare l'autenticazione __basata su token.__ L'autenticazione basata su token richiede ai client di usare un account Azure Active Directory per richiedere un token di autenticazione, usato per effettuare richieste al servizio distribuito.
 
-Per __disabilitare__ l'autenticazione, impostare il parametro `auth_enabled=False` durante la creazione della configurazione di distribuzione. Nell'esempio seguente viene disabilitata l'autenticazione tramite l'SDK:
+Per __disabilitare__ l'autenticazione, impostare il `auth_enabled=False` parametro durante la creazione della configurazione di distribuzione. L'esempio seguente disabilita l'autenticazione utilizzando l'SDK:
 
 ```python
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, auth_enabled=False)
 ```
 
-Per informazioni sull'autenticazione da un'applicazione client, vedere la pagina relativa all' [utilizzo di un modello di Azure machine learning distribuito come servizio Web](how-to-consume-web-service.md).
+Per informazioni sull'autenticazione da un'applicazione client, vedere [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md).
 
 ### <a name="authentication-with-keys"></a>Autenticazione con chiavi
 
-Se è abilitata l'autenticazione della chiave, è possibile usare il metodo `get_keys` per recuperare una chiave di autenticazione primaria e secondaria:
+Se l'autenticazione con chiave `get_keys` è abilitata, è possibile utilizzare il metodo per recuperare una chiave di autenticazione primaria e secondaria:If key authentication is enabled, you can use the method to retrieve a primary and secondary authentication key:
 
 ```python
 primary, secondary = service.get_keys()
@@ -317,17 +317,17 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Se è necessario rigenerare una chiave, usare [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
+> Se è necessario rigenerare una chiave,[`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
 
 ### <a name="authentication-with-tokens"></a>Autenticazione con token
 
-Per abilitare l'autenticazione del token, impostare il parametro `token_auth_enabled=True` durante la creazione o l'aggiornamento di una distribuzione. Nell'esempio seguente viene abilitata l'autenticazione del token tramite l'SDK:
+Per abilitare l'autenticazione token, impostare il `token_auth_enabled=True` parametro durante la creazione o l'aggiornamento di una distribuzione. L'esempio seguente abilita l'autenticazione token utilizzando l'SDK:
 
 ```python
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, token_auth_enabled=True)
 ```
 
-Se è abilitata l'autenticazione basata su token, è possibile usare il metodo `get_token` per recuperare un token JWT e l'ora di scadenza del token:
+Se l'autenticazione token è `get_token` abilitata, è possibile utilizzare il metodo per recuperare un token JWT e l'ora di scadenza del token:If token authentication is enabled, you can use the method to retrieve a JWT token and that token's expiration time:
 
 ```python
 token, refresh_by = service.get_token()
@@ -335,9 +335,9 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> Sarà necessario richiedere un nuovo token dopo l'`refresh_by` tempo del token.
+> Sarà necessario richiedere un nuovo token dopo `refresh_by` l'ora del token.
 >
-> Microsoft consiglia di creare l'area di lavoro di Azure Machine Learning nella stessa area del cluster del servizio Azure Kubernetes. Per eseguire l'autenticazione con un token, il servizio Web effettuerà una chiamata all'area in cui viene creata l'area di lavoro Azure Machine Learning. Se l'area dell'area di lavoro non è disponibile, non sarà possibile recuperare un token per il servizio Web, anche se il cluster si trova in un'area diversa da quella dell'area di lavoro. In questo modo, l'autenticazione basata su token risulta non disponibile fino a quando l'area dell'area di lavoro non sarà nuovamente disponibile. Inoltre, maggiore è la distanza tra l'area del cluster e l'area dell'area di lavoro, più tempo sarà necessario per recuperare un token.
+> Microsoft consiglia vivamente di creare l'area di lavoro di Azure Machine Learning nella stessa area del cluster di servizi Azure Kubernetes.Microsoft strongly recommends that you create your Azure Machine Learning workspace in the same region as your Azure Kubernetes Service cluster. Per eseguire l'autenticazione con un token, il servizio Web effettuerà una chiamata all'area in cui viene creata l'area di lavoro di Azure Machine Learning.To authenticate with a token, the web service will make a call to the region in which your Azure Machine Learning workspace is created. Se l'area di lavoro non è disponibile, non sarà possibile recuperare un token anche per il servizio Web, se il cluster si trova in un'area diversa rispetto all'area di lavoro. In questo modo l'autenticazione basata su token non è disponibile finché l'area dell'area di lavoro non è nuovamente disponibile. Inoltre, maggiore è la distanza tra l'area del cluster e l'area dell'area di lavoro, maggiore sarà il tempo necessario per recuperare un token.
 
 ## <a name="update-the-web-service"></a>Aggiornare il servizio Web
 
@@ -345,10 +345,10 @@ print(token)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Sperimentazione e inferenza sicure in una rete virtuale](how-to-enable-virtual-network.md)
-* [Come distribuire un modello usando un'immagine Docker personalizzata](how-to-deploy-custom-docker-image.md)
+* [Sperimentazione sicura e inferenza in una rete virtualeSecure experimentation and inference in a virtual network](how-to-enable-virtual-network.md)
+* [Come distribuire un modello usando un'immagine Docker personalizzataHow to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
 * [Risoluzione dei problemi di distribuzione](how-to-troubleshoot-deployment.md)
 * [Proteggere i servizi Web di Azure Machine Learning con SSL](how-to-secure-web-service.md)
 * [Usare un modello di Machine Learning distribuito come servizio Web](how-to-consume-web-service.md)
-* [Monitorare i modelli di Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)
+* [Monitorare i modelli di Azure Machine Learning con Application InsightsMonitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Raccogliere i dati per i modelli nell'ambiente di produzione](how-to-enable-data-collection.md)

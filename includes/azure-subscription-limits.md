@@ -9,13 +9,13 @@ ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
 ms.openlocfilehash: f49d91a2dffbd02067efd82b88963b5cb6eaa8b4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76021300"
 ---
-| Gruppi | Limite predefinito | Limite massimo |
+| Risorsa | Limite predefinito | Limite massimo |
 | --- | --- | --- |
 | vCPU per ogni [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md)<sup>1</sup> |20 |10,000 |
 | [Coamministratori](../articles/cost-management-billing/manage/add-change-subscription-administrator.md) per sottoscrizione |200 |200 |
@@ -25,9 +25,9 @@ ms.locfileid: "76021300"
 | Server DNS per sottoscrizione |9 |100 |
 | IP riservati per sottoscrizione |20 |100 |
 | [Gruppi di affinità](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per sottoscrizione |256 |256 |
-| Lunghezza nome sottoscrizione (caratteri) | 64 | 64 |
+| Lunghezza del nome della sottoscrizione (caratteri) | 64 | 64 |
 
-<sup>1</sup> Le istanze molto piccole vengono conteggiate come una vCPU verso il limite vCPU nonostante l'uso di un core CPU parziale.
+<sup>1 : il</sup> nome del Le istanze extra piccole vengono conteggiate come una vCPU verso il limite vCPU nonostante utilizzino un core CPU parziale.
 
 <sup>2</sup>Il limite dell'account di archiviazione include sia l'account di archiviazione Standard che l'account di archiviazione Premium. 
 

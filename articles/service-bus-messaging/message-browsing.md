@@ -1,6 +1,6 @@
 ---
-title: Bus di servizio di Azure-esplorazione messaggi
-description: Esplora e visualizza messaggi del bus di servizio consente a un client del bus di servizio di Azure di enumerare tutti i messaggi che si trovano in una coda o una sottoscrizione.
+title: Bus di servizio di Azure - esplorazione dei messaggiAzure Service Bus - message browsing
+description: Esplorare e visualizzare i messaggi del bus di servizio consente a un client del bus di servizio di Azure di enumerare tutti i messaggi che risiedono in una coda o in una sottoscrizione.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 6156557d10210535b287aa516070c0b5da416512
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77539366"
 ---
 # <a name="message-browsing"></a>Esplorazione dei messaggi
@@ -34,7 +34,7 @@ Il metodo Peek restituisce anche i messaggi che erano bloccati e vengono attualm
 
 ## <a name="peek-apis"></a>API Peek
 
-I metodi [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) e [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) sono disponibili in tutte le librerie client .NET e Java e in tutti gli oggetti Receiver: **MessageReceiver**, **MessageSession**. Il metodo Peek funziona in tutte le code e le sottoscrizioni e nelle rispettive code di messaggi non recapitabili.
+I metodi [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) e [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) sono presenti in tutte le librerie client .NET e Java e in tutti gli oggetti ricevitore: **MessageReceiver**, **MessageSession**. Il metodo Peek funziona in tutte le code e le sottoscrizioni e nelle rispettive code di messaggi non recapitabili.
 
 Se viene chiamato ripetutamente, il metodo Peek enumera tutti i messaggi presenti nel log della coda o della sottoscrizione in ordine di numero di sequenza, dal numero più basso a quello più alto. Questo è l'ordine in cui i messaggi sono stati accodati e non quello in cui i messaggi potrebbero essere recuperati.
 

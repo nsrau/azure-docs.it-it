@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: 0827311218202de447e5cf27356e00c4da020e94
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61472992"
 ---
 # <a name="debug-azure-data-lake-analytics-code-locally"></a>Eseguire il debug locale del codice di Azure Data Lake Analytics
 
 È possibile usare Strumenti Azure Data Lake per Visual Studio per eseguire il codice di Azure Data Lake Analytics ed effettuarne il debug sulla workstation locale, esattamente come nel servizio Azure Data Lake Analytics.
 
-Informazioni sulla [modalità di esecuzione dello script U-SQL sul computer locale](data-lake-analytics-data-lake-tools-local-run.md).
+Informazioni su come [eseguire script U-SQL nel computer locale.](data-lake-analytics-data-lake-tools-local-run.md)
 
 ## <a name="debug-scripts-and-c-assemblies-locally"></a>Eseguire il debug degli script e delle assembly C# in locale
 
@@ -51,5 +51,5 @@ Informazioni sulla [modalità di esecuzione dello script U-SQL sul computer loca
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per un esempio di query più complessa, vedere [Analizzare i log dei siti Web con Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
-- Per visualizzare i dettagli del processo, vedere [Usare Job Browser e Job View (Visualizzazione processo) per i processi di Azure Data Lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md).
-- Per usare la visualizzazione esecuzioni vertici, vedere [Usare la visualizzazione esecuzioni vertici in Azure Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
+- Per visualizzare i dettagli del processo, vedere Usare Job Browser e Job View per i processi di [Analisi di Azure Data Lake.](data-lake-analytics-data-lake-tools-view-jobs.md)
+- Per utilizzare la visualizzazione esecuzione dei vertici, vedere [Utilizzare la visualizzazione Esecuzione vertice in Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).

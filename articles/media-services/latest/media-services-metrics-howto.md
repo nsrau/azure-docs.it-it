@@ -1,6 +1,6 @@
 ---
-title: Visualizzare le metriche con monitoraggio di Azure
-description: Questo articolo illustra come monitorare le metriche con i grafici del portale Azure CLI di Azure.
+title: Visualizzare le metriche con Monitoraggio di AzureView metrics with Azure Monitor
+description: Questo articolo illustra come monitorare le metriche con i grafici del portale di Azure e l'interfaccia della riga di comando di Azure.This article shows how to monitor metrics with the Azure portal charts and Azure CLI.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,65 +13,65 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: d331dc4eb0c6668426e1ab1a01a1dd1dcebe0c85
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: c230e1e950bb924631032940642a6202acf4ade8
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795803"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382937"
 ---
-# <a name="monitor-media-services-metrics"></a>Monitorare le metriche di servizi multimediali 
+# <a name="monitor-media-services-metrics"></a>Monitorare le metriche di Servizi multimediali
 
-[Monitoraggio di Azure](../../azure-monitor/overview.md) consente di monitorare le metriche e log di diagnostica che consentono di comprendere prestazioni delle applicazioni. Per una descrizione dettagliata di questa funzionalità e per il motivo per cui si desidera usare i log di diagnostica e metriche di servizi multimediali di Azure, vedere [log di diagnostica e metriche di servizi multimediali di monitoraggio](media-services-metrics-diagnostic-logs.md).
+[Monitoraggio di Azure](../../azure-monitor/overview.md) consente di monitorare le metriche e i log di diagnostica che consentono di comprendere le prestazioni delle applicazioni. Per una descrizione dettagliata di questa funzionalità e per informazioni sul motivo per cui si vuole usare le metriche e i log di diagnostica di Servizi multimediali di Azure, vedere [Monitorare le metriche e i log](media-services-metrics-diagnostic-logs.md)di diagnostica di Servizi multimediali.
 
-Monitoraggio di Azure offre diversi modi per interagire con le metriche, tra cui creazione di grafici nel portale, l'accesso tramite l'API REST o l'esecuzione di query utilizzando CLI. Questo articolo illustra come monitorare le metriche con i grafici del portale Azure CLI di Azure.
+Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using Azure CLI. Questo articolo illustra come monitorare le metriche con i grafici del portale di Azure e l'interfaccia della riga di comando di Azure.This article shows how to monitor metrics with the Azure portal charts and Azure CLI.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Creare un account di Servizi multimediali di Azure.](create-account-cli-how-to.md)
-- Revisione [log di diagnostica e metriche di servizi multimediali di monitoraggio](media-services-metrics-diagnostic-logs.md)
+- [Creare un account di Servizi multimedialiCreate a Media Services account](create-account-cli-how-to.md)
+- Esaminare [Monitorare le metriche di Servizi multimediali e i log di diagnosticaReview Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md)
 
-## <a name="view-metrics-in-azure-portal"></a>Visualizzare le metriche nel portale di Azure
+## <a name="view-metrics-in-azure-portal"></a>Visualizzare le metriche nel portale di AzureView metrics in Azure portal
 
 1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
-1. Passare all'account di servizi multimediali di Azure e selezionare **metriche**.
-1. Scegliere il **risorse** casella e selezionare la risorsa per cui si desidera monitorare le metriche. 
+1. Passare all'account di Servizi multimediali di Azure e selezionare **Metriche**.
+1. Fare clic sulla casella **RESOURCE** e selezionare la risorsa per la quale si desidera monitorare le metriche.
 
-    Il **selezionare una risorsa** verrà visualizzata la finestra a destra di un elenco di risorse disponibili per l'utente. In questo caso viene visualizzata 
+    La finestra **Seleziona una risorsa** viene visualizzata a destra con l'elenco delle risorse disponibili. In questo caso si vede:
 
-    * &lt;Nome account servizi multimediali&gt;
-    * &lt;Nome account servizi multimediali&gt;/&lt;nome endpoint di streaming&gt;
-    * &lt;nome account di archiviazione&gt;
+    * &lt;Nome account di Servizi multimediali&gt;
+    * &lt;&gt;/Nome&lt;dell'account di Servizi multimediali nome dell'endpoint di streaming&gt;
+    * &lt;nome dell'account di archiviazione&gt;
 
-    Selezionare la risorsa e premere **applica**. Per informazioni dettagliate sulle metriche e le risorse supportate, vedere [metriche di servizi multimediali di monitoraggio](media-services-metrics-diagnostic-logs.md).
- 
-    ![metrics](media/media-services-metrics/metrics02.png)
-    
+    Selezionare la risorsa e premere **Applica**. Per informazioni dettagliate sulle risorse e le metriche supportate, vedere [Monitorare le metriche](media-services-metrics-diagnostic-logs.md)di Servizi multimediali.
+
+    ![Metriche](media/media-services-metrics/metrics02.png)
+
     > [!NOTE]
-    > Per passare tra le risorse per il quale si desidera monitorare le metriche, fare clic sui **risorsa** casella nuovamente e ripetere questo passaggio.
-1. (Facoltativo) assegnare al grafico un nome (modificare il nome facendo clic sulla matita nella parte superiore).
-1. Aggiungere metriche che si desidera visualizzare.
+    > Per passare da una risorsa per la quale si desidera monitorare le metriche, fare di nuovo clic sulla casella **RESOURCE** e ripetere questo passaggio.
+1. (Facoltativo) assegnare un nome al grafico (modificare il nome premendo la matita in alto).
+1. Aggiungere le metriche che si desidera visualizzare.
 
-    ![metrics](media/media-services-metrics/metrics03.png)
+    ![Metriche](media/media-services-metrics/metrics03.png)
 1. È possibile aggiungere il grafico al dashboard.
 
-## <a name="view-metrics-with-azure-cli"></a>Visualizzare le metriche con CLI di Azure
+## <a name="view-metrics-with-azure-cli"></a>Visualizzare le metriche con l'interfaccia della riga di comando di AzureView metrics with
 
-Per ottenere le metriche "dei servizi esterni" con CLI, eseguire quanto segue `az monitor metrics` riga di comando:
+Per ottenere le metriche "Egress" con `az monitor metrics` l'interfaccia della riga di comando di Azure, è necessario eseguire il comando seguente:To get "Egress" metrics with Azure CLI, you would run the following command:
 
-```cli
+```azurecli-interactive
 az monitor metrics list --resource \
    "/subscriptions/<subscription id>/resourcegroups/<resource group name>/providers/Microsoft.Media/mediaservices/<Media Services account name>/streamingendpoints/<streaming endpoint name>" \
    --metric "Egress"
 ```
 
-Per ottenere altre metriche, sostituire "Uscita" per il nome della metrica che si è interessati.
+Per ottenere altre metriche, sostituisci "Egress" con il nome della metrica a cui sei interessato.
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Metriche di monitoraggio di Azure](../../azure-monitor/platform/data-platform.md)
-* [Creare, visualizzare e gestire gli avvisi delle metriche con monitoraggio di Azure](../../azure-monitor/platform/alerts-metric.md).
+* [Metriche di Monitoraggio di AzureAzure Monitor Metrics](../../azure-monitor/platform/data-platform.md)
+* [Creare, visualizzare e gestire avvisi di metrica tramite Monitoraggio di Azure.](../../azure-monitor/platform/alerts-metric.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Log di diagnostica](media-services-diagnostic-logs-howto.md)
+[Registri diagnostici](media-services-diagnostic-logs-howto.md)

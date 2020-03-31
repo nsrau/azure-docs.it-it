@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
 ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60878452"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Crittografia dei dati in Azure Data Lake Storage Gen1
@@ -21,8 +21,8 @@ La crittografia in Azure Data Lake Storage Gen1 consente di proteggere i dati, i
 
 Data Lake Storage Gen1 supporta la crittografia dei dati sia inattivi che in transito. Per i dati inattivi, Data Lake Storage Gen1 supporta la crittografia trasparente "attivata per impostazione predefinita". Di seguito è riportata una spiegazione più dettagliata:
 
-* **In per impostazione predefinita**: Quando si crea un nuovo account Data Lake archiviazione Gen1, l'impostazione predefinita consente la crittografia. I dati archiviati in Data Lake Storage Gen1 quindi vengono sempre crittografati prima essere archiviati in supporti persistenti. Questo comportamento è valido per tutti i dati e non può essere modificato dopo che un account è stato creato.
-* **Trasparente**: Data Lake archiviazione Gen1 automaticamente crittografa i dati prima di renderli persistenti e li decrittografa prima del recupero. La crittografia viene configurata e gestita a livello di account Data Lake Storage Gen1 da un amministratore. Non vengono apportate modifiche alle API di accesso ai dati. Non sono quindi necessarie modifiche nelle applicazioni e nei servizi che interagiscono con Data Lake Storage Gen1 a causa della crittografia.
+* **Attivata per impostazione predefinita**: quando si crea un nuovo account Data Lake Storage Gen1, l'impostazione predefinita abilita la crittografia. I dati archiviati in Data Lake Storage Gen1 quindi vengono sempre crittografati prima essere archiviati in supporti persistenti. Questo comportamento è valido per tutti i dati e non può essere modificato dopo che un account è stato creato.
+* **Trasparente**: Data Lake Storage Gen1 crittografa automaticamente i dati prima di renderli persistenti e li decrittografa prima di recuperarli. La crittografia viene configurata e gestita a livello di account Data Lake Storage Gen1 da un amministratore. Non vengono apportate modifiche alle API di accesso ai dati. Non sono quindi necessarie modifiche nelle applicazioni e nei servizi che interagiscono con Data Lake Storage Gen1 a causa della crittografia.
 
 Anche i dati in transito (noti anche come dati in movimento) vengono sempre crittografati in Data Lake Storage Gen1. I dati, oltre a essere crittografati prima dell'archiviazione in supporti persistenti, vengono sempre protetti anche mentre sono in transito usando HTTPS. HTTPS è l'unico protocollo supportato per le interfacce REST di Data Lake Storage Gen1. Il diagramma seguente illustra come vengono crittografati i dati in Data Lake Storage Gen1:
 
@@ -78,7 +78,7 @@ Nella progettazione della crittografia dei dati vengono usati tre tipi di chiavi
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Chiave di crittografia master | MEK          | Un account Data Lake Storage Gen1 | Key Vault                              | Asimmetrica | Può essere gestita da Data Lake Storage Gen1 o dall'utente.                                                              |
 | Chiave di crittografia dei dati   | DEK          | Un account Data Lake Storage Gen1 | Risorsa di archiviazione persistente, gestita dal servizio Data Lake Storage Gen1 | Simmetrica  | La chiave di crittografia dei dati viene crittografata dalla chiave di crittografia master. È la chiave di crittografia dei dati crittografata a essere archiviata nei supporti persistenti. |
-| Chiave di crittografia a blocchi  | BEK          | Un blocco di dati | Nessuna                                         | Simmetrica  | La chiave di crittografia a blocchi deriva dalla chiave di crittografia dei dati e dal blocco di dati.                                                      |
+| Chiave di crittografia a blocchi  | BEK          | Un blocco di dati | nessuno                                         | Simmetrica  | La chiave di crittografia a blocchi deriva dalla chiave di crittografia dei dati e dal blocco di dati.                                                      |
 
 Il diagramma seguente illustra questi concetti:
 
@@ -115,8 +115,8 @@ Tenere presente che, se si usano le opzioni predefinite per la crittografia, i d
 
 ### <a name="how-to-rotate-the-mek-in-data-lake-storage-gen1"></a>Come ruotare la chiave di crittografia master (MEK) in Data Lake Storage Gen1
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Passare all'istanza di Key Vault in cui sono archiviate le chiavi associate all'account Data Lake Storage Gen1. Selezionare **Chiavi**.
+1. Accedere al [portale](https://portal.azure.com/)di Azure .
+2. Passare all'istanza di Key Vault in cui sono archiviate le chiavi associate all'account Data Lake Storage Gen1. Selezionare **Tasti**.
 
     ![Screenshot di Key Vault](./media/data-lake-store-encryption/keyvault.png)
 

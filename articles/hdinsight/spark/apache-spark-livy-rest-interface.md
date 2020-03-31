@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ms.openlocfilehash: ac3904284ebf20fa1d5e75f9249732be3963f677
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78206283"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Usare l'API REST di Apache Spark per inviare i processi remoti a un cluster HDInsight Spark
 
-Informazioni su come usare [Apache Livio](https://livy.incubator.apache.org/), l'API REST di Apache Spark, che consente di inviare processi remoti a un cluster Azure HDInsight Spark. Per la documentazione dettagliata, vedere [Apache Livio](https://livy.incubator.apache.org/docs/latest/rest-api.html).
+Informazioni su come usare [Apache Livy](https://livy.incubator.apache.org/), l'API REST di Apache Spark per inviare processi remoti a un cluster Azure HDInsight Spark. Per la documentazione dettagliata, vedere [Apache Livy](https://livy.incubator.apache.org/docs/latest/rest-api.html).
 
 È possibile usare Livy per l'esecuzione interattiva di shell Spark o per inviare processi batch da eseguire su Spark. Questo articolo parla dell'uso di Livy per inviare processi batch. I frammenti di codice in questo articolo usano cURL per eseguire chiamate API REST all'endpoint Livy Spark.
 
@@ -27,7 +27,7 @@ Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo dedicato
 
 ## <a name="submit-an-apache-livy-spark-batch-job"></a>Inviare un processo batch Apache Livy Spark
 
-Prima di inviare un processo batch, è necessario caricare il file con estensione jar dell'applicazione nell'archivio del cluster associato al cluster. A tale scopo, è possibile usare [AzCopy](../../storage/common/storage-use-azcopy.md), un'utilità della riga di comando. Sono disponibili molti altri client da usare per caricare i dati. Altre informazioni in merito sono disponibili in [Caricare dati per processi Apache Hadoop in HDInsight](../hdinsight-upload-data.md).
+Prima di inviare un processo batch, è necessario caricare il file con estensione jar dell'applicazione nell'archivio del cluster associato al cluster. A tale scopo è possibile usare [AzCopy](../../storage/common/storage-use-azcopy.md), un'utilità della riga di comando. Sono disponibili molti altri client da usare per caricare i dati. Altre informazioni in merito sono disponibili in [Caricare dati per processi Apache Hadoop in HDInsight](../hdinsight-upload-data.md).
 
 ```cmd
 curl -k --user "admin:password" -v -H "Content-Type: application/json" -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
@@ -35,7 +35,7 @@ curl -k --user "admin:password" -v -H "Content-Type: application/json" -X POST -
 
 ### <a name="examples"></a>Esempi
 
-* Se il file jar si trova nell'archivio cluster (WASBS)
+* Se il file jar si trova nell'archiviazione cluster (WASBS)
 
     ```cmd  
     curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
@@ -63,7 +63,7 @@ curl -k --user "admin:password" -v -X GET "https://<spark_cluster_name>.azurehdi
     curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches"
     ```
 
-* Se si desidera recuperare un batch specifico con un ID batch specificato
+* Se si desidera recuperare un batch specifico con un determinato ID batch
 
     ```cmd
     curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches/{batchId}"
@@ -77,7 +77,7 @@ curl -k --user "admin:mypassword1!" -v -X DELETE "https://<spark_cluster_name>.a
 
 ### <a name="example"></a>Esempio
 
-Eliminazione di un processo batch con ID batch `5`.
+Eliminazione di un processo `5`batch con ID batch .
 
 ```cmd
 curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.net/livy/batches/5"
@@ -87,7 +87,7 @@ curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehd
 
 Livy fornisce disponibilità elevata per i processi Spark in esecuzione nel cluster. Ecco alcuni esempi.
 
-* Se il servizio Livio si interrompe dopo l'invio di un processo in modalità remota a un cluster Spark, l'esecuzione del processo continua in background. Quando Livy ritorna attivo, ripristina lo stato del processo e crea un report.
+* Se il servizio Livy si arresta dopo aver inviato un processo in remoto a un cluster Spark, il processo continua a essere eseguito in background. Quando Livy ritorna attivo, ripristina lo stato del processo e crea un report.
 * I notebook di Jupyter per HDInsight sono basati su Livy in back-end. Se un notebook è in esecuzione in un processo Spark e il servizio Livy viene riavviato, il notebook continuerà a eseguire le celle del codice.
 
 ## <a name="show-me-an-example"></a>Mostra un esempio
@@ -95,18 +95,18 @@ Livy fornisce disponibilità elevata per i processi Spark in esecuzione nel clus
 Questa sezione esamina alcuni esempi di come usare Livy Spark per inviare un processo batch, monitorare il progresso del processo e quindi eliminarlo. L'applicazione usata in questo esempio è quella sviluppata nell'articolo [Creare un'applicazione Scala autonoma da eseguire nel cluster HDInsight Spark](apache-spark-create-standalone-application.md). I passaggi seguenti presuppongono:
 
 * Il file jar dell'applicazione è già stato copiato nell'account di archiviazione associato al cluster.
-* CuRL è installato nel computer in cui si sta provando a eseguire questi passaggi.
+* CuRL è stato installato nel computer in cui si sta provando questi passaggi.
 
 Eseguire la procedura seguente:
 
-1. Per semplicità d'uso, impostare le variabili di ambiente. Questo esempio è basato su un ambiente Windows, modificare le variabili in base alle esigenze dell'ambiente in uso. Sostituire `CLUSTERNAME`e `PASSWORD` con i valori appropriati.
+1. Per facilità d'uso, impostare le variabili di ambiente. Questo esempio è basato su un ambiente Windows, modificare le variabili in base alle esigenze dell'ambiente. Sostituire `CLUSTERNAME`, `PASSWORD` e con i valori appropriati.
 
     ```cmd
     set clustername=CLUSTERNAME
     set password=PASSWORD
     ```
 
-1. Verificare che Livio Spark sia in esecuzione nel cluster. È possibile eseguire questa operazione ottenendo un elenco di batch in esecuzione. Se si sta eseguendo un processo usando Livio per la prima volta, l'output deve restituire zero.
+1. Verificare che Livy Spark sia in esecuzione nel cluster. È possibile eseguire questa operazione ottenendo un elenco di batch in esecuzione. Se si esegue un processo utilizzando Livy per la prima volta, l'output deve restituire zero.
 
     ```cmd
     curl -k --user "admin:%password%" -v -X GET "https://%clustername%.azurehdinsight.net/livy/batches"
@@ -128,7 +128,7 @@ Eseguire la procedura seguente:
 
     Si noti che l'ultima riga nell'output corrisponde a **total:0**, che indica che non sono presenti batch in esecuzione.
 
-1. Inviare ora un processo batch. Il frammento di codice seguente usa un file di input (input.txt) per trasferire il nome del file con estensione JAR e il nome della classe come parametri. Se si eseguono questi passaggi da un computer Windows, l'approccio consigliato è l'uso di un file di input.
+1. Inviare ora un processo batch. Il frammento di codice seguente usa un file di input (input.txt) per trasferire il nome del file con estensione JAR e il nome della classe come parametri. Se si esegue questa procedura da un computer Windows, l'approccio consigliato è l'utilizzo di un file di input.
 
     ```cmd
     curl -k --user "admin:%password%" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://%clustername%.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
@@ -199,7 +199,7 @@ Eseguire la procedura seguente:
     {"msg":"deleted"}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
     ```
 
-    L'ultima riga dell'output indica che il batch è stato correttamente eliminato. L'eliminazione di un processo, mentre è in esecuzione, interrompe anche il processo. Se si elimina un processo completato correttamente o non correttamente, le informazioni sul processo vengono eliminate completamente.
+    L'ultima riga dell'output indica che il batch è stato correttamente eliminato. L'eliminazione di un processo, mentre è in esecuzione, comporta anche l'eliminazione. Se si elimina un processo completato correttamente o non correttamente, le informazioni sul processo vengono eliminate completamente.
 
 ## <a name="updates-to-livy-configuration-starting-with-hdinsight-35-version"></a>Aggiornamenti alla configurazione di Livy a partire dalla versione 3.5 di HDInsight
 

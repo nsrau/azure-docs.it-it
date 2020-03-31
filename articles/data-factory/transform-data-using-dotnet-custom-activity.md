@@ -1,5 +1,5 @@
 ---
-title: Usare attività personalizzate in una pipeline
+title: Usare attività personalizzate in una pipelineUse custom activities in a pipeline
 description: Informazioni su come creare attività personalizzate e usarle in una pipeline di Azure Data Factory.
 services: data-factory
 ms.service: data-factory
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
 ms.openlocfilehash: 4913152125b0fafd74db575f835d53fa992b075e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260579"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usare attività personalizzate in una pipeline di Azure Data Factory
@@ -26,7 +26,7 @@ ms.locfileid: "79260579"
 In una pipeline di Azure Data Factory è possibile usare due tipi di attività.
 
 - [Attività di spostamento dei dati](copy-activity-overview.md) per spostare dati tra [archivi dati supportati di origine e sink](copy-activity-overview.md#supported-data-stores-and-formats).
-- [Attività di trasformazione dei dati](transform-data.md) per trasformare i dati usando servizi di calcolo come Azure HDInsight, Azure Batch e Azure Machine Learning.
+- Attività di [trasformazione dei dati](transform-data.md) per trasformare i dati usando servizi di calcolo come Azure HDInsight, Azure Batch e Azure Machine Learning.Data transformation activities to transform data using compute services such as Azure HDInsight, Azure Batch, and Azure Machine Learning.
 
 Per spostare dati da o verso un archivio dati non supportato da Data Factory oppure per trasformare o elaborare dati in un modo non supportato da Data Factory, è possibile creare un'**attività personalizzata** contenente la logica di spostamento o trasformazione dei dati necessaria e usare tale attività in una pipeline. L'attività personalizzata esegue la logica del codice personalizzata in un pool di **Azure Batch** di macchine virtuali.
 
@@ -35,8 +35,8 @@ Per spostare dati da o verso un archivio dati non supportato da Data Factory opp
 Vedere gli articoli seguenti se non si ha familiarità con il servizio Azure Batch:
 
 * [Nozioni di base di Azure Batch](../batch/batch-technical-overview.md) per una panoramica del servizio Azure Batch.
-* Cmdlet [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) per creare un account di Azure batch (o) [portale di Azure](../batch/batch-account-create-portal.md) per creare l'account Azure batch usando portale di Azure. Per istruzioni dettagliate sull'uso del cmdlet, vedere l'articolo [Uso di Azure PowerShell per gestire l'account di Azure Batch](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
-* Cmdlet [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) per creare un pool di Azure batch.
+* [Cmdlet New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) per creare un account Azure Batch (o) portale di Azure per creare l'account Batch di Azure tramite il portale di Azure.New-AzBatchAccount cmdlet to create an Azure Batch account (or) [Azure portal](../batch/batch-account-create-portal.md) to create the Azure Batch account using Azure portal. Per istruzioni dettagliate sull'uso del cmdlet, vedere l'articolo [Uso di Azure PowerShell per gestire l'account di Azure Batch](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
+* [Cmdlet New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) per creare un pool Batch di Azure.New-AzBatchPool cmdlet to create an Azure Batch pool.
 
 ## <a name="azure-batch-linked-service"></a>Servizio collegato Azure Batch
 
@@ -105,7 +105,7 @@ Nella tabella seguente vengono descritti i nomi e le descrizioni delle propriet�
 | description           | Testo che descrive l'attività.  | No       |
 | type                  | Per l'attività personalizzata, il tipo corrisponde a **Custom**. | Sì      |
 | linkedServiceName     | Servizio collegato ad Azure Batch. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md).  | Sì      |
-| comando               | Comando dell'applicazione personalizzata da eseguire. Se l'applicazione è già disponibile nel nodo del pool di Azure Batch, è possibile ignorare resourceLinkedService e folderPath. È ad esempio possibile specificare come comando `cmd /c dir`, supportato in modo nativo dal nodo del pool di batch di Windows. | Sì      |
+| command               | Comando dell'applicazione personalizzata da eseguire. Se l'applicazione è già disponibile nel nodo del pool di Azure Batch, è possibile ignorare resourceLinkedService e folderPath. È ad esempio possibile specificare come comando `cmd /c dir`, supportato in modo nativo dal nodo del pool di batch di Windows. | Sì      |
 | resourceLinkedService | Servizio di Archiviazione di Azure collegato all'account di archiviazione in cui è archiviata l'applicazione personalizzata | No &#42;       |
 | folderPath            | Percorso della cartella dell'applicazione personalizzata e di tutte le relative dipendenze<br/><br/>Se sono presenti dipendenze archiviate nelle sottocartelle, vale a dire, in una struttura di cartelle gerarchiche in *folderPath*, la struttura di cartelle è attualmente di tipo flat quando i file vengono copiati in Azure Batch. Vale a dire, tutti i file vengono copiati in un'unica cartella senza sottocartelle. Per risolvere questo comportamento, è possibile comprimere i file, copiare il file compresso e quindi decomprimerlo con codice personalizzato nel percorso desiderato. | No &#42;       |
 | referenceObjects      | Matrice di servizi collegati e set di dati esistenti. I servizi collegati e i set di dati a cui si fa riferimento vengono passati all'applicazione personalizzata in formato JSON. Il codice personalizzato può quindi fare riferimento a risorse di Data Factory | No       |
@@ -115,7 +115,7 @@ Nella tabella seguente vengono descritti i nomi e le descrizioni delle propriet�
 &#42; Le proprietà `resourceLinkedService` e `folderPath` devono essere specificate oppure omesse entrambe.
 
 > [!NOTE]
-> Se si passano servizi collegati come referenceObjects nell'attività personalizzata, è consigliabile passare un servizio collegato Azure Key Vault abilitato (poiché non contiene stringhe sicure) e recuperare le credenziali usando il nome del segreto direttamente dalla chiave Insieme di credenziali dal codice. È possibile trovare [un esempio che](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) fa riferimento al servizio collegato abilitato per AKV, recupera le credenziali da Key Vault e quindi accede all'archiviazione nel codice.
+> Se si passano servizi collegati come referenceObjects in Attività personalizzata, è consigliabile superare un servizio collegato abilitato per un insieme di credenziali delle chiavi di Azure (poiché non contiene stringhe sicure) e recuperare le credenziali usando il nome segreto direttamente dalla chiave Vault dal codice. È possibile trovare un esempio [che](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) fa riferimento al servizio collegato abilitato a AKV, recupera le credenziali dall'insieme di credenziali delle chiavi e quindi accede all'archiviazione nel codice.
 
 ## <a name="custom-activity-permissions"></a>Autorizzazioni per le attività personalizzate
 
@@ -300,16 +300,16 @@ Activity Error section:
 Se si desidera usare il contenuto di stdout.txt nelle attività downstream, è possibile ottenere il percorso del file stdout.txt nell'espressione "\@activity('MyCustomActivity').output.outputs[0]".
 
 > [!IMPORTANT]
-> - Activity.json, linkedServices.json e datasets.json vengono archiviati nella cartella di runtime dell'attività Batch. Per questo esempio, i file Activity. JSON, linkedServices. JSON e DataSets. JSON vengono archiviati nel percorso `"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"`. Se necessario, la pulizia di questi file deve essere eseguita separatamente.
+> - Activity.json, linkedServices.json e datasets.json vengono archiviati nella cartella di runtime dell'attività Batch. Per questo esempio, activity.json, linkedServices.json e datasets.json vengono archiviati nel `"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"` percorso. Se necessario, la pulizia di questi file deve essere eseguita separatamente.
 > - Per i servizi collegati che usano il runtime di integrazione self-hosted, le informazioni riservate, come chiavi o password, vengono crittografate dal runtime di integrazione self-hosted per verificare che le credenziali rimangano nell'ambiente di rete privata definito dal cliente. Alcuni campi riservati potrebbero risultare mancanti se il codice dell'applicazione personalizzata fa riferimento a tali campi in questo modo. Se necessario, usare SecureString in extendedProperties anziché un riferimento a servizi collegati.
 
 ## <a name="pass-outputs-to-another-activity"></a>Passare gli output a un'altra attività
 
-È possibile inviare valori personalizzati dal codice di un'attività personalizzata ad Azure Data Factory. È possibile farlo scrivendoli in `outputs.json` dall'applicazione. Data Factory copia il contenuto di `outputs.json` e lo accoda all'output dell'attività come valore della proprietà `customOutput`. Il limite delle dimensioni è 2MB. Se si desidera utilizzare il contenuto di `outputs.json` nelle attività downstream, è possibile ottenere il valore utilizzando l'espressione `@activity('<MyCustomActivity>').output.customOutput`.
+È possibile inviare valori personalizzati dal codice di un'attività personalizzata ad Azure Data Factory. È possibile farlo scrivendoli in `outputs.json` dall'applicazione. Data Factory copia il contenuto di `outputs.json` e lo accoda all'output dell'attività come valore della proprietà `customOutput`. (Il limite di dimensione è di 2 MB.) Se si desidera utilizzare `outputs.json` il contenuto di in attività a valle, `@activity('<MyCustomActivity>').output.customOutput`è possibile ottenere il valore utilizzando l'espressione .
 
 ## <a name="retrieve-securestring-outputs"></a>Recuperare gli output SecureString
 
-I valori delle proprietà sensibili designati come tipo *SecureString*, come illustrato in alcuni degli esempi in questo articolo, vengono mascherati nella scheda Monitoraggio nell'interfaccia utente di Data Factory.  Nell'esecuzione effettiva della pipeline, tuttavia, una proprietà *SecureString* viene serializzata come JSON all'interno del `activity.json` file come testo normale. Ad esempio,
+I valori delle proprietà sensibili designati come tipo *SecureString*, come illustrato in alcuni degli esempi in questo articolo, vengono mascherati nella scheda Monitoraggio nell'interfaccia utente di Data Factory.  Nell'esecuzione effettiva della pipeline, tuttavia, una proprietà *SecureString* viene serializzata come JSON all'interno del `activity.json` file come testo normale. Ad esempio:
 
 ```json
 "extendedProperties": {
@@ -324,11 +324,11 @@ Questa serializzazione non è propriamente sicura e non è progettata per esserl
 
 Per accedere a proprietà di tipo *SecureString* da un'attività personalizzata, leggere il file `activity.json` che viene inserito nella stessa cartella di .EXE, deserializzare JSON, quindi accedere alla proprietà JSON (extendedProperties => [propertyName] => value).
 
-## <a name="compare-v2-v1"></a> Confrontare l'attività personalizzata della versione 2 e l'attività DotNet (personalizzata) della versione 1
+## <a name="compare-v2-custom-activity-and-version-1-custom-dotnet-activity"></a><a name="compare-v2-v1"></a> Confrontare l'attività personalizzata della versione 2 e l'attività DotNet (personalizzata) della versione 1
 
-In Azure Data Factory versione 1 si implementa un'attività DotNet (personalizzata) creando un progetto libreria di classi .NET con una classe che implementa il metodo `Execute` dell'interfaccia `IDotNetActivity`. I servizi collegati, i set di dati e le proprietà estese nel payload JSON di un'attività DotNet (personalizzata) vengono passati al metodo di esecuzione come oggetti fortemente tipizzati. Per informazioni dettagliate sul comportamento della versione 1, vedere [Attività DotNet (personalizzate) nella versione 1](v1/data-factory-use-custom-activities.md). A causa di questa implementazione, il codice dell'attività DotNet della versione 1 deve avere come destinazione .NET Framework 4.5.2. L'attività DotNet della versione 1 deve inoltre essere eseguita sui nodi di pool di Azure Batch basati su Windows.
+In Azure Data Factory versione 1 si implementa un'attività DotNet (personalizzata) creando `Execute` un progetto `IDotNetActivity` Libreria di classi .NET con una classe che implementa il metodo dell'interfaccia. I servizi collegati, i set di dati e le proprietà estese nel payload JSON di un'attività DotNet (personalizzata) vengono passati al metodo di esecuzione come oggetti fortemente tipizzati. Per informazioni dettagliate sul comportamento della versione 1, vedere [Attività DotNet (personalizzate) nella versione 1](v1/data-factory-use-custom-activities.md). A causa di questa implementazione, il codice dell'attività DotNet versione 1 deve essere destinato a .NET Framework 4.5.2.Because of this implementation, your version 1 DotNet Activity code has to target .NET Framework 4.5.2. L'attività DotNet della versione 1 deve inoltre essere eseguita sui nodi di pool di Azure Batch basati su Windows.
 
-Nell'attività personalizzata Azure Data Factory V2 non è necessario implementare un'interfaccia .NET. È ora possibile eseguire direttamente comandi, script e codice personalizzato, compilato come eseguibile. Per configurare questa implementazione, specificare la proprietà `Command` con la proprietà `folderPath`. L'attività personalizzata carica il file eseguibile e le relative dipendenze in `folderpath` ed esegue il comando automaticamente.
+Nell'attività personalizzata di Azure Data Factory V2 non è necessario implementare un'interfaccia .NET. È ora possibile eseguire direttamente comandi, script e codice personalizzato, compilato come eseguibile. Per configurare questa implementazione, specificare la proprietà `Command` con la proprietà `folderPath`. L'attività personalizzata carica il file eseguibile e le relative dipendenze in `folderpath` ed esegue il comando automaticamente.
 
 I servizi collegati, i set di dati definiti in referenceObjects e le proprietà estese definite nel payload JSON di un'attività personalizzata di Data Factory versione 2 sono accessibili dal file eseguibile come file JSON. È possibile accedere alle proprietà obbligatorie tramite un serializzatore JSON, come illustrato nell'esempio di codice precedente SampleApp.exe.
 
@@ -338,17 +338,17 @@ La tabella seguente illustra le differenze tra l'attività personalizzata di Dat
 
 |Differenze      | Attività personalizzata      | Attività DotNet (personalizzata) versione 1      |
 | ---- | ---- | ---- |
-|Modalità di definizione della logica personalizzata      |Mediante l'uso di un file eseguibile      |Implementando una DLL .NET      |
+|Modalità di definizione della logica personalizzata      |Mediante l'uso di un file eseguibile      |Implementazione di una DLL .NET      |
 |Ambiente di esecuzione della logica personalizzata      |Windows o Linux      |Windows (.NET Framework 4.5.2)      |
 |Esecuzione di script      |Supporta l'esecuzione diretta di script, ad esempio "cmd /c echo hello world" su macchine virtuali Windows      |Richiede l'implementazione nella DLL .NET      |
-|Set di dati obbligatorio      |Facoltativa      |Richiesta per concatenare le attività e passare le informazioni      |
+|Set di dati obbligatorio      |Facoltativo      |Richiesta per concatenare le attività e passare le informazioni      |
 |Passare le informazioni dall'attività alla logica personalizzata      |Tramite ReferenceObjects (LinkedServices e Datasets) ed ExtendedProperties (proprietà personalizzate)      |Tramite ExtendedProperties (proprietà personalizzate), set di dati di input e output      |
-|Recuperare le informazioni nella logica personalizzata      |Analizza i file activity.json, linkedServices.json e datasets.json archiviati nella stessa cartella del file eseguibile      |Tramite .NET SDK (.NET frame 4.5.2)      |
-|Registrazione      |Scrive direttamente in STDOUT      |Implementazione del logger nella DLL .NET      |
+|Recuperare le informazioni nella logica personalizzata      |Analizza i file activity.json, linkedServices.json e datasets.json archiviati nella stessa cartella del file eseguibile      |Tramite .NET SDK (.NET Frame 4.5.2)      |
+|Registrazione      |Scrive direttamente in STDOUT      |Implementazione del logger nella DLL .NETImplementing Logger in .NET DLL      |
 
-Se si dispone di codice .NET esistente scritto per un'attività DotNet della versione 1 (personalizzata), è necessario modificare il codice affinché funzioni con la versione corrente dell'attività personalizzata. Aggiornare il codice seguendo queste linee guida generali:
+Se si dispone di codice .NET esistente scritto per un'attività DotNet versione 1 (personalizzata), è necessario modificare il codice affinché funzioni con la versione corrente dell'attività personalizzata. Aggiornare il codice seguendo queste linee guida generali:
 
-  - Modificare il progetto da una libreria di classi .NET a un'app console.
+  - Modificare il progetto da una libreria di classi .NET a un'applicazione console.
   - Avviare l'applicazione con il metodo `Main`. Il metodo `Execute` dell'interfaccia `IDotNetActivity` non è più necessario.
   - Leggere e analizzare i servizi collegati, i set di dati e l'attività con un serializzatore JSON e non come oggetti fortemente tipizzati. Passare i valori delle proprietà obbligatorie alla logica del codice personalizzata principale. Fare riferimento all'esempio di codice precedente SampleApp.exe.
   - L'oggetto Logger non è più supportato. L'output del file eseguibile può essere stampato nella console e viene salvato in stdout.txt.
@@ -382,9 +382,9 @@ Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione d
 
 * [Attività U-SQL](transform-data-using-data-lake-analytics.md)
 * [Attività Hive](transform-data-using-hadoop-hive.md)
-* [Attività Pig](transform-data-using-hadoop-pig.md)
+* [Attività suina](transform-data-using-hadoop-pig.md)
 * [Attività MapReduce](transform-data-using-hadoop-map-reduce.md)
-* [Attività di streaming di Hadoop](transform-data-using-hadoop-streaming.md)
+* [Attività di Hadoop Streaming](transform-data-using-hadoop-streaming.md)
 * [Attività Spark](transform-data-using-spark.md)
 * [Machine Learning Bach Execution Activity](transform-data-using-machine-learning.md) (Attività di esecuzione batch di Machine Learning)
 * [Attività stored procedure](transform-data-using-stored-procedure.md)

@@ -1,6 +1,6 @@
 ---
 title: Risolvere i problemi di distribuzione della macchina virtuale Windows in Azure | Microsoft Docs
-description: Risolvere i problemi di distribuzione della macchina virtuale Windows nel modello di distribuzione Azure Resource Manager.
+description: Risolvere i problemi relativi alla distribuzione di macchine virtuali Windows nel modello di distribuzione di Azure Resource Manager.Troubleshoot deploying Windows virtual machine issues in the Azure Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -15,23 +15,23 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: cdbaeb5a97beba342bc471e75d1b07be0d0141ae
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921412"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Risolvere i problemi di distribuzione della macchina virtuale Windows in Azure
 
 Per risolvere i problemi relativi alla distribuzione della macchina virtuale (VM) in Azure, esaminare i [problemi principali](#top-issues) per errori e risoluzioni comuni.
 
-Per ricevere assistenza in qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.
+Per ricevere assistenza in qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto](https://azure.microsoft.com/support/options/) di Azure e selezionare Ottieni **supporto**.
 
 ## <a name="top-issues"></a>Problemi principali
 [!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
 ## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>Il cluster non supporta le dimensioni della VM richieste
-\<Properties supportTopicIds = "123456789" resourceTags = "Windows" productPesIds = "1234, 5678"/>
+\<proprietà supportTopicIds "123456789" resourceTags "windows" productPesIds "1234, 5678" />
 - Ripetere la richiesta usando una VM di dimensioni inferiori.
 - Se le dimensioni della VM richieste non possono essere modificate:
     - Arrestare tutte le VM nel set di disponibilità. Fare clic su **Gruppi di risorse** > il proprio gruppo di risorse > **Risorse** > il proprio set di disponibilità > **Macchine virtuali** > la propria macchina virtuale > **Arresta**.
@@ -40,7 +40,7 @@ Per ricevere assistenza in qualsiasi punto di questo articolo, contattare gli es
 
 
 ## <a name="the-cluster-does-not-have-free-resources"></a>Il cluster non ha risorse disponibili
-\<Properties supportTopicIds = "123456789" resourceTags = "Windows" productPesIds = "1234, 5678"/>
+\<proprietà supportTopicIds "123456789" resourceTags "windows" productPesIds "1234, 5678" />
 - Ripetere la richiesta più tardi.
 - Se la nuova VM può far parte di un set di disponibilità diverso
     - Creare una VM in un altro set di disponibilità nella stessa area.
@@ -64,11 +64,11 @@ Per il contratto Enterprise Agreement:
 
 Per altre informazioni, vedere le seguenti risorse:
 
- - [Panoramica del vantaggio Azure Hybrid use](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
+ - [Panoramica del vantaggio per l'uso di Azure ibridoAzure Hybrid Use Benefit overview](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
  - [Domande frequenti scaricabili](https://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
 
- - [Vantaggio Azure Hybrid Use per Windows Server e Windows Client](../windows/hybrid-use-benefit-licensing.md).
+ - [Vantaggi dell'uso ibrido di Azure per Windows Server e Windows Client](../windows/hybrid-use-benefit-licensing.md).
 
  - [Come usare il vantaggio Hybrid Use in Azure](https://blogs.msdn.microsoft.com/azureedu/2016/04/13/how-can-i-use-the-hybrid-use-benefit-in-azure)
 
@@ -99,7 +99,7 @@ A condizione di disporre di una sottoscrizione appropriata di Visual Studio (in 
 - Le immagini di Windows 10 sono disponibili nella raccolta di Azure in [Offerte idonee](../windows/client-images.md#eligible-offers). 
 - I sottoscrittori di Visual Studio per qualsiasi tipo di offerta possono anche [preparare e creare](../windows/prepare-for-upload-vhd-image.md) un'immagine a 64 bit di Windows 7, Windows 8 o Windows 10 e quindi [caricarla in Azure](../windows/upload-generalized-managed.md). L'utilizzo rimane limitato alle attività di sviluppo e test da parte dei sottoscrittori di Visual Studio attivi.
 
-In questo [articolo](../windows/client-images.md) sono descritti i requisiti di idoneità per l'esecuzione di client Windows in Azure e l'uso delle immagini della raccolta di Azure.
+Questo [articolo](../windows/client-images.md) descrive i requisiti di idoneità per l'esecuzione del client Windows in Azure e l'uso delle immagini della raccolta di Azure.This article outlines the eligibility requirements for running Windows client in Azure and use of the Azure Gallery images.
 
 ## <a name="i-am-not-able-to-see-vm-size-family-that-i-want-when-resizing-my-vm"></a>Durante il ridimensionamento della VM non è possibile visualizzare la famiglia Dimensioni macchina virtuale desiderata.
 
@@ -123,4 +123,4 @@ Sì. È possibile aggiungere una VM classica esistente a un set di disponibilit�
 ## <a name="next-steps"></a>Passaggi successivi
 Per ricevere assistenza in qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/).
 
-In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.
+In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto](https://azure.microsoft.com/support/options/) di Azure e selezionare Ottieni **supporto**.

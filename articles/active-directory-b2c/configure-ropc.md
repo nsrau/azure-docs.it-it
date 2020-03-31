@@ -1,5 +1,5 @@
 ---
-title: Configurare il flusso di credenziali password del proprietario della risorsa
+title: Configurare il flusso delle credenziali della password del proprietario della risorsaConfigure the resource owner password credentials flow
 titleSuffix: Azure AD B2C
 description: Informazioni su come configurare il flusso ROPC in Azure AD B2C.
 services: active-directory-b2c
@@ -12,10 +12,10 @@ ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 70cd4f2ca3a4ac37bdf1d1e465d1f1a7d06ef9e1
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189702"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurare il flusso delle credenziali password del proprietario della risorsa in Azure AD B2C
@@ -31,7 +31,7 @@ Il flusso delle credenziali password del proprietario della risorsa (ROPC) è un
 1. Accedere al portale di Azure come amministratore globale del tenant di Azure AD B2C.
 2. Per passare al tenant di Azure AD B2C, selezionare la directory B2C nell'angolo superiore destro del portale.
 3. Fare clic su **Flussi utente** e selezionare **Nuovo flusso utente**.
-4. Fare clic sulla scheda **tutti** e selezionare **Accedi con ROPC**.
+4. Fare clic sulla scheda **Tutti** e selezionare **Accedi utilizzando ROPC**.
 5. Specificare un nome per il flusso utente, ad esempio *ROPC_Auth*.
 6. In **Attestazioni dell'applicazione** fare clic su **Mostra dettagli**.
 7. Selezionare le attestazioni necessarie per l'applicazione, ad esempio Nome visualizzato, Indirizzo di posta elettronica e Provider di identità.
@@ -50,9 +50,9 @@ Il flusso delle credenziali password del proprietario della risorsa (ROPC) è un
 ## <a name="test-the-user-flow"></a>Testare il flusso utente
 
 Usare l'applicazione di sviluppo API preferita per generare una chiamata API ed esaminare la risposta per eseguire il debug del flusso utente. Costruire una chiamata di questo tipo con le informazioni riportate nella tabella seguente come corpo della richiesta POST:
-- Sostituire *\<yourtenant.onmicrosoft.com>* con il nome del proprio tenant B2C.
-- Sostituire *\<B2C_1A_ROPC_Auth>* con il nome completo dei criteri delle credenziali password del proprietario della risorsa.
-- Sostituire *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* con l'ID dell'applicazione riportato nella registrazione.
+- Sostituire * \<yourtenant.onmicrosoft.com>* con il nome del tenant B2C.
+- Sostituire * \<B2C_1A_ROPC_Auth>* con il nome completo del criterio delle credenziali della password del proprietario della risorsa.
+- Sostituire * \<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* con l'ID applicazione della registrazione.
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
@@ -124,7 +124,7 @@ Una risposta con esito positivo è simile all'esempio seguente:
 }
 ```
 > [!NOTE]
-> Quando si creano utenti tramite API Graph, l'applicazione deve avere le autorizzazioni "OpenID", "offline_access" e "profile" da Microsoft Graph.
+> Quando si creano gli utenti tramite graph API, l'applicazione deve disporre delle autorizzazioni "openid", "offline_access" e "profile" da Microsoft Graph.
 
 ## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Implementare con l'SDK nativo preferito o usare AppAuth
 

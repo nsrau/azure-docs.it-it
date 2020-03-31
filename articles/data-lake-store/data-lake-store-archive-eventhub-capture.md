@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: bb67c1769510710b368bef4dc0b501f939b3427e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265662"
 ---
 # <a name="use-azure-data-lake-storage-gen1-to-capture-data-from-event-hubs"></a>Usare Azure Data Lake Storage Gen1 per acquisire dati da Hub eventi
 
 Informazioni su come usare Azure Data Lake Storage Gen1 per acquisire i dati ricevuti da Hub eventi di Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una sottoscrizione di Azure.** Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Un account Azure Data Lake Storage Gen1**. Per istruzioni su come crearne uno, vedere [Iniziare a usare Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
 
@@ -41,17 +41,17 @@ In questa sezione si crea una cartella nell'account in cui si vuole acquisire i 
 
 1.  Fare clic su **Nuova cartella** e quindi immettere un nome per la cartella in cui si vuole acquisire i dati.
 
-    ![Crea una nuova cartella in Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-new-folder.png "Crea una nuova cartella in Data Lake Storage Gen1")
+    ![Creare una nuova cartella in Data Lake Storage Gen1Create a new folder in Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-new-folder.png "Creare una nuova cartella in Data Lake Storage Gen1Create a new folder in Data Lake Storage Gen1")
 
 1. Assegnare le autorizzazioni alla radice di Data Lake Storage Gen1. 
 
     a. Fare clic su **Esplora dati**, selezionare la radice dell'account Data Lake Storage Gen1 e quindi fare clic su **Accesso**.
 
-    ![Assegnare le autorizzazioni per la radice Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-root.png "Assegnare le autorizzazioni per la radice Data Lake Storage Gen1")
+    ![Assegnare le autorizzazioni per la radice Data Lake Storage Gen1Assign permissions for the Data Lake Storage Gen1 root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-root.png "Assegnare le autorizzazioni per la radice Data Lake Storage Gen1Assign permissions for the Data Lake Storage Gen1 root")
 
     b. In **Accesso** fare clic su **Aggiungi**, fare clic su **Selezionare l'utente o il gruppo** e quindi cercare `Microsoft.EventHubs`. 
 
-    ![Assegnare le autorizzazioni per la radice Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Assegnare le autorizzazioni per la radice Data Lake Storage Gen1")
+    ![Assegnare le autorizzazioni per la radice Data Lake Storage Gen1Assign permissions for the Data Lake Storage Gen1 root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Assegnare le autorizzazioni per la radice Data Lake Storage Gen1Assign permissions for the Data Lake Storage Gen1 root")
     
     Fare clic su **Seleziona**.
 
@@ -60,7 +60,7 @@ In questa sezione si crea una cartella nell'account in cui si vuole acquisire i 
     > [!IMPORTANT]
     > Questo è un semplice metodo per garantire l'accesso alla cartella di destinazione quando si crea una nuova gerarchia di cartelle per l'acquisizione dei dati ricevuti da Hub eventi di Azure.  Tuttavia, l'aggiunta delle autorizzazioni a tutti gli elementi figlio di una cartella di livello principale con molti file e cartelle figlio può richiedere molto tempo.  Se la cartella radice contiene un numero elevato di file e cartelle, potrebbe essere più veloce aggiungere le autorizzazioni di **esecuzione** per `Microsoft.EventHubs` singolarmente a ogni cartella nel percorso della cartella di destinazione finale. 
 
-    ![Assegnare le autorizzazioni per la radice Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assegnare le autorizzazioni per la radice Data Lake Storage Gen1")
+    ![Assegnare le autorizzazioni per la radice Data Lake Storage Gen1Assign permissions for the Data Lake Storage Gen1 root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assegnare le autorizzazioni per la radice Data Lake Storage Gen1Assign permissions for the Data Lake Storage Gen1 root")
 
     Fare clic su **OK**.
 
@@ -88,11 +88,11 @@ In questa sezione si crea un hub eventi in uno spazio dei nomi di Hub eventi. È
 
 1. Dal riquadro **Panoramica** dello spazio dei nomi di Hub eventi fare clic su **+ Hub eventi**.
 
-    ![Crea Hub eventi](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Creare un hub eventi")
+    ![Creare un hub eventi](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Creare un hub eventi")
 
 1. Fornire i valori seguenti per configurare Hub eventi per acquisire i dati in Data Lake Storage Gen1.
 
-    ![Crea Hub eventi](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Creare un hub eventi")
+    ![Creare un hub eventi](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Creare un hub eventi")
 
     a. Specificare un nome per l'hub eventi.
     
@@ -110,7 +110,7 @@ In questa sezione si crea un hub eventi in uno spazio dei nomi di Hub eventi. È
 
 È ora possibile testare la soluzione inviando i dati all'hub di eventi di Azure. Seguire le istruzioni in [Inviare eventi a Hub eventi di Azure](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md). Una volta avviato l'invio dei dati, verranno visualizzati i dati riflessi in Data Lake Storage Gen1 con la struttura di cartelle specificata. Ad esempio, viene visualizzata in Data Lake Storage Gen 1 una struttura di cartelle,come illustrato nello screenshot seguente.
 
-![Dati EventHub di esempio in Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-eventhub-data-sample.png "Dati EventHub di esempio in Data Lake Storage Gen1")
+![Dati EventHub di esempio in Data Lake Storage Gen1Sample EventHub data in Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-eventhub-data-sample.png "Dati EventHub di esempio in Data Lake Storage Gen1Sample EventHub data in Data Lake Storage Gen1")
 
 > [!NOTE]
 > Anche se non ci sono messaggi in arrivo in Hub eventi, Hub eventi scrive file vuoti con solo le intestazioni nell'account Data Lake Storage Gen1. I file vengono scritti con lo stesso intervallo di tempo specificato durante la creazione di Hub di eventi.

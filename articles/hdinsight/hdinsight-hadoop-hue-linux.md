@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/28/2019
 ms.openlocfilehash: 69acfd4f2edab9be1b1dcfbb52eafbd00aec712f
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75934571"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Installare e usare Hue nei cluster Hadoop di HDInsight
@@ -33,16 +33,16 @@ Hue è un insieme di applicazioni Web che consente di interagire con un cluster 
 > [!WARNING]  
 > I componenti forniti con il cluster HDInsight sono supportati in modo completo e il Supporto Microsoft contribuirà a isolare e risolvere i problemi correlati a questi componenti.
 >
-> I componenti personalizzati ricevono supporto commercialmente ragionevole per semplificare la risoluzione dei problemi. È possibile che si ottenga la risoluzione dei problemi o che venga richiesto di usare i canali disponibili per le tecnologie open source, in cui è possibile ottenere supporto approfondito per la tecnologia specifica. È ad esempio possibile ricorrere a molti siti di community, come il [forum MSDN per HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight) o [https://stackoverflow.com](https://stackoverflow.com). Anche per i progetti Apache sono disponibili siti specifici in [https://apache.org](https://apache.org), ad esempio [Hadoop](https://hadoop.apache.org/).
+> I componenti personalizzati ricevono supporto commercialmente ragionevole per semplificare la risoluzione dei problemi. È possibile che si ottenga la risoluzione dei problemi o che venga richiesto di usare i canali disponibili per le tecnologie open source, in cui è possibile ottenere supporto approfondito per la tecnologia specifica. Ad esempio, esistono molti siti della community che possono essere [https://stackoverflow.com](https://stackoverflow.com)utilizzati, ad esempio: forum MSDN per [HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), . Anche i progetti Apache [https://apache.org](https://apache.org)hanno siti di progetto su , per esempio: [Hadoop](https://hadoop.apache.org/).
 
 ## <a name="install-hue-using-script-actions"></a>Installare Hue mediante azioni script
 
-Usare le informazioni nella tabella seguente per l'azione script. Vedere [personalizzare i cluster HDInsight con azioni script](hdinsight-hadoop-customize-cluster-linux.md) per istruzioni specifiche sull'uso di azioni script.
+Utilizzare le informazioni nella tabella seguente per l'azione di script. Per istruzioni specifiche sull'uso delle azioni di script, vedere [Personalizzare i cluster HDInsight con azioni](hdinsight-hadoop-customize-cluster-linux.md) di script.
 
 > [!NOTE]  
 > Per installare Hue nei cluster HDInsight, la dimensione consigliata del nodo head è minimo A4 (8 core, 14 GB di memoria).
 
-|Proprietà |Valore |
+|Proprietà |valore |
 |---|---|
 |Tipo di script:|- Personalizzato|
 |Nome|Installare Hue|
@@ -51,14 +51,14 @@ Usare le informazioni nella tabella seguente per l'azione script. Vedere [person
 
 ## <a name="use-hue-with-hdinsight-clusters"></a>Usare Hue con i cluster HDInsight
 
-Il tunneling SSH è il solo modo di accedere a Hue nel cluster una volta che è in esecuzione. Il tunneling tramite SSH consente al traffico di raggiungere direttamente il nodo head del cluster in cui viene eseguito Hue. Al termine del provisioning del cluster, attenersi alla procedura seguente per usare Hue in un cluster HDInsight.
+Il tunneling SSH è il solo modo di accedere a Hue nel cluster una volta che è in esecuzione. Il tunneling tramite SSH consente al traffico di raggiungere direttamente il nodo head del cluster in cui viene eseguito Hue. Al termine del provisioning del cluster, usare la procedura seguente per usare Hue in un cluster HDInsight.After the cluster has finished provisioning, use the following steps to use Hue on an HDInsight cluster.
 
 > [!NOTE]  
 > È consigliabile utilizzare il browser web di Firefox per seguire le istruzioni seguenti.
 
 1. Utilizzare le informazioni contenute in [Utilizzare SSH Tunneling per accedere all'interfaccia utente Web Apache Ambari, a ResourceManager, JobHistory, NameNode, Oozie e ad altre interfacce utente Web](hdinsight-linux-ambari-ssh-tunnel.md) per creare un tunnel SSH dal sistema client al cluster HDInsight e quindi configurare il browser Web per usare il tunnel SSH come proxy.
 
-1. Usare il [comando ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERname con il nome del cluster e quindi immettere il comando:
+1. Usare [il comando ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERNAME con il nome del cluster, quindi immettere il comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -81,26 +81,26 @@ Il tunneling SSH è il solo modo di accedere a Hue nel cluster una volta che è 
    > [!NOTE]  
    > Quando si accede per la prima volta, viene richiesto di creare un account per l'accesso al portale Hue. Le credenziali specificate saranno limitate al portale e non sono correlate alle credenziali amministratore o utente SSH specificate durante il provisioning del cluster.
 
-    ![Finestra di accesso del portale di Hue HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-login.png "Specificare le credenziali per il portale Hue")
+    ![Finestra di accesso al portale di hue HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-login.png "Specificare le credenziali per il portale Hue")
 
 ### <a name="run-a-hive-query"></a>Eseguire una query Hive
 
-1. Dal portale di Hue selezionare **editor di query**e quindi selezionare **hive** per aprire l'editor hive.
+1. Nel portale Tonalità selezionare **Editor di query**e quindi **Hive** per aprire l'editor Hive.
 
-    ![HDInsight Hue Portal uso dell'editor hive](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png "Usare Hive")
+    ![Il portale di hue HDInsight usa l'editor hive](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png "Usare Hive")
 
 2. Nella scheda **Assist** (Assistenza) in **Database** dovrebbe essere visibile **hivesampletable**. Si tratta di una tabella di esempio inclusa in tutti i cluster Hadoop in HDInsight. Immettere una query di esempio nel riquadro destro e visualizzare l'output nella scheda **Risultati** nel riquadro sottostante, come illustrato nella schermata.
 
-    ![Query hive del portale di Hue HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png "Eseguire query Hive")
+    ![Query hive del portale di hue HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png "Eseguire query Hive")
 
     È anche possibile usare la scheda **Grafico** per vedere una rappresentazione visiva dei risultati.
 
 ### <a name="browse-the-cluster-storage"></a>Esplorare l'archiviazione cluster
 
-1. Dal portale di Hue selezionare **file browser** nell'angolo superiore destro della barra dei menu.
-2. Per impostazione predefinita, il browser file viene aperto in corrispondenza della directory **/user/myuser** . Selezionare la barra immediatamente prima della directory utente nel percorso per passare alla radice del contenitore di archiviazione di Azure associato al cluster.
+1. Dal portale Tonalità, selezionare **Browser file** nell'angolo in alto a destra della barra dei menu.
+2. Per impostazione predefinita, il browser file viene aperto in corrispondenza della directory **/user/myuser** . Selezionare la barra in avanti prima della directory utente nel percorso per passare alla radice del contenitore di archiviazione di Azure associato al cluster.
 
-    ![Browser file del portale di Hue HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png "Usare il browser file")
+    ![Browser di file del portale di hue HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png "Usare il browser file")
 
 3. Fare clic son il pulsante destro del mouse su un file o una cartella per visualizzare le operazioni disponibili. Usare il pulsante **Carica** nell'angolo destro per caricare i file nella directory corrente. Usare il pulsante **Nuovo** per creare nuovi file o directory.
 
@@ -119,7 +119,7 @@ Il tunneling SSH è il solo modo di accedere a Hue nel cluster una volta che è 
 
 1. Con i cluster Linux è possibile avere uno scenario in cui i servizi vengono eseguiti sul nodo head primario mentre Resource Manager potrebbe essere in esecuzione su quello secondario. Questo scenario potrebbe causare errori (illustrati di seguito) quando si usa Hue per visualizzare i dettagli dei processi IN ESECUZIONE nel cluster. I dettagli del processo possono tuttavia essere visualizzati dopo il completamento del processo.
 
-   ![Messaggio di esempio di errore nel portale di Hue](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png "Errore nel portale di Hue")
+   ![Messaggio di esempio di errore del portale di hute](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png "Errore nel portale di Hue")
 
    Questo è causato da un problema noto. Come soluzione alternativa, modificare Ambari in modo che anche l'istanza di Resource Manager attiva venga eseguita sul nodo head primario.
 

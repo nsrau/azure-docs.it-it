@@ -1,6 +1,6 @@
 ---
 title: Panoramica delle API di Hub eventi di Azure | Microsoft Docs
-description: Questo articolo fornisce una panoramica delle API disponibili (Runtime e gestione) per l'uso del servizio Hub eventi di Azure.
+description: Questo articolo offre una panoramica delle API disponibili (runtime e gestione) per l'uso del servizio Hub eventi di Azure.This article provides an overview of available APIs (runtime and management) for using the Azure Event Hubs service.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/02/2018
 ms.author: shvija
 ms.openlocfilehash: 08e10996f633d35ffbf946b61937a0e9a76f7227
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162226"
 ---
 # <a name="available-event-hubs-apis"></a>API di Hub eventi disponibili
@@ -33,8 +33,8 @@ Per altre informazioni sullo stato attuale di ogni libreria di runtime, vedere [
 
 | Linguaggio/Piattaforma | Pacchetto client | Pacchetto EventProcessorHost | Archivio |
 | --- | --- | --- | --- |
-| .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) | [GitHub](https://github.com/azure/azure-event-hubs-dotnet) |
-| .NET Framework | [NuGet](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) | N/D |
+| .NET Standard | [Nuget](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) | [Nuget](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) | [GitHub](https://github.com/azure/azure-event-hubs-dotnet) |
+| .NET Framework | [Nuget](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | [Nuget](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) | N/D |
 | Java | [Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22) | [Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22) | [GitHub](https://github.com/Azure/azure-event-hubs-java) |
 | Nodo | [NPM](https://www.npmjs.com/package/azure-event-hubs) | N/D | [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs) |
 | C | N/D | N/D | [GitHub](https://github.com/Azure/azure-event-hubs-c) |
@@ -47,7 +47,7 @@ L'ecosistema .NET include molteplici runtime. Per Hub eventi sono pertanto dispo
 
 #### <a name="node"></a>Nodo
 
-La [libreria JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs) è attualmente in fase di anteprima e viene gestita come un progetto lato da dipendenti Microsoft e collaboratori esterni. Tutti i contributi compreso il codice sorgente sono graditi e verranno presi in esame.
+La [libreria JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs) è attualmente in anteprima ed è gestita come progetto collaterale da dipendenti Microsoft e collaboratori esterni. Tutti i contributi compreso il codice sorgente sono graditi e verranno presi in esame.
 
 ## <a name="management-apis"></a>API di gestione
 
@@ -55,7 +55,7 @@ Nella tabella seguente sono elencate tutte le librerie specifiche per la gestion
 
 | Linguaggio/Piattaforma | Pacchetto di gestione | Archivio |
 | --- | --- | --- |
-| .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.EventHub) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/ResourceManagement/EventHub) |
+| .NET Standard | [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Management.EventHub) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/ResourceManagement/EventHub) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:

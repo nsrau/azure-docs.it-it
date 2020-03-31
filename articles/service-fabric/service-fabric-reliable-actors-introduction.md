@@ -1,18 +1,18 @@
 ---
-title: Panoramica di Reliable Actors in Service Fabric
-description: Introduzione al modello di programmazione Service Fabric Reliable Actors, in base al modello di attore virtuale.
+title: Panoramica di Service Fabric Reliable Actors
+description: Introduzione al modello di programmazione Service Fabric Reliable Actors, in base al modello Di attore virtuale.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: 6aafa2a3372c431f8afa7fad41051c26c3fe5fcd
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645566"
 ---
-# <a name="introduction-to-service-fabric-reliable-actors"></a>Introduzione a Reliable Actors in Service Fabric
+# <a name="introduction-to-service-fabric-reliable-actors"></a>Introduzione a Service Fabric Reliable Actors
 Reliable Actors è un framework di applicazione Service Fabric basato sul criterio [Actor virtuale](https://research.microsoft.com/en-us/projects/orleans/). L'API Reliable Actors offre un modello di programmazione a thread singolo basato sulle garanzie di affidabilità e scalabilità offerte da Service Fabric.
 
 ## <a name="what-are-actors"></a>Che cosa sono gli attori?

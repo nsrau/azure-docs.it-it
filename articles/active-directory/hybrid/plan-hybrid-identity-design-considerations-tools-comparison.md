@@ -1,5 +1,5 @@
 ---
-title: 'Soluzione ibrida di gestione delle identità: confronto degli strumenti di integrazione directory | Microsoft Docs'
+title: Confronto degli strumenti di integrazione directory per la soluzione ibrida di gestione delle identità | Microsoft Docs
 description: Questa pagina contiene tabelle complete che confrontano i vari strumenti che possono essere usati per l'integrazione directory.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aed01ea11c1f53cb090d9c2e65ee23f521575649
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60456918"
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>Confronto degli strumenti di integrazione directory per la soluzione ibrida di gestione delle identità
@@ -28,7 +28,7 @@ Nel corso degli anni gli strumenti di integrazione di directory sono aumentati e
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
 > [!NOTE]
-> Azure AD Connect include i componenti e le funzionalità resi disponibili in precedenza come DirSync e AAD Sync. Questi strumenti non vengono più resi disponibili singolarmente e tutti i miglioramenti futuri verranno inclusi negli aggiornamenti per Azure AD Connect, in modo da poter individuare sempre da dove ottenere la funzionalità più aggiornata.
+> Azure AD Connect incorpora i componenti e le funzionalità rilasciati in precedenza come Dirsync e AAD Sync. Questi strumenti non vengono più rilasciati singolarmente e tutti i miglioramenti futuri verranno inclusi negli aggiornamenti di Azure AD Connect, in modo da sapere sempre dove ottenere le funzionalità più recenti.
 > 
 > DirSync e Azure AD Sync sono funzionalità deprecate. Altre informazioni sono disponibili [qui](reference-connect-dirsync-deprecated.md).
 > 
@@ -55,7 +55,7 @@ AP = Anteprima pubblica
 | Supporto delle regole di sincronizzazione FIM e dei connettori per il provisioning ai sistemi locali. | | | |● |● |
 
  
-&#42; Attualmente, sono supportate due opzioni.  Sono: 
+&#42; Attualmente, sono supportate due opzioni.  ovvero: 
 
    1. È possibile usare il connettore LDAP generico e abilitarlo all'esterno di Azure AD Connect.  Questa opzione è complessa e richiede un partner per l'onboarding e un contratto di supporto tecnico Premier per la gestione.  Questa opzione consente di gestire directory LDAP singole o multiple. 
 

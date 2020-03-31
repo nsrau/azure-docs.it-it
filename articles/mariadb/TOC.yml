@@ -63,6 +63,8 @@
           href: concepts-data-access-security-private-link.md
         - name: Advanced Threat Protection
           href: concepts-data-access-and-security-threat-protection.md
+        - name: Baseline di sicurezza
+          href: security-baseline.md
     - name: Continuità aziendale
       items:
         - name: Introduzione alla continuità aziendale
@@ -138,6 +140,10 @@
           href: howto-auto-grow-storage-portal.md
         - name: Interfaccia della riga di comando di Azure
           href: howto-auto-grow-storage-cli.md
+    - name: Negare l'accesso alla rete pubblica
+      items:
+        - name: Portale di Azure
+          href: howto-deny-public-network-access.md
     - name: Accesso ai log server
       items:
         - name: Log query lente
@@ -190,7 +196,7 @@
           href: howto-restart-server-portal.md
         - name: Interfaccia della riga di comando di Azure
           href: howto-restart-server-cli.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/mariadb

@@ -15,12 +15,12 @@
       href: quick-backup-vm-powershell.md
     - name: Eseguire il backup di una macchina virtuale - Interfaccia della riga di comando
       href: quick-backup-vm-cli.md
-    - name: Eseguire il backup di una macchina virtuale - Modello di Resource Manager
-      displayName: ARM
+    - name: Eseguire il backup di una VM - Modello di Resource Manager
+      displayName: Resource Manager
       href: quick-backup-vm-template.md
 - name: Esercitazioni
   items:
-    - name: Eseguire un backup delle macchine virtuali di Azure su larga scala
+    - name: Eseguire il backup di più macchine virtuali di Azure
       href: tutorial-backup-vm-at-scale.md
     - name: Eseguire il backup di macchine virtuali di Azure con PowerShell
       href: tutorial-backup-azure-vm.md
@@ -58,6 +58,8 @@
           href: backup-support-matrix-mabs-dpm.md
         - name: Matrice di supporto per l'agente MARS
           href: backup-support-matrix-mars-agent.md
+        - name: Matrice di supporto per il backup di SQL Server
+          href: sql-support-matrix.md
         - name: Matrice di supporto del backup di SAP HANA
           href: sap-hana-backup-support-matrix.md
         - name: SKU di macchine virtuali supportate per Criteri di Azure

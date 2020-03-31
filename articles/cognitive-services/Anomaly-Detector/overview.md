@@ -10,14 +10,16 @@ ms.subservice: anomaly-detector
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 05ed7903cafbb265f23ba74a24ee0498be0effe9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9237e670dd8d43c4036f996c477948944718e3aa
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448978"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80053705"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Cos'è l'API Rilevamento anomalie?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 L'API Rilevamento anomalie permette di monitorare e rilevare le anomalie nei dati di serie temporali con l'apprendimento automatico. L'API Rilevamento anomalie si adatta identificando e applicando automaticamente i modelli di mapping più appropriati ai dati, indipendentemente dal settore, dallo scenario o dal volume. Usando i dati di serie temporali, l'API determina i limiti per il rilevamento di anomalie, i valori previsti e quali punti dati sono anomalie.
 
@@ -27,7 +29,7 @@ L'uso del Rilevamento anomalie non richiede alcuna esperienza precedente in appr
 
 ## <a name="features"></a>Funzionalità
 
-Con il Rilevamento anomalie è possibile rilevare automaticamente le anomalie in tutti i dati di serie temporali, o appena si verificano in tempo reale. 
+Con il Rilevamento anomalie è possibile rilevare automaticamente le anomalie in tutti i dati di serie temporali, o appena si verificano in tempo reale.
 
 |Funzionalità  |Descrizione  |
 |---------|---------|
@@ -52,7 +54,7 @@ Per eseguire il notebook, seguire questa procedura:
 1. Prima di completare l'operazione di clonazione, deselezionare l'opzione "Public" (Pubblico) nella finestra di dialogo. In caso contrario, il notebook, incluse le chiavi di sottoscrizione, sarà pubblico.
 1. Fare clic su **Run on free compute** (Esegui in ambiente di calcolo gratuito)
 1. Selezionare uno dei notebook.
-1. Aggiungere una chiave di sottoscrizione valida dell'API Rilevamento anomalie alla variabile `subscription_key`. 
+1. Aggiungere una chiave di sottoscrizione valida dell'API Rilevamento anomalie alla variabile `subscription_key`.
 1. Modificare la variabile `endpoint` in modo nel proprio endpoint. Ad esempio: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
 1. Nella barra dei menu superiore fare clic su **Cell** (Cella) quindi su **Run All** (Esegui tutto).
 

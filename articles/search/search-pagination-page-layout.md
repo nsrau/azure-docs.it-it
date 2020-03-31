@@ -1,34 +1,34 @@
 ---
-title: Come usare i risultati della ricerca
+title: Come utilizzare i risultati della ricerca
 titleSuffix: Azure Cognitive Search
-description: Strutturare e ordinare i risultati della ricerca, ottenere un numero di documenti e aggiungere l'esplorazione del contenuto ai risultati della ricerca in Azure ricerca cognitiva.
+description: Strutturare e ordinare i risultati della ricerca, ottenere un numero di documenti e aggiungere l'esplorazione del contenuto per la ricerca nei risultati di Ricerca cognitiva di Azure.Structure and sort search results, get a document count, and add content navigation to search results in Azure Cognitive Search.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/24/2020
-ms.openlocfilehash: e83ecb3888ed4b19933233f3ab511d1e86fb37af
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: 124f1ce3d30ce87d5e9d8fa027e5a7d6c0b3cb17
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79136991"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481603"
 ---
-# <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Come usare i risultati della ricerca in Azure ricerca cognitiva
-In questo articolo vengono fornite indicazioni su come implementare elementi standard di una pagina di risultati della ricerca, ad esempio i conteggi totali, il recupero di documenti, i criteri di ordinamento e l'esplorazione. Le opzioni relative alla pagina che forniscono dati o informazioni ai risultati della ricerca vengono specificate tramite le richieste di [documenti di ricerca](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) inviate al servizio ricerca cognitiva di Azure. 
+# <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Come usare i risultati della ricerca in Ricerca cognitiva di AzureHow to work with search results in Azure Cognitive Search
+In questo articolo vengono fornite indicazioni su come implementare elementi standard di una pagina di risultati della ricerca, ad esempio i conteggi totali, il recupero di documenti, i criteri di ordinamento e l'esplorazione. Le opzioni correlate alle pagine che contribuiscono con dati o informazioni ai risultati della ricerca vengono specificate tramite le richieste di documenti di ricerca inviate al servizio Ricerca cognitiva di Azure.Page-related options that contribute data or information to your search results are specified through the [Search Document](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) requests sent to your Azure Cognitive Search service. 
 
 Nell'API REST le richieste includono un comando GET, un percorso e parametri di query che indicano al servizio quali elementi sono richiesti e come formulare la risposta. In .NET SDK l'API equivalente è [DocumentSearchResult Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1).
 
-Per generare rapidamente una pagina di ricerca per il client, esplorare le opzioni seguenti:
+Per generare rapidamente una pagina di ricerca per il cliente, esplorare queste opzioni:To quickly generate a search page for your client, explore these options:
 
-+ Usare il [Generatore di applicazioni](search-create-app-portal.md) nel portale per creare una pagina HTML con una barra di ricerca, l'esplorazione in base a facet e l'area dei risultati.
-+ Per creare un client funzionale, seguire l'esercitazione [creare la prima app in C# ](tutorial-csharp-create-first-app.md) .
++ Utilizzare il generatore di [applicazioni](search-create-app-portal.md) nel portale per creare una pagina HTML con una barra di ricerca, un'esplorazione in base a facet e un'area dei risultati.
++ Seguire [l'esercitazione Creare la prima app in C 'C'è](tutorial-csharp-create-first-app.md) per creare un client funzionale.
 
-Alcuni esempi di codice includono un'interfaccia front-end Web, disponibile qui: [app demo di New York City Jobs](https://aka.ms/azjobsdemo), [codice di esempio JavaScript con un sito demo live](https://github.com/liamca/azure-search-javascript-samples)e [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
+Diversi esempi di codice includono un'interfaccia front-end Web, che è possibile trovare qui: [New York City Jobs app demo](https://aka.ms/azjobsdemo), codice di esempio [JavaScript con un sito demo dal vivo](https://github.com/liamca/azure-search-javascript-samples)e [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
-> Una richiesta valida include diversi elementi, ad esempio URL e percorso del servizio, verbo HTTP, `api-version`, e così via. Per brevità, gli esempi sono stati tagliati in modo da evidenziare solo la sintassi rilevante per l'impaginazione. Per altre informazioni sulla sintassi della richiesta, vedere [API REST di Azure ricerca cognitiva](https://docs.microsoft.com/rest/api/searchservice).
+> Una richiesta valida include diversi elementi, ad esempio URL e percorso del servizio, verbo HTTP, `api-version`, e così via. Per brevità, gli esempi sono stati tagliati in modo da evidenziare solo la sintassi rilevante per l'impaginazione. Per altre informazioni sulla sintassi delle richieste, vedere API REST di Ricerca cognitiva di Azure.For more information about request syntax, see [Azure Cognitive Search REST APIs](https://docs.microsoft.com/rest/api/searchservice).
 >
 
 ## <a name="total-hits-and-page-counts"></a>Corrispondenze totali e conteggi delle pagine
@@ -37,7 +37,7 @@ La visualizzazione del numero totale di risultati ottenuti da una query e la res
 
 ![][1]
 
-In ricerca cognitiva di Azure è possibile usare i parametri `$count`, `$top`e `$skip` per restituire questi valori. Nell'esempio seguente viene illustrata una richiesta di esempio per il totale dei riscontri su un indice denominato "Online-Catalog", restituito come `@odata.count`:
+In Ricerca cognitiva di `$count` `$top`Azure `$skip` usare i parametri , e per restituire questi valori. L'esempio seguente mostra una richiesta di esempio per il totale degli `@odata.count`hit su un indice denominato "online-catalog", restituito come:
 
     GET /indexes/online-catalog/docs?$count=true
 
@@ -59,7 +59,7 @@ In una pagina di risultati della ricerca, è possibile visualizzare un'immagine 
 
  ![][2]
 
-In Azure ricerca cognitiva è possibile usare `$select` e una [richiesta dell'API di ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents) per implementare questa esperienza.
+In Ricerca cognitiva di `$select` Azure usare una [richiesta dell'API di ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents) per implementare questa esperienza.
 
 Per restituire un sottoinsieme di campi per un layout affiancato:
 
@@ -77,7 +77,7 @@ In genere per impostazione predefinita i risultati vengono ordinati per pertinen
 
  ![][3]
 
-In ricerca cognitiva di Azure, l'ordinamento è basato sull'espressione `$orderby`, per tutti i campi indicizzati come `"Sortable": true.` una clausola `$orderby` è un'espressione OData. Per informazioni sulla sintassi, vedere [Sintassi delle espressioni OData filter e order-by](query-odata-filter-orderby-syntax.md).
+In Ricerca cognitiva di Azure `$orderby` l'ordinamento è basato `"Sortable": true.` `$orderby` sull'espressione, per tutti i campi indicizzati come clausola An, un'espressione OData.In Azure Cognitive Search, sorting is based on the expression, for all fields that are indexed as An clause is an OData expression. Per informazioni sulla sintassi, vedere [Sintassi delle espressioni OData filter e order-by](query-odata-filter-orderby-syntax.md).
 
 La pertinenza è fortemente associata ai profili di punteggio. È possibile utilizzare il punteggio predefinito, che si basa sull'analisi del testo e sulle statistiche, per ordinare tutti i risultati, con punteggi più alti ai documenti che contengono più corrispondenze o corrispondenze migliori con un termine di ricerca.
 
@@ -90,14 +90,14 @@ Creare un metodo che accetta l'opzione di ordinamento selezionata come input e r
  ![][5]
 
 > [!NOTE]
-> Mentre l'assegnazione del punteggio predefinita è sufficiente per molti scenari, è consigliabile invece basare la pertinenza su un profilo di punteggio personalizzato. Un profilo di punteggio personalizzato offre un modo per favorire gli elementi più vantaggiosi per l'azienda. Per altre informazioni, vedere [Aggiungere profili di punteggio a un indice di ricerca](index-add-scoring-profiles.md).
+> Mentre l'assegnazione del punteggio predefinita è sufficiente per molti scenari, è consigliabile invece basare la pertinenza su un profilo di punteggio personalizzato. Un profilo di punteggio personalizzato offre un modo per favorire gli elementi più vantaggiosi per l'azienda. Per altre informazioni, vedi Aggiungere profili di [punteggio.](index-add-scoring-profiles.md)
 >
 
 ## <a name="hit-highlighting"></a>Evidenziazione dei risultati
 
-È possibile applicare la formattazione ai termini corrispondenti nei risultati della ricerca, semplificando l'individuazione della corrispondenza. Nella [richiesta di query](https://docs.microsoft.com/rest/api/searchservice/search-documents)sono disponibili istruzioni per l'evidenziazione dei risultati. 
+Puoi applicare la formattazione ai termini corrispondenti nei risultati di ricerca, rendendo più semplice individuare la corrispondenza. Le istruzioni di evidenziazione dei risultati vengono fornite nella [richiesta di query.](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 
-La formattazione viene applicata alle query a termini interi. Le query su termini parziali, ad esempio la ricerca fuzzy o la ricerca con caratteri jolly che comportano l'espansione di query nel motore, non possono usare l'evidenziazione dei risultati.
+La formattazione viene applicata alle query a termine completo. Le query in base a termini parziali, ad esempio la ricerca fuzzy o la ricerca con caratteri jolly che generano l'espansione delle query nel motore, non possono utilizzare l'evidenziazione dei risultati.
 
 ```http
 POST /indexes/hotels/docs/search?api-version=2019-05-06 
@@ -107,28 +107,31 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
     }
 ```
 
-
+> [!IMPORTANT]
+> I servizi creati dopo il 15 luglio 2020 offriranno un'esperienza di evidenziazione diversa. I servizi creati prima di tale data non cambieranno nel loro comportamento di evidenziazione. Con questa modifica, verranno restituite solo le frasi che corrispondono alla query completa della frase. Inoltre, sarà possibile specificare la dimensione del frammento restituito per l'evidenziazione.
+>
+> Quando si scrive codice client che implementa l'evidenziazione dei risultati, tenere presente questa modifica. Si noti che questo non avrà alcun impatto su di voi a meno che non si crea un servizio di ricerca completamente nuovo.
 
 ## <a name="faceted-navigation"></a>Esplorazione in base a facet
 
-L’esplorazione di ricerca è comune in una pagina di risultati, che spesso si trova all'inizio di una pagina o sul lato. In ricerca cognitiva di Azure, l'esplorazione in base a facet fornisce la ricerca autonoma basata su filtri predefiniti. Per informazioni dettagliate, vedere [esplorazione in base a facet in Azure ricerca cognitiva](search-faceted-navigation.md) .
+L’esplorazione di ricerca è comune in una pagina di risultati, che spesso si trova all'inizio di una pagina o sul lato. In Ricerca cognitiva di Azure l'esplorazione in base a facet offre una ricerca automatica basata su filtri predefiniti. Per informazioni dettagliate, vedere [Esplorazione in base a facet in Ricerca cognitiva di Azure.See Faceted navigation in Azure Cognitive Search](search-faceted-navigation.md) for details.
 
 ## <a name="filters-at-the-page-level"></a>Filtri a livello di pagina
 
-Se la progettazione della soluzione include pagine di ricerca dedicate per tipi specifici di contenuto (ad esempio, un'applicazione per la vendita al dettaglio online con reparti elencati nella parte superiore della pagina), è possibile inserire un' [espressione di filtro](search-filters.md) insieme a un evento **OnClick** per aprire una pagina in uno stato pre-filtrato.
+Se la progettazione della soluzione include pagine di ricerca dedicate per tipi specifici di contenuto (ad esempio, un'applicazione di vendita al dettaglio online con reparti elencati nella parte superiore della pagina), è possibile inserire [un'espressione](search-filters.md) di filtro accanto a un evento **onClick** per aprire una pagina in uno stato prefiltrato.
 
 È possibile inviare un filtro con o senza espressione di ricerca. Ad esempio, la seguente richiesta filtrerà la marca, restituendo solo i documenti ad essa corrispondenti.
 
     GET /indexes/online-catalog/docs?$filter=brandname eq 'Microsoft' and category eq 'Games'
 
-Per altre informazioni sulle espressioni `$filter`, vedere [cercare documenti (API di Azure ricerca cognitiva)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) .
+Per altre informazioni sulle `$filter` espressioni, vedere Documenti di ricerca [(API Di Ricerca cognitiva](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) di Azure).
 
 ## <a name="see-also"></a>Vedere anche
 
 - [API REST di Ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice)
 - [Operazioni sugli indici](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
 - [Operazioni sui documenti](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
-- [Esplorazione in base a facet in Azure ricerca cognitiva](search-faceted-navigation.md)
+- [Esplorazione in base a facet in Ricerca cognitiva di AzureFaceted Navigation in Azure Cognitive Search](search-faceted-navigation.md)
 
 <!--Image references-->
 [1]: ./media/search-pagination-page-layout/Pages-1-Viewing1ofNResults.PNG

@@ -10,14 +10,16 @@ ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 02/21/2020
 ms.author: diberry
-ms.openlocfilehash: 91a63e87e937eab4c02d2b86026aa09472cb15ef
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 2863a086343b0a5d3bc69ae319dbe93d557bcb4a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561095"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80052917"
 ---
 # <a name="what-is-the-qna-maker-service"></a>Cos'è il servizio QnA Maker?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../../includes/cognitive-services-tls-announcement.md)]
 
 QnA Maker è un servizio NLP (Natural Language Processing) basato sul cloud che consente di creare facilmente un livello di conversazione naturale sui dati. Può essere usato per trovare la risposta più appropriata per qualsiasi tipo specifico di input in linguaggio naturale della knowledge base (KB) personalizzata di informazioni.
 

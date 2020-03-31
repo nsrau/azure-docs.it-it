@@ -1,56 +1,56 @@
 ---
-title: Creare e gestire Azure Cosmos DB con modelli di Gestione risorse
-description: Usare modelli di Azure Resource Manager per creare e configurare Azure Cosmos DB per l'API SQL (Core)
+title: Creare e gestire Azure Cosmos DB con i modelli di Resource ManagerCreate and manage Azure Cosmos DB with Resource Manager templates
+description: Usare i modelli di Azure Resource Manager per creare e configurare il database Cosmos di Azure per l'API SQL (Core)Use Azure Resource Manager templates to create and configure Azure Cosmos DB for SQL (Core) API
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
 ms.openlocfilehash: 72a87c3b23e0eed6cfbf1614388702443f4e99d0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251843"
 ---
-# <a name="manage-azure-cosmos-db-sql-core-api-resources-with-azure-resource-manager-templates"></a>Gestire Azure Cosmos DB risorse API SQL (Core) con modelli di Azure Resource Manager
+# <a name="manage-azure-cosmos-db-sql-core-api-resources-with-azure-resource-manager-templates"></a>Gestire le risorse API SQL (Core) del database di Azure Cosmos con i modelli di Azure Resource ManagerManage Azure Cosmos DB SQL (Core) API resources with Azure Resource Manager templates
 
 In questo articolo viene illustrato come usare i modelli di Azure Resource Manager per automatizzare la gestione degli account, dei database e dei contenitori di Azure Cosmos DB.
 
-Questo articolo illustra solo Azure Resource Manager esempi di modelli per gli account API SQL. È anche possibile trovare esempi di modelli per le API [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md)e [Table](manage-table-with-resource-manager.md) .
+Questo articolo mostra solo esempi di modelli di Azure Resource Manager per gli account API SQL. È inoltre possibile trovare esempi di modelli per le API [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md)e [Table](manage-table-with-resource-manager.md) .
 
 <a id="create-resource"></a>
 
-## <a name="create-an-azure-cosmos-account-database-and-container"></a>Creare un account, un database e un contenitore di Azure Cosmos
+## <a name="create-an-azure-cosmos-account-database-and-container"></a>Creare un account, un database e un contenitore di Azure CosmosCreate an Azure Cosmos account, database, and container
 
-Il modello di Azure Resource Manager seguente consente di creare un account Azure Cosmos con:
+Il modello di Azure Resource Manager seguente crea un account Azure Cosmos con:The following Azure Resource Manager template creates an Azure Cosmos account with:
 
-* Due contenitori che condividono la velocità effettiva di 400 unità richiesta al secondo (UR/sec) a livello di database.
-* Un contenitore con una velocità effettiva di 400 ur/sec dedicata.
+* Due contenitori che condividono 400 unità richieste al secondo (RU/s) a livello di database.
+* Un contenitore con velocità effettiva dedicata di 400 RU/s.
 
-Per creare le risorse di Azure Cosmos DB, copiare il modello di esempio seguente e distribuirlo come descritto tramite [PowerShell](#deploy-via-powershell) o l'interfaccia della riga di comando di [Azure](#deploy-via-azure-cli).
+Per creare le risorse del database Cosmos di Azure, copiare il modello di esempio seguente e distribuirlo come descritto, tramite [PowerShell](#deploy-via-powershell) o [l'interfaccia della riga di comando](#deploy-via-azure-cli)di Azure.
 
-* Facoltativamente, è possibile visitare la [raccolta di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/) e distribuire il modello dal portale di Azure.
-* È anche possibile scaricare il modello nel computer locale o creare un nuovo modello e specificare il percorso locale con il parametro `--template-file`.
+* Facoltativamente, è possibile visitare la raccolta di guide rapide di Azure e distribuire il modello dal portale di Azure.Optionally, you can visit the [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/) and deploy the template from the Azure portal.
+* È inoltre possibile scaricare il modello nel computer locale o creare `--template-file` un nuovo modello e specificare il percorso locale con il parametro .
 
 > [!IMPORTANT]
 >
-> * Quando si aggiungono o si rimuovono percorsi in un account Azure Cosmos, non è possibile modificare contemporaneamente altre proprietà. Queste operazioni devono essere eseguite separatamente.
+> * Quando si aggiungono o rimuovono posizioni a un account Cosmos di Azure, non è possibile modificare contemporaneamente altre proprietà. Queste operazioni devono essere eseguite separatamente.
 > * I nomi degli account sono limitati a 44 caratteri, tutti minuscoli.
-> * Per modificare i valori di velocità effettiva, inviare nuovamente il modello con ur/sec aggiornati.
+> * Per modificare i valori di velocità effettiva, inviare nuovamente il modello con RU/s aggiornati.
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json":::
 
 > [!NOTE]
-> Per creare un contenitore con una chiave di partizione di grandi dimensioni, modificare il modello precedente in modo da includere la proprietà `"version":2` all'interno dell'oggetto `partitionKey`.
+> Per creare un contenitore con chiave di partizione di grandi dimensioni, modificare il modello precedente per includere la `"version":2` proprietà all'interno dell'oggetto. `partitionKey`
 
-### <a name="deploy-via-powershell"></a>Eseguire la distribuzione tramite PowerShell
+### <a name="deploy-via-powershell"></a>Distribuire tramite PowerShellDeploy via PowerShell
 
-Per usare PowerShell per distribuire il modello di Azure Resource Manager:
+Per usare PowerShell per distribuire il modello di Azure Resource Manager:To use PowerShell to deploy the Azure Resource Manager template:
 
 1. **Copiare** lo script.
-2. Selezionare **prova** per aprire Azure cloud Shell.
-3. Fare clic con il pulsante destro del mouse nella finestra Azure Cloud Shell e quindi scegliere **Incolla**.
+2. Selezionare Prova per aprire Azure Cloud Shell.Select **Try it** to open Azure Cloud Shell.
+3. Fare clic con il pulsante destro del mouse nella finestra di Azure Cloud Shell e quindi **scegliere Incolla**.
 
 ```azurepowershell-interactive
 
@@ -84,15 +84,15 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
 ```
 
-È possibile scegliere di distribuire il modello con una versione installata localmente di PowerShell anziché Azure Cloud Shell. È necessario [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps). Eseguire `Get-Module -ListAvailable Az` per trovare la versione richiesta.
+È possibile scegliere di distribuire il modello con una versione di PowerShell installata localmente anziché Azure Cloud Shell.You can choose to deploy the template with a locally installed version of PowerShell instead of Azure Cloud Shell. È necessario [installare il modulo di Azure PowerShell](/powershell/azure/install-az-ps). Esegui `Get-Module -ListAvailable Az` per trovare la versione richiesta.
 
-### <a name="deploy-via-azure-cli"></a>Distribuire tramite l'interfaccia della riga di comando
+### <a name="deploy-via-azure-cli"></a>Distribuzione tramite l'interfaccia della riga di comando di AzureDeploy via
 
-Per usare l'interfaccia della riga di comando di Azure per distribuire il modello di Azure Resource Manager:
+Per usare l'interfaccia della riga di comando di Azure per distribuire il modello di Azure Resource Manager:To use Azure CLI to deploy the Azure Resource Manager template:
 
 1. **Copiare** lo script.
-2. Selezionare **prova** per aprire Azure cloud Shell.
-3. Fare clic con il pulsante destro del mouse nella finestra Azure Cloud Shell e quindi scegliere **Incolla**.
+2. Selezionare Prova per aprire Azure Cloud Shell.Select **Try it** to open Azure Cloud Shell.
+3. Fare clic con il pulsante destro del mouse nella finestra di Azure Cloud Shell e quindi **scegliere Incolla**.
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -123,28 +123,28 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-Il comando `az cosmosdb show` Mostra l'account Azure Cosmos appena creato dopo il provisioning. È invece possibile scegliere di distribuire il modello con una versione installata localmente dell'interfaccia della riga di comando di Azure Azure Cloud Shell. Per altre informazioni, vedere l'articolo dell' [interfaccia della riga di comando di Azure](/cli/azure/) .
+Il `az cosmosdb show` comando mostra l'account Azure Cosmos appena creato dopo il provisioning. È possibile scegliere di distribuire il modello con una versione installata localmente dell'interfaccia della riga di comando di Azure anziché con Azure Cloud Shell.You can choose to deploy the template with a locally installed version of Azure CLI instead Azure Cloud Shell. Per altre informazioni, vedere l'articolo Interfaccia della riga di comando di Azure.For more information, see the [Azure Command-Line Interface (CLI)](/cli/azure/) article.
 
 <a id="create-sproc"></a>
 
-## <a name="create-an-azure-cosmos-db-container-with-server-side-functionality"></a>Creare un contenitore Azure Cosmos DB con la funzionalità lato server
+## <a name="create-an-azure-cosmos-db-container-with-server-side-functionality"></a>Creare un contenitore di database Cosmos di Azure con funzionalità lato serverCreate an Azure Cosmos DB container with server-side functionality
 
-È possibile usare un modello di Azure Resource Manager per creare un contenitore Azure Cosmos DB con una stored procedure, un trigger e una funzione definita dall'utente.
+È possibile usare un modello di Azure Resource Manager per creare un contenitore di database Cosmos di Azure con una stored procedure, un trigger e una funzione definita dall'utente.
 
-Copiare il modello di esempio seguente e distribuirlo come descritto, tramite [PowerShell](#deploy-with-powershell) o l'interfaccia della riga di comando di [Azure](#deploy-with-azure-cli).
+Copiare il modello di esempio seguente e distribuirlo come descritto, con [PowerShell](#deploy-with-powershell) o [l'interfaccia della riga](#deploy-with-azure-cli)di comando di Azure.
 
-* Facoltativamente, è possibile visitare la [raccolta di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-sprocs/) e distribuire il modello dal portale di Azure.
-* È anche possibile scaricare il modello nel computer locale o creare un nuovo modello e specificare il percorso locale con il parametro `--template-file`.
+* Facoltativamente, è possibile visitare la raccolta di guide rapide di Azure e distribuire il modello dal portale di Azure.Optionally, you can visit [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-sprocs/) and deploy the template from the Azure portal.
+* È inoltre possibile scaricare il modello nel computer locale o creare `--template-file` un nuovo modello e specificare il percorso locale con il parametro .
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json":::
 
 ### <a name="deploy-with-powershell"></a>Eseguire la distribuzione con PowerShell
 
-Per usare PowerShell per distribuire il modello di Azure Resource Manager:
+Per usare PowerShell per distribuire il modello di Azure Resource Manager:To use PowerShell to deploy the Azure Resource Manager template:
 
 1. **Copiare** lo script.
-1. Selezionare **prova** per aprire Azure cloud Shell.
-1. Fare clic con il pulsante destro del mouse sulla finestra Azure Cloud Shell e quindi scegliere **Incolla**.
+1. Selezionare Prova per aprire Azure Cloud Shell.Select **Try it** to open Azure Cloud Shell.
+1. Fare clic con il pulsante destro del mouse sulla finestra di Azure Cloud Shell e quindi **scegliere Incolla**.
 
 ```azurepowershell-interactive
 
@@ -170,15 +170,15 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
 ```
 
-È possibile scegliere di distribuire il modello con una versione installata localmente di PowerShell anziché Azure Cloud Shell. È necessario [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps). Eseguire `Get-Module -ListAvailable Az` per trovare la versione richiesta.
+È possibile scegliere di distribuire il modello con una versione di PowerShell installata localmente anziché Azure Cloud Shell.You can choose to deploy the template with a locally installed version of PowerShell instead of Azure Cloud Shell. È necessario [installare il modulo di Azure PowerShell](/powershell/azure/install-az-ps). Esegui `Get-Module -ListAvailable Az` per trovare la versione richiesta.
 
 ### <a name="deploy-with-azure-cli"></a>Distribuire con l'interfaccia della riga di comando di Azure
 
-Per usare l'interfaccia della riga di comando di Azure per distribuire il modello di Azure Resource Manager:
+Per usare l'interfaccia della riga di comando di Azure per distribuire il modello di Azure Resource Manager:To use Azure CLI to deploy the Azure Resource Manager template:
 
 1. **Copiare** lo script.
-2. Selezionare **prova** per aprire Azure cloud Shell.
-3. Fare clic con il pulsante destro del mouse nella finestra Azure Cloud Shell e quindi scegliere **Incolla**.
+2. Selezionare Prova per aprire Azure Cloud Shell.Select **Try it** to open Azure Cloud Shell.
+3. Fare clic con il pulsante destro del mouse nella finestra di Azure Cloud Shell e quindi **scegliere Incolla**.
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -202,7 +202,7 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 
 Altre risorse:
 
-* [Documentazione di Azure Resource Manager](/azure/azure-resource-manager/)
-* [Schema del provider di risorse Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions)
-* [Modelli di avvio rapido Azure Cosmos DB](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb&pageNumber=1&sort=Popular)
-* [Risolvere gli errori comuni di distribuzione di Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md)
+* [Documentazione di Azure Resource ManagerAzure Resource Manager documentation](/azure/azure-resource-manager/)
+* [Schema del provider di risorse Azure Cosmos DBAzure Cosmos DB resource provider schema](/azure/templates/microsoft.documentdb/allversions)
+* [Modelli di guida introduttiva di Azure Cosmos DBAzure Cosmos DB Quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb&pageNumber=1&sort=Popular)
+* [Risolvere gli errori comuni di distribuzione di Azure Resource ManagerTroubleshoot common Azure Resource Manager deployment errors](../azure-resource-manager/templates/common-deployment-errors.md)

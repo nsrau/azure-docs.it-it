@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
 ms.openlocfilehash: f7edbd0fd8791829a2d9ffaa4e7c0ee0e561cc5d
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73748980"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Passare credenziali al gestore estensione DSC di Azure
@@ -60,7 +60,7 @@ configuration Main
 }
 ```
 
-È importante includere **node localhost** come parte della configurazione. Il gestore estensione cerca specificatamente l'estensione **localhost nodo**. Se l'istruzione manca, la procedura seguente non funziona. È anche importante includere il cast di tipo **[PsCredential]** . Questo tipo specifico attiva l'estensione per crittografare le credenziali.
+È importante includere **node localhost** come parte della configurazione. Il gestore estensione cerca specificatamente l'estensione **localhost nodo**. Se l'istruzione manca, la procedura seguente non funziona. È anche importante includere il cast di tipo **[PsCredential]**. Questo tipo specifico attiva l'estensione per crittografare le credenziali.
 
 Pubblicare questo script nell'archivio BLOB di Azure:
 
@@ -83,7 +83,7 @@ $vm | Update-AzVM
 
 Durante l'esecuzione del codice viene chiesta una credenziale. Dopo che la credenziale viene fornita, viene archiviata per un breve periodo di tempo in memoria. Quando la credenziale viene pubblicata tramite il cmdlet **Set-AzVMDscExtension**, viene trasmessa tramite HTTPS alla macchina virtuale. Nella macchina virtuale, Azure archivia le credenziali crittografate su disco usando il certificato della macchina virtuale locale. La credenziale viene brevemente decrittografata nella memoria e quindi nuovamente crittografata per essere passata a DSC.
 
-Questo processo è diverso dall' [uso di configurazioni sicure senza il gestore dell'estensione](/powershell/scripting/dsc/pull-server/securemof). L'ambiente di Azure offre un modo per trasmettere i dati di configurazione in maniera sicura tramite certificati. Quando si usa il gestore dell'estensione DSC, non è necessario fornire **$CertificatePath** o una voce **$CertificateID**/  **$Thumbprint** in **ConfigurationData**.
+Questo processo è diverso dall' [uso di configurazioni sicure senza il gestore dell'estensione](/powershell/scripting/dsc/pull-server/securemof). L'ambiente di Azure offre un modo per trasmettere i dati di configurazione in maniera sicura tramite certificati. Quando si usa il gestore dell'estensione DSC, non è necessario fornire **$CertificatePath** o una voce **$CertificateID**/ **$Thumbprint** in **ConfigurationData**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

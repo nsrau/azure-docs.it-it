@@ -8,10 +8,10 @@ ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
 ms.openlocfilehash: bb94d3596fde541f16edd1b7012f57b89ebf52eb
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670866"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analisi delle tendenze in Visual Studio
@@ -56,7 +56,7 @@ Usare i controlli nella parte superiore della finestra per modificare i tipi di 
 * **Intervallo di tempo** : qualsiasi intervallo dagli ultimi 30 minuti agli ultimi 3 giorni
 * **Raggruppa per** : tipo di eccezione, ID problema, paese/area geografica e altro ancora
 
-Fare quindi clic su **Analizza telemetria** per eseguire la query.
+Quindi, fare clic su **Analizza telemetria** per eseguire la query.
 
 Per esplorare le bolle nella visualizzazione:
 
@@ -70,7 +70,7 @@ Per esplorare le bolle nella visualizzazione:
 > 
 
 ## <a name="filter"></a>Filtro
-I controlli di filtro nella parte inferiore della finestra consentono di individuare tendenze più specifiche. Per applicare un filtro, fare clic sul relativo nome. È possibile passare rapidamente da un filtro all'altro per individuare tendenze eventualmente nascoste in una determinata dimensione della telemetria. Se si applica un filtro in una dimensione, ad esempio tipo di eccezione, i filtri nelle altre dimensioni rimangono selezionabili anche se visualizzati in grigio. Per annullare l'applicazione di un filtro, fare di nuovo clic su di esso. Fare clic tenendo premuto CTRL per selezionare più filtri nella stessa dimensione.
+I controlli di filtro nella parte inferiore della finestra consentono di individuare tendenze più specifiche. Per applicare un filtro, fare clic sul relativo nome. È possibile passare rapidamente da un filtro all'altro per individuare tendenze eventualmente nascoste in una determinata dimensione della telemetria. Se si applica un filtro in una dimensione, ad esempio Tipo di eccezione, i filtri in altre dimensioni rimangono selezionabili anche se appaiono in grigio. Per annullare l'applicazione di un filtro, fare di nuovo clic su di esso. Fare clic tenendo premuto CTRL per selezionare più filtri nella stessa dimensione.
 
 ![Filtri delle tendenze](./media/visual-studio-trends/TrendsFiltering-750.png)
 
@@ -86,7 +86,7 @@ Per annullare l'applicazione di uno di questi filtri, fare clic sul pulsante **R
 ![Filtri multipli](./media/visual-studio-trends/TrendsFiltering2-750.png)
 
 ## <a name="find-anomalies"></a>Trovare le anomalie
-Lo strumento Tendenze consente di evidenziare bolle di eventi che presentano anomalie rispetto ad altre bolle nella stessa serie temporale. Nell'elenco a discesa Tipo di visualizzazione scegliere **Conteggi nell'intervallo di tempo (evidenziazione delle anomalie)** o **Percentuali nell'intervallo di tempo (evidenziazione delle anomalie)** . Le bolle di colore rosso sono anomale. Si definiscono anomalie le bolle con conteggi/percentuali che superano di 2,1 volte la deviazione standard dei conteggi o delle percentuali negli ultimi due intervalli di tempo (48 ore se si visualizzano le ultime 24 ore e così via).
+Lo strumento Tendenze consente di evidenziare bolle di eventi che presentano anomalie rispetto ad altre bolle nella stessa serie temporale. Nell'elenco a discesa Tipo di visualizzazione scegliere **Conteggi nell'intervallo di tempo (evidenziazione delle anomalie)** o **Percentuali nell'intervallo di tempo (evidenziazione delle anomalie)**. Le bolle di colore rosso sono anomale. Si definiscono anomalie le bolle con conteggi/percentuali che superano di 2,1 volte la deviazione standard dei conteggi o delle percentuali negli ultimi due intervalli di tempo (48 ore se si visualizzano le ultime 24 ore e così via).
 
 ![I punti colorati indicano anomalie](./media/visual-studio-trends/TrendsAnomalies-750.png)
 
@@ -95,7 +95,7 @@ Lo strumento Tendenze consente di evidenziare bolle di eventi che presentano ano
 > 
 > 
 
-## <a name="next"></a>Passaggi successivi
+## <a name="next-steps"></a><a name="next"></a>Passaggi successivi
 |  |  |
 | --- | --- |
 | **[Uso di Application Insights in Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Ricerca sui dati di telemetria, visualizzazione dei dati in CodeLens e configurazione di Application Insights. Tutto in Visual Studio. |![Fare clic con il pulsante destro del mouse sul progetto e scegliere Application Insights, Cerca.](./media/visual-studio-trends/34.png) |

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Riconoscimento vocale da un microfono - Servizio Voce'
+title: 'Guida introduttiva: Riconoscimento vocale da un microfono - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido si userà Speech SDK per riconoscere in modo interattivo i dati audio acquisiti da un microfono.
 services: cognitive-services
@@ -12,13 +12,13 @@ ms.date: 02/10/2020
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: eb02f273e66266b1e445df73aea61610640e9868
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77119534"
 ---
-# <a name="quickstart-recognize-speech-from-a-microphone"></a>Avvio rapido: Riconoscimento vocale da un microfono
+# <a name="quickstart-recognize-speech-from-a-microphone"></a>Guida introduttiva: Riconoscimento vocale da un microfono
 
 ::: zone pivot="programming-language-csharp"
 
