@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f23b20d460952ae582c292c8015851b9dc2ea98
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7047dfd0f02ffe95dcacfdf4ddc014047a338513
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108168"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79481195"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Uso di Azure AD Application Proxy per pubblicare app locali per gli utenti remoti
 
@@ -122,7 +122,7 @@ Un altro vantaggio importante offerto dall'implementazione di Application Proxy 
 
 Per altre informazioni sulla migrazione delle app ad Azure AD, vedere il white paper [Migrazione delle applicazioni ad Azure Active Directory](https://aka.ms/migrateapps/whitepaper).
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
 Il diagramma seguente illustra in generale come i servizi di autenticazione di Azure AD interagiscono con Application Proxy per offrire agli utenti finali l'accesso Single Sign-On alle applicazioni locali.
 
@@ -145,7 +145,7 @@ Il diagramma seguente illustra in generale come i servizi di autenticazione di A
 |Active Directory (AD)|Active Directory viene eseguito in locale per eseguire l'autenticazione per gli account di dominio. Quando si configura l'accesso Single Sign-On, il connettore comunica con AD per eseguire eventuali autenticazioni aggiuntive necessarie.|
 |Applicazione locale|Infine, l'utente è in grado di accedere a un'applicazione locale.|
 
-Azure AD Application Proxy è costituito dal servizio Application Proxy basato sul cloud e da un connettore locale. Il connettore rimane in ascolto delle richieste provenienti dal servizio Application Proxy e gestisce le connessioni verso le applicazioni interne. È importante notare che tutte le comunicazioni avvengono su SSL, hanno sempre origine dal connettore e sono indirizzate al servizio Application Proxy. In altre parole, le comunicazioni sono solo in uscita. Il connettore usa un certificato client per l'autenticazione al servizio Application Proxy per tutte le chiamate. L'unica eccezione alla sicurezza della connessione è data dal passaggio di configurazione iniziale in cui viene stabilito il certificato client. Per altri dettagli, vedere le informazioni sul funzionamento [dietro le quinte](application-proxy-security.md#under-the-hood) di Application Proxy.
+Azure AD Application Proxy è costituito dal servizio Application Proxy basato sul cloud e da un connettore locale. Il connettore rimane in ascolto delle richieste provenienti dal servizio Application Proxy e gestisce le connessioni verso le applicazioni interne. È importante notare che tutte le comunicazioni avvengono tramite TLS, hanno sempre origine dal connettore e sono indirizzate al servizio Application Proxy. In altre parole, le comunicazioni sono solo in uscita. Il connettore usa un certificato client per l'autenticazione al servizio Application Proxy per tutte le chiamate. L'unica eccezione alla sicurezza della connessione è data dal passaggio di configurazione iniziale in cui viene stabilito il certificato client. Per altri dettagli, vedere le informazioni sul funzionamento [dietro le quinte](application-proxy-security.md#under-the-hood) di Application Proxy.
 
 ### <a name="application-proxy-connectors"></a>Connettori di Application Proxy
 
@@ -180,10 +180,10 @@ Per altre informazioni sulla scelta della posizione dei connettori e sull'ottimi
 
 ## <a name="other-use-cases"></a>Altri casi d'uso
 
-Fino a questo momento, la discussione si è concentrata sull'uso di Application Proxy per la pubblicazione di app locali all'esterno della rete, con abilitazione dell'accesso Single Sign-On a tutte le app cloud e locali. È tuttavia opportuno citare altri casi d'uso di Application Proxy, tra cui:
+Fino a questo momento, la discussione si è concentrata sull'uso di Application Proxy per la pubblicazione di app locali all'esterno della rete, con abilitazione dell'accesso Single Sign-On a tutte le app cloud e locali. È tuttavia opportuno citare altri casi d'uso di Application Proxy, Tali impostazioni includono:
 
 * **Pubblicazione sicura di API REST**. Quando si dispone di logica di business o API eseguite in locale o ospitate su macchine virtuali nel cloud, Application Proxy offre un endpoint pubblico per l'accesso alle API. L'accesso alle API tramite l'endpoint consente di controllare l'autenticazione e l'autorizzazione senza richiedere porte in ingresso. Offre inoltre maggiore sicurezza grazie alle funzionalità di Azure AD Premium, ad esempio l'autenticazione a più fattori e l'accesso condizionale basato su dispositivo per computer desktop e dispositivi iOS, Mac e Android tramite Intune. Per altre informazioni, vedere [Come abilitare le applicazioni client native per l'interazione con applicazioni proxy](application-proxy-configure-native-client-application.md) e [Proteggere un'API usando OAuth 2.0 con Azure Active Directory e Gestione API](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad).
-* **Servizi Desktop** **remoto**. Le distribuzioni standard di Servizi Desktop remoto richiedono connessioni in ingresso aperte, mentre la [distribuzione di Servizi Desktop remoto con Application Proxy](application-proxy-integrate-with-remote-desktop-services.md) dispone di una connessione in uscita permanente dal server che esegue il servizio connettore. In questo modo, è possibile offrire un maggior numero di applicazioni agli utenti finali pubblicando le applicazioni locali attraverso Servizi Desktop remoto. È inoltre possibile ridurre la superficie di attacco della distribuzione con un set limitato di controlli di verifica in due passaggi e di Accesso Condizionale per Servizi Desktop remoto.
+* **Servizi Desktop remoto**. **(RDS)** . Le distribuzioni standard di Servizi Desktop remoto richiedono connessioni in ingresso aperte, mentre la [distribuzione di Servizi Desktop remoto con Application Proxy](application-proxy-integrate-with-remote-desktop-services.md) dispone di una connessione in uscita permanente dal server che esegue il servizio connettore. In questo modo, è possibile offrire un maggior numero di applicazioni agli utenti finali pubblicando le applicazioni locali attraverso Servizi Desktop remoto. È inoltre possibile ridurre la superficie di attacco della distribuzione con un set limitato di controlli di verifica in due passaggi e di Accesso Condizionale per Servizi Desktop remoto.
 * **Pubblicazione di applicazioni che si connettono tramite WebSocket**. Il supporto con [Qlik Sense](application-proxy-qlik.md) è in anteprima pubblica e verrà esteso ad altre app in futuro.
 * **Abilitazione di applicazioni client native per l'interazione con le applicazioni proxy**. Oltre che per la pubblicazione di app Web, è possibile usare Azure AD Application Proxy per pubblicare [applicazioni client native](application-proxy-configure-native-client-application.md) configurate con Azure AD Authentication Library (ADAL). Le applicazioni client native si differenziano dalle app Web perché vengono installate in un dispositivo, mentre le app Web sono accessibili tramite un browser.
 
