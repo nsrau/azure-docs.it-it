@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: 1ddbc8e909c5ba0b720e893e87c0f495d256a886
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c7b38ad40977e1042032210d3a82a73ff6169adc
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279156"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411052"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Back-end health and diagnostic logs for Application Gateway
 
@@ -91,14 +91,14 @@ Il frammento seguente illustra un esempio della risposta:
 }
 ```
 
-## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Registri diagnostici
+## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Log di diagnostica
 
 In Azure è possibile usare diversi tipi di log per gestire e risolvere i problemi dei gateway applicazione. Alcuni di questi log sono accessibili tramite il portale. Tutti i log possono essere estratti dall'archiviazione BLOB di Azure e visualizzati in strumenti diversi, ad esempio i [log di Monitoraggio di Azure](../azure-monitor/insights/azure-networking-analytics.md), Excel e Power BI. L'elenco seguente contiene altre informazioni sui diversi tipi di log:
 
 * **Log attività**: è possibile usare i [log attività di Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md), chiamati in precedenza log operativi e log di controllo, per visualizzare tutte le operazioni inviate alla sottoscrizione di Azure e il relativo stato. Le voci dei log attività vengono raccolte per impostazione predefinita e possono essere visualizzate nel portale di Azure.
-* **Registro di accesso**: È possibile utilizzare questo registro per visualizzare i modelli di accesso del gateway applicazione e analizzare le informazioni importanti. Sono inclusi l'indirizzo IP del chiamante, l'URL richiesto, la latenza di risposta, il codice restituito e i byte in uscita e in uscita. Ogni 300 secondi viene raccolto un log di accesso. Il log contiene un record per ogni istanza del gateway applicazione. L'istanza del gateway applicazione può essere identificata dalla proprietà instanceId.
+* **Registro di accesso**: È possibile utilizzare questo registro per visualizzare i modelli di accesso del gateway applicazione e analizzare le informazioni importanti. Sono inclusi l'indirizzo IP del chiamante, l'URL richiesto, la latenza di risposta, il codice restituito e i byte in uscita e in uscita. Ogni 60 secondi viene raccolto un log di accesso. Il log contiene un record per ogni istanza del gateway applicazione. L'istanza del gateway applicazione può essere identificata dalla proprietà instanceId.
 * **Log delle prestazioni**: è possibile usare questo log per visualizzare le prestazioni delle istanze del gateway applicazione. Questo log acquisisce le informazioni sulle prestazioni di ogni istanza, inclusi il totale delle richieste servite, la velocità effettiva in byte, il totale delle richieste non riuscite e il numero delle istanze back-end integre e non integre. Il log delle prestazioni viene raccolto ogni 60 secondi. Il log delle prestazioni è disponibile solo per lo SKU v1. Per lo SKU v2, usare [le metriche](application-gateway-metrics.md) per i dati sulle prestazioni.
-* **Log del firewall**: è possibile usare questo log per visualizzare le richieste registrate tramite la modalità di rilevamento o prevenzione di un gateway applicazione configurato con il web application firewall.
+* **Log del firewall**: è possibile usare questo log per visualizzare le richieste registrate tramite la modalità di rilevamento o prevenzione di un gateway applicazione configurato con il web application firewall. I registri del firewall vengono raccolti ogni 60 secondi. 
 
 > [!NOTE]
 > I log sono disponibili solo per le risorse distribuite nel modello di distribuzione di Azure Resource Manager. Non è possibile usare i log per le risorse nel modello di distribuzione classica. Per altre informazioni sui due modelli, vedere le [informazioni sulla distribuzione di Resource Manager e la distribuzione classica](../azure-resource-manager/management/deployment-models.md).

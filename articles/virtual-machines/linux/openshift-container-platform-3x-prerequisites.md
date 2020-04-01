@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: b2b34a6fdf96613c5bc372e585598fabbe43d53d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8767a6ee6218223280ea6219e22540c53d1e89be
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80066618"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409127"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Prerequisiti comuni per la distribuzione di OpenShift Container Platform 3.11 in AzureCommon prerequisites for deploying OpenShift Container Platform 3.11 in Azure
 
@@ -143,15 +143,15 @@ Per altre informazioni sulle entità servizio, vedere [Creare un'entità servizi
 
 ## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Prerequisiti applicabili solo al modello di Resource ManagerPrerequisites applicable only to Resource Manager template
 
-Sarà necessario creare segreti per la chiave privata SSH (**sshPrivateKey**), il segreto client di Azure AD (**aadClientSecret**), la password di amministratore OpenShift (**openshiftPassword**) e la password o la chiave di attivazione di Red Hat Subscription Manager (**rhsmPasswordOrActivationKey**).  Inoltre, se vengono utilizzati certificati SSL personalizzati, sarà necessario creare sei segreti aggiuntivi: **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**e **masterkeyfile**.  Questi parametri saranno spiegati in modo più dettagliato.
+Sarà necessario creare segreti per la chiave privata SSH (**sshPrivateKey**), il segreto client di Azure AD (**aadClientSecret**), la password di amministratore OpenShift (**openshiftPassword**) e la password o la chiave di attivazione di Red Hat Subscription Manager (**rhsmPasswordOrActivationKey**).  Inoltre, se vengono utilizzati certificati TLS/SSL personalizzati, sarà necessario creare sei segreti aggiuntivi: **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**e **masterkeyfile**.  Questi parametri saranno spiegati in modo più dettagliato.
 
 Il modello fa riferimento a nomi di segreti specifici, pertanto è **necessario** utilizzare i nomi in grassetto elencati in precedenza (con distinzione tra maiuscole e minuscole).
 
 ### <a name="custom-certificates"></a>Certificati personalizzati
 
-Per impostazione predefinita, il modello distribuirà un cluster OpenShift utilizzando certificati autofirmati per la console Web OpenShift e il dominio di routing. Se si desidera utilizzare certificati SSL personalizzati, impostare 'routingCertType' su 'custom' e 'masterCertType' su 'custom'.  Per i certificati sono necessari i file CA, Cert e Key in formato .pem.  È possibile utilizzare certificati personalizzati per uno ma non per l'altro.
+Per impostazione predefinita, il modello distribuirà un cluster OpenShift utilizzando certificati autofirmati per la console Web OpenShift e il dominio di routing. Se si desidera utilizzare certificati TLS/SSL personalizzati, impostare 'routingCertType' su 'custom' e 'masterCertType' su 'custom'.  Per i certificati sono necessari i file CA, Cert e Key in formato .pem.  È possibile utilizzare certificati personalizzati per uno ma non per l'altro.
 
-È necessario archiviare questi file in segreti key Vault.  Utilizzare lo stesso insieme di credenziali delle chiavi utilizzato per la chiave privata.  Anziché richiedere 6 input aggiuntivi per i nomi dei segreti, il modello è hardcoded per utilizzare nomi segreti specifici per ognuno dei file di certificato SSL.  Archiviare i dati del certificato utilizzando le informazioni della tabella seguente.
+È necessario archiviare questi file in segreti key Vault.  Utilizzare lo stesso insieme di credenziali delle chiavi utilizzato per la chiave privata.  Anziché richiedere 6 input aggiuntivi per i nomi dei segreti, il modello è hardcoded per utilizzare nomi segreti specifici per ognuno dei file di certificato TLS/SSL.  Archiviare i dati del certificato utilizzando le informazioni della tabella seguente.
 
 | Nome segreto      | File del certificato   |
 |------------------|--------------------|

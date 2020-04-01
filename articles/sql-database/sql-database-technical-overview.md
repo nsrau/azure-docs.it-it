@@ -12,16 +12,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 209b4136678e6f04666b4a2b6180f4768bf6afc4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0d50ddbbeeaed48c14d07c42588efcbb20bb7d79
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500822"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411165"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Informazioni sul servizio database SQL di Azure
 
-Il database SQL di Azure è un database relazionale generico, fornito come servizio gestito. Con esso, è possibile creare un livello di archiviazione dati a disponibilità elevata e ad alte prestazioni per le applicazioni e le soluzioni in Azure.With it, you can create a highly available and high-performance data storage layer for the applications and solutions in Azure. Il database SQL può essere la scelta giusta per un'ampia gamma di applicazioni cloud moderne perché consente di elaborare sia dati relazionali che [strutture non relazionali,](sql-database-multi-model-features.md)ad esempio grafici, JSON, spaziali e XML.
+Il database SQL di Azure è un motore di database PaaS (Platform as a Service, Piattaforma distribuita come servizio) completamente gestito che si occupa della maggior parte delle funzioni di gestione del database, ad esempio l'aggiornamento, l'applicazione di patch, il backup e il monitoraggio, senza alcun coinvolgimento dell'utente. Il database SQL di Azure è sempre in esecuzione nella versione stabile più recente del motore di database di SQL Server e del sistema operativo con patch con disponibilità del 99,99%. Le funzionalità PaaS integrate nel database SQL di Azure consentono di concentrarsi sulle attività di amministrazione e ottimizzazione del database specifiche del dominio che sono fondamentali per l'azienda.
+
+Con il database SQL di Azure è possibile creare un livello di archiviazione dati a disponibilità elevata e ad alte prestazioni per le applicazioni e le soluzioni in Azure.With Azure SQL Database, you can create a highly available and high-performance data storage layer for the applications and solutions in Azure. Il database SQL può essere la scelta giusta per un'ampia gamma di applicazioni cloud moderne perché consente di elaborare sia dati relazionali che [strutture non relazionali,](sql-database-multi-model-features.md)ad esempio grafici, JSON, spaziali e XML.
 
 Si basa sull'ultima versione stabile del modulo di [gestione di database Microsoft SQL Server.](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json) È possibile utilizzare funzionalità avanzate di elaborazione delle query, ad esempio [tecnologie in memoria ad alte prestazioni](sql-database-in-memory.md) ed elaborazione intelligente delle [query.](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json) Infatti, le funzionalità più recenti di SQL Server vengono rilasciate prima al database SQL e quindi a SQL Server stesso. Si ottengono le funzionalità più recenti di SQL Server senza sovraccarico per l'applicazione di patch o l'aggiornamento, testate in milioni di database. 
 
@@ -68,7 +70,7 @@ Il database SQL offre i seguenti modelli di acquisto:
 Il database SQL di Azure offre tre livelli di servizio progettati per diversi tipi di applicazioni:Azure SQL Database offers three service tiers that are designed for different types of applications:
 - [Scopo generale/livello](sql-database-service-tier-general-purpose.md) di servizio Standard progettato per carichi di lavoro comuni. Offre opzioni di elaborazione e archiviazione bilanciate orientate al budget.
 - Livello di servizio [Business Critical/Premium](sql-database-service-tier-business-critical.md) progettato per applicazioni OLTP con un tasso di transazioni elevato e un I/O con latenza più bassa. Offre la massima resilienza agli errori utilizzando diverse repliche isolate.
-- Livello di servizio [Hyperscale](sql-database-service-tier-hyperscale.md) progettato per database OLTP di grandi dimensioni e la possibilità di ridimensionare automaticamente l'archiviazione e la scalabilità elaborazione in modo fluido.    
+- Livello di servizio [Hyperscale](sql-database-service-tier-hyperscale.md) progettato per database OLTP di grandi dimensioni e la possibilità di scalare automaticamente l'archiviazione e la scalabilità elaborazione in modo fluido.    
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>I pool elastici ottimizzano l'utilizzo delle risorse
 
@@ -107,11 +109,11 @@ Azure offre strumenti di monitoraggio e [avviso](sql-database-insights-alerts-po
 
 ## <a name="availability-capabilities"></a>Funzionalità per la disponibilità
 
-In un ambiente SQL Server tradizionale, in genere sono disponibili almeno due computer in locale. Queste macchine dispongono di copie esatte, gestite in modo sincrono, dei dati da proteggere da un guasto di un singolo computer o componente. Questo ambiente offre un'elevata disponibilità, ma non protegge da un disastro naturale che distrugge il data center.
+Il database SQL di Azure consente all'azienda di continuare a operare durante le interruzioni. In un ambiente SQL Server tradizionale, in genere sono disponibili almeno due computer in locale. Queste macchine dispongono di copie esatte, gestite in modo sincrono, dei dati da proteggere da un guasto di un singolo computer o componente. Questo ambiente offre un'elevata disponibilità, ma non protegge da un disastro naturale che distrugge il data center.
 
 Il ripristino di emergenza presuppone che un evento catastrofico sia sufficientemente localizzato geograficamente da avere un altro computer o un altro set di computer con una copia dei dati lontano. In SQL ServerSQL Server è possibile usare Gruppi di disponibilità AlwaysOnAlways On Availability Groups in esecuzione in modalità asincrona per ottenere questa funzionalità. Le persone spesso non vogliono attendere che la replica venga eseguita così lontano prima di eseguire il commit di una transazione, quindi c'è la possibilità di perdita di dati quando si esegue failover non pianificato.
 
-I database nei livelli di servizio premium e business critical fanno già [qualcosa di molto simile](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) alla sincronizzazione di un gruppo di disponibilità. I database nei livelli di servizio inferiori forniscono ridondanza tramite l'archiviazione utilizzando un [meccanismo diverso ma equivalente.](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) La logica integrata consente di proteggersi da un singolo errore del computer. La funzionalità di replica geografica attiva offre la possibilità di proteggersi da un'emergenza in cui viene distrutta un'intera area.
+I database nei livelli di servizio premium e business critical fanno già qualcosa di [simile](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) alla sincronizzazione di un gruppo di disponibilità. I database nei livelli di servizio inferiori forniscono ridondanza tramite l'archiviazione utilizzando un [meccanismo diverso ma equivalente.](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) La logica integrata consente di proteggersi da un singolo errore del computer. La funzionalità di replica geografica attiva offre la possibilità di proteggersi da un'emergenza in cui viene distrutta un'intera area.
 
 Le zone di disponibilità di Azure tentano di proteggersi dall'interruzione di un singolo data center all'interno di una singola area. Ti aiuta a proteggerti dalla perdita di energia o di rete per un edificio. Nel database SQL, inserire le diverse repliche in zone di disponibilità diverse (edifici diversi, in modo efficace).
 

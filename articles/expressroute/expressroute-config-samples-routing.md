@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
-ms.date: 12/06/2018
-ms.author: cherylmc
-ms.openlocfilehash: 2c37dadeb669fb88f858b5487379828a8dddec6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/26/2020
+ms.author: osamaz
+ms.openlocfilehash: 5304aefaf3ad70bb552b4b0d1b26fcce9867c9c0
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74076656"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397738"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Esempi di configurazione del router per l'impostazione e la gestione del routing
 Questa pagina fornisce gli esempi di configurazione dell'interfaccia e del routing delle serie Cisco IOS-XE e Juniper MX per l'uso con ExpressRoute. Devono essere intesi come esempi a solo scopo informativo e non devono essere usati per altri scopi. È possibile rivolgersi al fornitore per ottenere le configurazioni appropriate per la rete in uso. 
@@ -91,6 +91,25 @@ Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-int
     !
     route-map <MS_Prefixes_Inbound> permit 10
      match ip address prefix-list <MS_Prefixes>
+    !
+
+### <a name="5-configuring-bfd"></a>5. Configurazione di BFD
+
+BFD verrà configurato in due posizioni. Uno a livello di interfaccia e l'altro a livello di BGP. L'esempio seguente è per l'interfaccia QinQ.The example below is for QinQ interface. 
+
+    interface GigabitEthernet<Interface_Number>.<Number>
+     bfd interval 300 min_rx 300 multiplier 3
+     encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
+     ip address <IPv4_Address><Subnet_Mask>
+    
+    router bgp <Customer_ASN>
+     bgp log-neighbor-changes
+     neighbor <IP#2_used_by_Azure> remote-as 12076
+     !        
+     address-family ipv4
+      neighbor <IP#2_used_by_Azure> activate
+      neighbor <IP#2_used_by_Azure> fall-over bfd
+     exit-address-family
     !
 
 
@@ -173,7 +192,7 @@ Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-int
     }
 
 
-### <a name="4-route-maps"></a>4. Mappe del percorso
+### <a name="4-route-policies"></a>4. Politiche di percorso
 È possibile usare le mappe di routing e gli elenchi di prefissi per filtrare i prefissi propagati nella rete. È possibile usare l'esempio riportato di seguito per completare l'attività. Assicurarsi di avere impostato gli elenchi di prefissi appropriati.
 
     policy-options {
@@ -203,6 +222,24 @@ Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-int
         }                                   
     }
 
+### <a name="4-configuring-bfd"></a>4. Configurazione di BFD
+IL BFD verrà configurato solo nella sezione BGP del protocollo.
+
+    protocols {
+        bgp { 
+            group <Group_Name> { 
+                peer-as 12076;              
+                neighbor <IP#2_used_by_Azure>;
+                bfd-liveness-detection {
+                       minimum-interval 3000;
+                       multiplier 3;
+                }
+            }                               
+        }                                   
+    }
+
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md) .
+
+
 

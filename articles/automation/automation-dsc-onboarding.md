@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: 0bf70b73098427847c73b4dd962d56d44fe6ee2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 554a4c64700bb189b4b9f085bd7c259312a36b4b
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283209"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410942"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure
 
@@ -107,7 +107,7 @@ Per trovare la chiave di registrazione e l'URL di registrazione da utilizzare co
 
      `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 
-   - Per trovare la chiave di registrazione e l'URL di registrazione per l'account Di automazione, vedere la sezione [Onboarding in modo sicuro tramite la registrazione,](#onboarding-securely-using-registration) questo articolo.
+   - Per trovare la chiave di registrazione e l'URL di registrazione per l'account di automazione, vedere la sezione [Onboarding in modo sicuro tramite la registrazione](#onboarding-securely-using-registration) di questo articolo.
 
 3. Se le impostazioni predefinite di Gestione configurazione locale di PowerShell DSC non corrispondono al caso d'uso o si desidera eseguire l'onboarding di computer che segnalano solo la configurazione dello stato di automazione di Azure, seguire i passaggi da 4 a 7. In caso contrario, procedere direttamente al passaggio 7.
 

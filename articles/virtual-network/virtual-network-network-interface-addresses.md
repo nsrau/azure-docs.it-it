@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: a2a85d98bf29e78d58bf0c578ce79943bae21fc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5655a58c3538ac47e8649619b079dc46ee01242
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79244966"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473226"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Aggiungere, modificare o rimuovere indirizzi IP per un'interfaccia di rete di Azure
 
@@ -59,7 +59,7 @@ L'account con cui si accede o con cui ci si collega ad Azure deve essere assegna
    |Indirizzo IP pubblico|No|**Disabilitato:** nessuna risorsa di indirizzo IP pubblico è attualmente associata alla configurazione IP. **Abilitato:** selezionare un indirizzo IPv4 pubblico esistente o crearne uno nuovo. Per informazioni su come creare un indirizzo IP pubblico, vedere l'articolo [Indirizzi IP](virtual-network-public-ip-address.md#create-a-public-ip-address).|
 6. Aggiungere manualmente gli indirizzi IP privati secondari al sistema operativo della macchina virtuale seguendo le istruzioni disponibili nell'articolo [Assegnare più indirizzi IP ai sistemi operativi della macchina virtuale](virtual-network-multiple-ip-addresses-portal.md#os-config). Vedere indirizzi IP [privati](#private) per alcune considerazioni specifiche prima di aggiungere manualmente gli indirizzi IP a un sistema operativo della macchina virtuale. Non aggiungere indirizzi IP pubblici al sistema operativo della macchina virtuale.
 
-**Comandi**
+**Comandi:**
 
 |Strumento|Comando|
 |---|---|
@@ -80,7 +80,7 @@ Può essere necessario modificare il metodo di assegnazione di un indirizzo IPv4
 >[!NOTE]
 >Se l'interfaccia di rete primaria ha più configurazioni IP e si modifica l'indirizzo IP privato della configurazione IP primaria, in Windows è necessario riassegnare manualmente gli indirizzi IP primari e secondari all'interfaccia di rete. Questa operazione non è necessaria in Linux. Per assegnare manualmente gli indirizzi IP a un'interfaccia di rete in un sistema operativo, vedere l'articolo relativo all'[assegnazione di più indirizzi IP alle macchine virtuali](virtual-network-multiple-ip-addresses-portal.md#os-config). Per alcune considerazioni specifiche prima di aggiungere manualmente gli indirizzi IP a un sistema operativo della macchina virtuale, vedere gli indirizzi IP [privati](#private). Non aggiungere indirizzi IP pubblici al sistema operativo della macchina virtuale.
 
-**Comandi**
+**Comandi:**
 
 |Strumento|Comando|
 |---|---|
@@ -96,7 +96,7 @@ Può essere necessario modificare il metodo di assegnazione di un indirizzo IPv4
 3. In **IMPOSTAZIONI**, selezionare **Configurazioni IP**.
 4. Selezionare con il pulsante destro del mouse una configurazione IP [secondaria](#secondary) (non è possibile eliminare la configurazione [primaria](#primary)) che si desidera eliminare, selezionare **Elimina** e quindi **Sì** per confermare l'eliminazione. Se la configurazione aveva una risorsa di indirizzo IP pubblico associata, la risorsa verrà dissociata dalla configurazione IP, ma non eliminata.
 
-**Comandi**
+**Comandi:**
 
 |Strumento|Comando|
 |---|---|
@@ -120,7 +120,7 @@ Oltre a una configurazione IP primaria, un'interfaccia di rete può avere più c
 
 - Deve avere un indirizzo IPv4 o IPv6 privato assegnato. Se l'indirizzo è IPv6, l'interfaccia di rete può avere solo una configurazione IP secondaria. Se l'indirizzo è IPv4, l'interfaccia di rete può avere più configurazioni IP secondarie assegnate. Per altre informazioni su quanti gli indirizzi IPv4 pubblici e privati possono essere assegnati a un'interfaccia di rete, vedere l'articolo [limiti di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Può anche avere un indirizzo IPv4 o IPv6 pubblico assegnato. L'assegnazione di più indirizzi IPv4 a un'interfaccia di rete è utile in scenari quali:Assigning multiple IPv4 addresses to a network interface is helpful in scenarios such as:
-  - Ospitare più siti Web o servizi con indirizzi IP e certificati SSL diversi in un singolo server.
+  - Hosting di più siti Web o servizi con indirizzi IP diversi e certificati TLS/SSL su un singolo server.
   - Una macchina virtuale che funge da appliance virtuale di rete, ad esempio un firewall o un servizio di bilanciamento del carico.
   - La possibilità di aggiungere qualsiasi indirizzo IPv4 privato per qualsiasi interfaccia di rete a un pool di back-end di Azure Load Balancer. In passato, era possibile aggiungere a un pool di back-end solo l'indirizzo IPv4 primario per l'interfaccia di rete primaria. Per altre informazioni su come bilanciare il carico di più configurazioni IPv4, leggere l'articolo [Bilanciamento del carico in più configurazioni IP](../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
   - La possibilità di bilanciare il carico di un indirizzo IPv6 assegnato a un'interfaccia di rete. Per altre informazioni su come bilanciare il carico a un indirizzo IPv6 privato, vedere l'articolo [Panoramica di IPv6 per Azure Load Balancer](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

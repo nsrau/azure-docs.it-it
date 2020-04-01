@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: 242fc115c5b2324c770de480fb19985e8b874893
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 290467d5d20a74f8b8b2c23f6da0dcadfd74cc56
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371256"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411020"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -353,11 +353,11 @@ Attualmente, un'istanza del controller in ingresso può essere associata a un so
 
 Il gateway applicazione fornisce tre log:Application Gateway provides three logs: 
 
-* **ApplicationGatewayAccessLog:** il log di accesso contiene ogni richiesta inviata al front-end del gateway applicazione. I dati includono l'indirizzo IP del chiamante, l'URL richiesto, la latenza di risposta, il codice restituito e i byte in uscita e in uscita. Il log di accesso viene raccolto ogni 300 secondi. Contiene un record per ogni gateway applicazione.
+* **ApplicationGatewayAccessLog:** il log di accesso contiene ogni richiesta inviata al front-end del gateway applicazione. I dati includono l'indirizzo IP del chiamante, l'URL richiesto, la latenza di risposta, il codice restituito e i byte in uscita e in uscita. Contiene un record per ogni gateway applicazione.
 * **ApplicationGatewayPerformanceLog:** il log delle prestazioni acquisisce le informazioni sulle prestazioni per ogni gateway applicazione. Le informazioni includono la velocità effettiva in byte, le richieste totali servite, il numero di richieste non riuscite e il numero di istanze back-end integro e non integro.
 * **ApplicationGatewayFirewallLog:** per i gateway applicazione configurati con WAF, il registro del firewall contiene le richieste registrate tramite la modalità di rilevamento o la modalità di prevenzione.
 
-Per ulteriori informazioni, vedere [Integrità back-end, log di diagnostica e metriche per](application-gateway-diagnostics.md)il gateway applicazione .
+Tutti i registri vengono raccolti ogni 60 secondi. Per ulteriori informazioni, vedere [Integrità back-end, log di diagnostica e metriche per](application-gateway-diagnostics.md)il gateway applicazione .
 
 ### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>Come è possibile sapere se i membri del pool back-end sono integri?
 

@@ -6,17 +6,22 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/01/2019
+ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: d7600267dcd196a9a5c06c29774ea21d582cd7ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40ef05107f20a3396f6710f894a2dbad2d7fa6c9
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79246877"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478858"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Usare la libreria .NET dell'esecutore bulk per eseguire operazioni bulk in Azure Cosmos DBUse the bulk executor .NET library to perform bulk operations in Azure Cosmos DB
+
+> [!NOTE]
+> Questa libreria dell'executor bulk descritta in questo articolo viene mantenuta per le applicazioni che utilizzano la versione 2.x di .NET SDK. Per le nuove applicazioni, è possibile utilizzare il **supporto in blocco** che è direttamente disponibile con [.NET SDK versione 3.x](tutorial-sql-api-dotnet-bulk-import.md) e non richiede alcuna libreria esterna. 
+
+> Se si utilizza la libreria dell'esecutore in blocco e si prevede di eseguire la migrazione al supporto in blocco nell'SDK più recente, usare i passaggi della Guida alla [migrazione](how-to-migrate-from-bulk-executor-library.md) per eseguire la migrazione dell'applicazione.
 
 Questa esercitazione fornisce istruzioni sull'uso della libreria .NET dell'esecutore bulk per importare e aggiornare documenti in un contenitore Cosmos di Azure.This tutorial provides instructions on using the bulk executor .NET library to import and update documents to an Azure Cosmos container. Per informazioni sulla libreria dell'executor bulk e su come consente di sfruttare la velocità effettiva e l'archiviazione di massa, vedere l'articolo panoramica della [libreria dell'executor bulk.](bulk-executor-overview.md) In questa esercitazione verrà visualizzata un'applicazione .NET di esempio che importa in blocco i documenti generati casualmente in un contenitore Cosmos di Azure.In this tutorial, you will see a sample .NET application that bulk generated randomly generated documents into an Azure Cosmos container. Dopo l'importazione illustra come è possibile aggiornare in blocco i dati importati specificando le patch come operazioni da eseguire su campi di documenti specifici.
 
@@ -40,7 +45,7 @@ Passiamo ora all'utilizzo del codice scaricando un'applicazione .NET di esempio 
 git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started.git
 ```
 
-Il repository clonato contiene due esempi "BulkImportSample" e "BulkUpdateSample". È possibile aprire una delle applicazioni di esempio, aggiornare le stringhe di connessione nel file App.config con le stringhe di connessione dell'account Azure Cosmos DB, compilare la soluzione ed eseguirla.
+Il repository clonato contiene due esempi "BulkImportSample" e "BulkUpdateSample". È possibile aprire una delle applicazioni di esempio, aggiornare le stringhe di connessione nel file App.config con le stringhe di connessione dell'account database Cosmos di Azure, compilare la soluzione ed eseguirla.
 
 L'applicazione "BulkImportSample" genera documenti casuali e li importa in blocco nell'account Azure Cosmos.The "BulkImportSample" application generates random documents and bulk imports to your Azure Cosmos account. L'applicazione "BulkUpdateSample" aggiorna in blocco i documenti importati, specificando le patch come operazioni da eseguire su campi di documenti specifici. Nelle sezioni successive verrà esaminato il codice in ognuna di queste app di esempio.
 
@@ -48,7 +53,7 @@ L'applicazione "BulkImportSample" genera documenti casuali e li importa in blocc
 
 1. Passare alla cartella "BulkImportSample" e aprire il file "BulkImportSample.sln".  
 
-2. Le stringhe di connessione di Azure Cosmos DB vengono recuperate dal file App.config, come illustrato nel codice seguente:  
+2. Le stringhe di connessione del database Cosmos di Azure vengono recuperate dal file App.config, come illustrato nel codice seguente:The Azure Cosmos DB's connection strings are retrieved from the App.config file as shown in the following code:  
 
    ```csharp
    private static readonly string EndpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];

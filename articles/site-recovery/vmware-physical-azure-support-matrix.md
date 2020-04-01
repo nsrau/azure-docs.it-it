@@ -1,16 +1,14 @@
 ---
 title: Matrice di supporto per il ripristino di emergenza vMware/fisico in Azure Site RecoverySupport matrix for VMware/physical disaster recovery in Azure Site Recovery
 description: Riepiloga il supporto per il ripristino di emergenza delle macchine virtuali VMware e del server fisico in Azure usando Azure Site Recovery.
-ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 2/24/2020
-ms.author: raynew
-ms.openlocfilehash: 05e60c5b008746bbfd72dbe7a2e14b18aa563671
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4cf19f4f74ba24951efb806a9f2e3d88fcad7bc
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79371393"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478421"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -31,7 +29,7 @@ Ripristino di emergenza dei server fisici | Replica di server fisici Windows/Lin
 **Server** | **Requisiti** | **Dettagli**
 --- | --- | ---
 Server vCenter | Versione 6.7, 6.5, 6.0 o 5.5 | È consigliabile usare un server vCenter nella distribuzione del ripristino di emergenza.
-Host vSphere | Versione 6.7, 6.5, 6.0 o 5.5 | È consigliabile che gli host di vSphere e i server vCenter si trovino nella stessa rete del server di elaborazione. Per impostazione predefinita, il server di elaborazione viene eseguito nel server di configurazione. [Scopri di più](vmware-physical-azure-config-process-server-overview.md).
+Host vSphere | Versione 6.7, 6.5, 6.0 o 5.5 | È consigliabile che gli host di vSphere e i server vCenter si trovino nella stessa rete del server di elaborazione. Per impostazione predefinita, il server di elaborazione viene eseguito nel server di configurazione. [Altre informazioni](vmware-physical-azure-config-process-server-overview.md)
 
 
 ## <a name="site-recovery-configuration-server"></a>Server di configurazione di Site Recovery
@@ -50,10 +48,10 @@ Spazio disponibile su disco | 600 GB di spazio per la cache del server di elabor
 Spazio disponibile su disco | 600 GB di spazio per l'unità di conservazione.
 Sistema operativo  | Windows Server 2012 R2 o Windows Server 2016 con esperienza desktop <br/><br> Se si prevede di utilizzare la destinazione master incorporata dell'appliance per il failback, assicurarsi che la versione del sistema operativo sia uguale o superiore agli elementi replicati.|
 Impostazioni locali del sistema operativo | Inglese (en-us)
-[PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) | Non necessario per il server di configurazione versione [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) o successiva. 
-Ruoli di Windows Server | Non abilitare Servizi di dominio Active Directory; Internet Information Services (IIS) o Hyper-V. 
+[PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) | Non necessario per il server di configurazione versione [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) o successiva.
+Ruoli di Windows Server | Non abilitare Servizi di dominio Active Directory; Internet Information Services (IIS) o Hyper-V.
 Criteri di gruppo| - Impedisci accesso al prompt dei comandi <br/> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br/> - Logica di attendibilità per file allegati <br/> - Attiva l'esecuzione di script <br/> - [Learn more](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
-IIS | Assicurarsi di:<br/><br/> - Non avere un sito Web predefinito preesistente <br/> - Abilitare l'[autenticazione anonima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> - Abilitare l'impostazione di [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br/> - Non avere un sito Web o un'app preesistente in ascolto sulla porta 443<br/>
+IIS | Assicurarsi di:<br/><br/> - Non avere un sito Web predefinito preesistente <br/> - Abilitare l'[autenticazione anonima](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br/> - Abilitare l'impostazione di [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10))  <br/> - Non avere un sito Web o un'app preesistente in ascolto sulla porta 443<br/>
 Tipo di scheda di interfaccia di rete | VMXNET3 (quando distribuito come macchina virtuale VMware)
 Tipo di indirizzo IP | Statico
 Porte | 443 utilizzato per l'orchestrazione del canale di controllo<br/>9443 per il trasporto dati
@@ -68,24 +66,24 @@ Site Recovery supporta la replica di qualsiasi carico di lavoro in esecuzione in
 **Componente** | **Dettagli**
 --- | ---
 Impostazioni del computer | I computer che eseguono la replica in Azure devono soddisfare i [requisiti di Azure](#azure-vm-requirements).
-Carico di lavoro del computer | Site Recovery supporta la replica di qualsiasi carico di lavoro in esecuzione in un computer supportato. [Scopri di più](https://aka.ms/asr_workload).
+Carico di lavoro del computer | Site Recovery supporta la replica di qualsiasi carico di lavoro in esecuzione in un computer supportato. [Altre informazioni](site-recovery-workload.md)
 Windows Server 2019 | Supportato [dall'aggiornamento cumulativo 34](https://support.microsoft.com/help/4490016) (versione 9.22 del servizio Mobility) e versioni successive.
 Windows Server 2016 a 64 bit | Supportato per Server Core, Server con Esperienza desktop.
 Windows Server 2012 R2 / Windows Server 2012 | Supportato.
 Windows Server 2008 R2 con SP1 e versioni successive. | Supportato.<br/><br/> Dalla versione [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) dell'agente del servizio Mobility, è necessario [installare l'aggiornamento dello stack di manutenzione (SSU)](https://support.microsoft.com/help/4490628) e [SHA-2](https://support.microsoft.com/help/4474419) nei computer che eseguono Windows 2008 R2 con SP1 o versione successiva. SHA-1 non è supportato da settembre 2019 e se la firma del codice SHA-2 non è abilitata l'estensione dell'agente non installerà/aggiorna come previsto. Ulteriori informazioni [sull'aggiornamento e sui requisiti SHA-2](https://aka.ms/SHA-2KB).
-Windows Server 2008 con SP2 o versione successiva (64 bit/32 bit) |  Supportato solo per la migrazione. [Scopri di più](migrate-tutorial-windows-server-2008.md).<br/><br/> Dalla versione [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) dell'agente del servizio Mobility, è necessario [installare l'aggiornamento dello stack di manutenzione (SSU)](https://support.microsoft.com/help/4493730) e [l'aggiornamento SHA-2](hhttps://support.microsoft.com/help/4474419) nei computer Windows 2008 SP2. ISHA-1 non è supportato da settembre 2019 e se la firma del codice SHA-2 non è abilitata l'estensione dell'agente non installerà/aggiorna come previsto. Ulteriori informazioni [sull'aggiornamento e sui requisiti SHA-2](https://aka.ms/SHA-2KB).
+Windows Server 2008 con SP2 o versione successiva (64 bit/32 bit) |  Supportato solo per la migrazione. [Altre informazioni](migrate-tutorial-windows-server-2008.md)<br/><br/> Dalla versione [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) dell'agente del servizio Mobility, è necessario [installare l'aggiornamento dello stack di manutenzione (SSU)](https://support.microsoft.com/help/4493730) e [l'aggiornamento SHA-2](https://support.microsoft.com/help/4474419) nei computer Windows 2008 SP2. ISHA-1 non è supportato da settembre 2019 e se la firma del codice SHA-2 non è abilitata l'estensione dell'agente non installerà/aggiorna come previsto. Ulteriori informazioni [sull'aggiornamento e sui requisiti SHA-2](https://support.microsoft.com/en-us/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus).
 Windows 10, Windows 8.1, Windows 8 | Supportato.
-Windows 7 con SP1 a 64 bit | Supportato [dall'aggiornamento cumulativo 36](https://support.microsoft.com/help/4503156) (versione 9.22 del servizio Mobility) e versioni successive. </br></br> Dalle [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) dell'agente del servizio Mobility, è necessario installare l'aggiornamento dello stack di [manutenzione (SSU)](https://support.microsoft.com/help/4490628) e [l'aggiornamento SHA-2](https://support.microsoft.com/help/4474419) nei computer Windows 7 SP1.  SHA-1 non è supportato da settembre 2019 e se la firma del codice SHA-2 non è abilitata l'estensione dell'agente non installerà/aggiorna come previsto. Ulteriori informazioni [sull'aggiornamento e sui requisiti SHA-2](https://aka.ms/SHA-2KB).
+Windows 7 con SP1 a 64 bit | Supportato [dall'aggiornamento cumulativo 36](https://support.microsoft.com/help/4503156) (versione 9.22 del servizio Mobility) e versioni successive. </br></br> Dalle [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) dell'agente del servizio Mobility, è necessario installare l'aggiornamento dello stack di [manutenzione (SSU)](https://support.microsoft.com/help/4490628) e [l'aggiornamento SHA-2](https://support.microsoft.com/help/4474419) nei computer Windows 7 SP1.  SHA-1 non è supportato da settembre 2019 e se la firma del codice SHA-2 non è abilitata l'estensione dell'agente non installerà/aggiorna come previsto. Ulteriori informazioni [sull'aggiornamento e sui requisiti SHA-2](https://support.microsoft.com/en-us/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus).
 Linux | È supportato solo il sistema a 64 bit. Il sistema a 32 bit non è supportato.<br/><br/>In ogni server Linux devono essere installati [componenti Linux Integration Services (LIS).](https://www.microsoft.com/download/details.aspx?id=55106) È necessario per avviare il server in Azure dopo il failover di test o il failover. Se mancano i componenti LIS, assicurarsi di installare i componenti prima di abilitare la replica per l'avvio dei computer in Azure.If LIS components are missing, ensure to install the [components](https://www.microsoft.com/download/details.aspx?id=55106) before enabling replication for the machines to boot in Azure. <br/><br/> Site Recovery orchestra il failover per l'esecuzione di server Linux in Azure. Tuttavia i fornitori di Linux potrebbero limitare il supporto solo alle versioni di distribuzione che non hanno raggiunto la fine del ciclo di vita.<br/><br/> Nelle distribuzioni di Linux sono supportati solo i kernel di scorta che fanno parte di una versione/aggiornamento secondaria della distribuzione.<br/><br/> L'aggiornamento di computer protetti tra versioni di distribuzione principali di Linux non è supportato. Per eseguire l'aggiornamento, disabilitare la replica, aggiornare il sistema operativo e quindi abilitare nuovamente la replica.<br/><br/> [Altre informazioni](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) sul supporto per Linux e la tecnologia open source in Azure.Learn more about support for Linux and open-source technology in Azure.
 Linux Red Hat Enterprise | da 5,2 a 5,11</b><br/> da 6.1 a 6,10</b> </br> 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1 <br/> Nei server che eseguono Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10 i [componenti Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) non sono stati preinstallati. Assicurarsi di installare i componenti prima di abilitare la replica per l'avvio dei computer in Azure.Ensure to install the [components](https://www.microsoft.com/download/details.aspx?id=55106) before enabling replication for the machines to boot in Azure.
 Linux: CentOS | da 5,2 a 5,11</b><br/> da 6.1 a 6,10</b><br/> 7.0 a 7.6<br/> <br/> da 8.0 a 8.1<br/><br/> Nei server che eseguono CentOS 5.2-5.11 & 6.1-6.10 i [componenti Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) non sono stati preinstallati. Assicurarsi di installare i componenti prima di abilitare la replica per l'avvio dei computer in Azure.Ensure to install the [components](https://www.microsoft.com/download/details.aspx?id=55106) before enabling replication for the machines to boot in Azure.
 Ubuntu | Server UBuntu 14.04 LTS [(esaminare le versioni del kernel supportate)](#ubuntu-kernel-versions)<br/><br/>Server UBuntu 16.04 LTS [(esaminare le versioni del kernel supportate)](#ubuntu-kernel-versions) </br> Server LTS Ubuntu 18.04 [(esaminare le versioni del kernel supportate)](#ubuntu-kernel-versions)
 Debian | Debian 7/Debian 8 [(rivedere le versioni del kernel supportate)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [(esaminare le versioni del kernel supportate)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1 [(esaminare le versioni del kernel supportate)](#suse-linux-enterprise-server-15-supported-kernel-versions)<br/> SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4<br/> L'aggiornamento dei computer replicati da SUSE Linux Enterprise Server 11 da SP3 a SP4 non è supportato. Per eseguire l'aggiornamento, disabilitare la replica e riabilitarla dopo l'aggiornamento.
-Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7.4, 7.5, 7.5, 7.6, [7.77](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery)<br/><br/> Esecuzione del kernel compatibile con Red Hat o di Unbreakable Enterprise Kernel Release 3, 4 & 5 (UEK3, UEK4, UEK5) 
+Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7.4, 7.5, 7.5, 7.6, [7.77](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery)<br/><br/> Esecuzione del kernel compatibile con Red Hat o di Unbreakable Enterprise Kernel Release 3, 4 & 5 (UEK3, UEK4, UEK5)
 
 > [!Note]
-> Per ognuna delle versioni di Windows, Azure Site Recovery supporta solo compilazioni di canale di manutenzione a [lungo termine (LTSC).](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc)  I rilasci [del Canale semestrale](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) non sono attualmente supportati al momento.
+> Per ognuna delle versioni di Windows, Azure Site Recovery supporta solo compilazioni di canale di manutenzione a [lungo termine (LTSC).](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc)  I rilasci [del Canale semestrale](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) non sono attualmente supportati al momento.
 
 ### <a name="ubuntu-kernel-versions"></a>Versioni del kernel Ubuntu
 
@@ -141,7 +139,7 @@ Dispositivi di archiviazione paravirtualizzati | I dispositivi esportati da driv
 Dispositivi di I/O a blocchi a code multiple | Non supportato.
 Server fisici con controller di archiviazione HP CCISS | Non supportato.
 Convenzione di denominazione del dispositivo e del punto di montaggio | Il nome del dispositivo o del punto di montaggio deve essere univoco.<br/> Assicurarsi che due dispositivi/punti di montaggio non abbiano nomi con distinzione tra maiuscole e minuscole. Ad esempio, la denominazione dei dispositivi per la stessa macchina virtuale di *device1* e *Device1* non è supportata.
-Directory | Se si esegue una versione del servizio Mobility precedente alla versione 9.20 (rilasciata [nell'aggiornamento cumulativo 31](https://support.microsoft.com/help/4478871/)), si applicano le restrizioni seguenti:<br/><br/> - Queste directory (se impostate come partizioni/file system separati) devono trovarsi sullo stesso disco del sistema operativo nel server di origine: /(root), /boot, /usr, /usr/local, /var, /etc.</br> - La directory /boot deve trovarsi in una partizione del disco e non essere un volume LVM.<br/><br/> Dalla versione 9.20 in poi, queste restrizioni non si applicano. 
+Directory | Se si esegue una versione del servizio Mobility precedente alla versione 9.20 (rilasciata [nell'aggiornamento cumulativo 31](https://support.microsoft.com/help/4478871/)), si applicano le restrizioni seguenti:<br/><br/> - Queste directory (se impostate come partizioni/file system separati) devono trovarsi sullo stesso disco del sistema operativo nel server di origine: /(root), /boot, /usr, /usr/local, /var, /etc.</br> - La directory /boot deve trovarsi in una partizione del disco e non essere un volume LVM.<br/><br/> Dalla versione 9.20 in poi, queste restrizioni non si applicano.
 Directory di avvio | - I dischi di avvio non devono essere in formato partizione GPT. Si tratta di una limitazione dell'architettura di Azure.This is an Azure architecture limitation. I dischi GPT sono supportati come dischi dati.<br/><br/> Più dischi di avvio in una macchina virtuale non sono supportatiMultiple boot disks on a VM aren't supported<br/><br/> - /boot su un volume LVM su più di schivare non è supportato.<br/> - Un computer senza disco di avvio non può essere replicato.
 Requisiti di spazio disponibile nel disco| 2 GB nella partizione /root <br/><br/> 250 MB nella cartella di installazione
 XFSv5 | Sono supportate le funzionalità XFSv5 nei file system XFS, ad esempio il checksum dei metadati (Mobility service version 9.10 onwards).<br/> Usare l'utilità xfs_info per controllare il superblocco XFS per la partizione. Se `ftype` è impostato su 1, le funzionalità XFSv5 sono in uso.
@@ -212,7 +210,7 @@ Guest/server - esclusione disco | Sì
 Percorsi multipli (MPIO) guest/server | No
 Partizioni GPT guest/server | Cinque partizioni sono supportate [dall'aggiornamento cumulativo 37](https://support.microsoft.com/help/4508614/) (versione 9.25 del servizio Mobility) in poi. In precedenza ne erano sostenuti quattro.
 ReFS | Resilient File System è supportato con il servizio Mobility versione 9.23 o successiva
-Avvio EFI/UEFI guest/server | - Supportato per Windows Server 2012 o versione successiva, SLES 12 SP4 e RHEL 8.0 con agente per dispositivi mobili versione 9.30 e versioni successive<br/> - Il tipo di avvio UEFI sicuro non è supportato. 
+Avvio EFI/UEFI guest/server | - Supportato per Windows Server 2012 o versione successiva, SLES 12 SP4 e RHEL 8.0 con agente per dispositivi mobili versione 9.30 e versioni successive<br/> - Il tipo di avvio UEFI sicuro non è supportato.
 
 ## <a name="replication-channels"></a>Canali di replica
 
@@ -268,20 +266,20 @@ Nome della VM. | Da 1 a 63 caratteri.<br/><br/> Limitato a lettere, numeri e tra
 
 ## <a name="resource-group-limits"></a>Limiti dei gruppi di risorse
 
-Per comprendere il numero di macchine virtuali che possono essere protette in un singolo gruppo di risorse, vedere l'articolo sui [limiti di sottoscrizione e le quoteTo](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits) understand the number of virtual machines that can be protected under a single resource group, refer to the article on subscription limits and quotas
+Per comprendere il numero di macchine virtuali che possono essere protette in un singolo gruppo di risorse, vedere l'articolo sui [limiti e](/azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits)le quote di sottoscrizione .
 
 ## <a name="churn-limits"></a>Limiti di varianza
 
-La tabella seguente indica i limiti di Azure Site Recovery. 
+La tabella seguente indica i limiti di Azure Site Recovery.
 - Questi limiti si basano sui nostri test, ma non coprono tutte le possibili combinazioni di I/O delle app.
 - I risultati effettivi possono variare in base alla combinazione di I/O delle applicazioni.
 - Per ottenere risultati ottimali, è consigliabile eseguire [lo strumento Pianificazione distribuzione](site-recovery-deployment-planner.md)ed eseguire test completi delle applicazioni usando failover di test per ottenere l'immagine delle prestazioni reale per l'app.
 
 **Destinazione replica** | **Dimensione media dei / o del disco di origine** |**Media scissioni dei dati del disco di origine** | **Variazione totale dei dati del disco di origine al giorno**
 ---|---|---|---
-Archiviazione standard | 8 KB | 2 MB/s | 168 GB per disco
-Disco P10 o P15 Premium | 8 KB  | 2 MB/s | 168 GB per disco
-Disco P10 o P15 Premium | 16 KB | 4 MB/s |  336 GB per disco
+Archiviazione standard | 8 KB    | 2 MB/s | 168 GB per disco
+Disco P10 o P15 Premium | 8 KB    | 2 MB/s | 168 GB per disco
+Disco P10 o P15 Premium | 16 KB | 4 MB/s |    336 GB per disco
 Disco P10 o P15 Premium | 32 KB o superiori | 8 MB/s | 672 GB per disco
 Disco P20, P30, P40 o P50 Premium | 8 KB    | 5 MB/s | 421 GB per disco
 Disco P20, P30, P40 o P50 Premium | 16 KB o superiori |20 MB/s | 1684 GB per disco
@@ -310,9 +308,9 @@ Spostare archiviazione, rete, macchine virtuali di Azure all'interno e tra le so
 
 **Nome** | **Descrizione** | **Dettagli**
 --- | --- | ---
-Server di configurazione | Installato in locale.<br/> Coordina le comunicazioni tra server VMware locali o computer fisici e Azure. | - [Informazioni sul](vmware-physical-azure-config-process-server-overview.md) server di configurazione.<br/> - [Scopri come](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) eseguire l'aggiornamento alla versione più recente.<br/> - [Informazioni sulla](vmware-azure-deploy-configuration-server.md) configurazione del server di configurazione. 
+Server di configurazione | Installato in locale.<br/> Coordina le comunicazioni tra server VMware locali o computer fisici e Azure. | - [Informazioni sul](vmware-physical-azure-config-process-server-overview.md) server di configurazione.<br/> - [Scopri come](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) eseguire l'aggiornamento alla versione più recente.<br/> - [Informazioni sulla](vmware-azure-deploy-configuration-server.md) configurazione del server di configurazione.
 Server di elaborazione | Installato per impostazione predefinita nel server di configurazione.<br/> Riceve i dati di replica, li ottimizza con la memorizzazione nella cache, la compressione e la crittografia e li invia ad Azure.Receives replication data, optimizes it with caching, compression, and encryption, and sends it to Azure.<br/> Man mano che la distribuzione aumenta, è possibile aggiungere altri server di elaborazione per gestire volumi maggiori di traffico di replica. | - [Informazioni sul](vmware-physical-azure-config-process-server-overview.md) server di elaborazione.<br/> - [Scopri come](vmware-azure-manage-process-server.md#upgrade-a-process-server) eseguire l'aggiornamento alla versione più recente.<br/> - [Informazioni sulla](vmware-physical-large-deployment.md#set-up-a-process-server) configurazione dei server di elaborazione con scalabilità verticale.
-Servizio Mobility | Installato in VM VMware o server fisici che si desidera replicare.<br/> Coordina la replica tra i server VMware/server fisici locali e Azure.| - [Informazioni sul](vmware-physical-mobility-service-overview.md) servizio Mobility.<br/> - [Scopri come](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal) eseguire l'aggiornamento alla versione più recente.<br/> 
+Servizio Mobility | Installato in VM VMware o server fisici che si desidera replicare.<br/> Coordina la replica tra i server VMware/server fisici locali e Azure.| - [Informazioni sul](vmware-physical-mobility-service-overview.md) servizio Mobility.<br/> - [Scopri come](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal) eseguire l'aggiornamento alla versione più recente.<br/>
 
 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 87ccb1c4995337b385f685797980a9fc3962bc6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 68089a86b8b832638abd30aa7c36aa1c5bd84225
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79267001"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410130"
 ---
 # <a name="azure-serial-console-for-windows"></a>Azure Serial Console for Windows
 
@@ -60,7 +60,7 @@ In alternativa, per abilitare manualmente la console seriale per macchine virtua
 
 1. Connettersi alla macchina virtuale Windows utilizzando Desktop remoto
 1. Da un prompt dei comandi amministrativo eseguire i comandi seguenti:
-    - `bcdedit /ems {current} on`
+    - `bcdedit /ems {current} on`, `bcdedit /ems '{current}' on` o se si utilizza PowerShell
     - `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 1. Riavviare il sistema per abilitare la console SAC.
 
@@ -102,15 +102,15 @@ Se è necessario abilitare i prompt del caricatore di avvio di Windows da visual
 
     ![Connettersi a SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 
-1.  Digitare `cmd` per creare un canale con un'istanza di CMD.
+1.    Digitare `cmd` per creare un canale con un'istanza di CMD.
 
-1.  Invio `ch -si 1` o `<esc>+<tab>` premi i tasti di scelta rapida per passare al canale che esegue l'istanza CMD.
+1.    Invio `ch -si 1` o `<esc>+<tab>` premi i tasti di scelta rapida per passare al canale che esegue l'istanza CMD.
 
-1.  Premere **Invio**, quindi immettere le credenziali di accesso con autorizzazioni amministrative.
+1.    Premere **Invio**, quindi immettere le credenziali di accesso con autorizzazioni amministrative.
 
-1.  Dopo avere immesso credenziali valide, verrà aperta l'istanza di CMD.
+1.    Dopo avere immesso credenziali valide, verrà aperta l'istanza di CMD.
 
-1.  Per avviare un'istanza di PowerShell, inserire `PowerShell` nell'istanza di CMD e quindi premere **Invio**.
+1.    Per avviare un'istanza di PowerShell, inserire `PowerShell` nell'istanza di CMD e quindi premere **Invio**.
 
     ![Aprire l'istanza di PowerShell](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 

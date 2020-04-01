@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: 5ada709350802344bfa65cce269735baa416edf6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d3bd1156de4aed7d1ea5c530605697f2dc80d63c
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80234443"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476987"
 ---
 # <a name="high-availability-ports-overview"></a>Panoramica delle porta a disponibilità elevata
 
@@ -95,7 +95,7 @@ Se lo scenario richiede la configurazione di più front-end con porte a disponib
 ## <a name="limitations"></a>Limitazioni
 
 - Le regole di bilanciamento del carico delle porte A ha sono disponibili solo per Il bilanciamento del carico Standard interno.
-- La combinazione di regole di bilanciamento del carico con porte a disponibilità elevata e porte non a disponibilità elevata non è supportata.
+- La combinazione di una regola di bilanciamento del carico delle porte A HA e di una regola di bilanciamento del carico delle porte non HA che punta alla stessa ipconfigurazion back-end non è supportata.
 - I frammenti IP esistenti verranno inoltrati dalle regole di bilanciamento del carico delle porte HA alla stessa destinazione del primo pacchetto.  La frammentazione IP di un pacchetto UDP o TCP non è supportata.
 - La simmetria del flusso (principalmente per gli scenari NVA) è supportata con l'istanza back-end e una singola scheda di interfaccia di rete (e una singola configurazione IP) solo se utilizzata nel diagramma precedente e utilizzando le regole di bilanciamento del carico delle porte HA. Non è disponibile in nessun altro scenario. Questo significa che due o più risorse di Load Balancer e le rispettive regole prendono decisioni indipendenti e non sono mai coordinate. Vedere la descrizione e il diagramma per [gli appliance di rete virtuale](#nva). Quando si utilizzano più schede di interfaccia di rete o si esegue il sandwich dell'NcVA tra un servizio di bilanciamento del carico pubblico e uno interno, la simmetria di flusso non è disponibile.  È possibile risolvere questo problema applicando un processo SNAT (Source NAT) al flusso di ingresso sull'indirizzo IP dell'appliance in modo che le risposte arrivino alla stessa appliance di rete virtuale.  È tuttavia consigliabile usare una singola scheda di interfaccia di rete e l'architettura di riferimento illustrata nel diagramma precedente.
 

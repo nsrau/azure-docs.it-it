@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 25e2b488d3b6e7e5cabd1a71d1489efaf01231b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0383a512dfb7c2bb1ae2422b9ade1e3c7387a70c
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73748542"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478300"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Risolvere i problemi del server di configurazione
 
@@ -42,7 +42,7 @@ Il computer di origine esegue la registrazione con il server di configurazione q
     3. Assicurarsi che le cartelle elencate in [Esclusioni della cartella Azure Site Recovery dal programma antivirus](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) vengano escluse dal software antivirus.
     4. Dopo aver risolto i problemi di rete, ripetere la registrazione attenendosi alle linee guida contenute in: [Registrare il computer di origine con il server di configurazione](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-6. Se la stringa **post richiesta: (7) - Impossibile connettersi al server** non viene trovato, nello stesso file di registro cercare la richiesta di **stringa: (60) - Certificato peer non può essere autenticato con i certificati CA specificati**. Questo errore può verificarsi perché è scaduto il certificato del server di configurazione oppure perché il computer di origine non supporta il protocollo TLS 1.0 o le versioni successive del protocollo SSL. Si potrebbe verificare anche se un firewall blocca le comunicazioni SSL tra il computer di origine e il server di configurazione. Se si trova la stringa: 
+6. Se la stringa **post richiesta: (7) - Impossibile connettersi al server** non viene trovato, nello stesso file di registro cercare la richiesta di **stringa: (60) - Certificato peer non può essere autenticato con i certificati CA specificati**. Questo errore può verificarsi perché il certificato del server di configurazione è scaduto o il computer di origine non supporta i protocolli TLS 1.0 o versioni successive. Può verificarsi anche se un firewall blocca la comunicazione TLS tra il computer di origine e il server di configurazione. Se si trova la stringa: 
     1. Per risolvere il problema, connettersi all'indirizzo IP del server di configurazione usando un Web browser sul computer di origine. Usare il protocollo https URI:\/\/<indirizzo IP del server di configurazione\>: 443 /. Assicurarsi che tale macchina di origine sia in grado di raggiungere il server di configurazione tramite la porta 443.
     2. Verificare se siano presenti regole del firewall nel computer di origine che devono essere aggiunte o rimosse dal computer di origine per far sì che comunichi con il server di configurazione. A causa della varietà di software firewall che potrebbero essere in uso, non è possibile fornire un elenco di tutte le configurazioni firewall necessarie. Rivolgersi all'amministratore di rete per sbloccare i problemi di connessione.
     3. Assicurarsi che le cartelle elencate in [Esclusioni della cartella Azure Site Recovery dal programma antivirus](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) vengano escluse dal software antivirus.  

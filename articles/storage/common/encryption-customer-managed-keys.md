@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 6a3447a88aea1087c7ec327a956044ea94e793e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6b5712094b9821dfa041cd5ba8617e86f7231bde
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79410038"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478014"
 ---
 # <a name="use-customer-managed-keys-with-azure-key-vault-to-manage-azure-storage-encryption"></a>Usare le chiavi gestite dal cliente con l'insieme di credenziali delle chiavi di Azure per gestire la crittografia di Archiviazione di AzureUse customer-managed keys with Azure Key Vault to manage Azure Storage encryption
 
@@ -51,7 +51,7 @@ Le chiavi gestite dal cliente possono essere abilitate solo per gli account di a
 
 Quando si configura una chiave gestita dal cliente, Archiviazione di Azure esegue il wrapping della chiave di crittografia dei dati radice per l'account con la chiave gestita dal cliente nell'insieme di credenziali delle chiavi associato. L'abilitazione delle chiavi gestite dal cliente non influisce sulle prestazioni e ha effetto immediato.
 
-Quando si modifica la chiave usata per la crittografia di Archiviazione di Azure abilitando o disabilitando le chiavi gestite dal cliente, aggiornando la versione della chiave o specificando una chiave diversa, la crittografia della chiave radice cambia, ma i dati nell'account di archiviazione di Azure devono essere nuovamente criptati.
+Quando si modifica la chiave usata per la crittografia di Archiviazione di Azure abilitando o disabilitando le chiavi gestite dal cliente, aggiornando la versione della chiave o specificando una chiave diversa, la crittografia della chiave radice cambia, ma non è necessario crittografare nuovamente i dati nell'account di archiviazione di Azure.When you modify the key being used for Azure Storage encryption by enabling or disabling customer-managed keys, updating the key version, or specifying a different key, then the encryption of the root key changes, but the data in your Azure Storage account does not need to be re-encrypted.
 
 Quando si abilitano o disabilitano le chiavi gestite dal cliente o quando si modifica la chiave o la versione della chiave, la protezione della chiave di crittografia radice cambia, ma non è necessario crittografare nuovamente i dati nell'account di archiviazione di Azure.When you enable or disable customer managed keys, or when you modify the key or the key version, the protection of the root encryption key changes, but the data in your Azure Storage account s need to be re-encrypted.
 
@@ -68,7 +68,7 @@ Per informazioni su come usare le chiavi gestite dal cliente con l'insieme di cr
 
 Per abilitare le chiavi gestite dal cliente in un account di archiviazione, è necessario usare un insieme di credenziali delle chiavi di Azure per archiviare le chiavi. È necessario attivare entrambe le proprietà **Soft Delete** e **Do Not Purge** nell'insieme di credenziali delle chiavi.
 
-Solo le chiavi RSA di dimensioni 2048 sono supportate con la crittografia di Archiviazione di Azure.Only RSA keys of size 2048 are supported with Azure Storage encryption. Per altre informazioni sulle chiavi, vedere **Chiavi dell'insieme di credenziali delle chiavi** in Informazioni su chiavi, segreti e certificati dell'insieme di credenziali delle chiavi di [Azure.](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)
+Solo le chiavi RSA e RSA-HSM a 2048 bit sono supportate con la crittografia di Archiviazione di Azure.Only 2048-bit RSA and RSA-HSM keys are supported with Azure Storage encryption. Per altre informazioni sulle chiavi, vedere **Chiavi dell'insieme di credenziali delle chiavi** in Informazioni su chiavi, segreti e certificati dell'insieme di credenziali delle chiavi di [Azure.](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)
 
 ## <a name="rotate-customer-managed-keys"></a>Ruotare le chiavi gestite dal cliente
 

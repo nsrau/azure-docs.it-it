@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 9909c46015fffb3bea3eef094599312e28b935c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 96f3825288846e86771ef3907eb4da4e58630df3
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77046204"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475182"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Eseguire la migrazione del gateway applicazione di Azure e del firewall applicazione Web dalla versione 1 alla v2Migrate Azure Application Gateway and Web Application Firewall from v1 to v2
 
@@ -40,6 +40,7 @@ In questo articolo viene illustrata la migrazione della configurazione. La migra
 * Se la modalità FIPS è abilitata per il gateway V1, non verrà eseguita la migrazione al nuovo gateway v2. La modalità FIPS non è supportata nella versione 2.
 * V2 non supporta IPv6, pertanto i gateway v1 abilitati per IPv6 non vengono migrati. Se si esegue lo script, potrebbe non essere completato.
 * Se il gateway v1 ha solo un indirizzo IP privato, lo script crea un indirizzo IP pubblico e un indirizzo IP privato per il nuovo gateway v2. I gateway v2 attualmente non supportano solo indirizzi IP privati.
+* Le intestazioni con nomi contenenti nomi diversi da lettere, cifre, trattini e caratteri di sottolineatura non vengono passate all'applicazione. Questo vale solo per i nomi delle intestazioni, non per i valori di intestazione. Questo è un cambiamento sostanziale rispetto alla v1.
 
 ## <a name="download-the-script"></a>Scarica lo script
 

@@ -7,12 +7,12 @@ ms.date: 08/21/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 1f13efeb5c2ebcb8b23dea6f9ae997039972f089
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 997aa9d96f2f52331865fd15d97443d74bb8bc1f
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72428306"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398008"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usare l'emulatore di archiviazione di Azure per sviluppo e test
 
@@ -325,6 +325,6 @@ Non esistono differenze specifiche per l'archiviazione di accodamento nell'emula
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Valutare azurite l'emulatore di archiviazione open source multipiattaforma gestito dalla comunità [Azurite](https://github.com/arafato/azurite). 
+* Valutare azurite l'emulatore di archiviazione open source multipiattaforma gestito dalla comunità [Azurite](https://github.com/azure/azurite). 
 * L'articolo [Esempi di Archiviazione di Azure che usano .NET](../storage-samples-dotnet.md) contiene collegamenti a diversi esempi di codice che è possibile usare durante lo sviluppo dell'applicazione.
 * È possibile usare [Microsoft Azure Storage Explorer](https://storageexplorer.com) per usare risorse nell'account di archiviazione cloud e nell'emulatore di archiviazione.

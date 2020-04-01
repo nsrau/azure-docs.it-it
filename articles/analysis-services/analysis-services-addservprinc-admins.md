@@ -4,16 +4,16 @@ description: Informazioni su come aggiungere un'entità servizio di automazione 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1370f65405963ebf825e986e6801607a0d96156e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 925fbbb51ac240b96486a2c0aa09c850a8d164bc
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78298089"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408635"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Aggiungere un'entità servizio al ruolo di amministratore del server 
 
@@ -39,7 +39,7 @@ Prima di completare questa attività, è necessario aver creato un'entità servi
     
     ![Cercare l'account dell'entità servizio](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
-## <a name="using-a-resource-manager-template"></a>Utilizzo di un modello di Resource ManagerUsing a Resource Manager template
+## <a name="using-a-resource-manager-template"></a>Uso di un modello di Resource Manager
 
 È anche possibile configurare gli amministratori del server distribuendo il server Analysis Services usando un modello di Azure Resource Manager.You can also configure server administrators by deploying the Analysis Services server using an Azure Resource Manager template. L'identità che esegue la distribuzione deve appartenere al ruolo **Collaboratore** per la risorsa nel [controllo degli accessi](../role-based-access-control/overview.md)in base al ruolo di Azure.
 

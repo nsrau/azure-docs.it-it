@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 456f379e2b3c2ff411b196d45aef4663fddb0fe6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fda49ae31d7598497a3128a846a3f4e12e84ffe1
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245408"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435900"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Ritiro delle funzionalità del Centro sicurezza (luglio 2019)
 
@@ -43,7 +43,7 @@ In questo articolo vengono fornite informazioni dettagliate per ogni funzionalit
 
 ## <a name="events-dashboard"></a>Dashboard eventi<a name="menu_events"></a>
 
-Il Centro sicurezza usa Microsoft Monitoring Agent per raccogliere varie configurazioni ed eventi relativi alla sicurezza dai computer. Archivia questi eventi nelle aree di lavoro. Il [dashboard degli eventi](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) consente di visualizzare questi dati e fornisce un punto di ingresso a Log Analytics.
+Il Centro sicurezza usa l'agente log Analytics per raccogliere varie configurazioni ed eventi correlati alla sicurezza dai computer. Archivia questi eventi nelle aree di lavoro. Il [dashboard degli eventi](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) consente di visualizzare questi dati e fornisce un punto di ingresso a Log Analytics.
 
 È stato ritirato il dashboard degli eventi visualizzato quando è stata selezionata un'area di lavoro:We retired the events dashboard that appeared when you selected a workspace:
 

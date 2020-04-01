@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 03/31/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76dd07a59a9fa7c0d6231a766ff4090c11f9f5bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 957aa77e18ea8f910f258d1dc59de0d093b0eab6
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80331917"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476640"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedura: Bloccare l'autenticazione legacy in Azure AD con accesso condizionaleHow to: Block legacy authentication to Azure AD with Conditional Access   
 
@@ -92,7 +92,7 @@ Questi registri indicheranno quali utenti dipendono ancora dall'autenticazione l
 
 ### <a name="block-legacy-authentication"></a>Bloccare l'autenticazione legacy 
 
-In un criterio di accesso condizionale è possibile impostare una condizione legata alle app client usate per accedere alle risorse. La condizione per le app client consente di restringere l'ambito alle app che usano l'autenticazione legacy selezionando **Altri client** per **App per dispositivi mobili e client desktop**.
+In un criterio di accesso condizionale è possibile impostare una condizione legata alle app client usate per accedere alle risorse. La condizione Delle app client consente di limitare l'ambito alle app che utilizzano l'autenticazione legacy selezionando **client Exchange ActiveSync** e **Altri client** in App per dispositivi mobili e **client desktop.**
 
 ![Altri client](./media/block-legacy-authentication/01.png)
 

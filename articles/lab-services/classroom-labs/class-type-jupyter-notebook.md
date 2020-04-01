@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
-ms.openlocfilehash: dfb133f9aa3dd9b76f8b4ea4c6188cfaf9a67b75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 371c2186d44469a22b138255fb513761a9be4437
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77444112"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478229"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Configurare un laboratorio per insegnare la scienza dei dati con Python e Jupyter Notebooks
 
@@ -34,10 +34,10 @@ Abilitare le impostazioni descritte nella tabella seguente per l'account lab. Pe
 
 | Impostazione dell'account lab | Istruzioni |
 | ------------------- | ------------ |
-| Immagine del Marketplace | Abilitare l'immagine [data science virtual - Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) per l'uso all'interno dell'account lab. |
+| Immagine del Marketplace | Abilitare l'immagine [data science virtual - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) per l'uso all'interno dell'account lab. |
 
 >[!TIP]
->Questo articolo si concentrerà sulla configurazione di un computer modello che utilizza il sistema operativo Windows Server.  È anche possibile configurare una classe di data science con Python e Jupyter Notebooks usando [Data Science Virtual Machine for Linux (CentOS)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm) o immagini data science Virtual Machine for Linux [(Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) da Azure Marketplace.
+>Questo articolo si concentrerà sulla configurazione di un computer modello che utilizza il sistema operativo Windows Server.  È anche possibile configurare una classe di data science con python e blocchi appunti di Jupyter usando immagini [data science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) da Azure Marketplace.
 
 ### <a name="lab-settings"></a>Impostazioni lab
 
@@ -50,7 +50,7 @@ Utilizza le impostazioni nella tabella seguente quando configuri un laboratorio 
 
 ## <a name="template-machine"></a>Macchina modello
 
-L'immagine [Data Science Virtual Machine - Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) fornisce i framework e gli strumenti di deep learning necessari per questo tipo di classe.  L'immagine include Jupyter Notebooks e Visual Studio Code.  [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io) è un'applicazione web che consente agli scienziati dei dati di prendere dati grezzi, eseguire calcoli e visualizzare i risultati tutti nello stesso ambiente.  Per la nostra macchina modello, l'applicazione web verrà eseguita in locale.  [Visual Studio Code](https://code.visualstudio.com/) è un IDE che offre un'esperienza interattiva avanzata durante la scrittura e il test di un blocco appunti.  Per ulteriori informazioni, vedere Utilizzo dei blocchi appunti di [Jupyter nel codice di Visual Studio](https://code.visualstudio.com/docs/python/jupyter-support).
+L'immagine [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) fornisce i framework e gli strumenti di deep learning necessari per questo tipo di classe.  L'immagine include Jupyter Notebooks e Visual Studio Code.  [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io) è un'applicazione web che consente agli scienziati dei dati di prendere dati grezzi, eseguire calcoli e visualizzare i risultati tutti nello stesso ambiente.  Per la nostra macchina modello, l'applicazione web verrà eseguita in locale.  [Visual Studio Code](https://code.visualstudio.com/) è un IDE che offre un'esperienza interattiva avanzata durante la scrittura e il test di un blocco appunti.  Per ulteriori informazioni, vedere Utilizzo dei blocchi appunti di [Jupyter nel codice di Visual Studio](https://code.visualstudio.com/docs/python/jupyter-support).
 
 L'attività rimanente per configurare la classe consiste nel fornire blocchi appunti locali.  Per istruzioni su come usare gli esempi di Azure Machine Learning, vedere come configurare un ambiente con i blocchi appunti di [Jupyter.](../../machine-learning/how-to-configure-environment.md#jupyter)  È inoltre possibile fornire i propri blocchi appunti nella macchina modello.  I blocchi appunti verranno copiati in tutte le macchine studentesche quando il modello viene pubblicato.
 

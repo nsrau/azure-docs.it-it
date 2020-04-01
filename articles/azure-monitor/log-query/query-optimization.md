@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/28/2019
-ms.openlocfilehash: c32731ce2de2b0f886a1e21ee8ccad3996e395eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2019
+ms.openlocfilehash: 29d5213b8eecd94ed8c8ce565972c9f98872a362
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79480267"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411439"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Ottimizzare le query di log in Monitoraggio di AzureOptimize log queries in Azure Monitor
 Log di monitoraggio di Azure usa [Azure Data Explorer (ADX)](/azure/data-explorer/) per archiviare i dati di log ed eseguire query per l'analisi di tali dati. Crea, gestisce e gestisce automaticamente i cluster ADX e li ottimizza per il carico di lavoro dell'analisi dei log. Quando si esegue una query, questa viene ottimizzata e instradata al cluster ADX appropriato in cui sono archiviati i dati dell'area di lavoro. Sia i log di monitoraggio di Azure che Azure Data Explorer usano molti meccanismi di ottimizzazione automatica delle query. Mentre le ottimizzazioni automatiche forniscono un incremento significativo, sono in alcuni casi in cui è possibile migliorare notevolmente le prestazioni delle query. In questo articolo vengono illustrate le considerazioni sulle prestazioni e diverse tecniche per correggerle.
@@ -57,7 +57,7 @@ Il tempo di elaborazione delle query viene impiegato per:
 - Recupero dei dati: il recupero dei dati obsoleti richiederà più tempo rispetto al recupero dei dati recenti.
 - Elaborazione dei dati – logica e valutazione dei dati. 
 
-Oltre al tempo trascorso nei nodi di elaborazione delle query, è disponibile ulteriore tempo da parte dei log di Monitoraggio di Azure per: autenticare l'utente e verificare che sia autorizzato ad accedere a questi dati, individuare l'archivio dati, analizzare la query e allocare l'elaborazione della query Nodi. Questo tempo non è incluso nel tempo totale CPU della query.
+Oltre al tempo trascorso nei nodi di elaborazione delle query, è disponibile ulteriore tempo da parte dei log di Monitoraggio di Azure per: autenticare l'utente e verificare che sia autorizzato ad accedere a questi dati, individuare l'archivio dati, analizzare la query e allocare i nodi di elaborazione delle query. Questo tempo non è incluso nel tempo totale CPU della query.
 
 ### <a name="early-filtering-of-records-prior-of-using-high-cpu-functions"></a>Filtraggio precoce dei record prima dell'utilizzo di funzioni ad alta CPU
 
@@ -155,6 +155,21 @@ Heartbeat
 
 > [!NOTE]
 > Questo indicatore presenta solo la CPU del cluster immediato. Nella query su più aree, rappresenterebbe solo una delle aree. Nella query con più aree di lavoro, potrebbe non includere tutte le aree di lavoro.
+
+### <a name="avoid-full-xml-and-json-parsing-when-string-parsing-works"></a>Evitare l'analisi XML e JSON completa quando funziona l'analisi delle stringhe
+L'analisi completa di un oggetto XML o JSON può consumare risorse di CPU e memoria elevate. In molti casi, quando sono necessari solo uno o due parametri e gli oggetti XML o JSON sono semplici, è più semplice analizzarli come stringhe utilizzando [l'operatore di analisi](/azure/kusto/query/parseoperator) o altre tecniche di analisi del [testo](/azure/azure-monitor/log-query/parse-text). L'aumento delle prestazioni sarà più significativo con l'aumento del numero di record nell'oggetto XML o JSON. È essenziale quando il numero di record raggiunge decine di milioni.
+
+Ad esempio, la query seguente restituirà esattamente gli stessi risultati delle query precedenti senza eseguire l'analisi XML completa. Si noti che fa alcune supposizioni sulla struttura del file XML, ad esempio che FilePath elemento viene dopo FileHash e nessuno di essi dispone di attributi. 
+
+```Kusto
+//even more efficient
+SecurityEvent
+| where EventID == 8002 //Only this event have FileHash
+| where EventData !has "%SYSTEM32" //Early removal of unwanted records
+| parse EventData with * "<FilePath>" FilePath "</FilePath>" * "<FileHash>" FileHash "</FileHash>" *
+| summarize count() by FileHash, FilePath
+| where FileHash != "" // No need to filter out %SYSTEM32 here as it was removed before
+```
 
 
 ## <a name="data-used-for-processed-query"></a>Dati utilizzati per la query elaborata

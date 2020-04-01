@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 513a0f28fc03cbf24e35112245c9756d5ce00783
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dfed398124ca20771e169f6f9e7d08d4d799ee1e
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73954657"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478282"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurare il ripristino di emergenza per un'applicazione Web basata su IIS multilivello
 
 Il software applicativo è il motore della produttività aziendale di un'organizzazione. Le diverse applicazioni Web possono essere usate per scopi diversi in un'organizzazione. Alcune applicazioni, ad esempio quelle usate per l'elaborazione delle retribuzioni, le applicazioni finanziarie e i siti Web orientati ai clienti, possono avere un ruolo critico in un'organizzazione. Per evitare perdite di produttività, è importante per l'organizzazione che queste applicazioni siano costantemente operative. La costante disponibilità di queste applicazioni deve soprattutto aiutare a evitare danni al marchio o all'immagine o dell'organizzazione.
 
-Le applicazioni Web critiche vengono in genere configurate come applicazioni multilivello in cui Web, database e applicazione risiedono in livelli diversi. Oltre a essere distribuite in vari livelli, le applicazioni possono usare più server in ogni livello per bilanciare il carico del traffico. I mapping tra i vari livelli e nel server Web, inoltre, possono essere basati su indirizzi IP statici. In caso di failover, alcuni di questi mapping devono essere aggiornati, in particolare se sono stati configurati più siti Web nel server Web. Se le applicazioni Web usano SSL, è necessario aggiornare anche i binding dei certificati.
+Le applicazioni Web critiche vengono in genere configurate come applicazioni multilivello in cui Web, database e applicazione risiedono in livelli diversi. Oltre a essere distribuite in vari livelli, le applicazioni possono usare più server in ogni livello per bilanciare il carico del traffico. I mapping tra i vari livelli e nel server Web, inoltre, possono essere basati su indirizzi IP statici. In caso di failover, alcuni di questi mapping devono essere aggiornati, in particolare se sono stati configurati più siti Web nel server Web. Se le applicazioni Web utilizzano TLS, è necessario aggiornare i binding dei certificati.
 
 I metodi di ripristino tradizionali senza replica prevedono il backup di diversi file di configurazione, delle impostazioni del registro, dei binding, dei componenti personalizzati (COM o .NET), dei contenuti e dei certificati. I file vengono ripristinati attraverso una procedura manuale. I metodi di ripristino tradizionali di backup e il ripristino manuale dei file sono complessi, soggetti a errori e non scalabili. Ci si potrebbe, ad esempio, dimenticare facilmente di eseguire il backup dei certificati. A quel punto, dopo failover, l'unica soluzione sarebbe quella di acquistare nuovi certificati per il server.
 
@@ -118,22 +118,22 @@ Ogni sito è costituito da informazioni di binding. Tali informazioni includono 
 >
 > Se è stato selezionato **Non assegnati** per il binding del sito, non è necessario aggiornare questo binding dopo il failover. Anche se l'indirizzo IP associato a un sito non viene modificato dopo il failover, non è necessario aggiornare il binding del sito. La conservazione dell'indirizzo IP dipende dall'architettura di rete e dalle subnet assegnate ai siti primario e di ripristino e il relativo aggiornamento potrebbe quindi non essere fattibile per l'organizzazione.
 
-![Screenshot che mostra l'impostazione del binding SSL](./media/site-recovery-iis/sslbinding.png)
+![Screenshot che mostra l'impostazione del binding TLS/SSL](./media/site-recovery-iis/sslbinding.png)
 
 Se è stato associato l'indirizzo IP a un sito, è necessario aggiornare tutti i binding del sito con il nuovo indirizzo IP. Per modificare i binding del sito, è possibile aggiungere uno [script di aggiornamento del livello Web IIS](https://aka.ms/asr-web-tier-update-runbook-classic) dopo il Gruppo 3 nel piano di ripristino.
 
 #### <a name="update-the-load-balancer-ip-address"></a>Aggiornare l'indirizzo IP del servizio di bilanciamento del carico
 Se è presente una macchina virtuale Application Request Routing, aggiungere uno [script di failover ARR IIS](https://aka.ms/asr-iis-arrtier-failover-script-classic) dopo il Gruppo 4 per aggiornare l'indirizzo IP.
 
-#### <a name="ssl-certificate-binding-for-an-https-connection"></a>Binding di certificati SSL per una connessione HTTPS
-I siti Web possono avere un certificato SSL associato che consente una comunicazione sicura tra il server Web e il browser dell'utente. Se il sito Web ha una connessione HTTPS e un binding HTTPS del sito per l'indirizzo IP del server IIS con un binding di certificati SSL, è necessario aggiungere un nuovo binding del sito per il certificato con l'indirizzo IP della macchina virtuale IIS dopo il failover.
+#### <a name="tlsssl-certificate-binding-for-an-https-connection"></a>Binding certificato TLS/SSL per una connessione HTTPS
+A un sito Web potrebbe essere associato un certificato TLS/SSL che consente di garantire una comunicazione sicura tra il server Web e il browser dell'utente. Se il sito Web dispone di una connessione HTTPS e dispone anche di un binding di sito HTTPS associato all'indirizzo IP del server IIS con un binding di certificato TLS/SSL, è necessario aggiungere un nuovo binding di sito per il certificato con l'indirizzo IP della macchina virtuale IIS dopo il failover.
 
-Il certificato SSL può essere emesso per questi componenti:
+Il certificato TLS/SSL può essere emesso a fronte di questi componenti:
 
 * Nome di dominio completo del sito Web
 * Nome del server
 * Certificato con caratteri jolly per il nome di dominio  
-* Indirizzo IP. Se il certificato SSL viene emesso per l'indirizzo IP del server IIS, è necessario emettere un altro certificato SSL per l'indirizzo IP del server IIS nel sito di Azure. Deve inoltre essere creato un binding SSL aggiuntivo per questo certificato. Per questo motivo, è consigliabile non usare un certificato SSL emesso in base all'indirizzo IP. Questa opzione viene usata meno e verrà presto deprecata in base alle nuove modifiche del forum dell'autorità/browser di certificazione.
+* Indirizzo IP. Se il certificato TLS/SSL viene emesso sull'indirizzo IP del server IIS, è necessario emettere un altro certificato TLS/SSL rispetto all'indirizzo IP del server IIS nel sito azure. È necessario creare un'associazione TLS aggiuntiva per questo certificato. Per questo motivo, si consiglia di non utilizzare un certificato TLS/SSL emesso sull'indirizzo IP. Questa opzione viene usata meno e verrà presto deprecata in base alle nuove modifiche del forum dell'autorità/browser di certificazione.
 
 #### <a name="update-the-dependency-between-the-web-tier-and-the-application-tier"></a>Aggiornare la dipendenza tra il livello Web e il livello applicazione
 Se è presente una dipendenza specifica dell'applicazione basata sull'indirizzo IP delle macchine virtuali, è necessario aggiornare questa dipendenza dopo il failover.

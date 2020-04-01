@@ -4,12 +4,12 @@ description: Informazioni su come creare un cluster di servizio Azure Kubernetes
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: cdefcfe460a97f647afa05947e92fae0c4d07001
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 87f52c5a749b531e5b0656e0b30ff0fe9c1a57bf
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79499296"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398058"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Creare un cluster di servizi Azure Kubernetes privatiCreate a private Azure Kubernetes Service cluster
 
@@ -80,6 +80,18 @@ Come accennato in precedenza, il peering della rete virtuale è un modo per acce
 7. Nel riquadro sinistro selezionare **Peerings**.  
 8. Selezionare **Aggiungi**, aggiungere la rete virtuale della macchina virtuale e quindi creare il peering.  
 9. Passare alla rete virtuale in cui si trova la macchina virtuale, selezionare **Peering,** selezionare la rete virtuale AKS e quindi creare il peering. Se gli intervalli di indirizzi nella rete virtuale AKS e nella rete virtuale della macchina virtuale si contradiscono, il peering non riesce. Per altre informazioni, vedere [Peering di rete virtuale][virtual-network-peering].
+
+## <a name="hub-and-spoke-with-custom-dns"></a>Hub e ha parlato con DNS personalizzato
+
+[Le architetture hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) vengono comunemente usate per distribuire reti in Azure.Hub and spoke architectures are commonly used to deploy networks in Azure. In molte di queste distribuzioni, le impostazioni DNS nelle reti virtuali a raggio sono configurate per fare riferimento a un server d'inoltro DNS centrale per consentire la risoluzione DNS locale e basata su Azure.In many of these deployments, DNS settings in the spoke VNets are configured to reference a central DNS forwarder to allow for on-premises and Azure-based DNS resolution. Quando si distribuisce un cluster AKS in un ambiente di rete di questo tipo, è necessario tenere conto di alcune considerazioni speciali.
+
+![Hub del cluster privato e spoke](media/private-clusters/aks-private-hub-spoke.png)
+
+1. Per impostazione predefinita, quando viene eseguito il provisioning di un cluster privato, nel gruppo di risorse gestite del cluster vengono creati un endpoint privato (1) e una zona DNS privata (2). Il cluster utilizza un record A nell'area privata per risolvere l'indirizzo IP dell'endpoint privato per la comunicazione al server API.
+
+2. La zona DNS privata è collegata solo alla rete virtuale a cui sono collegati i nodi del cluster (3). Ciò significa che l'endpoint privato può essere risolto solo dagli host nella rete virtuale collegata. Negli scenari in cui non è configurato alcun DNS personalizzato nella rete virtuale (impostazione predefinita), questo funziona senza problemi poiché gli host puntano a 168.63.129.16 per DNS che può risolvere i record nella zona DNS privata a causa del collegamento.
+
+3. Negli scenari in cui la rete virtuale contenente il cluster dispone di impostazioni DNS personalizzate (4), la distribuzione del cluster non riesce a meno che la zona DNS privata non sia collegata alla rete virtuale che contiene i resolver DNS personalizzati (5). Questo collegamento può essere creato manualmente dopo la creazione dell'area privata durante il provisioning del cluster o tramite l'automazione al rilevamento della creazione della zona tramite Criteri di Azure o altri meccanismi di distribuzione basati su eventi (ad esempio, Griglia di eventi di Azure e Funzioni di Azure).
 
 ## <a name="dependencies"></a>Dependencies  
 

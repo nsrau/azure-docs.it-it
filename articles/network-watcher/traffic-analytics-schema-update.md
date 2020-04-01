@@ -1,5 +1,5 @@
 ---
-title: Aggiornamento dello schema di analisi del traffico di Azure - Marzo 2020 Documenti Microsoft
+title: Aggiornamento dello schema di Analisi del traffico di Azure - Marzo 2020 - Documenti Microsoft
 description: Query di esempio con nuovi campi nello schema Analisi del traffico.
 services: network-watcher
 documentationcenter: na
@@ -13,23 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/06/2020
 ms.author: vinigam
-ms.openlocfilehash: 0e9d37e3a89473e59b94168f8f8c80e7a6621107
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4fe981576e3f6e58b0886d9c0d2eb2915d8b7720
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78969069"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396619"
 ---
-# <a name="sample-queries-with-new-fields-in-traffic-analytics-schema-august-2019-schema-update"></a>Query di esempio con nuovi campi nello schema Analisi del traffico (aggiornamento dello schema di agosto 2019)
+# <a name="sample-queries-with-new-fields-in-the-traffic-analytics-schema-august-2019-schema-update"></a>Query di esempio con nuovi campi nello schema Analisi del traffico (aggiornamento dello schema di agosto 2019)
 
-Lo [schema del registro di analisi del traffico](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema) è stato aggiornato per includere i seguenti nuovi campi: **SrcPublicIPs_s** , **DestPublicIPs_s** **, NSGRule_s**. Nei prossimi mesi i seguenti campi meno recenti saranno deprecati: **VMIP_s**, **Subscription_g**, **Region_s** **, NSGRules_s**, **Subnet_s**, **VM_s**, **NIC_s**, **PublicIPs_s** **, FlowCount_d**.
-I nuovi campi forniscono informazioni sugli indirizzi IP di origine e di destinazione e semplificano le query.
+Lo [schema del log di Analisi del traffico](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema) include i seguenti nuovi campi: **SrcPublicIPs_s**, **DestPublicIPs_s ,** **NSGRule_s**. I nuovi campi forniscono informazioni sugli indirizzi IP di origine e di destinazione e semplificano le query.
 
-Di seguito sono riportati tre esempi che mostrano come sostituire i vecchi campi con quelli nuovi.
+Nei prossimi mesi i seguenti campi meno recenti saranno deprecati: **VMIP_s**, **Subscription_g**, **Region_s** **, NSGRules_s**, **Subnet_s**, **VM_s**, **NIC_s**, **PublicIPs_s** **, FlowCount_d**.
 
-## <a name="example-1---vmip_s-subscription_g-region_s-subnet_s-vm_s-nic_s-publicips_s"></a>Esempio 1 - VMIP_s, Subscription_g, Region_s, Subnet_s, VM_s, NIC_s, PublicIPs_s
+Nei tre esempi seguenti viene illustrato come sostituire i vecchi campi con quelli nuovi.
 
-Non è necessario dedurre i casi di origine e di destinazione per i flussi pubblici di Azure ed esterni da FlowDirection_s campo per i flussi AzurePublic ed ExternalPublic in modo specifico. Nel caso di un NVA (Network Virtual Appliance), il campo FlowDirection_s può essere inappropriato per essere utilizzato.
+## <a name="example-1-vmip_s-subscription_g-region_s-subnet_s-vm_s-nic_s-and-publicips_s-fields"></a>Esempio 1: campi VMIP_s, Subscription_g, Region_s, Subnet_s, VM_s, NIC_s e PublicIPs_s
+
+Non è necessario dedurre i casi di origine e di destinazione dal campo FlowDirection_s per i flussi AzurePublic ed ExternalPublic.We don't have to defer source and destination cases from the **FlowDirection_s** field for AzurePublic and ExternalPublic flows. Può anche essere inappropriato utilizzare il campo **FlowDirection_s** per un'appliance virtuale di rete.
 
 ```Old Kusto query
 AzureNetworkAnalytics_CL
@@ -71,12 +72,13 @@ SourcePublicIPsAggregated = iif(isnotempty(SrcPublicIPs_s), SrcPublicIPs_s, "N/A
 DestPublicIPsAggregated = iif(isnotempty(DestPublicIPs_s), DestPublicIPs_s, "N/A")
 ```
 
+## <a name="example-2-nsgrules_s-field"></a>Esempio 2: campo NSGRules_s
 
-## <a name="example-2---nsgrules_s"></a>Esempio 2 - NSGRules_s
+Il vecchio campo utilizzava il formato:
 
-Il campo precedente era del formato: <Valore di indice 0)>>NSG_RULENAME<<Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>
+<valore di indice 0)><NSG_>di RuleName .<Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>
 
-In precedenza abbiamo usato per aggregare i dati tra NSG e NSGRules. Ora non aggregiamo. Pertanto, NSGList_s contiene un solo gruppo di sicurezza di base e NSGRules_s utilizzati anche per contenere una sola regola. Così abbiamo rimosso la formattazione complicata qui e lo stesso può essere trovato in altri campi come accennato di seguito:
+I dati non vengono più aggregati in un gruppo di sicurezza di rete. Nello schema aggiornato, **NSGList_s** contiene un solo gruppo di sicurezza di gruppo. Anche **NSGRules** contiene una sola regola. Abbiamo rimosso la formattazione complicata qui e in altri campi, come mostrato nell'esempio.
 
 ```Old Kusto query
 AzureNetworkAnalytics_CL
@@ -101,16 +103,24 @@ FlowStatus = FlowStatus_s,
 FlowCountProcessedByRule = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d
 ```
 
-## <a name="example-3---flowcount_d"></a>Esempio 3 - FlowCount_d
+## <a name="example-3-flowcount_d-field"></a>Esempio 3: campo FlowCount_d
 
-Dal momento che non trattiamo i dati in tutto il gruppo di sicurezza, il FlowCount_d è semplicemente AllowedInFlows_d, DeniedInFlows_d, AllowedOutFlows_d e DeniedOutFlows_d.
-Solo 1 dei precedenti 4 sarà diverso da zero e il resto tre sarà 0. E indicherebbe lo stato e il conteggio nella scheda di interfaccia di rete in cui è stato acquisito il flusso.
+Poiché non trattiamo i dati in tutto il gruppo di sicurezza, il **FlowCount_d** è semplicemente:
 
-Se il flusso è stato consentito, verrà popolato uno dei campi con il prefisso "Consentito". Altrimenti verrà popolato un campo con il prefisso "Negato".
-Se il flusso era in ingresso, verrà\_popolato uno dei campi con suffisso "d" come "InFlows_d". Else "OutFlows_d" verrà popolato.
+**AllowedInFlows_d** + **DeniedInFlows_d** + **DeniedOutFlows_d**  + **AllowedOutFlows_d**AllowedInFlows_d DeniedInFlows_d
 
-A seconda delle 2 condizioni sopra, sappiamo quale su 4 sarà popolato.
+Solo uno dei quattro campi sarà diverso da zero. Gli altri tre campi saranno zero. I campi vengono popolati per indicare lo stato e il conteggio nella scheda di interfaccia di rete in cui è stato acquisito il flusso.
 
+Per illustrare queste condizioni:
+
+- Se il flusso è stato consentito, verrà popolato uno dei campi con prefisso "Consentito".
+- Se il flusso è stato negato, verrà popolato uno dei campi con prefisso "Negato".
+- Se il flusso è in ingresso, verrà popolato uno dei campi con suffisso "InFlows_d".
+- Se il flusso era in uscita, verrà popolato uno dei campi con suffisso "OutFlows_d".
+
+A seconda delle condizioni, sappiamo quale dei quattro campi verrà popolato.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per ottenere risposte alle domande frequenti, vedere [Domande frequenti sull'analisi del traffico](traffic-analytics-faq.md) Per informazioni dettagliate sulle funzionalità, vedere la documentazione relativa all'analisi del [traffico](traffic-analytics.md)
+
+- Per le risposte alle domande frequenti, vedere [Traffic Analytics FAQ](traffic-analytics-faq.md) (Domande frequenti su Analisi del traffico).
+- Per informazioni dettagliate sulla funzionalità, vedere la [documentazione](traffic-analytics.md)di Analisi del traffico .

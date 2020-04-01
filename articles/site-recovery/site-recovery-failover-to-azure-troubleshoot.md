@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 6de37daa0b9e0ebc711a5dacbdce352e3675a3db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 54e44a12f593d2074eefe5b2ff890863db3199f7
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79257745"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478948"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Risolvere gli errori durante il failover di un computer fisico o di una macchina virtuale VMware in Azure
 
@@ -128,7 +128,7 @@ In genere, non è motivo di preoccupazione e può essere ignorato per i failover
 
 Questo problema è indicato quando non è possibile visualizzare l'archivio dati in Azure il portale quando si tenta di riproteggere la macchina virtuale che ha riscontrato un failover. Ciò è dovuto al fatto che la destinazione master non viene riconosciuta come macchina virtuale in vCenters aggiunta a Azure Site Recovery.This is because the Master target is not recognized as a virtual machine under vCenters added to Azure Site Recovery.
 
-Per altre informazioni sulla protezione di un computer virtuale, vedere Proteggere e eseguire il failback dei computer in un sito locale dopo il failover in Azure.For more information about reprotecting a vitual machine, see [Reprotect and fail back machines to an on-premises site after failover to Azure](vmware-azure-reprotect.md).
+Per altre informazioni sulla protezione di una macchina virtuale, vedere Proteggere e eseguire il failback dei computer in un sito locale dopo il failover in Azure.For more information about reprotecting a virtual machine, see [Reprotect and fail back machines to an on-premises site after failover to Azure](vmware-azure-reprotect.md).
 
 Per risolvere il problema:
 
@@ -138,7 +138,7 @@ Creare manualmente la destinazione master nel vCenter che gestisce il computer d
 > 
 > Il completamento delle operazioni di individuazione e aggiornamento dell'infrastruttura può richiedere fino a 30 minuti. 
 
-## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>Registrazione di Linux Master Target con CS non riesce con un errore SSL 35 
+## <a name="linux-master-target-registration-with-cs-fails-with-a-tls-error-35"></a>Registrazione di destinazione master Linux con CS non riesce con un errore TLS 35 
 
 La registrazione di Destinazione server di Azure Site Recovery con il server di configurazione non riesce a causa dell'abilitazione del proxy autenticato nella destinazione master. 
  

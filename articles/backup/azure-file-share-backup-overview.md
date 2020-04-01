@@ -3,12 +3,12 @@ title: Informazioni sul backup della condivisione file di Azure
 description: Informazioni su come eseguire il backup delle condivisioni file di Azure nell'insieme di credenziali dei servizi di ripristino
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 0e17b05a3febaa673fb29d45c2bcef25e2996df8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: fd5bb51b2c7b5c09e9d859b69c3094eb50c205b5
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78386720"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396272"
 ---
 # <a name="about-azure-file-share-backup"></a>Informazioni sul backup della condivisione file di Azure
 
@@ -43,6 +43,15 @@ Il backup della condivisione file di Azure è una soluzione di backup nativa bas
 6. È possibile ripristinare il contenuto della condivisione file di Azure (singoli file o la condivisione completa) dagli snapshot disponibili nella condivisione file di origine. Una volta attivata l'operazione, l'URL dello snapshot viene recuperato dall'archivio dei metadati e i dati vengono elencati e trasferiti dallo snapshot di origine alla condivisione file di destinazione desiderata.
 
 7. I dati di monitoraggio dei processi di backup e ripristino vengono inviati al servizio monitoraggio di Backup di Azure.The backup and restore job monitoring data is pushed to the Azure Backup Monitoring service. In questo modo è possibile monitorare i backup cloud per le condivisioni file in un singolo dashboard. Inoltre, è anche possibile configurare avvisi o notifiche tramite posta elettronica quando l'integrità del backup è interessata. I messaggi di posta elettronica vengono inviati tramite il servizio di posta elettronica di Azure.Emails are sent via the Azure email service.
+
+## <a name="backup-costs"></a>Costi di backup
+
+Il backup della condivisione file di Azure è una soluzione basata su snapshot e gli addebiti di archiviazione sostenuti per gli snapshot vengono fatturati insieme a Utilizzo file di Azure in base ai dettagli sui prezzi indicati [di seguito.](https://azure.microsoft.com/pricing/details/storage/files/)
+
+Tuttavia, la tariffa dell'istanza protetta per sfruttare la soluzione di backup è in base al modello di determinazione dei prezzi descritto nella sezione Backup per i file di Azure.However, the protected instance fee for leveraging the backup solution is according to the pricing model described under the [Backup For Azure Files](https://azure.microsoft.com/pricing/details/backup/) section. Attualmente, il prezzo effettivo è stato aggiornato solo per gli Stati Uniti centro-occidentali. Per altre regioni, i prezzi esatti verranno aggiornati presto con alcune variazioni regionali, ma utilizzando lo stesso modello di determinazione dei prezzi.
+
+>[!NOTE]
+>Durante l'anteprima, non vi è alcuna "tassa istanza protetta" e vi verrà addebitato solo per le istantanee in base al prezzo menzionato [qui](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

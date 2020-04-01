@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: dcdc338bdcdb2c04f6b8894ccb358bc773b95c07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa8bb41684271c7d4ebe90e31ce8019994fc1f41
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79258928"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478749"
 ---
 # <a name="azure-service-fabric-security"></a>Sicurezza di Azure Service Fabric 
 
@@ -208,7 +208,7 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 Si consiglia di implementare una configurazione standard del settore ampiamente [nota e ben testata, ad esempio le linee di base di sicurezza Microsoft, anziché creare una linea di base.](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines) un'opzione per il provisioning di questi set di scalabilità in Virtual Machine Scale Sets consiste nell'usare il gestore dell'estensione DSC (Desired State Configuration) di Azure per configurare le macchine virtuali man mano che vengono online, in modo che eseguano il software di produzione.
 
 ## <a name="azure-firewall"></a>Firewall di Azure
-Firewall di Azure è un servizio di sicurezza di rete gestito basato su cloud che protegge le risorse della rete virtuale di [Azure.Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. Si tratta di un firewall completamente con stato come servizio con disponibilità elevata integrata e scalabilità cloud senza restrizioni.](https://docs.microsoft.com/azure/firewall/overview) ciò consente di limitare il traffico HTTP/S in uscita a un elenco specificato di nomi di dominio completi (FQDN), inclusi i caratteri jolly. Questa funzionalità non richiede la terminazione SSL. È consigliabile sfruttare [i tag FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags) di Azure Firewall per gli aggiornamenti di Windows e abilitare il traffico di rete verso gli endpoint di Microsoft Windows Update può passare attraverso il firewall. [Deploy Azure Firewall usando un modello](https://docs.microsoft.com/azure/firewall/deploy-template) offre un esempio per la definizione del modello di risorsa Microsoft.Network/azureFirewalls.Deploy Azure Firewall using a template provides a sample for Microsoft.Network/azureFirewalls resource template definition. Le regole del firewall comuni alle applicazioni Service Fabric consentono quanto segue per la rete virtuale dei cluster:Firewall rules common to Service Fabric Applications is to allow the following for your clusters virtual network:
+Firewall di Azure è un servizio di sicurezza di rete gestito basato su cloud che protegge le risorse della rete virtuale di [Azure.Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. Si tratta di un firewall completamente con stato come servizio con disponibilità elevata integrata e scalabilità cloud senza restrizioni.](https://docs.microsoft.com/azure/firewall/overview) ciò consente di limitare il traffico HTTP/S in uscita a un elenco specificato di nomi di dominio completi (FQDN), inclusi i caratteri jolly. Questa funzionalità non richiede la terminazione TLS/SSL. È consigliabile sfruttare [i tag FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags) di Azure Firewall per gli aggiornamenti di Windows e abilitare il traffico di rete verso gli endpoint di Microsoft Windows Update può passare attraverso il firewall. [Deploy Azure Firewall usando un modello](https://docs.microsoft.com/azure/firewall/deploy-template) offre un esempio per la definizione del modello di risorsa Microsoft.Network/azureFirewalls.Deploy Azure Firewall using a template provides a sample for Microsoft.Network/azureFirewalls resource template definition. Le regole del firewall comuni alle applicazioni Service Fabric consentono quanto segue per la rete virtuale dei cluster:Firewall rules common to Service Fabric Applications is to allow the following for your clusters virtual network:
 
 - Download.microsoft.com z
 - Servicefabric.azure.com

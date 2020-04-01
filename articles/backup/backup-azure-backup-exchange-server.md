@@ -4,12 +4,12 @@ description: Informazioni su come eseguire il backup di un server di Exchange in
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 389713767409ff49c6fc83a4d6e8dc3c87272fc9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b45efa0623edbec47b8ae12d3a97b1e032626530
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77614379"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396411"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Eseguire il backup di un server di Exchange in Backup di Azure con System Center 2012 R2 DPM
 
@@ -49,7 +49,7 @@ Per installare l'agente protezione DPM nel server di Exchange, seguire questi pa
 4. Selezionare il database di Exchange Server che si vuole proteggere e fare clic su **Avanti**.
 
    > [!NOTE]
-   > Se si vuole proteggere Exchange 2013, controllare i [Prerequisiti di Exchange 2013](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/dn751029(v=sc.12)).
+   > Se si vuole proteggere Exchange 2013, controllare i [Prerequisiti di Exchange 2013](https://docs.microsoft.com/system-center/dpm/back-up-exchange?view=sc-dpm-2016).
    >
    >
 
@@ -65,7 +65,7 @@ Per installare l'agente protezione DPM nel server di Exchange, seguire questi pa
 6. Fare clic su **Avanti**.
 7. Selezionare l'opzione **Esegui Eseutil per controllare l'integrità dei dati** se si vuole controllare l'integrità dei database di Exchange Server.
 
-    Dopo aver selezionato questa opzione, la verifica coerenza del backup verrà eseguito nel server DPM per evitare il traffico di I/O che viene generato eseguendo il comando **eseutil** sul server di Exchange.
+    Dopo aver selezionato questa opzione, il controllo di coerenza del backup verrà eseguito nel server DPM per evitare il traffico di I/O generato eseguendo il comando **eseutil** sul server Exchange.
 
    > [!NOTE]
    > Per usare questa opzione, è necessario copiare i file Ese.dll and Eseutil.exe nella directory C:\Programmi\Microsoft System Center 2012 R2\DPM\DPM\bin nel server DPM. In caso contrario, viene generato l'errore seguente:   
@@ -76,7 +76,7 @@ Per installare l'agente protezione DPM nel server di Exchange, seguire questi pa
 9. Selezionare il database per **Backup di copia**, quindi fare clic su **Avanti**.
 
    > [!NOTE]
-   > Se non si seleziona "Backup completo" per almeno una copia del gruppo di disponibilità dei database di un database, i log non verranno troncati.
+   > Se non si seleziona "Backup completo" per almeno una copia del DAG di un database, i registri non verranno troncati.
    >
    >
 10. Configurare gli obiettivi per **Backup a breve termine**, quindi fare clic su **Avanti**.
@@ -91,7 +91,7 @@ Per installare l'agente protezione DPM nel server di Exchange, seguire questi pa
     ![Specificare la pianificazione dei backup online](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > Tenere presente che i punti di ripristino online sono basati sui punti di ripristino di backup completo rapido. È quindi necessario pianificare il punto di ripristino in linea dopo il tempo specificato per il punto di ripristino di backup completo rapido.
+    > Tenere presente che i punti di ripristino online sono basati sui punti di ripristino di backup completo rapido. Pertanto, è necessario pianificare il punto di ripristino online dopo il tempo specificato per il punto di ripristino completo espresso.
     >
     >
 16. Configurare i criteri di conservazione per **Backup di Azure**, quindi fare clic su **Avanti**.

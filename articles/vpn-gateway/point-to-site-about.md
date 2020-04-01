@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: 78ed07560fdb15efb2de13c194549f5b433b775a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 381aad5d0a56362d9966ed54b931a8478f2f6bf2
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77500608"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410493"
 ---
 # <a name="about-point-to-site-vpn"></a>Informazioni sulla VPN da punto a sito
 
@@ -22,9 +22,9 @@ Una connessione gateway VPN da punto a sito (P2S) consente di creare una conness
 
 Per la VPN da punto a sito può essere usato uno dei protocolli seguenti:
 
-* **OpenVPN® Protocollo**, un protocollo VPN basato su SSL/TLS. Una soluzione VPN SSL può penetrare nei firewall, poiché la maggior parte dei firewall apre la porta TCP 443 in uscita, utilizzata da SSL. OpenVPN può essere utilizzato per connettersi da Android, iOS (versioni 11.0 e successive), Windows, Linux e dispositivi Mac (OSX versioni 10.13 e successive).
+* **OpenVPN® Protocollo**, un protocollo VPN basato su SSL/TLS. Una soluzione VPN TLS può penetrare i firewall, poiché la maggior parte dei firewall apre la porta TCP 443 in uscita, usata da TLS. OpenVPN può essere utilizzato per connettersi da Android, iOS (versioni 11.0 e successive), Windows, Linux e dispositivi Mac (OSX versioni 10.13 e successive).
 
-* Secure Socket Tunneling Protocol (SSTP), un protocollo VPN di proprietà basato su SSL. Una soluzione VPN SSL può penetrare nei firewall, poiché la maggior parte dei firewall apre la porta TCP 443 in uscita, utilizzata da SSL. SSTP è supportato solo nei dispositivi Windows. Azure supporta tutte le versioni di Windows che hanno SSTP (Windows 7 e versioni successive).
+* Secure Socket Tunneling Protocol (SSTP), un protocollo VPN proprietario basato su TLS. Una soluzione VPN TLS può penetrare i firewall, poiché la maggior parte dei firewall apre la porta TCP 443 in uscita, usata da TLS. SSTP è supportato solo nei dispositivi Windows. Azure supporta tutte le versioni di Windows che hanno SSTP (Windows 7 e versioni successive).
 
 * VPN IKEv2, una soluzione VPN IPsec basata su standard. VPN IKEv2 può essere usato per connettersi da dispositivi Mac (versioni OSX 10.11 e successive).
 

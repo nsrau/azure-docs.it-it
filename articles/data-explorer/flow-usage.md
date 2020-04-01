@@ -7,12 +7,12 @@ ms.reviewer: dorcohen
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/15/2020
-ms.openlocfilehash: 759ea9800a0ed051fed887adfb10b06f7a53b72f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 796b37f98fed7e389fa71a15b5e6697a14db1a16
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79529204"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397200"
 ---
 # <a name="microsoft-flow-connector-preview-usage-examples"></a>Esempi di utilizzo del connettore di Microsoft Flow (anteprima)Microsoft Flow connector (Preview) usage examples
 
@@ -119,7 +119,9 @@ Visualizza queste informazioni come grafico a torta e inviale via email al team.
     * Nel campo *Corpo* inserire il corpo richiesto in modo che il risultato visualizzato della query sia incluso nel corpo del messaggio di posta elettronica.
     * Per aggiungere un allegato al messaggio di posta elettronica, aggiungere Nome allegato e Contenuto allegato.
     
-    ![Inviare più allegati tramite posta elettronica](./media/flow-usage/flow-emailmultipleattachments.png)
+    ![Inviare più allegati tramite posta elettronica](./media/flow-usage/flow-email-multiple-attachments.png)
+
+    Per istruzioni complete sulla creazione di un'azione di posta elettronica, vedere [Email Kusto risultati della query](flow.md#email-kusto-query-results). 
 
 Risultati:
 

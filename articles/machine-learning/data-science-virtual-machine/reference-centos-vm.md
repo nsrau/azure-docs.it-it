@@ -8,12 +8,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: db49a9f5e0e6675d93cb58d6af9c92fac21e8b74
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 05da812023e7525b87a3d7ef1ce1940339f99791
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77525839"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475491"
 ---
 # <a name="reference-centos-linux-data-science-virtual-machine"></a>Riferimento: Macchina virtuale di analisi scientifica dei dati CentOS (Linux)
 
@@ -49,7 +49,7 @@ Gli esperti di dati usano vari strumenti per completare queste attività. Trovar
 
 La DSVM Linux può semplificare questo carico in modo sostanziale. Usarla per avviare rapidamente i progetti di analisi. La DSVM Linux consente di svolgere attività in diversi linguaggi, ad esempio R, Python, SQL, Java e C++. Eclipse offre un IDE di facile utilizzo per lo sviluppo e il test del codice. Azure SDK, incluso nella DSVM, consente di compilare le applicazioni usando vari servizi in Linux sulla piattaforma cloud Microsoft. Sono preinstallati altri linguaggi, tra cui Ruby, Perl, PHP e Node.js.
 
-Per questa immagine di DSVM non sono previsti costi per il software. Si pagano solo le spese d'uso dell'hardware di Azure, valutate in base alle dimensioni della macchina virtuale di cui si esegue il provisioning con l'immagine della DSVM. Per altre informazioni sui costi delle risorse di calcolo, vedere il [listino della Data Science Virtual Machine per Linux (CentOS)](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/) in Azure Marketplace.
+Per questa immagine di DSVM non sono previsti costi per il software. Si pagano solo le spese d'uso dell'hardware di Azure, valutate in base alle dimensioni della macchina virtuale di cui si esegue il provisioning con l'immagine della DSVM. Per altre informazioni sulle commissioni di calcolo, vedere l'elenco Data Science Virtual Machine for Linux in Azure Marketplace.For more information about the [compute fees,](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) see the Data Science Virtual Machine for Linux listing in Azure Marketplace.
 
 
 ## <a name="machine-learning-server"></a>Machine Learning Server
@@ -176,7 +176,7 @@ Il database open source PostgresSQL è disponibile nella DSVM con i servizi in e
 SQuirreL SQL è un client SQL con interfaccia grafica che può connettersi a vari database (inclusi SQL Server, PostgreSQL e MySQL) ed eseguire query SQL. È possibile eseguire SQuirrel SQL da una sessione desktop con interfaccia grafica (ad esempio tramite il client X2Go) usando un'icona del desktop. In alternativa, è possibile eseguire il client usando il comando seguente nella shell:
 
 ```bash
-/usr/local/squirrel-sql-3.7/squirrel-sql.sh /usr/local/squirrel-sql-3.7/squirrel-sql.sh
+/usr/local/squirrel-sql-3.7/squirrel-sql.sh    /usr/local/squirrel-sql-3.7/squirrel-sql.sh
 ```
 
 Prima di usarlo per la prima volta, è necessario configurare i driver e gli alias di database. I driver JDBC si trovano nel percorso /usr/share/java/jdbcdrivers.
@@ -330,7 +330,7 @@ Si apre un'interfaccia grafica con un set di schede. Seguire questi passaggi di 
 > [!NOTE]
 > Se non si hanno le autorizzazioni per installare il pacchetto nella directory di sistema (impostazione predefinita), è possibile che nella finestra della console R venga visualizzata la richiesta di installare i pacchetti nella libreria personale. In questo caso, immettere **y** (Sì).
 
-1. Scegliere **Execute**(Esegui).
+1. Selezionare **Esegui**.
 1. Viene visualizzata una finestra di dialogo che chiede di caricare il set di dati meteo di esempio. Selezionare **Yes** (Sì) per caricare l'esempio.
 1. Selezionare la scheda **Model** (Modello).
 1. Selezionare **Execute** (Esegui) per creare un albero delle decisioni.

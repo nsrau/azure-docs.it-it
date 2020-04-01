@@ -10,12 +10,12 @@ ms.date: 03/19/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: bef3b53a160f17248c1a26e97bc85a86843cb3c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e7878cae7bc6aabf1db58bfd63338955b9e830d3
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061220"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478230"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Configurare le chiavi gestite dal cliente con l'insieme di credenziali delle chiavi di Azure tramite il portale di AzureConfigure customer-managed keys with Azure Key Vault by using the Azure portal
 
@@ -32,7 +32,7 @@ Per informazioni su come abilitare queste proprietà in un insieme di credenzial
 - [Come usare l'eliminazione temporanea con PowerShell](../../key-vault/key-vault-soft-delete-powershell.md).
 - [Come utilizzare l'eliminazione temporanea con CLI](../../key-vault/key-vault-soft-delete-cli.md).
 
-Solo le chiavi RSA di dimensioni 2048 sono supportate con la crittografia di Archiviazione di Azure.Only RSA keys of size 2048 are supported with Azure Storage encryption. Per altre informazioni sulle chiavi, vedere **Chiavi dell'insieme di credenziali delle chiavi** in Informazioni su chiavi, segreti e certificati dell'insieme di credenziali delle chiavi di [Azure.](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)
+Solo le chiavi RSA e RSA-HSM a 2048 bit sono supportate con la crittografia di Archiviazione di Azure.Only 2048-bit RSA and RSA-HSM keys are supported with Azure Storage encryption. Per altre informazioni sulle chiavi, vedere **Chiavi dell'insieme di credenziali delle chiavi** in Informazioni su chiavi, segreti e certificati dell'insieme di credenziali delle chiavi di [Azure.](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)
 
 ## <a name="enable-customer-managed-keys"></a>Abilitare le chiavi gestite dal clienteEnable customer-managed keys
 

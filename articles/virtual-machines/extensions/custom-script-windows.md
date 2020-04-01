@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 698fab470cdc8b8d04fa4319fd71c31b58d1c5a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c7cad2dfdcd55073a1cf09d79e5223b666ced5f
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80066886"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478160"
 ---
 # <a name="custom-script-extension-for-windows"></a>Estensione Script personalizzato per Windows
 
@@ -106,7 +106,7 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 > In una macchina virtuale può essere installata una sola versione di un'estensione in un momento specifico, specificando due volte lo script personalizzato nello stesso modello di Resource Manager per la stessa macchina virtuale.
 
 > [!NOTE]
-> È possibile usare questo schema all'interno della risorsa VirtualMachine o come risorsa autonoma. Il nome della risorsa deve essere in questo formato "virtualMachineName/extensionName", se questa estensione viene utilizzata come risorsa autonoma nel modello ARM. 
+> È possibile usare questo schema all'interno della risorsa VirtualMachine o come risorsa autonoma. Il nome della risorsa deve essere in questo formato "virtualMachineName/extensionName", se questa estensione viene utilizzata come risorsa autonoma nel modello ARM.
 
 ### <a name="property-values"></a>Valori delle proprietà
 
@@ -146,6 +146,8 @@ L'utilizzo di impostazioni pubbliche potrebbe essere utile per il debug, ma è c
 Le impostazioni pubbliche vengono inviate in testo non crittografato alla macchina virtuale in cui verrà eseguito lo script.  Le impostazioni protette vengono crittografate usando una chiave nota solo alla macchina virtuale e ad Azure. Le impostazioni vengono salvate nella macchina virtuale quando sono state inviate, ovvero se le impostazioni sono state crittografate vengono salvate crittografate nella macchina virtuale. Il certificato usato per decrittografare i valori crittografati è archiviato nella macchina virtuale e viene usato per decrittografare le impostazioni (se necessario) in fase di esecuzione.
 
 ####  <a name="property-managedidentity"></a>Proprietà: managedIdentity
+> [!NOTE]
+> Questa proprietà **deve** essere specificata solo nelle impostazioni protette.
 
 CustomScript (versione 1.10 e successive) supporta [l'identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) per il download di file da URL forniti nell'impostazione "fileUris". Consente a CustomScript di accedere ai BLOB o ai contenitori privati di Archiviazione di Azure senza che l'utente debba passare segreti come token di firma di accesso condiviso o chiavi dell'account di archiviazione.
 
@@ -306,7 +308,7 @@ $vm | Update-AzureVM
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risolvere i problemi
+### <a name="troubleshoot"></a>Risolvere problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite il modulo Azure PowerShell. Per visualizzare lo stato di distribuzione delle estensioni per una determinata macchina virtuale, eseguire il comando seguente:
 

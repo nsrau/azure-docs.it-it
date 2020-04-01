@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b1d0c070a9196eaa9a2706a607baa9a2926e2db4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 615a6afb0f7a3e133603db10e7c79add3322070c
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67051756"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476698"
 ---
 # <a name="publish-media-services-content-using-net"></a>Pubblicare contenuti di Servizi multimediali tramite .NET  
 > [!div class="op_single_selector"]
@@ -108,7 +108,7 @@ Gli output:
 
 
 > [!NOTE]
-> Lo streaming dei contenuti può essere eseguito anche tramite una connessione SSL. A questo scopo, verificare che gli URL di streaming inizino con HTTPS. Attualmente AMS non supporta SSL con domini personalizzati.
+> Puoi anche trasmettere i tuoi contenuti tramite una connessione TLS. A questo scopo, verificare che gli URL di streaming inizino con HTTPS. Attualmente, AMS non supporta TLS con domini personalizzati.
 > 
 > 
 

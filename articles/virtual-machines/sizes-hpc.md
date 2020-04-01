@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jonbeck
-ms.openlocfilehash: b900a95df00ccdd0ad9b5bee3887364195c7d1c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df22c857571e51bb886ff1d25db185a306999540
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78226723"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420863"
 ---
-# <a name="high-performance-compute-vm-sizes"></a>Dimensioni delle VM High Performance Computing (HPC)
+# <a name="high-performance-computing-vm-sizes"></a>Dimensioni delle macchine virtuali di elaborazione ad alte prestazioni
 
 Le macchine virtuali (VM) della serie H di Azure sono progettate per offrire prestazioni di livello leader, scalabilità MPI ed efficienza dei costi per un'ampia gamma di carichi di lavoro HPC reali.
 
@@ -34,37 +34,28 @@ Le macchine virtuali (VM) della serie H di Azure sono progettate per offrire pre
 
 [Serie H](h-series.md) Le macchine virtuali sono ottimizzate per le applicazioni guidate da frequenze di CPU elevate o da grandi quantità di memoria per core. Le macchine virtuali di serie H sono dotate di 8 o 16 core del processore Intel Xeon E5 2667 v3, 7 o 14 GB di RAM per core CPU e nessun hyperthreading. Serie H dispone di 56 Gb/sec Mellanox FDR InfiniBand in una configurazione ad albero grasso non bloccante per prestazioni RDMA coerenti. Le macchine virtuali della serie H supportano Intel MPI 5.x e MS-MPI.
 
-## <a name="deployment-considerations"></a>Considerazioni sulla distribuzione
-
-- **Sottoscrizione di Azure**: per distribuire numerose istanze a elevato utilizzo di calcolo, prendere in considerazione una sottoscrizione con pagamento in base al consumo o altre opzioni di acquisto. Con un [account gratuito di Azure](https://azure.microsoft.com/free/)è possibile usare solo un numero limitato di core di calcolo di Azure.
-
-- **Prezzi e disponibilità**: queste dimensioni di VM sono offerte solo con il piano tariffario Standard. Per informazioni sulla disponibilità nelle aree di Azure, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/) .
-- **Quota di core**: potrebbe essere necessario aumentare la quota di core nella sottoscrizione di Azure rispetto al valore predefinito. La sottoscrizione può anche limitare il numero di core che è possibile distribuire in alcune famiglie di dimensioni di macchina virtuale, inclusa la serie H. Per richiedere un aumento della quota, apri una richiesta di [assistenza clienti online](../azure-supportability/how-to-create-azure-support-request.md) gratuitamente. I limiti predefiniti possono variare in base alla categoria della sottoscrizione.
-
-  > [!NOTE]
-  > Se si hanno esigenze di capacità su larga scala, contattare il supporto di Azure. Le quote di Azure sono limiti di credito e non garanzie di capacità. A prescindere dalla quota, viene addebitato solo l'uso dei core effettivamente impiegati.
-  
-- **Rete virtuale**: non è necessaria una [rete virtuale](https://azure.microsoft.com/documentation/services/virtual-network/) di Azure per usare le istanze a elevato utilizzo di calcolo. Per molte distribuzioni è tuttavia necessaria almeno una rete virtuale di Azure basata sul cloud. Per l'accesso alle risorse locali, è necessaria anche una connessione da sito a sito. Quando è necessaria, creare una nuova rete virtuale per distribuire le istanze. L'aggiunta di una VM a elevato uso di calcolo a una rete virtuale in un gruppo di affinità non è supportata.
-- **Ridimensionamento**: a causa dell'hardware specializzato, è possibile ridimensionare solo le istanze a elevato uso di calcolo nella stessa famiglia di dimensioni (serie H o serie A a elevato uso di calcolo). Ad esempio, è possibile ridimensionare una VM della serie H solo da una dimensione della serie H a un'altra. Inoltre, non è supportato il ridimensionamento da una dimensione non a elevato uso di calcolo.  
-
 > [!NOTE]
 > Le macchine virtuali A8 – A11 sono previste per il ritiro il 3/2021. Per ulteriori informazioni, consultate Guida alla [migrazione HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
 
 ## <a name="rdma-capable-instances"></a>Istanze con supporto per RDMA
 
-Un sottoinsieme delle istanze ad alta intensità di calcolo (A8, A9, H16r, H16mr, HB e HC) dispongono di un'interfaccia di rete per la connettività RDMA (Remote Direct Memory Access). Anche le dimensioni selezionate della serie N designate con 'r' come le configurazioni NC24rs (NC24rs_v2 e NC24rs_v3) sono compatibili con RDMA. Questa interfaccia è un'aggiunta all'interfaccia di rete di Azure standard disponibile per gli altri formati di VM.
+La maggior parte delle dimensioni delle macchine virtuali HPC (HBv2, HB, HC, H16r, H16mr, A8 e A9) dispongono di un'interfaccia di rete per la connettività RDMA (Remote Direct Memory Access). Selezionate [serie N]https://docs.microsoft.com/azure/virtual-machines/nc-series) (dimensioni designate con 'r' come le configurazioni NC24rs (NC24rs_v3, NC24rs_v2 e NC24r) sono anche compatibili con RDMA. Questa interfaccia si aggiunge all'interfaccia di rete standard di Azure disponibile nelle altre dimensioni della macchina virtuale.
 
-Questa interfaccia consente alle istanze che supportano RDMA di comunicare tramite una rete IB (InfiniBand), operando alle velocità EDR per le macchine virtuali HB, HC, FDR per H16r, H16mr e RDMA e le velocità QDR per le macchine virtuali A8 e A9. Queste funzionalità RDMA possono migliorare la scalabilità e le prestazioni di determinate applicazioni di interfaccia MPI (Message Passing Interface). Per ulteriori informazioni sulla velocità, vedere i dettagli nelle tabelle in questa pagina.
+Questa interfaccia consente alle istanze con funzionalità RDMA di comunicare su una rete InfiniBand (IB), operando a velocità HDR per HBv2, velocità EDR per HB, HC, velocità FDR per macchine virtuali di serie H16r, H16mr e RDMA e qDR per macchine virtuali A8 e A9. Queste funzionalità RDMA possono migliorare la scalabilità e le prestazioni di determinate applicazioni di interfaccia MPI (Message Passing Interface). Per ulteriori informazioni sulla velocità, vedere i dettagli nelle tabelle in questa pagina.
 
 > [!NOTE]
-> In Azure, IP su IB è supportato solo nelle macchine virtuali abilitate per SR-IOV (SR-IOV per InfiniBand, attualmente HB e HC). RDMA su IB è supportato per tutte le istanze che supportano RDMA.
-- **Sistema operativo** - Windows Server 2016 su tutte le macchine virtuali della serie HPC di cui sopra. Windows Server 2012 R2, Windows Server 2012 sono supportati anche nelle macchine virtuali non abilitate per SR-IOV (ad esempio, HB e HC).
+> In Azure HPC, there are two classes of VMs depending on whether they are SR-IOV enabled for InfiniBand. Attualmente, la SR-IOV per InfiniBand macchine virtuali abilitate sono: HBv2, HB, HC e NCv3. Il resto delle macchine virtuali abilitate per InfiniBand non è abilitato per SR-IOV.
+> RDMA su IB è supportato per tutte le macchine virtuali che supportano RDMA.
+> IP su IB è supportato solo nelle macchine virtuali abilitate per SR-IOV.
 
-- **MPI** - Le dimensioni delle macchine virtuali abilitate per SR-IOV in Azure (HB, HC) consentono di usare quasi tutte le dimensioni di MPI con Mellanox OFED.
-Nelle macchine virtuali non abilitate per SR-IOV, le implementazioni MPI supportate usano l'interfaccia Microsoft Network Direct (ND) per comunicare tra le istanze. Di conseguenza, sono supportate solo le versioni Microsoft MPI (MS-MPI) 2012 R2 o versioni successive e Intel MPI 5.x. Versioni successive (2017, 2018) della libreria di runtime Intel MPI possono o non possono essere compatibili con i driver RDMA di Azure.
+- **Sistema operativo** - Linux è molto ben supportato per le macchine virtuali HPC, distros come CentOS, RHEL, Ubuntu, SUSE sono comuni. Per quanto riguarda il supporto di Windows, Windows Server 2016 è supportato in tutte le macchine virtuali della serie HPC. Windows Server 2012 R2, Windows Server 2012 sono supportati anche nelle macchine virtuali non SR-IOV abilitate.
 
-- **Estensione VM InfiniBandDriverWindows:** nelle macchine virtuali che supportano RDMA, aggiungere l'estensione InfiniBandDriverWindows per abilitare InfiniBand. Questa estensione di Windows VM installa i driver Di rete Diretta di Windows (in macchine virtuali non SR-IOV) o i driver OFED Mellanox (nelle macchine virtuali SR-IOV) per la connettività RDMA.
-In alcune distribuzioni di istanze A8 e A9, l'estensione HpcVmDrivers viene aggiunta automaticamente. Si noti che l'estensione della macchina virtuale HpcVmDrivers è deprecata. non verrà aggiornato. Per aggiungere l'estensione macchina virtuale a una macchina virtuale, è possibile usare i cmdlet di [Azure PowerShell](/powershell/azure/overview). 
+- **MPI** - Le dimensioni delle macchine virtuali abilitate per SR-IOV in Azure (HBv2, HB, HC, NCv3) consentono di usare quasi tutte le tàte di MPI con Mellanox OFED.
+Nelle macchine virtuali non abilitate per SR-IOV, le implementazioni MPI supportate usano l'interfaccia Microsoft Network Direct (ND) per comunicare tra le macchine virtuali. Di conseguenza, sono supportate solo le versioni Microsoft MPI (MS-MPI) 2012 R2 o versioni successive e Intel MPI 5.x. Versioni successive (2017, 2018) della libreria di runtime Intel MPI possono o non possono essere compatibili con i driver RDMA di Azure.
+
+- **InfiniBandDriver<Linux Estensione di Windows> VM** - Nelle macchine virtuali che supportano RDMA, aggiungere InfiniBandDriver<Linux Windows> estensione per abilitare InfiniBand. In Linux, l'estensione della macchina virtuale InfiniBandDriverLinux installa i driver OFED Mellanox (nelle macchine virtuali SR-IOV) per la connettività RDMA. In Windows, l'estensione infiniBandDriverWindows VM installa i driver Windows Network Direct (in macchine virtuali non SR-IOV) o mellanox OFED driver (nelle macchine virtuali SR-IOV) per la connettività RDMA.
+In alcune distribuzioni di istanze A8 e A9, l'estensione HpcVmDrivers viene aggiunta automaticamente. Si noti che l'estensione della macchina virtuale HpcVmDrivers è deprecata. non verrà aggiornato.
+Per aggiungere l'estensione macchina virtuale a una macchina virtuale, è possibile usare i cmdlet di [Azure PowerShell](/powershell/azure/overview). 
 
   Il comando seguente installa l'estensione InfiniBandDriverWindows della versione 1.0 più recente in una macchina virtuale con supporto RDMA esistente denominata myVM distribuita nel gruppo di risorse denominato myResourceGroup nell'area *Stati Uniti occidentali:The* following command installs the latest version 1.0 InfiniBandDriverWindows extension on an existing RDMA-capable VM named *myVM* deployed in the resource group named *myResourceGroup* in the West US region:
 
@@ -99,17 +90,33 @@ In alcune distribuzioni di istanze A8 e A9, l'estensione HpcVmDrivers viene aggi
 
 Azure offre varie opzioni per la creazione di cluster di macchine virtuali HPC Windows in grado di comunicare con la rete RDMA, tra cui: 
 
-- **Macchine virtuali**: distribuire le macchine virtuali HPC con supporto per RDMA nello stesso set di disponibilità (se si usa il modello di distribuzione Azure Resource Manager). Se si usa il modello di distribuzione classico, distribuire le macchine virtuali nello stesso servizio cloud. 
+- **Macchine virtuali:** distribuire le macchine virtuali HPC compatibili con RDMA nello stesso set di scalabilità o set di disponibilità (quando si usa il modello di distribuzione di Azure Resource Manager). Se si usa il modello di distribuzione classico, distribuire le macchine virtuali nello stesso servizio cloud.
 
-- Set di scalabilità di **macchine virtuali:** in un set di scalabilità di macchine virtuali assicurarsi di limitare la distribuzione a un singolo gruppo di posizionamento. In un modello di Resource Manager, ad esempio, impostare la proprietà `singlePlacementGroup` su `true`. 
+- Set di scalabilità di **macchine virtuali:** in un set di scalabilità di macchine virtuali (VMSS), assicurarsi di limitare la distribuzione a un singolo gruppo di posizionamento. In un modello di Resource Manager, ad esempio, impostare la proprietà `singlePlacementGroup` su `true`. Si noti che la dimensione massima di `singlePlacementGroup` VMSS che può essere creata con la proprietà `true` è limitata a 100 macchine virtuali per impostazione predefinita. Se le esigenze di scalabilità del processo HPC sono superiori a 100 macchine virtuali in un singolo tenant VMSS, è possibile richiedere un aumento, aprire una richiesta di [assistenza clienti online](../azure-supportability/how-to-create-azure-support-request.md) senza alcun costo aggiuntivo.
 
-- **MPI tra macchine virtuali:** se è necessaria la comunicazione MPI tra macchine virtuali (VM), assicurarsi che le macchine virtuali si trovino nello stesso set di disponibilità o nello stesso set di scalabilità della macchina virtuale.
+- **MPI tra macchine virtuali:** se RDMA (ad esempio, tramite la comunicazione MPI) è necessaria tra macchine virtuali (VM), assicurarsi che le macchine virtuali si trovino nello stesso set di scalabilità di macchine virtuali o nello stesso set di disponibilità.
 
-- **Azure CycleCloud**: creare un cluster HPC in [Azure CycleCloud](/azure/cyclecloud/) per eseguire i processi MPI nei nodi Windows.
+- **Ciclodi Azure:** creare un cluster HPC in [Azure CycleCloud](/azure/cyclecloud/) per eseguire processi MPI.
 
-- **Azure Batch**: creare un pool di [Azure Batch](/azure/batch/) per eseguire i carichi di lavoro MPI nei nodi di calcolo di Windows Server. Per altre informazioni, vedere [Usare istanze con supporto per RDMA o abilitate per GPU in pool di Batch](../batch/batch-pool-compute-intensive-sizes.md). Vedere anche il progetto [Batch Shipyard](https://github.com/Azure/batch-shipyard) per l'esecuzione di carichi di lavoro basati su contenitore in Batch.
+- **Batch di Azure:** creare un pool [di Batch](/azure/batch/) di Azure per eseguire carichi di lavoro MPI. Per usare istanze a elevato uso di calcolo quando si eseguono applicazioni MPI con Azure Batch, vedere [Usare le attività a istanze multiple per eseguire applicazioni MPI (Message Passing Interface) in Azure Batch](../batch/batch-mpi.md).
 
 - **Microsoft HPC Pack** - [HPC Pack](https://docs.microsoft.com/powershell/high-performance-computing/overview) include un ambiente di runtime per MS-MPI che utilizza la rete RDMA di Azure quando viene distribuito in macchine virtuali Linux con funzionalità RDMA. Per distribuzioni di esempio, vedere [Configurare un cluster RDMA Linux con HPC Pack per l'esecuzione](https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-linux-openfoam)di applicazioni MPI .
+
+## <a name="deployment-considerations"></a>Considerazioni sulla distribuzione
+
+- **Sottoscrizione di Azure**: per distribuire numerose istanze a elevato utilizzo di calcolo, prendere in considerazione una sottoscrizione con pagamento in base al consumo o altre opzioni di acquisto. Con un [account gratuito di Azure](https://azure.microsoft.com/free/)è possibile usare solo un numero limitato di core di calcolo di Azure.
+
+- **Prezzi e disponibilità**: queste dimensioni di VM sono offerte solo con il piano tariffario Standard. Per informazioni sulla disponibilità nelle aree di Azure, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/) .
+
+- **Quota di core**: potrebbe essere necessario aumentare la quota di core nella sottoscrizione di Azure rispetto al valore predefinito. La sottoscrizione può anche limitare il numero di core che è possibile distribuire in alcune famiglie di dimensioni di macchina virtuale, inclusa la serie H. Per richiedere un aumento della quota, apri una richiesta di [assistenza clienti online](../azure-supportability/how-to-create-azure-support-request.md) gratuitamente. I limiti predefiniti possono variare in base alla categoria della sottoscrizione.
+
+  > [!NOTE]
+  > Se si hanno esigenze di capacità su larga scala, contattare il supporto di Azure. Le quote di Azure sono limiti di credito e non garanzie di capacità. A prescindere dalla quota, viene addebitato solo l'uso dei core effettivamente impiegati.
+  
+- **Rete virtuale**: non è necessaria una [rete virtuale](https://azure.microsoft.com/documentation/services/virtual-network/) di Azure per usare le istanze a elevato utilizzo di calcolo. Per molte distribuzioni è tuttavia necessaria almeno una rete virtuale di Azure basata sul cloud. Per l'accesso alle risorse locali, è necessaria anche una connessione da sito a sito. Quando è necessaria, creare una nuova rete virtuale per distribuire le istanze. L'aggiunta di una VM a elevato uso di calcolo a una rete virtuale in un gruppo di affinità non è supportata.
+
+- **Ridimensionamento**: a causa dell'hardware specializzato, è possibile ridimensionare solo le istanze a elevato uso di calcolo nella stessa famiglia di dimensioni (serie H o serie A a elevato uso di calcolo). Ad esempio, è possibile ridimensionare una VM della serie H solo da una dimensione della serie H a un'altra. Inoltre, non è supportato il ridimensionamento da una dimensione non a elevato uso di calcolo.  
+
 
 ## <a name="other-sizes"></a>Altre dimensioni
 
@@ -122,8 +129,6 @@ Azure offre varie opzioni per la creazione di cluster di macchine virtuali HPC W
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per gli elenchi di controllo per l'utilizzo delle istanze ad alta intensità di calcolo con HPC Pack in Windows Server, vedere [Configurare un cluster RDMA Linux con HPC Pack per l'esecuzione](https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-linux-openfoam)di applicazioni MPI .
-
-- Per usare istanze a elevato uso di calcolo quando si eseguono applicazioni MPI con Azure Batch, vedere [Usare le attività a istanze multiple per eseguire applicazioni MPI (Message Passing Interface) in Azure Batch](../batch/batch-mpi.md).
+- Per altre informazioni sull'ottimizzazione dell'applicazione HPC per Azure e alcuni esempi, vedere [HPC Workloads] (https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/overview) 
 
 - Altre informazioni su come le [unità di calcolo di Azure](acu.md) consentono di confrontare le prestazioni di calcolo negli SKU di Azure.

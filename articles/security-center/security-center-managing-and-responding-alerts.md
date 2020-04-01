@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 6ea951b542d893b8fef3cdf19a964ce2ef8a034d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 8e44ce594375deeac47f037515d96c57d15c8359
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79415692"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398396"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure
 
@@ -73,5 +73,6 @@ Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log 
 
 In questo documento si è appreso come configurare i criteri di sicurezza nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
+- [Modulo Microsoft Learn su come usare le funzionalità di avviso del Centro sicurezza di Azure per controllare e rispondere alle minacce](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
 * [Avvisi di sicurezza nel Centro sicurezza di Azure.](security-center-alerts-overview.md)
 * [Gestione degli incidenti di sicurezza](security-center-incident.md)

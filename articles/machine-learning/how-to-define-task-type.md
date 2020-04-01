@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 11/04/2019
-ms.openlocfilehash: a58959904559cd3b2cec27762f2df93cfea72abd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fef3f0347d963b8a7d5fe2f1ca771293e9c3d2a9
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75540529"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475494"
 ---
 # <a name="how-to-define-a-machine-learning-task"></a>Come definire un'attività di apprendimento automaticoHow to define a machine learning task 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -76,6 +76,6 @@ automl_config = AutoMLConfig(task="classification")
 
 + Altre informazioni su ml automatizzato in Azure Machine Learning.Learn more about [automated ml](concept-automated-ml.md) in Azure Machine Learning.
 + Altre informazioni sul [training automatico di un modello di previsione di serie temporali](how-to-auto-train-forecast.md) in Azure Machine LearningLearn more about auto-training a time-series forecast model in Azure Machine Learning
-+ Provare [l'esercitazione sulla classificazione automatica](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/model-explanation) di Machine Learning.
-+ Provare il blocco appunti di esempio [di regressione automatica dell'apprendimento automatico.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/model-explanation)
++ Provare [l'esercitazione sulla classificazione automatica](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb) di Machine Learning.
++ Provare il blocco appunti di esempio [di regressione automatica dell'apprendimento automatico.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance-explanation-and-featurization/auto-ml-regression-hardware-performance-explanation-and-featurization.ipynb)
 

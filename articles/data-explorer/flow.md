@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: dorcohen
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 03/15/2020
-ms.openlocfilehash: 7745888dcaa1324d4a9d956e93d0504c8da8c026
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/25/2020
+ms.openlocfilehash: 198b78d5bab15057fdb6c7f6d4e8fff9f77d496e
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79501776"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397119"
 ---
 # <a name="microsoft-flow-connector-preview"></a>Connettore Microsoft Flow (anteprima)Microsoft Flow connector (Preview)
 
@@ -77,7 +77,7 @@ Per utilizzare il connettore di Microsoft Flow, è innanzitutto necessario aggiu
 
 1. Immettere le informazioni necessarie nella pagina Crea un flusso pianificato.
     ![Creare un flusso pianificatoBuild a scheduled flow](./media/flow/flow-build-scheduled-flow.png)
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 1. Selezionare **+ nuovo passaggio**.
 1. Nella casella di ricerca, inserisci "Kusto".
 
@@ -116,7 +116,7 @@ Utilizzare il comando Esegui controllo e l'azione Visualizza risultati per esegu
 ### <a name="run-query-and-list-results"></a>Eseguire query ed elencare i risultati
 
 > [!Note]
-> Se la query inizia con un punto (ovvero è un comando di [controllo](https://docs.microsoft.com/azure/kusto/management/index)), utilizzare il [comando Esegui controllo e visualizzare i risultati](#run-control-command-and-visualize-results)
+> Se la query inizia con un punto (ovvero è un comando di [controllo](https://docs.microsoft.com/azure/kusto/management/index)), utilizzare il [comando Esegui controllo e visualizzare i risultati](#run-control-command-and-visualize-results).
 
 Questa azione invia una query al cluster Kusto. Le azioni aggiunte successivamente scorrono su ogni riga dei risultati della query.
 
@@ -130,7 +130,7 @@ L'esempio seguente attiva una query ogni minuto e invia un messaggio di posta el
 ### <a name="run-query-and-visualize-results"></a>Eseguire query e visualizzare i risultati
         
 > [!Note]
-> Se la query inizia con un punto (ovvero è un comando di [controllo](https://docs.microsoft.com/azure/kusto/management/index)), utilizzare il [comando Esegui controllo e visualizzare i risultati](#run-control-command-and-visualize-results)
+> Se la query inizia con un punto (ovvero è un comando di [controllo](https://docs.microsoft.com/azure/kusto/management/index)), utilizzare il [comando Esegui controllo e visualizzare i risultati](#run-control-command-and-visualize-results).
         
 Utilizzare l'azione Esegui query e visualizza risultati per visualizzare il risultato della query Kusto come tabella o grafico. Ad esempio, utilizzare questo flusso per ricevere report ICM giornalieri tramite posta elettronica. 
     
@@ -147,17 +147,21 @@ In questo esempio, i risultati della query vengono restituiti come tabella HTML.
 
 1. Selezionare **Nuovo passaggio** per aggiungere un nuovo passaggio al flusso.
 1. Nel campo di ricerca immettere Office 365 e selezionare **Office 365 Outlook**.
-1. Selezionare **Inviare un messaggio di posta elettronica**.
+1. Selezionare **Invia un messaggio di posta elettronica (V2)**.
 1. Immettere l'indirizzo di posta elettronica a cui si desidera inviare il report di posta elettronica.
 1. Immettere l'oggetto dell'e-mail.
-1. Nel campo *Corpo* selezionare **Corpo**dal campo Contenuto dinamico .
+1. Selezionare **la vista Codice**.
+1. Posizionare il cursore nel campo *Corpo* e selezionare **Aggiungi contenuto dinamico**.
+1. Selezionare **BodyHtml**.
+    ![Inviare posta elettronica](./media/flow/flow-send-email.png)
 1. Selezionare **Mostra le opzioni avanzate**.
 1. Nel campo *Nome allegati -1* selezionare **Nome allegato**.
 1. Nel campo *Contenuto allegati* selezionare **Contenuto allegato**.
+1. Se necessario, aggiungere altri allegati. 
 1. Se necessario, impostare il livello di importanza.
 1. Selezionare **Salva**.
 
-![Send email](./media/flow/flow-sendemail.png)
+![Send email](./media/flow/flow-add-attachments.png)
 
 ## <a name="check-if-your-flow-succeeded"></a>Verificare se il flusso è riuscito
 

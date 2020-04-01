@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: e0b4bcac8494f136dde21b03422e12b72cecb8f3
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 4517f85fae278bd8bc15a9586d9dc0202e7dfe56
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366446"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475236"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Informazioni sugli output di Analisi di flusso di Azure
 
@@ -187,8 +187,8 @@ Nella tabella seguente sono elencati i nomi delle proprietà e le relative descr
 | Chiave dell'account di archiviazione |Chiave di accesso associata all'account di archiviazione. |
 | Nome tabella |Nome della tabella. La tabella viene creata se non esiste. |
 | Chiave di partizione |Nome della colonna di output che contiene la chiave di partizione. La chiave di partizione è un identificatore univoco per la partizione all'interno di una tabella che costituisce la prima parte della chiave primaria di un'entità. Si tratta di un valore stringa che può avere una dimensione massima di 1 KB. |
-| Chiave di riga |Nome della colonna di output che contiene la chiave di riga. La chiave di riga è un identificatore univoco per un'entità all'interno di una partizione. Costituisce la seconda parte della chiave primaria di un'entità. La chiave di riga è un valore stringa che può avere una dimensione massima di 1 KB. |
-| Dimensioni dei batch |Numero di record per un'operazione batch. Il valore predefinito (100) è sufficiente per la maggior parte dei processi. Vedere la [specifica Operazione batch tabella](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation) per ulteriori dettagli sulla modifica di questa impostazione. |
+| Chiave di riga |Nome della colonna di output che contiene la chiave di riga. La chiave di riga è un identificatore univoco per un'entità all'interno di una partizione. Forma la seconda parte della chiave primaria di un'entità. La chiave di riga è un valore stringa che può avere una dimensione massima di 1 KB. |
+| Dimensioni dei batch |Numero di record per un'operazione batch. Il valore predefinito (100) è sufficiente per la maggior parte dei processi. Vedere la [specifica Operazione batch tabella](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.tablebatchoperation) per ulteriori dettagli sulla modifica di questa impostazione. |
 
 ## <a name="service-bus-queues"></a>Code del bus di servizio
 
@@ -273,7 +273,7 @@ Analisi di flusso di Azure richiama Funzioni di Azure tramite trigger HTTP. L'ad
 
 Azure Stream Analytics prevede lo stato HTTP 200 dall'app Funzioni per i batch elaborati correttamente.
 
-Quando Analisi di flusso di Azure riceve un'eccezione 413 ("http Request Entity Too Large") da una funzione di Azure, riduce le dimensioni dei batch inviati a Funzioni di Azure.When Azure Stream Analytics receives a 413 ("http Request Entity Too Large") exception from an Azure function, it reduces the size of the batches that it sends to Azure Functions. Usare questa eccezione nel codice della funzione di Azure per fare in modo che Analisi di flusso di Azure non invii batch troppo grandi. Assicurarsi inoltre che i valori massimi di conteggio e dimensione dei batch utilizzati nella funzione siano coerenti con i valori immessi nel portale di Analisi di flusso.
+Quando Analisi di flusso di Azure riceve un'eccezione 413 ("http Request Entity Too Large") da una funzione di Azure, riduce le dimensioni dei batch inviati a Funzioni di Azure.When Azure Stream Analytics receives a 413 ("http Request Entity Too Large") exception from an Azure function, it reduces the size of the batches that it sends to Azure Functions. Nel codice della funzione di Azure usare questa eccezione per assicurarsi che Azure Stream Analytics non invii batch di grandi dimensioni. Assicurarsi inoltre che i valori massimi di conteggio e dimensione dei batch utilizzati nella funzione siano coerenti con i valori immessi nel portale di Analisi di flusso.
 
 > [!NOTE]
 > Durante la connessione di prova, Analisi di flusso invia un batch vuoto a Funzioni di Azure per verificare se la connessione tra i due funziona. Assicurati che l'app Funzioni gestisca le richieste batch vuote per assicurarti che la connessione di prova venga superata.
@@ -342,18 +342,18 @@ Analisi di flusso di Azure usa batch di dimensioni variabili per elaborare event
 
 Nella tabella seguente vengono illustrate alcune considerazioni per l'invio in batch di output:
 
-| Tipo di output | Dimensioni massime messaggio | Ottimizzazione delle dimensioni batch |
+| Tipo di output |    Dimensioni massime messaggio | Ottimizzazione delle dimensioni batch |
 | :--- | :--- | :--- |
 | Archivio Azure Data Lake | Vedere [Limiti di archiviazione di Data Lake](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits). | Utilizzare fino a 4 MB per operazione di scrittura. |
 | database SQL di Azure | Configurabile utilizzando il numero massimo di batch. 10.000 massimo e 100 righe minime per singola inserimento bulk per impostazione predefinita.<br />Vedere [Limiti di SQL](../sql-database/sql-database-resource-limits.md)di Azure . |  Ogni batch viene inizialmente inserito in blocco con il numero massimo di batch. Il batch viene diviso a metà (fino al numero minimo di batch) in base agli errori ritentabili da SQL. |
 | Archiviazione BLOB di Azure | Vedere [Limiti di Archiviazione di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). | La dimensione massima del blocco BLOB è 4 MB.<br />Il numero massimo di bock blob è 50.000.The maximum blob bock count is 50,000. |
-| Hub eventi di Azure  | 256 KB o 1 MB per messaggio. <br />Consultate [Limiti degli hub eventi.](../event-hubs/event-hubs-quotas.md) |  Quando il partizionamento di input/output non è allineato, ogni evento viene compresso singolarmente `EventData` e inviato in un batch fino alla dimensione massima dei messaggi. Ciò si verifica anche se vengono utilizzate [proprietà dei metadati personalizzate.](#custom-metadata-properties-for-output) <br /><br />  Quando il partizionamento di input/output è allineato, più eventi vengono compressi in un'unica `EventData` istanza, fino alla dimensione massima dei messaggi e inviati. |
+| Hub eventi di Azure    | 256 KB o 1 MB per messaggio. <br />Consultate [Limiti degli hub eventi.](../event-hubs/event-hubs-quotas.md) |    Quando il partizionamento di input/output non è allineato, ogni evento viene compresso singolarmente `EventData` e inviato in un batch fino alla dimensione massima dei messaggi. Ciò si verifica anche se vengono utilizzate [proprietà dei metadati personalizzate.](#custom-metadata-properties-for-output) <br /><br />  Quando il partizionamento di input/output è allineato, più eventi vengono compressi in un'unica `EventData` istanza, fino alla dimensione massima dei messaggi e inviati.    |
 | Power BI | Vedere [Limiti dell'API Rest di Power BI.](https://msdn.microsoft.com/library/dn950053.aspx) |
 | Archiviazione tabelle di Azure | Vedere [Limiti di Archiviazione di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). | Il valore predefinito è 100 entità per singola transazione. È possibile configurarlo su un valore inferiore in base alle esigenze. |
-| Coda del bus di servizio di Azure   | 256 KB per messaggio per il livello Standard, 1 MB per il livello Premium.<br /> Vedere [Limiti del bus di servizio](../service-bus-messaging/service-bus-quotas.md). | Utilizzare un singolo evento per messaggio. |
+| Coda del bus di servizio di Azure    | 256 KB per messaggio per il livello Standard, 1 MB per il livello Premium.<br /> Vedere [Limiti del bus di servizio](../service-bus-messaging/service-bus-quotas.md). | Utilizzare un singolo evento per messaggio. |
 | Argomento del bus di servizio di Azure | 256 KB per messaggio per il livello Standard, 1 MB per il livello Premium.<br /> Vedere [Limiti del bus di servizio](../service-bus-messaging/service-bus-quotas.md). | Utilizzare un singolo evento per messaggio. |
-| Azure Cosmos DB   | Vedere [Limiti di Azure Cosmos DB](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cosmos-db-limits). | Le dimensioni del batch e la frequenza di scrittura vengono regolate dinamicamente in base alle risposte del database Cosmos di Azure.Batch size and write frequency are adjusted dynamically based on Azure Cosmos DB responses. <br /> Non ci sono limitazioni predeterminate da Analisi di flusso. |
-| Funzioni di Azure   | | La dimensione predefinita del batch è 262.144 byte (256 KB). <br /> Il numero di eventi predefinito per batch è 100.The default event count per batch is 100. <br /> Le dimensioni batch sono configurabili e possono essere aumentate o ridotte nelle [opzioni di output](#azure-functions) di Analisi di flusso.
+| Azure Cosmos DB    | Vedere [Limiti di Azure Cosmos DB](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cosmos-db-limits). | Le dimensioni del batch e la frequenza di scrittura vengono regolate dinamicamente in base alle risposte del database Cosmos di Azure.Batch size and write frequency are adjusted dynamically based on Azure Cosmos DB responses. <br /> Non ci sono limitazioni predeterminate da Analisi di flusso. |
+| Funzioni di Azure    | | La dimensione predefinita del batch è 262.144 byte (256 KB). <br /> Il numero di eventi predefinito per batch è 100.The default event count per batch is 100. <br /> Le dimensioni batch sono configurabili e possono essere aumentate o ridotte nelle [opzioni di output](#azure-functions) di Analisi di flusso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]

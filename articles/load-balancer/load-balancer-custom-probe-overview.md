@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: ec1507e09a183f8d466a456b70151861f5f0e82c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e79f4c791d0252c719846da3aa8024b0e622dca
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80159439"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477011"
 ---
 # <a name="load-balancer-health-probes"></a>Probe di integrità di Load Balancer
 
@@ -66,7 +66,7 @@ I valori di timeout e intervallo specificati determinano se un'istanza verrà co
 
 Possiamo illustrare ulteriormente il comportamento con un esempio. Se è stato impostato il numero di risposte probe su 2 e l'intervallo su 5 secondi, è necessario osservare 2 errori di timeout del probe entro un intervallo di 10 secondi.  Poiché l'ora in cui viene inviato un probe non è sincronizzata quando l'applicazione può cambiare stato, è possibile associare il tempo per rilevare da due scenari:Because the time at which a probe is not synchronized when your application may change state, we can bound the time to detect by two scenarios:
 
-1. Se l'applicazione inizia a produrre una risposta probe di timeout appena prima dell'arrivo del primo probe, il rilevamento di questi eventi richiederà 10 secondi (intervalli di 2 x 5 secondi) più la durata dell'applicazione che inizia a segnalare un timeout quando il primo sonda arriva.  È possibile presupporre che questo rilevamento richiederà un po' più di 10 secondi.
+1. Se l'applicazione inizia a produrre una risposta probe di timeout appena prima dell'arrivo del primo probe, il rilevamento di questi eventi richiederà 10 secondi (intervalli di 2 x 5 secondi) più la durata dell'applicazione che inizia a segnalare un timeout fino all'arrivo del primo probe.  È possibile presupporre che questo rilevamento richiederà un po' più di 10 secondi.
 2. Se l'applicazione inizia a produrre una risposta probe di timeout subito dopo l'arrivo del primo probe, il rilevamento di questi eventi non inizierà fino all'arrivo del probe successivo (e si verifica il timeout) più altri 10 secondi (2 x 5 secondi).  È possibile presupporre che questo rilevamento richiederà poco meno di 15 secondi.
 
 Per questo esempio, una volta che si è verificato il rilevamento, la piattaforma richiederà una piccola quantità di tempo per reagire a questa modifica.  Ciò significa a seconda 
@@ -76,7 +76,10 @@ Per questo esempio, una volta che si è verificato il rilevamento, la piattaform
 3. quando il rilevamento è stato comunicato attraverso la piattaforma 
 
 si può presumere che la reazione a una risposta sonda di timeout richiederà tra un minimo di poco più di 10 secondi e un massimo di poco più di 15 secondi per reagire a un cambiamento nel segnale dall'applicazione.  Questo esempio viene fornito per illustrare ciò che sta avvenendo, tuttavia, non è possibile prevedere una durata esatta oltre le indicazioni approssimative di cui sopra illustrate in questo esempio.
- 
+
+>[!NOTE]
+>Il probe di integrità eseguirà il probe di tutte le istanze in esecuzione nel pool back-end. Se un'istanza viene arrestata, non verrà inseguito fino a quando non sarà stata riavviata.
+
 ## <a name="probe-types"></a><a name="types"></a>Tipi di probe
 
 Il protocollo utilizzato dal probe di integrità può essere configurato su uno dei seguenti elementi:

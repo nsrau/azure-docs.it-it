@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 8b95bb45436f45dc0e62fb12d6ab1b24c37372e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d9ed11cd00909a104b5ea54463f8a98020837e10
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280066"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477885"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing del traffico di rete virtuale
 
@@ -122,7 +122,7 @@ Un gateway di rete locale può scambiare le route con un gateway di rete virtual
 
 Quando si scambiano le route con Azure tramite BGP, viene aggiunta una route separata alla tabella di route di tutte le subnet di una rete virtuale per ogni prefisso annunciato. La route viene aggiunta con *Gateway di rete virtuale* come origine e tipo di hop successivo. 
 
-È possibile disabilitare la propagazione delle route ER e Gateway VPN su una subnet mediante una proprietà in una tabella di route. Quando si scambiano route con Azure tramite BGP, le route non vengono aggiunte alla tabella di route di tutte le subnet con la propagazione della route del gateway di rete virtuale disabilitata. La connettività con connessioni VPN è ottenuta usando [route personalizzate](#custom-routes) con *gateway di rete virtuale* come tipo di hop successivo. Per informazioni dettagliate, vedere Come disabilitare la [propagazione](manage-route-table.md#create-a-route-table)delle route del gateway di rete virtuale .
+È possibile disabilitare la propagazione delle route ER e Gateway VPN su una subnet mediante una proprietà in una tabella di route. Quando si scambiano route con Azure tramite BGP, le route non vengono aggiunte alla tabella di route di tutte le subnet con la propagazione della route del gateway di rete virtuale disabilitata. La connettività con connessioni VPN è ottenuta usando [route personalizzate](#custom-routes) con *gateway di rete virtuale* come tipo di hop successivo. **Route propagation should not be disabled on the GatewaySubnet. Il gateway non funzionerà con questa impostazione disabilitata.** Per informazioni dettagliate, vedere Come disabilitare la [propagazione](manage-route-table.md#create-a-route-table)delle route del gateway di rete virtuale .
 
 ## <a name="how-azure-selects-a-route"></a>Modalità di selezione di una route da parte di Azure
 

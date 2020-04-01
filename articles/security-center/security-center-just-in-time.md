@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 4b2b388fb736997010a6cbbdf93b23b77c7ef3a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 51985c5fa4b2296e43c0a062d0af84a1bb51e89c
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77603981"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397748"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Proteggi le tue porte di gestione con accesso just-in-time
 
@@ -202,53 +202,37 @@ Per usare la soluzione di accesso JIT alle macchine virtuali tramite PowerShell,
 
 L'esempio seguente imposta criteri di accesso JIT alla macchina virtuale per una macchina virtuale specifica e imposta quanto segue:
 
-1.  Chiudere le porte 22 e 3389.
+1.    Chiudere le porte 22 e 3389.
 
-2.  Impostare un intervallo di tempo massimo di 3 ore per ognuna in modo che possano essere aperte in seguito all'approvazione di una richiesta.
-3.  Consente all'utente che richiede l'accesso di controllare gli indirizzi IP di origine e consente all'utente di aprire una sessione riuscita in seguito all'approvazione di una richiesta di accesso JIT.
+2.    Impostare un intervallo di tempo massimo di 3 ore per ognuna in modo che possano essere aperte in seguito all'approvazione di una richiesta.
+3.    Consente all'utente che richiede l'accesso di controllare gli indirizzi IP di origine e consente all'utente di aprire una sessione riuscita in seguito all'approvazione di una richiesta di accesso JIT.
 
 Eseguire i comandi seguenti in PowerShell per svolgere queste operazioni:
 
-1.  Assegnare una variabile che contiene solo i criteri di accesso JIT alla macchina virtuale per una macchina virtuale:
+1.    Assegnare una variabile che contiene solo i criteri di accesso JIT alla macchina virtuale per una macchina virtuale:
 
-        $JitPolicy = (@{
-         id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
-        ports=(@{
-             number=22;
-             protocol="*";
-             allowedSourceAddressPrefix=@("*");
-             maxRequestAccessDuration="PT3H"},
-             @{
-             number=3389;
-             protocol="*";
-             allowedSourceAddressPrefix=@("*");
-             maxRequestAccessDuration="PT3H"})})
+        $JitPolicy : : id //sottoscrizioni/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME" ports        protocollo *";        allowedSourceAddressPrefix (");*        maxRequestAccessDuration, "PT3H", numero di telefono 3389;        protocollo *";        allowedSourceAddressPrefix (");*        maxRequestAccessDuration, "PT3H" ) )
 
-2.  Inserire i criteri di accesso JIT alla macchina virtuale in una matrice:
+2.    Inserire i criteri di accesso JIT alla macchina virtuale in una matrice:
     
-        $JitPolicyArr=@($JitPolicy)
+        $JitPolicyArr ($JitPolicy)
 
-3.  Configurare i criteri di accesso JIT alla macchina virtuale nella macchina virtuale selezionata:
+3.    Configurare i criteri di accesso JIT alla macchina virtuale nella macchina virtuale selezionata:
     
-        Set-AzJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
+        Set-AzJitNetworkAccessPolicy -tipo "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGroupGROUP" -VirtualMachine $JitPolicyArr 
 
 ### <a name="request-access-to-a-vm-via-powershell"></a>Richiedere l'accesso a una macchina virtuale tramite PowerShellRequest access to a VM via PowerShell
 
 Nell'esempio seguente, è possibile visualizzare una richiesta di accesso JIT alla macchina virtuale per una macchina virtuale specifica in cui si richiede l'apertura della porta 22 per un indirizzo IP specifico e per un determinato periodo di tempo:
 
 Eseguire questo comando in PowerShell:
-1.  Configurare le proprietà della richiesta di accesso alla macchina virtuale
+1.    Configurare le proprietà della richiesta di accesso alla macchina virtuale
 
-        $JitPolicyVm1 = (@{
-          id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
-        ports=(@{
-           number=22;
-           endTimeUtc="2018-09-17T17:00:00.3658798Z";
-           allowedSourceAddressPrefix=@("IPV4ADDRESS")})})
-2.  Inserire i parametri della richiesta di accesso alla macchina virtuale in una matrice:
+        $JitPolicyVm1: le porte di id/"/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME" porte      endTimeUtc "2018-09-17T17:00:00.3658798";      allowedSourceAddressPrefix,("IPV4ADDRESS") ))
+2.    Inserire i parametri della richiesta di accesso alla macchina virtuale in una matrice:
 
-        $JitPolicyArr=@($JitPolicyVm1)
-3.  Inviare la richiesta di accesso usando l'ID risorsa ottenuto al passaggio 1
+        $JitPolicyArr ($JitPolicyVm1)
+3.    Inviare la richiesta di accesso usando l'ID risorsa ottenuto al passaggio 1
 
         Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
 
@@ -271,6 +255,7 @@ In questo articolo è stato illustrato come usare l'accesso JIT (Just-in-Time) a
 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
+- Modulo Microsoft Learn Proteggere i server e le [macchine virtuali da attacchi di forza bruta e malware con](https://docs.microsoft.com/learn/modules/secure-vms-with-azure-security-center/) il Centro sicurezza di Azure
 - [Impostazione dei criteri](tutorial-security-policy.md) di sicurezza: informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.Setting security policies - Learn how to configure security policies for your Azure subscriptions and resource groups.
 - [Gestione dei suggerimenti per la sicurezza:](security-center-recommendations.md) informazioni su come i consigli consentono di proteggere le risorse di Azure.Managing security recommendations - Learn how recommendations help you protect your Azure resources.
 - [Monitoraggio dell'integrità della sicurezza](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.

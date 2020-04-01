@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 8b79e0fb24c15d2e9f16640e90d62f7df5c21f32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 903881a1d15c1f043e381f50e5b69d661cd08192
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74233701"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476431"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Funzionamento delle relazioni di trust per le foreste di risorse in Servizi di dominio Azure Active DirectoryHow trust relationships for resource forests in Azure Active Directory Domain Services
 
@@ -110,7 +110,7 @@ Il trust tra foreste in uscita per Servizi di dominio Azure AD viene creato nel 
 
 Molte transazioni tra domini e tra foreste dipendono da trust tra domini o foreste per completare varie attività. In questa sezione vengono descritti i processi e le interazioni che si verificano quando si accede alle risorse tra trust e vengono valutati i riferimenti di autenticazione.
 
-### <a name="overview-of-authentication-referral-processing"></a>Panoramica dell'elaborazione dei riferimenti di autenticazioneOverview of Authentication Referral Processing
+### <a name="overview-of-authentication-referral-processing"></a>Panoramica dell'elaborazione dei riferimenti di autenticazione
 
 Quando una richiesta di autenticazione viene inviata a un dominio, il controller di dominio in tale dominio deve determinare se esiste una relazione di trust con il dominio da cui proviene la richiesta. La direzione del trust e se il trust è transitivo o non transitivo deve essere determinato anche prima di autenticare l'utente per accedere alle risorse nel dominio. Il processo di autenticazione che si verifica tra domini trusted varia a seconda del protocollo di autenticazione in uso. I protocolli Kerberos V5 e NTLM elaborano i riferimenti per l'autenticazione a un dominio in modo diverso
 

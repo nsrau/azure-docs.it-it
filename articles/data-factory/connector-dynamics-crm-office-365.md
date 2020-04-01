@@ -12,12 +12,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 11/20/2019
-ms.openlocfilehash: d065439839ba5db479305ae81c61892cb5cf5e70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9bbd2e3376f1da3fdf5b10d654a331ce258be5cf
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929462"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422099"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiare i dati da e in Dynamics 365 (Common Data Service) o Dynamics CRM usando Azure Data Factory
 
@@ -324,7 +324,7 @@ Per copiare i dati in Dynamics, nella sezione del **sink** attività di copia so
 | ignoreNullValues | Indica se ignorare i valori null dai dati di input (tranne i campi chiave) durante un'operazione di scrittura.<br/>I valori consentiti sono **true** e **false**.<br>- **True**: i dati nell'oggetto di destinazione rimangono invariati quando si esegue un'operazione di upsert/aggiornamento. Inserire un valore predefinito definito quando si esegue un'operazione di inserimento.<br/>- **False**: i dati nell'oggetto di destinazione vengono aggiornati a NULL quando si esegue un'operazione di upsert/aggiornamento. Inserire un valore NULL quando si esegue un'operazione di inserimento. | No (il valore predefinito è false) |
 
 >[!NOTE]
->Il valore predefinito del sink "**writeBatchSize**" e dell'attività di copia "**[parallelCopies](copy-activity-performance.md#parallel-copy)**" per il sink di Dynamics sono entrambi 10. Pertanto, vengono inviati simultaneamente 100 record a Dynamics.
+>Il valore predefinito del sink "**writeBatchSize**" e dell'attività di copia "**[parallelCopies](copy-activity-performance-features.md#parallel-copy)**" per il sink di Dynamics sono entrambi 10. Pertanto, vengono inviati simultaneamente 100 record a Dynamics.
 
 Per Dynamics 365 online, è previsto un limite di [2 chiamate di batch simultanee per ogni organizzazione](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations). Se tale limite viene superato, viene generato un errore "Server occupato" prima che venga eseguita la prima richiesta. Mantenendo "writeBatchSize" minore o uguale a 10 si evita la limitazione delle richieste di chiamate simultanee.
 

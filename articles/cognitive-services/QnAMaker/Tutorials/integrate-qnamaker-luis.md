@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 7e1ea234bde96ce84259841bbc592bf6373bc639
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c01f5f41e61cd65855789bb753a7a297fe475885
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "71802800"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396337"
 ---
 # <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Usare bot con QnA Maker e LUIS per distribuire la knowledge base
 Quando le dimensioni della Knowledge Base di QnA Maker aumentano, diventa difficile gestirla come una singola unità monolitica ed è necessario suddividerla in parti logiche più piccole.
@@ -37,13 +37,13 @@ Nello scenario precedente, QnA Maker innanzitutto ottiene la finalità della dom
 1. [Creare un'app](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app).
 1. [Aggiungere una finalità](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) per ogni knowledge base di QnA Maker. Le espressioni di esempio devono corrispondere a domande delle knowledge base di QnA Maker.
 1. [Eseguire il training dell'app LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) e [pubblicare l'app LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp).
-1. Nella sezione **Gestisci** prendere nota dell'ID app LUIS, della chiave dell'endpoint LUIS e del nome di [dominio personalizzato.](../../cognitive-services-custom-subdomains.md) Questi valori saranno necessari più avanti. 
+1. Nella sezione **Gestisci** prendere nota dell'ID app LUIS, della chiave dell'endpoint LUIS e del nome di [dominio personalizzato.](../../cognitive-services-custom-subdomains.md) Questi valori saranno necessari più avanti.
 
 ## <a name="create-qna-maker-knowledge-bases"></a>Creare knowledge base di QnA Maker
 
 1. Accedere a [QnA Maker](https://qnamaker.ai).
 1. [Creare](https://www.qnamaker.ai/Create) knowledge base per ogni finalità nell'app LUIS.
-1. Testare e pubblicare le Knowledge Base. Quando si pubblica ogni KB, prendere nota dell'ID KB, del nome della risorsa (sottodominio personalizzato prima _di .azurewebsites.net/qnamaker_) e della chiave dell'endpoint di autorizzazione. Questi valori saranno necessari più avanti. 
+1. Testare e pubblicare le Knowledge Base. Quando si pubblica ogni KB, prendere nota dell'ID KB, del nome della risorsa (sottodominio personalizzato prima _di .azurewebsites.net/qnamaker_) e della chiave dell'endpoint di autorizzazione. Questi valori saranno necessari più avanti.
 
     Questo articolo presuppone che tutte le knowledge base siano create nella stessa sottoscrizione QnA Maker di Azure.
 
@@ -60,7 +60,7 @@ Nello scenario precedente, QnA Maker innanzitutto ottiene la finalità della dom
 
 ## <a name="change-code-in-basicluisdialogcs"></a>Cambiare il codice in BasicLuisDialog.cs
 1. Nella sezione **Bot Management** (Gestione bot) del menu di spostamento del bot per app Web nel portale di Azure selezionare **Compila**.
-2. Selezionare **Open online code editor** (Apri editor di codice online). Viene aperta una nuova scheda del browser con l'ambiente di modifica online. 
+2. Selezionare **Open online code editor** (Apri editor di codice online). Viene aperta una nuova scheda del browser con l'ambiente di modifica online.
 3. Nella sezione **WWWROOT** selezionare la directory **Dialogs**, quindi aprire **BasicLuisDialog.cs**.
 4. Aggiungere le dipendenze all'inizio del file **BasicLuisDialog.cs**:
 
@@ -155,7 +155,7 @@ Nello scenario precedente, QnA Maker innanzitutto ottiene la finalità della dom
     ```
 
 
-7. Modificare la classe BasicLuisDialog. Ogni finalità LUIS deve avere un metodo con un effetto dato da **LuisIntent**. Il parametro per l'effetto è il nome della finalità LUIS. Il nome del metodo che presenta l'effetto _dovrebbe_ corrispondere al nome della finalità LUIS per migliorare la leggibilità e la facilità di gestione, ma non deve necessariamente essere lo stesso in fase di progettazione o di esecuzione.  
+7. Modificare la classe BasicLuisDialog. Ogni finalità LUIS deve avere un metodo con un effetto dato da **LuisIntent**. Il parametro per l'effetto è il nome della finalità LUIS. Il nome del metodo che presenta l'effetto _dovrebbe_ corrispondere al nome della finalità LUIS per migliorare la leggibilità e la facilità di gestione, ma non deve necessariamente essere lo stesso in fase di progettazione o di esecuzione.
 
     ```csharp
     [Serializable]
@@ -170,7 +170,7 @@ Nello scenario precedente, QnA Maker innanzitutto ottiene la finalità della dom
         // assumes all KBs are created with same Azure service
         static string qnamaker_endpointKey = "<QnA Maker endpoint KEY>";
         static string qnamaker_resourceName = "my-qnamaker-s0-s";
-        
+
         // QnA Maker Human Resources Knowledge base
         static string HR_kbID = "<QnA Maker KNOWLEDGE BASE ID>";
 
@@ -240,4 +240,4 @@ Nel portale di Azure selezionare **Test in Web Chat** (Testa nella chat Web) per
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Creare un piano di continuità aziendale per QnA Maker](../How-To/business-continuity-plan.md)
+> [Integra la tua knowledge base con un power Virtual Agent](integrate-with-power-virtual-assistant-fallback-topic.md)

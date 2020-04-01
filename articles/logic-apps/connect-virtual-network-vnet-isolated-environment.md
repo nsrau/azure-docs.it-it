@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: fedc1f6ce8fbaeaf0d2cae3a1b04169192868e61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6683c1b78b0e7ecba162026708c83843e2c08180
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270693"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478878"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connettere le reti virtuali di Azure da App per la logica di Azure usando un ambiente del servizio di integrazione (ISE)
 
@@ -32,7 +32,7 @@ Questo articolo illustra come completare queste attività usando il portale di A
 * Crea il tuo ISE.
 * Aggiungi ulteriore capacità alla tua ISE.
 
-È anche possibile creare un ISE usando l'API REST App per la logica, inclusa la configurazione delle chiavi gestite dal cliente:You can also create an ISE by using the Logic Apps REST API, including setting up customer-managed keys:
+È anche possibile creare un ISE usando il modello di avvio rapido di Azure Resource Manager di esempio o l'API REST delle app per la logica, inclusa la configurazione delle chiavi gestite dal cliente:You can also create an ISE by using the [sample Azure Resource Manager quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment) or by using the Logic Apps REST API, including setting up customer-managed keys:
 
 * [Creare un ambiente del servizio di integrazione (ISE) usando l'API REST delle app per la logicaCreate an integration service environment (ISE) by using the Logic Apps REST API](../logic-apps/create-integration-service-environment-rest-api.md)
 * [Configurare le chiavi gestite dal cliente per crittografare i dati inattivi per gli ISE](../logic-apps/customer-managed-keys-integration-service-environment.md)

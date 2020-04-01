@@ -4,19 +4,18 @@ description: Informazioni su alcune delle considerazioni di progettazione della 
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
-ms.assetid: 23a857a5-2720-400a-ab9b-1ba61e7b145a
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: e00ec8448739ac30950877a2ae196aa78cde750c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 69f8cd0f78a45c6c5e53368edc5902c4b6695701
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264193"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408826"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Considerazioni sulla progettazione della rete virtuale e opzioni di configurazione per Servizi di dominio Azure ADVirtual network design considerations and configuration options for Azure AD Domain Services
 
@@ -76,7 +75,7 @@ Per altre informazioni, vedere Panoramica del peering della rete virtuale di Azu
 
 ![Connettività di rete virtuale tramite un gateway VPNVirtual network connectivity using a VPN Gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
 
-Per altre informazioni sull'uso della rete privata virtuale, vedere [Configurare una connessione al gateway VPN da rete a VNet tramite il portale](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal)di Azure .
+Per altre informazioni sull'uso della rete privata virtuale, vedere [Configurare una connessione al gateway VPN da rete a VNet tramite il portale](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)di Azure .
 
 ## <a name="name-resolution-when-connecting-virtual-networks"></a>Risoluzione dei nomi durante la connessione di reti virtualiName resolution when connecting virtual networks
 
@@ -97,11 +96,11 @@ Un dominio gestito di Servizi di dominio Active Directory di Azure crea alcune r
 | Regole del servizio di bilanciamento del carico                     | Quando un dominio gestito di Servizi di dominio Active Directory di Azure è configurato per LDAP protetto sulla porta TCP 636, vengono create e usate tre regole in un servizio di bilanciamento del carico per distribuire il traffico. |
 
 > [!WARNING]
-> Non eliminare nessuna delle risorse di rete create da Servizi di dominio Active Directory di Azure. Se si elimina una delle risorse di rete, si verifica un'interruzione del servizio Servizi di dominio Active Directory di Azure.If you delete any of the network resources, an Azure AD DS service outage occurs.
+> Non eliminare o modificare alcuna risorsa di rete creata da Servizi di dominio Active Directory di Azure, ad esempio la configurazione manuale del servizio di bilanciamento del carico o delle regole. Se si elimina o si modifica una delle risorse di rete, potrebbe verificarsi un'interruzione del servizio Servizi di dominio Active Directory di Azure.If you delete or modify any of the network resources, an Azure AD DS service outage may occur.
 
 ## <a name="network-security-groups-and-required-ports"></a>Gruppi di sicurezza di rete e porte necessarie
 
-Un gruppo di sicurezza di rete contiene un elenco di regole che consentono o negano il traffico di rete al traffico in una rete virtuale di Azure.A network [security group (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contains a list of rules that allow or deny network traffic to traffic in an Azure virtual network. Un gruppo di sicurezza di rete viene creato quando si distribuisce Azure AD DS che contiene un set di regole che consentono al servizio di fornire funzioni di autenticazione e gestione. Questo gruppo di sicurezza di rete predefinito è associato alla subnet di rete virtuale in cui viene distribuito il dominio gestito di Servizi di dominio Active Directory di Azure.This default network security group is associated with the virtual network subnet your Azure AD DS managed domain is deployed into.
+Un gruppo di sicurezza di rete contiene un elenco di regole che consentono o negano il traffico di rete al traffico in una rete virtuale di Azure.A network [security group (NSG)](../virtual-network/virtual-networks-nsg.md) contains a list of rules that allow or deny network traffic to traffic in an Azure virtual network. Un gruppo di sicurezza di rete viene creato quando si distribuisce Azure AD DS che contiene un set di regole che consentono al servizio di fornire funzioni di autenticazione e gestione. Questo gruppo di sicurezza di rete predefinito è associato alla subnet di rete virtuale in cui viene distribuito il dominio gestito di Servizi di dominio Active Directory di Azure.This default network security group is associated with the virtual network subnet your Azure AD DS managed domain is deployed into.
 
 Le regole del gruppo di sicurezza di rete seguenti sono necessarie per Servizi di dominio Azure AD per fornire servizi di autenticazione e gestione. Non modificare o eliminare queste regole del gruppo di sicurezza di rete per la subnet della rete virtuale in cui è distribuito il dominio gestito di Servizi di dominio Active Directory di Azure.Don't edit or delete these network security group rules for the virtual network subnet your Azure AD DS managed domain is deployed into.
 

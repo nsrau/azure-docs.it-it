@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: aa2e2fb4eb6e269f45494db6d87eef40182971a2
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 37d1c181c18f69c040040da2be138eaad3a61693
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346937"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396848"
 ---
 # <a name="secure-your-restful-services"></a>Proteggi i tuoi servizi RESTful 
 
@@ -43,7 +43,7 @@ L'autenticazione di base HTTP è definita in [RFC 2617](https://tools.ietf.org/h
 
 Per configurare un profilo tecnico dell'API REST con l'autenticazione di base HTTP, creare le chiavi di crittografia seguenti per archiviare il nome utente e la password:
 
-1. Accedere al [portale](https://portal.azure.com/)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 1. Assicurarsi di usare la directory che contiene il tenant B2C di Azure AD. Nel menu **superiore,** selezionare il filtro Directory e sottoscrizione e scegliere la directory B2C di Azure AD.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 1. Nella pagina Panoramica selezionare **Framework dell'esperienza di gestione delle identità**.
@@ -53,7 +53,7 @@ Per configurare un profilo tecnico dell'API REST con l'autenticazione di base HT
     È possibile che il prefisso *B2C_1A_* venga aggiunto automaticamente.
 1. Nella casella **Segreto** immettere il nome utente dell'API REST.
 1. In **Uso chiave**selezionare **Crittografia**.
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 1. Selezionare nuovamente **Chiavi del criterio.**
 1. Selezionare **Aggiungi**.
 1. Selezionare **Manuale** in **Opzioni**.
@@ -61,7 +61,7 @@ Per configurare un profilo tecnico dell'API REST con l'autenticazione di base HT
     È possibile che il prefisso *B2C_1A_* venga aggiunto automaticamente.
 1. Nella casella **Segreto** immettere la password dell'API REST.
 1. In **Uso chiave**selezionare **Crittografia**.
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-http-basic-authentication"></a>Configurare il profilo tecnico dell'API REST per l'utilizzo dell'autenticazione di base HTTPConfigure your REST API technical profile to use HTTP basic authentication
 
@@ -132,7 +132,7 @@ Per gli ambienti non di produzione, se non si dispone già di un certificato, è
 
 ### <a name="add-a-client-certificate-policy-key"></a>Aggiungere una chiave dei criteri del certificato clientAdd a client certificate policy key
 
-1. Accedere al [portale](https://portal.azure.com/)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 1. Assicurarsi di usare la directory che contiene il tenant B2C di Azure AD. Nel menu **superiore,** selezionare il filtro Directory e sottoscrizione e scegliere la directory B2C di Azure AD.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 1. Nella pagina Panoramica selezionare **Framework dell'esperienza di gestione delle identità**.
@@ -142,7 +142,7 @@ Per gli ambienti non di produzione, se non si dispone già di un certificato, è
     Il prefisso *B2C_1A_* viene aggiunto automaticamente.
 1. Nella casella **Caricamento file** selezionare il file del certificato con estensione pfx con una chiave privata.
 1. Nella casella **Password** digitare la password del certificato.
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-client-certificate-authentication"></a>Configurare il profilo tecnico dell'API REST per l'utilizzo dell'autenticazione del certificato clientConfigure your REST API technical profile to use client certificate authentication
 
@@ -186,6 +186,8 @@ Di seguito è riportato un esempio di profilo tecnico RESTful configurato con un
 
 ## <a name="oauth2-bearer-authentication"></a>Autenticazione dell'operatore OAuth2 
 
+[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
+
 L'autenticazione del token Bearer è definita in [OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). Nell'autenticazione con token di connessione, Azure AD B2C invia una richiesta HTTP con un token nell'intestazione di autorizzazione.
 
 ```http
@@ -196,6 +198,7 @@ Un token di connessione è una stringa opaca. Può trattarsi di un token di acce
 
 - **Gettone bearer**. Per poter inviare il token di connessione nel profilo tecnico Restful, la politica deve prima acquisire il token di connessione e quindi utilizzarlo nel profilo tecnico RESTful.  
 - **Gettone di portatore statico**. Usare questo approccio quando l'API REST emette un token di accesso a lungo termine. Per usare un token di connessione statico, creare una chiave dei criteri ed creare un riferimento dal profilo tecnico RESTful alla chiave dei criteri. 
+
 
 ## <a name="using-oauth2-bearer"></a>Utilizzo di OAuth2 Bearer  
 
@@ -303,7 +306,7 @@ Dopo aver aggiunto i frammenti di codice precedenti, il profilo tecnico dovrebbe
 
 Creare una chiave dei criteri per archiviare il valore del token di connessione.
 
-1. Accedere al [portale](https://portal.azure.com/)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 1. Assicurarsi di usare la directory che contiene il tenant B2C di Azure AD. Nel menu **superiore,** selezionare il filtro Directory e sottoscrizione e scegliere la directory B2C di Azure AD.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 1. Nella pagina Panoramica selezionare **Framework dell'esperienza di gestione delle identità**.
@@ -312,7 +315,7 @@ Creare una chiave dei criteri per archiviare il valore del token di connessione.
 1. Immettere un **nome** per la chiave dei criteri. Ad esempio: `RestApiBearerToken`. Verrà aggiunto automaticamente il prefisso `B2C_1A_` al nome della chiave.
 1. In **Segreto** immettere il segreto client registrato in precedenza.
 1. In **Uso chiave** selezionare `Encryption`.
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-the-bearer-token-policy-key"></a>Configurare il profilo tecnico dell'API REST per l'utilizzo della chiave dei criteri del token di connessioneConfigure your REST API technical profile to use the bearer token policy key
 

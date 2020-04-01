@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 02/04/2020
+ms.date: 03/31/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 27860b8761c565c45a604253efdff5f77606606e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 195f4b5057c0e2d644ab44cc4c32e97c8662d36d
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061308"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422788"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Configurare la protezione avanzata dalle minacce per Archiviazione di AzureConfigure advanced threat protection for Azure Storage
 
@@ -24,7 +24,7 @@ La protezione avanzata dalle minacce per Archiviazione di Azure offre un ulterio
 Gli avvisi di sicurezza vengono attivati quando si verificano anomalie nell'attività. Questi avvisi di sicurezza sono integrati con il [Centro sicurezza](https://azure.microsoft.com/services/security-center/)di Azure e vengono inoltre inviati tramite posta elettronica agli amministratori della sottoscrizione, con dettagli sulle attività sospette e consigli su come analizzare e correggere le minacce.
 
 > [!NOTE]
-> La protezione avanzata dalle minacce per Archiviazione di Azure è attualmente disponibile solo per l'archiviazione BLOB. Non è disponibile nelle aree cloud pubbliche e sovrane di Azure.It is not available in Azure government and sovereign cloud regions. Per informazioni dettagliate sui prezzi, inclusa una versione di valutazione gratuita di 30 giorni, vedere la pagina dei prezzi del Centro sicurezza di Azure.For pricing details, including a free 30 day [trial,]( https://azure.microsoft.com/pricing/details/security-center/)see the Azure Security Center pricing page .
+> La protezione avanzata dalle minacce per Archiviazione di Azure è attualmente disponibile solo per l'archiviazione BLOB. Questo servizio è disponibile nei cloud degli enti pubblici degli Stati Uniti, ma non in altre aree cloud sovrane o governative di Azure.This service is available in US government clouds, but no other sovereign or Azure government cloud regions. Per informazioni dettagliate sui prezzi, inclusa una versione di valutazione gratuita di 30 giorni, vedere la pagina dei prezzi del Centro sicurezza di Azure.For pricing details, including a free 30 day [trial,](https://azure.microsoft.com/pricing/details/security-center/)see the Azure Security Center pricing page .
 
 La protezione avanzata dalle minacce per Archiviazione di Azure invii i log di diagnostica delle richieste di lettura, scrittura ed eliminazione all'archiviazione BLOB per il rilevamento delle minacce. Per analizzare gli avvisi relativi alla protezione avanzata dalle minacce, è possibile visualizzare l'attività di archiviazione correlata usando la registrazione di Analisi archiviazione. Per altre informazioni, vedere **Configurare la registrazione** in Monitorare un account di archiviazione nel portale di Azure.For more information, see Configure logging in [Monitor a storage account in the Azure portal.](storage-monitor-storage-account.md#configure-logging)
 
@@ -62,7 +62,7 @@ Quando si sottoscrive il livello Standard nel Centro sicurezza di Azure, la prot
 
 Usare un modello di Azure Resource Manager per distribuire un account di Archiviazione di Azure con la protezione avanzata dalle minacce abilitata. Per ulteriori informazioni, vedere [Account di archiviazione con protezione avanzata dalle minacce](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
 
-### <a name="azure-policy"></a>[Criteri di AzureAzure Policy](#tab/azure-policy)
+### <a name="azure-policy"></a>[Criteri di Azure](#tab/azure-policy)
 
 Usare un criterio di Azure per abilitare la protezione avanzata dalle minacce tra gli account di archiviazione in una sottoscrizione o un gruppo di risorse specifico.
 
@@ -80,14 +80,14 @@ Usare un criterio di Azure per abilitare la protezione avanzata dalle minacce tr
 
     ![Pagina Definizioni dei criteri](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
-### <a name="rest-api"></a>[REST API](#tab/rest-api)
+### <a name="rest-api"></a>[API REST](#tab/rest-api)
 
 Usare i comandi dell'API di riposo per creare, aggiornare o ottenere l'impostazione di protezione avanzata dalle minacce per un account di archiviazione specifico.
 
 * [Protezione avanzata dalle minacce - Crea](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
 * [Protezione avanzata dalle minacce - Ottenere](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
 
-### <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Utilizzare i cmdlet di PowerShell seguenti:
 
