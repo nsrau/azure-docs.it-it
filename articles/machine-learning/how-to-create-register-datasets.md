@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.openlocfilehash: c78c1d3ce6dae874ace2abfa8b2bbec6d489538a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4025c620aea49dfb26ab203630c121d29d88d9d7
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536480"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474525"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Creare set di dati di Azure Machine LearningCreate Azure Machine Learning datasets
 
@@ -52,7 +52,7 @@ Il fattore principale è la dimensione del set di dati in memoria, ovvero come f
  
 Se si utilizza Panda, non c'è motivo di avere più di 1 vCPU dal momento che è tutto quello che userà. È possibile eseguire facilmente il parallelize a molte vCPU in una singola istanza/nodo di calcolo di Azure Machine Learning `import pandas as pd` `import modin.pandas as pd`tramite Modin e Dask/Ray e scalare orizzontalmente in un cluster di grandi dimensioni, se necessario, semplicemente passando a . 
  
-Se non è possibile ottenere un abbastanza grande virtuale per i dati, sono disponibili due opzioni: utilizzare un framework come Spark o Dask per eseguire l'elaborazione sui dati 'memoria esaurita', cioè il frame di dati viene caricato nella partizione RAM per partizione ed elaborato, con il risultato finale riuniti alla fine. Se questo è troppo lento, Spark o Dask consentono di scalare orizzontalmente a un cluster che può ancora essere utilizzato in modo interattivo. 
+Se non è possibile ottenere un abbastanza grande virtuale per i dati, sono disponibili due opzioni: utilizzare un framework come Spark o Dask per eseguire l'elaborazione sui dati 'memoria esaurita', vale a dire il frame di dati viene caricato nella partizione RAM per partizione ed elaborato, con il risultato finale viene raccolto alla fine. Se questo è troppo lento, Spark o Dask consentono di scalare orizzontalmente a un cluster che può ancora essere utilizzato in modo interattivo. 
 
 ## <a name="dataset-types"></a>Tipi di set di dati
 
@@ -108,6 +108,7 @@ Per impostazione predefinita, quando si crea un TabularDataset, i tipi di dati d
 > Se l'archiviazione è protetto da una rete virtuale o da un firewall, è supportata solo la creazione di un set di dati tramite l'SDK. Per creare il set di dati, assicurarsi di includere i parametri `validate=False` e `infer_column_types=False` nel `from_delimited_files()` metodo. In questo modo viene ignorato il controllo di convalida iniziale e viene garantito che è possibile creare il set di dati da questi file protetti. 
 
 ```Python
+from azureml.core import Dataset
 from azureml.data.dataset_factory import DataType
 
 # create a TabularDataset from a delimited file behind a public web url and convert column "Survived" to boolean
@@ -260,7 +261,7 @@ Selezionare un set di dati selezionando il relativo riquadro. È possibile filtr
 
 ![Scegli set di dati](./media/how-to-create-register-datasets/open-datasets-2.png)
 
-Scegliere un nome in un quale registrare il set di dati e facoltativamente filtrare i dati utilizzando i filtri disponibili. In questo caso, per il set di dati giorni festivi, si filtra il periodo di tempo a un anno e il codice paese solo agli Stati Uniti. Selezionare **Crea**.
+Scegliere un nome in un quale registrare il set di dati e facoltativamente filtrare i dati utilizzando i filtri disponibili. In questo caso, per il set di dati giorni festivi, si filtra il periodo di tempo a un anno e il codice paese solo agli Stati Uniti. Selezionare **Create** (Crea).
 
 ![Impostare i parametri del set di dati e creare il set di datiSet dataset params and create dataset](./media/how-to-create-register-datasets/open-datasets-3.png)
 

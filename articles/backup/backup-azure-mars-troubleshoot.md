@@ -4,12 +4,12 @@ description: In questo articolo viene illustrato come risolvere i problemi relat
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 24169356600c25e664221af397051bb0fec3e459
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a15f8a4531bc31dab5b99e125454b0d9c4fd4521
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673080"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421283"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Risolvere i problemi relativi all'agente di Microsoft Azure Recovery Services (MARS)
 
@@ -132,6 +132,13 @@ Set-ExecutionPolicy Unrestricted
 
 > [!TIP]
 > Per garantire che le modifiche vengano applicate in modo coerente, riavviare il server dopo aver eseguito i passaggi precedenti.
+
+## <a name="resource-not-provisioned-in-service-stamp"></a>Risorsa di cui non è stato eseguito il provisioning nel timbro di servizio
+
+Errore | Possibili cause | Azioni consigliate
+--- | --- | ---
+L'operazione corrente non è riuscita a causa di un errore interno del servizio "Risorsa non sottoposta a provisioning nel timbro del servizio". Ripetere l'operazione dopo alcuni minuti. (ID: 230006) | Il server protetto è stato rinominato. | <li> Rinominare il server con il nome originale registrato nel vault. <br> <li> Registrare nuovamente il server nell'insieme di credenziali con il nuovo nome.
+
 
 ## <a name="troubleshoot-restore-problems"></a>Risolvere i problemi di ripristino
 

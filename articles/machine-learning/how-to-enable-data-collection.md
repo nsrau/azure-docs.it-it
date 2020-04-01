@@ -11,12 +11,12 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c481a2e12d83e865025cd90e59e0eba572ad9a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 44acc81df9eb6dc6a6af28b5b0f4730aa93adffc
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75771394"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475438"
 ---
 # <a name="collect-data-for-models-in-production"></a>Raccogliere i dati per i modelli nell'ambiente di produzione
 
@@ -129,11 +129,7 @@ Se si dispone già di un servizio con le dipendenze installate nel file di ambie
 
    ![Modificare il servizio](././media/how-to-enable-data-collection/EditService.PNG)
 
-1. In **Impostazioni avanzate**selezionare Abilita raccolta dati **modello**.
-
-    [![Selezionare la raccolta dei dati](./media/how-to-enable-data-collection/CheckDataCollection.png)](././media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
-
-   È anche possibile selezionare **Abilita diagnostica AppInsights** per tenere traccia dell'integrità del servizio.
+1. In **Impostazioni avanzate**selezionare Abilita la diagnostica e la raccolta dati di Application **Insights**.
 
 1. Selezionare **Aggiorna** per applicare le modifiche.
 
@@ -151,9 +147,7 @@ Puoi interrompere la raccolta dei dati in qualsiasi momento. Usare il codice Pyt
 
    [![Selezionare l'opzione Modifica](././media/how-to-enable-data-collection/EditService.PNG)](./././media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
-1. In **Impostazioni avanzate** **deselezionare Abilita raccolta dati modello**.
-
-    [![Deselezionare la casella di controllo Raccolta dati](./media/how-to-enable-data-collection/UncheckDataCollection.png)](././media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
+1. In **Impostazioni avanzate** **deselezionare Abilita diagnostica e raccolta dati**di Application Insights .
 
 1. Selezionare **Aggiorna** per applicare la modifica.
 

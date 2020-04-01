@@ -11,15 +11,15 @@ ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 03/30/2020
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4df2ec0439e659fd8dc1448c6209c9718114791
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ecae47f6aa0ab3f179632467b7da7805f06162d6
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79479791"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397257"
 ---
 # <a name="manage-your-batch-account"></a>Gestire l'account Batch
 
@@ -33,13 +33,13 @@ Un account Batch è un'entità identificata in modo univoco all'interno del serv
 
 L'account Batch consente di eseguire processi batch di calcolo paralleli e ad alte prestazioni (HPC) su larga scala in modo efficiente in Azure.The Batch account enables you to run large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. All'interno dell'account che gestisci:
 
-- applicazioni in esecuzione
+- Le applicazioni in esecuzione
 
-- l'allocazione di pool e nodi all'interno di pool
+- L'allocazione di pool e nodi all'interno di pool
 
-- il numero e i tipi di attività 
+- Il numero e i tipi di attività 
 
-- l'input e l'output dei dati. Non è necessario installare software aggiuntivo per gestire le attività.
+- L'input e l'output dei dati. Non è necessario installare software aggiuntivo per gestire le attività.
 
 - Quando si crea l'account Batch, viene chiesto di assegnargli un nome. Questo nome è il suo ID e una volta assegnato non può essere modificato.
 

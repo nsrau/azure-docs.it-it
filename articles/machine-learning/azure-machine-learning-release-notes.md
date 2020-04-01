@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: 70e8bf95022f88dab54fa13769df4b051cf41c92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b55c351927a56afce697d07f41bfbe668144d68d
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80247147"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475510"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine LearningAzure Machine Learning release notes
 
@@ -624,7 +624,7 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
     + Corretto un bug in run.get_metrics in cui le richieste potrebbero non riuscire se un'esecuzione ha troppi figliFixed a bug in run.get_metrics where requests would fail if a run had to o many children
     + Corretto un bug in run.get_metrics in cui le richieste potrebbero avere esito negativo se un'esecuzione ha troppi figliFixed a bug in [run.get_metrics](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run#get-metrics-name-none--recursive-false--run-type-none--populate-false-) where requests would fail if a run had to o many children
     + Aggiunto il supporto per l'autenticazione nel cluster Arcadia.
-    + La creazione di un oggetto Experiment ottiene o crea l'esperimento nell'area di lavoro di Azure Machine Learning per il rilevamento della cronologia di esecuzione. L'ID esperimento e l'ora archiviata vengono popolati nell'oggetto Esperimento al momento della creazione. Esempio: experiment -Experiment(workspace, "New Experiment") experiment_id : experiment.id archive() e reactivate() sono funzioni che possono essere chiamate in un esperimento per nascondere e ripristinare l'esperimento dalla visualizzazione nell'esperienza utente o restituite per impostazione predefinita in una chiamata per elencare gli esperimenti. Se viene creato un nuovo esperimento con lo stesso nome di un esperimento archiviato, è possibile rinominare l'esperimento archiviato durante la riattivazione passando un nuovo nome. Può essere presente un solo esperimento attivo con un determinato nome. Esempio: experiment1 - Experiment(workspace, "Active Experiment") experiment1.archive() - Crea un nuovo esperimento attivo con lo stesso nome dell'archivio. esperimento2. Esperimento (spazio di lavoro, "Esperimento attivo") experiment1.reactivate(new_name :"Precedente Esperimento attivo") L'elenco di metodi statici() in Esperimento può accettare un filtro nome e un filtro ViewType. I valori ViewType sono "ACTIVE_ONLY", "ARCHIVED_ONLY" e "ALL" Esempio: archived_experiments : Experiment.list(workspace, view_type"ARCHIVED_ONLY") all_first_experiments : Experiment.list(workspace, name, "First Experiment", view_type "ALL")
+    + La creazione di un oggetto Experiment ottiene o crea l'esperimento nell'area di lavoro di Azure Machine Learning per il rilevamento della cronologia di esecuzione. L'ID esperimento e l'ora archiviata vengono popolati nell'oggetto Esperimento al momento della creazione. Ad esempio: experiment (workspace, "New Experiment") experiment_id - experiment.id archive() e reactivate() sono funzioni che possono essere chiamate in un esperimento per nascondere e ripristinare l'esperimento dalla visualizzazione nell'esperienza utente o restituite per impostazione predefinita in una chiamata agli esperimenti sugli elenchi. Se viene creato un nuovo esperimento con lo stesso nome di un esperimento archiviato, è possibile rinominare l'esperimento archiviato durante la riattivazione passando un nuovo nome. Può essere presente un solo esperimento attivo con un determinato nome. Esempio: experiment1 - Experiment(workspace, "Active Experiment") experiment1.archive() - Crea un nuovo esperimento attivo con lo stesso nome dell'archivio. esperimento2. Esperimento (spazio di lavoro, "Esperimento attivo") experiment1.reactivate(new_name :"Precedente Esperimento attivo") L'elenco di metodi statici() in Esperimento può accettare un filtro nome e un filtro ViewType. I valori ViewType sono "ACTIVE_ONLY", "ARCHIVED_ONLY" e "ALL" Esempio: archived_experiments : Experiment.list(workspace, view_type"ARCHIVED_ONLY") all_first_experiments : Experiment.list(workspace, name, "First Experiment", view_type "ALL")
     + Supporto per l'utilizzo dell'ambiente per la distribuzione del modello e l'aggiornamento del servizioSupport using environment for model deploy, and service update
   + **azureml-datadrift**
     + L'attributo show della classe DataDriftDector non supporterà più l'argomento facoltativo 'with_details'. L'attributo show presenterà solo il coefficiente di deriva dei dati e il contributo della deriva dei dati delle colonne di entità geografiche.
@@ -798,8 +798,8 @@ La scheda Esperimento nel [nuovo portale dell'area di lavoro](https://ml.azure.c
     + Eccezione che non è possibile trovare la colonna timestamp verrà generata se l'API correlata serie serials viene chiamata senza colonna timestamp fine assegnata o le colonne timestamp assegnate vengono eliminate.
     + Time serials colonne devono essere assegnate con colonna il cui tipo è Data, altrimenti è prevista l'eccezione
     + Le colonne Time serials che assegnano l'API 'with_timestamp_columns' possono accettare il nome della colonna timestamp none fine/coarse, che cancellerà le colonne timestamp assegnate in precedenza.
-    + Eccezione verrà generata quando la colonna timestamp granulosa o granulosa fine viene eliminata con l'indicazione per l'utente che il rilascio può essere eseguito dopo aver escluso la colonna timestamp nell'elenco di rilascio o chiamare with_time_stamp con valore None per rilasciare timestamp Colonne
-    + Eccezione verrà generata quando la colonna timestamp granulosa o granulosa fine non è inclusa nell'elenco Keep columns con l'indicazione per l'utente che la conservazione può essere eseguita dopo aver incluso la colonna timestamp nell'elenco delle colonne keep o chiamare with_time_stamp con None per rilasciare le colonne timestamp.
+    + Eccezione verrà generata quando la colonna timestamp granulosa o granulosa fine viene eliminata con l'indicazione per l'utente che l'eliminazione può essere eseguita dopo aver escluso la colonna timestamp nell'elenco di rilascio o chiamare with_time_stamp con valore None per rilasciare le colonne timestamp
+    + Eccezione verrà generata quando la colonna timestamp granulosa o granulosa non è inclusa nell'elenco Keep columns con l'indicazione per l'utente che la conservazione può essere eseguita dopo aver incluso la colonna timestamp nell'elenco delle colonne keep o chiamare with_time_stamp con il valore None per rilasciare le colonne timestamp.
     + Aggiunta la registrazione per le dimensioni di un modello registrato.
   + **azureml-explain-model**
     + Risolto un avviso stampato sulla console quando non è installato il pacchetto python "packaging": "Utilizzando la versione precedente a quella supportata di lightgbm, eseguire l'aggiornamento alla versione maggiore di 2.2.1"
@@ -925,13 +925,13 @@ Al momento di questa versione, sono supportati i seguenti browser: Chrome, Firef
     + Interfaccia aggiornata `RawDataContext` per creare un per `AutoMLBaseSettings` richiedere solo i dati e l'oggetto.
     +  Consentire agli utenti AutoML di abbandonare serie di formazione non sufficientemente lunghe durante la previsione. - Consentire agli utenti AutoML di eliminare i grani dal set di test che non esiste nel set di training durante la previsione.- Allow AutoML users to drop grains from the test set that does not exist in the training set when forecasting.
   + **azure-cli-ml**
-    + È ora possibile aggiornare il certificato SSL per l'endpoint di punteggio distribuito nel cluster AKS sia per il certificato generato da Microsoft che per il certificato del cliente.
+    + È ora possibile aggiornare il certificato TLS/SSL per l'endpoint di punteggio distribuito nel cluster AKS sia per il certificato generato da Microsoft che per il certificato del cliente.
   + **azureml-automl-core**
     + Risolto un problema in AutoML in cui le righe con etichette mancanti non venivano rimosse correttamente.
     + Miglioramento della registrazione degli errori in AutoML; i messaggi di errore completi verranno sempre scritti nel file di registro.
     + AutoML ha aggiornato il `azureml-defaults`blocco `azureml-explain-model`del `azureml-dataprep`pacchetto per includere , e . AutoML non avviserà più in caso `azureml-train-automl` di mancata corrispondenza dei pacchetti (ad eccezione del pacchetto).
     + Risolto un `timeseries` problema in cui le divisioni cv sono di dimensioni diverse causando un errore nel calcolo della collocazione.
-    + Quando si esegue l'iterazione dell'insieme per il tipo di training Cross-Validation, se abbiamo finito per avere problemi a scaricare i modelli sottoposti a training sull'intero set di dati, si verificava un'incoerenza tra i pesi del modello e i modelli che venivano inseriti nella votazione Ensemble.
+    + Quando si esegue l'iterazione dell'insieme per il tipo di training Cross-Validation, se abbiamo finito per avere problemi a scaricare i modelli sottoposti a training sull'intero set di dati, si verificava un'incoerenza tra i pesi del modello e i modelli che venivano inseriti nell'insieme di voto.
     + Corretto l'errore, generato durante il training e/o le etichette di convalida (y e y_valid) vengono fornite sotto forma di frame dati panda ma non come matrice numpy.
     + Risolto il problema con le attività di previsione quando non è stato rilevato nessuno nelle colonne booleane delle tabelle di input.
     + Consentire agli utenti AutoML di abbandonare serie di formazione non sufficientemente lunghe durante la previsione. - Consentire agli utenti AutoML di eliminare i grani dal set di test che non esiste nel set di training durante la previsione.- Allow AutoML users to drop grains from the test set that does not exist in the training set when forecasting.
@@ -956,7 +956,7 @@ Al momento di questa versione, sono supportati i seguenti browser: Chrome, Firef
     + Importazione di file csv/tsv HTTP supportati nell'SDK di python del set di dati.
     + Deprecato il metodo Workspace.setup(). Il messaggio di avviso visualizzato agli utenti suggerisce di utilizzare create() o get()/from_config().
     + Aggiunto Environment.add_private_pip_wheel(), che consente di `whl`caricare pacchetti python privati personalizzati nell'area di lavoro e di utilizzarli in modo sicuro per compilare/materializzare l'ambiente.
-    + È ora possibile aggiornare il certificato SSL per l'endpoint di punteggio distribuito nel cluster AKS sia per il certificato generato da Microsoft che per il certificato del cliente.
+    + È ora possibile aggiornare il certificato TLS/SSL per l'endpoint di punteggio distribuito nel cluster AKS sia per il certificato generato da Microsoft che per il certificato del cliente.
   + **azureml-explain-model**
     + Aggiunto parametro per aggiungere un ID modello alle spiegazioni al caricamento.
     + Aggiunto `is_raw` l'aggiunta di tag alle spiegazioni in memoria e upload.
@@ -1877,7 +1877,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
   * log_table() e log_row() sono supportati nei dettagli dell'esecuzione.
   * Creazione automatica di grafici per tabelle e righe con 1, 2 o 3 colonne numeriche e una colonna di categoria facoltativa.
 
-+ **Funzionalità automatizzate di Machine Learning**
++ **Apprendimento automatico automatizzato**
   * Miglioramenti alla gestione degli errori e alla relativa documentazione
   * Correzione di problemi di prestazioni relativi al recupero delle proprietà di esecuzione.
   * Correzione di un problema di esecuzione continua.

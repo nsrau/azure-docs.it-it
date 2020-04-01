@@ -11,44 +11,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/17/2019
+ms.date: 04/01/2020
 ms.author: kumud
-ms.openlocfilehash: 96ede56e7b21d2447d238306e00f2c4fbca56f04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6b61e27324220fc78ace3e964aed98f9ba114d3
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76122237"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420939"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>Distribuire un'applicazione Dual Stack IPv6 in Azure - PowerShell (anteprima)Deploy an IPv6 dual stack application in Azure - PowerShell (Preview)
+# <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell"></a>Distribuire un'applicazione dual stack IPv6 in Azure - PowerShellDeploy an IPv6 dual stack application in Azure - PowerShell
 
-In questo articolo viene illustrato come distribuire un'applicazione dual stack (IPv4 e IPv6) usando Il bilanciamento del carico standard in Azure che include una rete virtuale a doppio stack e una subnet, un servizio di bilanciamento del carico standard con configurazioni front-end dual (IPv4 e IPv6), macchine virtuali con schede di interfaccia di rete configurazione IP doppio, gruppo di sicurezza di rete e indirizzi IP pubblici.
-
-> [!Important]
-> Il supporto IPv6 per la rete virtuale di Azure è attualmente in anteprima pubblica. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+In questo articolo viene illustrato come distribuire un'applicazione dual stack (IPv4 e IPv6) usando Load Balancer standard in Azure che include una subnet e una subnet dual stack, un servizio di bilanciamento del carico standard con configurazioni front-end dual (IPv4 e IPv6), macchine virtuali con schede di interfaccia di rete con una configurazione IP duale, un gruppo di sicurezza di rete e indirizzi IP pubblici.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se si sceglie di installare e usare PowerShell in locale, questo articolo richiede la versione 6.9.0 o successiva del modulo di Azure PowerShell.If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 6.9.0 or later. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
-
-## <a name="prerequisites"></a>Prerequisiti
-Prima di distribuire un'applicazione dual stack in Azure, è necessario configurare la sottoscrizione per questa funzionalità di anteprima usando Azure PowerShell seguente:Before you deploy a dual stack application in Azure, you must configure your subscription for this preview feature using the following Azure PowerShell:
-
-Registrarsi come segue:
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
-Register-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
-```
-Sono necessari fino a 30 minuti per completare la registrazione della funzionalità. È possibile controllare lo stato della registrazione eseguendo il comando di Azure PowerShell seguente: controllare la registrazione come segue:You can check your registration status by running the following Azure PowerShell command: Check on the registration as follows:
-```azurepowershell
-Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
-Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
-```
-Al termine della registrazione eseguire questo comando:
-
-```azurepowershell
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-```
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -273,7 +251,7 @@ Creare schede di interfaccia di rete virtuali con [New-AzNetworkInterface](/powe
     -PrivateIpAddressVersion IPv4 `
     -LoadBalancerBackendAddressPool $backendPoolv4 `
     -PublicIpAddress  $RdpPublicIP_1
-    
+      
   $Ip6Config=New-AzNetworkInterfaceIpConfig `
     -Name dsIp6Config `
     -Subnet $vnet.subnets[0] `
@@ -374,8 +352,6 @@ Nella figura seguente viene illustrato un output di esempio che elenca gli indir
 
   ![Rete virtuale dual stack IPv6 in Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
 
-> [!NOTE]
-> La rete virtuale IPv6 per Azure è disponibile nel portale di Azure in sola lettura per questa versione di anteprima.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

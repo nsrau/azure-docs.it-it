@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: b68e438a01f9f771c16fc712597308089f628f62
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f19d4adad675cdf95f59aca0f752f46211b75e8f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409474"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436930"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Eseguire la migrazione dei cluster Apache Hadoop locali in Azure HDInsightMigrate on-premises Apache Hadoop clusters to Azure HDInsight
 
@@ -52,7 +52,7 @@ Archiviazione di Azure offre [l'eliminazione temporanea per gli oggetti BLOB che
 
 I metodi seguenti consentono di importare i certificati nell'archivio di attendibilità di Java.
 
-Scaricare il certificato SSL BLOB di Azure in un fileDownload the Azure Blob SSL cert to a file
+Scaricare il certificato TLS/SSL del BLOB di Azure in un fileDownload the Azure Blob TLS/SSL cert to a file
 
 ```bash
 echo -n | openssl s_client -connect <storage-account>.blob.core.windows.net:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > Azure_Storage.cer

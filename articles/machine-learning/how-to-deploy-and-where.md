@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 02/27/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 96d9a0722ae04dc150b639dced34fa290da93630
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0deace98c5be0b2ce2f29abce4c8a804145afdb1
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80159414"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475617"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuire modelli con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -537,9 +537,9 @@ Le classi per i servizi Web locali, istanze del `azureml.core.webservice`conteni
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
 
-### <a name="securing-deployments-with-ssl"></a>Protezione delle distribuzioni con SSL
+### <a name="securing-deployments-with-tls"></a>Protezione delle distribuzioni con TLS
 
-Per ulteriori informazioni su come proteggere la distribuzione di un servizio Web, vedere [Utilizzare SSL per proteggere un servizio Web.](how-to-secure-web-service.md#enable)
+Per ulteriori informazioni su come proteggere la distribuzione di un servizio Web, vedere [Abilitare TLS e distribuire](how-to-secure-web-service.md#enable).
 
 ### <a name="local-deployment"></a><a id="local"></a>Distribuzione locale
 
@@ -907,6 +907,24 @@ service_name = 'my-sklearn-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
+NOTA: per impostazione predefinita, i modelli che supportano predict_proba utilizzeranno tale metodo. Per eseguire l'override di questo per utilizzare predict è possibile modificare il corpo POST come di seguito:To override this to use predict you can modify the POST body as below:
+```python
+import json
+
+
+input_payload = json.dumps({
+    'data': [
+        [ 0.03807591,  0.05068012,  0.06169621, 0.02187235, -0.0442235,
+         -0.03482076, -0.04340085, -0.00259226, 0.01990842, -0.01764613]
+    ],
+    'method': 'predict'  # If you have a classification model, the default behavior is to run 'predict_proba'.
+})
+
+output = service.run(input_payload)
+
+print(output)
+```
+
 NOTA: queste dipendenze sono incluse nel contenitore di inferenza sklearn predefinito:
 
 ```yaml
@@ -1154,7 +1172,7 @@ def run(request):
 
 * [Come distribuire un modello usando un'immagine Docker personalizzataHow to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
 * [Risoluzione dei problemi di distribuzione](how-to-troubleshoot-deployment.md)
-* [Proteggere i servizi Web di Azure Machine Learning con SSL](how-to-secure-web-service.md)
+* [Usare TLS per proteggere un servizio Web tramite Azure Machine LearningUse TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
 * [Come usare un modello di Azure Machine Learning distribuito come servizio Web](how-to-consume-web-service.md)
 * [Monitorare i modelli di Azure Machine Learning con Application InsightsMonitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Raccogliere i dati per i modelli nell'ambiente di produzione](how-to-enable-data-collection.md)

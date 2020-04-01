@@ -17,12 +17,12 @@ ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6e3f021fd888bbb408fa66964c54d22f0d68e84e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 53d498f4aed8ec86cc57c35824a9fb8aa471dc1d
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297687"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80419673"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Piattaforma di identità Microsoft e flusso di concessione implicitaMicrosoft identity platform and Implicit grant flow
 
@@ -32,7 +32,7 @@ With the Microsoft identity platform endpoint, you can sign users into your sing
 * Molti server di autorizzazione e provider di identità non supportano le richieste CORS.
 * I reindirizzamenti dei browser a pagina intera dall'app diventano fastidiosi per l'esperienza utente.
 
-Per queste applicazioni (AngularJS, Ember.js, React.js e così via), la piattaforma di identità Microsoft supporta il flusso di concessione implicita OAuth 2.0. Il flusso implicito è descritto nella [specifica di OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.2). Il suo vantaggio principale è che consente all'app di ottenere token dalla piattaforma di identità Microsoft senza eseguire uno scambio di credenziali del server back-end. In questo modo l'app può far accedere l'utente, gestire la sessione e ottenere i token per altre API Web, il tutto nel codice JavaScript client. Esistono alcune importanti osservazioni sulla sicurezza da considerare quando si usa il flusso implicito, in particolare per la [rappresentazione del client](https://tools.ietf.org/html/rfc6749#section-10.3) e dell'[utente](https://tools.ietf.org/html/rfc6749#section-10.3).
+Per queste applicazioni (Angular, Ember.js, React.js e così via), la piattaforma di identità Microsoft supporta il flusso di concessione implicita OAuth 2.0. Il flusso implicito è descritto nella [specifica di OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.2). Il suo vantaggio principale è che consente all'app di ottenere token dalla piattaforma di identità Microsoft senza eseguire uno scambio di credenziali del server back-end. In questo modo l'app può far accedere l'utente, gestire la sessione e ottenere i token per altre API Web, il tutto nel codice JavaScript client. Esistono alcune importanti osservazioni sulla sicurezza da considerare quando si usa il flusso implicito, in particolare per la [rappresentazione del client](https://tools.ietf.org/html/rfc6749#section-10.3) e dell'[utente](https://tools.ietf.org/html/rfc6749#section-10.3).
 
 In questo articolo viene descritto come programmare direttamente in base al protocollo nell'applicazione.  Quando possibile, è consigliabile utilizzare le librerie di autenticazione Microsoft (MSAL) supportate per [acquisire token e chiamare API Web protette](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Dai anche un'occhiata alle [app di esempio che utilizzano MSAL](sample-v2-code.md).
 
@@ -54,7 +54,7 @@ Attualmente, il metodo preferito per proteggere le chiamate a un'API Web consist
 * I token possono essere ottenuti in modo affidabile senza bisogno di chiamate multiorigine. La registrazione obbligatoria dell'URI di reindirizzamento a cui i token vengono restituiti garantisce che non vengano spostati.
 * Le applicazioni JavaScript possono ottenere tutti i token di accesso necessari per tutte le API Web di destinazione, senza alcuna restrizione sui domini.
 * Le funzionalità HTML5, come l'archiviazione locale o di sessione, garantiscono il controllo completo sulla memorizzazione nella cache e sulla gestione del ciclo di vita dei token, mentre la gestione dei cookie è opaca per l'app.
-* I token di accesso non sono soggetti agli attacchi di tipo richiesta intersito falsa.
+* I token di accesso non sono soggetti ad attacchi CSRF (Cross-site request forgery)
 
 Il flusso di concessione implicita non rilascia token di aggiornamento, soprattutto per motivi di sicurezza. Un token di aggiornamento non è così ristretta come i token di accesso, concedendo molto più potere quindi infliggendo molti più danni nel caso in cui è trapelato. Nel flusso implicito, i token vengono recapitati nell'URL, pertanto il rischio di intercettazione è maggiore rispetto alla concessione del codice di autorizzazione.
 
@@ -66,9 +66,9 @@ Questo modello concede all'applicazione JavaScript la possibilità di rinnovare 
 
 La concessione implicita presenta maggiori rischi rispetto ad altre concessioni e le aree è necessario prestare attenzione sono ben documentate, ad esempio, nel paragrafo relativo all'[uso improprio dei token di accesso per rappresentare il proprietario della risorsa nel flusso implicito][OAuth2-Spec-Implicit-Misuse] e nel documento relativo al [modello di minaccia OAuth 2.0 e alle considerazioni sulla sicurezza][OAuth2-Threat-Model-And-Security-Implications]. Tuttavia il profilo di rischio maggiore è per lo più generato dal fatto che lo scopo è abilitare le applicazioni che eseguono codice attivo, fornito da una risorsa remota a un browser. Se si pianifica un'architettura di applicazione a singola pagina, non si hanno componenti back-end o si intende richiamare un'API Web tramite JavaScript, è consigliabile usare il flusso implicito per l'acquisizione dei token.
 
-Se l'applicazione è un client nativo, il flusso implicito non è la soluzione ideale. L'assenza del cookie della sessione di Azure AD nel contesto di un client nativo non consente all'applicazione di mantenere una sessione di lunga durata. Di conseguenza, 'applicazione chiederà ripetutamente l'interazione dell'utente per ottenere i token di accesso per le nuove risorse.
+Se l'applicazione è un client nativo, il flusso implicito non è adatto. L'assenza del cookie della sessione di Azure AD nel contesto di un client nativo non consente all'applicazione di mantenere una sessione di lunga durata. Di conseguenza, 'applicazione chiederà ripetutamente l'interazione dell'utente per ottenere i token di accesso per le nuove risorse.
 
-Se si sta sviluppando un'applicazione Web che include un back-end e utilizza un'API dal codice back-end, nemmeno in questo caso il flusso implicito è la soluzione ideale. Altre concessioni offrono molte più possibilità. Ad esempio, la concessione delle credenziali client OAuth2 consente di ottenere token che rispecchiano le autorizzazioni assegnate all'applicazione stessa invece che alle deleghe utente. Ciò significa che il client è in grado di mantenere l'accesso a livello di codice alle risorse anche quando un utente non è attivamente impegnato in una sessione e così via. Tali concessioni offrono poi anche maggiori garanzie di sicurezza. Ad esempio, i token di accesso non passano mai dal browser dell'utente e non rischiano di essere salvati nella cronologia del browser e così via. L'applicazione client può anche eseguire l'autenticazione avanzata quando si richiede un token.
+Se si sta sviluppando un'applicazione Web che include un back-end e utilizza un'API dal codice back-end, nemmeno in questo caso il flusso implicito è la soluzione ideale. Altre concessioni offrono molte più possibilità. Ad esempio, la concessione delle credenziali client OAuth2 consente di ottenere token che rispecchiano le autorizzazioni assegnate all'applicazione stessa invece che alle deleghe utente. Ciò significa che il client è in grado di mantenere l'accesso a livello di codice alle risorse anche quando un utente non è attivamente impegnato in una sessione e così via. Tali concessioni offrono poi anche maggiori garanzie di sicurezza. Ad esempio, i token di accesso non transitano mai attraverso il browser dell'utente, non rischiano di essere salvati nella cronologia del browser e così via. L'applicazione client può anche eseguire l'autenticazione avanzata quando si richiede un token.
 
 [OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16
 [OAuth2-Threat-Model-And-Security-Implications]: https://tools.ietf.org/html/rfc6819
@@ -161,7 +161,7 @@ error=access_denied
 
 Dopo aver eseguito l'accesso dell'utente all'app a pagina singola, è possibile ottenere automaticamente i token di accesso per chiamare le API Web protette dalla piattaforma di identità Microsoft, ad esempio [Microsoft Graph](https://developer.microsoft.com/graph). Anche se si è già ricevuto un token usando il `token` response_type, è possibile usare questo metodo per acquisire i token per risorse aggiuntive senza dover reindirizzare l'utente perché esegua di nuovo l'accesso.
 
-Nel normale flusso OpenID Connect/OAuth, è possibile eseguire questa operazione `/token` effettuando una richiesta all'endpoint della piattaforma di identità Microsoft.In the normal OpenID Connect/OAuth flow, you would do this by making a request to the Microsoft identity platform endpoint. Tuttavia, l'endpoint della piattaforma di identità Microsoft non supporta le richieste CORS, pertanto l'esecuzione di chiamate AJAX per ottenere e aggiornare i token non è in questione. È possibile usare invece il flusso implicito in un iframe nascosto per ottenere nuovi token per altre API Web: 
+Nel normale flusso OpenID Connect/OAuth, è possibile eseguire questa operazione `/token` effettuando una richiesta all'endpoint della piattaforma di identità Microsoft.In the normal OpenID Connect/OAuth flow, you would do this by making a request to the Microsoft identity platform endpoint. Tuttavia, l'endpoint della piattaforma di identità Microsoft non supporta le richieste CORS, pertanto l'esecuzione di chiamate AJAX per ottenere e aggiornare i token non è in questione. È possibile usare invece il flusso implicito in un iframe nascosto per ottenere nuovi token per altre API Web:
 
 ```
 // Line breaks for legibility only
@@ -170,7 +170,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=token
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read 
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &response_mode=fragment
 &state=12345
 &nonce=678910

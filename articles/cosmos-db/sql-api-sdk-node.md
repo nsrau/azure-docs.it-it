@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: de1c1b93b813f71b321da0625bc60e0762a859c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 181f43e060e3b4b41babeee375365a97e1d224aa
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70207951"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411281"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Node.js SDK di Azure Cosmos DB per API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
@@ -318,7 +318,7 @@ Non sempre i cambiamenti più visibili, ma aiutano il nostro team a spedire un c
 ### <a name=""></a><a name="1.11.0"/>1.11.0</a>
 * Aggiunta del supporto per le query di aggregazione (COUNT, MIN, MAX, SUM e AVG).
 * Aggiunta dell'opzione per il controllo del grado di parallelismo per query nella partizione.
-* Aggiunta dell'opzione per disabilitare la verifica SSL durante l'esecuzione sull'emulatore Azure Cosmos DB.
+* Aggiunta l'opzione per disabilitare la verifica TLS durante l'esecuzione con l'emulatore di database Cosmos di Azure.Added the option for disabling TLS verification when running against Azure Cosmos DB Emulator.
 * Velocità effettiva minima ridotta nelle raccolte partizionate da 10.100 UR/s a 2.500 UR/s.
 * Correzione del bug del token di continuazione per la raccolta a partizione singola. Problema GitHub n. 107.
 * Correzione del bug executeStoredProcedure nella gestione di 0 come parametro singolo. Problema GitHub n. 155.
@@ -328,7 +328,7 @@ Non sempre i cambiamenti più visibili, ma aiutano il nostro team a spedire un c
 * Pulizia del codice di minore entità.
 
 ### <a name=""></a><a name="1.10.1"/>1.10.1</a>
-* Disabilitazione della verifica SSL durante l'uso dell'SDK per l'emulatore(nomehost=host).
+* Disabilitazione della verifica TLS quando si utilizza l'SDK per l'emulatore di destinazione (nomehost o localhost).
 * Aggiunta del supporto per l'abilitazione della registrazione degli script durante l'esecuzione di stored procedure.
 
 ### <a name=""></a><a name="1.10.0"/>1.10.0</a>

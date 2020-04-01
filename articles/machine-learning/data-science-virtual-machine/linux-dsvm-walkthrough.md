@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: 9857de0470baa35dcc8005e1622e5e593da95751
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d15d53816d916bd28841aae39255685524faa2d
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128361"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477862"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Data science with a Linux Data Science Virtual Machine in Azure
 
@@ -29,9 +29,9 @@ In questa procedura dettagliata viene analizzato il set di dati [spambase.](http
 Prima di poter utilizzare una DSVM Linux, è necessario disporre dei prerequisiti seguenti:Before you can use a Linux DSVM, you must have the following prerequisites:
 
 * **Sottoscrizione di Azure**. Per ottenere una sottoscrizione di Azure, vedere [Creare l'account Azure gratuito oggi](https://azure.microsoft.com/free/)stesso.
-* [**Linux Data Science Virtual Machine**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Per informazioni sul provisioning della macchina virtuale, vedere [Effettuare il provisioning della macchina virtuale di analisi scientifica dei dati Linux](linux-dsvm-intro.md).
+* [**Linux Data Science Virtual Machine**](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu). Per informazioni sul provisioning della macchina virtuale, vedere [Effettuare il provisioning della macchina virtuale di analisi scientifica dei dati Linux](linux-dsvm-intro.md).
 * [**X2Go**](https://wiki.x2go.org/doku.php) installato sul computer con una sessione XFCE aperta. Per ulteriori informazioni, vedere [Installare e configurare il client X2Go](linux-dsvm-intro.md#x2go).
-* Per un'esperienza di scorrimento più fluida, nel browser web `gfx.xrender.enabled` Firefox `about:config`di DSVM, attivare il flag in . [Scopri di più](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Considerare anche `mousewheel.enable_pixel_scrolling` `False`l'impostazione di . [Scopri di più](https://support.mozilla.org/questions/981140).
+* Per un'esperienza di scorrimento più fluida, nel browser web `gfx.xrender.enabled` Firefox `about:config`di DSVM, attivare il flag in . [Altre informazioni](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/) Considerare anche `mousewheel.enable_pixel_scrolling` `False`l'impostazione di . [Altre informazioni](https://support.mozilla.org/questions/981140)
 * **Account di Azure Machine Learning**. Se non ne hai già uno, iscriviti per ottenere un nuovo account nella home page di [Azure Machine Learning.](https://azure.microsoft.com/free/services/machine-learning//)
 
 ## <a name="download-the-spambase-dataset"></a>Scaricare il set di dati spambase
@@ -398,12 +398,12 @@ Per esplorare i dati:
 
 1. Scegliere **Distributions**(Distribuzioni).
 1. Per **word_freq_remove** e **word_freq_you**, selezionare **Istogramma**.
-1. Scegliere **Execute**(Esegui). Dovresti vedere entrambi i grafici di densità in una singola finestra del grafico, dove è chiaro che la parola _che_ appare molto più frequentemente nelle e-mail rispetto _a rimuovere_.
+1. Selezionare **Esegui**. Dovresti vedere entrambi i grafici di densità in una singola finestra del grafico, dove è chiaro che la parola _che_ appare molto più frequentemente nelle e-mail rispetto _a rimuovere_.
 
 Anche i grafici **di correlazione** sono interessanti. Per creare un grafico:
 
 1. Per **Tipo**, selezionare **Correlazione**.
-1. Scegliere **Execute**(Esegui).
+1. Selezionare **Esegui**.
 1. Rattle avvisa l'utente che è consigliabile usare un massimo di 40 variabili. Scegliere **Yes** (Sì) per visualizzare il tracciato.
 
 Ci sono alcune correlazioni interessanti che vengono fuori: _la tecnologia_ è fortemente correlata a _HP_ e _laboratori_, per esempio. È anche fortemente correlato a _650_ perché il prefisso dei donatori del set di dati è 650.
@@ -425,7 +425,7 @@ Rattle può anche eseguire l'analisi del cluster. Escludere ora alcune funzional
 * word_freq_business
 * spam
 
-Tornare alla scheda **Cluster.** Selezionare **KMeans**, quindi impostare **Numero di cluster** su **4**. Scegliere **Execute**(Esegui). I risultati verranno visualizzati nella finestra di output. Un cluster ha alta frequenza di _george_ e _hp_, ed è probabilmente un e-mail aziendale legittimo.
+Tornare alla scheda **Cluster.** Selezionare **KMeans**, quindi impostare **Numero di cluster** su **4**. Selezionare **Esegui**. I risultati verranno visualizzati nella finestra di output. Un cluster ha alta frequenza di _george_ e _hp_, ed è probabilmente un e-mail aziendale legittimo.
 
 Per creare un modello di apprendimento automatico dell'albero delle decisioni di base:To build a basic decision tree machine learning model:
 
@@ -437,7 +437,7 @@ Per creare un modello di apprendimento automatico dell'albero delle decisioni di
 Una caratteristica utile di Rattle è la sua capacità di eseguire diversi metodi di apprendimento automatico e valutarli rapidamente. Ecco i passaggi:
 
 1. Per **Tipo**, selezionare **Tutto**.
-1. Scegliere **Execute**(Esegui).
+1. Selezionare **Esegui**.
 1. Al termine dell'esecuzione di Rattle, è possibile selezionare qualsiasi valore **Type,** ad **esempio SVM,** e visualizzare i risultati.
 1. È inoltre possibile confrontare le prestazioni dei modelli nel set di convalida utilizzando la scheda **Valuta.** Ad esempio, la selezione **Matrice** di errore mostra la matrice di confusione, l'errore complessivo e l'errore di classe media per ogni modello nel set di convalida. È inoltre possibile tracciare curve ROC, eseguire analisi di sensibilità ed eseguire altri tipi di valutazioni del modello.
 

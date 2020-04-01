@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 860b1a579d9c8cee6c6e80ae4c4e7fdd7949d5c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e17a004ff866f3915000fb72b6770757062cf83
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71300590"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422906"
 ---
 # <a name="copy-data-to-azure-data-explorer-by-using-azure-data-factory"></a>Copiare dati in Azure Data Explorer tramite Azure Data FactoryCopy data to Azure Data Explorer by using Azure Data Factory 
 
@@ -44,7 +44,7 @@ In this article, you use the Data Factory Copy Data tool to load data from Amazo
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
-1. Accedere al [portale](https://ms.portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://ms.portal.azure.com).
 
 1. Nel riquadro sinistro selezionare **Crea una risorsa** > **Analytics** > **Data Factory**.
 
@@ -59,10 +59,10 @@ In this article, you use the Data Factory Copy Data tool to load data from Amazo
    | **Nome** | Nella casella immettere un nome univoco globale per la data factory. Se viene visualizzato un errore, *il \"\" nome della data factory LoadADXDemo non è disponibile,* immettere un nome diverso per la data factory. Per le regole relative alla denominazione degli elementi di Data Factory, vedere Regole di [denominazione di Data Factory](/azure/data-factory/naming-rules).|
    | **Sottoscrizione** | Nell'elenco a discesa selezionare la sottoscrizione di Azure in cui creare la data factory. |
    | **Gruppo di risorse** | Selezionare **Crea nuovo**, quindi immettere il nome di un nuovo gruppo di risorse. Se si dispone già di un gruppo di risorse, selezionare **Usa esistente**. |
-   | **Version** | Nell'elenco a discesa selezionare **V2**. |  
+   | **Version** | Nell'elenco a discesa selezionare **V2**. |    
    | **Percorso** | Nell'elenco a discesa selezionare il percorso per la data factory. Nell'elenco vengono visualizzate solo le posizioni supportate. Gli archivi dati utilizzati dalla data factory possono esistere in altre posizioni o aree. |
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 1. Per monitorare il processo di creazione, selezionare **Notifiche** sulla barra degli strumenti. Dopo aver creato la data factory, selezionarla.
    
@@ -78,7 +78,7 @@ In this article, you use the Data Factory Copy Data tool to load data from Amazo
 
 È possibile caricare i dati in uno dei modi seguenti:
 
-* Nel riquadro sinistro dell'interfaccia utente di Azure Data Factory selezionare l'icona **Autore,** come illustrato nella sezione "Creare una data factory" di [Creare una factory di dati tramite l'interfaccia utente](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory)di Azure Data Factory.
+* Nel riquadro sinistro dell'interfaccia utente di Azure Data Factory selezionare l'icona **Autore.In** the Azure Data Factory user interface, in the left pane, select the Author icon. Ciò è illustrato nella sezione "Creare una data factory" di [Creare una data factory usando l'interfaccia utente](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory)di Azure Data Factory.
 * Nello strumento Copia dati di Azure Data Factory, come illustrato in [Usare lo strumento Copia dati per copiare](/azure/data-factory/quickstart-create-data-factory-copy-data-tool)i dati.
 
 ### <a name="copy-data-from-amazon-s3-source"></a>Copiare i dati da Amazon S3 (origine)
@@ -142,9 +142,12 @@ In this article, you use the Data Factory Copy Data tool to load data from Amazo
 
 Il nuovo servizio collegato di Azure Data Explorer viene creato per copiare i dati nella tabella di destinazione (sink) di Azure Data Explorer specificata in questa sezione.
 
+> [!NOTE]
+> Usare [l'attività](data-factory-command-activity.md) dei comandi di Azure Data Factory per eseguire i comandi di `.set-or-replace`controllo di Azure Data Explorer e usare l'inserimento dai comandi di [query,](/azure/kusto/management/data-ingestion/ingest-from-query)ad esempio .
+
 #### <a name="create-the-azure-data-explorer-linked-service"></a>Creare il servizio collegato Azure Data ExplorerCreate the Azure Data Explorer linked service
 
-Per creare il servizio collegato Azure Data Explorer, eseguire le operazioni seguenti.
+Per creare il servizio collegato Esplora dati di Azure, eseguire la procedura seguente:To create the Azure Data Explorer linked service, do the following steps:
 
 1. Per utilizzare una connessione all'archivio dati esistente o specificare un nuovo archivio dati, nel riquadro **Archivio dati** di destinazione selezionare **Crea nuova connessione**.
 
@@ -154,13 +157,13 @@ Per creare il servizio collegato Azure Data Explorer, eseguire le operazioni seg
 
     ![Riquadro Nuovo servizio collegato](media/data-factory-load-data/adx-select-new-linked-service.png)
 
-1. Nel riquadro **Nuovo servizio collegato (Azure Data Explorer)** eseguire le operazioni seguenti:In the New Linked Service (Azure Data Explorer) pane, do the following:
+1. Nel riquadro **Nuovo servizio collegato (Azure Data Explorer)** eseguire la procedura seguente:In the New Linked Service (Azure Data Explorer) pane, do the following steps:
 
     ![Riquadro Nuovo servizio collegato di Azure Data Explorer](media/data-factory-load-data/adx-new-linked-service.png)
 
    a. Nella casella Nome immettere un nome per il servizio collegato Azure Data Explorer.In the **Name** box, enter a name for the Azure Data Explorer linked service.
 
-   b. In **Metodo di selezione account**eseguire una delle operazioni seguenti: 
+   b. In **Metodo di selezione account**scegliere una delle opzioni seguenti: 
 
     * Selezionare **Da sottoscrizione di Azure** e quindi selezionare la sottoscrizione di **Azure** e il **cluster**negli elenchi a discesa. 
 
@@ -186,7 +189,7 @@ Per creare il servizio collegato Azure Data Explorer, eseguire le operazioni seg
 
 #### <a name="configure-the-azure-data-explorer-data-connection"></a>Configurare la connessione dati di Azure Data ExplorerConfigure the Azure Data Explorer data connection
 
-Dopo aver creato la connessione al servizio collegato, viene aperto il riquadro **Archivio dati** di destinazione e la connessione creata è disponibile per l'utilizzo. Per configurare la connessione, procedere come segue;
+Dopo aver creato la connessione al servizio collegato, viene aperto il riquadro **Archivio dati** di destinazione e la connessione creata è disponibile per l'utilizzo. Per configurare la connessione, attenersi alla seguente procedura:
 
 1. Fare clic su **Avanti**.
 
@@ -214,7 +217,7 @@ Dopo aver creato la connessione al servizio collegato, viene aperto il riquadro 
 
     ![Riquadro "Mapping colonne" del set di dati di destinazione](media/data-factory-load-data/destination-dataset-column-mapping.png)
 
-1. Nel riquadro **Impostazioni** eseguire le operazioni seguenti:
+1. Nel riquadro Impostazioni eseguire le operazioni seguenti:In the **Settings** pane, do the following steps:
 
     a. In **Impostazioni tolleranza di errore**immettere le impostazioni pertinenti.
 

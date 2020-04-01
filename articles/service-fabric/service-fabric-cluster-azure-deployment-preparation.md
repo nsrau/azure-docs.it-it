@@ -3,12 +3,12 @@ title: Pianificare una distribuzione cluster di Azure Service FabricPlan an Azur
 description: Informazioni sulla pianificazione e la preparazione per una distribuzione del cluster di Service Fabric di produzione in Azure.Learn about planning and preparing for a production Service Fabric cluster deployment to Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 1762a6975448301957579b3437a8af5c89b3accd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad6a7a6ea9a90bea4a3b6bc553da67a46144dc03
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78193477"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422290"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Pianificare e preparare una distribuzione di clusterPlan and prepare for a cluster deployment
 
@@ -86,6 +86,16 @@ I dischi del sistema operativo effimeri non sono una funzionalità specifica di 
             }
         }
     ```
+
+> [!NOTE]
+> Le applicazioni utente non devono avere dipendenze/file/artefact sul disco del sistema operativo, in quanto il disco del sistema operativo andrebbe perso in caso di aggiornamento del sistema operativo.
+> Pertanto, non è consigliabile utilizzare [PatchOrchestrationApplication](https://github.com/microsoft/Service-Fabric-POA) con dischi effimeri.
+>
+
+> [!NOTE]
+> I VMSS non effimeri esistenti non possono essere aggiornati sul posto per utilizzare dischi effimeri.
+> Per eseguire la migrazione, gli utenti dovranno [aggiungere](./virtual-machine-scale-set-scale-node-type-scale-out.md) un nuovo nodeType con dischi effimeri, spostare i carichi di lavoro nel nuovo nodeType & [rimuovere](./service-fabric-how-to-remove-node-type.md) il nodeType esistente.
+>
 
 Per altre info e altre opzioni di configurazione, vedere Dischi del sistema operativo effimeri per macchine virtuali di AzureFor more info and further configuration options, see [Ephemeral OS disks for Azure VMs](../virtual-machines/windows/ephemeral-os-disks.md) 
 

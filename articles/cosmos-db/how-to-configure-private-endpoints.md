@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: thweiss
-ms.openlocfilehash: 944341b1ef88c7e3d64a74536720eb9fb1d17321
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9a6a1560e169c51256c198868dc7293a020189f4
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80152741"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421431"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configurare Azure Private Link per un account Azure CosmosConfigure Azure Private Link for an Azure Cosmos account
 
@@ -24,7 +24,7 @@ Private Link consente agli utenti di accedere a un account Cosmos di Azure dall'
 In questo articolo vengono descritti i passaggi per creare un endpoint privato. Si presuppone che si sta utilizzando il metodo di approvazione automatica.
 
 > [!NOTE]
-> Il supporto degli endpoint privati è attualmente disponibile in genere nelle aree supportate solo per la modalità di connessione gateway. Per la modalità diretta, è disponibile come funzione di anteprima.
+> Il supporto degli endpoint privati è attualmente disponibile in genere solo per la modalità di connessione del gateway. Per la modalità diretta, è disponibile come funzione di anteprima.
 
 ## <a name="create-a-private-endpoint-by-using-the-azure-portal"></a>Creare un endpoint privato tramite il portale di AzureCreate a private endpoint by using the Azure portal
 
@@ -639,14 +639,9 @@ Successivamente, è possibile aggiungere una nuova area (ad esempio, "Stati Unit
 
 Quando si usa Private Link con un account Azure Cosmos, si applicano le limitazioni seguenti:The following limitations apply when you're using Private Link with an Azure Cosmos account:
 
-* Il supporto di Private Link per gli account Cosmos di Azure e le reti virtuali è disponibile solo in aree specifiche. Per un elenco delle aree supportate, vedere la sezione [Aree disponibili](../private-link/private-link-overview.md#availability) dell'articolo Collegamento privato. 
-
-  > [!NOTE]
-  > Per creare un endpoint privato, assicurarsi che sia la rete virtuale che l'account Azure Cosmos si trovino nelle aree supportate.
-
 * Quando si usa Private Link con un account Cosmos di Azure usando una connessione in modalità diretta, è possibile usare solo il protocollo TCP. Il protocollo HTTP non è ancora supportato.
 
-* Il supporto degli endpoint privati è attualmente disponibile in genere nelle aree supportate solo per la modalità di connessione gateway. Per la modalità diretta, è disponibile come funzione di anteprima.
+* Il supporto degli endpoint privati è attualmente disponibile in genere solo per la modalità di connessione del gateway. Per la modalità diretta, è disponibile come funzione di anteprima.
 
 * Quando si usa l'API di Azure Cosmos DB per gli account MongoDB, un endpoint privato è supportato solo `*.mongo.cosmos.azure.com`per gli account nella versione server 3.6, ovvero gli account che usano l'endpoint nel formato . Private Link non è supportato per gli account nel server versione 3.2, ovvero gli account che utilizzano l'endpoint nel formato `*.documents.azure.com`. Per utilizzare Private Link, è necessario eseguire la migrazione degli account precedenti alla nuova versione.
 

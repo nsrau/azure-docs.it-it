@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cba97b84f77bd4e2d4cfd97601fa4f8637105eb4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1c4bbd98682d964cfdf72031c7d6cb77cf42a809
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051414"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396075"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C
 
@@ -76,7 +76,7 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 | {OIDC:Prompt} | Parametro di stringa di query `prompt`. | login |
 | OIDC:RedirectUri |Parametro di stringa di query `redirect_uri`. | https://jwt.ms |
 | {OIDC:Resource} |Parametro di stringa di query `resource`. | N/D |
-| {OIDC:scope} |Parametro di stringa di query `scope`. | openid |
+| OIDC:Ambito |Parametro di stringa di query `scope`. | openid |
 | OIDC:Nome utente| Nome utente dell'utente del flusso di credenziali del proprietario della [risorsa.](ropc-custom.md)| emily@contoso.com| 
 
 ### <a name="context"></a>Context
@@ -162,7 +162,7 @@ Nell'esempio seguente viene illustrato un profilo tecnico RESTful con questo sce
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userLanguage" DefaultValue="{Culture:LCID}" AlwaysUseDefaultValue="true" />
     <InputClaim ClaimTypeReferenceId="policyName" DefaultValue="{Policy:PolicyId}" AlwaysUseDefaultValue="true" />
-    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="{OIDC:scope}" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="{OIDC:Scope}" AlwaysUseDefaultValue="true" />
     <InputClaim ClaimTypeReferenceId="clientId" DefaultValue="{OIDC:ClientId}" AlwaysUseDefaultValue="true" />
   </InputClaims>
   <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
@@ -175,7 +175,7 @@ Con i resolver di attestazioni è possibile precompilare il nome di accesso o l'
 
 ### <a name="dynamic-ui-customization"></a>Personalizzazione dell'interfaccia utente dinamica
 
-Azure AD B2C consente di passare parametri di stringa di query agli endpoint di definizione del contenuto HTML per eseguire il rendering dinamico del contenuto della pagina. In questo modo, ad esempio, è possibile modificare l'immagine di sfondo nella pagina di iscrizione o di accesso B2C di Azure AD in base a un parametro personalizzato passato dall'applicazione Web o per dispositivi mobili. Per altre informazioni, vedere [Azure Active Directory B2C: Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati](custom-policy-ui-customization.md). È anche possibile localizzare la pagina HTML in base a un parametro di lingua oppure è possibile modificare il contenuto in base all'ID client.
+Azure AD B2C consente di passare parametri di stringa di query agli endpoint di definizione del contenuto HTML per eseguire il rendering dinamico del contenuto della pagina. Ad esempio, questa funzionalità consente di modificare l'immagine di sfondo nella pagina di iscrizione o di accesso B2C di Azure AD in base a un parametro personalizzato passato dall'applicazione Web o per dispositivi mobili. Per altre informazioni, vedere [Azure Active Directory B2C: Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri). È anche possibile localizzare la pagina HTML in base a un parametro di lingua oppure è possibile modificare il contenuto in base all'ID client.
 
 Nell'esempio seguente viene passata il parametro `Hawaii`della stringa di query denominato **campaignId** con un valore di , un codice **lingua** di `en-US`e **un'app** che rappresenta l'ID client:
 

@@ -3,21 +3,24 @@ title: Configurare Micro Focus CICS BankDemo per Micro Focus Enterprise Develope
 description: Eseguire l'applicazione Micro Focus BankDemo in Macchine virtuali di Azure per imparare a usare Micro Focus Enterprise Server e Enterprise Developer.
 author: sread
 ms.author: sread
-ms.date: 04/02/2019
+ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 4491fc137c2c85e2be605f5e58fde6fd422efbbe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db9d6bab2f383102434512aa63d7566cff1f579b
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67621344"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411081"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Configurare Micro Focus CICS BankDemo per Micro Focus Enterprise Developer 4.0 in AzureSet up Micro Focus CICS BankDemo for Micro Focus Enterprise Developer 4.0 on Azure
 
 Quando si configura Micro Focus Enterprise Server 4.0 e Enterprise Developer 4.0 in Azure, è possibile testare le distribuzioni dei carichi di lavoro IBM z/OS. In questo articolo viene illustrato come configurare CICS BankDemo, un'applicazione di esempio fornita con Enterprise Developer.
 
 CICs è l'acronimo di Customer Information Control System, la piattaforma di transazione utilizzata da molte delle applicazioni mainframe online. L'applicazione BankDemo è ideale per imparare come operano Enterprise Server ed Enterprise Developer e come gestire e distribuire un'applicazione effettiva completa di terminali a schermo verde.
+
+> [!NOTE]
+> Prossimamente: istruzioni per la configurazione di [Micro Focus Enterprise Server 5.0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) nelle macchine virtuali di Azure.Coming soon: Instructions for setting up Micro Focus Enterprise Server 5.0 on Azure VMs.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

@@ -5,16 +5,16 @@ author: jjbfour
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: fd21117219ea3db6946e7a1b889d92702af65b58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 68b8bd187d58cd71778b8a922684cc3817a0715d
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75650487"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398467"
 ---
 # <a name="azure-custom-resource-providers-overview"></a>Panoramica dei provider di risorse personalizzate di AzureAzure Custom Resource Providers Overview
 
-Azure Custom Resource Providers is an extensibility platform to Azure. Consente di definire alle API personalizzate che possono essere usate per arricchire l'esperienza predefinita di Azure.It allows you define to custom APIs that can be used to enrich the default Azure experience. Questa documentazione descrive:
+Azure Custom Resource Providers is an extensibility platform to Azure. Consente di definire API personalizzate che possono essere usate per arricchire l'esperienza predefinita di Azure.It allows you to define custom APIs that can be used to enrich the default Azure experience. Questa documentazione descrive:
 
 - Come creare e distribuire un provider di risorse personalizzato di Azure.How to build and deploy an Azure Custom Resource Provider.
 - Come usare i provider di risorse personalizzate di Azure per estendere i flussi di lavoro esistenti.
@@ -85,7 +85,7 @@ API aggiunte ad Azure per l'esempio precedente:APIs added to Azure for the above
 HttpMethod | URI di esempio | Descrizione
 ---|---|---
 PUT | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/'customResourceName'?api-version'2018-09-01-preview | Chiamata all'API REST di Azure per creare una nuova risorsa.
-Elimina | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/'customResourceName'?api-version'2018-09-01-preview | Chiamata all'API REST di Azure per eliminare una risorsa esistente.
+DELETE | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/'customResourceName'?api-version'2018-09-01-preview | Chiamata all'API REST di Azure per eliminare una risorsa esistente.
 GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/'customResourceName'?api-version'2018-09-01-preview | Chiamata all'API REST di Azure per recuperare una risorsa esistente.
 GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources?api-version-2018-09-01-preview | Chiamata all'API REST di Azure per recuperare l'elenco delle risorse esistenti.
 

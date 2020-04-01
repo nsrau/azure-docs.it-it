@@ -3,12 +3,12 @@ title: Monitorare le prestazioni dei servizi app di Azure | Microsoft Docs
 description: Monitoraggio delle prestazioni applicative per i servizi app di Azure. Grafico del tempo di caricamento e di risposta, delle informazioni sulle dipendenze e dell'impostazione di avvisi sulle prestazioni.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 2ec503829d3e6edd7b2b6f6b36314db8a205a8cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d2134e059a446c18108e8dd16bcc74504b42b15a
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297614"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437173"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 
@@ -28,7 +28,7 @@ Esistono due modi per abilitare il monitoraggio delle applicazioni per le applic
 
     * Questo approccio è molto più personalizzabile, ma richiede [l'aggiunta](https://docs.microsoft.com/azure/azure-monitor/app/asp-net)di una dipendenza dai pacchetti NuGet di Application Insights SDK. Questo metodo, significa anche che è necessario gestire gli aggiornamenti alla versione più recente dei pacchetti da soli.
 
-    * Se è necessario effettuare chiamate API personalizzate per tenere traccia di eventi/dipendenze non acquisiti per impostazione predefinita con il monitoraggio basato su agenti, è necessario utilizzare questo metodo. Per altre informazioni, consulta [l'articolo API per eventi e metriche personalizzati.](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics)
+    * Se è necessario effettuare chiamate API personalizzate per tenere traccia di eventi/dipendenze non acquisiti per impostazione predefinita con il monitoraggio basato su agenti, è necessario utilizzare questo metodo. Per altre informazioni, consulta [l'articolo API per eventi e metriche personalizzati.](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) Questa è anche l'unica opzione supportata per i carichi di lavoro basati su Linux.This is also the only supported option for Linux based workloads.
 
 > [!NOTE]
 > Se vengono rilevati sia il monitoraggio basato su agenti che la strumentazione manuale basata su SDK, verranno rispettate solo le impostazioni di strumentazione manuale. In questo modo si evita l'invio di dati duplicati. Per ulteriori informazioni, consulta la [sezione relativa alla risoluzione dei problemi](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) riportata di seguito.

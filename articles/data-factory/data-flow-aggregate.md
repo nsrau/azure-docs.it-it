@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
-ms.openlocfilehash: 1830a16108e6d8bb251d7ca45ae471e2f606874b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4b076d96cad280c4da6c2424f056c2216c47602
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240603"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408864"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Trasformazione di aggregazione nel mapping del flusso di datiAggregate transformation in mapping data flow 
 
@@ -94,6 +94,15 @@ MoviesYear aggregate(
                 groupBy(year),
                 avgrating = avg(toInteger(Rating))
             ) ~> AvgComedyRatingByYear
+```
+
+![Script del flusso di dati di aggregazioneAggregate data flow script](media/data-flow/aggdfs1.png "Script del flusso di dati di aggregazioneAggregate data flow script")
+
+```MoviesYear```: Colonne derivate che ```AvgComedyRatingByYear```definiscono colonne anno e titolo : Trasformazione aggregata per la valutazione media delle comunità raggruppate per anno ```avgrating```: nome della nuova colonna creata per contenere il valore aggregato
+
+```
+MoviesYear aggregate(groupBy(year),
+    avgrating = avg(toInteger(Rating))) ~> AvgComedyRatingByYear
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

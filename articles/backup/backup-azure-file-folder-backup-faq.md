@@ -3,12 +3,12 @@ title: Backup di file e cartelle - domande comuni
 description: Risolve le domande comuni sul backup di file e cartelle con Backup di Azure.Addresses common questions about backing up files and folders with Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: adcbf5c3b404de46634423f8f59c4798d44bebe0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55819ce7ec5196812d935a21c096c132144d78af
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79273423"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421313"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Domande frequenti sul backup di file e cartelle
 
@@ -58,6 +58,10 @@ I dati di backup vengono inviati al data center dell'insieme di credenziali in c
 
 Sì. L'agente MARS converte i dati deduplicati in dati normali durante la preparazione dell'operazione di backup. Quindi ottimizza i dati per il backup, crittografa i dati e quindi invia i dati crittografati all'insieme di credenziali.
 
+### <a name="do-i-need-administrator-permissions-to-install-and-configure-the-mars-agent"></a>Sono necessarie le autorizzazioni di amministratore per installare e configurare l'agente MARS?
+
+Sì, l'installazione dell'agente MARS e la configurazione dei backup utilizzando la console MARS richiedono che l'utente sia un amministratore locale sul server protetto.
+
 ## <a name="manage-backups"></a>Gestire i backup
 
 ### <a name="what-happens-if-i-rename-a-windows-machine-configured-for-backup"></a>Cosa succede se si rinomina una macchina Windows configurata per il backup?
@@ -66,7 +70,7 @@ Quando si rinomina un computer Windows, tutti i backup attualmente configurati v
 
 * È necessario registrare il nuovo nome del computer con l'insieme di credenziali di backup.
 * Quando si registra il nuovo nome con l'insieme di credenziali, la prima operazione è un backup *completo.*
-* Se è necessario ripristinare i dati di cui è stato eseguito il backup nell'insieme di credenziali con il nome del server precedente, utilizzare l'opzione per eseguire il ripristino in una posizione alternativa nel Ripristino guidato dati. [Scopri di più](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
+* Se è necessario ripristinare i dati di cui è stato eseguito il backup nell'insieme di credenziali con il nome del server precedente, utilizzare l'opzione per eseguire il ripristino in una posizione alternativa nel Ripristino guidato dati. [Altre informazioni](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>Qual è la lunghezza massima del percorso del file per il backup?
 
@@ -149,7 +153,7 @@ La cartella della cache e il disco rigido virtuale dei metadati non dispongono d
 
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>Esiste un modo per regolare la larghezza di banda utilizzata per il backup?
 
-Sì, è possibile utilizzare l'opzione **Cambia proprietà** nell'agente MARS per regolare la larghezza di banda e la temporizzazione. [Scopri di più](backup-windows-with-mars-agent.md#enable-network-throttling).
+Sì, è possibile utilizzare l'opzione **Cambia proprietà** nell'agente MARS per regolare la larghezza di banda e la temporizzazione. [Altre informazioni](backup-windows-with-mars-agent.md#enable-network-throttling)
 
 ## <a name="restore"></a>Restore
 

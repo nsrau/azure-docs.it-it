@@ -3,12 +3,12 @@ title: Argomenti avanzati sull'aggiornamento delle applicazioni
 description: Questo articolo illustra alcuni degli argomenti avanzati relativi all'aggiornamento di un'applicazione di Service Fabric.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 09f3fdf1f26a13c6722eb039e132256f33be38ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 182ab6dc1663e160561b8941ebf3a36b5af3d950
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76845438"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422803"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Aggiornamento dell'applicazione Service Fabric: argomenti avanzatiService Fabric application upgrade: Advanced topics
 
@@ -20,9 +20,9 @@ Analogamente, i tipi di servizio possono essere rimossi da un'applicazione duran
 
 ## <a name="avoid-connection-drops-during-stateless-service-planned-downtime-preview"></a>Evitare l'eliminazione delle connessioni durante i tempi di inattività pianificati del servizio senza stato (anteprima)Avoid connection drops during stateless service planned downtime (preview)
 
-Per i tempi di inattività pianificati dell'istanza senza stato, ad esempio l'aggiornamento dell'applicazione/cluster o la disattivazione del nodo, le connessioni possono essere eliminate a causa della rimozione dell'endpoint esposto dopo l'arresto.
+Per i tempi di inattività pianificati dell'istanza senza stato, ad esempio l'aggiornamento dell'applicazione/cluster o la disattivazione del nodo, le connessioni possono essere eliminate a causa della rimozione dell'endpoint esposto dopo l'arresto dell'istanza, con conseguente chiusura forzata delle connessioni.
 
-Per evitare questo problema, configurare la funzionalità *RequestDrain* (anteprima) aggiungendo una durata del ritardo di *chiusura dell'istanza* di replica nella configurazione del servizio. In questo modo l'endpoint annunciato dall'istanza senza stato viene rimosso *prima* dell'avvio del timer di ritardo per la chiusura dell'istanza. Questo ritardo consente alle richieste esistenti di eseguire correttamente prima che l'istanza si arresti effettivamente. I client ricevono una notifica della modifica dell'endpoint dalla funzione di callback, in modo da poter risolvere nuovamente l'endpoint ed evitare di inviare nuove richieste all'istanza in modo inattivo.
+Per evitare questo problema, configurare la funzionalità *RequestDrain* (anteprima) aggiungendo una durata del ritardo di *chiusura dell'istanza* nella configurazione del servizio per consentire lo svuotamento durante la ricezione di richieste da altri servizi all'interno del cluster e si usano il proxy inverso o si usa l'API di risoluzione con il modello di notifica per l'aggiornamento degli endpoint. In questo modo si garantisce che l'endpoint annunciato dall'istanza senza stato venga rimosso *prima* dell'inizio del ritardo prima della chiusura dell'istanza. Questo ritardo consente alle richieste esistenti di eseguire correttamente prima che l'istanza si arresti effettivamente. I client ricevono una notifica della modifica dell'endpoint da una funzione di callback al momento dell'avvio del ritardo, in modo che possano risolvere nuovamente l'endpoint ed evitare di inviare nuove richieste all'istanza che sta inesecuzione.
 
 ### <a name="service-configuration"></a>Configurazione del servizio
 
@@ -50,24 +50,8 @@ Esistono diversi modi per configurare il ritardo sul lato servizio.
 
 ### <a name="client-configuration"></a>Configurazione del client
 
-Per ricevere una notifica quando un endpoint è`ServiceManager_ServiceNotificationFilterMatched`stato modificato, i client possono registrare un callback ( ) in questo modo:To receive notification when an endpoint has changed, clients can register a callback ( ) like this: 
-
-```csharp
-    var filterDescription = new ServiceNotificationFilterDescription
-    {
-        Name = new Uri(serviceName),
-        MatchNamePrefix = true
-    };
-    fbClient.ServiceManager.ServiceNotificationFilterMatched += ServiceManager_ServiceNotificationFilterMatched;
-    await fbClient.ServiceManager.RegisterServiceNotificationFilterAsync(filterDescription);
-
-private static void ServiceManager_ServiceNotificationFilterMatched(object sender, EventArgs e)
-{
-      // Resolve service to get a new endpoint list
-}
-```
-
-La notifica di modifica è un'indicazione che gli endpoint sono stati modificati, il client deve risolvere nuovamente gli endpoint e non usare gli endpoint che non vengono più annunciati in quanto andranno inattivo presto.
+Per ricevere una notifica quando un endpoint è stato modificato, i client devono registrare un callback, vedere [ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
+La notifica di modifica è un'indicazione che gli endpoint sono stati modificati, il client deve risolvere nuovamente gli endpoint e non usare gli endpoint che non vengono più annunciati, in quanto andranno inattivo a breve.
 
 ### <a name="optional-upgrade-overrides"></a>Sostituzioni di aggiornamento facoltativeOptional upgrade override override overrides
 
@@ -80,6 +64,16 @@ Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManife
 ```
 
 La durata del ritardo si applica solo all'istanza di aggiornamento richiamata e non modifica in caso contrario le singole configurazioni di ritardo del servizio. Ad esempio, è possibile utilizzare questa `0` opzione per specificare un ritardo di per ignorare eventuali ritardi di aggiornamento preconfigurati.
+
+> [!NOTE]
+> L'impostazione per lo svuotamento delle richieste non viene rispettata per le richieste dal servizio di bilanciamento del carico di Azure.The setting to drain requests is not honored for requests from Azure Load balancer. L'impostazione non viene rispettata se il servizio chiamante utilizza la risoluzione basata su reclami.
+>
+>
+
+> [!NOTE]
+> Questa funzionalità può essere configurata nei servizi esistenti utilizzando il cmdlet Update-ServiceFabricService come indicato in precedenza, quando la versione del codice del cluster è 7.1.XXX o superiore.
+>
+>
 
 ## <a name="manual-upgrade-mode"></a>Modalità di aggiornamento manuale
 

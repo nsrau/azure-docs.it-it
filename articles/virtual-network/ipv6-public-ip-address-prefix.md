@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/15/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 8254a7d86d5cadc2ddc03940f4ab2d08de74bd86
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 096dbcb6b6a732bd21622658f6f30c5158a821c5
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72965165"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420530"
 ---
-# <a name="reserved-public-ipv6-address-prefix-preview"></a>Prefisso indirizzo IPv6 pubblico riservato (anteprima)Reserved public IPv6 address prefix (Preview)
+# <a name="reserved-public-ipv6-address-prefix"></a>Prefisso indirizzo IPv6 pubblico riservato
 
 In Azure, le reti virtuali (VNet) a stack doppio (VNet) e le macchine virtuali (VM) sono sicure per impostazione predefinita poiché non dispongono di connettività Internet.In Azure, dual stack (IPv4-IPv6) virtual networks (VNet) and virtual machines (VMs) are secure by default since they have no Internet connectivity. You can easily add an IPv6 Internet connectivity to your Azure Load Balancers and VMs with public IPv6 addresses that you obtain from Azure.
 
@@ -30,8 +30,7 @@ Tutti gli indirizzi IP pubblici prenotati sono associati a un'area di Azure di p
 
 Oltre a riservare singoli indirizzi IPv6, è possibile riservare intervalli contigui di indirizzi IPv6 di Azure (noto come prefisso IP) per l'uso.  Analogamente ai singoli indirizzi IP, i prefissi riservati sono associati a un'area di Azure di propria scelta e alla sottoscrizione di Azure.Similar to individual IP addresses, reserved prefixes are associated with an Azure region of your choice and with your Azure subscription. La prenotazione di un intervallo di indirizzi prevedibile e contiguo ha molti usi. Ad esempio, è possibile *whitelisting* semplificare notevolmente l'elenco indirizzi IP delle applicazioni ospitate da Azure dall'azienda e dai clienti, poiché gli intervalli IP statici possono essere facilmente programmati nei firewall locali.  È possibile creare singoli indirizzi IP pubblici dal prefisso IP in base alle esigenze e quando si eliminano i singoli indirizzi IP pubblici vengono *restituiti* all'intervallo riservato in modo da poterli riutilizzare in un secondo momento. Tutti gli indirizzi IP nel prefisso IP sono riservati per l'uso esclusivo fino al momento in cui si elimina il prefisso.
 
-> [!Important]
-> IPv6 per la rete virtuale di Azure è attualmente in anteprima pubblica. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 ## <a name="ipv6-prefix-sizes"></a>Dimensioni dei prefissi IPv6
 Sono disponibili le seguenti dimensioni del prefisso IP pubblico:
