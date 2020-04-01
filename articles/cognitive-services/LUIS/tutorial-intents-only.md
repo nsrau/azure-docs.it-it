@@ -1,22 +1,14 @@
 ---
 title: 'Esercitazione: Prevedere finalità - LUIS'
-titleSuffix: Azure Cognitive Services
 description: In questa esercitazione si crea un'app personalizzata che stima l'intenzione dell'utente. Questa app è il tipo più semplice di app LUIS perché non estrae i vari elementi di dati dal testo dell'espressione, come gli indirizzi di posta elettronica o le date.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 89fb76f8c5cc4323e1211524340c0965a7d0716d
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.date: 03/24/2020
+ms.openlocfilehash: c58c96f717de77c065d7f844928714eb4fb3e4db
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76262751"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80286745"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Esercitazione: Creare un'app LUIS per determinare le intenzioni dell'utente
 
@@ -53,9 +45,13 @@ Queste intenzioni sono suddivise in **Finalità**.
 
 ## <a name="create-a-new-intent"></a>Creare una nuova finalità
 
-1. Nel portale all'interno della sezione **Build** (Compila) dell'app selezionare **+ Create** (+ Crea). Immettere il nome della nuova finalità `OrderPizza` e quindi selezionare **Done** (Fine).
+La finalità viene usata per classificare le espressioni utente in base all'intenzione dell'utente, determinata dal testo in linguaggio naturale.
 
-    La finalità `OrderPizza` viene stimata quando: un utente vuole ordinare una pizza.
+Per classificare un'espressione, sono necessari esempi di espressioni utente che dovranno essere classificate con questa finalità.
+
+1. Nella sezione **Build** (Compila) della pagina **Intents** (Finalità) selezionare **+ Create** (Crea) per creare una nuova finalità. Immettere il nome della nuova finalità `OrderPizza` e quindi selezionare **Done** (Fine).
+
+    La finalità `OrderPizza` viene prevista quando un utente vuole ordinare una pizza.
 
 1. Aggiungere a questa finalità diverse espressioni di esempio che verranno presumibilmente usate dagli utenti:
 
@@ -70,7 +66,7 @@ Queste intenzioni sono suddivise in **Finalità**.
 
     ![Aggiungere espressioni di esempio](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
 
-    Fornendo _espressioni di esempio_, LUIS impara quali sono i tipi di espressione che dovranno essere stimate per la finalità in questione.
+    Fornendo _espressioni di esempio_, LUIS impara quali sono i tipi di espressione che dovranno essere previste per la finalità in questione.
 
     [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]
 

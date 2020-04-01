@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Libreria client di Analisi del testo v3 per Node.js | Microsoft Docs'
+title: 'Guida introduttiva: Libreria client di Analisi del testo v3 per Node.js | Microsoft Docs'
 description: Introduzione alla libreria client di Analisi del testo v3 per Node.js.
 author: aahill
 manager: nitinme
@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: ee1e3cbade33f1786e8b93a549d19b87eba189e7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: a0616a8a2cc401b6b4c42c9882c14da2f123c6df
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79203415"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "79481875"
 ---
 <a name="HOLTop"></a>
 
@@ -33,9 +33,9 @@ ms.locfileid: "79203415"
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Versione corrente di [Node.js](https://nodejs.org/).
-* Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="creare una risorsa di Analisi del testo"  target="_blank">creare una risorsa di Analisi del testo <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. 
-    * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Analisi del testo. Questa operazione verrà eseguita più avanti nell'avvio rapido.
-    * È possibile usare il piano tariffario gratuito per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="creare una risorsa di Analisi del testo"  target="_blank">creare una risorsa di Analisi del testo <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
+    * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Analisi del testo. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
+    * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
 
 ## <a name="setting-up"></a>Configurazione
 
@@ -44,7 +44,9 @@ ms.locfileid: "79203415"
 In una finestra della console, ad esempio cmd, PowerShell o Bash, creare e passare a una nuova directory per l'app. 
 
 ```console
-mkdir myapp && cd myapp
+mkdir myapp 
+
+cd myapp
 ```
 
 Eseguire il comando `npm init` per creare un'applicazione Node con un file `package.json`. 

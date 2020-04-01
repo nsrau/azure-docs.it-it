@@ -1,35 +1,27 @@
 ---
-title: 'Avvio rapido: Creare una nuova app nel portale LUIS'
-titleSuffix: Azure Cognitive Services
+title: 'Guida introduttiva: Creare una nuova app nel portale LUIS'
 description: Questo argomento di avvio rapido illustra come creare le parti di base di un'app, le finalità e le entità e come testare un'espressione di esempio nel portale LUIS.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 55ba025b9174f727a54ce0cd63da11c8661af91c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.openlocfilehash: f0c8f0c77f832e049dfc494f82e90edb61a8cb2a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381988"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80244615"
 ---
-# <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Avvio rapido: Creare una nuova app nel portale LUIS
+# <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Guida introduttiva: Creare una nuova app nel portale LUIS
 
-Questo argomento di avvio rapido illustra come creare una nuova app nel portale LUIS. Creare prima le parti fondamentali di un'app, le **finalità** e le **entità**. Testare quindi l'app specificando un'espressione utente di esempio nel pannello di test interattivo per ottenere la finalità stimata.
-
-La creazione di un'app è gratuita e non richiede una sottoscrizione di Azure. Quando si è pronti per distribuire l'app, vedere l'[argomento di avvio rapido relativo alla distribuzione di un'app](get-started-portal-deploy-app.md). Tale argomento illustra come creare una risorsa del servizio cognitivo di Azure e assegnarla all'app.
+Questo argomento di avvio rapido illustra come creare una nuova app nel portale LUIS. Creare prima di tutto le parti fondamentali di un'app, ovvero **finalità** ed **entità**. Testare quindi l'app specificando un'espressione utente di esempio nel pannello di test interattivo per ottenere la finalità prevista.
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
 ## <a name="create-an-app"></a>Creare un'app
 
-1. Selezionare **+ Crea** sulla barra degli strumenti contestuale.
+1. Selezionare **+ New app for conversation** (Nuova app di conversazione) sulla barra degli strumenti contestuale, quindi selezionare **New app for conversation**.
 
-   [![Creare una nuova app nel portale LUIS](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
+    > [!div class="mx-imgBorder"]
+    > [![Creare una nuova app nel portale LUIS](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
 
 1. Nella finestra popup configurare l'app con le impostazioni seguenti e quindi selezionare **Done** (Fine).
 
@@ -70,7 +62,8 @@ Le espressioni di esempio vengono aggiunte dopo la creazione delle finalità. Le
 
 Per la finalità `FindForm` di questa applicazione di esempio, le espressioni di esempio includeranno il numero di modulo. Poiché l'applicazione client necessita del numero di modulo per soddisfare la richiesta dell'utente, è importante includerlo nell'espressione.
 
-[![Immettere espressioni di esempio per le finalità FindForm](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
+> [!div class="mx-imgBorder"]
+> [![Immettere espressioni di esempio per le finalità FindForm](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
 
 Aggiungere le 15 espressioni di esempio seguenti alla finalità `FindForm`.
 
@@ -147,7 +140,8 @@ Le espressioni di esempio della finalità **None** (Nessuna) devono essere al di
 
    L'entità è contrassegnata dove appare nelle espressioni di esempio. Se si vuole visualizzare il testo originale anziché il nome dell'entità, attivare o disattivare **Entities View** (Vista entità) nella barra degli strumenti.
 
-   [![Tutte le espressioni di esempio contrassegnate con entità](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
+   > [!div class="mx-imgBorder"]
+   > [![Tutte le espressioni di esempio contrassegnate con entità](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
 
 ## <a name="test-your-new-app-with-the-interactive-test-pane"></a>Testare la nuova app con il pannello di test interattivo
 
@@ -159,7 +153,10 @@ Usare il pannello **Test** interattivo nel portale di LUIS per verificare che l'
 
    ```Is there a form named hrf-234098```
 
-   ![Test delle nuove espressioni nel pannello di test](./media/get-started-portal-build-app/test-new-utterance.png)
+    Selezionare **Inspect** (Ispeziona) per visualizzare le previsioni di entità.
+
+   > [!div class="mx-imgBorder"]
+   > ![Testare una nuova espressione nel riquadro di test](./media/get-started-portal-build-app/test-new-utterance.png)
 
    La finalità stimata visualizzata per prima è giustamente **FindForm** con oltre il 90% di attendibilità (0,977). L'entità **Human Resources Form Number** è estratta con un valore hrf-234098.
 

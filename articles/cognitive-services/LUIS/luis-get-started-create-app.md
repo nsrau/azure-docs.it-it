@@ -1,24 +1,16 @@
 ---
 title: 'Avvio rapido: Creare app - LUIS'
-titleSuffix: Azure Cognitive Services
 description: Questo argomento di avvio rapido illustra come creare un'app LUIS che usa il domino predefinito `HomeAutomation` per accendere e spegnere luci ed elettrodomestici. Questo dominio predefinito fornisce all'utente finalità, entità ed espressioni di esempio. Al termine, sarà disponibile un endpoint LUIS in esecuzione nel cloud.
-services: cognitive-services
-author: diberry
-ms.custom: seodec18
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 302321a36a6ce7526ad5e3144f87b88edbfaaec7
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.date: 03/24/2020
+ms.openlocfilehash: de6cf5e95ee63fc9500cf1b5edab78597bdb18af
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393756"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80287799"
 ---
-# <a name="quickstart-use-prebuilt-home-automation-app"></a>Guida introduttiva: Usare l'app Home Automation predefinita
+# <a name="quickstart-use-prebuilt-home-automation-app"></a>Guida introduttiva: Usare l'app di domotica predefinita
 
 In questa guida introduttiva si crea un'app LUIS che usa il dominio predefinito `HomeAutomation` per accendere e spegnere luci ed elettrodomestici. Questo dominio predefinito fornisce all'utente finalità, entità ed espressioni di esempio. Al termine, sarà disponibile un endpoint LUIS in esecuzione nel cloud.
 
@@ -29,11 +21,11 @@ In questa guida introduttiva si crea un'app LUIS che usa il dominio predefinito 
 ## <a name="create-a-new-app"></a>Creare una nuova app
 È possibile creare e gestire le applicazioni in **My Apps** (App personali).
 
-1. Nell'elenco App personali del portale LUIS selezionare **+Crea**.
+1. Nell'elenco di app personali selezionare **+ New app for conversation** (Nuova app di conversazione).
 
-    ![Nell'elenco App personali del portale LUIS selezionare "+Crea".](./media/create-app-in-portal.png)
+1. Nella finestra di dialogo, assegnare all'applicazione il nome `Home Automation`. Selezionare **English** (Inglese) come impostazioni cultura. La descrizione è facoltativa e non viene usata per la creazione o la previsione. La risorsa di previsione è facoltativa quando si crea un'app LUIS. Selezionare **Operazione completata**.
 
-1. Nella finestra di dialogo, assegnare all'applicazione il nome `Home Automation` e selezionare **Operazione completata**. LUIS crea l'app. La descrizione è facoltativa e non viene usata per la creazione o la previsione. La risorsa di previsione è facoltativa quando si crea un'app LUIS. Quando si pubblica l'app in produzione, è necessario assegnare una risorsa di previsione in modo che l'app possa gestire molte richieste.
+    LUIS crea l'app. Quando si pubblica l'app in produzione, è necessario assegnare una risorsa di previsione in modo che l'app possa gestire molte richieste.
 
     ![Nella finestra di dialogo assegnare all'applicazione il nome "Home Automation".](./media/create-new-app-details.png)
 
@@ -66,23 +58,25 @@ Selezionare la finalità **HomeAutomation.TurnOff**. È possibile vedere che la 
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## <a name="test-your-app"></a>Test dell'app
-Dopo aver eseguito il training dell'app, è possibile eseguirne il test. Selezionare **Test**. Digitare un'espressione di test, ad esempio `Turn off the lights` nel riquadro di test interattivo e premere INVIO.
+Dopo aver eseguito il training dell'app, è possibile eseguirne il test.
 
-```
-Turn off the lights
-```
+1. Selezionare **Test** nel riquadro di spostamento in altro a destra. 1. Digitare un'espressione di test, ad esempio `Turn off the lights` nel riquadro di test interattivo e premere INVIO.
 
-Verificare che la finalità con il punteggio più elevato corrisponda a quella prevista per ogni espressione di test.
+    ```
+    Turn off the lights
+    ```
 
-In questo esempio `Turn off the lights` viene correttamente identificata come la finalità con il punteggio più elevato per **HomeAutomation.TurnOff**.
+    Verificare che la finalità con il punteggio più elevato corrisponda a quella prevista per ogni espressione di test.
 
-![Screenshot del pannello Test con l'espressione evidenziata](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
+    In questo esempio `Turn off the lights` viene correttamente identificata come la finalità con il punteggio più elevato per **HomeAutomation.TurnOff**.
 
-Selezionare **Inspect** (Esamina) per esaminare altre informazioni sulla stima.
+    ![Screenshot del pannello Test con l'espressione evidenziata](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
 
-![Screenshot del pannello di test con le informazioni di ispezione](media/luis-quickstart-new-app/test.png)
+1. Selezionare **Inspect** (Esamina) per esaminare altre informazioni sulla stima.
 
-Selezionare nuovamente **Test** per comprimere il riquadro di test.
+    ![Screenshot del pannello di test con le informazioni di ispezione](media/luis-quickstart-new-app/test.png)
+
+1. Chiudere il riquadro di test.
 
 <a name="publish-your-app"></a>
 
@@ -96,14 +90,14 @@ Selezionare nuovamente **Test** per comprimere il riquadro di test.
 
 [!INCLUDE [LUIS How to get endpoint first step](./includes/v3-prediction-endpoint.md)]
 
-1. Nella barra degli indirizzi del browser, per la stringa di query, verificare che le barre nome e valore seguenti siano presenti nell'URL. Se non sono presenti nella stringa di query, aggiungerle:
+2. Nella barra degli indirizzi del browser, per la stringa di query, verificare che le barre nome e valore seguenti siano presenti nell'URL. Se non sono presenti nella stringa di query, aggiungerle:
 
     |Coppia nome/valore|
     |--|
     |`verbose=true`|
     |`show-all-intents=true`|
 
-1. Nella barra degli indirizzi del browser andare alla fine dell'URL e immettere `turn off the living room light` per il valore di _query_, quindi premere INVIO.
+3. Nella barra degli indirizzi del browser andare alla fine dell'URL e immettere `turn off the living room light` per il valore di _query_, quindi premere INVIO.
 
     ```json
     {

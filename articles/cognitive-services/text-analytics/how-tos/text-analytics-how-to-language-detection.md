@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 07/30/2019
 ms.author: aahi
 ms.openlocfilehash: d34f3a03e1bcd35c270d13c4dda57d0394a36e4b
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70387796"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Esempio: Rilevare la lingua con Analisi del testo
@@ -30,7 +30,7 @@ In caso di contenuto espresso in un lingua di uso meno frequente, si può provar
 > [!TIP]
 > Analisi del testo offre anche un'immagine del contenitore Docker basata su Linux per il rilevamento della lingua, di conseguenza è possibile [installare ed eseguire il contenitore di Analisi del testo](text-analytics-how-to-install-containers.md) vicino ai dati.
 
-## <a name="preparation"></a>Operazioni preliminari
+## <a name="preparation"></a>Preparazione
 
 È necessario disporre di documenti JSON nel formato seguente: ID e testo.
 

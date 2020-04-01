@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 03/13/2020
 ms.author: pafarley
-ms.openlocfilehash: a641893fece37c759480ab31f505b1673f50e2b9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 666b70ba8b632cb2cadf20de384e3e615acb2b3d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973612"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "79203567"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Guida introduttiva: Provare Content Moderator sul Web
 
@@ -32,9 +32,23 @@ Lo strumento di revisione di Content Moderator è uno strumento basato sul Web c
 
 ## <a name="create-a-review-team"></a>Creare un team di revisione
 
-A questo punto, creare un team di revisione. In uno scenario operativo si tratta del gruppo di persone che esaminerà manualmente le decisioni di moderazione del servizio. Per il momento è sufficiente creare un nome di team. Se si intende invitare i colleghi a partecipare al team, immettere in questa finestra i relativi indirizzi di posta elettronica.
+A questo punto, creare un team di revisione. In uno scenario operativo si tratta del gruppo di persone che esaminerà manualmente le decisioni di moderazione del servizio. Per creare un team, è necessario selezionare un'opzione per **Area** e specificare i valori per **Nome team** e **ID team**. Se si intende invitare i colleghi a partecipare al team, immettere in questa finestra i relativi indirizzi di posta elettronica.
 
-![Invitare un membro del team](images/QuickStart-2-small.png)
+> [!NOTE]
+> **Nome team** è un nome descrittivo per il team di revisione. Si tratta del nome visualizzato nel portale di Azure. **ID team** è quello usato per identificare il team di revisione a livello di codice.
+
+> [!div class="mx-imgBorder"]
+> ![Invitare un membro del team](images/create-team.png)
+
+Se si sceglie di crittografare i dati usando una chiave gestita dal cliente, verrà richiesto di specificare l'**ID risorsa** di Content Moderator nel piano tariffario di E0. La risorsa specificata deve essere nuova. 
+
+> [!div class="mx-imgBorder"]
+> ![Invitare un membro del team con una chiave gestita dal cliente](images/create-team-cmk.png)
+
+Se prova a riutilizzare una risorsa di Content Moderator, verrà visualizzato questo avviso: 
+
+> [!div class="mx-imgBorder"]
+> ![Errore della chiave gestita dal cliente](images/create-team-cmk-fail.png)
 
 ## <a name="upload-sample-content"></a>Caricare contenuto di esempio
 

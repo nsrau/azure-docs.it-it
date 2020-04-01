@@ -1,21 +1,15 @@
 ---
-title: 'Avvio rapido: Eseguire la sintesi vocale in un file audio, Python - Servizio Voce'
-titleSuffix: Azure Cognitive Services
-description: TBD
-services: cognitive-services
-author: chlandsi
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 07/05/2019
-ms.author: chlandsi
-ms.openlocfilehash: df2c3fc2ab6f6c742f56273119923a7e02cf8e43
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.date: 03/20/2020
+ms.author: dapine
+ms.openlocfilehash: 983a3c38c19d60a2ad890255ab2120ea58776436
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78383905"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80117066"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -27,29 +21,31 @@ ms.locfileid: "78383905"
     * Linux: Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8 su x64.
 * In Linux eseguire i comandi seguenti per installare i pacchetti richiesti:
 
-  * In Ubuntu:
+# <a name="ubuntu"></a>[Ubuntu](#tab/ubuntu)
 
-    ```sh
-    sudo apt-get update
-    sudo apt-get install build-essential libssl1.0.0 libasound2
-    ```
+```Bash
+sudo apt-get update
+sudo apt-get install build-essential libssl1.0.0 libasound2
+```
 
-  * In Debian 9:
+# <a name="debian-9"></a>[Debian 9](#tab/debian)
 
-    ```sh
-    sudo apt-get update
-    sudo apt-get install build-essential libssl1.0.2 libasound2
-    ```
+```Bash
+sudo apt-get update
+sudo apt-get install build-essential libssl1.0.2 libasound2
+```
 
-  * In RHEL/CentOS 8:
+# <a name="rhel--centos-8"></a>[RHEL/CentOS 8](#tab/rhel-centos)
 
-    ```sh
-    sudo yum update
-    sudo yum install alsa-lib openssl python3
-    ```
+```Bash
+sudo yum update
+sudo yum install alsa-lib openssl python3
+```
 
 > [!NOTE]
 > In RHEL/CentOS 8 seguire le istruzioni riportate in [Come configurare OpenSSL per Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+
+---
 
 * In Windows è necessaria la versione di [Microsoft Visual C++ Redistributable per Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) per la piattaforma in uso.
 
@@ -59,7 +55,7 @@ ms.locfileid: "78383905"
 
 Questo comando installa il pacchetto di Python da [PyPI](https://pypi.org/) per Speech SDK:
 
-```sh
+```Bash
 pip install azure-cognitiveservices-speech
 ```
 
@@ -75,18 +71,17 @@ Se si verifica un problema o manca una funzionalità, vedere le [opzioni di supp
 
 ### <a name="run-the-sample"></a>Eseguire l'esempio
 
-È possibile copiare il [codice di esempio](#sample-code) da questa guida di avvio rapido in un file di origine `quickstart.py` ed eseguirlo nell'ambiente di sviluppo integrato o nella console:
+È possibile copiare il [codice di esempio](#sample-code) da questa guida introduttiva in un file di origine `quickstart.py` ed eseguirlo nell'ambiente di sviluppo integrato o nella console:
 
-```sh
+```Bash
 python quickstart.py
 ```
 
-In alternativa è possibile scaricare questa esercitazione della guida di avvio rapido come notebook [Jupyter](https://jupyter.org) dal [repository degli esempi di Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) ed eseguirla come notebook.
+In alternativa è possibile scaricare questa esercitazione della guida introduttiva come notebook [Jupyter](https://jupyter.org) dal [repository degli esempi di Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) ed eseguirla come notebook.
 
 ### <a name="sample-code"></a>Codice di esempio
 
-````Python
-
+````python
 import azure.cognitiveservices.speech as speechsdk
 
 # Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
@@ -96,7 +91,7 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_r
 # Creates an audio configuration that points to an audio file.
 # Replace with your own audio filename.
 audio_filename = "helloworld.wav"
-audio_output = speechsdk.AudioOutputConfig(filename=audio_filename)
+audio_output = speechsdk.audio.AudioOutputConfig(filename=audio_filename)
 
 # Creates a synthesizer with the given settings
 speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_output)
@@ -138,14 +133,14 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 1. Copiare, incollare e salvare il [codice Python](#sample-code) nel file appena creato.
 1. Inserire le informazioni sulla sottoscrizione del servizio Voce.
 1. Se selezionato, un interprete Python verrà visualizzato sul lato sinistro della barra di stato nella parte inferiore della finestra.
-   In caso contrario, visualizzare un elenco di interpreti Python disponibili. Usare il riquadro comandi (CTRL+MAIUSC+P) e immettere **Python: Select Interpreter** (Python: Seleziona interprete). Sceglierne uno appropriato.
+   In caso contrario, visualizzare un elenco di interpreti Python disponibili. Aprire il riquadro comandi con <kbd>CTRL+MAIUSC+P</kbd> e immettere **Python: Select Interpreter** (Python: Seleziona interprete). Sceglierne uno appropriato.
 1. È possibile installare il pacchetto Speech SDK per Python da Visual Studio Code. È possibile farlo se non è stato ancora installato per l'interprete Python selezionato.
-   Per installare il pacchetto Speech SDK, aprire un terminale. Visualizzare di nuovo il riquadro comandi (CTRL+MAIUSC+P) e immettere **Terminal: Create New Integrated Terminal** (Crea nuovo terminale integrato).
+   Per installare il pacchetto Speech SDK, aprire un terminale. Aprire di nuovo il riquadro comandi con <kbd>CTRL+MAIUSC+P</kbd> e immettere **Terminal: Create New Integrated Terminal** (Crea nuovo terminale integrato).
    Nel terminale visualizzato immettere il comando `python -m pip install azure-cognitiveservices-speech` oppure il comando appropriato per il sistema.
 1. Per eseguire il codice di esempio, fare doppio clic su un punto qualsiasi all'interno dell'editor. Selezionare **Run Python File in Terminal** (Esegui file Python nel terminale).
    Il testo viene convertito in voce e salvato nei dati audio specificati.
 
-   ```text
+   ```console
    Speech synthesized to [helloworld.wav] for text [Hello world!]
    ```
 

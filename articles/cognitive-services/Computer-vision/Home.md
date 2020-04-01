@@ -11,14 +11,16 @@ ms.topic: overview
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: eb338c39ed3b1a095c1ad31e3f695e8d3fec0ed3
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: af49e80766d7ac4bd2d9ed677a2571fb0a5a3189
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77565962"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80131758"
 ---
 # <a name="what-is-computer-vision"></a>Informazioni sulla Visione artificiale
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Il servizio Visione artificiale di Azure consente agli sviluppatori di accedere ad algoritmi avanzati che elaborano le immagini e restituiscono informazioni, in base alle caratteristiche visive a cui si è interessati. Visione artificiale può ad esempio determinare se un'immagine include contenuto per adulti o può individuare tutti i visi umani in un'immagine.
 
@@ -77,6 +79,6 @@ Come con tutti i Servizi cognitivi, gli sviluppatori che usano il servizio Visio
 
 Per un'introduzione a Visione artificiale, seguire una guida introduttiva:
 
-- [Avvio rapido: SDK .NET per Visione artificiale](quickstarts-sdk/csharp-sdk.md)
-- [Avvio rapido: SDK Python per Visione artificiale](quickstarts-sdk/python-sdk.md)
-- [Avvio rapido: SDK Java per Visione artificiale](quickstarts-sdk/java-sdk.md)
+- [Avvio rapido: Libreria client di Visione artificiale per .NET](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+- [Avvio rapido: Libreria client di Visione artificiale per Python](./quickstarts-sdk/client-library.md?pivots=programming-language-python)
+- [Avvio rapido: Libreria client di Visione artificiale per Java](./quickstarts-sdk/client-library.md?pivots=programming-language-java)

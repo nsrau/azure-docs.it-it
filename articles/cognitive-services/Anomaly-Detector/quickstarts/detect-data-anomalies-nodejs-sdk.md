@@ -1,23 +1,23 @@
 ---
-title: 'Avvio rapido: Rilevare anomalie nei dati con la libreria client di Rilevamento anomalie per Python'
+title: 'Guida introduttiva: Rilevare anomalie nei dati con la libreria client di Rilevamento anomalie per Python'
 titleSuffix: Azure Cognitive Services
-description: Questo argomento di avvio rapido illustra come usare l'API Rilevamento anomalie per rilevare le anomalie nelle serie di dati, come batch o in streaming.
+description: Informazioni su come usare l'API Rilevamento anomalie per rilevare le anomalie nelle serie di dati sia come batch che nei dati in streaming.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 11/19/2019
+ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 17ca1a7671718b5b96df0add7775fb82d4d97303
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: c13657b8f2dae3868c1b9820236585aa930c6be4
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770442"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80239094"
 ---
-# <a name="quickstart-anomaly-detector-client-library-for-nodejs"></a>Avvio rapido: Libreria client di Rilevamento anomalie per Node.js
+# <a name="quickstart-anomaly-detector-client-library-for-nodejs"></a>Guida introduttiva: Libreria client di Rilevamento anomalie per Node.js
 
 Introduzione alla libreria client di Rilevamento anomalie per Node.js. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Il servizio Rilevamento anomalie consente di trovare le anomalie nei dati delle serie temporali applicando automaticamente i modelli di mapping più appropriati, indipendentemente dal settore, dallo scenario o dal volume di dati.
 
@@ -28,7 +28,7 @@ Usare la libreria client di Rilevamento anomalie per Node.js per:
 
 [Documentazione di riferimento](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/?view=azure-node-latest) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Pacchetto (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector) | [Trovare il codice in GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Versione corrente di [Node.js](https://nodejs.org/)

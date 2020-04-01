@@ -10,16 +10,20 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 02/28/2020
 ms.author: pafarley
-ms.openlocfilehash: c154b75fc8f8a177ab73682fc2af77d1702ae075
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 82e9c9a6dd8dc18f186a21e72a1a3d205094b707
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78207819"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80155189"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novità di Visione artificiale
 
 Ecco cosa c'è di nuovo nel servizio. Le novità possono includere note sulla versione, video, post di blog e altri tipi di informazioni. Aggiungere un segnalibro a questa pagina per rimanere sempre aggiornati sul servizio.
+
+## <a name="march-2020"></a>Marzo 2020
+
+* TLS 1.2 viene ora applicato per tutte le richieste HTTP a questo servizio. Per altre informazioni, vedere [Sicurezza di Servizi cognitivi di Azure](../cognitive-services-security.md).
 
 ## <a name="january-2020"></a>Gennaio 2020
 

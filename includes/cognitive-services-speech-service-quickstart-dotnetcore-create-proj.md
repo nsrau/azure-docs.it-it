@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 12/12/2018
 ms.author: erhopf
 ms.openlocfilehash: 777b2608cf5f326556dfaea307f4f3e9346213f8
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66482288"
 ---
-1. Start Visual Studio 2019.
+1. Avviare Visual Studio 2019.
 
 1. Assicurarsi che il carico di lavoro dello **sviluppo multipiattaforma .NET** sia disponibile. Scegliere **Strumenti** > **Ottieni strumenti e funzionalità** dalla barra dei menu di Visual Studio per aprire il programma di installazione di Visual Studio. Se questo carico di lavoro è già attivato, chiudere la finestra di dialogo.
 
@@ -21,7 +21,7 @@ ms.locfileid: "66482288"
 
 1. Creare una nuova applicazione console Visual C# .NET Core. Nella finestra di dialogo **Nuovo progetto**, dal riquadro sinistro espandere **Installato** > **Visual C#**  >  **.NET Core**. Selezionare **App console (.NET Core)** . Per il nome del progetto, immettere *helloworld*.
 
-   ![Screenshot della finestra di dialogo del nuovo progetto](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-01-new-console-app.png "Creare console dell’app Visual C# (.NET Core)")
+   ![Screenshot della finestra di dialogo Nuovo progetto](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-01-new-console-app.png "Creare un'app console in Visual C# (.NET Core)")
 
 1. Installare e fare riferimento al [pacchetto Speech SDK NuGet](https://aka.ms/csspeech/nuget). In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Gestisci pacchetti NuGet per la soluzione**.
 
@@ -29,7 +29,7 @@ ms.locfileid: "66482288"
 
 1. Nell'angolo superiore a destra, nel campo **Origine pacchetto**, selezionare **nuget.org**. Cercare il pacchetto `Microsoft.CognitiveServices.Speech` e installarlo nel progetto **helloworld**.
 
-   ![Screenshot della finestra di dialogo Gestisci pacchetti per la soluzione](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-1.0.0.png "Installare pacchetti NuGet")
+   ![Screenshot della finestra di dialogo Gestisci pacchetti per la soluzione](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-1.0.0.png "Installare il pacchetto NuGet")
 
 1. Accettare la licenza visualizzata per iniziare l'installazione del pacchetto NuGet.
 

@@ -1,22 +1,14 @@
 ---
 title: 'Esercitazione: Entità elenco - LUIS'
-titleSuffix: Azure Cognitive Services
 description: Ottenere i dati che corrisponde a un elenco predefinito di elementi. Ogni elemento nell'elenco può avere anche sinonimi che corrispondono esattamente
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 056c64657f42d56879928f518598206d45493f60
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/12/2020
+ms.openlocfilehash: 1cfeccbd54e8ef8ec315d53fc7a766760c92a0d1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447778"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "79297408"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance-with-list-entity"></a>Esercitazione: Ottenere dati con corrispondenza esatta di testo da un'espressione con l'entità elenco
 
@@ -42,7 +34,7 @@ Un'entità elenco è una scelta appropriata per questo tipo di dati quando:
 
 * I valori dei dati sono un set noto.
 * Il set non supera i [limiti](luis-boundaries.md) massimi di LUIS per questo tipo di entità.
-* Il testo nell'espressione è una corrispondenza esatta con un sinonimo o il nome canonico. LUIS non usa l'elenco di là delle corrispondenze esatte del testo. Stemming, plurali e altre varianti non vengono risolti semplicemente con un'entità elenco. Per gestire le variazioni, è consigliabile usare un [criterio](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) con la sintassi del testo facoltativo.
+* Il testo nell'espressione è una corrispondenza senza distinzione tra maiuscole e minuscole con un sinonimo o con il nome canonico. LUIS non usa l'elenco di là della corrispondenza. Stemming, plurali e altre varianti non vengono risolti semplicemente con un'entità elenco. Per gestire le variazioni, è consigliabile usare un [criterio](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) con la sintassi del testo facoltativo.
 
 > [!CAUTION]
 > Se non si è certi di volere un'entità elenco o un'entità di Machine Learning con un elenco di frasi come descrittore, la procedura migliore e più flessibile prevede l'uso di un'entità di Machine Learning con un elenco di frasi come descrittore. Questo metodo consente a LUIS di apprendere ed estendere i valori dei dati da estrarre.

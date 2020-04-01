@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/10/2020
+ms.date: 03/09/2020
 ms.author: aahi
-ms.openlocfilehash: 60f6443e041c2f3a76a9027bebd33dc29a07f445
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: b3c112876bfd2578e6ebaa95c6902aa9b8f832d9
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197471"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "79203458"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Procedura: Rilevare il sentiment con l'API REST Analisi del testo
 
@@ -160,7 +160,7 @@ L'API Analisi del testo è senza stato. Non vengono archiviati dati nell'account
 
 L'analizzatore del sentiment classifica il testo come prevalentemente positivo o negativo, assegnando un punteggio compreso tra 0 e 1. I valori vicini a 0,5 sono neutri o indeterminati. Un punteggio pari a 0,5 indica neutralità. Se una stringa non può essere analizzata per valutarne il sentiment o non viene riscontrato alcun sentiment, il punteggio è sempre 0,5. Se ad esempio si passa una stringa in spagnolo con un codice di lingua inglese, il punteggio è pari a 0,5.
 
-L'output viene restituito immediatamente. È possibile trasmettere i risultati a un'applicazione che accetta JSON o salvare l'output in un file nel sistema locale. Importare quindi l'output in un'applicazione che consente di ordinare, cercare e modificare i dati.
+L'output viene restituito immediatamente. È possibile trasmettere i risultati a un'applicazione che accetta JSON o salvare l'output in un file nel sistema locale. Importare quindi l'output in un'applicazione che consente di ordinare, cercare e modificare i dati. A causa del supporto multilingue e emoji, la risposta può contenere offset di testo. Per altre informazioni, vedere [come elaborare gli offset](../concepts/text-offsets.md).
 
 #### <a name="version-30-preview"></a>[Versione 3.0-preview](#tab/version-3)
 
