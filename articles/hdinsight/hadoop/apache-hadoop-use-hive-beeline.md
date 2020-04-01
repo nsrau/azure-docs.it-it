@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 77a451cb9f6598bbe7013f4215cfa7cab40186bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4f2b192765aab4c7cf18c62988ae2f6080b4b17c
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79037534"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436896"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usare il client Apache Beeline con Apache Hive
 
@@ -65,7 +65,7 @@ Per trovare l'URL JDBC da Ambari:
 
 ### <a name="over-public-or-private-endpoints"></a>Su endpoint pubblici o privati
 
-Quando ci si connette a un cluster utilizzando gli endpoint pubblici o `admin`privati, è necessario specificare il nome dell'account di accesso del cluster (impostazione predefinita) e la password. Ad esempio, l'uso di Beeline da un sistema client per connettersi all'indirizzo `clustername.azurehdinsight.net`. Questa connessione viene `443`effettuata tramite la porta e viene crittografata tramite SSL.
+Quando ci si connette a un cluster utilizzando gli endpoint pubblici o `admin`privati, è necessario specificare il nome dell'account di accesso del cluster (impostazione predefinita) e la password. Ad esempio, l'uso di Beeline da un sistema client per connettersi all'indirizzo `clustername.azurehdinsight.net`. Questa connessione viene `443`effettuata tramite la porta e viene crittografata utilizzando TLS/SSL.
 
 Sostituire `clustername` con il nome del cluster HDInsight. Sostituire `admin` con l'account di accesso del cluster. Per i cluster ESP, utilizzare l'UPN completo, user@domain.comad esempio . Sostituire `password` con la password dell'account di accesso del cluster.
 

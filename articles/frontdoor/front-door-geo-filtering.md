@@ -1,6 +1,6 @@
 ---
-title: Filtro geografico in un dominio per il servizio Frontdoor di Azure | Microsoft Docs
-description: Questo articolo fornisce informazioni sui criteri di filtro geografico per il servizio Frontdoor di Azure
+title: Filtro geografico in un dominio per lo sportello anteriore di Azure Documenti Microsoft
+description: In questo articolo vengono fornite informazioni sui criteri di filtro geografico per Azure Front Door
 services: frontdoor
 documentationcenter: ''
 author: KumudD
@@ -9,20 +9,20 @@ ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 03/21/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: 7ad2d181b6343644205c58ab1d5fe83dc25542d4
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
-ms.translationtype: HT
+ms.openlocfilehash: 2cdde705d0e9f0905d4c33648b5415758d838b06
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846420"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411172"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Cos'è il filtro geografico in un dominio per il servizio Frontdoor di Azure?
 
-Per impostazione predefinita, il servizio Frontdoor di Azure risponde alle richieste degli utenti indipendentemente dalla posizione dell'utente che effettua la richiesta. In alcuni casi, tuttavia, si può avere l'esigenza di limitare l'accesso alle applicazioni Web in base al paese/area geografica. Il servizio Web application firewall (WAF) del servizio Frontdoor consente di definire criteri mediante regole di accesso personalizzate per un percorso specifico nell'endpoint per consentire o bloccare l'accesso da specifici paesi/aree geografiche. 
+Per impostazione predefinita, La porta frontale di Azure risponde alle richieste degli utenti indipendentemente dalla posizione dell'utente che effettua la richiesta. In alcuni casi, tuttavia, si può avere l'esigenza di limitare l'accesso alle applicazioni Web in base al paese/area geografica. Il servizio Web application firewall (WAF) del servizio Frontdoor consente di definire criteri mediante regole di accesso personalizzate per un percorso specifico nell'endpoint per consentire o bloccare l'accesso da specifici paesi/aree geografiche. 
 
 I criteri WAF includono in genere un set di regole personalizzate. Una regola è costituita da condizioni di corrispondenza, un'azione e una priorità. Nella condizione di corrispondenza si definisce una variabile di corrispondenza, un operatore e un valore di corrispondenza.  Per la regola di filtro geografico, la variabile di corrispondenza è REMOTE_ADDR, l'operatore è GeoMatch e il valore è il codice di due lettere del paese che interessa. È possibile combinare una condizione GeoMatch e una condizione di corrispondenza stringa REQUEST_URI per creare una regola di filtro geografico basato sul percorso.
 
@@ -53,7 +53,7 @@ I criteri WAF includono in genere un set di regole personalizzate. Una regola è
 | BH | Bahrain|
 | BI | Burundi|
 | BJ | Benin|
-| BL | Saint-Barthélemy|
+| BL | Saint Barthélemy|
 | BN | Brunei Darussalam|
 | BO | Bolivia|
 | BR | Brasile|
@@ -174,7 +174,7 @@ I criteri WAF includono in genere un set di regole personalizzate. Una regola è
 | RO | Romania|
 | RS | Serbia|
 | RU | Federazione russa|
-| RW | Ruanda|
+| LS | Ruanda|
 | SA | Arabia Saudita|
 | SD | Sudan|
 | SE | Svezia|

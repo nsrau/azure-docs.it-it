@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 5467794bf246fab4ff7ded9c445dbeee0c4093b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cbbdf724b9d7fe4948553e7526410b994f491b49
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79139624"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435253"
 ---
 # <a name="integrate-azure-security-center-with-windows-admin-center"></a>Integrazione dell'Interfaccia di sicurezza di Azure con l'interfaccia di amministrazione di WindowsIntegrate Azure Security Center with Windows Admin Center
 
@@ -48,7 +48,7 @@ Combinando questi due strumenti, il Centro sicurezza diventa il tuo unico riquad
     * Il server dispone di un'area di lavoro da segnalare e di una sottoscrizione associata.
     * La soluzione Log Analytics di livello standard del Centro sicurezza è abilitata nell'area di lavoro. Questa soluzione offre le funzionalità standard del Centro sicurezza per *tutti i* server e le macchine virtuali che segnalano questa area di lavoro.
     * I prezzi del livello standard del Centro sicurezza per la macchina virtuale sono abilitati nella sottoscrizione.
-    * Microsoft Monitoring Agent (MMA) è installato nel server e configurato per la creazione di report nell'area di lavoro selezionata. Se il server segnala già in un'altra area di lavoro, è configurato per segnalare anche l'area di lavoro appena selezionata.
+    * L'agente di Log Analytics viene installato nel server e configurato per il report nell'area di lavoro selezionata. Se il server segnala già in un'altra area di lavoro, è configurato per segnalare anche l'area di lavoro appena selezionata.
 
     > [!NOTE]
     > La visualizzazione dei suggerimenti potrebbe richiedere del tempo dopo l'onboarding. Infatti, a seconda dell'attività del server, è possibile che non si riceva *alcun* avviso. Per generare avvisi di test per testare il corretto funzionamento degli avvisi, seguire le istruzioni della procedura di [convalida degli avvisi.](security-center-alert-validation.md)

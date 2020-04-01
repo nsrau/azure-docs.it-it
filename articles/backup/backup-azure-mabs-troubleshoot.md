@@ -4,12 +4,12 @@ description: Risolvere i problemi di installazione e registrazione del server di
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: cc0cf7e91c1aacbc637d33ab1e5546cc54836b28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: deff49a7d00a335c396a6fa36d3846ef353331c5
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673123"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421284"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Risolvere i problemi del server di Backup di Azure
 
@@ -26,7 +26,7 @@ Si consiglia di eseguire la convalida seguente, prima di avviare la risoluzione 
 - Se la registrazione non riesce, verificare che il server in cui si sta tentando di installare il server di Backup di Azure non sia già registrato con un altro insieme di credenziali
 - Se l'installazione del push ha esito negativo, verificare se l'agente DPM è già presente. In caso affermativo, disinstallare l'agente e provare a ripetere l'installazione
 - [Verificare che nessun altro processo o software antivirus interferisca con Backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)<br>
-- Verificare che il servizio SQL Agent sia in esecuzione automatica nel server MAB<br>
+- Verificare che il servizio SQL Agent sia in esecuzione e impostato su automatico nel server MABS<br>
 
 ## <a name="invalid-vault-credentials-provided"></a>Sono state specificate credenziali dell'insieme di credenziali non valide
 

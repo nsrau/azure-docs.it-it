@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 03/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2fce8a7a6f6d345b83c639bd69ecd70271621e9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b344886e89a10a027cba169e92056a6dda443d8d
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283158"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421933"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operazioni dei provider di risorse di Azure Resource Manager
 
@@ -687,7 +687,7 @@ Servizio di Azure: [Azure Resource ManagerAzure](../azure-resource-manager/index
 > | Azione | Microsoft.Authorization/operations/read | Ottiene l'elenco delle operazioni |
 > |  | **Autorizzazioni** |  |
 > | Azione | Microsoft.Authorization/permissions/read | Elenca tutte le autorizzazioni del chiamante per un ambito specifico. |
-> |  | **criteri** |  |
+> |  | **Politiche** |  |
 > | Azione | Microsoft.Authorization/policies/audit/action | Azione intrapresa a seguito della valutazione dei criteri di Azure con effetto 'audit' |
 > | Azione | Microsoft.Authorization/policies/auditIfNotExists/action | Azione intrapresa in seguito alla valutazione dei criteri di Azure con effetto 'auditIfNotExists' |
 > | Azione | Microsoft.Authorization/policies/deny/action (Autorizzazione/criteri/negazione/azione) | Azione intrapresa in seguito alla valutazione dei criteri di Azure con effetto 'nega' |
@@ -2680,7 +2680,7 @@ Servizio di Azure: [gestione dei costiAzure](../cost-management-billing/index.ym
 > | Azione | Microsoft.CostManagement/reports/read | Pianifica i report sui dati di utilizzo in base a un ambito. |
 > |  | **Inquilini** |  |
 > | Azione | Microsoft.CostManagement/tenants/register/action | Registrare l'azione per l'ambito di Microsoft.CostManagement da parte di un tenant. |
-> |  | **viste** |  |
+> |  | **Visualizzazioni** |  |
 > | Azione | Microsoft.CostManagement/views/read | Elencare tutte le viste salvate. |
 > | Azione | Microsoft.CostManagement/views/delete | Eliminare le viste salvate. |
 > | Azione | Microsoft.CostManagement/views/write | Aggiorna visualizzazione. |
@@ -4682,7 +4682,7 @@ Servizio di Azure: [Monitoraggio di AzureAzure](../azure-monitor/index.yml) serv
 > | Azione | Microsoft.Insights/LogProfiles/Write | Crea o aggiorna un profilo del log attività |
 > | Azione | Microsoft.Insights/LogProfiles/Delete | Elimina un profilo del log attività |
 > | Azione | Microsoft.Insights/LogProfiles/Read | Legge un profilo del log attività |
-> |  | **Registri** |  |
+> |  | **Log** |  |
 > | Azione | Microsoft.Insights/Logs/Read | Legge i dati da tutti i log |
 > |  | **Registri/ADAssessmentRecommendation** |  |
 > | Azione | Microsoft.Insights/Logs/ADAssessmentRecommendation/Read | Legge i dati dalla tabella ADAssessmentRecommendation |
@@ -5089,7 +5089,7 @@ Servizio di Azure: [Azure Digital TwinsAzure](../digital-twins/index.yml) servic
 > | Tipo di azione | Operazione | Descrizione |
 > | --- | --- | --- |
 > | Azione | Microsoft.IoTSpaces/register/action | Registra la sottoscrizione per il provider di risorse Microsoft.IoTSpaces Graph per consentire la creazione di risorse |
-> |  | **Graph** |  |
+> |  | **Grafico** |  |
 > | Azione | Microsoft.IoTSpaces/Graph/write | Crea una risorsa grafico Microsoft.IoTSpaces |
 > | Azione | Microsoft.IoTSpaces/Graph/read | Ottiene le risorse grafico Microsoft.IoTSpaces |
 > | Azione | Microsoft.IoTSpaces/Graph/delete | Elimina la risorsa grafico Microsoft.IoTSpaces |
@@ -8333,7 +8333,7 @@ Servizio di Azure: [Azure Resource ManagerAzure](../azure-resource-manager/index
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
-Servizio di Azure: [Utilità di pianificazioneAzure](../scheduler/index.md) service: Scheduler
+Servizio di Azure: [Utilità di pianificazioneAzure](../scheduler/index.yml) service: Scheduler
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo di azione | Operazione | Descrizione |
@@ -8433,7 +8433,7 @@ Servizio di Azure: [Centro sicurezza](../security-center/index.yml)
 > | Azione | Microsoft.Security/locations/tasks/resolve/action | Risolve un consiglio di sicurezza |
 > | Azione | Microsoft.Security/locations/tasks/activate/action | Attiva un consiglio per la sicurezza |
 > | Azione | Microsoft.Security/locations/tasks/dismiss/action | Ignora un consiglio per la sicurezza |
-> |  | **criteri** |  |
+> |  | **Politiche** |  |
 > | Azione | Microsoft.Security/policies/read | Ottiene i criteri di sicurezza |
 > | Azione | Microsoft.Security/policies/write | Aggiorna i criteri di sicurezza |
 > |  | **pricings** |  |
@@ -10004,7 +10004,7 @@ Servizio di Azure: [informazioni dettagliate sulle serie temporaliAzure](../time
 > | Tipo di azione | Operazione | Descrizione |
 > | --- | --- | --- |
 > | Azione | Microsoft.TimeSeriesInsights/register/action | Registra la sottoscrizione per il provider di risorse Time Series Insights e consente la creazione di ambienti Time Series Insights. |
-> |  | **environments** |  |
+> |  | **Ambienti** |  |
 > | Azione | Microsoft.TimeSeriesInsights/environments/read | Ottiene le proprietà di un ambiente. |
 > | Azione | Microsoft.TimeSeriesInsights/environments/write | Crea un nuovo ambiente o aggiorna un ambiente esistente. |
 > | Azione | Microsoft.TimeSeriesInsights/environments/delete | Elimina l'ambiente. |

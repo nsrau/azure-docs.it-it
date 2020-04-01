@@ -3,14 +3,14 @@ title: Azure Monitor platform metrics exportable via Diagnostic Settings
 description: Elenco delle metriche disponibili per ogni tipo di risorsa con il monitoraggio di Azure.
 services: azure-monitor
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 03/30/2020
 ms.subservice: metrics
-ms.openlocfilehash: 7a75655d1707dd2491065974ed8addc4c2da1a6a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6be8cb1b7e74301d16a1174f5ca2b774334dac3f
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77661363"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422117"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Azure Monitor platform metrics exportable via Diagnostic Settings
 
@@ -24,7 +24,9 @@ A causa della complessità nel back-end di Monitoraggio di Azure, non tutte le m
 
 ## <a name="change-to-behavior-for-nulls-and-zero-values"></a>Modificare il comportamento per i valori NULL e zero 
  
-Per le metriche della piattaforma che possono essere esportate tramite le impostazioni di diagnostica, esistono alcune metriche per le quali Monitoraggio di Azure interpreta '0s' come 'Null'. Ciò ha causato una certa confusione tra real '0s' (emesso dalla risorsa) e interpretato '0s' (Nulls). A partire dal **1 aprile 2020 le** metriche della piattaforma esportate tramite le impostazioni di diagnostica non esporterà più "0" a meno che non siano state realmente emesse dalla risorsa sottostante. Nota bene:
+Per le metriche della piattaforma che possono essere esportate tramite le impostazioni di diagnostica, esistono alcune metriche per le quali Monitoraggio di Azure interpreta '0s' come 'Null'. Ciò ha causato una certa confusione tra real '0s' (emesso dalla risorsa) e interpretato '0s' (Nulls). Presto si verificherà una modifica e le metriche della piattaforma esportate tramite le impostazioni di diagnostica non esporterà più "0" a meno che non siano state realmente emesse dalla risorsa sottostante. La modifica era prevista per il 1 aprile 2020, ma è stata ritardata a causa di spostamenti di priorità dovuti al COVID-19. 
+
+Nota bene:
 
 1.  Se si elimina un gruppo di risorse o una risorsa specifica, i dati delle metriche dalle risorse effettite non verranno più inviati alle destinazioni di esportazione delle impostazioni di diagnostica. In altre parole, non verrà più visualizzato negli hub eventi, negli account di archiviazione e nelle aree di lavoro di Log Analytics.
 2.  Questo miglioramento sarà disponibile in tutti i cloud pubblici e privati.
@@ -49,7 +51,7 @@ La tabella contiene le seguenti colonne.
 > La tabella seguente può avere una barra di scorrimento orizzontale nella parte inferiore. Se ritieni che manchino informazioni, verifica che la barra di scorrimento sia tutta a sinistra.  
 
 
-| Esportabile tramite Impostazioni di diagnostica?  | Genera nuL |  ResourceType  |  Metrica  |  MetricODisplayName (Nome visualizzato)  |  Unità  |  AggregationType | 
+| Esportabile tramite Impostazioni di diagnostica?  | Emettono già nuL |  ResourceType  |  Metrica  |  MetricODisplayName (Nome visualizzato)  |  Unità  |  AggregationType | 
 |---|---| ---- | ----- | ------ | ---- | ---- | 
 | Sì, " "  | No |  Microsoft.AnalysisServices/servers  |  CleanerCurrentPrice  |  Memoria: prezzo corrente pulitura memoria  |  Conteggio  |  Media | 
 | Sì, " "  | No |  Microsoft.AnalysisServices/servers  |  CleanerMemoryNonshrinkable  |  Memoria: pulitura memoria non compattabile  |  Byte  |  Media | 

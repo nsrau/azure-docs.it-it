@@ -7,16 +7,16 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 01/22/2020
-ms.openlocfilehash: aaf61ccbb3577036c614aa6196d2af57124550fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8eeff5187d27cb75b9e55eba8311dede8970bc4a
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76908553"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435226"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Integrare un sito Web statico con la rete CDN di AzureIntegrate a static website with Azure CDN
 
-È possibile abilitare la rete per [la distribuzione di contenuti (CDN)](../../cdn/cdn-overview.md) di Azure per memorizzare nella cache il contenuto di un sito Web statico ospitato in un account di archiviazione di Azure.You can enable Azure Content Delivery Network (CDN) to cache content from a [static website](storage-blob-static-website.md) that is hosted in an Azure storage account. È possibile usare la rete CDN di Azure per configurare l'endpoint di dominio personalizzato per il sito Web statico, eseguire il provisioning di certificati SSL personalizzati e configurare regole di riscrittura personalizzate. La configurazione della rete CDN di Azure comporta costi aggiuntivi, ma offre latenze coerentemente ridotte per il sito Web ovunque nel mondo. La rete CDN di Azure fornisce anche la crittografia SSL con il certificato dell'utente. 
+È possibile abilitare la rete per [la distribuzione di contenuti (CDN)](../../cdn/cdn-overview.md) di Azure per memorizzare nella cache il contenuto di un sito Web statico ospitato in un account di archiviazione di Azure.You can enable Azure Content Delivery Network (CDN) to cache content from a [static website](storage-blob-static-website.md) that is hosted in an Azure storage account. È possibile usare la rete CDN di Azure per configurare l'endpoint di dominio personalizzato per il sito Web statico, eseguire il provisioning di certificati TLS/SSL personalizzati e configurare regole di riscrittura personalizzate. La configurazione della rete CDN di Azure comporta costi aggiuntivi, ma offre latenze coerentemente ridotte per il sito Web ovunque nel mondo. La rete CDN di Azure fornisce anche la crittografia TLS con il proprio certificato. 
 
 Per informazioni sui prezzi della rete CDN, vedere [Prezzi della rete CDN Azure](https://azure.microsoft.com/pricing/details/cdn/).
 

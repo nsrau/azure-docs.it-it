@@ -3,12 +3,12 @@ title: Panoramica degli insiemi di credenziali di Servizi di ripristino
 description: Una panoramica e un confronto tra gli insiemi di credenziali di Servizi di ripristino e gli insiemi di credenziali di Backup di Azure.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 94a3e5a0865bcc8c0a9ecb866ca013f20a558e1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6a359287533c9ffdd688b5285b24b9c70fa7b7f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673232"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436952"
 ---
 # <a name="recovery-services-vaults-overview"></a>Panoramica di insiemi di credenziali di Servizi di ripristino
 
@@ -18,7 +18,7 @@ Nell'ambito di una sottoscrizione di Azure è possibile creare un massimo di 500
 
 ## <a name="comparing-recovery-services-vaults-and-backup-vaults"></a>Confronto tra gli insiemi di credenziali di Servizi di ripristino e gli insiemi di credenziali di Backup
 
-Se si dispone ancora di insiemi di credenziali di Backup, questi vengono aggiornati automaticamente in base agli insiemi di credenziali di Servizi di ripristino. A novembre 2017 è stato eseguito l'aggiornamento di tutti gli insiemi di credenziali di Backup agli insiemi di credenziali di Servizi di ripristino.
+Se si dispone ancora di archivi di backup, questi vengono aggiornati automaticamente agli insiemi di credenziali dei servizi di ripristino. A novembre 2017 è stato eseguito l'aggiornamento di tutti gli insiemi di credenziali di Backup agli insiemi di credenziali di Servizi di ripristino.
 
 Gli insiemi di credenziali di Servizi di ripristino si basano sul modello di Azure Resource Manager, mentre gli insiemi di credenziali di Backup si basano sul modello di Service Manager di Azure. Quando si aggiorna un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino, i dati di backup rimangono intatti durante e dopo il processo di aggiornamento. Gli insiemi di credenziali di Servizi di ripristino offrono le funzionalità non disponibili per gli insiemi di credenziali di Backup, ad esempio:
 
@@ -32,11 +32,19 @@ Gli insiemi di credenziali di Servizi di ripristino si basano sul modello di Azu
 
 - **Ripristino immediato delle macchine virtuali IaaS**: con gli insiemi di credenziali di Servizi di ripristino, è possibile ripristinare file e cartelle da una macchina virtuale IaaS senza ripristinare l'intera macchina virtuale, il che consente di avere tempi di ripristino più rapidi. Il ripristino immediato per le macchine virtuali IaaS è disponibile sia per le macchine virtuali Windows che Linux. [Scopri di più](backup-instant-restore-capability.md)
 
+## <a name="storage-settings-in-the-recovery-services-vault"></a>Impostazioni di archiviazione nell'insieme di credenziali dei servizi di ripristino
+
+Un insieme di credenziali dei Servizi di ripristino è un'entità che archivia i backup e i punti di ripristino che sono stati creati nel corso del tempo. L'insieme di credenziali dei servizi di ripristino contiene anche i criteri di backup associati alle macchine virtuali protette.
+
+Backup di Azure gestisce automaticamente l'archiviazione per l'insieme di credenziali. Vedere come è [possibile modificare le impostazioni di archiviazione](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy).
+
+Per altre informazioni sulla ridondanza di archiviazione, vedere questi articoli sulla ridondanza [geografica](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs) e [locale.](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
+
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Gestione degli insiemi di credenziali di Servizi di ripristino nel portale
 
 La creazione e la gestione degli insiemi di credenziali di Servizi di ripristino nel portale di Azure è semplificata dal fatto che il servizio Backup è integrato in altri servizi di Azure. Questa integrazione implica la possibile creazione e gestione di un insieme di credenziali di Servizi di ripristino *nel contesto del servizio di destinazione*. Ad esempio, per visualizzare i punti di ripristino di una macchina virtuale, selezionarla e fare clic su **Backup** nel menu Operazioni.
 
-![Macchina virtuale con i dettagli dell'insieme di credenziali dei servizi di ripristino](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
+![VM dettagli dell'insieme di credenziali dei servizi di ripristino](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
 
 Se la macchina virtuale non dispone di un backup configurato, verrà richiesto di configurare il backup. Se il backup è stato configurato, verranno visualizzate informazioni di backup sulla macchina virtuale, incluso un elenco di punti di ripristino.  
 

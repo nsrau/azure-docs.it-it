@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: bcf92838483fbb6b54802cc0d44cc44ea086d705
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93dde2e873a00303dcb8563caed4d56dbf11cc12
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79282640"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435640"
 ---
 # <a name="protect-your-machines-and-applications"></a>Proteggi le tue macchine e le tue applicazioni
 Quando il Centro sicurezza di Azure identifica potenziali vulnerabilità della sicurezza, crea suggerimenti che guidano l'utente attraverso il processo di configurazione dei controlli necessari per la protezione e la protezione delle risorse.
@@ -84,18 +84,18 @@ Qui sono visualizzasti i dettagli sulla sicurezza relativi alla macchina virtual
 
 
 
-### <a name="virtual-machine-scale-sets"></a><a name="vmscale-sets"></a>Set di scalabilità di macchine virtualiVirtual machine scale sets
-Il Centro sicurezza rileva automaticamente se si dispone di set di scalabilità e consiglia di installare Microsoft Monitoring Agent in essi.
+### <a name="virtual-machine-scale-sets"></a><a name="vmscale-sets"></a>Set di scalabilità di macchine virtuali
+Il Centro sicurezza rileva automaticamente se si dispone di set di scalabilità e consiglia di installare l'agente di Log Analytics su di essi.
 
-Per installare Microsoft Monitoring Agent: 
+Per installare l'agente di Log Analytics: 
 
 1. Selezionare la raccomandazione **Install the monitoring agent on virtual machine scale set. ** (Installare l'agente di monitoraggio nel set di scalabilità di macchine virtuali). Si otterrà un elenco dei set di scalabilità non monitorati.
 
-1. Selezionare un set di scalabilità non integro. Seguire le istruzioni per installare l'agente di monitoraggio mediante un'area di lavoro popolata esistente o crearne una nuova. Assicurarsi di impostare il [piano tariffario](security-center-pricing.md)dell'area di lavoro se non è impostato.
+1. Selezionare un set di scalabilità non integro. Seguire le istruzioni per installare l'agente di monitoraggio mediante un'area di lavoro popolata esistente o crearne una nuova. Assicurarsi di impostare il [piano tariffario](security-center-pricing.md) dell'area di lavoro se non è impostata.
 
    ![Installare Microsoft Monitoring Agent](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
-Per impostare nuovi set di scalabilità per l'installazione automatica di Microsoft Monitoring Agent:
+Per impostare i nuovi set di scalabilità per l'installazione automatica dell'agente di Log Analytics:
 1. Passare a Criteri di Azure e fare clic su **Definizioni**.
 
 1. Cercare i criteri Distribuire l'agente Log Analytics per i set di **scalabilità** delle macchine virtuali Windows e fare clic su di esso.
@@ -104,7 +104,7 @@ Per impostare nuovi set di scalabilità per l'installazione automatica di Micros
 
 1. Impostare l'**ambito** e l'**area di lavoro Log Analytics** e fare clic su **Assegna**.
 
-Se si desidera impostare tutti i set di scalabilità esistenti affinché installino Microsoft Monitoring Agent, in Criteri di Azure passare a **Correzione** e applicare i criteri esistenti ai set di scalabilità esistenti.
+Se si desidera impostare tutti i set di scalabilità esistenti per installare l'agente di Log Analytics, in Criteri di Azure passare a **Correzione** e applicare i criteri esistenti ai set di scalabilità esistenti.
 
 
 
@@ -195,7 +195,7 @@ Quando si fa clic su una delle macchine virtuali in esecuzione docker, verrà vi
 
 Il Centro sicurezza analizza le configurazioni di Docker e mostra le configurazioni errate, fornendo un elenco di tutte le regole non riuscite che sono state valutate. Visualizza inoltre linee guida per consentire di risolvere rapidamente questi problemi e risparmiare tempo. Il Centro sicurezza valuta costantemente le configurazioni di Docker e ne visualizza lo stato più recente.
 
-![Scheda dei contenitori](./media/security-center-container-recommendations/container-cis-benchmark.png)
+![Scheda dei contenitori](./media/security-center-virtual-machine-recommendations/container-cis-benchmark.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

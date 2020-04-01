@@ -11,21 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/23/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 5dc231febc2e9b605b9e7f603f5d036b8a2c62eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f3f9b32ea55f0ceebf08b22ccc7e2ceec0b6227e
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240750"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420795"
 ---
-# <a name="add-ipv6-to-an-ipv4-application-in-azure-virtual-network---azure-cli-preview"></a>Aggiungere IPv6 a un'applicazione IPv4 nella rete virtuale di Azure - Interfaccia della riga di comando di Azure (anteprima)Add IPv6 to an application iPv4 in Azure virtual network - Azure CLI (Preview)
+# <a name="add-ipv6-to-an-ipv4-application-in-azure-virtual-network---azure-cli"></a>Aggiungere IPv6 a un'applicazione IPv4 nella rete virtuale di Azure - Interfaccia della riga di comando di AzureAdd IPv6 to an application IPv4 in Azure virtual network - Azure CLI
 
 Questo articolo illustra come aggiungere indirizzi IPv6 a un'applicazione che usa l'indirizzo IP pubblico IPv4 in una rete virtuale di Azure per un servizio di bilanciamento del carico standard usando l'interfaccia della riga di comando di Azure.This article shows you how to add IPv6 addresses to an application that is using IPv4 public IP address in an Azure virtual network for a Standard Load Balancer using Azure CLI. L'aggiornamento sul posto include una rete virtuale e una subnet, un servizio di bilanciamento del carico standard con configurazioni front-end IPv4 e IPV6, macchine virtuali con schede di interfaccia di rete con configurazioni IPv4, gruppo di sicurezza di rete e indirizzi IP pubblici.
 
-> [!Important]
-> Il supporto IPv6 per la rete virtuale di Azure è attualmente in anteprima pubblica. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -33,29 +31,6 @@ Se si decide di installare e usare l'interfaccia della riga di comando di Azure 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-### <a name="register-the-service"></a>Registrare il servizio
-
-Prima di distribuire un'applicazione dual stack in Azure, è necessario configurare la sottoscrizione per questa funzionalità di anteprima usando l'interfaccia della riga di comando di Azure seguente:Before you deploy a dual stack application in Azure, you must configure your subscription for this preview feature using the following Azure CLI:
-
-```azurecli
-az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-
-Sono necessari fino a 30 minuti per completare la registrazione della funzionalità. È possibile controllare lo stato della registrazione eseguendo il comando dell'interfaccia della riga di comando di Azure seguente:You can check your registration status by running the following Azure CLI command:
-
-```azurecli
-az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-
-Al termine della registrazione eseguire questo comando:
-
-```azurecli
-az provider register --namespace Microsoft.Network
-```
-
-### <a name="create-a-standard-load-balancer"></a>Creare un'istanza di Load Balancer Standard
 Questo articolo presuppone che sia stato distribuito un servizio di bilanciamento del carico Standard come descritto in Guida introduttiva: Creare un servizio di bilanciamento del carico standard - Interfaccia della riga di comando di Azure.This article assumes that you deployed a Standard Load Balancer as described in [Quickstart: Create a Standard Load Balancer - Azure CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md).
 
 ## <a name="create-ipv6-addresses"></a>Creare indirizzi IPv6
@@ -173,8 +148,6 @@ az network nic ip-config create \
 
   ![Rete virtuale dual stack IPv6 in Azure](./media/ipv6-add-to-existing-vnet-powershell/ipv6-dual-stack-vnet.png)
 
-> [!NOTE]
-> La rete virtuale IPv6 per Azure è disponibile nel portale di Azure in sola lettura per questa versione di anteprima.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

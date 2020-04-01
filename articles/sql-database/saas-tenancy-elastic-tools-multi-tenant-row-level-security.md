@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: a5fe5d6d4076c5d82d33737d05bb95ede0a89c00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4cf260620d4e907fdb9190a052155fa22f1c7985
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73822025"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398332"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga
 
@@ -253,7 +253,7 @@ GO
 ```
 
 > [!TIP]
-> In un progetto complesso in cui potrebbe essere necessario aggiungere il predicato in centinaia di tabelle, questa operazione può essere noiosa. In questo caso, è disponibile una stored procedure helper che genera automaticamente criteri di sicurezza e aggiunge un predicato in tutte le tabelle di uno schema. Per altre informazioni, vedere il posto di blog relativo all'[applicazione della sicurezza a livello di riga a tutte le tabelle con lo script helper](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-to-all-tables-helper-script).
+> In un progetto complesso in cui potrebbe essere necessario aggiungere il predicato in centinaia di tabelle, questa operazione può essere noiosa. In questo caso, è disponibile una stored procedure helper che genera automaticamente criteri di sicurezza e aggiunge un predicato in tutte le tabelle di uno schema. Per altre informazioni, vedere il posto di blog relativo all'[applicazione della sicurezza a livello di riga a tutte le tabelle con lo script helper](https://techcommunity.microsoft.com/t5/sql-server/apply-row-level-security-to-all-tables-helper-script/ba-p/384360).
 
 Se si esegue di nuovo l'applicazione di esempio, ora i tenant potranno visualizzare unicamente le righe appartenenti ad essi. L'applicazione, inoltre, non può inserire righe che appartengono a tenant diversi da quello attualmente connesso al database di partizionamento e non può aggiornare il TenantId in alcuna delle righe visibili. Se l'app tenta di effettuare una qualsiasi di queste due operazioni, viene generata un'eccezione DbUpdateException.
 

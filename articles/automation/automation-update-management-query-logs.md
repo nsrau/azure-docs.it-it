@@ -3,14 +3,14 @@ title: Eseguire query sui log di gestione degli aggiornamenti di AzureQuery Azur
 description: In questo articolo viene descritto come eseguire una query sui log per la gestione degli aggiornamenti nell'area di lavoro di Log Analytics.
 services: automation
 ms.subservice: update-management
-ms.date: 03/11/2020
+ms.date: 03/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: f31168d47f31d8e740c95cb3d9e449f473cc78dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 863016bbeda9b4aec3bf2b4e12830bd30098150f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79216839"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437852"
 ---
 # <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Query update records for Update Management in Azure Monitor Logs
 
@@ -144,7 +144,7 @@ Viene creato un `UpdateSummary` record con un tipo di che fornisce il riepilogo 
 | CriticalUpdatesMissing | Numero di aggiornamenti critici mancanti applicabili. | 
 | ManagementGroupName | Nome del gruppo di gestione di Operations Manager o dell'area di lavoro di Log Analytics. |
 | NETRuntimeVersion | Versione di .NET Framework installata nel computer Windows. |
-| OldestMissingSecurityUpdateBucket | I valori possibili sono:<br> *Origini*<br> *30 giorni fa*<br> *60 giorni fa*<br> *Meno recente* | 
+| OldestMissingSecurityUpdateBucket | I valori possibili sono:<br> *Recente* se il valore è inferiore a 30 giorni<br> *30 giorni fa*<br> *60 giorni fa*<br> *90 giorni fa*<br> *120 giorni fa*<br> *150 giorni fa*<br> *180 giorni fa*<br> *Precedente* quando il valore è maggiore di 180 giorni | 
 | OldestMissingSecurityUpdateInDays | Numero totale di giorni per l'aggiornamento meno recente rilevato come applicabile che non è stato installato. |
 | OsVersion | Versione del sistema operativo. |
 | OtherUpdatesMissing | Numero di aggiornamenti rilevati mancanti. |
@@ -182,7 +182,7 @@ Heartbeat
 | where OSType == "Linux" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
 ```
 
-#### <a name="windows"></a>WINDOWS
+#### <a name="windows"></a>Windows
 
 ```loganalytics
 Heartbeat

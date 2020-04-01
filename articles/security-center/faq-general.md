@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: f9043ae1414b63f25583d52100774f3e87754a74
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 54263a8be900ed381d8450b460e5cf9e6117ac54
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77661840"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436126"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Domande frequenti - Domande generali sul Centro sicurezza di AzureFAQ - General questions about Azure Security Center
 
 ## <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
 Centro sicurezza di Azure consente di prevenire, rilevare e rispondere alle minacce con una maggiore visibilità e controllo sulla sicurezza delle risorse. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
 
-Il Centro sicurezza usa Microsoft Monitoring Agent per raccogliere e archiviare i dati. Per informazioni dettagliate, vedere Raccolta di dati nel Centro sicurezza di [Azure.](security-center-enable-data-collection.md)
+Il Centro sicurezza usa l'agente di Log Analytics per raccogliere e archiviare i dati. Per informazioni dettagliate, vedere Raccolta di dati nel Centro sicurezza di [Azure.](security-center-enable-data-collection.md)
 
 
 ## <a name="how-do-i-get-azure-security-center"></a>In che modo è possibile accedere al Centro sicurezza di Azure?
@@ -36,7 +36,7 @@ Il Centro sicurezza di Azure viene abilitato con la sottoscrizione di Microsoft 
 Il Centro sicurezza di Azure monitora le risorse di Azure seguenti:
 
 * Macchine virtuali (VM) (inclusi i [servizi cloud)](../cloud-services/cloud-services-choose-me.md)
-* set di scalabilità di macchine virtuali
+* Set di scalabilità di macchine virtuali
 * Reti virtuali di Azure
 * Contenitori
 * Servizio di SQL Azure

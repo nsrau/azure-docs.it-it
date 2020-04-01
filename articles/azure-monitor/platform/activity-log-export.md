@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: edaa585ffb3448a80b021aa924a9d654ac829931
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12c750f96b8852cdd6a6039ebfa750c2ee792a6b
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79096287"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396727"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Esportare il log attività di Azure nell'archiviazione o nelle hub eventi di AzureExport Azure Activity log to storage or Azure Event Hubs
 
 > [!IMPORTANT]
-> Il metodo per l'invio del log attività di Azure ad Archiviazione di Azure e agli hub eventi di Azure è stato modificato in [impostazioni di diagnostica.](diagnostic-settings.md) In questo articolo viene descritto il metodo legacy che è in fase di essere deprecato. Per un confronto, vedere Aggiornamento alla [raccolta e all'esportazione](diagnostic-settings-legacy.md) del log attività di Azure.See Update to Azure Activity log collection and export for a comparison.
+> Il metodo per l'invio del log attività di Azure ad Archiviazione di Azure e agli hub eventi di Azure è stato modificato in [impostazioni di diagnostica.](diagnostic-settings.md) In questo articolo viene descritto il metodo legacy che è in fase di essere deprecato. Per un confronto, vedere Aggiornamento per [raccogliere e analizzare](activity-log-collect.md) il log attività di Azure in Monitoraggio di Azure.See Update to Collect and analyze Azure Activity log in Azure Monitor for a comparison.
 
 
-Il [log attività di Azure](platform-logs-overview.md) fornisce informazioni dettagliate sugli eventi a livello di sottoscrizione che si sono verificati nella sottoscrizione di Azure.The Azure Activity Log provides insight into subscription-level events that have occurred in your Azure subscription. Oltre a visualizzare il log attività nel portale di Azure o a copiarlo in un'area di lavoro di Log Analytics in cui può essere analizzato con altri dati raccolti da Monitoraggio di Azure, è possibile creare un profilo di log per archiviare il log attività in un account di archiviazione di Azure o trasmetterlo in un Hub eventi.
+Il [log attività di Azure](platform-logs-overview.md) fornisce informazioni dettagliate sugli eventi a livello di sottoscrizione che si sono verificati nella sottoscrizione di Azure.The Azure Activity Log provides insight into subscription-level events that have occurred in your Azure subscription. Oltre a visualizzare il log attività nel portale di Azure o a copiarlo in un'area di lavoro di Log Analytics in cui può essere analizzato con altri dati raccolti da Monitoraggio di Azure, è possibile creare un profilo di log per archiviare il log attività in un account di archiviazione di Azure o trasmetterlo in un hub eventi.
 
 ## <a name="archive-activity-log"></a>Registro attività archiviazione
 L'archiviazione del registro attività in un account di archiviazione è utile se si desidera conservare i dati del log per più di 90 giorni (con controllo completo sui criteri di conservazione) per il controllo, l'analisi statica o il backup. Se è necessario conservare gli eventi solo per 90 giorni o meno, non è necessario configurare l'archiviazione in un account di archiviazione, poiché gli eventi del log attività vengono mantenuti nella piattaforma Azure per 90 giorni.

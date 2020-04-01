@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 87c3a3a904705b9fcb702c4745c4c80a4b447e69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e50d6d0623e87dfa68a7cc9744c3f595ff0179c6
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476723"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396377"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Completare la procedura descritta in [Introduzione ai criteri personalizzati](cu
 
 [!INCLUDE [active-directory-b2c-html-how-to](../../includes/active-directory-b2c-html-how-to.md)]
 
-## <a name="4-modify-the-extensions-file"></a>4. Modificare il file delle estensioni
+### <a name="4-modify-the-extensions-file"></a>4. Modificare il file delle estensioni
 
 Per configurare la personalizzazione dell'interfaccia utente, copiare **ContentDefinition** e i relativi elementi figlio dal file di base nel file delle estensioni.
 
@@ -60,9 +60,9 @@ Per configurare la personalizzazione dell'interfaccia utente, copiare **ContentD
 
 1. Salvare il file delle estensioni.
 
-## <a name="5-upload-and-test-your-updated-custom-policy"></a>5. Caricare e testare i criteri personalizzati aggiornati
+### <a name="5-upload-and-test-your-updated-custom-policy"></a>5. Caricare e testare i criteri personalizzati aggiornati
 
-### <a name="51-upload-the-custom-policy"></a>5.1 Caricare il criterio personalizzato
+#### <a name="51-upload-the-custom-policy"></a>5.1 Caricare il criterio personalizzato
 
 1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
 1. Cercare e selezionare **Azure AD B2C**.
@@ -70,7 +70,7 @@ Per configurare la personalizzazione dell'interfaccia utente, copiare **ContentD
 1. Selezionare **Carica criterio personalizzato**.
 1. Caricare il file delle estensioni modificato in precedenza.
 
-### <a name="52-test-the-custom-policy-by-using-run-now"></a>5.2 Testare il criterio personalizzato utilizzando **Esegui ora**
+#### <a name="52-test-the-custom-policy-by-using-run-now"></a>5.2 Testare il criterio personalizzato utilizzando **Esegui ora**
 
 1. Selezionare il criterio caricato e quindi selezionare **Esegui ora**.
 1. Dovrebbe essere possibile iscriversi usando un indirizzo di posta elettronica.

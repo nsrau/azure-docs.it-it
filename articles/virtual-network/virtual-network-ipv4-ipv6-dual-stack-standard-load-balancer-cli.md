@@ -11,48 +11,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/17/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: fa895a294e26b6c74ab72afa3136feac2b2ec986
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bb90858f7e87e31b8b6028a30a6000bbed4d3e4b
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240239"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421084"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli-preview"></a>Distribuire un'applicazione dual stack IPv6 nella rete virtuale di Azure - CLI (anteprima)Deploy an IPv6 dual stack application in Azure virtual network - CLI (Preview)
+# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli"></a>Distribuire un'applicazione dual stack IPv6 nella rete virtuale di Azure - CLIDeploy an IPv6 dual stack application in Azure virtual network - CLI
 
-In questo articolo viene illustrato come distribuire un'applicazione dual stack (IPv4 e IPv6) usando Il bilanciamento del carico standard in Azure che include una rete virtuale dual stack con una subnet dual stack, un servizio di bilanciamento del carico standard con configurazioni front-end dual (IPv4 e IPv6), macchine virtuali con Schede di rete con una configurazione dual IP, regole del gruppo di sicurezza di rete duale e indirizzi IP pubblici doppi.
-
-> [!Important]
-> Lo stack doppio IPv6 per la rete virtuale di Azure è attualmente in anteprima pubblica. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+In questo articolo viene illustrato come distribuire un'applicazione dual stack (IPv4 e IPv6) usando il bilanciamento del carico standard in Azure che include una rete virtuale a doppio stack con una subnet a doppio stack, un servizio di bilanciamento del carico standard con configurazioni front-end dual (IPv4 e IPv6), macchine virtuali con schede di interfaccia di rete con una configurazione IP doppia, regole del gruppo di sicurezza duale e indirizzi IP pubblici doppi.
 
 Se non si ha una sottoscrizione di Azure, creare ora un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se invece si decide di installare e usare l'interfaccia della riga di comando di Azure in locale, questa guida introduttiva richiede l'uso della versione 2.0.49 dell'interfaccia della riga di comando di Azure.If you decide to install and use Azure CLI locally instead, this quickstart requires you to use Azure CLI version 2.0.49 or later. Per trovare la versione installata, eseguire `az --version`. Per informazioni sull'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
-
-## <a name="prerequisites"></a>Prerequisiti
-Per usare la funzionalità di rete virtuale IPv6 per Azure, è necessario configurare la sottoscrizione usando l'interfaccia della riga di comando di Azure come segue:To use the IPv6 for Azure virtual network feature, you must configure your subscription using Azure CLI as follows:
-
-```azurecli
-az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-
-Sono necessari fino a 30 minuti per completare la registrazione della funzionalità. È possibile controllare lo stato della registrazione eseguendo il comando dell'interfaccia della riga di comando di Azure seguente:You can check your registration status by running the following Azure CLI command:
-
-```azurecli
-az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-
-Al termine della registrazione eseguire questo comando:
-
-```azurecli
-az provider register --namespace Microsoft.Network
-```
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -385,10 +361,6 @@ az vm create \
 2. Selezionare **myVirtualNetwork** quando viene visualizzato nei risultati della ricerca. Verrà avviata la pagina **Panoramica** della rete virtuale dual stack denominata *dsVnet*. La rete virtuale dual stack mostra le due schede di interfaccia di rete con configurazioni IPv4 e IPv6 situate nella subnet dello stack doppio denominata *dsSubnet*.
 
   ![Rete virtuale dual stack IPv6 in Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
-
-> [!NOTE]
-> La rete virtuale IPv6 per Azure è disponibile nel portale di Azure in sola lettura per questa versione di anteprima.
-
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

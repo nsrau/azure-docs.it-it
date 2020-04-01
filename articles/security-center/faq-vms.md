@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: d84085115816a8fe1cba65e191ea391dd91a4aed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b7817539a26b7ebfa24efd086edf8b0ef82eae3
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77599366"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436003"
 ---
 # <a name="faq---questions-about-virtual-machines"></a>Domande frequenti - Domande sulle macchine virtualiFAQ - Questions about virtual machines
 
@@ -51,7 +51,7 @@ Di seguito sono riportati i tempi di latenza per le analisi di vulnerabilità, a
 In genere, il Centro sicurezza esegue l'analisi dei nuovi dati ogni ora e aggiorna le indicazioni di conseguenza. 
 
 > [!NOTE]
-> Il Centro sicurezza usa Microsoft Monitoring Agent per raccogliere e archiviare i dati. Per altre informazioni, vedere [Migrazione della piattaforma del Centro sicurezza di Azure](security-center-platform-migration.md).
+> Il Centro sicurezza usa l'agente di Log Analytics per raccogliere e archiviare i dati. Per altre informazioni, vedere [Migrazione della piattaforma del Centro sicurezza di Azure](security-center-platform-migration.md).
 
 
 ## <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Perché viene visualizzato il messaggio "L'agente di macchine virtuali non è presente?"

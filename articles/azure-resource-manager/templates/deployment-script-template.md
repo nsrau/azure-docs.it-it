@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 03/30/2020
 ms.author: jgao
-ms.openlocfilehash: 7ff91545b1b7ab1920f437e0c3a5410270efaac5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ef1c3d3fe0fd1ecad95e027b06ce14fd70d4d3f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153251"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437885"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usare gli script di distribuzione nei modelli (anteprima)Use deployment scripts in templates (Preview)
 
@@ -42,7 +42,7 @@ I vantaggi dello script di distribuzione:
 - **Identità gestita assegnata dall'utente con il ruolo del collaboratore al gruppo di risorse**di destinazione. Questa identità viene usata per eseguire gli script di distribuzione. Per eseguire operazioni all'esterno del gruppo di risorse, è necessario concedere autorizzazioni aggiuntive. Ad esempio, assegnare l'identità al livello di sottoscrizione se si vuole creare un nuovo gruppo di risorse.
 
   > [!NOTE]
-  > Il motore di script di distribuzione crea un account di archiviazione e un'istanza del contenitore in background.  Un'identità gestita assegnata dall'utente con il ruolo del collaboratore a livello di sottoscrizione è necessaria se la sottoscrizione non ha registrato l'account di archiviazione di Azure (Microsoft.Storage) e la risorsa del contenitore di Azure (Microsoft.ContainerInstance) Provider.
+  > Il motore di script di distribuzione crea un account di archiviazione e un'istanza del contenitore in background.  Un'identità gestita assegnata dall'utente con il ruolo del collaboratore a livello di sottoscrizione è necessaria se la sottoscrizione non ha registrato i provider di risorse dell'account di archiviazione di Azure (Microsoft.Storage) e dell'istanza del contenitore di Azure (Microsoft.ContainerInstance).
 
   Per creare un'identità, vedere [Creare un'identità gestita assegnata dall'utente tramite il portale](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)di Azure oppure [l'interfaccia della riga](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)di comando di Azure oppure Azure [PowerShell.](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md) È necessario l'ID identità per distribuire il modello. Il formato dell'identità è:
 
@@ -52,7 +52,7 @@ I vantaggi dello script di distribuzione:
 
   Usare lo script dell'interfaccia della riga di comando o di PowerShell seguente per ottenere l'ID specificando il nome del gruppo di risorse e il nome dell'identità.
 
-  # <a name="cli"></a>[Cli](#tab/CLI)
+  # <a name="cli"></a>[CLI](#tab/CLI)
 
   ```azurecli-interactive
   echo "Enter the Resource Group name:" &&
@@ -62,7 +62,7 @@ I vantaggi dello script di distribuzione:
   az identity show -g jgaoidentity1008rg -n jgaouami --query id
   ```
 
-  # <a name="powershell"></a>[Powershell](#tab/PowerShell)
+  # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
   ```azurepowershell-interactive
   $idGroup = Read-Host -Prompt "Enter the resource group name for the managed identity"
@@ -101,6 +101,12 @@ Il codice json seguente è un esempio.  Lo schema di modello più recente è dis
     "forceUpdateTag": 1,
     "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
     "arguments": "[concat('-name ', parameters('name'))]",
+    "environmentVariables": [
+      {
+        "name": "someSecret",
+        "secureValue": "if this is really a secret, don't put it here... in plain text..."
+      }
+    ],
     "scriptContent": "
       param([string] $name)
       $output = 'Hello {0}' -f $name
@@ -126,6 +132,7 @@ Dettagli valore proprietà:
 - **forceUpdateTag**: la modifica di questo valore tra le distribuzioni di modelli forza la riesecuzione dello script di distribuzione. Utilizzare la funzione newGuid() o utcNow() che deve essere impostata come defaultValue di un parametro. Per altre informazioni, vedere [Eseguire lo script più di una volta](#run-script-more-than-once).
 - **azPowerShellVersion**/**azCliVersion**: specifica la versione del modulo da usare. Per un elenco delle versioni supportate di PowerShell e dell'interfaccia della riga di comando, vedere [Prerequisiti](#prerequisites).
 - **arguments**: Specificare i valori dei parametri. I valori sono separati da uno spazio.
+- **environmentVariables**: Specificare le variabili di ambiente da passare allo script. Per ulteriori informazioni, vedere [Sviluppare script di distribuzione](#develop-deployment-scripts).
 - **scriptContent**: specifica il contenuto dello script. Per eseguire uno script `primaryScriptUri` esterno, utilizzare invece. Per alcuni esempi, consultate [Utilizzo di script inline](#use-inline-scripts) e [Utilizzo di script esterni.](#use-external-scripts)
 - **primaryScriptUri**: specifica un URL accessibile pubblicamente allo script di distribuzione primario con le estensioni di file supportate.primaryScriptUri : Specify a publicly accessible Url to the primary deployment script with supported file extensions.
 - **supportingScriptUris**: specifica una matrice di URL accessibili pubblicamente `ScriptContent` `PrimaryScriptUri`ai file di supporto chiamati in o .
@@ -234,7 +241,7 @@ Gli output dello script di distribuzione devono essere salvati nel percorso AZ_S
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>Passare stringhe protette allo script di distribuzionePass secured strings to deployment script
 
-L'impostazione delle variabili di ambiente nelle istanze di contenitore consente di offrire la configurazione dinamica dell'applicazione o dello script eseguiti dal contenitore. Lo script di distribuzione gestisce le variabili di ambiente non protette e protette nello stesso modo dell'istanza del contenitore di Azure.Deployment script handles non-secured and secured environment variables in the same way as Azure Container Instance. Per ulteriori informazioni, vedere [Impostare le variabili di ambiente nelle istanze del contenitore.](../../container-instances/container-instances-environment-variables.md#secure-values)
+L'impostazione delle variabili di ambiente (EnvironmentVariable) nelle istanze del contenitore consente di fornire la configurazione dinamica dell'applicazione o dello script eseguito dal contenitore. Lo script di distribuzione gestisce le variabili di ambiente non protette e protette nello stesso modo dell'istanza del contenitore di Azure.Deployment script handles non-secured and secured environment variables in the same way as Azure Container Instance. Per ulteriori informazioni, vedere [Impostare le variabili di ambiente nelle istanze del contenitore.](../../container-instances/container-instances-environment-variables.md#secure-values)
 
 ## <a name="debug-deployment-scripts"></a>Eseguire il debug degli script di distribuzioneDebug deployment scripts
 

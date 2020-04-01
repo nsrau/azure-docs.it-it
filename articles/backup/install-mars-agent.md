@@ -3,12 +3,12 @@ title: Installare l'agente di Microsoft Azure Recovery Services (MARS)
 description: Informazioni su come installare l'agente di Microsoft Azure Recovery Services (MARS) per eseguire il backup dei computer Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: b9a6791709d5aff82d11bbf10e5f084fd8c1a000
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d3932b66dbc41ff2631e2cccbe716c0877a509d3
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247761"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422924"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Installare l'agente MARS di Backup di AzureInstall the Azure Backup MARS agent
 
@@ -36,6 +36,7 @@ I dati disponibili per il backup dipendono dalla posizione in cui è installato 
 * Esaminare gli elementi supportati e gli elementi di [cui è possibile eseguire](backup-support-matrix-mars-agent.md) il backup dall'agente MARS.
 * Assicurarsi di disporre di un account Azure se è necessario eseguire il backup di un server o di un client in Azure.Make sure that you have an Azure account if you need to back up a server or client to Azure. Se non hai un account, puoi crearne [uno gratuito](https://azure.microsoft.com/free/) in pochi minuti.
 * Verificare l'accesso a Internet nei computer di cui si desidera eseguire il backup.
+* Assicurarsi che l'utente che esegue l'installazione e la configurazione dell'agente MARS disponga dei privilegi di amministratore locale sul server da proteggere.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

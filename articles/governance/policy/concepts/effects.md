@@ -3,12 +3,12 @@ title: Comprendere il funzionamento degli effetti
 description: Le definizioni dei criteri di Azure hanno vari effetti che determinano il modo in cui la conformità viene gestita e segnalata.
 ms.date: 03/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 631c941173a500a4159a37c7c31107b9a6eab872
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0330cb5c732921efda3627dec92e486657097d82
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239978"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422449"
 ---
 # <a name="understand-azure-policy-effects"></a>Informazioni sugli effetti di Criteri di Azure
 
@@ -19,7 +19,7 @@ Questi effetti sono attualmente supportati in una definizione di criteri:These e
 - [Aggiungere](#append)
 - [Controllo](#audit)
 - [AuditIfNotExists](#auditifnotexists)
-- [Negare](#deny)
+- [Nega](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabili](#disabled)
 - [EnforceOPAConstraint (anteprima)EnforceOPAConstraint](#enforceopaconstraint) (preview)
@@ -432,15 +432,15 @@ Esempio: valuta i database SQL Server per determinare se transparentDataEncrypti
 
 ## <a name="enforceopaconstraint"></a>EnforceOPAConstraint
 
-Questo effetto viene utilizzato con `Microsoft.Kubernetes.Data`una *modalità* di definizione dei criteri di . Viene usato per passare le regole di controllo di ammissione Gatekeeper v3 definite con OPA Constraint Framework per [aprire l'agente criteri](https://www.openpolicyagent.org/) (OPA) ai cluster Kubernetes in Azure.It's used to pass Gatekeeper v3 admission control rules defined with [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) to Open Policy Agent (OPA) to Kubernetes clusters on Azure.
+Questo effetto viene utilizzato con `Microsoft.Kubernetes.Data`una *modalità* di definizione dei criteri di . Viene usato per passare le regole di controllo di ammissione Gatekeeper v3 definite con OPA Constraint Framework per [aprire l'agente criteri](https://www.openpolicyagent.org/) (OPA) ai cluster Kubernetes autogestiti in Azure.It's used to pass Gatekeeper v3 admission control rules defined with [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) to Open Policy Agent (OPA) to self-managed Kubernetes clusters on Azure.
 
 > [!NOTE]
-> Criteri di [Azure per Kubernetes](aks-engine.md) è in anteprima e supporta solo le definizioni dei criteri predefinite.
+> [Criteri di Azure per il motore AKS](aks-engine.md) è in anteprima pubblica e supporta solo le definizioni dei criteri predefinite.
 
 ### <a name="enforceopaconstraint-evaluation"></a>Valutazione di EnforceOPAConstraint
 
 Il controller di ammissione dell'Agente Criteri aperti valuta qualsiasi nuova richiesta nel cluster in tempo reale.
-Ogni 15 minuti viene completata un'analisi completa del cluster e i risultati vengono segnalati aCriteri di Azure.Every 15 minutes, a full scan of the cluster is completed and the results reported to Azure Policy.
+Ogni 5 minuti viene completata un'analisi completa del cluster e i risultati vengono segnalati aCriteri di Azure.Every 5 minutes, a full scan of the cluster is completed and the results reported to Azure Policy.
 
 ### <a name="enforceopaconstraint-properties"></a>EnforceOPAConstraint proprietà
 
@@ -455,7 +455,7 @@ La proprietà **details** dell'effetto EnforceOPAConstraint dispone delle sottop
 
 ### <a name="enforceopaconstraint-example"></a>Esempio EnforceOPAConstraint
 
-Esempio: regola di controllo di ammissione gatekeeper v3 per impostare i limiti delle risorse di memoria e CPU del contenitore in Kubernetes.
+Esempio: regola di controllo di ammissione di Gatekeeper v3 per impostare i limiti delle risorse di memoria e CPU del contenitore nel motore AKS.
 
 ```json
 "if": {
@@ -490,8 +490,8 @@ Esempio: regola di controllo di ammissione gatekeeper v3 per impostare i limiti 
 
 Questo effetto viene utilizzato con `Microsoft.ContainerService.Data`una *modalità* di definizione dei criteri di . Viene utilizzato per passare le regole di controllo di ammissione Gatekeeper v2 definite con [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) a [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) nel servizio Azure [Kubernetes](../../../aks/intro-kubernetes.md).
 
-> [!IMPORTANT]
-> Criteri di [Azure per Kubernetes](rego-for-aks.md) è in anteprima e supporta solo le definizioni dei criteri predefinite. I criteri predefiniti rientrano nella categoria **Kubernetes.** L'effetto **EnforceRegoPolicy** e i relativi criteri di categoria **Kubernetes Service** sono _deprecati._ Utilizzare invece l'effetto [EnforceOPAConstraint](#enforceopaconstraint) aggiornato.
+> [!NOTE]
+> [Criteri di Azure per AKS](rego-for-aks.md) è in anteprima limitata e supporta solo le definizioni dei criteri predefiniteAzure Policy for AKS is in Limited Preview and only supports built-in policy definitions
 
 ### <a name="enforceregopolicy-evaluation"></a>Valutazione di EnforceRegoPolicyEnforceRegoPolicy evaluation
 

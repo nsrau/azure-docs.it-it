@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/02/2019
-ms.openlocfilehash: e98ff7fd914bb86cae256bb1bf6c19086758d463
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 65e51258b3a24b14b5171968645e88420e92dd5a
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371552"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421065"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copiare dati da una tabella SAP usando Azure Data FactoryCopy data from an SAP table by using Azure Data Factory
 
@@ -230,7 +230,7 @@ Per copiare dati da una tabella SAP, sono supportate le proprietà seguenti:To c
 <br/>
 >Prendendo `partitionOption` `partitionOnInt` come esempio, il numero di righe in ogni partizione viene `partitionUpperBound` calcolato `partitionLowerBound`con`maxPartitionsNumber`questa formula: (righe totali che rientrano tra e )/ .<br/>
 <br/>
->Per caricare le partizioni di dati in parallelo per [`parallelCopies`](copy-activity-performance.md#parallel-copy) velocizzare la copia, il grado parallelo è controllato dall'impostazione dell'attività di copia. Ad esempio, se `parallelCopies` si imposta su quattro, Data Factory genera ed esegue contemporaneamente quattro query in base all'opzione e alle impostazioni di partizione specificate e ogni query recupera una parte di dati dalla tabella SAP. È consigliabile `maxPartitionsNumber` creare un multiplo `parallelCopies` del valore della proprietà. Quando si copiano dati nell'archivio dati basato su file, è anche necessario scrivere in una cartella come più file (specificare solo il nome della cartella), nel qual caso le prestazioni sono migliori rispetto alla scrittura in un singolo file.
+>Per caricare le partizioni di dati in parallelo per [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) velocizzare la copia, il grado parallelo è controllato dall'impostazione dell'attività di copia. Ad esempio, se `parallelCopies` si imposta su quattro, Data Factory genera ed esegue contemporaneamente quattro query in base all'opzione e alle impostazioni di partizione specificate e ogni query recupera una parte di dati dalla tabella SAP. È consigliabile `maxPartitionsNumber` creare un multiplo `parallelCopies` del valore della proprietà. Quando si copiano dati nell'archivio dati basato su file, è anche necessario scrivere in una cartella come più file (specificare solo il nome della cartella), nel qual caso le prestazioni sono migliori rispetto alla scrittura in un singolo file.
 
 In `rfcTableOptions`, è possibile utilizzare i seguenti operatori di query SAP comuni per filtrare le righe:
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: jingwang
-ms.openlocfilehash: 39885782b55dca9c73f10990269d912f9b5727fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: edb80c604951a140d21e3775eec3f1dc6d55af73
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257972"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421404"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data FactoryCopy activity in Azure Data Factory
 
@@ -134,10 +134,10 @@ Il modello seguente di un'attività Copy contiene un elenco completo delle propr
 | source | Specificare il tipo di origine di copia e le proprietà corrispondenti per il recupero dei dati.<br/>Per ulteriori informazioni, vedere la sezione "Proprietà dell'attività di copia" nell'articolo sul connettore elencato in [Formati e archivi dati supportati](#supported-data-stores-and-formats). | Sì |
 | sink | Specificare il tipo di sink di copia e le proprietà corrispondenti per la scrittura dei dati.<br/>Per ulteriori informazioni, vedere la sezione "Proprietà dell'attività di copia" nell'articolo sul connettore elencato in [Formati e archivi dati supportati](#supported-data-stores-and-formats). | Sì |
 | translator | Specificare il mapping esplicito di colonne da origine a sink. Questa proprietà si applica quando il comportamento di copia predefinito non soddisfa le proprie esigenze.<br/>Per ulteriori informazioni, vedere [Mapping dello schema nell'attività](copy-activity-schema-and-type-mapping.md)di copia . | No |
-| dataIntegrationUnits | Specificare una misura che rappresenta la quantità di potenza usata dal runtime di [integrazione](concepts-integration-runtime.md) di Azure per la copia dei dati. Queste unità erano precedentemente note come unità di spostamento dei dati cloud (DMU). <br/>Per ulteriori informazioni, vedere Unità di [integrazione dati](copy-activity-performance.md#data-integration-units). | No |
-| parallelCopies | Specificare il parallelismo che si desidera venga utilizzato dall'attività Copy durante la lettura dei dati dall'origine e la scrittura dei dati nel sink.<br/>Per ulteriori informazioni, vedere [Copia parallela](copy-activity-performance.md#parallel-copy). | No |
+| dataIntegrationUnits | Specificare una misura che rappresenta la quantità di potenza usata dal runtime di [integrazione](concepts-integration-runtime.md) di Azure per la copia dei dati. Queste unità erano precedentemente note come unità di spostamento dei dati cloud (DMU). <br/>Per ulteriori informazioni, vedere Unità di [integrazione dati](copy-activity-performance-features.md#data-integration-units). | No |
+| parallelCopies | Specificare il parallelismo che si desidera venga utilizzato dall'attività Copy durante la lettura dei dati dall'origine e la scrittura dei dati nel sink.<br/>Per ulteriori informazioni, vedere [Copia parallela](copy-activity-performance-features.md#parallel-copy). | No |
 | preserve | Specificare se conservare i metadati/ACL durante la copia dei dati. <br/>Per ulteriori informazioni, consultate [Mantenere i metadati.](copy-activity-preserve-metadata.md) |No |
-| enableStaging<br/>stagingSettings | Specificare se eseguire temporaneamente i dati intermedi nell'archivio BLOB anziché copiare direttamente i dati dall'origine al sink.<br/>Per informazioni su scenari utili e dettagli di configurazione, consultate [Copia in fasi.](copy-activity-performance.md#staged-copy) | No |
+| enableStaging<br/>stagingSettings | Specificare se eseguire temporaneamente i dati intermedi nell'archivio BLOB anziché copiare direttamente i dati dall'origine al sink.<br/>Per informazioni su scenari utili e dettagli di configurazione, consultate [Copia in fasi.](copy-activity-performance-features.md#staged-copy) | No |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Scegliere come gestire le righe incompatibili quando si copiano i dati dall'origine al sink.<br/>Per ulteriori informazioni, consultate [Tolleranza di errore.](copy-activity-fault-tolerance.md) | No |
 
 ## <a name="monitoring"></a>Monitoraggio

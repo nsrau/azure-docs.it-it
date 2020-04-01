@@ -1,22 +1,22 @@
 ---
 title: Configurare l'autenticazione di Microsoft
-description: Informazioni su come configurare l'autenticazione dell'account Microsoft come provider di identità per l'app del servizio app.
+description: Informazioni su come configurare l'autenticazione dell'account Microsoft come provider di identità per il servizio app o l'app Funzioni di Azure.Learn how to configure Microsoft Account authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.topic: article
 ms.date: 08/08/2019
-ms.custom: seodec18
-ms.openlocfilehash: 95c603d4a10eb0e4d0817e20755c0f9b36baa96f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: ea745aa00f8990a2d1232a19780fdc70e2f78996
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76842334"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437958"
 ---
-# <a name="configure-your-app-service-app-to-use-microsoft-account-login"></a>Configurare l'app del servizio app per l'uso dell'account MicrosoftConfigure your App Service app to use Microsoft Account login
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-microsoft-account-login"></a>Configurare il servizio app o l'app Funzioni di Azure per usare l'account di accesso MicrosoftConfigure your App Service or Azure Functions app to use Microsoft Account login
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Questo argomento illustra come configurare il servizio app di Azure per usare AAD per supportare gli account di accesso personali dell'account Microsoft.This topic shows you how to configure Azure App Service to use AAD to support personal Microsoft account logins.
+Questo argomento illustra come configurare il servizio app di Azure o funzioni di Azure per usare AAD per supportare gli account di accesso personali dell'account Microsoft.This topic shows you how to configure Azure App Service or Azure Functions to use AAD to support personal Microsoft account logins.
 
 > [!NOTE]
 > Sia gli account Microsoft personali che gli account dell'organizzazione utilizzano il provider di identità AAD. Al momento non è possibile configurare questo provider di identità per supportare entrambi i tipi di accesso.

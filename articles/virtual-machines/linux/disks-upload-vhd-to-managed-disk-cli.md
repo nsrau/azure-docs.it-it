@@ -1,37 +1,34 @@
 ---
-title: Caricare un disco rigido virtuale usando l'interfaccia della riga di comando di AzureUpload a VHD using the Azure CLI
+title: Caricare un disco rigido virtuale in Azure o copiare un disco tra aree - Interfaccia della riga di comando di AzureUpload a VHD to Azure or copy a disk across regions - Azure CLI
 description: Informazioni su come caricare un disco rigido virtuale in un disco gestito di Azure e copiare un disco gestito tra aree, usando l'interfaccia della riga di comando di Azure tramite il caricamento diretto.
 services: virtual-machines,storage
 author: roygara
 ms.author: rogarana
-ms.date: 03/13/2020
+ms.date: 03/27/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: d89a4279d425e4b12e92aae81edfd6c1514c3eef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6813206aebe67e4e6d2afd0d9c78d03f0c20c952
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062674"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420957"
 ---
-# <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Caricare un disco rigido virtuale in Azure usando l'interfaccia della riga di comando di AzureUpload a vhd to Azure using Azure CLI
+# <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Caricare un disco rigido virtuale in Azure o copiare un disco gestito in un'altra area - Interfaccia della riga di comando di AzureUpload a VHD to Azure or copy a managed disk to another region - Azure CLI
 
-Questo articolo illustra come caricare un disco rigido dal computer locale a un disco gestito di Azure.This article explains how to upload a vhd from your local machine to an Azure managed disk. In precedenza, era necessario seguire un processo più complesso che includeva la gestione temporanea dei dati in un account di archiviazione e la gestione di tale account di archiviazione. A questo punto, non è più necessario gestire un account di archiviazione o i dati della fase in esso contenuti per caricare un disco rigido virtuale. Si crea invece un disco gestito vuoto e vi si carica direttamente un disco rigido virtuale. Ciò semplifica il caricamento delle macchine virtuali locali in Azure e consente di caricare un disco rigido fino a 32 TiB direttamente in un disco gestito di grandi dimensioni.
-
-Se si fornisce una soluzione di backup per le macchine virtuali IaaS in Azure, è consigliabile usare il caricamento diretto per ripristinare i backup dei clienti nei dischi gestiti. Se si carica un disco rigido virtuale da un computer esterno ad Azure, le velocità dipenderanno dalla larghezza di banda locale. Se si usa una macchina virtuale di Azure, la larghezza di banda sarà la stessa degli HDD standard.
-
-Attualmente, il caricamento diretto è supportato per i dischi gestiti HDD standard, SSD standard e SSD premium. Non è ancora supportato per gli SSD ultra.
+[!INCLUDE [disks-upload-vhd-to-disk-intro](../../../includes/disks-upload-vhd-to-disk-intro.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Scaricare la versione più recente [di AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Installare l'interfaccia della riga di comando di Azure.](/cli/azure/install-azure-cli)
-- Un file vhd, memorizzato localmente
-- Se si intende caricare un disco rigido virtuale da locale: un disco rigido a dimensione fissa [preparato per Azure,](../windows/prepare-for-upload-vhd-image.md)archiviato in locale.
+- Se si intende caricare un disco rigido virtuale da locale: un disco rigido virtuale a dimensione fissa [preparato per Azure,](../windows/prepare-for-upload-vhd-image.md)archiviato in locale.
 - In alternativa, un disco gestito in Azure, se si intende eseguire un'azione di copia.
 
-## <a name="create-an-empty-managed-disk"></a>Creare un disco gestito vuotoCreate an empty managed disk
+## <a name="getting-started"></a>Introduzione
+
+Se si preferisce caricare dischi tramite una GUI, è possibile farlo usando Azure Storage Explorer.If you'd prefer to upload disks through a GUI, you can do so using Azure Storage Explorer. Per informazioni dettagliate, vedere: [Usare Azure Storage Explorer per gestire i dischi gestiti](disks-use-storage-explorer-managed-disks.md) di AzureFor details refer to: Use Azure Storage Explorer to manage Azure managed disks
 
 Per caricare il disco rigido virtuale in Azure, è necessario creare un disco gestito vuoto configurato per questo processo di caricamento. Prima di crearne uno, è necessario conoscere alcune informazioni aggiuntive su questi dischi.
 
@@ -40,24 +37,29 @@ Questo tipo di disco gestito ha due stati univoci:This kind of managed disk has 
 - ReadToUpload, che significa che il disco è pronto per ricevere un caricamento ma non è stata generata alcuna firma di [accesso sicuro.](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
 - ActiveUpload, il che significa che il disco è pronto per ricevere un caricamento e la sAS è stata generata.
 
-In uno di questi stati, il disco gestito verrà fatturato al [prezzo dell'HDD standard,](https://azure.microsoft.com/pricing/details/managed-disks/)indipendentemente dal tipo effettivo di disco. Ad esempio, un P10 verrà fatturato come Un S10. Questo valore sarà `revoke-access` vero fino a quando non verrà chiamato sul disco gestito, che è necessario per collegare il disco a una macchina virtuale.
+> [!NOTE]
+> In uno di questi stati, il disco gestito verrà fatturato al [prezzo dell'HDD standard,](https://azure.microsoft.com/pricing/details/managed-disks/)indipendentemente dal tipo effettivo di disco. Ad esempio, un P10 verrà fatturato come Un S10. Questo valore sarà `revoke-access` vero fino a quando non verrà chiamato sul disco gestito, che è necessario per collegare il disco a una macchina virtuale.
 
-Prima di poter creare un hdD standard vuoto per il caricamento, è necessario disporre della dimensione del file del disco rigido virtuale che si desidera caricare, in byte. Per ottenere questo, è `wc -c <yourFileName>.vhd` `ls -al <yourFileName>.vhd`possibile utilizzare uno o . Questo valore viene utilizzato quando si specifica il parametro **--upload-size-bytes.**
+## <a name="create-an-empty-managed-disk"></a>Creare un disco gestito vuotoCreate an empty managed disk
+
+Prima di poter creare un hdD standard vuoto per il caricamento, è necessario che la dimensione del file del disco rigido virtuale venga caricata in byte. Per ottenere questo, è `wc -c <yourFileName>.vhd` `ls -al <yourFileName>.vhd`possibile utilizzare uno o . Questo valore viene utilizzato quando si specifica il parametro **--upload-size-bytes.**
 
 Creare un disco rigido standard vuoto per il caricamento specificando sia il parametro **-–for-upload** che il parametro **--upload-size-bytes** in un cmdlet [disk create:](/cli/azure/disk#az-disk-create)
 
+Sostituire `<yourdiskname>` `<yourresourcegroupname>`, `<yourregion>` , con i valori di propria scelta. Il `--upload-size-bytes` parametro contiene `34359738880`un valore di esempio di , sostituirlo con un valore appropriato.
+
 ```azurecli
-az disk create -n mydiskname -g resourcegroupname -l westus2 --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
+az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
 ```
 
-Se si desidera caricare un SSD premium o un SSD standard, sostituire **standard_lrs** con **premium_LRS** o **standardssd_lrs**. Ultra SSD non è ancora supportato.
+Se si desidera caricare un SSD premium o un SSD standard, sostituire **standard_lrs** con **premium_LRS** o **standardssd_lrs**. Per il momento i dischi ultra non sono supportati.
 
-È stato creato un disco gestito vuoto configurato per il processo di caricamento. Per caricare un disco rigido virtuale sul disco, è necessaria una sAS scrivibile, in modo da potervi fare riferimento come destinazione per il caricamento.
+Dopo aver creato un disco gestito vuoto configurato per il processo di caricamento, è possibile caricarvi un disco rigido virtuale. Per caricare un disco rigido virtuale sul disco, è necessaria una coda di accesso utenti scrivibile, in modo da potervi fare riferimento come destinazione per il caricamento.
 
-Per generare una sAS scrivibile del disco gestito vuoto, utilizzare il comando seguente:
+Per generare una sAS scrivibile del `<yourdiskname>`disco `<yourresourcegroupname>`gestito vuoto, sostituire e , quindi utilizzare il comando seguente:
 
 ```azurecli
-az disk grant-access -n mydiskname -g resourcegroupname --access-level Write --duration-in-seconds 86400
+az disk grant-access -n <yourdiskname> -g <yourresourcegroupname> --access-level Write --duration-in-seconds 86400
 ```
 
 Esempio di valore restituito:Sample returned value:
@@ -68,7 +70,7 @@ Esempio di valore restituito:Sample returned value:
 }
 ```
 
-## <a name="upload-vhd"></a>Caricare vhd
+## <a name="upload-a-vhd"></a>Caricare il VHD
 
 Ora che si dispone di una sAS per il disco gestito vuoto, è possibile usarla per impostare il disco gestito come destinazione per il comando di caricamento.
 
@@ -82,8 +84,10 @@ AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
 
 Al termine del caricamento e non è più necessario scrivere altri dati sul disco, revocare la server di accesso sAS. La revoca della chiamata a chiamata accesso la chiamata a accesso locale modificherà lo stato del disco gestito e consentirà di collegare il disco a una macchina virtuale.
 
+Sostituire `<yourdiskname>` `<yourresourcegroupname>`e , quindi utilizzare il comando seguente per rendere utilizzabile il disco:
+
 ```azurecli
-az disk revoke-access -n mydiskname -g resourcegroupname
+az disk revoke-access -n <yourdiskname> -g <yourresourcegroupname>
 ```
 
 ## <a name="copy-a-managed-disk"></a>Copiare un disco gestito
@@ -121,5 +125,5 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver caricato correttamente un disco rigido virtuale su un disco gestito, è possibile collegare il disco come disco dati a una [macchina virtuale esistente](add-disk.md) o collegare il disco a una macchina virtuale come disco del sistema [operativo](upload-vhd.md#create-the-vm)per creare una nuova macchina virtuale. 
+Dopo aver caricato correttamente un disco rigido virtuale su un disco gestito, è possibile collegare il disco come [disco dati a](add-disk.md) una macchina virtuale esistente o collegare il disco a una macchina virtuale come disco del sistema [operativo](upload-vhd.md#create-the-vm)per creare una nuova macchina virtuale. 
 

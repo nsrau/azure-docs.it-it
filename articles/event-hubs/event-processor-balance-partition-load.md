@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2020
 ms.author: shvija
-ms.openlocfilehash: 1244fe64d0c23782fdae7a0f92415bada4bef55a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf90120157bf64bd62a3b5ec9d8a6b2c6260e024
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76907656"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398305"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Bilanciare il carico delle partizioni tra più istanze dell'applicazione
 Per ridimensionare l'applicazione di elaborazione degli eventi, è possibile eseguire più istanze dell'applicazione e fare in modo che equilibri il carico tra di loro. Nelle versioni precedenti, [EventProcessorHost](event-hubs-event-processor-host.md) consente di bilanciare il carico tra più istanze del programma e gli eventi di checkpoint durante la ricezione. Nelle versioni più recenti (5.0 in poi), **EventProcessorClient** (.NET e Java) o **EventHubConsumerClient** (Python e JavaScript) consente di eseguire la stessa operazione. Il modello di sviluppo viene semplificato utilizzando gli eventi. Si sottoscrive gli eventi che ti interessano registrando un gestore eventi.
 
-In questo articolo viene descritto uno scenario di esempio per l'utilizzo di più istanze per leggere gli eventi da un hub eventi e quindi fornire informazioni dettagliate sulle funzionalità del client del processore di eventi, che consente di ricevere eventi da più partizioni contemporaneamente e il bilanciamento del carico con altri consumer che utilizzano lo stesso hub eventi e lo stesso gruppo di consumer.
+In questo articolo viene descritto uno scenario di esempio per l'utilizzo di più istanze per leggere eventi da un hub eventi e quindi vengono fornite informazioni dettagliate sulle funzionalità del client del processore di eventi, che consente di ricevere eventi da più partizioni contemporaneamente e il bilanciamento del carico con altri consumer che utilizzano lo stesso hub eventi e lo stesso gruppo di consumer.
 
 > [!NOTE]
 > La chiave per ridurre il numero di istanze di Hub eventi è l'idea di consumer partizionato. A differenza dei criteri relativi ai [consumer concorrenti](https://msdn.microsoft.com/library/dn568101.aspx), il modello consumer partizionato consente un'elevata scalabilità rimuovendo il collo di bottiglia dovuto alla contesa e agevolare il parallelismo end to end.
@@ -83,6 +83,13 @@ Se un processore di eventi si disconnette da una partizione, un'altra istanza pu
 
 Quando il checkpoint viene eseguito per contrassegnare un evento come elaborato, una voce nell'archivio checkpoint viene aggiunta o aggiornata con l'offset e il numero di sequenza dell'evento. Gli utenti devono decidere la frequenza di aggiornamento del checkpoint. L'aggiornamento dopo ogni evento elaborato correttamente può avere implicazioni in termini di prestazioni e costi in quanto attiva un'operazione di scrittura nell'archivio checkpoint sottostante. Inoltre, il checkpoint di ogni singolo evento è indicativo di un modello di messaggistica in coda per il quale una coda del bus di servizio potrebbe essere un'opzione migliore rispetto a un hub eventi. L'idea alla base di Hub eventi è di ottenere "almeno un" recapito su larga scala. Per rendere idempotenti i sistemi a valle, è facile eseguire il ripristino a seguito di errori o il riavvio del risultato negli stessi eventi ricevuti più volte.
 
+> [!NOTE]
+> Se si usa Archiviazione BLOB di Azure come archivio di checkpoint in un ambiente che supporta una versione diversa di Storage Blob SDK rispetto a quelle in genere disponibili in Azure, è necessario usare il codice per modificare la versione dell'API del servizio di archiviazione alla versione specifica supportata da tale ambiente. Ad esempio, se si eseguono hub eventi in una versione 2002 di Hub di Azure Stack, la versione più alta disponibile per il servizio di archiviazione è la versione 2017-11-09.For example, if you are running [Event Hubs on an Azure Stack Hub version 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), the highest available version for the Storage service is version 2017-11-09. In questo caso, è necessario usare il codice per la versione dell'API del servizio di archiviazione a 2017-11-09.In this case, you need to use code to target the Storage service API version to 2017-11-09. Per un esempio su come scegliere come destinazione una versione dell'API di archiviazione specifica, vedere questi esempi in GitHub:For an example on how to target a specific Storage API version, see these samples on GitHub: 
+> - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
+> - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithOlderStorageVersion.java)
+> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.js) o [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.ts)
+> - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/event_processor_blob_storage_example_with_storage_api_version.py)
+
 ## <a name="thread-safety-and-processor-instances"></a>Istanze di elaborazione e sicurezza del thread
 
 Per impostazione predefinita, il processore di eventi o il consumer è thread-safe e si comporta in modo sincrono. Quando arrivano eventi per una partizione, viene chiamata la funzione che elabora gli eventi. I messaggi e le chiamate successivi a questa funzione vengono accodati dietro le quinte mentre il message pump continua a essere eseguito in background su altri thread. Questa sicurezza per i thread elimina la necessità di raccolte thread-safe e un aumenta significativamente le prestazioni.
@@ -93,4 +100,4 @@ Vedere le seguenti guide introduttive:
 - [.NET Core](get-started-dotnet-standard-send-v2.md)
 - [Java](event-hubs-java-get-started-send.md)
 - [Python](get-started-python-send-v2.md)
-- [Javascript](get-started-node-send-v2.md)
+- [JavaScript](get-started-node-send-v2.md)

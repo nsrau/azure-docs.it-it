@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/18/2019
-ms.openlocfilehash: 66ea8a93723c117a364a188ec05b050e1ef60564
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a31c6cf32222277e033aacf7d04622c54aef9ea
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76548085"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437008"
 ---
 # <a name="migrate-apache-kafka-workloads-to-azure-hdinsight-40"></a>Eseguire la migrazione dei carichi di lavoro di Apache Kafka ad Azure HDInsight 4.0Migrate Apache Kafka workloads to Azure HDInsight 4.0
 
@@ -68,7 +68,7 @@ Le linee guida per la migrazione seguenti presuppongono un cluster Apache Kafka 
 
 Per completare la migrazione, procedere come segue:
 
-1. **Distribuire un nuovo cluster HDInsight 4.0 e i client per il test.** Distribuire un nuovo cluster HDInsight 4.0 Kafka.Deploy a new HDInsight 4.0 Kafka cluster. Se è possibile selezionare più versioni del cluster Kafka, è consigliabile selezionare la versione più recente. Dopo la distribuzione, impostare alcuni parametri in base alle esigenze e creare un argomento con lo stesso nome dell'ambiente esistente. Inoltre, impostare SSL e la crittografia BYOK (Bring Your Own Key) in base alle esigenze. Verificare quindi se funziona correttamente con il nuovo cluster.
+1. **Distribuire un nuovo cluster HDInsight 4.0 e i client per il test.** Distribuire un nuovo cluster HDInsight 4.0 Kafka.Deploy a new HDInsight 4.0 Kafka cluster. Se è possibile selezionare più versioni del cluster Kafka, è consigliabile selezionare la versione più recente. Dopo la distribuzione, impostare alcuni parametri in base alle esigenze e creare un argomento con lo stesso nome dell'ambiente esistente. Inoltre, impostare la crittografia TLS e bring-your-own-key (BYOK) in base alle esigenze. Verificare quindi se funziona correttamente con il nuovo cluster.
 
     ![Distribuire nuovi cluster HDInsight 4.0Deploy new HDInsight 4.0 clusters](./media/upgrade-threesix-to-four/deploy-new-hdinsight-clusters.png)
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: 3cd330e9c4ceba2feeb7a74cafe9f094fd03d690
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ef7e5d869ab2d7e085cbf861bfc32e57b1fad4b
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79249165"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408497"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Che cosa viene monitorato da Monitoraggio di Azure?
 Questo articolo descrive le diverse applicazioni e servizi monitorati da Monitoraggio di Azure.This article describes the different applications and services that are monitored by Azure Monitor. 
@@ -143,7 +143,7 @@ The following table lists Azure services and the data they collect into Azure Mo
 |Resource Graph | No | No | No |  |
 |Gestione risorse | No | No | No |  |
 |Ricerca al dettaglio – di Bing | No | No | No |  |
-|Ricerca | Sì | Sì | No |  |
+|Cerca | Sì | Sì | No |  |
 |Bus di servizio | Sì | Sì | No |  |
 |Service Fabric | No | Sì | No | Agente necessario per monitorare il sistema operativo guest e i flussi di lavoro.  |
 |Portale di iscrizione | No | No | No |  |
@@ -177,7 +177,7 @@ The services and solutions in the following table store their data in a Log Anal
 | [Automazione di AzureAzure Automation](/azure/automation/) | Gestire gli aggiornamenti del sistema operativo e tenere traccia delle modifiche nei computer Windows e Linux. Vedere [Rilevamento modifiche](../automation/change-tracking.md) e [gestione degli aggiornamenti](../automation/automation-update-management.md). |
 | [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/) | Classificare e facoltativamente proteggere documenti e messaggi di posta elettronica. Vedere [Creazione di report centralizzati per Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
 | [Centro sicurezza di AzureAzure Security Center](/azure/security-center/) | Raccogliere e analizzare gli eventi di sicurezza ed eseguire l'analisi delle minacce. Vedere Raccolta dei dati nel Centro sicurezza di [AzureSee Data collection in Azure Security Center](/azure/security-center/security-center-enable-data-collection) |
-| [Sentinella di Azure](/azure/sentinel/) | Si connette a diverse fonti, tra cui Office 365 e Amazon Web Services Cloud Trail. Consultate [Connettere origini dati.](/azure/sentinel/connect-data-sources) |
+| [Azure Sentinel](/azure/sentinel/) | Si connette a diverse fonti, tra cui Office 365 e Amazon Web Services Cloud Trail. Consultate [Connettere origini dati.](/azure/sentinel/connect-data-sources) |
 | [Analisi dell'insieme di credenziali delle chiavi](insights/azure-key-vault.md) | Analizzare i log AuditEvent dell'insieme di credenziali delle chiavi di Azure.Analyze Azure Key Vault AuditEvent logs. |
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | Creare un'impostazione di diagnostica per inviare log a Monitoraggio di Azure.Create a diagnostic setting to send logs to Azure Monitor. Vedere [Inviare dati di log a archivi, hub eventi o analisi dei log in Intune (anteprima).](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor)  |
 | Rete  | [Monitoraggio prestazioni rete:](insights/network-performance-monitor.md) consente di monitorare la connettività di rete e le prestazioni per gli endpoint di servizio e applicazione.Network Performance Monitor - Monitor network connectivity and performance to service and application endpoints.<br>[Gateway applicazione di Azure:](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) analizza i log e le metriche dal gateway applicazione di Azure.Azure Application Gateway - Analyze logs and metrics from Azure Application Gateway.<br>[Analisi del traffico:](/azure/network-watcher/traffic-analytics) analizza i log del gruppo di sicurezza di rete (NSG) di Network Watcher per fornire informazioni dettagliate sul flusso del traffico nel cloud di Azure.Traffic Analytics - Analyzes Network Watcher network security group (NSG) flow logs to provide insights into traffic flow in your Azure cloud. |
@@ -187,7 +187,7 @@ The services and solutions in the following table store their data in a Log Anal
 | [System Center Operations Manager](https://docs.microsoft.com/system-center/scom) | Raccogliere dati dagli agenti di Operations Manager connettendo il gruppo di gestione ad Monitoraggio di Azure.Collect data from Operations Manager agents by connecting their management group to Azure Monitor. Vedere [Connettere Operations Manager ad Monitoraggio di AzureSee Connect Operations Manager to Azure Monitor](platform/om-agents.md)<br> Valutare il rischio e l'integrità del gruppo di gestione di System Center Operations Manager con la soluzione [di valutazione di Operations Manager.](insights/scom-assessment.md) |
 | [Sale Microsoft Teams](https://docs.microsoft.com/microsoftteams/room-systems/azure-monitor-deploy) | Gestione integrata end-to-end dei dispositivi Microsoft Teams Rooms. |
 | [Visual Studio App Center](https://docs.microsoft.com/appcenter/) | Compilare, testare e distribuire le applicazioni e quindi monitorarne lo stato e l'utilizzo. Vedere [Iniziare ad analizzare l'app per dispositivi mobili con App Center e Application Insights.](learn/mobile-center-quickstart.md) |
-| WINDOWS | [Conformità di Windows Update](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started) - Valutare gli aggiornamenti desktop di Windows.<br>[Analisi desktop:](https://docs.microsoft.com/configmgr/desktop-analytics/overview) si integra con Configuration Manager per fornire informazioni dettagliate e informazioni per prendere decisioni più informate sulla preparazione degli aggiornamenti dei client Windows. |
+| Windows | [Conformità di Windows Update](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started) - Valutare gli aggiornamenti desktop di Windows.<br>[Analisi desktop:](https://docs.microsoft.com/configmgr/desktop-analytics/overview) si integra con Configuration Manager per fornire informazioni dettagliate e informazioni per prendere decisioni più informate sulla preparazione degli aggiornamenti dei client Windows. |
 
 
 
@@ -198,7 +198,7 @@ Sono disponibili altre soluzioni per il monitoraggio di applicazioni e servizi d
 |:---|:---|
 | [Controllo di integrità di Active Directory](insights/ad-assessment.md) | Valutare il rischio e l'integrità degli ambienti Active Directory. |
 | [Stato della replica di Active Directory](insights/ad-replication-status.md) | Monitora regolarmente l'ambiente Active Directory per eventuali errori di replica. |
-| [Analisi del log attività](platform/activity-log-view.md#activity-logs-analytics-monitoring-solution) | Analizzare le voci del log attività utilizzando query e viste di log predefinite. |
+| [Analisi del log attività](platform/activity-log-view.md#azure-portal) | Visualizzare le voci del log attività. |
 | [Analisi DNS (anteprima)D ANALYTICS (preview)](insights/dns-analytics.md) | Raccoglie, analizza e correla i log analitici e di controllo di Windows DNS e altri dati correlati dai server DNS. |
 | [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | Raccogliere, visualizzare e analizzare le metriche di integrità e prestazioni del sistema Cloud Foundry in più distribuzioni. |
 | [Contenitori](insights/containers.md) | Visualizzare e gestire gli host contenitore Docker e Windows. |

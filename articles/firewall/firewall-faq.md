@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 60beccc2f2679a18903b74b84f48afebfb3b69da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 45276884d59ac8d1d876e2225ac02bb51c3f74fc
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257752"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437717"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
@@ -209,3 +209,7 @@ $fw.ThreatIntelWhitelist.IpAddress = @("ip1", "ip2", …)
 
 Set-AzFirewall -AzureFirewall $fw
 ```
+
+## <a name="why-can-a-tcp-ping-and-similar-tools-successfully-connect-to-a-target-fqdn-even-when-no-rule-on-azure-firewall-allows-that-traffic"></a>Perché un ping TCP e strumenti simili possono connettersi correttamente a un FQDN di destinazione anche quando nessuna regola in Firewall di Azure consente tale traffico?
+
+Un ping TCP non si connette effettivamente al nome di dominio completo di destinazione. Ciò si verifica perché il proxy trasparente di Firewall di Azure è in ascolto sulla porta 80/443 per il traffico in uscita. Il ping TCP stabilisce una connessione con il firewall, che quindi elimina il pacchetto e registra la connessione. Questo comportamento non ha alcun impatto sulla sicurezza. Tuttavia, per evitare confusione stiamo studiando potenziali modifiche a questo comportamento. 

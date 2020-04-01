@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: 963b86852a7df557ad7179e444e7c3a2692f57d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a14f4d548053fb7aaf6f450176fdc49bc7b119bf
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531453"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421045"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Risolvere i problemi relativi alle prestazioni dell'attività di copiaTroubleshoot copy activity
 
@@ -88,7 +88,7 @@ Quando le prestazioni dell'attività di copia non soddisfano le aspettative, per
 
   - Controllare l'origine della copia e il modello di sink:Check your copy source and sink pattern: 
 
-    - Se il modello di copia supporta più grandi di 4 unità di integrazione dei dati (DIUs), fare riferimento a [questa sezione](copy-activity-performance.md#data-integration-units) sui dettagli, in genere è possibile provare ad aumentare le diM per ottenere prestazioni migliori. 
+    - Se il modello di copia supporta più grandi di 4 unità di integrazione dei dati (DIUs), fare riferimento a [questa sezione](copy-activity-performance-features.md#data-integration-units) sui dettagli, in genere è possibile provare ad aumentare le diM per ottenere prestazioni migliori. 
 
     - In caso contrario, è consigliabile suddividere singoli set di dati di grandi dimensioni in diversi set di dati più piccoli e consentire a tali processi di copia eseguiti contemporaneamente ognuno dei quali gestisce parti di dati. È possibile eseguire questa operazione con Lookup/GetMetadata , ForEach e Copy. Fare riferimento a [Copia file da più contenitori](solution-template-copy-files-multiple-containers.md), Eseguire la migrazione dei dati da Amazon [S3 ad ADLS Gen2](solution-template-migration-s3-azure.md)o [Copia in blocco con modelli](solution-template-bulk-copy-with-control-table.md) di soluzione tabella di controllo come esempio generale.
 
@@ -102,7 +102,7 @@ Quando le prestazioni dell'attività di copia non soddisfano le aspettative, per
 
   - Controllare l'origine della copia e il modello di sink:Check your copy source and sink pattern: 
 
-    - Se il modello di copia supporta più grandi di 4 unità di integrazione dei dati (DIUs), fare riferimento a [questa sezione](copy-activity-performance.md#data-integration-units) sui dettagli, in genere è possibile provare ad aumentare le diM per ottenere prestazioni migliori. 
+    - Se il modello di copia supporta più grandi di 4 unità di integrazione dei dati (DIUs), fare riferimento a [questa sezione](copy-activity-performance-features.md#data-integration-units) sui dettagli, in genere è possibile provare ad aumentare le diM per ottenere prestazioni migliori. 
 
     - In caso contrario, sintonizzare gradualmente [le copie parallele,](copy-activity-performance-features.md)si noti che troppe copie parallele possono persino danneggiare le prestazioni.
 

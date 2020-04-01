@@ -1,22 +1,22 @@
 ---
 title: Configurare l'autenticazione di Twitter
-description: Informazioni su come configurare l'autenticazione di Twitter come provider di identità per l'app del servizio app.
+description: Informazioni su come configurare l'autenticazione di Twitter come provider di identità per il servizio app o l'app Funzioni di Azure.Learn how to configure Twitter authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73
 ms.topic: article
 ms.date: 02/28/2020
-ms.custom: seodec18
-ms.openlocfilehash: 794f671b36b5aeb9f19cf5d80e488500cedb1098
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 3f85f30e0a64b6e39b905fc05503a445aa5876ba
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78207141"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80438005"
 ---
-# <a name="configure-your-app-service-app-to-use-twitter-login"></a>Configurare l'app del servizio app per l'uso dell'accesso a TwitterConfigure your App Service app to use Twitter login
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-twitter-login"></a>Configurare il servizio app o l'app Funzioni di Azure per usare l'account di accesso di TwitterConfigure your App Service or Azure Functions app to use Twitter login
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Questo articolo illustra come configurare il servizio app di Azure per usare Twitter come provider di autenticazione.
+Questo articolo illustra come configurare il servizio app di Azure o funzioni di Azure per usare Twitter come provider di autenticazione.
 
 Per completare la procedura descritta in questo articolo, è necessario un account Twitter con un indirizzo di posta elettronica e un numero di telefono verificati. Per creare un nuovo account Twitter, visitare il sito Web all'indirizzo [twitter.com].
 

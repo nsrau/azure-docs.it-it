@@ -6,13 +6,13 @@ ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/27/2020
-ms.openlocfilehash: a8b382663b56d7481da876979e33194fb0ac533d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: e69f3d7350d0da9f364983eae0935532b576bd76
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77925800"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411466"
 ---
 # <a name="onboard-update-management-solution-using-azure-resource-manager-template"></a>Soluzione di gestione degli aggiornamenti in connessione usando il modello di Azure Resource ManagerOnboard Update Management solution using Azure Resource Manager template
 
@@ -25,7 +25,7 @@ ms.locfileid: "77925800"
 
 The template does not automate the onboarding of one or more Azure or non-Azure VMs.
 
-Se si dispone già di un'area di lavoro di Log Analytics e di un account di automazione distribuiti in un'area supportata nella sottoscrizione, non sono collegati e l'area di lavoro non dispone già della soluzione di gestione degli aggiornamenti distribuita, l'utilizzo di questo modello crea correttamente collegamento e distribuisce la soluzione di gestione degli aggiornamenti. 
+Se si dispone già di un'area di lavoro di Log Analytics e di un account di automazione distribuiti in un'area supportata nella sottoscrizione, non sono collegati e l'area di lavoro non dispone già della soluzione di gestione degli aggiornamenti distribuita, l'utilizzo di questo modello crea correttamente il collegamento e distribuisce la soluzione di gestione degli aggiornamenti. 
 
 ## <a name="api-versions"></a>Versioni dell'API
 
@@ -56,6 +56,7 @@ I parametri seguenti nel modello vengono impostati con un valore predefinito per
 
 * sku: il valore predefinito è il nuovo piano tariffario per GB rilasciato nel modello di prezzi di aprile 2018
 * conservazione dei dati - il valore predefinito è trenta giorni
+* prenotazione capacità - il valore predefinito è 100 GB
 
 >[!WARNING]
 >Se si crea o si configura un'area di lavoro Log Analytics in una sottoscrizione basata sul nuovo modello di prezzi di aprile 2018, l'unico piano tariffario di Log Analytics valido è **PerGB2018**.
@@ -79,7 +80,7 @@ I parametri seguenti nel modello vengono impostati con un valore predefinito per
                 "description": "Workspace name"
             }
         },
-        "pricingTier": {
+        "sku": {
             "type": "string",
             "allowedValues": [
                 "pergb2018",
@@ -168,7 +169,8 @@ I parametri seguenti nel modello vengono impostati con un valore predefinito per
             "apiVersion": "2017-03-15-preview",
             "location": "[parameters('location')]",
             "properties": {
-                "sku": { 
+                "sku": {
+                    "Name": "[parameters('sku')]",
                     "name": "CapacityReservation",
                     "capacityReservationLevel": 100
                 },
@@ -231,19 +233,19 @@ I parametri seguenti nel modello vengono impostati con un valore predefinito per
     }
     ```
 
-2. Modificare il modello in base alle esigenze.
+2. Modificare il modello in base alle esigenze. Valutare la possibilità di creare un file di parametri di [Resource Manager](../azure-resource-manager/templates/parameter-files.md) anziché passare parametri come valori inline.
 
 3. Salvare il file come deployUMSolutiontemplate.json in una cartella locale.
 
 4. A questo punto è possibile distribuire il modello. È possibile usare PowerShell o l'interfaccia della riga di comando di Azure.You can use either PowerShell or the Azure CLI. Quando viene richiesto un'area di lavoro e il nome dell'account di automazione, specificare un nome univoco a livello globale in tutte le sottoscrizioni di Azure.When you're prompted for a workspace and Automation account name, provide a globally unique across all Azure subscriptions.
 
-    **Powershell**
+    **PowerShell**
 
     ```powershell
     New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deployUMSolutiontemplate.json
     ```
 
-    **Interfaccia della riga di comando di AzureAzure**
+    **Interfaccia della riga di comando di Azure**
 
     ```cli
     az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json

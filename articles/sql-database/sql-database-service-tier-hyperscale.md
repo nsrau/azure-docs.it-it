@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: efb6cd1a45ac14dcbd5b2b6d8e70f5ee096ddbd8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a9917010b7301bf70c3bebf68c35d82f4839e0f
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255834"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409053"
 ---
 # <a name="hyperscale-service-tier"></a>Livello di servizio Hyperscale
 
@@ -96,7 +96,7 @@ I servers di pagina sono sistemi che rappresentano un motore di archiviazione co
 
 ### <a name="log-service"></a>Servizio di registrazione
 
-Il servizio di log accetta i record di log dalla replica di calcolo primaria, li rende persistenti in una cache durevole e inoltra i record di log al resto delle repliche di calcolo (in modo che possano aggiornare le cache) e i server di paging pertinenti, in modo che i dati possano essere aggiornati lì. In questo modo, tutte le modifiche ai dati dalla replica di calcolo primaria vengono propagate tramite il servizio di log a tutte le repliche di calcolo secondarie e i server di paging. Infine, i record di log vengono inviati all'archiviazione a lungo termine in Archiviazione di Azure, che è un archivio di archiviazione praticamente infinito. Questo meccanismo elimina la necessità di troncamento frequente del log. Il servizio di log dispone anche di cache locale per velocizzare l'accesso ai record di log.
+Il servizio di log accetta i record di log dalla replica di calcolo primaria, li rende persistenti in una cache durevole e inoltra i record di log al resto delle repliche di calcolo (in modo che possano aggiornare le cache) e i server di paging pertinenti, in modo che i dati possano essere aggiornati in tale server. In questo modo, tutte le modifiche ai dati dalla replica di calcolo primaria vengono propagate tramite il servizio di log a tutte le repliche di calcolo secondarie e i server di paging. Infine, i record di log vengono inviati all'archiviazione a lungo termine in Archiviazione di Azure, che è un archivio di archiviazione praticamente infinito. Questo meccanismo elimina la necessità di troncamento frequente del log. Il servizio di log dispone anche di cache locale per velocizzare l'accesso ai record di log.
 
 ### <a name="azure-storage"></a>Archiviazione di Azure
 
@@ -205,8 +205,7 @@ Queste sono le limitazioni correnti al livello di servizio Hyperscale a partire 
 | Problema | Descrizione |
 | :---- | :--------- |
 | Il riquadro Gestisci backup per un server logico non mostra i database Hyperscale verranno filtrati dal server SQL  | Hyperscale ha un metodo separato per la gestione dei backup e come tale le impostazioni di conservazione dei backup a lungo termine e conservazione dei backup temporizzazione non si applicano / vengono invalidate. Di conseguenza i database Hyperscale non compaiono nel riquadro Gestisci backup. |
-| Ripristino temporizzato | Dopo aver eseguito la migrazione di un database nel livello di servizio Hyperscale, il ripristino in un momento precedente alla migrazione non è supportato.|
-| Ripristino di DB non Hyperscale nell'hyperscale e viceversa | Non è possibile ripristinare un database Hyperscale in un database non Hyperscale, né è possibile ripristinare un database non Hyperscale in un database Hyperscale.|
+| Ripristino temporizzato | È possibile ripristinare un database Hyperscale in un database non Hyperscale, entro il periodo di conservazione del database non Hyperscale.You can restore a Hyperscale database into a non-Hyperscale database, within non-Hyperscale database retention period. Non è possibile ripristinare un database non Hyperscale in un database Hyperscale.|
 | Se un database contiene uno o più file di dati di dimensioni superiori a 1 TB, la migrazione non riesce | In alcuni casi, potrebbe essere possibile aggirare questo problema riducendo i file di grandi dimensioni a meno di 1 TB. Se durante il processo di migrazione viene eseguito la migrazione di un database, assicurarsi che nessun file superi 1 TB. Utilizzare la query seguente per determinare le dimensioni dei file di database. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | database SQL | Istanza gestita database SQL di Azure non è attualmente supportata con i database Hyperscale.Azure SQL Database Managed Instance is not currently supported with Hyperscale databases. |
 | Pool elastici |  I pool elastici non sono attualmente supportati con l'hyperscale del database SQL.|

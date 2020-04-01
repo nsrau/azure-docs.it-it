@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/13/2019
+ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e3a240901ffca2c126e2b61eaee0cf287cc31d6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 595762e6e8f22dddff30f1cff8c4bb79e89624b1
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127500"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473844"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Risolvere i problemi relativi al client Desktop remoto
 
@@ -21,21 +21,15 @@ In questo articolo vengono descritti i problemi comuni con il client Desktop rem
 
 ## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>Il client Desktop remoto per Windows 7 o Windows 10 si blocca o non può essere aperto
 
-Utilizzare i cmdlet di PowerShell seguenti per pulire i registri dei client fuori banda.
+A partire dalla versione 1.2.790, è possibile reimpostare i dati utente dalla pagina Informazioni su o utilizzando un comando.
 
-```PowerShell
-Remove-ItemProperty 'HKCU:\Software\Microsoft\Terminal Server Client\Default' - Name FeedURLs
+Utilizzare il comando seguente per rimuovere i dati utente, ripristinare le impostazioni predefinite e annullare la sottoscrizione a tutte le aree di lavoro.
 
-#Remove RdClientRadc registry key
-Remove-Item 'HKCU:\Software\Microsoft\RdClientRadc' -Recurse
-
-#Remove all files under %appdata%\RdClientRadc
-Remove-Item C:\Users\pavithir\AppData\Roaming\RdClientRadc\* -Recurse
+```cmd
+msrdcw.exe /reset [/f]
 ```
 
-Passare a **%AppData%RdClientRadc** ed eliminare tutto il contenuto.
-
-Disinstallare e reinstallare il client Desktop remoto per Windows 7 e Windows 10.
+Se si utilizza una versione precedente del client Desktop remoto, è consigliabile disinstallare e reinstallare il client.
 
 ## <a name="web-client-wont-open"></a>Il client Web non si apre
 

@@ -1,5 +1,5 @@
 ---
-title: Distribuire un'applicazione dual stack IPv6 con Basic Load Balancer nella rete virtuale di Azure - modello Resource Manager (anteprima)Deploy an IPv6 dual stack application with Basic Load Balancer in Azure virtual network - Resource Manger template (preview)
+title: Distribuire un'applicazione Dual Stack IPv6 con Basic Load Balancer nella rete virtuale di Azure - modello Resource ManagerDeploy an IPv6 dual stack application with Basic Load Balancer in Azure virtual network - Resource Manger template
 titlesuffix: Azure Virtual Network
 description: Questo articolo illustra come distribuire un'applicazione dual stack IPv6 nella rete virtuale di Azure usando i modelli di macchina virtuale di Azure Resource Manager.This article shows how to deploy an IPv6 dual stack application in Azure virtual network using Azure Resource Manager VM templates.
 services: virtual-network
@@ -10,18 +10,18 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 06/26/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: b397c874045a89f5992aeadacfbbd4434a486977
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c2f66d92597801aa7c6b0b32f86f594d3effb05
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70012828"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420607"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-with-basic-load-balancer-in-azure---template-preview"></a>Distribuire un'applicazione Dual Stack IPv6 con Basic Load Balancer in Azure - Modello (anteprima)Deploy an IPv6 dual stack application with Basic Load Balancer in Azure - Template (Preview)
+# <a name="deploy-an-ipv6-dual-stack-application-with-basic-load-balancer-in-azure---template"></a>Distribuire un'applicazione Dual Stack IPv6 con Basic Load Balancer in Azure - TemplateDeploy an IPv6 dual stack application with Basic Load Balancer in Azure - Template
 
-Questo articolo fornisce un elenco di attività di configurazione IPv6 con la parte del modello di macchina virtuale di Azure Resource Manager a cui si applica. Utilizzare il modello descritto in questo articolo per distribuire un'applicazione dual stack (IPv4 e IPv6) con Basic Load Balancer che include una rete virtuale dual stack con subnet IPv4 e IPv6, un servizio di bilanciamento del carico di base con configurazioni front-end dual (IPv4 e IPv6), macchine virtuali con Schede di rete con una configurazione IP doppia, un gruppo di sicurezza di rete e indirizzi IP pubblici.
+Questo articolo fornisce un elenco di attività di configurazione IPv6 con la parte del modello di macchina virtuale di Azure Resource Manager a cui si applica. Utilizzare il modello descritto in questo articolo per distribuire un'applicazione dual stack (IPv4 e IPv6) con Basic Load Balancer che include una rete virtuale dual stack con subnet IPv4 e IPv6, un servizio di bilanciamento del carico di base con configurazioni front-end dual (IPv4 e IPv6), macchine virtuali con schede di interfaccia di rete con una configurazione IP duale, un gruppo di sicurezza di rete e indirizzi IP pubblici.
 
 Per distribuire un'applicazione dual stack (IPV4 e IPv6) utilizzando Load Balancer Standard, vedere [Deploy an IPv6 dual stack application with Standard Load Balancer - Template](ipv6-configure-standard-load-balancer-template-json.md).
 

@@ -1,18 +1,21 @@
 ---
 title: Informazioni sul blocco delle risorse
 description: Informazioni sulle opzioni di blocco in Azure Blueprints per proteggere le risorse durante l'assegnazione di un blueprint.
-ms.date: 02/27/2020
+ms.date: 03/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: b810e8d4ddd263f9e651704d1bf9b785ce0202db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 86897ae6665f7a339b51aaae5f1c00144d8b7309
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78199700"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437742"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendere il blocco risorse di Azure Blueprint
 
 La creazione di ambienti coerenti su larga scala è davvero efficace solo se esiste un meccanismo che mantenga tale coerenza. Questo articolo spiega il funzionamento del blocco risorse di Azure Blueprint. Per un esempio di blocco delle risorse e applicazione di assegnazioni di _negazione,_ vedere l'esercitazione [sulla protezione delle nuove risorse.](../tutorials/protect-new-resources.md)
+
+> [!NOTE]
+> I blocchi delle risorse distribuiti dai blueprint di Azure vengono applicati solo alle risorse distribuite dall'assegnazione del blueprint. Le risorse esistenti, ad esempio quelle nei gruppi di risorse già esistenti, non dispongono di blocchi aggiunti.
 
 ## <a name="locking-modes-and-states"></a>Modalità di blocco e stati
 

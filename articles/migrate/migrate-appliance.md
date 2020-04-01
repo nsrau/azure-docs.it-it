@@ -1,16 +1,16 @@
 ---
-title: Appliance Azure Migrate
+title: Appliance di Azure Migrate
 description: Fornisce una panoramica dell'appliance di Azure Migrate usata nella valutazione e nella migrazione del server.
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.openlocfilehash: 1bb3372467919f1471fa9577cd60e9cecaf1750d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bccf4738d46b65f2d149eafc8e69591141d7d073
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336927"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437582"
 ---
-# <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
+# <a name="azure-migrate-appliance"></a>Appliance di Azure Migrate
 
 Questo articolo riepiloga i prerequisiti e i requisiti di supporto per l'appliance Azure Migrate.This article summarizes the prerequisites and support requirements for the Azure Migrate appliance. 
 
@@ -70,7 +70,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **Distribuzione supportata** | Eseguire la distribuzione come computer fisico dedicato o come macchina virtuale usando uno script di installazione di PowerShell.Deploy as a dedicated physical machine, or a VM, using a PowerShell installation script.
 **Sostegno al progetto** |  Un accessorio può essere associato a un singolo progetto. <br/> Un numero qualsiasi di appliance può essere associato a un singolo progetto.<br/> 
 **Limiti di individuazione** | Un apparecchio può scoprire fino a 250 server fisici.
-**Script di PowerShell** | Scaricare lo script (AzureMigrateInstaller.ps1) in una cartella compressa dal portale. [Scopri di più](tutorial-assess-physical.md#set-up-the-appliance). In alternativa, [scaricare direttamente](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> La dimensione del download è 59,7 MB.
+**Script di PowerShell** | Scaricare lo script (AzureMigrateInstaller.ps1) in una cartella compressa dal portale. [Altre informazioni](tutorial-assess-physical.md#set-up-the-appliance) In alternativa, [scaricare direttamente](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> La dimensione del download è 59,7 MB.
 **Software/hardware** |  L'appliance deve essere eseguita nel computer con Windows Server 2016, 32 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un commutatore virtuale esterno.<br/> L'appliance necessita di un indirizzo IP statico o dinamico e richiede l'accesso a Internet, direttamente o tramite un proxy.<br/><br/> Se si esegue l'appliance in un computer fisico, assicurarsi che esegua Windows Server 2016 e soddisfi i requisiti hardware. 
 **Valore hash** | [Verificare](deploy-appliance-script.md#verify-file-security) i valori dell'hash dello script di PowerShell.Verify the PowerShell script hash values.
 
@@ -79,14 +79,14 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 L'appliance di Azure Migrate richiede connettività a Internet.The Azure Migrate appliance needs connectivity to the internet.
 
 - Quando si distribuisce l'appliance, Azure Migrate esegue un controllo di connettività agli URL riepilogati nella tabella seguente.
-- Se si utilizza un proxy basato su URL per connettersi a Internet, consentire l'accesso a questi URL, assicurandosi che il proxy risolva tutti i record CNAME ricevuti durante la ricerca degli URL.
+- Se si utilizza un proxy basato su URL per connettersi a Internet, è necessario consentire l'accesso a questi URL, assicurandosi che il proxy risolva tutti i record CNAME ricevuti durante la ricerca degli URL.
 
-**Url** | **Dettagli**  
+**URL** | **Dettagli**  
 --- | --- |
 *.portal.azure.com  | Passare al portale di Azure.
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Accedere alla sottoscrizione di Azure.
-*.microsoftonline.com <br/> *.microsoftonline-p.com | Creare app di Active Directory per l'appliance per comunicare con Azure Migrate.Create Active Directory apps for the appliance to communicate with Azure Migrate.
-management.azure.com | Creare app di Active Directory per l'appliance per comunicare con il servizio Azure Migrate.Create Active Directory apps for the appliance to communicate with the Azure Migrate service.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Creare app di Azure Active Directory (AD) per l'appliance per comunicare con Azure Migrate.Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Migrate.
+management.azure.com | Creare app di Azure AD per l'appliance per comunicare con il servizio Azure Migrate.Create Azure AD apps for the appliance to communicate with the Azure Migrate service.
 dc.services.visualstudio.com | Caricare i log dell'app usati per il monitoraggio interno.
 *.vault.azure.net | Gestire i segreti nell'insieme di credenziali delle chiavi di Azure.Manage secrets in the Azure Key Vault.
 aka.ms/ ) | Consentire l'accesso ai collegamenti alias. Utilizzato per gli aggiornamenti dell'appliance di Azure Migrate.Used for Azure Migrate appliance updates.

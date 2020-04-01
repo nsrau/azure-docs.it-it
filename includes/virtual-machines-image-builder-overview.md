@@ -5,12 +5,12 @@ ms.date: 01/23/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 00fc3a01e6f42c2704af9dbc807dce193ff2971c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 658910dc4291375c7b2ab22e88c599b970b885af
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80117088"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80419276"
 ---
 Le immagini di macchine virtuali (VM) standardizzate consentono alle organizzazioni di eseguire la migrazione al cloud e garantire la coerenza nelle distribuzioni. Le immagini includono in genere impostazioni di sicurezza e configurazione predefinite e il software necessario. La configurazione della pipeline di creazione di immagini richiede tempo, infrastruttura e configurazione, ma con Azure VM Image Builder è sufficiente fornire una configurazione semplice che descriva l'immagine, la invii al servizio e l'immagine venga compilata e distribuita.
  
@@ -51,7 +51,7 @@ AIB supporterà le immagini del sistema operativo di base di Azure Marketplace:A
 - CentOS 7.6, 7.7
 - SLES 12 SP4
 - SLES 15, SLES 15 SP1
-- Windows 10 RS5 Enterprise/Professional/Enterprise per Desktop Virtuale (EVD) 
+- Windows 10 RS5 Enterprise/Enterprise multisessione/Professional
 - Windows 2016
 - Windows 2019 (informazioni in due)
 
@@ -78,7 +78,7 @@ Azure Image Builder è un servizio di Azure completamente gestito accessibile da
 
 ## <a name="permissions"></a>Autorizzazioni
 
-Per consentire a Generatore immagini VM di Azure di distribuire immagini alle immagini gestite o a una raccolta immagini condivise, è necessario fornire le autorizzazioni 'Collaboratore' per il servizio "Azure Virtual Machine Image Builder" (ID app: cf32a0cc-373c-47c9-9156-0db11f6a6dfc ) nei gruppi di risorse. 
+Per consentire a Generatore immagini VM di Azure di distribuire immagini alle immagini gestite o a una raccolta immagini condivise, è necessario fornire le autorizzazioni 'Collaboratore' per il servizio "Azure Virtual Machine Image Builder" (ID app: cf32a0cc-373c-47c9-9156-0db11f6a6dfc) nei gruppi di risorse. 
 
 Se si usa una versione di immagine o immagine personalizzata esistente, Azure Image Builder avrà bisogno di un accesso minimo a "Lettore" a tali gruppi di risorse.
 

@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 02/21/2020
+ms.date: 03/24/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 15901186194853aebf3b8222f271203161770380
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 208a7a677bdf0b76ffed83e679c6f1ff3041d50d
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561443"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239678"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Esercitazione: Distribuire e configurare Firewall di Azure in una rete ibrida con il portale di Azure
 
@@ -45,7 +45,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Se si vuole completare la procedura con Azure PowerShell, vedere [Distribuire e configurare Firewall di Azure in una rete ibrida con Azure PowerShell](tutorial-hybrid-ps.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Una rete ibrida usa il modello di architettura hub-spoke per instradare il traffico tra le reti virtuali di Azure e le reti locali. L'architettura hub-spoke presenta i requisiti seguenti:
 
@@ -54,7 +54,7 @@ Una rete ibrida usa il modello di architettura hub-spoke per instradare il traff
    Inoltre, le route alle reti virtuali connesse al gateway o alle reti locali si propagheranno automaticamente alle tabelle di routing per le reti virtuali con peering che usano il transito tramite gateway. Per altre informazioni, vedere [Configurare il transito tramite gateway VPN per il peering di reti virtuali](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
 
 - Impostare **UseRemoteGateways** quando si esegue il peering dello spoke di rete virtuale con l'hub di rete virtuale. Se è impostata l'opzione **UseRemoteGateways** ed è impostata anche l'opzione **AllowGatewayTransit** nel peering remoto, la rete virtuale spoke usa i gateway della rete virtuale remota per il transito.
-- Per instradare il traffico della subnet spoke attraverso il firewall dell'hub, è necessaria una route definita dall'utente che punti al firewall con l'opzione **Disabilita propagazione route BGP** impostata. L'opzione **Disabilita propagazione route BGP** impedisce la distribuzione delle route alle subnet spoke. Evita anche che le route apprese entrino in conflitto con la route definita dall'utente.
+- Per instradare il traffico della subnet spoke attraverso il firewall dell'hub, è necessaria una route definita dall'utente che punti al firewall con l'opzione **Propagazione route del gateway di rete virtuale** disabilitata. L'opzione **Propagazione route del gateway di rete virtuale** disabilitata impedisce la distribuzione delle route alle subnet spoke. Evita anche che le route apprese entrino in conflitto con la route definita dall'utente.
 - Configurare una route definita dall'utente nella subnet del gateway dell'hub che punti all'indirizzo IP del firewall come hop successivo per le reti spoke. Non è richiesta alcuna route definita dall'utente nella subnet di Firewall di Azure, dal momento che le route vengono apprese dal protocollo BGP.
 
 Vedere la sezione [Creare route](#create-the-routes) in questa esercitazione per vedere come vengono create le route.

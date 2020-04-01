@@ -8,22 +8,25 @@ ms.author: edprice
 manager: edprice
 editor: edprice
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 03/30/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: a5426c3cd7552b24739f9a20e01d5a4b42bd383c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b3fa5faccf17df17bc4f7cc2d8b023b868fdbe1
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68834563"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411185"
 ---
 # <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Installare Micro Focus Enterprise Server 4.0 ed Enterprise Developer 4.0 in Azure
 
 Questo articolo illustra come configurare [Micro Focus Enterprise Server 4.0](https://www.microfocus.com/documentation/enterprise-developer/es30/) e Micro Focus Enterprise Developer 4.0 in Azure.This article shows how to set up Micro Focus Enterprise Server 4.0 and Micro Focus Enterprise Developer [4.0](https://www.microfocus.com/documentation/enterprise-developer/ed_30/) on Azure.
 
 Un carico di lavoro comune in Azure è un ambiente di sviluppo e test. Questo scenario è comune perché è così conveniente e facile da distribuire e abbattere. Con Enterprise Server, Micro Focus ha creato una delle più grandi piattaforme di rehosting mainframe disponibili. È possibile eseguire carichi di lavoro z/OS su una piattaforma x86 meno costosa in Azure usando macchine virtuali (VM) Windows o Linux.You can run z/OS workloads on a less expensive x86 platform on Azure using either Windows or Linux virtual machines (VMs).
+
+> [!NOTE]
+> Prossimamente: istruzioni per la configurazione di [Micro Focus Enterprise Server 5.0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) nelle macchine virtuali di Azure.Coming soon: Instructions for setting up Micro Focus Enterprise Server 5.0 on Azure VMs.
 
 Questa configurazione usa le macchine virtuali di Azure che eseguono l'immagine di Windows Server 2016 da Azure Marketplace con Microsoft SQL Server 2017 già installato. Questa configurazione si applica anche ad Azure Stack.This setup also applies to Azure Stack.
 

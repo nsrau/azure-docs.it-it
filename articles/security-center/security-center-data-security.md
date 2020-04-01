@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
-ms.openlocfilehash: a25bbd0f14d38a70624dbc58755c0e814753a181
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 987cdd76ba533fa0ae4b37c2755fe84a00d14de5
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77604185"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435853"
 ---
 # <a name="azure-security-center-data-security"></a>Sicurezza dei dati nel Centro sicurezza di Azure
 Per consentire ai clienti di impedire, rilevare e rispondere alle minacce, il Centro sicurezza di Azure raccoglie ed elabora dati correlati alla sicurezza, tra cui informazioni di configurazione, metadati, log eventi, file di dump di arresto anomalo del sistema e altro. Microsoft è conforme alle più rigorose linee guida sulla sicurezza e sulla conformità in tutte le fasi, dalla codifica all'esecuzione di un servizio.
@@ -71,8 +71,8 @@ Gli elementi del computer vengono archiviati centralmente nella stessa area dell
 
 ## <a name="managing-data-collection-from-virtual-machines"></a>Gestione della raccolta dati da macchine virtuali
 
-Quando si abilita il Centro sicurezza in Azure, viene attivata la raccolta dati per ogni sottoscrizione di Azure. È anche possibile attivare la raccolta dati per le sottoscrizioni esistenti nella sezione Criteri di sicurezza del Centro sicurezza di Azure. Quando la raccolta dati è attivata, il Centro sicurezza di Azure effettua il provisioning di Microsoft Monitoring Agent in tutte le macchine virtuali di Azure supportate esistenti e in quelle nuove che vengono create.
-Microsoft Monitoring Agent esegue l'analisi delle varie configurazioni correlate alla sicurezza e ne genera gli eventi nelle tracce di [Event Tracing for Windows (ETW)](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx). Il sistema operativo genererà anche eventi del log eventi durante l'esecuzione del computer. Esempi di tali dati sono: tipo e versione del sistema operativo, log del sistema operativo (registri eventi di Windows), processi in esecuzione, nome computer, indirizzi IP, utente connesso e ID tenant. Microsoft Monitoring Agent legge le voci del log eventi ed ETW le traccia e le copia nelle aree di lavoro per l'analisi. Microsoft Monitoring Agent copia anche i file di dump di arresto anomalo del sistema nelle aree di lavoro e abilita gli eventi di creazione di processi e il controllo della riga di comando.
+Quando si abilita il Centro sicurezza in Azure, viene attivata la raccolta dati per ogni sottoscrizione di Azure. È anche possibile attivare la raccolta dati per le sottoscrizioni esistenti nella sezione Criteri di sicurezza del Centro sicurezza di Azure. Quando la raccolta dei dati è attivata, il Centro sicurezza di Azure esegue il provisioning dell'agente di Log Analytics in tutte le macchine virtuali di Azure supportate esistenti e in quelle nuove create.
+L'agente Log Analytics analizza varie configurazioni relative alla sicurezza ed eventi in tracce ETW [(Event Tracing for Windows).](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) Il sistema operativo genererà anche eventi del log eventi durante l'esecuzione del computer. Esempi di tali dati sono: tipo e versione del sistema operativo, log del sistema operativo (registri eventi di Windows), processi in esecuzione, nome computer, indirizzi IP, utente connesso e ID tenant. L'agente log Analytics legge le voci del registro eventi e le tracce ETW e le copia nelle aree di lavoro per l'analisi. L'agente di Log Analytics copia anche i file di dump di arresto anomalo del sistema nell'area di lavoro, abilita gli eventi di creazione del processo e abilita il controllo della riga di comando.
 
 Se si usa la versione gratuita del Centro sicurezza di Azure, è anche possibile disabilitare la raccolta dati dalle macchine virtuali nei criteri di sicurezza. La raccolta dati è richiesta per le sottoscrizioni a livello Standard. Gli snapshot dei dischi delle VM e la raccolta di elementi resteranno abilitati anche se la raccolta dati è stata disabilitata.
 

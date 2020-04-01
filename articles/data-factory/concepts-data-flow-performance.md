@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: 95a60abef283984d66736358d2d02048f08d700d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4baf7974bdb0a5efe4cb556e820e9d13aeac5d8a
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246994"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409849"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guida all'ottimizzazione e alle prestazioni dei flussi di dati di mapping
 
@@ -69,7 +69,7 @@ Per impostazione predefinita, l'attivazione del debug usa il runtime di integraz
 
 In **Opzioni di origine** nella trasformazione di origine, le impostazioni seguenti possono influire sulle prestazioni:
 
-* Dimensione batch indica ad ADF di archiviare i dati in set in memoria anziché riga per riga. Le dimensioni del batch sono un'impostazione facoltativa e le risorse potrebbero essere esaurite nei nodi di calcolo se non sono dimensionate correttamente.
+* Dimensione batch indica ad ADF di archiviare i dati in set nella memoria Spark anziché riga per riga. Le dimensioni del batch sono un'impostazione facoltativa e le risorse potrebbero essere esaurite nei nodi di calcolo se non sono dimensionate correttamente. Se non si imposta questa proprietà verranno utilizzate le impostazioni predefinite del batch di memorizzazione nella cache di Spark.
 * L'impostazione di una query consente di filtrare le righe nell'origine prima che arrivino in Flusso di dati per l'elaborazione. Questo può rendere più veloce l'acquisizione dei dati iniziali. Se si usa una query, è possibile aggiungere hint di query facoltativi per il database SQL di Azure, ad esempio READ UNCOMMITTED.
 * Read uncommitted fornirà risultati di query più rapidi nella trasformazione OrigineRead uncommitted will provide faster query results on Source transformation
 
@@ -77,7 +77,7 @@ In **Opzioni di origine** nella trasformazione di origine, le impostazioni segue
 
 ### <a name="sink-batch-size"></a>Dimensione batch sink
 
-Per evitare l'elaborazione riga per riga dei flussi di dati, impostare Dimensioni batch nella scheda Impostazioni per il database SQL di Azure e i sink di Azure SQL DW.To avoid row-by-row processing of your data flows, set **Batch size** in the Settings tab for Azure SQL DB and Azure SQL DW sinks. Se è impostata la dimensione del batch, ADF elabora le scritture del database in batch in base alle dimensioni fornite.
+Per evitare l'elaborazione riga per riga dei flussi di dati, impostare Dimensioni batch nella scheda Impostazioni per il database SQL di Azure e i sink di Azure SQL DW.To avoid row-by-row processing of your data flows, set **Batch size** in the Settings tab for Azure SQL DB and Azure SQL DW sinks. Se è impostata la dimensione del batch, ADF elabora le scritture del database in batch in base alle dimensioni fornite. Se non si imposta questa proprietà verranno utilizzate le impostazioni predefinite del batch di memorizzazione nella cache di Spark.
 
 ![Sink](media/data-flow/sink4.png "Sink")
 

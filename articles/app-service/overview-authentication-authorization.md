@@ -1,22 +1,22 @@
 ---
 title: Autenticazione e autorizzazione
-description: Scopri il supporto dell'autenticazione e dell'autorizzazione predefiniti nel servizio app di Azure e su come può proteggere l'app da accessi non autorizzati.
+description: Scopri il supporto dell'autenticazione e dell'autorizzazione predefiniti nel servizio app di Azure e in Funzioni di Azure e su come può proteggere l'app da accessi non autorizzati.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: mahender
-ms.custom: seodec18
-ms.openlocfilehash: 825d113bbe081ba6fb85da19ff6449824db92d10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: f16b10f13c945dd7f1ae4fdc3f4e02dcd7c5a018
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475392"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437949"
 ---
-# <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticazione e autorizzazione nel servizio app di Azure
+# <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticazione e autorizzazione nel servizio app di Azure e nelle funzioni di AzureAuthentication and authorization in Azure App Service and Azure Functions
 
 > [!NOTE]
-> Al momento, AAD V2 (incluso MSAL) non è supportato per i servizi app di Azure e funzioni di Azure.At this time, AAD V2 (including MSAL) is not supported for Azure App Services and Azure Functions. Si prega di controllare di nuovo per gli aggiornamenti.
+> Al momento, [Azure Active Directory v2.0](../active-directory/develop/v2-overview.md) (incluso [MSAL)](../active-directory/develop/msal-overview.md)non è supportato per il servizio app di Azure e funzioni di Azure.At this time, Azure Active Directory v2.0 (including MSAL ) is not supported for Azure App Service and Azure Functions. Si prega di controllare di nuovo per gli aggiornamenti.
 >
 
 Il Servizio app di Azure fornisce supporto integrato per l'autenticazione e l'autorizzazione ed è quindi possibile consentire l'accesso degli utenti e l'accesso ai dati senza scrivere codice, o con una minima quantità di codice, nell'app Web, nell'API RESTful, nel back-end per dispositivi mobili e anche in [Funzioni di Azure](../azure-functions/functions-overview.md). Questo articolo descrive in che modo il servizio app aiuta a semplificare l'autenticazione e l'autorizzazione per l'app.
@@ -24,7 +24,7 @@ Il Servizio app di Azure fornisce supporto integrato per l'autenticazione e l'au
 Per consentire processi sicuri di autenticazione e autorizzazione, è necessario conoscere a fondo i concetti correlati alla sicurezza, tra cui federazione, crittografia, gestione dei [token JSON Web (JWT)](https://wikipedia.org/wiki/JSON_Web_Token), [tipi di concessione](https://oauth.net/2/grant-types/) e così via. Il servizio app fornisce queste utilità che consentono agli sviluppatori di dedicare più tempo e lavoro alla creazione di valore aziendale per il cliente.
 
 > [!IMPORTANT]
-> Non è necessario usare il servizio app per AuthN/AuthO. È possibile utilizzare le funzionalità di sicurezza in bundle nel framework web di scelta, oppure è possibile scrivere le proprie utilità. Tuttavia, tieni presente che [Chrome 80 sta apportando modifiche di rilievo alla sua implementazione di SameSite per i cookie](https://www.chromestatus.com/feature/5088147346030592) (data di rilascio intorno a marzo 2020) e che l'autenticazione remota personalizzata o altri scenari che si basano sul post aree cookie tra siti potrebbero interrompersi quando i browser Chrome client vengono aggiornati. La soluzione è complessa perché deve supportare comportamenti SameSite diversi per browser diversi. 
+> Non è necessario utilizzare questa funzionalità per l'autenticazione e l'autorizzazione. È possibile utilizzare le funzionalità di sicurezza in bundle nel framework web di scelta, oppure è possibile scrivere le proprie utilità. Tuttavia, tieni presente che [Chrome 80 sta apportando modifiche di rilievo alla sua implementazione di SameSite per i cookie](https://www.chromestatus.com/feature/5088147346030592) (data di rilascio intorno a marzo 2020) e che l'autenticazione remota personalizzata o altri scenari che si basano sul post aree cookie tra siti potrebbero interrompersi quando i browser Chrome client vengono aggiornati. La soluzione è complessa perché deve supportare comportamenti SameSite diversi per browser diversi. 
 >
 > Il ASP.NET Core 2.1 e versioni precedenti ospitate dal servizio app sono già patch a questa modifica di rilievo e gestiscono i browser Chrome 80 e versioni precedenti in modo appropriato. Inoltre, la stessa patch per ASP.NET Framework 4.7.2 viene distribuita nelle istanze del servizio app per tutto il gennaio 2020. Per altre informazioni, incluso come sapere se l'app ha ricevuto la patch, vedere Aggiornamento dei [cookie SameSite](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/)del servizio app di Azure.
 >
@@ -46,11 +46,11 @@ Il modulo gestisce diversi aspetti dell'app:
 
 Il modulo viene eseguito separatamente dal codice dell'applicazione e viene configurato usando le impostazioni dell'app. Non sono necessari SDK, linguaggi specifici o modifiche al codice dell'applicazione. 
 
-### <a name="user-claims"></a>Attestazioni utente
+### <a name="userapplication-claims"></a>Attestazioni utente/applicazione
 
-Per tutti i framework di linguaggio, il servizio app rende disponibili le attestazioni utente nel codice inserendole nelle intestazioni delle richieste. Per le app ASP.NET 4.6, il servizio app popola [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) con le attestazioni dell'utente autenticato, quindi è possibile seguire il modello di codice .NET standard, incluso l'attributo `[Authorize]`. Analogamente, per le app PHP, il servizio app popola la variabile `_SERVER['REMOTE_USER']`. Per le app Java, le attestazioni sono [accessibili dal servlet Tomcat](containers/configure-language-java.md#authenticate-users-easy-auth).
+Per tutti i framework del linguaggio, il servizio app rende le attestazioni nel token in ingresso (che provengano da un utente finale autenticato o da un'applicazione client) disponibili per il codice inserendole nelle intestazioni delle richieste. Per le app ASP.NET 4.6, il servizio app popola [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) con le attestazioni dell'utente autenticato, quindi è possibile seguire il modello di codice .NET standard, incluso l'attributo `[Authorize]`. Analogamente, per le app PHP, il servizio app popola la variabile `_SERVER['REMOTE_USER']`. Per le app Java, le attestazioni sono [accessibili dal servlet Tomcat](containers/configure-language-java.md#authenticate-users-easy-auth).
 
-Per [Funzioni](../azure-functions/functions-overview.md) `ClaimsPrincipal.Current` di Azure , non è idratato per il codice .NET, ma è comunque possibile trovare le attestazioni utente nelle intestazioni di richiesta.
+Per [Funzioni](../azure-functions/functions-overview.md) `ClaimsPrincipal.Current` di Azure , non viene popolato per il codice .NET, ma `ClaimsPrincipal` è comunque possibile trovare le attestazioni utente nelle intestazioni di richiesta o ottenere l'oggetto dal contesto della richiesta o anche tramite un parametro di associazione. Per ulteriori informazioni, vedere [Utilizzo delle identità client.](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities)
 
 Per altre informazioni, vedere [Accedere alle attestazioni utente](app-service-authentication-how-to.md#access-user-claims).
 
@@ -63,13 +63,13 @@ Il servizio app fornisce un archivio di token predefinito, ovvero un repository 
 
 In genere è necessario scrivere codice per raccogliere, archiviare e aggiornare questi token nell'applicazione. Con l'archivio di token, è sufficiente [recuperare i token](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) quando sono necessari e [fare in modo che il servizio app li aggiorni](app-service-authentication-how-to.md#refresh-identity-provider-tokens) quando non sono più validi. 
 
-I token ID, i token di accesso e i token di aggiornamento vengono memorizzati nella cache per la sessione autenticata e sono accessibili solo da parte degli utenti associati.  
+I token id, i token di accesso e i token di aggiornamento vengono memorizzati nella cache per la sessione autenticata e sono accessibili solo dall'utente associato.  
 
 Se non è necessario usare i token nell'app, è possibile disabilitare l'archivio di token.
 
 ### <a name="logging-and-tracing"></a>Registrazione e traccia
 
-Se si [abilita la registrazione delle applicazioni](troubleshoot-diagnostic-logs.md), le tracce di autenticazione e autorizzazione possono essere visualizzate direttamente nei file di log. Se viene visualizzato un errore di autenticazione non previsto, è possibile trovarne facilmente tutti i dettagli esaminando i log dell'applicazione esistenti. Se si abilita la [traccia delle richieste non riuscite](troubleshoot-diagnostic-logs.md), è possibile vedere esattamente il ruolo che il modulo di autenticazione e autorizzazione ha avuto nella mancata riuscita della richiesta. Nei log di traccia cercare i riferimenti a un modulo denominato `EasyAuthModule_32/64`. 
+Se si [abilita la registrazione delle applicazioni](troubleshoot-diagnostic-logs.md), le tracce di autenticazione e autorizzazione possono essere visualizzate direttamente nei file di log. Se viene visualizzato un errore di autenticazione che non ti aspettavi, puoi trovare comodamente tutti i dettagli cercando nei log delle applicazioni esistenti. Se si abilita la [traccia delle richieste non riuscite](troubleshoot-diagnostic-logs.md), è possibile vedere esattamente il ruolo che il modulo di autenticazione e autorizzazione ha avuto nella mancata riuscita della richiesta. Nei log di traccia cercare i riferimenti a un modulo denominato `EasyAuthModule_32/64`. 
 
 ## <a name="identity-providers"></a>Provider di identità
 
@@ -93,7 +93,7 @@ Il flusso di autenticazione è uguale per tutti i provider, ma varia a in base a
 - Con l'SDK del provider: l'applicazione consente l'accesso manuale degli utenti al provider e quindi invia il token di autenticazione al servizio app per la convalida. Ciò avviene, in genere, con le app senza browser, che non possono presentare all'utente la pagina di accesso del provider. Il codice dell'applicazione gestisce il processo di accesso, quindi si parla anche di _flusso diretto dal client_ oppure _flusso client_. Questo caso si applica alle API REST, a [Funzioni di Azure](../azure-functions/functions-overview.md) e ai client browser JavaScript, oltre che alle app basate su browser che richiedono una maggiore flessibilità nel processo di accesso. Si applica anche alle app per dispositivi mobili native che consentono l'accesso degli utenti con l'SDK del provider.
 
 > [!NOTE]
-> Le chiamate da un'app browser attendibile nel servizio app e le chiamate da un'altra API REST nel servizio app o in [Funzioni di Azure](../azure-functions/functions-overview.md) possono essere autenticate tramite il flusso diretto dal server. Per altre informazioni, vedere [Personalizzare l'autenticazione e l'autorizzazione in Servizio app di Azure](app-service-authentication-how-to.md).
+> Le chiamate da un'app browser attendibile nel servizio app a un'altra API REST nel servizio app o nelle funzioni di [Azure](../azure-functions/functions-overview.md) possono essere autenticate usando il flusso diretto dal server. Per altre informazioni, vedere [Personalizzare l'autenticazione e l'autorizzazione in Servizio app di Azure](app-service-authentication-how-to.md).
 >
 
 La tabella seguente illustra i passaggi del flusso di autenticazione.

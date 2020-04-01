@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 11/04/2019
-ms.openlocfilehash: ec2d9152bf8d3d7c60f00e902f155212ee1b81cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: f9ca75943eaec2ae018b54145d872fc09294035e
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270420"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398176"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Quali sono le destinazioni di calcolo in Azure Machine Learning? 
 
@@ -48,12 +48,14 @@ Informazioni su dove e come distribuire il modello in una destinazione di [calco
 
 Una risorsa di calcolo gestita viene creata e gestita da Azure Machine Learning.A managed compute resource is created and managed by Azure Machine Learning. Questo calcolo è ottimizzato per i carichi di lavoro di apprendimento automatico. I cluster di calcolo di Azure Machine Learning e le istanze di [calcolo](concept-compute-instance.md) sono gli unici calcoli gestiti. In futuro potrebbero essere aggiunte altre risorse di calcolo gestite.
 
-È possibile creare istanze di calcolo di Azure Machine Learning (anteprima) o raggruppare cluster in:You can create Azure Machine Learning compute instances (preview) or compute clusters in:
+È possibile creare istanze di calcolo di Azure Machine Learning (anteprima) o raggruppare cluster da:You can create Azure Machine Learning compute instances (preview) or compute clusters from:
+* Azure Machine Learning Studio
+* Portale di Azure
+* Classi Python SDK [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) e [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py)
+* [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets)
+* Modello di Resource Manager
 
-| | Azure Machine Learning Studio | Portale di Azure | SDK | Modello di Resource Manager | CLI |
-|---| ----- | ----- | ----- | ----- | ----- |
-| Istanza di calcolo | sì | sì | sì | sì |  |
-| Cluster di calcolo | sì | sì | sì | sì | sì |
+È anche possibile creare cluster di calcolo usando l'estensione di [Machine Learning per l'interfaccia della riga di comando](tutorial-train-deploy-model-cli.md#create-the-compute-target-for-training)di Azure.You can also create compute clusters using the machine learning extension for the Azure CLI.
 
 Quando vengono create, queste risorse di calcolo fanno automaticamente parte dell'area di lavoro, a differenza di altri tipi di destinazioni di calcolo.
 

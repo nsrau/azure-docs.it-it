@@ -17,10 +17,10 @@ ms.date: 05/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 179721075484c35c5ebbb3d936b83bc407b75a8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67093535"
 ---
 # <a name="tutorial-integrate-projectplace-with-azure-active-directory"></a>Esercitazione: Integrare Projectplace con Azure Active Directory
@@ -58,15 +58,15 @@ Per configurare l'integrazione di Projectplace in Azure AD, è necessario aggiun
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-Configurare e testare l'accesso Single Sign-On di Azure AD con Projectplace usando un utente di test di nome **B. Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Projectplace.
+Configurare e testare l'accesso Single Sign-On di Azure AD con Projectplace usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Projectplace.
 
 Per configurare e testare l'accesso SSO di Azure AD con Projectplace, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare Projectplace](#configure-projectplace)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Projectplace](#create-projectplace-test-user)** : per avere una controparte di B. Simon in Projectplace collegata alla rappresentazione dell'utente in Azure AD.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di Projectplace](#create-projectplace-test-user)** : per avere una controparte di B.Simon in Projectplace collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-sso)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
@@ -100,9 +100,9 @@ Per configurare l'accesso Single Sign-On sul lato **Projectplace**, è necessari
 >[!NOTE]
 >La configurazione dell'accesso Single Sign-On deve essere eseguita dal [team di supporto di Projectplace](https://success.planview.com/Projectplace/Support). Al termine della configurazione, viene ricevuta una notifica. 
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-In questa sezione verrà creato un utente di test di nome B. Simon nel portale di Azure.
+In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
@@ -110,11 +110,11 @@ In questa sezione verrà creato un utente di test di nome B. Simon nel portale d
    1. Nel campo **Nome** immettere `B. Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `BrittaSimon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Create**(Crea).
+   1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Projectplace.
+In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Projectplace.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **Projectplace**.
@@ -126,7 +126,7 @@ In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di 
 
     ![Collegamento Aggiungi utente](common/add-assign-user.png)
 
-1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B. Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
@@ -141,17 +141,17 @@ Per consentire agli utenti di Azure AD di accedere ad Projectplace, aggiungerli 
 
 1. Accedere al sito aziendale di **Projectplace** come amministratore.
 
-2. Passare a **Persone**, quindi selezionare **Membri**:
+2. Passare a **People** (Persone) e quindi selezionare **Members** (Membri):
    
-    ![Passare a Persone, quindi selezionare Membri](./media/projectplace-tutorial/ic790228.png "Persone")
+    ![Passare a People e quindi selezionare Members](./media/projectplace-tutorial/ic790228.png "Persone")
 
-3. Selezionare **Aggiungi membro**:
+3. Selezionare **Add Member** (Aggiungi membro):
    
-    ![Selezionare Aggiungi membro](./media/projectplace-tutorial/ic790232.png "Aggiungi membri")
+    ![Selezionare Add Member](./media/projectplace-tutorial/ic790232.png "Aggiungi membri")
 
-4. Nella sezione **Aggiungi membro** seguire questa procedura.
+4. Nella sezione **Add Member** (Aggiungi membro) seguire questa procedura.
    
-    ![Sezione Aggiungi membro](./media/projectplace-tutorial/ic790233.png "Nuovi membri")
+    ![Sezione Add Member](./media/projectplace-tutorial/ic790233.png "Nuovi membri")
    
     1. Nella casella **Nuovi membri** immettere l'indirizzo e-mail di un account Azure AD valido che si desidera aggiungere.
    
@@ -165,7 +165,7 @@ Per consentire agli utenti di Azure AD di accedere ad Projectplace, aggiungerli 
 
 ### <a name="test-sso"></a>Testare l'accesso SSO
 
-Quando si seleziona il riquadro di Projectplace nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Projectplace per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si seleziona il riquadro di Projectplace nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Projectplace per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 10e6ed556abe8f8c438e5436fbb93c1b70b85d2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 579767a0d535605a2316c35bd413a75474b5a3de
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75445168"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410011"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Come distribuire a livello globale le letture tramite l'API di Azure Cosmos DB per MongoDB
 
@@ -86,7 +86,7 @@ Vedere la documentazione sul [preferenze di lettura di MongoDB](https://docs.mon
 In base agli scenari comuni, è consigliabile usare le impostazioni seguenti:
 
 1. Se sono necessarie **letture a bassa latenza**, usare la modalità **NEAREST**. Questa impostazione indirizza le operazioni di lettura all'area disponibile più vicina. Si noti che se l'area più vicina è l'area di scrittura, queste operazioni vengono indirizzate a tale area.
-2. Se sono necessarie **disponibilità elevata e distribuzione geografica delle letture** (senza vincoli di latenza), usare quindi la modalità **SECONDARY PREFERRED**. Questa impostazione indirizza le operazioni di lettura all'area di lettura disponibile più vicina. Se sono disponibili aree di lettura, le richieste vengono indirizzate all'area di scrittura.
+2. Se sono necessarie la disponibilità elevata e la **distribuzione geografica delle letture** (la latenza non è un vincolo), utilizzare la modalità di preferenza di lettura **PRIMARY PREFERRED** o **SECONDARY PREFERRED.** Questa impostazione indirizza le operazioni di lettura rispettivamente a un'area WRITE o READ disponibile. Se l'area non è disponibile, le richieste vengono indirizzate alla successiva area disponibile in base al comportamento della preferenza di lettura.
 
 Il frammento di codice seguente tratto dall'applicazione di esempio mostra come configurare le preferenze di lettura NEAREST in NodeJS:
 

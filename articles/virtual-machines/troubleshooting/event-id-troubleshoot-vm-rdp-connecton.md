@@ -1,6 +1,6 @@
 ---
 title: Risolvere i problemi di connessione RDP a macchine virtuali di Azure in base all'ID evento | Microsoft Docs
-description: ''
+description: Usare gli ID evento per risolvere vari problemi che impediscono una connessione RDP (Remote Desktop Protocol) a una macchina virtuale (VM) di Azure.Use event IDs to troubleshoot various issues that prevent a Remote Desktop protocol connection (RDP) connection to an Azure Virtual Machine (VM).
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 166648402eec7f8033c090a3f7862a902bae4be6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2073d5f91b26cd2ae53e3291a6d1dad4d711b66d
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71154201"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437070"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Risolvere i problemi di connessione RDP a macchine virtuali di Azure in base all'ID evento 
 
@@ -63,7 +63,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **Parole chiave:**      Classico <br />
 **Utente:**          N/D <br />
 **Computer:**      *computer* <br />
-**Descrizione:** il server host sessione Desktop remoto non è riuscito a sostituire il certificato autofirmato scaduto usato per l'autenticazione del server host sessione Desktop remoto durante le connessioni SSL. Il codice di stato pertinente era Accesso negato.
+**Descrizione:** Il server Host sessione Desktop remoto non è riuscito a sostituire il certificato autofirmato scaduto utilizzato per l'autenticazione del Server Host sessione Desktop remoto nelle connessioni TLS. Il codice di stato pertinente era Accesso negato.
 
 **Nome registro:**      Sistema <br />
 **Origine:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
@@ -74,7 +74,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **Parole chiave:**      Classico <br />
 **Utente:**          N/D <br />
 **Computer:**      *computer* <br />
-**Descrizione:** il server host sessione Desktop remoto non è riuscito a creare un nuovo certificato autofirmato da usare per l'autenticazione del server host sessione Desktop remoto durante le connessioni SSL. Il codice di stato pertinente era L'oggetto esiste già.
+**Descrizione:** Il server host della sessione Desktop remoto non è riuscito a creare un nuovo certificato autofirmato da utilizzare per l'autenticazione del server host della sessione Desktop remoto nelle connessioni TLS, il codice di stato pertinente era che esiste già un oggetto.
 
 **Nome registro:**      Sistema <br />
 **Origine:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
@@ -85,7 +85,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **Parole chiave:**      Classico <br />
 **Utente:**          N/D <br />
 **Computer:**      *computer* <br />
-**Descrizione:** il server host sessione Desktop remoto non è riuscito a creare un nuovo certificato autofirmato da usare per l'autenticazione del server host sessione Desktop remoto durante le connessioni SSL. Il codice di stato pertinente era Keyset does not exist (Il set di chiavi non esiste).
+**Descrizione:** Il server Host sessione Desktop remoto non è riuscito a creare un nuovo certificato autofirmato da utilizzare per l'autenticazione del server Host sessione Desktop remoto nelle connessioni TLS. Il codice di stato pertinente era Keyset does not exist (Il set di chiavi non esiste).
 
 È anche possibile cercare gli eventi di errore SCHANNEL 36872 e 36870 eseguendo i comandi seguenti:
 
@@ -103,7 +103,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **Parole chiavi:**       <br />
 **Utente:** SYSTEM <br />
 **Computer:**      *computer* <br />
-**Descrizione:** si è verificato un errore irreversibile durante il tentativo di accedere alla chiave privata delle credenziali del server SSL. Il codice errore restituito dal modulo di crittografia è 0x8009030D.  <br />
+**Descrizione:** Si è verificato un errore irreversibile durante il tentativo di accedere alla chiave privata delle credenziali del server TLS. Il codice errore restituito dal modulo di crittografia è 0x8009030D.  <br />
 Lo stato dell'errore interno è 10001.
 
 ### <a name="cause"></a>Causa
@@ -186,9 +186,9 @@ Se non è possibile rinnovare il certificato, seguire questa procedura per prova
 
 Provare nuovamente ad accedere alla macchina virtuale usando RDP.
 
-#### <a name="update-secure-sockets-layer-ssl-certificate"></a>Aggiornare il certificato Secure Sockets Layer (SSL)
+#### <a name="update-tlsssl-certificate"></a>Aggiorna certificato TLS/SSL
 
-Se si configura la macchina virtuale per usare un certificato SSL, eseguire il comando seguente per ottenere l'identificazione personale. Controllare quindi se si tratta della stessa identificazione personale del certificato:
+Se si configura la macchina virtuale per l'utilizzo di un certificato TLS/SSL, eseguire il comando seguente per ottenere l'identificazione personale. Controllare quindi se si tratta della stessa identificazione personale del certificato:
 
 ```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SSLCertificateSHA1Hash

@@ -7,14 +7,14 @@ manager: scotthit
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.service: azure-supportability
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 03/31/2020
 ms.author: kfollis
-ms.openlocfilehash: 28a29bbb94f63657a69e873bb8f969e96ee92c76
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2b68b6ddf19d6b07475e7009b47e162bfb2d0d2f
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248489"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478980"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Come creare una richiesta di supporto in Azure
 
@@ -43,7 +43,7 @@ In base al feedback dei clienti, abbiamo aggiornato l'esperienza di richiesta di
 
 ### <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 
-Per creare una richiesta di supporto, è necessario essere un amministratore o essere assegnati al ruolo [Contributore richiesta](../../role-based-access-control/built-in-roles.md#support-request-contributor) di supporto a livello di sottoscrizione.
+Per creare una richiesta di supporto, è necessario essere [proprietario](../../role-based-access-control/built-in-roles.md#owner), [Collaboratore](../../role-based-access-control/built-in-roles.md#contributor) o essere assegnati al ruolo [Collaboratore richiesta di](../../role-based-access-control/built-in-roles.md#support-request-contributor) supporto a livello di sottoscrizione. Per creare una richiesta di supporto senza una sottoscrizione, ad esempio lo scenario Azure Active Directory (AAD), è necessario essere un [amministratore.](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)
 
 ### <a name="go-to-help--support-from-the-global-header"></a>Vai alla Guida e al supporto dell'intestazione globale
 

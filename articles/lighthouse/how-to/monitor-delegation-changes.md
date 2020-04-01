@@ -1,14 +1,14 @@
 ---
 title: Monitorare le modifiche di delega nel tenant di gestioneMonitor delegation changes in your managing tenant
 description: Informazioni su come monitorare l'attività di delega dai tenant dei clienti al tenant di gestione.
-ms.date: 03/16/2020
+ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 99aa05cb73326e441c0473855c27dc71212cf415
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82c41c392210e088c85af510b9698e0140f660e5
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79478227"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421914"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorare le modifiche di delega nel tenant di gestioneMonitor delegation changes in your managing tenant
 
@@ -73,7 +73,7 @@ Dopo aver creato l'account dell'entità servizio e aver assegnato il ruolo Letto
 
 Dopo aver creato un nuovo account dell'entità servizio con accesso Lettore monitoraggio all'ambito radice del tenant di gestione, è possibile usarlo per eseguire query e creare report sull'attività di delega nel tenant. 
 
-L'esempio seguente usa Azure PowerShell per eseguire query sull'ultimo giorno di attività e report su eventuali deleghe aggiunte o rimosse (o tentativi che non hanno avuto esito positivo). Esegue una query sui dati del [log attività tenant,](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) quindi crea i valori seguenti per creare report sulle deleghe aggiunte o rimosse:
+Questo script di [Azure PowerShell](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/tools/monitor-delegation-changes) può essere usato per eseguire query sugli ultimi 1 giorno di attività e report su eventuali deleghe aggiunte o rimosse (o tentativi non riusciti). Esegue una query sui dati del [log attività tenant,](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) quindi crea i valori seguenti per creare report sulle deleghe aggiunte o rimosse:
 
 - **DelegatedResourceId:** ID della sottoscrizione delegata o del gruppo di risorse
 - **CustomerTenantId**: L'ID tenant del cliente

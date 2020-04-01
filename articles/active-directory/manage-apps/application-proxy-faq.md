@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 8bb77a217546f1abe2c28925e32464b8d61702b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 31587777ba22dd8b4cebf81f0ff98979bb30fade
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481280"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410724"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Domande frequenti sul proxy di applicazione di Active Directory (Azure AD)
 
@@ -113,7 +113,7 @@ No, questo scenario non è supportato perché il proxy di applicazione terminer�
 
 Fare riferimento a [Pubblica desktop remoto con il proxy di applicazione](application-proxy-integrate-with-remote-desktop-services.md)di Azure AD .
 
-### <a name="can-i-use-kerberos-constrained-delegation-in-the-remote-desktop-gateway-publishing-scenario"></a>È possibile utilizzare la delega vincolata Kerberos nello scenario di pubblicazione di Gateway Desktop remoto?
+### <a name="can-i-use-kerberos-constrained-delegation-single-sign-on---windows-integrated-authentication-in-the-remote-desktop-gateway-publishing-scenario"></a>È possibile utilizzare la delega vincolata Kerberos (Single Sign-On - Autenticazione integrata di Windows) nello scenario di pubblicazione di Gateway Desktop remoto?
 
 No, questo scenario non è supportato.  
 
@@ -121,7 +121,7 @@ No, questo scenario non è supportato.
 
 Sì, ci si aspetta. Lo scenario di preautenticazione richiede un controllo ActiveX, che non è supportato nei browser di terze parti.
 
-### <a name="is-the-remote-desktop-web-client-supported"></a>È supportato il Client Web Desktop remoto?
+### <a name="is-the-remote-desktop-web-client-html5-supported"></a>È supportato Remote Desktop Web Client (HTML5)?
 
 No, questo scenario non è attualmente supportato. Segui il nostro forum di commenti e suggerimenti [UserVoice](https://aka.ms/aadapuservoice) per gli aggiornamenti su questa funzionalità.
 
@@ -135,6 +135,10 @@ Sì, ci si aspetta. Se il computer dell'utente è aggiunto ad Azure AD, l'utente
 
 Fare riferimento a [Abilitare l'accesso remoto a SharePoint con il proxy di applicazione](application-proxy-integrate-with-sharepoint-server.md)di Azure AD .
 
+### <a name="can-i-use-the-sharepoint-mobile-app-ios-android-to-access-a-published-sharepoint-server"></a>È possibile usare l'app SharePoint per dispositivi mobili (iOS/Android) per accedere a un server SharePoint pubblicato?
+
+[L'app SharePoint per dispositivi mobili](https://docs.microsoft.com/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) non supporta attualmente la preautenticazione di Azure Active Directory.
+
 ## <a name="active-directory-federation-services-ad-fs-publishing"></a>Pubblicazione di Active Directory Federation Services (ADFS) 
 
 ### <a name="can-i-use-azure-ad-application-proxy-as-ad-fs-proxy-like-web-application-proxy"></a>È possibile usare il proxy di applicazione di Azure AD come proxy AD FS (ad esempio Proxy applicazione Web)?
@@ -147,7 +151,7 @@ No. Il proxy di applicazione di Azure AD è progettato per funzionare con Azure 
 
 Attualmente, il supporto del protocollo WebSocket è ancora in anteprima pubblica e potrebbe non funzionare per altre applicazioni. Alcuni clienti hanno avuto un successo misto utilizzando il protocollo WebSocket con altre applicazioni. Se si testa tali scenari, ci piacerebbe sentire i risultati. Vi preghiamo di aadapfeedback@microsoft.cominviarci il vostro feedback a .
 
-Le funzionalità (registri eventi, PowerShell e Servizi Desktop remoto) nell'interfaccia di amministrazione di Windows (WAC) o nel client Web Desktop remoto non funzionano attualmente tramite il proxy di applicazione di Azure AD.
+Le funzionalità (registri eventi, PowerShell e Servizi Desktop remoto) nell'interfaccia di amministrazione di Windows (WAC) o nel client Web Desktop remoto (HTML5) non funzionano attualmente tramite il proxy di applicazione di Azure AD.
 
 ## <a name="link-translation"></a>Traduzione dei link
 

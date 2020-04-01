@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: eb75aa53051e7e3c424ffe131cda61324fe86b1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8dd4d1aa2423ddb48f61380a982ca256609734d6
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77159965"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80419646"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>Applicazione a pagina singola: Accesso e disconnessione
 
@@ -47,7 +47,7 @@ Non è possibile utilizzare entrambi i metodi popup e redirect nell'applicazione
 
 ## <a name="sign-in-with-a-pop-up-window"></a>Accesso con una finestra popup
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const loginRequest = {
@@ -68,32 +68,56 @@ userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
 Il wrapper angolare MSAL consente di proteggere route `MsalGuard` specifiche nell'applicazione aggiungendo alla definizione della route. Questa protezione richiamerà il metodo per accedere quando si accede a tale route.
 
 ```javascript
-// In app.routes.ts
-{ path: 'product', component: ProductComponent, canActivate : [MsalGuard],
-    children: [
-      { path: 'detail/:id', component: ProductDetailComponent  }
+// In app-routing.module.ts
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { ProfileComponent } from './profile/profile.component';
+import { MsalGuard } from '@azure/msal-angular';
+import { HomeComponent } from './home/home.component';
+
+const routes: Routes = [
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [
+      MsalGuard
     ]
-   },
-  { path: 'myProfile' ,component: MsGraphComponent, canActivate : [MsalGuard] },
+  },
+  {
+    path: '',
+    component: HomeComponent
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes, { useHash: false })],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
 ```
 
 Per un'esperienza di finestra `popUp` popup, abilitare l'opzione di configurazione. È inoltre possibile passare gli ambiti che richiedono il consenso come segue:
 
 ```javascript
-//In app.module.ts
+// In app.module.ts
 @NgModule({
-  imports: [ MsalModule.forRoot({
-                clientID: 'your_app_id',
-                popUp: true,
-                consentScopes: ["https://graph.microsoft.com/User.ReadWrite"]
-            })]
-         })
+    imports: [
+        MsalModule.forRoot({
+            auth: {
+                clientId: 'your_app_id',
+            }
+        }, {
+            popUp: true,
+            consentScopes: ["https://graph.microsoft.com/User.ReadWrite"]
+        })
+    ]
+})
 ```
 ---
 
 ## <a name="sign-in-with-redirect"></a>Accedi con il reindirizzamento
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 I metodi di reindirizzamento non restituiscono una promessa a causa dello spostamento dall'app principale. Per elaborare e accedere ai token restituiti, è necessario registrare i callback di esito positivo e di errore prima di chiamare i metodi di reindirizzamento.
 
@@ -126,13 +150,12 @@ La libreria MSAL `logout` fornisce un metodo che cancella la cache nell'archivia
 
 È possibile configurare l'URI a cui deve `postLogoutRedirectUri`essere reindirizzato dopo la disconnessione impostando . Questo URI deve essere registrato anche come URI di disconnessione nella registrazione dell'applicazione.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const config = {
-
     auth: {
-        clientID: 'your_app_id',
+        clientId: 'your_app_id',
         redirectUri: "your_app_redirect_uri", //defaults to application start page
         postLogoutRedirectUri: "your_app_logout_redirect_uri"
     }
@@ -148,11 +171,15 @@ userAgentApplication.logout();
 ```javascript
 //In app.module.ts
 @NgModule({
-  imports: [ MsalModule.forRoot({
-                clientID: 'your_app_id',
+    imports: [
+        MsalModule.forRoot({
+            auth: {
+                clientId: 'your_app_id',
                 postLogoutRedirectUri: "your_app_logout_redirect_uri"
-            })]
-         })
+            }
+        })
+    ]
+})
 
 // In app.component.ts
 this.authService.logout();

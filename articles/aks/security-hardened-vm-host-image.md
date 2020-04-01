@@ -2,42 +2,41 @@
 title: Protezione avanzata negli host di macchine virtuali AKSSecurity hardening in AKS virtual machine hosts
 description: Informazioni sulla protezione avanzata nel sistema operativo a controller di servizio per la macchina virtuale AKSLearn about the security hardening in AKS VM OS
 services: container-service
-author: saudas
+author: mlearned
 ms.topic: article
 ms.date: 09/11/2019
-ms.author: saudas
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: d4105a9fba3c40c563198040afb811625727ead0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7552fc083c5ed340dc54c2a31160b0c8b4bd076
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77594381"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420908"
 ---
-# <a name="security-hardening-in-aks-virtual-machine-hosts"></a>Protezione avanzata negli host di macchine virtuali AKSSecurity hardening in AKS virtual machine hosts 
+# <a name="security-hardening-for-aks-agent-node-host-os"></a>Protezione avanzata per il sistema operativo host nodo agente AKSSecurity hardening for AKS agent node host OS
 
 Il servizio Azure Kubernetes (AKS) è un servizio sicuro compatibile con gli standard SOC, ISO, PCI DSS e HIPAA. Questo articolo illustra la protezione avanzata applicata agli host di macchine virtuali AKS. Per altre informazioni sulla sicurezza di AKS, vedere Concetti relativi alla [sicurezza per applicazioni e cluster nel servizio Kubernetes di Azure (AKS)](https://docs.microsoft.com/azure/aks/concepts-security).
 
-I cluster AKS vengono distribuiti nelle macchine virtuali host, che eseguono un sistema operativo ottimizzato per la sicurezza. Questo sistema operativo host è attualmente basato su un'immagine Ubuntu 16.04.LTS con una serie di ulteriori passaggi di protezione avanzata applicati (vedere Dettagli sulla protezione avanzata).   
+> [!Note]
+> Questo documento ha come ambito gli agenti Linux solo in AKS.
 
-L'obiettivo del sistema operativo host con protezione indurita è ridurre la superficie di attacco e consentire la distribuzione di contenitori in modo sicuro. 
+I cluster AKS vengono distribuiti nelle macchine virtuali host, che eseguono un sistema operativo ottimizzato per la sicurezza che viene utilizzato per i contenitori in esecuzione su AKS. Questo sistema operativo host si basa su un'immagine **Ubuntu 16.04.LTS** con ulteriori operazioni di protezione e ottimizzazioni applicate (vedere Dettagli sulla protezione avanzata).
+
+L'obiettivo del sistema operativo host con protezione con protezione con protezione con protezione con protezione sicura è ridurre l'area di attacco in superficie e ottimizzare per la distribuzione di contenitori in modo sicuro.
 
 > [!Important]
-> Il sistema operativo con protezione indurita NON è sottoposto a benchmarking CIS. Sebbene esistano sovrapposizioni con i benchmark CIS, l'obiettivo non è conforme alla CIS. L'obiettivo per la protezione avanzata del sistema operativo host consiste nel convergere a un livello di sicurezza coerente con gli standard di sicurezza dell'host interno di Microsoft. 
+> Il sistema operativo con protezione indurita NON è sottoposto a benchmarking CIS. Sebbene esistano sovrapposizioni con i benchmark CIS, l'obiettivo non è conforme alla CIS. L'obiettivo per la protezione avanzata del sistema operativo host consiste nel convergere a un livello di sicurezza coerente con gli standard di sicurezza dell'host interno di Microsoft.
 
-## <a name="security-hardening-features"></a>Funzionalità di protezione avanzata 
+## <a name="security-hardening-features"></a>Funzionalità di protezione avanzata
 
-* AKS fornisce un sistema operativo host ottimizzato per la sicurezza per impostazione predefinita. Non è disponibile alcuna opzione corrente per selezionare un sistema operativo alternativo. 
+* AKS fornisce un sistema operativo host ottimizzato per la sicurezza per impostazione predefinita. Non è possibile selezionare un sistema operativo alternativo.
 
 * Azure applica patch giornaliere (incluse le patch di sicurezza) agli host di macchine virtuali AKS. Alcune di queste patch richiederanno un riavvio, mentre altre no. L'utente è responsabile della pianificazione dei riavvii dell'host vm AKS in base alle esigenze. Per istruzioni su come automatizzare l'applicazione di patch AKS, vedere [Applicazione di patch ai nodi AKS.](https://docs.microsoft.com/azure/aks/node-updates-kured)
 
-Di seguito è riportato un riepilogo del lavoro di protezione avanzata delle immagini implementato in AKS-Engine per produrre il sistema operativo host ottimizzato per la sicurezza. Il lavoro è stato implementato [in questo progetto GitHub](https://github.com/Azure/aks-engine/projects/7).  
+## <a name="what-is-configured"></a>Elementi configurati
 
-AKS-Engine non promuove né aderisce a uno standard di sicurezza specifico in questo momento, ma gli ID di controllo CIS (Center for Internet Security) vengono forniti per comodità, ove applicabile. 
-
-## <a name="whats-configured"></a>Che cosa è configurato?
-
-| Cis  | Descrizione dell'audit| 
+| Cis  | Descrizione dell'audit|
 |---|---|
 | 1.1.1.1 |Assicurarsi che il montaggio dei file system cramfs sia disattivato|
 | 1.1.1.2 |Assicurarsi che il montaggio dei file system freevxfs sia disabilitato|
@@ -78,9 +77,9 @@ AKS-Engine non promuove né aderisce a uno standard di sicurezza specifico in qu
 
 ## <a name="additional-notes"></a>Note aggiuntive
  
-* Per ridurre ulteriormente la superficie di attacco, alcuni driver di modulo kernel non necessari sono stati disabilitati nel sistema operativo. 
+* Per ridurre ulteriormente la superficie di attacco, alcuni driver di modulo kernel non necessari sono stati disabilitati nel sistema operativo.
 
-* Il sistema operativo con protezione con protezione indurita NON è supportato al di fuori della piattaforma AKS. 
+* Il sistema operativo con protezione indurita viene creato e mantenuto specificamente per AKS e NON è supportato al di fuori della piattaforma AKS.
 
 ## <a name="next-steps"></a>Passaggi successivi  
 

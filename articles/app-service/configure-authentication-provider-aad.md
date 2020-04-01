@@ -1,22 +1,26 @@
 ---
 title: Configurare l'autenticazione di Azure AD
-description: Informazioni su come configurare l'autenticazione di Azure Active Directory come provider di identità per l'app del servizio app.
+description: Informazioni su come configurare l'autenticazione di Azure Active Directory come provider di identità per il servizio app o l'app Funzioni di Azure.Learn how to configure Azure Active Directory authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 09/03/2019
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: fdad1f820d006c39fa135a29a5ec7377c47591f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b42f0966288e4ee72b689ddce6313a41e91f13e
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80046453"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80438026"
 ---
-# <a name="configure-your-app-service-app-to-use-azure-ad-login"></a>Configurare l'app del servizio app per usare l'account di accesso di Azure ADConfigure your App Service app to use Azure AD login
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configurare il servizio app o l'app Funzioni di Azure per usare l'account di accesso di Azure ADConfigure your App Service or Azure Functions app to use Azure AD login
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Questo articolo illustra come configurare il servizio app di Azure per usare Azure Active Directory (Azure AD) come provider di autenticazione.
+Questo articolo illustra come configurare il servizio app di Azure o funzioni di Azure per usare Azure Active Directory (Azure AD) come provider di autenticazione.
+
+> [!NOTE]
+> Al momento, [Azure Active Directory v2.0](../active-directory/develop/v2-overview.md) (incluso [MSAL)](../active-directory/develop/msal-overview.md)non è supportato per il servizio app di Azure e funzioni di Azure.At this time, Azure Active Directory v2.0 (including MSAL ) is not supported for Azure App Service and Azure Functions. Si prega di controllare di nuovo per gli aggiornamenti.
+>
 
 Segui queste procedure consigliate per la configurazione dell'app e dell'autenticazione:
 
@@ -70,9 +74,10 @@ Eseguire la procedura seguente:
 1. Selezionare**Registrazioni** > app **Azure Active Directory** > **Nuova registrazione**.
 1. Nella pagina **Registra un'applicazione** immettere un **Nome** per la registrazione dell'app.
 1. In **URI di reindirizzamento**selezionare **Web** e digitare `<app-url>/.auth/login/aad/callback`. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/aad/callback`. 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 1. Dopo aver creato la registrazione dell'app, copiare **l'ID applicazione (client)** e **l'ID directory (tenant)** per un secondo momento.
-1. Selezionare **Personalizzazione**. In **URL pagina iniziale**immettere l'URL dell'app del servizio app e selezionare **Salva**.
+1. Selezionare **Autenticazione**. In **Concessione implicita**abilitare **i token ID** per consentire gli edidi utente OpenID Connect dal servizio app.
+1. (Facoltativo) Selezionare **Branding**. In **URL pagina iniziale**immettere l'URL dell'app del servizio app e selezionare **Salva**.
 1. Selezionare Esporre un**set** **di API** > . Incollare l'URL dell'app del servizio app e selezionare **Salva**.
 
    > [!NOTE]
@@ -96,7 +101,7 @@ Eseguire la procedura seguente:
     |Campo|Descrizione|
     |-|-|
     |ID client| Utilizzare **l'ID applicazione (client)** della registrazione dell'app. |
-    |ID emittente| Usare `https://login.microsoftonline.com/<tenant-id>`e sostituire * \<>id-tenant* con l'ID **directory (tenant)** della registrazione dell'app. |
+    |URL autorità emittente| Usare `https://login.microsoftonline.com/<tenant-id>`e sostituire * \<>id-tenant* con l'ID **directory (tenant)** della registrazione dell'app. Questo valore viene usato per reindirizzare gli utenti al tenant di Azure AD corretto, nonché per scaricare i metadati appropriati per determinare, ad esempio, le chiavi di firma del token appropriate e il valore dell'attestazione dell'autorità emittente di token. |
     |Segreto client (facoltativo)| Usa il segreto client generato nella registrazione dell'app.|
     |Gruppi di destinatari di token consentiti| Se si tratta di un'app cloud o server e si desidera consentire i token di autenticazione da un'app Web, aggiungere qui **l'URI ID applicazione** dell'app Web. **L'ID client** configurato viene *sempre* considerato implicitamente come un gruppo di destinatari consentito. |
 
@@ -106,21 +111,21 @@ Eseguire la procedura seguente:
 
 ## <a name="configure-a-native-client-application"></a>Configurare un'applicazione client nativa
 
-È possibile registrare i client nativi per consentire l'autenticazione utilizzando una libreria client, ad esempio **Active Directory Authentication Library**.
+È possibile registrare i client nativi per consentire l'autenticazione alle API Web ospitate nell'app utilizzando una libreria client, ad esempio la libreria di **autenticazione**di Active Directory .
 
 1. Nel [portale di Azure]selezionare**Registrazioni** > app **Active Directory** > **Nuova registrazione**.
 1. Nella pagina **Registra un'applicazione** immettere un **Nome** per la registrazione dell'app.
 1. In **URI di reindirizzamento**selezionare Client pubblico `<app-url>/.auth/login/aad/callback` **(mobile & desktop)** e digitare l'URL . Ad esempio: `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 
     > [!NOTE]
-    > Per un'applicazione Windows, usare invece il [SID](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) del pacchetto come URI.
-1. Selezionare **Crea**.
+    > Per un'applicazione Microsoft Store, usa invece il [SID](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) del pacchetto come URI.
+1. Selezionare **Create** (Crea).
 1. Dopo aver creato la registrazione dell'app, copiare il valore di **ID applicazione (client).**
 1. Selezionare **Autorizzazioni** > API**Aggiungere un'autorizzazione** > **API**personali .
 1. Selezionare la registrazione dell'app creata in precedenza per l'app del servizio app. Se non vedi la registrazione dell'app, assicurati di aver aggiunto l'ambito **user_impersonation** in Creare una [registrazione dell'app in Azure AD per l'app del servizio app.](#register)
 1. Selezionare **user_impersonation**, quindi **Aggiungi autorizzazioni**.
 
-Ora è stata configurata un'applicazione client nativa che può accedere all'applicazione dei servizi app.
+È stata configurata un'applicazione client nativa che può accedere all'app del servizio app per conto di un utente.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Passaggi successivi
 

@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 08/28/2019
 ms.author: labrenne
-ms.openlocfilehash: 2cff6a0e48fc7bf58a642f509fcda6b114e002ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95f27d913cd288c186bae1a6375212b072f50bb4
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022937"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422442"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Creare un pool personalizzato tappi
 
@@ -38,6 +38,9 @@ L'utilizzo di un'immagine condivisa configurata per lo scenario può offrire div
 * **Controllo delle versioni delle immagini e raggruppamento per semplificarne la gestione.** La definizione di raggruppamento delle immagini contiene informazioni sul motivo per cui l'immagine è stata creata, sul sistema operativo a cui è destinata e sull'utilizzo dell'immagine. Il raggruppamento delle immagini consente una gestione più semplice delle immagini. Per ulteriori informazioni, consultate [Definizioni di immagini.](../virtual-machines/windows/shared-image-galleries.md#image-definitions)
 
 ## <a name="prerequisites"></a>Prerequisiti
+
+> [!NOTE]
+> È necessario eseguire l'autenticazione con Azure AD. Se si utilizza shared-key-auth, si otterrà un errore di autenticazione.  
 
 * Un **account Azure Batch**. Per creare un account Batch, vedere le guide introduttive di Batch usando il [portale di Azure](quick-create-portal.md) o l'interfaccia della riga di comando di [Azure.](quick-create-cli.md)
 
@@ -86,6 +89,9 @@ Dopo aver creato correttamente l'immagine gestita, è necessario creare una racc
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Creare un pool da un'immagine condivisa usando l'interfaccia della riga di comando di AzureCreate a pool from a Shared Image using the Azure CLI
 
 Per creare un pool dall'immagine condivisa usando `az batch pool create` l'interfaccia della riga di comando di Azure, usare il comando. Specificare l'ID `--image` immagine condivisa nel campo. Assicurarsi che il tipo di sistema operativo e sKU corrispondano alle versioni specificate da`--node-agent-sku-id`
+
+> [!NOTE]
+> È necessario eseguire l'autenticazione con Azure AD. Se si utilizza shared-key-auth, si otterrà un errore di autenticazione.  
 
 ```azurecli
 az batch pool create \

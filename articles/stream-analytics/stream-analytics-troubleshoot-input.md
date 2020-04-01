@@ -6,73 +6,65 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: dac3037f82c38980c9ac16685aa7fddac68a2e7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3d88123b3dd79e5707c5c19cbbae13c30cbdeb84
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76720300"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409407"
 ---
 # <a name="troubleshoot-input-connections"></a>Risolvere i problemi delle connessioni di input
 
-Questa pagina descrive i problemi comuni relativi alle connessioni di input e spiega come risolverli.
+Questo articolo descrive i problemi comuni relativi alle connessioni di input di Analisi di flusso di Azure, come risolvere i problemi di input e come correggerli. Molti passaggi per la risoluzione dei problemi richiedono l'abilitazione dei log di diagnostica per il processo di Analisi di flusso. Se i log di diagnostica non sono abilitati, vedere Risolvere i problemi di Analisi di flusso di Azure usando i log di [diagnostica.](stream-analytics-job-diagnostic-logs.md)
 
 ## <a name="input-events-not-received-by-job"></a>Eventi di input non ricevuti dal processo 
-1.  Testare la connettività. Verificare la connettività agli input e output con il pulsante **Verifica connessione** per ogni input e output.
+
+1.  Testare la connettività di input e output. Verificare la connettività agli input e output con il pulsante **Verifica connessione** per ogni input e output.
 
 2.  Esaminare i dati di input.
 
-    1. Per verificare che è attivo il flusso dei dati di input verso l'hub eventi, usare [Service Bus Explorer](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a) per connettersi all'hub eventi di Azure, se in uso.
-        
     1. Utilizzare il pulsante [**Dati di esempio**](stream-analytics-sample-data-input.md) per ogni input. Scaricare i dati di esempio di input.
         
-    1. Esaminare i dati di esempio per comprendere la forma dei dati, ovvero lo schema e i [tipi di dati](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
+    1. Esaminare i dati di esempio per comprendere lo schema e i [tipi di dati.](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)
+    
+    1. Controllare [le metriche dell'Hub eventi](../event-hubs/event-hubs-metrics-azure-monitor.md) per verificare che gli eventi vengano inviati. Le metriche dei messaggi devono essere maggiori di zero se hub eventi riceve messaggi.
 
 3.  Assicurarsi di aver selezionato un intervallo di tempo nell'anteprima di input. Scegliere **Seleziona intervallo**di tempo , quindi immettere una durata di esempio prima di testare la query.
 
 ## <a name="malformed-input-events-causes-deserialization-errors"></a>Eventi di input in formato non valido determinano errori di deserializzazione 
-Quando il flusso di input del processo di Analisi di flusso di Azure contiene messaggi in formato non valido, si verificano problemi di deserializzazione. Un messaggio in formato non valido può essere causato, ad esempio, da una parentesi mancante in un oggetto JSON o da un formato di timestamp errato nel campo dell'ora. 
+
+Quando il flusso di input del processo di Analisi di flusso di Azure contiene messaggi in formato non valido, si verificano problemi di deserializzazione. Ad esempio, un messaggio in formato non corretto potrebbe essere causato da una parentesi o parentesi graffa mancante in un oggetto JSON o da un formato timestamp non corretto nel campo dell'ora. 
  
-Quando un processo di Analisi di flusso di Azure riceve un messaggio in formato non valido da un input, elimina il messaggio e visualizza un messaggio di avviso. Nel riquadro **Input** del processo di Analisi di flusso viene visualizzato un simbolo di avviso. Il simbolo di avviso rimane finché il processo è in esecuzione:
+Quando un processo di Analisi di flusso di Azure riceve un messaggio in formato non valido da un input, elimina il messaggio e visualizza un messaggio di avviso. Nel riquadro **Input** del processo di Analisi di flusso viene visualizzato un simbolo di avviso. Il simbolo di avviso seguente esiste finché il processo è in esecuzione:
 
 ![Riquadro degli input di Analisi di flusso di Azure](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-Abilitare i log di diagnostica per visualizzare i dettagli dell'avviso. Per gli eventi di input con formato non corretto, i log di esecuzione contengono una voce con un messaggio simile al seguente: 
-```
-Could not deserialize the input event(s) from resource <blob URI> as json.
-```
+Abilitare i log di diagnostica per visualizzare i dettagli dell'errore e il messaggio (payload) che ha causato l'errore. Esistono diversi motivi per cui possono verificarsi errori di deserializzazione. Per ulteriori informazioni su errori di deserializzazione specifici, vedere [Errori relativi ai dati](data-errors.md#input-data-errors)di input . Se i log di diagnostica non sono abilitati, nel portale di Azure sarà disponibile una breve notifica.
 
-### <a name="what-caused-the-deserialization-error"></a>Origine dell'errore di deserializzazione
-Seguendo la procedura seguente è possibile analizzare nel dettaglio gli eventi di input e comprendere meglio la causa dell'errore di deserializzazione. È quindi possibile correggere l'origine dell'evento in modo da generare gli eventi futuri in formato corretto ed evitare che si verifichi nuovamente questo problema.
+![Notifica di avviso dettagli di input](media/stream-analytics-malformed-events/warning-message-with-offset.png)
 
-1. Passare al riquadro Input e fare clic sui simboli di avviso per visualizzare l'elenco dei problemi.
+Nei casi in cui il payload del messaggio è maggiore di 32 KB o è in formato binario, eseguire il codice CheckMalformedEvents.cs disponibile nel [repository degli esempi di GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Questo codice legge l'ID della partizione, l'offset e stampa i dati presenti nell'offset. 
 
-2. Nel riquadro dei dettagli di input viene visualizzato un elenco di avvisi con i dettagli di ogni problema. Il messaggio di avviso di esempio riportato di seguito illustra la partizione, l'offset e i numeri di sequenza dei dati JSON in formato non valido. 
+## <a name="job-exceeds-maximum-event-hub-receivers"></a>Il processo supera il numero massimo di ricevitori dell'hub eventi
 
-   ![Messaggio di avviso di Analisi di flusso con offset](media/stream-analytics-malformed-events/warning-message-with-offset.png)
-   
-3. Per trovare i dati JSON con formato non corretto, eseguire il codice CheckMalformedEvents.cs disponibile nel [repository degli esempi di GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Questo codice legge l'ID della partizione, l'offset e stampa i dati presenti nell'offset. 
+Una procedura consigliata per l'utilizzo di Hub eventi consiste nell'utilizzare più gruppi di consumer per la scalabilità dei processi. Il numero di lettori del processo di Analisi di flusso di Azure per uno specifico input influisce sul numero dei lettori di un singolo gruppo di consumer. Il numero esatto di ricevitori si basa sui dettagli di implementazione interna per la logica della topologia con scale-out e non viene esposto esternamente. Il numero di lettori può cambiare al momento di avvio del processo o durante gli aggiornamenti del processo.
 
-4. Dopo aver eseguito la lettura dei dati, è possibile analizzare e correggere il formato di serializzazione.
+L'errore visualizzato quando la quantità di ricevitori supera il numero massimo è: 
 
-5. È anche possibile [leggere gli eventi da un hub IoT con Service Bus Explorer](https://code.msdn.microsoft.com/How-to-read-events-from-an-1641eb1b).
-
-## <a name="job-exceeds-maximum-event-hub-receivers"></a>Numero eccessivo di ricevitori dell'hub event per il processo
-Una procedura consigliata per l'utilizzo di Hub eventi di Azure è usare più gruppi di consumer in modo da garantire la scalabilità del processo. Il numero di lettori del processo di Analisi di flusso di Azure per uno specifico input influisce sul numero dei lettori di un singolo gruppo di consumer. Il numero esatto di ricevitori si basa sui dettagli di implementazione interna per la logica della topologia con scale-out e non viene esposto esternamente. Il numero di lettori può cambiare al momento di avvio del processo o durante gli aggiornamenti del processo.
-
-L'errore visualizzato quando la quantità di ricevitori supera il numero massimo è: `The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.`
+`The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.`
 
 > [!NOTE]
 > Quando il numero di lettori cambia durante un aggiornamento del processo, vengono scritti avvisi temporanei nei log di controllo. I processi di Analisi di flusso vengono ripristinati automaticamente da questi problemi temporanei.
 
 ### <a name="add-a-consumer-group-in-event-hubs"></a>Aggiungere un gruppo di consumer negli hub eventi
+
 Per aggiungere un nuovo gruppo di consumer all'istanza dell'hub eventi, seguire questa procedura:
 
 1. Accedere al portale di Azure.
 
-2. Individuare gli hub eventi.
+2. Individuare l'Hub eventi.
 
 3. Selezionare **Hub eventi** nell'intestazione **Entità**.
 
@@ -84,8 +76,7 @@ Per aggiungere un nuovo gruppo di consumer all'istanza dell'hub eventi, seguire 
 
    ![Aggiungere un gruppo di consumer negli hub eventi](media/stream-analytics-event-hub-consumer-groups/new-eh-consumer-group.png)
 
-7. Quando l'utente ha creato l'input in Analisi di flusso affinché puntasse all'hub eventi, ha specificato il gruppo di consumer. $Default viene usato quando non è stato specificato alcun gruppo di consumer. Dopo aver creato un nuovo gruppo di consumer, modificare l'input dell'hub eventi nel processo Analisi di flusso e specificare il nome del nuovo gruppo di consumer.
-
+7. Quando l'utente ha creato l'input in Analisi di flusso affinché puntasse all'hub eventi, ha specificato il gruppo di consumer. **$Default** viene utilizzato quando non ne è specificato alcuno. Dopo aver creato un nuovo gruppo di consumer, modificare l'input dell'hub eventi nel processo Analisi di flusso e specificare il nome del nuovo gruppo di consumer.
 
 ## <a name="readers-per-partition-exceeds-event-hubs-limit"></a>Il numero di lettori per partizione supera il limite impostato in Hub eventi di Azure
 
@@ -94,7 +85,9 @@ Se la sintassi della query del flusso fa riferimento più volte alla stessa riso
 Gli scenari in cui il numero di lettori per ogni partizione supera il limite di cinque hub eventi comprendono i seguenti:
 
 * Più istruzioni SELECT: se si usano più istruzioni SELECT che fanno riferimento allo **stesso** input dell'hub eventi, ogni istruzione SELECT fa sì che venga creato un nuovo ricevitore.
+
 * UNION: quando si usa UNION, è possibile avere più input che si riferiscono allo **stesso** hub eventi e gruppo di consumer.
+
 * SELF JOIN: quando si usa un'operazione SELF JOIN è possibile fare riferimento allo **stesso** hub eventi più volte.
 
 Le procedure consigliate seguenti possono aiutare a mitigare gli scenari in cui il numero di lettori per ogni partizione supera il limite di cinque hub eventi.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/14/2020
-ms.openlocfilehash: ead0ac04fbd2244fce97dd043ebd44f24fb0f67f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1dceb3db4572ecdaf504745dba1099a5eccead43
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80054926"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80395776"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Eliminare e ripristinare l'area di lavoro di Azure Log AnalyticsDelete and recover Azure Log Analytics workspace
 
@@ -56,6 +56,17 @@ L'operazione di eliminazione dell'area di lavoro rimuove la risorsa Resource Man
 ```PowerShell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
+
+### <a name="troubleshooting"></a>Risoluzione dei problemi
+
+Per eliminare l'area di lavoro log Analytics, è necessario disporre delle autorizzazioni 'Collaboratore di Log Analytics'.<br>
+Se viene visualizzato il messaggio di errore '*Il nome dell'area di lavoro è già in uso*durante la creazione di un'area di lavoro, potrebbe essere che:
+* Il nome dell'area di lavoro non è disponibile e viene utilizzato da un utente dell'organizzazione o da un altro cliente.
+* L'area di lavoro è stata eliminata negli ultimi 14 giorni e il suo nome è rimasto riservato per il periodo di eliminazione temporanea. Per ignorare l'eliminazione temporanea ed eliminare immediatamente l'area di lavoro e creare una nuova area di lavoro con lo stesso nome, attenersi alla seguente procedura per ripristinare prima l'area di lavoro ed eseguire l'eliminazione permanente:<br>
+   1. [Ripristinare](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) l'area di lavoro.
+   2. [Eliminare definitivamente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) l'area di lavoro.
+   3. Creare una nuova area di lavoro con lo stesso nome.
+
 
 ## <a name="permanent-workspace-delete"></a>Eliminazione permanente dell'area di lavoro
 Il metodo di eliminazione temporanea potrebbe non rientrare in alcuni scenari, ad esempio lo sviluppo e il test, in cui è necessario ripetere una distribuzione con le stesse impostazioni e lo stesso nome dell'area di lavoro. In questi casi è possibile eliminare definitivamente l'area di lavoro e "ignorare" il periodo di eliminazione temporanea. L'operazione di eliminazione permanente dell'area di lavoro rilascia il nome dell'area di lavoro ed è possibile creare una nuova area di lavoro con lo stesso nome.

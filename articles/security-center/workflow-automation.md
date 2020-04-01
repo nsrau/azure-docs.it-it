@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 972b5415b85e82a5afdaf7d85d3a3bcb9e144d4d
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 5d947cf41e13abdea9a2fd29f8a740d0c101dc6f
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384943"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397905"
 ---
 # <a name="workflow-automation"></a>Automazione del flusso di lavoro
 
@@ -96,10 +96,11 @@ Per visualizzare gli schemi di eventi non elaborati degli eventi di avviso o di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo, si è appreso sulla creazione di applicazioni per la logica, l'esecuzione manuale nel Centro sicurezza e l'automazione dell'esecuzione. 
+In questo articolo, si è appreso sulla creazione di applicazioni per la logica, automazione dell'esecuzione nel Centro sicurezza e l'esecuzione manuale. 
 
-Per altri materiali correlati, vedere i seguenti articoli: 
+Per altri materiali correlati, vedere: 
 
+- [Il modulo Microsoft Learn su come utilizzare l'automazione del flusso di lavoro per automatizzare una risposta di sicurezza](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
 - [Raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md)
 - [Avvisi di sicurezza nel Centro sicurezza di Azure](security-center-alerts-overview.md)
 - [Informazioni su App per la logica di Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)

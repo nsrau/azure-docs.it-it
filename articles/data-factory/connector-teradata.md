@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: jingwang
-ms.openlocfilehash: c7c6cebf0a5c6371893dff52b2e8d7c064a40084
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e1d7cc4bb7762d3ebd29e349467f3e33c0887f9
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257938"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421230"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copiare dati da Teradata Vantage tramite Azure Data FactoryCopy data from Teradata Vantage by using Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -202,7 +202,7 @@ Per copiare i dati da Teradata, nella sezione **dell'origine dell'attività** di
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su `TeradataSource`. | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Un esempio è `"SELECT * FROM MyTable"`.<br>Quando si abilita il carico partizionato, è necessario associare tutti i parametri di partizione incorporati corrispondenti nella query. Per esempi, vedere la sezione [Copia parallela da Teradata.For](#parallel-copy-from-teradata) examples, see the Parallel copy from Teradata section. | No (se è specificata la tabella nel set di dati) |
-| partizioniOpzioni | Specifica le opzioni di partizionamento dei dati utilizzate per caricare i dati da Teradata. <br>I valori consentiti sono: **None (impostazione** predefinita), **Hash** e **DynamicRange**.<br>Quando un'opzione di partizione `None`è abilitata (ovvero no ), il grado di parallelismo [`parallelCopies`](copy-activity-performance.md#parallel-copy) per il caricamento simultaneo dei dati da Teradata è controllato dall'impostazione dell'attività di copia. | No |
+| partizioniOpzioni | Specifica le opzioni di partizionamento dei dati utilizzate per caricare i dati da Teradata. <br>I valori consentiti sono: **None (impostazione** predefinita), **Hash** e **DynamicRange**.<br>Quando un'opzione di partizione `None`è abilitata (ovvero no ), il grado di parallelismo [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) per il caricamento simultaneo dei dati da Teradata è controllato dall'impostazione dell'attività di copia. | No |
 | partitionImpostazioni | Specificare il gruppo di impostazioni per il partizionamento dei dati. <br>Applicare quando l'opzione `None`partizione non è . | No |
 | partitionColumnName (nome di colonna) | Specificare il nome della colonna di origine che verrà utilizzata dalla partizione dell'intervallo o dalla partizione hash per la copia parallela. Se non specificato, l'indice primario della tabella viene rilevato automaticamente e utilizzato come colonna di partizione. <br>Applicare quando l'opzione di partizione è `Hash` o `DynamicRange`. Se si utilizza una query per `?AdfHashPartitionCondition` recuperare `?AdfRangePartitionColumnName` i dati di origine, hook o nella clausola WHERE. Vedere l'esempio nella sezione [Copia parallela da Teradata.See](#parallel-copy-from-teradata) example in Parallel copy from Teradata section. | No |
 | partitionUpperBound | Valore massimo della colonna della partizione in cui copiare i dati. <br>Applicare quando l'opzione partizione è `DynamicRange`. Se si utilizza la query `?AdfRangePartitionUpbound` per recuperare i dati di origine, eseguire l'hook nella clausola WHERE. Per un esempio, vedere la sezione [Copia parallela da Teradata.For](#parallel-copy-from-teradata) an example, see the Parallel copy from Teradata section. | No |
@@ -250,7 +250,7 @@ Il connettore Teradata di Data Factory fornisce il partizionamento dei dati inco
 
 ![Screenshot delle opzioni di partizione](./media/connector-teradata/connector-teradata-partition-options.png)
 
-Quando si abilita la copia partizionata, Data Factory esegue query parallele sull'origine Teradata per caricare i dati in base alle partizioni. Il grado parallelo è [`parallelCopies`](copy-activity-performance.md#parallel-copy) controllato dall'impostazione dell'attività di copia. Ad esempio, se `parallelCopies` si imposta su quattro, Data Factory genera ed esegue contemporaneamente quattro query in base all'opzione e alle impostazioni della partizione specificata e ogni query recupera una parte dei dati dai dati Teradata.
+Quando si abilita la copia partizionata, Data Factory esegue query parallele sull'origine Teradata per caricare i dati in base alle partizioni. Il grado parallelo è [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) controllato dall'impostazione dell'attività di copia. Ad esempio, se `parallelCopies` si imposta su quattro, Data Factory genera ed esegue contemporaneamente quattro query in base all'opzione e alle impostazioni della partizione specificata e ogni query recupera una parte dei dati dai dati Teradata.
 
 Si consiglia di abilitare la copia parallela con il partizionamento dei dati, soprattutto quando si carica grandi quantità di dati dai Teradata. Di seguito sono riportate le configurazioni consigliate per scenari diversi. Quando si copiano dati nell'archivio dati basato su file, viene comandato di scrivere in una cartella come più file (specificare solo il nome della cartella), nel qual caso le prestazioni sono migliori rispetto alla scrittura in un singolo file.
 

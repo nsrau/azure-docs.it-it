@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: 357075caaf91769026deb839e038e5d42fb63a38
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 60f85a30815bc1bace409b50af6332bb6622d7ca
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80054693"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477975"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gestire l'area di lavoro di Log Analytics usando i modelli di Azure Resource ManagerManage Log Analytics workspace using Azure Resource Manager templates
 
@@ -40,13 +40,16 @@ La tabella seguente elenca la versione dell'API per le risorse usate in questo e
 | Risorsa | Tipo di risorsa | Versione dell'API |
 |:---|:---|:---|
 | Area di lavoro   | aree di lavoro    | 2017-03-15-preview |
-| Ricerca      | savedSearches | 2015-03-20 |
+| Cerca      | savedSearches | 2015-03-20 |
 | Origine dati | datasources   | 2015-11-01-preview |
 | Soluzione    | solutions     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>Creare un'area di lavoro Log Analytics
 
 Nell'esempio seguente viene creata un'area di lavoro usando un modello dal computer locale. Il modello JSON è configurato per richiedere solo il nome e il percorso della nuova area di lavoro. Utilizza i valori specificati per altri parametri dell'area di lavoro, ad esempio [la modalità](design-logs-deployment.md#access-control-mode)di controllo di accesso, il piano tariffario, la conservazione e il livello di prenotazione della capacità.
+
+> [!WARNING]
+> Il modello seguente crea un'area di lavoro di Log Analytics e configura la raccolta dati. Ciò potrebbe modificare le impostazioni di fatturazione. Vedere [Gestire l'utilizzo e i costi con i](manage-cost-storage.md) log di monitoraggio di Azure per comprendere la fatturazione per i dati raccolti in un'area di lavoro di Log Analytics prima di applicarla nell'ambiente Azure.Review Manage usage and costs with Azure Monitor Logs to understand billing for data collected in a Log Analytics workspace before applying it in your Azure environment.
 
 Per la prenotazione della capacità, definire una prenotazione di `CapacityReservation` capacità selezionata per l'inserimento dei dati specificando lo SKU e un valore in GB per la proprietà `capacityReservationLevel`. Nell'elenco seguente vengono descritti in dettaglio i valori e il comportamento supportati durante la configurazione.
 
@@ -75,7 +78,7 @@ Per la prenotazione della capacità, definire una prenotazione di `CapacityReser
               "description": "Specifies the name of the workspace."
             }
         },
-      "pricingTier": {
+      "sku": {
         "type": "string",
         "allowedValues": [
           "pergb2018",
@@ -131,7 +134,7 @@ Per la prenotazione della capacità, definire una prenotazione di `CapacityReser
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
-          "name": "[parameters('pricingTier')]"
+                    "name": "[parameters('sku')]"
                 },
                 "retentionInDays": 120,
                 "features": {
@@ -145,15 +148,15 @@ Per la prenotazione della capacità, definire una prenotazione di `CapacityReser
     }
     ```
 
-> [Informazioni] per le impostazioni di prenotazione della capacità, utilizzare queste proprietà in "sku":
+   >[!NOTE]
+   >Per le impostazioni di prenotazione della capacità, usare queste proprietà in "sku":For capacity reservation settings, use these properties under "sku":
+   >* "name": "CapacityReservation",
+   >* "capacityReservationLevel": 100
 
->   "name": "CapacityReservation",
+2. Modificare il modello in base alle esigenze. Valutare la possibilità di creare un file di parametri di [Resource Manager](../../azure-resource-manager/templates/parameter-files.md) anziché passare parametri come valori inline. Rivedere il riferimento del [modello Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) per informazioni sulle proprietà e sui valori supportati. 
 
->   "capacityReservationLevel": 100
-
-
-2. Modificare il modello in base alle esigenze. Rivedere il riferimento del [modello Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) per informazioni sulle proprietà e sui valori supportati. 
 3. Salvare questo file come **deploylaworkspacetemplate.json** in una cartella locale.
+
 4. A questo punto è possibile distribuire il modello. Utilizzare PowerShell o la riga di comando per creare l'area di lavoro, specificando il nome e il percorso dell'area di lavoro come parte del comando. Il nome dell'area di lavoro deve essere univoco a livello globale in tutte le sottoscrizioni di Azure.The workspace name must be globally unique across all Azure subscriptions.
 
    * Per PowerShell usare i comandi seguenti dalla cartella che contiene il modello:
@@ -176,7 +179,7 @@ Per il completamento della distribuzione sarà necessario attendere alcuni minut
 Il modello di esempio seguente illustra come:
 
 1. Aggiungere soluzioni all'area di lavoro
-2. Creare ricerche salvate. Per garantire che le distribuzioni non eseguano accidentalmente l'override delle ricerche salvate, è necessario aggiungere una proprietà eTag nella risorsa "savedSearches" per eseguire l'override e mantenere l'idempotency delle ricerche salvate.
+2. Creare ricerche salvate. Per garantire che le distribuzioni non sostituiscano accidentalmente le ricerche salvate, è necessario aggiungere una proprietà eTag nella risorsa "savedSearches" per eseguire l'override e mantenere l'idempotency delle ricerche salvate.
 3. Creare un gruppo di computer
 4. Abilitare la raccolta dei log IIS dai computer su cui è stato installato l'agente di Windows
 5. Raccogliere i dati dei contatori delle prestazioni del disco logico dai computer Linux (% inodi usati; megabyte liberi; % di spazio usato; trasferimenti/sec del disco; letture/sec del disco; scritture/sec del disco)
@@ -197,7 +200,7 @@ Il modello di esempio seguente illustra come:
         "description": "Workspace name"
       }
     },
-    "pricingTier": {
+    "sku": {
       "type": "string",
       "allowedValues": [
         "PerGB2018",
@@ -306,7 +309,7 @@ Il modello di esempio seguente illustra come:
           "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
         },
         "sku": {
-          "name": "[parameters('pricingTier')]"
+          "name": "[parameters('sku')]"
         }
       },
       "resources": [
@@ -605,7 +608,7 @@ Il modello di esempio seguente illustra come:
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').customerId]"
     },
-    "pricingTier": {
+    "sku": {
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').sku.name]"
     },
