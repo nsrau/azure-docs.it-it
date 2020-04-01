@@ -5,14 +5,14 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: a429a1e454e73a1a9d544e308e5b2d60052d91a9
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 7a31eece6629558b14b614853addce59642e698b
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349769"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422732"
 ---
-# <a name="troubleshoot"></a>Risolvere i problemi
+# <a name="troubleshoot"></a>Risolvere problemi
 
 Questo articolo fornisce soluzioni ai problemi comuni di Azure FarmBeats.This article provides solutions to common Azure FarmBeats issues.
 
@@ -38,7 +38,9 @@ Per scaricare il file **deployer.log,** eseguire le operazioni seguenti:
 **Azione correttiva**:
 
 1. Passare al gruppo di risorse FarmBeats Datahub.Go to your FarmBeats Datahub resource group.   
+
 2. Selezionare **l'hub eventi** (DatafeedEventHubNamespace) e quindi verificare il numero di messaggi in arrivo.
+
 3. Effettuare una delle operazioni seguenti:   
    - Se non sono presenti *messaggi in arrivo,* contattare il partner del dispositivo.  
    - Se sono presenti messaggi farmbeatssupport@microsoft.comin *arrivo,* contattare . Collegare i log di Datahub e Accelerator e i dati di telemetria acquisiti.
@@ -52,6 +54,7 @@ Per informazioni su come scaricare i log, passare alla sezione ["Raccogli log ma
 **Azione correttiva**:
 
 1. Assicurati di aver fatto correttamente la registrazione del partner - puoi controllarlo andando al tuo datahub swagger, passare a /Partner API, Do a Get e controllare se il partner è registrato. In caso contrario, seguire i [passaggi qui](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) per aggiungere partner.
+
 2. Assicurarsi di aver utilizzato il formato corretto del messaggio di telemetria:Ensure that you have used the correct Telemetry message format:
 
 ```json
@@ -83,9 +86,12 @@ Per informazioni su come scaricare i log, passare alla sezione ["Raccogli log ma
 
 1. In Datahub Swagger passare all'API partner.
 2. Selezionare **Get** > **Try it out** > **Execute**.
-3. Nota l'ID partner del partner sensore che ti interessa.
-4. Tornare all'API del partner e selezionare **Ottieni/ID\<>**.
-5. Specificare l'ID partner del passaggio 3, quindi selezionare **Esegui**.
+
+> [!NOTE]
+> ID partner del partner sensore a cui sei interessato.
+
+3. Tornare all'API del partner e selezionare **Ottieni/ID\<>**.
+4. Specificare l'ID partner del passaggio 3, quindi selezionare **Esegui**.
 
    La risposta API deve avere la stringa di connessione Hub eventi.
 
@@ -240,7 +246,7 @@ Messaggio di **errore del processo:**"Numero massimo di\<due flussi simultanei o
 
 ### <a name="collect-azure-data-factory-job-logs-in-datahub"></a>Raccogliere i log dei processi di Azure Data Factory in DatahubCollect Azure Data Factory job logs in Datahub
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nella casella **Cerca** cercare il gruppo di risorse FarmBeats Datahub.
 
     > [!NOTE]
@@ -258,7 +264,7 @@ Messaggio di **errore del processo:**"Numero massimo di\<due flussi simultanei o
 
 ### <a name="collect-azure-data-factory-job-logs-in-accelerator"></a>Raccogliere i log dei processi di Azure Data Factory in AcceleratorCollect Azure Data Factory job logs in Accelerator
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nella casella **Cerca** cercare il gruppo di risorse FarmBeats Accelerator.
 
     > [!NOTE]
@@ -275,7 +281,7 @@ Messaggio di **errore del processo:**"Numero massimo di\<due flussi simultanei o
 
 ### <a name="collect-datahub-app-service-logs"></a>Raccogliere i log del servizio app DatahubCollect Datahub app service logs
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nella casella **Cerca** cercare il gruppo di risorse FarmBeats Datahub.
 
     > [!NOTE]
@@ -291,7 +297,7 @@ Messaggio di **errore del processo:**"Numero massimo di\<due flussi simultanei o
 
 ### <a name="collect-accelerator-app-service-logs"></a>Raccogliere i log del servizio app acceleratoreCollect Accelerator app service logs
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nella casella **Cerca** cercare il gruppo di risorse FarmBeats Accelerator.
 
     > [!NOTE]

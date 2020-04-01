@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: fb931c309b5f85902d8abc9cc6da45576bff4041
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4aec7fa78292f224952dd2ae929d2b8bfd97ab9b
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259825"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477680"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerazioni sulla rete per un ambiente del servizio app #
 
@@ -138,7 +138,7 @@ Tutti questi indirizzi IP sono visibili nel portale di Azure dall'interfaccia ut
 
 ### <a name="app-assigned-ip-addresses"></a>Indirizzi IP assegnati alle app ###
 
-Con un ambiente del servizio app esterno è possibile assegnare gli indirizzi IP alle singole app. Ciò non è possibile con un ambiente del servizio app con bilanciamento del carico interno. Per altre informazioni su come configurare l'app in modo che abbia un proprio indirizzo IP, vedere [Proteggere un nome DNS personalizzato con un'associazione SSL nel servizio app](../configure-ssl-bindings.md)di Azure.For more information on how to configure your app to have its own IP address, see Secure a custom DNS name with an SSL binding in Azure App Service .
+Con un ambiente del servizio app esterno è possibile assegnare gli indirizzi IP alle singole app. Ciò non è possibile con un ambiente del servizio app con bilanciamento del carico interno. Per altre informazioni su come configurare l'app in modo che abbia un proprio indirizzo IP, vedere [Proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel servizio app di Azure.For](../configure-ssl-bindings.md)more information on how to configure your app to have its own IP address, see Secure a custom DNS name with a TLS/SSL binding in Azure App Service .
 
 Quando a un'app viene assegnato un indirizzo SSL basato su IP proprio, l'ambiente del servizio app riserva due porta da mappare a tale indirizzo IP. Una porta è destinata al traffico HTTP e l'altra al traffico HTTPS. Tali porte sono elencate nell'interfaccia utente dell'ambiente del servizio app nella sezione degli indirizzi IP. Il traffico deve essere in grado di raggiungere tali porte dall'indirizzo VIP o le app saranno inaccessibili. Questo requisito è importante da ricordare quando si configurano gruppi di sicurezza di rete (NSG).
 

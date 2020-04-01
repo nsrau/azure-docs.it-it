@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 63b947a27c3aa24b42252bf33febd031f7caefbf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46994413ba765e18a826eebfe85a38bb65efc749
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79282692"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435609"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guida alla pianificazione e alla gestione del Centro sicurezza di Azure
 Questa guida è destinata ai professionisti IT, agli architetti IT, agli analisti della sicurezza delle informazioni e agli amministratori cloud che intendono usare il Centro sicurezza di Azure.This guide is for information technology (IT) professionals, IT architects, information security analysts, and cloud administrators planning to use Azure Security Center.
@@ -131,15 +131,15 @@ Il Centro sicurezza crea automaticamente un criterio di sicurezza predefinito pe
 Prima di configurare i criteri di sicurezza, è consigliabile esaminare tutte le [raccomandazioni sulla sicurezza](https://docs.microsoft.com/azure/security-center/security-center-recommendations)e determinare se sono appropriate per le varie sottoscrizioni e i vari gruppi di risorse usati. È importante sapere anche quali azioni devono essere eseguite in relazione alle raccomandazioni sulla sicurezza e quali utenti dell'organizzazione sono responsabili del monitoraggio per le nuove raccomandazioni e dell'adozione delle misure necessarie.
 
 ## <a name="data-collection-and-storage"></a>Raccolta dati e archiviazione
-Il Centro sicurezza di Azure usa l'agente di monitoraggio Microsoft, ovvero lo stesso agente usato dal servizio Monitoraggio di Azure, per raccogliere dati di sicurezza dalle macchine virtuali. I [dati raccolti](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) dall'agente verranno archiviati nelle aree di lavoro Log Analytics.
+Il Centro sicurezza di Azure usa l'agente di Log Analytics, ovvero lo stesso agente usato dal servizio Monitoraggio di Azure, per raccogliere dati di sicurezza dalle macchine virtuali. I [dati raccolti](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) dall'agente verranno archiviati nelle aree di lavoro Log Analytics.
 
 ### <a name="agent"></a>Agente
 
-Dopo l'abilitazione del provisioning automatico nei criteri di sicurezza, Microsoft Monitoring Agent (per [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) o [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)) viene installato in tutte le macchine virtuali di Azure supportate e in quelle nuove che vengono create. Se Microsoft Monitoring Agent è già installato nella macchina virtuale o nel computer, il Centro sicurezza di Azure userà l'agente installato corrente. Il processo dell'agente è progettato per non essere invasivo e ridurre al minimo l'impatto sulle prestazioni delle VM.
+Quando il provisioning automatico è abilitato nei criteri di sicurezza, l'agente di Log Analytics (per [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) o [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)) viene installato in tutte le macchine virtuali di Azure supportate e in quelle nuove create. Se nella macchina virtuale o nel computer è già installato l'agente Log Analytics, il Centro sicurezza di Azure sfrutterà l'agente installato corrente. Il processo dell'agente è progettato per non essere invasivo e ridurre al minimo l'impatto sulle prestazioni delle VM.
 
-Microsoft Monitoring Agent per Windows richiede l'uso della porta TCP 443. Vedere l'[articolo sulla risoluzione dei problemi](security-center-troubleshooting-guide.md) per altri dettagli.
+L'agente di Log Analytics per Windows richiede l'utilizzo della porta TCP 443. Vedere l'[articolo sulla risoluzione dei problemi](security-center-troubleshooting-guide.md) per altri dettagli.
 
-Per disabilitare successivamente la raccolta dati, è possibile usare i criteri di sicurezza. Tuttavia, poiché Microsoft Monitoring Agent può essere utilizzato da altri servizi di gestione e monitoraggio di Azure, l'agente non verrà disinstallato automaticamente quando si disattiva la raccolta dei dati nel Centro sicurezza. È possibile disinstallare manualmente l'agente se necessario.
+Per disabilitare successivamente la raccolta dati, è possibile usare i criteri di sicurezza. Tuttavia, poiché l'agente di Log Analytics può essere usato da altri servizi di gestione e monitoraggio di Azure, l'agente non verrà disinstallato automaticamente quando si disattiva la raccolta dei dati nel Centro sicurezza. È possibile disinstallare manualmente l'agente se necessario.
 
 > [!NOTE]
 > Per un elenco delle macchine virtuali supportate, vedere [Domande frequenti sul Centro sicurezza di Azure](faq-vms.md).
@@ -148,7 +148,7 @@ Per disabilitare successivamente la raccolta dati, è possibile usare i criteri 
 
 Un'area di lavoro di Azure è una risorsa usata come contenitore per i dati. Nell'organizzazione è possibile usare più aree di lavoro per gestire diversi set di dati raccolti dall'intera infrastruttura IT o da una parte di essa.
 
-I dati raccolti da Microsoft Monitoring Agent (per conto del Centro sicurezza di Azure) verranno archiviati in una o più aree di lavoro Log Analytics esistenti associate alla sottoscrizione di Azure o in una o più aree di lavoro nuove, a seconda dell'area geografica della macchina virtuale.
+I dati raccolti dall'agente di Log Analytics (per conto del Centro sicurezza di Azure) verranno archiviati in un'area di lavoro di Log Analytics esistente associata alla sottoscrizione di Azure o in una nuova area di lavoro, tenendo conto dell'area geografica della macchina virtuale.
 
 Nel portale di Azure è possibile visualizzare un elenco delle aree di lavoro di Log Analytics, incluse quelle create dal Centro sicurezza di Azure. Per le nuove aree di lavoro verrà creato un gruppo di risorse correlato. Entrambi seguiranno questa convenzione di denominazione:
 

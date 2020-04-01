@@ -5,19 +5,21 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 51b800dde140affd222f2bdb341c0fbf3a57d8cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 3/30/2020
+ms.openlocfilehash: 332feffead74174ba0b9b278d8de1c5957d5b9e6
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530156"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422461"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configurare la replica dei dati nel database di Azure per MariaDBConfigure Data-in Replication in Azure Database for MariaDB
 
 In questo articolo viene descritto come configurare la replica dei dati nel database di Azure per MariaDB configurando i server master e di replica. In questo articolo si presuppone che si dispone di una certa esperienza precedente con i server e i database MariaDB.
 
 Per creare una replica nel servizio Database di Azure per MariaDB, La replica dei dati sincronizza i dati da un server MariaDB master in locale, nelle macchine virtuali (VM) o nei servizi di database cloud.
+
+Esaminare le [limitazioni e i requisiti](concepts-data-in-replication.md#limitations-and-considerations) della replica dei dati prima di eseguire la procedura descritta in questo articolo.
 
 > [!NOTE]
 > Se il server master è versione 10.2 o successiva, è consigliabile configurare la replica dei dati utilizzando [l'ID transazione globale](https://mariadb.com/kb/en/library/gtid/).
@@ -36,11 +38,21 @@ Per creare una replica nel servizio Database di Azure per MariaDB, La replica de
     
     Gli account utente non vengono replicati dal server master al server di replica. Per fornire l'accesso utente al server di replica, è necessario creare manualmente tutti gli account e i privilegi corrispondenti nel database di Azure appena creato per il server MariaDB.
 
+3. Aggiungere l'indirizzo IP del server master alle regole del firewall della replica. 
+
+   Aggiornare le regole firewall usando il [portale di Azure](howto-manage-firewall-portal.md) o l'[interfaccia della riga di comando di Azure](howto-manage-firewall-cli.md).
+
 ## <a name="configure-the-master-server"></a>Configurare il server master
 
 I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale, in una macchina virtuale o in un servizio di database cloud per la replica dei dati. Il server MariaDB è il server master nella replica dei dati.
 
-1. Attivare la registrazione binaria.
+1. Esaminare i requisiti del [server master](concepts-data-in-replication.md#requirements) prima di procedere. 
+
+   Ad esempio, assicurarsi che il server master consenta il traffico in ingresso e in uscita sulla porta 3306 e che il server master disponga di un **indirizzo IP pubblico,** che il DNS sia accessibile pubblicamente o abbia un nome di dominio completo (FQDN). 
+   
+   Testare la connettività al server master tentando di connettersi da uno strumento come la riga di comando MySQL ospitato in un altro computer o da Azure Cloud Shell disponibile nel portale di Azure.Test connectivity to the master server by attempting to connect from a tool such as the MySQL command-line hosted on another machine or from the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) available in the Azure portal.
+
+2. Attivare la registrazione binaria.
     
     Per verificare se la registrazione binaria è abilitata sul master, immettere il comando seguente:
 
@@ -52,7 +64,7 @@ I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale
 
    Se `log_bin` restituisce `OFF`il valore , modificare il `log_bin=ON` file **my.cnf** in modo che risulti binario. Riavviare il server per rendere effettiva la modifica.
 
-2. Configurare le impostazioni del server master.
+3. Configurare le impostazioni del server master.
 
     La replica dei dati `lower_case_table_names` richiede che il parametro sia coerente tra il server master e i server di replica. Il `lower_case_table_names` parametro `1` è impostato su per impostazione predefinita nel database di Azure per MariaDB.The parameter is set to by default in Azure Database for MariaDB.
 
@@ -60,7 +72,7 @@ I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale
    SET GLOBAL lower_case_table_names = 1;
    ```
 
-3. Creare un nuovo ruolo di replica e impostare le autorizzazioni.
+4. Creare un nuovo ruolo di replica e impostare le autorizzazioni.
 
    Creare un account utente nel server master configurato con privilegi di replica. È possibile creare un account utilizzando i comandi SQL o MySQL Workbench. Se si prevede di eseguire la replica con SSL, è necessario specificarlo quando si crea l'account utente.
    
@@ -105,7 +117,7 @@ I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale
    ![Slave di replica](./media/howto-data-in-replication/replicationslave.png)
 
 
-4. Impostare il server master sulla modalità di sola lettura.
+5. Impostare il server master sulla modalità di sola lettura.
 
    Prima di eseguire il dump di un database, il server deve essere messo in modalità di sola lettura. In modalità di sola lettura, il master non può elaborare transazioni di scrittura. Per evitare l'impatto aziendale, pianificare la finestra di sola lettura durante un orario non di punta.
 
@@ -114,7 +126,7 @@ I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale
    SET GLOBAL read_only = ON;
    ```
 
-5. Ottenere il nome e l'offset del file di registro binario corrente.
+6. Ottenere il nome e l'offset del file di registro binario corrente.
 
    Per determinare il nome e l'offset [`show master status`](https://mariadb.com/kb/en/library/show-master-status/)del file di registro binario corrente, eseguire il comando .
     
@@ -127,7 +139,7 @@ I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale
 
    Prendere nota del nome del file binario, perché verrà utilizzato nei passaggi successivi.
    
-6. Ottenere la posizione GTID (opzionale, necessaria per la replica con GTID).
+7. Ottenere la posizione GTID (opzionale, necessaria per la replica con GTID).
 
    Eseguire la [`BINLOG_GTID_POS`](https://mariadb.com/kb/en/library/binlog_gtid_pos/) funzione per ottenere la posizione GTID per il nome e l'offset del file binlog corrispondente.
   
@@ -196,7 +208,7 @@ I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale
 
        ```sql
        SET @cert = '-----BEGIN CERTIFICATE-----
-       PLACE YOUR PUBLIC KEY CERTIFICATE'S CONTEXT HERE
+       PLACE YOUR PUBLIC KEY CERTIFICATE\'S CONTEXT HERE
        -----END CERTIFICATE-----'
        ```
 

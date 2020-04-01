@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 4edafc0c07e967acfabf7fdc5b58c481b2cfccc3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb3484d013314897ea2e9157b642d8f2b85dcd60
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75436057"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437641"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Creare e configurare cluster di pacchetti di sicurezza aziendale in Azure HDInsightCreate and configure Enterprise Security Package clusters in Azure HDInsight
 
@@ -122,7 +122,7 @@ Gli utenti verranno sincronizzati con Azure AD.
 1. Selezionare Crea una `directory` **risorsa** e digitare . Selezionare **Azure Active Directory** > **Create**.
 1. In **Nome**organizzazione `HDIFabrikam`immettere .
 1. In Nome dominio `HDIFabrikamoutlook` **iniziale**immettere .
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
     ![Creare una directory di Azure AD](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-new-directory.png)
 
@@ -140,7 +140,7 @@ Gli utenti verranno sincronizzati con Azure AD.
 1. Dal nuovo **Azure Active Directory,** in **Gestisci,** selezionare **Gruppi**.
 1. Selezionare **: Nuovo gruppo**.
 1. Nella casella di testo `AAD DC Administrators`Nome **gruppo** immettere .
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ## <a name="configure-your-azure-ad-tenant"></a>Configurare il tenant di Azure ADConfigure your Azure AD tenant
 
@@ -176,7 +176,7 @@ Creare un amministratore tenant di Active Directory.Create an Active Directory t
 
     ![Finestra di dialogo Ruolo di Azure AD](./media/apache-domain-joined-create-configure-enterprise-security-cluster/azure-ad-add-role-member.png)
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 1. Chiedere quindi al nuovo utente di accedere al portale di Azure in cui verrà richiesto di modificare la password. È necessario eseguire questa operazione prima di configurare Microsoft Azure Active Directory Connect.You'll need to do this before configuring Microsoft Azure Active Directory Connect.
 
@@ -221,7 +221,7 @@ Creare un'identità gestita assegnata dall'utente che è possibile usare per con
 1. Selezionare la propria sottoscrizione.
 1. In **Gruppo di**risorse selezionare Crea **nuovo** e immettere `HDIFabrikam-CentralUS`.
 1. In **Posizione**selezionare **Stati Uniti centrali**.
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ![Creare una nuova identità gestita assegnata dall'utenteCreate a new user-assigned managed identity](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0082.png)
 
@@ -316,7 +316,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
 ```
 
 > [!NOTE]  
-> Qualsiasi utilità o applicazione che crea una richiesta valida \#di Public Key Cryptography Standards (PKCS) 10 può essere utilizzata per formare la richiesta di certificato SSL.
+> Qualsiasi utilità o applicazione che crea una richiesta valida \#di Public Key Cryptography Standards (PKCS) 10 può essere utilizzata per formare la richiesta di certificato TLS/SSL.
 
 Verificare che il certificato sia installato nell'archivio **personale** del computer:
 
@@ -407,7 +407,7 @@ Questo passaggio richiede i prerequisiti seguenti:This step requires the followi
 
             ![Selezionare il gruppo di accesso al cluster HDIUserGroupSelect the cluster access group HDIUserGroup](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0129.jpg)
 
-    1. Completare gli altri passaggi della configurazione del cluster e verificare i dettagli nel riepilogo del **cluster**. Selezionare **Crea**.
+    1. Completare gli altri passaggi della configurazione del cluster e verificare i dettagli nel riepilogo del **cluster**. Selezionare **Create** (Crea).
 
 1. Accedere all'interfaccia utente di Ambari `https://CLUSTERNAME.azurehdinsight.net`per il cluster appena creato in . Usa il `hdiadmin@hdifabrikam.com` tuo nome utente amministratore e la sua password.
 

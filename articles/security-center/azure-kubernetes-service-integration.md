@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: d1cd4691586b27282d221a19c5fb7a1af034ed6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d5c74ac760b5746d37468d692c2a46d5aedbee72
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80125152"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436186"
 ---
 # <a name="azure-kubernetes-services-integration-with-security-center"></a>Azure Kubernetes Services integration with Security Center
 
@@ -35,7 +35,7 @@ Insieme, questi due strumenti formano la migliore offerta di sicurezza Kubernete
 
 L'utilizzo dei due servizi insieme fornisce:
 
-* Consigli sulla **sicurezza:** il Centro sicurezza identifica le risorse AKS e le classifica: dai cluster alle singole macchine virtuali. È quindi possibile visualizzare le raccomandazioni per la sicurezza per risorsa. Per ulteriori informazioni, vedere le raccomandazioni relative ai contenitori [nell'elenco di riferimento delle raccomandazioni](recommendations-reference.md#recs-computeapp). 
+* Consigli sulla **sicurezza:** il Centro sicurezza identifica le risorse AKS e le classifica: dai cluster alle singole macchine virtuali. È quindi possibile visualizzare le raccomandazioni per la sicurezza per risorsa. Per ulteriori informazioni, vedere le raccomandazioni relative ai contenitori [nell'elenco di riferimento delle raccomandazioni](recommendations-reference.md#recs-containers). 
 
 * **Protezione avanzata** dell'ambiente: il Centro sicurezza monitora costantemente la configurazione dei cluster Kubernetes e delle configurazioni Docker. Genera quindi raccomandazioni sulla sicurezza che riflettono gli standard del settore.
 

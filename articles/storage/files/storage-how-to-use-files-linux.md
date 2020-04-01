@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2dc78c25c2cf63a510b9451c8d694795cd8a91eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 72264755d5f0379f0ffb07852f48885126a36898
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060952"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411597"
 ---
 # <a name="use-azure-files-with-linux"></a>Usare File di Azure con Linux
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate nelle distribuzioni Linux usando il [client del kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Questo articolo illustra due modi per montare una condivisione file di Azure: su richiesta con il comando `mount` e all'avvio creando una voce in `/etc/fstab`.
@@ -194,6 +194,53 @@ Dopo che la condivisione file di Azure è stata completata, è possibile usare `
     > [!Note]  
     > Il comando mount di cui sopra si monta con SMB 3.0. Se la distribuzione Linux non supporta SMB 3.0 con crittografia o solo SMB 2.1, è possibile eseguire il montaggio solo da una macchina virtuale di Azure all'interno della stessa area dell'account di archiviazione. Per montare la condivisione file di Azure in una distribuzione Linux che non supporta SMB 3.0 con crittografia, è necessario disabilitare la [crittografia in transito per l'account di archiviazione.](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 
+### <a name="using-autofs-to-automatically-mount-the-azure-file-shares"></a>Uso di adfs per montare automaticamente le condivisioni file di AzureUsing autofs to automatically mount the Azure file share(s)
+
+1. **Assicurarsi che il pacchetto autofs sia installato.**  
+
+    Il pacchetto autofs può essere installato utilizzando il gestore di pacchetti sulla distribuzione Linux di vostra scelta. 
+
+    Nelle distribuzioni basate su **Ubuntu** e **Debian** usare l'utilità di gestione dei pacchetti `apt`:
+    ```bash
+    sudo apt update
+    sudo apt install autofs
+    ```
+    Su **Fedora**, **Red Hat Enterprise Linux 8 e** **CentOS 8 ,** utilizzare il gestore di `dnf` pacchetti:
+    ```bash
+    sudo dnf install autofs
+    ```
+    Nelle versioni precedenti di **Red Hat Enterprise Linux** e **CentOS,** utilizzare il gestore di `yum` pacchetti:
+    ```bash
+    sudo yum install autofs 
+    ```
+    In **openSUSE** usare l'utilità di gestione dei pacchetti `zypper`:
+    ```bash
+    sudo zypper install autofs
+    ```
+2. Creare un punto di **montaggio per le condivisioni:**
+   ```bash
+    sudo mkdir /fileshares
+    ```
+3. **Crea un nuovo file di configurazione autofs personalizzato**
+    ```bash
+    sudo vi /etc/auto.fileshares
+    ```
+4. **Aggiungere le seguenti voci a /etc/auto.fileshares**
+   ```bash
+   echo "$fileShareName -fstype=cifs,credentials=$smbCredentialFile :$smbPath"" > /etc/auto.fileshares
+   ```
+5. **Aggiungi la seguente voce a /etc/auto.master**
+   ```bash
+   /fileshares /etc/auto.fileshares --timeout=60
+   ```
+6. **Riavviare autofs**
+    ```bash
+    sudo systemctl restart autofs
+    ```
+7.  **Accedere alla cartella designata per la condivisione**
+    ```bash
+    cd /fileshares/$filesharename
+    ```
 ## <a name="securing-linux"></a>Protezione di Linux
 Per montare una condivisione file di Azure in Linux, la porta 445 deve essere accessibile. Molte organizzazioni bloccano la porta 445 a causa dei rischi per la sicurezza associati a SMB 1. SMB 1, noto anche come CIFS (Common Internet File System), è un protocollo del file system legacy incluso in molte distribuzioni Linux. SMB 1 è un protocollo obsoleto, inefficiente e, soprattutto, non sicuro. La buona notizia è che file di Azure non supporta SMB 1 e a partire dalla versione kernel 4.18 di Linux, Linux consente di disabilitare SMB 1. Si [consiglia](https://aka.ms/stopusingsmb1) sempre di disabilitare sMB 1 sui client Linux prima di utilizzare le condivisioni file SMB nell'ambiente di produzione.
 
@@ -281,6 +328,6 @@ Il gruppo di utenti di File di Azure per Linux mette a disposizione un forum per
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su File di Azure, vedere i collegamenti seguenti:
 
-* [Pianificazione per la distribuzione di File di Azure](storage-files-planning.md)
+* [Pianificazione per la distribuzione dei file di Azure](storage-files-planning.md)
 * [DOMANDE FREQUENTI](../storage-files-faq.md)
 * [Risoluzione dei problemi](storage-troubleshoot-linux-file-connection-problems.md)

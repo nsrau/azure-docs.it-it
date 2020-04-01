@@ -4,12 +4,12 @@ description: Informazioni su come eseguire il backup di un server di Exchange in
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 9e623b1bdce93c340ccd0e61f9f5145e7154beff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d7d28d813df82a5e1ea0fe424bba2ef5a9a2684
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78295845"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421341"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Eseguire il backup di un server Exchange in Azure con il server di Backup di Azure
 
@@ -34,7 +34,7 @@ Per installare l'agente protezione MABS nel server di Exchange, seguire questi p
 4. Selezionare il database di Exchange Server che si vuole proteggere e fare clic su **Avanti**.
 
    > [!NOTE]
-   > Se si vuole proteggere Exchange 2013, controllare i [Prerequisiti di Exchange 2013](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/dn751029(v=sc.12)).
+   > Se si vuole proteggere Exchange 2013, controllare i [Prerequisiti di Exchange 2013](https://docs.microsoft.com/system-center/dpm/back-up-exchange?view=sc-dpm-2016).
    >
    >
 
@@ -53,7 +53,7 @@ Per installare l'agente protezione MABS nel server di Exchange, seguire questi p
     Dopo aver selezionato questa opzione, il controllo di coerenza di backup verrà eseguito in MABS per evitare il traffico di I/O generato eseguendo il comando **eseutil** sul server di Exchange.
 
    > [!NOTE]
-   > Per usare questa opzione, è necessario copiare i file Ese.dll and Eseutil.exe nella directory C:\Programmi\Microsoft Azure Backup\DPM\DPM\bin nel server MAB. In caso contrario, viene generato l'errore seguente:   
+   > Per utilizzare questa opzione, è necessario copiare i file Ese.dll ed Eseutil.exe nella directory C: In caso contrario, viene generato l'errore seguente:   
    > ![Errore di Eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
@@ -66,7 +66,7 @@ Per installare l'agente protezione MABS nel server di Exchange, seguire questi p
    >
 10. Configurare gli obiettivi per **Backup a breve termine**, quindi fare clic su **Avanti**.
 11. Controllare lo spazio disponibile su disco e quindi fare clic su **Avanti**.
-12. Selezionare l'ora in cui il server MAB dovrà creare la replica iniziale e quindi fare clic su **Avanti**.
+12. Selezionare l'ora in cui il server MABS creerà la replica iniziale e quindi fare clic su **Avanti**.
 13. Selezionare le opzioni di verifica coerenza e quindi fare clic su **Avanti**.
 14. Scegliere il database di cui si vuole eseguire il backup in Azure e quindi fare clic su **Avanti**. Ad esempio:
 

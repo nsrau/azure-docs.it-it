@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 01/09/2020
-ms.openlocfilehash: d945540a769f01c33ca3d3e467fe7c983fb5e286
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/13/2020
+ms.openlocfilehash: 359fd7fc787db5710deca75dd562215d25ed9148
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80287357"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437480"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sicurezza aziendale per Azure Machine Learning
 
@@ -107,6 +107,28 @@ Azure Machine Learning si basa su altri servizi di Azure per le risorse di calco
 
 Per altre informazioni, vedere [Come eseguire esperimenti e inferenza in una rete virtuale.](how-to-enable-virtual-network.md)
 
+È anche possibile abilitare Collegamento privato di Azure per l'area di lavoro. Private Link allows you to restrict communications to your workspace from an Azure Virtual Network. Per ulteriori informazioni, vedere [Come configurare Private Link](how-to-configure-private-link.md).
+
+> [!TIP]
+> È possibile combinare la rete virtuale e Private Link per proteggere le comunicazioni tra l'area di lavoro e altre risorse di Azure.You can combine virtual network and Private Link together to protect communication between your workspace and other Azure resources. Tuttavia, alcune combinazioni richiedono un'area di lavoro Enterprise edition. Utilizzare la tabella seguente per comprendere quali scenari richiedono l'edizione Enterprise:
+>
+> | Scenario | Enterprise</br>edition | Basic</br>edition |
+> | ----- |:-----:|:-----:| 
+> | Nessuna rete virtuale o collegamento privato | ✔ | ✔ |
+> | Area di lavoro senza Private Link. Altre risorse (ad eccezione del Registro di sistema del contenitore di Azure) in una rete virtualeOther resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
+> | Area di lavoro senza Private Link. Altre risorse con Private Link | ✔ | |
+> | Area di lavoro con Private Link. Altre risorse (ad eccezione del Registro di sistema del contenitore di Azure) in una rete virtualeOther resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
+> | Area di lavoro e qualsiasi altra risorsa con Private Link | ✔ | |
+> | Area di lavoro con Private Link. Altre risorse senza Private Link o rete virtuale | ✔ | ✔ |
+> | Registro di sistema del contenitore di Azure in una rete virtualeAzure Container Registry in a virtual network | ✔ | |
+> | Chiavi gestite dal cliente per l'area di lavoro | ✔ | |
+> 
+
+> [!WARNING]
+> L'anteprima delle istanze di calcolo di Azure Machine Learning non è supportata in un'area di lavoro in cui è abilitato Private Link.Azure Machine Learning compute instances preview is not supported in a workspace where Private Link is enabled.
+> 
+> Azure Machine Learning non supporta l'uso di un servizio Azure Kubernetes con collegamento privato abilitato. È invece possibile usare il servizio Azure Kubernetes in una rete virtuale. Per altre informazioni, vedere Proteggere i processi di [sperimentazione e inferenza di Azure ML all'interno di](how-to-enable-virtual-network.md)una rete virtuale di Azure.For more information, see Secure Azure ML experimentation and inference jobs within an Azure Virtual Network .
+
 ## <a name="data-encryption"></a>Crittografia dei dati
 
 ### <a name="encryption-at-rest"></a>Crittografia di dati inattivi
@@ -123,6 +145,8 @@ Azure Machine Learning archivia snapshot, output e log nell'account di archiviaz
 Per informazioni su come usare le proprie chiavi per i dati archiviati nell'archiviazione BLOB di Azure, vedere Crittografia di Archiviazione di Azure con chiavi gestite dal cliente in Archiviazione delle chiavi di Azure.For information on how to use your own keys for data stored in Azure Blob storage, see [Azure Storage encryption with customer-managed keys in Azure Key Vault](../storage/common/storage-encryption-keys-portal.md).
 
 I dati di training vengono in genere archiviati anche nell'archiviazione BLOB di Azure in modo che siano accessibili alle destinazioni di elaborazione del training. Questa risorsa di archiviazione non è gestita da Azure Machine Learning ma è montata per calcolare le destinazioni come file system remoto.
+
+Se hai bisogno di __ruotare o revocare__ la chiave, puoi farlo in qualsiasi momento. Quando si ruota una chiave, l'account di archiviazione inizierà a usare la nuova chiave (versione più recente) per crittografare i dati inattivi. Quando si revoca (disabilita) una chiave, l'account di archiviazione si occupa delle richieste non riuscite. Di solito ci vuole un'ora perché la rotazione o la revoca siano efficaci.
 
 Per informazioni sulla rigenerazione delle chiavi di accesso, vedere [Rigenerare le chiavi](how-to-change-storage-access-key.md)di accesso di archiviazione .
 
@@ -157,6 +181,8 @@ Questa istanza Cosmos DB viene creata in un gruppo di risorse gestito da Microso
 > * Se è necessario eliminare questa istanza cosmo DB, è necessario eliminare l'area di lavoro di Azure Machine Learning che la usa. 
 > * L'impostazione predefinita [__unità__](../cosmos-db/request-units.md) richiesta per questo account Cosmos DB è impostata su __8000__. La modifica di questo valore non è supportata. 
 
+Se hai bisogno di __ruotare o revocare__ la chiave, puoi farlo in qualsiasi momento. Quando si ruota una chiave, Cosmos DB inizierà a utilizzare la nuova chiave (ultima versione) per crittografare i dati inattivi. Quando si revoca (disabilita) una chiave, Cosmos DB si occupa delle richieste non riuscite. Di solito ci vuole un'ora perché la rotazione o la revoca siano efficaci.
+
 Per altre informazioni sulle chiavi gestite dal cliente con Cosmos DB, vedere [Configurare le chiavi gestite dal cliente per l'account database Cosmos di Azure.](../cosmos-db/how-to-setup-cmk.md)
 
 #### <a name="azure-container-registry"></a>Registro Azure Container
@@ -172,7 +198,21 @@ Per un esempio di creazione di un'area di lavoro usando un Registro contenitori 
 
 #### <a name="azure-container-instance"></a>Istanza di contenitore di Azure
 
-Istanza contenitore di Azure non supporta la crittografia del disco. Se è necessaria la crittografia del disco, è consigliabile eseguire la distribuzione in un'istanza del servizio Azure Kubernetes.If you need disk encryption, we recommend [deploying to an Azure Kubernetes Service instance](how-to-deploy-azure-kubernetes-service.md) instead. In questo caso, è anche possibile usare il supporto di Azure Machine Learning per i controlli di accesso basati sui ruoli per impedire le distribuzioni in un'istanza del contenitore di Azure nella sottoscrizione.
+È possibile crittografare una risorsa istanza contenitore di Azure distribuita usando chiavi gestite dal cliente. La chiave gestita dal cliente usata per ACI può essere archiviata nell'insieme di credenziali delle chiavi di Azure per l'area di lavoro. Per informazioni sulla generazione di una chiave, vedere [Crittografare i dati con una chiave gestita dal cliente](../container-instances/container-instances-encrypt-data.md#generate-a-new-key).
+
+Per usare la chiave quando si distribuisce un modello nell'istanza del contenitore di Azure, creare una nuova configurazione di distribuzione usando `AciWebservice.deploy_configuration()`. Fornire le informazioni chiave utilizzando i seguenti parametri:
+
+* `cmk_vault_base_url`: URL dell'insieme di credenziali delle chiavi che contiene la chiave.
+* `cmk_key_name`: il nome della chiave.
+* `cmk_key_version`: la versione della chiave.
+
+Per altre informazioni sulla creazione e l'uso di una configurazione di distribuzione, vedere gli articoli seguenti:For more information on creating and using a deployment configuration, see the following articles:
+
+* [AciWebservice.deploy_configuration() di](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) riferimento
+* [Dove e come eseguire la distribuzione](how-to-deploy-and-where.md)
+* [Distribuire un modello a Istanze di Azure Container](how-to-deploy-azure-container-instance.md)
+
+Per ulteriori informazioni sull'utilizzo di una chiave gestita dal cliente con ACI, vedere [Crittografare i dati con una chiave gestita dal cliente](../container-instances/container-instances-encrypt-data.md#encrypt-data-with-a-customer-managed-key).
 
 #### <a name="azure-kubernetes-service"></a>Servizio Azure Kubernetes
 

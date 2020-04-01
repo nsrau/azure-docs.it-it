@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: 13852acb39a420e2f0da84e18bef4df823c1fa78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5136a00421aebaa72998b1dfcdf75feb935851c6
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78206266"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435449"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Advanced Threat Protection con Il Centro sicurezza di Azure
 
@@ -62,7 +62,7 @@ Per eseguire l'onboarding dei server con il Centro sicurezza, fare clic su Vai a
 1. Nell'area **Onboarding** selezionare o creare un'area di lavoro in cui archiviare i dati. <br>
 2. Se non è possibile visualizzare tutte le aree di lavoro, ciò potrebbe dipendere dalla mancanza di autorizzazioni. Verificare che l'area di lavoro sia impostata sul livello Standard del Centro sicurezza di Azure. Per ulteriori informazioni, vedere [Eseguire l'aggiornamento al livello Standard del Centro sicurezza per una maggiore sicurezza.](security-center-pricing.md)
     
-3. Selezionare **Aggiungi server** per visualizzare le istruzioni su come installare Microsoft Monitoring Agent. 
+3. Selezionare Aggiungi server per visualizzare le istruzioni su come installare l'agente di Log Analytics.Select **Add servers** to view instructions on how to install the Log Analytics agent. 
 
 4. Dopo l'onboarding, è possibile monitorare i computer in **Calcolo e app**.
 

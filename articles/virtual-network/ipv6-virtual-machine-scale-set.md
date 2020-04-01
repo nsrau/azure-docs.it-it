@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/29/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: b90910614bcd86a54198b1a0961a3378427ea87e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6a751fa193c8dd530707f790af0292d536a6f47d
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73164991"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420452"
 ---
-# <a name="deploy-virtual-machine-scale-sets-with-ipv6-in-azure-preview"></a>Distribuire set di scalabilità di macchine virtuali con IPv6 in Azure (anteprima)Deploy virtual machine scale sets with IPv6 in Azure (Preview)
+# <a name="deploy-virtual-machine-scale-sets-with-ipv6-in-azure"></a>Distribuire set di scalabilità di macchine virtuali con IPv6 in AzureDeploy virtual machine scale sets with IPv6 in Azure
 
 In questo articolo viene illustrato come distribuire un set di scalabilità di macchine virtuali dual stack (IPv4 e IPv6) con un servizio di bilanciamento del carico esterno a doppio stack in una rete virtuale di Azure.This article shows you how to deploy a dual stack (IPv4 - IPv6) Virtual Machine Scale Set with a dual stack external load balancer in an Azure virtual network. Il processo di creazione di un set di scalabilità di macchine virtuali con iPv6 è quasi identico al processo di creazione di singole macchine virtuali descritto [di seguito.](ipv6-configure-standard-load-balancer-template-json.md) Si inizierà con i passaggi simili a quelli descritti per le singole macchine virtuali:You'll start with the steps that are similar to ones described for individual VMs:
-1.  Creare indirizzi IP pubblici IPv4 e IPv6.
-2.  Creare un servizio di bilanciamento del carico dello stack doppio.  
-3.  Creare regole del gruppo di sicurezza di rete.Create network security group (NSG) rules.  
+1.    Creare indirizzi IP pubblici IPv4 e IPv6.
+2.    Creare un servizio di bilanciamento del carico dello stack doppio.  
+3.    Creare regole del gruppo di sicurezza di rete.Create network security group (NSG) rules.  
 
 L'unico passaggio diverso dalle singole macchine virtuali è la creazione della configurazione dell'interfaccia di rete (NIC) che utilizza la risorsa set di scalabilità della macchina virtuale: networkProfile/networkInterfaceConfigurations.The only step that is different from individual VMs is creating the network interface (NIC) configuration that uses the virtual machine scale set resource: networkProfile/networkInterfaceConfigurations. La struttura JSON è simile a quella dell'oggetto Microsoft.Network/networkInterfaces utilizzato per le singole macchine virtuali con l'aggiunta dell'impostazione della scheda di interfaccia di rete e di IpConfiguration IPv4 come interfaccia primaria utilizzando l'attributo **"primary": true** come illustrato nell'esempio seguente:
 

@@ -3,12 +3,12 @@ title: Panoramica delle versioni del runtime per Funzioni di Azure
 description: La soluzione Funzioni di Azure supporta più versioni del runtime. Informazioni sulle differenze tra le versioni e su come scegliere quella più adatta alle proprie esigenze.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 21a7b25087efd5d4adf2154c935636c263df9afd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e90752e89be7e381b06f8a87f76f123f0e4a8e3a
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276556"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422489"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Panoramica delle versioni del runtime per Funzioni di Azure
 
@@ -18,7 +18,7 @@ Le versioni principali del runtime di Funzioni di Azure sono correlate alla vers
 | --------------- | ------------- | ------------ |
 | 3.x | GA | .NET Core 3.1 | 
 | 2.x | GA | .NET Core 2.2 |
-| 1.x | GA<sup>2</sup> | .NET Framework 4.6<sup>3</sup> |
+| 1.x | GA<sup>2</sup> | .NET Framework 4.7.2<sup>3</sup> |
 
 <sup>1</sup> Le versioni GA sono supportate per gli scenari di produzione.   
 <sup>2</sup> La versione 1.x è in modalità di manutenzione. I miglioramenti vengono forniti solo nelle versioni successive.   

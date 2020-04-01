@@ -11,49 +11,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/17/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: b9021784216f02fb117f6e63e150b37b07755912
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 396c37d4c8de6a890102e435c5ec6cc70b598638
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239860"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421028"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli-preview"></a>Distribuire un'applicazione dual stack IPv6 usando Basic Load Balancer - CLI (Preview)
+# <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli"></a>Distribuire un'applicazione dual stack IPv6 usando Basic Load Balancer - CLIDeploy an IPv6 dual stack application using Basic Load Balancer - CLI
 
-In questo articolo viene illustrato come distribuire un'applicazione dual stack (IPv4 e IPv6) con bilanciamento del carico di base usando l'interfaccia della riga di comando di Azure che include una rete virtuale a doppio stack con una subnet a doppio stack, un servizio di bilanciamento del carico di base con configurazioni front-end dual (IPv4 e IPv6), macchine virtuali con schede di interfaccia di rete configurazione dual IP, regole del gruppo di sicurezza di rete duale e doppio IP pubblico.
+In questo articolo viene illustrato come distribuire un'applicazione dual stack (IPv4 e IPv6) con bilanciamento del carico di base usando l'interfaccia della riga di comando di Azure che include una rete virtuale a doppio stack con una subnet a doppio stack, un servizio di bilanciamento del carico di base con configurazioni front-end dual (IPv4 e IPv6), macchine virtuali con schede di interfaccia di rete con una configurazione IP doppia, regole del gruppo di sicurezza duale e indirizzi IP duali.
 
 Per distribuire un'applicazione dual stack (IPV4 e IPv6) usando Load Balancer Standard, vedere [Distribuire un'applicazione Dual Stack IPv6 con Load Balancer Standard usando l'interfaccia della riga di comando](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md)di Azure.
 
-> [!Important]
-> Lo stack doppio IPv6 per la rete virtuale di Azure è attualmente in anteprima pubblica. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Se non si ha una sottoscrizione di Azure, creare ora un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se invece si decide di installare e usare l'interfaccia della riga di comando di Azure in locale, questa guida introduttiva richiede l'uso della versione 2.0.49 dell'interfaccia della riga di comando di Azure.If you decide to install and use Azure CLI locally instead, this quickstart requires you to use Azure CLI version 2.0.49 or later. Per trovare la versione installata, eseguire `az --version`. Per informazioni sull'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
-
-## <a name="prerequisites"></a>Prerequisiti
-Per usare la funzionalità di rete virtuale IPv6 per Azure, è necessario configurare la sottoscrizione usando l'interfaccia della riga di comando di Azure come segue:To use the IPv6 for Azure virtual network feature, you must configure your subscription using Azure CLI as follows:
-
-```azurecli
-az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-Sono necessari fino a 30 minuti per completare la registrazione della funzionalità. È possibile controllare lo stato della registrazione eseguendo il comando dell'interfaccia della riga di comando di Azure seguente:You can check your registration status by running the following Azure CLI command:
-
-```azurecli
-az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-
-Al termine della registrazione eseguire questo comando:
-
-```azurecli
-az provider register --namespace Microsoft.Network
-```
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -387,8 +365,6 @@ az vm create \
 
   ![Rete virtuale dual stack IPv6 in Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
 
-> [!NOTE]
-> La rete virtuale IPv6 per Azure è disponibile nel portale di Azure in sola lettura per questa versione di anteprima.
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

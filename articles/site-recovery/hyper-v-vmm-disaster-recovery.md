@@ -4,16 +4,15 @@ description: Informazioni su come configurare il ripristino di emergenza per mac
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: raynew
-ms.custom: MVC
-ms.openlocfilehash: 8d89c7eda845f0e5ed9bc8ccc7b6b3812ba275f9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
-ms.translationtype: HT
+ms.openlocfilehash: f7de3c28463a86852cba03713ca4c500e7ca0339
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74133001"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437500"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurare il ripristino di emergenza per macchine virtuali Hyper-V in un sito locale secondario
 
@@ -45,7 +44,7 @@ Per completare questo scenario:
 
 - Connette le macchine virtuali a reti di macchine virtuali di destinazione appropriate dopo il failover. 
 - Posiziona in modo ottimale le macchine virtuali di replica nei server host Hyper-V di destinazione. 
-- Se non si configura il mapping di rete, le macchine virtuali di replica non verranno connesse alla rete di una macchina virtuale dopo il failover.
+- Se non si configura il mapping di rete, le macchine virtuali di replica non verranno connesse alla rete delle macchine virtuali dopo il failover.
 
 Preparare VMM come segue:
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 23a00c766dbb38853c57c91e7f59ec364390c44b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f7a1eccd76313c5b3bc74a5b5ebdbcd202ca6841
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245382"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435761"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrare soluzioni di sicurezza nel Centro sicurezza di Azure
 Questo documento aiuta a gestire le soluzioni di sicurezza già connesse al Centro sicurezza di Azure e ad aggiungerne di nuove.
@@ -36,7 +36,7 @@ Il Centro sicurezza semplifica l'abilitazione di soluzioni di sicurezza integrat
 Attualmente, le soluzioni di sicurezza integrate includono la valutazione delle vulnerabilità da parte di [Qualys](https://www.qualys.com/public-cloud/#azure) e [Rapid7](https://www.rapid7.com/products/insightvm/) e Microsoft Application Gateway Web application application application firewall.
 
 > [!NOTE]
-> Il Centro sicurezza non installa Microsoft Monitoring Agent nelle appliance virtuali partner perché la maggior parte dei fornitori di sicurezza proibisce gli agenti esterni in esecuzione sulle appliance.
+> Il Centro sicurezza non installa l'agente Log Analytics nelle appliance virtuali partner perché la maggior parte dei fornitori di sicurezza proibisce gli agenti esterni in esecuzione sulle appliance.
 >
 >
 
@@ -47,7 +47,7 @@ Le soluzioni di sicurezza di Azure distribuite dal Centro sicurezza vengono conn
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Gestire soluzioni di sicurezza di Azure integrate e altre origini dati
 
-1. Accedere al [portale](https://azure.microsoft.com/features/azure-portal/)di Azure .
+1. Accedere al [portale di Azure](https://azure.microsoft.com/features/azure-portal/).
 
 2. Scegliere **Centro sicurezza** dal menu **Microsoft Azure**. Viene visualizzato **Centro sicurezza - Panoramica**.
 

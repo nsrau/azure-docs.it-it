@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: e4103f8360f6fa80470b0f8002a61f8ac903bd8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b94725d4d3eb9fd6f13a39d00486b4ab085b9ef9
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255431"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473943"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Elenco di controllo di prestazioni e scalabilità dell'archiviazione BLOB
 
@@ -267,7 +267,7 @@ Per caricare rapidamente i BLOB, determinare innanzitutto se verrà caricato uno
 Per caricare rapidamente un singolo BLOB di grandi dimensioni, un'applicazione client può caricare i blocchi o le pagine in parallelo, tenendo presente gli obiettivi di scalabilità per i singoli BLOB e l'account di archiviazione nel suo complesso. Le librerie client di Archiviazione di Azure supportano il caricamento in parallelo. Ad esempio, è possibile utilizzare le proprietà seguenti per specificare il numero di richieste simultanee consentite in .NET o Java. Le librerie client per altri linguaggi supportati offrono opzioni simili.
 
 - Per .NET, impostare la proprietà [BlobRequestOptions.ParallelOperationThreadCount.](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)
-- Per Java/Android, chiamare il [metodo BlobRequestOptions.setConcurrentRequestCount(final Integer concurrentRequestCount).](/java/api/com.microsoft.azure.storage.blob._blob_request_options.setconcurrentrequestcount)
+- Per Java/Android, chiamare il [metodo BlobRequestOptions.setConcurrentRequestCount(final Integer concurrentRequestCount).](/java/api/com.microsoft.azure.storage.blob.blobrequestoptions.setconcurrentrequestcount)
 
 ### <a name="upload-many-blobs-quickly"></a>Caricare rapidamente molti BLOBUpload many blobs quickly
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 5236fd89ed99ca14bb7fc24e40ef79e12e5177d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61d0a57c541837ab3aebf65e47d757f7ecbe7e40
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245499"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435987"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Raccolta dati nel Centro sicurezza di Azure
 Il Centro sicurezza raccoglie dati dalle macchine virtuali di Azure, set di scalabilità di macchine virtuali, contenitori IaaS e computer non Azure (inclusi quelli locali) per monitorare le vulnerabilità e le minacce della sicurezza. I dati vengono raccolti tramite l'agente di Log Analytics, che legge varie configurazioni correlate alla sicurezza e i registri eventi dal computer e copia i dati nell'area di lavoro per l'analisi. I dati raccolti sono ad esempio il tipo di sistema operativo e la versione, i log del sistema operativo (log eventi Windows), i processi in esecuzione, il nome del computer, gli indirizzi IP e l'utente connesso. Log Analytics Agent copia anche i file di dump di arresto anomalo del sistema nell'area di lavoro.
@@ -306,7 +306,7 @@ Esistono diversi modi per installare manualmente l'agente Log Analytics. Quando 
 
 - Per identificare i problemi relativi a macchine virtuali e computer non monitorati:
 
-    Una macchina virtuale o un computer non è monitorata dal Centro sicurezza se non esegue l'estensione Microsoft Monitoring Agent. In un computer potrebbe essere già installato un agente locale, ad esempio l'agente diretto OMS o l'agente di System Center Operations Manager. Le macchine virtuali con questi agenti vengono identificate come non monitorate perché tali agenti non sono supportati completamente nel Centro sicurezza. Per sfruttare in modo ottimale i vantaggi di tutte le funzionalità del Centro sicurezza, è necessaria l'estensione Microsoft Monitoring Agent.
+    Una macchina virtuale o un computer non viene monitorato dal Centro sicurezza se il computer non esegue l'estensione dell'agente log Analytics.A VM or computer is unmonitored by Security Center if the machine is not running the Log Analytics agent extension. In un computer potrebbe essere già installato un agente locale, ad esempio l'agente diretto OMS o l'agente di System Center Operations Manager. Le macchine virtuali con questi agenti vengono identificate come non monitorate perché tali agenti non sono supportati completamente nel Centro sicurezza. Per trarre il massimo vantaggio da tutte le funzionalità del Centro sicurezza, è necessaria l'estensione dell'agente Log Analytics.
 
     Per ulteriori informazioni sui motivi per cui il Centro sicurezza non è in grado di monitorare correttamente le macchine virtuali e i computer inizializzati per il provisioning automatico, vedere Problemi di [integrità dell'agente](security-center-troubleshooting-guide.md#mon-agent)di monitoraggio .
 

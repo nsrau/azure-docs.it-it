@@ -4,12 +4,12 @@ description: Informazioni su come creare e gestire pool di più nodi per un clus
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: 2045cb9a175bead3abf5b53120b9fe381a17b04b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 607419787bc0bab243d6cc2b8cbaa0ec22921e87
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80047715"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422321"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creare e gestire pool di più nodi per un cluster nel servizio Azure Kubernetes (AKS)Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
 
@@ -33,8 +33,8 @@ Quando si creano e si gestiscono cluster AKS che supportano pool di più nodi, s
 * Il cluster AKS deve usare il servizio di bilanciamento del carico SKU Standard per usare pool di più nodi, la funzionalità non è supportata con i servizi di bilanciamento del carico SKU di base.
 * Il cluster AKS deve usare set di scalabilità di macchine virtuali per i nodi.
 * Il nome di un pool di nodi può contenere solo caratteri alfanumerici minuscoli e deve iniziare con una lettera minuscola. Per i pool di nodi Linux la lunghezza deve essere compresa tra 1 e 12 caratteri, per i pool di nodi di Windows la lunghezza deve essere compresa tra 1 e 6 caratteri.
-* Tutti i pool di nodi devono risiedere nella stessa rete virtuale e subnet.
-* Quando si creano pool di più nodi in fase di creazione del cluster, tutte le versioni di Kubernetes utilizzate dai pool di nodi devono corrispondere alla versione impostata per il piano di controllo. Questa versione può essere aggiornata dopo il provisioning del cluster tramite le operazioni del pool di nodi.
+* Tutti i pool di nodi devono risiedere nella stessa rete virtuale.
+* Quando si creano pool di più nodi in fase di creazione del cluster, tutte le versioni di Kubernetes utilizzate dai pool di nodi devono corrispondere alla versione impostata per il piano di controllo. Questo può essere aggiornato dopo il provisioning del cluster utilizzando le operazioni per pool di nodi.
 
 ## <a name="create-an-aks-cluster"></a>Creare un cluster AKS
 
@@ -120,6 +120,29 @@ L'output di esempio seguente mostra che *mynodepool* è stato creato correttamen
 
 > [!TIP]
 > Se non viene specificato alcun VmSize quando si aggiunge un pool di nodi, la dimensione predefinita è Standard_DS2_v3 per i pool di nodi di Windows e Standard_DS2_v2 per i pool di nodi Linux.If no *VmSize* is specified when you add a node pool, the default size is *Standard_DS2_v3* for Windows node pools and *Standard_DS2_v2* for Linux node pools. Se non viene specificato alcun *OrchestratorVersion,* per impostazione predefinita viene la stessa versione del piano di controllo.
+
+### <a name="add-a-node-pool-with-a-unique-subnet-preview"></a>Aggiungere un pool di nodi con una subnet univoca (anteprima)Add a node pool with a unique subnet (preview)
+
+Un carico di lavoro può richiedere la suddivisione dei nodi di un cluster in pool separati per l'isolamento logico. Questo isolamento può essere supportato con subnet separate dedicate a ogni pool di nodi nel cluster. Questo può soddisfare requisiti come avere uno spazio di indirizzi di rete virtuale non contiguo per dividere tra i pool di nodi.
+
+#### <a name="limitations"></a>Limitazioni
+
+* Tutte le subnet assegnate anodepools devono appartenere alla stessa rete virtuale.
+* I pod di sistema devono avere accesso a tutti i nodi del cluster per fornire funzionalità critiche, ad esempio la risoluzione DNS tramite coreDNS.
+* L'assegnazione di una subnet univoca per pool di nodi è limitata a CNI di Azure durante l'anteprima.
+* L'utilizzo di criteri di rete con una subnet univoca per pool di nodi non è supportato durante l'anteprima.
+
+Per creare un pool di nodi con una subnet dedicata, passare l'ID della risorsa subnet come parametro aggiuntivo durante la creazione di un pool di nodi.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name mynodepool \
+    --node-count 3 \
+    --kubernetes-version 1.15.5
+    --vnet-subnet-id <YOUR_SUBNET_RESOURCE_ID>
+```
 
 ## <a name="upgrade-a-node-pool"></a>Aggiornare un pool di nodiUpgrade a node pool
 
@@ -695,18 +718,22 @@ az group deployment create \
 
 L'aggiornamento del cluster AKS potrebbe richiedere alcuni minuti a seconda delle impostazioni e delle operazioni del pool di nodi definite nel modello di Resource Manager.
 
-## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>Assegnare un indirizzo IP pubblico per nodo in un pool di nodiAssign a public IP per node in a node pool
+## <a name="assign-a-public-ip-per-node-for-a-node-pool-preview"></a>Assegnare un indirizzo IP pubblico per nodo per un pool di nodi (anteprima)Assign a public IP per node for a node pool (preview)
 
 > [!WARNING]
 > Durante l'anteprima dell'assegnazione di un IP pubblico per nodo, non può essere usato con lo SKU di *Load Balancer Standard in AKS* a causa di possibili regole di bilanciamento del carico in conflitto con il provisioning delle macchine virtuali. Come risultato di questa limitazione, i pool di agenti di Windows non sono supportati con questa funzionalità di anteprima. Mentre nell'anteprima è necessario usare lo *SKU* di Basic Load Balancer se è necessario assegnare un indirizzo IP pubblico per nodo.
 
-I nodi AKS non richiedono i propri indirizzi IP pubblici per la comunicazione. Tuttavia, alcuni scenari possono richiedere che i nodi in un pool di nodi dispongano di propri indirizzi IP pubblici. Un esempio è il gioco, in cui una console deve effettuare una connessione diretta a una macchina virtuale cloud per ridurre al minimo gli hop. Questo scenario può essere ottenuto registrando per una funzionalità di anteprima separata, Node Public IP (anteprima).
+I nodi AKS non richiedono i propri indirizzi IP pubblici per la comunicazione. Tuttavia, gli scenari possono richiedere che i nodi in un pool di nodi ricevano i propri indirizzi IP pubblici dedicati. Uno scenario comune è per i carichi di lavoro di gioco, in cui una console deve effettuare una connessione diretta a una macchina virtuale cloud per ridurre al minimo gli hop. Questo scenario può essere ottenuto su AKS registrandosi per una funzionalità di anteprima, Node Public IP (anteprima).
+
+Eseguire la registrazione per la funzionalità IP pubblico del nodo eseguendo il comando dell'interfaccia della riga di comando di Azure seguente.
 
 ```azurecli-interactive
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-Dopo la registrazione, distribuire un modello di Azure Resource Manager seguendo `enableNodePublicIP` le stesse istruzioni precedenti e aggiungere la proprietà del valore booleano a agentPoolProfiles.After successful registration, deploy an Azure Resource Manager template following the same instructions as [above](#manage-node-pools-using-a-resource-manager-template) and add the boolean value property to agentPoolProfiles. Impostare il `true` valore su come `false` predefinito è impostato come se non specificato. Questa proprietà è una proprietà solo in fase di creazione e richiede una versione API minima di 2019-06-01.This property is a create-time only property and requires a minimum API version of 2019-06-01. Questo può essere applicato a entrambi i pool di nodi Linux e Windows.This can be applied to both Linux and Windows node pools.
+Dopo la registrazione, distribuire un modello di Azure Resource Manager `enableNodePublicIP` seguendo le stesse istruzioni precedenti e aggiungere la proprietà booleana a agentPoolProfiles.After successful registration, deploy an Azure Resource Manager template following the same instructions as [above](#manage-node-pools-using-a-resource-manager-template) and add the boolean property to agentPoolProfiles. Impostare il `true` valore su come `false` predefinito è impostato come se non specificato. 
+
+Questa proprietà è una proprietà solo in fase di creazione e richiede una versione API minima di 2019-06-01.This property is a create-time only property and requires a minimum API version of 2019-06-01. Questo può essere applicato a entrambi i pool di nodi Linux e Windows.This can be applied to both Linux and Windows node pools.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

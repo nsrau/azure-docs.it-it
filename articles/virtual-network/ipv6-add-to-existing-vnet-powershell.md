@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/21/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: d08ce1c382d173ac98a0e61e6117ed50b958ba44
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c733538a4e730a95008a8ec1e4d50c20d6ce24ec
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76119840"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420769"
 ---
-# <a name="upgrade-an-ipv4-application-to-ipv6-in-azure-virtual-network---powershell-preview"></a>Aggiornare un'applicazione IPv4 a IPv6 nella rete virtuale di Azure - PowerShell (anteprima)Upgrade an IPv4 application to IPv6 in Azure virtual network - PowerShell (Preview)
+# <a name="upgrade-an-ipv4-application-to-ipv6-in-azure-virtual-network---powershell"></a>Aggiornare un'applicazione IPv4 a IPv6 nella rete virtuale di Azure - PowerShellUpgrade an IPv4 application to IPv6 in Azure virtual network - PowerShell
 
 Questo articolo illustra come aggiungere la connettività IPv6 a un'applicazione IPv4 esistente in una rete virtuale di Azure con un servizio di bilanciamento del carico standard e un ip pubblico. L'aggiornamento sul posto include:
 - Spazio di indirizzi IPv6 per la rete virtuale e la subnet
@@ -28,8 +28,7 @@ Questo articolo illustra come aggiungere la connettività IPv6 a un'applicazione
 - Macchine virtuali con schede di interfaccia di rete che dispongono sia di una configurazione IPv4 e IPv6
 - IP pubblico IPv6 in modo che il servizio di bilanciamento del carico disponga della connettività IPv6 con connessione Internet
 
-> [!Important]
-> Il supporto IPv6 per la rete virtuale di Azure è attualmente in anteprima pubblica. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -37,27 +36,6 @@ Se si sceglie di installare e usare PowerShell in locale, questo articolo richie
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-### <a name="register-the-service"></a>Registrare il servizio
-
-Prima di distribuire un'applicazione dual stack in Azure, è necessario configurare la sottoscrizione per questa funzionalità di anteprima usando Azure PowerShell seguente:Before you deploy a dual stack application in Azure, you must configure your subscription for this preview feature using the following Azure PowerShell:
-
-Registrarsi come segue:
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
-Register-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
-```
-Sono necessari fino a 30 minuti per completare la registrazione della funzionalità. È possibile controllare lo stato della registrazione eseguendo il comando di Azure PowerShell seguente: controllare la registrazione come segue:You can check your registration status by running the following Azure PowerShell command: Check on the registration as follows:
-```azurepowershell
-Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
-Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
-```
-Al termine della registrazione eseguire questo comando:
-
-```azurepowershell
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-### <a name="create-a-standard-load-balancer"></a>Creare un'istanza di Load Balancer Standard
 In questo articolo si presuppone che sia stato distribuito un servizio di bilanciamento del carico Standard come descritto in Guida introduttiva: Creare un servizio di bilanciamento del carico standard - Azure PowerShell.This article assumes that you deployed a Standard Load Balancer as described in [Quickstart: Create a Standard Load Balancer - Azure PowerShell](../load-balancer/quickstart-create-standard-load-balancer-powershell.md).
 
 ## <a name="retrieve-the-resource-group"></a>Recuperare il gruppo di risorseRetrieve the resource group
@@ -176,8 +154,7 @@ $NIC_3 | Set-AzNetworkInterface
 
   ![Rete virtuale dual stack IPv6 in Azure](./media/ipv6-add-to-existing-vnet-powershell/ipv6-dual-stack-vnet.png)
 
-> [!NOTE]
-> La rete virtuale IPv6 per Azure è disponibile nel portale di Azure in sola lettura per questa versione di anteprima.
+
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

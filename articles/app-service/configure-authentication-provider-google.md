@@ -1,22 +1,22 @@
 ---
 title: Configurare l'autenticazione di Google
-description: Scopri come configurare l'autenticazione Google come provider di identità per la tua app del servizio app.
+description: Informazioni su come configurare l'autenticazione Google come provider di identità per il servizio app o l'app Funzioni di Azure.Learn how to configure Google authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.topic: article
 ms.date: 09/02/2019
-ms.custom: seodec18
-ms.openlocfilehash: 81ce3e393d308323c8d5a3d688c16c9b45e7be9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: bb6b8eebef3247cf2c39ed4b111296e1e0521a74
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74670817"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437984"
 ---
-# <a name="configure-your-app-service-app-to-use-google-login"></a>Configurare l'app del servizio app per l'utilizzo dell'accesso Google
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-google-login"></a>Configurare il servizio app o l'app Funzioni di Azure per l'uso dell'accesso GoogleConfigure your App Service or Azure Functions app to use Google login
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Questo argomento descrive come configurare il servizio app di Azure per usare Google come provider di autenticazione.
+Questo argomento illustra come configurare il servizio app di Azure o Funzioni di Azure per usare Google come provider di autenticazione.
 
 Per completare la procedura descritta in questo argomento, è necessario avere un account Google con un indirizzo di posta elettronica verificato. Per creare un nuovo account Google, visitare il sito Web all'indirizzo [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302).
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
-ms.openlocfilehash: ea0a9de5dde02b45ae34e3e98e24b31fd01fa713
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f782985d975dd137aa2da48d12757685b47e62b1
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235832"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421253"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copiare dati da Azure Data Lake Storage Gen1 a Gen2 con Azure Data Factory
 
@@ -53,7 +53,7 @@ Questo articolo illustra come usare lo strumento dati di copia di Data Factory p
     * **Versione**: selezionare **V2**.
     * **Località**: selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati usati dalla data factory possono trovarsi in altre località e aree. 
 
-3. Selezionare **Crea**.
+3. Selezionare **Create** (Crea).
 4. Al termine della creazione, passare alla data factory. Verrà visualizzata la home page **Data factory**, come mostrato nell'immagine seguente: 
    
    ![Home page di Data factory](./media/load-azure-data-lake-storage-gen2-from-gen1/data-factory-home-page.png)
@@ -146,7 +146,7 @@ Per valutare l'aggiornamento da Azure Data Lake Storage Gen1 ad Azure Data Lake 
 
 Usare una prova di concetto per verificare la soluzione end-to-end e testare la velocità effettiva di copia nell'ambiente. Principali passaggi di proof-of-concept: 
 
-1. Creare una pipeline di Data Factory con una singola attività di copia per copiare diversi TB di dati da Data Lake Storage Gen1 a Data Lake Storage Gen2 per ottenere una linea di base delle prestazioni di copia. Inizia con [le unità di integrazione dei dati (DIUs)](copy-activity-performance.md#data-integration-units) come 128. 
+1. Creare una pipeline di Data Factory con una singola attività di copia per copiare diversi TB di dati da Data Lake Storage Gen1 a Data Lake Storage Gen2 per ottenere una linea di base delle prestazioni di copia. Inizia con [le unità di integrazione dei dati (DIUs)](copy-activity-performance-features.md#data-integration-units) come 128. 
 2. In base alla velocità effettiva di copia ottenuta nel passaggio 1, calcolare il tempo stimato necessario per l'intera migrazione dei dati. 
 3. (Facoltativo) Creare una tabella di controllo e definire il filtro di file per partizionare i file di cui eseguire la migrazione. Il modo per partizionare i file è quello di: 
 

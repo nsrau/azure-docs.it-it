@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: e348180eb94c1703ceecf2f2b00ab942ba5ff0ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 395f4b5481fcf2028d6bfe736e58c3174a0c80b2
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536327"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435337"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Protezione dalle minacce nel Centro sicurezza di Azure
 
@@ -73,9 +73,9 @@ Il Centro sicurezza di Azure si integra con i servizi di Azure per monitorare e 
 
 Security Center raccoglie i record di controllo dalle macchine Linux utilizzando **controllato**, uno dei framework di controllo Linux più comuni. auditd nel kernel mainline. 
 
-* **Avvisi controllati Linux e integrazione** <a name="linux-auditd"></a> di Microsoft Monitoring Agent (MMA): il sistema controllato è costituito da un sottosistema a livello di kernel, responsabile del monitoraggio delle chiamate di sistema. Li filtra in base a un set di regole specificato e scrive i messaggi per loro in un socket. Security Center integra le funzionalità del pacchetto controllato all'interno di Microsoft Monitoring Agent (MMA). Questa integrazione consente la raccolta di eventi controllati in tutte le distribuzioni Linux supportate, senza prerequisiti.  
+* **Avvisi controllati Linux e integrazione** <a name="linux-auditd"></a> dell'agente di Log Analytics: il sistema controllato è costituito da un sottosistema a livello di kernel, responsabile del monitoraggio delle chiamate di sistema. Li filtra in base a un set di regole specificato e scrive i messaggi per loro in un socket. Il Centro sicurezza integra le funzionalità del pacchetto controllato all'interno dell'agente di Log Analytics. Questa integrazione consente la raccolta di eventi controllati in tutte le distribuzioni Linux supportate, senza prerequisiti.
 
-    i record controllati vengono raccolti, arricchiti e aggregati in eventi utilizzando l'agente MMA Linux. Il Centro sicurezza aggiunge continuamente nuove analisi che usano segnali Linux per rilevare comportamenti dannosi nelle macchine Linux cloud e locali. Analogamente alle funzionalità di Windows, queste analisi si estendono su processi sospetti, tentativi di accesso dubbi, caricamento di moduli del kernel e altre attività. Queste attività possono indicare che una macchina è sotto attacco o è stata violata.  
+    I record controllati vengono raccolti, arricchiti e aggregati in eventi utilizzando l'agente Log Analytics per l'agente Linux. Il Centro sicurezza aggiunge continuamente nuove analisi che usano segnali Linux per rilevare comportamenti dannosi nelle macchine Linux cloud e locali. Analogamente alle funzionalità di Windows, queste analisi si estendono su processi sospetti, tentativi di accesso dubbi, caricamento di moduli del kernel e altre attività. Queste attività possono indicare che una macchina è sotto attacco o è stata violata.  
 
     Per un elenco degli avvisi Linux, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-linux).
 

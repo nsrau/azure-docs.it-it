@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: aec8048c7ef2eb0d944cdd2a863e23578f4f87e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db36033ea524603416f16db27f40d5eefb8bf613
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77561681"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437109"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
@@ -76,7 +76,7 @@ Esistono diversi ruoli RBAC predefiniti che possono fornire le autorizzazioni ne
 Gli errori dei certificati si verificano in genere in una delle seguenti situazioni:
 
 - L'app è connessa tramite un _proxy trasparente,_ ovvero un server (ad esempio il server aziendale) intercetta il traffico HTTPS, lo decrittografa e quindi lo crittografa utilizzando un certificato autofirmato.
-- Si esegue un'applicazione che sta inserendo un certificato SSL autofirmato nei messaggi HTTPS ricevuti. Esempi di applicazioni che inseriscono certificati includono antivirus e software di ispezione del traffico di rete.
+- Si esegue un'applicazione che sta inserendo un certificato TLS/SSL autofirmato nei messaggi HTTPS ricevuti. Esempi di applicazioni che inseriscono certificati includono antivirus e software di ispezione del traffico di rete.
 
 Quando Storage Explorer vede un certificato autofirmato o non attendibile, non sa più se il messaggio HTTPS ricevuto è stato alterato. Se si dispone di una copia del certificato autofirmato, è possibile indicare a Storage Explorer di considerarlo attendibile attenendosi alla seguente procedura:
 
@@ -262,7 +262,7 @@ Dopo aver esaminato tutte le connessioni, per tutte le connessioni i nomi non ag
 3. In **Credenziali generiche**cercare le voci `<connection_type_key>/<corrupted_connection_name>` che contengono `StorageExplorer_CustomConnections_Accounts_v1/account1`la chiave, ad esempio .
 4. Eliminare queste voci e aggiungere nuovamente le connessioni.
 
-# <a name="macos"></a>[Macos](#tab/macOS)
+# <a name="macos"></a>[macOS](#tab/macOS)
 
 1. Aprire Spotlight (Comando-Barra spaziatrice) e cercare **accesso Portachiavi**.
 2. Cercare le voci che `<connection_type_key>/<corrupted_connection_name>` con. `StorageExplorer_CustomConnections_Accounts_v1/account1`

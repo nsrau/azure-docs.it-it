@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: b0b9d62e8761cfb67d0642d8e5a97e7d1f05af12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e0a5e89f256b562ce5f702e9ff1388cb4d021bf5
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064445"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437683"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Inserire dati di telemetria cronologici
 
@@ -37,37 +37,48 @@ A tale scopo, seguire questa procedura:
 > [!NOTE]
 > Per eseguire la procedura seguente, è necessario essere un amministratore.
 
-1. Scaricare il [file zip](https://aka.ms/farmbeatspartnerscriptv2)ed estrarlo nell'unità locale. Ci sarà un file all'interno del file zip.
+1. Accedere a https://portal.azure.com/.
 
-2. Accedere https://portal.azure.com/ e passare a**Registrazioni app** **di Azure Active Directory** > .
+2. **Se si utilizza FarmBeats versione 1.2.7 o successiva, ignorare i passaggi a, b e c e andare al passaggio 3.** Puoi controllare la versione di FarmBeats selezionando l'icona **Impostazioni** nell'angolo in alto a destra dell'interfaccia utente di FarmBeats.
 
-3. Selezionare la **registrazione dell'app** creata come parte della distribuzione di FarmBeats. Avrà lo stesso nome del tuo Hub FarmBeats.
+      a.  Passare a Registrazioni delle app **di Azure Active DirectoryGo** > to Azure Active Directory**App Registrations**
 
-4. Selezionare **Esporre un'API** > selezionare **Selezionare Aggiungi un'applicazione client** e immettere **04b07795-8ddb-461a-bbee-02f9e1bf7b46** e **selezionare Authorize Scope**. In questo modo sarà possibile accedere all'interfaccia della riga di comando di Azure (Cloud Shell) per eseguire i passaggi seguenti:This will give access to the Azure CLI (Cloud Shell) to perform the following steps:
+      b. Selezionare la **registrazione dell'app** creata come parte della distribuzione di FarmBeats. Avrà lo stesso nome del tuo datahub FarmBeats.
 
-5. Aprire Cloud Shell. Questa opzione è disponibile sulla barra degli strumenti nell'angolo superiore destro del portale di Azure.This option is available on the toolbar in the upper-right corner of the Azure portal.
+      c. Selezionare **Esporre un'API** > selezionare **Aggiungi un'applicazione client** e immettere **04b07795-8ddb-461a-bbee-02f9e1bf7b46** e **selezionare Authorize Scope**. In questo modo verrà consentito l'accesso all'interfaccia della riga di comando di Azure (Cloud Shell) per eseguire i passaggi seguenti:This will give access to the Azure CLI (Cloud Shell) to perform the below steps:
+
+3. Aprire Cloud Shell. Questa opzione è disponibile sulla barra degli strumenti nell'angolo superiore destro del portale di Azure.This option is available on the toolbar in the upper-right corner of the Azure portal.
 
     ![Barra degli strumenti del portale di AzureAzure portal toolbar](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-6. Verificare che l'ambiente sia impostato su **PowerShell**. Per impostazione predefinita, è impostato su Bash.By default, it's set to Bash.
+4. Verificare che l'ambiente sia impostato su **PowerShell**. Per impostazione predefinita, è impostato su Bash.By default, it's set to Bash.
 
     ![Impostazione della barra degli strumenti di PowerShellPowerShell toolbar setting](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-7. Caricare il file dal passaggio 1 nell'istanza di Cloud Shell.
+5. Vai alla tua home directory.
 
-    ![Pulsante Carica barra degli strumenti](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
+    ```azurepowershell-interactive 
+    cd  
+    ```
 
-8. Passare alla directory in cui è stato caricato il file. Per impostazione predefinita, i file vengono caricati nella home directory con il nome utente.
+6. Eseguire il comando seguente. Questo scaricherà uno script nella tua home directory.
 
-9. Eseguire lo script seguente. Lo script richiede l'ID tenant, che può essere ottenuto dalla**pagina Panoramica**di **Azure Active Directory.** > 
+    ```azurepowershell-interactive 
 
-    ```azurepowershell-interactive
+    wget –q https://aka.ms/farmbeatspartnerscriptv3 -O ./generatePartnerCredentials.ps1
+
+    ```
+
+7. Eseguire lo script seguente. Lo script richiede l'ID tenant, che può essere ottenuto dalla pagina Panoramica di **Azure Active Directory.The** > script asks for the Tenant ID, which can be obtained from Azure Active Directory**Overview page.**
+
+    ```azurepowershell-interactive 
 
     ./generatePartnerCredentials.ps1   
 
     ```
 
-10. Seguire le istruzioni visualizzate per acquisire i valori per **Endpoint API**, **ID tenant**, ID **client**, **Segreto client**e Stringa di **connessione EventHub**.
+8. Seguire le istruzioni visualizzate per acquisire i valori per **Endpoint API**, **ID tenant**, ID **client**, **Segreto client**e Stringa di **connessione EventHub**.
+
 
 ## <a name="create-device-or-sensor-metadata"></a>Creare metadati del dispositivo o del sensoreCreate device or sensor metadata
 
@@ -108,8 +119,8 @@ A tale scopo, seguire questa procedura:
 |     Productcode| Codice prodotto o nome o numero del modello. Ad esempio, RS-CO2-N01. |
 |       Nome > SensorMeasures       | Nome della misura del sensore. È supportato solo lettere minuscole. Per le misurazioni da profondità diverse, specificare la profondità. Ad esempio, soil_moisture_15cm. Questo nome deve essere coerente con i dati di telemetria.  |
 |          SensorMeasures > DataType       |Tipo di dati di telemetria. Attualmente è supportato double.|
-|    Tipo di > SensorMeasures    |Tipo di misurazione dei dati di telemetria del sensore. I tipi definiti dal sistema sono AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, Relativeity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, Stato, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. Per aggiungerne altre, fare riferimento all'API /ExtendedType.|
-|        Unità > SensorMeasures              | Unità di dati di telemetria del sensore. Le unità definite dal sistema sono NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Piedi, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Grado, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiTer, SiemensPerSquareMeter MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour Per aggiungerne altri, fare riferimento all'API /ExtendedType.|
+|    Tipo di > SensorMeasures    |Tipo di misurazione dei dati di telemetria del sensore. I tipi definiti dal sistema sono AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotrans, Evapotrans, PARpiration. Per aggiungerne altre, fare riferimento all'API /ExtendedType.|
+|        Unità > SensorMeasures              | Unità di dati di telemetria del sensore. Le unità definite dal sistema sono NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentuale, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, Volumetric IonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour Per aggiungerne altre, fare riferimento all'API /ExtendedType.|
 |    SensorMeasures > AggregationType    |  I valori possono essere nessuno, media, massimo, minimo o Deviazione standard.  |
 |          Nome            | Nome per identificare una risorsa. Ad esempio, il nome del modello o del prodotto.  |
 |    Descrizione        | Fornire una descrizione significativa del modello.|
@@ -351,11 +362,11 @@ Convertire il formato dei dati dei sensori cronologici in un formato canonico co
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": "<values>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         }
       ]
     }
@@ -429,11 +440,11 @@ Ecco un esempio di messaggio di telemetria:Here's an example of a telemetry mess
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         }
       ]
     }
