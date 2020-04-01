@@ -1,22 +1,22 @@
 ---
 title: Configurare l'autenticazione di Facebook
-description: Informazioni su come configurare l'autenticazione di Facebook come provider di identità per l'app del servizio app.
+description: Informazioni su come configurare l'autenticazione di Facebook come provider di identità per il servizio app o l'app Funzioni di Azure.Learn how to configure Facebook authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd
 ms.topic: article
 ms.date: 06/06/2019
-ms.custom: seodec18
-ms.openlocfilehash: cd9c8a1bab3616b9b4eb1fe97ee3a9b2307ba77b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 9a2d390a5647ed90284730e9186e981b8e699d10
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74671946"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80438010"
 ---
-# <a name="configure-your-app-service-app-to-use-facebook-login"></a>Configurare l'app del servizio app per l'uso dell'accesso a FacebookConfigure your App Service app to use Facebook login
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-facebook-login"></a>Configurare il servizio app o l'app Funzioni di Azure per usare l'account di accesso di FacebookConfigure your App Service or Azure Functions app to use Facebook login
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Questo articolo illustra come configurare il servizio app di Azure per usare Facebook come provider di autenticazione.
+Questo articolo illustra come configurare il servizio app di Azure o funzioni di Azure per usare Facebook come provider di autenticazione.
 
 Per completare la procedura descritta in questo articolo, è necessario un account Facebook con un indirizzo di posta elettronica verificato e un numero di cellulare. Per creare un nuovo account di Facebook, visitare il sito [facebook.com].
 

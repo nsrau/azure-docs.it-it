@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: ff4079263fd7afb02e132a798997687fad7e9961
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d27c648980338b3a9e12bd618eb4620fe9988fd7
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78206980"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436895"
 ---
 # <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>Domande frequenti su Apache Kafka in Azure HDInsight
 
@@ -50,7 +50,7 @@ Utilizzando [Enterprise Security Package (ESP)](../domain-joined/apache-domain-j
 
 ## <a name="is-my-data-encrypted-can-i-use-my-own-keys"></a>I miei dati sono crittografati? Posso usare le mie chiavi?
 
-Tutti i messaggi Kafka sui dischi gestiti vengono crittografati con Crittografia servizio [di archiviazione di Azure (SSE).](../../storage/common/storage-service-encryption.md) I dati in transito (ad esempio, i dati trasmessi dai client ai broker e viceversa) non sono crittografati per impostazione predefinita. E 'possibile crittografare tale traffico [impostando SSL sul proprio](./apache-kafka-ssl-encryption-authentication.md). Inoltre, HDInsight consente di gestire le proprie chiavi per crittografare i dati inattivi. Per ulteriori informazioni, vedere [Crittografia del disco di chiavi gestita dal cliente.](../disk-encryption.md)
+Tutti i messaggi Kafka sui dischi gestiti vengono crittografati con Crittografia servizio [di archiviazione di Azure (SSE).](../../storage/common/storage-service-encryption.md) I dati in transito (ad esempio, i dati trasmessi dai client ai broker e viceversa) non sono crittografati per impostazione predefinita. E 'possibile crittografare tale traffico [impostando TLS da soli](./apache-kafka-ssl-encryption-authentication.md). Inoltre, HDInsight consente di gestire le proprie chiavi per crittografare i dati inattivi. Per ulteriori informazioni, vedere [Crittografia del disco di chiavi gestita dal cliente.](../disk-encryption.md)
 
 ## <a name="how-do-i-connect-clients-to-my-cluster"></a>Come si connettono i client al cluster?
 
@@ -96,5 +96,5 @@ Usare Monitoraggio di Azure per analizzare [i log Kafka.](./apache-kafka-log-ana
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Configurare la crittografia e l'autenticazione SSL (Secure Sockets Layer) per Apache Kafka in Azure HDInsightSet up Secure Sockets Layer (SSL) encryption and authentication for Apache Kafka in Azure HDInsight](./apache-kafka-ssl-encryption-authentication.md)
+* [Configurare la crittografia e l'autenticazione TLS per Apache Kafka in Azure HDInsightSet up TLS encryption and authentication for Apache Kafka in Azure HDInsight](./apache-kafka-ssl-encryption-authentication.md)
 * [Usare MirrorMaker per replicare gli argomenti di Apache Kafka con Kafka in HDInsight](./apache-kafka-mirroring.md)

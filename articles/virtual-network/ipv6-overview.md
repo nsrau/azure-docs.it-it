@@ -1,5 +1,5 @@
 ---
-title: Panoramica della rete virtuale IPv6 per Azure (anteprima)Overview of IPv6 for Azure Virtual Network (Preview)
+title: Panoramica di IPv6 per la rete virtuale di AzureOverview of IPv6 for Azure Virtual Network
 titlesuffix: Azure Virtual Network
 description: Descrizione IPv6 degli endpoint IPv6 e dei percorsi dati in una rete virtuale di Azure.IPv6 description of IPv6 endpoints and data paths in an Azure virtual network.
 services: virtual-network
@@ -10,24 +10,22 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 12/19/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 9214886f468a4a052328a99289845361a059b650
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03b279ead6b1f5d26ae92b63a8780a61dfd711bb
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75780080"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420563"
 ---
-# <a name="what-is-ipv6-for-azure-virtual-network-preview"></a>Che cos'è IPv6 per la rete virtuale di Azure? (Anteprima)
+# <a name="what-is-ipv6-for-azure-virtual-network"></a>Che cos'è IPv6 per la rete virtuale di Azure?
 
 IPv6 per la rete virtuale di Azure consente di ospitare applicazioni in Azure con connettività IPv6 e IPv4 sia all'interno di una rete virtuale che da e verso Internet. A causa dell'esaurimento degli indirizzi IPv4 pubblici, le nuove reti per la mobilità e l'Internet of Things (IoT) sono spesso costruite su IPv6. Anche le reti mobili e gli ISP e le reti mobili di lunga data vengono trasformati in IPv6. I servizi solo IPv4 possono trovarsi in una situazione di reale svantaggio sia nei mercati esistenti che in quelli emergenti. La connettività IPv4/IPv6 a doppio stack consente ai servizi ospitati da Azure di attraversare questa lacuna tecnologica con servizi dual stack disponibili a livello globale che si connettono facilmente sia con i dispositivi e le reti IPv4 esistenti che con questi nuovi dispositivi e reti IPv6.
 
 Azure's original IPv6 connectivity makes it easy to provide dual stack (IPv4/IPv6) Internet connectivity for applications hosted in Azure. Consente una distribuzione semplice delle macchine virtuali con connettività IPv6 con carico bilanciato sia per le connessioni in ingresso che per le connessioni avviate in uscita. Questa funzione è ancora disponibile e ulteriori informazioni sono disponibili [qui](../load-balancer/load-balancer-ipv6-overview.md).
 IPv6 for Azure virtual network is much more full featured- enabling full IPv6 solution architectures to be deployed in Azure.
 
-> [!Important]
-> IPv6 per la rete virtuale di Azure è attualmente in anteprima pubblica. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Il diagramma seguente illustra una semplice distribuzione dual stack (IPv4/IPv6) in Azure:The following diagram depicts a simple dual stack (IPv4/IPv6) deployment in Azure:
 
@@ -74,7 +72,7 @@ IPv6 per la rete virtuale di Azure è un set di funzionalità fondamentale che c
 
 ## <a name="limitations"></a>Limitazioni
 La versione corrente di IPv6 per la rete virtuale di Azure presenta le limitazioni seguenti:The current IPv6 for Azure virtual network release has the following limitations:
-- IPv6 per la rete virtuale di Azure (anteprima) è disponibile in tutte le aree di Azure globali, ma solo in Global Azure, non ancora nei cloud di enti pubblici.
+- IPv6 per la rete virtuale di Azure è disponibile in tutte le aree di Azure globali, ma solo in Global Azure, non ancora nei cloud di enti pubblici.
 - I gateway ExpressRoute e VPN non possono essere utilizzati in una rete virtuale con IPv6 abilitato, direttamente o sottoposto a peerè con "UseRemoteGateway". 
 - La piattaforma Azure (AKS e così via) non supporta la comunicazione IPv6 per i contenitori.  
 

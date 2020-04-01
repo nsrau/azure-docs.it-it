@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/25/2020
-ms.openlocfilehash: 950bbc17af920f104f31af4d324f5546ff29217e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 822a981b84919670aa476567625cdf914206eaa8
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257955"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422173"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare e trasformare i dati in Azure Synapse Analytics (in precedenza Azure SQL Data Warehouse) usando Azure Data FactoryCopy and transform data in Azure Synapse Analytics (formerly Azure SQL Data Warehouse) by using Azure Data Factory 
 
@@ -485,7 +485,7 @@ Se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostaz
 
 ### <a name="staged-copy-by-using-polybase"></a>Copia di staging tramite PolyBase
 
-Quando i dati di origine non sono compatibili in modo nativo con PolyBase, abilitare la copia dei dati tramite un'istanza di archiviazione BLOB di Azure con gestione temporanea provvisoria (non può essere Archiviazione Premium di Azure). In this case, Azure Data Factory automatically converts the data to meet the data format requirements of PolyBase. Quindi richiama PolyBase per caricare i dati in SQL Data Warehouse. Infine, pulisce i dati temporanei dall'archiviazione BLOB. Per informazioni dettagliate sulla copia dei dati tramite un'istanza di Archiviazione BLOB di Azure di staging, vedere [Copia di staging](copy-activity-performance.md#staged-copy).
+Quando i dati di origine non sono compatibili in modo nativo con PolyBase, abilitare la copia dei dati tramite un'istanza di archiviazione BLOB di Azure con gestione temporanea provvisoria (non può essere Archiviazione Premium di Azure). In this case, Azure Data Factory automatically converts the data to meet the data format requirements of PolyBase. Quindi richiama PolyBase per caricare i dati in SQL Data Warehouse. Infine, pulisce i dati temporanei dall'archiviazione BLOB. Per informazioni dettagliate sulla copia dei dati tramite un'istanza di Archiviazione BLOB di Azure di staging, vedere [Copia di staging](copy-activity-performance-features.md#staged-copy).
 
 Per usare questa funzionalità, creare un [servizio collegato Archiviazione BLOB](connector-azure-blob-storage.md#linked-service-properties) di Azure che fa riferimento all'account di archiviazione di Azure con l'archiviazione BLOB provvisoria. Specificare `enableStaging` quindi `stagingSettings` le proprietà e per l'attività di copia, come illustrato nel codice seguente.
 
@@ -613,7 +613,7 @@ L'utilizzo dell'istruzione COPY supporta la configurazione seguente:
 2. Le impostazioni di formato sono con le seguenti:
 
    1. Per **Parquet**: `compression` non può essere **compressione**, **Snappy**, o **G-ip**.
-   2. Per **ORC**: `compression` non può essere **compressione**, **zlib**o **Snappy**.
+   2. Per **ORC** `compression` : non **```zlib```** può essere **alcuna compressione**, o **Snappy**.
    3. Per **testo delimitato**:
       1. `rowDelimiter`viene impostato in modo esplicito come **carattere singolo** o "**,** il valore predefinito non è supportato.
       2. `nullValue`viene lasciato come predefinito o impostato su **una stringa vuota** ("").
@@ -705,7 +705,7 @@ Le impostazioni specifiche di Analisi synapse di Azure sono disponibili nella sc
 
 * Esempio SQL:```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
-**Dimensione batch**: Immettere una dimensione batch per suddividere i dati di grandi dimensioni in letture.
+**Dimensione batch**: Immettere una dimensione batch per suddividere i dati di grandi dimensioni in letture. Nei flussi di dati, ADF utilizzerà questa impostazione per impostare la memorizzazione nella cache columnar Spark.In data flows, ADF will use this setting to set Spark columnar caching. Questo è un campo di opzione che utilizzerà le impostazioni predefinite di Spark se viene lasciato vuoto.
 
 **Livello di isolamento:** l'impostazione predefinita per le origini SQL nel mapping del flusso di dati è la lettura senza commit. È possibile modificare il livello di isolamento in uno dei valori seguenti:You can change the isolation level here to one of these values:
 * Read Committed
