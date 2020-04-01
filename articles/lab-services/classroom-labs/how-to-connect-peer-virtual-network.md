@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 03/31/2020
 ms.author: spelluru
-ms.openlocfilehash: d2115b1dc7e9f3150e44eb5ee9417e88ebeaa279
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56c31e03eeec0c81207dc402e864eadec2d768bd
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370837"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474070"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Connettere la rete del lab a una rete virtuale peer in Azure Lab ServicesConnect your lab's network with a peer virtual network in Azure Lab Services 
 In questo articolo vengono fornite informazioni sul peering della rete labs con un'altra rete. 
@@ -38,6 +38,8 @@ Alcune reti locali sono connesse alla rete virtuale di Azure tramite [ExpressRou
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Configurare al momento della creazione dell'account lab
 Durante la creazione del nuovo account lab, è possibile selezionare una rete virtuale esistente visualizzata nell'elenco a discesa Rete virtuale peer della scheda Avanzate.During the new lab account creation, you can pick an existing virtual network that shows in the **Peer virtual network** dropdown list on the **Advanced** tab. La rete virtuale selezionata è connessa (con peered) ai lab creati con l'account lab. Tutte le macchine virtuali nei lab creati dopo la modifica di questa modifica avrà accesso alle risorse nella rete virtuale con peering. 
+
+È inoltre disponibile un provisioning per fornire **l'intervallo** di indirizzi di macchine virtuali per i lab. Se viene fornito l'intervallo di indirizzi, tutte le macchine virtuali nei lab con l'account lab verranno create in tale intervallo di indirizzi. L'intervallo di indirizzi deve essere in notazione CIDR (ad esempio 10.20.0.0/20) e non sovrapporsi ad alcun intervallo di indirizzi esistente. Quando si fornisce un intervallo di indirizzi, è importante considerare il numero di macchine virtuali che verranno create nei lab e fornire un intervallo di indirizzi per adattarlo. Per un determinato intervallo, verrà mostrato il numero di laboratori che può ospitare.
 
 ![Selezionare da rete a peer](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer.png)
 

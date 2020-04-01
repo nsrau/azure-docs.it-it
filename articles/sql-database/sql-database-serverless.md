@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 3/11/2020
-ms.openlocfilehash: 5c36dbfbe63314ef97edfa3dfbaae34667db002d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a72d3dc7f7b3fddf66df8111b1e92116a62883a
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79268704"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474019"
 ---
 # <a name="azure-sql-database-serverless"></a>Database SQL di Azure senza server
 
@@ -151,7 +151,7 @@ La latenza per la rigenerazione automatica e la sospensione automatica di un dat
 
 ### <a name="customer-managed-transparent-data-encryption-byok"></a>Crittografia dei dati trasparenti gestita dal cliente (BYOK)
 
-Se si utilizza la crittografia dei [dati trasparenti gestita](transparent-data-encryption-byok-azure-sql.md) dal cliente (BYOK) e il database senza server viene automaticamente sospeso quando si verifica l'eliminazione o la revoca della chiave, il database rimane nello stato di sospensione automatica.  In questo caso, quando si tenta di riprendere, il database rimane in pausa fino a quando il relativo stato non passa a inaccessibile dopo circa 10 minuti o meno.  Quando il database diventa inaccessibile, il processo di ripristino è lo stesso dei database di calcolo di cui è stato eseguito il provisioning.  Se il database senza server è online quando si verifica l'eliminazione o la revoca delle chiavi, anche il database diventa inaccessibile dopo circa 10 minuti o meno nello stesso modo in cui viene eseguito il provisioning dei database di calcolo.
+Se si utilizza la crittografia dei [dati trasparenti gestita](transparent-data-encryption-byok-azure-sql.md) dal cliente (BYOK) e il database senza server viene automaticamente sospeso quando si verifica l'eliminazione o la revoca della chiave, il database rimane nello stato di sospensione automatica.  In questo caso, alla successiva ripresa del database, il database rimane online fino a quando il relativo stato non passa a inaccessibile dopo circa 10 minuti o meno.  Quando il database diventa inaccessibile, il processo di ripristino è lo stesso dei database di calcolo di cui è stato eseguito il provisioning.  Se il database senza server è online quando si verifica l'eliminazione o la revoca delle chiavi, anche il database diventa inaccessibile dopo circa 10 minuti o meno nello stesso modo in cui viene eseguito il provisioning dei database di calcolo.
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>Onboarding nel livello di calcolo senza serverOnboarding into serverless compute tier
 

@@ -4,10 +4,10 @@ description: Quando una risorsa non è conforme, esistono molti motivi possibili
 ms.date: 04/26/2019
 ms.topic: how-to
 ms.openlocfilehash: c931831ddf3cc727b9861e75969eac3bf00c9e45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 03/30/2020
 ms.locfileid: "79264635"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinare le cause di non conformità
@@ -214,7 +214,7 @@ I dati della cronologia delle modifiche vengono forniti da [Azure Resource Graph
 
 - Esaminare esempi in [Esempi di criteri di Azure](../samples/index.md).Review examples at Azure Policy samples .
 - Vedere la [struttura delle definizioni di Criteri di Azure](../concepts/definition-structure.md).
-- Rivedere [Informazioni sugli effetti dei criteri](../concepts/effects.md).
+- Leggere [Informazioni sugli effetti di Criteri](../concepts/effects.md).
 - Comprendere come creare criteri a livello di [codice.](programmatically-create.md)
 - Scopri come ottenere i dati di [conformità](get-compliance-data.md).
 - Informazioni su come [correggere le risorse non conformi.](remediate-resources.md)

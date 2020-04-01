@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 1a2a370ac92ea3edf925d97af6f5e721c79d0d2d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a8674714451f3cc686acb74d6c66ac6800b75936
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79529697"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478091"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Streaming Endpoints (Origin) in Azure Media Services
 
@@ -118,7 +118,7 @@ Questa sezione fornisce informazioni dettagliate su alcune delle proprietà dell
     > [!NOTE]
     > Gli endpoint di streaming che si trovano nello stesso data center non possono condividere lo stesso nome host personalizzato.
 
-    Attualmente Servizi multimediali non supporta SSL con domini personalizzati.
+    Attualmente, Servizi multimediali non supporta TLS con domini personalizzati.
 
 - `maxCacheAge`- Esegue l'override dell'intestazione di controllo della cache HTTP max-age impostata dall'endpoint di streaming su frammenti multimediali e manifesti su richiesta.- overrides the default max-age HTTP cache control header set by the streaming endpoint on media fragments and on-demand manifests. Il valore è impostato in secondi.
 - `resourceState` -

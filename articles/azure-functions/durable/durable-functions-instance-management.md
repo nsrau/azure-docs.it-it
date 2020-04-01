@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 07a96fdd6350d8db38a92c23e510afb05f7416fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1837d342c4476633ee33a8579abe7389ac9bbddf
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79277752"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476824"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Gestire le istanze in Durable Functions in Azure
 
@@ -42,9 +42,9 @@ Il codice seguente è una funzione di esempio che avvia una nuova istanza di orc
 # <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
-[FunctionName("HelloWorldManualStart")]
+[FunctionName("HelloWorldQueueTrigger")]
 public static async Task Run(
-    [ManualTrigger] string input,
+    [QueueTrigger("start-queue")] string input,
     [DurableClient] IDurableOrchestrationClient starter,
     ILogger log)
 {
@@ -56,7 +56,7 @@ public static async Task Run(
 > [!NOTE]
 > Il precedente codice in Cè è per Funzioni durevoli 2.x. Per Funzioni durevoli 1.x, è `OrchestrationClient` `DurableClient` necessario utilizzare l'attributo anziché l'attributo ed è necessario utilizzare il `DurableOrchestrationClient` tipo di `IDurableOrchestrationClient`parametro anziché . Per altre informazioni sulle differenze tra le versioni, vedere l'articolo Versioni di [Funzioni permanenti.](durable-functions-versions.md)
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 <a name="javascript-function-json"></a>Se non diversamente specificato, gli esempi in questa pagina utilizzano il trigger HTTP con il seguente function.json.
 
@@ -161,7 +161,7 @@ Questo metodo `null` restituisce (.NET) o `undefined` (JavaScript) se l'istanza 
 [FunctionName("GetStatus")]
 public static async Task Run(
     [DurableClient] IDurableOrchestrationClient client,
-    [ManualTrigger] string instanceId)
+    [QueueTrigger("check-status-queue")] string instanceId)
 {
     DurableOrchestrationStatus status = await client.GetStatusAsync(instanceId);
     // do something based on the current status.
@@ -171,7 +171,7 @@ public static async Task Run(
 > [!NOTE]
 > Il precedente codice in Cè è per Funzioni durevoli 2.x. Per Funzioni durevoli 1.x, è `OrchestrationClient` `DurableClient` necessario utilizzare l'attributo anziché l'attributo ed è necessario utilizzare il `DurableOrchestrationClient` tipo di `IDurableOrchestrationClient`parametro anziché . Per altre informazioni sulle differenze tra le versioni, vedere l'articolo Versioni di [Funzioni permanenti.](durable-functions-versions.md)
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -240,7 +240,7 @@ public static async Task Run(
 > [!NOTE]
 > Il precedente codice in Cè è per Funzioni durevoli 2.x. Per Funzioni durevoli 1.x, è `OrchestrationClient` `DurableClient` necessario utilizzare l'attributo anziché l'attributo ed è necessario utilizzare il `DurableOrchestrationClient` tipo di `IDurableOrchestrationClient`parametro anziché . Per altre informazioni sulle differenze tra le versioni, vedere l'articolo Versioni di [Funzioni permanenti.](durable-functions-versions.md)
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -306,7 +306,7 @@ public static async Task Run(
 > [!NOTE]
 > Il precedente codice in Cè è per Funzioni durevoli 2.x. Per Funzioni durevoli 1.x, è `OrchestrationClient` `DurableClient` necessario utilizzare l'attributo anziché l'attributo ed è necessario utilizzare il `DurableOrchestrationClient` tipo di `IDurableOrchestrationClient`parametro anziché . Per altre informazioni sulle differenze tra le versioni, vedere l'articolo Versioni di [Funzioni permanenti.](durable-functions-versions.md)
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -363,7 +363,7 @@ Se si dispone di un'istanza di orchestrazione che richiede troppo tempo per l'es
 [FunctionName("TerminateInstance")]
 public static Task Run(
     [DurableClient] IDurableOrchestrationClient client,
-    [ManualTrigger] string instanceId)
+    [QueueTrigger("terminate-queue")] string instanceId)
 {
     string reason = "It was time to be done.";
     return client.TerminateAsync(instanceId, reason);
@@ -373,7 +373,7 @@ public static Task Run(
 > [!NOTE]
 > Il precedente codice in Cè è per Funzioni durevoli 2.x. Per Funzioni durevoli 1.x, è `OrchestrationClient` `DurableClient` necessario utilizzare l'attributo anziché l'attributo ed è necessario utilizzare il `DurableOrchestrationClient` tipo di `IDurableOrchestrationClient`parametro anziché . Per altre informazioni sulle differenze tra le versioni, vedere l'articolo Versioni di [Funzioni permanenti.](durable-functions-versions.md)
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -428,7 +428,7 @@ I parametri `RaiseEventAsync` per (.NET) e `raiseEvent` (JavaScript) sono i segu
 [FunctionName("RaiseEvent")]
 public static Task Run(
     [DurableClient] IDurableOrchestrationClient client,
-    [ManualTrigger] string instanceId)
+    [QueueTrigger("event-queue")] string instanceId)
 {
     int[] eventData = new int[] { 1, 2, 3 };
     return client.RaiseEventAsync(instanceId, "MyEvent", eventData);
@@ -438,7 +438,7 @@ public static Task Run(
 > [!NOTE]
 > Il precedente codice in Cè è per Funzioni durevoli 2.x. Per Funzioni durevoli 1.x, è `OrchestrationClient` `DurableClient` necessario utilizzare l'attributo anziché l'attributo ed è necessario utilizzare il `DurableOrchestrationClient` tipo di `IDurableOrchestrationClient`parametro anziché . Per altre informazioni sulle differenze tra le versioni, vedere l'articolo Versioni di [Funzioni permanenti.](durable-functions-versions.md)
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -488,7 +488,7 @@ Di seguito è riportato un esempio di funzione trigger HTTP che illustra come us
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpSyncStart.cs)]
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpSyncStart/index.js)]
 
@@ -580,7 +580,7 @@ public static void SendInstanceInfo(
 > [!NOTE]
 > Il precedente codice in Cè è per Funzioni durevoli 2.x. Per Funzioni durevoli 1.x, è necessario utilizzare `DurableActivityContext` invece di `IDurableActivityContext`, è necessario utilizzare l'attributo `OrchestrationClient` anziché l'attributo `DurableClient` ed è necessario utilizzare il `DurableOrchestrationClient` tipo di `IDurableOrchestrationClient`parametro anziché . Per altre informazioni sulle differenze tra le versioni, vedere l'articolo Versioni di [Funzioni permanenti.](durable-functions-versions.md)
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -622,7 +622,7 @@ Si supponga, ad esempio, di disporre di un flusso di lavoro che prevede una seri
 [FunctionName("RewindInstance")]
 public static Task Run(
     [DurableClient] IDurableOrchestrationClient client,
-    [ManualTrigger] string instanceId)
+    [QueueTrigger("rewind-queue")] string instanceId)
 {
     string reason = "Orchestrator failed and needs to be revived.";
     return client.RewindAsync(instanceId, reason);
@@ -632,7 +632,7 @@ public static Task Run(
 > [!NOTE]
 > Il precedente codice in Cè è per Funzioni durevoli 2.x. Per Funzioni durevoli 1.x, è `OrchestrationClient` `DurableClient` necessario utilizzare l'attributo anziché l'attributo ed è necessario utilizzare il `DurableOrchestrationClient` tipo di `IDurableOrchestrationClient`parametro anziché . Per altre informazioni sulle differenze tra le versioni, vedere l'articolo Versioni di [Funzioni permanenti.](durable-functions-versions.md)
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -674,13 +674,13 @@ Questo metodo dispone di due overload. Il primo overload elimina la cronologia i
 [FunctionName("PurgeInstanceHistory")]
 public static Task Run(
     [DurableClient] IDurableOrchestrationClient client,
-    [ManualTrigger] string instanceId)
+    [QueueTrigger("purge-queue")] string instanceId)
 {
     return client.PurgeInstanceHistoryAsync(instanceId);
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -718,7 +718,7 @@ public static Task Run(
 > [!NOTE]
 > Il precedente codice in Cè è per Funzioni durevoli 2.x. Per Funzioni durevoli 1.x, è `OrchestrationClient` `DurableClient` necessario utilizzare l'attributo anziché l'attributo ed è necessario utilizzare il `DurableOrchestrationClient` tipo di `IDurableOrchestrationClient`parametro anziché . Per altre informazioni sulle differenze tra le versioni, vedere l'articolo Versioni di [Funzioni permanenti.](durable-functions-versions.md)
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Il `purgeInstanceHistoryBy` metodo può essere utilizzato per eliminare in modo condizionale la cronologia delle istanze per più istanze.
 

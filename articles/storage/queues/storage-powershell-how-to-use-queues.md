@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: bd2f372bdcb949b64f748d186a9b060bb9cbec4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 96828a854c340b89c26023ce60f9c85dd1bb4cdd
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77087063"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473922"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Eseguire operazioni nell'archivio code di Azure con Azure PowerShell
 
@@ -103,7 +103,7 @@ Get-AzStorageQueue -Context $ctx | Select-Object Name
 
 ## <a name="add-a-message-to-a-queue"></a>Aggiungere un messaggio a una coda
 
-Le operazioni che influiscono sui messaggi effettivi nella coda usano la libreria client di archiviazione .NET come illustrato in PowerShell. Per aggiungere un messaggio a una coda, creare una nuova istanza dell'oggetto messaggio, [Microsoft.Azure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue_message) classe. Successivamente, chiamare il [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue.addmessage) metodo. È possibile creare un oggetto CloudQueueMessage da una stringa in formato UTF-8 o da una matrice di byte.
+Le operazioni che influiscono sui messaggi effettivi nella coda usano la libreria client di archiviazione .NET come illustrato in PowerShell. Per aggiungere un messaggio a una coda, creare una nuova istanza dell'oggetto messaggio, [Microsoft.Azure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue.cloudqueuemessage) classe. Successivamente, chiamare il [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue.cloudqueue.addmessage) metodo. È possibile creare un oggetto CloudQueueMessage da una stringa in formato UTF-8 o da una matrice di byte.
 
 L'esempio seguente mostra come aggiungere un messaggio alla coda.
 

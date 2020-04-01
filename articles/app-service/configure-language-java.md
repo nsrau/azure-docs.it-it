@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2b21061e8a939b91c637ef05bbe6375c0b3f82e8
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 2b09a7765cff20fb49ce6ab3d1e7bce2e15f0e9e
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80383974"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475206"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configurare un'app Java di Windows per il servizio app di AzureConfigure a Windows Java app for Azure App Service
 
@@ -74,7 +74,7 @@ Il servizio app di Azure supporta l'ottimizzazione e la personalizzazione all'es
 
 - [Configurare le impostazioni dell'app](configure-common.md#configure-app-settings)
 - [Configurare un nome di dominio](app-service-web-tutorial-custom-domain.md)
-- [Configurare i binding SSL](configure-ssl-bindings.md)
+- [Configurare i binding TLS](configure-ssl-bindings.md)
 - [Aggiungere una rete CDN](../cdn/cdn-add-to-web-app.md)
 - [Configurare il sito Kudu](https://github.com/projectkudu/kudu/wiki/Configurable-settings)
 
@@ -183,7 +183,7 @@ Per disattivare questa funzionalità, `WEBSITE_AUTH_SKIP_PRINCIPAL` creare un'im
 
 ### <a name="configure-tlsssl"></a>Configurare TLS/SSL
 
-Seguire le istruzioni in [Proteggere un nome DNS personalizzato con un'associazione SSL nel servizio app](configure-ssl-bindings.md) di Azure per caricare un certificato SSL esistente e associarlo al nome di dominio dell'applicazione. Per impostazione predefinita, l'applicazione consentirà ancora le connessioni HTTP. Seguire i passaggi specifici dell'esercitazione per applicare SSL e TLS.
+Seguire le istruzioni in [Proteggere un nome DNS personalizzato con un'associazione TLS nel servizio app](configure-ssl-bindings.md) di Azure per caricare un certificato TLS/SSL esistente e associarlo al nome di dominio dell'applicazione. Per impostazione predefinita, l'applicazione consentirà ancora le connessioni HTTP. Seguire i passaggi specifici dell'esercitazione per applicare SSL e TLS.
 
 ### <a name="use-keyvault-references"></a>Usare i riferimenti KeyVaultUse KeyVault References
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 781f3788c9001276315a2baed7060450fa00d77a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1bd823d94552d1e920b367b6576b0e3bb74aefb2
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76845024"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474919"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Eseguire il rilevamento di intrusioni di rete con Network Watcher e strumenti open source
 
@@ -38,7 +38,7 @@ Entrambi gli strumenti open source possono essere configurati in una VM di Azure
 
 ### <a name="install-suricata"></a>Installare Suricata
 
-Per tutti gli altri metodi di installazione, visitare https://suricata.readthedocs.io/en/latest/install.html.
+Per tutti gli altri metodi di installazione, visitare https://suricata.readthedocs.io/en/suricata-5.0.2/quickstart.html#installation.
 
 1. Nel terminale della riga di comando della VM eseguire i comandi seguenti:
 
@@ -76,7 +76,7 @@ tail -f /var/log/suricata/fast.log
 
 ### <a name="set-up-the-elastic-stack"></a>Configurare Elastic Stack
 
-Anche se i log generati da Suricata contengono informazioni importanti su quanto avviene nella rete, la lettura e la comprensione di questi file di log non sono molto semplici. Connettendo Suricata con Elastic Stack, è possibile creare un dashboard Kibana che consente di cercare, creare grafici, analizzare e derivare informazioni dettagliate dai log.
+Mentre i log che Suricata produce contengono informazioni preziose su ciò che sta accadendo sulla nostra rete, questi file di log non sono i più facili da leggere e capire. Connettendo Suricata con Elastic Stack, è possibile creare un dashboard Kibana che consente di cercare, creare grafici, analizzare e derivare informazioni dettagliate dai log.
 
 #### <a name="install-elasticsearch"></a>Installare Elasticsearch
 
@@ -274,7 +274,7 @@ Il dashboard di esempio offre diverse visualizzazioni dei log di avvisi di Suric
 
     ![Immagine 7][7]
 
-Per altri documenti sulla creazione di visualizzazioni e dashboard personalizzati, vedere la [documentazione ufficiale di Kibana](https://www.elastic.co/guide/en/kibana/current/introduction.html).
+Per ulteriori documentazione sulla creazione di visualizzazioni e dashboard personalizzati, vedere la documentazione ufficiale di [Kibana.](https://www.elastic.co/guide/en/kibana/current/introduction.html)
 
 ## <a name="conclusion"></a>Conclusioni
 

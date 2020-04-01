@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f6366f162cb09898b694b14440718401c57c0adf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c0d19d68d016a47762fb5d2646ea6ccf74d3ef75
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79251037"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476562"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Utilizzo di canali che ricevono streaming live a bitrate multipla da codificatori locali
 
@@ -112,7 +112,7 @@ Un canale fornisce un endpoint di input (URL di inserimento) specificato dall'ut
 
 È possibile ottenere gli URL di inserimento quando si crea il canale. Per ottenere questi URL, non è necessario che il canale sia nello stato **In esecuzione** . Quando si è pronti per avviare l'esecuzione del push dei dati nel canale, il canale dovrà essere nello stato **In esecuzione** . Dopo l'avvio dell'inserimento di dati nel canale, è possibile visualizzare in anteprima il flusso tramite l'URL di anteprima.
 
-È possibile inserire un flusso live MP4 frammentato (Smooth Streaming) tramite una connessione SSL. Per l'inserimento tramite SSL, assicurarsi di aggiornare l'URL di inserimento a HTTPS. Attualmente, non è possibile inserire flussi RTMP tramite SSL.
+È possibile ingerire un flusso live MP4 (Smooth Streaming) frammentato su una connessione TLS. Per eseguire l'inserimento tramite TLS, assicurarsi di aggiornare l'URL di inserimento a HTTPS. Attualmente, non è possibile ingerire RTMP su TLS.
 
 #### <a name="keyframe-interval"></a><a id="keyframe_interval"></a>Intervallo tra fotogrammi chiave
 Quando si usa un codificatore live locale per generare un flusso a bitrate multipli, l'intervallo tra fotogrammi chiave specifica la durata Group of Pictures (GOP) usata dal codificatore esterno. Dopo la ricezione del flusso in ingresso da parte del canale, è possibile distribuire il flusso live alle applicazioni di riproduzione client in uno dei formati seguenti: Smooth Streaming, DASH (Dynamic Adaptive Streaming over HTTP) e HLS (HTTP Live Streaming). Quando si esegue lo streaming live, la creazione di pacchetti in HLS avviene sempre in modo dinamico. Per impostazione predefinita, Servizi multimediali calcola automaticamente il rapporto per la creazione di pacchetti dei segmenti HLS (FragmentsPerSegment) in base all'intervallo tra fotogrammi chiave ricevuti dal codificatore live.

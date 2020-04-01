@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: 786b21e7571ed173d2da90f587a5b76d8c92a13d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95a70a1d0c4367adb1dd276bff1b1eb20caafc59
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279728"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473368"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gestire Protezione DDoS di Azure Standard nel portale di Azure
 
@@ -39,7 +39,7 @@ Per la maggior parte delle organizzazioni, non è necessaria la creazione di pi�
 
 1. Selezionare **Crea una risorsa** nell'angolo in alto a sinistra del portale di Azure.
 2. Cercare *DDoS*. Selezionare **DDoS protection plan** (Piano di protezione DDoS) quando viene visualizzato nei risultati della ricerca.
-3. Selezionare **Crea**.
+3. Selezionare **Create** (Crea).
 4. Immettere o selezionare i valori personalizzati, oppure immettere o selezionare i valori di esempio seguenti, quindi selezionare **Crea**:
 
     |Impostazione        |valore                                              |
@@ -73,7 +73,7 @@ Non è possibile spostare una rete virtuale in un altro gruppo di risorse o in u
 4. Selezionare **Protezione DDoS** in **Impostazioni**.
 5. Selezionare **Standard**. In **DDoS protection plan** (Piano di protezione DDoS) selezionare un piano di protezione DDoS esistente o il piano creato nel passaggio 1, quindi selezionare **Salva**. Il piano selezionato può essere nella stessa sottoscrizione della rete virtuale o in una diversa, ma entrambe le sottoscrizioni devono essere associate allo stesso tenant di Azure Active Directory.
 
-**Comandi** 
+**Comandi:** 
 - Interfaccia di comando di Azure: [az network ddos-protection create](https://docs.microsoft.com/cli/azure/network/ddos-protection?view=azure-cli-latest#az-network-ddos-protection-create)
 - Powershell: [New-AzDdosProtectionPlan](https://docs.microsoft.com/powershell/module/Az.Network/New-AzDdosProtectionPlan?view=azps-2.8.0)
  
@@ -84,7 +84,7 @@ Non è possibile spostare una rete virtuale in un altro gruppo di risorse o in u
 2. Selezionare **Protezione DDoS** in **Impostazioni**.
 3. Selezionare **Basic** in **DDoS protection plan** (Piano di protezione DDoS) e quindi selezionare **Salva**.
 
-**Comandi** 
+**Comandi:** 
 - Interfaccia di comando di Azure: [az network ddos-protection delete](https://docs.microsoft.com/cli/azure/network/ddos-protection?view=azure-cli-latest#az-network-ddos-protection-delete)
 - Powershell: [Remove-AzDdosProtectionPlan](https://docs.microsoft.com/powershell/module/az.network/remove-azddosprotectionplan?view=azps-3.2.0)
 
@@ -202,7 +202,7 @@ I log del flusso conterranno i campi seguenti:
 - Protocol type (Tipo di protocollo) 
 - Action taken during mitigation (Azione eseguita durante la mitigazione)
 
-
+L'analisi degli attacchi funzionerà solo se DDoS Protection Standard è abilitato nella rete virtuale dell'indirizzo IP pubblico. 
 
 ## <a name="validate-ddos-detection"></a>Convalidare il rilevamento della protezione DDoS
 

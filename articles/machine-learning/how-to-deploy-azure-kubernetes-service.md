@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 01/16/2020
-ms.openlocfilehash: db2e80ebb6cbe5f31f2d99a1403a15daf38fd877
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 792964f28ddb3fcb10932b8de9499a9c7027960f
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76722408"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475390"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuire un modello in un cluster di servizi Azure KubernetesDeploy a model to an Azure Kubernetes Service cluster
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -131,7 +131,7 @@ Se si `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`imposta , non è nec
 > [!WARNING]
 > Non creare più allegati simultanei allo stesso cluster AKS dall'area di lavoro. Ad esempio, collegare un cluster AKS a un'area di lavoro utilizzando due nomi diversi. Ogni nuovo allegato interromperà gli allegati esistenti precedenti.
 >
-> Se si desidera ricollegare un cluster AKS, ad esempio per modificare SSL o un'altra impostazione di configurazione del cluster, è necessario innanzitutto rimuovere l'allegato esistente utilizzando [AksCompute.detach()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#detach--).
+> Se si desidera ricollegare un cluster AKS, ad esempio per modificare TLS o un'altra impostazione di configurazione del cluster, è necessario innanzitutto rimuovere l'allegato esistente utilizzando [AksCompute.detach()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#detach--).
 
 Per altre informazioni sulla creazione di un cluster AKS usando l'interfaccia della riga di comando o il portale di Azure, vedere gli articoli seguenti:For more information on creating an AKS cluster using the Azure CLI or portal, see the following articles:
 
@@ -348,7 +348,7 @@ print(token)
 * [Sperimentazione sicura e inferenza in una rete virtualeSecure experimentation and inference in a virtual network](how-to-enable-virtual-network.md)
 * [Come distribuire un modello usando un'immagine Docker personalizzataHow to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
 * [Risoluzione dei problemi di distribuzione](how-to-troubleshoot-deployment.md)
-* [Proteggere i servizi Web di Azure Machine Learning con SSL](how-to-secure-web-service.md)
+* [Usare TLS per proteggere un servizio Web tramite Azure Machine LearningUse TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
 * [Usare un modello di Machine Learning distribuito come servizio Web](how-to-consume-web-service.md)
 * [Monitorare i modelli di Azure Machine Learning con Application InsightsMonitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Raccogliere i dati per i modelli nell'ambiente di produzione](how-to-enable-data-collection.md)

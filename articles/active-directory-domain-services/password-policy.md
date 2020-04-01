@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 01/21/2020
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: c4402c1ce2f051c8d1911e7c0332d4cac787ce1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cc1863ff4200ee4cca94f18e3adfffa7ea42db96
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77613205"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476014"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Criteri password e di blocco dell'account nei domini gestiti
 
@@ -32,7 +32,7 @@ Questo articolo illustra come creare e configurare criteri granulari per le pass
 Per completare questo articolo, sono necessarie le risorse e i privilegi seguenti:To complete this article, you need the following resources and privileges:
 
 * Una sottoscrizione di Azure attiva.
-  * Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+  * Se non si dispone di una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un tenant di Azure Active Directory associato alla sottoscrizione, sincronizzato con una directory locale o con una directory solo cloud.
   * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
 * Un dominio gestito di Azure Active Directory Domain Services abilitato e configurato nel tenant di Azure AD.
@@ -105,20 +105,20 @@ Per creare criteri password personalizzati, usare gli Strumenti di amministrazio
     * Impostazioni come la complessità delle password, la validità o l'ora di scadenza solo per gli utenti creati manualmente in un dominio gestito di Servizi di dominio Active Directory di Azure.Settings like password complexity, age, or expiration time only to users manually created in an Azure AD DS managed domain.
     * Le impostazioni di blocco dell'account si applicano a tutti gli utenti, ma hanno effetto solo all'interno del dominio gestito e non in Azure AD stesso.
 
-    ![Creare criteri granulari personalizzati per le passwordCreate a custom fineed password policy](./media/how-to/custom-fgpp.png)
+    ![Creare criteri granulari personalizzati per le passwordCreate a custom fineed password policy](./media/password-policy/custom-fgpp.png)
 
 1. Deselezionare **Proteggi da eliminazioni accidentali**. Se questa opzione è selezionata, non è possibile salvare il file FGPP.
 1. Nella sezione **Si applica direttamente a** selezionare il pulsante **Aggiungi.** Nella finestra di dialogo **Seleziona utenti o gruppi,** selezionare il pulsante **Posizioni.**
 
-    ![Selezionare gli utenti e i gruppi a cui applicare i criteri password](./media/how-to/fgpp-applies-to.png)
+    ![Selezionare gli utenti e i gruppi a cui applicare i criteri password](./media/password-policy/fgpp-applies-to.png)
 
 1. I criteri password possono essere applicati solo ai gruppi. Nella finestra di dialogo **Percorsi** espandere il nome di dominio, ad esempio *aaddscontoso.com*, quindi selezionare un'unità organizzativa, ad esempio **Utenti AADDC**. Se si dispone di un'unità organizzativa personalizzata contenente un gruppo di utenti che si desidera applicare, selezionare tale unità organizzativa.
 
-    ![Selezionare l'unità organizzativa a cui appartiene il gruppo](./media/how-to/fgpp-container.png)
+    ![Selezionare l'unità organizzativa a cui appartiene il gruppo](./media/password-policy/fgpp-container.png)
 
 1. Digitare il nome del gruppo a cui si desidera applicare il criterio, quindi selezionare **Controlla nomi** per verificare l'esi0no.
 
-    ![Cercare e selezionare il gruppo da applicare FGPP](./media/how-to/fgpp-apply-group.png)
+    ![Cercare e selezionare il gruppo da applicare FGPP](./media/password-policy/fgpp-apply-group.png)
 
 1. Con il nome del gruppo selezionato ora visualizzato nella sezione **Si applica direttamente a,** selezionare **OK** per salvare i criteri password personalizzati.
 

@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 2c6e35b1e7d160064998004f87c5b14d0eaeac5e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0670331d2338b4b6419ffbff1452b5fbac91029f
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127666"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478840"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Creare un ambiente del servizio di integrazione (ISE) usando l'API REST delle app per la logicaCreate an integration service environment (ISE) by using the Logic Apps REST API
 
 Questo articolo illustra come creare un ambiente del servizio di [ *integrazione* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) tramite l'API REST delle app per la logica per gli scenari in cui le app per la logica e gli account di integrazione devono accedere a una rete virtuale di Azure.This article shows how to create an integration service environment (ISE) through the Logic Apps REST API for scenarios where your logic apps and integration accounts need access to an [Azure virtual network](../virtual-network/virtual-networks-overview.md). Un ISE è un ambiente isolato che utilizza l'archiviazione dedicata e altre risorse che vengono mantenute separate dal servizio "globale" app per la logica multi-tenant. Questa separazione riduce anche qualsiasi impatto che altri tenant di Azure possono avere sulle prestazioni delle app create. Un ISE fornisce anche i propri indirizzi IP statici. Questi indirizzi IP sono separati dagli indirizzi IP statici condivisi dalle app per la logica nel servizio pubblico multi-tenant.
 
-Per creare un ISE usando invece il portale di Azure, vedere [Connettersi alle reti virtuali](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)di Azure da App per la logica di Azure.
+È anche possibile creare un ISE usando il modello di [guida introduttiva](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment) di Azure Resource Manager di esempio o il portale di [Azure.](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
 
 > [!IMPORTANT]
 > Le app per la logica, i trigger predefiniti, le azioni predefinite e i connettori eseguiti in ISE usano un piano tariffario diverso dal piano tariffario basato sul consumo. Per informazioni sul funzionamento dei prezzi e della fatturazione per ISE, vedere il modello di determinazione dei prezzi app per la [logica.](../logic-apps/logic-apps-pricing.md#fixed-pricing) Per i prezzi, vedere [Prezzi di App per la logica.](../logic-apps/logic-apps-pricing.md)

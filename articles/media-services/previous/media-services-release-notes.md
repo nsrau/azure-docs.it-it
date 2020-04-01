@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: a55ef4f814c0d13a6efbeeb8cd9a5565d2869432
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3893c8d19c89b639e0584f203cbcd1adf7e2dee
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78183296"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474838"
 ---
 # <a name="azure-media-services-release-notes"></a>Note sulla versione di Servizi multimediali di Azure
 
@@ -344,9 +344,9 @@ In questa versione il costruttore Microsoft.WindowsAzure.MediaServices.Client.Co
 * Nel modello di licenza PlayReady sono stati aggiunti offset relativi per BeginDate ed ExpirationDate.
 
 ## <a name="november-2014-release"></a><a id="november_changes_14"></a>Versione di novembre 2014
-* È ora possibile usare Servizi multimediali per inserire contenuti live di Smooth Streaming (fMP4) tramite una connessione SSL. Per l'inserimento tramite SSL, assicurarsi di aggiornare l'URL di inserimento a HTTPS. Attualmente Servizi multimediali non supporta SSL con domini personalizzati. Per altre informazioni sullo streaming live, vedere [Uso di Live Streaming di Servizi multimediali di Azure](https://msdn.microsoft.com/library/azure/dn783466.aspx).
-* Attualmente non è possibile inserire uno streaming live RTMP tramite una connessione SSL.
-* Lo streaming tramite SSL è possibile solo se l'endpoint di streaming da cui si inviano i contenuti è stato creato dopo il 10 settembre 2014. Se gli URL di streaming si basano sugli endpoint di streaming creati dopo il 10 settembre 2014, l'URL contiene "streaming.mediaservices.windows.net" (il nuovo formato). Gli URL di streaming contenenti "origin.mediaservices.windows.net" (il vecchio formato) non supportano SSL. Se l'URL è nel vecchio formato e si vuole eseguire lo streaming tramite SSL, [creare un nuovo endpoint di streaming](media-services-portal-manage-streaming-endpoints.md). Per lo streaming dei contenuti tramite SSL usare gli URL basati sul nuovo endpoint di streaming.
+* È ora possibile utilizzare Servizi multimediali per l'inserimento di contenuti Live Smooth Streaming (fMP4) su una connessione TLS. Per eseguire l'inserimento tramite TLS, assicurarsi di aggiornare l'URL di inserimento a HTTPS. Attualmente, Servizi multimediali non supporta TLS con domini personalizzati. Per altre informazioni sullo streaming live, vedere [Uso di Live Streaming di Servizi multimediali di Azure](https://msdn.microsoft.com/library/azure/dn783466.aspx).
+* Attualmente, non è possibile immettere un flusso live RTMP su una connessione TLS.
+* È possibile eseguire lo streaming su TLS solo se l'endpoint di streaming da cui vengono recapitati i contenuti è stato creato dopo il 10 settembre 2014. Se gli URL di streaming si basano sugli endpoint di streaming creati dopo il 10 settembre 2014, l'URL contiene "streaming.mediaservices.windows.net" (il nuovo formato). Gli URL di streaming che contengono "origin.mediaservices.windows.net" (il vecchio formato) non supportano TLS. Se l'URL è nel formato precedente e si desidera eseguire lo streaming su TLS, creare un nuovo endpoint di [streaming.](media-services-portal-manage-streaming-endpoints.md) Per trasmettere il contenuto in streaming su TLS, usa gli URL basati sul nuovo endpoint di streaming.
 
 ### <a name="media-services-net-sdk"></a><a id="oct_sdk"></a>Media Services .NET SDK
 Le estensioni di Media Services SDK per .NET sono ora disponibili nella versione 2.0.0.3.

@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 0c2190c29054301a8e21a9a27eb078802fbc9612
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: da476dc14949ebab1a054a9624d91acb25b9f2b4
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350867"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474470"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Ottimizzazione delle prestazioni con memorizzazione nella cache dei set di risultati  
 Quando la memorizzazione nella cache del set di risultati è abilitata, ANALISI SQL memorizza automaticamente nella cache i risultati delle query nel database utente per un utilizzo ripetitivo.  Ciò consente alle esecuzioni successive di query di ottenere risultati direttamente dalla cache persistente in modo che il ricalcolo non è necessario.   La memorizzazione nella cache del set di risultati migliora le prestazioni delle query e riduce l'utilizzo delle risorse di calcolo.  Inoltre, le query che utilizzano il set di risultati memorizzati nella cache non utilizzano slot di concorrenza e pertanto non vengono conteggiate rispetto ai limiti di concorrenza esistenti. Per motivi di sicurezza, gli utenti possono accedere ai risultati memorizzati nella cache solo se dispongono delle stesse autorizzazioni di accesso ai dati degli utenti che creano i risultati memorizzati nella cache.  
@@ -65,10 +65,10 @@ Il set di risultati memorizzato nella cache viene riutilizzato per una query se 
 - È presente una corrispondenza esatta tra la nuova query e la query precedente che ha generato la cache dei set di risultati.
 - Non sono presenti dati o modifiche dello schema nelle tabelle da cui è stato generato il set di risultati memorizzato nella cache.
 
-Eseguire questo comando per verificare se una query è stata eseguita con un riscontro nella cache dei risultati. Se è presente un riscontro nella cache, result_cache_hit restituisce 1.
+Eseguire questo comando per verificare se una query è stata eseguita con un riscontro nella cache dei risultati. La colonna result_set_cache restituisce 1 per l'hit della cache, 0 per i valori negativi della cache e negativi per motivi per cui la memorizzazione nella cache del set di risultati non è stata utilizzata. Controllare [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016-au7) per i dettagli.
 
 ```sql
-SELECT request_id, command, result_cache_hit FROM sys.dm_pdw_exec_requests 
+SELECT request_id, command, result_set_cache FROM sys.dm_pdw_exec_requests
 WHERE request_id = <'Your_Query_Request_ID'>
 ```
 

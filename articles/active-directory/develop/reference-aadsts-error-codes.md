@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 02/19/2020
+ms.date: 03/31/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 89240102837b65ed2a09d9f4865ad47ee5d5afa2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 91d285e2a839a7d6266c5d58f52901a48a7a8c84
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80154560"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473165"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codici di errore di autenticazione e autorizzazione di Azure ADAzure AD Authentication and authorization error codes
 
@@ -271,6 +271,8 @@ Ricerca nella parte numerica del codice di errore restituito.  Ad esempio, se ha
 | AADSTS700020 | InteractionRequired: la concessione dell'accesso richiede l'interazione. |
 | AADSTS700022 | InvalidMultipleResourcesScope: il valore specificato per l'ambito del parametro di input non è valido perché contiene più di una risorsa. |
 | AADSTS700023 | InvalidResourcelessScope: il valore specificato per l'ambito del parametro di input non è valido quando è necessario un token di accesso. |
+| AADSTS7000222| InvalidClientSecretExpiredKeysProvided - Le chiavi segrete client fornite sono scadute. Visitare il portale di Azure per creare nuove chiavi per l'app o usare le credenziali del certificato per la sicurezza aggiuntiva:Visit the Azure Portal to create new keys for your app, or consider using certificate credentials for added security:https://aka.ms/certCreds |
+| AADSTS700005 | InvalidGrantRedeemAgainstWrongTenant - Codice di autorizzazione fornito è destinato all'uso su altri tenant, pertanto rifiutati. Il codice di autorizzazione OAuth2 deve essere riscattato rispetto allo stesso tenant per cui è stata acquisita (/common o /-tenant-ID) in base alle esigenze) |
 | AADSTS1000000 | UserNotBoundError: l'API di associazione richiede che l'utente di Azure AD esegua l'autenticazione anche con un provider di identità esterno e questa autenticazione non è stata ancora eseguita. |
 | AADSTS1000002 | BindCompleteInterruptError: l'associazione è stata completata correttamente, ma l'utente deve essere informato. |
 | AADSTS7000112 | UnauthorizedClientApplicationDisabled - L'applicazione è disabilitata. |

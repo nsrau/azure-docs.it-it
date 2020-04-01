@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 93b10d56ae34ebdfe78dd20705634dea58721274
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 692834903899448707200b24a955301e29e14f90
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79257277"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478463"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza VM/server fisico VMware
 
@@ -270,9 +270,9 @@ Facoltativamente, è possibile eliminare il server di configurazione usando Powe
 3. Per generare il file della passphrase, eseguire **genpassphrase.exe -v > MobSvc.passphrase**.
 4. La passphrase sarà archiviata nel file che si trova in **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**.
 
-## <a name="renew-ssl-certificates"></a>Rinnovare i certificati SSL
+## <a name="renew-tlsssl-certificates"></a>Rinnovare i certificati TLS/SSL
 
-Il server di configurazione include un server Web integrato che orchestra le attività del servizio Mobility, dei server di elaborazione e dei server di destinazione master connessi. Il server Web usa un certificato SSL per autenticare i client. Il certificato scade dopo tre anni e può essere rinnovato in qualsiasi momento.
+Il server di configurazione include un server Web integrato che orchestra le attività del servizio Mobility, dei server di elaborazione e dei server di destinazione master connessi. Il server Web utilizza un certificato TLS/SSL per autenticare i client. Il certificato scade dopo tre anni e può essere rinnovato in qualsiasi momento.
 
 ### <a name="check-expiry"></a>Controllare la scadenza
 

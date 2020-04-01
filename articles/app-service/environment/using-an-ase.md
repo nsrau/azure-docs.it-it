@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 01/01/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7ca6882aea7225dcb97c9f913267b2543de07fef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a73c1998203a8696b67a5e7eb3af23898239265
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80133133"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477630"
 ---
 # <a name="use-an-app-service-environment"></a>Usare un ambiente del servizio app
 
@@ -88,7 +88,7 @@ In un'app, è possibile ridimensionare un piano di servizio app fino a 100 istan
 
 ## <a name="ip-addresses"></a>Indirizzi IP
 
-Il servizio app può allocare un indirizzo IP dedicato a un'app. Questa funzionalità è disponibile dopo aver configurato SSL basato su IP, come descritto in [Bind an existing custom SSL certificate to Azure App Service][ConfigureSSL]. In un'associazione del lavoro in un'associazione all'altro, non è possibile aggiungere altri indirizzi IP da utilizzare per SSL basato su IP.
+Il servizio app può allocare un indirizzo IP dedicato a un'app. Questa funzionalità è disponibile dopo aver configurato SSL basato su IP, come descritto in [Bind an existing custom TLS/SSL certificate to Azure App Service][ConfigureSSL]. In un'associazione del lavoro in un'associazione all'altro, non è possibile aggiungere altri indirizzi IP da utilizzare per SSL basato su IP.
 
 Con un ambiente del servizio app esterno, puoi configurare SSL basato su IP per la tua app nello stesso modo del servizio app multi-tenant. C'è sempre un indirizzo di riserva nell'asino, fino a 30 indirizzi IP. Ogni volta che ne usi uno, un altro viene aggiunto in modo che un indirizzo sia sempre prontamente disponibile. È necessario un ritardo per allocare un altro indirizzo IP. Questo ritardo impedisce l'aggiunta di indirizzi IP in rapida successione.
 

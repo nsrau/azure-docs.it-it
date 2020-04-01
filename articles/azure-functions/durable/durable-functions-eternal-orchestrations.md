@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 572fec4d6e47efd734bc84a40dc974c79bd619fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d55e08fecbd1338284607ac59fe354c6fa8cb1ea
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76262980"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478811"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orchestrazioni perenni in Funzioni permanenti (Funzioni di Azure)
 
@@ -53,7 +53,7 @@ public static async Task Run(
 > [!NOTE]
 > L'esempio precedente in Cè è per Funzioni durevoli 2.x. Per funzioni durevoli 1.x, è necessario utilizzare `DurableOrchestrationContext` al posto di `IDurableOrchestrationContext`. Per altre informazioni sulle differenze tra le versioni, vedere l'articolo Versioni di [Funzioni permanenti.](durable-functions-versions.md)
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -90,8 +90,8 @@ public static async Task<HttpResponseMessage> OrchestrationTrigger(
     [DurableClient] IDurableOrchestrationClient client)
 {
     string instanceId = "StaticId";
-    // Null is used as the input, since there is no input in "Periodic_Cleanup_Loop".
-    await client.StartNewAsync("Periodic_Cleanup_Loop", instanceId, null); 
+
+    await client.StartNewAsync("Periodic_Cleanup_Loop", instanceId); 
     return client.CreateCheckStatusResponse(request, instanceId);
 }
 ```
@@ -99,7 +99,7 @@ public static async Task<HttpResponseMessage> OrchestrationTrigger(
 > [!NOTE]
 > Il codice precedente è per Funzioni durevoli 2.x. Per Funzioni durevoli 1.x, è `OrchestrationClient` `DurableClient` necessario utilizzare l'attributo anziché l'attributo ed è necessario utilizzare il `DurableOrchestrationClient` tipo di `IDurableOrchestrationClient`parametro anziché . Per altre informazioni sulle differenze tra le versioni, vedere l'articolo Versioni di [Funzioni permanenti.](durable-functions-versions.md)
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 30696c5dcb3353ea468aa78dbc107dae4d292edb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4dfc6793bba473c4046863937baa292dde7bf421
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334437"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478696"
 ---
 # <a name="data-structures-in-azure-maps-mobility-service"></a>Strutture di dati nel servizio per dispositivi mobili di Azure MapsData structures in Azure Maps Mobility Service
 
@@ -31,13 +31,13 @@ Il `metroID` è l'ID di un'area metropolitana che può essere utilizzato per chi
 
 ## <a name="stop-ids"></a>Arresta GLI IMPONitori
 
-Le soste di transito possono essere indicate da due tipi di ID, l'ID [GFTS (General Transit Feed Specification)](https://gtfs.org/) e l'ID arresto di Azure Maps. L'ID GFTS viene definito stopKey e l'ID arresto di Azure Maps viene definito stopID. Quando si fa spesso riferimento alle soste di transito, si consiglia di usare l'ID di arresto di Azure Maps.When frequently refer to transit stops, you're encouraged to use the Azure Maps stop ID. stopID è più stabile e probabilmente rimarrà lo stesso finché esiste l'arresto fisico. L'ID di arresto GTFS viene aggiornato più spesso. Ad esempio, l'ID di arresto GTFS può essere aggiornato in base alla richiesta del provider GTFS o quando viene rilasciata una nuova versione GTFS. Anche se l'arresto fisico non ha subito modifiche, l'ID di arresto GTFS potrebbe cambiare.
+Le soste di transito possono essere indicate da due tipi di ID, l'ID [GFTS (General Transit Feed Specification)](http://gtfs.org/) e l'ID arresto di Azure Maps. L'ID GFTS viene definito stopKey e l'ID arresto di Azure Maps viene definito stopID. Quando si fa spesso riferimento alle soste di transito, si consiglia di usare l'ID di arresto di Azure Maps.When frequently refer to transit stops, you're encouraged to use the Azure Maps stop ID. stopID è più stabile e probabilmente rimarrà lo stesso finché esiste l'arresto fisico. L'ID di arresto GTFS viene aggiornato più spesso. Ad esempio, l'ID di arresto GTFS può essere aggiornato in base alla richiesta del provider GTFS o quando viene rilasciata una nuova versione GTFS. Anche se l'arresto fisico non ha subito modifiche, l'ID di arresto GTFS potrebbe cambiare.
 
 Per iniziare, è possibile richiedere le interruzioni di transito nelle vicinanze utilizzando [Get Nearby Transit API](https://aka.ms/AzureMapsMobilityNearbyTransit).
 
 ## <a name="line-groups-and-lines"></a>Gruppi di linee e linee
 
-Mobility Service usa un modello di dati parallelo per linee e gruppi di linee. Questo modello viene utilizzato per gestire meglio le modifiche ereditate dai percorsi [GTFS](https://gtfs.org/) e dai dati dei viaggi.
+Mobility Service usa un modello di dati parallelo per linee e gruppi di linee. Questo modello viene utilizzato per gestire meglio le modifiche ereditate dai percorsi [GTFS](http://gtfs.org/) e dai dati dei viaggi.
 
 
 ### <a name="line-groups"></a>Gruppi di linee

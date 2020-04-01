@@ -4,12 +4,12 @@ description: L'elenco curato delle domande più frequenti riguardanti il servizi
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: diberry
-ms.openlocfilehash: e002efe74bf7bcd3d944b01b0a25a731a2db3f66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 310cfe0cc8c1f647c09b8e0efb435a1ab326ff62
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284263"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474953"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Risoluzione dei problemi per QnA Maker
 
@@ -30,7 +30,7 @@ Ulteriori informazioni sui [piani tariffari](Concepts/azure-resources.md).
 <details>
 <summary><b>Come ottenere l'endpoint del servizio QnAMaker</b></summary>
 
-**Risposta:** L'endpoint del servizio QnAMaker è utile a scopo di debug quando si contatta il supporto QnAMaker o UserVoice. L'endpoint è un URL https://your-resource-name.azurewebsites.netnel formato seguente: .
+**Risposta:** L'endpoint del servizio QnAMaker è utile a scopo di debug quando si contatta il supporto QnAMaker o UserVoice. L'endpoint è un URL `https://your-resource-name.azurewebsites.net`nel formato seguente: .
 
 1. Passare al servizio QnA Maker (gruppo di risorse) nel [portale di Azure](https://portal.azure.com)
 

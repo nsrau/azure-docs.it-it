@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/06/2019
-ms.openlocfilehash: 3b0b38b767495b1a06405f0d41222b73baee8d53
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/31/2020
+ms.openlocfilehash: f290b08d1f625600d03c9540b28c289e9b449471
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277074"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475169"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opzione di co-selling nel Centro per i partner
 
@@ -22,11 +22,11 @@ L'opzione di co-selling nel Centro per i partner è attualmente disponibile per 
 
 | **Tipo di offerta** | **Pagina di co-selling disponibile nel Centro per i partner** |
 |    -----------------------    |    -----------------------------  |
-| Software as a Service (SaaS) |     Disponibilità generale intorno a 2020      |
+| Software as a Service (SaaS) |     Disponibilità generale intorno ad aprile 2020     |
 | Dynamics 365 per il coinvolgimento dei clienti & PowerApps      |     Ora disponibile      |
 | Dynamics 365 for Operations     |     Ora disponibile       |
-| Dynamics 365 Business Central      |  Disponibilità generale intorno a 2020     |
-| Applicazione di Azure     |     Disponibilità generale intorno a 2020     |
+| Dynamics 365 Business Central      |  Disponibilità generale intorno ad aprile 2020    |
+| Applicazione di Azure     |     Disponibilità generale intorno ad aprile 2020     |
 | Macchina virtuale di Azure      |     In attesa di essere annunciato       |
 | Contenitore di AzureAzure Container     |     In attesa di essere annunciato       |
 | Servizio di consulenza      |     In attesa di essere annunciato       |

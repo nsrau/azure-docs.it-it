@@ -3,12 +3,12 @@ title: Modificare le impostazioni del cluster di Azure Service FabricChange Azur
 description: Questo articolo descrive le impostazioni dell'infrastruttura e i criteri di aggiornamento dell'infrastruttura che è possibile personalizzare.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: a4e64a4db70d419a3ef6441545d53abd298c85bb
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8ca40791e625f1ea5904c4e2516e3f211ba551cf
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346801"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477900"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizzare le impostazioni di un cluster di Service Fabric
 Questo articolo illustra le varie impostazioni dell'infrastruttura per il cluster di Service Fabric che è possibile personalizzare. Per i cluster ospitati in Azure, è possibile personalizzare le impostazioni tramite il [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager. Per altre informazioni, vedere [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md) (Aggiornare la configurazione di un cluster Azure). Per i cluster autonomi è possibile personalizzare le impostazioni aggiornando il file *ClusterConfig.json* ed eseguendo un aggiornamento della configurazione nel cluster. Per altre informazioni, vedere [Aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -55,10 +55,10 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Linee guida o breve descrizione** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int, valore predefinito: 0|Statico|MinReplicaSetSize per BackupRestoreService |
-|PlacementConstraints|stringa, il valore predefinito è    ""|Statico|  PlacementConstraints per BackupRestoreService |
-|SecretEncryptionCertThumbprint|stringa, il valore predefinito è  ""|Dinamico|Identificazione personale del certificato X509 di crittografia segreta |
-|SecretEncryptionCertX509StoreName|stringa, il valore predefinito è   "My"|   Dinamico|    Indica il certificato da usare per la crittografia e la decrittografia del nome credenziali dell'archivio certificati X.509 usato per crittografare e decrittografare le credenziali dell'archivio impiegate dal servizio di backup e ripristino |
-|TargetReplicaSetSize|int, valore predefinito: 0|Statico| TargetReplicaSetSize per BackupRestoreService |
+|PlacementConstraints|stringa, il valore predefinito è    ""|Statico|    PlacementConstraints per BackupRestoreService |
+|SecretEncryptionCertThumbprint|stringa, il valore predefinito è    ""|Dinamico|Identificazione personale del certificato X509 di crittografia segreta |
+|SecretEncryptionCertX509StoreName|string, il valore predefinito è "My"|    Dinamico|    Indica il certificato da usare per la crittografia e la decrittografia del nome credenziali dell'archivio certificati X.509 usato per crittografare e decrittografare le credenziali dell'archivio impiegate dal servizio di backup e ripristino |
+|TargetReplicaSetSize|int, il valore predefinito è 0|Statico| TargetReplicaSetSize per BackupRestoreService |
 
 ## <a name="clustermanager"></a>ClusterManager
 
@@ -147,8 +147,8 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Linee guida o breve descrizione** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int, valore predefinito: 0|Statico|MinReplicaSetSize per il servizio EventStore |
-|PlacementConstraints|stringa, il valore predefinito è    ""|Statico|  PlacementConstraints per il servizio EventStore |
-|TargetReplicaSetSize|int, valore predefinito: 0|Statico| TargetReplicaSetSize per il servizio EventStore |
+|PlacementConstraints|stringa, il valore predefinito è    ""|Statico|    PlacementConstraints per il servizio EventStore |
+|TargetReplicaSetSize|int, il valore predefinito è 0|Statico| TargetReplicaSetSize per il servizio EventStore |
 
 ## <a name="fabricclient"></a>FabricClient
 
@@ -270,7 +270,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |CommonNameNtlmPasswordSecret|SecureString, valore predefinito: Common::SecureString("")| Statico|Segreto della password usato come valore di inizializzazione per generare la stessa password quando si usa l'autenticazione NTLM. |
 |DiskSpaceHealthReportingIntervalWhenCloseToOutOfDiskSpace |TimeSpan, il valore predefinito è Common::TimeSpan::FromMinutes(5)|Dinamico|Specificare l'intervallo di tempo in secondi. Intervallo di tempo tra il controllo dello spazio su disco per la segnalazione dell'evento di integrità quando lo spazio esaurito è vicino a quello insufficiente. |
 |DiskSpaceHealthReportingIntervalWhenEnoughDiskSpace |TimeSpan, valore predefinito: Common::TimeSpan::FromMinutes(15)|Dinamico|Specificare l'intervallo di tempo in secondi. Intervallo di tempo tra il controllo dello spazio su disco per la segnalazione dell'evento di integrità quando lo spazio su disco è sufficiente. |
-|EnableImageStoreHealthReporting |bool, valore predefinito: TRUE |Statico|Configurazione per determinare se il servizio di archiviazione file deve segnalarne l'integrità. |
+|EnableImageStoreHealthReporting |bool, valore predefinito: TRUE    |Statico|Configurazione per determinare se il servizio di archiviazione file deve segnalarne l'integrità. |
 |FreeDiskSpaceNotificationSizeInKB|int64, il valore\*predefinito è 25 1024 |Dinamico|Dimensioni dello spazio libero su disco al di sotto della quale può verificarsi un avviso di integrità. Il valore minimo di questa configurazione e FreeDiskSpaceNotificationThresholdPercentage config vengono utilizzati per determinare l'invio dell'avviso di integrità. |
 |FreeDiskSpaceNotificationThresholdPercentage|doppio, il valore predefinito è 0,02 |Dinamico|Percentuale di spazio libero su disco al di sotto della quale può verificarsi un avviso di integrità. Valore minimo di questa configurazione e FreeDiskSpaceNotificationInMB configurazione vengono utilizzati per determinare l'invio di avviso di integrità. |
 |GenerateV1CommonNameAccount| bool, valore predefinito: TRUE|Statico|Specifica se generare un account con l'algoritmo di generazione V1 del nome utente. A partire dalla versione 6.1 di Service Fabric viene sempre creato un account con generazione V2. L'account V1 è necessario per gli aggiornamenti da/a versioni che non supportano la generazione V2 (prima della versione 6.1).|
@@ -568,8 +568,8 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |TraceCRMReasons |Bool, valore predefinito: true |Dinamico|Specifica se tracciare i motivi dei movimenti indicati da CRM al canale degli eventi operativi. |
 |UpgradeDomainConstraintPriority | Int, valore predefinito: 1| Dinamico|Determina la priorità del vincolo di dominio di aggiornamento: 0: priorità elevata; 1: priorità minore; numero negativo: ignorare. |
 |UseMoveCostReports | Bool, valore predefinito: false | Dinamico|Indica al servizio di bilanciamento del carico di ignorare l'elemento di costo della funzione di assegnazione dei punteggio. Comporterà potenzialmente un numero elevato di spostamenti per un posizionamento più bilanciato. |
-|UseSeparateSecondaryLoad | Bool, valore predefinito: true | Dinamico|Impostazione che determina se usare un carico secondario differente. |
-|UseSeparateSecondaryMoveCost|Bool, valore predefinito: false | Dinamico|Impostazione che determina se PLB deve utilizzare un costo di spostamento diverso per il secondario in ogni nodo Se UseSeparateSecondaryMoveCost è disattivato: - Costo di spostamento riportato per secondario su un nodo comporterà la sovrascrittura del costo di spostamento per ogni secondario (su tutti gli altri nodi) If UseSeparateSecondaryMoveCost è attivato: - Il costo di spostamento segnalato per il database secondario in un nodo avrà effetto solo su tale nodo secondario (nessun effetto sui database secondari su altri nodi) - se si verifica un arresto anomalo della replica, viene creata una nuova replica con il costo di spostamento predefinito specificato nel servizio livello - Se PLB sposta la replica esistente - il costo di spostamento |
+|UseSeparateSecondaryLoad | Bool, valore predefinito: true | Dinamico|Impostazione che determina se è necessario utilizzare un carico separato per le repliche secondarie. |
+|UseSeparateSecondaryMoveCost | Bool, valore predefinito: false | Dinamico|Impostazione che determina se è necessario utilizzare il costo di spostamento separato per le repliche secondarie. |
 |ValidatePlacementConstraint | Bool, valore predefinito: true |Dinamico| Specifica se l'espressione PlacementConstraint per un servizio viene convalidata quando viene aggiornato il parametro ServiceDescription di un servizio. |
 |ValidatePrimaryPlacementConstraintOnPromote| Bool, valore predefinito: TRUE |Dinamico|Specifica se l'espressione PlacementConstraint per un servizio viene valutata per la preferenza primaria in caso di failover. |
 |VerboseHealthReportLimit | Int, valore predefinito: 20 | Dinamico|Definisce il numero di posizionamenti non riusciti di una replica prima di inviare un avviso di integrità a riguardo (se è abilitata la creazione di report di integrità dettagliati). |
@@ -685,13 +685,13 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |SettingsX509StoreName| stringa, il valore predefinito è "MY"| Dinamico|Archivio certificati X509 usato dall'infrastruttura per la protezione della configurazione. |
 |UseClusterCertForIpcServerTlsSecurity|bool, valore predefinito: FALSE|Statico|Indica se usare il certificato del cluster per proteggere l'unità di trasporto TLS del server IPC |
 |X509Folder|string, valore predefinito: /var/lib/waagent|Statico|Cartella in cui si trovano i certificati e le chiavi private X509. |
-|TLS1_2_CipherList| string| Statico|Se impostato su una stringa non vuota; sostituisce l'elenco di crittografia supportato per TLS1.2 e versioni successive. Vedere la documentazione 'openssl-ciphers' per il recupero dell'elenco di crittografia supportati e il formato di elenco di crittografia forte Esempio di elenco di crittografia forte per TLS1.2: "ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384: GHA-S3844: ECDHE-RSA-AES-128-GCM-SHA256:ECDHE-ECDSA-AES256-CBC-SHA384:ECDHE-ECDSA-AES12 8-CBC-SHA256:ECDHE-RSA-AES256-CBC-SHA384:ECDHE-RSA-AES128-CBC-SHA256" si applica solo a Linux. |
+|TLS1_2_CipherList| string| Statico|Se impostato su una stringa non vuota; sostituisce l'elenco di crittografia supportato per TLS1.2 e versioni successive. Vedere la documentazione 'openssl-ciphers' per recuperare l'elenco di crittografia supportato e il formato di elenco di crittografia forte Per TLS1.2: "ECDHE-ECDSA-AES256-GCM-SHA384:E CDCDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES-128-GCM-SHA256:ECDHE-ECDSA-AES256-CBC-SHA384:ECDHE-ECDSA-AES128-CBC-SHA256:ECDHE-RSA-AES256-CBC-SHA384:ECDHE-RSA-AES128-CBC-SHA256" si applica solo a Linux. |
 
 ## <a name="securityadminclientx509names"></a>Security/AdminClientX509Names
 
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Linee guida o breve descrizione** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, valore predefinito: None|Dinamico|Elenco di coppie "Nome" e "Valore". Ogni "Nome" rappresenta il nome comune del soggetto o il DnsName dei certificati X509 autorizzati per le operazioni del client di amministrazione. Per un "Nome" specifico, "Valore" è un elenco separato da virgole di identificazioni personali del certificato per l'aggiunta dell'autorità di certificazione. Se non è vuoto, l'autorità di certificazione diretta dei certificati client di amministrazione deve essere inclusa nell'elenco. |
+|PropertyGroup|X509NameMap, valore predefinito: None|Dinamico|Questo è un elenco di coppie "Nome" e "Valore". Ogni "Nome" è del nome comune del soggetto o DnsName dei certificati X509 autorizzati per le operazioni del client di amministrazione. Per un determinato "Nome", "Valore" è un elenco separato da virgole di identificazioni jpg al certificato per l'aggiunta dell'autorità emittente, se non vuoto, l'autorità emittente diretta dei certificati client di amministrazione deve essere presente nell'elenco. |
 
 ## <a name="securityclientaccess"></a>Security/ClientAccess
 
@@ -806,7 +806,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Linee guida o breve descrizione** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, valore predefinito: None|Dinamico|Elenco di coppie "Nome" e "Valore". Ogni "Nome" rappresenta il nome comune del soggetto o il DnsName dei certificati X509 autorizzati per le operazioni del client. Per un "Nome" specifico, "Valore" è un elenco separato da virgole di identificazioni personali del certificato per l'aggiunta dell'autorità di certificazione. Se non è vuoto, l'autorità di certificazione diretta dei certificati client deve essere inclusa nell'elenco.|
+|PropertyGroup|X509NameMap, valore predefinito: None|Dinamico|Questo è un elenco di coppie "Nome" e "Valore". Ogni "Nome" è del nome comune del soggetto o DnsName dei certificati X509 autorizzati per le operazioni client. Per un determinato "Name", "Value" è un elenco separato da virgole di identificazioni miliari del certificato per il blocco dell'autorità emittente, se non vuoto, l'autorità emittente diretta dei certificati client deve essere presente nell'elenco.|
 
 ## <a name="securityclustercertificateissuerstores"></a>Security/ClusterCertificateIssuerStores
 
@@ -818,7 +818,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Linee guida o breve descrizione** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, valore predefinito: None|Dinamico|Elenco di coppie "Nome" e "Valore". Ogni "Nome" rappresenta il nome comune del soggetto o il DnsName dei certificati X509 autorizzati per le operazioni del cluster. Per un "Nome" specifico, "Valore" è un elenco separato da virgole di identificazioni personali del certificato per l'aggiunta dell'autorità di certificazione. Se non è vuoto, l'autorità di certificazione diretta dei certificati cluster deve essere inclusa nell'elenco.|
+|PropertyGroup|X509NameMap, valore predefinito: None|Dinamico|Questo è un elenco di coppie "Nome" e "Valore". Ogni "Nome" è del nome comune del soggetto o DnsName dei certificati X509 autorizzati per le operazioni del cluster. Per un determinato "Nome", "Valore" è un elenco separato da virgole di identificazioni jpg al certificato per il blocco dell'autorità emittente, se non vuoto, l'autorità emittente diretta dei certificati del cluster deve essere presente nell'elenco.|
 
 ## <a name="securityservercertificateissuerstores"></a>Security/ServerCertificateIssuerStores
 
@@ -830,7 +830,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Linee guida o breve descrizione** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, valore predefinito: None|Dinamico|Elenco di coppie "Nome" e "Valore". Ogni "Nome" rappresenta il nome comune del soggetto o il DnsName dei certificati X509 autorizzati per le operazioni del server. Per un "Nome" specifico, "Valore" è un elenco separato da virgole di identificazioni personali del certificato per l'aggiunta dell'autorità di certificazione. Se non è vuoto, l'autorità di certificazione diretta dei certificati server deve essere inclusa nell'elenco.|
+|PropertyGroup|X509NameMap, valore predefinito: None|Dinamico|Questo è un elenco di coppie "Nome" e "Valore". Ogni "Nome" è del nome comune del soggetto o DnsName dei certificati X509 autorizzati per le operazioni del server. Per un determinato "Nome", "Valore" è un elenco separato da virgole di identificazioni jpg al certificato per l'aggiunta dell'autorità emittente, se non vuoto, l'autorità emittente diretta dei certificati server deve essere presente nell'elenco.|
 
 ## <a name="setup"></a>Configurazione
 

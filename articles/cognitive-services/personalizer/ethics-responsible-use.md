@@ -1,7 +1,7 @@
 ---
 title: Etica e uso responsabile - Personalizza esperienze
 titleSuffix: Azure Cognitive Services
-description: Queste linee guida hanno lo scopo di consentire un'implementazione della personalizzazione che generi fiducia nell'azienda e nel servizio. Assicurarsi di dedicare tempo alla ricerca, all'apprendimento e alla valutazione dell'impatto della personalizzazione sulla vita delle persone. In caso di dubbi, chiedere indicazioni.
+description: Queste linee guida hanno lo scopo di consentire un'implementazione della personalizzazione che generi fiducia nell'azienda e nel servizio. Assicurati di soffermarti alla ricerca, imparare e deliberare sull'impatto della personalizzazione sulla vita delle persone. In caso di dubbi, chiedere indicazioni.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 11b626c0033814f0886ac76fff0c5d4087a80554
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e422284b871214dbeca31b5dd17b9177a18ad3c8
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "71720229"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478099"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Linee guida per l'implementazione responsabile di Personalizza esperienze
 
-Affinché le persone e la società sfruttino tutto il potenziale dell'intelligenza artificiale, è necessario che le implementazioni siano progettate in modo tale conquistare la fiducia sia di coloro che aggiungono l'intelligenza artificiale alle proprie applicazioni che degli utenti delle applicazioni create con l'intelligenza artificiale. Queste linee guida hanno lo scopo di consentire un'implementazione di Personalizza esperienze che generi fiducia nell'azienda e nel servizio. Assicurarsi di dedicare tempo alla ricerca, all'apprendimento e alla valutazione dell'impatto della personalizzazione sulla vita delle persone. In caso di dubbi, chiedere indicazioni.
+Affinché le persone e la società sfruttino tutto il potenziale dell'intelligenza artificiale, è necessario che le implementazioni siano progettate in modo tale conquistare la fiducia sia di coloro che aggiungono l'intelligenza artificiale alle proprie applicazioni che degli utenti delle applicazioni create con l'intelligenza artificiale. Queste linee guida hanno lo scopo di consentire un'implementazione di Personalizza esperienze che generi fiducia nell'azienda e nel servizio. Assicurati di soffermarti alla ricerca, imparare e deliberare sull'impatto della personalizzazione sulla vita delle persone. In caso di dubbi, chiedere indicazioni.
 
 Queste linee guida non sono da intendersi come una consulenza legale ed è necessario assicurarsi in separata sede che l'applicazione sia conforme ai rapidi sviluppi normativi in quest'area e nel proprio settore.
 
 Quando si progetta un'applicazione con Personalizza esperienze, inoltre, è necessario considerare le numerose responsabilità associate allo sviluppo di qualsiasi sistema di intelligenza artificiale incentrato sui dati, che includono etica, privacy, sicurezza, inclusione, trasparenza e responsabilizzazione. Per altre informazioni in merito, vedere la sezione [Letture consigliate](#recommended-reading).
 
-È possibile usare il contenuto seguente come un elenco di controllo di partenza, da personalizzare e perfezionare in base al proprio scenario. Questo documento ha due sezioni principali: la prima è dedicata a evidenziare considerazioni sull'uso responsabile nella scelta di scenari, caratteristiche e premi per Personalizer. La seconda illustra un insieme di valori che Microsoft ritiene debba essere tenuto in considerazione quando si creano sistemi di intelligenza artificiale, con suggerimenti di utilità pratica e i rischi di influire su tali valori con l'uso di Personalizza esperienze. 
+È possibile usare il contenuto seguente come un elenco di controllo di partenza, da personalizzare e perfezionare in base al proprio scenario. Questo documento ha due sezioni principali: la prima è dedicata a evidenziare considerazioni sull'uso responsabile nella scelta di scenari, caratteristiche e premi per Personalizer. La seconda illustra un insieme di valori che Microsoft ritiene debba essere tenuto in considerazione quando si creano sistemi di intelligenza artificiale, con suggerimenti di utilità pratica e i rischi di influire su tali valori con l'uso di Personalizza esperienze.
 
 
 ## <a name="your-responsibility"></a>Responsabilità
@@ -42,18 +42,18 @@ Microsoft si impegna continuamente per offrire strumenti e documenti che consent
 L'implementazione di Personalizza esperienze può essere di grande valore per gli utenti e il business. Per implementare Personalizza esperienze in modo responsabile, prendere prima di tutto in considerazione queste linee guida nelle fasi seguenti:
 
 * Scelta dei casi d'uso per applicare la personalizzazione.
-* Creazione delle [funzioni di ricompensa](https://github.com/Azure/personalization-rl/blob/master/docs/concepts-rewards.md).
-* Scelta delle [caratteristiche](https://github.com/Azure/personalization-rl/blob/master/docs/concepts-features.md) relative a contesto e azioni possibili che verranno usate per la personalizzazione.
+* Creazione delle [funzioni di ricompensa](concept-rewards.md).
+* Scelta delle [caratteristiche](concepts-features.md) relative a contesto e azioni possibili che verranno usate per la personalizzazione.
 
 
 ## <a name="choosing-use-cases-for-personalizer"></a>Scelta dei casi d'uso per Personalizza esperienze
 
-Usare un servizio che apprende come personalizzare il contenuto e le interfacce utente è utile. Un servizio di questo tipo può tuttavia essere usato in modo improprio se la modalità di personalizzazione genera effetti collaterali negativi nel mondo reale e se gli utenti non sono a conoscenza della personalizzazione del contenuto. 
+Usare un servizio che apprende come personalizzare il contenuto e le interfacce utente è utile. Un servizio di questo tipo può tuttavia essere usato in modo improprio se la modalità di personalizzazione genera effetti collaterali negativi nel mondo reale e se gli utenti non sono a conoscenza della personalizzazione del contenuto.
 
-Gli usi di Personalizza esperienze con elevato potenziale di effetti collaterali negativi o mancanza di trasparenza includono ad esempio gli scenari in cui la "ricompensa" dipende da molti fattori complessi a lungo termine che, se ipersemplificati in una ricompensa immediata, possono avere risultati sfavorevoli per gli utenti. Queste scelte sono in genere considerate "consequenziali", perché comportano un rischio di danno. Ad esempio: 
+Gli usi di Personalizza esperienze con elevato potenziale di effetti collaterali negativi o mancanza di trasparenza includono ad esempio gli scenari in cui la "ricompensa" dipende da molti fattori complessi a lungo termine che, se ipersemplificati in una ricompensa immediata, possono avere risultati sfavorevoli per gli utenti. Queste tendono ad essere considerate scelte "consequenziali", o scelte che comportano un rischio di danno. Ad esempio:
 
 
-* **Finanza**: Personalizzazione delle offerte su prestiti, prodotti finanziari e assicurativi, in cui i fattori di rischio si basano su dati che le persone non conoscono, non possono ottenere o non possono contestare. 
+* **Finanza**: Personalizzazione delle offerte su prestiti, prodotti finanziari e assicurativi, in cui i fattori di rischio si basano su dati che le persone non conoscono, non possono ottenere o non possono contestare.
 * **Istruzione**: Personalizzazione dei ranghi per i corsi scolastici e gli istituti di istruzione in cui le raccomandazioni possono propagare i pregiudizi e ridurre la consapevolezza degli utenti di altre opzioni.
 * **Democrazia e partecipazione civica**: Personalizzare i contenuti per gli utenti con l'obiettivo di influenzare le opinioni è consequenziale e manipolativo.
 * **Valutazione**della ricompensa di terze parti : Personalizzazione degli elementi in cui il premio si basa su una valutazione dell'utente di ultima terze parti, invece di avere una ricompensa generata dal comportamento dell'utente.
@@ -86,7 +86,7 @@ Quando si scelgono le caratteristiche da inviare in contesti e azioni a Personal
 * Garantire trasparenza agli utenti in merito all'uso di algoritmi e analisi dei dati per la personalizzazione delle opzioni visualizzate.
 * Chiediti: I miei utenti si preoccuperebbero e sarebbero felici se ho usato queste informazioni per personalizzare il contenuto per loro? Mi sentirei a mio agio se dovessi mostrare agli utenti come è stata presa la decisione di evidenziare o nascondere determinati elementi?
 * Usare dati comportamentali anziché dati di classificazione o segmentazione basati su altre caratteristiche. Le informazioni demografiche venivano tradizionalmente usate dai rivenditori per motivi storici, perché risultavano semplici da raccogliere e sfruttare prima dell'era digitale. È tuttavia opportuno chiedersi quanto siano rilevanti le informazioni demografiche quando sono disponibili dati contestuali e cronologici sull'effettiva interazione che sono più strettamente correlati alle preferenze e all'identità degli utenti.
-* Considerare come si può impedire che le caratteristiche vengano "falsificate" da utenti malintenzionati, che con un elevato numero di attacchi di spoofing potrebbero fuorviare il training di Personalizza esperienze in modo da disturbare, mettere in imbarazzo e molestare determinate classi di utenti. 
+* Considerare come si può impedire che le caratteristiche vengano "falsificate" da utenti malintenzionati, che con un elevato numero di attacchi di spoofing potrebbero fuorviare il training di Personalizza esperienze in modo da disturbare, mettere in imbarazzo e molestare determinate classi di utenti.
 * Quando appropriato e fattibile, progettare l'applicazione in modo che gli utenti possano acconsentire esplicitamente all'uso di alcune caratteristiche personali o rifiutarlo esplicitamente. Queste caratteristiche potrebbe essere raggruppate, ad esempio, come "Informazioni sull'ubicazione", "Informazioni sul dispositivo", "Cronologia degli acquisti precedenti" e così via.
 
 
@@ -101,7 +101,7 @@ In caso di ricompensa per i clic, ad esempio, il servizio Personalizza esperienz
 Un sito di notizie, al contrario, potrebbe voler impostare ricompense collegate ad aspetti più significativi dei clic, ad esempio se l'utente abbia dedicato tempo sufficiente alla lettura del contenuto o se abbia fatto clic su articoli o riferimenti rilevanti. Con Personalizza esperienze è possibile creare facilmente uno stretto collegamento tra metriche e ricompense. Prestare tuttavia attenzione a non confondere l'engagement a breve termine degli utenti con risultati validi.
 
 ### <a name="unintended-consequences-from-reward-scores"></a>Conseguenze impreviste dei punteggi di ricompensa
-Pur essendo creati con le migliori intenzioni, i punteggi di ricompensa possono comunque generare conseguenze o risultati imprevisti nella classificazione del contenuto da parte di Personalizza esperienze. 
+Pur essendo creati con le migliori intenzioni, i punteggi di ricompensa possono comunque generare conseguenze o risultati imprevisti nella classificazione del contenuto da parte di Personalizza esperienze.
 
 Considerare gli esempi seguenti:
 
@@ -122,7 +122,7 @@ Di seguito sono illustrate le aree della progettazione per implementazioni respo
 ![Valori per l'intelligenza artificiale da The Future Computed](media/ethics-and-responsible-use/ai-values-future-computed.png)
 
 ### <a name="accountability"></a>Affidabilità
-*Le persone che progettano e distribuiscono sistemi di intelligenza artificiale devono rendere conto del funzionamento dei sistemi*. 
+*Le persone che progettano e distribuiscono sistemi di intelligenza artificiale devono rendere conto del funzionamento dei sistemi*.
 
 * Creare linee guida interne su come implementare Personalizza esperienze, quindi documentarle e comunicarle al team, ai dirigenti e ai fornitori.
 * Riesaminare periodicamente il modo in cui vengono calcolati i punteggi di ricompensa, eseguire valutazioni offline per verificare quali caratteristiche influiscono su Personalizza esperienze e usare i risultati per eliminare le caratteristiche superflue e inutili.
@@ -155,9 +155,9 @@ Di seguito sono illustrate le aree della progettazione per implementazioni respo
 *I sistemi di intelligenza artificiale devono essere sicuri e rispettare la privacy*. Quando si usa Personalizza esperienze:
 
 * *Informare gli utenti fin dall'inizio sui dati raccolti e su come vengono usati e ottenerne in anticipo il consenso*, in base alle normative locali e di settore.
-* *Includere controlli utente per la protezione della privacy.* Per le applicazioni che archiviano informazioni personali, valutare la possibilità di includere un pulsante facile da trovare per funzioni come le seguenti: 
-   * `Show me all you know about me`    
-   * `Forget my last interaction` 
+* *Includere controlli utente per la protezione della privacy.* Per le applicazioni che archiviano informazioni personali, valutare la possibilità di includere un pulsante facile da trovare per funzioni come le seguenti:
+   * `Show me all you know about me`
+   * `Forget my last interaction`
    * `Delete all you know about me`
 
 In alcuni casi queste funzioni potrebbero essere obbligatorie per legge. Prendere in considerazione eventuali compromessi per rieseguire periodicamente il training dei modelli affinché non contengano tracce dei dati eliminati.
@@ -165,7 +165,7 @@ In alcuni casi queste funzioni potrebbero essere obbligatorie per legge. Prender
 ### <a name="inclusiveness"></a>Inclusività
 *Rivolgersi a una vasta gamma di esperienze ed esigenze umane*.
 * *Offrire esperienze personalizzate per le interfacce con funzionalità di accessibilità.* L'efficienza derivante da una personalizzazione valida, applicata per ridurre la quantità di operazioni, spostamenti e ripetizioni inutili nelle interazioni, può essere particolarmente vantaggiosa per le persone affette da disabilità.
-* *Adattare il comportamento dell'applicazione al contesto*. È possibile usare Personalizza esperienze per evitare ambiguità nelle finalità in un chatbot, ad esempio, perché l'interpretazione corretta può dipendere dal contesto e un'unica soluzione potrebbe non essere adatta a tutti i casi. 
+* *Adattare il comportamento dell'applicazione al contesto*. È possibile usare Personalizza esperienze per evitare ambiguità nelle finalità in un chatbot, ad esempio, perché l'interpretazione corretta può dipendere dal contesto e un'unica soluzione potrebbe non essere adatta a tutti i casi.
 
 
 ## <a name="proactive-readiness-for-increased-data-protection-and-governance"></a>Idoneità proattiva per una maggiore governance e protezione dei dati
@@ -185,14 +185,14 @@ Valutare la possibilità di creare metodi con cui i membri del team, gli utenti 
 Nel considerare gli effetti collaterali dell'uso di qualsiasi tecnologia, chiunque è limitato dalla propria prospettiva ed esperienza di vita. Ampliare la gamma di opinioni disponibile integrando più voci eterogenee nei team, tra gli utenti o nei comitati consultivi, in modo che possano esprimersi e siano incoraggiate a farlo. Prendere in considerazione materiali di formazione e apprendimento per ampliare ulteriormente le conoscenze del team in questo campo e per aumentare la capacità di affrontare argomenti complessi e sensibili.
 
 Valutare la possibilità di trattare le attività relative all'utilizzo responsabile come altre attività trasversali nel ciclo di vita dell'applicazione, ad esempio le attività correlate all'esperienza utente, alla sicurezza o a DevOps. Queste attività e i relativi requisiti non possono essere rimandati a un secondo momento. L'uso responsabile deve essere discusso e verificato in tutto il ciclo di vita dell'applicazione.
- 
+
 ## <a name="questions-and-feedback"></a>Domande, commenti e suggerimenti
 
 Microsoft si impegna continuamente per offrire strumenti e documenti che consentano di rispettare queste responsabilità. Il nostro team invita gli utenti a [inviare commenti e suggerimenti a Microsoft](mailto:cogsvcs-RL-feedback@microsoft.com?subject%3DPersonalizer%20Responsible%20Use%20Feedback&body%3D%5BPlease%20share%20any%20question%2C%20idea%20or%20concern%5D), se ritengono che per implementare queste linee guida per l'uso di Personalizza esperienze sarebbero utili altri strumenti, documenti e funzionalità di prodotto.
 
 ## <a name="recommended-reading"></a>Letture consigliate
 
-* Vedere i sei principi di Microsoft per lo sviluppo responsabile di intelligenza artificiale che sono stati pubblicati nel libro di gennaio 2018 [The Future Computed](https://news.microsoft.com/futurecomputed/) (Il calcolo del futuro)
+* Scopri i sei principi di Microsoft per lo sviluppo responsabile dell'IA pubblicato nel libro di gennaio 2018, [The Future Computed](https://news.microsoft.com/futurecomputed/)
 * [Who Owns the Future?](https://www.goodreads.com/book/show/15802693-who-owns-the-future) (A chi appartiene il futuro?) di Jaron Lanier
 * [Armi di distruzione matematica](https://www.goodreads.com/book/show/28186015-weapons-of-math-destruction) di Cathy O'Neil
 * [Ethics and Data Science](https://www.oreilly.com/library/view/ethics-and-data/9781492043898/) (Etica e data science) di DJ Patil, Hilary Mason, Mike Loukides

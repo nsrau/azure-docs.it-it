@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 65fc4ed25b0fd360de8e3b1439d1766485eb2e58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba1d06ce83d50b6f0db84d1e423e66eae98f665d
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74688650"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477508"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificati e Ambiente del servizio app 
 
@@ -22,7 +22,7 @@ L'ambiente del servizio app è un sistema a tenant singolo. Poiché si tratta di
 
 ## <a name="ilb-ase-certificates"></a>Certificati di Ambiente del servizio app con bilanciamento del carico interno 
 
-Se si usa un Ambiente del servizio app esterno, le app vengono raggiunte a [appname].[asename].p.azurewebsites.net. Per impostazione predefinita tutti gli Ambienti del servizio app, anche gli Ambienti del servizio App ILB, vengono creati con i certificati che seguono tale formato. Quando si dispone di un Ambiente del servizio app con bilanciamento del carico interno, le app vengono raggiunte in base al nome di dominio specificato durante la creazione dell'Ambiente del servizio app con bilanciamento del carico interno. Affinché le app supportino SSL, è necessario caricare i certificati. Ottenere un certificato SSL valido usando le autorità di certificazione interne, acquistando un certificato da un'autorità di certificazione esterna o usando un certificato autofirmato. 
+Se si usa un Ambiente del servizio app esterno, le app vengono raggiunte a [appname].[asename].p.azurewebsites.net. Per impostazione predefinita tutti gli Ambienti del servizio app, anche gli Ambienti del servizio App ILB, vengono creati con i certificati che seguono tale formato. Quando si dispone di un Ambiente del servizio app con bilanciamento del carico interno, le app vengono raggiunte in base al nome di dominio specificato durante la creazione dell'Ambiente del servizio app con bilanciamento del carico interno. Affinché le app supportino TLS, è necessario caricare i certificati. Ottenere un certificato TLS/SSL valido utilizzando le autorità di certificazione interne, acquistando un certificato da un'autorità di certificazione esterna o utilizzando un certificato autofirmato. 
 
 Sono disponibili due opzioni di configurazione dei certificati con l'Ambiente del servizio app con bilanciamento del carico interno.  È possibile impostare un certificato predefinito con caratteri jolly per l'Ambiente del servizio app con bilanciamento del carico interno o impostare i certificati per le singole app Web nell'Ambiente del servizio app.  Indipendentemente dalla scelta, è necessario configurare correttamente gli attributi del certificato seguenti:
 
@@ -58,7 +58,7 @@ Le app ospitate in un Ambiente del servizio app possono usare le funzionalità r
 - SSL basato su IP, supportato solo con un Ambiente del servizio app esterno.  Un ambiente del servizio app con bilanciamento del carico interno non supporta SSL basato su IP.
 - Certificati di Key Vault ospitato 
 
-Le istruzioni per il caricamento e la gestione di tali certificati sono disponibili in Aggiungere un certificato SSL nel servizio app di [Azure.](../configure-ssl-certificate.md)  Se si stanno configurando i certificati semplicemente in modo da far corrispondere un nome di dominio personalizzato che è stato assegnato all'app Web, allora tali istruzioni sono sufficienti. Se si sta caricando il certificato per un'app Web di ambiente del servizio app con bilanciamento del carico con il nome di dominio predefinito, specificare il sito scm nella rete SAN del certificato come indicato in precedenza. 
+Le istruzioni per il caricamento e la gestione di tali certificati sono disponibili in [Aggiungere un certificato TLS/SSL nel servizio app](../configure-ssl-certificate.md)di Azure.  Se si stanno configurando i certificati semplicemente in modo da far corrispondere un nome di dominio personalizzato che è stato assegnato all'app Web, allora tali istruzioni sono sufficienti. Se si sta caricando il certificato per un'app Web di ambiente del servizio app con bilanciamento del carico con il nome di dominio predefinito, specificare il sito scm nella rete SAN del certificato come indicato in precedenza. 
 
 ## <a name="tls-settings"></a>Impostazioni di TLS 
 

@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: cbe01ee9b8edeab349db484cea6c25dca32bf213
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7064101c21c11b48d8616dbeaa2fd9075660fd3b
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218016"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473464"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Gestire i servizi Web di Azure Machine Learning Studio (classico) usando Gestione APIManage Azure Machine Learning Studio (classic) web services using API Management
 
@@ -38,7 +38,7 @@ Per completare questa guida, è necessario:
 
 È possibile gestire il servizio Web di Azure Machine Learning con un'istanza di Gestione API.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **: Crea una risorsa**.
 3. Nella casella di ricerca digitare "Gestione API" e quindi selezionare la risorsa "Gestione API".
 4. Fare clic su **Crea**.
@@ -217,7 +217,7 @@ Fare clic su **Yes** per pubblicare l'esperimento.
 ![yes-to-publish](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### <a name="test-the-web-service"></a>Testare il servizio Web
-Un servizio Web di AzureML è costituito dagli endpoint RSS (servizio di richiesta/risposta) e BES (servizio di esecuzione batch). RSS è per l'esecuzione sincrona. BES è per l'esecuzione di processi asincrona. Per testare il servizio Web con la seguente origine Python di esempio, potrebbe essere necessario scaricare e installare Azure SDK per Python (vedere: [Come installare Python](/azure/python/python-sdk-azure-install)).
+Un servizio Web di AzureML è costituito dagli endpoint RSS (servizio di richiesta/risposta) e BES (servizio di esecuzione batch). RSS è per l'esecuzione sincrona. BES è per l'esecuzione di processi asincrona. Per testare il servizio Web con la seguente origine Python di esempio, potrebbe essere necessario scaricare e installare Azure SDK per Python (vedere: [Come installare Python](/azure/developer/python/azure-sdk-install)).
 
 Per la seguente origine di esempio, saranno necessari anche l'**area di lavoro**, il **servizio** e la **chiave API** dell'esperimento. È possibile trovare l'area di lavoro e il servizio facendo clic su **Richiesta/risposta** o su **Esecuzione batch** per l'esperimento nel dashboard del servizio Web.
 

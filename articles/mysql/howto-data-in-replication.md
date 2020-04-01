@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 2148ce41267627d9d6e0437897a99a8dbdbe0746
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 18c1d8b42dc73951901ec4ae9b79715ddbd47617
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80382767"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474033"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Come configurare la replica dei dati in ingresso in Database di Azure per MySQL
 
-In questo articolo si apprenderà come configurare la Replica dei dati in ingresso nel servizio Database di Azure per MySQL eseguendo la configurazione del server master e di un server di replica. La funzione Replica dei dati in ingresso consente di sincronizzare i dati da un server MySQL master, eseguito in locale, in macchine virtuali o servizi di database ospitati da altri provider cloud in una replica nel servizio Database di Azure per MySQL. 
+Questo articolo descrive come configurare la replica dei dati nel database di Azure per MySQL configurando i server master e di replica. In questo articolo si presuppone che si dispone di una certa esperienza precedente con i server e i database MySQL.
 
-Per eseguire le procedure descritte in questo articolo è necessario avere già un certo livello di esperienza con i server e i database MySQL.
+Per creare una replica nel database di Azure per il servizio MySQL, la replica dei dati sincronizza i dati da un server MySQL master in locale, nelle macchine virtuali (VM) o nei servizi di database cloud.
 
 Esaminare le [limitazioni e i requisiti](concepts-data-in-replication.md#limitations-and-considerations) della replica dei dati prima di eseguire la procedura descritta in questo articolo.
 
@@ -47,7 +47,7 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
 
    Ad esempio, assicurarsi che il server master consenta il traffico in ingresso e in uscita sulla porta 3306 e che il server master disponga di un **indirizzo IP pubblico,** che il DNS sia accessibile pubblicamente o abbia un nome di dominio completo (FQDN). 
    
-   Verificare la connettività al server master tentando di connettersi da uno strumento come la riga di comando MySQL ospitato in un altro computer o da Azure Cloud Shell disponibile nel portale di AzureTest connectivity to the master server by attempting to connect from a tool such as the MySQL command-line hosted on another machine or from the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) available in the Azure portal 
+   Testare la connettività al server master tentando di connettersi da uno strumento come la riga di comando MySQL ospitato in un altro computer o da Azure Cloud Shell disponibile nel portale di Azure.Test connectivity to the master server by attempting to connect from a tool such as the MySQL command-line hosted on another machine or from the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) available in the Azure portal.
 
 2. Attivare la registrazione binaria
 
@@ -71,7 +71,7 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
 
 4. Creare un nuovo ruolo di replica e configurare le autorizzazioni
 
-   Sul server master creare un account utente configurato con i privilegi di replica. Questa operazione può essere eseguita tramite comandi SQL o uno strumento come MySQL Workbench. Valutare se si prevede di eseguire la replica con SSL, poiché è necessario specificare questa impostazione quando si crea l'utente. Per istruzioni su come [aggiungere account utente](https://dev.mysql.com/doc/refman/5.7/en/adding-users.html) sul server master, vedere la documentazione di MySQL. 
+   Sul server master creare un account utente configurato con i privilegi di replica. Questa operazione può essere eseguita tramite comandi SQL o uno strumento come MySQL Workbench. Valutare se si prevede di eseguire la replica con SSL, poiché è necessario specificare questa impostazione quando si crea l'utente. Per istruzioni su come [aggiungere account utente](https://dev.mysql.com/doc/refman/5.7/en/user-names.html) sul server master, vedere la documentazione di MySQL. 
 
    Nei comandi seguenti il nuovo ruolo di replica creato è in grado di accedere al server master da qualsiasi computer, non solo dal computer che ospita il server master stesso. Questa operazione viene eseguita specificando "syncuser@'%'" nel comando per la creazione dell'utente. Per altre informazioni su come [specificare i nomi degli account](https://dev.mysql.com/doc/refman/5.7/en/account-names.html), vedere la documentazione di MySQL.
 

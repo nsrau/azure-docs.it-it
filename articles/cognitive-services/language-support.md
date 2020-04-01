@@ -7,15 +7,15 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 48cb1ca1427ece0ee30a124b20d3918f1ace47eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4944fd36359f35ff516aa149b357a7cda042fdae
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78274146"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477055"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Supporto per le lingue naturali per i servizi cognitivi di Azure
 
@@ -23,14 +23,14 @@ Servizi cognitivi di Azure consentono di creare applicazioni che visualizzano, a
 
 Questi servizi cognitivi sono indipendenti dalla lingua e non hanno limitazioni basate sulla lingua.
 
-* [Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/)
+* [Personalizza esperienze](https://docs.microsoft.com/azure/cognitive-services/personalizer/)
 * [Rilevamento anomalie (anteprima)](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/overview)
 
 ## <a name="vision"></a>Visione
 
 * [Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/faq)
 * [Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview)
-
+* [Riconoscimento input penna](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/language-support)
 ## <a name="speech"></a>Sintesi vocale
 
 * [Riconoscimento vocale personalizzato](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/customspeech-how-to-topics/cognitive-services-custom-speech-change-locale)
@@ -42,11 +42,11 @@ Questi servizi cognitivi sono indipendenti dalla lingua e non hanno limitazioni 
 
 * [Controllo ortografico Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages)
 * [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/luis-supported-languages)
-* [Creatore QnA](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/languages-supported)
-* [Testo traduttore](https://docs.microsoft.com/azure/cognitive-services/translator/languages)
-* [Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)
+* [QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/languages-supported)
+* [Traduzione testuale](https://docs.microsoft.com/azure/cognitive-services/translator/languages)
+* [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)
 
-## <a name="search"></a>Ricerca
+## <a name="search"></a>Cerca
 
 * [Ricerca Web Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/supported-countries-markets)
 * [Ricerca immagini Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/supported-countries-markets)
@@ -57,7 +57,7 @@ Questi servizi cognitivi sono indipendenti dalla lingua e non hanno limitazioni 
 
 ## <a name="decision"></a>Decisione
 
-* [Moderatore dei contenuti](https://docs.microsoft.com/azure/cognitive-services/content-moderator/text-moderation-api-languages)
+* [Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/text-moderation-api-languages)
 
 ## <a name="see-also"></a>Vedere anche
 
