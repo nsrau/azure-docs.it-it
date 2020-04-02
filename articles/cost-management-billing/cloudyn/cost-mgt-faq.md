@@ -1,24 +1,26 @@
 ---
-title: Domande frequenti su Cloudyn in Azure | Microsoft Docs
+title: Domande frequenti per Cloudyn in Azure
 description: Questo articolo risponde ad alcune domande comuni su Cloudyn.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
-ms.topic: troubleshooting
+ms.date: 03/12/2020
+ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 5c770d83d59edf0a56184f8eea0bda6b0603893c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: b1ec81ea135079defb390becc025f51cde2dad7f
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76770070"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411247"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Domande frequenti su Cloudyn
 
 Questo articolo affronta alcune domande comuni su Cloudyn. Eventuali domande su Cloudyn possono essere formulate nel forum [FAQs for Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-cloudyn-cost-management?forum=Cloudyn) (Domande frequenti su Cloudyn).
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="how-can-i-resolve-common-indirect-enterprise-setup-problems"></a>Come è possibile risolvere i problemi di configurazione indiretta dell'organizzazione?
 
@@ -46,7 +48,7 @@ Per poter generare la chiave API del contratto Enterprise di Azure per la config
 
 Potrebbe anche essere necessario concedere ad amministratori di reparto, proprietari di account e amministratori dell'organizzazione le autorizzazioni per _visualizzare gli addebiti_ con l'API di fatturazione.
 
-## <a name="why-dont-i-see-optimizer-recommendations"></a>Perché non vengono visualizzate le raccomandazioni di ottimizzazione?
+## <a name="why-dont-i-see-optimizer-recommendations"></a>Perché non vengono visualizzate le raccomandazioni dell'utilità di ottimizzazione?
 
 Le informazioni di raccomandazione sono disponibili solo per gli account attivati. Non si vedranno informazioni di raccomandazione nelle categorie di report di **ottimizzazione**per gli account *non attivati*, tra cui:
 
@@ -58,13 +60,13 @@ Se non è possibile visualizzare dati di raccomandazione per l'ottimizzazione, �
 
 Per attivare un account:
 
-1.  Nel portale di Cloudyn, fare clic su **Impostazioni** in alto a destra e selezionare **Cloud Accounts** (Account cloud).
-2.  Nella scheda degli account di Microsoft Azure, cercare gli account con sottoscrizione **non attivata**.
-3.  A destra di un account non attivato fare clic sul simbolo di **modifica** simile a una matita.
-4.  L'ID del tenant e l'ID della tariffa vengono rilevati automaticamente. Fare clic su **Avanti**.
-5.  Si verrà reindirizzati al portale di Azure. Accedi al portale e autorizzare l'agente di raccolta Cloudyn all'accesso ai dati di Azure.
-6.  Si verrà reindirizzati alla pagina di gestione degli account Cloudyn e la sottoscrizione verrà aggiornata con lo stato dell'account **attivo**. Viene visualizzato un simbolo di segno di spunta verde.
-7.  Se non viene visualizzato un simbolo di segno di spunta verde per una o più sottoscrizioni, significa che non sono disponibili le autorizzazioni per creare un'app lettore (CloudynCollector) per la sottoscrizione. Un utente con autorizzazioni più elevate per la sottoscrizione deve ripetere i passaggi 3 e 4.  
+1.    Nel portale di Cloudyn, fare clic su **Impostazioni** in alto a destra e selezionare **Cloud Accounts** (Account cloud).
+2.    Nella scheda degli account di Microsoft Azure, cercare gli account con sottoscrizione **non attivata**.
+3.    A destra di un account non attivato fare clic sul simbolo di **modifica** simile a una matita.
+4.    L'ID del tenant e l'ID della tariffa vengono rilevati automaticamente. Fare clic su **Avanti**.
+5.    Si verrà reindirizzati al portale di Azure. Accedi al portale e autorizzare l'agente di raccolta Cloudyn all'accesso ai dati di Azure.
+6.    Si verrà quindi reindirizzati alla pagina di gestione degli account Cloudyn e la sottoscrizione verrà aggiornata con lo stato dell'account **attivo**. Viene visualizzato un simbolo di segno di spunta verde.
+7.    Se non viene visualizzato un segno di spunta verde per una o più sottoscrizioni, significa che non sono disponibili le autorizzazioni per creare un'app lettore (CloudynCollector) per la sottoscrizione. Un utente con autorizzazioni più elevate per la sottoscrizione deve ripetere i passaggi 3 e 4.  
 
 Dopo aver completato i passaggi precedenti, sarà possibile visualizzare le raccomandazioni di ottimizzazione nel giro di un paio di giorni. Tuttavia, possono essere necessari fino a cinque giorni prima che diventino disponibili i dati di ottimizzazione completi.
 
@@ -95,7 +97,7 @@ La modifica dell'indirizzo di posta elettronica in Cloudyn rispetto all'indirizz
 
 Se non si riesce ad accedere al portale di Cloudyn, verificare di usare l'URL corretto per l'accesso a Cloudyn. Usare [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
-Evitare di usare l'URL diretto di Cloudyn https://app.cloudyn.com.
+Evitare di usare l'URL diretto di Cloudyn `https://app.cloudyn.com`.
 
 ## <a name="how-do-i-activate-unactivated-accounts-with-azure-credentials"></a>Come si attivano account non attivati con le credenziali di Azure?
 
