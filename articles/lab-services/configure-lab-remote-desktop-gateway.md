@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 88daecdf4490ffd4eef45e6cd664a16f86bad113
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2cdafa9a36a5f906151ca6946e18ef82bc7f1e01
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76170295"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529412"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configurare il lab in Azure DevTest Labs per l'uso di un gateway di desktop remotoConfigure your lab in Azure DevTest Labs to use a remote desktop gateway
 In Laboratori DevTest di Azure è possibile configurare un gateway desktop remoto per il lab per garantire l'accesso sicuro alle macchine virtuali lab (VM) senza dover esporre la porta RDP. Il lab offre agli utenti del lab una posizione centrale in cui gli utenti del lab possono visualizzare e connettersi a tutte le macchine virtuali a cui hanno accesso. Il pulsante **Connetti** nella pagina **Macchina virtuale** crea un file RDP specifico del computer che è possibile aprire per connettersi al computer. È possibile personalizzare e proteggere ulteriormente la connessione RDP connettendo il lab a un gateway di desktop remoto. 
@@ -43,7 +43,7 @@ Questo approccio è più sicuro perché l'utente del lab esegue l'autenticazione
 Per utilizzare la funzionalità di autenticazione token DevTest Labs, esistono alcuni requisiti di configurazione per i computer gateway, i servizi DNS (Domain Name Services) e le funzioni.
 
 ### <a name="requirements-for-remote-desktop-gateway-machines"></a>Requisiti per i computer gateway desktop remoto
-- Il certificato SSL deve essere installato nel computer gateway per gestire il traffico HTTPS. Il certificato deve corrispondere al nome di dominio completo (FQDN) del servizio di bilanciamento del carico per la farm gateway o al nome di dominio completo del computer stesso se è presente un solo computer. I certificati SSL con caratteri jolly non funzionano.  
+- Il certificato TLS/SSL deve essere installato nel computer gateway per gestire il traffico HTTPS. Il certificato deve corrispondere al nome di dominio completo (FQDN) del servizio di bilanciamento del carico per la farm gateway o al nome di dominio completo del computer stesso se è presente un solo computer. I certificati TLS/SSL con caratteri jolly non funzionano.  
 - Un certificato di firma installato nei computer gateway. Creare un certificato di firma utilizzando lo script [Create-SigningCertificate.ps1.Create](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1) a signing certificate by using Create-SigningCertificate.ps1 script.
 - Installare il modulo [Autenticazione collegabile](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) che supporta l'autenticazione token per il gateway desktop remoto. Un esempio di tale `RDGatewayFedAuth.msi` modulo è che viene fornito con le immagini di [System Center Virtual Machine Manager (VMM).](/system-center/vmm/install-console?view=sc-vmm-1807) Per ulteriori informazioni su System Center, vedere [documentazione di System Center](https://docs.microsoft.com/system-center/) e [dettagli sui prezzi](https://www.microsoft.com/cloud-platform/system-center-pricing).  
 - Il server gateway è `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}`in grado di gestire le richieste effettuate a .
@@ -58,7 +58,7 @@ La funzione di Azure `https://{function-app-uri}/app/host/{lab-machine-name}/por
 
 ## <a name="requirements-for-network"></a>Requisiti per la rete
 
-- Il DNS per il nome di dominio completo associato al certificato SSL installato nei computer gateway deve indirizzare il traffico al computer gateway o al servizio di bilanciamento del carico della farm di macchine gateway.
+- Il DNS per il nome di dominio completo associato al certificato TLS/SSL installato nei computer gateway deve indirizzare il traffico al computer gateway o al servizio di bilanciamento del carico della farm di computer gateway.
 - Se il computer lab utilizza indirizzi IP privati, deve essere presente un percorso di rete dal computer gateway al computer lab, tramite la condivisione della stessa rete virtuale o l'utilizzo di reti virtuali con peered.
 
 ## <a name="configure-the-lab-to-use-token-authentication"></a>Configurare il lab per l'utilizzo dell'autenticazione tokenConfigure the lab to use token authentication 
@@ -74,12 +74,12 @@ az resource show --name {lab-name} --resource-type 'Microsoft.DevTestLab/labs' -
 
 Configurare il lab per l'utilizzo dell'autenticazione token attenendosi alla procedura seguente:Configure the lab to use the token authentication by using these steps:
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
 1. Nell'elenco dei laboratori selezionare il **lab**.
 1. Nella pagina del lab selezionare **Configurazione e criteri**.
 1. Nel menu a sinistra, nella sezione **Impostazioni,** selezionare **Impostazioni lab.**
-1. Nella sezione **Desktop remoto** immettere il nome di dominio completo (FQDN) o l'indirizzo IP della macchina o della farm gateway di Servizi desktop remoti per il campo Nome **host gateway.** Questo valore deve corrispondere al nome di dominio completo del certificato SSL utilizzato nei computer gateway.
+1. Nella sezione **Desktop remoto** immettere il nome di dominio completo (FQDN) o l'indirizzo IP della macchina o della farm gateway di Servizi desktop remoti per il campo Nome **host gateway.** Questo valore deve corrispondere al nome di dominio completo del certificato TLS/SSL utilizzato nei computer gateway.
 
     ![Opzioni di Desktop remoto nelle impostazioni lab](./media/configure-lab-remote-desktop-gateway/remote-desktop-options-in-lab-settings.png)
 1. Nella sezione **Desktop remoto,** per **Segreto token gateway,** immettere il nome del segreto creato in precedenza. Questo valore non è la chiave della funzione stessa, ma il nome del segreto nell'insieme di credenziali delle chiavi del lab che contiene la chiave della funzione.
@@ -110,7 +110,7 @@ Il repository GitHub di Azure DevTest Labs fornisce alcuni esempi per configurar
 Seguire questi passaggi per configurare una soluzione di esempio per la farm gateway desktop remoto.
 
 1. Creare un certificato di firma.  Eseguire [Create-SigningCertificate.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1). Salvare l'identificazione personale, la password e la codifica Base64 del certificato creato.
-2. Ottenere un certificato SSL. Il nome di dominio completo associato al certificato SSL deve essere per il dominio che si controlla. Salvare l'identificazione personale, la password e la codifica Base64 per questo certificato. Per ottenere l'identificazione personale tramite PowerShell, usare i comandi seguenti.
+2. Ottenere un certificato TLS/SSL. Il nome di dominio completo associato al certificato TLS/SSL deve essere per il dominio controllato. Salvare l'identificazione personale, la password e la codifica Base64 per questo certificato. Per ottenere l'identificazione personale tramite PowerShell, usare i comandi seguenti.
 
     ```powershell
     $cer = New-Object System.Security.Cryptography.X509Certificates.X509Certificate;
@@ -132,9 +132,9 @@ Seguire questi passaggi per configurare una soluzione di esempio per la farm gat
     - instanceCount: numero di computer gateway da creare.  
     - alwaysOn: indica se mantenere l'app Funzioni di Azure creata in uno stato caldo o meno. Mantenere l'app Funzioni di Azure eviterà ritardi quando gli utenti tentano per la prima volta di connettersi alla macchina virtuale lab, ma ha implicazioni sui costi.  
     - tokenLifetime: periodo di validità del token creato. Il formato è HH:MM:SS.
-    - sslCertificate: codifica Base64 del certificato SSL per il computer gateway.
-    - sslCertificatePassword: password del certificato SSL per il computer gateway.
-    - sslCertificateThumbprint: identificazione personale del certificato per l'identificazione nell'archivio certificati locale del certificato SSL.
+    - sslCertificate: codifica Base64 del certificato TLS/SSL per il computer gateway.
+    - sslCertificatePassword: password del certificato TLS/SSL per il computer gateway.
+    - sslCertificateThumbprint: identificazione personale del certificato per l'identificazione nell'archivio certificati locale del certificato TLS/SSL.
     - signCertificate: codifica Base64 per il certificato di firma per il computer gateway.
     - signCertificatePassword: password per il certificato di firma per il computer gateway.
     - signCertificateThumbprint: identificazione personale del certificato per l'identificazione nell'archivio certificati locale del certificato di firma.
@@ -157,7 +157,7 @@ Seguire questi passaggi per configurare una soluzione di esempio per la farm gat
         - La data di scadenza utc è la data UTC in cui il token di firma di accesso condiviso scadrà e il token di firma di accesso condiviso non potrà più essere usato per accedere all'account di archiviazione.
 
     Registrare i valori per gatewayFQDN e gatewayIP dall'output di distribuzione del modello. È inoltre necessario salvare il valore del tasto funzione per la funzione appena creata, che si trova nella scheda [Impostazioni dell'app Funzione.](../azure-functions/functions-how-to-use-azure-function-app-settings.md)
-5. Configurare DNS in modo che FQDN del certificato SSL indirizzi all'indirizzo IP del gatewayIP del passaggio precedente.
+5. Configurare DNS in modo che FQDN del certificato TLS/SSL indirizzi all'indirizzo IP di gatewayIP dal passaggio precedente.
 
     Dopo aver creato la farm di Gateway Desktop remoto e aver apportato gli aggiornamenti DNS appropriati, è possibile utilizzarla da un lab in DevTest Labs. Le impostazioni del **nome host del gateway** e del **segreto del token del gateway** devono essere configurate per l'utilizzo dei computer gateway distribuiti. 
 

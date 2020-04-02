@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: 4b1c1a963b065411f1a0ab84141bdf1835930ebb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0fe20c90cf857ce09a83c6ac53e6fe77eb512153
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74973544"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528200"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Set di dati pubblici per test e prototipi
 
@@ -31,7 +31,7 @@ In questo elenco di set di dati pubblici è possibile trovare dati da usare per 
 | [Dati di scienze della Terra della NASA](https://earthdata.nasa.gov/) | Oltre 32.000 raccolte di dati riguardanti agricoltura, atmosfera, biosfera, clima, criosfera, dimensioni umane, idrosfera, superficie terrestre, oceani, interazioni Terra-Sole e altro ancora. | I set di dati sono disponibili in vari formati. |
 | [Ritardi nei voli e altri dati sui trasporti delle compagnie aeree](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "Il Bureau of Transportation Statistics (BTS) del Dipartimento dei Trasporti degli Stati Uniti (DOT) tiene traccia delle prestazioni puntuali dei voli nazionali operati da grandi vettori aerei. Informazioni di riepilogo sul numero di voli puntuali, in ritardo, annullati o deviati sono riportate... in tabelle di riepilogo pubblicate nel sito Web". | I file sono disponibili in formato CSV. |
 | [Incidenti stradali mortali: Fatality Analysis Reporting System (FARS) degli Stati Uniti](https://www.nhtsa.gov/FARS) | "FARS è un censimento a livello nazionale che fornisce a NHTSA, Congresso e pubblico americano dati annuali sugli incidenti stradali mortali nel traffico di veicoli a motore". | "È possibile creare online dati personalizzati sugli incidenti mortali usando il sistema di query FARS oppure scaricare tutti i dati FARS dal 1975 a oggi dal sito FTP". |
-| [Dati su sostanze chimiche tossiche: Toxicity ForeCaster (ToxCast™) dell'agenzia per la protezione dell'ambiente](https://www.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data) | "I dati high-throughput più aggiornati disponibili al pubblico dell'EPA sulla tossicità di migliaia di sostanze chimiche. Questi dati vengono generati tramite l'iniziativa di ricerca ToxCast dell'EPA". | I set di dati sono disponibili in vari formati, tra cui fogli di calcolo, pacchetti R e file di database MySQL. |
+| [Dati chimici tossici - Dati EPA Toxicity&trade;ForeCaster (ToxCast)](https://www.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data) | "I dati high-throughput più aggiornati disponibili al pubblico dell'EPA sulla tossicità di migliaia di sostanze chimiche. Questi dati vengono generati tramite l'iniziativa di ricerca ToxCast dell'EPA". | I set di dati sono disponibili in vari formati, tra cui fogli di calcolo, pacchetti R e file di database MySQL. |
 | [Dati su sostanze chimiche tossiche: NIH Tox21 Data Challenge 2014](https://tripod.nih.gov/tox21/challenge/) | "La sfida Tox21 Data Challenge 2014 è stata progettata per consentire agli scienziati di comprendere il potenziale delle sostanze chimiche e dei composti sottoposti a test tramite l'iniziativa Toxicology in the 21st Century per interrompere i percorsi biologici in modi che potrebbero determinare effetti tossici". | I set di dati sono disponibili in formato SMILES e SDF. Includono "dati sulle attività di analisi e sulle strutture chimiche della raccolta di circa 10.000 composti (Tox21 10K) di Tox21". |
 | [Dati su biotecnologia e genomi del National Center for Biotechnology Information (NCBI)](https://www.ncbi.nlm.nih.gov/guide/data-software/) | Più set di dati riguardanti geni, genomi e proteine. | I set di dati sono in formato di testo, XML, BLAST e di altro tipo. È disponibile un'app BLAST. |
 
@@ -41,7 +41,6 @@ In questo elenco di set di dati pubblici è possibile trovare dati da usare per 
 |---|---|---|
 | [Dati relativi ai taxi di New York City](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | "I record relativi alle corse dei taxi includono campi contenenti data e ora di partenza e di arrivo, luogo di partenza e di arrivo, distanze delle corse, dettaglio delle tariffe, tipi di tariffa, tipi di pagamento e numero di passeggeri segnalato dal tassista". | I set di dati sono disponibili in file CSV per singolo mese. |
 | [Set di dati di Microsoft Research: analisi scientifica dei dati per la ricerca](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Più set di dati riguardanti l'interazione uomo-computer, audio/video, data mining/recupero informazioni, posizione geospaziale, elaborazione del linguaggio naturale e robotica/visione artificiale. | I set di dati sono disponibili in vari formati, compressi per il download. |
-| [Dati pubblici su genomi](https://www.completegenomics.com/public-data/) | "Un insieme di dati diversificato di genomi umani interi sono liberamente disponibili per l'uso pubblico per migliorare qualsiasi studio genomico..." Il provider, Complete Genomics, è una società privata a scopo di lucro. | I set di dati, dopo l'estrazione, sono in formato di testo UNIX. Sono disponibili anche strumenti di analisi. |
 | [Dati di Open Science Data Cloud](https://www.opensciencedatacloud.org/projects/) | "Open Science Data Cloud offre alla comunità scientifica risorse per l'archiviazione, la condivisione e l'analisi di set di dati scientifici a livello di terabyte e petabyte".| I set di dati sono disponibili in vari formati. |
 | [Dati sul clima globale: WorldClim](https://worldclim.org/) | "WorldClim è un set di livelli di dati sul clima globale a griglia con risoluzione spaziale di circa 1 km2. Questi dati possono essere usati per la mappatura e la modellazione spaziale". | I file contengono dati geospaziali. Per altre informazioni, vedere [Data format](https://worldclim.org/formats1) (Formato dei dati). |
 | [Dati sulla società umana: The GDELT Project](https://www.gdeltproject.org/data.html) | "The GDELT Project è il database aperto relativo alla società umana più grande e completo e con la risoluzione più elevata che sia mai stato creato". | I file di dati non elaborati sono disponibili in formato CSV. |

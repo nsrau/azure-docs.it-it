@@ -7,12 +7,12 @@ ms.reviewer: dorcohen
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/15/2020
-ms.openlocfilehash: 796b37f98fed7e389fa71a15b5e6697a14db1a16
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 1b9d593b0f0895e2ba75fae7ab7e78ea883c8907
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397200"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521724"
 ---
 # <a name="microsoft-flow-connector-preview-usage-examples"></a>Esempi di utilizzo del connettore di Microsoft Flow (anteprima)Microsoft Flow connector (Preview) usage examples
 
@@ -24,8 +24,6 @@ Per ulteriori informazioni, vedere [Connettore Microsoft Flow (anteprima)](flow.
 * [Eseguire il push dei dati nel set di dati di Power BIPush data to Power BI dataset](#push-data-to-power-bi-dataset)
 * [Query condizionali](#conditional-queries)
 * [Inviare più diagrammi di flusso di Azure Data Explorert](#email-multiple-azure-data-explorer-flow-charts)
-* [Inviare un messaggio di posta elettronica diverso a contatti diversi](#send-a-different-email-to-different-contacts)
-* [Creare una tabella HTML personalizzata](#create-a-custom-html-table)
 
 ## <a name="microsoft-flow-connector-and-sql"></a>Connettore Microsoft Flow e SQL
 
@@ -101,23 +99,21 @@ Visualizza queste informazioni come grafico a torta e inviale via email al team.
 
 ## <a name="email-multiple-azure-data-explorer-flow-charts"></a>Inviare più diagrammi di flusso di Azure Data Explorert
 
-1. Creare un nuovo flusso con trigger "Ricorrenza" e definire l'intervallo del flusso e la frequenza. 
+1. Creare un nuovo flusso con il trigger di ricorrenza e definire l'intervallo del flusso e la frequenza. 
 1. Aggiungere un nuovo passaggio, con una o più azioni Kusto - Esegui query e visualizza i risultati. 
 
     ![Eseguire più query in un flussoRun several queries in a flow](./media/flow-usage/flow-severalqueries.png)
 1. Per ogni kusto - eseguire una query e visualizzare il risultato, definire i seguenti campi:
-    * URL cluster (nel campo *Nome cluster)*
+    * URL cluster
     * Nome database
-    * Tipo di query e grafico (Tabella HTML/Grafico a torta/Grafico temporale/Grafico a barre/Inserisci valore personalizzato).
+    * Tipo di query e grafico (tabella HTML, grafico a torta, grafico a barre, grafico a barre o immettere un valore personalizzato).
 
     ![Visualizza i risultati con più allegati](./media/flow-usage/flow-visualizeresultsmultipleattachments.png)
 
-    > [!IMPORTANT]
-    > Nei campi *Nome cluster* immettere l'URL del cluster.
-
-1. Aggiungere un'azione Invia un messaggio di posta elettronica. 
-    * Nel campo *Corpo* inserire il corpo richiesto in modo che il risultato visualizzato della query sia incluso nel corpo del messaggio di posta elettronica.
-    * Per aggiungere un allegato al messaggio di posta elettronica, aggiungere Nome allegato e Contenuto allegato.
+1. Aggiungere un'azione Invia un messaggio di posta elettronica (v2):Add a Send an email (v2) action: 
+    1. Nella sezione del corpo, selezionare l'icona della vista codice.
+    1. Nel campo **Body** inserire il BodyHtml richiesto in modo che il risultato visualizzato della query sia incluso nel corpo del messaggio di posta elettronica.
+    1. Per aggiungere un allegato al messaggio di posta elettronica, aggiungere Nome allegato e Contenuto allegato.
     
     ![Inviare più allegati tramite posta elettronica](./media/flow-usage/flow-email-multiple-attachments.png)
 
@@ -128,68 +124,6 @@ Risultati:
 [![](./media/flow-usage/flow-resultsmultipleattachments.png "Results of multiple attachments")](./media/flow-usage/flow-resultsmultipleattachments.png#lightbox)
 
 [![](./media/flow-usage/flow-resultsmultipleattachments2.png "Results of multiple attachments")](./media/flow-usage/flow-resultsmultipleattachments2.png#lightbox)
-
-## <a name="send-a-different-email-to-different-contacts"></a>Inviare un messaggio di posta elettronica diverso a contatti diversi
-
-È possibile utilizzare Microsoft Flow per inviare diversi messaggi di posta elettronica personalizzati a diversi contatti. Gli indirizzi e-mail e il contenuto dell'e-mail sono il risultato di una query Kusto.
-
-Esempio:
-
-![Posta elettronica dinamica con una query Kusto](./media/flow-usage/flow-dynamicemailkusto.png)
-
-> [!IMPORTANT]
-> Nel campo *Nome cluster* immettere l'URL del cluster.
-
-![Messaggio di posta elettronica dinamico nell'azione flussoDynamic email in the flow action](./media/flow-usage/flow-dynamicemail.png)
-
-## <a name="create-a-custom-html-table"></a>Creare una tabella HTML personalizzata
-
-È possibile sfruttare Microsoft Flow per creare e utilizzare elementi HTML personalizzati, ad esempio una tabella HTML personalizzata.
-
-Nell'esempio seguente viene illustrato come creare una tabella HTML personalizzata. Le righe della tabella HTML saranno colorate in base al livello di log (come in Azure Data Explorer).
-
-Seguire queste istruzioni per creare un flusso simile:Follow these instructions to create a similar Flow:
-
-1. Creare una nuova azione Kusto - Esegui query ed elenca risultati.
-
-    ![Elencare i risultati per una tabella HTML](./media/flow-usage/flow-listresultforhtmltable.png)
-
-> [!IMPORTANT]
-> Nel campo *Nome cluster* immettere l'URL del cluster.
-
-1. Eseguire un ciclo sui risultati della query e creare il corpo della tabella HTML: 
-    1. Per creare una variabile per contenere la stringa HTML, selezionare **Nuovo passaggio**
-    1. Selezionare **Aggiungi un'azione** e cercare Variabili.Select Add an action and search for Variables. 
-    1. Seleziona **variabili - Inizializza variabile**. 
-    1. Inizializzare una variabile stringa come segue:
-
-    ![Inizializzare una variabile](./media/flow-usage/flow-initializevariable.png)
-
-1. Scorrere i risultati:
-    1. Selezionare **Nuovo passaggio**.
-    1. Selezionare **Aggiungi un'azione**.
-    1. Cercare Variabili. 
-    1. Seleziona **variabili - Aggiungi alla variabile stringa**. 
-    1. Selezionare il nome della variabile inizializzata in precedenza e creare le righe della tabella HTML utilizzando i risultati della query. 
-    Quando si selezionano i risultati della query, l'opzione Applica a ognuno viene aggiunta automaticamente.
-
-    Nell'esempio seguente, `if` l'espressione viene utilizzata per definire lo stile di ogni riga:
-
-    ```if(equals(items('Apply_to_each')?['Level'], 'Warning'), 'Yellow', if(equals(items('Apply_to_each')?['Level'], 'Error'), 'red', 'white'))```
-
-    [![](./media/flow-usage/flow-createhtmltableloopcontent.png "Create HTML table loop content")](./media/flow-usage/flow-createhtmltableloopcontent.png#lightbox)
-
-1. Creare il contenuto HTML completo: 
-    1. Aggiungere una nuova azione all'esterno Applica a ogni. 
-    Nell'esempio seguente l'azione utilizzata è Invia un messaggio di posta elettronica.
-    1. Definire la tabella HTML utilizzando la variabile dei passaggi precedenti. 
-    1. Se si invia un messaggio di posta elettronica, selezionare **Mostra opzioni avanzate** e, in HTML, selezionare **Sì**.
-
-    ![Posta elettronica tabella HTML personalizzata](./media/flow-usage/flow-customhtmltablemail.png)
-
-Risultato:
-
-![Risultato della posta elettronica della tabella HTML personalizzata](./media/flow-usage/flow-customhtmltableresult.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

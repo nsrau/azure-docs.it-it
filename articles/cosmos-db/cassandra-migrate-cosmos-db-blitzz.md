@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 746232a85e326f08d44cf2dbe0a4ae718c7cc312
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b2e7f371e587c1c7f0debfa018ea8f25a30718a8
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69984368"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548102"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Eseguire la migrazione dei dati da Cassandra all'account API Cassandra DB di Azure usando BlitzzMigrate data from Cassandra to Azure Cosmos DB Cassandra API account using Blitzz
 
@@ -36,13 +36,13 @@ La soluzione di migrazione di Blitzz segue un approccio graduale per eseguire la
 
 * È a tolleranza d'errore e garantisce esattamente una volta che la consegna dei dati anche durante un guasto hardware o software nel sistema.
 
-* Protegge i dati durante il transito utilizzando una varietà di metodologie di sicurezza come SSL, crittografia.
+* Protegge i dati durante il transito utilizzando una varietà di metodologie di sicurezza come TLS, crittografia.
 
 ## <a name="steps-to-migrate-data"></a>Passaggi per la migrazione dei datiSteps to migrate data
 
 Questa sezione descrive i passaggi necessari per configurare Blitzz ed esegue la migrazione dei dati dal database Apache Cassandra a Azure Cosmos DB.
 
-1. Dal computer in cui si prevede di installare il replicante Blitzz, aggiungere un certificato di sicurezza. Questo certificato è richiesto dal replicante Blitzz per stabilire una connessione SSL con l'account Azure Cosmos DB specificato. È possibile aggiungere il certificato attenendosi alla seguente procedura:
+1. Dal computer in cui si prevede di installare il replicante Blitzz, aggiungere un certificato di sicurezza. Questo certificato è richiesto dal replicante Blitzz per stabilire una connessione TLS con l'account Azure Cosmos DB specificato. È possibile aggiungere il certificato attenendosi alla seguente procedura:
 
    ```bash
    wget https://cacert.omniroot.com/bc2025.crt

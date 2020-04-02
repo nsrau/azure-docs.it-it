@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: zarhoads
-ms.openlocfilehash: f299b13baf5811b92bdc2e40b027868617d7574c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 00dcef4ae0f04fc7f550859238ae8c7e1ad19384
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79368520"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549061"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Ruotare i certificati nel servizio Azure Kubernetes (AKS)Rotate certificates in Azure Kubernetes Service (AKS)
 
@@ -32,7 +32,7 @@ AKS genera e utilizza i certificati, le Autorità di certificazione e gli accoun
 * Ogni kubelet crea anche una richiesta di firma del certificato (CSR), firmata dalla CA del cluster, per la comunicazione dal kubelet al server API.
 * L'archivio dei valori della chiave e così via dispone di un certificato firmato dalla CA del cluster per la comunicazione dal server API e così via.
 * L'archivio di valori di chiave e così via crea una CA che firma i certificati per autenticare e autorizzare la replica dei dati tra le repliche etcd nel cluster AKS.
-* L'aggregatore di API usa la CA del cluster per emettere certificati per la comunicazione con altre API, ad esempio Open Service Broker per Azure.The API aggregator uses the Cluster CA to ete certificates for communication with other APIs, such as Open Service Broker for Azure. L'aggregatore API può anche disporre di una propria CA per l'emissione di tali certificati, ma attualmente utilizza la CA cluster.
+* L'aggregatore di API utilizza la CA del cluster per emettere certificati per la comunicazione con altre API. L'aggregatore API può anche disporre di una propria CA per l'emissione di tali certificati, ma attualmente utilizza la CA cluster.
 * Ogni nodo utilizza un token dell'account di servizio (SA), firmato dalla CA del cluster.
 * Il `kubectl` client dispone di un certificato per la comunicazione con il cluster AKS.
 

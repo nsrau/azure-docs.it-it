@@ -4,13 +4,15 @@ description: Informazioni su come configurare l'autenticazione dell'account Micr
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.topic: article
 ms.date: 08/08/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: ea745aa00f8990a2d1232a19780fdc70e2f78996
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.custom:
+- seodec18
+- fasttrack-edit
+ms.openlocfilehash: a78208ba592f86400e9b06b15d8a76923dda736f
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437958"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519892"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-microsoft-account-login"></a>Configurare il servizio app o l'app Funzioni di Azure per usare l'account di accesso MicrosoftConfigure your App Service or Azure Functions app to use Microsoft Account login
 
@@ -50,7 +52,7 @@ Questo argomento illustra come configurare il servizio app di Azure o funzioni d
    > [!CAUTION]
    > Limitare l'accesso in questo modo si applica a tutte le chiamate all'app, che potrebbero non essere desiderabili per le app che dispongono di una home page disponibile pubblicamente, come in molte applicazioni a pagina singola. Per tali applicazioni, **consenti richieste anonime (nessuna azione)** potrebbe essere preferibile in modo che l'applicazione avvia manualmente l'autenticazione stessa. Per ulteriori informazioni, vedere [Flusso di autenticazione](overview-authentication-authorization.md#authentication-flow).
 
-1. Selezionare **Salva**.
+1. Selezionare **Save** (Salva).
 
 È ora possibile usare l'account Microsoft per l'autenticazione nell'app.
 

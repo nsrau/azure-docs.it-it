@@ -7,19 +7,19 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: f9592f5d2666684e0cf5eef687b1e69cfb55066c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 900bf815917a4b7c9841860d663a2183b1ab71b3
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065581"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529682"
 ---
 # <a name="configure-managed-identities-for-your-azure-data-explorer-cluster"></a>Configurare le identità gestite per il cluster di Azure Data ExplorerConfigure managed identities for your Azure Data Explorer cluster
 
 [Un'identità gestita da Azure Active Directory](/azure/active-directory/managed-identities-azure-resources/overview) consente al cluster di accedere facilmente ad altre risorse protette da AAD, ad esempio L'insieme di credenziali delle chiavi di Azure.A managed identity from Azure Active Directory allows your cluster to easily access other AAD-protected resources such as Azure Key Vault. L'identità è gestita dalla piattaforma Azure e non richiede il provisioning o la rotazione di segreti. Questo articolo illustra come creare un'identità gestita per i cluster di Azure Data Explorer.This article shows you how to create a managed identity for Azure Data Explorer clusters. La configurazione dell'identità gestita è attualmente supportata solo per [abilitare le chiavi gestite dal cliente per il cluster.](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault)
 
 > [!Note]
-> Le identità gestite per Azure Data Explorer non si comportino come previsto se viene eseguita la migrazione dell'app tra sottoscrizioni o tenant. L'applicazione dovrà ottenere una nuova identità, che può essere fatto [disabilitando](#remove-a-system-assigned-identity) e [ri-abilitando](#add-a-system-assigned-identity) la funzione. Anche i criteri di accesso delle risorse a valle dovranno essere aggiornati per utilizzare la nuova identità.
+> Le identità gestite per Azure Data Explorer non si comportino come previsto se viene eseguita la migrazione del cluster di Azure Data Explorer tra sottoscrizioni o tenant. L'applicazione dovrà ottenere una nuova identità, che può essere fatto [disabilitando](#disable-a-system-assigned-identity) e [ri-abilitando](#add-a-system-assigned-identity) la funzione. Anche i criteri di accesso delle risorse a valle dovranno essere aggiornati per utilizzare la nuova identità.
 
 ## <a name="add-a-system-assigned-identity"></a>Aggiungere un'identità assegnata dal sistemaAdd a system-assigned identity
                                                                                                     
@@ -29,7 +29,7 @@ Assegnare un'identità assegnata dal sistema che sia legata al cluster e che ven
 
 ### <a name="add-a-system-assigned-identity-using-the-azure-portal"></a>Aggiungere un'identità assegnata dal sistema tramite il portale di AzureAdd a system-assigned identity using the Azure portal
 
-1. Accedere al [portale](https://portal.azure.com/)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
 #### <a name="new-azure-data-explorer-cluster"></a>Nuovo cluster di Azure Data Explorer
 
@@ -164,15 +164,15 @@ Quando il cluster viene creato, ha le proprietà aggiuntive seguenti:When the cl
 
 ---
 
-## <a name="remove-a-system-assigned-identity"></a>Rimuovere un'identità assegnata dal sistema
+## <a name="disable-a-system-assigned-identity"></a>Disabilitare un'identità assegnata dal sistemaDisable a system-assigned identity
 
 La rimozione di un'identità assegnata dal sistema la eliminerà anche da AAD. Anche le identità assegnate al sistema vengono rimosse automaticamente da AAD quando la risorsa cluster viene eliminata. Un'identità assegnata dal sistema può essere rimossa disabilitando la funzionalità.  L'identità assegnata dal sistema viene rimossa usando i modelli di C, ARM o il portale di Azure come descritto di seguito.
 
 # <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
-### <a name="remove-a-system-assigned-identity-using-the-azure-portal"></a>Rimuovere un'identità assegnata dal sistema tramite il portale di AzureRemove a system-assigned identity using the Azure portal
+### <a name="disable-a-system-assigned-identity-using-the-azure-portal"></a>Disabilitare un'identità assegnata dal sistema tramite il portale di AzureDisable a system-assigned identity using the Azure portal
 
-1. Accedere al [portale](https://portal.azure.com/)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 1. Selezionare **Settings** > **Identity** nel riquadro sinistro del portale.
 1. Nel riquadro **Identità** > scheda **Sistema assegnato:**
     1. Spostare il dispositivo di scorrimento **Stato** su **Disattivato**.

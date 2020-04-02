@@ -1,19 +1,19 @@
 ---
 title: Personalizzare le configurazioni cluster di Azure HDInsight usando il bootstrapCustomize Azure HDInsight cluster configurations using bootstrap
-description: Informazioni su come personalizzare la configurazione del cluster HDInsight a livello di programmazione usando i modelli .Net, PowerShell e Resource Manager.Learn how to customize HDInsight cluster configuration programmatically using .Net, PowerShell, and Resource Manager templates.
+description: Informazioni su come personalizzare la configurazione del cluster HDInsight a livello di programmazione usando i modelli .NET, PowerShell e Resource Manager.Learn how to customize HDInsight cluster configuration programmatically using .NET, PowerShell, and Resource Manager templates.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 11/21/2019
-ms.openlocfilehash: e641340ac04415ee4a20cda2bc09bbdbef9802a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 796dbc53d1adf310028e06dea319b9a60d5cf54b
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272526"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529357"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizzare cluster HDInsight tramite Bootstrap
 
@@ -125,6 +125,18 @@ Vedere [Azure HDInsight SDK per .NET.](https://docs.microsoft.com/dotnet/api/ove
 ```
 
 ![Hadoop personalizza il modello di Azure Resource Manager per il bootstrap del clusterHadoop customizes cluster bootstrap Azure Resource Manager template](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+
+Frammento di modello di Resource Manager di esempio per cambiare la configurazione in spark2-defaults per pulire periodicamente i log eventi dall'archiviazione.  
+
+```json
+"configurations": {
+    "spark2-defaults": {
+        "spark.history.fs.cleaner.enabled": "true",
+        "spark.history.fs.cleaner.interval": "7d",
+        "spark.history.fs.cleaner.maxAge": "90d"
+    }
+}
+```
 
 ## <a name="see-also"></a>Vedere anche
 

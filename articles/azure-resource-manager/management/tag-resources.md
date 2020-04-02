@@ -2,13 +2,13 @@
 title: Contrassegnare risorse, gruppi di risorse e sottoscrizioni per l'organizzazione logica
 description: Mostra come applicare i tag per organizzare le risorse Azure per la fatturazione e la gestione.
 ms.topic: conceptual
-ms.date: 03/20/2020
-ms.openlocfilehash: ffc97df0923e26c3abf0eed8e7810f3b1dc61ed2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 76f9f61b3fe7002508bbd884f427efcfee698579
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132131"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548487"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Usare i tag per organizzare le risorse di Azure e la gerarchia di gestioneUse tags to organize your Azure resources and management hierarchy
 
@@ -20,7 +20,7 @@ Per suggerimenti su come implementare una strategia di tagging, vedere Guida all
 
 ## <a name="required-access"></a>Accesso richiesto
 
-Per applicare tag a una risorsa, è necessario disporre dell'accesso in scrittura al tipo di risorsa **Microsoft.Resources/tags.** Il ruolo **Collaboratore tag** consente di applicare tag a un'entità senza avere accesso all'entità stessa.
+Per applicare tag a una risorsa, è necessario disporre dell'accesso in scrittura al tipo di risorsa **Microsoft.Resources/tags.** Il ruolo [Collaboratore tag](../../role-based-access-control/built-in-roles.md#tag-contributor) consente di applicare tag a un'entità senza avere accesso all'entità stessa. Attualmente, il ruolo di collaboratore tag non può applicare tag alle risorse o ai gruppi di risorse tramite il portale. Può applicare tag alle sottoscrizioni tramite il portale. Supporta tutte le operazioni di tag tramite PowerShell e l'API REST.  
 
 Il ruolo [Collaboratore](../../role-based-access-control/built-in-roles.md#contributor) concede inoltre l'accesso necessario per applicare i tag a qualsiasi entità. Per applicare tag a un solo tipo di risorsa, usare il ruolo di collaboratore per tale risorsa. Ad esempio, per applicare tag a macchine virtuali, usare il ruolo di [Collaboratore Macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
@@ -28,7 +28,7 @@ Il ruolo [Collaboratore](../../role-based-access-control/built-in-roles.md#contr
 
 ### <a name="apply-tags"></a>Applicare i tag
 
-Azure PowerShell offre due comandi per l'applicazione di tag: [New-AzTag](/powershell/module/az.resources/new-aztag) e [Update-AzTag](/powershell/module/az.resources/update-aztag). Per usare questi comandi, è necessario disporre di Azure PowerShell 3.6.1 o versione successiva.
+Azure PowerShell offre due comandi per l'applicazione di tag: [New-AzTag](/powershell/module/az.resources/new-aztag) e [Update-AzTag](/powershell/module/az.resources/update-aztag). È necessario disporre del modulo Az.Resources 1.12.0 o versione successiva. È possibile controllare `Get-Module Az.Resources`la versione con . È possibile installare il modulo o [Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 o versione successiva.
 
 **New-AzTag** sostituisce tutti i tag della risorsa, del gruppo di risorse o della sottoscrizione. Quando si chiama il comando, passare l'ID risorsa dell'entità che si desidera contrassegnare.
 

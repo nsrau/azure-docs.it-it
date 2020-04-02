@@ -3,16 +3,16 @@ title: Limiti e quote IoT Plug and Play Preview Documenti Microsoft
 description: Comprendere i limiti, le quote e le limitazioni applicabili quando si utilizza Plug and Play Preview.Understand the limits, quotas, and throttling that apply when you use IoT Plug and Play Preview.
 author: miagdp
 ms.author: miag
-ms.date: 12/26/2019
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 48ecaaba6d956efd9da75d0582fa06d231cb3f80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cce99b7d9de09134fd01afb36c41bce3966e8536
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75531378"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518178"
 ---
 # <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>Limiti, quote e limitazioni di Plug and Play Preview IoT
 
@@ -27,19 +27,19 @@ Per l'anteprima pubblica, i limiti e le quote seguenti si applicano a un hub IoT
 | Numero di modelli di funzionalità del dispositivo (DPM) o interfacce che possono essere registrati per hub | 1500 ||
 | Numero massimo di interfacce che possono essere registrate per dispositivo | 40 ||
 | Numero massimo di MMM che possono essere registrati per dispositivo | 1 ||
-| Dimensione massima del file interfaccia/DCM | 512 caratteri ||
+| Dimensione massima del file interfaccia/DCM | 512 KB ||
 | Dimensione massima del nome di un'interfaccia | 256 caratteri ||
 | Dimensione massima del nome di una proprietà  | 64 byte, 7 livelli di profondità (e il primo livello è riservato per `$iotin`) | Caratteri consentiti: a-z, A-z, 0-9 (non come primo carattere) e sottolineatura. |
 | Dimensione massima del valore di una proprietà | 512 byte ||
 | Dimensione massima del nome di un comando | 100 byte ||
 | Dimensioni del dispositivo gemello | Uguale [ai limiti dell'hub IoT](../iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) ||
-| Chiamate API di risoluzione tra SKU (indipendentemente dalle unità)Resolution API calls across SKU (regardless of units) | 100 richiesta/secondo ||
+| Chiamate API di risoluzione tra SKU (indipendentemente dalle unità)Resolution API calls across SKU (regardless of units) | 100 richieste al secondo ||
 
 ## <a name="model-repository"></a>Repository dei modelli
 
 Per l'anteprima pubblica, i limiti e le quote seguenti si applicano a un repository di modelli:
 
-| Limiti, restrizioni e limitazioni| valore |
+| Limiti, restrizioni e limitazioni | valore |
 |-----|-----|
 | Numero di repository di modelli aziendali per tenant di Azure Active Directory | 1 |
 | Numero di chiavi di autorizzazione per repository di modelli | 10  |

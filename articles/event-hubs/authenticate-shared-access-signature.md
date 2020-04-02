@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: spelluru
-ms.openlocfilehash: d17026dba26b3c1cb846d60967180c29563c425d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82773ab6decfe15ee1a9d839a1f10a158ae72c42
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74545580"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521311"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticare l'accesso alle risorse degli hub eventi usando le firme di accesso condivisoAuthenticate access to Event Hubs resources using shared access signatures (SAS)
 La firma di accesso condiviso offre un controllo granulare sul tipo di accesso concesso ai client che dispone della firma di accesso condiviso. Ecco alcuni dei controlli che è possibile impostare in una sAS:Here are some of the controls you can set in a SAS: 
@@ -33,7 +33,7 @@ Questo articolo illustra l'autenticazione dell'accesso alle risorse di Hub event
 
 
 ## <a name="configuring-for-sas-authentication"></a>Configurazione per l'autenticazione della provider di sicurezza
-È possibile configurare la regola di autorizzazione di accesso condiviso EventHubs in uno spazio dei nomi Hub eventi o un'entità (istanza dell'hub eventi o argomento Kafka in uno spazio dei nomi Event Hubs for Kafka abilitato). La configurazione di una regola di autorizzazione di accesso condiviso in un gruppo di consumer non è attualmente supportata, ma è possibile usare le regole configurate in uno spazio dei nomi o in un'entità per proteggere l'accesso al gruppo di consumer. 
+È possibile configurare la regola di autorizzazione di accesso condiviso EventHubs in uno spazio dei nomi Hub eventi o in un'entità (istanza dell'hub eventi o argomento Kafka in un hub eventi). La configurazione di una regola di autorizzazione di accesso condiviso in un gruppo di consumer non è attualmente supportata, ma è possibile usare le regole configurate in uno spazio dei nomi o in un'entità per proteggere l'accesso al gruppo di consumer. 
 
 L'immagine seguente mostra come si applicano le regole di autorizzazione alle entità di esempio. 
 

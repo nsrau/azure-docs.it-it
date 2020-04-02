@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/09/2020
 ms.author: apimpm
-ms.openlocfilehash: dcc2c38238f707a5d43cde03502c589add9461b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 462a44f7766e0ec52ba7156d6de5ae5261e21376
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335915"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547373"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Come usare Gestione API di Azure con le reti virtuali
 Le reti virtuali di Azure (VNET) consentono di posizionare le risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
@@ -102,7 +102,7 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
 * **Installazione di server DNS personalizzata**: il servizio Gestione API dipende da vari servizi di Azure. Quando Gestione API è ospitata in una rete virtuale con un server DNS personalizzato, deve risolvere i nomi host dei servizi di Azure. Vedere [queste](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) informazioni aggiuntive sulla configurazione del DNS personalizzato. Vedere la tabella delle porte e altri requisiti di rete per riferimento.
 
 > [!IMPORTANT]
-> Se si intende usare un server DNS personalizzato per la rete virtuale, è consigliabile impostarlo **prima** di distribuirvi un servizio Gestione API. In caso contrario è necessario aggiornare il servizio Gestione API ogni volta che si modifica il server DNS eseguendo [l'operazione di applicazione della configurazione di rete](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/ApiManagementService/ApplyNetworkConfigurationUpdates)
+> Se si intende usare un server DNS personalizzato per la rete virtuale, è consigliabile impostarlo **prima** di distribuirvi un servizio Gestione API. In caso contrario è necessario aggiornare il servizio Gestione API ogni volta che si modifica il server DNS eseguendo [l'operazione di applicazione della configurazione di rete](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/ApiManagementService/ApplyNetworkConfigurationUpdates)
 
 * **Porte necessarie per il servizio Gestione API**: il traffico in ingresso e in uscita nella subnet in cui viene distribuita la gestione delle API può essere controllato usando il [gruppo di sicurezza di rete][Network Security Group]. Se una qualsiasi di queste porte non è disponibile, Gestione API potrebbe non funzionare correttamente e potrebbe diventare inaccessibile. Il blocco di una o più di tali porte è un problema di configurazione comune nell'uso di Gestione API in una rete virtuale.
 
@@ -134,6 +134,8 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
 
 + **Metriche e monitoraggio dell'integrità**: la connettività di rete in uscita agli endpoint di Monitoraggio di Azure, che si risolve nei domini seguenti:
 
++ **Tag del servizio regionale**": le regole del gruppo di sicurezza di rete che consentono la connettività in uscita ai tag del servizio Archiviazione, SQL e EventHubs possono utilizzare le versioni regionali dei tag corrispondenti all'area contenente l'istanza di Gestione API (ad esempio, Storage.WestUS per un'istanza di Gestione API nell'area Stati Uniti occidentali). Nelle distribuzioni in più aree, il gruppo di sicurezza di rete in ogni area deve consentire il traffico verso i tag del servizio per tale area.
+
     | Ambiente Azure | Endpoint                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Azure Public      | <ul><li>gcs.prod.monitoring.core.windows.net(**nuovo**)</li><li>prod.warmpath.msftcloudes.com(**da predecidere**)</li><li>shoebox2.metrics.microsoftmetrics.com(**nuovo**)</li><li>shoebox2.metrics.nsatc.net(**da predecidere**)</li><li>prod3.metrics.microsoftmetrics.com(**nuovo**)</li><li>prod3.metrics.nsatc.net(**per essere deprecato**)</li><li>prod3-black.prod3.metrics.microsoftmetrics.com(**nuovo**)</li><li>prod3-black.prod3.metrics.nsatc.net(**da predecidere**)</li><li>prod3-red.prod3.metrics.microsoftmetrics.com(**nuovo**)</li><li>prod3-red.prod3.metrics.nsatc.net(**per essere deprecato**)</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com dove `East US 2` è eastus2.warm.ingestion.msftcloudes.com</li></ul> |
@@ -161,7 +163,7 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
       - Inoltro SMTP
       - Portale per sviluppatori CAPTCHA
 
-## <a name="troubleshooting"></a><a name="troubleshooting"> </a>Risoluzione dei problemi 
+## <a name="troubleshooting"></a><a name="troubleshooting"> </a>Risoluzione dei problemi
 * **Installazione iniziale**: quando la distribuzione iniziale del servizio Gestione API in una subnet non ha esito positivo, è consigliabile distribuire prima una macchina virtuale nella stessa subnet. Accedere successivamente al desktop remoto nella macchina virtuale e convalidare l'esistenza di connettività a una delle risorse indicate di seguito nella sottoscrizione di Azure in uso:
     * BLOB di Archiviazione di Azure
     * database SQL di Azure
@@ -170,7 +172,7 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
   > [!IMPORTANT]
   > Dopo aver convalidato la connettività, assicurarsi di rimuovere tutte le risorse distribuite nella subnet, prima di distribuire Gestione API nella subnet.
 
-* **Aggiornamenti incrementali**: quando si apportano modifiche alla rete, fare riferimento [all'API NetworkStatus](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/networkstatus)per verificare che il servizio Gestione API non abbia perso l'accesso a nessuna delle risorse critiche da cui dipende. Lo stato della connettività dovrebbe essere aggiornato ogni 15 minuti.
+* **Aggiornamenti incrementali**: quando si apportano modifiche alla rete, fare riferimento [all'API NetworkStatus](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/networkstatus)per verificare che il servizio Gestione API non abbia perso l'accesso a nessuna delle risorse critiche da cui dipende. Lo stato della connettività dovrebbe essere aggiornato ogni 15 minuti.
 
 * **Collegamenti di navigazione delle risorse**: quando si esegue la distribuzione in una subnet di macchina virtuale in stile Resource Manager, Gestione API riserva la subnet, creando un collegamento di navigazione delle risorse. Se la subnet contiene già una risorsa da un provider diverso, la distribuzione ha **esito negativo**. Quando, analogamente, si sposta un servizio Gestione API in una subnet diversa o lo si elimina, viene rimosso il collegamento di navigazione delle risorse.
 

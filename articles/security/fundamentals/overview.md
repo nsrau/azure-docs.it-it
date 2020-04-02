@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: a1dbabafe32e013d526ed88a83e446ee765cdb7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3b738d95b5b777f1cf0329fb3c1bc3e2860421e
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76045874"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545978"
 ---
 # <a name="introduction-to-azure-security"></a>Introduzione alla sicurezza di Azure
 ## <a name="overview"></a>Panoramica
@@ -233,11 +233,11 @@ Il [gateway applicazione di Microsoft Azure](../../application-gateway/overview.
 
 ![Gateway applicazione](./media/overview/azure-security-fig2.png)
 
-Consente di ottimizzare la produttività delle Web farm eseguendo l'offload al gateway applicazione della terminazione SSL con utilizzo elevato di CPU, denominato anche "offload SSL" o "bridging SSL". Offre anche altre funzionalità di routing di livello 7, tra cui la distribuzione round robin del traffico in ingresso, l'affinità di sessione basata su cookie, il routing basato su percorso URL e la possibilità di ospitare più siti Web dietro un unico gateway applicazione. Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello 7.
+Consente di ottimizzare la produttività della Web farm eseguendo l'offload della terminazione TLS intensiva della CPU al gateway applicazione (noto anche come "offload TLS" o "bridging TLS"). Offre anche altre funzionalità di routing di livello 7, tra cui la distribuzione round robin del traffico in ingresso, l'affinità di sessione basata su cookie, il routing basato su percorso URL e la possibilità di ospitare più siti Web dietro un unico gateway applicazione. Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello 7.
 
 Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale.
 
-L'applicazione offre numerose funzionalità di controller per la distribuzione di applicazioni, tra cui bilanciamento del carico HTTP, affinità di sessione basata su cookie, offload [SSL (Secure Sockets Layer)](../../application-gateway/tutorial-restrict-web-traffic-powershell.md), probe di integrità personalizzati, supporto per più siti e molte altre.
+L'applicazione fornisce molte funzionalità di Application Delivery Controller (ADC), tra cui il bilanciamento del carico HTTP, l'affinità di sessione basata su cookie, [l'offload TLS,](../../application-gateway/tutorial-restrict-web-traffic-powershell.md)i probe di integrità personalizzati, il supporto per più siti e molti altri.
 
 ### <a name="web-application-firewall"></a>Web application firewall
 Web application firewall è una funzionalità del [gateway applicazione di Azure](../../application-gateway/overview.md) che consente di proteggere le applicazioni Web che usano il gateway applicazione per funzioni standard di controller per la distribuzione di applicazioni. Web application firewall protegge infatti le applicazioni dalla maggior parte delle 10 vulnerabilità Web OWASP più diffuse.

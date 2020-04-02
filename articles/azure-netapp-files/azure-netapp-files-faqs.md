@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 04/01/2020
 ms.author: b-juche
-ms.openlocfilehash: 79c23c49cbf3c869b41e5a2dbfc6ec0aaa93e4ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 59453dbb9617f5a2ddbdca08709747b11a688560
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258176"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547094"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Domande frequenti sui file NetApp di AzureFAQQs About Azure NetApp Files
 
@@ -144,6 +144,11 @@ File NetApp di Azure supporta le versioni di Windows Server 2008r2SP1-2019 di Se
 ### <a name="why-does-the-available-space-on-my-smb-client-not-show-the-provisioned-size"></a>Perché lo spazio disponibile sul client SMB non mostra le dimensioni di cui è stato eseguito il provisioning?
 
 La dimensione del volume segnalata dal client SMB è la dimensione massima che il volume file Di Azure NetApp può raggiungere. La dimensione del volume File NetApp di Azure come illustrato nel client SMB non riflette la quota o le dimensioni del volume. È possibile ottenere la dimensione o la quota del volume dei file netApp di Azure tramite il portale di Azure o l'API.
+
+### <a name="does-azure-netapp-files-support-kerberos-encryption"></a>I file NetApp di Azure supportano la crittografia Kerberos?
+
+Sì, per impostazione predefinita, File NetApp di Azure supporta la crittografia AES-128 e AES-256 per il traffico tra il servizio e i controller di dominio di Active Directory di destinazione. Per i requisiti, vedere [Creare un volume SMB per i file NetApp di Azure.See Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) for requirements. 
+
 <!--
 ### Does Azure NetApp Files support LDAP signing? 
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 24aa3462aef4f719e93d17389ff342084f6c7864
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2343de97d06abdefed2c2977a7341aa411429319
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77668758"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520749"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Come risolvere i problemi relativi all'agente di Log Analytics per Linux 
 
@@ -76,7 +76,7 @@ Se nessuno dei passaggi descritti risulta adatto alle proprie esigenze, sono dis
 | --- | --- |
 | 2 | È stata specificata un'opzione non valida per lo script omsadmin. Eseguire `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` per l'utilizzo. |
 | 3 | È stata specificata una configurazione non valida per lo script omsadmin. Eseguire `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` per l'utilizzo. |
-| 4 | È stato specificato un proxy non valido per lo script omsadmin. Verificare il proxy e vedere la [documentazione per l'uso di un proxy HTTP](log-analytics-agent.md#network-firewall-requirements). |
+| 4 | È stato specificato un proxy non valido per lo script omsadmin. Verificare il proxy e vedere la [documentazione per l'uso di un proxy HTTP](log-analytics-agent.md#firewall-requirements). |
 | 5 | 403 Errore HTTP ricevuto da Monitoraggio di Azure. Vedere l'output completo dello script omsadmin per informazioni dettagliate. |
 | 6 | Errore HTTP non 200 ricevuto da Monitoraggio di Azure.Non-200 HTTP error received from Azure Monitor. Vedere l'output completo dello script omsadmin per informazioni dettagliate. |
 | 7 | Impossibile connettersi ad Azure Monitor. Vedere l'output completo dello script omsadmin per informazioni dettagliate. |
@@ -157,15 +157,8 @@ Al di sotto del plug-in dell'output, rimuovere il carattere di commento `#` all'
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
 
 2. Vedere la sezione [Aggiornare le impostazioni proxy](agent-manage.md#update-proxy-settings) per verificare di aver configurato correttamente l'agente per la comunicazione tramite un server proxy.    
-* Verificare che gli endpoint di Monitoraggio di Azure seguenti siano inclusi nella whitelist:Double check that the following Azure Monitor endpoints are whitelisted:
 
-    |Risorsa agente| Porte | Direction |
-    |------|---------|----------|  
-    |*.ods.opinsights.azure.com | Porta 443| In ingresso e in uscita |  
-    |*.oms.opinsights.azure.com | Porta 443| In ingresso e in uscita |  
-    |*.blob.core.windows.net | Porta 443| In ingresso e in uscita |  
-
-    Se si prevede di usare Azure Automation Hybrid Runbook Worker per connettersi e registrarsi con il servizio di automazione per usare runbook o soluzioni di gestione nell'ambiente, deve avere accesso al numero di porta e agli URL descritti in [Configurare la rete per Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
+3. Verificare che gli endpoint descritti nell'elenco dei requisiti del firewall di [rete](log-analytics-agent.md#firewall-requirements) di Azure Monitor siano aggiunti correttamente a un elenco Consenti. Se si usa Automazione di Azure, vengono collegati anche i passaggi di configurazione di rete necessari.
 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Problema: Viene visualizzato un errore 403 durante il tentativo di onboarding
 

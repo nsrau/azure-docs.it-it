@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: spelluru
-ms.openlocfilehash: 56c31e03eeec0c81207dc402e864eadec2d768bd
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 224526efc2152e0b788c5cbc7f3bd60bb3363c1a
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474070"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545718"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Connettere la rete del lab a una rete virtuale peer in Azure Lab ServicesConnect your lab's network with a peer virtual network in Azure Lab Services 
 In questo articolo vengono fornite informazioni sul peering della rete labs con un'altra rete. 
@@ -34,7 +34,7 @@ Potrebbe essere necessario connettere la rete del lab a una rete virtuale peer i
 Alcune reti locali sono connesse alla rete virtuale di Azure tramite [ExpressRoute](../../expressroute/expressroute-introduction.md) o [Gateway di rete virtuale.](../../vpn-gateway/vpn-gateway-about-vpngateways.md) Questi servizi devono essere impostati all'esterno di Azure Lab Services.These services must be set up outside of Azure Lab Services. Per altre informazioni sulla connessione di una rete locale ad Azure tramite ExpressRoute, vedere Panoramica di ExpressRoute.To learn more about connecting an on-premises network to Azure using ExpressRoute, see [ExpressRoute overview.](../../expressroute/expressroute-introduction.md) Per la connettività locale che utilizza un gateway di rete virtuale, il gateway, la rete virtuale specificata e l'account lab devono trovarsi tutti nella stessa area.
 
 > [!NOTE]
-> Quando si crea una rete virtuale di Azure con un peered con un account lab, è importante comprendere l'impatto dell'area della rete virtuale in cui vengono creati i lab della classe.  Per ulteriori informazioni, fare riferimento alla sezione della guida dell'amministratore su [regioni-località](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#regions-or-locations).
+> Quando si crea una rete virtuale di Azure con un peered con un account lab, è importante comprendere l'impatto dell'area della rete virtuale in cui vengono creati i lab della classe.  Per ulteriori informazioni, fare riferimento alla sezione della guida dell'amministratore su [regioni-località](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#regionslocations).
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Configurare al momento della creazione dell'account lab
 Durante la creazione del nuovo account lab, è possibile selezionare una rete virtuale esistente visualizzata nell'elenco a discesa Rete virtuale peer della scheda Avanzate.During the new lab account creation, you can pick an existing virtual network that shows in the **Peer virtual network** dropdown list on the **Advanced** tab. La rete virtuale selezionata è connessa (con peered) ai lab creati con l'account lab. Tutte le macchine virtuali nei lab creati dopo la modifica di questa modifica avrà accesso alle risorse nella rete virtuale con peering. 

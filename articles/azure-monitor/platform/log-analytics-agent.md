@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: 1ca03cde57a9496054d0860fbb70bd286caabe46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d52d8e6d0f6e3325b5c5cdc9a2e21654e6a2b621
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79533250"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520727"
 ---
 # <a name="log-analytics-agent-overview"></a>Panoramica dell'agente di Log AnalyticsLog Analytics agent overview
 L'agente di Azure Log Analytics è stato sviluppato per una gestione completa tra macchine virtuali in qualsiasi cloud, macchine locali e monitorate da [System Center Operations Manager.](https://docs.microsoft.com/system-center/scom/) Gli agenti Windows e Linux inviano i dati raccolti da origini diverse all'area di lavoro di Log Analytics in Monitoraggio di Azure, nonché a eventuali log o metriche univoci definiti in una soluzione di monitoraggio. L'agente Log Analytics supporta anche informazioni dettagliate e altri servizi in Monitoraggio di Azure, ad esempio [Monitoraggio di Azure per macchine virtuali,](../insights/vminsights-enable-overview.md)Centro sicurezza di [Azure](/azure/security-center/)e [Automazione di Azure.](../../automation/automation-intro.md)
@@ -156,23 +156,27 @@ L'agente di Windows inizierà a utilizzare esclusivamente la firma SHA-2 il 18 m
 
 
 ## <a name="network-requirements"></a>Requisiti di rete
-L'agente per Linux e Windows comunica in uscita al servizio Di Vela di Azure tramite la porta TCP 443 e, se la macchina si connette tramite un firewall o un server proxy per comunicare tramite Internet, esaminare i requisiti riportati di seguito per comprendere la configurazione di rete Obbligatorio. Se i criteri di sicurezza IT non consentono ai computer della rete di connettersi a Internet, è possibile configurare un [gateway di Log Analytics](gateway.md) e quindi configurare l'agente per la connessione tramite il gateway ai log di Monitoraggio di Azure.If your IT security policies do not allow computers on the network to connect to the Internet, you can set up a Log Analytics gateway and then configure the agent to connect through the gateway to Azure Monitor logs. L'agente può quindi ricevere informazioni di configurazione e inviare i dati raccolti a seconda delle regole di raccolta dati e delle soluzioni di monitoraggio abilitate nell'area di lavoro.
+L'agente per Linux e Windows comunica in uscita al servizio Monitor di Azure tramite la porta TCP 443 e, se la macchina si connette tramite un firewall o un server proxy per comunicare tramite Internet, esaminare i requisiti riportati di seguito per comprendere la configurazione di rete necessaria. Se i criteri di sicurezza IT non consentono ai computer della rete di connettersi a Internet, è possibile configurare un [gateway di Log Analytics](gateway.md) e quindi configurare l'agente per la connessione tramite il gateway ai log di Monitoraggio di Azure.If your IT security policies do not allow computers on the network to connect to the Internet, you can set up a Log Analytics gateway and then configure the agent to connect through the gateway to Azure Monitor logs. L'agente può quindi ricevere informazioni di configurazione e inviare i dati raccolti a seconda delle regole di raccolta dati e delle soluzioni di monitoraggio abilitate nell'area di lavoro.
 
 ![Diagramma delle comunicazioni dell'agente di Log Analytics](./media/log-analytics-agent/log-analytics-agent-01.png)
 
+Nella tabella seguente sono elencate le informazioni di configurazione del proxy e del firewall necessarie per la comunicazione degli agenti Linux e Windows con i log di Monitoraggio di Azure.The following table lists the proxy and firewall configuration information that's required for the Linux and Windows agents to communicate with Azure Monitor logs.
 
-## <a name="network-firewall-requirements"></a>Requisiti del firewall di rete
-Le informazioni seguenti elencano le informazioni di configurazione del proxy e del firewall necessarie per la comunicazione dell'agente Linux e Windows con i log di Monitoraggio di Azure.The information below list the proxy and firewall configuration information required for the Linux and Windows agent to communicate with Azure Monitor logs.  
+### <a name="firewall-requirements"></a>Requisiti del firewall
 
 |Risorsa agente|Porte |Direction |Ignorare l'analisi HTTPS|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Porta 443 |In uscita|Sì |  
-|*.oms.opinsights.azure.com |Porta 443 |In uscita|Sì |  
-|*.blob.core.windows.net |Porta 443 |In uscita|Sì |  
+|*.ods.opinsights.azure.com |Porta 443 |In ingresso e in uscita|Sì |  
+|*.oms.opinsights.azure.com |Porta 443 |In ingresso e in uscita|Sì |  
+|*.blob.core.windows.net |Porta 443 |In ingresso e in uscita|Sì |
+|*.azure-automation.net |Porta 443 |In ingresso e in uscita|Sì |
+|*.azure.com |Porta 443|In ingresso e in uscita|Sì |
 
 Per informazioni sul firewall necessarie per Azure per enti pubblici, vedere [Gestione di Azure per enti](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs)pubblici. 
 
 Se si prevede di usare Azure Automation Hybrid Runbook Worker per connettersi e registrarsi con il servizio di automazione per usare runbook o soluzioni di gestione nell'ambiente, deve avere accesso al numero di porta e agli URL descritti in [Configurare la rete per Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
+
+### <a name="proxy-configuration"></a>Configurazione proxy
 
 L'agente Windows e Linux supporta la comunicazione tramite un server proxy o il gateway Log Analytics per Azure Monitor tramite il protocollo HTTPS.  Sono supportate sia l'autenticazione anonima che quella di base (nome utente/password).  Per l'agente di Windows connesso direttamente al servizio, la configurazione del proxy viene specificata durante l'installazione o [dopo la distribuzione](agent-manage.md#update-proxy-settings) dal Pannello di controllo o con PowerShell.  
 

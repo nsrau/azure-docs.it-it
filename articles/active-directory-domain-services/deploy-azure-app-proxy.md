@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/6/2019
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: c6e4e6a45fbbeab64184d8ae4b0684ba055d7735
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3fb731736941293a82baba86165a1205bd8a05c5
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77613976"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519041"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-ad-domain-services-managed-domain"></a>Distribuire il proxy di applicazione di Azure AD per l'accesso sicuro alle applicazioni interne in un dominio gestito di Servizi di dominio Azure ADDeploy Azure AD Application Proxy for secure access to internal applications in an Azure AD Domain Services managed domain
 
@@ -26,14 +26,12 @@ Se non si ha familiarità con il proxy di applicazione di Azure AD e si desidera
 
 Questo articolo illustra come creare e configurare un connettore proxy di applicazione di Azure AD per fornire l'accesso sicuro alle applicazioni in un dominio gestito di Servizi di dominio Active Directory di Azure.This article shows you how to create and configure an Azure AD Application Proxy connector to provide secure access to applications in an Azure AD DS managed domain.
 
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
-
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 Per completare questo articolo, sono necessarie le risorse e i privilegi seguenti:To complete this article, you need the following resources and privileges:
 
 * Una sottoscrizione di Azure attiva.
-    * Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * Se non si dispone di una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un tenant di Azure Active Directory associato alla sottoscrizione, sincronizzato con una directory locale o con una directory solo cloud.
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
     * Per usare il proxy di applicazione di Azure AD, è necessaria una **licenza di Azure AD Premium.An Azure AD Premium license** is required to use the Azure AD Application Proxy.

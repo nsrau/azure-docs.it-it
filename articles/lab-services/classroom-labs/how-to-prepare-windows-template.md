@@ -10,12 +10,12 @@ ms.service: lab-services
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: enewman
-ms.openlocfilehash: c52a1212d160adce3a0a0638164833bc2907a856
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1aaf588f61b329fa3b838b8a92f3e287897315b
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76515004"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521179"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guida alla configurazione di un computer modello di Windows in Azure Lab Services
 
@@ -185,7 +185,7 @@ Ti consigliamo di aggiornare tutte le app di Microsoft Store alle versioni più 
 3. Seleziona **Scarica** e aggiorna dal menu a discesa.
 4. Fare clic sul pulsante **Ottieni aggiornamento.**
 
-È inoltre possibile utilizzare Powershell per aggiornare le applicazioni di Microsoft Store già installate.
+È inoltre possibile utilizzare PowerShell per aggiornare le applicazioni di Microsoft Store già installate.
 
 ```powershell
 (Get-WmiObject -Namespace "root\cimv2\mdm\dmmap" -Class "MDM_EnterpriseModernAppManagement_AppManagement01").UpdateScanMethod()
@@ -234,3 +234,6 @@ Installa altre app comunemente usate per insegnare tramite l'app di Windows Stor
 ## <a name="conclusion"></a>Conclusioni
 
 Questo articolo illustra i passaggi facoltativi per preparare la macchina virtuale del modello di Windows per una classe efficace.  I passaggi includono l'installazione di OneDrive e l'installazione di Office 365, l'installazione degli aggiornamenti per Windows e l'installazione degli aggiornamenti per le app di Microsoft Store.  Abbiamo anche discusso come impostare gli aggiornamenti di un programma che funziona meglio per la tua classe.  
+
+## <a name="next-steps"></a>Passaggi successivi
+Vedere l'articolo su come controllare il comportamento di arresto di Windows per facilitare la gestione dei costi: [Guida al controllo](how-to-windows-shutdown.md) del comportamento di arresto di Windows

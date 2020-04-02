@@ -5,18 +5,23 @@ ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: mahender
-ms.custom: fasttrack-edit
-ms.openlocfilehash: f16b10f13c945dd7f1ae4fdc3f4e02dcd7c5a018
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.custom:
+- seodec18
+- fasttrack-edit
+ms.openlocfilehash: 0fe436b1da551bbc8a0064cb3cfdff864d8f9eb8
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437949"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520687"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticazione e autorizzazione nel servizio app di Azure e nelle funzioni di AzureAuthentication and authorization in Azure App Service and Azure Functions
 
 > [!NOTE]
 > Al momento, [Azure Active Directory v2.0](../active-directory/develop/v2-overview.md) (incluso [MSAL)](../active-directory/develop/msal-overview.md)non è supportato per il servizio app di Azure e funzioni di Azure.At this time, Azure Active Directory v2.0 (including MSAL ) is not supported for Azure App Service and Azure Functions. Si prega di controllare di nuovo per gli aggiornamenti.
+>
+> [!NOTE]
+> Al momento, ASP.NET Core non supporta attualmente il popolamento dell'utente corrente con la funzionalità di autenticazione/autorizzazione.
 >
 
 Il Servizio app di Azure fornisce supporto integrato per l'autenticazione e l'autorizzazione ed è quindi possibile consentire l'accesso degli utenti e l'accesso ai dati senza scrivere codice, o con una minima quantità di codice, nell'app Web, nell'API RESTful, nel back-end per dispositivi mobili e anche in [Funzioni di Azure](../azure-functions/functions-overview.md). Questo articolo descrive in che modo il servizio app aiuta a semplificare l'autenticazione e l'autorizzazione per l'app.
@@ -132,11 +137,17 @@ Con questa opzione non è necessario scrivere codice di autenticazione nell'app.
 > [!CAUTION]
 > Limitare l'accesso in questo modo si applica a tutte le chiamate all'app, che potrebbero non essere desiderabili per le app che desiderano una home page disponibile pubblicamente, come in molte applicazioni a pagina singola.
 
+> [!NOTE]
+> L'autenticazione/autorizzazione era precedentemente nota come Easy Auth.
+>
+
 ## <a name="more-resources"></a>Altre risorse
 
 [Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel servizio app di Azure (Windows)](app-service-web-tutorial-auth-aad.md)  
 [Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel servizio app di Azure per Linux](containers/tutorial-auth-aad.md)  
-[Personalizzare l'autenticazione e l'autorizzazione nel servizio app](app-service-authentication-how-to.md)
+[Personalizzare l'autenticazione e l'autorizzazione nell'integrazione](app-service-authentication-how-to.md)
+[di Azure AppService Core di Azure AppService EasyAuth (3rd party)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)
+Ottenere l'autenticazione del servizio app di Azure con .NET Core (3a parte)Customize authentication and authorization in App Service .NET Core integration of Azure AppService EasyAuth (3rd party)[Getting Azure App Service authentication working with .NET Core (3rd party)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
 
 Guide alle procedure specifiche del provider:
 

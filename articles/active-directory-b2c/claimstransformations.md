@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e71d521dce40f6a8ec81286fcc95dc97bf10078c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a919996d00f8ef3fa00109944b60d53b63d95ff
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78189737"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529136"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -162,7 +162,8 @@ Per esempi di trasformazioni delle attestazioni, vedere le pagine seguenti:
 - [Boolean](boolean-transformations.md)
 - [Data](date-transformations.md)
 - [Intero](integer-transformations.md)
-- [Json](json-transformations.md)
+- [JSON](json-transformations.md)
+- [Numero di telefono](phone-number-claims-transformations.md)
 - [Generale](general-transformations.md)
 - [Account di social networking](social-transformations.md)
 - [Stringa](string-transformations.md)

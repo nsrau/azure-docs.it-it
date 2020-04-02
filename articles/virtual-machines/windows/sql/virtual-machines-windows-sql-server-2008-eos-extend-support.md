@@ -14,12 +14,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6c27fa8f80140e6db92ea0f998852507260cc278
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: faaff9e9ad5982efac6409f2284158a3d0711331
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80159541"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548398"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Estendere il supporto per SQL Server 2008 e SQL Server 2008 R2 con AzureExtend support for SQL Server 2008 and SQL Server 2008 R2 with Azure
 
@@ -66,7 +66,7 @@ Il [servizio di migrazione del database](/azure/dms/dms-overview) è un'opzione 
 
 Le soluzioni di ripristino di emergenza per EOS SQL Server in una macchina virtuale di Azure sono le seguenti:Disaster recovery solutions for EOS SQL Server on an Azure VM are as follows:
 
-- **Backup**di SQL Server : Usare Backup di Azure per proteggere l'eOS SQL Server 2008 e 2008 R2 da ransomware, eliminazione accidentale e danneggiamento con 15-min RPO e ripristino point-in-time. Per ulteriori informazioni, vedere [questo articolo](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#scenario-support).
+- **Backup**di SQL Server : Usare Backup di Azure per proteggere l'eOS SQL Server 2008 e 2008 R2 da ransomware, eliminazione accidentale e danneggiamento con 15-min RPO e ripristino point-in-time. Per ulteriori informazioni, vedere [questo articolo](https://docs.microsoft.com/azure/backup/sql-support-matrix#scenario-support).
 - **Distribuzione dei log:** è possibile creare una replica di distribuzione dei log in un'altra zona o in un'area di Azure con ripristini continui per ridurre l'oggetto RTO. È necessario configurare manualmente la distribuzione dei log.
 - **Azure Site Recovery:** è possibile replicare la macchina virtuale tra aree e aree tramite la replica di Azure Site Recovery.Azure Site Recovery : You can replicate your VM between zones and regions through Azure Site Recovery replication. SQL ServerSQL Server richiede snapshot coerenti con l'app per garantire il ripristino in caso di emergenza. Azure Site Recovery offre un RPO minimo di 1 ora e un RTO di 2 ore (più il tempo di ripristino di SQL Server) per il ripristino di emergenza di SQL Server EOS.
 

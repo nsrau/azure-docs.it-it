@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 05db717f5d3adc2429431503f588f2cc7f79aef6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e00fee8841a2d5a817a00b942bfe0733a80b2cfc
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266780"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546331"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Azure Disk Encryption for Windows VMs 
 
@@ -30,11 +30,13 @@ Se si usa [il Centro sicurezza](../../security-center/index.yml)di Azure , si vi
 
 ## <a name="supported-vms-and-operating-systems"></a>Macchine virtuali e sistemi operativi supportati
 
-### <a name="supported-vm-sizes"></a>Dimensioni delle macchine virtuali supportate
+### <a name="supported-vms"></a>VM supportate
 
 Le macchine virtuali Windows sono disponibili in un [intervallo di dimensioni.](sizes-general.md) Crittografia disco di Azure non è disponibile nelle [macchine virtuali di base serie A](https://azure.microsoft.com/pricing/details/virtual-machines/series/)o in macchine virtuali con meno di 2 GB di memoria.
 
 Crittografia disco di Azure è disponibile anche per le macchine virtuali con archiviazione Premium.Azure Disk Encryption is also available for VMs with premium storage.
+
+Crittografia disco di Azure non è disponibile nelle [macchine virtuali di generazione 2](generation-2.md#generation-1-vs-generation-2-capabilities)e nelle macchine virtuali serie [Lsv2](../lsv2-series.md). Per altre eccezioni, vedere Crittografia disco di [Azure: scenari non supportati.](disk-encryption-windows.md#unsupported-scenarios)
 
 ### <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
@@ -57,7 +59,7 @@ Per abilitare Crittografia disco di Azure, le macchine virtuali devono soddisfar
 
 ## <a name="group-policy-requirements"></a>Requisiti di Criteri di gruppo
 
-Azure Disk Encryption uses the BitLocker external key protector for Windows VMs. Per le macchine virtuali aggiunte a un dominio, non eseguire il push di criteri di gruppo che applichino protezioni TPM. Per informazioni sui Criteri di gruppo per consentire BitLocker senza un TPM compatibile, vedere [BitLocker Group Policy Reference](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1) (Informazioni di riferimento sui Criteri di gruppo BitLocker).
+Azure Disk Encryption uses the BitLocker external key protector for Windows VMs. Per le macchine virtuali aggiunte a un dominio, non eseguire il push di criteri di gruppo che applichino protezioni TPM. Per informazioni sui criteri di gruppo per "Consenti BitLocker senza un TPM compatibile", vedere Informazioni di riferimento sui criteri di gruppo di [BitLocker](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
 
 I criteri BitLocker nelle macchine virtuali aggiunte al dominio con criteri di gruppo personalizzati devono includere l'impostazione seguente: Configurare l'archiviazione utente delle informazioni di [ripristino di BitLocker -> Consenti chiave](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings)di ripristino a 256 bit . Crittografia dischi di Azure avrà esito negativo quando le impostazioni di Criteri di gruppo personalizzate per BitLocker sono incompatibili. Sulle macchine sprovviste delle corrette impostazioni di criteri, applicare i nuovi criteri, forzare l'aggiornamento dei criteri (gpupdate.exe /force) e, dopodiché, potrebbe essere necessario riavviare.
 

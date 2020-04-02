@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 03/31/2020
 ms.author: b-juche
-ms.openlocfilehash: b2000c3fd3d64793f797e997d8f3c10eaed5d7aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ad9e13667791c38a8bf8be01919bcdbd0032102
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409592"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519602"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creare un volume SMB per Azure NetApp Files
 
@@ -74,6 +74,14 @@ File NetApp di Azure supporta i volumi NFS e SMBv3. L'utilizzo della capacità d
 
     Vedere [Progettazione della topologia del sito](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) relativa a siti e servizi di Active Directory. 
     
+* File NetApp di Azure supporta i tipi di crittografia DES, Kerberos AES 128 e Kerberos AES 256 (dal meno sicuro al più sicuro). Le credenziali utente utilizzate per l'aggiunta ad Active Directory devono avere l'opzione di account corrispondente più alto abilitata che corrisponde alle funzionalità abilitate per Active Directory.   
+
+    Ad esempio, se Active Directory dispone solo della funzionalità AES-128, è necessario abilitare l'opzione account AES-128 per le credenziali utente. Se Active Directory dispone della funzionalità AES-256, è necessario attivare l'opzione account AES-256 (che supporta anche AES-128). Se Active Directory non dispone di alcuna funzionalità di crittografia Kerberos, i file di Azure NetApp utilizzaNO DES per impostazione predefinita.  
+
+    È possibile attivare le opzioni dell'account nelle proprietà della console MMC Utenti e computer di Active Directory:   
+
+    ![MMC Utenti e computer di Active Directory](../media/azure-netapp-files/ad-users-computers-mmc.png)
+
 Vedere Domande frequenti su Azure NetApp Files SMB su informazioni aggiuntive di Active Directory.See Azure NetApp Files [SMB FAQs](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs) about additional AD information. 
 
 ## <a name="decide-which-domain-services-to-use"></a>Decidere quali servizi di dominio utilizzare 

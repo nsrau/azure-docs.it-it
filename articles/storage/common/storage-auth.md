@@ -10,12 +10,12 @@ ms.date: 02/24/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b0f2ad7566d0204871a9c6441315d6201662d92b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 53eca8a0b9e7cc9abb8f89cd56fca5df28f2de0f
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77616298"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521939"
 ---
 # <a name="authorizing-access-to-data-in-azure-storage"></a>Autorizzazione dell'accesso ai dati in Archiviazione di AzureAuthorizing access to data in Azure Storage
 
@@ -33,7 +33,7 @@ Nella tabella seguente vengono descritte le opzioni offerte da Archiviazione di 
 
 Ogni opzione di autorizzazione è brevemente descritta di seguito:Each authorization option is briefly described below:
 
-- **Integrazione di Azure Active Directory (Azure AD)** per BLOB e code. Azure AD fornisce controllo degli accessi in base al ruolo per un controllo granulare dell'accesso del client alle risorse in un account di archiviazione. Per altre informazioni sull'integrazione di Azure AD per BLOB e code, vedere [Autorizzare l'accesso a BLOB e code](storage-auth-aad.md)di Azure con Azure Active Directory.For more information regarding Azure AD integration for blobs and queues, see Authorize access to Azure blobs and queues using Azure Active Directory.
+- **Integrazione di Azure Active Directory (Azure AD)** per BLOB e code. Azure AD offre il controllo degli accessi in base al ruolo per il controllo dell'accesso di un client alle risorse in un account di archiviazione. Per altre informazioni sull'integrazione di Azure AD per BLOB e code, vedere [Autorizzare l'accesso a BLOB e code](storage-auth-aad.md)di Azure con Azure Active Directory.For more information regarding Azure AD integration for blobs and queues, see Authorize access to Azure blobs and queues using Azure Active Directory.
 
 - **Autenticazione di Servizi di dominio Azure Active Directory (Azure AD DS)** per File di Azure.Azure Active Directory Domain Services (Azure AD DS) authentication for Azure DS. File di Azure supporta l'autorizzazione basata sull'identità tramite SMB (Server Message Block) tramite Servizi di dominio Active Directory. È possibile usare il controllo degli accessi in base al ruolo per un controllo granulare sull'accesso di un client alle risorse File di Azure in un account di archiviazione. Per altre informazioni sull'autenticazione dei file di Azure tramite i servizi di dominio, vedere [Panoramica.](../files/storage-files-active-directory-overview.md)
 

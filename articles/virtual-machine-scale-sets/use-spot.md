@@ -1,30 +1,25 @@
 ---
-title: Creare un set di scalabilità che usa macchine virtuali di Azure Spot (anteprima)Create a scale set that uses Azure Spot VMs (Preview)
+title: Creare un set di scalabilità che usa le macchine virtuali di Azure SpotCreate a scale set that uses Azure Spot VMs
 description: Informazioni su come creare set di scalabilità di macchine virtuali di Azure che usano le macchine virtuali Spot per risparmiare sui costi.
 author: cynthn
-tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
-ms.topic: conceptual
-ms.date: 02/11/2020
+ms.topic: article
+ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 37e914fe6bafe9587be525faf3e01c897cdd8230
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a7bd22032a554c83a2ea2323ffdb3ae52dfe4faf
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77162685"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545945"
 ---
-# <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>Anteprima: Macchine virtuali di Azure Spot per set di scalabilità di macchine virtualiPreview: Azure Spot VMs for virtual machine scale sets 
+# <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Macchine virtuali di Azure Spot per set di scalabilità di macchine virtualiAzure Spot VMs for virtual machine scale sets 
 
 L'uso di Azure Spot su set di scalabilità consente di sfruttare la capacità inutilizzata con un notevole risparmio sui costi. In qualsiasi momento in cui Azure richiede la capacità, l'infrastruttura di Azure rimuovere le istanze Spot.At any in time when Azure needs the capacity back, the Azure infrastructure will evict Spot instances. Di conseguenza, le istanze Spot sono ideali per i carichi di lavoro in grado di gestire interruzioni come processi di elaborazione batch, ambienti di sviluppo/test, carichi di lavoro di calcolo di grandi dimensioni e altro ancora.
 
 La quantità di capacità disponibile può variare in base alle dimensioni, all'area, all'ora del giorno e altro ancora. Quando si distribuiscono istanze Spot nei set di scalabilità, Azure allocherà l'istanza solo se è disponibile capacità, ma non è disponibile alcun servizio di archiviazione per queste istanze. Un set di scalabilità Spot viene distribuito in un singolo dominio di errore e non offre garanzie di disponibilità elevata.
 
-> [!IMPORTANT]
-> Le istanze spot sono attualmente in anteprima pubblica.
-> Questa versione di anteprima non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## <a name="pricing"></a>Prezzi
 
@@ -48,7 +43,7 @@ Gli utenti possono acconsentire esplicitamente a ricevere notifiche nella macchi
 
 Per distribuire macchine virtuali Spot nei set di scalabilità, è possibile impostare il nuovo flag *Priorità* su *Spot*. Tutte le macchine virtuali nel set di scalabilità verranno impostate su Individua.All VMs in your scale set will be set to Spot. Per creare un set di scalabilità con macchine virtuali Spot, usare uno dei metodi seguenti:To create a scale set with Spot VMs, use one of the following methods:
 - [Portale di Azure](#portal)
-- [Interfaccia della riga di comando di AzureAzure](#azure-cli)
+- [Interfaccia della riga di comando di Azure](#azure-cli)
 - [Azure PowerShell](#powershell)
 - [Modelli di Gestione risorse di Azure](#resource-manager-templates)
 
@@ -172,6 +167,5 @@ Per eliminare l'istanza dopo che è `evictionPolicy` stata `Delete`rimossa, modi
 **A:** Puoi pubblicare e taggare la tua domanda su `azure-spot` Q&[A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver creato un set di scalabilità con le macchine virtuali Spot, provare a distribuire il modello di [scalabilità automatica usando Spot](https://github.com/Azure/vm-scale-sets/tree/master/preview/lowpri).
 
 Per informazioni sui prezzi, vedere la [pagina dei prezzi dei set di scalabilità di macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/).

@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 5620d1cdc7dc71bdac17057b9a13a74150b12d5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eb96cb32c05d2ba3fbd38e72c16540d947436117
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77612526"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519053"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Esercitazione: Creare un trust tra foreste in uscita e un dominio locale in Servizi di dominio Azure Active Directory (anteprima)Tutorial: Create an outbound forest trust to an on-premises domain in Azure Active Directory Domain Services (preview)
 
@@ -38,7 +38,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.micr
 Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti:
 
 * Una sottoscrizione di Azure attiva.
-    * Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * Se non si dispone di una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un tenant di Azure Active Directory associato alla sottoscrizione, sincronizzato con una directory locale o con una directory solo cloud.
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
 * Un dominio gestito di Servizi di dominio Azure Active Directory creato usando una foresta di risorse e configurato nel tenant di Azure AD.
@@ -59,7 +59,7 @@ Prima di configurare un trust tra foreste in Servizi di dominio Active Directory
 
 * Utilizzare indirizzi IP privati. Non fare affidamento su DHCP con assegnazione di indirizzi IP dinamici.
 * Evitare la sovrapposizione degli spazi di indirizzi IP per consentire al peering e al routing della rete virtuale di comunicare correttamente tra Azure e l'ambiente locale.
-* Una rete virtuale di Azure richiede una subnet gateway per configurare una connessione VPN da sito a sito (S2S) o ExpressRoute
+* Una rete virtuale di Azure richiede una subnet gateway per configurare una connessione VPN o [ExpressRoute][expressroute] di [Azure da sito a sito (S2S)][vpn-gateway]
 * Creare subnet con indirizzi IP sufficienti per supportare lo scenario.
 * Assicurarsi che Azure AD DS abbia una propria subnet, non condividere questa subnet di rete virtuale con macchine virtuali e servizi dell'applicazione.
 * Le reti virtuali con peerING NON sono transitive.
@@ -74,7 +74,7 @@ Per risolvere correttamente il dominio gestito di Servizi di dominio Active Dire
 1. Selezionare **Start . Strumenti di amministrazione - SISTEMA DNS**
 1. Selezionare il pulsante destro del mouse sul server DNS, ad esempio *myAD01*, selezionare **Proprietà**
 1. Scegliere **Server d'inoltro**, quindi **Modifica** per aggiungere altri server d'inoltro.
-1. Aggiungere gli indirizzi IP del dominio gestito di Azure Servizi di dominio Active Directory, ad esempio *10.0.1.4* e *10.0.1.5.*
+1. Aggiungere gli indirizzi IP del dominio gestito di Azure Servizi di dominio Active Directory, ad esempio *10.0.2.4* e *10.0.2.5.*
 
 ## <a name="create-inbound-forest-trust-in-the-on-premises-domain"></a>Creare un trust tra foreste in ingresso nel dominio localeCreate inbound forest trust in the on-premises domain
 
@@ -85,10 +85,6 @@ Per configurare il trust in ingresso nel dominio di Servizi di dominio Active Di
 1. Selezionare **Start . Strumenti di amministrazione - Domini e trust di Active Directory**
 1. Selezionare il dominio di selezione del pulsante destro del mouse, ad esempio *onprem.contoso.com*, selezionare **Proprietà**
 1. Scegliere la scheda **Trust,** quindi **Nuova relazione di trust**
-
-   > [!NOTE]
-   > Se l'opzione di menu **Trust** non è visualizzata, selezionare **Proprietà** per il *tipo di foresta*. Solo le foreste di *risorse* possono creare trust. Se il tipo di foresta è *Utente*, non è possibile creare trust. Attualmente non è possibile modificare il tipo di foresta di un dominio gestito di Servizi di dominio Active Directory di Azure.There's currently no way to change the forest type of an Azure AD DS managed domain. È necessario eliminare e ricreare il dominio gestito come foresta di risorse.
-
 1. Immettere il nome nel nome di dominio di Azure AD DS, ad esempio *aaddscontoso.com*, quindi selezionare **Avanti**
 1. Selezionare l'opzione per creare un **trust tra foreste**, quindi creare un trust **unidirezionale: in ingresso.**
 1. Scegliere di creare il trust solo per **questo dominio.** Nel passaggio successivo si creerà la relazione di trust nel portale di Azure per il dominio gestito di Servizi di dominio Active Directory di Azure.In the next step, you create the trust in the Azure portal for the Azure AD DS managed domain.
@@ -104,12 +100,16 @@ Per creare il trust in uscita per il dominio gestito di Servizi di dominio Activ
 
 1. Nel portale di Azure cercare e selezionare Servizi di **dominio Azure AD**, quindi selezionare il dominio gestito, ad esempio *aaddscontoso.com*
 1. Dal menu sul lato sinistro del dominio gestito di Servizi di dominio Active Directory di Azure selezionare **Trusts**, quindi scegliere **Aggiungi** una relazione di trust.
+
+   > [!NOTE]
+   > Se l'opzione di menu **Trust** non è visualizzata, selezionare **Proprietà** per il *tipo di foresta*. Solo le foreste di *risorse* possono creare trust. Se il tipo di foresta è *Utente*, non è possibile creare trust. Attualmente non è possibile modificare il tipo di foresta di un dominio gestito di Servizi di dominio Active Directory di Azure.There's currently no way to change the forest type of an Azure AD DS managed domain. È necessario eliminare e ricreare il dominio gestito come foresta di risorse.
+
 1. Immettere un nome visualizzato che identifichi il trust, quindi il nome DNS della foresta trusted locale, ad esempio *onprem.contoso.com*
 1. Specificare la stessa password di trust utilizzata durante la configurazione del trust tra foreste in ingresso per il dominio di Servizi di dominio Active Directory locale nella sezione precedente.
-1. Fornire almeno due server DNS per il dominio di Servizi di dominio Active Directory locale, ad esempio *10.0.2.4* e *10.0.2.5*
+1. Fornire almeno due server DNS per il dominio di Servizi di dominio Active Directory locale, ad esempio *10.1.1.4* e *10.1.1.5*
 1. Quando possibile, **salvare** il trust tra foreste in uscita
 
-    [Creare un trust tra foreste in uscita nel portale di AzureCreate outbound forest trust in the Azure portal](./media/create-forest-trust/portal-create-outbound-trust.png)
+    ![Creare un trust tra foreste in uscita nel portale di AzureCreate outbound forest trust in the Azure portal](./media/tutorial-create-forest-trust/portal-create-outbound-trust.png)
 
 ## <a name="validate-resource-authentication"></a>Convalidare l'autenticazione delle risorseValidate resource authentication
 
@@ -126,11 +126,7 @@ Gli scenari comuni seguenti consentono di convalidare il trust tra foreste corre
 
 È necessario aggiungere una macchina virtuale Windows Server al dominio di risorse di Servizi di dominio Active Directory di Azure.You should have Windows Server virtual machine joined to the Azure AD DS resource domain. Usare questa macchina virtuale per testare l'autenticazione dell'utente locale in una macchina virtuale.
 
-1. Connettersi alla macchina virtuale di Windows Server aggiunta alla foresta di risorse di Servizi di dominio Active Directory di Azure usando Desktop remoto e le credenziali di amministratore di Servizi di dominio Active Directory di Azure.Connect to the Windows Server VM joined to the Azure AD DS resource forest using Remote Desktop and your Azure AD DS administrator credentials. Se viene visualizzato un errore di Autenticazione a livello di rete (NLA), verificare che l'account utente utilizzato non sia un account utente di dominio.
-
-    > [!NOTE]
-    > Per connettersi in modo sicuro alle macchine virtuali aggiunte a Servizi di dominio Azure AD, è possibile usare il [servizio Host Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) di Azure nelle aree di Azure supportate.
-
+1. Connettersi alla macchina virtuale di Windows Server aggiunta alla foresta di risorse di Servizi di dominio Active Directory di Azure usando [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) e le credenziali di amministratore di Azure AD DS.Connect to the Windows Server VM joined to the Azure AD DS resource forest using Azure AD DS e your Azure AD DS administrator credentials.
 1. Aprire un prompt dei `whoami` comandi e utilizzare il comando per visualizzare il nome distinto dell'utente attualmente autenticato:
 
     ```console
@@ -152,10 +148,7 @@ Usando la macchina virtuale di Windows Server aggiunta alla foresta di risorse d
 
 #### <a name="enable-file-and-printer-sharing"></a>Abilitare la condivisione di file e stampanti
 
-1. Connettersi alla macchina virtuale di Windows Server aggiunta alla foresta di risorse di Servizi di dominio Active Directory di Azure usando Desktop remoto e le credenziali di amministratore di Servizi di dominio Active Directory di Azure.Connect to the Windows Server VM joined to the Azure AD DS resource forest using Remote Desktop and your Azure AD DS administrator credentials. Se viene visualizzato un errore di Autenticazione a livello di rete (NLA), verificare che l'account utente utilizzato non sia un account utente di dominio.
-
-    > [!NOTE]
-    > Per connettersi in modo sicuro alle macchine virtuali aggiunte a Servizi di dominio Azure AD, è possibile usare il [servizio Host Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) di Azure nelle aree di Azure supportate.
+1. Connettersi alla macchina virtuale di Windows Server aggiunta alla foresta di risorse di Servizi di dominio Active Directory di Azure usando [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) e le credenziali di amministratore di Azure AD DS.Connect to the Windows Server VM joined to the Azure AD DS resource forest using Azure AD DS e your Azure AD DS administrator credentials.
 
 1. Aprire **Impostazioni di Windows**, quindi cercare e selezionare Centro connessioni di rete e **condivisione**.
 1. Scegliere l'opzione Modifica impostazioni di **condivisione avanzate.**
@@ -221,3 +214,5 @@ Per altre informazioni concettuali sui tipi di foresta in Servizi di dominio Act
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance-advanced]: tutorial-create-instance-advanced.md
 [howto-change-sku]: change-sku.md
+[vpn-gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
+[expressroute]: ../expressroute/expressroute-introduction.md

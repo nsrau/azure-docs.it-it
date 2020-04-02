@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 31f712f80ee2492e4bbaec99bd093d46f9d04e6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3182daa4ebf3becc824b600d1e487e12b875b275
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73824003"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529662"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Distribuire ed esplorare un'app SaaS multi-tenant che usa il modello di database per tenant con il database SQL
 
@@ -116,7 +116,7 @@ Una pagina centrale **Events Hub** (Hub eventi) visualizza un elenco di collegam
 
 2. Selezionare **Fabrikam Jazz Club** nella pagina Events Hub.
 
-    ![Events](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
+    ![Eventi](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
 
 ### <a name="azure-traffic-manager"></a>Gestione traffico di Azure
 
@@ -128,7 +128,7 @@ L'applicazione Wingtip usa  [*Gestione traffico di Azure*](../traffic-manager/t
 
     | Parte URL        | Descrizione       |
     | :-------------- | :---------------- |
-    | http://events.wingtip-dpt | Le parti degli eventi dell'app Wingtip.<br /><br /> *-dpt* distingue l'implementazione di *database per tenant* dell'app Wingtip Tickets dalle altre implementazioni, ad esempio quelle di app per tenant *singole* (*-sa*) o di *database multi-tenant* (*-mt*). |
+    | events.wingtip-dpt | Le parti degli eventi dell'app Wingtip.<br /><br /> *-dpt* distingue l'implementazione di *database per tenant* dell'app Wingtip Tickets dalle altre implementazioni, ad esempio quelle di app per tenant *singole* (*-sa*) o di *database multi-tenant* (*-mt*). |
     | . * &lt;utente&gt;* | *af1* nell'esempio. |
     | .trafficmanager.net/ | Gestione traffico, URL di base. |
     | fabrikamjazzclub | Identifica il tenant denominato Fabrikam Jazz Club. |

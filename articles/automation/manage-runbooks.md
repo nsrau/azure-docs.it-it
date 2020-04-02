@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: ad8c05b3347ed4741d574a5e6bcc1d928db08411
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad2a34691a00f217db6cf6835eefed18c8862d32
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79366837"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547929"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gestire runbook in Automazione di Azure
 
@@ -128,6 +128,19 @@ $RGName = "ResourceGroup"
 Publish-AzAutomationRunbook -AutomationAccountName $automationAccountName `
 -Name $runbookName -ResourceGroupName $RGName
 ```
+
+### <a name="schedule-a-runbook-in-the-azure-portal"></a>Pianificare un runbook nel portale di AzureSchedule a runbook in the Azure portal
+
+Quando il runbook è stato pubblicato, è possibile pianificarlo per il funzionamento.
+
+1. Aprire il runbook nel portale di Azure.
+2. Selezionare **Pianificazioni** in **Risorse**.
+3. Selezionare **Aggiungi pianificazione**.
+4. Nel riquadro Pianificazione del runbook selezionare **Collega una pianificazione al runbook**.
+5. Scegliere **Crea una nuova pianificazione** nel riquadro Pianificazione.
+6. Immettere un nome, una descrizione e altri parametri nel riquadro Nuova pianificazione. 
+7. Una volta creata la pianificazione, evidenziarla e fare clic su **OK**. Ora dovrebbe essere collegato al tuo runbook.
+8. Cercare un messaggio di posta elettronica nella cassetta postale per notificare lo stato del runbook.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/18/2020
 ms.author: spelluru
-ms.openlocfilehash: d58e11551c2857c269e8985e81f84138f6d389ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b87107545761e10c6fb648e54064fbafbdbacd52
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370821"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545998"
 ---
 # <a name="classroom-lab-setup-guide"></a>Guida alla configurazione del laboratorio di Classroom
 
@@ -79,7 +79,7 @@ Lab Services usa un modello di determinazione dei prezzi con pagamento in base a
 Agli studenti viene assegnata la propria macchina virtuale assegnata per la durata del lab.  Possono scegliere di:
 
 - Salvare direttamente nella macchina virtuale.
-- Salvare in un repository esterno, ad esempio OneDrive, GitHub e così via.
+- Salvare in una posizione esterna, ad esempio OneDrive, GitHub e così via.
 
 Per usare OneDrive, è possibile scegliere di configurarlo automaticamente per gli studenti nelle macchine virtuali del lab.  Ulteriori informazioni a questo scopo sono fornite di seguito.
 
@@ -133,7 +133,7 @@ Una volta soddisfatti i requisiti per il laboratorio della classe, si è pronti 
         > [!NOTE]
         > A seconda del tipo di sistema operativo installato, l'avvio di una macchina virtuale potrebbe richiedere alcuni minuti.  Per assicurarsi che una macchina virtuale del lab sia pronta per l'uso durante le ore pianificate, è consigliabile avviare le macchine virtuali con 30 minuti di anticipo per assicurarsi che le macchine virtuali siano in esecuzione e pronte per l'uso.
 
-   - [Impostare quote per gli utenti](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users) e una quota [aggiuntiva per un utente specifico](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-additional-quota-for-a-specific-user)
+   - [Impostare quote per gli utenti](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users) e una quota [aggiuntiva per un utente specifico](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-additional-quotas-for-specific-users)
   
    - [Abilitare l'arresto automatico alla disconnessione](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
 

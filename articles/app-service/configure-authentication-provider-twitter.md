@@ -4,13 +4,15 @@ description: Informazioni su come configurare l'autenticazione di Twitter come p
 ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73
 ms.topic: article
 ms.date: 02/28/2020
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 3f85f30e0a64b6e39b905fc05503a445aa5876ba
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.custom:
+- seodec18
+- fasttrack-edit
+ms.openlocfilehash: 11c913b12b4dcb7d2a5ffa532064b347b82904ef
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80438005"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519900"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-twitter-login"></a>Configurare il servizio app o l'app Funzioni di Azure per usare l'account di accesso di TwitterConfigure your App Service or Azure Functions app to use Twitter login
 
@@ -52,7 +54,7 @@ Per completare la procedura descritta in questo articolo, è necessario un accou
    > [!CAUTION]
    > Limitare l'accesso in questo modo si applica a tutte le chiamate all'app, che potrebbero non essere desiderabili per le app che dispongono di una home page disponibile pubblicamente, come in molte applicazioni a pagina singola. Per tali applicazioni, **consenti richieste anonime (nessuna azione)** potrebbe essere preferibile in modo che l'applicazione avvia manualmente l'autenticazione stessa. Per ulteriori informazioni, vedere [Flusso di autenticazione](overview-authentication-authorization.md#authentication-flow).
 
-1. Selezionare **Salva**.
+1. Selezionare **Save** (Salva).
 
 È ora possibile usare un account Twitter per l'autenticazione nell'app.
 

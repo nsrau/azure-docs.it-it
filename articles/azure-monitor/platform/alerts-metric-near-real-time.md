@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 3/5/2020
 ms.subservice: alerts
-ms.openlocfilehash: e4dfc33756a287b6d2f6e41edded3332ca85241d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 62c1e29b668c3ef58b0e26e2749c55b913279425
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274931"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545685"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Risorse supportate per gli avvisi delle metriche in Monitoraggio di Azure
 
@@ -34,7 +34,7 @@ Ecco l'elenco completo delle origini delle metriche di Monitoraggio di Azure sup
 |Microsoft.AppPlatform/Primavera |No| Sì|
 |Microsoft.Automation/automationAccounts | Sì| No | [Account di Automazione](../../azure-monitor/platform/metrics-supported.md#microsoftautomationautomationaccounts)|
 |Microsoft.Batch/batchAccounts | N/D| No | [Account Batch](../../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts)|
-|Microsoft.Cache/Redis|Sì| No |[Azure Cache for Redis](../../azure-monitor/platform/metrics-supported.md#microsoftcacheredis)|
+|Microsoft.Cache/Redis|Sì| No |[Cache Redis di Azure](../../azure-monitor/platform/metrics-supported.md#microsoftcacheredis)|
 |Microsoft.ClassicStorage/storageAccounts/mmxclassic|No|Sì|
 |Microsoft.ClassicStorage/storageAccounts/mmxclassic/blobServices|No|Sì|
 |Microsoft.ClassicStorage/storageAccounts/mmxclassic/fileServices|No|Sì|
@@ -42,7 +42,7 @@ Ecco l'elenco completo delle origini delle metriche di Monitoraggio di Azure sup
 |Microsoft.ClassicStorage/storageAccounts/mmxclassic/tableServices|No|Sì| |
 |Microsoft.CognitiveServices/accounts| N/D | No | [Servizi cognitivi](../../azure-monitor/platform/metrics-supported.md#microsoftcognitiveservicesaccounts)|
 |Microsoft.Compute/virtualMachines |Sì | Sì | [Macchine virtuali](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)|
-|Microsoft.Compute/virtualMachineScaleSets |N/D | Sì |[Set di scalabilità di macchine virtualiVirtual machine scale sets](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)|
+|Microsoft.Compute/virtualMachineScaleSets |N/D | Sì |[Set di scalabilità di macchine virtuali](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)|
 |Microsoft.ContainerInstance/containerGroups | Sì| No | [Gruppi di contenitoriContainer groups](../../azure-monitor/platform/metrics-supported.md#microsoftcontainerinstancecontainergroups)|
 |Microsoft.ContainerService/managedClusters | Sì | No | [Cluster gestiti](../../azure-monitor/platform/metrics-supported.md#microsoftcontainerservicemanagedclusters)|
 |Microsoft.DataBoxEdge/dataBoxEdgeDevices | Sì | Sì | |
@@ -77,7 +77,7 @@ Ecco l'elenco completo delle origini delle metriche di Monitoraggio di Azure sup
 |Microsoft.PowerBIDedicated/capacities | N/D | No | [Capacità](../../azure-monitor/platform/metrics-supported.md#microsoftpowerbidedicatedcapacities)|
 |Microsoft.Search/searchServices |N/D|No | [Servizi di ricerca](../../azure-monitor/platform/metrics-supported.md#microsoftsearchsearchservices)|
 |Microsoft.ServiceBus/namespaces |Sì| No |[Bus di servizio](../../azure-monitor/platform/metrics-supported.md#microsoftservicebusnamespaces)|
-|Microsoft.Sql/servers/elasticPools |   No | Sì |
+|Microsoft.Sql/servers/elasticPools |    No | Sì |
 |Microsoft.Sql/servers/databases    | No | Sì |
 |Microsoft.Storage/storageAccounts |Sì | No | [Account di archiviazione](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccounts)|
 |Microsoft.Storage/storageAccounts/services | Sì| No | [Servizi BLOB](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices), [servizi file](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices), [servizi di accodamento](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices) e [servizi tabelle](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountstableservices)|
@@ -86,7 +86,7 @@ Ecco l'elenco completo delle origini delle metriche di Monitoraggio di Azure sup
 |Microsoft.Web/hostingEnvironments/multiRolePools | Sì | No | [Pool di pool multiruolo dell'ambiente del servizio app](../../azure-monitor/platform/metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
 |Microsoft.Web/hostingEnvironments/workerPools | Sì | No | [Pool di lavoro dell'ambiente del servizio app](../../azure-monitor/platform/metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|
 |Microsoft.Web/serverfarms | Sì | No | [Piani di servizio app](../../azure-monitor/platform/metrics-supported.md#microsoftwebserverfarms)|
-|Microsoft.Web/sites | Sì | No | [Servizi app](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-excluding-functions) e [Funzioni](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-functions)|
+|Microsoft.Web/sites | Sì | No | [Servizi app](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites)|
 |Microsoft.Web/sites/slots | Sì | No | [Slot del servizio app](../../azure-monitor/platform/metrics-supported.md#microsoftwebsitesslots)|
 
 ## <a name="payload-schema"></a>Schema del payload

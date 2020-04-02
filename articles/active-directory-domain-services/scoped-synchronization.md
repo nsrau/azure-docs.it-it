@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 11/26/2019
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: cc126af67a0d8627d61e595cee56f3df8973340d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 160873fe889d7eccc7efd08b4767854a5b24c484
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77613053"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518980"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>Configurare la sincronizzazione con ambito da Azure AD a Servizi di dominio Azure Active DirectoryConfigure scoped synchronization from Azure AD to Azure Active Directory Domain Services
 
@@ -42,18 +42,20 @@ Utilizzare il portale di Azure o PowerShell per configurare le impostazioni di s
 
 | Azione | | |
 |--|--|--|
-| Creare un dominio gestito di Servizi di dominio Active Directory di Azure e configurare la sincronizzazione con ambitoCreate an Azure AD DS managed domain and configure scoped synchronization | [Portale di Azure](#enable-scoped-synchronization-using-the-azure-portal) | [Powershell](#enable-scoped-synchronization-using-powershell) |
-| Modificare la sincronizzazione con ambito | [Portale di Azure](#modify-scoped-synchronization-using-the-azure-portal) | [Powershell](#modify-scoped-synchronization-using-powershell) |
-| Disabilitare la sincronizzazione con ambito | [Portale di Azure](#disable-scoped-synchronization-using-the-azure-portal) | [Powershell](#disable-scoped-synchronization-using-powershell) |
+| Creare un dominio gestito di Servizi di dominio Active Directory di Azure e configurare la sincronizzazione con ambitoCreate an Azure AD DS managed domain and configure scoped synchronization | [Portale di Azure](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
+| Modificare la sincronizzazione con ambito | [Portale di Azure](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
+| Disabilitare la sincronizzazione con ambito | [Portale di Azure](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
 
 > [!WARNING]
-> La modifica dell'ambito della sincronizzazione fa sì che il dominio gestito di Servizi di dominio Active Directory di Azure risincronizza tutti i dati.
+> La modifica dell'ambito della sincronizzazione fa sì che il dominio gestito di Servizi di dominio Active Directory di Azure risincronizza tutti i dati. Si applicano le considerazioni seguenti:
 > 
 >  * Quando si modifica l'ambito di sincronizzazione per un dominio gestito di Azure AD DS, si verifica una risincronizzazione completa.
 >  * Gli oggetti non più necessari nel dominio gestito di Servizi di dominio Active Directory di Azure vengono eliminati. Vengono creati nuovi oggetti nel dominio gestito.
 >  * Il completamento della risincronizzazione potrebbe richiedere molto tempo. Il tempo di sincronizzazione dipende dal numero di oggetti, ad esempio utenti, gruppi e appartenenze ai gruppi, nel dominio gestito di Servizi di dominio Active Directory di Azure e nella directory di Azure AD. Per le directory di grandi dimensioni con molte centinaia di migliaia di oggetti, la risincronizzazione potrebbe richiedere alcuni giorni.
 
 ## <a name="enable-scoped-synchronization-using-the-azure-portal"></a>Abilitare la sincronizzazione con ambito tramite il portale di AzureEnable scoped synchronization using the Azure portal
+
+Per abilitare la sincronizzazione con ambito nel portale di Azure, completare i passaggi seguenti:To enable scoped synchronization in the Azure portal, complete the following steps:
 
 1. Seguire [l'esercitazione per creare e configurare un'istanza](tutorial-create-instance-advanced.md)di Servizi di dominio Active Directory di Azure. Completare tutti i prerequisiti e i passaggi di distribuzione diversi dall'ambito di sincronizzazione.
 1. Scegliere Ambito nel passaggio di sincronizzazione, quindi selezionare i gruppi di Azure AD da sincronizzare con l'istanza di Servizi di dominio Active Directory di Azure.Choose **Scoped** at the synchronization step, then select the Azure AD groups to synchronize to the Azure AD DS instance.
@@ -173,7 +175,7 @@ Write-Output "******************************************************************
 
 ## <a name="enable-scoped-synchronization-using-powershell"></a>Abilitare la sincronizzazione con ambito tramite PowerShellEnable scoped synchronization using PowerShell
 
-Usare PowerShell per completare questa serie di passaggi. Consultare le istruzioni in [Abilitare Azure Active Directory Domain Services con PowerShell](powershell-create-instance.md). In questo articolo un paio di passaggi sono stati leggermente modificati per configurare la sincronizzazione con ambito.
+Usare PowerShell per completare il set di passaggi seguente. Consultare le istruzioni in [Abilitare Azure Active Directory Domain Services con PowerShell](powershell-create-instance.md). In questo articolo un paio di passaggi sono stati leggermente modificati per configurare la sincronizzazione con ambito.
 
 1. Completare le attività seguenti dall'articolo per abilitare Servizi di dominio Active Directory di Azure tramite PowerShell.Complete the following tasks from the article to enable Azure AD DS using PowerShell. Interrompere il passaggio per creare effettivamente il dominio gestito. Configurare la sincronizzazione con ambito creare il dominio gestito di Servizi di dominio Active Directory di Azure.You configure the scoped synchronization you create the Azure AD DS managed domain.
 

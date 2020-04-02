@@ -15,12 +15,12 @@ ms.date: 03/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: ba07a0b0d3be0366179bba14c786fafad8753dd7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2fe3b94463da07304f2c853910ac5d2a6771d070
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280695"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545647"
 ---
 # <a name="azure-built-in-roles"></a>Ruoli predefiniti di AzureAzure built-in roles
 
@@ -4644,7 +4644,7 @@ Può gestire il servizio ma non le API.
 > | Microsoft.ApiManagement/service/managedeployments/action | Modifica SKU/unità, aggiunge/rimuove distribuzioni regionali del servizio Gestione API |
 > | Microsoft.ApiManagement/service/read | Leggere i metadati per un'istanza del servizio Gestione API |
 > | Microsoft.ApiManagement/service/restore/action | Ripristinare il servizio Gestione API dal contenitore specificato in un account di archiviazione fornito dall'utente |
-> | Microsoft.ApiManagement/service/updatecertificate/action | Carica il certificato SSL per un servizio Gestione API. |
+> | Microsoft.ApiManagement/service/updatecertificate/action | Caricare il certificato TLS/SSL per un servizio di gestione APIUpload TLS/SSL certificate for an API Management Service |
 > | Microsoft.ApiManagement/service/updatehostname/action | Configura, aggiorna o rimuove i nomi di dominio personalizzati per un servizio Gestione API. |
 > | Microsoft.ApiManagement/service/write | Creare o aggiornare l'istanza del servizio di gestione APICreate or Update API Management Service instance |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |

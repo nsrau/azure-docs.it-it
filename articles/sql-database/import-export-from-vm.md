@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
-ms.openlocfilehash: 9f694f3f0ec740d0a4e8dc4e6bf8845c408802c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61a85b2554bbd69541b3081f72525d2b7deed625
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75897845"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529240"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Importare o esportare un database SQL di Azure senza consentire ai servizi di Azure di accedere al serverImport or export an Azure SQL database without allowing Azure services to access the server
 
@@ -24,7 +24,7 @@ Questo articolo illustra come importare o esportare un database SQL di Azure qua
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
-Accedere al [portale](https://portal.azure.com/)di Azure .
+Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-the-azure-virtual-machine"></a>Creare la macchina virtuale di AzureCreate the Azure virtual machine
 
@@ -61,7 +61,7 @@ La procedura seguente illustra come connettersi alla macchina virtuale usando un
 
 4. Chiudere il modulo **Connettere la macchina virtuale**.
 5. Per connettersi alla VM, aprire il file RDP scaricato.
-6. Quando richiesto, selezionare **Connect** (Connetti). In Mac, è necessario un client RDP come questo [client Desktop remoto](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) disponibile nel Mac App Store.
+6. Quando richiesto, selezionare **Connect** (Connetti). In Mac, è necessario un client RDP come questo [client Desktop remoto](https://apps.apple.com/app/microsoft-remote-desktop-10/id1295203466?mt=12) disponibile nel Mac App Store.
 
 7. Immettere il nome utente e la password specificati al momento della creazione della macchina virtuale e quindi scegliere **OK**.
 
@@ -96,7 +96,7 @@ I passaggi seguenti consentono di creare una regola del firewall IP a livello di
 
 4. Scegliere **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP pubblico della macchina virtuale a una nuova regola del firewall IP a livello di server. Una regola del firewall IP a livello di server può aprire la porta 1433 per un singolo indirizzo IP o un intervallo di indirizzi IP.
 
-5. Selezionare **Salva**. Viene creata una regola del firewall IP a livello di server per l'indirizzo IP pubblico della macchina virtuale che apre la porta 1433 nel server di database SQL.
+5. Selezionare **Save** (Salva). Viene creata una regola del firewall IP a livello di server per l'indirizzo IP pubblico della macchina virtuale che apre la porta 1433 nel server di database SQL.
 
 6. Chiudere la pagina **Impostazioni del firewall**.
 

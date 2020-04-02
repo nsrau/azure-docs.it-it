@@ -7,19 +7,19 @@ ms.reviewer: itsagui
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: c014ed2c25711677617d3bf8ff5d2f0f968a3b14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 180196f2c368207b76811700fd845406098600df
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80301044"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529444"
 ---
 # <a name="configure-customer-managed-keys-using-the-azure-portal"></a>Configurare le chiavi gestite dal cliente tramite il portale di AzureConfigure customer-managed keys using the Azure portal
 
 > [!div class="op_single_selector"]
 > * [Portale](customer-managed-keys-portal.md)
 > * [C #](customer-managed-keys-csharp.md)
-> * [Modello di Azure Resource ManagerAzure Resource Manager template](customer-managed-keys-resource-manager.md)
+> * [Modello di Azure Resource Manager](customer-managed-keys-resource-manager.md)
 
 [!INCLUDE [data-explorer-configure-customer-managed-keys](../../includes/data-explorer-configure-customer-managed-keys.md)]
 
@@ -46,7 +46,7 @@ Questo articolo illustra come abilitare la crittografia delle chiavi gestite dal
 
     ![Salva la chiave gestita dal cliente](media/customer-managed-keys-portal/cmk-encryption-setting.png)
 
-Abilitando le chiavi gestite dal cliente per il cluster Azure Data Explorer, si creerà un'identità assegnata al sistema per il cluster, se non ne esiste una. Inoltre, si forniranno le autorizzazioni di visualizzazione necessarie per il cluster di Azure Data Explorer nell'insieme di credenziali delle chiavi selezionato e si otterranno le proprietà dell'insieme di credenziali delle chiavi. 
+Abilitando le chiavi gestite dal cliente per il cluster Azure Data Explorer, si creerà un'identità assegnata al sistema per il cluster, se non ne esiste una. Inoltre, si fornirà le autorizzazioni get, wrapKey e unwarpKey necessarie per il cluster di Azure Data Explorer nell'insieme di credenziali delle chiavi selezionato e ottenere le proprietà dell'insieme di credenziali delle chiavi. 
 
 > [!NOTE]
 > Selezionare **Disattivato** per rimuovere la chiave gestita dal cliente dopo che è stata creata.

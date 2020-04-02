@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: 33005bc286f7dc2c0ebed74bd9df0309e71346f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f501eb55f72811063ddf1d8e02a0ce2137d598f3
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73824826"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546303"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Panoramica dell'acceleratore di soluzioni di monitoraggio remoto
 
@@ -125,9 +125,6 @@ I processi Analisi di flusso di Azure recapitano i dati di telemetria provenient
 ### <a name="azure-time-series-insights"></a>Azure Time Series Insights
 
 [Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/) archivia i dati di telemetria provenienti dai dispositivi connessi all'acceleratore di soluzioni. Consente inoltre di visualizzare e interrogare i dati di telemetria del dispositivo nell'interfaccia utente Web della soluzione.
-
-> [!NOTE]
-> Azure Time Series Insights non è attualmente disponibile nel cloud Azure Cina. Le nuove distribuzioni dell'acceleratore di soluzioni di monitoraggio remoto nel cloud Azure Cina usano Cosmos DB per tutte le operazioni di archiviazione.
 
 ### <a name="configuration-microservice"></a>Microservizio configurazione
 

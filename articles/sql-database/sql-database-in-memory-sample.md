@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: e7e7fc44d5f8b46a66c698d3a33ceeab5b8625c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b707d67c88eb550d397134b2294c1c5b0e1f7f7d
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73810336"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528205"
 ---
 # <a name="in-memory-sample"></a>Esempio in memoria
 
@@ -41,7 +41,7 @@ Per altre informazioni, vedere:
 Per una dimostrazione più semplice e visivamente più interessante sulle prestazioni di OLTP in memoria, vedere:
 
 - Versione: [in-memory-oltp-demo-v1.0](https://github.com/Microsoft/sql-server-samples/releases/tag/in-memory-oltp-demo-v1.0)
-- Codice sorgente: [in-memory-oltp-demo-source-code](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/in-memory/ticket-reservations)
+- Codice sorgente: [in-memory-oltp-demo-source-code](https://github.com/microsoft/sql-server-samples/tree/master/samples/features/in-memory-database)
 
 #### <a name="installation-steps"></a>Procedura di installazione
 
@@ -393,7 +393,7 @@ In un database con piano tariffario P2 è possibile raggiungere circa 9X il guad
 
 #### <a name="deeper-information"></a>Approfondimenti
 
-- [Informazioni in Learn how Quorum doubles key database's workload while lowering DTU by 70% with In-Memory OLTP in SQL Databas](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database) (Il quorum raddoppia il carico di lavoro del database principale riducendo il DTU del 70% con OLTP in memoria nel database SQL)
+- [Scopri come quorum raddoppia il carico di lavoro del database delle chiavi riducendo il DTU del 70% con OLTP in memoria nel database SQL](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 - [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/) (Post di blog su OLTP nel database SQL di Azure)
 
@@ -407,7 +407,7 @@ In un database con piano tariffario P2 è possibile raggiungere circa 9X il guad
 
 #### <a name="application-design"></a>Progettazione di applicazioni
 
-- [OLTP in memoria (ottimizzazione in memoria)](https://msdn.microsoft.com/library/dn133186.aspx)
+- [OLTP in memoria (ottimizzazione per la memoria)](https://msdn.microsoft.com/library/dn133186.aspx)
 
 - [Usare OLTP in memoria in un'applicazione SQL di Azure esistenteUse In-Memory OLTP in an existing Azure SQL application](sql-database-in-memory-oltp-migration.md)
 

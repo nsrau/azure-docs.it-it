@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3ba5d74aa245fbcd9d43f2b4398387d7f59e202c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6077db0a09b09f7e4bfb859902da53b173845e55
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299508"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520778"
 ---
 ### <a name="portal"></a>Portale
 
@@ -42,7 +42,7 @@ L'impostazione di chiavi gestite dal cliente per i dischi richiederà di creare 
 
     ![Screenshot del riquadro Impostazioni delle risorse dell'insieme di credenziali delle chiavi. Mostra il pulsante Genera/Importa all'interno delle impostazioni.](media/virtual-machines-disk-encryption-portal/sse-key-vault-generate-settings.png)
 
-1. Lasciare entrambi tipo **di chiave** impostato su **RSA** e **Dimensione chiave RSA** impostata su **2080**.
+1. Lasciare entrambi tipo **di chiave** impostato su **RSA** e **Dimensione chiave RSA** impostata su **2048**.
 1. Compilare le selezioni rimanenti desiderate e quindi selezionare **Crea**.
 
     ![Screenshot del pulsante crea un pannello chiave che viene visualizzato dopo la generazione/importazione del pulsante](media/virtual-machines-disk-encryption-portal/sse-create-a-key-generate.png)
@@ -123,7 +123,7 @@ Per gestire e configurare la crittografia del disco nei https://aka.ms/diskencry
     ![Screenshot della macchina virtuale di esempio con il pannello Dischi aperto. Il disco del sistema operativo è evidenziato, come disco di esempio da selezionare.](media/virtual-machines-disk-encryption-portal/sse-existing-disk-select.png)
 
 1. Selezionare **Crittografia** e **Crittografia inattivi con una chiave gestita dal cliente,** quindi selezionare la crittografia del disco impostata nell'elenco a discesa.
-1. Selezionare **Salva**.
+1. Selezionare **Save** (Salva).
 
     ![Screenshot del disco del sistema operativo di esempio. Il pannello di crittografia è aperto, viene selezionata la crittografia inattivi con una chiave gestita dal cliente, nonché l'esempio di insieme di credenziali delle chiavi di Azure.The encryption blade is open, encryption at rest with a customer-managed key is selected, as well as your example Azure Key Vault. Dopo aver effettuato tali selezioni, viene selezionato il pulsante Salva.](media/virtual-machines-disk-encryption-portal/sse-encrypt-existing-disk-customer-managed-key.png)
 

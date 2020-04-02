@@ -6,14 +6,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/18/2019
+ms.date: 03/31/2020
 ms.author: tamram
-ms.openlocfilehash: 13adf6de420b54299d04a226dab81e75cbb9fef2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4e91aa59168deb18375bf86ae77f655ca3dab47
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75975780"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521283"
 ---
 # <a name="manage-storage-account-access-keys"></a>Gestire le chiavi di accesso dell'account di archiviazioneManage storage account access keys
 
@@ -52,6 +52,8 @@ Per ruotare le chiavi dell'account di archiviazione, seguire questa procedura:
 
 > [!NOTE]
 > Microsoft consiglia di usare solo una delle chiavi in tutte le applicazioni contemporaneamente. Se si usa la Chiave 1 in alcune posizioni e la Chiave 2 in altre, non si potranno ruotare le chiavi senza quale applicazione perda l'accesso.
+
+Per ruotare le chiavi di accesso di un account, l'utente deve essere un amministratore del servizio o deve essere assegnato un ruolo RBAC che include **Microsoft.Storage/storageAccounts/regeneratekey/action**. Alcuni ruoli RBAC predefiniti che includono questa azione sono i ruoli **Proprietario**, **Collaboratore**e **Ruolo ruolo servizio operatore chiave dell'account di archiviazione.** Per altre informazioni sul ruolo di amministratore del servizio, vedere Ruoli di amministratore della [sottoscrizione classica, ruoli di controllo degli accessi in](../../role-based-access-control/rbac-and-directory-admin-roles.md)base al ruolo di Azure e ruoli di Azure AD. Per informazioni dettagliate sui ruoli RBAC predefiniti per Archiviazione di Azure, vedere la sezione Archiviazione in Ruoli predefiniti di Azure per Controllo degli accessi in base al ruolo di Azure.For detailed information about built-in RBAC roles for Azure Storage, see the **Storage** section in [Azure built-in roles for Azure RBAC.](../../role-based-access-control/built-in-roles.md#storage)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

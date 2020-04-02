@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 78a290b1e2984719645fb4d4ff253ab021a0826e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: acf3e6273f98d98d5da55cfb5b044677116c44dc
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299040"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520802"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Crittografia dei dati per il database di Azure per MySQL tramite il portale di AzureData encryption for Azure Database for MySQL by using the Azure portal
 
@@ -49,7 +49,7 @@ Informazioni su come usare il portale di Azure per configurare e gestire la crit
 
    ![Panoramica dei criteri di accesso](media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png)
 
-3. Selezionare **Salva**.
+3. Selezionare **Save** (Salva).
 
 ## <a name="set-data-encryption-for-azure-database-for-mysql"></a>Impostare la crittografia dei dati per il database di Azure per MySQLSet data encryption for Azure Database for MySQL
 
@@ -61,11 +61,11 @@ Informazioni su come usare il portale di Azure per configurare e gestire la crit
 
    ![Screenshot del database di Azure per MySQL, con le opzioni di crittografia dei dati evidenziate](media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png)
 
-3. Selezionare **Salva**.
+3. Selezionare **Save** (Salva).
 
 4. Per assicurarsi che tutti i file (inclusi i file temporanei) siano completamente crittografati, riavviare il server.
 
-## <a name="restore-or-create-a-replica-of-the-server"></a>Ripristinare o creare una replica del server
+## <a name="using-data-encryption-for-restore-or-replica-servers"></a>Utilizzo della crittografia dei dati per il ripristino o i server di replicaUsing Data encryption for restore or replica servers
 
 Dopo aver crittografato il database di Azure per MySQL con la chiave gestita di un cliente archiviata in Key Vault, viene crittografata anche qualsiasi copia appena creata del server. È possibile eseguire questa nuova copia tramite un'operazione di ripristino locale o geografico oppure tramite un'operazione di replica (locale/tra aree). Quindi, per un server MySQL crittografato, è possibile utilizzare la seguente procedura per creare un server ripristinato crittografato.
 
@@ -93,132 +93,6 @@ Dopo aver crittografato il database di Azure per MySQL con la chiave gestita di 
 4. Dopo aver registrato l'entità servizio, riconvalidare nuovamente la chiave e il server riprende la normale funzionalità.
 
    ![Screenshot del database di Azure per MySQL, che mostra le funzionalità ripristinate](media/concepts-data-access-and-security-data-encryption/restore-successful.png)
-
-
-## <a name="using-an-azure-resource-manager-template-to-enable-data-encryption"></a>Uso di un modello di Azure Resource Manager per abilitare la crittografia dei datiUsing an Azure Resource Manager template to enable data encryption
-
-Oltre al portale di Azure, è anche possibile abilitare la crittografia dei dati nel database di Azure per il server MySQL usando i modelli di Azure Resource Manager per i server nuovi ed esistenti.
-
-### <a name="for-a-new-server"></a>Per un nuovo server
-
-Usare uno dei modelli di Azure Resource Manager creati in precedena per eseguire il provisioning del server con la crittografia dei dati abilitata: [Esempio con crittografia dei datiUse](https://github.com/Azure/azure-mysql/tree/master/arm-templates/ExampleWithDataEncryption) one of the pre-created Azure Resource Manager templates to provision the server with data encryption enabled: Example with Data encryption
-
-Questo modello di Azure Resource Manager crea un database di Azure per il server MySQL e usa **KeyVault** e **Key** passate come parametri per abilitare la crittografia dei dati nel server.
-
-### <a name="for-an-existing-server"></a>Per un server esistente
-Inoltre, è possibile usare i modelli di Azure Resource Manager per abilitare la crittografia dei dati nel database di Azure esistente per i server MySQL.Additionally, you can use Azure Resource Manager templates to enable data encryption on your existing Azure Database for MySQL servers.
-
-* Passare l'URI della chiave dell'insieme di `keyVaultKeyUri` credenziali delle chiavi di Azure copiato in precedenza nella proprietà nell'oggetto properties.
-
-* Utilizzare *2020-01-01-preview* come versione API.
-
-```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "location": {
-      "type": "string"
-    },
-    "serverName": {
-      "type": "string"
-    },
-    "keyVaultName": {
-      "type": "string",
-      "metadata": {
-        "description": "Key vault name where the key to use is stored"
-      }
-    },
-    "keyVaultResourceGroupName": {
-      "type": "string",
-      "metadata": {
-        "description": "Key vault resource group name where it is stored"
-      }
-    },
-    "keyName": {
-      "type": "string",
-      "metadata": {
-        "description": "Key name in the key vault to use as encryption protector"
-      }
-    },
-    "keyVersion": {
-      "type": "string",
-      "metadata": {
-        "description": "Version of the key in the key vault to use as encryption protector"
-      }
-    }
-  },
-  "variables": {
-    "serverKeyName": "[concat(parameters('keyVaultName'), '_', parameters('keyName'), '_', parameters('keyVersion'))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.DBforMySQL/servers",
-      "apiVersion": "2017-12-01",
-      "kind": "",
-      "location": "[parameters('location')]",
-      "identity": {
-        "type": "SystemAssigned"
-      },
-      "name": "[parameters('serverName')]",
-      "properties": {
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-05-01",
-      "name": "addAccessPolicy",
-      "resourceGroup": "[parameters('keyVaultResourceGroupName')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.DBforMySQL/servers', parameters('serverName'))]"
-      ],
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "resources": [
-            {
-              "type": "Microsoft.KeyVault/vaults/accessPolicies",
-              "name": "[concat(parameters('keyVaultName'), '/add')]",
-              "apiVersion": "2018-02-14-preview",
-              "properties": {
-                "accessPolicies": [
-                  {
-                    "tenantId": "[subscription().tenantId]",
-                    "objectId": "[reference(resourceId('Microsoft.DBforMySQL/servers/', parameters('serverName')), '2017-12-01', 'Full').identity.principalId]",
-                    "permissions": {
-                      "keys": [
-                        "get",
-                        "wrapKey",
-                        "unwrapKey"
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "name": "[concat(parameters('serverName'), '/', variables('serverKeyName'))]",
-      "type": "Microsoft.DBforMySQL/servers/keys",
-      "apiVersion": "2020-01-01-preview",
-      "dependsOn": [
-        "addAccessPolicy",
-        "[resourceId('Microsoft.DBforMySQL/servers', parameters('serverName'))]"
-      ],
-      "properties": {
-        "serverKeyType": "AzureKeyVault",
-        "uri": "[concat(reference(resourceId(parameters('keyVaultResourceGroupName'), 'Microsoft.KeyVault/vaults/', parameters('keyVaultName')), '2018-02-14-preview', 'Full').properties.vaultUri, 'keys/', parameters('keyName'), '/', parameters('keyVersion'))]"
-      }
-    }
-  ]
-}
-
-```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

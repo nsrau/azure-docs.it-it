@@ -2,13 +2,14 @@
 title: Supporto per la migrazione fisica del server in Azure MigrateSupport for physical server migration in Azure Migrate
 description: Informazioni sul supporto per la migrazione fisica dei server in Azure Migrate.Learn about support for physical server migration in Azure Migrate.
 ms.topic: conceptual
+ms.custom: fasttrack-edit
 ms.date: 01/07/2020
-ms.openlocfilehash: e55cf6dddbc8dafd33b444e4a0dbe378d807aea1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f8b94ab77a1eef8e771384f5d69da98a1d7ae6c
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79269549"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520277"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Matrice di supporto per la migrazione fisica dei serverSupport matrix for physical server migration
 
@@ -43,7 +44,7 @@ Nella tabella viene riepilogato il supporto per i server fisici di cui si deside
 **Rete/Archiviazione** | Per informazioni aggiornate, esaminare i prerequisiti di [rete](../site-recovery/vmware-physical-azure-support-matrix.md#network) e [archiviazione](../site-recovery/vmware-physical-azure-support-matrix.md#storage) per Site Recovery. Azure Migrate offre requisiti di rete/archiviazione identici.
 **Requisiti di Azure** | Per informazioni aggiornate, esaminare la rete di [Azure,](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover)i requisiti [di archiviazione](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)e [di calcolo](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) per Site Recovery. Azure Migrate ha requisiti identici per la migrazione del server fisico.
 **Servizio Mobility** | L'agente del servizio Mobility deve essere installato in ogni computer di cui si desidera eseguire la migrazione.
-**Stivale UEFI** | La macchina migrata in Azure verrà automaticamente convertita in una macchina virtuale di Azure di avvio del BIOS.<br/><br/> Il disco del sistema operativo deve avere fino a quattro partizioni e i volumi devono essere formattati con NTFS.
+**Stivale UEFI** | La macchina migrata in Azure verrà automaticamente convertita in una macchina virtuale di Azure di avvio del BIOS. Solo il server che esegue Windows Server 2012 e versioni successive supportato.<br/><br/> Il disco del sistema operativo deve avere fino a quattro partizioni e i volumi devono essere formattati con NTFS.
 **Disco di destinazione** | I computer possono essere migrati solo su dischi gestiti (HDD standard, SSD premium) in Azure.Machines can only be migrated to managed disks (standard HDD, premium SSD) in Azure.
 **Dimensioni disco** | Disco oS da 2 TB; 8 TB per i dischi dati.
 **Limiti del disco** |  Fino a 63 dischi per macchina.
@@ -85,7 +86,7 @@ VHD condiviso | Non supportato. | Il controllo ha esito negativo se non supporta
 Disco FC | Non supportato. | Il controllo ha esito negativo se non supportato.
 BitLocker | Non supportato. | Prima di abilitare la replica per un computer, occorre disabilitare BitLocker.
 Nome della VM. | Da 1 a 63 caratteri.<br/> Limitato a lettere, numeri e trattini.<br/><br/> Il nome del computer deve iniziare e terminare con una lettera o un numero. |  Aggiornare il valore nelle proprietà del computer in Site Recovery.
-Connettersi dopo la migrazione di Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:To connect to Azure VMs running Windows after migration:<br/> - Prima che la migrazione abiliti RDP nella macchina virtuale locale.- Before migration enables RDP on the on-premises VM. Assicurarsi che le regole TCP e UDP vengano aggiunte per il profilo **pubblico** e che RDP sia consentito in **Windows Firewall** > **Allowed Apps**per tutti i profili.<br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire RDP in **Windows Firewall** -> **Allowed apps and features** for Domain **and Private** networks. Verificare inoltre che il criterio SAN del sistema operativo sia impostato su **OnlineAll**. [Scopri di più](prepare-for-migration.md). |
+Connettersi dopo la migrazione di Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:To connect to Azure VMs running Windows after migration:<br/> - Prima che la migrazione abiliti RDP nella macchina virtuale locale.- Before migration enables RDP on the on-premises VM. Assicurarsi che le regole TCP e UDP vengano aggiunte per il profilo **pubblico** e che RDP sia consentito in **Windows Firewall** > **Allowed Apps**per tutti i profili.<br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire RDP in **Windows Firewall** -> **Allowed apps and features** for Domain **and Private** networks. Verificare inoltre che il criterio SAN del sistema operativo sia impostato su **OnlineAll**. [Altre informazioni](prepare-for-migration.md) |
 Connessione dopo la migrazione Linux | To connect to Azure VMs after migration using SSH:<br/> Prima della migrazione, nel computer locale, verificare che il servizio Secure Shell sia impostato su Avvia e che le regole del firewall consentano una connessione SSH.<br/> Dopo il failover, nella macchina virtuale di Azure, consentire le connessioni in ingresso alla porta SSH per le regole del gruppo di sicurezza di rete nella macchina virtuale di cui è stato eseguito il failover e per la subnet di Azure a cui è connessa. Aggiungere inoltre un indirizzo IP pubblico per la macchina virtuale. |  
 
 

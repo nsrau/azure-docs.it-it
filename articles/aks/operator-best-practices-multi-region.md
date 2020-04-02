@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 894ec4e543f0c68cc652141d2c1578cda61d7f42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c1f0bb715b3c3bf9b3a3350ab11e26834aa84c8
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77594745"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528653"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la continuità aziendale e il ripristino di emergenza nel servizio Azure Kubernetes
 
@@ -59,7 +59,7 @@ Per informazioni su come configurare gli endpoint e il routing, vedere Configura
 
 ### <a name="layer-7-application-routing-with-azure-front-door-service"></a>Routing delle applicazioni di livello 7 con Azure Front Door Service
 
-Gestione traffico usa DNS (livello 3) per modellare il traffico. [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) offre un'opzione di routing HTTP/HTTPS (livello 7). Le funzionalità aggiuntive di Azure Front Door Service includono la terminazione SSL, il dominio personalizzato, il firewall dell'applicazione Web, la riscrittura degli URL e l'affinità di sessione. Esaminare le esigenze di traffico dell'applicazione per determinare la soluzione più adatta.
+Gestione traffico usa DNS (livello 3) per modellare il traffico. [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) offre un'opzione di routing HTTP/HTTPS (livello 7). Le funzionalità aggiuntive di Azure Front Door Service includono la terminazione TLS, il dominio personalizzato, il firewall dell'applicazione Web, la riscrittura url e l'affinità di sessione. Esaminare le esigenze di traffico dell'applicazione per determinare la soluzione più adatta.
 
 ### <a name="interconnect-regions-with-global-virtual-network-peering"></a>Interconnettere le aree con il peering globale della rete virtuale
 
@@ -122,7 +122,7 @@ La strategia tipica consiste nel fornire un punto di archiviazione comune in cui
 Se si usano dischi gestiti di Azure, è possibile scegliere soluzioni di replica e ripristino di emergenza come queste:If you use Azure Managed Disks, you can choose replication and DR solutions such as these:
 
 * [Velero su Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
-* [Ripristino del sito di AzureAzure Site Recovery](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
+* [Azure Site Recovery](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
 
 ### <a name="application-based-asynchronous-replication"></a>Replica asincrona basata sull'applicazione
 

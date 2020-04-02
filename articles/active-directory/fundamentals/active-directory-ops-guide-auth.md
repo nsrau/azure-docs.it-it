@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: bc5824fcb62477d4e6dc6c2b7390b1bfa916094f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b4ec003888d75a582d25feef8ed2ce010fa7996
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77368050"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546242"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guida di riferimento alle operazioni di gestione dell'autenticazione di Azure Active DirectoryAzure Active Directory Authentication management operations reference guide
 
@@ -101,7 +101,7 @@ Se l'organizzazione locale non è priva di una strategia di resilienza dell'inte
 
 ![flusso di sincronizzazione dell'hash delle password](./media/active-directory-ops-guide/active-directory-ops-img5.png)
 
-Per comprendere meglio le opzioni di [autenticazione,](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)vedere Scegliere il metodo di autenticazione corretto per la soluzione di identità ibrida di Azure Active Directory.
+Per comprendere meglio le opzioni di [autenticazione,](https://docs.microsoft.com/azure/active-directory/hybrid/choose-ad-authn)vedere Scegliere il metodo di autenticazione corretto per la soluzione di identità ibrida di Azure Active Directory.
 
 ### <a name="programmatic-usage-of-credentials"></a>Utilizzo programmatico delle credenziali
 
@@ -115,7 +115,7 @@ Microsoft consiglia inoltre di contattare i proprietari dell'applicazione per co
 
 ### <a name="on-premises-authentication"></a>Autenticazione locale
 
-L'autenticazione federata con autenticazione integrata di Windows (IWA) o l'autenticazione gestita SSO (Seamless Single Sign-On) con sincronizzazione dell'hash delle password o l'autenticazione pass-through è la migliore esperienza utente quando si è all'interno della rete aziendale con linea di vista ai controller di dominio locali. Riduce al minimo l'affaticamento dei prompt delle credenziali e riduce il rischio di caduta di utenti preda di attacchi di phishing. Se si utilizza già l'autenticazione gestita dal cloud con PHS o PTA, ma gli utenti devono comunque digitare la password durante l'autenticazione in locale, è necessario distribuire immediatamente [Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso). D'altra parte, se si è attualmente federati con piani per la migrazione alla migrazione a autenticazione gestita dal cloud, è necessario implementare SSO senza problemi come parte del progetto di migrazione.
+L'autenticazione federata con autenticazione integrata di Windows (IWA) o l'autenticazione gestita SSO (Seamless Single Sign-On) con sincronizzazione dell'hash delle password o l'autenticazione pass-through è la migliore esperienza utente quando si è all'interno della rete aziendale con line-of-sight per i controller di dominio locali. Riduce al minimo l'affaticamento dei prompt delle credenziali e riduce il rischio di caduta di utenti preda di attacchi di phishing. Se si utilizza già l'autenticazione gestita dal cloud con PHS o PTA, ma gli utenti devono comunque digitare la password durante l'autenticazione in locale, è necessario distribuire immediatamente [Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso). D'altra parte, se si è attualmente federati con piani per la migrazione alla migrazione a autenticazione gestita dal cloud, è necessario implementare SSO senza problemi come parte del progetto di migrazione.
 
 ### <a name="device-trust-access-policies"></a>Criteri di accesso all'attendibilità dei dispositiviDevice trust access policies
 
@@ -205,7 +205,7 @@ Con [percorsi denominati](https://docs.microsoft.com/azure/active-directory/repo
 
 In base alla priorità, utilizzare la tabella seguente per trovare la soluzione consigliata più adatta alle esigenze dell'organizzazione:
 
-| **Priority** | **Scenario** | **Raccomandazione** |
+| **Priority** | **Scenario** | **Recommendation** |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | 1 | Se si utilizza PHS o PTA e le posizioni denominate non sono state definite | Definire posizioni denominate per migliorare il rilevamento degli eventi di rischio |
 | 2 | Se si è federati e non si utilizza no l'attestazione "insideCorporateNetwork" e i percorsi denominati non sono stati definiti | Definire posizioni denominate per migliorare il rilevamento degli eventi di rischio |
@@ -230,11 +230,11 @@ Se si possiedono già licenze di Azure AD Premium P2 che supportano l'uso di ris
 
 Microsoft Intune Application Management (MAM) offre la possibilità di eseguire il push dei controlli di protezione dei dati, ad esempio la crittografia di archiviazione, il PIN, la pulizia dell'archiviazione remota e così via alle applicazioni mobili client compatibili, ad esempio Outlook Mobile. Inoltre, è possibile creare criteri di accesso condizionale per [limitare l'accesso](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) ai servizi cloud, ad esempio Exchange Online da app approvate o compatibili.
 
-Se i dipendenti installano applicazioni che supportano MAM, ad esempio app per dispositivi mobili di Office, per accedere a risorse aziendali come Exchange Online o SharePoint Online e si supporta anche BYOD (portare il proprio dispositivo), è consigliabile distribuire i criteri MAM dell'applicazione per la gestione la configurazione dell'applicazione nei dispositivi di proprietà personale senza registrazione MDM e quindi aggiornare i criteri di accesso condizionale per consentire l'accesso solo dai client che supportano MAM.
+Se i dipendenti installano applicazioni che supportano MAM, ad esempio app per dispositivi mobili di Office, per accedere a risorse aziendali come Exchange Online o SharePoint Online e si supporta anche BYOD (portare il proprio dispositivo), è consigliabile distribuire i criteri MAM dell'applicazione per gestire la configurazione dell'applicazione nei dispositivi di proprietà personale senza registrazione MDM e quindi aggiornare i criteri di accesso condizionale per consentire l'accesso solo dai client con funzionalità MAM.
 
 ![Controllo Concessione di accesso condizionaleConditional Access Grant control](./media/active-directory-ops-guide/active-directory-ops-img12.png)
 
-Se i dipendenti installano applicazioni che supportano MAM nelle risorse aziendali e l'accesso è limitato nei dispositivi gestiti da Intune, è consigliabile distribuire i criteri MAM dell'applicazione per gestire la configurazione dell'applicazione per i dispositivi personali e aggiornare i criteri di accesso condizionale per consentire l'accesso solo dai client compatibili con MAM.
+Se i dipendenti installano applicazioni che supportano MAM rispetto alle risorse aziendali e l'accesso è limitato nei dispositivi gestiti da Intune, è consigliabile distribuire i criteri MAM dell'applicazione per gestire la configurazione dell'applicazione per i dispositivi personali e aggiornare i criteri di accesso condizionale per consentire l'accesso solo dai client compatibili con MAM.
 
 ### <a name="conditional-access-implementation"></a>Implementazione dell'accesso condizionaleConditional Access implementation
 
@@ -329,7 +329,7 @@ Di seguito sono riportate le impostazioni utente e gruppo che possono essere blo
 #### <a name="user-settings"></a>Impostazioni utente
 
 - **Utenti esterni:** la collaborazione esterna può avvenire in modo organico nell'organizzazione con servizi come Teams, Power BI, Sharepoint Online e Azure Information Protection. Se si dispone di vincoli espliciti per controllare la collaborazione esterna avviata dall'utente, è consigliabile abilitare gli utenti esterni usando la [gestione dei diritti](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) di Azure AD o un'operazione controllata, ad esempio tramite l'help desk. Se non si desidera consentire la collaborazione esterna organica per i servizi, è possibile impedire ai membri di [invitare completamente utenti esterni.](https://docs.microsoft.com/azure/active-directory/b2b/delegate-invitations) In alternativa, è anche possibile [consentire o bloccare domini specifici](https://docs.microsoft.com/azure/active-directory/b2b/allow-deny-list) negli inviti di utenti esterni.
-- **Registrazioni app:** quando le registrazioni delle app sono abilitate, gli utenti finali possono eseguire l'onboarding delle applicazioni e concedere l'accesso ai propri dati. Un esempio tipico di registrazione dell'app sono gli utenti che consentono ai plug-in di Outlook o agli assistenti vocali come Alexa e Siri di leggere la posta elettronica e il calendario o di inviare messaggi di posta elettronica per loro conto. Se il cliente decide di disattivare la registrazione delle app, i team InfoSec e IAM devono essere coinvolti nella gestione delle eccezioni (registrazioni delle applicazioni necessarie in base ai requisiti aziendali), in quanto avrebbero bisogno di registrare le applicazioni con un account amministratore, e molto probabilmente richiedono la progettazione di un processo per rendere operativo il processo.
+- **Registrazioni app:** quando le registrazioni delle app sono abilitate, gli utenti finali possono eseguire l'onboarding delle applicazioni e concedere l'accesso ai propri dati. Un esempio tipico di registrazione dell'app sono gli utenti che consentono ai plug-in di Outlook o agli assistenti vocali come Alexa e Siri di leggere la posta elettronica e il calendario o di inviare messaggi di posta elettronica per loro conto. Se il cliente decide di disattivare la registrazione delle app, i team InfoSec e IAM devono essere coinvolti nella gestione delle eccezioni (registrazioni delle app necessarie in base ai requisiti aziendali), in quanto avrebbero bisogno di registrare le applicazioni con un account amministratore e molto probabilmente richiedono la progettazione di un processo per rendere operativo il processo.
 - **Portale di amministrazione:** le organizzazioni possono bloccare il pannello di Azure AD nel portale di Azure in modo che gli utenti non amministratori non possano accedere alla gestione di Azure AD nel portale di Azure e confondersi. Passare alle impostazioni utente nel portale di gestione di Azure AD per limitare l'accesso:Go to the user settings in the Azure AD management portal to restrict access:
 
 ![Accesso limitato al portale di amministrazione](./media/active-directory-ops-guide/active-directory-ops-img13.png)

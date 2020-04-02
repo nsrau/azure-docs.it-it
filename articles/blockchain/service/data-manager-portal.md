@@ -1,15 +1,15 @@
 ---
 title: Configurare Blockchain Data Manager usando il portale di Azure - Servizio Blockchain di AzureConfigure Blockchain Data Manager using Azure portal - Azure Blockchain Service
 description: Creare e gestire il servizio Blockchain Data Manager per Azure Blockchain usando il portale di Azure.Create and manage Blockchain Data Manager for Azure Blockchain Service using the Azure portal.
-ms.date: 11/04/2019
+ms.date: 03/30/2020
 ms.topic: article
-ms.reviewer: chroyal
-ms.openlocfilehash: 03c22a7a23f1579a846746f21ce048b3425399c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: ravastra
+ms.openlocfilehash: beacef0660a253c90afb507618e8a1742f0c9d2d
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79273163"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529605"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Configurare Blockchain Data Manager con il portale di Azure
 
@@ -22,7 +22,7 @@ Per configurare un'istanza di Blockchain Data Manager, è necessario:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Guida [introduttiva completa: Creare un membro blockchain usando il portale di Azure](create-member.md) o Guida introduttiva: Creare un membro blockchain del servizio Blockchain di Azure usando l'interfaccia della riga di comando di AzureComplete Quickstart: Create a blockchain member using the Azure portal or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md)
+* Guida [introduttiva completa: Creare un membro blockchain usando il portale di Azure](create-member.md) o Guida introduttiva: Creare un membro blockchain del servizio Blockchain di Azure usando l'interfaccia della riga di comando di Azure.Complete Quickstart: Create a blockchain member using the Azure portal or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI.](create-member-cli.md) Il livello Standard di servizio di Azure Blockchain è consigliato quando si usa Blockchain Data Manager.Azure Blockchain Service *Standard* tier is recommended when using Blockchain Data Manager.
 * Creare un [argomento della griglia di eventiCreate](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) an Event Grid Topic
 * Informazioni su [Gestori eventi di Griglia di eventi di Azure](../../event-grid/event-handlers.md)
 
@@ -32,7 +32,7 @@ Un'istanza di Blockchain Data Manager connette e monitora un nodo della transazi
 
 Una connessione in uscita invia i dati della blockchain a Griglia di eventi di Azure. Quando si crea l'istanza, viene configurata una singola connessione in uscita. Blockchain Data Manager supporta più connessioni in uscita per gli argomenti di Griglia di eventi per qualsiasi istanza di Blockchain Data Manager specificata. È possibile inviare i dati della blockchain a una o più destinazioni. Per aggiungere un'altra destinazione, è sufficiente aggiungere altre connessioni in uscita all'istanza.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Passare al membro del servizio Blockchain di Azure che si vuole connettere a Blockchain Data Manager.Go to the Azure Blockchain Service member you want to connect to Blockchain Data Manager. Selezionare **Blockchain Data Manager**.
 1. Selezionare **Aggiungi**.
 

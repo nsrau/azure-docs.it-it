@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/28/2020
+ms.date: 03/31/2020
 ms.author: radeltch
-ms.openlocfilehash: 5e3512ce86bdf96a5e6cfcf0e4459b656a5ac5bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f1ae2c3c949e8bdbf30c8bef496177d56cd2dcbd
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77565860"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521400"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Disponibilità elevata di SAP HANA in macchine virtuali di Azure su Red Hat Enterprise Linux
 
@@ -263,9 +263,13 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
    sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
    </code></pre>
 
-   Creare i volumi logici. Quando si usa `lvcreate` senza l'opzione `-i`, viene creato un volume lineare. È consigliabile creare un volume con striping per migliorare le prestazioni di I/O. L'argomento `-i` deve corrispondere al numero del volume fisico sottostante. In questo documento vengono usati due volumi fisici per il volume di dati, quindi l'argomento dell'opzione `-i` è impostato su **2**. Un volume fisico viene usato per il volume di log, quindi non viene usata alcuna opzione `-i` in modo esplicito. Usare l'opzione `-i` e impostarla sul numero del volume fisico sottostante quando si usano più volumi fisici per ogni volume di dati, di log o condiviso.
+   Creare i volumi logici. Quando si usa `lvcreate` senza l'opzione `-i`, viene creato un volume lineare. È consigliabile creare un volume con striping per migliorare le prestazioni di I/O e allineare le dimensioni dello stripemento ai valori documentati nelle configurazioni di [archiviazione delle macchine virtuali SAP HANA.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) L'argomento `-i` deve essere il numero dei `-I` volumi fisici sottostanti e l'argomento è la dimensione dello stripe. In questo documento vengono usati due volumi fisici per il volume di dati, quindi l'argomento dell'opzione `-i` è impostato su **2**. La dimensione dello stripe per il volume di dati è **256KiB**. Un volume fisico viene utilizzato per `-i` il `-I` volume del log, pertanto non vengono utilizzate o opzioni in modo esplicito per i comandi del volume di log.  
 
-   <pre><code>sudo lvcreate <b>-i 2</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
+   > [!IMPORTANT]
+   > Usare l'opzione `-i` e impostarla sul numero del volume fisico sottostante quando si usano più volumi fisici per ogni volume di dati, di log o condiviso. Utilizzare `-I` l'interruttore per specificare la dimensione dello stripe, durante la creazione di un volume con striping.  
+   > Vedere Configurazioni di [archiviazione DI VM SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) per le configurazioni di archiviazione consigliate, incluse le dimensioni dello striping e il numero di dischi.  
+
+   <pre><code>sudo lvcreate <b>-i 2</b> <b>-I 256</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
    sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
    sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_<b>HN1</b>
    sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data

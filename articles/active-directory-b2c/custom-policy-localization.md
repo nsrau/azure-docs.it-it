@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1401cbe1920c7c6df804aadbba1751612ba9cf06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be12bce8fa29076621bec35228838a4ebdd97433
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79126786"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545864"
 ---
 # <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Localizzare l'interfaccia utente dell'applicazione usando criteri personalizzati in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-La personalizzazione della lingua in Azure Active Directory B2C (Azure AD B2C) consente di supportare lingue diverse in base alle esigenze del cliente. Microsoft fornisce le traduzioni per 36 lingue, ma è anche possibile inserire le proprie traduzioni per qualsiasi lingua. Anche se l'esperienza è disponibile per una sola lingua, è possibile personalizzare qualsiasi testo nelle pagine. 
+La personalizzazione della lingua in Azure Active Directory B2C (Azure AD B2C) consente di supportare lingue diverse in base alle esigenze del cliente. Microsoft fornisce le traduzioni per [36 lingue,](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-language-customization#supported-languages)ma è anche possibile fornire traduzioni personalizzate per qualsiasi lingua. Anche se l'esperienza è disponibile per una sola lingua, è possibile personalizzare qualsiasi testo nelle pagine. 
 
 Questo articolo illustra come supportare più impostazioni locali o lingue nel criterio per i percorsi utente. La localizzazione richiede tre passaggi: impostare l'elenco esplicito delle lingue supportate, fornire stringhe e raccolte specifiche della lingua e modificare la [definizione](contentdefinitions.md) del contenuto per la pagina. 
 

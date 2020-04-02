@@ -3,7 +3,7 @@ title: Procedure consigliate per la sicurezza con il controllo di accesso e iden
 description: Questo articolo illustra una serie di procedure consigliate per il controllo di accesso e la gestione delle identità usando le funzionalità integrate di Azure.
 services: security
 documentationcenter: na
-author: barclayn
+author: terrylanfear
 manager: RKarlin
 editor: TomSh
 ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
-ms.author: barclayn
-ms.openlocfilehash: 52ef3a9b1df058d5d2e954b424094f9dbaeba15b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: terrylan
+ms.openlocfilehash: ffd9919092cdf2481767e58f10ba6525d56ca4a8
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73053349"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548449"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedure consigliate per la sicurezza con il controllo di accesso e la gestione delle identità di Azure
 
@@ -269,7 +269,7 @@ Valutare gli account assegnati o idonei per il ruolo di amministratore globale. 
 **Procedura consigliata**: Richiedere che tutti gli account amministratore critici siano senza password (preferito) o che richiedano l'autenticazione a più fattori.
 **Dettagli :** Usare [l'app Microsoft Authenticator](/azure/active-directory/authentication/howto-authentication-phone-sign-in) per accedere a qualsiasi account Azure AD senza usare una password. Come [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification), Microsoft Authenticator utilizza l'autenticazione basata su chiave per abilitare una credenziale utente legata a un dispositivo e che utilizza l'autenticazione biometrica o un PIN.
 
-Richiedere Azure Multi-Factor Authentication all'accesso per tutti i singoli utenti assegnati in modo permanente a uno o più ruoli di amministratore di Azure AD: Amministratore globale, Amministratore con privilegi, Amministratore di Exchange Online e SharePoint OnlineRequire Azure Multi-Factor Authentication at sign-in for all individual users that are permanently assigned to one or more of the Azure AD admin roles: Global Administrator, Privileged Role Administrator, Exchange Online Administrator, and SharePoint Online Amministratore. Abilitare [Multi-Factor Authentication per gli account amministratore](/azure/active-directory/authentication/howto-mfa-userstates) e assicurarsi che gli utenti dell'account amministratore si siano registrati.
+Richiedere Azure Multi-Factor Authentication all'accesso per tutti i singoli utenti assegnati in modo permanente a uno o più ruoli di amministratore di Azure AD: Amministratore globale, Amministratore con privilegi, Amministratore di Exchange Online e Amministratore di SharePoint Online. Abilitare [Multi-Factor Authentication per gli account amministratore](/azure/active-directory/authentication/howto-mfa-userstates) e assicurarsi che gli utenti dell'account amministratore si siano registrati.
 
 **Procedura consigliata:** per gli account amministratore critici, disporre di una workstation di amministrazione in cui le attività di produzione non sono consentite, ad esempio esplorazione e posta elettronica. Questo proteggerà i tuoi account amministratore dai vettori di attacco che utilizzano la navigazione e la posta elettronica e ridurrà significativamente il rischio di incidenti gravi.
 **Dettaglio**: Utilizzare una workstation amministrativa. Scegliere un livello di sicurezza della workstation:

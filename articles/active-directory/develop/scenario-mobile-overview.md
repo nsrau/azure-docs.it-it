@@ -1,6 +1,6 @@
 ---
 title: Crea un'app per dispositivi mobili che chiami le API Web Azure
-titleSuffix: Microsoft identity platform
+titleSuffix: Microsoft identity platform | Azure
 description: Informazioni su come creare un'app per dispositivi mobili che chiama le API Web (panoramica)
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6675d67299091325fcc3e12572a906716bf5b88d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: acd44298e401aabaef03f5ddd84f37f32a3d8bcd
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77132427"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546084"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Scenario: applicazione mobile che chiama le API Web
 
@@ -53,13 +53,14 @@ Considerazioni per le app per dispositivi mobili:
 - **L'esperienza utente è fondamentale:** consente agli utenti di visualizzare il valore dell'app prima di chiedere l'accesso. Richiedere solo le autorizzazioni necessarie.
 - **Supporta tutte le configurazioni utente:** molti utenti aziendali mobili devono rispettare i criteri di accesso condizionale e i criteri di conformità dei dispositivi. Assicurarsi di supportare questi scenari chiave.
 - **Implementare Single Sign-On (SSO):** tramite MSAL e la piattaforma di identità Microsoft, è possibile abilitare l'accesso Single Sign-On tramite il browser del dispositivo o Microsoft Authenticator (e Intune Company Portal in Android).
+- **Implementa modalità dispositivo condiviso:** abilitare l'applicazione da utilizzare in scenari di dispositivi condivisi, ad esempio ospedali, produzione, vendita al dettaglio e finanza. [Ulteriori informazioni sul supporto della modalità dispositivo condiviso](msal-shared-devices.md).
 
 ## <a name="specifics"></a>Specifiche
 
 Quando crei un'app per dispositivi mobili sulla piattaforma Microsoft identity, tieni presenti le considerazioni seguenti:Keep in mind the following considerations when you build a mobile app on Microsoft identity platform:
 
 - A seconda della piattaforma, potrebbe essere necessaria un'interazione dell'utente al primo accesso degli utenti. Ad esempio, iOS richiede che le app mostrino l'interazione dell'utente quando usano SSO per la prima volta tramite Microsoft Authenticator (e Intune Company Portal in Android).
-- In iOS e Android, MSAL potrebbe utilizzare un browser esterno per accedere agli utenti. Il browser esterno potrebbe essere visualizzato nella parte superiore dell'app. È invece possibile personalizzare la configurazione in modo che utilizzi WebViews in-app.
+- In iOS e Android, MSAL potrebbe utilizzare un browser esterno per accedere agli utenti. Il browser esterno potrebbe essere visualizzato nella parte superiore dell'app.
 - Non utilizzare mai un segreto in un'applicazione mobile. In queste applicazioni, i segreti sono accessibili a tutti gli utenti.
 
 ## <a name="next-steps"></a>Passaggi successivi

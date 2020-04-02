@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: takamath
-ms.openlocfilehash: 2ddc56c60c547bd4ce48d620a83fb79246762bfb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 86304fc7776f49c999924b8609f2d26120cee372
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69642487"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549091"
 ---
 # <a name="enable-browser-connection-on-lab-virtual-machines"></a>Abilitare la connessione del browser nelle macchine virtuali labEnable browser connection on lab virtual machines 
 
 DevTest Labs si integra con [Azure Bastion](https://docs.microsoft.com/azure/bastion/), che consente di connettersi alle macchine virtuali tramite un browser. È innanzitutto necessario abilitare la connessione del browser nelle macchine virtuali lab.
 
-In qualità di proprietario di un lab è possibile abilitare l'accesso a tutte le macchine virtuali lab tramite un browser. Non è necessario un client, un agente o software aggiuntivo. Azure Bastion fornisce connettività RDP/SSH sicura e trasparente alle macchine virtuali direttamente nel portale di Azure tramite SSL. Quando ci si connette tramite Il Bastione di Azure, le macchine virtuali non richiedono un indirizzo IP pubblico. Per altre informazioni, vedere [Che cos'è il Bastione](../bastion/bastion-overview.md) di Azure.
+In qualità di proprietario di un lab è possibile abilitare l'accesso a tutte le macchine virtuali lab tramite un browser. Non è necessario un client, un agente o software aggiuntivo. Azure Bastion fornisce connettività RDP/SSH sicura e trasparente alle macchine virtuali direttamente nel portale di Azure tramite TLS. Quando ci si connette tramite Il Bastione di Azure, le macchine virtuali non richiedono un indirizzo IP pubblico. Per altre informazioni, vedere [Che cos'è il Bastione](../bastion/bastion-overview.md) di Azure.
 
 > [!NOTE]
 > L'abilitazione della connessione del browser nelle macchine virtuali lab è in anteprima.
@@ -38,7 +38,7 @@ Per informazioni su come distribuire un host Bastion in una rete virtuale, veder
 
 Per informazioni su come connettere il lab a una rete virtuale configurata da Bastion, vedere [Configurare una rete virtuale in Azure DevTest Labs.](devtest-lab-configure-vnet.md) Selezionare la rete virtuale in cui è distribuito l'host Bastion e **AzureBastionSubnet.** Ecco di seguito i passaggi dettagliati: 
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare **Tutti i servizi** nel menu di navigazione a sinistra. 
 1. Selezionare **DevTest Labs** dall'elenco. 
 1. Nell'elenco dei laboratori selezionare *il lab*. 

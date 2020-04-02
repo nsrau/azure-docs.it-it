@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: edeafb5730f06dac22fd9919ca42ea388d5fd0f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1aa3537679ee37cbc6085344d2f31ae4043d32bb
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79277180"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520667"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Associazioni di Archiviazione tabelle di Azure per Funzioni di Azure
 
@@ -310,7 +310,7 @@ Per altre informazioni su come usare CloudTable, vedere [Introduzione all'archiv
 Se si prova a eseguire l'associazione a `CloudTable` e si riceve un messaggio di errore, assicurarsi di fare riferimento alla [versione corretta di Storage SDK](#azure-storage-sdk-version-in-functions-1x).
 
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 L'esempio seguente illustra un'associazione di input della tabella in un file *function.json* e codice [JavaScript](functions-reference-node.md) che usa l'associazione. La funzione usa un trigger della coda per leggere una riga della tabella. 
 
@@ -536,7 +536,7 @@ L'account di archiviazione da usare è determinato nell'ordine seguente:
 
 Gli attributi non sono supportati dallo script di C.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Gli attributi non sono supportati da JavaScript.
 
@@ -564,7 +564,7 @@ Nella tabella seguente vengono illustrate le proprietà di configurazione dell'a
 |**rowKey (chiave di riga)** |**RowKey** | Facoltativa. Chiave di riga dell'entità della tabella da leggere. Vedere la sezione [relativa all'utilizzo](#input---usage) per istruzioni su come utilizzare questa proprietà.| 
 |**take** |**Prendere** | Facoltativa. Numero massimo di entità da leggere in JavaScript. Vedere la sezione [relativa all'utilizzo](#input---usage) per istruzioni su come utilizzare questa proprietà.| 
 |**ﬁltro** |**Filtro** | Facoltativa. Espressione di filtro OData per l'input della tabella in JavaScript. Vedere la sezione [relativa all'utilizzo](#input---usage) per istruzioni su come utilizzare questa proprietà.| 
-|**Connessione** |**Connessione** | Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Ad esempio, se `connection` si imposta "MyStorage", il runtime di Functions cerca un'impostazione dell'app denominata "MyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.|
+|**Connessione** |**Connessione** | Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. L'impostazione può essere il nome di un'impostazione dell'app con prefisso "AzureWebJobs" o il nome della stringa di connessione. Ad esempio, se il nome dell'impostazione è "AzureWebJobsMyStorage", è possibile specificare "MyStorage" qui. Il runtime di Funzioni cercherà automaticamente un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -596,7 +596,7 @@ Nella tabella seguente vengono illustrate le proprietà di configurazione dell'a
   > [!NOTE]
   > Il metodo `IQueryable` non è supportato nel [runtime di Funzioni v2](functions-versions.md). In alternativa, è possibile [usare un parametro del metodo paramName di CloudTable](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) per leggere la tabella tramite Azure Storage SDK. Se si prova a eseguire l'associazione a `CloudTable` e si riceve un messaggio di errore, assicurarsi di fare riferimento alla [versione corretta di Storage SDK](#azure-storage-sdk-version-in-functions-1x).
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Impostare le proprietà `filter` e `take`. Non impostare `partitionKey` o `rowKey`. È possibile accedere all'entità (o alle entità) della tabella di input usando `context.bindings.<BINDING_NAME>`. Gli oggetti deserializzati hanno le proprietà `RowKey` e `PartitionKey`.
 
@@ -696,7 +696,7 @@ public class Person
 
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 L'esempio seguente illustra un'associazione di output della tabella in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione scrive più entità della tabella.
 
@@ -921,7 +921,7 @@ Per un esempio completo, vedere [Output - esempio in C#](#output).
 
 Gli attributi non sono supportati dallo script di C.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Gli attributi non sono supportati da JavaScript.
 
@@ -967,7 +967,7 @@ Accedere all'entità della tabella `ICollector<T> paramName` di `IAsyncCollector
 
 In alternativa, è `CloudTable` possibile usare un parametro del metodo per scrivere nella tabella usando Azure Storage SDK.Alternatively you can use a method parameter to write to the table by using the Azure Storage SDK. Se si prova a eseguire l'associazione a `CloudTable` e si riceve un messaggio di errore, assicurarsi di fare riferimento alla [versione corretta di Storage SDK](#azure-storage-sdk-version-in-functions-1x).
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Accedere all'evento `context.bindings.<name>` di `<name>` output utilizzando where `name` è il valore specificato nella proprietà *di function.json*.
 
@@ -991,7 +991,7 @@ Sono disponibili due opzioni per l'output di una riga di archiviazione Table da 
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Associazione | Riferimento |
+| Associazione | Informazioni di riferimento |
 |---|---|
 | Tabella | [Codici di errore del servizio tabelle](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
 | Blob, Table, Queue | [Codici di errore di archiviazione](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
-ms.openlocfilehash: fb6094ec418d2b212759bddd2c4d49c7e6193849
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ed8e5eaa0ff9b58f80473b052aacfb9f01d45055
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73690711"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529213"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Connettersi al database SQL tramite C e C++
 
@@ -28,10 +28,10 @@ Assicurarsi di avere quanto segue:
 
 * Un account Azure attivo. Se non si ha un account, è possibile iscriversi per ottenere una [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * [Visual Studio](https://www.visualstudio.com/downloads/). Per compilare ed eseguire questo esempio, è necessario installare i componenti del linguaggio C++.
-* [Sviluppo di Linux per Visual Studio](https://visualstudiogallery.msdn.microsoft.com/725025cf-7067-45c2-8d01-1e0fd359ae6e). Se si esegue lo sviluppo su Linux, è anche necessario installare l'estensione di Visual Studio per Linux.
+* [Sviluppo di Linux per Visual Studio](https://docs.microsoft.com/cpp/linux/?view=vs-2019). Se si esegue lo sviluppo su Linux, è anche necessario installare l'estensione di Visual Studio per Linux.
 
 ## <a name="azure-sql-database-and-sql-server-on-virtual-machines"></a><a id="AzureSQL"></a>Database SQL di Azure ed SQL Server nelle macchine virtuali
-Azure SQL si basa su Microsoft SQL Server ed è progettato per garantire un servizio efficiente, scalabile e a disponibilità elevata. L'uso di SQL Azure presenta diversi vantaggi rispetto all'uso del database proprietario in esecuzione in locale. Con SQL Azure non è necessario installare, configurare, conservare o gestire il database, ma solo il contenuto e la struttura. Alcuni elementi tipici dei database che destano preoccupazione, ad esempio la ridondanza e la tolleranza di errore, sono incorporati.
+Azure SQL si basa su Microsoft SQL Server ed è progettato per garantire un servizio efficiente, scalabile e a disponibilità elevata. L'uso di SQL Azure presenta diversi vantaggi rispetto all'uso del database proprietario in esecuzione in locale. Con SQL Azure non è necessario installare, configurare, gestire o gestire il database, ma solo il contenuto e la struttura del database. Alcuni elementi tipici dei database che destano preoccupazione, ad esempio la ridondanza e la tolleranza di errore, sono incorporati.
 
 Azure attualmente offre due opzioni per l'hosting dei carichi di lavoro su SQL Server: database SQL di Azure, database come servizio ed SQL Server in Macchine virtuali (VM). Non verranno qui descritte nel dettaglio le differenze tra queste due opzioni. Il database SQL di Azure rappresenta tuttavia la soluzione migliore per le nuove applicazioni basate sul cloud per sfruttare la riduzione dei costi e l'ottimizzazione delle prestazioni offerte dai servizi cloud. Se si intende eseguire la migrazione o estendere le applicazioni locali al cloud, SQL server nella macchina virtuale di Azure può rappresentare l'opzione più appropriata. Per semplicità, in questo articolo verrà creato un database SQL di Azure.
 
@@ -77,7 +77,7 @@ In alternativa, è possibile creare un file DSN mediante la procedura guidata av
 Congratulazioni! È stata correttamente stabilita una connessione ad Azure SQL mediante C++ e ODBC in Windows. È possibile continuare la lettura per eseguire la stessa operazione sulla piattaforma Linux.
 
 ## <a name="step-5-connecting-from-a-linux-cc-application"></a><a id="Linux"></a>Passaggio 5: Connessione da un'applicazione C/C++ per Linux
-Visual Studio ora consente di sviluppare anche applicazioni C++ per Linux. Per informazioni su questo nuovo scenario, vedere il blog [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/20../../visual-c-for-linux-development/) (Visual C++ per sviluppo di applicazioni Linux). Per la compilazione per Linux è necessario un computer remoto in cui è in esecuzione la distribuzione Linux. Se non si ha disponibile un computer remoto con Linux, è possibile configurarlo rapidamente seguendo i passaggi presenti nell'articolo [Linux Azure Virtual machines](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Macchine virtuali di Linux in Azure).
+Nel caso in cui non avete ancora sentito la notizia, Visual Studio ora consente di sviluppare l'applicazione Linux C . Per informazioni su questo nuovo scenario, vedere il blog [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/20../../visual-c-for-linux-development/) (Visual C++ per sviluppo di applicazioni Linux). Per la compilazione per Linux è necessario un computer remoto in cui è in esecuzione la distribuzione Linux. Se non ne è disponibile uno, è possibile configurarne uno rapidamente usando [macchine virtuali di Azure Linux.](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Per questa esercitazione, si supponga di avere configurata una distribuzione di Linux Ubuntu 16.04. I passaggi qui di seguito si applicano anche a Ubuntu 15.10, Red Hat 6 e Red Hat 7.
 

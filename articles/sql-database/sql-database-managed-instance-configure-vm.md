@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: 7273c7b1dbf5eb6c855b95a8661f38bd4bd14af7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b5dce0b43fac7cfd0e974f26451338ca1541f8f
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73839054"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528409"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Guida introduttiva: Configurare una macchina virtuale di Azure per la connessione a un'istanza gestita di database SQL di Azure
 
@@ -28,7 +28,7 @@ Come punto di partenza, questo argomento di avvio rapido usa le risorse create i
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
-Accedere al [portale](https://portal.azure.com/)di Azure .
+Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-new-subnet-in-the-managed-instance-vnet"></a>Creare una nuova subnet nella rete virtuale dell'istanza gestita
 
@@ -120,7 +120,7 @@ La procedura seguente illustra come connettersi alla macchina virtuale appena cr
 
 4. Chiudere il modulo **Connettere la macchina virtuale**.
 5. Per connettersi alla VM, aprire il file RDP scaricato.
-6. Quando richiesto, selezionare **Connect** (Connetti). In Mac, è necessario un client RDP come questo [client Desktop remoto](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) disponibile nel Mac App Store.
+6. Quando richiesto, selezionare **Connect** (Connetti). In Mac, è necessario un client RDP come questo [client Desktop remoto](https://apps.apple.com/app/microsoft-remote-desktop-10/id1295203466?mt=12) disponibile nel Mac App Store.
 
 7. Immettere il nome utente e la password specificati al momento della creazione della macchina virtuale e quindi scegliere **OK**.
 

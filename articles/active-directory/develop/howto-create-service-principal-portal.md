@@ -8,16 +8,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 04/01/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: c5f65adfe401f2f6e99234d08b8e8dabeff7d5db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1ee8e90d1d690315b2727a050e0383d7d28dc03
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264115"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546147"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedure: Usare il portale per creare un'applicazione Azure Active Directory (Azure AD) e un'entità servizio che possano accedere alle risorse
 
@@ -99,7 +99,7 @@ Esportare il certificato in un file utilizzando lo snap-in MMC [Gestisci certifi
 
 1. Per visualizzare i certificati, in **Certificati - Utente corrente** nel riquadro sinistro espandere La directory **Personale.**
 1. Fare clic con il pulsante destro del mouse sul certificato creato, selezionare **Tutte le attività >Esporta**.
-1. Seguire l'Esportazione guidata certificati.  Esportare la chiave privata, specificare una password per il file certificato ed esportare in un file.
+1. Seguire l'Esportazione guidata certificati.  Non esportare la chiave privata ed esportarla in un file . file CER.
 
 Per caricare il certificato:
 
@@ -148,7 +148,7 @@ Tenere presente che potrebbe essere necessario configurare le autorizzazioni agg
 1. Nel riquadro sinistro selezionare **Impostazioni utente**.
 1. Controllare l'impostazione **Registrazioni per l'app**. Questo valore può essere impostato solo da un amministratore. Se è impostato su **Sì**, qualsiasi utente nel tenant di Azure AD può registrare un'app.
 
-Se l'impostazione relativa alle registrazioni dell'app è impostata su **No**, solo gli utenti con un ruolo di amministratore possono registrare questi tipi di applicazioni. Vedere [Ruoli disponibili](../users-groups-roles/directory-assign-admin-roles.md#available-roles) e [Autorizzazioni dei ruoli](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) per informazioni sui ruoli di amministratore disponibili e le specifiche autorizzazioni di Azure AD assegnate a ogni ruolo. Se all'account è assegnato il ruolo Utente, ma l'impostazione di registrazione dell'app è limitata agli utenti amministratori, chiedi all'amministratore di assegnare uno dei ruoli di amministratore che possono creare e gestire tutti gli aspetti delle registrazioni delle app o per consentire agli utenti di registrarsi Applicazioni.
+Se l'impostazione relativa alle registrazioni dell'app è impostata su **No**, solo gli utenti con un ruolo di amministratore possono registrare questi tipi di applicazioni. Vedere [Ruoli disponibili](../users-groups-roles/directory-assign-admin-roles.md#available-roles) e [Autorizzazioni dei ruoli](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) per informazioni sui ruoli di amministratore disponibili e le specifiche autorizzazioni di Azure AD assegnate a ogni ruolo. Se all'account è assegnato il ruolo Utente, ma l'impostazione di registrazione dell'app è limitata agli utenti amministratori, chiedi all'amministratore di assegnare uno dei ruoli di amministratore che possono creare e gestire tutti gli aspetti delle registrazioni delle app o per consentire agli utenti di registrare le app.
 
 ### <a name="check-azure-subscription-permissions"></a>Controllare le autorizzazioni di sottoscrizione di Azure
 
@@ -158,7 +158,7 @@ Per controllare le proprie autorizzazioni di sottoscrizione:
 
 1. Cercare e selezionare **Abbonamenti**oppure selezionare **Abbonamenti** nella **home** page.
 
-   ![Ricerca](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Cerca](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. Selezionare la sottoscrizione in cui si vuole creare l'entità servizio.
 

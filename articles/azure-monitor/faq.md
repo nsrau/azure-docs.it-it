@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/26/2020
-ms.openlocfilehash: 777e4e1f8fdd05345d949fe8c78b4a5b1953b8b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 306d847c2bc5af72d37dbf8bf472a5bae63e9fd5
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298253"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528510"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Domande frequenti su Monitoraggio di AzureAzure Monitor Frequently Asked Questions
 
@@ -177,7 +177,7 @@ Specificare un [gruppo](platform/action-groups.md) di azioni esistente o nuovo i
 
 
 ### <a name="what-are-the-firewall-requirements-for-azure-monitor-agents"></a>Quali sono i requisiti del firewall per gli agenti di Monitoraggio di Azure?
-Per informazioni dettagliate sui requisiti del firewall, vedere Requisiti del firewall di [rete.](platform/log-analytics-agent.md#network-firewall-requirements)
+Per informazioni dettagliate sui requisiti del firewall, vedere Requisiti del firewall di [rete.](platform/log-analytics-agent.md#firewall-requirements)
 
 
 ## <a name="visualizations"></a>Visualizzazioni
@@ -259,7 +259,7 @@ In Esplora soluzioni fare clic con il pulsante destro del mouse su `ApplicationI
 
 Un'app desktop che è possibile usare nel server Web IIS per configurare Application Insights nelle app Web. Non raccoglie dati di telemetria: è possibile interromperlo se non si sta configurando un'app. 
 
-[Scopri di più](app/monitor-performance-live-website-now.md#questions).
+[Altre informazioni](app/monitor-performance-live-website-now.md#questions)
 
 ### <a name="what-telemetry-is-collected-by-application-insights"></a>Quali dati di telemetria vengono raccolti da Application Insights?
 
@@ -305,7 +305,7 @@ Viene cercato l'indirizzo IP (IPv4 o IPv6) del client Web tramite [GeoLite2](htt
 * Per altre informazioni su come vengono raccolti i dati relativi all'indirizzo IP e alla georilevazione, vedere Application [Insights.](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection)
 
 
-È possibile configurare `ClientIpHeaderTelemetryInitializer` per ottenere l'indirizzo IP da un'intestazione diversa. Ad esempio, in alcuni sistemi viene spostato da un proxy, da un bilanciamento del carico o da una rete CDN a `X-Originating-IP`. [Scopri di più](https://apmtips.com/blog/2016/07/05/client-ip-address/).
+È possibile configurare `ClientIpHeaderTelemetryInitializer` per ottenere l'indirizzo IP da un'intestazione diversa. Ad esempio, in alcuni sistemi viene spostato da un proxy, da un bilanciamento del carico o da una rete CDN a `X-Originating-IP`. [Altre informazioni](https://apmtips.com/blog/2016/07/05/client-ip-address/)
 
 È possibile [usare Power BI](app/export-power-bi.md ) per visualizzare i dati di telemetria della richiesta in una mappa.
 

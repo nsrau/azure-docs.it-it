@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: d4304abf0ca089fbbea86f12cd03dea836db612e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f44be4e1d3d1186f0122bd4669ae800ab42e31d6
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77368364"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521301"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>Autorizzare l'accesso a Hub eventi di Azure
 Ogni volta che si pubblicano o si utilizzano eventi/dati da un hub eventi, il client tenta di accedere alle risorse di Hub eventi. Ogni richiesta a una risorsa protetta deve essere autorizzata in modo che il servizio possa garantire che il client disponga delle autorizzazioni necessarie per pubblicare/utilizzare i dati. 
@@ -39,7 +39,7 @@ Le firme di accesso condiviso per le risorse di Hub eventi forniscono un accesso
 
 L'autorizzazione di utenti o applicazioni tramite un token OAuth 2.0 restituito da Azure AD offre una sicurezza e un utilizzo superiori rispetto alle firme di accesso condiviso. Con Azure AD non è necessario archiviare i token di accesso con il codice e rischiare potenziali vulnerabilità della sicurezza. Sebbene sia possibile continuare a usare le firme di accesso condiviso per concedere un accesso granulare alle risorse di Hub eventi, Azure AD offre funzionalità simili senza la necessità di gestire i token di firma di accesso condiviso o preoccuparsi di revocare una firma di accesso condiviso compromessa. 
 
-Per impostazione predefinita, tutte le risorse di Hub eventi sono protette e sono disponibili solo per il proprietario dell'account. Sebbene sia possibile utilizzare una delle strategie di autorizzazione descritte in precedenza per concedere ai client l'accesso alle risorse dell'Hub eventi. Solo le risorse di Hub eventi create con il modello di distribuzione di Azure Resource Manager supportano l'autorizzazione di Azure AD. Microsoft consiglia di usare Azure AD quando possibile per garantire la massima sicurezza e facilità d'uso.
+Per impostazione predefinita, tutte le risorse di Hub eventi sono protette e sono disponibili solo per il proprietario dell'account. Sebbene sia possibile utilizzare una delle strategie di autorizzazione descritte in precedenza per concedere ai client l'accesso alle risorse dell'Hub eventi. Microsoft consiglia di usare Azure AD quando possibile per garantire la massima sicurezza e facilità d'uso.
 
 Per altre informazioni sull'autorizzazione tramite sAS, vedere [Autorizzazione dell'accesso alle risorse di Hub eventi tramite firme](authorize-access-shared-access-signature.md)di accesso condiviso .
 

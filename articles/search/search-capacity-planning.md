@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/14/2020
-ms.openlocfilehash: e2ba5301b81b1a6f5de696ab4587cd8ff43e3c68
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: 270ff3c3e8e4cffbb1f4b1987ee497530d0c0982
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462565"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546252"
 ---
 # <a name="adjust-capacity-in-azure-cognitive-search"></a>Regolare la capacità in Ricerca cognitiva di AzureAdjust capacity in Azure Cognitive Search
 
@@ -38,7 +38,8 @@ Un singolo servizio deve disporre di risorse sufficienti per gestire tutti i car
 
 Come regola generale, le applicazioni di ricerca tendono ad avere bisogno di più repliche rispetto alle partizioni, in particolare quando le operazioni del servizio sono orientate verso carichi di lavoro di query. La sezione relativa alla [disponibilità elevata](#HA) spiega perché.
 
-L'aggiunta di altre repliche o partizioni aumenta il costo di esecuzione del servizio. Assicurati di controllare il [calcolatore](https://azure.microsoft.com/pricing/calculator/) dei prezzi per comprendere le implicazioni di fatturazione dell'aggiunta di altri nodi. Il [grafico seguente](#chart) consente di fare un riferimento incrociato al numero di unità di ricerca necessarie per una configurazione specifica.
+> [!NOTE]
+> L'aggiunta di più repliche o partizioni aumenta il costo di esecuzione del servizio e può introdurre lievi variazioni nella modalità di ordinaggio dei risultati. Assicurati di controllare il [calcolatore](https://azure.microsoft.com/pricing/calculator/) dei prezzi per comprendere le implicazioni di fatturazione dell'aggiunta di altri nodi. Il [grafico seguente](#chart) consente di fare un riferimento incrociato al numero di unità di ricerca necessarie per una configurazione specifica. Per ulteriori informazioni sull'impatto di repliche aggiuntive sull'elaborazione delle query, vedere [Ordinamento dei risultati.](search-pagination-page-layout.md#ordering-results)
 
 ## <a name="how-to-allocate-replicas-and-partitions"></a>Come allocare repliche e partizioni
 

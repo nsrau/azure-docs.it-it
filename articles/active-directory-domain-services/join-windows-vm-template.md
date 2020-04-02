@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: c9b25fe7bc47e05972aebb194e9d94c1ea6dd247
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 19e4033b462cda9511ee45420bd4c1a76cc36b92
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78298735"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518963"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Aggiungere una macchina virtuale Windows Server a un dominio gestito di Servizi di dominio Azure Active Directory usando un modello di Resource Manager
 
@@ -29,7 +29,7 @@ Questo articolo illustra come creare e aggiungere una macchina virtuale di Windo
 Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti:
 
 * Una sottoscrizione di Azure attiva.
-    * Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * Se non si dispone di una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un tenant di Azure Active Directory associato alla sottoscrizione, sincronizzato con una directory locale o con una directory solo cloud.
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
 * Un dominio gestito di Azure Active Directory Domain Services abilitato e configurato nel tenant di Azure AD.

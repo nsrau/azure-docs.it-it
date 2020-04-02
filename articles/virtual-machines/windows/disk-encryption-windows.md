@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ed64ee3d0e024c32be08ed4e010a6933033c3f87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e96f9484c103ebe75e21705b94cf35b9e16c54f
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476519"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529343"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Scenari di crittografia dischi di Azure per macchine virtuali Windows
 
@@ -251,6 +251,8 @@ Crittografia disco di Azure non funziona per gli scenari, le funzionalità e la 
 - Dischi del sistema operativo effimeri.
 - Crittografia di file system condivisi/distribuiti come (ma non solo) DFS, GFS, DRDB e CephFS.
 - Spostamento di macchine virtuali crittografate in un'altra sottoscrizione.
+- Macchine virtuali Gen2 (vedere: Supporto per macchine virtuali di generazione 2 in Azure) Gen2 (vedere: [Supporto per macchine virtuali di generazione 2 in Azure)](generation-2.md#generation-1-vs-generation-2-capabilities)
+- VMs serie Lsv2 (vedere: [Lsv2-serie](../lsv2-series.md))
 
 ## <a name="next-steps"></a>Passaggi successivi
 

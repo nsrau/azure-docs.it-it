@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: b2af392dc4dc848a099b8297bb58e7d4a7104fa6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3aee30e8ad82f9657c3bc9e97a7657a1e8c7989d
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76964040"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548919"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Distribuire un modulo di sicurezza nel dispositivo IoT Edge
 
@@ -96,7 +96,7 @@ Complete each step to complete your IoT Edge deployment for Azure Security Cente
 1. Nella scheda **Impostazioni modulo twin** aggiungere la seguente configurazione:
       
     ``` json
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{}
+      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
     ```
 
 1. Selezionare **Aggiorna**.
@@ -131,7 +131,7 @@ Complete each step to complete your IoT Edge deployment for Azure Security Cente
     }
     ```
     
-1. Selezionare **Salva**.
+1. Selezionare **Save** (Salva).
    
 1. Fare clic su **Avanti**.
 

@@ -1,6 +1,6 @@
 ---
-title: Crittografia delle risorse sicure nell'automazione
-description: L'automazione di Azure protegge gli asset protetti usando più livelli di crittografia. Per impostazione predefinita, la crittografia viene eseguita utilizzando chiavi gestite da Microsoft.By default, the encryption is done using Microsoft-managed keys. I clienti possono configurare i propri account di automazione per l'utilizzo di chiavi gestite dal cliente per la crittografia. In questo articolo vengono descritti i dettagli di entrambe le modalità di crittografia e come è possibile passare tra le due.
+title: Crittografare gli asset protetti in Automazione di AzureEncrypt secure assets in Azure Automation
+description: Automazione di Azure protegge gli asset protetti usando più livelli di crittografia. Per impostazione predefinita, la crittografia viene eseguita utilizzando chiavi gestite da Microsoft.By default, the encryption is done using Microsoft-managed keys. I clienti possono configurare i propri account di automazione per l'utilizzo di chiavi gestite dal cliente per la crittografia. In questo articolo vengono descritti i dettagli di entrambe le modalità di crittografia e come è possibile passare tra le due.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,18 +9,18 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: 3c21e2fcdde9bffac91af56d49dfa0bf336e8c0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b1d194209122fa71272243c80a2d4c57f6834a1
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78246242"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547764"
 ---
-# <a name="secure-assets-in-azure-automation"></a>Proteggere gli asset nell'automazione di AzureSecure assets in Azure Automation
+# <a name="encrypt-secure-assets-in-azure-automation"></a>Crittografare gli asset protetti in Automazione di AzureEncrypt secure assets in Azure Automation
 
 Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Queste risorse sono protette in Automazione di Azure usando più livelli di crittografia. In base alla chiave di primo livello utilizzata per la crittografia, sono disponibili due modelli per la crittografia:
--   Utilizzo di chiavi gestite da MicrosoftUsing Microsoft-managed keys
--   Utilizzo di chiavi gestite dal cliente
+-    Utilizzo di chiavi gestite da MicrosoftUsing Microsoft-managed keys
+-    Utilizzo di chiavi gestite dal cliente
 
 ## <a name="microsoft-managed-keys"></a>Chiavi gestite da Microsoft
 
@@ -40,7 +40,7 @@ Quando si abilita la crittografia con chiavi gestite dal cliente per un account 
 
 Un nuovo account di automazione viene sempre crittografato utilizzando chiavi gestite da Microsoft.A new Automation account is always encrypted using Microsoft-managed keys. Non è possibile abilitare le chiavi gestite dal cliente al momento della creazione dell'account. Le chiavi gestite dal cliente vengono archiviate in Archivio chiavi di Azure e è necessario eseguire il provisioning dell'insieme di credenziali delle chiavi con criteri di accesso che concedono le autorizzazioni chiave all'identità gestita associata all'account di automazione. L'identità gestita è disponibile solo dopo la creazione dell'account di archiviazione.
 
-Quando si modifica la chiave usata per la crittografia degli asset protetti di Automazione di Automazione di Azure, abilitando o disabilitando le chiavi gestite dal cliente, aggiornando la versione della chiave o specificando una chiave diversa, la crittografia della chiave di crittografia dell'account cambia, ma gli asset sicuri in Non è necessario crittografare nuovamente l'account di Automazione di Azure.Your Azure Automation account do not need to be re-encrypted.
+Quando si modifica la chiave usata per la crittografia degli asset sicura di Automazione di Azure, abilitando o disabilitando le chiavi gestite dal cliente, aggiornando la versione della chiave o specificando una chiave diversa, la crittografia della chiave di crittografia dell'account cambia ma gli asset sicuri nell'account di Automazione di Azure non devono essere crittografati nuovamente.
 
 Nelle tre sezioni seguenti vengono descritti i meccanismi di abilitazione delle chiavi gestite dal cliente per un account di automazione. 
 

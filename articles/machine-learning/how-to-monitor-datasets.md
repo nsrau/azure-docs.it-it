@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/04/2019
-ms.openlocfilehash: 401019c537cb0eb51fa6002637e170a79210f7d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a7a89b4ff1f6deb94c545e64b4584d7959d573a
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77617642"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546387"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Rilevare la deriva dei dati (anteprima) nei set di datiDetect data drift (preview) on datasets
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,7 +37,7 @@ Le metriche e le informazioni dettagliate sono disponibili tramite la risorsa [D
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per creare e utilizzare i monitordi dati, è necessario:To create and work with dataset monitors, you need:
-* Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 * Area di lavoro di [Azure Machine Learning](how-to-manage-workspace.md).
 * [Azure Machine Learning SDK per Python è installato,](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)che include il pacchetto azureml-datasets.
 * Dati strutturati (tabulari) con un timestamp specificato nel percorso del file, nel nome file o nella colonna dei dati.
@@ -77,7 +77,7 @@ Il set di dati `timeseries` di destinazione deve avere il tratto impostato su di
 
 #### <a name="python-sdk"></a>Python SDK
 
-Il [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) metodo [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) della classe definisce la colonna timestamp per il set di dati. 
+Il [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) metodo [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) della classe definisce la colonna timestamp per il set di dati. 
 
 ```python 
 from azureml.core import Workspace, Dataset, Datastore
@@ -104,7 +104,7 @@ dset = dset.with_timestamp_columns('date')
 dset = dset.register(ws, 'target')
 ```
 
-Per un esempio completo `timeseries` dell'utilizzo dell'tratti dei set di dati, vedere il [blocco appunti](https://aka.ms/azureml-tsd-notebook) di esempio o la [documentazione sdk](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-)dei dataset .
+Per un esempio completo `timeseries` dell'utilizzo dell'tratti dei set di dati, vedere il [blocco appunti](https://aka.ms/azureml-tsd-notebook) di esempio o la [documentazione sdk](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)dei dataset .
 
 #### <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]

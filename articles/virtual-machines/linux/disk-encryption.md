@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: f50115732940eab14db30842be85b47cb4a552e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 88d25083a1105023279f3907a4573319fabe087c
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299509"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520753"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Crittografia lato server dei dischi gestiti di AzureServer-side encryption of Azure managed disks
 
@@ -68,7 +68,7 @@ Per il momento, le chiavi gestite dal cliente hanno le restrizioni seguenti:For 
 
 - Se questa funzionalità è abilitata per il disco, non è possibile disabilitarla.
     Se è necessario risolvere questo problema, è necessario [copiare tutti i dati](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) in un disco gestito completamente diverso che non utilizza chiavi gestite dal cliente.
-- Sono supportate solo [chiavi RSA "soft" e "hard"](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) di dimensioni 2080, senza altre chiavi o dimensioni.
+- Sono supportate solo [chiavi RSA "soft" e "hard"](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) di dimensioni 2048, senza altre chiavi o dimensioni.
 - I dischi creati da immagini personalizzate crittografate utilizzando la crittografia lato server e le chiavi gestite dal cliente devono essere crittografati utilizzando le stesse chiavi gestite dal cliente e devono trovarsi nella stessa sottoscrizione.
 - Gli snapshot creati da dischi crittografati con crittografia lato server e chiavi gestite dal cliente devono essere crittografati con le stesse chiavi gestite dal cliente.
 - Le immagini personalizzate crittografate utilizzando la crittografia lato server e le chiavi gestite dal cliente non possono essere utilizzate nella raccolta immagini condivise.

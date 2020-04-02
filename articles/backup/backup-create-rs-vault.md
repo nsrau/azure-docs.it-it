@@ -4,12 +4,12 @@ description: In questo articolo viene illustrato come creare insiemi di credenzi
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: e722996f516d21445d8e0028df925ca44eb02bfc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 38f23ee458845b92c04af47307a2411b26c8ac81
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295009"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529389"
 ---
 # <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
@@ -90,6 +90,7 @@ Per questo processo, ci sono implicazioni di prezzo come è a livello di archivi
 >- Esaminare la matrice di [supporto](backup-support-matrix.md#cross-region-restore) per un elenco di aree e tipi gestiti supportati.
 >- La funzionalità Ripristino tra aree (CRR) è attualmente disponibile solo nelle seguenti aree: 
 >    - Stati Uniti centro-occidentali
+>    - Stati Uniti occidentali
 >    - Stati Uniti occidentali 2
 >    - Stati Uniti centro-meridionali
 >    - Stati Uniti orientali
@@ -101,11 +102,14 @@ Per questo processo, ci sono implicazioni di prezzo come è a livello di archivi
 >    - Australia sud-orientale
 >    - India centrale
 >    - India meridionale
+>    - India occidentale
 >    - Giappone orientale
 >    - Giappone occidentale
 >    - Asia sud-orientale
 >    - Regno Unito meridionale
 >    - Regno Unito occidentale
+>    - Europa occidentale
+>    - Europa settentrionale
 >    - Francia centrale
 >    - Corea centrale
 >    - Corea meridionale

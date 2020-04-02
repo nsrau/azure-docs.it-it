@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: kevidal
-ms.openlocfilehash: 2c1cb755b62812336a306994f6820573130815e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 641297ea74a08dea163cf768b8e9b245348824a4
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288360"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80544291"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guida alla pubblicazione dell'offerta di applicazioni SaaS
 
@@ -25,8 +25,8 @@ Le applicazioni SaaS sono disponibili in entrambe le vetrine di Azure. La tabell
 
 | Vetrina | Elenco | Versione di valutazione/Transazione |  
 | --- | --- | --- |  
-| AppSource | Sì (Contatta) | Sì (Power BI/Dynamics) |
-| Azure Marketplace | No | Sì (app SaaS) |   
+| AppSource | Sì | Sì |
+| Azure Marketplace | No | Sì |   
 
 **Elenco:** l’opzione di pubblicazione Elenco consiste in un'offerta di tipo Contatta e viene usata quando non è possibile una partecipazione a livello di valutazione o di transazione. Il vantaggio di questo approccio è dato dall'opportunità offerta agli editori di mettere subito in commercio una soluzione per iniziare a ricevere clienti potenziali che possono trasformarsi in ottimi affari per la crescita della loro azienda.  
 **Versione di valutazione/Transazione**: il cliente ha la possibilità di acquistare direttamente o richiedere una versione di valutazione della soluzione. Un'esperienza di valutazione aumenta il livello di coinvolgimento offerto ai clienti e consente loro di esaminare la soluzione prima di acquistarla. Offrendo un'esperienza di valutazione, si hanno maggiori opportunità di promozione nelle vetrine e con molta probabilità si riesce a raggiungere un numero più ampio di clienti potenziali grazie a questa occasione di coinvolgimento. Le versioni di valutazione devono includere il supporto gratuito almeno per la durata del periodo di valutazione.  
@@ -95,7 +95,7 @@ Azure Active Directory fornisce inoltre un sito in cui verificare la disponibili
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Uso di Azure Active Directory per abilitare l'accesso alle versioni di valutazione  
 
-Microsoft autentica tutti gli utenti del Marketplace con Azure AD, in modo che quando un utente autenticato fa clic sull'elenco di versioni di valutazione in Marketplace e viene reindirizzato all'ambiente di prova, è possibile eseguire il provisioning dell'utente direttamente in una versione di valutazione senza richiedere passaggio di accesso aggiuntivo. Il token che l'app riceve da Azure AD in fase di autenticazione include informazioni rilevanti sull'utente che l'editore può usare per creare un account utente nell'app, in modo da automatizzare l'esperienza di provisioning e aumentare così le probabilità che la versione di valutazione venga convertita in offerta a pagamento. Per altre informazioni sul token, vedere [Token di esempio](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Microsoft autentica tutti gli utenti del Marketplace con Azure AD, pertanto quando un utente autenticato fa clic sull'elenco di versioni di valutazione in Marketplace e viene reindirizzato all'ambiente di valutazione, è possibile eseguire il provisioning dell'utente direttamente in una versione di valutazione senza richiedere un passaggio di accesso aggiuntivo. Il token che l'app riceve da Azure AD in fase di autenticazione include informazioni rilevanti sull'utente che l'editore può usare per creare un account utente nell'app, in modo da automatizzare l'esperienza di provisioning e aumentare così le probabilità che la versione di valutazione venga convertita in offerta a pagamento. Per altre informazioni sul token, vedere [Token di esempio](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 L'uso di Azure AD per abilitare l'autenticazione con un solo clic all'app o alla versione di valutazione offre i vantaggi seguenti:  
 * Consente di ottimizzare l'esperienza di accesso dei clienti da Marketplace alla versione di valutazione.  

@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 03/17/2020
-ms.openlocfilehash: 99517e45892cd7a6167ae83ff3058edae1377b10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 95d943685cf511acb88f9e48d36a9dd43b0a27d2
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80109563"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548009"
 ---
 # <a name="install-and-use-lightingest"></a>Installare e utilizzare LightIngest
 
@@ -22,6 +22,9 @@ L'utilità può estrarre i dati di origine da una cartella locale o da un conten
 ## <a name="prerequisites"></a>Prerequisiti
 
 * LightIngest - scaricarlo come parte del [pacchetto Microsoft.Azure.Kusto.Tools NuGet](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Tools/)
+
+    ![Download di Lightingest](media/lightingest/lightingest-download-area.png)
+
 * WinRAR - scaricalo da [www.win-rar.com/download.html](http://www.win-rar.com/download.html)
 
 ## <a name="install-lightingest"></a>Installazione di LightIngest
@@ -44,16 +47,20 @@ L'utilità può estrarre i dati di origine da una cartella locale o da un conten
     >
     >![Guida della riga di comando](media/lightingest/lightingest-cmd-line-help.png)
 
-1. Immettere seguito `LightIngest` dalla stringa di connessione al cluster azure Data Explorer che gestirà l'inserimento.
+1. Immettere seguito `ingest-` dalla stringa di connessione al cluster azure Data Explorer che gestirà l'inserimento.
     Racchiudere la stringa di connessione tra virgolette doppie e seguire la specifica delle stringhe di [connessione Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto).
 
     Ad esempio:
     ```
-    LightIngest "Data Source=https://{Cluster name and region}.kusto.windows.net;AAD Federated Security=True"  -db:{Database} -table:Trips -source:"https://{Account}.blob.core.windows.net/{ROOT_CONTAINER};{StorageAccountKey}" -pattern:"*.csv.gz" -format:csv -limit:2 -ignoreFirst:true -cr:10.0 -dontWait:true
+    ingest-{Cluster name and region}.kusto.windows.net;AAD Federated Security=True -db:{Database} -table:Trips -source:"https://{Account}.blob.core.windows.net/{ROOT_CONTAINER};{StorageAccountKey}" -pattern:"*.csv.gz" -format:csv -limit:2 -ignoreFirst:true -cr:10.0 -dontWait:true
     ```
 
-* Il metodo consigliato `LightIngest` prevede di utilizzare l'endpoint di inserimento in `https://ingest-{yourClusterNameAndRegion}.kusto.windows.net`. In questo modo, il servizio Azure Data Explorer può gestire il carico di inserimento ed è possibile eseguire facilmente il ripristino da errori temporanei. Tuttavia, è `LightIngest` anche possibile configurare l'utilizzo diretto con l'endpoint del motore (`https://{yourClusterNameAndRegion}.kusto.windows.net`).
-* Per prestazioni di inserimento ottimali, è importante che LightIngest `LightIngest` conosca le dimensioni dei dati non elaborati e che pertanto scogni le dimensioni non compresse dei file locali. Tuttavia, `LightIngest` potrebbe non essere in grado di stimare correttamente le dimensioni non elaborate dei BLOB compressi senza prima scaricarli. Pertanto, quando si ingeriscono BLOB compressi, impostare la `rawSizeBytes` proprietà nei metadati BLOB su dimensioni dei dati non compressi in byte.
+* Il metodo consigliato prevede che LightIngest funzioni con `https://ingest-{yourClusterNameAndRegion}.kusto.windows.net`l'endpoint di inserimento in . In questo modo, il servizio Azure Data Explorer può gestire il carico di inserimento ed è possibile eseguire facilmente il ripristino da errori temporanei. Tuttavia, è anche possibile configurare LightIngest`https://{yourClusterNameAndRegion}.kusto.windows.net`in modo che funzioni direttamente con l'endpoint del motore ( ).
+
+> [!Note]
+> Se si ingerisse direttamente con l'endpoint `ingest-`del motore, non è necessario includere , ma non sarà disponibile una funzionalità DM per proteggere il motore e migliorare la percentuale di successo dell'inserimento.
+
+* Per prestazioni di inserimento ottimali, è importante che LightIngest conosca le dimensioni dei dati non elaborati e quindi LightIngest stima le dimensioni non compresse dei file locali. Tuttavia, LightIngest potrebbe non essere in grado di stimare correttamente le dimensioni non elaborate dei BLOB compressi senza prima scaricarli. Pertanto, quando si ingeriscono BLOB compressi, impostare la `rawSizeBytes` proprietà nei metadati BLOB su dimensioni dei dati non compressi in byte.
 
 ## <a name="general-command-line-arguments"></a>Argomenti generali della riga di comando
 
@@ -66,7 +73,7 @@ L'utilità può estrarre i dati di origine da una cartella locale o da un conten
 |-prefisso               |             |string  |Facoltativo  |Quando i dati di origine da ingerire si trovano nell'archiviazione BLOB, questo prefisso URL viene condiviso da tutti i BLOB, escluso il nome del contenitore. <br>Ad esempio, se i `MyContainer/Dir1/Dir2`dati sono in `Dir1/Dir2`, il prefisso deve essere . Si raccomanda di racchiudere tra virgolette doppie |
 |-modello              |             |string  |Facoltativo  |Modello in base al quale vengono selezionati i file/BLOB di origine. Supporta i caratteri jolly. Ad esempio: `"*.csv"`. Consigliato per racchiudere tra virgolette doppie |
 |-zipPattern (comprimere)           |             |string  |Facoltativo  |Espressione regolare da utilizzare quando si selezionano i file di un archivio zip da ingerire.<br>Tutti gli altri file nell'archivio verranno ignorati. Ad esempio, `"*.csv"`. Si consiglia di circondarlo tra virgolette doppie |
-|-formato               |-f           |string  |Facoltativo  |Formato dei dati di origine. Deve essere uno dei [formati supportati](https://docs.microsoft.com/azure/kusto/management/data-ingestion/#supported-data-formats) |
+|-formato               |-f           |string  |Facoltativo  |Formato dei dati di origine. Deve essere uno dei [formati supportati](https://docs.microsoft.com/azure/data-explorer/ingestion-supported-formats) |
 |-ingestionMappingPath |-mappingPercorso |string  |Facoltativo  |Percorso del file di mapping delle colonne di inserimento (obbligatorio per i formati Json e Avro). Visualizzare [i mapping dei dati](https://docs.microsoft.com/azure/kusto/management/mappings) |
 |-ingestionMappingRef  |-mappingRef  |string  |Facoltativo  |Nome di un mapping di colonna di inserimento creato in precedena (obbligatorio per i formati Json e Avro). Visualizzare [i mapping dei dati](https://docs.microsoft.com/azure/kusto/management/mappings) |
 |-creationTimePattern  |             |string  |Facoltativo  |Quando è impostata, viene usata per estrarre la proprietà CreationTime dal percorso del file o del BLOB. Vedere [Utilizzo dell'argomento CreationTimePatternSee Using CreationTimePattern argument](#using-creationtimepattern-argument) |
@@ -76,11 +83,17 @@ L'utilità può estrarre i dati di origine da una cartella locale o da un conten
 
 ### <a name="using-creationtimepattern-argument"></a>Utilizzo dell'argomento CreationTimePattern
 
-L'argomento `-creationTimePattern` estrae la proprietà CreationTime dal percorso del file o del BLOB. Non è necessario che il modello rifletta l'intero percorso dell'elemento, ma solo la sezione che racchiude il timestamp che si desidera utilizzare.
-Il valore dell'argomento deve essere contenuto in tre sezioni:
+L'argomento `-creationTimePattern` estrae la proprietà CreationTime dal percorso del file o del BLOB. Non è necessario che il modello rifletta l'intero percorso dell'elemento, ma solo la sezione che racchiude il timestamp che si vuole usare.
+
+I valori dell'argomento devono includere:The argument values must include:
 * Test costante immediatamente precedente al timestamp, racchiuso tra virgolette singole
 * Il formato timestamp, nella [notazione DateTime standard](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) di .NET
-* Testo costante immediatamente successivo al timestamp Ad esempio, se i nomi dei BLOB terminano con 'historicalvalues19840101.parquet' (il timestamp è quattro cifre per l'anno, due cifre per il mese e due cifre per il giorno del mese), il valore corrispondente per l'argomento `-creationTimePattern` è 'historicalvalues'yyyyMMdd'.parquet'.
+* Testo costante immediatamente successivo al timestamp. Ad esempio, se i `historicalvalues19840101.parquet` nomi dei BLOB terminano con (il timestamp è composto da quattro cifre per `-creationTimePattern` l'anno, due cifre per il mese e due cifre per il giorno del mese), il valore corrispondente per l'argomento è:For example, if blob names end with (the timestamp is four digits for the year, two digits for the month, and two digits for the day of month), the corresponding value for the argument is:
+
+```
+ingest-{Cluster name and region}.kusto.windows.net;AAD Federated Security=True -db:{Database} -table:Trips -source:"https://{Account}.blob.core.windows.net/{ROOT_CONTAINER};{StorageAccountKey}" -creationTimePattern:"'historicalvalues'yyyyMMdd'.parquet'"
+ -pattern:"*.csv.gz" -format:csv -limit:2 -ignoreFirst:true -cr:10.0 -dontWait:true
+```
 
 ### <a name="command-line-arguments-for-advanced-scenarios"></a>Argomenti della riga di comando per scenari avanzatiCommand-line arguments for advanced scenarios
 
@@ -96,7 +109,7 @@ Il valore dell'argomento deve essere contenuto in tre sezioni:
 |-devTracing           |-traccia       |string  |Facoltativo  |Se impostato, i log di diagnostica vengono `RollingLogs` scritti in una directory locale (per impostazione predefinita, nella directory corrente o possono essere modificati impostando il valore switch) |
 
 ## <a name="blob-metadata-properties"></a>Proprietà dei metadati BLOBBlob metadata properties
-Se usato con i `LightIngest` BLOB di Azure, userà determinate proprietà dei metadati BLOB per aumentare il processo di inserimento.
+Se usato con i BLOB di Azure, LightIngest utilizzerà determinate proprietà dei metadati BLOB per aumentare il processo di inserimento.
 
 |Metadata (proprietà)                            | Uso                                                                           |
 |---------------------------------------------|---------------------------------------------------------------------------------|

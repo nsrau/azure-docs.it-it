@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: c3e4c2f2bac45f2e366764473a34b0536bb4cc44
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 43d834f0c834696cd4a836466c9663fe7c31a392
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76990454"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520507"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-powershell"></a>Creare un host Bastion di Azure usando Azure PowerShellCreate an Azure Bastion host using Azure PowerShell
 
@@ -35,7 +35,7 @@ Questa sezione consente di creare una nuova risorsa Bastion di Azure usando Azur
    ```azurepowershell-interactive
    $subnetName = "AzureBastionSubnet"
    $subnet = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
-   $vnet = New-AzVirtualNetwork -Name "myVnet" -ResourceGroupName " myBastionRG " -Location "westeurope" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
+   $vnet = New-AzVirtualNetwork -Name "myVnet" -ResourceGroupName "myBastionRG" -Location "westeurope" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
    ```
 
 2. Creare un indirizzo IP pubblico per Azure Bastion.Create a public IP address for Azure Bastion. L'indirizzo IP pubblico è l'indirizzo IP pubblico della risorsa Bastion su cui si accede a RDP/SSH (tramite la porta 443). L'indirizzo IP pubblico deve trovarsi nella stessa area della risorsa Bastion che si sta creando.
@@ -47,7 +47,7 @@ Questa sezione consente di creare una nuova risorsa Bastion di Azure usando Azur
 3. Creare una nuova risorsa Bastion di Azure in AzureBastionSubnet della rete virtuale. La creazione e la distribuzione della risorsa Bastion richiede circa 5 minuti.
 
    ```azurepowershell-interactive
-   $bastion = New-AzBastion -ResourceGroupName " myBastionRG " -Name "myBastion" -PublicIpAddress $publicip -VirtualNetwork $vnet
+   $bastion = New-AzBastion -ResourceGroupName "myBastionRG" -Name "myBastion" -PublicIpAddress $publicip -VirtualNetwork $vnet
    ```
 
 ## <a name="next-steps"></a>Passaggi successivi

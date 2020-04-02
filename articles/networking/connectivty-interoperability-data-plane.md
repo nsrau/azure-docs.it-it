@@ -1,5 +1,5 @@
 ---
-title: 'Interoperabilità nelle funzionalità di connettività back-end di Azure: analisi del piano dati | Microsoft Docs'
+title: 'Interoperabilità in Azure: analisi dei piani dati'
 description: Questo articolo illustra l'analisi del piano dati dell'installazione test che è possibile usare per analizzare l'interoperabilità tra ExpressRoute, una VPN da sito a sito e il peering reti virtuali in Azure.
 documentationcenter: na
 services: networking
@@ -10,14 +10,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 815976c672272270e465610e17fef3aea79387f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe7b74b0d4d065d4f222fefbbdc4a1d434d1163b
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77526638"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518255"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Interoperabilità nelle funzionalità di connettività back-end di Azure: analisi del piano dati
+# <a name="interoperability-in-azure--data-plane-analysis"></a>Interoperabilità in Azure: analisi dei piani dati
 
 Questo articolo illustra l'analisi del piano dati dell'[installazione test][Setup]. È anche possibile esaminare la [configurazione dell'installazione test][Configuration] e l'[analisi del piano di controllo][Control-Analysis] dell'installazione test.
 
@@ -115,7 +115,7 @@ Di seguito è indicato l'output traceroute da una rete virtuale dell'hub a una m
 
     Trace complete.
 
-In questo traceroute il primo hop è l'endpoint del tunnel del gateway ExpressRoute a MSEE. Il secondo hop è l'indirizzo IP del gateway della rete virtuale remota. L'intervallo IP del secondo hop non è annunciato all'interno della rete virtuale dell'hub. Il terzo hop è la macchina virtuale nella rete virtuale remota.
+In questo traceroute il primo hop è l'endpoint del tunnel del gateway ExpressRoute a MSEE. Il secondo hop è l'IP gateway della rete virtuale remota. L'intervallo IP del secondo hop non è annunciato all'interno della rete virtuale dell'hub. Il terzo hop è la macchina virtuale nella rete virtuale remota.
 
 ## <a name="data-path-from-the-spoke-vnet"></a>Percorso dei dati dalla rete virtuale spoke
 
@@ -164,7 +164,7 @@ Di seguito è indicato l'output traceroute dalla rete virtuale spoke a una macch
 
     Trace complete.
 
-In questo traceroute il primo hop è l'endpoint del tunnel del gateway ExpressRoute della rete virtuale dell'hub a MSEE. Il secondo e il terzo hop sono gli IP del router perimetrale del cliente e della rete LAN locale Location 1. Questi indirizzi IP non sono annunciati nella rete virtuale dell'hub/spoke. Il quarto hop è la macchina virtuale nella rete locale Location 1.
+In questa traceroute, il primo hop è l'endpoint del tunnel del gateway ExpressRoute dell'hub VNet a un MSEE. Il secondo e il terzo hop sono gli IP del router perimetrale del cliente e della rete LAN locale Location 1. Questi indirizzi IP non sono annunciati nella rete virtuale dell'hub/spoke. Il quarto hop è la macchina virtuale nella rete locale Location 1.
 
 ### <a name="path-to-on-premises-location-2"></a>Percorso della rete locale Location 2
 
@@ -182,7 +182,7 @@ Di seguito è indicato l'output traceroute dalla rete virtuale spoke a una macch
 
     Trace complete.
 
-In questo traceroute il primo hop è l'endpoint del tunnel del gateway ExpressRoute della rete virtuale dell'hub a MSEE. Il secondo e il terzo hop sono gli IP del router perimetrale del cliente e della rete LAN locale Location 2. Questi indirizzi IP non sono annunciati nelle reti virtuali dell'hub/spoke. Il quarto hop è la macchina virtuale nella rete locale Location 2.
+In questa traceroute, il primo hop è l'endpoint del tunnel del gateway ExpressRoute dell'hub VNet a un MSEE. Il secondo e il terzo hop sono gli IP del router perimetrale del cliente e della rete LAN locale Location 2. Questi indirizzi IP non sono annunciati nelle reti virtuali dell'hub/spoke. Il quarto hop è la macchina virtuale nella rete locale Location 2.
 
 ### <a name="path-to-the-remote-vnet"></a>Percorso della rete virtuale remota
 
@@ -198,7 +198,7 @@ Di seguito è indicato l'output traceroute dalla rete virtuale spoke a una macch
 
     Trace complete.
 
-In questo traceroute il primo hop è l'endpoint del tunnel del gateway ExpressRoute della rete virtuale dell'hub a MSEE. Il secondo hop è l'indirizzo IP del gateway della rete virtuale remota. L'intervallo IP del secondo hop non è annunciato all'interno della rete virtuale dell'hub/spoke. Il terzo hop è la macchina virtuale nella rete virtuale remota.
+In questa traceroute, il primo hop è l'endpoint del tunnel del gateway ExpressRoute dell'hub VNet a un MSEE. Il secondo hop è l'IP gateway della rete virtuale remota. L'intervallo IP del secondo hop non è annunciato all'interno della rete virtuale dell'hub/spoke. Il terzo hop è la macchina virtuale nella rete virtuale remota.
 
 ## <a name="data-path-from-the-branch-vnet"></a>Percorso dei dati dalla rete virtuale del ramo
 
@@ -304,7 +304,7 @@ L'immagine seguente è la visualizzazione della topologia della connettività da
 
 ![4][4]
 
-Come indicato in precedenza, l'installazione test usa una VPN da sito a sito come connettività di backup per ExpressRoute tra la rete locale Location 1 e la rete virtuale dell'hub. Per testare il percorso dati di backup, indurre un errore di collegamento di ExpressRoute tra il router perimetrale del cliente primario della rete locale Location 1 e il router MSEE corrispondente, arrestando l'interfaccia perimetrale del cliente rivolta verso il router MSEE:
+Come indicato in precedenza, l'installazione test usa una VPN da sito a sito come connettività di backup per ExpressRoute tra la rete locale Location 1 e la rete virtuale dell'hub. Per testare il percorso dei dati di backup, è possibile indurre un errore di collegamento ExpressRoute tra il router CE primario Location 1 locale e il mSEE corrispondente. arrestando l'interfaccia perimetrale del cliente rivolta verso il router MSEE:
 
     C:\Users\rb>tracert 10.10.30.4
 

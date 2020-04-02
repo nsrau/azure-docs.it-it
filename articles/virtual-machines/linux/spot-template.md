@@ -1,25 +1,18 @@
 ---
-title: Usare un modello per distribuire macchine virtuali di Azure Spot (anteprima)Use a template to deploy Azure Spot VMs (Preview)
+title: Usare un modello per distribuire le macchine virtuali di Azure SpotUse a template to deploy Azure Spot VMs
 description: Informazioni su come usare un modello per distribuire macchine virtuali Spot per risparmiare sui costi.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2020
+ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 0e635fe7ce9b442a9cc8f0fdf614feef5a3a756a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1352761e308aa2e26864654dae65c290df47102b
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79082796"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548248"
 ---
 # <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Distribuire macchine virtuali spot usando un modello di Resource ManagerDeploy Spot VMs using a Resource Manager template
 
@@ -29,11 +22,6 @@ I prezzi per le macchine virtuali Spot sono variabili, in base all'area e all'SK
 
 È possibile impostare un prezzo massimo che si è disposti a pagare, all'ora, per la macchina virtuale. Il prezzo massimo per una macchina virtuale Spot può essere impostato in dollari USA (USD), usando fino a 5 cifre decimali. Ad esempio, `0.98765`il valore sarebbe un prezzo massimo di 0,98765 USD all'ora. Se si imposta il `-1`prezzo massimo su , la macchina virtuale non verrà rimossa in base al prezzo. Il prezzo per la macchina virtuale sarà il prezzo corrente per Spot o il prezzo per una macchina virtuale standard, che è sempre inferiore, purché siano disponibili capacità e quote. Per altre informazioni sull'impostazione del prezzo massimo, vedere [Spot VMs - Pricing](spot-vms.md#pricing).
 
-> [!IMPORTANT]
-> Le istanze spot sono attualmente in anteprima pubblica.
-> Questa versione di anteprima non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## <a name="use-a-template"></a>Usare un modello
 

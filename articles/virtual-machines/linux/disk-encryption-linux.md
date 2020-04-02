@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6a1ea5e09dc70b2c523bf23b28f726cbe2c0818d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7df3c07518a9211bd1abf785e3f4954c41ebffc
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062678"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529457"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scenari di crittografia dischi di Azure per macchine virtuali Linux
 
@@ -407,6 +407,7 @@ Crittografia disco di Azure non funziona per i seguenti scenari, funzionalità e
 - Crittografia di file system condivisi/distribuiti come (ma non limitato a): DFS, GFS, DRDB e CephFS.
 - Spostamento di una macchina virtuale crittografata in un'altra sottoscrizione.
 - Kernel Crash Dump (kdump).
+- VMs serie Lsv2 (vedere: [Lsv2-serie](../lsv2-series.md))
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,5 +1,5 @@
 ---
-title: Visualizzare le latenze relative da località specifiche alle aree di Azure | Microsoft Docs
+title: Visualizzare le latenze relative alle aree di Azure da posizioni specificheView relative latencies to Azure regions from specific locations
 description: Informazioni su come visualizzare le latenze relative attraverso i provider Internet da località specifiche alle aree di Azure.
 services: network-watcher
 documentationcenter: ''
@@ -12,19 +12,19 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: c3a85de3a201a89d6d9500e4f4b2df9e667e3537
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 39f81731f20566d1a39f3f0931ff52c4e8b43ec0
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76840537"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521390"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Visualizzare le latenze relative da località specifiche alle aree di Azure
 
 > [!WARNING]
 > Questa funzione è attualmente in anteprima e ancora in fase di test per la stabilità.
 
-Questa esercitazione descrive come usare il servizio [Network Watcher](network-watcher-monitoring-overview.md) di Azure per determinare più facilmente l'area di Azure in cui distribuire un'applicazione o un servizio, in base ai dati demografici degli utenti. Questo servizio è utile anche per valutare con più facilità le connessioni dei provider di servizi ad Azure.  
+Questa esercitazione descrive come usare il servizio [Network Watcher](network-watcher-monitoring-overview.md) di Azure per determinare più facilmente l'area di Azure in cui distribuire un'applicazione o un servizio, in base ai dati demografici degli utenti. Inoltre, è possibile usarlo per valutare le connessioni dei provider di servizi ad Azure.Additionally, you can use it to help evaluate service providers' connections to Azure.  
         
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -45,7 +45,7 @@ New-AzNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName NetworkWatch
 
 ## <a name="compare-relative-network-latencies-to-a-single-azure-region-from-a-specific-location"></a>Confrontare le latenze di rete relative da una località specifica a una singola area di Azure
 
-Valutare i provider di servizi o risolvere i problemi segnalati dagli utenti, come ad esempio la lentezza del sito, da una località specifica all'area di Azure in cui viene distribuito un servizio. Ad esempio, il comando seguente restituisce le latenze medie relative dei provider di servizi Internet tra lo stato di Washington negli Stati Uniti e l'area Stati Uniti occidentali 2 di Azure fra il 13 e il 15 dicembre 2017:
+Valutare i provider di servizi o risolvere i problemi di un utente che segnala un problema, ad esempio "il sito è stato lento", da una posizione specifica all'area di Azure in cui viene distribuito un servizio. Ad esempio, il comando seguente restituisce le latenze medie relative dei provider di servizi Internet tra lo stato di Washington negli Stati Uniti e l'area Stati Uniti occidentali 2 di Azure fra il 13 e il 15 dicembre 2017:
 
 ```powershell
 Get-AzNetworkWatcherReachabilityReport `

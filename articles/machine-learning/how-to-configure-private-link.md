@@ -10,16 +10,18 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: c6593a2746e628c89e20f6ef92a1430bd294e4fe
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: fb70600ad245968377cdebd23a7b531e552bb546
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80438307"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529310"
 ---
-# <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configurare Azure Private Link per un'area di lavoro di Azure Machine LearningConfigure Azure Private Link for an Azure Machine Learning workspace
+# <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Configurare Il collegamento privato di Azure per un'area di lavoro di Azure Machine Learning (anteprima)Configure Azure Private Link for an Azure Machine Learning workspace (Preview)
 
-In questo documento viene illustrato come usare Azure Private Link con l'area di lavoro di Azure Machine Learning.In this document, you learn how to use Azure Private Link with your Azure Machine Learning workspace. Azure Private Link consente di connettersi all'area di lavoro usando un endpoint privato. L'endpoint privato è un set di indirizzi IP privati all'interno della rete virtuale. È quindi possibile limitare l'accesso all'area di lavoro in modo che si verifichi solo sugli indirizzi IP privati. Private Link aiuta a ridurre il rischio di esfiltrazione dei dati. Per altre informazioni sugli endpoint privati, vedere l'articolo Collegamento privato di Azure.To learn more about private endpoints, see the [Azure Private Link](/azure/private-link/private-link-overview) article.
+In questo documento viene illustrato come usare Azure Private Link con l'area di lavoro di Azure Machine Learning.In this document, you learn how to use Azure Private Link with your Azure Machine Learning workspace. Questa funzionalità è attualmente in anteprima ed è disponibile negli Stati Uniti orientali, negli Stati Uniti Occidentali 2, nelle regioni centro-meridionale degli Stati Uniti. 
+
+Azure Private Link consente di connettersi all'area di lavoro usando un endpoint privato. L'endpoint privato è un set di indirizzi IP privati all'interno della rete virtuale. È quindi possibile limitare l'accesso all'area di lavoro in modo che si verifichi solo sugli indirizzi IP privati. Private Link aiuta a ridurre il rischio di esfiltrazione dei dati. Per altre informazioni sugli endpoint privati, vedere l'articolo Collegamento privato di Azure.To learn more about private endpoints, see the [Azure Private Link](/azure/private-link/private-link-overview) article.
 
 > [!IMPORTANT]
 > Azure Private Link non influisce sul piano di controllo di Azure (operazioni di gestione), ad esempio l'eliminazione dell'area di lavoro o la gestione delle risorse di calcolo. Ad esempio, la creazione, l'aggiornamento o l'eliminazione di una destinazione di calcolo. Queste operazioni vengono eseguite su Internet pubblico come di consueto.
@@ -54,7 +56,7 @@ Dopo l'invio di un modello e il completamento del provisioning, il gruppo di ris
 * interfaccia di rete
 * Zona DNS privato
 
-L'area di lavoro contiene anche una rete virtuale di Azure che può comunicare con l'area di lavoro tramite l'endpoint privato.
+L'area di lavoro contiene anche una rete virtuale di Azure in grado di comunicare con l'area di lavoro tramite l'endpoint privato.
 
 ### <a name="deploy-the-template-using-the-azure-portal"></a>Distribuire il modello tramite il portale di AzureDeploy the template using the Azure portal
 

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/30/2020
-ms.openlocfilehash: 35dbd064a09a96dae58e1b15a6d8889bda45ee0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: f103db1d0de7a9d538f56b8ade331dc856b26bce
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76899841"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547001"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Scegliere un piano tariffario per Ricerca cognitiva di AzureChoose a pricing tier for Azure Cognitive Search
 
@@ -41,7 +41,9 @@ I livelli sono differenziati da:
 
 Il livello selezionato determina la tariffa fatturabile. La schermata seguente del portale di Azure mostra i livelli disponibili, meno i prezzi (disponibili nel portale e nella [pagina dei prezzi.](https://azure.microsoft.com/pricing/details/search/) **Free**, **Basic**e **Standard** sono i livelli più comuni.
 
-**Gratuito** crea un servizio di ricerca limitato in un cluster, condiviso con altri sottoscrittori. È possibile completare progetti di piccole dimensioni, incluse le guide introduttive e le esercitazioni, ma non è possibile ridimensionare il servizio o eseguire carichi di lavoro significativi. **Basic** e **Standard** sono i livelli fatturabili più comunemente usati, con **Standard** come valore predefinito.
+**Gratuito** crea un servizio di ricerca limitato per i progetti più piccoli, tra cui guide introduttive ed esercitazioni. Internamente, le repliche e le partizioni condivise tra più sottoscrittori. Non è possibile ridimensionare un servizio gratuito o eseguire carichi di lavoro significativi.
+
+**Basic** e **Standard** sono i livelli fatturabili più comunemente usati, con **Standard** come valore predefinito. Con risorse dedicate sotto controllo, è possibile distribuire progetti di grandi dimensioni, ottimizzare le prestazioni e impostare la capacità.
 
 ![Piani dei prezzi di Ricerca cognitiva di AzurePricing tiers of Azure Cognitive Search](media/search-sku-tier/tiers.png "Piani dei prezzi di Ricerca cognitiva di AzurePricing tiers of Azure Cognitive Search")
 
@@ -55,10 +57,10 @@ Per altre informazioni sui vari livelli, nella [pagina dei prezzi,](https://azur
 
 Una soluzione basata su Ricerca cognitiva di Azure può comportare costi nei modi seguenti:A solution built on Azure Cognitive Search can incur costs in the following ways:
 
-+ Costo di servizio di base alla configurazione minima (creare un servizio)Base cost of service at minimum configuration (create a service)
++ Costo fisso del servizio stesso, con 24x7, nella configurazione minima (una partizione e una replica)
 + Costo incrementale durante la scalabilità verticale (aggiungere repliche o partizioni)Incremental cost when scaling up (add replicas or partitions)
 + Costi della larghezza di banda (trasferimento dati in uscita) 
-+ Ricerca cognitiva (collegare servizi cognitivi per l'arricchimento dell'iaformazione, archiviazione di Azure per l'archivio informazioni)Cognitive search (attach Cognitive Services for AI enrichment, Azure storage for knowledge store)
++ Ricerca cognitiva (collegamento di servizi cognitivi per l'arricchimento dell'iaformazione dell'io o l'uso dell'archiviazione di Azure per l'archivio informazioni)Cognitive search (attaching Cognitive Services for AI enrichment, or using Azure storage for knowledge store)
 
 ### <a name="service-costs"></a>Costi dei servizi
 
@@ -106,13 +108,13 @@ La maggior parte dei clienti porta online solo una parte della capacità totale,
 
 I seguenti suggerimenti possono aiutarti a ridurre al minimo i costi:
 
-- Creare tutte le risorse nella stessa area o nel minor numero possibile di aree per ridurre al minimo o eliminare i costi della larghezza di banda.
++ Creare tutte le risorse nella stessa area o nel minor numero possibile di aree per ridurre al minimo o eliminare i costi della larghezza di banda.
 
-- Consolidare tutti i servizi in un unico gruppo di risorse, ad esempio Ricerca cognitiva di Azure, Servizi cognitivi e qualsiasi altro servizio di Azure usato nella soluzione. Nel portale di Azure trovare il gruppo di risorse e usare i comandi **di gestione dei costi** per informazioni dettagliate sulla spesa effettiva e prevista.
++ Consolidare tutti i servizi in un unico gruppo di risorse, ad esempio Ricerca cognitiva di Azure, Servizi cognitivi e qualsiasi altro servizio di Azure usato nella soluzione. Nel portale di Azure trovare il gruppo di risorse e usare i comandi **di gestione dei costi** per informazioni dettagliate sulla spesa effettiva e prevista.
 
-- Si consideri Azure Web App per l'applicazione front-end in modo che le richieste e le risposte rimangano entro il limite del data center.
++ Si consideri Azure Web App per l'applicazione front-end in modo che le richieste e le risposte rimangano entro il limite del data center.
 
-- Scalabilità verticale per operazioni che richiedono un uso intensivo delle risorse, ad esempio l'indicizzazione, quindi si adatta nuovamente ai normali carichi di lavoro di query. Iniziare con la configurazione minima per Ricerca cognitiva di Azure (una unità di registrazione delle operazioni di servizio composta da una partizione e una replica) e quindi monitorare l'attività degli utenti per identificare i modelli di utilizzo che indichino la necessità di una maggiore capacità. Se è presente un modello prevedibile, potrebbe essere possibile sincronizzare la scalabilità con l'attività (è necessario scrivere codice per automatizzare questa operazione).
++ Scalabilità verticale per operazioni che richiedono un uso intensivo delle risorse, ad esempio l'indicizzazione, quindi si adatta nuovamente ai normali carichi di lavoro di query. Iniziare con la configurazione minima per Ricerca cognitiva di Azure (una unità di registrazione delle operazioni di servizio composta da una partizione e una replica) e quindi monitorare l'attività degli utenti per identificare i modelli di utilizzo che indichino la necessità di una maggiore capacità. Se è presente un modello prevedibile, potrebbe essere possibile sincronizzare la scalabilità con l'attività (è necessario scrivere codice per automatizzare questa operazione).
 
 Inoltre, visita [Fatturazione e gestione dei costi](https://docs.microsoft.com/azure/billing/billing-getting-started) per gli strumenti incorporati e le funzionalità correlate alla spesa.
 
@@ -130,7 +132,6 @@ In Ricerca cognitiva di Azure la capacità è strutturata come *repliche* e *par
 
 > [!NOTE]
 > Tutti i livelli Standard and Storage Optimized supportano [combinazioni flessibili di repliche e partizioni](search-capacity-planning.md#chart) in modo da poter [ottimizzare il sistema per](search-performance-optimization.md) la velocità o l'archiviazione modificando il bilanciamento. Il livello Basic offre fino a tre repliche per la disponibilità elevata, ma ha una sola partizione. I livelli gratuiti non forniscono risorse dedicate: le risorse di elaborazione sono condivise da più sottoscrittori.
-
 
 ### <a name="evaluating-capacity"></a>Valutazione della capacità
 
@@ -152,7 +153,7 @@ Un approccio per la stima della capacità consiste nell'iniziare con il livello 
 
 + [Creare un servizio gratuito](search-create-service-portal.md).
 + Preparare un set di dati piccolo e rappresentativo.
-+ [Creare un indice iniziale nel portale](search-create-index-portal.md) e annotenerne le dimensioni. Le funzionalità e gli attributi hanno un impatto sull'archiviazione. Ad esempio, l'aggiunta di suggerimenti (typeahead) aumenterà i requisiti di archiviazione. Utilizzando lo stesso set di dati, è possibile provare a creare più versioni di un indice, con attributi diversi in ogni campo, per verificare come variano i requisiti di archiviazione. Per ulteriori informazioni, vedere ["Implicazioni di archiviazione" in Creare un indice di base](search-what-is-an-index.md#index-size).
++ [Creare un indice iniziale nel portale](search-create-index-portal.md) e annotenerne le dimensioni. Le funzionalità e gli attributi hanno un impatto sull'archiviazione. Ad esempio, l'aggiunta di suggerimenti (query di ricerca durante la digitazione) aumenterà i requisiti di archiviazione. Utilizzando lo stesso set di dati, è possibile provare a creare più versioni di un indice, con attributi diversi in ogni campo, per verificare come variano i requisiti di archiviazione. Per ulteriori informazioni, vedere ["Implicazioni di archiviazione" in Creare un indice di base](search-what-is-an-index.md#index-size).
 
 Con una stima approssimativa in mano, si potrebbe raddoppiare tale importo al budget per due indici (sviluppo e produzione) e quindi scegliere il livello di conseguenza.
 
@@ -196,7 +197,7 @@ Il livello Gratuito e le funzionalità di anteprima non forniscono contratti di 
 
 + Consentire alle metriche di basarsi sulle query e raccogliere dati sui modelli di utilizzo (query durante le ore di ufficio, indicizzazione durante le ore non di punta). Usare questi dati per prendere decisioni sul provisioning dei servizi. Anche se non è pratico a una cadenza oraria o giornaliera, è possibile regolare dinamicamente le partizioni e le risorse per supportare le modifiche pianificate nei volumi di query. È inoltre possibile gestire modifiche non pianificate ma sostenute se i livelli sono sufficienti a giustificare l'intervento.
 
-+ Tenere presente che l'unico inconveniente dell'underprovisioning è che potrebbe essere necessario arrestare un servizio se i requisiti effettivi sono maggiori delle stime. Per evitare interruzioni del servizio, è necessario creare un nuovo servizio a un livello superiore ed eseguirlo side-by-side fino a quando tutte le app e le richieste non sono destinate al nuovo endpoint.
++ Tenere presente che l'unico aspetto negativo dell'under provisioning è che potrebbe essere necessario arrestare un servizio se i requisiti effettivi sono maggiori delle stime. Per evitare interruzioni del servizio, è necessario creare un nuovo servizio a un livello superiore ed eseguirlo side-by-side fino a quando tutte le app e le richieste non sono destinate al nuovo endpoint.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,28 +1,23 @@
 ---
 title: File di inclusione
 description: File di inclusione
-services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 7cfa6e9810057493cc3007eec7fd1668a70c727e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d56964b7415e4ca5903950cd46c02b3c27f62d5e
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77179146"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547396"
 ---
 L'uso di Spot VMs consente di sfruttare la nostra capacità inutilizzata con un notevole risparmio sui costi. In qualsiasi momento in cui Azure richiede la capacità, l'infrastruttura di Azure rimuovere le macchine virtuali Spot.At any in time when Azure needs the capacity back, the Azure infrastructure will evict Spot VMs. Pertanto, le macchine virtuali Spot sono ideali per i carichi di lavoro in grado di gestire interruzioni come processi di elaborazione batch, ambienti di sviluppo/test, carichi di lavoro di elaborazione di grandi dimensioni e altro ancora.
 
 La quantità di capacità disponibile può variare in base alle dimensioni, all'area, all'ora del giorno e altro ancora. Quando si distribuiscono macchine virtuali Spot, Azure allocherà le macchine virtuali se è disponibile capacità, ma non è disponibile alcun sla per queste macchine virtuali. Una macchina virtuale Spot non offre garanzie di disponibilità elevata. In qualsiasi momento in cui Azure richiede la riesecuzione della capacità, l'infrastruttura di Azure rimuovere le macchine virtuali Spot con 30 secondi di preavviso. 
 
-> [!IMPORTANT]
-> Le istanze spot sono attualmente in anteprima pubblica.
-> Questa versione di anteprima non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## <a name="eviction-policy"></a>Politica di sfratto
 

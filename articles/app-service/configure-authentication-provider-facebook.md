@@ -4,13 +4,15 @@ description: Informazioni su come configurare l'autenticazione di Facebook come 
 ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd
 ms.topic: article
 ms.date: 06/06/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 9a2d390a5647ed90284730e9186e981b8e699d10
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.custom:
+- seodec18
+- fasttrack-edit
+ms.openlocfilehash: b6aad323c0d6fa8f59c9fad203640c477b162503
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80438010"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519967"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-facebook-login"></a>Configurare il servizio app o l'app Funzioni di Azure per usare l'account di accesso di FacebookConfigure your App Service or Azure Functions app to use Facebook login
 
@@ -63,7 +65,7 @@ Per completare la procedura descritta in questo articolo, è necessario un accou
    > [!CAUTION]
    > Limitare l'accesso in questo modo si applica a tutte le chiamate all'app, che potrebbero non essere desiderabili per le app che dispongono di una home page disponibile pubblicamente, come in molte applicazioni a pagina singola. Per tali applicazioni, **consenti richieste anonime (nessuna azione)** potrebbe essere preferibile in modo che l'applicazione avvia manualmente l'autenticazione stessa. Per ulteriori informazioni, vedere [Flusso di autenticazione](overview-authentication-authorization.md#authentication-flow).
 
-1. Selezionare **Salva**.
+1. Selezionare **Save** (Salva).
 
 Ora sei pronto per usare Facebook per l'autenticazione nella tua app.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d9cff47c61fc08305427b25f949884b1ef089fd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ca3a79b0d31cc18b8ff77f02ce4ce3d517d7a638
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289667"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548689"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Azure Security Baseline for Azure Database for MariaDB
 
@@ -894,9 +894,9 @@ Come fornire l'autenticazione key Vault con un'identità gestita:How to provide 
 
 **Linee guida:** il database di Azure per il server MariaDB attualmente non supporta l'autenticazione di Azure Active Directory per accedere ai database.  Durante la creazione del database di Azure per il server MariaDB, si forniscono le credenziali per un utente amministratore. Questo amministratore può essere utilizzato per creare altri utenti MariaDB.  
 
-Per le macchine virtuali di Azure o le applicazioni Web in esecuzione nel servizio app di Azure usate per accedere al database di Azure per il server MariaDB, usare l'identità del servizio gestito insieme all'insieme all'insieme delle chiavi di Azure per archiviare e recuperare le credenziali per il database di Azure per MariaDB Server.  Verificare che l'eliminazione temporanea dell'insieme di credenziali delle chiavi sia abilitata.
+Per le macchine virtuali di Azure o le applicazioni Web in esecuzione nel servizio app di Azure usate per accedere al database di Azure per il server MariaDB, usare l'identità del servizio gestito insieme all'insieme a Archiviazione delle chiavi di Azure per archiviare e recuperare le credenziali per il database di Azure per il server MariaDB.For Azure Virtual Machines or web applications running on Azure App Service being used to access your Azure Database for MariaDB server, use Managed Service Identity in conjunction with Azure Key Vault to store and retrieve credentials for Azure Database for MariaDB server.  Verificare che l'eliminazione temporanea dell'insieme di credenziali delle chiavi sia abilitata.
 
-Usare le identità gestite per fornire ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (AD). Managed Identities consente di eseguire l'autenticazione a qualsiasi servizio che supporta l'autenticazione di Azure AD, incluso Key Vault, senza credenziali nel codice. Come configurare le identità gestite: per l'integrazione con le identità gestite di Azure:How to configure Managed Identities: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmHow to integrate with Azure Managed Identities:https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+Usare le identità gestite per fornire ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (AD). Managed Identities consente di eseguire l'autenticazione a qualsiasi servizio che supporta l'autenticazione di Azure AD, incluso Key Vault, senza credenziali nel codice. Come configurare le identità gestite: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm. Come eseguire l'integrazione con https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identityle identità gestite di Azure: .
 
 
 

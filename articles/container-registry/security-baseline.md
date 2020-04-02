@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2970ebf42acb87e93f8b827b3687b219da5867c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9225cfd9793a84f371387d6450a3dfa80ba74de3
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80244291"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547531"
 ---
 # <a name="azure-security-baseline-for-azure-container-registry"></a>Azure Security Baseline for Azure Container Registry
 
@@ -68,7 +68,6 @@ Proteggere le risorse di rete:https://docs.microsoft.com/azure/security-center/s
 È possibile usare l'accesso Just-In Time Network al Centro sicurezza di Azure per configurare i gruppi di sicurezza di rete per limitare l'esposizione degli endpoint agli indirizzi IP approvati per un periodo limitato. Inoltre, usare protezione avanzata della rete adattiva del Centro sicurezza di Azure per consigliare configurazioni del gruppo di sicurezza di rete che limitano le porte e gli indirizzi IP di origine in base al traffico effettivo e all'intelligence sulle minacce.
 
 Come configurare la protezione DDoS:https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
-
 
 Come distribuire Firewall di Azure:How to deploy Azure Firewall:https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 

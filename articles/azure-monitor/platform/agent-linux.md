@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
-ms.openlocfilehash: 40c279a4beee9fbebe2de7f272fe51d9039f071c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aa2356901403c7a63aa4aa96dcb38f9c0c971e58
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77668707"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528356"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Connettere computer Linux a Monitoraggio di AzureConnect Linux computers to Azure Monitor
 
@@ -22,7 +22,7 @@ L'agente Log Analytics per Linux può essere installato utilizzando uno dei meto
 * [Scaricare e installare manualmente](#install-the-agent-manually) l'agente. Questa operazione è necessaria quando il computer Linux non ha accesso a Internet e comunicherà con Monitoraggio di Azure o Automazione di Azure tramite il [gateway log Analytics](gateway.md). 
 * [Installare l'agente per Linux usando uno script wrapper](#install-the-agent-using-wrapper-script) ospitato in GitHub.Install the agent for Linux using a wrapper-script hosted on GitHub. Questo è il metodo consigliato per installare e aggiornare l'agente quando il computer dispone di connettività con Internet, direttamente o tramite un server proxy.
 
-Per comprendere la configurazione supportata, vedere i [sistemi operativi Linux supportati](log-analytics-agent.md#supported-linux-operating-systems) e la [configurazione del firewall di rete](log-analytics-agent.md#network-firewall-requirements).
+Per comprendere la configurazione supportata, vedere i [sistemi operativi Linux supportati](log-analytics-agent.md#supported-linux-operating-systems) e la [configurazione del firewall di rete](log-analytics-agent.md#firewall-requirements).
 
 >[!NOTE]
 >L'agente di Log Analytics per Linux non può essere configurato per inviare report a più di un'area di lavoro Log Analytics. Può essere configurato solo per creare report solo per un gruppo di gestione di System Center Operations Manager e un'area di lavoro di Log Analytics contemporaneamente o singolarmente.

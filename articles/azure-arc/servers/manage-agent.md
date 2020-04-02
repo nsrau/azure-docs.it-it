@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 03/24/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 758e6123fd09df1e3f8b2e883a729b9fec4328d1
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 8bcf59ee863bb2fd2a3213480372ad215c2fc00d
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80367291"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528580"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gestione e manutenzione dell'agente di macchine connesse
 
@@ -25,7 +25,7 @@ L'agente del computer connesso di Azure per Windows e Linux può essere aggiorna
 
 | Sistema operativo | Metodo di aggiornamento |
 |------------------|----------------|
-| WINDOWS | Manualmente<br> Windows Update |
+| Windows | Manualmente<br> Windows Update |
 | Ubuntu | [Appartamento](https://help.ubuntu.com/lts/serverguide/apt.html) |
 | SuSE Linux Enterprise Server | [Zypper](https://en.opensuse.org/SDB:Zypper_usage_11.3) |
 | RedHat Enterprise, Amazon, CentOS Linux | [Yum](https://wiki.centos.org/PackageManagement/Yum) | 
@@ -61,6 +61,9 @@ L'Installazione guidata rileva se esiste una versione precedente, quindi esegue 
 ### <a name="linux-agent"></a>Agente Linux
 
 Per aggiornare l'agente in un computer Linux alla versione più recente, è necessario due comandi. Un comando per aggiornare l'indice del pacchetto locale con l'elenco dei pacchetti più recenti disponibili dai repository e un comando per aggiornare il pacchetto locale. 
+
+> [!NOTE]
+> Per aggiornare l'agente, è necessario disporre delle autorizzazioni di accesso *radice* o con un account con diritti elevati tramite Sudo.
 
 #### <a name="upgrade-ubuntu"></a>Potenzia Ubuntu
 
@@ -112,13 +115,11 @@ Le azioni del comando [zypper,](https://en.opensuse.org/Portal:Zypper) ad esempi
 
 ## <a name="remove-the-agent"></a>Rimuovere l'agente
 
-Utilizzare una delle procedure seguenti per disinstallare l'agente Windows o Linux utilizzando la riga di comando o l'installazione guidata descritta in questa sezione. Prima di disinstallare l'agente, disconnettere il computer da Azure Arc per i server (anteprima) completando questi passaggi:Before uninstalling the agent, first disconnect the machine from Azure Arc for servers (preview) by completing these steps: 
-
-1. Aprire Azure Arc per server (anteprima) passando al [portale di Azure](https://aka.ms/hybridmachineportal).
-
-2. Selezionare la macchina virtuale nell'elenco, selezionare i puntini di sospensione (**...**) e quindi **Elimina**.
+Eseguire uno dei seguenti metodi per disinstallare l'agente Windows o Linux Connected Machine dalla macchina. La rimozione dell'agente non annulla la registrazione della macchina con Arc per i server (anteprima), si tratta di un processo separato che viene eseguito quando non è più necessario gestire il computer in Azure.Removing the agent does not unregister the machine with Arc for servers (preview), this is a separate process you perform when you no longer need to manage the machine in Azure.
 
 ### <a name="windows-agent"></a>Agente Windows
+
+Entrambi i metodi seguenti rimuovono l'agente, ma non rimuovono la cartella *C:.*
 
 #### <a name="uninstall-from-control-panel"></a>Eseguire la disinstallazione dal Pannello di controllo
 
@@ -158,6 +159,9 @@ Per disinstallare manualmente l'agente dal prompt dei comandi o per utilizzare u
 
 ### <a name="linux-agent"></a>Agente Linux
 
+> [!NOTE]
+> Per disinstallare l'agente, è necessario disporre delle autorizzazioni di accesso *root* o con un account con diritti elevati tramite Sudo.
+
 Per disinstallare l'agente Linux, il comando da utilizzare dipende dal sistema operativo Linux.
 
 - Per Ubuntu, eseguire il comando seguente:
@@ -177,3 +181,11 @@ Per disinstallare l'agente Linux, il comando da utilizzare dipende dal sistema o
     ```bash
     sudo zypper remove azcmagent
     ```
+
+## <a name="unregister-machine"></a>Annulla registrazione macchina
+
+Se si prevede di interrompere la gestione della macchina con i servizi di supporto in Azure, eseguire la procedura seguente per annullare la registrazione del computer con Arc per i server (anteprima). È possibile eseguire questo passaggio prima o dopo aver rimosso l'agente computer connesso dalla macchina.
+
+1. Aprire Azure Arc per server (anteprima) passando al [portale di Azure](https://aka.ms/hybridmachineportal).
+
+2. Selezionare la macchina virtuale nell'elenco, selezionare i puntini di sospensione (**...**) e quindi **Elimina**.
