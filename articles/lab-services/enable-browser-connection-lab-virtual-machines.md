@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: takamath
-ms.openlocfilehash: e2dd642139ae082cc0d0838e61399c549d2d812a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 074d512767769fe434cd4a6d4f4e8e6a88f7ed2a
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74970779"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549126"
 ---
 # <a name="enable-browser-connection-on-lab-virtual-machines"></a>Abilitare la connessione del browser nelle macchine virtuali labEnable browser connection on lab virtual machines 
 DevTest Labs si integra con [Azure Bastion](https://docs.microsoft.com/azure/bastion/), che consente di connettersi alle macchine virtuali tramite un browser. È innanzitutto necessario abilitare la connessione del browser nelle macchine virtuali lab.
 
-In qualità di proprietario di un lab è possibile abilitare l'accesso a tutte le macchine virtuali lab tramite un browser. Non è necessario un client, un agente o software aggiuntivo. Azure Bastion fornisce connettività RDP/SSH sicura e trasparente alle macchine virtuali direttamente nel portale di Azure tramite SSL. Quando ci si connette tramite Il Bastione di Azure, le macchine virtuali non richiedono un indirizzo IP pubblico. Per altre informazioni, vedere [Che cos'è il Bastione](../bastion/bastion-overview.md) di Azure.
+In qualità di proprietario di un lab è possibile abilitare l'accesso a tutte le macchine virtuali lab tramite un browser. Non è necessario un client, un agente o software aggiuntivo. Azure Bastion fornisce connettività RDP/SSH sicura e trasparente alle macchine virtuali direttamente nel portale di Azure tramite TLS. Quando ci si connette tramite Il Bastione di Azure, le macchine virtuali non richiedono un indirizzo IP pubblico. Per altre informazioni, vedere [Che cos'è il Bastione](../bastion/bastion-overview.md) di Azure.
 
 
 In questo articolo viene illustrato come abilitare la connessione del browser nelle macchine virtuali lab.
@@ -43,7 +43,7 @@ Non è possibile creare macchine virtuali lab in una subnet di Azure Bastion.You
 ## <a name="enable-vm-creation-in-the-subnet"></a>Abilitare la creazione di macchine virtuali nella subnetEnable VM creation in the subnet
 A questo punto, abilitare la creazione di macchine virtuali in questa subnet seguendo questi passaggi:Now, enable the creation of VMs in this subnet by following these steps: 
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare **Tutti i servizi** nel menu di navigazione a sinistra. 
 1. Selezionare **DevTest Labs** dall'elenco. 
 1. Nell'elenco dei laboratori selezionare *il lab*. 

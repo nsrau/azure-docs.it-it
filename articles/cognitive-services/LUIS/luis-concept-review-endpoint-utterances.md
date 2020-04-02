@@ -1,22 +1,14 @@
 ---
 title: Esaminare l'espressione utente - LUISReview user utterance - LUIS
-titleSuffix: Azure Cognitive Services
 description: Con l'apprendimento attivo, è possibile verificare la correttezza della finalità e dell'entità delle espressioni di endpoint. LUIS sceglie espressioni di endpoint di cui è certo.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.author: diberry
-ms.openlocfilehash: 375d4b4e7c3fcafbdfde1ff447bedc3e16aff2f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 8d267fc441dc2cbf7f8ae3746486d5e7be55f135
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219940"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546860"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Concetti per abilitare l'apprendimento attivo tramite la revisione delle espressioni di endpoint
 L'apprendimento attivo è una delle tre strategie per migliorare la precisione delle previsioni e fra esse la più facile da attuare. Con l'apprendimento attivo, è possibile verificare la correttezza della finalità e dell'entità delle espressioni di endpoint. LUIS sceglie espressioni di endpoint di cui è certo.
@@ -30,8 +22,10 @@ LUIS aggiunge espressioni all'elenco di revisione quando la finalità di attivaz
 ## <a name="single-pool-for-utterances-per-app"></a>Singolo pool per espressioni per app
 L'elenco **Esaminare le espressioni endpoint** non cambia in base alla versione. È disponibile un singolo pool di espressioni da esaminare, indipendentemente dalla versione dell'espressione che si sta modificando attivamente o dalla versione dell'app pubblicata nell'endpoint.
 
+[Nell'API REST](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/58b6f32139e2bb139ce823c9)il nome della versione è obbligatorio ed è presente nell'applicazione, ma non viene usato oltre tale convalida. Le espressioni di revisione si applicano a un'intera applicazione. Se si rimuovono espressioni da una _versione,_ tutte le versioni sono interessate.
+
 ## <a name="where-are-the-utterances-from"></a>Da dove provengono le espressioni
-Le espressioni di endpoint provengono dalle query degli utenti finali sull'endpoint HTTP dell'applicazione. Se l'app non è pubblicata o non ha ancora ricevuto riscontri, non è presente alcuna espressione da esaminare. Se non ricevi alcun riscontro di endpoint per una finalità o un'entità specifica, non è presente alcuna espressione da esaminare che li contenga.
+Le espressioni endpoint vengono ricavate dalle query degli utenti finali nell'endpoint HTTP dell'applicazione. Se l'app non è pubblicata o non ha ancora ricevuto riscontri, non è presente alcuna espressione da esaminare. Se non ricevi alcun riscontro di endpoint per una finalità o un'entità specifica, non è presente alcuna espressione da esaminare che li contenga.
 
 ## <a name="schedule-review-periodically"></a>Pianificare periodicamente le revisioni
 La revisione delle espressioni consigliate non deve essere eseguita ogni giorno, ma deve far parte della manutenzione di routine di LUIS.

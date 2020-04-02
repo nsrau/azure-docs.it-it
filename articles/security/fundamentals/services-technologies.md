@@ -3,7 +3,7 @@ title: Servizi e tecnologie per la sicurezza di Azure | Documentazione Microsoft
 description: L'articolo offre un elenco dettagliato dei servizi e delle tecnologie per la sicurezza di Azure.
 services: security
 documentationcenter: na
-author: barclayn
+author: terrylanfear
 manager: barbkess
 editor: TomSh
 ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
-ms.author: barclayn
-ms.openlocfilehash: 741e6b9cad20645fdfc085623fd9492a12ac1dfc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: terrylan
+ms.openlocfilehash: 83548063a796401792bd19e7ec27be36a0efa4e4
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68726554"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549197"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Servizi e tecnologie per la sicurezza disponibili in Azure
 
@@ -36,7 +36,7 @@ L'elenco verrà modificato e accresciuto nel corso del tempo, parallelamente ad 
 |[Centro&nbsp;sicurezza&nbsp;di Azure](/azure/security-center/security-center-intro)| Soluzione di protezione dei carichi di lavoro nel cloud che supporta la gestione della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro cloud ibridi.|
 |[Archivio chiavi di AzureAzure Key Vault](/azure/key-vault/key-vault-overview)| Archivio di segreti sicuro per password, stringhe di connessione e altre informazioni necessarie per il funzionamento delle app. |
 |[Log di Monitoraggio di Azure](/azure/log-analytics/log-analytics-overview)|Servizio di monitoraggio che raccoglie dati di telemetria e altri dati e fornisce un linguaggio di query e un motore di analisi per offrire informazioni dettagliate operative per le app e le risorse. Può essere usato da solo o con altri servizi, come il Centro sicurezza. |
-|[Lab di sviluppo/test Azure](/azure/lab-services/devtest-lab-overview)|Servizio che consente agli sviluppatori e ai tester di creare rapidamente ambienti in Azure riducendo al minimo gli sprechi e i costi di controllo.  |
+|[Laboratori di sviluppo/test di AzureAzure Dev/Test Labs](/azure/lab-services/devtest-lab-overview)|Servizio che consente agli sviluppatori e ai tester di creare rapidamente ambienti in Azure riducendo al minimo gli sprechi e i costi di controllo.  |
 
 <!---|[Azure&nbsp;Disk&nbsp;Encryption](/azure/azure-security-disk-encryption-overview)| THIS WILL GO TO THE NEW OVERVIEW TOPIC MEGHAN STEWART IS WRITING|--->
 
@@ -70,7 +70,7 @@ L'elenco verrà modificato e accresciuto nel corso del tempo, parallelamente ad 
 | [Controllo degli accessi&nbsp;in base&nbsp;al ruolo&nbsp;di Azure](/azure/active-directory/role-based-access-control-configure)|Funzionalità di controllo di accesso progettata per consentire agli utenti di accedere solo alle risorse necessarie in base ai rispettivi ruoli all'interno dell'organizzazione.  |
 | [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)|Repository di autenticazione basato sul cloud che supporta una directory multi-tenant basata sul cloud e più servizi di gestione delle identità all'interno di Azure.  |
 | [Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview)|Servizio di gestione delle identità che consente di controllare il modo in cui i clienti si iscrivono, accedono e gestiscono i rispettivi profili durante l'uso delle applicazioni basate su Azure.   |
-| [Azure Active Directory Domain Services](/azure/active-directory-domain-services/overview)| Versione basata su cloud e gestita di Active Directory Domain Services. |
+| [Servizi di dominio Azure Active Directory](/azure/active-directory-domain-services/overview)| Versione basata su cloud e gestita di Active Directory Domain Services. |
 | [Azure Multi-Factor Authentication](/azure/active-directory/authentication/multi-factor-authentication)| Infrastruttura di sicurezza che si avvale di diverse forme di autenticazione e verifica prima di consentire l'accesso a informazioni protette. |
 
 ## <a name="backup-and-disaster-recovery"></a>Backup e ripristino di emergenza
@@ -87,7 +87,7 @@ L'elenco verrà modificato e accresciuto nel corso del tempo, parallelamente ad 
 | [Gateway applicazione di AzureAzure Application Gateway](/azure/application-gateway/application-gateway-introduction)|Servizio di bilanciamento del carico avanzato per applicazioni Web, in grado di eseguire il routing in base a URL e che supporta l'offload SSL. |
 |[Firewall applicazione Web](/azure/frontdoor/waf-overview) (WAF)|Funzionalità del gateway applicazione che offre protezione centralizzata da exploit e vulnerabilità comuni per le applicazioni Web|
 | [Servizio di bilanciamento del carico di AzureAzure Load Balancer](/azure/load-balancer/load-balancer-overview)|Servizio di bilanciamento del carico di rete per applicazioni TCP/UDP. |
-| [ExpressRoute di Azure](/azure/expressroute/expressroute-introduction)| Collegamento WAN dedicato tra reti locali e reti virtuali di Azure. |
+| [Azure ExpressRoute](/azure/expressroute/expressroute-introduction)| Collegamento WAN dedicato tra reti locali e reti virtuali di Azure. |
 | [Gestione traffico di Azure](/azure/traffic-manager/traffic-manager-overview)| Servizio di bilanciamento del carico DNS globale.|
 | [Proxy di applicazione Azure](/azure/active-directory/active-directory-application-proxy-get-started)| Front-end di autenticazione usato per proteggere l'accesso remoto per le applicazioni Web ospitate in locale. |
 |[Firewall di Azure](/azure/firewall/overview)|Servizio di sicurezza di rete gestito basato sul cloud che consente di proteggere le risorse della rete virtuale di Azure.|

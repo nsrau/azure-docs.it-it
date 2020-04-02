@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 6ee339cb709a5d825b39b4accf294761c99ee41a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b54905e201ee7a6dbf4c6837960a6e0b63057ea9
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79282978"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549047"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limiti del servizio in Ricerca cognitiva di Azure
 
@@ -30,7 +30,7 @@ I limiti massimi per l'archiviazione, i carichi di lavoro e le quantità di indi
 > [!NOTE]
 > A partire dal 1 luglio, tutti i livelli sono generalmente disponibili, incluso il livello Ottimizzazione archiviazione. Tutti i prezzi sono disponibili nella pagina [Dettagli prezzo.](https://azure.microsoft.com/pricing/details/search/)
 
-  S3 Alta densità (S3 HD) è progettato per carichi di lavoro specifici: [multi-tenancy](search-modeling-multitenant-saas-applications.md) e grandi quantità di indici di dimensioni ridotte (un milione di documenti per ogni indice, tremila indici per ogni servizio). Questo livello non contiene la [funzionalità indicizzatore](search-indexer-overview.md). In S3 HD, l'inserimento dati deve sfruttare l'approccio push, usando le chiamate API per eseguire il push dei dati dall'origine all'indice. 
+  S3 High Density (S3 HD) è progettato per carichi di lavoro specifici: [multi-tenancy](search-modeling-multitenant-saas-applications.md) e grandi quantità di indici di piccole dimensioni (tremila indici per servizio). Questo livello non contiene la [funzionalità indicizzatore](search-indexer-overview.md). In S3 HD, l'inserimento dati deve sfruttare l'approccio push, usando le chiamate API per eseguire il push dei dati dall'origine all'indice. 
 
 > [!NOTE]
 > Il provisioning di un servizio viene eseguito in base al piano tariffario specifico. Il passaggio a un nuovo piano tariffario per ottenere più capacità prevede il provisioning di un nuovo servizio (non esiste alcun aggiornamento sul posto). Per altre informazioni, vedere [Scegliere uno SKU o un piano tariffario](search-sku-tier.md). Per altre informazioni sulla regolazione delle capacità all'interno di un servizio di cui è già stato effettuato il provisioning, vedere [Ridimensionare i livelli di risorse per le query e l'indicizzazione dei carichi di lavoro](search-capacity-planning.md).
@@ -61,38 +61,16 @@ I limiti massimi per l'archiviazione, i carichi di lavoro e le quantità di indi
 
 <sup>2</sup> La presenza di un numero molto elevato di elementi in raccolte complesse per documento causa attualmente un utilizzo elevato dello spazio di archiviazione. Questo è un problema noto Nel frattempo, un limite di 3000 è un limite superiore sicuro per tutti i livelli di servizio. Questo limite viene applicato solo per le operazioni di indicizzazione che utilizzano la versione API`2019-05-06`generalmente disponibile (GA) meno recente che supporta i campi di tipo complesso ( ) in poi. Per non interrompere i client che potrebbero usare versioni precedenti dell'API di anteprima (che supportano campi di tipo complesso), non applicheremo questo limite per le operazioni di indicizzazione che usano queste versioni dell'API di anteprima. Si noti che le versioni delle API di anteprima non devono essere usate per gli scenari di produzione ed è consigliabile che i clienti spostino l'ultima versione dell'API GA.
 
+> [!NOTE]
+> Mentre la capacità massima di un singolo indice è in genere limitata dallo spazio di archiviazione disponibile, esistono limiti superiori massimi sul numero totale di documenti che possono essere archiviati in un singolo indice. Questo limite è di circa 24 miliardi di documenti per indice per i servizi di ricerca Basic, S1, S2 e S3 e 2 miliardi di documenti per indice per i servizi di ricerca S3HD. Ogni elemento di una raccolta complessa conta come documenti separati ai fini di questi limiti.
+
 <a name="document-limits"></a>
 
 ## <a name="document-limits"></a>Limiti per i documenti 
 
-A partire da ottobre 2018, non vi sono più limiti per i documenti per i nuovi servizi creati in qualsiasi livello fatturabile (Basic, S1, S2, S3, S3 HD) in qualsiasi area. Mentre la maggior parte delle regioni ha avuto un numero illimitato di documenti da novembre/dicembre 2017, ci sono state alcune regioni che hanno continuato a imporre limiti di documento dopo tale data. A seconda di dove e quando è stato creato un servizio di ricerca, è possibile che si stia eseguendo un servizio ancora soggetto a limiti sui documenti.
+A partire da ottobre 2018, non sono più previsti limiti di conteggio dei documenti per qualsiasi nuovo servizio creato a qualsiasi livello fatturabile (Basic, S1, S2, S3, S3 HD) in qualsiasi area. I servizi meno recenti creati prima di ottobre 2018 potrebbero essere ancora soggetti a limiti di conteggio dei documenti.
 
 Per determinare se il servizio dispone di limiti di documenti, utilizzare [l'API REST GET Service Statistics](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics). I limiti del documento si `null` riflettono nella risposta, senza indicare alcun limite.
-
-> [!NOTE]
-> Anche se non sono presenti limiti specifici dei documenti SKU, ogni indice è ancora soggetto a un limite massimo di sicurezza per garantire la stabilità del servizio. Questo limite proviene da Lucene. Ogni documento di Ricerca cognitiva di Azure viene indicizzato internamente come uno o più documenti Lucene.Every Azure Cognitive Search document is internally indexed as one or more Lucene documents. Il numero di documenti Lucene per documento di ricerca dipende dal numero totale di elementi nei campi di raccolta complessi. Ogni elemento viene indicizzato come documento Lucene separato. Ad esempio, un documento con 3 elementi in un campo di raccolta complesso, verrà indicizzato come 4 documenti Lucene - 1 per il documento stesso e 3 per gli elementi. Il numero massimo di documenti Lucene è di circa 25 miliardi per indice.
-
-### <a name="regions-previously-having-document-limits"></a>Aree che in precedenza avevano limiti sui documenti
-
-Se il portale indica un limite di documenti, il servizio è stato creato prima della fine del 2017 o è stato creato in un data center usando cluster con capacità inferiore per l'hosting dei servizi Ricerca cognitiva di Azure:If the portal indicates a document limit, your service was either created before late 2017, or it was created on a data center using lower-capacity clusters for hosting Azure Cognitive Search services:
-
-+ Australia orientale
-+ Asia orientale
-+ India centrale
-+ Giappone occidentale
-+ Stati Uniti centro-occidentali
-
-Per i servizi soggetti a limiti per i documenti, si applicano i limiti massimi seguenti:
-
-|  Gratuito | Basic | S1 | S2 | S3 | S3&nbsp;HD |
-|-------|-------|----|----|----|-------|
-|  10,000 |1&nbsp;milione di abitanti |15 milioni per partizione o 180 milioni per servizio |60 milioni per partizione o 720 milioni per servizio |120 milioni per partizione o 1,4 miliardi per servizio |1 milione per indice o 200 milioni per partizione |
-
-Se il servizio ha dei limiti che costituiscono un blocco, creare un nuovo servizio e pubblicarvi nuovamente tutti i contenuti. Non è previsto alcun meccanismo automatico per eseguire nuovamente il provisioning del servizio nel nuovo hardware in background.
-
-> [!Note] 
-> Per i servizi S3 ad alta densità creati dopo la fine del 2017, è stato rimosso il limite di 200 milioni di documenti per partizione, ma rimane il limite di 1 milione di documenti per indice.
-
 
 ### <a name="document-size-limits-per-api-call"></a>Limiti di dimensioni dei documenti per chiamate all'API
 

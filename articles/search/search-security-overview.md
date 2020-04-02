@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 713a9762206b5083268fd48136cd8077c296c690
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6de6f23fe9564b28a5d436ac00999dbb3e9183e1
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289295"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548971"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Sicurezza e privacy dei dati in Ricerca cognitiva di AzureSecurity and data privacy in Azure Cognitive Search
 
@@ -75,7 +75,7 @@ L'autenticazione è necessaria per ogni richiesta, dove ogni richiesta è costit
 
 ### <a name="restricted-access"></a>Accesso limitato
 
-Quando si dispone di un servizio pubblico e si desidera limitare l'utilizzo del servizio è possibile utilizzare la regola di restrizione IP nella versione dell'API REST di gestione: 2020-03-13, [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2020-03-13/createorupdate-service#iprule-). IpRule consente di limitare l'accesso al servizio identificando gli indirizzi IP, singolarmente o in un intervallo, a cui si desidera concedere l'accesso al servizio di ricerca. 
+Quando si dispone di un servizio pubblico e si desidera limitare l'utilizzo del servizio è possibile utilizzare la regola di restrizione IP nella versione dell'API REST di gestione: 2020-03-13, [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule). IpRule consente di limitare l'accesso al servizio identificando gli indirizzi IP, singolarmente o in un intervallo, a cui si desidera concedere l'accesso al servizio di ricerca. 
 
 ### <a name="private-access"></a>Accesso privato
 

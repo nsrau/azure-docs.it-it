@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
-ms.openlocfilehash: 64a9e11cec7164fb4421dd018238de9f0670382b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e2c9c0aadc8e443f07f60f3ccddb4a1b6dd661b1
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76263728"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520918"
 ---
 # <a name="real-time-conversation-transcription-preview"></a>Trascrizione conversazione in tempo reale (anteprima)
 
@@ -32,7 +32,7 @@ L'API **ConversationTranscriber** di Speech SDK consente di trascrivere riunioni
 
 Speech Device SDK fornisce codice di esempio in Java per l'acquisizione audio in tempo reale usando 8 canali.
 
-- [Codice di esempio del dispositivo ROOBO](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/Conversation.java)
+- [Codice di esempio del dispositivo ROOBO](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/ConversationTranscription.java)
 - [Codice di esempio del kit di sviluppo di Azure KinectAzure Kinect Dev Kit code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java)
 
 ## <a name="prerequisites"></a>Prerequisiti

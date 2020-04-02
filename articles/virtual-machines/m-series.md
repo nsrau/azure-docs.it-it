@@ -5,20 +5,20 @@ services: virtual-machines
 author: ayshakeen
 ms.service: virtual-machines
 ms.topic: article
-ms.date: 02/05/2019
-ms.author: lahugh
-ms.openlocfilehash: e8952218675493710cbdd1f92661e9a9c077f34c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/31/2020
+ms.author: jushiman
+ms.openlocfilehash: 3e0552570d5bdb7f812852cd058710b833b7fdd4
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78164050"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521332"
 ---
 # <a name="m-series"></a>Serie M
 
-La serie M offre un elevato numero di vCPU (fino a 128 vCPU) e una grande quantità di memoria (fino a 3,8 TiB). È ideale anche per database estremamente grandi o altre applicazioni che traggono vantaggio da elevati conteggi vCPU e grandi quantità di memoria. Le dimensioni della serie M sono basate sull'Intel® Xeon® CPU E7-8890 v3
+La serie M offre un elevato numero di vCPU (fino a 128 vCPU) e una grande quantità di memoria (fino a 3,8 TiB). È ideale anche per database estremamente grandi o altre applicazioni che traggono vantaggio da elevati conteggi vCPU e grandi quantità di memoria. Le dimensioni della serie M&reg; sono supportate sia sulla CPU Intel Xeon&reg; E7-8890&reg; v3&reg; x 2,50 GHz che sull'Intel Xeon Platinum 8280M 2.7GHz (Cascade Lake).
 
-Funzionalità di M-series VM Intel® tecnologia Hyper-Threading
+La funzionalità di M-series VM è la tecnologia Intel&reg; Hyper-Threading.
 
 ACU: 160-180
 

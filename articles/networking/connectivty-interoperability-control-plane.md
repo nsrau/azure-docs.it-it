@@ -1,5 +1,5 @@
 ---
-title: 'Interoperabilità nelle funzionalità di connettività back-end di Azure: analisi del piano di controllo | Microsoft Docs'
+title: 'Interoperabilità in Azure: analisi dei piani di controllo'
 description: Questo articolo illustra l'analisi del piano di controllo dell'installazione test che è possibile usare per analizzare l'interoperabilità tra ExpressRoute, una VPN da sito a sito e il peering reti virtuali in Azure.
 documentationcenter: na
 services: networking
@@ -10,14 +10,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 4921e4c4fc0da95250a0171c66d6a69093b10687
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e41bc86533815c394077bf5276d930fe958cd19
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74873846"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518280"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-control-plane-analysis"></a>Interoperabilità nelle funzionalità di connettività back-end di Azure: analisi del piano di controllo
+# <a name="interoperability-in-azure--control-plane-analysis"></a>Interoperabilità in Azure: analisi dei piani di controllo
 
 Questo articolo illustra l'analisi del piano di controllo dell'[installazione test][Setup]. È anche possibile esaminare la [configurazione dell'installazione test][Configuration] e l'[analisi del piano dati][Data-Analysis] dell'installazione test.
 
@@ -29,7 +29,7 @@ La figura seguente illustra la rete dalla prospettiva di una rete virtuale dell'
 
 ![1][1]
 
-Il numero ASN del gateway Azure ExpressRoute della rete virtuale è diverso da quello dei router Microsoft Enterprise Edge (MSEE). Un gateway ExpressRoute usa un numero ASN privato (con valore **65515**) e i router MSEE usano un numero ASN pubblico (con valore **12076**) a livello globale. Quando si configura il peering ExpressRoute, perché MSEE è il peer, si usa **12076** come ASN peer. Sul lato Azure, MSEE stabilisce il peering eBGP con il gateway ExpressRoute. Il peering eBGP doppio stabilito da MSEE per ogni peering di ExpressRoute è trasparente a livello di piano di controllo. Di conseguenza, quando si visualizza una tabella di route ExpressRoute, viene indicato il numero ASN del gateway ExpressRoute della rete virtuale per i prefissi della rete virtuale. 
+Il numero ASN del gateway Azure ExpressRoute della rete virtuale è diverso da quello dei router Microsoft Enterprise Edge (MSEE). Un gateway ExpressRoute usa un numero ASN privato (con valore **65515**) e i router MSEE usano un numero ASN pubblico (con valore **12076**) a livello globale. Quando si configura il peering ExpressRoute, perché MSEE è il peer, si usa **12076** come ASN peer. Sul lato Azure, MSEE stabilisce il peering eBGP con il gateway ExpressRoute. Il peering eBGP doppio stabilito da MSEE per ogni peering di ExpressRoute è trasparente a livello di piano di controllo. Pertanto, quando si visualizza una tabella di route ExpressRoute, viene visualizzato il gateway ExpressRoute ASN della rete virtuale per i prefissi della rete virtuale. 
 
 La figura seguente illustra un esempio di tabella di route ExpressRoute: 
 
@@ -45,7 +45,7 @@ Sia la posizione 1 locale che la rete virtuale remota sono connesse alla rete vi
 
 ## <a name="on-premises-location-1-and-the-branch-vnet-perspective-via-a-site-to-site-vpn"></a>Prospettiva della posizione 1 locale e della rete virtuale della filiale tramite una VPN da sito a sito
 
-Sia la posizione 1 locale che la rete virtuale della filiale sono connesse al gateway VPN di una rete di virtuale dell'hub tramite una connessione VPN da sito a sito. Viene condivisa la stessa prospettiva della topologia, come illustrato nel diagramma seguente:
+Sia la posizione 1 locale che la rete virtuale di succursale sono connesse al gateway VPN di una rete virtuale hub tramite una connessione VPN da sito a sito. Viene condivisa la stessa prospettiva della topologia, come illustrato nel diagramma seguente:
 
 ![3][3]
 

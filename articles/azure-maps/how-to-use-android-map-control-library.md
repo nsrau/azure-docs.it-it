@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 55bfb5030d0a168e7556240212fcd5f3be30a289
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e0f0f311b7ec8adae6ddb25e01046141adadfa4
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335354"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548546"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Introduzione ad Azure Maps Android SDK
 
@@ -267,6 +267,29 @@ Ecco un esempio di Mappe di Azure con la lingua impostata su "fr-FR" e la visual
 </center>
 
 Un elenco completo delle lingue e delle visualizzazioni a livello di area supportate è disponibile [qui](supported-languages.md).
+
+## <a name="navigating-the-map"></a>Navigazione nella mappa
+
+Esistono diversi modi in cui la mappa può essere ingrandita, panoramica, ruotata e inclinata. Di seguito vengono descritti in dettaglio tutti i diversi modi per spostarsi all'interno della mappa.
+
+**Ingrandire la mappa**
+
+- Toccare la mappa con due dita e avvicinare le dita per ridurre o allontanare le dita per eseguire lo zoom avanti.
+- Tocca due volte la mappa per ingrandire un livello.
+- Toccare due volte con due dita per ingrandire la mappa di un livello.
+- Toccare due volte; al secondo tocco, tenere premuto il dito sulla mappa e trascinare verso l'alto per ingrandire o ridurre per eseguire lo zoom indietro.
+
+**Eseguire la panoramica della mappa**
+
+- Toccare la mappa e trascinare in qualsiasi direzione.
+
+**Ruotare la mappa**
+
+- Toccare la mappa con due dita e ruotare.
+
+**Pitch della mappa**
+
+- Toccare la mappa con due dita e trascinarle verso l'alto o verso il basso insieme.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

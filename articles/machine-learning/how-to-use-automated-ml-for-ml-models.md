@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 03/10/2020
-ms.openlocfilehash: 9999d74bf6bef3e8351460add7efc8bdbfcd1045
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aa85e80f1a90191a0a34a6962437c27a9d57ef65
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270030"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547560"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creare, esaminare e distribuire modelli di Machine Learning automatizzati con Azure Machine LearningCreate, review, and deploy automated machine learning models with Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -99,7 +99,7 @@ In caso contrario, verrà visualizzato un elenco dei recenti esperimenti di appr
     Dimensioni della macchina virtuale| Selezionare le dimensioni della macchina virtuale per il contesto di calcolo.
     Numero minimo/massimo di nodi (in Impostazioni avanzate)| Per profilare i dati, è necessario specificare almeno un nodo. Immettere il numero massimo di nodi per il calcolo. Il valore predefinito è 6 nodi per un calcolo AML.
     
-    Selezionare **Crea**. La creazione di un nuovo calcolo può richiedere alcuni minuti.
+    Selezionare **Create** (Crea). La creazione di un nuovo calcolo può richiedere alcuni minuti.
 
     >[!NOTE]
     > Il nome del calcolo indicherà se il calcolo selezionato/creare è *abilitato per la profilatura.* (Vedere la sezione [Profiling dei dati](#profile) per ulteriori dettagli).
@@ -178,17 +178,27 @@ L'apprendimento automatico offre automaticamente la pre-elaborazione e i guardra
 
 ### <a name="data-guardrails"></a>Guardrail per i dati
 
-I guardrail di dati vengono applicati automaticamente per aiutarti a identificare potenziali problemi con i tuoi dati (ad esempio, valori mancanti, squilibrio di classe) e aiutare a intraprendere azioni correttive per migliorare i risultati. Ci sono molte best practice che sono disponibili e possono essere applicate per ottenere risultati affidabili. 
-
-Nella tabella seguente vengono descritti i guardrail di dati attualmente supportati e gli stati associati che gli utenti possono incontrare durante l'invio dell'esperimento.
+I guardrail dati vengono applicati quando la featurizzazione automatica è abilitata o la convalida è impostata su auto. I guardrail di dati consentono di identificare potenziali problemi con i dati (ad esempio, valori mancanti, squilibrio di classe) e aiutano a intraprendere azioni correttive per migliorare i risultati. Ci sono molte best practice che sono disponibili e possono essere applicate per ottenere risultati affidabili. Gli utenti possono esaminare i guardrail dei dati nello studio all'interno della ```show_output=True``` scheda **Guardrail di dati** di un'esecuzione di ML automatizzato o impostando quando si invia un esperimento utilizzando Python SDK. Nella tabella seguente vengono descritti i guardrail di dati attualmente supportati e gli stati associati che gli utenti possono incontrare durante l'invio dell'esperimento.
 
 Guardrail|Stato|Condizione&nbsp;&nbsp;per trigger
 ---|---|---
-Imputazione dei valori&nbsp;&nbsp;mancanti |**Passed** <br> <br> **Fisso**|    Nessun valore mancante in&nbsp;nessuna delle colonne di input <br> <br> Alcune colonne hanno valori mancanti
-Convalida incrociata|**Operazione completata**|Se non viene fornito alcun set di convalida esplicito
-Rilevamento&nbsp;di&nbsp;funzionalità ad alta&nbsp;cardinalità|    **Passed** <br> <br>**Operazione completata**|    Non sono state rilevate funzionalità di cardinalità elevata <br><br> Sono state rilevate colonne di input ad alta cardinalità
-Rilevamento della bilancia delle classi    |**Passed** <br><br><br>**Avvisato** |Le classi sono bilanciate nei dati di training; Un set di dati viene considerato bilanciato se ogni classe dispone di una buona rappresentazione nel set di dati, misurata in base al numero e al rapporto dei campioni <br> <br> Le classi nei dati di training sono sbilanciate
-Coerenza dei dati delle serie temporali|**Passed** <br><br><br><br> **Fisso** |<br> Sono stati analizzati i valori selezionati per l'orizzonte, il ritardo e la finestra di rotolamento e non sono stati rilevati potenziali problemi di memoria insufficiente. <br> <br>I valori selezionati di "Horizon, lag, rolling window" sono stati analizzati e potrebbero causare l'esaurimento della memoria dell'esperimento. La finestra di ritardo o di rotolamento è stata disattivata.
+Imputazione dei valori di funzionalità mancanti |**Passed** <br><br><br> **Operazione completata**| Non sono stati rilevati valori di feature mancanti nei dati di training. Ulteriori informazioni [sull'imputazione dei valori mancanti.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> I valori delle funzionalità mancanti sono stati rilevati nei dati di training e non sono stati calcolati.
+Gestione delle funzionalità ad alta cardinalitàHigh cardinality feature handling |**Passed** <br><br><br> **Operazione completata**| Gli input sono stati analizzati e non sono state rilevate funzionalità di cardinalità elevata. Ulteriori informazioni sul rilevamento delle funzionalità di [cardinalità elevata.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Le funzionalità di cardinalità elevata sono state rilevate negli input e sono state gestite.
+Gestione divisione convalida |**Operazione completata**| *La configurazione di convalida è stata impostata su 'auto' e i dati di training contenevano **meno** di 20.000 righe.* <br> Ogni iterazione del modello sottoposto a training è stata convalidata tramite la convalida incrociata. Ulteriori informazioni sui dati di [convalida.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data) <br><br> *La configurazione di convalida è stata impostata **more** su 'auto' e i dati di training contenevano più di 20.000 righe.* <br> I dati di input sono stati suddivisi in un set di dati di training e un set di dati di convalida per la convalida del modello.
+Rilevamento del bilanciamento delle classi |**Passed** <br><br><br><br> **Avvisato** | Gli input sono stati analizzati e tutte le classi sono bilanciate nei dati di training. Un set di dati viene considerato bilanciato se ogni classe dispone di una buona rappresentazione nel set di dati, misurata in base al numero e al rapporto dei campioni. <br><br><br> Le classi sbilanciate sono state rilevate negli input. Per risolvere la distorsione del modello, risolvere il problema di bilanciamento. Ulteriori informazioni sui [dati sbilanciati.](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml#imbalance)
+Rilevamento dei problemi di memoria |**Passed** <br><br><br><br> **Operazione completata** |<br> Sono stati analizzati i valori selezionati per l'orizzonte, il ritardo e la finestra di rotolamento e non sono stati rilevati potenziali problemi di memoria insufficiente. Ulteriori informazioni sulle [configurazioni](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) di previsione delle serie temporali. <br><br><br>I valori selezionati di "Horizon, lag, rolling window" sono stati analizzati e potrebbero causare l'esaurimento della memoria dell'esperimento. Le configurazioni delle finestre di ritardo o di rotolamento sono state disattivate.
+Rilevamento della frequenza |**Passed** <br><br><br><br> **Operazione completata** |<br> La serie temporale è stata analizzata e tutti i punti dati sono allineati con la frequenza rilevata. <br> <br> La serie temporale è stata analizzata e sono stati rilevati punti dati che non sono allineati con la frequenza rilevata. Questi punti dati sono stati rimossi dal set di dati. Ulteriori informazioni sulla preparazione dei dati per le [previsioni di serie temporali.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data)
+
+#### <a name="data-guardrail-states"></a>Stati di Guardrail dei dati
+I guardrail di dati visualizzeranno uno dei tre stati seguenti: 'Passato', 'Fatto o 'Avviso'.
+
+State| Descrizione
+----|----
+Passed| Non sono stati rilevati problemi relativi ai dati e non è richiesta alcuna azione da parte dell'utente. 
+Operazione completata| Le modifiche sono state applicate ai dati. Incoraggiamo gli utenti a rivedere le azioni correttive che m/ML automatica ha eseguito per garantire che le modifiche siano in linea con i risultati previsti. 
+Avvisato| È stato rilevato un problema di dati che non è stato possibile risolto. Incoraggiamo gli utenti a rivedere e risolvere il problema. 
+
+La versione precedente di Automated ML visualizzava un quarto stato: 'Fixed'. Gli esperimenti più recenti non visualizzeranno questo stato e tutti i guardrail che visualizzano lo stato 'Fisso' ora visualizzeranno 'Fatto'.   
 
 ## <a name="run-experiment-and-view-results"></a>Eseguire l'esperimento e visualizzare i risultati
 

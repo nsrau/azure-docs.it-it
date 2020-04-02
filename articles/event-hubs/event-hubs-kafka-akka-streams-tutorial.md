@@ -1,6 +1,6 @@
 ---
 title: Uso di Akka Streams per Apache Kafka - Hub eventi di Azure | Microsoft Docs
-description: Questo articolo fornisce informazioni su come connettere Akka Streams a un hub eventi di Azure abilitato per Apache Kafka.
+description: Questo articolo fornisce informazioni su come connettere flussi Akka a un hub eventi di Azure.This article provides information on how to connect Akka Streams to an Azure event hub.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 729e78959f93b1aa1563a049a64c553929c4f97e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c53fcc7b4b99e77237ba7ea9219aef4182f2af61
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283634"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521831"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Uso di Akka Streams con Hub eventi per Apache Kafka
 Questa esercitazione illustra come connettere a un hub eventi i streams senza modificare i client di protocollo o eseguire i propri cluster. Hub di eventi di Azure per Kafka supporta [Apache Kafka versione 1.0.Azure](https://kafka.apache.org/10/documentation.html) Event Hubs for the Kafka supports Apache Kafka version 1.0.
@@ -49,7 +49,7 @@ Per completare questa esercitazione, verificare di disporre dei prerequisiti seg
 
 ## <a name="create-an-event-hubs-namespace"></a>Creare uno spazio dei nomi di Hub eventi
 
-Per l'invio o la ricezione da qualsiasi servizio Hub eventi è richiesto uno spazio dei nomi di Hub eventi. Vedere [Creazione di un hub eventi con supporto per Kafka](event-hubs-create.md) per informazioni su come ottenere un endpoint Kafka di Hub eventi. Assicurarsi di copiare la stringa di connessione di Hub eventi per usarla in seguito.
+Per l'invio o la ricezione da qualsiasi servizio Hub eventi è richiesto uno spazio dei nomi di Hub eventi. Per informazioni dettagliate, vedere [Creare un hub eventi.](event-hubs-create.md) Assicurarsi di copiare la stringa di connessione di Hub eventi per usarla in seguito.
 
 ## <a name="clone-the-example-project"></a>Clonare il progetto di esempio
 

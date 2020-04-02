@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 7e8a1793a329a863c9df97ae5ddcbee6cef10e8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4819eaf2a65cf542029cf36f262d0cea5be75f2e
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76964338"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521953"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale
 
@@ -129,7 +129,7 @@ Quando si sceglie una subnet:
 
 Se si desidera portare i propri indirizzi IP pubblici statici per il sistema di disponibilità di Azure-SSIS durante l'aggiunta a una rete virtuale, assicurarsi che soddisfino i requisiti seguenti:If you want to bring your own static public IP addresses for Azure-SSIS IR while joining it to a virtual network, make sure they meet the following requirements:
 
-- Devono essere forniti esattamente due inutilizzati che non sono già associati ad altre risorse di Azure.Exactly two unused ones that are not already associated with other Azure resources should. Quello aggiuntivo verrà usato quando si aggiorna periodicamente il rinisbio Azure-SSIS.
+- Devono essere forniti esattamente due inutilizzati che non sono già associati ad altre risorse di Azure.Exactly two unused ones that are not already associated with other Azure resources should. Quello aggiuntivo verrà usato quando si aggiorna periodicamente il rinisbio Azure-SSIS. Si noti che un indirizzo IP pubblico non può essere condiviso tra i sistemi di gestione dei valori di accesso condiviso di Azure-SSIS.
 
 - Entrambi devono essere statici di tipo standard. Per ulteriori dettagli, fare riferimento a [SKU dell'indirizzo IP pubblico.](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku)
 
@@ -191,10 +191,55 @@ Ad esempio, se il catalogo iR Azure-SSIS si trova `UK South` in individua e si d
 > [!NOTE]
 > Questo approccio comporta un costo aggiuntivo di manutenzione. Controllare regolarmente l'intervallo IP e aggiungere nuovi intervalli IP nell'UDR per evitare di interrompere il componente di irper di Azure-SSIS. Si consiglia di controllare l'intervallo IP mensilmente perché quando il nuovo IP viene visualizzato nel tag di servizio, l'IP avrà un altro mese entrare in vigore. 
 
+Per semplificare l'installazione delle regole UDR, è possibile eseguire lo script di Powershell seguente per aggiungere le regole DI protezione definita dall'utente per i servizi di gestione di Azure Batch:To make the setup of UDR rules easier, you can run following Powershell script to add UDR rules for Azure Batch management services:
+```powershell
+$Location = "[location of your Azure-SSIS IR]"
+$RouteTableResourceGroupName = "[name of Azure resource group that contains your Route Table]"
+$RouteTableResourceName = "[resource name of your Azure Route Table ]"
+$RouteTable = Get-AzRouteTable -ResourceGroupName $RouteTableResourceGroupName -Name $RouteTableResourceName
+$ServiceTags = Get-AzNetworkServiceTag -Location $Location
+$BatchServiceTagName = "BatchNodeManagement." + $Location
+$UdrRulePrefixForBatch = $BatchServiceTagName
+if ($ServiceTags -ne $null)
+{
+    $BatchIPRanges = $ServiceTags.Values | Where-Object { $_.Name -ieq $BatchServiceTagName }
+    if ($BatchIPRanges -ne $null)
+    {
+        Write-Host "Start to add rule for your route table..."
+        for ($i = 0; $i -lt $BatchIPRanges.Properties.AddressPrefixes.Count; $i++)
+        {
+            $UdrRuleName = "$($UdrRulePrefixForBatch)_$($i)"
+            Add-AzRouteConfig -Name $UdrRuleName `
+                -AddressPrefix $BatchIPRanges.Properties.AddressPrefixes[$i] `
+                -NextHopType "Internet" `
+                -RouteTable $RouteTable `
+                | Out-Null
+            Write-Host "Add rule $UdrRuleName to your route table..."
+        }
+        Set-AzRouteTable -RouteTable $RouteTable
+    }
+}
+else
+{
+    Write-Host "Failed to fetch service tags, please confirm that your Location is valid."
+}
+```
+
 Affinché l'appliance firewall consenta il traffico in uscita, è necessario consentire l'uscita verso le porte inferiori a i requisiti delle regole in uscita del gruppo di sicurezza di rete.
 -   Porta 443 con destinazione come servizi cloud di Azure.Port 443 with destination as Azure Cloud services.
 
-    Se si usa Firewall di Azure, è possibile specificare la regola di rete con il tag del servizio AzureCloud, altrimenti è possibile consentire la destinazione come tutte nell'appliance firewall.
+    Se si usa Firewall di Azure, è possibile specificare la regola di rete con il tag del servizio AzureCloud.If you use Azure Firewall, you can specify network rule with AzureCloud Service Tag. Per il firewall degli altri tipi, è possibile consentire semplicemente la destinazione come all'altra per la porta 443 o consentire i nomi di dominio completi di sotto in base al tipo di ambiente Azure:
+    | Ambiente Azure | Endpoint                                                                                                                                                                                                                                                                                                                                                              |
+    |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Azure Public      | <ul><li><b>Azure Data Factory (gestione)Azure Data Factory (Management)</b></li><li style="list-style-type:none"><ul><li>\*File con estensione frontend.clouddatahub.net</li></ul></li><li><b>Archiviazione di Azure (gestione)Azure Storage (Management)</b></li><li style="list-style-type:none"><ul><li>\*.blob.core.windows.net</li><li>\*.table.core.windows.net</li></ul></li><li><b>Azure Container Registry (Custom Setup)</b></li><li style="list-style-type:none"><ul><li>\*.azurecr.io</li></ul></li><li><b>Hub eventi (registrazione)Event Hub (Logging)</b></li><li style="list-style-type:none"><ul><li>\*.servicebus.windows.net</li></ul></li><li><b>Servizio di registrazione Microsoft (uso interno)</b></li><li style="list-style-type:none"><ul><li>gcs.prod.monitoring.core.windows.net</li><li>prod.warmpath.msftcloudes.com</li><li>azurewatsonanalysis-prod.core.windows.net</li></ul></li></ul> |
+    | Azure Government  | <ul><li><b>Azure Data Factory (gestione)Azure Data Factory (Management)</b></li><li style="list-style-type:none"><ul><li>\*File con estensione frontend.datamovement.azure.us</li></ul></li><li><b>Archiviazione di Azure (gestione)Azure Storage (Management)</b></li><li style="list-style-type:none"><ul><li>\*.blob.core.usgovcloudapi.net</li><li>\*.table.core.usgovcloudapi.net</li></ul></li><li><b>Azure Container Registry (Custom Setup)</b></li><li style="list-style-type:none"><ul><li>\*File con estensione azurecr.us</li></ul></li><li><b>Hub eventi (registrazione)Event Hub (Logging)</b></li><li style="list-style-type:none"><ul><li>\*File servicebus.usgovcloudapi.net</li></ul></li><li><b>Servizio di registrazione Microsoft (uso interno)</b></li><li style="list-style-type:none"><ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>azurewatsonanalysis.usgovcloudapp.net</li></ul></li></ul> |
+    | 21Vianet per Azure Cina     | <ul><li><b>Azure Data Factory (gestione)Azure Data Factory (Management)</b></li><li style="list-style-type:none"><ul><li>\*File con estensione frontend.datamovement.azure.cn</li></ul></li><li><b>Archiviazione di Azure (gestione)Azure Storage (Management)</b></li><li style="list-style-type:none"><ul><li>\*File con estensione blob.core.chinacloudapi.cn</li><li>\*File con estensione table.core.chinacloudapi.cn</li></ul></li><li><b>Azure Container Registry (Custom Setup)</b></li><li style="list-style-type:none"><ul><li>\*File con estensione azurecr.cn</li></ul></li><li><b>Hub eventi (registrazione)Event Hub (Logging)</b></li><li style="list-style-type:none"><ul><li>\*File con estensione servicebus.chinacloudapi.cn</li></ul></li><li><b>Servizio di registrazione Microsoft (uso interno)</b></li><li style="list-style-type:none"><ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>azurewatsonanalysis.chinacloudapp.cn</li></ul></li></ul>
+
+    Per quanto riguarda gli FQDN di Archiviazione di Azure, Registro di sistema del contenitore di Azure e Hub eventi, è anche possibile scegliere di abilitare gli endpoint di servizio seguenti per la rete virtuale in modo che il traffico di rete verso questi endpoint passi attraverso la rete backbone di Azure anziché essere instradato all'appliance del firewall:
+    -  Microsoft.Storage
+    -  Microsoft.ContainerRegistry
+    -  Microsoft.EventHub
+
 
 -   Porta 80 con destinazione come siti di download CRL.
 
@@ -219,7 +264,7 @@ Affinché l'appliance firewall consenta il traffico in uscita, è necessario con
     Se si usa Firewall di Azure, è possibile specificare la regola di rete con Il tag del servizio di archiviazione, altrimenti è possibile consentire la destinazione come URL di archiviazione file di Azure specifico nell'appliance firewall.
 
 > [!NOTE]
-> Per SQL di Azure e Archiviazione, se si configurano gli endpoint del servizio di rete virtuale nella subnet, il traffico tra il provider di disponibilità di bit Azure-SSIS e SQL di Azure nella stessa area: Archiviazione di Azure nella stessa area o area associata verrà instradato direttamente alla rete backbone di Microsoft AzureFor Azure-SSIS IR and Azure SQL in same region : Azure Storage in same region or paired region will be routed to Microsoft Azure backbone network directly al posto dell'appliance firewall.
+> Per SQL di Azure e Archiviazione, se si configurano gli endpoint del servizio di rete virtuale nella subnet, il traffico tra il provider di oggetti di archiviazione Azure-SSIS e SQL di Azure nella stessa area: Archiviazione di Azure nella stessa area o area associata verrà instradato direttamente alla rete backbone di Microsoft Azure anziché all'appliance firewall.
 
 Se non è necessaria la funzionalità di controllo del traffico in uscita del codice IR Azure-SSIS, è sufficiente applicare route per forzare tutto il traffico al tipo di hop successivo **Internet:**
 
@@ -241,7 +286,7 @@ Il runtime di integrazione Azure-SSIS deve creare alcune risorse di rete nello s
 > [!NOTE]
 > È ora possibile portare i propri indirizzi IP pubblici statici per il componente di gestione dei raggi DiSIS Azure-SSIS.You can now bring your own static public IP addresses for Azure-SSIS IR. In questo scenario verranno creati solo il servizio di bilanciamento del carico di Azure e il gruppo di sicurezza di rete nello stesso gruppo di risorse degli indirizzi IP pubblici statici anziché nella rete virtuale.
 
-Tali risorse verranno create all'avvio del componente di ricreazione Azure-SSIS. Verranno eliminati quando il componente di ricreazione Azure-SSIS si arresta. Se si portano i propri indirizzi IP pubblici statici per il ir Azure-SSIS, non verranno eliminati quando il componente di accesso Azure-SSIS si arresta. Per evitare di bloccare l'arresto del componente di riproduzione Azure-SSIS, non riutilizzare queste risorse di rete nelle altre risorse. 
+Tali risorse verranno create all'avvio del componente di ricreazione Azure-SSIS. Verranno eliminati quando il componente di ricreazione Azure-SSIS si arresta. Se si portano i propri indirizzi IP pubblici statici per il ir Azure-SSIS, i propri indirizzi IP pubblici statici non verranno eliminati quando il componente di accesso Azure-SSIS si arresta. Per evitare di bloccare l'arresto del componente di riproduzione Azure-SSIS, non riutilizzare queste risorse di rete nelle altre risorse.
 
 Assicurarsi di non avere alcun blocco di risorsa per il gruppo di risorse/sottoscrizione a cui appartengono la rete virtuale o gli indirizzi IP pubblici statici. Se si configura un blocco di sola lettura/eliminazione, l'avvio e l'arresto del componente di configurazione Azure-SSIS avranno esito negativo o il problema si blocca.
 
@@ -249,6 +294,8 @@ Assicurarsi di non disporre di criteri di Azure che impediscono la creazione del
 - Microsoft.Network/LoadBalancers 
 - Microsoft.Network/NetworkSecurityGroups 
 - Microsoft.Network/PublicIPAddresses 
+
+Assicurarsi che la quota di risorse della sottoscrizione sia sufficiente per le tre risorse di rete precedenti. In particolare, per ogni componente di audio Azure-SSIS creato nella rete virtuale, è necessario riservare due quote gratuite per ognuna delle tre risorse di rete precedenti. L'ulteriore quota verrà usata quando si aggiorna periodicamente il raggio di ir Azure-SSIS.
 
 ### <a name="faq"></a>Domande frequenti su <a name="faq"></a>
 
@@ -262,7 +309,7 @@ Assicurarsi di non disporre di criteri di Azure che impediscono la creazione del
 
   È ora possibile portare i propri indirizzi IP pubblici statici per il componente di gestione dei raggi DiSIS Azure-SSIS.You can now bring your own static public IP addresses for Azure-SSIS IR. In questo caso, è possibile aggiungere gli indirizzi IP all'elenco Consenti del firewall per le origini dati. È anche possibile considerare altre opzioni seguenti per proteggere l'accesso ai dati dal livello di ir Azure-SSIS a seconda dello scenario:You can also consider other options below to secure data access from your Azure-SSIS IR depending on your scenario:
 
-  - Se l'origine dati è in locale, dopo aver connesso una rete virtuale alla rete locale e aver aggiunto il componente di integrazione di Azure-SSIS alla subnet della rete virtuale, è possibile aggiungere l'intervallo di indirizzi IP privati della subnet all'elenco Consenti del firewall per l'origine dati. .
+  - Se l'origine dati è in locale, dopo aver connesso una rete virtuale alla rete locale e aver aggiunto il componente di integrazione di Azure-SSIS alla subnet della rete virtuale, è possibile aggiungere l'intervallo di indirizzi IP privati della subnet all'elenco consenti del firewall per l'origine dati.
   - Se l'origine dati è un servizio di Azure che supporta gli endpoint del servizio di rete virtuale, è possibile configurare un endpoint del servizio di rete virtuale nella subnet della rete virtuale e aggiungere il provider di disponibilità di Azure-SSIS a tale subnet. È quindi possibile aggiungere una regola di rete virtuale con tale subnet al firewall per l'origine dati.
   - Se l'origine dati è un servizio cloud non Azure, è possibile usare un UDR per instradare il traffico in uscita dal provider di disponibilità di Azure-SSIS a un firewall NVA/Azure tramite un indirizzo IP pubblico statico. È quindi possibile aggiungere l'indirizzo IP pubblico statico del firewall NVA/Azure all'elenco Consenti del firewall per l'origine dati.
   - Se nessuna delle opzioni precedenti soddisfa le proprie esigenze, è consigliabile configurare un componente di accesso a motore indipendente come proxy per il componente di accesso [Azure-SSIS](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis). È quindi possibile aggiungere l'indirizzo IP pubblico statico del computer che ospita il componente di gestione delle risorse di messaggi di ricreazione self-hosted all'elenco Consenti del firewall per l'origine dati.
@@ -288,7 +335,7 @@ Usare il portale per configurare una rete virtuale di Azure Resource Manager pri
 
 1. Avviare Microsoft Edge o Google Chrome. Attualmente, solo questi Web browser supportano l'interfaccia utente di Data Factory.Currently, only these web browsers support the Data Factory UI. 
 
-1. Accedere al [portale](https://portal.azure.com)di Azure . 
+1. Accedere al [portale di Azure](https://portal.azure.com). 
 
 1. Selezionare **Altri servizi**. Filtrare e selezionare **Reti virtuali**. 
 
@@ -318,7 +365,7 @@ Usare il portale per configurare una rete virtuale classica prima di provare ad 
 
 1. Avviare Microsoft Edge o Google Chrome. Attualmente, solo questi Web browser supportano l'interfaccia utente di Data Factory.Currently, only these web browsers support the Data Factory UI. 
 
-1. Accedere al [portale](https://portal.azure.com)di Azure . 
+1. Accedere al [portale di Azure](https://portal.azure.com). 
 
 1. Selezionare **Altri servizi**. Filtrare e selezionare **Reti virtuali (classiche)**. 
 

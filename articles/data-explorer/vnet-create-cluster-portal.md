@@ -7,12 +7,12 @@ ms.reviewer: basaba
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/24/2020
-ms.openlocfilehash: 4dff471fa0f2194756409e01512ed223a1d46024
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 99c32122fc48aaea7428fa559d7289713849f34e
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80241439"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548891"
 ---
 # <a name="create-an-azure-data-explorer-cluster-in-your-virtual-network"></a>Creare un cluster di Azure Data Explorer nella rete virtualeCreate an Azure Data Explorer cluster in your virtual network
 
@@ -21,7 +21,7 @@ Azure Data Explorer supporta la distribuzione di un cluster in una subnet nella 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* Accedere al [portale](https://portal.azure.com/)di Azure .
+* Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-network-security-group-nsg"></a>Creare un gruppo di sicurezza di rete
 
@@ -68,7 +68,7 @@ Per creare il gruppo di sicurezza di rete:
     | Nome | AllowAzureDataExplorerManagement
     | | |
     
-1. Ripetere i due passaggi precedenti per tutte le dipendenze in ingresso e in uscita in base alle dipendenze per la [distribuzione della rete virtuale.](/azure/data-explorer/vnet-deloyment#dependencies-for-vnet-deployment) In alternativa, le regole in uscita possono essere sostituite con una singola regola per consentire *Internet* per le porte 443 e 80.
+1. Ripetere i due passaggi precedenti per tutte le dipendenze in ingresso e in uscita in base alle dipendenze per la [distribuzione della rete virtuale.](/azure/data-explorer/vnet-deployment#dependencies-for-vnet-deployment) In alternativa, le regole in uscita possono essere sostituite con una singola regola per consentire *Internet* per le porte 443 e 80.
     
     Le regole del gruppo di sicurezza di gruppo per le dipendenze in ingresso e in uscita dovrebbero essere simili alle:The NSG rules for inbound and outbound dependencies should look like this:
 
@@ -121,7 +121,7 @@ Per creare la rete virtuale e la subnet:
     | | | |
 
     > [!NOTE]
-    > Per i carichi di lavoro di produzione, pianificare le dimensioni della subnet in base alle dimensioni della [subnet del piano nella rete virtualeFor production workloads,](/azure/data-explorer/vnet-deloyment#plan-subnet-size-in-your-vnet) plan your subnet size according to plan subnet size in your VNet
+    > Per i carichi di lavoro di produzione, pianificare le dimensioni della subnet in base alle dimensioni della [subnet del piano nella rete virtualeFor production workloads,](/azure/data-explorer/vnet-deployment#plan-subnet-size-in-your-vnet) plan your subnet size according to plan subnet size in your VNet
 
 1. Selezionare **Rivedi e crea** per rivedere i dettagli del cluster e **Crea** per effettuarne il provisioning.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 5da0297dd97c8263bdc47f1d5a3d7d2d1f835e4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82608c98fc8ea15167b690547906c2238b1b3c04
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298828"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80544333"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Procedure consigliate per l'array virtuale StorSimple
 
@@ -161,8 +161,8 @@ Tenere presenti le procedure consigliate seguenti quando si effettua il provisio
 
 * Le dimensioni dei file in relazione alle dimensioni con cui è stato effettuato il provisioning di una condivisione a livelli possono compromettere le prestazioni della suddivisione in livelli. L'utilizzo di file di grandi dimensioni potrebbe comportare un livello di uscita lento. Quando si lavora con file di grandi dimensioni, è consigliabile che il file più grande sia inferiore al 3% delle dimensioni della condivisione.
 * Nell'array virtuale è possibile creare un massimo di 16 volumi o condivisioni. Per i limiti delle dimensioni dei volumi o delle condivisioni a livelli e aggiunti localmente, fare riferimento sempre ai [limiti di array virtuale StorSimple](storsimple-ova-limits.md).
-* Quando si crea un volume, tenere conto anche dell'utilizzo di dati previsto, nonché della crescita futura. Il volume non può essere espanso in un secondo momento.
-* Dopo aver creato il volume, non sarà possibile ridurne le dimensioni in StorSimple.
+* Quando si crea un volume, tenere conto anche dell'utilizzo di dati previsto, nonché della crescita futura. Il volume o la condivisione non può essere espansa in un secondo momento.
+* Una volta creato il volume/condivisione, non è possibile ridurre le dimensioni del volume/condivisione su StorSimple.
 * Quando si scrive in un volume a livelli in StorSimple, le operazioni di I/O vengono limitate quando i dati del volume raggiungono una determinata soglia, relativamente allo spazio locale riservato per il volume. Se si continua a scrivere in questo volume, le operazioni di I/O rallentano in modo significativo. Anche se è possibile scrivere in un volume a livelli oltre la capacità di cui è stato effettuato il provisioning (non viene attivamente impedito all'utente di scrivere oltre tale capacità), viene visualizzato un messaggio di notifica per segnalare il superamento della sottoscrizione. Dopo aver visualizzato l'avviso, è fondamentale adottare misure correttive, ad esempio eliminare i dati del volume. L'espansione di un volume non è attualmente supportata.
 * Per i casi d'uso di ripristino di emergenza, poiché il numero di condivisioni o volumi consentiti è pari a 16 e il numero massimo di condivisioni o volumi che possono essere elaborati in parallelo è 16, il numero di condivisioni o volumi non ha un impatto su RPO e RTO.
 

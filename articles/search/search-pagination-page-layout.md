@@ -7,103 +7,100 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/24/2020
-ms.openlocfilehash: 124f1ce3d30ce87d5e9d8fa027e5a7d6c0b3cb17
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 8543894f3f518df6b9b0054973ca1683b82e38f1
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481603"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549000"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Come usare i risultati della ricerca in Ricerca cognitiva di AzureHow to work with search results in Azure Cognitive Search
-In questo articolo vengono fornite indicazioni su come implementare elementi standard di una pagina di risultati della ricerca, ad esempio i conteggi totali, il recupero di documenti, i criteri di ordinamento e l'esplorazione. Le opzioni correlate alle pagine che contribuiscono con dati o informazioni ai risultati della ricerca vengono specificate tramite le richieste di documenti di ricerca inviate al servizio Ricerca cognitiva di Azure.Page-related options that contribute data or information to your search results are specified through the [Search Document](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) requests sent to your Azure Cognitive Search service. 
 
-Nell'API REST le richieste includono un comando GET, un percorso e parametri di query che indicano al servizio quali elementi sono richiesti e come formulare la risposta. In .NET SDK l'API equivalente è [DocumentSearchResult Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1).
+Questo articolo spiega come ottenere una risposta alla query che ritorna con un conteggio totale di documenti corrispondenti, risultati impaginati, risultati ordinati e termini evidenziati dall'hit.
 
-Per generare rapidamente una pagina di ricerca per il cliente, esplorare queste opzioni:To quickly generate a search page for your client, explore these options:
+La struttura di una risposta è determinata dai parametri nella query: Documento di [ricerca](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) nell'API REST o [Classe DocumentSearchResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) in .NET SDK.
 
-+ Utilizzare il generatore di [applicazioni](search-create-app-portal.md) nel portale per creare una pagina HTML con una barra di ricerca, un'esplorazione in base a facet e un'area dei risultati.
-+ Seguire [l'esercitazione Creare la prima app in C 'C'è](tutorial-csharp-create-first-app.md) per creare un client funzionale.
+## <a name="result-composition"></a>Composizione dei risultati
 
-Diversi esempi di codice includono un'interfaccia front-end Web, che è possibile trovare qui: [New York City Jobs app demo](https://aka.ms/azjobsdemo), codice di esempio [JavaScript con un sito demo dal vivo](https://github.com/liamca/azure-search-javascript-samples)e [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
+Mentre un documento di ricerca può essere costituito da un numero elevato di campi, in genere solo alcuni sono necessari per rappresentare ogni documento nel set di risultati. In una richiesta `$select=<field list>` di query, accodare per specificare quali campi visualizzare nella risposta. Un campo deve essere attribuito come **Recuperabile** nell'indice per essere incluso in un risultato. 
 
-> [!NOTE]
-> Una richiesta valida include diversi elementi, ad esempio URL e percorso del servizio, verbo HTTP, `api-version`, e così via. Per brevità, gli esempi sono stati tagliati in modo da evidenziare solo la sintassi rilevante per l'impaginazione. Per altre informazioni sulla sintassi delle richieste, vedere API REST di Ricerca cognitiva di Azure.For more information about request syntax, see [Azure Cognitive Search REST APIs](https://docs.microsoft.com/rest/api/searchservice).
->
+I campi che funzionano meglio includono quelli che contrastano e differenziano tra i documenti, fornendo informazioni sufficienti per invitare una risposta di click-through da parte dell'utente. In un sito di e-commerce, potrebbe essere un nome di prodotto, descrizione, marca, colore, dimensioni, prezzo e valutazione. Per l'esempio incorporato hotels-sample-index, potrebbero trattarsi di campi nell'esempio seguente:
 
-## <a name="total-hits-and-page-counts"></a>Corrispondenze totali e conteggi delle pagine
-
-La visualizzazione del numero totale di risultati ottenuti da una query e la restituzione di tali risultati in blocchi più piccoli è fondamentale per tutte le pagine di ricerca.
-
-![][1]
-
-In Ricerca cognitiva di `$count` `$top`Azure `$skip` usare i parametri , e per restituire questi valori. L'esempio seguente mostra una richiesta di esempio per il totale degli `@odata.count`hit su un indice denominato "online-catalog", restituito come:
-
-    GET /indexes/online-catalog/docs?$count=true
-
-Recuperare i documenti in gruppi di 15 e visualizzare le corrispondenze totali, a partire dalla prima pagina:
-
-    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=0&$count=true
-
-L'impaginazione dei risultati richiede sia `$top` che `$skip`, dove `$top` specifica il numero di elementi da restituire in un batch e `$skip` specifica il numero di elementi da ignorare. Nell'esempio seguente, in ogni pagina vengono visualizzati 15 elementi, indicati da salti incrementali nel parametro `$skip` .
-
-    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=0&$count=true
-
-    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=15&$count=true
-
-    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=30&$count=true
-
-## <a name="layout"></a>Layout
-
-In una pagina di risultati della ricerca, è possibile visualizzare un'immagine di anteprima, un sottoinsieme dei campi e un collegamento a una pagina di prodotto completa.
-
- ![][2]
-
-In Ricerca cognitiva di `$select` Azure usare una [richiesta dell'API di ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents) per implementare questa esperienza.
-
-Per restituire un sottoinsieme di campi per un layout affiancato:
-
-    GET /indexes/online-catalog/docs?search=*&$select=productName,imageFile,description,price,rating
-
-Non è possibile eseguire ricerche direttamente in immagini e file multimediali, che devono essere archiviati in un'altra piattaforma di archiviazione, ad esempio la risorsa di archiviazione Blob di Azure, per ridurre i costi. Nell'indice e nei documenti, definire un campo che contiene l'indirizzo URL del contenuto esterno. È quindi possibile utilizzare il campo come riferimento a un'immagine. L'URL dell'immagine deve essere nel documento.
-
-Per recuperare una pagina di descrizione del prodotto per un evento **onClick** , utilizzare [Documento ricerca](https://docs.microsoft.com/rest/api/searchservice/Lookup-Document) per passare la chiave del documento da recuperare. Il tipo di dati della chiave è `Edm.String`. In questo esempio è *246810*.
-
-    GET /indexes/online-catalog/docs/246810
-
-## <a name="sort-by-relevance-rating-or-price"></a>Ordinare per pertinenza, classificazione o prezzo
-
-In genere per impostazione predefinita i risultati vengono ordinati per pertinenza, ma è comune offrire alternative in modo che i clienti possano ridisporre rapidamente i risultati in un ordine di priorità diverso.
-
- ![][3]
-
-In Ricerca cognitiva di Azure `$orderby` l'ordinamento è basato `"Sortable": true.` `$orderby` sull'espressione, per tutti i campi indicizzati come clausola An, un'espressione OData.In Azure Cognitive Search, sorting is based on the expression, for all fields that are indexed as An clause is an OData expression. Per informazioni sulla sintassi, vedere [Sintassi delle espressioni OData filter e order-by](query-odata-filter-orderby-syntax.md).
-
-La pertinenza è fortemente associata ai profili di punteggio. È possibile utilizzare il punteggio predefinito, che si basa sull'analisi del testo e sulle statistiche, per ordinare tutti i risultati, con punteggi più alti ai documenti che contengono più corrispondenze o corrispondenze migliori con un termine di ricerca.
-
-Gli ordinamenti alternativi sono in genere associati agli eventi **onClick** che richiamano il metodo che genera il criterio di ordinamento. Si consideri, ad esempio, questo elemento di pagina:
-
- ![][4]
-
-Creare un metodo che accetta l'opzione di ordinamento selezionata come input e restituisce un elenco ordinato per i criteri associati a tale opzione.
-
- ![][5]
+```http
+POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 
+    {  
+      "search": "sandy beaches",
+      "select": "HotelId, HotelName, Description, Rating, Address/City"
+      "count": true
+    }
+```
 
 > [!NOTE]
-> Mentre l'assegnazione del punteggio predefinita è sufficiente per molti scenari, è consigliabile invece basare la pertinenza su un profilo di punteggio personalizzato. Un profilo di punteggio personalizzato offre un modo per favorire gli elementi più vantaggiosi per l'azienda. Per altre informazioni, vedi Aggiungere profili di [punteggio.](index-add-scoring-profiles.md)
->
+> Se si desidera includere file di immagine in un risultato, ad esempio una foto del prodotto o un logo, archiviarli all'esterno di Ricerca cognitiva di Azure, ma includere un campo nell'indice per fare riferimento all'URL dell'immagine nel documento di ricerca. Gli indici di esempio che supportano le immagini nei risultati includono la demo **realestate-sample-us,** presente in questa [guida introduttiva,](search-create-app-portal.md)e l'app [demo di New York City Jobs](https://aka.ms/azjobsdemo).
+
+## <a name="results-returned"></a>Risultati restituiti
+
+Per impostazione predefinita, il motore di ricerca restituisce fino alle prime 50 corrispondenze, come determinato dal punteggio di ricerca se la query è la ricerca full-text o in un ordine arbitrario per le query di corrispondenza esatta.
+
+Per restituire un numero diverso `$top` di `$skip` documenti corrispondenti, aggiungere e i parametri alla richiesta di query. Nell'elenco seguente viene illustrata la logica.
+
++ Aggiungere `$count=true` per ottenere un conteggio del numero totale di documenti corrispondenti all'interno di un indice.
+
++ Restituisce il primo set di 15 documenti corrispondenti più un conteggio delle corrispondenze totali:`GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
+
++ Restituire il secondo set, saltando i primi 15 `$top=15&$skip=15`per ottenere il successivo 15: . Fate lo stesso per il terzo set di 15:`$top=15&$skip=30`
+
+Non è garantito che i risultati delle query impaginate siano stabili se l'indice sottostante viene modificato. Il paging modifica `$skip` il valore di per ogni pagina, ma ogni query è indipendente e opera sulla visualizzazione corrente dei dati come esiste nell'indice in fase di query (in altre parole, non è presente la memorizzazione nella cache o lo snapshot dei risultati, ad esempio quelli trovati in un database di uso generale).
+ 
+Di seguito è riportato un esempio di come si potrebbero ottenere duplicati. Si supponga un indice con quattro documenti:
+
+    { "id": "1", "rating": 5 }
+    { "id": "2", "rating": 3 }
+    { "id": "3", "rating": 2 }
+    { "id": "4", "rating": 1 }
+ 
+Si supponga ora di voler restituire i risultati due alla volta, ordinati in base alla classificazione. È necessario eseguire questa query per ottenere `$top=2&$skip=0&$orderby=rating desc`la prima pagina di risultati: , producendo i seguenti risultati:
+
+    { "id": "1", "rating": 5 }
+    { "id": "2", "rating": 3 }
+ 
+Nel servizio, si supponga che un quinto documento venga `{ "id": "5", "rating": 4 }`aggiunto all'indice tra le chiamate di query: .  Poco dopo, si esegue una query per `$top=2&$skip=2&$orderby=rating desc`recuperare la seconda pagina: , e ottenere i seguenti risultati:
+
+    { "id": "2", "rating": 3 }
+    { "id": "3", "rating": 2 }
+ 
+Si noti che il documento 2 viene recuperato due volte. Questo perché il nuovo documento 5 ha un valore maggiore per la valutazione, quindi si ordina prima del documento 2 e atterra sulla prima pagina. Anche se questo comportamento potrebbe essere imprevisto, è tipico di come si comporta un motore di ricerca.
+
+## <a name="ordering-results"></a>Ordinamento dei risultati
+
+Per le query di ricerca full-text, i risultati vengono classificati automaticamente in base a un punteggio di ricerca, calcolato in base alla frequenza dei termini e alla prossimità in un documento, con punteggi più alti che vanno a documenti con più o più corrispondenze più forti in un termine di ricerca. I punteggi di ricerca mostrano un senso generale di pertinenza, rispetto ad altri documenti nello stesso set di risultati, e non è garantito che siano coerenti da una query all'altra.
+
+Quando si utilizzano le query, è possibile notare piccole discrepanze nei risultati ordinati. Ci sono diverse spiegazioni per cui questo potrebbe verificarsi.
+
+| Condizione | Descrizione |
+|-----------|-------------|
+| Volatilità dei dati | Il contenuto di un indice varia quando si aggiungono, modificano o eliminano documenti. Le frequenze dei termini cambieranno man mano che gli aggiornamenti dell'indice vengono elaborati nel tempo, influenzando i punteggi di ricerca dei documenti corrispondenti. |
+| Percorso di esecuzione della query | Per i servizi che usano più repliche, le query vengono eseguite su ogni replica in parallelo. Le statistiche dell'indice utilizzate per calcolare un punteggio di ricerca vengono calcolate in base alla replica, con i risultati uniti e ordinati nella risposta alla query. Le repliche sono per lo più specchi l'uno dell'altro, ma le statistiche possono differire a causa di piccole differenze di stato. Ad esempio, una replica potrebbe aver eliminato i documenti che contribuiscono alle proprie statistiche, che sono state unite da altre repliche. In genere, le differenze nelle statistiche per replica sono più evidenti negli indici più piccoli. |
+| Rompere un pareggio tra punteggi di ricerca identici | Le discrepanze nei risultati ordinati possono verificarsi anche quando i documenti di ricerca hanno punteggi identici. In questo caso, quando si esegue nuovamente la stessa query, non vi è alcuna garanzia quale documento verrà visualizzato per primo. |
+
+### <a name="consistent-ordering"></a>Ordinamento coerente
+
+Data la flessibilità nel punteggio di ricerca, è possibile esplorare altre opzioni se la coerenza negli ordini dei risultati è un requisito dell'applicazione. L'approccio più semplice consiste nell'ordinamento in base a un valore di campo, ad esempio valutazione o data. Per gli scenari in cui si desidera eseguire l'ordinamento in base a un campo specifico, ad esempio una classificazione o una data, è possibile definire in modo esplicito [ `$orderby` un'espressione](query-odata-filter-orderby-syntax.md), che può essere applicata a qualsiasi campo indicizzato come **Ordinabile.**
+
+Un'altra opzione consiste nell'utilizzare un profilo di [punteggio personalizzato.](index-add-scoring-profiles.md) I profili di punteggio ti offrono un maggiore controllo sulla classificazione degli elementi nei risultati di ricerca, con la possibilità di mettere in evidenza le corrispondenze trovate in campi specifici. La logica di assegnazione del punteggio aggiuntiva consente di ignorare le differenze minori tra le repliche perché i punteggi di ricerca per ogni documento sono più distanti. È consigliabile [l'algoritmo](index-ranking-similarity.md) di classificazione per questo approccio.
 
 ## <a name="hit-highlighting"></a>Evidenziazione dei risultati
 
-Puoi applicare la formattazione ai termini corrispondenti nei risultati di ricerca, rendendo più semplice individuare la corrispondenza. Le istruzioni di evidenziazione dei risultati vengono fornite nella [richiesta di query.](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
+L'evidenziazione dei risultati si riferisce alla formattazione del testo (ad esempio evidenziazioni in grassetto o gialle) applicata al termine corrispondente in un risultato, rendendo più semplice individuare la corrispondenza. Le istruzioni di evidenziazione dei risultati vengono fornite nella [richiesta di query.](https://docs.microsoft.com/rest/api/searchservice/search-documents) Il motore di ricerca racchiude il `highlightPreTag` `highlightPostTag`termine corrispondente tra tag e , e il codice gestisce la risposta, ad esempio l'applicazione di un carattere in grassetto.
 
-La formattazione viene applicata alle query a termine completo. Le query in base a termini parziali, ad esempio la ricerca fuzzy o la ricerca con caratteri jolly che generano l'espansione delle query nel motore, non possono utilizzare l'evidenziazione dei risultati.
+La formattazione viene applicata alle query a termine completo. Nell'esempio seguente, i termini "sandy", "sabbia", "spiagge", "spiaggia" trovati all'interno del campo Descrizione sono contrassegnati per l'evidenziazione. Le query in base a termini parziali, ad esempio la ricerca fuzzy o la ricerca con caratteri jolly che generano l'espansione delle query nel motore, non possono utilizzare l'evidenziazione dei risultati.
 
 ```http
-POST /indexes/hotels/docs/search?api-version=2019-05-06 
+POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 
     {  
-      "search": "something",  
-      "highlight": "Description"  
+      "search": "sandy beaches",  
+      "highlight": "Description"
     }
 ```
 
@@ -112,30 +109,11 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 >
 > Quando si scrive codice client che implementa l'evidenziazione dei risultati, tenere presente questa modifica. Si noti che questo non avrà alcun impatto su di voi a meno che non si crea un servizio di ricerca completamente nuovo.
 
-## <a name="faceted-navigation"></a>Esplorazione in base a facet
+## <a name="next-steps"></a>Passaggi successivi
 
-L’esplorazione di ricerca è comune in una pagina di risultati, che spesso si trova all'inizio di una pagina o sul lato. In Ricerca cognitiva di Azure l'esplorazione in base a facet offre una ricerca automatica basata su filtri predefiniti. Per informazioni dettagliate, vedere [Esplorazione in base a facet in Ricerca cognitiva di Azure.See Faceted navigation in Azure Cognitive Search](search-faceted-navigation.md) for details.
+Per generare rapidamente una pagina di ricerca per il client, considerare le seguenti opzioni:
 
-## <a name="filters-at-the-page-level"></a>Filtri a livello di pagina
++ [Application Generator](search-create-app-portal.md), nel portale, crea una pagina HTML con una barra di ricerca, un'esplorazione in base a facet e un'area dei risultati che include immagini.
++ [Creare la prima app in C ,](tutorial-csharp-create-first-app.md) è un'esercitazione che crea un client funzionale. Il codice di esempio illustra le query impaginate, l'evidenziazione dei risultati e l'ordinamento.
 
-Se la progettazione della soluzione include pagine di ricerca dedicate per tipi specifici di contenuto (ad esempio, un'applicazione di vendita al dettaglio online con reparti elencati nella parte superiore della pagina), è possibile inserire [un'espressione](search-filters.md) di filtro accanto a un evento **onClick** per aprire una pagina in uno stato prefiltrato.
-
-È possibile inviare un filtro con o senza espressione di ricerca. Ad esempio, la seguente richiesta filtrerà la marca, restituendo solo i documenti ad essa corrispondenti.
-
-    GET /indexes/online-catalog/docs?$filter=brandname eq 'Microsoft' and category eq 'Games'
-
-Per altre informazioni sulle `$filter` espressioni, vedere Documenti di ricerca [(API Di Ricerca cognitiva](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) di Azure).
-
-## <a name="see-also"></a>Vedere anche
-
-- [API REST di Ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice)
-- [Operazioni sugli indici](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
-- [Operazioni sui documenti](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
-- [Esplorazione in base a facet in Ricerca cognitiva di AzureFaceted Navigation in Azure Cognitive Search](search-faceted-navigation.md)
-
-<!--Image references-->
-[1]: ./media/search-pagination-page-layout/Pages-1-Viewing1ofNResults.PNG
-[2]: ./media/search-pagination-page-layout/Pages-2-Tiled.PNG
-[3]: ./media/search-pagination-page-layout/Pages-3-SortBy.png
-[4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
-[5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
+Diversi esempi di codice includono un'interfaccia front-end Web, che è possibile trovare qui: [New York City Jobs app demo](https://aka.ms/azjobsdemo), codice di esempio [JavaScript con un sito demo dal vivo](https://github.com/liamca/azure-search-javascript-samples)e [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).

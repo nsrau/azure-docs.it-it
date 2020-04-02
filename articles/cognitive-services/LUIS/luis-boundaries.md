@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 11/07/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: d584b00caef628eb9dfd085b1fdce2bb7b353988
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c021e68f8b76d8b0d3e6e9ff21c242580f53313
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79220083"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520951"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limiti per il modello LUIS e le chiavi
 LUIS dispone di diverse aree di limiti. La prima è il [limite modello](#model-boundaries), che controlla finalità, entità e funzionalità in LUIS. La seconda area è [limiti di quota](#key-limits) basata sul tipo di chiave. Una terza area di limiti è rappresentata dalla [combinazione di tasti](#keyboard-controls) per il controllo del sito Web LUIS. Una quarta area è data dal [mapping dell'area globale](luis-reference-regions.md) tra il sito Web di creazione LUIS e le API dell'[endpoint LUIS](luis-glossary.md#endpoint).
@@ -38,9 +38,9 @@ Se l'app supera i limiti del modello LUIS, è consigliabile usare un'app [dispat
 | [Entità apprese automaticamente - ruoli](./luis-concept-entity-types.md):<br> Composito<br>Semplice<br>ruolo dell'entità|Un limite di 100 entità padre o 330 entità, a seconda di quale limite l'utente raggiunge per primo. Un ruolo viene conteggiato come entità ai fini di questo limite. Un esempio è un composito con un'entità semplice, che ha 2 ruoli, è: 1 composito , 1 semplice , 2 ruoli e 4 delle 330 entità.<br>I sottocomponenti possono essere nidificati fino a 5 livelli.|
 |Modello come feature| Numero massimo di modelli che possono essere utilizzati come descrittore (feature) per un modello specifico come 10 modelli. Il numero massimo di elenchi di frasi utilizzate come descrittore (caratteristica) per un modello specifico siano 10 elenchi di frasi.|
 | [Anteprima - Entità elenco dinamico](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 elenchi di richiesta dell'endpoint di previsione di 1k per query|
-| [Criteri](luis-concept-patterns.md)|500 criteri per ogni applicazione.<br>Il criterio può contenere al massimo 400 caratteri.<br>3 entità pattern.any per criterio<br>Il criterio può contenere al massimo 2 testi facoltativi annidati|
+| [Modelli](luis-concept-patterns.md)|500 criteri per ogni applicazione.<br>Il criterio può contenere al massimo 400 caratteri.<br>3 entità pattern.any per criterio<br>Il criterio può contenere al massimo 2 testi facoltativi annidati|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per applicazione, 3 entità pattern.any per criterio |
-| [Elenco di frasi][phrase-list]|500 elenchi di frasi. Il fraselist non intercambiabile ha un massimo di 5.000 frasi. Intercambiabile Phraselist ha un massimo di 50.000 frasi. Numero massimo di frasi totali per applicazione di 500.000 frasi.|
+| [Elenco di frasi][phrase-list]|500 elenchi di frasi. 10 elenchi di frasi globali a causa del modello come limite di entità geografiche. Il fraselist non intercambiabile ha un massimo di 5.000 frasi. Intercambiabile Phraselist ha un massimo di 50.000 frasi. Numero massimo di frasi totali per applicazione di 500.000 frasi.|
 | [Entità predefinite](./luis-prebuilt-entities.md) | nessun limite|
 | [Entità di espressione regolare](./luis-concept-entity-types.md)|20 entità<br>È consentito un numero massimo di 500 caratteri. per ogni criterio di entità di espressione regolare|
 | [Ruoli](luis-concept-roles.md)|300 ruoli per ogni applicazione. 10 per entità|

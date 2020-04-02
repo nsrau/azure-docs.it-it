@@ -8,15 +8,15 @@ ms.service: virtual-machines-linux
 ms.subservice: monitoring
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 02/24/2020
+ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 3281b4dafa5436c9df760ac8aa3fc82f535b4286
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0971b542065972a8f150083245e4ed31e42e2c67
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78944874"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521618"
 ---
 # <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure
 
@@ -37,7 +37,7 @@ Regioni                                        | Disponibilità                 
 -----------------------------------------------|-----------------------------------------------|-----------------
 [Tutte le aree globali di Azure con disponibilità a livello generale](https://azure.microsoft.com/regions/)     | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
-[Azure China 21Vianet](https://www.azure.cn/)                                            | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
+[21Vianet per Azure Cina](https://www.azure.cn/)                                            | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
 [Azure Germania](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
 
 La versione 2019-11-01 è attualmente in fase di distribuzione e potrebbe non essere disponibile in tutte le aree.
@@ -315,7 +315,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019
 
 Le API seguenti sono disponibili tramite l'endpoint dei metadati:The following APIs are available through the metadata endpoint:
 
-Dati | Descrizione | Versione introdotta
+Data | Descrizione | Versione introdotta
 -----|-------------|-----------------------
 attested | Vedere [Dati con attestazione](#attested-data) | 2018-10-01
 identity | Identità gestite per le risorse di Azure. Vedere [Acquisire un token di accesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
@@ -329,7 +329,7 @@ Le seguenti categorie di calcolo sono disponibili tramite l'API dell'istanza:
 > [!NOTE]
 > Tramite l'endpoint dei metadati, si accede alle seguenti categorie tramite istanza/calcolo
 
-Dati | Descrizione | Versione introdotta
+Data | Descrizione | Versione introdotta
 -----|-------------|-----------------------
 azAmbiente | Ambiente di Azure in cui è in esecuzione la macchina virtualeAzure Environment where the VM is running in | 2018-10-01
 customData | Questa funzionalità è attualmente disabilitata e aggiorneremo questa documentazione non appena sarà disponibile | 2019-02-01
@@ -362,7 +362,7 @@ Le seguenti categorie di rete sono disponibili tramite l'API dell'istanza:
 > [!NOTE]
 > Tramite l'endpoint dei metadati, si accede alle seguenti categorie tramite istanza/rete/interfaccia
 
-Dati | Descrizione | Versione introdotta
+Data | Descrizione | Versione introdotta
 -----|-------------|-----------------------
 ipv4/privateIpAddress | Indirizzo IPv4 locale della macchina virtuale | 2017-04-02
 ipv4/publicIpAddress | Indirizzo IPv4 pubblico della macchina virtuale | 2017-04-02
@@ -560,7 +560,7 @@ Il cloud e i valori dell'ambiente di Azure sono elencati di seguito.
 ---------|-----------------
 [Tutte le aree globali di Azure con disponibilità a livello generale](https://azure.microsoft.com/regions/)     | AzurePublicCloud
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
-[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | AzureChinaCloud
+[21Vianet per Azure Cina](https://azure.microsoft.com/global-infrastructure/china/)         | AzureChinaCloud
 [Azure Germania](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
 ### <a name="getting-the-tags-for-the-vm"></a>Recupero dei tag per la macchina virtualeGetting the tags for the VM
@@ -653,7 +653,7 @@ Verification successful
 }
 ```
 
-Dati | Descrizione
+Data | Descrizione
 -----|------------
 nonce | Stringa facoltativa fornita dall'utente con la richiesta. Se nella richiesta non è presente l'elemento nonce, viene restituito il timestamp UTC corrente
 piano | [Piano](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) per una macchina virtuale in un'immagine di Azure Marketplace, che contiene nome, prodotto ed editore
@@ -674,7 +674,7 @@ Dopo aver ottenuto la firma sopra indicata, è possibile verificare che provenga
 ---------|-----------------
 [Tutte le aree globali di Azure con disponibilità a livello generale](https://azure.microsoft.com/regions/)     | Metadata.azure.com .metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | .metadata.azure.us
-[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | Metadata.azure.cn .metadata.azure.cn
+[21Vianet per Azure Cina](https://azure.microsoft.com/global-infrastructure/china/)         | Metadata.azure.cn .metadata.azure.cn
 [Azure Germania](https://azure.microsoft.com/overview/clouds/germany/)                    | .metadata.microsoftazure.de
 
 Esiste un problema noto relativo al certificato utilizzato per la firma. I certificati potrebbero non avere `metadata.azure.com` una corrispondenza esatta di per il cloud pubblico. Di conseguenza, la convalida della `.metadata.azure.com` certificazione deve consentire un nome comune da qualsiasi sottodominio.
@@ -689,11 +689,15 @@ openssl x509 -noout -issuer -in signer.pem
 openssl x509 -noout -subject -in intermediate.pem
 # Verify the issuer for the intermediate certificate
 openssl x509 -noout -issuer -in intermediate.pem
-# Verify the certificate chain
+# Verify the certificate chain, for Azure China 21Vianet the intermediate certificate will be from DigiCert Global Root CA
 openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
 ```
 
-Nei casi in cui il certificato intermedio non può essere scaricato a causa di vincoli di rete durante la convalida, il certificato intermedio può essere bloccato. Tuttavia, Azure esegue il rollover dei certificati in base alla procedura PKI standard. I certificati aggiunti devono essere aggiornati al momento del rollover. Ogni volta che viene pianificata una modifica per aggiornare il certificato intermedio, il blog di Azure verrà aggiornato e i clienti di Azure riceveranno una notifica. I certificati intermedi sono disponibili [qui](https://www.microsoft.com/pki/mscorp/cps/default.htm). I certificati intermedi per ciascuna delle aree possono essere diversi.
+Nei casi in cui il certificato intermedio non può essere scaricato a causa di vincoli di rete durante la convalida, il certificato intermedio può essere bloccato. Tuttavia, Azure esegue il rollover dei certificati in base alla procedura PKI standard. I certificati aggiunti devono essere aggiornati quando si verifica il rollover. Ogni volta che viene pianificata una modifica per aggiornare il certificato intermedio, il blog di Azure verrà aggiornato e i clienti di Azure riceveranno una notifica. I certificati intermedi sono disponibili [qui](https://www.microsoft.com/pki/mscorp/cps/default.htm). I certificati intermedi per ciascuna delle aree possono essere diversi.
+
+> [!NOTE]
+>Il certificato intermedio per Azure China 21Vianet proviene da DigiCert Global Root CA anziché da Baltimora.The intermediate certificate for Azure China 21Vianet will be from DigiCert Global Root CA instead of Baltimore.
+Anche se sono stati aggiunti i certificati intermedi per Azure China come parte della modifica dell'autorità della catena radice, i certificati intermedi dovranno essere aggiornati.
 
 ### <a name="storage-profile"></a>Profilo di archiviazione
 
@@ -703,7 +707,7 @@ Il profilo di archiviazione di una macchina virtuale è suddiviso in tre categor
 
 L'oggetto di riferimento dell'immagine contiene le seguenti informazioni sull'immagine del sistema operativo:
 
-Dati    | Descrizione
+Data    | Descrizione
 --------|-----------------
 id      | ID risorsa
 offer   | Offerta dell'immagine della piattaforma o del marketplace
@@ -713,7 +717,7 @@ version | Versione dell'immagine della piattaforma o del marketplace
 
 L'oggetto disco del sistema operativo contiene le seguenti informazioni sul disco del sistema operativo utilizzato dalla macchina virtuale:
 
-Dati    | Descrizione
+Data    | Descrizione
 --------|-----------------
 memorizzazione nella cache | Requisiti di memorizzazione nella cacheCaching requirements
 createOption | Informazioni sulla creazione della macchina virtuale
@@ -728,7 +732,7 @@ writeAcceleratorEnabled | Se writeAccelerator è abilitato sul disco
 
 L'array dei dischi dati contiene un elenco di dischi dati collegati alla macchina virtuale. Ogni oggetto disco dati contiene le seguenti informazioni:
 
-Dati    | Descrizione
+Data    | Descrizione
 --------|-----------------
 memorizzazione nella cache | Requisiti di memorizzazione nella cacheCaching requirements
 createOption | Informazioni sulla creazione della macchina virtuale

@@ -1,14 +1,14 @@
 ---
 title: Gestione risorse delegate di Azure
 description: Le offerte di servizi gestiti consentono ai provider di servizi di vendere offerte di gestione delle risorse ai clienti in Azure Marketplace.
-ms.date: 01/30/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 15814b1ca3b1b78de521033836e3614d18fd0c71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db9f562ca4f42d1c1d85eeac44495a8ec7e01beb
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76904306"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548430"
 ---
 # <a name="azure-delegated-resource-management"></a>Gestione risorse delegate di Azure
 
@@ -23,11 +23,11 @@ La gestione risorse delegate di Azure consente la proiezione logica delle risors
 
 Con la gestione risorse delegate di Azure, gli utenti autorizzati possono lavorare direttamente nel contesto della sottoscrizione di un cliente senza avere un account nel tenant di tale cliente o essere comproprietario del tenant del cliente. Possono anche [visualizzare e gestire tutte le sottoscrizioni delegate dei clienti nella nuova pagina **Clienti personali**](../how-to/view-manage-customers.md) del portale di Azure.
 
-L'[esperienza di gestione tra tenant](cross-tenant-management-experience.md) consente di usare in modo più efficiente i servizi di gestione di Azure, ad esempio Criteri di Azure, Centro sicurezza di Azure e altri. Ogni attività del provider di servizi viene registrata nel log attività, che viene archiviato sia nel tenant del provider di servizi che in quello del cliente. Ciò significa che sia il cliente che il provider di servizi possono identificare facilmente l'utente associato a eventuali modifiche.
+L'[esperienza di gestione tra tenant](cross-tenant-management-experience.md) consente di usare in modo più efficiente i servizi di gestione di Azure, ad esempio Criteri di Azure, Centro sicurezza di Azure e altri. Tutte le attività del provider di servizi vengono registrate nel log attività, archiviato nel tenant del cliente e può essere visualizzato dagli utenti nel tenant di gestione. Ciò significa che sia il cliente che il provider di servizi possono identificare facilmente l'utente associato a eventuali modifiche.
 
-Quando si esegue l'onboarding di un cliente nella gestione risorse delegate di Azure, il cliente ha accesso alla nuova pagina **Provider di servizi** nel portale di Azure, in cui può [confermare e gestire le offerte, i provider di servizi e le risorse delegate](../how-to/view-manage-service-providers.md). Se il cliente vuole revocare l'accesso per un provider di servizi, può farlo in questa pagina in qualsiasi momento.
+Quando si esegue l'onboarding di un cliente per la gestione delle risorse delegate di Azure, quest'entrota avrà accesso alla nuova pagina Provider di **servizi** nel portale di Azure, in cui potrà [confermare e gestire le offerte, i provider di servizi e](../how-to/view-manage-service-providers.md)le risorse delegate. Se il cliente vuole revocare l'accesso per un provider di servizi, può farlo in questa pagina in qualsiasi momento.
 
-È possibile [pubblicare il nuovo tipo di offerta Servizi gestiti in Azure Marketplace](../how-to/publish-managed-services-offers.md) per eseguire facilmente l'onboarding dei clienti nella gestione risorse delegate di Azure. In alternativa, è possibile [completare il processo di onboarding distribuendo i modelli di Azure Resource Manager](../how-to/onboard-customer.md).
+È possibile [pubblicare il nuovo tipo](../how-to/publish-managed-services-offers.md) di offerta Del servizio gestito in Azure Marketplace per eseguire facilmente l'onboarding dei clienti alla gestione delle risorse delegate di Azure.You can publish the new Managed Service offer type to Azure Marketplace to easily onboard customers to Azure delegated resource management. In alternativa, è possibile [completare il processo di onboarding distribuendo i modelli di Azure Resource Manager](../how-to/onboard-customer.md).
 
 ## <a name="how-azure-delegated-resource-management-works"></a>Come funziona la gestione risorse delegate di Azure
 
@@ -35,7 +35,7 @@ Di seguito viene illustrato il funzionamento generale della gestione risorse del
 
 1. Il provider di servizi identifica l'accesso (ruoli) di cui avranno bisogno i gruppi, le entità servizio o gli utenti per gestire le risorse di Azure del cliente. La definizione dell'accesso contiene l'ID tenant del provider di servizi con l'accesso necessario per l'offerta, definito usando le identità **principalId** del tenant associato ai [valori **roleDefinition** predefiniti](../../role-based-access-control/built-in-roles.md) (Collaboratore, Collaboratore macchina virtuale, Lettore e così via).
 2. È possibile specificare questo accesso ed eseguire l'onboarding del cliente nella gestione risorse delegate di Azure in uno dei due modi seguenti:
-   - [Pubblicare in Azure Marketplace un'offerta di servizi gestiti](../how-to/publish-managed-services-offers.md) (privata o pubblica) che verrà accettata dal cliente
+   - [Pubblicare un'offerta](../how-to/publish-managed-services-offers.md) di servizio gestito di Azure Marketplace (privata o pubblica) che il cliente accetterà
    - [Distribuire un modello di Azure Resource Manager nel tenant del cliente](../how-to/onboard-customer.md) per una o più sottoscrizioni o gruppi di risorse specifici
 3. Dopo l'onboarding del cliente, gli utenti autorizzati possono accedere al tenant del provider di servizi ed eseguire attività di gestione nell'ambito del cliente specificato, in base all'accesso definito.
 
