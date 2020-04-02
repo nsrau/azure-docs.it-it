@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 9bbd62bc05e03641c2abe9308d9238bef23877c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9184808b71cce03882022fd37967fe421e64062
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71104976"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548976"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Come salvare e configurare la configurazione del servizio Gestione API tramite Git
 
@@ -223,7 +223,7 @@ L'impostazione finale, `$ref-policy`, esegue il mapping al file di istruzioni de
 La cartella `apis` contiene, per ogni API nell'istanza del servizio, una cartella contenente a sua volta gli elementi seguenti.
 
 * `apis\<api name>\configuration.json`: configurazione dell'API. Contiene informazioni relative all'URL del servizio back-end e alle operazioni. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario [ottenere un'API specifica](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apis/get) con `export=true` nel formato `application/json`.
-* `apis\<api name>\api.description.html`: descrizione dell'API. Corrisponde alla proprietà `description` dell'[entità relativa all'API](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
+* `apis\<api name>\api.description.html`: descrizione dell'API. Corrisponde alla proprietà `description` dell'[entità relativa all'API](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.entityproperty).
 * `apis\<api name>\operations\`: questa cartella contiene i file `<operation name>.description.html` mappati alle operazioni nell'API. Ogni file contiene la descrizione di una singola operazione dell'API che esegue il mapping alla proprietà `description` dell'[entità relativa all'operazione](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) nell'API REST.
 
 ### <a name="groups-folder"></a>Cartella groups

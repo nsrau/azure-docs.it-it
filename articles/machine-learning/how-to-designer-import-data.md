@@ -9,12 +9,12 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.openlocfilehash: bd1c2ca182ae8be8425246f691dca805bf38637b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1ad7677607d625f673546a6ea29ea58b80a8d1b5
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064023"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546745"
 ---
 # <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importare i dati nella finestra di progettazione di Azure Machine Learning (anteprima)Import your data into Azure Machine Learning designer (preview)
 
@@ -60,7 +60,7 @@ Per informazioni dettagliate sull'utilizzo del modulo Importa dati, vedere la pa
 
 ## <a name="supported-sources"></a>Fonti supportate
 
-In questa sezione sono elencate le origini dati supportate dalla finestra di progettazione. I dati entrano nella finestra di progettazione da un archivio dati o da un [set di dati tabulare.](how-to-create-register-datasets.md#dataset-types)
+In questa sezione sono elencate le origini dati supportate dalla finestra di progettazione. I dati vengono inseriti nella finestra di progettazione da un archivio dati o da un [set di dati tabulare.](how-to-create-register-datasets.md#dataset-types)
 
 ### <a name="datastore-sources"></a>Origini datastore
 Per un elenco delle origini dell'archivio dati supportate, vedere [Accedere ai dati nei servizi di archiviazione](how-to-access-data.md#supported-data-storage-service-types)di Azure.For a list of supported datastore sources, see Access data in Azure storage services .

@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/13/2019
+ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 53bbee6dd75e045c2a7e95c88a0138c9859d12db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad36547b0cf9457d7ff4fdd919a0bb1362539eb5
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80374030"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80522699"
 ---
 Questo articolo risponde alle domande frequenti su Managed Disks e i dischi SSD Premium di Azure.
 
@@ -409,11 +409,11 @@ L'uso di TRIM su dischi Azure Premium o Standard non ha alcun impatto negativo.
 
 **Quali aree supportano la funzionalità di bursting per le dimensioni del disco SSD premium applicabili?**
 
-La funzionalità di bursting è attualmente supportata in Azure West Central US.The bursting capability is currently supported in Azure West Central US.
+La funzionalità di espansione è attualmente supportata in tutte le aree del cloud pubblico di Azure, con il supporto per i cloud sovrani in arrivo. 
 
 **In quali aree sono supportate le dimensioni 4/8/16 di dischi gestiti GiB (P1/P2/P3, E1/E2/E3)?**
 
-Queste nuove dimensioni del disco sono attualmente supportate in Azure West Central US.These new disk sizes are currently supported in Azure West Central US.
+Queste nuove dimensioni del disco sono attualmente supportate in tutte le aree nel cloud pubblico di Azure, con il supporto per i cloud sovrani in arrivo. 
 
 **Le dimensioni dei dischi P1/P2/P3 sono supportate per i dischi non gestiti o i BLOB di pagine?**
 

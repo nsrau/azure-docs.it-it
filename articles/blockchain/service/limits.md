@@ -1,15 +1,15 @@
 ---
 title: Limiti del servizio Blockchain di AzureAzure Blockchain Service limits
 description: Panoramica dei limiti di servizio e funzionalità nel servizio Blockchain di AzureOverview of the service and functional limits in Azure Blockchain Service
-ms.date: 11/22/2019
+ms.date: 03/30/2020
 ms.topic: conceptual
-ms.reviewer: janders
-ms.openlocfilehash: f4001ee520f3f3136d1bac5ca047c80526fc92e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: ravastra
+ms.openlocfilehash: c728e617ac37795988cd596c7cb0c5025aac4ccf
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74455649"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529566"
 ---
 # <a name="limits-in-azure-blockchain-service"></a>Limiti nel servizio Blockchain di AzureLimits in Azure Blockchain Service
 
@@ -17,14 +17,18 @@ Il servizio Blockchain di Azure include limiti di funzionalità e servizio, ad e
 
 ## <a name="pricing-tier"></a>Piano tariffario
 
-I limiti massimi per le transazioni e i nodi di convalida dipendono dal provisioning del servizio Blockchain di Azure ai piani tariffari Basic o Standard.Maximum limits on transactions and validator nodes depend on whether you provision Azure Blockchain Service at Basic or Standard pricing tiers.
+I limiti massimi per le transazioni e i nodi di convalida dipendono dal provisioning del servizio Blockchain di Azure a i piani tariffari di base o standard.
 
 | Piano tariffario | Numero massimo di nodi di transazioneMax transaction nodes | Nodi validatore maxMax validator nodes |
 |:---|:---:|:---:|
 | Basic | 10 | 1 |
 | Standard | 10 | 2 |
 
-La modifica del piano tariffario tra Basic e Standard dopo la creazione dei membri non è supportata.
+La rete del consorzio deve avere almeno due nodi di livello standard del servizio Blockchain di Azure.Your consortium network should have a least two Azure Blockchain Service standard tier nodes. I nodi di livello standard includono due nodi validator. Quattro nodi validator sono necessari per soddisfare il consenso di tolleranza di errore [bizantene](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus)di Istanbul .
+
+Usare il livello di base per lo sviluppo, il test e la prova dei concetti. Usare il livello Standard per le distribuzioni di livello di produzione. È inoltre necessario utilizzare il livello *Standard* se si utilizza Blockchain Data Manager o si invia un elevato volume di transazioni private.
+
+La modifica del piano tariffario tra base e standard dopo la creazione dei membri non è supportata.
 
 ## <a name="storage-capacity"></a>Capacità di archiviazione
 
@@ -50,7 +54,7 @@ La riduzione delle dimensioni di archiviazione della contabilità generale e dei
 
 * **I membri rimossi dal consorzio non possono essere aggiunti di nuovo**
 
-    Piuttosto, devono essere nuovamente invitati a unirsi al consorzio e creare un nuovo membro. La risorsa membro esistente non viene eliminata per mantenere le transazioni cronologiche.
+    Piuttosto, devono essere nuovamente invitati a unirsi al consorzio e creare un nuovo membro. Le risorse membro esistenti non vengono eliminate per mantenere le transazioni cronologiche.
 
 * **Tutti i membri di un consorzio devono utilizzare la stessa versione contabile**
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 3ded20f37a394e6adf726ad40c01aa36d41e4e8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e155758d19b45d977fcd087bff0ceb85898f8f8
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299346"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548311"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Procedure consigliate di Azure per la sicurezza di reteAzure best practices for network security
 Questo articolo illustra una raccolta di procedure consigliate di Azure per migliorare la sicurezza di rete. derivate dalla nostra esperienza con la rete di Azure e dalle esperienze di altri clienti.
@@ -153,12 +153,12 @@ Questa distribuzione del traffico aumenta la disponibilità perché se uno dei s
 - Accetta solo connessioni protette, pertanto le comunicazioni non crittografate verso il server non rappresentano un'opzione accettabile.
 - Necessita che più richieste HTTP nella stessa connessione TCP con esecuzione prolungata vengano instradate/bilanciate in server back-end diversi.
 
-**Opzione di bilanciamento del carico**: usare il [gateway applicazione di Azure](/azure/application-gateway/application-gateway-introduction), un servizio di bilanciamento del carico legato al traffico Web HTTP. Il gateway applicazione supporta la crittografia SSL e la [terminazione SSL](/azure/application-gateway/application-gateway-introduction) sul gateway. I server Web possono quindi essere liberati dal sovraccarico prodotto dai processi di crittografia e decrittografia e il traffico può essere trasmesso in formato non crittografato ai server back-end.
+**Opzione di bilanciamento del carico**: usare il [gateway applicazione di Azure](/azure/application-gateway/application-gateway-introduction), un servizio di bilanciamento del carico legato al traffico Web HTTP. Il gateway applicazione supporta la crittografia TLS end-to-end e la [terminazione TLS](/azure/application-gateway/application-gateway-introduction) nel gateway. I server Web possono quindi essere liberati dal sovraccarico prodotto dai processi di crittografia e decrittografia e il traffico può essere trasmesso in formato non crittografato ai server back-end.
 
 **Scenario**: è necessario applicare il bilanciamento del carico alle connessioni in ingresso da Internet tra i server che si trovano in una rete virtuale di Azure. Scenari in cui:
 
 - Sono presenti applicazioni senza stato che accettano le richieste in ingresso da Internet.
-- Non richiedono sessioni permanenti o offload SSL. La combinazione di sessioni permanenti e del bilanciamento del carico delle applicazioni è un metodo per ottenere l'affinità dei server.
+- Non richiedono sessioni appiccicose o offload TLS. La combinazione di sessioni permanenti e del bilanciamento del carico delle applicazioni è un metodo per ottenere l'affinità dei server.
 
 **Opzione di bilanciamento del carico**: usare il portale di Azure per [creare un servizio di bilanciamento del carico esterno](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) che distribuisca le richieste in ingresso tra più macchine virtuali per offrire un livello superiore di disponibilità.
 

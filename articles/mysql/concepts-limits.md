@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: bc4694928eceed57692a0d4b0469543c1a8f9678
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/1/2020
+ms.openlocfilehash: 6ca09ab0578fb88e443d6e9e1f920c22457eb042
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79532757"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548478"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limiti di Database di Azure per MySQL
 Le sezioni seguenti illustrano la capacità, il supporto del motore di archiviazione, dei privilegi e delle istruzioni di gestione dei dati e i limiti funzionali del servizio di database. Vedere anche le [limitazioni generali](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicabili al motore di database MySQL.
@@ -150,6 +150,10 @@ Per altre informazioni su questo parametro, vedere la [documentazione di MySQL.R
 |Con ottimizzazione per la memoria|8|16777216|1024|536870912|
 |Con ottimizzazione per la memoria|16|16777216|1024|1073741824|
 |Con ottimizzazione per la memoria|32|16777216|1024|1073741824|
+
+### <a name="time_zone"></a>time_zone
+
+Le tabelle del fuso orario `mysql.az_load_timezone` possono essere popolate chiamando la stored procedure da uno strumento come la riga di comando MySQL o MySQL Workbench. Fare riferimento al [portale di Azure](howto-server-parameters.md#working-with-the-time-zone-parameter) o agli articoli [dell'interfaccia della riga di comando](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) di Azure per informazioni su come chiamare la stored procedure e impostare i fusi orari globali o a livello di sessione.
 
 ## <a name="storage-engine-support"></a>Supporto del motore di archiviazione
 

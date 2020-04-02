@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/10/2020
+ms.date: 03/31/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ec32990513d9199c4aaccf1bcfcbf76f348f877b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d224bd9e9e7b1f8fc9eb45d85e78811d8642fc78
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75867511"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519549"
 ---
 # <a name="use-the-azure-portal-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Usare il portale di Azure per assegnare un ruolo Controllo degli accessi in base al ruolo per l'accesso ai dati BLOB e codaUse the Azure portal to assign an RBAC role for access to blob and queue data
 
@@ -23,13 +23,13 @@ Azure Active Directory (Azure AD) autorizza diritti di accesso a risorse protett
 
 Quando un ruolo Controllo degli accessi in base al ruolo viene assegnato a un'entità di sicurezza di Azure AD, Azure concede l'accesso a tali risorse per tale entità di sicurezza. È possibile definire l'ambito dell'accesso a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda. Un'entità di sicurezza di Azure AD può essere un utente, un gruppo, un'entità servizio dell'applicazione o [un'identità gestita per](../../active-directory/managed-identities-azure-resources/overview.md)le risorse di Azure.An Azure AD security principal may be a user, a group, an application service principal, or a managed identity for Azure resources.
 
-Questo articolo descrive come usare il portale di Azure per assegnare ruoli RBAC. Il portale di Azure offre un'interfaccia semplice per l'assegnazione dei ruoli RBAC e la gestione dell'accesso alle risorse di archiviazione. È anche possibile assegnare ruoli RBAC per le risorse BLOB e coda usando gli strumenti da riga di comando di Azure o le API di gestione di Archiviazione di Azure.You can also assign RBAC roles for blob and queue resources using Azure command-line tools or the Azure Storage management APIs. Per altre informazioni sui ruoli RBAC per le risorse di archiviazione, vedere Autenticare l'accesso a blob e code di Azure usando Azure Active Directory.For more information about RBAC roles for storage resources, see [Authenticate access to Azure blobs and queues using Azure Active Directory.](storage-auth-aad.md) 
+Questo articolo descrive come usare il portale di Azure per assegnare ruoli RBAC. Il portale di Azure offre un'interfaccia semplice per l'assegnazione dei ruoli RBAC e la gestione dell'accesso alle risorse di archiviazione. È anche possibile assegnare ruoli RBAC per le risorse BLOB e coda usando gli strumenti da riga di comando di Azure o le API di gestione di Archiviazione di Azure.You can also assign RBAC roles for blob and queue resources using Azure command-line tools or the Azure Storage management APIs. Per altre informazioni sui ruoli RBAC per le risorse di archiviazione, vedere Autenticare l'accesso a blob e code di Azure usando Azure Active Directory.For more information about RBAC roles for storage resources, see [Authenticate access to Azure blobs and queues using Azure Active Directory.](storage-auth-aad.md)
 
 ## <a name="rbac-roles-for-blobs-and-queues"></a>Ruoli Controllo degli accessi in base al ruolo per BLOB e code
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>Determinare l'ambito delle risorse 
+## <a name="determine-resource-scope"></a>Determinare l'ambito delle risorse
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
@@ -52,11 +52,11 @@ Le sezioni seguenti descrivono ognuno di questi passaggi in modo più dettagliat
 
 Prima di assegnare un ruolo a un'entità di sicurezza, assicurarsi di considerare l'ambito delle autorizzazioni concesse. Esaminare la sezione [Determinare l'ambito delle risorse](#determine-resource-scope) per decidere l'ambito appropriato.
 
-La procedura descritta qui assegna un ruolo con ambito a livello di singolo contenitore, ma è possibile seguire gli stessi passaggi per assegnare un ruolo con ambito a livello di singola coda: 
+La procedura descritta qui assegna un ruolo con ambito a livello di singolo contenitore, ma è possibile seguire gli stessi passaggi per assegnare un ruolo con ambito a livello di singola coda:
 
 1. Nel [portale di Azure](https://portal.azure.com)passare all'account di archiviazione e visualizzare **Panoramica** per l'account.
-1. In Servizi selezionare **BLOB**. 
-1. Individuare il contenitore per il quale si vuole assegnare un ruolo e visualizzare le impostazioni del contenitore. 
+1. In Servizi selezionare **BLOB**.
+1. Individuare il contenitore per il quale si vuole assegnare un ruolo e visualizzare le impostazioni del contenitore.
 1. Selezionare **Controllo di accesso (IAM)** per visualizzare le impostazioni di controllo di accesso per il contenitore. Selezionare la scheda **Assegnazioni di ruolo** per visualizzare l'elenco di assegnazioni di ruolo.
 
     ![Schermata che mostra le impostazioni del controllo di accesso del contenitore](media/storage-auth-aad-rbac-portal/portal-access-control-for-storage.png)

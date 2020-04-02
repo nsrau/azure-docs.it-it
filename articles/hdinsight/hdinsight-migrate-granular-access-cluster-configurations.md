@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: f1fdb9dffbe06430ea7e3eb9339e23f5239e4e36
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bb78d84aa0f9a2832b6599edeac9d50e0e226437
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76310833"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546348"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Eseguire la migrazione all'accesso granulare in base al ruolo per le configurazioni dei cluster
 
@@ -131,8 +131,8 @@ Eseguire l'aggiornamento alla [versione 1.0.0](https://pypi.org/project/azure-mg
 
 Eseguire l'aggiornamento alla [versione 1.0.0](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/1.0.0/jar) o successiva di HDInsight SDK per Java. Se si utilizza un metodo interessato da queste modifiche, possono essere necessarie modifiche minime al codice:Minimal code modifications may be required if you are using a method affected by these changes:
 
-- [`ConfigurationsInner.get`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.get)**non restituirà più parametri sensibili** come le chiavi di archiviazione (core-site) o le credenziali HTTP (gateway).
-- [`ConfigurationsInner.update`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.update)è ora deprecato.
+- `ConfigurationsInner.get`**non restituirà più parametri sensibili** come le chiavi di archiviazione (core-site) o le credenziali HTTP (gateway).
+- `ConfigurationsInner.update`è ora deprecato.
 
 ### <a name="sdk-for-go"></a>SDK Per Go
 
@@ -193,9 +193,9 @@ Le configurazioni cluster sono ora alla base `Microsoft.HDInsight/clusters/confi
 
 ### <a name="why-do-i-see-insufficient-privileges-to-complete-the-operation-when-running-the-azure-cli-command-to-assign-the-hdinsight-cluster-operator-role-to-another-user-or-service-principal"></a>Perché viene visualizzato "Privilegi insufficienti per completare l'operazione" quando si esegue il comando dell'interfaccia della riga di comando di Azure per assegnare il ruolo Operatore cluster HDInsight a un altro utente o entità servizio?
 
-Oltre ad avere il ruolo Proprietario, l'utente o l'entità servizio che esegue il comando deve disporre di autorizzazioni AAD sufficienti per cercare gli ID oggetto dell'assegnatario. Questo messaggio indica autorizzazioni AAD insufficienti. Provare a `-–assignee` sostituire `–assignee-object-id` l'argomento con e fornire l'ID oggetto dell'assegnatario come parametro anziché il nome (o l'ID principale nel caso di un'identità gestita). Per altre informazioni, vedere la sezione relativa ai parametri facoltativi della documentazione relativa alla [creazione dell'assegnazione](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) di ruolo az.See the optional parameters section of the az role assignment create documentation for more info.
+Oltre a disporre del ruolo Proprietario, l'utente o l'entità servizio che esegue il comando deve disporre di autorizzazioni di Azure AD sufficienti per cercare gli ID oggetto dell'assegnatario. Questo messaggio indica autorizzazioni di Azure AD insufficienti. Provare a `-–assignee` sostituire `–assignee-object-id` l'argomento con e fornire l'ID oggetto dell'assegnatario come parametro anziché il nome (o l'ID principale nel caso di un'identità gestita). Per altre informazioni, vedere la sezione relativa ai parametri facoltativi della documentazione relativa alla [creazione dell'assegnazione](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) di ruolo az.See the optional parameters section of the az role assignment create documentation for more info.
 
-Se il problema persiste, contattare l'amministratore di AAD per acquisire le autorizzazioni corrette.
+Se il problema persiste, contattare l'amministratore di Azure AD per acquisire le autorizzazioni corrette.
 
 ### <a name="what-will-happen-if-i-take-no-action"></a>Cosa succede se non intervengo?
 

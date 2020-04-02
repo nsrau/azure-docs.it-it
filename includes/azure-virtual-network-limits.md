@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 8752585e731f905636f57d31741e2be67f7140b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95cb29e871cce2ba600ab654d48c685b90ed027e
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334805"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80573189"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limiti di rete - Azure Resource ManagerNetworking limits - Azure Resource Manager
 I limiti seguenti si applicano solo alle risorse di rete gestite tramite **Azure Resource Manager** per ogni sottoscrizione. Informazioni su come [visualizzare l'utilizzo corrente delle risorse rispetto](../articles/networking/check-usage-against-limits.md)ai limiti della sottoscrizione.
@@ -23,7 +23,7 @@ I limiti seguenti si applicano solo alle risorse di rete gestite tramite **Azure
 
 | Risorsa | Limite | 
 | --- | --- |
-| Reti virtuali |1.000 |
+| Reti virtuali |1\.000 |
 | Subnet per rete virtuale |3,000 |
 | Peering di rete virtuale per ogni rete virtuale |500 |
 | [Gateway di rete virtuale (gateway VPN) per rete virtualeVirtual network gateways (VPN gateways) per virtual network](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |1 |
@@ -37,7 +37,7 @@ I limiti seguenti si applicano solo alle risorse di rete gestite tramite **Azure
 | [Flussi TCP o UDP simultanei per ogni scheda di interfaccia di rete di un'istanza del ruolo o di una macchina virtuale](../articles/virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) |500.000 |
 | Schede di interfaccia di rete |65,536 |
 | Gruppi di sicurezza di rete |5.000 |
-| Regole NSG per NSG |1.000 |
+| Regole NSG per NSG |1\.000 |
 | Indirizzi IP e intervalli specificati per l'origine o la destinazione in un gruppo di sicurezza |4.000 |
 | Gruppi di sicurezza delle applicazioni |3,000 |
 | Gruppi di sicurezza delle applicazioni per ogni configurazione IP, per ogni scheda di interfaccia di rete |20 |
@@ -67,21 +67,23 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 
 | Risorsa                                | Limite         |
 |-----------------------------------------|-------------------------------|
-| Servizi di bilanciamento del carico                          | 1.000                         |
+| Servizi di bilanciamento del carico                          | 1\.000                         |
 | Regole per risorsa                      | 1.500                         |
 | Regole per scheda di interfaccia di rete (tra tutti gli indirizzi IP in una scheda di interfaccia di rete)Rules per NIC (across all IPs on a NIC) | 300                           |
 | Configurazioni IP front-end              | 600                           |
 | Dimensioni del pool back-end                       | 1.000 configurazioni IP, singola rete virtuale |
+| Risorse back-end <sup>per Load Balancer 1<sup> | 150                   |
 | Porte ad alta disponibilità                 | 1 per front-end interno       |
 | Regole in uscita per Load BalancerOutbound rules per Load Balancer        | 20                            |
 | [Timeout di inattività TCP](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout#tcp-idle-timeout) | 4 minuti/30 minuti          |
 
+<sup>1 : il</sup> nome del Il limite è fino a 150 risorse, in qualsiasi combinazione di risorse di macchine virtuali autonome, risorse del set di disponibilità e risorse del set di scalabilità delle macchine virtuali.
 
 **Bilanciamento del carico di baseBasic Load Balancer**
 
 | Risorsa                                | Limite        |
 |-----------------------------------------|------------------------------|
-| Servizi di bilanciamento del carico                          | 1.000                        |
+| Servizi di bilanciamento del carico                          | 1\.000                        |
 | Regole per risorsa                      | 250                          |
 | Regole per scheda di interfaccia di rete (tra tutti gli indirizzi IP in una scheda di interfaccia di rete)Rules per NIC (across all IPs on a NIC) | 300                          |
 | Configurazioni IP front-end              | 200                          |
@@ -98,7 +100,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Indirizzo IP privati per ogni rete virtuale |4.096 |4.096 |
 | Flussi TCP o UDP simultanei per ogni scheda di interfaccia di rete di un'istanza del ruolo o di una macchina virtuale |500.000, fino a 1.000.000 per due o più schede di interfaccia di rete. |500.000, fino a 1.000.000 per due o più schede di interfaccia di rete. |
 | Gruppi di sicurezza di rete (NGS) |200 |200 |
-| Regole NSG per NSG |1.000 |1.000 |
+| Regole NSG per NSG |1\.000 |1\.000 |
 | Tabelle di route definite dall'utente |200 |200 |
 | Route definite dall'utente per tabella di routeUser-defined routes per route table |400 |400 |
 | Indirizzi IP pubblici (dinamici) |500 |500 |

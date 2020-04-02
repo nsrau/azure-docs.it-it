@@ -5,18 +5,18 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
-ms.openlocfilehash: 03329252c0ed4231585d1717d9361a2aef35b36f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cea3245176e6c38137d68e3ad4b47477bedc78be
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78186999"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529172"
 ---
 Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare l'esperienza **Applicazioni** corrente o la nuova esperienza **Registrazioni app (anteprima)** unificata. [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregintro).
 
 #### <a name="applications"></a>[Applicazioni](#tab/applications/)
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
 1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
 1. Selezionare **Applicazioni** e quindi **Aggiungi**.
@@ -27,7 +27,7 @@ Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare l'
 
 #### <a name="app-registrations-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
 1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
 1. Selezionare **Registrazioni app (anteprima)** e quindi **Nuova registrazione**.
@@ -37,4 +37,10 @@ Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare l'
 1. In **Gestisci** selezionare **Autenticazione**.
 1. Selezionare **Prova la nuova esperienza** (se visualizzato).
 1. In **Tipo di client predefinito**selezionare **Sì** per considerare l'applicazione come client pubblico. Questa impostazione è obbligatoria per il flusso ROPC.
-1. Selezionare **Salva**.
+1. Selezionare **Save** (Salva).
+1. Nel menu a sinistra selezionare **Manifesto** per aprire l'editor del manifesto. 
+1. Impostare l'attributo **oauth2AllowImplicitFlow** su *true*:
+    ```json
+    "oauth2AllowImplicitFlow": true,
+    ```
+1. Selezionare **Save** (Salva).

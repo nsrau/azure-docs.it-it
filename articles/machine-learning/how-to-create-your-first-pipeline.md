@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2f62be94c901b383e34608508baa87ea37c893af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa0a5bfe921687ad964e9321e3874de37ccf9b98
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79283602"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549305"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creare ed eseguire pipeline di Machine Learning con Azure Machine Learning SDKCreate and run machine learning pipelines with Azure Machine Learning SDK
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ Le pipeline di Machine Learning create sono visibili ai membri [dell'area](how-t
 
 Le pipeline di Machine ML usano destinazioni di calcolo remote per il calcolo e l'archiviazione dei dati intermedi e finali associati a tale pipeline. Possono leggere e scrivere dati da e verso percorsi di [Archiviazione di Azure](https://docs.microsoft.com/azure/storage/) supportati.
 
-Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
+Se non si ha una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -86,7 +86,7 @@ def_blob_store.upload_files(
     overwrite=True)
 ```
 
-Una pipeline è costituita da uno o più passaggi. Un passaggio è un'unità di esecuzione in una destinazione di calcolo. I passaggi possono utilizzare origini dati e generare dati "intermedi". Un passaggio può creare dati, ad esempio un modello, una directory con modello e file dipendenti o dati temporanei. Questi dati sono quindi disponibili per altri passaggi successivi nella pipeline.
+Una pipeline è costituita da uno o più passaggi. Un passaggio è un'unità di esecuzione in una destinazione di calcolo. I passaggi potrebbero utilizzare origini dati e produrre dati "intermedi". Un passaggio può creare dati, ad esempio un modello, una directory con modello e file dipendenti o dati temporanei. Questi dati sono quindi disponibili per altri passaggi successivi nella pipeline.
 
 Per altre informazioni sulla connessione della pipeline ai dati, vedere gli articoli [Come accedere ai dati](how-to-access-data.md) e Come [registrare i set di dati](how-to-create-register-datasets.md). 
 
@@ -118,7 +118,7 @@ output_data1 = PipelineData(
 
 Se si dispone di dati tabulari archiviati in un file o `DataReference`in un set di file, un [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) è un'alternativa efficiente a un oggetto . `TabularDataset`gli oggetti supportano il controllo delle versioni, le differenze e le statistiche di riepilogo. `TabularDataset`s sono valutati in modo lato (come i generatori Python) ed è efficiente per sottoinsiemi mediante divisione o filtraggio. La `FileDataset` classe fornisce dati valutati in modo lato simili che rappresentano uno o più file. 
 
-Creare un `TabularDataset` utilizzando metodi come [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-).
+Creare un `TabularDataset` utilizzando metodi come [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-).
 
 ```python
 from azureml.data import TabularDataset
@@ -389,7 +389,7 @@ Quando si esegue una pipeline per la prima volta, Azure Machine Learning:
 * Scarica l'immagine Docker per ogni passaggio nella destinazione di calcolo dal Registro di sistema del contenitore.
 * Monta l'archivio `DataReference` dati se un oggetto è specificato in un passaggio. Se il montaggio non è supportato, in alternativa i dati vengono copiati nella destinazione di calcolo.
 * Esegue il passaggio nella destinazione di calcolo specificata nella definizione del passaggio. 
-* Crea gli artefatti, ad esempio i log, stdout e stderr, le metriche e l'output specificati dal passaggio. Questi artefatti vengono quindi caricati e conservati nell'archivio dati predefinito dell'utente.
+* Crea gli artefatti, ad esempio i log, stdout e stderr, le metriche e l'output specificati dal passaggio. Questi elementi vengono quindi caricati e mantenuti nell'archivio dati predefinito dell'utente.
 
 ![Diagramma dell'esecuzione di un esperimento come pipeline](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 

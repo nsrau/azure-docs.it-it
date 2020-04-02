@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 11f9097fc4875f0a4300ac56dafe7af9a0b00c97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8a8502b40410df221886cde2fa5f3db15bf3eed
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79454619"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549166"
 ---
 # <a name="cloud-tiering-overview"></a>Panoramica della suddivisione in livelli nel cloud
 La suddivisione in livelli nel cloud è una funzionalità facoltativa di Sincronizzazione file di Azure in base alla quale i file a cui si accede di frequente vengono memorizzati nella cache locale del server, mentre tutti gli altri file vengono archiviati a livelli in File di Azure in base alle impostazioni dei criteri. Quando un file è archiviato a livelli, il filtro del file system di Sincronizzazione file di Azure (StorageSync.sys) sostituisce il file in locale con un puntatore, o punto di analisi. Il punto di analisi rappresenta un URL del file in File di Azure. Un file archiviato a livelli include sia l'attributo "offline" sia l'attributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS impostato in NTFS, in modo che le applicazioni di terze parti possano identificare in modo sicuro questo tipo di file.
@@ -51,7 +51,22 @@ Quando in un volume sono presenti più endpoint server, la soglia valida dello s
 
 <a id="date-tiering-policy"></a>
 ### <a name="how-does-the-date-tiering-policy-work-in-conjunction-with-the-volume-free-space-tiering-policy"></a>Come funzionano i criteri di suddivisione in livelli in base alla data insieme ai criteri di suddivisione in livelli in base allo spazio disponibile nel volume? 
-Quando si abilita il cloud a livelli in un endpoint server, si imposta un criterio di spazio disponibile nel volume, che ha sempre la precedenza su qualsiasi altro criterio, incluso il criterio di data. Facoltativamente, è possibile abilitare un criterio di data per ogni endpoint server su tale volume, tramite il quale solo i file aperti (in lettura o scrittura) nell'intervallo di giorni indicato dal criterio rimarranno locali, mentre tutti i file non aggiornati verranno archiviati a livelli. Tenere presente che il criterio di spazio disponibile nel volume ha sempre la precedenza e che, quando lo spazio disponibile nel volume non è sufficiente per conservare tutti i file che rientrano nell'intervallo di giorni specificato dal criterio di data, Sincronizzazione file di Azure continuerà ad archiviare a livelli i file meno aggiornati fino a raggiungere la percentuale di spazio disponibile nel volume.
+Quando si abilita il cloud a livelli in un endpoint server, si imposta un criterio di spazio disponibile nel volume, che ha sempre la precedenza su qualsiasi altro criterio, incluso il criterio di data. Facoltativamente, è possibile abilitare un criterio data per ogni endpoint server in tale volume. Questo criterio consente di gestire la gestione di tutti i file a cui si accede, ovvero quelli letti o scritti nell'intervallo di giorni descritti da questo criterio. I file a cui non si accede con il numero di giorni specificato verranno suddivisi in livelli. 
+
+La suddivisione in livelli nel cloud usa l'ora dell'ultimo accesso per determinare quali file devono essere suddivisi in livelli. Il driver di filtro a livelli cloud (storagesync.sys) tiene traccia dell'ora dell'ultimo accesso e registra le informazioni nell'archivio di calore per la suddivisione in livelli cloud. È possibile visualizzare l'archivio di calore utilizzando un cmdlet di PowerShell locale.
+
+```powershell
+Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
+Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
+```
+
+> [!IMPORTANT]
+> L'ultimo timestamp a cui si accede non è una proprietà rilevata da NTFS e pertanto non è visibile per impostazione predefinita in Esplora file. Non utilizzare l'ultimo timestamp modificato in un file per verificare se i criteri di data funzionano come previsto. Questo timestamp tiene traccia solo delle scritture, non delle letture. Utilizzare il cmdlet illustrato per ottenere l'ultimo timestamp a cceduto per questa valutazione.
+
+> [!WARNING]
+> Non attivare la funzionalità NTFS di rilevamento dell'ultimo timestamp di accesso per file e cartelle. Questa funzionalità è disattivata per impostazione predefinita perché ha un impatto sulle prestazioni elevato. Sincronizzazione file di Azure terrà traccia degli ultimi tempi di accesso automaticamente e in modo molto efficiente e non utilizzerà questa funzionalità NTFS.
+
+Tenere presente che i criteri di spazio libero del volume hanno sempre la precedenza e quando non c'è abbastanza spazio libero nel volume per mantenere tutti i giorni di file come descritto dai criteri di data, Sincronizzazione file di Azure continuerà a sudare la suddivisione in livelli dei file più vecchi fino a quando non viene raggiunta la percentuale di spazio libero del volume.
 
 Supponiamo ad esempio di avere un criterio di suddivisione in livelli in base alla data impostato su 60 giorni e un criterio di suddivisione in livelli in base allo spazio disponibile nel volume impostato su 20%. Se, dopo aver applicato il criterio basato sulla data, lo spazio disponibile nel volume è inferiore al 20%, verrà applicato il criterio basato sullo spazio disponibile nel volume, che eseguirà l'override del criterio basato sulla data. Come risultato, verrà archiviato a livelli un maggior numero di file, in modo che la quantità di dati mantenuti sul server possa essere ridotta da 60 giorni a 45 giorni di dati. Di contro, questo criterio forzerà l'archiviazione a livelli dei file che non rientrano nell'intervallo di tempo anche se non è stata raggiunta la soglia dello spazio disponibile, pertanto un file vecchio di 61 giorni verrà archiviato a livelli anche se il volume è vuoto.
 
@@ -59,10 +74,10 @@ Supponiamo ad esempio di avere un criterio di suddivisione in livelli in base al
 ### <a name="how-do-i-determine-the-appropriate-amount-of-volume-free-space"></a>Come viene determinata la quantità appropriata di spazio disponibile nel volume?
 La quantità di dati da mantenere in locale è determinata da una serie di fattori: la larghezza di banda, il modello di accesso del set di dati e il budget disponibile. Se si dispone di una connessione a banda ridotta, è possibile mantenere in locale una maggior quantità di dati per assicurarsi che il tempo di ritardo per gli utenti sia minimo. Altrimenti è possibile basarsi sulla percentuale di varianza durante un determinato periodo. Se ad esempio si sa che circa il 10% del set di dati da 1 TB viene modificato o viene attivamente usato ogni mese, può essere opportuno mantenere in locale 100 GB per evitare di richiamare i file frequentemente. Se il volume è di 2 TB, sarà opportuno mantenere in locale il 5% (pari a 100 GB) e il rimanente 95% sarà la percentuale di spazio disponibile nel volume. È tuttavia consigliabile aggiungere un buffer per tener conto di periodi di maggiore varianza. In altre parole, è consigliabile partire da una percentuale inferiore di spazio disponibile nel volume e quindi modificarla successivamente in caso di necessità. 
 
-Tenere in locale una maggior quantità di dati significa ridurre i costi in uscita, dal momento che verrà richiamato da Azure un numero inferiore di file, ma implica anche dover mantenere più spazio di archiviazione in locale, che richiede costi aggiuntivi. Dopo aver distribuito un'istanza di Sincronizzazione file di Azure, è possibile esaminare il traffico in uscita dell'account di archiviazione per valutare in modo approssimativo se le impostazioni dello spazio disponibile nel volume sono appropriate per l'utilizzo. Supponendo che l'account di archiviazione contenga solo l'endpoint cloud di Sincronizzazione file di Azure, ovvero la condivisione di sincronizzazione dell'utente, un elevato traffico in uscita indica che molti file vengono richiamati dal cloud e potrebbe essere opportuno aumentare la cache locale.
+Tenere in locale una maggior quantità di dati significa ridurre i costi in uscita, dal momento che verrà richiamato da Azure un numero inferiore di file, ma implica anche dover mantenere più spazio di archiviazione in locale, che richiede costi aggiuntivi. Dopo aver distribuito un'istanza di Sincronizzazione file di Azure, è possibile esaminare l'uscita dell'account di archiviazione per valutare approssimativamente se le impostazioni dello spazio disponibile del volume sono appropriate per l'utilizzo. Supponendo che l'account di archiviazione contenga solo l'endpoint cloud di Sincronizzazione file di Azure, ovvero la condivisione di sincronizzazione dell'utente, un elevato traffico in uscita indica che molti file vengono richiamati dal cloud e potrebbe essere opportuno aumentare la cache locale.
 
 <a id="how-long-until-my-files-tier"></a>
-### <a name="ive-added-a-new-server-endpoint-how-long-until-my-files-on-this-server-tier"></a>È stato aggiunto un nuovo endpoint server. Quanto tempo deve trascorrere prima di vedere i file in questo livello server?
+### <a name="ive-added-a-new-server-endpoint-how-long-until-my-files-on-this-server-tier"></a>Ho aggiunto un nuovo endpoint server. Quanto tempo deve trascorrere prima di vedere i file in questo livello server?
 Nelle versioni 4.0 e successive dell'agente di Sincronizzazione file di Azure, una volta caricati i file nella condivisione file di Azure, questi verranno suddivisi in livelli in base ai criteri non appena viene eseguita la sessione di suddivisione in livelli successiva, che si verifica una volta all'ora. Negli agenti di versioni precedenti la suddivisione in livelli può richiedere fino a 24 ore.
 
 <a id="is-my-file-tiered"></a>
@@ -74,7 +89,7 @@ Esistono diversi modi per verificare se un file è archiviato a livelli in una c
         
         | Lettera di attributo | Attributo | Definizione |
         |:----------------:|-----------|------------|
-        | Una  | Archiviazione | Indica che deve essere eseguito un backup del file tramite il software di backup. Questo attributo è sempre impostato indipendentemente dal fatto che il file sia archiviato a livelli o archiviato completamente su disco. |
+        | Una | Archiviazione | Indica che deve essere eseguito un backup del file tramite il software di backup. Questo attributo è sempre impostato indipendentemente dal fatto che il file sia archiviato a livelli o archiviato completamente su disco. |
         | P | File sparse | Indica che il file è un file sparse. Un file sparse è un tipo specializzato di file offerto da NTFS per un uso efficiente quando il flusso di file su disco è pressoché vuoto. Sincronizzazione file di Azure usa i file sparse perché un file è completamente archiviato a livelli o parzialmente richiamato. In un file completamente archiviato a livelli, il flusso di file viene archiviato nel cloud. In un file parzialmente richiamato, tale parte del file è già su disco. Se un file è completamente richiamato su disco, Sincronizzazione file di Azure lo converte da file sparse in un file regolare. Questo attributo viene impostato solo in Windows Server 2016 e versioni precedenti.|
         | M | Richiamo sull'accesso ai dati | Indica che i dati del file non sono completamente presenti nell'archiviazione locale. La lettura del file causerà il recupero di almeno parte del contenuto del file da una condivisione file di Azure a cui è connesso l'endpoint server. Questo attributo viene impostato solo in Windows Server 2019.This attribute is only set on Windows Server 2019. |
         | L | Reparse point | Indica che il file contiene un reparse point. Un reparse point è un puntatore speciale utilizzabile da un filtro del file system. Sincronizzazione file di Azure usa i reparse point per definire la posizione nel cloud dove è archiviato il file per il filtro del file system di Sincronizzazione file di Azure (StorageSync.sys). È supportato l'accesso facile. Non è necessario che gli utenti sappiano che è in uso Sincronizzazione file di Azure o come ottenere l'accesso al file nella condivisione file di Azure. Quando un file viene richiamato completamente, Sincronizzazione file di Azure rimuove il reparse point dal file. |
@@ -137,4 +152,4 @@ Questo comportamento non è specifico di Sincronizzazione file di Azure, in Espl
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Planning for an Azure File Sync Deployment](storage-sync-files-planning.md) (Pianificazione della distribuzione di Sincronizzazione file di Azure)
+* [Pianificazione di una distribuzione di sincronizzazione file di AzurePlanning for an Azure File Sync Deployment](storage-sync-files-planning.md)

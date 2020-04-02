@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 89df941eb6ebaad6e078c278f1ed883db5528c7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b892b1f4ff73679ab425d0e97f5361e0f3712252
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77152559"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549194"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e Async Java
 
@@ -34,7 +34,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
     Il modo in cui un client si connette ad Azure Cosmos DB ha importanti implicazioni sulle prestazioni, soprattutto in termini di latenza lato client. *ConnectionMode* è un'impostazione di configurazione chiave disponibile per la configurazione del client *ConnectionPolicy*. Per Async Java SDK, le due ConnectionModes disponibili sono:  
       
     * [Gateway (impostazione predefinita)](/java/api/com.microsoft.azure.cosmosdb.connectionmode)  
-    * [Diretto](/java/api/com.microsoft.azure.cosmosdb.connectionmode)
+    * [Connessione diretta](/java/api/com.microsoft.azure.cosmosdb.connectionmode)
 
     La modalità gateway è supportata su tutte le piattaforme SDK ed è l'opzione configurata per impostazione predefinita. Se le applicazioni vengono eseguite all'interno di una rete aziendale con restrizioni del firewall rigorose, la modalità gateway è la scelta migliore poiché utilizza la porta HTTPS standard e un singolo endpoint. A livello di prestazioni, tuttavia, la modalità Gateway prevede un hop di rete aggiuntivo ogni volta che i dati vengono letti o scritti in Azure Cosmos DB. Per questo motivo, la modalità Direct offre prestazioni migliori grazie al minor numero di hop di rete.
 
@@ -112,7 +112,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
         + **Usare il multithreading nell'applicazione per** un trasferimento efficiente dei dati TCP: dopo aver effettuato una richiesta, l'applicazione deve sottoscrivere per ricevere dati in un altro thread. In caso contrario, viene forzata l'operazione "half-duplex" non intenzionale e le richieste successive vengono bloccate in attesa della risposta della richiesta precedente.
 
-        + **Eseguire carichi di lavoro ad alta intensità di calcolo in un thread dedicato:** per motivi simili al suggerimento precedente, le operazioni come l'elaborazione di dati complessi vengono posizionate al meglio in un thread separato. Una richiesta che estrae i dati da un altro archivio dati (ad esempio se il thread utilizza contemporaneamente gli archivi dati Azure Cosmos DB e Spark) potrebbe riscontrare una latenza maggiore ed è consigliabile generare un thread aggiuntivo che attende una risposta dall'altro l'archivio dati.
+        + **Eseguire carichi di lavoro ad alta intensità di calcolo in un thread dedicato:** per motivi simili al suggerimento precedente, le operazioni come l'elaborazione di dati complessi vengono posizionate al meglio in un thread separato. Una richiesta che esegue il pull dei dati da un altro archivio dati (ad esempio se il thread utilizza contemporaneamente archivi dati Azure Cosmos DB e Spark) potrebbe riscontrare una latenza maggiore ed è consigliabile generare un thread aggiuntivo che attende una risposta dall'altro archivio dati.
 
             + L'I/O di rete sottostante in Async Java SDK è gestito da Netty, vedere questi suggerimenti per evitare modelli di codifica che bloccano i thread di [I/O Netty](troubleshoot-java-async-sdk.md#invalid-coding-pattern-blocking-netty-io-thread).
 
@@ -230,9 +230,9 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
     * - nofile 100000
     ```
 
-* **Usare l'implementazione SSL nativa per nettyUse native SSL implementation for netty**
+* **Usa implementazione nativa TLS/SSL per netty**
 
-    Netty può utilizzare OLE direttamente per lo stack di implementazione SSL per ottenere prestazioni migliori. In assenza di questa configurazione, Netty userà l'implementazione di SSL predefinita di Java.
+    Netty può utilizzare OpenSSL direttamente per lo stack di implementazione TLS per ottenere prestazioni migliori. In assenza di questa configurazione netty ripiegherà l'implementazione TLS predefinita di Java.
 
     In Ubuntu:
     ```bash

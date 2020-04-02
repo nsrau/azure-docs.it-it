@@ -8,12 +8,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d37abd1b5d212c3d920cb68b6236029b2112ae24
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d8e453336005f3389f67e9571fac438bfc340c1b
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74113267"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549020"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Modelli di progettazione per applicazioni SaaS multi-tenant e Ricerca cognitiva di AzureDesign patterns for multitenant SaaS applications and Azure Cognitive Search
 Un'applicazione multi-tenant è un'applicazione che fornisce gli stessi servizi e funzionalità a un numero qualsiasi di tenant che non possono vedere o condividere i dati di nessun altro tenant. Questo documento illustra le strategie di isolamento tenant per le applicazioni multi-tenant create con Ricerca cognitiva di Azure.This document discusses tenant isolation strategies for multitenant applications built with Azure Cognitive Search.
@@ -51,7 +51,7 @@ Nel piano tariffario S3 di Ricerca cognitiva di Azure è disponibile un'opzione 
 
 S3 HD consente di comprimere numerosi indici di piccole dimensioni, che vengono quindi gestiti da un singolo servizio di ricerca, sacrificando la possibilità di aumentare il numero di indici che usano le partizioni in cambio dell'hosting di un maggior numero di indici in un singolo servizio.
 
-In pratica, un servizio S3 potrebbe avere fino a 200 indici che insieme potrebbero ospitare fino a 1,4 miliardi di documenti. D'altro canto S3 HD consentirebbe ai singoli indici di arrivare solo fino a un milione di documenti, tuttavia può gestire fino a 1000 indici per partizione (fino a 3000 per ogni servizio) con un numero totale di documenti pari a 200 milioni per partizione (fino a 600 milioni per ogni servizio).
+Un servizio S3 è progettato per ospitare un numero fisso di indici (massimo 200) e consentire a ogni indice di ridimensionarsi orizzontalmente man mano che nuove partizioni vengono aggiunte al servizio. L'aggiunta di partizioni ai servizi HD S3 aumenta il numero massimo di indici che il servizio può ospitare. La dimensione massima ideale per un singolo indice S3HD è di circa 50 - 80 GB, anche se non esiste alcun limite di dimensione rigida per ogni indice imposto dal sistema.
 
 ## <a name="considerations-for-multitenant-applications"></a>Considerazioni per le applicazioni multi-tenant
 Le applicazioni multi-tenant devono distribuire in modo efficace le risorse tra i tenant mantenendo al tempo stesso un certo livello di privacy tra i vari tenant. Quando si progetta l'architettura di un'applicazione di questo tipo, ci sono alcuni aspetti da considerare:

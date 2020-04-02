@@ -15,12 +15,12 @@ ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 8aedc78772858815a18425fb1e6cb36a4600f647
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 09d5b7a126a1b8832bfe40e2e25dd4000d5d9155
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385096"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548279"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Risolvere i problemi relativi al controllo degli accessi in base
 
@@ -80,7 +80,7 @@ $ras.Count
 
 ## <a name="access-denied-or-permission-errors"></a>Accesso negato o errori di autorizzazione
 
-- Se viene visualizzato l'errore di autorizzazioni "il client con ID oggetto non dispone dell'autorizzazione per eseguire l'azione sull'ambito (codice: autorizzazioneautorizzazione)" quando si tenta di creare una risorsa, verificare che sia stato attualmente eseguito l'accesso con un utente a cui è assegnato un ruolo con scrittura l'autorizzazione per la risorsa nell'ambito selezionato. Ad esempio, per gestire le macchine virtuali in un gruppo di risorse, è necessario disporre del ruolo [collaboratore macchina virtuale](built-in-roles.md#virtual-machine-contributor) nel gruppo di risorse (o nell'ambito padre). Per un elenco delle autorizzazioni per ogni ruolo predefinito, vedere [Ruoli predefiniti per le risorse di Azure](built-in-roles.md).
+- Se viene visualizzato l'errore delle autorizzazioni "Il client con ID oggetto non dispone dell'autorizzazione per eseguire l'azione sull'ambito (codice: autorizzazioneautorizzazione)" quando si tenta di creare una risorsa, verificare di aver eseguito l'accesso con un utente a cui è assegnato un ruolo che disponga dell'autorizzazione di scrittura per la risorsa nell'ambito selezionato. Ad esempio, per gestire le macchine virtuali in un gruppo di risorse, è necessario disporre del ruolo [collaboratore macchina virtuale](built-in-roles.md#virtual-machine-contributor) nel gruppo di risorse (o nell'ambito padre). Per un elenco delle autorizzazioni per ogni ruolo predefinito, vedere [Ruoli predefiniti per le risorse di Azure](built-in-roles.md).
 - Se viene visualizzato l'errore di autorizzazioni "Non si dispone dell'autorizzazione per creare una richiesta di supporto" quando si tenta di creare `Microsoft.Support/supportTickets/write` o aggiornare un ticket di supporto, verificare di aver eseguito l'accesso con un utente a cui è assegnato un ruolo che dispone dell'autorizzazione, ad esempio [Collaboratore richiesta](built-in-roles.md#support-request-contributor)di supporto .
 
 ## <a name="role-assignments-with-unknown-security-principal"></a>Assegnazioni di ruolo con entità di sicurezza sconosciutaRole assignments with Unknown security principal
@@ -179,7 +179,7 @@ Questi elementi richiedono accesso **in scrittura** al **piano di servizio App**
 
 Gli elementi seguenti richiedono accesso **in scrittura** all'intero **gruppo di risorse** che contiene il sito Web:  
 
-* Certificati e associazioni SSL. I certificati SSL possono essere condivisi tra siti appartenenti allo stesso gruppo di risorse e area geografica.  
+* Certificati e binding TLS/SSL (i certificati TLS/SSL possono essere condivisi tra i siti nello stesso gruppo di risorse e nella stessa posizione geografica)  
 * Regole di avviso  
 * Impostazioni di scalabilità automatica  
 * Componenti di Application Insights  

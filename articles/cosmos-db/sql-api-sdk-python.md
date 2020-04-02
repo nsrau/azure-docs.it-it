@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: 6bc636b751d12bdb576e54f26536ac0045839229
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 090446d286b38a0bfcbde4ed9e77235050b36417
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70137331"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547709"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Python SDK di Azure Cosmos DB per API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
@@ -84,7 +84,7 @@ ms.locfileid: "70137331"
 
 ### <a name="210"></a><a name="2.1.0"/>2.1.0
 * Aggiunta del supporto per le query di aggregazione (COUNT, MIN, MAX, SUM e AVG).
-* Aggiunta di un'opzione per disabilitare la verifica SSL durante l'esecuzione sull'emulatore Cosmos DB.
+* Aggiunta un'opzione per disabilitare la verifica TLS durante l'esecuzione su Cosmos DB Emulator.
 * Rimossa la restrizione per cui il modulo delle richieste dipendenti deve essere esattamente 2.10.0.
 * Velocità effettiva minima ridotta nelle raccolte partizionate da 10.100 UR/s a 2.500 UR/s.
 * Aggiunta del supporto per l'abilitazione della registrazione degli script durante l'esecuzione di stored procedure.

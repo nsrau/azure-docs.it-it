@@ -1,17 +1,17 @@
 ---
-title: Procedure consigliate per soluzioni di gestione in Azure | Microsoft Docs
-description: ''
+title: Soluzione di gestione nelle procedure consigliate di AzureManagement solution in Azure best practices
+description: In questo articolo vengono forniti suggerimenti per la creazione di un file di soluzione di gestione. Informazioni su come usare origini dati, runbook, visualizzazioni e avvisi.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
-ms.openlocfilehash: 837fb87d73698961ec1550b122840563d1707f8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7cb300297336edcce4294b800520ad570b12bcde
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77663199"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548172"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Procedure consigliate per la creazione di soluzioni di gestione in Azure (anteprima)
 > [!NOTE]

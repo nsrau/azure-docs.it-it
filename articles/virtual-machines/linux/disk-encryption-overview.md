@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff1b37c3053ffa91dcb432cd97a7dd6fd71dad1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d058ff5f9863642f73725db3472c942161447f25
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79250426"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548443"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption for Linux VMs 
 
@@ -32,7 +32,7 @@ Se si usa [il Centro sicurezza](../../security-center/index.yml)di Azure , si vi
 
 ## <a name="supported-vms-and-operating-systems"></a>Macchine virtuali e sistemi operativi supportati
 
-### <a name="supported-vm-sizes"></a>Dimensioni delle macchine virtuali supportate
+### <a name="supported-vms"></a>VM supportate
 
 Le macchine virtuali Linux sono disponibili in una [gamma di dimensioni.](sizes.md) Crittografia disco di Azure non è disponibile nelle macchine virtuali di base, serie A o in macchine virtuali che non soddisfano i requisiti minimi di memoria seguenti:Azure Disk Encryption is not available on [Basic, A-series VMs,](https://azure.microsoft.com/pricing/details/virtual-machines/series/)or on virtual machines that do not meet these minimum memory requirements:
 
@@ -44,7 +44,9 @@ Le macchine virtuali Linux sono disponibili in una [gamma di dimensioni.](sizes.
 
 Una volta completato il processo di crittografia del disco del sistema operativo nelle macchine virtuali Linux, la macchina virtuale può essere configurata per l'esecuzione con meno memoria. 
 
-Crittografia disco di Azure è disponibile anche per le macchine virtuali con archiviazione Premium.Azure Disk Encryption is also available for VMs with premium storage. 
+Crittografia disco di Azure è disponibile anche per le macchine virtuali con archiviazione Premium.Azure Disk Encryption is also available for VMs with premium storage.
+
+Crittografia disco di Azure non è disponibile nelle [macchine virtuali di generazione 2](generation-2.md#generation-1-vs-generation-2-capabilities)e nelle macchine virtuali serie [Lsv2](../lsv2-series.md). Per altre eccezioni, vedere Crittografia disco di [Azure: scenari non supportati.](disk-encryption-linux.md#unsupported-scenarios)
 
 ### <a name="supported-operating-systems"></a>Sistemi operativi supportati
 

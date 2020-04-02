@@ -1,22 +1,20 @@
 ---
 title: Usare le macchine virtuali di Azure SpotUse Azure Spot VMs
 description: Informazioni su come usare le macchine virtuali Spot per risparmiare sui costi.
-services: virtual-machines-windows
 author: cynthn
-manager: gwallace
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 11/20/2019
+ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 4acbab324c63cf0184f5384e6af5e9418ca06677
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd59ccba74b2813b2d38073cac35ba80d97cf4d1
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74782099"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548139"
 ---
-# <a name="preview-use-spot-vms-in-azure"></a>Anteprima: Usare macchine virtuali spot in AzurePreview: Use Spot VMs in Azure
+# <a name="use-spot-vms-in-azure"></a>Usare le macchine virtuali Spot in AzureUse Spot VMs in Azure
 
 [!INCLUDE [common-spot-vms](../../../includes/virtual-machines-common-spot-vms.md)]  
 

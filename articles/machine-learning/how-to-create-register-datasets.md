@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.openlocfilehash: 4025c620aea49dfb26ab203630c121d29d88d9d7
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: f02046d1e2ee558ca4ea4472a03fddb5d0a6a16f
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474525"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549317"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Creare set di dati di Azure Machine LearningCreate Azure Machine Learning datasets
 
@@ -82,7 +82,7 @@ Per creare set di dati da un archivio dati di Azure usando Python SDK:To create 
 
 #### <a name="create-a-tabulardataset"></a>Creare un tabulareCreate a TabularDataset
 
-Utilizzare [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-) il metodo `TabularDatasetFactory` sulla classe per leggere i file in formato csv o tsv e per creare un TabularDataset non registrato. Se si sta leggendo da più file, i risultati verranno aggregati in un'unica rappresentazione tabulare. 
+Utilizzare [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-) il metodo `TabularDatasetFactory` sulla classe per leggere i file in formato csv o tsv e per creare un TabularDataset non registrato. Se si sta leggendo da più file, i risultati verranno aggregati in un'unica rappresentazione tabulare. 
 
 ```Python
 from azureml.core import Workspace, Datastore, Dataset
@@ -164,7 +164,7 @@ sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'
 
 In TabularDatasets è possibile specificare un timestamp da una colonna nei dati o dalla posizione in cui vengono archiviati i dati del modello di percorso per abilitare un tratto di serie temporali. Questa specifica consente di filtrare in modo semplice ed efficiente in base al tempo.
 
-Utilizzare [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) il metodo`TabularDataset` sulla classe per specificare la colonna timestamp e per abilitare il filtro in base all'ora. Per ulteriori informazioni, vedere [Demo dell'API relativa alle serie temporali tabulare con i dati meteo NOAA](https://aka.ms/azureml-tsd-notebook).
+Utilizzare [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) il metodo`TabularDataset` sulla classe per specificare la colonna timestamp e per abilitare il filtro in base all'ora. Per ulteriori informazioni, vedere [Demo dell'API relativa alle serie temporali tabulare con i dati meteo NOAA](https://aka.ms/azureml-tsd-notebook).
 
 ```Python
 # create a TabularDataset with time series trait

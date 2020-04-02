@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 458a1d474e9a722a98ca068e1827cf0e1abf4b47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: befe8945468d220a04ec7f0b515f22159cb72b0f
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75548820"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549241"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Procedure consigliate per la sicurezza di Azure Service Fabric
 Distribuire un'applicazione in Azure è veloce, semplice ed economico. Prima di distribuire l'applicazione cloud in produzione, esaminare l'elenco di procedure consigliate essenziali e consigliate per l'implementazione di cluster sicuri nell'applicazione.
@@ -32,7 +32,7 @@ Per ogni procedura consigliata verrà illustrato:
 -   Usare certificati X.509.
 -   Configurare i criteri di sicurezza.
 -   Implementare la configurazione della sicurezza in Reliable Actors.
--   Configurare l'autenticazione SSL per Azure Service Fabric.
+-   Configurare TLS per Azure Service Fabric.Configure TLS for Azure Service Fabric.
 -   Usare l'isolamento e la sicurezza di rete con Azure Service Fabric.
 -   Configurare Azure Key Vault per la sicurezza.
 -   Assegnare utenti ai ruoli.
@@ -118,13 +118,13 @@ Ogni attore è definito come un'istanza di un tipo di attore, come un oggetto .N
 Le configurazioni di sicurezza del [replicatore](../../service-fabric/service-fabric-reliable-actors-kvsactorstateprovider-configuration.md) vengono utilizzate per proteggere il canale di comunicazione utilizzato durante la replica. Questa configurazione impedisce ai servizi di vedere il traffico di replica reciproco e verifica la sicurezza dei dati a disponibilità elevata. Per impostazione predefinita, una sezione di configurazione della sicurezza vuota non abilita la sicurezza della replica.
 Le configurazioni del replicatore riguardano il replicatore responsabile di garantire l'elevata affidabilità dello stato del provider di stato degli attori.
 
-## <a name="configure-ssl-for-azure-service-fabric"></a>Configurare l'autenticazione SSL per Azure Service Fabric
-Il processo di autenticazione server [autentica](../../service-fabric/service-fabric-cluster-creation-via-arm.md) gli endpoint di gestione del cluster rispetto a un client di gestione. Il client di gestione riconosce quindi di comunicare con il cluster reale. Questo certificato fornisce anche un [SSL](../../service-fabric/service-fabric-cluster-creation-via-arm.md) per l'API di gestione HTTPS e per Service Fabric Explorer su HTTPS.
+## <a name="configure-tls-for-azure-service-fabric"></a>Configurare TLS per Azure Service FabricConfigure TLS for Azure Service Fabric
+Il processo di autenticazione server [autentica](../../service-fabric/service-fabric-cluster-creation-via-arm.md) gli endpoint di gestione del cluster rispetto a un client di gestione. Il client di gestione riconosce quindi di comunicare con il cluster reale. Questo certificato fornisce anche un [TLS](../../service-fabric/service-fabric-cluster-creation-via-arm.md) per l'API di gestione HTTPS e per Service Fabric Explorer su HTTPS.
 È necessario ottenere un nome di dominio personalizzato per il cluster. Quando si richiede un certificato da un'autorità di certificazione, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato usato per il cluster.
 
-Prima di configurare SSL per un'applicazione, è necessario ottenere un certificato SSL firmato da un'autorità di certificazione. L'autorità di certificazione è una terza parte attendibile che emette certificati per motivi di sicurezza SSL. Se non si dispone già di un certificato SSL, è necessario ottenerne uno da un rivenditore di certificati SSL.
+Per configurare TLS per un'applicazione, è innanzitutto necessario ottenere un certificato SSL/TLS firmato da una CA. La CA è una terza parte attendibile che rilascia certificati per motivi di sicurezza TLS. Se non si dispone già di un certificato SSL/TLS, è necessario ottenerne uno da una società che vende certificati SSL/TLS.
 
-Il certificato deve soddisfare i requisiti seguenti per i certificati SSL in Azure:
+The certificate must meet the following requirements for SSL/TLS certificates in Azure:
 -   Il certificato deve includere una chiave privata.
 
 -   Il certificato deve essere creato per lo scambio di chiave, esportabile in un file con estensione pfx (Personal Information Exchange).
@@ -135,13 +135,13 @@ Il certificato deve soddisfare i requisiti seguenti per i certificati SSL in Azu
     - Richiedere un certificato da un'autorità di certificazione con un nome di soggetto corrispondente al nome di dominio personalizzato del servizio. Se ad esempio il nome di dominio personalizzato è __contoso__**.com**, il nome del soggetto del certificato dell'autorità di certificazione deve essere **.contoso.com** o __www__**.contoso.com**.
 
     >[!NOTE]
-    >Non è possibile ottenere un certificato SSL da un'autorità di certificazione per il dominio __cloudapp__**.net**.
+    >Non è possibile ottenere un certificato SSL/TLS da una CA per il dominio __cloudapp__**.net.**
 
 -   Per il certificato deve essere usata una crittografia di almeno 2.048 bit.
 
 Il protocollo HTTP non è sicuro ed è soggetto ad attacchi di eavesdropping. I dati trasmessi su HTTP vengono inviati come testo normale dal Web browser al server Web o tra altri endpoint. Gli utenti malintenzionati possono intercettare e visualizzare i dati sensibili inviati tramite HTTP, ad esempio i dati della carta di credito e gli account di accesso. Quando i dati vengono inviati o pubblicati tramite un browser che usa il protocollo HTTPS, l'autenticazione SSL assicura che le informazioni sensibili siano crittografate e protette da intercettazione.
 
-Per altre informazioni sull'uso dei certificati SSL, vedere [Configurazione di SSL per un'applicazione in Azure](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md).
+Per altre informazioni sull'uso dei certificati SSL/TLS, vedere [Configurazione di TLS per un'applicazione in Azure.To](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md)learn more about using SSL/TLS certificates, see Configuring TLS for an application in Azure.
 
 ## <a name="use-network-isolation-and-security-with-azure-service-fabric"></a>Usare l'isolamento e la sicurezza di rete con Azure Service Fabric
 Configurare un cluster 3 nodetype sicuro con il [modello di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) come esempio. Controllare il traffico di rete in ingresso e in uscita usando il modello e i gruppi di sicurezza di rete.

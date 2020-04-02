@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: dbc17620cda836ec0ac5c4ebc5a709fb0605c958
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1ad8390bc5db72636c637c2ffb817e34674d0fa
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240049"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548839"
 ---
 # <a name="deploy-azure-data-explorer-cluster-into-your-virtual-network"></a>Distribuire il cluster di Azure Data Explorer nella rete virtualeDeploy Azure Data Explorer cluster into your Virtual Network
 
@@ -75,7 +75,7 @@ I gruppi di sicurezza di rete (NSG) consentono di controllare l'accesso alla ret
 | **Utilizzare**   | **Da**   | **A**   | **Protocollo**   |
 | --- | --- | --- | --- |
 | Gestione  |[Indirizzi di gestione ADX](#azure-data-explorer-management-ip-addresses)/AzureDataExplorerManagement(ServiceTag)ADX management addresses /AzureDataExplorerManagement(ServiceTag) | Subnet ADX:443  | TCP  |
-| Monitoraggio dell'integrità  | [Indirizzi di monitoraggio dello stato di ADX](#health-monitoring-addresses)  | Subnet ADX:443  | TCP  |
+| Monitoraggio dell’integrità  | [Indirizzi di monitoraggio dello stato di ADX](#health-monitoring-addresses)  | Subnet ADX:443  | TCP  |
 | Comunicazione interna ADX  | Subnet ADX: tutte le porte  | Subnet ADX:Tutte le porte  | Tutti  |
 | Consentire il servizio di bilanciamento del carico di Azure in ingresso (probe di integrità)Allow Azure load balancer inbound (health probe)  | AzureLoadBalancer  | Subnet ADX:80,443  | TCP  |
 
@@ -171,7 +171,7 @@ I gruppi di sicurezza di rete (NSG) consentono di controllare l'accesso alla ret
 | Europa occidentale | 23.97.212.5 |
 | India occidentale | 23.99.5.162 |
 | Stati Uniti occidentali | 23.99.5.162 |
-| Stati Uniti occidentali 2 | 23.99.5.162 |    
+| Stati Uniti occidentali 2 | 23.99.5.162, 104.210.32.14 |    
 
 #### <a name="azure-monitor-configuration-endpoint-addresses"></a>Indirizzi degli endpoint di configurazione di Monitoraggio di AzureAzure Monitor configuration endpoint addresses
 

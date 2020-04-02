@@ -2,18 +2,18 @@
 title: File di inclusione
 description: File di inclusione
 services: virtual-machines
-author: barclayn
+author: msmbaldwin
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/13/2019
-ms.author: barclayn
+ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: d0ede337f2ae17f28cd02df7ed35919bd9955e7a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df577ab2b5e9658fd55324c8fd6fd008621b4d46
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74048584"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545882"
 ---
 Questo articolo contiene consigli sulla sicurezza per macchine virtuali di Azure.This article contains security recommendations for Azure Virtual Machines. Segui questi consigli per adempiere agli obblighi di sicurezza descritti nel nostro modello per la responsabilità condivisa. I consigli ti aiuteranno anche a migliorare la sicurezza complessiva per le soluzioni delle tue app web. Per ulteriori informazioni sulle operazioni eseguite da Microsoft per adempiere alle responsabilità del provider di servizi, vedere [Responsabilità condivise per](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91)il cloud computing .
 
