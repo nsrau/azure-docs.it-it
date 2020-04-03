@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 02/02/2020
+ms.date: 03/26/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: abd4a3a3a3e8494ea325e65a78eea7fb56b78f94
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b7864d89cc14a1473fd43e94bfe74c368bcb391d
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76988363"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80349490"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Esercitazione: Analizzare i video con Servizi multimediali v3
 
@@ -92,6 +92,8 @@ La funzione seguente completa queste azioni:
 
 * Crea un asset.
 * Ottiene un [URL di firma di accesso condiviso](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) scrivibile nel [contenitore della risorsa di archiviazione](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container) dell'asset.
+
+    Se si usa la funzione [ListContainerSas](https://docs.microsoft.com/rest/api/media/assets/listcontainersas) dell'asset per ottenere gli URL di firma di accesso condiviso, si noti che la funzione ne restituisce molti, perché sono disponibili due chiavi per ogni account di archiviazione. Il motivo della presenza di due chiavi è che rende possibile la rotazione trasparente delle chiavi dell'account di archiviazione (ad esempio, cambiarne una mentre si usa l'altra, quindi iniziare a usare la nuova chiave e ruotare l'altra). Il primo URL di firma di accesso condiviso rappresenta la chiave Key1 dell'account di archiviazione e il secondo la chiave Key2.
 * Carica il file nel contenitore nel servizio di archiviazione usando l'URL di firma di accesso condiviso.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateInputAsset)]

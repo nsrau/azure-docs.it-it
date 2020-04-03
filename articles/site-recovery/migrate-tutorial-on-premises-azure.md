@@ -7,18 +7,20 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
-ms.custom: MVC
-ms.openlocfilehash: 24015810a295ef88b7d3e63bfc464ddddef6b55f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b978190776aee3c89d3beadde76d20c4327b012f
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73939631"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80388917"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Eseguire la migrazione di computer locali ad Azure
 
 
-Questo articolo illustra come eseguire la migrazione di computer locali ad Azure usando [Azure Site Recovery](site-recovery-overview.md). Site Recovery viene generalmente usato per gestire e orchestrare il ripristino di emergenza di computer locali e macchine virtuali di Azure, tuttavia può anche essere usato per la migrazione. La migrazione usa gli stessi passaggi del ripristino di emergenza con un'eccezione. In una migrazione, il failover delle macchine dal sito locale è il passaggio finale. A differenza del ripristino di emergenza, in uno scenario di migrazione non è possibile eseguire il failback all'ambiente locale.
+Questo articolo illustra come eseguire la migrazione di computer locali ad Azure usando [Azure Site Recovery](site-recovery-overview.md). 
+
+> [!TIP]
+> Per eseguire la migrazione di computer locali ad Azure, è ora consigliabile usare Azure Migrate invece del servizio Azure Site Recovery. [Altre informazioni](../migrate/migrate-services-overview.md)
 
 
 Questa esercitazione descrive come eseguire la migrazione di VM locali e server fisici in Azure. Si apprenderà come:
@@ -36,7 +38,7 @@ Questa esercitazione descrive come eseguire la migrazione di VM locali e server 
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
-Si noti che i dispositivi esportati da driver paravirtualizzati non sono supportati.
+I dispositivi esportati da driver paravirtualizzati non sono supportati.
 
 
 ## <a name="prepare-azure-and-on-premises"></a>Preparare Azure e l'ambiente locale
@@ -51,9 +53,9 @@ Selezionare gli elementi da replicare e la posizione in cui eseguire la replica.
 1. Fare clic su **Insiemi di credenziali dei servizi di ripristino** e quindi sull'insieme di credenziali.
 2. Nel menu Risorsa fare clic su **Site Recovery** > **Preparare l'infrastruttura** > **Obiettivo di protezione**.
 3. In **Protection goal** (Obiettivo di protezione) selezionare ciò che si intende migrare.
-    - **VMware**: selezionare **In Azure** > **Sì con VMWare vSphere Hypervisor**.
-    - **Computer fisico**: selezionare **In Azure** > **Non virtualizzato/Altro**.
-    - **Hyper-V**: selezionare **In Azure** > **Sì con Hyper-V**. Se le macchine virtuali Hyper-V sono gestite da VMM, selezionare **Sì**.
+    - **VMware**: Selezionare **In Azure** > **Sì, con VMWare vSphere Hypervisor**.
+    - **Computer fisico**: Selezionare **In Azure** > **Non virtualizzato/Altro**.
+    - **Hyper-V**: Selezionare **In Azure** >  **,** . Se le macchine virtuali Hyper-V sono gestite da VMM, selezionare **Sì**.
 
 
 ## <a name="set-up-the-source-environment"></a>Configurare l'ambiente di origine
@@ -115,7 +117,7 @@ Eseguire un failover per i computer di cui si vuole eseguire la migrazione.
 
 
 > [!WARNING]
-> **Non annullare un failover in corso**: prima dell'avvio del failover, la replica della macchina virtuale viene arrestata. Se si annulla un failover in corso, il failover viene arrestato ma non viene eseguita di nuovo la replica della macchina virtuale.
+> **Non annullare un failover in corso**: Prima dell'avvio del failover, la replica della macchina virtuale viene arrestata. Se si annulla un failover in corso, il failover viene arrestato ma non viene eseguita di nuovo la replica della macchina virtuale.
 
 In alcuni scenari il failover richiede un'altra elaborazione il cui completamento richiede da 8 a 10 minuti. L'esecuzione del failover di test potrebbe richiedere più tempo per server fisici, computer Linux VMware, macchine virtuali VMware per cui non è abilitato il servizio DHCP e macchine virtuali VMware che non hanno i driver di avvio seguenti: storvsc, vmbus, storflt, intelide, atapi.
 
@@ -132,12 +134,12 @@ Alcuni passaggi possono essere automatizzati nell'ambito del processo di migrazi
 - Eseguire i test di accettazione della migrazione e dell'applicazione finale sull'applicazione migrata ora in esecuzione in Azure.
 - L'[agente di macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) gestisce l'interazione tra le macchine virtuali e il controller di infrastruttura di Azure. È obbligatorio per alcuni servizi di Azure, tra cui Backup di Azure, Site Recovery e Sicurezza di Azure.
     - Se si esegue la migrazione di macchine VMware e server fisici, il programma di installazione del Servizio Mobility installa nei computer Windows l'agente di macchine virtuali di Azure disponibile. Nelle macchine virtuali Linux si consiglia di installare l'agente dopo il failover.
-    - Se si esegue la migrazione di macchine virtuali di Azure in un'area secondaria, prima della migrazione è necessario effettuare il provisioning dell'agente di macchine virtuali di Azure nella macchina virtuale.
-    - Se si esegue la migrazione di macchine virtuali Hyper-V in Azure, dopo la migrazione è necessario installare l'agente di macchine virtuali di Azure nella macchina virtuale di Azure.
+    - Se si esegue la migrazione di macchine virtuali di Azure a un'area secondaria, prima di procedere è necessario effettuare il provisioning dell'agente di macchine virtuali di Azure nella VM.
+    - Se si esegue la migrazione di macchine virtuali Hyper-V ad Azure, al termine installare l'agente di macchine virtuali di Azure nella VM di Azure.
 - Rimuovere manualmente qualsiasi provider/agente di Site Recovery dalla macchina virtuale. Se si esegue la migrazione di server fisici o VM VMware, disinstallare il servizio Mobility dalla VM.
 - Per una maggiore resilienza:
-    - Proteggere i dati eseguendo il backup delle macchine virtuali di Azure con il servizio Backup di Azure. [Altre informazioni]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal).
-    - Mantenere i carichi di lavoro in esecuzione e sempre disponibili eseguendo la replica delle macchine virtuali di Azure in un'area secondaria con Site Recovery. [Altre informazioni](azure-to-azure-quickstart.md).
+    - Proteggere i dati eseguendo il backup delle macchine virtuali di Azure con il servizio Backup di Azure. [Altre informazioni]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal)
+    - Mantenere i carichi di lavoro in esecuzione e sempre disponibili eseguendo la replica delle macchine virtuali di Azure in un'area secondaria con Site Recovery. [Altre informazioni](azure-to-azure-quickstart.md)
 - Per una maggiore sicurezza:
     - Bloccare e limitare l'accesso del traffico in ingresso con la funzionalità [Amministrazione JIT]( https://docs.microsoft.com/azure/security-center/security-center-just-in-time) del Centro sicurezza di Azure.
     - Limitare il traffico di rete verso gli endpoint di gestione con la funzionalità [Gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview).

@@ -1,19 +1,19 @@
 ---
 title: Creare un indice di ricerca nel portale di Azure
 titleSuffix: Azure Cognitive Search
-description: Questo argomento di avvio rapido sul portale illustra come usare l'importazione guidata dati per creare, caricare ed eseguire una query sul primo indice di ricerca in Ricerca cognitiva di Azure.
+description: In questo argomento di avvio rapido del portale di Azure usare l'importazione guidata dati per creare, caricare ed eseguire una query sul primo indice di ricerca in Ricerca cognitiva di Azure.
 author: tchristiani
 manager: nitinme
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/10/2020
-ms.openlocfilehash: 6a3bbdae0d3fa898621c1c805388252beb891ecf
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8324ca0184c508591fa4568175bad0f606f952a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79290429"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80369460"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure nel portale di Azure
 > [!div class="op_single_selector"]

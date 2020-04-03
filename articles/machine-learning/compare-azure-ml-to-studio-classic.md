@@ -1,58 +1,56 @@
 ---
 title: Azure Machine Learning e Machine Learning Studio (versione classica)
-description: Differenze tra Azure Machine Learning e Machine Learning Studio (versione classica)
+description: Qual è la differenza tra Azure Machine Learning e Machine Learning Studio (versione classica)?
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: overview
 author: j-martens
 ms.author: jmartens
-ms.date: 10/29/2019
-ms.openlocfilehash: a3122a3ae1687369b87d193efc693b3b7c659aac
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 03/25/2020
+ms.openlocfilehash: 5577a9847ff405397c553028a6dfdf2df80d03fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76311462"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371830"
 ---
-# <a name="how-azure-machine-learning-differs-from-machine-learning-studio-classic"></a>Differenze tra Azure Machine Learning e Machine Learning Studio (versione classica)
+# <a name="azure-machine-learning-vs-machine-learning-studio-classic"></a>Azure Machine Learning e Machine Learning Studio (versione classica)
 
-Questo articolo confronta le caratteristiche, le funzionalità e l'interfaccia di Azure Machine Learning e Machine Learning Studio (versione classica). 
+In questo articolo viene illustrata la differenza tra Azure Machine Learning e Machine Learning Studio (versione classica). 
 
-## <a name="about-machine-learning-studio-classic"></a>Informazioni su Machine Learning Studio (versione classica)
-[Machine Learning Studio (versione classica)](studio/what-is-ml-studio.md) è un'area di lavoro collaborativa e grafica con trascinamento della selezione in cui è possibile creare, testare e distribuire soluzioni di Machine Learning senza la necessità di scrivere codice. Usa algoritmi di Machine Learning e moduli di gestione dei dati precompilati e preconfigurati, oltre a una piattaforma di calcolo proprietaria.
+Azure Machine Learning fornisce Python SDK e R SDK **e** la finestra di progettazione con "trascinamento della selezione" per compilare e distribuire modelli di Machine Learning. Studio (versione classica) offre un'esperienza di trascinamento della selezione autonoma.
 
-## <a name="about-azure-machine-learning"></a>Informazioni su Azure Machine Learning
+È consigliabile che i nuovi utenti scelgano Azure Machine Learning per la più ampia gamma di strumenti di Machine Learning all'avanguardia.
 
-[Azure Machine Learning](overview-what-is-azure-ml.md) offre **sia** un'interfaccia Web denominata finestra di progettazione (anteprima) che vari SDK e interfacce della riga di comando per preparare rapidamente i dati, nonché per eseguire il training dei modelli di Machine Learning e distribuirli. Azure Machine Learning offre scalabilità, supporto di più framework e funzionalità avanzate di Machine Learning quali il servizio Machine Learning automatizzato e il supporto di pipeline.
+## <a name="quick-comparison"></a>Confronto rapido
 
-La finestra di progettazione di Azure Machine Learning fornisce un'esperienza di trascinamento della selezione simile a Studio (versione classica). A differenza della piattaforma di calcolo proprietaria di Studio, tuttavia, la finestra di progettazione usa le risorse di calcolo dell'utente, è scalabile ed è pienamente integrata in Azure Machine Learning.  
+Nella tabella seguente sono riepilogate alcune delle differenze principali tra Azure Machine Learning e Studio (versione classica):
 
-> [!TIP]
-> I clienti che attualmente usano o valutano Machine Learning Studio (versione classica) sono invitati a provare la [finestra di progettazione di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-designer) (anteprima), che fornisce moduli di ML di trascinamento della selezione __più__ scalabilità, controllo della versione e sicurezza aziendale.
-
-## <a name="comparison-azure-machine-learning-vs-machine-learning-studio-classic"></a>Confronto: Azure Machine Learning e Machine Learning Studio (versione classica)
-
-Ecco un confronto rapido.
-
-||  Finestra di progettazione di Azure Machine Learning|Studio (versione classica) |
+| | Machine Learning Studio (versione classica) | Azure Machine Learning |
 |---| --- | --- |
-||La finestra di progettazione è disponibile in anteprima, mentre Azure Machine Learning è disponibile a livello generale|Disponibile a livello generale | 
-|Interfaccia di trascinamento della selezione| Sì | Sì|
-|Esperimento| Ridimensionamento con destinazione di calcolo|Scalabilità (limite dei dati di training di 10 GB) | 
-|Moduli per l'interfaccia| [Molti moduli tra quelli più diffusi](algorithm-module-reference/module-reference.md) | Molti |
-|Destinazioni di calcolo del training| Calcolo di AML (GPU/CPU)|Destinazione di calcolo proprietaria, solo CPU|
-|Destinazioni di calcolo di inferenza| Servizio Azure Kubernetes per inferenza in tempo reale <br/>Ambiente di calcolo di AML per inferenza batch|Formato di servizio Web proprietario, non personalizzabile | 
-|Pipeline di Machine Learning| Creazione di pipeline <br/> Pipeline pubblicata <br/> Endpoint della pipeline <br/> [Altre informazioni sulle pipeline di Machine Learning](concept-ml-pipelines.md)|Non supportate | 
-|Operazioni di Machine Learning| Distribuzione configurabile, controllo delle versioni dei modelli e delle pipeline|Gestione e distribuzione dei modelli di base | 
-|Modello| Formato standard, varia a seconda del processo di training|Formato proprietario e non portabile.| 
-|Training di modelli automatizzato|Non ancora disponibile nella finestra di progettazione, ma possibile tramite l'interfaccia e gli SDK.| No | 
+| Interfaccia per il trascinamento della selezione | Supportato | Supportato - [Finestra di progettazione di Azure Machine Learning (anteprima)](concept-designer.md) | 
+| Esperimento | Scalabile (limite dei dati di training di 10 GB) | Ridimensionamento con destinazione di calcolo |
+| Destinazioni di calcolo del training | Destinazione di calcolo proprietaria, solo supporto di CPU | Ampia gamma di [destinazioni di calcolo per il training](concept-compute-target.md#train) personalizzabili. Include il supporto di GPU e CPU | 
+| Destinazioni di calcolo della distribuzione | Formato di servizio Web proprietario, non personalizzabile | Ampia gamma di [destinazioni di calcolo per la distribuzione](concept-compute-target.md#deploy) personalizzabili. Include il supporto di GPU e CPU |
+| Pipeline di Machine Learning | Non supportate | Creazione di [pipeline](concept-ml-pipelines.md) flessibili e modulari per automatizzare i flussi di lavoro |
+| MLOps | Gestione e distribuzione dei modelli di base | Controllo delle versioni delle entità (modello, dati, flussi di lavoro), automazione dei flussi di lavoro, integrazione con strumenti CICD, [e altro ancora](concept-model-management-and-deployment.md) |
+| Formato dei modelli | Formato proprietario, solo Studio (versione classica) | Più formati supportati a seconda del tipo di processo di training |
+| Training automatizzato dei modelli e ottimizzazione degli iperparametri |  Non supportate | [Supportato nell'SDK e nell'area di lavoro visiva](concept-automated-ml.md) | 
+| Rilevamento deriva dei dati | Non supportate | [Supportato nell'SDK e nell'area di lavoro visiva](how-to-monitor-datasets.md) |
+
+
+## <a name="migrate-from-machine-learning-studio-classic"></a>Migrazione da Machine Learning Studio (versione classica)
+
+Attualmente non è possibile eseguire la migrazione delle risorse di Studio (versione classica) alla finestra di progettazione di Azure Machine Learning (anteprima). Gli utenti di Studio (versione classica) correnti possono continuare a usare le proprie risorse di Machine Learning. Tuttavia, invitiamo tutti gli utenti a prendere in considerazione l'uso della finestra di progettazione, che fornisce un'esperienza familiare di trascinamento della selezione con un flusso di lavoro migliorato **oltre a** scalabilità, controllo della versione e sicurezza aziendale.
 
 ## <a name="get-started-with-azure-machine-learning"></a>Introduzione ad Azure Machine Learning
 
-Le risorse seguenti consentono di acquisire familiarità con Azure Machine Learning
+Le risorse seguenti consentono di acquisire familiarità con Azure Machine Learning. 
 
-- Leggere la [panoramica di Azure Machine Learning](tutorial-first-experiment-automated-ml.md) 
+- Leggere la [panoramica di Azure Machine Learning](overview-what-is-azure-ml.md).
+
+- Creare il [primo esperimento con Python SDK](tutorial-1st-experiment-sdk-setup.md).
 
 - [Creare la prima pipeline della finestra di progettazione](tutorial-designer-automobile-price-train-score.md) per stimare i prezzi delle automobili.
 
@@ -63,6 +61,6 @@ Le risorse seguenti consentono di acquisire familiarità con Azure Machine Learn
 Oltre alle funzionalità di trascinamento della selezione della finestra di progettazione, in Azure Machine Learning sono disponibili altri strumenti:  
   + [Usare i notebook di Python per eseguire il training e la distribuzione di modelli di Machine Learning](tutorial-1st-experiment-sdk-setup.md)
   + [Usare R Markdown per eseguire il training e la distribuzione di modelli di Machine Learning](tutorial-1st-r-experiment.md) 
-  + [Usare il servizio Machine Learning automatizzato per eseguire il training e la distribuzione di modelli di Machine Learning](tutorial-designer-automobile-price-train-score.md) 
+  + [Usare il servizio Machine Learning automatizzato per eseguire il training e la distribuzione di modelli di Machine Learning](tutorial-first-experiment-automated-ml.md)  
   + [Usare l'interfaccia della riga di comando di Machine Learning per eseguire il training e la distribuzione di un modello](tutorial-train-deploy-model-cli.md)
 

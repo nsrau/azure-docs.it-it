@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/09/2020
+ms.date: 03/17/2020
 ms.author: juliako
-ms.openlocfilehash: d408a862c18038f64b816bb54fc235d1b9d84179
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
-ms.translationtype: MT
+ms.openlocfilehash: ae049d7486007696d8038eb4e6593cf996df659e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78968219"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80372598"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Creazione dinamica dei pacchetti in Servizi multimediali versione 3
 
@@ -28,9 +28,9 @@ Servizi multimediali di Microsoft Azure può essere usato per codificare molti f
 In Servizi multimediali un [endpoint di streaming](streaming-endpoint-concept.md) rappresenta un servizio di generazione e creazione di pacchetti dinamici (just-in-time) in grado di distribuire contenuti live e on demand direttamente a un'app di riproduzione client. Usa uno dei protocolli multimediali comuni di streaming indicati nella sezione seguente. Creazione dinamica dei pacchetti è una funzionalità fornita con tutti gli endpoint di streaming (Standard o Premium).
 
 > [!NOTE]
-> È possibile usare la [portale di Azure](https://portal.azure.com/) per gestire [gli eventi live](live-events-outputs-concept.md)V3, visualizzare le [risorse](assets-concept.md)V3, ottenere informazioni sull'accesso alle API. Per tutte le altre attività di gestione (ad esempio, trasformazioni e processi), usare l' [API REST](https://aka.ms/ams-v3-rest-ref), l' [interfaccia](https://aka.ms/ams-v3-cli-ref)della riga di comando o uno degli [SDK](media-services-apis-overview.md#sdks)supportati.
+> È possibile usare il [portale di Azure](https://portal.azure.com/) per gestire gli [eventi live](live-events-outputs-concept.md) v3, visualizzare [asset](assets-concept.md) v3 e ottenere informazioni sull'accesso alle API. Per tutte le altre attività di gestione, ad esempio trasformazioni e processi, usare l'[API REST](https://docs.microsoft.com/rest/api/media/), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) oppure uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
 
-## <a name="a-iddelivery-protocolsto-prepare-your-source-files-for-delivery"></a><a id="delivery-protocols"/>Per preparare i file di origine per la distribuzione
+## <a name="to-prepare-your-source-files-for-delivery"></a><a id="delivery-protocols"/>Per preparare i file di origine per la distribuzione
 
 Per sfruttare la creazione dinamica dei pacchetti, è necessario [codificare](encoding-concept.md) il file mezzanine (di origine) in un set di file MP4 (ISO Base Media 14496-12) con velocità in bit multipli. È necessario disporre di un [asset](assets-concept.md) con i file MP4 codificati e i file di configurazione di streaming richiesti dalla creazione dinamica dei pacchetti di Servizi multimediali. Da questo set di file MP4, è possibile usare la creazione dinamica dei pacchetti per distribuire video tramite i protocolli di streaming multimediale seguenti.
 
@@ -71,11 +71,14 @@ Il client di streaming può specificare i formati Smooth Streaming seguenti:
 |Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`||
 |Smooth Streaming 2.0 (manifesto legacy)|Per impostazione predefinita, il manifesto Smooth Streaming contiene il tag di ripetizione (r-tag). Alcuni lettori, tuttavia, non supportano il tag di ripetizione `r-tag`. I client con questi lettori possono usare un formato che disabilita gli r-tag:<br/><br/>`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=fmp4-v20)`|
 
+> [!NOTE]
+> Smooth Streaming richiede che sia audio che video siano presenti nel flusso.
+
 ## <a name="on-demand-streaming-workflow"></a>Flusso di lavoro dello streaming on demand
 
 I passaggi seguenti indicano un flusso di lavoro comune di streaming di Servizi multimediali in cui viene usata la creazione dinamica dei pacchetti insieme al codificatore Standard in Servizi multimediali di Azure.
 
-1. Caricare un file di input, ad esempio un file QuickTime/MOV o MXF. Questo tipo di file è anche detto file di origine o mezzanine. Per l'elenco di formati supportati, vedere [Formati supportati da Media Encoder Standard](media-encoder-standard-formats.md).
+1. Caricare un file di input, ad esempio un file QuickTime/MOV o MXF. Questo tipo di file è anche detto file di origine o mezzanine. Per l'elenco di formati supportati, vedere [Formati supportati dal codificatore standard](media-encoder-standard-formats.md).
 1. [Codificare](#encode-to-adaptive-bitrate-mp4s) il file mezzanine in un set di file MP4 H.264/AAC a bitrate adattivo.
 1. Pubblicare l'asset di output contenente il set MP4 a bitrate adattivo. La pubblicazione avviene creando un localizzatore di streaming.
 1. Creare URL destinati a formati diversi (HLS, MPEG-DASH e Smooth Streaming). L'**endpoint di streaming** si occupa di gestire il manifesto corretto e le richieste per tutti questi formati diversi.
@@ -92,11 +95,11 @@ Gli articoli seguenti illustrano alcuni esempi di [come codificare un video con 
 * [Eseguire la codifica di un file locale tramite i set di impostazioni predefiniti](job-input-from-local-file-how-to.md).
 * [Creare un set di impostazioni personalizzato per i requisiti specifici di uno scenario o un dispositivo](customize-encoder-presets-how-to.md).
 
-Consultare l'elenco di [codec e formati](media-encoder-standard-formats.md) di Media Encoder Standard.
+Consultare l'elenco di [codec e formati](media-encoder-standard-formats.md) del codificatore standard.
 
 ## <a name="live-streaming-workflow"></a>Flusso di lavoro dello streaming live
 
-Un evento Live può essere impostato su un *pass-through* (un codificatore Live locale invia un flusso a più velocità in bit) o la *codifica live* (un codificatore Live locale invia un flusso a bitrate singolo). 
+Un evento live può essere impostato su un *pass-through* (un codificatore live locale invia un flusso a bitrate multiplo) o sulla *codifica live* (un codificatore live locale invia un flusso a bitrate singolo). 
 
 Ecco un flusso di lavoro comune per lo streaming live con creazione dinamica dei pacchetti:
 
@@ -123,7 +126,7 @@ La creazione dinamica dei pacchetti supporta file MP4 contenenti video codificat
 > [!NOTE]
 > Con la creazione dinamica dei pacchetti sono state testate risoluzioni fino a 4K e frequenze dei fotogrammi fino a 60 fotogrammi al secondo. Il [codificatore Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supporta la codifica in H.265 tramite le API v2 legacy.
 
-## <a name="a-idaudio-codecsaudio-codecs-supported-by-dynamic-packaging"></a><a id="audio-codecs"/>Codec audio supportati dalla creazione dinamica dei pacchetti
+## <a name="audio-codecs-supported-by-dynamic-packaging"></a><a id="audio-codecs"/>Codec audio supportati dalla creazione dinamica dei pacchetti
 
 La creazione dinamica dei pacchetti supporta l'audio codificato con i protocolli seguenti:
 
@@ -243,7 +246,7 @@ Di seguito è riportato un esempio di file manifesto Smooth Streaming:
 
 ### <a name="naming-of-tracks-in-the-manifest"></a>Denominazione delle tracce nel manifesto
 
-Se nel file con estensione ISM viene specificato un nome di traccia audio, servizi multimediali aggiunge un elemento `Label` all'interno di un `AdaptationSet` per specificare le informazioni di texturing per la traccia audio specifica. Esempio del manifesto del TRATTEggio di output:
+Se nel file con estensione ism viene specificato un nome di traccia audio, Servizi multimediali aggiunge un elemento `Label` all'interno di `AdaptationSet` per specificare le informazioni di texturing per la traccia audio specifica. Esempio del manifesto DASH di output:
 
 ```xml
 <AdaptationSet codecs="mp4a.40.2" contentType="audio" lang="en" mimeType="audio/mp4" subsegmentAlignment="true" subsegmentStartsWithSAP="1">
@@ -265,7 +268,7 @@ Per altre informazioni, vedere l'esempio [Come segnalare una traccia audio descr
 
 #### <a name="smooth-streaming-manifest"></a>Manifesto Smooth Streaming
 
-Se si sta riproducendo un flusso di Smooth Streaming, il manifesto conterrà i valori `Accessibility` e `Role` attributi per la traccia audio. Ad esempio, `Role="alternate" Accessibility="description"` verrebbe aggiunto nell'elemento `StreamIndex` per indicare che si tratta di una descrizione audio.
+Se si riproduce un flusso di Smooth Streaming, il manifesto conterrà i valori negli attributi `Accessibility` e `Role` per la traccia audio. `Role="alternate" Accessibility="description"` verrebbe aggiunto ad esempio nell'elemento `StreamIndex` per indicare che si tratta di una descrizione audio.
 
 #### <a name="dash-manifest"></a>Manifesto DASH
 
@@ -290,7 +293,7 @@ Per controllare il numero di tracce, i formati, la velocità in bit e gli interv
 
 ## <a name="dynamic-encryption"></a>Crittografia dinamica
 
-È possibile usare la *crittografia dinamica* per crittografare dinamicamente il contenuto Live o su richiesta con AES-128 o uno dei tre sistemi principali Digital Rights Management (DRM): Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali fornisce inoltre un servizio per la distribuzione di chiavi AES e licenze Digital Rights Management ai client autorizzati. Per altre informazioni, vedere [Crittografia dinamica](content-protection-overview.md).
+È possibile usare la *crittografia dinamica* per crittografare dinamicamente i contenuti live o on demand tramite AES-128 o con uno dei tre principali sistemi DRM (Digital Rights Management): Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali fornisce inoltre un servizio per la distribuzione di chiavi AES e licenze Digital Rights Management ai client autorizzati. Per altre informazioni, vedere [Crittografia dinamica](content-protection-overview.md).
 
 > [!NOTE]
 > Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.

@@ -6,13 +6,13 @@ ms.service: media-services
 ms.topic: quickstart
 ms.author: inhenkel
 author: IngridAtMicrosoft
-ms.date: 03/06/2020
-ms.openlocfilehash: c0eaf3907cbfcd86424b1d2cbc03930a7af72786
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 03/25/2020
+ms.openlocfilehash: e5bdd75ca61d53a64f003633d74e3d8f7992a98b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78927574"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80336451"
 ---
 # <a name="create-a-azure-media-services-live-stream-with-the-portal-and-wirecast"></a>Creare un evento di streaming live di Servizi multimediali di Azure con il portale e Wirecast
 
@@ -43,13 +43,17 @@ Per semplicità, si useranno un set di impostazioni di codifica per Servizi mult
 
 ## <a name="setting-up-an-azure-media-services-live-stream"></a>Configurare un evento di streaming live di Servizi multimediali di Azure
 
-1. Dopo essere passati all'account di Servizi multimediali di Azure all'interno del portale, selezionare **Streaming live** nell'elenco Servizi multimediali.
-1. Fare clic su **Aggiungi evento live** per creare un nuovo evento di streaming live.
-1. Immettere un nome per il nuovo evento, ad esempio *TestLiveEvent*, nel campo **Nome** dell'evento live.
+1. Dopo essere passati all'account di Servizi multimediali di Azure all'interno del portale, selezionare **Streaming live** nell'elenco Servizi multimediali.<br/>
+![Collegamento selezionare Streaming live](media/live-events-wirecast-quickstart/select-live-streaming.png)<br/>
+1. Fare clic su **Aggiungi evento live** per creare un nuovo evento di streaming live.<br/>
+![Icona Aggiungi evento live](media/live-events-wirecast-quickstart/add-live-event.png)<br/>
+1. Immettere un nome per il nuovo evento, ad esempio *TestLiveEvent*, nel campo **Nome** dell'evento live.<br/>
+![Campo di testo Nome dell'evento live](media/live-events-wirecast-quickstart/live-event-name.png)<br/>
 1. Immettere una descrizione facoltativa dell'evento nel campo **Descrizione**.
-1. Selezionare il pulsante di opzione **Pass-through - nessuna codifica cloud**.
-1. Selezionare il pulsante di opzione **RTMP**. 
-1. Assicurarsi che per Avvia evento live sia selezionato il pulsante di opzione **No**, per evitare di ricevere addebiti per l'evento live prima che sia pronto.  La fatturazione inizierà dopo l'avvio dell'evento live.
+1. Selezionare il pulsante di opzione **Pass-through - nessuna codifica cloud**.<br/>
+![Pulsante di opzione codifica cloud](media/live-events-wirecast-quickstart/cloud-encoding.png)
+1. Selezionare il pulsante di opzione **RTMP**.
+1. Assicurarsi che per Avvia evento live sia selezionato il pulsante di opzione **No**, per evitare di ricevere addebiti per l'evento live prima che sia pronto.  La fatturazione inizierà dopo l'avvio dell'evento live. ![Pulsante di opzione di Avvia evento live](media/live-events-wirecast-quickstart/start-live-event-no.png)<br/>
 1. Fare clic sul pulsante **Rivedi e crea** per rivedere le impostazioni.
 1. Fare clic sul pulsante **Crea** per creare l'evento live. Verrà quindi visualizzato di nuovo l'elenco di eventi live.
 1. Fare clic sul **collegamento all'evento live** appena creato. Si noti che l'evento è stato arrestato.
@@ -58,20 +62,28 @@ Per semplicità, si useranno un set di impostazioni di codifica per Servizi mult
 ## <a name="setting-up-a-live-stream-with-wirecast-studio"></a>Configurare un evento di streaming live con Wirecast Studio
 
 1. Supponendo che l'applicazione Wirecast sia ancora aperta, scegliere **Create Empty Documento** (Crea documento vuoto) dal menu principale, quindi fare clic su **Continua**.
-1. Passare il puntatore del mouse sul primo livello nell'area di livelli Wirecast.  Fare clic sull'icona **Aggiungi** visualizzata e selezionare l'input video da trasmettere in streaming.  Viene visualizzata la finestra di dialogo Master Layer 1 (Livello master 1).
-1. Scegliere **Video capture** (Acquisizione video) dal menu e quindi selezionare la fotocamera da usare. Nell'area di anteprima verrà mostrata la vista della fotocamera.
+![Schermata iniziale di Wirecast](media/live-events-wirecast-quickstart/open-empty-document.png)
+1. Passare il puntatore del mouse sul primo livello nell'area di livelli Wirecast.  Fare clic sull'icona **Aggiungi** visualizzata e selezionare l'input video da trasmettere in streaming.  Viene visualizzata la finestra di dialogo Master Layer 1 (Livello master 1).<br/>
+![Icona Aggiungi di Wirecast](media/live-events-wirecast-quickstart/add-icon.png)
+1. Scegliere **Video capture** (Acquisizione video) dal menu e quindi selezionare la fotocamera da usare. Se si seleziona una fotocamera, nell'area di anteprima verrà mostrata la vista della fotocamera.
+![Schermata di selezione dell'acquisizione video di Wirecast](media/live-events-wirecast-quickstart/video-shot-selection.png)
 1. Passare il puntatore del mouse sul secondo livello nell'area di livelli Wirecast. Fare clic sull'icona **Aggiungi** visualizzata e selezionare l'input audio da trasmettere in streaming.  Viene visualizzata la finestra di dialogo Master Layer 2 (Livello master 2).
-1. Scegliere **Audio capture** (Acquisizione audio) dal menu e quindi selezionare l'input audio da usare. 
+1. Scegliere **Audio capture** (Acquisizione audio) dal menu e quindi selezionare l'input audio da usare.
+![Schermata di selezione dell'acquisizione audio di Wirecast](media/live-events-wirecast-quickstart/audio-shot-select.png)
 1. Scegliere **Output settings** (Impostazioni output) dal menu principale.  Verrà visualizzata la finestra di dialogo Output.
-1. Scegliere **Servizi multimediali di Azure** dal menu a discesa Output.  Per Servizi multimediali di Azure verranno popolate automaticamente la *maggior parte* delle impostazioni di output.
+1. Scegliere **Servizi multimediali di Azure** dal menu a discesa Output.  Per Servizi multimediali di Azure verranno popolate automaticamente la *maggior parte* delle impostazioni di output.<br/>
+![Schermata di impostazioni output di Wirecast](media/live-events-wirecast-quickstart/azure-media-services.png)
 1. Nella sezione successiva si tornerà in Servizi multimediali di Azure nel browser per copiare l'*URL di input* da immettere nelle impostazioni di output.
 
 ### <a name="copy-and-paste-the-input-url"></a>Copiare e incollare l'URL di input
 
-1. Di nuovo nella pagina Servizi multimediali di Azure del portale fare clic su **Avvia** per avviare l'evento di streaming live. La fatturazione inizia in questo momento.
+1. Di nuovo nella pagina Servizi multimediali di Azure del portale fare clic su **Avvia** per avviare l'evento di streaming live. La fatturazione inizia in questo momento.<br/>
+![Icona Avvia](media/live-events-wirecast-quickstart/start.png)
 2. Fare clic sull'interruttore **Sicuro/Non sicuro** per impostarlo su **Non sicuro**.  In questo modo il protocollo verrà impostato su RTMP invece che su RTMPS.
 3. Copiare l'**URL di input** negli Appunti.
-4. Passare all'applicazione Wirecast e incollare l'**URL di input** nel campo **Address** (Indirizzo) delle impostazioni di output.
+![URL di input](media/live-events-wirecast-quickstart/input-url.png)
+4. Passare all'applicazione Wirecast e incollare l'**URL di input** nel campo **Address** (Indirizzo) delle impostazioni di output.<br/>
+![URL di input di Wirecast](media/live-events-wirecast-quickstart/input-url-wirecast.png)
 5. Fare clic su **OK**.
 
 ## <a name="setting-up-outputs"></a>Configurare gli output
@@ -83,9 +95,11 @@ In questa parte verranno configurati gli output e sarà possibile salvare una re
 
 1. Fare clic sul collegamento **Create outputs** (Crea output) sotto il visualizzatore di video di output.
 1. Se si desidera, modificare il nome dell'output nel campo **Name** (Nome) specificandone uno più intuitivo e facile da trovare in seguito.
+![Campo nome dell'output](media/live-events-wirecast-quickstart/output-name.png)
 1. Lasciare invariati tutti i restanti campi per il momento.
 1. Fare clic su **Avanti** per aggiungere il localizzatore di streaming.
 1. Cambiare il nome del localizzatore specificandone uno più intuitivo, se si desidera.
+![Campo nome del localizzatore](media/live-events-wirecast-quickstart/live-event-locator.png)
 1. Lasciare invariati tutti gli altri campi della schermata per il momento.
 1. Fare clic su **Crea**.
 
@@ -93,20 +107,26 @@ In questa parte verranno configurati gli output e sarà possibile salvare una re
 
 1. In Wirecast, scegliere **Output > Start / Stop broadcasting > Start Azure Media Services (Output > Avvia/Arresta trasmissione > Avvia Servizi multimediali di Azure): Servizi multimediali di Azure** dal menu principale.  Una volta inviato lo streaming all'evento live, nel lettore video dell'evento live nella pagina corrispondente di Servizi multimediali di Azure verrà visualizzata la finestra Live di Wirecast.
 
+   ![Voci di menu di avvio della trasmissione](media/live-events-wirecast-quickstart/start-broadcast.png)
+
 1. Fare clic sul pulsante **Go** (Vai) sotto la finestra di anteprima per avviare la trasmissione del video e dell'audio selezionati per i livelli di Wirecast.
 
-> [!TIP]
-> Se si verifica un errore, provare a ricaricare il lettore facendo clic sull'apposito collegamento nella parte superiore.
+   ![Pulsante Go (Vai) di Wirecast](media/live-events-wirecast-quickstart/go-button.png)
+
+   > [!TIP]
+   > Se si verifica un errore, provare a ricaricare il lettore facendo clic sull'apposito collegamento nella parte superiore.
 
 ## <a name="running-the-default-streaming-endpoint"></a>Eseguire l'endpoint di streaming predefinito
 
-1. Assicurarsi che l'endpoint di streaming sia in esecuzione selezionando **Endpoint di streaming** nell'elenco di servizi multimediali. Verrà visualizzata la pagina Endpoint di streaming.
+1. Assicurarsi che l'endpoint di streaming sia in esecuzione selezionando **Endpoint di streaming** nell'elenco di servizi multimediali. Verrà visualizzata la pagina Endpoint di streaming.<br/>
+![Voce di menu Endpoint di streaming](media/live-events-wirecast-quickstart/streaming-endpoints.png)
 1. Se lo stato dell'endpoint di streaming predefinito è arrestato, fare clic sull'endpoint di streaming **predefinito**. Verrà visualizzata la pagina relativa a questo endpoint.
-1. Fare clic su **Avvia**.  L'endpoint di streaming verrà avviato.
+1. Fare clic su **Avvia**.  L'endpoint di streaming verrà avviato.<br/>
+![Voce di menu Endpoint di streaming](media/live-events-wirecast-quickstart/start.png)
 
 ## <a name="play-the-output-broadcast-with-azure-media-player"></a>Riprodurre l'output trasmesso con Azure Media Player
 
-1. Copiare l'**URL di streaming** sotto il lettore video di output. 
+1. Copiare l'**URL di streaming** sotto il lettore video di output.
 1. In un Web browser aprire la demo di Azure Media Player https://ampdemo.azureedge.net/azuremediaplayer.html
 1. Incollare l'**URL di streaming** nel campo URL di Azure Media Player.
 1. Fare clic sul pulsante **Update Player** (Aggiorna lettore).
@@ -133,8 +153,8 @@ L'output creato è ora disponibile per lo streaming su richiesta, purché l'endp
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-  > [!IMPORTANT]
-  > Arrestare i servizi. Una volta completati i passaggi di questo argomento di avvio rapido, assicurarsi di arrestare l'evento live e l'endpoint di streaming, altrimenti si continueranno a ricevere addebiti per il tempo in cui rimangono in esecuzione. Per arrestare l'evento live, vedere i passaggi 2 e 3 precedenti in Arrestare la trasmissione.
+> [!IMPORTANT]
+> Arrestare i servizi. Una volta completati i passaggi di questo argomento di avvio rapido, assicurarsi di arrestare l'evento live e l'endpoint di streaming, altrimenti si continueranno a ricevere addebiti per il tempo in cui rimangono in esecuzione. Per arrestare l'evento live, vedere i passaggi 2 e 3 precedenti in Arrestare la trasmissione.
 
 ### <a name="stopping-the-streaming-endpoint"></a>Arrestare l'endpoint di streaming
 
@@ -142,8 +162,8 @@ L'output creato è ora disponibile per lo streaming su richiesta, purché l'endp
 2. Fare clic sull'endpoint di streaming **predefinito** avviato in precedenza. Verrà visualizzata la pagina dell'endpoint.
 3. Fare clic su **Arresta**.  L'endpoint di streaming verrà arrestato.
 
->[!TIP]
->Se non si vogliono mantenere gli asset di questo evento, assicurarsi di eliminarli per evitare di ricevere addebiti per l'archiviazione.
+> [!TIP]
+> Se non si vogliono mantenere gli asset di questo evento, assicurarsi di eliminarli per evitare di ricevere addebiti per l'archiviazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]

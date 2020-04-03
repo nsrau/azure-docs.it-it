@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: creare un Data Science Virtual Machine Windows'
+title: 'Guida introduttiva: Creare una macchina virtuale data science Windows'
 titleSuffix: Azure Data Science Virtual Machine
 description: Configurare e creare una macchina virtuale di Data Science in Azure per l'analisi dei dati e l'apprendimento automatico.
 ms.service: machine-learning
@@ -8,14 +8,14 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: 1fdf8eae5d19a2d43499d1984f4dea834d8a61d8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: afcb676f68e7be9d3ebef11ea2c6876a86bbd062
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78397292"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281783"
 ---
-# <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Guida introduttiva: configurare la Data Science Virtual Machine per Windows
+# <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Guida introduttiva: Configurare la Data Science Virtual Machine per Windows
 
 Iniziare a usare una Data Science Virtual Machine di Windows Server 2019.
 
@@ -29,19 +29,19 @@ Si noti che gli account gratuiti di Azure non supportano gli SKU delle macchine 
 Per creare un'istanza di DSVM:
 
 1. Passare al [portale di Azure](https://portal.azure.com). È possibile che venga richiesto di accedere all'account Azure, se non è stato ancora eseguito l'accesso.
-1. Trovare l'elenco delle macchine virtuali digitando "data science virtual machine", quindi selezionare "Data Science Virtual Machine - Windows 2019 (anteprima)".
+1. Trovare l'elenco delle macchine virtuali digitando "data science virtual machine", quindi selezionare "Data Science Virtual Machine - Windows 2019".
 
 1. Selezionare quindi il pulsante **Crea** nella parte inferiore.
 
 1. Si verrà reindirizzati al pannello "Crea macchina virtuale".
 
 1. Compilare la scheda **Nozioni di base**.
-      * **Sottoscrizione**: se si dispone di più di una sottoscrizione, selezionare quella in cui il computer verrà creato e fatturato. È necessario disporre di privilegi di creazione delle risorse per questa sottoscrizione.
-      * **Gruppo di risorse**: creare un nuovo gruppo o utilizzarne uno esistente.
+      * **Sottoscrizione** Se si hanno più sottoscrizioni, selezionare quella in cui verrà creata e fatturata la macchina virtuale. È necessario disporre di privilegi di creazione delle risorse per questa sottoscrizione.
+      * **Gruppo di risorse**: creare un nuovo gruppo di risorse o selezionarne uno esistente.
       * **Nome macchina virtuale**: immettere il nome della macchina virtuale. È il nome con cui verrà visualizzata nel portale di Azure.
       * **Località**: selezionare il data center più appropriato. Per l'accesso più veloce alla rete, in genere è il data center che include la maggior parte dei dati o è più vicino alla propria posizione fisica. Vedere altre informazioni sulle [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/).
-      * **Image**: lasciare il valore predefinito.
-      * **Dimensioni**: questa operazione dovrebbe essere popolata automaticamente con una dimensione appropriata per i carichi di lavoro generali. Vedere altre informazioni sulle [dimensioni delle VM Windows in Azure](../../virtual-machines/windows/sizes.md).
+      * **Immagine**: Lasciare il valore predefinito.
+      * **Size**: questo campo dovrebbe essere completato automaticamente con una dimensione appropriata per carichi di lavoro generali. Vedere altre informazioni sulle [dimensioni delle VM Windows in Azure](../../virtual-machines/windows/sizes.md).
       * **Nome utente**: immettere il nome utente dell'amministratore. È il nome utente che verrà usato per accedere alla macchina virtuale e non deve necessariamente essere uguale al nome utente Azure.
       * **Password**: immettere la password che si userà per accedere alla macchina virtuale.    
 1. Selezionare **Rivedi e crea**.

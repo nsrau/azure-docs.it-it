@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: overview
-ms.date: 06/27/2019
+ms.date: 03/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 594f0ed55b5ce5c31e87fd2011f3bc1522a12380
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c895a13eb9b2bed9e3a8a5a250c4e925dfa834c5
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215829"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80331802"
 ---
 # <a name="what-is-a-device-identity"></a>Informazioni sulle identità dei dispositivi
 
@@ -45,6 +45,7 @@ Per inserire un dispositivo in Azure AD, sono disponibili più opzioni:
 - **Aggiunta ad Azure AD**
    - I dispositivi aggiunti ad Azure AD sono di proprietà di un'organizzazione e sono accessibili con un account Azure AD appartenente all'organizzazione. Sono presenti solo nel cloud.
       - Windows 10 
+      - Windows Server 2019 (Server Core non è supportato)
 - **Aggiunto a Azure AD in modalità ibrida**
    - I dispositivi aggiunti ad Azure AD in modalità ibrida sono di proprietà di un'organizzazione e sono accessibili con un account Azure AD appartenente all'organizzazione. Sono presenti nel cloud e nell'ambiente locale.
       - Windows 7, 8.1 o 10
@@ -85,7 +86,7 @@ L'inserimento di dispositivi in Azure AD può essere eseguito in modalità self-
 Con la gestione delle identità dei dispositivi in Azure AD, è possibile:
 
 - Semplificare il processo di inserimento e gestione dei dispositivi in Azure AD
-- Fornire agli utenti un accesso facile da usare alle risorse basate sul cloud dell'organizzazione
+- Fornire agli utenti un accesso intuitivo alle risorse basate sul cloud dell'organizzazione
 
 ## <a name="license-requirements"></a>Requisiti relativi alle licenze
 

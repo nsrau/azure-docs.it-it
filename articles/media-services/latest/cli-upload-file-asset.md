@@ -14,26 +14,27 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: d6720200da341ee466339edde6dded02dd4fddc6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5d1dc90832a399aa9ee253b2c7962b8536c1926a
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74970109"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80383005"
 ---
-# <a name="cli-example-upload-a-local-file-to-a-container"></a>Esempio dell'interfaccia della riga di comando: Caricare un file locale in un contenitore 
+# <a name="azure-cli-example-upload-a-local-file-to-a-container"></a>Esempio di interfaccia della riga di comando di Azure: Caricare un file locale in un contenitore
 
 Lo script dell'interfaccia della riga di comando di Azure in questo articolo mostra come caricare un file locale in un contenitore di archiviazione.
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Prerequisiti
 
-[Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
+* [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
+* Vedere [Gestire gli asset](manage-asset-concept.md).
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="example-script"></a>Script di esempio
 
-```Azure CLI 
+```azurecli-interactive
 #!/bin/bash
 # Update the following variables for your own settings:
 storageAccountName=build2018storage

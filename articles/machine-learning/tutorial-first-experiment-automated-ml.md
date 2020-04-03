@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.author: tzvikei
-author: tsikiksr
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 02/04/2020
-ms.openlocfilehash: 96af942ab68d4ae738df56bf94d8410ee5d8cc34
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 03/04/2020
+ms.openlocfilehash: b5a335a3f215ad5883b1b223245ca9d3f9967c3b
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79129683"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366528"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Esercitazione: Creare un modello di classificazione con ML automatizzato in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -53,7 +53,7 @@ Per creare un'area di lavoro è necessario usare il portale di Azure, una consol
 
 Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento tramite Azure Machine Learning in https://ml.azure.com, un'interfaccia Web consolidata che include strumenti di Machine Learning per l'esecuzione di scenari di data science per esperti della materia di qualsiasi livello di competenza. Questa interfaccia non è supportata nei browser Internet Explorer.
 
-1. Accedere ad Azure Machine Learning in https://ml.azure.com.
+1. Accedere ad [Azure Machine Learning](https://ml.azure.com).
 
 1. Selezionare la sottoscrizione e l'area di lavoro create.
 
@@ -201,9 +201,9 @@ I file di distribuzione sono più grandi dei file di dati e di esperimento e di 
 
 ### <a name="delete-the-deployment-instance"></a>Eliminare l'istanza di distribuzione
 
-Eliminare solo l'istanza di distribuzione da Azure Machine Learning in https://ml.azure.com/ se si intende mantenere il gruppo di risorse e l'area di lavoro per altre esercitazioni e attività di esplorazione. 
+Per mantenere il gruppo di risorse e l'area di lavoro per altre esercitazioni ed esplorazioni, eliminare solo l'istanza di distribuzione da Azure Machine Learning all'indirizzo https:\//ml.azure.com/. 
 
-1. Passare ad Azure Machine Learning in https://ml.azure.com/. Passare all'area di lavoro e nel riquadro di sinistra **Risorse** selezionare **Endpoint**. 
+1. Passare ad [Azure Machine Learning](https://ml.azure.com/). Passare all'area di lavoro e nel riquadro di sinistra **Risorse** selezionare **Endpoint**. 
 
 1. Selezionare la distribuzione che si vuole eliminare e scegliere **Elimina**. 
 

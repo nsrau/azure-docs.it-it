@@ -3,12 +3,12 @@ title: 'Criterio: Effetti di una definizione di criteri'
 description: Questo modello di Criteri di Azure fornisce un esempio di come usare i diversi effetti di una definizione di criteri.
 ms.date: 01/31/2020
 ms.topic: sample
-ms.openlocfilehash: b86a24bc0af6c9bdd7b29bb0a931d6c78865218b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1a9aec50bd328b76271d54f7830c75e0848d3cde
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77170459"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80372644"
 ---
 # <a name="azure-policy-pattern-effects"></a>Modello di Criteri di Azure: effetti
 
@@ -22,7 +22,7 @@ Questa definizione di criteri verifica se il tag definito nel parametro **tagNam
 
 ### <a name="sample-1-explanation"></a>Esempio 1. Spiegazione
 
-:::code language="json" source="~/policy-templates/patterns/pattern-effect-details-1.json" range="30-34":::
+:::code language="json" source="~/policy-templates/patterns/pattern-effect-details-1.json" range="40-50":::
 
 Un effetto **modify** richiede il blocco **policyRule.then.details** che definisce **roleDefinitionIds** e **operations**. Questi parametri indicano a Criteri di Azure quali ruoli sono necessari per aggiungere il tag e correggere la risorsa e quale operazione **modify** eseguire. In questo esempio, **operation** corrisponde a _add_ e i parametri vengono usati per impostare il tag e il relativo valore.
 

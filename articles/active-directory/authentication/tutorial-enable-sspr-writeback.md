@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccc64fb8dd8bd8abc198d9bfc9d643ef618188ea
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: f3578cb1326ebd701c3f00618c19a501a1476372
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78967797"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80332132"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Esercitazione: Abilitare il writeback della reimpostazione della password self-service di Azure Active Directory in un ambiente locale
 
@@ -51,10 +51,9 @@ Azure AD Connect consente di sincronizzare utenti, gruppi e credenziali tra un a
 Per usare correttamente il writeback della reimpostazione della password self-service, per l'account specificato in Azure AD Connect è necessario impostare le autorizzazioni e le opzioni appropriate. Se non si è certi dell'account attualmente in uso, aprire Azure AD Connect e selezionare l'opzione **Visualizza la configurazione corrente**. L'account a cui è necessario aggiungere le autorizzazioni è elencato in **Directory sincronizzate**. Per l'account è necessario impostare le autorizzazioni e le opzioni seguenti:
 
 * **Reimpostazione della password**
-* **Cambia password**
 * **Autorizzazioni di scrittura** su `lockoutTime`
 * **Autorizzazioni di scrittura** su `pwdLastSet`
-* **Diritti estesi** su uno fra:
+* **I diritti estesi** per "Password senza scadenza" in uno degli elementi seguenti:
    * L'oggetto radice di *ogni dominio* in tale foresta
    * Le unità organizzative (OU) utente che si vuole siano nell'ambito per SSPR
 
@@ -69,7 +68,6 @@ Per impostare le autorizzazioni appropriate per l'esecuzione del writeback delle
 1. Per **Entità di sicurezza** selezionare l'account a cui applicare le autorizzazioni, ovvero l'account usato da Azure AD Connect.
 1. Nell'elenco a discesa **Applica a** selezionare gli oggetti **Utente discendente**.
 1. In *Autorizzazioni* selezionare le caselle per le opzioni seguenti:
-    * **Cambia password**
     * **Reimpostazione della password**
 1. In *Proprietà* selezionare le caselle per le opzioni seguenti. È necessario scorrere l'elenco per trovare le opzioni, che potrebbero essere già impostate:
     * **Scrittura di lockoutTime**
@@ -81,9 +79,12 @@ Per impostare le autorizzazioni appropriate per l'esecuzione del writeback delle
 
 Quando si aggiornano le autorizzazioni, la replica delle autorizzazioni in tutti gli oggetti nella directory potrebbe richiedere fino a un'ora o più.
 
-I criteri delle password nell'ambiente Active Directory Domain Services locale possono impedire la corretta elaborazione delle reimpostazioni delle password. Per il corretto funzionamento del writeback delle password, i criteri di gruppo per *Validità minima della password* devono essere impostati su 0. Questa impostazione è disponibile in **Configurazione computer > Criteri > Impostazioni di Windows > Impostazioni di sicurezza > Criteri account** in `gpedit.msc`.
+I criteri delle password nell'ambiente Active Directory Domain Services locale possono impedire la corretta elaborazione delle reimpostazioni delle password. Per il corretto funzionamento del writeback delle password, i criteri di gruppo per *Validità minima della password* devono essere impostati su 0. Questa impostazione è disponibile in **Configurazione computer > Criteri > Impostazioni di Windows > Impostazioni di sicurezza > Criteri account** in `gpedit.msc`. 
 
 Se si aggiornano i criteri di gruppo, attendere la replica del criterio aggiornato oppure usare il comando `gpupdate /force`.
+
+> [!Note]
+> Per consentire la modifica immediata delle password, il writeback delle password deve essere impostato su 0. Tuttavia, se gli utenti rispettano i criteri locali e la *validità minima della password* è impostata su un valore maggiore di zero, il writeback delle password continuerà a funzionare dopo la valutazione dei criteri locali. 
 
 ## <a name="enable-password-writeback-in-azure-ad-connect"></a>Abilitare il writeback delle password in Azure AD Connect
 

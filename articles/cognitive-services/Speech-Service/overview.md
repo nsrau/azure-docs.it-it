@@ -8,28 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 02/10/2020
+ms.date: 03/12/2020
 ms.author: dapine
-ms.openlocfilehash: 7ddfae430e6aa4ec9549e40c937e5edcfd927f6d
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 353e66c2d4ebb288244866b12a32e9acb7c765e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77119915"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371561"
 ---
 # <a name="what-is-the-speech-service"></a>Informazioni sul Servizio di riconoscimento vocale
 
 Il servizio Voce di Azure combina il riconoscimento vocale, la sintesi vocale e la traduzione vocale in un'unica sottoscrizione di Azure. Con [Speech SDK](speech-sdk-reference.md), [Speech Devices SDK](https://aka.ms/sdsdk-quickstart) o [API REST](rest-apis.md) è facile abilitare il riconoscimento vocale in applicazioni, strumenti e dispositivi.
 
 > [!IMPORTANT]
-> I servizi Voce hanno sostituito i servizi API riconoscimento vocale Bing, Traduzione vocale e Riconoscimento vocale personalizzato. Vedere _Guide alle procedure > Migrazione_ per istruzioni relative alla migrazione.
+> Il servizio Voce ha sostituito l'API Riconoscimento vocale Bing e Traduzione vocale. Vedere _Guide alle procedure > Migrazione_ per istruzioni relative alla migrazione.
 
 Queste funzionalità costituiscono il servizio Voce. Per altre informazioni sui casi d'uso comuni per ogni funzionalità, usare i collegamenti in questa tabella o esplorare il riferimento API.
 
 | Service | Funzionalità | Descrizione | SDK | REST |
-| ------- | ------- | ----------- | --- | ---- |
-| [Riconoscimento vocale](speech-to-text.md) | Riconoscimento vocale | Riconoscimento vocale trascrive in tempo reale flussi audio in testo da usare o visualizzare in applicazioni, dispositivi o strumenti. È possibile usare il riconoscimento vocale con [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) per derivare le finalità dell'utente dal parlato trascritto e agire sui comandi vocali. | [Sì](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sì](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| | [Trascrizione Batch](batch-transcription.md) | Trascrizione batch consente la trascrizione asincrona della voce in testo scritto di grandi volumi di dati. Si tratta di un servizio basato su REST che usa lo stesso endpoint come personalizzazione e gestione modelli. | No | [Sì](https://westus.cris.ai/swagger/ui/index) |
+|---------|---------|-------------|-----|------|
+| [Riconoscimento vocale](speech-to-text.md) | Riconoscimento vocale in tempo reale | Il riconoscimento vocale trascrive o traduce in tempo reale flussi audio o file locali in testo da usare o visualizzare in applicazioni, dispositivi o strumenti. È possibile usare il riconoscimento vocale con [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) per derivare le finalità dell'utente dal parlato trascritto e agire sui comandi vocali. | [Sì](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sì](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| | [Riconoscimento vocale in batch](batch-transcription.md) | Il riconoscimento vocale in batch consente la trascrizione asincrona in testo di una quantità elevata di dati audio vocali memorizzati in Archiviazione BLOB di Azure. Oltre a convertire l'audio vocale in testo, il riconoscimento vocale in batch consente anche di eseguire la diarizzazione e l'analisi del sentiment. | No | [Sì](https://westus.cris.ai/swagger/ui/index) |
 | | [Conversazione per più dispositivi](multi-device-conversation.md) | Connessione di più dispositivi o client in una conversazione per l'invio di messaggi vocali o di testo, con il supporto semplificato per la trascrizione e la traduzione| Sì | No |
 | | [Trascrizione conversazione](conversation-transcription-service.md) | Abilita il riconoscimento vocale in tempo reale, l'identificazione voce e la diarizzazione. È ideale per la trascrizione di riunioni dal vivo grazie alla capacità di distinguere i parlanti. | Sì | No |
 | | [Creare modelli conversione voce/testo personalizzati](#customize-your-speech-experience) | Se si usa il riconoscimento vocale per il riconoscimento e la trascrizione in un ambiente univoco, è possibile creare ed eseguire il training di modelli acustici, linguistici e di pronuncia personalizzati destinati a un ambiente rumoroso o una terminologica specifica del settore. | No | [Sì](https://westus.cris.ai/swagger/ui/index) |
@@ -38,12 +38,15 @@ Queste funzionalità costituiscono il servizio Voce. Per altre informazioni sui 
 | [Traduzione vocale](speech-translation.md) | Traduzione vocale | La traduzione vocale consente di attivare la traduzione vocale end-to-end in tempo reale e in più lingue in applicazioni, strumenti e dispositivi. È possibile usare questo servizio per il riconoscimento vocale e la traduzione vocale. | [Sì](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | No |
 | [Assistenti vocali](voice-assistants.md) | Assistenti vocali | Gli assistenti vocali che usano il servizio Voce consentono agli sviluppatori di creare interfacce di conversazione naturali e simili a quelle umane per applicazioni ed esperienze. Il servizio di assistente vocale offre un'interazione rapida e affidabile tra un dispositivo e l'implementazione di un assistente che usa il canale Direct Line Speech di Bot Framework o il servizio integrato Comandi personalizzati (anteprima) per completare le attività. | [Sì](voice-assistants.md) | No |
 
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
+
 ## <a name="try-the-speech-service"></a>Provare il servizio Voce
 
 Sono disponibili modelli di avvio rapido nei linguaggi di programmazione più diffusi, ognuno progettato per consentire all'utente di disporre dell'esecuzione di codice in meno di 10 minuti. Questa tabella contiene i modelli di avvio rapido più popolari per ogni funzionalità. Usare il riquadro di spostamento a sinistra per esplorare altri linguaggi e piattaforme.
 
 | Riconoscimento vocale (SDK) | API Sintesi vocale (SDK) | Traduzione vocale (SDK) |
-| -------------------- | -------------------- | ----------------- |
+|----------------------|----------------------|-------------------|
 | [Riconoscimento vocale da un file audio](quickstarts/speech-to-text-from-file.md) | [Sintesi vocale in un file audio](quickstarts/text-to-speech-audio-file.md) | [Traduzione vocale in testo](quickstarts/translate-speech-to-text.md) |
 | [Riconoscimento vocale con un microfono](quickstarts/speech-to-text-from-microphone.md) | [Sintesi vocale in un altoparlante](quickstarts/text-to-speech.md) | [Tradurre la voce in più lingue di destinazione](quickstarts/translate-speech-to-text-multiple-languages.md) |
 | [Riconoscimento della voce archiviata in archivio BLOB](quickstarts/from-blob.md) | [Sintesi asincrona per audio lungo](quickstarts/text-to-speech/async-synthesis-long-form-audio.md) | [Conversione della voce in voce](quickstarts/translate-speech-to-speech.md) |

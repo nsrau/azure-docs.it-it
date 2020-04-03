@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 03/05/2018
-ms.openlocfilehash: f5a094613b8722f96fccd1d1a6df359fa9b0ebd4
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 2cefd3c7f85e043497084e2cd2b906bd546ca10d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526062"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282274"
 ---
 # <a name="what-is-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Cos'è la Geo Artificial Intelligence Data Science Virtual Machine?
 

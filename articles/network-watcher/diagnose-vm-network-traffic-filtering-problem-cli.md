@@ -18,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 251f72ab4f4d53fc2c836f06c78a1faa291b3a8a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b3919a016613da2470c14995663acc9c5415e483
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74276081"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382852"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Guida introduttiva: Diagnosticare un problema di filtro del traffico di rete di una macchina virtuale - Interfaccia della riga di comando di Azure
 
@@ -33,7 +33,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questa guida introduttiva richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione installata, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Dopo avere verificato la versione dell'interfaccia della riga di comando, eseguire `az login` per creare una connessione con Azure. I comandi dell'interfaccia della riga di comando di questa guida introduttiva sono formattati per essere eseguiti in una shell Bash.
+Se si sceglie di installare e usare l'interfaccia della riga di comando di Azure in locale, per questo argomento di avvio rapido è necessario usare la versione 2.0.28 o successiva. Per trovare la versione installata, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Dopo avere verificato la versione dell'interfaccia della riga di comando di Azure, eseguire `az login` per creare una connessione con Azure. I comandi dell'interfaccia della riga di comando di Azure di questo argomento di avvio rapido sono formattati per essere eseguiti in una shell Bash.
 
 ## <a name="create-a-vm"></a>Creare una macchina virtuale
 
@@ -53,7 +53,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-La creazione della VM richiede alcuni minuti. Non continuare con i passaggi rimanenti fino a quando non viene creata la macchina virtuale e l'interfaccia della riga di comando non restituisce l'output.
+La creazione della VM richiede alcuni minuti. Non continuare con i passaggi rimanenti fino a quando non viene creata la macchina virtuale e l'interfaccia della riga di comando di Azure non restituisce l'output.
 
 ## <a name="test-network-communication"></a>Testare la comunicazione di rete
 
@@ -134,7 +134,7 @@ az network nic list-effective-nsg \
 
 L'output restituito include il testo seguente per la regola **AllowInternetOutbound** che ha consentito l'accesso in uscita a www.bing.com in un passaggio precedente in [Usare la verifica del flusso IP](#use-ip-flow-verify):
 
-```azurecli
+```
 {
  "access": "Allow",
  "additionalProperties": {},
@@ -175,7 +175,7 @@ Nell'output precedente il valore di **destinationAddressPrefix** è **Internet**
 
 Quando si esegue il comando `az network watcher test-ip-flow` per testare la comunicazione in uscita verso 172.131.0.100 in [Usare la verifica del flusso IP](#use-ip-flow-verify), l'output informa l'utente che la regola **DefaultOutboundDenyAll** ha negato la comunicazione. La regola **DefaultOutboundDenyAll** equivale alla regola **DenyAllOutBound** indicata nell'output seguente del comando `az network nic list-effective-nsg`:
 
-```azurecli
+```
 {
  "access": "Deny",
  "additionalProperties": {},
@@ -208,7 +208,7 @@ La regola indica **0.0.0.0/0** come valore di **destinationAddressPrefix**. La r
 
 Quando si esegue il comando `az network watcher test-ip-flow` in [Usare la verifica del flusso IP](#use-ip-flow-verify) per testare le comunicazioni in ingresso da 172.131.0.100, l'output informa l'utente che la regola **DefaultInboundDenyAll** ha negato la comunicazione. La regola **DefaultInboundDenyAll** equivale alla regola **DenyAllInBound** indicata nell'output seguente del comando `az network nic list-effective-nsg`:
 
-```azurecli
+```
 {
  "access": "Deny",
  "additionalProperties": {},

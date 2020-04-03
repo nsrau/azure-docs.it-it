@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 01/24/2020
+ms.date: 03/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 71afce335910e4d42fb3d67f6d443510a6599b8b
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ac6bc8f78bd3d526e68dba3e81825a28a9ac47f7
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77918323"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80294135"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Guida introduttiva: Usare le code del bus di servizio di Azure con Java per inviare e ricevere messaggi
 
@@ -41,9 +41,12 @@ Questa esercitazione illustra come creare applicazioni Java per inviare e riceve
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurare l'applicazione per l'uso del bus di servizio
-Assicurarsi di aver installato [Azure SDK per Java][Azure SDK for Java] prima di compilare questo esempio. Se si usa Eclipse, è possibile installare [Toolkit di Azure per Eclipse][Azure Toolkit for Eclipse] che include Azure SDK per Java. È quindi possibile aggiungere le **librerie di Microsoft Azure per Java** al progetto:
+Assicurarsi di aver installato [Azure SDK per Java][Azure SDK for Java] prima di compilare questo esempio. 
+
+Se si usa Eclipse, è possibile installare [Toolkit di Azure per Eclipse][Azure Toolkit for Eclipse] che include Azure SDK per Java. È quindi possibile aggiungere le **librerie di Microsoft Azure per Java** al progetto. Se si usa IntelliJ, vedere [Installare Azure Toolkit for IntelliJ](/azure/java/intellij/azure-toolkit-for-intellij-installation). 
 
 ![Aggiungere le librerie di Microsoft Azure per Java al progetto Eclipse](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
+
 
 Aggiungere le seguenti istruzioni `import` all'inizio del file Java:
 
@@ -126,7 +129,7 @@ Poiché il bus di servizio ha contrassegnato il messaggio come utilizzato, quand
 
 Nella modalità **PeekLock** l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione. Dopo aver elaborato il messaggio o averlo archiviato in modo affidabile per una successiva elaborazione, l'applicazione esegue la seconda fase del processo di ricezione chiamando **complete()** sul messaggio ricevuto. Quando il bus di servizio vede la chiamata **complete()** , contrassegna il messaggio come usato e lo rimuove dalla coda. 
 
-Nell'esempio seguente viene illustrato come ricevere ed elaborare messaggi usando la modalità **PeekLock** non predefinita. L'esempio seguente usa il modello di callback con un gestore di messaggi registrato ed elabora i messaggi man mano che arrivano alla `TestQueue`. Questa modalità chiama **complete()** automaticamente quando il callback restituisce normalmente e chiama **abandon()** se il callback genera un'eccezione. 
+Nell'esempio seguente viene illustrato come ricevere ed elaborare messaggi usando la modalità **PeekLock** non predefinita. L'esempio seguente usa il modello di callback con un gestore di messaggi registrato ed elabora i messaggi man mano che arrivano a `TestQueue`. Questa modalità chiama **complete()** automaticamente quando il callback restituisce normalmente e chiama **abandon()** se il callback genera un'eccezione. 
 
 ```java
     public void run() throws Exception {

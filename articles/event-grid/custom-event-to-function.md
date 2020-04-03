@@ -1,6 +1,6 @@
 ---
-title: 'Avvio rapido: Inviare eventi personalizzati a una funzione di Azure - Griglia di eventi'
-description: "Avvio rapido: usare Griglia di eventi di Azure e l'interfaccia della riga di comando o il portale di Azure per pubblicare un argomento e sottoscrivere l'evento. Come endpoint viene usata una funzione di Azure."
+title: 'Guida introduttiva: Inviare eventi personalizzati a una funzione di Azure - Griglia di eventi'
+description: "Guida introduttiva: usare Griglia di eventi di Azure e l'interfaccia della riga di comando o il portale di Azure per pubblicare un argomento e sottoscrivere l'evento. Come endpoint viene usata una funzione di Azure."
 services: event-grid
 keywords: ''
 author: banisadr
@@ -8,14 +8,14 @@ ms.author: babanisa
 ms.date: 11/15/2019
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: a9281ba1e2bf68da2318c32ab7037515697f92a5
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 5e38571cf84537fd722093b96cd277743e8ce80c
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708847"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80292160"
 ---
-# <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Avvio rapido: Indirizzare eventi personalizzati a una funzione di Azure con Griglia di eventi
+# <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Guida introduttiva: Indirizzare eventi personalizzati a una funzione di Azure con Griglia di eventi
 
 La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. Funzioni di Azure è uno dei gestori eventi supportati. In questo articolo viene usato il portale di Azure per creare un argomento personalizzato, sottoscriverlo e attivare l'evento per visualizzare il risultato. Gli eventi vengono inviati a una funzione di Azure.
 
@@ -124,7 +124,7 @@ Il primo esempio usa l'interfaccia della riga di comando di Azure. Ottiene l'URL
 ### <a name="azure-powershell"></a>Azure PowerShell
 Il secondo esempio usa PowerShell per eseguire passaggi simili.
 
-1. Nel portale di Azure selezionare **Cloud Shell** (in alternativa, passare a https://shell.azure.com/). Selezionare **PowerShell** nell'angolo in alto a sinistra della finestra Cloud Shell. Vedere l'esempio di immagine di finestra **Cloud Shell** nella sezione sull'interfaccia della riga di comando di Azure.
+1. Nel portale di Azure selezionare **Cloud Shell** (in alternativa, passare a `https://shell.azure.com/`). Selezionare **PowerShell** nell'angolo in alto a sinistra della finestra Cloud Shell. Vedere l'esempio di immagine di finestra **Cloud Shell** nella sezione sull'interfaccia della riga di comando di Azure.
 2. Impostare le variabili seguenti. Dopo aver copiato e incollato ogni singolo comando, aggiornare il **nome dell'argomento** e il **nome del gruppo di risorse** prima di eseguirlo:
 
     ```powershell

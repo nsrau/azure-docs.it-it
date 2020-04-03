@@ -1,14 +1,14 @@
 ---
 title: 'Guida introduttiva: Creare un progetto nel portale'
 description: In questa guida di avvio rapido si userà Azure Blueprints per creare, definire e distribuire artefatti tramite il portale di Azure.
-ms.date: 11/21/2019
+ms.date: 03/25/2020
 ms.topic: quickstart
-ms.openlocfilehash: fa9eb8285086e35f8b23798c41a09529d0f49582
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 457f4f9c53f45077129b291c904bc1580b6d965e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356076"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282053"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Guida introduttiva: Definire e assegnare un progetto nel portale
 
@@ -29,6 +29,8 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
    Selezionare **Crea** nella pagina **Attività iniziali** per passare direttamente alla creazione di un progetto.
 
    ![Creare un progetto nella pagina Definizioni di progetto](./media/create-blueprint-portal/create-blueprint-button.png)
+
+1. Selezionare **Inizia con un progetto vuoto** dalla scheda nella parte superiore dell'elenco di progetti predefiniti.
 
 1. Indicare un **Nome progetto**, ad esempio **MyBlueprint**. Usare fino a 48 lettere e numeri, senza spazi o caratteri speciali. Per il momento, lasciare vuota la **Descrizione del progetto**.
 

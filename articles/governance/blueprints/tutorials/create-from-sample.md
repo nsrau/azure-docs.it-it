@@ -1,14 +1,14 @@
 ---
 title: 'Esercitazione: Esempio di progetto in un nuovo ambiente'
 description: In questa esercitazione si usa un esempio di progetto per creare una definizione di progetto che configura due gruppi di risorse e un'assegnazione di ruolo per ciascuno.
-ms.date: 11/21/2019
+ms.date: 03/25/2020
 ms.topic: tutorial
-ms.openlocfilehash: f9cc892ab8feadacbdfd00e55fab9f40d7cb2397
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c4230282223b0a64f6254448fe069bf8f7ab9a15
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74321729"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80282019"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Esercitazione: Creare un ambiente da un esempio di progetto
 
@@ -35,12 +35,12 @@ Come prima cosa, implementare l'esempio di progetto. Con l'importazione viene cr
 
 1. Nella pagina **Getting started** (Introduzione) a sinistra selezionare il pulsante **Crea** in _Creare un progetto_.
 
-1. Trovare il progetto di esempio **Gruppi di risorse con Controllo degli accessi in base al ruolo** in _Altri esempi_ e selezionare **Usa questo esempio**.
+1. Trovare il progetto di esempio **Gruppi di risorse con Controllo degli accessi in base al ruolo** in _Altri esempi_ e selezionarlo.
 
 1. Immettere le _informazioni di base_ dell'esempio di progetto:
 
    - **Nome progetto**: specificare un nome per la copia dell'esempio di progetto. Per questa esercitazione si userà il nome _two-rgs-with-role-assignments_.
-   - **Località della definizione**: usare i puntini di sospensione e selezionare il gruppo di gestione o la sottoscrizione in cui salvare la copia dell'esempio.
+   - **Posizione della definizione**: usare i puntini di sospensione e selezionare il gruppo di gestione o la sottoscrizione in cui salvare la copia dell'esempio.
 
 1. Selezionare la scheda _Artefatti_ nella parte superiore della pagina oppure **Avanti: Elementi** nella parte inferiore della pagina.
 
@@ -54,7 +54,7 @@ Quando nel portale viene visualizzata la notifica **Il salvataggio della definiz
 
 ## <a name="publish-the-sample-copy"></a>Pubblicare la copia dell'esempio
 
-La copia dell'esempio di progetto è stata creata nell'ambiente. Ma poiché è stata creata in modalità **bozza**, è necessario **pubblicarla** per poterla assegnare e distribuire. La copia dell'esempio di progetto può essere personalizzata in base all'ambiente e alle specifiche esigenze. Ai fini di questa esercitazione non verrà apportata alcuna modifica.
+La copia dell'esempio di progetto è stata creata nell'ambiente. Ma poiché è stata creata in modalità **Bozza**, è necessario **pubblicarla** per poterla assegnare e distribuire. La copia dell'esempio di progetto può essere personalizzata in base all'ambiente e alle specifiche esigenze. Ai fini di questa esercitazione non verrà apportata alcuna modifica.
 
 1. Selezionare **Tutti i servizi** nel riquadro a sinistra. Cercare e selezionare **Progetti**.
 
@@ -80,11 +80,11 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
    - Nozioni di base
 
-     - **Sottoscrizioni**: selezionare una o più sottoscrizioni presenti nel gruppo di gestione in cui è stata salvata la copia dell'esempio di progetto. Se si selezionano più sottoscrizioni, viene creata un'assegnazione per ciascuna usando i parametri immessi.
+     - **Sottoscrizioni**: selezionare una o più sottoscrizioni presenti nel gruppo di gestione in cui è stata salvata la copia dell'esempio di progetto. Se si selezionano più sottoscrizioni, viene creata un'assegnazione per ognuna usando i parametri immessi.
      - **Nome dell'assegnazione**: il nome viene prepopolato in base al nome della definizione di progetto.
      - **Località**: selezionare un'area in cui creare l'identità gestita. Azure Blueprint usa questa identità gestita per distribuire tutti gli elementi nel progetto assegnato. Per altre informazioni, vedere [Managed identities for Azure resources](../../../active-directory/managed-identities-azure-resources/overview.md) (Identità gestite per risorse di Azure).
        Per questa esercitazione selezionare _Stati Uniti orientali 2_.
-     - **Versione della definizione di progetto**: selezionare la versione **pubblicata** _1.0_ della copia della definizione del progetto di esempio.
+     - **Versione della definizione di progetto**: selezionare la versione **pubblicata**_1.0_ della copia della definizione del progetto di esempio.
 
    - Blocca assegnazione
 
@@ -98,12 +98,12 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
      I parametri definiti in questa sezione si applicano all'artefatto in cui sono definiti. Si tratta di [parametri dinamici](../concepts/parameters.md#dynamic-parameters), in quanto vengono definiti durante l'assegnazione del progetto. Per ogni artefatto impostare il parametro sul valore definito nella colonna **Valore**. Per `{Your ID}` selezionare il proprio account utente di Azure.
 
-     |Nome artefatto|Tipo di artefatto|Nome parametro|Valore|DESCRIZIONE|
+     |Nome dell'artefatto|Tipo di artefatto|Nome parametro|valore|Descrizione|
      |-|-|-|-|-|
-     |Gruppo di risorse ProdRG|Resource group|NOME|ProductionRG|Definisce il nome del primo gruppo di risorse.|
+     |Gruppo di risorse ProdRG|Resource group|Nome|ProductionRG|Definisce il nome del primo gruppo di risorse.|
      |Gruppo di risorse ProdRG|Resource group|Location|Stati Uniti occidentali 2|Imposta la località del primo gruppo di risorse.|
      |Collaboratore|Assegnazione di ruolo|Utente o gruppo|{ID}|Definisce l'utente o il gruppo a cui assegnare il ruolo _Collaboratore_ nel primo gruppo di risorse.|
-     |Gruppo di risorse PreProdRG|Resource group|NOME|PreProductionRG|Definisce il nome del secondo gruppo di risorse.|
+     |Gruppo di risorse PreProdRG|Resource group|Nome|PreProductionRG|Definisce il nome del secondo gruppo di risorse.|
      |Gruppo di risorse PreProdRG|Resource group|Location|Stati Uniti occidentali|Imposta la località del secondo gruppo di risorse.|
      |Proprietario|Assegnazione di ruolo|Utente o gruppo|{ID}|Definisce l'utente o il gruppo a cui assegnare il ruolo _Proprietario_ nel secondo gruppo di risorse.|
      |Lettori|Assegnazione di ruolo|Utente o gruppo|{ID}|Definisce l'utente o il gruppo a cui assegnare il ruolo _Lettore_ nel secondo gruppo di risorse.|
@@ -128,13 +128,13 @@ L'assegnazione del progetto crea e tiene traccia degli artefatti definiti nella 
 
    Come si può notare, il nome del gruppo di risorse è **ProductionRG** e non il nome visualizzato dell'artefatto _ProdRG_. Questo nome corrisponde al valore impostato durante l'assegnazione del progetto.
 
-1. Selezionare la pagina **Controllo di accesso (IAM)** a sinistra e quindi la scheda **Assegnazioni di ruolo**.
+1. Selezionare la pagina **Controllo di accesso (IAM)** a sinistra e quindi la scheda **Assegnazioni di ruoli**.
 
    Qui è possibile vedere che all'account è stato assegnato il ruolo _Collaboratore_ nell'ambito di _Questa risorsa_. L'assegnazione di progetto _Assignment-two-rgs-with-role-assignments_ ha il ruolo _Proprietario_ poiché è stata usata per creare il gruppo di risorse. Queste autorizzazioni vengono usate anche per gestire le risorse per cui sono stati configurati blocchi del progetto.
 
 1. Nella struttura di navigazione del portale di Azure selezionare **Assignment-two-rgs-with-role-assignments** per tornare indietro di una pagina, quindi selezionare il gruppo di risorse **PreProductionRG**.
 
-1. Selezionare la pagina **Controllo di accesso (IAM)** a sinistra e quindi la scheda **Assegnazioni di ruolo**.
+1. Selezionare la pagina **Controllo di accesso (IAM)** a sinistra e quindi la scheda **Assegnazioni di ruoli**.
 
    Qui è possibile vedere che all'account sono stati assegnati i ruoli _Proprietario_ e _Lettore_, entrambi nell'ambito di _Questa risorsa_. Anche l'assegnazione del progetto ha il ruolo_Proprietario_ come il primo gruppo di risorse.
 
@@ -144,7 +144,7 @@ L'assegnazione del progetto crea e tiene traccia degli artefatti definiti nella 
 
 1. Selezionare l'assegnazione di rifiuto, quindi selezionare la pagina **Autorizzazioni negate** a sinistra.
 
-   L'assegnazione di rifiuto impedisce tutte le operazioni con la configurazione di **\*** e **Action**, ma consente l'accesso in lettura escludendo **\*/read** tramite **NotActions**.
+   L'assegnazione di rifiuto impedisce tutte le operazioni con la configurazione **\*** e **Action**, ma consente l'accesso in lettura escludendo **\*/read** tramite **NotActions**.
 
 1. Nella struttura di navigazione del portale di Azure selezionare **PreProductionRG - Controllo di accesso (IAM)** . Selezionare la pagina **Panoramica** a sinistra e quindi il pulsante **Elimina gruppo di risorse**. Immettere il nome _PreProductionRG_ per confermare l'eliminazione e selezionare **Elimina** in fondo al riquadro.
 
@@ -167,7 +167,7 @@ Con la rimozione dell'assegnazione non vengono rimossi gli artefatti distribuiti
 
 1. Scegliere **Gruppi di risorse** dal menu di Azure, quindi selezionare **ProductionRG**.
 
-1. Selezionare la pagina **Controllo di accesso (IAM)** a sinistra e quindi la scheda **Assegnazioni di ruolo**.
+1. Selezionare la pagina **Controllo di accesso (IAM)** a sinistra e quindi la scheda **Assegnazioni di ruoli**.
 
 La sicurezza per ogni gruppo di risorse ha ancora le assegnazioni di ruolo distribuite, ma l'assegnazione del progetto non dispone più dell'accesso come _Proprietario_.
 

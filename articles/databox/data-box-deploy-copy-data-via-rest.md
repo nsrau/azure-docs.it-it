@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: usare le API REST per la copia nell'archivio BLOB"
+title: "Esercitazione: Usare le API REST per copiare nell'archiviazione BLOB"
 titleSuffix: Azure Data Box
 description: Informazioni su come copiare dati nell'archiviazione BLOB di Azure Data Box tramite API REST
 services: databox
@@ -9,29 +9,30 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: alkohli
-ms.openlocfilehash: b7d58bb13644c992894510f26a4848ea80c9df00
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: 7642c009a5bcd1d00efb432975fff5a65c7ba340
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380156"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80297205"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Esercitazione: copiare dati in Azure Data Box archiviazione BLOB tramite le API REST  
+# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Esercitazione: Copiare dati nell'archiviazione BLOB di Azure Data Box tramite API REST  
 
 Questa esercitazione descrive le procedure per connettersi all'archiviazione BLOB di Azure Data Box con API REST tramite *HTTP* o *HTTPS*. Una volta stabilita la connessione, vengono descritti anche i passaggi necessari per copiare i dati nell'archiviazione BLOB di Data Box e preparare Data Box per la spedizione.
 
 In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
-> * Prerequisites
+>
+> * Prerequisiti
 > * Connettersi all'archiviazione BLOB di Data Box tramite *HTTP* o *HTTPS*
 > * Copiare i dati nel Data Box
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, verificare che:
 
-1. L'esercitazione è stata completata [: configurare Azure Data Box](data-box-deploy-set-up.md).
+1. Aver completato l'esercitazione descritta in [Esercitazione: Configurare Azure Data Box](data-box-deploy-set-up.md).
 2. Aver ricevuto Data Box e che lo stato dell'ordine nel portale sia **Recapitati**.
 3. Aver esaminato i [requisiti di sistema per l'archiviazione Blob di Data Box](data-box-system-requirements-rest.md) e avere familiarità con le versioni supportate di API, SDK e strumenti.
 4. Avere accesso a un computer host che include i dati da copiare in Data Box. Il computer host deve:
@@ -91,7 +92,7 @@ Usare il portale di Azure per scaricare il certificato.
  
 ### <a name="import-certificate"></a>Importare il certificato 
 
-L'accesso all'archiviazione BLOB di Data Box tramite HTTPS richiede un certificato SSL per il dispositivo. Il modo in cui questo certificato viene reso disponibile all'applicazione client varia da applicazione ad applicazione e tra sistemi operativi e distribuzioni. Alcune applicazioni possono accedere al certificato dopo che è stato importato nell'archivio certificati del sistema, mentre altre applicazioni non fanno uso di tale meccanismo.
+L'accesso all'archivio BLOB di Data Box tramite HTTPS richiede un certificato TLS/SSL per il dispositivo. Il modo in cui questo certificato viene reso disponibile all'applicazione client varia da applicazione ad applicazione e tra sistemi operativi e distribuzioni. Alcune applicazioni possono accedere al certificato dopo che è stato importato nell'archivio certificati del sistema, mentre altre applicazioni non fanno uso di tale meccanismo.
 
 Informazioni specifiche per alcune applicazioni sono menzionate in questa sezione. Per altre informazioni su altre applicazioni, consultare la documentazione relativa all'applicazione e al sistema operativo usato.
 
@@ -108,16 +109,16 @@ Seguire questa procedura per importare il file `.cer` nell'archivio radice di un
 
 #### <a name="use-windows-server-ui"></a>Usare l'interfaccia utente di Windows Server
 
-1.  Fare clic con il pulsante destro del mouse sul file `.cer` e scegliere **Installa certificato**. Questa azione avvia l'Importazione guidata certificati.
-2.  Per **Percorso archivio**, selezionare **Computer locale**, quindi fare clic su **Avanti**.
+1.   Fare clic con il pulsante destro del mouse sul file `.cer` e scegliere **Installa certificato**. Questa azione avvia l'Importazione guidata certificati.
+2.   Per **Percorso archivio**, selezionare **Computer locale**, quindi fare clic su **Avanti**.
 
     ![Importare il certificato tramite PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
 
-3.  Selezionare **Colloca tutti i certificati nel seguente archivio**, quindi fare clic su **Sfoglia**. Passare all'archivio radice dell'host remoto, quindi fare clic su **Avanti**.
+3.   Selezionare **Colloca tutti i certificati nel seguente archivio**, quindi fare clic su **Sfoglia**. Passare all'archivio radice dell'host remoto, quindi fare clic su **Avanti**.
 
     ![Importare il certificato tramite PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
 
-4.  Fare clic su **Fine**. Viene visualizzato un messaggio indicante che l'importazione è avvenuta correttamente.
+4.   Fare clic su **Fine**. Viene visualizzato un messaggio indicante che l'importazione è avvenuta correttamente.
 
     ![Importare il certificato tramite PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
@@ -149,8 +150,9 @@ Seguire la procedura per [Configurare il software partner usato durante la conne
 
 Dopo aver stabilito la connessione all'archiviazione BLOB di Data Box, il passaggio successivo consiste nel copiare i dati. Prima di procedere alla copia dei dati, tenere conto delle considerazioni seguenti:
 
--  Durante la copia dei dati assicurarsi che le dimensioni dei dati siano conformi ai valori descritti nei [limiti per il servizio di archiviazione di Azure e per Azure Data Box](data-box-limits.md).
-- Se i dati caricati da Data Box vengono caricati contemporaneamente da altre applicazioni all'esterno di Data Box, è possibile che si verifichino errori del processo di caricamento e il danneggiamento dei dati.
+* Durante la copia dei dati assicurarsi che le dimensioni dei dati siano conformi ai valori descritti nei [limiti per il servizio di archiviazione di Azure e per Azure Data Box](data-box-limits.md).
+* Se i dati caricati da Data Box vengono caricati contemporaneamente da altre applicazioni all'esterno di Data Box, è possibile che si verifichino errori del processo di caricamento e il danneggiamento dei dati.
+* Assicurarsi di mantenere una copia dei dati di origine fino a quando non è possibile confermare che Data Box ha trasferito i dati in Archiviazione di Azure.
 
 In questa esercitazione viene usato AzCopy per copiare i dati nell'archiviazione BLOB di Data Box. È anche possibile usare Azure Storage Explorer (se si preferisce uno strumento basato su interfaccia utente grafica) o un software di terze parti per copiare i dati.
 
@@ -227,7 +229,7 @@ Il passaggio successivo consiste nel preparare il dispositivo per la spedizione.
 In questa esercitazione sono stati presentati argomenti relativi ad Azure Data Box, ad esempio:
 
 > [!div class="checklist"]
-> * Prerequisites
+> * Prerequisiti
 > * Connettersi all'archiviazione BLOB di Data Box tramite *HTTP* o *HTTPS*
 > * Copiare i dati nel Data Box
 

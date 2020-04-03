@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: stimare il prezzo dell'automobile con la finestra di progettazione"
+title: "Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione"
 titleSuffix: Azure Machine Learning
 description: Informazioni su come eseguire il training, assegnare punteggi e distribuire un modello di Machine Learning usando un'interfaccia basata su trascinamento della selezione. Questa esercitazione è la prima parte di una serie in due parti su come stimare i prezzi delle automobili con la regressione lineare.
 author: peterclu
@@ -8,15 +8,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 01/30/2020
-ms.openlocfilehash: 972f0aa1f6d05c3cc65c62c0991fad87ab4676c4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.date: 03/12/2020
+ms.openlocfilehash: 0488002352d222abb0166737f9a042060b1a1bb1
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396220"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389427"
 ---
-# <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Esercitazione: stimare il prezzo dell'automobile con la finestra di progettazione (anteprima)
+# <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 In questa esercitazione in due parti si apprenderà come usare la finestra di progettazione di Azure Machine Learning per eseguire il training e la distribuzione di un modello di Machine Learning che stima il prezzo di qualsiasi automobile. La finestra di progettazione è uno strumento con trascinamento della selezione che consente di creare modelli di Machine Learning senza scrivere una sola riga di codice.
@@ -35,7 +35,7 @@ Nella [seconda parte](tutorial-designer-automobile-price-deploy.md) dell'esercit
 > [!NOTE]
 >Una versione completa dell'esercitazione è disponibile come pipeline di esempio.
 >
->Per trovarla, passare alla finestra di progettazione nell'area di lavoro. Nella sezione **nuova pipeline** selezionare **Sample 1-regressione: automobile Price Prediction (Basic)** .
+>Per trovarla, passare alla finestra di progettazione nell'area di lavoro. Nella sezione **New pipeline** (Nuova pipeline) selezionare **Sample 1 - Regression: Automobile Price Prediction(Basic)** .
 
 ## <a name="create-a-new-pipeline"></a>Creare una nuova pipeline
 
@@ -103,7 +103,7 @@ Nella finestra di progettazione sono disponibili diversi set di dati di esempio 
 
 1. Selezionare il modulo **Automobile price data (Raw)** .
 
-1. Nel riquadro dei dettagli del modulo a destra dell'area di disegno selezionare **Output**.
+1. Nel riquadro dei dettagli del modulo a destra del canvas selezionare **Output + log**.
 
 1. Selezionare l'icona del grafico per visualizzare i dati.
 
@@ -168,6 +168,12 @@ Dopo la rimozione della colonna **normalized-losses**, il set di dati contiene a
 
 1. Selezionare il modulo **Clean Missing Data** (Pulisci dati mancanti).
 
+1. Nel riquadro dei dettagli del modulo a destra dell'area di disegno selezionare **Modifica colonna**.
+
+1. Nella finestra **Columns to be cleaned** (Colonne da pulire) visualizzata espandere il menu a discesa accanto a **Include** (Includi). Selezionare **All columns** (Tutte le colonne)
+
+1. Selezionare **Salva**
+
 1. Nel riquadro dei dettagli del modulo a destra dell'area di disegno selezionare **Remove entire row** (Rimuovi riga intera) in **Cleaning mode** (Modalità pulizia).
 
 1. Nel riquadro dei dettagli del modulo a destra dell'area di disegno selezionare la casella **Commento** e immettere *Rimuovi righe valori mancanti*. 
@@ -213,9 +219,11 @@ Eseguire il training del modello assegnando un set di dati che include il prezzo
 
 1. Selezionare il modulo **Regression** > **Linear Regression** (Regressione > Regressione lineare) e trascinarlo nel canvas della pipeline.
 
-1. Trovare e trascinare il modulo **Train Model** (Training modello) nel canvas della pipeline. 
-
 1. Connettere l'output del modulo **Linear Regression** (Regressione lineare) alla porta di input sinistra del modulo **Train Model** (Training modello).
+
+1. Nel pannello del modulo espandere la sezione **Module training** (Training del modulo) e trascinare il modulo **Train Model** (Training modello) nell'area di disegno.
+
+1. Selezionare il modulo **Esegui training del modello** nell'area di disegno della pipeline.
 
 1. Connettere l'output dei dati di training (porta sinistra) del modulo **Split Data** (Divisione dati) alla porta di input destra del modulo **Train Model** (Training modello).
     
@@ -224,8 +232,6 @@ Eseguire il training del modello assegnando un set di dati che include il prezzo
 
     ![Screenshot della configurazione corretta del modulo Train Model Il modulo Linear Regression si connette alla porta sinistra e il modulo Split Data alla porta destra del modulo Train Model](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
 
-1. Nel pannello del modulo espandere la sezione **Module training** (Training del modulo) e trascinare il modulo **Train Model** (Training modello) nell'area di disegno.
-
 1. Selezionare il modulo **Train Model**.
 
 1. Nel riquadro dei dettagli del modulo a destra dell'area di disegno selezionare il selettore **Modifica colonna**.
@@ -233,6 +239,9 @@ Eseguire il training del modello assegnando un set di dati che include il prezzo
 1. Nella finestra di dialogo **Label column** (Colonna etichetta) espandere il menu a discesa e selezionare **Column names** (Nomi di colonna). 
 
 1. Nella casella di testo immettere *price* per specificare il valore che verrà previsto dal modello.
+
+    >[!IMPORTANT]
+    > Assicurarsi di immettere esattamente il nome della colonna. Usare l'iniziale maiuscola per **price**. 
 
     La pipeline dovrebbe avere un aspetto simile al seguente:
 
@@ -258,22 +267,24 @@ Usare il modulo **Evaluate Model** (Valutazione modello) per valutare il puntegg
 
     ![Screenshot della configurazione corretta della pipeline.](./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png)
 
-## <a name="run-the-pipeline"></a>Eseguire la pipeline
+## <a name="submit-the-pipeline"></a>Inviare la pipeline
 
-Ora che la pipeline è stata impostata, è possibile inviare un'esecuzione di pipeline per il training del modello di machine learning. È possibile inviare un'esecuzione di pipeline in qualsiasi momento durante la compilazione di pipeline nella finestra di progettazione. È possibile eseguire questa operazione per verificare il proprio lavoro mentre si procede e verificare le funzioni della pipeline come previsto.
+Ora che la pipeline è completamente configurata, è possibile inviare un'esecuzione della pipeline per eseguire il training del modello di Machine Learning. È possibile inviare un'esecuzione di pipeline valida in qualsiasi momento, che può essere usata per esaminare le modifiche apportate alla pipeline durante lo sviluppo.
 
-1. Nella parte superiore dell'area di disegno selezionare **Esegui**.
+1. Nella parte superiore dell'area di disegno selezionare **Invia**.
 
-1. Nella finestra di dialogo **Configura esecuzione della pipeline** selezionare **+ Nuovo esperimento** per **Esperimento**.
+1. Nella finestra di dialogo **Configura esecuzione della pipeline** selezionare **Crea nuova**.
 
     > [!NOTE]
     > Gli esperimenti raggruppano esecuzioni di pipeline simili. Se una pipeline viene eseguita più volte, è possibile selezionare lo stesso esperimento per le esecuzioni successive.
 
-    1. Immettere un nome descrittivo per il **Nome esperimento**.
+    1. Immettere un nome descrittivo per **Nome nuovo esperimento**.
 
-    1. Selezionare **Run** (Esegui).
+    1. Selezionare **Submit** (Invia).
     
     È possibile visualizzare lo stato di esecuzione e i dettagli nella parte superiore destra dell'area di disegno.
+    
+    La prima volta, l'esecuzione della pipeline potrebbe richiedere fino a 20 minuti. Le impostazioni di calcolo predefinite prevedono una dimensione minima del nodo pari a 0, il che significa che la finestra di progettazione deve allocare risorse dopo l'inattività. Le esecuzioni ripetute della pipeline richiederanno meno tempo, perché le risorse di calcolo sono già allocate. Inoltre, la finestra di progettazione usa i risultati memorizzati nella cache per ogni modulo per migliorare ulteriormente l'efficienza.
 
 ### <a name="view-scored-labels"></a>Visualizzare le etichette dei punteggi
 
@@ -281,7 +292,7 @@ Al termine dell'esecuzione, è possibile visualizzare i risultati dell'esecuzion
 
 1. Selezionare il modulo **Score Model** (Punteggio modello) per visualizzare il relativo output.
 
-1. Nel riquadro dei dettagli del modulo a destra dell'area di disegno selezionare **Output** > icona del grafo ![icona di visualizzazione](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) per visualizzare i risultati.
+1. Nel riquadro dei dettagli del modulo a destra dell'area di disegno selezionare **Output + log** > icona del grafo ![icona di visualizzazione](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) per visualizzare i risultati.
 
     Qui è possibile visualizzare i prezzi stimati e i prezzi effettivi dai dati di test.
 
@@ -293,15 +304,15 @@ Usare **Evaluate Model** (Valutazione modello) per verificare le prestazioni del
 
 1. Selezionare il modulo **Evaluate Model** (Valutazione modello) per visualizzare il relativo output.
 
-1. Nel riquadro dei dettagli del modulo a destra dell'area di disegno selezionare **Output** > icona del grafo ![icona di visualizzazione](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) per visualizzare i risultati.
+1. Nel riquadro dei dettagli del modulo a destra dell'area di disegno selezionare **Output + log** > icona del grafo ![icona di visualizzazione](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) per visualizzare i risultati.
 
 Per il modello vengono visualizzate le seguenti statistiche:
 
-* **Errore assoluto medio (Mae)** : media degli errori assoluti. Un errore è la differenza tra il valore stimato e quello effettivo.
-* **Radice errore quadratico medio (valori RMSE)** : radice quadrata della media degli errori quadratici delle stime effettuate sul set di dati di test.
-* **Relative Absolute Error**(errore assoluto relativo): media degli errori assoluti relativamente alla differenza assoluta tra i valori effettivi e la media di tutti i valori effettivi.
-* **Relative Squared Error**(errore quadratico relativo): media degli errori quadratici relativamente alla differenza quadratica tra i valori effettivi e la media di tutti i valori effettivi.
-* **Coefficiente di determinazione**: anche noto come valore di R quadrato, questa metrica statistica indica il modo in cui un modello si adatta ai dati.
+* **Errore assoluto medio** (MAE): la media degli errori assoluti. Un errore è la differenza tra il valore stimato e quello effettivo.
+* **Radice dell'errore quadratico medio** (RMSE): Radice quadrata della media degli errori quadratici delle stime effettuate sul set di dati di test.
+* **Errore assoluto relativo**: Media degli errori assoluti relativamente alla differenza assoluta tra i valori effettivi e la media di tutti i valori effettivi.
+* **Errore quadratico relativo**: Media degli errori quadratici relativamente alla differenza quadratica tra i valori effettivi e la media di tutti i valori effettivi.
+* **Coefficiente di determinazione**: noto anche come valore quadratico R, è una metrica statistica che indica l'esattezza del modello rispetto ai dati.
 
 Per ogni statistica di errore, sono preferibili i valori più piccoli. Un valore più piccolo indica che le stime sono più vicine ai valori effettivi. Per il coefficiente di determinazione, più il valore si avvicina a uno (1,0) più le stime sono precise.
 

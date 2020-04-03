@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 42eb603be0152b9e8cfb36d02e8f0602c40afe54
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5f9048b08b3e77a0c8d5ae9a9d10c614a4e0af61
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77031204"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80336692"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Effettuare la preparazione per la valutazione e la migrazione di server fisici ad Azure
 
@@ -41,10 +41,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 È necessario configurare le autorizzazioni per la distribuzione di Azure Migrate.
 
-**Attività** | **Autorizzazioni**
---- | ---
-**Creare un progetto di Azure Migrate** | L'account di Azure necessita di autorizzazioni per creare un progetto.
-**Registrare l'appliance Azure Migrate** | Azure Migrate usa un'appliance di Azure Migrate leggera per individuare e valutare i server fisici con lo strumento Valutazione server di Azure Migrate. L'appliance individua i server e ne invia i metadati e i dati sulle prestazioni ad Azure Migrate.<br/><br/>Durante la registrazione dell'appliance, i provider di risorse Microsoft.OffAzure, Microsoft.Migrate e Microsoft.KeyVault vengono registrati con la sottoscrizione scelta nell'appliance. La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse. Per registrare i provider di risorse, è necessario il ruolo di proprietario o collaboratore della sottoscrizione.<br/><br/> Nell'ambito dell'onboarding, Azure Migrate crea un'app Azure Active Directory (Azure AD):<br/> L'app Azure AD viene usata per la comunicazione (autenticazione e autorizzazione) tra gli agenti in esecuzione nell'appliance con i rispettivi servizi in esecuzione in Azure. Questa app non dispone dei privilegi necessari per effettuare chiamate ARM né dell'accesso basato sul controllo degli accessi in base al ruolo su alcuna risorsa.
+**Attività** | **Dettagli** 
+--- | --- 
+**Creare un progetto di Azure Migrate** | Per creare un progetto, è necessario che l'account Azure abbia autorizzazioni di Collaboratore o Proprietario. | 
+**Registrare i provider di risorse** | Azure Migrate usa un'appliance di Azure Migrate leggera per individuare e valutare le VM Hyper-V con lo strumento Valutazione server di Azure Migrate.<br/><br/> Durante la registrazione dell'appliance, i provider di risorse vengono registrati con la sottoscrizione scelta nell'appliance. [Altre informazioni](migrate-appliance-architecture.md#appliance-registration)<br/><br/> Per registrare i provider di risorse, è necessario il ruolo di proprietario o collaboratore della sottoscrizione.
+**Creare l'app di Azure AD** | Quando si registra l'appliance, Azure Migrate crea un'app di Azure Active Directory (Azure AD) usata per la comunicazione tra gli agenti in esecuzione nell'appliance con i rispettivi servizi in esecuzione in Azure. [Altre informazioni](migrate-appliance-architecture.md#appliance-registration)<br/><br/> Sono necessarie le autorizzazioni per creare app di Azure AD (disponibili nel ruolo Sviluppatore applicazioni).
 
 
 

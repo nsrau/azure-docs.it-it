@@ -9,16 +9,21 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4a1952f5ece4c021834fb98f8a09f1a2738e6469
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 929bc0695bda2e64f77f7e9286e06cee787822ba
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789384"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80388968"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Eseguire la migrazione di macchine virtuali Amazon Web Services (AWS) ad Azure
 
-Questa esercitazione illustra come eseguire la migrazione di macchine virtuali Amazon Web Services (AWS) a macchine virtuali di Azure usando Azure Site Recovery. Quando si esegue la migrazione di istanze EC2 di AWS ad Azure, le macchine virtuali vengono trattate come computer fisici locali. In questa esercitazione si apprenderà come:
+Questa esercitazione illustra come eseguire la migrazione di macchine virtuali Amazon Web Services (AWS) a macchine virtuali di Azure usando Azure Site Recovery. Quando si esegue la migrazione di istanze EC2 di AWS ad Azure, le macchine virtuali vengono trattate come computer fisici locali. In questa esercitazione verranno illustrate le procedure per:
+
+
+> [!TIP]
+> Per eseguire la migrazione di macchine virtuali AWS ad Azure, è ora consigliabile usare il servizio Azure Migrate invece del servizio Azure Site Recovery. [Altre informazioni](../migrate/tutorial-migrate-physical-virtual-machines.md)
+
 
 > [!div class="checklist"]
 > * Verificare i prerequisiti
@@ -31,9 +36,6 @@ Questa esercitazione illustra come eseguire la migrazione di macchine virtuali A
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) prima di iniziare.
 
-
-> [!NOTE]
-> È ora possibile usare il servizio Azure Migrate per eseguire la migrazione di istanze di AWS ad Azure. [Altre informazioni](../migrate/tutorial-migrate-physical-virtual-machines.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 - Assicurarsi che nelle macchine virtuali di cui si vuole eseguire la migrazione sia in esecuzione una versione supportata del sistema operativo. Le versioni supportate includono: 
@@ -93,7 +95,7 @@ Per visualizzare il nuovo insieme di credenziali, passare a **Dashboard** > **Tu
 Le macchine virtuali di Azure create dopo la migrazione (failover) vengono aggiunte a questa rete di Azure.
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** > **Rete** >
-   **Rete virtuale**.
+    **Rete virtuale**.
 3. Per **Nome** immettere **myMigrationNetwork**.
 4. Lasciare invariato il valore predefinito per **Spazio degli indirizzi** (è necessario immettere un valore).
 5. In **Sottoscrizione** selezionare la sottoscrizione che si vuole usare.
@@ -231,7 +233,7 @@ Nel portale eseguire il failover di test:
 2. Selezionare un punto di recupero in cui eseguire il failover:
     - **Elaborato più recente**: viene eseguito il failover della macchina virtuale al punto di recupero più recente elaborato da Site Recovery. Viene visualizzato il timestamp. Con questa opzione, non viene dedicato alcun tempo all'elaborazione dei dati, quindi si ottiene un RTO (Recovery Time Objective) basso.
     - **Coerente con l'app più recente**: questa opzione esegue il failover di tutte le macchine virtuali al più recente punto di recupero coerente con l'app. Viene visualizzato il timestamp.
-    - **Personalizzato**: selezionare qualsiasi punto di recupero.
+    - **Custom**: selezionare qualsiasi punto di recupero.
 
 3. In **Failover di test** selezionare la rete di Azure di destinazione a cui vengono connesse le macchine virtuali di Azure dopo il failover. Selezionare la rete creata in [Preparare le risorse di Azure](#prepare-azure-resources).
 4. Selezionare **OK** per iniziare il failover. Per verificare lo stato dell'operazione, selezionare la macchina virtuale per visualizzarne le proprietà. Oppure è possibile selezionare il progetto **Failover di test** nella pagina per l'insieme di credenziali. A tale scopo, selezionare **Monitoraggio e report** > **Processi** >  **Processi di Site Recovery**.

@@ -9,12 +9,12 @@ ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 398e63ec9a8b9e1b16d8ffcee538351fc6572de9
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 9edeecdfb0c0e7ef0ef6e9d1704d81b844ac8c53
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720785"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80293762"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Guida introduttiva: Instradare eventi personalizzati all'endpoint Web con il portale di Azure e Griglia di eventi
 
@@ -22,7 +22,7 @@ La griglia di eventi di Azure è un servizio di gestione degli eventi per il clo
 
 Al termine, i dati degli eventi saranno stati inviati all'app Web.
 
-![Visualizzare i risultati](./media/custom-event-quickstart-portal/view-result.png)
+![Visualizzazione dei risultati](./media/custom-event-quickstart-portal/view-result.png)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -128,7 +128,7 @@ Il primo esempio usa l'interfaccia della riga di comando di Azure. Ottiene l'URL
 ### <a name="azure-powershell"></a>Azure PowerShell
 Il secondo esempio usa PowerShell per eseguire passaggi simili.
 
-1. Nel portale di Azure selezionare **Cloud Shell** (in alternativa, passare a https://shell.azure.com/). Selezionare **PowerShell** nell'angolo in alto a sinistra della finestra Cloud Shell. Vedere l'esempio di immagine di finestra **Cloud Shell** nella sezione sull'interfaccia della riga di comando di Azure.
+1. Nel portale di Azure selezionare **Cloud Shell** (in alternativa, passare a `https://shell.azure.com/`). Selezionare **PowerShell** nell'angolo in alto a sinistra della finestra Cloud Shell. Vedere l'esempio di immagine di finestra **Cloud Shell** nella sezione sull'interfaccia della riga di comando di Azure.
 2. Impostare le variabili seguenti. Dopo aver copiato e incollato ogni singolo comando, aggiornare il **nome dell'argomento** e il **nome del gruppo di risorse** prima di eseguirlo:
 
     ```powershell

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 894fa2f3cda798a409db3ee8e9761c1702baf955
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bc1dd56cd024ee65e29f227f4ec11cde436e388d
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2020
-ms.locfileid: "79216129"
+ms.locfileid: "80294770"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Guida introduttiva: Creare una macchina virtuale Linux nel portale di Azure
 
@@ -47,7 +47,7 @@ Aprire una shell Bash e usare [ssh-keygen](https://www.ssh.com/ssh/keygen/) per 
 
 Accedere al [portale di Azure](https://portal.azure.com), se questa operazione non è già stata eseguita.
 
-## <a name="create-virtual-machine"></a>Crea macchina virtuale
+## <a name="create-virtual-machine"></a>Creare macchina virtuale
 
 1. Digitare **macchine virtuali** nella casella di ricerca.
 1. In **Servizi** selezionare **Macchine virtuali**.
@@ -89,7 +89,7 @@ Creare una connessione SSH con la macchina virtuale.
     ssh azureuser@10.111.12.123
     ```
 
-3. Con la stessa shell Bash usata per creare la coppia di chiavi SSH (è possibile riaprire Cloud Shell selezionando di nuovo `>_` o passando a https://shell.azure.com/bash), incollare il comando di connessione SSH nella shell per creare una sessione SSH.
+3. Con la stessa shell Bash usata per creare la coppia di chiavi SSH (è possibile riaprire Cloud Shell selezionando di nuovo `>_` o passando a `https://shell.azure.com/bash`), incollare il comando di connessione SSH nella shell per creare una sessione SSH.
 
 ## <a name="install-web-server"></a>Installare il server Web
 
@@ -111,7 +111,7 @@ Usare il Web browser che si preferisce per vedere la pagina iniziale di NGINX pr
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non serve più, è possibile eliminare il gruppo di risorse, la macchina virtuale e tutte le risorse correlate. A tale scopo, selezionare il gruppo di risorse per la macchina virtuale, selezionare **Elimina** e quindi confermare il nome del gruppo di risorse da eliminare.
+Quando non servono più, è possibile eliminare il gruppo di risorse, la macchina virtuale e tutte le risorse correlate. A tale scopo, selezionare il gruppo di risorse per la macchina virtuale, selezionare **Elimina** e quindi confermare il nome del gruppo di risorse da eliminare.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: sample
 author: peterclu
 ms.author: peterlu
-ms.date: 03/10/2020
-ms.openlocfilehash: 82476b9cc8d92c815df602496ed3dcb33014a4fd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 03/29/2020
+ms.openlocfilehash: f9a8b0a4c51024d91e517db2f6ae10a4dba62384
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79037289"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389342"
 ---
 # <a name="designer-sample-pipelines"></a>Pipeline di esempio della finestra di progettazione
 
@@ -30,6 +30,8 @@ Usare gli esempi incorporati nella finestra di progettazione di Azure Machine Le
 
 La finestra di progettazione salva una copia delle pipeline di esempio nell'area di lavoro dello studio. È possibile modificare la pipeline per adattarla alle proprie esigenze e salvarla come pipeline personalizzata. È possibile usarla come punto di partenza per avviare rapidamente i progetti.
 
+### <a name="open-a-sample-pipeline"></a>Aprire una pipeline di esempio
+
 1. Accedere a <a href="https://ml.azure.com?tabs=jre" target="_blank">ml.azure.com</a> e selezionare l'area di lavoro che si vuole usare.
 
 1. Selezionare **Designer** (Finestra di progettazione).
@@ -37,6 +39,31 @@ La finestra di progettazione salva una copia delle pipeline di esempio nell'area
 1. Selezionare una pipeline di esempio nella sezione **Nuova pipeline**.
 
     Selezionare **Mostra più esempi** per un elenco completo di esempi.
+
+### <a name="submit-a-pipeline-run"></a>Avviare un'esecuzione della pipeline
+
+Per eseguire una pipeline, è necessario prima di tutto impostare la destinazione di calcolo predefinita in cui eseguirla.
+
+1. Nel riquadro **Impostazioni** a destra dell'area di disegno selezionare **Seleziona destinazione di calcolo**.
+
+1. Nella finestra di dialogo visualizzata selezionare una destinazione di calcolo esistente o crearne una nuova. Selezionare **Salva**.
+
+1. Selezionare **Invia** nella parte superiore del canvas per avviare un'esecuzione della pipeline.
+
+A seconda della pipeline di esempio e delle impostazioni di calcolo, il completamento delle esecuzioni potrebbe richiedere del tempo. Le impostazioni di calcolo predefinite prevedono una dimensione minima del nodo pari a 0, il che significa che la finestra di progettazione deve allocare risorse dopo l'inattività. Le esecuzioni ripetute della pipeline richiederanno meno tempo, perché le risorse di calcolo sono già allocate. Inoltre, la finestra di progettazione usa i risultati memorizzati nella cache per ogni modulo per migliorare ulteriormente l'efficienza.
+
+
+### <a name="review-the-results"></a>Esaminare i risultati
+
+Al termine dell'esecuzione, è possibile esaminare la pipeline e visualizzare l'output di ogni modulo per acquisire altre informazioni.
+
+Per visualizzare l'output dei moduli, procedere come segue:
+
+1. Selezionare un modulo nel canvas.
+
+1. Nel riquadro dei dettagli del modulo a destra del canvas selezionare **Output + log**. Selezionare l'icona del grafico ![icona di visualizzazione](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) per visualizzare i risultati di ogni modulo. 
+
+Usare gli esempi come punti di partenza per alcuni scenari più comuni di Machine Learning.
 
 ## <a name="regression-samples"></a>Esempi di regressione
 

@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: juliako
-ms.openlocfilehash: f8ff3dc71727abf9e276cccc951c4d1143f4200d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: 4e40d26e392219fb751328bc54855d87e80bae19
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359522"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80346002"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>Esercitazione: caricare, codificare e trasmettere in streaming video con servizi multimediali V3
+# <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>Esercitazione: Caricare, codificare ed eseguire lo streaming di video con Servizi multimediali v3
 
 > [!NOTE]
 > Anche se l'esercitazione usa esempi di [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), i passaggi generali sono gli stessi per [API REST](https://docs.microsoft.com/rest/api/media/liveevents), l'[interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) o altri [SDK](media-services-apis-overview.md#sdks) supportati.
@@ -36,7 +36,7 @@ Questa esercitazione illustra come:
 > * Esaminare il codice per caricamento, codifica e streaming.
 > * Eseguire l'app.
 > * Testare l'URL di streaming.
-> * Pulizia delle risorse.
+> * Pulire le risorse.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -72,7 +72,7 @@ L'esempio esegue le azioni seguenti:
 6. Crea un **localizzatore di streaming**.
 7. Crea gli URL di streaming.
 
-### <a name="a-idstart_using_dotnet-start-using-media-services-apis-with-net-sdk"></a><a id="start_using_dotnet" />Iniziare a usare le API di Servizi multimediali con .NET SDK
+### <a name="start-using-media-services-apis-with-net-sdk"></a><a id="start_using_dotnet" />Iniziare a usare le API di Servizi multimediali con .NET SDK
 
 Per iniziare a usare le API di Servizi multimediali con .NET, è necessario creare un oggetto **AzureMediaServicesClient**. Per creare l'oggetto, è necessario specificare le credenziali necessarie per consentire al client di connettersi ad Azure tramite Azure AD. Nel codice clonato all'inizio dell'articolo, la funzione **GetCredentialsAsync** crea l'oggetto ServiceClientCredentials in base alle credenziali fornite nel file di configurazione locale.
 
@@ -88,6 +88,8 @@ La funzione esegue queste azioni:
 
 * Crea un **asset**.
 * Ottiene un [URL di firma di accesso condiviso](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) scrivibile nel [contenitore nel servizio di archiviazione](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container) dell'asset.
+
+    Se si usa la funzione [ListContainerSas](https://docs.microsoft.com/rest/api/media/assets/listcontainersas) dell'asset per ottenere gli URL di firma di accesso condiviso, si noti che la funzione ne restituisce molti, perché sono disponibili due chiavi per ogni account di archiviazione. Il motivo della presenza di due chiavi è che rende possibile la rotazione trasparente delle chiavi dell'account di archiviazione (ad esempio, cambiarne una mentre si usa l'altra, quindi iniziare a usare la nuova chiave e ruotare l'altra). Il primo URL di firma di accesso condiviso rappresenta la chiave Key1 dell'account di archiviazione e il secondo la chiave Key2.
 * Carica il file nel contenitore nel servizio di archiviazione usando l'URL di firma di accesso condiviso.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -126,7 +128,7 @@ Il completamento del processo richiede tempo e al termine dell'elaborazione può
 
 Griglia di eventi è un servizio progettato per garantire disponibilità elevata, coerenza nelle prestazioni e scalabilità dinamica. Con Griglia di eventi, le app possono rimanere in ascolto e reagire agli eventi praticamente da tutti i servizi di Azure, oltre che da origini personalizzate. Questo semplice servizio di gestione degli eventi, reattivo e basato su HTTP, consente di creare soluzioni efficienti tramite funzioni intelligenti di filtraggio e routing di eventi.  Vedere [Instradare gli eventi verso un endpoint Web personalizzato](job-state-events-cli-how-to.md).
 
-L'oggetto **Job** assume progressivamente gli stati seguenti: **Scheduled**, **Queued**, **Processing**, **Finished** (lo stato finale). Se nel corso del processo si verifica un errore, viene restituito lo stato **Error**. Se il processo è in fase di annullamento, vengono restituiti lo stato **Annullamento in corso** e, al termine, lo stato **Annullato**.
+L'oggetto **Job** assume progressivamente gli stati seguenti: **Scheduled**, **Queued**, **Processing**, **Finished** (stato finale). Se nel corso del processo si verifica un errore, viene restituito lo stato **Error**. Se il processo è in fase di annullamento, vengono restituiti lo stato **Annullamento in corso** e, al termine, lo stato **Annullato**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#WaitForJobToFinish)]
 
@@ -153,7 +155,7 @@ Anche se l'esempio in questo argomento illustra un processo di streaming, è pos
 
 ### <a name="get-streaming-urls"></a>Ottenere URL di streaming
 
-Ora che è stato creato il [localizzatore di streaming](https://docs.microsoft.com/rest/api/media/streaminglocators), è possibile ottenere gli URL di streaming, come illustrato in **GetStreamingURLs**. Per creare un URL, è necessario concatenare il nome host dell'[endpoint di streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) e il percorso del **localizzatore di streaming**. In questo esempio viene usato l' **endpoint di streaming** *predefinito* . Quando si crea un account del servizio multimediale per la prima volta, questo **endpoint di streaming** *predefinito* si trova nello stato interrotto, quindi è necessario chiamare **Start**.
+Ora che è stato creato il [localizzatore di streaming](https://docs.microsoft.com/rest/api/media/streaminglocators), è possibile ottenere gli URL di streaming, come illustrato in **GetStreamingURLs**. Per creare un URL, è necessario concatenare il nome host dell'[endpoint di streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) e il percorso del **localizzatore di streaming**. In questo esempio viene usato l'*endpoint di streaming* **predefinito**. Quando si crea un account di Servizi multimediali per la prima volta, l'*endpoint di streaming* **predefinito** è in stato arrestato ed è quindi necessario chiamare **Start**.
 
 > [!NOTE]
 > In questo metodo è necessario specificare il parametro locatorName usato per la creazione del **localizzatore di streaming** per l'asset di output.

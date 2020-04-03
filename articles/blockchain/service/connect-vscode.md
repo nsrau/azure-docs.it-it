@@ -1,15 +1,15 @@
 ---
 title: Usare Visual Studio Code per connettersi al servizio Azure Blockchain
 description: Connettersi alla rete di un consorzio del servizio Azure Blockchain usando l'estensione Azure Blockchain Development Kit per Ethereum in Visual Studio Code
-ms.date: 12/05/2019
+ms.date: 03/26/2020
 ms.topic: quickstart
-ms.reviewer: chrisseg
-ms.openlocfilehash: 1bcdfdafa9253fc4dc20ccb7cc237cb794b0af53
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.reviewer: caleteet
+ms.openlocfilehash: 269a3e419186daddf1e6a41a54e52e688f4bc7e3
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74977073"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348590"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-to-an-azure-blockchain-service-consortium-network"></a>Guida introduttiva: Usare Visual Studio Code per connettersi alla rete di un consorzio del servizio Azure Blockchain
 
@@ -22,7 +22,7 @@ In questa guida di avvio rapido si installa e si usa l'estensione Azure Blockcha
 * Completare [Avvio rapido: Creare un membro della blockchain con il portale di Azure](create-member.md) o [Avvio rapido: Creare un membro della blockchain del servizio Azure Blockchain usando l'interfaccia della riga di comando di Azure](create-member-cli.md)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 * [Estensione Azure Blockchain Development Kit per Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
-* [Node.js 10.15.x o versione successiva](https://nodejs.org/download)
+* [Node.js 10.15.x o versione successiva](https://nodejs.org)
 * [Git 2.10.x o versione successiva](https://git-scm.com)
 * [Python 2.7.15](https://www.python.org/downloads/release/python-2715/) Aggiungere python.exe al percorso. Python versione 2.7.15 nel percorso è necessario per Azure Blockchain Development Kit.
 * [Truffle 5.0.0](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
