@@ -1,19 +1,19 @@
 ---
-title: Script di PowerShell per creare un account Azure Cosmos con il firewall per gli indirizzi IP
-description: Esempio di script di Azure PowerShell - Creare un account Azure Cosmos con il firewall IP
+title: Script di PowerShell per creare un account Azure Cosmos DB con il firewall per gli indirizzi IP
+description: Esempio di script di Azure PowerShell - Creare un account Azure Cosmos DB con il firewall per gli indirizzi IP
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 09/20/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 6f018815bb8afd50bd9f21f8c088fd688ace1174
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f01e8e818a1b3cf4f999afa1e0801b2341ede2bf
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75445078"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365681"
 ---
-# <a name="create-an-azure-cosmos-account-with-ip-firewall"></a>Creare un account Azure Cosmos con il firewall IP
+# <a name="create-an-azure-cosmos-db-account-with-ip-firewall"></a>Creare un account Azure Cosmos DB con il firewall per gli indirizzi IP
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -40,10 +40,9 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | Comando | Note |
 |---|---|
-|**Risorse di Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Crea una risorsa. |
+|**Azure Cosmos DB**| |
+| [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Crea un nuovo account Cosmos DB. |
 |**Gruppi di risorse di Azure**| |
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 |||
 

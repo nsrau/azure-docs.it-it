@@ -1,6 +1,6 @@
 ---
 title: Gestibilità e monitoraggio - Panoramica
-description: Panoramica del monitoraggio e della gestibilità per l'utilizzo delle risorse, l'attività di log e query, i consigli e la protezione dei dati (backup e ripristino) con il pool SQL.
+description: Panoramica del monitoraggio e della gestibilità per l'utilizzo delle risorse, l'attività di log e query, i consigli e la protezione dei dati (backup e ripristino) con il pool SQL Synapse.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 08/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 26e74b7b2cabfe7080c624569b5e2189a86770ea
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: e41bf003af7d0926aab04ffed86bf6ec5031c4f7
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350301"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586425"
 ---
-# <a name="manageability-and-monitoring-with-sql-pool"></a>Gestibilità e monitoraggio con il pool SQL
+# <a name="manageability-and-monitoring-with-synapse-sql-pool"></a>Gestibilità e monitoraggio con il pool SQL Synapse
 
-Sql Analytics consente di eseguire il provisioning di un data warehouse tramite pool SQL. Gli articoli che seguono ti aiuteranno a gestire e monitorare il tuo data warehouse. Verranno inoltre disponibili informazioni sui modi per ottimizzare l'utilizzo e le prestazioni del data warehouse.
+Synapse SQL consente di eseguire il provisioning di un data warehouse tramite il pool SQL. Gli articoli che seguono ti aiuteranno a gestire e monitorare il tuo data warehouse. Verranno inoltre disponibili informazioni sui modi per ottimizzare l'utilizzo e le prestazioni del data warehouse.
 
 ## <a name="overview"></a>Panoramica
 

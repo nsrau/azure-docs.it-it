@@ -58,8 +58,6 @@
       href: sql-database-managed-instance-quickstart-guide.md
 - name: Concetti
   items:
-    - name: Documentazione sulle funzionalità comuni
-      href: sql-database-paas-index.yml
     - name: Confronto tra le funzionalità
       href: sql-database-features.md
     - name: Guida pratica
@@ -280,8 +278,6 @@
                   href: sql-database-xevent-code-ring-buffer.md
     - name: Scalabilità
       items:
-        - name: Documentazione sulla scalabilità
-          href: sql-database-scalability-index.yml
         - name: Aumentare/Ridurre le prestazioni
           href: sql-database-scale-resources.md
         - name: Scalabilità in lettura
@@ -310,8 +306,6 @@
           href: sql-database-elastic-transactions-overview.md
     - name: Funzionalità di database
       items:
-        - name: Documentazione sulle funzionalità di database
-          href: sql-database-features-index.yml
         - name: Funzionalità multimodello
           href: sql-database-multi-model-features.md
         - name: In memoria
@@ -685,7 +679,6 @@
         - name: Esempi di codice
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: Istanza gestita di SQL
-  href: sql-database-managed-instance-index.yml
   items:
     - name: Panoramica
       items:

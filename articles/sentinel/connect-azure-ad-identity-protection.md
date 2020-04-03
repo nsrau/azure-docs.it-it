@@ -9,18 +9,18 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 11/17/2019
 ms.author: yelevin
-ms.openlocfilehash: 7d42ff28ddd2d883feb25139096d781efe64d50f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b82ddfef57efaaca0ae43750cd306a63a772b911
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77588570"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80616817"
 ---
 # <a name="connect-data-from-azure-ad-identity-protection"></a>Connettere i dati da Azure AD Identity ProtectionConnect data from Azure AD Identity Protection
 
 
 
-È possibile trasmettere i log da [Azure AD Identity Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) in Azure Sentinel per trasmettere avvisi in Azure Sentinel per visualizzare dashboard, creare avvisi personalizzati e migliorare l'analisi. Azure Active Directory Identity Protection offre una visualizzazione consolidata a rischio per gli utenti, i rilevamenti dei rischi e le vulnerabilità, con la possibilità di correggere immediatamente i rischi e impostare criteri per il correzione automatica degli eventi futuri. Il servizio si basa sull'esperienza di Microsoft nella protezione delle identità dei consumatori e ottiene un'enorme precisione dal segnale da oltre 13 miliardi di log-in al giorno. 
+È possibile trasmettere i log da [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection) in Azure Sentinel per trasmettere avvisi in Azure Sentinel per visualizzare dashboard, creare avvisi personalizzati e migliorare l'analisi. Azure Active Directory Identity Protection offre una visualizzazione consolidata a rischio per gli utenti, i rilevamenti dei rischi e le vulnerabilità, con la possibilità di correggere immediatamente i rischi e impostare criteri per il correzione automatica degli eventi futuri. Il servizio si basa sull'esperienza di Microsoft nella protezione delle identità dei consumatori e ottiene un'enorme precisione dal segnale da oltre 13 miliardi di log-in al giorno. 
 
 
 ## <a name="prerequisites"></a>Prerequisiti

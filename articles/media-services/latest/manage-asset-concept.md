@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: fcdb8af770fa0068e8413d4609a56223a9a20ce2
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 9136fd702fad5c12a8ec97a68ff8a592a203d7d2
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345891"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582210"
 ---
 # <a name="manage-assets"></a>Gestire le risorse
 
@@ -60,7 +60,7 @@ Dopo che i file digitali sono stati caricati nell'archivio e associati a un asse
 
     **AssetContainerSas.listContainerSas** accetta un parametro [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) su cui si imposta `expiryTime`. L'ora deve essere impostata su < 24 ore.
 
-    [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) restituisce più URL di accesso utenti come sono presenti due chiavi dell'account di archiviazione per ogni account di archiviazione. Un account di archiviazione ha due chiavi perché consente una rotazione uniforme delle chiavi dell'account di archiviazione (ad esempio, modificarne una durante l'uso dell'altra, quindi iniziare a usare la nuova chiave e ruotare l'altra). Il primo URL di accesso condiviso rappresenta la chiave di archiviazione1 e la seconda chiave di archiviazione2.The 1st SAS URL represents storage key1 and second one storage key2.
+    [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) restituisce più URL di accesso utenti come sono presenti due chiavi dell'account di archiviazione per ogni account di archiviazione. Un account di archiviazione ha due chiavi perché consente il failover e la rotazione uniforme delle chiavi dell'account di archiviazione. Il primo URL di accesso condiviso rappresenta la prima chiave dell'account di archiviazione e il secondo URL di accesso condiviso rappresenta la seconda chiave.
 3. Usare le API di Archiviazione di Azure o gli SDK (ad esempio, [l'API REST](../../storage/common/storage-rest-api-auth.md) di archiviazione o .NET SDK ) per caricare i file nel contenitore Asset.Use the Azure Storage APIs or SDKs (for example, the Storage REST API or [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) to upload files into the Asset container.
 4. Usare le API di Servizi multimediali v3 per creare una trasformazione e un processo per elaborare l'asset "input". Per ulteriori informazioni, consultate [Trasformazioni e processi.](transform-concept.md)
 5. Trasmettere il contenuto dall'asset "output".

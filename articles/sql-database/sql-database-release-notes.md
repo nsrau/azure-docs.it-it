@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: sstein
-ms.openlocfilehash: 2df83e3b62994381895315b2ef100299e40b745e
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 9fa93af72c2869efd7b6d2f1e8b96b0e667f8b16
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366511"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607542"
 ---
 # <a name="sql-database-release-notes"></a>Note sulla versione del database SQL
 
@@ -78,6 +78,7 @@ Le funzionalità seguenti sono abilitate nel modello di distribuzione dell'istan
 
 |Problema  |Data di scoperta  |Stato  |Data risolta  |
 |---------|---------|---------|---------|
+|[Autorizzazioni per il gruppo di risorse non applicate all'istanza gestitaPermissions on resource group not applied to Managed Instance](#permissions-on-resource-group-not-applied-to-managed-instance)|Feb 2020|Ha soluzione alternativa||
 |[Limitazione del failover manuale tramite portale per gruppi di failoverLimitation of manual failover via portal for failover groups](#limitation-of-manual-failover-via-portal-for-failover-groups)|gennaio 2020|Ha soluzione alternativa||
 |[I ruoli di SQL Agent richiedono autorizzazioni EXECUTE esplicite per gli account di accesso non sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|Dicembre 2019|Ha soluzione alternativa||
 |[I processi di SQL Agent possono essere interrotti dal riavvio del processo dell'agenteSQL Agent jobs can be interrupted by Agent process restart](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Dicembre 2019|Nessuna soluzione alternativa|Mar 2020|
@@ -101,6 +102,12 @@ Le funzionalità seguenti sono abilitate nel modello di distribuzione dell'istan
 |Il ripristino del database temporizzato dal livello Business Critical al livello Scopo generale non avrà esito positivo se il database di origine contiene oggetti OLTP in memoria.||Risolto|Ottobre 2019|
 |Funzionalità Posta elettronica database con server di posta esterni (non Azure) che usano una connessione sicuraDatabase Mail feature with external (non-Azure) mail servers using secure connection||Risolto|Ottobre 2019|
 |Database indipendenti non supportati nell'istanza gestitaContained databases not supported in managed instance||Risolto|Agosto 2019|
+
+### <a name="permissions-on-resource-group-not-applied-to-managed-instance"></a>Autorizzazioni per il gruppo di risorse non applicate all'istanza gestitaPermissions on resource group not applied to managed instance
+
+Il ruolo RBAC Collaboratore istanza gestita quando viene applicato a un gruppo di risorse (RG) non viene applicato all'istanza gestita e non ha alcun effetto.
+
+**Soluzione alternativa:** impostare il ruolo Collaboratore istanza gestita per gli utenti a livello di sottoscrizione.
 
 ### <a name="limitation-of-manual-failover-via-portal-for-failover-groups"></a>Limitazione del failover manuale tramite portale per gruppi di failoverLimitation of manual failover via portal for failover groups
 

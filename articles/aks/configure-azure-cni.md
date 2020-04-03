@@ -4,12 +4,12 @@ description: Informazioni su come configurare le funzionalità di rete avanzate 
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 400d5a46ad62f8ac391c573eb64a7eb22dc4062c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f194cb97850fcb24e4789ac0ba39b6f03d99e6e
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80047999"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617389"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurare funzionalità di rete di Azure CNI nel servizio Azure Kubernetes
 
@@ -27,6 +27,7 @@ Questo articolo illustra come usare le funzionalità di rete di *Azure CNI* per 
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 * Anziché un'entità servizio, è possibile usare l'identità gestita assegnata dal sistema per le autorizzazioni. Per ulteriori informazioni, vedere [Utilizzare le identità gestite](use-managed-identity.md).
+* La subnet assegnata al pool di nodi AKS non può essere una [subnet delegata.](../virtual-network/subnet-delegation-overview.md)
 
 ## <a name="plan-ip-addressing-for-your-cluster"></a>Pianificare l'indirizzamento IP per il cluster
 

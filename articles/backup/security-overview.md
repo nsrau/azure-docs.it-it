@@ -3,12 +3,12 @@ title: Panoramica delle funzionalità di sicurezza
 description: Informazioni sulle funzionalità di sicurezza in Backup di Azure che consentono di proteggere i dati di backup e soddisfare le esigenze di sicurezza dell'azienda.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 91a0f29862b0c9c35e562c143e28ebbc6c39cf94
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 2eec3ee50f1de695b5432ee50b0900e35b81a6eb
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80423184"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585826"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Panoramica delle funzionalità di sicurezza in Backup di AzureOverview of security features in Azure Backup
 
@@ -66,6 +66,8 @@ Azure Backup service uses the Microsoft Azure Recovery Services (MARS) agent to 
 * Ogni volta che viene eseguita un'operazione critica, come la modifica di una passphrase, viene aggiunto un ulteriore livello di autenticazione. Questa convalida serve a garantire che tali operazioni possano essere eseguite solo dagli utenti che hanno credenziali di Azure valide. [Ulteriori informazioni sulle funzionalità che impediscono gli attacchi](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#prevent-attacks).
 
 * I dati di backup eliminati vengono conservati per altri 14 giorni dalla data di eliminazione. Ciò garantisce la recuperabilità dei dati entro un determinato periodo di tempo, pertanto non si verifica alcuna perdita di dati anche se si verifica un attacco. Inoltre, viene conservato un maggior numero di punti di recupero per prevenire il rischio di dati danneggiati. [Ulteriori informazioni sul ripristino dei dati di backup eliminati](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#recover-deleted-backup-data).
+
+* Per i dati di cui è stato eseguito il backup usando l'agente di Microsoft Azure Recovery Services (MARS), viene usata una passphrase per garantire che i dati vengano crittografati prima del caricamento in Backup di Azure e decrittografati solo dopo il download da Backup di Azure.For data backed up using the Microsoft Azure Recovery Services (MARS) agent, a passphrase is used to ensure data is encrypted before upload to Azure Backup and decrypted only after download from Azure Backup. I dettagli della passphrase sono disponibili solo per l'utente che ha creato la passphrase e l'agente che vi è configurato. Nulla viene trasmesso o condiviso con il servizio. Ciò garantisce la completa sicurezza dei dati in quanto tutti i dati esposti inavvertitamente (ad esempio un attacco man-in-the-middle alla rete) sono inutilizzabili senza la passphrase e la passphrase non viene inviata sulla rete.
 
 ## <a name="compliance-with-standardized-security-requirements"></a>Conformità ai requisiti di sicurezza standardizzati
 

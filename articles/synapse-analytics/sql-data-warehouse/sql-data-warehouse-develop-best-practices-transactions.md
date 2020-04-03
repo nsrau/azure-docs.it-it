@@ -1,6 +1,6 @@
 ---
 title: Ottimizzazione delle transazioni per SQL Data Warehouse
-description: Scopri come ottimizzare le prestazioni del codice transazionale in SQL Analytics riducendo al minimo i rischi per lunghi rollback.
+description: Informazioni su come ottimizzare le prestazioni del codice transazionale in Synapse SQL riducendo al minimo i rischi per lunghi rollback.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,26 +11,29 @@ ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 700f4717db652d678255aaa9fce6ff8b8ff3b52f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: d97a388477c895a4a8632d7ab3d06dc4c8982857
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350595"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582132"
 ---
-# <a name="optimizing-transactions-in-sql-analytics"></a>Ottimizzazione delle transazioni in ANALISI SQLOptimizing transactions in SQL Analytics
-Scopri come ottimizzare le prestazioni del codice transazionale in SQL Analytics riducendo al minimo i rischi per lunghi rollback.
+# <a name="optimizing-transactions-in-synapse-sql"></a>Ottimizzazione delle transazioni in Synapse SQLOptimizing transactions in Synapse SQL
+
+Informazioni su come ottimizzare le prestazioni del codice transazionale in Synapse SQL riducendo al minimo i rischi per lunghi rollback.
 
 ## <a name="transactions-and-logging"></a>Transazioni e registrazione
-Le transazioni sono un componente importante in un motore di database relazionale. ANALISI SQL usa le transazioni durante la modifica dei dati. Queste operazioni possono essere esplicite o implicite. Le istruzioni singole INSERT, UPDATE e DELETE sono esempi di transazioni implicite. Le transazioni esplicite usano BEGIN TRAN, COMMIT TRAN o ROLLBACK TRAN. Le transazioni esplicite vengono usate in genere quando è necessario collegare più istruzioni di modifica in un'unica unità atomica. 
 
-SQL Analytics esegue il commit delle modifiche al database usando i log delle transazioni. Ogni distribuzione ha un proprio log delle transazioni. Le scritture del log delle transazioni avvengono in modo automatico e non è richiesta alcuna configurazione. Tuttavia, se da un lato questo processo garantisce la scrittura dall'altro provoca un sovraccarico nel sistema. È possibile ridurre al minimo tale impatto scrivendo codice efficiente a livello transazionale. Il codice efficiente a livello transazionale rientra in due categorie generali.
+Le transazioni sono un componente importante in un motore di database relazionale. Le transazioni vengono utilizzate durante la modifica dei dati. Queste operazioni possono essere esplicite o implicite. Le istruzioni singole INSERT, UPDATE e DELETE sono esempi di transazioni implicite. Le transazioni esplicite usano BEGIN TRAN, COMMIT TRAN o ROLLBACK TRAN. Le transazioni esplicite vengono usate in genere quando è necessario collegare più istruzioni di modifica in un'unica unità atomica. 
+
+Le modifiche apportate al database vengono rilevate utilizzando i registri delle transazioni. Ogni distribuzione ha un proprio log delle transazioni. Le scritture del log delle transazioni avvengono in modo automatico e non è richiesta alcuna configurazione. Tuttavia, se da un lato questo processo garantisce la scrittura dall'altro provoca un sovraccarico nel sistema. È possibile ridurre al minimo tale impatto scrivendo codice efficiente a livello transazionale. Il codice efficiente a livello transazionale rientra in due categorie generali.
 
 * Usare costrutti di registrazione minima, dove possibile
 * Elaborare i dati tramite batch con ambito per evitare singole transazioni a esecuzione prolungata.
 * Adottare un modello di cambio di partizione per apportare modifiche estese a una determinata partizione.
 
 ## <a name="minimal-vs-full-logging"></a>Confronto tra registrazione minima e registrazione completa
+
 A differenza delle operazioni con registrazione completa, che usano il log delle transazioni per tenere traccia di ogni modifica di riga, le operazioni con registrazione minima tengono traccia unicamente delle allocazioni di extent e delle modifiche ai metadati. La registrazione minima prevede quindi la registrazione delle sole informazioni necessarie per eseguire il rollback della transazione dopo un errore o per una richiesta esplicita (ROLLBACK TRAN). Dato che nel log delle transazioni viene registrata una quantità di informazioni notevolmente inferiore, le operazioni con registrazione minima offrono prestazioni migliori rispetto alle operazioni con registrazione completa di dimensioni simili. Il minor numero di scritture nel log delle transazioni comporta anche la generazione di una quantità molto inferiore di dati di log e quindi operazioni di I/O più efficienti.
 
 I limiti di sicurezza delle transazioni si applicano solo alle operazioni con registrazione completa.
@@ -41,6 +44,7 @@ I limiti di sicurezza delle transazioni si applicano solo alle operazioni con re
 > 
 
 ## <a name="minimally-logged-operations"></a>Operazioni con registrazione minima
+
 Le operazioni indicate di seguito sono compatibili con la registrazione minima:
 
 * CREA TABELLA COME SELEZIONE ([CTAS](sql-data-warehouse-develop-ctas.md))
@@ -78,14 +82,13 @@ CTAS e INSERT...SELECT sono entrambe operazioni di caricamento bulk. Tuttavia, e
 Si noti che eventuali scritture di aggiornamento di indici secondari o non cluster saranno sempre operazioni con registrazione completa.
 
 > [!IMPORTANT]
-> Un database di ANALISI SQL include 60 distribuzioni. Di conseguenza, supponendo che tutte le righe siano distribuite in modo uniforme e che vengano inserite in una singola partizione, il batch dovrà contenere almeno 6.144.000 di righe per la registrazione minima durante la scrittura un indice columnstore cluster. Se la tabella è partizionata e le righe da inserire si estendono oltre i limiti della partizione, saranno necessari 6.144.000 di righe per limite di partizione, supponendo una distribuzione uniforme dei dati. Per la registrazione minima dell'inserimento nella distribuzione, ogni partizione in ogni distribuzione deve superare singolarmente la soglia di 102.400 righe.
-> 
+> Un database del pool SQL Synapse ha 60 distribuzioni. Di conseguenza, supponendo che tutte le righe siano distribuite in modo uniforme e che vengano inserite in una singola partizione, il batch dovrà contenere almeno 6.144.000 di righe per la registrazione minima durante la scrittura un indice columnstore cluster. Se la tabella è partizionata e le righe da inserire si estendono oltre i limiti della partizione, saranno necessari 6.144.000 di righe per limite di partizione, supponendo una distribuzione uniforme dei dati. Per la registrazione minima dell'inserimento nella distribuzione, ogni partizione in ogni distribuzione deve superare singolarmente la soglia di 102.400 righe.
 > 
 
 Il caricamento di dati in una tabella non vuota con un indice cluster può spesso contenere una combinazione di righe con registrazione completa e con registrazione minima. Un indice cluster è un albero B (bilanciato) di pagine. Se la pagina in cui si scrive contiene già righe provenienti da un'altra transazione, la scrittura verrà eseguita con registrazione completa. Se invece la pagina è vuota, la scrittura verrà eseguita con registrazione minima.
 
 ## <a name="optimizing-deletes"></a>Ottimizzazione delle eliminazioni
-DELETE è un'operazione con registrazione completa.  Per eliminare una grande quantità di dati da una tabella o una partizione spesso è più pratico usare `SELECT` per indicare i dati da conservare, operazione che può essere eseguita registrazione minima.  Per selezionare i dati, creare una nuova tabella con [CTAS](sql-data-warehouse-develop-ctas.md).  Dopo averla creata, usare [RENAME](/sql/t-sql/statements/rename-transact-sql) per sostituire la tabella precedente con la quella nuova.
+DELETE è un'operazione con registrazione completa.  Per eliminare una grande quantità di dati da una tabella o una partizione spesso è più pratico usare `SELECT` per indicare i dati da conservare, operazione che può essere eseguita registrazione minima.  Per selezionare i dati, creare una nuova tabella con [CTAS](sql-data-warehouse-develop-ctas.md).  Dopo averla creata, usare [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per sostituire la tabella precedente con la quella nuova.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -116,7 +119,7 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
 ## <a name="optimizing-updates"></a>Ottimizzazione degli aggiornamenti
-UPDATE è un'operazione con registrazione completa.  Se è necessario aggiornare un numero elevato di righe in una tabella o in una partizione, spesso può essere molto più efficiente usare un'operazione con registrazione minima, ad esempio [CTAS,](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) in modo da poter eseguire questa operazione.
+UPDATE è un'operazione con registrazione completa.  Se è necessario aggiornare un numero elevato di righe in una tabella o in una partizione, spesso può essere molto più efficiente usare un'operazione con registrazione minima, ad esempio [CTAS,](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) in modo da poter eseguire questa operazione.
 
 Nell'esempio seguente l'aggiornamento completo di una tabella è stato convertito in CTAS per consentire la registrazione minima.
 
@@ -177,7 +180,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> La ricreazione di tabelle di grandi dimensioni può trarre vantaggio dall'utilizzo delle funzionalità di gestione del carico di lavoro di SQL Analytics.Re-creating large tables can benefit from using SQL Analytics workload management features. Per altre informazioni, vedere [Classi di risorse per la gestione del carico di lavoro](resource-classes-for-workload-management.md).
+> La ricreazione di tabelle di grandi dimensioni può trarre vantaggio dall'utilizzo delle funzionalità di gestione del carico di lavoro del pool SQL Synapse.Re-creating large tables can benefit from using Synapse SQL pool workload management features. Per altre informazioni, vedere [Classi di risorse per la gestione del carico di lavoro](resource-classes-for-workload-management.md).
 > 
 > 
 
@@ -405,7 +408,8 @@ END
 ```
 
 ## <a name="pause-and-scaling-guidance"></a>Linee guida per la sospensione e il ridimensionamento
-Analisi SQL consente di [sospendere, riprendere e ridimensionare](sql-data-warehouse-manage-compute-overview.md) il pool SQL su richiesta. Quando si sospende o si ridimensiona il pool SQL, è importante comprendere che tutte le transazioni in corso vengono terminate immediatamente. causando il rollback di tutte le transazioni aperte. Se il carico di lavoro ha avviato una modifica dei dati a esecuzione prolungata e incompleta prima dell'operazione di sospensione o ridimensionamento, occorre annullare l'operazione. Questa annullamento potrebbe influire sul tempo necessario per sospendere o ridimensionare il pool SQL. 
+
+Synapse SQL consente di [sospendere, riprendere e ridimensionare](sql-data-warehouse-manage-compute-overview.md) il pool SQL su richiesta. Quando si sospende o si ridimensiona il pool SQL, è importante comprendere che tutte le transazioni in corso vengono terminate immediatamente. causando il rollback di tutte le transazioni aperte. Se il carico di lavoro ha avviato una modifica dei dati a esecuzione prolungata e incompleta prima dell'operazione di sospensione o ridimensionamento, occorre annullare l'operazione. Questa annullamento potrebbe influire sul tempo necessario per sospendere o ridimensionare il pool SQL. 
 
 > [!IMPORTANT]
 > `UPDATE` e `DELETE` sono operazioni con registrazione completa e qualsiasi operazione di annullamento o ripristino può richiedere molto più tempo rispetto alle operazioni con registrazione minima equivalenti. 
@@ -414,9 +418,10 @@ Analisi SQL consente di [sospendere, riprendere e ridimensionare](sql-data-wareh
 
 Lo scenario migliore consiste nel consentire il completamento delle transazioni di modifica dei dati in volo prima di sopperere o ridimensionare il pool SQL. Tuttavia, questo potrebbe non essere sempre possibile. Per ridurre il rischio di un rollback troppo lungo, prendere in considerazione una delle opzioni seguenti:
 
-* Riscrivere le operazioni a esecuzione prolungata usando [CTASRewrite](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) long running operations using CTAS
+* Riscrivere le operazioni a esecuzione prolungata usando [CTASRewrite](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) long running operations using CTAS
 * Suddividere l'operazione in blocchi e lavorare su un subset delle righe
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sui livelli di isolamento e sui limiti delle transazioni, vedere [Transazioni in SQL Analytics.See Transactions in SQL Analytics](sql-data-warehouse-develop-transactions.md) to learn more about isolation levels and transactional limits.  Per una panoramica delle altre procedure consigliate, vedere [Procedure consigliate per SQL Data Warehouse](sql-data-warehouse-best-practices.md).
+
+Per altre informazioni sui livelli di isolamento e sui limiti transazionali, vedere [Transazioni in Synapse SQL.](sql-data-warehouse-develop-transactions.md)  Per una panoramica delle altre procedure consigliate, vedere [Procedure consigliate per SQL Data Warehouse](sql-data-warehouse-best-practices.md).
 

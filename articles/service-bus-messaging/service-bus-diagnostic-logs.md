@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: c8eba538a7015648611e6054ce85b381dcfc9105
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a80fb97810fee04a4eb50c43178c168e66f29173
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76760999"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618737"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Abilitare i log di diagnostica per il bus di servizioEnable diagnostics logs for Service Bus
 
@@ -76,10 +76,10 @@ Le seguenti operazioni di gestione vengono acquisite nei log operativi:The follo
 
 | Scope | Operazione|
 |-------| -------- |
-| Spazio dei nomi | <ul> <li> Creare lo spazio dei nomi</li> <li> Spazio dei nomi Update </li> <li> Elimina spazio dei nomi </li>  </ul> | 
-| Coda | <ul> <li> Creare una coda</li> <li> Update Queue</li> <li> Eliminazione code </li> </ul> | 
-| Argomento | <ul> <li> Crea argomento </li> <li> Aggiornamento di un argomento </li> <li> Elimina argomento </li> </ul> |
-| Subscription | <ul> <li> Creazione di sottoscrizioni </li> <li> Aggiornamento di sottoscrizioni </li> <li> Eliminazione di sottoscrizioni </li> </ul> |
+| Spazio dei nomi | <ul> <li> Creare lo spazio dei nomi</li> <li> Spazio dei nomi Update </li> <li> Elimina spazio dei nomi </li> <li> Aggiorna criterio SharedAccess dello spazio dei nomiUpdate Namespace SharedAccess Policy </li> </ul> | 
+| Coda | <ul> <li> Creare una coda</li> <li> Update Queue</li> <li> Eliminazione code </li> <li> AutoDelete Elimina coda </li> </ul> | 
+| Argomento | <ul> <li> Crea argomento </li> <li> Aggiornamento di un argomento </li> <li> Elimina argomento </li> <li> Elimina argomento automaticamente </li> </ul> |
+| Subscription | <ul> <li> Creazione di sottoscrizioni </li> <li> Aggiornamento di sottoscrizioni </li> <li> Eliminazione di sottoscrizioni </li> <li> AutoDelete Elimina sottoscrizione </li> </ul> |
 
 > [!NOTE]
 > Attualmente, le operazioni di *lettura* non vengono rilevate nei registri operativi.
@@ -109,7 +109,7 @@ I registri operativi sono disabilitati per impostazione predefinita. Per abilita
 
     ![Il riquadro "Impostazioni di diagnostica"](./media/service-bus-diagnostic-logs/image3.png)
 
-1. Selezionare **Salva**.
+1. Selezionare **Save** (Salva).
 
 Le nuove impostazioni diventano effettive in circa 10 minuti. I log vengono visualizzati nella destinazione di archiviazione configurata nel riquadro **Log di diagnostica.**
 

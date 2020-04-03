@@ -5,21 +5,21 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: ad2a34691a00f217db6cf6835eefed18c8862d32
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 29ac9239b8dc87b1ed12fc8333bf5201fe8fa204
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547929"
+ms.locfileid: "80617134"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gestire runbook in Automazione di Azure
 
-È possibile aggiungere un runbook ad Automazione di Azure [creandone uno nuovo](#create-a-runbook) o [importandone uno esistente](#import-a-runbook) da un file o da [Runbook Gallery](automation-runbook-gallery.md). In questo articolo vengono fornite informazioni sulla creazione e importazione di runbook da un file. È possibile ottenere tutti i dettagli dell'accesso ai runbook e ai moduli della community in Runbook e nelle raccolte di [moduli per Azure Automation.](automation-runbook-gallery.md)
+È possibile aggiungere un runbook ad Automazione di Azure [creandone uno nuovo](#creating-a-runbook) o [importandone uno esistente](#importing-a-runbook) da un file o da [Runbook Gallery](automation-runbook-gallery.md). In questo articolo vengono fornite informazioni sulla creazione e importazione di runbook da un file. È possibile ottenere tutti i dettagli dell'accesso ai runbook e ai moduli della community in Runbook e nelle raccolte di [moduli per Azure Automation.](automation-runbook-gallery.md)
 
 >[!NOTE]
 >Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per istruzioni sull'installazione del modulo Az nel ruolo di lavoro ibrido per runbook, vedere [Installare il modulo di Azure PowerShell.For](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)Az module installation instructions on your Hybrid Runbook Worker, see Install the Azure PowerShell Module . Per l'account di automazione, è possibile aggiornare i moduli alla versione più recente usando Come aggiornare i moduli di [Azure PowerShell in Automazione di Azure.](automation-update-azure-modules.md)
 
-## <a name="create-a-runbook"></a>Creare un runbook
+## <a name="creating-a-runbook"></a>Creazione di un runbook
 
 È possibile creare un nuovo runbook in Automazione di Azure usando uno dei portali di Azure o Windows PowerShell. Dopo aver creato il runbook, è possibile modificarlo usando le informazioni contenute in [Informazioni sul flusso di lavoro di PowerShell](automation-powershell-workflow.md) e [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md).
 
@@ -42,9 +42,9 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 -Name NewRunbook -ResourceGroupName MyResourceGroup -Type PowerShell
 ```
 
-## <a name="import-a-runbook"></a>Importare un runbook
+## <a name="importing-a-runbook"></a>Importazione di un runbook
 
-È possibile creare un nuovo runbook in Automazione di Azure importando uno script di PowerShell o un flusso di lavoro di PowerShell (**ps1**), un runbook grafico esportato (**.graphrunbook**) o uno script Python 2 (**.py**).  È necessario specificare il [tipo di runbook](automation-runbook-types.md) che viene creato durante l'importazione tenendo conto delle considerazioni seguenti.
+È possibile creare un nuovo runbook in Automazione di Azure importando uno script di PowerShell o un flusso di lavoro di PowerShell (**ps1**), un runbook grafico esportato (**.graphrunbook**) o uno script Python2 (**.py**).  È necessario specificare il [tipo di runbook](automation-runbook-types.md) che viene creato durante l'importazione tenendo conto delle considerazioni seguenti.
 
 * Un file **con estensione ps1** che non contiene un flusso di lavoro può essere importato in un [runbook](automation-runbook-types.md#powershell-runbooks) di PowerShell o in un runbook del flusso di lavoro di [PowerShell.](automation-runbook-types.md#powershell-workflow-runbooks) Se lo si importa in un runbook del flusso di lavoro di PowerShell, viene convertito in un flusso di lavoro. In questo caso, i commenti vengono inclusi nel runbook per descrivere le modifiche apportate.
 
@@ -68,7 +68,7 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 5. Se il campo **Nome** è abilitato, è possibile modificare il nome del runbook. Il nome deve iniziare con una lettera e può contenere lettere, numeri, caratteri di sottolineatura e trattini.
 6. Il [tipo di runbook](automation-runbook-types.md) viene selezionato automaticamente, ma è possibile modificarlo dopo aver valutato le restrizioni applicabili.
 7. Fare clic su **Crea**. Il nuovo runbook verrà visualizzato nell'elenco dei runbook dell'account di automazione.
-8. È necessario [pubblicare il runbook](#publish-a-runbook) prima di poterlo eseguire.
+8. È necessario [pubblicare il runbook](#publishing-a-runbook) prima di poterlo eseguire.
 
 > [!NOTE]
 > Dopo aver importato un runbook grafico o un runbook del flusso di lavoro di PowerShell grafico, è possibile convertirlo in un altro tipo. Tuttavia, non è possibile convertire uno di questi runbook grafici in un runbook testuale.
@@ -90,9 +90,9 @@ Import-AzAutomationRunbook -Name $runbookName -Path $scriptPath `
 -Type PowerShellWorkflow
 ```
 
-## <a name="test-a-runbook"></a>Testare un runbook
+## <a name="testing-a-runbook"></a>Test di un runbook
 
-Quando si testa un Runbook, viene eseguita la [Versione bozza](#publish-a-runbook) e le azioni eseguite vengono completate. Non viene creata alcuna cronologia dei processi, ma i flussi [Output](automation-runbook-output-and-messages.md#output-stream) e [Avviso ed Errore](automation-runbook-output-and-messages.md#message-streams) vengono visualizzati nel riquadro Output test. I messaggi per il flusso dettagliato vengono visualizzati `VerbosePreference` nel [riquadro](automation-runbook-output-and-messages.md#message-streams) Output solo se la variabile](automation-runbook-output-and-messages.md-preference-variables) è impostata su Continue.
+Quando si testa un Runbook, viene eseguita la [Versione bozza](#publishing-a-runbook) e le azioni eseguite vengono completate. Non viene creata alcuna cronologia dei processi, ma i flussi [Output](automation-runbook-output-and-messages.md#output-stream) e [Avviso ed Errore](automation-runbook-output-and-messages.md#message-streams) vengono visualizzati nel riquadro Output test. I messaggi per il [flusso Dettagliato](automation-runbook-output-and-messages.md#message-streams) vengono visualizzati nel riquadro Output solo se la variabile [VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) è impostata su `Continue`.
 
 Anche se si esegue la versione bozza, il runbook viene comunque eseguito normalmente ed effettua qualsiasi azione sulle risorse nell'ambiente. Per questo motivo, è necessario testare i runbook solo con risorse non di produzione.
 
@@ -106,7 +106,7 @@ La procedura per testare ogni [tipo di runbook](automation-runbook-types.md) è 
 1. È possibile usare i pulsanti nel riquadro Output per arrestare o sospendere un flusso di lavoro di [PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) o un runbook [grafico](automation-runbook-types.md#graphical-runbooks) durante il test. Quando si sospende il runbook, esso completa l'attività corrente prima di essere sospeso. Una volta che il runbook viene sospeso, è possibile arrestarlo o riavviarlo.
 1. Esaminare l'output del runbook nel riquadro Output.Inspect the output from the runbook in the Output pane.
 
-## <a name="publish-a-runbook"></a>Pubblicare un runbook
+## <a name="publishing-a-runbook"></a>Pubblicazione di un runbook
 
 Quando si crea o si importa un nuovo runbook, è necessario pubblicarlo prima di poterlo eseguire. Ogni runbook in Automazione di Azure ha una versione bozza e una versione pubblicata. È possibile eseguire solo la versione pubblicata, mentre è possibile modificare solo la versione bozza. La versione pubblicata non è interessata dalle modifiche apportate alla versione bozza. Quando la versione bozza deve essere resa disponibile, la si pubblica, sovrascrivendo la versione pubblicata corrente con la versione bozza.
 
@@ -129,7 +129,7 @@ Publish-AzAutomationRunbook -AutomationAccountName $automationAccountName `
 -Name $runbookName -ResourceGroupName $RGName
 ```
 
-### <a name="schedule-a-runbook-in-the-azure-portal"></a>Pianificare un runbook nel portale di AzureSchedule a runbook in the Azure portal
+## <a name="scheduling-a-runbook-in-the-azure-portal"></a>Pianificazione di un runbook nel portale di Azure
 
 Quando il runbook è stato pubblicato, è possibile pianificarlo per il funzionamento.
 

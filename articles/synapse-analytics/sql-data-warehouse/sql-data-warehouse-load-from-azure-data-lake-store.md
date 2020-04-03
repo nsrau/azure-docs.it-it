@@ -1,6 +1,6 @@
 ---
 title: Esercitazione caricare i dati da Archiviazione di Azure Data LakeTutorial load data from Azure Data Lake Storage
-description: Usare le tabelle esterne PolyBase per caricare dati da Archiviazione data lake di Azure per l'analisi SQL.
+description: Usare le tabelle esterne PolyBase per caricare dati da Archiviazione data lake di Azure per Synapse SQL.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,14 +11,15 @@ ms.date: 03/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: b9e28f41b251ea526044bf88dc3e79c0374fe369
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 7d599ce121b4c53662b91e5aab94130b0f3f4458
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350374"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583945"
 ---
-# <a name="load-data-from-azure-data-lake-storage-for-sql-analytics"></a>Caricare dati da Archiviazione data lake di Azure per l'analisi SQLLoad data from Azure Data Lake Storage for SQL Analytics
+# <a name="load-data-from-azure-data-lake-storage-for-synapse-sql"></a>Caricare dati da Archiviazione di Azure Data Lake per Synapse SQLLoad data from Azure Data Lake Storage for Synapse SQL
+
 Questa guida illustra come usare le tabelle esterne PolyBase per caricare dati da Archiviazione data lake di Azure.This guide outlines how to use PolyBase external tables to load data from Azure Data Lake Storage. Sebbene sia possibile eseguire query ad hoc sui dati archiviati in Data Lake Storage, è consigliabile importare i dati per ottenere prestazioni ottimali. 
 
 > [!NOTE]  

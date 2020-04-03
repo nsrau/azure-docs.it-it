@@ -4,12 +4,12 @@ description: Come creare cluster di Azure Active Directory abilitati per Azure K
 services: container-service
 ms.topic: article
 ms.date: 02/02/2019
-ms.openlocfilehash: 0476acadf5af3a3e2c470fe6c08ebbd355653e22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: de57a46f92fab2486aa7722daf8745a01be1f4f6
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77596590"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617588"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrare Azure Active Directory con il servizio Azure Kubernetes
 
@@ -116,9 +116,9 @@ La seconda applicazione Azure AD viene usata quando si accede con la CLI Kuberne
     c. Selezionare **Web** per il tipo DI URI di reindirizzamento *https://aksazureadclient*e quindi immettere qualsiasi valore in formato URI, ad esempio .
 
     >[!NOTE]
-    >Se si crea un nuovo cluster abilitato al controllo degli accessi in base al ruolo per supportare Monitoraggio di Azure per i contenitori, aggiungere i due URL di reindirizzamento aggiuntivi seguenti a questo elenco come tipi di applicazione **Web.If** you are creating a new RBAC-enabled cluster to support Azure Monitor for containers, add the following two additional redirect URLs to this list as Web application types. Il primo valore dell'URL di base deve essere `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` e il secondo valore dell'URL di base deve essere `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
+    >Se si crea un nuovo cluster abilitato al controllo degli accessi in base al ruolo per supportare Monitoraggio di Azure per i contenitori, aggiungere i due URL di reindirizzamento aggiuntivi seguenti a questo elenco come tipi di applicazione **Web.If** you are creating a new RBAC-enabled cluster to support Azure Monitor for containers, add the following two additional redirect URLs to this list as Web application types. Il primo valore dell'URL di base deve essere `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` e il secondo valore dell'URL di base deve essere`https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`
     >
-    >Se si usa questa funzionalità in Azure Cina, il `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` primo valore dell'URL `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`di base deve essere e il secondo valore dell'URL di base deve essere .
+    >Se si usa questa funzionalità in Azure Cina, il `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` primo valore dell'URL di base deve essere e il secondo valore dell'URL di base deve essere`https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`
     >
     >Per altre informazioni, vedere [Come configurare la funzionalità Live Data (anteprima)](../azure-monitor/insights/container-insights-livedata-setup.md) per Monitoraggio di Azure per i contenitori e la procedura per configurare l'autenticazione nella sezione [Configurare l'autenticazione integrata](../azure-monitor/insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication) di Active Directory.For further information, see How to setup the Live Data (preview) feature for Azure Monitor for containers, and the steps for configuring authentication under the Configure AD integrated authentication section.
 

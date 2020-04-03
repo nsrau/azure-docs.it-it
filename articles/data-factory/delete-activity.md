@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: d061a132699e733e78a7d717ee32222b158d73b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f265cdc955becd53ae7ba61ad827b2be69b92907
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927530"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618275"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Attività Delete in Azure Data Factory
 
 È possibile usare l'attività di eliminazione in Azure Data Factory per eliminare file o cartelle da archivi di archiviazione locali o archivi di archiviazione cloud. Usare questa attività per pulire o archiviare file quando non sono più necessari.
 
 > [!WARNING]
-> Le cartelle o i file eliminati non possono più essere ripristinati. Prestare attenzione quando si usa l'attività Delete per eliminare file o cartelle.
+> I file o le cartelle eliminati non possono essere ripristinati (a meno che l'archiviazione non sia abilitata per l'eliminazione temporanea). Prestare attenzione quando si usa l'attività Delete per eliminare file o cartelle.
 
 ## <a name="best-practices"></a>Procedure consigliate
 

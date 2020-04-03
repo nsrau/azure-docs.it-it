@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 0541b12d73cc5b5f7fdf713c759069e2ecbd8c18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13985b07b4903504fde6b58031a532337d3b1971
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299632"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584603"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Crittografia lato server dei dischi gestiti di AzureServer-side encryption of Azure managed disks
 
@@ -34,7 +34,11 @@ Per impostazione predefinita, i dischi gestiti utilizzano chiavi di crittografia
 
 ## <a name="customer-managed-keys"></a>Chiavi gestite dal cliente
 
-È possibile scegliere di gestire la crittografia a livello di ogni disco gestito, con le proprie chiavi. La crittografia lato server per i dischi gestiti con chiavi gestite dal cliente offre un'esperienza integrata con l'insieme di credenziali delle chiavi di Azure.Server-side encryption for managed disks with customer-managed keys offers an integrated experience with Azure Key Vault. È possibile importare le chiavi RSA nell'insieme di credenziali delle chiavi o generare nuove chiavi RSA in Azure Key Vault.You can either import [your RSA keys](../../key-vault/key-vault-hsm-protected-keys.md) to your Key Vault or generate new RSA keys in Azure Key Vault. I dischi gestiti di Azure gestiscono la crittografia e la decrittografia in modo completamente trasparente usando la [crittografia della busta.](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique) Crittografa i dati utilizzando una chiave DEK (Data Encryption Key) basata su [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256, che a sua volta è protetta tramite le chiavi. È necessario concedere l'accesso ai dischi gestiti nell'insieme di credenziali delle chiavi per utilizzare le chiavi per crittografare e decrittografare il file DEK. Ciò consente il controllo completo dei dati e delle chiavi. È possibile disabilitare le chiavi o revocare l'accesso ai dischi gestiti in qualsiasi momento. È anche possibile controllare l'utilizzo della chiave di crittografia con il monitoraggio dell'insieme di chiavi di Azure per assicurarsi che solo i dischi gestiti o altri servizi attendibili di Azure accedano alle chiavi.
+È possibile scegliere di gestire la crittografia a livello di ogni disco gestito, con le proprie chiavi. La crittografia lato server per i dischi gestiti con chiavi gestite dal cliente offre un'esperienza integrata con l'insieme di credenziali delle chiavi di Azure.Server-side encryption for managed disks with customer-managed keys offers an integrated experience with Azure Key Vault. È possibile importare le chiavi RSA nell'insieme di credenziali delle chiavi o generare nuove chiavi RSA in Azure Key Vault.You can either import [your RSA keys](../../key-vault/key-vault-hsm-protected-keys.md) to your Key Vault or generate new RSA keys in Azure Key Vault. 
+
+I dischi gestiti di Azure gestiscono la crittografia e la decrittografia in modo completamente trasparente usando la [crittografia della busta.](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique) Crittografa i dati utilizzando una chiave DEK (Data Encryption Key) basata su [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256, che a sua volta è protetta tramite le chiavi. Il servizio di archiviazione genera chiavi di crittografia dei dati e le crittografa con chiavi gestite dal cliente usando la crittografia RSA. La crittografia della busta consente di ruotare (modificare) le chiavi periodicamente in base ai criteri di conformità senza influire sulle macchine virtuali. Quando si ruotano le chiavi, il servizio di archiviazione crittografa nuovamente le chiavi di crittografia dei dati con le nuove chiavi gestite dal cliente. 
+
+È necessario concedere l'accesso ai dischi gestiti nell'insieme di credenziali delle chiavi per utilizzare le chiavi per crittografare e decrittografare il file DEK. Ciò consente il controllo completo dei dati e delle chiavi. È possibile disabilitare le chiavi o revocare l'accesso ai dischi gestiti in qualsiasi momento. È anche possibile controllare l'utilizzo della chiave di crittografia con il monitoraggio dell'insieme di chiavi di Azure per assicurarsi che solo i dischi gestiti o altri servizi attendibili di Azure accedano alle chiavi.
 
 Per gli SSD premium, gli SSD standard e gli HDD standard: quando disabiliti o elimini la chiave, tutte le macchine virtuali con dischi che usano tale chiave verranno arrestate automaticamente. In seguito, le macchine virtuali non saranno utilizzabili a meno che la chiave non sia nuovamente abilitata o non si assegni una nuova chiave.
 
@@ -238,6 +242,32 @@ $VMSS = Add-AzVmssDataDisk -VirtualMachineScaleSet $VMSS -CreateOption Empty -Lu
 $Credential = New-Object System.Management.Automation.PSCredential ($VMLocalAdminUser, $VMLocalAdminSecurePassword);
 
 New-AzVmss -VirtualMachineScaleSet $VMSS -ResourceGroupName $ResourceGroupName -VMScaleSetName $VMScaleSetName
+```
+
+#### <a name="change-the-key-of-a-diskencryptionset-to-rotate-the-key-for-all-the-resources-referencing-the-diskencryptionset"></a>Modificare la chiave di un DiskEncryptionSet per ruotare la chiave per tutte le risorse che fanno riferimento a DiskEncryptionSet
+
+```PowerShell
+$ResourceGroupName="yourResourceGroupName"
+$keyVaultName="yourKeyVaultName"
+$keyName="yourKeyName"
+$diskEncryptionSetName="yourDiskEncryptionSetName"
+
+$keyVault = Get-AzKeyVault -VaultName $keyVaultName -ResourceGroupName $ResourceGroupName
+
+$keyVaultKey = Get-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName
+
+Update-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $ResourceGroupName -SourceVaultId $keyVault.ResourceId -KeyUrl $keyVaultKey.Id
+```
+
+#### <a name="find-the-status-of-server-side-encryption-of-a-disk"></a>Trovare lo stato della crittografia lato server di un disco
+
+```PowerShell
+$ResourceGroupName="yourResourceGroupName"
+$DiskName="yourDiskName"
+
+$disk=Get-AzDisk -ResourceGroupName $ResourceGroupName -DiskName $DiskName
+$disk.Encryption.Type
+
 ```
 
 > [!IMPORTANT]

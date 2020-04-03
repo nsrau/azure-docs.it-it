@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 9252e3e41d0c639231a2abe20202499c6b3ee32a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5820778d46f5701b82bb289192350a9e13739d37
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75444866"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619450"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK del processore dei feed delle modifiche .NET: download e note sulla versione
 
@@ -45,6 +45,10 @@ ms.locfileid: "75444866"
 ## <a name="release-notes"></a>Note sulla versione
 
 ### <a name="v2-builds"></a>Build della seconda versione
+
+### <a name="230"></a><a name="2.3.0"/>2.3.0
+* Sono stati `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` aggiunti un `ICheckpointPartitionProcessorFactory`nuovo metodo e un'interfaccia pubblica corrispondente. Ciò consente a `IPartitionProcessor` un'implementazione dell'interfaccia di utilizzare il meccanismo di checkpoint incorporato. La nuova factory è `IPartitionProcessorFactory`simile a `Create` , ad `ILeaseCheckpointer` eccezione del fatto che il relativo metodo accetta anche il parametro .
+* Per la stessa `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` `ChangeFeedProcessorBuilder` istanza è possibile utilizzare solo uno dei due metodi , o .
 
 ### <a name="228"></a><a name="2.2.8"/>2.2.8
 * Miglioramenti alla stabilità e alla diagnoability:
@@ -88,7 +92,7 @@ ms.locfileid: "75444866"
 
 ### <a name="220"></a><a name="2.2.0"/>2.2.0
 * Aggiunta del supporto per le raccolte partizionate di lease. La chiave di partizione deve essere definita come /id.
-* Modifica che causa un'interruzione minore: i metodi dell'interfaccia IChangeFeedDocumentClient e la classe ChangeFeedDocumentClient sono stati modificati per includere i parametri RequestOptions e CancellationToken. IChangeFeedDocumentClient è un punto di estendibilità avanzato che consente di fornire un'implementazione personalizzata del client di documenti da utilizzare con Change Feed Processor, ad esempio decorare DocumentClient e intercettare tutte le chiamate ad esso per eseguire l'analisi aggiuntiva, la gestione degli errori and so on. Con questo aggiornamento, il codice che implementa IChangeFeedDocumentClient dovrà essere modificato per includere nuovi parametri nell'implementazione.
+* Modifica che causa un'interruzione minore: i metodi dell'interfaccia IChangeFeedDocumentClient e la classe ChangeFeedDocumentClient sono stati modificati per includere i parametri RequestOptions e CancellationToken. IChangeFeedDocumentClient è un punto di estendibilità avanzato che consente di fornire un'implementazione personalizzata del client di documenti da utilizzare con Change Feed Processor, ad esempio decorare DocumentClient e intercettare tutte le chiamate ad esso per eseguire l'analisi aggiuntiva, la gestione degli errori e così via. Con questo aggiornamento, il codice che implementa IChangeFeedDocumentClient dovrà essere modificato per includere nuovi parametri nell'implementazione.
 * Miglioramenti della diagnostica secondari.
 
 ### <a name="210"></a><a name="2.1.0"/>2.1.0
@@ -182,6 +186,7 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.3.0](#2.3.0) |giovedì 2 aprile 2020 |--- |
 | [2.2.8](#2.2.8) |giovedì 28 ottobre 2019 |--- |
 | [2.2.7](#2.2.7) |14 maggio 2019 |--- |
 | [2.2.6](#2.2.6) |29 gennaio 2019 |--- |

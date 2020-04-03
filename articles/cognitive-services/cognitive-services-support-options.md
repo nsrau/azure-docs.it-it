@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
-ms.openlocfilehash: 692f70e4666416f34a6e3f32fd5804d4aeb63a5b
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: d7ce77404359b32effcc7a5da3f9429e9fdf7005
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477837"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618569"
 ---
 # <a name="azure-cognitive-services-support-and-feedback-options"></a>Opzioni di supporto e feedback di Servizi cognitivi di AzureAzure Cognitive Services support and feedback options
 
-Si sta appena iniziando a esplorare le funzionalità di Servizi cognitivi di Azure? È possibile che si stia implementando una nuova funzionalità nell'applicazione. O dopo aver utilizzato il servizio, hai suggerimenti su come migliorarlo? Di seguito sono riportate le opzioni per ottenere supporto, rimanere aggiornati e fornire commenti e suggerimenti per i servizi cognitivi.
+Si sta appena iniziando a esplorare le funzionalità di Servizi cognitivi di Azure? È possibile che si stia implementando una nuova funzionalità nell'applicazione. O dopo aver utilizzato il servizio, hai suggerimenti su come migliorarlo? Di seguito sono riportate le opzioni per ottenere supporto, rimanere aggiornati, inviare commenti e suggerimenti e segnalare bug per i servizi cognitivi.
 
 ## <a name="get-support"></a>Supporto
 
@@ -33,7 +33,7 @@ Esplorare la gamma di [opzioni di supporto tecnico di Azure e scegliere il piano
 * [Portale di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Portale di Azure per il governo degli Stati Uniti](https://portal.azure.us)
 
-### <a name="search"></a>Cerca
+### <a name="search"></a>Ricerca
 
 <div class='icon is-large'>
     <img alt='Search' src='https://docs.microsoft.com/media/common/i_search.svg'>
@@ -83,7 +83,7 @@ Le note sulla versione di Servizi cognitivi vengono aggiornate man mano che veng
 
  - [Servizio visione artificiale personalizzato](custom-vision-service/release-notes.md)
  - [Viso](face/releasenotes.md)
- - [Language Understanding (LUIS)](luis/whats-new.md)
+ - [Language Understanding (LUIS)](LUIS/whats-new.md)
  - [Servizi Voce](speech-service/releasenotes.md)
  - [Speech Services SDK](speech-service/devices-sdk-release-notes.md)
  - [Text Analytics](text-analytics/whats-new.md)

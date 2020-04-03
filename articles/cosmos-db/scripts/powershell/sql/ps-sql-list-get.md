@@ -1,18 +1,18 @@
 ---
-title: Script di PowerShell per elencare e ottenere le operazioni per l'API SQL (Core) di Azure Cosmos DB
-description: Script di Azure PowerShell - Operazioni list e get di Azure Cosmos DB per l'API SQL (Core)
+title: Script di PowerShell per elencare e ottenere le risorse dell'API SQL di Azure Cosmos DB
+description: Script di Azure PowerShell - Operazioni list e get di Azure Cosmos DB per l'API SQL
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 03/17/2020
 ms.author: mjbrown
-ms.openlocfilehash: 1590136aa000538f6d176364fca22b353d4a48a0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 51880e12f5f422acc0df05fa40da5f40f0ede3d3
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75445016"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365964"
 ---
 # <a name="list-and-get-databases-and-containers-for-azure-cosmos-db---sql-core-api"></a>Operazioni list e get di Azure Cosmos DB per l'API SQL (Core)
 
@@ -22,7 +22,7 @@ ms.locfileid: "75445016"
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-list-get.ps1 "List or get databases or containers for SQL (Core) API")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-list-get.ps1 "List and get databases and containers for SQL API")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
@@ -38,8 +38,10 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | Comando | Note |
 |---|---|
-|**Risorse di Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Crea una risorsa. |
+|**Azure Cosmos DB**| |
+| [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Elenca gli account Cosmos DB o ottiene un account Cosmos DB specificato. |
+| [Get-AzCosmosDBSqlDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqldatabase) | Elenca i database Cosmos DB in un account oppure ottiene un database Cosmos DB specificato in un account. |
+| [Get-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainer) | Elenca i contenitori Cosmos DB in un database o ottiene un contenitore Cosmos DB specificato in un database. |
 |**Gruppi di risorse di Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 |||

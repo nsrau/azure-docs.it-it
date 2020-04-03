@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/26/2019
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 3fe1d36b859884ab19a645e5693c7e7931fe5c2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 119265efa7b6504f3faf2e89cb68b9e9bd70bf9f
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79368469"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617255"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Usare funzionalità di rete kubenet con i propri intervalli di indirizzi IP nel servizio Azure Kubernetes
 
@@ -25,7 +25,7 @@ Questo articolo illustra come usare le funzionalità di rete *kubenet* per crear
 * La rete virtuale per il cluster servizio Azure Kubernetes deve consentire la connettività Internet in uscita.
 * Non creare più di un cluster servizio Azure Kubernetes nella stessa subnet.
 * I cluster AKS `169.254.0.0/16`non `172.30.0.0/16` `172.31.0.0/16`possono `192.0.2.0/24` utilizzare , , o per l'intervallo di indirizzi del servizio Kubernetes.
-* L'entità servizio usata dal cluster servizio Azure Kubernetes deve avere almeno autorizzazioni di [Collaboratore di rete](../role-based-access-control/built-in-roles.md#network-contributor) per la subnet all'interno della rete virtuale. Se si vuole definire un [ruolo personalizzato](../role-based-access-control/custom-roles.md) invece di usare il ruolo predefinito Collaboratore di rete, sono necessarie le autorizzazioni seguenti:
+* L'entità servizio utilizzata dal cluster AKS deve disporre almeno del ruolo [Collaboratore di rete](../role-based-access-control/built-in-roles.md#network-contributor) nella subnet all'interno della rete virtuale. Se si vuole definire un [ruolo personalizzato](../role-based-access-control/custom-roles.md) invece di usare il ruolo predefinito Collaboratore di rete, sono necessarie le autorizzazioni seguenti:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
@@ -195,7 +195,7 @@ az aks create \
     --client-secret <password>
 ```
 
-Quando si crea un cluster del servizio Azure Kubernetes, vengono creati un gruppo di sicurezza e una tabella di route. Queste risorse di rete sono gestite dal piano di controllo AKS. Il gruppo di sicurezza di rete viene associato automaticamente alle schede di interfaccia di rete virtuali nei nodi. La tabella di route viene associata automaticamente alla subnet della rete virtuale. Regole dei gruppi di sicurezza di rete e tabelle di route e vengono aggiornate automaticamente durante la creazione e l'esposizione dei servizi.
+Quando si crea un cluster del servizio Azure Kubernetes, vengono creati un gruppo di sicurezza e una tabella di route. Queste risorse di rete sono gestite dal piano di controllo AKS. Il gruppo di sicurezza di rete viene associato automaticamente alle schede di interfaccia di rete virtuali nei nodi. La tabella di route viene associata automaticamente alla subnet della rete virtuale. Le regole dei gruppi di sicurezza di rete e le tabelle di route vengono aggiornate automaticamente durante la creazione e l'esposizione dei servizi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

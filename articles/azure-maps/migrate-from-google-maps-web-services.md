@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: fae9b8a2101329383cc90c8f7f0ff225e3a9059c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d2f25f2b786686b8af9bad4ea8ce3c8aea9b589f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77913819"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371469"
 ---
 # <a name="migrate-web-service-from-google-maps"></a>Eseguire la migrazione di un servizio Web da Google Maps
 
@@ -75,7 +75,7 @@ La tabella seguente offre un riferimento incrociato dei parametri dell'API Googl
 Un esempio di utilizzo del servizio di ricerca è documentato [qui](how-to-search-for-address.md). Assicurarsi di esaminare le [procedure consigliate per la ricerca](how-to-use-best-practices-for-search.md).
 
 > [!TIP]
-> Le API per la ricerca fuzzy e la geocodifica degli indirizzi in formato libero possono essere usate con la modalità di completamento automatico aggiungendo `&amp;typeahead=true` all'URL della richiesta. Questo comunica al server che è probabile che il testo di input sia parziale e che la ricerca passerà quindi alla modalità predittiva.
+> Le API per la ricerca fuzzy e la geocodifica degli indirizzi in formato libero possono essere usate con la modalità di completamento automatico aggiungendo `&typeahead=true` all'URL della richiesta. Questo comunica al server che è probabile che il testo di input sia parziale e che la ricerca passerà quindi alla modalità predittiva.
 
 ## <a name="reverse-geocode-a-coordinate"></a>Geocodifica inversa di una coordinata
 
@@ -126,7 +126,7 @@ Mappe di Azure offre numerose API di ricerca per i punti di interesse:
 Attualmente Mappe di Azure non dispone di un'API equivalente all'API di ricerca testuale in Google Maps.
 
 > [!TIP]
-> Le API per la ricerca di punti di interesse, la ricerca per categoria di punti di interesse e la ricerca fuzzy possono essere usate con la modalità di completamento automatico aggiungendo `&amp;typeahead=true` all'URL della richiesta. Questo comunica al server che è probabile che il testo di input sia parziale, quindi l'API eseguirà la ricerca nella modalità predittiva.
+> Le API per la ricerca di punti di interesse, la ricerca per categoria di punti di interesse e la ricerca fuzzy possono essere usate con la modalità di completamento automatico aggiungendo `&typeahead=true` all'URL della richiesta. Questo comunica al server che è probabile che il testo di input sia parziale, quindi l'API eseguirà la ricerca nella modalità predittiva.
 
 Esaminare la documentazione relativa alle [procedure consigliate per la ricerca](how-to-use-best-practices-for-search.md).
 
@@ -221,6 +221,8 @@ L'API di pianificazione percorso di Mappe di Azure include funzionalità aggiunt
 - Possibilità di specificare la velocità massima del veicolo.
 
 Inoltre, il servizio di pianificazione percorso in Mappe di Azure supporta il [calcolo dei punti raggiungibili](https://docs.microsoft.com/rest/api/maps/route/getrouterange), anche noto come isocrone. Comporta la generazione di un poligono che copre un'area percorribile in qualsiasi direzione da un punto di partenza, in base a una quantità di tempo o di carburante/carica specificata.
+
+Vedere la documentazione relativa alle [procedure consigliate per la pianificazione percorso](how-to-use-best-practices-for-routing.md).
 
 ## <a name="retrieve-a-map-image"></a>Recuperare un'immagine mappa
 
@@ -437,6 +439,8 @@ Questa tabella offre un riferimento incrociato dei parametri dell'API Google Map
 > [!TIP]
 > Tutte le opzioni di pianificazione percorso avanzate disponibili nell'API di pianificazione percorso di Mappe di Azure sono supportate nell'API della matrice di distanze di Mappe di Azure. Le opzioni di pianificazione percorso avanzate includono: percorso autocarro, specifiche del motore e così via.
 
+Vedere la documentazione relativa alle [procedure consigliate per la pianificazione percorso](how-to-use-best-practices-for-routing.md).
+
 ## <a name="get-a-time-zone"></a>Ottenere un fuso orario
 
 Mappe di Azure fornisce un'API per il recupero del fuso orario di una coordinata. L'API fusi orari di Mappe di Azure è simile all'API fusi orari in Google Maps:
@@ -476,6 +480,7 @@ Di seguito sono riportate alcune risorse e documentazione aggiuntive per i servi
 
 - [Procedure consigliate per la ricerca](how-to-use-best-practices-for-search.md)
 - [Cercare un indirizzo](how-to-search-for-address.md)
+- [Procedure consigliate per la pianificazione percorso](how-to-use-best-practices-for-routing.md)
 - [Documentazione di riferimento per l'API del servizio REST di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/)
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -486,7 +491,10 @@ Altre informazioni sui servizi REST di Mappe di Azure.
 > [Procedure consigliate per l'uso del servizio di ricerca](how-to-use-best-practices-for-search.md)
 
 > [!div class="nextstepaction"]
-> [Come usare il modulo dei servizi (Web SDK)](how-to-use-services-module.md)
+> [Procedure consigliate per l'uso del servizio di pianificazione percorso](how-to-use-best-practices-for-search.md)
+
+> [!div class="nextstepaction"]
+> [Come usare il modulo dei servizi (Web SDK)](how-to-use-best-practices-for-routing.md)
 
 > [!div class="nextstepaction"]
 > [Esempi di codice](https://docs.microsoft.com/samples/browse/?products=azure-maps)

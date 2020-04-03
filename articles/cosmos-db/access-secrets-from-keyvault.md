@@ -9,16 +9,19 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 55e6bbc338c1ac6f9ef935b4a3a05c32f2b5e9f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 225221635f978e3d70cec4ce7e9d78d6b100b4fd
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72755216"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618765"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Proteggere le chiavi di Azure Cosmos con Azure Key Vault 
 
-Quando si usa Azure Cosmos DB per le applicazioni, è possibile accedere al database, alle raccolte e ai documenti tramite l'endpoint e la chiave all'interno del file di configurazione dell'app.  Non è tuttavia opportuno inserire le chiavi e l'URL direttamente nel codice dell'applicazione perché sono disponibili in formato testo non crittografato per tutti gli utenti. È necessario però assicurarsi che l'endpoint e le chiavi siano disponibili attraverso un meccanismo protetto. Con Azure Key Vault è possibile archiviare e gestire i segreti delle applicazioni in modo sicuro.
+>[!IMPORTANT]
+> La soluzione consigliata per accedere alle chiavi del database di Azure Cosmos consiste nell'usare [un'identità gestita assegnata](managed-identity-based-authentication.md)dal sistema. Se il servizio non è in grado di sfruttare le identità gestite, utilizzare la [soluzione basata su certificati](certificate-based-authentication.md). Se sia la soluzione di identità gestita che la soluzione basata su certificati non soddisfano le proprie esigenze, utilizzare la soluzione dell'insieme di credenziali delle chiavi riportata di seguito.
+
+Quando si usa il database Cosmos di Azure per le applicazioni, è possibile accedere al database, alle raccolte, ai documenti usando l'endpoint e la chiave all'interno del file di configurazione dell'app.  Tuttavia, non è sicuro inserire chiavi e URL direttamente nel codice dell'applicazione perché sono disponibili in formato testo non crittografato per tutti gli utenti. È necessario però assicurarsi che l'endpoint e le chiavi siano disponibili attraverso un meccanismo protetto. Con Azure Key Vault è possibile archiviare e gestire i segreti delle applicazioni in modo sicuro.
 
 Per archiviare e leggere le chiavi di accesso di Azure Cosmos DB da Key Vault sono necessari i passaggi seguenti:
 

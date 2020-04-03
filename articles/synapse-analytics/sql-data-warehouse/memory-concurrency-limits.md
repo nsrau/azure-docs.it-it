@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c868d8c159bca0c8462acde48225dc45003cf84e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: c427c832eb613dddbff33ef6e67af63112e2f136
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351000"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586064"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Limiti di memoria e concorrenza per Azure Synapse AnalyticsMemory and concurrency limits for Azure Synapse Analytics
 Visualizzare i limiti di memoria e concorrenza allocati ai vari livelli di prestazioni e classi di risorse in Analisi synapse di Azure.View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure Synapse Analytics.  
@@ -73,7 +73,7 @@ Con l'introduzione dei gruppi di carichi di [lavoro](sql-data-warehouse-workload
 ||||
 
 ## <a name="concurrency-maximums-for-resource-classes"></a>Massimi di concorrenza per le classi di risorseConcurrency maximums for resource classes
-Per assicurarsi che ogni query disponga di risorse sufficienti per l'esecuzione efficiente, ANALISI SQL in Azure Synapse tiene traccia dell'utilizzo delle risorse assegnando slot di concorrenza a ogni query. Il sistema inserisce le query in una coda in base all'importanza e ai slot di concorrenza. Le query attendono nella coda finché non sono disponibili slot di concorrenza sufficienti. Gli slot [di importanza](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) e concorrenza determinano la priorità della CPU. Per altre informazioni, vedere [Analyze your workload](analyze-your-workload.md) (Analisi del carico di lavoro)
+Per garantire che ogni query disponga di risorse sufficienti per l'esecuzione efficiente, l'utilizzo delle risorse viene monitorato assegnando slot di concorrenza a ogni query. Il sistema inserisce le query in una coda in base all'importanza e ai slot di concorrenza. Le query attendono nella coda finché non sono disponibili slot di concorrenza sufficienti. Gli slot [di importanza](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) e concorrenza determinano la priorità della CPU. Per altre informazioni, vedere [Analyze your workload](analyze-your-workload.md) (Analisi del carico di lavoro)
 
 **Classi di risorse statiche**
 

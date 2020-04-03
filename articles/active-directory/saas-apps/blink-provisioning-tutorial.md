@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 455036652836c6cfd2055e9a747f30b6dfe41295
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b19052b8a71b582b47308c41d170f50352d643e2
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77059131"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618350"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>Esercitazione: Configurare Blink per il provisioning automatico degli utentiTutorial: Configure Blink for automatic user provisioning
 
-L'obiettivo di questa esercitazione è illustrare i passaggi da eseguire in Blink e Azure Active Directory (Azure AD) per configurare Azure AD per il provisioning e il deprovisioning automatico di utenti e/o gruppi in Blink.The objective of this tutorial is to demonstrate the steps to be performed in Blink and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and e-provision users and/or groups to Blink.
+The objective of this tutorial is to demonstrate the steps to be performed in Blink and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users to Blink.
 
 > [!NOTE]
 > L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
@@ -41,9 +41,9 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 ## <a name="assigning-users-to-blink"></a>Assegnazione di utenti a BlinkAssigning users to Blink
 
-Azure Active Directory usa un concetto denominato *assegnazioni* per determinare quali utenti devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning automatico degli utenti, vengono sincronizzati solo gli utenti e/o i gruppi assegnati a un'applicazione in Azure AD.
+Azure Active Directory usa un concetto denominato *assegnazioni* per determinare quali utenti devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning automatico degli utenti, vengono sincronizzati solo gli utenti e/o i membri del gruppo assegnati a un'applicazione in Azure AD.
 
-Prima di configurare e abilitare il provisioning automatico degli utenti, è necessario decidere quali utenti e/o gruppi in Azure AD devono accedere a Blink. Una volta deciso, puoi assegnare questi utenti e/o gruppi a Blink seguendo le istruzioni qui:
+Prima di configurare e abilitare il provisioning automatico degli utenti, è necessario decidere quali utenti e/o membri del gruppo in Azure AD devono accedere a Blink. Una volta deciso, puoi assegnare questi utenti e/o gruppi a Blink seguendo le istruzioni qui:
 * [Assegnare un utente o gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md)
 
 ## <a name="important-tips-for-assigning-users-to-blink"></a>Suggerimenti importanti per l'assegnazione di utenti a Blink
@@ -54,7 +54,7 @@ Prima di configurare e abilitare il provisioning automatico degli utenti, è nec
 
 ## <a name="setup-blink-for-provisioning"></a>Configurare Blink per il provisioning
 
-1. Registrare un [caso](https://help.joinblink.com/hc/requests/new) di supporto support@joinblink.com o inviare tramite posta elettronica il **supporto Blink** per richiedere un token SCIM. .
+1. Registrare un [caso](https://support.joinblink.com) di supporto support@joinblink.com o inviare tramite posta elettronica il **supporto Blink** per richiedere un token SCIM. .
 
 2.  Copiare il token di **autenticazione SCIM**. Questo valore verrà immesso nel campo Token segreto nella scheda Provisioning dell'applicazione Blink nel portale di Azure.This value will be entered in the Secret Token field in the Provisioning tab of your Blink application in the Azure portal.
 
@@ -82,14 +82,14 @@ Prima di configurare Blink per il provisioning automatico degli utenti con Azure
 
 ## <a name="configuring-automatic-user-provisioning-to-blink"></a>Configurazione del provisioning automatico degli utenti su Blink 
 
-Questa sezione illustra i passaggi per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in Blink in base alle assegnazioni di utenti e/o gruppi in Azure AD.
+Questa sezione illustra i passaggi per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare gli utenti in Blink in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
 > È inoltre possibile scegliere di abilitare l'accesso Single Sign-On basato su SAML per Blink , seguendo le istruzioni fornite [nell'esercitazione accesso Single Sign-On](https://docs.microsoft.com/azure/active-directory/saas-apps/blink-tutorial)di Blink . Single Sign-On può essere configurato indipendentemente dal provisioning automatico degli utenti, anche se queste due funzionalità si completano a vicenda
 
 ### <a name="to-configure-automatic-user-provisioning-for-blink-in-azure-ad"></a>Per configurare il provisioning automatico degli utenti per Blink in Azure AD:To configure automatic user provisioning for Blink in Azure AD:
 
-1. Accedere al [portale](https://portal.azure.com)di Azure . Selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni**.
+1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -137,14 +137,14 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning d
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
-L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e seguire i collegamenti al report attività di provisioning, che descrive tutte le azioni eseguite dal servizio di provisioning di Azure AD in Blink.You can use the Synchronization Details section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Blink.
+Questa operazione avvia la sincronizzazione iniziale di tutti gli utenti definiti in Ambito nella sezione **Impostazioni.This** operation starts the initial synchronization of all users defined in **Scope** in the Settings section. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e seguire i collegamenti al report attività di provisioning, che descrive tutte le azioni eseguite dal servizio di provisioning di Azure AD in Blink.You can use the Synchronization Details section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Blink.
 
 Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Che cos'è l'accesso alle applicazioni e l'accesso Single Sign-On con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 1809902fb153c5c9c83a9d00b6f817fde975d0fe
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 06fc9edd55aa51c985cbb981fc5a6892d0ca75e5
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349903"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583112"
 ---
 # <a name="what-is-workload-management"></a>Definizione di gestione del carico di lavoro
 
@@ -36,11 +36,12 @@ La capacità a livello di prestazioni di un data warehouse è determinata dalle 
 
 
 ## <a name="workload-management-concepts"></a>Concetti di gestione del carico di lavoroWorkload management concepts
-In passato, per analisi SQL in Azure Synapse è stata gestita la prestazione delle query tramite le [classi di risorse.](resource-classes-for-workload-management.md)  Classi di risorse consentite per l'assegnazione di memoria a una query in base all'appartenenza al ruolo.  La sfida principale con le classi di risorse è che, una volta configurate, non vi era alcuna governance o capacità di controllare il carico di lavoro.  
+
+In passato, per il pool Sql Synapse in Azure Synapse le prestazioni delle query sono stati gestiti tramite le [classi di risorse.](resource-classes-for-workload-management.md)  Classi di risorse consentite per l'assegnazione di memoria a una query in base all'appartenenza al ruolo.  La sfida principale con le classi di risorse è che, una volta configurate, non vi era alcuna governance o capacità di controllare il carico di lavoro.  
 
 Ad esempio, la concessione di un'appartenenza a un ruolo utente ad hoc a smallrc ha consentito all'utente di utilizzare il 100% della memoria nel sistema.  Con le classi di risorse, non è possibile riservare e garantire che le risorse siano disponibili per carichi di lavoro critici.
 
-La gestione del carico di lavoro di SQL Analytics in Azure Synapse è costituita da tre concetti di alto livello: [Classificazione del carico di lavoro,](sql-data-warehouse-workload-classification.md) [Priorità del carico di lavoro](sql-data-warehouse-workload-importance.md) e Isolamento del carico di [lavoro.](sql-data-warehouse-workload-isolation.md)  Queste funzionalità offrono un maggiore controllo sull'utilizzo delle risorse di sistema da parte del carico di lavoro.
+La gestione del carico di lavoro del pool SQL Synapse in Azure Synapse è costituita da tre concetti di alto livello: [Classificazione del carico di lavoro](sql-data-warehouse-workload-classification.md), [Importanza del carico di lavoro](sql-data-warehouse-workload-importance.md) e Isolamento del carico di [lavoro](sql-data-warehouse-workload-isolation.md).  Queste funzionalità offrono un maggiore controllo sull'utilizzo delle risorse di sistema da parte del carico di lavoro.
 
 La classificazione del carico di lavoro è il concetto di assegnazione di una richiesta a un gruppo di carico di lavoro e di impostazione dei livelli di importanza.  Storicamente, questa assegnazione è stata eseguita tramite l'appartenenza al ruolo utilizzando [sp_addrolemember](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management#change-a-users-resource-class).  Questa operazione può ora essere eseguita tramite [CREATE WORKLOAD CLASSIFER](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  La funzionalità di classificazione offre un set più completo di opzioni, ad esempio etichetta, sessione e tempo per classificare le richieste.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: c98da4b41da183f56d80fad1e8c01706d1cfcf23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b54f9f3466fe5f7e2da622077f53575d6f43f72d
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970518"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585967"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Script di esempio per la crittografia dischi di Azure 
 
@@ -80,7 +80,7 @@ La tabella seguente illustra i parametri che possono essere usati nello script d
 
 ### <a name="prerequisites-for-os-disk-encryption"></a>Prerequisiti per la crittografia del disco del sistema operativo
 
-* La macchina virtuale deve usare una distribuzione compatibile con la crittografia del disco del sistema operativo elencata nei sistemi operativi supportati da Crittografia disco di [AzureThe](disk-encryption-overview.md#supported-vm-sizes) VM must be using a distribution compatible with OS disk encryption as listed in the Azure Disk Encryption supported operating systems 
+* La macchina virtuale deve usare una distribuzione compatibile con la crittografia del disco del sistema operativo elencata nei sistemi operativi supportati da Crittografia disco di [AzureThe](disk-encryption-overview.md#supported-vms) VM must be using a distribution compatible with OS disk encryption as listed in the Azure Disk Encryption supported operating systems 
 * La macchina virtuale deve essere creata dall'immagine del Marketplace in Azure Resource Manager.
 * VM di Azure con almeno 4 GB di RAM (7 GB consigliati).
 * (Per RHEL e CentOS) Disabilitare SELinux. Per disabilitare SELinux, vedere "4.4.2. Disabling SELinux" (4.4.2. Disabilitazione di SELinux) in [SELinux User's and Administrator's Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) (Manuale dell'utente e dell'amministratore di SELinux) nella VM.
@@ -294,7 +294,7 @@ Per configurare la crittografia per l'uso in Azure, eseguire i passaggi seguenti
    ```bash
     if [ 1 ]; then
    ```
-4. Modificare /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh e aggiungere questo codice dopo "# Open LUKS device":
+4. Modificare /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh e aggiungerlo al dispositivo LUKS aperto":
 
     ```bash
     MountPoint=/tmp-keydisk-mount
@@ -375,7 +375,7 @@ Per configurare la crittografia per l'uso in Azure, eseguire i passaggi seguenti
    ```bash
     if [ 1 ]; then
    ```
-4. Modificare /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh e aggiungere il codice seguente dopo "# Open LUKS device":
+4. Modificare /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh e aggiungere quanto segue dopo il dispositivo LUKS aperto:Edit /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh and append the following after the ""Open LUKS device":
     ```bash
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
@@ -396,7 +396,7 @@ Per configurare la crittografia per l'uso in Azure, eseguire i passaggi seguenti
     fi
     done
     ```    
-5. Eseguire "/usr/sbin/dracut -f -v" per aggiornare initrd.
+5. Eseguire "/usr/sbin/dracut -f -v" per aggiornare l'initrd.
 
     ![Configurazione di CentOS 7 - run /usr/sbin/dracut -f -v](./media/disk-encryption/centos-encrypt-fig5.png)
 

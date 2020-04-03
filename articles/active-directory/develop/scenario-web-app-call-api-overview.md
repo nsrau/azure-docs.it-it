@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d121d6c198cb0d92cd098a40096e2f2300f65537
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 14f513306b3f0bc0c06a4143e5174c3ecddaef62
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76758990"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617172"
 ---
 # <a name="scenario-a-web-app-that-calls-web-apis"></a>Scenario: un'app Web che chiama le API Web
 
@@ -48,7 +48,7 @@ Ecco perché registrano un segreto (una password o un certificato dell'applicazi
 > [!NOTE]
 > L'aggiunta dell'accesso a un'app Web riguarda la protezione dell'app Web stessa. Tale protezione viene ottenuta utilizzando librerie *middleware,* non Microsoft Authentication Library (MSAL). Lo scenario precedente, [App Web che accede agli utenti,](scenario-web-app-sign-user-overview.md)ha trattato l'argomento.
 >
-> Questo scenario illustra come chiamare le API Web da un'app Web.This scenario covers how to call web APIs from a web app. È necessario ottenere i token di accesso per tali API Web.You must get access tokens for those web APIs. Per acquisire tali token, utilizzare le librerie MSAL per acquisire questi token.
+> Questo scenario illustra come chiamare le API Web da un'app Web.This scenario covers how to call web APIs from a web app. È necessario ottenere i token di accesso per tali API Web.You must get access tokens for those web APIs. Utilizzare le librerie MSAL per acquisire questi token.
 
 Lo sviluppo per questo scenario comporta queste attività specifiche:Development for this scenario involves these specific tasks:
 

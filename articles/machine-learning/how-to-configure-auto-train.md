@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4cf940e38a84ea2eeb1896c8f7c628c8d5734374
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03e1d4aa74d2f71ab2f32ac55f4ad3d46f672f5c
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80247130"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618550"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di ML automatizzato in Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -166,7 +166,7 @@ Di seguito sono riportati alcuni esempi:
       automl_regressor = AutoMLConfig(
       task='regression',
       experiment_timeout_minutes=60,
-      whitelist_models=['kNN regressor'],
+      whitelist_models=['KNN'],
       primary_metric='r2_score',
       training_data=train_data,
       label_column_name=label,
@@ -245,7 +245,7 @@ automl_config = AutoMLConfig(task = 'forecasting',
 
 ### <a name="ensemble-configuration"></a><a name="ensemble"></a>Configurazione dell'ensemble
 
-I modelli Ensemble sono abilitati per impostazione predefinita e vengono visualizzati come iterazioni di esecuzione finali in un'esecuzione automatica dell'apprendimento automatico. I metodi di ensemble attualmente supportati sono il voto e l'impilamento. Il voto è implementato come soft-voting utilizzando medie ponderate, e l'implementazione di impilamento utilizza un'implementazione a due livelli, dove il primo livello ha gli stessi modelli come l'ensemble di voto, e il secondo modello di livello viene utilizzato per trovare la combinazione ottimale di i modelli del primo strato. Se si utilizzano modelli ONNX **o** è attivata la spiegazione dei modelli, l'impilamento verrà disabilitato e verrà utilizzata solo la votazione.
+I modelli Ensemble sono abilitati per impostazione predefinita e vengono visualizzati come iterazioni di esecuzione finali in un'esecuzione automatica dell'apprendimento automatico. I metodi di ensemble attualmente supportati sono il voto e l'impilamento. La votazione viene implementata come soft-voting utilizzando medie ponderate e l'implementazione di impilamento utilizza un'implementazione a due livelli, in cui il primo livello ha gli stessi modelli dell'ensemble di voto e il secondo modello di livello viene utilizzato per trovare la combinazione ottimale dei modelli dal primo livello. Se si utilizzano modelli ONNX **o** è attivata la spiegazione dei modelli, l'impilamento verrà disabilitato e verrà utilizzata solo la votazione.
 
 Esistono più argomenti predefiniti che `kwargs` possono `AutoMLConfig` essere forniti come in un oggetto per modificare il comportamento predefinito dell'insieme di stack.
 

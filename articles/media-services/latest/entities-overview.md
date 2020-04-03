@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: bc5c983bc98c3b62df977c6765978cd45cd3c93b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e4f1141a9d4bd58451782e8412063a22565556d
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500040"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584523"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtraggio, ordinamento e paging delle entità di Servizi multimediali
 
@@ -188,4 +188,4 @@ Nella tabella seguente viene illustrato come applicare le opzioni di filtro e or
 * [Elencare i criteri di streamingList Streaming Policies](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
 * [Elenca i localizzatori di streaming](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
 * [Eseguire lo streaming di un file](stream-files-dotnet-quickstart.md)
-* [Quote e limitazioni](limits-quotas-constraints.md)
+* [Quote e limiti](limits-quotas-constraints.md)

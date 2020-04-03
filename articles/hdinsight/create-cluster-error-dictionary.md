@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/19/2019
-ms.openlocfilehash: b0dc974185ad616d57327e9cc3743db9ecb20e54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 803783eddfbffd5c3dbab7353ee00dd7f11a09e5
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78302730"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618892"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: errori di creazione del clusterAzure HDInsight: Cluster creation errors
 
@@ -157,7 +157,7 @@ Se si prevede di usare i gruppi di sicurezza di rete per controllare il traffico
 
 ---
 
-## <a name="error-code-storagepermissionsblockedformsi"></a>Codice di errore: StoragePermissionsBlockedForMsi  
+## <a name="error-code-storagepermissionsblockedformsi"></a>Codice di errore: StoragePermissionsBlockedForMsi
 
 ### <a name="error"></a>Errore
 
@@ -178,11 +178,11 @@ Per ulteriori informazioni, vedere [Impostare le autorizzazioni per l'identità 
 
 ---
 
-## <a name="error-code-invalidnetworksecuritygroupsecurityrules"></a>Codice di errore: InvalidNetworkSecurityGroupSecurityRules  
+## <a name="error-code-invalidnetworksecuritygroupsecurityrules"></a>Codice di errore: InvalidNetworkSecurityGroupSecurityRules
 
 ### <a name="error"></a>Errore
 
-"Le regole di sicurezza nel gruppo\<di\>sicurezza di rete /subscriptions/ SubscriptionID\> /resourceGroups/<\<Resource Group\> nome default/providers/Microsoft.Network/networkSecurityGroups/ Nome gruppo di sicurezza di rete configurato con subnet /subscriptions\</ SubscriptionID\>\</resourceGroups/Resource Group name\> RG-westeurope-vnet-tomtom-default/providers/Microsoft.Network/virtualNetworks/\<Virtual Nome\>di rete\</subnet/ Nome subnet non consente la connettività in ingresso e/o in uscita obbligatoria.Network Name /subnets/ Subnet Name\> does not allow required inbound and/or outbound connectivity. Per altre informazioni, vedere [Pianificare una rete virtuale per Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)o contattare il supporto tecnico."
+"Le regole di sicurezza nel gruppo\<di\>sicurezza di rete /subscriptions/ SubscriptionID /resourceGroups/<\<Resource Group\> name\> default/providers/Microsoft.Network/networkSecurityGroups/\> Network Security Group Name configurato con subnet /subscriptions/\<SubscriptionID\>\</resourceGroups/Resource Group name RG-westeurope-vnet-tomtom-default/providers/Microsoft.Network/virtualNetworks/\<Virtual Network Name\>/subnets/\<Subnet Name\> does not allow required inbound and/and outbound(and connectivity. Per altre informazioni, vedere [Pianificare una rete virtuale per Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)o contattare il supporto tecnico."
 
 ### <a name="cause"></a>Causa
 
@@ -195,12 +195,12 @@ Se si prevede di usare i gruppi di sicurezza di rete per controllare il traffico
 - Identificare l'area di Azure che si prevede di usare per HDInsight e creare un elenco sicuro degli indirizzi IP per l'area. Per ulteriori informazioni, vedere [Servizi di integrità e gestione: aree specifiche](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses#health-and-management-services-specific-regions).
 - Identificare gli indirizzi IP necessari per HDInsight.Identify the IP addresses that HDInsight requires. Per ulteriori informazioni, vedere Indirizzi IP di [gestione HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
 - Creare o modificare i gruppi di sicurezza di rete per la subnet in cui si intende installare HDInsight.Create or modify the network security groups for the subnet that you plan to install HDInsight into. Per i gruppi di sicurezza di rete, consentire il traffico in ingresso sulla porta 443 dagli indirizzi IP. Questa configurazione garantisce che i servizi di gestione HDInsight possano raggiungere il cluster dall'esterno della rete virtuale.
-  
+
 ---
 
 ## <a name="error-code-cluster-setup-failed-to-install-components-on-one-or-more-hosts"></a>Codice di errore: Impossibile installare i componenti in uno o più host
 
-###  <a name="error"></a>Errore
+### <a name="error"></a>Errore
 
 "Impossibile installare i componenti in uno o più host. Riprovare la richiesta."
 
@@ -211,6 +211,42 @@ In genere, questo errore viene generato quando si verifica un problema temporane
 ### <a name="resolution"></a>Risoluzione
 
 Controllare la pagina [Stato di Azure](https://status.azure.com) per eventuali interruzioni di Azure che potrebbero influire sulla distribuzione del cluster. Se non sono presenti interruzioni, ripetere la distribuzione del cluster.
+
+---
+
+## <a name="error-code-failedtoconnectwithclustererrorcode"></a>Codice di errore: FailedToConnectWithClusterErrorCode
+
+### <a name="error"></a>Errore
+
+Impossibile connettersi all'endpoint di gestione del cluster. Riprovare più tardi.
+
+### <a name="cause"></a>Causa
+
+Il servizio HDInsight non è in grado di connettersi al cluster durante il tentativo di creare il cluster
+
+### <a name="resolution"></a>Risoluzione
+
+Se si usano gruppi di sicurezza di rete della rete virtuale (NSG) personalizzati e route definite dall'utente, assicurarsi che il cluster possa comunicare con i servizi di gestione HDInsight.If you are using custom VNet network security group (NSGs) and user-defined routes (UDRs), ensure that your cluster can communicate with HDInsight management services. Per altre informazioni, vedere Indirizzi IP di [gestione HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
+
+---
+
+## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Codice di errore: Distribuzioni non riuscite<Resource URI>a causa di una violazione dei criteri: 'Risorsa' non consentita dai criteri. Identificatori dei criteri: "["policyAssignment":"name":"<Policy Name> ","id":"/providers/Microsoft.Management/managementGroups/<Management Group Name> providers/Microsoft.Authorization/policyAssignments/<Policy Name>","policyDefinition":<Policy Definition>
+
+### <a name="cause"></a>Causa
+
+I criteri di Azure basati su sottoscrizione possono negare la creazione di indirizzi IP pubblici. La creazione del cluster HDInsight richiede due indirizzi IP pubblici.
+
+I criteri seguenti in genere influiscono sulla creazione del cluster:The following policies generally impact cluster creation:
+
+* Criteri che impediscono la creazione di indirizzi IP o servizi di bilanciamento del carico all'interno della sottoscrizione.
+* Criteri che impediscono la creazione di account di archiviazione.
+* Criteri che impediscono l'eliminazione di risorse di rete, ad esempio indirizzi IP o servizi di bilanciamento del carico.
+
+### <a name="resolution"></a>Risoluzione
+
+Eliminare o disabilitare i criteri di Azure basati su sottoscrizione durante la creazione del cluster HDInsight.Delete or Disable the subscription-based Azure policy while creating HDInsight Cluster.
+
+---
 
 ## <a name="next-steps"></a>Passaggi successivi
 

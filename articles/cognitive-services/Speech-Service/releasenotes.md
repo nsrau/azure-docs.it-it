@@ -3,25 +3,57 @@ title: Note sulla versione - Servizio di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: Registro in esecuzione delle versioni delle funzionalità del servizio di riconoscimento vocale, miglioramenti, correzioni di bug e problemi noti.
 services: cognitive-services
-author: brianem
+author: oliversc
 manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.author: brianem
+ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: cbe9c7cbd0f402e38d1163050d77b055f89948ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7bab0a28ba2b75903b6bdf4708e6aa0a98bdc9e5
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219643"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607412"
 ---
 # <a name="release-notes"></a>Note sulla versione
+## <a name="speech-sdk-1110-2020-march-release"></a>Speech SDK 1.11.0: versione 2020-marzo
+
+**Nuove funzionalità**
+
+- Linux: aggiunto il supporto per Red Hat Enterprise Linux (RHEL)/CentOS 7 x64 con [istruzioni](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-rhel-centos-7) su come configurare il sistema per Speech SDK.
+- Linux: Aggiunto il supporto per .NET Core C , su Linux ARM32 e ARM64. Altre informazioni sono disponibili [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=linux). 
+- Aggiunto `UtteranceId` in `ConversationTranscriptionResult`, un ID coerente in tutti gli intermedi e il risultato del riconoscimento vocale finale. Dettagli per [C ,](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription.conversationtranscriptionresult?view=azure-dotnet) [C .](https://docs.microsoft.com/cpp/cognitive-services/speech/transcription-conversationtranscriptionresult)
+- Python: Aggiunto `Language ID`il supporto per . Vedere speech_sample.py in [GitHub repo](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console).
+- Windows: aggiunto il supporto del formato di input audio compresso sulla piattaforma Windows per tutte le applicazioni console win32. Dettagli [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams). 
+- JavaScript: supporta la sintesi vocale (text-to-speech) in NodeJS. Scopri di più [qui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/text-to-speech). 
+- JavaScript: aggiungi nuove API per abilitare l'ispezione di tutti i messaggi di invio e ricezione. Scopri di più [qui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript). 
+        
+**Correzioni**
+
+- C' , C , C `SendMessageAsync` : Risolto un problema, quindi ora invia il messaggio binario come tipo binario. Dettagli per [C ,](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.sendmessageasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_Connection_SendMessageAsync_System_String_System_Byte___System_UInt32_) [C .](https://docs.microsoft.com/cpp/cognitive-services/speech/connection)
+- C'è, C ' C ' `Connection MessageReceived` C : `Recognizer` Risolto un `Connection` problema in cui l'utilizzo dell'evento può causare un arresto anomalo se viene eliminato prima dell'oggetto. Dettagli per [C ,](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.messagereceived?view=azure-dotnet) [C .](https://docs.microsoft.com/cpp/cognitive-services/speech/connection#messagereceived)
+- Android: la dimensione del buffer audio dal microfono è diminuita da 800 ms a 100 ms per migliorare la latenza.
+- Android: risolto un problema con l'emulatore Android x86 in Android Studio.Android: Fixed an [issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/563) with x86 Android emulator in Android Studio.
+- JavaScript: aggiunto il supporto per `fromSubscription` le regioni in Cina con l'API. Dettagli [qui](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#fromsubscription-string--string-). 
+- JavaScript: aggiungi ulteriori informazioni sugli errori per gli errori di connessione da NodeJS.
+        
+**Esempi**
+
+- Unità: l'esempio pubblico di riconoscimento delle finalità è fisso, in cui l'importazione json LUIS non è riuscita. Dettagli [qui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/369).
+- Python: Esempio `Language ID`aggiunto per . Dettagli [qui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py).
+    
+**Test covid19 abbreviati**
+
+A causa del lavoro remoto nelle ultime settimane, non abbiamo potuto fare tanto test manuali di verifica del dispositivo come facciamo normalmente. Un esempio è il test dell'input del microfono e dell'output degli altoparlanti su Linux, iOS e macOS. Non abbiamo apportato modifiche che pensiamo possa aver rotto qualsiasi cosa su queste piattaforme, e i nostri test automatizzati sono tutti superati. Nell'improbabile caso che abbiamo perso qualcosa, fatecelo sapere su [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?page=2&q=is%3Aissue+is%3Aopen).<br> Grazie per il vostro continuo sostegno. Come sempre, si prega di inviare domande o feedback su [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?page=2&q=is%3Aissue+is%3Aopen) o [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/731).<br>
+Rimani in salute!
+
 ## <a name="speech-sdk-1100-2020-february-release"></a>Speech SDK 1.10.0: versione 2020-febbraio
 
 **Nuove funzionalità**
+
  - Aggiunti i pacchetti Python per supportare la nuova versione 3.8 di Python.
  - Supporto di Red Hat Enterprise Linux (RHEL)/CentOS 8 x64 (C , C , Java, Python).
    > [!NOTE] 
@@ -33,6 +65,7 @@ ms.locfileid: "79219643"
  - Modelli di riconoscimento vocale aggiornati per 19 impostazioni locali per una riduzione media del tasso di errore delle parole del 18,6% (es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, zh-CN, zh-HK, nb-NO, fi-FL, ru-RU, pl-PL, ca-ES, zh-TW, th-TH, pt-PT, TR). I nuovi modelli apportano miglioramenti significativi in più domini, tra cui Dettatura, trascrizione Call-Center e Scenari di indicizzazione video.
 
 **Correzioni**
+
  - Risolto un bug in cui il trascrittore di conversazione non attendeva correttamente nelle API JAVAFixed bug where Conversation Transcriber did not wait properly in JAVA APIs 
  - Correzione dell'emulatore x86 Android per il problema di Xamarin [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/363)
  - Aggiungi mancante (Get Set)Metodi di proprietà su AudioConfig
@@ -41,9 +74,11 @@ ms.locfileid: "79219643"
  - La generazione di ID nelle applicazioni Windows universali ora utilizza un algoritmo GUID opportunamente univoco; in precedenza e involontariamente predefinito per un'implementazione stubbed che spesso prodotto collisioni su grandi set di interazioni.
  
  **Esempi**
+ 
  - Esempio Unity per l'uso di Speech SDK con [il microfono Unity e lo streaming](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/unity/from-unitymicrophone) in modalità push
 
 **Altre modifiche**
+
  - [OpenSSL configuration documentation updated for Linux](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-openssl-linux)
 
 ## <a name="speech-sdk-190-2020-january-release"></a>Speech SDK 1.9.0: versione 2020-gennaio
@@ -59,13 +94,11 @@ ms.locfileid: "79219643"
 - JavaScript: aggiunto `FromHost API` il supporto per facilitare l'uso con contenitori on-prem e cloud sovrani. Vedere la documentazione [qui](speech-container-howto.md).
 - JavaScript: Ora `NODE_TLS_REJECT_UNAUTHORIZED` onoriamo grazie a un contributo di [orgads](https://github.com/orgads). Vedere i dettagli [qui](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75).
 
-
 **Modifiche che causano un'interruzione**
 
 - `OpenSSL`è stato aggiornato alla versione 1.1.1b ed è collegato in modo statico alla libreria principale di Speech SDK per Linux. Ciò potrebbe causare un'interruzione se la posta in arrivo `OpenSSL` non è stata installata nella `/usr/lib/ssl` directory del sistema. Consulta [la nostra documentazione](how-to-configure-openssl-linux.md) in Documenti di Speech SDK per risolvere il problema.
 - È stato modificato il tipo di `WordLevelTimingResult.Offset` `int` dati `long` restituito per `WordLevelTimingResults` il linguaggio C, da a per consentire l'accesso a quando i dati vocali sono più lunghi di 2 minuti.
 - `PushAudioInputStream`e `PullAudioInputStream` ora invia le informazioni dell'intestazione wav al servizio di riconoscimento vocale in `AudioStreamFormat`base a , specificate facoltativamente al momento della creazione. I clienti devono ora utilizzare il formato di [input audio supportato.](how-to-use-audio-input-streams.md) Qualsiasi altro formato otterrà risultati di riconoscimento non ottimali o potrebbe causare altri problemi. 
-
 
 **Correzioni**
 
@@ -81,13 +114,11 @@ ms.locfileid: "79219643"
 - JavaScript: aggiunto il supporto per l'impostazione delle proprietà del servizio, come aggiunto nella 1.7.
 - JavaScript: risolto un problema a causa del quale un errore di connessione poteva causare tentativi di riconnessione websocket continui e non riusciti.
 
-
 **Esempi**
 
 - Aggiunto l'esempio di riconoscimento di parole chiave per Android [qui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/android/sdkdemo).
 - Aggiunto esempio di totS per lo scenario server [qui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_server_scenario_sample.cs).
 - Aggiunte le guide introduttive per le conversazioni multi-dispositivo per C' e C, [qui.](quickstarts/multi-device-conversation.md)
-
 
 **Altre modifiche**
 

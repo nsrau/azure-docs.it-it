@@ -11,17 +11,19 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 08df8266cc3ef8ba1b20efcf135e502a9df69e80
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 587b2aa23aa822f44d7763cbfec21eb36055b091
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351496"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583719"
 ---
 # <a name="azure-synapse-analytics-data-integration-partners"></a>Partner di integrazione dei dati di Azure Synapse AnalyticsAzure Synapse Analytics data integration partners
-Per creare la soluzione di data warehouse usando la funzionalità SQL Analytics di Azure Synapse, è possibile scegliere tra un'ampia gamma di strumenti leader del settore. Questo articolo illustra le aziende partner Microsoft con soluzioni ufficiali di integrazione dei dati che supportano Azure Synapse.This article highlights Microsoft partner companies with official data integration solutions that support Azure Synapse.
+
+Per creare la soluzione di data warehouse usando la funzionalità del pool Synapse SQL di Azure Synapse, è possibile scegliere tra un'ampia gamma di strumenti leader del settore. Questo articolo illustra le aziende partner Microsoft con soluzioni ufficiali di integrazione dei dati che supportano Azure Synapse.This article highlights Microsoft partner companies with official data integration solutions that support Azure Synapse.
 
 ## <a name="data-integration-partners"></a>Partner di integrazione dei dati
+
 | Partner | Descrizione | Collegamento sito Web/prodotto |
 | ------- | ----------- | -------------------- |
 | ![Alooma](./media/sql-data-warehouse-partner-data-integration/alooma_logo.png) |**Alooma**<br> Alooma è una soluzione ETL (Extract, Transform, and Load) che consente ai team di dati di integrare, arricchire e trasmettere dati da vari silos di dati a un data warehouse di Azure Synapse tutto in tempo reale. |[Pagina del prodotto](https://www.alooma.com/) |

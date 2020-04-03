@@ -4,15 +4,15 @@ description: Informazioni su come eseguire l'integrazione con Firewall di Azure 
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 03/31/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 84fcb9076bbc1e75d46d9a6682c96035576ae09e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3dadb57c6358623974de1a27e1601d99b28fee32
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475443"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584323"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Blocco di un ambiente del servizio app
 
@@ -215,6 +215,8 @@ Con Firewall di Azure, tutto ciò che segue viene configurato automaticamente co
 |gmstorageprodsn1.queue.core.windows.net:443 |
 |gmstorageprodsn1.table.core.windows.net:443 |
 |rteventservice.trafficmanager.net:443 |
+|ctldl.windowsupdate.com:80 |
+|ctldl.windowsupdate.com:443 |
 
 #### <a name="wildcard-httphttps-dependencies"></a>Dipendenze HTTP/HTTPS con caratteri jolly 
 
@@ -225,6 +227,8 @@ Con Firewall di Azure, tutto ciò che segue viene configurato automaticamente co
 | \*.update.microsoft.com:443 |
 | \*.windowsupdate.microsoft.com:443 |
 | \*File identity.azure.net:443 |
+| \*File con estensione ctldl.windowsupdate.com:80 |
+| \*.ctldl.windowsupdate.com:443 |
 
 #### <a name="linux-dependencies"></a>Dipendenze Linux 
 

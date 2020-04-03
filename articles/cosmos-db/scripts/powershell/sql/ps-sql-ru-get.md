@@ -1,20 +1,20 @@
 ---
-title: Script di PowerShell per ottenere la velocità effettiva (UR/s) di cui è stato effettuato il provisioning per l'API SQL (Core) di Azure Cosmos DB
-description: Script di Azure PowerShell - Misurare la velocità effettiva (UR/s) del provisioning di Azure Cosmos DB per l'API SQL (Core)
+title: Script di PowerShell per ottenere la velocità effettiva (UR/s) del database o del contenitore per l'API SQL di Azure Cosmos DB
+description: Script di Azure PowerShell per ottenere la velocità effettiva (UR/s) per il database o il contenitore per l'API SQL di Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 07/03/2019
+ms.date: 03/17/2020
 ms.author: mjbrown
-ms.openlocfilehash: 9b4450e18aa2666806faf2c0baed8af2285e69dc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f471b1d41314728a6c6f0c5d2ab981891e2caa87
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75441340"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365629"
 ---
-# <a name="get-the-provisioned-throughput-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>Misurare la velocità effettiva (UR/s) del provisioning di un database o contenitore per Azure Cosmos DB - API SQL (Core)
+# <a name="get-throughput-rus-for-azure-cosmos-db-sql-api-database-or-container"></a>Ottenere la velocità effettiva (UR/s) per un database o un contenitore per l'API SQL di Azure Cosmos DB
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,7 +22,7 @@ ms.locfileid: "75441340"
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-ru-get.ps1 "Get throughput for a database or container for SQL (Core) API")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-ru-get.ps1 "Get throughput (RU/s) for Azure Cosmos DB SQL API database or container")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
@@ -38,8 +38,9 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | Comando | Note |
 |---|---|
-|**Risorse di Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Crea una risorsa. |
+|**Azure Cosmos DB**| |
+| [Get-AzCosmosDBSqlDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqldatabasethroughput) | Recupera la velocità effettiva di cui è stato effettuato il provisioning in un database dell'API SQL di Azure Cosmos DB. |
+| [Get-AzCosmosDBSqlContainerThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainerthroughput) | Recupera la velocità effettiva di cui è stato effettuato il provisioning in un contenitore dell'API SQL di Azure Cosmos DB. |
 |**Gruppi di risorse di Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 |||

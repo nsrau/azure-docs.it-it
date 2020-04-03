@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: ebe5ddf72e13b1a66ded7a90976e0b6209a26dfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d46f513fccf9921d4cf47835bc9d5be4c6ffe241
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060961"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607500"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -187,7 +187,7 @@ Set-AzStorageSyncServerEndpoint `
 
 Questo problema può verificarsi se il processo di Monitoraggio sincronizzazione archiviazione (AzureStorageSyncMonitor.exe) non è in esecuzione o se il server non è in grado di accedere al servizio di sincronizzazione file di Azure.
 
-Nel server che viene visualizzato come "Appare offline" nel portale, esaminare l'ID evento 9301 nel registro eventi di telemetria (situato in applicazioni e servizi , Microsoft FileSync , Agent nel Visualizzatore eventi) per determinare il motivo per cui il server non è in grado di accedere ad Azure File Sync Servizio. 
+Nel server che viene visualizzato come "Appare offline" nel portale, esaminare l'ID evento 9301 nel registro eventi di telemetria (situato in applicazioni e servizi ) nel Visualizzatore eventi per determinare il motivo per cui il server non è in grado di accedere al servizio di sincronizzazione di File di Azure. 
 
 - Se **GetNextJob è stato completato con stato: 0** registrato, il server può comunicare con il servizio di sincronizzazione file di Azure.If GetNextJob completed with status: 0 is logged, the server can communicate with the Azure File Sync service. 
     - Aprire Gestione attività sul server e verificare che il processo di monitoraggio della sincronizzazione dell'archiviazione (AzureStorageSyncMonitor.exe) sia in esecuzione. Se il processo non è in esecuzione, provare a riavviare il server. Se il riavvio del server non risolve il problema, aggiornare all'ultima[versione dell'agente](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes) della Sincronizzazione file di Azure. 
@@ -588,7 +588,7 @@ Se il problema persiste per più di due ore, creare una richiesta di supporto pe
 | **Stringa di errore** | CERT_E_UNTRUSTEDROOT |
 | **Rimedio necessario** | Sì |
 
-Questo errore può verificarsi se l'organizzazione usa un proxy di terminazione SSL o se un'entità dannosa intercetta il traffico tra il server e il servizio Sincronizzazione file di Azure. Se si è certi che questo comportamento sia previsto (perché l'organizzazione usa un proxy di terminazione SSL ), ignorare la verifica dei certificati con un override del registro di sistema.
+Questo errore può verificarsi se l'organizzazione usa un proxy di terminazione TLS o se un'entità dannosa intercetta il traffico tra il server e il servizio di sincronizzazione file di Azure.This error can happen if your organization is using a TLS terminating proxy or if a malicious entity is intercepting the traffic between your server and the Azure File Sync service. Se si è certi che questo è previsto (perché l'organizzazione utilizza un proxy di terminazione TLS), si ignora la verifica del certificato con una sostituzione del Registro di sistema.
 
 1. Creare il valore del registro SkipVerifyingPinnedRootCertificate.
 
@@ -602,7 +602,7 @@ Questo errore può verificarsi se l'organizzazione usa un proxy di terminazione 
     Restart-Service -Name FileSyncSvc -Force
     ```
 
-Impostando questo valore del registro, l'agente di Sincronizzazione file di Azure accetterà qualsiasi certificato SSL attendibile locale durante il trasferimento dei dati tra il server e il servizio cloud.
+Impostando questo valore del Registro di sistema, l'agente di Sincronizzazione file di Azure accetterà qualsiasi certificato TLS/SSL attendibile localmente durante il trasferimento dei dati tra il server e il servizio cloud.
 
 <a id="-2147012894"></a>**Impossibile stabilire una connessione con il servizio.**  
 
@@ -894,7 +894,7 @@ Questo errore si verifica quando un'operazione di inserimento dati supera il tim
 4. Selezionare l'account di archiviazione collegato. Se questo collegamento ha esito negativo, l'account di archiviazione a cui viene fatto riferimento è stato rimosso.
     ![Schermata che mostra il riquadro dei dettagli dell'endpoint cloud con un collegamento all'account di archiviazione.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
 # Variables for you to populate based on your configuration
 $region = "<Az_Region>"
@@ -975,7 +975,7 @@ if ($storageAccount -eq $null) {
 2. Selezionare **File** per visualizzare l'elenco delle condivisioni file.
 3. Verificare che la condivisione file a cui fa riferimento l'endpoint cloud venga visualizzata nell'elenco delle condivisioni di file (come si può vedere dal passaggio 1 in alto).
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
 $fileShare = Get-AzStorageShare -Context $storageAccount.Context | Where-Object {
     $_.Name -eq $cloudEndpoint.AzureFileShareName -and
@@ -1002,7 +1002,7 @@ if ($fileShare -eq $null) {
     - Nel campo **Ruolo** selezionare **Lettore e accesso ai dati**.
     - Nel campo **Seleziona** digitare **Microsoft.StorageSync**, selezionare il ruolo e fare clic su **Salva**.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell    
 $role = Get-AzRoleAssignment -Scope $storageAccount.Id | Where-Object { $_.DisplayName -eq "Microsoft.StorageSync" }
 

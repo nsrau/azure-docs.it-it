@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 03/26/2020
-ms.openlocfilehash: c8743385f8c3c801b2f06e4a30a8672d1d80acc4
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 18c926d16319eb8a8736a51d5f10e434b94d0ebe
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422528"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582487"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Configurazione della chiave gestita dal cliente di Azure MonitorAzure Monitor customer-managed key configuration 
 
@@ -50,11 +50,11 @@ I dati ingeriti negli ultimi 14 giorni vengono mantenuti anche nella hot-cache (
 
 Azure Monitor leverages system-assigned managed identity to grant access to your Azure Key Vault.L'identità gestita assegnata dal sistema può essere associata solo a una singola risorsa di Azure.System-assigned managed identity can only be associated with a single Azure resource. L'identità dell'archivio dati di Monitoraggio di Azure (cluster ADX) è supportata a livello di cluster e ciò impone che la funzionalità CMK venga fornita in un cluster ADX dedicato. Per supportare CMK in più aree di lavoro, una nuova risorsa log Analytics (*Cluster*) esegue come connessione di identità intermedia tra l'insieme di credenziali delle chiavi e le aree di lavoro di Log Analytics. Questo concetto è conforme al vincolo di identità assegnato dal sistema e l'identità viene mantenuta tra il cluster ADX e la risorsa *cluster* Log Analytics, mentre i dati di tutte le aree di lavoro associate sono protetti con la chiave dell'insieme di credenziali delle chiavi. L'archiviazione cluster ADX sottoposta\'usa l'identità gestita associata alla risorsa Cluster per autenticare e accedere all'insieme di credenziali delle chiavi di Azure tramite Azure Active Directory.The underlay ADX cluster storage uses the managed identity s associated with the *Cluster* resource to authenticate and access your Azure Key Vault via Azure Active Directory.
 
-![CMK Panoramica](media/customer-managed-keys/cmk-overview.png)
-1.  Key Vault del cliente.
-2.  Risorsa *cluster* Log Analytics del cliente con identità gestita con autorizzazioni per L'insieme di credenziali delle chiavi: l'identità è supportata a livello di archivio dati (cluster ADX).
-3.  Cluster ADX dedicato di Azure Monitor.Azure Monitor dedicated ADX cluster.
-4.  Aree di lavoro del cliente associate alla risorsa *cluster* per la crittografia CMK.
+![CMK Panoramica](media/customer-managed-keys/cmk-overview-8bit.png)
+1.    Key Vault del cliente.
+2.    Risorsa *cluster* Log Analytics del cliente con identità gestita con autorizzazioni per L'insieme di credenziali delle chiavi: l'identità è supportata a livello di archivio dati (cluster ADX).
+3.    Cluster ADX dedicato di Azure Monitor.Azure Monitor dedicated ADX cluster.
+4.    Aree di lavoro del cliente associate alla risorsa *cluster* per la crittografia CMK.
 
 ## <a name="encryption-keys-management"></a>Gestione delle chiavi di crittografia
 
@@ -210,7 +210,7 @@ Aggiornare l'insieme di credenziali delle chiavi con un nuovo criterio di access
 - Autorizzazioni chiave: selezionare le autorizzazioni 'Get', 'Wrap Key' e 'Unwrap Key'.
 - Selezionare principal: immettere il valore principal-id restituito nella risposta nel passaggio precedente.
 
-![concedere autorizzazioni dell'insieme di credenziali delle chiavi](media/customer-managed-keys/grant-key-vault-permissions.png)
+![concedere autorizzazioni dell'insieme di credenziali delle chiavi](media/customer-managed-keys/grant-key-vault-permissions-8bit.png)
 
 L'autorizzazione Ottieni è necessaria per verificare che l'insieme di credenziali delle chiavi sia configurato come recuperabile per proteggere la chiave e l'accesso ai dati di Monitoraggio di Azure.The *Get* permission is required to verify that your Key Vault is configured as recoverable to protect your key and the access to your Azure Monitor data.
 

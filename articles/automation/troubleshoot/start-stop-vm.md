@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 97ea98fc38fc8d06dc1bc65ee057241da6f15488
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73a9680cc570179c47b527a4844488da69193cb3
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78851390"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586089"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Risolvere i problemi della soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività
 
@@ -137,7 +137,7 @@ Questo errore può dipendere da una delle cause seguenti:
 
 Esaminare l'elenco seguente per individuare possibili soluzioni al problema o posizioni in cui cercare:
 
-* Quando si usa lo [scenario di avvio/arresto in sequenza](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags) della soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività, occorre verificare che ogni macchina virtuale che si vuole avviare o arrestare abbia il tag appropriato. Verificare che le macchine virtuali da avviare abbiano il tag `sequencestart` e che quelle da arrestare abbiano il tag `sequencestop`. Entrambi i tag richiedono un valore intero positivo. È possibile usare una query simile all'esempio seguente per cercare tutte le macchine virtuali con i tag e i relativi valori.
+* Quando si usa lo [scenario di avvio/arresto in sequenza](../automation-solution-vm-management.md) della soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività, occorre verificare che ogni macchina virtuale che si vuole avviare o arrestare abbia il tag appropriato. Verificare che le macchine virtuali da avviare abbiano il tag `sequencestart` e che quelle da arrestare abbiano il tag `sequencestop`. Entrambi i tag richiedono un valore intero positivo. È possibile usare una query simile all'esempio seguente per cercare tutte le macchine virtuali con i tag e i relativi valori.
 
   ```powershell-interactive
   Get-AzureRmResource | ? {$_.Tags.Keys -contains "SequenceStart" -or $_.Tags.Keys -contains "SequenceStop"} | ft Name,Tags
@@ -187,7 +187,7 @@ Eseguire la procedura seguente per verificare che la soluzione sia configurata c
 2. Verificare che i gruppi di risorse delle macchine virtuali da avviare o arrestare siano nelle variabili `External_Start_ResourceGroupNames` o `External_Stop_ResourceGroupNames`, a seconda della situazione.
 3. Testare le modifiche eseguendo il runbook `SequencedStartStop_Parent` con il parametro WHATIF impostato su True per visualizzare in anteprima le modifiche.
 
-Per informazioni più dettagliate e istruzioni aggiuntive su come usare la soluzione per avviare e arrestare le macchine virtuali in sequenza, vedere [Avviare/arrestare le macchine virtuali in sequenza usando i tag](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags).
+Per informazioni più dettagliate e istruzioni aggiuntive su come usare la soluzione per avviare e arrestare le macchine virtuali in sequenza, vedere [Avviare/arrestare le macchine virtuali in sequenza usando i tag](../automation-solution-vm-management.md).
 
 ## <a name="scenario-startstop-vm-job-fails-with-403-forbidden-status"></a><a name="403"></a>Scenario: processo di avvio/arresto della macchina virtuale non riuscito con stato 403 non consentitoScenario: Start/Stop VM job fails with 403 forbidden status
 

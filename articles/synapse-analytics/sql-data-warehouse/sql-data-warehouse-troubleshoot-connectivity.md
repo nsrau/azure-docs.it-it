@@ -1,6 +1,6 @@
 ---
 title: Risoluzione dei problemi di connettività
-description: Risoluzione dei problemi di connettività in Analisi SQL.
+description: Risoluzione dei problemi di connettività nel pool SQL Synapse.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 689a2e549c2627c607b6549f164e55a73318f63e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 2b0e144220e36de6157101190adb838ae651d7c4
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350052"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583318"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>Risoluzione dei problemi di connettività
 
-Questo articolo elenca le tecniche di risoluzione dei problemi comuni relative alla connessione al database di SQL Analytics.This article lists common troubleshooting techniques around connecting to your SQL Analytics database.
+In questo articolo vengono elencate le tecniche di risoluzione dei problemi comuni relative alla connessione al pool SQL Synapse.This article lists common troubleshooting techniques around connecting to your Synapse SQL pool.
 - [Verificare la disponibilità del servizio](sql-data-warehouse-troubleshoot-connectivity.md#check-service-availability)
 - [Verificare l'eventuale presenza di operazioni di scalabilità o in pausa](sql-data-warehouse-troubleshoot-connectivity.md#check-for-paused-or-scaling-operation)
 - [Verificare le impostazioni del firewall](sql-data-warehouse-troubleshoot-connectivity.md#check-your-firewall-settings)
@@ -32,33 +32,33 @@ Questo articolo elenca le tecniche di risoluzione dei problemi comuni relative a
 
 ## <a name="check-service-availability"></a>Verificare la disponibilità del servizio
 
-Verificare se il servizio è disponibile. Nel portale di Azure passare al database di SQL Analytics a cui si sta tentando di connettersi. Nel pannello toC sinistro, fare clic su **Diagnostica e risolvere i problemi**.
+Verificare se il servizio è disponibile. Nel portale di Azure passare al pool SQL Synapse a cui si sta tentando di connettersi. Nel pannello toC sinistro, fare clic su **Diagnostica e risolvere i problemi**.
 
 ![Selezionare Integrità risorse](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-Lo stato di Analisi SQL verrà visualizzato qui. Se il servizio non viene visualizzato come **Disponibile**, verificare ulteriori passaggi.
+Lo stato del pool Sql Synapse verrà visualizzato qui. Se il servizio non viene visualizzato come **Disponibile**, verificare ulteriori passaggi.
 
 ![Servizio disponibile](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-Se l'integrità della risorsa indica che l'istanza di SQL Analytics è sospesa o ridimensionata, segui le indicazioni per riprendere l'istanza.
+Se l'integrità della risorsa indica che l'istanza del pool SQL Synapse è sospesa o ridimensionata, seguire le indicazioni per riprendere l'istanza.
 
 ![Servizio sospeso](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) Ulteriori informazioni sull'integrità delle risorse sono disponibili qui.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Verificare l'eventuale presenza di operazioni di scalabilità o in pausa
 
-Controlla il portale per verificare se l'istanza di SQL Analytics è sospesa o ridimensionata.
+Controllare il portale per verificare se l'istanza del pool Sql Synapse è sospesa o ridimensionata.
 
 ![Servizio sospeso](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-Se il servizio è in pausa o il ridimensionamento, verificare che non sia durante la pianificazione della manutenzione. Nel portale per la *panoramica*di SQL Analytics verrà visualizzata la pianificazione della manutenzione eletta.
+Se il servizio è in pausa o il ridimensionamento, verificare che non sia durante la pianificazione della manutenzione. Nel portale per *panoramica*del pool SQL Synapse verrà visualizzata la pianificazione della manutenzione eletta.
 
 ![Panoramica Programma di manutenzione](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-In caso contrario, rivolgersi all'amministratore IT per verificare che questa manutenzione non sia un evento pianificato. Per riprendere l'istanza di SQL Analytics, seguire i passaggi descritti [di seguito](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute).
+In caso contrario, rivolgersi all'amministratore IT per verificare che questa manutenzione non sia un evento pianificato. Per riprendere l'istanza del pool SQL Synapse, attenersi alla procedura descritta [di seguito](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute).
 
 ## <a name="check-your-firewall-settings"></a>Verificare le impostazioni del firewall
 
-Il database di SQL Analytics comunica tramite la porta 1433.Se si sta provando a connettersi da una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In questo caso non è possibile connettersi al server di database SQL di Azure, a meno che il reparto IT non apra la porta 1433. Ulteriori informazioni sulle configurazioni del firewall sono disponibili [qui](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules).
+Il pool SQL Synapse comunica tramite la porta 1433.Synapse SQL pool communicates over port 1433.Se si sta provando a connettersi da una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In questo caso non è possibile connettersi al server di database SQL di Azure, a meno che il reparto IT non apra la porta 1433. Ulteriori informazioni sulle configurazioni del firewall sono disponibili [qui](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules).
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Verificare le impostazioni dell'endpoint di servizio/rete virtuale
 
@@ -68,7 +68,7 @@ Se si ricevono errori 40914 e 40615, vedere la descrizione e la [risoluzione](ht
 
 ### <a name="software"></a>Software
 
-Verifica di utilizzare gli strumenti più recenti per connetterti al database di SQL Analytics:
+Verificare di utilizzare gli strumenti più recenti per connettersi al pool Sql Synapse:
 
 * SSMS
 * Azure Data Studio
@@ -78,10 +78,10 @@ Verifica di utilizzare gli strumenti più recenti per connetterti al database di
 
 Verifica di utilizzare le versioni più recenti dei driver.L'utilizzo di una versione precedente dei driver potrebbe causare comportamenti imprevisti poiché i driver meno recenti potrebbero non supportare nuove funzionalità.
 
-* [Odbc](https://docs.microsoft.com/sql/connect/odbc/download-odbc-driver-for-sql-server)
+* [ODBC](https://docs.microsoft.com/sql/connect/odbc/download-odbc-driver-for-sql-server)
 * [JDBC](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server)
 * [OLE DB](https://docs.microsoft.com/sql/connect/oledb/download-oledb-driver-for-sql-server)
-* [Php](https://docs.microsoft.com/sql/connect/php/download-drivers-php-sql-server)
+* [PHP](https://docs.microsoft.com/sql/connect/php/download-drivers-php-sql-server)
 
 ## <a name="check-your-connection-string"></a>Verificare la stringa di connessione
 
@@ -113,7 +113,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="intermittent-connection-issues"></a>Problemi di connessione intermittenti
 
-Verificare se il server abbia un carico eccessivo e se sia elevato il numero delle richieste in coda. Potrebbe essere necessario aumentare la scalabilità dell'istanza di SQL Analytics per altre risorse.
+Verificare se il server abbia un carico eccessivo e se sia elevato il numero delle richieste in coda. Potrebbe essere necessario aumentare la scalabilità verticale del pool Synapse SQL per ulteriori risorse.
 
 ## <a name="common-error-messages"></a>Messaggi di errore comuni
 

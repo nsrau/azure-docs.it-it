@@ -11,15 +11,16 @@ ms.date: 04/17/2018
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 05d5e4f7334c6a9ef7a4f9e8ce7acbdf007a6a44
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: f3d5076b8ca4e1c79451bfe3bcd1dbe554b17a88
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351445"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586466"
 ---
 # <a name="azure-synapse-analytics-data-management-partners"></a>Partner per la gestione dei dati di Azure Synapse AnalyticsAzure Synapse Analytics data management partners
-Per creare la soluzione di data warehouse usando la funzionalità SQL Analytics di Azure Synapse, è possibile scegliere tra un'ampia gamma di strumenti leader del settore. Questo articolo illustra le aziende partner Microsoft con strumenti e soluzioni di gestione dei dati che supportano Azure Synapse.This article highlights Microsoft partner companies with data management tools and solutions supporting Azure Synapse.
+
+Per creare la soluzione di data warehouse usando la funzionalità del pool Synapse SQL di Azure Synapse, è possibile scegliere tra un'ampia gamma di strumenti leader del settore. Questo articolo illustra le aziende partner Microsoft con strumenti e soluzioni di gestione dei dati che supportano Azure Synapse.This article highlights Microsoft partner companies with data management tools and solutions supporting Azure Synapse.
 
 ## <a name="data-management-partners"></a>Partner di gestione dei dati
 | Partner | Descrizione | Collegamento sito Web/prodotto |

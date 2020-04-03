@@ -1,6 +1,6 @@
 ---
 title: Tabelle di indicizzazione
-description: Suggerimenti ed esempi per l'indicizzazione di tabelle in Analisi SQL.
+description: Suggerimenti ed esempi per l'indicizzazione di tabelle nel pool Sql Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ced965f94808bdc672f694bede5c239178891f97
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: d5acc2b69ed521af4fd4777dc9f3496290078379
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351277"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583281"
 ---
-# <a name="indexing-tables-in-sql-analytics"></a>Indicizzazione di tabelle in Analisi SQLIndexing tables in SQL Analytics
+# <a name="indexing-tables-in-synapse-sql-pool"></a>Tabelle di indicizzazione nel pool SQL SynapseIndexing tables in Synapse SQL pool
 
-Suggerimenti ed esempi per l'indicizzazione di tabelle in Analisi SQL.
+Suggerimenti ed esempi per l'indicizzazione di tabelle nel pool Sql Synapse.
 
 ## <a name="index-types"></a>Tipi di indice
 
-SQL Analytics offre diverse opzioni di indicizzazione, tra cui [indici columnstore cluster,](/sql/relational-databases/indexes/columnstore-indexes-overview)indici cluster e indici non cluster e un'opzione non [indicizzata](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described)nota anche come [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
+Il pool Sql Synapse offre diverse opzioni di indicizzazione, tra cui [indici columnstore cluster,](/sql/relational-databases/indexes/columnstore-indexes-overview)indici cluster e indici non cluster e un'opzione non [indicizzata](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described)nota anche come [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
 
-Per creare una tabella con un indice, vedere la documentazione [di CREATE TABLE (SQL Analytics).](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+Per creare una tabella con un indice, vedere la documentazione [CREATE TABLE (pool SQL Synapse).](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
 
 ## <a name="clustered-columnstore-indexes"></a>Indici columnstore cluster
 
-Per impostazione predefinita, SQL Analytics crea un indice columnstore cluster quando non vengono specificate opzioni di indice in una tabella. Le tabelle columnstore cluster offrono sia il livello massimo di compressione dei dati che le migliori prestazioni query generali.  Le tabelle columnstore cluster garantiscono in genere prestazioni migliori rispetto alle tabelle heap o con indice cluster e rappresentano la scelta migliore in caso di tabelle di grandi dimensioni.  Per questi motivi, l'indice columnstore cluster è il modo migliore per iniziare quando non si è certi di come indicizzare una tabella.  
+Per impostazione predefinita, il pool SQL Synapse crea un indice columnstore cluster quando in una tabella non vengono specificate opzioni di indice. Le tabelle columnstore cluster offrono sia il livello massimo di compressione dei dati che le migliori prestazioni query generali.  Le tabelle columnstore cluster garantiscono in genere prestazioni migliori rispetto alle tabelle heap o con indice cluster e rappresentano la scelta migliore in caso di tabelle di grandi dimensioni.  Per questi motivi, l'indice columnstore cluster è il modo migliore per iniziare quando non si è certi di come indicizzare una tabella.  
 
 Per creare una tabella columnstore cluster è sufficiente specificare CLUSTERED COLUMNSTORE INDEX nella clausola WITH o lasciare la clausola WITH disabilitata:
 
@@ -52,7 +52,7 @@ In alcuni scenari l'indice columnstore cluster potrebbe non essere la scelta ide
 
 ## <a name="heap-tables"></a>Tabelle heap
 
-Quando si acpongono temporaneamente i dati in SQL Analytics, è possibile che l'utilizzo di una tabella heap velocissimi sia il processo complessivo. Questo perché il caricamento negli heap è più veloce rispetto alle tabelle degli indici e in alcuni casi è possibile eseguire la lettura successiva dalla cache.  Se si caricano i dati solo per inserirli temporaneamente prima di eseguire altre trasformazioni, il caricamento della tabella in una tabella heap è molto più rapido del caricamento dei dati in una tabella columnstore cluster. Anche il caricamento dei dati in una [tabella temporanea](sql-data-warehouse-tables-temporary.md) risulta più veloce del caricamento di una tabella in un archivio permanente.  
+Quando si atterrano temporaneamente i dati nel pool Synapse SQL, è possibile che l'utilizzo di una tabella heap velocisse. Questo perché il caricamento negli heap è più veloce rispetto alle tabelle degli indici e in alcuni casi è possibile eseguire la lettura successiva dalla cache.  Se si caricano i dati solo per inserirli temporaneamente prima di eseguire altre trasformazioni, il caricamento della tabella in una tabella heap è molto più rapido del caricamento dei dati in una tabella columnstore cluster. Anche il caricamento dei dati in una [tabella temporanea](sql-data-warehouse-tables-temporary.md) risulta più veloce del caricamento di una tabella in un archivio permanente.  
 
 Per le tabelle di ricerca di piccole dimensioni, meno di 60 milioni di righe, spesso le tabelle heap hanno senso.  Le tabelle columnstore cluster iniziano a ottenere una compressione ottimale quando sono presenti più di 60 milioni di righe.
 
@@ -190,7 +190,7 @@ I fattori seguenti possono far sì che un indice columnstore abbia un numero di 
 
 ### <a name="memory-pressure-when-index-was-built"></a>Utilizzo elevato di memoria durante la compilazione dell'indice
 
-Il numero di righe per ogni gruppo di righe compresso è direttamente correlato alla larghezza della riga e alla quantità di memoria disponibile per l'elaborazione del gruppo di righe.  Quando le righe vengono scritte nelle tabelle columnstore in condizioni di utilizzo elevato di memoria, la qualità dei segmenti columnstore potrebbe risentirne.  La procedura consigliata consiste quindi nel fare in modo che la sessione che sta scrivendo nelle tabelle di indice columnstore abbia accesso alla maggiore quantità di memoria possibile.  Poiché esiste un compromesso tra memoria e concorrenza, le indicazioni sull'allocazione di memoria corretta dipendono dai dati in ogni riga della tabella, dalle unità di SQL Analytics allocate al sistema e dal numero di slot di concorrenza che è possibile fornire alla sessione la scrittura di dati nella tabella.
+Il numero di righe per ogni gruppo di righe compresso è direttamente correlato alla larghezza della riga e alla quantità di memoria disponibile per l'elaborazione del gruppo di righe.  Quando le righe vengono scritte nelle tabelle columnstore in condizioni di utilizzo elevato di memoria, la qualità dei segmenti columnstore potrebbe risentirne.  La procedura consigliata consiste quindi nel fare in modo che la sessione che sta scrivendo nelle tabelle di indice columnstore abbia accesso alla maggiore quantità di memoria possibile.  Visto il compromesso necessario tra memoria e concorrenza, la giusta quantità di memoria da allocare dipende dalla quantità di dati in ogni riga della tabella, dalle unità di data warehouse assegnate al sistema e dal numero di slot di concorrenza che è possibile assegnare alla sessione che sta scrivendo i dati nella tabella.
 
 ### <a name="high-volume-of-dml-operations"></a>Volume elevato di operazioni DML
 
@@ -204,13 +204,13 @@ Le operazioni di aggiornamento e inserimento in batch che superano la soglia in 
 
 ### <a name="small-or-trickle-load-operations"></a>Operazioni di caricamento di piccole dimensioni o con un flusso irregolare 
 
-Carichi di piccole dimensioni che scorrono nei database di SQL Analytics sono talvolta noti anche come carichi a goccia. In genere rappresentano un flusso quasi costante di dati inseriti nel sistema. Quando questo flusso è quasi continuo, tuttavia, il volume di righe non è particolarmente elevato. Molto spesso i dati sono notevolmente inferiori alla soglia necessaria per un caricamento diretto nel formato columnstore.
+I piccoli carichi che scorrono nel pool SQL Synapse sono talvolta noti anche come carichi a goccia. In genere rappresentano un flusso quasi costante di dati inseriti nel sistema. Quando questo flusso è quasi continuo, tuttavia, il volume di righe non è particolarmente elevato. Molto spesso i dati sono notevolmente inferiori alla soglia necessaria per un caricamento diretto nel formato columnstore.
 
 In queste situazioni è spesso preferibile inserire prima i dati nell'archivio BLOB di Azure e lasciarli accumulare prima di caricarli. Questa tecnica viene spesso definita come *micro invio in batch*.
 
 ### <a name="too-many-partitions"></a>Troppe partizioni
 
-Un altro fattore da considerare è l'impatto del partizionamento sulle tabelle columnstore cluster.  Prima del partizionamento, ANALISI SQL divide già i dati in 60 database.  Il partizionamento, quindi, suddivide ulteriormente i dati.  Se si partizionano i dati, tenere presente che per poter sfruttare i vantaggi di un indice columnstore cluster **ogni** partizione deve contenere almeno 1 milione di righe.  Se si partiziona la tabella in 100 partizioni, la tabella richiede almeno 6 miliardi di righe per beneficiare di un indice columnstore cluster (60 distribuzioni *100 partizioni* 1 milione di righe). Se la tabella da 100 partizioni non contiene 6 miliardi di righe, occorre ridurre il numero di partizioni o prendere in considerazione l'uso di una tabella heap.
+Un altro fattore da considerare è l'impatto del partizionamento sulle tabelle columnstore cluster.  Prima del partizionamento, il pool SQL Synapse divide già i dati in 60 database.  Il partizionamento, quindi, suddivide ulteriormente i dati.  Se si partizionano i dati, tenere presente che per poter sfruttare i vantaggi di un indice columnstore cluster **ogni** partizione deve contenere almeno 1 milione di righe.  Se si partiziona la tabella in 100 partizioni, la tabella richiede almeno 6 miliardi di righe per beneficiare di un indice columnstore cluster (60 distribuzioni *100 partizioni* 1 milione di righe). Se la tabella da 100 partizioni non contiene 6 miliardi di righe, occorre ridurre il numero di partizioni o prendere in considerazione l'uso di una tabella heap.
 
 Dopo aver caricato alcuni dati nelle tabelle, seguire questa procedura per identificare e ricompilare le tabelle con indici columnstore cluster non ottimali.
 
@@ -252,7 +252,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-La ricompilazione di un indice in Analisi SQL è un'operazione offline.  Per altre informazioni sulla ricompilazione di indici, vedere la sezione ALTER INDEX REBUILD in [Deframmentazione degli indici columnstore](/sql/relational-databases/indexes/columnstore-indexes-defragmentation) e [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
+La ricompilazione di un indice nel pool SQL Synapse è un'operazione offline.  Per altre informazioni sulla ricompilazione di indici, vedere la sezione ALTER INDEX REBUILD in [Deframmentazione degli indici columnstore](/sql/relational-databases/indexes/columnstore-indexes-defragmentation) e [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Passaggio 3: Verificare che la qualità dei segmenti columnstore cluster sia migliorata
 
@@ -283,7 +283,7 @@ AND     [OrderDateKey] <  20010101
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2 WITH (TRUNCATE_TARGET = ON);
 ```
 
-Per ulteriori informazioni sulla ricreazione delle partizioni tramite CTAS, vedere [Utilizzo delle partizioni in SQL Analytics](sql-data-warehouse-tables-partition.md).
+Per ulteriori informazioni sulla ricreazione delle partizioni tramite CTAS, vedere [Utilizzo delle partizioni nel pool SQL Synapse](sql-data-warehouse-tables-partition.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

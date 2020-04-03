@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 02/08/2019
-ms.openlocfilehash: 41dd336bdb74fbe745ab48ebd3c168af0492ae2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a048ddefbcd76193436da13cd3ba68b8b6ffb0a
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75691007"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607603"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Replica transazionale con database singoli, in pool e dell'istanza nel database SQL di Azure
 
@@ -95,7 +95,7 @@ Esistono diversi [tipi di replica](https://docs.microsoft.com/sql/relational-dat
 - Per la connettività viene usata l'autenticazione SQL tra i partecipanti alla replica. 
 - Una condivisione di account di archiviazione di Azure per la directory di lavoro usata dalla replica. 
 - La porta 445 (TCP in uscita) deve essere aperta nelle regole di sicurezza della subnet dell'istanza gestita per accedere alla condivisione file di Azure.Port 445 (TCP outbound) needs to be open in the security rules of the managed instance subnet to access the Azure file share. 
-- La porta 1433 (TCP in uscita) deve essere aperta se il server di pubblicazione/server di distribuzione si trova in un'istanza gestita e il server di sottoscrizione è locale.
+- La porta 1433 (TCP in uscita) deve essere aperta se il server di pubblicazione/server di distribuzione si trova in un'istanza gestita e il server di sottoscrizione non lo è. Potrebbe anche essere necessario modificare la regola di `allow_linkedserver_outbound` sicurezza in uscita del gruppo di `internet`sicurezza di rete dell'istanza gestita per il tag della porta 1433 servizio di **destinazione** da `virtualnetwork` a . 
 - Tutti i tipi di partecipanti alla replica (server di pubblicazione, server di distribuzione, Sottoscrittore pull e Sottoscrittore Push) possono essere inseriti nelle istanze gestite, ma il server di pubblicazione e il server di distribuzione devono trovarsi sia nel cloud che in locale.
 - Se il server di pubblicazione, il server di distribuzione e/o il server di sottoscrizione esistono in reti virtuali diverse, è necessario stabilire il peering VPN tra ogni entità, in modo che vi sia un peering VPN tra il server di pubblicazione e il server di distribuzione e/o il peering VPN tra il server di distribuzione e il server di sottoscrizione. 
 
@@ -124,7 +124,7 @@ Il server di pubblicazione e il server di distribuzione vengono configurati all'
 
 ### <a name="publisher-with-remote-distributor-on-a-managed-instance"></a>Server di pubblicazione con server di distribuzione remoto in un'istanza gestita
 
-In questa configurazione, un'istanza gestita pubblica le modifiche nel server di distribuzione inserite in un'altra istanza gestita in grado di gestire molte istanze gestite di origine e distribuire le modifiche a una o più destinazioni in un'istanza gestita, in un singolo database, in un database in pool o SQL Server.
+In this configuration, one managed instance publishes changes to distributor placed on another managed instance that can serve many source managed instances and distribute changes to one or many targets on managed instance, single database, pooled database, or SQL Server.
 
 ![Istanze separate per server di pubblicazione e database di distribuzione](media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
 
@@ -195,8 +195,8 @@ Per altre informazioni sulla configurazione della replica transazionale, vedere 
 - [Replica con un MI e un gruppo di failover](sql-database-managed-instance-transact-sql-information.md#replication)
 - [Replica nel database SQL](replication-to-sql-database.md)
 - [Replica nell'istanza gestita](replication-with-sql-database-managed-instance.md)
-- [Creazione di una Pubblicazione](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
+- [Creare una pubblicazioneCreate a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Creazione di una sottoscrizione push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
 - [Tipi di replica](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
 - [Monitoraggio (replica)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
-- [Inizializzare una sottoscrizione](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
+- [Inizializzazione di una sottoscrizione](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  

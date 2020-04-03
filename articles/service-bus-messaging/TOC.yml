@@ -20,6 +20,7 @@
             - name: Interfaccia della riga di comando di Azure
               href: service-bus-quickstart-cli.md
             - name: Modello ARM
+              displayName: Resource Manager
               href: service-bus-resource-manager-namespace-queue.md
         - name: Inviare e ricevere messaggi
           items:

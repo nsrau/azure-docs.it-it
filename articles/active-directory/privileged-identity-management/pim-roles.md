@@ -10,20 +10,20 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 03/31/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fac7074cf85a585c93ece60be9eea8ffb9a6345
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b6eaa50f57dd8037ef0ad96b69284f565bd3558f
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72895193"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607531"
 ---
 # <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Ruoli che non è possibile gestire in Gestione identità con privilegi
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) consente di gestire tutti i ruoli di Azure AD e tutti i ruoli delle risorse di Azure.Azure Active Directory (Azure AD) Privileged Identity Management (PIM) enables you to manage all [Azure AD roles](../users-groups-roles/directory-assign-admin-roles.md) and all Azure resource [roles](../../role-based-access-control/built-in-roles.md). Questi ruoli includono anche i ruoli personalizzati associati ai gruppi di gestione, alle sottoscrizioni, ai gruppi di risorse e alle risorse. Esistono tuttavia alcuni ruoli che non è possibile gestire. In questo articolo vengono descritti i ruoli che non è possibile gestire in Gestione identità con privilegi.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) consente di gestire tutti i ruoli di [Azure AD](../users-groups-roles/directory-assign-admin-roles.md) e tutti i ruoli di [Azure.](../../role-based-access-control/built-in-roles.md) I ruoli di Azure possono includere anche i ruoli personalizzati associati ai gruppi di gestione, alle sottoscrizioni, ai gruppi di risorse e alle risorse. Esistono tuttavia alcuni ruoli che non è possibile gestire. In questo articolo vengono descritti i ruoli che non è possibile gestire in Gestione identità con privilegi.
 
 ## <a name="classic-subscription-administrator-roles"></a>Ruoli di amministratore sottoscrizione classica
 
@@ -37,10 +37,10 @@ Per altre informazioni sui ruoli di amministratore sottoscrizione classico, vede
 
 ## <a name="what-about-office-365-admin-roles"></a>Informazioni sui ruoli amministratore di Office 365
 
-I ruoli all'interno di Exchange Online o SharePoint Online, ad eccezione di Amministratore di Exchange e Amministratore di SharePoint, non sono rappresentati in Azure AD e pertanto non possono essere gestiti in Gestione identità con privilegi. Per altre informazioni su questi servizi di Office 365, vedere [Informazioni sui ruoli di amministratore di Office 365](https://docs.microsoft.com/office365/admin/add-users/about-admin-roles).
+Tutti i ruoli di Office365 nel portale Ruoli e amministratori di Azure AD sono supportati, ad esempio Amministratore di Exchange e Amministratore di SharePoint, ma non sono supportati ruoli specifici all'interno di Rbac di Exchange o RBAC di SharePoint. Per altre informazioni su questi servizi di Office 365, vedere [Informazioni sui ruoli di amministratore di Office 365](https://docs.microsoft.com/office365/admin/add-users/about-admin-roles).
 
 > [!NOTE]
-> Il ruolo di amministratore di SharePoint ha accesso amministrativo a SharePoint Online tramite l'interfaccia di amministrazione di SharePoint Online e può eseguire quasi tutte le attività in SharePoint Online. Gli utenti idonei potrebbero verificarsi ritardi nell'utilizzo di questo ruolo all'interno di SharePoint dopo l'attivazione in Gestione identità privilegiate.
+> Gli utenti idonei per il ruolo di amministratore di SharePoint e per i ruoli che tentano di accedere al Centro sicurezza e conformità Microsoft potrebbero subire ritardi fino a poche ore dopo l'attivazione del ruolo. Stiamo lavorando con questi team per risolvere i problemi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

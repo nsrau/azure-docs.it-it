@@ -4,12 +4,12 @@ description: Informazioni su come creare e gestire pool di più nodi per un clus
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: 607419787bc0bab243d6cc2b8cbaa0ec22921e87
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 87f066ed17e5274439082956803d269bdd5853f5
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422321"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80616510"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creare e gestire pool di più nodi per un cluster nel servizio Azure Kubernetes (AKS)Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
 
@@ -41,7 +41,7 @@ Quando si creano e si gestiscono cluster AKS che supportano pool di più nodi, s
 Per iniziare, creare un cluster AKS con un pool a nodo singolo. L'esempio seguente usa il comando az group create per creare un gruppo di risorse denominato myResourceGroup nell'area eastus.The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. Viene quindi creato un cluster AKS denominato *myAKSCluster* usando il comando [az aks create.][az-aks-create] Una *versione --kubernetes* di *1.15.7* viene utilizzata per mostrare come aggiornare un pool di nodi in un passaggio successivo. È possibile specificare qualsiasi [versione Kubernetes supportata.][supported-versions]
 
 > [!NOTE]
-> Lo SKU del servizio di bilanciamento del carico *di base* non è **supportato** quando si usano più pool di nodi. Per impostazione predefinita, i cluster AKS vengono creati con lo SKU del servizio di bilanciamento del carico Standard dalla CLI di Azure e dal portale di Azure.By default, AKS clusters are created with the *Standard* load balancer SKU from Azure CLI and Azure portal.
+> Lo SKU del servizio di bilanciamento del carico *di base* non è **supportato** quando si usano più pool di nodi. Per impostazione predefinita, i cluster AKS vengono creati con lo SKU del servizio di bilanciamento del carico Standard dalla CLI di Azure e dal portale di Azure.By default, AKS clusters are created with the *Standard* load balancer SKU from the Azure CLI and Azure portal.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -420,7 +420,7 @@ L'utilità di pianificazione di Kubernetes può usare taint e tolleranze per lim
 
 Per ulteriori informazioni su come utilizzare le funzionalità pianificate avanzate Kubernetes, vedere [Procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione in AKSFor][taints-tolerations] more information on how to use advanced Kubernetes scheduled features, see Best practices for advanced scheduler features in AKS
 
-In questo esempio, applicare una macchia al nodo basato su GPU utilizzando il comando --node-taints. Specificare il nome del nodo basato su `kubectl get nodes` GPU dall'output del comando precedente. La macchia viene applicata come *chiave:valore* e quindi come opzione di pianificazione. L'esempio seguente usa la coppia *sku-gpu* e definisce i pod in caso contrario l'abilità *NoSchedule:*
+In questo esempio, applicare una macchia al nodo basato su GPU utilizzando il comando --node-taints. Specificare il nome del nodo basato su `kubectl get nodes` GPU dall'output del comando precedente. La macchia viene applicata come coppia *chiave-valore* e quindi come opzione di pianificazione. L'esempio seguente usa la coppia *sku-gpu* e definisce i pod in caso contrario l'abilità *NoSchedule:*
 
 ```console
 az aks nodepool add --node-taints aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
@@ -480,7 +480,7 @@ Events:
   Normal  Started    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Started container
 ```
 
-Solo i pod a cui è applicata questa macchia possono essere pianificati sui nodi in *gpunodepool*. Qualsiasi altro pod verrà pianificato nel pool di nodi *nodepool1.* Se si creano pool di nodi aggiuntivi, è possibile utilizzare ulteriori taint e tolarazioni per limitare quali pod possono essere pianificati in tali risorse del nodo.
+Solo i pod a cui è applicata questa torazione possono essere pianificati su nodi in *gpunodepool*. Qualsiasi altro pod verrà pianificato nel pool di nodi *nodepool1.* Se si creano pool di nodi aggiuntivi, è possibile utilizzare ulteriori taint e tolarazioni per limitare quali pod possono essere pianificati in tali risorse del nodo.
 
 ## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>Specificare una macchia, un'etichetta o un'etichetta per un pool di nodiSpecify a taint, label, or tag for a node pool
 

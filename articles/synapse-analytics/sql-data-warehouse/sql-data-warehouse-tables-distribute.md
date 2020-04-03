@@ -1,6 +1,6 @@
 ---
 title: Linee guida per la progettazione di tabelle distribuiteDistributed tables design guidance
-description: Suggerimenti per la progettazione di tabelle distribuite distribuite distribuite con hash e round robin in SQL Analytics.
+description: Suggerimenti per la progettazione di tabelle distribuite distribuite distribuite con distribuzione hash e round robin nel pool SQL Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,19 +11,21 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 35106e73a3a4a143bf22c72c4fe8ac6798ac5219
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8a93f3ada8e56853b78321bdc7d99a667cee6158
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351331"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583514"
 ---
-# <a name="guidance-for-designing-distributed-tables-in-sql-analytics"></a>Linee guida per la progettazione di tabelle distribuite in SQL AnalyticsGuidance for designing distributed tables in SQL Analytics
-Suggerimenti per la progettazione di tabelle distribuite distribuite distribuite con hash e round robin in SQL Analytics.
+# <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Linee guida per la progettazione di tabelle distribuite nel pool SQL SynapseGuidance for designing distributed tables in Synapse SQL pool
 
-Questo articolo presuppone che tu abbia familiarità con i concetti di distribuzione e spostamento dei dati in Analisi SQL.Per ulteriori informazioni, vedere Architettura di [elaborazione parallela massiccia (MPP)](massively-parallel-processing-mpp-architecture.md)di SQL Analytics. 
+Suggerimenti per la progettazione di tabelle distribuite distribuite distribuite con distribuzione hash e round robin nei pool SQL di Synapse.
+
+In questo articolo si presuppone che l'utente abbia familiarità con i concetti di distribuzione e spostamento dei dati nel pool SQL Synapse.Per altre informazioni, vedere [Architettura MPP (Azure Synapse Analytics massicciamente parallela).](massively-parallel-processing-mpp-architecture.md) 
 
 ## <a name="what-is-a-distributed-table"></a>Che cos'è una tabella distribuita?
+
 Una tabella distribuita viene visualizzata come una singola tabella, ma le righe al suo interno, in realtà, sono archiviate in 60 distribuzioni. Le righe, inoltre, vengono distribuite con un algoritmo hash o round robin.  
 
 Le **tabella con distribuzione hash** migliorano le prestazioni delle query nelle tabelle dei fatti di grandi dimensioni e rappresentano l'argomento principale di questo articolo. Le **tabelle round robin** consentono invece di aumentare la velocità di caricamento. Queste scelte di progettazione, quindi, possono contribuire in maniera significativa al miglioramento delle prestazioni delle query e di caricamento.
@@ -34,15 +36,16 @@ Come parte della progettazione di tabelle, è necessario comprendere quanto più
 
 - Quali sono le dimensioni della tabella?   
 - Quanto spesso viene aggiornata la tabella?   
-- Sono disponibili tabelle dei fatti e delle dimensioni in un database di SQL Analytics?   
+- Sono disponibili tabelle dei fatti e delle dimensioni in un pool SQL Synapse?   
 
 
 ### <a name="hash-distributed"></a>Tabelle con distribuzione hash
+
 Una tabella con distribuzione hash distribuisce le righe della tabella nei vari nodi di calcolo usando una funzione hash deterministica per assegnare ogni riga a una [distribuzione](massively-parallel-processing-mpp-architecture.md#distributions). 
 
 ![Tabella distribuita](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Tabella distribuita")  
 
-Poiché i valori identici vengono sempre sottoposti a hash ingabbia alla stessa distribuzione, Analisi SQL ha una conoscenza predefinita delle posizioni delle righe. Analisi SQL usa questa conoscenza per ridurre al minimo lo spostamento dei dati durante le query, con un miglioramento delle prestazioni delle query. 
+Poiché valori identici eseguono sempre l'hash nella stessa distribuzione, nel data warehouse sono integrate informazioni sulla posizione delle righe. Nel pool SQL Synapse questa conoscenza viene utilizzata per ridurre al minimo lo spostamento dei dati durante le query, con conseguente miglioramento delle prestazioni delle query. 
 
 Le tabelle con distribuzione hash sono particolarmente indicate per le tabelle dei fatti di grandi dimensioni in uno schema star. Possono contenere un numero molto elevato di righe e conseguire comunque prestazioni elevate. È necessario, ovviamente, considerare anche alcuni aspetti di progettazione per ottenere le prestazioni che il sistema distribuito è in grado di offrire. Uno di questi riguarda la scelta di una colonna di distribuzione appropriata, illustrata in questo articolo. 
 
@@ -52,6 +55,7 @@ Valutare l'opportunità di usare una tabella con distribuzione hash se:
 - La tabella prevede frequenti operazioni di inserimento, aggiornamento ed eliminazione. 
 
 ### <a name="round-robin-distributed"></a>Distribuzione round robin
+
 Una tabella con distribuzione round robin distribuisce le righe della tabella in modo uniforme tra tutte le distribuzioni. L'assegnazione delle righe alle distribuzioni è casuale. A differenza delle tabelle con distribuzione hash, inoltre, non è garantito che valori identici vengano assegnati alla stessa distribuzione. 
 
 Di conseguenza, a volte il sistema deve richiamare un'operazione di spostamento dei dati per organizzare meglio i dati e poter risolvere una query.  Questo passaggio aggiuntivo può rallentare le query. L'aggiunta di una tabella con distribuzione round robin, ad esempio, richiede una ridistribuzione dei dati, con una conseguente riduzione delle prestazioni.
@@ -65,7 +69,7 @@ Valutare l'opportunità di usare la distribuzione round robin per una tabella ne
 - Se il join è meno significativo di altri join nella query.
 - Quando si tratta di una tabella di staging temporaneo.
 
-L'esercitazione Caricare i dati del taxi di New York fornisce un esempio di caricamento dei dati in una tabella di gestione temporanea round robin in SQL Analytics.The tutorial [Load New York taxicab data](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) gives an example of loading data into a round-robin staging table in SQL Analytics.
+L'esercitazione Caricare i dati del taxi di [New York](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) fornisce un esempio di caricamento dei dati in una tabella di gestione temporanea round robin.
 
 
 ## <a name="choosing-a-distribution-column"></a>Scelta di una colonna di distribuzione
@@ -109,7 +113,7 @@ Per bilanciare l'elaborazione parallela, selezionare una colonna di distribuzion
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Scegliere una colonna di distribuzione che riduca al minimo lo spostamento dei dati
 
-Per ottenere il risultato corretto, è possibile che le query spostino i dati da un nodo di calcolo a un altro. Lo spostamento dei dati si verifica in genere quando le query hanno join e aggregazioni in tabelle distribuite. La scelta di una colonna di distribuzione che consenta di ridurre al minimo lo spostamento dei dati è una delle strategie più importanti per ottimizzare le prestazioni del database SQL Analytics.
+Per ottenere il risultato corretto, è possibile che le query spostino i dati da un nodo di calcolo a un altro. Lo spostamento dei dati si verifica in genere quando le query hanno join e aggregazioni in tabelle distribuite. La scelta di una colonna di distribuzione che consenta di ridurre al minimo lo spostamento dei dati è una delle strategie più importanti per ottimizzare le prestazioni del pool SQL Synapse.Choosing a distribution column that helps minimize data movement is one of the most important strategies for optimizing performance of your Synapse SQL pool.
 
 Per ridurre al minimo lo spostamento dei dati, selezionare una colonna di distribuzione che:
 
@@ -217,7 +221,7 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 Per creare una tabella distribuita, usare una di queste istruzioni:
 
-- [CREA TABELLA (SQL Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CREA TABELLA COME SELEZIONE (SQL Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [CREATE TABLE (pool SQL Synapse)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [CREATE TABLE AS SELECT (pool SQL Synapse)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 

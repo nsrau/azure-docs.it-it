@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 03/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: e3ab6282a3c61e12dce5dd17bc0859c0d73a7724
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cba16d79b6506f9809a76f0128938a68afd15c92
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051695"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617045"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Connettere un'applicazione MongoDB ad Azure Cosmos DB
 
@@ -51,11 +51,11 @@ Questa esercitazione illustra due modi per recuperare le informazioni della stri
 ## <a name="connection-string-requirements"></a>Requisiti della stringa di connessione
 
 > [!Important]
-> Azure Cosmos DB presenta standard e requisiti di sicurezza restrittivi. Gli account di Azure Cosmos DB richiedono l'autenticazione e la comunicazione protetta tramite *SSL*. 
+> Azure Cosmos DB presenta standard e requisiti di sicurezza restrittivi. Gli account di Azure Cosmos DB richiedono l'autenticazione e la comunicazione sicura tramite *TLS*. 
 >
 >
 
-Azure Cosmos DB supporta il formato URI della stringa di connessione di MongoDB standard, con un paio di requisiti specifici: gli account Azure Cosmos DB richiedono l'autenticazione e la comunicazione sicura tramite SSL. Il formato della stringa di connessione sarà quindi:
+Il database Cosmos di Azure supporta il formato URI della stringa di connessione MongoDB standard, con un paio di requisiti specifici: gli account di Azure Cosmos DB richiedono l'autenticazione e la comunicazione sicura tramite TLS. Il formato della stringa di connessione sarà quindi:
 
     mongodb://username:password@host:port/[database]?ssl=true
 

@@ -1,7 +1,6 @@
 ---
 title: Proteggere un databaseSecure a database
-description: Suggerimenti per la protezione di un database e lo sviluppo di soluzioni nella risorsa del pool SQL di SQL Analytics.Tips for securing a database and developing solutions in the SQL pool resource of SQL Analytics.
-services: synapse-analytics
+description: Suggerimenti per la protezione di un database e lo sviluppo di soluzioni in una risorsa pool SQL Synapse.
 author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
@@ -12,25 +11,27 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 6ae9580803563971764eec4bd18fcc2430cee06d
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 46d32fdca615833bd602480ac182585da898ab98
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350193"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586433"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Proteggere un database in Azure SynapseSecure a database in Azure Synapse
+
 > [!div class="op_single_selector"]
 > * [Panoramica della sicurezza](sql-data-warehouse-overview-manage-security.md)
-> * [Autenticazione](sql-data-warehouse-authentication.md)
+> * [autenticazione](sql-data-warehouse-authentication.md)
 > * [Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse](sql-data-warehouse-encryption-tde.md)
 > * [Introduzione a Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde-tsql.md)
 > 
 > 
 
-Questo articolo illustra le nozioni di base sulla protezione del pool SQL all'interno di SQL Analytics.This article will guide you through the basics of securing your SQL pool within SQL Analytics. In particolare, in questo articolo vengono fornite informazioni introduttive sulle risorse per limitare l'accesso, proteggere i dati e monitorare le attività in un database di cui è stato eseguito il provisioning tramite il pool SQL.
+Questo articolo illustra le nozioni di base per la protezione del pool SQL Synapse. In particolare, in questo articolo vengono fornite informazioni introduttive sulle risorse per limitare l'accesso, proteggere i dati e monitorare le attività in un database di cui è stato eseguito il provisioning tramite il pool SQL.
 
 ## <a name="connection-security"></a>Sicurezza delle connessioni
+
 La sicurezza delle connessioni fa riferimento al modo che si limitano e proteggono le connessioni al database mediante regole del firewall e crittografia di connessione.
 
 Le regole del firewall vengono utilizzate sia dal server che dal database per rifiutare i tentativi di connessione da indirizzi IP che non sono stati esplicitamente inseriti nella whitelist. Prima di consentire le connessioni dall'applicazione o dall'indirizzo IP pubblico del computer client, è necessario creare una regola del firewall di livello server tramite il portale di Azure, l'API REST o PowerShell. 
@@ -42,11 +43,12 @@ Azure Synapse Analytics usa le regole del firewall IP a livello di server. Non s
 Le connessioni al pool SQL vengono crittografate per impostazione predefinita.  La modifica delle impostazioni di connessione per disabilitare la crittografia viene ignorata.
 
 ## <a name="authentication"></a>Authentication
+
 Per autenticazione si intende il modo in cui viene dimostrata la propria identità durante la connessione al database. Il pool SQL supporta attualmente l'autenticazione di SQL Servercon un nome utente e una password e con Azure Active Directory. 
 
 Durante la creazione del server logico per il database, è stato specificato un account di accesso "amministratore del server" con un nome utente e una password. Con queste credenziali è possibile eseguire l'autenticazione in qualsiasi database di tale server come proprietario del database, o "dbo", tramite l'autenticazione di SQL Server.
 
-Tuttavia, come procedura consigliata, è opportuno che gli utenti dell'organizzazione usino un account diverso per l'autenticazione. Questo modo può possibile limitare le autorizzazioni concesse all'applicazione e ridurre i rischi di attività dannose nel caso in cui il codice dell'applicazione sia vulnerabile a un attacco SQL injection. 
+Tuttavia, come procedura consigliata, gli utenti dell'organizzazione devono utilizzare un account diverso per l'autenticazione. Questo modo può possibile limitare le autorizzazioni concesse all'applicazione e ridurre i rischi di attività dannose nel caso in cui il codice dell'applicazione sia vulnerabile a un attacco SQL injection. 
 
 Per creare un utente autenticato in SQL Server, connettersi al database **master** nel proprio server con l'account di accesso amministratore e creare un nuovo accesso al server.  È consigliabile creare anche un utente nel database master. La creazione di un utente nel database master consente all'utente di accedere tramite strumenti come SSMS senza specificare un nome di database.  Consente inoltre di usare Esplora oggetti per visualizzare tutti i database in SQL server.
 

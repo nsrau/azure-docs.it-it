@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: fb2f9ff5af68575d9f9d29e9a6aca83d603395b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ff9e62ed145b7892d2997193dae8e171ae49c98
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77672413"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585374"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Creare l'impostazione di diagnostica per raccogliere i log e le metriche della piattaforma in AzureCreate diagnostic setting to collect platform logs and metrics in Azure
 [I log della piattaforma](platform-logs-overview.md) in Azure, inclusi i log attività di Azure e i log delle risorse, forniscono informazioni dettagliate su diagnostica e controllo per le risorse di Azure e la piattaforma di Azure da cui dipendono. In questo articolo vengono fornite informazioni dettagliate sulla creazione e la configurazione delle impostazioni di diagnostica per l'invio di log della piattaforma a destinazioni diverse.
@@ -53,7 +53,7 @@ I log della piattaforma possono essere inviati alle destinazioni nella tabella s
     
         ![Impostazioni di diagnostica](media/diagnostic-settings/menu-monitor.png)
 
-    - Per il log attività, fare clic su **Log attività** nel menu Monitoraggio **di Azure** e quindi Impostazioni **di diagnostica**. Assicurarsi di disabilitare qualsiasi configurazione legacy per il log attività. Per informazioni [dettagliate, vedere Disabilitare le impostazioni esistenti.](diagnostic-settings-legacy.md#disable-existing-settings)
+    - Per il log attività, fare clic su **Log attività** nel menu Monitoraggio **di Azure** e quindi Impostazioni **di diagnostica**. Assicurarsi di disabilitare qualsiasi configurazione legacy per il log attività. Per informazioni [dettagliate, vedere Disabilitare le impostazioni esistenti.](/azure/azure-monitor/platform/activity-log-collect#collecting-activity-log)
 
         ![Impostazioni di diagnostica](media/diagnostic-settings/menu-activity-log.png)
 

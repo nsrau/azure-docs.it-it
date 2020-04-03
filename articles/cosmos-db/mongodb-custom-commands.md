@@ -6,22 +6,22 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
-ms.openlocfilehash: f57b274715eb1c8a4d517f5655c09c366574d412
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f99c4d096bcbe1fbdc42cac80a491d6017266cb2
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75445211"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583576"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Usare i comandi di estensione MongoDB per gestire i dati archiviati nell'API di Azure Cosmos DB per MongoDBUse MongoDB extension commands to manage data stored in Azure Cosmos DB's API for MongoDB 
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile comunicare con l'API di Azure Cosmos DB per MongoDB utilizzando uno dei [driver client MongoDB](https://docs.mongodb.org/ecosystem/drivers)open source. L'API di Azure Cosmos DB per MongoDB consente l'utilizzo di driver client esistenti adere al [protocollo wire MongoDB](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
-Usando l'API di Azure Cosmos DB per MongoDB, è possibile usufruire dei vantaggi offerti da Cosmos DB, ad esempio distribuzione globale, partizionamento automatico, disponibilità elevata, garanzie di latenza, automatico, crittografia a riposo, backup e molti altri, preservando gli investimenti nell'app MongoDB.
+Usando l'API di Azure Cosmos DB per MongoDB, puoi usufruire dei vantaggi offerti da Cosmos DB, ad esempio distribuzione globale, partizionamento automatico, disponibilità elevata, garanzie di latenza, automatiche, crittografia a riposo, backup e molti altri, preservando gli investimenti nell'app MongoDB.
 
 ## <a name="mongodb-protocol-support"></a>Supporto del protocollo MongoDB
 
-Per impostazione predefinita, l'API di Azure Cosmos DB per MongoDB è compatibile con la versione 3.2 del server MongoDB, per ulteriori dettagli, vedere [Funzionalità e sintassi supportate.](mongodb-feature-support.md) Le funzionalità o gli operatori di query aggiunti in MongoDB versione 3.4 sono attualmente disponibili come anteprima nell'API di Azure Cosmos DB per MongoDB. The following extension commands support Azure Cosmos DB specific functionality when performing CRUD operations on the data stored in Azure Cosmos DB's API for MongoDB:
+Per impostazione predefinita, l'API di Azure Cosmos DB per MongoDB è compatibile con la versione 3.2 del server MongoDB, per ulteriori dettagli, vedere [Funzionalità e sintassi supportate.](mongodb-feature-support.md) Le funzionalità o gli operatori di query aggiunti in MongoDB versione 3.4 sono attualmente disponibili come anteprima nell'API di Azure Cosmos DB per MongoDB. The following extension commands support specific Azure Cosmos DB functionality when performing CRUD operations on the data stored in Azure Cosmos DB's API for MongoDB:
 
 * [Crea database](#create-database)
 * [Aggiorna database](#update-database)
@@ -160,12 +160,12 @@ Il comando create collection extension crea una nuova raccolta MongoDB. Il nome 
 
 Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
-|**Campo**|**Tipo** |**Descrizione** |
-|---------|---------|---------|
-| customAction    | string | Nome del comando personalizzato. Deve essere "CreateCollection"     |
-| collection      | string | Nome della raccolta.                                   |
-| offertaVelocità effettiva | INT    | Velocità effettiva di provisioning per impostare il database. È un parametro facoltativo |
-| shardKey (chiave di partizione)        | string | Percorso chiave partizioni per creare una raccolta partizionata. È un parametro facoltativo |
+| **Campo** | **Tipo** | **Obbligatorio** | **Descrizione** |
+|---------|---------|---------|---------|
+| customAction | string | Obbligatoria | Nome del comando personalizzato. Deve essere "CreateCollection".|
+| collection | string | Obbligatoria | Nome della raccolta. Non sono consentiti caratteri speciali.|
+| offertaVelocità effettiva | INT | Facoltativo: | Velocità effettiva di provisioning per impostare il database. Se questo parametro non viene fornito, per impostazione predefinita verrà utilizzato il valore minimo, 400 RU/s. Per specificare la velocità effettiva oltre 10.000 RU/s, il `shardKey` parametro è obbligatorio.|
+| shardKey (chiave di partizione) | string | Facoltativo: | Percorso della chiave di frammento per la raccolta partizionata. Questo parametro è obbligatorio se si impostano più di `offerThroughput`10.000 RU/s in .  Se viene specificato, tutti i documenti inseriti richiederanno questo valore. |
 
 ### <a name="output"></a>Output
 
@@ -184,7 +184,7 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", o
 
 **Creare una raccolta partizionataCreate a sharded collection**
 
-Per creare una raccolta partizionata con nome "testCollection" e velocità effettiva di cui è stato eseguito il provisioning di 1000 RU, utilizzare il comando seguente:
+Per creare una raccolta partizionata con nome "testCollection" e velocità effettiva di cui è stato eseguito il provisioning di 1000 RU e una proprietà shardkey "a.b", utilizzare il comando seguente:
 
 ```shell
 use test

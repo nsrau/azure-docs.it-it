@@ -1,26 +1,26 @@
 ---
-title: Co-vendita codici di stato Azure Marketplace
-description: Utilizza questi codici di stato/provincia quando fornisci informazioni di contatto nella pagina Co-selling della tua offerta.
+title: Co-vendita di codici di stato e provincia Azure Marketplace
+description: Utilizza questi codici di stato e provincia quando fornisci informazioni di contatto nella pagina Co-selling della tua offerta.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/27/2019
-ms.openlocfilehash: f87014a599afd6d1c56d175b92d4da1ea49d9470
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 782f2d6facb28630989f086a68c551314e02e48e
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277040"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619351"
 ---
-# <a name="co-sell-state-codes"></a>Co-vendere i codici di stato
+# <a name="co-sell-state-and-province-codes"></a>Co-vendita di codici di stato e provincia
 
 Se applicabile, utilizza questi codici per fornire informazioni su Stato/Provincia quando fornisci informazioni di [contatto nella pagina Co-selling della tua offerta.](commercial-marketplace-co-sell.md#contacts)
 
-## <a name="stateprovince-table"></a>Tabella Stato/Provincia
+## <a name="us-states-and-territories"></a>Stati e territori degli Stati Uniti
 
-|   Nome stato/provincia               |   Codice    |
+|   Nome dello stato e del territorio          |   Codice    |
 |-------------------------------------|-----------|
 | Alabama                             | STATI UNITI     |
 | Alaska                              | Stati Uniti-AK     |
@@ -78,7 +78,40 @@ Se applicabile, utilizza questi codici per fornire informazioni su Stato/Provinc
 | Marianne Settentrionali            | US-MP     |
 | Portorico                         | STATI Uniti-PR     |
 | Altre isole minori degli Stati Uniti | UM US    |
-|Isole Vergini americane                 | STATI Uniti-VI     |
+| Isole Vergini americane                 | STATI Uniti-VI    |
+
+## <a name="canadian-provinces-and-territories"></a>Province e territori canadesi
+
+|   Provincia e nome del territorio       |   Codice    |
+|-------------------------------------|-----------|
+| Alberta                             |  CA-AB    |
+| British Columbia                    |  CA-BC    |
+| Manitoba                            |  CA-MB    |
+| New Brunswick                       |  CA-NB    |
+| Terranova e Labrador           |  CA-NL    |
+| Nuova Scozia                         |  CA-NS    |
+| Ontario                             |  CA-ON    |
+| Isola del Principe Edoardo                |  CA-PE    |
+| Quebec                              |  CA-QC    |
+| Saskatchewan                        |  CA-SK    |
+| Territori del Nord-Ovest               |  CA-NT    |
+| Nunavut                             |  CA-NU    |
+| Yukon                               |  CA-YT    |
+
+
+## <a name="australian-states-and-territories"></a>Stati e territori australiani
+
+|   Nome dello stato e del territorio          |   Codice    |
+|-------------------------------------|-----------|
+| New South Wales                     |  AU-NSW   |
+| Queensland                          |  AU-QLD   |
+| Australia Meridionale                     |  AU-SA    |
+| Tasmania                            |  AU-TAS   |
+| Victoria                            |  AU-VIC   |
+| Australia occidentale                   |  AU-WA    |
+| Territorio della Capitale Australiana        |  AU-ACT   |
+| Territorio del Nord                  |  AU-NT    |
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

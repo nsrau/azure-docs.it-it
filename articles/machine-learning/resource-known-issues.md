@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 22a24d01f606cd3f76a0de950351feb3d964da54
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 2db7a25f3f463e9210544354395c9d33a75f633c
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478923"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619383"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi di Azure Machine Learning
 
@@ -48,16 +48,6 @@ Informazioni sulle [quote di risorse](how-to-manage-quotas.md) che si potrebbero
     pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
     ```
 
-* **Messaggio di errore: Nessuna distribuzione corrispondente trovata per azureml-dataprep-native**
-
-    La distribuzione Python 3.7.4 di Anaconda presenta un bug che interrompe l'installazione di azureml-sdk. Questo problema è discusso in questo [problema Di GitHub](https://github.com/ContinuumIO/anaconda-issues/issues/11195)
-    
-    Questo problema può essere risolto creando un nuovo ambiente Conda utilizzando questo comando:This can be amp around by creating a new Conda Environment using this command:
-    ```bash
-    conda create -n <env-name> python=3.7.3
-    ```
-    Che crea un ambiente Conda utilizzando Python 3.7.3, che non ha il problema di installazione presente in 3.7.4.
-
 * **Errore di Databrickdurante l'installazione dei pacchetti**
 
     L'installazione di Azure Machine Learning SDK non riesce in Azure Databricks quando vengono installati più pacchetti. Alcuni pacchetti, come `psutil`, possono causare conflitti. Per evitare errori di installazione, installare i pacchetti bloccando la versione della libreria. Questo problema è correlato a Databricks e non ad Azure Machine Learning SDK. È possibile che si verifichi questo problema anche con altre librerie. Esempio:
@@ -89,10 +79,9 @@ Informazioni sulle [quote di risorse](how-to-manage-quotas.md) che si potrebbero
 
 * **Databricks FailToSendFeather**: Se `FailToSendFeather` viene visualizzato un errore durante la lettura dei dati nel cluster Azure Databricks, fare riferimento alle soluzioni seguenti:Databricks FailToSendFeather : If you see a error when reading data on Azure Databricks cluster, refer to the following solutions:
     
-        * Upgrade `azureml-sdk[automl]` package to the latest version.
-        * Add `azureml-dataprep` version 1.1.8 or above.
-        * Add `pyarrow` version 0.11 or above.
-        `
+    * Aggiornare `azureml-sdk[automl]` il pacchetto alla versione più recente.
+    * Aggiungere `azureml-dataprep` la versione 1.1.8 o successiva.
+    * Aggiungere `pyarrow` la versione 0.11 o superiore.
 
 ## <a name="create-and-manage-workspaces"></a>Creare e gestire aree di lavoro
 
@@ -113,9 +102,7 @@ Se viene visualizzato `Unable to upload project files to working directory in Az
 
 Se si usa la condivisione file per altri carichi di lavoro, ad esempio il trasferimento dei dati, è consigliabile usare i BLOB in modo che la condivisione file sia libera di essere usata per l'invio di esecuzioni. È inoltre possibile suddividere il carico di lavoro tra due diverse aree di lavoro.
 
-### <a name="datasets-and-data-preparation"></a>Set di dati e preparazione dei dati
-
-Questi sono problemi noti per i set di dati di Azure Machine Learning.These are known issues for Azure Machine Learning Datasets.
+### <a name="passing-data-as-input"></a>Passaggio di dati come inputPassing data as input
 
 *  **TypeError: FileNotFound: file o directory non di questo**tipo: questo errore si verifica se il percorso del file fornito non è la posizione del file. È necessario assicurarsi che il modo in cui si fa riferimento al file sia coerente con la posizione in cui è stato montato il set di dati nella destinazione di calcolo. Per garantire uno stato deterministico, è consigliabile usare il percorso astratto durante il montaggio di un set di dati in una destinazione di calcolo. Nel codice seguente, ad esempio, viene montato il set di `/tmp`dati nella radice del file system della destinazione di calcolo , . 
     
@@ -128,8 +115,7 @@ Questi sono problemi noti per i set di dati di Azure Machine Learning.These are 
 
     Se non si include la barra iniziale, '/', sarà necessario anteporre `/mnt/batch/.../tmp/dataset` il prefisso alla directory di lavoro, ad esempio nella destinazione di calcolo per indicare dove si desidera montare il set di dati.
 
-### <a name="data-labeling-projects-issues"></a>Problemi relativi ai progetti di etichettatura dei dati
-
+### <a name="data-labeling-projects"></a>Progetti di etichettatura dei dati
 
 |Problema  |Risoluzione  |
 |---------|---------|
@@ -138,9 +124,9 @@ Questi sono problemi noti per i set di dati di Azure Machine Learning.These are 
 |Quando si esaminano le immagini, le immagini appena etichettate non vengono visualizzate     |   Per caricare tutte le immagini con etichetta, scegliere il pulsante **Primo.** Il pulsante **Primo** consente di tornare all'inizio dell'elenco, ma carica tutti i dati etichettati.      |
 |Premendo il tasto Esc durante l'etichettatura per il rilevamento degli oggetti, viene creata un'etichetta di dimensione zero nell'angolo superiore sinistro. L'invio di etichette in questo stato ha esito negativo.     |   Eliminare l'etichetta facendo clic sul segno di croce accanto ad essa.  |
 
-## <a name="azure-machine-learning-designer-issues"></a>Problemi relativi alla finestra di progettazione di Azure Machine LearningAzure Machine Learning designer issues
+## <a name="azure-machine-learning-designer"></a>Finestra di progettazione di Azure Machine Learning
 
-Problemi noti con la finestra di progettazione.
+Problemi noti:
 
 * Tempo di preparazione del **calcolo lungo:** può essere necessario un paio di minuti o anche più lungo quando ci si connette a una destinazione di calcolo o crea. 
 

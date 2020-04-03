@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: b285daa465c8d069b359e94c9203c1ffbea24c06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0f3d6580b738a77de9654de0df9b4ce1120fc6eb
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970672"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584045"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Domande frequenti su Crittografia dischi di Azure per macchine virtuali IaaS
 
@@ -37,7 +37,7 @@ Per iniziare, leggere l'articolo [Azure Disk Encryption overview](disk-encryptio
 
 ## <a name="what-vm-sizes-and-operating-systems-support-azure-disk-encryption"></a>Quali dimensioni delle macchine virtuali e sistemi operativi supportano Crittografia disco di Azure?
 
-L'articolo Panoramica di [Crittografia dischi](disk-encryption-overview.md) di Azure elenca le dimensioni delle macchine virtuali e i sistemi operativi della macchina virtuale che supportano Crittografia disco di Azure.The Azure Disk Encryption overview article lists the [VM sizes](disk-encryption-overview.md#supported-vm-sizes) and VM [operating systems](disk-encryption-overview.md#supported-operating-systems) that support Azure Disk Encryption.
+L'articolo Panoramica di [Crittografia dischi](disk-encryption-overview.md) di Azure elenca le dimensioni delle macchine virtuali e i sistemi operativi della macchina virtuale che supportano Crittografia disco di Azure.The Azure Disk Encryption overview article lists the [VM sizes](disk-encryption-overview.md#supported-vms) and VM [operating systems](disk-encryption-overview.md#supported-operating-systems) that support Azure Disk Encryption.
 
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>È possibile crittografare sia i volumi di avvio che i volumi di dati con Crittografia dischi di Azure?
 
@@ -54,7 +54,7 @@ No, Crittografia disco di Azure crittografa solo i volumi installati.
 Per ruotare i segreti, è sufficiente chiamare lo stesso comando utilizzato in origine per abilitare la crittografia del disco, specificando un insieme di credenziali delle chiavi diverso. Per ruotare la chiave di crittografia della chiave, chiamare lo stesso comando utilizzato in origine per abilitare la crittografia del disco, specificando la nuova crittografia della chiave. 
 
 >[!WARNING]
-> - Se in precedenza è stato usato Crittografia disco di [Azure con l'app Azure AD](disk-encryption-linux-aad.md) specificando le credenziali di Azure AD per crittografare questa macchina virtuale, è necessario continuare a usare questa opzione per crittografare la macchina virtuale. Non è possibile usare Crittografia dischi di Azure in questa macchina virtuale crittografata perché non è uno scenario supportato, ovvero non è ancora supportato il trasferimento dall'applicazione AAD per questa macchina virtuale.
+> - Se in precedenza è stato usato Crittografia disco di [Azure con l'app Azure AD](disk-encryption-linux-aad.md) specificando le credenziali di Azure AD per crittografare questa macchina virtuale, è necessario continuare a usare questa opzione per crittografare la macchina virtuale. Non è possibile usare Crittografia disco di Azure in questa macchina virtuale crittografata perché non si tratta di uno scenario supportato, ovvero il passaggio dall'applicazione AAD per questa macchina virtuale crittografata non è ancora supportato.
 
 ## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>Come si aggiunge o si rimuove una chiave di crittografia della chiave se non ne è stata utilizzata originariamente?
 
@@ -93,7 +93,7 @@ Usare la versione più recente di Azure PowerShell SDK per configurare Crittogra
 > [!NOTE]
 > L'estensione di anteprima della crittografia del disco di Azure Linux "Microsoft.OSTCExtension.AzureDiskEncryptionForLinux" è deprecata. Questa estensione è stata pubblicata per la versione di anteprima della crittografia del disco di Azure.This extension was published for Azure disk encryption preview release. Non utilizzare la versione di anteprima dell'estensione nella distribuzione di test o di produzione.
 
-> Per gli scenari di distribuzione come Azure Resource Manager (ARM), in cui è necessario distribuire l'estensione di crittografia del disco di Azure per la macchina virtuale Linux per abilitare la crittografia nella macchina virtuale Linux IaaS, è necessario usare l'estensione supportata per la produzione di crittografia del disco di Azure " Microsoft.Azure.Security.AzureDiskEncryptionForLinux".
+> Per gli scenari di distribuzione come Azure Resource Manager (ARM), in cui è necessario distribuire l'estensione di crittografia del disco di Azure per la macchina virtuale Linux per abilitare la crittografia nella macchina virtuale Linux IaaS, è necessario usare l'estensione supportata di produzione della crittografia del disco di Azure "Microsoft.Azure.Security.AzureDiskEncryptionForLinux".
 
 ## <a name="can-i-apply-azure-disk-encryption-on-my-custom-linux-image"></a>È possibile applicare Crittografia dischi di Azure a un'immagine Linux personalizzata?
 

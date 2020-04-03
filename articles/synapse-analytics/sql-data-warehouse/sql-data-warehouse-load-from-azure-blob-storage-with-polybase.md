@@ -1,6 +1,6 @@
 ---
-title: Caricare i dati di vendita al dettaglio di Contoso in un data warehouse di SQL AnalyticsLoad Contoso retail data to a SQL Analytics data warehouse
-description: Usare i comandi PolyBase e T-SQL per caricare due tabelle dai dati di vendita al dettaglio di Contoso in Analisi SQL di Azure.Use PolyBase and T-SQL commands to load two tables from the Contoso retail data into Azure SQL Analytics.
+title: Caricare i dati di vendita al dettaglio di Contoso in un data warehouse SQL SynapseLoad Contoso retail data to a Synapse SQL data warehouse
+description: Utilizzare i comandi PolyBase e T-SQL per caricare due tabelle dai dati di vendita al dettaglio di Contoso in Synapse SQL.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 62105b783577d70ae975cf514304d2c564357641
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 7460a59dd2a7a5906a483195929136391657fa50
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351474"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583998"
 ---
-# <a name="load-contoso-retail-data-to-a-sql-analytics-data-warehouse"></a>Caricare i dati di vendita al dettaglio di Contoso in un data warehouse di SQL AnalyticsLoad Contoso retail data to a SQL Analytics data warehouse
+# <a name="load-contoso-retail-data-to-a-synapse-sql-data-warehouse"></a>Caricare i dati di vendita al dettaglio di Contoso in un data warehouse SQL SynapseLoad Contoso retail data to a Synapse SQL data warehouse
 
-In questa esercitazione si apprenderà a usare i comandi PolyBase e T-SQL per caricare due tabelle dai dati di vendita al dettaglio di Contoso in un data warehouse di SQL Analytics.In this tutorial, you learn to use PolyBase and T-SQL commands to load two tables from the Contoso retail data into a SQL Analytics data warehouse. 
+In questa esercitazione si apprenderà a usare i comandi PolyBase e T-SQL per caricare due tabelle dai dati di vendita al dettaglio di Contoso in un data warehouse Synapse SQL.
 
 In questa esercitazione si apprenderà come:
 
@@ -30,11 +30,11 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Per eseguire questa esercitazione, è necessario un account azure che dispone già di un data warehouse di SQL Analytics.To run this tutorial, you need an Azure account that already has a SQL Analytics data warehouse. Se non è stato eseguito il provisioning di un data warehouse, vedere [Creare un data warehouse e impostare](create-data-warehouse-portal.md)la regola del firewall a livello di server .
+Per eseguire questa esercitazione, è necessario un account di Azure che dispone già di un data warehouse SQL Synapse.To run this tutorial, you need an Azure account that already has a Synapse SQL data warehouse. Se non è stato eseguito il provisioning di un data warehouse, vedere [Creare un data warehouse e impostare](create-data-warehouse-portal.md)la regola del firewall a livello di server .
 
 ## <a name="configure-the-data-source"></a>Configurare l'origine dati
 
-PolyBase utilizza oggetti esterni T-SQL per definire il percorso e gli attributi dei dati esterni. Le definizioni degli oggetti esterni vengono archiviate nel data warehouse di SQL Analytics. I dati vengono archiviati esternamente.
+PolyBase utilizza oggetti esterni T-SQL per definire il percorso e gli attributi dei dati esterni. Le definizioni degli oggetti esterni vengono archiviate nel data warehouse Synapse SQL. I dati vengono archiviati esternamente.
 
 ## <a name="create-a-credential"></a>Creare una credenziale
 
@@ -121,7 +121,7 @@ GO
 
 ## <a name="create-the-external-tables"></a>Creare le tabelle esterne.
 
-Eseguire lo script seguente per creare le tabelle esterne DimProduct e FactOnlineSales. È sufficiente definire i nomi di colonna e i tipi di dati e associarli al percorso e al formato dei file di archiviazione BLOB di Azure.All you're doing here is defining column names and data types, and binding them to the location and format of the Azure blob storage files. The definition is stored in the SQL Analytics data warehouse and the data is still in the Azure Storage Blob.
+Eseguire lo script seguente per creare le tabelle esterne DimProduct e FactOnlineSales. È sufficiente definire i nomi di colonna e i tipi di dati e associarli al percorso e al formato dei file di archiviazione BLOB di Azure.All you're doing here is defining column names and data types, and binding them to the location and format of the Azure blob storage files. The definition is stored in the data warehouse and the data is still in the Azure Storage Blob.
 
 Il parametro LOCATION è la cartella nella cartella radice nel BLOB di Archiviazione di Azure.The **LOCATION** parameter is the folder under the root folder in the Azure Storage Blob. Ogni tabella è in una cartella diversa.
 
@@ -274,7 +274,7 @@ ORDER BY
 
 ## <a name="optimize-columnstore-compression"></a>Ottimizzare la compressione columnstore
 
-Per impostazione predefinita, il data warehouse di SQL Analytics archivia la tabella come indice columnstore cluster. Al termine di un caricamento, alcune delle righe di dati potrebbero non essere compresse nel columnstore.  Ci sono diversi motivi per cui questo può accadere. Per altre informazioni, vedere l'articolo [Gestire gli indici columnstore](sql-data-warehouse-tables-index.md).
+Per impostazione predefinita, il data warehouse Synapse SQL archivia la tabella come indice columnstore cluster. Al termine di un caricamento, alcune delle righe di dati potrebbero non essere compresse nel columnstore.  Ci sono diversi motivi per cui questo può accadere. Per altre informazioni, vedere l'articolo [Gestire gli indici columnstore](sql-data-warehouse-tables-index.md).
 
 Per ottimizzare le prestazioni delle query e la compressione columnstore dopo un'operazione di caricamento, ricompilare la tabella per forzare l'indice columnstore per comprimere tutte le righe. 
 

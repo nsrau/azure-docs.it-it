@@ -404,8 +404,6 @@
           items:
             - name: Distribuire un eseguibile guest
               href: service-fabric-deploy-existing-app.md
-            - name: Distribuire più eseguibili guest
-              href: service-fabric-deploy-multiple-apps.md
         - name: Creare un servizio contenitore
           items:
             - name: Docker Compose (anteprima)
@@ -773,7 +771,7 @@
           href: how-to-managed-identity-service-fabric-app-code.md
         - name: Concedere l'accesso ad altre risorse di Azure
           href: how-to-grant-access-other-resources.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.servicefabric/

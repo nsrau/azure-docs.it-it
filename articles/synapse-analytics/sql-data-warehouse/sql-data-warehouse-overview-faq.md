@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 766615a92e616a254cca4b2b3ce1ccde40118275
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 9ce87bac6fbcc3833684dc540c542bc14c9b4955
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350240"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586515"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Domande frequenti su Azure Synapse Analytics (in precedenza SQL DW)
 
@@ -29,9 +29,9 @@ Q. Che cosa è successo ad Azure SQL Data Warehouse?
 
 R. Azure Synapse è Azure SQL Data Warehouse (SQL DW) evoluto. Abbiamo portato lo stesso data warehouse leader del settore a un livello di prestazioni e funzionalità completamente nuovo. È possibile continuare a eseguire i carichi di lavoro del data warehouse esistenti nell'ambiente di produzione con Azure Synapse e trarre automaticamente vantaggio dalle nuove funzionalità, in anteprima. Per altre informazioni, vedere [Che cos'è Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
-Q. Che cos'è Analisi SQL?
+Q. Che cos'è il pool Sql Synapse?
 
-R. Analisi SQL si riferisce alle funzionalità di data warehousing aziendali disponibili a livello generale con Azure Synapse. Per altre informazioni, vedere [Che cos'è Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+R. Synapse SQL pool refers to the enterprise data warehousing features that are generally available with Azure Synapse. Per altre informazioni, vedere [Che cos'è Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
 Q. Come si inizia a usare Azure Synapse?
 
@@ -49,7 +49,7 @@ Q. È possibile connettere Power BI?
 
 R.  Sì. Anche se Power BI supporta query dirette con Azure Synapse, non è destinato a un numero elevato di utenti o dati in tempo reale. Per ottimizzare ulteriormente le prestazioni di Power BI, è consigliabile usare Power BI in Azure Analysis Services o Analysis Service IaaS.To optimize Power BI performance further, consider using Power BI on top of Azure Analysis Services or Analysis Service IaaS.
 
-Q. Quali sono i limiti di capacità di SQL Analytics?
+Q. Quali sono i limiti di capacità del pool SQL Synapse?
 
 R. Vedere la pagina relativa ai [limiti di capacità](sql-data-warehouse-service-capacity-limits.md) correnti. 
 
@@ -83,16 +83,15 @@ R. Sono supportate molte funzionalità. Le funzionalità non supportate sono dis
 
 ## <a name="tooling-and-administration"></a>Strumenti e amministrazione
 
-Q. SQL Analytics supporta le API REST?
+Q. Il pool Synapse SQL supporta le API REST?
 
-R. Sì. La maggior parte delle funzionalità REST che possono essere usate con il database SQL è disponibile anche con ANALISI SQL. È possibile trovare informazioni sulle API nelle pagine di documentazione REST o in [MSDN](https://msdn.microsoft.com/library/azure/mt163685.aspx).
-
+R. Sì. La maggior parte delle funzionalità REST che possono essere usate con il database SQL è disponibile anche con il pool SQL Synapse. È possibile trovare informazioni sulle API nelle pagine di documentazione REST o in [MSDN](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 
 ## <a name="loading"></a>Caricamento
 
 Q. Quali driver client sono supportati?
 
-R. Il supporto dei driver per SQL Analytics è disponibile nella pagina [Stringhe di connessione](sql-data-warehouse-connection-strings.md)
+R. Il supporto dei driver per il pool Synapse SQL è disponibile nella pagina [Stringhe di connessione](sql-data-warehouse-connection-strings.md)
 
 D: Quali formati di file sono supportati da PolyBase?
 
@@ -108,7 +107,8 @@ R: No, PolyBase interagisce solo con i componenti di archiviazione.
 
 D: È possibile connettersi ad HDI?
 
-R: HDI può usare ADLS o WASB come livello HDFS. Se si dispone di un livello HDFS, è possibile caricare i dati in un data warehouse di SQL Analytics. Tuttavia, non è possibile generare il calcolo di distribuzione per l'istanza HDI. 
+R: HDI può usare ADLS o WASB come livello HDFS. Se si dispone di un livello HDFS, è possibile caricare i dati in un pool SQL Synapse. Tuttavia, non è possibile generare il calcolo di distribuzione per l'istanza HDI. 
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per altre informazioni su Azure Synapse nel suo complesso, vedere la pagina [Panoramica.For](sql-data-warehouse-overview-faq.md) more information on Azure Synapse as a whole, see our Overview page.

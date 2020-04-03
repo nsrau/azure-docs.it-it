@@ -4,12 +4,12 @@ description: Informazioni sui componenti di base del cluster e del carico di lav
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: bcf56aa89a42d65fdb7bf03696faad13c64cbc8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 019c886aba1c8fe34211e73e4d960b14e79303b9
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259643"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617430"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concetti di base di Kubernetes per il servizio Azure Kubernetes
 
@@ -65,9 +65,9 @@ Per eseguire le applicazioni e i servizi di supporto, è necessario un *nodo* Ku
 
 ![Macchina virtuale di Azure e risorse di supporto per un nodo di Kubernetes](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
-La dimensione della macchina virtuale di Azure per i nodi definisce il numero di CPU, la quantità di memoria e la dimensione e tipo della risorsa di archiviazione disponibile, ad esempio unità SSD a prestazioni elevate o HDD normale. Se si prevede di aver bisogno di applicazioni che richiedono grandi quantità di CPU e memoria o archiviazione a prestazioni elevate, pianificare di conseguenza la dimensione dei nodi. È anche possibile aumentare il numero di nodi del cluster servizio Azure Kubernetes in base alle esigenze.
+La dimensione della macchina virtuale di Azure per i nodi definisce il numero di CPU, la quantità di memoria e la dimensione e tipo della risorsa di archiviazione disponibile, ad esempio unità SSD a prestazioni elevate o HDD normale. Se si prevede di aver bisogno di applicazioni che richiedono grandi quantità di CPU e memoria o archiviazione a prestazioni elevate, pianificare di conseguenza la dimensione dei nodi. È inoltre possibile scalare orizzontalmente il numero di nodi nel cluster AKS per soddisfare la domanda.
 
-In AKS, l'immagine della macchina virtuale per i nodi del cluster è attualmente basata su Ubuntu Linux o Windows Server 2019.In AKS, the VM image for the nodes in your cluster is currently based on Ubuntu Linux or Windows Server 2019. Quando si crea un cluster servizio Azure Kubernetes o si aumenta il numero di nodi, la piattaforma Azure crea il numero richiesto di macchine virtuali e le configura. Non c'è nessuna configurazione manuale per l'esecuzione. I nodi agente vengono fatturati come macchine virtuali standard, pertanto gli sconti sulle dimensioni della macchina virtuale in uso (incluse [le prenotazioni][reservation-discounts]di Azure) vengono applicati automaticamente.
+In AKS, l'immagine della macchina virtuale per i nodi del cluster è attualmente basata su Ubuntu Linux o Windows Server 2019.In AKS, the VM image for the nodes in your cluster is currently based on Ubuntu Linux or Windows Server 2019. Quando si crea un cluster AKS o si aumenta la scalabilità orizzontale del numero di nodi, la piattaforma Azure crea il numero richiesto di macchine virtuali e le configura. Non c'è nessuna configurazione manuale per l'esecuzione. I nodi agente vengono fatturati come macchine virtuali standard, pertanto gli sconti sulle dimensioni della macchina virtuale in uso (incluse [le prenotazioni][reservation-discounts]di Azure) vengono applicati automaticamente.
 
 Se è necessario usare un sistema operativo host diverso, un altro runtime del contenitore o includere pacchetti personalizzati, è possibile distribuire il proprio cluster Kubernetes usando [servizio Azure Kubernetes-engine][aks-engine]. `aks-engine` upstream rilascia funzionalità e offre opzioni di configurazione prima che siano supportate ufficialmente nei cluster del servizio Azure Kubernetes. Ad esempio, se si desidera utilizzare un runtime del `aks-engine` contenitore diverso da Moby, è possibile utilizzare per configurare e distribuire un cluster Kubernetes che soddisfi le esigenze correnti.
 
@@ -96,7 +96,7 @@ Per mantenere le prestazioni e le funzionalità del nodo, le risorse sono riserv
 
 1. Il daemon kubelet viene installato in tutti i nodi dell'agente Kubernetes per gestire la creazione e la terminazione dei contenitori. Per impostazione predefinita in AKS, questo daemon ha la seguente regola di sfratto: *memory.available<750Mi*, il che significa che un nodo deve sempre avere almeno 750 Mi allocabili in ogni momento.  Quando un host è al di sotto di tale soglia di memoria disponibile, il kubelet termina uno dei pod in esecuzione per liberare memoria sul computer host e proteggerla. Si tratta di un'azione reattiva una volta che la memoria disponibile diminuisce oltre la soglia 750Mi.
 
-2. Il secondo valore è un tasso progressivo di prenotazioni di memoria per il daemon kubelet per funzionare correttamente (kube-reserved).
+2. Il secondo valore è una velocità regressiva di prenotazioni di memoria per il kubelet daemon per funzionare correttamente (kube-riservato).
     - 25% dei primi 4 GB di memoria
     - 20% dei successivi 4 GB di memoria (fino a 8 GB)
     - 10% dei successivi 8 GB di memoria (fino a 16 GB)

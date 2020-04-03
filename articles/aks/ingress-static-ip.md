@@ -4,12 +4,12 @@ description: Informazioni su come installare e configurare un controller di ingr
 services: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 10422595b85c71020225df694778e6b8ae7e0185
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e79bbe76a751097acd5c9d3c42dbd4020b6866b
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78191351"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617281"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Creare un controller di ingresso con un indirizzo IP pubblico statico nel servizio Azure Kubernetes
 
@@ -48,7 +48,12 @@ Successivamente, creare un indirizzo IP pubblico con il metodo di allocazione *s
 az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --sku Standard --allocation-method static --query publicIp.ipAddress -o tsv
 ```
 
-A questo punto distribuire il grafico *ingress nginx* con Helm. Aggiungere il parametro `--set controller.service.loadBalancerIP` e specificare il proprio indirizzo IP pubblico creato nel passaggio precedente. Per maggiore ridondanza, vengono distribuite due repliche dei controller di ingresso NGINX con il parametro `--set controller.replicaCount`. Per sfruttare appieno le repliche del controller di ingresso in esecuzione, assicurarsi che nel cluster servizio Azure Kubernetes siano presenti più nodi.
+A questo punto distribuire il grafico *ingress nginx* con Helm. Per maggiore ridondanza, vengono distribuite due repliche dei controller di ingresso NGINX con il parametro `--set controller.replicaCount`. Per sfruttare appieno le repliche del controller di ingresso in esecuzione, assicurarsi che nel cluster servizio Azure Kubernetes siano presenti più nodi.
+
+È necessario passare due parametri aggiuntivi alla versione Helm in modo che il controller in ingresso venga informato sia dell'indirizzo IP statico del servizio di bilanciamento del carico da allocare al servizio del controller in ingresso che dell'etichetta del nome DNS applicata alla risorsa indirizzo IP pubblico. Affinché i certificati HTTPS funzionino correttamente, viene utilizzata un'etichetta di nome DNS per configurare un nome di dominio completo per l'indirizzo IP del controller in ingresso.
+
+1. Aggiungere `--set controller.service.loadBalancerIP` il parametro. Specificare il proprio indirizzo IP pubblico creato nel passaggio precedente.
+1. Aggiungere `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` il parametro. Specificare un'etichetta di nome DNS da applicare all'indirizzo IP pubblico creato nel passaggio precedente.
 
 Il controller di ingresso deve anche essere pianificato in un nodo Linux. I nodi di Windows Server (attualmente in anteprima in AKS) non devono eseguire il controller in ingresso. Un selettore di nodo viene specificato con il parametro `--set nodeSelector` per indicare all'utilità di pianificazione Kubernetes di eseguire il controller di ingresso NGINX in un nodo basato su Linux.
 
@@ -57,6 +62,8 @@ Il controller di ingresso deve anche essere pianificato in un nodo Linux. I nodi
 
 > [!TIP]
 > Se si desidera abilitare la [conservazione DELL'indirizzo IP][client-source-ip] `--set controller.service.externalTrafficPolicy=Local` di origine client per le richieste ai contenitori nel cluster, aggiungere al comando di installazione Helm. L'IP di origine client viene archiviato nell'intestazione della richiesta in *X-Forwarded-For*. Quando si utilizza un controller in ingresso con la conservazione IP di origine client abilitata, il pass-through SSL non funzionerà.
+
+Aggiornare lo script seguente con **l'indirizzo IP** del controller in ingresso e un **nome univoco** che si desidera utilizzare per il prefisso FQDN:
 
 ```console
 # Create a namespace for your ingress resources
@@ -69,6 +76,7 @@ helm install nginx-ingress stable/nginx-ingress \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set controller.service.loadBalancerIP="40.121.63.72"
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="demo-aks-ingress"
 ```
 
 Quando viene creato il servizio di bilanciamento del carico di Kubernetes per il controller di ingresso NGINX, viene assegnato l'indirizzo IP statico, come illustrato nell'output dell'esempio seguente:
@@ -83,27 +91,14 @@ nginx-ingress-default-backend               ClusterIP      10.0.95.248   <none> 
 
 Non sono ancora state create regole di ingresso, quindi se si passa all'indirizzo IP pubblico si viene instradati alla pagina 404 predefinita dei controller di ingresso NGINX. Le regole di ingresso sono configurate nei passaggi seguenti.
 
-## <a name="configure-a-dns-name"></a>Configurare un nome DNS
-
-Per il funzionamento corretto dei certificati HTTPS, è necessario configurare un nome FQDN per l'indirizzo IP del controller di ingresso. Aggiornare lo script seguente con l'indirizzo IP del controller di ingresso e un nome univoco da usare per il nome FQDN:
+È possibile verificare che l'etichetta del nome DNS sia stata applicata eseguendo una query sul nome di dominio completo sull'indirizzo IP pubblico come segue:
 
 ```azurecli-interactive
 #!/bin/bash
-
-# Public IP address of your ingress controller
-IP="40.121.63.72"
-
-# Name to associate with public IP address
-DNSNAME="demo-aks-ingress"
-
-# Get the resource-id of the public ip
-PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
-
-# Update public ip address with DNS name
-az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
+az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query $("[?name=='myAKSPublicIP'].[dnsSettings.fqdn]") -o tsv
 ```
 
-Il controller di ingresso è ora accessibile tramite il nome di dominio completo.
+Il controller in ingresso è ora accessibile tramite l'indirizzo IP o il nome di dominio completo.
 
 ## <a name="install-cert-manager"></a>Installare cert-manager
 

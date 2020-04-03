@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 145439ebedd2ddf7c081339146010c66f37fe1af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c9933e75a39af43af9e2745d5f7732d40027b34
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136535"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582482"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Pianificare una distribuzione dell'autenticazione senza password in Azure Active DirectoryPlan a passwordless authentication deployment in Azure Active Directory
 
@@ -59,7 +59,7 @@ I metodi di autenticazione senza password di Microsoft consentono scenari divers
 | **Accesso all'app Web**: <br> da un dispositivo mobile o non Windows | **Sì** | **No** | **No** |
 | **Accesso al computer:** <br> Computer non Windows | **No** | **No** | **No** |
 
-Per informazioni sulla selezione del metodo migliore per l'organizzazione, vedere [Decidere un metodo senza password](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless#deciding-a-passwordless-method).
+Per informazioni sulla selezione del metodo migliore per l'organizzazione, vedere [Decidere un metodo senza password](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#choose-a-passwordless-method).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -132,7 +132,7 @@ Vedere [Procedure consigliate per un progetto pilota](https://aka.ms/deploymentp
 
 L'app Microsoft Authenticator è scaricabile gratuitamente da Google Play o dall'App Store di Apple. [Ulteriori informazioni sul download dell'app Microsoft Authenticator](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6). Chiedi agli utenti di scaricare l'app Microsoft Authenticator. e seguire le istruzioni per abilitare l'accesso al telefono. 
 
-Trasforma qualsiasi telefono iOS o Android in una forte credenziale senza password. Gli utenti accedono a qualsiasi piattaforma o browser ricevendo una notifica al proprio telefono, che corrisponde a un numero visualizzato sullo schermo con quello del telefono e quindi utilizzando la biometria o un PIN per confermare. [Vedere i dettagli sul funzionamento dell'app Microsoft Authenticator.](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless#user-using-microsoft-authenticator-for-passwordless-sign-in) 
+Trasforma qualsiasi telefono iOS o Android in una forte credenziale senza password. Gli utenti accedono a qualsiasi piattaforma o browser ricevendo una notifica al proprio telefono, che corrisponde a un numero visualizzato sullo schermo con quello del telefono e quindi utilizzando la biometria o un PIN per confermare. [Vedere i dettagli sul funzionamento dell'app Microsoft Authenticator.](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#microsoft-authenticator-app)
 
 ![accedere con l'app Authenticator](./media/howto-authentication-passwordless-deployment/passwordless-dp-sign-in.png)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 88d25083a1105023279f3907a4573319fabe087c
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 912677a10d7098b891a4f6972b61761cd72cf292
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520753"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585935"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Crittografia lato server dei dischi gestiti di AzureServer-side encryption of Azure managed disks
 
@@ -34,7 +34,11 @@ Per impostazione predefinita, i dischi gestiti utilizzano chiavi di crittografia
 
 ## <a name="customer-managed-keys"></a>Chiavi gestite dal cliente
 
-È possibile scegliere di gestire la crittografia a livello di ogni disco gestito, con le proprie chiavi. La crittografia lato server per i dischi gestiti con chiavi gestite dal cliente offre un'esperienza integrata con l'insieme di credenziali delle chiavi di Azure.Server-side encryption for managed disks with customer-managed keys offers an integrated experience with Azure Key Vault. È possibile importare le chiavi RSA nell'insieme di credenziali delle chiavi o generare nuove chiavi RSA in Azure Key Vault.You can either import [your RSA keys](../../key-vault/key-vault-hsm-protected-keys.md) to your Key Vault or generate new RSA keys in Azure Key Vault. I dischi gestiti di Azure gestiscono la crittografia e la decrittografia in modo completamente trasparente usando la [crittografia della busta.](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique) Crittografa i dati utilizzando una chiave DEK (Data Encryption Key) basata su [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256, che a sua volta è protetta tramite le chiavi. È necessario concedere l'accesso ai dischi gestiti nell'insieme di credenziali delle chiavi per utilizzare le chiavi per crittografare e decrittografare il file DEK. Ciò consente il controllo completo dei dati e delle chiavi. È possibile disabilitare le chiavi o revocare l'accesso ai dischi gestiti in qualsiasi momento. È anche possibile controllare l'utilizzo della chiave di crittografia con il monitoraggio dell'insieme di chiavi di Azure per assicurarsi che solo i dischi gestiti o altri servizi attendibili di Azure accedano alle chiavi.
+È possibile scegliere di gestire la crittografia a livello di ogni disco gestito, con le proprie chiavi. La crittografia lato server per i dischi gestiti con chiavi gestite dal cliente offre un'esperienza integrata con l'insieme di credenziali delle chiavi di Azure.Server-side encryption for managed disks with customer-managed keys offers an integrated experience with Azure Key Vault. È possibile importare le chiavi RSA nell'insieme di credenziali delle chiavi o generare nuove chiavi RSA in Azure Key Vault.You can either import [your RSA keys](../../key-vault/key-vault-hsm-protected-keys.md) to your Key Vault or generate new RSA keys in Azure Key Vault. 
+
+I dischi gestiti di Azure gestiscono la crittografia e la decrittografia in modo completamente trasparente usando la [crittografia della busta.](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique) Crittografa i dati utilizzando una chiave DEK (Data Encryption Key) basata su [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256, che a sua volta è protetta tramite le chiavi. Il servizio di archiviazione genera chiavi di crittografia dei dati e le crittografa con chiavi gestite dal cliente usando la crittografia RSA. La crittografia della busta consente di ruotare (modificare) le chiavi periodicamente in base ai criteri di conformità senza influire sulle macchine virtuali. Quando si ruotano le chiavi, il servizio di archiviazione crittografa nuovamente le chiavi di crittografia dei dati con le nuove chiavi gestite dal cliente. 
+
+È necessario concedere l'accesso ai dischi gestiti nell'insieme di credenziali delle chiavi per utilizzare le chiavi per crittografare e decrittografare il file DEK. Ciò consente il controllo completo dei dati e delle chiavi. È possibile disabilitare le chiavi o revocare l'accesso ai dischi gestiti in qualsiasi momento. È anche possibile controllare l'utilizzo della chiave di crittografia con il monitoraggio dell'insieme di chiavi di Azure per assicurarsi che solo i dischi gestiti o altri servizi attendibili di Azure accedano alle chiavi.
 
 Per gli SSD premium, gli SSD standard e gli HDD standard: quando disabiliti o elimini la chiave, tutte le macchine virtuali con dischi che usano tale chiave verranno arrestate automaticamente. In seguito, le macchine virtuali non saranno utilizzabili a meno che la chiave non sia nuovamente abilitata o non si assegni una nuova chiave.
 
@@ -187,6 +191,32 @@ az disk create -n $diskName -g $rgName -l $location --encryption-type Encryption
 diskId=$(az disk show -n $diskName -g $rgName --query [id] -o tsv)
 
 az vm disk attach --vm-name $vmName --lun $diskLUN --ids $diskId 
+
+```
+
+#### <a name="change-the-key-of-a-diskencryptionset-to-rotate-the-key-for-all-the-resources-referencing-the-diskencryptionset"></a>Modificare la chiave di un DiskEncryptionSet per ruotare la chiave per tutte le risorse che fanno riferimento a DiskEncryptionSet
+
+```azurecli
+
+rgName=yourResourceGroupName
+keyVaultName=yourKeyVaultName
+keyName=yourKeyName
+diskEncryptionSetName=yourDiskEncryptionSetName
+
+
+keyVaultId=$(az keyvault show --name $keyVaultName--query [id] -o tsv)
+
+keyVaultKeyUrl=$(az keyvault key show --vault-name $keyVaultName --name $keyName --query [key.kid] -o tsv)
+
+az disk-encryption-set update -n keyrotationdes -g keyrotationtesting --key-url $keyVaultKeyUrl --source-vault $keyVaultId
+
+```
+
+#### <a name="find-the-status-of-server-side-encryption-of-a-disk"></a>Trovare lo stato della crittografia lato server di un disco
+
+```azurecli
+
+az disk show -g yourResourceGroupName -n yourDiskName --query [encryption.type] -o tsv
 
 ```
 

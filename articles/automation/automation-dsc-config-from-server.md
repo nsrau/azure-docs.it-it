@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d888c8fd3bf7cd44c37e7225618bd197f419d275
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dff9b8f52207a38cf7eaddefa178aff262ddc546
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76030133"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585555"
 ---
 # <a name="create-configurations-from-existing-servers"></a>Creare configurazioni da server esistenti
 
@@ -39,7 +39,7 @@ La versione più recente dispone di più [modalità](https://github.com/Microsof
 Il risultato dell'utilizzo della soluzione è la generazione di dati di [configurazione](https://github.com/Microsoft/sharepointDSC.reverse#configuration-data) da utilizzare con gli script di configurazione SharePointDSC.
 
 Dopo aver generato i file di dati, è possibile utilizzarli con gli script di [configurazione DSC](/powershell/scripting/dsc/overview/overview) per generare file MOF e caricare i file MOF in [Automazione di Azure.](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation)
-Registrare quindi i server in locale o [in Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) per eseguire il pull delle [configurazioni.](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances)
+Registrare quindi i server in locale o [in Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms) per eseguire il pull delle [configurazioni.](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances)
 
 Per provare ReverseDSC, visitare [PowerShell Gallery](https://www.powershellgallery.com/packages/ReverseDSC/) e scaricare la soluzione o fare clic su "Sito del progetto" per visualizzare la [documentazione](https://github.com/Microsoft/sharepointDSC.reverse).
 

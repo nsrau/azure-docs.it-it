@@ -11,20 +11,20 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 47fd30fbb6e6836d6edf18ac68164d515f3aeb93
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8ac9ff1f46e1d2d0ddaa313499340b4723c7da07
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350741"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584260"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Gestione del carico di lavoro con le classi di risorse in Azure Synapse AnalyticsWorkload management with resource classes in Azure Synapse Analytics
 
-Indicazioni per l'uso delle classi di risorse per gestire la memoria e la concorrenza per le query di SQL Analytics in Azure Synapse.Guidance for using resource classes to manage memory and concurrency for SQL Analytics queries in Azure Synapse.  
+Indicazioni per l'uso delle classi di risorse per gestire la memoria e la concorrenza per le query del pool SQL Synapse in Azure Synapse.Guidance for using resource classes to manage memory and concurrency for Synapse SQL pool queries in Azure Synapse.  
 
 ## <a name="what-are-resource-classes"></a>Che cosa sono le classi di risorseWhat are resource classes
 
-La capacità di prestazioni di una query è determinata dalla classe di risorse dell'utente.  Le classi di risorse sono limiti di risorse predeterminati in SQL Analytics che regolano le risorse di calcolo e la concorrenza per l'esecuzione di query. Le classi di risorse consentono di configurare le risorse per le query impostando limiti sul numero di query eseguite contemporaneamente e sulle risorse di calcolo assegnate a ogni query.  C'è un compromesso tra memoria e concorrenza.
+La capacità di prestazioni di una query è determinata dalla classe di risorse dell'utente.  Le classi di risorse sono limiti di risorse predeterminati nel pool SQL Synapse che regolano le risorse di calcolo e la concorrenza per l'esecuzione delle query. Le classi di risorse consentono di configurare le risorse per le query impostando limiti sul numero di query eseguite contemporaneamente e sulle risorse di calcolo assegnate a ogni query.  C'è un compromesso tra memoria e concorrenza.
 
 - Le classi di risorse di piccole dimensioni riducono la memoria massima per ogni query, ma aumentano la concorrenza.
 - Le classi di risorse più grandi aumentano la memoria massima per query, ma riducono la concorrenza.
@@ -82,7 +82,7 @@ L'allocazione di memoria per ogni classe di risorse è la seguente.
 
 Per impostazione predefinita, ogni utente è membro della classe di risorse dinamica **smallrc**.
 
-La classe di risorse dell'amministratore del servizio è fissa su smallrc e non può essere modificata.  L'amministratore del servizio è l'utente creato durante il processo di provisioning.  L'amministratore del servizio in questo contesto è l'account di accesso specificato per "Accesso amministratore server" durante la creazione di una nuova istanza di SQL Analytics con un nuovo server.
+La classe di risorse dell'amministratore del servizio è fissa su smallrc e non può essere modificata.  L'amministratore del servizio è l'utente creato durante il processo di provisioning.  L'amministratore del servizio in questo contesto è l'account di accesso specificato per l'account di accesso "Server admin" durante la creazione di un nuovo pool SQL Synapse con un nuovo server.
 
 > [!NOTE]
 > Gli utenti o gruppi definiti come amministratori di Active Directory sono anche amministratori del servizio.
@@ -594,5 +594,5 @@ GO
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sulla gestione degli utenti e della sicurezza del database, vedere [Proteggere un database in SQL Analytics.](sql-data-warehouse-overview-manage-security.md) Per altre informazioni su come le classi di risorse più grandi possono migliorare la qualità degli indici columnstore cluster, vedere [Ottimizzazione della qualità di un gruppo di righe per columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Per ulteriori informazioni sulla gestione degli utenti e della sicurezza del database, vedere [Proteggere un database in Synapse SQL](sql-data-warehouse-overview-manage-security.md). Per altre informazioni su come le classi di risorse più grandi possono migliorare la qualità degli indici columnstore cluster, vedere [Ottimizzazione della qualità di un gruppo di righe per columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 

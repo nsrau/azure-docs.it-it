@@ -1,19 +1,19 @@
 ---
-title: Usare le azioni GitHub con la sincronizzazione della configurazione delle app di AzureUse GitHub Actions with Azure App Configuration Sync
-description: Usare le azioni GitHub per attivare un aggiornamento dell'istanza di configurazione dell'app quando si aggiorna il repository GitHubUse GitHub Actions to trigger an update to your App Configuration instance when you update your GitHub repository
+title: Sincronizzare il repository GitHub con la configurazione dell'app
+description: Usare le azioni GitHub per aggiornare automaticamente l'istanza di configurazione dell'app quando si aggiorna il repository GitHub.Use GitHub Actions to automatically update your App Configuration instance when you update your GitHub repository.
 author: lisaguthrie
 ms.author: lcozzens
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 46d4aa4d4d37e9cac928e8d1a9e5e77ca0f30f18
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 602ccddf97938022df3c5903b573608558fe5d35
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384059"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585488"
 ---
-# <a name="sync-your-app-configuration-instance-using-github-actions"></a>Sincronizzare l'istanza di Configurazione app con GitHub Actions
+# <a name="sync-your-github-repository-to-app-configuration"></a>Sincronizzare il repository GitHub con la configurazione dell'app
 
 I team che desiderano continuare a usare le procedure di controllo del codice sorgente esistenti possono usare le azioni GitHub per sincronizzare automaticamente il repository GitHub con l'archivio di configurazione delle app. In questo modo è possibile apportare modifiche ai file di configurazione come si farebbe normalmente, ottenendo i vantaggi di configurazione dell'app come: <br>
 &nbsp;&nbsp;&nbsp;&nbsp;- Configurazione centralizzata al di fuori del codice <br>

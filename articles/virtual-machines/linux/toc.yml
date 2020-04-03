@@ -177,6 +177,7 @@
               href: reserved-vm-instance-size-flexibility.md
         - name: VM Spot
           href: spot-vms.md
+          displayName: 'pre-empt, preempt'
         - name: Generazioni precedenti
           href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Dimensioni per ambiente isolato

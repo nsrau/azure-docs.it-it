@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: b5a85f8ae1564d724b826c809261e56577f4783a
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 47502e693b897a57517d267924cc6c2752c10440
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435537"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585333"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guida alla risoluzione dei problemi del Centro sicurezza di Azure
 
@@ -148,7 +148,6 @@ In questo documento è stato descritto come configurare i criteri di sicurezza n
 * [Convalida degli avvisi nel Centro sicurezza di Azure](security-center-alert-validation.md)
 * [Notifiche tramite messaggio di posta elettronica nel Centro sicurezza di Azure](security-center-provide-security-contact-details.md)
 * [Gestione degli eventi imprevisti della sicurezza nel Centro sicurezza di Azure](security-center-incident.md)
-* [Analizzare gli eventi imprevisti e gli avvisi nel Centro sicurezza di Azure](security-center-investigation.md)
 * [Funzionalità di rilevamento del Centro sicurezza di Azure](security-center-detection-capabilities.md)
 * [Monitoraggio delle soluzioni dei partner con](security-center-partner-solutions.md) il Centro sicurezza di Azure: informazioni su come monitorare lo stato di integrità delle soluzioni partner.
 * Domande frequenti sul [Centro sicurezza di Azure:](faq-general.md) domande frequenti sull'uso del servizioAzure Security Center FAQ - Find frequently asked questions about using the service

@@ -3,12 +3,12 @@ title: Autorizzazioni per i repository nel Registro di sistema del contenitore d
 description: Creare un token con autorizzazioni con ambito a repository specifici in un Registro di sistema per eseguire il pull o il push delle immagini o eseguire altre azioniCreate a token with permissions scoped to specific repositories in a registry to pull or push images, or perform other actions
 ms.topic: article
 ms.date: 02/13/2020
-ms.openlocfilehash: 7d390bf4d97561e374c70f184534ac4f98a40611
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9004c45401833d3070266055dd7eb99a2bb43bde
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77444300"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618838"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Creare un token con autorizzazioni con ambito repositoryCreate a token with repository-scoped permissions
 
@@ -27,6 +27,7 @@ Gli scenari per la creazione di un token includono:Scenarios for creating a toke
 
 * Questa funzionalità è disponibile solo in un registro dei contenitori **Premium.This** feature is only available in a Premium container registry. Per informazioni sui limiti e i livelli del servizio Registro di sistema, vedere SKU del [Registro di sistema del contenitore di Azure.For](container-registry-skus.md)information about registry service tiers and limits, see Azure Container Registry SKUs .
 * Al momento non è possibile assegnare autorizzazioni con ambito repository a un'identità di Azure Active Directory, ad esempio un'entità servizio o un'identità gestita.
+* Non è possibile creare una mappa dell'ambito in un Registro di sistema abilitato per [l'accesso pull anonimo](container-registry-faq.md#how-do-i-enable-anonymous-pull-access).
 
 ## <a name="concepts"></a>Concetti
 

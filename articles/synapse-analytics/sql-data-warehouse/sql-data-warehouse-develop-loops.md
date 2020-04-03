@@ -1,6 +1,6 @@
 ---
 title: Utilizzo di cicli T-SQLUsing T-SQL loops
-description: Suggerimenti per l'uso di cicli T-SQL e la sostituzione di cursori in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
+description: Suggerimenti per lo sviluppo di soluzioni utilizzando i cicli T-SQL e la sostituzione dei cursori nel pool SQL Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,24 +11,28 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: afb2160cb9b4e34d3d17db86bac9cd3be79886d0
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 4cec4801f2a15ebf858f50377c9718fdacac4e29
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351598"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619009"
 ---
-# <a name="using-t-sql-loops-in-sql-data-warehouse"></a>Uso di cicli T-SQL in SQL Data Warehouse
-Suggerimenti per l'uso di cicli T-SQL e la sostituzione di cursori in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
+# <a name="using-t-sql-loops-in-synapse-sql-pool"></a>Utilizzo di cicli T-SQL nel pool Sql SynapseUsing T-SQL loops in Synapse SQL pool
+In questo articolo sono inclusi suggerimenti per lo sviluppo di soluzioni di pool SQL che usano cicli T-SQL e la sostituzione di cursori.
 
 ## <a name="purpose-of-while-loops"></a>Scopo dei cicli WHILE
 
-SQL Data Warehouse supporta il ciclo [WHILE](/sql/t-sql/language-elements/while-transact-sql) per eseguire ripetutamente blocchi di istruzioni. Il ciclo WHILE continua fino a quando le condizioni specificate sono vere o fino a quando il codice termina il ciclo in modo specifico usando la parola chiave BREAK. I cicli sono utili per la sostituzione di cursori definiti nel codice SQL. Per fortuna, quasi tutti i cursori scritti in codice SQL sono del tipo avanzamento rapido, di sola lettura. Pertanto, i cicli [WHILE] sono un'ottima alternativa per la sostituzione dei cursori.
+Il pool SQL Synapse supporta il ciclo [WHILE](https://docs.microsoft.com/sql/t-sql/language-elements/while-transact-sql?view=sql-server-ver15) per l'esecuzione ripetuta di blocchi di istruzioni. Il ciclo WHILE continua fino a quando le condizioni specificate sono vere o fino a quando il codice termina il ciclo in modo specifico usando la parola chiave BREAK. 
 
-## <a name="replacing-cursors-in-sql-data-warehouse"></a>Sostituzione di cursori in SQL Data Warehouse
-Tuttavia, prima di procedere è innanzitutto necessario chiedersi se il cursore può essere riscritto per l'uso di operazioni basate su set. In molti casi la risposta è Sì ed è spesso l'approccio migliore. Un'operazione basata su set viene spesso eseguita più velocemente rispetto a un approccio iterativo riga per riga.
+I cicli sono utili per la sostituzione di cursori definiti nel codice SQL. Per fortuna, quasi tutti i cursori scritti in codice SQL sono del tipo avanzamento rapido, di sola lettura. Quindi, i cicli WHILE sono un'ottima alternativa per la sostituzione dei cursori.
 
-I cursori ad avanzamento rapido di sola lettura possono essere facilmente sostituiti con un costrutto di ciclo. Di seguito è riportato un esempio semplice. Questo esempio di codice aggiorna le statistiche per ogni tabella nel database. Scorrendo le tabelle nel ciclo, eseguire ogni comando in sequenza.
+## <a name="replacing-cursors-in-synapse-sql-pool"></a>Sostituzione dei cursori nel pool SQL Synapse
+Tuttavia, prima di tuffarsi in testa prima dovresti porti la seguente domanda: "Questo cursore potrebbe essere riscritto per utilizzare operazioni basate su set?" 
+
+In molti casi, la risposta è sì ed è spesso l'approccio migliore. Un'operazione basata su set viene spesso eseguita più velocemente rispetto a un approccio iterativo riga per riga.
+
+I cursori ad avanzamento rapido di sola lettura possono essere facilmente sostituiti con un costrutto di ciclo. L'esempio seguente è semplice. Questo esempio di codice aggiorna le statistiche per ogni tabella nel database. Scorrendo le tabelle nel ciclo, eseguire ogni comando in sequenza.
 
 Prima di tutto, creare una tabella temporanea contenente un numero di riga univoco usato per identificare le singole istruzioni:
 

@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 85fa6a989ae1a6214392914ffd46cd12af27a8d2
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 4aa0e7da1e77334a8b9048dab4a461133f220bd1
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350488"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582457"
 ---
 # <a name="configure-workload-importance-in-azure-synapse-analytics"></a>Configurare l'importanza del carico di lavoro in Azure Synapse AnalyticsConfigure workload importance in Azure Synapse Analytics
 
-L'impostazione dell'importanza in SQL Analytics per Azure Synapse consente di influenzare la pianificazione delle query. Le query con maggiore importanza verranno pianificate per l'esecuzione prima delle query con priorità inferiore. Per assegnare importanza alle query, è necessario creare un classificatore del carico di lavoro.
+L'impostazione dell'importanza in Synapse SQL for Azure Synapse consente di influenzare la pianificazione delle query. Le query con maggiore importanza verranno pianificate per l'esecuzione prima delle query con priorità inferiore. Per assegnare importanza alle query, è necessario creare un classificatore del carico di lavoro.
 
 ## <a name="create-a-workload-classifier-with-importance"></a>Creare un classificatore di carico di lavoro con importanzaCreate a Workload Classifier with Importance
 

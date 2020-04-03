@@ -1,6 +1,6 @@
 ---
-title: Consigli di ANALISI SQL
-description: Informazioni sui consigli di SQL Analytics e su come vengono generati
+title: Raccomandazioni per SQL Synapse
+description: Informazioni sui consigli di Synapse SQL e su come vengono generati
 services: synapse-analytics
 author: kevinvngo
 manager: craigg-msft
@@ -11,18 +11,18 @@ ms.date: 02/05/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 6d57fdb035e076c75363d23fbf36d39eeb72bb3f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: c4bbd98cc28b242be5310fab76521a80de8fcb7c
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350698"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584116"
 ---
-# <a name="sql-analytics-recommendations"></a>Consigli di ANALISI SQL
+# <a name="synapse-sql-recommendations"></a>Raccomandazioni per SQL Synapse
 
-Questo articolo descrive le indicazioni di SQL Analytics servite tramite Azure Advisor.This article describes the SQL Analytics recommendations served through Azure Advisor.  
+Questo articolo descrive i consigli per Synapse SQL serviti tramite Azure Advisor.This article describes the Synapse SQL recommendations served through Azure Advisor.  
 
-Analisi SQL fornisce consigli per garantire che il carico di lavoro del data warehouse sia ottimizzato in modo coerente per le prestazioni. I suggerimenti sono strettamente integrati con [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) per fornire le procedure consigliate direttamente nel portale di [Azure.](https://aka.ms/Azureadvisor) Analisi SQL raccoglie dati di telemetria e espone i suggerimenti per il carico di lavoro attivo in base a una cadenza giornaliera. Gli scenari di raccomandazione supportati sono descritti di seguito insieme a come applicare le azioni consigliate.
+Synapse SQL fornisce consigli per garantire che il carico di lavoro del data warehouse sia ottimizzato in modo coerente per le prestazioni. I suggerimenti sono strettamente integrati con [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) per fornire le procedure consigliate direttamente nel portale di [Azure.](https://aka.ms/Azureadvisor) Synapse SQL raccoglie dati di telemetria e espone i consigli per il carico di lavoro attivo in base a una cadenza giornaliera. Gli scenari di raccomandazione supportati sono descritti di seguito insieme a come applicare le azioni consigliate.
 
 Puoi [controllare i tuoi consigli](https://aka.ms/Azureadvisor) oggi stesso! Questa funzionalità è attualmente applicabile solo ai data warehouse di seconda generazione. 
 

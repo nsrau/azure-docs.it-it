@@ -347,7 +347,7 @@
               href: live-event-error-codes.md
             - name: Codici di errore dei processi
               href: job-error-codes.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Specifica OpenAPI (Swagger)
       href: 'https://aka.ms/ams-v3-rest-sdk'
@@ -401,7 +401,7 @@
           href: 'https://aka.ms/ams-v3-ruby-sdk'
     - name: Explorer di Servizi multimediali di Azure
       href: 'https://github.com/Azure/Azure-Media-Services-Explorer'
-    - name: Quote e limitazioni
+    - name: Quote e limiti
       href: limits-quotas-constraints.md
     - name: Aree e cloud di Azure
       href: azure-clouds-regions.md

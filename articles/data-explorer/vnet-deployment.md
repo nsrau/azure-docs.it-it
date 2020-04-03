@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: c1ad8390bc5db72636c637c2ffb817e34674d0fa
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: b0530ddada68cc9d07753a3b8ab30bff642e26dd
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548839"
+ms.locfileid: "80618654"
 ---
 # <a name="deploy-azure-data-explorer-cluster-into-your-virtual-network"></a>Distribuire il cluster di Azure Data Explorer nella rete virtualeDeploy Azure Data Explorer cluster into your Virtual Network
 
@@ -106,7 +106,7 @@ I gruppi di sicurezza di rete (NSG) consentono di controllare l'accesso alla ret
 | BrasileSud | 191.233.25.183 |
 | Canada centrale | 40.82.188.208 |
 | Canada orientale | 40.80.255.12 |
-| India centrale | 40.81.249.251 |
+| India centrale | 40.81.249.251, 104.211.98.159 |
 | Stati Uniti centrali | 40.67.188.68 |
 | Stati Uniti centrali EUAP | 40.89.56.69 |
 | Asia orientale | 20.189.74.103 |
@@ -125,12 +125,12 @@ I gruppi di sicurezza di rete (NSG) consentono di controllare l'accesso alla ret
 | Sudafrica Ovest | 102.133.0.97 |
 | Stati Uniti centro-meridionali | 20.45.3.60 |
 | Asia sud-orientale | 40.119.203.252 |
-| India meridionale | 40.81.72.110 |
+| India meridionale | 40.81.72.110, 104.211.224.189 |
 | Regno Unito meridionale | 40.81.154.254 |
 | Regno Unito occidentale | 40.81.122.39 |
 | Stati Uniti centro-occidentali | 52.159.55.120 |
 | Europa occidentale | 51.145.176.215 |
-| India occidentale | 40.81.88.112 |
+| India occidentale | 40.81.88.112, 104.211.160.120 |
 | Stati Uniti occidentali | 13.64.38.225 |
 | Stati Uniti occidentali 2 | 40.90.219.23 |
 

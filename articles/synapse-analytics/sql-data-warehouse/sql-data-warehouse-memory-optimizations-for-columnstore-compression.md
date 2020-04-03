@@ -11,12 +11,12 @@ ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: a640f2f260c94cd7502aa79badb32bd26abebb11
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 81191fd3b654f612f2621757f3006268276477de
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350312"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586541"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Ottimizzazione della qualità di un gruppo di righe per columnstore
 
@@ -89,7 +89,7 @@ dove le colonne stringa breve usano tipi di dati stringa < = 32 byte e le colonn
 
 Le stringhe lunghe vengono compresse con un metodo di compressione progettato per la compressione del testo. Questo metodo di compressione usa un *dizionario* per archiviare i modelli di testo. La dimensione massima di un oggetto dictionary è 16 MB. Esiste un solo dizionario per ogni colonna stringa lunga nel gruppo di righe.
 
-Per una discussione approfondita dei requisiti di memoria columnstore, vedere il video [SQL Analytics scaling: configuration and guidance](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
+Per una descrizione approfondita dei requisiti di memoria columnstore, vedere il video [Synapse SQL scaling: configuration and guidance](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## <a name="ways-to-reduce-memory-requirements"></a>Modi per ridurre i requisiti di memoria
 
@@ -141,4 +141,4 @@ La dimensione delle DWU e la classe della risorsa utente insieme determinano la 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per trovare altri modi per migliorare le prestazioni di Analisi SQL, vedere [Panoramica delle prestazioni](cheat-sheet.md).
+Per trovare altri modi per migliorare le prestazioni per Synapse SQL, vedere [Panoramica delle prestazioni](cheat-sheet.md).

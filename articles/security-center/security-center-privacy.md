@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
-ms.openlocfilehash: 6edea1d0de53e2dc9f764de26209dc1f3110556e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf715d872fab421de30ebcb146a1981a7d008738
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75978607"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585982"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Gestire i dati degli utenti nel Centro sicurezza di Azure
 Questo articolo fornisce informazioni su come è possibile gestire i dati degli utenti nel Centro sicurezza di Azure. La gestione dei dati degli utenti include la possibilità di accedere ai dati, eliminarli o esportarli.
@@ -98,6 +98,3 @@ I [dati sugli avvisi](security-center-managing-and-responding-alerts.md) vengono
 
 ## <a name="auditing-and-reporting"></a>Controllo e creazione di report
 I log di controllo dei contatti di sicurezza, degli aggiornamenti just-in-time e degli avvisi vengono gestiti nei log attività di [Azure.](../azure-monitor/platform/platform-logs-overview.md)
-
-## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulla gestione dei dati degli utenti, vedere [Gestire i dati degli utenti rilevati in un'indagine del Centro sicurezza di Azure](security-center-investigation-user-data.md).

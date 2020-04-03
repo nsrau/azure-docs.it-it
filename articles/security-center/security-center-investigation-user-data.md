@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: memildin
-ms.openlocfilehash: 9e4c6577f0b8b18aff343ac54b31ff292632f5d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aa262b0be3902f6e143a53f8f1302156fc5aede6
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979228"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582992"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Gestire i dati degli utenti rilevati in un'indagine del Centro sicurezza di Azure
 Questo articolo illustra come gestire i dati degli utenti rilevati tramite la funzionalità di indagine del Centro sicurezza di Azure. I dati delle indagini vengono archiviati nei log di [Monitoraggio di Azure](../log-analytics/log-analytics-overview.md) ed esposti nel Centro sicurezza. La gestione dei dati degli utenti include la possibilità di eliminare o esportare i dati.
@@ -26,7 +26,7 @@ Questo articolo illustra come gestire i dati degli utenti rilevati tramite la fu
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="searching-for-and-identifying-personal-data"></a>Ricerca e identificazione dei dati personali
-Nel portale di Azure è possibile usare la [funzionalità di indagine](../security-center/security-center-investigation.md) del Centro sicurezza per cercare dati personali. La funzionalità di indagine è disponibile in **Avvisi di sicurezza**.
+Nel portale di Azure è possibile usare la funzionalità di indagine del Centro sicurezza per cercare dati personali. La funzionalità di indagine è disponibile in **Avvisi di sicurezza**.
 
 La funzionalità di indagine consente di visualizzare tutte le entità, le informazioni sull'utente e i dati nella scheda **Entità**.
 

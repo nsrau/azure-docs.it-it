@@ -13,12 +13,12 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: f8f5ab99086ee38e2f56247ce31f8ac0e7affc81
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6191e67f097b5ab471c5b31eff11a0e570d1c990
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128995"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617037"
 ---
 # <a name="authentication-basics"></a>Nozioni di base sull'autenticazione
 
@@ -32,7 +32,7 @@ Questo articolo illustra molti dei concetti di autenticazione che è necessario 
 
 Invece di creare app che gestiscono ognuna le proprie informazioni su nome utente e password, il che comporta un carico amministrativo elevato quando è necessario aggiungere o rimuovere utenti in più app, le app possono delegare tale responsabilità a un provider di identità centralizzato.
 
-Azure Active Directory (Azure AD) è un provider di identità centralizzato nel cloud. La delega dell'autenticazione e dell'autorizzazione consente scenari quali criteri di accesso condizionale che richiedono che un utente si trova in una posizione specifica, l'uso dell'autenticazione a più fattori, nonché l'abilitazione di un utente all'accesso una sola volta e quindi all'appunto accedere a tutte le app Web che condividono la stessa directory centralizzata. Questa funzionalità viene definita Single Sign-On (SSO).
+Azure Active Directory (Azure AD) è un provider di identità centralizzato nel cloud. La delega dell'autenticazione e dell'autorizzazione consente scenari quali criteri di accesso condizionale che richiedono che un utente si trova in una posizione specifica, l'uso dell'autenticazione a più fattori, nonché l'accesso di una sola volta e quindi di accedere automaticamente a tutte le app Web che condividono la stessa directory centralizzata. Questa funzionalità viene definita Single Sign-On (SSO).
 
 Un provider di identità centralizzato è ancora più importante per le app con utenti in tutto il mondo che non necessariamente accedono dalla rete aziendale. Azure AD autentica gli utenti e fornisce i token di accesso. Un token di [accesso](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#access-token) è un token di sicurezza emesso da un server di autorizzazione. Contiene informazioni sull'utente e sull'app a cui è destinato il token; che può essere utilizzato per accedere alle API Web e ad altre risorse protette.
 
@@ -170,7 +170,7 @@ Questo attributo fa ASP.NET verificare la presenza di un cookie di sessione cont
 L'autenticazione dell'utente avviene tramite il browser. Il protocollo OpenID utilizza messaggi di protocollo HTTP standard.
 * L'app Web invia un HTTP 302 (reindirizzamento) al browser per usare Azure AD.
 * Quando l'utente viene autenticato, Azure AD invia il token all'app Web usando un reindirizzamento tramite il browser.
-* Il reindirizzamento viene fornito dall'app Web sotto forma di URI di reindirizzamento. Questo URI di reindirizzamento viene registrato con l'oggetto applicazione Azure AD. Possono essere presenti diversi URI di reindirizzamento perché l'applicazione può essere distribuita in diversi URL. Quindi l'app web dovrà anche specificare l'URi di reindirizzamento da utilizzare.
+* Il reindirizzamento viene fornito dall'app Web sotto forma di URI di reindirizzamento. Questo URI di reindirizzamento viene registrato con l'oggetto applicazione Azure AD. Possono essere presenti diversi URI di reindirizzamento perché l'applicazione può essere distribuita in diversi URL. Pertanto, l'app Web dovrà specificare anche l'URI di reindirizzamento da utilizzare.
 * Azure AD verifica che l'URI di reindirizzamento inviato dall'app Web sia uno degli URI di reindirizzamento registrati per l'app.
 
 ## <a name="desktop-and-mobile-app-sign-in-flow-with-azure-ad"></a>Flusso di accesso alle app desktop e per dispositivi mobili con Azure AD

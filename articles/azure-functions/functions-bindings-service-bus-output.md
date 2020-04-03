@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 7e00d03a8b3ec7ef56935ff7714fd932bc343cd3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02d9ce87d45c5f1c9a123aae18f7d710b268f03e
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79277440"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582246"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Service Bus output binding for Azure Functions
 
@@ -21,7 +21,7 @@ Per informazioni sui dettagli di impostazione e configurazione, vedere la [panor
 
 ## <a name="example"></a>Esempio
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 L'esempio seguente mostra una [funzione C#](functions-dotnet-class-library.md) che invia un messaggio della coda del bus di servizio:
 
@@ -227,7 +227,7 @@ Le funzioni Java possono anche scrivere in un argomento del bus di servizio. Nel
 
 ## <a name="attributes-and-annotations"></a>Attributi e annotazioni
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare [ServiceBusAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAttribute.cs).
 
@@ -295,7 +295,7 @@ Nella tabella seguente vengono illustrate le proprietà di configurazione dell'a
 
 In Funzioni di Azure 1.x il runtime crea la coda se inesistente e se il parametro `accessRights` è stato impostato su `manage`. In Funzioni versione 2.x e successive, la coda o l'argomento deve già esistere; se si specifica una coda o un argomento che non esiste, la funzione avrà esito negativo. 
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Utilizzare i seguenti tipi di parametro per l'associazione di output:
 
@@ -345,7 +345,7 @@ Usare [l'SDK](https://docs.microsoft.com/azure/service-bus-messaging) del bus di
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Associazione | Riferimento |
+| Associazione | Informazioni di riferimento |
 |---|---|
 | Bus di servizio | [Codici di errore del bus di servizio](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
 | Bus di servizio | [Limiti del bus di servizio](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |
@@ -383,6 +383,7 @@ In questa sezione vengono descritte le impostazioni di configurazione globali di
 
 |Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------|
+|prefetchCount|0|Ottiene o imposta il numero di messaggi che il destinatario dei messaggi può richiedere contemporaneamente.|
 |maxAutoRenewDuration|00:05:00|La durata massima entro il quale il blocco del messaggio verrà rinnovato automaticamente.|
 |autoComplete|true|Se il trigger deve contrassegnare immediatamente il messaggio come completato (completamento automatico) o attendere che la funzione venga chiusa correttamente per completare la chiamata.|
 |maxConcurrentCalls|16|Il numero massimo di chiamate simultanee al callback che il message pump deve avviare. Per impostazione predefinita, il runtime di Funzioni elabora più messaggi contemporaneamente. Per fare in modo che il runtime elabori un solo messaggio della coda o dell'argomento alla volta, impostare `maxConcurrentCalls` su 1. |

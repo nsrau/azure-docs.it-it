@@ -2,26 +2,25 @@
 title: 'Modello ExpressRoute di Azure: creare un circuito ExpressRouteAzure ExpressRoute Template: Create an ExpressRoute circuit'
 description: Creare, eseguire il provisioning, eliminare ed eseguire il deprovisioning di un circuito ExpressRoute.Create, provision, delete, and deprovision an ExpressRoute circuit.
 services: expressroute
-author: cherylmc
+author: charwen
 ms.service: expressroute
 ms.topic: article
 ms.date: 11/13/2019
-ms.author: cherylmc
-ms.reviewer: ganesr
-ms.openlocfilehash: 78da84a462566cca1a2800174849159ace8dd6dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: charwen
+ms.openlocfilehash: ac2fb2f884feb0fbe6fbb1731ebe7c8bdad5114b
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75981144"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80616518"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Creare un circuito ExpressRoute usando il modello di Azure Resource ManagerCreate an ExpressRoute circuit by using Azure Resource Manager template
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](expressroute-howto-circuit-portal-resource-manager.md)
-> * [Powershell](expressroute-howto-circuit-arm.md)
-> * [Interfaccia della riga di comando di AzureAzure](howto-circuit-cli.md)
-> * [Modello di Azure Resource ManagerAzure Resource Manager template](expressroute-howto-circuit-resource-manager-template.md)
+> * [PowerShell](expressroute-howto-circuit-arm.md)
+> * [Interfaccia della riga di comando di Azure](howto-circuit-cli.md)
+> * [Modello di Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Video - Portale di Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (versione classica)](expressroute-howto-circuit-classic.md)
 >
@@ -64,7 +63,7 @@ Per creare un circuito ExpressRoute distribuendo un modello:To create an Express
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-   * **Il livello SKU** determina se un circuito ExpressRoute è [Local](expressroute-faqs.md#expressroute-local), Standard o [Premium](expressroute-faqs.md#expressroute-premium). È possibile specificare *Local*, *Standard* o *Premium*.
+   * **Il livello SKU** determina se un circuito ExpressRoute è [Local](expressroute-faqs.md#expressroute-local), Standard o [Premium](expressroute-faqs.md#expressroute-premium). È possibile specificare *Local*, , Standard o *Premium*.
    * **La famiglia SKU** determina il tipo di fatturazione. È possibile specificare *Metereddata* per un piano dati a consumo e *Unlimiteddata* per un piano dati illimitato. È possibile modificare il tipo di fatturazione da *Metereddata* a *Unlimiteddata*, ma *non* è possibile eseguire il passaggio *inverso*. Un circuito *locale* è solo *Unlimiteddata.*
    * **Località peer** è la posizione fisica di peering con Microsoft.
 

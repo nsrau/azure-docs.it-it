@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a7f27215c7ba053933d9d12658253ea92aefa526
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: ace4bc2e46d9e1926da18dedb163657d4f343979
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351119"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586320"
 ---
 # <a name="data-warehouse-units-dwus"></a>Unità data warehouse (DKU)
 
@@ -24,7 +24,7 @@ Consigli sulla scelta del numero ideale di unità di data warehouse (DKU) per ot
 
 ## <a name="what-are-data-warehouse-units"></a>Che cosa sono le unità di data warehouse
 
-Un [pool SQL](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse) rappresenta una raccolta di risorse analitiche di cui viene eseguito il provisioning quando si utilizza SQL [Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse). Le risorse analitiche sono definite come una combinazione di CPU, memoria e I/O. Queste tre risorse sono raggruppate in unità di scala di calcolo denominate Unità di data warehouse (DKU). Un'unità DWU rappresenta una misura astratta e normalizzata delle risorse e delle prestazioni di calcolo. Una modifica al livello di servizio altera il numero di DKU disponibili per il sistema, che a sua volta regola le prestazioni e il costo del sistema.
+Un [pool SQL Synapse](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) rappresenta una raccolta di risorse analitiche di cui viene eseguito il provisioning. Le risorse analitiche sono definite come una combinazione di CPU, memoria e I/O. Queste tre risorse sono raggruppate in unità di scala di calcolo denominate Unità di data warehouse (DKU). Un'unità DWU rappresenta una misura astratta e normalizzata delle risorse e delle prestazioni di calcolo. Una modifica al livello di servizio altera il numero di DKU disponibili per il sistema, che a sua volta regola le prestazioni e il costo del sistema.
 
 Per migliorare le prestazioni, è possibile aumentare il numero di unità del data warehouse. Per una riduzione delle prestazioni, ridurre le unità del data warehouse. I costi di archiviazione e calcolo vengono fatturati separatamente, pertanto la modifica delle unità Data Warehouse non influisce sui costi di archiviazione.
 

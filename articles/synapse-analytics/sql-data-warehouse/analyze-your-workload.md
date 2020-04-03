@@ -11,20 +11,20 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: a382ef2d93f10e69569ecbbed1399f256a7afbb3
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: d10a642f9309e4bb93368564488fc75be15fa27c
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351215"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586070"
 ---
 # <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Analizzare il carico di lavoro in Azure Synapse AnalyticsAnalyze your workload in Azure Synapse Analytics
 
-Tecniche per l'analisi del carico di lavoro di SQL Analytics in Azure Synapse Analytics.Techniques for analyzing your SQL Analytics workload in Azure Synapse Analytics.
+Tecniche per l'analisi del carico di lavoro SQL Synapse in Azure Synapse Analytics.Techniques for analyzing your Synapse SQL workload in Azure Synapse Analytics.
 
 ## <a name="resource-classes"></a>Classi di risorse
 
-Analisi SQL fornisce classi di risorse per assegnare risorse di sistema alle query.  Per altre informazioni sulle classi di risorse, vedere [Classi di risorse & gestione del carico di lavoro.](resource-classes-for-workload-management.md)  Le query attenderanno se la classe di risorse assegnata a una query richiede più risorse di quelle attualmente disponibili.
+Synapse SQL fornisce classi di risorse per assegnare risorse di sistema alle query.  Per altre informazioni sulle classi di risorse, vedere [Classi di risorse & gestione del carico di lavoro.](resource-classes-for-workload-management.md)  Le query attenderanno se la classe di risorse assegnata a una query richiede più risorse di quelle attualmente disponibili.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Rilevamento di query in coda e altre viste a gestione dinamica
 
@@ -63,7 +63,7 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-Analisi SQL presenta i tipi di attesa seguenti:SQL Analytics has the following wait types:
+Synapse SQL ha i seguenti tipi di attesa:
 
 * **LocalQueriesConcurrencyResourceType**: query che si trovano all'esterno del framework di slot di concorrenza. Le query DMV e le funzioni di sistema  come `SELECT @@VERSION` sono esempi di query locali.
 * **UserConcurrencyResourceType**: query che si trovano all'interno del framework di slot di concorrenza. Le query sulle tabelle dell'utente finale rappresentano esempi in cui si usa questo tipo di risorsa.
@@ -153,4 +153,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sulla gestione degli utenti e della sicurezza del database, vedere [Proteggere un database in SQL Analytics.](sql-data-warehouse-overview-manage-security.md) Per ulteriori informazioni sulle classi di risorse più grandi che possono migliorare le qualità degli indici indice columnstore cluster, vedere [Ricompilazione degli indici per migliorare la qualità del segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Per ulteriori informazioni sulla gestione degli utenti e della sicurezza del database, vedere [Proteggere un database in Synapse SQL](sql-data-warehouse-overview-manage-security.md). Per ulteriori informazioni sulle classi di risorse più grandi che possono migliorare le qualità degli indici indice columnstore cluster, vedere [Ricompilazione degli indici per migliorare la qualità del segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).

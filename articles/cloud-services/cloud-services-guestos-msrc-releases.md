@@ -10,34 +10,31 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 03/14/2020
+ms.date: 04/2/2020
 ms.author: raiye
-ms.openlocfilehash: 51c46414b5fe39da13b6ffff53c9509b482fa0d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2b929481af3df8bc3bc6a9a6955e8277e3de3298
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79408302"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618685"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamento vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
 
 ## <a name="march-2020-guest-os"></a>Sistema operativo guest di marzo 2020
 
->[!NOTE]
->Il sistema operativo guest di marzo è attualmente in fase di implementazione nelle macchine virtuali del servizio cloud configurate per gli aggiornamenti automatici. Una volta completata l'implementazione, questa versione sarà resa disponibile per gli aggiornamenti manuali tramite i file di configurazione e il portale di Azure. Le patch seguenti sono incluse nel sistema operativo guest di marzo. L'elenco è soggetto a variazioni.
-
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 20-03  |  [4541500]  |  Windows Security  | 2.96 | Mar 10, 2020 |
-|  Rel 20-03  |  [4540671]  |  Internet Explorer  | 2.96, 3.83, 4.76 | Mar 10, 2020 |
-|  Rel 20-03  |  [4540694]  |  Windows Security  | 3.83 | Mar 10, 2020 |
-|  Rel 20-03  |  [4541505]  |  Windows Security  | 4.76 | Mar 10, 2020 |
-|  Rel 20-03  |  [4540670]  |  Ultimo aggiornamento cumulativo (LCU)  | 5.41 | Mar 10, 2020 |
-|  Rel 20-03  |  [4538461]  |  Ultimo aggiornamento cumulativo (LCU)  | 6.17 | Mar 10, 2020 |
-|  Rel 20-03  |  [4537820]  |  Rollup mensile  | 2.96 | 11 feb 2020 |
-|  Rel 20-03  |  [4537814]  |  Rollup mensile  | 3.83 | 11 feb 2020 |
-|  Rel 20-03  |  [4537821]  |  Rollup mensile  | 4.76 | 11 feb 2020 |
+|  Rel 20-03  |  [4541500]  |  Windows Security  | [2.96] | Mar 10, 2020 |
+|  Rel 20-03  |  [4540671]  |  Internet Explorer  | [2.96], [3,83], [4,76] | Mar 10, 2020 |
+|  Rel 20-03  |  [4540694]  |  Windows Security  | [3.83] | Mar 10, 2020 |
+|  Rel 20-03  |  [4541505]  |  Windows Security  | [4.76] | Mar 10, 2020 |
+|  Rel 20-03  |  [4540670]  |  Ultimo aggiornamento cumulativo (LCU)  | [5.41] | Mar 10, 2020 |
+|  Rel 20-03  |  [4538461]  |  Ultimo aggiornamento cumulativo (LCU)  | [6.17] | Mar 10, 2020 |
+|  Rel 20-03  |  [4537820]  |  Rollup mensile  | [2.96] | 11 feb 2020 |
+|  Rel 20-03  |  [4537814]  |  Rollup mensile  | [3.83] | 11 feb 2020 |
+|  Rel 20-03  |  [4537821]  |  Rollup mensile  | [4.76] | 11 feb 2020 |
 
 [4541500]: https://support.microsoft.com/kb/4541500 
 [4540671]: https://support.microsoft.com/kb/4540671 

@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 43f6404a483cad8377e70591f5454180f0dd07a6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9f3ba0a7e9f7cf72b0eade16679d980fe2207f98
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77560338"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80297218"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Esercitazione: Copiare dati nell'archiviazione BLOB di Azure Data Box tramite API REST  
 
@@ -98,7 +98,7 @@ Usare il portale di Azure per scaricare il certificato.
  
 ### <a name="import-certificate"></a>Importare il certificato 
 
-L'accesso all'archiviazione BLOB di Data Box tramite HTTPS richiede un certificato SSL per il dispositivo. Il modo in cui questo certificato viene reso disponibile all'applicazione client varia da applicazione ad applicazione e tra sistemi operativi e distribuzioni. Alcune applicazioni possono accedere al certificato dopo che è stato importato nell'archivio certificati del sistema, mentre altre applicazioni non fanno uso di tale meccanismo.
+L'accesso all'archivio BLOB di Data Box tramite HTTPS richiede un certificato TLS/SSL per il dispositivo. Il modo in cui questo certificato viene reso disponibile all'applicazione client varia da applicazione ad applicazione e tra sistemi operativi e distribuzioni. Alcune applicazioni possono accedere al certificato dopo che è stato importato nell'archivio certificati del sistema, mentre altre applicazioni non fanno uso di tale meccanismo.
 
 Informazioni specifiche per alcune applicazioni sono menzionate in questa sezione. Per altre informazioni su altre applicazioni, consultare la documentazione relativa all'applicazione e al sistema operativo usato.
 

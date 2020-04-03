@@ -11,21 +11,22 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: a5bb048a2368f60a83e70dcd6d1ce663ce70a885
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 2113e5ac3563a22c5f2c6b755230b05fb9a2cb35
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350927"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583864"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Ottimizzazione delle prestazioni con indice columnstore cluster ordinato  
 
-Quando gli utenti eseguono una query su una tabella columnstore in SQL Analytics, l'ottimizzatore controlla i valori minimo e massimo archiviati in ogni segmento.  I segmenti che si trovano all'esterno dei limiti del predicato di query non vengono letti dal disco alla memoria.  Una query può ottenere prestazioni più veloci se il numero di segmenti da leggere e le dimensioni totali sono ridotte.   
+Quando gli utenti eseguono una query su una tabella columnstore nel pool SQL Synapse, l'ottimizzatore controlla i valori minimo e massimo archiviati in ogni segmento.  I segmenti che si trovano all'esterno dei limiti del predicato di query non vengono letti dal disco alla memoria.  Una query può ottenere prestazioni più veloci se il numero di segmenti da leggere e le dimensioni totali sono ridotte.   
 
-## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>Indice columnstore cluster ordinato e non ordinatoOrdered vs. 
-Per impostazione predefinita, per ogni tabella di SQL Analytics creata senza un'opzione di indice, un componente interno (generatore di indici) crea un indice Columnstore cluster non ordinato su di esso.  I dati in ogni colonna vengono compressi in un segmento Rowgroup CCI separato.  Sono disponibili metadati sull'intervallo di valori di ogni segmento, pertanto i segmenti che non rientrano nei limiti del predicato di query non vengono letti dal disco durante l'esecuzione della query.  CCI offre il massimo livello di compressione dei dati e riduce le dimensioni dei segmenti da leggere in modo che le query possano essere eseguite più velocemente. Tuttavia, poiché il generatore di indici non ordina i dati prima di comprimerli in segmenti, potrebbero verificarsi segmenti con intervalli di valori sovrapposti, facendo sì che le query leggano più segmenti dal disco e richiedono più tempo per il completamento.  
+## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>Indice columnstore cluster ordinato e non ordinatoOrdered vs.
 
-Quando si crea un CCI ordinato, il motore di SQL Analytics ordina i dati esistenti in base alle chiavi dell'ordine prima che il generatore di indici li comprima in segmenti di indice.  Con i dati ordinati, la sovrapposizione dei segmenti è ridotta consentendo alle query di avere un'eliminazione dei segmenti più efficiente e quindi prestazioni più veloci perché il numero di segmenti da leggere dal disco è inferiore.  Se tutti i dati possono essere ordinati in memoria contemporaneamente, è possibile evitare la sovrapposizione dei segmenti.  Date le dimensioni di dati nelle tabelle di SQL Analytics, questo scenario non si verifica spesso.  
+Per impostazione predefinita, per ogni tabella creata senza un'opzione di indice, un componente interno (generatore di indici) crea un indice CCI (Clustered columnstore) non ordinato.  I dati in ogni colonna vengono compressi in un segmento Rowgroup CCI separato.  Sono disponibili metadati sull'intervallo di valori di ogni segmento, pertanto i segmenti che non rientrano nei limiti del predicato di query non vengono letti dal disco durante l'esecuzione della query.  CCI offre il massimo livello di compressione dei dati e riduce le dimensioni dei segmenti da leggere in modo che le query possano essere eseguite più velocemente. Tuttavia, poiché il generatore di indici non ordina i dati prima di comprimerli in segmenti, potrebbero verificarsi segmenti con intervalli di valori sovrapposti, facendo sì che le query leggano più segmenti dal disco e richiedono più tempo per il completamento.  
+
+Quando si crea un CCI ordinato, il motore SQL Synapse ordina i dati esistenti in base alle chiavi di ordine prima che il generatore di indici li comprima in segmenti di indice.  Con i dati ordinati, la sovrapposizione dei segmenti è ridotta consentendo alle query di avere un'eliminazione dei segmenti più efficiente e quindi prestazioni più veloci perché il numero di segmenti da leggere dal disco è inferiore.  Se tutti i dati possono essere ordinati in memoria contemporaneamente, è possibile evitare la sovrapposizione dei segmenti.  A causa di tabelle di grandi dimensioni nei data warehouse, questo scenario non si verifica spesso.  
 
 Per controllare gli intervalli di segmenti per una colonna, eseguire questo comando con il nome della tabella e il nome della colonna:
 
@@ -49,7 +50,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> In una tabella CCI ordinata, i nuovi dati risultanti dallo stesso batch di operazioni DML o di caricamento dei dati vengono ordinati all'interno di tale batch, non esiste alcun ordinamento globale tra tutti i dati nella tabella.  Gli utenti possono REBUILD il CCI ordinato per ordinare tutti i dati nella tabella.  In SQL Analytics, l'indice columnstore REBUILD è un'operazione offline.  Per una tabella partizionata, il REBUILD viene eseguito una partizione alla volta.  I dati nella partizione che viene ricompilata sono "offline" e non sono disponibili fino al completamento di REBUILD per tale partizione. 
+> In una tabella CCI ordinata, i nuovi dati risultanti dallo stesso batch di operazioni DML o di caricamento dei dati vengono ordinati all'interno di tale batch, non esiste alcun ordinamento globale tra tutti i dati nella tabella.  Gli utenti possono REBUILD il CCI ordinato per ordinare tutti i dati nella tabella.  In Synapse SQL, l'indice columnstore REBUILD è un'operazione offline.  Per una tabella partizionata, il REBUILD viene eseguito una partizione alla volta.  I dati nella partizione che viene ricompilata sono "offline" e non sono disponibili fino al completamento di REBUILD per tale partizione. 
 
 ## <a name="query-performance"></a>Prestazioni delle query
 
@@ -115,14 +116,15 @@ CREATE TABLE Table1 WITH (DISTRIBUTION = HASH(c1), CLUSTERED COLUMNSTORE INDEX O
 AS SELECT * FROM ExampleTable
 OPTION (MAXDOP 1);
 ```
-- Preordinare i dati in base alle chiavi di ordinamento prima di caricarli nelle tabelle di SQL Analytics.
 
+- Preordinare i dati in base alle chiavi di ordinamento prima di caricarli nelle tabelle.
 
 Ecco un esempio di una distribuzione di tabella CCI ordinata con zero segmenti sovrapposti seguendo le raccomandazioni precedenti. La tabella CCI ordinata viene creata in un database DWU1000c tramite CTAS da una tabella heap da 20 GB utilizzando MAXDOP 1 e xlargerc.  Il CCI viene ordinato in una colonna BIGINT senza duplicati.  
 
 ![Segment_No_Overlapping](./media/performance-tuning-ordered-cci/perfect-sorting-example.png)
 
 ## <a name="create-ordered-cci-on-large-tables"></a>Creare CCI ordinato su tabelle di grandi dimensioni
+
 La creazione di un CCI ordinato è un'operazione offline.  Per le tabelle senza partizioni, i dati non saranno accessibili agli utenti fino al completamento del processo di creazione CCI ordinato.   Per le tabelle partizionate, poiché il motore crea la partizione CCI ordinata per partizione, gli utenti possono comunque accedere ai dati nelle partizioni in cui la creazione di CCI ordinato non è in corso.   È possibile utilizzare questa opzione per ridurre al minimo il tempo di inattività durante la creazione di CCI ordinato su tabelle di grandi dimensioni:You can use this option to minimize the downtime during ordered CCI creation on large tables: 
 
 1.    Creare partizioni nella tabella di grandi dimensioni di destinazione (denominata Table_A).
@@ -135,6 +137,7 @@ La creazione di un CCI ordinato è un'operazione offline.  Per le tabelle senza 
 ## <a name="examples"></a>Esempi
 
 **A. Per verificare la presenza di colonne ordinate e ordinali:**
+
 ```sql
 SELECT object_name(c.object_id) table_name, c.name column_name, i.column_store_order_ordinal 
 FROM sys.index_columns i 
@@ -143,6 +146,7 @@ WHERE column_store_order_ordinal <>0
 ```
 
 **B. Per modificare l'ordinale delle colonne, aggiungere o rimuovere colonne dall'elenco degli ordini o passare da CCI a CCI ordinato:**
+
 ```sql
 CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON  InternetSales
 ORDER (ProductKey, SalesAmount)
@@ -150,4 +154,5 @@ WITH (DROP_EXISTING = ON)
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per altri suggerimenti sullo sviluppo, vedere la [panoramica dello sviluppo](sql-data-warehouse-overview-develop.md).

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 504dfb721c7b87d5497c73851d0694601b253d5c
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 2270ee7c850c528bd24fa2e58c2b1684acfc24d6
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529685"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585304"
 ---
 # <a name="troubleshoot"></a>Risolvere problemi
 
@@ -19,7 +19,7 @@ Questo articolo fornisce soluzioni ai problemi comuni di Azure FarmBeats.This ar
 ## <a name="install-issues"></a>Problemi di installazione
 
   > [!NOTE]
-  > Se si riavvia l'installazione a causa di un errore, assicurarsi di eliminare il gruppo di risorse o tutte le risorse dal gruppo di risorse prima di riattivare l'installazione.
+  > Se si riavvia l'installazione a causa di un errore, assicurarsi di eliminare il gruppo di **risorse** o tutte le risorse dal gruppo di risorse prima di riattivare l'installazione.
 
 ### <a name="invalid-sentinel-credentials"></a>Credenziali Sentinel non valide
 
@@ -31,7 +31,7 @@ Aumentare la quota o eliminare gli account batch inutilizzati e riavviare l'inst
 
 ### <a name="invalid-resource-group-location"></a>Percorso del gruppo di risorse non valido
 
-Assicurarsi che il gruppo di risorse si trova nello stesso percorso dell'area specificata durante l'installazione.
+Verificare che il **gruppo** di risorse si trova nello stesso percorso **dell'area** specificata durante l'installazione.
 
 ### <a name="other-install-issues"></a>Altri problemi di installazione
 
@@ -39,11 +39,11 @@ Contattaci con i seguenti dettagli:
 
 - Il tuo ID sottoscrizione
 - Nome del gruppo di risorse
-- Collegare il file di log per l'errore di distribuzione attenendosi alla procedura seguente:
+- Seguire i passaggi seguenti per allegare il file di registro per l'errore di distribuzione:
 
-    1. Passare al gruppo di risorse nel portale di Azure.Navigate to the Resource Group in the Azure portal.
-    2. Selezionare Distribuzioni nella sezione Impostazioni sul lato sinistro.
-    3. Per ogni distribuzione che mostra "Non riuscita", fare clic su per visualizzare i dettagli e scaricare i dettagli della distribuzione. Allegare il file al messaggio.
+    1. Passare al **gruppo di risorse** nel portale di Azure.Navigate to the Resource Group in the Azure portal.
+    2. Selezionare **Distribuzioni** nella sezione **Impostazioni** sul lato sinistro.
+    3. Per ogni distribuzione che mostra **Non riuscito**, selezionare fino ai dettagli e scaricare i dettagli della distribuzione. Allegare il file al messaggio.
 
 ## <a name="sensor-telemetry"></a>Telemetria dei sensori
 
@@ -51,11 +51,12 @@ Contattaci con i seguenti dettagli:
 
 **Sintomo:** i dispositivi o i sensori vengono distribuiti e FarmBeats è stato collegato al partner del dispositivo, ma non è possibile ottenere o visualizzare dati di telemetria in FarmBeats.
 
-**Azione correttiva**:
+**Azione correttiva**
 
 1. Passare al gruppo di risorse FarmBeats Datahub.Go to your FarmBeats Datahub resource group.
 2. Selezionare **l'hub eventi** (DatafeedEventHubNamespace) e quindi verificare il numero di messaggi in arrivo.
 3. Effettuare una delle operazioni seguenti:
+
    - Se non sono presenti *messaggi in arrivo,* contattare il partner del dispositivo.  
    - Se sono presenti *messaggi in arrivo,* contattarci con i log Datahub e Accelerator e i dati di telemetria acquisiti.
 
@@ -65,9 +66,9 @@ Per informazioni su come scaricare i log, passare alla sezione ["Raccogli log ma
 
 **Sintomo:** i dispositivi o i sensori vengono distribuiti e i dispositivi/sensori sono stati creati in FarmBeats e sono stati ingeriti dati di telemetria in EventHub, ma non è possibile ottenere o visualizzare i dati di telemetria in FarmBeats.
 
-**Azione correttiva**:
+**Azione correttiva**
 
-1. Assicurati di aver fatto correttamente la registrazione del partner - puoi controllarlo andando al tuo datahub swagger, passare a /Partner API, Do a Get e controllare se il partner è registrato. In caso contrario, seguire i [passaggi qui](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) per aggiungere partner.
+1. Assicurati di aver fatto correttamente la registrazione del partner - puoi controllarlo andando al tuo datahub swagger, passare a /Partner API, Do a Get e controllare se il partner è registrato. In caso contrario, attenersi alla [seguente procedura](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) per aggiungere partner.
 
 2. Assicurarsi di aver utilizzato il formato corretto del messaggio di telemetria:Ensure that you have used the correct Telemetry message format:
 
@@ -96,7 +97,7 @@ Per informazioni su come scaricare i log, passare alla sezione ["Raccogli log ma
 
 ### <a name="dont-have-the-azure-event-hubs-connection-string"></a>Non è la stringa di connessione Hub eventi di Azure
 
-**Azione correttiva**:
+**Azione correttiva**
 
 1. In Datahub Swagger passare all'API partner.
 2. Selezionare **Get** > **Try it out** > **Execute**.
@@ -113,7 +114,7 @@ Per informazioni su come scaricare i log, passare alla sezione ["Raccogli log ma
 
 **Sintomi:** i dispositivi sono installati e FarmBeats è stato collegato al partner del dispositivo. I dispositivi sono online e inviano dati di telemetria, ma vengono visualizzati offline.
 
-**Azione correttiva**: L'intervallo di segnalazione non è configurato per questo dispositivo. Per impostare l'intervallo di segnalazione, contattare il produttore del dispositivo. 
+**Azione correttiva** L'intervallo di segnalazione non è configurato per questo dispositivo. Per impostare l'intervallo di segnalazione, contattare il produttore del dispositivo. 
 
 ### <a name="error-deleting-a-device"></a>Errore durante l'eliminazione di un dispositivo
 
@@ -123,7 +124,7 @@ Durante l'eliminazione di un dispositivo, è possibile riscontrare uno dei segue
 
 **Significato**: Il dispositivo è associato a più sensori distribuiti nella farm.
 
-**Azione correttiva**:  
+**Azione correttiva**  
 
 1. Eliminare i sensori associati al dispositivo tramite Accelerator.  
 2. Se si desidera associare i sensori a un dispositivo diverso, chiedere al partner del dispositivo di eseguire la stessa operazione.  
@@ -140,15 +141,15 @@ Durante l'eliminazione di un dispositivo, è possibile riscontrare uno dei segue
 
     > [!NOTE]
     > Non è possibile eliminare un dispositivo se vi sono associati sensori. Per ulteriori informazioni su come eliminare i sensori associati, vedere la sezione **Eliminare i sensori** in Ottenere i dati dei sensori dai partner dei [sensori](get-sensor-data-from-sensor-partner.md).
-    > I partner non hanno accesso per eliminare un dispositivo o un sensore. Solo gli amministratori hanno accesso per fare lo stesso.
+    > I partner non dispongono dell'autorizzazione per eliminare un dispositivo o un sensore. Solo gli amministratori sono autorizzati a eliminare.
 
 ## <a name="issues-with-jobs"></a>Problemi con i lavori
 
 ### <a name="farmbeats-internal-error"></a>Errore interno farmBeats
 
-**Messaggio:**"Errore interno FarmBeats, vedere la guida alla risoluzione dei problemi per ulteriori dettagli".
+**Messaggio:**"Errore interno FarmBeats, vedere la guida alla risoluzione dei problemi per ulteriori dettagli."
 
-**Azione correttiva**: Questo problema potrebbe derivare da un errore temporaneo nella pipeline di dati. Creare nuovamente il processo. Se l'errore persiste, contattaci con il messaggio di errore / registri.
+**Azione correttiva** Questo problema potrebbe causare un errore temporaneo nella pipeline di dati. Creare nuovamente il processo. Se l'errore persiste, contattaci con il messaggio di errore/log.
 
 ## <a name="accelerator-troubleshooting"></a>Risoluzione dei problemi relativi agli acceleratori
 
@@ -158,15 +159,15 @@ Durante l'eliminazione di un dispositivo, è possibile riscontrare uno dei segue
 
 **Messaggio:**"Nessun utente corrispondente trovato".
 
-**Azione correttiva**: Controllare l'ID di posta elettronica per il quale si sta tentando di aggiungere un'assegnazione di ruolo. L'ID di posta elettronica deve essere una corrispondenza esatta dell'ID, che viene registrato per tale utente in Active Directory. Se l'errore persiste, contattaci con il messaggio di errore / registri.
+**Azione correttiva** Controllare l'ID di posta elettronica per il quale si sta tentando di aggiungere un'assegnazione di ruolo. L'ID di posta elettronica deve essere una corrispondenza esatta dell'ID, che viene registrato per tale utente in Active Directory. Se l'errore persiste, contattaci con il messaggio di errore/log.
 
 ### <a name="unable-to-log-in-to-accelerator"></a>Impossibile accedere all'acceleratore
 
 **Messaggio**: "Errore: Non si è autorizzati a chiamare il servizio. Contattare l'amministratore per l'autorizzazione."
 
-**Azione correttiva**: Chiedere all'amministratore di autorizzare l'utente ad accedere alla distribuzione di FarmBeats. Questa operazione può essere eseguita eseguendo un POST delle API RoleAssignment o tramite il controllo di accesso nel riquadro **Impostazioni** in Accelerator.  
+**Azione correttiva** Chiedere all'amministratore di autorizzare l'utente ad accedere alla distribuzione di FarmBeats. Questa operazione può essere eseguita eseguendo un POST delle API RoleAssignment o tramite il controllo di accesso nel riquadro **Impostazioni** in Accelerator.  
 
-Se hai già ottenuto l'accesso e stai affrontando questo errore, riprova aggiornando la pagina. Se l'errore persiste, contattaci con il messaggio di errore / registri.
+Se l'accesso è già stato concesso e si verifica questo errore, riprovare aggiornando la pagina. Se l'errore persiste, contattaci con il messaggio di errore/log.
 
 ![Progetto FarmBeats](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
 
@@ -176,13 +177,11 @@ Se hai già ottenuto l'accesso e stai affrontando questo errore, riprova aggiorn
 
 **Messaggio:**"Errore: si è verificato un errore sconosciuto".
 
-**Azione correttiva**: Questo errore si verifica se si lascia la pagina inattiva per troppo tempo. Aggiornare la pagina.  
-
-Se l'errore persiste, contattaci con il messaggio di errore / registri.
+**Azione correttiva** Questo errore si verifica se si lascia la pagina inattiva per troppo tempo. Aggiornare la pagina. Se l'errore persiste, contattaci con il messaggio di errore/log.
 
 **Problema:** FarmBeats Accelerator non mostra la versione più recente, anche dopo aver aggiornato FarmBeatsDeployment.
 
-**Azione correttiva:** questo errore si verifica a causa della persistenza del service worker nel browser. Eseguire le operazioni seguenti:
+**Azione correttiva** Questo errore si verifica a causa della persistenza del service worker nel browser. Eseguire le operazioni seguenti:
 
 1. Chiudere tutte le schede del browser con acceleratore aperto e chiudere la finestra del browser.
 2. Avviare una nuova istanza del browser e ricaricare l'URI dell'acceleratore. Questa azione carica la nuova versione di Accelerator.
@@ -193,30 +192,30 @@ Se l'errore persiste, contattaci con il messaggio di errore / registri.
 
 **Messaggio di errore del processo:**"È necessaria l'autenticazione completa per accedere a questa risorsa".
 
-**Azione correttiva**:
+**Azione correttiva**: Effettuare una delle seguenti operazioni:
 
-Eseguire una delle operazioni seguenti:
+- Aggiornare FarmBeats con il nome utente/password corretto utilizzando la procedura seguente e ripetere il processo.
 
-- Aggiornare FarmBeats con il nome utente/password corretto attenendosi alla procedura riportata di seguito e ripetere il processo.
+  **Aggiorna nome utente Sentinel**
 
-    *Aggiorna nome utente Sentinel*
     1. Accedere al portale di [Azure](https://portal.azure.com).
     2. Nella casella **Cerca** cercare il gruppo di risorse FarmBeats Datahub.
-    3. Selezionare Archiviazione dell'account di archiviazione, ovvero -> Contenitori-> file di preparazione batch -> to_vm -> config.ini
-    4. Fare clic su Edit
+    3. Selezionare Storage dell'account di archiviazione > **Containers** > **file di prep-files** > **to_vm** > **config.ini**
+    4. Selezionare **Modifica**
     5. Aggiornare il nome utente nella sezione sentinel_account
 
-    *Aggiorna password Sentinel*
+  **Aggiornare la password di Sentinel**
+
     1. Accedere al portale di [Azure](https://portal.azure.com).
     2. Nella casella **Cerca** cercare il gruppo di risorse FarmBeats Datahub.
     3. Selezionare keyvault
     4. Selezionare Criteri di accesso in Impostazioni
-    5. Fare clic su "Aggiungi criteri di accesso"
-    6. Utilizzare "Gestione dei segreti" per Configurare da modello e aggiungere se stessi a Principal
-    7. Fare clic su Aggiungi e quindi su Salva nella pagina Criteri di accesso
-    8. Fare clic su Segreti in Impostazioni
-    9. Fare clic su Sentinel-password
-    10. Creare una nuova versione del valore e abilitarla
+    5. Selezionare **Aggiungi criterio di accesso**
+    6. Utilizzare **la gestione dei segreti** per la configurazione dal modello e aggiungere se stessi all'entità
+    7. Selezionare **Aggiungi**e quindi **Salva** nella pagina **Criteri di accesso**
+    8. Selezionare **Segreti** in **Impostazioni**
+    9. Selezionare **Sentinel-password**
+    10. Creare una nuova versione del valore e abilitarla.
 
 - Eseguire nuovamente il processo non riuscito o eseguire un processo di indici satellite per un intervallo di date da 5 a 7 giorni, quindi verificare se il processo ha esito positivo.
 
@@ -269,10 +268,11 @@ Messaggio di **errore del processo:**"Numero massimo di\<due flussi simultanei o
 
 ### <a name="soil-moisture-map-has-white-areas"></a>Soil Mappa dell'umidità ha aree bianche
 
-**Problema**: La mappa dell'umidità del suolo è stata generata, ma la mappa ha per lo più aree bianche.
+**Problema**: La **mappa dell'umidità** del suolo è stata generata, ma la mappa ha per lo più aree bianche.
 
 **Azione correttiva**: Questo problema può verificarsi se gli indici satellite generati per il tempo per cui è stata richiesta la mappa ha valori NDVI inferiori a 0,3. Per ulteriori informazioni, [consultare la Guida tecnica di Sentinel.](https://earth.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-2a/algorithm)
-1. Eseguire nuovamente il processo per un intervallo di date diverso e verificare se i valori NDVI negli indici satellite sono più di 0,3
+
+1. Eseguire nuovamente il processo per un intervallo di date diverso e verificare se i valori NDVI negli indici satellite sono maggiori di 0,3.
 
 ## <a name="collect-logs-manually"></a>Raccogliere i registri manualmente
 

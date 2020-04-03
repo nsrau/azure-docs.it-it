@@ -12,18 +12,18 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: a8674714451f3cc686acb74d6c66ac6800b75936
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 72cfdf172e4524e302ef2e22826d4f78ce32daf0
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478091"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582721"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Streaming Endpoints (Origin) in Azure Media Services
 
 In Servizi multimediali di Microsoft Azure, un endpoint di [streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) rappresenta un servizio di creazione di pacchetti e origini dinamico (just-in-time) in grado di distribuire il contenuto live e su richiesta direttamente a un'app lettore client usando uno dei protocolli multimediali di streaming comuni (HLS o DASH). Inoltre, **l'endpoint** di streaming fornisce la crittografia dinamica (just-in-time) ai DRM leader del settore. 
 
-Quando si crea un account di Servizi multimediali viene creato un endpoint di streaming **predefinito** nello stato Arrestato. Non è possibile eliminare l'endpoint di streaming **predefinito.** È possibile creare altri endpoint di streaming con l'account (vedere [Quote e limitazioni).](limits-quotas-constraints.md)
+Quando si crea un account di Servizi multimediali viene creato un endpoint di streaming **predefinito** nello stato Arrestato. Non è possibile eliminare l'endpoint di streaming **predefinito.** È possibile creare altri endpoint di streaming con l'account (vedere [Quote e limiti).](limits-quotas-constraints.md)
 
 > [!NOTE]
 > Per avviare lo streaming di video, è necessario avviare l **'endpoint di streaming** da cui si vuole trasmettere il video.

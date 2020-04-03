@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 7661981f07799592f9fdfcab3fb402336d48b4d4
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 67f863826a2e9eb1bffcb316754ad5c40a2f2bb1
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349982"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583143"
 ---
 # <a name="azure-synapse-analytics-workload-classification"></a>Classificazione del carico di lavoro di Azure Synapse AnalyticsAzure Synapse Analytics workload classification
 
-Questo articolo illustra il processo di classificazione del carico di lavoro di assegnazione di un gruppo di carico di lavoro e importanza alle richieste in ingresso con SQL Analytics in Azure Synapse.This article explains the workload classification process of assigning a workload group and importance to incoming requests with SQL Analytics in Azure Synapse.
+Questo articolo illustra il processo di classificazione del carico di lavoro di assegnazione di un gruppo di carico di lavoro e importanza alle richieste in ingresso con i pool SQL Synapse in Azure Synapse.This article explains the workload classification process of assigning a workload group and importance to incoming requests with Synapse SQL pools in Azure Synapse.
 
 ## <a name="classification"></a>Classificazione
 
@@ -36,7 +36,7 @@ Non tutte le istruzioni sono classificate in quanto non richiedono risorse o han
 
 ## <a name="classification-process"></a>Processo di classificazione
 
-La classificazione per SQL Analytics in Azure Synapse viene ottenuta oggi assegnando gli utenti a un ruolo a cui è assegnata una classe di risorse corrispondente tramite [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). La possibilità di caratterizzare le richieste oltre un account di accesso a una classe di risorse è limitata con questa funzionalità. Un metodo più completo per la classificazione è ora disponibile con la sintassi [CREATE WORKLOAD CLASSIFIER.](/sql/t-sql/statements/create-workload-classifier-transact-sql)  Con questa sintassi, gli utenti di SQL Analytics possono assegnare `workload_group` importanza e quante risorse di sistema vengono assegnate a una richiesta tramite il parametro. 
+La classificazione per il pool SQL Synapse in Azure Synapse viene ottenuta oggi assegnando gli utenti a un ruolo a cui è assegnata una classe di risorse corrispondente tramite [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). La possibilità di caratterizzare le richieste oltre un account di accesso a una classe di risorse è limitata con questa funzionalità. Un metodo più completo per la classificazione è ora disponibile con la sintassi [CREATE WORKLOAD CLASSIFIER.](/sql/t-sql/statements/create-workload-classifier-transact-sql)  Con questa sintassi, gli utenti del pool SQL Synapse possono assegnare importanza e la quantità di risorse di sistema assegnate a una richiesta tramite il `workload_group` parametro . 
 
 > [!NOTE]
 > La classificazione viene valutata in base alle richieste. Più richieste in una singola sessione possono essere classificate in modo diverso.
@@ -87,7 +87,7 @@ JOIN    sys.database_principals AS m ON rm.member_principal_id = m.principal_id
 WHERE   r.name IN ('mediumrc','largerc','xlargerc','staticrc10','staticrc20','staticrc30','staticrc40','staticrc50','staticrc60','staticrc70','staticrc80');
 
 --for each row returned run
-sp_droprolemember ‘[Resource Class]’, membername
+sp_droprolemember '[Resource Class]', membername
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

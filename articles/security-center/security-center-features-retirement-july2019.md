@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 1f923db5c730f6dec15f4fc211ab7acbd009ac7f
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 4a760fe1e5df7cf614a68f8fa8a05926326d3edf
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521429"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583226"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Ritiro delle funzionalità del Centro sicurezza (luglio 2019)
 
@@ -97,7 +97,7 @@ Tutte le funzionalità del dashboard **Identity & Access** in Log Analytics poss
 
 ## <a name="security-events-map"></a>Mappa degli eventi di sicurezza<a name="menu_securityeventsmap"></a>
 
-Il Centro sicurezza fornisce una mappa degli avvisi di [sicurezza](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) per identificare le minacce alla sicurezza. Il pulsante **Vai alla mappa degli eventi** di sicurezza in tale mappa apre un dashboard che consente di visualizzare gli eventi di sicurezza non elaborati nell'area di lavoro selezionata.
+Il Centro sicurezza fornisce una mappa degli avvisi di sicurezza per identificare le minacce alla sicurezza. Il pulsante **Vai alla mappa degli eventi** di sicurezza in tale mappa apre un dashboard che consente di visualizzare gli eventi di sicurezza non elaborati nell'area di lavoro selezionata.
 
 È stato rimosso il pulsante **Vai alla mappa degli eventi** di sicurezza e il dashboard per area di lavoro.
 
@@ -136,7 +136,7 @@ Per altre informazioni sul ritiro degli avvisi personalizzati, vedere Regole di 
 
 ## <a name="security-alerts-investigation"></a>Analisi degli avvisi di sicurezza<a name="menu_investigate"></a>
 
-[La funzionalità Di corso](https://docs.microsoft.com/azure/security-center/security-center-investigation) in un'indagine nel Centro sicurezza consente di valutare un potenziale incidente di sicurezza. La funzionalità consente di comprendere l'ambito di un evento imprevisto e rintracciarne la causa principale. Questa funzionalità è stata rimossa dal Centro sicurezza perché è stata sostituita con un'esperienza migliorata in [Azure Sentinel.](https://azure.microsoft.com/services/azure-sentinel/)
+La funzionalità Di corso in un'indagine nel Centro sicurezza consente di valutare un potenziale incidente di sicurezza. La funzionalità consente di comprendere l'ambito di un evento imprevisto e rintracciarne la causa principale. Questa funzionalità è stata rimossa dal Centro sicurezza perché è stata sostituita con un'esperienza migliorata in [Azure Sentinel.](https://azure.microsoft.com/services/azure-sentinel/)
 
 ![Evento imprevisto della sicurezza][14]
 

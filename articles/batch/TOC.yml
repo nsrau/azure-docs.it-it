@@ -69,6 +69,8 @@
   items:
     - name: Gestire gli account Batch
       items:
+        - name: Gestire l'account
+          href: batch-manage-account-basics.md
         - name: Gestire gli account Batch con il portale
           href: batch-account-create-portal.md
         - name: Gestire gli account Batch con la gestione .NET per Batch
@@ -83,8 +85,12 @@
           href: batch-aad-auth-management.md
         - name: Accedere in modo sicuro a Key Vault con Batch
           href: credential-access-key-vault.md
+    - name: Uso di pacchetti dell'applicazione
+      href: batch-application-packages.md
     - name: Copiare file e applicazioni in nodi del pool
       items:
+        - name: Copia di applicazioni e dati nei nodi del pool
+          href: batch-applications-to-pool-nodes.md
         - name: Uso di pacchetti dell'applicazione
           href: batch-application-packages.md
         - name: Creare file di risorse
@@ -188,7 +194,7 @@
           href: batch-rendering-architectures.md
     - name: Elaborazione dati con Batch e Data Factory
       href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/batch

@@ -2,24 +2,24 @@
 title: 'ExpressRoute: Route filters- Microsoft peering:Azure PowerShell'
 description: Questo articolo descrive come configurare i filtri di route per il peering Microsoft con PowerShell.
 services: expressroute
-author: ganesr
+author: charwen
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.author: ganesr
+ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: cade33e77eb0d3ddd818a6ce3dbd7c6cf72811d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3fa53258321b22e1683122edca1816f6d4c291b5
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74037416"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618609"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Configurare i filtri di route per il peering Microsoft: PowerShell
 > [!div class="op_single_selector"]
-> * [Portale di Azure](how-to-routefilter-portal.md)
+> * [Portale di AzureAzure Portal](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
-> * [Interfaccia della riga di comando di AzureAzure](how-to-routefilter-cli.md)
+> * [Interfaccia della riga di comando di Azure](how-to-routefilter-cli.md)
 > 
 
 I filtri di route rappresentano un modo per usare un subset di servizi supportati tramite il peering Microsoft. I passaggi descritti in questo articolo consentono di configurare e gestire i filtri di route per i circuiti ExpressRoute.

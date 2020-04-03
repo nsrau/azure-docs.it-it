@@ -1,6 +1,6 @@
 ---
 title: Ottimizzazione delle prestazioni con memorizzazione nella cache dei set di risultati
-description: Panoramica della funzionalità di memorizzazione nella cache del set di risultati per analisi SQL in Azure Synapse AnalyticsResult set caching feature overview for SQL Analytics in Azure Synapse Analytics
+description: Panoramica della funzionalità di memorizzazione nella cache del set di risultati per il pool SQL Synapse in Azure Synapse AnalyticsResult set caching feature overview for Synapse SQL pool in Azure Synapse Analytics
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,24 +11,26 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: da476dc14949ebab1a054a9624d91acb25b9f2b4
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: ef5be63b2068297aedf4cf12d914da09b1efed41
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474470"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583810"
 ---
-# <a name="performance-tuning-with-result-set-caching"></a>Ottimizzazione delle prestazioni con memorizzazione nella cache dei set di risultati  
-Quando la memorizzazione nella cache del set di risultati è abilitata, ANALISI SQL memorizza automaticamente nella cache i risultati delle query nel database utente per un utilizzo ripetitivo.  Ciò consente alle esecuzioni successive di query di ottenere risultati direttamente dalla cache persistente in modo che il ricalcolo non è necessario.   La memorizzazione nella cache del set di risultati migliora le prestazioni delle query e riduce l'utilizzo delle risorse di calcolo.  Inoltre, le query che utilizzano il set di risultati memorizzati nella cache non utilizzano slot di concorrenza e pertanto non vengono conteggiate rispetto ai limiti di concorrenza esistenti. Per motivi di sicurezza, gli utenti possono accedere ai risultati memorizzati nella cache solo se dispongono delle stesse autorizzazioni di accesso ai dati degli utenti che creano i risultati memorizzati nella cache.  
+# <a name="performance-tuning-with-result-set-caching"></a>Ottimizzazione delle prestazioni con memorizzazione nella cache dei set di risultati
+
+Quando la memorizzazione nella cache del set di risultati è abilitata, il pool SQL Synapse memorizza automaticamente nella cache i risultati delle query nel database utente per un utilizzo ripetitivo.  Ciò consente alle esecuzioni successive di query di ottenere risultati direttamente dalla cache persistente in modo che il ricalcolo non è necessario.   La memorizzazione nella cache del set di risultati migliora le prestazioni delle query e riduce l'utilizzo delle risorse di calcolo.  Inoltre, le query che utilizzano il set di risultati memorizzati nella cache non utilizzano slot di concorrenza e pertanto non vengono conteggiate rispetto ai limiti di concorrenza esistenti. Per motivi di sicurezza, gli utenti possono accedere ai risultati memorizzati nella cache solo se dispongono delle stesse autorizzazioni di accesso ai dati degli utenti che creano i risultati memorizzati nella cache.  
 
 ## <a name="key-commands"></a>Comandi da tastiera
-[Attivare/disattivare la memorizzazione nella cache del set di risultati per un database utente](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)
 
-[Attivare/disattivare la memorizzazione nella cache del set di risultati per una sessione](https://docs.microsoft.com/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)
+[Attivare/disattivare la memorizzazione nella cache del set di risultati per un database utente](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-[Controllare la dimensione del set di risultati memorizzato nella cacheCheck the size of cached result set](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?view=azure-sqldw-latest)  
+[Attivare/disattivare la memorizzazione nella cache del set di risultati per una sessione](/sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-[Pulire la cache](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest)
+[Controllare la dimensione del set di risultati memorizzato nella cacheCheck the size of cached result set](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  
+
+[Pulire la cache](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## <a name="whats-not-cached"></a>Elementi non memorizzati nella cacheWhat's not cached  
 
@@ -39,7 +41,7 @@ Dopo l'attivazione della memorizzazione nella cache dei set di risultati per un 
 - Query che restituiscono dati con dimensioni di riga maggiori di 64 KB
 
 > [!IMPORTANT]
-> Le operazioni per creare la cache del set di risultati e recuperare i dati dalla cache vengono eseguite nel nodo di controllo di un'istanza di SQL Analytics.The operations to create result set cache and retrieve data from the cache happen on the control node of a SQL Analytics instance.
+> Le operazioni per creare la cache del set di risultati e recuperare i dati dalla cache si verificano nel nodo di controllo di un'istanza del pool SQL Synapse.
 > Quando la memorizzazione nella cache del set di risultati è attivata, l'esecuzione di query che restituiscono set di risultati di grandi dimensioni, ad esempio più di un milione di righe, può causare un utilizzo elevato della CPU nel nodo di controllo e rallentare nel complesso la risposta alle query nell'istanza.  Queste query vengono in genere usate durante l'esplorazione dei dati o le operazioni ETL (estrazione, trasformazione e caricamento). Per evitare il sovraccarico del nodo di controllo e la comparsa di problemi di prestazioni, gli utenti devono DISATTIVARE la memorizzazione nella cache del set di risultati nel database prima di eseguire query di questo tipo.  
 
 Eseguire questa query per il tempo impiegato dalle operazioni di memorizzazione nella cache del set di risultati per una query:Run this query for the time taken by result set caching operations for a query:
@@ -76,7 +78,7 @@ WHERE request_id = <'Your_Query_Request_ID'>
 
 Le dimensioni massime della cache dei set di risultati sono pari a 1 TB per ogni database.  I risultati memorizzati nella cache vengono invalidati automaticamente quando cambiano i dati della query sottostante.  
 
-Lo sfratto della cache viene gestito automaticamente da SQL Analytics seguendo questa pianificazione:The cache sviction is managed by SQL Analytics automatically following this schedule: 
+Lo sfratto della cache viene gestito automaticamente in base a questa pianificazione:The cache sviction is managed automatically following this schedule: 
 - Ogni 48 ore se il set di risultati non è stato utilizzato o è stato invalidato. 
 - Quando la cache del set di risultati si avvicina alla dimensione massima.
 
@@ -87,4 +89,5 @@ Gli utenti possono svuotare manualmente l'intera cache del set di risultati util
 La sospensione di un database non svuota il set di risultati memorizzato nella cache.  
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per altri suggerimenti sullo sviluppo, vedere la [panoramica dello sviluppo](sql-data-warehouse-overview-develop.md). 

@@ -1,6 +1,6 @@
 ---
 title: Istruzioni T-SQL
-description: Collegamenti alla documentazione per le istruzioni T-SQL supportate in ANALISI SQL.
+description: Collegamenti alla documentazione per le istruzioni T-SQL supportate nel pool SQL Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,17 +11,19 @@ ms.date: 05/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 53609049f69f0a3d50430ef512a5bf4a8ffd6d82
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 011a850a44948bf5eee28a40d59dcf7672d866e8
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351360"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586361"
 ---
-# <a name="t-sql-statements-supported-in-sql-analytics"></a>Istruzioni T-SQL supportate in SQL Analytics
-Collegamenti alla documentazione per le istruzioni T-SQL supportate in ANALISI SQL.
+# <a name="t-sql-statements-supported-in-synapse-sql-pool"></a>Istruzioni T-SQL supportate nel pool SQL Synapse
+
+Collegamenti alla documentazione per le istruzioni T-SQL supportate nel pool SQL Synapse.
 
 ## <a name="data-definition-language-ddl-statements"></a>Istruzioni DDL (Data Definition Language)
+
 * [ALTER DATABASE](https://msdn.microsoft.com/library/mt204042.aspx)
 * [ALTER INDEX](https://msdn.microsoft.com/library/ms188388.aspx)
 * [ALTER MATERIALIZED VIEW](/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest) (Anteprima) 
@@ -52,19 +54,21 @@ Collegamenti alla documentazione per le istruzioni T-SQL supportate in ANALISI S
 * [DROP STATISTICS](https://msdn.microsoft.com/library/ms175075.aspx)
 * [TABELLA DI RILASCIO](https://msdn.microsoft.com/library/ms173790.aspx)
 * [DROP SCHEMA](https://msdn.microsoft.com/library/ms186751.aspx)
-* [DROP VIEW](https://msdn.microsoft.com/library/ms173492.aspx)
+* [VISUALIZZAZIONE A DISCESA](https://msdn.microsoft.com/library/ms173492.aspx)
 * [CLASSIFICATORE DEL CARICO DI LAVORO DI ELIMINAZIONEDROP WORKLOAD CLASSIFIER](/sql/t-sql/statements/drop-workload-classifier-transact-sql)
-* [RENAME](https://msdn.microsoft.com/library/mt631611.aspx)
+* [Rinominare](https://msdn.microsoft.com/library/mt631611.aspx)
 * [SET RESULT_SET_CACHING](/sql/t-sql/statements/set-result-set-caching-transact-sql) 
 * [TRUNCATE TABELLA](https://msdn.microsoft.com/library/ms177570.aspx)
 * [STATISTICHE DI AGGIORNAMENTO](https://msdn.microsoft.com/library/ms187348.aspx)
 
 ## <a name="data-manipulation-language-dml-statements"></a>Istruzioni DML (Data Manipulation Language)
-* [Elimina](https://msdn.microsoft.com/library/ms189835.aspx)
+
+* [DELETE](https://msdn.microsoft.com/library/ms189835.aspx)
 * [Inserire](https://msdn.microsoft.com/library/ms174335.aspx)
 * [Aggiornamento](https://msdn.microsoft.com/library/ms177523.aspx)
 
 ## <a name="database-console-commands"></a>Database Console Command
+
 * [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
 * [DBCC DROPRESULTSETCACHE](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest) (anteprima)
 * [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/mt204018.aspx)
@@ -77,6 +81,7 @@ Collegamenti alla documentazione per le istruzioni T-SQL supportate in ANALISI S
 * [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/mt204043.aspx)
 
 ## <a name="query-statements"></a>Istruzioni di query
+
 * [Selezionare](https://msdn.microsoft.com/library/ms189499.aspx)
 * [WITH common_table_expression](https://msdn.microsoft.com/library/ms175972.aspx)
 * [EXCEPT e INTERSECT](https://msdn.microsoft.com/library/ms188055.aspx)
@@ -95,6 +100,7 @@ Collegamenti alla documentazione per le istruzioni T-SQL supportate in ANALISI S
 * [Sottoquery:](https://msdn.microsoft.com/library/mt631613.aspx)
 
 ## <a name="security-statements"></a>Istruzioni per la sicurezza
+
 * Autorizzazioni: [GRANT](https://msdn.microsoft.com/library/ms187965.aspx), [DENY](https://msdn.microsoft.com/library/ms188338.aspx), [REVOKE](https://msdn.microsoft.com/library/ms187728.aspx)
 * [ALTER AUTHORIZATION](https://msdn.microsoft.com/library/ms187359.aspx)
 * [ALTER CERTIFICATE](https://msdn.microsoft.com/library/ms189511.aspx)
@@ -120,4 +126,5 @@ Collegamenti alla documentazione per le istruzioni T-SQL supportate in ANALISI S
 * [OPEN MASTER KEY](https://msdn.microsoft.com/library/ms174433.aspx)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni di riferimento, vedere Elementi del [linguaggio T-SQL in SQL Analytics](sql-data-warehouse-reference-tsql-language-elements.md)e [Visualizzazioni di sistema in SQL Analytics](sql-data-warehouse-reference-tsql-system-views.md).
+
+Per ulteriori informazioni di riferimento, vedere [Elementi del linguaggio T-SQL nel pool SQL Synapse](sql-data-warehouse-reference-tsql-language-elements.md)e Visualizzazioni di sistema [nel pool SQL Synapse](sql-data-warehouse-reference-tsql-system-views.md).

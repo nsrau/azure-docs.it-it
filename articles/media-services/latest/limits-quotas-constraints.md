@@ -1,6 +1,6 @@
 ---
-title: Quote e limitazioni in Servizi multimediali di AzureQuotas and limitations in Azure Media Services
-description: Questo argomento descrive quote e limitazioni in Servizi multimediali di Microsoft Azure.This topic describes quotas and limitations in Microsoft Azure Media Services.
+title: Quote e limiti in Servizi multimediali di AzureQuotas and limits in Azure Media Services
+description: Questo argomento descrive quote e limiti in Servizi multimediali di Microsoft Azure.This topic describes quotas and limits in Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/31/2020
+ms.date: 04/01/2020
 ms.author: juliako
-ms.openlocfilehash: 6fb2f8f9172533a2c7f4aa03e99bd08e16a1f1dc
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 2d4f5f83335f6f115362bcf66cf69d7f9de7eaa5
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545918"
+ms.locfileid: "80582316"
 ---
 # <a name="azure-media-services-quotas-and-limits"></a>Quote e limiti di Servizi multimediali di AzureAzure Media Services quotas and limits
 
@@ -79,7 +79,7 @@ Tutti i record di processo presenti nell'account e in esecuzione da almeno 90 gi
 | Uscite dal vivo per evento live |3 <sup>(5)</sup> |
 | Durata massima dell'uscita live | 25 ore |
 
-<sup>4</sup> Per informazioni dettagliate sulle limitazioni degli eventi live, consultate Confronto e limitazioni dei [tipi di evento live.](live-event-types-comparison.md)
+<sup>4</sup> Per informazioni dettagliate sui limiti degli eventi live, consultate Confronto e limiti dei [tipi di evento live.](live-event-types-comparison.md)
 
 <sup>5</sup> Live Outputs iniziano al momento della creazione e si fermano quando vengono eliminati.
 
@@ -87,7 +87,7 @@ Tutti i record di processo presenti nell'account e in esecuzione da almeno 90 gi
 
 | Risorsa | Limite predefinito | 
 | --- | --- | 
-| [Endpoint di streaming (arrestati](streaming-endpoint-concept.md) o in esecuzione) per account di Servizi multimedialiStreaming Endpoints (stopped or running) per Media Services account|2 (fisso)|
+| [Endpoint di streaming (arrestati](streaming-endpoint-concept.md) o in esecuzione) per account di Servizi multimedialiStreaming Endpoints (stopped or running) per Media Services account|2 |
 | [Filtri manifesto dinamico](filters-dynamic-manifest-overview.md)|100|
 | [Criteri di streaming](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
 | [Individuazione streaming](streaming-locators-concept.md) univoci associati contemporaneamente a un asset | 100<sup>(7)</sup> (fisso) |

@@ -4,24 +4,24 @@ description: Informazioni su come creare, pubblicare e ridimensionare le app in 
 author: ccompy
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 01/01/2020
+ms.date: 3/26/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 8a73c1998203a8696b67a5e7eb3af23898239265
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 4565580feeddc2df8f6ed3011302016bb39977b4
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477630"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586125"
 ---
 # <a name="use-an-app-service-environment"></a>Usare un ambiente del servizio app
 
 Un ambiente del servizio app (AS) è una distribuzione del servizio app di Azure in una subnet nell'istanza di Rete virtuale di Azure di un cliente. Un'ase è costituita da:
 
-- **Front-end**: dove HTTP o HTTPS termina in un ambiente del servizio app.
-- **Lavoratori:** le risorse che ospitano le app.
-- **Database**: Contiene informazioni che definiscono l'ambiente.
-- **Storage**( Archiviazione : Usato per ospitare le app pubblicate dal cliente).
+- **Front-end**: dove HTTP o HTTPS termina in un ambiente del servizio app
+- **Lavoratori:** le risorse che ospitano le app
+- **Database**: contiene informazioni che definiscono l'ambiente
+- **Archiviazione**: Utilizzata per ospitare le app pubblicate dal cliente
 
 È possibile distribuire un ambiente del servizio app con un indirizzo IP virtuale esterno o interno (VIP) per l'accesso alle app. Una distribuzione con un indirizzo VIP esterno viene comunemente definita *ascora esterno*. Una distribuzione con un indirizzo VIP interno viene definita servizio del servizio *app ILB* perché usa un servizio di bilanciamento del carico interno. Per altre informazioni sull'ambiente del servizio app con bilanciamento del carico interno, vedere [Creazione e uso di un servizio di bilanciamento del carico interno con un ambiente del servizio app][MakeILBASE].
 
@@ -120,6 +120,22 @@ Per informazioni su come creare un'impostazione del gruppo di controllo del grup
 
 L'URL di Gestione controllo servizi viene usato per accedere alla console Kudu o per pubblicare l'app tramite Distribuzione Web. Per informazioni sulla console Kudu, vedere [Kudu console for Azure App Service][Kudu] (Console Kudu per il servizio app di Azure). La console Kudu offre un'interfaccia utente Web per il debug, il caricamento di file, la modifica di file e altro ancora.
 
+### <a name="dns-configuration"></a>Configurazione del DNS 
+
+Quando si usa un'app esterna, le app create nell'insieme di app vengono registrate con il DNS di Azure.When you use an External ASE, apps made in your ASE are registered with Azure DNS. Con un'ase ILB, è necessario gestire il proprio DNS. 
+
+Per configurare il DNS con l'ASE ILB:
+
+    create a zone for <ASE name>.appserviceenvironment.net
+    create an A record in that zone that points * to the ILB IP address
+    create an A record in that zone that points @ to the ILB IP address
+    create a zone in <ASE name>.appserviceenvironment.net named scm
+    create an A record in the scm zone that points * to the ILB IP address
+
+Le impostazioni DNS per il suffisso di dominio predefinito dell'app non limitano l'accesso delle app solo da tali nomi. Puoi impostare un nome di dominio personalizzato senza alcuna convalida per le app in un servizio app ILB. Se si desidera creare una zona denominata *contoso.net*, è possibile farlo e puntare all'indirizzo IP DELB. Il nome di dominio personalizzato funziona per le richieste di app, ma non per il sito scm. Il sito scm è disponibile solo in * &lt;appname&gt;.scm.&lt; asename&gt;.appserviceenvironment.net*. 
+
+La zona denominata *.&lt; asename&gt;.appserviceenvironment.net* è univoco a livello globale. Prima di maggio 2019, i clienti erano in grado di specificare il suffisso di dominio dell'ASE ILB. Se si desidera utilizzare *.contoso.com* per il suffisso di dominio, è stato possibile farlo e che includerebbe il sito scm. Ci sono state sfide con quel modello tra cui; gestione del certificato SSL predefinito, mancanza di Single Sign-On con il sito scm e il requisito di utilizzare un certificato con caratteri jolly. Anche il processo di aggiornamento dei certificati predefinito di ILB ASE è stato dannoso e ha causato il riavvio dell'applicazione. Per risolvere questi problemi, il comportamento di ilB ASE è stato modificato per utilizzare un suffisso di dominio basato sul nome dell'app e con un suffisso di proprietà di Microsoft. La modifica al comportamento dell'ambiente del gusto dell'ambiente del gusto ilB influisce solo sugli ase ILB apportati dopo maggio 2019. Gli ambiente del servizio app ILB preesistente devono comunque gestire il certificato predefinito dell'ambiente del servizio app e la relativa configurazione DNS.
+
 ## <a name="publishing"></a>Pubblicazione
 
 In un ambiente del servizio app, come con il servizio app multi-tenant, è possibile pubblicare con questi metodi:In an ASE, as with the multitenant App Service, you can publish by these methods:
@@ -132,7 +148,7 @@ In un ambiente del servizio app, come con il servizio app multi-tenant, è possi
 
 Con un'app esterna, queste opzioni di pubblicazione funzionano tutte allo stesso modo. Per altre informazioni, vedere [Distribuzione nel servizio app di Azure][AppDeploy].
 
-La pubblicazione è significativamente diversa con un servizio app ILB, per il quale gli endpoint di pubblicazione sono tutti disponibili solo tramite ILB. Il servizio di bilanciamento del carico interno è in un IP privato nella subnet dell'ambiente del servizio app nella rete virtuale. Se non si dispone dell'accesso di rete al bilanciamento del servizio app, non è possibile pubblicare app in tale app. Come indicato in Creare e usare un servizio app [ILB][MakeILBASE], è necessario configurare DNS per le app nel sistema. Tale requisito include l'endpoint di Gestione controllo servizi. Se gli endpoint non sono definiti correttamente, non è possibile pubblicarli. Gli IDE devono inoltre disporre dell'accesso di rete al bilanciamento del servizio ilB per pubblicarlo direttamente.
+Con un servizio app ILB, gli endpoint di pubblicazione sono disponibili solo tramite ILB. Il servizio di bilanciamento del carico interno è in un IP privato nella subnet dell'ambiente del servizio app nella rete virtuale. Se non si dispone dell'accesso di rete al bilanciamento del servizio app, non è possibile pubblicare app in tale app. Come indicato in Creare e usare un servizio app [ILB][MakeILBASE], è necessario configurare DNS per le app nel sistema. Tale requisito include l'endpoint di Gestione controllo servizi. Se gli endpoint non sono definiti correttamente, non è possibile pubblicarli. Gli IDE devono inoltre disporre dell'accesso di rete al bilanciamento del servizio ilB per pubblicarlo direttamente.
 
 Senza ulteriori modifiche, i sistemi di integrità basati su Internet come GitHub e DevOps di Azure non funzionano con un ambiente del servizio app ILB perché l'endpoint di pubblicazione non è accessibile a Internet.Senza additional changes, internet-based CI systems like GitHub and Azure DevOps don't work with an ILB ASE because the publishing endpoint isn't internet accessible. È possibile abilitare la pubblicazione in un ambiente del servizio app ILB da Azure DevOps installando un agente di rilascio self-hosted nella rete virtuale che contiene l'ambiente del servizio app ILB. In alternativa, puoi anche utilizzare un sistema CI che usa un modello pull, ad esempio Dropbox.
 
@@ -169,7 +185,18 @@ Per abilitare la registrazione nell'app:
 
 ![Impostazioni del log di diagnostica di AsE][4]
 
-Se si esegue l'integrazione con Log Analytics, è possibile visualizzare i log selezionando **Log** dal portale dell'ambiente del servizio app e creando una query su **AppServiceEnvironmentPlatformLogs**.
+Se si esegue l'integrazione con Log Analytics, è possibile visualizzare i log selezionando **Log** dal portale dell'ambiente del servizio app e creando una query su **AppServiceEnvironmentPlatformLogs**. I log vengono generati solo quando l'asina del servizio del servizio all'utente dispone di un evento che lo attiverà. Se l'ASE non dispone di un evento di questo tipo, non saranno presenti log. Per visualizzare rapidamente un esempio di log nell'area di lavoro di Log Analytics, eseguire un'operazione di scalabilità con uno dei piani del servizio app nell'ambiente del servizio app. È quindi possibile eseguire una query su **AppServiceEnvironmentPlatformLogs** per visualizzare tali log. 
+
+**Creazione di un avviso**
+
+Per creare un avviso per i log, seguire le istruzioni in [Creare, visualizzare e gestire gli avvisi di log tramite Monitoraggio di Azure.][logalerts] In breve:
+
+* Aprire la pagina Avvisi nel portale dell'asino del server del database
+* Selezionare **Nuova regola di avviso**
+* Selezionare la risorsa come area di lavoro di Log AnalyticsSelect your Resource to be your Log Analytics workspace
+* Impostare la condizione con una ricerca log personalizzata per utilizzare una query, ad esempio, "AppServiceEnvironmentPlatformLogs dove ResultDescription contiene "ha iniziato il ridimensionamento" o quello che vuoi. Impostare la soglia in base alle esigenze. 
+* Aggiungere o creare un gruppo di azioni come desiderato. Il gruppo di azioni consente di definire la risposta all'avviso, ad esempio l'invio di un messaggio di posta elettronica o di un messaggio SMS
+* Assegna un nome all'avviso e salvalo.
 
 ## <a name="upgrade-preference"></a>Preferenza di aggiornamento
 
@@ -245,3 +272,4 @@ Per eliminare un ambiente del servizio app:
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[logalerts]: ../../azure-monitor/platform/alerts-log.md

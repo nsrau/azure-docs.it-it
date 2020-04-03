@@ -1,6 +1,6 @@
 ---
 title: Chiavi primarie, esterne e univoche
-description: Supporto dei vincoli di tabella in SQL Analytics in Azure Synapse AnalyticsTable constraints support in SQL Analytics in Azure Synapse Analytics
+description: Supporto dei vincoli di tabella nel pool SQL Synapse in Azure Synapse AnalyticsTable constraints support in Synapse SQL pool in Azure Synapse Analytics
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,28 +11,30 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: b9336a5e230e90e1abd7f2d40d431b988385c009
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 881e4f0110e3c0f35301e2ae6be40f2510f42539
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350025"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583501"
 ---
-# <a name="primary-key-foreign-key-and-unique-key-in-sql-analytics"></a>Chiave primaria, chiave esterna e chiave univoca in SQL AnalyticsPrimary key, foreign key, and unique key in SQL Analytics
+# <a name="primary-key-foreign-key-and-unique-key-in-synapse-sql-pool"></a>Chiave primaria, chiave esterna e chiave univoca nel pool SQL SynapsePrimary key, foreign key, and unique key in Synapse SQL pool
 
-Informazioni sui vincoli di tabella in SQL Analytics, tra cui chiave primaria, chiave esterna e chiave univoca.
+Informazioni sui vincoli di tabella nel pool Sql Synapse, tra cui la chiave primaria, la chiave esterna e la chiave univoca.
 
-## <a name="table-constraints"></a>Vincoli di tabella 
-SQL Analytics supporta questi vincoli di tabella:SQL Analytics supports these table constraints: 
+## <a name="table-constraints"></a>Vincoli di tabella
+
+Il pool SQL Synapse supporta questi vincoli di tabella:Synapse SQL pool supports these table constraints: 
 - PRIMARY KEY è supportato solo quando vengono utilizzati non CLUSTERED e NOT ENFORCED.    
-- Il vincolo UNIQUE è supportato solo con NON ENFORCED.   
+- Il vincolo UNIQUE è supportato solo con NON ENFORCED.
 
-Il vincolo FOREIGN KEY non è supportato in SQL Analytics.  
+Il vincolo FOREIGN KEY non è supportato nel pool SQL Synapse.  
 
 ## <a name="remarks"></a>Osservazioni
-La presenza di chiave primaria e/o chiave univoca consente al motore di SQL Analytics di generare un piano di esecuzione ottimale per una query.  Tutti i valori in una colonna chiave primaria o in una colonna di vincolo univoco devono essere univoci. 
 
-Dopo aver creato una tabella con chiave primaria o vincolo univoco in SQL Analytics, gli utenti devono assicurarsi che tutti i valori in tali colonne siano univoci.  Una violazione di ciò può causare la query per restituire un risultato impreciso.  In questo esempio viene illustrato come una query può restituire un risultato impreciso se la chiave primaria o la colonna del vincolo univoco include valori duplicati.  
+La presenza di chiave primaria e/o chiave univoca consente al motore del pool SQL Synapse di generare un piano di esecuzione ottimale per una query.  Tutti i valori in una colonna chiave primaria o in una colonna di vincolo univoco devono essere univoci.
+
+Dopo aver creato una tabella con chiave primaria o vincolo univoco nel pool SQL Synapse, gli utenti devono assicurarsi che tutti i valori in tali colonne siano univoci.  Una violazione di ciò può causare la query per restituire un risultato impreciso.  In questo esempio viene illustrato come una query può restituire un risultato impreciso se la chiave primaria o la colonna del vincolo univoco include valori duplicati.  
 
 ```sql
  -- Create table t1
@@ -158,12 +160,13 @@ a1          total
 ```
 
 ## <a name="examples"></a>Esempi
-Creare una tabella di Analisi SQL con una chiave primaria:Create a SQL Analytics table with a primary key: 
+
+Creare una tabella di pool SQL Synapse con una chiave primaria:Create a Synapse SQL pool table with a primary key: 
 
 ```sql 
 CREATE TABLE mytable (c1 INT PRIMARY KEY NONCLUSTERED NOT ENFORCED, c2 INT);
 ```
-Creare una tabella di Analisi SQL con un vincolo univoco:Create a SQL Analytics table with a unique constraint:
+Creare una tabella del pool SQL Synapse con un vincolo univoco:Create a Synapse SQL pool table with a unique constraint:
 
 ```sql
 CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
@@ -171,4 +174,4 @@ CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver creato le tabelle per il database di SQL Analytics, il passaggio successivo consiste nel caricare i dati nella tabella. Per un'esercitazione sul caricamento, vedere [Caricamento di dati in database SQL Analytics](load-data-wideworldimportersdw.md).
+Dopo aver creato le tabelle per il pool Synapse SQL, il passaggio successivo consiste nel caricare i dati nella tabella. Per un'esercitazione sul caricamento, vedere [Caricamento di dati nel pool SQL Synapse](load-data-wideworldimportersdw.md).

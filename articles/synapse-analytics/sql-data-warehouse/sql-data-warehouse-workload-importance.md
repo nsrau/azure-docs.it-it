@@ -1,6 +1,6 @@
 ---
 title: Priorità del carico di lavoro
-description: Indicazioni per impostare l'importanza per le query di SQL Analytics in Azure Synapse Analytics.Guidance for setting importance for SQL Analytics queries in Azure Synapse Analytics.
+description: Indicazioni per l'impostazione dell'importanza per le query del pool SQL Synapse in Azure Synapse Analytics.Guidance for setting importance for Synapse SQL pool queries in Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 3dde2ad4af17313bcfce28964f8be1e831317a5a
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 84f432c45729091be1264bff85d1e32fac10f3ef
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349955"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583150"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Importanza del carico di lavoro di Azure Synapse AnalyticsAzure Synapse Analytics workload importance
 
-Questo articolo illustra in che modo l'importanza del carico di lavoro può influenzare l'ordine di esecuzione delle richieste di SQL Analytics in Azure Synapse.This article explains how workload importance can influence the order of execution for SQL Analytics requests in Azure Synapse.
+Questo articolo illustra in che modo l'importanza del carico di lavoro può influenzare l'ordine di esecuzione per le richieste del pool SQL Synapse in Azure Synapse.This article explains how workload importance can influence the order of execution for Synapse SQL pool requests in Azure Synapse.
 
 ## <a name="importance"></a>priorità
 
@@ -38,7 +38,7 @@ Oltre allo scenario di importanza di base descritto in precedenza con i dati rel
 
 ### <a name="locking"></a>Blocco
 
-L'accesso ai blocchi per l'attività di lettura e scrittura è un'area di contesa naturale. Attività quali il [cambio di partizione](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) o [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest) richiedono blocchi con privilegi elevati.  Senza l'importanza del carico di lavoro, SQL Analytics in Azure Synapse ottimizza la velocità effettiva. L'ottimizzazione per la velocità effettiva significa che quando le richieste in esecuzione e in coda hanno le stesse esigenze di blocco e le stesse risorse sono disponibili, le richieste in coda possono ignorare le richieste con esigenze di blocco più elevate arrivate nella coda delle richieste in precedenza. Una volta applicata l'importanza del carico di lavoro alle richieste con esigenze di blocco più elevate. La richiesta con maggiore importanza verrà eseguita prima della richiesta con un'importanza inferiore.
+L'accesso ai blocchi per l'attività di lettura e scrittura è un'area di contesa naturale. Attività quali il [cambio di partizione](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) o [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest) richiedono blocchi con privilegi elevati.  Senza l'importanza del carico di lavoro, synapse SQL pool in Azure Synapse ottimizza per la velocità effettiva. L'ottimizzazione per la velocità effettiva significa che quando le richieste in esecuzione e in coda hanno le stesse esigenze di blocco e le stesse risorse sono disponibili, le richieste in coda possono ignorare le richieste con esigenze di blocco più elevate arrivate nella coda delle richieste in precedenza. Una volta applicata l'importanza del carico di lavoro alle richieste con esigenze di blocco più elevate. La richiesta con maggiore importanza verrà eseguita prima della richiesta con un'importanza inferiore.
 
 Prendere in considerazione gli esempi seguenti:
 
@@ -50,7 +50,7 @@ Se Q2 e Q3 hanno la stessa importanza e Q1 è ancora in esecuzione, Q3 inizierà
 
 ### <a name="non-uniform-requests"></a>Richieste non uniformi
 
-Un altro scenario in cui l'importanza può aiutare a soddisfare le richieste di query è quando vengono inviate richieste con classi di risorse diverse.  Come è stato menzionato in precedenza, con la stessa importanza, SQL Analytics in Azure Synapse ottimizza la velocità effettiva. Quando vengono accodate le richieste di dimensioni miste (ad esempio smallrc o mediumrc), ANALISI SQL sceglierà la prima richiesta in arrivo che rientra nelle risorse disponibili. Se viene applicata l'importanza del carico di lavoro, la richiesta di priorità più alta viene pianificata successivamente.
+Un altro scenario in cui l'importanza può aiutare a soddisfare le richieste di query è quando vengono inviate richieste con classi di risorse diverse.  Come è stato menzionato in precedenza, con la stessa importanza, il pool SQL Synapse in Azure Synapse ottimizza la velocità effettiva. Quando le richieste di dimensioni miste (ad esempio smallrc o mediumrc) vengono accodate, il pool Synapse SQL sceglierà la prima richiesta in arrivo che rientra nelle risorse disponibili. Se viene applicata l'importanza del carico di lavoro, la richiesta di priorità più alta viene pianificata successivamente.
   
 Si consideri l'esempio seguente in DW500c:
 

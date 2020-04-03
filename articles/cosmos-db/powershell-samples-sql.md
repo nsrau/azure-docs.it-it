@@ -4,20 +4,23 @@ description: Ottenere gli esempi di Azure PowerShell per eseguire varie attivit�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 09/20/2019
+ms.date: 03/26/2020
 ms.author: mjbrown
-ms.openlocfilehash: 29195ce141c29248840807b978cae3ecf79ccf34
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: efc0ff8e6c198071d3906a0e7e999510198f73bf
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74871925"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366191"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db---sql-core-api"></a>Esempi di Azure PowerShell per Azure Cosmos DB - API SQL (Core)
 
 La tabella seguente include collegamenti a esempi comuni di script di Azure PowerShell per Azure Cosmos DB per l'API SQL (Core). Se si vuole creare una copia tramite fork di questi esempi di PowerShell per Cosmos DB dal repository GitHub, visitare la pagina di [esempi di Cosmos DB PowerShell in GitHub](https://github.com/Azure/azure-docs-powershell-samples/tree/master/cosmosdb).
 
-Per altri esempi e la documentazione di Cosmos DB PowerShell per l'API SQL (Core), vedere [Gestire le risorse dell'API SQL di Azure Cosmos DB tramite PowerShell](manage-with-powershell.md). Per alcuni esempi di Cosmos DB PowerShell per altre API, vedere [API Cassandra](powershell-samples-cassandra.md), [API MongoDB](powershell-samples-mongodb.md), [API Gremlin](powershell-samples-gremlin.md) e [API Tabella](powershell-samples-table.md).
+Per altri esempi e per la documentazione di Cosmos DB PowerShell per l'API SQL (Core), vedere [Gestire le risorse dell'API SQL di Azure Cosmos DB tramite PowerShell](manage-with-powershell.md). Per alcuni esempi di Cosmos DB PowerShell per altre API, vedere [API Cassandra](powershell-samples-cassandra.md), [API MongoDB](powershell-samples-mongodb.md), [API Gremlin](powershell-samples-gremlin.md) e [API Tabella](powershell-samples-table.md).
+
+> [!NOTE]
+> Gli esempi usano i cmdlet di gestione di [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb). Si noti che i cmdlet `Az.CosmosDB` sono ancora in anteprima e possono subire variazioni prima che siano disponibili a livello generale. Verificare regolarmente se sono disponibili aggiornamenti per `Az.CosmosDB`.
 
 | | |
 |---|---|
@@ -27,8 +30,9 @@ Per altri esempi e la documentazione di Cosmos DB PowerShell per l'API SQL (Core
 |[Ottenere le unità richiesta al secondo](scripts/powershell/sql/ps-sql-ru-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ottenere le unità richiesta al secondo per un database o un contenitore. |
 |[Aggiornare le unità richiesta al secondo](scripts/powershell/sql/ps-sql-ru-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Aggiornare le unità richiesta al secondo per un database o un contenitore. |
 |[Creare un contenitore senza criterio di indicizzazione](scripts/powershell/sql/ps-sql-container-create-index-none.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creare un contenitore Azure Cosmos con il criterio di indicizzazione disattivato.|
-|[Aggiornare un account o aggiungere un'area](scripts/powershell/common/ps-account-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Aggiungere un'area in un account Cosmos. Si può anche usare per apportare modifiche ad altre proprietà dell'account, ma devono essere separate da quelle apportate alle aree. |
+|[Aggiornare un account](scripts/powershell/common/ps-account-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Aggiornare il livello di coerenza predefinito di un account Azure Cosmos DB. |
+|[Aggiornare le aree di un account](scripts/powershell/common/ps-account-update-region.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Aggiornare le aree di un account Cosmos DB. |
 |[Cambiare la priorità di failover o attivare un failover](scripts/powershell/common/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cambiare la priorità di failover a livello di area di un account Azure Cosmos o attivare un failover manuale. |
-|[Chiavi dell'account o stringhe di connessione](scripts/powershell/common/ps-account-keys-connection-strings.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ottenere le chiavi primarie e secondarie e le stringhe di connessione oppure rigenerare una chiave di un account Azure Cosmos. |
-|[Creare un account Cosmos con il firewall IP](scripts/powershell/common/ps-account-firewall-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creare un account Azure Cosmos con il firewall IP abilitato. |
+|[Chiavi dell'account o stringhe di connessione](scripts/powershell/common/ps-account-keys-connection-strings.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ottenere le chiavi primarie e secondarie e le stringhe di connessione oppure rigenerare la chiave di un account Azure Cosmos DB. |
+|[Creare un account Cosmos con il firewall IP](scripts/powershell/common/ps-account-firewall-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creare un account Azure Cosmos DB con il firewall IP abilitato. |
 |||
