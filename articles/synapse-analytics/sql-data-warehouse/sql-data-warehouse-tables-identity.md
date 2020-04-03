@@ -1,6 +1,6 @@
 ---
 title: Utilizzo di IDENTITY per creare chiavi surrogateUsing IDENTITY to create surrogate keys
-description: Suggerimenti ed esempi per l'uso della proprietà IDENTITY per creare chiavi surrogate nelle tabelle in SQL Analytics.
+description: Suggerimenti ed esempi per l'utilizzo della proprietà IDENTITY per creare chiavi surrogate nelle tabelle nel pool SQL Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,24 +11,24 @@ ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ab8f4a64f7273f0fa15c20f324e132003d5afe32
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: d4a9880ed7ab26d0127026f49c0bc781cfc2a941
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351300"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586341"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-sql-analytics"></a>Uso di IDENTITY per creare chiavi surrogate in SQL AnalyticsUsing IDENTITY to create surrogate keys in SQL Analytics
+# <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Utilizzo di IDENTITY per creare chiavi surrogate nel pool Synapse SQLUsing IDENTITY to create surrogate keys in Synapse SQL pool
 
-Suggerimenti ed esempi per l'uso della proprietà IDENTITY per creare chiavi surrogate nelle tabelle in SQL Analytics.
+Suggerimenti ed esempi per l'utilizzo della proprietà IDENTITY per creare chiavi surrogate nelle tabelle nel pool SQL Synapse.
 
 ## <a name="what-is-a-surrogate-key"></a>Che cos'è una chiave surrogata
 
-Una chiave surrogata in una tabella è una colonna con un identificatore univoco per ogni riga. La chiave non viene generata dai dati della tabella. I modellatori di dati amano creare chiavi surrogate nelle tabelle quando progettano modelli di SQL Analytics.Data modelers like to create surrogate keys on their tables when they design SQL Analytics models. È possibile usare la proprietà IDENTITY per raggiungere questo obiettivo in modo semplice ed efficace senza effetti sulle prestazioni di caricamento.  
+Una chiave surrogata in una tabella è una colonna con un identificatore univoco per ogni riga. La chiave non viene generata dai dati della tabella. I progettisti di modelli di dati preferiscono creare chiavi surrogate nelle tabelle durante la progettazione dei modelli per i data warehouse. È possibile usare la proprietà IDENTITY per raggiungere questo obiettivo in modo semplice ed efficace senza effetti sulle prestazioni di caricamento.  
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Creazione di una tabella con una colonna IDENTITY
 
-La proprietà IDENTITY è progettata per la scalabilità orizzontale in tutte le distribuzioni nel database di ANALISI SQL senza influire sulle prestazioni del carico. Pertanto, l'implementazione di IDENTITY è orientata al raggiungimento di questi obiettivi.
+La proprietà IDENTITY è progettata per la scalabilità orizzontale in tutte le distribuzioni nel pool SQL Synapse senza influire sulle prestazioni del carico. Pertanto, l'implementazione di IDENTITY è orientata al raggiungimento di questi obiettivi.
 
 È possibile definire una tabella con la proprietà IDENTITY al momento della creazione, usando una sintassi simile all'istruzione seguente:
 
@@ -50,7 +50,7 @@ La parte rimanente di questa sezione illustra le varie sfumature dell'implementa
 
 ### <a name="allocation-of-values"></a>Allocazione dei valori
 
-La proprietà IDENTITY non garantisce l'ordine di allocazione dei valori surrogati, in modo conforme al comportamento di SQL Server e del database SQL di Azure. Tuttavia, in ANALISI SQL, l'assenza di una garanzia è più pronunciata.
+La proprietà IDENTITY non garantisce l'ordine di allocazione dei valori surrogati, in modo conforme al comportamento di SQL Server e del database SQL di Azure. Tuttavia, nel pool Synapse SQL, l'assenza di una garanzia è più pronunciata.
 
 L'esempio seguente è una dimostrazione:
 
@@ -100,7 +100,7 @@ CREATE TABLE AS SELECT (CTAS) ha lo stesso comportamento di SQL Server documenta
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>Inserimento in modo esplicito di valori in una colonna IDENTITY
 
-Analisi SQL `SET IDENTITY_INSERT <your table> ON|OFF` supporta la sintassi. È possibile usare questa sintassi per inserire in modo esplicito i valori nella colonna IDENTITY.
+Il pool SQL Synapse supporta la `SET IDENTITY_INSERT <your table> ON|OFF` sintassi. È possibile usare questa sintassi per inserire in modo esplicito i valori nella colonna IDENTITY.
 
 Molti progettisti di modelli di dati preferiscono usare valori negativi predefiniti per alcune righe nelle dimensioni. Un esempio è la riga -1 o "membro sconosciuto".
 
@@ -161,7 +161,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > Non è attualmente possibile usare `CREATE TABLE AS SELECT` per il caricamento di dati in una tabella con una colonna IDENTITY.
 >
 
-Per ulteriori informazioni sul caricamento dei dati, vedere [Progettazione di estrai, operazioni di caricamento e trasformazione (ELT) per l'analisi SQL](design-elt-data-loading.md) e [le procedure consigliate per](guidance-for-loading-data.md)il caricamento .
+Per ulteriori informazioni sul caricamento dei dati, vedere Progettazione di [estrai, operazioni di caricamento e trasformazione (ELT) per il pool SQL Synapse](design-elt-data-loading.md) e [Caricamento delle procedure consigliate](guidance-for-loading-data.md).
 
 ## <a name="system-views"></a>Viste di sistema
 
@@ -195,7 +195,7 @@ Non è possibile usare la proprietà IDENTITY:
 - Quando la colonna è anche la chiave di distribuzione
 - Quando la tabella è una tabella esterna
 
-Le seguenti funzioni correlate non sono supportate in Analisi SQL:The following related functions are not supported in SQL Analytics:
+Le seguenti funzioni correlate non sono supportate nel pool Sql Synapse:
 
 - [IDIDE/](/sql/t-sql/functions/identity-function-transact-sql)
 - [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql)

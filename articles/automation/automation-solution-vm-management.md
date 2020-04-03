@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: cef3176c99cd57ae229b602feb3c825081fcfe3e
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 906c7728365cc902549bd46c57972e1c90af979c
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548365"
+ms.locfileid: "80607471"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività in Automazione di Azure
 
@@ -114,7 +114,7 @@ Tutti i runbook padre includono il parametro _WhatIf_. Se impostato su **True**,
 |AutoStop_Disable | none | Disabilita gli avvisi di AutoStop e la pianificazione predefinita.|
 |AutoStop_VM_Child | WebHookData | Chiamato dal runbook padre. Le regole di avviso chiamano questo runbook per arrestare la macchina virtuale classica.|
 |AutoStop_VM_Child_ARM | WebHookData |Chiamato dal runbook padre. Le regole di avviso chiamano questo runbook per arrestare la VM.  |
-|ScheduledStartStop_Base_Classic | CloudServiceName<br> Azione: avvio o arresto<br> VMList  | Questo runbook usato per eseguire l'avvio o l'arresto dell'azione nel gruppo VM classico di Servizi cloud.<br> VMList: Elenco delimitato da virgole delle macchine virtuali. Ad esempio, _vm1, vm2, vm3_. |
+|ScheduledStartStop_Base_Classic | CloudServiceName<br> Azione: avvio o arresto<br> VMList  | Questo runbook usato per eseguire l'avvio o l'arresto dell'azione nel gruppo DI macchine virtuali classiche di Servizi cloud.<br> VMList: Elenco delimitato da virgole delle macchine virtuali. Ad esempio, _vm1, vm2, vm3_. |
 |ScheduledStartStop_Child | VMName <br> Azione: avvio o arresto <br> ResourceGroupName | Chiamato dal runbook padre. Esegue un'azione di avvio o arresto per l'arresto pianificato.|
 |ScheduledStartStop_Child_Classic | VMName<br> Azione: avvio o arresto<br> ResourceGroupName | Chiamato dal runbook padre. Esegue un'azione di avvio o di arresto per l'arresto pianificato per le macchine virtuali classiche. |
 |ScheduledStartStop_Parent | Azione: avvio o arresto <br>VMList <br> WhatIf: True o False | Questa impostazione ha effetto su tutte le macchine virtuali della sottoscrizione. Modificare **External_Start_ResourceGroupNames** ed **External_Stop_ResourceGroupNames** in modo che vengano eseguiti solo in questi gruppi di risorse di destinazione. È inoltre possibile escludere macchine virtuali specifiche aggiornando la variabile **External_ExcludeVMNames**.<br> VMList: Elenco delimitato da virgole delle macchine virtuali. Ad esempio, _vm1, vm2, vm3_.<br> _WhatIf_ convalida la logica del runbook senza eseguirlo.|
@@ -140,8 +140,8 @@ La tabella seguente elenca le variabili create nell'account di Automazione. Modi
 |External_Stop_ResourceGroupNames | Specifica uno o più gruppi di risorse, separando i valori con una virgola, destinati alle azioni di arresto.|
 |External_WaitTimeForVMRetrySeconds |Tempo di attesa in secondi per le azioni da eseguire sulle macchine virtuali per il runbook di avvio/arresto in sequenza.<br> Il valore predefinito è 2100 secondi e supporta la configurazione su un valore massimo di 10800 o tre ore.|
 |Internal_AutomationAccountName | Specifica il nome dell'account di Automazione.|
-|Internal_AutoSnooze_ARM_WebhookURI | Specifica l'URI Webhook chiamato per lo scenario AutoStop per le macchine virtuali classiche.|
-|Internal_AutoSnooze_WebhookUri | Specifica l'URI del Webhook chiamato per lo scenario AutoStop.|
+|Internal_AutoSnooze_ARM_WebhookURI | Specifica l'URI Webhook chiamato per lo scenario AutoStop per le macchine virtuali.|
+|Internal_AutoSnooze_WebhookUri | Specifica l'URI Webhook chiamato per lo scenario AutoStop per le macchine virtuali classiche.|
 |Internal_AzureSubscriptionId | Specifica l'ID sottoscrizione di Azure.|
 |Internal_ResourceGroupName | Specifica il nome del gruppo di risorse dell'account di Automazione.|
 

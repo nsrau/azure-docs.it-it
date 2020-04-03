@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 03/13/2020
-ms.openlocfilehash: 6e300bbec097201b33f0c576db91c2ca720fb921
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 4d845514965a8d60c636902660ce838926cbf3c9
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437375"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607607"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteggere i processi di sperimentazione e inferenza di Azure ML all'interno di una rete virtuale di AzureSecure Azure ML experimentation and inference jobs within an Azure Virtual Network
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ In questo articolo vengono inoltre fornite informazioni dettagliate sulle impost
 > A meno che non venga chiamato in modo specifico, l'uso di risorse come account di archiviazione o destinazioni di calcolo all'interno di una rete virtuale funzionerà sia con le pipeline di Machine Learning che con i flussi di lavoro non della pipeline, ad esempio l'esecuzione di script.
 
 > [!WARNING]
-> Microsoft non supporta l'utilizzo della finestra di progettazione di Azure Machine Learning o dell'apprendimento automatico automatico (dallo studio) con risorse all'interno di una rete virtuale.
+> Microsoft non supporta l'utilizzo delle funzionalità di Azure Machine Learning Studio, ad esempio MachineL automatizzato, Set di dati, Etichettatura dati, Finestra di progettazione e Blocchi appunti se nell'archiviazione sottostante è abilitata la rete virtuale.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

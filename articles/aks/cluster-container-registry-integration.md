@@ -5,18 +5,18 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: f83faf05eb7099557d5b653e0b24591062c44d11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 514cc25e1959145c65fe60cd3054cec4ed28f44d
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79368452"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617418"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Eseguire l'autenticazione con Registro Azure Container dal servizio Azure Kubernetes
 
-Quando si usa Registro Azure Container con il servizio Azure Kubernetes, è necessario definire un meccanismo di autenticazione. Questo articolo fornisce esempi per la configurazione dell'autenticazione tra questi due servizi di Azure.This article provides examples for configuring authentication between these two Azure services.
+Quando si usa Registro Azure Container con il servizio Azure Kubernetes, è necessario definire un meccanismo di autenticazione. Questo articolo fornisce esempi per la configurazione dell'autenticazione tra questi due servizi di Azure.This article provides examples for configuring authentication between these two Azure services. 
 
-È possibile configurare l'integrazione da AKS ad ACR in alcuni semplici comandi con l'interfaccia della riga di comando di Azure.You can set up the AKS to ACR integration in a few simple commands with the Azure CLI.
+È possibile configurare l'integrazione da AKS ad ACR in alcuni semplici comandi con l'interfaccia della riga di comando di Azure.You can set up the AKS to ACR integration in a few simple commands with the Azure CLI. Questa integrazione assegna il ruolo AcrPull all'entità servizio associata al cluster AKS.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -33,7 +33,7 @@ Per evitare di dover un ruolo di amministratore di account **Proprietario** o **
 
 ```azurecli
 # set this to the name of your Azure Container Registry.  It must be globally unique
-MYACR=myContainerRegistry
+$MYACR=myContainerRegistry
 
 # Run the following line to create an Azure Container Registry if you do not already have one
 az acr create -n $MYACR -g myContainerRegistryResourceGroup --sku basic

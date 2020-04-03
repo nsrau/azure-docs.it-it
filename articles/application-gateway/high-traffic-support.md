@@ -7,18 +7,21 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: caya
-ms.openlocfilehash: e3f8445f68ec959ce1bb0d1ba4029807bd25907a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 65f404b52a5fc06d8fa5bb5aad291e57fde8caba
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257428"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617191"
 ---
-# <a name="application-gateway-high-traffic-support"></a>Supporto per traffico elevato del gateway applicazioneApplication Gateway high traffic support 
+# <a name="application-gateway-high-traffic-support"></a>Supporto del traffico elevato nel gateway applicazione
 
-In questo articolo vengono descritte alcune linee guida consigliate per configurare il gateway applicazione per gestire il traffico aggiuntivo a causa di scenari con volumi elevati, ad esempio la situazione COVID-19. È possibile utilizzare Gateway applicazione con Web Application Firewall (WAF) per un modo scalabile e sicuro per gestire il traffico verso le applicazioni Web. 
+>[!NOTE]
+> In questo articolo vengono descritte alcune linee guida suggerite per configurare il gateway applicazione per gestire il traffico aggiuntivo a causa di un volume di traffico elevato che può verificarsi a causa della crisi COVID-19.
 
-I suggerimenti seguenti consentono di configurare il gateway applicazione con WAF per gestire il traffico aggiuntivo. 
+È possibile utilizzare Gateway applicazione con Web Application Firewall (WAF) per un modo scalabile e sicuro per gestire il traffico verso le applicazioni Web.
+
+I suggerimenti seguenti consentono di configurare il gateway applicazione con WAF per gestire il traffico aggiuntivo.
 
 ## <a name="use-the-v2-sku-over-v1-for-its-autoscaling-capabilities-and-performance-benefits"></a>Usare lo SKU v2 superiore a v1 per le funzionalità di scalabilità automatica e i vantaggi in termini di prestazioniUse the v2 SKU over v1 for its autoscaling capabilities and performance benefits
 Lo SKU v2 offre la scalabilità automatica per garantire che il gateway applicazione possa aumentare con l'aumento del traffico. Offre inoltre altri vantaggi significativi in termini di prestazioni, ad esempio prestazioni di offload TLS 5 volte migliori, tempi di distribuzione e aggiornamento più rapidi, ridondanza di zona e altro ancora rispetto alla versione 1. Per ulteriori informazioni, vedere la [documentazione v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). 

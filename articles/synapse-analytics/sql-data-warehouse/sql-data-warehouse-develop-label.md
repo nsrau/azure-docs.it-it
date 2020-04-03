@@ -1,6 +1,6 @@
 ---
 title: Utilizzo delle etichette per instrumentare le query
-description: Suggerimenti per l'uso di etichette per instrumentare query in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
+description: Suggerimenti per l'utilizzo di etichette per instrumentare query nel pool Synapse SQL per lo sviluppo di soluzioni.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,19 +11,19 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 828e4a406cd0fb12877af44263ab1f338c20850c
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: c1a4ffcab3d10f1dc91ce036e995ae0026a0d718
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351668"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619025"
 ---
-# <a name="using-labels-to-instrument-queries-in-azure-sql-data-warehouse"></a>Uso delle etichette per instrumentare query in Azure SQL Data Warehouse
-Suggerimenti per l'uso di etichette per instrumentare query in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
+# <a name="using-labels-to-instrument-queries-in-synapse-sql-pool"></a>Utilizzo di etichette per instrumentare query nel pool SQL SynapseUsing labels to instrument queries in Synapse SQL pool
+In questo articolo sono inclusi suggerimenti per lo sviluppo di soluzioni che usano le etichette per instrumentare le query nel pool SQL.
 
 
 ## <a name="what-are-labels"></a>Definizione di etichette
-SQL Data Warehouse supporta un concetto detto etichette di query. Prima di approfondire il concetto, eccone un esempio:
+Il pool SQL supporta un concetto denominato etichette di query. Prima di approfondire il concetto, eccone un esempio:
 
 ```sql
 SELECT *
@@ -32,11 +32,13 @@ OPTION (LABEL = 'My Query Label')
 ;
 ```
 
-L'ultima riga contrassegna la stringa 'My Query Label' per la query. Questo tag è particolarmente utile in quanto l'etichetta suppor la query tramite le DMV. L'esecuzione di query per le etichette offre un meccanismo per l'individuazione di query problematiche e semplifica il controllo dell'avanzamento mediante l'esecuzione di un processo ELT.
+L'ultima riga contrassegna la stringa 'My Query Label' per la query. Questo tag è utile perché l'etichetta è in grado di eseguire query tramite le DMV. 
 
-Una buona convenzione di denominazione è estremamente utile. Ad esempio, una stringa che inizia con PROJECT, PROCEDURE, STATEMENT o COMMENT può facilitare l'identificazione univoca della query in tutto il codice nel controllo del codice sorgente.
+L'esecuzione di query per le etichette offre un meccanismo per l'individuazione di query problematiche e semplifica il controllo dell'avanzamento mediante l'esecuzione di un processo ELT.
 
-La query seguente usa una vista a gestione dinamica da sottoporre a ricerca in base all'etichetta.
+Una buona convenzione di denominazione è estremamente utile. Ad esempio, l'avvio dell'etichetta con PROJECT, PROCEDURE, STATEMENT o COMMENT identifica in modo univoco la query tra tutto il codice nel controllo del codice sorgente.
+
+La query seguente utilizza una vista a gestione dinamica per eseguire la ricerca in base all'etichetta:
 
 ```sql
 SELECT  *

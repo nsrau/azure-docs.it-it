@@ -1,20 +1,23 @@
 ---
 title: Metriche supportate dal Monitoraggio di Azure per tipo di risorsa
 description: Elenco delle metriche disponibili per ogni tipo di risorsa con il monitoraggio di Azure.
-author: anirudhcavale
+author: rboucher
 services: azure-monitor
 ms.topic: reference
 ms.date: 03/17/2020
-ms.author: ancav
+ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 674321878cfce2d05189700a8b5118e233d9044d
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 79bae9712cea04425cc36414ec56fdddd4345eab
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520715"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586033"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
+
+> [!NOTE]
+> Questo elenco viene generato automaticamente dall'API REST delle metriche di Azure Monitor.This list is largely auto-generated from the Azure Monitor Metrics REST API. Qualsiasi modifica apportata a questo elenco tramite Github può essere sovrascritta senza preavviso. Contattare l'autore di questo articolo per informazioni dettagliate su come effettuare aggiornamenti permanenti.
 
 Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra cui la creazione di grafici nel portale, l'accesso tramite l'API REST o l'esecuzione di query tramite PowerShell o l'interfaccia della riga di comando. Di seguito è riportato un elenco completo di tutte le metriche attualmente disponibili con la pipeline delle metriche di monitoraggio di Azure. Altre metriche potrebbero essere disponibili nel portale o tramite le API legacy. L'elenco riportato di seguito include solo le metriche disponibili tramite la pipeline delle metriche di Monitoraggio di Azure consolidata. Le metriche sono organizzate per spazio dei nomi. Per un elenco dei servizi e degli spazi dei nomi che appartengono a essi, vedere Provider di risorse per i servizi di [Azure.](../../azure-resource-manager/management/azure-services-resource-providers.md) Per eseguire una query e accedere a queste metriche a livello di codice, utilizzare la versione API 2018-01-01To query for and access these metrics programmatically, please use the [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
 
@@ -24,10 +27,6 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 > *Ad esempio*: la metrica 'Messaggi in ingresso' su un hub eventi può essere esplorata e rappresentata in un grafico a livello di singola coda. Tuttavia, in caso di esportazione tramite impostazione di diagnostica, la metrica verrà rappresentata come tutti i messaggi in ingresso in tutte le code nell'hub eventi.
 >
 > Per un elenco delle metriche della piattaforma esportabili tramite le impostazioni di diagnostica, vedere [questo articolo](metrics-supported-export-diagnostic-settings.md).
-
-
-
-
 
 
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
@@ -565,7 +564,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |Byte scritti su disco/sec per disco|Byte scritti su disco dati/sec [(obsoleto)](portal-disk-metrics-deprecation.md)|Conteggio al secondo|Media|Byte/sec scritti su un singolo disco durante il periodo di monitoraggio|SlotId|
 |Operazioni di lettura da disco/sec per disco|Operazioni di lettura su disco dati/sec [(obsoleto)](portal-disk-metrics-deprecation.md)|Conteggio al secondo|Media|Leggere le operazioni di I/O al secondo da un singolo disco durante il periodo di monitoraggioRead IOPS from a single disk during monitoring period|SlotId|
 |Operazioni di scrittura su disco/sec per disco|Operazioni di scrittura su disco dati al secondo [(obsoleto)](portal-disk-metrics-deprecation.md)|Conteggio al secondo|Media|Scrittura di operazioni di I/O al secondo da un singolo disco durante il periodo di monitoraggioWrite IOPS from a single disk during monitoring period|SlotId|
-|Profondità coda per disco dati|[QD del disco dati [(obsoleto)](portal-disk-metrics-deprecation.md)](portal-disk-metrics-deprecation.md)|Conteggio|Media|Profondità coda del disco dati (o lunghezza coda)|SlotId|
+|Profondità coda per disco dati|QD del disco dati [(obsoleto)](portal-disk-metrics-deprecation.md)] (portal-disk-metrics-deprecation.md)|Conteggio|Media|Profondità coda del disco dati (o lunghezza coda)|SlotId|
 |Byte letti da disco/sec per disco del sistema operativo|Byte letti disco del sistema operativo/sec [(obsoleto)](portal-disk-metrics-deprecation.md)|Conteggio al secondo|Media|Byte/sec letti da un singolo disco durante il periodo di monitoraggio per il disco del sistema operativo|nessuno|
 |Byte scritti su disco/sec per disco del sistema operativo|Byte scritti su disco del sistema operativo/sec [(obsoleto)](portal-disk-metrics-deprecation.md)|Conteggio al secondo|Media|Byte/sec scritti su un singolo disco durante il periodo di monitoraggio per il disco del sistema operativo|nessuno|
 |Operazioni di lettura da disco/sec per disco del sistema operativo|Operazioni di lettura su disco del sistema operativo al secondo [(obsoleto)](portal-disk-metrics-deprecation.md)|Conteggio al secondo|Media|Leggere le operazioni di I/O al secondo da un singolo disco durante il periodo di monitoraggio per il disco del sistema operativoRead IOPS from a single disk during monitoring period for OS disk|nessuno|
@@ -1974,8 +1973,6 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 
 
-
-
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
@@ -2002,8 +1999,8 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |dwu_used|Uso DWU|Conteggio|Massimo|DWU utilizzato. Si applica solo ai data warehouse.|nessuno|
 |cache_hit_percent|Percentuale dei riscontri nella cache|Percentuale|Massimo|Percentuale di riscontri nella cache. Si applica solo ai data warehouse.|nessuno|
 |cache_used_percent|Percentuale della cache utilizzata|Percentuale|Massimo|Percentuale utilizzata nella cache. Si applica solo ai data warehouse.|nessuno|
-|sqlserver_process_core_percent|Percentuale core del processo di SQL ServerSQL Server process core percent|Percentuale|Massimo|Utilizzo della CPU come percentuale del processo del database SQL. Non applicabile ai data warehouse.|nessuno|
-|sqlserver_process_memory_percent|Percentuale memoria processo SQL Server|Percentuale|Massimo|Utilizzo della memoria come percentuale del processo del database SQL. Non applicabile ai data warehouse.|nessuno|
+|sqlserver_process_core_percent|Percentuale core del processo di SQL ServerSQL Server process core percent|Percentuale|Massimo|Percentuale di utilizzo della CPU per il processo di SQL Server, misurata dal sistema operativo.|nessuno|
+|sqlserver_process_memory_percent|Percentuale memoria processo SQL Server|Percentuale|Massimo|Percentuale di utilizzo della memoria per il processo di SQL Server, misurata dal sistema operativo.|nessuno|
 |tempdb_data_size|Kilobyte delle dimensioni del file di dati Tempdb|Conteggio|Massimo|Dimensioni file di dati Tempdb Kilobyte. Non applicabile ai data warehouse.|nessuno|
 |tempdb_log_size|Kilobyte delle dimensioni del file di registro di Tempdb|Conteggio|Massimo|Kilobyte della dimensione del file di registro di Tempdb. Non applicabile ai data warehouse.|nessuno|
 |tempdb_log_used_percent|Registro percentuale Tempdb utilizzato|Percentuale|Massimo|Registro percentuale Tempdb utilizzato. Non applicabile ai data warehouse.|nessuno|
@@ -2060,8 +2057,8 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |database_cpu_limit|Limite CPU|Conteggio|Media|Limite CPU|DatabaseResourceId|
 |cpu_used|CPU utilizzata|Conteggio|Media|CPU utilizzata. Si applica ai pool elastici basati su vCore.|nessuno|
 |database_cpu_used|CPU utilizzata|Conteggio|Media|CPU utilizzata|DatabaseResourceId|
-|sqlserver_process_core_percent|Percentuale core del processo di SQL ServerSQL Server process core percent|Percentuale|Massimo|Utilizzo della CPU come percentuale del processo del database SQL. Si applica alle piscine elastiche.|nessuno|
-|sqlserver_process_memory_percent|Percentuale memoria processo SQL Server|Percentuale|Massimo|Utilizzo della memoria come percentuale del processo del database SQL. Si applica alle piscine elastiche.|nessuno|
+|sqlserver_process_core_percent|Percentuale core del processo di SQL ServerSQL Server process core percent|Percentuale|Massimo|Percentuale di utilizzo della CPU per il processo di SQL Server, misurata dal sistema operativo. Si applica alle piscine elastiche.|nessuno|
+|sqlserver_process_memory_percent|Percentuale memoria processo SQL Server|Percentuale|Massimo|Percentuale di utilizzo della memoria per il processo di SQL Server, misurata dal sistema operativo. Si applica alle piscine elastiche.|nessuno|
 |tempdb_data_size|Kilobyte delle dimensioni del file di dati Tempdb|Conteggio|Massimo|Kilobyte delle dimensioni del file di dati Tempdb|nessuno|
 |tempdb_log_size|Kilobyte delle dimensioni del file di registro di Tempdb|Conteggio|Massimo|Kilobyte delle dimensioni del file di registro di Tempdb|nessuno|
 |tempdb_log_used_percent|Registro percentuale Tempdb utilizzato|Percentuale|Massimo|Registro percentuale Tempdb utilizzato|nessuno|
@@ -2351,15 +2348,6 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |CPU percentuale|CPU percentuale|Percentuale|Media|Utilizzo della CPU. Questo valore viene riportato con 100% che rappresenta tutti i core del processore nel sistema. Ad esempio, una macchina virtuale bidirezionale che usa il 50% di un sistema a quattro core usa completamente due core.|nessuno|
 |PercentageCpuReady|Percentuale CPU pronta|Millisecondi|Totale|Il tempo pronto è il tempo di attesa per la disponibilità di CPU nell'intervallo di aggiornamento passato.|nessuno|
 
-
-
-
-
-
-
-
-
-
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
@@ -2380,7 +2368,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |TcpLastAck|Ultimi Ack TCP|Conteggio|Media|Ultimi Ack TCP|Istanza|
 |TcpTimeWait (Attesa di TcpTime)|Tempo di attesa TCP|Conteggio|Media|Tempo di attesa TCP|Istanza|
 
-## <a name="microsoftwebsites"></a>Microsoft.Web/sites
+## <a name="microsoftwebsites-excluding-functions"></a>Microsoft.Web/sites (escluse le funzioni) 
 
 > [!NOTE]
 > **Utilizzo del file system** è una nuova metrica in fase di implementazione a livello globale, non è previsto alcun dato a meno che non si è stati inseriti nella whitelist per l'anteprima privata.
@@ -2410,6 +2398,37 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |AppConnections|Connessioni|Conteggio|Media|Connessioni|Istanza|
 |Selettori|Numero di handle|Conteggio|Media|Numero di handle|Istanza|
 |Threads|Thread Count|Conteggio|Media|Thread Count|Istanza|
+|PrivateBytes|Private Bytes|Byte|Media|Private Bytes|Istanza|
+|IoReadBytesPerSecond|I/O - Byte in lettura al secondo|Byte al secondo|Totale|I/O - Byte in lettura al secondo|Istanza|
+|IoWriteBytesPerSecond|I/O - Byte in scrittura al secondo|Byte al secondo|Totale|I/O - Byte in scrittura al secondo|Istanza|
+|IoOtherBytesPerSecond|I/O - Altri byte al secondo|Byte al secondo|Totale|I/O - Altri byte al secondo|Istanza|
+|IoReadOperationsPerSecond|I/O - Operazioni di lettura al secondo|Byte al secondo|Totale|I/O - Operazioni di lettura al secondo|Istanza|
+|IoWriteOperationsPerSecond|I/O - Operazioni di scrittura al secondo|Byte al secondo|Totale|I/O - Operazioni di scrittura al secondo|Istanza|
+|IoOtherOperationsPerSecond|I/O - Altre operazioni al secondo|Byte al secondo|Totale|I/O - Altre operazioni al secondo|Istanza|
+|RequestsInApplicationQueue|Richieste nella coda dell'applicazione|Conteggio|Media|Richieste nella coda dell'applicazione|Istanza|
+|CurrentAssemblies|Assembly attuali|Conteggio|Media|Assembly attuali|Istanza|
+|TotalAppDomains|Totale di domini app|Conteggio|Media|Totale di domini app|Istanza|
+|TotalAppDomainsUnloaded|Totale di domini app scaricati|Conteggio|Media|Totale di domini app scaricati|Istanza|
+|Gen0Collections|Garbage Collection di generazione 0|Conteggio|Totale|Garbage Collection di generazione 0|Istanza|
+|Gen1Collections|Garbage Collection di generazione 1|Conteggio|Totale|Garbage Collection di generazione 1|Istanza|
+|Gen2Collections|Garbage Collection di generazione 2|Conteggio|Totale|Garbage Collection di generazione 2|Istanza|
+|HealthCheckStatus (Stato HealthCheckStatus)|Stato del controllo dell'integrità|Conteggio|Media|Stato del controllo dell'integrità|Istanza|
+|FileSystemUsage|Utilizzo del file system|Byte|Media|Utilizzo del file system|nessuno|
+
+## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (funzioni)
+
+> [!NOTE]
+> **Utilizzo del file system** è una nuova metrica in fase di implementazione a livello globale, non è previsto alcun dato a meno che non si è stati inseriti nella whitelist per l'anteprima privata.
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
+|---|---|---|---|---|---|
+|BytesReceived|Dati in entrata|Byte|Totale|Dati in entrata|Istanza|
+|BytesSent|Dati in uscita|Byte|Totale|Dati in uscita|Istanza|
+|Http5xx|Errori server HTTP|Conteggio|Totale|Errori server HTTP|Istanza|
+|MemoryWorkingSet|Working set della memoria|Byte|Media|Working set della memoria|Istanza|
+|AverageMemoryWorkingSet|Working set della memoria medio|Byte|Media|Working set della memoria medio|Istanza|
+|FunctionExecutionUnits|Unità di esecuzione della funzione|MB / Millisecondi|Totale|[Unità di esecuzione della funzione](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|Istanza|
+|FunctionExecutionCount|Conteggio delle esecuzioni della funzione|Conteggio|Totale|Conteggio delle esecuzioni della funzione|Istanza|
 |PrivateBytes|Private Bytes|Byte|Media|Private Bytes|Istanza|
 |IoReadBytesPerSecond|I/O - Byte in lettura al secondo|Byte al secondo|Totale|I/O - Byte in lettura al secondo|Istanza|
 |IoWriteBytesPerSecond|I/O - Byte in scrittura al secondo|Byte al secondo|Totale|I/O - Byte in scrittura al secondo|Istanza|
@@ -2510,3 +2529,4 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 * [Metriche in Monitoraggio di Azure](data-platform.md)
 * [Creare avvisi relativi alle metriche](alerts-overview.md)
 * [Esportazione delle metriche nell'archiviazione, nell'hub eventi o in Log Analytics](platform-logs-overview.md)
+

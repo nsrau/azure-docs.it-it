@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2f12cf303c58f0fa614c59ffe643c6c2ee5d2415
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8987cbe6860422ff92119a9f3b13a0a365e6d1a4
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78246195"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618329"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Archiviazione e ingresso dei dati nella versione di anteprima di Azure Time Series Insights
 
@@ -39,7 +39,7 @@ La configurazione, la formattazione e le procedure consigliate sono riepilogate 
 
 Azure Time Series Insights Preview supporta le origini eventi seguenti:Azure Time Series Insights Preview supports the following event sources:
 
-- [Hub IoT di AzureAzure IoT Hub](../iot-hub/about-iot-hub.md)
+- [Hub IoT Azure](../iot-hub/about-iot-hub.md)
 - [Hub eventi di Azure](../event-hubs/event-hubs-about.md)
 
 Azure Time Series Insights Preview supporta un massimo di due origini eventi per istanza.
@@ -59,8 +59,8 @@ I tipi di dati supportati sono:
 |---|---|
 | **bool** | Un tipo di dati con `true` `false`uno dei due stati seguenti: o . |
 | **Datetime** | Rappresenta un istante di tempo, in genere espresso come data e ora del giorno. Espresso in formato [ISO 8601.](https://www.iso.org/iso-8601-date-and-time-format.html) |
-| **Doppia** | Un punto mobile [IEEE 754 a](https://ieeexplore.ieee.org/document/8766229) 64 bit a precisione doppia. |
-| **Stringa** | Valori di testo, costituiti da caratteri Unicode.          |
+| **double** | Un punto mobile [IEEE 754 a](https://ieeexplore.ieee.org/document/8766229) 64 bit a precisione doppia. |
+| **string** | Valori di testo, costituiti da caratteri Unicode.          |
 
 #### <a name="objects-and-arrays"></a>Oggetti e matrici
 
@@ -91,7 +91,7 @@ In generale, le frequenze in ingresso sono considerate come il fattore del numer
 
 *  **Numero di dispositivi** - Frequenza di **emissione dell'evento** - **Dimensione di ogni evento**.
 
-Per impostazione predefinita, l'anteprima di Time Series Insights può ingerire i dati in ingresso con una velocità massima di **1 megabyte al secondo (MBps) per ogni ambiente Time Series Insights.**
+Per impostazione predefinita, l'anteprima di Time Series Insights può ingerire i dati in ingresso con una velocità massima di **1 megabyte al secondo (MBps) per ogni ambiente Time Series Insights.** Esistono limitazioni aggiuntive [per ogni partizione hub.](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-storage-ingress#hub-partitions-and-per-partition-limits)
 
 > [!TIP] 
 > * Il supporto ambientale per l'inserimento di velocità fino a 16 MBps può essere fornito su richiesta.
@@ -99,7 +99,7 @@ Per impostazione predefinita, l'anteprima di Time Series Insights può ingerire 
  
 * **Esempio 1:**
 
-    Contoso Shipping dispone di 100.000 dispositivi che generano un evento tre volte al minuto. La dimensione di un evento è di 200 byte. Usano un hub eventi con quattro partizioni come origine eventi Time Series Insights.
+    Contoso Shipping dispone di 100.000 dispositivi che generano un evento tre volte al minuto. La dimensione di un evento è di 200 byte. Usano un hub Iot con quattro partizioni come origine eventi Time Series Insights.
 
     * La frequenza di inserimento per l'ambiente Time Series Insights sarebbe: **100.000 dispositivi, 200 byte/evento ( 3/60 eventi/sec) , 1 MBps**.
     * La velocità di inserimento per partizione sarebbe 0,25 MBps.The ingestion rate per partition would be 0.25 MBps.
@@ -107,11 +107,11 @@ Per impostazione predefinita, l'anteprima di Time Series Insights può ingerire 
 
 * **Esempio 2:**
 
-    Contoso Fleet Analytics dispone di 60.000 dispositivi che generano un evento ogni secondo. Usano un conteggio delle partizioni di IoT Hub 24 pari a 4 come origine eventi Time Series Insights. La dimensione di un evento è di 200 byte.
+    Contoso Fleet Analytics dispone di 60.000 dispositivi che generano un evento ogni secondo. Utilizzano un hub eventi con un numero di partizioni pari a 4 come origine eventi Time Series Insights. La dimensione di un evento è di 200 byte.
 
-    * La frequenza di inserimento nell'ambiente sarebbe: **20.000 dispositivi , 200 byte/evento, 1 evento/sec, 4 MBps**.
-    * La velocità per partizione sarebbe 1 MBps.
-    * Contoso Fleet Analytics può inviare una richiesta a Time Series Insights tramite il portale di Azure per aumentare la frequenza di inserimento per il proprio ambiente.
+    * La frequenza di inserimento nell'ambiente sarebbe: **60.000 dispositivi , 200 byte/evento, 1 evento/sec, 12 MBps**.
+    * La velocità per partizione sarebbe di 3 MBps.
+    * La frequenza di inserimento di Contoso Fleet Analytics supera i limiti dell'ambiente e delle partizioni. Possono inviare una richiesta a Time Series Insights tramite il portale di Azure per aumentare la frequenza di inserimento per il proprio ambiente e creare un hub eventi con più partizioni entro i limiti di anteprima.
 
 #### <a name="hub-partitions-and-per-partition-limits"></a>Partizioni hub e limiti per partizione
 

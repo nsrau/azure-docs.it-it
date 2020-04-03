@@ -10,16 +10,16 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: d0b32fb2b52d2dbb126053247cff83f05781ba5e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 44dbc03a41cfde94c344ae331b21d7536778050c
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350876"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619108"
 ---
 # <a name="best-practices-for-sql-analytics-in-azure-synapse-analytics-formerly-sql-dw"></a>Procedure consigliate per SQL Analytics in Azure Synapse Analytics (in precedenza SQL DW)
 
-Questo articolo è una raccolta di procedure consigliate che consentono di ottenere prestazioni ottimali dalla distribuzione di [SQL Analytics.](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse)  Lo scopo di questo articolo è quello di darvi alcune indicazioni di base ed evidenziare importanti aree di messa a fuoco.  Ogni sezione ti introduce a un concetto e poi ti indirizza ad articoli più dettagliati che coprono il concetto in modo più approfondito. La sequenza degli argomenti è nell'ordine di importanza. 
+Questo articolo è una raccolta di procedure consigliate che consentono di ottenere prestazioni ottimali dalla distribuzione di [SQL Analytics.](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse)  Lo scopo di questo articolo è quello di darvi alcune indicazioni di base ed evidenziare importanti aree di messa a fuoco.  Ogni sezione ti introduce a un concetto e poi ti indirizza ad articoli più dettagliati che coprono il concetto in modo più approfondito. La sequenza degli argomenti è nell'ordine di importanza. 
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Ridurre i costi con sospensione e scalabilità
 
@@ -115,7 +115,7 @@ Quando le righe vengono scritte nelle tabelle columnstore in condizioni di utili
 
 Poiché i segmenti columnstore di alta qualità sono importanti, è consigliabile usare gli ID utente che si trovano nella classe di risorse di medie o grandi dimensioni per il caricamento dei dati. L'uso di [unità di data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) inferiori implica l'intenzione di assegnare una classe di risorse di dimensioni superiori all'utente incaricato del caricamento.
 
-Poiché le tabelle columnstore in genere non inviano i dati in un segmento columnstore compresso fino a quando non sono presenti più di 1 milione di righe per tabella e ogni tabella di SQL Analytics viene partizionata in 60 tabelle, come regola generale, le tabelle columnstore non trarranno vantaggio da una query a meno che la tabella contiene più di 60 milioni di righe.  Per le tabelle con meno di 60 milioni di righe, l'uso di un indice columnstore potrebbe non essere utile,  ma potrebbe anche non avere effetti negativi.  
+Poiché le tabelle columnstore in genere non eseguiranno il push dei dati in un segmento columnstore compresso finché non sono presenti più di 1 milione di righe per tabella e ogni tabella di SQL Analytics viene partizionata in 60 tabelle, come regola generale, le tabelle columnstore non trarranno vantaggio da una query a meno che la tabella non conveda più di 60 milioni di righe.  Per le tabelle con meno di 60 milioni di righe, l'uso di un indice columnstore potrebbe non essere utile,  ma potrebbe anche non avere effetti negativi.  
 
 Inoltre, se si partizionano i dati, tenere presente che ogni partizione dovrà contenere 1 milione di righe per trarre vantaggio da un indice columnstore cluster.  Se una tabella ha 100 partizioni, dovrà contenere almeno 6 miliardi di righe per trarre vantaggio da un archivio colonne cluster (60 distribuzioni * 100 partizioni * 1 milione di righe).  
 

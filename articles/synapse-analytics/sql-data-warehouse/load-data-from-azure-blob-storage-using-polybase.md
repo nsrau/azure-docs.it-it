@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Caricare i dati del taxi taxi di New York'
-description: L'esercitazione usa il portale di Azure e SQL Server Management StudioSQL Server Management Studio per caricare i dati del taxicab di New York da un BLOB di Azure globale per SQL Analytics.Tutorial uses Azure portal and SQL Server Management Studio to load New York Taxicab data from a global Azure blob for SQL Analytics.
+description: Esercitazione Usa il portale di Azure e SQL Server Management StudioSQL Server Management Studio per caricare i dati del taxi cab a New York da un BLOB di Azure globale per Synapse SQL.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: f1614538f6ab735720d090f66fee0e017e96cf72
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: e17b5be0f4f3d568bd5ec836659c4444b384b2fa
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346736"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583757"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Esercitazione: Caricare il set di dati del taxi cabametro di New YorkTutorial: Load the New York Taxicab dataset
 
@@ -45,11 +45,11 @@ Accedere al [portale](https://portal.azure.com/)di Azure .
 
 ## <a name="create-a-blank-database"></a>Creazione di un database vuoto
 
-Un pool SQL viene creato con un set definito di risorse di [calcolo.](memory-concurrency-limits.md) Il database viene creato in un [gruppo di risorse di Azure](../../azure-resource-manager/management/overview.md) e in un [server logico di Azure SQL](../../sql-database/sql-database-features.md). 
+Un pool SQL viene creato con un set definito di [risorse di calcolo](memory-concurrency-limits.md). Il database viene creato in un [gruppo di risorse di Azure](../../azure-resource-manager/management/overview.md) e in un [server logico di Azure SQL](../../sql-database/sql-database-features.md). 
 
 Seguire questi passaggi per creare un database vuoto. 
 
-1. Selezionare **Crea risorsa** nell'angolo superiore sinistro del portale di Azure.
+1. Selezionare **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.Select Create a resource in the upper left-left corner of the Azure portal.
 
 2. Selezionare Database dalla pagina Nuovo e selezionare Analisi synapse di Azure in **In primo piano** nella pagina Nuovo.Select **Databases** from the **New** page, and select **Azure Synapse Analytics** under Featured on the **New** page.
 
@@ -59,10 +59,10 @@ Seguire questi passaggi per creare un database vuoto.
 
    | Impostazione            | Valore consigliato       | Descrizione                                                  |
    | ------------------ | --------------------- | ------------------------------------------------------------ |
-   | *Nome**            | mySampleDataWarehouse | Per i nomi di database validi, vedere [Identificatori di database](/sql/relational-databases/databases/database-identifiers). |
+   | *Nome**            | mySampleDataWarehouse | Per i nomi di database validi, vedere [Identificatori del database](/sql/relational-databases/databases/database-identifiers). |
    | **Sottoscrizione**   | Sottoscrizione in uso     | Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.windowsazure.com/Subscriptions). |
    | **Gruppo di risorse** | myResourceGroup       | Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming). |
-   | **Seleziona origine**  | Database vuoto        | Specificare che venga creato un database vuoto. Si noti che un data warehouse è un tipo di database. |
+   | **Selezionare l'origine**  | Database vuoto        | Specificare che venga creato un database vuoto. Si noti che un data warehouse è un tipo di database. |
 
     ![creare un data warehouse](./media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
 
@@ -90,7 +90,7 @@ Seguire questi passaggi per creare un database vuoto.
 
 11. Dopo aver completato il modulo, selezionare **Crea** per eseguire il provisioning del database. Il provisioning richiede alcuni minuti. 
 
-12. Sulla barra degli strumenti selezionare **Notifiche** per monitorare il processo di distribuzione.
+12. Per monitorare il processo di distribuzione, selezionare **Notifiche** sulla barra degli strumenti.
   
      ![notifica](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
 
@@ -117,9 +117,9 @@ Un firewall a livello di server che impedisce alle applicazioni e agli strumenti
 
 4. Selezionare **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP corrente a una nuova regola del firewall. Una regola del firewall può aprire la porta 1433 per un indirizzo IP singolo o un intervallo di indirizzi IP.
 
-5. Selezionare **Salva**. Viene creata una regola del firewall a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server logico.
+5. Selezionare **Save** (Salva). Viene creata una regola del firewall a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server logico.
 
-6. Selezionare **OK** e quindi chiudere la pagina **Impostazioni del firewall**.
+6. Selezionare **OK,** quindi chiudere la pagina **Impostazioni firewall.**
 
 È ora possibile connettersi al server SQL e ai relativi data warehouse usando questo indirizzo IP. La connessione funziona da SQL Server Management Studio o un altro strumento di propria scelta. Quando ci si connette, usare l'account ServerAdmin creato in precedenza.  
 
@@ -179,7 +179,7 @@ Poiché l'accesso è stato eseguito come amministratore del server, è possibile
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
     ```
 
-3. Scegliere **Execute**(Esegui).
+3. Selezionare **Esegui**.
 
 4. Fare clic con il pulsante destro del mouse su **mySampleDataWarehouse** e scegliere **Nuova query**. Viene visualizzata una nuova finestra della query.  
 
@@ -193,7 +193,7 @@ Poiché l'accesso è stato eseguito come amministratore del server, è possibile
     EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
     ```
 
-6. Scegliere **Execute**(Esegui).
+6. Selezionare **Esegui**.
 
 ## <a name="connect-to-the-server-as-the-loading-user"></a>Connettersi al server come utente addetto al caricamento
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 01/21/2020
-ms.openlocfilehash: b9fdd1b25e53e1cdc8aa76564304a61adaa8d804
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: 06242af6cb00e3adebbc80da722898fb8e348e36
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79268782"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585365"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Che cos'è l'istanza gestita del database SQL di Azure?
 
@@ -67,7 +67,7 @@ Nella tabella seguente sono elencate le principali funzionalità delle istanze g
 | Supporto del portale | Sì|
 | Integration Services (SSIS) incorporato | No - SSIS fa parte di [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Analysis Services (SSAS) incorporato | No - SSAS fa parte di una [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) distinta |
-| Reporting Services (SSRS) incorporato | No - usare Power BI o SSRS IaaS |
+| Reporting Services (SSRS) incorporato | No: usare invece [i report impaginati di Power BI](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) o ospitare SSRS in una macchina virtuale di Azure.No - use Power BI paginated reports instead or host SSRS on Azure VM. Mentre l'istanza gestita non può eseguire SSRS come servizio, può ospitare i database di catalogo SSRS 2019 per un server di report esterno utilizzando l'autenticazione di SQL Server.While Managed Instance cannot run SSRS as a service, it can host SSRS 2019 catalog databases for an external reporting server using SQL Server authentication. |
 |||
 
 ## <a name="vcore-based-purchasing-model"></a>Modello di acquisto basato su vCore
@@ -247,7 +247,7 @@ La migrazione di un database crittografato in un'istanza gestita è supportata t
 
 ## <a name="azure-active-directory-integration"></a>Integrazione di Azure Active Directory
 
-L'opzione di distribuzione dell'istanza gestita supporta i tradizionali account di accesso del motore di database di SQL Server e gli account di accesso integrati con Azure Active Directory (AAD). Le entità server (account di accesso) di Azure AD (**anteprima pubblica**) sono una versione cloud di Azure degli account di accesso ai database di Windows usati nell'ambiente locale. Le entità server (account di accesso) di Azure AD consentono di specificare utenti e gruppi dal tenant di Azure Active Directory come vere entità con ambito istanza, in grado di eseguire qualsiasi operazione a livello di istanza, incluse le query tra database all'interno della stessa gestione Istanza.
+L'opzione di distribuzione dell'istanza gestita supporta i tradizionali account di accesso del motore di database di SQL Server e gli account di accesso integrati con Azure Active Directory (AAD). Le entità server (account di accesso) di Azure AD (**anteprima pubblica**) sono una versione cloud di Azure degli account di accesso ai database di Windows usati nell'ambiente locale. Le entità server (account di accesso) di Azure AD consentono di specificare utenti e gruppi dal tenant di Azure Active Directory come vere entità con ambito istanza, in grado di eseguire qualsiasi operazione a livello di istanza, incluse le query tra database all'interno della stessa istanza gestita.
 
 È stata introdotta una nuova sintassi per creare entità server di Azure AD (account di accesso), **FROM EXTERNAL PROVIDER**. Per altre informazioni sulla sintassi, vedere <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>ed esaminare l'articolo Effettuare il provisioning di un amministratore di Azure Active Directory [per l'istanza gestita.](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance)
 

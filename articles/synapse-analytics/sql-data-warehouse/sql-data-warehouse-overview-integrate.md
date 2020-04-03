@@ -1,6 +1,6 @@
 ---
 title: Crea soluzioni integrate
-description: Strumenti di soluzione e partner che si integrano con un data warehouse di cui è stato eseguito il provisioning tramite SQL Analytics.
+description: Strumenti di soluzione e partner che si integrano con un pool SQL Synapse.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,15 +11,16 @@ ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 680e561c08c5113e3d7f26b00422f3696bb133e9
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: c8e3598e55d3f90ab2b7401380406677f56c0ce3
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350231"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586491"
 ---
-# <a name="integrate-other-services-with-a-sql-analytics-data-warehouse"></a>Integrare altri servizi con un data warehouse di SQL AnalyticsIntegrate other services with a SQL Analytics data warehouse 
-The SQL Analytics capability within Azure Synapse Analytics enables users to integrate with many of the other services in Azure. Utilizzando SQL Analytics, è possibile creare un data warehouse tramite la relativa risorsa del pool SQL, che può quindi utilizzare diversi servizi aggiuntivi, alcuni dei quali includono:Using SQL Analytics, you can create a data warehouse via its SQL Pool resource, which can then utilize several additional services, some of which include:
+# <a name="integrate-other-services-with-a-synapse-sql-pool"></a>Integrare altri servizi con un pool SQL SynapseIntegrate other services with a Synapse SQL pool
+
+The Synapse SQL pool capability within Azure Synapse Analytics enables users to integrate with many of the other services in Azure. Utilizzando Synapse SQL, è possibile creare un data warehouse tramite la relativa risorsa del pool SQL, che può quindi utilizzare diversi servizi aggiuntivi, alcuni dei quali includono:Using Synapse SQL, you can create a data warehouse via its SQL pool resource, which can then utilize several additional services, some of which include:
 
 * Power BI
 * Data factory di Azure

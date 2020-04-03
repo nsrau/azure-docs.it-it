@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: mjbrown
-ms.openlocfilehash: 30991f17970eefe1a140cdd70e1f6b305160349c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 345fc329df1c57cab7dd66c609bf3701fa3a6124
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79537330"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619136"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Panoramica sulla sicurezza in Azure Cosmos DB
 
@@ -48,7 +48,7 @@ Il diagramma precedente illustra i componenti della sicurezza cloud generali, ma
 E, anche se può sembrare ovvio, le recenti [violazioni di database su larga scala](https://thehackernews.com/2017/01/mongodb-database-security.html) rendono molto importanti i semplici requisiti seguenti:
 
 - Server con patch che vengono mantenuti aggiornati
-- Crittografia SSL/HTTPS predefinita
+- HTTPS per impostazione predefinita/crittografia TLS
 - Account amministrativi con password complesse
 
 ## <a name="how-does-azure-cosmos-db-secure-my-database"></a>In che modo Azure Cosmos DB protegge il databaseHow does Azure Cosmos DB secure my database
@@ -76,7 +76,7 @@ La tabella seguente li illustra in dettaglio.
 |Crittografia HTTPS/SSL/TLS|Tutte le connessioni a Azure Cosmos DB supportano HTTPS. Azure Cosmos DB supporta anche TLS 1.2.Azure Cosmos DB also supports TLS 1.2.<br>È possibile applicare una versione TLS minima lato server. Per farlo, si [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com)prega di contattare .|
 |Crittografia di dati inattivi|Tutti i dati archiviati in Azure Cosmos DB vengono crittografati quando sono inattivi. Per altre informazioni, vedere [Crittografia dei dati inattivi in Azure Cosmos DB](./database-encryption-at-rest.md)|
 |Server con patch|Essendo un database gestito, Azure Cosmos DB elimina la necessità di gestire e applicare patch ai server perché queste operazioni vengono eseguite automaticamente.|
-|Account amministrativi con password complesse|Può sembrare strano vedere citato questo requisito, ma a differenza di quanto accade con alcuni concorrenti, è impossibile avere un account amministrativo senza password in Azure Cosmos DB.<br><br> La sicurezza usa SSL e l'autenticazione basata su segreti HMAC è supportata per impostazione predefinita.|
+|Account amministrativi con password complesse|Può sembrare strano vedere citato questo requisito, ma a differenza di quanto accade con alcuni concorrenti, è impossibile avere un account amministrativo senza password in Azure Cosmos DB.<br><br> La sicurezza tramite l'autenticazione basata su segreto TLS e HMAC è integrata per impostazione predefinita.|
 |Certificazioni di sicurezza e protezione dei dati| Per l'elenco di certificazioni più aggiornato, vedere il [sito di conformità](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) di Azure generale e il documento di conformità di [Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) più recente con tutte le certificazioni (ricerca di Cosmos). Per una lettura più mirata, consulta il post del 25 aprile 2018 [Azure #CosmosDB: sicuro, privato, conforme che include SOCS 1/2 Tipo 2, HITRUST, PCI DSS Livello 1, ISO 27001, HIPAA, FedRAMP High e molti altri.
 
 La schermata seguente mostra come è possibile usare la registrazione di controllo e i log attività per monitorare l'account: ![Log attività per Azure Cosmos DB](./media/database-security/nosql-database-security-application-logging.png)

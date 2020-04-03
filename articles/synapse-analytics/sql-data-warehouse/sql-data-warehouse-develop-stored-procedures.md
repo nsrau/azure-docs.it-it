@@ -1,6 +1,6 @@
 ---
 title: Uso delle stored procedure
-description: Suggerimenti per l'implementazione delle stored procedure in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
+description: Suggerimenti per lo sviluppo di soluzioni mediante l'implementazione di stored procedure nel pool Sql Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,34 +11,39 @@ ms.date: 04/02/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 83c3187c580bda33df8780a0e36f0fb9f2a4f484
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: a8350f8027a78ae5692e12661f2e0d2013ab4c46
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351551"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618958"
 ---
-# <a name="using-stored-procedures-in-sql-data-warehouse"></a>Uso di stored procedure in SQL Data Warehouse
-Suggerimenti per l'implementazione delle stored procedure in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
+# <a name="using-stored-procedures-in-synapse-sql-pool"></a>Utilizzo di stored procedure nel pool SQL SynapseUsing stored procedures in Synapse SQL pool
+In questo articolo vengono forniti suggerimenti per lo sviluppo di soluzioni di pool SQL implementando stored procedure.
 
 ## <a name="what-to-expect"></a>Cosa aspettarsi
 
-SQL Data Warehouse supporta molte delle funzionalità T-SQL che si usano in SQL Server. Ancora più importanti sono le funzionalità di scale-out specifiche, che si possono usare per migliorare le prestazioni della soluzione.
+SQL pool supports many of the T-SQL features that are used in SQL Server. Ancora più importanti sono le funzionalità di scale-out specifiche, che si possono usare per migliorare le prestazioni della soluzione.
 
-Tuttavia, per mantenere la scalabilità e le prestazioni di SQL Data Warehouse sono disponibili anche funzionalità e caratteristiche con differenze di comportamento e altra che non sono supportate.
+Inoltre, per mantenere la scalabilità e le prestazioni del pool SQL, esistono funzionalità e funzionalità aggiuntive con differenze di comportamento.
 
 
 ## <a name="introducing-stored-procedures"></a>Introduzione alle stored procedure
-Le stored procedure sono un ottimo modo per incapsulare il codice SQL, archiviandolo vicino i dati nel data warehouse. Le stored procedure consentono agli sviluppatori di rendere modulari le soluzioni incapsulando il codice in unità gestibili, facilitano così il riutilizzo del codice stesso. Ogni stored procedure può anche accettare parametri per essere ancora più flessibile.
+Le stored procedure sono un ottimo modo per incapsulare il codice SQL, che viene archiviato vicino ai dati del pool SQL. Le stored procedure consentono inoltre agli sviluppatori di modularizzare le soluzioni incapsulando il codice in unità gestibili, facilitando così una maggiore riusabilità del codice. Ogni stored procedure può anche accettare parametri per essere ancora più flessibile.
 
-SQL Data Warehouse fornisce un'implementazione semplificata e ottimizzata delle stored procedure. La differenza principale rispetto a SQL Server è che la stored procedure non è codice precompilato. Nei data warehouse il tempo di compilazione è limitato rispetto al tempo necessario per eseguire query su grandi volumi di dati. È più importante assicurarsi che il codice della stored procedure sia correttamente ottimizzato per le query di grandi dimensioni. L'obiettivo consiste nel risparmiare ore, minuti e secondi, non millisecondi. È quindi più utile pensare alle stored procedure come contenitori per la logica di SQL.     
+Il pool SQL fornisce un'implementazione semplificata e semplificata delle stored procedure. La differenza più grande rispetto a SQL Server è che la stored procedure non è codice precompilato. 
 
-Quando SQL Data Warehouse esegue la stored procedure, le istruzioni SQL vengono analizzate, convertite e ottimizzate in fase di esecuzione. Durante questo processo ogni istruzione viene convertita in query distribuite. Il codice SQL eseguito sui dati è diverso dalla query inviata.
+In generale, per i data warehouse, il tempo di compilazione è ridotto rispetto al tempo necessario per eseguire query su volumi di dati di grandi dimensioni. È più importante assicurarsi che il codice della stored procedure sia ottimizzato correttamente per query di grandi dimensioni. 
+
+> [!TIP]
+> L'obiettivo consiste nel risparmiare ore, minuti e secondi, non millisecondi. Pertanto, è utile considerare le stored procedure come contenitori per la logica SQL.     
+
+Quando il pool SQL esegue la stored procedure, le istruzioni SQL vengono analizzate, convertite e ottimizzate in fase di esecuzione. Durante questo processo ogni istruzione viene convertita in query distribuite. Il codice SQL eseguito sui dati è diverso dalla query inviata.
 
 ## <a name="nesting-stored-procedures"></a>Annidamento di stored procedure
 Quando le stored procedure chiamano altre stored procedure o eseguono istruzioni SQL dinamiche, la stored procedure o la chiamata di codice interna è detta annidata.
 
-SQL Data Warehouse supporta un massimo di otto livelli di annidamento. Questo comportamento è leggermente diverso rispetto a SQL Server. In SQL Server i livelli di annidamento sono 32.
+Il pool SQL supporta un massimo di otto livelli di annidamento. Al contrario, il livello di annidamento in SQL Server è 32.In contrast, the nest level in SQL ServerIS 32.
 
 La chiamata di stored procedure di massimo livello equivale al livello di annidamento 1.
 
@@ -64,15 +69,13 @@ GO
 EXEC prc_nesting
 ```
 
-Si noti che SQL Data Warehouse non supporta attualmente [.@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql) È necessario tenere traccia del livello di annidamento. È improbabile superare il limite di otto livelli di annidamento, ma se lo si fa, è necessario rielaborare il codice per adattare i livelli di annidamento entro tale limite.
+Il pool SQL non supporta attualmente [.@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql) Come tale, è necessario monitorare il livello del nido. È improbabile che superi il limite di otto anni di nidificazione. Tuttavia, in tal caso, è necessario rielaborare il codice per adattarlo ai livelli di annidamento entro questo limite.
 
 ## <a name="insertexecute"></a>INSERT..EXECUTE
-SQL Data Warehouse non consente di usare il set di risultati di una stored procedure con un'istruzione INSERT. Si può tuttavia un approccio alternativo. Per un esempio, vedere l'articolo sulle [tabelle temporanee](sql-data-warehouse-tables-temporary.md). 
+Il pool SQL non consente di utilizzare il set di risultati di una stored procedure con un'istruzione INSERT. Esiste tuttavia un approccio alternativo. Per un esempio, vedere l'articolo sulle [tabelle temporanee](sql-data-warehouse-tables-temporary.md). 
 
 ## <a name="limitations"></a>Limitazioni
-Esistono alcuni aspetti delle stored procedure Transact-SQL che non sono implementate in SQL Data Warehouse.
-
-ovvero:
+Esistono alcuni aspetti delle stored procedure Transact-SQLTransact-SQL che non sono implementate nel pool SQL, che sono i seguenti:
 
 * Stored procedure temporanee
 * Stored procedure numerate

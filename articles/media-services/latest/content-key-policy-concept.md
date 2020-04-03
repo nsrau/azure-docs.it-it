@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 7ddef1e78b4f8f62145e10b4cabc4537e28aba2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 85a9cad80156dc6ac40e78610c91805d485ff3df
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74969905"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586001"
 ---
 # <a name="content-key-policies"></a>Criteri di chiave simmetrica
 
@@ -32,7 +32,7 @@ In genere, i criteri della chiave simmetrica vengono associati a [Streaming Loca
 > [!IMPORTANT]
 > Si prega di rivedere le seguenti raccomandazioni.
 
-* È consigliabile progettare un set limitato di criteri per l'account del servizio multimediale e riutilizzarli per i localizzatori di streaming ogni volta che sono necessarie le stesse opzioni. Per altre informazioni, vedere [Quote e limitazioni](limits-quotas-constraints.md).
+* È consigliabile progettare un set limitato di criteri per l'account del servizio multimediale e riutilizzarli per i localizzatori di streaming ogni volta che sono necessarie le stesse opzioni. Per ulteriori informazioni, vedere [Quote e limiti](limits-quotas-constraints.md).
 * I criteri delle chiavi del contenuto sono aggiornabili. L'aggiornamento e la ripresa dei criteri aggiornati per le cache di recapito delle chiavi possono richiedere fino a 15 minuti. 
 
    Aggiornando i criteri, si sovrascrive la cache della rete CDN esistente che potrebbe causare problemi di riproduzione per i clienti che utilizzano contenuto memorizzato nella cache.  
