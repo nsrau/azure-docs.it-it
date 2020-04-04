@@ -8,12 +8,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 5c184e7f1dc828c3f9ff8d449d29ab3aaa4d1cf6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 830668a78929a5e6a7e131ade5c62b81e6d725c3
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77525822"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631374"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Riferimento: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -239,9 +239,9 @@ Nella VM sono installati gli strumenti di Azure seguenti:
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 
-Azure Machine Learning è un servizio cloud completamente gestito che consente di creare, distribuire e condividere soluzioni di analisi predittiva. È possibile compilare gli esperimenti e i modelli da Azure Machine Learning Studio (classico). a cui è possibile accedere da un Web browser nella Data Science Virtual Machine, visitando il sito [Microsoft Azure Machine Learning](https://studio.azureml.net).
+Azure Machine Learning è un servizio cloud completamente gestito che consente di creare, distribuire e condividere soluzioni di analisi predittiva. È possibile compilare gli esperimenti e i modelli in Azure Machine Learning Studio (anteprima). a cui è possibile accedere da un Web browser nella Data Science Virtual Machine, visitando il sito [Microsoft Azure Machine Learning](https://ml.azure.com).
 
-Dopo aver eseguito l'accesso ad Azure Machine Learning Studio (classico), è possibile usare un canvas di sperimentazione per creare un flusso logico per gli algoritmi di apprendimento automatico. È inoltre possibile accedere a un blocco appunti di Jupyter ospitato in Azure Machine Learning e che può funzionare senza problemi con gli esperimenti in Azure Machine Learning Studio (classico). 
+Dopo aver eseguito l'accesso ad Azure Machine Learning Studio, è possibile usare un canvas di sperimentazione per creare un flusso logico per gli algoritmi di apprendimento automatico. È inoltre possibile accedere a un blocco appunti di Jupyter ospitato in Azure Machine Learning e che può funzionare senza problemi con gli esperimenti in Azure Machine Learning Studio.You also have access to a Jupyter notebook that is hosted on Azure Machine Learning and can work seamlessly with the experiments in Azure Machine Learning studio. 
 
 È possibile rendere operativi i modelli di Machine Learning creati eseguendone il wrapping in un'interfaccia del servizio Web. In questo modo i client scritti in qualsiasi linguaggio possono richiamare le stime dai modelli di Machine Learning. Per altre informazioni, vedere [Documentazione su Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
@@ -329,7 +329,7 @@ Si apre un'interfaccia grafica con un set di schede. Seguire questi passaggi di 
 > [!NOTE]
 > Se non si ha accesso per installare il pacchetto nella directory di sistema (impostazione predefinita), è possibile che nella finestra della console R venga visualizzata la richiesta di installare i pacchetti nella libreria personale. Se vengono visualizzate queste richieste, rispondere **y** (Sì).
 
-1. Scegliere **Execute**(Esegui).
+1. Selezionare **Esegui**.
 1. Viene visualizzata una finestra di dialogo in cui viene chiesto se si vuole usare il set di dati meteo di esempio. Selezionare **Yes** (Sì) per caricare l'esempio.
 1. Selezionare la scheda **Model** (Modello).
 1. Selezionare **Execute** (Esegui) per creare un albero delle decisioni.

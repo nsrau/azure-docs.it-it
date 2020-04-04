@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 8543894f3f518df6b9b0054973ca1683b82e38f1
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: df80668f5e4a31d6247e9e9806e3de0667fd9036
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80549000"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656019"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Come usare i risultati della ricerca in Ricerca cognitiva di AzureHow to work with search results in Azure Cognitive Search
 
@@ -39,7 +39,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06
 > [!NOTE]
 > Se si desidera includere file di immagine in un risultato, ad esempio una foto del prodotto o un logo, archiviarli all'esterno di Ricerca cognitiva di Azure, ma includere un campo nell'indice per fare riferimento all'URL dell'immagine nel documento di ricerca. Gli indici di esempio che supportano le immagini nei risultati includono la demo **realestate-sample-us,** presente in questa [guida introduttiva,](search-create-app-portal.md)e l'app [demo di New York City Jobs](https://aka.ms/azjobsdemo).
 
-## <a name="results-returned"></a>Risultati restituiti
+## <a name="paging-results"></a>Risultati di paging
 
 Per impostazione predefinita, il motore di ricerca restituisce fino alle prime 50 corrispondenze, come determinato dal punteggio di ricerca se la query è la ricerca full-text o in un ordine arbitrario per le query di corrispondenza esatta.
 
@@ -74,19 +74,19 @@ Si noti che il documento 2 viene recuperato due volte. Questo perché il nuovo d
 
 ## <a name="ordering-results"></a>Ordinamento dei risultati
 
-Per le query di ricerca full-text, i risultati vengono classificati automaticamente in base a un punteggio di ricerca, calcolato in base alla frequenza dei termini e alla prossimità in un documento, con punteggi più alti che vanno a documenti con più o più corrispondenze più forti in un termine di ricerca. I punteggi di ricerca mostrano un senso generale di pertinenza, rispetto ad altri documenti nello stesso set di risultati, e non è garantito che siano coerenti da una query all'altra.
+Per le query di ricerca full-text, i risultati vengono classificati automaticamente in base a un punteggio di ricerca, calcolato in base alla frequenza dei termini e alla prossimità in un documento, con punteggi più alti che vanno a documenti con più o più corrispondenze più forti in un termine di ricerca. 
 
-Quando si utilizzano le query, è possibile notare piccole discrepanze nei risultati ordinati. Ci sono diverse spiegazioni per cui questo potrebbe verificarsi.
+I punteggi di ricerca mostrano un senso generale di pertinenza, che riflette l'intensità della corrispondenza rispetto ad altri documenti nello stesso set di risultati. I punteggi non sono sempre coerenti da una query all'altra, pertanto quando si lavora con le query, è possibile notare piccole discrepanze nel modo in cui i documenti di ricerca vengono ordinati. Ci sono diverse spiegazioni per cui questo potrebbe verificarsi.
 
-| Condizione | Descrizione |
+| Causa | Descrizione |
 |-----------|-------------|
-| Volatilità dei dati | Il contenuto di un indice varia quando si aggiungono, modificano o eliminano documenti. Le frequenze dei termini cambieranno man mano che gli aggiornamenti dell'indice vengono elaborati nel tempo, influenzando i punteggi di ricerca dei documenti corrispondenti. |
-| Percorso di esecuzione della query | Per i servizi che usano più repliche, le query vengono eseguite su ogni replica in parallelo. Le statistiche dell'indice utilizzate per calcolare un punteggio di ricerca vengono calcolate in base alla replica, con i risultati uniti e ordinati nella risposta alla query. Le repliche sono per lo più specchi l'uno dell'altro, ma le statistiche possono differire a causa di piccole differenze di stato. Ad esempio, una replica potrebbe aver eliminato i documenti che contribuiscono alle proprie statistiche, che sono state unite da altre repliche. In genere, le differenze nelle statistiche per replica sono più evidenti negli indici più piccoli. |
-| Rompere un pareggio tra punteggi di ricerca identici | Le discrepanze nei risultati ordinati possono verificarsi anche quando i documenti di ricerca hanno punteggi identici. In questo caso, quando si esegue nuovamente la stessa query, non vi è alcuna garanzia quale documento verrà visualizzato per primo. |
+| Volatilità dei dati | Il contenuto dell'indice varia quando si aggiungono, modificano o eliminano documenti. Le frequenze dei termini cambieranno man mano che gli aggiornamenti dell'indice vengono elaborati nel tempo, influenzando i punteggi di ricerca dei documenti corrispondenti. |
+| Repliche multiple | Per i servizi che usano più repliche, le query vengono eseguite su ogni replica in parallelo. Le statistiche dell'indice utilizzate per calcolare un punteggio di ricerca vengono calcolate in base alla replica, con i risultati uniti e ordinati nella risposta alla query. Le repliche sono per lo più specchi l'uno dell'altro, ma le statistiche possono differire a causa di piccole differenze di stato. Ad esempio, una replica potrebbe aver eliminato i documenti che contribuiscono alle proprie statistiche, che sono state unite da altre repliche. In genere, le differenze nelle statistiche per replica sono più evidenti negli indici più piccoli. |
+| Punteggi identici | Se più documenti hanno lo stesso punteggio, uno di essi potrebbe apparire per primo.  |
 
 ### <a name="consistent-ordering"></a>Ordinamento coerente
 
-Data la flessibilità nel punteggio di ricerca, è possibile esplorare altre opzioni se la coerenza negli ordini dei risultati è un requisito dell'applicazione. L'approccio più semplice consiste nell'ordinamento in base a un valore di campo, ad esempio valutazione o data. Per gli scenari in cui si desidera eseguire l'ordinamento in base a un campo specifico, ad esempio una classificazione o una data, è possibile definire in modo esplicito [ `$orderby` un'espressione](query-odata-filter-orderby-syntax.md), che può essere applicata a qualsiasi campo indicizzato come **Ordinabile.**
+Data la flessibilità nell'ordinamento dei risultati, è possibile esplorare altre opzioni se la coerenza è un requisito dell'applicazione. L'approccio più semplice consiste nell'ordinamento in base a un valore di campo, ad esempio valutazione o data. Per gli scenari in cui si desidera eseguire l'ordinamento in base a un campo specifico, ad esempio una classificazione o una data, è possibile definire in modo esplicito [ `$orderby` un'espressione](query-odata-filter-orderby-syntax.md), che può essere applicata a qualsiasi campo indicizzato come **Ordinabile.**
 
 Un'altra opzione consiste nell'utilizzare un profilo di [punteggio personalizzato.](index-add-scoring-profiles.md) I profili di punteggio ti offrono un maggiore controllo sulla classificazione degli elementi nei risultati di ricerca, con la possibilità di mettere in evidenza le corrispondenze trovate in campi specifici. La logica di assegnazione del punteggio aggiuntiva consente di ignorare le differenze minori tra le repliche perché i punteggi di ricerca per ogni documento sono più distanti. È consigliabile [l'algoritmo](index-ranking-similarity.md) di classificazione per questo approccio.
 

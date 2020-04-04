@@ -4,12 +4,12 @@ description: Informazioni su come definire una route in uscita personalizzata ne
 services: container-service
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: fa64294939ea487b3123d1db5ef6c8a5f30fcf72
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 30b7b6bae92221b268d40977f5b299e9b0b267b0
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80129397"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637820"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>Personalizzare l'uscita del cluster con una route definita dall'utente (anteprima)Customize cluster egress with a User-Defined Route (Preview)
 
@@ -360,6 +360,12 @@ CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 az aks update -g $RG -n $AKS_NAME --api-server-authorized-ip-ranges $CURRENT_IP/32
 
 ```
+
+ Utilizzare il comando [az aks get-credentials][az-aks-get-credentials] per configurare `kubectl` la connessione al cluster Kubernetes appena creato. 
+
+ ```azure-cli
+ az aks get-credentials -g $RG -n $AKS_NAME
+ ```
 
 ### <a name="setup-the-internal-load-balancer"></a>Configurare il servizio di bilanciamento del carico interno
 

@@ -4,19 +4,19 @@ description: Abilitare Azure AD Multi-Factor Authentication combinato e la regis
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25c64d9e959b1d68de23e83e26d3495bd3939986
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f454b0296a3463d7346c2945b21162e5a38c0eb7
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75425173"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652515"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Abilita registrazione combinata delle informazioni di sicurezza (anteprima)Enable combined security information registration (preview)
 
@@ -48,7 +48,7 @@ Completare questi passaggi per abilitare la registrazione combinata:Complete the
 > A partire da marzo 2019, le opzioni di chiamata telefonica non saranno disponibili per gli utenti di Multi-Factor Authentication e SSPR nei tenant di Azure AD di prova/gratuita. I messaggi SMS non sono interessati da questa modifica. Le opzioni di chiamata telefonica saranno comunque disponibili per gli utenti nei tenant di Azure AD a pagamento.
 
 > [!NOTE]
-> Dopo aver abilitato la registrazione combinata, gli utenti che registrano o confermano il proprio numero di telefono o app per dispositivi mobili tramite la nuova esperienza di utilizzo per Multi-Factor Authentication e SSPR, se tali metodi sono abilitati in Multi-Factor Authentication e SSPR Politiche. Se quindi si disabilita questa esperienza, gli utenti che `https://aka.ms/ssprsetup` accedono alla pagina di registrazione SSPR precedente sarà necessario eseguire l'autenticazione a più fattori prima di poter accedere alla pagina.
+> Dopo aver abilitato la registrazione combinata, gli utenti che registrano o confermano il proprio numero di telefono o app per dispositivi mobili tramite la nuova esperienza di utilizzo possono utilizzarli per Multi-Factor Authentication e SSPR, se tali metodi sono abilitati nei criteri Multi-Factor Authentication e SSPR. Se quindi si disabilita questa esperienza, gli utenti che `https://aka.ms/ssprsetup` accedono alla pagina di registrazione SSPR precedente sarà necessario eseguire l'autenticazione a più fattori prima di poter accedere alla pagina.
 
 Se è stato configurato l'elenco di assegnazione da sito a area in Internet Explorer, i seguenti siti devono trovarsi nella stessa area:
 

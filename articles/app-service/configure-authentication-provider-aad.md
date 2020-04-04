@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 09/03/2019
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 4b42f0966288e4ee72b689ddce6313a41e91f13e
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: dbbe58df4f1cfe93555b494e525fad18f5b02664
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80438026"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632582"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configurare il servizio app o l'app Funzioni di Azure per usare l'account di accesso di Azure ADConfigure your App Service or Azure Functions app to use Azure AD login
 
@@ -78,7 +78,7 @@ Eseguire la procedura seguente:
 1. Dopo aver creato la registrazione dell'app, copiare **l'ID applicazione (client)** e **l'ID directory (tenant)** per un secondo momento.
 1. Selezionare **Autenticazione**. In **Concessione implicita**abilitare **i token ID** per consentire gli edidi utente OpenID Connect dal servizio app.
 1. (Facoltativo) Selezionare **Branding**. In **URL pagina iniziale**immettere l'URL dell'app del servizio app e selezionare **Salva**.
-1. Selezionare Esporre un**set** **di API** > . Incollare l'URL dell'app del servizio app e selezionare **Salva**.
+1. Selezionare Esporre un**set** **di API** > . Per l'app a tenant singolo incollare l'URL dell'app del servizio app e selezionare **Salva** e per l'app multi-tenant, incollare l'URL basato su uno dei domini tenant verificati e quindi selezionare **Salva**.
 
    > [!NOTE]
    > Questo valore è **l'URI dell'ID applicazione** della registrazione dell'app. Se l'app Web richiede l'accesso a un'API nel cloud, è necessario **l'URI dell'ID applicazione** dell'app Web quando si configura la risorsa del servizio app cloud. È possibile usare questa opzione, ad esempio, se si vuole che il servizio cloud conceda in modo esplicito l'accesso all'app Web.
@@ -133,4 +133,4 @@ Eseguire la procedura seguente:
 
 <!-- URLs. -->
 
-[Portale di Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/

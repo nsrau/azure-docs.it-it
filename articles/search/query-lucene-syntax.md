@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: d35c96657f48905f37c9ebe246d81ebb9545cf27
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1392f69bea09996e46ad4c112474f9067ff5a63d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79283134"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656906"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Lucene query syntax in Azure Cognitive Search
 
@@ -161,16 +161,17 @@ L'esempio seguente illustra le differenze. Si supponga che esista un profilo di 
 ##  <a name="regular-expression-search"></a><a name="bkmk_regex"></a> Ricerca basata su espressioni regolari  
  Una ricerca con espressione regolare trova una corrispondenza in base al contenuto incluso tra le barre "/", come indicato nella [classe RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).  
 
- Ad esempio, per trovare i documenti contenenti "motel" o "hotel", specificare `/[mh]otel/`.  Le ricerche basate su espressioni regolari vengono confrontate con parole singole.   
+ Ad esempio, per trovare i documenti contenenti "motel" o "hotel", specificare `/[mh]otel/`. Le ricerche basate su espressioni regolari vengono confrontate con parole singole.
 
 ##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a>Ricerca con caratteri jolly  
- È possibile usare una sintassi generalmente riconosciuta per ricerche con caratteri jolly per trovare più caratteri (*) o un singolo carattere (?). Si noti che il parser di query Lucene supporta l'utilizzo di questi simboli con un singolo termine, non una frase.  
+ È possibile usare una sintassi generalmente riconosciuta per ricerche con caratteri jolly per trovare più caratteri (*) o un singolo carattere (?). Si noti che il parser di query Lucene supporta l'utilizzo di questi simboli con un singolo termine, non una frase.
 
- Ad esempio, per trovare i documenti contenenti le parole con il prefisso "note", come "notebook" o "notepad", specificare "note*".  
+La ricerca del prefisso utilizza anche il carattere asterisco (`*`). Ad esempio, un'espressione di query di `search=note*` restituisce "notebook" o "notepad". La sintassi Lucene completa non è necessaria per la ricerca dei prefissi. La sintassi semplice supporta questo scenario.
+
+La ricerca `*` di `?` suffissi, dove o precede la stringa, richiede una sintassi Lucene completa e un'espressione regolare (non è possibile utilizzare un carattere ? come primo carattere di una ricerca). Dato il termine "alfanumerico",`search=/.*numeric.*/`un'espressione di query di ( ) troverà la corrispondenza.
 
 > [!NOTE]  
->  Non è possibile usare un carattere * o ? come primo carattere di una ricerca.  
->  Sulle query di ricerca con caratteri jolly non vengono eseguite analisi del testo. In fase di query, i termini della query con caratteri jolly vengono confrontati con i termini analizzati nell'indice di ricerca ed espansi.
+> Durante l'analisi delle query, le query formulate come espressioni prefisso, suffisso, carattere jolly o regolare vengono passate così com'è all'albero delle query, ignorando [l'analisi lessicale.](search-lucene-query-architecture.md#stage-2-lexical-analysis) Le corrispondenze verranno trovate solo se l'indice contiene le stringhe nel formato specificato dalla query. Nella maggior parte dei casi, è necessario un analizzatore alternativo durante l'indicizzazione che mantiene l'integrità delle stringhe in modo che i criteri di ricerca parziali e i criteri di ricerca abbiano esito positivo. Per altre informazioni, vedere [Ricerca a termine parziale nelle query di Ricerca cognitiva](search-query-partial-matching.md)di Azure.For more information, see Partial term search in Azure Cognitive Search queries .
 
 ## <a name="see-also"></a>Vedere anche  
 

@@ -780,6 +780,8 @@
           href: sql-database-managed-instance-threat-detection.md
         - name: Connettere le applicazioni
           href: sql-database-managed-instance-connect-app.md
+        - name: Creare avvisi
+          href: sql-database-managed-instance-alerts.md
     - name: Esempi
       items:
         - name: Interfaccia della riga di comando di Azure

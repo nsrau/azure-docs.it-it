@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: b48c37a6e607d121416ebae4d74e58f39670b79a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1dbcf953ad5f70c6ddf2a73eef2ea712f1e1278c
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73821921"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632075"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notifiche tramite posta elettronica per l'ottimizzazione automatica
 
@@ -39,15 +39,15 @@ Per usare Automazione di Azure, il primo passaggio consiste nel creare un accoun
 Seguire questa procedura per creare un account di Automazione di Azure tramite il metodo di selezione e configurazione dell'app Automazione dal Marketplace:
 
 - Accedere al portale di Azure
-- Fare clic su "**+ Crea una risorsa**" nell'angolo superiore sinistro
+- Fare clic su "**- Crea una risorsa**" nell'angolo in alto a sinistra
 - Cercare "**Automazione**" (premere Invio)
 - Fare clic sull'app Automazione nei risultati della ricerca
 
 ![Aggiunta di Automazione di Azure](./media/sql-database-automatic-tuning-email-notifications/howto-email-01.png)
 
-- Nel riquadro "Crea un account di Automazione" fare clic su "**Crea**"
+- Una volta all'interno del riquadro "Crea un account di automazione", fare clic su **"Crea"**
 - Inserire le informazioni necessarie: immettere un nome per questo account di automazione e selezionare le risorse di Azure e l'ID della sottoscrizione di Azure da usare per l'esecuzione dello script di PowerShell
-- Per l'opzione "**Crea un account RunAs di Azure**" selezionare **Sì** per configurare il tipo di account in cui viene eseguito lo script di PowerShell con l'aiuto di Automazione di Azure. Per altre informazioni sui tipi di account, vedere [Account RunAs](https://docs.microsoft.com/azure/automation/automation-create-runas-account)
+- Per l'opzione " Crea account RunAs di Azure ", selezionare Sì per configurare il tipo di account con cui viene eseguito lo script di PowerShell con l'aiuto di Automazione di Azure.For the "**Create Azure RunAs account**", select **Yes** to configure the type of account with which PowerShell script runs with the help of Azure Automation. Per altre informazioni sui tipi di account, vedere [Account RunAs](https://docs.microsoft.com/azure/automation/automation-create-runas-account)
 - Terminare la creazione dell'account di automazione facendo clic su **Crea**
 
 > [!TIP]
@@ -69,26 +69,26 @@ Il passaggio successivo consiste nella creazione di un runbook in Automazione di
 Per creare un nuovo runbook di Automazione di Azure, seguire questa procedura:
 
 - Accedere all'account di Automazione di Azure creato nel passaggio precedente
-- Nel riquadro dell'account di automazione fare clic sulla voce di menu "**Runbook**" sul lato sinistro per creare un nuovo runbook di Automazione di Azure con lo script di PowerShell. Per altre informazioni sulla creazione di runbook di automazione, vedere [Creazione di un nuovo runbook](../automation/manage-runbooks.md#create-a-runbook).
-- Per aggiungere un nuovo runbook, fare clic sull'opzione di menu "**+Aggiungi un runbook**" e quindi fare clic su "**Creazione rapida: Crea un nuovo runbook**".
-- Nel riquadro del runbook digitare il nome del runbook (ai fini di questo esempio si userà "**AutomaticTuningEmailAutomation**"), selezionare il tipo di runbook **PowerShell** e scrivere una descrizione di questo runbook per illustrarne lo scopo.
+- Una volta nel riquadro dell'account di automazione, fare clic sulla voce di menu "**Runbooks**" sul lato sinistro per creare un nuovo runbook di Automazione di Azure con lo script di PowerShell. Per altre informazioni sulla creazione di runbook di automazione, vedere [Creazione di un nuovo runbook](../automation/manage-runbooks.md#creating-a-runbook).
+- Per aggiungere un nuovo runbook, fare clic sull'opzione di menu "**- Aggiungi un runbook**" e quindi fare clic su "**Creazione rapida – Crea un nuovo runbook**".
+- Nel riquadro Runbook digitare il nome del runbook (ai fini di questo esempio, viene utilizzato "**AutomaticTuningEmailAutomation**"), selezionare il tipo di runbook come **PowerShell** e scrivere una descrizione di questo runbook per descriverne lo scopo.
 - Fare clic sul pulsante **Crea** per completare la creazione del nuovo runbook
 
 ![Aggiungere un runbook di Automazione di Azure](./media/sql-database-automatic-tuning-email-notifications/howto-email-03.png)
 
 Seguire questa procedura per caricare uno script di PowerShell nel runbook creato:
 
-- Nel riquadro "**Modifica runbook di PowerShell**" selezionare"**RUNBOOK**" nella struttura del menu ed espandere la visualizzazione finché non appare il nome del runbook (in questo esempio "** AutomaticTuningEmailAutomation**"). Selezionare questo runbook.
-- Nella prima riga di "Modifica runbook di PowerShell" (a partire dal numero 1), copiare e incollare il codice di script di PowerShell seguente. Questo script di PowerShell viene fornito così com'è per iniziare. Modificare lo script in base alle esigenze.
+- All'interno del riquadro "**Edit PowerShell Runbook**", selezionare "**RUNBOOKS**" nella struttura dei menu ed espandere la visualizzazione fino a visualizzare il nome del runbook (in questo esempio "**AutomaticTuningEmailAutomation**"). Selezionare questo runbook.
+- Nella prima riga del Runbook di PowerShell di modifica (a partire dal numero 1), copiare e incollare il codice di script di PowerShell seguente. Questo script di PowerShell viene fornito così com'è per iniziare. Modificare lo script in base alle esigenze.
 
 Nell'intestazione dello script di PowerShell fornito è necessario sostituire `<SUBSCRIPTION_ID_WITH_DATABASES>` con l'ID della sottoscrizione di Azure. Per informazioni su come recuperare l'ID della sottoscrizione di Azure, vedere [Getting your Azure Subscription GUID](https://blogs.msdn.microsoft.com/mschray/20../../getting-your-azure-subscription-guid-new-portal/) (Recupero del codice GUID della sottoscrizione).
 
-In caso di più sottoscrizioni, è possibile aggiungerle come delimitate da virgole alla proprietà "$subscriptions" nell'intestazione dello script.
+Nel caso di più sottoscrizioni, è possibile aggiungerle come delimitate da virgole alla proprietà "$subscriptions" nell'intestazione dello script.
 
 ```powershell
 # PowerShell script to retrieve Azure SQL Database Automatic tuning recommendations.
 #
-# Provided “as-is” with no implied warranties or support.
+# Provided "as-is" with no implied warranties or support.
 # The script is released to the public domain.
 #
 # Replace <SUBSCRIPTION_ID_WITH_DATABASES> in the header with your Azure subscription ID.
@@ -170,9 +170,9 @@ $table = $results | Format-List
 Write-Output $table
 ```
 
-Fare clic sul pulsante "**Salva**" nell'angolo superiore destro per salvare lo script. Quando si è soddisfatti dello script, fare clic sul pulsante "**Pubblica**" per pubblicare il runbook.
+Fare clic sul pulsante "**Salva**" nell'angolo in alto a destra per salvare lo script. Quando si è soddisfatti dello script, fare clic sul pulsante "**Pubblica**" per pubblicare questo runbook.
 
-Nel riquadro principale del runbook è possibile scegliere di fare clic sul pulsante "**Avvia**" per **testare** lo script. Fare clic su "**Output**" per visualizzare i risultati dello script eseguito. Questo output diventerà il contenuto del messaggio di posta elettronica. L'output dello script di esempio può essere visualizzato nella schermata seguente.
+Nel riquadro principale del runbook, è possibile scegliere di fare clic sul pulsante "**Start**" per **testare** lo script. Fare clic su "**Output**" per visualizzare i risultati dello script eseguito. Questo output diventerà il contenuto del messaggio di posta elettronica. L'output dello script di esempio può essere visualizzato nella schermata seguente.
 
 ![Eseguire i suggerimenti di ottimizzazione automatica con Automazione di Azure](./media/sql-database-automatic-tuning-email-notifications/howto-email-04.png)
 
@@ -184,44 +184,44 @@ Nel corso della procedura precedente è stato caricato in Automazione di Azure l
 
 Per completare la soluzione, come ultimo passaggio, creare un flusso di automazione in Microsoft Flow composto da tre azioni (processi):
 
-1. "**Azure Automation - Create job**" (Automazione di Azure - Creare il processo): consente di eseguire lo script di PowerShell per recuperare i suggerimenti di ottimizzazione automatica nel runbook di Automazione di Azure
-2. "**Azure Automation - Get job output**" (Automazione di Azure - Ottenere l'output del processo): consente di recuperare l'output dello script di PowerShell eseguito
-3. "**Office 365 Outlook – Send an email**" (Office 365 Outlook - Inviare un messaggio di posta elettronica): consente di inviare un messaggio di posta elettronica. I messaggi di posta elettronica vengono inviati usando l'account Office 365 dell'utente che ha creato il flusso.
+1. "**Automazione di Azure - Crea processo**" – utilizzato per eseguire lo script di PowerShell per recuperare i suggerimenti di ottimizzazione automatica all'interno del runbook di Automazione di Azure
+2. "**Automazione di Azure - Ottenere l'output del processo**" – utilizzato per recuperare l'output dallo script di PowerShell eseguito
+3. "**Office 365 Outlook – Invia un messaggio di posta elettronica**" – utilizzato per inviare posta elettronica. I messaggi di posta elettronica vengono inviati usando l'account Office 365 dell'utente che ha creato il flusso.
 
 Per altre informazioni sulle funzionalità di Microsoft Flow, vedere [Attività iniziali con Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
 
 I prerequisiti per questo passaggio comprendono la sottoscrizione di un account di [Microsoft Flow](https://flow.microsoft.com) e l'accesso. Dopo aver eseguito l'accesso alla soluzione, seguire questa procedura per configurare un **nuovo flusso**:
 
-- Accedere alla voce di menu "**Flussi personali**"
-- In Flussi personali selezionare il collegamento "**+Crea da zero**" nella parte superiore della pagina
-- Fare clic sul collegamento "**Search for hundreds of connectors and triggers**" (Cerca centinaia di connettori e trigger) nella parte inferiore della pagina
-- Nel campo di ricerca digitare "**ricorrenza**" e selezionare "**Pianificazione - Ricorrenza**" nei risultati della ricerca per pianificare l'esecuzione del processo di recapito della posta elettronica.
+- Accesso alla voce di menu "**Flussi personali**"
+- All'interno dei miei flussi, selezionare il collegamento "**- Crea da vuoto**" nella parte superiore della pagina
+- Fare clic sul collegamento "**Cerca centinaia di connettori e trigger**" nella parte inferiore della pagina
+- Nel campo di ricerca digitare "**recurrence**" e selezionare "**Pianificazione - Ricorrenza**" dai risultati della ricerca per pianificare l'esecuzione del processo di recapito della posta elettronica.
 - Nel campo Frequenza del riquadro Ricorrenza selezionare la frequenza di pianificazione per l'esecuzione del flusso, ad esempio per inviare messaggi di posta elettronica automatici ogni minuto, ora, giorno, settimana e così via.
 
 Il passaggio successivo consiste nell'aggiunta dei tre processi (creazione, acquisizione dell'output e invio del messaggio di posta elettronica) al flusso ricorrente appena creato. Per aggiungere al flusso i tre processi richiesti, seguire questa procedura:
 
 1. Creare l'azione per eseguire lo script di PowerShell per recuperare i suggerimenti di ottimizzazione
 
-   - Selezionare "**+Nuovo passaggio**", seguito da "**Aggiungi un'azione**" nel riquadro del flusso Ricorrenza
-   - Nel campo di ricerca digitare "**automation**" (automazione) e selezionare"**Azure Automation – Create job**" (Automazione di Azure - Creare il processo) nei risultati della ricerca
+   - Selezionare "**"Nuovo passaggio**", seguito da "**Aggiungi un'azione**" all'interno del riquadro del flusso Ricorrenza
+   - Nel campo di ricerca digitare "**automazione**" e selezionare "**Automazione di Azure – Crea processo**" dai risultati della ricerca
    - Nel riquadro di creazione del processo configurare le proprietà del processo. Per questa configurazione saranno necessari l'ID della sottoscrizione di Azure, il gruppo di risorse e l'account di Automazione **precedentemente annotati** dal **riquadro dell'account di Automazione**. Per altre informazioni sulle opzioni disponibili in questa sezione, vedere [Azure Automation - Create Job](https://docs.microsoft.com/connectors/azureautomation/#create-job) (Automazione di Azure - Creare il processo).
    - Completare la creazione di questa azione facendo clic su "**Salva flusso**"
 
 2. Creare un'azione per recuperare l'output dello script di PowerShell eseguito
 
-   - Selezionare "**+Nuovo passaggio**", seguito da "**Aggiungi un'azione**" nel riquadro del flusso Ricorrenza
-   - Nel campo di ricerca digitare "**automation**" (automazione) e selezionare"**Azure Automation – Get job output**" (Automazione di Azure - Ottenere l'output del processo) nei risultati della ricerca. Per altre informazioni sulle opzioni disponibili in questa sezione, vedere [Azure Automation – Get job output](https://docs.microsoft.com/connectors/azureautomation/#get-job-output) (Automazione di Azure - Ottenere l'output del processo).
+   - Selezionare "**"Nuovo passaggio**", seguito da "**Aggiungi un'azione**" all'interno del riquadro del flusso Ricorrenza
+   - Nella ricerca file di tipo "**automazione**" e selezionare "**Automazione di Azure – Ottenere l'output**del processo " dai risultati della ricerca. Per altre informazioni sulle opzioni disponibili in questa sezione, vedere [Azure Automation – Get job output](https://docs.microsoft.com/connectors/azureautomation/#get-job-output) (Automazione di Azure - Ottenere l'output del processo).
    - Compilare i campi richiesti (simile alla creazione del processo precedente): inserire l'ID della sottoscrizione, il gruppo di risorse e un account di Automazione (come specificati nel riquadro dell'account di Automazione)
-   - Fare clic all'interno del campo "**ID processo**" per consentire la visualizzazione del menu "**Contenuto dinamico**". In questo menu selezionare l'opzione "**ID processo**".
+   - Fare clic all'interno del campo "**JOB ID**" per visualizzare il menu "**Contenuto dinamico**". All'interno di questo menu, selezionare l'opzione "**JOB ID**".
    - Completare la creazione di questa azione facendo clic su "**Salva flusso**"
 
 3. Creare l'azione per inviare messaggi di posta elettronica mediante l'integrazione di Office 365
 
-   - Selezionare "**+Nuovo passaggio**", seguito da "**Aggiungi un'azione**" nel riquadro del flusso Ricorrenza
-   - Nel campo di ricerca digitare "**send an email**" (inviare un messaggio di posta elettronica) e selezionare"**Office 365 Outlook - Send an email**" (Office 365 Outlook - Inviare un messaggio di posta elettronica) nei risultati della ricerca
-   - Nel campo "**A**" digitare l'indirizzo di posta elettronica a cui inviare il messaggio di notifica
-   - Nel campo "**Oggetto**" digitare l'oggetto del messaggio di posta elettronica, ad esempio "Notifica tramite posta elettronica dei suggerimenti di ottimizzazione automatica"
-   - Fare clic all'interno del campo "**Corpo**" per consentire la visualizzazione del menu "**Contenuto dinamico**". In questo menu, sotto "**Get job output**" (Ottenere l'output del processo), selezionare "**Contenuto**"
+   - Selezionare "**"Nuovo passaggio**", seguito da "**Aggiungi un'azione**" all'interno del riquadro del flusso Ricorrenza
+   - Nel file di ricerca digitare "**invia un messaggio di posta elettronica**" e selezionare " Office**365 Outlook – Invia un messaggio di posta elettronica**" dai risultati della ricerca
+   - Nel campo "**A**" digitare l'indirizzo e-mail a cui è necessario inviare l'e-mail di notifica
+   - Nel campo "**Oggetto**" digitare l'oggetto del messaggio di posta elettronica, ad esempio "Notifica e-mail di raccomandazioni di ottimizzazione automatica"
+   - Fare clic all'interno del campo "**Body**" per visualizzare il menu "**Contenuto dinamico**". All'interno di questo menu, in "**Ottieni output di lavoro**", selezionare "**Contenuto**"
    - Completare la creazione di questa azione facendo clic su "**Salva flusso**"
 
 > [!TIP]
@@ -232,7 +232,7 @@ Si è così conclusa la procedura per configurare il flusso di lavoro del proces
 
 ![Visualizzare il flusso delle notifiche tramite posta elettronica per l'ottimizzazione automatica](./media/sql-database-automatic-tuning-email-notifications/howto-email-05.png)
 
-Per testare il flusso, fare clic su "**Esegui ora**" nell'angolo superiore destro all'interno del riquadro di flusso.
+Per testare il flusso, fare clic su "**Esegui ora**" nell'angolo superiore destro all'interno del riquadro del flusso.
 
 Le statistiche di esecuzione dei processi automatizzati, con esito positivo delle notifiche di posta elettronica inviate, possono essere visualizzate nel riquadro Analisi di flusso.
 

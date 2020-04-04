@@ -4,19 +4,19 @@ description: Informazioni su come configurare l'autenticazione basata su certifi
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b57c4f474b0b9def08005f32f48225d36ea8cf1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3a6c44a8253c81b44d02351b2df9c943d9f358f8
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74848834"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654348"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introduzione all'autenticazione basata su certificati di Azure Active Directory
 
@@ -40,7 +40,7 @@ Per configurare l'autenticazione basata su certificati, devono essere soddisfatt
 - L'autorità di certificazione radice e tutte le autorità di certificazione intermedie devono essere configurate in Azure Active Directory.
 - Ogni autorità di certificazione deve avere un elenco di revoche di certificati (Certificate Revocation List o CRL) a cui si possa fare riferimento tramite un URL Internet.
 - È necessario che in Azure Active Directory sia configurata almeno un'autorità di certificazione. I passaggi correlati sono descritti nella sezione [Configure the certificate authorities](#step-2-configure-the-certificate-authorities) (Configurare le autorità di certificazione).
-- Per i client Exchange ActiveSync, il certificato client deve contenere l'indirizzo email instradabile dell'utente in Exchange online, nel nome dell'entità o nel nome RFC822 del campo Nome alternativo soggetto. Azure Active Directory esegue il mapping del valore RFC822 all'attributo dell'indirizzo Proxy nella directory.
+- Per i client Exchange ActiveSync, il certificato client deve avere l'indirizzo di posta elettronica instradabile dell'utente in Exchange online nel nome dell'entità o il valore nome RFC822 del campo Nome alternativo soggetto. Azure Active Directory esegue il mapping del valore RFC822 all'attributo dell'indirizzo Proxy nella directory.
 - Il dispositivo client deve avere accesso ad almeno un'autorità di certificazione che emetta i certificati client.
 - È necessario che al client sia stato rilasciato un certificato client per l'autenticazione.
 

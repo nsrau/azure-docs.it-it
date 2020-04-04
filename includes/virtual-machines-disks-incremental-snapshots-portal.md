@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/12/2020
+ms.date: 04/02/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8f2e2081ee31e2ce7b21677bd261ed7eda705334
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: de0cf260207747f4acb02a377819a13de8b8ba22
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79486045"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80628404"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
 
@@ -26,9 +26,8 @@ ms.locfileid: "79486045"
 
 ## <a name="portal"></a>Portale
 
-Per creare e configurare snapshot incrementali nel portale di [https://aka.ms/incrementalsnapshots](https://aka.ms/incrementalsnapshots)Azure globale, è necessario usare il collegamento seguente: . La creazione incrementale di snapshot non è ancora disponibile nel portale globale di Azure.Incremental snapshot creation is not yet available in the global Azure portal.
 
-1. Accedere al portale di [Azure](https://aka.ms/incrementalsnapshots) con il collegamento fornito e passare al disco da creare per l'istantanea.
+1. Accedere al portale di [Azure](https://portal.azure.com/) e passare al disco da creare per l'istantanea.
 1. Sul disco, selezionare **Crea un'istantanea**
 
     :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-snapshot-button-incremental.png" alt-text="Screenshot. Il blade del disco, con l'opzione di creazione di un'istantanea evidenziata, in quanto è ciò che è necessario selezionare.":::

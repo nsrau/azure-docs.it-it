@@ -5,15 +5,15 @@ services: active-directory
 author: msaburnley
 ms.service: active-directory
 ms.topic: include
-ms.date: 11/11/2019
+ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: c73a62b2d5feeae42a5ea35c88073dd5fcc0d78c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7fd716be397d9ef6b9d6132cd4470f653f3cea0f
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77192804"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655960"
 ---
 ## <a name="for-users-in-your-directory"></a>Per gli utenti nella directory
 
@@ -153,7 +153,7 @@ Attenersi alla seguente procedura per aggiungere approvatori dopo aver seleziona
 
     La giustificazione è visibile agli altri approvatori e al richiedente.
 
-### <a name="2-stage-approval-preview"></a>Approvazione in due fasi (anteprima)2-stage approval (Preview)
+### <a name="2-stage-approval"></a>Approvazione in 2 fasi
 
 Se è stata selezionata un'approvazione in due fasi, sarà necessario aggiungere un secondo responsabile approvazione.
 

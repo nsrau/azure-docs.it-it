@@ -4,19 +4,19 @@ description: Passaggi e indicazioni per aggiornare il server Azure Multi-Factor 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/12/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 756c45541907c52448805376e1b054180c31fdf5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f242b4a7e984ceeb183547cb3a949927f3c91da
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74848103"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653108"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Aggiornare il server Azure Multi-Factor Authentication alla versione più recente
 
@@ -102,7 +102,7 @@ Queste istruzioni sono valide solo se si esegue il server Multi-Factor Authentic
 
    Dopo avere completato questo passaggio, la verifica in due passaggi tramite il server MFA non sarà disponibile in questo cluster AD FS fino al completamento del passaggio 8.
 
-4. Annullare la registrazione della versione precedente della scheda AD FS eseguendo lo script di PowerShell Unregister-MultiFactorAuthenticationAdfsAdapter.ps1. Assicurarsi che il parametro *-Name* ("WindowsAzureMultiFactorAuthentication" o "AzureMFAServerAuthentication") corrisponda al nome visualizzato nel passaggio 3. Questo si applica a tutti i server nello stesso cluster AD FS poiché è presente una configurazione centrale.
+4. Annullare la registrazione della versione precedente della scheda AD FS eseguendo lo script di PowerShell Unregister-MultiFactorAuthenticationAdfsAdapter.ps1. Verificare che il parametro *-Name* (WindowsAzureMultiFactorAuthentication" o "AzureMFAServerAuthentication") corrisponda al nome visualizzato nel passaggio 3. Questo si applica a tutti i server nello stesso cluster AD FS poiché è presente una configurazione centrale.
 5. Registrare la nuova scheda AD FS eseguendo lo script di PowerShell Register-MultiFactorAuthenticationAdfsAdapter.ps1. Questo si applica a tutti i server nello stesso cluster AD FS poiché è presente una configurazione centrale.
 6. Riavviare il nuovo servizio AD FS su ogni server rimosso dalla farm AD FS.
 7. Aggiungere nuovamente i server aggiornati alla farm AD FS e rimuovere gli altri server della farm.

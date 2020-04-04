@@ -8,15 +8,15 @@ ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: bc5371ccbd3ba66117d5c613090b70ce7f07d51e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95373ab8ff78c5bcb856e6d7e6d67d8525cd3f7e
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78298842"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655124"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Aggiungere una macchina virtuale Ubuntu Linux a un dominio gestito di Servizi di dominio Azure ADJoin an Ubuntu Linux virtual machine to an Azure AD Domain Services managed domain
 
@@ -29,7 +29,7 @@ Questo articolo illustra come aggiungere una macchina virtuale Linux Ubuntu a un
 Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti:
 
 * Una sottoscrizione di Azure attiva.
-    * Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * Se non si dispone di una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un tenant di Azure Active Directory associato alla sottoscrizione, sincronizzato con una directory locale o con una directory solo cloud.
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
 * Un dominio gestito di Azure Active Directory Domain Services abilitato e configurato nel tenant di Azure AD.
@@ -42,8 +42,8 @@ Se si dispone di una macchina virtuale Ubuntu Linux esistente in Azure, connette
 
 Se è necessario creare una macchina virtuale Ubuntu Linux o si vuole creare una macchina virtuale di test da usare con questo articolo, è possibile usare uno dei metodi seguenti:If you need to create an Ubuntu Linux VM, or want to create a test VM for use with this article, you can use one of the following methods:
 
-* [Portale di Azure](../virtual-machines/linux/quick-create-portal.md)
-* [Interfaccia della riga di comando di AzureAzure](../virtual-machines/linux/quick-create-cli.md)
+* [Azure portal](../virtual-machines/linux/quick-create-portal.md)
+* [Interfaccia della riga di comando di Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 Quando si crea la macchina virtuale, prestare attenzione alle impostazioni della rete virtuale per assicurarsi che la macchina virtuale possa comunicare con il dominio gestito di Servizi di dominio Active Directory di Azure:When you create the VM, previene attenzione alle impostazioni della rete virtuale per assicurarsi che la macchina virtuale possa comunicare con il dominio gestito di Azure AD DS:When you create the VM, pre-attention to the virtual network settings to make sure that the VM can communicate

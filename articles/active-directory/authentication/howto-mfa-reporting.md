@@ -4,19 +4,19 @@ description: Viene descritto come usare la funzionalità dei report di Azure Mul
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/30/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b47e6bac031a5f2cffc8734fee976fbf8dadc666
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5d5354f5bca7a4c9ab00066167ad19890536629
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80129091"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653612"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Report in Azure Multi-Factor Authentication
 
@@ -32,7 +32,7 @@ Azure Multi-Factor Authentication offre diversi report che possono essere usati 
 
 ## <a name="view-mfa-reports"></a>Visualizzare i report MFA
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. A sinistra, selezionare **Azure Active Directory** > **Security** > **MFA**.
 3. Selezionare il report che si vuole visualizzare.
 
@@ -90,7 +90,7 @@ I report delle attività di accesso per l'autenticazione a più fattori permetto
       - Chiamata telefonica reindirizzata alla segreteria
       - Numero di telefono in formato non valido
       - Errore del servizio
-      - Non è stato possibile raggiungere il telefono dell'utente
+      - impossibile raggiungere il telefono dell'utente
       - Non è stato possibile inviare la notifica dell'app per dispositivi mobili al dispositivo
       - Non è stato possibile inviare la notifica dell'app per dispositivi mobili
       - L'utente ha rifiutato l'autenticazione

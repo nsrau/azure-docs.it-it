@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b5d326d02587d6b5bd8fd73dcccfefdb13c47d57
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 26c5c5b31d5f3f9e1a642c0bafb947190e479055
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500930"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632623"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Risoluzione dei problemi relativi ai runbook
 
@@ -33,7 +33,7 @@ Quando si verificano errori durante l'esecuzione di runbook in Automazione di Az
 
 3. **Assicurarsi che i nodi e l'area di lavoro di automazione dispongano dei moduli necessari.** 
 
-    Se il runbook importa dei moduli, verificare che siano disponibili per l'account Automation utilizzando la procedura elencata in [Importa moduli](../shared-resources/modules.md#import-modules). Aggiornare i moduli alla versione più recente seguendo le istruzioni in Aggiornare i moduli di [Azure in Automazione di Azure.](..//automation-update-azure-modules.md) Per ulteriori informazioni sulla risoluzione dei problemi, consultate [Risoluzione dei problemi relativi ai moduli.](shared-resources.md#modules)
+    Se il runbook importa dei moduli, verificare che siano disponibili per l'account Automation utilizzando la procedura elencata in [Importa moduli](../shared-resources/modules.md#importing-modules). Aggiornare i moduli alla versione più recente seguendo le istruzioni in Aggiornare i moduli di [Azure in Automazione di Azure.](..//automation-update-azure-modules.md) Per ulteriori informazioni sulla risoluzione dei problemi, consultate [Risoluzione dei problemi relativi ai moduli.](shared-resources.md#modules)
 
 4. **Eseguire questa operazione se il runbook è sospeso o si verifica un errore imprevisto.**
 
@@ -284,7 +284,7 @@ Questo errore si verifica a causa di uno dei seguenti problemi:
 
 ### <a name="resolution"></a>Risoluzione
 
-* Limite di memoria, Socket di rete. I modi suggeriti per lavorare entro i limiti di memoria sono suddividere il carico di lavoro tra più runbook, elaborare meno dati in memoria, evitare di scrivere output non necessari dai runbook e considerare quanti checkpoint vengono scritti nel flusso di lavoro di PowerShell runbook. Utilizzare il metodo clear, ad `$myVar.clear`esempio , `[GC]::Collect` per cancellare le variabili e utilizzarle per eseguire immediatamente la procedura di Garbage Collection. in modo da ridurre il footprint della memoria durante l'esecuzione dei runbook.
+* Limite di memoria, Socket di rete. I modi suggeriti per lavorare entro i limiti di memoria sono suddividere il carico di lavoro tra più runbook, elaborare meno dati in memoria, evitare di scrivere output non necessario dai runbook e considerare quanti checkpoint vengono scritti nei runbook del flusso di lavoro di PowerShell.Suggestd ways to work within the memory limits is to split the workload among multiple runbooks, process less data in memory, avoid writing unnecessary output from your runbooks,, and consider how many checkpoints are written into your PowerShell workflow runbooks. Utilizzare il metodo clear, ad `$myVar.clear`esempio , `[GC]::Collect` per cancellare le variabili e utilizzarle per eseguire immediatamente la procedura di Garbage Collection. in modo da ridurre il footprint della memoria durante l'esecuzione dei runbook.
 
 * Modulo incompatibile. Aggiornare i moduli di Azure seguendo la procedura descritta in Come aggiornare i moduli di [Azure PowerShell in Automazione di Azure.Update](../automation-update-azure-modules.md)your Azure modules by following the steps in How to update Azure PowerShell modules in Azure Automation .
 

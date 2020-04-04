@@ -7,13 +7,13 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 02/04/2020
-ms.openlocfilehash: e2e1ddd031041f49107545cd0b3d3de4eaebcd6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: a5244086c185c111762496086f8044f12f52be14
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77472129"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632584"
 ---
 # <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Risolvere i problemi relativi ai flussi di dati in Azure Data FactoryTroubleshoot data flows in Azure Data Factory
 
@@ -55,6 +55,18 @@ Questo articolo illustra i metodi di risoluzione dei problemi comuni per i fluss
 - **Messaggio**: Il nome della colonna deve essere specificato nella query, impostare un alias se si utilizza una funzione SQL
 - **Cause**: non è stato specificato alcun nome di colonna
 - **Raccomandazione**: Impostare un alias se si utilizza una funzione SQL come min()/max(), ecc.
+
+### <a name="error-code-getcommand-outputasync-failed"></a>Codice di errore: GetCommand OutputAsync non riuscito
+
+- **Messaggio:** Durante il debug del flusso di dati e l'anteprima dei dati: GetCommand OutputAsync non riuscito con ...
+- **Cause**: Si tratta di un errore del servizio back-end. È possibile ripetere l'operazione e riavviare la sessione di debug.
+- **Consiglio:** se riprovare e riavviare non risolvono il problema, contattare il supporto tecnico.
+
+### <a name="error-code-hit-unexpected-exception-and-execution-failed"></a>Codice di errore: Hit unexpected exception e l'esecuzione non riuscita
+
+- **Messaggio:** Durante l'esecuzione dell'attività Flusso di dati: l'eccezione imprevista e l'esecuzione non è riuscita.
+- **Cause**: Si tratta di un errore del servizio back-end. È possibile ripetere l'operazione e riavviare la sessione di debug.
+- **Consiglio:** se riprovare e riavviare non risolvono il problema, contattare il supporto tecnico.
 
 ## <a name="general-troubleshooting-guidance"></a>Indicazioni generali per la risoluzione dei problemi
 

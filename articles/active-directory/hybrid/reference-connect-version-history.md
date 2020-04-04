@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/01/2020
+ms.date: 04/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01956c2fee1c15bc86e8d80aa05c70db647bf593
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 60dca30496aa17ad7add00ca4eca914cb58fddd7
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80616872"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655970"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -57,7 +57,7 @@ Non tutte le versioni di Azure AD Connect saranno disponibili per l'aggiornament
 ### <a name="functional-changes-adsyncautoupgrade"></a>Modifiche funzionali ADSyncAutoUpgrade 
 
 - Aggiunto il supporto per la funzionalità mS-DS-ConsistencyGuid per gli oggetti gruppo. In questo modo è possibile spostare gruppi tra foreste o riconnettere gruppi in Active Directory ad Azure AD in cui l'objectID del gruppo di Active Directory è stato modificato, ad esempio quando un server AD viene ricostruito dopo una calamità. Per ulteriori informazioni, vedere [Spostamento di gruppi tra foreste.](how-to-connect-migrate-groups.md)
-- L'attributo mS-DS-ConsistencyGuid viene impostato automaticamente nei gruppi sincronizzati e non è necessario eseguire alcuna operazione per abilitare questa funzionalità. 
+- L'attributo mS-DS-ConsistencyGuid viene impostato automaticamente su tutti i gruppi sincronizzati e non è necessario eseguire alcuna operazione per abilitare questa funzionalità. 
 - Rimosso Get-ADSyncRunProfile perché non è più in uso. 
 - È stato modificato l'avviso visualizzato quando si tenta di utilizzare un account Enterprise Admin o Domain Admin per l'account del connettore di Servizi di dominio Active Directory per fornire più contesto. 
 - Aggiunto un nuovo cmdlet per rimuovere oggetti dallo spazio connettore il vecchio strumento CSDelete.exe viene rimosso e viene sostituito con il nuovo cmdlet Remove-ADSyncCSObject. Il cmdlet Remove-ADSyncCSObject accetta un csObject come input. Questo oggetto può essere recuperato utilizzando il cmdlet Get-ADSyncCSObject.

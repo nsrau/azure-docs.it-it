@@ -1,38 +1,71 @@
 ---
-title: Abbina modelli e caratteri speciali
+title: Termini, modelli e caratteri speciali parziali
 titleSuffix: Azure Cognitive Search
-description: Usare query con caratteri jolly e prefissi per trovare una corrispondenza in termini interi o parziali in una richiesta di query di Ricerca cognitiva di Azure.Use wildcard and prefix queries to match on whole or partial terms in an Azure Cognitive Search query request. I modelli di corrispondenza che includono caratteri speciali possono essere risolti utilizzando la sintassi di query completa e analizzatori personalizzati.
+description: Usare query con caratteri jolly, espressioni e prefissi per trovare una corrispondenza in termini interi o parziali in una richiesta di query di Ricerca cognitiva di Azure.Use wildcard, regex, and prefix queries to match on whole or partial terms in an Azure Cognitive Search query request. I modelli di corrispondenza che includono caratteri speciali possono essere risolti utilizzando la sintassi di query completa e analizzatori personalizzati.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/14/2020
-ms.openlocfilehash: f78ba5b351a3da46d7b8b3780cf00772c4f3b2ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: 3e0e0291ff855b4502224466e17696a4fe668c2a
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289312"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655991"
 ---
-# <a name="match-on-patterns-and-special-characters-dashes"></a>Corrispondenza su modelli e caratteri speciali (trattini)
+# <a name="partial-term-search-in-azure-cognitive-search-queries-wildcard-regex-fuzzy-search-patterns"></a>Ricerca a termine parziale nelle query di Ricerca cognitiva di Azure (caratteri jolly, espressione regolare, ricerca fuzzy, modelli)Partial term search in Azure Cognitive Search queries (wildcard, regex, fuzzy search, patterns)
 
-Per le query che`-, *, (, ), /, \, =`includono caratteri speciali ( ) o per modelli di query basati su termini parziali all'interno di un termine più ampio, sono in genere necessari passaggi di configurazione aggiuntivi per garantire che l'indice contenga il contenuto previsto nel formato corretto. 
+Una *ricerca a termine parziale* si riferisce a query costituite da frammenti di termini, ad esempio le prime, le ultime o le parti interne di una stringa, o un modello costituito da una combinazione di frammenti, spesso separati da caratteri speciali, ad esempio trattini o barre. I casi d'uso comuni includono l'esecuzione di query per parti di un numero di telefono, URL, persone o codici prodotto o parole composte.
 
-Per impostazione predefinita, `+1 (425) 703-6214` un numero `"1"` `"425"`di `"703"` `"6214"`telefono come è tokenizzato come , , , , . Come si può immaginare, la ricerca su `"3-62"`termini parziali che includono un trattino, avrà esito negativo perché tale contenuto non esiste effettivamente nell'indice. 
+La ricerca parziale può essere problematica perché l'indice stesso in genere non archivia i termini in modo da favorire la corrispondenza parziale di stringa e pattern. Durante la fase di analisi del testo dell'indicizzazione, i caratteri speciali vengono eliminati, le stringhe composte e composte vengono suddivise, causando l'esito negativo delle query di modello quando non viene trovata alcuna corrispondenza. Ad esempio, un `+1 (425) 703-6214`numero di `"1"`telefono `"425"` `"703"`come `"6214"`(tokenizzato come , `"3-62"` , , ) non verrà visualizzato in una query perché tale contenuto non esiste effettivamente nell'indice. 
 
-Quando è necessario cercare stringhe parziali o caratteri speciali, è possibile eseguire l'override dell'analizzatore predefinito con un analizzatore personalizzato che opera in base a regole di tokenizzazione più semplici, conservando interi termini, necessari quando le stringhe di query includono parti di un termine o di uno speciale personaggi. Facendo un passo indietro, l'approccio si presenta così:
+La soluzione consiste nell'archiviare versioni intatte di queste stringhe nell'indice in modo che è possibile supportare scenari di ricerca parziale. La creazione di un campo aggiuntivo per una stringa intatta, oltre a utilizzare un analizzatore di conservazione del contenuto, è la base della soluzione.
 
-+ Scegliere un analizzatore predefinito o definire un analizzatore personalizzato che produce l'output desiderato
+## <a name="what-is-partial-search-in-azure-cognitive-search"></a>Ricerca parziale in Ricerca cognitiva di AzureWhat is partial search in Azure Cognitive Search
+
+In Ricerca cognitiva di Azure la ricerca parziale è disponibile nei moduli seguenti:In Azure Cognitive Search, partial search is available in these forms:
+
++ [Ricerca dei](query-simple-syntax.md#prefix-search)prefissi , ad `search=cap*`esempio , corrispondente a "Cap'n Jack's Waterfront Inn" o "Gacc Capital". È possibile utilizzare la sintassi di query simply per la ricerca dei prefissi.
++ [Ricerca con caratteri jolly](query-lucene-syntax.md#bkmk_wildcard) o [Espressioni regolari](query-lucene-syntax.md#bkmk_regex) che cercano un modello o parti di una stringa incorporata, incluso il suffisso. Ad esempio, dato il termine "alfanumerico",`search=/.*numeric.*/`è necessario utilizzare una ricerca con caratteri jolly ( ) per una corrispondenza di query suffisso su tale termine. I caratteri jolly e le espressioni regolari richiedono la sintassi Lucene completa.
+
+Quando uno dei tipi di query precedenti è necessario nell'applicazione client, seguire i passaggi descritti in questo articolo per verificare l'esito necessario nell'indice.
+
+## <a name="solving-partial-search-problems"></a>Risoluzione di problemi di ricerca parziale
+
+Quando è necessario eseguire la ricerca in base a modelli o caratteri speciali, è possibile eseguire l'override dell'analizzatore predefinito con un analizzatore personalizzato che opera in base a regole di tokenizzazione più semplici, mantenendo l'intera stringa. Facendo un passo indietro, l'approccio si presenta così:
+
++ Definire un campo per archiviare una versione intatta della stringa (presupponendo che si desideri analizzare e non analizzare il testo)
++ Scegliere un analizzatore predefinito o definire un analizzatore personalizzato per l'output di una stringa intatta
 + Assegnare l'analizzatore al campo
-+ Compilare l'indice e testare
-
-In questo articolo vengono illustrate queste attività. L'approccio descritto di seguito è utile in altri scenari: anche le query con caratteri jolly e espressioni regolari richiedono termini interi come base per i criteri di ricerca. 
++ Compilare e testare l'indiceBuild and test the index
 
 > [!TIP]
 > La valutazione degli analizzatori è un processo iterativo che richiede frequenti ricompilazioni dell'indice. È possibile semplificare questo passaggio utilizzando Postman, le API REST per [Crea indice](https://docs.microsoft.com/rest/api/searchservice/create-index), [Elimina indice,](https://docs.microsoft.com/rest/api/searchservice/delete-index)[Carica documenti](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)e [Cerca documenti](https://docs.microsoft.com/rest/api/searchservice/search-documents). Per carica documenti, il corpo della richiesta deve contenere un piccolo set di dati rappresentativi che si desidera testare ,ad esempio un campo con numeri di telefono o codici prodotto. Con queste API nella stessa raccolta Postman, è possibile scorrere rapidamente questi passaggi.
 
-## <a name="choosing-an-analyzer"></a>Scelta di un analizzatore
+## <a name="duplicate-fields-for-different-scenarios"></a>Campi duplicati per scenari diversi
+
+Gli analizzatori vengono assegnati in base al campo, il che significa che è possibile creare campi nell'indice per ottimizzare in scenari diversi. In particolare, è possibile definire "featureCode" e "featureCodeRegex" per supportare la normale ricerca full-text nel primo e criteri di ricerca avanzati nel secondo.
+
+```json
+{
+  "name": "featureCode",
+  "type": "Edm.String",
+  "retrievable": true,
+  "searchable": true,
+  "analyzer": null
+},
+{
+  "name": "featureCodeRegex",
+  "type": "Edm.String",
+  "retrievable": true,
+  "searchable": true,
+  "analyzer": "my_customanalyzer"
+},
+```
+
+## <a name="choose-an-analyzer"></a>Scegliere un analizzatore
 
 Quando si sceglie un analizzatore che produce token a termine completo, gli analizzatori seguenti sono scelte comuni:When choosing an analyzer that produces whole-term tokens, the following analyzers are common choices:
 
@@ -42,7 +75,9 @@ Quando si sceglie un analizzatore che produce token a termine completo, gli anal
 | [whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Separa solo gli spazi vuoti. I termini che includono trattini o altri caratteri vengono considerati come un singolo token. |
 | [analizzatore personalizzato](index-add-custom-analyzers.md) | (scelta consigliata) La creazione di un analizzatore personalizzato consente di specificare sia il tokenizer che il filtro token. Gli analizzatori precedenti devono essere utilizzati così come sono. Un analizzatore personalizzato consente di scegliere i tokenizer e i filtri token da usare. <br><br>Una combinazione consigliata è il [tokenizer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) con parole chiave con un [filtro token minuscolo.](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html) Di per sé, [l'analizzatore](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) di parole chiave predefinito non minuscola alcun testo maiuscolo, che può causare l'esito negativo delle query. Un analizzatore personalizzato fornisce un meccanismo per l'aggiunta del filtro token minuscolo. |
 
-Se si usa uno strumento di test API Web come Postman, è possibile aggiungere la [chiamata REST di Test Analyzer](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) per esaminare l'output in formato token. Dato un indice esistente e un campo contenente trattini o termini parziali, è possibile provare vari analizzatori su termini specifici per vedere quali token vengono emessi.  
+Se si usa uno strumento di test API Web come Postman, è possibile aggiungere la [chiamata REST di Test Analyzer](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) per esaminare l'output in formato token.
+
+È necessario disporre di un indice esistente con cui utilizzare. Dato un indice esistente e un campo contenente trattini o termini parziali, è possibile provare vari analizzatori su termini specifici per vedere quali token vengono emessi.  
 
 1. Controllare l'analizzatore Standard per vedere come i termini sono tokenizzati per impostazione predefinita.
 
@@ -105,15 +140,15 @@ Se si usa uno strumento di test API Web come Postman, è possibile aggiungere la
     }
     ```
 > [!Important]
-> Tenere presente che i parser di query spesso i termini minuscoli in un'espressione di ricerca durante la creazione dell'albero delle query. Se si utilizza un analizzatore che non immette input di testo minuscoli e non si ottengono i risultati previsti, questo potrebbe essere il motivo. La soluzione consiste nell'aggiungere un filtro token lwower-case.
+> Tenere presente che i parser di query spesso i termini minuscoli in un'espressione di ricerca durante la creazione dell'albero delle query. Se si utilizza un analizzatore che non immette input di testo minuscoli e non si ottengono i risultati previsti, questo potrebbe essere il motivo. La soluzione consiste nell'aggiungere un filtro token minuscolo, come descritto nella sezione "Utilizzare analizzatori personalizzati" di seguito.
 
-## <a name="analyzer-definitions"></a>Definizioni degli analizzatori
+## <a name="configure-an-analyzer"></a>Configurare un analizzatore
  
 Sia che si stia valutando gli analizzatori o si eseguo con una configurazione specifica, sarà necessario specificare l'analizzatore nella definizione del campo ed eventualmente configurare l'analizzatore stesso se non si utilizza un analizzatore incorporato. Quando si scambiano analizzatori, in genere è necessario ricompilare l'indice (eliminare, ricreare e ricaricare). 
 
 ### <a name="use-built-in-analyzers"></a>Usare analizzatori incorporatiUse built-in analyzers
 
-Gli analizzatori predefiniti o incorporati possono essere `analyzer` specificati per nome in una proprietà di una definizione di campo, senza alcuna configurazione aggiuntiva nell'indice. Nell'esempio seguente viene illustrato `whitespace` come impostare l'analizzatore su un campo.
+Gli analizzatori predefiniti o incorporati possono essere `analyzer` specificati per nome in una proprietà di una definizione di campo, senza alcuna configurazione aggiuntiva nell'indice. Nell'esempio seguente viene illustrato `whitespace` come impostare l'analizzatore su un campo. Per ulteriori informazioni sugli analizzatori predefiniti disponibili, vedere [Elenco analizzatori predefiniti](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
 
 ```json
     {
@@ -125,16 +160,15 @@ Gli analizzatori predefiniti o incorporati possono essere `analyzer` specificati
       "analyzer": "whitespace"
     }
 ```
-Per ulteriori informazioni su tutti gli analizzatori predefiniti disponibili, vedere [Elenco analizzatori predefiniti](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
 
 ### <a name="use-custom-analyzers"></a>Usare analizzatori personalizzatiUse custom analyzers
 
-Se si utilizza un [analizzatore personalizzato,](index-add-custom-analyzers.md)definirlo nell'indice con una combinazione definita dall'utente di tokenizer, tokenfilter, con possibili impostazioni di configurazione. Successivamente, fare riferimento a esso in una definizione di campo, proprio come si farebbe con un analizzatore incorporato.
+Se si utilizza un [analizzatore personalizzato,](index-add-custom-analyzers.md)definirlo nell'indice con una combinazione definita dall'utente di tokenizer, filtro token, con possibili impostazioni di configurazione. Successivamente, fare riferimento a esso in una definizione di campo, proprio come si farebbe con un analizzatore incorporato.
 
 Quando l'obiettivo è la tokenizzazione a termine intero, è consigliabile un analizzatore personalizzato costituito da un **tokenizer** per parole chiave e da un filtro token **minuscolo.**
 
 + Il tokenizer della parola chiave crea un singolo token per l'intero contenuto di un campo.
-+ Il filtro token minuscolo trasforma le lettere maiuscole in testo minuscolo. I parser di query in genere minuscolo qualsiasi input di testo in maiuscolo. La cassa inferiore omogeneizza gli input con i termini in formato token.
++ Il filtro token minuscolo trasforma le lettere maiuscole in testo minuscolo. I parser di query in genere minuscolo qualsiasi input di testo in maiuscolo. Il minuscolo omogena gli input con i termini in formato token.
 
 L'esempio seguente illustra un analizzatore personalizzato che fornisce il tokenizer con parole chiave e un filtro token minuscolo.
 
@@ -169,6 +203,22 @@ L'esempio seguente illustra un analizzatore personalizzato che fornisce il token
 
 > [!NOTE]
 > Il `keyword_v2` tokenizer `lowercase` e il filtro token sono noti al sistema e utilizzano le configurazioni predefinite, motivo per cui è possibile farvi riferimento per nome senza doverli prima definire.
+
+## <a name="build-and-test"></a>Compilare e testare
+
+Dopo aver definito un indice con analizzatori e definizioni di campo che supportano lo scenario, caricare documenti con stringhe rappresentative in modo da poter testare query su stringhe parziali. 
+
+Nelle sezioni precedenti è stata illustrata la logica. Questa sezione illustra ogni API da chiamare durante il test della soluzione. Come indicato in precedenza, se si utilizza uno strumento di test Web interattivo, ad esempio Postman, è possibile eseguire rapidamente queste attività.
+
++ [Elimina indice](https://docs.microsoft.com/rest/api/searchservice/delete-index) rimuove un indice esistente con lo stesso nome in modo che sia possibile ricrearlo.
+
++ [Crea indice](https://docs.microsoft.com/rest/api/searchservice/create-index) crea la struttura dell'indice nel servizio di ricerca, incluse le definizioni dell'analizzatore e i campi con una specifica dell'analizzatore.
+
++ [Carica documenti](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) importa i documenti con la stessa struttura dell'indice, nonché il contenuto ricercabile. Dopo questo passaggio, l'indice è pronto per eseguire una query o un test.
+
++ [Test Analyzer](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) è stato introdotto in [Choose an analyzer](#choose-an-analyzer). Testare alcune delle stringhe nell'indice usando una varietà di analizzatori per comprendere come vengono tokenizzati i termini.
+
++ [Cerca documenti](https://docs.microsoft.com/rest/api/searchservice/search-documents) viene illustrato come costruire una richiesta di query, utilizzando una [sintassi semplice](query-simple-syntax.md) o [sintassi Lucene completa](query-lucene-syntax.md) per le espressioni regolari e con caratteri jolly.
 
 ## <a name="tips-and-best-practices"></a>Suggerimenti e procedure consigliate
 
@@ -227,27 +277,6 @@ Per specificare l'analisi specifica del ruolo, è possibile `indexAnalyzer` `sea
 "name": "featureCode",
 "indexAnalyzer":"my_customanalyzer",
 "searchAnalyzer":"standard",
-```
-
-### <a name="duplicate-fields-for-different-scenarios"></a>Campi duplicati per scenari diversi
-
-Un'altra opzione sfrutta l'assegnazione dell'analizzatore per campo per ottimizzare diversi scenari. In particolare, è possibile definire "featureCode" e "featureCodeRegex" per supportare la normale ricerca full-text nel primo e criteri di ricerca avanzati nel secondo.
-
-```json
-{
-  "name": "featureCode",
-  "type": "Edm.String",
-  "retrievable": true,
-  "searchable": true,
-  "analyzer": null
-},
-{
-  "name": "featureCodeRegex",
-  "type": "Edm.String",
-  "retrievable": true,
-  "searchable": true,
-  "analyzer": "my_customanalyzer"
-},
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

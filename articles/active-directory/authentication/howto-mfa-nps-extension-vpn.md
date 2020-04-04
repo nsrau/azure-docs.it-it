@@ -4,19 +4,19 @@ description: Integrare l'infrastruttura VPN con Azure MFA usando l'estensione Se
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f446f1549b3efcd5f27752fac972dfd80c8650d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ec8d5b66c71c558e56f3d1f48cec96d7cc487552
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75425418"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654118"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrare l'infrastruttura VPN con Azure MFA usando l'estensione Server dei criteri di rete per Azure
 
@@ -67,7 +67,7 @@ Quando l'estensione Server dei criteri di rete per Azure è integrata con Server
 2. Fungendo da client RADIUS, il server VPN converte la richiesta in un messaggio di *richiesta di accesso* RADIUS e invia il messaggio, con password crittografata, al server RADIUS in cui è installata l'estensione Server dei criteri di rete.
 3. La combinazione di nome utente e password viene verificata in Active Directory. Se il nome di utente o la password sono errati, il server RADIUS invia un messaggio di *rifiuto di accesso*.
 4. Se vengono soddisfatte tutte le condizioni specificate nella richiesta di connessione Server dei criteri di rete e nei criteri di rete, ad esempio le restrizioni relative all'ora del giorno o all'appartenenza a gruppi, l'estensione Server dei criteri di rete attiva una richiesta di autenticazione secondaria con Azure Multi-Factor Authentication.
-5. Azure Multi-Factor Authentication comunica con Azure Active Directory, recupera i dettagli dell'utente ed esegue l'autenticazione secondaria usando il metodo configurato dall'utente, ad esempio chiamata su cellulare, messaggio di testo o app per dispositivi mobili.
+5. Azure Multi-Factor Authentication comunica con Azure Active Directory, recupera i dettagli dell'utente ed esegue l'autenticazione secondaria usando il metodo configurato dall'utente (chiamata cellulare, SMS o app per dispositivi mobili).
 6. Quando la richiesta di verifica di Multi-Factor Authentication ha esito positivo, Azure Multi-Factor Authentication comunica il risultato all'estensione Server dei criteri di rete.
 7. Dopo che il tentativo di connessione è stato autenticato e autorizzato, il Server dei criteri di rete in cui è installata l'estensione invia un messaggio di *autorizzazione di accesso* RADIUS al server VPN, ovvero al client RADIUS.
 8. All'utente viene concesso l'accesso alla porta virtuale nel server VPN e viene stabilito un tunnel VPN crittografato.
@@ -108,8 +108,8 @@ L'estensione Server dei criteri di rete richiede Windows Server 2008 R2 SP1 o ve
 
 Le librerie seguenti vengono installate automaticamente con l'estensione Server dei criteri di rete:
 
--   [Visual C++ Redistributable Packages per Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
--   [Modulo di Microsoft Azure Active Directory per Windows PowerShell versione 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
+-    [Visual C++ Redistributable Packages per Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+-    [Modulo di Microsoft Azure Active Directory per Windows PowerShell versione 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
 Se il modulo PowerShell di Microsoft Azure Active Directory non è già presente, viene installato tramite uno script di configurazione eseguito come parte del processo di configurazione. Non è necessario installare il modulo in anticipo, se non è già installato.
 
@@ -178,7 +178,7 @@ Per configurare il server RADIUS, è possibile usare un'opzione di configurazion
 
     ![Finestra Specifica gruppi di utenti per consentire o negare l'accesso](./media/howto-mfa-nps-extension-vpn/image7.png)
 
-9. Fare clic su **Avanti**.
+9. Selezionare **Avanti**.
 
 10. Nella finestra **Specifica filtri IP** selezionare **Avanti**.
 
@@ -361,7 +361,7 @@ Lo script esegue le azioni seguenti:
 * Crea un certificato autofirmato.
 * Associa la chiave pubblica del certificato all'entità servizio in Azure AD.
 * Archivia il certificato nell'archivio del computer locale.
-* Concede l'accesso alla chiave privata del certificato all'utente di rete.
+* Concede all'utente di rete l'accesso alla chiave privata del certificato.
 * Riavvia il servizio Server dei criteri di rete.
 
 Per usare certificati personali, è necessario associare la chiave pubblica del certificato all'entità servizio in Azure AD e così via.

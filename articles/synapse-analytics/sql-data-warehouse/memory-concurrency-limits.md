@@ -11,17 +11,19 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c427c832eb613dddbff33ef6e67af63112e2f136
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 56ab49949b4ea2a92bc591042b2d43a7f7b2dc63
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586064"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632673"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Limiti di memoria e concorrenza per Azure Synapse AnalyticsMemory and concurrency limits for Azure Synapse Analytics
+
 Visualizzare i limiti di memoria e concorrenza allocati ai vari livelli di prestazioni e classi di risorse in Analisi synapse di Azure.View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure Synapse Analytics.  
 
 ## <a name="data-warehouse-capacity-settings"></a>Impostazioni di capacità di Data Warehouse
+
 Nelle tabelle seguenti viene illustrata la capacità massima per il data warehouse a diversi livelli di prestazioni. Per modificare il livello di prestazioni, vedere [Ridimensionare le risorse di calcolo: portale](quickstart-scale-compute-portal.md).
 
 ### <a name="service-levels"></a>Livelli di servizio
@@ -50,7 +52,8 @@ I livelli di servizio variano da DW100c a DW30000c.
 Il livello di servizio massimo è DW30000c, che ha 60 nodi di calcolo e una distribuzione per ogni nodo di calcolo. Ad esempio, un data warehouse da 600 TB a DW30000c elabora circa 10 TB per ogni nodo di calcolo.
 
 ## <a name="concurrency-maximums-for-workload-groups"></a>Massimi di concorrenza per i gruppi di carico di lavoroConcurrency maximums for workload groups
-Con l'introduzione dei gruppi di carichi di [lavoro](sql-data-warehouse-workload-isolation.md), il concetto di slot di concorrenza non è più valido.  Le risorse per richiesta vengono allocate in base percentuale e specificate nella definizione del gruppo di carico di lavoro.  Tuttavia, anche con la rimozione degli slot di concorrenza, sono necessarie quantità minime di risorse per le query in base al livello di servizio.  Nella tabella seguente è stata definita la quantità minima di risorse necessarie per ogni query tra i livelli di servizio e la concorrenza associata che è possibile ottenere. 
+
+Con l'introduzione dei gruppi di carichi di [lavoro](sql-data-warehouse-workload-isolation.md), il concetto di slot di concorrenza non è più valido.  Le risorse per richiesta vengono allocate in base percentuale e specificate nella definizione del gruppo di carico di lavoro.  Tuttavia, anche con la rimozione degli slot di concorrenza, sono necessarie quantità minime di risorse per le query in base al livello di servizio.  Nella tabella seguente è stata definita la quantità minima di risorse necessarie per ogni query tra i livelli di servizio e la concorrenza associata che è possibile ottenere.
 
 |Livello di servizio|Numero massimo di query simultanee|% supportata al valore in%REQUEST_MIN_RESOURCE_GRANT_PERCENT|
 |---|---|---|
@@ -73,7 +76,8 @@ Con l'introduzione dei gruppi di carichi di [lavoro](sql-data-warehouse-workload
 ||||
 
 ## <a name="concurrency-maximums-for-resource-classes"></a>Massimi di concorrenza per le classi di risorseConcurrency maximums for resource classes
-Per garantire che ogni query disponga di risorse sufficienti per l'esecuzione efficiente, l'utilizzo delle risorse viene monitorato assegnando slot di concorrenza a ogni query. Il sistema inserisce le query in una coda in base all'importanza e ai slot di concorrenza. Le query attendono nella coda finché non sono disponibili slot di concorrenza sufficienti. Gli slot [di importanza](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) e concorrenza determinano la priorità della CPU. Per altre informazioni, vedere [Analyze your workload](analyze-your-workload.md) (Analisi del carico di lavoro)
+
+Per assicurarsi che ogni query disponga di risorse sufficienti per l'esecuzione efficiente, ANALISI SQL in Azure Synapse tiene traccia dell'utilizzo delle risorse assegnando slot di concorrenza a ogni query. Il sistema inserisce le query in una coda in base all'importanza e ai slot di concorrenza. Le query attendono nella coda finché non sono disponibili slot di concorrenza sufficienti. Gli slot [di importanza](sql-data-warehouse-workload-importance.md) e concorrenza determinano la priorità della CPU. Per altre informazioni, vedere [Analyze your workload](analyze-your-workload.md) (Analisi del carico di lavoro)
 
 **Classi di risorse statiche**
 
@@ -121,11 +125,11 @@ La tabella seguente illustra il numero massimo di query simultanee e di slot di 
 | DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
-
-Quando non sono disponibili slot di concorrenza sufficienti per avviare l'esecuzione della query, le query vengono accodate ed eseguite in base all'importanza.  Se è presente un'importanza equivalente, le query vengono eseguite in base al primo, al primo accesso.  Al termine dell'esecuzione delle query e quando il numero di query e di slot risulta inferiore ai limiti, SQL Data Warehouse rilascia le query accodate. 
+Quando non sono disponibili slot di concorrenza sufficienti per avviare l'esecuzione della query, le query vengono accodate ed eseguite in base all'importanza.  Se è presente un'importanza equivalente, le query vengono eseguite in base al primo, al primo accesso.  Al termine dell'esecuzione delle query e quando il numero di query e di slot risulta inferiore ai limiti, SQL Data Warehouse rilascia le query accodate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni su come sfruttare le classi di risorse per ottimizzare ulteriormente il carico di lavoro vedere gli articoli seguenti:
+
 * [Resource classes for workload management](resource-classes-for-workload-management.md) (Classi di risorse per la gestione del carico di lavoro)
 * [Analyzing your workload](analyze-your-workload.md) (Analisi del carico di lavoro)

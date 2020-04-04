@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 04/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdbf4f352bc7d6874cab9c12adf5f1717d4b8f9a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a9ea88da0a575647eecacbfd8a476202f814b821
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295728"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631801"
 ---
 # <a name="conditional-access-block-access"></a>Accesso condizionale: Bloccare l'accessoConditional Access: Block access
 
@@ -33,7 +33,7 @@ I criteri di accesso condizionale sono strumenti potenti, è consigliabile esclu
 
 * **Accesso di emergenza** o **account break-glass** per impedire il blocco degli account a livello di tenant. Nell'improbabile scenario in cui tutti gli amministratori sono bloccati dal tenant, l'account amministrativo di accesso di emergenza può essere usato per accedere al tenant per ripristinare l'accesso.
    * Altre informazioni sono disponibili nell'articolo Gestire gli account di [accesso di emergenza in Azure AD.](../users-groups-roles/directory-emergency-access.md)
-* **Account di servizio** ed entità servizio, ad esempio l'account di sincronizzazione di Azure AD Connect.Service accounts and **service principals**, such as the Azure AD Connect Sync Account. Gli account di servizio sono account non interattivi che non sono legati ad alcun utente specifico. Vengono normalmente utilizzati dai servizi back-end e consentono l'accesso a livello di codice alle applicazioni. Gli account di servizio devono essere esclusi poiché l'autenticazione a più fattori non può essere completata a livello di codice.
+* **Account di servizio** ed entità servizio, ad esempio l'account di sincronizzazione di Azure AD Connect.Service accounts and **service principals**, such as the Azure AD Connect Sync Account. Gli account di servizio sono account non interattivi che non sono legati ad alcun utente specifico. Vengono normalmente utilizzati dai servizi back-end che consentono l'accesso a livello di codice alle applicazioni, ma vengono utilizzati anche per accedere ai sistemi per scopi amministrativi. Gli account di servizio come questi devono essere esclusi poiché l'autenticazione a più fattori non può essere completata a livello di codice.
    * Se l'organizzazione dispone di questi account in uso negli script o nel codice, è consigliabile sostituirli con [identità gestite](../managed-identities-azure-resources/overview.md). Come soluzione temporanea, è possibile escludere questi account specifici dai criteri di base.
 
 ## <a name="create-a-conditional-access-policy"></a>Creare criteri di accesso condizionale

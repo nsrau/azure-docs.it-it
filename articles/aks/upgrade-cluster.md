@@ -1,15 +1,15 @@
 ---
 title: Aggiornare un cluster del servizio Azure Kubernetes
-description: Informazioni su come aggiornare un cluster del servizio Azure Kubernetes
+description: Informazioni su come aggiornare un cluster del servizio Azure Kubernetes (AKS) per ottenere le funzionalità e gli aggiornamenti di sicurezza più recenti.
 services: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.openlocfilehash: 4520297e83f96f95b10ecafd5af52a913dc5f450
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 183e0a85f65d24dc7133307391931bea754a456d
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77621970"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632602"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Aggiornare un cluster del servizio Azure Kubernetes
 
@@ -19,7 +19,7 @@ Per i cluster AKS che utilizzano più pool di nodi o nodi di Windows Server (att
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo richiede l'esecuzione dell'interfaccia della riga di comando di Azure versione 2.0.65 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If][azure-cli-install]you need to install or upgrade, see Install Azure CLI.
+Questo articolo richiede l'esecuzione dell'interfaccia della riga di comando di Azure versione 2.0.65 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
 > [!WARNING]
 > Un aggiornamento del cluster AKS attiva un cordone e lo scarico dei nodi. Se è disponibile una quota di calcolo bassa, l'aggiornamento potrebbe non riuscire. Per ulteriori informazioni, vedere [quote di aumento.](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request)

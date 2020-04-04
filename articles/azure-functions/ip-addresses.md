@@ -3,12 +3,12 @@ title: Indirizzi IP in Funzioni di Azure
 description: Informazioni su come trovare gli indirizzi IP in ingresso e in uscita per le app per le funzioni e sugli elementi che ne causano la modifica.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: a1c4174b8f1f2349cbd35c32cbee468ee5b4cd4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bfd2d573e0a1c78d0ef4c68be224f92e8f689f62
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276491"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656776"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Indirizzi IP in Funzioni di Azure
 
@@ -25,7 +25,7 @@ Gli indirizzi IP sono associati alle app per le funzioni, non alle singole funzi
 
 Ogni app per le funzioni ha un singolo indirizzo IP in ingresso. Per trovare tale indirizzo IP:
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare all'app per le funzioni.
 3. Selezionare **Funzionalità della piattaforma**.
 4. Selezionare **Proprietà**. L'indirizzo IP in ingresso verrà visualizzati in **Indirizzo IP virtuale**.
@@ -86,7 +86,7 @@ L'indirizzo IP in ingresso **potrebbe** cambiare in caso di:
 
 - Eliminazione di un'app per le funzioni e successiva ricreazione in un gruppo di risorse diverso.
 - Eliminazione dell'ultima app per le funzioni in una combinazione di gruppo di risorse e area e successiva ricreazione.
-- Eliminare un binding SSL, ad esempio durante [il rinnovo del certificato](../app-service/configure-ssl-certificate.md#renew-certificate).
+- Eliminare un binding TLS, ad esempio durante [il rinnovo del certificato](../app-service/configure-ssl-certificate.md#renew-certificate).
 
 Quando l'app per le funzioni viene eseguita in un [piano di consumo](functions-scale.md#consumption-plan), l'indirizzo IP in ingresso potrebbe cambiare anche quando non sono state eseguite azioni come quelle [sopra elencate.](#inbound-ip-address-changes)
 
@@ -115,7 +115,7 @@ Se sono necessari indirizzi IP statici dedicati, è consigliabile [Ambienti del 
 
 Per scoprire se l'app per le funzioni viene eseguita in un ambiente del servizio app:
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare all'app per le funzioni.
 3. Selezionare la scheda **Panoramica**.
 4. Il livello del piano di servizio app viene visualizzato in **Piano di servizio app/piano tariffario**. Il piano tariffario dell'ambiente del servizio app è **Isolato**.

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 03/04/2020
+ms.date: 04/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9859c884f6a1e22a1ac2bd21106ef51ead23fa41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6b282962cc713487b8ee5113b02b8533a1538fff
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79080069"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631886"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Procedura: Richiedere criteri di protezione delle app e un'app client approvata per l'accesso alle app cloud con accesso condizionaleHow to: Require app protection policy and an approved client app for cloud app access with Conditional Access
 
@@ -59,7 +59,7 @@ Le organizzazioni devono completare i passaggi seguenti per richiedere l'utilizz
 1. In **Controlli di** > accesso**Concedi**selezionare le opzioni seguenti:
    - **Richiedere app client approvata**
    - **Richiedi criteri di protezione delle pp (anteprima)**
-   - **Richiedere uno dei controlli selezionati**
+   - **Richiedi tutti i controlli selezionati**
 1. Confermare le impostazioni e **impostare Abilita criterio** su **Attivato**.
 1. Selezionare **Crea** per creare e abilitare i criteri.
 
@@ -138,7 +138,7 @@ Per informazioni sulla procedura per la creazione di criteri di protezione delle
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Che cos'è l'accesso condizionale?](overview.md)
+[Informazioni sull'accesso condizionale](overview.md)
 
 [Componenti di accesso condizionaleConditional access components](concept-conditional-access-policies.md)
 

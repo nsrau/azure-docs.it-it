@@ -4,23 +4,23 @@ description: La funzione di blocco intelligente di Azure Active Directory consen
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfd49a4429dc0d7f5db07a577016c21de8fc58d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61ae942ed189dc4245a9a0b282daf4cad5323536
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75762876"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652575"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Blocco intelligente di Azure Active Directory
 
-La funzione di blocco intelligente consente di bloccare gli attori malintenzionati che tentano di indovinare le password degli utenti o usano metodi di forza bruta per ottenere l'accesso. Questa intelligenza è in grado di riconoscere i tentativi di accesso eseguiti da utenti validi e di gestirli in modo diverso da quelli di utenti malintenzionati e di altre origini sconosciute. La funzione di blocco intelligente blocca gli utenti malintenzionati e al tempo stesso consente a quelli validi di accedere ai propri account senza effetti negativi sulla produttività.
+Smart lockout aiuta a bloccare i cattivi attori che stanno cercando di indovinare le password degli utenti o utilizzare metodi di forza bruta per entrare. Questa intelligenza è in grado di riconoscere i tentativi di accesso eseguiti da utenti validi e di gestirli in modo diverso da quelli di utenti malintenzionati e di altre origini sconosciute. La funzione di blocco intelligente blocca gli utenti malintenzionati e al tempo stesso consente a quelli validi di accedere ai propri account senza effetti negativi sulla produttività.
 
 Per impostazione predefinita, dopo dieci tentativi non riusciti la funzione di blocco intelligente blocca l'account da nuovi tentativi di accesso per un minuto. Dopo ogni successivo tentativo di accesso non riuscito, l'account viene nuovamente bloccato prima per un minuto e quindi per intervalli più lunghi.
 
@@ -33,7 +33,7 @@ Le distribuzioni federate con AD FS 2016 ed AF FS 2019 possono abilitare vantagg
 
 Il blocco intelligente è sempre attivo per tutti i clienti di Azure AD con le impostazioni predefinite che offrono la giusta combinazione di sicurezza e usabilità. La personalizzazione delle impostazioni di blocco intelligente, con valori specifici per l'organizzazione, richiede licenze di Azure AD a pagamento per gli utenti.
 
-L'utilizzo del blocco intelligente non garantisce che un utente originale non venga mai bloccato. Quando il blocco intelligente blocca un account utente, facciamo del nostro meglio per non bloccare l'utente originale. Il servizio di blocco cerca di garantire che gli utenti non autorizzati non possano accedere all'account degli utenti originali.  
+L'utilizzo del blocco intelligente non garantisce che un utente originale non venga mai bloccato. Quando il blocco intelligente blocca un account utente, facciamo del nostro meglio per non bloccare l'utente originale. Il servizio di blocco tenta di garantire che gli attori non riusciti a ottenere l'accesso a un account utente originale.  
 
 * Ogni data center di Azure Active Directory tiene traccia del blocco in modo indipendente. Un utente disporrà di un numero di tentativi pari a (limite_soglia * conteggio_datacenter), se l'utente esegue l'accesso a ogni data center.
 * Il blocco intelligente usa la differenziazione tra posizioni conosciute e sconosciute per individuare gli utenti originali e distinguerli da quelli non autorizzati. Le posizioni conosciute e quelle sconosciute disporranno entrambe di contatori di blocco distinti.
@@ -67,7 +67,7 @@ In base alle esigenze dell'organizzazione, può essere necessario personalizzare
 
 Per verificare o modificare i valori del blocco intelligente per l'organizzazione, seguire questa procedura:
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Cercare e selezionare *Azure Active Directory*. Selezionare > Metodi**di autenticazione**di **sicurezza** > **Protezione con password**.
 1. Impostare il valore di **Soglia di blocco**, in base al numero di accessi non riusciti consentiti per un account prima che venga applicato il primo blocco. Il valore predefinito è 10.
 1. Impostare il valore di **Durata del blocco in secondi** sulla durata in secondi di ogni blocco. Il valore predefinito è 60 secondi (1 minuto).

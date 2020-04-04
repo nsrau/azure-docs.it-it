@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 04/03/2020
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: f74e3ea3d20ad2666b434e009cf62add6f88d200
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4604bfe7c815f79733f99a1a3727e4c68527e7ec
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219665"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656136"
 ---
-# <a name="try-the-speech-service-for-free"></a>Provare gratuitamente il Servizio di riconoscimento vocale
+# <a name="try-the-speech-service-for-free"></a>Prova il servizio di riconoscimento vocale gratuitamente''
 
 In questo articolo, si sceglie un'opzione per testare facilmente il servizio di riconoscimento vocale gratuitamente in modo da poter individuare le operazioni che il servizio può eseguire e decidere se è adatto alle proprie esigenze. Scegliere una delle due opzioni seguenti a seconda della situazione e del caso d'uso:
 
@@ -71,7 +71,7 @@ Per aggiungere una risorsa del servizio vocale (gratuita o a pagamento) al propr
    - Scegliere [l'area](regions.md) in cui verrà utilizzata la risorsa.
    - Scegli un piano tariffario gratuito (F0) o a pagamento (S0). Per informazioni complete sui prezzi e le quote di utilizzo per ogni livello, selezionare **Visualizza dettagli sui prezzi completi.**
    - Creare un nuovo gruppo di risorse per questa sottoscrizione di riconoscimento vocale o assegnarla a un gruppo di risorse esistente. I gruppi di risorse consentono di mantenere organizzate le diverse sottoscrizioni di Azure.
-   - Selezionare **Crea**. Verrà visualizzata la panoramica della distribuzione e verranno visualizzati i messaggi di stato della distribuzione.
+   - Selezionare **Create** (Crea). Verrà visualizzata la panoramica della distribuzione e verranno visualizzati i messaggi di stato della distribuzione.
 
 > [!NOTE]
 > È possibile creare un numero illimitato di sottoscrizioni di livello standard in una o più aree. Tuttavia, è possibile creare solo una sottoscrizione gratuita. Le distribuzioni di modelli nel livello gratuito che rimangono inutilizzate per 7 giorni verranno rimosse automaticamente.
@@ -97,4 +97,4 @@ Completare una delle guide introduttive di 10 minuti o vedere gli esempi di SDK:
 
 > [!div class="nextstepaction"]
 > [Guida introduttiva: Riconoscere il riconoscimento vocale negli](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
-> esempi di[C](speech-sdk.md#get-the-samples)
+> esempi di[C](speech-sdk.md#sample-source-code)

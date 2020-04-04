@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 719a1985aeb0db7b0cf7f55a10762bf3ebb3e045
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8118ecde698b54213547e717d25613c0c3e0d3fd
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79250192"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631546"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure
 
-Prima di caricare una macchina virtuale Windows (VM) da locale ad Azure, è necessario preparare il disco rigido virtuale (VHD o VHDX). Azure supporta macchine virtuali di generazione 1 e 2 che sono in formato di file VHD e che dispongono di un disco di dimensioni fisse. La dimensione massima consentita per il disco rigido virtuale è 1023 GB. 
+Prima di caricare una macchina virtuale Windows (VM) da locale ad Azure, è necessario preparare il disco rigido virtuale (VHD o VHDX). Azure supporta macchine virtuali di generazione 1 e 2 che sono in formato di file VHD e che dispongono di un disco di dimensioni fisse. La dimensione massima consentita per il disco rigido virtuale è 2 TB.
 
 In una macchina virtuale di generazione 1 è possibile convertire un file system VHDX in vHD. È inoltre possibile convertire un disco a espansione dinamica in un disco di dimensioni fisse. Non è tuttavia possibile modificare la generazione di una macchina virtuale. Per altre informazioni, vedere È consigliabile creare una macchina virtuale di [generazione 1 o 2 in Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) e Supporto di Azure per le macchine virtuali di generazione 2 [(anteprima).](generation-2.md)
 
@@ -366,7 +366,7 @@ Assicurarsi che la macchina virtuale sia integra, sicura e accessibile RDP:Make 
 
    Il criterio dovrebbe elencare i seguenti gruppi:
 
-   - Administrators
+   - Amministratori
 
    - Operatori di backup
 

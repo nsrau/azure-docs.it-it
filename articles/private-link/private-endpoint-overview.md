@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: fd389c1e909e6875ead8410b5ca692b82c79e0de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6782d745bfced576fe06019b0d41af86c8c63ed4
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80063082"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656264"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Che cos'è l'endpoint privato di Azure?
 
@@ -55,24 +55,26 @@ Una risorsa di collegamento privato è la destinazione di destinazione di un det
 |**Servizio Private Link** (Il tuo servizio)   |  Microsoft.Network/privateLinkServices       | empty |
 |**Database SQL di Azure** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
 |**Azure Synapse Analytics** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        | 
-|**Archiviazione di AzureAzure Storage**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)<BR> Tabella (tabella, table_secondary)<BR> Coda (coda, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary)        |
+|**Archiviazione di Azure**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)<BR> Tabella (tabella, table_secondary)<BR> Coda (coda, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)<BR> Data Lake File System Gen2 (dfs, dfs_secondary)       |
 |**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseAccounts | Sql, MongoDB, Cassandra, Gremlin, Tabella|
 |**Database di Azure per PostgreSQL -Singolo serverAzure Database for PostgreSQL -Single server** | Microsoft.DBforPostgreSQL/servers   | postgresqlServer |
-|**Azure Database for MySQL** | Microsoft.DBforMySQL/servers    | MysqlServer (informazioni in lingua inglese) |
+|**Database di Azure per MySQL** | Microsoft.DBforMySQL/servers    | MysqlServer (informazioni in lingua inglese) |
 |**Database di Azure per MariaDB** | Microsoft.DBforMariaDB/servers    | mariadbServer (server) |
 |**Archivio chiavi di AzureAzure Key Vault** | Microsoft.KeyVault/vaults    | insieme di credenziali |
 |**Azure Kubernetes Service - Kubernetes API** | Microsoft.ContainerService/managedClusters | managedCluster |
 |**Ricerca di Azure** | Microsoft.Search/searchService| searchService (servizio di ricerca)|  
 |**Registro di sistema del contenitore di AzureAzure Container** | Microsoft.ContainerRegistry/registries  | Registro di sistema |
 |**Configurazione app di Azure** | Microsoft.Appconfiguration/configurationStores   | configurationStore |
-|**Azure Backup** | Microsoft.RecoveryServices/vaults   | insieme di credenziali |
+|**Backup di Azure** | Microsoft.RecoveryServices/vaults   | insieme di credenziali |
 |**Hub eventi di AzureAzure Event Hub** | Microsoft.EventHub/namespaces    | namespace |
-|**Bus di servizio di AzureAzure Service Bus** | Microsoft.ServiceBus/namespaces | namespace |
+|**Bus di servizio di Azure** | Microsoft.ServiceBus/namespaces | namespace |
 |**Servizio di inoltro di Azure** | Microsoft.Relay/namespaces | namespace |
 |**Griglia di eventi di AzureAzure Event Grid** | Microsoft.EventGrid/topics  | argomento |
 |**Griglia di eventi di AzureAzure Event Grid** | Microsoft.EventGrid/domini | dominio |
-|**App Web di AzureAzure WebApps** | Microsoft.Web/sites    | siti |
+|**App Web di AzureAzure WebApps** | Microsoft.Web/sites    | site |
+|**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces  | area di lavoro |
+  
  
 ## <a name="network-security-of-private-endpoints"></a>Sicurezza di rete degli endpoint privatiNetwork security of private endpoints 
 Quando si usano endpoint privati per i servizi di Azure, il traffico è protetto a una risorsa di collegamento privato specifica. La piattaforma esegue un controllo di accesso per convalidare le connessioni di rete raggiungendo solo la risorsa di collegamento privato specificata. Per accedere a risorse aggiuntive all'interno dello stesso servizio di Azure, sono necessari endpoint privati aggiuntivi. 
@@ -143,6 +145,7 @@ Per i servizi di Azure, usare i nomi delle zone consigliate come descritto nella
 |Griglia di eventi di Azure (Microsoft.EventGrid/topics)Azure Event Grid (Microsoft.EventGrid/topics)   | argomento | Argomento. .region.privatelink.eventgrid.azure.net|
 |Griglia di eventi di Azure (Microsoft.EventGrid/domains) | dominio | Dominio. .region.privatelink.eventgrid.azure.net |
 |App Web di Azure (Microsoft.Web/siti) | site | privatelink.azurewebsites.net |
+|Azure Machine Learning(Microsoft.MachineLearningServices/workspaces)   | area di lavoro | privatelink.api.azureml.ms |
  
 Azure creerà un record DNS con nome canonico (CNAME) nel DNS pubblico per reindirizzare la risoluzione ai nomi di dominio suggeriti. Sarà possibile sostituire la risoluzione con l'indirizzo IP privato degli endpoint privati. 
  

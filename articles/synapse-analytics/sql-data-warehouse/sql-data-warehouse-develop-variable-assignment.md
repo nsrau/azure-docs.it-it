@@ -1,6 +1,6 @@
 ---
 title: Assegnare variabili
-description: Suggerimenti per l'assegnazione di variabili T-SQL in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
+description: In questo articolo sono disponibili suggerimenti essenziali per l'assegnazione di variabili T-SQL nel pool SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,27 +11,27 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0adcd9bdf92b7ec649b7d91ca0e655fc006b3549
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 2dcf706ea59657abc2718a69e59191604dc2849d
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351654"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633414"
 ---
-# <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Assegnazioni di variabili in Azure SQL Data Warehouse
+# <a name="assign-variables-in-synapse-sql-pool"></a>Assegnare variabili nel pool SQL SynapseAssign variables in Synapse SQL pool
 
-Suggerimenti per l'assegnazione di variabili T-SQL in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
+In questo articolo sono disponibili suggerimenti essenziali per l'assegnazione di variabili T-SQL nel pool SQL.
 
-## <a name="setting-variables-with-declare"></a>Impostazione delle variabili con DECLARE
+## <a name="set-variables-with-declare"></a>Impostare le variabili con DECLARE
 
-Le variabili in SQL Data Warehouse vengono impostate usando l'istruzione `DECLARE` o `SET`. L'inizializzazione di variabili con DECLARE è uno dei modi più flessibili per impostare un valore della variabile in SQL Data Warehouse.
+Le variabili nel pool `DECLARE` SQL vengono `SET` impostate utilizzando l'istruzione o l'istruzione . L'inizializzazione di variabili con DECLARE è uno dei modi più flessibili per impostare un valore di variabile nel pool SQL.
 
 ```sql
 DECLARE @v  int = 0
 ;
 ```
 
-È anche possibile usare DECLARE per impostare più di una variabile contemporaneamente. Non è possibile usare SELECT o UPDATE per eseguire le operazioni seguenti:
+È anche possibile usare DECLARE per impostare più di una variabile contemporaneamente. Non è possibile utilizzare SELECT o UPDATE per eseguire le operazioni seguenti:
 
 ```sql
 DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 'Smith')
@@ -39,7 +39,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-Non è possibile inizializzare e usare una variabile nella stessa istruzione DECLARE. Per illustrare il concetto, l'esempio seguente **non** è consentito, perché @p1 viene inizializzato e usato nella stessa istruzione DECLARE. L'esempio seguente restituisce un errore.
+Non è possibile inizializzare e utilizzare una variabile nella stessa istruzione DECLARE. Per illustrare il concetto, l'esempio seguente **non** è consentito, perché @p1 viene inizializzato e usato nella stessa istruzione DECLARE. Di conseguenza, l'esempio seguente restituisce un errore:
 
 ```sql
 DECLARE @p1 int = 0
@@ -47,7 +47,7 @@ DECLARE @p1 int = 0
 ;
 ```
 
-## <a name="setting-values-with-set"></a>Impostazione di valori con SET
+## <a name="set-values-with-set"></a>Impostare i valori con SET
 
 SET è un metodo comune per l'impostazione di una singola variabile.
 
@@ -64,7 +64,7 @@ SET     @v +=1;
 
 ## <a name="limitations"></a>Limitazioni
 
-Non è possibile utilizzare UPDATE per l'assegnazione di variabili.
+Non è possibile utilizzare UPDATE per l'assegnazione delle variabili.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

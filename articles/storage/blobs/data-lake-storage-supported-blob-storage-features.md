@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 04/03/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 215244204aa58cc2fdedc639d48e01b514759694
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b270ce3cd15dbd1e8dd53bd60376a87d6e08f75c
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78196009"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637205"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Blob storage features available in Azure Data Lake Storage Gen2
 
@@ -38,7 +38,7 @@ Questa tabella elenca le funzionalità di archiviazione BLOB che è possibile us
 |Api di archiviazione BLOB|Disponibile a livello generale|[Guida introduttiva: Libreria client di archiviazione BLOB di Azure v12 per .NET](storage-quickstart-blobs-dotnet.md)<br>[Guida introduttiva: Gestire i BLOB con Java v12 SDK](storage-quickstart-blobs-java.md)<br>[Guida introduttiva: Gestire i BLOB con Python v12 SDK](storage-quickstart-blobs-python.md)<br>[Guida introduttiva: Gestire i BLOB con JavaScript v12 SDK in Node.js](storage-quickstart-blobs-nodejs.md)|
 |Livello di accesso agli archivi|Anteprima|[Archiviazione BLOB di Azure: livelli di accesso frequente, sporadico e archivio](storage-blob-storage-tiers.md)|
 |Criteri di gestione del ciclo di vita|Anteprima|[Gestire il ciclo di vita di Archiviazione BLOB di Azure](storage-lifecycle-management-concepts.md)|
-|Log di diagnostica|Anteprima|[Registrazione di Analisi archiviazione di Azure](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Log di diagnostica|Disponibile a livello generale|[Registrazione di Analisi archiviazione di Azure](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Feed delle modifiche|Non ancora supportato|[Modificare il supporto dei feed nell'archiviazione BLOB di AzureChange feed support in Azure Blob storage](storage-blob-change-feed.md)|
 |Failover dell'account|Non ancora supportato|[Ripristino di emergenza e failover dell'account](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |ACL contenitore BLOB|Non ancora supportato|[Set Container ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|

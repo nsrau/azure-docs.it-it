@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3bd166572cea23fbb710cd053c28f51e76ba534a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 42596ba5470c6062efba4fd1050c1c9745b76e80
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476672"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637337"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Gestire gli account utente di Azure AD B2C con Microsoft GraphManage Azure AD B2C user accounts with Microsoft Graph
 
@@ -151,7 +151,7 @@ L'applicazione visualizza un elenco di comandi che è possibile eseguire. Ad ese
 
 ### <a name="code-discussion"></a>Discussione codice
 
-Il codice di esempio usa [Microsoft Graph SDK,](https://docs.microsoft.com/graph/sdks/sdks-overview)progettato per semplificare la creazione di applicazioni di alta qualità, efficienti e resilienti che accedono a Microsoft Graph. Quindi, non è necessario fare un diretto tutto l'API Di Microsoft Graph.
+Il codice di esempio usa [Microsoft Graph SDK,](https://docs.microsoft.com/graph/sdks/sdks-overview)progettato per semplificare la creazione di applicazioni di alta qualità, efficienti e resilienti che accedono a Microsoft Graph.
 
 Qualsiasi richiesta all'API Microsoft Graph richiede un token di accesso per l'autenticazione. La soluzione utilizza il pacchetto [Microsoft.Graph.Auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) NuGet che fornisce un wrapper basato su scenario di autenticazione della libreria di autenticazione Microsoft (MSAL) per l'utilizzo con Microsoft Graph SDK.
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 02/12/2020
 ms.author: shvija
-ms.openlocfilehash: 6dcbf0ad0f6678d892c5c02446cac09b4325384c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7d3525bc7a25550a79ceeb008e3c69c77a56aa0a
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283651"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632863"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Usare Hub eventi di Azure da applicazioni Apache Kafka
 Hub eventi fornisce un endpoint Kafka che può essere usato dalle applicazioni Kafka esistenti come alternativa all'esecuzione del proprio cluster Kafka. Hub eventi supporta il [protocollo Apache Kafka 1.0 e versioni successive](https://kafka.apache.org/documentation/) e funziona con le applicazioni Kafka esistenti, tra cui MirrorMaker.  
@@ -94,16 +94,6 @@ Di seguito è riportato l'elenco delle funzionalità di Kafka che non sono ancor
 *   Kafka Streams
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-In questo articolo è stata fornita un'introduzione a Hub eventi per Kafka. Per altre informazioni, vedere i collegamenti seguenti:
-
-- [Come creare un hub eventiHow to create an event hub](event-hubs-create.md)
-- [Trasmettere in Hub eventi dalle applicazioni Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-- [Eseguire il mirroring di un broker Kafka in un hub eventi](event-hubs-kafka-mirror-maker-tutorial.md)
-- [Connettere Apache Spark a un hub eventi](event-hubs-kafka-spark-tutorial.md)
-- [Connettere Apache Flink a un hub eventi](event-hubs-kafka-flink-tutorial.md)
-- [Integrazione di Kafka Connect con un hub eventi](event-hubs-kafka-connect-tutorial.md)
-- [Connettere Akka Streams a un hub eventi](event-hubs-kafka-akka-streams-tutorial.md)
-- [Esplorare gli esempi in GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+In questo articolo è stata fornita un'introduzione a Hub eventi per Kafka. Per altre informazioni, vedere Guida per gli sviluppatori di Apache Kafka per hub eventi di Azure.To learn more, see [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md).
 
 

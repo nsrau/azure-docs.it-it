@@ -5,19 +5,19 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: 225ee7028b9610a4974f9bee05da667d78d3355e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/02/2020
+ms.openlocfilehash: 1d044ddaea0a2c7a1d489523cc9aa4515df0728a
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73903744"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632653"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Installare un notebook di Jupyter in locale e connetterlo ad Apache Spark in HDInsight
 
-Questo articolo illustra come installare Jupyter Notebook, insieme ai kernel personalizzati PySpark (per Python) e Apache Spark (per Scala) e al magic Spark, e come connettere l'applicazione a un cluster HDInsight. L'installazione di Jupyter nel computer locale può essere dettata da molti motivi e può anche presentare alcuni problemi. Per altre informazioni, vedere la sezione [Perché installare Jupyter nel computer locale](#why-should-i-install-jupyter-on-my-computer) alla fine di questo articolo.
+In questo articolo imparerai a installare il blocco appunti di Jupyter con i kernel PySpark (per Python) e Apache Spark (for Scala) personalizzati con Spark magic. È quindi possibile connettere il blocco appunti a un cluster HDInsight.You then connect the notebook to an HDInsight cluster.
 
 L'installazione di Jupyter e la connessione ad Apache Spark in HDInsight sono stati coinvolti in quattro passaggi chiave.
 
@@ -26,17 +26,17 @@ L'installazione di Jupyter e la connessione ad Apache Spark in HDInsight sono st
 * Installare i kernel PySpark e Spark con il magic Spark.
 * Configurare il magic Spark per l'accesso al cluster Spark in HDInsight.
 
-Per altre informazioni sui kernel personalizzati e su Spark magic disponibili per Jupyter Notebook con il cluster HDInsight, vedere [Kernel disponibili per Jupyter Notebook con cluster HDInsight Spark Linux su HDInsight](apache-spark-jupyter-notebook-kernels.md).
+Per ulteriori informazioni sui kernel personalizzati e sulla magia di Spark, vedere [Kernel disponibili per i notebook Jupyter con cluster Apache Spark Linux su HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo dedicato alla [creazione di cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md). Si tratta di un prerequisito per la connessione del blocco appunti Jupyter a un cluster HDInsight dopo l'installazione del blocco appunti.
+* Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo dedicato alla [creazione di cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md). Il blocco appunti locale si connette al cluster HDInsight.The local notebook connects to the HDInsight cluster.
 
 * Familiarità nell'uso di Jupyter Notebook con Spark in HDInsight.
 
 ## <a name="install-jupyter-notebook-on-your-computer"></a>Installare Jupyter Notebook nel computer
 
-Prima di installare i notebook Jupyter è necessario installare Python. La [distribuzione di Anaconda](https://www.anaconda.com/download/) installerà sia Python che Jupyter Notebook.
+Installare Python prima di installare i blocchi appunti Jupyter. La [distribuzione di Anaconda](https://www.anaconda.com/download/) installerà sia Python che Jupyter Notebook.
 
 Scaricare il [programma di installazione di Anaconda](https://www.anaconda.com/download/) per la piattaforma in uso ed eseguirlo. Quando si esegue l'installazione guidata, assicurarsi di selezionare l'opzione per l'aggiunta di Anaconda alla variabile PATH.  Vedere anche [Installazione di Jupyter con Anaconda](https://jupyter.readthedocs.io/en/latest/install.html).
 
@@ -63,7 +63,7 @@ Scaricare il [programma di installazione di Anaconda](https://www.anaconda.com/d
     pip show sparkmagic
     ```
 
-    Quindi modificare la directory di lavoro nella posizione identificata con il comando precedente.
+    Quindi modificare la directory di lavoro nella **posizione** identificata con il comando precedente.
 
 1. Dalla nuova directory di lavoro, immettere uno o più dei comandi seguenti per installare i kernel desiderati:
 
@@ -90,7 +90,7 @@ In questa sezione viene configurata la magia Spark installata in precedenza per 
     python
     ```
 
-2. Le informazioni di configurazione di Jupyter sono in genere archiviate nella home directory dell'utente. Immettere il comando seguente per identificare la home directory e creare una cartella denominata **.sparkmagic**.  Verrà generato il percorso completo.
+2. Le informazioni di configurazione di Jupyter sono in genere archiviate nella home directory dell'utente. Immettere il comando seguente per identificare la home directory e creare una cartella denominata ** \.sparkmagic**.  Verrà generato il percorso completo.
 
     ```python
     import os
@@ -146,7 +146,7 @@ In questa sezione viene configurata la magia Spark installata in precedenza per 
     jupyter notebook
     ```
 
-6. Verificare che sia possibile utilizzare la magia Spark disponibile con i kernel. Eseguire i passaggi seguenti.
+6. Verificare che sia possibile utilizzare la magia Spark disponibile con i kernel. Completare questi passaggi.
 
     a. Creare un nuovo notebook. Nell'angolo destro selezionare **Nuovo**. Dovresti vedere il kernel predefinito **Python 2** o **Python 3** e i kernel che hai installato. I valori effettivi possono variare a seconda delle scelte di installazione.  Selezionare **PySpark**.
 
@@ -168,9 +168,9 @@ In questa sezione viene configurata la magia Spark installata in precedenza per 
 
 ## <a name="why-should-i-install-jupyter-on-my-computer"></a>Perché installare Jupyter nel computer locale
 
-Esistono diversi motivi per cui è consigliabile installare Jupyter nel computer in uso e quindi connetterlo a un cluster Apache Spark in HDInsight.
+Motivi per installare Jupyter nel computer e quindi connetterlo a un cluster Apache Spark in HDInsight:
 
-* Anche se i notebook Jupyter sono già disponibili nel cluster Spark in Azure HDInsight, l'installazione di Jupyter nel computer offre la possibilità di creare i notebook in locale, testare l'applicazione con un cluster in esecuzione e quindi caricare i notebook nel cluster. È possibile caricare i notebook nel cluster usando Jupyter Notebook già in esecuzione sul cluster oppure salvare i notebook nella cartella /HdiNotebooks nell'account di archiviazione associato al cluster. Per altre informazioni sul modo in cui i notebook vengono archiviati nel cluster, vedere la sezione [Dove sono archiviati i notebook?](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)
+* Consente di creare i blocchi appunti in locale, testare l'applicazione in un cluster in esecuzione e quindi caricare i blocchi appunti nel cluster. Per caricare i blocchi appunti nel cluster, è possibile caricarli usando il blocco appunti Jupyter in esecuzione o il cluster oppure salvarli nella `/HdiNotebooks` cartella nell'account di archiviazione associato al cluster. Per altre informazioni sul modo in cui i notebook vengono archiviati nel cluster, vedere la sezione [Dove sono archiviati i notebook?](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)
 * Con i notebook disponibili in locale è possibile connettersi a cluster Spark diversi in base alle esigenze dell'applicazione.
 * È possibile usare GitHub per implementare un sistema di controllo del codice sorgente e usare il controllo della versione per il notebook. È anche possibile avere a disposizione un ambiente di collaborazione in cui più utenti possono lavorare allo stesso notebook.
 * È possibile lavorare con i notebook in locale anche senza avere un cluster. È necessario avere un cluster solo per eseguire i test dei notebook, non per gestire manualmente i notebook o un ambiente di sviluppo.
@@ -182,5 +182,5 @@ Esistono diversi motivi per cui è consigliabile installare Jupyter nel computer
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Panoramica: Apache Spark su Azure HDInsight](apache-spark-overview.md)
-* [Apache Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](apache-spark-use-bi-tools.md)
+* [Apache Spark with BI: Analyze Apache Spark data using Power BI in HDInsight](apache-spark-use-bi-tools.md)
 * [Apache Spark con Machine Learning: utilizzare Spark in HDInsight per l'analisi della temperatura di compilazione utilizzando dati HVAC](apache-spark-ipython-notebook-machine-learning.md)

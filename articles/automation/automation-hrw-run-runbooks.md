@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9b9196cde45686e42d1baf7faedf94bdb73acccc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 902734ddc7195d643c3aedb4054f57723d1a51c2
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367059"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632129"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Esecuzione di runbook in un ruolo di lavoro ibrido per runbook
 
@@ -252,7 +252,7 @@ $SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprin
 Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
-Quando un runbook è stato firmato, è necessario importarlo nell'account Di automazione e pubblicarlo con il blocco della firma. Per informazioni su come importare i runbook,vedere [Importazione di un runbook da un file in Automazione di Azure](manage-runbooks.md#import-a-runbook).
+Quando un runbook è stato firmato, è necessario importarlo nell'account Di automazione e pubblicarlo con il blocco della firma. Per informazioni su come importare i runbook,vedere [Importazione di un runbook da un file in Automazione di Azure](manage-runbooks.md#importing-a-runbook).
 
 ## <a name="working-with-signed-runbooks-on-a-linux-hybrid-runbook-worker"></a>Utilizzo di runbook firmati in un runbook ibrido LinuxWorking with signed runbooks on a Linux Hybrid Runbook Worker
 

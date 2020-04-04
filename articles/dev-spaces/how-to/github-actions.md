@@ -1,17 +1,17 @@
 ---
 title: Azioni GitHub & servizio Azure Kubernetes (anteprima)GitHub Actions & Azure Kubernetes Service (preview)
 services: azure-dev-spaces
-ms.date: 02/04/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
 description: Esaminare e testare le modifiche da una richiesta pull direttamente nel servizio Azure Kubernetes usando le azioni GitHub e gli spazi di sviluppo di AzureReview and test changes from a pull request directly in Azure Kubernetes Service using GitHub Actions and Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, azioni GitHub, Helm, rete mesh del servizio, routing mesh del servizio, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 49715e38f36d4421b7327640ec8392a83b3c2996
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a83da0ef3958748831eb0eeda1aa5e91efa7ef2e
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252384"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637937"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Azioni GitHub & servizio Azure Kubernetes (anteprima)GitHub Actions & Azure Kubernetes Service (preview)
 
@@ -101,6 +101,11 @@ Passare al repository biforke e fare clic su *Impostazioni*. Fai clic su *Segret
 > Tutti questi segreti vengono utilizzati dall'azione GitHub e sono configurati in [.github/workflows/bikes.yml][github-action-yaml].
 
 Facoltativamente, se si desidera aggiornare lo spazio master dopo l'unione della richiesta di disponibilità, aggiungere il *segreto GATEWAY_HOST,* che assume la forma *<MASTER_SPACE>.gateway.<HOST_SUFFIX>*, che in questo esempio è *dev.gateway.fedcab0987.eus.azds.io.* Dopo aver unito le modifiche nel ramo master nel fork, verrà eseguita un'altra azione per ricompilare ed eseguire l'intera applicazione nello spazio di sviluppo master. In questo esempio, lo spazio master è *dev*. Questa azione è configurata in [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+
+Inoltre, se si desidera che le modifiche nella PR vengano eseguite in uno spazio nipote, aggiornare i segreti *MASTER_SPACE* e *HOST.* Ad esempio, se l'applicazione è in esecuzione in *dev* con uno spazio figlio *dev/azureuser1*, per fare in modo che la richiesta di proprietà venga eseguita in uno spazio figlio di *dev/azureuser1*:
+
+* Aggiornare *MASTER_SPACE* allo spazio figlio desiderato come spazio padre, in questo esempio *azureuser1*.
+* Aggiornare *HOST* per *<GRANDPARENT_SPACE>>.HOST_SUFFIX <APP_NAME <> <GRANDPARENT_SPACE.<*, in questo esempio *dev.bikesharingweb.fedcab0987.eus.azds.io*.
 
 ## <a name="create-a-new-branch-for-code-changes"></a>Creare un nuovo ramo per le modifiche al codiceCreate a new branch for code changes
 

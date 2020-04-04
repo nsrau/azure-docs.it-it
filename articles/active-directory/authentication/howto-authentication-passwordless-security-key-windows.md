@@ -4,19 +4,19 @@ description: Informazioni su come abilitare l'accesso alla chiave di sicurezza s
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/30/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca6ef244a887e75a0d8b9bb663d5325a33cd1e89
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b8f5d6aaa96c24eb37eb78d237a489f1d25293c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79263907"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653993"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Abilitare l'accesso alla chiave di sicurezza senza password per i dispositivi Windows 10 con Azure Active Directory (anteprima)Enable passwordless security key sign-in to Windows 10 devices with Azure Active Directory (preview)
 
@@ -80,7 +80,7 @@ Le organizzazioni possono scegliere di utilizzare uno o più dei metodi seguenti
 
 Per abilitare l'uso delle chiavi di sicurezza tramite Intune, completare i passaggi seguenti:To enable the use of security keys using Intune, complete the following steps:
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Passare a Proprietà di Windows per**la registrazione** > di Windows per la**registrazione** > di dispositivi **Microsoft Intune** > , ad esempio Windows**Hello for Business** > **Properties**.
 1. In **Impostazioni**impostare **Usa chiavi di sicurezza per l'accesso su** **Abilitato**.
 
@@ -90,7 +90,7 @@ La configurazione delle chiavi di sicurezza per l'accesso non dipende dalla conf
 
 To target specific device groups to enable the credential provider, use the following custom settings via Intune:
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Passare a**Profili** > di**configurazione** > dei dispositivi **di Microsoft Intune** > **Crea profilo**.
 1. Configurare il nuovo profilo con le seguenti impostazioni:
    - Nome: Chiavi di sicurezza per l'accesso a Windows

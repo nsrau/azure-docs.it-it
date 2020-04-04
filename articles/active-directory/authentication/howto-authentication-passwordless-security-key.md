@@ -4,19 +4,19 @@ description: Abilitare l'accesso alla chiave di sicurezza senza password in Azur
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e088d239a91edeff34ecd1a7dc5be7a9f8628da3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b8574fcdff12e61f7039174ed6297d0558a66dc4
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80129156"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653946"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Abilitare l'accesso alla chiave di sicurezza senza password (anteprima)Enable passwordless security key sign-in (preview)
 
@@ -52,7 +52,7 @@ Le funzionalità di registrazione per i metodi di autenticazione senza password 
 
 ### <a name="enable-fido2-security-key-method"></a>Abilita metodo tasto di protezione FIDO2
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Passare**Security** > a Metodi > di autenticazione di sicurezza di **Azure Active Directory** > Criteri del metodo di**autenticazione****(anteprima)**.
 1. Nel metodo **FIDO2 Security Key**scegliere le seguenti opzioni:
    1. **Abilita** - Sì o No
@@ -95,7 +95,7 @@ Se vuoi condividere commenti e suggerimenti o riscontrare problemi durante l'ant
 
 Il provisioning e il deprovisioning delle chiavi di sicurezza dell'amministratore non sono disponibili nell'anteprima pubblica.
 
-### <a name="upn-changes"></a>Modifiche UPN
+### <a name="upn-changes"></a>Modifiche dei nomi UPN
 
 Stiamo lavorando per supportare una funzionalità che consente la modifica UPN nei dispositivi aggiunti ad Azure AD ibrido e ad Azure AD. Se l'UPN di un utente viene modificato, non è più possibile modificare le chiavi di protezione FIDO2 per tenere conto della modifica. La risoluzione consiste nel reimpostare il dispositivo e l'utente deve registrarsi nuovamente.
 

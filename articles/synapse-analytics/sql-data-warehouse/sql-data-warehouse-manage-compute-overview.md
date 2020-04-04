@@ -11,30 +11,30 @@ ms.date: 11/12/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 4c6c4d97282387fbcee1d7e8b55b95c01e3dded5
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: daf57c7e6ef40f75eac070c06547cf2a28338f21
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351604"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633236"
 ---
 # <a name="manage-compute-in-azure-synapse-analytics-data-warehouse"></a>Gestire il calcolo nel data warehouse di Azure Synapse AnalyticsManage compute in Azure Synapse Analytics data warehouse
 
-Informazioni sulla gestione delle risorse di calcolo nel pool SQL di Analisi synapse di Azure.Learn about managing compute resources in Azure Synapse Analytics SQL pool. Riduci i costi soppartendo il pool SQL o scalail per soddisfare le richieste di prestazioni. 
+Informazioni sulla gestione delle risorse di calcolo nel pool SQL di Analisi synapse di Azure.Learn about managing compute resources in Azure Synapse Analytics SQL pool. Riduci i costi soppartendo il pool SQL o scalail per soddisfare le richieste di prestazioni.
 
 ## <a name="what-is-compute-management"></a>Informazioni sulla gestione del calcolo
 
-L'architettura del data warehouse separa l'archiviazione e il calcolo, consentendo a ciascuno di essi di scalare in modo indipendente. Di conseguenza, è possibile ridimensionare il calcolo per soddisfare le esigenze in termini di prestazioni indipendenti dall'archiviazione dei dati. È anche possibile sospendere e riprendere le risorse di calcolo. Come conseguenza logica di questa architettura, la [fatturazione](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) per calcolo e archiviazione è separata. Se non è necessario usare il data warehouse per un periodo di tempo, è possibile sospendere le funzioni di calcolo al fine di risparmiare i costi associati. 
+L'architettura del data warehouse separa l'archiviazione e il calcolo, consentendo a ciascuno di essi di scalare in modo indipendente. Di conseguenza, è possibile ridimensionare il calcolo per soddisfare le esigenze in termini di prestazioni indipendenti dall'archiviazione dei dati. È anche possibile sospendere e riprendere le risorse di calcolo. Come conseguenza logica di questa architettura, la [fatturazione](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) per calcolo e archiviazione è separata. Se non è necessario usare il data warehouse per un periodo di tempo, è possibile sospendere le funzioni di calcolo al fine di risparmiare i costi associati.
 
 ## <a name="scaling-compute"></a>Ridimensionamento delle risorse di calcolo
 
-È possibile scalare orizzontalmente o ridimensionare il calcolo regolando l'impostazione delle unità di [data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) per il pool SQL. Le prestazioni di caricamento e relative alle query possono aumentare in modo lineare man mano che si aggiungono più unità di data warehouse. 
+È possibile scalare orizzontalmente o ridimensionare il calcolo regolando l'impostazione delle unità di [data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) per il pool SQL. Le prestazioni di caricamento e relative alle query possono aumentare in modo lineare man mano che si aggiungono più unità di data warehouse.
 
 Per le procedure per la scalabilità orizzontale, vedere le guide introduttive al [portale di Azure](quickstart-scale-compute-portal.md), a [PowerShell](quickstart-scale-compute-powershell.md) oppure a [T-SQL](quickstart-scale-compute-tsql.md). È anche possibile eseguire le operazioni di scalabilità orizzontale con un'[API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 Per eseguire un'operazione di scalabilità, il pool SQL interrompe prima tutte le query in ingresso e quindi esegue il rollback delle transazioni per garantire uno stato coerente. Il ridimensionamento ha effetto solo quando il rollback della transazione è completato. Per un'operazione di ridimensionamento, il sistema scollega il livello di archiviazione dai nodi di calcolo, aggiunge nodi di calcolo e quindi ricollega il livello di archiviazione al livello di calcolo. Ogni pool SQL viene archiviato come 60 distribuzioni, distribuite in modo uniforme ai nodi di calcolo. L'aggiunta di più nodi di calcolo aggiunge più potenza di calcolo. Con l'aumentare del numero di nodi di calcolo, il numero di distribuzioni per nodo di calcolo diminuisce, fornendo più potenza di calcolo per le query. Analogamente, la riduzione delle unità del data warehouse riduce il numero di nodi di calcolo, riducendo le risorse di calcolo per le query.
 
-La tabella seguente illustra come il numero di distribuzioni per nodo di calcolo si modifica in base alla modifica delle unità di data warehouse.  DW30000c fornisce 60 nodi di calcolo e ottiene prestazioni di query molto più elevate rispetto a DW100c. 
+La tabella seguente illustra come il numero di distribuzioni per nodo di calcolo si modifica in base alla modifica delle unità di data warehouse.  DW30000c fornisce 60 nodi di calcolo e ottiene prestazioni di query molto più elevate rispetto a DW100c.
 
 | Unità di data warehouse  | \#dei nodi di calcolo | \# di distribuzioni per nodo |
 | -------- | ---------------- | -------------------------- |
@@ -55,16 +55,15 @@ La tabella seguente illustra come il numero di distribuzioni per nodo di calcolo
 | DW15000c | 30               | 2                          |
 | DW30000c | 60               | 1                          |
 
-
 ## <a name="finding-the-right-size-of-data-warehouse-units"></a>Ricerca delle dimensioni giuste delle unità di data warehouse
 
-Per ottenere vantaggi della scalabilità orizzontale in termini di prestazioni, in particolare per le unità di warehouse dati di dimensioni maggiori, è necessario usare un set di dati di almeno 1 TB. Per trovare il numero migliore di unità di data warehouse per il pool SQL, provare a ridurre e ridurre la scalabilità. Dopo il caricamento dei dati, eseguire alcune query con numeri di unità di data warehouse diversi. Poiché il ridimensionamento è rapido, è possibile provare diversi livelli di prestazioni in un'ora o meno. 
+Per ottenere vantaggi della scalabilità orizzontale in termini di prestazioni, in particolare per le unità di warehouse dati di dimensioni maggiori, è necessario usare un set di dati di almeno 1 TB. Per trovare il numero migliore di unità di data warehouse per il pool SQL, provare a ridurre e ridurre la scalabilità. Dopo il caricamento dei dati, eseguire alcune query con numeri di unità di data warehouse diversi. Poiché il ridimensionamento è rapido, è possibile provare diversi livelli di prestazioni in un'ora o meno.
 
 Indicazioni per la ricerca del numero di unità di data warehouse più adatto.
 
 - Per un pool SQL in fase di sviluppo, iniziare selezionando un numero inferiore di unità di data warehouse.  Un buon punto di partenza è DW400c o DW200c.
 - Monitorare le prestazioni dell'applicazione, osservando il numero di unità di data warehouse selezionato rispetto alle prestazioni ottenute.
-- Presupporre una scalabilità lineare e determinare quanto è necessario aumentare o ridurre le unità di data warehouse. 
+- Presupporre una scalabilità lineare e determinare quanto è necessario aumentare o ridurre le unità di data warehouse.
 - Continuare ad apportare modifiche finché non si raggiunge un livello di prestazioni ottimale per i propri requisiti aziendali.
 
 ## <a name="when-to-scale-out"></a>Quando applicare la scalabilità orizzontale
@@ -78,29 +77,30 @@ L'aumento del numero di unità di data warehouse influisce sugli aspetti delle p
 Indicazioni per i momenti in cui è opportuno aumentare le unità di data warehouse.
 
 - Prima di eseguire un'operazione di caricamento o di trasformazione di dati con impatto elevato, applicare la scalabilità orizzontale per rendere disponibili i dati più rapidamente.
-- Durante le ore lavorative di maggiore picco, applicare la scalabilità orizzontale per gestire un numero maggiore di query simultanee. 
+- Durante le ore lavorative di maggiore picco, applicare la scalabilità orizzontale per gestire un numero maggiore di query simultanee.
 
 ## <a name="what-if-scaling-out-does-not-improve-performance"></a>Cosa accade se la scalabilità orizzontale non migliora le prestazioni?
 
-L'aggiunta di unità di data warehouse determina un aumento del parallelismo. Se il lavoro viene suddiviso in modo uniforme tra i nodi di calcolo, il maggiore parallelismo migliora le prestazioni delle query. Se la scalabilità orizzontale non modifica le prestazioni, i motivi possono essere diversi. I dati potrebbero essere presenti in modo non uniforme tra le distribuzioni o le query potrebbero introdurre spostamenti dei dati in notevole quantità. Per analizzare i problemi di prestazioni delle query, vedere [Risoluzione dei problemi di prestazioni](sql-data-warehouse-troubleshoot.md#performance). 
+L'aggiunta di unità di data warehouse determina un aumento del parallelismo. Se il lavoro viene suddiviso in modo uniforme tra i nodi di calcolo, il maggiore parallelismo migliora le prestazioni delle query. Se la scalabilità orizzontale non modifica le prestazioni, i motivi possono essere diversi. I dati potrebbero essere presenti in modo non uniforme tra le distribuzioni o le query potrebbero introdurre spostamenti dei dati in notevole quantità. Per analizzare i problemi di prestazioni delle query, vedere [Risoluzione dei problemi di prestazioni](sql-data-warehouse-troubleshoot.md#performance).
 
 ## <a name="pausing-and-resuming-compute"></a>Sospensione e ripresa del calcolo
 
-La sospensione del calcolo determina la disconnessione del livello di archiviazione dai nodi di calcolo. Le risorse di calcolo vengono rilasciate dall'account. Durante la sospensione del calcolo, non viene addebitato alcun costo correlato. Alla ripresa del calcolo, l'archiviazione viene ricollegata ai nodi di calcolo e le spese di calcolo vengono nuovamente addebitate. Quando si sospende un pool SQL:
+La sospensione del calcolo determina la disconnessione del livello di archiviazione dai nodi di calcolo. Le risorse di calcolo vengono rilasciate dall'account. Durante la sospensione del calcolo, non viene addebitato alcun costo correlato. Alla ripresa del calcolo, l'archiviazione viene ricollegata ai nodi di calcolo e le spese di calcolo vengono nuovamente addebitate.
+Quando si sospende un pool SQL:
 
-* Le risorse di calcolo e memoria vengono restituite al pool di risorse disponibili nel data center.
-* I costi delle unità di data warehouse sono pari a zero per la durata della sospensione.
-* L'archivio dati non è interessato e i dati rimangano invariati. 
-* Tutte le operazioni in esecuzione o in coda vengono annullate.
+- Le risorse di calcolo e memoria vengono restituite al pool di risorse disponibili nel data center.
+- I costi delle unità di data warehouse sono pari a zero per la durata della sospensione.
+- L'archivio dati non è interessato e i dati rimangano invariati.
+- Tutte le operazioni in esecuzione o in coda vengono annullate.
 
 Quando si riprende un pool SQL:When you resume a SQL pool:
 
-* Il pool SQL acquisisce le risorse di calcolo e memoria per l'impostazione delle unità di data warehouse.
-* I costi di calcolo per le unità di data warehouse vengono nuovamente addebitati.
-* I dati diventano disponibili.
-* Dopo che il pool SQL è online, è necessario riavviare le query del carico di lavoro.
+- Il pool SQL acquisisce le risorse di calcolo e memoria per l'impostazione delle unità di data warehouse.
+- I costi di calcolo per le unità di data warehouse vengono nuovamente addebitati.
+- I dati diventano disponibili.
+- Dopo che il pool SQL è online, è necessario riavviare le query del carico di lavoro.
 
-Se si desidera che il pool SQL sia sempre accessibile, è consigliabile ridimensionarlo fino alle dimensioni più piccole anziché sopportarlo. 
+Se si desidera che il pool SQL sia sempre accessibile, è consigliabile ridimensionarlo fino alle dimensioni più piccole anziché sopportarlo.
 
 Per le procedure di sospensione e ripresa, vedere le guide introduttive al [portale di Azure](pause-and-resume-compute-portal.md) oppure a [PowerShell](pause-and-resume-compute-powershell.md). È anche possibile usare l'[API REST di sospensione](sql-data-warehouse-manage-compute-rest-api.md#pause-compute) o l'[API REST di ripresa](sql-data-warehouse-manage-compute-rest-api.md#resume-compute).
 
@@ -116,15 +116,14 @@ Vedere anche [Informazioni sulle transazioni](sql-data-warehouse-develop-transac
 
 Per automatizzare le operazioni di gestione di calcolo, vedere [Manage compute with Azure functions](manage-compute-with-azure-functions.md) (Gestire il calcolo con Funzioni di Azure).
 
-Ogni operazione di scalabilità orizzontale, sospensione e ripresa può richiedere alcuni minuti. Se queste operazioni vengono eseguite automaticamente, è consigliabile implementare la logica necessaria per garantire che determinate operazioni siano completate prima di procedere con un'altra azione. Il controllo dello stato del pool SQL tramite vari endpoint consente di implementare correttamente l'automazione di tali operazioni. 
+Ogni operazione di scalabilità orizzontale, sospensione e ripresa può richiedere alcuni minuti. Se queste operazioni vengono eseguite automaticamente, è consigliabile implementare la logica necessaria per garantire che determinate operazioni siano completate prima di procedere con un'altra azione. Il controllo dello stato del pool SQL tramite vari endpoint consente di implementare correttamente l'automazione di tali operazioni.
 
 Per controllare lo stato del pool SQL, vedere la guida introduttiva di PowerShell o [T-SQL.To](quickstart-scale-compute-tsql.md#check-data-warehouse-state) check the SQL pool state, see the [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) or T-SQL quickstart. È inoltre possibile controllare lo stato del pool SQL con [un'API REST.](sql-data-warehouse-manage-compute-rest-api.md#check-database-state)
 
-
 ## <a name="permissions"></a>Autorizzazioni
 
-La scalabilità del pool SQL richiede le autorizzazioni descritte in [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse).  La sospensione e la ripresa richiedono l'autorizzazione [Collaboratore Database SQL](../../role-based-access-control/built-in-roles.md#sql-db-contributor), in particolare Microsoft.Sql/servers/databases/action.
-
+La scalabilità del pool SQL richiede le autorizzazioni descritte in [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  La sospensione e la ripresa richiedono l'autorizzazione [Collaboratore Database SQL](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#sql-db-contributor), in particolare Microsoft.Sql/servers/databases/action.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Vedere la procedura di guida per la gestione del [calcolo](manage-compute-with-azure-functions.md) Un altro aspetto della gestione delle risorse di calcolo sta allocando risorse di calcolo diverse per le singole query. Per altre informazioni, vedere [Classi di risorse per la gestione del carico di lavoro](resource-classes-for-workload-management.md).

@@ -45,7 +45,7 @@
       href: concepts-architecture.md
     - name: Che cosa i modelli di applicazione?
       href: concepts-app-templates.md
-    - name: Connettersi
+    - name: Connettività dei dispositivi
       href: concepts-get-connected.md
     - name: Connettere dispositivi IoT Edge
       href: concepts-iot-edge.md

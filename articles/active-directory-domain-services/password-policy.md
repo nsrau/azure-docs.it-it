@@ -8,15 +8,15 @@ ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: cc1863ff4200ee4cca94f18e3adfffa7ea42db96
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: b14fed07c9bd9b5fcb6a5489719481902351fc0d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80476014"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654875"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Criteri password e di blocco dell'account nei domini gestiti
 
@@ -45,6 +45,11 @@ Per completare questo articolo, sono necessarie le risorse e i privilegi seguent
 ## <a name="default-password-policy-settings"></a>Impostazioni predefinite dei criteri password
 
 I criteri granulari per le password (FGPP) consentono di applicare restrizioni specifiche per i criteri di blocco di password e account a utenti diversi in un dominio. Ad esempio, per proteggere gli account con privilegi è possibile applicare impostazioni di blocco degli account più severe rispetto ai normali account senza privilegi. È possibile creare più FGPP all'interno di un dominio gestito di Azure AD DS e specificare l'ordine di priorità per applicarli agli utenti.
+
+Per ulteriori informazioni sui criteri password e sull'utilizzo dell'interfaccia di amministrazione di Active Directory, vedere i seguenti articoli:
+
+* [Informazioni sui criteri granulari per le password](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770394(v=ws.10))
+* [Configurare criteri granulari per le password tramite l'interfaccia di amministrazione di Active Directory](/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#fine_grained_pswd_policy_mgmt)
 
 I criteri vengono distribuiti tramite l'associazione di gruppo in un dominio gestito di Servizi di dominio Active Directory di Azure e le modifiche apportate vengono applicate al successivo accesso utente. La modifica del criterio non sblocca un account utente già bloccato.
 

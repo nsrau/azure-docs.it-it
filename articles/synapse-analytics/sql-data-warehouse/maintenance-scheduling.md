@@ -10,16 +10,16 @@ ms.subservice: ''
 ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: f193580ca03d4b1805f3c044658a34f468f3f44f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 43fc32e910c51e8b70e15aa49584a18e5b703fca
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346556"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631596"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Usare le pianificazioni della manutenzione per gestire gli aggiornamenti e la manutenzione dei servizi
 
-La funzionalità di pianificazione della manutenzione integra le notifiche di manutenzione pianificata dell'integrità del servizio, monitoraggio controllo integrità delle risorse e il servizio di pianificazione della manutenzione per il pool SQL Synapse (data warehouse) all'interno di Azure Synapse Analytics. 
+La funzionalità di pianificazione della manutenzione integra le notifiche di manutenzione pianificata dell'integrità del servizio, monitoraggio controllo integrità delle risorse e il servizio di pianificazione della manutenzione per il pool SQL Synapse (data warehouse) all'interno di Azure Synapse Analytics.
 
 È consigliabile utilizzare la pianificazione della manutenzione per scegliere un intervallo di tempo in cui è conveniente ricevere nuove funzionalità, aggiornamenti e patch. È necessario scegliere una finestra di manutenzione primaria e una secondaria entro un periodo di sette giorni, ogni finestra deve essere all'interno di intervalli di giorni separati.
 
@@ -48,52 +48,55 @@ Tutti gli eventi di manutenzione attivi verranno visualizzati nella sezione **In
 
 Anche se la pianificazione della manutenzione non è disponibile nell'area selezionata, è possibile visualizzare e modificare la pianificazione di manutenzione in qualsiasi momento. Quando la pianificazione della manutenzione diventa disponibile nella propria area geografica, la pianificazione identificata diventerà immediatamente attiva nel pool Synapse SQL.
 
-## <a name="view-a-maintenance-schedule"></a>Visualizzare una pianificazione della manutenzione 
+## <a name="view-a-maintenance-schedule"></a>Visualizzare una pianificazione della manutenzione
 
 Per impostazione predefinita, a tutte le istanze del data warehouse appena create viene applicata una finestra di manutenzione primaria e secondaria di otto ore durante la distribuzione. Come indicato in precedenza, è possibile modificare le finestre al termine della distribuzione. Nessuna manutenzione verrà eseguita al di fuori delle finestre di manutenzione specificate senza preavviso.
 
 La procedura seguente illustra come visualizzare la pianificazione della manutenzione applicata al pool Synapse SQL:
 
-1.    Accedere al [portale](https://portal.azure.com/)di Azure .
-2.    Selezionare il pool SQL Synapse che si desidera visualizzare. 
-3.    Il pool Synapse SQL selezionato viene aperto nel pannello Panoramica.The selected Synapse SQL pool opens on the overview blade. La pianificazione della manutenzione applicata al data warehouse viene visualizzata sotto **Pianificazione manutenzione**.
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+2. Selezionare il pool SQL Synapse che si desidera visualizzare.
+3. Il pool Synapse SQL selezionato viene aperto nel pannello Panoramica.The selected Synapse SQL pool opens on the overview blade. La pianificazione della manutenzione applicata al data warehouse viene visualizzata sotto **Pianificazione manutenzione**.
 
 ![Pannello Panoramica](./media/maintenance-scheduling/clear-overview-blade.PNG)
 
-## <a name="change-a-maintenance-schedule"></a>Modificare una pianificazione della manutenzione 
+## <a name="change-a-maintenance-schedule"></a>Modificare una pianificazione della manutenzione
 
-Una pianificazione della manutenzione può essere aggiornata o modificata in qualsiasi momento. Se per l'istanza selezionata è in corso un ciclo di manutenzione attivo, le impostazioni verranno salvate. Diventeranno attive durante il successivo periodo di manutenzione identificato. [Altre informazioni](../../service-health/resource-health-overview.md) sul monitoraggio del data warehouse durante un evento di manutenzione attiva. 
+Una pianificazione della manutenzione può essere aggiornata o modificata in qualsiasi momento. Se per l'istanza selezionata è in corso un ciclo di manutenzione attivo, le impostazioni verranno salvate. Diventeranno attive durante il successivo periodo di manutenzione identificato. [Altre informazioni](../../service-health/resource-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sul monitoraggio del data warehouse durante un evento di manutenzione attiva.
 
 ## <a name="identifying-the-primary-and-secondary-windows"></a>Identificazione delle finestre primarie e secondarie
 
 Le finestre primarie e secondarie devono avere intervalli di giorni separati. Un esempio è una finestra primaria da martedì a giovedì e una finestra secondaria da sabato a domenica.
 
 La procedura seguente illustra come modificare la pianificazione della manutenzione per il pool Synapse SQL:
-1.    Accedere al [portale](https://portal.azure.com/)di Azure .
-2.    Selezionare il pool SQL Synapse che si desidera aggiornare. La pagina viene aperta nel pannello Panoramica. 
-3.    Aprire la pagina per le impostazioni di pianificazione della manutenzione selezionando il collegamento Riepilogo pianificazione manutenzione nel pannello Panoramica.Open the page for maintenance schedule settings by selecting the **Maintenance Schedule summary link** on the overview blade. In alternativa, selezionare l'opzione **Pianificazione della manutenzione** nel menu delle risorse a sinistra.  
+
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+2. Selezionare il pool SQL Synapse che si desidera aggiornare. La pagina viene aperta nel pannello Panoramica.
+Aprire la pagina per le impostazioni di pianificazione della manutenzione selezionando il collegamento Riepilogo pianificazione manutenzione nel pannello Panoramica.Open the page for maintenance schedule settings by selecting the **Maintenance Schedule summary link** on the overview blade. In alternativa, selezionare l'opzione **Pianificazione della manutenzione** nel menu delle risorse a sinistra.
 
     ![Opzioni del pannello Panoramica](./media/maintenance-scheduling/maintenance-change-option.png)
 
-4. Scegliere l'intervallo di date preferito per la finestra di manutenzione primaria usando le opzioni nella parte superiore della pagina. Con questa selezione si stabilisce se la finestra primaria è prevista nei giorni feriali o durante il fine settimana. La selezione aggiornerà di conseguenza i valori dell'elenco a discesa. Durante l'anteprima alcune aree potrebbero non supportare ancora il set completo di opzioni **Giorno**.
+3. Scegliere l'intervallo di date preferito per la finestra di manutenzione primaria usando le opzioni nella parte superiore della pagina. Con questa selezione si stabilisce se la finestra primaria è prevista nei giorni feriali o durante il fine settimana. La selezione aggiornerà di conseguenza i valori dell'elenco a discesa.
+Durante l'anteprima alcune aree potrebbero non supportare ancora il set completo di opzioni **Giorno**.
 
    ![Pannello delle impostazioni di manutenzione](./media/maintenance-scheduling/maintenance-settings-page.png)
 
-5. Scegliere le finestre di manutenzione primarie e secondarie desiderate usando gli elenchi a discesa seguenti:
+4. Scegliere le finestre di manutenzione primarie e secondarie desiderate usando gli elenchi a discesa seguenti:
    - **Giorno**: giorno preferito per eseguire la manutenzione durante la finestra selezionata.
    - **Ora di inizio**: orario di inizio preferito per la finestra di manutenzione.
    - **Intervallo di tempo**: durata preferita della finestra temporale.
 
-   L'area **Riepilogo della pianificazione** nella parte inferiore del pannello viene aggiornata in base ai valori selezionati. 
+   L'area **Riepilogo della pianificazione** nella parte inferiore del pannello viene aggiornata in base ai valori selezionati.
   
-6. Selezionare **Salva**. Viene visualizzato un messaggio, che conferma che la nuova pianificazione è ora attiva. 
+5. Selezionare **Salva**. Viene visualizzato un messaggio, che conferma che la nuova pianificazione è ora attiva.
 
-   Se si salva una pianificazione in un'area che non supporta la pianificazione della manutenzione, viene visualizzato il seguente messaggio. Le impostazioni vengono salvate e diventeranno attive quando la funzione sarà disponibile nell'area selezionata.    
+   Se si salva una pianificazione in un'area che non supporta la pianificazione della manutenzione, viene visualizzato il seguente messaggio. Le impostazioni vengono salvate e diventeranno attive quando la funzione sarà disponibile nell'area selezionata.
 
    ![Messaggio sulla disponibilità in base all'area geografica](./media/maintenance-scheduling/maintenance-not-active-toast.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Altre informazioni](../../azure-monitor/platform/alerts-metric.md) sulla creazione, visualizzazione e gestione degli avvisi con Monitoraggio di Azure.
-- [Altre informazioni](../..//azure-monitor/platform/alerts-log-webhook.md) sulle azioni webhook per le regole di avviso relative ai log.
-- [Altre informazioni](../..//azure-monitor/platform/action-groups.md) Creazione e gestione di gruppi di azioni.
-- [Altre informazioni](../../service-health/service-health-overview.md) su Integrità dei servizi di Azure.Learn more about Azure Service Health.
+
+- [Altre informazioni](../../azure-monitor/platform/alerts-metric.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sulla creazione, visualizzazione e gestione degli avvisi con Monitoraggio di Azure.
+- [Altre informazioni](../..//azure-monitor/platform/alerts-log-webhook.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sulle azioni webhook per le regole di avviso relative ai log.
+- [Altre informazioni](../..//azure-monitor/platform/action-groups.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Creazione e gestione di gruppi di azioni.
+- [Altre informazioni](../../service-health/service-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) su Integrità dei servizi di Azure.Learn more about Azure Service Health.

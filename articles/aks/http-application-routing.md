@@ -1,17 +1,17 @@
 ---
 title: Componente aggiuntivo Routing di applicazioni HTTP nel servizio Azure Kubernetes
-description: Usare il componente aggiuntivo Routing di applicazioni HTTP nel servizio Azure Kubernetes.
+description: Usare il componente aggiuntivo di routing delle applicazioni HTTP per accedere alle applicazioni distribuite nel servizio Azure Kubernetes (AKS).
 services: container-service
 author: lachie83
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
-ms.openlocfilehash: 5794e46f10abec1ceef4c79a881f7f353e729634
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ffc9daaf1b87fc9fb6ebbb0f2787f07282afe5e
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595689"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632411"
 ---
 # <a name="http-application-routing"></a>Routing di applicazioni HTTP
 
@@ -206,7 +206,7 @@ kubectl delete configmaps addon-http-application-routing-nginx-configuration --n
 
 Ripetere il passaggio `kubectl delete` precedente per tutte le risorse *addon-http-application-routing* rimaste nel cluster.
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 Usare il comando [kubectl logs][kubectl-logs] per visualizzare i log applicazioni dell'applicazione External-DNS. I log dovrebbero confermare che sono stati creati correttamente un record DNS A e un record DNS TXT.
 

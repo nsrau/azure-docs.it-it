@@ -1,14 +1,14 @@
 ---
 title: Dettagli della struttura delle definizioni dei criteri
 description: Descrive come vengono utilizzate le definizioni dei criteri per stabilire le convenzioni per le risorse di Azure nell'organizzazione.
-ms.date: 02/26/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: d7cb1ab7d045a0595f6949052ecedba6cd1bf694
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6b1d5c43f290fc2dd953492440670608a15faca
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239995"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80638086"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -361,7 +361,7 @@ Questa regola dei criteri usa **value** per verificare se il risultato di più f
     "policyRule": {
         "if": {
             "value": "[less(length(field('tags')), 3)]",
-            "equals": true
+            "equals": "true"
         },
         "then": {
             "effect": "deny"
@@ -578,6 +578,9 @@ Tutte le funzioni modello di Resource Manager sono disponibili per l'utilizzo al
 - resourceId()
 - variables()
 
+> [!NOTE]
+> Queste funzioni sono ancora `details.deployment.properties.template` disponibili all'interno della parte della distribuzione del modello in una definizione dei criteri **deployIfNotExists.**
+
 La funzione seguente è disponibile per l'uso in una regola dei criteri, ma è diversa dall'uso in un modello di Azure Resource Manager:The following function is available to use in a policy rule, but differs from use in an Azure Resource Manager template:
 
 - `utcNow()`- A differenza di un modello di Resource Manager, questo può essere usato al di fuori di defaultValue.- Unlike a Resource Manager template, this can be used outside defaultValue.
@@ -593,10 +596,9 @@ Nelle regole dei criteri sono disponibili solo le funzioni seguenti:The followin
   - Restituisce il valore di tale campo dalla risorsa che viene valutata dalla condizione If
   - `field` viene principalmente usata con **AuditIfNotExists** e **DeployIfNotExists** per fare riferimento ai campi sulla risorsa che viene valutata. Altre informazioni sono disponibili nell'esempio [DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
-  - Restituisce la versione API della richiesta che `2019-09-01`ha attivato la valutazione dei criteri (esempio: ). Questa sarà la versione dell'API utilizzata nella richiesta PUT/PATCH per le valutazioni sulla creazione/aggiornamento delle risorse. La versione api più recente viene sempre usata durante la valutazione della conformità sulle risorse esistenti.
+  - Restituisce la versione API della richiesta che `2019-09-01`ha attivato la valutazione dei criteri (esempio: ).
+    Questa sarà la versione dell'API utilizzata nella richiesta PUT/PATCH per le valutazioni sulla creazione/aggiornamento delle risorse. La versione api più recente viene sempre usata durante la valutazione della conformità sulle risorse esistenti.
   
-
-
 #### <a name="policy-function-example"></a>Esempio di funzione dei criteri
 
 Questo esempio di regola dei criteri usa la `resourceGroup` funzione risorsa per ottenere la proprietà **name**, in combinazione con la matrice `concat` e la funzione oggetto per creare una condizione `like` che fa in modo che il nome della risorsa inizi con il nome del gruppo di risorse.
@@ -708,8 +710,6 @@ Questa regola di esempio verifica la presenza di eventuali corrispondenze di **\
 }
 ```
 
-
-
 Per ulteriori informazioni, vedere [valutazione dell'alias\*[ ]](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ## <a name="initiatives"></a>Iniziative
@@ -795,7 +795,7 @@ L'esempio seguente illustra come creare un'iniziativa per la gestione di due tag
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Esaminare esempi in [Esempi di criteri di Azure](../samples/index.md).Review examples at Azure Policy samples .
-- Rivedere [Informazioni sugli effetti dei criteri](effects.md).
+- Leggere [Informazioni sugli effetti di Criteri](effects.md).
 - Comprendere come creare criteri a livello di [codice.](../how-to/programmatically-create.md)
 - Scopri come ottenere i dati di [conformità](../how-to/get-compliance-data.md).
 - Informazioni su come [correggere le risorse non conformi.](../how-to/remediate-resources.md)

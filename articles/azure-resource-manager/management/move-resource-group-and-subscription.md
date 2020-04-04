@@ -3,12 +3,12 @@ title: Spostare le risorse in una nuova sottoscrizione o gruppo di risorseMove r
 description: Usare Azure Resource Manager per spostare risorse a un nuovo gruppo di risorse o a una nuova sottoscrizione.
 ms.topic: conceptual
 ms.date: 03/02/2020
-ms.openlocfilehash: 40432c55a7f7e289d2e5cbc8afe94847074e4ca8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ffb5f8be81d3628084d127db404ab994d4d5b938
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248853"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631510"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Spostare le risorse in un altro gruppo di risorse o un'altra sottoscrizione
 
@@ -107,7 +107,7 @@ A scopo illustrativo, abbiamo una sola risorsa dipendente.
 
 * Passaggio 1: se le risorse dipendenti vengono distribuite tra gruppi di risorse diversi, spostarle innanzitutto in un unico gruppo di risorse.
 * Passaggio 2: Spostare insieme la risorsa e le risorse dipendenti dalla sottoscrizione di origine alla sottoscrizione di destinazione.
-* Passaggio 3: Facoltativamente, ridistribuire le risorse dipendenti in gruppi di risorse diversi all'interno della sottoscrizione di destinazione. 
+* Passaggio 3: Facoltativamente, ridistribuire le risorse dipendenti in gruppi di risorse diversi all'interno della sottoscrizione di destinazione.
 
 ## <a name="validate-move"></a>Convalidare lo spostamento
 
@@ -260,8 +260,9 @@ Quando si sposta una risorsa, le relative risorse dipendenti devono esistere nel
 Ad esempio, lo spostamento di una macchina virtuale potrebbe richiedere lo spostamento di sette tipi di risorse con tre provider di risorse diversi. Tali provider di risorse e tipi sono:Those resource providers and types are:
 
 * Microsoft.Compute
-   * virtualMachines
-   * disks
+
+  * virtualMachines
+  * disks
 * Microsoft.Network
   * networkInterfaces
   * publicIPAddresses

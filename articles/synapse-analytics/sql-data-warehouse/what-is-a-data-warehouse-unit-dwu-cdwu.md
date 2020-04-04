@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ace4bc2e46d9e1926da18dedb163657d4f343979
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 01a05755fc18a85a95e9c1bec1c470d37af656d1
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586320"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632242"
 ---
 # <a name="data-warehouse-units-dwus"></a>Unità data warehouse (DKU)
 
@@ -24,14 +24,18 @@ Consigli sulla scelta del numero ideale di unità di data warehouse (DKU) per ot
 
 ## <a name="what-are-data-warehouse-units"></a>Che cosa sono le unità di data warehouse
 
-Un [pool SQL Synapse](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) rappresenta una raccolta di risorse analitiche di cui viene eseguito il provisioning. Le risorse analitiche sono definite come una combinazione di CPU, memoria e I/O. Queste tre risorse sono raggruppate in unità di scala di calcolo denominate Unità di data warehouse (DKU). Un'unità DWU rappresenta una misura astratta e normalizzata delle risorse e delle prestazioni di calcolo. Una modifica al livello di servizio altera il numero di DKU disponibili per il sistema, che a sua volta regola le prestazioni e il costo del sistema.
+Un [pool SQL Synapse](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) rappresenta una raccolta di risorse analitiche di cui viene eseguito il provisioning. Le risorse analitiche sono definite come una combinazione di CPU, memoria e I/O. 
+
+Queste tre risorse sono raggruppate in unità di scala di calcolo denominate Unità di data warehouse (DKU). Un'unità DWU rappresenta una misura astratta e normalizzata delle risorse e delle prestazioni di calcolo. 
+
+Una modifica al livello di servizio altera il numero di DKU disponibili per il sistema, che a sua volta regola le prestazioni e il costo del sistema.
 
 Per migliorare le prestazioni, è possibile aumentare il numero di unità del data warehouse. Per una riduzione delle prestazioni, ridurre le unità del data warehouse. I costi di archiviazione e calcolo vengono fatturati separatamente, pertanto la modifica delle unità Data Warehouse non influisce sui costi di archiviazione.
 
 Le prestazioni per le unità del data warehouse si basano su queste metriche del carico di lavoro:Performance for data warehouse units is based on these workload metrics:
 
-- Velocità con cui una query di data warehousing standard può eseguire la scansione di un numero elevato di righe e quindi eseguire un'aggregazione complessa. Questa è un'operazione con uso intensivo di I/O e CPU.
-- Velocità con cui il data warehouse può creare dati dai BLOB di Archiviazione di Azure o da Azure Data Lake.How fast the data warehouse can ingest data from Azure Storage Blobs or Azure Data Lake. Questa è un'operazione con uso intensivo di rete e CPU.
+- Velocità con cui una query del pool SQL standard può eseguire la scansione di un numero elevato di righe e quindi eseguire un'aggregazione complessa. Questa è un'operazione con uso intensivo di I/O e CPU.
+- Velocità con cui il pool SQL può creare dati dai BLOB di Archiviazione di Azure o da Azure Data Lake.How fast the SQL pool can ingest data from Azure Storage Blobs or Azure Data Lake. Questa è un'operazione con uso intensivo di rete e CPU.
 - Velocità con [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) cui il comando T-SQL può copiare una tabella. Questa operazione comporta la lettura dei dati dall'archiviazione, la relativa distribuzione tra tutti i nodi dell'appliance e la riscrittura nella risorsa di archiviazione. È un'operazione con uso intensivo di CPU, I/O e rete.
 
 L'aumento delle DWU:
@@ -42,7 +46,7 @@ L'aumento delle DWU:
 
 ## <a name="service-level-objective"></a>Obiettivo del livello di servizio
 
-L'obiettivo del livello di servizio (SLO) è l'impostazione di scalabilità che determina il livello di costi e prestazioni del data warehouse. I livelli di servizio per il pool SQL Gen2 sono misurati in unità di data warehouse (DWU), ad esempio DW2000c.
+L'obiettivo del livello di servizio (SLO, Service Level Objective) è l'impostazione di scalabilità che determina il costo e il livello di prestazioni del pool SQL. I livelli di servizio per il pool SQL Gen2 sono misurati in unità di data warehouse (DWU), ad esempio DW2000c.
 
 In T-SQL l'impostazione SERVICE_OBJECTIVE determina il livello di servizio per il pool SQL.
 
@@ -56,7 +60,7 @@ CREATE DATABASE mySQLDW
 
 ## <a name="capacity-limits"></a>Limiti di capacità
 
-Ogni server SQL (ad esempio, myserver.database.windows.net) ha una quota di [unità di transazione di database (DTU)](../../sql-database/sql-database-service-tiers-dtu.md) che consente un numero specifico di unità di data warehouse. Per altre informazioni, vedere i [limiti della capacità di gestione del carico di lavoro](sql-data-warehouse-service-capacity-limits.md#workload-management).
+Ogni server SQL (ad esempio, myserver.database.windows.net) ha una quota di [unità di transazione di database (DTU)](../../sql-database/sql-database-service-tiers-dtu.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) che consente un numero specifico di unità di data warehouse. Per altre informazioni, vedere i [limiti della capacità di gestione del carico di lavoro](sql-data-warehouse-service-capacity-limits.md#workload-management).
 
 ## <a name="how-many-data-warehouse-units-do-i-need"></a>Quante unità di data warehouse sono necessarie
 
@@ -68,7 +72,9 @@ Procedure per individuare l'impostazione DWU ottimale per il carico di lavoro:
 2. Monitorare le prestazioni dell'applicazione durante il caricamento dei dati di test nel sistema, osservando il numero di DWU selezionato in relazione alle prestazioni rilevate.
 3. Identificare eventuali requisiti aggiuntivi per i periodici periodi di punta delle attività. I carichi di lavoro che mostrano picchi e minimi significativi nell'attività potrebbero dover essere scalati frequentemente.
 
-Analisi SQL è un sistema con scalabilità orizzontale in grado di eseguire il provisioning di grandi quantità di dati di dimensioni elevate e di query. Per verificare le effettive capacità nell'ottica della scalabilità, in particolare per le maggiori quantità di DWU, è consigliabile ridimensionare il set di dati durante gli interventi di scalabilità per assicurarsi che siano disponibili dati sufficienti per le CPU. Per i test di scalabilità è consigliabile usare almeno 1 TB.
+Il pool SQL è un sistema con scalabilità orizzontale in grado di eseguire il provisioning di grandi quantità di dati di dimensioni elevate e di query. 
+
+Per verificare le effettive capacità nell'ottica della scalabilità, in particolare per le maggiori quantità di DWU, è consigliabile ridimensionare il set di dati durante gli interventi di scalabilità per assicurarsi che siano disponibili dati sufficienti per le CPU. Per i test di scalabilità è consigliabile usare almeno 1 TB.
 
 > [!NOTE]
 >
@@ -172,7 +178,7 @@ Per controllare lo stato delle modifiche alle DWU:
     FROM      sys.databases
     ;
     ```
-    
+
 1. Inviare la query seguente per controllare lo stato dell'operazione.
 
     ```sql
@@ -182,7 +188,7 @@ Per controllare lo stato delle modifiche alle DWU:
     AND       major_resource_id = 'MySQLDW'
     ;
     ```
-    
+
 Questa DMV restituisce informazioni sulle varie operazioni di gestione nel pool SQL, ad esempio l'operazione e lo stato dell'operazione, ovvero IN_PROGRESS o COMPLETED.
 
 ## <a name="the-scaling-workflow"></a>Flusso di lavoro del ridimensionamento

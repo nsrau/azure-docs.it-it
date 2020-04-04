@@ -16,16 +16,23 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5a2107974cd63c0d02aaeb555430453c39990bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12e3b86f41e7188778393ab717554907ef5d44ec
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262022"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631737"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Visualizzare, aggiungere e rimuovere assegnazioni per un pacchetto di accesso nella gestione dei diritti di Azure ADView, add, and remove assignments for an access package in Azure AD entitlement management
 
 Nella gestione dei diritti di Azure AD è possibile vedere chi è stato assegnato ai pacchetti di accesso, ai criteri e allo stato. Se un pacchetto di accesso dispone di un criterio appropriato, è anche possibile assegnare direttamente l'utente a un pacchetto di accesso. In questo articolo viene descritto come visualizzare, aggiungere e rimuovere le assegnazioni per i pacchetti di accesso.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Per usare la gestione dei diritti di Azure AD e assegnare gli utenti ai pacchetti di accesso, è necessario disporre di una delle licenze seguenti:To use Azure AD entitlement management and assign users to access packages, you must have one of the following licenses:
+
+- Azure AD Premium P2
+- Licenza di Enterprise Mobility + Security (EMS) E5
 
 ## <a name="view-who-has-an-assignment"></a>Visualizzare chi ha un compito
 

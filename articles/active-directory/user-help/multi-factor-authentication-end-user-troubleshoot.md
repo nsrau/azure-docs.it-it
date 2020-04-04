@@ -9,15 +9,15 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 04/02/2020
 ms.author: curtand
 ms.reviewer: kexia
-ms.openlocfilehash: c28b63749cfdbcd16b94cbd3ca7dd4023f46a351
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1703853f42b52dccc80fdfadaa09b67e18a19db8
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78897721"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632907"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problemi comuni relativi alla verifica a due fattori e all'account aziendale o dell'istituto di istruzione
 
@@ -99,6 +99,8 @@ Le password delle app sostituiscono la normale password per le applicazioni desk
 ## <a name="i-cant-turn-two-factor-verification-off"></a>Non riesco a disattivare la verifica a due fattori
 
 Se si utilizza la verifica a due fattori con l'account aziendale o dell'istituto di istruzione (ad esempio, alain@contoso.com), molto probabilmente significa che l'organizzazione ha deciso che è necessario utilizzare questa funzionalità di sicurezza aggiuntiva. Poiché l'organizzazione ha deciso che è necessario usare questa funzionalità, non è possibile disattivarla individualmente. Se, tuttavia, utilizzi la verifica a due fattori alain@outlook.comcon un account personale, ad esempio , hai la possibilità di attivare e disattivare la funzione. Per istruzioni su come controllare la verifica a due fattori per gli account personali, vedere Attivazione o disattivazione della verifica a due fattori [per l'account Microsoft.](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)
+
+Se non è possibile disattivare la verifica a due fattori, potrebbe anche essere a causa delle impostazioni predefinite di sicurezza applicate a livello di organizzazione. Per ulteriori informazioni sulle impostazioni predefinite di sicurezza, vedere Che cosa sono i [defulta](../fundamentals/concept-fundamentals-security-defaults.md) di sicurezza?
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Nessuna risposta al problema riscontrato
 

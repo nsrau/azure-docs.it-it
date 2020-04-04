@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 785a8a031a10232a37b235711ba919fdc1df35d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a7be99959c2ae420cff667491f68c40dfa0862a9
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77061420"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652395"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset"></a>Pianificare la reimpostazione della password self-service di Azure Active DirectoryPlan an Azure Active Directory self-service password reset
 
@@ -316,7 +316,7 @@ I registri di controllo per la registrazione e la reimpostazione della password 
 
 [L'utilizzo e le informazioni dettagliate](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-methods-usage-insights) consentono di comprendere il funzionamento dei metodi di autenticazione per funzionalità come Azure MFA e SSPR nell'organizzazione. Questa funzionalità di reporting fornisce all'organizzazione i mezzi per comprendere quali metodi registrarsi e come usarli.
 
-### <a name="troubleshoot"></a>Risolvere i problemi
+### <a name="troubleshoot"></a>Risolvere problemi
 
 * Fare riferimento a Risolvere i problemi di [reimpostazione della password self-service](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-troubleshoot) 
 

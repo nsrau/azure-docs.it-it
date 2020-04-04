@@ -4,17 +4,18 @@ description: Lo scopo di questo documento è quello di consentire a un utente di
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
+manager: dcscontentpm
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: a88e339e82484c2ec1cd2276f6218fa718b990f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dcf86deda32069bf9711dbeb733dc9361e22a771
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75860487"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631777"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Come convalidare la velocità effettiva della VPN verso una rete virtuale
 
@@ -242,7 +243,7 @@ Le subnet degli intervalli locali che si desidera che Azure raggiungano tramite 
 
 * **Gateway basato su criteri:** le VPN basate su criteri crittografano e dirigono i pacchetti tramite tunnel IPsec in base alle combinazioni di prefissi di indirizzo tra la rete locale e la rete virtuale di Azure.Policy based Gateway : Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the combinations of address prefixes between your on-premises network and the Azure VNet. I criteri (o selettore di traffico) vengono in genere definiti come un elenco di accesso nella configurazione VPN.
 
-* **UsePolicyBasedTrafficSelector** connections: ("UsePolicyBasedTrafficSelectors" per $True in una connessione configurerà il gateway VPN di Azure per la connessione al firewall VPN basato su criteri in locale. Se si abilita PolicyBasedTrafficSelectors, è necessario assicurarsi che i selettori di traffico corrispondenti per il dispositivo VPN siano definiti con tutte le combinazioni di prefissi di rete locale (gateway di rete locale) da e verso i prefissi della rete virtuale di Azure, qualsiasi a qualsiasi.
+* **UsePolicyBasedTrafficSelector** connections: ("UsePolicyBasedTrafficSelectors" per $True in una connessione configurerà il gateway VPN di Azure per la connessione al firewall VPN basato su criteri in locale. Se si abilita PolicyBasedTrafficSelectors, è necessario assicurarsi che il dispositivo VPN disponga dei selettori di traffico corrispondenti definiti con tutte le combinazioni di prefissi di rete locale (gateway di rete locale) da e verso i prefissi della rete virtuale di Azure, anziché qualsiasi a qualsiasi.
 
 Una configurazione inappropriata può portare a frequenti disconnessioni all'interno del tunnel, cadute di pacchetti, velocità effettiva non valida e latenza.
 

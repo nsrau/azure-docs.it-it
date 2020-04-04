@@ -7,12 +7,12 @@ ms.reviewers: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: d65b81f18d4dcb0ee97a21a7edec885e308bd8d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1885d7f8713b3801ce0c9846b7a8509b3864032a
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79297297"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656294"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Ricevere e rispondere alle richieste HTTPS in ingresso nelle app per la logica di AzureReceive and respond to inbound HTTPS requests in Azure Logic Apps
 
@@ -25,7 +25,7 @@ Con [le app per](../logic-apps/logic-apps-overview.md) la logica di Azure e l'az
 > [!NOTE]
 > Il trigger di richiesta supporta *solo* Transport Layer Security (TLS) 1.2 per le chiamate in ingresso. Le chiamate in uscita continuano a supportare TLS 1.0, 1.1 e 1.2. Per ulteriori informazioni, vedere [Risoluzione del problema TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
 >
-> Se vengono visualizzati errori di handshake SSL, assicurarsi di utilizzare TLS 1.2. Per le chiamate in arrivo, ecco le suite di crittografia supportate:
+> Se vengono visualizzati errori di handshake TLS, assicurarsi di utilizzare TLS 1.2. Per le chiamate in arrivo, ecco le suite di crittografia supportate:
 >
 > * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 > * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
@@ -48,7 +48,7 @@ Con [le app per](../logic-apps/logic-apps-overview.md) la logica di Azure e l'az
 
 Questo trigger predefinito crea un endpoint HTTPS chiamabile manualmente in grado di ricevere *solo* le richieste HTTPS in ingresso. Quando si verifica questo evento, il trigger viene attivato ed esegue l'app per la logica. Per altre informazioni sulla definizione JSON sottostante del trigger e su come chiamare questo trigger, vedere il tipo di trigger di richiesta e [Chiamare, attivare o annidare flussi di lavoro con endpoint HTTP in App per la logica](../logic-apps/logic-apps-http-endpoint.md)di Azure.For more information about the trigger's underlying JSON definition and how to call this trigger, see the Request trigger [type](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) and Call, trigger, or nest workflows with HTTP endpoints in Azure Logic Apps .
 
-1. Accedere al [portale](https://portal.azure.com)di Azure . Creare un'app per la logica vuota.
+1. Accedere al [portale di Azure](https://portal.azure.com). Creare un'app per la logica vuota.
 
 1. Dopo l'apertura di Progettazione app per la logica, nella casella di ricerca immettere "richiesta http" come filtro. Nell'elenco dei trigger selezionare il trigger **Quando viene ricevuta una richiesta HTTP,** che è il primo passaggio del flusso di lavoro dell'app per la logica.
 

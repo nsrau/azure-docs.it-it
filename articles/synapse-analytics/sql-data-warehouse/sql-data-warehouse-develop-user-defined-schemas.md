@@ -1,6 +1,6 @@
 ---
 title: Utilizzo di schemi definiti dall'utenteUsing user-defined schemas
-description: Suggerimenti per l'uso di schemi T-SQL definiti dall'utente in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
+description: Suggerimenti per l'utilizzo di schemi T-SQL definiti dall'utente per sviluppare soluzioni nel pool Synapse SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,49 +11,51 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a9ed4f01aae6ace1af6c1652fe3c5ecfe14dc6bf
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 7144fa75d156ca7aed9d8215592f89c167cfb221
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351536"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633464"
 ---
-# <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>Uso di schemi definiti dall'utente in SQL Data Warehouse
-Suggerimenti per l'uso di schemi T-SQL definiti dall'utente in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
+# <a name="user-defined-schemas-in-synapse-sql-pool"></a>Schemi definiti dall'utente nel pool SQL SynapseUser-defined schemas in Synapse SQL pool
+Questo articolo è incentrato sulla fornitura di diversi suggerimenti per l'utilizzo di schemi T-SQL definiti dall'utente per sviluppare soluzioni nel pool SQL Synapse.This article focuses on providing several tips for using T-SQL user-defined schemas to develop solutions in Synapse SQL pool.
 
 ## <a name="schemas-for-application-boundaries"></a>Schemi per i limiti dell'applicazione
 
-I data warehouse tradizionali spesso usano database separati per creare i limiti dell'applicazione in base a carico di lavoro, dominio o di sicurezza. Ad esempio, un data warehouse di SQL Server tradizionale potrebbe includere un database di gestione temporanea, un database del data warehouse e alcuni database del data mart. In questa topologia ogni database funziona come carico di lavoro e limite di sicurezza nell'architettura.
+I data warehouse tradizionali spesso usano database separati per creare i limiti dell'applicazione in base a carico di lavoro, dominio o di sicurezza. 
 
-Al contrario, SQL Data Warehouse esegue tutto il carico di lavoro del data warehouse all'interno di un database. I join tra database non sono consentiti. SQL Data Warehouse prevede pertanto che tutte le tabelle usate dal data warehouse siano archiviate all'interno di un database.
+Ad esempio, un data warehouse tradizionale di SQL Server sql Server potrebbe includere un database dell'area di gestione temporanea, un database del data warehouse e alcuni database di data mart. In questa topologia, ogni database opera come un carico di lavoro e limite di sicurezza nell'architettura.
+
+Al contrario, il pool SQL esegue l'intero carico di lavoro del data warehouse all'interno di un database. I join tra database non sono consentiti. Il pool SQL prevede che tutte le tabelle utilizzate dal warehouse vengano archiviate all'interno di un database.
 
 > [!NOTE]
-> SQL Data Warehouse non supporta query tra database di alcun tipo. Di conseguenza, le implementazioni di data warehouse che usano questo modello dovranno essere modificate.
+> Il pool SQL non supporta query tra database di alcun tipo. Di conseguenza, le implementazioni di data warehouse che usano questo modello dovranno essere modificate.
 > 
 > 
 
 ## <a name="recommendations"></a>Consigli
-Si tratta di indicazioni per il consolidamento di carichi di lavoro, sicurezza, dominio e i limiti funzionali mediante l'uso di schemi definiti dall'utente.
+Di seguito sono indicati alcuni suggerimenti per il consolidamento dei carichi di lavoro, della sicurezza, del dominio e dei limiti funzionali tramite schemi definiti dall'utente:What follows are recommendations for consolidating workloads, security, domain, and functional boundaries by using user-defined schemas:
 
-1. Usare un database SQL Data Warehouse per eseguire l'intero carico di lavoro del data warehouse.
-2. Consolidare l'ambiente data warehouse esistente per l'uso di un solo database di SQL Data Warehouse.
-3. Sfruttare gli **schemi definiti dall'utente** per fornire il limite implementato in precedenza tramite database.
+- Usare un database del pool SQL per eseguire l'intero carico di lavoro del data warehouse.
+- Consolidare l'ambiente del data warehouse esistente per utilizzare un unico database del pool SQL.
+- Sfruttare gli **schemi definiti dall'utente** per fornire il limite implementato in precedenza tramite database.
 
-Se gli schemi definiti dall'utente non sono stati usati in precedenza, si avrà uno slate pulito. Usare semplicemente il nome del database precedente come base per gli schemi definiti dall'utente nel database di SQL Data Warehouse.
+Se gli schemi definiti dall'utente non sono stati utilizzati in precedenza, si dispone di una lavagna pulita. Utilizzare il nome del database precedente come base per gli schemi definiti dall'utente nel database del pool SQL.
 
-Se gli schemi sono già stati usati, sono disponibili alcune opzioni:
+Se gli schemi sono già stati utilizzati, sono disponibili alcune opzioni:If schemas have already been used, then you have a few options:
 
-1. Rimuovere i nomi degli schemi legacy e ricominciare dall'inizio.
-2. Mantenere i nomi degli schemi legacy premettendo il nome dello schema legacy al nome della tabella.
-3. Mantenere i nomi degli schemi legacy implementando viste sulla tabella in uno schema aggiuntivo per ricreare la struttura dello schema precedente.
+- Rimuovere i nomi degli schemi legacy e ricominciare da capo.
+- Mantenere i nomi di schema legacy anteponendo il nome dello schema legacy al nome della tabella.
+- Mantenere i nomi degli schemi legacy implementando viste sulla tabella in uno schema aggiuntivo per ricreare la struttura dello schema precedente.
 
 > [!NOTE]
-> A prima vista, l'opzione 3 può sembrare quella più interessante. È tuttavia importante osservare i dettagli. Le viste sono di sola lettura in SQL Data Warehouse. Qualsiasi modifica di dati o tabelle dovrà essere eseguita sulla tabella di base. L'opzione 3 introduce anche un livello di viste nel sistema. È consigliabile valutare attentamente questo aspetto se si usano già viste nell'architettura.
+> A prima vista, l'opzione 3 può sembrare quella più interessante. È tuttavia importante osservare i dettagli. Le visualizzazioni sono di sola lettura nel pool SQL. Qualsiasi modifica di dati o tabelle dovrà essere eseguita sulla tabella di base. L'opzione 3 introduce anche un livello di viste nel sistema. È consigliabile valutare attentamente questo aspetto se si usano già viste nell'architettura.
 > 
 > 
 
 ### <a name="examples"></a>Esempi:
-Implementare schemi definiti dall'utente in base ai nomi di database.
+Implementare schemi definiti dall'utente in base ai nomi di database:Implement user-defined schemas based on database names:
 
 ```sql
 CREATE SCHEMA [stg]; -- stg previously database name for staging database
@@ -71,7 +73,7 @@ CREATE TABLE [edw].[customer] -- create data warehouse tables in the edw schema
 );
 ```
 
-Mantenere nomi di schemi legacy premettendoli al nome della tabella. Usare schemi per il limite del carico di lavoro.
+Mantenere i nomi degli schemi legacy pre-pendingndoli al nome della tabella. Usare gli schemi per il limite del carico di lavoro:Use schemas for the workload boundary:
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -89,7 +91,7 @@ CREATE TABLE [edw].[dim_customer] --pre-pend the old schema name to the table an
 );
 ```
 
-Mantenere i nomi di schemi legacy usando viste.
+Mantenere i nomi degli schemi legacy utilizzando le visualizzazioni:Keep legacy schema names using views:
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -117,7 +119,7 @@ FROM    [edw].customer
 ```
 
 > [!NOTE]
-> Qualsiasi modifica nella strategia relativa agli schemi richiede una revisione del modello di sicurezza per il database. In molti casi è possibile semplificare il modello di sicurezza assegnando le autorizzazioni a livello di schema. Se sono necessarie autorizzazioni più granulari, è possibile utilizzare i ruoli del database.
+> Qualsiasi modifica nella strategia relativa agli schemi richiede una revisione del modello di sicurezza per il database. In molti casi, è possibile semplificare il modello di sicurezza assegnando autorizzazioni a livello di schema. Se sono necessarie autorizzazioni più granulari, è possibile utilizzare i ruoli del database.
 > 
 > 
 

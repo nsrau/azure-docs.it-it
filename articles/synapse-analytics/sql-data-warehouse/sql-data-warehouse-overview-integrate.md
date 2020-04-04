@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c8e3598e55d3f90ab2b7401380406677f56c0ce3
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 2f6e091b6e0285bea5fef9e4d0be40faec936c6b
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586491"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633134"
 ---
-# <a name="integrate-other-services-with-a-synapse-sql-pool"></a>Integrare altri servizi con un pool SQL SynapseIntegrate other services with a Synapse SQL pool
+# <a name="integrate-other-services-with-a-sql-analytics-data-warehouse"></a>Integrare altri servizi con un data warehouse di SQL AnalyticsIntegrate other services with a SQL Analytics data warehouse
 
-The Synapse SQL pool capability within Azure Synapse Analytics enables users to integrate with many of the other services in Azure. Utilizzando Synapse SQL, è possibile creare un data warehouse tramite la relativa risorsa del pool SQL, che può quindi utilizzare diversi servizi aggiuntivi, alcuni dei quali includono:Using Synapse SQL, you can create a data warehouse via its SQL pool resource, which can then utilize several additional services, some of which include:
+The SQL Analytics capability within Azure Synapse Analytics enables users to integrate with many of the other services in Azure. Utilizzando SQL Analytics, è possibile creare un data warehouse tramite la relativa risorsa del pool SQL, che può quindi utilizzare diversi servizi aggiuntivi, alcuni dei quali includono:Using SQL Analytics, you can create a data warehouse via its SQL Pool resource, which can then utilize several additional services, some of which include:
 
 * Power BI
 * Data factory di Azure
@@ -30,6 +30,7 @@ The Synapse SQL pool capability within Azure Synapse Analytics enables users to 
 Per altre informazioni sui servizi di integrazione in Azure, vedere l'articolo Partner di [integrazione.](sql-data-warehouse-partner-data-integration.md)
 
 ## <a name="power-bi"></a>Power BI
+
 L'integrazione di Power BI consente di combinare la potenza di calcolo di un data warehouse con la creazione di report dinamici e la visualizzazione di Power BI. L’integrazione di Power BI include attualmente:
 
 * **Direct Connect:** una connessione più avanzata con pushdown logico in un data warehouse di cui è stato eseguito il provisioning tramite pool SQL. Questa funzionalità fornisce un'analisi più rapida su vasta scala.
@@ -38,14 +39,16 @@ L'integrazione di Power BI consente di combinare la potenza di calcolo di un dat
 Per altre informazioni, vedere [Integrazione con Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md) o fare riferimento alla [documentazione di Power BI](https://powerbi.microsoft.com/blog/exploring-azure-sql-data-warehouse-with-power-bi/).
 
 ## <a name="azure-data-factory"></a>Data factory di Azure
+
 Azure Data Factory offre agli utenti una piattaforma gestita per creare pipeline di estrazione e caricamento complesse. L'integrazione del pool SQL con Azure Data Factory include:SQL pool integration with Azure Data Factory includes:
 
 * **Stored procedure**: Orchestrare l'esecuzione di stored procedure.
-* **Copia**: utilizzare ADF per spostare i dati nel pool SQL. Questa operazione può usare un meccanismo di spostamento dati ADF standard oppure PolyBase in background. 
+* **Copia**: utilizzare ADF per spostare i dati nel pool SQL. Questa operazione può usare un meccanismo di spostamento dati ADF standard oppure PolyBase in background.
 
-Per altre informazioni, vedere [Integrazione con Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json).
+Per altre informazioni, vedere [Integrazione con Azure Data Factory](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
+
 Azure Machine Learning è un servizio di analisi completamente gestito, che consente di creare modelli complessi usando un ampio set di strumenti di previsione. Il pool SQL è supportato sia come origine che come destinazione per questi modelli e dispone delle funzionalità seguenti:SQL pool is supported as a source and destination for these models, and has the following functionality:
 
 * **Lettura dei dati:** Guidare i modelli su larga scala utilizzando T-SQL rispetto al pool SQL.
@@ -54,10 +57,9 @@ Azure Machine Learning è un servizio di analisi completamente gestito, che cons
 Per altre informazioni, vedere [Integrazione con Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md).
 
 ## <a name="azure-stream-analytics"></a>Analisi di flusso di Azure
+
 L’Analisi dei flussi di Azure è un'infrastruttura complessa, completamente gestita per l'elaborazione e l'utilizzo di dati degli eventi generati da Hub eventi di Azure.  L'integrazione con il pool SQL consente di elaborare e archiviare in modo efficace i dati di streaming insieme ai dati relazionali, consentendo un'analisi più approfondita e avanzata.  
 
 * **Output lavoro:** Invia l'output dai processi di Analisi di flusso direttamente al pool SQL.
 
 Per altre informazioni, vedere [Integrazione con Analisi di flusso di Azure](sql-data-warehouse-integrate-azure-stream-analytics.md).
-
-

@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 4aa0e7da1e77334a8b9048dab4a461133f220bd1
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 0ab7b8be8780f7edb2734d99587bc7709ced9436
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80582457"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633355"
 ---
 # <a name="configure-workload-importance-in-azure-synapse-analytics"></a>Configurare l'importanza del carico di lavoro in Azure Synapse AnalyticsConfigure workload importance in Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ L'impostazione dell'importanza in Synapse SQL for Azure Synapse consente di infl
 
 ## <a name="create-a-workload-classifier-with-importance"></a>Creare un classificatore di carico di lavoro con importanzaCreate a Workload Classifier with Importance
 
-Spesso in uno scenario di data warehouse si dispone di utenti che necessitano delle query per essere eseguite rapidamente.  L'utente potrebbe essere dirigenti della società che hanno bisogno di eseguire report o l'utente potrebbe essere un analista che esegue una query ad hoc. Creare un classificatore di carico di lavoro per assegnare importanza a una query.  Negli esempi riportati di seguito viene utilizzata la nuova sintassi del [classificatore del carico di lavoro](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) di creazione per creare due classificatori.  Membername può essere un singolo utente o un gruppo. Le classificazioni dei singoli utenti hanno la precedenza sulle classificazioni dei ruoli. Per trovare gli utenti del data warehouse esistenti, eseguire:To find existing data warehouse users, run:
+Spesso in uno scenario di data warehouse si dispone di utenti che necessitano delle query per essere eseguite rapidamente.  L'utente potrebbe essere dirigenti della società che hanno bisogno di eseguire report o l'utente potrebbe essere un analista che esegue una query ad hoc. Creare un classificatore di carico di lavoro per assegnare importanza a una query.  Negli esempi riportati di seguito viene utilizzata la nuova sintassi del [classificatore del carico di lavoro](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) di creazione per creare due classificatori. `Membername`può essere un singolo utente o un gruppo. Le classificazioni dei singoli utenti hanno la precedenza sulle classificazioni dei ruoli. Per trovare gli utenti del data warehouse esistenti, eseguire:To find existing data warehouse users, run:
 
 ```sql
 Select name from sys.sysusers
@@ -50,6 +50,7 @@ CREATE WORKLOAD CLASSIFIER AdhocClassifier 
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 - Per altre informazioni sulla gestione del carico di lavoro, vedere [Classificazione del carico di lavoroFor more](sql-data-warehouse-workload-classification.md) information about workload management, see Workload Classification
 - Per altre informazioni sull'importanza, vedere [Importanza del carico di lavoroFor more](sql-data-warehouse-workload-importance.md) information on Importance, see Workload Importance
 

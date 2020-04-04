@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/06/2020
 tags: connectors
-ms.openlocfilehash: 1578ca030bc8bab971a44e1afcce1d1ab9e1d5e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a3fb9a8a72b384d2af4af38bdc382e541ddf535
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78674049"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656289"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Creare ed eseguire flussi di lavoro automatizzati basati su eventi usando webhook HTTP in App per la logica di AzureCreate and run automated event-based workflows by using HTTP webhooks in Azure Logic Apps
 
@@ -36,7 +36,7 @@ Un'azione webhook HTTP è anche basata su eventi e *sottoscrive* un servizio o u
 Ad esempio, l'azione [**di posta elettronica invia approvazione**](connectors-create-api-office365-outlook.md) del connettore di Outlook di Office 365 è un esempio di azione webhook che segue questo modello. È possibile estendere questo modello in qualsiasi servizio usando l'azione webhook.You can extend this pattern into any service by using the webhook action.
 
 > [!NOTE]
-> App per la logica applica Transport Layer Security (TLS) 1.2 quando si riceve la chiamata al trigger webhook HTTP o all'azione. Se vengono visualizzati errori di handshake SSL, assicurarsi di utilizzare TLS 1.2. Per le chiamate in arrivo, ecco le suite di crittografia supportate:
+> App per la logica applica Transport Layer Security (TLS) 1.2 quando si riceve la chiamata al trigger webhook HTTP o all'azione. Se vengono visualizzati errori di handshake TLS, assicurarsi di utilizzare TLS 1.2. Per le chiamate in arrivo, ecco le suite di crittografia supportate:
 >
 > * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 > * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
@@ -67,7 +67,7 @@ Per altre informazioni, vedere gli argomenti seguenti:
 
 Questo trigger predefinito chiama l'endpoint di sottoscrizione nel servizio di destinazione e registra un URL di callback con il servizio di destinazione. L'app per la logica attende `HTTP POST` quindi che il servizio di destinazione invii una richiesta all'URL di callback. Quando si verifica questo evento, il trigger viene attivato e passa tutti i dati nella richiesta al flusso di lavoro.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure . Aprire l'app per la logica vuota in Progettazione app per la logica.
+1. Accedere al [portale di Azure](https://portal.azure.com). Aprire l'app per la logica vuota in Progettazione app per la logica.
 
 1. Nella casella di ricerca della `http webhook` finestra di progettazione immettere il filtro. Nell'elenco **Trigger** selezionare il trigger **HTTP Webhook.**
 
@@ -107,7 +107,7 @@ Questo trigger predefinito chiama l'endpoint di sottoscrizione nel servizio di d
 
 Questa azione predefinita chiama l'endpoint di sottoscrizione nel servizio di destinazione e registra un URL di callback con il servizio di destinazione. L'app per la logica quindi viene sospesa e attende che il servizio di destinazione invii una `HTTP POST` richiesta all'URL di callback. Quando si verifica questo evento, l'azione passa tutti i dati nella richiesta al flusso di lavoro. Se l'operazione viene completata correttamente, l'azione annulla la sottoscrizione all'endpoint e l'app per la logica continua a eseguire il flusso di lavoro rimanente.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure . Aprire l'app per la logica in Logic App Designer.
+1. Accedere al [portale di Azure](https://portal.azure.com). Aprire l'app per la logica in Logic App Designer.
 
    In questo esempio viene utilizzato il trigger HTTP Webhook come primo passaggio.
 

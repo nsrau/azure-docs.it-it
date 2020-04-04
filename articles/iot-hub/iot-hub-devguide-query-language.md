@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
-ms.openlocfilehash: ad8b4b39e582d10c2a3b6003bfa07138f4697b71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bcc53322ac6942b52853be561bc3441e23fbf53b
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79499196"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632942"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguaggio di query dell'hub IoT per dispositivi e moduli gemelli, processi e routing di messaggi
 
@@ -481,7 +481,7 @@ Nelle condizioni di route, sono supportate le funzioni di trasmissione e control
 | AS_NUMBER | Converte la stringa di input in un numero. `noop` se l'input è un numero, `Undefined` se la stringa non rappresenta un numero.|
 | IS_ARRAY | Restituisce un valore booleano che indica se il tipo di espressione specificata è una matrice. |
 | IS_BOOL | Restituisce un valore booleano che indica se il tipo di espressione specificata è un valore booleano. |
-| IS_DEFINED | Restituisce un valore booleano che indica se alla proprietà è stata assegnato un valore. |
+| IS_DEFINED | Restituisce un valore booleano che indica se alla proprietà è stata assegnato un valore. Questa operazione è supportata solo quando il valore è un tipo primitivo. I tipi primitivi includono string, `null`Boolean, numeric o . DateTime, tipi di oggetto e matrici non sono supportati. |
 | IS_NULL | Restituisce un valore booleano che indica se il tipo di espressione specificata è nulla. |
 | IS_NUMBER | Restituisce un valore booleano che indica se il tipo di espressione specificata è un numero. |
 | IS_OBJECT | Restituisce un valore booleano che indica se il tipo di espressione specificata è un oggetto JSON. |

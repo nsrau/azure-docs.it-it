@@ -4,12 +4,12 @@ description: Monitorare topologie di applicazioni complesse con la mappa delle a
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: dce2fdbe7e0c390309be38d2ebab4c73dbb4ed2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0823dd5d880c778f9b7a231ac14f1cbba1940927
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77666276"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657381"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mappa delle applicazioni: valutare le applicazioni distribuite
 
@@ -85,7 +85,7 @@ Per visualizzare gli avvisi attivi e le regole sottostanti che attivano gli avvi
 
 Mappa applicazione utilizza la proprietà del nome del **ruolo cloud** per identificare i componenti sulla mappa. Application Insights SDK aggiunge automaticamente la proprietà del nome del ruolo cloud ai dati di telemetria generati dai componenti. Ad esempio, l'SDK aggiungerà un nome di sito Web o un nome di ruolo del servizio alla proprietà del nome del ruolo cloud. Tuttavia, vi sono casi in cui si desidera eseguire l'override del valore predefinito. Per sostituire il nome del ruolo cloud e modificare gli elementi visualizzati nella mappa applicazioni:To override cloud role name and change what gets displayed on the Application Map:
 
-### <a name="netnet-core"></a>.NET/.NET Core
+# <a name="netnetcore"></a>[.NET/.NetCore](#tab/net)
 
 **Scrivere TelemetryInitializer personalizzato come indicato di seguito.**
 
@@ -153,7 +153,26 @@ Per le applicazioni ASP.NET `TelemetryInitializer` [Core,](asp-net-core.md#addin
 }
 ```
 
-### <a name="nodejs"></a>Node.js
+# <a name="java"></a>[Java](#tab/java)
+
+A partire da Application Insights Java SDK 2.5.0, `<RoleName>` è `ApplicationInsights.xml` possibile specificare il nome del ruolo cloud aggiungendo al file, ad esempio.
+
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+   <RoleName>** Your role name **</RoleName>
+   ...
+</ApplicationInsights>
+```
+
+Se si usa Spring Boot con l'utilità di avvio Spring Boot di Application Insights, l'unica modifica necessaria consiste nell'impostare il nome personalizzato per l'applicazione nel file application.properties.
+
+`spring.application.name=<name-of-app>`
+
+L'avviatore di avvio a molla assegnerà automaticamente il nome del ruolo cloud al valore immesso per la proprietà spring.application.name.
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 ```javascript
 var appInsights = require("applicationinsights");
@@ -174,26 +193,7 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 });
 ```
 
-### <a name="java"></a>Java
-
-A partire da Application Insights Java SDK 2.5.0, `<RoleName>` è `ApplicationInsights.xml` possibile specificare il nome del ruolo cloud aggiungendo al file, ad esempio.
-
-```XML
-<?xml version="1.0" encoding="utf-8"?>
-<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
-   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
-   <RoleName>** Your role name **</RoleName>
-   ...
-</ApplicationInsights>
-```
-
-Se si usa Spring Boot con l'utilità di avvio Spring Boot di Application Insights, l'unica modifica necessaria consiste nell'impostare il nome personalizzato per l'applicazione nel file application.properties.
-
-`spring.application.name=<name-of-app>`
-
-L'avviatore di avvio a molla assegnerà automaticamente il nome del ruolo cloud al valore immesso per la proprietà spring.application.name.
-
-### <a name="clientbrowser-side-javascript"></a>JavaScript lato client/browser
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 appInsights.queue.push(() => {
@@ -203,6 +203,7 @@ appInsights.addTelemetryInitializer((envelope) => {
 });
 });
 ```
+---
 
 ### <a name="understanding-cloud-role-name-within-the-context-of-the-application-map"></a>Informazioni sul nome del ruolo cloud nel contesto della mappa applicazioniUnderstanding cloud role name within the context of the Application Map
 
@@ -254,7 +255,7 @@ Se si verificano problemi nel far funzionare come previsto la mappa delle applic
 
 Mappa applicazione costruisce un nodo dell'applicazione per ogni nome di ruolo cloud univoco presente nei dati di telemetria delle richieste e un nodo di dipendenza per ogni combinazione univoca di tipo, destinazione e nome del ruolo cloud nei dati di telemetria delle dipendenze. Se sono presenti più di 10.000 nodi nei dati di telemetria, Application Map non sarà in grado di recuperare tutti i nodi e i collegamenti, pertanto la mappa sarà incompleta. In questo caso, verrà visualizzato un messaggio di avviso durante la visualizzazione della mappa.
 
-Inoltre, la mappa dell'applicazione supporta solo fino a 1000 nodi separati non raggruppati di cui viene eseguito il rendering contemporaneamente. La mappa dell'applicazione riduce la complessità visiva raggruppando le dipendenze insieme con lo stesso tipo e i chiamanti, ma se i dati di telemetria hanno troppi nomi di ruolo cloud univoci o troppi tipi di dipendenza, tale raggruppamento sarà insufficiente e la mappa non sarà in grado di rendere.
+Inoltre, la mappa dell'applicazione supporta solo fino a 1000 nodi separati non raggruppati di cui viene eseguito il rendering contemporaneamente. Mappa dell'applicazione riduce la complessità visiva raggruppando le dipendenze insieme con lo stesso tipo e i chiamanti, ma se i dati di telemetria hanno troppi nomi di ruoli cloud univoci o troppi tipi di dipendenza, tale raggruppamento sarà insufficiente e la mappa non sarà in grado di eseguire il rendering.
 
 Per risolvere questo problema, è necessario modificare la strumentazione per impostare correttamente il nome del ruolo cloud, il tipo di dipendenza e i campi di destinazione delle dipendenze.
 

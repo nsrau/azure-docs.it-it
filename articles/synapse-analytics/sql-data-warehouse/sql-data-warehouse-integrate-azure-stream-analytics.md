@@ -11,28 +11,28 @@ ms.date: 2/5/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: feb7b52c84e5e702202bc668cfda676d291ea82e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: e281f8a1fb3959256d836134b4c59f5399deb9bd
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350427"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633292"
 ---
 # <a name="use-azure-stream-analytics-with-azure-synapse-analytics"></a>Usare Analisi di flusso di Azure con Analisi synapse di AzureUse Azure Stream Analytics with Azure Synapse Analytics
 
-Analisi di flusso di Azure è un servizio completamente gestito che consente l'elaborazione di eventi complessi con bassa latenza, elevata disponibilità e scalabilità per lo streaming di dati nel cloud. Per informazioni di base, vedere [Introduzione ad Analisi di flusso di Azure](../../stream-analytics/stream-analytics-introduction.md). È possibile apprendere come creare una soluzione end-to-end con Analisi di flusso seguendo l’esercitazione [Introduzione all’uso di Analisi di flusso di Azure](../../stream-analytics/stream-analytics-real-time-fraud-detection.md) .
+Analisi di flusso di Azure è un servizio completamente gestito che consente l'elaborazione di eventi complessi con bassa latenza, elevata disponibilità e scalabilità per lo streaming di dati nel cloud. Per informazioni di base, vedere [Introduzione ad Analisi di flusso di Azure](../../stream-analytics/stream-analytics-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). È possibile apprendere come creare una soluzione end-to-end con Analisi di flusso seguendo l’esercitazione [Introduzione all’uso di Analisi di flusso di Azure](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
 
 In questo articolo si apprenderà come usare il data warehouse come sink di output per i processi di Analisi di flusso di Azure.In this article, you will learn how to use your data warehouse as an output sink for your Azure Stream Analytics jobs.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Processo di Analisi di flusso di Azure: per creare un processo di Analisi di flusso di Azure, seguire i passaggi dell'esercitazione [Introduzione all'uso](../../stream-analytics/stream-analytics-real-time-fraud-detection.md) di Analisi di flusso di Azure per :Azure Stream Analytics job - To create an Azure Stream Analytics job, follow the steps in the Getstarted using Azure Stream Analytics tutorial to:  
+* Processo di Analisi di flusso di Azure: per creare un processo di Analisi di flusso di Azure, seguire i passaggi dell'esercitazione [Introduzione all'uso](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) di Analisi di flusso di Azure per :Azure Stream Analytics job - To create an Azure Stream Analytics job, follow the steps in the Getstarted using Azure Stream Analytics tutorial to:  
 
     1. Creare un input dell'hub eventi
     2. Configurare e avviare l'applicazione di generazione di eventi
     3. Eseguire il provisioning di un processo di Analisi dei flussi
     4. Specificare la query e l'input del processo
-* Data warehouse del pool SQL di Azure Synapse: per creare un nuovo data warehouse, seguire i passaggi della [Guida introduttiva per creare un nuovo data warehouse.](https://docs.microsoft.com/azure/sql-data-warehouse/create-data-warehouse-portal)
+* Data warehouse del pool SQL di Azure Synapse: per creare un nuovo data warehouse, seguire i passaggi della [Guida introduttiva per creare un nuovo data warehouse.](create-data-warehouse-portal.md)
 
 ## <a name="specify-streaming-output-to-point-to-your-data-warehouse"></a>Specificare l'output di streaming in modo che punti al data warehouseSpecify streaming output to point to your data warehouse
 
@@ -44,7 +44,7 @@ Dal portale di Azure passare al processo analisi di flusso e fare clic su **Outp
 
 Fare clic sul pulsante **Aggiungi** e scegliere **Database SQL** dal menu a discesa.
 
-![](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutput.png)
+![Scegli database SQL](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutput.png)
 
 ### <a name="step-3"></a>Passaggio 3
 
@@ -60,7 +60,7 @@ Immettere i valori seguenti:
 * *Tabella*: specificare il nome della tabella di destinazione nel database.
 * fare clic sul pulsante **Salva**
 
-![](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutputdbsettings.png)
+![Modulo Database SQL completato](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutputdbsettings.png)
 
 ### <a name="step-4"></a>Passaggio 4
 
@@ -102,23 +102,23 @@ WITH (DISTRIBUTION = ROUND_ROBIN)
 
 Nel portale di Azure per il processo di Analisi di flusso fare clic sul nome del processo.  Fare clic sul pulsante ***Test*** nel riquadro ***Dettagli output.***
 
-![](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png)Quando la connessione al database ha esito positivo, verrà visualizzata una notifica nel portale.
+![Pulsante Test in](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png) Dettagli outpout Quando la connessione al database ha esito positivo, verrà visualizzata una notifica nel portale.
 
 ### <a name="step-6"></a>Passaggio 6
 
 Fare clic sul menu ***Query*** in ***Topologia processo*** e modificare la query in modo da inserire i dati nell'output di Stream creato.  Fare clic sul pulsante ***Test query selezionato*** per testare la query.  Fare clic sul pulsante ***Salva query*** quando il test di query ha esito positivo.
 
-![](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaquery.png)
+![Salvare la query](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaquery.png)
 
 ### <a name="step-7"></a>Passaggio 7
 
 Avviare il processo di Analisi di flusso di Azure.Start the Azure Stream Analytics job.  Fare clic sul pulsante ***Start*** nel menu ***Panoramica.***
 
-![](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastart.png)
+![Avviare il processo di Analisi di flusso](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastart.png)
 
-fare clic sul pulsante ***Start*** nel riquadro Avvia processo.
+Fare clic sul pulsante ***Start*** nel riquadro Del processo di avvio.
 
-![](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastartconfirm.png)
+![Fare clic su Start](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastartconfirm.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

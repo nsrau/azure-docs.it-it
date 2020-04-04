@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/11/2020
+ms.date: 03/23/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6077db0a09b09f7e4bfb859902da53b173845e55
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: b8073240bdda38757a5e4feee66c9f54746966c4
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520778"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632063"
 ---
 ### <a name="portal"></a>Portale
 
@@ -21,7 +21,7 @@ L'impostazione di chiavi gestite dal cliente per i dischi richiederà di creare 
 
 #### <a name="setting-up-your-azure-key-vault"></a>Configurazione dell'insieme di credenziali delle chiavi di AzureSetting up your Azure Key Vault
 
-1. Accedere al portale di [Azure](https://portal.azure.com/) e cercare Key Vault
+1. Accedere al portale di [Azure](https://portal.azure.com/).
 1. Cercare e selezionare **Key Vaults**.
 
     [![sse-key-vault-portal-search.png](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search.png)](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search-expanded.png#lightbox)
@@ -30,7 +30,7 @@ L'impostazione di chiavi gestite dal cliente per i dischi richiederà di creare 
     > Affinché la distribuzione abbia esito positivo, l'insieme di credenziali delle chiavi di Azure, il set di crittografia del disco, la macchina virtuale, i dischi e gli snapshot devono trovarsi tutti nella stessa area e nella stessa sottoscrizione.
 
 1. Per creare un nuovo insieme di credenziali delle chiavi, **selezionare Aggiungi.**
-1. Creare un nuovo gruppo di risorse
+1. Creare un nuovo gruppo di risorse.
 1. Immettere un nome dell'insieme di credenziali delle chiavi, selezionare un'area e selezionare un piano tariffario.
 1. Seleziona **Rivedi e crea**, verifica le tue scelte, quindi seleziona **Crea**.
 
@@ -38,7 +38,7 @@ L'impostazione di chiavi gestite dal cliente per i dischi richiederà di creare 
 
 1. Al termine della distribuzione dell'insieme di credenziali delle chiavi, selezionarlo.
 1. Selezionare **Tasti** in **Impostazioni**.
-1. Selezionare **Genera/Importa**
+1. Selezionare **Genera/Importa**.
 
     ![Screenshot del riquadro Impostazioni delle risorse dell'insieme di credenziali delle chiavi. Mostra il pulsante Genera/Importa all'interno delle impostazioni.](media/virtual-machines-disk-encryption-portal/sse-key-vault-generate-settings.png)
 
@@ -49,15 +49,8 @@ L'impostazione di chiavi gestite dal cliente per i dischi richiederà di creare 
 
 #### <a name="setting-up-your-disk-encryption-set"></a>Configurazione del set di crittografia del disco
 
-Per creare e configurare set di crittografia https://aka.ms/diskencryptionsetsdel disco, è necessario utilizzare il seguente collegamento: . Se ci si trova nelle aree di governo [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)di Microsoft Azure, è necessario utilizzare questo collegamento: . La creazione del set di crittografia del disco non è ancora disponibile nel portale globale di Azure.Disk encryption set creation is not yet available in the global Azure portal.
-
-1. Aprire il collegamento ai set di crittografia del disco appropriato per l'area geografica:
-
-    Regioni pubbliche:[https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
-
-    Aree di Azure per enti pubblici:Azure Government regions:[https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
-    
-1. Selezionare **: Aggiungi**.
+1. Cercare **Set di crittografia del disco** e selezionarli.
+1. Nel pannello **Set di crittografia del disco** selezionare **Aggiungi**.
 
     ![Screenshot della schermata principale del portale di crittografia del disco. Evidenziazione del pulsante Aggiungi](media/virtual-machines-disk-encryption-portal/sse-create-disk-encryption-set.png)
 
@@ -82,12 +75,6 @@ Due notifiche dovrebbero apparire e avere esito positivo. In questo modo sarà p
 Dopo aver creato e configurato l'insieme di credenziali delle chiavi e il set di crittografia del disco, è possibile distribuire una macchina virtuale usando la crittografia.
 Il processo di distribuzione della macchina virtuale è simile al processo di distribuzione standard, le uniche differenze sono che è necessario distribuire la macchina virtuale nella stessa area delle altre risorse e si sceglie di usare una chiave gestita dal cliente.
 
-1. Aprire il collegamento ai set di crittografia del disco appropriato per l'area geografica:
-
-    Regioni pubbliche:[https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
-
-    Aree di Azure per enti pubblici:Azure Government regions:[https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
-
 1. Cercare **Macchine virtuali** e selezionare **Aggiungi** per creare una macchina virtuale.
 1. Nella scheda Basic selezionare la stessa area del set di crittografia del disco e dell'insieme di chiavi di Azure.On the **Basic** tab, select the same region as your disk encryption set and Azure Key Vault.
 1. Compilare gli altri valori nella scheda **Base** come si desidera.
@@ -102,16 +89,8 @@ Il processo di distribuzione della macchina virtuale è simile al processo di di
 
 #### <a name="enable-on-an-existing-disk"></a>Abilitare su un disco esistente
 
-Per gestire e configurare la crittografia del disco nei https://aka.ms/diskencryptionsetsdischi esistenti, è necessario utilizzare il seguente collegamento: . L'abilitazione delle chiavi gestite dal cliente nei dischi esistenti non è ancora disponibile nel portale globale di Azure.Enabling customer-managed keys on existing disks is not yet available in the global Azure portal.
-
 > [!CAUTION]
 > L'abilitazione della crittografia del disco in tutti i dischi collegati a una macchina virtuale richiederà l'arresto della macchina virtuale.
-
-1. Aprire il collegamento ai set di crittografia del disco appropriato per l'area geografica:
-
-    Regioni pubbliche:[https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
-
-    Aree di Azure per enti pubblici:Azure Government regions:[https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
     
 1. Passare a una macchina virtuale che si trova nella stessa area di uno dei set di crittografia del disco.
 1. Aprire la macchina virtuale e selezionare **Arresta**.
@@ -123,7 +102,7 @@ Per gestire e configurare la crittografia del disco nei https://aka.ms/diskencry
     ![Screenshot della macchina virtuale di esempio con il pannello Dischi aperto. Il disco del sistema operativo è evidenziato, come disco di esempio da selezionare.](media/virtual-machines-disk-encryption-portal/sse-existing-disk-select.png)
 
 1. Selezionare **Crittografia** e **Crittografia inattivi con una chiave gestita dal cliente,** quindi selezionare la crittografia del disco impostata nell'elenco a discesa.
-1. Selezionare **Save** (Salva).
+1. Selezionare **Salva**.
 
     ![Screenshot del disco del sistema operativo di esempio. Il pannello di crittografia è aperto, viene selezionata la crittografia inattivi con una chiave gestita dal cliente, nonché l'esempio di insieme di credenziali delle chiavi di Azure.The encryption blade is open, encryption at rest with a customer-managed key is selected, as well as your example Azure Key Vault. Dopo aver effettuato tali selezioni, viene selezionato il pulsante Salva.](media/virtual-machines-disk-encryption-portal/sse-encrypt-existing-disk-customer-managed-key.png)
 

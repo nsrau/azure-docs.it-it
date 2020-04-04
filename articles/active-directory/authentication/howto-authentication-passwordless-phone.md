@@ -4,19 +4,19 @@ description: Abilitare l'accesso senza password ad Azure AD usando l'app Microso
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c684d6f1fbd8128ae020b6fd29da928b286aa18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 853e7143834a340b870b71ef1a287dab136e2783
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79126694"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654065"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Abilitare l'accesso senza password con l'app Microsoft Authenticator (anteprima)Enable passwordless sign-in with the Microsoft Authenticator app (preview)
 
@@ -54,7 +54,7 @@ Le funzionalità di registrazione per i metodi di autenticazione senza password 
 
 ## <a name="user-registration-and-management-of-microsoft-authenticator-app"></a>Registrazione e gestione degli utenti dell'app Microsoft Authenticator
 
-1. Passare a[https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)
+1. Passare a [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)
 1. Accedi se non è già
 1. Aggiungere un'app di autenticazione facendo clic su **Aggiungi metodo**, scegliendo **Applicazione autenticatore**e facendo clic su **Aggiungi**
 1. Seguire le istruzioni per installare e configurare l'app Microsoft Authenticator nel dispositivo
@@ -82,7 +82,7 @@ L'amministratore può scegliere di abilitare l'utente all'accesso al telefono se
 
 ### <a name="ad-fs-integration"></a>Integrazione con ADFSAD FS integration
 
-Se un utente ha abilitato le credenziali senza password di Microsoft Authenticator, per impostazione predefinita l'autenticazione per l'utente invierà sempre una notifica di approvazione. Questa logica impedisce agli utenti di un tenant ibrido di essere reindirizzati ad AD FS per la verifica di accesso senza dover prima fare clic su "Usa la tua password". Questo processo, inoltre, ignorerà eventuali criteri di accesso condizionale e flussi di autenticazione pass-through. 
+Se un utente ha abilitato le credenziali senza password di Microsoft Authenticator, per impostazione predefinita l'autenticazione per l'utente invierà sempre una notifica di approvazione. Questa logica impedisce agli utenti in un tenant ibrido di essere indirizzati ad ADFS per la verifica dell'accesso senza che l'utente esetrae un passaggio aggiuntivo per fare clic su "Usa la password". Questo processo, inoltre, ignorerà eventuali criteri di accesso condizionale e flussi di autenticazione pass-through. 
 
 Se un utente dispone di una verifica di accesso del telefono senza password senza risposta in sospeso e tenta di accedere nuovamente, l'utente può essere portato ad ADFS per immettere una password.  
 

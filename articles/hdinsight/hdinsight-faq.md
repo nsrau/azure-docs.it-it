@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: b05b83086cc9d8449d9517897f347b6e2685aa95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a37e1b9bc4a0b953dc727dbab2813dd938ed576
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76720351"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652228"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: domande frequentiAzure HDInsight: Frequently asked questions
 
@@ -135,7 +135,7 @@ Sì, è possibile eseguire la migrazione di un metastore Hive da un cluster ESP 
 
 ### <a name="how-can-i-estimate-the-size-of-a-hive-metastore-database"></a>Come è possibile stimare le dimensioni di un database metastore Hive?
 
-Un metastore Hive viene usato per archiviare i metadati per le origini dati utilizzate dal server Hive. I requisiti di dimensione dipendono in parte dal numero e dalla complessità delle origini dati Hive e non possono essere stimati in anticipo. Come descritto nelle procedure consigliate per il [metastore Hive](hdinsight-use-external-metadata-stores.md#hive-metastore-best-practices), è possibile iniziare con un livello S2, che fornisce 50 DTU e 250 GB di spazio di archiviazione e, se viene visualizzato un collo di bottiglia, è possibile aumentare la scalabilità del database.
+Un metastore Hive viene usato per archiviare i metadati per le origini dati utilizzate dal server Hive. I requisiti di dimensione dipendono in parte dal numero e dalla complessità delle origini dati Hive e non possono essere stimati in anticipo. Come descritto nelle [linee guida Hive metastore](hdinsight-use-external-metadata-stores.md#hive-metastore-guidelines), è possibile iniziare con un livello S2, che fornisce 50 DTU e 250 GB di spazio di archiviazione e, se viene visualizzato un collo di bottiglia, è possibile aumentare la scalabilità del database.
 
 ### <a name="do-you-support-any-other-database-other-than-azure-sql-database-as-an-external-metastore"></a>Supportate qualsiasi altro database diverso dal database SQL di Azure come metastore esterno?
 

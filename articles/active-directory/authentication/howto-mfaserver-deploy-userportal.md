@@ -4,19 +4,19 @@ description: Introduzione ad Azure MFA e al portale utenti.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e68c2a75254d1b387c45e31c5830849c6127756
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1869fac973cd4cd68e1e91be89c25fdf1427f6a5
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051192"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653203"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portale utenti per il server Azure Multi-Factor Authentication
 
@@ -162,9 +162,9 @@ Se si seleziona il metodo di verifica tramite chiamata vocale o questo metodo è
 
 ![Registrare i numeri di telefono principale e di backup](./media/howto-mfaserver-deploy-userportal/backupphone.png)
 
-Se l'utente deve usare un PIN quando esegue l'autenticazione, la pagina richiede di creare un PIN. Dopo aver immesso il numero di telefono e il PIN (se applicabile), l'utente fa clic sul pulsante **Chiama per autenticare utente corrente**. Azure Multi-Factor Authentication esegue una verifica tramite chiamata al numero di telefono principale dell'utente. L'utente deve rispondere alla chiamata e immettere il PIN (se applicabile) e premere il tasto # per proseguire con il passaggio successivo del processo di autoregistrazione.
+Se l'utente deve usare un PIN quando esegue l'autenticazione, la pagina richiede di creare un PIN. Dopo aver immesso il numero di telefono e il PIN (se applicabile), l'utente fa clic sul pulsante **Chiama per autenticare utente corrente**. Azure Multi-Factor Authentication esegue una verifica della telefonata al numero di telefono principale dell'utente. L'utente deve rispondere alla chiamata e immettere il PIN (se applicabile) e premere il tasto # per proseguire con il passaggio successivo del processo di autoregistrazione.
 
-Se si seleziona il metodo di verifica tramite SMS o questo metodo è stato preconfigurato, la pagina richiede il numero di telefono cellulare. Se l'utente deve usare un PIN quando esegue l'autenticazione, la pagina richiede anche di immettere un PIN.  Dopo aver immesso il numero di telefono e il PIN (se applicabile), l'utente fa clic sul pulsante **Invia SMS per autenticare utente corrente**. Azure Multi-Factor Authentication esegue la verifica tramite SMS al cellulare dell'utente. L'utente riceve l'SMS con un passcode monouso, quindi risponde al messaggio con tale passcode monouso e il proprio PIN (se applicabile).
+Se si seleziona il metodo di verifica tramite SMS o questo metodo è stato preconfigurato, la pagina richiede il numero di telefono cellulare. Se l'utente deve usare un PIN quando esegue l'autenticazione, la pagina richiede anche di immettere un PIN.  Dopo aver immesso il numero di telefono e il PIN (se applicabile), l'utente fa clic sul pulsante **Invia SMS per autenticare utente corrente**. Azure Multi-Factor Authentication esegue una verifica SMS sul telefono cellulare dell'utente. L'utente riceve l'SMS con un passcode monouso, quindi risponde al messaggio con tale passcode monouso e il proprio PIN (se applicabile).
 
 ![Verifica del portale utente tramite SMS](./media/howto-mfaserver-deploy-userportal/text.png)
 
@@ -175,7 +175,7 @@ Se si seleziona il metodo di verifica tramite app per dispositivi mobili, la pag
 
 La pagina visualizza quindi un codice di attivazione e un URL con l'immagine di un codice a barre. Se l'utente deve usare un PIN quando esegue l'autenticazione, la pagina richiede anche di immettere un PIN. L'utente immette il codice di attivazione e l'URL nell'app Microsoft Authenticator o usa il lettore di codice a barre per eseguire la scansione dell'immagine del codice a barre, quindi fa clic sul pulsante Attiva.
 
-Dopo aver completato l'attivazione, l'utente fa clic sul pulsante **Autentica adesso**. Azure Multi-Factor Authentication esegue la verifica dell'app per dispositivi mobili dell'utente. L'utente deve immettere il PIN (se applicabile) e scegliere il pulsante Esegui autenticazione nell'app per dispositivi mobili per proseguire con il passaggio successivo del processo di autoregistrazione.
+Dopo aver completato l'attivazione, l'utente fa clic sul pulsante **Autentica adesso**. Azure Multi-Factor Authentication esegue una verifica per l'app mobile dell'utente. L'utente deve immettere il PIN (se applicabile) e scegliere il pulsante Esegui autenticazione nell'app per dispositivi mobili per proseguire con il passaggio successivo del processo di autoregistrazione.
 
 Se gli amministratori hanno configurato il server Azure Multi-Factor Authentication per raccogliere domande e risposte di sicurezza, viene visualizzata la pagina Domande di sicurezza. L'utente deve selezionare quattro domande di sicurezza e fornire le risposte alle domande selezionate.
 

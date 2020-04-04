@@ -4,19 +4,19 @@ description: Domande frequenti su sulla reimpostazione della password self-servi
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e1cc9dde6bb2b6ae47affaed4c557f3746a681b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae3ace24d6f33702c15a364b913f841d90fd8872
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77061455"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654186"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Domande frequenti sulla gestione delle password
 
@@ -107,9 +107,9 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   > **R:** L'interfaccia utente, gli SMS e le chiamate vocali per la reimpostazione della password sono localizzati nelle stesse lingue supportate in Office 365.
   >
   >
-* **D: A quali parti dell'esperienza di reimpostazione della password vengono applicate le impostazioni di personalizzazione dell'organizzazione specificate nella scheda Configura della directory?**
+* **D: Quali parti dell'esperienza di reimpostazione della password vengono impostate quando si impostano gli elementi di personalizzazione dell'organizzazione nella scheda di configurazione della directory?**
 
-  > **R:** Il portale per la reimpostazione della password mostra il logo dell'organizzazione e consente di configurare il collegamento "Contattare l'amministratore" in modo da puntare a un indirizzo di posta elettronica o un URL personalizzato. Tutti i messaggi di posta elettronica inviati dalla funzionalità di reimpostazione della password includono nel corpo il logo, i colori e il nome dell'organizzazione e sono personalizzati in base alle impostazioni associate al nome specifico.
+  > **R:** Il portale per la reimpostazione della password mostra il logo dell'organizzazione e consente di configurare il collegamento "Contattare l'amministratore" in modo da puntare a un indirizzo di posta elettronica o un URL personalizzato. Qualsiasi messaggio di posta elettronica inviato tramite la reimpostazione della password include il logo, i colori e il nome dell'organizzazione nel corpo del messaggio e viene personalizzato in base alle impostazioni per quel particolare nome.
   >
   >
 * **D: In che modo è possibile spiegare agli utenti come fare per reimpostare le proprie password?**
@@ -124,10 +124,10 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
 * **D: È supportato lo sblocco di account Active Directory locali quando gli utenti reimpostano le password?**
 
-  > **A:** Sì. Quando un utente reimposta la password ed è stato distribuito il writeback delle password tramite Azure AD Connect, l'account utente viene sbloccato automaticamente alla reimpostazione della password.
+  > **A:** Sì. Quando un utente reimposta la password, se il writeback della password è stato distribuito tramite Azure AD Connect, l'account dell'utente viene sbloccato automaticamente quando reimposta la password.
   >
   >
-* **D: Come è possibile integrare la reimpostazione della password direttamente nell'esperienza di accesso desktop degli utenti?**
+* **D: In che modo è possibile integrare la reimpostazione della password direttamente nell'esperienza di accesso desktop dell'utente?**
 
   > **R:** I clienti di Azure AD Premium possono installare gratuitamente Microsoft Identity Manager e distribuire la soluzione di reimpostazione password locale.
   >
@@ -266,7 +266,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   > **R:** il writeback delle password funziona per gli account utente sincronizzati da Active Directory locale ad Azure AD, inclusi gli utenti federati, con hash delle password sincronizzati e con autenticazione pass-through.
   >
   >
-* **D: Il writeback delle password applica i criteri di password del dominio?**
+* **D: Il writeback delle password impone i criteri password del dominio?**
 
   > **A:** Sì. Il writeback delle password applica validità, cronologia, complessità, filtri e qualsiasi altra restrizione eventualmente applicata alle password nel dominio locale.
   >

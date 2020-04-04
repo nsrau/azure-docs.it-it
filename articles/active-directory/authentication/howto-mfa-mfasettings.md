@@ -4,19 +4,19 @@ description: Questo articolo illustra come configurare le impostazioni di Azure 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 077032e4fe3886d5bf9a678dffdffca1a5802091
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: da995afba1dc8eff295c9b724a78da95b9caac85
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79263803"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653974"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurare le impostazioni di Azure Multi-Factor Authentication
 
@@ -97,7 +97,7 @@ Configurare la funzionalità di _avviso di illecito_ in modo che gli utenti poss
 
 ### <a name="view-fraud-reports"></a>Visualizzare le segnalazioni di illeciti
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare**Accessi**di **Azure Active Directory** > . Il report sulle frodi fa ora parte del report di accesso standard di Azure AD.
 
 ## <a name="notifications"></a>Notifiche
@@ -192,7 +192,7 @@ La funzionalità _bypass monouso_ consente a un utente di eseguire l'autenticazi
 
 ### <a name="view-the-one-time-bypass-report"></a>Visualizzare il report del bypass monouso
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare al**bypass monouso**di **Azure Active Directory** > **Security** > **MFA** > .
 
 ## <a name="caching-rules"></a>Regole di memorizzazione nella cache
@@ -277,7 +277,7 @@ Azure AD supporta la federazione o il Single Sign-On (SSO) con Active Directory 
 
 Per impostazione predefinita, gli utenti non possono creare password dell'app. La funzionalità password dell'app deve essere abilitata. Per consentire agli utenti di creare password dell'app, seguire questa procedura:
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. A sinistra selezionare**Utenti** **di Azure Active Directory** > .
 3. Selezionare **Multi-Factor Authentication**.
 4. In Multi-Factor Authentication selezionare **Impostazioni servizio**.
@@ -317,17 +317,17 @@ Indipendentemente dal fatto che la funzionalità Indirizzi IP attendibili sia di
 
 ### <a name="enable-named-locations-by-using-conditional-access"></a>Abilitare percorsi denominati tramite l'accesso condizionale
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. A sinistra, selezionare**Percorsi denominati****Security** > **perl'accesso** > condizionale di sicurezza di **Azure Active Directory** > .
 3. Selezionare **Nuova località**.
 4. Immettere un nome per la località.
 5. Selezionare **Contrassegna come percorso attendibile**.
 6. Immettere l'intervallo di indirizzi IP nella notazione CIDR, ad esempio **192.168.1.1/24**.
-7. Selezionare **Crea**.
+7. Selezionare **Create** (Crea).
 
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Abilitare la funzionalità IP attendibili tramite l'accesso condizionaleEnable the Trusted IPs feature by using Conditional Access
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. A sinistra, selezionare**Percorsi denominati****Security** >  **perl'accesso** > condizionale di sicurezza di **Azure Active Directory** > .
 3. Selezionare **Configura indirizzi IP attendibili di autenticazione a più fattori**.
 4. Nella pagina **Impostazioni servizio**, in **Indirizzi IP attendibili** scegliere una delle due opzioni seguenti:
@@ -345,7 +345,7 @@ Indipendentemente dal fatto che la funzionalità Indirizzi IP attendibili sia di
 
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Abilitare la funzionalità Indirizzi IP attendibili tramite le impostazioni del servizio
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. A sinistra selezionare**Utenti** **di Azure Active Directory** > .
 3. Selezionare **Multi-Factor Authentication**.
 4. In Multi-Factor Authentication selezionare **Impostazioni servizio**.
@@ -377,7 +377,7 @@ Quando gli utenti registrano i propri account per Azure Multi-Factor Authenticat
 
 ### <a name="enable-and-disable-verification-methods"></a>Abilitare e disabilitare i metodi di verifica
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. A sinistra selezionare**Utenti** **di Azure Active Directory** > .
 3. Selezionare **Multi-Factor Authentication**.
 4. In Multi-Factor Authentication selezionare **Impostazioni servizio**.
@@ -413,7 +413,7 @@ La funzionalità riduce il numero di autenticazioni per le app Web, che in gener
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Abilitare la funzionalità Memorizza Multi-Factor Authentication
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. A sinistra selezionare**Utenti** **di Azure Active Directory** > .
 3. Selezionare **Multi-Factor Authentication**.
 4. In Multi-Factor Authentication selezionare **Impostazioni servizio**.

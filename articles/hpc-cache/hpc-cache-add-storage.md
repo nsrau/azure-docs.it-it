@@ -4,18 +4,18 @@ description: Come definire le destinazioni di archiviazione in modo che la cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 12/30/2019
+ms.date: 04/03/2020
 ms.author: rohogue
-ms.openlocfilehash: a68bf06bad995f71bedf6a5bdedcb676737a8c61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3fbc4e683c2b0e72c3a084a59793dbf9eb4b658c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271889"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657420"
 ---
 # <a name="add-storage-targets"></a>Aggiungere destinazioni di archiviazione
 
-*Le destinazioni di* archiviazione sono l'archiviazione back-end per i file a cui si accede tramite un'istanza della cache HPC di Azure.Storage targets are back-end storage for files that are accessed through an Azure HPC Cache instance. È possibile aggiungere l'archiviazione NFS (ad esempio un sistema hardware locale) o archiviare i dati nel BLOB di Azure.You can add NFS storage (like an on-premises hardware system), or store data in Azure Blob.
+*Le destinazioni di* archiviazione sono l'archiviazione back-end per i file a cui si accede tramite una cache HPC di Azure.Storage targets are back-end storage for files that are accessed through an Azure HPC Cache. È possibile aggiungere l'archiviazione NFS (ad esempio un sistema hardware locale) o archiviare i dati nel BLOB di Azure.You can add NFS storage (like an on-premises hardware system), or store data in Azure Blob.
 
 È possibile definire fino a dieci destinazioni di archiviazione diverse per una cache. La cache presenta tutte le destinazioni di archiviazione in uno spazio dei nomi aggregato.
 
@@ -35,9 +35,9 @@ Una nuova destinazione di archiviazione BLOB richiede un contenitore BLOB vuoto 
 
 È possibile creare un nuovo contenitore da questa pagina appena prima di aggiungerlo.
 
-Per definire un contenitore BLOB di Azure, immettere queste informazioni.
-
 ![Screenshot della pagina di destinazione aggiungi archiviazione, popolata con informazioni per una nuova destinazione di archiviazione BLOB di Azure](media/hpc-cache-add-blob.png)
+
+Per definire un contenitore BLOB di Azure, immettere queste informazioni.
 
 * **Nome destinazione archiviazione:** impostare un nome che identifichi questa destinazione di archiviazione nella cache HPC di Azure.Storage target name - Set a name that identifies this storage target in the Azure HPC Cache.
 * **Tipo di destinazione:** scegliere **BLOB**.
@@ -79,7 +79,7 @@ Passaggi per aggiungere i ruoli RBAC:
 1. Nel campo **Seleziona,** cercare "hpc".  Questa stringa deve corrispondere a un'entità servizio, denominata "HPC Cache Resource Provider". Fare clic sull'entità per selezionarla.
 
    > [!NOTE]
-   > Se la ricerca di "hpc" non funziona, provare a utilizzare la stringa "storagecache". Gli utenti che si sono uniti alle anteprime (prima di GA) potrebbero dover usare il nome precedente per l'entità servizio.
+   > Se la ricerca di "hpc" non funziona, provare a utilizzare la stringa "storagecache". Gli utenti che hanno partecipato alle anteprime (prima di GA) potrebbero dover usare il nome precedente per l'entità servizio.
 
 1. Fare clic sul pulsante **Salva** nella parte inferiore.
 
@@ -91,7 +91,10 @@ Passaggi per aggiungere i ruoli RBAC:
 
 Una destinazione di archiviazione NFS include più campi della destinazione di archiviazione BLOB. Questi campi specificano come raggiungere l'esportazione di archiviazione e come memorizzare in modo efficiente i dati. Inoltre, una destinazione di archiviazione NFS consente di creare più percorsi dello spazio dei nomi se l'host NFS ha più di un'esportazione disponibile.
 
-![Schermata della pagina di destinazione di aggiunta di archiviazione con la destinazione NFS definita](media/hpc-cache-add-nfs-target.png)
+![Schermata della pagina di destinazione di aggiunta di archiviazione con la destinazione NFS definita](media/add-nfs-target.png)
+
+> [!NOTE]
+> Prima di creare una destinazione di archiviazione NFS, assicurarsi che il sistema di archiviazione sia accessibile dalla cache HPC di Azure e soddisfi i requisiti di autorizzazione. La creazione della destinazione di archiviazione avrà esito negativo se la cache non riesce ad accedere al sistema di archiviazione. Leggere i requisiti di [archiviazione NFS](hpc-cache-prereqs.md#nfs-storage-requirements) e Risolvere i problemi relativi alla configurazione NAS e alla [destinazione dell'archiviazione NFS](troubleshoot-nas.md) per informazioni dettagliate.
 
 Fornire queste informazioni per una destinazione di archiviazione supportata da NFS:Provide this information for an NFS-backed storage target:
 
@@ -126,7 +129,7 @@ Al termine, fare clic **su OK** per aggiungere la destinazione di archiviazione.
 ### <a name="choose-a-usage-model"></a>Scegliere un modello di utilizzo
 <!-- referenced from GUI - update aka.ms link if you change this heading -->
 
-Quando si crea una destinazione di archiviazione che punta a un sistema di archiviazione NFS, è necessario scegliere il modello di *utilizzo* per tale destinazione. Questo modello determina la modalità di memorizzazione dei dati nella cache.
+Quando si crea una destinazione di archiviazione che punta a un sistema di archiviazione NFS, è necessario scegliere il modello di utilizzo per tale destinazione. Questo modello determina la modalità di memorizzazione dei dati nella cache.
 
 Sono disponibili tre opzioni:
 
@@ -138,7 +141,7 @@ Sono disponibili tre opzioni:
 
 * **Scritture superiori al 15%** - Questa opzione velocizza le prestazioni di lettura e scrittura. Quando si usa questa opzione, tutti i client devono accedere ai file tramite la cache HPC di Azure anziché montare direttamente l'archiviazione back-end. I file memorizzati nella cache avranno modifiche recenti che non vengono archiviate nel back-end.
 
-  In questo modello di utilizzo, i file nella cache non vengono confrontati con i file nell'archiviazione back-end. Si presuppone che la versione memorizzata nella cache del file sia più aggiornata. Un file modificato nella cache viene scritto nel sistema di archiviazione back-end solo dopo che è stato nella cache per un'ora senza ulteriori modifiche.
+  In questo modello di utilizzo, i file nella cache non vengono confrontati con i file nell'archiviazione back-end. Si presuppone che la versione memorizzata nella cache del file sia più aggiornata. Un file modificato nella cache viene scritto nel sistema di archiviazione back-end dopo che è stato nella cache per un'ora senza ulteriori modifiche.
 
 * **I client scrivono nella destinazione NFS, ignorando la cache:** scegliere questa opzione se i client del flusso di lavoro scrivono i dati direttamente nel sistema di archiviazione senza prima scrivere nella cache. I file che i client richiedono vengono memorizzati nella cache, ma tutte le modifiche apportate a tali file dal client vengono passate immediatamente al sistema di archiviazione back-end.
 

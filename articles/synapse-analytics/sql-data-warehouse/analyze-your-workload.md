@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: d10a642f9309e4bb93368564488fc75be15fa27c
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 6a38fe65b4aedf4f594531f5e9cd8cf9b5dfaac7
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586070"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631251"
 ---
 # <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Analizzare il carico di lavoro in Azure Synapse AnalyticsAnalyze your workload in Azure Synapse Analytics
 
@@ -68,7 +68,7 @@ Synapse SQL ha i seguenti tipi di attesa:
 * **LocalQueriesConcurrencyResourceType**: query che si trovano all'esterno del framework di slot di concorrenza. Le query DMV e le funzioni di sistema  come `SELECT @@VERSION` sono esempi di query locali.
 * **UserConcurrencyResourceType**: query che si trovano all'interno del framework di slot di concorrenza. Le query sulle tabelle dell'utente finale rappresentano esempi in cui si usa questo tipo di risorsa.
 * **DmsConcurrencyResourceType**: attese risultanti dalle operazioni di spostamento dei dati.
-* **BackupConcurrencyResourceType**: indica che è in esecuzione il backup di un database. Il valore massimo per questo tipo di risorsa è 1. Se sono stati richiesti più backup contemporaneamente, gli altri vengono accodati. In generale, è consigliabile un tempo minimo tra snapshot consecutivi di 10 minuti. 
+* **BackupConcurrencyResourceType**: indica che è in esecuzione il backup di un database. Il valore massimo per questo tipo di risorsa è 1. Se sono stati richiesti più backup contemporaneamente, gli altri vengono accodati. In generale, è consigliabile un tempo minimo tra snapshot consecutivi di 10 minuti.
 
 La DMV `sys.dm_pdw_waits` può essere usata per visualizzare le risorse per cui una richiesta è in attesa.
 

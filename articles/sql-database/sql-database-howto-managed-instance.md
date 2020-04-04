@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 04/16/2019
-ms.openlocfilehash: 906ae2a970ce1d5b82302d0277ca45bd93c23011
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b56375388f6293d27bcd2f2548d8b20205a92b15
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256913"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80638024"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Come usare un'istanza gestita nel database SQL di Azure
 
@@ -43,6 +43,7 @@ In questo articolo sono disponibili varie guide, script e spiegazioni che posson
 
 - La [replica transazionale](replication-with-sql-database-managed-instance.md) consente di replicare i dati tra istanze gestite o da SQL Server in locale a un'istanza gestita e viceversa. Altre informazioni sull'uso e sulla configurazione della replica delle transazioni sono disponibili in questa guida.
 - [Configurare il rilevamento delle minacce](sql-database-managed-instance-threat-detection.md): il [rilevamento delle minacce](sql-database-threat-detection-overview.md) è una funzionalità integrata del database SQL di Azure che rileva attacchi potenziali diversi, ad esempio un attacco SQL injection oppure un accesso da posizioni sospette. Questa guida descrive come abilitare e configurare il [rilevamento delle minacce](sql-database-threat-detection-overview.md) per un'istanza gestita.
+- [La creazione di avvisi](sql-database-managed-instance-alerts.md) consente di configurare avvisi sulle metriche monitorate, ad esempio l'utilizzo della CPU, il consumo di spazio di archiviazione, le operazioni di I/O al secondo e altre per l'istanza gestita. In questa guida verrà illustrato come abilitare e configurare gli avvisi per l'istanza gestita.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

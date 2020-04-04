@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: 29c1aaf18ea45d869d32a8817aeb03faa3b67c32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 02/14/2020
+ms.openlocfilehash: 096943ff796f9c12c7f8715cadce5c3085965d4d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75456567"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657127"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Connettersi a origini dati locali da App per la logica di Azure
 
@@ -59,6 +59,9 @@ Le app per la logica di Azure supportano le operazioni di lettura e scrittura tr
 * L'installazione del gateway non è già registrata e rivendicata da un'altra risorsa gateway di Azure.Your gateway installation isn't already registered and claimed by another Azure gateway resource.
 
   Quando si crea una risorsa gateway nel portale di Azure, si seleziona un'installazione gateway, che si collega alla risorsa gateway e solo a tale risorsa gateway. Nelle app per la logica di Azure i trigger e le azioni locali usano quindi la risorsa gateway per la connessione alle origini dati locali. In questi trigger e azioni si selezionano la sottoscrizione di Azure e la risorsa gateway associata che si vuole usare. Ogni risorsa gateway è collegata a una sola installazione gateway, che si collega a un solo account Azure.Each gateway resource links to only one gateway installation, which links to only One Azure account.
+
+  > [!NOTE]
+  > Solo l'amministratore del gateway può creare la risorsa gateway nel portale di Azure.Only the gateway administrator can create the gateway resource in the Azure portal. Attualmente, le entità servizio non sono supportate. 
 
 <a name="create-gateway-resource"></a>
 
