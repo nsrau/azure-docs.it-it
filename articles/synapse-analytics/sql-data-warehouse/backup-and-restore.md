@@ -11,12 +11,12 @@ ms.date: 03/04/2020
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: ae53380572e753a8bcfa20fcd165fa015766263e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 1d82c7c22bb5aeb2740884b0d7ede4a4d8f07f86
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349258"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631206"
 ---
 # <a name="backup-and-restore-in-azure-synapse-sql-pool"></a>Eseguire il backup e il ripristino nel pool SQL di Azure Synapse
 
@@ -26,7 +26,7 @@ Informazioni su come usare il backup e il ripristino nel pool SQL di Azure Synap
 
 Uno *snapshot del data warehouse* crea un punto di ripristino che è possibile usare per ripristinare o copiare il data warehouse a uno stato precedente.  Poiché il pool SQL è un sistema distribuito, uno snapshot del data warehouse è costituito da molti file che si trovano in Archiviazione di Azure.Since SQL pool is a distributed system, a data warehouse snapshot consists of many files that si trovano in Azure storage. Gli snapshot acquisiscono le modifiche incrementali dai dati archiviati nel data warehouse.
 
-Un *ripristino del data warehouse* consiste in un nuovo data warehouse che viene creato da un punto di ripristino di un data warehouse esistente o eliminato. Il ripristino del data warehouse è un elemento essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza perché ricrea i dati dopo un caso di danneggiamento o eliminazione accidentale. Il data warehouse è anche un meccanismo molto utile per creare copie del data warehouse per scopi di sviluppo o test.  Le velocità di ripristino del pool SQL possono variare a seconda delle dimensioni del database e del percorso del data warehouse di origine e di destinazione. 
+Un *ripristino del data warehouse* consiste in un nuovo data warehouse che viene creato da un punto di ripristino di un data warehouse esistente o eliminato. Il ripristino del data warehouse è un elemento essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza perché ricrea i dati dopo un caso di danneggiamento o eliminazione accidentale. Il data warehouse è anche un meccanismo molto utile per creare copie del data warehouse per scopi di sviluppo o test.  Le velocità di ripristino del pool SQL possono variare a seconda delle dimensioni del database e del percorso del data warehouse di origine e di destinazione.
 
 ## <a name="automatic-restore-points"></a>Punti di ripristino automatici
 
@@ -45,7 +45,7 @@ order by run_id desc
 
 ## <a name="user-defined-restore-points"></a>Punti di ripristino definiti dall'utente
 
-Questa funzionalità consente di attivare manualmente gli snapshot per creare punti di ripristino del data warehouse prima e dopo modifiche di grandi dimensioni. Questa funzionalità garantisce che i punti di ripristino siano coerenti dal punto di vista logico, che fornisce una protezione dei dati aggiuntiva in caso di interruzioni del carico di lavoro o errori dell'utente per tempi di ripristino rapidi. I punti di ripristino definiti dall'utente sono disponibili per sette giorni e vengono eliminati automaticamente per conto dell'utente. Non è possibile modificare il periodo di conservazione dei punti di ripristino definiti dall'utente. Poiché in qualsiasi momento sono garantiti **42 punti di ripristino definiti dall'utente**, è necessario [eliminarli](https://go.microsoft.com/fwlink/?linkid=875299) prima di creare un nuovo punto di ripristino. È possibile attivare gli snapshot per creare punti di ripristino definiti dall'utente tramite [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint#examples) o il portale di Azure.
+Questa funzionalità consente di attivare manualmente gli snapshot per creare punti di ripristino del data warehouse prima e dopo modifiche di grandi dimensioni. Questa funzionalità garantisce che i punti di ripristino siano coerenti dal punto di vista logico, che fornisce una protezione dei dati aggiuntiva in caso di interruzioni del carico di lavoro o errori dell'utente per tempi di ripristino rapidi. I punti di ripristino definiti dall'utente sono disponibili per sette giorni e vengono eliminati automaticamente per conto dell'utente. Non è possibile modificare il periodo di conservazione dei punti di ripristino definiti dall'utente. Poiché in qualsiasi momento sono garantiti **42 punti di ripristino definiti dall'utente**, è necessario [eliminarli](https://go.microsoft.com/fwlink/?linkid=875299) prima di creare un nuovo punto di ripristino. È possibile attivare gli snapshot per creare punti di ripristino definiti dall'utente tramite [PowerShell](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) o il portale di Azure.
 
 > [!NOTE]
 > Se occorre creare punti di ripristino che durino più di 7 giorni, votare questa funzionalità [qui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). È anche possibile creare un punto di ripristino definito dall'utente ed eseguire il ripristino dal punto di ripristino appena creato in un nuovo data warehouse. Dopo aver ripristinato, si dispone del pool SQL online e può sospenderlo all'infinito per risparmiare sui costi di calcolo. Il database messo in pausa comporta costi di archiviazione alla frequenza dell'archiviazione Premium di Azure. Nel momento in cui occorre una copia attiva del data warehouse ripristinato, la ripresa dell'esecuzione del data warehouse richiede solo alcuni minuti.
@@ -69,14 +69,14 @@ Quando si elimina un pool SQL, viene creato e salvato uno snapshot finale per se
 
 ## <a name="geo-backups-and-disaster-recovery"></a>Backup geografico e ripristino di emergenza
 
-Un backup geografico viene creato una volta al giorno per un [data center associato.](../../best-practices-availability-paired-regions.md) L'obiettivo del punto di ripristino per un ripristino geografico è di 24 ore. È possibile ripristinare il backup geografico in un server in qualsiasi altra area in cui è supportato il pool SQL. Un backup geografico assicura la possibilità di ripristinare un data warehouse nel caso in cui non si possa accedere ai punti di ripristino nell'area primaria.
+Un backup geografico viene creato una volta al giorno per un [data center associato.](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) L'obiettivo del punto di ripristino per un ripristino geografico è di 24 ore. È possibile ripristinare il backup geografico in un server in qualsiasi altra area in cui è supportato il pool SQL. Un backup geografico assicura la possibilità di ripristinare un data warehouse nel caso in cui non si possa accedere ai punti di ripristino nell'area primaria.
 
 > [!NOTE]
 > Se occorre un RPO più breve per i backup geografici, votare questa funzionalità [qui](https://feedback.azure.com/forums/307516-sql-data-warehouse). È anche possibile creare un punto di ripristino definito dall'utente ed eseguire il ripristino dal punto di ripristino appena creato in un nuovo data warehouse in un'area diversa. Dopo avere eseguito il ripristino, il data warehouse diventa disponibile online e può essere messo in pausa per un periodo imprecisato al fine di risparmiare sui costi. Il database messo in pausa comporta costi di archiviazione alla frequenza dell'archiviazione Premium di Azure. occorre una copia attiva del data warehouse, la ripresa dell'esecuzione del data warehouse dovrebbe richiedere solo alcuni minuti.
 
 ## <a name="backup-and-restore-costs"></a>Costi di backup e di ripristino
 
-Nella fattura di Azure è inclusa una voce per l'archiviazione e una voce per l'archiviazione con ripristino di emergenza. Il costo di archiviazione è il costo totale per l'archiviazione dei dati nell'area primaria insieme alle modifiche incrementali acquisite dagli snapshot. Per una spiegazione più dettagliata su come vengono addebitati gli snapshot, vedere [Understanding how Snapshots Accrue Charges (Informazioni sui costi aggiuntivi degli snapshot)](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). L'addebito per la ridondanza geografica copre il costo per l'archiviazione dei backup geografici.  
+Nella fattura di Azure è inclusa una voce per l'archiviazione e una voce per l'archiviazione con ripristino di emergenza. Il costo di archiviazione è il costo totale per l'archiviazione dei dati nell'area primaria insieme alle modifiche incrementali acquisite dagli snapshot. Per una spiegazione più dettagliata su come vengono addebitati gli snapshot, vedere [Understanding how Snapshots Accrue Charges (Informazioni sui costi aggiuntivi degli snapshot)](/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). L'addebito per la ridondanza geografica copre il costo per l'archiviazione dei backup geografici.  
 
 Il costo totale per il data warehouse primario e i sette giorni di modifiche agli snapshot viene arrotondato al TB più vicino. Se ad esempio il data warehouse è 1,5 TB e gli snapshot usano 100 GB, verranno fatturati 2 TB di dati in base alle tariffe di Archiviazione Premium di Azure.
 
@@ -88,7 +88,7 @@ Per altre informazioni sui prezzi di Azure Synapse, vedere Prezzi di Azure Synap
 
 Ogni snapshot crea un punto di ripristino che rappresenta l'ora di inizio dello snapshot. Per ripristinare un data warehouse, scegliere un punto di ripristino ed eseguire un comando di ripristino.  
 
-È possibile mantenere il data warehouse ripristinato e quello corrente, oppure eliminare uno di questi. Se si desidera sostituire il data warehouse corrente con il data warehouse ripristinato, è possibile rinominarlo utilizzando [ALTER DATABASE (pool SQL)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) con l'opzione MODIFY NAME.
+È possibile mantenere il data warehouse ripristinato e quello corrente, oppure eliminare uno di questi. Se si desidera sostituire il data warehouse corrente con il data warehouse ripristinato, è possibile rinominarlo utilizzando [ALTER DATABASE (pool SQL)](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) con l'opzione MODIFY NAME.
 
 Per ripristinare un data warehouse, vedere [Ripristinare un pool SQL.](sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-the-azure-portal)
 
@@ -96,7 +96,7 @@ Per ripristinare un data warehouse eliminato o sospeso, è possibile [creare un 
 
 ## <a name="cross-subscription-restore"></a>Ripristino incrociato dell'abbonamento
 
-Se è necessario eseguire direttamente il ripristino tra sottoscrizioni, votare questa funzionalità [qui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Ripristinare in un server logico diverso e ['Sposta'](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources) il server tra sottoscrizioni per eseguire un ripristino tra sottoscrizioni. 
+Se è necessario eseguire direttamente il ripristino tra sottoscrizioni, votare questa funzionalità [qui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Ripristinare in un server logico diverso e ['Sposta'](/azure/azure-resource-manager/resource-group-move-resources?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) il server tra sottoscrizioni per eseguire un ripristino tra sottoscrizioni.
 
 ## <a name="geo-redundant-restore"></a>Ripristino con ridondanza geografica
 
@@ -107,4 +107,4 @@ Se è necessario eseguire direttamente il ripristino tra sottoscrizioni, votare 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla pianificazione del ripristino di emergenza, vedere [Panoramica sulla continuità aziendale](../../sql-database/sql-database-business-continuity.md)
+Per altre informazioni sulla pianificazione del ripristino di emergenza, vedere [Panoramica sulla continuità aziendale](../../sql-database/sql-database-business-continuity.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)

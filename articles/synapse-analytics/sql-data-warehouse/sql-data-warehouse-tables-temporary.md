@@ -1,6 +1,6 @@
 ---
 title: Tabelle temporanee
-description: Indicazioni essenziali per l'uso di tabelle temporanee in Azure SQL Data Warehouse, evidenziando i principi delle tabelle temporanee a livello di sessione.
+description: Indicazioni essenziali per l'utilizzo di tabelle temporanee nel pool SQL Synapse, evidenziando i principi delle tabelle temporanee a livello di sessione.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,18 +11,24 @@ ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3a8772550e67c250b1a84dbae17d1d3fe6c5c90e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 64490bbd44066389186a59e851045b6becbe7acc
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351162"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632474"
 ---
-# <a name="temporary-tables-in-sql-data-warehouse"></a>Tabelle temporanee in SQL Data Warehouse
-Questo articolo contiene le linee guida fondamentali per l'uso delle tabelle temporanee ed evidenzia i principi delle tabelle temporanee a livello di sessione. Usando le informazioni in questo articolo è possibile modularizzare il codice, aumentando le possibilità di riutilizzo e la facilità di manutenzione del codice.
+# <a name="temporary-tables-in-synapse-sql-pool"></a>Tabelle temporanee nel pool SQL Synapse
+Questo articolo contiene le linee guida fondamentali per l'uso delle tabelle temporanee ed evidenzia i principi delle tabelle temporanee a livello di sessione. 
+
+L'uso delle informazioni contenute in questo articolo consente di modularizzare il codice, migliorando sia la riusabilità che la facilità di manutenzione.
 
 ## <a name="what-are-temporary-tables"></a>Introduzione delle tabelle temporanee
-Le tabelle temporanee sono utili durante l'elaborazione dati, soprattutto durante la trasformazione in cui i risultati intermedi sono temporanei. In SQL Data Warehouse le tabelle temporanee esistono a livello di sessione.  Sono visibili solo per la sessione in cui sono stati creati e vengono eliminati automaticamente quando si disconnette tale sessione.  Le tabelle temporanee offrono un miglioramento delle prestazioni, perché i loro risultati vengono scritti in locale anziché nell'archiviazione remota.
+Le tabelle temporanee sono utili durante l'elaborazione dei dati, in particolare durante la trasformazione in cui i risultati intermedi sono temporanei. Nel pool SQL esistono tabelle temporanee a livello di sessione.  
+
+Le tabelle temporanee sono visibili solo alla sessione in cui sono state create e vengono eliminate automaticamente quando la sessione si disconnette.  
+
+Le tabelle temporanee offrono un miglioramento delle prestazioni, perché i loro risultati vengono scritti in locale anziché nell'archiviazione remota.
 
 ## <a name="create-a-temporary-table"></a>Creazione di una tabella temporanea
 Le tabelle temporanee vengono create aggiungendo un prefisso al nome di una tabella con `#`.  Ad esempio:
@@ -91,7 +97,9 @@ GROUP BY
 > 
 
 ## <a name="dropping-temporary-tables"></a>Eliminazione delle tabelle temporanee
-Quando viene creata una nuova sessione, non deve esistere alcuna tabella temporanea.  Tuttavia, se si richiama la stessa stored procedure che crea una variabile temporanea con lo stesso nome, per garantire che le istruzioni `CREATE TABLE` abbiano esito positivo è possibile eseguire un controllo di pre-esistenza con `DROP`, come nell'esempio seguente:
+Quando viene creata una nuova sessione, non deve esistere alcuna tabella temporanea.  
+
+Se si chiama la stessa stored procedure, che crea un temporaneo `CREATE TABLE` con lo stesso nome, per garantire `DROP` che le istruzioni abbiano esito positivo, è possibile utilizzare un semplice controllo di preesistenza con a come nell'esempio seguente:
 
 ```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
@@ -100,14 +108,18 @@ BEGIN
 END
 ```
 
-Una procedura consigliata per la coerenza della codifica è usare questo modello per le tabelle e le tabelle temporanee.  È inoltre consigliabile usare `DROP TABLE` per rimuovere le tabelle temporanee quando non sono più necessarie.  Nello sviluppo delle stored procedure è comune visualizzare i comandi di eliminazione raggruppati in bundle alla fine di una procedura per garantire che questi oggetti vengano puliti.
+Per la coerenza di codifica, è consigliabile usare questo modello sia per le tabelle che per le tabelle temporanee.  È anche una buona idea `DROP TABLE` da usare per rimuovere le tabelle temporanee quando hai finito con loro nel codice.  
+
+Nello sviluppo di stored procedure, è comune vedere i comandi di rilascio in bundle insieme alla fine di una procedura per garantire che questi oggetti vengono puliti.
 
 ```sql
 DROP TABLE #stats_ddl
 ```
 
 ## <a name="modularizing-code"></a>Modularizzazione del codice
-Dal momento che le tabelle temporanee sono visibili in qualsiasi punto di una sessione utente, questo può essere sfruttato per modularizzare il codice dell'applicazione.  Ad esempio, la stored procedure seguente genera l'errore DDL per aggiornare tutte le statistiche nel database in base al nome della statistica.
+Poiché le tabelle temporanee possono essere visualizzate in qualsiasi punto di una sessione utente, questa funzionalità può essere sfruttata per semplificare il codice dell'applicazione.  
+
+Ad esempio, la stored procedure seguente genera DDL per aggiornare tutte le statistiche nel database in base al nome della statistica:
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
@@ -181,7 +193,13 @@ FROM    t1
 GO
 ```
 
-In questa fase, l'unica azione che si è verificata è la creazione di una stored procedure che genera una tabella temporanea, #stats_ddl, con istruzioni DDL.  Questa stored procedure elimina #stats_ddl se esiste già per garantire che non avrà esito negativo se eseguita più volte all'interno di una sessione.  Tuttavia, poiché non esiste `DROP TABLE` alla fine della stored procedure, al termine della stored procedure, la tabella creata viene conservata in modo che possa essere letta all'esterno della stored procedure.  A differenza che negli altri server di database SQL, in SQL Data Warehouse è possibile usare la tabella temporanea all'esterno della procedura che l'ha creata.  Le tabelle temporanee di SQL Data Warehouse possono essere usate **ovunque** all'interno della sessione. In questo modo è possibile ottenere codice più modulare e gestibile come nell'esempio seguente:
+In questa fase, l'unica azione che si è verificata è la creazione di una stored procedure che genera una tabella temporanea, #stats_ddl, con istruzioni DDL.  
+
+Questa stored procedure elimina un #stats_ddl esistente per garantire che non abbia esito negativo se viene eseguita più di una volta all'interno di una sessione.  
+
+Tuttavia, poiché non esiste `DROP TABLE` alla fine della stored procedure, al termine della stored procedure, la tabella creata viene conservata in modo che possa essere letta all'esterno della stored procedure.  
+
+Nel pool SQL, a differenza di altri database di SQL Server, è possibile utilizzare la tabella temporanea all'esterno della procedura che l'ha creata.  Le tabelle temporanee del pool SQL possono essere utilizzate **in qualsiasi punto** della sessione. Questa funzionalità può portare a codice più modulare e gestibile, come nell'esempio seguente:This feature can lead to more modular and manageable code as in the following example:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -203,7 +221,9 @@ DROP TABLE #stats_ddl;
 ```
 
 ## <a name="temporary-table-limitations"></a>Limitazioni della tabella temporanea
-SQL Data Warehouse impone un paio di limitazioni quando si implementano tabelle temporanee.  Attualmente sono supportate solo le tabelle temporanee nell'ambito della sessione.  Le tabelle temporanee globali non sono supportate.  Inoltre, non è possibile creare visualizzazioni nelle tabelle temporanee.  Le tabelle temporanee possono essere create solo con la distribuzione hash o round robin.  La distribuzione di tabelle temporanee replicate non è supportata. 
+Il pool SQL impone un paio di limitazioni durante l'implementazione di tabelle temporanee.  Attualmente sono supportate solo le tabelle temporanee nell'ambito della sessione.  Le tabelle temporanee globali non sono supportate.  
+
+Inoltre, le viste non possono essere create su tabelle temporanee.  Le tabelle temporanee possono essere create solo con la distribuzione hash o round robin.  La distribuzione di tabelle temporanee replicata non è supportata. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sullo sviluppo di tabelle, vedere [Panoramica delle tabelle](sql-data-warehouse-tables-overview.md).

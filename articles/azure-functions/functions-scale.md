@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0a54d7490fb306bfbc8e1b111e7b7d64c09d2292
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 92ac0417e9d8adca168dd68e1721a1c9c890de1c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276608"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656951"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Ridimensionamento e hosting di Funzioni di Azure
 
@@ -39,7 +39,7 @@ La tabella seguente indica il livello corrente di supporto per i tre piani di ho
 
 | | Piano a consumo | Piano Premium | Piano dedicato |
 |-|:----------------:|:------------:|:----------------:|
-| WINDOWS | GA | GA | GA |
+| Windows | GA | GA | GA |
 | Linux | GA | GA | GA |
 
 ## <a name="consumption-plan"></a>Piano a consumo
@@ -109,7 +109,7 @@ Anche con Always On abilitato, il timeout di esecuzione per le singole funzioni 
 
 ## <a name="determine-the-hosting-plan-of-an-existing-application"></a>Determinare il piano di hosting di un'applicazione esistente
 
-Per determinare il piano di hosting usato dall'app per le funzioni, vedere **Piano di servizio app/piano tariffario** nella scheda **Panoramica** dell'app per le funzioni nel [portale di Azure](https://portal.azure.com). Per i piani di servizio app è indicato anche il piano tariffario.
+Per determinare il piano di hosting usato dall'app per le funzioni, vedere **Piano di servizio app** nella scheda **Panoramica** dell'app per le funzioni nel portale di [Azure.](https://portal.azure.com) Per visualizzare il piano tariffario, selezionare il nome del piano di **servizio app**e quindi scegliere **Proprietà** nel riquadro sinistro.
 
 ![Visualizzare il piano nel portale](./media/functions-scale/function-app-overview-portal.png)
 
@@ -124,7 +124,7 @@ Quando l'output di questo comando è `dynamic`, l'app per le funzioni è nel pia
 
 ## <a name="storage-account-requirements"></a>Requisiti dell'account di archiviazione
 
-In qualsiasi piano, un'app per le funzioni richiede un account di archiviazione di Azure generale, che supporta l'archiviazione BLOB, coda, file e tabelle di Azure.On any plan, a function app requires a general Azure Storage account, which supports Azure Blob, Queue, Files, and Table storage. Il motivo è che Funzioni si basa su Archiviazione di Azure per operazioni come la gestione dei trigger e la registrazione dell'esecuzione di funzioni, ma alcuni account di archiviazione non supportano code e tabelle. Questi account, che includono l'archiviazione solo BLOB (tra cui Archiviazione premium) e gli account di archiviazione per utilizzo generico con replica di archiviazione con ridondanza della zona, vengono esclusi dalle selezioni di **Account di archiviazione** esistenti quando si crea un'app per le funzioni.
+In qualsiasi piano, un'app per le funzioni richiede un account di archiviazione di Azure generale, che supporta l'archiviazione BLOB, coda, file e tabelle di Azure.On any plan, a function app requires a general Azure Storage account, which supports Azure Blob, Queue, Files, and Table storage. Ciò è dovuto al fatto che Funzioni di Azure si basa su Archiviazione di Azure per operazioni quali la gestione di trigger e la registrazione delle esecuzioni di funzioni, ma alcuni account di archiviazione non supportano code e tabelle. Questi account, che includono l'archiviazione solo BLOB (tra cui Archiviazione premium) e gli account di archiviazione per utilizzo generico con replica di archiviazione con ridondanza della zona, vengono esclusi dalle selezioni di **Account di archiviazione** esistenti quando si crea un'app per le funzioni.
 
 Lo stesso account di archiviazione usato dall'app per le funzioni può essere usato anche dai trigger e dalle associazioni per archiviare i dati dell'applicazione. Tuttavia, per le operazioni che richiedono un uso intensivo dell'archiviazione, è consigliabile usare un account di archiviazione separato.  
 
@@ -134,7 +134,7 @@ Lo stesso account di archiviazione usato dall'app per le funzioni può essere us
 
 Per altre informazioni sui tipi di account di archiviazione, vedere [Introduzione ai servizi di archiviazione di Azure](../storage/common/storage-introduction.md#azure-storage-services).
 
-## <a name="how-the-consumption-and-premium-plans-work"></a>Come funzionano i piani di consumo e premio
+## <a name="how-the-consumption-and-premium-plans-work"></a>Come funzionano i piani Consumo e Premio
 
 Nei piani Consumo e Premium, l'infrastruttura di Funzioni di Azure scala le risorse di CPU e memoria aggiungendo istanze aggiuntive dell'host Funzioni, in base al numero di eventi in cui vengono attivate le relative funzioni. Ogni istanza dell'host Funzioni nel piano Consumo è limitata a 1,5 GB di memoria e a una CPU.  Un'istanza dell'host è l'intera app per le funzioni, ovvero tutte le funzioni all'interno di un'app per le funzioni condividono la risorsa all'interno di un'istanza e vengono ridimensionate contemporaneamente. Le app per le funzioni che condividono lo stesso piano A consumo vengono ridimensionate in modo indipendente.  Nel piano Premium, le dimensioni del piano determineranno la memoria e la CPU disponibili per tutte le app in tale piano in tale istanza.  
 
@@ -162,7 +162,7 @@ Il ridimensionamento può variare in base a numerosi fattori e comportarsi diver
 
 Esistono molti aspetti di un'app per le funzioni che hanno un impatto sull'accuratezza del ridimensionamento, ad esempio la configurazione dell'host, il footprint del runtime e l'efficienza delle risorse.  Per altre informazioni, vedere la [sezione relativa alla scalabilità nell'articolo sulle prestazioni](functions-best-practices.md#scalability-best-practices). È inoltre necessario comprendere il funzionamento delle connessioni quando l'app per le funzioni viene ridimensionata. Per altre informazioni, vedere [How to manage connections in Azure Functions](manage-connections.md) (Come gestire le connessioni in Funzioni di Azure).
 
-Per altre informazioni sulla scalabilità in Python e Node.js, vedere Guida per gli sviluppatori di [Azure Functions Python - Scalabilità e concorrenza](functions-reference-python.md#scaling-and-concurrency) e Guida per gli sviluppatori di Azure Functions [Node.js - Scalabilità e concorrenza](functions-reference-node.md#scaling-and-concurrency).
+Per altre informazioni sul ridimensionamento in Python e Node.js, vedere Guida per gli sviluppatori di [Azure Functions Python - Scalabilità e concorrenza](functions-reference-python.md#scaling-and-concurrency) e Guida per gli sviluppatori di Azure Functions [Node.js - Scalabilità e concorrenza.](functions-reference-node.md#scaling-and-concurrency)
 
 ### <a name="billing-model"></a>Modello di fatturazione
 

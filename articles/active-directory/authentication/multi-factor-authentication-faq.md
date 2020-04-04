@@ -4,19 +4,19 @@ description: Domande frequenti e risposte su Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a622245a7431058582131d9ba224ddfb676d8aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 186e5a533bac5d7adac8b0423eff6c05f797c56f
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75425144"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652139"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Domande frequenti su Azure Multi-Factor Authentication
 
@@ -199,15 +199,15 @@ Esistono diversi motivi per cui agli utenti potrebbe essere chiesto di registrar
 
 - L'utente è stato abilitato per MFA dall'amministratore in Azure AD, ma non ha informazioni di sicurezza registrate per il proprio account.
 - L'utente è stato abilitato per la reimpostazione password self-service in Azure AD. Le informazioni di sicurezza lo aiuteranno a reimpostare la password in futuro, se dovesse dimenticarla.
-- L'utente ha eseguito l'accesso a un'applicazione che dispone di un criterio di accesso condizionale per richiedere MFA e non è stato registrato in precedenza per MFA.
+- L'utente ha eseguito l'accesso a un'applicazione che dispone di un criterio di accesso condizionale per richiedere l'autenticazione a più fattori e non è stato registrato in precedenza per l'autenticazione a più fattori.
 - L'utente sta registrando un dispositivo con Azure AD (inclusa l'aggiunta ad Azure AD) e l'organizzazione richiede MFA per la registrazione del dispositivo, ma l'utente non è stato registrato in precedenza per MFA.
-- L'utente sta generando Windows Hello for Business in Windows 10 (che richiede MFA) e non è stato registrato in precedenza per MFA.
+- L'utente sta generando Windows Hello for Business in Windows 10 (che richiede l'autenticazione a più fattori) e non è stato registrato in precedenza per l'autenticazione a più fattori.
 - L'organizzazione ha creato e attivato un criterio di registrazione MFA che è stato applicato all'utente.
 - L'utente è stato registrato in precedenza per MFA, ma ha scelto un metodo di verifica che un amministratore ha poi disabilitato. Pertanto l'utente deve eseguire di nuovo la registrazione MFA per scegliere un nuovo metodo di verifica predefinito.
 
 ## <a name="errors"></a>Errors
 
-**D: Cosa fare quando viene visualizzato l'errore "Authentication request is not for an activated account" (La richiesta di autenticazione non si riferisce a un account attivato) quando si usano le notifiche delle app per dispositivi mobili?**
+**D: Cosa devono fare gli utenti se viene visualizzato un messaggio di errore "Richiesta di autenticazione non per un account attivato" quando si utilizzano le notifiche delle app per dispositivi mobili?**
 
 Seguire questa procedura per rimuovere il proprio account dall'app per dispositivi mobili e quindi aggiungerlo di nuovo:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4301aaed0152e07eb2a941b56637239b66c33878
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7ea99e2ee8e2882c211ee17acec70222dc058a8
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127370"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637090"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Domande frequenti su Windows 10 Enterprise multisessione
 
@@ -39,7 +39,7 @@ Windows 10 Enterprise multisessione non può essere eseguito in ambienti di prod
 
 È possibile avviare una macchina virtuale (VM) in Azure con Windows 10 Windows 10 Enterprise multisessione e personalizzarla installando applicazioni lob, sysprep/generalize e quindi creare un'immagine utilizzando il portale di Azure.You can start a virtual machine (VM) in Azure with Windows 10 Windows 10 Windows 10 Enterprise multi-session and customize it by installing LOB applications, sysprep/generalize, and then create an image using the Azure portal.  
  
-Per iniziare, crea una macchina virtuale in Azure con una sessione multisessione di Windows 10 Windows 10 Enterprise.To get started, create a VM in Azure with Windows 10 Windows 10 Enterprise multi-session. Anziché avviare la macchina virtuale in Azure, è possibile scaricare direttamente il disco rigido virtuale. Successivamente, potrai usare il disco rigido virtuale scaricato per creare una nuova macchina virtuale di generazione 1 in un PC Windows 10 con Hyper-V abilitato.
+Per iniziare, crea una macchina virtuale in Azure con una sessione multipla di Windows 10 Enterprise.To get started, create a VM in Azure with Windows 10 Enterprise multi-session. Anziché avviare la macchina virtuale in Azure, è possibile scaricare direttamente il disco rigido virtuale. Successivamente, potrai usare il disco rigido virtuale scaricato per creare una nuova macchina virtuale di generazione 1 in un PC Windows 10 con Hyper-V abilitato.
 
 Personalizzare l'immagine in base alle proprie esigenze installando applicazioni LOB e sysprep l'immagine. Al termine della personalizzazione, caricare l'immagine in Azure con il disco rigido virtuale all'interno. Successivamente, ottenere Windows Virtual Desktop da Azure Marketplace e usarlo per distribuire un nuovo pool host con l'immagine personalizzata.
  

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 04/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36898e75680771a9cb084fa142bb635ddbf51c70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 43ae866959dd2112bacbb6b56e5683e7b3b851a0
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77192129"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631912"
 ---
 # <a name="conditional-access-users-and-groups"></a>Accesso condizionale: utenti e gruppi
 
@@ -44,7 +44,7 @@ Quando si crea criteri di accesso condizionale, sono disponibili le opzioni segu
 
 ## <a name="exclude-users"></a>Escludi utenti
 
-Le esclusioni sono comunemente utilizzate per l'accesso di emergenza o i conti break-glass. Ulteriori informazioni sugli account di accesso di emergenza e perché sono importanti sono disponibili nei seguenti articoli: 
+Quando le organizzazioni includono ed escludono un utente o un gruppo, l'utente o il gruppo viene escluso dal criterio, poiché un'azione di esclusione esegue l'override di un'inclusione nei criteri. Le esclusioni sono comunemente utilizzate per l'accesso di emergenza o i conti break-glass. Ulteriori informazioni sugli account di accesso di emergenza e perché sono importanti sono disponibili nei seguenti articoli: 
 
 * [Gestire gli account di accesso di emergenza in Azure AD](../users-groups-roles/directory-emergency-access.md)
 * [Creare una strategia di gestione di controllo di accesso resiliente con Azure Active Directory](../authentication/concept-resilient-controls.md)
@@ -57,6 +57,16 @@ Quando si crea criteri di accesso condizionale, sono disponibili le opzioni segu
    - Consente agli amministratori di selezionare ruoli di directory di Azure AD specifici usati per determinare l'assegnazione. Ad esempio, le organizzazioni possono creare criteri più restrittivi per gli utenti assegnati al ruolo di amministratore globale.
 - Utenti e gruppi
    - Consente il targeting di set specifici di utenti. Ad esempio, le organizzazioni possono selezionare un gruppo che contiene tutti i membri del reparto risorse umane quando un'app HR viene selezionata come app cloud. Un gruppo può essere un gruppo di qualsiasi tipo in Azure AD, inclusi gruppi di sicurezza e distribuzione dinamici o assegnati.
+
+### <a name="preventing-administrator-lockout"></a>Impedire il blocco dell'amministratore
+
+Per impedire a un amministratore di bloccarsi dalla propria directory durante la creazione di un criterio applicato a **Tutti gli utenti** e Tutte le **app,** verrà visualizzato il seguente avviso.
+
+> Non chiuderti fuori! È consigliabile applicare prima un criterio a un piccolo set di utenti per verificare che si comporti come previsto. Si consiglia inoltre di escludere almeno un amministratore da questo criterio. In questo modo si garantisce che l'accesso sia ancora disponibile e di poter aggiornare un criterio se è necessaria una modifica. Si prega di esaminare gli utenti interessati e le applicazioni.
+
+Per impostazione predefinita, il criterio fornisce un'opzione per escludere l'utente corrente dal criterio, ma questa impostazione predefinita può essere sostituita dall'amministratore, come illustrato nell'immagine seguente. 
+
+![Attenzione, non chiudetevi fuori!](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

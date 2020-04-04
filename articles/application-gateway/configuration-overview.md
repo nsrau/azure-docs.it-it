@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: f08cfab8f8de9183e6bee241959f7feabc31c8e3
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 89d894a5125a16f95e6ef8a15c2503d48f3a8e55
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585912"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632181"
 ---
 # <a name="application-gateway-configuration-overview"></a>Panoramica della configurazione del gateway applicazione
 
@@ -118,7 +118,7 @@ Per questo scenario, utilizzare i gruppi di sicurezza di rete nella subnet del g
 
   **Scenario 1:** UDR per appliance virtuali
 
-  Qualsiasi scenario in cui 0.0.0.0/0 deve essere reindirizzato tramite qualsiasi appliance virtuale, una rete virtuale hub/spoke o il tunneling locale (con tunneling forzato) non è supportato per l'anteprima pubblica della versione 2.Any scenario where 0.0.0.0/0 needs to be redirected through any virtual appliance, a hub/spoke virtual network, or on-premise (forced tunneling) isn't supported for the v2 public preview. 
+  Qualsiasi scenario in cui 0.0.0.0/0 deve essere reindirizzato tramite qualsiasi appliance virtuale, una rete virtuale hub/spoke o locale (tunneling forzato) non è supportato per V2.
 
 ## <a name="front-end-ip"></a>Front-end IP
 

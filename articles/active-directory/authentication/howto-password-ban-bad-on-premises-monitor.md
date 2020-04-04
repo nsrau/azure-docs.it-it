@@ -4,19 +4,19 @@ description: Informazioni su come monitorare ed esaminare i log per Azure AD Pas
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbb533d5565009fb22d686e4082c9b4bfaae6dc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d67d867249286ad1591b441bbe5ea2637971e104
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78671647"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652606"
 ---
 # <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>Monitorare ed esaminare i log per gli ambienti di protezione delle password di Azure AD localiMonitor and review logs for on-premises Azure AD Password Protection environments
 
@@ -94,7 +94,7 @@ PasswordChangeErrors            : 0
 PasswordSetErrors               : 1
 ```
 
-È possibile influire sull'ambito del reporting del cmdlet usando uno dei parametri –Forest, -Domain o –DomainController. Se non si specifica un parametro, viene usato il parametro –Forest.
+L'ambito dei report del cmdlet può essere influenzato utilizzando uno dei parametri –Forest, -Domain o –DomainController. Se non si specifica un parametro, viene usato il parametro –Forest.
 
 Il cmdlet `Get-AzureADPasswordProtectionSummaryReport` esegue query sul log eventi dell'agente del controller di dominio e quindi conta il numero totale di eventi che corrispondono a ogni categoria di risultati visualizzata. La tabella seguente contiene i mapping tra ogni risultato e l'ID evento corrispondente:
 
@@ -117,7 +117,7 @@ Il cmdlet `Get-AzureADPasswordProtectionSummaryReport` viene fornito nel formato
 > Questo cmdlet funziona aprendo una sessione di PowerShell per ogni controller di dominio. Per il corretto funzionamento, il supporto di sessioni remote di PowerShell deve essere abilitato in ogni controller di dominio e il client deve avere privilegi sufficienti. Per altre informazioni sui requisiti per le sessioni remote di PowerShell, eseguire 'Get-Help about_Remote_Troubleshooting' in una finestra di PowerShell.
 
 > [!NOTE]
-> Questo cmdlet funziona eseguendo query in modalità remota sul log eventi di amministrazione di ogni servizio agente del controller di dominio. Se i log eventi contengono un numero elevato di eventi, il completamento del cmdlet potrebbe richiedere molto tempo. Inoltre, le query di rete in blocco di grandi set di dati possono influire sulle prestazioni dei controller di dominio. Di conseguenza, questo cmdlet deve essere usato con cautela negli ambienti di produzione.
+> Questo cmdlet funziona eseguendo una query remota nel registro eventi di amministrazione di ogni servizio agente controller di dominio. Se i log eventi contengono un numero elevato di eventi, il completamento del cmdlet potrebbe richiedere molto tempo. Inoltre, le query di rete in blocco di grandi set di dati possono influire sulle prestazioni dei controller di dominio. Di conseguenza, questo cmdlet deve essere usato con cautela negli ambienti di produzione.
 
 ### <a name="sample-event-log-message-for-event-id-10014-successful-password-change"></a>Messaggio del log eventi di esempio per l'ID evento 10014 (password cambiata correttamente)
 
@@ -265,7 +265,7 @@ HeartbeatUTC          : 2/16/2018 8:35:02 AM
 
 Le diverse proprietà vengono aggiornate da ogni servizio agente del controller di dominio all'incirca ogni ora. I dati sono comunque soggetti alla latenza di replica di Active Directory.
 
-L'ambito della query del cmdlet può essere ulteriormente definito usando il parametro –Forest o –Domain.
+L'ambito della query del cmdlet può essere influenzato utilizzando i parametri –Forest o –Domain.
 
 Se il valore HeartbeatUTC non viene aggiornato, il problema può essere dovuto al fatto che l'agente del controller di dominio di Protezione password di Azure AD in quel controller di dominio non è in esecuzione o è stato disinstallato oppure il computer è stato abbassato di livello e non è più un controller di dominio.
 
@@ -357,7 +357,7 @@ HeartbeatUTC          : 12/25/2018 6:35:02 AM
 
 Le diverse proprietà vengono aggiornate da ogni servizio proxy all'incirca ogni ora. I dati sono comunque soggetti alla latenza di replica di Active Directory.
 
-L'ambito della query del cmdlet può essere ulteriormente definito usando il parametro –Forest o –Domain.
+L'ambito della query del cmdlet può essere influenzato utilizzando i parametri –Forest o –Domain.
 
 Se il valore HeartbeatUTC non viene aggiornato, il problema può essere dovuto al fatto che il proxy di Protezione password di Azure AD in quel computer non è in esecuzione o è stato disinstallato.
 

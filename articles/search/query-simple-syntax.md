@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 04/03/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: fc1eb1836badc3ced688750bbc7c7a164773d022
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3d5a4ddf863115747c27efbca1808d51444aac8c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77152670"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656159"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Sintassi di query semplice in Ricerca cognitiva di AzureSimple query syntax in Azure Cognitive Search
 
@@ -68,9 +68,15 @@ L'operatore NOT è un segno meno. Ad esempio, `wifi –luxury` cercherà i docum
 > [!NOTE]  
 >  L'opzione `searchMode` controlla se un termine con l'operatore NOT è associato tramite l'operatore AND o OR agli altri termini nella query in assenza di un operatore `+` o `|`. Si ricordi che `searchMode` può essere impostato su `any` (impostazione predefinita) o su `all`. Se si usa `any`, il livello di richiamo delle query aumenta includendo più risultati e per impostazione predefinita il segno `-` verrà interpretato come "OR NOT". Ad esempio, `wifi -luxury` troverà la corrispondenza con documenti contenenti il termine `wifi` o quelli non contenenti il termine `luxury`. Se si usa `all`, il livello di precisione delle query aumenta includendo meno risultati e per impostazione predefinita il segno - verrà interpretato come "AND NOT". Ad esempio, `wifi -luxury` troverà la corrispondenza con documenti contenenti il termine `wifi` e quelli non contenenti il termine "luxury". Si tratta di un comportamento verosimilmente più intuitivo per l'operatore `-`. Valutare quindi l'opportunità di usare `searchMode=all` invece di `searchMode=any` se si vuole ottimizzare il livello di precisione delle ricerche invece che quello di richiamo *e* gli utenti usano spesso l'operatore `-` nelle ricerche.
 
-## <a name="suffix-operator"></a>Operatore suffisso 
+<a name="prefix-search"></a>
 
-L'operatore suffisso è un asterisco `*`. `lux*`, ad esempio, cercherà i documenti contenenti un termine che inizia con `lux`, ignorando le lettere maiuscole/minuscole.  
+## <a name="suffix--operator-for-prefix-search"></a>Operatore suffisso `*` per la ricerca dei prefissi
+
+L'operatore suffisso è un asterisco `*`. `cap*`, ad esempio, cercherà i documenti contenenti un termine che inizia con `cap`, ignorando le lettere maiuscole/minuscole. 
+
+Analogamente ai filtri, una query di prefisso cerca una corrispondenza esatta. Di conseguenza, non vi è alcun punteggio di pertinenza (tutti i risultati ricevono un punteggio di ricerca di 1.0). Le query di prefisso possono essere lente, soprattutto se l'indice è di grandi dimensioni e il prefisso è costituito da un numero ridotto di caratteri. 
+
+Se si desidera eseguire una query suffisso, corrispondente nell'ultima parte della stringa, utilizzare una [ricerca con caratteri jolly](query-lucene-syntax.md#bkmk_wildcard) e la sintassi Lucene completa.
 
 ## <a name="phrase-search-operator"></a>Operatore di ricerca frasi 
 

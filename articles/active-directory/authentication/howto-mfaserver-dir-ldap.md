@@ -4,19 +4,19 @@ description: Distribuzione dell'autenticazione LDAP e del server Azure Multi-Fac
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf7a5400fce2fce1b75cbd579830f929fcc0d0dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2df89a764bc9b92a830b13e4216412694bb95523
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79454466"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653025"
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>Autenticazione LDAP e server Azure Multi-Factor Authentication
 
@@ -79,5 +79,5 @@ Dopo aver completato questa procedura, il server MFA ascolta le porte configurat
 Per configurare il client LDAP, seguire queste linee guida:
 
 * Configurare il dispositivo, il server o l'applicazione per l'autenticazione tramite LDAP al server Azure Multi-Factor Authentication come per la directory LDAP. È consigliabile usare le stesse impostazioni specificate normalmente per connettersi direttamente alla directory LDAP, fatta eccezione per il nome o l'indirizzo IP del server, che deve corrispondere a quello del server Azure Multi-Factor Authentication.
-* Impostare il timeout di LDAP su un valore compreso tra 30 e 60 secondi, sufficiente per convalidare le credenziali dell'utente con la directory LDAP, eseguire la verifica in due passaggi, ricevere la risposta e rispondere alla richiesta di accesso LDAP.
+* Configurare il timeout LDAP su 30-60 secondi in modo che sia necessario convalidare le credenziali dell'utente con la directory LDAP, eseguire la verifica del secondo passaggio, ricevere la risposta e rispondere alla richiesta di accesso LDAP.
 * Se si usa LDAPS, l'appliance o il server che eseguono le query LDAP deve considerare attendibile il certificato TLS/SSL installato nel server Azure Multi-Factor Authentication.

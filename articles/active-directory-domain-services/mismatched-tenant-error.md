@@ -8,15 +8,15 @@ ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 7a74d5e609c615bb6b973eceebb144c58e46f7cd
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 6ff12ce5fec8fcc49fa21ef5f3009fc2283300c4
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80519469"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654814"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Risolvere gli errori di directory senza corrispondenza per i domini gestiti esistenti di Azure AD Domain Services
 

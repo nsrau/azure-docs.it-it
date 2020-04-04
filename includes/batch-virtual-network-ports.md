@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 03/04/2020
+ms.date: 04/03/2020
 ms.author: labrenne
 ms.custom: include file
-ms.openlocfilehash: e9460108499ca76d1b149b61cebe3d3081bf6544
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dc08dcded6418208751edbffcb5d263db059ec01
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79086271"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657491"
 ---
 ### <a name="general-requirements"></a>Requisiti generali
 
@@ -65,7 +65,7 @@ La subnet deve consentire la comunicazione in ingresso dal servizio Batch per po
 
 #### <a name="network-security-groups-specifying-subnet-level-rules"></a>Gruppi di sicurezza di rete: specifica delle regole a livello di subnetNetwork security groups: Specifying subnet-level rules
 
-Non è necessario specificare i gruppi di sicurezza di rete a livello di subnet di rete virtuale perché Batch configura i propri gruppi di sicurezza di rete (vedere sopra). Se si dispone di un gruppo di sicurezza di rete associato alla subnet in cui vengono distribuiti i nodi di calcolo Batch o si desidera applicare regole del gruppo di sicurezza di rete personalizzate per ignorare i valori predefiniti applicati, è necessario configurare questo gruppo di sicurezza di rete con almeno le regole di sicurezza in ingresso e in uscita, come illustrato negli elementi seguenti Tabelle.
+Non è necessario specificare i gruppi di sicurezza di rete a livello di subnet di rete virtuale perché Batch configura i propri gruppi di sicurezza di rete (vedere sopra). Se si dispone di un gruppo di sicurezza di rete associato alla subnet in cui vengono distribuiti i nodi di calcolo Batch o si desidera applicare regole del gruppo di sicurezza di rete personalizzate per eseguire l'override dei valori predefiniti applicati, è necessario configurare questo gruppo di sicurezza di rete con almeno le regole di sicurezza in ingresso e in uscita, come illustrato nelle tabelle seguenti.
 
 Configurare il traffico in ingresso sulla porta 3389 (Windows) o 22 (Linux) solo se è necessario consentire l'accesso remoto ai nodi di calcolo da origini esterne. Potrebbe essere necessario abilitare le regole della porta 22 in Linux se è necessario il supporto per le attività a più istanze con determinati runtime MPI. Consentire il traffico su queste porte non è strettamente necessario per i nodi di calcolo del pool per essere utilizzabili.
 
@@ -75,6 +75,9 @@ Configurare il traffico in ingresso sulla porta 3389 (Windows) o 22 (Linux) solo
 | --- | --- | --- | --- | --- | --- | --- |
 | N/D | `BatchNodeManagement`[Tag di servizio](../articles/virtual-network/security-overview.md#service-tags) (se si utilizza la variante regionale, nella stessa area dell'account Batch) | * | Qualsiasi | 29876-29877 | TCP | Allow |
 | IP di origine utente per l'accesso remoto ai nodi di calcolo e/o alla subnet dei nodi di calcolo per le attività multi-istanza Linux, se necessario. | N/D | * | Qualsiasi | 3389 (Windows), 22 (Linux) | TCP | Allow |
+
+> [!WARNING]
+> Gli indirizzi IP del servizio batch possono cambiare nel tempo. Pertanto, è consigliabile `BatchNodeManagement` utilizzare il tag di servizio (o variante regionale) per le regole del gruppo di sicurezza di rete. Non è consigliabile popolare direttamente le regole del gruppo di sicurezza di rete con gli indirizzi IP del servizio Batch.It is not recommended to populate NSG rules with Batch service IP addresses directly.
 
 **Regole di sicurezza in uscita**
 

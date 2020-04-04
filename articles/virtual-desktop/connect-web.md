@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f508cac23d997b7595fcc7a4606608aa2dc15fc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b8023c0927c05d3952bd9f3a51e99e85154552fd
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79128223"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656365"
 ---
 # <a name="connect-with-the-web-client"></a>Connettersi con il client Web
 
@@ -28,8 +28,8 @@ Mentre qualsiasi browser HTML5-capable dovrebbe funzionare, supportiamo ufficial
 
 | Browser           | Sistema operativo supportato                     | Note               |
 |-------------------|----------------------------------|---------------------|
-| Microsoft Edge    | WINDOWS                          |                     |
-| Internet Explorer | WINDOWS                          |                     |
+| Microsoft Edge    | Windows                          |                     |
+| Internet Explorer | Windows                          |                     |
 | Apple Safari      | macOS                            |                     |
 | Mozilla Firefox   | Windows, macOS, Linux            | Versione 55 o successiva |
 | Google Chrome     | Windows, macOS, Linux, Chrome OS |                     |
@@ -45,4 +45,4 @@ Dopo l'accesso, dovrebbe essere visualizzato un elenco di risorse. Puoi avviare 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sull'utilizzo del client Web, vedere [Introduzione al client Web](https://go.microsoft.com/fwlink/?linkid=2120256).
+Per ulteriori informazioni sull'utilizzo del client Web, vedere [Introduzione al client Web](/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client).

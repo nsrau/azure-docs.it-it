@@ -4,14 +4,14 @@ description: Prerequisiti per l'utilizzo della cache HPC di AzurePrerequisites f
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 04/03/2020
 ms.author: rohogue
-ms.openlocfilehash: 40d282ad30a800a5e5a36a8d2211ec8da7ce63ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6da35cb60dc5f22be01ae25393bd62327db64867
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271850"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655650"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Prerequisiti per la cache HPC di AzurePrerequisites for Azure HPC Cache
 
@@ -113,7 +113,7 @@ Ulteriori informazioni sono incluse in [Risoluzione dei problemi relativi alla c
 
   Assicurarsi che tutte le porte ``rpcinfo`` restituite dalla query consentano il traffico senza restrizioni dalla subnet della cache HPC di Azure.
 
-  * Oltre alle porte restituite `rpcinfo` dal comando, assicurarsi che queste porte di uso comune consentano il traffico in ingresso e in uscita:
+  * Se non è possibile `rpcinfo` utilizzare il comando, assicurarsi che queste porte di uso comune consentano il traffico in ingresso e in uscita:If you can't use the command, make sure that these commonly used ports allow inbound and outbound traffic:
 
     | Protocollo | Porta  | Service  |
     |----------|-------|----------|
@@ -122,6 +122,8 @@ Ulteriori informazioni sono incluse in [Risoluzione dei problemi relativi alla c
     | TCP/UDP  | 4045  | nlockmgr |
     | TCP/UDP  | 4046  | montato   |
     | TCP/UDP  | 4047  | status   |
+
+    Alcuni sistemi utilizzano numeri di porta diversi per questi servizi - consultare la documentazione del sistema di archiviazione per essere sicuri.
 
   * Controllare le impostazioni del firewall per assicurarsi che consentano il traffico su tutte queste porte necessarie. Assicurarsi di controllare i firewall usati in Azure e i firewall locali nel data center.
 
@@ -132,7 +134,7 @@ Ulteriori informazioni sono incluse in [Risoluzione dei problemi relativi alla c
 
   Per ulteriori informazioni sull'accesso all'elenco di directory, vedere [l'articolo relativo](troubleshoot-nas.md#enable-export-listing)alla risoluzione dei problemi di archiviazione NFS .
 
-* **Accesso root:** La cache si connette al sistema back-end come ID utente 0. Controllare queste impostazioni sul sistema di archiviazione:
+* **Accesso root** (lettura/scrittura): la cache si connette al sistema back-end come ID utente 0. Controllare queste impostazioni sul sistema di archiviazione:
   
   * Abilitare `no_root_squash`. Questa opzione assicura che l'utente root remoto possa accedere ai file di proprietà di root.
 

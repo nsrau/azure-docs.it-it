@@ -8,20 +8,20 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 525c20f5b6e24811ab092a63fa84fe6ebbd7b618
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 42ace2444c7d8e790c7575a7c1a7b3b1219d090a
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72808185"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656412"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Creare una query semplice in Ricerca cognitiva di AzureCreate a simple query in Azure Cognitive Search
 
-In Ricerca cognitiva di Azure la [sintassi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) di query semplice richiama il parser di query predefinito per l'esecuzione di query di ricerca full-text su un indice. Questo parser è veloce e gestisce scenari comuni, tra cui la ricerca full-text, la ricerca filtrata e in base a facet e la ricerca geografica. 
+In Ricerca cognitiva di Azure la [sintassi](query-simple-syntax.md) di query semplice richiama il parser di query predefinito per l'esecuzione di query di ricerca full-text su un indice. Questo parser è veloce e gestisce scenari comuni, tra cui la ricerca full-text, la ricerca filtrata e in base a facet e la ricerca geografica. 
 
 In questo articolo vengono utilizzati esempi per illustrare la sintassi semplice.
 
-Una sintassi di query alternativa è [Full Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), che supporta strutture di query più complesse, ad esempio la ricerca fuzzy e con caratteri jolly, che può richiedere più tempo per l'elaborazione. Per ulteriori informazioni ed esempi che illustrano la sintassi completa, vedere [Usare la sintassi Lucene completa.](search-query-lucene-examples.md)
+Una sintassi di query alternativa è [Full Lucene](query-lucene-syntax.md), che supporta strutture di query più complesse, ad esempio la ricerca fuzzy e con caratteri jolly, che può richiedere più tempo per l'elaborazione. Per ulteriori informazioni ed esempi che illustrano la sintassi completa, vedere [Usare la sintassi Lucene completa.](search-query-lucene-examples.md)
 
 ## <a name="formulate-requests-in-postman"></a>Formulare richieste in Postman
 

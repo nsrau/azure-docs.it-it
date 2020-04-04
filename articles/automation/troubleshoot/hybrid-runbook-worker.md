@@ -1,6 +1,6 @@
 ---
 title: 'Risoluzione di problemi: ruoli di lavoro ibridi per runbook di Automazione di Azure'
-description: Questo articolo contiene informazioni sulla risoluzione di problemi relativi ai ruoli di lavoro ibridi per runbook di Automazione di Azure
+description: Questo articolo fornisce informazioni per la risoluzione dei problemi relativi ai ruoli di esecuzione ibrido di Automazione di Azure.This article provides information for troubleshooting Azure Automation Hybrid Runbook Workers.
 services: automation
 ms.service: automation
 ms.subservice: ''
@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 33e3e162892f1e2a148258273160ca26fa9c2efd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d2587af0ada18b5c4271e7411783fe60211a3479
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153523"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637853"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Risolvere i problemi di ruoli di lavoro ibridi per runbook
 
@@ -131,7 +131,9 @@ La fase di registrazione iniziale del lavoratore non riesce e viene visualizzato
 #### <a name="cause"></a>Causa
 
 Le possibili cause sono le seguenti:
+
 * Nelle impostazioni dell'agente è presente un ID area di lavoro o una chiave dell'area di lavoro digitata in modo errato. 
+
 * Il ruolo di lavoro ibrido Runbook non è in grado di scaricare la configurazione, causando un errore di collegamento dell'account. Quando Azure abilita le soluzioni, supporta solo determinate aree per il collegamento di un'area di lavoro di Log Analytics e di un account di automazione. È anche possibile che nel computer siano impostate una data e/o un'ora errate. Se l'ora è di 15 minuti dall'ora corrente, l'onboarding non riesce.
 
 #### <a name="resolution"></a>Risoluzione
@@ -143,7 +145,7 @@ Per verificare se l'ID dell'area di lavoro dell'agente o la chiave dell'area di 
 
 L'area di lavoro di Log Analytics e l'account di automazione devono trovarsi in un'area collegata. Per un elenco delle aree supportate, vedere [Mapping dell'area](../how-to/region-mappings.md)di lavoro di Automazione di Azure e Log Analytics .
 
-Potrebbe anche essere necessario aggiornare la data e il fuso orario del computer. Se si seleziona un intervallo di tempo personalizzato, assicurarsi che l'intervallo sia in formato UTC, che può differire dal fuso orario locale.
+Potrebbe anche essere necessario aggiornare la data e/o il fuso orario del computer. Se si seleziona un intervallo di tempo personalizzato, assicurarsi che l'intervallo sia in formato UTC, che può differire dal fuso orario locale.
 
 ## <a name="linux"></a>Linux
 
@@ -187,7 +189,7 @@ Se viene visualizzato `The specified class does not exist..` l'errore nel file *
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
 ```
 
-## <a name="windows"></a>WINDOWS
+## <a name="windows"></a>Windows
 
 Il ruolo di lavoro per runbook ibrido di Windows dipende [dall'agente di Log Analytics per Windows per](../../azure-monitor/platform/log-analytics-agent.md) comunicare con l'account di automazione per registrare il worker, ricevere processi di runbook e segnalare lo stato. Se la registrazione del lavoratore non riesce, questa sezione include alcuni possibili motivi.
 
@@ -220,6 +222,35 @@ Questo problema può essere causato dal firewall proxy o di rete che blocca la c
 I registri vengono archiviati in locale in ogni worker ibrido in **C:** È possibile verificare se sono presenti eventi di avviso o di errore nei registri dell'applicazione e dei **servizi, ovvero Microsoft-SMA, Operations** e **registri applicazioni e servizi, Operations Manager.** Questi log indicano una connettività o un altro tipo di problema che influisce sull'onboarding del ruolo in Automazione di Azure o un problema rilevato durante le normali operazioni. Per ulteriori informazioni sulla risoluzione dei problemi relativi all'agente di Log Analytics, vedere [Risolvere i problemi relativi all'agente Windows di Log Analytics.](../../azure-monitor/platform/agent-windows-troubleshoot.md)
 
 I lavoratori ibridi inviano [l'output e](../automation-runbook-output-and-messages.md) i messaggi di Runbook ad Automazione di Azure nello stesso modo in cui i processi di runbook in esecuzione nel cloud inviano messaggi e output. È possibile abilitare i flussi Dettagliato e Stato come per i runbook.
+
+### <a name="scenario-orchestratorsandboxexe-cant-connect-to-office-365-through-proxy"></a><a name="no-orchestrator-sandbox-connect-O365"></a>Scenario: Orchestrator.Sandbox.exe Impossibile connettersi a Office 365 tramite proxy
+
+#### <a name="issue"></a>Problema
+
+Uno script in esecuzione in un windows Hybrid Runbook Worker non può connettersi come previsto a Office 365 in una sandbox di Orchestrator. Lo script utilizza [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) per la connessione. 
+
+Se si modifica **Orchestrator.Sandbox.exe.config** per impostare il proxy e l'elenco di esclusione, la sandbox non si connette ancora correttamente. Un file **Powershell_ise.exe.config** con lo stesso proxy e le stesse impostazioni dell'elenco di esclusione sembra funzionare come previsto. I log di Service Management Automation (SMA) e i log di PowerShell non forniscono informazioni sul proxy.
+
+#### <a name="cause"></a>Causa
+
+La connessione ad Active Directory Federation Services (ADFS) sul server non può ignorare il proxy. Tenere presente che una sandbox di PowerShell viene eseguita come utente connesso. Tuttavia, una sandbox di Orchestrator è fortemente personalizzata e potrebbe ignorare le impostazioni del file **Orchestrator.Sandbox.exe.config.** Dispone di codice speciale per la gestione delle impostazioni del proxy MMA o della macchina, ma non per la gestione di altre impostazioni proxy personalizzate. 
+
+#### <a name="resolution"></a>Risoluzione
+
+È possibile risolvere il problema per la sandbox di Orchestrator eseguendo la migrazione dello script per l'utilizzo dei moduli di Azure AD anziché del modulo MSOnline per i cmdlet di PowerShell. Vedere [Migrazione da Orchestrator ad Automazione di Azure (Beta)](https://docs.microsoft.com/azure/automation/automation-orchestrator-migration).
+
+Se si desidera continuare a utilizzare i cmdlet del modulo MSOnline, modificare lo script in modo da utilizzare [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Specificare i `ComputerName` `Credential` valori per i parametri e . 
+
+```powershell
+$Credential = Get-AutomationPSCredential -Name MyProxyAccessibleCredential
+Invoke-Command -ComputerName $env:COMPUTERNAME -Credential $Credential 
+{ Connect-MsolService … }
+```
+
+Questa modifica del codice avvia una sessione di PowerShell completamente nuova nel contesto delle credenziali specificate. Deve consentire al traffico di passare attraverso un server proxy che autentica l'utente attivo.
+
+>[!NOTE]
+>Questa soluzione rende superfluo manipolare il file di configurazione sandbox. Anche se si riesce a far funzionare il file di configurazione con lo script, il file viene cancellato ogni volta che viene aggiornato l'agente di lavoro ibrido per runbook.
 
 ### <a name="scenario-hybrid-runbook-worker-not-reporting"></a><a name="corrupt-cache"></a>Scenario: lavoratore runbook ibrido non segnalatoScenario: Hybrid Runbook Worker not reporting
 

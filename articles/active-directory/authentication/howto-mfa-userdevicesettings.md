@@ -4,19 +4,19 @@ description: In che modo gli amministratori possono modificare le impostazioni u
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07845bb5b742b1bcfbb22d260457e9a8e16edab6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 25d94fa761980151c420984eb7e8c3254a3509ef
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79263712"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653504"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gestire le impostazioni utente nel cloud con Azure Multi-Factor Authentication
 
@@ -32,7 +32,7 @@ Come amministratore assegnato al ruolo di amministratore di autenticazione è po
 
 ![Gestire i metodi di autenticazione dal portale di AzureManage authentication methods from the Azure portal](./media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png)
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. A sinistra selezionare **Azure Active Directory** > **Users** > **All Users**.
 1. Scegliere l'utente su cui si desidera eseguire un'azione e selezionare **Metodi di autenticazione**.
    - **Reimposta password** reimposterà la password dell'utente e assegnerà una password temporanea che deve essere modificata al successivo accesso.
@@ -45,7 +45,7 @@ Questa impostazione elimina tutte le password dell'app create da un utente. Le a
 
 ### <a name="how-to-delete-users-existing-app-passwords"></a>Come eliminare le password per le app esistenti degli utenti
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. A sinistra selezionare **Azure Active Directory** > **Users** > **All Users**.
 3. A destra selezionare **Multi-Factor Authentication** sulla barra degli strumenti. Viene aperta la pagina dell'autenticazione a più fattori.
 4. Selezionare la casella accanto a uno o più utenti che si desidera gestire. A destra viene visualizzato un elenco di opzioni di passaggio rapido.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ea9bfd21e7f3b92c99600a2492a809a0fc051ed9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b9b33076a2c2cea27fea181b760a721488682c9
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80159618"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657011"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Usare Microsoft Teams sul desktop virtuale di Windows
 
@@ -33,15 +33,25 @@ Prima di poter utilizzare Microsoft Teams su Windows Virtual Desktop, è necessa
 
 Puoi utilizzare Microsoft Teams non ottimizzato negli ambienti Windows Virtual Desktop per sfruttare le funzionalità complete di chat e collaborazione di Microsoft Teams e le chiamate audio. La qualità audio nelle chiamate varia in base alla configurazione dell'host perché le chiamate non ottimizzate utilizzano una parte maggiore della CPU dell'host.
 
+### <a name="prepare-your-image-for-teams"></a>Preparare l'immagine per i team
+
+Per abilitare l'installazione di Teams per computer, impostare la seguente chiave del Registro di sistema nell'host:
+
+```shell
+  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams\IsWVDEnvironment]
+  Type: REG_DWORD
+  Value: 0x1
+```
+
 ### <a name="install-microsoft-teams"></a>Installare Microsoft Teams
 
-Per installare Microsoft Teams nell'ambiente Desktop virtuale Di Windows:
+È possibile distribuire l'app desktop Teams usando un'installazione per computer. Per installare Microsoft Teams nell'ambiente Desktop virtuale Di Windows:
 
 1. Scaricare il [pacchetto MSI](https://docs.microsoft.com/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm) di Teams che corrisponde all'ambiente. Si consiglia di utilizzare il programma di installazione a 64 bit in un sistema operativo a 64 bit.
 2. Eseguire questo comando per installare il file MSI nella macchina virtuale host.
 
       ```shell
-      msiexec /i <msi_name> /l*v < install_logfile_name> ALLUSER=1
+      msiexec /i <msi_name> /l*v < install_logfile_name> ALLUSERS=1
       ```
 
       Questo installerà Teams in Programmi o Programmi (x86). Al successivo accesso e avvio di Teams, l'app richiederà le credenziali.
@@ -56,4 +66,4 @@ Per installare Microsoft Teams nell'ambiente Desktop virtuale Di Windows:
       ```
 
       > [!NOTE]
-      > Se si installa Teams con l'impostazione MSI ALLUSER 1, gli aggiornamenti automatici verranno disabilitati. Ti consigliamo di aggiornare Teams almeno una volta al mese.
+      > Se si installa Teams con l'impostazione MSI ALLUSERS, gli aggiornamenti automatici verranno disabilitati. Ti consigliamo di aggiornare Teams almeno una volta al mese.

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: 110a684cf6ad21c13411d3bc2ada84750744f00e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e0dcd478c6eb6696a0e07d35d4dccddac68ac1c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77191396"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656226"
 ---
 # <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Aumentare la sicurezza per le chiamate alle API personalizzate dalle app per la logica di AzureAincrease security for calls to custom APIs from Azure Logic Apps
 
@@ -179,7 +179,7 @@ Dopo aver ottenuto l'ID client e l'ID tenant, includerli come risorsa secondaria
 
 Per implementare automaticamente un'app Web vuota e un'app per la logica con l'autenticazione di Azure Active Directory, [visualizzare il modello completo qui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-custom-api/azuredeploy.json) oppure fare clic su **Distribuzione in Azure** qui:
 
-[![Distribuire in AzureDeploy to Azure](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
+[![Distribuisci in Azure](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
 #### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>Parte 3: Compilare la sezione Autorizzazione nell'app per la logica
 
@@ -250,7 +250,7 @@ Nella sezione Autorizzazione includere le proprietà seguenti:In the **Authoriza
 
 | Proprietà | Obbligatoria | Descrizione |
 | -------- | -------- | ----------- |
-| `type` | Sì | Il tipo di autenticazione. Per i certificati client SSL, il valore deve essere `ClientCertificate`. |
+| `type` | Sì | Il tipo di autenticazione. Per i certificati client TLS/SSL, il valore deve essere `ClientCertificate`. |
 | `password` | No | La password per accedere al certificato client (file PFX) |
 | `pfx` | Sì | Contenuti del certificato client con codifica Base64 (file PFX) |
 ||||

@@ -4,19 +4,19 @@ description: Distribuzione dell'autenticazione RADIUS e del server Azure Multi-F
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b38341613c98bf85df8cb47ccafc3df5709a1fd4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 552226c35d4d129f73b96b689871708950b7ffb1
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75425207"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652955"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Integrare l'autenticazione con il server Azure Multi-Factor Authentication
 
@@ -79,7 +79,7 @@ Per configurare il client RADIUS, utilizzare le linee guida:
 
 * Configurare l'appliance/server per l'autenticazione tramite RADIUS all'indirizzo IP del server Azure Multi-Factor Authentication, che funge da server RADIUS.
 * Usare lo stesso segreto condiviso configurato in precedenza.
-* Impostare il timeout di RADIUS su un valore compreso tra 30 e 60 secondi in modo da rendere disponibile una quantità di tempo sufficiente per convalidare le credenziali dell'utente, eseguire l'autenticazione in due passaggi, ricevere la risposta e quindi rispondere alla richiesta di accesso RADIUS.
+* Configurare il timeout RADIUS su 30-60 secondi in modo che sia necessario convalidare le credenziali dell'utente, eseguire la verifica in due passaggi, ricevere la risposta e quindi rispondere alla richiesta di accesso RADIUS.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

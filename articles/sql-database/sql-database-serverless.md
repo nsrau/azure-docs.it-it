@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 3/11/2020
-ms.openlocfilehash: 00b9da150569db2972289468b1405e5087ee3321
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 4/3/2020
+ms.openlocfilehash: 07f29a01ae0128ba0a35504dea54ba1ae2dde944
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80549151"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657074"
 ---
 # <a name="azure-sql-database-serverless"></a>Database SQL di Azure senza server
 
@@ -151,13 +151,13 @@ La latenza per la rigenerazione automatica e la sospensione automatica di un dat
 
 ### <a name="customer-managed-transparent-data-encryption-byok"></a>Crittografia dei dati trasparenti gestita dal cliente (BYOK)
 
-Se si utilizza la crittografia dei [dati trasparenti gestita](transparent-data-encryption-byok-azure-sql.md) dal cliente (BYOK) e il database senza server viene automaticamente sospeso quando si verifica l'eliminazione o la revoca della chiave, il database rimane nello stato di sospensione automatica.  In questo caso, dopo la ripresa del database, il database diventa inaccessibile entro circa 10 minuti.  Quando il database diventa inaccessibile, il processo di ripristino è lo stesso dei database di calcolo di cui è stato eseguito il provisioning.  Se il database senza server è online quando si verifica l'eliminazione o la revoca delle chiavi, anche il database diventa inaccessibile dopo circa 10 minuti o meno nello stesso modo in cui viene eseguito il provisioning dei database di calcolo.
+Se si utilizza la crittografia dei [dati trasparenti gestita](transparent-data-encryption-byok-azure-sql.md) dal cliente (BYOK) e il database senza server viene automaticamente sospeso quando si verifica l'eliminazione o la revoca della chiave, il database rimane nello stato di sospensione automatica.  In questo caso, dopo la ripresa del database, il database diventa inaccessibile entro circa 10 minuti.  Quando il database diventa inaccessibile, il processo di ripristino è lo stesso dei database di calcolo di cui è stato eseguito il provisioning.  Se il database senza server è online quando si verifica l'eliminazione o la revoca delle chiavi, anche il database diventa inaccessibile entro circa 10 minuti nello stesso modo in cui viene eseguito il provisioning dei database di calcolo.
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>Onboarding nel livello di calcolo senza serverOnboarding into serverless compute tier
 
 La creazione di un nuovo database o lo spostamento di un database esistente in un livello di calcolo senza server segue lo stesso modello della creazione di un nuovo database nel livello di calcolo di cui è stato eseguito il provisioning e prevede i due passaggi seguenti.
 
-1. Specificare il nome dell'obiettivo di servizio. L'obiettivo del servizio prescrive il livello di servizio, la generazione dell'hardware e il numero massimo di vCore. La tabella seguente mostra le opzioni relative all'obiettivo di servizio:
+1. Specificare l'obiettivo di servizio. L'obiettivo del servizio prescrive il livello di servizio, la generazione dell'hardware e il numero massimo di vCore. La tabella seguente mostra le opzioni relative all'obiettivo di servizio:
 
    |Nome dell'obiettivo di servizio|Livello di servizio|Generazione dell'hardware|Numero massimo vCore|
    |---|---|---|---|
@@ -176,12 +176,12 @@ La creazione di un nuovo database o lo spostamento di un database esistente in u
    |Parametro|Valori disponibili|Valore predefinito|
    |---|---|---|---|
    |Min vCores|Dipende da max vCore configurati - vedi [limiti delle risorse](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).|0,5 vCore|
-   |Ritardo di sospensione automatica|Minimo: 60 minuti (1 ora)<br>Massimo: 10080 minuti (7 giorni)<br>Incrementi: 60 minuti<br>Disabilita la sospensione automatica: -1|60 minuti|
+   |Ritardo di sospensione automatica|Minimo: 60 minuti (1 ora)<br>Massimo: 10080 minuti (7 giorni)<br>Incrementi: 10 minuti<br>Disabilita la sospensione automatica: -1|60 minuti|
 
 
 ### <a name="create-new-database-in-serverless-compute-tier"></a>Creare un nuovo database nel livello di calcolo senza serverCreate new database in serverless compute tier 
 
-Negli esempi seguenti viene creato un nuovo database nel livello di calcolo senza server. Gli esempi specificano in modo esplicito i valori min vCores, max vCores e autopause delay.
+Negli esempi seguenti viene creato un nuovo database nel livello di calcolo senza server.
 
 #### <a name="use-azure-portal"></a>Usare il portale di Azure
 
@@ -205,7 +205,7 @@ az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
 
 #### <a name="use-transact-sql-t-sql"></a>Usare Transact-SQLTransact-SQL (T-SQL)Use Transact-SQL (T-SQL)
 
-Nell'esempio seguente viene creato un nuovo database nel livello di calcolo senza server.
+Quando si utilizza T-SQL, i valori predefiniti vengono applicati per i vcore min e il ritardo di autopause.
 
 ```sql
 CREATE DATABASE testdb
@@ -216,7 +216,7 @@ Per informazioni dettagliate, vedere [CREATE DATABASE](/sql/t-sql/statements/cre
 
 ### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>Spostare il database dal livello di calcolo di cui è stato eseguito il provisioning al livello di calcolo senza serverMove database from provisioned compute tier to serverless compute tier
 
-Gli esempi seguenti spostano un database dal livello di calcolo di cui è stato eseguito il provisioning nel livello di calcolo senza server. Gli esempi specificano in modo esplicito i valori min vCores, max vCores e autopause delay.
+Gli esempi seguenti spostano un database dal livello di calcolo di cui è stato eseguito il provisioning nel livello di calcolo senza server.
 
 #### <a name="use-powershell"></a>Usare PowerShell
 
@@ -237,7 +237,7 @@ az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
 
 #### <a name="use-transact-sql-t-sql"></a>Usare Transact-SQLTransact-SQL (T-SQL)Use Transact-SQL (T-SQL)
 
-Nell'esempio seguente viene spostato un database dal livello di calcolo di cui è stato eseguito il provisioning nel livello di calcolo senza server.
+Quando si utilizza T-SQL, i valori predefiniti vengono applicati per i vcore min e il ritardo di autopause.
 
 ```sql
 ALTER DATABASE testdb 

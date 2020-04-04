@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/13/2020
+ms.date: 04/03/2020
 ms.author: b-juche
-ms.openlocfilehash: 36b2d50722a1840e461d6907f440d859c7c82117
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ac660b20d519e49e832e979603f763fa672757a5
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79408828"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637408"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limiti delle risorse per Azure NetApp Files
 
@@ -36,7 +36,7 @@ Nella tabella seguente vengono descritti i limiti delle risorse per i file NetAp
 |  Numero di volumi per pool di capacità     |    500   |    Sì     |
 |  Numero di snapshot per volume       |    255     |    No        |
 |  Numero di subnet delegate ai file NetApp di Azure (Microsoft.NetApp/volumi) per ogni rete virtuale di AzureNumber of subnets delegated to Azure NetApp Files (Microsoft.NetApp/volumes) per Azure Virtual Network    |   1   |    No    |
-|  Numero di indirizzi IP usati in una rete virtuale (incluse le reti virtuali con peering immediato) con i file NetApp di AzureNumber of used Ip in a VNet (including immediately peered VNets) with Azure NetApp Files   |    1000   |    Sì   |
+|  Numero di indirizzi IP usati in una rete virtuale (incluse le reti virtuali con peering immediato) con i file NetApp di AzureNumber of used Ip in a VNet (including immediately peered VNets) with Azure NetApp Files   |    1000   |    No   |
 |  Dimensioni minime di un singolo pool di capacità   |  4 TiB     |    No  |
 |  Dimensioni massime di un pool a capacità singolaMaximum size of a single capacity pool    |  500 TiB   |   No   |
 |  Dimensione minima di un singolo volume    |    100 GiB    |    No    |

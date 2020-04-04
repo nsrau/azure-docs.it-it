@@ -8,12 +8,12 @@ ms.date: 12/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6ddda38d887cdfe30b449847e2f625ba17f33898
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ff9415ca20b859468528b56d27355430c4fc5a0f
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76510805"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652063"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connettere un dispositivo downstream a un gateway Azure IoT Edge
 
@@ -90,7 +90,7 @@ sudo update-ca-certificates
 
 Verrà visualizzato il messaggio "Aggiornamento dei certificati in /etc/ssl/certs... 1 aggiunto, 0 rimosso; fatto.
 
-### <a name="windows"></a>WINDOWS
+### <a name="windows"></a>Windows
 
 I passaggi seguenti offrono un esempio di come installare un certificato della CA in un host Windows. Questo esempio presuppone che si stia usando il certificato **azure-iot-test-only.root.ca.cert.pem** dagli articoli sui prerequisiti e che il certificato sia stato copiato in un percorso nel dispositivo downstream.
 
@@ -182,7 +182,7 @@ Questa sezione presenta un'applicazione di esempio per la connessione a un clien
 
 Questa sezione presenta un'applicazione di esempio per la connessione di un cliente dispositivo Python Azure IoT a un gateway IoT Edge.
 
-1. Ottenere l'esempio per **send_message** da [Azure IoT device SDK for Python esempi.](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/advanced-edge-scenarios)
+1. Ottenere l'esempio per **send_message** da [Azure IoT device SDK for Python esempi.](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-edge-scenarios)
 2. Assicurarsi di essere in esecuzione in un contenitore IoT `EdgeHubConnectionString` Edge `EdgeModuleCACertificateFile` o in uno scenario di debug, impostare le variabili di ambiente e .
 3. Vedere la documentazione dell'SDK per istruzioni su come eseguire l'esempio nel dispositivo.
 

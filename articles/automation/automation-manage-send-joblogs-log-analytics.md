@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: beb69edc57b5a13db0f6d2e5e1536804f3472aff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 54f77f55a127cd712d43419eb6a85fd5d93a478c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75421907"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652167"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Inoltrare lo stato dei processi e i flussi di lavoro dall'automazione ai log di Monitoraggio di AzureForward job status and job streams from Automation to Azure Monitor logs
 
@@ -30,103 +30,105 @@ Per iniziare a inviare i log di Automazione ai log di Monitoraggio di Azure, è 
 
 * L'ultima versione di [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 * Un'area di lavoro Log Analytics. Per altre informazioni, vedere [Introduzione ai log](../log-analytics/log-analytics-get-started.md)di Monitoraggio di Azure.For more information, see Get started with Azure Monitor logs .
-* Il valore ResourceId dell'account di Automazione di Azure.
+* ID risorsa per l'account di Automazione di Azure.The resource ID for your Azure Automation account.
 
-Per trovare il valore ResourceId dell'account di Automazione di Azure:
+Usare il comando seguente per trovare l'ID risorsa per l'account di Automazione di Azure:Use the following command to find the resource ID for your Azure Automation account:
 
 ```powershell-interactive
 # Find the ResourceId for the Automation Account
 Get-AzResource -ResourceType "Microsoft.Automation/automationAccounts"
 ```
 
-Per trovare il valore ResourceId dell'area di lavoro Log Analytics, eseguire questo comando PowerShell:
+Per trovare l'ID risorsa per l'area di lavoro di Log Analytics, eseguire il comando di PowerShell seguente:To find the resource ID for your Log Analytics workspace, run the following PowerShell command:
 
 ```powershell-interactive
 # Find the ResourceId for the Log Analytics workspace
 Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 ```
 
-Se si ha più di un account di automazione o area di lavoro, nell'output dei comandi precedenti trovare il *nome* necessario per configurare e copiare il valore di *ResourceId*.
+Se nell'output dei comandi precedenti sono presente più account o area di lavoro di automazione, trovare il nome necessario per configurare e copiare il valore per l'ID risorsa.
 
-Per trovare il *nome* dell'account di Automazione, nel portale di Azure selezionare l'account di Automazione dal pannello **Account di Automazione** e selezionare **Tutte le impostazioni**. Nel pannello **Tutte le impostazioni** selezionare **Proprietà** in **Impostazioni account**.  Nel pannello **Proprietà** è possibile prendere nota di questi valori.<br> ![Proprietà dell'account di Automazione](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
+1. Nel portale di Azure selezionare l'account di automazione nel pannello **Account di automazione** e selezionare **Tutte le impostazioni**. 
+2. Nel pannello **Tutte le impostazioni,** in **Impostazioni account,** selezionare **Proprietà**.  
+3. Nel pannello **Proprietà** prendere nota di questi valori.<br> ![Proprietà dell'account di automazione](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
 
-## <a name="set-up-integration-with-azure-monitor-logs"></a>Configurare l'integrazione con i log di Monitoraggio di AzureSet up integration with Azure Monitor logs
 
-1. Nel computer locale avviare **Windows PowerShell** dalla schermata **Start**.
-2. Eseguire questo comando di PowerShell e sostituire il valore di `[your resource id]` e `[resource id of the log analytics workspace]` con i valori del passaggio precedente.
+## <a name="azure-monitor-log-records"></a>Record di log di Monitoraggio di Azure
+
+Diagnostica di automazione di Azure creare due tipi `AzureDiagnostics`di record nei log di Monitoraggio di Azure, contrassegnati come . Le tabelle nelle sezioni successive sono esempi di record generati dall'automazione di Azure e i tipi di dati visualizzati nei risultati della ricerca nei log.
+
+### <a name="job-logs"></a>Log di processo
+
+| Proprietà | Descrizione |
+| --- | --- |
+| TimeGenerated |Data e ora di esecuzione del processo del runbook. |
+| RunbookName_s |Il nome del runbook. |
+| Caller_s |Chiamante che ha avviato l'operazione. I valori possibili sono un indirizzo di posta elettronica o il sistema per i processi pianificati. |
+| Tenant_g | GUID che identifica il tenant per il chiamante. |
+| JobId_g |GUID che identifica il processo del runbook. |
+| ResultType |Lo stato del processo di runbook. I valori possibili sono:<br>- Nuovo<br>- Creato<br>- Avviato<br>- Interrotto<br>- Sospeso<br>- Non riuscito<br>- Completato |
+| Category | La classificazione del tipo di dati. Per Automazione, il valore è JobLogs. |
+| OperationName | Tipo di operazione eseguita in Azure.The type of operation performed in Azure. Per Automazione, il valore è Job. |
+| Risorsa | Il nome dell'account di automazione |
+| SourceSystem | Sistema usato dai log di Monitoraggio di Azure per raccogliere i dati. Il valore è sempre La diagnostica di Azure per Azure.The value is always Azure for Azure diagnostics. |
+| ResultDescription |Stato del risultato del processo del runbook. I valori possibili sono:<br>- Processo avviato<br>- Processo non riuscito<br>- Processo completato |
+| CorrelationId |GUID di correlazione del processo del runbook. |
+| ResourceId |ID risorsa account di Automazione di Azure del runbook. |
+| SubscriptionId | GUID della sottoscrizione di Azure per l'account di automazione. |
+| ResourceGroup | Nome del gruppo di risorse per l'account di automazione. |
+| ResourceProvider | Provider di risorse. Il valore è MICROSOFT. Automazione. |
+| ResourceType | Tipo di risorsa. Il valore è AUTOMATIONACCOUNTS. |
+
+### <a name="job-streams"></a>Flussi di processo
+| Proprietà | Descrizione |
+| --- | --- |
+| TimeGenerated |Data e ora di esecuzione del processo del runbook. |
+| RunbookName_s |Il nome del runbook. |
+| Caller_s |Chiamante che ha avviato l'operazione. I valori possibili sono un indirizzo di posta elettronica o il sistema per i processi pianificati. |
+| StreamType_s |Il tipo di flusso del processo. I valori possibili sono:<br>- Avanzamento<br>- Output<br>- Avviso<br>- Errore<br>- Debug<br>- Dettagliato |
+| Tenant_g | GUID che identifica il tenant per il chiamante. |
+| JobId_g |GUID che identifica il processo del runbook. |
+| ResultType |Lo stato del processo di runbook. I valori possibili sono:<br>- In corso |
+| Category | La classificazione del tipo di dati. Per Automazione, il valore è JobStreams. |
+| OperationName | Tipo di operazione eseguita in Azure.Type of operation performed in Azure. Per Automazione, il valore è Job. |
+| Risorsa | Nome dell'account di automazione. |
+| SourceSystem | Sistema usato dai log di Monitoraggio di Azure per raccogliere i dati. Il valore è sempre La diagnostica di Azure per Azure.The value is always Azure for Azure diagnostics. |
+| ResultDescription |Descrizione che include il flusso di output dal runbook. |
+| CorrelationId |GUID di correlazione del processo del runbook. |
+| ResourceId |ID risorsa account di Automazione di Azure del runbook. |
+| SubscriptionId | GUID della sottoscrizione di Azure per l'account di automazione. |
+| ResourceGroup | Nome del gruppo di risorse per l'account di automazione. |
+| ResourceProvider | Provider di risorse. Il valore è MICROSOFT. Automazione. |
+| ResourceType | Tipo di risorsa. Il valore è AUTOMATIONACCOUNTS. |
+
+## <a name="setting-up-integration-with-azure-monitor-logs"></a>Configurazione dell'integrazione con i log di Monitoraggio di AzureSetting up integration with Azure Monitor logs
+
+1. Nel computer locale avviare Windows PowerShell dalla schermata **Start**.
+2. Eseguire i comandi di PowerShell seguenti `[your resource ID]` e `[resource ID of the log analytics workspace]` modificare il valore di e con i valori della sezione precedente.
 
    ```powershell-interactive
-   $workspaceId = "[resource id of the log analytics workspace]"
-   $automationAccountId = "[resource id of your automation account]"
+   $workspaceId = "[resource ID of the log analytics workspace]"
+   $automationAccountId = "[resource ID of your Automation account]"
 
    Set-AzDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
    ```
 
-Dopo aver eseguito questo script, potrebbe essere necessario un'ora prima di iniziare a visualizzare i record nei log di Monitoraggio di Azure dei nuovi JobLogs o JobStreams in fase di scrittura.
+Dopo aver eseguito questo script, potrebbe essere necessario un'ora `JobLogs` prima `JobStreams` di iniziare a visualizzare i record nei log di Monitoraggio di Azure di nuovo o in fase di scrittura.
 
 Per visualizzare i log, eseguire la query seguente nella ricerca del log di analisi dei log:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Verificare la configurazione
 
-Per verificare che l'account di Automazione invii i log all'area di lavoro Log Analytics, accertarsi che la diagnostica sia configurata correttamente nell'account di Automazione usando il comando di PowerShell seguente:
+Per verificare che l'account di automazione invii log all'area di lavoro di Log Analytics, verificare che la diagnostica sia configurata correttamente nell'account di automazione usando il comando di PowerShell seguente.
 
 ```powershell-interactive
 Get-AzDiagnosticSetting -ResourceId $automationAccountId
 ```
 
-Nell'output verificare quanto segue:
+Nell'output, assicurarsi che:
 
-* In *Registri*, il valore di *Enabled* è *True*.
-* Il valore di *WorkspaceId* è impostato sul ResourceId dell'area di lavoro di Log Analytics.
-
-## <a name="azure-monitor-log-records"></a>Record di log di Monitoraggio di Azure
-
-La diagnostica dall'automazione di Azure crea due tipi di record nei log di Monitoraggio di Azure e viene contrassegnata come **AzureDiagnostics.** Le query seguenti usano il linguaggio di query aggiornato per i log di Monitoraggio di Azure.The following queries use the upgraded query language to Azure Monitor logs. Per informazioni sulle query comuni tra il linguaggio di query legacy e il nuovo linguaggio di query di Azure Kusto, visitare [legacy to new Azure Kusto Query Language cheat sheet](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language)
-
-### <a name="job-logs"></a>Log del processo
-
-| Proprietà | Descrizione |
-| --- | --- |
-| TimeGenerated |Data e ora di esecuzione del processo del runbook. |
-| RunbookName_s |Il nome del runbook. |
-| Caller_s |Chi ha avviato l'operazione. I valori possibili sono un indirizzo di posta elettronica o il sistema per i processi pianificati. |
-| Tenant_g | GUID che identifica il tenant del chiamante. |
-| JobId_g |Il GUID che rappresenta l'ID del processo del runbook. |
-| ResultType |Lo stato del processo di runbook. I valori possibili sono:<br>- Nuovo<br>- Creato<br>- Avviato<br>- Interrotto<br>- Sospeso<br>- Non riuscito<br>- Completato |
-| Category | La classificazione del tipo di dati. Per Automazione, il valore è JobLogs. |
-| OperationName | Specifica il tipo di operazione eseguita in Azure. Per Automazione, il valore è Job. |
-| Risorsa | Nome dell'account di Automazione |
-| SourceSystem | In che modo i log di Monitoraggio di Azure hanno raccolto i dati. È sempre *Azure* per la diagnostica di Azure. |
-| ResultDescription |Descrive lo stato del risultato del processo di runbook. I valori possibili sono:<br>- Processo avviato<br>- Processo non riuscito<br>- Processo completato |
-| CorrelationId |Il GUID che rappresenta l'ID di correlazione del processo di runbook. |
-| ResourceId |Specifica l'ID risorsa dell'account di Automazione di Azure del runbook. |
-| SubscriptionId | ID della sottoscrizione di Azure (GUID) per l'account di Automazione. |
-| ResourceGroup | Nome del gruppo di risorse dell'account di Automazione. |
-| ResourceProvider | MICROSOFT.AUTOMATION |
-| ResourceType | AUTOMATIONACCOUNTS |
-
-
-### <a name="job-streams"></a>Flussi del processo
-| Proprietà | Descrizione |
-| --- | --- |
-| TimeGenerated |Data e ora di esecuzione del processo del runbook. |
-| RunbookName_s |Il nome del runbook. |
-| Caller_s |Chi ha avviato l'operazione. I valori possibili sono un indirizzo di posta elettronica o il sistema per i processi pianificati. |
-| StreamType_s |Il tipo di flusso del processo. I valori possibili sono:<br>- Avanzamento<br>- Output<br>- Avviso<br>- Errore<br>- Debug<br>- Dettagliato |
-| Tenant_g | GUID che identifica il tenant del chiamante. |
-| JobId_g |Il GUID che rappresenta l'ID del processo del runbook. |
-| ResultType |Lo stato del processo di runbook. I valori possibili sono:<br>- In corso |
-| Category | La classificazione del tipo di dati. Per Automazione, il valore è JobStreams. |
-| OperationName | Specifica il tipo di operazione eseguita in Azure. Per Automazione, il valore è Job. |
-| Risorsa | Nome dell'account di Automazione |
-| SourceSystem | In che modo i log di Monitoraggio di Azure hanno raccolto i dati. È sempre *Azure* per la diagnostica di Azure. |
-| ResultDescription |Include il flusso di output dal runbook. |
-| CorrelationId |Il GUID che rappresenta l'ID di correlazione del processo di runbook. |
-| ResourceId |Specifica l'ID risorsa dell'account di Automazione di Azure del runbook. |
-| SubscriptionId | ID della sottoscrizione di Azure (GUID) per l'account di Automazione. |
-| ResourceGroup | Nome del gruppo di risorse dell'account di Automazione. |
-| ResourceProvider | MICROSOFT.AUTOMATION |
-| ResourceType | AUTOMATIONACCOUNTS |
+* In `Logs`, il `Enabled` valore per è True.
+* `WorkspaceId`è impostato `ResourceId` sul valore dell'area di lavoro di Log Analytics.
 
 ## <a name="viewing-automation-logs-in-azure-monitor-logs"></a>Visualizzazione dei log di automazione nei log di Monitoraggio di AzureViewing Automation Logs in Azure Monitor logs
 
@@ -135,44 +137,49 @@ Dopo aver iniziato a inviare i log dei processi di automazione ai log di Monitor
 Per visualizzare i log eseguire questa query: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Inviare un messaggio di posta elettronica quando un processo del runbook non riesce o viene sospeso
+
 Uno dei clienti più importanti chiede di poter inviare un messaggio di posta elettronica o un SMS quando si verificano problemi con un processo del runbook.
 
-Per creare una regola di avviso, è necessario creare prima di tutto una ricerca nei log per trovare i record del processo del runbook che dovranno richiamare l'avviso. Fare clic su pulsante **Avviso** per creare e configurare la regola di avviso.
+Per creare una regola di avviso, iniziare creando una ricerca log per i record di processo del runbook che devono richiamare l'avviso. Fare clic su pulsante **Avviso** per creare e configurare la regola di avviso.
 
 1. Nella pagina Panoramica dell'area di lavoro di Log Analytics fare clic su **Visualizza log**.
-2. Creare una query di ricerca log per l'avviso digitando quanto segue nel campo della query: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` È anche possibile raggruppare in base al valore RunbookName usando: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
+2. Creare una query di ricerca log per l'avviso digitando la ricerca seguente nel campo della query:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`<br><br>Puoi anche raggruppare in base al nome del runbook usando:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
-   Se sono stati configurati log da più account di Automazione o sottoscrizioni nell'area di lavoro, è possibile raggruppare gli avvisi per sottoscrizione o account di Automazione. Si può trovare il nome dell'account di automazione nel campo Risorsa nella ricerca di JobLogs.
+   Se sono stati configurati log da più account di Automazione o sottoscrizioni nell'area di lavoro, è possibile raggruppare gli avvisi per sottoscrizione o account di Automazione. Il nome dell'account `Resource` di automazione `JobLogs`si trova nel campo nella ricerca di .
 3. Per aprire la schermata **Crea regola** fare clic su **+ Nuova regola di avviso** nella parte superiore della pagina. Per altre informazioni sulle opzioni per la configurazione dell'avviso, vedere [Avvisi di log in Azure](../azure-monitor/platform/alerts-unified-log.md).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Trovare tutti i processi completati con errori
-Oltre agli avvisi per gli errori, è possibile determinare quando un processo del runbook presenta un errore non irreversibile. In questi casi PowerShell produce un flusso di errore, ma gli errori non irreversibili non comportano la sospensione o l'esito negativo del processo.
+
+Oltre agli avvisi per gli errori, è possibile determinare quando un processo del runbook presenta un errore non irreversibile. In questi casi, PowerShell genera un flusso di errore, ma gli errori non di terminazione non causano la sospensione o l'esito negativo del processo.
 
 1. Nell'area di lavoro di Log Analytics fare clic su **Registri**.
-2. Nel campo delle query digitare `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and StreamType_s == "Error" | summarize AggregatedValue = count() by JobId_g` e quindi fare clic sul pulsante **Cerca**.
+2. Nel campo della `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and StreamType_s == "Error" | summarize AggregatedValue = count() by JobId_g`query digitare .
+3. Fare clic sul pulsante **Cerca.**
 
 ### <a name="view-job-streams-for-a-job"></a>Visualizzare flussi del processo per un processo
-Quando si esegue il debug di un processo, è consigliabile esaminarne anche i flussi. La query seguente illustra tutti i flussi per un singolo processo con GUID 2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0:
+
+Quando si esegue il debug di un processo, è anche possibile esaminare i flussi di lavoro. La query seguente illustra tutti i flussi per un singolo processo con GUID 2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0:
 
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and JobId_g == "2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0" | sort by TimeGenerated asc | project ResultDescription`
 
 ### <a name="view-historical-job-status"></a>Visualizzare lo stato cronologico del processo
-Infine, è consigliabile visualizzare la cronologia dei processi nel tempo. È possibile usare questa query per cercare lo stato dei processi nel tempo.
+
+Infine, è possibile visualizzare la cronologia dei processi nel tempo. È possibile usare questa query per cercare lo stato dei processi nel tempo.
 
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`
 <br> ![Grafico dello stato cronologico del processo di Log Analytics](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
-## <a name="remove-diagnostic-settings"></a>Rimuovere le impostazioni di diagnostica
+## <a name="removing-diagnostic-settings"></a>Rimozione delle impostazioni di diagnostica
 
-Per rimuovere l'impostazione di diagnostica dall'account di Automazione, eseguire i comandi seguenti:
+Per rimuovere l'impostazione di diagnostica dall'account di automazione, eseguire il comando seguente:
 
 ```powershell-interactive
-$automationAccountId = "[resource id of your automation account]"
+$automationAccountId = "[resource ID of your Automation account]"
 
 Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 ```
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Inviando lo stato dei processi di automazione e i dati di flusso ai log di Monitoraggio di Azure, è possibile ottenere informazioni più dettagliate sullo stato dei processi di Automazione tramite:By sending your Automation job status and stream data to Azure Monitor logs, you can get better insight into the status of your Automation jobs by:
 + Configurando avvisi che segnalino la presenza di un problema.

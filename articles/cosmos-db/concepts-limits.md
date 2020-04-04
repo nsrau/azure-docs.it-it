@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/27/2020
-ms.openlocfilehash: bd384f2b4dd879c30fafd2b765dd9ba0efb12447
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.date: 04/03/2020
+ms.openlocfilehash: 343e94fe681d398b695e0e24c22544bca470d75a
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348400"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652195"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quote del servizio Azure Cosmos DBAzure Cosmos DB service quotas
 
@@ -152,6 +152,9 @@ Cosmos DB supporta l'esecuzione di query su elementi tramite [SQL](how-to-sql-qu
 | Numero massimo di VALORI DI ANR per query| 5<sup>*</sup>|
 | Numero massimo di funzioni definite dall'utente per query| 10<sup>*</sup>|
 | Numero massimo di punti per poligono| 4096 |
+| Numero massimo di percorsi inclusi per contenitoreMaximum included paths per container| 500 |
+| Numero massimo di percorsi esclusi per contenitoreMaximum excluded paths per container| 500 |
+| Proprietà massime in un indice compositoMaximum properties in a composite index| 8 |
 
 <sup>*</sup>È possibile aumentare questi limiti di query SQL contattando il supporto di Azure.You can increase these SQL query limits by contacting Azure Support.
 
@@ -163,7 +166,7 @@ Nella tabella seguente sono elencati i limiti specifici del supporto delle funzi
 
 | Risorsa | Limite predefinito |
 | --- | --- |
-| Dimensione massima memoria query MongoDB | 40 MB |
+| Dimensione massima della memoria delle query MongoDB (questa limitazione è solo per la versione server 3.2) | 40 MB |
 | Tempo massimo di esecuzione per le operazioni MongoDBMaximum execution time for MongoDB operations| 30 secondi |
 | Timeout di connessione inattiva per la chiusura della connessione sul lato server | 30 minuti |
 

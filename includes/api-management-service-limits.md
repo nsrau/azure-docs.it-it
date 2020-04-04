@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 01/10/2020
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 2d4c8c2c831bd6ef16f60c34a6353f4a742798f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5608683578a796ae0fffff7544a749043e8698fd
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76159416"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656195"
 ---
 | Risorsa | Limite |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -29,7 +29,7 @@ ms.locfileid: "76159416"
 | Numero massimo di sottoscrizioni per ogni istanza del servizio<sup>7</sup> | 500 |
 | Numero massimo di certificati client per istanza del servizio<sup>7</sup> | 50 |
 | Numero massimo di API per istanza del servizio<sup>7</sup> | 50 |
-| Numero massimo di operazioni API per istanza del servizio<sup>7</sup> | 1.000 |
+| Numero massimo di operazioni API per istanza del servizio<sup>7</sup> | 1\.000 |
 | Durata totale totale massima delle richieste<sup>7</sup> | 30 secondi |
 | Dimensione massima del payload memorizzato nel buffer<sup>7</sup> | 2 MiB |
 | Dimensione massima URL richiesta<sup>8</sup> | 4096 byte |
@@ -38,7 +38,7 @@ ms.locfileid: "76159416"
 <sup>2 Il</sup> nome del sistema Le dimensioni della cache per unità dipendono dal piano tariffario. Per visualizzare i piani tariffari e i relativi limiti di scalabilità, vedere [Prezzi di Gestione API.](https://azure.microsoft.com/pricing/details/api-management/)<br/>
 <sup>3 (COM del</sup> nome Le connessioni vengono raggruppate in pool e riutilizzate a meno che non vengano chiuse in modo esplicito dal back-end.<br/>
 <sup>4 DEL psu'</sup> Questo limite è per unità dei livelli Basic, Standard e Premium. Il livello Sviluppatore è limitato a 1.024.The Developer tier is limited to 1,024. Questo limite non si applica al livello Consumo.<br/>
-5 Del numero <sup>3(</sup> Questo limite si applica ai livelli Basic, Standard e Premium.This limit applies to the Basic, Standard, and Premium tiers. Nel livello Consumo, le dimensioni del documento dei criteri sono limitate a 4 KiB.<br/>
+5 Del numero <sup>3(</sup> Questo limite si applica ai livelli Basic, Standard e Premium.This limit applies to the Basic, Standard, and Premium tiers. Nel livello Consumo, le dimensioni del documento dei criteri sono limitate a 16 KiB.<br/>
 6 È <sup>possibile:</sup> Questa risorsa è disponibile solo nel livello Premium.This resource is available in the Premium tier only.<br/>
 <sup>7 (in</sup> questo stato Questa risorsa si applica solo al livello Consumo.<br/>
 8 (IN <sup>vio</sup> Si applica solo al livello Consumo. Include una stringa di query lunga fino a 2048 byte.<br/>

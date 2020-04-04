@@ -11,12 +11,12 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4390ed39c86e041d3fbd776415f0ffbe71f605bd
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 68d53d2a33b7ab705dfa88f03618a5d5a3d1bced
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350156"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633033"
 ---
 # <a name="geo-restore-for-sql-pool"></a>Ripristino geografico per il pool SQLGeo-restore for SQL pool
 
@@ -38,12 +38,12 @@ Per eseguire il ripristino da un backup geografico, utilizzare il cmdlet [Get-Az
 
 1. Prima di iniziare, assicurarsi di [installare Azure PowerShell.](https://docs.microsoft.com/powershell/azure/overview)
 2. Aprire PowerShell.
-2. Connettersi al proprio account Azure ed elencare tutte le sottoscrizioni associate all'account.
-3. Selezionare la sottoscrizione che contiene il data warehouse da ripristinare.
-4. Ottenere il data warehouse che si desidera ripristinare.
-5. Creare la richiesta di ripristino per il data warehouse.
-6. Verificare lo stato del data warehouse con ripristino geografico.
-7. Per configurare il data warehouse al termine del ripristino, vedere [Configurare il database dopo il ripristino]( ../../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
+3. Connettersi al proprio account Azure ed elencare tutte le sottoscrizioni associate all'account.
+4. Selezionare la sottoscrizione che contiene il data warehouse da ripristinare.
+5. Ottenere il data warehouse che si desidera ripristinare.
+6. Creare la richiesta di ripristino per il data warehouse.
+7. Verificare lo stato del data warehouse con ripristino geografico.
+8. Per configurare il data warehouse al termine del ripristino, vedere [Configurare il database dopo il ripristino]( ../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"
@@ -77,24 +77,25 @@ Il database ripristinato sarà abilitato TDE se il database di origine è abilit
 Seguire i passaggi descritti di seguito per ripristinare un pool SQL da un backup geografico:
 
 1. Accedere all'account del portale di Azure.Sign in to your [Azure portal](https://portal.azure.com/) account.
-1. Selezionare **+ Crea una risorsa**. 
+2. Selezionare **+ Crea una risorsa**.
 
-![Nuovo DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
+   ![Nuovo DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
 3. Fare clic su **Database** e quindi su Analisi synapse di Azure (in precedenza SQL DW).
 
-![Nuovo DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
+   ![Nuovo DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
 
 4. Compilare le informazioni richieste nella scheda **Nozioni di base** e fare clic su **Avanti: Impostazioni aggiuntive**.
 
-![Nozioni di base](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
+   ![Nozioni di base](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
 5. Per Usa parametro **dati esistente,** selezionare **Backup** e selezionare il backup appropriato dalle opzioni di scorrimento verso il basso. Fare clic su **Revisione e creazione**.
- 
-![backup](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
+
+   ![backup](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 
 6. Una volta ripristinato il data warehouse, verificare che **lo stato** sia online.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 - [Ripristinare un pool SQL esistenteRestore an existing SQL pool](sql-data-warehouse-restore-active-paused-dw.md)
 - [Ripristinare un pool SQL eliminato](sql-data-warehouse-restore-deleted-dw.md)

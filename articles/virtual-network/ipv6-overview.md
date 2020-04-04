@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 03b279ead6b1f5d26ae92b63a8780a61dfd711bb
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 887f9e100a60561271a4c15777e7131ea1f1f722
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80420563"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631440"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>Che cos'è IPv6 per la rete virtuale di Azure?
 
@@ -57,7 +57,8 @@ IPv6 per la rete virtuale di Azure include le funzionalità seguenti:IPv6 for Az
     - Regole in uscita facoltative che forniscono il controllo dichiarativo completo sulla connettività in uscita per ridimensionare e ottimizzare questa capacità in base alle esigenze specifiche.
     - Configurazioni front-end facoltative che consentono a un singolo servizio di bilanciamento del carico di utilizzare più indirizzi IP pubblici IPv6: lo stesso protocollo e la stessa porta front-end possono essere riutilizzate tra gli indirizzi front-end.
     - Le porte IPv6 facoltative possono essere riutilizzate nelle istanze back-end utilizzando la funzionalità IP mobile delle regole di bilanciamento del caricoOptional IPv6 ports can be reused on backend instances using the *Floating IP* feature of load-balancing rules 
-- Supporto del [bilanciamento del carico interno IPv6 standard](ipv6-dual-stack-standard-internal-load-balancer-powershell.md) per creare applicazioni multilivello resilienti all'interno delle VNET di Azure.Standard IPv6 internal Load Balancer support to create resilient multi-tier applications within Azure VNETs.  
+    - Nota: il bilanciamento del carico non esegue alcuna conversione di protocollo (nessun NAT64). 
+- Supporto del [bilanciamento del carico interno IPv6 standard](ipv6-dual-stack-standard-internal-load-balancer-powershell.md) per creare applicazioni multilivello resilienti all'interno delle VNET di Azure.Standard IPv6 internal Load Balancer support to create resilient multi-tier applications within Azure VNETs.   
 - Supporto di Basic IPv6 public Load Balancer per la compatibilità con le distribuzioni legacyBasic IPv6 public Load Balancer support for compatibility with legacy deployments
 - [Gli indirizzi IP pubblici IPv6 riservati e gli intervalli](ipv6-public-ip-address-prefix.md) di indirizzi forniscono indirizzi IPv6 stabili e prevedibili che semplificano l'inserimento nell'elenco degli elenchi di applicazioni ospitate in azzurri per l'azienda e i clienti.
 - L'IP pubblico a livello di istanza fornisce la connettività Internet IPv6 direttamente alle singole macchine virtuali.
@@ -72,8 +73,9 @@ IPv6 per la rete virtuale di Azure è un set di funzionalità fondamentale che c
 
 ## <a name="limitations"></a>Limitazioni
 La versione corrente di IPv6 per la rete virtuale di Azure presenta le limitazioni seguenti:The current IPv6 for Azure virtual network release has the following limitations:
-- IPv6 per la rete virtuale di Azure è disponibile in tutte le aree di Azure globali, ma solo in Global Azure, non ancora nei cloud di enti pubblici.
-- I gateway ExpressRoute e VPN non possono essere utilizzati in una rete virtuale con IPv6 abilitato, direttamente o sottoposto a peerè con "UseRemoteGateway". 
+- IPv6 per la rete virtuale di Azure è disponibile in tutte le aree commerciali di Azure globali usando tutti i metodi di distribuzione.  La distribuzione nel cloud del governo degli Stati Uniti è temporaneamente limitata al modello ARM (JSON), all'interfaccia della riga di comando (CLI) e a Powershell.  Il supporto IPv6 nel portale cloud del governo degli Stati Uniti sarà disponibile a breve.  
+- I gateway ExpressRoute possono essere usati per il traffico solo IPv4 in una rete virtuale con IPv6 abilitato.  Il supporto per il traffico IPv6 è sulla nostra roadmap.   
+- I gateway VPN NON POSSONO essere utilizzati in una rete virtuale con IPv6 abilitato, direttamente o sottoposto a peerè con "UseRemoteGateway".
 - La piattaforma Azure (AKS e così via) non supporta la comunicazione IPv6 per i contenitori.  
 
 ## <a name="pricing"></a>Prezzi

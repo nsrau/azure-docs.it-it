@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: dfdfa9f69e00aa644c21fc96cb70e9fa460ca0c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a282a412823207e5f662441158000e8c6121796
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77211705"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637934"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Linee guida per la distribuzione di app Web tramite i modelli di Azure Resource Manager
 
@@ -109,7 +109,7 @@ Il nome dell'app Web deve essere univoco a livello globale. È possibile usare u
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Se il modello include una risorsa [Microsoft.Web/certificates](/azure/templates/microsoft.web/certificates) per il binding SSL e il certificato viene archiviato in un Key Vault, è necessario assicurarsi che l'identità del servizio app possa accedere al certificato.
+Se il modello include una risorsa [Microsoft.Web/certificates](/azure/templates/microsoft.web/certificates) per l'associazione TLS/SSL e il certificato è archiviato in un insieme di credenziali delle chiavi, è necessario assicurarsi che l'identità del servizio app possa accedere al certificato.
 
 In Azure globale, l'entità servizio di servizio app include l'ID di **abfa0a7c-a6b6-4736-8310-5855508787cd**. Per fornire accesso a Key Vault all'entità servizio di servizio app, usare:
 

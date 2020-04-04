@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: amishu
 zone_pivot_groups: programming-languages-set-twelve
-ms.openlocfilehash: 6aabd27ae38cac0bb9effad2adcadc4935a28c6e
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: bd6b500a823bde654da4442704b75451806d6a46
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409654"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637285"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Usare l'input audio compresso codec con Speech SDK
 
 L'API **Flusso di input audio compresso** dell'SDK del servizio `PullStream` di `PushStream`riconoscimento vocale consente di trasmettere l'audio compresso al servizio di riconoscimento vocale utilizzando un oggetto o .
 
-> [!IMPORTANT]
-> Lo streaming dell'audio di input compresso è attualmente supportato per C, C, Java su Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8). È supportato anche per Java in Android e Objective-C nella piattaforma iOS.
-> È richiesto Speech SDK versione 1.7.0 o successiva (versione 1.10.0 o successiva per RHEL 8, CentOS 8).
+Lo streaming dell'audio di input compresso è attualmente supportato per C'è, C ' , Java su Windows (le applicazioni UWP non sono supportate) e Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8). È supportato anche per Java in Android e Objective-C nella piattaforma iOS.
+* Speech SDK versione 1.10.0 o successiva è necessario per RHEL 8 e CentOS 8
+* Per Windows è necessario Speech SDK versione 1.11.0 o successiva.
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 

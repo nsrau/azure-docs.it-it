@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 637e377e469eeb1a82b6c0ad3a845d94ac09c7db
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 3299aa8ed85cff5c29d043d30aac08db45ffe5d4
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351207"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632264"
 ---
 # <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Ottimizzare le prestazioni aggiornando il pool SQL di Azure Synapse AnalyticsOptimize performance by upgrading Azure Synapse Analytics SQL pool
 
@@ -24,13 +24,12 @@ Aggiornare il pool SQL all'ultima generazione di hardware e architettura di arch
 
 ## <a name="why-upgrade"></a>Ragioni dell'aggiornamento
 
-È ora possibile eseguire facilmente l'aggiornamento al livello Sql Pool Compute Optimized Gen2 nel portale di Azure per le [aree supportate.](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) Se l'area non supporta l'aggiornamento automatico, è possibile eseguire l'aggiornamento a un'area supportata o attendere la disponibilità dell'aggiornamento autonomo nella propria area. Eseguire subito l'aggiornamento per sfruttare i vantaggi della generazione più recente di hardware e architettura di archiviazione migliorata di Azure, che include prestazioni più veloci, una maggiore scalabilità e archiviazione a colonne illimitata. 
+È ora possibile eseguire facilmente l'aggiornamento al livello Sql Pool Compute Optimized Gen2 nel portale di Azure per le [aree supportate.](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) Se l'area non supporta l'aggiornamento automatico, è possibile eseguire l'aggiornamento a un'area supportata o attendere la disponibilità dell'aggiornamento autonomo nella propria area. Eseguire subito l'aggiornamento per sfruttare i vantaggi della generazione più recente di hardware e architettura di archiviazione migliorata di Azure, che include prestazioni più veloci, una maggiore scalabilità e archiviazione a colonne illimitata.
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
-## <a name="applies-to"></a>Si applica a
-
-Questo aggiornamento si applica ai pool SQL di livello Gen1 ottimizzati per il calcolo nelle [aree supportate.](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)
+> [!IMPORTANT]
+> Questo aggiornamento si applica ai pool SQL di livello Gen1 ottimizzati per il calcolo nelle [aree supportate.](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -54,28 +53,26 @@ Questo aggiornamento si applica ai pool SQL di livello Gen1 ottimizzati per il c
    |           DW3000            |           DW3000c           |
    |           DW6000            |           DW6000c           |
 
-> [!Note]
+> [!NOTE]
 > I livelli di prestazioni consigliati non sono una conversione diretta. Ad esempio, è consigliabile passare da DW600 DW500c.
 
 ## <a name="upgrade-in-a-supported-region-using-the-azure-portal"></a>Eseguire l'aggiornamento in un'area supportata tramite portale di Azure
 
-## <a name="before-you-begin"></a>Prima di iniziare
+- La migrazione da Gen1 a Gen2 tramite il portale di Azure è permanente. Non c'è un processo per tornare a Gen1.
+- Il pool SQL deve essere in esecuzione per eseguire la migrazione a Gen2
+
+### <a name="before-you-begin"></a>Prima di iniziare
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-> [!NOTE]
-> La migrazione da Gen1 a Gen2 tramite il portale di Azure è permanente. Non c'è un processo per tornare a Gen1.  
+- Accedere al [portale di Azure](https://portal.azure.com/).
+- Verificare che il pool SQL sia in esecuzione, per eseguire la migrazione a Gen2Ensure that SQL pool is running - it must be to migrate to Gen2
 
-## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
-
-Accedere al [portale](https://portal.azure.com/)di Azure .
+### <a name="powershell-upgrade-commands"></a>Comandi di aggiornamento di PowerShellPowerShell upgrade commands
 
 1. Se il pool SQL di livello Gen1 ottimizzato di calcolo da aggiornare è in pausa, riprendere il [pool SQL.](pause-and-resume-compute-portal.md)
 
-   > [!NOTE]
-   > SQL pool must be running to migrate to Gen2.
-
-2. Questa operazione potrebbe comportare alcuni minuti di inattività. 
+2. Questa operazione potrebbe comportare alcuni minuti di inattività.
 
 3. Identificare tutti i riferimenti del codice ai livelli di prestazioni Gen1 con ottimizzazione per il calcolo e modificarli impostando il livello di prestazioni equivalente Gen2 con ottimizzazione per il calcolo. Di seguito sono riportati due esempi di in cui è necessario aggiornare i riferimenti del codice prima dell'aggiornamento:
 
@@ -91,7 +88,7 @@ Accedere al [portale](https://portal.azure.com/)di Azure .
    Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
    ```
 
-   > [!NOTE] 
+   > [!NOTE]
    > -RequestedServiceObjectiveName "DW300" diventa RequestedServiceObjectiveName "DW300**c**"
    >
 
@@ -104,19 +101,20 @@ Accedere al [portale](https://portal.azure.com/)di Azure .
    Modificato come segue:
 
    ```sql
-   ALTER DATABASE mySampleDataWarehouse MODIFY (SERVICE_OBJECTIVE = 'DW300c') ; 
+   ALTER DATABASE mySampleDataWarehouse MODIFY (SERVICE_OBJECTIVE = 'DW300c') ;
    ```
-   > [!NOTE] 
+
+   > [!NOTE]
    > SERVICE_OBJECTIVE = 'DW300' diventa SERVICE_OBJECTIVE = 'DW300**c**'
 
 ## <a name="start-the-upgrade"></a>Avviare l'aggiornamento
 
-1. Passare al pool SQL Gen1 ottimizzato per il calcolo nel portale di Azure.Go to your Compute Optimized Gen1 SQL pool in the Azure portal. Se il pool SQL di livello Gen1 ottimizzato di calcolo da aggiornare è in pausa, riprendere il [pool SQL.](pause-and-resume-compute-portal.md) 
+1. Passare al pool SQL Gen1 ottimizzato per il calcolo nel portale di Azure.Go to your Compute Optimized Gen1 SQL pool in the Azure portal. Se il pool SQL di livello Gen1 ottimizzato di calcolo da aggiornare è in pausa, riprendere il [pool SQL.](pause-and-resume-compute-portal.md)
 2. Selezionare la scheda Aggiorna a ![ **Gen2** nella scheda Attività: Upgrade_1](./media/upgrade-to-latest-generation/upgrade-to-gen2-1.png)
-    
-    > [!NOTE]
-    > Se la scheda **Aggiorna alla seconda generazione** non è visualizzata sotto la scheda Attività, il tipo di sottoscrizione è limitato nell'area corrente.
-    > [Inviare un ticket di supporto](sql-data-warehouse-get-started-create-support-ticket.md) per fare inserire la sottoscrizione nell'elenco elementi consentiti.
+
+   > [!NOTE]
+   > Se la scheda **Aggiorna alla seconda generazione** non è visualizzata sotto la scheda Attività, il tipo di sottoscrizione è limitato nell'area corrente.
+   > [Inviare un ticket di supporto](sql-data-warehouse-get-started-create-support-ticket.md) per fare inserire la sottoscrizione nell'elenco elementi consentiti.
 
 3. Assicurarsi che il carico di lavoro abbia completato l'esecuzione e sia inattivo prima dell'aggiornamento. Si verificherà tempi di inattività per alcuni minuti prima che il pool SQL torni online come pool SQL di livello Gen2 ottimizzato. **Selezionare l'aggiornamento**:
 
@@ -126,65 +124,65 @@ Accedere al [portale](https://portal.azure.com/)di Azure .
 
    ![Upgrade3](./media/upgrade-to-latest-generation/upgrade-to-gen2-3.png)
 
-   Il primo passaggio del processo di aggiornamento prevede l'operazione di ridimensionamento ("Aggiornamento - Offline") in cui verranno terminate tutte le sessioni ed interrotte tutte le connessioni. 
+   Il primo passaggio del processo di aggiornamento prevede l'operazione di ridimensionamento ("Aggiornamento - Offline") in cui verranno terminate tutte le sessioni ed interrotte tutte le connessioni.
 
-   Il secondo passaggio del processo di aggiornamento è la migrazione dei dati ("Aggiornamento - Online"). La migrazione dei dati è un processo in background con flusso irregolare. Questo processo sposta lentamente i dati a colonne dall'architettura di archiviazione precedente alla nuova architettura di archiviazione usando la cache SSD locale. Durante questo periodo, il pool SQL sarà online per l'esecuzione di query e il caricamento. I dati saranno disponibili per le query indipendentemente dal fatto che sia stata o meno completata la migrazione. La migrazione dei dati avviene a velocità variabili a seconda delle dimensioni dei dati, del livello di prestazioni e del numero di segmenti columnstore. 
+   Il secondo passaggio del processo di aggiornamento è la migrazione dei dati ("Aggiornamento - Online"). La migrazione dei dati è un processo in background con flusso irregolare. Questo processo sposta lentamente i dati a colonne dall'architettura di archiviazione precedente alla nuova architettura di archiviazione usando la cache SSD locale. Durante questo periodo, il pool SQL sarà online per l'esecuzione di query e il caricamento. I dati saranno disponibili per le query indipendentemente dal fatto che sia stata o meno completata la migrazione. La migrazione dei dati avviene a velocità variabili a seconda delle dimensioni dei dati, del livello di prestazioni e del numero di segmenti columnstore.
 
 5. **Raccomandazione opzionale:** Una volta completata l'operazione di ridimensionamento, è possibile velocizzare il processo in background di migrazione dei dati. È possibile forzare immediatamente lo spostamento dei dati eseguendo [ALTER INDEX REBUILD](sql-data-warehouse-tables-index.md) su tutte le tabelle columnstore primarie su cui si prevede di eseguire query, con SLO e classe di risorse più grandi. Questa operazione è **offline**, confrontata con il processo un processo in background con flusso irregolare, che può richiedere ore a seconda di numero e dimensione delle tabelle. Tuttavia, al termine dell'operazione la migrazione dei dati sarà molto più veloce per via della nuova architettura di archiviazione migliorata con gruppi di righe di qualità elevata.
- 
+
 > [!NOTE]
 > ALTER INDEX REBUILD è un'operazione offline, pertanto le tabelle non saranno disponibili fino al completamento della ricompilazione.
 
 La query seguente genera i comandi Alter Index Rebuild necessari per velocizzare la migrazione dei dati:
 
 ```sql
-SELECT 'ALTER INDEX [' + idx.NAME + '] ON [' 
-       + Schema_name(tbl.schema_id) + '].[' 
-       + Object_name(idx.object_id) + '] REBUILD ' + ( CASE 
-                                                         WHEN ( 
-                                                     (SELECT Count(*) 
-                                                      FROM   sys.partitions 
-                                                             part2 
-                                                      WHERE  part2.index_id 
-                                                             = idx.index_id 
-                                                             AND 
-                                                     idx.object_id = 
-                                                     part2.object_id) 
-                                                     > 1 ) THEN 
-              ' PARTITION = ' 
-              + Cast(part.partition_number AS NVARCHAR(256)) 
-              ELSE '' 
-                                                       END ) + '; SELECT ''[' + 
-              idx.NAME + '] ON [' + Schema_name(tbl.schema_id) + '].[' + 
-              Object_name(idx.object_id) + '] ' + ( 
-              CASE 
-                WHEN ( (SELECT Count(*) 
-                        FROM   sys.partitions 
-                               part2 
-                        WHERE 
-                     part2.index_id = 
-                     idx.index_id 
-                     AND idx.object_id 
-                         = part2.object_id) > 1 ) THEN 
-              ' PARTITION = ' 
-              + Cast(part.partition_number AS NVARCHAR(256)) 
-              + ' completed'';' 
-              ELSE ' completed'';' 
-                                                    END ) 
-FROM   sys.indexes idx 
-       INNER JOIN sys.tables tbl 
-               ON idx.object_id = tbl.object_id 
-       LEFT OUTER JOIN sys.partitions part 
-                    ON idx.index_id = part.index_id 
-                       AND idx.object_id = part.object_id 
-WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE'; 
+SELECT 'ALTER INDEX [' + idx.NAME + '] ON ['
+       + Schema_name(tbl.schema_id) + '].['
+       + Object_name(idx.object_id) + '] REBUILD ' + ( CASE
+                                                         WHEN (
+                                                     (SELECT Count(*)
+                                                      FROM   sys.partitions
+                                                             part2
+                                                      WHERE  part2.index_id
+                                                             = idx.index_id
+                                                             AND
+                                                     idx.object_id =
+                                                     part2.object_id)
+                                                     > 1 ) THEN
+              ' PARTITION = '
+              + Cast(part.partition_number AS NVARCHAR(256))
+              ELSE ''
+                                                       END ) + '; SELECT ''[' +
+              idx.NAME + '] ON [' + Schema_name(tbl.schema_id) + '].[' +
+              Object_name(idx.object_id) + '] ' + (
+              CASE
+                WHEN ( (SELECT Count(*)
+                        FROM   sys.partitions
+                               part2
+                        WHERE
+                     part2.index_id =
+                     idx.index_id
+                     AND idx.object_id
+                         = part2.object_id) > 1 ) THEN
+              ' PARTITION = '
+              + Cast(part.partition_number AS NVARCHAR(256))
+              + ' completed'';'
+              ELSE ' completed'';'
+                                                    END )
+FROM   sys.indexes idx
+       INNER JOIN sys.tables tbl
+               ON idx.object_id = tbl.object_id
+       LEFT OUTER JOIN sys.partitions part
+                    ON idx.index_id = part.index_id
+                       AND idx.object_id = part.object_id
+WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 ```
 
 ## <a name="upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal"></a>Eseguire l'aggiornamento da un'area geografica di Azure con l'esecuzione del ripristino tramite il portale di Azure
 
 ## <a name="create-a-user-defined-restore-point-using-the-azure-portal"></a>Creare un il punto di ripristino definito dall'utente usando il portale di Azure
 
-1. Accedere al [portale](https://portal.azure.com/)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
 2. Passare al pool SQL per il quale si desidera creare un punto di ripristino.
 
@@ -198,13 +196,13 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 ## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Ripristinare un database attivo o sospeso con il portale di Azure
 
-1. Accedere al [portale](https://portal.azure.com/)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Passare al pool SQL da cui si desidera eseguire il ripristino.
 3. Nella parte superiore della sezione della panoramica, selezionare **+ Ripristino**.
 
     ![ Panoramica del servizio di ripristino](./media/upgrade-to-latest-generation/restoring_0.png)
 
-4. Selezionare **Punti di ripristino automatici** o punti di ripristino definiti **dall'utente**. Per i punti di ripristino definiti **dall'utente, selezionare un punto di ripristino definito dall'utente** o Crea un nuovo punto di ripristino definito **dall'utente.** Per il server, selezionare Crea nuovo e scegliere un server in un'area geografica supportata da Gen2.For the server, select **Create new** and choose a server in a Gen2 supported geographic region. 
+4. Selezionare **Punti di ripristino automatici** o punti di ripristino definiti **dall'utente**. Per i punti di ripristino definiti **dall'utente, selezionare un punto di ripristino definito dall'utente** o Crea un nuovo punto di ripristino definito **dall'utente.** Per il server, selezionare Crea nuovo e scegliere un server in un'area geografica supportata da Gen2.For the server, select **Create new** and choose a server in a Gen2 supported geographic region.
 
     ![Punti di ripristino automatici](./media/upgrade-to-latest-generation/restoring_1.png)
 
@@ -240,10 +238,9 @@ $GeoRestoredDatabase.status
 ```
 
 > [!NOTE]
-> Per configurare il database al termine del ripristino, vedere [Configurare il database dopo il ripristino](../../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
+> Per configurare il database al termine del ripristino, vedere [Configurare il database dopo il ripristino](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 Il database ripristinato sarà abilitato TDE se il database di origine è abilitato per questa tecnologia.
-
 
 Se si verificano problemi con il pool SQL, creare una richiesta di [supporto](sql-data-warehouse-get-started-create-support-ticket.md) e fare riferimento a "Aggiornamento Gen2" come possibile causa.
 

@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 99220fdf5dfb47f235637f83ba9be4ec015758bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f33dc9528d5f7043dda2c6fad207a9a51347a2b
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294431"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631484"
 ---
 # <a name="troubleshoot-issues-with-azure-automation-desired-state-configuration-dsc"></a>Risolvere i problemi relativi alla configurazione dello stato desiderato (DSC) di Automazione di AzureTroubleshoot issues with Azure Automation Desired State Configuration (DSC)
 
@@ -48,7 +48,7 @@ Per informazioni sull'utilizzo di xDscDiagnostics, vedere [Utilizzo di xDscDiagn
 
 ### <a name="3-ensure-that-nodes-and-the-automation-workspace-have-required-modules"></a>3. Assicurarsi che i nodi e l'area di lavoro Automazione dispongano dei moduli necessari
 
-DSC dipende dai moduli installati nel nodo. Quando si usa La configurazione dello stato di automazione di Azure, importare tutti i moduli necessari nell'account di automazione usando i passaggi elencati in [Import Modules](../shared-resources/modules.md#import-modules). Le configurazioni possono anche avere una dipendenza da versioni specifiche dei moduli. Per ulteriori informazioni, vedere [Risoluzione dei problemi relativi ai moduli](shared-resources.md#modules).
+DSC dipende dai moduli installati nel nodo. Quando si usa La configurazione dello stato di automazione di Azure, importare tutti i moduli necessari nell'account di automazione usando i passaggi elencati in [Import Modules](../shared-resources/modules.md#importing-modules). Le configurazioni possono anche avere una dipendenza da versioni specifiche dei moduli. Per ulteriori informazioni, vedere [Risoluzione dei problemi relativi ai moduli](shared-resources.md#modules).
 
 ## <a name="common-errors-when-working-with-dsc"></a>Errori comuni quando si lavora con DSCCommon errors when working with DSC
 

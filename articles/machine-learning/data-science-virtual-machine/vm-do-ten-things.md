@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 147f43148c0f804adf70f1a792ba1b8a772fdae4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8da8cd7110cd17d0aadd52cce1263c7c0fcfdf5c
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294486"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632163"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati di Windows
 
@@ -804,16 +804,6 @@ pd.read_sql(queryString, connection)
 
 ![Prime righe dei dati dalla tabella](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
-#### <a name="read-data-from-hdi-by-using-azure-machine-learning-studio-classic-reader-module"></a>Leggere i dati da HDI usando Azure Machine Learning Studio (classico): modulo lettoreRead data from HDI by using Azure Machine Learning Studio (classic): reader module
-
-È anche possibile usare il modulo lettore in Azure Machine Learning Studio (classico) per accedere al database in un cluster Hadoop.You can also use the reader module in Azure Machine Learning Studio (classic) to access the database in a Hadoop cluster. Collegare le credenziali dei cluster HDI e dell'account di archiviazione di Azure per abilitare la creazione di modelli di Machine Learning usando un database in cluster HDI.
-
-![Proprietà del modulo Reader](./media/vm-do-ten-things/AML_Reader_Hive.PNG)
-
-È quindi possibile visualizzare il set di dati con punteggio:You can then view the scored dataset:
-
-![Visualizzare il set di dati con i punteggi](./media/vm-do-ten-things/AML_Model_Results.PNG)
-
 ### <a name="azure-sql-data-warehouse-and-databases"></a>Database e database SQL di AzureAzure SQL Data Warehouse and databases
 Azure SQL Data Warehouse è un data warehouse elastico come servizio con un'esperienza SQL Server di livello enterprise.
 
@@ -893,6 +883,6 @@ Oltre agli esempi basati su framework, è possibile ottenere una serie di proced
 
 - [Classificazione di documenti di testo](https://github.com/anargyri/lstm_han): questa procedura dettagliata viene illustrato come compilare ed eseguire il training di due architetture di rete neurale: rete di attenzione gerarchica e rete lSTM (Long Short Term Memory). Queste reti neurali usano l'API Keras per l'apprendimento avanzato per classificare i documenti di testo. Keras è un front-end a tre dei più popolari framework di deep learning: Microsoft Cognitive Toolkit, TensorFlow e Theano.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 In questo articolo sono descritte alcune delle operazioni che è possibile eseguire nella macchina virtuale Microsoft Data Science.This article described some of the do you can do on the Microsoft Data Science Virtual Machine. Ci sono molte altre cose che puoi fare per rendere la DSVM un ambiente di analisi efficace.
 

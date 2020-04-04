@@ -1,6 +1,6 @@
 ---
 title: Creazione, aggiornamento delle statistiche
-description: Suggerimenti ed esempi per la creazione e l'aggiornamento delle statistiche di ottimizzazione delle query nelle tabelle in Azure SQL Data Warehouse.
+description: Suggerimenti ed esempi per la creazione e l'aggiornamento delle statistiche di ottimizzazione delle query nelle tabelle nel pool SQL Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,33 +11,42 @@ ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a6bdf9bcf2dfbb28244162bc7d88ced9194d0ac6
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8ecd0909176560e6b51bcb8449cb681558d96f90
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351176"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80628642"
 ---
-# <a name="table-statistics-in-azure-sql-data-warehouse"></a>Statistiche delle tabelle in Azure SQL Data WarehouseTable statistics in Azure SQL Data Warehouse
+# <a name="table-statistics-in-synapse-sql-pool"></a>Statistiche delle tabelle nel pool SQL SynapseTable statistics in Synapse SQL pool
 
-Suggerimenti ed esempi per la creazione e l'aggiornamento delle statistiche di ottimizzazione delle query nelle tabelle in Azure SQL Data Warehouse.
+In questo articolo sono disponibili suggerimenti ed esempi per la creazione e l'aggiornamento delle statistiche di ottimizzazione delle query nelle tabelle nel pool SQL.
 
 ## <a name="why-use-statistics"></a>Perché utilizzare le statistiche
 
-Più informazioni sui dati sono a disposizione di Azure SQL Data Warehouse, più rapidamente può eseguire query. Dopo aver caricato i dati in SQL Data Warehouse, la raccolta di statistiche sui dati è una delle operazioni più importanti da eseguire per ottimizzare le query. Query Optimizer di SQL Data Warehouse si basa sul costo. Confronta il costo dei vari piani di query e quindi sceglie il piano con il costo più basso. Nella maggior parte dei casi, sceglie il piano che verrà eseguito più velocemente. Ad esempio, se l'ottimizzatore stima che la data in base alla quale viene filtrata la query verrà restituita una riga, verrà scelto un piano. Se stima che la data selezionata restituirà 1 milione di righe, restituirà un piano diverso.
+Maggiore è il numero di pool SQL che sono a cinta sui dati, più veloce sarà possibile eseguire query su di esso. Dopo aver caricato i dati nel pool SQL, la raccolta di statistiche sui dati è una delle operazioni più importanti che è possibile eseguire per ottimizzare le query.
+
+Query Optimizer del pool SQL è un ottimizzatore basato sui costi. Confronta il costo dei vari piani di query e quindi sceglie il piano con il costo più basso. Nella maggior parte dei casi, sceglie il piano che verrà eseguito più velocemente.
+
+Ad esempio, se l'ottimizzatore stima che la data in base alla quale viene filtrata la query verrà restituita una riga, verrà scelto un piano. Se stima che la data selezionata restituirà 1 milione di righe, restituirà un piano diverso.
 
 ## <a name="automatic-creation-of-statistic"></a>Creazione automatica della statistica
 
-Quando l'opzione AUTO_CREATE_STATISTICS database è attivata, SQL Data Warehouse analizza le query utente in ingresso per ottenere statistiche mancanti. Se le statistiche sono mancanti, Query Optimizer crea statistiche su singole colonne nel predicato di query o nella condizione di join per migliorare le stime di cardinalità per il piano di query. Per impostazione predefinita, la creazione automatica di statistiche è attiva.
+Quando l'opzione AUTO_CREATE_STATISTICS database è attivata, il pool SQL analizza le query utente in ingresso per ottenere statistiche mancanti.
 
-È possibile verificare se il data warehouse è AUTO_CREATE_STATISTICS configurato eseguendo il comando seguente:
+Se le statistiche sono mancanti, Query Optimizer crea statistiche su singole colonne nel predicato di query o nella condizione di join per migliorare le stime di cardinalità per il piano di query.
+
+> [!NOTE]
+> Per impostazione predefinita, la creazione automatica di statistiche è attiva.
+
+È possibile verificare se il pool SQL è AUTO_CREATE_STATISTICS configurato eseguendo il comando seguente:
 
 ```sql
 SELECT name, is_auto_create_stats_on
 FROM sys.databases
 ```
 
-Se il data warehouse non dispone di AUTO_CREATE_STATISTICS configurato, è consigliabile abilitare questa proprietà eseguendo il comando seguente:
+Se il pool SQL non dispone di AUTO_CREATE_STATISTICS configurato, è consigliabile abilitare questa proprietà eseguendo il comando seguente:
 
 ```sql
 ALTER DATABASE <yourdatawarehousename>
@@ -50,13 +59,15 @@ Queste istruzioni attiveranno la creazione automatica delle statistiche:
 - INSERT SELECT
 - CTAS
 - UPDATE
-- Elimina
+- DELETE
 - EXPLAIN quando viene rilevato un join o la presenza di un predicato
 
 > [!NOTE]
 > L'opzione di creazione automatica di statistiche non crea statistiche in tabelle temporanee o esterne.
 
-La creazione automatica delle statistiche viene eseguita in modo sincrono, pertanto è possibile che si verifichi un peggioramento delle prestazioni delle query leggermente degradate se nelle colonne mancano statistiche. Il tempo necessario per creare statistiche per una singola colonna dipende dalle dimensioni della tabella. Per evitare una riduzione delle prestazioni misurabile, in particolare nel benchmarking delle prestazioni, è necessario assicurarsi che le statistiche siano state create prima eseguendo il carico di lavoro di benchmark prima di profilare il sistema.
+La creazione automatica delle statistiche viene eseguita in modo sincrono, pertanto è possibile che si verifichi un peggioramento delle prestazioni delle query leggermente degradate se nelle colonne mancano statistiche. Il tempo necessario per creare statistiche per una singola colonna dipende dalle dimensioni della tabella.
+
+Per evitare una riduzione delle prestazioni misurabile, è necessario assicurarsi che le statistiche siano state create prima eseguendo il carico di lavoro di benchmark prima di profilare il sistema.
 
 > [!NOTE]
 > La creazione delle statistiche verrà registrata in [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) in un contesto utente diverso.
@@ -67,11 +78,15 @@ Le statistiche automatiche create sono nel formato: _WA_Sys_<id colonna a 8 cifr
 DBCC SHOW_STATISTICS (<table_name>, <target>)
 ```
 
-Il table_name è il nome della tabella che contiene le statistiche da visualizzare. Non può essere una tabella esterna. La destinazione è il nome dell'indice di destinazione, delle statistiche o della colonna per cui visualizzare le informazioni sulle statistiche.
+Il table_name è il nome della tabella che contiene le statistiche da visualizzare. Questa tabella non può essere una tabella esterna. La destinazione è il nome dell'indice di destinazione, delle statistiche o della colonna per cui visualizzare le informazioni sulle statistiche.
 
-## <a name="updating-statistics"></a>Aggiornamento delle statistiche
+## <a name="update-statistics"></a>Aggiornare le statistiche
 
-Una procedura consigliata consiste nell'aggiornare le statistiche sulle colonne data ogni giorno quando vengono aggiunte nuove date. Ogni volta che vengono caricate nuove righe nel data warehouse, vengono aggiunte nuove date di caricamento o date di transazione. Queste righe modificano la distribuzione dei dati e rendono le statistiche obsolete. Al contrario, le statistiche in una colonna del paese in una tabella cliente potrebbero non dover mai essere aggiornate, perché la distribuzione dei valori non cambia in genere. Supponendo che la distribuzione sia costante tra i clienti, l'aggiunta di nuove righe alla variazione di tabella non modificherà la distribuzione dei dati. Tuttavia, se il data warehouse contiene solo un paese o un'area geografica e si includano dati da un nuovo paese, con conseguente archiviazione dei dati di più paesi/aree geografiche, è necessario aggiornare le statistiche nella colonna paese.
+Una procedura consigliata consiste nell'aggiornare le statistiche sulle colonne data ogni giorno quando vengono aggiunte nuove date. Ogni volta che vengono caricate nuove righe nel pool SQL, vengono aggiunte nuove date di caricamento o di transazione. Queste aggiunte modificano la distribuzione dei dati e rendono le statistiche obsolete.
+
+Le statistiche in una colonna paese/area geografica in una tabella cliente potrebbero non dover mai essere aggiornate poiché la distribuzione dei valori non cambia in genere. Supponendo che la distribuzione sia costante tra i clienti, l'aggiunta di nuove righe alla variazione di tabella non modificherà la distribuzione dei dati.
+
+Tuttavia, se il pool SQL contiene solo un paese o un'area geografica e si includano dati da un nuovo paese, con conseguente archiviazione dei dati di più paesi/aree geografiche, è necessario aggiornare le statistiche nella colonna paese.
 
 Di seguito sono forniti alcuni elementi consigliati per l'aggiornamento delle statistiche:
 
@@ -82,9 +97,14 @@ Di seguito sono forniti alcuni elementi consigliati per l'aggiornamento delle st
 
 Quando si risolvono i problemi di una query è essenziale verificare prima di tutto che **le statistiche siano aggiornate**.
 
-Questa verifica non può essere basata sulla data di creazione dei dati. Un oggetto statistiche aggiornato può essere vecchio se non sono state apportate modifiche sostanziali ai dati sottostanti. È necessario aggiornare le statistiche *quando* vengono apportate modifiche importanti al numero di righe o modifiche sostanziali alla distribuzione dei valori per una colonna specifica.
+Questa domanda non è uno che può essere risposto dall'età dei dati. Un oggetto statistiche aggiornato può essere vecchio se non sono state apportate modifiche sostanziali ai dati sottostanti.
 
-Non esiste una vista a gestione dinamica per determinare se i dati all'interno della tabella sono stati modificati dall'ultimo aggiornamento delle statistiche. Conoscere l'età delle statistiche può fornirti una parte dell'immagine. È possibile usare la query seguente per determinare l'ultimo aggiornamento delle statistiche di ogni tabella.
+> [!TIP]
+> È necessario aggiornare le statistiche *quando* vengono apportate modifiche importanti al numero di righe o modifiche sostanziali alla distribuzione dei valori per una colonna specifica.
+
+Non esiste una vista a gestione dinamica per determinare se i dati all'interno della tabella sono stati modificati dall'ultimo aggiornamento delle statistiche. Conoscere l'età delle statistiche può fornirti una parte dell'immagine.
+
+È possibile usare la query seguente per determinare l'ultimo aggiornamento delle statistiche di ogni tabella.
 
 > [!NOTE]
 > Se si verifica una modifica sostanziale nella distribuzione dei valori per una colonna, è necessario aggiornare le statistiche indipendentemente dall'ultima volta che sono state aggiornate.
@@ -116,21 +136,27 @@ WHERE
     st.[user_created] = 1;
 ```
 
-**Le colonne data** in un data warehouse, ad esempio, richiedono in genere aggiornamenti di statistiche frequenti. Ogni volta che vengono caricate nuove righe nel data warehouse, vengono aggiunte nuove date di caricamento o date di transazione. Queste righe modificano la distribuzione dei dati e rendono le statistiche obsolete. Al contrario, è possibile che non sia mai necessario aggiornare le statistiche relative alla colonna del sesso in una tabella clienti. Supponendo che la distribuzione sia costante tra i clienti, l'aggiunta di nuove righe alla variazione di tabella non modificherà la distribuzione dei dati. Se tuttavia il data warehouse contiene solo un sesso e un nuovo requisito ha come risultato più sessi, allora sarà necessario aggiornare le statistiche relative alla colonna del sesso.
+**Le colonne data** in un pool SQL, ad esempio, in genere richiedono aggiornamenti di statistiche frequenti. Ogni volta che vengono caricate nuove righe nel pool SQL, vengono aggiunte nuove date di caricamento o di transazione. Queste aggiunte modificano la distribuzione dei dati e rendono le statistiche obsolete.
+
+Al contrario, è possibile che non sia mai necessario aggiornare le statistiche relative alla colonna del sesso in una tabella clienti. Supponendo che la distribuzione sia costante tra i clienti, l'aggiunta di nuove righe alla variazione di tabella non modificherà la distribuzione dei dati.
+
+Se il pool SQL contiene un solo sesso e un nuovo requisito genera più sessi, è necessario aggiornare le statistiche nella colonna gender.
 
 Per ulteriori informazioni, vedere indicazioni su [Statistiche](/sql/relational-databases/statistics/statistics).
 
 ## <a name="implementing-statistics-management"></a>Implementazione della gestione delle statistiche
 
-È spesso consigliabile estendere il processo di caricamento dei dati per assicurare che le statistiche vengano aggiornate al termine del caricamento. Il caricamento dei dati è la fase in cui si verifica con maggiore frequenza una modifica delle dimensioni e/o della distribuzione dei valori delle tabelle. Questa è quindi una posizione logica per implementare alcuni processi di gestione.
+È spesso consigliabile estendere il processo di caricamento dei dati per assicurare che le statistiche vengano aggiornate al termine del caricamento.
+
+Il caricamento dei dati è la fase in cui si verifica con maggiore frequenza una modifica delle dimensioni e/o della distribuzione dei valori delle tabelle. Il caricamento dei dati è una posizione logica per implementare alcuni processi di gestione.
 
 Di seguito sono disponibili i principi guida per l'aggiornamento delle statistiche durante il processo di caricamento:
 
-* Assicurarsi che ogni tabella caricata includa almeno un oggetto statistiche aggiornato. Ciò permette di aggiornare le informazioni sulle dimensioni delle tabelle (numero di righe e pagine) come parte dell'aggiornamento delle statistiche.
-* Concentrarsi sulle colonne incluse nelle clausole JOIN, GROUP BY, ORDER BY e DISTINCT.
-* Prendere in considerazione una maggiore frequenza per l'aggiornamento delle colonne "chiave crescente", ad esempio le date delle transazioni, poiché questi valori non verranno inclusi nell'istogramma delle statistiche.
-* Prendere in considerazione una minore frequenza per l'aggiornamento delle colonne relative alla distribuzione statica.
-* Occorre ricordare che ogni oggetto statistiche viene aggiornato in sequenza. La semplice implementazione di `UPDATE STATISTICS <TABLE_NAME>` non è sempre ottimale, in particolare per tabelle di grandi dimensioni con molti oggetti statistiche.
+- Assicurarsi che ogni tabella caricata includa almeno un oggetto statistiche aggiornato. Ciò permette di aggiornare le informazioni sulle dimensioni delle tabelle (numero di righe e pagine) come parte dell'aggiornamento delle statistiche.
+- Concentrarsi sulle colonne incluse nelle clausole JOIN, GROUP BY, ORDER BY e DISTINCT.
+- Prendere in considerazione una maggiore frequenza per l'aggiornamento delle colonne "chiave crescente", ad esempio le date delle transazioni, poiché questi valori non verranno inclusi nell'istogramma delle statistiche.
+- Prendere in considerazione una minore frequenza per l'aggiornamento delle colonne relative alla distribuzione statica.
+- Occorre ricordare che ogni oggetto statistiche viene aggiornato in sequenza. La semplice implementazione di `UPDATE STATISTICS <TABLE_NAME>` non è sempre ottimale, in particolare per tabelle di grandi dimensioni con molti oggetti statistiche.
 
 Per ulteriori informazioni, vedere [Stima della cardinalità](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
@@ -140,9 +166,9 @@ Questi esempi illustrano come usare diverse opzioni per la creazione delle stati
 
 ### <a name="create-single-column-statistics-with-default-options"></a>Creare statistiche a colonna singola con opzioni predefinite
 
-Per creare statistiche su una colonna, è sufficiente fornire un nome per l'oggetto statistiche e il nome della colonna.
+Per creare statistiche su una colonna, specificare un nome per l'oggetto statistiche e il nome della colonna.
 
-Questa sintassi usa tutte le opzioni predefinite. Per impostazione predefinita, SQL Data Warehouse esegue il campionamento del **20%** della tabella quando crea le statistiche.
+Questa sintassi usa tutte le opzioni predefinite. Per impostazione predefinita, il pool SQL campiona il **20%** della tabella quando crea statistiche.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
@@ -205,7 +231,7 @@ Per i riferimenti completi, vedere [CREAZIONE DELLE  STATISTICHE](/sql/t-sql/sta
 
 ### <a name="create-multi-column-statistics"></a>Creare statistiche a più colonne
 
-Per creare un oggetto statistiche a più colonne, è sufficiente usare gli esempi precedenti, specificando però più colonne.
+Per creare un oggetto statistiche a più colonne, utilizzare gli esempi precedenti, ma specificare più colonne.
 
 > [!NOTE]
 > L'istogramma, che viene usato per stimare il numero di righe nei risultato della query, è disponibile solo per la prima colonna elencata nella definizione dell'oggetto statistiche.
@@ -242,9 +268,9 @@ CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 
 ### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>Usare una stored procedure per creare statistiche su tutte le colonne in un database
 
-SQL Data Warehouse non prevede una stored procedure di sistema equivalente a sp_create_stats in SQL Server. Questa stored procedure crea un oggetto statistiche a colonna singola su ogni colonna del database che non include già statistiche.
+SQL pool does not have a system stored procedure equivalent to sp_create_stats in SQL Server. Questa stored procedure crea un oggetto statistiche a colonna singola su ogni colonna del database che non include già statistiche.
 
-L'esempio seguente consente di iniziare a progettare il database. È possibile adattarlo alle proprie esigenze:
+L'esempio seguente consente di iniziare a progettare il database. È possibile adattare l'operazione alle proprie esigenze.
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]
@@ -338,19 +364,17 @@ Per creare statistiche su tutte le colonne della tabella utilizzando i valori pr
 EXEC [dbo].[prc_sqldw_create_stats] 1, NULL;
 ```
 
-Per creare statistiche su tutte le colonne della tabella eseguendo un'analisi completa, chiamare questa stored procedure:
+Per creare statistiche su tutte le colonne della tabella utilizzando un fullscan, chiamare questa procedura.
 
 ```sql
 EXEC [dbo].[prc_sqldw_create_stats] 2, NULL;
 ```
 
-Per creare statistiche campionate su tutte le colonne della tabella, immettere 3 e la percentuale di campionamento. Questa stored procedure usa una frequenza di campionamento pari al 20%.
+Per creare statistiche campionate su tutte le colonne della tabella, immettere 3 e la percentuale di campionamento. In questa procedura viene utilizzata una frequenza di campionamento del 20%.
 
 ```sql
 EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 ```
-
-Per creare statistiche campionate su tutte le colonne
 
 ## <a name="examples-update-statistics"></a>Esempi: aggiornare le statistiche
 
@@ -373,7 +397,7 @@ Ad esempio:
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 ```
 
-L'aggiornamento di oggetti statistiche specifici permette di ridurre al minimo il tempo e le risorse necessari per gestire le statistiche. È necessario scegliere con attenzione gli oggetti statistiche migliori da aggiornare.
+L'aggiornamento di oggetti statistiche specifici permette di ridurre al minimo il tempo e le risorse necessari per gestire le statistiche. Questa operazione richiede un pensiero per scegliere i migliori oggetti statistiche da aggiornare.
 
 ### <a name="update-all-statistics-on-a-table"></a>Aggiornamento di tutte le statistiche di una tabella
 
@@ -392,7 +416,7 @@ UPDATE STATISTICS dbo.table1;
 L'istruzione UPDATE STATISTICS è facile da usare. Occorre ricordare che aggiorna *tutte* le statistiche nella tabella e che quindi potrebbe eseguire più lavoro del necessario. Se le prestazioni non sono un problema, questo è il modo più semplice e completo per garantire che le statistiche siano aggiornate.
 
 > [!NOTE]
-> Quando si aggiornano tutte le statistiche in una tabella, SQL Data Warehouse esegue un'analisi per campionare la tabella per ogni oggetto statistiche. Se si tratta di una tabella di grandi dimensioni, che include molte colonne e molte statistiche, potrebbe risultare più efficiente aggiornare le singole statistiche in base alle necessità.
+> Quando si aggiornano tutte le statistiche in una tabella, il pool SQL esegue un'analisi per campionare la tabella per ogni oggetto statistiche. Se si tratta di una tabella di grandi dimensioni, che include molte colonne e molte statistiche, potrebbe risultare più efficiente aggiornare le singole statistiche in base alle necessità.
 
 Per l'implementazione della procedura `UPDATE STATISTICS`, vedere [Tabelle temporanee](sql-data-warehouse-tables-temporary.md). Il metodo di implementazione è leggermente diverso rispetto alla procedura `CREATE STATISTICS` precedente, ma il risultato è lo stesso.
 
@@ -473,7 +497,10 @@ DBCC SHOW_STATISTICS() mostra i dati inclusi in un oggetto statistiche. Questi d
 - Vettore di densità
 - Istogramma
 
-Metadati di intestazione sulle statistiche. L'istogramma mostra la distribuzione dei valori nella prima colonna chiave dell'oggetto statistiche. Il vettore di densità misura la correlazione tra le colonne. SQL Data Warehouse calcola le stime di cardinalità con tutti i dati nell'oggetto statistiche.
+Metadati di intestazione sulle statistiche. L'istogramma mostra la distribuzione dei valori nella prima colonna chiave dell'oggetto statistiche. Il vettore di densità misura la correlazione tra le colonne.
+
+> [!NOTE]
+> Il pool SQL calcola le stime di cardinalità con qualsiasi dato nell'oggetto statistiche.
 
 ### <a name="show-header-density-and-histogram"></a>Mostrare l'intestazione, la densità e l'istogramma
 
@@ -505,7 +532,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 
 ## <a name="dbcc-show_statistics-differences"></a>Differenze di DBCC SHOW_STATISTICS()
 
-DBCC SHOW_STATISTICS() viene implementato in modo più rigoroso in SQL Data Warehouse rispetto a SQL Server:
+DBCC SHOW_STATISTICS() è implementato in modo più rigoroso nel pool SQL rispetto a SQL Server:
 
 - Le funzionalità non documentate non sono supportate.
 - Non è possibile usare Stats_stream.

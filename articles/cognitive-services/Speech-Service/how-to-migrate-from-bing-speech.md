@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/17/2020
+ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: b95e16f2d8257bfffcaf2524fe7f8ce6be565689
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7b78bdb070cdf1364fe7fbdc75f175be7ce145ff
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80366599"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656457"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Eseguire la migrazione da Bing Speech al servizio di riconoscimento vocale
 
@@ -93,4 +93,4 @@ Per il servizio di riconoscimento vocale, l'SDK e il supporto API, visita la [pa
 ## <a name="see-also"></a>Vedere anche
 * [Note sulla versione del servizio di riconoscimento vocale](releasenotes.md)
 * [Che cos'è il servizio di riconoscimento vocale](overview.md)
-* [Servizio di riconoscimento vocale e documentazione di Speech SDK](speech-sdk.md#get-the-sdk)
+* [Servizio di riconoscimento vocale e documentazione di Speech SDK](speech-sdk.md#get-the-speech-sdk)

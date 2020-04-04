@@ -4,12 +4,12 @@ description: Informazioni su come installare e configurare un controller di ingr
 services: container-service
 ms.topic: article
 ms.date: 01/29/2020
-ms.openlocfilehash: 4d0edcac86bebb77495907ec43debf077448b8ac
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: ece117d60ae3d7fd70c0972bb463340c5d38c9e1
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80617240"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637258"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Creare un controller di ingresso HTTPS nel servizio Azure Kubernetes
 
@@ -33,7 +33,7 @@ In questo articolo si presuppone inoltre che si dispone di [un dominio personali
 
 Questo articolo usa Helm per installare il controller di ingresso NGINX, il certificato cert-manager e un'app Web di esempio. Assicurarsi di usare l'ultima versione di Helm. Per istruzioni sull'aggiornamento, vedere la [documentazione sull'installazione][helm-install]di Helm . Per altre informazioni sulla configurazione e l'uso di Helm, vedere [Installare le applicazioni con Helm nel servizio Azure Kubernetes (AKS)][use-helm].
 
-Questo articolo richiede anche che si stia eseguendo l'interfaccia della riga di comando di Azure versione 2.0.64 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If][azure-cli-install]you need to install or upgrade, see Install Azure CLI.
+Questo articolo richiede anche che si stia eseguendo l'interfaccia della riga di comando di Azure versione 2.0.64 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
 ## <a name="create-an-ingress-controller"></a>Creare un controller di ingresso
 
@@ -163,7 +163,7 @@ spec:
 Per creare l'autorità di certificazione, usare il comando `kubectl apply`.
 
 ```console
-kubectl apply -f cluster-issuer.yaml --namespace ingress-basic
+kubectl apply -f cluster-issuer.yaml
 ```
 
 ## <a name="run-demo-applications"></a>Eseguire applicazioni demo

@@ -4,19 +4,19 @@ description: Come abilitare la reimpostazione della password self-service utiliz
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1f0e5242d87bc68efd92a52619e8d48cff9ac87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a8675756aeef1140dbebd94023d7f7fb4c7af99
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77370063"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652253"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Procedura: abilitare la reimpostazione della password dalla schermata di accesso di WindowsHow to: Enable password reset from the Windows login screen
 
@@ -97,7 +97,7 @@ Il log di controllo di Azure AD includerà informazioni sull'indirizzo IP e sul 
 
 ![Esempio di reimpostazione della password di Windows 7 nel log di controllo di Azure ADExample Windows 7 password reset in the Azure AD Audit log](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
-Quando gli utenti reimpostano la password dalla schermata di accesso `defaultuser1` di un dispositivo Windows 10, viene creato un account temporaneo con privilegi limitati. Questo account viene usato per proteggere il processo di reimpostazione della password. Lo stesso account ha una password generata casualmente, non viene visualizzato per l'accesso al dispositivo e verrà rimosso automaticamente dopo che l'utente avrà reimpostato la password. Possono `defaultuser` esistere più profili, ma possono essere tranquillamente ignorati.
+Quando gli utenti reimpostano la password dalla schermata di accesso `defaultuser1` di un dispositivo Windows 10, viene creato un account temporaneo con privilegi limitati. Questo account viene usato per proteggere il processo di reimpostazione della password. L'account stesso ha una password generata casualmente, non viene visualizzato per l'accesso al dispositivo e verrà rimosso automaticamente dopo che l'utente reimposta la password. Possono `defaultuser` esistere più profili, ma possono essere tranquillamente ignorati.
 
 ## <a name="windows-7-8-and-81-password-reset"></a>Reimpostazione della password di Windows 7, 8 e 8.1
 
@@ -128,8 +128,8 @@ Quando gli utenti reimpostano la password dalla schermata di accesso `defaultuse
 
 #### <a name="silent-installation"></a>Installazione invisibile all'utente
 
-- Per l'installazione invisibile all'utente, usare il comando "msiexec /i SsprWindowsLogon.PROD.msi /qn"
-- Per la disinstallazione invisibile all'utente, usare il comando "msiexec /x SsprWindowsLogon.PROD.msi /qn"
+- Per l'installazione invisibile all'utente, utilizzare il comando "msiexec /i SsprWindowsLogon.PROD.msi /qn"
+- Per la disinstallazione invisibile all'utente, utilizzare il comando "msiexec /x SsprWindowsLogon.PROD.msi /qn"
 
 #### <a name="troubleshooting-windows-7-8-and-81-password-reset"></a>Risoluzione dei problemi relativi alla reimpostazione della password di Windows 7, 8 e 8.1
 
@@ -141,8 +141,8 @@ Se è necessaria una registrazione aggiuntiva, è possibile modificare una chiav
 
 `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
-- Per abilitare la registrazione `REG_DWORD: “EnableLogging”`dettagliata, creare un oggetto e impostarlo su 1.
-- Per disabilitare la registrazione `REG_DWORD: “EnableLogging”` dettagliata, modificare il valore su 0.
+- Per abilitare la registrazione `REG_DWORD: "EnableLogging"`dettagliata, creare un oggetto e impostarlo su 1.
+- Per disabilitare la registrazione `REG_DWORD: "EnableLogging"` dettagliata, modificare il valore su 0.
 
 ## <a name="what-do-users-see"></a>Cosa vedono gli utenti
 

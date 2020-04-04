@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
-ms.openlocfilehash: 60acd128495176cd0a90418c61edf53bdcd88e5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1cfc53dcd730262101c0e879e0419ba3f2db4d38
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77647585"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656992"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Inviare messaggi di posta elettronica dall'account SMTP con App per la logica di Azure
 
@@ -56,7 +56,7 @@ Con App per la logica di Azure e il connettore SMTP (Simple Mail Transfer Protoc
    | **Nome utente** | Sì | Nome utente per l'account SMTP | 
    | **Password** | Sì | Password per l'account SMTP | 
    | **Porta del server SMTP** | No | Porta specifica sul server SMTP che si vuole usare | 
-   | **Abilitare SSL?** | No | Attivare o disattivare la crittografia SSL. | 
+   | **Abilitare SSL?** | No | Attivare o disattivare la crittografia TLS/SSL. | 
    |||| 
 
 1. Specificare i dettagli necessari per l'azione selezionata. 

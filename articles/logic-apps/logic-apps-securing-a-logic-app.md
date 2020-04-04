@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: cc349e5851627ee830196982509f91a83198dfe0
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 4fc4960eb3af8a3d3c9902c9b24505bb5610b709
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349589"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657171"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Accesso sicuro e dati nelle app per la logica di AzureSecure access and data in Azure Logic Apps
 
@@ -27,7 +27,7 @@ Per controllare l'accesso e proteggere i dati in App per la logica di Azure, è 
 
 ## <a name="access-to-request-based-triggers"></a>Accesso ai trigger basati su richiesta
 
-Se l'app per la logica usa un trigger basato su richiesta, che riceve chiamate o richieste in arrivo, ad esempio il trigger [Richiesta](../connectors/connectors-native-reqres.md) o [Webhook,](../connectors/connectors-native-webhook.md) è possibile limitare l'accesso in modo che solo i client autorizzati possano chiamare l'app per la logica. Tutte le richieste ricevute da un'app per la logica vengono crittografate e protette con il protocollo Secure Sockets Layer (SSL).
+Se l'app per la logica usa un trigger basato su richiesta, che riceve chiamate o richieste in arrivo, ad esempio il trigger [Richiesta](../connectors/connectors-native-reqres.md) o [Webhook,](../connectors/connectors-native-webhook.md) è possibile limitare l'accesso in modo che solo i client autorizzati possano chiamare l'app per la logica. Tutte le richieste ricevute da un'app per la logica vengono crittografate e protette con Transport Layer Security (TLS), precedentemente noto come protocollo SSL (Secure Sockets Layer).
 
 Di seguito sono riportate le opzioni che consentono di proteggere l'accesso a questo tipo di trigger:Here are options that can help you secure access to this trigger type:
 
@@ -609,7 +609,7 @@ Gli endpoint HTTP e HTTPS supportano vari tipi di autenticazione. In base al tri
 
 | Tipo di autenticazione | Supportata da |
 |---------------------|--------------|
-| [Base](#basic-authentication) | Gestione API di Azure, Servizi app di Azure, HTTP, HTTP e Swagger, HTTP Webhook |
+| [Basic](#basic-authentication) | Gestione API di Azure, Servizi app di Azure, HTTP, HTTP e Swagger, HTTP Webhook |
 | [Certificato client](#client-certificate-authentication) | Gestione API di Azure, Servizi app di Azure, HTTP, HTTP e Swagger, HTTP Webhook |
 | [Autenticazione OAuth Active Directory](#azure-active-directory-oauth-authentication) | Gestione API di Azure, Servizi app di Azure, Funzioni di Azure, HTTP, HTTP, Swagger, HTTP Webhook |
 | [Crudo](#raw-authentication) | Gestione API di Azure, Servizi app di Azure, Funzioni di Azure, HTTP, HTTP, Swagger, HTTP Webhook |
@@ -624,8 +624,8 @@ Se l'opzione [Base](../active-directory-b2c/secure-rest-api.md) è disponibile, 
 
 | Proprietà (progettazione) | Property (JSON) | Obbligatoria | valore | Descrizione |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticazione** | `type` | Sì | Basic | Il tipo di autenticazione da utilizzare |
-| **Nome utente** | `username` | Sì | <*nome utente*>| Il nome utente per l'autenticazione dell'accesso all'endpoint del servizio di destinazione |
+| **autenticazione** | `type` | Sì | Basic | Il tipo di autenticazione da utilizzare |
+| **Username** | `username` | Sì | <*nome utente*>| Il nome utente per l'autenticazione dell'accesso all'endpoint del servizio di destinazione |
 | **Password** | `password` | Sì | <*Password*> | La password per l'autenticazione dell'accesso all'endpoint del servizio di destinazione |
 ||||||
 
@@ -655,7 +655,7 @@ Se l'opzione [Certificato client](../active-directory/authentication/active-dire
 
 | Proprietà (progettazione) | Property (JSON) | Obbligatoria | valore | Descrizione |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticazione** | `type` | Sì | **Certificato client** <br>o <br>`ClientCertificate` | Il tipo di autenticazione da usare per i certificati client di Secure Sockets Layer (SSL). Benché siano supportati i certificati autofirmati, non sono supportati i certificati autofirmati per SSL. |
+| **autenticazione** | `type` | Sì | **Certificato client** <br>o <br>`ClientCertificate` | Tipo di autenticazione da utilizzare per i certificati client TLS/SSL. Sebbene i certificati autofirmati siano supportati, i certificati autofirmati per TLS/SSL non sono supportati. |
 | **Pfx (in stato di** | `pfx` | Sì | <*encoded-pfx-contenuto del file*> | Contenuto con codifica base64 del file di scambio di informazioni personali (PFX, Personal Information Exchange) <p><p>Per convertire il file PFX in formato con codifica base64, è possibile usare PowerShell attenendosi alla procedura seguente:To convert the PFX file into base64-encoded format, you can use PowerShell by following these steps: <p>1. Salvare il contenuto del certificato in una variabile: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Convertire il contenuto `ToBase64String()` del certificato utilizzando la funzione e salvarlo in un file di testo: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **Password** | `password`| No | <*file password per pfx*> | Password per accedere al file PFX. |
 |||||
@@ -684,7 +684,7 @@ Per altre informazioni sulla protezione dei servizi tramite l'autenticazione del
 * [Migliorare la sicurezza per i servizi back-end usando l'autenticazione del certificato client in Gestione API di AzureImprove security for back-end services by using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates.md)
 * [Migliorare la sicurezza per il servizio RESTfuL utilizzando i certificati client](../active-directory-b2c/secure-rest-api.md)
 * [Credenziali del certificato per l'autenticazione dell'applicazione](../active-directory/develop/active-directory-certificate-credentials.md)
-* [Usare un certificato SSL nel codice dell'applicazione in Servizio app di Azure](../app-service/configure-ssl-certificate-in-code.md)
+* [Usare un certificato TLS/SSL nel codice nel servizio app di AzureUse a TLS/SSL certificate in your code in Azure App Service](../app-service/configure-ssl-certificate-in-code.md)
 
 <a name="azure-active-directory-oauth-authentication"></a>
 
@@ -694,9 +694,9 @@ Se l'opzione [OAuth di Active Directory](../active-directory/develop/about-micro
 
 | Proprietà (progettazione) | Property (JSON) | Obbligatoria | valore | Descrizione |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticazione** | `type` | Sì | **Autenticazione OAuth Active Directory** <br>o <br>`ActiveDirectoryOAuth` | Tipo di autenticazione da usare. App per la logica segue attualmente il [protocollo OAuth 2.0](../active-directory/develop/v2-overview.md). |
+| **autenticazione** | `type` | Sì | **Autenticazione OAuth Active Directory** <br>o <br>`ActiveDirectoryOAuth` | Tipo di autenticazione da usare. App per la logica segue attualmente il [protocollo OAuth 2.0](../active-directory/develop/v2-overview.md). |
 | **Authority** | `authority` | No | <*Emittente DI URL per autorità*> | URL dell'autorità che fornisce il token di autenticazione. Per impostazione predefinita, questo valore è `https://login.windows.net`. |
-| **Inquilino** | `tenant` | Sì | <*ID tenant*> | L'ID tenant per il tenant di Azure AD |
+| **Tenant** | `tenant` | Sì | <*ID tenant*> | L'ID tenant per il tenant di Azure AD |
 | **Pubblico** | `audience` | Sì | <*risorsa da autorizzare*> | La risorsa che si vuole usare per l'autorizzazione, ad esempio `https://management.core.windows.net/` |
 | **Client ID** | `clientId` | Sì | <*ID client*> | L'ID client per l'app richiedente l'autorizzazione |
 | **Tipo di credenziali** | `credentialType` | Sì | Certificato <br>o <br>Segreto | Tipo di credenziale utilizzato dal client per richiedere l'autorizzazione. Questa proprietà e il valore non vengono visualizzati nella definizione sottostante dell'app per la logica, ma determinano le proprietà visualizzate per il tipo di credenziale selezionato. |
@@ -748,8 +748,8 @@ Nel trigger o nell'azione che supporta l'autenticazione non elaborata specificar
 
 | Proprietà (progettazione) | Property (JSON) | Obbligatoria | valore | Descrizione |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticazione** | `type` | Sì | Raw | Il tipo di autenticazione da utilizzare |
-| **Valore** | `value` | Sì | <*authorization-header-value*> | Valore dell'intestazione di autorizzazione da utilizzare per l'autenticazione |
+| **autenticazione** | `type` | Sì | Raw | Il tipo di autenticazione da utilizzare |
+| **valore** | `value` | Sì | <*authorization-header-value*> | Valore dell'intestazione di autorizzazione da utilizzare per l'autenticazione |
 ||||||
 
 Quando si usano [parametri protetti](#secure-action-parameters) per gestire e proteggere le informazioni riservate, ad esempio in un modello di Azure Resource Manager [per automatizzare la distribuzione,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)è possibile usare le espressioni per accedere a questi valori di parametro in fase di esecuzione. Questa definizione di azione `type` HTTP `Raw`di esempio specifica l'autenticazione come e utilizza la [funzione parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) per ottenere i valori dei parametri:
@@ -783,7 +783,7 @@ Se l'opzione [Identità gestita](../active-directory/managed-identities-azure-re
 
    | Proprietà (progettazione) | Property (JSON) | Obbligatoria | valore | Descrizione |
    |---------------------|-----------------|----------|-------|-------------|
-   | **Autenticazione** | `type` | Sì | **Identità gestita** <br>o <br>`ManagedServiceIdentity` | Il tipo di autenticazione da utilizzare |
+   | **autenticazione** | `type` | Sì | **Identità gestita** <br>o <br>`ManagedServiceIdentity` | Il tipo di autenticazione da utilizzare |
    | **Identità gestita** | `identity` | Sì | * **Identità gestita assegnata dal sistema** <br>o <br>`SystemAssigned` <p><p>- <*nome-identità assegnato dall'utente*> | Identità gestita da utilizzare |
    | **Pubblico** | `audience` | Sì | <*ID-risorsa di destinazione*> | ID risorsa per la risorsa di destinazione a cui si desidera accedere. <p>Ad esempio, `https://storage.azure.com/` rende validi i token di accesso per l'autenticazione per tutti gli account di archiviazione. Tuttavia, è anche possibile specificare `https://fabrikamstorageaccount.blob.core.windows.net` un URL del servizio radice, ad esempio per un account di archiviazione specifico. <p>**Nota:** la proprietà **Pubblico** potrebbe essere nascosta in alcuni trigger o azioni. Per rendere visibile questa proprietà, nel trigger o nell'azione aprire l'elenco **Aggiungi nuovo parametro** e selezionare **Pubblico**. <p><p>**Importante:** assicurarsi che questo ID risorsa di destinazione *corrisponda esattamente* al valore previsto da Azure AD, incluse eventuali barre finali necessarie. Pertanto, `https://storage.azure.com/` l'ID risorsa per tutti gli account di archiviazione BLOB di Azure richiede una barra finale. Tuttavia, l'ID risorsa per un account di archiviazione specifico non richiede una barra finale. Per trovare questi ID di risorsa, vedere [Servizi di Azure che supportano Azure AD.](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) |
    |||||
